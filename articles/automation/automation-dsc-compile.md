@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeb60012ae607e49b1249fda13222cb2fa753911
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392080"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996069"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -28,9 +28,6 @@ ms.locfileid: "81392080"
   - 뛰어난 성능 향상
 
 Azure DSC (필요한 상태 구성) 확장을 사용 하 여 Azure Resource Manager 템플릿을 사용 하 여 Azure Vm에 구성을 푸시할 수도 있습니다. Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. Azure Resource Manager 템플릿 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 필요한 상태 구성 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)을 참조 하세요. 
-
->[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Azure 상태 구성에서 DSC 구성 컴파일
 
@@ -190,7 +187,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 - [인증서](automation-certificates.md)
 - [연결](automation-connections.md)
 - [자격 증명](automation-credentials.md)
-- [변수](automation-variables.md)
+- [variables](automation-variables.md)
 
 #### <a name="credential-assets"></a>자격 증명 자산
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983026"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996652"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
@@ -54,7 +54,7 @@ ms.locfileid: "82983026"
 
 1. 소유자를 나열 하려는 구독을 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **역할 할당** 탭을 클릭하여 이 구독의 모든 역할 할당을 봅니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "82983026"
 
 1. 특정 리소스를 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **역할 할당** 탭을 클릭하여 이 범위의 모든 역할 할당을 봅니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "82983026"
 
 1. 특정 리소스를 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **액세스 권한 확인** 탭을 클릭합니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "82983026"
 
 ## <a name="list-number-of-role-assignments"></a>역할 할당의 수를 나열 합니다.
 
-각 구독에서 최대 **2000** 개의 역할 할당을 가질 수 있습니다. 이 제한을 추적 하는 데 도움이 되도록 **역할 할당** 탭에는 현재 구독에 대 한 역할 할당 수를 나열 하는 차트가 포함 됩니다.
+각 구독에서 최대 **2000** 개의 역할 할당을 가질 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위에 대 한 역할 할당이 포함 됩니다. 이 제한을 추적 하는 데 도움이 되도록 **역할 할당** 탭에는 현재 구독에 대 한 역할 할당 수를 나열 하는 차트가 포함 됩니다.
 
 ![액세스 제어-역할 할당의 수 차트](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

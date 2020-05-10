@@ -4,14 +4,14 @@ description: Application Insights에서 원격 분석을 관리하고 비용을 
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405383"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995547"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -62,7 +62,7 @@ E. 일일 데이터 볼륨 한도를 설정합니다.
 
 Application Insights 사용량을 보다 자세히 조사하려면 **메트릭** 페이지를 열고, "데이터 요소 볼륨"이라는 메트릭을 추가한 다음, *분할 적용* 옵션을 선택하여 데이터를 "원격 분석 항목 유형"에 따라 분할합니다.
 
-Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 자세한 내용은 Azure Portal의 **청구** 섹션 또는 [Azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 참고할 수 있습니다.
+Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 세부 정보는 Azure Portal의 **Cost Management + 청구** 섹션 또는 [azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 확인할 수 있습니다.  Application Insights에 대해이를 사용 하는 방법에 대 한 자세한 [내용은 아래를 참조](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) 하세요. 
 
 ![왼쪽 메뉴에서 청구를 선택합니다.](./media/pricing/02-billing.png)
 
@@ -129,7 +129,7 @@ dependencies
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Azure 청구서에서 Application Insights 사용량 보기
 
-Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) 허브에서 상당한 유용한 기능을 제공 합니다. 예를 들어 "비용 분석" 기능을 사용 하 여 Azure 리소스에 대 한 소비를 확인할 수 있습니다. 리소스 유형별 필터를 추가 하 여 (Application Insights의 경우 microsoft. insights/구성 요소에) 소비를 추적할 수 있습니다.
+Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) 허브에서 상당한 유용한 기능을 제공 합니다. 예를 들어 "비용 분석" 기능을 사용 하 여 Azure 리소스에 대 한 소비를 확인할 수 있습니다. 리소스 유형별 필터를 추가 하 여 (Application Insights의 경우 microsoft. insights/구성 요소에) 소비를 추적할 수 있습니다. 그런 다음 "그룹화 방법"에서 "미터 범주" 또는 "측정기"를 선택 합니다.  현재 요금제에 대 한 Application Insights 리소스의 경우 모든 Azure Monitor 구성 요소에 대 한 단일 로그 백 엔드가 있기 때문에 대부분의 사용은 측정기 범주에 대 한 Log Analytics로 표시 됩니다. 
 
 사용량을 [Azure Portal에서 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)하 여 사용량을 더 자세히 파악할 수 있습니다.
 다운로드 한 스프레드시트에서 일별 Azure 리소스 별 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 "측정기 범주" 열을 필터링 하 여 "Application Insights" 및 "Log Analytics"를 표시 한 다음 "Instance ID" 열에 "microsoft 인 사이트/구성 요소 포함" 열에 필터를 추가 하 여 Application Insights 리소스를 사용 하는 방법을 찾을 수 있습니다.  모든 Azure Monitor 구성 요소에 대 한 단일 로그 백 엔드가 있기 때문에 대부분의 Application Insights 사용량은 Log Analytics 측정기 범주를 사용 하 여 미터에 보고 됩니다.  레거시 가격 책정 계층 및 다단계 웹 테스트에 대 한 Application Insights 리소스만 Application Insights 측정기 범주를 사용 하 여 보고 됩니다.  사용량은 "소비 된 수량" 열에 표시 되 고 각 항목에 대 한 단위는 "측정 단위" 열에 표시 됩니다.  [Microsoft Azure 청구서를 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)하는 데 도움이 되는 자세한 정보를 제공 합니다.
@@ -212,7 +212,7 @@ Application Insights 일일 한도는 수집 데이터 볼륨이 경고 수준 �
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
-Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다.
+Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다. 더 긴 데이터 보존에 대 한 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) . 
 
 보존 기간을 변경 하려면 Application Insights 리소스에서 **사용량 및 예상 비용** 페이지로 이동 하 여 **데이터 보존** 옵션을 선택 합니다.
 

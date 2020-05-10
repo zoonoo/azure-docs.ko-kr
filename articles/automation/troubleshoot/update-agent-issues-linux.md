@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927975"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997023"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
@@ -82,14 +82,14 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-이 검사는 Linux 용 Log Analytics 에이전트에 Hybrid Runbook Worker 패키지가 있는지 확인 합니다. 이 패키지에는 작업할 업데이트 관리가 필요합니다.
+이 검사는 Linux 용 Log Analytics 에이전트에 Hybrid Runbook Worker 패키지가 있는지 확인 합니다. 이 패키지에는 작업할 업데이트 관리가 필요합니다. 자세한 내용은 [Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않음](hybrid-runbook-worker.md#oms-agent-not-running)을 참조 하세요.
+
+업데이트 관리는 작업 끝점에서 Hybrid Runbook Worker 패키지를 다운로드 합니다. 따라서 Hybrid Runbook Worker 실행 되 고 있지 않고 [작업 끝점이](#operations-endpoint) 실패할 경우 업데이트가 실패할 수 있습니다.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker 상태
 
-이 검사에서는 Hybrid Runbook Worker가 머신에서 실행되고 있는지 확인합니다. Hybrid Runbook Worker가 제대로 실행되는 경우 다음 프로세스가 있어야 합니다. 자세히 알아보려면 [Linux 용 Log Analytics 에이전트 문제 해결](hybrid-runbook-worker.md#oms-agent-not-running)을 참조 하세요.
+이 검사에서는 Hybrid Runbook Worker가 머신에서 실행되고 있는지 확인합니다. Hybrid Runbook Worker를 올바르게 실행 하는 경우 아래 예제의 프로세스가 있어야 합니다.
 
-> [!NOTE]
-> Hybrid Runbook Worker 실행 되 고 있지 않고 작업 끝점이 실패 한 경우 업데이트가 실패할 수 있습니다. 업데이트 관리는 작업 끝점에서 hybrid worker 패키지를 다운로드 합니다.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 이 검사는 Hybrid Runbook Worker Log Analytics 작업 영역의 Azure Automation와 제대로 통신할 수 있는지 여부를 확인 합니다.
 
-프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 등록 엔드포인트와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [Hybrid worker에 대 한 네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
+프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 등록 엔드포인트와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
 
 ### <a name="operations-endpoint"></a>작업 엔드포인트
 
-이 검사는 에이전트가 작업 런타임 데이터 서비스와 제대로 통신할 수 있는지를 확인합니다.
+이 검사는 Log Analytics 에이전트가 작업 런타임 데이터 서비스와 제대로 통신할 수 있는지 여부를 확인 합니다.
 
-프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 작업 런타임 데이터 서비스와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [Hybrid worker에 대 한 네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
+프록시 및 방화벽 구성에서는 Hybrid Runbook Worker 에이전트가 작업 런타임 데이터 서비스와 통신하도록 허용해야 합니다. 열 주소 및 포트 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조 하세요.
 
 ### <a name="log-analytics-endpoint-1"></a>Log Analytics 엔드포인트 1
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891211"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996335"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -49,7 +49,7 @@ Azure Machine Learning 계정에서 리소스를 만들기 전에 [Azure 가격 
 
 작업 영역에 새 리소스를 추가할 때이 계산기로 돌아가서 동일한 리소스를 추가 하 여 비용 추정치를 업데이트 합니다.
 
-Enterprise edition이 미리 보기로 제공 되는 동안에는 ML 요금이 발생 하지 않습니다. Enterprise edition이 출시 되 면 machine learning에 대 한 요금이 청구 됩니다 (교육 및 추론).  자세한 내용은 [가격 책정을 Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Enterprise edition이 미리 보기로 제공 되는 동안에는 ML 요금이 발생 하지 않습니다. Enterprise edition을 사용할 수 있게 되 면 학습 및 추론에 대 한 요금이 청구 됩니다.  자세한 내용은 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조 하세요.
 
 ## <a name="get-cost-alerts"></a>비용 경고 가져오기
 
@@ -59,7 +59,7 @@ Enterprise edition이 미리 보기로 제공 되는 동안에는 ML 요금이 �
 
 Azure Machine Learning에서 리소스를 사용 하는 경우 비용이 발생 합니다. Azure 리소스 사용 단위 비용은 시간 간격 (초, 분, 시간 및 일) 또는 요청 단위 사용에 따라 달라 집니다. Azure Machine Learning를 시작 하는 즉시 비용이 부과 됩니다. Azure Portal의 [비용 분석](../cost-management/quick-acm-cost-analysis.md) 창에서 이러한 비용을 확인 합니다.
 
-서로 다른 시간 간격에 대 한 그래프 및 테이블의 비용을 봅니다. 몇 가지 예로는 일, 현재, 이전 달 및 연도가 있습니다. 또한 예산 및 예상 비용에 대 한 비용도 볼 수 있습니다. 시간이 지남에 따라 더 긴 보기로 전환 하면 지출 추세를 파악 하 고 과도 한 지출 발생 가능성을 확인할 수 있습니다. 예산을 만든 경우 초과 하는 위치를 참조 하세요.  
+서로 다른 시간 간격에 대 한 그래프 및 테이블의 비용을 볼 수 있습니다. 예산 및 예상 비용에 대 한 비용을 볼 수도 있습니다. 시간이 지남에 따라 더 긴 보기로 전환 하면 지출 추세를 식별 하 고 과도 한 지출 발생 가능성을 확인할 수 있습니다. 예산을 만든 경우 초과 하는 위치를 참조 하세요.  
 
 Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습니다.  대신 Machine Learning 작업 영역에 추가 된 다양 한 리소스를 볼 수 있습니다.
 
@@ -67,18 +67,22 @@ Machine Learning에 대 한 별도의 서비스 영역은 표시 되지 않습�
 
 지속적으로 변화 하는 데이터를 통해 정확한 모델을 유지 하기 위해 빠르고 효율적인 모델 학습 및 재 학습을 수행 해야 합니다. 그러나 지속적인 교육은 특히 Gpu의 심층 학습 모델에 대 한 비용으로 제공 됩니다. 
 
-Azure Machine Learning 사용자는 AmlCompute 라고도 하는 관리 되는 Azure Machine Learning 계산 클러스터를 사용할 수 있습니다. AmlCompute는 다양 한 GPU 및 CPU 옵션을 지원 합니다. AmlCompute는 내부적으로 Azure Machine Learning 하 여 구독을 대신 하 여 호스팅되므로 Azure IaaS 클라우드 규모에서 동일한 엔터프라이즈급 보안, 규정 준수 및 거 버 넌 스를 제공 합니다.
+Azure Machine Learning 사용자는 AmlCompute 라고도 하는 관리 되는 Azure Machine Learning 계산 클러스터를 사용할 수 있습니다. AmlCompute는 다양 한 GPU 및 CPU 옵션을 지원 합니다. AmlCompute는 Azure Machine Learning 하 여 구독을 대신 하 여 내부적으로 호스팅됩니다. Azure IaaS 클라우드 규모에서 동일한 엔터프라이즈급 보안, 규정 준수 및 거 버 넌 스를 제공 합니다.
 
 이러한 계산 풀이 Azure의 IaaS 인프라 내에 있으므로 인프라의 나머지 부분과 동일한 보안 및 규정 준수 요구 사항을 사용 하 여 교육을 배포, 확장 및 관리할 수 있습니다.  이러한 배포는 구독에서 발생 하 고 거 버 넌 스 규칙을 준수 합니다. [Azure Machine Learning 계산](how-to-set-up-training-targets.md#amlcompute)에 대해 자세히 알아보세요.
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>자동 크기 조정을 위한 학습 클러스터 구성
 
-워크 로드 요구 사항에 따라 클러스터 크기를 자동으로 조정 하면 필요한 기능만 사용 하도록 비용을 줄일 수 있습니다. AmlCompute 클러스터는 워크 로드 요구 사항에 따라 동적으로 자동 크기 조정 하도록 설계 되었습니다. 클러스터는 프로 비전 된 최대 노드 수와 구독에 지정 된 할당량 내에서 확장할 수 있습니다. 각 실행이 완료 되 면 클러스터는 노드를 해제 하 고 지정 된 최소 노드 수로 자동 크기 조정을 수행 합니다.
+워크 로드 요구 사항에 따라 클러스터 크기를 자동으로 조정 하면 필요한 기능만 사용 하도록 비용을 줄일 수 있습니다.
 
-노드의 최소 및 최대 수를 설정 하는 것 외에도 규모를 축소 하기 전에 노드가 유휴 상태로 유지 되는 시간을 조정 합니다. 기본적으로 축소 전의 유휴 시간은 120 초로 설정 됩니다.
+AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정 하도록 설계 되었습니다. 클러스터는 구성 하는 최대 노드 수까지 확장할 수 있습니다. 각 실행이 완료 되 면 클러스터에서 노드가 해제 되 고 구성 된 최소 노드 수로 확장 됩니다.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+
+규모를 축소 하기 전에 노드가 유휴 상태로 유지 되는 시간을 구성할 수도 있습니다. 기본적으로 축소 전의 유휴 시간은 120 초로 설정 됩니다.
 
 + 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다. 
-+ 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록이 작업을 늘려야 할 수 있습니다.
++ 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
 Amlcompute [SDK 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) [AMLCOMPUTE CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
 
@@ -88,24 +92,24 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 ## <a name="set-quotas-on-resources"></a>리소스에 대 한 할당량 설정
 
-다른 Azure 계산 리소스와 마찬가지로 AmlCompute에는 내재 된 [할당량 (또는 제한) 구성이](how-to-manage-quotas.md#azure-machine-learning-compute)함께 제공 됩니다. 이 할당량은 VM 제품군 (예: Dv2 series, NCv3 series)에 의해 다르며 각 구독에 대 한 지역별 차이가 있습니다. 구독은 작은 기본값을 사용 하 여 시작 되지만,이 설정을 사용 하 여 구독에서 분리 수 있는 Amlcompute 리소스의 양을 제어할 수 있습니다. 
+AmlCompute는 [할당량 (또는 제한) 구성과](how-to-manage-quotas.md#azure-machine-learning-compute)함께 제공 됩니다. 이 할당량은 VM 제품군 (예: Dv2 series, NCv3 series)에 의해 다르며 각 구독에 대 한 지역별 차이가 있습니다. 구독은 작은 기본값을 사용 하 여 시작 되지만,이 설정을 사용 하 여 구독에서 분리 수 있는 Amlcompute 리소스의 양을 제어할 수 있습니다. 
 
 또한 구독 내의 각 작업 영역에 대해 [VM 제품군으로 작업 영역 수준 할당량](how-to-manage-quotas.md#workspace-level-quota)을 구성 합니다. 이렇게 하면 각 작업 영역에서 잠재적으로 발생할 수 있는 비용을 보다 세부적으로 제어 하 고 특정 VM 제품군을 제한할 수 있습니다. 
 
-작업 영역 수준에서 할당량을 설정 하려면 [Azure Portal](https://portal.azure.com)에서 시작 합니다.  구독에서 작업 영역을 선택 하 고 왼쪽 창에서 **사용량 + 할당량** 을 선택 합니다. 그런 다음 할당량 **구성** 탭을 선택 하 여 할당량을 확인 합니다. 이 할당량은 여러 작업 영역에 영향을 주는 설정 이므로이 할당량을 설정 하려면 구독 범위에서 권한이 필요 합니다.
+작업 영역 수준에서 할당량을 설정 하려면 [Azure Portal](https://portal.azure.com)에서 시작 합니다.  구독에서 작업 영역을 선택 하 고 왼쪽 창에서 **사용량 + 할당량** 을 선택 합니다. 그런 다음 할당량 **구성** 탭을 선택 하 여 할당량을 확인 합니다. 할당량을 설정 하려면 구독 범위에서 권한이 필요 합니다 .이는 여러 작업 영역에 영향을 주는 설정 이기 때문입니다.
 
-## <a name="set-run-auto-termination-policies"></a>자동 종료 정책 실행 설정 
+## <a name="set-run-autotermination-policies"></a>자동 종료 정책 실행 설정 
 
-특히 기본 제공 되는 하이퍼 매개 변수 튜닝 또는 자동화 된 Machine Learning 기능을 사용 Azure Machine Learning 하는 경우 특정 조건의 경우에만 해당 기간을 제한 하거나 초기에 종료 하도록 학습 실행을 구성 합니다. 
+경우에 따라 학습 실행을 구성 하 여 기간을 제한 하거나 조기에 종료 해야 합니다. 예를 들어 Azure Machine Learning의 기본 제공 하이퍼 매개 변수 튜닝 또는 자동화 된 Machine Learning을 사용 하는 경우입니다.
 
 다음은 몇 가지 옵션입니다.
 * RunConfiguration에서 이라는 `max_run_duration_seconds` 매개 변수를 정의 하 여 사용자가 선택 하는 계산 (로컬 또는 원격 클라우드 계산)에서 실행이 확장 될 수 있는 최대 기간을 제어 합니다.
-* 하이퍼 [매개 변수 조정](how-to-tune-hyperparameters.md#early-termination)의 경우, 중간 중지 정책 또는 잘림 선택 정책 등의 반군 정책에서 조기 종료 정책을 정의 합니다. 또한 또는 `max_total_runs` `max_duration_minutes` 와 같은 매개 변수를 사용 하 여 다양 한 하이퍼 매개 변수 스윕을 추가로 제어 합니다.
+* 하이퍼 [매개 변수 조정](how-to-tune-hyperparameters.md#early-termination)의 경우 산적 정책, 중간 중지 정책 또는 잘림 선택 정책에서 조기 종료 정책을 정의 합니다. 하이퍼 매개 변수 스윕을 추가로 제어 하려면 또는 `max_total_runs` `max_duration_minutes`와 같은 매개 변수를 사용 합니다.
 * [자동화 된 machine learning](how-to-configure-auto-train.md#exit)의 경우 플래그를 `enable_early_stopping` 사용 하 여 비슷한 종료 정책을 설정 합니다. 또한 및 `iteration_timeout_minutes` `experiment_timeout_minutes` 와 같은 속성을 사용 하 여 실행의 최대 기간 또는 전체 실험을 제어 합니다.
 
 ## <a name="use-low-priority-vms"></a>우선 순위가 낮은 VM 사용
 
-Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 서비스에서 낮은 우선 순위의 Vm으로 과도 하 게 사용 되는 용량을 사용할 수 있습니다. 이러한 할당은 emptible는 하지만 전용 Vm과 비교 하 여 저렴 한 가격으로 제공 됩니다. 일반적으로 Batch 워크 로드에는 우선 순위가 낮은 Vm을 사용 하는 것이 좋으며 다시 전송 (Batch 추론의 경우) 또는 다시 시작 (검사점을 사용한 심층 학습 교육의 경우)을 통해 중단을 복구할 수 있습니다.
+Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 서비스에서 낮은 우선 순위의 Vm으로 과도 하 게 사용 되는 용량을 사용할 수 있습니다. 이러한 할당은 emptible는 하지만 전용 Vm과 비교 하 여 저렴 한 가격으로 제공 됩니다. 일반적으로 Batch 워크 로드에 우선 순위가 낮은 Vm을 사용 하는 것이 좋습니다. 다시 전송 (Batch 추론의 경우) 또는 다시 시작 (검사점을 사용한 심층 학습 교육)을 통해 중단을 복구할 수 있는 경우에도이를 사용 해야 합니다.
 
 우선 순위가 낮은 Vm은 VM 제품군에 따라 전용 할당량 값과 별도의 단일 할당량이 있습니다. [AmlCompute 할당량에](how-to-manage-quotas.md)대해 자세히 알아보세요.
 
@@ -131,9 +135,9 @@ Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 
 
 ## <a name="use-reserved-instances"></a>예약 인스턴스 사용
 
-Azure Reserved VM Instance는 1 년 또는 3 년 조건에 따라 계산 리소스에 대 한 비용을 크게 줄일 수 있는 또 다른 방법을 제공 합니다. 이러한 할인 범위는 종 량 제 가격의 최대 72%까지 이며 월간 Azure 청구서에 직접 적용 됩니다.
+계산 리소스에 대 한 비용을 절감 하는 또 다른 방법은 Azure 예약 VM 인스턴스입니다. 이 제품을 사용 하 여 1 년 또는 3 년 조건으로 커밋합니다. 이러한 할인 범위는 종 량 제 가격의 최대 72%까지 이며 월간 Azure 청구서에 직접 적용 됩니다.
 
-Azure Machine Learning Compute는 기본적으로 예약 된 인스턴스를 지원 합니다. 따라서 1 년 또는 3 년의 예약 된 인스턴스를 구매한 경우에는 사용자의 추가 설치를 요구 하지 않고 Azure Machine Learning 내에서 사용 되는 관리 되는 계산에 대 한 예약 된 인스턴스 할인이 자동으로 적용 됩니다.
+Azure Machine Learning Compute는 기본적으로 예약 된 인스턴스를 지원 합니다. 1 년 또는 3 년 예약 인스턴스를 구매 하는 경우 관리 되는 Azure Machine Learning 계산에 대 한 할인이 자동으로 적용 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

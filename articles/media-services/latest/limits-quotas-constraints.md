@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e9855a02a57d71793f3a5d6c5ce01cbfda341b70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632219"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995888"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>할당량 및 한도 Azure Media Services
@@ -78,7 +78,7 @@ ms.locfileid: "80632219"
 | --- | --- | 
 | Media Services 계정 당 [라이브 이벤트](live-events-outputs-concept.md) <sup>(4)</sup> |5|
 | 라이브 이벤트 당 라이브 출력 |3 <sup>(5)</sup> |
-| 최대 실시간 출력 기간 | 25 시간 |
+| 최대 실시간 출력 기간 | [DVR 창의 크기](live-event-cloud-dvr.md) |
 
 <sup>4</sup> 라이브 이벤트 제한에 대 한 자세한 내용은 [라이브 이벤트 유형 비교 및 제한](live-event-types-comparison.md)을 참조 하세요.
 

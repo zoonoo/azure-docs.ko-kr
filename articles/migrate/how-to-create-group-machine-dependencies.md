@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: e61b7b4e6c3e566aa67d2bd585d2049ae885083b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fd7e7c864e82400288bb67da952a18b648849e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79453618"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996887"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -75,7 +75,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
-명령줄에서 또는 Configuration Manager 또는 [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다.
+명령줄에서 또는 Configuration Manager 또는 [Intigua](https://www.intigua.com/intigua-for-azure-migration)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다.
 - 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration).
 - MMA 에이전트는 이 [스크립트](https://go.microsoft.com/fwlink/?linkid=2104394)를 사용하여 설치할 수도 있습니다.
 - MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) .

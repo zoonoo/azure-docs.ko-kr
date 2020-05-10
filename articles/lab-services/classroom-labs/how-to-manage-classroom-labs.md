@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 126a6f2f26d8eaaf6ea1a85f029e56bc8f4432f3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983315"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996772"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -104,14 +104,15 @@ ms.locfileid: "82983315"
 | 작음 | 2 | 3.5 GB | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스에 가장 적합 합니다. |
 | 보통 | 4 | 7 GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. | 
 | 중간 (중첩 된 가상화) | 4 | 16GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. 이 크기는 중첩 된 가상화도 지원 합니다. <p>이 크기는 각 학생이 여러 Vm이 필요한 시나리오에서 사용할 수 있습니다. 교사는 중첩 된 가상화를 사용 하 여 가상 컴퓨터 내에서 작은 크기의 중첩 된 가상 컴퓨터를 설정할 수 있습니다. </p> |
-| 소형 GPU (계산) | 6 | 56GB | 이 크기는 인공 지능 및 심층 학습 응용 프로그램과 같은 계산 집약적 및 네트워크 집약적 응용 프로그램에 가장 적합 합니다. | 
+| 소형 GPU (계산) | 6 | 56GB | <p>이 크기는 인공 지능 및 심층 학습 응용 프로그램과 같은 계산 집약적 및 네트워크 집약적 응용 프로그램에 가장 적합 합니다.</p><p>Azure Lab Services은 GPU 이미지를 사용 하 여 랩을 만들 때 필요한 GPU 드라이버를 자동으로 설치 하 고 구성 합니다. </p> | 
 | 소형 GPU (시각화) | 6 | 56GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 | 큰 | 8 | 16GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. |
 | 큼 (중첩 된 가상화) | 8 | 32GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. 이 크기는 중첩 된 가상화도 지원 합니다. |  
 | 중형 GPU (시각화) | 12 | 112GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 
 > [!NOTE]
-> Azure Lab Services은 GPU 이미지를 사용 하 여 랩을 만들 때 필요한 GPU 드라이버를 자동으로 설치 하 고 구성 합니다.  
+> 교실 랩을 만들 때 목록에 이러한 VM 크기 중 일부가 표시 되지 않을 수 있습니다. 이 목록은 랩 위치의 현재 용량을 기준으로 채워집니다. 랩 작성자가 랩 [에 대 한 위치를 선택할 수](allow-lab-creator-pick-lab-location.md)있는 랩 계정 작성자는 랩에 대해 다른 위치를 선택 하 고 VM 크기를 사용할 수 있는지 확인할 수 있습니다. 
+
 
 ## <a name="view-all-classroom-labs"></a>모든 클래스룸 랩 보기
 1. [Azure Lab Services Portal](https://labs.azure.com)로 이동합니다.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: c8c4e35fb14d834721a29037c9ac12d8160507d9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28817489af535ee45a6cc06cc5fe9d4fde9da8eb
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209097"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996825"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -23,7 +23,7 @@ Apache Hadoop 스트리밍을 사용 하면 스크립트나 실행 파일을 사
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.com) 를 사용 하 여 .net 응용 프로그램을 실행 합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight에 포함 된 Mono 버전에 대 한 자세한 내용은 [다른 hdinsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)를 참조 하세요.
+HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.com) 를 사용 하 여 .net 응용 프로그램을 실행 합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight에 포함 된 Mono 버전에 대 한 자세한 내용은 [다른 hdinsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)를 참조 하세요.
 
 .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
@@ -39,7 +39,7 @@ HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.
 
 스트리밍에 대한 자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Visual Studio.
 
@@ -175,7 +175,7 @@ namespace reducer
 
 다음 절차에서는 SSH 세션을 사용 하 여 MapReduce 작업을 실행 하는 방법을 설명 합니다.
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
