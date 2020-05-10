@@ -3,15 +3,15 @@ title: Azure Logic Apps에 대 한 REST api & 웹 Api 만들기
 description: Azure Logic Apps에서 시스템 통합을 위해 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API 만들기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270538"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005259"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -136,11 +136,13 @@ API가 이 패턴을 따르는 경우 작업 상태를 계속 확인하기 위�
 
 ![웹후크 동작 패턴](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 동작](../connectors/connectors-native-webhook.md)을 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 동작](../connectors/connectors-native-webhook.md)을 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)도 참조하세요. 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
 
-> [!TIP]
-> 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
+다음은 몇 가지 다른 팁과 메모입니다.
+
+* 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+
+* 논리 앱과 구독 서비스를 모두 소유 하는 경우 콜백 URL이 호출 된 후에 `unsubscribe` 끝점을 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임에서는 더 이상 호출이 필요 `unsubscribe` 하지 않고 서버 쪽에서 리소스 정리를 허용 하도록 끝점을 호출 해야 합니다.
 
 <a name="triggers"></a>
 
@@ -171,7 +173,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 | 요청에 `triggerState`가 있습니까? | API 응답 | 
 | -------------------------------- | -------------| 
-| 아니요 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
+| 예 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
 | 예 | `triggerState`에 대한 `DateTime` 이후에 추가된 파일에 대한 서비스를 확인합니다. | 
 ||| 
 
@@ -198,13 +200,15 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 ![웹후크 트리거 패턴](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 트리거](../connectors/connectors-native-webhook.md)를 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [HTTPWebhook 트리거](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
->
-> 동일한 데이터를 여러 번 처리하지 않도록 방지하려면 트리거에서 이미 읽고 논리 앱에 전달된 데이터를 정리해야 합니다.
+현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 트리거](../connectors/connectors-native-webhook.md)를 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [HTTPWebhook 트리거](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)도 참조하세요. 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 컨트롤러 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
 
-> [!TIP]
-> 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 컨트롤러 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
+다음은 몇 가지 다른 팁과 메모입니다.
+
+* 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+
+* 동일한 데이터를 여러 번 처리하지 않도록 방지하려면 트리거에서 이미 읽고 논리 앱에 전달된 데이터를 정리해야 합니다.
+
+* 논리 앱과 구독 서비스를 모두 소유 하는 경우 콜백 URL이 호출 된 후에 `unsubscribe` 끝점을 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임에서는 더 이상 호출이 필요 `unsubscribe` 하지 않고 서버 쪽에서 리소스 정리를 허용 하도록 끝점을 호출 해야 합니다.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>논리 앱에서 Api 호출에 대 한 보안 향상
 

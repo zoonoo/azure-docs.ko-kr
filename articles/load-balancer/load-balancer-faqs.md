@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884489"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005148"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
 ## <a name="what-types-of-load-balancer-exist"></a>어떤 유형의 Load Balancer 존재 하나요?
-내부 부하 분산 장치는 VNET 내의 트래픽과 인터넷 연결 끝점 간에 트래픽을 분산 하는 외부 부하 분산 장치를 분산 합니다. 자세한 내용은 [Load Balancer Types] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types)을 참조 하세요. 
+내부 부하 분산 장치는 VNET 내의 트래픽과 인터넷 연결 끝점 간에 트래픽을 분산 하는 외부 부하 분산 장치를 분산 합니다. 자세한 내용은 [Load Balancer 형식](components.md#frontend-ip-configurations)을 참조 하세요. 
 
-이러한 두 유형 모두 Azure는 기능, 성능, 보안 및 상태 추적 기능이 서로 다른 기본 SKU 및 표준 SKU를 제공 합니다. 이러한 차이점은 [SKU 비교] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) 문서에 설명 되어 있습니다.
+이러한 두 유형 모두 Azure는 기능, 성능, 보안 및 상태 추적 기능이 서로 다른 기본 SKU 및 표준 SKU를 제공 합니다. 이러한 차이점은 [SKU 비교](skus.md) 문서에 설명 되어 있습니다.
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>기본에서 표준 Load Balancer로 업그레이드 하려면 어떻게 해야 하나요?
 자동화 된 스크립트에 대 한 [기본에서 표준으로 업그레이드](upgrade-basic-standard.md) 문서와 Load Balancer SKU 업그레이드에 대 한 지침은을 참조 하세요.

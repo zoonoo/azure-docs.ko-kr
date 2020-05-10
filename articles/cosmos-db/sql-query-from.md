@@ -4,22 +4,22 @@ description: SQL 구문 및 Azure Cosmos DB의 FROM 절에 대 한 예제를 알
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587688"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005867"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 FROM 절
 
 FROM (`FROM <from_specification>`) 절은 쿼리에서 해당 소스가 필터링 되거나 나중에 투영 되지 않는 한 선택 사항입니다. 과 같은 `SELECT * FROM Families` 쿼리는 전체 `Families` 컨테이너에 대해를 열거 합니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대해 특수 식별자 루트를 사용할 수도 있습니다.
 
-FROM 절은 쿼리당 다음 규칙을 적용 합니다.
+절 `FROM` 은 쿼리당 다음 규칙을 적용 합니다.
 
-* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 다음 `f` 은에 대 한 `Families`별칭입니다. AS는 식별자의 [별칭](sql-query-aliasing.md) 을 지정 하는 선택적 키워드입니다.  
+* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 다음 `f` 은에 대 한 `Families`별칭입니다. AS는 식별자의 [별칭](sql-query-working-with-json.md#aliasing) 을 지정 하는 선택적 키워드입니다.  
 
 * 별칭을 지정 하면 원래 원본 이름을 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 식별자 `Families` 가 별칭이 지정 되 고 더 이상 확인할 수 없기 때문에는 구문상 유효 하지 않습니다.  
 
@@ -30,15 +30,15 @@ FROM 절은 쿼리당 다음 규칙을 적용 합니다.
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   별칭이 있거나 없는 데이터 원본을 지정합니다. 별칭을 지정하지 않으면 다음 규칙을 사용하여 `<container_expression>`에서 유추됩니다.  
   
-  -  식이 container_name이면 container_name이 별칭으로 사용됩니다.  
+-  식이 container_name이면 container_name이 별칭으로 사용됩니다.  
   
-  -  식이 `<container_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 container_name이면 container_name이 별칭으로 사용됩니다.  
+-  식이 `<container_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 container_name이면 container_name이 별칭으로 사용됩니다.  
   
 - AS `input_alias`  
   
@@ -99,9 +99,9 @@ FROM <from_specification>
   
 컨테이너 식은 컨테이너 범위 또는 문서 범위일 수 있습니다.  
   
--   컨테이너 식의 기본 원본이 ROOT 또는 `container_name`이면 식은 컨테이너 범위입니다. 이러한 식은 컨테이너에서 직접 검색되는 문서 집합을 나타내며 다른 컨테이너 식의 처리에 종속되지 않습니다.  
+- 컨테이너 식의 기본 원본이 ROOT 또는 `container_name`이면 식은 컨테이너 범위입니다. 이러한 식은 컨테이너에서 직접 검색되는 문서 집합을 나타내며 다른 컨테이너 식의 처리에 종속되지 않습니다.  
   
--   컨테이너 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컨테이너와 연결된 집합에 속한 각 문서의 범위에서 컨테이너 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컨테이너 식을 평가하여 얻는 집합의 합집합입니다. 
+- 컨테이너 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컨테이너와 연결된 집합에 속한 각 문서의 범위에서 컨테이너 식을 평가하여 얻는 문서 집합을 나타냅니다. 결과 집합은 기본 집합에 있는 각 문서에 대해 컨테이너 식을 평가하여 얻는 집합의 합집합입니다.
 
 ## <a name="examples"></a>예
 
@@ -165,6 +165,6 @@ FROM 절을 통해 소스를 더 작은 하위 집합으로 줄일 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작](sql-query-getting-started.md)
+- [시작 하기](sql-query-getting-started.md)
 - [SELECT 절](sql-query-select.md)
 - [WHERE 절](sql-query-where.md)

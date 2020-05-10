@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995705"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005941"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -23,7 +23,7 @@ Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
-*평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account)에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
+*평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

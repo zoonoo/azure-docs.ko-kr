@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 38d1a15f471d353595f57b86df5137257eaf63a5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: be9a9d6b93068adc6d09db9b9ac23de9abd6a69f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857633"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005168"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -300,7 +300,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>상용 marketplace에서 반환 및 환불 지원 되나요?
 
-환불를 수신 하기 위해 고객은 지정 된 시간 프레임 내에 구독을 취소할 수 있습니다. 솔루션이 사용 된 후 사용량에 따라 청구 되는 제안은 환불에 적합 하지 않습니다.
+환불를 수신 하기 위해 고객은 지정 된 시간 프레임 내에 구독을 취소할 수 있습니다. 월간 구독의 경우 24 시간이 며 연간 구독의 경우 14 일입니다. 솔루션이 사용 된 후 소비에 따라 청구 되는 제안은 환불에 적합 하지 않습니다.
 
 ## <a name="resources"></a>리소스
 

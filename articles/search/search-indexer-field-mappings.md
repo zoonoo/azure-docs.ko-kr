@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791921"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005791"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -36,7 +36,7 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 
 1. `sourceFieldName`은(는) 데이터 원본의 필드를 나타냅니다. 이 속성은 필수입니다.
 2. 선택 사항 `targetFieldName`은(는) 검색 인덱스의 필드를 나타냅니다. 생략된 경우 데이터 원본과 동일한 이름이 사용됩니다.
-3. 선택 사항 `mappingFunction`은(는) 미리 정의된 여러 함수 중 하나를 사용하여 데이터를 변환할 수 있습니다. 함수의 전체 목록은 [아래](#mappingFunctions)입니다.
+3. 선택 사항 `mappingFunction`은(는) 미리 정의된 여러 함수 중 하나를 사용하여 데이터를 변환할 수 있습니다. 이는 입력 및 출력 필드 매핑 모두에 적용 될 수 있습니다. 함수의 전체 목록은 [아래](#mappingFunctions)입니다.
 
 필드 매핑은 인덱서 정의의 `fieldMappings` 배열에 추가 됩니다.
 
@@ -188,7 +188,7 @@ Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제
 | Base64(패딩 있음) | `MDA+MDA/MDA=` | URL 지원 문자 사용 및 패딩 제거 | 표준 base64 문자 사용 및 패딩 추가 |
 | Base64(패딩 없음) | `MDA+MDA/MDA` | URL 지원 문자 사용 | 표준 base64 문자 사용 |
 | URL 지원 Base64(패딩 있음) | `MDA-MDA_MDA=` | 패딩 제거 | 패딩 추가 |
-| URL 지원 Base64(패딩 없음) | `MDA-MDA_MDA` | None | None |
+| URL 지원 Base64(패딩 없음) | `MDA-MDA_MDA` | 없음 | 없음 |
 
 <a name="extractTokenAtPositionFunction"></a>
 

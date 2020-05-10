@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983213"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006076"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역 보호 (미리 보기)
 
@@ -89,7 +89,7 @@ Synapse 작업 영역에는 파이프라인을 실행 하 고 시스템 작업�
 - Azure 포털 열기
 - STG1 찾기
 - CNT1로 이동 합니다.
-- WS1에 대 한 MSI (관리 서비스 ID)가 CNT1의 **Azure Blob 데이터 참가자** 역할에 할당 되어 있는지 확인 합니다.
+- WS1에 대 한 MSI (관리 서비스 ID)가 CNT1의 **저장소 Blob 데이터 참가자** 역할에 할당 되어 있는지 확인 합니다.
   - 할당 됨이 표시 되지 않으면 할당 합니다.
   - MSI는 작업 영역과 동일한 이름을 갖습니다. 이 경우 &quot;WS1&quot;됩니다.
 

@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74280975"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005498"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>AI-보강 필드를 검색 가능한 인덱스에 매핑하는 방법
 
 이 문서에서는 검색 가능한 인덱스에서 입력 필드에 보강된 출력 필드를 매핑하는 방법에 대해 알아봅니다. [기술 집합을 정의](cognitive-search-defining-skillset.md)했으면 검색 인덱스에서 지정된 필드에 값을 직접 기여하는 모든 기술의 출력 필드를 매핑해야 합니다. 
 
 보강 문서에서 인덱스로 콘텐츠를 이동 하려면 출력 필드 매핑이 필요 합니다.  보강 문서는 사실 정보의 트리입니다. 인덱스에 복합 형식을 지 원하는 경우에도 보강 트리의 정보를 보다 단순한 형식 (예를 들어 문자열 배열)으로 변환 하는 것이 좋습니다. 출력 필드 매핑을 사용 하면 정보를 평면화 하 여 데이터 셰이프 변환을 수행할 수 있습니다.
+
+> [!NOTE]
+> 최근 출력 필드 매핑에서 매핑 함수 기능을 사용 하도록 설정 했습니다. 매핑 함수에 대 한 자세한 내용은 [필드 매핑 함수](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions) 를 참조 하세요.
 
 ## <a name="use-outputfieldmappings"></a>OutputFieldMappings 사용
 필드를 매핑하려면 아래와 같이 `outputFieldMappings`을 인덱서 정의에 추가합니다.
@@ -50,7 +53,10 @@ Content-Type: application/json
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

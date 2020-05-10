@@ -7,16 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267288"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006159"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
 참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
+
+## <a name="example"></a>예제  
+ 요금소 업체에 등록된 상용차는 검사를 위해 정차할 필요 없이 요금소 창구를 통과할 수 있습니다. 여기서는 상용차 등록 조회 테이블을 사용하여 등록 기간이 만료된 모든 상용차를 식별합니다.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure Blob 스토리지 및 Azure SQL Database를 지원합니다. 또한 참조 데이터를 Azure Data Factory에서 Blob Storage로 변환 및/또는 복사하여 [여러 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)를 사용할 수 있습니다.
 
@@ -34,11 +45,11 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 |스토리지 계정   | Blob이 위치한 스토리지 계정의 이름입니다. Stream Analytics 작업과 동일한 구독에 있으면 드롭다운에서 선택할 수 있습니다.   |
 |Storage 계정 키   | 스토리지 계정과 연결된 비밀 키입니다. 스토리지 계정이 Stream Analytics 작업과 동일한 구독에 있으면 자동으로 채워집니다.   |
 |스토리지 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다.   |
-|경로 패턴   | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 경로입니다. 경로 내에서 다음 두 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time}<BR>예 1: products/{date}/{time}/product-list.csv<BR>예 2: products/{date}/product-list.csv<BR>예 3: product-list.csv<BR><br> Blob이 지정된 경로에 없는 경우, Stream Analytics 작업은 Blob이 사용 가능해질 때까지 무기한 대기합니다.   |
+|경로 패턴   | 지정 된 컨테이너 내에서 blob을 찾는 데 사용 되는 필수 속성입니다. 경로 내에서 다음 두 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time}<BR>예 1: products/{date}/{time}/product-list.csv<BR>예 2: products/{date}/product-list.csv<BR>예 3: product-list.csv<BR><br> Blob이 지정된 경로에 없는 경우, Stream Analytics 작업은 Blob이 사용 가능해질 때까지 무기한 대기합니다.   |
 |날짜 형식[선택 사항]   | 지정한 경로 패턴 내에서 {date}를 사용한 경우 Blob이 구성되는 날짜 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: YYYY/MM/DD, MM/DD/YYYY 등   |
 |시간 형식[선택 사항]   | 지정한 경로 패턴 내에서 {time}을 사용한 경우 Blob이 구성되는 시간 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: HH, HH/mm 또는 HH-mm.  |
 |이벤트 직렬화 형식   | 쿼리가 예상대로 작동하는지 확인하려면 Stream Analytics은 들어오는 데이터 스트림으로 사용 중인 직렬화 형식을 알고 있어야 합니다. 참조 데이터에 대해 지원되는 형식은 CSV 및 JSON입니다.  |
-|인코딩   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
+|Encoding   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
 
 ### <a name="static-reference-data"></a>정적 참조 데이터
 
@@ -110,7 +121,24 @@ Stream Analytics는 **최대 300MB 크기**의 참조 데이터를 지원합니�
 
 6 이상 작업의 스트리밍 단위 수가 증가하면 참조 데이터의 지원되는 최대 크기는 증가하지 않습니다.
 
-참조 데이터에는 압축이 지원되지 않습니다. 
+참조 데이터에는 압축이 지원되지 않습니다.
+
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>작업에서 여러 참조 데이터 집합 조인
+하나의 쿼리 단계에서 하나의 참조 데이터 입력으로 하나의 스트림 입력만 조인할 수 있습니다. 그러나 쿼리를 여러 단계로 나누어 여러 참조 데이터 집합을 조인할 수 있습니다. 아래에 예제가 나와 있습니다.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

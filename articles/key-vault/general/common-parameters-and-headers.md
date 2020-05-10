@@ -10,17 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430878"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005808"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
 다음 정보는 Key Vault 리소스와 관련하여 사용자가 수행할 수 있는 모든 작업에 공통적입니다.
 
+- HTTP `Host` 헤더는 항상 존재 해야 하며 자격 증명 모음 호스트 이름을 지정 해야 합니다. 예: `Host: contoso.vault.azure.net`. 대부분의 클라이언트 기술은 URI에서 `Host` 헤더를 채웁니다. 예를 들어 `GET https://contoso.vault.azure.net/secrets/mysecret{...}` ,는를 `Host` 로 `contoso.vault.azure.net`설정 합니다. 즉,와 같은 `GET https://10.0.0.23/secrets/mysecret{...}`원시 IP 주소를 사용 하 Key Vault에 액세스 하는 경우 헤더 `Host` 의 자동 값이 잘못 되 고 헤더에 `Host` 자격 증명 모음 호스트 이름이 포함 되어 있는지 수동으로 확인할 수 있습니다.
 - `{api-version}`을 URI의 API 버전으로 바꿉니다.
 - `{subscription-id}`를 URI의 구독 ID로 바꿉니다.
 - `{resource-group-name}`을 리소스 그룹으로 바꿉니다. 자세한 내용은 리소스 그룹을 사용하여 Azure 리소스 관리를 참조하세요.
@@ -40,10 +41,10 @@ ms.locfileid: "81430878"
    }  
 ```
 
-|요소 이름 | Type | 설명 |
+|요소 이름 | 유형 | 설명 |
 |---|---|---|
-| code | string | 발생한 오류의 형식입니다.|
-| message | string | 오류 원인에 대한 설명입니다. |
+| code | 문자열 | 발생한 오류의 형식입니다.|
+| message | 문자열 | 오류 원인에 대한 설명입니다. |
 
 
 

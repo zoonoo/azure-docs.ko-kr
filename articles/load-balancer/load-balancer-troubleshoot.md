@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 0db91f3c661ebd3087a4389f4112a7214c992227
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3959dd115e340a3407c4f30a22ff4b6b51dab4e7
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925952"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005784"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Start</a></span><span class="has-padding-small">가상 에이전트를 사용 하 여 <b>자동 진단을</b> 실행 하 여 문제를 빠르게 해결 합니다.</span> <span class="has-padding-small"> <sub>Privacy Statement</sub> 개인정보 <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
-이 페이지는 기본 및 표준 일반적인 Azure Load Balancer 질문에 대 한 문제 해결 정보를 제공 합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)를 참조하세요.
+
+이 페이지는 기본 및 표준 일반적인 Azure Load Balancer 질문에 대 한 문제 해결 정보를 제공 합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-diagnostics.md)를 참조하세요.
 
 Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 다음과 같습니다. 
 
