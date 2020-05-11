@@ -1,21 +1,21 @@
 ---
 title: 검색 결과 페이지 매김에 대한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서에서는 검색 결과의 페이징 방법을 보여 줍니다. 첫 번째, 다음, 이전, 마지막 및 번호가 매겨진 단추별로 페이징되어 기존 호텔 프로젝트를 기반으로 합니다. 두 번째 페이징 시스템은 세로 스크롤 막대를 해당 하한값까지 이동하여 트리거되는 무한 스크롤을 사용합니다.
+description: 검색 결과에 페이지 매김 및 탐색 단추를 추가하여 첫 번째, 다음, 이전, 마지막 및 번호 매기기 단추를 추가하는 기존 호텔 프로젝트를 빌드합니다. 두 번째 페이징 시스템은 세로 스크롤 막대를 해당 하한값까지 이동하여 트리거되는 무한 스크롤을 사용합니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121513"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780575"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과에 페이징 추가
 
 서로 다른 두 가지 페이징 시스템을 구현하는 방법에 대해 알아봅니다. 첫 번째 페이징 시스템은 페이지 번호, 두 번째 페이징 시스템은 무한 스크롤을 기반으로 합니다. 두 페이징 시스템은 모두 널리 사용되고 있으며, 올바른 페이징을 선택하는 것은 결과와 관련하여 원하는 사용자 경험에 따라 달라집니다. 이 자습서에서는 페이징 시스템을 [C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search](tutorial-csharp-create-first-app.md) 자습서에서 만든 프로젝트에 빌드합니다.
 

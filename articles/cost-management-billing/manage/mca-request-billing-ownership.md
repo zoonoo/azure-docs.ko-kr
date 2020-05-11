@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/01/2020
 ms.author: banders
-ms.openlocfilehash: 10f1052f9acf9bf91c1d7fb0b64a1d3285487cf3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200730"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692317"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
 
@@ -58,7 +58,7 @@ ms.locfileid: "77200730"
 
     ![전송 요청 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)
 
-9. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 해당 사용자는 Microsoft Online Service Program 청구 계정의 계정 관리자이거나 기업계약의 계정 소유자여야 합니다. 자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요. **요청 보내기**를 선택합니다.
+9. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 해당 사용자는 Microsoft Online Service Program 청구 계정의 계정 관리자이거나 기업계약의 계정 소유자여야 합니다. 자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.  **요청 보내기**를 선택합니다.
 
     ![전송 요청 전송을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)
 
@@ -177,7 +177,7 @@ Azure Marketplace 제품이 각 구독과 함께 이전됩니다.
 
 ### <a name="azure-reservations-transfer"></a>Azure Reservations 이전
 
-Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. Reservations를 이동하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+EA(기업계약) 구독을 전송하는 경우 Azure Reservations는 구독과 함께 자동으로 이동하지 않습니다. Reservations를 이동하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 

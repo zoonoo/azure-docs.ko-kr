@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e24684063e73b8f8b659304987f46632f3601e8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426122"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732328"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 
@@ -25,7 +25,7 @@ ms.locfileid: "81426122"
 
 * Azure AD(Azure Active Directory)를 통한 인증.
 * Azure Key Vault의 관리. Azure Resource Manager를 통한 액세스 정책 만들기, 읽기, 업데이트, 삭제 및 설정을 포함합니다.
-* Key Vault 자체에 저장된 개체(키와 암호)를 액세스하고 관리하는 작업은 Key Vault 특정 엔드포인트를 통과합니다(예: [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* Key Vault 자체에 저장된 개체(키와 비밀)를 액세스하고 관리하는 작업은 Key Vault 특정 엔드포인트를 통과합니다(예: `https://yourvaultname.vault.azure.net`).  
 
 구성 및 환경에 따라 일부의 변형이 있습니다.
 
@@ -39,8 +39,8 @@ ms.locfileid: "81426122"
 
 | 주체 유형 | 엔드포인트:포트 |
 | --- | --- |
-| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
+| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br>  login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br>  login.microsoftonline.de:443 |
 | 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체 및 AD FS(Active Directory Federation Services) 또는 다른 페더레이션된 엔드포인트(예: user@contoso.com) |회사 또는 학교 계정에 대한 모든 엔드포인트 및 AD FS 또는 다른 페더레이션된 엔드포인트 |
 
 다른 복잡한 시나리오도 가능합니다. 추가 정보는 [Azure Active Directory 인증 흐름](../../active-directory/develop/authentication-scenarios.md), [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/active-directory-how-to-integrate.md) 및 [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 참조하세요.  
@@ -52,7 +52,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 | 연산 유형 | 엔드포인트:포트 |
 | --- | --- |
 | Key Vault 제어 평면 작업<br> \- Azure Resource Manager 사용 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**전역:**<br> graph.microsoft.com:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.microsoft.com:443<br><br> **Azure 독일:**<br> graph.cloudapi.de:443 |
+| Microsoft Graph API |**전역:**<br> graph.microsoft.com:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.microsoft.com:443<br><br> **Azure 독일:**<br>  graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Key Vault 작업
 
@@ -64,7 +64,13 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 
 ## <a name="ip-address-ranges"></a>IP 주소 범위
 
-Key Vault 서비스는 PaaS 인프라와 같은 다른 Azure 리소스를 사용합니다. 따라서 Key Vault 서비스 엔드포인트는 특정 시간에 가지므로 특정 범위의 IP 주소를 제공할 수 없습니다. 방화벽이 IP 주소 범위만을 지원하는 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 문서를 참조하세요. 인증 및 ID(Azure Active Directory)는 글로벌 서비스이며 다른 지역으로 장애 조치(failover)하거나 고지 없이 트래픽을 이동할 수 있습니다. 이 시나리오에서는 [인증 및 ID IP 주소](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip)에 나열된 모든 IP 범위를 방화벽에 추가해야 합니다.
+Key Vault 서비스는 PaaS 인프라와 같은 다른 Azure 리소스를 사용합니다. 따라서 Key Vault 서비스 엔드포인트는 특정 시간에 가지므로 특정 범위의 IP 주소를 제공할 수 없습니다. 방화벽이 IP 주소 범위만을 지원하는 경우 다음에서 사용할 수 있는 Microsoft Azure 데이터 센터 IP 범위 문서를 참조하세요.
+* [공용](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [독일](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [중국](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+인증 및 ID(Azure Active Directory)는 글로벌 서비스이며 다른 지역으로 장애 조치(failover)하거나 고지 없이 트래픽을 이동할 수 있습니다. 이 시나리오에서는 [인증 및 ID IP 주소](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip)에 나열된 모든 IP 범위를 방화벽에 추가해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
