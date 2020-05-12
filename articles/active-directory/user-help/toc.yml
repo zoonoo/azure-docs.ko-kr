@@ -46,6 +46,8 @@
           href: user-help-auth-app-add-account-manual.md
     - name: Microsoft Authenticator 앱을 사용하여 로그인
       href: user-help-auth-app-sign-in.md
+    - name: 중국의 Android 제한 사항
+      href: auth-app-android-china.md
     - name: 계정 백업 및 복구
       href: user-help-auth-app-backup-recovery.md
     - name: FAQ
