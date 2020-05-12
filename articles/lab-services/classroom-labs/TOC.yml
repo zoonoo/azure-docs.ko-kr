@@ -130,11 +130,13 @@
       href: reference-powershell-module.md
 - name: 리소스
   items:
+    - name: Azure Lab Services 블로그
+      href: 'https://aka.ms/azlabs-blog'
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
     - name: 질문과 대답
       href: classroom-labs-faq.md

@@ -1,18 +1,18 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80677409"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864507"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
-엔지니어나 설계자가 청사진을 통해 프로젝트의 설계 매개 변수를 스케치하는 것과 마찬가지로, 클라우드 설계자와 중앙 정보 기술 그룹은 Azure Blueprints를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다. 개발 팀은 Azure Blueprints를 통해 네트워킹 등의 기본 제공 구성 요소 집합을 사용하여 조직의 규정을 준수하면서 작성한 믿을 수 있는 새 환경을 빠르게 빌드하고 구축할 수 있으므로 개발 및 제공 시간을 단축할 수 있습니다.
+엔지니어나 설계자가 청사진을 통해 프로젝트의 설계 매개 변수를 스케치하는 것과 마찬가지로, 클라우드 설계자와 중앙 정보 기술 그룹은 Azure Blueprints를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다. Azure Blueprints를 사용하면 개발 팀에서 네트워킹과 같은 기본 제공 구성 요소 세트를 사용하여 조직의 규정을 준수하는 신뢰할 수 있는 새 환경을 빠르게 빌드하고 구축함으로써 개발 및 배포 속도를 높일 수 있습니다.
 
 즉, Blueprints에서는 다음과 같은 다양한 리소스 템플릿 및 기타 아티팩트의 배포를 명확하게 조정할 수 있습니다.
 
@@ -21,12 +21,11 @@ ms.locfileid: "80677409"
 - Azure 리소스 관리자 템플릿
 - 리소스 그룹
 
-Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../cosmos-db/introduction.md)를 통해 백업됩니다.
-청사진 개체는 여러 Azure 지역에 복제됩니다. 이렇게 복제하면 Azure Blueprints가 리소스를 배포하는 Azure 지역에 관계없이 대기 시간이 짧아지고, 가용성이 향상되고, 청사진 개체에 일관적으로 액세스할 수 있습니다.
+Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../cosmos-db/introduction.md)를 통해 백업됩니다. 청사진 개체는 여러 Azure 지역에 복제됩니다. 이렇게 복제하면 Azure Blueprints가 리소스를 배포하는 Azure 지역에 관계없이 대기 시간이 짧아지고, 가용성이 향상되고, 청사진 개체에 일관적으로 액세스할 수 있습니다.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Resource Manager 템플릿과 Blueprints의 차이점
 
-이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 Resource Manager 템플릿 배포 집합으로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 유형을 통합 제공하는 패키지이므로, CI/CD 파이프라인을 사용하는 등의 방식으로 해당 패키지를 직접 작성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
+이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 Resource Manager 템플릿 배포 집합으로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
 
 Azure Blueprints에서 배포에 포함하고자 하는 거의 모든 항목은 Resource Manager 템플릿을 통해서도 생성할 수 있습니다. 하지만 Resource Manager 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
 
@@ -57,7 +56,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 ### <a name="blueprint-definition-locations"></a>청사진 정의 위치
 
-청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 청사진은 [기여자](../management-groups/overview.md) 권한이 있는 **관리 그룹** 또는 구독에 저장할 수 있습니다. 위치가 관리 그룹인 경우 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
+청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 청사진은 **기여자** 권한이 있는 [관리 그룹](../management-groups/overview.md) 또는 구독에 저장할 수 있습니다. 위치가 관리 그룹인 경우 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
 
 ### <a name="blueprint-parameters"></a>청사진 매개 변수
 
@@ -116,7 +115,7 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 이러한 기본 제공 역할이 보안 요구에 적합하지 않다면 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만드는 것이 좋습니다.
 
 > [!NOTE]
-> 시스템 할당 관리 ID를 사용하는 경우 Azure Blueprints의 서비스 주체가 배포를 사용하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다. 사용자가 할당한 관리 ID를 사용하는 경우 청사진 할당을 만드는 사용자에게만 `Microsoft.Blueprint/blueprintAssignments/write`소유자**및**청사진 운영자**기본 제공 역할 둘 다에 포함되는** 권한이 필요합니다.
+> 시스템 할당 관리 ID를 사용하는 경우 Azure Blueprints의 서비스 주체가 배포를 사용하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다. 사용자가 할당한 관리 ID를 사용하는 경우 청사진 할당을 만드는 사용자에게만 **소유자** 및 **청사진 운영자** 기본 제공 역할 둘 다에 포함되는 `Microsoft.Blueprint/blueprintAssignments/write` 권한이 필요합니다.
 
 ## <a name="naming-limits"></a>이름 지정 제한
 

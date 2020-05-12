@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: a84f0a92703d1b626710cfc4dcfa2820bc58bda6
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3929ffa81a8b558d8cb0dbd74135acc9cf1ea47b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673180"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82875986"
 ---
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "80673180"
 + Python 3.6 및 3.7에는 [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 버전 2.7.1846 이상 2.x 버전이 필요합니다. Python 3.8에는 Core Tools의 [버전 3.x](../articles/azure-functions/functions-run-local.md#v2)가 필요합니다.
 ::: zone-end
 
-+ [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.76 이상 
++ [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
 ::: zone-end

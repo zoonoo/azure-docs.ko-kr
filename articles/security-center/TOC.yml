@@ -37,6 +37,11 @@
       href: tutorial-security-incident.md
     - name: 규정 준수 개선
       href: security-center-compliance-dashboard.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 보안 점수
@@ -69,6 +74,8 @@
           href: alerts-schemas.md
         - name: 보안 경고 관리
           href: security-center-managing-and-responding-alerts.md
+        - name: 보안 경고에 대한 비표시 규칙
+          href: alerts-suppression-rules.md
         - name: 보안 인시던트 관리
           href: security-center-incident.md
         - name: 클라우드 스마트 경고 상관 관계(인시던트)
@@ -107,7 +114,7 @@
           href: custom-security-policies.md
         - name: Azure Policy REST API를 사용하여 정책 관리
           href: configure-security-policy-azure-policy.md
-    - name: 동적 규정 준수 패키지 추가
+    - name: 규정 준수 대시보드에 대한 표준 선택
       href: update-regulatory-compliance-packages.md
     - name: 정보 보호 정책 사용자 지정
       href: security-center-info-protection-policy.md

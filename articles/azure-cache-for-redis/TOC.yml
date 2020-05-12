@@ -27,10 +27,13 @@
   items:
     - name: Azure Cache for Redis 샘플
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 보안
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Redis 클라이언트
       href: 'https://redis.io/clients'
     - name: Redis 명령
@@ -145,7 +148,7 @@
       href: /learn/browse/?products=azure-redis-cache
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Azure Cache for Redis FAQ
       href: cache-faq.md

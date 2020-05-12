@@ -92,6 +92,8 @@
       href: create-manage-projects.md
     - name: 처음 도구 추가
       href: how-to-add-tool-first-time.md
+    - name: ISV 도구/Movere로 작업 준비
+      href: prepare-isv-movere.md
     - name: 평가 도구 추가
       href: how-to-assess.md
     - name: Azure Migrate 어플라이언스 배포
