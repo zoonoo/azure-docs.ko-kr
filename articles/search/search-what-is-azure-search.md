@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77580654"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891545"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
@@ -154,11 +154,6 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 
 검색 엔진은 Mobile Apps, 웹 및 회사 데이터 저장소에서 일반적으로 사용되는 정보 검색 드라이버입니다. Azure Cognitive Search는 대규모 상업용 웹 사이트와 비슷한 검색 환경을 만들 수 있는 도구를 제공합니다.
 
-프로그램 관리자인 Liam Cavanagh가 제공하는 이 9분짜리 비디오에서 검색 엔진을 통합할 때 앱이 얻는 이점을 알아보세요. 간단한 데모에서는 Azure Cognitive Search의 주요 기능과 일반적인 워크플로 형태에 대해 설명합니다. 
+15분 분량의 이 비디오에서 Luis Cabrera(프로그램 관리자)가 Azure Cognitive Search를 소개합니다. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3분 구간에서는 주요 기능 및 사용 사례가 나옵니다.
-+ 3-4분 구간에서는 서비스 프로비전을 다룹니다. 
-+ 4-6분 구간에서는 기본 제공 부동산 데이터 세트를 사용하여 인덱스를 만드는 데 사용되는 데이터 가져오기 마법사를 다룹니다.
-+ 6-9분 구간에서는 검색 탐색기 및 다양한 쿼리를 다룹니다.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

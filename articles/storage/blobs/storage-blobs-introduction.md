@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 084b364f4a1414febb7b6f11c9cf70958ee823c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176672"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853355"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -65,7 +65,7 @@ Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 
 기존 데이터를 Blob Storage로 마이그레이션하기 위한 다양한 솔루션이 있습니다.
 
-- **AzCopy**는 Blob Storage, 컨테이너 또는 스토리지 계정 간에 데이터를 복사하는 사용하기 쉬운 Windows 및 Linux용 명령줄 도구입니다. AzCopy에 대한 자세한 내용은 [AzCopy v10(미리 보기)으로 데이터 전송](../common/storage-use-azcopy-v10.md)을 참조하세요.
+- **AzCopy**는 Blob Storage, 컨테이너 또는 스토리지 계정 간에 데이터를 복사하는 사용하기 쉬운 Windows 및 Linux용 명령줄 도구입니다. AzCopy에 대한 자세한 내용은 [AzCopy v10을 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md)을 참조하세요.
 - **Azure Storage 데이터 이동 라이브러리**는 Azure Storage 서비스 간에 데이터를 이동하기 위한 .NET 라이브러리입니다. AzCopy 유틸리티는 데이터 이동 라이브러리를 사용하여 빌드됩니다. 자세한 내용은 데이터 이동 라이브러리에 대한 [참조 문서](/dotnet/api/microsoft.azure.storage.datamovement)를 참조하세요.
 - **Azure Data Factory**는 Azure 리소스에 대한 계정 키, 공유 액세스 서명, 서비스 주체 또는 관리 ID를 사용하여 Blob 스토리지 간에 데이터 복사를 지원합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Blob Storage 간에 데이터 복사](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 - **Blobfuse**는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. 자세한 내용은 [blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)을 참조하세요.
