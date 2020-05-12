@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732039"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117787"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -202,6 +202,10 @@ WireData
 * [ASP.NET 서버 설정](app/monitor-performance-live-website-now.md)
 * [Java 서버 설정](app/java-agent.md)
 
+*배포 해야 하는 Application Insights은 몇 개입니까?:*
+
+* [Application Insights 배포를 디자인 하는 방법: 하나 Application Insights 많은 리소스](app/separate-resources.md)
+
 ### <a name="can-i-use-application-insights-with-"></a>Application Insights와 같이 사용할 수 있나요...?
 
 * [Azure VM 또는 Azure virtual machine scale set의 IIS 서버에 있는 웹 앱](app/azure-vm-vmss-apps.md)
@@ -247,7 +251,7 @@ WireData
 * 항목 삽입 위치:
   * Web.config
   * packages.config
-* (새 프로젝트에만 해당- [기존 프로젝트에 Application Insights을 추가][start]하는 경우이 작업을 수동으로 수행 해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입 하 여 Application Insights 리소스 ID를 사용 하 여 초기화 합니다. 예를 들어 MVC 앱에서 코드는 마스터 페이지 Views/Shared/\_Layout에 삽입 됩니다. cshtml
+* (새 프로젝트에만 해당- [기존 프로젝트에 Application Insights을 추가][start]하는 경우이 작업을 수동으로 수행 해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입 하 여 Application Insights 리소스 ID를 사용 하 여 초기화 합니다. 예를 들어 MVC 앱에서 코드는 마스터 페이지 Views/Shared/Layout에 삽입 됩니다 \_ . cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
 사용자의 애플리케이션 유형에 적합한 SDK는 [릴리스 정보](app/release-notes.md)를 참조하세요.
@@ -255,7 +259,7 @@ WireData
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
 솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
-### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Azure Resource Manager 배포에서 `providers('Microsoft.Insights', 'components').apiVersions[0]` 사용할 수 있나요?
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>`providers('Microsoft.Insights', 'components').apiVersions[0]`Azure Resource Manager 배포에서 사용할 수 있나요?
 
 API 버전을 채우기 위해이 방법을 사용 하지 않는 것이 좋습니다. 최신 버전은 주요 변경 내용이 포함 될 수 있는 미리 보기 릴리스를 나타낼 수 있습니다. 미리 보기가 아닌 최신 릴리스가 있는 경우에도 API 버전은 기존 템플릿과 이전 버전과 호환 되지 않을 수도 있고, 경우에 따라 일부 경우에는 API 버전을 모든 구독에서 사용할 수 없습니다.
 
@@ -263,7 +267,7 @@ API 버전을 채우기 위해이 방법을 사용 하지 않는 것이 좋습�
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세한 정보를 알아보세요](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -309,7 +313,7 @@ API 버전을 채우기 위해이 방법을 사용 하지 않는 것이 좋습�
 * IP 주소 및 지리적 위치 데이터를 수집 하는 방법에 대 한 자세한 내용은이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)를 참조 Application Insights.
 
 
-`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세한 정보를 알아보세요](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 [Power BI를 사용](app/export-power-bi.md )하여 요청 원격 분석을 지도에 표시할 수 있습니다.
 
@@ -515,7 +519,7 @@ Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록
 
 이를 계산 하려면 어떻게 해야 하나요?
 
-**Other Processes** =  - *컨테이너 화 된 프로세스의* cadvisor 사용에 대 한 기타 프로세스*의 총 사용량*
+**기타 프로세스**  =  CAdvisor의 총 *사용량*  -  *컨테이너 화 된 프로세스에서 사용*
 
 **다른 프로세스** 에는 다음이 포함 됩니다.
 
@@ -537,7 +541,7 @@ Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록
 
 다른 테이블을 조인 하 여 이러한 속성 값을 결과에 포함 합니다.
 
-ContainerID 속성에 조인 하 여 ```ContainerInventory``` 테이블에서 이미지 및 imagetag 속성을 포함 하도록 쿼리를 수정 합니다. ContainerID 속성에 조인 하 여 KubepodInventory 테이블의 ContaineName 필드에서 이름 ```ContainerLog``` 속성 (이전에 테이블에 표시 된 대로)을 포함할 수 있습니다. 이 옵션은 권장 되는 옵션입니다.
+ContainerID 속성에 조인 하 여 테이블에서 이미지 및 ImageTag 속성을 포함 하도록 쿼리를 수정 ```ContainerInventory``` 합니다. ```ContainerLog```ContainerID 속성에 조인 하 여 KubepodInventory 테이블의 ContaineName 필드에서 이름 속성 (이전에 테이블에 표시 된 대로)을 포함할 수 있습니다. 이 옵션은 권장 되는 옵션입니다.
 
 다음 예제는 조인을 사용 하 여 이러한 필드 값을 가져오는 방법을 설명 하는 샘플 상세 쿼리입니다.
 
@@ -628,7 +632,7 @@ LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will no
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용 하도록 설정할 때 Azure AD 오류를 해결할 어떻게 할까요? 있나요? 
 
-다음 오류가 표시 될 수 있습니다. **요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url (' <응용 프로그램 ID\>')과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 실시간으로 컨테이너 데이터를 보는 방법](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)문서에서 찾을 수 있습니다. 
+다음 오류가 표시 될 수 있습니다. **요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url (' <응용 프로그램 ID \> ')과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 실시간으로 컨테이너 데이터를 보는 방법](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)문서에서 찾을 수 있습니다. 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇입니까?
 
