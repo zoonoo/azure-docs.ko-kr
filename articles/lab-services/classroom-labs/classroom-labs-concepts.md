@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526232"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115050"
 ---
 # <a name="classroom-labs-concepts"></a>클래스룸 랩 개념
 
@@ -50,7 +50,7 @@ ms.locfileid: "77526232"
 
 ### <a name="lab-account-owner"></a>랩 계정 소유자
 
-Azure 구독을 소유한 조직내 클라우드 리소스의 IT 관리자는 일반적으로 랩 계정 소유자 역할을 하며 다음 작업을 수행합니다.
+일반적으로 Azure 구독을 소유 하는 조직의 클라우드 리소스의 IT 관리자는 랩 계정 소유자 역할을 하며 다음 작업을 수행 합니다.
 
 - 조직에 대한 랩 계정을 설정합니다.
 - 모든 랩에서 정책을 관리하고 구성합니다.

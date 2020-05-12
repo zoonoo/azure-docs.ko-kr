@@ -9,15 +9,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f83ae9c8290a52381c8087b46da959d4723d7f4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f36fb952b21b058fb50dc567f714e8bdb665d6c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745157"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200321"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 
@@ -38,15 +38,12 @@ Visual studio **16.3**를 다운로드 하 여 설치 하려면 visual [studio 2
 
 Synapse SQL의 기능 릴리스에 SSDT에 대 한 지원이 포함 되지 않는 경우가 있습니다. 현재 지원 되지 않는 기능은 다음과 같습니다.
 
-- [구체화된 보기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [순서가 지정 된 클러스터형 Columnstore 인덱스](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
-- [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+
 - [워크 로드 관리](sql-data-warehouse-workload-management.md) -작업 그룹 및 분류자
 - [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
   - 지원 티켓을 제출 [하거나 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) 하 여 지원 되는 기능을 받으세요.
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
    - 지원 티켓을 제출 [하거나 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) 하 여 지원 되는 기능을 받으세요.
-- [제약 조건이 있는 테이블](sql-data-warehouse-table-constraints.md#table-constraints) 은 지원 되지 않습니다. 이러한 테이블 개체에 대해 빌드 작업을 "없음"으로 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

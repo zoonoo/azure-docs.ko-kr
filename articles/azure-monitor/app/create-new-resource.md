@@ -3,12 +3,12 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537579"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200686"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -24,11 +24,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![왼쪽 위 모서리에 있는 ' + ' 기호를 클릭 합니다. 개발자 도구 다음에 Application Insights를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | Description  |
+   | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 고유 값 | 모니터링할 앱을 식별 하는 이름입니다. |
-   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
-   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치를 선택 합니다. |
+   | **이름**      | `Unique value` | 모니터링할 앱을 식별 하는 이름입니다. |
+   | **리소스 그룹**     | `myResourceGroup`      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
+   | **지역** | `East US` | 가까운 위치 또는 앱이 호스팅되는 위치 근처를 선택합니다. |
+   | **리소스 모드** | `Classic` 또는 `Workspace-based` | 작업 영역 기반 리소스는 현재 공개 미리 보기로 제공 되며 Application Insights 원격 분석을 일반적인 Log Analytics 작업 영역으로 보낼 수 있습니다. 자세한 내용은 [작업 영역 기반 리소스에](create-workspace-resource.md)대 한 문서를 참조 하세요.
 
 > [!NOTE]
 > 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
@@ -102,7 +103,7 @@ TenantId           : {subid}
  az extension add -n application-insights
 ```
 
-`az extension add` 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다.`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+명령을 실행 하지 않으면 `az extension add` 다음 오류 메시지가 표시 됩니다.`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 이제 다음을 실행 하 여 Application Insights 리소스를 만들 수 있습니다.
 

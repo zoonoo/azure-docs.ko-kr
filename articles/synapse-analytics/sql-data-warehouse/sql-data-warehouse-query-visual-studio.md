@@ -11,17 +11,17 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 444cb2c8378ad873beb61116c5c4387ad3c59761
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416043"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200349"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용 하 여 Azure Synapse Analytics에 연결
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -30,7 +30,7 @@ ms.locfileid: "81416043"
 
 몇 분만에 Visual Studio를 사용 하 여 Azure Synapse 내에서 SQL 풀을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT (SQL Server Data Tools) 확장을 사용 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * 기존 SQL 풀. 만들려면 [SQL 풀 만들기](create-data-warehouse-portal.md)를 참조하세요.
@@ -39,7 +39,7 @@ ms.locfileid: "81416043"
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. SQL 풀에 연결
 1. Visual Studio 2019를 엽니다.
-2. **보기** > **SQL Server 개체 탐색기**를 선택 하 여 SQL Server 개체 탐색기을 엽니다.
+2. **보기**SQL Server 개체 탐색기를 선택 하 여 SQL Server 개체 탐색기을 엽니다  >  **SQL Server Object Explorer**.
    
     ![SQL Server 개체 탐색기](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. **SQL Server 추가** 아이콘을 클릭합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "81416043"
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 녹색 화살표를 클릭 하 여 쿼리를 실행 하거나 다음 바로 가기를 `CTRL` + `SHIFT` + `E`사용 합니다.
+4. 녹색 화살표를 클릭 하 여 쿼리를 실행 하거나 다음 바로 가기를 사용 `CTRL` + `SHIFT` + `E` 합니다.
    
     ![쿼리 실행](./media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.

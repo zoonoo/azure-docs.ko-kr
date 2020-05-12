@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983910"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115152"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -77,6 +77,6 @@ Lab services [업데이트](https://azure.microsoft.com/updates/?product=lab-ser
 질문이 여기에 나열 되지 않은 경우 알려 주시기 바랍니다. 답변을 찾을 수 있습니다.
 
 - 이 FAQ의 끝에 질문을 게시합니다. 
-- 더 광범위 한 대상에 도달 하려면 [Azure Lab Services-Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-lab-services)에 질문을 게시 하세요. 
+- 더 광범위 한 대상에 도달 하려면 [Azure Lab Services-기술 커뮤니티 포럼](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices)에 질문을 게시 하세요. 
 - 기능 요청에 대 한 요청 및 아이디어를 [Azure Lab Services-사용자 의견](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)을 제출 합니다.
 

@@ -2,17 +2,19 @@
 title: Azure 스폿 Vm을 사용 하는 확장 집합 만들기
 description: 집중 Vm을 사용 하 여 비용을 절약 하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545932"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125046"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -26,7 +28,7 @@ ms.locfileid: "80545932"
 지점 인스턴스의 가격은 지역 및 SKU를 기준으로 하는 변수입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)가격 책정을 참조 하세요. 
 
 
-가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값 `0.98765`은 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격 `-1`을로 설정 하면 인스턴스는 가격에 따라 제거 되지 않습니다. 인스턴스의 가격은 사용 가능한 용량 및 할당량을 초과 하는 경우 더 작은 표준 인스턴스의 현재 가격 또는 가격입니다.
+가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하면 `-1` 인스턴스는 가격에 따라 제거 되지 않습니다. 인스턴스의 가격은 사용 가능한 용량 및 할당량을 초과 하는 경우 더 작은 표준 인스턴스의 현재 가격 또는 가격입니다.
 
 ## <a name="eviction-policy"></a>제거 정책
 
@@ -49,12 +51,12 @@ ms.locfileid: "80545932"
 
 ## <a name="portal"></a>포털
 
-스폿 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에 자세히 설명 된 것과 동일 합니다. 확장 집합을 배포 하는 경우 별색 플래그를 설정 하 고 제거 정책: 스폿 Vm을 사용 하 여 ![확장 집합 만들기를 선택할 수 있습니다.](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+스폿 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에 자세히 설명 된 것과 동일 합니다. 확장 집합을 배포 하는 경우 별색 플래그를 설정 하 고 제거 정책: ![ 스폿 vm을 사용 하 여 확장 집합 만들기를 선택할 수 있습니다.](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-지점 Vm을 사용 하 여 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명 된 것과 동일 합니다. '--우선 순위 '를 추가 하 고를 추가 `--max-price`하기만 하면 됩니다. 이 예에서는에를 `-1` `--max-price` 사용 하 여 가격에 따라 인스턴스를 제거 하지 않습니다.
+지점 Vm을 사용 하 여 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명 된 것과 동일 합니다. '--우선 순위 '를 추가 하 고를 추가 하기만 하면 `--max-price` 됩니다. 이 예에서는에를 사용 하 여 `-1` `--max-price` 가격에 따라 인스턴스를 제거 하지 않습니다.
 
 ```azurecli
 az vmss create \
@@ -71,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 지점 Vm을 사용 하 여 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-powershell.md)에 자세히 설명 된 것과 동일 합니다.
-'-Priority 스폿 '을 추가 하 고 [AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig)에 `-max-price` 를 제공 합니다.
+'-Priority 스폿 '을 추가 하 고 AzVmssConfig에를 제공 `-max-price` 합니다. [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig)
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 별색 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 설명 된 것과 동일 합니다. 
 
-별색 템플릿 배포의 경우 이상을`"apiVersion": "2019-03-01"` 사용 합니다. 템플릿의 `"virtualMachineProfile":` 섹션 `priority`에 `evictionPolicy` , `billingProfile` 및 속성을 추가 합니다. 
+별색 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. `priority` `evictionPolicy` `billingProfile` 템플릿의 섹션에, 및 속성을 추가 합니다 `"virtualMachineProfile":` . 
 
 ```json
                 "priority": "Spot",
@@ -97,7 +99,7 @@ $vmssConfig = New-AzVmssConfig `
                 }
 ```
 
-제거 된 인스턴스를 삭제 하려면 `evictionPolicy` 매개 변수를로 `Delete`변경 합니다.
+제거 된 인스턴스를 삭제 하려면 `evictionPolicy` 매개 변수를로 변경 `Delete` 합니다.
 
 ## <a name="faq"></a>FAQ
 
@@ -123,12 +125,12 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:** 기존 확장 집합을 별색 집합으로 변환할 수 있나요?
 
-**A:** 아니요. `Spot` 플래그 설정은 만들 때에만 지원 됩니다.
+**A:** 아니요 `Spot` . 플래그 설정은 만들 때에만 지원 됩니다.
 
 
-**Q:** 낮은 우선 순위의 확장 `low` 집합에를 사용 하는 경우를 대신 사용 `Spot` 해야 하나요?
+**Q:** `low`낮은 우선 순위의 확장 집합에를 사용 하는 경우를 대신 사용 해야 하나요 `Spot` ?
 
-**A:** 지금은 및 `low` `Spot` 가 모두 작동 하지만를 사용 `Spot`하도록 전환 하기 시작 해야 합니다.
+**A:** 지금은 `low` 및 `Spot` 가 모두 작동 하지만를 사용 하도록 전환 하기 시작 해야 합니다 `Spot` .
 
 
 **Q:** 일반 Vm과 스폿 Vm을 모두 사용 하 여 확장 집합을 만들 수 있나요?

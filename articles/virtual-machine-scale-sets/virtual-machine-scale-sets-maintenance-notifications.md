@@ -1,19 +1,20 @@
 ---
 title: Azure의 가상 머신 확장 집합에 대 한 유지 관리 알림
 description: Azure에서 가상 머신 확장 집합에 대한 유지 관리 알림을 보고, 셀프 서비스 유지 관리를 시작합니다.
-author: shants123
-tags: azure-service-management,azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
-ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062696"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200097"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -80,7 +81,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 
 이제 **셀프 서비스 유지 관리** 열이 가상 머신 확장 집합 목록에 나타납니다. 각 가상 머신 확장 집합의 셀프 서비스 유지 관리 열에는 다음 값 중 하나가 표시될 수 있습니다.
 
-| 값 | Description |
+| Value | 설명 |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
 | 아니요 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
@@ -121,7 +122,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus**아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| Value | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -152,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 각 VM 인스턴스에 대 한 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| Value | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |

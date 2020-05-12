@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410622"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125709"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -64,10 +64,10 @@ ms.locfileid: "80410622"
 - `EndpointSuffix`(예: applicationinsights.azure.cn) 끝점 접미사를 설정 하면 SDK에 연결할 Azure 클라우드를 알려 줍니다. SDK는 개별 서비스에 대 한 나머지 끝점을 조합 합니다.
 - 명시적 끝점.
   모든 서비스는 연결 문자열에서 명시적으로 재정의 될 수 있습니다.
-   - `IngestionEndpoint`고급https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`고급https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`고급https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`고급https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(예: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint`(예: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint`(예: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint`(예: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>끝점 스키마
 
@@ -106,10 +106,10 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 - 권한 부여 체계의 기본값은 "ikey"입니다. 
 - 계측 키: 00000000-0000-0000-0000-000000000000
 - 지역 서비스 Uri는 [SDK 기본값](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) 을 기반으로 하며 공용 글로벌 Azure에 연결 됩니다.
-   - Admxhttps://dc.services.visualstudio.com/
-   - 라이브 메트릭:https://rt.services.visualstudio.com/
-   - 프로필러가https://agent.azureserviceprofiler.net/
-   - 디버거로https://agent.azureserviceprofiler.net/  
+   - Admx`https://dc.services.visualstudio.com/`
+   - 라이브 메트릭:`https://rt.services.visualstudio.com/`
+   - 프로필러가`https://agent.azureserviceprofiler.net/`
+   - 디버거로`https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 - 권한 부여 체계의 기본값은 "ikey"입니다. 
 - 계측 키: 00000000-0000-0000-0000-000000000000
 - 지역 서비스 Uri는 제공 된 끝점 접미사를 기반으로 합니다. 
-   - Admxhttps://dc.ai.contoso.com
-   - 라이브 메트릭:https://live.ai.contoso.com
-   - 프로필러가https://profiler.ai.contoso.com 
-   - 디버거로https://snapshot.ai.contoso.com   
+   - Admx`https://dc.ai.contoso.com`
+   - 라이브 메트릭:`https://live.ai.contoso.com`
+   - 프로필러가`https://profiler.ai.contoso.com`
+   - 디버거로`https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 - 권한 부여 체계의 기본값은 "ikey"입니다. 
 - 계측 키: 00000000-0000-0000-0000-000000000000
 - 지역 서비스 Uri는 명시적 재정의 값을 기반으로 합니다. 
-   - 수집: https:\//custom.com:111/
-   - 라이브 메트릭: https:\//custom.com:222/
-   - 프로파일러: https:\//custom.com:333/ 
-   - 디버거: https:\//custom.com:444/   
+   - Admx`https://custom.com:111/`
+   - 라이브 메트릭:`https://custom.com:222/`
+   - 프로필러가`https://custom.com:333/`
+   - 디버거로`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>연결 문자열을 설정 하는 방법

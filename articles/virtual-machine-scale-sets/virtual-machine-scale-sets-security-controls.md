@@ -1,17 +1,20 @@
 ---
 title: Azure Virtual Machine Scale Sets에 대 한 보안 제어
 description: Azure Virtual Machine Scale Sets 평가를 위한 보안 컨트롤의 검사 목록
-ms.service: virtual-machine-scale-sets
-author: msmbaldwin
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: security
 ms.date: 09/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 030e2c23d68a3fbbc96dd7591583cb27b650d011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190597"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200006"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets에 대 한 보안 제어
 
@@ -21,7 +24,7 @@ ms.locfileid: "77190597"
 
 ## <a name="network"></a>네트워크
 
-| 보안 제어 | 예/아니요 | 메모 |
+| 보안 제어 | 예/아니요 | 참고 |
 |---|---|--|
 | 서비스 엔드포인트 지원| 예 | |
 | VNet 삽입 지원| 예 | |
@@ -30,22 +33,22 @@ ms.locfileid: "77190597"
 
 ## <a name="monitoring--logging"></a>& 로깅 모니터링
 
-| 보안 제어 | 예/아니요 | 메모|
+| 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
 | Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | Azure에서 [Linux 가상 머신 모니터링 및 업데이트](/azure/virtual-machines/linux/tutorial-monitoring) 및 [azure에서 Windows 가상 머신 모니터링 및 업데이트](/azure/virtual-machines/windows/tutorial-monitoring)를 참조 하세요. |
 | 제어 및 관리 평면 로깅 및 감사| 예 |  |
 | 데이터 평면 로깅 및 감사 | 아니요 |  |
 
-## <a name="identity"></a>ID
+## <a name="identity"></a>Identity
 
-| 보안 제어 | 예/아니요 | 메모|
+| 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
 | 인증| 예 |  |
 | 권한 부여| 예 |  |
 
 ## <a name="data-protection"></a>데이터 보호
 
-| 보안 제어 | 예/아니요 | 메모 |
+| 보안 제어 | 예/아니요 | 참고 |
 |---|---|--|
 | 미사용 서버 쪽 암호화: Microsoft 관리 키 | 예 | [Virtual Machine Scale Sets Azure Disk Encryption를](disk-encryption-overview.md)참조 하세요. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](/azure/expressroute) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)참조 하세요. |
@@ -55,7 +58,7 @@ ms.locfileid: "77190597"
 
 ## <a name="configuration-management"></a>구성 관리
 
-| 보안 제어 | 예/아니요 | 메모|
+| 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
 | 구성 관리 지원 (구성의 버전 관리 등)| 예 |  | 
 

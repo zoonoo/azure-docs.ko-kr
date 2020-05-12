@@ -1,19 +1,19 @@
 ---
 title: 렌더링 검사 | Microsoft Azure 맵
 description: 이 문서에서는 렌더링 범위를 렌더링 한 세부 정보 수준과 함께 Microsoft Azure 지도를 사용 하 여 영역에 대해 알아봅니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536754"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123941"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
 
@@ -236,7 +236,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 월리스 푸투나         |   | Ø |
 
 
-## <a name="europe"></a>유럽
+## <a name="europe"></a>Europe
 
 | 국가/지역 | 래스터 타일 통합 | 벡터 타일 통합 |
 | ------ | :------------------: | :------------------: |
@@ -257,7 +257,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 페로 제도             | ✓ | Ø |
 | 핀란드                   | ✓ | ✓ |
 | 프랑스                    | ✓ | ✓ |
-| 조지아                   | ✓ | Ø |
+| 그루지야                   | ✓ | Ø |
 | 독일                   | ✓ | ✓ |
 | 지브롤터                 | ✓ | ✓ |
 | 그리스                    | ✓ | ✓ |

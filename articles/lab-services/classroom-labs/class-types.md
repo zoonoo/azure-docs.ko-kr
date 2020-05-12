@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296730"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115033"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
@@ -61,6 +61,10 @@ Azure Lab Services에서 랩을 설정하여 소개 모바일 애플리케이션
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Android Studio를 사용하여 모바일 애플리케이션 개발을 가르치기 위한 랩 설정](class-type-mobile-dev-android-studio.md)을 참조하세요.
 
+## <a name="big-data-analytics"></a>빅 데이터 분석
+빅 데이터 분석 클래스를 학습 하기 위해 랩을 설정할 수 있습니다. 이러한 종류의 클래스를 사용 하 여 많은 양의 데이터를 처리 하는 방법을 알아보고 기계 및 통계적 학습 알고리즘을 적용 하 여 데이터 정보를 도출 합니다. 학생의 핵심 목표는 빅 데이터를 저장, 관리 및 처리 하기 위한 도구를 제공 하는 Apache Hadoop의 오픈 소스 소프트웨어 패키지와 같은 데이터 분석 도구를 사용 하는 방법을 배우는 것입니다. 
+
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [HortonWorks Data Platform의 Docker 배포를 사용 하 여 빅 데이터 분석에 대 한 랩 설정](class-type-big-data-analytics.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

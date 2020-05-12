@@ -3,13 +3,13 @@ title: Batch 관리 .NET 라이브러리를 사용 하 여 계정 리소스 관�
 description: Batch 관리 .NET 라이브러리로 Azure Batch 계정 리소스를 만들고, 삭제하며, 수정합니다.
 ms.topic: article
 ms.date: 04/24/2017
-ms.custom: seodec18
-ms.openlocfilehash: 69e3eb04352feff11ee50acab11328adb7900539
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: 3cb44b89cacd9e597766ca8df3e4826dfabdb2bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115995"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201628"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 

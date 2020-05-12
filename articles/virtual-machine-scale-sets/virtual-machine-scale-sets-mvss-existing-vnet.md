@@ -1,19 +1,20 @@
 ---
 title: Azure 확장 집합 템플릿에서 기존 가상 네트워크를 참조 합니다.
 description: 기존 Azure Virtual Machine Scale Set 템플릿에 가상 네트워크를 추가하는 방법 알아보기
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 83328a31dad8009c28e146c81b24d6d9244f88a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273667"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124825"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 기존 가상 네트워크에 대한 참조 추가
 
@@ -82,7 +83,7 @@ ms.locfileid: "81273667"
          "capacity": 2
 ```
 
-마지막으로,를 사용 `subnetId` `resourceId` 하는 대신 사용자가 설정한 매개 변수를 전달 하 여 동일한 배포에서 vnet의 ID를 가져옵니다 .이는 기본 실행 가능 크기 집합 템플릿에서 수행 됩니다.
+마지막으로,를 사용 하는 `subnetId` 대신 사용자가 설정한 매개 변수를 전달 하 여 `resourceId` 동일한 배포에서 VNET의 ID를 가져옵니다 .이는 기본 실행 가능 크기 집합 템플릿에서 수행 됩니다.
 
 ```diff
                        "name": "myIpConfig",

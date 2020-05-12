@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801708"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196277"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -107,7 +107,7 @@ Windows 8 이상 | 54,400GB
 Windows 7 |1700GB
 Windows Server 2012 이상 | 54,400GB
 Windows Server 2008, Windows Server 2008 R2 | 1700GB
-Azure VM | 데이터 디스크 16개<br/> 16 개 이상의 디스크 (최대 32 디스크)를 사용 하 여 제한 된 Vm 미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com <br><br> 최대 32TB의 데이터 디스크
+Azure VM | [AZURE VM 백업에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support) 를 참조 하세요.
 
 ### <a name="how-is-the-data-source-size-determined"></a>데이터 원본 크기는 어떻게 결정하나요?
 

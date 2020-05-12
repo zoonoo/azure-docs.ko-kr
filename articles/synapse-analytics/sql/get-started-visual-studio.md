@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e725df5c875f23d82da1fda19bcdf28db548fc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428564"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201688"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용 하 여 Synapse SQL에 연결
 > [!div class="op_single_selector"]
@@ -28,11 +28,10 @@ ms.locfileid: "81428564"
 
 Visual Studio를 사용 하 여 Azure Synapse Analytics를 사용 하 여 SQL 풀을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT (SQL Server Data Tools) 확장을 사용 합니다. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에 지원되는 도구
+> [!NOTE]
+> SQL 주문형 (미리 보기)은 SSDT에서 지원 되지 않습니다.
 
-Visual studio는 현재 주문형 (미리 보기)에 대해 지원 되지 않습니다. 그러나 Azure Data Studi (미리 보기) o는 완전히 지원 되는 도구입니다. SQL Server Management Studio은 버전 18.4에서 부분적으로 지원 되며 연결 및 쿼리와 같은 기능이 제한 됩니다.
-
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 사용 하려면 다음 구성 요소가 필요 합니다.
 
 * 기존 SQL 풀. 없는 경우 [SQL 풀 만들기](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 를 참조 하 여이 필수 구성 요소를 완료 합니다.
@@ -41,7 +40,7 @@ Visual studio는 현재 주문형 (미리 보기)에 대해 지원 되지 않습
 
 ## <a name="1-connect-to-sql-pool"></a>1. SQL 풀에 연결
 1. Visual Studio 2019를 엽니다.
-2. SQL Server 개체 탐색기를 엽니다. 이렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택 합니다.
+2. SQL Server 개체 탐색기를 엽니다. 이렇게 하려면 **보기**  >  **SQL Server 개체 탐색기**를 선택 합니다.
    
     ![SQL Server 개체 탐색기](./media/get-started-visual-studio/open-ssdt.png)
 3. **SQL Server 추가** 아이콘을 클릭합니다.
