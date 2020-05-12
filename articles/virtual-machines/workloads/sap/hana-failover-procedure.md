@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617149"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117210"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -34,7 +34,7 @@ DR 사이트로 장애 조치 (failover) 하는 경우 다음과 같은 두 가�
 >[!NOTE]
 >다음 단계는 DR 단위를 나타내는 HANA Large Instance 단위에서 수행 해야 합니다. 
  
-최신 복제 된 저장소 스냅숏으로 복원 하려면 [azure에서 Microsoft snapshot tools for SAP HANA](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf)의 "전체 DR 장애 조치 (failover) azure_hana_dr_failover 수행"의 단계를 따르세요. 
+최신 복제 된 저장소 스냅숏으로 복원 하려면 [azure에서 Microsoft snapshot tools for SAP HANA](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf)의 "전체 DR 장애 조치 (failover) azure_hana_dr_failover 수행"의 단계를 따르세요. 
 
 여러 SAP HANA 인스턴스를 장애 조치 (failover) 하려면 azure_hana_dr_failover 명령을 여러 번 실행 합니다. 요청 된 경우 장애 조치 (failover) 및 복원 하려는 SAP HANA SID를 입력 합니다. 
 
@@ -64,7 +64,7 @@ DR 사이트로 장애 조치 (failover) 하는 경우 다음과 같은 두 가�
    
    b. 선택한 백업 ID에 해당하는 스냅샷 또는 스토리지 스냅샷 이름이 재해 복구 볼륨에 복원됩니다.
    
-   다. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
+   c. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
       
 1. 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재하십시오. 
 1. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
@@ -104,7 +104,7 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 
 재해 복구 사이트에서 한 동안 SAP 프로덕션 워크 로드를 실행 했습니다. 프로덕션 사이트의 문제가 해결되면 프로덕션 사이트로 장애 복구(Failback)하려고 할 수 있습니다. 데이터가 손실되도록 할 수는 없으므로 프로덕션 사이트로 돌아가는 단계는 Azure 운영 팀의 SAP HANA와의 몇 가지 단계 및 긴밀한 협조가 필요합니다. 문제가 해결되었을 때 운영 팀이 프로덕션 사이트로 다시 동기화를 시작하도록 트리거하는 것은 사용자의 몫입니다.
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. Azure 운영 팀의 SAP HANA는 프로덕션 상태를 나타내는 재해 복구 스토리지 볼륨에서 프로덕션 스토리지 볼륨을 동기화하는 트리거를 가져옵니다. 이 상태에서 프로덕션 사이트에 있는 HANA 큰 인스턴스 단위가 종료됩니다.
 1. Azure 운영 팀의 SAP HANA는 복제를 모니터링 하 고 사용자에 게 알리기 전에 해당 복제를 수행 하도록 합니다.
@@ -115,7 +115,7 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 
 ## <a name="monitor-disaster-recovery-replication"></a>재해 복구 복제 모니터링
 
-저장소 복제 진행 상태를 모니터링 하려면 스크립트 `azure_hana_replication_status`를 실행 합니다. 예상 대로 작동 하려면 재해 복구 위치에서 실행 되는 단위에서이 명령을 실행 해야 합니다. 이 명령은 복제가 활성 상태 인지 여부에 관계 없이 작동 합니다. 재해 복구 위치에서 테 넌 트의 모든 HANA Large Instance 단위에 대해 명령을 실행할 수 있습니다. 부팅 볼륨에 대 한 세부 정보를 가져오는 데 사용할 수 없습니다. 
+저장소 복제 진행 상태를 모니터링 하려면 스크립트를 실행 `azure_hana_replication_status` 합니다. 예상 대로 작동 하려면 재해 복구 위치에서 실행 되는 단위에서이 명령을 실행 해야 합니다. 이 명령은 복제가 활성 상태 인지 여부에 관계 없이 작동 합니다. 재해 복구 위치에서 테 넌 트의 모든 HANA Large Instance 단위에 대해 명령을 실행할 수 있습니다. 부팅 볼륨에 대 한 세부 정보를 가져오는 데 사용할 수 없습니다. 
 
 명령 및 해당 출력에 대 한 자세한 내용은 [azure에서 SAP HANA Microsoft 스냅숏 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf)의 "DR 복제 상태 azure_hana_replication_status 가져오기"를 참조 하세요.
 

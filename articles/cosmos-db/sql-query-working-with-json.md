@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: a8f32ad69d32844305c1cc785afc9f1df3c102b8
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006353"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117022"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Azure Cosmos DB에서 JSON 사용
 
@@ -45,9 +45,9 @@ JSON 작업의 몇 가지 중요 한 측면을 요약 하겠습니다.
 }
 ```
 
-이 경우 `state`, `country`및 `city` 속성은 모두 `address` 속성 내에 중첩 됩니다.
+이 경우 `state` , `country` 및 `city` 속성은 모두 속성 내에 중첩 됩니다 `address` .
 
-다음 예제에서는 `f.address.state` 및 라는 두 개의 중첩 된 `f.address.city`속성을 프로젝션 합니다.
+다음 예제에서는 및 라는 두 개의 중첩 된 속성을 프로젝션 합니다. `f.address.state` `f.address.city`
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -141,9 +141,9 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>JSON의 예약 키워드 및 특수 문자
 
-따옴표 붙은 속성 연산자 `[]`를 사용 하 여 속성에 액세스할 수 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백이 나 특수 문자가 포함 된 속성을 이스케이프 하거나 SQL 키워드 또는 예약어와 동일한 이름을 가진 속성을 이스케이프 하는 데 유용 합니다.
+따옴표 붙은 속성 연산자를 사용 하 여 속성에 액세스할 수 있습니다 `[]` . 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백이 나 특수 문자가 포함 된 속성을 이스케이프 하거나 SQL 키워드 또는 예약어와 동일한 이름을 가진 속성을 이스케이프 하는 데 유용 합니다.
 
-예를 들어 속성 `order` 및 특수 문자를 포함 하는 속성 `price($)` 을 포함 하는 문서는 다음과 같습니다.
+예를 `order` 들어 속성 및 특수 문자를 포함 하는 속성을 포함 하는 문서는 `price($)` 다음과 같습니다.
 
 ```json
 {
@@ -160,7 +160,7 @@ WHERE EXISTS(
 }
 ```
 
-`order` 속성이 나 `price($)` 속성을 포함 하는 쿼리를 실행 하는 경우 구문 오류가 표시 됩니다.
+속성이 나 속성을 포함 하는 쿼리를 실행 하는 경우 `order` `price($)` 구문 오류가 표시 됩니다.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -208,7 +208,7 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
     }]
 ```
 
-앞의 예제에서 절은 `SELECT` JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름을 `$1`사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수인 `$1` 및 `$2`를 반환 합니다.
+앞의 예제에서 절은 `SELECT` JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름을 사용 합니다 `$1` . 다음 쿼리는 두 개의 암시적 인수 변수인 및를 반환 합니다. `$1` `$2`
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -237,7 +237,7 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 ### <a name="examples"></a>예
 
-두 `AS` 번째 값을로 `NameInfo`프로젝션 하는 경우에는 다음 예제와 같이 별칭 지정에 사용 되는 키워드가 선택 사항입니다.
+`AS`두 번째 값을로 프로젝션 하는 경우에는 다음 예제와 같이 별칭 지정에 사용 되는 키워드가 선택 사항입니다 `NameInfo` .
 
 ```sql
     SELECT
@@ -270,13 +270,13 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```sql
     SELECT
            {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           { "JSON expression with a special character": { "name": f.id }}
+           {"JSON expression with a special character!": { "name": f.id }}
     FROM Families f
     WHERE f.id = "AndersenFamily"
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작 하기](sql-query-getting-started.md)
+- [시작](sql-query-getting-started.md)
 - [SELECT 절](sql-query-select.md)
 - [WHERE 절](sql-query-where.md)

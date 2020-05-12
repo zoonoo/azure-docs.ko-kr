@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617085"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117124"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -35,7 +35,7 @@ HANA 설치를 시작 하기 전에 다음의 유효성을 검사 합니다.
 - [HLI 단위](#validate-the-hana-large-instance-units)
 - [운영 체제 구성](#operating-system)
 - [네트워크 구성](#networking)
-- [스토리지 구성](#storage)
+- [저장소 구성](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>HANA 대규모 인스턴스 단위 유효성 검사
@@ -90,7 +90,7 @@ SLES의 SAP HANA 배포와 관련된 몇 가지 유용한 리소스(고가용성
 다음은 SUSE의 SAP와 관련된 유용한 추가 링크입니다.
 
 - [SUSE Linux의 SAP HANA 사이트](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [SAP 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)(영문)
+- [SAP 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf)(영문)
 - [ClamSAP - SAP용 SLES 바이러스 방지](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)(영문)
 
 다음은 SLES 12의 SAP HANA 구현에 적용할 수 있는 SAP Support Note입니다.
@@ -136,7 +136,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 ## <a name="storage"></a>스토리지
 
-Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 `service management` 통해 azure에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
+Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 통해 Azure에서 SAP HANA에 의해 구성 됩니다 `service management` . 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
 각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 문서화되어 있습니다.
 
@@ -144,8 +144,8 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 | 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/data/SID/mnt0000 \< m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000 \< m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA log backup | /hana/log/backups | 스토리지 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -164,7 +164,7 @@ HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지
 
 제공된 스토리지 외에도 1TB 단위로 추가 스토리지 용량을 구입할 수 있습니다. 이 추가 스토리지는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
 
-Azure `service management`에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹 (예: 1000500)에 대 한 사용자 ID (UID) 및 그룹 ID (GID)를 지정 합니다. SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
+Azure에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 `service management` 고객은 sidadm 사용자 및 sapsys 그룹 (예: 1000500)에 대 한 사용자 ID (UID) 및 그룹 id (GID)를 지정 합니다. SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
 
 - 다양한 HANA 인스턴스의 SID(sidadm은 여기서 파생됨)
 - 다양한 HANA 인스턴스의 메모리 크기. 인스턴스당 메모리 크기는 각각의 개별적인 볼륨 세트에서 볼륨 크기를 정의합니다.

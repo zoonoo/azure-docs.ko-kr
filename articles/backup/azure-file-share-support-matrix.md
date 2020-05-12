@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업에 대 한 지원 매트릭스
 description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 4da17bb591e94a0eaf26f95210a3e841ad17973b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 38e8cdba4913a56b4dc6b4398a99db9e9f93be51
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890717"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116733"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 지원 매트릭스
 
@@ -18,9 +18,11 @@ ms.locfileid: "82890717"
 
 Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
-| GA 지역 | 지원 되는 지역 (미리 보기의 일부로) 이지만 아직 GA                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 오스트레일리아 남부 동부 (ASE), 캐나다 중부 (CNC), 미국 서 부 중부 (WCUS), 미국 서 부 2 (WUS 2), 인도 남부 (INS), 미국 중 북부 (NCUS), 일본 동부 (JPE), 브라질 남부 (BRS), 남부 동아시아 (해상), 스위스 서부 (SZW), 아랍에미리트 Central (UKW), 노르웨이 동부 (NWE), 인도 서 부 (INW), 오스트레일리아 중부 (ACL), 한국 중부 (KRC), 일본 서 부 (JPE), 남아프리카 북부 (SAN), 영국 서부 () , 한국 남부 (KRS), 독일 북부 (GN), 노르웨이 서 부 (NWW), 남아프리카 (고), 스위스 북부 (SZN), 독일 중서부 (GWC), 아랍에미리트 북부 (UAN), 프랑스 중부 (FRC), 인도 중부 (INC.), 캐나다 동부 (CNE), 동아시아 (EA), 오스트레일리아 동부 (AE), 미국 중부 (미국 서 부), 미국 서 부 (WUS)                                                  |  미국 동부 (EUS), 미국 동부 2 (EUS2), 북부 유럽 (NE), 미국 중 북부 (SCUS), 영국 남부 (UKS), 유럽 서부 (MICROSOFT), US Gov 애리조나 (UKS), US Gov 텍사스 (UGT), US Gov 버지니아 (UGV)           |
+**GA 지역**:<br>
+오스트레일리아 남부 동부 (ASE), 캐나다 중부 (CNC), 미국 서 부 중부 (WCUS), 미국 서 부 2 (WUS 2), 인도 남부 (INS), 미국 중 북부 (NCUS), 일본 동부 (JPE), 브라질 남부 (BRS), 남부 동아시아 (해상), 스위스 서부 (SZW), 아랍에미리트 Central (UKW), 노르웨이 동부 (NWE), 인도 서 부 (INW), 오스트레일리아 중부 (ACL), 한국 중부 (KRC), 일본 서 부 (JPE), 남아프리카 북부 (SAN), 영국 서부 () , 대한민국 남부 (KRS), 독일 북부 (GN), 노르웨이 서 부 (NWW), 남아프리카 공화국 서 부 (톱), 스위스 북부 (SZN), 독일 중서부 (GWC), 아랍에미리트 북부 (UAN), 프랑스 중부 (FRC), 인도 중부 (INC.), 캐나다 동부 (CNE), 동아시아 (EA), 오스트레일리아 동부 (AE), 미국 중부 (CUS), WUS (미국 서 부), US Gov 애리조나 (UAN), US Gov 텍사스 (UGT), US Gov 버지니아 (UGV), US DoD 중부 (UDC), US DoD 동부 (UDE)
+
+**지원 되는 지역 (미리 보기의 일부로) 이지만 아직 GA**:<br>
+미국 동부 (EUS), 미국 동부 2 (EUS2), 서유럽 (NE), 미국 중 북부 (SCUS), 영국 남부 (UKS), 유럽 서부 (MICROSOFT)
 
 ## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
@@ -74,7 +76,7 @@ Azure 파일 공유에 대 한 백업은 다음 지역에서 제공 됩니다.
 
 ## <a name="supported-restore-methods"></a>지원되는 복원 방법
 
-| Restore 메서드     | 설명                                                      |
+| Restore 메서드     | 세부 정보                                                      |
 | ------------------ | ------------------------------------------------------------ |
 | 전체 공유 복원 | 원본 또는 대체 위치에 전체 파일 공유를 복원할 수 있습니다. |
 | 항목 수준 복원 | 원본 또는 대체 위치로 개별 파일 및 폴더를 복원할 수 있습니다. |

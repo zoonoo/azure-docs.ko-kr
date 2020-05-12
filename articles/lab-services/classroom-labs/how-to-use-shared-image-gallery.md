@@ -11,22 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a270107033590e340db49b85e8a67acbbb701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190452"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116869"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 사용
-이 문서에서는 교사/랩 관리자가 템플릿 가상 머신 이미지를 다른 사용자가 다시 사용할 수 있도록 저장 하는 방법을 보여 줍니다. 이러한 이미지는 Azure [공유 이미지 갤러리](../../virtual-machines/windows/shared-image-galleries.md)에 저장 됩니다. 첫 번째 단계로 랩 관리자는 기존 공유 이미지 갤러리를 랩 계정에 연결 합니다. 공유 이미지 갤러리가 연결 되 면 랩 계정에서 생성 된 랩에서 공유 이미지 갤러리에 이미지를 저장할 수 있습니다. 다른 교사는 공유 이미지 갤러리에서이 이미지를 선택 하 여 해당 클래스에 대 한 템플릿을 만들 수 있습니다. 
+이 문서는 교사/랩 관리자가 [공유 이미지 갤러리](../../virtual-machines/windows/shared-image-galleries.md) 에 템플릿 가상 머신 이미지를 저장 하 여 다른 사용자가 랩을 만들 수 있도록 하는 방법을 보여 줍니다. 
 
-> [!NOTE]
-> 현재 Azure Lab Services에서는 공유 이미지 갤러리에서 **일반화** 된 VM 이미지 (특수 이미지 아님)만 기반으로 하는 템플릿 vm 만들기를 지원 합니다. 
+## <a name="scenarios"></a>시나리오
+이 기능에서 지 원하는 몇 가지 시나리오는 다음과 같습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+- 랩 계정 관리자는 공유 이미지 갤러리를 랩 계정에 연결 하 고 랩 컨텍스트 외부의 공유 이미지 갤러리에 이미지를 업로드 합니다. 그런 다음 랩 작성자는 공유 이미지 갤러리에서 해당 이미지를 사용 하 여 랩을 만들 수 있습니다. 
+- 랩 계정 관리자는 공유 이미지 갤러리를 랩 계정에 연결 합니다. 강사 (랩 작성자)는 랩의 사용자 지정 이미지를 공유 이미지 갤러리에 저장 합니다. 그런 다음 다른 랩 작성자가 공유 이미지 갤러리에서이 이미지를 선택 하 여 랩에 대 한 템플릿을 만들 수 있습니다. 
+
+    공유 이미지 갤러리에 이미지를 저장 하는 경우 Azure Lab Services는 저장 된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제 합니다. 이를 통해 동일한 지리에서 다른 지역에 생성 된 랩에서 이미지를 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장 하면 모든 복제 된 이미지에 대 한 비용을 포함 하는 추가 비용이 발생 합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. 공유 이미지 갤러리 가격에 대 한 자세한 내용은 [공유 이미지 갤러리 – 청구]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing)를 참조 하세요.
+
+    > [!NOTE]
+    > Azure Lab Services은 공유 이미지 갤러리의 **일반화** 된 이미지와 **특수** 이미지를 기반으로 하는 템플릿 vm 만들기를 지원 합니다. 
+
+
+## <a name="prerequisites"></a>필수 구성 요소
 - [Azure PowerShell](../../virtual-machines/windows/shared-images.md) 또는 [Azure CLI](../../virtual-machines/linux/shared-images.md)를 사용 하 여 공유 이미지 갤러리를 만듭니다.
 - 공유 이미지 갤러리를 랩 계정에 연결 했습니다. 단계별 지침은 [공유 이미지 갤러리를 연결 하거나 분리 하는 방법](how-to-attach-detach-shared-image-gallery.md)을 참조 하세요.
 
@@ -47,7 +56,12 @@ ms.locfileid: "78190452"
 
     ![내보내기 완료](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
-랩 컨텍스트 외부에서 공유 이미지 갤러리에 이미지를 업로드할 수도 있습니다. 자세한 내용은 [공유 이미지 갤러리 개요](../../virtual-machines/windows/shared-images.md)를 참조 하세요. 
+    > [!NOTE]
+    > 공유 이미지 갤러리에 이미지를 저장 하면 다른 랩을 만들 때 갤러리에서 해당 이미지를 사용할 수 있습니다. 
+    > 
+    > 랩 컨텍스트 외부에서 공유 이미지 갤러리에 이미지를 업로드할 수도 있습니다. 자세한 내용은 [공유 이미지 갤러리 개요](../../virtual-machines/windows/shared-images.md)를 참조 하세요. 
+
+    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>공유 이미지 갤러리의 이미지 사용
 교사/교수는 새 랩을 만들 때 템플릿의 공유 이미지 갤러리에서 사용할 수 있는 사용자 지정 이미지를 선택할 수 있습니다.

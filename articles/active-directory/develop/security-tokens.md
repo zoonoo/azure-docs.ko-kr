@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926581"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115798"
 ---
 # <a name="security-tokens"></a>보안 토큰
 
@@ -31,7 +31,7 @@ ms.locfileid: "82926581"
 **ID 토큰** 은 [openid connect Connect](v2-protocols-oidc.md) 흐름의 일부로 클라이언트 응용 프로그램에 전송 됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다. Microsoft id 플랫폼에서 ID 토큰을 발급 하는 방법에 대해 자세히 알아보려면 [id 토큰](id-tokens.md)을 참조 하세요.
 
 > [!NOTE]
-> 이 문서에서는 OAuth2 및 Openid connect Connect 프로토콜에 대 한 보안 토큰을 설명 합니다. 많은 엔터프라이즈 응용 프로그램은 SAML를 사용 하 여 사용자를 인증 합니다. SAML 어설션에 대 한 자세한 내용은 [AZURE AD saml 토큰 참조](reference-saml-tokens.md) 를 참조 하세요.
+> 이 문서에서는 OAuth2 및 Openid connect Connect 프로토콜에서 사용 하는 보안 토큰을 설명 합니다. 많은 엔터프라이즈 응용 프로그램은 SAML를 사용 하 여 사용자를 인증 합니다. SAML 어설션에 대 한 자세한 내용은 [AZURE AD saml 토큰 참조](reference-saml-tokens.md) 를 참조 하세요.
 
 ## <a name="validating-security-tokens"></a>보안 토큰 유효성 검사
 
@@ -42,11 +42,11 @@ ms.locfileid: "82926581"
 * 응용 프로그램 또는 보호 된 리소스에 액세스 하기 위한 액세스 토큰 및
 * 액세스 토큰이 만료 될 때 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰입니다.
 
-액세스 토큰은 웹 API에 `Authorization` 헤더의 전달자 토큰으로 전달 됩니다. 앱은 STS에 새로 고침 토큰을 제공할 수 있으며, 앱에 대 한 사용자 액세스가 취소 되지 않은 경우 새 액세스 토큰과 새로 고침 토큰을 다시 받게 됩니다. 이는 엔터프라이즈를 종료 하는 사람의 시나리오를 처리 하는 방법입니다. STS는 새로 고침 토큰을 받을 때 사용자에 게 더 이상 권한이 부여 되지 않은 경우 다른 유효한 액세스 토큰을 발급 하지 않습니다.
+액세스 토큰은 웹 API에 헤더의 전달자 토큰으로 전달 됩니다 `Authorization` . 앱은 STS에 새로 고침 토큰을 제공할 수 있으며, 앱에 대 한 사용자 액세스가 취소 되지 않은 경우 새 액세스 토큰과 새로 고침 토큰을 다시 받게 됩니다. 이는 엔터프라이즈를 종료 하는 사람의 시나리오를 처리 하는 방법입니다. STS는 새로 고침 토큰을 받을 때 사용자에 게 더 이상 권한이 부여 되지 않은 경우 다른 유효한 액세스 토큰을 발급 하지 않습니다.
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JWTs (JSON 웹 토큰) 및 클레임
 
-Microsoft id 플랫폼은 **클레임**을 포함 하는 Jwt **(JSON 웹 토큰)** 로 보안 토큰을 구현 합니다.
+Microsoft id 플랫폼은 **클레임**을 포함 하는 Jwt **(JSON 웹 토큰)** 로 보안 토큰을 구현 합니다. JWTs는 보안 토큰으로 사용 되므로 이러한 형식의 인증을 **JWT 인증**이 라고도 합니다.
 
 [클레임](developer-glossary.md#claim) 은 클라이언트 응용 프로그램 또는 [리소스 소유자](developer-glossary.md#resource-owner)와 같은 하나의 엔터티에 대 한 어설션을 리소스 서버와 같은 다른 엔터티에 제공 합니다. 클레임을 JWT 클레임 또는 JSON Web Token 클레임 이라고 할 수도 있습니다.
 
@@ -82,7 +82,7 @@ Microsoft id 플랫폼에서 토큰 및 클레임 정보를 구현 하는 방법
 |[흐름에 대 한](v2-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
 |[클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) | | | x (앱 전용)| | |
 
-암시적 모드를 통해 발급 된 토큰은 URL을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다 (여기서 `response_mode` 은 `query` 또는 `fragment`).  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰에는 `groups` 또는 `wids` 클레임이 없습니다.
+암시적 모드를 통해 발급 된 토큰은 URL을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다 (여기서 `response_mode` 은 `query` 또는 `fragment` ).  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰에는 `groups` 또는 클레임이 없습니다 `wids` .
 
 ## <a name="next-steps"></a>다음 단계
 

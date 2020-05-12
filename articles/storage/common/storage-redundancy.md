@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872005"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117719"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -102,7 +102,7 @@ GZRS (지역 중복 저장소)는 지역에서 복제에서 제공 하는 지역
 
 GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게 되거나 복구할 수 없는 경우 계속 해 서 데이터를 읽고 쓸 수 있습니다. 또한 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생 한 경우에도 데이터를 지속적으로 사용할 수 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다.
 
-범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크 제외), 파일, 테이블 및 큐를 지원 합니다. GZRS 및 RA-GZRS는 모든 Azure 지역에서 사용할 수 있습니다.
+범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크 제외), 파일, 테이블 및 큐를 지원 합니다.
 
 GZRS 및 GZRS는 다음 지역에서 지원 됩니다.
 
@@ -126,7 +126,7 @@ GZRS 및 GZRS는 다음 지역에서 지원 됩니다.
 
 저장소 계정이 보조 지역에 대 한 읽기 액세스로 구성 된 경우 어떤 이유로 든 주 지역을 사용할 수 없게 되 면 보조 지역에서 데이터를 읽도록 원활 하 게 이동 하도록 응용 프로그램을 디자인할 수 있습니다. 보조 지역은 항상 읽기 액세스에 사용할 수 있으므로 응용 프로그램을 테스트 하 여 가동 중단 시 보조 데이터베이스에서 읽을 수 있는지 확인할 수 있습니다. 고가용성을 위해 응용 프로그램을 디자인 하는 방법에 대 한 자세한 내용은 [지역 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](geo-redundant-design.md)을 참조 하세요.
 
-보조 복제본에 대 한 읽기 액세스를 사용 하도록 설정 하면 저장소 계정의 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob 저장소 `myaccount.blob.core.windows.net`에 대 한 기본 끝점이 인 경우 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대 한 계정 액세스 키는 기본 및 보조 끝점에 대해 동일 합니다.
+보조 복제본에 대 한 읽기 액세스를 사용 하도록 설정 하면 저장소 계정의 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob 저장소에 대 한 기본 끝점이 인 경우 `myaccount.blob.core.windows.net` 보조 끝점은 `myaccount-secondary.blob.core.windows.net` 입니다. 저장소 계정에 대 한 계정 액세스 키는 기본 및 보조 끝점에 대해 동일 합니다.
 
 ### <a name="check-the-last-sync-time-property"></a>마지막 동기화 시간 속성 확인
 
@@ -166,7 +166,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이터의 무결성을 정기적으로 확인 합니다. 데이터 손상이 감지 되 면 중복 데이터를 사용 하 여 복구 됩니다. 또한 Azure Storage는 데이터를 저장 하거나 검색할 때 데이터 패킷의 손상을 검색 하기 위해 모든 네트워크 트래픽에 대 한 체크섬을 계산 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)
 - [저장소 계정에 대 한 중복성 옵션 변경](redundancy-migration.md)

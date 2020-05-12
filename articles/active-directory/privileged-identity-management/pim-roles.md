@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/31/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6eaa50f57dd8037ef0ad96b69284f565bd3558f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80607532"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115645"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 수 없는 역할
 
@@ -40,7 +40,7 @@ Privileged Identity Management에서 다음과 같은 클래식 구독 관리자
 Exchange 관리자 및 SharePoint 관리자와 같은 Azure AD 역할 및 관리자 포털 환경에서 모든 Office365 역할을 지원 하지만 Exchange RBAC 또는 SharePoint RBAC 내의 특정 역할은 지원 하지 않습니다. 이러한 Office 365 서비스에 대한 자세한 내용은 [Office 365 관리자 역할](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles)을 참조하세요.
 
 > [!NOTE]
-> SharePoint 관리자 역할 및 Microsoft 보안 및 규정 준수 센터에 액세스 하려는 모든 역할에 적합 한 사용자는 해당 역할을 활성화 한 후 최대 몇 시간이 지연 될 수 있습니다. 문제를 해결 하기 위해 이러한 팀과 함께 작업 하 고 있습니다.
+> SharePoint 관리자 역할, 장치 관리자 역할 및 Microsoft 보안 및 규정 준수 센터에 액세스 하려는 모든 역할에 적합 한 사용자는 해당 역할을 활성화 한 후 최대 몇 시간이 지연 될 수 있습니다. 문제를 해결 하기 위해 이러한 팀과 함께 작업 하 고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

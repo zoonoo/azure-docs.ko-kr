@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261043"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115611"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용 하 여 응용 프로그램 관리 중앙 집중화
 
@@ -53,7 +53,7 @@ ms.locfileid: "81261043"
 
 |기능  |Description|권장 |
 |---------|---------|---------|
-|SCIM 프로 비전|[Scim](https://aka.ms/SICMOverview) 은 사용자 프로 비전을 자동화 하는 업계 모범 사례입니다. 모든 SCIM 규격 응용 프로그램은 Azure AD와 통합 될 수 있습니다. CSV 파일, 사용자 지정 스크립트 또는 온-프레미스 솔루션을 유지 하지 않고도 사용자 계정을 자동으로 만들고, 업데이트 하 고, 삭제 합니다.|Azure AD 앱 갤러리에서 [미리 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 된 앱의 증가 된 목록 확인|
+|SCIM 프로 비전|[Scim](https://aka.ms/SCIMOverview) 은 사용자 프로 비전을 자동화 하는 업계 모범 사례입니다. 모든 SCIM 규격 응용 프로그램은 Azure AD와 통합 될 수 있습니다. CSV 파일, 사용자 지정 스크립트 또는 온-프레미스 솔루션을 유지 하지 않고도 사용자 계정을 자동으로 만들고, 업데이트 하 고, 삭제 합니다.|Azure AD 앱 갤러리에서 [미리 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 된 앱의 증가 된 목록 확인|
 |Microsoft Graph|Azure AD에서 필요한 데이터를 사용 하 여 응용 프로그램을 보강 하는 데 필요한 데이터의 대략적인 성과 수준을 활용 합니다.|Microsoft [graph](https://developer.microsoft.com/graph/) 를 활용 하 여 microsoft 에코 시스템을 통해 데이터를 가져옵니다. |
 
 
@@ -86,7 +86,7 @@ Id는 클라우드 및 온-프레미스 응용 프로그램에서 모든 항목�
 
 ## <a name="related-articles"></a>관련된 문서
 
-- [응용 프로그램 관리](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
+- [애플리케이션 관리](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [애플리케이션 프로비저닝](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [하이브리드 보안 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
 - [Id 거 버 넌 스](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)

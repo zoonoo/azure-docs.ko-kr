@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54fd8caef51a17148714d9cf90328572433c59db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717991"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115118"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>학습에 대 한 교실 Labs 사용
-학습에 대 한 랩을 설정할 수 있습니다. Azure Lab Services의 교실 랩에서는 각 실습생 교육을 위해 동일 하 고 격리 된 환경을 사용 하는 교육을 위한 랩을 만들 수 있습니다. 각 실습생이 필요할 때에만 교육 환경을 이용할 수 있도록 하고 교육에 필요한 리소스(예: 가상 머신)를 충분히 포함하는 정책을 적용할 수 있습니다. 
+Azure Labs 서비스를 사용 하면 교수, 강사 또는 교육 도우미가 실습생에 대해 미리 구성 된 학습 환경을 프로 비전 하는 온라인 랩을 빠르고 쉽게 만들 수 있습니다. 각 실습생는 교육을 위해 동일 하 고 격리 된 환경을 사용할 수 있습니다. 정책을 적용 하 여 각 실습생가 필요할 때만 교육 환경을 사용할 수 있도록 하 고 교육에 필요한 가상 컴퓨터와 같은 충분 한 리소스를 포함할 수 있습니다. 
 
 ![교실 랩](../media/classroom-labs-scenarios/classroom.png)
 

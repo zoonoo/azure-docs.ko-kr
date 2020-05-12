@@ -8,21 +8,25 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983196"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117396"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 세션 호스트 크기 조정
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
 
 Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비용을 줄일 수 있습니다. 즉, 사용량이 적은 시간에 세션 호스트 Vm을 종료 하 고 할당을 취소 한 다음, 사용량이 많은 시간 동안 다시 설정 하 고 다시 할당 합니다.
 
 이 문서에서는 Windows 가상 데스크톱 환경에서 세션 호스트 가상 컴퓨터의 크기를 자동으로 조정 하는 Azure Automation 및 Azure Logic Apps를 사용 하 여 빌드한 크기 조정 도구에 대해 알아봅니다. 크기 조정 도구를 사용 하는 방법에 대 한 자세한 내용은 [필수 구성 요소](#prerequisites)로 건너뜁니다.
+
+## <a name="report-issues"></a>문제 보고
+
+크기 조정 도구에 대 한 문제 보고서는 현재 Microsoft 지원 대신 GitHub에서 처리 됩니다. 크기 조정 도구에 문제가 발생 하는 경우 [RDS github 페이지](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)에서 "4A-wvd-logicapps" 레이블이 지정 된 GitHub 문제를 열고 bu에 보고할 수 있습니다.
 
 ## <a name="how-the-scaling-tool-works"></a>크기 조정 도구의 작동 원리
 
@@ -43,7 +47,7 @@ Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비�
 
 사용량이 많지 않은 사용 시간 동안 작업은 사용 시간을 결정 *하는 데* 사용 되는 세션 호스트 vm을 결정 합니다. 작업은 세션 호스트 Vm을 드레이닝 모드로 설정 하 여 호스트에 연결 하는 새 세션을 방지 합니다. *LimitSecondsToForceLogOffUser* 매개 변수를 0이 아닌 값으로 설정 하는 경우 작업은 현재 로그인 한 사용자에 게 작업을 저장 하도록 알리고 구성 된 시간 동안 기다린 다음 사용자가 로그 아웃 하도록 합니다. 세션 호스트 VM의 모든 사용자 세션이 로그 아웃 되 면 작업에서 VM이 종료 됩니다.
 
-*LimitSecondsToForceLogOffUser* 매개 변수를 0으로 설정 하면 작업에서 지정 된 그룹 정책의 세션 구성 설정을 허용 하 여 사용자 세션의 로그 오프를 처리할 수 있습니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **터미널 서비스** > **터미널 서버** > **세션 시간 제한**으로 이동 합니다. 세션 호스트 VM에 활성 세션이 있으면 작업에서 세션 호스트 VM이 실행 되는 상태로 유지 됩니다. 활성 세션이 없으면 작업에서 세션 호스트 VM이 종료 됩니다.
+*LimitSecondsToForceLogOffUser* 매개 변수를 0으로 설정 하면 작업에서 지정 된 그룹 정책의 세션 구성 설정을 허용 하 여 사용자 세션의 로그 오프를 처리할 수 있습니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **터미널 서비스**  >  **터미널 서버**  >  **세션 시간 제한**으로 이동 합니다. 세션 호스트 VM에 활성 세션이 있으면 작업에서 세션 호스트 VM이 실행 되는 상태로 유지 됩니다. 활성 세션이 없으면 작업에서 세션 호스트 VM이 종료 됩니다.
 
 작업은 설정 된 되풀이 간격에 따라 주기적으로 실행 됩니다. Windows 가상 데스크톱 환경의 크기에 따라이 간격을 변경할 수 있지만, 가상 컴퓨터를 시작 하 고 종료 하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해 야 합니다. 되풀이 간격을 15 분 간격으로 설정 하는 것이 좋습니다.
 
@@ -55,7 +59,7 @@ Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비�
 >[!NOTE]
 >크기 조정 도구는 크기를 조정 하는 호스트 풀의 부하 분산 모드를 제어 합니다. 이는 최고 및 사용률이 낮은 시간에 대해 너비 우선 부하 분산으로 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 크기 조정 도구를 설정 하기 전에 다음 항목을 준비 해야 합니다.
 
@@ -258,6 +262,3 @@ Azure Automation 계정을 호스팅하는 리소스 그룹의 runbook (기본 �
 
 ![크기 조정 도구에 대 한 출력 창의 이미지입니다.](../media/tool-output.png)
 
-## <a name="report-issues"></a>문제 보고
-
-크기 조정 도구에 문제가 발생 하는 경우 [RDS GitHub 페이지](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)에서 보고할 수 있습니다.

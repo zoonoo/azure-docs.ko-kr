@@ -2,13 +2,13 @@
 title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Microsoft Docs
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/11/2020
+ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927941"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115662"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -31,7 +31,7 @@ ms.locfileid: "82927941"
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="before-you-start"></a><a name="prep"></a>시작 하기 전에
+## <a name="before-you-start"></a><a name="prep"></a>시작하기 전에
 
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 
@@ -56,7 +56,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 `TelemetryClient`의 인스턴스 가져오기(웹 페이지의 JavaScript는 제외):
 
-[.Net/.Net Core 앱에 대 한 ASP.NET Core 앱 및 비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) 의 경우 해당 설명서에 설명 된 대로 `TelemetryClient` 종속성 주입 컨테이너에서 인스턴스를 가져오는 것이 좋습니다. [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected)
+[.Net/.Net Core 앱에 대 한 ASP.NET Core 앱 및 비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) 의 경우 [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) `TelemetryClient` 해당 설명서에 설명 된 대로 종속성 주입 컨테이너에서 인스턴스를 가져오는 것이 좋습니다.
 
 AzureFunctions v2 + 또는 Azure WebJobs v3 +를 사용 하는 경우 다음 문서를 따르세요.https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
@@ -147,7 +147,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 분석](analytics.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 `customEvents | summarize sum(itemCount)`같은 코드를 사용 해야 합니다.
+[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 같은 코드를 사용 해야 합니다 `customEvents | summarize sum(itemCount)` .
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -436,7 +436,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다. 
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
 
 ```kusto
 exceptions
@@ -488,7 +488,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | Description
+ 매개 변수 | 설명
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) 하는 데 사용 되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -499,7 +499,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다. 
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
 
 *C#*
 
@@ -991,7 +991,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.JS*
 
-Node.js의 경우를 통해 `setInternalLogging` 내부 로깅을 설정 하 고를 0으로 설정 `maxBatchSize` 하 여 개발자 모드를 사용 하도록 설정할 수 있습니다. 그러면 원격 분석이 수집 되는 즉시 전송 됩니다.
+Node.js의 경우를 통해 내부 로깅을 설정 하 고를 0으로 설정 하 여 개발자 모드를 사용 하도록 설정할 수 있습니다 `setInternalLogging` `maxBatchSize` . 그러면 원격 분석이 수집 되는 즉시 전송 됩니다.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1062,7 +1062,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다. 
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1096,22 +1096,20 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * [Java 참조](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-
 ## <a name="sdk-code"></a>SDK 코드
 
-* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [Windows Server 패키지](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Windows Server 패키지](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-
 
 ## <a name="questions"></a>질문
 
 * *Track_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
 
-    없습니다. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
+    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 * *포털에서 데이터를 가져오는 REST API가 있나요?*
 
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md ) 및 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)가 있습니다.

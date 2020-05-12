@@ -1,19 +1,19 @@
 ---
-title: 변경 피드 끌어오기 모델
+title: 변경 피드 풀 모델
 description: Azure Cosmos DB 변경 피드 끌어오기 모델을 사용 하 여 변경 피드를 읽는 방법 및 끌어오기 모델과 변경 피드 프로세서 간의 차이점에 대해 알아봅니다.
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/10/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2854e3d92462ced3958afd1cf1e7e99d7e9892f6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984682"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116716"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB에서 피드 끌어오기 모델 변경
 
@@ -24,23 +24,23 @@ ms.locfileid: "82984682"
 
 ## <a name="consuming-an-entire-containers-changes"></a>전체 컨테이너의 변경 내용 사용
 
-끌어오기 모델을 사용 `FeedIterator` 하 여 변경 피드를 처리 하는를 만들 수 있습니다. 를 처음 만들 `FeedIterator`때 내에서 선택 항목 `StartTime` 을 지정할 수 있습니다. `ChangeFeedRequestOptions` 지정 `StartTime` 하지 않으면 현재 시간이 됩니다.
+`FeedIterator`끌어오기 모델을 사용 하 여 변경 피드를 처리 하는를 만들 수 있습니다. 를 처음 만들 때 `FeedIterator` 내에서 선택 항목을 지정할 수 있습니다 `StartTime` `ChangeFeedRequestOptions` . 지정 `StartTime` 하지 않으면 현재 시간이 됩니다.
 
-는 `FeedIterator` 두 가지 형태로 제공 됩니다. 엔터티 개체를 반환 하는 아래 예제 외에도 `Stream` 지원 요청을 받을 수 있습니다. 스트림을 사용 하면 데이터를 먼저 deserialize 하지 않고 데이터를 읽고 클라이언트 리소스를 저장할 수 있습니다.
+는 `FeedIterator` 두 가지 형태로 제공 됩니다. 엔터티 개체를 반환 하는 아래 예제 외에도 지원 요청을 받을 수 있습니다 `Stream` . 스트림을 사용 하면 데이터를 먼저 deserialize 하지 않고 데이터를 읽고 클라이언트 리소스를 저장할 수 있습니다.
 
-엔터티 개체를 반환 `FeedIterator` 하는 (이 경우 `User` 개체)를 가져오는 예제는 다음과 같습니다.
+`FeedIterator`엔터티 개체를 반환 하는 (이 경우 개체)를 가져오는 예제는 다음과 같습니다 `User` .
 
 ```csharp
 FeedIterator<User> iteratorWithPOCOS = container.GetChangeFeedIterator<User>();
 ```
 
-을 `FeedIterator` `Stream`반환 하는를 가져오는 예제는 다음과 같습니다.
+을 반환 하는를 가져오는 예제는 `FeedIterator` 다음과 같습니다 `Stream` .
 
 ```csharp
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-`FeedIterator`를 사용 하면 고유한 속도로 전체 컨테이너의 변경 피드를 쉽게 처리할 수 있습니다. 예를 들면 다음과 같습니다.
+를 사용 `FeedIterator` 하면 고유한 속도로 전체 컨테이너의 변경 피드를 쉽게 처리할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -58,7 +58,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## <a name="consuming-a-partition-keys-changes"></a>파티션 키의 변경 내용 사용
 
-특정 파티션 키의 변경 내용만 처리 하려는 경우도 있습니다. 특정 파티션 키에 `FeedIterator` 대 한를 가져와서 전체 컨테이너에 대해 다음과 같은 방법으로 변경 내용을 처리할 수 있습니다.
+특정 파티션 키의 변경 내용만 처리 하려는 경우도 있습니다. `FeedIterator`특정 파티션 키에 대 한를 가져와서 전체 컨테이너에 대해 다음과 같은 방법으로 변경 내용을 처리할 수 있습니다.
 
 ```csharp
 FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -86,11 +86,11 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 컨테이너에 대 한 FeedRanges 목록을 가져오면 `FeedRange` [실제 파티션당](partition-data.md#physical-partitions)하나를 받게 됩니다.
 
-`FeedRange`를 사용 하 여 여러 컴퓨터 또는 스레드에서 `FeedIterator` 변경 피드의 처리를 병렬화 하는을 만들 수 있습니다. 전체 컨테이너에 대해 단일 `FeedIterator` 를 가져오는 방법을 보여 준 이전 예제와는 달리를 `FeedRange` 사용 하 여 변경 피드를 병렬로 처리할 수 있는 여러 feediterators 얻을 수 있습니다.
+를 사용 하 여 `FeedRange` `FeedIterator` 여러 컴퓨터 또는 스레드에서 변경 피드의 처리를 병렬화 하는을 만들 수 있습니다. 전체 컨테이너에 대해 단일를 가져오는 방법을 보여 준 이전 예제와 `FeedIterator` 는 달리를 사용 하 여 `FeedRange` 변경 피드를 병렬로 처리할 수 있는 여러 FeedIterators 얻을 수 있습니다.
 
 FeedRanges를 사용 하려는 경우 FeedRanges를 가져오고 해당 컴퓨터에 배포 하는 orchestrator 프로세스가 필요 합니다. 이 배포는 다음과 같을 수 있습니다.
 
-* 이 `FeedRange.ToJsonString` 문자열 값을 사용 하 고 배포 합니다. 소비자는와 함께이 값을 사용할 수 있습니다.`FeedRange.FromJsonString`
+* `FeedRange.ToJsonString`이 문자열 값을 사용 하 고 배포 합니다. 소비자는와 함께이 값을 사용할 수 있습니다.`FeedRange.FromJsonString`
 * 배포가 in-process 인 경우 `FeedRange` 개체 참조를 전달 합니다.
 
 다음은 병렬로 읽는 두 개의 가상 컴퓨터를 사용 하 여 컨테이너의 변경 피드의 시작 부분에서 읽는 방법을 보여 주는 샘플입니다.
@@ -127,7 +127,7 @@ while (iteratorB.HasMoreResults)
 
 ## <a name="saving-continuation-tokens"></a>연속 토큰 저장
 
-연속 토큰을 만들어의 `FeedIterator` 위치를 저장할 수 있습니다. 연속 토큰은 FeedIterator의 마지막으로 처리 된 변경 내용 추적을 유지 하는 문자열 값입니다. 이렇게 하면 나중 `FeedIterator` 에를 다시 시작할 수 있습니다. 다음 코드는 컨테이너를 만든 이후의 변경 피드를 통해 읽습니다. 사용할 수 있는 변경 내용이 더 이상 없는 경우에는 변경 피드 사용을 나중에 다시 시작할 수 있도록 연속 토큰을 유지 합니다.
+연속 토큰을 만들어의 위치를 저장할 수 있습니다 `FeedIterator` . 연속 토큰은 FeedIterator의 마지막으로 처리 된 변경 내용 추적을 유지 하는 문자열 값입니다. 이렇게 하면 나중에를 `FeedIterator` 다시 시작할 수 있습니다. 다음 코드는 컨테이너를 만든 이후의 변경 피드를 통해 읽습니다. 사용할 수 있는 변경 내용이 더 이상 없는 경우에는 변경 피드 사용을 나중에 다시 시작할 수 있도록 연속 토큰을 유지 합니다.
 
 ```csharp
 FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -137,9 +137,9 @@ string continuation = null;
 while (iterator.HasMoreResults)
 {
    FeedResponse<User> users = await iterator.ReadNextAsync();
-   continuation = orders.ContinuationToken;
+   continuation = users.ContinuationToken;
 
-   foreach (User user in Users)
+   foreach (User user in users)
     {
         Console.WriteLine($"Detected change for user with id {user.id}");
     }
