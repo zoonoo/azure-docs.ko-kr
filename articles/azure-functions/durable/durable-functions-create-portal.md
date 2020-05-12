@@ -2,14 +2,14 @@
 title: Azure Portal을 사용하는 Durable Functions 만들기
 description: Azure Functions, 포털 개발을 위한 Durable Functions 확장을 설치하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769645"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120155"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -32,13 +32,15 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패키지](https://www.npmjs.com/package/durable-functions)를 설치 해야 합니다.
 
-1. 함수 앱의 이름과 **플랫폼 기능**을 차례로 선택한 후 **고급 도구(Kudu)** 를 선택합니다.
+1. 함수 앱 페이지의 왼쪽 창에 있는 **개발 도구** 에서 **고급 도구** 를 선택 합니다.
 
-   ![Functions 플랫폼 기능에서 Kudu를 선택함](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Functions 플랫폼 기능에서 Kudu를 선택함":::
 
-2. Kudu 콘솔 내부에서 **디버그 콘솔**을 선택한 후 **CMD**를 선택합니다.
+2. **고급 도구** 페이지에서 **이동**을 선택 합니다.
 
-   ![Kudu 디버그 콘솔](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+3. Kudu 콘솔 내에서 **디버그 콘솔**, **CMD**를 차례로 선택 합니다.
+
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu 디버그 콘솔":::
 
 3. 함수 앱의 파일 디렉터리 구조가 표시되어야 합니다. `site/wwwroot` 폴더로 이동합니다. 여기에서 `package.json` 파일을 파일 디렉터리 창에 끌어서 놓아 업로드할 수 있습니다. 샘플 `package.json`은 다음과 같습니다.
 
@@ -50,7 +52,7 @@ JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패�
     }
     ```
 
-   ![Kudu 업로드 package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu 업로드 package.json":::
 
 4. `package.json`이 업로드되면 Kudu 원격 실행 콘솔에서 `npm install` 명령을 실행합니다.
 
@@ -58,29 +60,23 @@ JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패�
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장 하 고 **+** **함수**옆에 있는 단추를 클릭 합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱의 왼쪽 창에서 **함수** 를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
 
-   ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+1. **새 함수** 페이지의 검색 필드에를 입력 하 `durable` 고 **Durable Functions HTTP 스타터** 템플릿을 선택 합니다.
 
-1. **추가 템플릿**, **템플릿 마침 및 보기**를 차례로 선택합니다.
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Durable Functions HTTP 스타터를 선택 합니다.":::
 
-    ![Functions 빠른 시작 - 추가 템플릿 선택](./media/durable-functions-create-portal/add-first-function.png)
+1. **새 함수** 이름에를 입력 한 `HttpStart` 다음 **함수 만들기**를 선택 합니다.
 
-1. 검색 필드에서 `durable`를 입력한 다음, **Durable Functions HTTP 시작** 템플릿을 선택합니다.
+   만들어진 함수를 사용하오여 오케스트레이션을 시작합니다.
 
-1. 메시지가 표시 되 면 **설치** 를 선택 하 여 Azure microsoft.azure.webjobs.extensions.durabletask 확장 및 함수 앱에 모든 종속성을 설치 합니다. give 함수 앱에 대해 이 확장을 한 번만 설치해야 합니다. 설치가 완료되면 **계속**을 선택합니다.
+1. 이번에는 **Durable Functions orchestrator** 템플릿을 사용 하 여 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-    ![바인딩 확장 설치](./media/durable-functions-create-portal/install-durabletask-extension.png)
-
-1. 설치가 완료되면 새 함수 `HttpStart`에 이름을 지정하고 **만들기**를 선택합니다. 만들어진 함수를 사용하오여 오케스트레이션을 시작합니다.
-
-1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
-
-1. **Durable Functions 활동** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
+1. `Hello` **Durable Functions 활동** 템플릿을 사용 하 여 라는 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
-1. **HttpStart** 함수로 다시 가서 **</> 함수 URL 가져오기**를 선택한 후 URL을 **복사**합니다. 이 URL을 사용하여 **HelloSequence** 함수를 시작합니다.
+1. **Httpstart** 함수로 돌아가서 **함수 Url 가져오기**를 선택 하 고 **클립보드로 복사** 아이콘을 선택 하 여 Url을 복사 합니다. 이 URL을 사용하여 **HelloSequence** 함수를 시작합니다.
 
 1. Postman 또는 cURL과 같은 HTTP 도구를 사용하여 POST 요청을 사용자가 복사한 URL로 보냅니다. 다음 예제는 Durable Functions로 POST 요청을 보내는 cURL 명령입니다.
 
@@ -133,4 +129,4 @@ JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 지 속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

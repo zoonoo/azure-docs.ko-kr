@@ -1,20 +1,20 @@
 ---
 title: 지도에 HTML 표식 추가 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 HTML 마커를 추가 하는 방법에 대해 설명 합니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2700d42c25d58911fb275ad9ce6c5610cd22624d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536771"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119287"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "79536771"
 
 ## <a name="add-an-html-marker"></a>HTML 표식 추가
 
-[Htmlmarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HTML 마커 클래스의 기본 스타일은 `{color}` 및 `{text}` 자리 표시 자가 있는 SVG 템플릿입니다. 빠른 사용자 지정을 위해 HTML 표식 옵션에서 색 및 텍스트 속성을 설정 합니다. 
+[Htmlmarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) 클래스에는 기본 스타일이 있습니다. 표식의 색 및 텍스트 옵션을 설정하여 표식을 사용자 지정할 수 있습니다. HTML 마커 클래스의 기본 스타일은 및 자리 표시 자가 있는 SVG 템플릿입니다 `{color}` `{text}` . 빠른 사용자 지정을 위해 HTML 표식 옵션에서 색 및 텍스트 속성을 설정 합니다. 
 
 다음 코드에서는 HTML 표식을 만들고 color 속성을 "DodgerBlue"로 설정 하 고 text 속성을 "10"으로 설정 합니다. 팝업은 표식에 연결 되 고 `click` 이벤트는 팝업의 표시 여부를 전환 하는 데 사용 됩니다.
 
@@ -82,7 +82,7 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 ## <a name="draggable-html-markers"></a>드래그할 수 있는 HTML 표식
 
-이 샘플에서는 HTML 표식을 드래그하는 방법을 보여줍니다. HTML 마커는 `drag`, `dragstart`및 `dragend` 이벤트를 지원 합니다.
+이 샘플에서는 HTML 표식을 드래그하는 방법을 보여줍니다. HTML 마커 `drag` 는, `dragstart` 및 이벤트를 지원 `dragend` 합니다.
 
 <br/>
 

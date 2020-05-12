@@ -14,24 +14,28 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501923"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118399"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 등록하고, 액세스할 수 있는 모든 랩을 살펴보고, 랩에서 VM을 시작/중지하고, VM에 연결하는 방법을 설명합니다. 
 
 ## <a name="register-to-the-lab"></a>랩에 등록
 
-1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 URL [https://labs.azure.com](https://labs.azure.com)을 사용 합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 URL을 사용 [https://labs.azure.com](https://labs.azure.com) 합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+
+    ![랩에 등록](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
 
     > [!NOTE]
     > Azure Lab Services를 사용하려면 Microsoft 계정이 필요합니다. Yahoo 또는 Google 계정과 같은 비 Microsoft 계정을 사용하여 포털에 로그인 하려는 경우 지침에 따라 Microsoft 계정에 연결할 Microsoft 계정을 만듭니다. 그런 다음, 단계에 따라 등록 프로세스를 완료합니다. 
 1. 등록 후에는 액세스할 수 있는 랩의 가상 머신이 보이는지 확인합니다. 
+
+    ![액세스 가능한 Vm](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. 가상 머신이 준비될 때까지 기다립니다. VM 타일에서 다음 필드를 확인합니다.
     1. 타일의 맨 위에 **랩 이름**이 표시됩니다.
     1. 오른쪽에는 VM의 **OS(운영 체제)** 를 나타내는 아이콘이 표시됩니다. 이 예제에서는 Windows OS입니다. 

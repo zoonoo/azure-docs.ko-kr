@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8af4cafb2c7ab4d39a591f5972803161c2aa0f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519475"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120388"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
 
@@ -109,7 +109,7 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 요구 사항은 특정 Azure 데이터 센터 제한 사항에 따라 달라 집니다.
 
-- 보안을 위해 parcel에 Microsoft 데이터 센터 인바운드 ID 번호를 작성 해야 하는 오스트레일리아, 독일, 영국 남부 등의 몇 가지 사이트가 있습니다. 데이터 센터에 드라이브 또는 디스크를 배송 하기 전에 Azure DataBox 작업 (adbops@microsoft.com)에 문의 하 여이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부 됩니다.
+- 보안을 위해 parcel에 Microsoft 데이터 센터 인바운드 ID 번호를 작성 해야 하는 오스트레일리아, 독일, 영국 남부 등의 몇 가지 사이트가 있습니다. 데이터 센터에 드라이브 또는 디스크를 배송 하기 전에 Azure DataBox 작업 ()에 문의 adbops@microsoft.com 하 여이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부 됩니다.
 - 인도 데이터 센터에는 정부 ID 카드 또는 증명 번호와 같은 드라이버의 개인 세부 정보가 필요 합니다. (예를 들어, PAN, AADHAR, DL), 이름, 연락처 및 자동차 플레이트 번호를 입력 하 여 게이트 진입 패스를 가져옵니다. 배달 지연 시간을 방지 하려면 회사에 이러한 요구 사항을 알려 주십시오.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다.   어떻게 해야 합니까?
@@ -153,7 +153,7 @@ Azure Portal 또는 [Storage 탐색기](https://docs.microsoft.com/azure/vs-azur
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export는 AES-256 암호화를 지원하나요?
 
-아니요. Azure Import/Export 서비스는 AES-128 BitLocker 암호화를 사용 합니다.
+예. Azure Import/Export 서비스는 AES-256 BitLocker 암호화를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

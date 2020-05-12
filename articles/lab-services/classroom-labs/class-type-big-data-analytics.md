@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538779"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118433"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>HortonWorks Data Platform의 Docker 배포를 사용 하 여 빅 데이터 분석에 대 한 랩 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "81538779"
 
 랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)을 참조 하세요.
 
-| 랩 계정 설정 | Instructions |
+| 랩 계정 설정 | 지침 |
 | ------------------- | ------------ |
 |Marketplace 이미지| 랩 계정 내에서 사용할 Windows 10 Pro 이미지를 사용 하도록 설정 합니다.|
 
@@ -102,7 +102,7 @@ Docker 컨테이너를 사용 하려면 먼저 Docker Desktop을 템플릿 VM에
 1. HDP 샌드박스에서 Docker 컨테이너를 배포 하 고 실행 한 후에는 브라우저를 시작 하 여 환경에 액세스 하 고, [샌드박스 시작 페이지](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) 를 열고 HDP 대시보드를 시작 하는 Cloudera의 지침을 따릅니다.
 
     > [!NOTE] 
-    > 이 지침에서는 sandbox 환경의 로컬 IP 주소를 템플릿 VM의 호스트 파일에 있는 sandbox-hdp.hortonworks.com에 먼저 매핑한 것으로 가정 합니다.  이 매핑을 수행 **하지** 않으면로 [http://localhost:8080](http://localhost:8080)이동 하 여 샌드박스 시작 페이지에 액세스할 수 있습니다.
+    > 이 지침에서는 sandbox 환경의 로컬 IP 주소를 템플릿 VM의 호스트 파일에 있는 sandbox-hdp.hortonworks.com에 먼저 매핑한 것으로 가정 합니다.  이 매핑을 수행 **하지** 않으면로 이동 하 여 샌드박스 시작 페이지에 액세스할 수 있습니다 `http://localhost:8080` .
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>학생이 로그인 할 때 Docker 컨테이너를 자동으로 시작
 

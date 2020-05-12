@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183469"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118467"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-관리자 가이드
 대학 클라우드 리소스를 관리 하는 IT (정보 기술) 관리자는 일반적으로 학교에 대 한 랩 계정을 설정 해야 합니다. 랩 계정이 설정 되 면 관리자 또는 교육자는 랩 계정 내에 포함 된 교실 랩을 만듭니다. 이 문서에서는 관련 된 Azure 리소스 및 해당 리소스를 만들기 위한 지침에 대 한 개략적인 개요를 제공 합니다.
@@ -124,16 +124,16 @@ Azure Lab Services를 시작 하는 경우 리소스 그룹, 랩 계정, 교실 
 
 | 리소스 유형 | 역할 | 제안된 패턴 | 예 |
 | ------------- | ---- | ----------------- | -------- | 
-| Resource group | 하나 이상의 랩 계정 및 하나 이상의 공유 이미지 갤러리를 포함 합니다. | \<조직 단기 이름\>-\<환경\>-rg<ul><li>**조직 약식 이름** 리소스 그룹이 지 원하는 조직의 이름을 식별 합니다.</li><li>**환경** 에서 파일럿 또는 프로덕션과 같은 리소스에 대 한 환경을 식별 합니다.</li><li>**Rg** 는 리소스 종류: 리소스 그룹을 나타냅니다.</li></ul> | a n y i n y-rg<br/>a n y i n a d-모의 실험-rg<br/>a n y i n a d-prod-rg |
-| 랩 계정 | 하나 이상의 랩 포함 | \<조직 단기 이름\>-\<환경\>-la<ul><li>**조직 약식 이름** 리소스 그룹이 지 원하는 조직의 이름을 식별 합니다.</li><li>**환경** 에서 파일럿 또는 프로덕션과 같은 리소스에 대 한 환경을 식별 합니다.</li><li>**La** 는 리소스 유형: 랩 계정을 나타냅니다.</li></ul> | a n y i n y-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-la<br/>sciencedeptlabs-prod-la |
-| 교실 랩 | 하나 이상의 Vm 포함 |\<클래스 이름\>-\<\>기간-교육자 identifier\<\><ul><li>**클래스 이름** 은 랩에서 지 원하는 클래스의 이름을 식별 합니다.</li><li>**시간대** 는 클래스가 제공 되는 기간을 식별 합니다.</li>**교육 식별자** 는 랩을 소유 하는 교육자을 식별 합니다.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전이 포함 되어 있습니다. | \<조직 약식 이름\>갤러리 | 이 갤러리에 대 한 |
+| Resource group | 하나 이상의 랩 계정 및 하나 이상의 공유 이미지 갤러리를 포함 합니다. | \<조직 단기 이름 \> - \< 환경 \> -rg<ul><li>**조직 약식 이름** 리소스 그룹이 지 원하는 조직의 이름을 식별 합니다.</li><li>**환경** 에서 파일럿 또는 프로덕션과 같은 리소스에 대 한 환경을 식별 합니다.</li><li>**Rg** 는 리소스 종류: 리소스 그룹을 나타냅니다.</li></ul> | a n y i n y-rg<br/>a n y i n a d-모의 실험-rg<br/>a n y i n a d-prod-rg |
+| 랩 계정 | 하나 이상의 랩 포함 | \<조직 단기 이름 \> - \< 환경 \> -la<ul><li>**조직 약식 이름** 리소스 그룹이 지 원하는 조직의 이름을 식별 합니다.</li><li>**환경** 에서 파일럿 또는 프로덕션과 같은 리소스에 대 한 환경을 식별 합니다.</li><li>**La** 는 리소스 유형: 랩 계정을 나타냅니다.</li></ul> | a n y i n y-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-la<br/>sciencedeptlabs-prod-la |
+| 교실 랩 | 하나 이상의 Vm 포함 |\<클래스 이름 \> - \< 기간 \> - \< 교육자 identifier\><ul><li>**클래스 이름** 은 랩에서 지 원하는 클래스의 이름을 식별 합니다.</li><li>**시간대** 는 클래스가 제공 되는 기간을 식별 합니다.</li>**교육 식별자** 는 랩을 소유 하는 교육자을 식별 합니다.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
+| 공유 이미지 갤러리 | 하나 이상의 VM 이미지 버전이 포함 되어 있습니다. | \<조직 약식 이름 \> 갤러리 | 이 갤러리에 대 한 |
 
 다른 Azure 리소스의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure 리소스에 대 한 명명 규칙](/azure/architecture/best-practices/naming-conventions)을 참조 하세요.
 
 ## <a name="regionslocations"></a>지역 \ 위치
 
-Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스팅할 데이터 센터의 지역 (또는 위치)을 제공 해야 합니다. 지역이 랩을 설정 하는 것과 관련 된 각 자원에 영향을 주는 방법에 대 한 자세한 내용은 다음과 같습니다.
+Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스팅할 데이터 센터의 지역 (또는 위치)을 제공 해야 합니다. 지역이 랩을 설정 하는 데 관련 된 각 리소스에 영향을 주는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -178,7 +178,7 @@ Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스팅할 �
 | Size | 사양 | 계열 | 권장 사용 |
 | ---- | ----- | ------ | ------------- |
 | 작음| <ul><li>2개 코어</li><li>3.5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스에 가장 적합 합니다. |
-| 보통 | <ul><li>4 코어</li><li>7GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. |
+| 중형 | <ul><li>4 코어</li><li>7GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. |
 | 중간 (중첩 된 가상화) | <ul><li>4 코어</li><li>16GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.  이 크기는 중첩 된 가상화도 지원 합니다. |
 | 큰 | <ul><li>8개 코어</li><li>32 GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다.  이 크기는 중첩 된 가상화도 지원 합니다. |
 | 소형 GPU (시각화) | <ul><li>6 코어</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. |

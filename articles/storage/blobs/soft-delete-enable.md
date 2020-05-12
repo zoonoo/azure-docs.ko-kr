@@ -1,24 +1,30 @@
 ---
-title: Blob에 대해 일시 삭제 사용
+title: Blob에 대 한 일시 삭제를 사용 하도록 설정 하 고 관리 합니다.
 titleSuffix: Azure Storage
 description: Blob 개체에 대해 일시 삭제를 사용 하도록 설정 하 여 데이터를 잘못 수정 하거나 삭제 한 경우 더 쉽게 복구할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884684"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120099"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Blob에 대해 일시 삭제 사용
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Blob에 대 한 일시 삭제를 사용 하도록 설정 하 고 관리 합니다.
 
-다음 단계는 일시 삭제를 시작 하는 방법을 보여 줍니다.
+일시 삭제는 blob 데이터가 실수로 또는 실수로 수정 되거나 삭제 되지 않도록 보호 합니다. 저장소 계정에 대해 일시 삭제를 사용 하도록 설정한 경우 해당 저장소 계정의 blob, blob 버전 (미리 보기) 및 스냅숏은 지정 된 보존 기간 내에 삭제 된 후 복구 될 수 있습니다.
+
+응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 수 있는 경우에는 일시 삭제를 설정 하는 것이 좋습니다.
+
+이 문서에서는 일시 삭제를 시작 하는 방법을 보여 줍니다.
+
+## <a name="enable-soft-delete"></a>일시 삭제 사용
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 다음 명령을 사용하여 일시 삭제가 켜졌는지 확인할 수 있습니다.
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>다음 단계
+
+- [Blob 저장소에 대 한 일시 삭제](soft-delete-overview.md)
+- [Blob 버전 관리 (미리 보기)](versioning-overview.md)

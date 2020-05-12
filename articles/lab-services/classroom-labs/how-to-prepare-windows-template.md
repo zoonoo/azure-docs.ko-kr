@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521178"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119300"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정 하는 방법에 대 한 가이드
 
@@ -32,7 +32,7 @@ Azure Lab Services에 대 한 Windows 10 템플릿 컴퓨터를 설정 하는 �
 
 OneDrive를 수동으로 다운로드 하 여 설치 하려면 [onedrive](https://onedrive.live.com/about/download/) 또는 비즈니스용 [onedrive](https://onedrive.live.com/about/business/) 다운로드 페이지를 참조 하세요.
 
-다음 PowerShell 스크립트를 사용할 수도 있습니다.  그러면 OneDrive의 최신 버전을 자동으로 다운로드 하 여 설치 합니다.  OneDrive 클라이언트가 설치 되 면 설치 관리자를 실행 합니다.  이 예제에서는 `/allUsers` 스위치를 사용 하 여 컴퓨터의 모든 사용자에 대해 OneDrive를 설치 합니다. 또한 스위치를 `/silent` 사용 하 여 OneDrive를 자동으로 설치 합니다.
+다음 PowerShell 스크립트를 사용할 수도 있습니다.  그러면 OneDrive의 최신 버전을 자동으로 다운로드 하 여 설치 합니다.  OneDrive 클라이언트가 설치 되 면 설치 관리자를 실행 합니다.  이 예제에서는 스위치를 사용 `/allUsers` 하 여 컴퓨터의 모든 사용자에 대해 OneDrive를 설치 합니다. 또한 스위치를 사용 `/silent` 하 여 OneDrive를 자동으로 설치 합니다.
 
 ```powershell
 Write-Host "Downloading OneDrive Client..."
@@ -136,9 +136,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 템플릿 컴퓨터에 Office가 필요한 경우 [ODT (Office 배포 도구)](https://www.microsoft.com/download/details.aspx?id=49117 )를 통해 office를 설치 하는 것이 좋습니다. [Office 365 클라이언트 구성 서비스](https://config.office.com/) 를 사용 하 여 재사용 가능한 구성 파일을 만들어 office에서 필요한 기능 및 업데이트 빈도를 선택 해야 합니다.
 
 1. [Office 365 클라이언트 구성 서비스로](https://config.office.com/) 이동 하 여 사용자 고유의 구성 파일을 다운로드 합니다.
-2. [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117)를 다운로드 합니다.  다운로드 한 파일은 `setup.exe`입니다.
-3. 을 `setup.exe /download configuration.xml` 실행 하 여 Office 구성 요소를 다운로드 합니다.
-4. 을 `setup.exe /configure configuration.xml` 실행 하 여 Office 구성 요소를 설치 합니다.
+2. [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117)를 다운로드 합니다.  다운로드 한 파일은 `setup.exe` 입니다.
+3. `setup.exe /download configuration.xml`을 실행 하 여 Office 구성 요소를 다운로드 합니다.
+4. `setup.exe /configure configuration.xml`을 실행 하 여 Office 구성 요소를 설치 합니다.
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Microsoft Office 365 업데이트 채널 변경
 
@@ -211,11 +211,11 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
 2. "언어 팩" 검색
 3. 설치할 언어 선택
 
-이미 템플릿 VM에 로그온 한 경우 ["언어 팩 설치" 바로 가기를](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) 사용 하 여 적절 한 설정 페이지로 직접 이동 합니다.
+템플릿 VM에 이미 로그온 되어 있는 경우 "언어 팩 설치" 바로 가기 ()를 사용 `ms-settings:regionlanguage?activationSource=SMC-IA-4027670` 하 여 적절 한 설정 페이지로 직접 이동 합니다.
 
 ## <a name="remove-unneeded-built-in-apps"></a>불필요 한 기본 제공 앱 제거
 
-Windows 10에는 특정 클래스에 필요 하지 않을 수 있는 다양 한 기본 제공 응용 프로그램이 함께 제공 됩니다. 학생용 컴퓨터 이미지를 간소화 하기 위해 템플릿 컴퓨터에서 일부 응용 프로그램을 제거 하는 것이 좋습니다.  설치 된 응용 프로그램의 목록을 보려면 PowerShell `Get-AppxPackage` cmdlet을 사용 합니다.  아래 예제에서는 제거할 수 있는 설치 된 모든 응용 프로그램을 보여 줍니다.
+Windows 10에는 특정 클래스에 필요 하지 않을 수 있는 다양 한 기본 제공 응용 프로그램이 함께 제공 됩니다. 학생용 컴퓨터 이미지를 간소화 하기 위해 템플릿 컴퓨터에서 일부 응용 프로그램을 제거 하는 것이 좋습니다.  설치 된 응용 프로그램의 목록을 보려면 PowerShell cmdlet을 사용 `Get-AppxPackage` 합니다.  아래 예제에서는 제거할 수 있는 설치 된 모든 응용 프로그램을 보여 줍니다.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name

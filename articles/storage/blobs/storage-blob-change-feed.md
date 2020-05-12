@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883342"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120422"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
 
@@ -36,6 +36,8 @@ ms.locfileid: "82883342"
   - 재해 관리 또는 규정 준수를 위해 계정의 개체 상태를 백업, 미러링 또는 복제 하는 솔루션을 빌드 하세요.
 
   - 변경 이벤트에 반응 하거나 만들어지거나 변경 된 개체를 기반으로 실행을 예약 하는 연결 된 응용 프로그램 파이프라인을 빌드합니다.
+  
+변경 피드는 [블록 blob에 대 한 지정 시간 복원](point-in-time-restore-overview.md)에 대 한 필수 구성 요소입니다.
 
 > [!NOTE]
 > 변경 피드는 blob에 발생 하는 변경 내용에 대 한 지속적이 고 순서가 지정 된 로그 모델을 제공 합니다. 변경 내용은 몇 분 이내에 변경 피드 로그에서 작성 되 고 사용 가능 합니다. 응용 프로그램이이 보다 훨씬 더 빠르게 이벤트에 반응 해야 하는 경우 [Blob Storage 이벤트](storage-blob-event-overview.md) 를 대신 사용 하는 것이 좋습니다. [Blob Storage 이벤트](storage-blob-event-overview.md) 는 Azure Functions 나 응용 프로그램이 Blob에 발생 하는 변경 내용에 신속 하 게 대응할 수 있도록 하는 실시간 일회성 이벤트를 제공 합니다. 
@@ -55,7 +57,7 @@ ms.locfileid: "82883342"
 - GPv2 및 Blob 저장소 계정만 변경 피드를 사용 하도록 설정할 수 있습니다. Premium BlockBlobStorage 계정 및 계층적 네임 스페이스 사용 계정은 현재 지원 되지 않습니다. GPv1 저장소 계정은 지원 되지 않지만 가동 중지 시간 없이 GPv2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 storage 계정으로 업그레이드](../common/storage-account-upgrade.md) 를 참조 하세요.
 
 > [!IMPORTANT]
-> 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
+> 변경 피드는 공개 미리 보기로 제공 되며 미국 **중부**, 미국 **서 부 2**, **프랑스 중부**, **프랑스 남부**, **캐나다 중부**및 **캐나다 동부** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -154,7 +156,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존
 
 변경 피드는 **매시간** *세그먼트로* 구성 되지만 몇 분 마다 추가 및 업데이트 되는 변경 내용에 대 한 로그입니다. 이러한 세그먼트는 해당 시간에 발생 하는 blob 변경 이벤트가 있는 경우에만 생성 됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 전체 로그를 검색할 필요 없이 특정 시간 범위 내에 발생 하는 변경 내용을 사용할 수 있습니다. 자세히 알아보려면 [사양](#specifications)을 참조 하세요.
 
-변경 피드의 사용 가능한 시간별 세그먼트는 해당 세그먼트에 대 한 변경 피드 파일의 경로를 지정 하는 매니페스트 파일에 설명 되어 있습니다. `$blobchangefeed/idx/segments/` 가상 디렉터리 목록은 이러한 세그먼트를 시간별로 정렬 하 여 보여 줍니다. 세그먼트의 경로는 세그먼트가 나타내는 시간별 시간 범위의 시작을 설명 합니다. 이 목록을 사용 하 여 관심 있는 로그 세그먼트를 필터링 할 수 있습니다.
+변경 피드의 사용 가능한 시간별 세그먼트는 해당 세그먼트에 대 한 변경 피드 파일의 경로를 지정 하는 매니페스트 파일에 설명 되어 있습니다. `$blobchangefeed/idx/segments/`가상 디렉터리 목록은 이러한 세그먼트를 시간별로 정렬 하 여 보여 줍니다. 세그먼트의 경로는 세그먼트가 나타내는 시간별 시간 범위의 시작을 설명 합니다. 이 목록을 사용 하 여 관심 있는 로그 세그먼트를 필터링 할 수 있습니다.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -168,7 +170,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 > [!NOTE]
 > 는 `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` 변경 피드를 사용 하도록 설정 하면 자동으로 생성 됩니다. 이 파일은 무시 해도 됩니다. 항상 빈 초기화 파일입니다. 
 
-세그먼트 매니페스트 파일 (`meta.json`)은 `chunkFilePaths` 속성의 해당 세그먼트에 대 한 변경 피드 파일의 경로를 표시 합니다. 다음은 세그먼트 매니페스트 파일의 예입니다.
+세그먼트 매니페스트 파일 ( `meta.json` )은 속성의 해당 세그먼트에 대 한 변경 피드 파일의 경로를 표시 합니다 `chunkFilePaths` . 다음은 세그먼트 매니페스트 파일의 예입니다.
 
 ```json
 {
@@ -199,7 +201,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> 컨테이너 `$blobchangefeed` 는 계정에서 변경 피드 기능을 사용 하도록 설정한 후에만 표시 됩니다. 컨테이너의 blob을 나열 하려면 먼저 변경 피드를 사용 하도록 설정한 후 몇 분 정도 기다려야 합니다. 
+> `$blobchangefeed`컨테이너는 계정에서 변경 피드 기능을 사용 하도록 설정한 후에만 표시 됩니다. 컨테이너의 blob을 나열 하려면 먼저 변경 피드를 사용 하도록 설정한 후 몇 분 정도 기다려야 합니다. 
 
 <a id="log-files"></a>
 
@@ -207,7 +209,13 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 변경 피드 파일에는 일련의 변경 이벤트 레코드가 포함 되어 있습니다. 각 변경 이벤트 레코드는 개별 blob에 대 한 변경 내용 하나에 해당 합니다. 레코드는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양을 사용 하 여 serialize 되 고 파일에 기록 됩니다. Avro 파일 형식 사양을 사용 하 여 레코드를 읽을 수 있습니다. 해당 형식으로 파일을 처리 하는 데 사용할 수 있는 여러 라이브러리가 있습니다.
 
-변경 피드 파일은 `$blobchangefeed/log/` 가상 디렉터리에 [추가 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)으로 저장 됩니다. 각 경로 아래에 있는 첫 번째 변경 피드 파일 `00000` 은 파일 이름에 포함 됩니다 ( `00000.avro`예:). 해당 경로에 추가 되는 각 후속 로그 파일의 이름은 1 씩 증가 합니다 (예: `00001.avro`).
+변경 피드 파일은 `$blobchangefeed/log/` 가상 디렉터리에 [추가 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)으로 저장 됩니다. 각 경로 아래에 있는 첫 번째 변경 피드 파일은 `00000` 파일 이름에 포함 됩니다 (예: `00000.avro` ). 해당 경로에 추가 되는 각 후속 로그 파일의 이름은 1 씩 증가 합니다 (예: `00001.avro` ).
+
+다음 이벤트 유형은 변경 피드 레코드에 캡처됩니다.
+- BlobCreated
+- BlobDeleted
+- Blob는 업데이트 됨
+- BlobSnapshotCreated
 
 다음은 Json으로 변환 된 변경 피드 파일의 이벤트 레코드 변경 예입니다.
 
@@ -238,7 +246,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 }
 ```
 
-각 속성에 대 한 설명은 [Blob Storage에 대 한 Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties)를 참조 하세요.
+각 속성에 대 한 설명은 [Blob Storage에 대 한 Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties)를 참조 하세요. BlobBlobSnapshotCreated 및 업데이트 된 이벤트는 현재 변경 피드 전용 이며 Blob Storage 이벤트에 대해 아직 지원 되지 않습니다.
 
 > [!NOTE]
 > 세그먼트에 대 한 변경 피드 파일은 세그먼트를 만든 후 즉시 표시 되지 않습니다. 지연 시간은 변경 피드의 몇 분 이내에 변경 피드의 게시 대기 시간에 대 한 일반적인 간격 내에 있습니다.
@@ -255,15 +263,15 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - 변경 이벤트 레코드는 [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양을 사용 하 여 로그 파일로 직렬화 됩니다.
 
-- 의 `eventType` `Control` 값이 인 이벤트 레코드를 내부 시스템 레코드로 변경 하 고 계정의 개체에 대 한 변경 내용을 반영 하지 않습니다. 이러한 레코드는 무시 해도 됩니다.
+- 의 값이 인 이벤트 레코드를 `eventType` `Control` 내부 시스템 레코드로 변경 하 고 계정의 개체에 대 한 변경 내용을 반영 하지 않습니다. 이러한 레코드는 무시 해도 됩니다.
 
-- `storageDiagnonstics` 속성 모음의 값은 내부 전용 이며 응용 프로그램에서 사용 하도록 설계 되지 않았습니다. 응용 프로그램에는 해당 데이터에 대 한 계약 종속성이 없어야 합니다. 이러한 속성은 무시 해도 됩니다.
+- `storageDiagnonstics`속성 모음의 값은 내부 전용 이며 응용 프로그램에서 사용 하도록 설계 되지 않았습니다. 응용 프로그램에는 해당 데이터에 대 한 계약 종속성이 없어야 합니다. 이러한 속성은 무시 해도 됩니다.
 
 - 세그먼트가 나타내는 시간은 15 분 범위의 **근사치** 입니다. 따라서 지정 된 시간 내에 모든 레코드의 소비를 보장 하려면 연속 된 이전 및 다음 시간 세그먼트를 사용 합니다.
 
-- 게시 처리량을 관리 하기 위해 로그 스트림의 `chunkFilePaths` 내부 분할 때문에 각 세그먼트의 개수가 다를 수 있습니다. 각 `chunkFilePath` 의 로그 파일은 함께 사용할 수 없는 blob을 포함 하도록 보장 되며 반복 하는 동안 blob 당 수정 순서를 위반 하지 않고 병렬로 사용 하 고 처리할 수 있습니다.
+- `chunkFilePaths`게시 처리량을 관리 하기 위해 로그 스트림의 내부 분할 때문에 각 세그먼트의 개수가 다를 수 있습니다. 각의 로그 파일은 `chunkFilePath` 함께 사용할 수 없는 blob을 포함 하도록 보장 되며 반복 하는 동안 blob 당 수정 순서를 위반 하지 않고 병렬로 사용 하 고 처리할 수 있습니다.
 
-- 세그먼트가 상태에서 `Publishing` 시작 됩니다. 세그먼트에 레코드를 추가 하는 작업이 완료 되 면이 됩니다 `Finalized`. `$blobchangefeed/meta/Segments.json` 파일의 `LastConsumable` 속성 날짜 이후 날짜가 지정 된 모든 세그먼트의 로그 파일은 응용 프로그램에서 사용 하지 않아야 합니다. `$blobchangefeed/meta/Segments.json` 파일에 있는 `LastConsumable`속성의 예는 다음과 같습니다.
+- 세그먼트가 상태에서 시작 `Publishing` 됩니다. 세그먼트에 레코드를 추가 하는 작업이 완료 되 면이 됩니다 `Finalized` . 파일의 속성 날짜 이후 날짜가 지정 된 모든 세그먼트의 로그 파일은 `LastConsumable` `$blobchangefeed/meta/Segments.json` 응용 프로그램에서 사용 하지 않아야 합니다. `LastConsumable`파일에 있는 속성의 예는 `$blobchangefeed/meta/Segments.json` 다음과 같습니다.
 
 ```json
 {
@@ -310,13 +318,13 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>조건 및 알려진 문제 (미리 보기)
 
 이 섹션에서는 변경 피드의 현재 공개 미리 보기의 알려진 문제 및 조건을 설명 합니다. 
-- 미리 보기의 경우 westcentralus 또는 westus2 지역에서 저장소 계정에 대 한 변경 피드를 사용 하도록 설정 하기 전에 먼저 [구독을 등록](#register) 해야 합니다. 
-- 변경 피드는 만들기, 업데이트, 삭제 및 복사 작업만 캡처합니다. 메타 데이터 업데이트는 현재 미리 보기로 캡처되지 않습니다.
+- 미리 보기의 경우 미국 서 부, 미국 서 부 2, 프랑스 중부, 프랑스 남부, 캐나다 중부 및 캐나다 동부 지역에서 저장소 계정에 대 한 변경 피드를 사용 하도록 설정 하기 전에 먼저 [구독을 등록](#register) 해야 합니다. 
+- 변경 피드는 만들기, 업데이트, 삭제 및 복사 작업만 캡처합니다. Blob 속성 및 메타 데이터 변경도 캡처됩니다. 그러나 액세스 계층 속성은 현재 캡처되지 않습니다. 
 - 단일 변경에 대 한 이벤트 레코드 변경 내용은 변경 피드에서 두 번 이상 나타날 수 있습니다.
-- 시간 기반 보존 정책을 설정 하 여 변경 피드 로그 파일의 수명을 아직 관리할 수 없으며 blob을 삭제할 수 없습니다. 
-- 로그 `url` 파일의 속성은 현재 항상 비어 있습니다.
-- Segment `LastConsumable` . json 파일의 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 `LastConsumable` 속성에서 정확 하 게 캡처됩니다.
-- 현재 ListContainers API를 호출할 때 **$blobchangefeed** 컨테이너가 표시 되지 않으며 컨테이너가 Azure Portal 또는에 표시 되지 않습니다 Storage 탐색기
+- 시간 기반 보존 정책을 설정 하 여 변경 피드 로그 파일의 수명을 관리할 수 없으며 blob을 삭제할 수 없습니다.
+- `url`로그 파일의 속성은 현재 항상 비어 있습니다.
+- `LastConsumable`Segment. json 파일의 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 속성에서 정확 하 게 캡처됩니다 `LastConsumable` .
+- 현재 ListContainers API를 호출할 때 **$blobchangefeed** 컨테이너가 표시 되지 않으며 컨테이너가 Azure Portal 또는 Storage 탐색기에 표시 되지 않습니다. $Blobchangefeed 컨테이너에서 ListBlobs API를 직접 호출 하 여 콘텐츠를 볼 수 있습니다.
 - 이전에 [계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md) 를 시작한 저장소 계정은 로그 파일에 문제가 있을 수 있습니다. 이후 모든 계정 장애 조치 (failover)는 미리 보기 중에 로그 파일에 영향을 줄 수도 있습니다.
 
 ## <a name="faq"></a>FAQ

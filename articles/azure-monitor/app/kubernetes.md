@@ -5,26 +5,25 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3b2b4e8868b73e22706c684d94371fe37885b9a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132354"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119253"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 호스팅된 응용 프로그램에 대 한 제로 계측 응용 프로그램 모니터링
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Istio를 사용 하 여 Kubernetes 호스팅된 응용 프로그램에 대 한 제로 계측 응용 프로그램 모니터링-사용 되지 않음
 
 > [!IMPORTANT]
-> 이 기능은 현재 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 현재 사용 되지 않으며 2020 년 8 월 1 일부 터 더 이상 지원 되지 않습니다.
+> 현재 권장 되는 버전은 [독립 실행형 에이전트를 통한 Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)에 대해서만 작동 합니다.
 
 Azure Monitor은 이제 Kubernetes 호스팅된 앱에 대 한 기본 응용 프로그램 모니터링을 제공 하기 위해 Kubernetes 클러스터에서 service 메시 기술을 활용 합니다. [응용 프로그램 맵과](../../azure-monitor/app/app-map.md) 같은 기본 응용 프로그램 정보 기능을 사용 하 여 종속성을 모델링 하 고, [기본 대시보드](../../azure-monitor/app/overview-dashboard.md), [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)및 [통합 문서](../../azure-monitor/app/usage-workbooks.md)를 사용 하 여 실시간 모니터링, 강력한 시각화를 [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 합니다. 이 기능을 통해 사용자는 선택한 Kubernetes 네임 스페이스 내의 모든 Kubernetes 워크 로드에서 성능 병목 및 오류 핫스팟을 발견할 수 있습니다. Istio와 같은 기술을 사용 하 여 기존 서비스 메시 투자에 대 한 대문자화를 통해 응용 프로그램 코드를 수정 하지 않고도 자동으로 계측 된 앱 모니터링을 사용할 수 Azure Monitor.
 
 > [!NOTE]
 > 이는 Kubernetes에서 응용 프로그램 모니터링을 수행 하는 다양 한 방법 중 하나입니다.또한 서비스 메시 없이 [APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.yml) 를 사용 하 여 Kubernetes에서 호스트 되는 모든 앱을 계측할 수 있습니다. SDK를 사용 하 여 응용 프로그램을 계측 하지 않고 Kubernetes를 모니터링 하려면 아래 방법을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Kubernetes 클러스터](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)입니다.
 - *Kubectl*를 실행 하는 클러스터에 대 한 콘솔 액세스
@@ -35,7 +34,7 @@ Azure Monitor은 이제 Kubernetes 호스팅된 앱에 대 한 기본 응용 프
 
 Kubernetes 호스트 된 앱에 대해 제로 계측 응용 프로그램 모니터링을 사용 하면 다음을 사용할 수 있습니다.
 
-- [애플리케이션 맵](../../azure-monitor/app/app-map.md)
+- [응용 프로그램 맵](../../azure-monitor/app/app-map.md)
 - [라이브 스트림 메트릭](../../azure-monitor/app/live-stream.md)
 - [대시보드](../../azure-monitor/app/overview-dashboard.md)
 - [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007469"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119895"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -65,7 +65,6 @@ Blob Api 및 Data Lake Storage Gen2 Api는 동일한 데이터에 대해 작동�
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Sdk, PowerShell 및 Azure CLI에서 파일 시스템 지원
 
 - Get 및 set ACL 작업은 현재 재귀적이 아닙니다.
-- [Azure CLI](data-lake-storage-directory-file-acl-cli.md) 지원은 공개 미리 보기로 제공 됩니다.
 
 
 ## <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
@@ -112,7 +111,7 @@ REST Api를 사용 하 여 작동 하는 타사 응용 프로그램은 Blob Api�
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
-Azure Portal를 사용 하 여 진단 로그를 아직 사용할 수 없습니다. PowerShell을 사용 하 여 사용 하도록 설정할 수 있습니다. 다음은 그 예입니다. 
+Azure Portal를 사용 하 여 진단 로그를 아직 사용할 수 없습니다. PowerShell을 사용 하 여 사용 하도록 설정할 수 있습니다. 예:
 
 ```powershell
 #To login

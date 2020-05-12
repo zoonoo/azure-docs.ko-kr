@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 50c1d7e35b1c4e92664d810836fe1213183fbf83
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5099cc2ce2228bcdbf49d3484e488e7373883ec0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927346"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119049"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 machine learning 수명 주기 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,9 @@ ms.locfileid: "82927346"
 > - 자동화 된 기계 학습을 위한 UI
 > - 데이터 레이블 지정을 위한 UI
 > - 데이터 집합에 대 한 UI
+> - Notebooks
 > 
->  을 시도 하면 다음과 유사한 가상 네트워크 내의 저장소 계정에서 데이터를 시각화할 때 오류가 표시 됩니다.`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+> 시도 하면 다음 오류와 유사한 메시지가 표시 됩니다.`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="what-is-a-vnet"></a>VNET 이란?
 
@@ -39,7 +40,7 @@ ms.locfileid: "82927346"
 Azure Machine Learning는 계산 [대상이](concept-compute-target.md)라고도 하는 계산 리소스에 대 한 다른 Azure 서비스를 사용 하 여 모델을 학습 하 고 배포 합니다. 대상은 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Azure Machine Learning compute를 사용 하 여 모델을 학습 한 다음 AKS (Azure Kubernetes Service)에 모델을 배포할 수 있습니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + Azure Machine Learning [작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -176,7 +177,7 @@ Machine Learning 컴퓨팅를 사용 하 여 강제 터널링을 사용 하는 �
 
 * 리소스가 있는 지역의 Azure Batch 서비스에서 사용 하는 각 IP 주소에 대해 UDR을 설정 합니다. 이러한 UDRs를 통해 Batch 서비스는 작업 예약을 위해 계산 노드와 통신할 수 있습니다. 또한 계산 인스턴스에 액세스 하는 데 필요한 리소스가 있는 Azure Machine Learning 서비스에 대 한 IP 주소를 추가 합니다. Batch 서비스와 Azure Machine Learning 서비스의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용 합니다.
 
-    * [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 다운로드 하 고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`를 검색 합니다 `<region>` . 여기서는 azure 지역입니다.
+    * [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 다운로드 하 고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>` 를 검색 `<region>` 합니다. 여기서는 azure 지역입니다.
 
     * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 정보를 다운로드 합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역에 대 한 정보를 필터링 합니다.
 
@@ -185,7 +186,7 @@ Machine Learning 컴퓨팅를 사용 하 여 강제 터널링을 사용 하는 �
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
 
-* Azure Storage에 대 한 아웃 바운드 트래픽은 온-프레미스 네트워크 어플라이언스에서 차단 되지 않아야 합니다. 특히 url은, `<account>.table.core.windows.net` `<account>.queue.core.windows.net`및 `<account>.blob.core.windows.net`형식입니다.
+* Azure Storage에 대 한 아웃 바운드 트래픽은 온-프레미스 네트워크 어플라이언스에서 차단 되지 않아야 합니다. 특히 Url은 `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` 및 형식 `<account>.blob.core.windows.net` 입니다.
 
 UDRs를 추가 하는 경우 관련 된 각 Batch IP 주소 접두사에 대 한 경로를 정의 하 고 __다음 홉 유형__ 을 __인터넷__으로 설정 합니다. 다음 이미지는 Azure Portal의이 UDR의 예를 보여 줍니다.
 
@@ -330,7 +331,7 @@ except ComputeTargetException:
 
    [![인바운드 보안 규칙](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-Azure Machine Learning SDK를 사용 하 여 가상 네트워크에 Azure Kubernetes 서비스를 추가할 수도 있습니다. 가상 네트워크에 AKS 클러스터가 이미 있는 경우 [AKS에 배포 하는 방법](how-to-deploy-and-where.md)에 설명 된 대로 작업 영역에 연결 합니다. 다음 코드는 이라는 `default` `mynetwork`가상 네트워크의 서브넷에 새 AKS 인스턴스를 만듭니다.
+Azure Machine Learning SDK를 사용 하 여 가상 네트워크에 Azure Kubernetes 서비스를 추가할 수도 있습니다. 가상 네트워크에 AKS 클러스터가 이미 있는 경우 [AKS에 배포 하는 방법](how-to-deploy-and-where.md)에 설명 된 대로 작업 영역에 연결 합니다. 다음 코드는 `default` 이라는 가상 네트워크의 서브넷에 새 AKS 인스턴스를 만듭니다 `mynetwork` .
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -406,7 +407,7 @@ __Azure CLI__
 az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
 ```
 
-명령에서 참조 하 `body.json` 는 파일의 내용은 다음 JSON 문서와 유사 합니다.
+`body.json`명령에서 참조 하는 파일의 내용은 다음 JSON 문서와 유사 합니다.
 
 ```json
 { 
@@ -441,7 +442,7 @@ Azure Container Instances은 모델을 배포할 때 동적으로 생성 됩니�
     > [!IMPORTANT]
     > 위임을 사용 하도록 설정 하 `Microsoft.ContainerInstance/containerGroups` 는 경우 __서비스에 대 한 서브넷 위임__ 값으로를 사용 합니다.
 
-2. [Aciwebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-)를 사용 하 여 모델을 배포 `vnet_name` 하 `subnet_name` 고 및 매개 변수를 사용 합니다. 이러한 매개 변수를 위임을 사용 하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정 합니다.
+2. [Aciwebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-)를 사용 하 여 모델을 배포 하 `vnet_name` 고 및 `subnet_name` 매개 변수를 사용 합니다. 이러한 매개 변수를 위임을 사용 하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정 합니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -558,7 +559,7 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 
 가상 네트워크 내에서 Data Lake Storage Gen 2와 Azure Machine Learning를 사용 하는 경우 다음 지침을 따르십시오.
 
-* SDK를 사용 __하 여 데이터 집합을 만들고__코드를 실행 하는 시스템이 __가상 네트워크에 없는__경우 매개 변수를 `validate=False` 사용 합니다. 이 매개 변수는 시스템이 저장소 계정과 동일한 가상 네트워크에 있지 않은 경우 실패 하는 유효성 검사를 건너뜁니다. 자세한 내용은 [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 참조 하세요.
+* SDK를 사용 __하 여 데이터 집합을 만들고__코드를 실행 하는 시스템이 __가상 네트워크에 없는__경우 매개 변수를 사용 `validate=False` 합니다. 이 매개 변수는 시스템이 저장소 계정과 동일한 가상 네트워크에 있지 않은 경우 실패 하는 유효성 검사를 건너뜁니다. 자세한 내용은 [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 참조 하세요.
 
 * 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 사용 하 여 데이터 집합을 사용 하 여 모델을 학습 하는 경우 저장소 계정과 동일한 가상 네트워크에 있어야 합니다.
 
@@ -607,7 +608,7 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 
 작업 영역을 사용 하 여 가상 네트워크에서 가상 컴퓨터 또는 Azure HDInsight 클러스터를 사용 하려면 다음 단계를 사용 합니다.
 
-1. Azure Portal 또는 Azure CLI를 사용 하 여 VM 또는 HDInsight 클러스터를 만들고, 클러스터를 Azure virtual network에 배치 합니다. 자세한 내용은 다음 항목을 참조하세요.
+1. Azure Portal 또는 Azure CLI를 사용 하 여 VM 또는 HDInsight 클러스터를 만들고, 클러스터를 Azure virtual network에 배치 합니다. 자세한 내용은 다음 문서를 참조하세요.
     * [Linux Vm에 대 한 Azure 가상 네트워크 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Azure 가상 네트워크를 사용하여 HDInsight 확장](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)

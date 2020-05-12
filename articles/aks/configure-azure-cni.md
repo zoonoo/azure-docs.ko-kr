@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207499"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120932"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -19,10 +19,10 @@ ms.locfileid: "82207499"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
-* AKS 클러스터는 Kubernetes 서비스 `169.254.0.0/16`주소 `172.30.0.0/16`범위 `172.31.0.0/16`에 대해 `192.0.2.0/24` ,, 또는를 사용할 수 없습니다.
+* AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위에 대해,, 또는를 사용할 수 없습니다.
 * AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -67,7 +67,9 @@ AKS 클러스터에서 노드당 최대 pod 수는 250입니다. 노드당 *기�
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 
-*클러스터 배포 시간에만* 노드당 최대 Pod 수를 구성할 수 있습니다. Azure CLI 또는 리소스 관리자 템플릿을 사용 하 여를 배포 하는 경우 노드당 최대 pod 값을 250로 설정할 수 있습니다.
+클러스터 배포 시 또는 새 노드 풀을 추가할 때 노드당 최대 pod 수를 구성할 수 있습니다. Azure CLI 또는 리소스 관리자 템플릿을 사용 하 여를 배포 하는 경우 노드당 최대 pod 값을 250로 설정할 수 있습니다.
+
+새 노드 풀을 만들 때 maxPods를 지정 하지 않으면 Azure CNI에 대 한 기본값 30이 수신 됩니다.
 
 노드당 최대 pod에 대 한 최소값은 클러스터 상태에 중요 한 시스템 pod 공간을 보장 하기 위해 적용 됩니다. 각 노드 풀의 구성에 최소 30 pod의 공간이 있는 경우에만 노드당 최대 pod에 대해 설정할 수 있는 최소값은 10입니다. 예를 들어 노드당 최대 pod을 최소 10으로 설정 하려면 각 개별 노드 풀에 최소 3 개의 노드가 있어야 합니다. 이 요구 사항은 생성 된 새 노드 풀에도 적용 되므로 10이 노드당 최대 pod로 정의 된 경우 추가 된 각 후속 노드 풀에는 3 개 이상의 노드가 있어야 합니다.
 
@@ -85,7 +87,7 @@ AKS 클러스터에서 노드당 최대 pod 수는 250입니다. 노드당 *기�
 
 ### <a name="configure-maximum---existing-clusters"></a>최댓값 구성 - 기존 클러스터
 
-기존 AKS 클러스터의 노드당 최대 Pod 수는 변경할 수 없습니다. 클러스터를 처음 배포할 때만 이 값을 조정할 수 있습니다.
+새 노드 풀을 만들 때 노드당 maxPod 설정을 정의할 수 있습니다. 기존 클러스터에서 노드 당 maxPod 설정을 늘려야 하는 경우 새로운 원하는 maxPod 수로 새 노드 풀을 추가 합니다. Pod를 새 풀로 마이그레이션한 후에는 이전 풀을 삭제 합니다. 클러스터의 이전 풀을 삭제 하려면 [시스템 노드 풀 문서[시스템-노드 풀]에 정의 된 대로 노드 풀 모드를 설정 해야 합니다.
 
 ## <a name="deployment-parameters"></a>배포 매개 변수
 
@@ -100,7 +102,7 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 * 클러스터의 가상 네트워크 IP 주소 범위에 속하지 않아야 합니다.
 * 클러스터 가상 네트워크가 피어링된 다른 가상 네트워크와 겹치지 않아야 합니다.
 * 온-프레미스 IP와 겹치지 않아야 합니다.
-* 는,, 또는 범위 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16`내에 있지 않아야 합니다.`192.0.2.0/24`
+* 는,, 또는 범위 내에 있지 않아야 합니다. `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16``192.0.2.0/24`
 
 기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
 
@@ -143,7 +145,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 ![Azure Portal의 고급 네트워킹 구성][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 다음과 같은 질문과 대답은 **Azure CNI** 네트워킹 구성에 적용됩니다.
 
@@ -212,3 +214,4 @@ AKS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[시스템 노드 풀]: use-system-pools.md

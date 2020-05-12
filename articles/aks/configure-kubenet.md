@@ -5,26 +5,26 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559680"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120915"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
 기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 Azure Virtual Network 및 서브넷이 만들어집니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
-[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다.
+[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다. 클러스터를 만들 때 또는 새 노드 풀을 만들 때 노드에 배포할 수 있는 최대 pod 수를 구성할 수 있습니다. 새 노드 풀을 만들 때 maxPods를 지정 하지 않으면 kubenet의 기본값 110이 표시 됩니다.
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
-* AKS 클러스터는 Kubernetes 서비스 `169.254.0.0/16`주소 `172.30.0.0/16`범위 `172.31.0.0/16`에 대해 `192.0.2.0/24` ,, 또는를 사용할 수 없습니다.
+* AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위에 대해,, 또는를 사용할 수 없습니다.
 * AKS 클러스터에서 사용 하는 서비스 주체는 가상 네트워크 내의 서브넷에 최소한 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 역할이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-이제 [az role assignment create][az-role-assignment-create] 명령을 사용하여 가상 네트워크에 대해 AKS 클러스터 *참가자* 권한을 서비스 주체에 할당합니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 * \<appId>* 제공 하 여 서비스 주체를 만듭니다.
+이제 [az role assignment create][az-role-assignment-create] 명령을 사용하여 가상 네트워크에 대해 AKS 클러스터 *참가자* 권한을 서비스 주체에 할당합니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 * \< appId>* 제공 하 여 서비스 주체를 만듭니다.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>가상 네트워크에서 AKS 클러스터 만들기
 
-지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 * \<appId>* 및 * \<암호>* 을 정의 하 여 서비스 주체를 만듭니다.
+지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 * \< appId>* 및 * \< 암호>* 을 정의 하 여 서비스 주체를 만듭니다.
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 

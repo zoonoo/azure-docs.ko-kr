@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cce871d2f38d7871bd1ba9c5cb7b086e514a6913
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598541"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120796"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
-Managed Instance는 Azure SQL Database의 새로운 배포 옵션입니다. 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. Managed Instance 배포 모델을 사용하면 기존 SQL Server 고객은 애플리케이션 및 데이터베이스 변경을 최소화하고 온-프레미스 애플리케이션을 클라우드로 이동할 수 있습니다. 이와 동시에 Managed Instance 배포 옵션은 모든 PaaS 기능(자동 패치 및 버전 업데이트, [자동화된 백업](sql-database-automated-backups.md), [고가용성](sql-database-high-availability.md))을 유지하므로 관리 오버헤드와 TCO를 크게 줄일 수 있습니다.
+Managed Instance는 Azure SQL Database의 새로운 배포 옵션입니다. 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. Managed Instance 배포 모델을 사용하면 기존 SQL Server 고객은 애플리케이션 및 데이터베이스 변경을 최소화하고 온-프레미스 애플리케이션을 클라우드로 이동할 수 있습니다. 동시에 관리 되는 인스턴스 배포 옵션은 자동 패치 및 버전 업데이트, [자동화 된 백업](sql-database-automated-backups.md)및 [고가용성](sql-database-high-availability.md)과 관련 하 여 모든 PaaS 운영 기능을 유지 하 여 관리 오버 헤드 및 TCO를 크게 줄입니다.
 
 > [!IMPORTANT]
 > Managed Instance 배포 옵션을 현재 사용할 수 있는 지역의 목록은 [지원되는 지역](sql-database-managed-instance-resource-limits.md#supported-regions)을 참조하세요.
@@ -46,7 +46,7 @@ Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔진 �
 | --- | --- |
 |하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공 [고가용성](sql-database-high-availability.md) <br>[자동화된 백업](sql-database-automated-backups.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[특정 시점 데이터베이스 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
-|Isolated 환경 ([VNet 통합](sql-database-managed-instance-connectivity-architecture.md), 단일 테 넌 트 서비스, 전용 계산 및 저장소) <br>[TDE (투명 한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체 (로그인)</a>  <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[고급 위협 보호](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
+|Isolated 환경 ([VNet 통합](sql-database-managed-instance-connectivity-architecture.md), 단일 테 넌 트 서비스, 전용 계산 및 저장소) <br>[TDE (투명 한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체 (로그인)</a>  <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
 > [!IMPORTANT]
 > Azure SQL Database (모든 배포 옵션)은 다양 한 규정 준수 표준에 대해 인증 되었습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
@@ -144,7 +144,7 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 
 다음 표에는 작업과 일반적인 전체 기간이 요약 되어 있습니다.
 
-|범주  |작업(Operation)  |장기 실행 세그먼트  |예상 소요 시간  |
+|범주  |연산  |장기 실행 세그먼트  |예상 소요 시간  |
 |---------|---------|---------|---------|
 |**배포** |빈 서브넷의 첫 번째 인스턴스|가상 클러스터 만들기|4 시간 내에 완료 된 작업의 90%|
 |배포 |비어 있지 않은 서브넷에 있는 다른 하드웨어 생성의 첫 번째 인스턴스 (예: Gen 4 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 만들기 *|4 시간 내에 완료 된 작업의 90%|
@@ -197,7 +197,7 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 
 다음 표에는 특정 관리 작업을 취소 하는 기능과 일반적인 전체 기간이 요약 되어 있습니다.
 
-범주  |작업(Operation)  |취소  |예상 취소 기간  |
+범주  |연산  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 만들기 |아니요 |  |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아니요 |  |
@@ -205,8 +205,8 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 |업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (범용) |예 |5 분 내에 완료 된 작업의 90% |
 |업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (중요 비즈니스용) |예 |5 분 내에 완료 된 작업의 90% |
 |업데이트 |인스턴스 서비스 계층 변경 (일반적인 중요 비즈니스용 용도 및 그 반대로) |예 |5 분 내에 완료 된 작업의 90% |
-|삭제 |인스턴스 삭제 |아니요 |  |
-|삭제 |가상 클러스터 삭제 (사용자 시작 작업) |아니요 |  |
+|DELETE |인스턴스 삭제 |아니요 |  |
+|DELETE |가상 클러스터 삭제 (사용자 시작 작업) |아니요 |  |
 
 관리 작업을 취소 하려면 개요 블레이드로 이동 하 고 진행 중인 작업의 알림 상자를 클릭 합니다. 오른쪽에서 진행 중인 작업이 있는 화면이 표시 되 고 작업 취소 단추가 표시 됩니다. 을 클릭 한 후 다시 클릭 하 라는 메시지가 표시 되 고 작업 취소를 확인 합니다.
 
@@ -332,7 +332,7 @@ SQL Database 서비스는 사용자를 위해 작업을 수행하거나 이러�
 
 다음 표는 Transact SQL을 통해 액세스할 수 있으며 애플리케이션이 Managed Instance와 함께 작동 중인지 감지하고 중요한 속성을 검색하는 데 사용할 수 있는 여러 속성을 보여줍니다.
 
-|속성|값|설명|
+|속성|Value|주석|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이 **는** SQL 엔진 버전 12 (SQL Server 2014)를 나타내지 않습니다. 관리 되는 인스턴스는 항상 사용 가능한 최신 RTM 버전의 SQL Server와 같거나 높은 안정적인 최신 SQL 엔진 버전을 항상 실행 합니다.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|

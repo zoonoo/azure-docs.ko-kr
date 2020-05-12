@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188007"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118365"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>랩의 네트워크를 피어 가상 네트워크와 연결 Azure Lab Services
 
@@ -48,7 +48,7 @@ ms.locfileid: "82188007"
 
 또한 랩의 가상 컴퓨터에 대 한 **주소 범위** 를 제공 하는 옵션도 있습니다.  **주소 범위** 속성은 랩에 대해 **피어 가상 네트워크** 를 사용 하도록 설정한 경우에만 적용 됩니다.  주소 범위가 제공 되 면 랩 계정으로 랩의 모든 가상 컴퓨터가 해당 주소 범위에 생성 됩니다. 주소 범위는 CIDR 표기법 (예: 10.20.0.0/20) 이어야 하며 기존 주소 범위와 겹치지 않아야 합니다.  주소 범위를 제공 하는 경우 생성 되는 *랩* 의 수를 고려 하 고이를 수용 하는 주소 범위를 제공 하는 것이 중요 합니다. Lab Services는 랩 당 최대 512 가상 컴퓨터를 가정 합니다.  예를 들어 '/23 ' 인 ip 범위는 랩을 하나만 만들 수 있습니다.  '/21 '의 범위에서는 네 개의 랩을 만들 수 있습니다.
 
-**주소 범위** 를 지정 하지 않으면 가상 네트워크와 피어 링 가상 네트워크를 만들 때 랩 서비스에서 Azure에 지정 된 기본 주소 범위를 사용 합니다.  범위는 대개 10. x. 0.0/16과 같은 항목입니다.  이로 인해 ip 범위가 중복 될 수 있으므로 랩 설정에서 주소 범위를 지정 하거나 피어 링 하는 가상 네트워크의 주소 범위를 확인 해야 합니다.
+**주소 범위** 를 지정 하지 않으면 가상 네트워크와 피어 링 가상 네트워크를 만들 때 랩 서비스에서 Azure에 지정 된 기본 주소 범위를 사용 합니다.  범위는 대개 10. x. 0.0/16과 같은 항목입니다.  이로 인해 ip 범위가 중복 될 수 있으므로 랩 설정에서 주소 범위를 지정 하거나 피어 링 되는 가상 네트워크의 주소 범위를 확인 해야 합니다.
 
 ## <a name="configure-after-the-lab-is-created"></a>랩을 만든 후 구성
 
