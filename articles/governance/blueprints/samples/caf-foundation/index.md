@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458474"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901294"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -31,7 +31,7 @@ CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하
   - 리소스 및 리소스 그룹에 허용되는 Azure 지역
   - 허용되는 스토리지 계정 SKU(배포 중 선택)
   - 허용되는 Azure VM SKU(배포 중 선택)
-  - 네트워크 감시를 배포해야 함 
+  - Network Watcher를 배포해야 함 
   - Azure Storage 계정 보안 전송 암호화 필요
   - 리소스 유형 거부(배포 중 선택)  
 - 이니셔티브

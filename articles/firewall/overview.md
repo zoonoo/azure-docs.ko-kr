@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/08/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381906"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864099"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -40,12 +40,12 @@ Azure Firewall은 가용성을 높이기 위해 여러 가용 영역에 걸쳐 �
 
 가용성 영역에 배포되는 방화벽에 대한 추가 비용은 없습니다. 단, 가용 영역과 관련된 인바운드 및 아웃바운드 데이터 전송에는 추가 비용이 있습니다. 자세한 내용은 [대역폭 가격 세부 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요.
 
-Azure Firewall 가용성 영역은 가용 영역을 지원하는 지역에서 사용할 수 있습니다. 자세한 내용은 [Azure에서 가용성 영역이란?](../availability-zones/az-overview.md#services-support-by-region)을 참조하세요.
+Azure Firewall 가용성 영역은 가용 영역을 지원하는 지역에서 사용할 수 있습니다. 자세한 내용은 [Azure에서 가용성 영역을 지원하는 지역](../availability-zones/az-region.md)을 참조하세요.
 
 > [!NOTE]
 > 가용성 영역은 배포 중에만 구성할 수 있습니다. 가용성 영역을 포함하도록 기존 방화벽을 구성할 수는 없습니다.
 
-가용성 영역에 대한 자세한 내용은 [Azure에서 가용성 영역이란?](../availability-zones/az-overview.md)을 참조하세요.
+가용성 영역에 대한 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.
 
 ## <a name="unrestricted-cloud-scalability"></a>무제한 클라우드 확장성
 
@@ -83,12 +83,12 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 
 ## <a name="multiple-public-ip-addresses"></a>여러 공용 IP 주소
 
-방화벽에 여러 공용 IP 주소(최대 100개)를 연결할 수 있습니다.
+방화벽에 여러 공용 IP 주소(최대 250개)를 연결할 수 있습니다.
 
 따라서 다음과 같은 시나리오가 가능합니다.
 
 - **DNAT** - 여러 표준 포트 인스턴스를 백 엔드 서버로 변환할 수 있습니다. 예를 들어 공용 IP 주소가 2개인 경우 두 IP 주소 모두에 대해 TCP 포트 3389(RDP)를 변환할 수 있습니다.
-- **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다.
+- **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다. [공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 사용하여 이 구성을 단순화하세요.
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
@@ -111,7 +111,7 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|이 기능은 로드맵에 있습니다. 방화벽을 다른 리소스 그룹 또는 구독으로 이동하려면 현재 인스턴스를 삭제하고 새 리소스 그룹 또는 구독에서 다시 만들어야 합니다.|
 |위협 인텔리전스 경고는 마스킹될 수 있습니다.|아웃바운드 필터링의 대상이 80/443인 네트워크 규칙은 위협 전용 모드로 구성되면 위협 인텔리전스 경고를 마스킹합니다.|애플리케이션 규칙을 사용하여 80/443에 대한 아웃바운드 필터링을 만듭니다. 또는 위협 인텔리전스 모드를 **경고 및 거부**로 변경합니다.|
 |Azure Firewall에서 이름 확인에 Azure DNS만 사용|Azure Firewall은 Azure DNS만 사용해서 FQDN을 확인합니다. 사용자 지정 DNS 서버는 지원되지 않습니다. 다른 서브넷의 DNS 확인에는 영향을 주지 않습니다.|이 제한 사항을 완화하기 위해 노력하고 있습니다.|
-|Azure Firewall SNAT/DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall SNAT/DNAT 지원은 인터넷 송신/수신으로 제한됩니다. 현재 개인 IP 대상에는 SNAT/DNAT를 사용할 수 없습니다. 예: 스포크-스포크.|이 문제가 현재 제한 사항입니다.|
+|Azure Firewall DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall DNAT 지원은 인터넷 송신/수신으로 제한됩니다. DNAT는 현재 개인 IP 대상에는 작동하지 않습니다. 예: 스포크-스포크.|이 문제가 현재 제한 사항입니다.|
 |첫 번째 공용 IP 구성을 제거할 수 없음|각 Azure Firewall 공용 IP 주소는 *IP 구성*에 할당됩니다.  첫 번째 IP 구성은 방화벽을 배포하는 동안 할당되며, 일반적으로 방화벽 서브넷에 대한 참조도 포함하고 있습니다(템플릿 배포를 통해 명시적으로 다르게 구성하지 않는 이상). 이 IP 구성을 삭제하면 방화벽이 할당 취소되므로 삭제할 수 없습니다. 방화벽에 사용 가능한 다른 공용 IP 주소가 하나 이상 있는 경우 이 IP 구성과 연결된 공용 IP 주소를 변경하거나 제거할 수 있습니다.|이것은 의도적인 것입니다.|
 |가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|이것은 의도적인 것입니다.|
 |인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
@@ -122,6 +122,7 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |DNAT는 강제 터널링을 사용하는 경우 지원되지 않습니다.|강제 터널링을 사용하여 배포된 방화벽은 비대칭 라우팅으로 인해 인터넷에서 인바운드 액세스를 지원할 수 없습니다.|이는 비대칭 라우팅 때문에 의도된 것입니다. 인바운드 연결의 반환 경로는 온-프레미스 방화벽을 통해 전달되며 설정된 연결이 표시되지 않습니다.
 |아웃바운드 수동 FTP는 여러 공용 IP 주소를 사용하는 방화벽에 대해 작동하지 않습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. 데이터 및 제어 채널에서 서로 다른 원본 IP 주소를 사용하면 FTP가 실패합니다.|명시적 SNAT 구성이 계획되어 있습니다. 이 경우 단일 IP 주소를 사용하는 것이 좋습니다.|
 |NetworkRuleHit 메트릭에 프로토콜 차원이 누락됨|ApplicationRuleHit 메트릭은 필터링 기반 프로토콜을 허용하지만 해당 NetworkRuleHit 메트릭에는 이 기능이 없습니다.|수정 사항을 조사하고 있습니다.|
+|64000에서 65535 사이의 포트를 사용하는 NAT 규칙이 지원되지 않음|Azure Firewall은 네트워크 및 애플리케이션 규칙에서 1-65535 범위의 모든 포트를 허용하지만 NAT 규칙은 1-63999 범위의 포트만 지원합니다.|이 문제가 현재 제한 사항입니다.
 |구성 업데이트는 평균 5분이 걸릴 수 있습니다.|Azure Firewall 구성 업데이트는 평균 3 ~ 5분이 걸릴 수 있으며 병렬 업데이트는 지원되지 않습니다.|수정 사항을 조사하고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

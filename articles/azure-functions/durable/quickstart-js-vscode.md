@@ -3,20 +3,18 @@ title: JavaScript로 Azure에서 첫 번째 지속성 함수 만들기
 description: Visual Studio Code를 사용하여 Azure 지속성 함수를 만들고 게시합니다.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80257651"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889667"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
 *Durable Functions*는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 이 문서에서는 Visual Studio Code Azure Functions를 사용하여 로컬로 “hello world” 지속성 함수를 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다.
 
@@ -61,7 +59,7 @@ ms.locfileid: "80257651"
 
 package.json 파일도 루트 폴더에 생성됩니다.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Azure Functions V2 호환성 모드 사용
+### <a name="enable-compatibility-mode"></a>호환 모드 사용
 
 현재 JavaScript Durable Functions를 사용하려면 Azure Functions V2 호환 모드를 사용하도록 설정해야 합니다.
 
@@ -204,7 +202,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Azure Functions V2 호환성 모드 사용
+### <a name="enable-compatibility-mode"></a>호환 모드 사용
 
 로컬로 사용하도록 설정한 것과 동일한 Azure Functions V2 호환성을 Azure의 앱에서 사용하도록 설정해야 합니다.
 
