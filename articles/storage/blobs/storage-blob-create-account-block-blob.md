@@ -5,21 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536907"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007310"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
 
 BlockBlobStorage 계정 종류를 사용 하면 프리미엄 성능 특성을 포함 하는 블록 blob을 만들 수 있습니다. 이 유형의 저장소 계정은 트랜잭션 속도가 많고 매우 빠른 액세스 시간이 필요한 워크 로드에 최적화 되어 있습니다. 이 문서에서는 Azure Portal, Azure CLI 또는 Azure PowerShell를 사용 하 여 BlockBlobStorage 계정을 만드는 방법을 보여 줍니다.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 되며 미국 동부, 미국 동부 2, 미국 중부, 미국 남부 중부, 미국 서 부 2, 영국 남부, 캐나다 중부 및 오스트레일리아 동부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 저장소 기능](data-lake-storage-supported-blob-storage-features.md) 및 [알려진 문제](data-lake-storage-known-issues.md)를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adlspremiumonboard)참조 하세요.
 
 BlockBlobStorage 계정에 대 한 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
 
@@ -91,21 +92,21 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
 
 1. Azure Portal에서 **저장소 범주 > 저장소** **계정**> **모든 서비스** 를 선택 합니다.
 
-1. **저장소 계정**에서 **추가**를 선택 합니다.
+2. **저장소 계정**에서 **추가**를 선택 합니다.
 
-1. **구독** 필드에서 저장소 계정을 만들 구독을 선택 합니다.
+3. **구독** 필드에서 저장소 계정을 만들 구독을 선택 합니다.
 
-1. **리소스 그룹** 필드에서 기존 리소스 그룹을 선택 하거나 **새로 만들기**를 선택 하 고 새 리소스 그룹의 이름을 입력 합니다.
+4. **리소스 그룹** 필드에서 기존 리소스 그룹을 선택 하거나 **새로 만들기**를 선택 하 고 새 리소스 그룹의 이름을 입력 합니다.
 
-1. **저장소 계정 이름** 필드에 계정 이름을 입력 합니다. 다음 지침에 유의 하세요.
+5. **저장소 계정 이름** 필드에 계정 이름을 입력 합니다. 다음 지침에 유의 하세요.
 
    - 이름은 Azure에서 고유해야 합니다.
    - 이름은 3 자에서 24 자 사이 여야 합니다.
    - 이름에는 숫자 및 소문자만 포함할 수 있습니다.
 
-1. **위치** 필드에서 저장소 계정의 위치를 선택 하거나 기본 위치를 사용 합니다.
+6. **위치** 필드에서 저장소 계정의 위치를 선택 하거나 기본 위치를 사용 합니다.
 
-1. 나머지 설정에 대해 다음을 구성 합니다.
+7. 나머지 설정에 대해 다음을 구성 합니다.
 
    |필드     |값  |
    |---------|---------|
@@ -115,29 +116,38 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
 
    ![블록 blob storage 계정을 만들기 위한 포털 UI를 표시 합니다.](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. **검토 + 만들기** 를 선택 하 여 저장소 계정 설정을 검토 합니다.
+8. **고급** 탭을 선택 합니다.
 
-1. **만들기**를 선택합니다.
+9. 데이터 분석을 위해 저장소 계정을 최적화 하려면 **계층적 네임 스페이스** 를 **사용**으로 설정 합니다. 그렇지 않은 경우이 옵션을 기본값으로 설정 해 둡니다.
 
-## <a name="azure-powershell"></a>[Azure Powershell](#tab/azure-powershell)
+   자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
+
+   > [!NOTE]
+   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 되며 미국 동부, 미국 동부 2, 미국 중부, 미국 남부 중부, 미국 서 부 2, 영국 남부, 캐나다 중부 및 오스트레일리아 동부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 저장소 기능](data-lake-storage-supported-blob-storage-features.md) 및 [알려진 문제](data-lake-storage-known-issues.md)를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adlspremiumonboard)참조 하세요.
+
+8. **검토 + 만들기** 를 선택 하 여 저장소 계정 설정을 검토 합니다.
+
+9. **만들기**를 선택합니다.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 1. 관리자 권한으로 Windows PowerShell 세션을 엽니다 (관리자 권한으로 실행).
 
-1. 다음 명령을 실행 하 여 최신 버전의 `Az` PowerShell 모듈이 설치 되어 있는지 확인 합니다.
+2. 다음 명령을 실행 하 여 최신 버전의 `Az` PowerShell 모듈이 설치 되어 있는지 확인 합니다.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
    ```
 
-1. 새 PowerShell 콘솔을 열고 Azure 계정으로 로그인 합니다.
+3. 새 PowerShell 콘솔을 열고 Azure 계정으로 로그인 합니다.
 
    ```powershell
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. 필요한 경우 새 리소스 그룹을 만듭니다. 따옴표에서 값을 바꾸고 다음 명령을 실행 합니다.
+4. 필요한 경우 새 리소스 그룹을 만듭니다. 따옴표에서 값을 바꾸고 다음 명령을 실행 합니다.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -145,7 +155,7 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. BlockBlobStorage 계정을 만듭니다. 따옴표에서 값을 바꾸고 다음 명령을 실행 합니다.
+5. BlockBlobStorage 계정을 만듭니다. 따옴표에서 값을 바꾸고 다음 명령을 실행 합니다.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -154,6 +164,10 @@ Azure Portal에서 BlockBlobStorage 계정을 만들려면 다음 단계를 수�
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   데이터 분석을 위해 저장소 계정을 최적화 하려면 `-EnableHierarchicalNamespace $True` 명령에를 추가 합니다. 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
+
+   > [!NOTE]
+   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 되며 미국 동부, 미국 동부 2, 미국 중부, 미국 남부 중부, 미국 서 부 2, 영국 남부, 캐나다 중부 및 오스트레일리아 동부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 저장소 기능](data-lake-storage-supported-blob-storage-features.md) 및 [알려진 문제](data-lake-storage-known-issues.md)를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adlspremiumonboard)참조 하세요.
 
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -165,7 +179,7 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 �
    az login
    ```
 
-1. 필요한 경우 새 리소스 그룹을 만듭니다. 대괄호 (대괄호 포함)로 값을 바꾸고 다음 명령을 실행 합니다.
+2. 필요한 경우 새 리소스 그룹을 만듭니다. 대괄호 (대괄호 포함)로 값을 바꾸고 다음 명령을 실행 합니다.
 
    ```azurecli
    az group create \
@@ -173,7 +187,7 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 �
     --location "<location>"
    ```
 
-1. BlockBlobStorage 계정을 만듭니다. 대괄호 (대괄호 포함)로 값을 바꾸고 다음 명령을 실행 합니다.
+3. BlockBlobStorage 계정을 만듭니다. 대괄호 (대괄호 포함)로 값을 바꾸고 다음 명령을 실행 합니다.
 
    ```azurecli
    az storage account create \
@@ -184,6 +198,11 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 �
     --sku "Premium_LRS"
    ```
 
+   데이터 분석을 위해 저장소 계정을 최적화 하려면 `--hierarchical-namespace true` 명령에를 추가 합니다. 자세히 알아보려면 [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)를 참조 하세요.
+
+   > [!NOTE]
+   > 블록 blob 저장소 계정의 계층 구조 네임 스페이스 기능은 공개 미리 보기로 제공 되며 미국 동부, 미국 동부 2, 미국 중부, 미국 남부 중부, 미국 서 부 2, 영국 남부, 캐나다 중부 및 오스트레일리아 동부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 저장소 기능](data-lake-storage-supported-blob-storage-features.md) 및 [알려진 문제](data-lake-storage-known-issues.md)를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adlspremiumonboard)참조 하세요.
+   
 ---
 
 ## <a name="next-steps"></a>다음 단계

@@ -68,7 +68,7 @@
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 디렉터리 관리
       items:
-        - name: 디렉터리 관리
+        - name: Azure AD 조직
           href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 도메인 이름 관리
           href: domains-manage.md
@@ -84,7 +84,7 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹 관리
       items:
-        - name: Azure AD 그룹에서 액세스 관리
+        - name: 그룹에서 액세스 관리
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹 만들기(Azure Portal)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,6 +134,8 @@
           href: groups-assign-sensitivity-labels.md
     - name: 라이선스 할당
       items:
+        - name: 사용자에게 라이선스 할당
+          href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 그룹에 라이선스 할당
           href: licensing-groups-assign.md
         - name: 그룹 라이선스 문제 해결

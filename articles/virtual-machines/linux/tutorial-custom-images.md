@@ -1,146 +1,197 @@
 ---
 title: 자습서 - Azure CLI를 사용하여 사용자 지정 VM 이미지 만들기
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 사용자 지정 가상 머신 이미지를 만드는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc7b395d46fd28cde9ccbbda8a8a55447efa61c9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.reviewer: akjosh
+ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460055"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792176"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * VM 프로비전 해제 및 일반화
-> * 사용자 지정 이미지 만들기
-> * 사용자 지정 이미지에서 VM 만들기
-> * 구독에 모든 이미지 나열
-> * 이미지 삭제
+> * Shared Image Gallery 만들기
+> * 이미지 정의 만들기
+> * 이미지 버전 만들기
+> * 이미지에서 VM 만들기 
+> * 이미지 갤러리 공유
+
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+
+## <a name="overview"></a>개요
+
+[공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
+
+Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
+
+공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 자세히 설명합니다.
 
-이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 이 자습서에 사용할 VM을 만들기 위해 [CLI 빠른 시작](quick-create-cli.md)을 참조할 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 이름을 바꿉니다.
 
-## <a name="create-a-custom-image"></a>사용자 지정 이미지 만들기
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
-가상 머신의 이미지를 만들려면 프로비전을 해제하고 할당을 취소한 후 원본 VM을 일반화된 것으로 표시하여 VM을 준비해야 합니다. VM이 준비되면 이미지를 만들 수 있습니다.
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-### <a name="deprovision-the-vm"></a>VM 프로비전 해제 
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-프로비전을 해제하면 컴퓨터별 정보를 제거하여 VM을 일반화합니다. 이 일반화를 통해 단일 이미지에서 여러 VM을 배포할 수 있습니다. 프로비전을 해제하는 동안 호스트 이름이 *localhost.localdomain*으로 다시 설정됩니다. SSH 호스트 키, 이름 서버 구성, 루트 암호 및 캐시된 DHCP 임대도 삭제됩니다.
+## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
 
-> [!WARNING]
-> VM의 프로비저닝을 해제하고 일반화된 것으로 표시하면 원본 VM을 사용할 수 없게 되고 다시 시작할 수 없습니다. 
+이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 
 
-VM 프로비전을 해제하려면 Azure VM 에이전트(waagent)를 사용합니다. Azure VM 에이전트는 VM에 설치되고 Azure 패브릭 컨트롤러와의 상호 작용과 프로비전을 관리합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요.
+갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에는 대시가 포함될 수 없습니다.   갤러리 이름은 구독 내에서 고유해야 합니다. 
 
-SSH를 사용하여 VM에 연결하고 VM 프로비전 해제 명령을 실행합니다. `+user` 인수를 사용하면 마지막으로 프로비전된 사용자 계정 및 관련 데이터도 삭제됩니다. 예제 IP 주소를 VM의 공용 IP 주소로 바꿉니다.
+[az sig create](/cli/azure/sig#az-sig-create)를 사용하여 이미지 갤러리를 만드세요. 다음 예제에서는 *미국 동부*에 *myGalleryRG*라는 리소스 그룹 및 *myGallery*라는 갤러리를 만듭니다.
 
-VM에 SSH를 사용합니다.
-```bash
-ssh azureuser@52.174.34.95
-```
-VM의 프로비전을 해제합니다.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-SSH 세션을 닫습니다.
-
-```bash
-exit
+```azurecli-interactive
+az group create --name myGalleryRG --location eastus
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>할당을 취소하고 VM을 일반화된 것으로 표시
+## <a name="get-infornation-about-the-vm"></a>VM 관련 정보 가져오기
 
-이미지를 만들려면 VM을 할당 취소해야 합니다. [az vm deallocate](/cli//azure/vm)를 사용하여 VM의 할당을 취소합니다. 
-   
+[az vm list](/cli/azure/vm#az-vm-list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
+
+```azurecli-interactive
+az vm list --output table
+```
+
+VM 이름과 해당 VM이 속한 리소스 그룹을 알고 있으면 [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)를 사용하여 VM ID를 가져옵니다. 
+
+```azurecli-interactive
+az vm get-instance-view -g MyResourceGroup -n MyVm --query id
+```
+
+나중에 사용할 수 있도록 VM ID를 복사합니다.
+
+## <a name="create-an-image-definition"></a>이미지 정의 만들기
+
+이미지 정의는 이미지에 대한 논리적 그룹을 만들며, 내부에 만들어진 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 
+
+이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
+
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
+
+[az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다. 
+
+다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
+
 ```azurecli-interactive 
-az vm deallocate --resource-group myResourceGroup --name myVM
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state specialized
 ```
 
-마지막으로, VM이 일반화된 사실을 Azure 플랫폼이 알 수 있도록 [az vm generalize](/cli//azure/vm) 명령을 사용하여 VM 상태를 일반화됨으로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
-   
+나중에 사용할 수 있도록 출력에서 이미지 정의 ID를 복사합니다.
+
+## <a name="create-the-image-version"></a>이미지 버전 만들기
+
+[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 VM에서 이미지 버전을 만듭니다.  
+
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*입니다.
+
+다음 예제에서는 이미지 버전이 *1.0.0*이며, 영역 중복 스토리지를 사용하여 두 복제본을 *미국 중서부* 지역에, 하나의 복제본을 각각 *미국 중남부* 지역 및 *미국 동부 2* 지역에 만듭니다. 복제 지역에는 원본 VM이 있는 지역이 포함되어야 합니다.
+
+이 예제의 `--managed-image` 값을 이전 단계의 VM ID로 바꿉니다.
+
 ```azurecli-interactive 
-az vm generalize --resource-group myResourceGroup --name myVM
+az sig image-version create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --target-regions "westcentralus" "southcentralus=1" "eastus=1=standard_zrs" \
+   --replica-count 2 \
+   --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```
 
-### <a name="create-the-image"></a>이미지 만들기
+> [!NOTE]
+> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
+>
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
+>
 
-이제 [az image create](/cli//azure/image)를 사용하여 VM의 이미지를 만들 수 있습니다. 다음 예제에서는 *myVM*이라는 VM에서 *myImage*라는 이미지를 만듭니다.
-   
-```azurecli-interactive 
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --source myVM
-```
  
-## <a name="create-vms-from-the-image"></a>이미지에서 VM 만들기
+## <a name="create-the-vm"></a>VM 만들기
 
-이미지가 생겼으니, [az vm create](/cli/azure/vm) 명령을 사용하여 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMfromImage*라는 VM을 만듭니다.
+이미지가 특수 이미지임을 나타내는 --specialized 매개 변수를 사용하는 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 VM을 만듭니다. 
 
-```azurecli-interactive 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMfromImage \
-    --image myImage \
-    --admin-username azureuser \
-    --generate-ssh-keys
+이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 VM을 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 VM을 만들 수 있습니다. 
+
+다음 예제에서는 최신 버전의 *myImageDefinition* 이미지에서 VM을 만듭니다.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
 ```
 
-단일 이미지에서 동시 배포 수를 VM 20개로 제한하는 것이 좋습니다. 동일한 사용자 지정 이미지에서 20개가 넘는 VM에 대한 대규모 동시 배포를 계획하는 경우 여러 이미지 복제본과 함께 [Shared Image Gallery](shared-image-galleries.md)를 사용해야 합니다. 
+## <a name="share-the-gallery"></a>갤러리 공유
 
-## <a name="image-management"></a>이미지 관리 
+이미지는 RBAC(역할 기반 액세스 제어)를 사용하여 여러 구독에서 공유할 수 있습니다. 갤러리, 이미지 정의 또는 이미지 버전 수준에서 이미지를 공유할 수 있습니다. 이미지 버전에 대한 읽기 권한이 있는 모든 사용자는 구독 간에도 이미지 버전을 사용하여 VM을 배포할 수 있습니다.
 
-일반적인 이미지 관리 작업의 몇 가지 예제와 Azure CLI를 사용하여 완료하는 방법은 다음과 같습니다.
+갤러리 수준에서 다른 사용자와 공유하는 것이 좋습니다. 갤러리의 개체 ID를 가져오려면 [az sig show](/cli/azure/sig#az-sig-show)를 사용합니다.
 
-모든 이미지를 테이블 형식으로 이름별로 나열합니다.
-
-```azurecli-interactive 
-az image list \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
 ```
 
-이미지 삭제를 삭제합니다. 이 예제에서는 *myResourceGroup*에서 *myOldImage*라는 이미지를 삭제합니다.
+이메일 주소 및 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)와 함께 개체 ID를 범위로 사용하여 사용자에게 공유 이미지 갤러리에 대한 액세스 권한을 부여합니다. `<email-address>` 및 `<gallery iD>`를 사용자 고유의 정보로 바꿉니다.
 
-```azurecli-interactive 
-az image delete \
-    --name myOldImage \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az role assignment create \
+   --role "Reader" \
+   --assignee <email address> \
+   --scope <gallery ID>
 ```
+
+RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 참조하세요.
+
+## <a name="azure-image-builder"></a>Azure 이미지 작성기
+
+Azure는 [Azure VM 이미지 작성기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * VM 프로비전 해제 및 일반화
-> * 사용자 지정 이미지 만들기
-> * 사용자 지정 이미지에서 VM 만들기
-> * 구독에 모든 이미지 나열
-> * 이미지 삭제
+> * Shared Image Gallery 만들기
+> * 이미지 정의 만들기
+> * 이미지 버전 만들기
+> * 이미지에서 VM 만들기 
+> * 이미지 갤러리 공유
 
 고가용성 가상 머신에 대해 알아보려면 다음 자습서로 진행합니다.
 

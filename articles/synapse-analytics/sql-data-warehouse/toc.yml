@@ -37,6 +37,8 @@
       items:
         - name: COPY 문
           href: quickstart-bulk-load-copy-tsql.md
+        - name: COPY 문 예
+          href: quickstart-bulk-load-copy-tsql-examples.md
     - name: 확장
       items:
         - name: 포털

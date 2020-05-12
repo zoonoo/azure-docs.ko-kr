@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 11/13/2019
-  ms.openlocfilehash: f004b965901f161d16034f0cea91a99c50cc2575
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 05/08/2020
+  ms.openlocfilehash: 02385eaefec2ed095b0922d5b098139caf56daec
+  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74072226"
+  ms.lasthandoff: 05/10/2020
+  ms.locfileid: "83005458"
 landingContent:
 - title: 가상 WAN 정보
   linkLists:
@@ -53,10 +53,12 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: 글로벌 전송 네트워크 아키텍처
-      url: virtual-wan-global-transit-network-architecture.md
     - text: Virtual WAN으로 마이그레이션
       url: migrate-from-hub-spoke-topology.md
+    - text: 글로벌 전송 네트워크 아키텍처
+      url: virtual-wan-global-transit-network-architecture.md
+    - text: SD-WAN 연결 아키텍처
+      url: sd-wan-connectivity-architecture.md
 - title: 참조
   linkLists:
   - linkListType: reference

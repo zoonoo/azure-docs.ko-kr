@@ -14,8 +14,13 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python에서 Windows 가상 머신에 Azure Key Vault 사용
           href: tutorial-python-windows-virtual-machine.md
-    - name: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
+    - name: 관리 ID 및 .NET을 사용하여 Key Vault를 웹앱에 연결
       href: tutorial-net-create-vault-azure-web-app.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: 개념
   items:
     - name: 기본 개념
