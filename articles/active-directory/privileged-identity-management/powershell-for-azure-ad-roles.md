@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a6c0153105627e272d05af5514a030577431f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233995"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197277"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 PowerShell
 
@@ -45,12 +45,12 @@ ms.locfileid: "82233995"
         $AzureAdCred = Get-Credential  
         Connect-AzureAD -Credential $AzureAdCred
 
-1. **Azure Active Directory** > **Properties**속성 > **디렉터리 id**로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. Cmdlet 섹션에서 resourceId를 제공 해야 할 때마다이 ID를 사용 합니다.
+1. **Azure Active Directory**  >  **속성**  >  **디렉터리 id**로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. Cmdlet 섹션에서 resourceId를 제공 해야 할 때마다이 ID를 사용 합니다.
 
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션에서는를 시작 하 고 실행 하는 데 도움이 되는 간단한 예제를 제공 합니다. 에서 https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다. 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 조직 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션에서는를 시작 하 고 실행 하는 데 도움이 되는 간단한 예제를 제공 합니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 조직 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
@@ -122,11 +122,10 @@ Cmdlet은 아래에 표시 된 역할 할당 개체의 목록을 생성 합니�
 
 [![](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png "Get and update role settings")](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
-역할 설정을 업데이트 하려면 먼저 다음과 같이 설정 개체를 정의 해야 합니다.
+역할 설정을 업데이트 하려면 특정 역할에 대 한 기존 설정 개체를 가져와서 변경 해야 합니다.
 
-    $setting = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting 
-    $setting.RuleIdentifier = "JustificationRule"
-    $setting.Setting = "{'required':false}"
+    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+    $setting.UserMemberSetting.justificationRule = '{"required":false}'
 
 그런 다음 아래와 같이 특정 역할에 대 한 개체 중 하나에 설정을 적용할 수 있습니다. 이 ID는 목록 역할 설정 cmdlet의 결과에서 검색할 수 있는 역할 설정 ID입니다.
 

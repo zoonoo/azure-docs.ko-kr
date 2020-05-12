@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926989"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199446"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -28,10 +28,10 @@ ms.locfileid: "82926989"
 이 문서에서는 B2B 공동 작업을 위해 다른 조직과 직접 페더레이션을 설정 하는 방법을 설명 합니다. IdP (id 공급자)가 SAML 2.0 또는 WS-급지됨 프로토콜을 지 원하는 조직과 직접 페더레이션을 설정할 수 있습니다.
 파트너의 IdP 직접 페더레이션을 설정 하면 해당 도메인의 새 게스트 사용자는 자신의 IdP 관리 조직 계정을 사용 하 여 Azure AD 테 넌 트에 로그인 하 고 사용자와 공동 작업을 시작할 수 있습니다. 게스트 사용자가 별도의 Azure AD 계정을 만들 필요가 없습니다.
 > [!NOTE]
-> 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 또는 `https://portal.azure.com/<tenant id>`확인 된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`)를 포함 하는 링크를 사용 하 여 로그인 해야 합니다. 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어, `https://myapps.microsoft.com`또는 `https://portal.azure.com` `https://teams.microsoft.com` 를 사용 하면 오류가 발생 합니다.
+> 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 또는 `https://portal.azure.com/<tenant id>` 확인 된 도메인의 경우)를 포함 하는 링크를 사용 하 여 로그인 해야 합니다 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` . 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어, 또는를 사용 하면 `https://myapps.microsoft.com` `https://portal.azure.com` 오류가 발생 `https://teams.microsoft.com` 합니다.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>게스트 사용자가 직접 페더레이션을 사용 하 여 인증 된 경우는 언제 입니까?
-조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 몇 가지 예제는 다음과 같습니다.
+조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 예를 들면 다음과 같습니다.
  - 게스트 사용자가 이미 사용자의 초대를 사용 하는 경우 이후에 조직과 직접 페더레이션을 설정 하면 해당 게스트 사용자는 직접 페더레이션을 설정 하기 전에 사용한 것과 동일한 인증 방법을 계속 사용 합니다.
  - 파트너 조직과의 직접 페더레이션을 설정 하 고 게스트 사용자를 초대 하는 경우 파트너 조직에서 나중에 Azure AD로 이동 하는 경우 초대를 이미 사용한 게스트 사용자는 테 넌 트의 직접 페더레이션 정책이 존재 하는 한 직접 페더레이션을 계속 사용 합니다.
  - 파트너 조직과의 직접 페더레이션을 삭제 하는 경우 현재 직접 페더레이션을 사용 하는 모든 게스트 사용자는 로그인 할 수 없습니다.
@@ -61,7 +61,7 @@ ms.locfileid: "82926989"
 -   federation.exostar.com
 -   federation.exostartest.com
 
-예를 들어 **fabrikam.com**에 대 한 직접 페더레이션을 설정 하는 경우 인증 `https://fabrikam.com/adfs` URL은 유효성 검사를 통과 합니다. 예를 들어 `https://sts.fabrikam.com/adfs`동일한 도메인의 호스트도 전달 됩니다. 그러나 인증 URL `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 같은 도메인에 대 한가 전달 되지 않습니다.
+예를 들어 **fabrikam.com**에 대 한 직접 페더레이션을 설정 하는 경우 인증 URL은 `https://fabrikam.com/adfs` 유효성 검사를 통과 합니다. 예를 들어 동일한 도메인의 호스트도 전달 됩니다 `https://sts.fabrikam.com/adfs` . 그러나 인증 URL `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 같은 도메인에 대 한가 전달 되지 않습니다.
 
 ### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
 Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD는 만료 될 때 서명 인증서를 자동으로 갱신 합니다. 그러나 만료 시간 이전에 어떤 이유로 든 인증서를 회전 하거나 메타 데이터 URL을 제공 하지 않으면 Azure AD에서 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.
@@ -146,8 +146,8 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 직접 페더레이션을 구성 하려면
 
 1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **조직 관계**를 선택합니다.
-3. **Id 공급자**를 선택한 다음 **새 SAML/WS-급지됨 IdP**를 선택 합니다.
+2. **조직 관계**  >  **모든 id 공급자** (또는 **외부**id  >  **모든 id 공급자**)를 선택 합니다.
+3. 을 선택 하 고 **새 SAML/WS-급지됨 IdP**를 선택 합니다.
 
     ![새 SAML 또는 WS 급지되지 IdP를 추가 하는 단추를 보여 주는 스크린샷](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -169,12 +169,12 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용 하 여 Azure AD에서 직접 페더레이션을 구성 하려면
 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). 자세한 단계가 필요한 경우 게스트 사용자를 추가 하는 빠른 시작에는 [최신 AzureADPreview 모듈 설치](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)섹션이 포함 되어 있습니다. 
-2. 다음 명령 실행: 
+2. 다음 명령을 실행합니다. 
    ```powershell
    Connect-AzureAD
    ```
 1. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다. 
-2. 다음 명령을 실행 하 여 페더레이션 메타 데이터 파일에서 값을 바꿉니다. AD FS Server와 Okta의 경우 페더레이션 파일은 federationmetadata.xml입니다 (예: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`). 
+2. 다음 명령을 실행 하 여 페더레이션 메타 데이터 파일에서 값을 바꿉니다. AD FS Server와 Okta의 경우 페더레이션 파일은 federationmetadata.xml입니다 ( `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml` 예:). 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -194,8 +194,8 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>직접 페더레이션 관계를 편집 어떻게 할까요??
 
 1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **조직 관계**를 선택합니다.
-3. **Id 공급자** 선택
+2. **조직 관계** (또는 **외부 id**)를 선택 합니다.
+3. **모든 id 공급자** 선택
 4. **SAML/WS 공급 id 공급자**에서 공급자를 선택 합니다.
 5. Id 공급자 세부 정보 창에서 값을 업데이트 합니다.
 6. **저장**을 선택합니다.
@@ -205,14 +205,14 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 직접 페더레이션 설치를 제거할 수 있습니다. 이렇게 하면 이미 초대를 받은 페더레이션 게스트 사용자는 로그인 할 수 없습니다. 하지만 디렉터리에서 리소스를 삭제 하 고 다시 초대 하 여 리소스에 대 한 액세스 권한을 다시 부여할 수 있습니다. Azure AD 포털에서 id 공급자를 사용 하 여 직접 페더레이션을 제거 하려면 다음을 수행 합니다.
 
 1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **조직 관계**를 선택합니다.
-3. **Id 공급자**를 선택 합니다.
+2. **조직 관계** (또는 **외부 id**)를 선택 합니다.
+3. **모든 id 공급자**를 선택 합니다.
 4. Id 공급자를 선택한 다음 **삭제**를 선택 합니다. 
 5. **예**를 선택하여 삭제를 확인합니다. 
 
 PowerShell을 사용 하 여 id 공급자와의 직접 페더레이션을 제거 하려면 다음을 수행 합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. 다음 명령 실행: 
+2. 다음 명령을 실행합니다. 
    ```powershell
    Connect-AzureAD
    ```

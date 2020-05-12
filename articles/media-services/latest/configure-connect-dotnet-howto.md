@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269810"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201125"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API-.NET에 연결
 
@@ -35,15 +36,15 @@ ms.locfileid: "79269810"
 ## <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 1. Visual Studio를 시작합니다. 
-1. **파일** 메뉴에서 **새** > **프로젝트**를 클릭 합니다. 
+1. **파일** 메뉴에서 **새**  >  **프로젝트**를 클릭 합니다. 
 1. **.Net Core** 콘솔 응용 프로그램을 만듭니다.
 
-이 항목의 샘플 앱은 대상 `netcoreapp2.0`입니다. 이 코드는 c # 7.1부터 사용할 수 있는 ' async main '을 사용 합니다. 자세한 내용은이 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 를 참조 하세요.
+이 항목의 샘플 앱은 대상 `netcoreapp2.0` 입니다. 이 코드는 c # 7.1부터 사용할 수 있는 ' async main '을 사용 합니다. 자세한 내용은이 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 를 참조 하세요.
 
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
-1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **nuget 관리자 콘솔**을 선택 합니다.
-2. **패키지 관리자 콘솔** 창에서 명령을 사용 `Install-Package` 하 여 다음 NuGet 패키지를 추가 합니다. `Install-Package Microsoft.Azure.Management.Media`)을 입력합니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **nuget 관리자 콘솔**을 선택 합니다.
+2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용 하 여 다음 NuGet 패키지를 추가 합니다. 정의합니다(예: `Install-Package Microsoft.Azure.Management.Media`).
 
 |패키지|Description|
 |---|---|
@@ -57,7 +58,7 @@ ms.locfileid: "79269810"
 
 ### <a name="create-appsettingsjson"></a>Appsettings를 만듭니다.
 
-1. **일반** > **텍스트 파일로**이동 합니다.
+1. **일반**  >  **텍스트 파일로**이동 합니다.
 1. 이름을 "appsettings. json"으로 합니다.
 1. Json 파일의 "출력 디렉터리로 복사" 속성을 "최신 버전으로 복사"로 설정 하 여 응용 프로그램이 게시 될 때 액세스할 수 있도록 합니다.
 
@@ -69,8 +70,8 @@ ms.locfileid: "79269810"
 
 편의상 "appsettings"에서 값을 읽는 구성 파일을 추가 합니다.
 
-1. 프로젝트에 새 .cs 클래스를 추가 합니다. 이름을 `ConfigWrapper`로 지정합니다. 
-1. 이 파일에 다음 코드를 붙여 넣습니다 (이 예제에서는 네임 스페이스가 인 것 `ConsoleApp1`으로 가정).
+1. 프로젝트에 새 .cs 클래스를 추가 합니다. 이 EventHandler의 이름을 `ConfigWrapper`로 지정합니다. 
+1. 이 파일에 다음 코드를 붙여 넣습니다 (이 예제에서는 네임 스페이스가 인 것으로 가정 `ConsoleApp1` ).
 
 ```csharp
 using System;

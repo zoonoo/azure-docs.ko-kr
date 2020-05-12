@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061773"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198566"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -61,6 +61,8 @@ SQL Database는 SQL Server 기술을 사용 하 여 매주 [전체 백업](https
 SQL Database는 전체 백업, 차등 백업 및 트랜잭션 로그 백업을 자동으로 만들어 PITR (지정 시간 복원)에 대해 셀프 서비스를 지원 합니다. 매주 전체 데이터베이스 백업이 생성 되 고 차등 데이터베이스 백업은 12 시간 마다 생성 됩니다. 트랜잭션 로그 백업은 일반적으로 5 ~ 10 분 마다 생성 됩니다. 트랜잭션 로그 백업의 빈도는 계산 크기와 데이터베이스 작업의 양을 기반으로 합니다. 
 
 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 이 백업은 일반적으로 30 분 내에 완료 되지만 데이터베이스가 큰 경우에는 시간이 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다. 백업 작업은 변경하거나 사용하지 않도록 설정할 수 없습니다.
+
+### <a name="default-backup-retention-period"></a>기본 백업 보존 기간
 
 PITR 백업은 지역 중복 저장소를 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Storage 중복성](../storage/common/storage-redundancy.md)을 참조하세요.
 
@@ -156,11 +158,11 @@ Azure SQL Database는 전체 보존 기간 백업 저장소를 누적 값으로 
 
 Azure SQL Database 엔지니어링 팀은 지속적으로 논리 서버 및 탄력적 데이터베이스 풀에 배치 된 데이터베이스의 자동화 된 데이터베이스 백업 복원을 자동으로 테스트 합니다. 이 테스트는 관리 되는 인스턴스에서 사용할 수 없습니다. 지정 시간 복원 시 데이터베이스에서 DBCC CHECKDB 무결성 확인도 수신 합니다.
 
-관리 되는 인스턴스는 마이그레이션이 완료 `CHECKSUM` 된 후 네이티브 `RESTORE` 명령 또는 Azure 데이터 마이그레이션 서비스를 사용 하 여 복원 된 데이터베이스와 함께 자동 초기 백업을 수행 합니다.
+관리 되는 인스턴스는 `CHECKSUM` `RESTORE` 마이그레이션이 완료 된 후 네이티브 명령 또는 Azure 데이터 마이그레이션 서비스를 사용 하 여 복원 된 데이터베이스와 함께 자동 초기 백업을 수행 합니다.
 
 무결성 검사 중에 문제가 발견되면 해당 경고를 엔지니어링 팀에 알려줍니다. 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조 하세요.
 
-## <a name="compliance"></a>준수
+## <a name="compliance"></a>규정 준수
 
 DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터베이스를 마이그레이션하면 응용 프로그램의 데이터 복구 정책이 손상 되지 않도록 PITR 보존이 보존 됩니다. 기본 보존이 규정 준수 요구 사항을 충족 하지 않는 경우 PowerShell 또는 REST API를 사용 하 여 PITR 보존 기간을 변경할 수 있습니다. 자세한 내용은 [PITR 백업 보존 기간 변경](#change-the-pitr-backup-retention-period)을 참조 하세요.
 

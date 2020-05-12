@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d2473d37dcf0d435ab61763e72a64111845956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273284"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199468"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 협업 사용자 감사 및 보고
 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 
 
 ## <a name="access-reviews"></a>액세스 검토
-액세스 검토를 사용하여 게스트 사용자가 사용자의 리소스에 계속 액세스해야 하는지 여부를 주기적으로 확인할 수 있습니다. **액세스 검토** 기능은 **Azure Active Directory**의 **관리** > **조직 관계**에서 사용할 수 있습니다. (Azure Portal의 **모든 서비스** 에서 "액세스 검토"를 검색할 수도 있습니다.) 액세스 검토를 사용 하는 방법에 대 한 자세한 내용은 [AZURE AD 액세스 검토를 사용 하 여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조 하세요.
+액세스 검토를 사용하여 게스트 사용자가 사용자의 리소스에 계속 액세스해야 하는지 여부를 주기적으로 확인할 수 있습니다. **액세스 검토** 기능은 **조직 관계** **Azure Active Directory**  >  **액세스 검토** (또는 **외부 id**  >  **액세스 검토** )의 Azure Active Directory에서 사용할 수 있습니다. Azure Portal의 **모든 서비스** 에서 "액세스 검토"를 검색할 수도 있습니다. 액세스 검토를 사용하는 방법은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.
 
 ## <a name="audit-logs"></a>감사 로그
 

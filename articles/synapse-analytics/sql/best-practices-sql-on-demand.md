@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692155"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198890"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형 (미리 보기)에 대 한 모범 사례
 
@@ -44,7 +44,7 @@ SQL 주문형 요청을 통해 Azure storage 계정에서 파일을 쿼리할 �
 
 가능 하면 더 나은 성능을 위해 파일을 준비할 수 있습니다.
 
-- CSV를 Parquet으로 변환-Parquet은 칼럼 형식입니다. 압축 되므로 파일 크기가 동일한 데이터를 사용 하는 CSV 파일 보다 작습니다. 주문형 SQL에는 읽기에 필요한 시간과 저장소 요청이 줄어듭니다.
+- CSV 및 JSON을 Parquet-Parquet로 변환 합니다. 압축 되므로 파일 크기가 CSV 또는 JSON 파일 (동일한 데이터) 보다 작습니다. 주문형 SQL에는 읽기에 필요한 시간과 저장소 요청이 줄어듭니다.
 - 쿼리가 단일 큰 파일을 대상으로 하는 경우 여러 개의 작은 파일로 분할 하는 것이 좋습니다.
 - CSV 파일 크기를 10gb 미만으로 유지 하세요.
 - 단일 OPENROWSET 경로 또는 외부 테이블 위치에 대해 크기가 동일한 파일을 지정 하는 것이 좋습니다.
@@ -118,7 +118,14 @@ FROM
 > [!TIP]
 > 항상 filepath 및 fileinfo 함수의 결과를 적절 한 데이터 형식으로 캐스팅 합니다. 문자 데이터 형식을 사용 하는 경우 적절 한 길이가 사용 되는지 확인 합니다.
 
+> [!NOTE]
+> 파티션 제거, filepath 및 fileinfo에 사용 되는 함수는 현재 Synapse Spark에서 생성 된 각 테이블에 대해 자동으로 생성 된 테이블이 아닌 외부 테이블에 대해 지원 되지 않습니다.
+
 저장 된 데이터가 분할 되지 않은 경우 분할 하는 것이 좋습니다. 이러한 함수를 사용 하 여 해당 파일을 대상으로 하는 쿼리를 최적화할 수 있습니다. 요청 시 SQL에서 [분할 된 Spark 테이블을 쿼리](develop-storage-files-spark-tables.md) 하는 경우 쿼리는 필요한 파일만 자동으로 대상으로 합니다.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>CSV 파일을 쿼리 하는 데 PARSER_VERSION 2.0 사용
+
+CSV 파일을 쿼리할 때 성능 최적화 파서를 사용할 수 있습니다. 자세한 내용은 [PARSER_VERSION](develop-openrowset.md) 를 확인 하세요.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>CETAS를 사용 하 여 쿼리 성능 및 조인 향상
 
@@ -127,6 +134,12 @@ FROM
 CETAS를 사용 하 여 조인 된 참조 테이블과 같이 자주 사용 하는 쿼리 부분을 새 파일 집합에 저장할 수 있습니다. 그런 다음 여러 쿼리에서 공통 조인을 반복 하는 대신이 단일 외부 테이블에 조인할 수 있습니다.
 
 CETAS에서 Parquet 파일을 생성 하면 첫 번째 쿼리가이 외부 테이블을 대상으로 하 여 성능이 향상 될 때 통계가 자동으로 생성 됩니다.
+
+## <a name="aad-pass-through-performance"></a>AAD 통과 성능
+
+SQL 주문형 요청을 사용 하면 AAD 통과 또는 SAS 자격 증명을 사용 하 여 저장소의 파일에 액세스할 수 있습니다. SAS와 비교 하 여 AAD 통과의 성능이 저하 될 수 있습니다. 
+
+더 나은 성능이 필요한 경우 AAD 통과 성능이 향상 될 때까지 SAS 자격 증명을 사용 하 여 저장소에 액세스를 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

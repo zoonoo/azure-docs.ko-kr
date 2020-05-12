@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126672"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199541"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -37,16 +37,16 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
 ## <a name="limitations"></a>제한 사항
 
-팀은 모든 장치에서 Google 게스트 사용자를 완전히 지원 합니다. Google 사용자는와 같은 `https://teams.microsoft.com`공통 끝점에서 팀에 로그인 할 수 있습니다.
+팀은 모든 장치에서 Google 게스트 사용자를 완전히 지원 합니다. Google 사용자는와 같은 공통 끝점에서 팀에 로그인 할 수 있습니다 `https://teams.microsoft.com` .
 
 다른 응용 프로그램의 일반 끝점은 Google 사용자를 지원 하지 않을 수 있습니다. Google 게스트 사용자는 테 넌 트 정보를 포함 하는 링크를 사용 하 여 로그인 해야 합니다. 예를 들면 다음과 같습니다.
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   Google 게스트 사용자가 또는 `https://myapps.microsoft.com` `https://portal.azure.com`와 같은 링크를 사용 하려고 하면 오류가 발생 합니다.
+   Google 게스트 사용자가 또는와 같은 링크를 사용 하려고 `https://myapps.microsoft.com` 하면 `https://portal.azure.com` 오류가 발생 합니다.
 
-예 `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`를 들어 테 넌 트 정보를 포함 하는 경우 Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 한 직접 링크를 제공할 수도 있습니다. 
+예를 들어 테 넌 트 정보를 포함 하는 경우 Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 한 직접 링크를 제공할 수도 있습니다 `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` . 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>1단계: Google 개발자 프로젝트 구성
 먼저 Google 개발자 콘솔에서 새 프로젝트를 만들어 나중에 Azure AD에 추가할 수 있는 클라이언트 ID 및 클라이언트 비밀을 가져옵니다. 
@@ -90,8 +90,8 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Google 페더레이션을 구성하려면 다음을 수행합니다. 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **조직 관계**를 선택합니다.
-3. **ID 공급자**를 선택한 다음, **Google** 단추를 클릭합니다.
+2. **조직 관계** (또는 **외부 id**)를 선택 합니다.
+3. **모든 id 공급자**를 선택한 다음 **Google** 단추를 클릭 합니다.
 4. 이름을 입력합니다. 그런 다음, 이전에 가져온 클라이언트 ID 및 클라이언트 비밀을 입력합니다. **저장**을 선택합니다. 
 
    ![Google id 공급자 추가 페이지를 보여 주는 스크린샷](media/google-federation/google-identity-provider.png)
@@ -112,8 +112,8 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Google 페더레이션을 삭제하려면 다음을 수행합니다. 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **조직 관계**를 선택합니다.
-3. **Id 공급자**를 선택 합니다.
+2. **조직 관계** (또는 **외부 id**)를 선택 합니다.
+3. **모든 id 공급자**를 선택 합니다.
 4. **Google** line에서 상황에 맞는 메뉴 (**...**)를 선택 하 고 **삭제**를 선택 합니다. 
    
    ![소셜 id 공급자에 대 한 삭제 옵션을 보여 주는 스크린샷](media/google-federation/google-social-identity-providers.png)
@@ -122,7 +122,7 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
 
 ### <a name="to-delete-google-federation-by-using-powershell"></a>PowerShell을 사용하여 Google 페더레이션을 삭제하려면 다음을 수행합니다. 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. `Connect-AzureAD`을 실행합니다.  
+2. `Connect-AzureAD`를 실행합니다.  
 4. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다.  
 5. 다음 명령을 입력합니다.
 

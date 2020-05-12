@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008644"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196962"
 ---
 Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적 워크로드와 같은 데이터 집약적 워크로드에 적합합니다.
 
@@ -51,7 +51,7 @@ $vmSize = "Standard_E64s_v3"
 
 **영역** 값을 유지 하 고, 가용성 영역을 나타내며, Ultra disk를 배포 하기 위해이 값이 필요 합니다.
 
-|ResourceType  |속성  |위치  |영역  |제한 사항  |기능  |값  |
+|ResourceType  |속성  |위치  |영역  |제한 사항  |기능  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -62,7 +62,7 @@ $vmSize = "Standard_E64s_v3"
 
 ### <a name="vms-with-no-redundancy-options"></a>중복 옵션이 없는 Vm
 
-현재 미국 서 부에 배포 된 Ultra 디스크는 중복성 옵션 없이 배포 해야 합니다. 그러나 ultra disks를 지 원하는 모든 디스크 크기가이 영역에 있을 수는 없습니다. 미국 서 부에서 ultra disks를 지 원하는 항목을 확인 하기 위해 다음 코드 조각 중 하나를 사용할 수 있습니다. 먼저 및 `subscription` 값을 바꾸어야 `vmSize` 합니다.
+현재 미국 서 부에 배포 된 Ultra 디스크는 중복성 옵션 없이 배포 해야 합니다. 그러나 ultra disks를 지 원하는 모든 디스크 크기가이 영역에 있을 수는 없습니다. 미국 서 부에서 ultra disks를 지 원하는 항목을 확인 하기 위해 다음 코드 조각 중 하나를 사용할 수 있습니다. `vmSize`먼저 및 값을 바꾸어야 합니다 `subscription` .
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -115,7 +115,7 @@ UltraSSDAvailable                            True
 
 여러 개의 ultra disks를 사용 하 여 VM을 만들려면 샘플 [단일 ultra disks를 사용 하 여 Vm 만들기](https://aka.ms/ultradiskArmTemplate)를 참조 하세요.
 
-사용자 고유의 템플릿을 사용 하려는 경우 및 `Microsoft.Compute/Disks` 에 대 한 `2018-06-01` `Microsoft.Compute/virtualMachines` **apiVersion** 이 (이상)로 설정 되어 있는지 확인 합니다.
+사용자 고유의 템플릿을 사용 하려는 경우 및에 대 한 **apiVersion** `Microsoft.Compute/virtualMachines` `Microsoft.Compute/Disks` 이 (이상)로 설정 되어 있는지 확인 `2018-06-01` 합니다.
 
 디스크 sku를 **UltraSSD_LRS**설정 하 고 디스크 용량, IOPS, 가용성 영역 및 처리량을 MBps 단위로 설정 하 여 울트라 디스크를 만듭니다.
 

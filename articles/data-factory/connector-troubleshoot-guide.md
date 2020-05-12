@@ -8,12 +8,13 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 50f76d9b4f3061e6e9a1e4a0b510146dbded422a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410222"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199001"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -30,7 +31,7 @@ ms.locfileid: "81410222"
 
 - **원인**: Blob storage 작업에 문제가 있습니다.
 
-- **권장**사항: 자세한 내용은 오류를 확인 하세요. Blob 도움말 문서를 참조 https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes하세요. 도움이 필요 하면 저장소 팀에 문의 하세요.
+- **권장**사항: 자세한 내용은 오류를 확인 하세요. Blob 도움말 문서를 참조 https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes 하세요. 도움이 필요 하면 저장소 팀에 문의 하세요.
 
 
 ### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>오류 코드: AzureBlobServiceNotReturnExpectedDataLength
@@ -134,7 +135,7 @@ ms.locfileid: "81410222"
 
 - **원인**: 오류 메시지에 ' 금지 '가 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 ADLS Gen2에 액세스할 수 있는 권한이 없을 수 있습니다.
 
-- **권장 사항**: 도움말 문서를 참조 https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication하세요.
+- **권장 사항**: 도움말 문서를 참조 https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication 하세요.
 
 - **원인**: 오류 메시지에 ' InternalServerError '가 포함 되어 있으면 ADLS Gen2에서 오류를 반환 합니다.
 
@@ -198,11 +199,11 @@ ms.locfileid: "81410222"
 
 - **원인**: 오류 메시지에 "SqlException"가 포함 되어 있으면 SQL Database 특정 작업이 실패 했음을 나타내는 오류를 throw 합니다.
 
-- **권장**사항: 자세한 내용은 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors이 참조 문서에서 SQL 오류 코드를 기준으로 검색 하십시오. 추가 도움이 필요한 경우 Azure SQL 지원에 문의 하세요.
+- **권장**사항: 자세한 내용은이 참조 문서에서 SQL 오류 코드를 기준으로 검색 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 하십시오. 추가 도움이 필요한 경우 Azure SQL 지원에 문의 하세요.
 
 - **원인**: 오류 메시지에 "IP 주소가 있는 클라이언트 ... '가 포함 된 경우 서버에 액세스할 수 없습니다. "라는 메시지가 표시 되 고 Azure SQL Database에 연결 하려고 시도 하는 경우 일반적으로 Azure SQL Database 방화벽 문제로 인해 발생 합니다.
 
-- **권장 사항**: azure SQL Server 방화벽 구성에서 "azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용" 옵션을 사용 하도록 설정 합니다. 참조 doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **권장 사항**: azure SQL Server 방화벽 구성에서 "azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용" 옵션을 사용 하도록 설정 합니다. 참조 doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>오류 코드: SqlOperationFailed
@@ -211,8 +212,8 @@ ms.locfileid: "81410222"
 
 - **원인**: 오류 메시지에 "SqlException"가 포함 되어 있으면 SQL Database 특정 작업이 실패 했음을 나타내는 오류를 throw 합니다.
 
-- **권장 사항**: SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 문서 https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat를 참조 하세요.
-        SQL 문제를 해결 하려면이 참조 문서에서 SQL 오류 코드를 검색 하 여 자세한 내용을 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors참조 하세요. 추가 도움이 필요한 경우 Azure SQL 지원에 문의 하세요.
+- **권장 사항**: SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 문서를 참조 하세요 https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
+        SQL 문제를 해결 하려면이 참조 문서에서 SQL 오류 코드를 검색 하 여 자세한 내용을 참조 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 하세요. 추가 도움이 필요한 경우 Azure SQL 지원에 문의 하세요.
 
 - **원인**: 오류 메시지에 "PdwManagedToNativeInteropException"가 포함 된 경우 일반적으로 원본 및 싱크 열 크기의 불일치로 인해 발생 합니다.
 
@@ -220,7 +221,7 @@ ms.locfileid: "81410222"
 
 - **원인**: 오류 메시지에 "InvalidOperationException"가 포함 된 경우 일반적으로 잘못 된 입력 데이터로 인해 발생 합니다.
 
-- **권장 사항**: 문제가 발생 하는 행을 식별 하려면 복사 작업에 내결함성 기능을 사용 하도록 설정 하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 참조 doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **권장 사항**: 문제가 발생 하는 행을 식별 하려면 복사 작업에 내결함성 기능을 사용 하도록 설정 하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 참조 doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>오류 코드: SqlUnauthorizedAccess
@@ -323,7 +324,7 @@ ms.locfileid: "81410222"
 
 - **원인**: bcp 클라이언트에서 잘못 된 열 길이를 받기 때문에 SQL 대량 복사가 실패 했습니다.
 
-- **권장 사항**: 문제가 발생 하는 행을 식별 하려면 복사 작업에 내결함성 기능을 사용 하도록 설정 하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 참조 doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **권장 사항**: 문제가 발생 하는 행을 식별 하려면 복사 작업에 내결함성 기능을 사용 하도록 설정 하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 참조 doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>오류 코드: SqlConnectionIsClosed
@@ -545,7 +546,7 @@ ms.locfileid: "81410222"
 
 - **원인**: Azure Data Factory에서는 parquet 형식이 지원 되지 않습니다.
 
-- **권장 사항**: 원본 데이터를 두 번 확인 합니다. 문서를 참조 https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs하세요.
+- **권장 사항**: 원본 데이터를 두 번 확인 합니다. 문서를 참조 하세요. https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs
 
 
 ### <a name="error-code--parquetmisseddecimalprecisionscale"></a>오류 코드: ParquetMissedDecimalPrecisionScale
@@ -581,7 +582,7 @@ ms.locfileid: "81410222"
 
 - **원인**: 매핑에 지정 된 형식으로 데이터를 변환할 수 없습니다. source
 
-- **권장 사항**: 원본 데이터를 두 번 확인 하거나 복사 작업 열 매핑에서이 열에 올바른 데이터 형식을 지정 하십시오. 문서를 참조 https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs하세요.
+- **권장 사항**: 원본 데이터를 두 번 확인 하거나 복사 작업 열 매핑에서이 열에 올바른 데이터 형식을 지정 하십시오. 문서를 참조 하세요. https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs
 
 
 ### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>오류 코드: ParquetDataCountNotMatchColumnCount

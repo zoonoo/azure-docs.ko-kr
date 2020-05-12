@@ -5,21 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: 858cfc9a8c15f1e33e688bb5086a58f194e7173f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28252b42264dc6c1be403e99689f845d7143b1f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501504"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200462"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL Fqdn을 사용 하 여 Azure 방화벽 응용 프로그램 규칙 구성
-
-> [!IMPORTANT]
-> SQL Fqdn을 사용 하는 Azure 방화벽 응용 프로그램 규칙은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이제 SQL Fqdn을 사용 하 여 Azure 방화벽 응용 프로그램 규칙을 구성할 수 있습니다. 이렇게 하면 가상 네트워크에서 지정 된 SQL server 인스턴스로만 액세스를 제한할 수 있습니다.
 
@@ -29,7 +24,7 @@ SQL Fqdn을 사용 하 여 트래픽을 필터링 할 수 있습니다.
 - 온-프레미스에서 Azure SQL 관리 되는 인스턴스 또는 Vnet에서 실행 되는 SQL IaaS.
 - 스포크-스포크에서 Azure SQL 관리 되는 인스턴스 또는 Vnet에서 실행 되는 SQL IaaS로.
 
-공개 미리 보기 동안에는 SQL FQDN 필터링이 [프록시 모드](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) 에서만 지원 됩니다 (포트 1433). 기본 리디렉션 모드에서 SQL을 사용 하는 경우 [네트워크 규칙](overview.md#network-traffic-filtering-rules)의 일부로 sql 서비스 태그를 사용 하 여 액세스를 필터링 할 수 있습니다.
+SQL FQDN 필터링은 [프록시 모드](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) 에서만 지원 됩니다 (포트 1433). 기본 리디렉션 모드에서 SQL을 사용 하는 경우 [네트워크 규칙](overview.md#network-traffic-filtering-rules)의 일부로 sql 서비스 태그를 사용 하 여 액세스를 필터링 할 수 있습니다.
 SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용 하는 경우 방화벽 응용 프로그램 규칙에서 이러한 포트를 구성할 수 있습니다.
 
 SQL Fqdn을 사용 하는 응용 프로그램 규칙은 현재 Azure Portal, Azure CLI, REST 및 템플릿을 통해 모든 지역에서 사용할 수 있습니다.

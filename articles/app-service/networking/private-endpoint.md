@@ -4,17 +4,17 @@ description: Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 �
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756284"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198813"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Azure 웹 앱 (미리 보기)에 대 한 개인 끝점 사용
 
@@ -28,7 +28,7 @@ Azure 웹 앱에 대 한 개인 끝점을 사용 하 여 개인 네트워크에 
 - 개인 끝점을 구성 하 여 웹 앱을 보호 하 고 공개 노출을 제거 합니다.
 - VPN 또는 Express 경로 개인 피어 링을 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 웹 앱에 안전 하 게 연결 합니다.
 
-VNet과 웹 앱 사이에 보안 연결이 필요한 경우 서비스 끝점은 가장 간단한 솔루션입니다. Azure 게이트웨이를 통해 온-프레미스에서 웹 앱에 연결 해야 하는 경우 지역적으로 피어 링 VNet 또는 전역적으로 피어 링 VNet을 통해 개인 끝점은 솔루션입니다.  
+VNet과 웹 앱 사이에 보안 연결이 필요한 경우 서비스 끝점은 가장 간단한 솔루션입니다. Azure 게이트웨이, 지역적으로 피어 링 VNet 또는 전역 피어 링 VNet을 통해 온-프레미스에서 웹 앱에 연결 해야 하는 경우 개인 끝점은 솔루션입니다.  
 
 자세한 내용은 [서비스 끝점][serviceendpoint]을 참조 하세요.
 
@@ -63,13 +63,21 @@ VNet과 웹 앱 사이에 보안 연결이 필요한 경우 서비스 끝점은 
 ## <a name="dns"></a>DNS
 
 이 기능이 미리 보기 상태 이므로 미리 보기 중에 DNS 항목을 변경 하지 않습니다. 개인 DNS 서버 또는 Azure DNS 개인 영역에서 DNS 항목을 직접 관리 해야 합니다.
-사용자 지정 DNS 이름을 사용 해야 하는 경우 웹 앱에 사용자 지정 이름을 추가 해야 합니다. 미리 보기 중에 사용자 지정 이름은 공용 DNS 확인을 사용 하 여 사용자 지정 이름과 같이 유효성을 검사 해야 합니다. 자세한 내용은 [사용자 지정 DNS 유효성 검사][dnsvalidation] 를 참조 하세요.
+사용자 지정 DNS 이름을 사용 해야 하는 경우 웹 앱에 사용자 지정 이름을 추가 해야 합니다. 미리 보기 중에 사용자 지정 이름은 공용 DNS 확인을 사용 하 여 사용자 지정 이름과 같이 유효성을 검사 해야 합니다. 자세한 내용은 [사용자 지정 DNS 유효성 검사][dnsvalidation]를 참조 하세요.
+
+Kudu 콘솔 또는 Kudu REST API (예: Azure DevOps 자체 호스팅 에이전트로 배포)를 사용 해야 하는 경우 Azure DNS 개인 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## <a name="pricing"></a>가격 책정
 
 가격 책정에 대한 자세한 내용은 [Azure Private Link 가격 책정][pricing]을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
+
+개인 끝점을 사용 하 여 탄력적 프리미엄 계획에서 Azure Function을 사용 하는 경우 Azure 웹 포털에서 함수를 실행 하거나 실행 하려면 직접 네트워크에 액세스할 수 있어야 합니다. 그렇지 않으면 HTTP 403 오류가 표시 됩니다. 즉, 브라우저가 Azure 웹 포털에서 함수를 실행 하기 위해 개인 끝점에 연결할 수 있어야 합니다. 
+
+미리 보기 중에는 프로덕션 슬롯만 개인 끝점 뒤에 표시 되며, 다른 슬롯은 공용 끝점을 통해서만 연결할 수 있습니다.
 
 개인 링크 기능 및 개인 끝점을 정기적으로 개선 하 고 있습니다. 제한에 대 한 최신 정보는 [이 문서를 참조][pllimitations] 하세요.
 

@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268484"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201078"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
@@ -178,7 +179,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 다음으로, 사용자를 대신 하 여 Azure AD에서 토큰을 요청 하는 메서드를 추가 합니다. 이 메서드는 권한이 부여 되는 범위를 정의 합니다. 사용 권한 및 범위에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점의 사용 권한 및 동의](../../active-directory/develop/v2-permissions-and-consent.md)를 참조 하세요.
 
-리소스 ID를 사용 하 여 토큰을 가져올 범위를 구성 합니다. 이 예제에서는 리소스 ID를 기본 제공 `user_impersonation` 범위와 함께 사용 하 여 범위를 생성 합니다 .이 범위는 사용자를 대신 하 여 토큰이 요청 됨을 나타냅니다.
+리소스 ID를 사용 하 여 토큰을 가져올 범위를 구성 합니다. 이 예제에서는 리소스 ID를 기본 제공 범위와 함께 사용 하 여 범위를 생성 `user_impersonation` 합니다 .이 범위는 사용자를 대신 하 여 토큰이 요청 됨을 나타냅니다.
 
 사용자가 토큰을 대신해 서 요청 하는 데 동의할 수 있도록 하는 인터페이스를 사용자에 게 제공 해야 할 수 있습니다. 동의가 필요한 경우이 예제에서는 **MsalUiRequiredException** 을 catch 하 고 다른 메서드를 호출 하 여 동의 요청을 용이 하 게 합니다.
 
@@ -202,7 +203,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼 2.0은 증분 동의를 지원 합니다. 즉, 보안 주체가 처음에는 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 `scope` 매개 변수에서 지정 된 시간에 앱에 필요한 사용 권한 범위를 지정 합니다. 증분 승인에 대 한 자세한 내용은 [Microsoft identity platform (v2.0)로 업데이트 하는 이유에](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)대 한 **증분 및 동적 동의** 섹션을 참조 하십시오.
+동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼 2.0은 증분 동의를 지원 합니다. 즉, 보안 주체가 처음에는 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 매개 변수에서 지정 된 시간에 앱에 필요한 사용 권한 범위를 지정 합니다 `scope` . 증분 승인에 대 한 자세한 내용은 [Microsoft identity platform (v2.0)로 업데이트 하는 이유에](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)대 한 **증분 및 동적 동의** 섹션을 참조 하십시오.
 
 다음 메서드는 증분 동의를 요청 하기 위한 인증 속성을 생성 합니다.
 
@@ -280,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>암시적 허용 흐름 사용
 
-샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 다음 단계를 수행하세요.
+샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 아래 단계를 수행합니다.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. 관리 섹션에서 **인증** 설정을 선택 합니다.

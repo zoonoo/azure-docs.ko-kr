@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995547"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199038"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -29,6 +29,10 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 [다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
 [사용자 지정 메트릭 차원에 대 한 경고를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) 하는 Application Insights 옵션을 사용 하면 추가 사전 집계 메트릭이 생성 될 수 있으므로 추가 비용을 생성할 수도 있습니다. Application Insights의 로그 기반 및 미리 집계 된 메트릭과 Azure Monitor 사용자 지정 메트릭에 대 한 [가격 책정](https://azure.microsoft.com/pricing/details/monitor/) 에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) .
+
+### <a name="workspace-based-application-insights"></a>작업 영역 기반 Application Insights
+
+[작업 영역 기반 Application Insights 리소스](create-workspace-resource.md)라고 하는 Log Analytics 작업 영역으로 데이터를 보내는 Application Insights 리소스의 경우 데이터 수집 및 보존에 대 한 청구는 Application Insights 데이터가 있는 작업 영역에 의해 수행 됩니다. 이를 통해 고객은 종 량 제 뿐만 아니라 용량 예약이 포함 된 Log Analytics [가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) 의 모든 옵션을 활용할 수 있습니다. 데이터 형식에의 한 [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type)을 포함 하 여 데이터 보존에 대 한 더 많은 옵션도 Log Analytics 있습니다. 작업 영역에서 Application Insights 데이터 형식은 요금 없이 90 일 동안 보존 됩니다. 웹 테스트를 사용 하 고 사용자 지정 메트릭 차원에 대 한 경고를 사용 하도록 설정 하는 것은 계속 Application Insights 통해 보고 됩니다 [사용량 및 예상 비용](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs), [Azure Cost Management + 청구](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) 및 [Log Analytics 쿼리](#data-volume-for-workspace-based-application-insights-resources)를 사용 하 여 Log Analytics에서 데이터 수집 및 보존 비용을 추적 하는 방법에 대해 알아봅니다. 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>응용 프로그램을 관리 하는 비용 예측
 
@@ -75,11 +79,11 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 ### <a name="queries-to-understand-data-volume-details"></a>데이터 볼륨 정보를 이해 하는 쿼리
 
-Application Insights에 대 한 데이터 볼륨을 조사 하는 방법에는 두 가지가 있습니다. 첫 번째는 `systemEvents` 테이블에서 집계 된 정보를 사용 하 고, 두 `_BilledSize` 번째는 각 수집 이벤트에서 사용할 수 있는 속성을 사용 합니다.
+Application Insights에 대 한 데이터 볼륨을 조사 하는 방법에는 두 가지가 있습니다. 첫 번째는 테이블에서 집계 된 정보를 사용 하 `systemEvents` 고, 두 번째는 `_BilledSize` 각 수집 이벤트에서 사용할 수 있는 속성을 사용 합니다. `systemEvents`에는 [작업 영역 기반 응용 프로그램](#data-volume-for-workspace-based-application-insights-resources)정보에 대 한 데이터 크기 정보가 없습니다.
 
 #### <a name="using-aggregated-data-volume-information"></a>집계 된 데이터 볼륨 정보 사용
 
-예를 들어 `systemEvents` 테이블을 사용 하 여 지난 24 시간 동안 쿼리를 통해 수집 데이터 볼륨을 볼 수 있습니다.
+예를 들어 테이블을 사용 `systemEvents` 하 여 지난 24 시간 동안 쿼리를 통해 수집 데이터 볼륨을 볼 수 있습니다.
 
 ```kusto
 systemEvents
@@ -116,15 +120,56 @@ systemEvents
 
 #### <a name="using-data-size-per-event-information"></a>이벤트 정보 당 데이터 크기 사용
 
-데이터 볼륨의 원본에 대 한 자세한 내용을 보려면 각 수집 이벤트에 있는 `_BilledSize` 속성을 사용 하면 됩니다.
+데이터 볼륨의 원본에 대 한 자세한 내용을 보려면 `_BilledSize` 각 수집 이벤트에 있는 속성을 사용 하면 됩니다.
 
-예를 들어 지난 30 일 동안 가장 많은 데이터 볼륨을 생성 하는 작업을 확인 하기 위해 모든 종속성 `_BilledSize` 이벤트의 합계를 구할 수 있습니다.
+예를 들어 지난 30 일 동안 가장 많은 데이터 볼륨을 생성 하는 작업을 확인 하기 위해 `_BilledSize` 모든 종속성 이벤트의 합계를 구할 수 있습니다.
 
 ```kusto
 dependencies
 | where timestamp >= startofday(ago(30d))
 | summarize sum(_BilledSize) by operation_Name
 | render barchart  
+```
+
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스에 대 한 데이터 볼륨
+
+지난 주 동안 작업 영역에서 모든 [작업 영역 기반 Application Insights 리소스](create-workspace-resource.md) 에 대 한 데이터 볼륨 추세를 확인 하려면 Log Analytics 작업 영역으로 이동한 후 쿼리를 실행 합니다.
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+특정 작업 영역 기반 Application Insights 리소스에 대해 유형별 데이터 볼륨 추세를 쿼리하려면 Log Analytics 작업 영역에서 다음을 사용 합니다.
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
 ```
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Azure 청구서에서 Application Insights 사용량 보기
@@ -174,7 +219,7 @@ Application Insights 사용량 및 예상 비용을 검토 하 여 데이터 수
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
 
-[Azure Resource Manager를 통해 일일](../../azure-monitor/app/powershell.md)한도를 변경 하려면 변경할 속성은 `dailyQuota`입니다.  Azure Resource Manager를 통해 `dailyQuotaResetTime` 및 일일 상한를 설정할 수도 있습니다 `warningThreshold`.
+[Azure Resource Manager를 통해 일일](../../azure-monitor/app/powershell.md)한도를 변경 하려면 변경할 속성은 `dailyQuota` 입니다.  Azure Resource Manager를 통해 및 일일 상한를 설정할 수도 있습니다 `dailyQuotaResetTime` `warningThreshold` .
 
 ### <a name="create-alerts-for-the-daily-cap"></a>일일 상한에 대 한 경고 만들기
 
@@ -220,7 +265,7 @@ Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니�
 
 보존이 낮아질 때 가장 오래 된 데이터가 제거 되기 전에 몇 일의 유예 기간이 있습니다.
 
-매개 변수를 `retentionInDays` 사용 하 여 [PowerShell을 사용 하 여 프로그래밍](powershell.md#set-the-data-retention) 방식으로 보존을 설정할 수도 있습니다. 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터의 즉시 제거를 트리거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure Resource Manager 통해서만 노출 되며 매우 주의 해 서 사용 해야 합니다. `dailyQuotaResetTime` 매개 변수를 설정 하기 위해 Azure Resource Manager를 사용 하 여 데이터 볼륨 상한에 대 한 일일 다시 설정 시간을 구성할 수 있습니다.
+매개 변수를 사용 하 여 [PowerShell을 사용 하 여 프로그래밍](powershell.md#set-the-data-retention) 방식으로 보존을 설정할 수도 있습니다 `retentionInDays` . 데이터 보존 기간을 30 일로 설정 하는 경우 매개 변수를 사용 하 여 이전 데이터의 즉시 제거를 트리거할 수 있습니다 `immediatePurgeDataOn30Days` .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure Resource Manager 통해서만 노출 되며 매우 주의 해 서 사용 해야 합니다. 매개 변수를 설정 하기 위해 Azure Resource Manager를 사용 하 여 데이터 볼륨 상한에 대 한 일일 다시 설정 시간을 구성할 수 있습니다 `dailyQuotaResetTime` .
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Application Insights를 사용 하 여 데이터 전송 요금
 

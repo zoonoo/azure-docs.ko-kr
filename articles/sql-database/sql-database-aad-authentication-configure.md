@@ -4,19 +4,19 @@ description: Azure AD를 구성한 후 Azure Active Directory 인증을 사용 �
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419879"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198606"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -187,9 +187,9 @@ GA 이전에 만든 MI에 대해 기존 Azure AD 관리자를 사용 하는 것�
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>MI 용 Azure AD 로그인 GA의 알려진 문제
 
-- SQL 명령을 `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`사용 하 여 만든 mi의 master 데이터베이스에 azure ad 로그인이 있으면 mi에 대 한 azure ad 관리자로 설정할 수 없습니다. Azure AD 로그인을 만드는 데 Azure Portal, PowerShell 또는 CLI 명령을 사용 하 여 Azure AD 관리자로 로그인을 설정 하는 동안 오류가 발생 합니다.
-  - 계정을 Azure AD 관리자로 만들려면 먼저 명령을 `DROP LOGIN [myaadaccount]`사용 하 여 master 데이터베이스에서 로그인을 삭제 해야 합니다.
-  - `DROP LOGIN` 성공한 후 Azure Portal에서 Azure AD 관리자 계정을 설정 합니다. 
+- SQL 명령을 사용 하 여 만든 MI의 master 데이터베이스에 Azure AD 로그인 `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` 이 있으면 mi에 대 한 AZURE ad 관리자로 설정할 수 없습니다. Azure AD 로그인을 만드는 데 Azure Portal, PowerShell 또는 CLI 명령을 사용 하 여 Azure AD 관리자로 로그인을 설정 하는 동안 오류가 발생 합니다.
+  - `DROP LOGIN [myaadaccount]`계정을 AZURE AD 관리자로 만들려면 먼저 명령을 사용 하 여 master 데이터베이스에서 로그인을 삭제 해야 합니다.
+  - 성공한 후 Azure Portal에서 Azure AD 관리자 계정을 설정 합니다 `DROP LOGIN` . 
   - Azure AD 관리자 계정을 설정할 수 없는 경우 로그인에 대 한 관리 되는 인스턴스의 master 데이터베이스를 확인 합니다. `SELECT * FROM sys.server_principals` 명령을 사용합니다.
   - MI에 대 한 Azure AD 관리자를 설정 하면이 계정의 master 데이터베이스에 로그인이 자동으로 생성 됩니다. Azure AD 관리자를 제거 하면 해당 로그인이 master 데이터베이스에서 자동으로 삭제 됩니다.
 
@@ -212,7 +212,7 @@ Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 �
 
 SQL 관리 되는 인스턴스에 대해 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet:
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |현재 구독에서 SQL 관리 되는 인스턴스에 대 한 Azure AD 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함)|
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |현재 구독에서 SQL 관리 되는 인스턴스의 Azure AD 관리자를 제거 합니다. |
@@ -240,7 +240,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 다음 CLI 명령을 호출 하 여 SQL 관리 되는 인스턴스에 대 한 Azure AD 관리자를 프로 비전 할 수도 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | SQL 관리 되는 인스턴스에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | SQL 관리 되는 인스턴스의 Azure Active Directory 관리자를 제거 합니다. |
@@ -303,15 +303,15 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 Azure SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet:
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Azure SQL server 또는 Azure Synapse에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Azure SQL server 또는 Azure Synapse에 대 한 Azure Active Directory 관리자를 제거 합니다. |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |현재 Azure SQL server 또는 Azure Synapse에 대해 구성 된 Azure Active Directory 관리자에 대 한 정보를 반환 합니다. |
 
-PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. `get-help Set-AzSqlServerActiveDirectoryAdministrator`)을 입력합니다.
+PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 정의합니다(예: `get-help Set-AzSqlServerActiveDirectoryAdministrator`).
 
-다음 스크립트는 **그룹-23**이라는 리소스 그룹의 **demo_server** 서버에 대 `40b79501-b343-44ed-9ce7-da4c8cc7353f`한 **DBA_GROUP** (개체 ID) 이라는 Azure AD 관리자 그룹을 프로 비전 합니다.
+다음 스크립트는 **DBA_Group** `40b79501-b343-44ed-9ce7-da4c8cc7353f` **그룹-23**이라는 리소스 그룹의 **demo_server** 서버에 대 한 DBA_GROUP (개체 ID) 이라는 Azure AD 관리자 그룹을 프로 비전 합니다.
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
@@ -348,7 +348,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 다음 CLI 명령을 호출 하 여 Azure AD 관리자를 프로 비전 할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Azure SQL server 또는 Azure Synapse에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 |[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Azure SQL server 또는 Azure Synapse에 대 한 Azure Active Directory 관리자를 제거 합니다. |
@@ -366,7 +366,7 @@ CLI 명령에 대 한 자세한 내용은 [az sql server](/cli/azure/sql/server)
 
 응용 프로그램 또는 사용자가 Azure AD id를 사용 하 여 Azure SQL Database 또는 Azure Synapse에 연결 하는 모든 클라이언트 컴퓨터에서 다음 소프트웨어를 설치 해야 합니다.
 
-- 에서 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)4.6 이상 .NET Framework 합니다.
+- 에서 4.6 이상 .NET Framework [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) 합니다.
 - ADAL (SQL Server 인증 라이브러리를 Azure Active Directory*합니다. DLL*). ADAL을 포함 하는 최신 SSMS, ODBC 및 OLE DB 드라이버를 설치 하는 다운로드 링크는 다음과 같습니다 *. DLL* 라이브러리.
     1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -471,7 +471,7 @@ Azure AD 클라우드 전용 id 사용자 또는 Azure AD 하이브리드 id를 
 
 1. Management Studio 또는 Data Tools를 시작 하 고 **서버에 연결** (또는 **데이터베이스 엔진에 연결**) 대화 상자의 **인증** 상자에서 **Azure Active Directory-Password**를 선택 합니다.
 
-2. **사용자 이름** 상자에 **username\@domain.com**형식으로 Azure Active Directory 사용자 이름을 입력 합니다. 사용자 이름은 Azure Active Directory의 계정 이거나 Azure Active Directory를 사용 하 여 관리 되거나 페더레이션된 도메인의 계정 이어야 합니다.
+2. **사용자 이름** 상자에 **username \@ domain.com**형식으로 Azure Active Directory 사용자 이름을 입력 합니다. 사용자 이름은 Azure Active Directory의 계정 이거나 Azure Active Directory를 사용 하 여 관리 되거나 페더레이션된 도메인의 계정 이어야 합니다.
 
 3. **암호** 상자에 Azure Active Directory 계정 또는 관리/페더레이션 도메인 계정에 대 한 사용자 암호를 입력 합니다.
 
@@ -498,7 +498,7 @@ Windows 통합 인증을 사용 하려면 도메인의 Active Directory Azure Ac
 
 데이터베이스에 연결 하는 클라이언트 응용 프로그램 (또는 서비스)은 사용자의 도메인 자격 증명을 사용 하 여 도메인에 가입 된 컴퓨터에서 실행 되어야 합니다.
 
-통합 인증 및 Azure AD id를 사용 하 여 데이터베이스에 연결 하려면 데이터베이스 연결 문자열의 Authentication 키워드를로 `Active Directory Integrated`설정 해야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
+통합 인증 및 Azure AD id를 사용 하 여 데이터베이스에 연결 하려면 데이터베이스 연결 문자열의 Authentication 키워드를로 설정 해야 합니다 `Active Directory Integrated` . 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -510,7 +510,7 @@ conn.Open();
 
 ### <a name="active-directory-password-authentication"></a>Active Directory 암호 인증
 
-Azure AD 클라우드 전용 id 사용자 계정 또는 Azure AD 하이브리드 id를 사용 하는 사용자를 사용 하 여 데이터베이스에 연결 하려면 Authentication 키워드를로 `Active Directory Password`설정 해야 합니다. 연결 문자열에는 사용자 ID/UID 및 암호/PWD 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
+Azure AD 클라우드 전용 id 사용자 계정 또는 Azure AD 하이브리드 id를 사용 하는 사용자를 사용 하 여 데이터베이스에 연결 하려면 Authentication 키워드를로 설정 해야 합니다 `Active Directory Password` . 연결 문자열에는 사용자 ID/UID 및 암호/PWD 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
 ```csharp
 string ConnectionString =
@@ -546,7 +546,7 @@ conn.Open();
 다음 문은 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=53591)에서 사용할 수 있는 sqlcmd 버전 13.1을 사용하여 연결합니다.
 
 > [!NOTE]
-> `sqlcmd`에서 `-G` 명령을 사용 하면 시스템 id에서 작동 하지 않으며 사용자 계정 로그인이 필요 합니다.
+> `sqlcmd`에서 명령을 사용 하면 `-G` 시스템 id에서 작동 하지 않으며 사용자 계정 로그인이 필요 합니다.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
