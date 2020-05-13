@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb065f10664f46578f84e59501d75d510ccb3c6a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383064"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201575"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-다음은 그 예입니다.
+예:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -129,7 +129,7 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>강제 터널링/네트워크 가상 어플라이언스에 대 한 연결이 지원 되나요?
 
-강제 터널링이 지원 됩니다. 자세한 내용은 [Azure 방화벽 강제 터널링 (미리 보기)](forced-tunneling.md)을 참조 하세요. 
+강제 터널링이 지원 됩니다. 자세한 내용은 [Azure 방화벽 강제 터널링](forced-tunneling.md)을 참조 하세요. 
 
 Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 

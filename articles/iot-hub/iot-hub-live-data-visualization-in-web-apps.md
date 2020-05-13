@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78675310"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201538"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 응용 프로그램에서 Azure IoT hub의 실시간 센서 데이터 시각화
 
@@ -165,16 +165,16 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. 이제 App Service 계획에서 웹 앱을 프로 비전 합니다. `--deployment-local-git` 매개 변수를 사용 하면 로컬 컴퓨터의 Git 리포지토리에서 웹 앱 코드를 업로드 하 고 배포할 수 있습니다. 웹 앱 이름은 전역적으로 고유 해야 하며 대/소문자, 숫자 및 하이픈을 포함할 수 있습니다. 사용 중인 node.js 런타임의 버전에 따라 `--runtime` 매개 변수에 대해 노드 버전 10.6 이상을 지정 해야 합니다. `az webapp list-runtimes` 명령을 사용 하 여 지원 되는 런타임 목록을 가져올 수 있습니다.
+2. 이제 App Service 계획에서 웹 앱을 프로 비전 합니다. `--deployment-local-git`매개 변수를 사용 하면 로컬 컴퓨터의 Git 리포지토리에서 웹 앱 코드를 업로드 하 고 배포할 수 있습니다. 웹 앱 이름은 전역적으로 고유 해야 하며 대/소문자, 숫자 및 하이픈을 포함할 수 있습니다. `--runtime`사용 중인 node.js 런타임의 버전에 따라 매개 변수에 대해 노드 버전 10.6 이상을 지정 해야 합니다. 명령을 사용 하 여 `az webapp list-runtimes` 지원 되는 런타임 목록을 가져올 수 있습니다.
 
    ```azurecli-interactive
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
-3. 이제 IoT hub 연결 문자열 및 이벤트 허브 소비자 그룹을 지정 하는 환경 변수에 대 한 응용 프로그램 설정을 추가 합니다. 개별 설정은 `-settings` 매개 변수에서 구분 된 공간입니다. IoT hub에 대 한 서비스 연결 문자열과이 자습서의 앞부분에서 만든 소비자 그룹을 사용 합니다. 값을 따옴표로 묶으면 안 됩니다.
+3. 이제 IoT hub 연결 문자열 및 이벤트 허브 소비자 그룹을 지정 하는 환경 변수에 대 한 응용 프로그램 설정을 추가 합니다. 개별 설정은 매개 변수에서 구분 된 공간 `-settings` 입니다. IoT hub에 대 한 서비스 연결 문자열과이 자습서의 앞부분에서 만든 소비자 그룹을 사용 합니다. 값을 따옴표로 묶으면 안 됩니다.
 
    ```azurecli-interactive
-   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
+   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString="<your IoT hub connection string>"
    ```
 
 4. 웹 앱에 웹 소켓 프로토콜을 사용 하도록 설정 하 고 HTTPS 요청만 받도록 웹 앱을 설정 합니다 (HTTP 요청은 HTTPS로 리디렉션 됨).
@@ -198,7 +198,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. App Service에서 웹 앱에 대 한 Git 리포지토리를 참조 하는 복제에 원격을 추가 합니다. Git \<복제 url\>의 경우 이전 단계에서 반환 된 url을 사용 합니다. 명령 창에서 다음 명령을 실행 합니다.
+7. App Service에서 웹 앱에 대 한 Git 리포지토리를 참조 하는 복제에 원격을 추가 합니다. \<Git 복제 url의 경우 \> 이전 단계에서 반환 된 url을 사용 합니다. 명령 창에서 다음 명령을 실행 합니다.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -251,9 +251,9 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 * Azure Portal에서 웹 앱으로 이동 합니다. 왼쪽 창의 **모니터링** 아래에서 **App Service 로그**를 선택 합니다. **응용 프로그램 로깅 (파일 시스템)** 을 켜기로 설정 하 고 **수준** 을 오류로 설정한 다음 **저장**을 선택 합니다. 그런 다음 **모니터링**중인 **로그 스트림을** 엽니다.
 
-* Azure Portal의 웹 앱에서 **개발 도구** 아래에 있는 **콘솔** 을 선택 하 고 및 `node -v` `npm -v`을 사용 하 여 노드 및 npm 버전의 유효성을 검사 합니다.
+* Azure Portal의 웹 앱에서 **개발 도구** 아래에 있는 **콘솔** 을 선택 하 고 및을 사용 하 여 노드 및 npm 버전의 유효성을 검사 `node -v` `npm -v` 합니다.
 
-* 패키지를 찾을 수 없다는 오류가 표시 되 면 순서 대로 단계를 실행 했을 수 있습니다. 사이트를 (과) 함께 `git push`배포 하는 경우 app service `npm install`가 구성 된 현재 노드 버전에 따라 실행 됩니다. 나중에 구성에서 변경 된 경우에는 코드에 대 한 의미 없는 변경을 수행 하 고 다시 푸시 해야 합니다.
+* 패키지를 찾을 수 없다는 오류가 표시 되 면 순서 대로 단계를 실행 했을 수 있습니다. 사이트를 (과) 함께 배포 하는 경우 `git push` app service가 `npm install` 구성 된 현재 노드 버전에 따라 실행 됩니다. 나중에 구성에서 변경 된 경우에는 코드에 대 한 의미 없는 변경을 수행 하 고 다시 푸시 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

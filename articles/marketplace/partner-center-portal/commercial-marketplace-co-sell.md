@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517931"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201442"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
@@ -22,11 +22,11 @@ ms.locfileid: "80517931"
 
 | **제안 유형** | **파트너 센터에서 사용할 수 있는 공동 판매 페이지** |
 |    -----------------------    |    -----------------------------  |
-| SaaS (Software as a Service) |     일반 공급 4 월 2020      |
+| SaaS (Software as a Service) |      지금 사용 가능      |
 | 고객 Engagement & PowerApps의 Dynamics 365      |     지금 사용 가능      |
 | Dynamics 365 for Operations     |     지금 사용 가능       |
-| Dynamics 365 Business Central      |  일반 공급 4 월 2020     |
-| Azure 애플리케이션     |     일반 공급 4 월 2020     |
+| Dynamics 365 Business Central      |   지금 사용 가능     |
+| Azure 애플리케이션     |      지금 사용 가능     |
 | Azure Virtual Machine      |     공지 예정       |
 | Azure 컨테이너     |     공지 예정       |
 | 컨설팅 서비스      |     공지 예정       |
@@ -52,7 +52,7 @@ ms.locfileid: "80517931"
 | 장치 (하드웨어) | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP (응용 프로그램) | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
 | 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
-| 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
+| 관리형 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ### <a name="solution-areas"></a>솔루션 영역
 
