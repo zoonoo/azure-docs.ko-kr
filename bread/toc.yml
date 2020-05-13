@@ -605,7 +605,7 @@
         - name: Service Bus 메시징
           tocHref: /azure/service-bus-messaging/
           topicHref: /azure/service-bus-messaging/
-        - name: Service Bus Relay
+        - name: Azure Relay
           tocHref: /azure/service-bus-relay/
           topicHref: /azure/service-bus-relay/
     - name: 마이그레이션

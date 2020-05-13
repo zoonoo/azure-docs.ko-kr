@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Azure Relay 설명서
+summary: Azure Relay 서비스를 통해 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있는 방법을 알아봅니다.
+metadata:
+  title: Azure Relay 설명서
+  description: Azure Relay 서비스를 통해 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있는 방법을 알아봅니다.
+  services: service-bus-relay
+  ms.service: service-bus-relay
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 09/06/2019
+  ms.openlocfilehash: f4d186169998aad628dc8efa4781dc55f457edd4
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83202917"
+landingContent:
+- title: Azure Relay 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 릴레이란?
+      url: relay-what-is-it.md
+- title: 하이브리드 연결
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Websocket을 사용하여 메시지 보내기 및 받기 - .NET
+      url: relay-hybrid-connections-dotnet-get-started.md
+    - text: HTTP를 사용하여 메시지 보내기 및 받기 - .NET
+      url: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - text: Websocket을 사용하여 메시지 보내기 및 받기 - Node.js
+      url: relay-hybrid-connections-node-get-started.md
+    - text: HTTP를 사용하여 메시지 보내기 및 받기 - Node.js
+      url: relay-hybrid-connections-http-requests-node-get-started.md
+  - linkListType: download
+    links:
+    - text: GitHub 샘플
+      url: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+- title: WCF 릴레이
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 공개
+      url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - text: 네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 공개
+      url: service-bus-relay-tutorial.md
+    - text: 네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 공개
+      url: service-bus-relay-rest-tutorial.md
+  - linkListType: download
+    links:
+    - text: GitHub 샘플
+      url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- title: API 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+    - text: REST (영문)
+      url: /rest/api/relay/

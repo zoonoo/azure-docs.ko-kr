@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: 자체 호스팅 게이트웨이에 대한 로컬 메트릭 및 로그 구성
           href: how-to-configure-local-metrics-logs.md
-        - name: Azure Application Insights를 사용하여 로그 요청
-          href: api-management-howto-app-insights.md
         - name: 백업/복원을 사용하여 DR 설정
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: 사용자 계정 관리
