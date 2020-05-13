@@ -22,6 +22,8 @@
   items:
     - name: 클래스룸 랩 개념
       href: classroom-labs-concepts.md
+    - name: 클래스룸 랩 아키텍처 기본 사항
+      href: classroom-labs-fundamentals.md
     - name: 시나리오
       items:
         - name: 클래스를 수행하기 위해 랩 사용
@@ -136,7 +138,7 @@
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: 기술 커뮤니티 포럼
+      href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: 질문과 대답
       href: classroom-labs-faq.md

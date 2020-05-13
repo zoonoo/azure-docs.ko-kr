@@ -7,18 +7,26 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: ASP.NET 앱
-      href: cache-web-app-howto.md
-    - name: .NET Core 앱
-      href: cache-dotnet-core-quickstart.md
-    - name: .NET 앱
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Java 앱
-      href: cache-java-get-started.md
-    - name: Node.js 앱
-      href: cache-nodejs-get-started.md
-    - name: Python 앱
-      href: cache-python-get-started.md
+    - name: 캐시 만들기
+      items:
+        - name: 'Basic, Standard 및 Premium 계층'
+          href: quickstart-create-redis.md
+        - name: Enterprise 계층
+          href: quickstart-create-redis-enterprise.md
+    - name: 캐시 사용
+      items:
+        - name: ASP.NET 앱
+          href: cache-web-app-howto.md
+        - name: .NET Core 앱
+          href: cache-dotnet-core-quickstart.md
+        - name: .NET 앱
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Java 앱
+          href: cache-java-get-started.md
+        - name: Node.js 앱
+          href: cache-nodejs-get-started.md
+        - name: Python 앱
+          href: cache-python-get-started.md
 - name: 자습서
   items:
     - name: 순위표와 함께 캐싱 사용

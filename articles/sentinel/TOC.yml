@@ -94,11 +94,11 @@
                   items:
                     - name: Check Point
                       href: connect-checkpoint.md
-                    - name: 시스코
+                    - name: Cisco ASA
                       href: connect-cisco.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
-                    - name: F5
+                    - name: F5 ASM
                       href: connect-f5.md
                     - name: Forcepoint 제품
                       href: connect-forcepoint-casb-ngfw.md
@@ -118,8 +118,10 @@
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
-    - name: 다중 테넌트(MSSP)
+    - name: 다중 테넌트 작업(MSSP)
       href: multiple-tenants-service-providers.md
+    - name: 여러 작업 영역에서 인시던트 작업
+      href: multiple-workspace-view.md
     - name: CMK(고객 관리형 키) 설정
       href: customer-managed-keys.md
     - name: 경고에서 인시던트 만들기
@@ -145,3 +147,5 @@
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/'

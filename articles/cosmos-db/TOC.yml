@@ -543,7 +543,7 @@
       items:
         - name: 보안 개요
           href: database-security.md
-        - name: 데이터 암호화.
+        - name: 데이터 암호화
           href: database-encryption-at-rest.md
         - name: 데이터에 안전하게 액세스
           displayName: 'master key, resource token, users, roles'
@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: 변경 피드 프로세서 라이브러리에서 마이그레이션
           href: how-to-migrate-from-change-feed-library.md
-        - name: 변경 피드를 사용하여 Java SQL 애플리케이션 만들기
+        - name: 변경 피드 - 비동기 Java 샘플
           href: create-sql-api-java-changefeed.md
     - name: Apache Spark를 사용한 기본 제공 분석
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: 요청 단위 사용량 모니터링
               href: monitor-request-unit-usage.md
+            - name: 정규화된 요청 단위 사용량 모니터링
+              href: monitor-normalized-request-units.md
         - name: Azure Monitor 로그 사용
           items:
             - name: 진단 로그 모니터링

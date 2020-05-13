@@ -61,7 +61,7 @@
       href: samples-cli.md
     - name: Azure PowerShell
       href: samples-powershell.md
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       href: samples-resource-manager-templates.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
@@ -200,6 +200,8 @@
           href: web-sites-monitor.md
         - name: 로그 사용 설정
           href: troubleshoot-diagnostic-logs.md
+        - name: 리소스 이벤트 가져오기
+          href: get-resource-events.md
     - name: 앱 관리
       items:
         - name: 호스팅 계획 관리

@@ -12,6 +12,8 @@
           href: security-center-services.md
         - name: Azure PaaS 리소스에 대한 기능 적용 범위
           href: features-paas.md
+    - name: Security Center의 새로운 기능
+      href: release-notes.md
     - name: 보안 권장 사항
       href: recommendations-reference.md
     - name: 보안 경고 및 의도 kill 체인
@@ -188,7 +190,9 @@
           href: faq-vms.md
         - name: Azure Log Analytics 기존 사용자
           href: faq-azure-monitor-logs.md
-    - name: 릴리스 정보
+    - name: Security Center의 새로운 기능 보관
+      href: release-notes-archive.md
+    - name: Azure 로드맵 블로그
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 기능 및 API 사용 중지(2019년 7월)
       href: security-center-features-retirement-july2019.md

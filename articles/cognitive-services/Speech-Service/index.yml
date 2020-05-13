@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: d1eb706e7156d2444d995904b0a0fecc0a76f4e5
-  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/10/2020
-  ms.locfileid: "83005129"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83201646"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -27,7 +27,7 @@ highlightedContent:
   - title: Speech SDK 정보
     itemType: overview
     url: speech-sdk.md
-  - title: Speech SDK 릴리스 정보
+  - title: 음성 SDK 릴리스 정보
     itemType: whats-new
     url: releasenotes.md
   - title: Speech Service의 언어 지원
@@ -119,6 +119,17 @@ conceptualContent:
     footerLink:
       text: 자세히 보기
       url: index-voice-assistants.yml
+  - title: 도구
+    links:
+    - itemType: overview
+      text: SPX 정보 - 코드 없이 Speech Service 사용
+      url: spx-overview.md
+    - itemType: how-to-guide
+      text: SPX 기본 사항
+      url: spx-basics.md
+    - itemType: overview
+      text: Speech Studio 정보 - 코드 없는 Speech Service 사용자 지정
+      url: https://speech.microsoft.com
   - title: Hosting
     links:
     - itemType: how-to-guide

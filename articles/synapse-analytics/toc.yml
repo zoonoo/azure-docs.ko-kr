@@ -18,6 +18,8 @@
       href: quickstart-create-workspace.md
     - name: Azure Synapse Studio 사용
       href: quickstart-synapse-studio.md
+    - name: Power BI 작업 영역 연결
+      href: quickstart-power-bi.md
     - name: 풀 만들기
       items:
         - name: 웹 도구를 사용하여 Apache Spark 노트북 만들기
@@ -30,6 +32,8 @@
       items:
         - name: COPY 문
           href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Synapse Studio
+          href: quickstart-load-studio-sql-pool.md
     - name: SQL 주문형 사용
       href: quickstart-sql-on-demand.md
 - name: 자습서
@@ -138,7 +142,7 @@
                   href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 취약점 평가
                   href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: 고급 위협 보호
+                - name: Advanced Threat Protection
                   href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 감사
                   href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -188,6 +192,8 @@
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Apache Spark 성능
               href: ./spark/apache-spark-performance.md
+            - name: Apache Spark 자동 크기 조정 동작
+              href: ./spark/apache-spark-autoscale.md
         - name: 개발
           items:
             - name: Azure Synapse Studio Notebook

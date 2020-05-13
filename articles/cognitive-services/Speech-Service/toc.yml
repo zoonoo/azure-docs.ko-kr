@@ -452,7 +452,7 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: 사용자 지정 키워드 인식
           href: speech-devices-sdk-create-kws.md
-- name: 호스팅
+- name: Hosting
   items:
     - name: 호스팅 설명서
       href: index-hosting.yml
@@ -547,7 +547,7 @@
           href: how-to-devices-microphone-array-configuration.md
     - name: 빠른 시작
       items:
-        - name: 음성 디바이스 SDK 사용
+        - name: Speech Devices SDK 사용
           href: speech-devices-sdk-quickstart.md
     - name: 리소스
       items:
@@ -557,6 +557,20 @@
       items:
         - name: 음성 디바이스 SDK 릴리스 정보
           href: devices-sdk-release-notes.md
+- name: 도구
+  items:
+    - name: SPX
+      items:
+        - name: SPX란?
+          href: spx-overview.md
+        - name: SPX 기본 사항
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Speech Studio란?
+          href: 'https://speech.microsoft.com'
+        - name: Speech Studio를 사용하여 사용자 지정 명령 앱 만들기
+          href: quickstart-custom-speech-commands-create-new.md
 - name: 마이그레이션
   items:
     - name: Bing Speech에서

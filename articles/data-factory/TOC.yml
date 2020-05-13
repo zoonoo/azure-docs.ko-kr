@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: 데이터 팩터리 만들기 - Resource Manager 템플릿
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: 보안 - 고객 관리형 키 암호화 사용
+      href: quickstart-enable-customer-managed-key.md
     - name: 데이터 흐름 만들기
       href: data-flow-create.md
 - name: 자습서
@@ -120,7 +122,7 @@
                   href: tutorial-transform-data-hive-virtual-network-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-hive-virtual-network.md
-    - name: 제어 흐름
+    - name: 흐름 제어
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-control-flow-portal.md

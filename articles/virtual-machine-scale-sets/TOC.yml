@@ -63,7 +63,7 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: 공유 이미지 문제 해결
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: 고객 관리형 키 사용
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: 템플릿 만들기
       items:
         - name: 확장 집합 템플릿에 대해 알아보기
@@ -276,7 +281,7 @@
               href: disk-encryption-powershell.md
             - name: Azure CLI 사용
               href: disk-encryption-cli.md
-            - name: Azure 리소스 관리자 템플릿 사용
+            - name: Azure Resource Manager 템플릿 사용
               href: disk-encryption-azure-resource-manager.md
             - name: 확장 시퀀싱
               href: disk-encryption-extension-sequencing.md

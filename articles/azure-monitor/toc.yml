@@ -239,9 +239,11 @@
             - name: Azure 기능
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
-            - name: Kubernetes 애플리케이션
-              displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-              href: app/kubernetes.md
+            - name: Azure Kubernetes Service
+              items:
+                - name: Kubernetes(사용되지 않음)
+                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
+                  href: app/kubernetes.md
             - name: 독립 실행형 - 모든 환경
               items:
                 - name: Java(미리 보기)
@@ -272,8 +274,10 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
-        - name: 리소스 만들기
+        - name: 리소스 만들기(클래식)
           href: app/create-new-resource.md
+        - name: 리소스 만들기(작업 영역 기반)
+          href: app/create-workspace-resource.md
         - name: 애플리케이션 대시보드
           displayname: 'dashboard, Application Insights dashboard'
           href: app/overview-dashboard.md
@@ -282,7 +286,7 @@
           href: app/app-map.md
         - name: 트랜잭션 진단
           href: app/transaction-diagnostics.md
-          displayname: 'e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies'
+          displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: 가용성
           items:
             - name: URL 테스트
@@ -526,8 +530,12 @@
               href: platform/resource-logs-blob-format.md
         - name: Event Hubs로 데이터 스트리밍
           href: platform/stream-monitoring-data-event-hubs.md
+        - name: Key Vault 모니터링
+          href: insights/key-vaults-insights-overview.md
         - name: 변경 분석
           href: app/change-analysis.md
+        - name: Azure Cache for Redis(미리 보기)
+          href: insights/redis-cache-insights-overview.md
     - name: VM 및 게스트 OS 모니터링
       items:
         - name: Azure 가상 머신 모니터링
@@ -1136,7 +1144,7 @@
                   href: app/powershell-azure-diagnostics.md
         - name: Azure CLI 샘플
           href: platform/cli-samples.md
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: platform/template-workspace-configuration.md
     - name: Extend
       items:
@@ -1204,6 +1212,8 @@
               href: app/data-model-context.md
             - name: Azure Functions와 통합
               href: app/azure-functions-supported-features.md
+            - name: 작업 영역 기반 스키마
+              href: app/apm-tables.md
     - name: 메트릭
       items:
         - name: 지원되는 메트릭

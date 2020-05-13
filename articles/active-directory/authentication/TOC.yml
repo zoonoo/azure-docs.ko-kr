@@ -15,7 +15,7 @@
       href: tutorial-enable-sspr-writeback.md
     - name: 사용자 지정 금지 암호 목록 구성
       href: tutorial-configure-custom-password-protection.md
-    - name: Azure ID 보호 통합
+    - name: 위험 기반 로그인 보호 사용
       href: tutorial-risk-based-sspr-mfa.md
 - name: 개념
   expanded: true
@@ -229,7 +229,7 @@
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

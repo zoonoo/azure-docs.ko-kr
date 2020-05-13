@@ -315,6 +315,8 @@
           href: search-security-overview.md
         - name: 프라이빗 엔드포인트 만들기
           href: service-create-private-endpoint.md
+        - name: IP 방화벽 구성
+          href: service-configure-firewall.md
         - name: 서비스 키 관리
           href: search-security-api-keys.md
         - name: 역할 기반 관리자 액세스
