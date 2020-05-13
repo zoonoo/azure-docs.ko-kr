@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse
-ms.custom: seoapril2019
+ms.custom: seoapril2019, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synapse
-ms.openlocfilehash: 137e1919f460d2f5631810edbc09b6e213bfe651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 611a238fd829d9b1beb391da967c0f6c6d3b46ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133184"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198529"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-synapse-analytics-ssms-support-for-mfa"></a>Azure SQL Database 및 Azure Synapse Analytics에서 Multi-factor AAD 인증 사용 (MFA에 대 한 SSMS 지원)
 Azure SQL Database 및 Azure Synapse는 *Active Directory 유니버설 인증*을 사용 하 여 SSMS (SQL Server Management Studio)에서의 연결을 지원 합니다. 이 문서에서는 다양한 인증 옵션 간의 차이점과 유니버설 인증 사용과 관련된 제한 사항에 대해 설명합니다. 
@@ -59,7 +59,7 @@ SSMS 18.x 이상을 실행 하는 경우에는 18.x 이상이 자동으로 인�
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원   
-게스트 사용자로 Azure AD B2B 시나리오에 대해 지원 되는 azure AD 사용자 ( [AZURE B2B 공동 작업](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)참조)는 현재 azure AD에서 만든 그룹 멤버의 일부로만 SQL Database 및 Azure Synapse에 연결 하 고 지정 된 데이터베이스의 transact-sql `CREATE USER` 문을 사용 하 여 수동으로 매핑할 수 있습니다. 예를 들어 azure `steve@gmail.com` ad 도메인 `contosotest` `contosotest.onmicrosoft.com`을 사용 하 여를 azure ad에 초대 하는 경우와 `usergroup` 같은 Azure AD 그룹이 `steve@gmail.com` 구성원을 포함 하는 azure ad에 만들어져야 합니다. 그런 다음, Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉, MyDatabase)에 대해 이 그룹을 만들어야 합니다. 데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자가 `Active Directory – Universal with MFA support` SSMS 인증 옵션을 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
+게스트 사용자로 Azure AD B2B 시나리오에 대해 지원 되는 azure AD 사용자 ( [AZURE B2B 공동 작업](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)참조)는 현재 azure AD에서 만든 그룹 멤버의 일부로만 SQL Database 및 Azure Synapse에 연결 하 고 `CREATE USER` 지정 된 데이터베이스의 transact-sql 문을 사용 하 여 수동으로 매핑할 수 있습니다. 예를 들어 azure ad 도메인을 사용 하 여 `steve@gmail.com` 를 AZURE ad에 초대 하는 경우 `contosotest` `contosotest.onmicrosoft.com` 와 같은 azure ad 그룹이 `usergroup` 구성원을 포함 하는 azure ad에 만들어져야 합니다 `steve@gmail.com` . 그런 다음, Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉, MyDatabase)에 대해 이 그룹을 만들어야 합니다. 데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자가 `Active Directory – Universal with MFA support` SSMS 인증 옵션을 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-azure-synapse"></a>SQL Database 및 Azure Synapse에 대 한 유니버설 인증 제한 사항
 - SSMS 및 SqlPackage.exe는 현재 Active Directory 유니버설 인증을 통해 MFA에서 사용할 수 있는 유일한 도구입니다.

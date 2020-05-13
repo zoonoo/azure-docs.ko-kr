@@ -1,25 +1,25 @@
 ---
-title: 저장소에 대 한 Azure Monitor를 사용 하 여 Azure Storage 서비스 모니터링 (미리 보기) | Microsoft Docs
+title: 저장소에 대 한 Azure Monitor를 사용 하 여 Azure Storage 서비스 모니터링 | Microsoft Docs
 description: 이 문서에서는 저장소 관리자에 게 Azure Storage 계정에 대 한 성능 및 사용 문제를 신속 하 게 이해 하는 저장소 기능을 제공 하는 Azure Monitor에 대해 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691123"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199966"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링
 
-저장소 (미리 보기)에 대 한 Azure Monitor Azure Storage 서비스 성능, 용량 및 가용성에 대 한 통합 보기를 제공 하 여 Azure Storage 계정에 대 한 포괄적인 모니터링을 제공 합니다. 두 가지 방법으로 저장소 용량 및 성능을 관찰할 수 있습니다. 저장소 계정 또는 Azure Monitor에서 직접 확인 하 여 저장소 계정 그룹 전체를 볼 수 있습니다. 
+저장소 Azure Monitor은 Azure Storage 서비스 성능, 용량 및 가용성에 대 한 통합 보기를 제공 하 여 Azure Storage 계정에 대 한 포괄적인 모니터링을 제공 합니다. 두 가지 방법으로 저장소 용량 및 성능을 관찰할 수 있습니다. 저장소 계정 또는 Azure Monitor에서 직접 확인 하 여 저장소 계정 그룹 전체를 볼 수 있습니다. 
 
-이 문서는 저장소 (미리 보기)가 제공 하는 Azure Monitor 환경에 대 한 조치를 통해 저장소 계정의 상태와 성능에 대 한 조치 가능한 정보를 얻을 수 있도록 하는 데 도움이 됩니다.
+이 문서는 저장소 계정의 상태 및 성능에 대 한 조치 가능한 정보를 얻기 위해 저장소에서 제공 하는 Azure Monitor 환경을 이해 하는 데 도움이 됩니다 .이 기능을 사용 하 여 핫스팟에 집중 하 고 대기 시간, 제한 및 가용성 문제를 진단할 수 있습니다.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor 소개 (미리 보기)
+## <a name="introduction-to-azure-monitor-for-storage"></a>저장소에 대 한 Azure Monitor 소개
 
 경험을 살펴보기 전에 정보를 제공 하 고 시각화 하는 방법을 이해 해야 합니다. 저장소 계정에서 직접 또는 Azure Monitor에서 저장소 기능을 선택 하 든, 저장소에 대 한 Azure Monitor은 일관 된 환경을 제공 합니다. 
 
@@ -48,7 +48,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, **Insights** 섹션 아래에서 **Storage 계정 (미리 보기)** 을 선택 합니다.
+2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, **Insights** 섹션 아래에서 **저장소 계정**을 선택 합니다.
 
     ![여러 저장소 계정 보기](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. Azure Portal에서 저장소 계정을 선택 합니다.
 
-2. 목록에서 저장소 계정을 선택 합니다. 모니터링 섹션에서 Insights (미리 보기)를 선택 합니다.
+2. 목록에서 저장소 계정을 선택 합니다. 모니터링 섹션에서 Insights를 선택 합니다.
 
     ![선택한 저장소 계정 개요 페이지](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 ![통합 문서 표 내보내기 결과 예제](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor 사용자 지정 (미리 보기)
+## <a name="customize-azure-monitor-for-storage"></a>저장소에 대 한 Azure Monitor 사용자 지정
 
 이 섹션에서는 데이터 분석 요구 사항을 지원 하기 위해 통합 문서를 편집 하는 일반적인 시나리오를 중점적으로 설명 합니다.
 
@@ -155,7 +155,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 여러 구독 및 저장소 계정 **개요** 나 **용량** 통합 문서가 실행 될 때마다 특정 구독 또는 저장소 계정으로 범위가 되도록 구성할 수 있습니다. 다음 단계를 수행 합니다.
 
-1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **저장소 계정 (미리 보기)** 을 선택 합니다.
+1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **저장소 계정** 을 선택 합니다.
 
 2. **개요** 통합 문서의 명령 모음에서 **편집**을 선택 합니다.
 
@@ -176,7 +176,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 미리 작성 된 **오류**, **성능**, **가용성**및 **용량** 통합 문서 중 하나에 대해 동일한 변경 내용을 수행할 수 있습니다.
 
-1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **저장소 계정 (미리 보기)** 을 선택 합니다.
+1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **저장소 계정** 을 선택 합니다.
 
 2. 용량 **을 선택 하** 여 용량 통합 문서로 전환 하 고 명령 모음에서 명령 모음에서 **편집** 을 선택 합니다.
 
@@ -210,7 +210,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. 포털에서 **저장소 계정** 을 선택 하 고 목록에서 저장소 계정을 선택 합니다.
 
-2. 왼쪽 창에서 **Insights (미리 보기)** 를 선택 합니다.
+2. 왼쪽 창에서 **Insights** 를 선택 합니다.
 
 3. 통합 문서에서 **가용성** 을 선택 하 여 가용성 통합 문서로 전환한 다음 명령 모음에서 **편집** 을 선택 합니다. 
 
@@ -228,11 +228,11 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 ## <a name="troubleshooting"></a>문제 해결
 
-이 섹션은 저장소 (미리 보기)에 대 한 Azure Monitor를 사용할 때 발생할 수 있는 일반적인 문제 중 일부에 대 한 진단 및 문제 해결에 도움이 됩니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
+이 섹션은 저장소에 Azure Monitor를 사용할 때 발생할 수 있는 일반적인 문제 중 일부에 대 한 진단 및 문제 해결에 도움이 됩니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>성능, 용량 또는 가용성 문제 해결
 
-저장소 (미리 보기)에 대 한 Azure Monitor에서 식별 하는 저장소 관련 문제를 해결 하려면 Azure Storage [문제 해결 지침](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)을 참조 하세요.  
+저장소 Azure Monitor에서 식별 하는 저장소 관련 문제를 해결 하는 데 도움이 되도록 Azure Storage [문제 해결 지침](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)을 참조 하세요.  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>200 저장소 계정만 볼 수 있는 이유는 무엇 인가요?
 
@@ -311,8 +311,8 @@ N + 1로 splitByLimit를 지정 하는 것 보다 n 개의 다른 유형의 오�
 
 저장 된 통합 문서의 단계 이름을 변경 하려면 단계에서 편집을 선택 하 고 설정 맨 아래에서 기어를 선택 합니다.
 
-![통합 문서 단계 아래쪽에서 편집을 선택 하 여 설정에서 설정을](./media/storage-insights-overview/fqa-edit.png)
-![엽니다. 아래에서 기어를 선택 하 여 단계 이름을 변경할 수 있습니다.](./media/storage-insights-overview/fqa-change-name.png)
+![통합 문서 단계 아래쪽에서 편집을 선택 하 여 설정에서 설정을 엽니다. 아래에서 기어를 선택 하 여 ](./media/storage-insights-overview/fqa-edit.png)
+ ![ 단계 이름을 변경할 수 있습니다.](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>다음 단계
 

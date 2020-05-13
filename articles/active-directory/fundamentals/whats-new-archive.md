@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dbaa169bbe85a06694bde9719924f2006623cc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: b117309a3ccc9893890d82c2d0b0d2cb0c6e7bca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890335"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197882"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능에 대 한 보관
 
@@ -50,7 +50,7 @@ Azure Active Directory의 새로운 기능 릴리스 정보는 다음에 대 한
 
 **유형:** 변경 **서비스 범주 계획:** 앱 프록시 **제품 기능:** Access Control
 
-Chrome 80 브라우저 릴리스 전에 몇 주 후에는 응용 프로그램 프록시 쿠키가 **SameSite** 특성을 처리 하는 방법을 업데이트할 계획입니다. Chrome 80 릴리스에서는 **SameSite** 특성을 지정 하지 않은 모든 쿠키가로 `SameSite=Lax`설정 된 것 처럼 처리 됩니다.
+Chrome 80 브라우저 릴리스 전에 몇 주 후에는 응용 프로그램 프록시 쿠키가 **SameSite** 특성을 처리 하는 방법을 업데이트할 계획입니다. Chrome 80 릴리스에서는 **SameSite** 특성을 지정 하지 않은 모든 쿠키가로 설정 된 것 처럼 처리 됩니다 `SameSite=Lax` .
 
 이러한 변경으로 인해 잠재적으로 부정적인 영향을 방지 하려면 다음을 수행 하 여 응용 프로그램 프록시 액세스 및 세션 쿠키를 업데이트 합니다.
 
@@ -105,7 +105,7 @@ SAML 토큰에서 클레임을 사용자 지정 하 고 전송 하는 데 도움
 
 **유형:** 새 기능 **서비스 범주:** 인증 (로그인) **제품 기능:** 모니터링 & 보고
 
-조직의 사용자가 비정상적인 활동을 확인 하는 최근 로그인https://mysignins.microsoft.com) 기록을 볼 수 있도록 새 **내 로그인** 페이지를 추가 했습니다. 이 새 페이지를 통해 사용자는 다음을 볼 수 있습니다.
+**My Sign-ins** https://mysignins.microsoft.com) 조직의 사용자가 비정상적인 활동을 확인 하는 최근 로그인 기록을 볼 수 있도록 새 내 로그인 페이지를 추가 했습니다. 이 새 페이지를 통해 사용자는 다음을 볼 수 있습니다.
 
 - 사용자가 자신의 암호를 추측 하려고 하는 경우
 
@@ -268,7 +268,7 @@ Microsoft는 새 관리자 동의 끝점을 만들어 동적 동의를 지원 �
 
 9 월 2019에 앱 갤러리에 대 한 페더레이션 지원과 함께 이러한 29 개의 새 앱을 추가 했습니다.
 
-[ScheduleLook](https://schedulelook.bbsonlineservices.net/), [Ethidex 규정&trade; 준수 Office에 대 한 MS Azure SSO 액세스-Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial), [iserver Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/iserver-portal-tutorial), [SKYSITE](https://docs.microsoft.com/azure/active-directory/saas-apps/skysite-tutorial), [Concur 여행 및 비용](https://docs.microsoft.com/azure/active-directory/saas-apps/concur-travel-and-expense-tutorial)회사 [보드](https://docs.microsoft.com/azure/active-directory/saas-apps/workboard-tutorial), `https://apps.yeeflow.com/` [ARC 시설](https://docs.microsoft.com/azure/active-directory/saas-apps/arc-facilities-tutorial), [luware Stratus 팀](https://stratus.emea.luware.cloud/login), 광범위 한 [아이디어](https://wideideas.online/wideideas/), 강화 [sma cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), [jdlt 클라이언트 허브](https://clients.jdlt.co.uk/login), [RENRAKU](https://docs.microsoft.com/azure/active-directory/saas-apps/renraku-tutorial), [sealpath Secure Browser, 강화](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive) [sma cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), `https://app.penneo.com/`, `https://app.testhtm.com/settings/email-integration`, [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](https://docs.microsoft.com/azure/active-directory/saas-apps/whitesource-tutorial), [Hosted Heritage Online SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-heritage-online-sso-tutorial), [IDC](https://docs.microsoft.com/azure/active-directory/saas-apps/idc-tutorial), [cakehr](https://docs.microsoft.com/azure/active-directory/saas-apps/cakehr-tutorial), [BIS](https://docs.microsoft.com/azure/active-directory/saas-apps/bis-tutorial), [coo Kai 팀 빌드](https://ms-contacts.coo-kai.jp/), [Sonarqube,](https://docs.microsoft.com/azure/active-directory/saas-apps/sonarqube-tutorial) [Adobe Identity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-tutorial), [검색 이점 sso](https://docs.microsoft.com/azure/active-directory/saas-apps/discovery-benefits-sso-tutorial), [Amelio](https://app.amelio.co/)`https://itask.yipinapp.com/`
+[ScheduleLook](https://schedulelook.bbsonlineservices.net/), [Ethidex 규정 준수 Office에 대 한 MS Azure SSO 액세스 &trade; -Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial), [iserver Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/iserver-portal-tutorial), [SKYSITE](https://docs.microsoft.com/azure/active-directory/saas-apps/skysite-tutorial), [Concur 여행 및 비용](https://docs.microsoft.com/azure/active-directory/saas-apps/concur-travel-and-expense-tutorial)회사 [보드](https://docs.microsoft.com/azure/active-directory/saas-apps/workboard-tutorial), `https://apps.yeeflow.com/` [ARC 시설](https://docs.microsoft.com/azure/active-directory/saas-apps/arc-facilities-tutorial), [luware Stratus 팀](https://stratus.emea.luware.cloud/login), [광범위 한 아이디어](https://wideideas.online/wideideas/), [강화 sma cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), [jdlt 클라이언트 허브](https://clients.jdlt.co.uk/login), [RENRAKU](https://docs.microsoft.com/azure/active-directory/saas-apps/renraku-tutorial), [sealpath Secure Browser, 강화](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive) [sma cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), `https://app.penneo.com/` , `https://app.testhtm.com/settings/email-integration` , [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](https://docs.microsoft.com/azure/active-directory/saas-apps/whitesource-tutorial), [Hosted Heritage Online SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-heritage-online-sso-tutorial), [IDC](https://docs.microsoft.com/azure/active-directory/saas-apps/idc-tutorial), [cakehr](https://docs.microsoft.com/azure/active-directory/saas-apps/cakehr-tutorial), [BIS](https://docs.microsoft.com/azure/active-directory/saas-apps/bis-tutorial), [coo Kai 팀 빌드](https://ms-contacts.coo-kai.jp/), [Sonarqube](https://docs.microsoft.com/azure/active-directory/saas-apps/sonarqube-tutorial), [Adobe Identity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-tutorial), [검색 이점 sso](https://docs.microsoft.com/azure/active-directory/saas-apps/discovery-benefits-sso-tutorial), [Amelio](https://app.amelio.co/)`https://itask.yipinapp.com/`
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -427,7 +427,7 @@ Azure AD P1 또는 P2 구독에서 사용할 수 있는 사용자 지정 역할�
 
 **유형:** 고정 **서비스 범주:** 인증 (로그인) **제품 기능:** 사용자 인증
 
-Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발자는 [웹 앱 및 웹 api에 대 한 계정 당 캐시 하나를 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)해야 합니다. 그렇지 않은 경우의 `UserAssertion`일부 특정 사용 사례와 함께 [진행 중인 흐름](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)을 사용 하는 일부 시나리오에서는 권한 상승이 발생할 수 있습니다. 이 취약점을 방지 하기 위해 ADAL.NET는 이제 시나리오를 대신해 MSAL.NET (Microsoft authentication library for dotnet) 공유 캐시를 무시 합니다.
+Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발자는 [웹 앱 및 웹 api에 대 한 계정 당 캐시 하나를 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)해야 합니다. 그렇지 않은 경우의 일부 특정 사용 사례와 함께 [진행 중인 흐름](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)을 사용 하는 일부 시나리오에서는 `UserAssertion` 권한 상승이 발생할 수 있습니다. 이 취약점을 방지 하기 위해 ADAL.NET는 이제 시나리오를 대신해 MSAL.NET (Microsoft authentication library for dotnet) 공유 캐시를 무시 합니다.
 
 이 문제에 대 한 자세한 내용은 [인증 라이브러리 권한 상승 취약점 Azure Active Directory](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258)을 참조 하세요.
 
@@ -439,7 +439,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 
 8 월 2019에 앱 갤러리에 대 한 페더레이션 지원을 통해 이러한 26 개의 새 앱을 추가 했습니다.
 
-[도심 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport의 inativ 포털 (유럽)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial) [Azure Databricks](https://azure.microsoft.com/services/databricks), [로빈](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [아카데미 참석자](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [우선 순위 행렬](https://sync.appfluence.com/pmwebng/), [Cousto myspace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint BACKUP](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [cpqsync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), delivery [. media&trade; Portal](https://portal.deliver.media), [Frontline 교육용](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [Watch by Colors](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [하네스](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [eab 탐색 전략적 주의](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+[도심 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport의 inativ 포털 (유럽)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial) [Azure Databricks](https://azure.microsoft.com/services/databricks), [로빈](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [아카데미 참석자](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [우선 순위 행렬](https://sync.appfluence.com/pmwebng/), [Cousto myspace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint BACKUP](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [cpqsync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), delivery [. media &trade; Portal](https://portal.deliver.media), [Frontline 교육용](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [Watch by Colors](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [하네스](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [eab 탐색 전략적 주의](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -451,7 +451,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 
 AzureAD 및 AzureAD Preview PowerShell 모듈에 대 한 새로운 업데이트를 사용할 수 있습니다.
 
-- AzureAD 모듈 `-Filter` 의 `Get-AzureADDirectoryRole` 매개 변수에 새 매개 변수가 추가 되었습니다. 이 매개 변수를 사용 하면 cmdlet에서 반환 되는 디렉터리 역할을 필터링 할 수 있습니다.
+- `-Filter` `Get-AzureADDirectoryRole` AzureAD 모듈의 매개 변수에 새 매개 변수가 추가 되었습니다. 이 매개 변수를 사용 하면 cmdlet에서 반환 되는 디렉터리 역할을 필터링 할 수 있습니다.
 - 다음을 포함 하 여 Azure AD에서 사용자 지정 역할을 정의 하 고 할당 하는 데 도움이 되는 새 cmdlet이 AzureADPreview 모듈에 추가 되었습니다.
 
     - `Get-AzureADMSRoleAssignment`
@@ -478,7 +478,7 @@ Azure Portal에서 사용할 수 있는 동적 그룹 규칙 작성기에 대 �
 
 **유형:** 변경 된 기능 **서비스 범주:** 액세스 검토 **제품 기능:** Id 거 버 넌 스
 
-앱에서 그룹 멤버 자격 및 앱 할당에 `AccessReview.ReadWrite.Membership`대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한가 도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
+앱에서 `AccessReview.ReadWrite.Membership` 그룹 멤버 자격 및 앱 할당에 대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한가 도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
 
 자세한 내용은 [PowerShell 블로그를 사용 하 여 Microsoft Graph 앱 사용 권한을 사용 하 여 AZURE AD 액세스 검토를 만드는 방법 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)를 참조 하세요.
 
@@ -517,7 +517,7 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
     설정을 저장 한 후에는 더 이상 이전 보안 정보 환경에 액세스할 수 없습니다.
 
 >[!Important]
->2019 년 9 월 25 일 이전에 이러한 단계를 완료 하지 않으면 향상 된 환경에 대 한 Azure Active Directory 테 넌 트가 자동으로 사용 하도록 설정 됩니다. 궁금한 점이 있으면에 registrationpreview@microsoft.com문의 하세요.
+>2019 년 9 월 25 일 이전에 이러한 단계를 완료 하지 않으면 향상 된 환경에 대 한 Azure Active Directory 테 넌 트가 자동으로 사용 하도록 설정 됩니다. 궁금한 점이 있으면에 문의 하세요 registrationpreview@microsoft.com .
 
 ---
 
@@ -567,7 +567,7 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
 
 2019 년 7 월 26 일에 [클라이언트 자격 증명 부여](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)를 통해 앱 전용 토큰을 제공 하는 방법을 변경 했습니다. 이전에는 앱이 테 넌 트에서 클라이언트 앱이 있는지 여부에 관계 없이 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다. 이 동작은 웹 Api 라고도 하는 단일 테 넌 트 리소스를 리소스 테 넌 트에 있는 클라이언트 앱 에서만 호출할 수 있도록 업데이트 되었습니다.
 
-앱이 리소스 테 넌 트에 없는 경우이 문제를 해결 `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 하려면 [관리자 동의 끝점](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) 또는 [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)을 사용 하 여 테 넌 트에서 클라이언트 앱 서비스 주체를 만들어야 합니다. 그러면 테 넌 트가 테 넌 트 내에서 작동 하는 앱 권한을 제공 합니다.
+앱이 리소스 테 넌 트에 없는 경우 `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 이 문제를 해결 하려면 [관리자 동의 끝점](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) 또는 [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)을 사용 하 여 테 넌 트에서 클라이언트 앱 서비스 주체를 만들어야 합니다. 그러면 테 넌 트가 테 넌 트 내에서 작동 하는 앱 권한을 제공 합니다.
 
 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant)을 참조 하세요.
 
@@ -592,7 +592,7 @@ Azure AD 고객은 이제 조직의 사용자 및 그룹에 대 한 FIDO2 보안
 
 7 월 2019에는 앱 갤러리에 대 한 페더레이션 지원을 통해 다음과 같은 18 개의 새 앱을 추가 했습니다.
 
-[Ungerboeck Software](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [브라이트 패턴 Omnichannel 연락처 센터](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [영리 Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [looop](https://www.looop.co/schedule-a-demo/), [제품 보드](https://docs.microsoft.com/azure/active-directory/saas-apps/productboard-tutorial), [MS Azure SSO Access for Ethidex 준수 Office&trade;](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [믿으세요](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [Abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial), [Ascentis](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [Flipsnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [HyperAnna](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial), [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog artifactory](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
+[Ungerboeck Software](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [브라이트 패턴 Omnichannel 연락처 센터](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [영리 Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [looop](https://www.looop.co/schedule-a-demo/), [제품 보드](https://docs.microsoft.com/azure/active-directory/saas-apps/productboard-tutorial), [MS Azure SSO Access for Ethidex 준수 Office &trade; ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [믿으세요](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [Abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial), [Ascentis](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [Flipsnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [HyperAnna](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial), [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog artifactory](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -724,7 +724,7 @@ Azure AD 도메인 서비스 보안 감사 릴리스를 공개 미리 보기로 
 
 **유형:** 새 기능 **서비스 범주:** 인증 (로그인) **제품 기능:** 사용자 인증
 
-이제 Azure AD 앱은 OAuth 2.0 요청에 대해 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)를 사용 하 여 reply (리디렉션) uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
+이제 Azure AD 앱은 `https://contoso.com/oauth2?idp=microsoft` OAuth 2.0 요청에 대해 정적 쿼리 매개 변수 (예:)를 사용 하 여 reply (리디렉션) uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
 
 동적 회신 Uri는 보안 위험을 나타내므로 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없기 때문에 계속 사용할 수 없습니다. 이러한 목적을 위해 `state` 매개 변수를 사용 합니다.
 
@@ -1072,7 +1072,7 @@ Azure AD 액세스 검토의 새로운 업데이트를 통해 다음을 수행�
 
 **유형:** 변경 된 기능 **서비스 범주:** AD Sync **제품 기능:** Platform
 
-Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고객이 새 전자 메일을 보낸 사람을 보여 줄 수 있습니다. 이를 해결 하려면 조직의 허용 목록 `azure-noreply@microsoft.com` 에를 추가 해야 합니다. 그렇지 않으면 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 계속 받을 수 없습니다.
+Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고객이 새 전자 메일을 보낸 사람을 보여 줄 수 있습니다. 이를 해결 하려면 `azure-noreply@microsoft.com` 조직의 허용 목록에를 추가 해야 합니다. 그렇지 않으면 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 계속 받을 수 없습니다.
 
 ---
 
@@ -1184,7 +1184,7 @@ Azure AD Single Sign-On 및 조건부 액세스에 대 한 새로운 지원을 �
 
 클라이언트 앱은 짧은 시간 동안 수백 개의 동일한 로그인 요청을 잘못 발행할 수 있습니다. 이러한 요청은 성공 여부에 관계 없이, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자에 대 한 대기 시간이 증가 하 고 IDP의 가용성을 줄이도록 합니다.
 
-이 업데이트는 일반 `invalid_grant` 작업의 `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` 범위를 벗어나 짧은 시간 동안 중복 요청을 여러 번 실행 하는 클라이언트 앱에 오류를 보냅니다. 이 문제가 발생 하는 클라이언트 앱은 대화형 프롬프트를 표시 하 여 사용자가 다시 로그인 하도록 해야 합니다. 이 변경 내용 및이 오류가 발생 하는 경우 앱을 수정 하는 방법에 대 한 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted)을 참조 하세요.
+이 업데이트는 `invalid_grant` `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` 일반 작업의 범위를 벗어나 짧은 시간 동안 중복 요청을 여러 번 실행 하는 클라이언트 앱에 오류를 보냅니다. 이 문제가 발생 하는 클라이언트 앱은 대화형 프롬프트를 표시 하 여 사용자가 다시 로그인 하도록 해야 합니다. 이 변경 내용 및이 오류가 발생 하는 경우 앱을 수정 하는 방법에 대 한 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted)을 참조 하세요.
 
 ---
 
@@ -1507,7 +1507,7 @@ ID 보호 관련 사용자 및 로그인 위험 평가 엔진이 개선되어 �
 
 - 기타 모바일 인증자 앱/하드웨어 토큰 코드
 
-- 메일
+- Email
 
 - 전화 통화
 
@@ -1688,7 +1688,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 - Jamf Pro
 
-이 한 번 클릭 환경 사용을 시작 하려면 앱에 대 한 **Azure Portal** > **SSO 구성** 페이지로 이동 합니다. 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)을 참조하세요.
+이 한 번 클릭 환경 사용을 시작 하려면 **Azure portal**  >  앱에 대 한 Azure Portal**SSO 구성** 페이지로 이동 합니다. 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)을 참조하세요.
 
 ---
 
@@ -2133,7 +2133,7 @@ TLS(전송 계층 보안)는 통신하는 두 애플리케이션 간에 개인 �
 
 - **Microsoft Edge 및 Internet Explorer(두 가지 모두 Internet Explorer를 사용하여 설정)**
 
-    1. Internet Explorer를 열고 **도구** > **인터넷 옵션** > **고급**을 선택 합니다.
+    1. Internet Explorer를 열고 **도구**  >  **인터넷 옵션**  >  **고급**을 선택 합니다.
     2. **보안** 영역에서 **TLS 1.2 사용**을 선택한 다음, **확인**을 선택합니다.
     3. 브라우저 창을 모두 닫고 Internet Explorer를 다시 시작합니다.
 
@@ -2301,7 +2301,7 @@ Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 애�
 
 - [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
-Azure AD 갤러리에서 사용자 프로 비전을 지 원하는 모든 응용 프로그램의 목록은를 참조 [https://aka.ms/appstutorial](https://aka.ms/appstutorial)하세요.
+Azure AD 갤러리에서 사용자 프로 비전을 지 원하는 모든 응용 프로그램의 목록은를 참조 [https://aka.ms/appstutorial](https://aka.ms/appstutorial) 하세요.
 
 ---
 

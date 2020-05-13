@@ -8,16 +8,16 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 15e44b9c048f167935fe8660228581e5bac0f43d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 34b2282421b9c95ad99ad040cb11847a30d3b52c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006262"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199989"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Azure 가상 WAN을 사용한 SD-WAN 연결 아키텍처
 
-Azure 가상 WAN은 단일 운영 인터페이스를 사용 하 여 여러 클라우드 연결과 보안 서비스를 함께 제공 하는 네트워킹 서비스입니다. 이러한 서비스에는 분기 (사이트 간 VPN을 통해), 원격 사용자 (지점 및 사이트 간 VPN), 개인 (Express 경로) 연결 뿐만 아니라 Vnet, VPN 및 Express 경로 상호 연결과, 라우팅, Azure 방화벽 및 개인 연결에 대 한 암호화를 위한 클라우드 내부 전이적 연결이 포함 됩니다.
+Azure 가상 WAN은 단일 운영 인터페이스를 사용 하 여 여러 클라우드 연결과 보안 서비스를 함께 제공 하는 네트워킹 서비스입니다. 이러한 서비스에는 분기 (사이트 간 VPN을 통해), 원격 사용자 (지점 및 사이트 간 VPN), 개인 (Express 경로) 연결, Vnet에 대 한 클라우드 간 전이적 연결, VPN 및 Express 경로 상호 연결과, 라우팅, Azure 방화벽 및 개인 연결에 대 한 암호화가 포함 됩니다.
 
 Azure 가상 WAN 자체는 SD WAN (Software Defined wan) 이지만 프레미스 기반 SD WAN 기술 및 서비스와 원활 하 게 상호 연결할 수 있도록 설계 되었습니다. 이러한 많은 서비스는 [가상 WAN](virtual-wan-locations-partners.md) 에코 시스템 및 Azure 네트워킹 [Msps (](../networking/networking-partners-msp.md)관리 서비스 파트너)에서 제공 합니다. 개인 WAN을 SD로 변환 하는 기업에는 Azure 가상 WAN을 사용 하 여 개인 SD-WAN을 interconnecting 때 옵션이 있습니다. 기업에서는 다음 옵션 중에서 선택할 수 있습니다.
 
@@ -39,7 +39,7 @@ SD WAN CPE는 트래픽 최적화 및 경로 선택이 구현 되 고 적용 되
 
 이 모델에서는 가상 WAN에 대 한 연결이 IPsec을 통해 발생 하 고 IPsec VPN이 가상 WAN VPN gateway에서 종료 되기 때문에 실시간 트래픽 특성을 기반으로 하는 일부 공급 업체 독점 트래픽 최적화가 지원 되지 않을 수 있습니다. 예를 들어 분기 장치에서 다양 한 네트워크 패킷 정보를 다른 SD WAN 노드와 교환 하 여 분기에서 동적 경로를 선택할 수 있으므로 분기에서 동적으로 우선 순위가 지정 된 트래픽에 사용할 최적 링크를 식별 합니다. 이 기능은 지난 마일 최적화 (가장 가까운 Microsoft POP로 분기)가 필요한 영역에서 유용할 수 있습니다.
 
-가상 WAN을 사용 하면 사용자가 Azure 경로 선택 항목을 가져올 수 있습니다 .이는 여러 ISP 링크의 정책 기반 경로 선택으로, 분기에서 가상 WAN VPN 게이트웨이로 연결 됩니다. 가상 WAN을 사용 하면 여러 링크 (경로)를 동일한 SD WAN branch CPE로 설정할 수 있습니다. 각 링크는 SD WAN CPE의 서로 다른 공용 IP 인터페이스에서 종료 됩니다. SD WAN 공급 업체는이 기능을 활용 하 여 이러한 경로와 관련 된 트래픽 정책을 기반으로 가장 최적의 Azure 경로를 선택할 수 있습니다.
+가상 WAN을 사용 하면 사용자가 Azure 경로 선택 항목을 가져올 수 있습니다 .이는 여러 ISP 링크의 정책 기반 경로 선택으로, 분기에서 가상 WAN VPN 게이트웨이로 연결 됩니다. 가상 WAN을 사용 하면 동일한 SD WAN branch CPE에서 여러 링크 (경로)를 설정할 수 있습니다. 각 링크는 SD WAN CPE의 고유한 공용 IP에서 두 개의 다른 Azure 가상 WAN VPN gateway 인스턴스로 이중 터널 연결을 나타냅니다. SD-WAN 공급 업체는 CPE 링크에서 정책 엔진에 의해 설정 된 트래픽 정책을 기반으로 Azure에 가장 최적의 경로를 구현할 수 있습니다.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>간접 상호 연결 모델
 

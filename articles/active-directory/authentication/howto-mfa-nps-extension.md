@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617658"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199542"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +44,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -76,15 +77,15 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 합니다.
 
-- https:\//adnotifications.windowsazure.com
+- https: \/ /adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
-- https:\//credentials.azure.com
+- https: \/ /credentials.azure.com
 
 또한 [제공 된 PowerShell 스크립트를 사용 하 여 어댑터 설정을](#run-the-powershell-script) 완료 하려면 다음 url에 연결 해야 합니다.
 
 - https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- https: \/ /provisioningapi.microsoftonline.com
+- https: \/ /aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -110,7 +111,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 이 단계는 테넌트에서 이미 완료되었을 수 있지만 Azure AD Connect가 최근에 데이터베이스를 동기화했는지 다시 한 번 확인하는 것이 좋습니다.
 
 1. 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-2. **Azure Active Directory** > 선택**Azure AD Connect**
+2. **Azure Active Directory**선택  >  **Azure AD Connect**
 3. 동기화 상태가 **사용**이고 마지막 동기화가 1시간 미만인지 확인합니다.
 
 동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
@@ -139,7 +140,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 
-1. 테스트 계정 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 으로에 로그인 합니다.
+1. [https://aka.ms/mfasetup](https://aka.ms/mfasetup)테스트 계정으로에 로그인 합니다.
 2. 지시에 따라 확인 방법을 설정합니다.
 3. 테스트 계정에 대해 multi-factor authentication을 요구 하 [는 조건부 액세스 정책을 만듭니다](howto-mfa-getstarted.md#create-conditional-access-policy) .
 
@@ -209,7 +210,7 @@ Azure Government 클라우드를 사용 하는 고객의 경우 각 NPS 서버�
 1. NPS 서버에서 **레지스트리 편집기** 를 엽니다.
 1. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`로 이동합니다. 다음 키 값을 설정 합니다.
 
-    | 레지스트리 키       | 값 |
+    | 레지스트리 키       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
@@ -223,9 +224,9 @@ Azure Government 클라우드를 사용 하는 고객의 경우 각 NPS 서버�
 
 NPS 확장의 릴리스 1.0.1.32를 사용 하 여 여러 인증서 읽기가 지원 됩니다. 이 기능은 만료 되기 전에 롤링 인증서 업데이트를 용이 하 게 하는 데 도움이 됩니다. 조직에서 이전 버전의 NPS 확장을 실행 하는 경우 버전 1.0.1.32 이상으로 업그레이드 해야 합니다.
 
-`AzureMfaNpsExtnConfigSetup.ps1` 스크립트에서 만든 인증서는 2 년 동안 유효 합니다. IT 조직에서는 인증서가 만료 될 때까지 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인의 로컬 컴퓨터 인증서 저장소에 배치 되 고 스크립트에 제공 된 테 넌 트 ID에 발급 됩니다.
+스크립트에서 만든 인증서 `AzureMfaNpsExtnConfigSetup.ps1` 는 2 년 동안 유효 합니다. IT 조직에서는 인증서가 만료 될 때까지 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인의 로컬 컴퓨터 인증서 저장소에 배치 되 고 스크립트에 제공 된 테 넌 트 ID에 발급 됩니다.
 
-인증서가 만료 날짜에 도달 하면 새 인증서를 만들어 해당 인증서를 바꾸어야 합니다.  을 `AzureMfaNpsExtnConfigSetup.ps1` 다시 실행 하 고 메시지가 표시 되 면 동일한 테 넌 트 ID를 유지 하 여이 프로세스를 수행 합니다. 사용자 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
+인증서가 만료 날짜에 도달 하면 새 인증서를 만들어 해당 인증서를 바꾸어야 합니다.  을 다시 실행 하 `AzureMfaNpsExtnConfigSetup.ps1` 고 메시지가 표시 되 면 동일한 테 넌 트 ID를 유지 하 여이 프로세스를 수행 합니다. 사용자 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -247,7 +248,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| 키 | 값 | Default |
+| 키 | Value | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 

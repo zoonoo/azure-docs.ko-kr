@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426494"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200391"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 대 한 SQL Database의 참조 데이터 사용
 
@@ -147,7 +147,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    ```
 2. 스냅샷 쿼리를 작성합니다. 
 
-   SnapshotTime 매개 변수를 사용 하 여 시스템 시간에 유효한 SQL database temporal 테이블에서 참조 데이터 집합을 가져오도록 Stream Analytics 런타임에 지시 합니다. ** \@** 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
+   ** \@ SnapshotTime** 매개 변수를 사용 하 여 시스템 시간에 유효한 SQL database temporal 테이블에서 참조 데이터 집합을 가져오도록 Stream Analytics 런타임에 지시 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,16 +156,16 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   이 쿼리는 시작 시간, ** \@deltastarttime**및 종료 시간 ** \@deltastarttime**내에서 삽입 또는 삭제 된 SQL 데이터베이스의 모든 행을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 ** \@deltastarttime** 과 ** \@deltastarttime**사이에 행을 삽입 하거나 삭제 하는 경우를 정의 합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
+   이 쿼리는 시작 시간, ** \@ deltastarttime**및 종료 시간 ** \@ deltastarttime**내에서 삽입 또는 삭제 된 SQL 데이터베이스의 모든 행을 검색 합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 ** \@ deltastarttime** 과 ** \@ deltastarttime**사이에 행을 삽입 하거나 삭제 하는 경우를 정의 합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 또한 쿼리는 델타 기간의 모든 업데이트를 적절 하 게 캡처하도록 SQL Server 쪽의 **워터 마크** 를 추가 해야 합니다. **워터 마크** 없이 델타 쿼리를 사용 하면 참조 데이터 집합이 잘못 될 수 있습니다.  
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
@@ -175,7 +175,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 ## <a name="test-your-query"></a>쿼리 테스트
    쿼리가 Stream Analytics 작업에서 참조 데이터로 사용할 예상 데이터 집합을 반환 하는지 확인 하는 것이 중요 합니다. 쿼리를 테스트 하려면 포털의 작업 토폴로지 섹션에서 입력으로 이동 합니다. 그런 다음 SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플을 사용할 수 있게 되 면 파일을 다운로드 하 여 반환 되는 데이터가 예상 대로 작동 하는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화 하려면 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용 하는 것이 좋습니다. 또한 기본 설정의 다른 도구를 사용 하 여 먼저 쿼리가 Azure SQL Database에서 올바른 결과를 반환 하는지 확인 한 다음 Stream Analytics 작업에서 사용할 수 있습니다. 
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 **Azure Stream Analytics에서 SQL 참조 데이터 입력을 사용하면 추가 비용이 부과되나요?**
 

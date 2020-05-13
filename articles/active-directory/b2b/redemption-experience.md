@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160746"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199502"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -41,10 +41,10 @@ ms.locfileid: "82160746"
 초대 전자 메일의 대 안으로 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 먼저 [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) 또는 [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell)을 통해 게스트 사용자를 디렉터리에 추가 해야 합니다. 그런 다음 [사용자 지정 가능한 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences)중 하나를 사용 하 여 직접 로그온 링크를 비롯 한 응용 프로그램을 사용자에 게 배포할 수 있습니다. 게스트가 초대 전자 메일 대신 직접 링크를 사용 하는 경우 처음에는 첫 번째 시간 승인 환경에 따라 진행 됩니다.
 
 > [!IMPORTANT]
-> 직접 링크는 테 넌 트와 관련 되어야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 합니다. 그러면 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. 와 같은 https://myapps.microsoft.com 공통 URL은 인증을 위해 해당 홈 테 넌 트로 리디렉션되도록 게스트에서 작동 하지 않습니다. 다음은 테 넌 트 컨텍스트가 포함 된 직접 링크의 몇 가지 예입니다.
- > - 앱 액세스 패널: https://myapps.microsoft.com/?tenantid=&lt, 테 넌 트 id&gt; 
- > - 확인 된 도메인의 앱 액세스 패널: https://myapps.microsoft.com/&lt; 확인 된 도메인&gt;
- > - Azure Portal: https://portal.azure.com/&lt, 테 넌 트 id&gt;
+> 직접 링크는 테 넌 트와 관련 되어야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 합니다. 그러면 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. 와 같은 공통 URL은 https://myapps.microsoft.com 인증을 위해 해당 홈 테 넌 트로 리디렉션되도록 게스트에서 작동 하지 않습니다. 다음은 테 넌 트 컨텍스트가 포함 된 직접 링크의 몇 가지 예입니다.
+ > - 앱 액세스 패널: https://myapps.microsoft.com/?tenantid=&lt , 테 넌 트 id&gt; 
+ > - 확인 된 도메인의 앱 액세스 패널: https://myapps.microsoft.com/&lt ; 확인 된 도메인&gt;
+ > - Azure Portal: https://portal.azure.com/&lt , 테 넌 트 id&gt;
  > - 개별 앱: [직접 로그온 링크](../manage-apps/end-user-experiences.md#direct-sign-on-links) 를 사용 하는 방법을 참조 하세요.
 
 직접 링크를 통해 초대 전자 메일을 권장 하는 경우도 있습니다. 이러한 특수 사례가 조직에 중요 한 경우 초대 전자 메일을 계속 보내는 방법을 사용 하 여 사용자를 초대 하는 것이 좋습니다.
@@ -99,7 +99,7 @@ ms.locfileid: "82160746"
 
    ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/terms-of-use-accept.png) 
 
-   조직 관계 **관리사용** > [약관](../governance/active-directory-tou.md)에서 **사용** > **약관**보기를 구성할 수 있습니다.
+   **조직 관계** (또는 **외부 id**) > **사용 약관**에 [사용 약관](../governance/active-directory-tou.md) 을 구성할 수 있습니다.
 
 3. 달리 지정 하지 않는 한 게스트는 게스트가 액세스할 수 있는 응용 프로그램을 나열 하는 앱 액세스 패널로 리디렉션됩니다.
 

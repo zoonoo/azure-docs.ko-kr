@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263375"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199476"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>메일 일회성 암호 인증(미리 보기)
 
@@ -56,7 +56,7 @@ ms.locfileid: "79263375"
 
 초대할 때 초대를 받는 사용자가 일회성 암호 인증을 사용할 것이라는 표시는 없습니다. 그러나 게스트 사용자가 로그인할 때 다른 인증 방법을 사용할 수 없다면 일회성 암호 인증이 대체 방법이 됩니다. 
 
-**다른 조직의****조직 관계** > 사용자 **Azure Active Directory** > 으로 이동 하 여 Azure Portal에서 일회성 암호 인증 하는 게스트 사용자를 볼 수 있습니다.
+**Azure Active Directory**사용자로 이동 하 여 Azure Portal에서 일회성 암호으로 인증 하는 게스트 사용자를 볼 수 있습니다  >  **Users**.
 
 ![OTP의 원본 값을 사용 하는 일회성 암호 사용자를 보여 주는 스크린샷](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ ms.locfileid: "79263375"
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 옵트인하려면
 1.  Azure AD 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  탐색 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **조직 관계**를 선택합니다.
-4.  **설정**을 선택합니다.
+3.  **조직 관계**  >  **설정** 을 선택 하거나 **외부 id**  >  **외부 공동 작업 설정을**선택 합니다.
 5.  **게스트에 메일 일회용 암호 사용(미리 보기)** 에서 **예**를 선택합니다.
  
 ### <a name="to-opt-in-using-powershell"></a>PowerShell을 사용하여 옵트인하려면
@@ -139,8 +138,7 @@ $currentpolicy -ne $null
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 미리 보기를 끄려면
 1.  Azure AD 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  탐색 창에서 **Azure Active Directory**를 선택합니다.
-3.  **관리**에서 **조직 관계**를 선택합니다.
-4.  **설정**을 선택합니다.
+3.  **조직 관계**  >  **설정** 을 선택 하거나 **외부 id**  >  **외부 공동 작업 설정을**선택 합니다.
 5.  **게스트에 메일 일회용 암호 사용(미리 보기)** 에서 **아니요**를 선택합니다.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>PowerShell을 사용하여 미리 보기를 끄려면

@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459035"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198498"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
@@ -31,7 +31,7 @@ ms.locfileid: "81459035"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
 
@@ -55,7 +55,7 @@ Azure Portal를 사용 하 여 템플릿을 내보내려면:
 
 2. **모든 리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
 
-3. > **설정** > **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
 
 4. **템플릿 내보내기** 블레이드에서 **다운로드** 를 선택 합니다.
 
@@ -115,7 +115,7 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 **템플릿. json** 파일을 로드 합니다.
 
-7. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 `mytargetaccount`설정 합니다.
+7. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
          "location": "centralus"
          }]          
     ```
-    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국** = 중부**centralus**지역 이름입니다.
+    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국 중부**  =  **centralus**지역 이름입니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 `mytargetaccount`설정 합니다.
+1. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
     },
     ``` 
 
-2. **템플릿. json** 파일의 **location** 속성을 대상 영역으로 편집 합니다. 이 예에서는 대상 지역을로 `eastus`설정 합니다.
+2. **템플릿. json** 파일의 **location** 속성을 대상 영역으로 편집 합니다. 이 예에서는 대상 지역을로 설정 `eastus` 합니다.
 
     ```json
     "resources": [{
@@ -232,25 +232,10 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 ### <a name="move-data-to-the-new-storage-account"></a>새 저장소 계정으로 데이터 이동
 
-데이터를 이동 하는 몇 가지 방법은 다음과 같습니다.
+AzCopy은 데이터를 이동 하는 데 선호 되는 도구입니다. 성능에 최적화 되어 있습니다.  더 빠른 방법 중 하나는 저장소 서버 간에 데이터를 직접 복사 하 여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용 하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용 하거나 사용자 지정 스크립트의 일부로 사용 합니다. [AzCopy 시작](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-: heavy_check_mark: **Azure Storage 탐색기**
+Azure Data Factory를 사용 하 여 데이터를 이동할 수도 있습니다. 직관적인 사용자 인터페이스를 제공 합니다. Azure Data Factory를 사용 하려면 다음 링크 중 하나를 참조 하세요.. 
 
-  사용 하기 쉬우며 작은 데이터 집합에 적합 합니다. 컨테이너 및 파일 공유를 복사 하 여 대상 계정에 붙여 넣을 수 있습니다.
-
-  [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조 하세요.
-
-: heavy_check_mark: **AzCopy**
-
-  이것이 선호 되는 방법입니다. 성능에 최적화 되어 있습니다.  더 빠른 방법 중 하나는 저장소 서버 간에 데이터를 직접 복사 하 여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용 하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용 하거나 사용자 지정 스크립트의 일부로 사용 합니다.
-
-  [AzCopy 시작 하기를](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 참조 하세요.
-
-: heavy_check_mark: **Azure Data Factory** 
-
-  AzCopy의 현재 릴리스에서 지원 되지 않는 기능이 필요한 경우에만이 도구를 사용 합니다. 예를 들어 AzCopy의 현재 릴리스에서는 계층 구조가 있는 계정 간에 blob을 복사할 수 없습니다. 또한 AzCopy는 파일 액세스 제어 목록 또는 파일 타임 스탬프 (예: 생성 및 수정 된 타임 스탬프)를 유지 하지 않습니다. 
-
-  다음 링크를 참조 하세요.
   - [Azure Data Factory를 사용 하 여 Azure Blob storage 간 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)

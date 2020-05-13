@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81482060"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125760"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -29,7 +29,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 -   *부울 필터* - **TrueFilter** 및 **FalseFilter**는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다.
 
--   *SQL 필터* - **SqlFilter**는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 (`EXISTS`), null 값 (`IS NULL`), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와 `LIKE`의 단순 텍스트 패턴 일치 여부를 테스트 합니다.
+-   *SQL 필터* - **SqlFilter**는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 ( `EXISTS` ), null 값 ( `IS NULL` ), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와의 단순 텍스트 패턴 일치 여부를 테스트 합니다 `LIKE` .
 
 -   *상관 관계 필터* - **CorrelationFilter**는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
 
@@ -48,7 +48,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용 하면 구독, 토픽 및 네임 스페이스 수준에서 전체 메시지 처리량이 줄어듭니다. 가능 하면 응용 프로그램에서 SQL과 유사한 필터에 대 한 상관 관계 필터를 선택 해야 합니다. 이러한 필터는 처리 하는 것이 훨씬 더 효율적이 고 처리량에 미치는 영향은 적습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 작업은 메시지가 일치 된 후 구독에 메시지를 선택 하기 전에 메시지에 대해 수행 됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 
@@ -71,8 +71,6 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 
 - [.NET-필터가 포함 된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
-- [형식 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

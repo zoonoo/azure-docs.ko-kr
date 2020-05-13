@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249595"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199023"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
 [Azure Portal에서 Log Analytics](get-started-portal.md)에 [로그 쿼리](log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
@@ -25,6 +25,9 @@ ms.locfileid: "79249595"
 ![범위](media/scope/scope.png)
 
 범위는 Log Analytics를 시작 하는 데 사용 하는 방법에 따라 결정 되며, 경우에 따라 범위를 클릭 하 여 변경할 수 있습니다. 다음 표에서는 사용 되는 다양 한 종류의 범위와 각각에 대 한 다양 한 세부 정보를 나열 합니다.
+
+> [!IMPORTANT]
+> APM 2.1을 사용 하는 경우 Application Insights 응용 프로그램은 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 되며 Application Insights 범위를 사용할 수 없습니다. Application Insights 메뉴에서 **로그** 를 선택 하는 경우 **다른 Azure 리소스** 범위와 동일 하 게 작동 하며, Application Insights 테이블의 해당 응용 프로그램에 대 한 가져오면 데이터를 사용할 수 있습니다.
 
 | 쿼리 범위 | 범위 내의 레코드 | 선택 방법 | 범위 변경 |
 |:---|:---|:---|:---|

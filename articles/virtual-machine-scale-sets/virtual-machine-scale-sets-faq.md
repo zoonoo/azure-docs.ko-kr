@@ -2,18 +2,19 @@
 title: Azure 가상 머신 확장 집합에 대한 FAQ
 description: Azure의 가상 머신 확장 집합에 대 한 가장 자주 묻는 질문에 대 한 답변을 받으세요.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611401"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200154"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -223,7 +224,7 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | Type | Description
+linuxConfiguration 요소 이름 | 필수 | Type | 설명
 --- | --- | --- | ---
 ssh | 아니요 | 수집 | Linux OS용 SSH 키 구성을 지정합니다.
 path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
@@ -233,7 +234,7 @@ keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니�
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
 
->AzVmss: List secret에는/subscriptions/\<>/resourcegroups/internal-rg-dev/providers/microsoft.keyvault/vaults/internal-keyvault-dev의 반복 된 인스턴스가 포함 되어 있으며이는 허용 되지 않습니다.
+>AzVmss: List secret에는/subscriptions/>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복 된 인스턴스가 포함 되어 있으며 \< 이는 허용 되지 않습니다.
 
 이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzVmssSecret` 명령은 제대로 작동하지 않습니다.
 
@@ -468,7 +469,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
-예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예:
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
 
 ```json
 "networkProfile": {
@@ -542,7 +543,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>확장 집합에서 사용하는 DNS 서버를 구성하려면 어떻게 해야 하나요?
 
-사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예:
+사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예제:
 
 ```json
     "dnsSettings":{
@@ -552,7 +553,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예:
+각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예제:
 
 ```json
     "publicipaddressconfiguration": {

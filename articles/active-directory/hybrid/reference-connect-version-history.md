@@ -12,12 +12,13 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: has-adal-ref
+ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981989"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200967"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -87,9 +88,9 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 에서 **IN ad-Group Join** 동기화 규칙을 복제 했지만 **in From Ad-group 공통** 동기화 규칙과 업그레이드 계획을 완료 하지 않은 경우 업그레이드의 일부로 다음 단계를 완료 합니다.
 > 1. 업그레이드 하는 동안 **구성이 완료 되 면 동기화 프로세스 시작**옵션을 선택 취소 합니다.
 > 2. 복제 된 조인 동기화 규칙을 편집 하 고 다음 두 변환을 추가 합니다.
->     - 직접 흐름 `objectGUID` 을로 `sourceAnchorBinary`설정 합니다.
->     - 식 흐름 `ConvertToBase64([objectGUID])` 을로 `sourceAnchor`설정 합니다.     
-> 3. 을 사용 하 여 `Set-ADSyncScheduler -SyncCycleEnabled $true`스케줄러를 사용 하도록 설정 합니다.
+>     - 직접 흐름 `objectGUID` 을로 설정 `sourceAnchorBinary` 합니다.
+>     - 식 흐름 `ConvertToBase64([objectGUID])` 을로 설정 `sourceAnchor` 합니다.     
+> 3. 을 사용 하 여 스케줄러를 사용 하도록 설정 `Set-ADSyncScheduler -SyncCycleEnabled $true` 합니다.
 
 
 
@@ -209,11 +210,11 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >[!IMPORTANT]
 >Azure AD Connect 성공적으로 업그레이드 된 경우에도 O365 포털에 업데이트 된 버전이 반영 되지 않는 Azure AD Connect 이전 버전에서 1.3.21.0로 업그레이드 하는 것과 관련 된 알려진 문제가 있습니다.
 >
-> 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` PowerShell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
+> 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 `Set-ADSyncDirSyncConfiguration` Azure AD Connect 서버에서 PowerShell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 PowerShell을 엽니다.
->2. `Import-Module "ADSync"`을 실행합니다.
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`을 실행합니다.
+>2. `Import-Module "ADSync"`를 실행합니다.
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`를 실행합니다.
  
 ### <a name="release-status"></a>릴리스 상태 
 
@@ -566,7 +567,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-유형     | 이름                          | 액세스 권한               | 적용 대상
+유형     | 속성                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | Enterprise Admins             | 모든 권한         | 이 개체  |
@@ -940,8 +941,8 @@ CBool(
 #### <a name="issues-fixed"></a>해결된 문제
 
 * 다음 URL은 Azure AD에서 인증 중단 시 복원력을 향상하기 위해 도입된 새로운 WS-Federation 엔드포인트로, 온-프레미스 AD FS 신뢰 당사자 트러스트 구성에 추가됩니다.
-  * https:\//ests.login.microsoftonline.com/login.srf
-  * https:\//stamp2.login.microsoftonline.com/login.srf
+  * https: \/ /ests.login.microsoftonline.com/login.srf
+  * https: \/ /stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   

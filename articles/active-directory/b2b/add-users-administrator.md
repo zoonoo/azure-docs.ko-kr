@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 752df34c263563cdb970cadb59f92f2811af378e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263505"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199519"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가
 
@@ -42,9 +42,6 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
-   > [!NOTE]
-   > **조직 관계** 페이지에서 **새 게스트 사용자** 옵션을 사용할 수도 있습니다. **Azure Active Directory**의 **관리** 아래에서 **조직 관계**를 선택합니다.
-
 5. **새 사용자** 페이지에서 **사용자 초대**를 선택하고 게스트 사용자 정보를 추가합니다. 
 
     > [!NOTE]
@@ -70,7 +67,7 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 2. 모든 페이지에서 **Azure Active Directory** 를 검색 하 고 선택 합니다.
 3. **관리**에서 **그룹**을 선택합니다.
 4. 그룹을 선택합니다(또는 **새 그룹**을 클릭하여 새 그룹을 만듭니다). B2B 게스트 사용자가 그룹에 포함된다는 것을 그룹 설명에 포함하는 것이 좋습니다.
-5. **구성원**을 선택합니다. 
+5. **멤버**를 선택합니다. 
 6. 다음 중 하나를 수행합니다.
    - 게스트 사용자가 이미 디렉터리에 있으면 B2B 사용자를 검색합니다. 사용자를 선택한 다음, **선택**을 클릭하여 사용자를 그룹에 추가합니다.
    - 게스트 사용자가 디렉터리에 존재하지 않는 경우 검색 상자에 해당 이메일 주소를 입력하고, 선택적 개인 메시지를 입력한 다음, **선택**을 클릭하여 그룹에 초대합니다. 초대가 초대된 사용자에게 자동으로 이동합니다.

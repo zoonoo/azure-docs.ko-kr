@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136926"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198950"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
@@ -75,11 +75,11 @@ Ultra disks의 경우 키를 사용 하지 않도록 설정 하거나 삭제 하
 - 크기 2048의 ["소프트" 및 "하드" RSA 키](../../key-vault/keys/about-keys.md) 만 지원 되 고 다른 키 나 크기는 지원 되지 않습니다.
 - 서버 쪽 암호화 및 고객 관리 키를 사용 하 여 암호화 된 사용자 지정 이미지에서 만든 디스크는 동일한 고객 관리 키를 사용 하 여 암호화 해야 하며 동일한 구독에 있어야 합니다.
 - 서버 쪽 암호화 및 고객이 관리 하는 키로 암호화 된 디스크에서 만든 스냅숏은 동일한 고객 관리 키를 사용 하 여 암호화 해야 합니다.
-- 서버 쪽 암호화 및 고객 관리 키를 사용 하 여 암호화 된 사용자 지정 이미지는 공유 이미지 갤러리에서 사용할 수 없습니다.
 - 고객 관리 키 (Azure 키 자격 증명 모음, 디스크 암호화 집합, Vm, 디스크 및 스냅숏)와 관련 된 모든 리소스는 동일한 구독 및 지역에 있어야 합니다.
 - 고객 관리 키로 암호화 된 디스크, 스냅숏 및 이미지는 다른 구독으로 이동할 수 없습니다.
 - Azure Portal를 사용 하 여 디스크 암호화 집합을 만드는 경우 지금은 스냅숏을 사용할 수 없습니다.
 - 고객 관리 키를 사용 하 여 암호화 된 관리 디스크는 Azure Disk Encryption로 암호화 될 수도 없습니다.
+- 공유 이미지 갤러리에서 고객 관리 키를 사용 하는 방법에 대 한 자세한 내용은 [미리 보기: 이미지 암호화에 고객이 관리 하는 키 사용](../image-version-encryption.md)을 참조 하세요.
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 Diskset 설정

@@ -5,23 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 463bccb29d59f06e7381d7d7123946029223a93a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597282"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199726"
 ---
-# <a name="azure-firewall-forced-tunneling-preview"></a>Azure 방화벽 강제 터널링 (미리 보기)
+# <a name="azure-firewall-forced-tunneling"></a>Azure 방화벽 강제 터널링
 
 모든 인터넷 바인딩된 트래픽을 인터넷으로 직접 이동 하는 대신 지정 된 다음 홉으로 라우팅하도록 Azure 방화벽을 구성할 수 있습니다. 예를 들어 온-프레미스에 지 방화벽이 나 기타 NVA (네트워크 가상 어플라이언스)를 통해 네트워크 트래픽을 인터넷에 전달 하기 전에 처리할 수 있습니다.
-
-> [!IMPORTANT]
-> Azure 방화벽 강제 터널링은 현재 공개 미리 보기로 제공 됩니다.
->
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능이 지원되지 않거나, 기능이 제한되거나, 일부 Azure 위치에 제공되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 기본적으로 강제 터널링은 Azure 방화벽에서 모든 아웃 바운드 Azure 종속성이 충족 되도록 허용 되지 않습니다. *AzureFirewallSubnet* 의 udr (사용자 정의 경로) 구성은 인터넷으로 직접 이동 하지 않는 기본 경로를 사용 합니다.
 

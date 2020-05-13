@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272894"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199425"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 공동 작업을 사용 하도록 설정 하 고 게스트를 초대할 수 있는 사람 관리
 
@@ -36,11 +36,9 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
 ### <a name="to-configure-external-collaboration-settings"></a>외부 공동 작업 설정을 구성 하려면:
 
 1. 테 넌 트 관리자로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-2. **Azure Active Directory** > **Users**사용자 > **사용자 설정**을 선택 합니다.
-3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택 합니다.
-   > [!NOTE]
-   > **외부 협업 설정**은 **조직 관계** 페이지에서도 사용할 수 있습니다. Azure Active Directory의 **관리** 아래에 있는 **조직 관계** > **설정**으로 이동합니다.
-4. **외부 공동 작업 설정** 페이지에서 사용 하도록 설정할 정책을 선택 합니다.
+2. **Azure Active Directory**를 선택합니다.
+3. **조직 관계**  >  **설정** 을 선택 하거나 **외부 id**  >  **외부 공동 작업 설정을**선택 합니다.
+6. **외부 공동 작업 설정** 페이지에서 사용 하도록 설정할 정책을 선택 합니다.
 
    ![외부 협업 설정](./media/delegate-invitations/control-who-to-invite.png)
 

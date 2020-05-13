@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: has-adal-ref
+ms.openlocfilehash: 7ddc8c3016487ce56bc1a54d74aa94064cef24e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203865"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198872"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
-| 제품/서비스 | 아티클 |
+| 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현](#logout-adal)</li></ul> |
 | IoT 디바이스 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
@@ -291,7 +292,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 ```
 
 ### <a name="example"></a>예제
-동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 다음은 그 예입니다.
+동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -535,7 +536,7 @@ CSRF 방지 및 ASP.NET MVC 양식 - 뷰에서 AntiForgeryToken 도우미 메서
 ```
 
 ### <a name="example"></a>예제
-동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 다음은 그 예입니다.
+동시에 Html.AntiForgeryToken()은 위에 표시된 임의의 숨겨진 값과 동일한 값을 포함하는 __RequestVerificationToken이라는 쿠키를 방문자에게 제공합니다. 다음으로 들어오는 양식 게시의 유효성을 검사하려면 [ValidateAntiForgeryToken] 필터를 대상 작업 메서드에 추가합니다. 예:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

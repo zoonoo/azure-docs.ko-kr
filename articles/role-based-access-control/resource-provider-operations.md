@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839099"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199572"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. 이러한 작업은 azure [사용자 지정 역할](custom-roles.md) 에서 azure의 리소스에 대 한 세부적인 액세스 제어를 제공 하는 데 사용할 수 있습니다. 작업 문자열 형식은 다음과 같습니다 `{Company}.{ProviderName}/{resourceType}/{action}`. 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법에 대 한 목록은 [리소스 공급자와 서비스의 일치](../azure-resource-manager/management/azure-services-resource-providers.md)를 참조 하세요.
+이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. 이러한 작업은 azure [사용자 지정 역할](custom-roles.md) 에서 azure의 리소스에 대 한 세부적인 액세스 제어를 제공 하는 데 사용할 수 있습니다. 작업 문자열 형식은 `{Company}.{ProviderName}/{resourceType}/{action}` 다음과 같습니다. 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법에 대 한 목록은 [리소스 공급자와 서비스의 일치](../azure-resource-manager/management/azure-services-resource-providers.md)를 참조 하세요.
 
 리소스 공급자 작업은 계속 업데이트됩니다. 최신 작업을 가져오려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)를 사용합니다.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -360,7 +358,7 @@ Azure 서비스: [API Management](../api-management/index.yml)
 > | 작업 | Microsoft.ApiManagement/service/managedeployments/action | SKU/단위를 변경하고 API Management 서비스의 지역별 배포를 추가 또는 제거합니다. |
 > | 작업 | Microsoft.ApiManagement/service/getssotoken/action | API Management 서비스 레거시 포털에 관리자로 로그인하는 데 사용할 수 있는 SSO 토큰을 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Virtual Network에서 실행되는 Microsoft.ApiManagement 리소스를 업데이트하여 업데이트된 네트워크 설정을 선택합니다. |
-> | 작업 | Microsoft.ApiManagement/service/users/action | 새 사용자를 등록합니다. |
+> | 작업 | Microsoft.ApiManagement/service/users/action | 새 사용자 등록 |
 > | 작업 | Microsoft.ApiManagement/service/notifications/action | 지정된 사용자에게 알림을 보냅니다. |
 > | 작업 | Microsoft.apimanagement/서비스/게이트웨이/작업 | 게이트웨이 구성을 검색 합니다. 또는 게이트웨이 하트 비트를 업데이트 합니다. |
 > |  | **서비스/a p i** |  |
@@ -2137,7 +2135,7 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Cognitiveservices account/accounts/SpellCheck/SpellCheck/action | GET 또는 POST를 통해 맞춤법 검사 쿼리 결과를 가져옵니다. |
 > |  | **계정/TextAnalytics** |  |
 > | DataAction | Cognitiveservices account/계정/텍스트 분석/언어/작업 | API는 검색 된 언어 및 0에서 1 사이의 숫자 점수를 반환 합니다. 점수가 1에 가까울수록 식별된 언어가 true라는 100% 확실성을 나타냅니다. 총 120개의 언어가 지원됩니다. |
-> | DataAction | Cognitiveservices account/계정/텍스트 분석/엔터티/작업 | API는 지정 된 문서에서 알려진 엔터티와 일반적인 명명 된 엔터티 (\"사람\", \"위치\", \"조직\" 등)의 목록을 반환 합니다. |
+> | DataAction | Cognitiveservices account/계정/텍스트 분석/엔터티/작업 | API는 지정 된 문서에서 알려진 엔터티와 일반적인 명명 된 엔터티 ( \" 사람 \" , \" 위치 \" , \" 조직 \" 등)의 목록을 반환 합니다. |
 > | DataAction | Cognitiveservices account/accounts/TextAnalytics/keyphrases/action | 이 API는 입력 텍스트의 핵심 요지를 나타내는 문자열 목록을 반환합니다. |
 > | DataAction | Cognitiveservices account/accounts/TextAnalytics/감정/action | 이 API는 0~1 사이의 숫자 점수를 반환합니다.<br>1에 가까운 점수는 긍정적인 정서를 나타내고, 0에 가까운 점수는 부정적인 정서를 나타냅니다.<br>점수 0.5은 감정 (예:<br>factoid 문). |
 > |  | **계정/비디오 검색** |  |
@@ -4695,11 +4693,11 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | 로그 정의 읽기 |
 > |  | **AutoscaleSettings/providers/MetricDefinitions** |  |
 > | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | 메트릭 정의 읽기 |
-> |  | **기초** |  |
+> |  | **기준** |  |
 > | 작업 | Microsoft. 인 사이트/기준/읽기 | 메트릭 기준선 읽기 (미리 보기) |
 > |  | **CalculateBaseline** |  |
 > | 작업 | Microsoft Insights/CalculateBaseline/Read | 메트릭 값의 기준선 계산 (미리 보기) |
-> |  | **구성 요소** |  |
+> |  | **요소도** |  |
 > | 작업 | Microsoft.Insights/Components/AnalyticsTables/Action | Application Insights 분석 테이블 작업입니다. |
 > | 작업 | Microsoft.Insights/Components/ApiKeys/Action | Application Insights API 키를 생성합니다. |
 > | 작업 | Microsoft.Insights/components/purge/action | Application Insights에서 데이터 삭제 |
@@ -5226,7 +5224,7 @@ Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
 > | 액션 유형 | 작업(Operation) | Description |
 > | --- | --- | --- |
 > | 작업 | Microsoft.IoTSpaces/register/action | 리소스를 만들 수 있게 설정하려면 Microsoft.IoTSpaces Graph 리소스 공급자에 대한 구독을 등록하세요. |
-> |  | **Graph** |  |
+> |  | **그래프** |  |
 > | 작업 | Microsoft.IoTSpaces/Graph/write | Microsoft.IoTSpaces Graph 리소스를 만들기 |
 > | 작업 | Microsoft.IoTSpaces/Graph/read | Microsoft.IoTSpaces Graph 리소스를 가져오기 |
 > | 작업 | Microsoft.IoTSpaces/Graph/delete | Microsoft.IoTSpaces Graph 리소스를 삭제 |

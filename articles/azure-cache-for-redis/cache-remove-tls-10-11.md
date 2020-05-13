@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261246"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197844"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다.
 
@@ -19,7 +19,7 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 
 이러한 노력의 일환으로 Redis 용 Azure Cache를 다음과 같이 변경 합니다.
 
-* **1 단계:** 새로 만든 캐시 인스턴스에 대해 기본 최소 TLS 버전을 1.2로 구성 합니다. TLS 1.0로 사용 됩니다. 이 시점에서 기존 캐시 인스턴스는 업데이트 되지 않습니다. 필요한 경우 이전 버전과의 호환성을 위해 [최소 TLS 버전](cache-configure.md#access-ports) 을 1.0 또는 1.1로 다시 변경할 수 있습니다. 이러한 변경은 Azure Portal 또는 다른 관리 Api를 통해 수행할 수 있습니다.
+* **1 단계:** 새로 만든 캐시 인스턴스에 대해 기본 최소 TLS 버전을 1.2로 구성 합니다 (이전에는 TLS 1.0).  이 시점에서 기존 캐시 인스턴스는 업데이트 되지 않습니다. 필요한 경우 이전 버전과의 호환성을 위해 [최소 TLS 버전](cache-configure.md#access-ports) 을 1.0 또는 1.1로 다시 변경할 수 있습니다. 이러한 변경은 Azure Portal 또는 다른 관리 Api를 통해 수행할 수 있습니다.
 * **2 단계:** TLS 버전 1.0 및 1.1은 지원 하지 않습니다. 이렇게 변경한 후에는 응용 프로그램에서 TLS 1.2 이상 버전을 사용 하 여 캐시와 통신 해야 합니다.
 
 또한이 변경의 일환으로, 안전 하지 않은 이전 암호 제품군에 대 한 지원이 제거 될 예정입니다.  최소 TLS 버전 1.2를 사용 하 여 캐시를 구성 하는 경우 지원 되는 암호 제품군은 다음으로 제한 됩니다.
@@ -33,7 +33,7 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 
 | 클라우드               | 1 단계 시작 날짜 | 2 단계 시작 날짜      |
 |---------------------|--------------------|-------------------------|
-| Azure (전역)      |  2020년 1월 13일  | 5 월 11 일, 2020 (확장) |
+| Azure (전역)      |  2020년 1월 13일  | 5 월 11 일, 2020            |
 | Azure Government    |  3 월 13 일, 2020    | 5 월 11 일, 2020            |
 | Azure Germany       |  3 월 13 일, 2020    | 5 월 11 일, 2020            |
 | Azure 중국         |  3 월 13 일, 2020    | 5 월 11 일, 2020            |
@@ -50,7 +50,7 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 
 Redis .NET 클라이언트는 .NET Framework 4.5.2 이전 버전에서 기본적으로 가장 이른 TLS 버전을 사용 하 고 .NET Framework 4.6 이상에서 최신 TLS 버전을 사용 합니다. 이전 버전의 .NET Framework 사용 하는 경우 TLS 1.2을 수동으로 사용 하도록 설정할 수 있습니다.
 
-* **Stackexchange:** 연결 `ssl=true` 문자열 `sslprotocols=tls12` 에서 및를 설정 합니다.
+* **Stackexchange:** `ssl=true` `sslprotocols=tls12` 연결 문자열에서 및를 설정 합니다.
 * **Servicestack. Redis:** [Servicestack. Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) 지침을 따르고 Redis v 5.6이 최소한 필요 합니다.
 
 ### <a name="net-core"></a>.NET Core
