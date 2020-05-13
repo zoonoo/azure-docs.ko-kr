@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11a9b8609218a6cf56a789b18094d048e26d4af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419110"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343340"
 ---
 표준화 된 VM (가상 머신) 이미지를 사용 하면 조직에서 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정 하려면 시간, 인프라 및 설정이 필요 하지만, Azure VM 이미지 작성기를 사용 하면 이미지를 설명 하는 간단한 구성을 제공 하 고, 서비스에 제출 하 고, 이미지를 빌드하고 배포할 수 있습니다.
  
@@ -30,7 +30,7 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하 여 Windo
 - Azure 공유 이미지 갤러리와 통합 하면 이미지를 전역적으로 배포, 버전 관리 및 크기 조정할 수 있으며 이미지 관리 시스템을 제공 합니다.
 - 기존 이미지 빌드 파이프라인과 통합 파이프라인에서 이미지 작성기를 호출 하거나 간단한 미리 보기 이미지 빌더 Azure DevOps 작업을 사용 합니다.
 - 기존 이미지 사용자 지정 파이프라인을 Azure로 마이그레이션합니다. 기존 스크립트, 명령 및 프로세스를 사용 하 여 이미지를 사용자 지정 합니다.
-- VHD 형식으로 이미지 만들기
+- Azure Stack를 지원 하기 위해 VHD 형식으로 이미지를 만듭니다.
  
 
 ## <a name="regions"></a>영역
@@ -55,9 +55,8 @@ AIB는 Azure Marketplace 기본 OS 이미지를 지원 합니다.
 - Windows 2016
 - Windows 2019
 
-RHEL Iso 지원은 더 이상 사용 되지 않습니다. 자세한 내용은 템플릿 설명서를 참조 하세요.
-
-## <a name="how-it-works"></a>작동 방법
+RHEL Iso 지원은 더 이상 지원 되지 않습니다.
+## <a name="how-it-works"></a>작동 방식
 
 
 ![Azure 이미지 작성기의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -71,40 +70,28 @@ Azure 이미지 작성기는 Azure 리소스 공급자가 액세스할 수 있�
 ![Azure 이미지 작성기 프로세스의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. 이미지 템플릿을 json 파일로 만듭니다. 이 json 파일에는 이미지 원본, 사용자 지정 및 배포에 대 한 정보가 포함 되어 있습니다. [Azure 이미지 작성기 GitHub 리포지토리에](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)는 여러 예제가 있습니다.
-1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_\<destinationresourcegroup>_\<TemplateName> 형식입니다. 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (기본 크기: Standard_D1_v2), 네트워크, 공용 IP, NSG 및 IT_\<destinationresourcegroup>_\<TemplateName> 리소스 그룹에 저장소를 만듭니다.
-1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 프로세스에 대해 만들어진 IT_\<destinationresourcegroup>_\<TemplateName> 리소스 그룹에서 추가 리소스를 삭제 합니다.
+1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_ \< destinationresourcegroup>_ \< TemplateName> 형식입니다. 
+1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (기본 크기: Standard_D1_v2), 네트워크, 공용 IP, NSG 및 IT_ \< destinationresourcegroup>_ \< TemplateName> 리소스 그룹에 저장소를 만듭니다.
+1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 \< \< 프로세스에 대해 만들어진 IT_ destinationresourcegroup>_ TemplateName> 리소스 그룹에서 추가 리소스를 삭제 합니다.
 
 
 ## <a name="permissions"></a>사용 권한
+(AIB)에 등록 하면 AIB Service에는 준비 리소스 그룹 (IT_ *)을 만들고, 관리 하 고, 삭제할 수 있는 권한이 부여 되며, 이미지 빌드에 필요한 리소스를 추가할 수 있는 권한이 부여 됩니다. 등록을 완료 하는 동안 구독에서 사용할 수 있는 AIB SPN (서비스 사용자 이름)이이 작업을 수행 합니다.
 
-Azure VM 이미지 작성기에서 관리 되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포 하도록 허용 하려면 리소스 그룹에서 "Azure 가상 컴퓨터 이미지 작성기" (앱 ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) 서비스에 대 한 ' 참가자 ' 권한을 제공 해야 합니다. 
+Azure VM 이미지 작성기에서 관리 되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포 하도록 허용 하려면 이미지를 읽고 쓸 수 있는 권한을 가진 Azure 사용자 할당 id를 만들어야 합니다. Azure storage에 액세스 하는 경우 개인 컨테이너를 읽을 수 있는 권한이 필요 합니다.
 
-기존 사용자 지정 관리 되는 이미지 또는 이미지 버전을 사용 하는 경우 Azure 이미지 작성기에는 해당 리소스 그룹에 대 한 최소한의 ' 읽기 권한자 ' 액세스 권한이 필요 합니다.
+처음에는 id를 만드는 방법에 대 한 [Azure 사용자 할당 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) 설명서를 만들어야 합니다.
 
-Azure CLI를 사용 하 여 액세스 권한을 할당할 수 있습니다.
+Id를 사용 하 여 권한을 부여 해야 하는 경우이 작업을 수행 하려면 Azure 사용자 지정 역할 정의를 사용 하 고 사용자 지정 역할 정의를 사용 하도록 사용자 할당 관리 id를 할당 하면 됩니다.
 
-```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
-```
+사용 권한은 [여기](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)에 자세히 설명 되어 있으며, 예제에서는이를 구현 하는 방법을 보여 줍니다.
 
-PowerShell을 사용 하 여 액세스 권한을 할당할 수 있습니다.
-
-```azurePowerShell-interactive
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
-```
-
-
-서비스 계정을 찾을 수 없는 경우 역할 할당을 추가 하는 구독이 리소스 공급자에 대해 아직 등록 되지 않았음을 의미할 수 있습니다.
-
+> [참고!] 이전에 AIB를 사용 하 여 AIB SPN을 사용 하 고 이미지 리소스 그룹에 SPN 권한을 부여 합니다. 향후 기능을 허용 하기 위해이 모델에서 멀리 이동 하 고 있습니다. 2020 6 월 1 일부 터 이미지 작성기는 사용자에 게 할당 된 id가 없는 템플릿을 허용 하지 않습니다. [사용자 id](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity)를 사용 하 여 기존 템플릿을 서비스에 다시 전송 해야 합니다. 여기에 있는 예제에서는 사용자 할당 id를 만들고 템플릿에 추가 하는 방법을 이미 보여 줍니다.
 
 ## <a name="costs"></a>비용
 Azure 이미지 작성기를 사용 하 여 이미지를 만들고, 빌드하고, 저장 하는 경우 몇 가지 계산, 네트워킹 및 저장소 비용이 발생 합니다. 이러한 비용은 사용자 지정 이미지를 수동으로 만들 때 발생 하는 비용과 비슷합니다. 리소스의 경우 Azure 요금이 청구 됩니다. 
 
-이미지를 만드는 과정에서 파일은 다운로드 되어 `IT_<DestinationResourceGroup>_<TemplateName>` 리소스 그룹에 저장 되며,이로 인해 저장소 비용이 적게 듭니다. 이러한 내용을 유지 하지 않으려면 이미지를 빌드한 후에 **이미지 템플릿을** 삭제 합니다.
+이미지를 만드는 과정에서 파일은 다운로드 되어 리소스 그룹에 저장 되며 `IT_<DestinationResourceGroup>_<TemplateName>` ,이로 인해 저장소 비용이 적게 듭니다. 이러한 내용을 유지 하지 않으려면 이미지를 빌드한 후에 **이미지 템플릿을** 삭제 합니다.
  
 이미지 작성기는 vm에 필요한 D1v2 VM 크기, 저장소 및 네트워킹을 사용 하 여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스가 지속 되는 동안 지속 되며, 이미지 작성기에서 이미지 만들기를 완료 하면 삭제 됩니다. 
  
@@ -113,5 +100,4 @@ Azure 이미지 작성기에서 선택한 지역에 이미지를 배포 하 여 
 ## <a name="next-steps"></a>다음 단계 
  
 Azure 이미지 작성기를 사용해 보려면 [Linux](../articles/virtual-machines/linux/image-builder.md) 또는 [Windows](../articles/virtual-machines/windows/image-builder.md) 이미지 빌드에 대 한 문서를 참조 하세요.
- 
  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77123258"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343323"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
@@ -23,11 +23,11 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
+* Standard_DS15_v2<sup>*</sup>
+* Standard_D15_v2<sup>*</sup>
 * Standard_F72s_v2
 
-[여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 각 격리 된 크기에 대해 자세히 알아볼 수 있습니다.
+<sup>*</sup>격리 보장은 5 월 15 일에 사용 중지 됩니다. 2020
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-may-15-2020"></a>2020 년 5 월 15 일 D15_v2/DS15_v2 격리 사용 중지
 **2020 년 2 월 10 일 업데이트: "격리" 사용 중지 시간 표시 막대가 5 월 15 2020 일에 연장 되었습니다.**
