@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80280357"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124706"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>테이블 저장소에 대 한 리드 관리 지침
 
@@ -98,7 +98,7 @@ ms.locfileid: "80280357"
 
    - **필터 쿼리**:이 필드를 선택 하면 **이전 시간 가져오기** 아이콘이 팝업 창에 표시 됩니다. **이전 시간** 을 선택 하 여이 값을 타임 스탬프로 사용 하 여 쿼리를 필터링 합니다. 또는 필드에 다음 함수를 붙여 넣을 수 있습니다.
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![필터 쿼리 함수 설정](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "80280357"
      ![조건 컨트롤 추가](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. **조건** 창에서 **값 선택**을 선택 하 고 팝업 창에서 **식** 을 선택 합니다.
-1. Fx `length(body('Get_entities')?['value'])` 필드에 ***fx*** 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
+1. `length(body('Get_entities')?['value'])` ***Fx*** 필드에 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
 
 
 
@@ -133,7 +133,7 @@ ms.locfileid: "80280357"
 
       - **받는**사람: 알림을 받을 사람의 전자 메일 주소입니다.
       - **제목**: 전자 메일의 제목입니다. 예: *새 잠재 고객!*
-      - **Body**: 각 전자 메일에 포함 하려는 텍스트입니다 (선택 사항). 또한 잠재 고객 `body('Get_entities')?['value']` 정보를 삽입 하는 함수로 붙여 넣습니다.
+      - **Body**: 각 전자 메일에 포함 하려는 텍스트입니다 (선택 사항). 또한 `body('Get_entities')?['value']` 잠재 고객 정보를 삽입 하는 함수로 붙여 넣습니다.
 
         >[!NOTE] 
         >전자 메일의 본문에 추가 정적 또는 동적 데이터 요소를 삽입할 수 있습니다.

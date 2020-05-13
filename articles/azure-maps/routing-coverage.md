@@ -1,19 +1,19 @@
 ---
 title: 라우팅 적용 범위 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps에 대 한 라우팅 범위를 사용 하는 지역에 대해 알아봅니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b59816abf0cd03450c9fc4ebb8417c62df7e3288
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529394"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123890"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps 라우팅 적용 범위
 
@@ -152,7 +152,7 @@ ms.locfileid: "79529394"
 | 베트남                        |        ✓       |         ✓            |             |
 
 
-## <a name="europe"></a>유럽
+## <a name="europe"></a>Europe
 
 | 국가/지역                 | 라우팅         | 트래픽 라우팅 | 트럭 라우팅 |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -177,7 +177,7 @@ ms.locfileid: "79529394"
 | + 세인트 생바르텔레미                |        ✓       |                      |             |
 | + 세인트 Martin                    |        ✓       |                      |             |
 | + 세인트 &.         |        ✓       |                      |             |
-| 조지아                        |        ✓       |                      |             |
+| 그루지야                        |        ✓       |                      |             |
 | 독일                        |        ✓       |         ✓            |     ✓      | 
 | 그리스                         |        ✓       |         ✓            |     ✓      |  
 | 건지                       |        ✓       |                      |             |

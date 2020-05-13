@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419580"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121351"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -50,7 +50,7 @@ IP 제한을 사용 하 여 앱에 대 한 액세스가 허용 되거나 거부 
 개인 사이트 액세스는 Azure virtual network와 같은 개인 네트워크 에서만 앱에 액세스할 수 있도록 하는 것을 말합니다.
 
 * 개인 사이트 액세스는 서비스 끝점이 구성 될 때 [프리미엄](./functions-premium-plan.md), [소비](functions-scale.md#consumption-plan)및 [App Service](functions-scale.md#app-service-plan) 계획에서 사용할 수 있습니다.
-    * 서비스 끝점은 **플랫폼 기능** > **네트워킹** > 에서**액세스 제한** > 구성**규칙**을 사용 하 여 앱 별로 구성할 수 있습니다. 이제 가상 네트워크를 규칙 유형으로 선택할 수 있습니다.
+    * 서비스 끝점은 **플랫폼 기능**  >  **네트워킹**에서  >  **액세스 제한 구성**  >  **규칙**을 사용 하 여 앱 별로 구성할 수 있습니다. 이제 가상 네트워크를 규칙 유형으로 선택할 수 있습니다.
     * 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
     * 서비스 끝점을 사용 하는 경우 가상 네트워크 통합이 구성 된 경우에도 함수에서 인터넷에 대 한 전체 아웃 바운드 액세스를 계속 유지 합니다.
 * 개인 사이트 액세스는 ILB (내부 부하 분산 장치)를 사용 하 여 구성 된 App Service Environment 내 에서도 사용할 수 있습니다. 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)을 참조 하세요.
@@ -102,9 +102,9 @@ Azure Key Vault 참조를 사용 하 여 코드를 변경할 필요 없이 Azure
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용 하는 프리미엄 계획
 
-프리미엄 계획을 실행 하는 경우 HTTP가 아닌 트리거 함수를 가상 네트워크 내에서 실행 되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대 한 가상 네트워크 트리거 지원을 사용 하도록 설정 해야 합니다. **가상 네트워크 트리거 지원** 설정은 **함수 앱 설정**아래 [Azure Portal](https://portal.azure.com) 에 있습니다.
+프리미엄 계획을 실행 하는 경우 HTTP가 아닌 트리거 함수를 가상 네트워크 내에서 실행 되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대 한 가상 네트워크 트리거 지원을 사용 하도록 설정 해야 합니다. **가상 네트워크 트리거 지원** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정**아래 Azure Portal에 있습니다.
 
-![가상 네트워크 설정/해제](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 다음 Azure CLI 명령을 사용 하 여 가상 네트워크 트리거를 사용 하도록 설정할 수도 있습니다.
 
@@ -114,7 +114,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 가상 네트워크 트리거는 함수 런타임의 버전 2.x 이상에서 지원 됩니다. 다음과 같은 HTTP가 아닌 트리거 형식이 지원 됩니다.
 
-| 확장명 | 최소 버전 |
+| 확장 | 최소 버전 |
 |-----------|---------| 
 |[WebJobs. 확장명](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 이상 |
 |[WebJobs. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 이상|
@@ -146,7 +146,7 @@ Azure Functions에서 사용 되는 것 처럼 각 하이브리드 연결은 단
 
 아웃 바운드 IP 제한은 프리미엄 계획, App Service 계획 또는 App Service Environment에서 사용할 수 있습니다. App Service Environment 배포 되는 가상 네트워크에 대 한 아웃 바운드 제한을 구성할 수 있습니다.
 
-프리미엄 계획의 함수 앱 또는 가상 네트워크와 App Service 계획을 통합 하는 경우 앱은 기본적으로 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다. 응용 프로그램 설정을 `WEBSITE_VNET_ROUTE_ALL=1`추가 하 여 모든 아웃 바운드 트래픽이 가상 네트워크로 전송 되도록 강제 합니다 .이 경우 네트워크 보안 그룹 규칙을 사용 하 여 트래픽을 제한할 수 있습니다.
+프리미엄 계획의 함수 앱 또는 가상 네트워크와 App Service 계획을 통합 하는 경우 앱은 기본적으로 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다. 응용 프로그램 설정을 추가 하 여 `WEBSITE_VNET_ROUTE_ALL=1` 모든 아웃 바운드 트래픽이 가상 네트워크로 전송 되도록 강제 합니다 .이 경우 네트워크 보안 그룹 규칙을 사용 하 여 트래픽을 제한할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

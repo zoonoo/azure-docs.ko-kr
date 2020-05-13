@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131202"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124587"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
->이 URL을 복사 하 고 RSS 피드 판독기 `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` 에 붙여넣어 업데이트에 대 한이 페이지를 다시 방문 해야 하는 경우에 대 한 알림 받기.
+>이 URL을 복사 하 고 `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` RSS 피드 판독기에 붙여넣어 업데이트에 대 한이 페이지를 다시 방문 해야 하는 경우에 대 한 알림 받기.
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -34,9 +34,9 @@ ms.locfileid: "82131202"
 
 ### <a name="new-widget-parameters-capabilities"></a>새 위젯 매개 변수 기능
 
-**Insights** 위젯에는 새 매개 변수 `language` 및 `control`가 포함 되어 있습니다.
+**Insights** 위젯에는 새 매개 변수 및가 포함 되어 있습니다. `language` `control`
 
-**플레이어** 위젯에는 새 `locale` 매개 변수가 있습니다. `locale` 및 `language` 매개 변수는 플레이어의 언어를 제어 합니다.
+**플레이어** 위젯에는 새 `locale` 매개 변수가 있습니다. `locale`및 `language` 매개 변수는 플레이어의 언어를 제어 합니다.
 
 자세한 내용은 [위젯 형식](video-indexer-embed-widgets.md#widget-types) 섹션을 참조 하세요. 
 
@@ -54,11 +54,11 @@ ms.locfileid: "82131202"
     * [계정-토큰 포함](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
     계정 개체에는 `Url` [Video Indexer 웹 사이트](https://www.videoindexer.ai/)의 위치를 가리키는 필드가 있습니다.
-유료 계정의 경우이 `Url` 필드는 현재 공용 웹 사이트가 아닌 내부 URL을 가리킵니다.
+유료 계정의 경우 `Url` 이 필드는 현재 공용 웹 사이트가 아닌 내부 URL을 가리킵니다.
 몇 주 후에는이를 변경 하 고 모든 계정에 대 한 [Video Indexer 웹 사이트](https://www.videoindexer.ai/) URL (평가판 및 유료)을 반환 합니다.
 
     내부 Url을 사용 하지 마세요. [Video Indexer 공용 api](https://api-portal.videoindexer.ai/)를 사용 해야 합니다.
-* 응용 프로그램에 Video Indexer Url을 포함 하는 경우 Url이 [Video Indexer 웹 사이트나](https://www.videoindexer.ai/) [Video Indexer API 끝점](https://api.videoindexer.ai) 을 가리키지 않고 지역 끝점 (예: `https://wus2.videoindexer.ai`)이 아닌 경우 url을 다시 생성 합니다.
+* 응용 프로그램에 Video Indexer Url을 포함 하는 경우 url이 [Video Indexer 웹 사이트나](https://www.videoindexer.ai/) Video Indexer API 끝점 ()을 가리키지 `https://api.videoindexer.ai` 않고 지역 끝점 (예:)이 아닌 경우 `https://wus2.videoindexer.ai` url을 다시 생성 합니다.
 
    다음 중 하나를 수행 하 여이 작업을 수행할 수 있습니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "82131202"
  
 ### <a name="custom-language-support-for-additional-languages"></a>추가 언어에 대 한 사용자 지정 언어 지원
 
-이제 Video Indexer에서, 및 `ar-SY` `en-UK` `en-AU` 에 대 한 사용자 지정 언어 모델을 지원 합니다 (API에만 해당).
+이제 Video Indexer에서, 및에 대 한 사용자 지정 언어 모델 `ar-SY` 을 지원 `en-UK` `en-AU` 합니다 (API에만 해당).
  
 ### <a name="delete-account-timeframe-action-update"></a>계정 기간 삭제 작업 업데이트
 
@@ -127,7 +127,7 @@ Video Indexer 포털을 사용 하 여 유료 계정에서 사용자 지정 비�
  
 * 한국어 사용자 지정 언어 모델 지원
 
-    이제 Video 인덱서는 API와 포털 모두에서 한국어`ko-KR`()의 사용자 지정 언어 모델을 지원 합니다. 
+    이제 Video 인덱서 `ko-KR` 는 API와 포털 모두에서 한국어 ()의 사용자 지정 언어 모델을 지원 합니다. 
 * 음성 텍스트에 대해 지원 되는 새 언어 (STT)
 
     Video Indexer Api는 이제 아랍어 Levantine (ar SY), 영어 영국 언어 (en-us) 및 영어 오스트레일리아 언어 (en-us)로 STT을 지원 합니다.

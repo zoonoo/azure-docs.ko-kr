@@ -3,20 +3,20 @@ title: Azure Cosmos DB에 의해 트리거되는 함수 만들기
 description: Azure Functions를 사용하여 Azure Cosmos DB의 데이터베이스에 데이터가 추가될 때 호출되는, 서버를 사용하지 않는 함수를 만듭니다.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754204"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123764"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
 데이터가 Azure Cosmos DB에 추가될 때 또는 변경될 때 트리거되는 함수를 만드는 방법에 대해 알아봅니다. Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB: Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅](../cosmos-db/serverless-computing-database.md)을 참조하세요.
 
-![로그에서 메시지 보기.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB 코드":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,6 +26,9 @@ ms.locfileid: "80754204"
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
@@ -43,35 +46,33 @@ ms.locfileid: "80754204"
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱의 왼쪽 메뉴에서 **함수** 를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
 
-   ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. **새 함수** 페이지에서 `cosmos` 검색 필드에를 입력 한 다음 **Azure Cosmos DB 트리거** 템플릿을 선택 합니다.
 
-1. **추가 템플릿**, **템플릿 마침 및 보기**를 차례로 선택합니다.
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Portal의 함수 페이지":::
 
-    ![Functions 빠른 시작 - 추가 템플릿 선택](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. 검색 필드에서 `cosmos`를 입력하고 **Azure Cosmos DB 트리거** 템플릿을 선택합니다.
+1. 다음 표에 지정 된 대로 설정을 사용 하 여 새 트리거를 구성 합니다.
 
-1. 메시지가 표시되면 **설치**를 선택하여 Azure Cosmos DB 확장을 함수 앱에 설치합니다. 설치가 완료되면 **계속**을 선택합니다.
-
-    ![바인딩 확장 설치](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. 이미지 아래의 테이블에 지정된 설정을 사용하여 새 트리거를 구성합니다.
-
-    ![Azure Cosmos DB에 의해 트리거되는 함수 만들기](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
-
-    | 설정      | 제안 값  | Description                                |
+    | 설정      | 제안 값  | 설명                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **이름** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다.|
-    | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 그러면 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
-    | **컨테이너 이름** | Items | 모니터링할 컨테이너의 이름입니다. |
-    | **임대 컨테이너가 없는 경우 새로 만들기** | 선택 | 아직 컨테이너가 없으므로 지금 만듭니다. |
-    | **데이터베이스 이름** | 작업 | 모니터링할 컨테이너가 포함된 데이터베이스의 이름입니다. |
+    | **새 함수** | 기본 이름 적용 | 함수의 이름입니다. |
+    | **Cosmos DB 계정 연결** | 기본 새 이름 적용 | **새로 만들기**, 이전에 만든 **데이터베이스 계정** , **확인**을 차례로 선택 합니다. 이 작업을 수행 하면 계정 연결에 대 한 응용 프로그램 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
+    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션을 포함 하는 데이터베이스의 이름입니다. |
+    | **컬렉션 이름** | 항목 | 모니터링할 컬렉션의 이름입니다. |
+    | **임대 컬렉션 이름** | leases | 임대를 저장 하는 컬렉션의 이름입니다. |
+    | **임대 컬렉션 (없는 경우)을 만듭니다.** | 예 | 임대 컬렉션의 존재 여부를 확인 하 고 자동으로 만듭니다. |
 
-1. **만들기**를 클릭하여 Azure Cosmos DB에 의해 트리거되는 함수를 만듭니다. 함수를 만들면 템플릿 기반 함수 코드가 표시됩니다.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Azure Cosmos DB에 의해 트리거되는 함수 만들기":::
 
-    ![C#의 Cosmos DB 함수 템플릿](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. **함수 만들기**를 선택 합니다. 
+
+    Azure에서 Cosmos DB 트리거 함수를 만듭니다.
+
+1. 템플릿 기반 함수 코드를 표시 하려면 **코드 + 테스트**를 선택 합니다.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="C#의 Cosmos DB 함수 템플릿":::
 
     이 함수 템플릿은 문서 수와 첫 번째 문서 ID를 로그에 기록합니다.
 
@@ -110,7 +111,7 @@ ms.locfileid: "80754204"
 
 1. Data Explorer에서 새 **항목** 컨테이너를 확장하고 **항목**을 선택한 다음, **새 항목**을 선택합니다.
 
-    ![항목 컨테이너에 항목 만들기](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="항목 컨테이너에 항목 만들기":::
 
 1. 새 문서의 콘텐츠를 다음 콘텐츠로 바꾼 다음, **저장**을 선택합니다.
 

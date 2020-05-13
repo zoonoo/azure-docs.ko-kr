@@ -4,12 +4,12 @@ description: Azure Functions에서 Azure 애플리케이션 Insights를 사용 �
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 9997a44d14f5b4ca4de4e5b135efc453b12bff01
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 0b4d0f43d00a919c589a11c81df2818f3a058ed8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202416"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121564"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -29,7 +29,7 @@ ms.locfileid: "82202416"
 
 [Application Insights 통합을 사용 하도록 설정](#enable-application-insights-integration)하면 **모니터** 탭에서 원격 분석 데이터를 볼 수 있습니다.
 
-1. 함수 앱 페이지에서 Application Insights 구성 된 후 한 번 이상 실행 된 함수를 선택 합니다. 그런 다음 **모니터** 탭을 선택 합니다. 함수 호출 목록이 나타날 때까지 주기적으로 **새로 고침** 을 선택 합니다.
+1. 함수 앱 페이지에서 Application Insights 구성 된 후 한 번 이상 실행 된 함수를 선택 합니다. 그런 다음 왼쪽 창에서 **모니터** 를 선택 합니다. 함수 호출 목록이 나타날 때까지 주기적으로 **새로 고침** 을 선택 합니다.
 
    ![호출 목록](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -40,9 +40,9 @@ ms.locfileid: "82202416"
 
    ![호출 정보](media/functions-monitoring/invocation-details-ai.png)
 
-1. **Application Insights에서 실행** 링크를 선택 하 여 azure 로그에서 Azure Monitor 로그 데이터를 검색 하는 쿼리의 원본을 볼 수 있습니다. 구독에서 azure Log Analytics를 처음 사용 하는 경우에는를 사용 하도록 설정 하 라는 메시지가 표시 됩니다.
+1. **Application Insights에서 실행** 을 선택 하 여 Azure 로그에서 Azure Monitor 로그 데이터를 검색 하는 쿼리의 원본을 확인 합니다. 구독에서 Azure Log Analytics를 처음 사용 하는 경우이를 사용 하도록 설정 하 라는 메시지가 표시 됩니다.
 
-1. 해당 링크를 선택 하 고 로그 분석을 사용 하도록 선택 합니다. 다음 쿼리가 표시 됩니다. 쿼리 결과가 최근 30 일 (`where timestamp > ago(30d)`)으로 제한 되는 것을 볼 수 있습니다. 또한 결과에 20 개 이하의 행 (`take 20`)이 표시 됩니다. 이와 대조적으로 함수에 대 한 호출 세부 정보 목록은 지난 30 일 동안 제한 없이 사용할 수 있습니다.
+1. Log Analytics 사용 하도록 설정 하면 다음 쿼리가 표시 됩니다. 쿼리 결과가 최근 30 일 ()으로 제한 되는 것을 볼 수 있습니다 `where timestamp > ago(30d)` . 또한 결과에 20 개 이하의 행 ()이 표시 `take 20` 됩니다. 이와 대조적으로 함수에 대 한 호출 세부 정보 목록은 지난 30 일 동안 제한 없이 사용할 수 있습니다.
 
    ![Application Insights 분석 호출 목록](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "82202416"
 
 ## <a name="view-telemetry-in-application-insights"></a>Application Insights에서 원격 분석 보기
 
-Azure Portal의 함수 앱에서 Application Insights를 열려면 함수 앱의 **개요** 페이지로 이동 합니다. **구성 된 기능**아래에서 **Application Insights**를 선택 합니다.
+Azure Portal의 함수 앱에서 Application Insights를 열려면 왼쪽 페이지의 **설정** 에서 **Application Insights** 를 선택 합니다. 구독과 함께 Application Insights를 처음 사용 하는 경우이를 사용 하도록 설정 하 라는 메시지가 표시 됩니다. **Application Insights 켜기**를 선택 하 고 다음 페이지에서 **적용** 을 선택 합니다.
 
 ![함수 앱 개요 페이지에서 Application Insights를 엽니다.](media/functions-monitoring/ai-link.png)
 
@@ -60,9 +60,9 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 함수의 동작, 성능 및 오류를 평가할 때 다음과 같은 Application Insights 영역을 유용 하 게 사용할 수 있습니다.
 
-| 조사 | Description |
+| 조사 | 설명 |
 | ---- | ----------- |
-| **[있어](../azure-monitor/app/asp-net-exceptions.md)** |  함수 오류 및 서버 예외를 기반으로 차트와 경고를 만듭니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성의 실패가 표시 되지 않습니다. |
+| **[오류](../azure-monitor/app/asp-net-exceptions.md)** |  함수 오류 및 서버 예외를 기반으로 차트와 경고를 만듭니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성의 실패가 표시 되지 않습니다. |
 | **[성능](../azure-monitor/app/performance-counters.md)** | **클라우드 역할**인스턴스당 리소스 사용률 및 처리량을 확인 하 여 성능 문제를 분석 합니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. |
 | **[메트릭](../azure-monitor/app/metrics-explorer.md)** | 메트릭을 기반으로 하는 차트 및 경고를 만듭니다. 메트릭에는 함수 호출 수, 실행 시간 및 성공률이 포함 됩니다. |
 | **[라이브 메트릭](../azure-monitor/app/live-stream.md)** | 거의 실시간으로 생성 된 메트릭 데이터를 봅니다. |
@@ -86,7 +86,7 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| 테이블 | Description |
+| 테이블 | 설명 |
 | ----- | ----------- |
 | **아니라** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **요청** | 각 함수 호출에 대해 하나의 요청 |
@@ -104,7 +104,7 @@ traces
 | where customDimensions.LogLevel == "Error"
 </pre>
 
-런타임은 및 `customDimensions.Category` 필드를 `customDimensions.LogLevel` 제공 합니다. 함수 코드에 작성 하는 로그에 추가 필드를 제공할 수 있습니다. 이 문서 뒷부분의 [구조적 로깅](#structured-logging)을 참조하세요.
+런타임은 및 필드를 제공 합니다 `customDimensions.LogLevel` `customDimensions.Category` . 함수 코드에 작성 하는 로그에 추가 필드를 제공할 수 있습니다. 이 문서 뒷부분의 [구조적 로깅](#structured-logging)을 참조하세요.
 
 ## <a name="configure-categories-and-log-levels"></a>범주 및 로그 수준 구성
 
@@ -114,18 +114,18 @@ traces
 
 Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 다음 차트에서는 런타임에서 만드는 로그의 주요 범주에 대해 설명 합니다. 
 
-| 범주 | Description |
+| 범주 | 설명 |
 | ----- | ----- | 
-| Host.Results | 이러한 로그는 Application Insights의 **요청** 으로 표시 됩니다. 함수의 성공 또는 실패를 나타냅니다. 이러한 로그는 모두 `Information` 수준으로 작성 됩니다. 이상에서 필터링 `Warning` 하는 경우에는이 데이터를 볼 수 없습니다. |
-| 호스트. 집계 | 이러한 로그는 [구성 가능한](#configure-the-aggregator) 기간 동안의 함수 호출 수 및 평균을 제공합니다. 기본 기간은 30초 또는 결과 1,000개 중 먼저 도착하는 것입니다. 로그는 Application Insights의 **customMetrics** 테이블에서 제공합니다. 예는 실행 수, 성공률 및 기간입니다. 이러한 로그는 모두 `Information` 수준으로 작성 됩니다. 이상에서 필터링 `Warning` 하는 경우에는이 데이터를 볼 수 없습니다. |
+| Host.Results | 이러한 로그는 Application Insights의 **요청** 으로 표시 됩니다. 함수의 성공 또는 실패를 나타냅니다. 이러한 로그는 모두 수준으로 작성 됩니다 `Information` . 이상에서 필터링 하는 경우에는 `Warning` 이 데이터를 볼 수 없습니다. |
+| 호스트. 집계 | 이러한 로그는 [구성 가능한](#configure-the-aggregator) 기간 동안의 함수 호출 수 및 평균을 제공합니다. 기본 기간은 30초 또는 결과 1,000개 중 먼저 도착하는 것입니다. 로그는 Application Insights의 **customMetrics** 테이블에서 제공합니다. 예는 실행 수, 성공률 및 기간입니다. 이러한 로그는 모두 수준으로 작성 됩니다 `Information` . 이상에서 필터링 하는 경우에는 `Warning` 이 데이터를 볼 수 없습니다. |
 
 이러한 범주 이외의 범주에 대 한 모든 로그는 Application Insights의 **추적** 테이블에서 사용할 수 있습니다.
 
-로 `Host` 시작 하는 범주가 있는 모든 로그는 함수 런타임에 의해 작성 됩니다. **시작 된 함수와** **완료 된 함수** 로그에 범주가 `Host.Executor`있습니다. 성공적인 실행의 경우 이러한 로그는 `Information` 수준입니다. 예외는 수준에서 `Error` 기록 됩니다. 런타임에서 `Warning` 수준 로그도 작성하며, 포이즌 큐로 전송된 큐 메시지를 예로 들 수 있습니다.
+로 시작 하는 범주가 있는 모든 로그 `Host` 는 함수 런타임에 의해 작성 됩니다. **시작 된 함수와** **완료 된 함수** 로그에 범주가 `Host.Executor` 있습니다. 성공적인 실행의 경우 이러한 로그는 `Information` 수준입니다. 예외는 수준에서 기록 됩니다 `Error` . 런타임에서 `Warning` 수준 로그도 작성하며, 포이즌 큐로 전송된 큐 메시지를 예로 들 수 있습니다.
 
-함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. `function started`버전 1.x에서 `function executed`, 및 `function completed` 로그에는 범주가 `Host.Executor`있습니다. 2.x 버전부터 이러한 로그에는 범주가 `Function.<YOUR_FUNCTION_NAME>`있습니다.
+함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. 버전 1.x에서 `function started` , 및 로그에는 `function executed` `function completed` 범주가 `Host.Executor` 있습니다. 2.x 버전부터 이러한 로그에는 범주가 `Function.<YOUR_FUNCTION_NAME>` 있습니다.
 
-함수 코드에서 로그를 작성 하는 경우 범주는 이며 `Function.<YOUR_FUNCTION_NAME>.User` 모든 로그 수준이 될 수 있습니다. 함수 런타임의 버전 1.x에서 범주는 `Function`입니다.
+함수 코드에서 로그를 작성 하는 경우 범주는 이며 `Function.<YOUR_FUNCTION_NAME>.User` 모든 로그 수준이 될 수 있습니다. 함수 런타임의 버전 1.x에서 범주는 `Function` 입니다.
 
 ### <a name="log-levels"></a>로그 수준
 
@@ -134,7 +134,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 |LogLevel    |코드|
 |------------|---|
 |추적       | 0 |
-|Debug       | 1 |
+|디버그       | 1 |
 |Information | 2 |
 |Warning     | 3 |
 |Error       | 4 |
@@ -184,13 +184,13 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 
 이 예제에서는 다음 규칙을 설정합니다.
 
-* 또는 `Host.Results` `Function`범주가 포함 된 로그의 경우 Application Insights `Error` 에만 수준 이상을 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
+* 또는 범주가 포함 된 로그의 경우 `Host.Results` `Function` `Error` Application Insights에만 수준 이상을 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
 * `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, [host.json] 파일의 `Trace`를 사용합니다.
 * 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
-[host.json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. `Host`[호스트] 에서, `Host.Executor`, `Host.Results`등에 대 한 `Host.General`로깅을 제어 합니다.
+[host.json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. `Host`[호스트] 에서,, 등에 대 한 로깅을 제어 `Host.General` `Host.Executor` `Host.Results` 합니다.
 
-[host.json]에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. `Error` 수준 `Host.Aggregator` 에서 로그 하는 것을 `Information` 제외 `Host.Aggregator` 하 고 런타임의 모든 항목을 만들려고 한다고 가정 합니다.
+[host.json]에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 수준에서 로그 하는 것을 제외 하 고 런타임의 모든 항목을 만들려고 한다고 가정 `Host.Aggregator` `Error` `Host.Aggregator` 합니다 `Information` .
 
 ### <a name="version-2x-and-later"></a>버전 2.x 이상
 
@@ -229,7 +229,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 
 ## <a name="configure-the-aggregator"></a>수집기 구성
 
-이전 섹션에서 언급했듯이, 런타임은 일정 기간 동안 함수 실행에 대한 데이터를 집계합니다. 기본 기간은 30초 또는 실행 1,000개 중 먼저 도착하는 것입니다. [host.json] 파일에서 이 설정을 구성할 수 있습니다.  아래 예를 살펴보세요.
+이전 섹션에서 언급했듯이, 런타임은 일정 기간 동안 함수 실행에 대한 데이터를 집계합니다. 기본 기간은 30초 또는 실행 1,000개 중 먼저 도착하는 것입니다. [host.json] 파일에서 이 설정을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -242,7 +242,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하가 발생 했을 때 완료 된 실행에 너무 많은 원격 분석 데이터를 생성 하는 것을 방지할 수 있는 [샘플링](../azure-monitor/app/sampling.md) 기능이 있습니다. 들어오는 실행의 비율이 지정 된 임계값을 초과 하는 경우 Application Insights는 들어오는 실행의 일부를 임의로 무시 하기 시작 합니다. 초당 최대 실행 수에 대 한 기본 설정은 20 (버전 1.x의 5 개)입니다. [host.json]에서 샘플링을 구성할 수 있습니다.  아래 예를 살펴보세요.
+Application Insights에는 최대 부하가 발생 했을 때 완료 된 실행에 너무 많은 원격 분석 데이터를 생성 하는 것을 방지할 수 있는 [샘플링](../azure-monitor/app/sampling.md) 기능이 있습니다. 들어오는 실행의 비율이 지정 된 임계값을 초과 하는 경우 Application Insights는 들어오는 실행의 일부를 임의로 무시 하기 시작 합니다. 초당 최대 실행 수에 대 한 기본 설정은 20 (버전 1.x의 5 개)입니다. [host.json]에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ### <a name="version-2x-and-later"></a>버전 2.x 이상
 
@@ -281,9 +281,9 @@ Application Insights에서 traces로 표시되는 로그를 함수 코드로 작
 
 ### <a name="ilogger"></a>ILogger
 
-함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. Application Insights로 이동을 `TraceWriter` 사용 하 여 만든 로그 `ILogger` 는 구조화 된 [로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
+함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. Application Insights로 이동을 사용 하 여 만든 로그 `TraceWriter` 는 `ILogger` 구조화 된 [로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
 
-`ILogger` 개체를 사용 하 여 `Log<level>` [ILogger에서 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) 를 호출 하 여 로그를 만듭니다. 다음 코드는 " `Information` Function. <YOUR_FUNCTION_NAME>를 사용 하 여 로그를 작성 합니다. 사용자. "
+개체를 사용 하 여 `ILogger` `Log<level>` [ILogger에서 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) 를 호출 하 여 로그를 만듭니다. 다음 코드는 `Information` "Function. <YOUR_FUNCTION_NAME>를 사용 하 여 로그를 작성 합니다. 사용자. "
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -305,7 +305,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 구조적 로깅을 수행할 수 있도록 자리 표시자는 이러한 방식으로 처리됩니다. Application Insights 매개 변수 이름-값 쌍 및 메시지 문자열을 저장 합니다. 그 결과로 메시지 인수는 사용자가 쿼리할 수 있는 필드가 됩니다.
 
-로 거 메서드 호출이 이전 예제와 같은 경우에는 필드 `customDimensions.prop__rowKey`를 쿼리할 수 있습니다. 런타임에서 `prop__` 추가 하는 필드와 함수 코드에서 추가 하는 필드 사이에 충돌이 없는지 확인 하기 위해 접두사가 추가 됩니다.
+로 거 메서드 호출이 이전 예제와 같은 경우에는 필드를 쿼리할 수 있습니다 `customDimensions.prop__rowKey` . `prop__`런타임에서 추가 하는 필드와 함수 코드에서 추가 하는 필드 사이에 충돌이 없는지 확인 하기 위해 접두사가 추가 됩니다.
 
 `customDimensions.prop__{OriginalFormat}` 필드를 참조하여 원래 메시지 문자열을 쿼리할 수도 있습니다.  
 
@@ -330,7 +330,7 @@ C# 스크립트 함수에서, `ILogger`에 `LogMetric` 확장 메서드를 사�
 logger.LogMetric("TestMetric", 1234);
 ```
 
-이 코드는 .NET 용 Application Insights API `TrackMetric` 를 사용 하 여를 호출 하는 대신 사용할 수 있습니다.
+이 코드는 .NET 용 Application Insights API를 사용 하 여를 호출 하는 대신 사용할 수 `TrackMetric` 있습니다.
 
 ## <a name="write-logs-in-javascript-functions"></a>JavaScript 함수로 로그 작성
 
@@ -342,13 +342,13 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>사용자 지정 메트릭 로깅
 
-함수 런타임의 [버전](functions-versions.md#creating-1x-apps) 1.x에서를 실행 하는 경우 node.js 함수는 `context.log.metric` 메서드를 사용 하 여 Application Insights에서 사용자 지정 메트릭을 만들 수 있습니다. 이 메서드는 현재 버전 2.x 이상에서 지원 되지 않습니다. 다음은 샘플 메서드 호출입니다.
+함수 런타임의 [버전](functions-versions.md#creating-1x-apps) 1.x에서를 실행 하는 경우 node.js 함수는 메서드를 사용 `context.log.metric` 하 여 Application Insights에서 사용자 지정 메트릭을 만들 수 있습니다. 이 메서드는 현재 버전 2.x 이상에서 지원 되지 않습니다. 다음은 샘플 메서드 호출입니다.
 
 ```javascript
 context.log.metric("TestMetric", 1234);
 ```
 
-이 코드는 Application Insights 용 node.js SDK `trackMetric` 를 사용 하 여를 호출 하는 대신 사용할 수 있습니다.
+이 코드는 `trackMetric` Application Insights 용 NODE.JS SDK를 사용 하 여를 호출 하는 대신 사용할 수 있습니다.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>C# 함수의 사용자 지정 원격 분석 로깅
 
@@ -368,13 +368,13 @@ Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VE
 
 ---
 
-이 명령에서를 설치 `<VERSION>` 된 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)버전을 지 원하는이 패키지의 버전으로 바꿉니다. 
+이 명령에서를 `<VERSION>` 설치 된 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)버전을 지 원하는이 패키지의 버전으로 바꿉니다. 
 
 다음 c # 예제에서는 [사용자 지정 원격 분석 API](../azure-monitor/app/api-custom-events-metrics.md)를 사용 합니다. 이 예제는 .NET 클래스 라이브러리용이지만 Application Insights 코드는 C# 스크립트와 동일합니다.
 
 ### <a name="version-2x-and-later"></a>버전 2.x 이상
 
-버전 2.x 이상 버전의 런타임에서는 Application Insights의 최신 기능을 사용 하 여 원격 분석을 현재 작업과 자동으로 상호 연결 합니다. 작업 `Id`, `ParentId`또는 `Name` 필드를 수동으로 설정할 필요는 없습니다.
+버전 2.x 이상 버전의 런타임에서는 Application Insights의 최신 기능을 사용 하 여 원격 분석을 현재 작업과 자동으로 상호 연결 합니다. 작업 `Id` , 또는 필드를 수동으로 설정할 필요는 없습니다 `ParentId` `Name` .
 
 ```cs
 using System;
@@ -527,9 +527,9 @@ namespace functionapp0915
 }
 ```
 
-함수 호출 `TrackRequest` 에 `StartOperation<RequestTelemetry>` 대 한 중복 요청이 표시 되므로 또는를 호출 하지 마세요.  Functions 런타임에서 자동으로 요청을 추적합니다.
+`TrackRequest` `StartOperation<RequestTelemetry>` 함수 호출에 대 한 중복 요청이 표시 되므로 또는를 호출 하지 마세요.  Functions 런타임에서 자동으로 요청을 추적합니다.
 
-`telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 여러 함수가 동시에 실행 되는 경우이 전역 설정으로 인해 잘못 된 상관 관계가 발생 합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `Track` ( `TelemetryClient` `TrackDependency()`, `TrackEvent()`, `TrackMetric()`)의 해당 메서드에 전달 합니다. 이 메서드는 원격 분석에 현재 함수 호출에 대 한 올바른 상관 관계 정보가 있는지 확인 합니다.
+`telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 여러 함수가 동시에 실행 되는 경우이 전역 설정으로 인해 잘못 된 상관 관계가 발생 합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `Track` `TelemetryClient` (,,)의 해당 메서드에 전달 `TrackDependency()` `TrackEvent()` `TrackMetric()` 합니다. 이 메서드는 원격 분석에 현재 함수 호출에 대 한 올바른 상관 관계 정보가 있는지 확인 합니다.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>JavaScript 함수의 사용자 지정 원격 분석 로깅
 
@@ -583,7 +583,7 @@ module.exports = function (context, req) {
 };
 ```
 
-`tagOverrides` 매개 변수는를 `operation_Id` 함수의 호출 ID로 설정 합니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
+`tagOverrides`매개 변수는를 `operation_Id` 함수의 호출 ID로 설정 합니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="dependencies"></a>종속성
 
@@ -605,7 +605,7 @@ module.exports = function (context, req) {
 
 ![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
 
-**만들기**를 선택 하면 응용 프로그램 설정에가 `APPINSIGHTS_INSTRUMENTATIONKEY` 설정 된 함수 앱을 사용 하 여 Application Insights 리소스가 생성 됩니다. 모든 것이 준비 되었습니다.
+**만들기**를 선택 하면 `APPINSIGHTS_INSTRUMENTATIONKEY` 응용 프로그램 설정에가 설정 된 함수 앱을 사용 하 여 Application Insights 리소스가 생성 됩니다. 모든 것이 준비 되었습니다.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>기존 함수 앱에 추가 

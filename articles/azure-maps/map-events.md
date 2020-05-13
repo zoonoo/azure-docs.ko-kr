@@ -1,20 +1,20 @@
 ---
 title: 맵 이벤트 처리 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 map 이벤트를 사용 하 여 대화형 웹 SDK 맵을 만드는 방법을 알아봅니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534901"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124009"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 
@@ -49,7 +49,7 @@ ms.locfileid: "79534901"
 
 다음 표에서는 지원 되는 모든 map 클래스 이벤트를 보여 줍니다.
 
-| 이벤트               | Description |
+| 이벤트               | 설명 |
 |---------------------|-------------|
 | `boxzoomend`        | "상자 확대/축소" 상호 작용이 종료 될 때 발생 합니다.|
 | `boxzoomstart`      | "상자 확대/축소" 조작이 시작 될 때 발생 합니다.|
@@ -57,9 +57,9 @@ ms.locfileid: "79534901"
 | `close`             | 수동으로 또는 프로그래밍 방식으로 팝업을 닫을 때 발생 합니다.|
 | `contextmenu`       | 마우스 오른쪽 단추를 클릭할 때 발생 합니다.|
 | `data`              | 지도 데이터가 로드 되거나 변경 될 때 발생 합니다. |
-| `dataadded`         | 에 셰이프를 추가할 때 발생 `DataSource`합니다.|
-| `dataremoved`       | 에서 셰이프를 제거할 때 발생 `DataSource`합니다.|
-| `datasourceupdated` | `DataSource` 개체가 업데이트 될 때 발생 합니다.|
+| `dataadded`         | 에 셰이프를 추가할 때 발생 `DataSource` 합니다.|
+| `dataremoved`       | 에서 셰이프를 제거할 때 발생 `DataSource` 합니다.|
+| `datasourceupdated` | 개체가 업데이트 될 때 발생 `DataSource` 합니다.|
 | `dblclick`          | 포인팅 장치를 맵의 동일한 지점에서 두 번 클릭할 때 발생 합니다.|
 | `drag`              | 지도, 팝업 또는 HTML 표식에서 "위아래로 이동" 하는 동안 반복적으로 발생 합니다.|
 | `dragend`           | 지도, 팝업 또는 HTML 표식에서 "이동 하기" 상호 작용이 종료 될 때 발생 합니다.|
@@ -87,15 +87,15 @@ ms.locfileid: "79534901"
 | `pitchend`          | 사용자 상호 작용이 나 메서드의 결과로 지도의 피치 (기울기)가 변경 되 면 즉시 발생 합니다.|
 | `pitchstart`        | 사용자 상호 작용 또는 메서드의 결과로 지도의 피치 (기울기)가 변경 될 때마다 발생 합니다.|
 | `ready`             | 지도를 프로그래밍 방식으로 상호 작용할 수 있도록 하기 위해 필요한 최소한의 map 리소스가 로드 될 때 발생 합니다.|
-| `render`            | <p>다음의 결과로 지도를 화면에 그릴 때마다 발생 합니다.<ul><li>지도의 위치, 확대/축소, 피치 또는 베어링에 대 한 변경 내용입니다.</li><li>지도의 스타일에 대 한 변경 내용입니다.</li><li>`DataSource` 소스에 대 한 변경 내용입니다.</li><li>벡터 타일, GeoJSON 파일, 문자 모양 또는 스프라이트를 로드 하는 중입니다.</li></ul></p>|
+| `render`            | <p>다음의 결과로 지도를 화면에 그릴 때마다 발생 합니다.<ul><li>지도의 위치, 확대/축소, 피치 또는 베어링에 대 한 변경 내용입니다.</li><li>지도의 스타일에 대 한 변경 내용입니다.</li><li>소스에 대 한 변경 내용 `DataSource` 입니다.</li><li>벡터 타일, GeoJSON 파일, 문자 모양 또는 스프라이트를 로드 하는 중입니다.</li></ul></p>|
 | `resize`            | 맵의 크기가 조정 된 직후에 발생 합니다.|
 | `rotate`            | "회전 하려면 끌기" 작업을 수행 하는 동안 반복적으로 발생 합니다.|
 | `rotateend`         | "끌기를 끌 때" 상호 작용이 종료 될 때 발생 합니다.|
 | `rotatestart`       | "회전 하려면 끌기" 조작이 시작 될 때 발생 합니다.|
 | `shapechanged`      | 셰이프 개체 속성이 변경 될 때 발생 합니다.|
 | `sourcedata`        | 원본에 속하는 타일이 로드 되거나 변경 되는 경우를 포함 하 여 지도의 원본 중 하나가 로드 되거나 변경 될 때 발생 합니다. |
-| `sourceadded`       | `DataSource` 또는 `VectorTileSource` 가 맵에 추가 될 때 발생 합니다.|
-| `sourceremoved`     | `DataSource` 또는 `VectorTileSource` 가 맵에서 제거 될 때 발생 합니다.|
+| `sourceadded`       | `DataSource`또는 `VectorTileSource` 가 맵에 추가 될 때 발생 합니다.|
+| `sourceremoved`     | `DataSource`또는 `VectorTileSource` 가 맵에서 제거 될 때 발생 합니다.|
 | `styledata`         | 지도의 스타일이 로드 되거나 변경 될 때 발생 합니다.|
 | `styleimagemissing` | 존재 하지 않는 이미지 스프라이트에서 레이어가 이미지를 로드 하려고 할 때 발생 합니다. |
 | `tokenacquired`     | AAD 액세스 토큰을 가져올 때 발생 합니다.|

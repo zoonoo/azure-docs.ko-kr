@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993956"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123839"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리 (미리 보기)
 
@@ -167,7 +167,7 @@ Blob 스냅숏은 특정 시점에서 수행 되는 blob의 읽기 전용 복사
 다음 방법 중 하나를 사용 하 여 blob 버전에 대 한 액세스 권한을 부여할 수 있습니다.
 
 - RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Active Directory (Azure AD) 보안 주체에 사용 권한을 부여 합니다. Microsoft에서는 Azure AD를 사용 하 여 보안을 강화 하 고 사용 편의성을 권장 합니다. Blob 작업에 Azure AD를 사용 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad.md)
-- SAS (공유 액세스 서명)를 사용 하 여 blob 버전에 대 한 액세스를 위임 합니다. 특정 버전에 대 한 작업에 대 한 `bv`SAS 토큰을 만들기 위해 blob 버전을 나타내는 서명 된 리소스 종류의 버전 ID를 지정 합니다. 공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요.
+- SAS (공유 액세스 서명)를 사용 하 여 blob 버전에 대 한 액세스를 위임 합니다. `bv`특정 버전에 대 한 작업에 대 한 SAS 토큰을 만들기 위해 blob 버전을 나타내는 서명 된 리소스 종류의 버전 ID를 지정 합니다. 공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요.
 - 계정 액세스 키를 사용 하 여 공유 키로 blob 버전에 대 한 작업에 권한을 부여 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 
 Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부터 데이터를 보호 하도록 설계 되었습니다. 보호를 강화 하려면 blob 버전을 삭제 하려면 특별 한 권한이 필요 합니다. 다음 섹션에서는 blob 버전을 삭제 하는 데 필요한 권한에 대해 설명 합니다.
@@ -176,14 +176,14 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/삭제/actionDeleting** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/** | Storage Blob 데이터 소유자 |
 
 ### <a name="shared-access-signature-sas-parameters"></a>SAS (공유 액세스 서명) 매개 변수
 
-Blob 버전에 대 한 서명 된 리소스 `bv`는입니다. 자세한 내용은 [서비스 SAS 만들기](/rest/api/storageservices/create-service-sas) 또는 [사용자 위임 SAS 만들기](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
+Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용은 [서비스 SAS 만들기](/rest/api/storageservices/create-service-sas) 또는 [사용자 위임 SAS 만들기](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
 다음 표에서는 SAS에서 blob 버전을 삭제 하는 데 필요한 권한을 보여 줍니다.
 
@@ -224,9 +224,10 @@ Blob 버전 관리 미리 보기에 등록 하려면 PowerShell 또는 Azure CLI
 PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) 명령을 호출 합니다.
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```

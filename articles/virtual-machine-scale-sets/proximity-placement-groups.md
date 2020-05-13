@@ -1,19 +1,20 @@
 ---
 title: 가상 머신 확장 집합에 대 한 근접 배치 그룹 미리 보기
 description: Azure에서 Windows 가상 머신 확장 집합에 대 한 근접 배치 그룹을 만들고 사용 하는 방법에 대해 알아봅니다.
-author: cynthn
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.subservice: availability
 ms.date: 07/01/2019
-ms.author: cynthn
-ms.openlocfilehash: 4fa2949e2a7e1b99ac26caa35f967e9dc9cf359a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 18cb1ae3e549995d7b4732025906329bc609f360
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273613"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124349"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 근접 배치 그룹 만들기 및 사용
 
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-AzVMSS를 사용 하 여 확장 집합을 만들 `-ProximityPlacementGroup $ppg.Id` 때 근접 배치 그룹 ID를 참조 하려면를 사용 하 [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 여 근접 배치 그룹에 소수 자릿수를 만듭니다.
+`-ProximityPlacementGroup $ppg.Id` [AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 를 사용 하 여 확장 집합을 만들 때 근접 배치 그룹 ID를 참조 하려면를 사용 하 여 근접 배치 그룹에 소수 자릿수를 만듭니다.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

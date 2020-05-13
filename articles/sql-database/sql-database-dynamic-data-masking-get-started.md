@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synpase
-ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2759644c68d65e76de222a0ac74f1d4900caddc0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78192917"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121255"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대 한 동적 데이터 마스킹
 
@@ -44,9 +44,9 @@ Azure SQL Database 관리자, 서버 관리자 또는 [SQL 보안 관리자](htt
 
 | 마스킹 기능 | 마스킹 논리 |
 | --- | --- |
-| **기본값** |**지정된 필드의 데이터 형식에 따라 모든 데이터 마스킹**<br/><br/>• 문자열 데이터 형식(nchar, ntext, nvarchar)의 필드 크기가 4자 미만이면 XXXX개 이하의 X를 사용합니다.<br/>• 숫자 데이터 형식(bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real)의 경우 0 값을 사용합니다.<br/>• 날짜/시간 데이터 형식(date, datetime2, datetime, datetimeoffset, smalldatetime, time)의 경우 01-01-1900을 사용합니다.<br/>• SQL 변형의 경우 현재 형식의 기본값이 사용됩니다.<br/>• XML의 경우 마스킹된 \</> 문서가 사용 됩니다.<br/>• 특수 데이터 형식(타임스탬프 테이블, hierarchyid, GUID, 이진, 이미지, varbinary 공간 형식)의 경우 빈 값을 사용합니다. |
+| **Default** |**지정된 필드의 데이터 형식에 따라 모든 데이터 마스킹**<br/><br/>• 문자열 데이터 형식(nchar, ntext, nvarchar)의 필드 크기가 4자 미만이면 XXXX개 이하의 X를 사용합니다.<br/>• 숫자 데이터 형식(bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real)의 경우 0 값을 사용합니다.<br/>• 날짜/시간 데이터 형식(date, datetime2, datetime, datetimeoffset, smalldatetime, time)의 경우 01-01-1900을 사용합니다.<br/>• SQL 변형의 경우 현재 형식의 기본값이 사용됩니다.<br/>• XML의 경우 \< 마스킹된/> 문서가 사용 됩니다.<br/>• 특수 데이터 형식(타임스탬프 테이블, hierarchyid, GUID, 이진, 이미지, varbinary 공간 형식)의 경우 빈 값을 사용합니다. |
 | **신용 카드** |**지정된 필드의 마지막 4자리를 표시**하고 신용 카드 형식 접두사로 상수 문자열을 추가하는 마스킹 방법입니다.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Email** |마스킹 방법-첫 문자를 표시 하 고 전자 메일 주소 형식의 상수 문자열 접두사를 사용 하 여 **도메인을 XXX.com으로 바꿉니다** .<br/><br/>aXX@XXXX.com |
+| **전자 메일** |마스킹 방법-첫 문자를 표시 하 고 전자 메일 주소 형식의 상수 문자열 접두사를 사용 하 여 **도메인을 XXX.com으로 바꿉니다** .<br/><br/>aXX@XXXX.com |
 | **난수** |선택한 경계 및 실제 데이터 형식에 따라 **난수를 생성하는 마스킹 메서드**입니다. 지정된 경계가 같으면 마스킹 함수로 상수가 사용됩니다.<br/><br/>![탐색 창](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **사용자 지정 텍스트** |**첫 문자와 마지막 문자를 표시**하고 가운데에 사용자 지정 패딩 문자열을 추가하는 마스킹 메서드입니다. 원래 문자열이 노출된 접두사 및 접미사보다 짧은 경우 패딩 문자열만 사용됩니다. <br/>접두사[여백]접미사<br/><br/>![탐색 창](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
@@ -58,8 +58,28 @@ DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 �
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용 하 여 데이터베이스에 대 한 동적 데이터 마스킹 설정
 
-[Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/az.sql)을 참조하세요.
+### <a name="data-masking-policy"></a>데이터 마스킹 정책
+
+- [AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+
+### <a name="data-masking-rules"></a>데이터 마스킹 규칙
+
+- [AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
-[Azure SQL Database 작업](https://docs.microsoft.com/rest/api/sql/)을 참조하세요.
+REST API를 사용 하 여 데이터 마스킹 정책 및 규칙을 프로그래밍 방식으로 관리할 수 있습니다. 게시 된 REST API는 다음과 같은 작업을 지원 합니다.
+
+### <a name="data-masking-policies"></a>데이터 마스킹 정책
+
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): 지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.
+- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): 데이터베이스 데이터 마스킹 정책을 가져옵니다. 
+
+### <a name="data-masking-rules"></a>데이터 마스킹 규칙
+
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): 데이터베이스 데이터 마스킹 규칙을 만들거나 업데이트 합니다.
+- [데이터베이스당 나열](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): 데이터베이스 데이터 마스킹 규칙의 목록을 가져옵니다.

@@ -1,19 +1,20 @@
 ---
 title: Azure Virtual Machine Scale Sets 연결 된 데이터 디스크
 description: 특정 사용 사례에 대 한 개요를 통해 가상 머신 확장 집합에 연결 된 데이터 디스크를 사용 하는 방법을 알아봅니다.
-author: avirishuv
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 4/25/2017
-ms.author: avverma
-ms.openlocfilehash: 6e39a8ffb24b0cca720890e3d00a55d1e58fadc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: e5bdb30929b4d93b05d850a56c9a6baf32f9856b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123369"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125012"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
 사용 가능한 스토리지를 확장하기 위해 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)에서는 연결된 데이터 디스크를 사용한 VM 인스턴스를 지원합니다. 확장 집합을 만들 때 데이터를 연결하거나 기존 확장 집합에 데이터를 연결할 수 있습니다.
@@ -89,7 +90,7 @@ Linux 클러스터에서 자동으로 데이터 디스크를 준비하려면 다
 확장 집합 모델에 지정된 데이터 디스크는 항상 비어 있습니다. 그러나 확장 집합의 특정 VM에 기존 데이터 디스크를 연결할 수 있습니다. 확장 집합의 모든 Vm에서 데이터를 전파 하려면 데이터 디스크를 복제 하 여 확장 집합의 각 VM에 연결 하거나, 데이터를 포함 하는 사용자 지정 이미지를 만들고이 사용자 지정 이미지에서 확장 집합을 프로 비전 하거나, Azure Files 또는 유사한 데이터 저장소 제품을 사용할 수 있습니다.
 
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 Azure Managed Disks 및 확장 집합 연결 데이터 디스크에 대한 지원은 Microsoft.Compute API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) 이상의 API 버전에서 사용할 수 있습니다.
 
 크기 집합의 연결 된 데이터 디스크에 대 한 지원이 제한 됩니다. Azure Portal 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.

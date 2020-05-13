@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301678"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121697"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>KEDA를 사용 하 여 Kubernetes에서 Azure Functions
 
@@ -28,11 +28,11 @@ Kubernetes 클러스터에서 함수를 실행 하려면 KEDA 구성 요소를 �
 
 ### <a name="installing-with-helm"></a>투구를 사용 하 여 설치
 
-투구를 포함 하 여 Kubernetes 클러스터에 KEDA를 설치 하는 다양 한 방법이 있습니다.  배포 옵션은 [Keda 사이트](https://keda.sh/deploy/)에 설명 되어 있습니다.
+투구를 포함 하 여 Kubernetes 클러스터에 KEDA를 설치 하는 다양 한 방법이 있습니다.  배포 옵션은 [Keda 사이트](https://keda.sh/docs/deploy/)에 설명 되어 있습니다.
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
-Kubernetes를 실행 하는 모든 함수 앱을 KEDA를 실행 하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행 되므로 프로젝트에는가 `Dockerfile`필요 합니다.  아직 없는 경우 함수 프로젝트의 루트에서 다음 명령을 실행 하 여 Dockerfile을 추가할 수 있습니다.
+Kubernetes를 실행 하는 모든 함수 앱을 KEDA를 실행 하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행 되므로 프로젝트에는가 필요 `Dockerfile` 합니다.  아직 없는 경우 함수 프로젝트의 루트에서 다음 명령을 실행 하 여 Dockerfile을 추가할 수 있습니다.
 
 ```cli
 func init --docker-only
@@ -41,7 +41,7 @@ func init --docker-only
 이미지를 빌드하고 함수를 Kubernetes에 배포 하려면 다음 명령을 실행 합니다.
 
 > [!NOTE]
-> 핵심 도구는 docker CLI를 활용 하 여 이미지를 빌드하고 게시 합니다. Docker를 이미 설치 하 고를 사용 하 여 `docker login`계정에 연결 해야 합니다.
+> 핵심 도구는 docker CLI를 활용 하 여 이미지를 빌드하고 게시 합니다. Docker를 이미 설치 하 고를 사용 하 여 계정에 연결 해야 `docker login` 합니다.
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -49,15 +49,15 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > `<name-of-function-deployment>`은 함수 앱 이름으로 바꿉니다.
 
-그러면 `local.settings.json` 파일에서 가져온 `Deployment` 환경 변수를 `ScaledObject` 포함 하는 `Secrets`Kubernetes 리소스 (리소스)가 생성 됩니다.
+그러면 `Deployment` `ScaledObject` `Secrets` 파일에서 가져온 환경 변수를 포함 하는 Kubernetes 리소스 (리소스)가 생성 됩니다 `local.settings.json` .
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>개인 레지스트리에서 함수 앱 배포
 
-위의 흐름은 개인 레지스트리 에서도 작동 합니다.  개인 레지스트리에서 컨테이너 이미지를 끌어오는 경우 실행 `--pull-secret` `func kubernetes deploy`시 개인 레지스트리 자격 증명을 포함 하는 Kubernetes 암호를 참조 하는 플래그를 포함 합니다.
+위의 흐름은 개인 레지스트리 에서도 작동 합니다.  개인 레지스트리에서 컨테이너 이미지를 끌어오는 경우 `--pull-secret` 실행 시 개인 레지스트리 자격 증명을 포함 하는 Kubernetes 암호를 참조 하는 플래그를 포함 합니다 `func kubernetes deploy` .
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Kubernetes에서 함수 앱 제거
 
-배포한 후에는 `Deployment` `ScaledObject` `Secrets` 만든 연결 된를 제거 하 여 함수를 제거할 수 있습니다.
+배포한 후에는 만든 연결 된를 제거 하 여 함수를 제거할 수 있습니다 `Deployment` `ScaledObject` `Secrets` .
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 2a35b75d2896f6e04c68d7562ed9f5455006ae4d
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 568bcdcfd8ae50fff58964ecc74176b151db22a4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983264"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121323"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "82983264"
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -85,201 +85,79 @@ ms.locfileid: "82983264"
 
 자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the Azure Machine Learning workspace."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "southcentralus",
-      "allowedValues": [
-        "eastus",
-        "eastus2",
-        "southcentralus",
-        "southeastasia",
-        "westcentralus",
-        "westeurope",
-        "westus2"
-      ],
-      "metadata": {
-        "description": "Specifies the location for all resources."
-      }
-    },
-    "sku":{
-      "type": "string",
-      "defaultValue": "basic",
-      "allowedValues": [
-        "basic",
-        "enterprise"
-      ],
-      "metadata": {
-        "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
-      }
-    },
-    "high_confidentiality":{
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "false",
-        "true"
-      ],
-      "metadata": {
-        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
-      }
-    },
-    "encryption_status":{
-      "type": "string",
-      "defaultValue": "Disabled",
-      "allowedValues": [
-        "Enabled",
-        "Disabled"
-      ],
-      "metadata": {
-        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
-      }
-    },
-    "cmk_keyvault":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the customer managed keyvault Resource Manager ID."
-      }
-    },
-    "resource_cmk_uri":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the customer managed keyvault key uri."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
-    "storageAccountType": "Standard_LRS",
-    "keyVaultName": "[concat('kv',uniqueString(resourceGroup().id))]",
-    "tenantId": "[subscription().tenantId]",
-    "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
-    "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2018-07-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "encryption": {
-          "services": {
-            "blob": {
-              "enabled": true
-            },
-            "file": {
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "supportsHttpsTrafficOnly": true
-      }
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2018-02-14",
-      "name": "[variables('keyVaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "tenantId": "[variables('tenantId')]",
-        "sku": {
-          "name": "standard",
-          "family": "A"
-        },
-        "accessPolicies": []
-      }
-    },
-    {
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2015-05-01",
-      "name": "[variables('applicationInsightsName')]",
-      "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-      "kind": "web",
-      "properties": {
-        "Application_Type": "web"
-      }
-    },
-    {
-      "type": "Microsoft.ContainerRegistry/registries",
-      "apiVersion": "2017-10-01",
-      "name": "[variables('containerRegistryName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard"
-      },
-      "properties": {
-        "adminUserEnabled": true
-      }
-    },
-    {
-      "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2020-01-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",
-        "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-        "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryName'))]"
-      ],
-      "identity": {
-        "type": "systemAssigned"
-      },
-      "sku": {
-            "tier": "[parameters('sku')]",
-            "name": "[parameters('sku')]"
-      },
-      "properties": {
-        "friendlyName": "[parameters('workspaceName')]",
-        "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
-        "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-        "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
-        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
-         "encryption": {
-                "status": "[parameters('encryption_status')]",
-                "keyVaultProperties": {
-                    "keyVaultArmId": "[parameters('cmk_keyvault')]",
-                    "keyIdentifier": "[parameters('resource_cmk_uri')]"
-                  }
-            },
-        "hbiWorkspace": "[parameters('high_confidentiality')]"
-      }
-    }
-  ]
-}
-```
+> [!IMPORTANT]
+> 이 템플릿을 사용 하기 전에 구독에서 충족 해야 하는 몇 가지 특정 요구 사항이 있습니다.
+> * __Azure Machine Learning__ 응용 프로그램은 Azure 구독에 대 한 __참가자__ 여야 합니다.
+> * 암호화 키를 포함 하는 기존 Azure Key Vault 있어야 합니다.
+> * Azure Key Vault에는 __Azure Cosmos DB__ 응용 프로그램에 대 한 __가져오기__, __래핑__및 __래핑__ 해제 액세스 권한을 부여 하는 액세스 정책이 있어야 합니다.
+> * Azure Key Vault은 Azure Machine Learning 작업 영역을 만들 위치와 동일한 지역에 있어야 합니다.
+> * 구독에서 Azure Cosmos DB에 대 한 __고객 관리 키__ 를 지원 해야 합니다.
 
-이 템플릿에 필요한 Key Vault 및 키 URI의 ID를 가져오려면 Azure CLI를 사용할 수 있습니다. 다음 명령은 Key Vault ID를 가져옵니다.
+__Azure Machine Learning 앱을 참가자로 추가 하려면__다음 명령을 사용 합니다.
 
-```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
-```
+1. CLI에서 Azure에 인증 하려면 다음 명령을 사용 합니다.
 
-이 명령은 `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`와 비슷한 값을 반환합니다.
+    ```azurecli-interactive
+    az login
+    ```
+    
+    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
 
-Customer 관리 키에 대 한 URI를 가져오려면 다음 명령을 사용 합니다.
+1. Azure Machine Learning 앱의 개체 ID를 가져오려면 다음 명령을 사용 합니다. 각 Azure 구독에 대 한 값은 다를 수 있습니다.
 
-```azurecli-interactive
-az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
-```
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
 
-이 명령은 `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`와 비슷한 값을 반환합니다.
+    이 명령은 GUID 인 개체 ID를 반환 합니다.
+
+1. 구독에 개체 ID를 참가자로 추가 하려면 다음 명령을 사용 합니다. `<object-ID>`을 이전 단계의 GUID로 바꿉니다. `<subscription-ID>`을 Azure 구독의 이름 또는 ID로 바꿉니다.
+
+    ```azurecli-interactive
+    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
+    ```
+
+__Azure Key Vault에 키를 추가 하려면__ __Azure CLI를 사용 하 여 관리 Key Vault__ 의 [키 자격 증명 모음에 키, 암호 또는 인증서 추가](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) 섹션의 정보를 사용 합니다.
+
+__키 자격 증명 모음에 액세스 정책을 추가 하려면 다음 명령을 사용 합니다__.
+
+1. Azure Cosmos DB 앱의 개체 ID를 가져오려면 다음 명령을 사용 합니다. 각 Azure 구독에 대 한 값은 다를 수 있습니다.
+
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
+    
+    이 명령은 GUID 인 개체 ID를 반환 합니다.
+
+1. 정책을 설정 하려면 다음 명령을 사용 합니다. `<keyvault-name>`기존 Azure Key Vault의 이름으로 대체 합니다. `<object-ID>`을 이전 단계의 GUID로 바꿉니다.
+
+    ```azurecli-interactive
+    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
+    ```
+
+__Azure Cosmos DB에 대해 고객이 관리 하는 키를 사용 하도록 설정 하려면__AZURE 구독 ID를 사용 하 여에 메일을 보냅니다 azurecosmosdbcmk@service.microsoft.com . 자세한 내용은 [Azure Cosmos 계정에 대 한 고객 관리 키 구성](..//cosmos-db/how-to-setup-cmk.md)을 참조 하세요.
+
+__To get the values__ `cmk_keyvault` 이 템플릿에 필요한 (Key Vault ID) 및 `resource_cmk_uri` (키 URI) 매개 변수에 대 한 값을 가져오려면 다음 단계를 사용 합니다.
+
+1. Key Vault ID를 가져오려면 다음 명령을 사용 합니다.
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    ```
+
+    이 명령은 `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`와 비슷한 값을 반환합니다.
+
+1. Customer 관리 키의 URI에 대 한 값을 가져오려면 다음 명령을 사용 합니다.
+
+    ```azurecli-interactive
+    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    ```
+
+    이 명령은 `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`와 비슷한 값을 반환합니다.
+
+__예제 템플릿__
+
+:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
 > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대 한 설정을 변경할 수 없습니다. 이러한 값을 변경 하려면 새 값을 사용 하 여 새 작업 영역을 만들어야 합니다.
@@ -340,13 +218,13 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
 
 * 동일한 매개 변수에 템플릿을 두 번 이상 배포 하지 마십시오. 또는 템플릿을 사용 하 여 기존 리소스를 다시 만들기 전에 삭제 합니다.
 
-* Key Vault 액세스 정책을 검토 한 후 이러한 정책을 사용 하 여 템플릿의 `accessPolicies` 속성을 설정 합니다. 액세스 정책을 보려면 다음 Azure CLI 명령을 사용 합니다.
+* Key Vault 액세스 정책을 검토 한 후 이러한 정책을 사용 하 여 템플릿의 속성을 설정 합니다 `accessPolicies` . 액세스 정책을 보려면 다음 Azure CLI 명령을 사용 합니다.
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    템플릿의 `accessPolicies` 섹션 사용에 대 한 자세한 내용은 [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조 하세요.
+    템플릿의 섹션 사용에 대 한 자세한 내용은 `accessPolicies` [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조 하세요.
 
 * Key Vault 리소스가 이미 있는지 확인 합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새 항목을 만드는 대신 기존 Key Vault를 사용 하려면 템플릿을 다음과 같이 변경 합니다.
 
@@ -381,7 +259,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
         },
         ```
 
-    * **Remove** 작업 영역의 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` `dependsOn` 섹션에서 줄을 제거 합니다. 또한 **Change** 작업 영역의 `keyVault` 항목 `properties` 을 변경 하 여 `keyVaultId` 매개 변수를 참조 합니다.
+    * **Remove** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 작업 영역의 섹션에서 줄을 제거 `dependsOn` 합니다. 또한 **Change** `keyVault` 작업 영역의 항목을 변경 `properties` 하 여 매개 변수를 참조 합니다 `keyVaultId` .
 
         ```json
         {
@@ -409,7 +287,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
         }
         ```
 
-    이러한 변경 후 템플릿을 실행할 때 기존 Key Vault 리소스의 ID를 지정할 수 있습니다. 그런 다음 템플릿에서 작업 영역의 `keyVault` 속성을 해당 ID로 설정 하 여 Key Vault를 다시 사용 합니다.
+    이러한 변경 후 템플릿을 실행할 때 기존 Key Vault 리소스의 ID를 지정할 수 있습니다. 그런 다음 템플릿에서 `keyVault` 작업 영역의 속성을 해당 ID로 설정 하 여 Key Vault를 다시 사용 합니다.
 
     Key Vault의 ID를 가져오려면 원래 템플릿 실행의 출력을 참조 하거나 Azure CLI를 사용 합니다. 다음 명령은 Azure CLI를 사용 하 여 Key Vault 리소스 ID를 가져오는 예입니다.
 

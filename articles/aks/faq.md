@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: Azure Kubernetes 서비스 (AKS)에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 112060e72f36bfe5d11a997fc4161e26c36259ff
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854248"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123822"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -127,6 +127,8 @@ AKS는 현재 기본적으로 Azure Key Vault와 통합 되지 않습니다. 그
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS는 서비스 수준 계약을 제공 하나요?
 
+AKS는 [작동 시간 SLA] [sla.md]를 사용 하 여 API 서버에 대해 99.95%의 가용성을 얻을 수 있는 기능을 제공 합니다.
+
 SLA (서비스 수준 계약)에서 공급자는 게시 된 서비스 수준이 충족 되지 않는 경우 고객에 게 서비스 비용을 상환에 동의 합니다. AKS는 무료 이므로 상환에는 비용을 사용할 수 없으므로 AKS에는 공식적인 SLA가 없습니다. 그러나 AKS는 Kubernetes API 서버에 대해 최소 99.5%의 가용성을 유지 하려고 합니다.
 
 Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실행 되는 특정 워크 로드의 가용성을 나타내는 AKS 서비스 가용성 간의 차이점을 인식 하는 것이 중요 합니다. 제어 평면이 준비 되지 않은 경우 제어 평면을 사용할 수 없는 경우에도 Azure Vm에서 실행 되는 클러스터 워크 로드가 계속 작동할 수 있습니다. 지정 된 Azure Vm은 유료 리소스 이며 재무 SLA를 통해 지원 됩니다. Azure VM SLA에 대 한 자세한 내용 및 [가용성 영역][availability-zones]같은 기능을 사용 하 여 가용성을 높이는 방법에 [대 한 자세한 내용은 여기를](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 참조 하세요.
@@ -137,13 +139,13 @@ AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되므로 AKS
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Azure 테 넌 트 간에 클러스터를 이동/마이그레이션할 수 있나요?
 
-`az aks update-credentials` 명령을 사용 하 여 Azure 테 넌 트 간에 AKS 클러스터를 이동할 수 있습니다. 선택의 지침에 따라 [서비스 주체를 업데이트 하거나 만든](https://docs.microsoft.com/azure/aks/update-credentials) 다음 [새 자격 증명으로 aks cluster를 업데이트](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials)합니다.
+`az aks update-credentials`명령을 사용 하 여 Azure 테 넌 트 간에 AKS 클러스터를 이동할 수 있습니다. 선택의 지침에 따라 [서비스 주체를 업데이트 하거나 만든](https://docs.microsoft.com/azure/aks/update-credentials) 다음 [새 자격 증명으로 aks cluster를 업데이트](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials)합니다.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>내 클러스터를 구독 간에 이동/마이그레이션할 수 있나요?
 
 현재 구독 간의 클러스터 이동은 지원 되지 않습니다.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 azure 구독에서 다른 클러스터로 이동할 수 있나요? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 Azure 구독에서 다른 클러스터로 이동할 수 있나요? 
 
 AKS 클러스터와 Azure 구독 간에 연결 된 리소스를 이동 하는 것은 지원 되지 않습니다.
 
@@ -173,7 +175,7 @@ AKS 클러스터와 Azure 구독 간에 연결 된 리소스를 이동 하는 �
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>가상 머신 확장 집합 Api를 사용 하 여 수동으로 크기를 조정할 수 있나요?
 
-아니요, 가상 머신 확장 집합 Api를 사용 하는 크기 조정 작업은 지원 되지 않습니다. AKS Api (`az aks scale`)를 사용 합니다.
+아니요, 가상 머신 확장 집합 Api를 사용 하는 크기 조정 작업은 지원 되지 않습니다. AKS Api ()를 사용 `az aks scale` 합니다.
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>가상 머신 확장 집합을 사용 하 여 수동으로 0 개 노드로 확장할 수 있나요?
 
@@ -209,6 +211,7 @@ AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
+[작동 시간-sla]./uptime-sla.mdd
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

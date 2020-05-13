@@ -6,20 +6,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006159"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124077"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
 참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
 
 ## <a name="example"></a>예제  
- 요금소 업체에 등록된 상용차는 검사를 위해 정차할 필요 없이 요금소 창구를 통과할 수 있습니다. 여기서는 상용차 등록 조회 테이블을 사용하여 등록 기간이 만료된 모든 상용차를 식별합니다.  
+자동차에서 요금을 전달할 때 생성 되는 이벤트의 실시간 스트림을 가질 수 있습니다. 요금 창구는 라이선스 판을 실시간으로 캡처하고 등록 정보가 있는 정적 데이터 집합을 사용 하 여 만료 된 라이선스 판을 식별할 수 있습니다.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -57,14 +57,14 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 
 ### <a name="generate-reference-data-on-a-schedule"></a>일정에 따라 참조 데이터 생성
 
-참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. Stream Analytics이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 날짜 `sample/{date}/{time}/products.csv` 형식이 **"yyyy-mm-dd"** 이 고 시간 형식이 **"HH-mm"** 인의 패턴은 5:30 PM, 2015 UTC 표준 시간대에 업데이트 된 blob `sample/2015-04-16/17-30/products.csv` 을 선택 하는 Stream Analytics 지시 합니다.
+참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. Stream Analytics이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 `sample/{date}/{time}/products.csv` 날짜 형식이 **"yyyy-mm-dd"** 이 고 시간 형식이 **"HH-mm"** 인의 패턴은 `sample/2015-04-16/17-30/products.csv` 5:30 PM, 2015 UTC 표준 시간대에 업데이트 된 blob을 선택 하는 Stream Analytics 지시 합니다.
 
 Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob을 자동으로 검색합니다. 타임 스탬프가 10:30:00 인 blob이 짧은 지연 (예: 10:30:30)으로 업로드 되는 경우이 blob를 참조 하는 Stream Analytics 작업에서 약간의 지연이 발생 합니다. 이러한 시나리오를 방지 하려면 대상 유효 시간 (이 예제에서는 10:30:00) 이전의 blob을 업로드 하 여 메모리에서 Stream Analytics 작업을 검색 및 로드 하 고 작업을 수행 하는 데 충분 한 시간을 허용 하는 것이 좋습니다. 
 
 > [!NOTE]
 > 현재 Stream Analytics 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17-30/products.csv`를 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 마지막으로 검색된 것보다 이전에 인코딩된 시간으로 Blob을 찾지 *않습니다* .
 > 
-> 예를 들어 작업에서 blob `sample/2015-04-16/17-30/products.csv` 을 찾은 후에는 인코딩된 날짜가 5:30 년 4 월 16 2015 일 이전인 파일은 무시 됩니다. 따라서 지연 도착 `sample/2015-04-16/17-25/products.csv` 한 blob이 동일한 컨테이너에 생성 되 면 작업에서 해당 blob을 사용 하지 않습니다.
+> 예를 들어 작업에서 blob을 찾은 후에는 `sample/2015-04-16/17-30/products.csv` 인코딩된 날짜가 5:30 년 4 월 16 2015 일 이전인 파일은 무시 됩니다. 따라서 지연 도착 한 `sample/2015-04-16/17-25/products.csv` blob이 동일한 컨테이너에 생성 되 면 작업에서 해당 blob을 사용 하지 않습니다.
 > 
 > 마찬가지로 `sample/2015-04-16/17-30/products.csv`가 2015년 4월 16일 오후 10시 3분에 생성되었지만 컨테이너에 이전 날짜의 Blob이 없는 경우 작업은 2015년 4월 16일 오후 10시 3분에 시작하는 이 파일을 사용하고 그때까지 이전 참조 데이터를 사용합니다.
 > 
@@ -111,15 +111,13 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 
 ## <a name="size-limitation"></a>크기 제한
 
-Stream Analytics는 **최대 300MB 크기**의 참조 데이터를 지원합니다. 참조 데이터의 최대 크기인 300MB 제한은 간단한 쿼리만으로도 달성할 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
+최상의 성능을 위해 300 MB 미만의 참조 데이터 집합을 사용 하는 것이 좋습니다. 6su 이상이 포함 된 작업에서는 300 보다 큰 참조 데이터 사용이 지원 됩니다. 이 기능은 미리 보기 상태 이며 프로덕션 환경에서 사용 하지 않아야 합니다. 매우 큰 참조 데이터를 사용 하면 작업의 성능에 영향을 줄 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
 
-|**스트리밍 단위의 수**  |**지원되는 최대 근사값 크기(MB)**  |
+|**스트리밍 단위의 수**  |**권장 크기**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 이상   |300   |
-
-6 이상 작업의 스트리밍 단위 수가 증가하면 참조 데이터의 지원되는 최대 크기는 증가하지 않습니다.
+|1   |50 m b 미만   |
+|3   |150 m b 미만   |
+|6 이상   |300 MB 미만. 300 MB 보다 큰 참조 데이터를 사용 하면 미리 보기에서 지원 되며 작업 성능에 영향을 줄 수 있습니다.    |
 
 참조 데이터에는 압축이 지원되지 않습니다.
 

@@ -7,24 +7,24 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 3ec7021e63257a3c9f8cf84c6ddc0c3707fbf3bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 7db02546b562f1b542080efdbda8968940655e95
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928628"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121294"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 개인 끝점 DNS 구성
 
 
-FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일부로 개인 링크 리소스에 연결 하는 경우 할당 된 개인 IP 주소를 확인 하도록 DNS 설정을 올바르게 구성 하는 것이 중요 합니다. 기존 Azure 서비스에는 공용 끝점을 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 개인 끝점을 사용 하 여 연결 하려면이를 재정의 해야 합니다. 
+FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일부로 개인 링크 리소스에 연결 하는 경우 할당 된 개인 IP 주소를 확인 하도록 DNS 설정을 올바르게 구성 하는 것이 중요 합니다. 기존 Azure 서비스에는 공용 끝점을 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 이 구성은 개인 끝점을 사용 하 여 연결 하도록 재정의 해야 합니다. 
  
 개인 끝점과 연결 된 네트워크 인터페이스에는 지정 된 개인 링크 리소스에 대해 할당 된 FQDN 및 개인 IP 주소를 포함 하 여 DNS를 구성 하는 데 필요한 전체 정보 집합이 포함 되어 있습니다. 
  
 다음 옵션을 사용 하 여 개인 끝점에 대 한 DNS 설정을 구성할 수 있습니다. 
 - **호스트 파일 (테스트에만 권장 됨)을 사용**합니다. 가상 컴퓨터의 호스트 파일을 사용 하 여 DNS를 재정의할 수 있습니다.  
 - **개인 DNS 영역을 사용**합니다. [개인 dns 영역](../dns/private-dns-privatednszone.md) 을 사용 하 여 지정 된 개인 끝점에 대 한 DNS 확인을 재정의할 수 있습니다. 개인 DNS 영역을 가상 네트워크에 연결 하 여 특정 도메인을 확인할 수 있습니다.
-- **사용자 지정 DNS 서버를 사용**합니다. 자체 DNS 서버를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. [Dns 서버가](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 가상 네트워크에서 호스트 되는 경우 개인 dns 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 dns 전달 규칙을 만들 수 있습니다.
+- **DNS 전달자를 사용 합니다 (선택 사항)**. DNS 전달자를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. [Dns 서버가](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 가상 네트워크에서 호스트 되는 경우 개인 dns 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 dns 전달 규칙을 만들 수 있습니다.
  
 > [!IMPORTANT]
 > 공용 끝점을 확인 하는 데 적극적으로 사용 되는 영역은 재정의 하지 않는 것이 좋습니다. 공용 DNS로 DNS를 전달 하지 않고 리소스에 대 한 연결을 올바르게 확인할 수 없습니다. 문제를 방지 하려면 다른 도메인 이름을 만들거나 아래 각 서비스에 대 한 제안 된 이름을 따르세요. 
@@ -90,7 +90,7 @@ DNS는 개인 끝점 IP 주소를 적절 한 방식으로 확인 하 여 응용 
 > [!NOTE]
 > 이 시나리오에서는 Azure SQL database 권장 사설 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration)참조를 사용 하 여 모델을 조정할 수 있습니다.
 
-올바르게 구성 하려면 다음 리소스가 필요 합니다.
+제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 클라이언트 가상 네트워크
 
@@ -107,53 +107,53 @@ DNS는 개인 끝점 IP 주소를 적절 한 방식으로 확인 하 여 응용 
 > [!IMPORTANT]
 >  이 구성에는 단일 개인 DNS 영역이 필요 합니다. 다른 가상 네트워크에 대해 동일한 이름으로 여러 영역을 만들려면 DNS 레코드를 병합 하는 작업을 수동으로 수행 해야 합니다.
 
-이 시나리오에서는 공통 개인 끝점을 공유 하는 스포크 네트워크를 사용 하는 [허브 & 스포크](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 네트워킹 토폴로지 및 모든 스포크 가상 네트워크가 동일한 개인 dns 영역에 연결 되어 있습니다. 
+이 시나리오에서는 공통 개인 끝점을 공유 하는 스포크 네트워크를 사용 하는 [허브 & 스포크](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 네트워킹 토폴로지를 사용 하 고 모든 스포크 가상 네트워크는 동일한 개인 dns 영역에 연결 됩니다. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Azure에서 제공 하는 DNS를 사용 하는 허브 및 스포크":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>DNS 전달자를 사용 하는 온-프레미스 워크 로드
  
-온-프레미스 워크 로드에서 개인 IP 주소에 대 한 개인 끝점의 FQDN을 확인할 수 있도록 하려면 DNS 전달자를 사용 하 여 Azure에 배포 된 Azure 서비스 [공용 DNS 영역](#azure-services-dns-zone-configuration) 을 확인 해야 합니다.
+온-프레미스 작업에서 개인 IP 주소에 대 한 개인 끝점의 FQDN을 확인할 수 있도록 하려면 DNS 전달자를 사용 하 여 Azure에 배포 된 Azure 서비스 [공용 DNS 영역](#azure-services-dns-zone-configuration) 을 확인 해야 합니다.
 
 
-다음 시나리오는 Azure에서 DNS 전달자를 포함 하는 온-프레미스 네트워크에 적합 합니다 .이는 azure에서 제공 하는 DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 서버 수준 전달자를 통해 모든 dns 쿼리를 확인 하는 일을 담당 합니다. 
+다음 시나리오는 Azure에서 DNS 전달자를 사용 하는 온-프레미스 네트워크에 적합 합니다 .이는 azure에서 제공 하는 DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 서버 수준 전달자를 통해 모든 dns 쿼리를 확인 하는 일을 담당 합니다. 
 
 > [!NOTE]
 > 이 시나리오에서는 Azure SQL database 권장 사설 DNS 영역을 사용 합니다.다른 서비스의 경우 다음 [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration)참조를 사용 하 여 모델을 조정할 수 있습니다.
 
-올바르게 구성 하려면 다음 리소스가 필요 합니다.
+제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 온-프레미스 네트워크
-- 온 [-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+-  [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - Azure에 배포 된 DNS 전달자 
--  [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) 
+-  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)    [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 privatelink.database.windows.net
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
 
 다음 다이어그램에서는 Azure에 배포 된 DNS 전달자를 사용 하는 온-프레미스 네트워크의 DNS 확인 시퀀스를 보여 줍니다. 여기서는 가상 네트워크에 연결 된 개인 DNS 영역에 의해 확인 됩니다.
 
-:::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="Azure DNS를 사용 하 여 온-프레미스":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Azure DNS를 사용 하 여 온-프레미스":::
 
 이미 DNS 솔루션이 있는 온-프레미스 네트워크에 대해이 구성을 확장할 수 있습니다. 
-온-프레미스 DNS 솔루션은 Azure에 배포 된 DNS 전달자를 참조 하는 [조건부 전달자](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 를 통해 AZURE DNS에 dns 트래픽을 전달 하도록 구성 해야 합니다.
+온-프레미스 DNS 솔루션은 Azure에 배포 된 DNS 전달자를 참조 하는 [조건부 전달자](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 를 통해 AZURE DNS에 DNS 트래픽을 전달 하도록 구성 해야 합니다.
 
 > [!NOTE]
 > 이 시나리오에서는 Azure SQL database 권장 사설 DNS 영역을 사용 합니다.다른 서비스의 경우 다음 [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration)참조를 사용 하 여 모델을 조정할 수 있습니다.
 
-올바르게 구성 하려면 다음 리소스가 필요 합니다.
+제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 
 - 현재 위치의 사용자 지정 DNS 솔루션을 사용 하는 온-프레미스 네트워크 
-- 온 [-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+-  [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - Azure에 배포 된 DNS 전달자
--  [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  
+-  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)     [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 privatelink.database.windows.net
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
 
-다음 다이어그램은 가상 네트워크에 연결 된 개인 DNS 영역에 의해 확인 되는 Azure에 DNS 트래픽을 조건부로 전달 하는 온-프레미스 네트워크의 DNS 확인 시퀀스를 보여 줍니다.
+다음 다이어그램은 가상 네트워크에 연결 된 개인 DNS 영역에서 확인 되는 Azure에 DNS 트래픽을 조건부로 전달 하는 온-프레미스 네트워크의 DNS 확인 시퀀스를 보여 줍니다.
 
 > [!IMPORTANT]
->  **Privatelink**대신 [공용 DNS 영역](#azure-services-dns-zone-configuration) Ex에 대 한 조건부 전달이 수행 `database.windows.net` 되어야 합니다 (예:). database.windows.net
+> Privatelink 대신 [공용 DNS 영역](#azure-services-dns-zone-configuration)Ex에 대 한 조건부 전달이 수행 되어야 합니다    `database.windows.net`   ( **privatelink**예:). database.windows.net
 
-:::image type="content" source="media/private-endpoint-dns/on-premise-forwarding-to-azure.png" alt-text="Azure DNS에 대 한 온-프레미스 전달":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Azure DNS에 대 한 온-프레미스 전달":::
 
 
 ## <a name="next-steps"></a>다음 단계

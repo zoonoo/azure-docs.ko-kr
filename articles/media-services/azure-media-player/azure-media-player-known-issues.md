@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692249"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124638"
 ---
 # <a name="known-issues"></a>알려진 문제 #
 
@@ -41,6 +41,7 @@ ms.locfileid: "82692249"
 
 - 광고는 브라우저에 광고를 설치할 때 (주문형 또는 live)에 삽입 되는 문제가 있을 수 있습니다.
 - 모바일 장치에서 광고를 재생 하는 동안 문제가 발생할 수 있습니다.
+- MP4 Midroll 광고는 현재 Azure Media Player에서 지원 되지 않습니다.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
@@ -62,7 +63,7 @@ ms.locfileid: "82692249"
 
 - 누락된 기능
 - 기술 및 http 오류 (예: 404 네트워크 시간 초과) 플레이어는 다른 techs 복구 하는 데 더 오래 걸립니다.
-- Silverlight를 사용 하 여 Mac에서 Safari와 Firefox를 `"http://` 재생 `https://` 하려면 소스에 대해 또는를 명시적으로 정의 해야 합니다.
+- Silverlight를 사용 하 여 Mac에서 Safari와 Firefox를 재생 하려면 `"http://` `https://` 소스에 대해 또는를 명시적으로 정의 해야 합니다.
 - 이 기술에 대 한 API가 없는 경우 일반적으로 null을 반환 합니다.
 - 사용자가 플래시를 설치 했지만 사이트에서 해당 파일을 로드할 수 있는 권한을 부여 하지 않는 경우 무한 회전이 발생할 수 있습니다. 이는 플러그 인이 설치 되어 있고 사용 가능한 것으로 인식 하 고 플러그 인이 콘텐츠를 실행 하 고 있다고 생각 하기 때문입니다. JavaScript 코드가 전송 되었지만 브라우저 설정에서 플러그 인을 허용 하 라는 메시지가 표시 될 때까지 플러그 인이 실행 되지 않도록 차단 했습니다. 이는 모든 브라우저에서 발생할 수 있습니다.  
 

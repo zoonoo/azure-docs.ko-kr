@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 시스템 노드 풀을 만들
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790561"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125250"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
@@ -50,6 +50,7 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 * 사용자 노드 풀을 삭제 합니다.
 * AKS 클러스터에서 다른 시스템 노드 풀을 사용할 수 있게 되 면 시스템 노드 풀을 삭제할 수 있습니다.
 * AKS 클러스터에는 시스템 노드 풀이 여러 개 있을 수 있으며 시스템 노드 풀은 하나 이상 필요 합니다.
+* 기존 노드 풀에서 변경할 수 없는 다양 한 설정을 변경 하려면 새 노드 풀을 만들어 해당 설정을 바꿀 수 있습니다. 한 가지 예는 새 maxPods 설정을 사용 하 여 새 노드 풀을 추가 하 고 이전 노드 풀을 삭제 하는 것입니다.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>시스템 노드 풀을 사용 하 여 새 AKS 클러스터 만들기
 

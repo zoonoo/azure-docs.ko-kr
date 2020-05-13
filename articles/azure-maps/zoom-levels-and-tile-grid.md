@@ -1,19 +1,19 @@
 ---
 title: 확대/축소 수준 및 타일 그리드 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure 맵의 확대/축소 수준 및 타일 그리드에 대해 알아봅니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530294"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123907"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -140,12 +140,12 @@ var tileY = Math.floor(pixelY / tileSize);
 
 ## <a name="quadkey-indices"></a>Quadkey 인덱스
 
-일부 매핑 플랫폼에서는 타일 `quadkey` ZY 좌표를 키 라고 `quadtree` 하는 1 차원 문자열 또는 `quadkeys` short 용으로 결합 하는 인덱싱 명명 규칙을 사용 합니다. 각 `quadkey` 은 특정 수준의 세부 정보에서 단일 타일을 고유 하 게 식별 하며 일반적인 데이터베이스 B-트리 인덱스에서 키로 사용할 수 있습니다. Azure Maps Sdk는 [타일 계층 추가](map-add-tile-layer.md) 문서에 설명 된 대로 `quadkey` 다른 명명 규칙 외에 명명 규칙을 사용 하는 타일 계층의 오버레이를 지원 합니다.
+일부 매핑 플랫폼에서는 `quadkey` 타일 ZY 좌표를 키 라고 하는 1 차원 문자열 `quadtree` 또는 short 용으로 결합 하는 인덱싱 명명 규칙을 사용 합니다 `quadkeys` . 각은 `quadkey` 특정 수준의 세부 정보에서 단일 타일을 고유 하 게 식별 하며 일반적인 데이터베이스 B-트리 인덱스에서 키로 사용할 수 있습니다. Azure Maps Sdk는 `quadkey` [타일 계층 추가](map-add-tile-layer.md) 문서에 설명 된 대로 다른 명명 규칙 외에 명명 규칙을 사용 하는 타일 계층의 오버레이를 지원 합니다.
 
 > [!NOTE]
-> 명명 `quadkeys` 규칙은 하나 이상의 확대/축소 수준에 대해서만 작동 합니다. Azure Maps SDK의 지원 확대/축소 수준 0은 전 세계의 단일 지도 타일입니다. 
+> `quadkeys`명명 규칙은 하나 이상의 확대/축소 수준에 대해서만 작동 합니다. Azure Maps SDK의 지원 확대/축소 수준 0은 전 세계의 단일 지도 타일입니다. 
 
-타일 좌표 `quadkey`를로 변환 하기 위해 Y 및 X 좌표의 비트가 인터리브 되 고 결과가 기본 4 숫자로 해석 되 고 (앞에 오는 0이 유지 됨) 문자열로 변환 됩니다. 예를 들어 수준 3에서 (3, 5)의 타일 XY 좌표를 지정 하면 `quadkey` 는 다음과 같이 결정 됩니다.
+타일 좌표를로 변환 하기 위해 `quadkey` Y 및 X 좌표의 비트가 인터리브 되 고 결과가 기본 4 숫자로 해석 되 고 (앞에 오는 0이 유지 됨) 문자열로 변환 됩니다. 예를 들어 수준 3에서 (3, 5)의 타일 XY 좌표를 지정 하면는 다음과 `quadkey` 같이 결정 됩니다.
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`몇 가지 흥미로운 속성이 있습니다. 첫째,의 길이 `quadkey` (숫자 수)는 해당 타일의 확대/축소 수준과 같습니다. 둘째, 모든 `quadkey` 타일의는 부모 타일 ( `quadkey` 이전 수준에서 포함 하는 타일)의로 시작 합니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
+`Qquadkeys`몇 가지 흥미로운 속성이 있습니다. 첫째,의 길이 (숫자 `quadkey` 수)는 해당 타일의 확대/축소 수준과 같습니다. 둘째, `quadkey` 모든 타일의는 `quadkey` 부모 타일 (이전 수준에서 포함 하는 타일)의로 시작 합니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
 
 <center>
 
 ![Quadkey 타일 피라미드](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-마지막으로 `quadkeys` , 일반적으로 XY 공간에서 타일의 근접성을 유지 하는 1 차원 인덱스 키를 제공 합니다. 즉, 인접 한 XY 좌표를 포함 하는 두 타일은 `quadkeys` 일반적으로 함께 비교적 가깝습니다. 이는 데이터베이스 성능을 최적화 하는 데 중요 합니다. 인접 한 타일은 종종 그룹에서 요청 되므로 디스크 읽기 수를 최소화 하기 위해 이러한 타일을 동일한 디스크 블록에 보관 하는 것이 좋습니다.
+마지막으로, `quadkeys` 일반적으로 XY 공간에서 타일의 근접성을 유지 하는 1 차원 인덱스 키를 제공 합니다. 즉, 인접 한 XY 좌표를 포함 하는 두 타일은 일반적으로 `quadkeys` 함께 비교적 가깝습니다. 이는 데이터베이스 성능을 최적화 하는 데 중요 합니다. 인접 한 타일은 종종 그룹에서 요청 되므로 디스크 읽기 수를 최소화 하기 위해 이러한 타일을 동일한 디스크 블록에 보관 하는 것이 좋습니다.
 
 ## <a name="tile-math-source-code"></a>수식 소스 코드 바둑판식 배열
 

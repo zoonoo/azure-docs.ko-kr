@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607251"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125117"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 2019 릴리스를 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md)를 참조하세요.
 >
-> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
@@ -87,7 +87,7 @@ Vm을 프로 비전 하는 권장 방법은 Azure Portal 만들기 템플릿을 
 
 다음 지침에 따라 구성 요소가 설치 되었는지 확인 하 고 오류 메시지를 확인 합니다.
 
-1. **제어판** > **Programs**프로그램 > **프로그램 및 기능**을 검사 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
+1. **제어판**  >  **프로그램**  >  **프로그램 및 기능**을 검사 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
 2. **파일 탐색기** 를 열고 **C:\Windows\Temp\ScriptLog.log**로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
 3. **C:\Windows\Temp\ScriptLog.log** 파일이 있는 경우이 파일을 열고 오류 메시지를 확인 합니다.
 
@@ -234,7 +234,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 다음 지침에 따라 동일한 서브넷과 도메인에서 업데이트 관리를 실행 합니다.
 
 1. 수정이 적용 되는 VM에 RDP (standard 원격 데스크톱 프로토콜)를 연결 합니다.
-2. 에서 PsExec를 https://docs.microsoft.com/sysinternals/downloads/psexec다운로드 합니다.
+2. 에서 PsExec를 다운로드 https://docs.microsoft.com/sysinternals/downloads/psexec 합니다.
 3. 다운로드 한 파일의 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec 압축을 푼 폴더로 이동 합니다.
@@ -310,7 +310,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정 사용 안 함
 
-VM에서 그룹 정책 편집기를 열고**Licensing** > **Windows 구성 요소** > **Remote Desktop Services** > **원격 데스크톱 세션 호스트** > 원격 데스크톱 서비스 **관리 템플릿** > 이동 하 여**원격 데스크톱 라이선싱 모드를 설정**하 여 그룹 정책 설정을 확인 합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
+VM에서 그룹 정책 편집기를 열고 **Administrative Templates**  >  **Windows 구성 요소**원격 데스크톱 세션 호스트 원격 데스크톱 서비스 관리 템플릿 이동 하 여  >  **Remote Desktop Services**  >  **Remote Desktop Session Host**  >  **Licensing**  >  **원격 데스크톱 라이선싱 모드를 설정**하 여 그룹 정책 설정을 확인 합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
 
 >[!NOTE]
 >도메인을 통해 그룹 정책을 설정 하는 경우 이러한 Windows 10 Enterprise 다중 세션 Vm을 대상으로 하는 정책에서이 설정을 사용 하지 않도록 설정 합니다.
@@ -335,6 +335,12 @@ VM에서 그룹 정책 편집기를 열고**Licensing** > **Windows 구성 요�
 ### <a name="version-1903"></a>버전 1903
 
 Azure 갤러리에서 최신 버전의 Windows 10 버전 1903 이미지를 사용 하 여 호스트 운영 체제를 다시 배포 합니다.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>보안 오류로 인해 원격 PC에 연결할 수 없습니다.
+
+사용자에 게 "보안 오류가 발생 하 여 원격 PC에 연결할 수 없습니다." 라는 오류가 표시 됩니다. 이 문제가 계속 되 면 관리자 또는 기술 지원에 문의 하 여 기본 RDP 권한을 변경 하는 기존 정책의 유효성을 검사 하십시오. 이 오류를 발생 시킬 수 있는 한 가지 정책은 "원격 데스크톱 서비스 보안 정책을 통한 로그온 허용"입니다.
+
+이 정책에 대해 자세히 알아보려면 원격 데스크톱 서비스를 [통한 로그온 허용](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

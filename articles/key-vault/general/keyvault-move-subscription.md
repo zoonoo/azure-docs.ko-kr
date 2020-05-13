@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 4046d4ec5f62ffc4fab50e8c5a4a08fad326aa04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796955"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121187"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -42,7 +42,7 @@ ms.locfileid: "82796955"
 
 조직에서 구독 수준에서 적용 또는 제외를 사용 하 Azure Policy를 구현 했을 수 있습니다. 키 자격 증명 모음이 현재 존재 하는 구독에는 다른 정책 할당 집합이 있을 수 있으며, 주요 자격 증명 모음을 이동 하는 구독이 있을 수 있습니다. 정책 요구 사항의 충돌로 인해 응용 프로그램이 중단 될 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 2 년 동안 유효한 인증서를 생성 하는 key vault에 연결 된 응용 프로그램이 있습니다. 키 자격 증명 모음을 이동 하려는 구독에는 1 년 이상 유효한 인증서 생성을 차단 하는 정책 할당이 있습니다. 키 자격 증명 모음을 새 구독으로 이동한 후 2 년 동안 유효한 인증서를 만드는 작업은 Azure 정책 할당에 의해 차단 됩니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "82796955"
 
 Azure Portal에서 Azure Policy 페이지로 이동 하 고 현재 구독에 대 한 정책 할당과 이동 중인 구독을 확인 하 고 불일치 항목이 없는지 확인 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 주요 자격 증명 모음이 있는 현재 구독에 대 한 참가자 수준 액세스 이상
 * 주요 자격 증명 모음을 이동 하려는 구독에 대 한 참가자 수준 액세스 이상
@@ -83,6 +83,9 @@ $vault.Properties.AccessPolicies = @()                                     # Acc
                                                                            # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
                                                                            # any access policies. 
 Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the key vault's properties.
+
+Clear-AzContext                                                            #Clear the context from PowerShell
+Connect-AzAccount                                                          #Log in again to confirm you have the correct tenant id
 ````
 
 ```azurecli

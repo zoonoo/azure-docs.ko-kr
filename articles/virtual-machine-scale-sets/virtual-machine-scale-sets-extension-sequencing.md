@@ -1,18 +1,20 @@
 ---
 title: Azure 가상 머신 확장 집합에서 확장 시퀀싱 사용
 description: 가상 머신 확장 집합에 여러 개의 확장을 배포할 때 확장 프로비전 시퀀스를 지정하는 방법을 알아봅니다.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273752"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121034"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>가상 머신 확장 집합의 확장 프로비전 시퀀스 지정
 Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링, 보안 등의 기능을 제공합니다. 프로덕션 배포는 일반적으로 VM 인스턴스에 대해 구성된 여러 개의 확장 조합을 사용하여 원하는 결과를 얻습니다.
@@ -21,7 +23,7 @@ Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링,
 
 이 문서에서는 가상 머신 확장 집합의 VM 인스턴스에 대해 구성할 확장의 시퀀스 지정 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284305"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121085"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Azure Lab Services에서 랩 계정 구성 
 Azure Lab Services에서 랩 계정은 교실 labs와 같은 관리 되는 랩 형식에 대 한 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 
@@ -38,6 +38,9 @@ Azure Lab Services에서 랩 계정은 교실 labs와 같은 관리 되는 랩 �
 
 1. **랩 계정** 페이지의 왼쪽 메뉴에서 **랩 설정** 을 선택 합니다.
 2. **주소 범위** 필드에서 랩에서 생성 될 vm의 주소 범위를 지정 합니다. 주소 범위는 클래스 없는 CIDR (도메인 간 라우팅) 표기법 (예: 10.20.0.0/23)에 있어야 합니다. 랩의 가상 머신은 이 주소 범위에서 만들어집니다.
+
+    > [!NOTE]
+    > 주소 범위 속성은 랩에 대해 피어 가상 네트워크를 사용 하도록 설정한 경우에만 적용 됩니다. 
 3. 도구 모음에서 **저장**을 선택합니다. 
 
     ![주소 범위 구성](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

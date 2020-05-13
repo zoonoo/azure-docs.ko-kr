@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: f8c526148e37ba1b716aafd32dcc3f242358f1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427784"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121136"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
@@ -49,7 +49,7 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourResourceGroupName>, <YourStorageAccountName>및 <YourKeyVaultName> 자리 표시자를 업데이트 하 고 위의 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` [서비스 사용자 응용 프로그램 ID](#service-principal-application-id)에 지정 된 대로 $keyVaultSpAppId를로 설정 해야 합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourResourceGroupName>, <YourStorageAccountName> 및 <YourKeyVaultName> 자리 표시자를 업데이트 하 고 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` 위의 [서비스 사용자 응용 프로그램 ID](#service-principal-application-id)에 지정 된 대로 $keyVaultSpAppId를로 설정 해야 합니다.
 
 또한 Azure PowerShell [AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) 및 [AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlet을 사용 하 여 사용자 ID와 Azure storage 계정의 컨텍스트를 가져옵니다.
 
@@ -84,14 +84,18 @@ $resourceGroupName = <YourResourceGroupName>
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
-$storageAccountKey = "key1"
+$storageAccountKey = "key1" #(key1 or key2 are allowed)
 
 # Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+
 ```
+>[!Note]
+> 클래식 저장소 계정에는 $storageAccountKey에 대해 "primary" 및 "secondary"를 사용 합니다. <br>
+> 클래식 저장소 계정에 대 한 ' AzResource-Name "ClassicStorageAccountName"-ResourceGroupName $resourceGroupName '를 대신 사용 하세요.
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>저장소 계정에 대 한 Key Vault 액세스 권한 부여
 
@@ -160,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>키 다시 생성 사용
 
-저장소 계정 키를 정기적으로 다시 생성 [Key Vault Azure PowerShell cmdlet](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) 을 사용 하 여 다시 생성 기간을 설정할 수 있습니다. 이 예에서는 3 일의 다시 생성 기간을 설정 합니다. 3 Key Vault 일 후에는 ' key2 '를 다시 생성 하 고 활성 키를 ' key2 '에서 ' key1 '로 바꿉니다.
+저장소 계정 키를 정기적으로 다시 생성 [Key Vault Azure PowerShell cmdlet](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) 을 사용 하 여 다시 생성 기간을 설정할 수 있습니다. 이 예에서는 3 일의 다시 생성 기간을 설정 합니다. 3 Key Vault 일 후에는 ' key2 '를 다시 생성 하 고 활성 키를 ' key2 '에서 ' key1 ' (클래식 저장소 계정에 대해서는 ' 주 '로, ' 보조 '로 대체)로 바꿉니다.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -192,12 +196,12 @@ Key Vault를 요청 하 여 공유 액세스 서명 토큰을 생성할 수도 �
 
 - 계정 공유 액세스 서명 정의를 설정 합니다. 
 - Blob, 파일, 테이블 및 큐 서비스에 대 한 계정 공유 액세스 서명 토큰을 만듭니다. 토큰은 리소스 유형 서비스, 컨테이너 및 개체에 대해 생성 됩니다. 토큰은 지정 된 시작 및 종료 날짜를 사용 하 여 https를 통해 모든 사용 권한으로 만들어집니다.
-- 자격 증명 모음에서 관리 되는 저장소 공유 액세스 서명 정의를 Key Vault 설정 합니다. 정의에는 만들어진 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 정의는 공유 액세스 서명 유형이 `account` 며 N 일 동안 유효 합니다.
+- 자격 증명 모음에서 관리 되는 저장소 공유 액세스 서명 정의를 Key Vault 설정 합니다. 정의에는 만들어진 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 정의는 공유 액세스 서명 유형이 며 `account` N 일 동안 유효 합니다.
 - 공유 액세스 서명이 키 자격 증명 모음에 암호로 저장 되었는지 확인 합니다.
 - 
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourStorageAccountName> 및 <YourKeyVaultName> 자리 표시자를 업데이트 해야 합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourStorageAccountName>및 자리 표시자를 업데이트 해야 합니다 <YourKeyVaultName> .
 
 또한 Azure PowerShell [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) cmdlet을 사용 하 여 Azure storage 계정의 컨텍스트를 가져옵니다.
 
@@ -205,7 +209,7 @@ Key Vault를 요청 하 여 공유 액세스 서명 토큰을 생성할 수도 �
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
 ### <a name="create-a-shared-access-signature-token"></a>공유 액세스 서명 토큰 만들기
@@ -226,7 +230,7 @@ $SasToken 값은 다음과 같습니다.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>공유 액세스 서명 정의 생성
 
-Azure PowerShell [AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet을 사용 하 여 공유 액세스 서명 정의를 만듭니다.  원하는 이름을 `-Name` 매개 변수에 제공할 수 있습니다.
+Azure PowerShell [AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet을 사용 하 여 공유 액세스 서명 정의를 만듭니다.  원하는 이름을 매개 변수에 제공할 수 있습니다 `-Name` .
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -252,7 +256,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-이제 [AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet 및 secret `Name` 속성을 사용 하 여 해당 암호의 콘텐츠를 볼 수 있습니다.
+이제 [AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet 및 secret 속성을 사용 `Name` 하 여 해당 암호의 콘텐츠를 볼 수 있습니다.
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>

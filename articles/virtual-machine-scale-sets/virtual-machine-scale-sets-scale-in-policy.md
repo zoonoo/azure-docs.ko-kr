@@ -2,21 +2,20 @@
 title: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 description: 자동 크기 조정 구성을 사용 하 여 인스턴스 수를 관리 하는 Azure 가상 머신 확장 집합에서 사용자 지정 확장 정책을 사용 하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
-author: avirishuv
-manager: vashan
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 02/26/2020
-ms.author: avverma
-ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919841"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125165"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 
@@ -24,7 +23,7 @@ ms.locfileid: "77919841"
 
 규모 확장 정책 기능을 통해 사용자는 다음과 같은 세 가지 규모의 구성으로 가상 컴퓨터를 확장 하는 순서를 구성할 수 있습니다. 
 
-1. 기본값
+1. Default
 2. NewestVM
 3. OldestVM
 

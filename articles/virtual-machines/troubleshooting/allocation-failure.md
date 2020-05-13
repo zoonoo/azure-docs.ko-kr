@@ -3,7 +3,7 @@ title: Azure VM 할당 오류 문제 해결 | Microsoft Docs
 description: Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -11,13 +11,13 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
-ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484403"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124791"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
@@ -25,7 +25,7 @@ VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해\/자세히 알아보세요.
+**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:/aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해 자세히 알아보세요. \/
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 

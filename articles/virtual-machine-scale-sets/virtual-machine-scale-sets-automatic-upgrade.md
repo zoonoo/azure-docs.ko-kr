@@ -1,18 +1,20 @@
 ---
 title: Azure 가상 머신 확장 집합을 사용 하 여 자동 OS 이미지 업그레이드
 description: 확장 집합의 VM 인스턴스에서 OS 이미지를 자동으로 업그레이드 하는 방법을 알아봅니다.
-author: mimckitt
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: avirishuv
+ms.author: avverma
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 04/14/2020
-ms.author: mimckitt
-ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458984"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124978"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 

@@ -3,7 +3,7 @@ title: Azure에서 Windows VM 배포 문제 해결 | Microsoft Docs
 description: Azure에서 새 Windows 가상 머신 생성 시 Resource Manager 배포 문제 해결
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981400"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120966"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -75,7 +75,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 * 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 * 요청한 VM의 크기를 변경할 수 없으면:
   * 가용성 집합의 VM을 모두 중지합니다.
-     > 리소스 **그룹**리소스*그룹* > **리소스** > 를 클릭 하 여*가용성 집합* > 에서*가상 컴퓨터* > 를**중지****Virtual Machines** > 합니다.
+    리소스 **그룹**리소스  >  *그룹 리소스를*클릭 하 여  >  **Resources**  >  *가용성 집합에서*  >  **Virtual Machines**  >  *가상 컴퓨터를*  >  **중지**Virtual Machines 합니다.
   * VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
   * 먼저 새 VM을 시작한 다음 중지 된 각 Vm을 선택 하 고 **시작**을 클릭 합니다.
 

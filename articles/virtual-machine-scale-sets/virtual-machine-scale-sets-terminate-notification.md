@@ -2,17 +2,19 @@
 title: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
 description: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림을 사용 하도록 설정 하는 방법을 알아봅니다.
 author: avirishuv
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 02/26/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250752"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125182"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
 확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.

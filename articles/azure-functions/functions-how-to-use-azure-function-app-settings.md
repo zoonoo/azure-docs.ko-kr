@@ -3,14 +3,14 @@ title: Azure에서 함수 앱 설정 구성
 description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276947"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122303"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -27,9 +27,11 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ## <a name="get-started-in-the-azure-portal"></a>Azure Portal에서 시작
 
-시작하려면 [Azure Portal]로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
+1. 시작하려면 [Azure Portal]로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력 하 고 목록에서 선택 합니다. 
 
-![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. 왼쪽 창의 **설정** 에서 **구성**을 선택 합니다.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Azure Portal의 함수 앱 개요":::
 
 개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
@@ -45,14 +47,14 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-이 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) 명령은 다음 예제와 같이 기존 응용 프로그램 설정을 반환 합니다.
+[`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list)이 명령은 다음 예제와 같이 기존 응용 프로그램 설정을 반환 합니다.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령은 응용 프로그램 설정을 추가 하거나 업데이트 합니다. 다음 예에서는 라는 `CUSTOM_FUNCTION_APP_SETTING` 키와 값을 사용 하 여 설정을 만듭니다. `12345`
+[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)명령은 응용 프로그램 설정을 추가 하거나 업데이트 합니다. 다음 예에서는 라는 키와 값을 사용 하 여 설정을 만듭니다 `CUSTOM_FUNCTION_APP_SETTING` `12345` .
 
 
 ```azurecli-interactive
@@ -69,9 +71,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 ## <a name="platform-features"></a>플랫폼 기능
 
-![함수 앱 플랫폼 기능 탭.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-함수 앱은 Azure App Service 플랫폼에서 실행되고 유지 관리됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. **플랫폼 기능** 탭에서는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 많은 기능에 액세스할 수 있습니다. 
+함수 앱은에서 실행 되며 Azure App Service 플랫폼에서 유지 관리 됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. 왼쪽 창에는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 다양 한 기능에 액세스할 수 있습니다. 
 
 > [!NOTE]
 > 함수 앱이 소비 호스팅 계획에서 실행될 때 모든 App Service 기능을 사용할 수 있는 것은 아닙니다.
@@ -95,7 +95,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 로컬 컴퓨터에서 함수를 개발 하는 것이 좋습니다. 로컬로 개발 하 고 Azure에 게시 하는 경우 프로젝트 파일은 포털에서 읽기 전용입니다. 자세히 알아보려면 [로컬에서 코드 및 테스트 Azure Functions](functions-develop-local.md)를 참조 하세요.
 
-### <a name="console"></a><a name="console"></a>콘솔이
+### <a name="console"></a><a name="console"></a>콘솔
 
 ![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -120,13 +120,13 @@ App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 �
 
 #### <a name="portal"></a>포털
 
-함수 앱에 대해 **허용 된 원본** 목록을 구성할 때 헤더는 `Access-Control-Allow-Origin` 함수 앱의 HTTP 끝점에서 모든 응답에 자동으로 추가 됩니다. 
+함수 앱에 대해 **허용 된 원본** 목록을 구성할 때 `Access-Control-Allow-Origin` 헤더는 함수 앱의 HTTP 끝점에서 모든 응답에 자동으로 추가 됩니다. 
 
 ![함수 앱의 CORS 목록 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-와일드 카드 (`*`)를 사용 하면 다른 모든 도메인은 무시 됩니다. 
+와일드 카드 ( `*` )를 사용 하면 다른 모든 도메인은 무시 됩니다. 
 
-[`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) 명령을 사용 하 여 허용 된 원본 목록에 도메인을 추가 합니다. 다음 예에서는 contoso.com 도메인을 추가 합니다.
+명령을 사용 [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) 하 여 허용 된 원본 목록에 도메인을 추가 합니다. 다음 예에서는 contoso.com 도메인을 추가 합니다.
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -134,7 +134,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-[`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) 명령을 사용 하 여 현재 허용 된 원본을 나열 합니다.
+명령을 사용 [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) 하 여 현재 허용 된 원본을 나열 합니다.
 
 ### <a name="authentication"></a><a name="auth"></a>인증
 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275777"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121200"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -43,7 +43,7 @@ Application Insights Profiler App Services 런타임의 일부로 미리 설치 
 Azure App Service에 대 한 앱 설정을 만들어 Application Insights Profiler를 사용 하도록 설정할 수 있습니다. 위에 표시 된 옵션을 사용 하는 페이지는 이러한 앱 설정을 만듭니다. 그러나 템플릿이나 다른 방법을 사용 하 여 이러한 설정의 생성을 자동화할 수 있습니다. 이러한 설정은 Application Insights 리소스가 Azure App Service와 다른 구독에 있는 경우에도 작동 합니다.
 프로파일러를 사용 하도록 설정 하는 데 필요한 설정은 다음과 같습니다.
 
-|앱 설정    | 값    |
+|앱 설정    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -58,8 +58,8 @@ Azure App Service에 대 한 앱 설정을 만들어 Application Insights Profil
 
 |앱 설정    | 미국 정부 값| 중국 클라우드 |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Profiler 사용 안 함
 

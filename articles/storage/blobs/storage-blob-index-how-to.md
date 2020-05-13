@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f4c9fab3caf1089b97265d93db7d945604a59fd3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723013"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121238"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그 (미리 보기)를 활용 하 여 Azure Blob storage에서 데이터 관리 및 찾기
 
@@ -32,7 +32,7 @@ Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하
 # <a name="net"></a>[.NET](#tab/net)
 Blob 인덱스가 공개 미리 보기 상태 이므로 .NET storage 패키지는 미리 보기 NuGet 피드에 릴리스됩니다. 이 라이브러리는 현재 사이에서 변경 될 수 있으며 공식이 될 때 변경 될 수 있습니다. 
 
-1. Visual Studio에서 NuGet 패키지 소스에 `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` URL을 추가 합니다. 
+1. Visual Studio에서 `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` NuGet 패키지 소스에 URL을 추가 합니다. 
 
    방법을 알아보려면 [패키지 원본](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)을 참조 하세요.
 
@@ -182,7 +182,7 @@ static async Task BlobIndexTagsExample()
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal 내에서 Blob 인덱스 태그 필터는 `@container` 매개 변수를 자동으로 적용 하 여 선택한 컨테이너의 범위를 적용 합니다. 전체 저장소 계정에서 태그가 지정 된 데이터를 필터링 하 고 찾으려면 REST API, Sdk 또는 도구를 사용 하세요.
+Azure Portal 내에서 Blob 인덱스 태그 필터는 매개 변수를 자동으로 적용 `@container` 하 여 선택한 컨테이너의 범위를 적용 합니다. 전체 저장소 계정에서 태그가 지정 된 데이터를 필터링 하 고 찾으려면 REST API, Sdk 또는 도구를 사용 하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다. 
 
@@ -204,6 +204,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -254,9 +255,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -284,9 +285,9 @@ static async Task FindBlobsByTagsExample()
 
 3. *규칙 추가* 를 선택한 다음 작업 집합 양식 필드를 채웁니다.
 
-4. 필터 집합을 선택 하 여 접두사 일치 및 Blob 인덱스 일치 ![에 대 한 선택적 필터 추가-수명 주기 관리에 대 한 blob 인덱스 태그 추가 필터](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. 필터 집합을 선택 하 여 접두사 일치 및 Blob 인덱스 일치에 대 한 선택적 필터 추가- ![ 수명 주기 관리에 대 한 blob 인덱스 태그 추가 필터](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. **검토 + 추가** 를 선택 하 여 blob 인덱스 ![태그를 사용 하 여 규칙 설정 수명 주기 관리 규칙 필터 예제를 검토 합니다.](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. **검토 + 추가** 를 선택 하 여 ![ blob 인덱스 태그를 사용 하 여 규칙 설정 수명 주기 관리 규칙 필터 예제를 검토 합니다.](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. **추가** 를 선택 하 여 새 규칙을 수명 주기 관리 정책에 적용 합니다.
 

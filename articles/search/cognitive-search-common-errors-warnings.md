@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086617"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125097"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "82086617"
 
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
 
-인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 [여기](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)에 설명 된 `maxFailedItems` 대로 `maxFailedItemsPerBatch` 및를 업데이트 하는 것이 좋습니다.
+인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 여기에 설명 된 `maxFailedItems` 대로 및를 업데이트 하는 것이 좋습니다 `maxFailedItemsPerBatch` . [here](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)
 
 > [!NOTE]
 > 문서 키 (사용 가능한 경우)와 함께 실패 한 각 문서는 인덱서 실행 상태에서 오류로 표시 됩니다. 오류가 허용 되도록 인덱서를 설정한 경우 [인덱스 api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 를 활용 하 여 나중에 수동으로 문서를 업로드할 수 있습니다.
@@ -30,14 +30,14 @@ ms.locfileid: "82086617"
 
 경고는 인덱싱을 중지 하지 않지만 예기치 않은 결과가 발생할 수 있는 조건을 표시 합니다. 작업 수행 여부는 데이터와 시나리오에 따라 달라 집니다.
 
-API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
+API 버전부터 `2019-05-06` 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
 
-| 속성 | Description | 예제 |
+| 속성 | 설명 | 예제 |
 | --- | --- | --- |
-| key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e. n a m e. myIndexName myOutputFieldName |
+| key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| 이름 | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e. n a m e. myIndexName myOutputFieldName |
 | message | 오류 또는 경고에 대 한 개략적인 설명입니다. | 웹 Api 요청이 실패 했으므로 기술을 실행할 수 없습니다. |
-| 자세히 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 원본, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
+| 자세히 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 원본 `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` , Func ... 스택 추적의 나머지 ... |
 | documentationLink | 문제를 디버그 하 고 해결 하기 위한 자세한 정보가 포함 된 관련 설명서에 대 한 링크입니다. 이 링크는 종종이 페이지에서 아래 섹션 중 하나를 가리킵니다. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -48,7 +48,7 @@ API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 여러 문서에서 일치 하지 않는 필드 형식 | "값의 형식이 열 형식과 일치 하지 않습니다. 작성자 열 `'{47.6,-122.1}'` 에 저장할 수 없습니다.  필요한 형식은 JArray입니다. "  "데이터 형식 nvarchar를 float로 변환 하는 동안 오류가 발생 했습니다."  "Nvarchar 값 ' 12 개월 '을 데이터 형식 int로 변환 하지 못했습니다."  "식을(를) 데이터 형식 int(으)로 변환하는 중 산술 오버플로 오류가 발생했습니다." | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 날짜/시간이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
+| 여러 문서에서 일치 하지 않는 필드 형식 | "값의 형식이 열 형식과 일치 하지 않습니다. `'{47.6,-122.1}'`작성자 열에 저장할 수 없습니다.  필요한 형식은 JArray입니다. "  "데이터 형식 nvarchar를 float로 변환 하는 동안 오류가 발생 했습니다."  "Nvarchar 값 ' 12 개월 '을 데이터 형식 int로 변환 하지 못했습니다."  "식을(를) 데이터 형식 int(으)로 변환하는 중 산술 오버플로 오류가 발생했습니다." | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 날짜/시간이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
 | 데이터 원본의 기본 서비스에서 발생 한 오류 | (Cosmos DB)`{"Errors":["Request rate is large"]}` | 저장소 인스턴스를 확인 하 여 정상 상태 인지 확인 합니다. 크기 조정/분할을 조정 해야 할 수 있습니다. |
 | 일시적인 문제 | 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
@@ -59,7 +59,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| blob이 크기 제한을 초과 합니다. | 문서는 `'150441598'` 바이트 이며 현재 서비스 계층의 문서 `'134217728'` 추출에 대 한 최대 크기 바이트를 초과 합니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| blob이 크기 제한을 초과 합니다. | 문서는 `'150441598'` 바이트 이며 `'134217728'` 현재 서비스 계층의 문서 추출에 대 한 최대 크기 바이트를 초과 합니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다.`'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob이 암호화 되어 있습니다. | 문서를 처리할 수 없습니다. 암호화 또는 암호로 보호할 수 있습니다. | Blob [설정을](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)사용 하 여 blob를 건너뛸 수 있습니다. |
 | 일시적인 문제 | "Blob을 처리 하는 동안 오류가 발생 했습니다. 요청이 중단 되었습니다. 요청이 취소 되었습니다." "처리 하는 동안 문서 시간이 초과 되었습니다." | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
@@ -73,8 +73,13 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 | --- | --- | --- |
 | 문서 키가 없습니다. | 문서 키를 누락 하거나 비워 둘 수 없습니다. | 모든 문서에 유효한 문서 키가 있는지 확인 |
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
-| 필드에 필드 매핑을 적용할 수 없습니다. | 필드 `'functionName'` `'fieldName'`에 매핑 함수를 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
-| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldName'` `'fieldIndex'`에서 열 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0 - 현재 현결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 필드에 필드 매핑을 적용할 수 없습니다. | 필드에 매핑 함수를 적용할 수 없습니다 `'functionName'` `'fieldName'` . 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
+| 필드 값을 읽을 수 없습니다. | 인덱스에서 열 값을 읽을 수 없습니다 `'fieldName'` `'fieldIndex'` . 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0 - 현재 현결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>오류: `xyz` 매핑 함수 ' '을 (를) 적용 하는 동안 deserialization 문제로 인해 ' ' 출력 필드를 검색 인덱스에 매핑할 수 없습니다. `abc`
+출력 데이터가 사용 중인 매핑 함수에 대해 잘못 된 형식 이므로 출력 매핑이 실패 했을 수 있습니다. 예를 들어 이진 데이터에 Base64Encode mapping 함수를 적용 하면이 오류가 생성 됩니다. 이 문제를 해결 하려면 매핑 함수를 지정 하지 않고 인덱서를 다시 실행 하거나 매핑 함수가 출력 필드 데이터 형식과 호환 되는지 확인 합니다. 자세한 내용은 [출력 필드 매핑](cognitive-search-output-field-mapping.md) 을 참조 하세요.
 
 <a name="could-not-execute-skill"/>
 
@@ -110,7 +115,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 기본 제공 인식 기술에 대 한 동일한 문서에서이 오류가 계속 표시 되는 경우 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하 여 지원을 받으세요.
 
 ### <a name="custom-skills"></a>사용자 지정 기술
-만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. 사용자 지정 기술 정의에 대 `timeout` 한 값을 명시적으로 설정 하지 않은 경우 기본값 `timeout` 은 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 사용자 지정 기술 정의에 더 높은 `timeout` 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
+만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. `timeout`사용자 지정 기술 정의에 대 한 값을 명시적으로 설정 하지 않은 경우 기본값은 `timeout` 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 `timeout` 사용자 지정 기술 정의에 더 높은 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
 
 ```json
   {
@@ -134,11 +139,11 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
       }
 ```
 
-`timeout` 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 `batchSize` 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술를 줄일 수 있습니다.  이미 `batchSize` 를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술을 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
+매개 변수에 대해 설정할 수 있는 최대값은 `timeout` 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 `batchSize` 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술를 줄일 수 있습니다.  이미 `batchSize` 를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술을 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>오류: ' '을`MergeOrUpload`(를) 할 수 없습니다. 검색`Delete`인덱스에 대 한 ' ' 문서
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>오류: ' '을 (를) 할 수 없습니다. `MergeOrUpload` `Delete`검색 인덱스에 대 한 ' ' 문서
 
 문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
@@ -146,7 +151,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 | --- | --- | --- |
 | 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
 | 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
-| 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. "키 `'1000052'` 가 있는 문서에는 `'4303'` 컬렉션의 개체 (JSON 배열)가 있습니다. 최대 `'3000'` 개체 수는 전체 문서에서 컬렉션에 있을 수 있습니다. 컬렉션에서 개체를 제거 하 고 문서 인덱싱을 다시 시도 하십시오. " | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
+| 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. "키가 있는 문서에 `'1000052'` 는 `'4303'` 컬렉션의 개체 (JSON 배열)가 있습니다. 최대 `'3000'` 개체 수는 전체 문서에서 컬렉션에 있을 수 있습니다. 컬렉션에서 개체를 제거 하 고 문서 인덱싱을 다시 시도 하십시오. " | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
 | 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
@@ -186,9 +191,9 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 컨테이너에서 프로젝션 blob `'blobUri'` 을 업데이트할 수 없습니다.`'containerName'` |지정한 컨테이너가 없습니다. | 인덱서는 지정 된 컨테이너가 이전에 생성 되었는지 여부를 확인 하 고 필요한 경우이를 만들지만 인덱서 실행 당 한 번만이 확인을 수행 합니다. 이 오류는이 단계 후에 항목이 컨테이너를 삭제 했음을 의미 합니다.  이 오류를 해결 하려면 저장소 계정 정보를 그대로 두고 인덱서가 완료 될 때까지 기다린 후 인덱서를 다시 실행 합니다. |
-| 컨테이너에서 프로젝션 blob `'blobUri'` 을 업데이트할 수 없습니다.`'containerName'` |전송 연결에 데이터를 쓸 수 없음: 원격 호스트에서 기존 연결을 강제로 닫았습니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
-| 테이블의 행 `'projectionRow'` 을 업데이트할 수 없습니다.`'tableName'` | 서버가 사용 중입니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
+| 컨테이너에서 프로젝션 blob을 업데이트할 수 없습니다. `'blobUri'``'containerName'` |지정한 컨테이너가 없습니다. | 인덱서는 지정 된 컨테이너가 이전에 생성 되었는지 여부를 확인 하 고 필요한 경우이를 만들지만 인덱서 실행 당 한 번만이 확인을 수행 합니다. 이 오류는이 단계 후에 항목이 컨테이너를 삭제 했음을 의미 합니다.  이 오류를 해결 하려면 저장소 계정 정보를 그대로 두고 인덱서가 완료 될 때까지 기다린 후 인덱서를 다시 실행 합니다. |
+| 컨테이너에서 프로젝션 blob을 업데이트할 수 없습니다. `'blobUri'``'containerName'` |전송 연결에 데이터를 쓸 수 없음: 원격 호스트에서 기존 연결을 강제로 닫았습니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
+| 테이블의 행을 업데이트할 수 없습니다. `'projectionRow'``'tableName'` | 서버가 사용 중입니다. | 이는 Azure Storage의 일시적인 오류로 예상 되므로 인덱서를 다시 실행 하 여 해결 해야 합니다. 이 오류가 지속적으로 발생 하면 추가 조사를 위해 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
@@ -197,13 +202,13 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 1) 기술을 실행할 수 없습니다.
 2) 기술이 실행 되었지만 예기치 않은 결과가 발생할 수 있습니다.
 
-인식 기술에는 필수 입력과 선택적 입력이 있습니다. 예를 들어 [키 구 추출 기술](cognitive-search-skill-keyphrases.md) 에는 선택적 입력 `text`이 `languageCode`없는 두 개의 필수 입력이 있습니다. 사용자 지정 기술 입력은 모두 선택적 입력으로 간주 됩니다.
+인식 기술에는 필수 입력과 선택적 입력이 있습니다. 예를 들어 [키 구 추출 기술](cognitive-search-skill-keyphrases.md) 에는 선택적 입력이 없는 두 개의 필수 입력이 있습니다 `text` `languageCode` . 사용자 지정 기술 입력은 모두 선택적 입력으로 간주 됩니다.
 
 필요한 입력이 없거나 입력이 올바른 형식이 아닌 경우에는 기술이 생략 되 고 경고가 생성 됩니다. 건너뛴 스킬은 출력을 생성 하지 않으므로 다른 기술에서 건너뛴 기술의 출력을 사용 하는 경우 추가 경고를 생성할 수 있습니다.
 
 선택적 입력이 없으면 기술이 계속 실행 되지만 누락 된 입력으로 인해 예기치 않은 출력이 생성 될 수 있습니다.
 
-두 경우 모두 데이터의 모양으로 인해이 경고가 발생할 수 있습니다. `firstName`예를 들어, 및 `middleName` `lastName`필드를 사용 하는 사용자에 대 한 정보가 포함 된 문서가 있는 경우에 대 한 `middleName`항목이 없는 문서가 있을 수 있습니다. 파이프라인의 기술에 `middleName` 대 한 입력으로 전달 하는 경우이 기술 입력에 일부 시간이 없을 수 있습니다. 데이터 및 시나리오를 평가 하 여이 경고의 결과로 작업이 필요한 지 여부를 확인 해야 합니다.
+두 경우 모두 데이터의 모양으로 인해이 경고가 발생할 수 있습니다. 예를 들어, 및 필드를 사용 하는 사용자에 대 한 정보가 포함 된 문서가 있는 경우 `firstName` `middleName` `lastName` 에 대 한 항목이 없는 문서가 있을 수 있습니다 `middleName` . `middleName`파이프라인의 기술에 대 한 입력으로 전달 하는 경우이 기술 입력에 일부 시간이 없을 수 있습니다. 데이터 및 시나리오를 평가 하 여이 경고의 결과로 작업이 필요한 지 여부를 확인 해야 합니다.
 
 누락 된 입력에 대 한 기본값을 제공 하려는 경우에는 [조건부 기술을](cognitive-search-skill-conditional.md) 사용 하 여 기본값을 생성 한 다음 [조건 기술](cognitive-search-skill-conditional.md) 출력을 기술 입력으로 사용할 수 있습니다.
 
@@ -223,18 +228,18 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 기술 입력의 형식이 잘못 되었습니다. | "필요한 기술 입력이 예상 된 형식이 `String`아닙니다. 이름: `text`, 원본: `/document/merged_content`. "  "필요한 기술 입력이 예상 된 형식이 아닙니다. 이름: `text`, 원본: `/document/merged_content`. "  "배열이 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`아닌 경우에는 반복할 수 없습니다."  "비 배열 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`에서 `0` 선택할 수 없습니다." | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 `text` 들어 [감정 기술은](cognitive-search-skill-sentiment.md) 문자열이 될 것으로 예상 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트와 입력이 올바른 위치 `*` 에 있는지 확인 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 배열에 대해 `*` 로 끝나야 합니다. |
-| 기술 입력이 누락 되었습니다. | "필요한 기술 입력이 누락 되었습니다. 이름: `text`, 원본: `/document/merged_content`"" 누락 값 `/document/normalized_images/0/imageTags`"  "길이 `0` `/document/pages` `0`배열로 선택할 수 없습니다." | 모든 문서에서이 경고가 발생 하는 경우 입력 경로에 철자가 있을 가능성이 높습니다 .이 경우에는 경로 `*` 에서 속성 이름 대/소문자 구분 여부를 다시 확인 하 고, 데이터 원본의 문서에서 필요한 입력을 제공 해야 합니다. |
-| 기술 언어 코드 입력이 잘못 되었습니다. | 기술 입력 `languageCode` 에 다음과 같은 언어 코드가 `X,Y,Z`있습니다 .이 중 하나 이상이 잘못 되었습니다. | [아래](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) 자세히 보기 |
+| 기술 입력의 형식이 잘못 되었습니다. | "필요한 기술 입력이 예상 된 형식이 아닙니다 `String` . 이름: `text` , 원본: `/document/merged_content` . "  "필요한 기술 입력이 예상 된 형식이 아닙니다. 이름: `text` , 원본: `/document/merged_content` . "  "배열이 아닌 경우에는 반복할 수 없습니다 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ."  " `0` 비 배열에서 선택할 수 없습니다. `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 들어 [감정 기술은](cognitive-search-skill-sentiment.md) `text` 문자열이 될 것으로 예상 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트와 입력이 `*` 올바른 위치에 있는지 확인 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 `*` 배열에 대해로 끝나야 합니다. |
+| 기술 입력이 누락 되었습니다. | "필요한 기술 입력이 누락 되었습니다. 이름: `text` , 원본: `/document/merged_content` "" 누락 값 `/document/normalized_images/0/imageTags` "  " `0` 길이 배열로 선택할 수 없습니다 `/document/pages` `0` ." | 모든 문서에서이 경고가 발생 하는 경우 입력 경로에 철자가 있을 가능성이 높습니다 .이 경우에는 경로에서 속성 이름 대/소문자 구분 여부를 다시 확인 하 `*` 고, 데이터 원본의 문서에서 필요한 입력을 제공 해야 합니다. |
+| 기술 언어 코드 입력이 잘못 되었습니다. | 기술 입력 `languageCode` 에 다음과 같은 언어 코드가 있습니다 `X,Y,Z` .이 중 하나 이상이 잘못 되었습니다. | [아래](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) 자세히 보기 |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>경고: 기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
-다운스트림 기술에 대 한 선택적 `languageCode` 입력으로 전달 된 값 중 하나 이상이 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
+다운스트림 기술에 대 한 선택적 입력으로 전달 된 값 중 하나 이상이 `languageCode` 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
 
-데이터 집합이 모두 한 언어로 표시 되는 경우 해당 기술에 대 한 언어가 지원 되 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 는 것으로 `languageCode` 가정 하면 LanguageDetectionSkill 및 기술 `defaultLanguageCode` 입력을 제거 하 고 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
+데이터 집합이 모두 한 언어로 표시 되는 경우 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
 
-데이터 집합에 여러 언어가 포함 되어 있으므로 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 및 입력이 필요 하다 고 `languageCode` 생각 되 면 텍스트를 다운스트림 기술로 전달 하기 전에 지원 되지 않는 언어를 사용 하 여 텍스트를 필터링 하는 [ConditionalSkill](cognitive-search-skill-conditional.md) 를 추가 하는 것이 좋습니다.  EntityRecognitionSkill에 대 한 예는 다음과 같습니다.
+데이터 집합에 여러 언어가 포함 되어 있으므로 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 및 입력이 필요 하다 고 생각 되 면 `languageCode` 텍스트를 다운스트림 기술로 전달 하기 전에 지원 되지 않는 언어를 사용 하 여 텍스트를 필터링 하는 [ConditionalSkill](cognitive-search-skill-conditional.md) 를 추가 하는 것이 좋습니다.  EntityRecognitionSkill에 대 한 예는 다음과 같습니다.
 
 ```json
 {
@@ -259,7 +264,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 ## <a name="warning-skill-input-was-truncated"></a>경고: 기술 입력이 잘렸습니다.
 인식 기술은 한 번에 분석할 수 있는 텍스트의 길이에 제한이 있습니다. 이러한 기술에 대 한 텍스트 입력이 해당 한도를 초과 하는 경우이 한도에 맞게 텍스트를 자르고 잘린 텍스트에 대해 보강를 수행 합니다. 즉, 기술이 실행 되지만 일부 데이터에 대해서는 실행 되지 않습니다.
 
-아래 예제 LanguageDetectionSkill에서 입력 필드는 `'text'` 문자 제한을 초과 하는 경우이 경고를 트리거할 수 있습니다. 기술 [문서](cognitive-search-predefined-skills.md)에서 기술 입력 한도를 찾을 수 있습니다.
+아래 예제 LanguageDetectionSkill에서 `'text'` 입력 필드는 문자 제한을 초과 하는 경우이 경고를 트리거할 수 있습니다. 기술 [문서](cognitive-search-predefined-skills.md)에서 기술 입력 한도를 찾을 수 있습니다.
 
 ```json
  {
@@ -289,9 +294,9 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 인덱싱하는 동안 증분 진행률은 인덱서 실행이 일시적 오류 또는 실행 시간 제한에 의해 중단되었는지를 확인합니다. 인덱서는 처음부터 전체 컬렉션을 다시 인덱스하는 대신 다음으로 실행할 위치를 선택할 수 있습니다. 대규모 컬렉션을 인덱싱할 때 특히 유용합니다.
 
-완료 되지 않은 인덱싱 작업을 다시 시작 하는 기능은 `_ts` 열을 기준으로 문서를 정렬 하는 경우에 대해 설명 합니다. 인덱서는 타임 스탬프를 사용 하 여 다음에 선택할 문서를 결정 합니다. `_ts` 열이 없거나 인덱서가 사용자 지정 쿼리를 정렬 하는지 확인할 수 없는 경우 인덱서는 시작 시 시작 되 고이 경고가 표시 됩니다.
+완료 되지 않은 인덱싱 작업을 다시 시작 하는 기능은 열을 기준으로 문서를 정렬 하는 경우에 대해 설명 `_ts` 합니다. 인덱서는 타임 스탬프를 사용 하 여 다음에 선택할 문서를 결정 합니다. 열이 `_ts` 없거나 인덱서가 사용자 지정 쿼리를 정렬 하는지 확인할 수 없는 경우 인덱서는 시작 시 시작 되 고이 경고가 표시 됩니다.
 
-이 동작을 재정의 하 여 증분 진행률을 활성화 하 고 `assumeOrderByHighWatermarkColumn` 구성 속성을 사용 하 여이 경고를 표시 하지 않을 수 있습니다.
+이 동작을 재정의 하 여 증분 진행률을 활성화 하 고 구성 속성을 사용 하 여이 경고를 표시 하지 않을 수 있습니다 `assumeOrderByHighWatermarkColumn` .
 
 자세한 내용은 [증분 진행률 및 사용자 지정 쿼리](search-howto-index-cosmosdb.md#IncrementalProgress)를 참조 하세요.
 
@@ -311,7 +316,12 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>경고: ' X ' 출력 필드를 검색 인덱스에 매핑할 수 없습니다.
-존재 하지 않는/null 데이터를 참조 하는 출력 필드 매핑은 각 문서에 대 한 경고를 생성 하 고 빈 인덱스 필드를 생성 합니다. 이 문제를 해결 하려면 출력 필드 매핑 소스 경로에서 가능한 오타를 두 번 확인 하거나 [조건부 기술을](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist)사용 하 여 기본값을 설정 합니다.
+존재 하지 않는/null 데이터를 참조 하는 출력 필드 매핑은 각 문서에 대 한 경고를 생성 하 고 빈 인덱스 필드를 생성 합니다. 이 문제를 해결 하려면 출력 필드 매핑 소스 경로에서 가능한 오타를 두 번 확인 하거나 [조건부 기술을](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist)사용 하 여 기본값을 설정 합니다. 자세한 내용은 [출력 필드 매핑](cognitive-search-output-field-mapping.md) 을 참조 하세요.
+
+| 이유 | 세부 정보/예제 | 해결 방법 |
+| --- | --- | --- |
+| 배열이 아닌 경우 반복할 수 없습니다. | "배열이 아닌 경우에는 반복할 수 없습니다 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ." | 이 오류는 출력이 배열이 아닌 경우에 발생 합니다. 출력이 배열 이어야 한다고 생각 되 면 표시 된 출력 원본 필드 경로에서 오류를 확인 합니다. 예를 들어 `*` 원본 필드 이름에 누락 또는 추가가 있을 수 있습니다. 이 기술에 대 한 입력이 null 이어서 빈 배열이 생성 될 수도 있습니다. [기술 입력](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) 에서 비슷한 세부 정보를 찾습니다.    |
+| 배열이 아닌를 선택할 수 없습니다. `0` | " `0` 비 배열에서 선택할 수 없습니다 `/document/pages` ." | 이는 기술 출력이 배열을 생성 하지 않고 출력 소스 필드 이름이 배열 인덱스 또는 해당 경로에 있는 경우에 발생할 수 있습니다 `*` . 출력 원본 필드 이름에 제공 된 경로와 표시 된 필드 이름에 대 한 필드 값을 다시 확인 하십시오. [기술 입력](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) 에서 비슷한 세부 정보를 찾습니다.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 
@@ -324,7 +334,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 [인덱서 구문 분석 모드](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) 는 텍스트를 구문 분석 하기 전에 인코딩하는 방법을 알고 있어야 합니다. 텍스트를 인코딩하는 가장 일반적인 두 가지 방법은 u t f-16과 u t f-8입니다. U t f-8은 각 문자의 길이가 1 바이트에서 4 바이트 사이에 있는 가변 길이 인코딩입니다. U t f-16은 고정 길이 인코딩입니다. 각 문자는 2 바이트 길이입니다. U t f-16에는 "big endian" 및 "little endian"의 두 가지 변형이 있습니다. 텍스트 인코딩은 텍스트 앞의 바이트 시리즈 인 "바이트 순서 표시"에 의해 결정 됩니다.
 
-| 인코딩 | 바이트 순서 표시 |
+| Encoding | 바이트 순서 표시 |
 | --- | --- |
 | UTF-16 Big Endian | 0xFE 0xFF |
 | UTF-16 작은 Endian | 0xFF 0xFE |

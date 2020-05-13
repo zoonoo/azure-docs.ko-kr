@@ -1,20 +1,20 @@
 ---
 title: Azure Maps를 사용 하 여 맵 만들기 Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 웹 페이지에서 지도를 렌더링 하는 방법을 알아봅니다.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c85d6078fce7fc8e5a5b5d8485517a8b262044a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97eb1ebb61e5ff78ed918fded8107f5775b533c2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802334"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124026"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -22,12 +22,12 @@ ms.locfileid: "80802334"
 
 ## <a name="loading-a-map"></a>지도 로드
 
-지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 DIV 요소 ID를 전달 하 여 맵을 렌더링 하 고 지도를 로드할 때 사용할 옵션 집합을 전달 합니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 `load` 이벤트를 맵에 연결한 다음 맵과 상호 작용 하는 추가 코드를 이벤트 처리기에 추가 합니다. 이 `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. 이 `load` 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
+지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 DIV 요소 ID를 전달 하 여 맵을 렌더링 하 고 지도를 로드할 때 사용할 옵션 집합을 전달 합니다. 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 `atlas` 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 따라서 맵 인스턴스를 만든 후에 `ready` 또는 이벤트를 맵에 연결한 `load` 다음 맵과 상호 작용 하는 추가 코드를 이벤트 처리기에 추가 합니다. `ready`이 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load`이 이벤트는 초기 지도 보기의 로드가 완전히 완료 된 후에 발생 합니다. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="기본 지도 부하" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 펜 <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>기본 지도 로드</a> 를 참조 하세요.
+CodePen의 Azure Maps ()에서 펜 <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>기본 지도 로드</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -35,12 +35,12 @@ ms.locfileid: "80802334"
 
 ## <a name="show-a-single-copy-of-the-world"></a>전 세계의 단일 복사본 표시
 
-넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 옵션은 일부 시나리오에는 유용 하지만 다른 응용 프로그램의 경우에는 전 세계의 단일 복사본을 확인 하는 것이 좋습니다. 이 동작은 maps `renderWorldCopies` 옵션을로 `false`설정 하 여 구현 합니다.
+넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 옵션은 일부 시나리오에는 유용 하지만 다른 응용 프로그램의 경우에는 전 세계의 단일 복사본을 확인 하는 것이 좋습니다. 이 동작은 maps `renderWorldCopies` 옵션을로 설정 하 여 구현 `false` 합니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> 를 참조 하세요.
+CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -53,17 +53,17 @@ ms.locfileid: "80802334"
 - [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) 를 사용 하 여 지도를 지정 하 고 렌더링 해야 합니다.
 - [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) 는 사용자가 지도와 상호 작용할 때 map에 도달 하는 방법을 지정 하는 데 사용 됩니다. 
 
-`setCamera`,, 및 `setUserInteraction` 함수를 사용 하 여 맵을 로드 한 후에도 이러한 옵션 `setStyle`을 `setServiceOptions`업데이트할 수 있습니다. 
+`setCamera`,, `setServiceOptions` `setStyle` 및 함수를 사용 하 여 맵을 로드 한 후에도 이러한 옵션을 업데이트할 수 있습니다 `setUserInteraction` . 
 
 ## <a name="controlling-the-map-camera"></a>지도 카메라 제어
 
-지도의 카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 카메라 옵션을 설정할 수 있습니다. 또는 맵이 로드 된 후 언제 `setCamera` 든 지 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
+지도의 카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 카메라 옵션을 설정할 수 있습니다. 또는 맵이 `setCamera` 로드 된 후 언제 든 지 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
 
 <a id="setCameraOptions"></a>
 
 ### <a name="set-the-camera"></a>카메라 설정
 
-지도 카메라는 지도 캔버스의 뷰포트에 표시 되는 항목을 제어 합니다. 카메라 옵션은 초기화 되거나 맵 `setCamera` 함수에 전달 될 때 맵 옵션으로 전달 될 수 있습니다.
+지도 카메라는 지도 캔버스의 뷰포트에 표시 되는 항목을 제어 합니다. 카메라 옵션은 초기화 되거나 맵 함수에 전달 될 때 맵 옵션으로 전달 될 수 있습니다 `setCamera` .
 
 ```javascript
 //Set the camera options when creating the map.
@@ -101,7 +101,7 @@ map.setCamera({
 });
 ```
 
-다음 코드에서 [Map 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 는을 통해 `new atlas.Map()`생성 됩니다. `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
+다음 코드에서 [Map 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 는을 통해 생성 됩니다 `new atlas.Map()` . `CameraBoundsOptions`와 같은 맵 속성은 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) 함수를 통해 정의될 수 있습니다. 경계 및 안쪽 여백 속성은 `setCamera`를 사용하여 설정됩니다.
 
 <br/>
 
@@ -121,7 +121,7 @@ map.setCamera({
 });
 ```
 
-다음 코드에서 첫 번째 코드 블록은 지도를 만들고 입력 및 확대/축소 맵 스타일을 설정 합니다. 두 번째 코드 블록에서 애니메이션 효과에 대 한 click 이벤트 처리기가 만들어집니다. 이 단추를 클릭 하면 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) 및 `setCamera` [애니메이션 옵션](/javascript/api/azure-maps-control/atlas.animationoptions)에 대 한 임의 값을 사용 하 여 함수가 호출 됩니다.
+다음 코드에서 첫 번째 코드 블록은 지도를 만들고 입력 및 확대/축소 맵 스타일을 설정 합니다. 두 번째 코드 블록에서 애니메이션 효과에 대 한 click 이벤트 처리기가 만들어집니다. 이 단추를 클릭 하면 `setCamera` [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) 및 [애니메이션 옵션](/javascript/api/azure-maps-control/atlas.animationoptions)에 대 한 임의 값을 사용 하 여 함수가 호출 됩니다.
 
 <br/>
 
@@ -139,7 +139,7 @@ map.setCamera({
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [매핑할](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [맵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)

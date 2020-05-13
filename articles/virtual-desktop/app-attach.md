@@ -5,21 +5,21 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612472"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121068"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
 > [!IMPORTANT]
 > MSIX 앱 연결은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 항목에서는 Windows 가상 데스크톱 환경에서 MSIX 앱 연결을 설정 하는 방법을 안내 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82612472"
      >[!NOTE]
      >Windows Insider portal에 액세스 하려면 Windows Insider program의 구성원 이어야 합니다. Windows 참가자 프로그램에 대해 자세히 알아보려면 [Windows 참가자 설명서](/windows-insider/at-home/)를 확인 하세요.
 
-2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build 19035** 이상을 선택 합니다.
+2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build 19041** 이상을 선택 합니다.
 
 3. **확인**을 선택 하 고 사용 하려는 언어를 선택한 후에 다시 **확인** 을 선택 합니다.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+자동 업데이트를 사용 하지 않도록 설정한 후에는 야구장 명령을 사용 하 여 VHD를 준비 하 고 디 스테이지를 분리 하는 데 사용할 수 있으므로 Hyper-v를 사용 하도록 설정 해야 합니다. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>이렇게 변경 하려면 가상 컴퓨터를 다시 시작 해야 합니다.
 
 그런 다음 Azure에 대 한 VM VHD를 준비 하 고 결과 VHD 디스크를 Azure에 업로드 합니다. 자세히 알아보려면 [마스터 VHD 이미지 준비 및 사용자 지정](set-up-customize-master-image.md)을 참조 하세요.
 
@@ -207,11 +215,11 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
 4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **$packageName** 변수를 업데이트 합니다.
 
-    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
+    정의합니다(예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`).
 
 5.  명령 프롬프트를 열고 **mountvol**을 입력 합니다. 이 명령은 볼륨과 해당 Guid의 목록을 표시 합니다. 2 단계에서 드라이브 문자가 VHD를 탑재 한 드라이브와 일치 하는 볼륨의 GUID를 복사 합니다.
 
-    예를 들어, mountvol 명령에 대 한이 예제 출력에서 VHD를 C 드라이브에 탑재 한 경우 위의 `C:\`값을 복사 합니다.
+    예를 들어, mountvol 명령에 대 한이 예제 출력에서 VHD를 C 드라이브에 탑재 한 경우 위의 값을 복사 합니다 `C:\` .
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

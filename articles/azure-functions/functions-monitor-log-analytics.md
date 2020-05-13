@@ -3,14 +3,14 @@ title: Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
 description: Azure Functions에서 Azure Monitor 로그를 사용 하 여 함수 실행을 모니터링 하는 방법에 대해 알아봅니다.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649877"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121645"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
 
@@ -25,17 +25,23 @@ Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/a
 
 ## <a name="setting-up"></a>설치
 
-**모니터링** 섹션에서 **진단 설정** 을 선택 하 고 진단 설정 **추가**를 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱 **모니터링** 섹션에서 **진단 설정**을 선택한 다음 **진단 설정 추가**를 선택 합니다.
 
-![진단 설정 추가](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="진단 설정 선택":::
 
-**진단 설정** 페이지에서 **Log Analytics 보내기**를 선택 하 고 Log Analytics 작업 영역을 선택 합니다. **로그** 아래에서 **FunctionAppLogs**를 선택 합니다 .이 테이블에는 원하는 로그가 포함 됩니다.
+1. **진단 설정** 페이지의 **범주 세부 정보** 및 **로그**에서 **FunctionAppLogs**를 선택 합니다.
 
-![진단 설정 추가](media/functions-monitor-log-analytics/choose-table.png)
+   **FunctionAppLogs** 테이블은 원하는 로그를 포함 합니다.
+
+1. **대상 세부 정보**에서 **Log Analytics 보내기를**선택 하 고 **Log Analytics 작업 영역**을 선택 합니다. 
+
+1. **진단 설정 이름을**입력 하 고 **저장**을 선택 합니다.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="진단 설정 추가":::
 
 ## <a name="user-generated-logs"></a>사용자 생성 로그
 
-사용자 지정 로그를 생성 하려면 해당 언어에 따라 특정 로깅 문을 사용할 수 있습니다. 샘플 코드 조각은 다음과 같습니다.
+사용자 지정 로그를 생성 하려면 해당 언어와 관련 된 로깅 문을 사용 합니다. 샘플 코드 조각은 다음과 같습니다.
 
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>로그 쿼리
 
-생성 된 로그를 쿼리하려면 함수 로그를 보내도록 구성 된 Log Analytics 작업 영역으로 이동한 후 **로그**를 클릭 합니다.
+생성 된 로그를 쿼리하려면:
+ 
+1. 함수 앱에서 **진단 설정**을 선택 합니다. 
 
-![LA 작업 영역의 쿼리 창](media/functions-monitor-log-analytics/querying.png)
+1. **진단 설정** 목록에서 함수 로그를 보내도록 구성 된 Log Analytics 작업 영역을 선택 합니다. 
 
-모든 로그를 **FunctionAppLogs** 테이블에 기록 하는 Azure Functions 다음은 몇 가지 샘플 쿼리입니다.
+1. **Log Analytics 작업 영역** 페이지에서 **로그**를 선택 합니다.
+
+   Azure Functions은 **Logmanagement**의 **FunctionAppLogs** 테이블에 모든 로그를 기록 합니다. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Log Analytics 작업 영역의 쿼리 창":::
+
+다음은 몇 가지 샘플 쿼리입니다.
 
 ### <a name="all-logs"></a>모든 로그
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>특정 함수 로그
+### <a name="specific-function-logs"></a>특정 함수 로그
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Functions 개요](functions-overview.md) 를 검토 합니다.
-- [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 에 대해 자세히 알아보기
+- [Azure Functions 개요](functions-overview.md)를 검토 합니다.
+- [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)에 대해 자세히 알아보세요.
 - [쿼리 언어](../azure-monitor/log-query/get-started-queries.md)에 대해 자세히 알아보기

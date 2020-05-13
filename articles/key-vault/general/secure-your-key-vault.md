@@ -2,20 +2,20 @@
 title: Azure Key Vault에 대한 액세스 보안 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault, 키 및 비밀에 대한 액세스 권한을 관리합니다. Key Vault의 인증 및 권한 부여 모델과 키 자격 증명 모음을 보호하는 방법을 설명합니다.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432022"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121153"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -135,7 +135,7 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 
 프로그래밍 방식으로 인증서, 액세스 키 및 비밀을 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 - [고객 관리 Key Vault에서 VM에 인증서 배포](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)(블로그 게시물) 방법을 알아봅니다.
-- [Azure Key Vault 클라이언트 샘플](https://www.microsoft.com/download/details.aspx?id=45343)을 다운로드 합니다. 이 콘텐츠에서는 부트스트랩 인증서를 사용하여 Key Vault에 액세스하기 위해 Azure AD에서 인증을 받는 방법을 설명합니다.
+- [Azure Key Vault 클라이언트 샘플](https://docs.microsoft.com/samples/browse/?term=Key%20Vault)을 확인 합니다. 이 콘텐츠에서는 부트스트랩 인증서를 사용하여 Key Vault에 액세스하기 위해 Azure AD에서 인증을 받는 방법을 설명합니다.
 
 Azure Portal을 사용하여 대부분의 액세스 권한을 부여할 수 있습니다. 세분화된 권한을 부여하려면 Azure PowerShell 또는 Azure CLI를 사용할 수 있습니다.
 
@@ -219,7 +219,7 @@ DevOps 직원의 경우 Key Vault `deploy/action` 권한에 대한 사용자 지
 
 * [키 액세스 제어](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
 
-* [비밀 액세스 제어](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+* [암호 액세스 제어](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
 
 * PowerShell을 사용하여 Key Vault 액세스 정책 [설정](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) 및 [제거](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy)
 

@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766953"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123856"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics의 데이터 검색 & 분류
 
@@ -113,7 +113,7 @@ SQL information protection에 대 한 정책 관리의 일부로 사용자 지�
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>중요 한 데이터에 대 한 액세스 감사
 
-정보 보호 패러다임의 중요 한 측면은 중요 한 데이터에 대 한 액세스를 모니터링 하는 기능입니다. [Azure SQL Database](sql-database-auditing.md) 감사는 이라는 `data_sensitivity_information`감사 로그에 새 필드를 포함 하도록 향상 되었습니다. 이 필드는 쿼리에 의해 반환 된 데이터의 민감도 분류 (레이블)를 기록 합니다. 아래 예를 살펴보세요.
+정보 보호 패러다임의 중요 한 측면은 중요 한 데이터에 대 한 액세스를 모니터링 하는 기능입니다. [Azure SQL Database](sql-database-auditing.md) 감사는 이라는 감사 로그에 새 필드를 포함 하도록 향상 되었습니다 `data_sensitivity_information` . 이 필드는 쿼리에 의해 반환 된 데이터의 민감도 분류 (레이블)를 기록 합니다. 예를 들면 다음과 같습니다.
 
 ![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -152,18 +152,6 @@ T-sql을 사용 하 여 열 분류를 추가 또는 제거 하 고 전체 데이
 - 하나 이상의 열에서 분류를 제거 하려면: [DROP 민감도 분류](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 데이터베이스의 모든 분류를 보려면: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Rest API 사용
-
-REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으로 관리할 수 있습니다. 게시 된 REST API는 다음과 같은 작업을 지원 합니다.
-
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): 지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.
-- [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): 지정 된 열의 민감도 레이블을 삭제 합니다.
-- [권장 하지 않음](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): 지정 된 열에 대 한 민감도 권장 사항을 사용 하지 않도록 설정 합니다.
-- [권장 구성 사용](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): 지정 된 열에서 민감도 권장 사항을 사용 하도록 설정 합니다. 권장 사항은 모든 열에 대해 기본적으로 사용 하도록 설정 되어 있습니다.
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): 지정 된 열의 민감도 레이블을 가져옵니다.
-- [데이터베이스당 현재 데이터베이스 나열](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): 지정 된 데이터베이스의 현재 민감도 레이블을 가져옵니다.
-- [데이터베이스에서 권장 하는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): 지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
-
 ### <a name="use-powershell-cmdlets"></a>PowerShell cmdlet 사용
 PowerShell을 사용 하 여 Azure SQL Database 및 관리 되는 인스턴스의 분류와 권장 사항을 관리할 수 있습니다.
 
@@ -185,6 +173,17 @@ PowerShell을 사용 하 여 Azure SQL Database 및 관리 되는 인스턴스�
 - [AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Rest API 사용
+
+REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으로 관리할 수 있습니다. 게시 된 REST API는 다음과 같은 작업을 지원 합니다.
+
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): 지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.
+- [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): 지정 된 열의 민감도 레이블을 삭제 합니다.
+- [권장 하지 않음](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): 지정 된 열에 대 한 민감도 권장 사항을 사용 하지 않도록 설정 합니다.
+- [권장 구성 사용](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): 지정 된 열에서 민감도 권장 사항을 사용 하도록 설정 합니다. 권장 사항은 모든 열에 대해 기본적으로 사용 하도록 설정 되어 있습니다.
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): 지정 된 열의 민감도 레이블을 가져옵니다.
+- [데이터베이스당 현재 데이터베이스 나열](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): 지정 된 데이터베이스의 현재 민감도 레이블을 가져옵니다.
+- [데이터베이스에서 권장 하는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): 지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>다음 단계
 
