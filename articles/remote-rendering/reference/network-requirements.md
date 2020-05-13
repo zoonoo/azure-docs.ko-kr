@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617884"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196536"
 ---
 # <a name="network-requirements"></a>네트워크 요구 사항
 
@@ -20,7 +20,7 @@ Azure 데이터 센터에 대 한 안정적이 고 대기 시간이 짧은 네�
 
 정확한 네트워크 요구 사항은 특정 사용 사례 (예: 원격 장면 그래프의 수정 수, 빈도 및 렌더링 된 보기의 복잡성)에 따라 달라 지지만 환경을 최대한 활용 하기 위한 여러 가지 지침이 있습니다.
 
-* 네트워크에 경쟁 하는 트래픽이 없는 경우 Azure 원격 렌더링의 단일 사용자 세션에 대해 **50 Mbps 다운스트림** 및 **10mbps 업스트림** 이상을 일관 되 게 지원 해야 합니다. 환경을 개선 하기 위해 더 높은 요금을 권장 합니다. 동일한 네트워크에서 더 많은 사용자를 사용 하면 이러한 요구 사항이 확장 됩니다.
+* 네트워크에 경쟁 하는 트래픽이 없는 것으로 가정 하 여 Azure 원격 렌더링의 단일 사용자 세션에 대해 최소 **40 mbps** 및 **5 mbps** 의 인터넷 연결을 지원 해야 합니다. 환경을 개선 하기 위해 더 높은 요금을 권장 합니다. 동일한 네트워크에서 더 많은 사용자를 사용 하면 이러한 요구 사항이 확장 됩니다.
 * **5 Ghz wi-fi 대역** 을 사용 하면 일반적으로 2.4 ghz wi-fi 대역 보다 더 나은 결과를 얻을 수 있지만 둘 다 작동 해야 합니다.
 * 가까운 다른 Wi-fi 네트워크가 있는 경우 이러한 다른 네트워크에서 사용 하는 Wi-fi 채널을 사용 하지 마십시오. [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) 와 같은 네트워크 검색 도구를 사용 하 여 wi-fi 네트워크에서 사용 하는 채널이 경쟁 하는 트래픽을 사용 하는지 확인할 수 있습니다.
 * **Wi-fi 반복기** 또는 LAN-powerline 전달 사용을 엄격히 방지 합니다.

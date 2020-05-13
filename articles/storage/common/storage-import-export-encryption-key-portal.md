@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871167"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195248"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Import/Export 서비스에 대 한 Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -23,7 +23,7 @@ Azure Import/Export는 암호화 키를 통해 드라이브를 잠그는 데 사
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)의 가져오기/내보내기 서비스에서 고객 관리 키를 사용 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -97,11 +97,12 @@ Azure Import/Export는 암호화 키를 통해 드라이브를 잠그는 데 사
 
 고객 관리 키와 관련 된 오류가 표시 되 면 다음 표를 사용 하 여 문제를 해결 하십시오.
 
-| 오류 코드     |설명     | 복구 가능한?    |
+| 오류 코드     |세부 정보     | 복구 가능한?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked 됨 | 고객 관리 키를 적용 했지만 키 액세스가 현재 취소 되어 있습니다. 자세한 내용은 [키 액세스를 사용 하도록 설정](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)하는 방법을 참조 하세요.                                                      | 예, 다음을 확인 합니다. <ol><li>키 자격 증명 모음에는 여전히 액세스 정책에 MSI가 있습니다.</li><li>액세스 정책은 가져오기, 래핑, 래핑 해제에 대 한 권한을 제공 합니다.</li><li>키 자격 증명 모음이 방화벽 뒤에 있는 vNet에 있는 경우 **Microsoft 신뢰할 수 있는 서비스 허용** 이 사용 하도록 설정 되어 있는지 확인 합니다.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | 고객 관리 키를 적용 했지만 키를 사용할 수 없습니다. 자세한 내용은 [키를 사용 하도록 설정](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)하는 방법을 참조 하세요.                                                                             | 예, 키 버전을 사용 하도록 설정 합니다.     |
-| CmkErrorKeyNotFound      | 고객 관리 키를 적용 하 고 키와 연결 된 key vault를 찾을 수 없습니다.<br>Key vault를 삭제 한 경우에는 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)을 참조 하세요. |   키 자격 증명 모음을 삭제 한 경우:<ol><li>예 (제거 보호 기간이 면 [키 자격 증명 모음 복구](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계를 사용 합니다.</li><li>아니요 (제거 보호 기간을 초과 하는 경우).</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테 넌 트로 다시 되돌립니다.</li><li>을 `Identity = None` 설정 하 고 값을 다시로 `Identity = SystemAssigned`설정 합니다. 새 id를 만든 후 id를 삭제 하 고 다시 만듭니다. 키 `Get`자격 `Wrap`증명 모음 `Unwrap` 액세스 정책에서, 및 사용 권한을 새 id로 사용 하도록 설정 합니다.</li></ol>|
+| CmkErrorAccessRevoked 됨 | 고객 관리 키에 대 한 액세스가 해지 됩니다.                                                       | 예, 다음을 확인 합니다. <ol><li>키 자격 증명 모음에는 여전히 액세스 정책에 MSI가 있습니다.</li><li>액세스 정책에서 가져오기, 래핑 및 래핑 해제 권한이 설정 되었습니다.</li><li>키 자격 증명 모음이 방화벽 뒤에 있는 VNet에 있는 경우 **Microsoft 신뢰할 수 있는 서비스 허용** 이 사용 하도록 설정 되어 있는지 확인 합니다.</li><li>작업 리소스의 MSI가 Api를 사용 하 여 다시 설정 되었는지 확인 `None` 합니다.<br>그렇다면 값을 다시로 설정 `Identity = SystemAssigned` 합니다. 작업 리소스에 대 한 id를 다시 만듭니다.<br>새 id를 만든 후에는 `Get` `Wrap` `Unwrap` 키 자격 증명 모음의 액세스 정책에서 새 id에 대해, 및 사용 권한을 사용 하도록 설정 합니다.</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | 고객 관리 키를 사용할 수 없습니다.                                         | 예, 키 버전을 사용 하도록 설정 합니다.     |
+| CmkErrorKeyNotFound      | 고객 관리 키를 찾을 수 없습니다. | 예, 키가 삭제 되었지만 아직 제거 기간 내에 있는 경우 [key vault 키 제거 실행 취소](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval)를 사용 합니다.<br>사람이 <ol><li>예, 고객이 키를 백업 하 고 복원 합니다.</li><li>아니요, 그렇지 않으면입니다.</li></ol>
+| CmkErrorVaultNotFound |고객 관리 키의 키 자격 증명 모음을 찾을 수 없습니다. |   키 자격 증명 모음이 삭제 된 경우:<ol><li>예 (제거 보호 기간이 면 [키 자격 증명 모음 복구](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계를 사용 합니다.</li><li>아니요 (제거 보호 기간을 초과 하는 경우).</li></ol><br>다른 테 넌 트로 마이그레이션된 키 자격 증명 모음을 사용 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다.<ol><li>키 자격 증명 모음을 이전 테 넌 트로 다시 되돌립니다.</li><li>을 설정 `Identity = None` 하 고 값을 다시로 설정 `Identity = SystemAssigned` 합니다. 새 id를 만든 후 id를 삭제 하 고 다시 만듭니다. `Get` `Wrap` `Unwrap` 키 자격 증명 모음 액세스 정책에서, 및 사용 권한을 새 id로 사용 하도록 설정 합니다.</li></ol>|
 
 ## <a name="next-steps"></a>다음 단계
 

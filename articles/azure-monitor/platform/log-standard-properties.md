@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274477"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196229"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
+
+> [!IMPORTANT]
+> APM 2.1를 사용 하는 경우 Application Insights 응용 프로그램은 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 됩니다. 테이블의 이름이 바뀌고 재구성 Application Insights 응용 프로그램의 테이블과 동일한 정보가 있습니다. 이러한 새 테이블은 Log Analytics 작업 영역에 있는 다른 테이블과 동일한 표준 속성을 가집니다.
 
 > [!NOTE]
 > 일부 표준 속성은 Log Analytics의 스키마 뷰나 intellisense에 표시 되지 않으며, 출력에서 속성을 명시적으로 지정 하지 않는 한 쿼리 결과에 표시 되지 않습니다.
@@ -46,7 +49,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-** \_TimeReceived** 속성은 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간을 포함 합니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들어 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.
+** \_ TimeReceived** 속성은 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간을 포함 합니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들어 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.
 
 다음 쿼리는 에이전트의 이벤트 레코드에 대 한 시간당 평균 대기 시간을 제공 합니다. 여기에는 에이전트에서 클라우드로의 시간 및 로그 쿼리에 사용할 수 있는 레코드의 총 시간이 포함 됩니다.
 
@@ -60,7 +63,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>유형 및 itemType
-**유형** (Log Analytics 작업 영역) 및 **itemType** (Application Insights 응용 프로그램) 속성은 레코드가 검색 된 테이블의 이름을 포함 하 여 레코드 형식으로 간주할 수도 있습니다. 이 속성은 `search` 연산자를 사용하여 여러 유형의 레코드를 구분하는 쿼리처럼 여러 테이블의 레코드를 결합하는 쿼리에 유용합니다. 경우에 따라 **Type** 대신 **$table**을 사용할 수도 있습니다.
+**유형** (Log Analytics 작업 영역) 및 **itemType** (Application Insights 응용 프로그램) 속성은 레코드가 검색 된 테이블의 이름을 포함 하 여 레코드 형식으로 간주할 수도 있습니다. 이 속성은 연산자를 사용 하는 레코드와 같이 여러 테이블의 레코드를 결합 하 여 여러 형식의 레코드를 구분 하는 쿼리에 유용 `search` 합니다. 경우에 따라 **Type** 대신 **$table**을 사용할 수도 있습니다.
 
 ### <a name="examples"></a>예
 다음 쿼리는 지난 시간 동안 수집된 레코드 수를 유형별로 반환합니다.
@@ -72,11 +75,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-ItemId 속성에는 레코드에 대 한 고유 식별자가 포함 됩니다. ** \_**
+** \_ ItemId** 속성에는 레코드에 대 한 고유 식별자가 포함 됩니다.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-** \_ResourceId** 속성은 레코드가 연결 된 리소스의 고유 식별자를 포함 합니다. 쿼리 범위를 특정 리소스의 레코드로만 제한하거나 여러 테이블의 관련 데이터를 조인하는 데 사용할 표준 속성을 제공합니다.
+** \_ ResourceId** 속성은 레코드가 연결 된 리소스의 고유 식별자를 포함 합니다. 쿼리 범위를 특정 리소스의 레코드로만 제한하거나 여러 테이블의 관련 데이터를 조인하는 데 사용할 표준 속성을 제공합니다.
 
 Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)입니다. 이 속성은 현재 Azure 리소스로 제한되지만 온-프레미스 컴퓨터와 같은 Azure 외부 리소스로 확장될 예정입니다.
 
@@ -122,7 +125,7 @@ union withsource = tt *
 여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다.
 
 ## <a name="_isbillable"></a>\_IsBillable
-** \_Isbillable** 가능 속성은 수집 데이터에 대 한 청구 가능 여부를 지정 합니다. ** \_Isbillable** 가능 조건이 _false_ 인 데이터는 무료로 수집 되며 Azure 계정에 청구 되지 않습니다.
+** \_ Isbillable** 가능 속성은 수집 데이터에 대 한 청구 가능 여부를 지정 합니다. ** \_ Isbillable** 가능이 포함 된 데이터 `false` 는 무료로 수집 되며 Azure 계정에 청구 되지 않습니다.
 
 ### <a name="examples"></a>예
 비용이 청구되는 데이터 형식을 전송하는 컴퓨터 목록을 가져오려면 다음 쿼리를 사용합니다.
@@ -149,7 +152,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-** \_BilledSize** 속성은 ** \_isbillable** 가능 true 인 경우 Azure 계정에 청구 되는 데이터의 크기 (바이트)를 지정 합니다.
+** \_ BilledSize** 속성은 ** \_ isbillable** 가능 true 인 경우 Azure 계정에 청구 되는 데이터의 크기 (바이트)를 지정 합니다.
 
 
 ### <a name="examples"></a>예

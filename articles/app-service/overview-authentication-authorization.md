@@ -5,15 +5,13 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 04/15/2020
 ms.reviewer: mahender
-ms.custom:
-- seodec18
-- fasttrack-edit
-ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457861"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196444"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -52,7 +50,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 모든 언어 프레임 워크에 대해 App Service는 들어오는 토큰의 클레임 (인증 된 최종 사용자 또는 클라이언트 응용 프로그램에서 온 것이 든 관계 없이)을 요청 헤더에 삽입 하 여 코드에서 사용할 수 있도록 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서블릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
 
-[Azure Functions](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` .net 코드에 대해 채워지지 않지만 요청 헤더에서 사용자 클레임을 찾거나 요청 컨텍스트에서 또는 바인딩 매개 변수를 통해 개체를 `ClaimsPrincipal` 가져올 수 있습니다. 자세한 내용은 [클라이언트 id 작업](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) 을 참조 하세요.
+[Azure Functions](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` .net 코드에 대해 채워지지 않지만 요청 헤더에서 사용자 클레임을 찾거나 `ClaimsPrincipal` 요청 컨텍스트에서 또는 바인딩 매개 변수를 통해 개체를 가져올 수 있습니다. 자세한 내용은 [클라이언트 id 작업](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) 을 참조 하세요.
 
 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
 
@@ -103,7 +101,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | 단계 | SDK 공급자가 없는 경우 | SDK 공급자가 있는 경우 |
 | - | - | - |
 | 1. 사용자 로그인 | 클라이언트를 `/.auth/login/<provider>`로 리디렉션합니다. | 클라이언트 코드는 공급자의 SDK를 사용하여 사용자를 직접 로그인시키고 인증 토큰을 받습니다. 자세한 내용은 공급자 설명서를 참조하세요. |
-| 2. 인증 후 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 검사를 위해 `/.auth/login/<provider>` [공급자에서로 토큰을 게시](app-service-authentication-how-to.md#validate-tokens-from-providers) 합니다. |
+| 2. 인증 후 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 검사를 위해 [공급자에서로 토큰을 게시](app-service-authentication-how-to.md#validate-tokens-from-providers) `/.auth/login/<provider>` 합니다. |
 | 3. 인증 된 세션 설정 | App Service는 인증된 쿠키를 응답에 추가합니다. | App Service는 자체 인증 토큰을 클라이언트 코드로 반환합니다. |
 | 4. 인증 된 콘텐츠 제공 | 클라이언트는 후속 요청에 인증 쿠키를 포함합니다(브라우저에 의해 자동 처리됨). | 클라이언트 코드는 `X-ZUMO-AUTH` 헤더에 인증 토큰을 제공합니다(Mobile Apps 클라이언트 SDK에 의해 자동 처리됨). |
 
@@ -142,9 +140,9 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)  
 [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)  
-[App Service에서 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)
-
-[Azure AppService EasyAuth (타사)의 .net core 통합](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)[.net core를 사용 하 Azure App Service 인증 가져오기 (타사)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+App Service에서 인증 [및 권한 부여 사용자 지정](app-service-authentication-how-to.md) 
+ [Azure AppService EasyAuth (타사)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
+ 의 .net Core 통합 [.Net Core (타사)를 사용 하 여 Azure App Service 인증 가져오기](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 공급자별 방법 가이드:
 

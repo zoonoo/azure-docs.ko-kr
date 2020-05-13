@@ -4,15 +4,15 @@ description: App Service Environment에서 앱을 만들고, 게시 하 고, 크
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586129"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125811"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -36,7 +36,7 @@ ASE가 없는 경우 [App Service Environment 만들기][MakeExternalASE]의 지
 
 ASE에서 앱을 만들려면
 
-1. **리소스** > 만들기**웹 + 모바일** > **웹 앱**을 선택 합니다.
+1. **리소스 만들기**  >  **웹 + 모바일**  >  **웹 앱**을 선택 합니다.
 
 1. 앱의 이름을 입력합니다. ASE에서 App Service 계획을 이미 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영 됩니다.
 
@@ -54,7 +54,7 @@ ASE에서 앱을 만들려면
 
     b. 구독을 선택합니다.
 
-    다. 리소스 그룹을 선택 하거나 만듭니다.
+    c. 리소스 그룹을 선택 하거나 만듭니다.
 
     d. 웹 앱의 이름을 입력 합니다.
 
@@ -104,14 +104,14 @@ App Service 계획을 확장 하는 경우 작업자를 지원 하기 위해 자
 
 ## <a name="app-access"></a>앱 액세스
 
-외부 ASE에서 앱을 만드는 데 사용 되는 도메인 접미사는 *입니다&lt; . asename&gt;. p.azurewebsites.net*. ASE 이름이 _external ase_ 이 고 해당 ase에서 _contoso_ 라는 앱을 호스트 하는 경우 다음 url에서 해당 앱에 연결 합니다.
+외부 ASE에서 앱을 만드는 데 사용 되는 도메인 접미사는 *입니다. &lt; asename &gt; . p.azurewebsites.net*. ASE 이름이 _external ase_ 이 고 해당 ase에서 _contoso_ 라는 앱을 호스트 하는 경우 다음 url에서 해당 앱에 연결 합니다.
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 외부 ASE를 만드는 방법에 대 한 자세한 내용은 [App Service Environment 만들기][MakeExternalASE]를 참조 하세요.
 
-ILB ASE에서 앱을 만드는 데 사용 되는 도메인 접미사는 *입니다&lt; . asename&gt;. appserviceenvironment.net*. ASE가 _ilb-ase_ 로 명명 되 고 해당 ase에서 _contoso_ 라는 앱을 호스트 하는 경우 다음 url에서 해당 앱에 연결 합니다.
+ILB ASE에서 앱을 만드는 데 사용 되는 도메인 접미사는 *입니다. &lt; asename &gt; . appserviceenvironment.net*. ASE가 _ilb-ase_ 로 명명 되 고 해당 ase에서 _contoso_ 라는 앱을 호스트 하는 경우 다음 url에서 해당 앱에 연결 합니다.
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -122,19 +122,26 @@ SCM URL은 Kudu 콘솔에 액세스 하거나 웹 배포를 사용 하 여 앱�
 
 ### <a name="dns-configuration"></a>DNS 구성 
 
-외부 ASE를 사용 하는 경우 ASE에서 만든 앱이 Azure DNS 등록 됩니다. ILB ASE를 사용 하 여 사용자 고유의 DNS를 관리 해야 합니다. 
+외부 ASE를 사용 하는 경우 ASE에서 만든 앱이 Azure DNS 등록 됩니다. 외부 ASE에는 앱을 공개적으로 사용할 수 있는 추가 단계가 없습니다. ILB ASE를 사용 하 여 사용자 고유의 DNS를 관리 해야 합니다. 사용자의 DNS 서버에서 또는 Azure DNS 개인 영역을 사용 하 여이 작업을 수행할 수 있습니다.
 
-ILB ASE를 사용 하 여 DNS를 구성 하려면:
+ILB ASE를 사용 하 여 자체 DNS 서버에서 DNS를 구성 하려면:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. appserviceenvironment.net에 대 한 영역을 만듭니다 <ASE name> .
+1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. appserviceenvironment.net에서 scm 이라는 영역을 만듭니다 <ASE name> .
+1. scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 
-ASE 기본 도메인 접미사에 대 한 DNS 설정은 해당 이름 으로만 액세스할 수 있도록 앱을 제한 하지 않습니다. ILB ASE의 앱에 대 한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net*이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동 하지만 scm 사이트의 경우에는 작동 하지 않습니다. Scm 사이트는 * &lt;&gt;appname. scm&lt; 에서만 사용할 수 있습니다. asename&gt;. appserviceenvironment.net*. 
+Azure DNS 개인 영역에서 DNS를 구성 하려면:
 
-이라는 영역 *입니다.&lt; appserviceenvironment.net&gt;* 는 전역적으로 고유 합니다. 2019 년 5 월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *contoso.com* 를 사용 하려는 경우이 작업을 수행할 수 있으며 scm 사이트를 포함 합니다. 이 모델에는 다음을 비롯 한 과제가 있습니다. 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드 카드 인증서를 사용 하기 위한 요구 사항 ILB ASE 기본 인증서 업그레이드 프로세스도 중단 되어 응용 프로그램을 다시 시작 했습니다. 이러한 문제를 해결 하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용 하도록 변경 되었습니다. ILB ASE 동작은 2019 년 5 월 이후 ILB Ase 적용 됩니다. 기존 ILB Ase는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리 해야 합니다.
+1. appserviceenvironment.net 라는 Azure DNS 개인 영역을 만듭니다 <ASE name> .
+1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. 해당 영역에서 ILB IP 주소에 * scm을 가리키는 A 레코드를 만듭니다.
+
+ASE 기본 도메인 접미사에 대 한 DNS 설정은 해당 이름 으로만 액세스할 수 있도록 앱을 제한 하지 않습니다. ILB ASE의 앱에 대 한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net*이라는 영역을 만들려는 경우이를 수행 하 고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동 하지만 scm 사이트의 경우에는 작동 하지 않습니다. Scm 사이트는 * &lt; appname &gt; . scm &lt; 에서만 사용할 수 있습니다. asename &gt; . appserviceenvironment.net*. 
+
+이라는 영역 *입니다. &lt; &gt;appserviceenvironment.net* 는 전역적으로 고유 합니다. 2019 년 5 월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *contoso.com* 를 사용 하려는 경우이 작업을 수행할 수 있으며 scm 사이트를 포함 합니다. 이 모델에는 다음을 비롯 한 과제가 있습니다. 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드 카드 인증서를 사용 하기 위한 요구 사항 ILB ASE 기본 인증서 업그레이드 프로세스도 중단 되어 응용 프로그램을 다시 시작 했습니다. 이러한 문제를 해결 하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용 하도록 변경 되었습니다. ILB ASE 동작은 2019 년 5 월 이후 ILB Ase 적용 됩니다. 기존 ILB Ase는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리 해야 합니다.
 
 ## <a name="publishing"></a>게시
 
@@ -152,11 +159,11 @@ ILB ASE를 사용 하 여 게시 끝점은 ILB를 통해서만 사용할 수 있
 
 추가 변경 없이, 게시 끝점은 인터넷에 액세스할 수 없기 때문에 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 ILB ASE와 작동 하지 않습니다. ILB ASE가 포함 된 가상 네트워크에 자체 호스트 된 릴리스 에이전트를 설치 하 여 Azure DevOps에서 ILB ASE에 게시를 사용 하도록 설정할 수 있습니다. 또는 Dropbox와 같은 끌어오기 모델을 사용 하는 CI 시스템을 사용할 수도 있습니다.
 
-ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요** > **필수** 및 **속성**)에서 볼 수 있습니다.
+ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요**  >  **필수** 및 **속성**)에서 볼 수 있습니다.
 
 ## <a name="storage"></a>스토리지
 
-ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 계획은 기본적으로 250 GB로 제한 됩니다. App Service 계획이 5 개 이상 있는 경우 ASE의 1TB 제한을 초과 하지 않도록 주의 해야 합니다. App Service 계획 하나에서 250-GB 이상의 제한이 필요한 경우 지원에 문의 하 여 App Service 요금제 제한을 최대 1TB로 조정 합니다. 계획 제한이 조정 될 때 ASE의 모든 App Service 계획에 대해 1tb의 제한이 있습니다.
+ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
 ## <a name="logging"></a>로깅
 
@@ -164,16 +171,16 @@ ASE를 Azure Monitor와 통합 하 여 ASE에 대 한 로그를 Azure Storage, A
 
 | 적합 | 메시지 |
 |---------|----------|
-| ASE가 비정상입니다. | 잘못 된 가상 네트워크 구성으로 인해 지정 된 ASE가 비정상 상태입니다. 비정상 상태가 지속 되 면 ASE가 일시 중단 됩니다. 여기에 정의 된 지침을 참조 https://docs.microsoft.com/azure/app-service/environment/network-info하세요. |
-| ASE 서브넷의 공간이 거의 부족 합니다. | 지정 된 ASE가 공간을 거의 벗어난 서브넷에 있습니다. {0} 남은 주소가 있습니다. 이러한 주소가 모두 사용 되 면 ASE는 크기를 조정할 수 없습니다.  |
-| ASE가 총 인스턴스 제한에 도달 함 | 지정 된 ASE가 ASE의 총 인스턴스 제한에 도달 했습니다. 현재 최대 201 {0} 인스턴스의 App Service 계획 인스턴스를 포함 합니다. |
-| ASE가 종속성에 도달할 수 없습니다. | 지정 된 ASE에 연결할 {0}수 없습니다.  여기에 정의 된 지침을 참조 https://docs.microsoft.com/azure/app-service/environment/network-info하세요. |
+| ASE가 비정상입니다. | 잘못 된 가상 네트워크 구성으로 인해 지정 된 ASE가 비정상 상태입니다. 비정상 상태가 지속 되 면 ASE가 일시 중단 됩니다. 여기에 정의 된 지침을 참조 하세요 https://docs.microsoft.com/azure/app-service/environment/network-info . |
+| ASE 서브넷의 공간이 거의 부족 합니다. | 지정 된 ASE가 공간을 거의 벗어난 서브넷에 있습니다. {0}남은 주소가 있습니다. 이러한 주소가 모두 사용 되 면 ASE는 크기를 조정할 수 없습니다.  |
+| ASE가 총 인스턴스 제한에 도달 함 | 지정 된 ASE가 ASE의 총 인스턴스 제한에 도달 했습니다. 현재 {0} 최대 201 인스턴스의 App Service 계획 인스턴스를 포함 합니다. |
+| ASE가 종속성에 도달할 수 없습니다. | 지정 된 ASE에 연결할 수 없습니다 {0} .  여기에 정의 된 지침을 참조 하세요 https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | ASE가 일시 중지 되었습니다. | 지정한 ASE가 일시 중지 되었습니다. ASE 일시 중단은 계정 shortfall 또는 잘못 된 가상 네트워크 구성으로 인해 발생할 수 있습니다. 근본 원인을 해결 하 고 ASE를 다시 시작 하 여 트래픽을 계속 처리 합니다. |
 | ASE 업그레이드가 시작 되었습니다. | 지정 된 ASE로의 플랫폼 업그레이드가 시작 되었습니다. 크기 조정 작업에서 지연이 발생 합니다. |
 | ASE 업그레이드가 완료 되었습니다. | 지정 된 ASE로의 플랫폼 업그레이드가 완료 되었습니다. |
-| 크기 조정 작업이 시작 되었습니다. | App Service 계획 ({0})의 확장이 시작 되었습니다. 원하는 상태: {1} I{2} 작업자.
-| 크기 조정 작업이 완료 되었습니다. | App Service 계획 ({0})의 확장이 완료 되었습니다. 현재 상태: {1} I{2} 작업자. |
-| 크기 조정 작업이 실패 했습니다. | App Service 계획 ({0})의 크기를 조정 하지 못했습니다. 현재 상태: {1} I{2} 작업자. |
+| 크기 조정 작업이 시작 되었습니다. | App Service 계획 ( {0} )의 확장이 시작 되었습니다. 원하는 상태: {1} I {2} 작업자.
+| 크기 조정 작업이 완료 되었습니다. | App Service 계획 ( {0} )의 확장이 완료 되었습니다. 현재 상태: {1} I {2} 작업자. |
+| 크기 조정 작업이 실패 했습니다. | App Service 계획 ( {0} )의 크기를 조정 하지 못했습니다. 현재 상태: {1} I {2} 작업자. |
 
 ASE에서 로깅을 사용 하도록 설정 하려면:
 
@@ -200,16 +207,16 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 ## <a name="upgrade-preference"></a>업그레이드 기본 설정
 
-Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference**설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는 https://resources.azure.com를 사용 하 여 구성할 수 있습니다. 가능한 세 가지 값은 다음과 같습니다.
+Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference**설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
 
 - **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값이 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 처음 절반에서 업그레이드 됩니다.
 - **후기**: ASE는 App Service 업그레이드의 후반부에서 업그레이드 됩니다.
 
-를 사용 https://resources.azure.com하는 경우 다음 단계에 따라 **upgradepreferences** 설정 값을 설정 합니다.
+를 사용 하 https://resources.azure.com 는 경우 다음 단계에 따라 **upgradepreferences** 설정 값을 설정 합니다.
 
 1. Resources.azure.com으로 이동 하 여 Azure 계정으로 로그인 합니다.
-1. \/\[구독 구독 이름\]\/resourcegroups\/\[리소스 그룹 이름\]\/공급자\/\/\/hostingEnvironments\[ASE 이름\]으로 리소스를 이동 합니다.
+1. 구독 \/ \[ 구독 이름 \] \/ resourcegroups \/ \[ 리소스 그룹 이름 \] \/ 공급자 \/ \/ hostingEnvironments \/ \[ ASE 이름 \] 으로 리소스를 이동 합니다.
 1. 위쪽에서 **읽기/쓰기** 를 선택 합니다.
 1. **편집**을 선택합니다.
 1. **Upgradepreference** 를 원하는 세 값 중 하나로 설정 합니다.

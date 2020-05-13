@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928281"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195672"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -145,10 +145,10 @@ VNet 간 보안 전송에서는 Vnet가 가상 WAN 허브의 Azure 방화벽을 
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet 간 또는 타사 보안 서비스 (i)
 
-VNet 간 또는 타사 보안 전송에서는 Vnet가 가상 WAN 허브의 Azure 방화벽을 통해 인터넷 또는 지원 되는 타사 보안 서비스에 연결할 수 있습니다.
+VNet 간 인터넷을 통해 Vnet는 가상 WAN 허브의 Azure 방화벽을 통해 인터넷에 연결할 수 있습니다. 지원 되는 타사 보안 서비스를 통해 인터넷으로 전송 되는 트래픽은 Azure 방화벽을 통해 전달 되지 않습니다. Azure 방화벽 관리자를 사용 하 여 지원 되는 타사 보안 서비스를 통해 Vnet 간 경로를 구성할 수 있습니다.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>지점 및 인터넷 간 또는 타사 보안 서비스 (j)
-분기 간 또는 타사 보안 전송에서는 가상 WAN 허브의 Azure 방화벽을 통해 인터넷 또는 지원 되는 타사 보안 서비스에 연결할 수 있습니다.
+지점 및 인터넷을 통해 분기가 가상 WAN 허브의 Azure 방화벽을 통해 인터넷에 연결할 수 있습니다. 지원 되는 타사 보안 서비스를 통해 인터넷으로 전송 되는 트래픽은 Azure 방화벽을 통해 전달 되지 않습니다. Azure 방화벽 관리자를 사용 하 여 지원 되는 타사 보안 서비스를 통해 지점 및 인터넷 간 경로를 구성할 수 있습니다. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>보안 된 가상 허브에서 기본 경로 (0.0.0.0/0)를 사용 하도록 설정 어떻게 할까요?
 

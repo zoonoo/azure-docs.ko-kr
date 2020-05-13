@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309204"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196385"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -31,10 +32,10 @@ ms.locfileid: "81309204"
 
 디렉터리에서 레거시 인증을 차단 하려면 먼저 사용자에 게 레거시 인증을 사용 하는 앱이 있는지, 그리고 전체 디렉터리에 어떻게 영향을 미치는지 이해 해야 합니다. Azure AD 로그인 로그를 사용 하 여 레거시 인증을 사용 하 고 있는지 파악할 수 있습니다.
 
-1.  **Azure Portal** > **Sign-ins** **Azure Active Directory**로그인으로 이동 합니다. >
-1.  **Columns**열  **Client App** > **클라이언트 앱**을 클릭 하 여 표시 되지 않는 경우 클라이언트 앱 열을 추가 합니다.
-1.  **클라이언트 앱**   을 기준으로 필터링> 제공 된 모든 **레거시 인증 클라이언트** 옵션을 확인 합니다.
-1. **상태별** > 로**필터링 합니다.** 
+1.  **Azure Portal**   >  **Azure Active Directory**   >  **로그인**으로 이동 합니다.
+1.  **열**클라이언트 앱을 클릭 하 여 표시 되지 않는 경우 **클라이언트 앱** 열을 추가   >  **Client App**합니다.
+1.  **클라이언트 앱** 을 기준으로 필터링  > 제공 된 모든 **레거시 인증 클라이언트** 옵션을 확인 합니다.
+1. **상태별**로 필터링  >  **Success**합니다. 
 1. **날짜 필터를** 사용 하 여 필요한 경우 날짜 범위를 확장 합니다.
 
 필터링은 선택한 레거시 인증 프로토콜에서 수행한 성공적인 로그인 시도만 표시 합니다. 개별 로그인 시도를 클릭 하면 추가 세부 정보가 표시 됩니다. 데이터의 개별 행을 선택 하 고 나 서 기본 정보 탭의 클라이언트 앱 열 또는 클라이언트 앱 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다. 이러한 로그는 레거시 인증에 종속 된 사용자 및 레거시 프로토콜을 사용 하 여 인증 요청을 수행 하는 응용 프로그램을 표시 합니다. 이러한 로그에 표시 되지 않고 레거시 인증을 사용 하지 않는 사용자의 경우 조건부 액세스 정책을 구현 하거나 기준 정책 사용: 해당 사용자에 대해서만 레거시 인증 차단을 선택 합니다.
@@ -49,8 +50,8 @@ ms.locfileid: "81309204"
 
 최신 인증을 사용 하도록 설정 하는 첫 번째 단계는 디렉터리에서 최신 인증을 지원 하는지 확인 하는 것입니다. 최신 인증은 2017 년 8 월 1 일 이후에 생성 되는 디렉터리에 대해 기본적으로 사용 하도록 설정 됩니다. 이 날짜 이전에 디렉터리가 만들어진 경우 다음 단계를 사용 하 여 디렉터리에 대 한 최신 인증을 수동으로 사용 하도록 설정 해야 합니다.
 
-1.  `Get-CsOAuthConfiguration`  [비즈니스용 Skype Online PowerShell 모듈](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서를 실행 하 여 디렉터리에서 최신 인증을 이미 지원 하는지 확인 합니다.
-1. 명령에서 빈 `OAuthServers` 속성을 반환 하는 경우 최신 인증을 사용할 수 없습니다. 을 사용 하 여 `Set-CsOAuthConfiguration`최신 인증을 사용 하도록 설정을 업데이트 합니다. 속성에 `OAuthServers` 항목이 포함 되어 있으면 이동 하는 것이 좋습니다.
+1.  `Get-CsOAuthConfiguration`    [비즈니스용 Skype Online PowerShell 모듈](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서를 실행 하 여 디렉터리에서 최신 인증을 이미 지원 하는지 확인 합니다.
+1. 명령에서 빈  `OAuthServers`   속성을 반환 하는 경우 최신 인증을 사용할 수 없습니다. 을 사용 하 여 최신 인증을 사용 하도록 설정을 업데이트  `Set-CsOAuthConfiguration` 합니다. 속성에  `OAuthServers`   항목이 포함 되어 있으면 이동 하는 것이 좋습니다.
 
 앞으로 이동 하기 전에이 단계를 완료 해야 합니다. 모든 Office 클라이언트에서 사용할 프로토콜을 결정 하기 때문에 디렉터리 구성이 먼저 변경 되는 것이 중요 합니다. 최신 인증을 지 원하는 Office 클라이언트를 사용 하는 경우에도 디렉터리에서 최신 인증을 사용 하지 않도록 설정 하면 기존 프로토콜을 사용 하는 것이 기본적으로 사용 됩니다.
 
@@ -58,7 +59,7 @@ ms.locfileid: "81309204"
 
 디렉터리에서 최신 인증을 사용 하도록 설정한 후에는 Office 클라이언트에 대 한 최신 인증을 사용 하도록 설정 하 여 응용 프로그램 업데이트를 시작할 수 있습니다. Office 2016 이상 클라이언트는 기본적으로 최신 인증을 지원 합니다. 추가 단계가 필요 하지 않습니다.
 
-Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다. 디렉터리에서 weak 암호를 금지 하려면 [Azure AD 암호 보호](../authentication/concept-password-ban-bad.md) 를 확인 하세요.
+Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다. 디렉터리에서 weak 암호를 금지 하려면 [AZURE AD 암호 보호](../authentication/concept-password-ban-bad.md)   를 확인 하세요.
 
 Office 2010은 최신 인증을 지원 하지 않습니다. Office 2010를 사용 하는 모든 사용자를 최신 버전의 Office로 업그레이드 해야 합니다. 기본적으로 레거시 인증을 차단 하므로 Office 2016 이상으로 업그레이드 하는 것이 좋습니다.
 

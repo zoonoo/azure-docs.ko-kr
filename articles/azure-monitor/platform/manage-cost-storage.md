@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/12/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2df89bc18ea5d0098ac5ebb0bc06b9df6728705
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993751"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196586"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -40,15 +40,15 @@ Log Analytics에 대 한 기본 가격은 데이터 볼륨 수집을 기반으�
   
 종 량 제 모델 외에도 Log Analytics에는 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있는 **용량 예약** 계층이 있습니다. 용량 예약 가격 책정을 통해 100 g b/일에 시작 하는 예약을 구매할 수 있습니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 용량 예약 계층에는 31 일 약정 기간이 있습니다. 약정 기간 동안에는 더 높은 수준의 용량 예약 계층 (31 일 약정 기간을 다시 시작 함)으로 변경할 수 있지만, 종 량 제 또는 약정 기간이 완료 될 때까지 더 낮은 용량의 예약 계층으로 다시 이동할 수 없습니다. 용량 예약 계층에 대 한 요금은 매일 수행 됩니다. Log Analytics 종 량 제 및 용량 예약 가격 책정에 [대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) . 
 
-모든 가격 책정 계층에서 데이터 볼륨은 저장 준비가 될 때 데이터의 문자열 표현에서 계산 됩니다. [모든 데이터 형식에 공통적인](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) 몇 가지 속성은 `_ResourceId`, `_ItemId` `_IsBillable` 및 `_BilledSize`를 포함 하 여 이벤트 크기 계산에 포함 되지 않습니다.
+모든 가격 책정 계층에서 데이터 볼륨은 저장 준비가 될 때 데이터의 문자열 표현에서 계산 됩니다. [모든 데이터 형식에 공통적인](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) 몇 가지 속성은, 및를 포함 하 여 이벤트 크기 계산에 포함 되지 않습니다 `_ResourceId` `_ItemId` `_IsBillable` `_BilledSize` .
 
 또한 [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure 센티널](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [구성 관리](https://azure.microsoft.com/pricing/details/automation/) 와 같은 일부 솔루션에는 고유한 가격 책정 모델이 있습니다. 
 
-### <a name="log-analytics-clusters"></a>Log Analytics 클러스터
+### <a name="log-analytics-dedicated-clusters"></a>전용 클러스터 Log Analytics
 
-Log Analytics 클러스터는 [고객이 관리](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)하는 키와 같은 고급 시나리오를 지원 하기 위해 단일 관리 되는 Azure 데이터 탐색기 클러스터로 작업 영역 컬렉션입니다.  Log Analytics 클러스터는 종 량 제 가격 책정과 비교 하 여 25% 할인으로 1000 g b/일에 시작 되는 용량 예약 가격 책정 모델만 지원 합니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 클러스터 용량 예약은 예약 수준을 늘린 후 31 일의 약정 기간을 갖습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제 든 지 늘릴 수 있습니다. [Log Analytics 클러스터를 만들고](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) [작업 영역을 연결 하](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource)는 방법에 대해 자세히 알아보세요.  
+전용 클러스터 Log Analytics는 [고객이 관리](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)하는 키와 같은 고급 시나리오를 지원 하기 위해 단일 관리 되는 Azure 데이터 탐색기 클러스터로 작업 영역 컬렉션입니다.  Log Analytics 전용 클러스터는 종 량 제 가격 책정과 비교 하 여 25% 할인으로 1000 g b/일에 시작 되는 용량 예약 가격 책정 모델만 지원 합니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 클러스터 용량 예약은 예약 수준을 늘린 후 31 일의 약정 기간을 갖습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제 든 지 늘릴 수 있습니다. [Log Analytics 클러스터를 만들고](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) [작업 영역을 연결 하](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource)는 방법에 대해 자세히 알아보세요.  
 
-클러스터 용량 예약 수준은에서 `Capacity` `Sku`매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다. 은 `Capacity` gb 단위로 지정 되며 100 g b/일 단위로 1000 g b/일 이상의 값을 가질 수 있습니다. 이 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource)에 자세히 설명되어 있습니다. 클러스터가 2000 g b를 초과 하는 예약이 필요한 경우에 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)문의 하세요.
+클러스터 용량 예약 수준은에서 매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다 `Capacity` `Sku` . 은 `Capacity` gb 단위로 지정 되며 100 g b/일 단위로 1000 g b/일 이상의 값을 가질 수 있습니다. 이 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource)에 자세히 설명되어 있습니다. 클러스터가 2000 g b를 초과 하는 예약이 필요한 경우에 문의 하세요 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 되기 때문에 클러스터에 연결 된 작업 영역에는 더 이상 가격 책정 계층이 없습니다. 클러스터에 연결 된 각 작업 영역의 수집 데이터 수량은 집계 되어 클러스터의 일별 청구 금액을 계산 합니다. [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 에서 노드 별 할당은 클러스터의 모든 작업 영역에서 집계 된 데이터를 집계 하기 전에 작업 영역 수준에서 적용 됩니다. 데이터 보존은 여전히 작업 영역 수준에서 청구 됩니다. 클러스터 청구는 작업 영역이 클러스터에 연결 되었는지 여부에 관계 없이 클러스터를 만들 때 시작 됩니다. 
 
@@ -88,7 +88,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 3. 최근 31 일간의 사용량을 기준으로 예상 비용을 검토 한 후 가격 책정 계층을 변경 하려면 **선택**을 클릭 합니다.  
 
-Azure Resource Manager 템플릿의 매개 변수 `sku` `pricingTier` 를 사용 하 여 Azure Resource Manager를 [통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
+Azure Resource Manager 템플릿의 매개 변수를 사용 하 여 [Azure Resource Manager를 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다 `sku` `pricingTier` . 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
@@ -122,10 +122,12 @@ Azure Resource Manager 템플릿의 매개 변수 `sku` `pricingTier` 를 사용
 
 보존이 낮아질 때 가장 오래 된 데이터가 제거 되기 전에 몇 일의 유예 기간이 있습니다. 
     
-매개 변수를 `retentionInDays` 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터의 즉시 제거를 트리거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
+매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다 `retentionInDays` . 또한 데이터 보존 기간을 30 일로 설정 하는 경우 매개 변수를 사용 하 여 이전 데이터의 즉시 제거를 트리거할 수 있습니다 `immediatePurgeDataOn30Days` .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
 
-두 데이터 형식 (- `Usage` 및 `AzureActivity` )은 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대 한 요금은 청구 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
 
+두 데이터 형식 (- `Usage` 및) `AzureActivity` 은 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대 한 요금은 청구 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
+
+작업 영역 기반 Application Insights 리소스의 데이터 형식 (,,,,,,,, `AppAvailabilityResults` `AppBrowserTimings` `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` 및 `AppTraces` )은 기본적으로 90 일 동안 보존 되며이 90 일 보존에 대 한 요금은 청구 되지 않습니다. 데이터 형식 보존 기능을 사용 하 여 보존 기간을 조정할 수 있습니다. 
 
 
 ### <a name="retention-by-data-type"></a>데이터 유형별 보존
@@ -160,9 +162,9 @@ Azure Resource Manager 템플릿의 매개 변수 `sku` `pricingTier` 를 사용
     }
 ```
 
-에 `retentionInDays` 유효한 값은 30부터 730 까지입니다.
+에 유효한 값 `retentionInDays` 은 30부터 730 까지입니다.
 
-`Usage` 및 `AzureActivity` 데이터 형식은 사용자 지정 보존으로 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
+`Usage`및 `AzureActivity` 데이터 형식은 사용자 지정 보존으로 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
 
 데이터 형식으로 보존을 설정 하기 위해 Azure Resource Manager에 직접 연결 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 SecurityEvent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
 
@@ -261,7 +263,7 @@ union withsource = tt *
 
 ### <a name="data-volume-for-specific-events"></a>특정 이벤트에 대 한 데이터 볼륨
 
-특정 이벤트 집합에 대 한 수집 데이터의 크기를 확인 하려면 특정 테이블 (이 예제 `Event`에서는)을 쿼리 한 다음 관련 이벤트 (이 예제에서는 이벤트 ID 5145 또는 5156)로 쿼리를 제한 합니다.
+특정 이벤트 집합에 대 한 수집 데이터의 크기를 확인 하려면 특정 테이블 (이 예제에서는)을 쿼리 한 다음 관련 `Event` 이벤트 (이 예제에서는 이벤트 ID 5145 또는 5156)로 쿼리를 제한 합니다.
 
 ```kusto
 Event
@@ -271,7 +273,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-절 `where IsBillable = true` 은 수집 비용이 없는 특정 솔루션의 데이터 형식을 필터링 합니다. 
+절은 수집 `where IsBillable = true` 비용이 없는 특정 솔루션의 데이터 형식을 필터링 합니다. 
 
 ### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
 
@@ -285,7 +287,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-를 사용 `TimeGenerated` 하는 절은 Azure Portal의 쿼리 환경이 기본값 24 시간을 초과 하지 않도록 하기 위한 것입니다. 사용 데이터 형식을 `StartTime` 사용 하는 경우는 `EndTime` 결과가 표시 되는 시간 버킷을 나타냅니다. 
+를 사용 하는 절은 `TimeGenerated` Azure Portal의 쿼리 환경이 기본값 24 시간을 초과 하지 않도록 하기 위한 것입니다. 사용 데이터 형식을 사용 하는 경우 `StartTime` 는 `EndTime` 결과가 표시 되는 시간 버킷을 나타냅니다. 
 
 ### <a name="data-volume-by-type"></a>유형별 데이터 볼륨
 
@@ -312,7 +314,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-데이터 `Usage` 형식은 컴퓨터 수준에서 정보를 포함 하지 않습니다. 컴퓨터당 수집 데이터의 **크기** 를 보려면 바이트 단위로 크기를 제공 `_BilledSize` 하는 [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
+`Usage`데이터 형식은 컴퓨터 수준에서 정보를 포함 하지 않습니다. 컴퓨터당 수집 데이터의 **크기** 를 보려면 `_BilledSize` 바이트 단위로 크기를 제공 하는 [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -337,7 +339,6 @@ union withsource = tt *
 > [!TIP]
 > 이러한 `union  *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 **컴퓨터당** 결과가 필요 하지 않은 경우에는 사용 데이터 형식에 대해 쿼리 합니다.
 
-
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독에의 한 데이터 볼륨
 
 Azure에서 호스트 되는 노드의 데이터의 경우 __수집 데이터의__ **크기** 를 가져올 수 있습니다 .이 속성은 리소스의 전체 경로를 제공 하는 _ResourceId [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
@@ -360,7 +361,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-로 `subscriptionId` `resourceGroup` 변경 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
+`subscriptionId`로 변경 `resourceGroup` 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
 
 > [!TIP]
 > 이러한 `union  *` 쿼리는 데이터 형식에 대 한 검사를 실행 하는 데 [많은 리소스](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) 를 사용 하는 경우에만 사용 구독, 리소스 그룹 또는 리소스 이름 별로 결과가 필요 하지 않으면 사용 현황 데이터 형식에 대해 쿼리 합니다.
@@ -368,10 +369,13 @@ union withsource = tt *
 > [!WARNING]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
 
+
 ### <a name="querying-for-common-data-types"></a>공통 데이터 형식에 대 한 쿼리
 
 특정 데이터 형식의 데이터 소스를 더 자세히 알아보려면 다음 예와 같은 몇 가지 쿼리를 사용합니다.
 
++ **작업 영역 기반 Application Insights** 리소스
+  - [여기](https://docs.microsoft.com/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources) 에서 자세히 알아보세요.
 + **보안** 솔루션
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **로그 관리** 솔루션
@@ -403,7 +407,7 @@ union withsource = tt *
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>노드 당 가격 책정 계층에서 청구 되는 노드 가져오기
 
-작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 노드로 청구 되는 컴퓨터 목록을 가져오려면 **청구 된 데이터 형식을** 보내는 노드 (일부 데이터 형식은 무료)를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 을 사용 하 고 정규화 된 도메인 이름의 맨 왼쪽 필드를 사용 합니다. 시간당 요금이 청구 되는 컴퓨터의 수를 반환 합니다 (노드를 계산 하 고 청구 하는 세분성).
+작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 노드로 청구 되는 컴퓨터 목록을 가져오려면 **청구 된 데이터 형식을** 보내는 노드 (일부 데이터 형식은 무료)를 찾습니다. 이렇게 하려면 속성을 사용 하 `_IsBillable` [property](log-standard-properties.md#_isbillable) 고 정규화 된 도메인 이름의 맨 왼쪽 필드를 사용 합니다. 시간당 요금이 청구 되는 컴퓨터의 수를 반환 합니다 (노드를 계산 하 고 청구 하는 세분성).
 
 ```kusto
 union withsource = tt * 
@@ -463,9 +467,9 @@ union
 
 이러한 평가를 용이 하 게 하기 위해 다음 쿼리를 사용 하 여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층에 대 한 권장 사항을 만들 수 있습니다.  이 쿼리는 지난 7 일 동안 작업 영역에 모니터링 된 노드 및 데이터 수집를 확인 하 고, 각 날짜에 대해 가장 적합 한 가격 책정 계층을 평가 합니다. 쿼리를 사용 하려면 다음을 지정 해야 합니다.
 
-1. 작업 영역에서를 또는 `workspaceHasSecurityCenter` `true` `false`로 설정 하 여 Azure Security Center 사용할지 여부를 지정 합니다. 
+1. 작업 영역에서를 `workspaceHasSecurityCenter` 또는로 설정 하 여 Azure Security Center 사용할지 여부 `true` `false` 를 지정 합니다. 
 2. 특정 할인이 있는 경우 가격 업데이트
-3. 을 설정 `daysToEvaluate`하 여 다시 확인 하 고 분석할 일 수를 지정 합니다. 이 방법은 쿼리가 7 일의 데이터를 확인 하는 데 너무 오래 걸리는 경우에 유용 합니다. 
+3. 을 설정 하 여 다시 확인 하 고 분석할 일 수를 지정 `daysToEvaluate` 합니다. 이 방법은 쿼리가 7 일의 데이터를 확인 하는 데 너무 오래 걸리는 경우에 유용 합니다. 
 
 가격 책정 계층 권장 사항 쿼리는 다음과 같습니다.
 

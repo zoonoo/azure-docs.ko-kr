@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/11/2020
 ms.author: apimpm
-ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203202"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196977"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -31,7 +31,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -108,7 +108,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 <a name="required-ports"> </a> API Management 서비스 인스턴스가 VNET에서 호스트 되는 경우 다음 표의 포트가 사용 됩니다.
 
-| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적 (\*)                                                 | 가상 네트워크 유형 |
+| 소스/대상 포트 | 방향          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적 ( \* )                                                 | 가상 네트워크 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell에 대 한 관리 끝점         | 외부 및 내부  |
@@ -136,22 +136,22 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure 공용      | <ul><li>gcs.prod.monitoring.core.windows.net (**신규**)</li><li>prod.warmpath.msftcloudes.com (**사용 되지 않음**)</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-black.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-red.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure 공용      | <ul><li>gcs.prod.monitoring.core.windows.net (**신규**)</li><li>prod.warmpath.msftcloudes.com (**사용 되지 않음**)</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-black.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**신규**)</li><li>prod3-red.prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**신규**)</li><li>shoebox2.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod3.metrics.microsoftmetrics.com (**신규**)</li><li>prod3.metrics.nsatc.net (**사용 되지 않음**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > Dns 영역을 사용 하 여 위의 클러스터를 변경 하는 것은 대부분 DNS **nsatc.net** . **microsoftmetrics.com** . 클러스터의 IP 주소가 변경 되지 않습니다.
 
 + **지역 서비스 태그**: STORAGE, SQL 및 Event Hubs Service 태그에 대 한 아웃 바운드 연결을 허용 하는 nsg 규칙은 API Management 인스턴스를 포함 하는 지역에 해당 하는 태그의 지역 버전을 사용할 수 있습니다 (예: 미국 서 부 지역의 API Management 인스턴스에 대 한 WestUS). 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대 한 서비스 태그로의 트래픽을 허용 해야 합니다.
 
-+ **Smtp 릴레이** `smtpi-co1.msn.com`: 호스트 `smtpi-ch1.msn.com` `smtpi-db3.msn.com`,, `smtpi-sin.msn.com` 및에서 확인 되는 smtp 릴레이에 대 한 아웃 바운드 네트워크 연결`ies.global.microsoft.com`
++ **Smtp 릴레이**: 호스트,, `smtpi-co1.msn.com` `smtpi-ch1.msn.com` `smtpi-db3.msn.com` `smtpi-sin.msn.com` 및에서 확인 되는 smtp 릴레이에 대 한 아웃 바운드 네트워크 연결`ies.global.microsoft.com`
 
-+ **개발자 포털 CAPTCHA**: 호스트 `client.hip.live.com` 및 `partner.hip.live.com`에서 확인 되는 개발자 포털의 CAPTCHA에 대 한 아웃 바운드 네트워크 연결입니다.
++ **개발자 포털 CAPTCHA**: 호스트 및에서 확인 되는 개발자 포털의 CAPTCHA에 대 한 아웃 바운드 네트워크 연결입니다 `client.hip.live.com` `partner.hip.live.com` .
 
 + **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
-+ **Azure Load Balancer**: 서비스 태그 `AZURE_LOAD_BALANCER` 에서 인바운드 요청을 허용 하는 것은 `Developer` SKU에 대 한 계산 단위 하나를 배포 하기 때문에 SKU에 대 한 요구 사항이 아닙니다. 그러나 Load Balancer의 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 상태 프로브 오류로 인해 배포에 실패 하는 `Premium`것 처럼 더 높은 SKU로 확장 하는 경우 168.63.129.16의 인바운드는 중요 한 것으로 보입니다.
++ **Azure Load Balancer**: 서비스 태그에서 인바운드 요청을 허용 하는 것 `AZURE_LOAD_BALANCER` 은 SKU에 대 한 `Developer` 계산 단위 하나를 배포 하기 때문에 SKU에 대 한 요구 사항이 아닙니다. 그러나 Load Balancer의 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) `Premium` 상태 프로브 오류로 인해 배포에 실패 하는 것 처럼 더 높은 SKU로 확장 하는 경우 168.63.129.16의 인바운드는 중요 한 것으로 보입니다.
 
 + **Express 경로 또는 네트워크 가상 어플라이언스를 사용 하 여 온-프레미스 방화벽에 트래픽 강제 터널링**: 일반적인 고객 구성은 자체 기본 경로 (0.0.0.0/0)를 정의 하 여 API Management 위임 된 서브넷의 모든 트래픽을 온-프레미스 방화벽이 나 네트워크 가상 어플라이언스를 통해 이동 하도록 강제 하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용 하려면 다음 몇 가지 작업을 수행 해야 합니다.
 
@@ -264,7 +264,7 @@ IP 주소는 **Azure 환경**으로 구분 됩니다. **Global** 로 표시 된 
 | Azure Government| USDoD Central| 52.182.32.132|
 | Azure Government| USDoD 동부| 52.181.32.192|
 
-## <a name="related-content"></a><a name="related-content"> </a>관련 콘텐츠
+## <a name="related-content"></a><a name="related-content"> </a>관련 내용
 * [VPN Gateway를 사용하여 Virtual Network를 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)

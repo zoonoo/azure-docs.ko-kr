@@ -2,20 +2,19 @@
 title: Azure 가상 머신 확장 집합을 사용 하 여 자동 인스턴스 복구
 description: 확장 집합의 VM 인스턴스에 대 한 자동 복구 정책을 구성 하는 방법에 대해 알아봅니다.
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603671"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197029"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 위의 예에서는 기존 부하 분산 장치 및 상태 프로브를 사용 하 여 인스턴스의 응용 프로그램 상태를 모니터링 합니다. 대신 응용 프로그램 상태 확장을 모니터링에 사용 하려는 경우에는 확장 집합을 만들고, 응용 프로그램 상태 확장을 구성한 다음, 다음 섹션에 설명 된 대로 *az vmss 업데이트*를 사용 하 여 자동 인스턴스 복구 정책을 사용 하도록 설정할 수 있습니다.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>자동 인스턴스 복구 정책의 서비스 상태 보기 및 업데이트

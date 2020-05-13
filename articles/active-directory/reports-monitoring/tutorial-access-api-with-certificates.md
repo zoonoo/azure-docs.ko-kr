@@ -16,12 +16,13 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: a6699d7a117eee95ba635c8c94ed9b2955f21a7b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081713"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196887"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -29,7 +30,7 @@ ms.locfileid: "82081713"
 
 이 자습서에서는 테스트 인증서를 사용하여 보고용 MS Graph API에 액세스하는 방법을 알아봅니다. 프로덕션 환경에서는 테스트 인증서를 사용하지 않는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 로그인 데이터에 액세스하려면 Premium (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트가 있는지 확인합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 활동 데이터가 없었다면 프리미엄 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 며칠이 걸립니다. 
 
@@ -44,7 +45,7 @@ ms.locfileid: "82081713"
     - ADAL을 사용하는 사용자, 애플리케이션 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-6. 처음으로 **MSCloudIdUtilsModule**모듈을 사용 하는 경우에는 **import-module** PowerShell 명령을 사용 하 여 가져옵니다. 세션은 다음 화면과 유사 하 게 표시 됩니다 ![. Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. 처음으로 **MSCloudIdUtilsModule**모듈을 사용 하는 경우에는 **import-module** PowerShell 명령을 사용 하 여 가져옵니다. 세션은 다음 화면과 유사 하 게 표시 됩니다. ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. New-selfsignedcertificate PowerShell **기능** 을 사용 하 여 테스트 인증서를 만듭니다.
 

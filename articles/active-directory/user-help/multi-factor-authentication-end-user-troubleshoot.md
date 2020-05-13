@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 555ba9a55a135bd38dcc46e1ff7a3d751083d47e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271695"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196422"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2 단계 인증 및 회사 또는 학교 계정에 대 한 일반적인 문제
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 조직에서 2 단계 인증을 켜면 회사 
 >[!Important]
 >관리자 인 경우 [AZURE ad 설명서](https://docs.microsoft.com/azure/active-directory)에서 azure ad 환경을 설정 하 고 관리 하는 방법에 대 한 자세한 정보를 찾을 수 있습니다.
 >
->이 콘텐츠는 조직에서 사용자에 게 제공 하는 계정인 회사 또는 학교 계정에만 사용할 수도 있습니다 (예: alain@contoso.com). 2 단계 인증에 문제가 발생 하 고 사용자가 직접 설정한 계정인 개인 Microsoft 계정 (예: danielle@outlook.com)에 대 한 자세한 내용은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+>이 콘텐츠는 조직에서 사용자에 게 제공 하는 계정인 회사 또는 학교 계정에만 사용할 수도 있습니다 (예: alain@contoso.com ). 2 단계 인증에 문제가 발생 하 고 사용자가 직접 설정한 계정인 개인 Microsoft 계정 (예:)에 대 한 자세한 danielle@outlook.com 내용은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>내 모바일 장치가 없습니다.
 
@@ -99,9 +99,9 @@ Azure Active Directory (Azure AD) 조직에서 2 단계 인증을 켜면 회사 
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>2 단계 인증을 해제할 수 없습니다.
 
-회사 또는 학교 계정 (예: alain@contoso.com)을 사용 하 여 2 단계 인증을 사용 하는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 조직에서 이 기능을 사용해야 한다고 결정했으므로 개별적으로 해제할 수 있는 방법이 없습니다. 그러나와 같이 alain@outlook.com개인 계정으로 2 단계 인증을 사용 하는 경우 기능을 켜고 끌 수 있습니다. 개인 계정에 대 한 2 단계 인증을 제어 하는 방법에 대 한 지침은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+회사 또는 학교 계정 (예:)을 사용 하 여 2 단계 인증을 사용 하 alain@contoso.com 는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 조직에서 이 기능을 사용해야 한다고 결정했으므로 개별적으로 해제할 수 있는 방법이 없습니다. 그러나와 같이 개인 계정으로 2 단계 인증을 사용 하는 경우 alain@outlook.com 기능을 켜고 끌 수 있습니다. 개인 계정에 대 한 2 단계 인증을 제어 하는 방법에 대 한 지침은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
-2 단계 인증을 해제할 수 없는 경우 조직 수준에서 적용 된 보안 기본값 때문일 수도 있습니다. 보안 기본값에 대 한 자세한 내용은 [보안 강화 란?](../fundamentals/concept-fundamentals-security-defaults.md) 을 참조 하세요.
+2 단계 인증을 해제할 수 없는 경우 조직 수준에서 적용 된 보안 기본값 때문일 수도 있습니다. 보안 기본값에 대 한 자세한 내용은 [보안 기본값 이란?](../fundamentals/concept-fundamentals-security-defaults.md) 을 참조 하세요.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>문제에 대한 답변을 찾을 수 없는 경우
 

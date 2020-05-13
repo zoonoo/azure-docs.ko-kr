@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5e0e459800e7cb57672518597f3d04a74f53118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008646"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196974"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -22,23 +22,30 @@ ms.locfileid: "81008646"
 다음 표에서는에서 사용 가능한 ultra 디스크와 해당 가용성 옵션을 간략하게 설명 합니다.
 
 > [!NOTE]
-> 이러한 지역 내의 일부 가용성 영역은 ultra disks를 제공 하지 않습니다.
+> 다음 목록의 영역에 ultra disk 지원 가능 영역이 없으면 해당 지역의 Vm은 ultra disk를 연결 하기 위해 인프라 중복성 옵션 없이 배포 되어야 합니다.
 
-|영역  |인프라 중복성 없음  |가용성 영역  |
-|---------|---------|---------|
-|미국 서부     |예         |아니요         |
-|미국 서부 2    |아니요         |예         |
-|미국 동부     |아니요         |예         |
-|미국 동부 2     |아니요         |예         |
-|동남 아시아     |아니요         |예         |
-|북유럽     |아니요         |예         |
-|서유럽     |아니요         |예         |
-|영국 남부     |아니요         |예         |
+|영역  |Ultra disks를 지 원하는 가용성 영역 수  |
+|---------|---------|
+|US Gov 버지니아     |없음         |
+|미국 중남부     |없음         |
+|미국 중부     |3 개 영역         |
+|미국 서부     |없음         |
+|미국 서부 2    |3 개 영역         |
+|미국 동부     |3 개 영역         |
+|미국 동부 2     |두 영역         |
+|동남 아시아     |3 개 영역         |
+|북유럽     |3 개 영역          |
+|서유럽     |3 개 영역          |
+|영국 남부     |3 개 영역          |
+|일본 동부     |두 영역         |
+
+
 
 - 는 다음 VM 시리즈 에서만 지원 됩니다.
-    - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - FSv2
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - 모든 VM 크기를 모든 지원 되는 지역에서 ultra disks에 사용할 수 있는 것은 아닙니다.

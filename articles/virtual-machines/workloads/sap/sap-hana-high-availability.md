@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101215"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196861"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -112,7 +112,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     - **시스템 가용성**: **HA**를 선택합니다.
     - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자를 만듭니다.
     - **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-    - **서브넷 ID**: vm을 할당 해야 하는 서브넷이 정의 된 기존 VNET에 vm을 배포 하려는 경우 해당 특정 서브넷의 ID 이름을 지정 합니다. ID는 일반적으로 **/subscriptions/\<구독 ID>/Sourceggs/\<리소스 그룹 이름>/providers/microsoft.network/virtualnetworks/\<가상 네트워크 이름>/subnets/\<subnet name>** 와 같습니다.
+    - **서브넷 ID**: vm을 할당 해야 하는 서브넷이 정의 된 기존 VNET에 vm을 배포 하려는 경우 해당 특정 서브넷의 ID 이름을 지정 합니다. ID는 일반적으로 **/subscriptions/ \< 구독 ID>/Sourceggs/ \< 리소스 그룹 이름>/providers/microsoft.network/virtualnetworks/ \< 가상 네트워크 이름>/subnets/ \< subnet name>** 와 같습니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -277,10 +277,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 i/o 성능을 위해 스트라이프 볼륨을 만들고 스트라이프 크기를 [SAP HANA VM 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)에 설명 된 값에 정렬 하는 것이 좋습니다. `-i` 인수는 기본 실제 볼륨의 숫자 여야 하며 `-I` 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256KiB**입니다. 로그 볼륨에는 하나의 실제 볼륨이 사용 되므로 로그 볼륨 명령 `-i` 에 `-I` 대해 또는 스위치를 명시적으로 사용 하지 않습니다.  
+   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 i/o 성능을 위해 스트라이프 볼륨을 만들고 스트라이프 크기를 [SAP HANA VM 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)에 설명 된 값에 정렬 하는 것이 좋습니다. `-i`인수는 기본 실제 볼륨의 숫자 여야 하며 `-I` 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256KiB**입니다. 로그 볼륨에는 하나의 실제 볼륨이 사용 되므로 `-i` `-I` 로그 볼륨 명령에 대해 또는 스위치를 명시적으로 사용 하지 않습니다.  
 
    > [!IMPORTANT]
-   > 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다. 스트라이프 볼륨 `-I` 을 만들 때 스위치를 사용 하 여 스트라이프 크기를 지정 합니다.  
+   > 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다. `-I`스트라이프 볼륨을 만들 때 스위치를 사용 하 여 스트라이프 크기를 지정 합니다.  
    > 스트라이프 크기 및 디스크 수를 포함 하 여 권장 되는 저장소 구성에 대 한 [SAP HANA VM 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 을 참조 하세요.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
@@ -407,14 +407,14 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
    SAP HANA 2.0 또는 MDC를 사용하는 경우 SAP NetWeaver 시스템에 대한 테넌트 데이터베이스를 만듭니다. **N w 1** 을 SAP 시스템의 SID로 바꿉니다.
 
-   <hanasid\>adm으로 다음 명령을 실행 합니다.
+   <hanasid adm으로 다음 명령을 실행 합니다 \> .
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 첫 번째 노드에서 시스템 복제 구성:
 
-   Hanasid\>adm <데이터베이스를 백업 합니다.
+   Hanasid adm <데이터베이스를 백업 합니다 \> .
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -434,7 +434,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid\>adm <다음 명령을 실행 합니다.
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid adm <다음 명령을 실행 합니다 \> .
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -481,7 +481,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 <hanasid\>adm으로 만듭니다.
+   기본 사이트를 <hanasid adm으로 만듭니다 \> .
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -489,7 +489,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 보조 노드에서 시스템 복제를 구성합니다.
 
-   보조 사이트를 <hanasid\>adm으로 등록 합니다.
+   보조 사이트를 <hanasid adm으로 등록 합니다 \> .
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -547,7 +547,8 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b>
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+  meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
@@ -759,7 +760,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-db-0에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   \>H n 1-db-0에서 hanasid adm <하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -800,7 +801,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -841,7 +842,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-db-0에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   \>H n 1-db-0에서 hanasid adm <하는 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -882,7 +883,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1025,7 +1026,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1062,7 +1063,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm <하는 다음 명령을 실행 합니다.
+   H n 1-1 노드에서 hanasid adm <하는 다음 명령을 실행 합니다 \> .
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

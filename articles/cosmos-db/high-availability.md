@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9667d82551e169dcc4a4bfd3ac79b15390f58aa0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ae20a0372c5808cc2265a4fae63b79ef2bb71605
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609224"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125505"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -82,27 +82,7 @@ Cosmos 계정이 *n* 개의 Azure 지역에 걸쳐 배포 되는 경우 모든 �
 
 Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추가 비용 없이 영역 중복성을 옵트인 (opt in) 할 수 있습니다. 그렇지 않으면 영역 중복성 지원에 대 한 가격 책정과 관련 된 아래 참고를 참조 하세요. 지역을 제거 하 고 영역 중복성을 사용 하 여 다시 추가 하 여 Azure Cosmos 계정의 기존 지역에서 영역 중복성을 사용 하도록 설정할 수 있습니다.
 
-이 기능은 다음과 같은 Azure 지역에서 사용할 수 있습니다.
-
-- 영국 남부
-
-- 동남아시아
-
-- 미국 동부
-
-- 미국 동부 2
-
-- 미국 중부
-
-- 서유럽
-
-- 미국 서부 2
-
-- 오스트레일리아 동부
-
-- 일본 동부
-
-- 북유럽
+이 기능은 *영국 남부, 동남 아시아, 미국 동부, 미국 동부 2, 미국 중부, 유럽 서부, 미국 서 부 2, 오스트레일리아 동부, 일본 동부, 북부 유럽, 프랑스 중부* 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 단일 지역 Azure Cosmos 계정에 대해 가용성 영역를 사용 하도록 설정 하면 계정에 추가 지역을 추가 하는 것과 동일한 요금이 부과 됩니다. 가격 책정에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 및 [Azure Cosmos DB 문서의 다중 지역 비용](optimize-cost-regions.md) 을 참조 하세요.
@@ -125,7 +105,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 > [!NOTE]
 > 다중 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하도록 설정 하려면 계정에 다중 마스터 쓰기를 사용 하도록 설정 해야 합니다.
 
-새 또는 기존 Azure Cosmos 계정에 영역을 추가할 때 영역 중복성을 사용 하도록 설정할 수 있습니다. Azure Cosmos 계정에서 영역 중복성을 사용 하도록 설정 하려면 특정 위치에 `isZoneRedundant` 대 한 `true` 플래그를로 설정 해야 합니다. 이 플래그는 위치 속성 내에서 설정할 수 있습니다. 예를 들어 다음 PowerShell 코드 조각은 "동남 아시아" 지역에 대해 영역 중복성을 사용 하도록 설정 합니다.
+새 또는 기존 Azure Cosmos 계정에 영역을 추가할 때 영역 중복성을 사용 하도록 설정할 수 있습니다. Azure Cosmos 계정에서 영역 중복성을 사용 하도록 설정 하려면 `isZoneRedundant` `true` 특정 위치에 대 한 플래그를로 설정 해야 합니다. 이 플래그는 위치 속성 내에서 설정할 수 있습니다. 예를 들어 다음 PowerShell 코드 조각은 "동남 아시아" 지역에 대해 영역 중복성을 사용 하도록 설정 합니다.
 
 ```powershell
 $locations = @(

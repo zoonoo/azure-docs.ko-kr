@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: febb796a47b9f5e78906d513c115b62b35c7c7d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792986"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196512"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유를 위해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증 사용
 
-[Azure Files](storage-files-introduction.md) 는 두 가지 유형의 도메인 서비스 (Azure Active Directory Domain Services (Azure AD DS)와 온-프레미스 Active Directory Domain Services (AD DS) (미리 보기)를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 이 문서에서는 Azure 파일 공유에 대 한 인증에 Active Directory 도메인 서비스를 활용 하는 새로 도입 된 (미리 보기) 지원을 중점적으로 다룹니다. Azure 파일 공유에 대 한 GA (Azure AD DS) 인증을 사용 하려는 경우 [주제에 대 한 문서](storage-files-identity-auth-active-directory-domain-service-enable.md)를 참조 하세요.
+[Azure Files](storage-files-introduction.md)   에서는 두 가지 유형의 도메인 Azure Active Directory Domain Services 서비스 (Azure AD DS)와 온-프레미스 Active Directory Domain Services (AD DS) (미리 보기)를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 이 문서에서는 Azure 파일 공유에 대 한 인증에 Active Directory 도메인 서비스를 활용 하는 새로 도입 된 (미리 보기) 지원을 중점적으로 다룹니다. Azure 파일 공유에 대 한 GA (Azure AD DS) 인증을 사용 하려는 경우 [주제에 대 한 문서](storage-files-identity-auth-active-directory-domain-service-enable.md)를 참조 하세요.
 
 > [!NOTE]
 > Azure 파일 공유는 Azure Active Directory 도메인 서비스 (Azure AD DS) 또는 온-프레미스 Active Directory Domain Services (AD DS) 중 하나의 도메인 서비스에 대 한 인증만 지원 합니다. 
@@ -40,7 +40,7 @@ Azure 파일 공유에 액세스 하는 데 사용 되는 id는 [RBAC (역할 �
 > - 온-프레미스 파일 서버를 Azure Files로 바꾸기 (파일 및 AD 인증을 위한 개인 링크의 설정 포함)
 > - Windows 가상 데스크톱에 대 한 프로필 컨테이너로 Azure Files 사용 (AD 인증 및 FsLogix 구성의 설정 포함)
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
 
@@ -98,9 +98,9 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하면 �
 Azure 파일 공유에 대해 SMB를 통한 AD DS 인증을 사용 하도록 설정 하려면 먼저 AD DS에 저장소 계정을 등록 한 후 저장소 계정에 필요한 도메인 속성을 설정 해야 합니다. 저장소 계정에서이 기능을 사용 하도록 설정 하면 계정에 있는 모든 신규 및 기존 파일 공유에 적용 됩니다. AzFilesHybrid Powershell 모듈을 다운로드 하 고 `join-AzStorageAccountForAuth` 를 사용 하 여 기능을 사용 하도록 설정 합니다. 이 섹션 내의 스크립트에서 종단 간 워크플로에 대 한 자세한 설명을 찾을 수 있습니다. 
 
 > [!IMPORTANT]
-> 이 `Join-AzStorageAccountForAuth` CMDLET은 AD 환경을 수정 합니다. 다음 설명을 참조 하 여 명령을 실행할 수 있는 적절 한 권한이 있고 적용 된 변경 내용이 준수 및 보안 정책과 일치 하는지 확인 하기 위해 수행 하는 작업을 더 잘 이해 합니다. 
+> `Join-AzStorageAccountForAuth`이 cmdlet은 AD 환경을 수정 합니다. 다음 설명을 참조 하 여 명령을 실행할 수 있는 적절 한 권한이 있고 적용 된 변경 내용이 준수 및 보안 정책과 일치 하는지 확인 하기 위해 수행 하는 작업을 더 잘 이해 합니다. 
 
-이 `Join-AzStorageAccountForAuth` cmdlet은 표시 된 저장소 계정을 대신 하 여 오프 라인 도메인 조인과 동일한 기능을 수행 합니다. 이 스크립트는 cmdlet을 사용 하 여 AD 도메인에서 [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)에 계정을 만듭니다. 수동으로이 작업을 수행 하도록 선택 하는 경우 사용자 환경에 가장 적합 한 계정을 선택 해야 합니다.
+`Join-AzStorageAccountForAuth`이 cmdlet은 표시 된 저장소 계정을 대신 하 여 오프 라인 도메인 조인과 동일한 기능을 수행 합니다. 이 스크립트는 cmdlet을 사용 하 여 AD 도메인에서 [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)에 계정을 만듭니다. 수동으로이 작업을 수행 하도록 선택 하는 경우 사용자 환경에 가장 적합 한 계정을 선택 해야 합니다.
 
 Cmdlet에서 만든 AD DS 계정은 AD 도메인의 저장소 계정을 나타냅니다. 암호 만료를 적용 하는 OU (조직 구성 단위)에서 AD DS 계정을 만든 경우 최대 암호 사용 기간 전에 암호를 업데이트 해야 합니다. 계정 암호를 업데이트 하지 못하면 Azure 파일 공유에 액세스할 때 인증 오류가 발생 합니다. 암호를 업데이트 하는 방법을 알아보려면 [업데이트 AD DS 계정 암호](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)를 참조 하세요.
 
@@ -141,13 +141,13 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
-# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account (default parameter value), depends on the AD permission you have and preference. 
 # You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" `
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -155,10 +155,10 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ```
 
-다음 설명에는 `Join-AzStorageAccountForAuth` cmdlet이 실행 될 때 수행 되는 모든 작업이 요약 되어 있습니다. 명령을 사용 하지 않으려는 경우 다음 단계를 수동으로 수행할 수 있습니다.
+다음 설명에는 cmdlet이 실행 될 때 수행 되는 모든 작업이 요약 되어 `Join-AzStorageAccountForAuth` 있습니다. 명령을 사용 하지 않으려는 경우 다음 단계를 수동으로 수행할 수 있습니다.
 
 > [!NOTE]
-> 위의 `Join-AzStorageAccountForAuth` 스크립트를 이미 실행 한 경우 다음 섹션인 "1.3 확인 기능이 활성화 되어 있는지 확인 하십시오."로 이동 합니다. 아래 작업을 다시 수행 하지 않아도 됩니다.
+> 위의 스크립트를 이미 실행 한 경우 `Join-AzStorageAccountForAuth` 다음 섹션인 "1.3 확인 기능이 활성화 되어 있는지 확인 하십시오."로 이동 합니다. 아래 작업을 다시 수행 하지 않아도 됩니다.
 
 #### <a name="a-checking-environment"></a>a. 환경 확인
 
@@ -166,7 +166,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 #### <a name="b-creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>b. 수동으로 AD의 저장소 계정을 나타내는 id 만들기
 
-이 계정을 수동으로 만들려면를 사용 하 여 `New-AzStorageAccountKey -KeyName kerb1`저장소 계정에 대 한 새 Kerberos 키를 만듭니다. 그런 다음 해당 Kerberos 키를 계정의 암호로 사용 합니다. 이 키는 설정 하는 동안에만 사용 되며 저장소 계정에 대 한 모든 컨트롤이 나 데이터 평면 작업에는 사용할 수 없습니다.
+이 계정을 수동으로 만들려면를 사용 하 여 저장소 계정에 대 한 새 Kerberos 키를 만듭니다 `New-AzStorageAccountKey -KeyName kerb1` . 그런 다음 해당 Kerberos 키를 계정의 암호로 사용 합니다. 이 키는 설정 하는 동안에만 사용 되며 저장소 계정에 대 한 모든 컨트롤이 나 데이터 평면 작업에는 사용할 수 없습니다.
 
 해당 키가 있으면 OU에서 서비스 또는 컴퓨터 계정을 만듭니다. 저장소 계정에 대 한 SPN: "cifs/저장소-이름-파일-이름-w i n. w i n.
 
@@ -220,7 +220,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 암호 만료 시간을 적용 하는 OU에서 저장소 계정을 나타내는 AD DS identity/account를 등록 한 경우 최대 암호 사용 기간 보다 먼저 암호를 회전 해야 합니다. AD DS 계정의 암호를 업데이트 하지 못하면 인증 오류가 발생 하 여 Azure 파일 공유에 액세스 하지 못합니다.  
 
-암호 회전을 트리거하려면 AzFilesHybrid 모듈에서 `Update-AzStorageAccountADObjectPassword` 명령을 실행할 수 있습니다. Cmdlet은 저장소 계정 키 회전과 유사한 작업을 수행 합니다. 저장소 계정의 두 번째 Kerberos 키를 가져온 다음이 키를 사용 하 여 AD DS에서 등록 된 계정의 암호를 업데이트 합니다. 그런 다음 저장소 계정의 대상 Kerberos 키를 다시 생성 하 고 AD DS에서 등록 된 계정의 암호를 업데이트 합니다. 온-프레미스 AD DS 도메인 가입 환경에서이 cmdlet을 실행 해야 합니다.
+암호 회전을 트리거하려면 `Update-AzStorageAccountADObjectPassword` AzFilesHybrid 모듈에서 명령을 실행할 수 있습니다. Cmdlet은 스토리지 계정 키 회전과 유사한 작업을 수행합니다. 저장소 계정의 두 번째 Kerberos 키를 가져온 다음이 키를 사용 하 여 AD DS에서 등록 된 계정의 암호를 업데이트 합니다. 그런 다음 저장소 계정의 대상 Kerberos 키를 다시 생성 하 고 AD DS에서 등록 된 계정의 암호를 업데이트 합니다. 온-프레미스 AD DS 도메인 가입 환경에서이 cmdlet을 실행 해야 합니다.
 
 ```PowerShell
 # Update the password of the AD DS account registered for the storage account

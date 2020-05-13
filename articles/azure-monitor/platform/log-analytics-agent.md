@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982210"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196257"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링 하는 가상 컴퓨터에서 종합적인 관리를 위해 개발 되었습니다. Windows 및 Linux 에이전트는 다양 한 원본에서 수집 된 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보내고, 모니터링 솔루션에 정의 된 대로 고유한 로그 나 메트릭을 전송 합니다. 또한 Log Analytics 에이전트는 Azure Monitor에서 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md)등의 기타 서비스와 정보를 지원 합니다.
@@ -39,7 +39,7 @@ Log Analytics 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 ## <a name="data-collected"></a>수집되는 데이터
 다음 표에서는 연결 된 모든 에이전트에서 수집 하도록 Log Analytics 작업 영역을 구성할 수 있는 데이터의 유형을 보여 줍니다. Log Analytics 에이전트를 사용 하 여 다른 종류의 데이터를 수집 하는 정보, 솔루션 및 기타 솔루션 목록은 [Azure Monitor에서 모니터링 되는 내용](../monitor-reference.md) 을 참조 하세요.
 
-| 데이터 원본 | Description |
+| 데이터 원본 | 설명 |
 | --- | --- |
 | [Windows 이벤트 로그](data-sources-windows-events.md) | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
 | [syslog](data-sources-syslog.md)                     | Linux 이벤트 로깅 시스템으로 전송 되는 정보입니다. |
@@ -70,7 +70,7 @@ System Center Operations Manager 2012 R2 이상을 사용 하는 경우:
 
 Log Analytics 에이전트를 설치 하 고 사용자의 요구 사항에 따라 Azure Monitor에 컴퓨터를 연결 하는 방법에는 여러 가지가 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 메서드 | Description|
+|원본 | 메서드 | 설명|
 |-------|-------------|-------------|
 |Azure VM| [Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Log Analytics 작업 영역에서 배포할 Vm을 지정 합니다. |
 | | Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md) 용 VM 확장 Log Analytics | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다. |
@@ -115,11 +115,11 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 >현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
 
 * Amazon Linux 2017.09(x64)
-* CentOS Linux 6(x86/x64) 및 7(x64)  
-* Oracle Linux 6 및 7(x86/x64) 
-* Red Hat Enterprise Linux Server 6(x86/x64) 및 7(x64)
-* Debian GNU/Linux 8 및 9(x86/x64)
-* Ubuntu 14.04 LTS(x86/x64), 16.04 LTS(x86/x64) 및 18.04 LTS(x64)
+* CentOS Linux 6 (x64) 및 7 (x64)  
+* Oracle Linux 6 및 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) 및 8 (x64)
+* Debian GNU/Linux 8 및 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64) 및 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) 및 15 (x64)
 
 >[!NOTE]
@@ -130,7 +130,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치 될 지원 되는 Linux 배포판에 필요한 패키지를 강조 표시 합니다.
 
-|필수 패키지 |Description |최소 버전 |
+|필수 패키지 |설명 |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0. x 또는 1.1. x |
@@ -168,7 +168,7 @@ Linux 및 Windows 용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서
 
 ### <a name="firewall-requirements"></a>방화벽 요구 사항
 
-|에이전트 리소스|포트 |Direction |HTTPS 검사 무시|
+|에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드:|예 |  
 |*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드:|예 |  
@@ -190,7 +190,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| Description |
+|속성| 설명 |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
@@ -201,7 +201,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 예: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> 암호에 "\@"과 같은 특수 문자를 사용 하는 경우 값이 잘못 구문 분석 되기 때문에 프록시 연결 오류가 발생 합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  
+> 암호에 ""과 같은 특수 문자 \@ 를 사용 하는 경우 값이 잘못 구문 분석 되기 때문에 프록시 연결 오류가 발생 합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  
 
 
 

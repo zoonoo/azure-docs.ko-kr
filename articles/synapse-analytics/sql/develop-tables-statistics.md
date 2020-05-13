@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676930"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197582"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -34,7 +34,7 @@ SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입
 
 ### <a name="automatic-creation-of-statistics"></a>통계 자동 생성
 
-SQL 풀은 데이터베이스 AUTO_CREATE_STATISTICS 옵션이로 `ON`설정 된 경우 누락 된 통계에 대 한 들어오는 사용자 쿼리를 분석 합니다.  통계가 누락 된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건에서 개별 열에 대 한 통계를 만듭니다. 이 함수는 쿼리 계획에 대 한 카디널리티 예상치를 개선 하는 데 사용 됩니다.
+SQL 풀은 데이터베이스 AUTO_CREATE_STATISTICS 옵션이로 설정 된 경우 누락 된 통계에 대 한 들어오는 사용자 쿼리를 분석 합니다 `ON` .  통계가 누락 된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건에서 개별 열에 대 한 통계를 만듭니다. 이 함수는 쿼리 계획에 대 한 카디널리티 예상치를 개선 하는 데 사용 됩니다.
 
 > [!IMPORTANT]
 > 통계 자동 생성은 현재 기본적으로 설정됩니다.
@@ -167,7 +167,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -184,7 +184,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -239,7 +239,7 @@ CREATE STATISTICS stats_col1
 > [!NOTE]
 > 쿼리 결과에서 행 수를 예측하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 대해서만 사용할 수 있습니다.
 
-이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category*에서 계산 됩니다.
+이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product \_ category* 및 *product \_ sub_category*에서 계산 됩니다.
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-*제품\_범주* 와 *\_제품 하위\_범주*사이에 상관 관계가 있기 때문에 이러한 열을 동시에 액세스 하는 경우 여러 열 통계 개체가 유용할 수 있습니다.
+*제품 \_ 범주* 와 *제품 \_ 하위 \_ 범주*사이에 상관 관계가 있기 때문에 이러한 열을 동시에 액세스 하는 경우 여러 열 통계 개체가 유용할 수 있습니다.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>테이블의 모든 열에 대한 통계 만들기
 
@@ -396,7 +396,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -412,7 +412,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -423,7 +423,7 @@ UPDATE STATISTICS 문은 사용 하기 쉽습니다. 테이블에 대 한 *모�
 > [!NOTE]
 > 테이블의 모든 통계를 업데이트할 때 SQL 풀은 각 통계 개체에 대 한 테이블을 샘플링 하는 검색을 수행 합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
 
-`UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블](develop-tables-temporary.md)을 참조 하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
+프로시저의 구현은 `UPDATE STATISTICS` [임시 테이블](develop-tables-temporary.md)을 참조 하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
 전체 구문은 [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.
 
 ### <a name="statistics-metadata"></a>통계 메타데이터
@@ -434,7 +434,7 @@ UPDATE STATISTICS 문은 사용 하기 쉽습니다. 테이블에 대 한 *모�
 
 이 시스템 뷰는 통계에 대한 정보를 제공합니다.
 
-| 카탈로그 뷰 | Description |
+| 카탈로그 뷰 | 설명 |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |각 열에 대해 한 행입니다. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |데이터베이스의 각 개체에 대해 한 행입니다. |
@@ -448,7 +448,7 @@ UPDATE STATISTICS 문은 사용 하기 쉽습니다. 테이블에 대 한 *모�
 
 이 시스템 함수는 통계를 작업할 때 유용합니다.
 
-| 시스템 함수 | Description |
+| 시스템 함수 | 설명 |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
@@ -511,7 +511,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -526,7 +526,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-다음은 그 예입니다.
+예:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -611,6 +611,8 @@ SQL 주문형를 사용 하면 통계를 수동으로 만들 수 있습니다. C
 
 > [!NOTE]
 > 현재 단일 열 통계만 만들 수 있습니다.
+>
+> 프로시저 sp_create_file_statistics은 sp_create_openrowset_statistics으로 이름이 바뀝니다. Public 데이터베이스 역할에는 sp_create_file_statistics 및 sp_drop_file_statistics에 대 한 실행 권한이 있지만 public 서버 역할에는 관리 대량 작업 권한이 부여 되어 있습니다. 이는 나중에 변경 될 수 있습니다.
 
 통계를 만드는 데 사용 되는 저장 프로시저는 다음과 같습니다.
 
@@ -618,7 +620,7 @@ SQL 주문형를 사용 하면 통계를 수동으로 만들 수 있습니다. C
 sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-인수: [ @stmt =] N ' statement_text '-통계에 사용할 열 값을 반환 하는 Transact-sql 문을 지정 합니다. TABLESAMPLE을 사용 하 여 사용할 데이터의 샘플을 지정할 수 있습니다. TABLESAMPLE을 지정 하지 않으면 FULLSCAN가 사용 됩니다.
+인수: [ @stmt =] N ' statement_text '-통계에 사용할 열 값을 반환 하는 transact-sql 문을 지정 합니다. TABLESAMPLE을 사용 하 여 사용할 데이터의 샘플을 지정할 수 있습니다. TABLESAMPLE을 지정 하지 않으면 FULLSCAN가 사용 됩니다.
 
 ```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
@@ -696,7 +698,10 @@ FROM OPENROWSET(
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-인수: [ @stmt =] N ' statement_text '-통계가 생성 될 때 사용 되는 것과 동일한 Transact-sql 문을 지정 합니다.
+> [!NOTE]
+> 프로시저 sp_drop_file_statistics은 sp_drop_openrowset_statistics으로 이름이 바뀝니다. Public 데이터베이스 역할에는 sp_create_file_statistics 및 sp_drop_file_statistics에 대 한 실행 권한이 있지만 public 서버 역할에는 관리 대량 작업 권한이 부여 되어 있습니다. 이는 나중에 변경 될 수 있습니다.
+
+인수: [ @stmt =] N ' statement_text '-통계가 생성 될 때 사용 되는 것과 동일한 transact-sql 문을 지정 합니다.
 
 채우기 .csv 파일을 기반으로 하는 데이터 집합의 연도 열에 대 한 통계를 업데이트 하려면 통계를 삭제 하 고 만들어야 합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: Cosmos DB에 대 한 Azure Monitor를 사용 하 여 Azure Cosmos DB 모니터링 (미리 보기) | Microsoft Docs
+title: Cosmos DB에 대 한 Azure Monitor를 사용 하 여 Azure Cosmos DB 모니터링 | Microsoft Docs
 description: 이 문서에서는 Cosmos DB 소유자에 게 CosmosDB 계정에 대 한 성능 및 사용 문제를 신속 하 게 이해 하는 Cosmos DB 기능을 제공 하는 Azure Monitor에 대해 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250671"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195407"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 살펴보기 (미리 보기)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB Azure Monitor 살펴보기
 
-Azure Cosmos DB (미리 보기)에 대 한 Azure Monitor는 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 운영 상태를 보여 줍니다. 이 문서는이 새로운 모니터링 환경의 이점과 조직의 고유한 요구 사항에 맞게 환경을 수정 하 고 조정 하는 방법을 이해 하는 데 도움이 됩니다.   
+Azure Cosmos DB Azure Monitor은 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 작업 상태에 대 한 보기를 제공 합니다. 이 문서는이 새로운 모니터링 환경의 이점과 조직의 고유한 요구 사항에 맞게 환경을 수정 하 고 조정 하는 방법을 이해 하는 데 도움이 됩니다.   
 
 ## <a name="introduction"></a>소개
 
@@ -44,7 +44,7 @@ Azure Cosmos DB (미리 보기)에 대 한 Azure Monitor는 통합 된 대화형
 
     !["Monitor" 라는 단어가 포함 된 검색 상자 및 속도계 스타일 이미지를 사용 하는 "Monitor" 서비스 라는 드롭다운](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. **Cosmos DB (미리 보기)** 를 선택 합니다.
+3. **Cosmos DB**를 선택합니다.
 
     ![Cosmos DB 개요 통합 문서 스크린샷](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -72,7 +72,7 @@ Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하
 
 ![HTTP 요청 유형별 분석 오류 스크린샷](./media/cosmosdb-insights-overview/failures.png)
 
-| 코드      |  Description       | 
+| 코드      |  설명       | 
 |-----------|:--------------------|
 | `200 OK`  | 다음 REST 작업 중 하나가 정상적으로 완료되었습니다. </br>-리소스를 가져옵니다. </br> -리소스에 추가 합니다. </br> -리소스에 게시 합니다. </br> -저장 프로시저를 실행 하기 위해 저장 프로시저 리소스에 게시 합니다.|
 | `201 Created` | 리소스를 만들기 위한 POST 작업이 정상적으로 완료되었습니다. |
@@ -92,7 +92,7 @@ Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하
 
 페이지 위쪽에서 **작업** 을 선택 하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 요청 유형에 따라 세분화 된 요청을 볼 수 있는 기능을 제공 합니다. 
 
-따라서 아래 예제에서는 upsert 및 create 요청 `eastus-billingint` 수가 적은 읽기 요청을 수신 하는 것을 볼 수 있습니다. 는 `westeurope-billingint` 요청 관점에서 읽기 전용 이지만 이전 4 시간 이상, 통합 문서는 현재 시간 범위 매개 변수를 통해 범위를 지정 합니다.
+따라서 아래 예제에서는 `eastus-billingint` upsert 및 create 요청 수가 적은 읽기 요청을 수신 하는 것을 볼 수 있습니다. `westeurope-billingint`는 요청 관점에서 읽기 전용 이지만 이전 4 시간 이상, 통합 문서는 현재 시간 범위 매개 변수를 통해 범위를 지정 합니다.
 
 ![운영 통합 문서](./media/cosmosdb-insights-overview/operation.png) 
 
@@ -110,9 +110,9 @@ Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하
 
 ![통합 문서 확장 아이콘](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 사용자 지정 (미리 보기)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Monitor 사용자 지정
 
-이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 > **하므로 사용자** **지정 하 여**수정 된 버전의 복사본을 사용자 지정 통합 문서에 **저장할** 수 있습니다. 
+이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 하므로 사용자 **지정 하 여**  >  **Edit** 수정 된 버전의 복사본을 사용자 지정 통합 문서에 **저장할** 수 있습니다. 
 
 ![사용자 지정 막대](./media/cosmosdb-insights-overview/customize.png)
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100280"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196190"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리형 인스턴스로 마이그레이션
 
@@ -43,9 +43,7 @@ ms.locfileid: "82100280"
 
 먼저 관리되는 인스턴스가 애플리케이션의 데이터베이스 요구 사항과 호환되는지 확인합니다. 관리되는 인스턴스 배포 옵션은 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 애플리케이션에서 리프트 앤 시프트 방식으로 쉽게 마이그레이션할 수 있도록 설계되었습니다. 그러나 아직 지원 되지 않는 기능 또는 기능을 필요로 하는 경우가 있으며 해결 방법을 구현 하는 비용이 너무 높습니다.
 
-[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 관리형 인스턴스를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 관리형 인스턴스를 통해 제거되었으므로 관리되는 인스턴스에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 글로벌 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 관리되는 인스턴스에서 사용할 수 있습니다.
-
-관리되는 인스턴스 배포 옵션에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. 일부 보고 된 차단 문제가 있는 경우 [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해 야 할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스해야 하는 경우(예: SQL Server가 있는 동일한 가상 머신에 타사 또는 사용자 지정 에이전트를 설치하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원되지 않는 기능에 대한 엄격한 종속성이 있는 경우
@@ -53,6 +51,7 @@ ms.locfileid: "82100280"
 - 컴퓨팅 요구 사항이 관리되는 인스턴스에서 제공하는 것보다 훨씬 낮고(예: 하나의 vCore) 데이터베이스 통합이 허용되지 않는 옵션인 경우
 
 식별 된 모든 마이그레이션 차단기를 해결 하 고 Managed Instance로 마이그레이션을 계속 하는 경우 일부 변경 내용이 워크 로드의 성능에 영향을 줄 수 있습니다.
+
 - 정기적으로 단순/대량 로그 모델을 사용 했거나 요청 시 백업을 중지 한 경우 필수 전체 복구 모델 및 정기적인 자동 백업 일정은 워크 로드 또는 유지 관리/ETL 작업의 성능에 영향을 줄 수 있습니다.
 - 다른 서버 또는 데이터베이스 수준 구성 (예: 추적 플래그 또는 호환성 수준)
 - TDE (투명 데이터베이스 암호화) 또는 자동 장애 조치 (failover) 그룹과 같은 사용 중인 새로운 기능은 CPU 및 IO 사용에 영향을 줄 수 있습니다.
@@ -181,7 +180,7 @@ Managed Instance에 대 한 데이터베이스 마이그레이션은 대부분�
 Managed Instance는 모니터링 및 문제 해결을 위한 다양 한 고급 도구를 제공 하며, 이러한 도구를 사용 하 여 인스턴스의 성능을 모니터링 해야 합니다. 모니터링 해야 하는 매개 변수 중 일부는 다음과 같습니다.
 - 인스턴스의 CPU 사용량은 프로 비전 한 vCores 수가 워크 로드와 적절 한지 확인 합니다.
 - [추가 메모리가 필요한](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)지 여부를 확인 하기 위해 Managed Instance의 페이지 수명 예상
-- 또는 `PAGEIOLATCH` 와 같은 `INSTANCE_LOG_GOVERNOR` 대기 통계를 통해 저장소 io 문제가 있음을 알 수 있습니다. 특히, 더 나은 IO 성능을 얻기 위해 파일을 미리 할당 해야 하는 일반적인 용도의 계층에 있습니다.
+- 또는와 같은 대기 통계 `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` 를 통해 저장소 io 문제가 있음을 알 수 있습니다. 특히, 더 나은 IO 성능을 얻기 위해 파일을 미리 할당 해야 하는 일반적인 용도의 계층에 있습니다.
 
 ## <a name="leverage-advanced-paas-features"></a>고급 PaaS 기능 활용
 

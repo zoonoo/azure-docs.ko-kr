@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653125"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195122"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 PowerShell 모듈 설정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows 가상 데스크톱 개체를 사용 하 여 스프링 2020 업데이트에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다.
 >
-> Windows 가상 데스크톱 스프링 2020 업데이트는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용 하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
+> Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Windows 가상 데스크톱 PowerShell 모듈은 Azure PowerShell 모듈에 통합 되어 있습니다. 이 문서에서는 Windows 가상 데스크톱에 대 한 cmdlet을 실행할 수 있도록 PowerShell 모듈을 설정 하는 방법을 설명 합니다.
@@ -46,7 +46,7 @@ Install-Module -Name Az.DesktopVirtualization
 Connect-AzAccount
 ```
 
-Azure 계정에 로그인 하려면 Connect cmdlet을 실행할 때 생성 되는 코드가 필요 합니다. 로그인 하려면로 <https://microsoft.com/devicelogin>이동 하 여 코드를 입력 한 다음 Azure 관리자 자격 증명을 사용 하 여 로그인 합니다.
+Azure 계정에 로그인 하려면 Connect cmdlet을 실행할 때 생성 되는 코드가 필요 합니다. 로그인 하려면로 이동 하 여 <https://microsoft.com/devicelogin> 코드를 입력 한 다음 Azure 관리자 자격 증명을 사용 하 여 로그인 합니다.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Youradminupn subscriptionname AzureADTenantID AzureCloud
 로그인 한 후에 기본 구독을 변경 하려면이 cmdlet을 실행 합니다.
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 사용할 새 구독을 선택 하는 경우 나중에 실행 하는 cmdlet에 해당 구독의 ID를 지정할 필요가 없습니다. 예를 들어 다음 cmdlet은 구독 ID를 필요로 하지 않고 특정 세션 호스트를 검색 합니다.

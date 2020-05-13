@@ -1,18 +1,18 @@
 ---
-title: Azure 애플리케이션 Insights에서 원격 분석 분리
+title: Application Insights 배포를 설계 하는 방법-하나는 많은 리소스에 대 한 것입니다.
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562154"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125692"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>배포 해야 하는 Application Insights 리소스의 수
 
-웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다. 
+웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다.
 
 시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](../../azure-monitor/app/cloudservices.md)이 있습니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "82562154"
 
 각 Application Insights 리소스에는 기본 제공 되는 메트릭이 제공 됩니다. 구성 요소를 동일한 Application Insights 리소스로 완전히 분리 하는 경우 이러한 메트릭은에서 대시보드/경고에 적합 하지 않을 수 있습니다.
 
-### <a name="use-a-single-application-insights-resource"></a>단일 Application Insights 리소스 사용
+### <a name="when-to-use-a-single-application-insights-resource"></a>단일 Application Insights 리소스를 사용 하는 경우
 
 -   함께 배포 되는 응용 프로그램 구성 요소 일반적으로 단일 팀에서 개발 되며 동일한 DevOps/ITOps 사용자 집합을 통해 관리 됩니다.
 -   응답 기간과 같은 Kpi (핵심 성과 지표)를 집계 하는 것이 적절 한 경우에는 기본적으로 모든 항목에서 기본적으로 (역할 메트릭 탐색기 이름별로 분할 하도록 선택할 수 있음).
@@ -124,7 +124,7 @@ Application Insights 리소스를 만들려면 [리소스 만들기 가이드](h
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가 합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. 파일에서 `.csproj` 다음을 추가 합니다.  
 
 ```XML
 

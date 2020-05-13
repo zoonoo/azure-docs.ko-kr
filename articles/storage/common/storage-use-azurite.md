@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872595"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195952"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발 및 테스트 (미리 보기)
 
@@ -70,7 +70,7 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
-이 설치 방법을 사용 하려면 [node.js 버전 8.0 이상이](https://nodejs.org) 설치 되어 있어야 합니다. Npm (node Package Manager)는 모든 node.js 설치에 포함 된 패키지 관리 도구입니다. Node.js를 설치한 후 다음 `npm` 명령을 실행 하 여 Azurite를 설치 합니다.
+이 설치 방법을 사용 하려면 [node.js 버전 8.0 이상이](https://nodejs.org) 설치 되어 있어야 합니다. Npm (node Package Manager)는 모든 node.js 설치에 포함 된 패키지 관리 도구입니다. Node.js를 설치한 후 다음 명령을 실행 하 여 `npm` Azurite를 설치 합니다.
 
 ```console
 npm install -g azurite
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Azurite Docker 이미지를 실행 합니다**.
 
-다음 명령은 Azurite Docker 이미지를 실행 합니다. 매개 `-p 10000:10000` 변수는 호스트 컴퓨터의 포트 1만에서 Docker 인스턴스로 요청을 리디렉션합니다.
+다음 명령은 Azurite Docker 이미지를 실행 합니다. `-p 10000:10000`매개 변수는 호스트 컴퓨터의 포트 1만에서 Docker 인스턴스로 요청을 리디렉션합니다.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -97,7 +97,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 
 **작업 영역 위치 지정**:
 
-다음 예제에서 매개 변수는 `-v c:/azurite:/data` azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite*를 만들어야 합니다.
+다음 예제에서 `-v c:/azurite:/data` 매개 변수는 azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite*를 만들어야 합니다.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -142,7 +142,7 @@ Azurite를 설치 하 고 빌드한 후 [명령줄에서 Azurite 실행](#run-az
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-이 명령은 Azurite에 게 *c:\azurite*의 특정 디렉터리에 모든 데이터를 저장 하도록 지시 합니다. 이 `--location` 옵션을 생략 하면 현재 작업 디렉터리가 사용 됩니다.
+이 명령은 Azurite에 게 *c:\azurite*의 특정 디렉터리에 모든 데이터를 저장 하도록 지시 합니다. `--location`이 옵션을 생략 하면 현재 작업 디렉터리가 사용 됩니다.
 
 ## <a name="command-line-options"></a>명령줄 옵션
 
@@ -150,7 +150,7 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 ### <a name="help"></a>도움말
 
-**선택 사항** -또는 `-h` `--help` 스위치를 사용 하 여 명령줄 도움말을 가져옵니다.
+**선택 사항** -또는 스위치를 사용 하 여 명령줄 도움말을 가져옵니다 `-h` `--help` .
 
 ```console
 azurite -h
@@ -159,7 +159,7 @@ azurite --help
 
 ### <a name="blob-listening-host"></a>Blob 수신 대기 호스트
 
-**선택 사항** -기본적으로 Azurite는 로컬 서버로 127.0.0.1을 수신 합니다. `--blobHost` 스위치를 사용 하 여 요구 사항에 대 한 주소를 설정 합니다.
+**선택 사항** -기본적으로 Azurite는 로컬 서버로 127.0.0.1을 수신 합니다. 스위치를 사용 `--blobHost` 하 여 요구 사항에 대 한 주소를 설정 합니다.
 
 로컬 컴퓨터 에서만 요청 수락:
 
@@ -178,7 +178,7 @@ azurite --blobHost 0.0.0.0
 
 ### <a name="blob-listening-port-configuration"></a>Blob 수신 대기 포트 구성
 
-**선택 사항** -기본적으로 Azurite는 포트 1만에서 Blob service를 수신 대기 합니다. `--blobPort` 스위치를 사용 하 여 필요한 수신 대기 포트를 지정 합니다.
+**선택 사항** -기본적으로 Azurite는 포트 1만에서 Blob service를 수신 대기 합니다. 스위치를 사용 `--blobPort` 하 여 필요한 수신 대기 포트를 지정 합니다.
 
 > [!NOTE]
 > 사용자 지정 된 포트를 사용한 후 Azure Storage 도구나 Sdk에서 연결 문자열 또는 해당 구성을 업데이트 해야 합니다.
@@ -199,7 +199,7 @@ Azurite을 시작 하는 동안 사용 중인 포트가 표시 됩니다.
 
 ### <a name="queue-listening-host"></a>큐 수신 대기 호스트
 
-**선택 사항** -기본적으로 Azurite는 로컬 서버로 127.0.0.1을 수신 합니다. `--queueHost` 스위치를 사용 하 여 요구 사항에 대 한 주소를 설정 합니다.
+**선택 사항** -기본적으로 Azurite는 로컬 서버로 127.0.0.1을 수신 합니다. 스위치를 사용 `--queueHost` 하 여 요구 사항에 대 한 주소를 설정 합니다.
 
 로컬 컴퓨터 에서만 요청 수락:
 
@@ -218,7 +218,7 @@ azurite --queueHost 0.0.0.0
 
 ### <a name="queue-listening-port-configuration"></a>큐 수신 대기 포트 구성
 
-**선택 사항** -기본적으로 Azurite는 포트 10001에서 큐 서비스를 수신 대기 합니다. `--queuePort` 스위치를 사용 하 여 필요한 수신 대기 포트를 지정 합니다.
+**선택 사항** -기본적으로 Azurite는 포트 10001에서 큐 서비스를 수신 대기 합니다. 스위치를 사용 `--queuePort` 하 여 필요한 수신 대기 포트를 지정 합니다.
 
 > [!NOTE]
 > 사용자 지정 된 포트를 사용한 후 Azure Storage 도구나 Sdk에서 연결 문자열 또는 해당 구성을 업데이트 해야 합니다.
@@ -239,7 +239,7 @@ Azurite을 시작 하는 동안 사용 중인 포트가 표시 됩니다.
 
 ### <a name="workspace-path"></a>작업 영역 경로
 
-**선택 사항** -Azurite은 실행 중에 데이터를 로컬 디스크에 저장 합니다. `-l` 또는 `--location` 스위치를 사용 하 여 경로를 작업 영역 위치로 지정 합니다. 기본적으로 현재 프로세스 작업 디렉터리가 사용 됩니다. 소문자 ' l '을 적어둡니다.
+**선택 사항** -Azurite은 실행 중에 데이터를 로컬 디스크에 저장 합니다. `-l`또는 스위치를 사용 `--location` 하 여 경로를 작업 영역 위치로 지정 합니다. 기본적으로 현재 프로세스 작업 디렉터리가 사용 됩니다. 소문자 ' l '을 적어둡니다.
 
 ```console
 azurite -l c:\azurite
@@ -248,7 +248,7 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>액세스 로그
 
-**선택 사항** -기본적으로 액세스 로그는 콘솔 창에 표시 됩니다. 또는 `-s` `--silent` 스위치를 사용 하 여 액세스 로그를 표시 하지 않습니다.
+**선택 사항** -기본적으로 액세스 로그는 콘솔 창에 표시 됩니다. 또는 스위치를 사용 하 여 액세스 로그를 표시 하지 않습니다 `-s` `--silent` .
 
 ```console
 azurite -s
@@ -256,7 +256,7 @@ azurite --silent
 ```
 ### <a name="debug-log"></a>디버그 로그
 
-**선택 사항** -디버그 로그에는 모든 요청 및 예외 스택 추적에 대 한 자세한 정보가 포함 됩니다. `-d` 또는 `--debug` 스위치에 올바른 로컬 파일 경로를 제공 하 여 디버그 로그를 사용 하도록 설정 합니다.
+**선택 사항** -디버그 로그에는 모든 요청 및 예외 스택 추적에 대 한 자세한 정보가 포함 됩니다. 또는 스위치에 올바른 로컬 파일 경로를 제공 하 여 디버그 로그를 사용 하도록 설정 합니다 `-d` `--debug` .
 
 ```console
 azurite -d path/debug.log
@@ -265,7 +265,7 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>느슨한 모드
 
-**선택 사항** -기본적으로 Azurite는 strict 모드를 적용 하 여 지원 되지 않는 요청 헤더와 매개 변수를 차단 합니다. 또는 `-L` `--loose` 스위치를 사용 하 여 strict 모드를 사용 하지 않도록 설정 합니다. 대문자 ' L '을 확인 합니다.
+**선택 사항** -기본적으로 Azurite는 strict 모드를 적용 하 여 지원 되지 않는 요청 헤더와 매개 변수를 차단 합니다. 또는 스위치를 사용 하 여 strict 모드를 사용 하지 않도록 설정 `-L` `--loose` 합니다. 대문자 ' L '을 확인 합니다.
 
 ```console
 azurite -L
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>버전
 
-**선택 사항** -또는 `-v` `--version` 스위치를 사용 하 여 설치 된 Azurite 버전 번호를 표시 합니다.
+**선택 사항** -또는 스위치를 사용 하 여 설치 된 Azurite 버전 번호를 표시 `-v` `--version` 합니다.
 
 ```console
 azurite -v
@@ -282,15 +282,15 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>인증서 구성 (HTTPS)
 
-**선택 사항** -기본적으로 AZURITE는 HTTP 프로토콜을 사용 합니다. 스위치에 Privacy Enhanced Mail (pem) 또는 [개인 정보 교환 (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) 인증서 파일의 경로를 제공 하 여 HTTPS 모드를 사용 하도록 설정 합니다. `--cert`
+**선택 사항** -기본적으로 AZURITE는 HTTP 프로토콜을 사용 합니다. 스위치에 Privacy Enhanced Mail (pem) 또는 [개인 정보 교환 (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) 인증서 파일의 경로를 제공 하 여 HTTPS 모드를 사용 하도록 설정 합니다 `--cert` .
 
-PEM `--cert` 파일에 대해가 제공 되는 경우 해당 `--key` 스위치를 제공 해야 합니다.
+`--cert`PEM 파일에 대해가 제공 되는 경우 해당 스위치를 제공 해야 합니다 `--key` .
 
 ```console
 azurite --cert path/server.pem --key path/key.pem
 ```
 
-PFX `--cert` 파일에 대해가 제공 되는 경우 해당 `--pwd` 스위치를 제공 해야 합니다.
+`--cert`PFX 파일에 대해가 제공 되는 경우 해당 스위치를 제공 해야 합니다 `--pwd` .
 
 ```console
 azurite --cert path/server.pfx --pwd pfxpassword
@@ -300,22 +300,22 @@ PEM 및 PFX 파일을 만드는 방법에 대 한 자세한 내용은 [HTTPS 설
 
 ### <a name="oauth-configuration"></a>OAuth 구성
 
-**선택 사항** -스위치를 `--oauth` 사용 하 여 Azurite에 대 한 OAuth 인증을 사용 하도록 설정 합니다.
+**선택 사항** -스위치를 사용 하 여 Azurite에 대 한 OAuth 인증을 사용 하도록 설정 `--oauth` 합니다.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> OAuth에는 HTTPS 끝점이 필요 합니다. 스위치와 함께 스위치를 `--cert` `--oauth` 제공 하 여 HTTPS를 사용 하도록 설정 해야 합니다.
+> OAuth에는 HTTPS 끝점이 필요 합니다. 스위치와 함께 스위치를 제공 하 여 HTTPS를 사용 하도록 설정 해야 `--cert` `--oauth` 합니다.
 
-Azurite는 `--oauth` 스위치에 매개 변수를 `basic` 지정 하 여 기본 인증을 지원 합니다. Azurite는 들어오는 전달자 토큰의 유효성을 검사 하 고 발급자, 대상 그룹 및 만료를 확인 하는 등의 기본 인증을 수행 합니다. Azurite는 토큰 서명 또는 사용 권한을 확인 하지 않습니다.
+Azurite는 `basic` 스위치에 매개 변수를 지정 하 여 기본 인증을 지원 합니다 `--oauth` . Azurite는 들어오는 전달자 토큰의 유효성을 검사 하 고 발급자, 대상 그룹 및 만료를 확인 하는 등의 기본 인증을 수행 합니다. Azurite는 토큰 서명 또는 사용 권한을 확인 하지 않습니다.
 
 ## <a name="authorization-for-tools-and-sdks"></a>도구 및 Sdk에 대 한 권한 부여
 
 인증 전략을 사용 하 여 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 Azure Storage sdk 또는 도구에서 Azurite에 연결 합니다. 인증이 필요 합니다. Azurite는 OAuth, 공유 키 및 SAS (공유 액세스 서명)를 사용한 권한 부여를 지원 합니다. Azurite는 공용 컨테이너에 대 한 익명 액세스도 지원 합니다.
 
-Azure Sdk를 사용 하는 경우 `--oauth basic and --cert --key/--pwd` 옵션을 사용 하 여 Azurite를 시작 합니다.
+Azure Sdk를 사용 하는 경우 옵션을 사용 하 여 Azurite를 시작 `--oauth basic and --cert --key/--pwd` 합니다.
 
 ### <a name="well-known-storage-account-and-key"></a>잘 알려진 저장소 계정 및 키
 
@@ -326,7 +326,7 @@ Azurite은 레거시 Azure 저장소 에뮬레이터에서 사용 하는 것과 
 
 ### <a name="custom-storage-accounts-and-keys"></a>사용자 지정 저장소 계정 및 키
 
-Azurite는 다음과 같은 형식으로 환경 변수를 `AZURITE_ACCOUNTS` 설정 하 여 사용자 지정 저장소 계정 이름 및 `account1:key1[:key2];account2:key1[:key2];...`키를 지원 합니다.
+Azurite는 다음과 `AZURITE_ACCOUNTS` 같은 형식으로 환경 변수를 설정 하 여 사용자 지정 저장소 계정 이름 및 키를 지원 `account1:key1[:key2];account2:key1[:key2];...` 합니다.
 
 예를 들어 하나의 키가 있는 사용자 지정 저장소 계정을 사용 합니다.
 
@@ -351,7 +351,7 @@ export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 Azurite는 기본적으로 분 마다 사용자 지정 계정 이름과 키를 환경 변수에서 새로 고칩니다. 이 기능을 사용 하면 Azurite를 다시 시작 하지 않고 계정 키를 동적으로 회전 하거나 새 저장소 계정을 추가할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 `devstoreaccount1` 저장소 계정을 설정 하는 경우 기본 저장소 계정이 사용 하지 않도록 설정 됩니다.
+> `devstoreaccount1`사용자 지정 저장소 계정을 설정 하는 경우 기본 저장소 계정이 사용 하지 않도록 설정 됩니다.
 
 ### <a name="connection-strings"></a>연결 문자열
 
@@ -393,7 +393,7 @@ Blob 서비스만 사용 하려면 HTTPS 연결 문자열은 다음과 같습니
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-자체 서명 된 `dotnet dev-certs` 인증서를 생성 하는 데를 사용한 경우에는 다음 연결 문자열을 사용 합니다.
+자체 서명 된 인증서를 생성 하는 데를 사용한 경우에는 `dotnet dev-certs` 다음 연결 문자열을 사용 합니다.
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
@@ -461,20 +461,22 @@ Storage 탐색기를 사용 하 여 Azurite에 저장 된 데이터를 볼 수 �
 
 Storage 탐색기에서 다음 단계를 수행 하 여 Azurite에 연결 합니다.
 
- 1. **계정 추가 아이콘을 선택 합니다** .
+ 1. **계정 관리** 아이콘을 선택 합니다.
+ 1. **계정 추가를 선택 합니다** .
  1. **로컬 에뮬레이터에 연결을 선택 합니다** .
  1. **다음**을 선택합니다.
+ 1. **표시 이름** 필드를 원하는 이름으로 편집 합니다.
  1. 다시 **다음** 을 선택 합니다.
  1. **연결** 선택
 
 #### <a name="connect-to-azurite-using-https"></a>HTTPS를 사용 하 여 Azurite에 연결
 
-기본적으로 Storage 탐색기 자체 서명 된 인증서를 사용 하는 HTTPS 끝점은 열리지 않습니다. HTTPS를 사용 하 여 Azurite를 실행 하는 경우 자체 서명 된 인증서를 사용할 가능성이 높습니다. Storage 탐색기**에서 ssl 인증서** ->  **편집** -> **인증서 가져오기** 대화 상자를 통해 ssl 인증서를 가져옵니다.
+기본적으로 Storage 탐색기 자체 서명 된 인증서를 사용 하는 HTTPS 끝점은 열리지 않습니다. HTTPS를 사용 하 여 Azurite를 실행 하는 경우 자체 서명 된 인증서를 사용할 가능성이 높습니다. Storage 탐색기에서 ssl 인증서 **편집**  ->  **SSL Certificates**  ->  **인증서 가져오기** 대화 상자를 통해 ssl 인증서를 가져옵니다.
 
 ##### <a name="import-certificate-to-storage-explorer"></a>인증서를 Storage 탐색기 가져오기
 
 1. 로컬 컴퓨터에서 인증서를 찾습니다.
-1. Storage 탐색기에서**SSL 인증서** ->  **편집** -> **인증서 가져오기** 로 이동 하 여 인증서를 가져옵니다.
+1. Storage 탐색기에서 **Edit**  ->  **SSL 인증서**편집  ->  **인증서 가져오기** 로 이동 하 여 인증서를 가져옵니다.
 
 인증서를 가져오지 않으면 오류가 발생 합니다.
 
@@ -541,7 +543,7 @@ Azurite는 Azure Storage 오류 처리 논리와 맞춰져 있지만 차이가 �
 
 ### <a name="ra-grs"></a>RA-GRS
 
-Azurite는 읽기 액세스 지역 중복 복제 (RA-GRS)를 지원 합니다. 저장소 리소스의 경우 계정 이름에를 추가 `-secondary` 하 여 보조 위치에 액세스 합니다. 예를 들어 Azurite의 읽기 전용 보조 데이터베이스를 사용 하 여 blob에 액세스 하기 위해 다음 주소를 사용할 수 있습니다.
+Azurite는 읽기 액세스 지역 중복 복제 (RA-GRS)를 지원 합니다. 저장소 리소스의 경우 계정 이름에를 추가 하 여 보조 위치에 액세스 합니다 `-secondary` . 예를 들어 Azurite의 읽기 전용 보조 데이터베이스를 사용 하 여 blob에 액세스 하기 위해 다음 주소를 사용할 수 있습니다.
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
