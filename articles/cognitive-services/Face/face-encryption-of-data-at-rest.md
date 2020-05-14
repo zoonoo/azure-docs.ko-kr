@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 793c21bb2341033aa51ff8c639846e57ada4bae3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1e0275c91b2243132650be7af256071589091c4b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372413"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201938"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>미사용 데이터의 얼굴 서비스 암호화
 
@@ -25,7 +25,14 @@ Face 서비스는 데이터를 클라우드에 보관할 때 데이터를 자동
 > [!IMPORTANT]
 > 고객 관리 키는 E0 가격 책정 계층 에서만 사용할 수 있습니다. 고객 관리 키를 사용 하는 기능을 요청 하려면 [고객 관리 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 여 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. Face 서비스에서 CMK를 사용 하도록 승인 되 면 새 얼굴 리소스를 만들고이를 가격 책정 계층으로 선택 해야 합니다. E0 가격 책정 계층을 사용 하 여 얼굴 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 되는 id를 설정할 수 있습니다.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+### <a name="regional-availability"></a>국가별 가용성
+
+고객 관리 키는 현재 다음 지역에서 사용할 수 있습니다.
+
+* 미국 중남부
+* 미국 서부 2
+* 미국 동부
+* US Gov 버지니아
 
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
 

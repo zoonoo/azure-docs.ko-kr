@@ -3,13 +3,13 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/23/2019
-ms.openlocfilehash: 8754504655cdd08c9bf9f89311cb6c5d1057f0e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.openlocfilehash: ddc61a0d0cb5a630282a9ba0589cef6fda29c4b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78262559"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343466"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
@@ -101,3 +101,19 @@ ms.locfileid: "78262559"
    ```
 
 또는 인증서를 사용 하 여 서비스 사용자를 인증할 수 있습니다. 서비스 사용자 외에도 다른 AAD 응용 프로그램을 통해 위임 된 사용 권한을 사용 하 여 사용자 보안 주체를 지원 합니다. 이 경우 암호 또는 인증서 대신 토큰을 획득 하는 경우 사용자에 게 2 단계 인증을 요구 하는 메시지가 표시 됩니다.
+
+## <a name="authorize-access-to-managed-identities"></a>관리 id에 대 한 액세스 권한 부여
+ 
+[Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용 하 여 azure AD (Azure Active Directory) 인증을 지원 Cognitive Services 합니다. Azure 리소스에 대 한 관리 id는 azure Vm (가상 머신), 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Cognitive Services 리소스에 대 한 액세스 권한을 부여할 수 있습니다. Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.  
+
+### <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
+
+Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 Cognitive Services 리소스에 대 한 액세스 권한을 부여 하려면 먼저 VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하도록 설정 해야 합니다. Azure 리소스에 대해 관리 id를 사용 하도록 설정 하는 방법을 알아보려면 다음을 참조 하세요.
+
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+- [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+- [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+- [Azure Resource Manager 클라이언트 라이브러리](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+
+관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.

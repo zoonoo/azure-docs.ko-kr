@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372439"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198660"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 음성 서비스 암호화
 
@@ -42,13 +42,10 @@ Custom Speech 및 사용자 지정 음성을 사용 하는 경우 Speech service
 > [!IMPORTANT]
 > 시스템 할당 관리 id를 사용 하지 않도록 설정 하면 저장소 계정에 대 한 액세스가 제거 됩니다. 이렇게 하면 저장소 계정에 대 한 액세스를 필요로 하는 음성 서비스 부분이 작동을 중지 하 게 됩니다.  
 
-## <a name="regional-availability"></a>국가별 가용성
+음성 서비스는 현재 고객 Lockbox을 지원 하지 않습니다. 그러나 BYOS를 사용 하 여 고객 데이터를 저장 하 여 [고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md)하는 비슷한 데이터 제어를 달성할 수 있습니다. 음성 서비스 데이터는 음성 리소스가 생성 된 지역에서 유지 되 고 처리 됩니다. 이는 미사용 데이터 및 전송 중인 데이터에 적용 됩니다. 사용자 지정 기능을 사용 하는 경우 (예: Custom Speech 및 사용자 지정 음성) 모든 고객 데이터는 BYOS (사용 되는 경우) 및 음성 서비스 리소스가 있는 동일한 지역에서 전송, 저장 및 처리 됩니다.
 
-BYOS는 현재 다음 지역에서 사용할 수 있습니다.
-
-* 미국 중남부
-* 미국 서부 2
-* 미국 동부
+> [!IMPORTANT]
+> Microsoft **는** 고객 데이터를 사용 하 여 음성 모델을 개선 하지 않습니다. 또한 끝점 로깅을 사용 하지 않도록 설정 하 고 사용자 지정을 사용 하지 않은 경우에는 고객 데이터가 저장 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

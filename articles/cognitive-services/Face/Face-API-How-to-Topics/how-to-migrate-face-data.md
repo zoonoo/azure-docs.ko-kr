@@ -3,19 +3,19 @@ title: 구독 간에 얼굴 데이터 마이그레이션-얼굴
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에서는 한 면에서 다른 구독으로 저장 된 얼굴 데이터를 마이그레이션하는 방법을 보여 줍니다.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169805"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120813"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
@@ -23,7 +23,7 @@ ms.locfileid: "76169805"
 
 이러한 동일한 마이그레이션 전략이 LargePersonGroup 및 LargeFaceList 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 c #에서 Face .NET 클라이언트 라이브러리를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 항목이 필요 합니다.
 
@@ -62,7 +62,7 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
 
 ## <a name="prepare-a-persongroup-for-migration"></a>PersonGroup 마이그레이션 준비
 
-대상 구독으로 마이그레이션하려면 원본 구독의 PersonGroup ID를 알아야 합니다. [PersonGroupOperationsExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) 메서드를 사용 하 여 PersonGroup 개체의 목록을 검색 합니다. 그런 다음 [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) 속성을 가져옵니다. 이 프로세스는 PersonGroup 개체에 따라 다르게 보입니다. 이 가이드에서 원본 PersonGroup ID는에 `personGroupId`저장 됩니다.
+대상 구독으로 마이그레이션하려면 원본 구독의 PersonGroup ID를 알아야 합니다. [PersonGroupOperationsExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) 메서드를 사용 하 여 PersonGroup 개체의 목록을 검색 합니다. 그런 다음 [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) 속성을 가져옵니다. 이 프로세스는 PersonGroup 개체에 따라 다르게 보입니다. 이 가이드에서 원본 PersonGroup ID는에 저장 됩니다 `personGroupId` .
 
 > [!NOTE]
 > 이 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) 는 새 PersonGroup를 만들어 학습 합니다. 대부분의 경우에는 사용할 PersonGroup 이미 있어야 합니다.
@@ -85,7 +85,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID를 검색 합니다.
 
-스냅숏을 만드는 데 사용 되는 메서드는 비동기 이므로 완료 될 때까지 기다려야 합니다. 스냅숏 작업을 취소할 수 없습니다. 이 코드에서 메서드는 `WaitForOperation` 비동기 호출을 모니터링 합니다. 100 밀리초 마다 상태를 확인 합니다. 작업이 완료 된 후 `OperationLocation` 필드를 구문 분석 하 여 작업 ID를 검색 합니다. 
+스냅숏을 만드는 데 사용 되는 메서드는 비동기 이므로 완료 될 때까지 기다려야 합니다. 스냅숏 작업을 취소할 수 없습니다. 이 코드에서 메서드는 `WaitForOperation` 비동기 호출을 모니터링 합니다. 100 밀리초 마다 상태를 확인 합니다. 작업이 완료 된 후 필드를 구문 분석 하 여 작업 ID를 검색 합니다 `OperationLocation` . 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -127,7 +127,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-작업 상태가 표시 `Succeeded`되 면 반환 된 operationstatus 인스턴스의 `ResourceLocation` 필드를 구문 분석 하 여 스냅숏 ID를 가져옵니다.
+작업 상태가 표시 되 면 `Succeeded` `ResourceLocation` 반환 된 operationstatus 인스턴스의 필드를 구문 분석 하 여 스냅숏 ID를 가져옵니다.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
@@ -152,7 +152,7 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > 스냅숏 개체는 48 시간 동안만 유효 합니다. 이후에 데이터 마이그레이션에 사용 하려는 경우에만 스냅숏을 만듭니다.
 
-스냅숏 적용 요청은 다른 작업 ID를 반환 합니다. 이 ID를 가져오려면 반환 된 applySnapshotResult `OperationLocation` 인스턴스의 필드를 구문 분석 합니다. 
+스냅숏 적용 요청은 다른 작업 ID를 반환 합니다. 이 ID를 가져오려면 `OperationLocation` 반환 된 applySnapshotResult 인스턴스의 필드를 구문 분석 합니다. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
