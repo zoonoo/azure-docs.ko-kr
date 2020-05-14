@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: a0bf8a89fa34f8a7d22979f4b42faaf94db60281
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401445"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83200633"
 landingContent:
 - title: 텍스트 음성 변환
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
       url: text-to-speech.md
     - text: 음성 합성 기초
       url: text-to-speech-basics.md
+    - text: 코드 없이 텍스트를 음성으로 변환 하기 위해 SPX 사용
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: 스피커로 음성 합성
@@ -52,7 +54,7 @@ landingContent:
       url: how-to-custom-voice-create-voice.md
     - text: Custom Voice 게이팅
       url: concepts-gating-overview.md
-- title: 참조
+- title: 참고
   linkLists:
   - linkListType: reference
     links:

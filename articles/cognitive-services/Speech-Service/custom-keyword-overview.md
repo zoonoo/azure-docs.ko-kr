@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: dd5748cf8afe19a49e5ea406aea9b558432eeaf3
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82802203"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202042"
 ---
 # <a name="what-is-a-keyword"></a>키워드 란 무엇 인가요?
 
@@ -31,26 +31,15 @@ ms.locfileid: "82802203"
 | 키워드 확인 | 로컬에서 검색 되는 키워드에 높은 신뢰도가 있는 경우 사용자가 키워드를 추가 하 여 추가 확인을 위해 오디오를 클라우드로 보냅니다. 키워드 확인은 잘못 된 로컬 검색의 영향을 줄이고 사용자의 개인 정보를 보호 하 여 추가 보안 계층을 제공 합니다.
 | 음성 도우미 & Speech SDK 통합 | Speech Studio에서 사용자 지정 키워드를 통해 생성 된 키워드는 음성 SDK를 통해 장치 또는 응용 프로그램 내에서 쉽게 통합 될 수 있습니다. SDK가 Speech Studio에서 제공 하는 키워드 모델을 가리키도록 하 고 제품이 음성으로 활성화 되며 키워드 확인으로 지원 됩니다. 사용자 고유의 [음성 도우미](voice-assistants.md)를 빌드하여 제품의 음성 환경을 완료할 수 있습니다.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="get-started-with-custom-keywords"></a>사용자 지정 키워드 시작
 
-키워드 모델을 통합 하는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 인기 있는 여러 프로그래밍 언어로 키워드를 통합 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
-
-* [자습서: 음성 SDK를 사용 하 여 제품 음성 활성화, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
-
-## <a name="tutorial"></a>자습서
-
-* [Speech Studio를 사용 하 여 사용자 지정 키워드를 만드는](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)방법입니다.
-* [음성 SDK를 사용 하 여 제품을 음성으로 활성화](tutorial-voice-enable-your-bot-speech-sdk.md)하는 방법입니다.
-
-## <a name="reference-docs"></a>참조 문서
-
-* [사용자 지정 키워드 명명 지침](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
-* [Speech SDK](speech-sdk-reference.md)
+* 자습서: [Speech Studio를 사용 하 여 사용자 지정 키워드를 만드는](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 방법
+* 자습서: 음성 SDK를 사용 하 여 제품을 음성으로 활성화 하는 방법 [(c # 사용)](tutorial-voice-enable-your-bot-speech-sdk.md)
+* 빠른 시작: [c #을 사용 하는 유니버설 Windows 플랫폼에서 음성 SDK를](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) 사용 하 여 키워드 인식
+* 빠른 시작: [Java를 사용 하 여 Android에서 음성 SDK로 키워드 인식](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [평가판 Speech Service 구독 키 받기](get-started.md)
-* [사용자 지정 키워드 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Speech SDK 가져오기](speech-sdk.md)
 * [음성 도우미에 대 한 자세한 정보](voice-assistants.md)

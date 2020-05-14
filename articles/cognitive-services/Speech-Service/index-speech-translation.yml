@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2020
   ms.author: trbye
-  ms.openlocfilehash: 5d5c1cdae695b68f45d55b51b76d88c2f93c50d1
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 230145ed072285b3ee91a317bc2d89fe16a65fb8
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401430"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83201884"
 landingContent:
 - title: 음성 번역 정보
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
       url: speech-translation.md
     - text: 음성 번역 기본 사항
       url: speech-translation-basics.md
+    - text: SPX를 사용 하 여 코드 없이 음성 변환
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: 음성을 텍스트로 변환
