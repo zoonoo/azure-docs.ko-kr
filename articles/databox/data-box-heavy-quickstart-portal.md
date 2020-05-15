@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 15140ef392d8108b59bf50c396e529dc15951232
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9d007f4fa8721214a7c97595fa297ef44199119f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410903"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199119"
 ---
 ::: zone target = "docs"
 
@@ -73,7 +73,7 @@ ms.locfileid: "81410903"
 
 ::: zone target = "chromeless"
 
-# <a name="cable-and-connect-to-your-device"></a>디바이스에 케이블 연결
+## <a name="cable-and-connect-to-your-device"></a>디바이스에 케이블 연결
 
 필수 구성 요소를 검토한 후 디바이스에 케이블을 연결합니다.
 
