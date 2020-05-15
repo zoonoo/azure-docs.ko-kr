@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7973ef9c56b70b6b43256db947e7f6f7210c178f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81869356"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930440"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure의 Windows 가상 머신
 
@@ -67,7 +67,7 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 ### <a name="operating-system-disks-and-images"></a>운영 체제 디스크 및 이미지
 가상 머신은 [VHD(가상 하드 디스크)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 
 
-Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 사용할 수 있도록 많은 [마켓플레이스 이미지](https://azure.microsoft.com/marketplace/virtual-machines/)를 제공합니다. Marketplace 이미지는 이미지 게시자, 제안, SKU 및 버전(대개 최신으로 지정된 버전)으로 식별됩니다. 64비트 운영 체제만 지원됩니다. 지원되는 게스트 운영 체제, 역할 및 기능에 대한 자세한 내용은 [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)을 참조하세요.
+Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 사용할 수 있도록 많은 [마켓플레이스 이미지](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1)를 제공합니다. Marketplace 이미지는 이미지 게시자, 제안, SKU 및 버전(대개 최신으로 지정된 버전)으로 식별됩니다. 64비트 운영 체제만 지원됩니다. 지원되는 게스트 운영 체제, 역할 및 기능에 대한 자세한 내용은 [Microsoft Azure 가상 머신에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)을 참조하세요.
 
 아래 표에서는 이미지에 대한 정보를 찾을 수 있는 몇 가지 방법을 보여 줍니다.
 
@@ -94,11 +94,11 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 리소스 | 필수 | Description |
 | --- | --- | --- |
-| [리소스 그룹](../../azure-resource-manager/management/overview.md) |yes |VM은 리소스 그룹에 포함되어야 합니다. |
-| [스토리지 계정](../../storage/common/storage-create-storage-account.md) |yes |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
-| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |yes |VM은 가상 네트워크의 구성원이어야 합니다. |
+| [리소스 그룹](../../azure-resource-manager/management/overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
+| [스토리지 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
+| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |예 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
-| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |yes |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
+| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |예 |VM은 스토리지 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

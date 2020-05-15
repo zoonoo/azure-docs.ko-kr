@@ -2,20 +2,19 @@
 title: 빠른 시작 - Azure Portal에서 가상 머신 확장 집합 만들기
 description: 가상 머신을 신속하게 생성하여 Azure Portal을 확장하는 방법을 학습하여 배포를 시작합니다.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: quickstart
-ms.custom: mvc, H1Hack27Feb2017
-ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 10/23/2019
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680430"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197638"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 

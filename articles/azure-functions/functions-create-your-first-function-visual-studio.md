@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기'
-description: 이 빠른 시작에서는 Visual Studio를 사용하여 HTTP로 트리거된 Azure 함수를 만들고 게시하는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 Visual Studio를 사용하여 HTTP 트리거 Azure 함수를 만들고 게시하는 방법에 대해 알아봅니다.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308924"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122751"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 
 Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 서버리스 환경에서 코드를 실행할 수 있습니다.
 
-이 빠른 시작에서는 Visual Studio 2019를 사용하여 "hello world" HTTP로 트리거된 C# 함수 앱을 로컬로 만들고 테스트한 다음, Azure에 게시하는 방법에 대해 알아봅니다. 
+이 빠른 시작에서는 Visual Studio 2019를 사용하여 "hello world" HTTP 트리거 C# 함수 앱을 로컬로 만들고 테스트한 다음, Azure에 게시하는 방법에 대해 알아봅니다. 
 
 ![브라우저의 localhost 함수 응답](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -38,7 +38,7 @@ Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포�
 
 메서드에 적절한 특성을 적용하여 입력 및 출력 바인딩으로 함수의 기능을 확장합니다. 자세한 내용은 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)의 [트리거 및 바인딩](functions-dotnet-class-library.md#triggers-and-bindings) 섹션을 참조하세요.
 
-함수 프로젝트 및 HTTP로 트리거되는 함수를 만들었으니, 로컬 컴퓨터에서 이 함수를 테스트할 수 있습니다.
+함수 프로젝트 및 HTTP 트리거 함수를 만들었으니, 로컬 컴퓨터에서 이 함수를 테스트할 수 있습니다.
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
@@ -58,7 +58,7 @@ Visual Studio는 Azure Functions Core Tools와 통합되므로 Azure Functions �
 
 1. **게시** 프로필 페이지에서 함수 앱의 기준 URL을 복사합니다. 로컬에서 함수를 테스트하는 데 사용한 URL의 `localhost:port` 부분을 새 기준 URL로 바꿉니다. `?name=<YOUR_NAME>` 쿼리 문자열을 이 URL에 추가하고 요청을 실행합니다.
 
-    HTTP로 트리거된 함수를 호출하는 URL은 다음과 같은 형식입니다.
+    HTTP 트리거 함수를 호출하는 URL은 다음과 같은 형식입니다.
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 

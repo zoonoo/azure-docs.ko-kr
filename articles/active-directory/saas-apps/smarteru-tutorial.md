@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76549294"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981955"
 ---
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
+
 > [!NOTE]
 > SmarterU를 Azure Active Directory와 통합하는 프로세스도 [SmarterU 도움말 시스템](https://help.smarteru.com/ID2053086)에 문서화되어 유지 관리됩니다.
-
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 SmarterU를 통합하는 방법에 대해 알아봅니다.
 SmarterU와 Azure AD를 통합하면 다음과 같은 이점이 있습니다.
@@ -217,7 +217,7 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
 
     a. **+사용자**를 클릭합니다.
 
-    b. 다음 텍스트 상자에 Azure AD 사용자 계정의 관련된 특성 값을 입력합니다. **기본 메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
+    b. Azure AD 사용자 계정의 관련 특성 값을 다음 텍스트 상자에 입력합니다. **기본 이메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
 
     다. **활성**을 클릭합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Visual Studio Code 확장을 사용하여 모델 학습 및 배포'
+title: '자습서: 모델 학습 및 배포 VS 코드'
 titleSuffix: Azure Machine Learning
 description: TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 모델을 학습시키고 배포하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,12 +9,13 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 04/13/2020
-ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.custom: contperfq4
+ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272829"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857720"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 

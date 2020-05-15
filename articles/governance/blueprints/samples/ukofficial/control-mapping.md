@@ -1,14 +1,14 @@
 ---
 title: 영국 공식 및 영국 NHS 청사진 샘플 제어
 description: 영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851369"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005605"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑
 
@@ -27,9 +27,6 @@ ms.locfileid: "74851369"
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 - 보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버의 감사 결과 표시
 - 보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버를 감사하기 위한 필수 조건 배포
-- API 앱에서 최신 TLS 버전을 사용해야 합니다.
-- 웹앱에서 최신 TLS 버전을 사용해야 합니다.
-- 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
 
 ## <a name="23-data-at-rest-protection"></a>2.3 저장 데이터 보호
 
@@ -129,8 +126,8 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 - \[미리 보기\]: 암호 없는 계정이 있는 Linux VM을 감사하기 위한 요구 사항 배포
 - \[미리 보기\]: 암호 없는 계정의 원격 연결을 허용하는 Linux VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM 감사
-- \[미리 보기\]: 암호 없는 계정의 원격 연결을 허용하는 Linux VM 감사
+- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
+- \[미리 보기\]: 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM의 감사 결과를 표시합니다.
 - 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.
 - 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.
 - 관리 디스크를 사용하지 않는 VM 감사
@@ -141,12 +138,10 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 - 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
-- IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
-- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
+- 적응형 네트워크 강화 추천 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.
 - 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.
 - 가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 합니다.
-- 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 - 함수 앱에 대해 원격 디버깅을 해제해야 함
 - 웹 애플리케이션에 대해 원격 디버깅을 해제해야 함
 - API 앱에 대해 원격 디버깅을 해제해야 함
@@ -179,13 +174,13 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 또한 이 청사진은 Linux VM 암호 파일 권한을 감사하여 잘못 설정된 경우 경고하는 Azure Policy 정의를 할당합니다. 이 설계를 사용하면 인증자가 손상되지 않도록 정정 작업을 수행할 수 있습니다.
 
-- \[미리 보기\]: Linux VM /etc/passwd 파일 권한이 0644로 설정되어 있는지 감사
+- \[미리 보기\]: passwd 파일 권한이 0644로 설정되지 않은 Linux VM의 감사 결과 표시
 
 ## <a name="13-audit-information-for-users"></a>13 사용자 정보 감사
 
 이 청사진을 사용하면 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 이벤트가 기록되도록 할 수 있습니다. 또한 할당된 정책은 가상 머신이 로그를 지정된 로그 분석 작업 영역에 보내지 않는지도 감사합니다.
 
-- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
+- SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - 진단 설정 감사
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포

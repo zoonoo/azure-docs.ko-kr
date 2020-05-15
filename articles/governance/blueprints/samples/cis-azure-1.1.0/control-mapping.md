@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 컨트롤
 description: Azure Policy에 대한 CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 추천 매핑입니다.
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656957"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863963"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -37,9 +37,9 @@ ms.locfileid: "80656957"
 
 이 청사진은 제거해야 할 수 있는 게스트 계정을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 - 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 - 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
+- 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 사용자 지정 구독 소유자 역할이 만들어지지 않았는지 확인
 
@@ -51,7 +51,7 @@ ms.locfileid: "80656957"
 
 이 청사진은 Security Center 표준 계층을 사용하지 않는 네트워크와 가상 머신을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
- - Security Center 표준 가격 책정 계층을 선택해야 합니다.
+- Security Center 표준 가격 책정 계층을 선택해야 합니다.
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 '모니터링 에이전트의 자동 프로비저닝'이 '켜기'로 설정되어 있는지 확인
 
@@ -87,20 +87,14 @@ ms.locfileid: "80656957"
 
 이 청사진은 인터넷 연결 가상 머신을 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 ASC 기본 정책 설정 "웹 애플리케이션 방화벽 모니터링"이 "비활성"이 아닌지 확인
-
-이 청사진은 웹 애플리케이션을 실행하는 가상 머신을 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
-
-- IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.
+- 적응형 네트워크 강화 추천 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 ASC 기본 정책 설정인 "차세대 방화벽(NGFW) 모니터링을 사용하도록 설정"이 "사용 안 함"이 아닌지 확인
 
 이 청사진은 액세스를 제한하여 서브넷과 가상 머신을 위협으로부터 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이 CIS Microsoft Azure Foundations Benchmark 추천 사항에서 참조하는 Security Center 정책이 새로운 두 가지 추천 사항으로 대체되었습니다. 아래에 언급한 정책은 새 추천 사항을 처리합니다.
 
 - 서브넷을 네트워크 보안 그룹과 연결해야 합니다.
-- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.
+- 인터넷 연결 가상 머신은 네트워크 보안 그룹과 함께 보호되어야 합니다.
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 ASC 기본 정책 설정 "취약성 평가 모니터링"이 "비활성"이 아닌지 확인
 
@@ -128,7 +122,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 SQL Server 감사를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
+- SQL Server에 대한 감사가 사용되도록 설정되어야 함
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 ASC 기본 정책 설정 "SQL 암호화 모니터링"이 "비활성"이 아닌지 확인
 
@@ -182,7 +176,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 SQL Server 감사를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 
 
-- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
+- SQL Server에 대한 감사가 사용되도록 설정되어야 함
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 SQL Server에 대한 '감사' 정책의 'AuditActionGroups'가 올바르게 설정되어 있는지 확인
 
@@ -200,8 +194,8 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 SQL Server 및 SQL 관리형 인스턴스에서 Advanced Data Security를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 '위협 탐지 유형'이 '모두'로 설정되어 있는지 확인
 
@@ -214,15 +208,15 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 Advanced Data Security 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
 - SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 '이메일 서비스 및 공동 관리자'가 '활성'인지 확인
 
 이 청사진은 Advanced Data Security 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
 - SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Azure Active Directory 관리자가 구성되어 있는지 확인
 
@@ -240,8 +234,8 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 SQL Server 및 SQL 관리형 인스턴스에 대한 투명한 데이터 암호화 보호기를 사용자 고유의 키로 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL 관리형 인스턴스 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
 - SQL Server TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
+- SQL 관리형 인스턴스 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 MySQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
@@ -315,11 +309,83 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 - Azure Monitor는 모든 지역의 활동 로그를 수집해야 합니다.
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 합니다(사용자 고유 키 사용).
+
+이 청사진은 활동 로그를 포함하는 스토리지 계정이 BYOK로 암호화되도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 합니다.
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Azure KeyVault에 대한 로깅이 '활성'인지 확인
 
 이 청사진은 진단 로그를 Key Vault에 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - Key Vault의 진단 로그를 사용하도록 설정해야 합니다.
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 정책 할당 만들기에 대한 활동 로그 경고가 있는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 정책 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 네트워크 보안 그룹 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 관리 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 네트워크 보안 그룹 삭제에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 관리 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 네트워크 보안 그룹 규칙 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 관리 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 네트워크 보안 그룹 규칙 삭제에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 관리 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 보안 솔루션 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 보안 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 보안 솔루션 삭제에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 보안 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 SQL Server 방화벽 규칙 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 관리 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 보안 정책 업데이트에 대한 활동 로그 경고가 존재하는지 확인합니다.
+
+이 청사진은 특정 활동 로그 경고가 존재하는지 확인하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 특정 보안 작업의 활동 로그 경고가 있어야 합니다.
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 RDP 액세스가 인터넷에서 제한되는지 확인
+
+이 청사진은 RDP 액세스를 제어할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 인터넷에서 RDP 액세스를 차단해야 함
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 SSH 액세스가 인터넷에서 제한되는지 확인
+
+이 청사진은 SSH 액세스를 제어할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 인터넷에서 SSH 액세스를 차단해야 함
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Network Watcher가 '사용'인지 확인
 
@@ -349,7 +415,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 승인된 가상 머신 확장만 설치할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이 정책에는 모든 승인된 가상 머신 확장을 지정하는 매개 변수 배열이 필요합니다. 이 정책 이니셔티브 정의에는 고객이 유효성을 검사해야 하는 제안된 기본값이 포함되어 있습니다. 
 
- - 승인된 VM 확장만 설치해야 합니다.
+- 승인된 VM 확장만 설치해야 합니다.
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 모든 Virtual Machines에 최신 OS 패치가 적용되어 있는지 확인
 
@@ -373,7 +439,15 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 이 청사진은 Kubernetes 서비스 클러스터에서 역할 기반 액세스 제어를 사용하여 권한을 관리할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- \[미리 보기\]: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.
+- Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 App Service 인증이 Azure App Service에서 설정되어 있는지 확인
+
+이 청사진은 App Service 앱에 대한 요청을 인증할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱에서 인증을 사용하도록 설정해야 합니다.
+- 함수 앱에서 인증을 사용하도록 설정해야 합니다.
+- 웹앱에서 인증을 사용하도록 설정해야 합니다.
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Azure App Service에서 웹앱이 모든 HTTP 트래픽을 HTTPS로 리디렉션하는지 확인
 
@@ -444,7 +518,6 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 - API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 
