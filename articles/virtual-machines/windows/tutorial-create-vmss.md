@@ -1,19 +1,20 @@
 ---
 title: '자습서: Windows 가상 머신 확장 집합 만들기'
 description: Azure PowerShell을 사용하여 가상 머신 확장 집합을 사용하는 Windows VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
-author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
 ms.date: 11/30/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: aba5df346d8df9b9f2ad130ded336e45576dbd89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 14777b85fdc531b96c61882d5f244ca40ed28fa6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100399"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197981"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>자습서: 가상 머신 확장 집합을 만들고 Azure PowerShell을 통해 Windows에 고가용성 앱 배포
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정할 수 있습니다. CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포하고 다음에 대해 자세히 알아봅니다.

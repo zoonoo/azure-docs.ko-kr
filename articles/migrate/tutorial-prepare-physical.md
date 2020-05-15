@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 물리적 서버의 평가/마이그�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535284"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901422"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -105,10 +105,9 @@ Server Migration을 사용하여 물리적 서버를 마이그레이션할 Azure
 ### <a name="assign-azure-account-permissions"></a>Azure 계정 권한 할당
 
 Azure 계정에 Virtual Machine 기여자 역할을 할당합니다. 다음 항목에 대한 사용 권한을 제공합니다.
-
-    - 선택한 리소스 그룹에 VM 만들기
-    - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다. 
+  - 선택한 리소스 그룹에 VM 만들기
+  - 선택한 가상 네트워크에 VM 만들기
+  - Azure 관리 디스크에 씁니다. 
 
 ### <a name="create-an-azure-network"></a>Azure 네트워크 만들기
 

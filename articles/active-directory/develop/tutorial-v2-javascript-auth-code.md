@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee156c8118a67061d0a000867ee64fe1f3ebd18c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f664f5fa4219a8bcc32230b352e90cc2516faceb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181885"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890375"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa---msaljs-20"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출 - MSAL.js 2.0
 
@@ -282,7 +282,7 @@ ms.locfileid: "82181885"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-지침에 따라 [새 단일 페이지 애플리케이션을 등록](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration)합니다.
+지침에 따라 [새 단일 페이지 애플리케이션을 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration)합니다.
 
 #### <a name="set-a-redirect-url-for-nodejs"></a>Node.js에 대한 리디렉션 URL 설정
 

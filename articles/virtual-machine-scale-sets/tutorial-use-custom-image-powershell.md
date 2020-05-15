@@ -2,19 +2,19 @@
 title: 자습서 - Azure PowerShell을 사용하여 확장 집합에서 사용자 지정 VM 이미지 사용
 description: Azure PowerShell을 사용하여 가상 머신 확장 집합을 배포하는 데 사용할 수 있는 사용자 지정 VM 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 4b072991a86922fe2b4ba5be93b4c96841dc24af
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: akjosh
+ms.openlocfilehash: 3f99b68de4bce37e7ba9ce6656cf401209e73105
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792771"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200912"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 

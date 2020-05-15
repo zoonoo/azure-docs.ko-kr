@@ -2,18 +2,19 @@
 title: 자습서 - Azure PowerShell을 사용하여 확장 집합에 애플리케이션 설치
 description: Azure PowerShell을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 애플리케이션을 설치하는 방법을 알아봅니다.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 11/08/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 789b3ca6cf49bbecf7393c5c70b19cbb43dfd164
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: powershell
+ms.date: 11/08/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 999a869ec30316a330413f309e1e7431d92fac9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011270"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195937"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 

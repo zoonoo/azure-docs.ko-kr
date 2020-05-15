@@ -1,14 +1,14 @@
 ---
 title: '자습서: 잠금을 사용하여 새 리소스 보호'
 description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호합니다.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74327455"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864167"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
