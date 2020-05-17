@@ -36,7 +36,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 ### <a name="clean-up-deployment"></a>배포 정리
 
-다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다. 리소스 그룹을 두 번 제거해야 합니다. 리소스 그룹을 처음으로 제거하면 관리형 인스턴스와 가상 클러스터가 제거되지만, `az group delete : Long running operation failed with status 'Conflict'.` 오류 메시지와 함께 실패하게 됩니다. az group delete 명령을 한 번 더 실행하여 리소스 그룹뿐 아니라 나머지 리소스를 모두 제거합니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다. 리소스 그룹은 두 번의 제거 명령어를 통하여 제거합니다. 리소스 그룹을 처음으로 제거하면 관리형 인스턴스와 가상 클러스터가 제거되지만, `az group delete : Long running operation failed with status 'Conflict'.` 오류 메시지와 함께 실패하게 됩니다. az group delete 명령을 한 번 더 실행하여 리소스 그룹뿐 아니라 나머지 리소스를 모두 제거합니다.
 
 ```azurecli-interactive
 az group delete --name $resource
