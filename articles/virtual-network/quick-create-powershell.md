@@ -59,7 +59,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. *Add-AzVirtualNetworkSubnetConfig*를 사용하여 [default](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)라는 서브넷 구성을 만듭니다.
+Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 *default*라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `

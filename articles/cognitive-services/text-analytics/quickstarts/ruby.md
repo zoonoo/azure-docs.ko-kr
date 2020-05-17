@@ -20,7 +20,7 @@ ms.locfileid: "75378469"
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Ruby를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 문서에서는 [Text Analytics API](#Detect)[및 Ruby를 사용하여 ](#SentimentAnalysis)언어 감지[, ](#KeyPhraseExtraction)감정 분석[, ](#Entities)핵심 구 추출 [ 및 ](//go.microsoft.com/fwlink/?LinkID=759711)연결된 엔터티 식별 을 수행하는 방법을 보여 줍니다.
+이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Ruby를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 

@@ -267,7 +267,7 @@ az network public-ip show \
 앱이 실행되는 동안 OS 업데이트와 같은 유지 관리 작업을 VM에서 수행해야 할 수 있습니다. 앱에 대해 증가된 트래픽을 처리하기 위해 VM을 더 추가해야 할 수 있습니다. 이 섹션에서는 부하 분산 장치에서 VM을 추가 또는 제거하는 방법을 보여 줍니다.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>부하 분산 장치에서 VM 제거
-[az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool)를 사용하여 백 엔드 주소 풀에서 VM을 제거할 수 있습니다. 다음 예제에서는 **myLoadBalancer**에서 *myVM2*용 가상 NIC를 제거합니다.
+[az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool)를 사용하여 백 엔드 주소 풀에서 VM을 제거할 수 있습니다. 다음 예제에서는 *myLoadBalancer*에서 **myVM2**용 가상 NIC를 제거합니다.
 
 ```azurecli-interactive
 az network nic ip-config address-pool remove \
@@ -299,7 +299,7 @@ az network lb address-pool show \
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>부하 분산 장치에 VM 추가
-VM 유지 관리를 수행한 이후 또는 용량을 확장해야 할 경우 [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool)를 사용하여 백 엔드 주소 풀에 VM을 추가할 수 있습니다. 다음 예제에서는 **myLoadBalancer**에서 *myVM2*용 가상 NIC를 제거합니다.
+VM 유지 관리를 수행한 이후 또는 용량을 확장해야 할 경우 [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool)를 사용하여 백 엔드 주소 풀에 VM을 추가할 수 있습니다. 다음 예제에서는 *myLoadBalancer*에서 **myVM2**용 가상 NIC를 제거합니다.
 
 ```azurecli-interactive
 az network nic ip-config address-pool add \
@@ -310,7 +310,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다. 
+가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

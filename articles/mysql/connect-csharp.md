@@ -47,7 +47,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
  ![MySQL용 Azure Database 서버 이름](./media/connect-csharp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
-`CREATE TABLE` 및 `INSERT INTO` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 `MySqlConnection`OpenAsync()[ 메서드가 포함된 ](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
+`CREATE TABLE` 및 `INSERT INTO` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 메서드가 포함된 `MySqlConnection` 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
 
 `Server`, `Database`, `UserID` 및 `Password` 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
@@ -112,7 +112,7 @@ namespace AzureMySqlExample
 
 ## <a name="read-data"></a>데이터 읽기
 
-`SELECT` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 `MySqlConnection`OpenAsync()[ 메서드가 포함된 ](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그리고 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드와 [ExecuteReaderAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync) 메서드를 사용하여 데이터베이스 명령을 실행합니다. 그런 다음, [ReadAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync)를 사용하여 결과의 레코드로 이동합니다. 그런 다음 GetInt32 및 GetString을 사용하여 레코드의 값을 구문 분석합니다.
+`SELECT` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 메서드가 포함된 `MySqlConnection` 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그리고 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드와 [ExecuteReaderAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync) 메서드를 사용하여 데이터베이스 명령을 실행합니다. 그런 다음, [ReadAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync)를 사용하여 결과의 레코드로 이동합니다. 그런 다음 GetInt32 및 GetString을 사용하여 레코드의 값을 구문 분석합니다.
 
 `Server`, `Database`, `UserID` 및 `Password` 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
@@ -169,7 +169,7 @@ namespace AzureMySqlExample
 ```
 
 ## <a name="update-data"></a>데이터 업데이트
-`UPDATE` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 `MySqlConnection`OpenAsync()[ 메서드가 포함된 ](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
+`UPDATE` SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 메서드가 포함된 `MySqlConnection` 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
 
 `Server`, `Database`, `UserID` 및 `Password` 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
@@ -221,7 +221,7 @@ namespace AzureMySqlExample
 ## <a name="delete-data"></a>데이터 삭제
 `DELETE` SQL 문을 사용하여 데이터를 연결하고 삭제하려면 다음 코드를 사용하세요. 
 
-이 코드는 `MySqlConnection`OpenAsync()[ 메서드가 포함된 ](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
+이 코드는 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 메서드가 포함된 `MySqlConnection` 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음, [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 메서드를 사용하고, CommandText 속성을 설정하고, [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 메서드를 호출하여 데이터베이스 명령을 실행합니다. 
 
 `Server`, `Database`, `UserID` 및 `Password` 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 

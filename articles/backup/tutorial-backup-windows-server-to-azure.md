@@ -39,7 +39,7 @@ Windows Server를 백업하려면 먼저 백업을 위한 장소, 즉 저장될 
 
 3. **Recovery Services 자격 증명 모음** 메뉴에서
 
-    * *이름*에 **myRecoveryServicesVault**를 입력합니다.
+    * **이름**에 *myRecoveryServicesVault*를 입력합니다.
     * 현재 구독 ID가 **구독**에 표시됩니다.
     * **리소스 그룹**에서 **기존 항목 사용**을 선택하고 *myResourceGroup*을 선택합니다. *myResourceGroup*이 없는 경우에는 **새로 만들기**를 선택한 후 *myResourceGroup*을 입력합니다.
     * **위치** 드롭다운 메뉴에서 *서유럽*를 선택합니다.

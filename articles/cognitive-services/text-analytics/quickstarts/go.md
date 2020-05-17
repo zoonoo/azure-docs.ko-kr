@@ -20,7 +20,7 @@ ms.locfileid: "75378768"
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Go를 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>
 
-이 문서에서는 [Text Analytics APIs](#Detect)[및 Go를 사용하여 ](#SentimentAnalysis)언어 감지[, ](#KeyPhraseExtraction)감정 분석[, ](#Entities)핵심 구 추출 [ 및 ](//go.microsoft.com/fwlink/?LinkID=759711)연결된 엔터티 식별 을 수행하는 방법을 보여 줍니다.
+이 문서에서는  [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) 및 Go를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 

@@ -52,7 +52,7 @@ Microsoft Translator는 2016년에 [NMT(인공신경망 기계 번역)](https://
 
 사용자는 안전한 [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하여 직관적인 사용자 인터페이스를 통해 교육 데이터를 업로드하고, 시스템을 교육하고, 시스템을 테스트하고, 프로덕션 환경에 배포할 수 있습니다. 그러면 몇 시간 내에 시스템을 대규모로 사용할 수 있습니다(실제 시간은 교육 데이터 크기에 따라 다름).
 
-[전용 API](https://portal.customtranslator.azure.ai)(현재 미리 보기로 제공)를 통해 프로그래밍 방식으로 [Custom Translator](https://custom-api.cognitive.microsofttranslator.com/swagger/)에 액세스할 수도 있습니다. API를 사용하면 사용자가 자체 앱 또는 웹 서비스를 통해 정기적으로 교유 데이터를 만들거나 업데이트할 수 있습니다.
+[전용 API](https://custom-api.cognitive.microsofttranslator.com/swagger/)(현재 미리 보기로 제공)를 통해 프로그래밍 방식으로 [Custom Translator](https://portal.customtranslator.azure.ai)에 액세스할 수도 있습니다. API를 사용하면 사용자가 자체 앱 또는 웹 서비스를 통해 정기적으로 교유 데이터를 만들거나 업데이트할 수 있습니다.
 
 사용자 지정 모델을 사용하여 콘텐츠를 번역하는 데 드는 비용은 사용자의 Translator Text API 가격 책정 계층에 따라 결정됩니다. 가격 책정 계층에 대한 자세한 내용은 Cognitive Services [Translator Text API 가격 책정 웹 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)를 참조하세요.
 

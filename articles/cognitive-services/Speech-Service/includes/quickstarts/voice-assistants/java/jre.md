@@ -42,7 +42,7 @@ ms.locfileid: "80671399"
 
 1. Java 프로젝트에 새로운 빈 클래스를 추가하려면 **파일** > **새로 만들기** > **클래스**를 선택합니다.
 
-1. **새 Java 클래스** 창에서, _패키지_ 필드에 **speechsdk.quickstart**를 입력하고, _이름_ 필드에 **기본**을 입력합니다.
+1. **새 Java 클래스** 창에서, **패키지** 필드에 _speechsdk.quickstart_를 입력하고, **이름** 필드에 _기본_을 입력합니다.
 
    ![새 Java 클래스 창의 스크린샷](~/articles/cognitive-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
 
@@ -172,7 +172,7 @@ ms.locfileid: "80671399"
        });
    ```
 
-1. `DialogServiceConnector` 메서드를 호출하여 `connectAsync()`를 Direct Line Speech에 연결합니다. 봇을 테스트하려면 `listenOnceAsync` 메서드를 호출하여 마이크로 오디오 입력을 보내면 됩니다. `sendActivityAsync` 메서드를 사용하여 사용자 지정 작업을 직렬화된 문자열로 보낼 수도 있습니다. 이러한 사용자 지정 작업은 봇이 대화에 사용하는 추가 데이터를 제공할 수 있습니다.
+1. `connectAsync()` 메서드를 호출하여 `DialogServiceConnector`를 Direct Line Speech에 연결합니다. 봇을 테스트하려면 `listenOnceAsync` 메서드를 호출하여 마이크로 오디오 입력을 보내면 됩니다. `sendActivityAsync` 메서드를 사용하여 사용자 지정 작업을 직렬화된 문자열로 보낼 수도 있습니다. 이러한 사용자 지정 작업은 봇이 대화에 사용하는 추가 데이터를 제공할 수 있습니다.
 
    ```java
    connector.connectAsync();
@@ -187,7 +187,7 @@ ms.locfileid: "80671399"
 
 1. 응답 재생을 지원할 수 있도록 getAudio() API에서 반환된 PullAudioOutputStream 개체를 java InputStream으로 변환하는 추가 클래스를 추가합니다. 이 `ActivityAudioStream`은 Direct Line Speech 채널의 오디오 응답을 처리하는 특수 클래스입니다. 재생 처리에 필요한 오디오 형식 정보를 가져오는 접근자를 제공합니다. 이 경우 **파일** > **새로 만들기** > **클래스**를 차례로 선택합니다.
 
-1. **새 Java 클래스** 창에서 _패키지_ 필드에는 **speechsdk.quickstart**를 입력하고, _이름_ 필드에는 **ActivityAudioStream**을 입력합니다.
+1. **새 Java 클래스** 창에서 **패키지** 필드에는 _speechsdk.quickstart_를 입력하고, **이름** 필드에는 _ActivityAudioStream_을 입력합니다.
 
 1. 새로 만든 `ActivityAudioStream` 클래스를 열고, 내용을 다음 코드로 바꿉니다.
 

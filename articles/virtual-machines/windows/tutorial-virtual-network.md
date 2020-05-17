@@ -65,7 +65,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-*New-AzVirtualNetworkSubnetConfig*를 사용하여 [myFrontendSubnet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig)이라는 서브넷 구성을 만듭니다.
+[New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myFrontendSubnet*이라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzVirtualNetworkSubnetConfig `
@@ -83,7 +83,7 @@ $backendSubnet = New-AzVirtualNetworkSubnetConfig `
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-*New-AzVirtualNetwork*를 통해 *myFrontendSubnet*과 *myBackendSubnet*을 사용하여 [myVNet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)이라는 VNET을 만듭니다.
+[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)를 통해 *myFrontendSubnet*과 *myBackendSubnet*을 사용하여 *myVNet*이라는 VNET을 만듭니다.
 
 ```azurepowershell-interactive
 $vnet = New-AzVirtualNetwork `
@@ -102,7 +102,7 @@ $vnet = New-AzVirtualNetwork `
 
 할당 방법은 정적으로 설정할 수 있으며, 이렇게 하면 할당이 취소된 상태에서도 IP 주소가 VM에 할당된 상태로 유지됩니다. 정적 IP 주소를 사용하는 경우 IP 주소 자체는 지정할 수 없습니다. 대신 사용 가능한 주소 풀에서 할당됩니다.
 
-*New-AzPublicIpAddress*를 사용하여 [myPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)라는 공용 IP 주소를 만듭니다.
+[New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myPublicIPAddress*라는 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $pip = New-AzPublicIpAddress `
@@ -163,7 +163,7 @@ NSG 규칙은 트래픽이 허용되거나 거부되는 네트워킹 포트를 �
 
 ### <a name="create-network-security-groups"></a>네트워크 보안 그룹 만들기
 
-*myFrontendVM*에서 웹 트래픽의 수신이 허용되도록 *New-AzNetworkSecurityRuleConfig*를 사용하여 [myFrontendNSGRule](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)이라는 인바운드 규칙을 만듭니다.
+*myFrontendVM*에서 웹 트래픽의 수신이 허용되도록 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 *myFrontendNSGRule*이라는 인바운드 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -193,7 +193,7 @@ $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-*New-AzNetworkSecurityGroup*을 사용하여 [myFrontendNSG](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)라는 네트워크 보안 그룹을 추가합니다.
+[New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 *myFrontendNSG*라는 네트워크 보안 그룹을 추가합니다.
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzNetworkSecurityGroup `
