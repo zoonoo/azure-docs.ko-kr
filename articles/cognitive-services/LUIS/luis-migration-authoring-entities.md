@@ -1,21 +1,14 @@
 ---
 title: V3 컴퓨터에서 학습 한 엔터티로 마이그레이션
-titleSuffix: Azure Cognitive Services
 description: V3 제작은 컴퓨터에서 학습 한 엔터티와 응용 프로그램의 다른 엔터티 또는 기능에 관계를 추가 하는 기능과 함께 새로운 엔터티 형식인 컴퓨터에서 학습 한 엔터티를 제공 합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 12/30/2019
-ms.author: diberry
-ms.openlocfilehash: b5dbcd9033d9a41e43ea907d043e0c0486b236db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.date: 05/08/2020
+ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75563852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593225"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>V3 제작 엔터티로 마이그레이션
 
@@ -23,14 +16,14 @@ V3 제작은 컴퓨터에서 학습 한 엔터티와 응용 프로그램의 다�
 
 ## <a name="entities-are-decomposable-in-v3"></a>V3에서 엔터티 없습니다
 
-[Api](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) 를 사용 하거나 [미리 보기 포털](https://preview.luis.ai/)에서 V3 authoring api를 사용 하 여 만든 엔터티를 사용 하면 부모 및 자식으로 계층화 된 엔터티 모델을 빌드할 수 있습니다. 부모는 **컴퓨터에서 학습 한 엔터티로** 인식 되며 자식은 컴퓨터에서 배운 엔터티의 **하위 구성 요소** 라고 합니다.
+[Api](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) 를 사용 하거나 포털에서 V3 authoring api를 사용 하 여 만든 엔터티를 사용 하면 부모 및 자식으로 계층화 된 엔터티 모델을 빌드할 수 있습니다. 부모는 **컴퓨터에서 학습 한 엔터티로** 인식 되며 자식은 컴퓨터에서 배운 엔터티의 하위 **엔터티** 라고 합니다.
 
-각 하위 구성 요소는 컴퓨터에서 학습 한 엔터티 이지만 제약 조건 및 설명자의 구성 옵션이 추가 되어 있습니다.
+각 하위 엔터티는 컴퓨터에서 학습 한 엔터티 이지만 기능의 구성 옵션을 추가 했습니다.
 
-* **제약 조건은** 엔터티를 규칙과 일치할 때 추출 하는 정확한 텍스트 일치 규칙입니다. 규칙은 현재 미리 작성 된 [엔터티](luis-reference-prebuilt-entities.md), [정규식 엔터티](reference-entity-regular-expression.md)또는 [목록 엔터티인](reference-entity-list.md)정확히 일치 하는 엔터티를 통해 정의 됩니다.
-* **설명자** 는 엔터티를 강력 하 게 나타내는 데 사용 되는 문구 목록 또는 엔터티 등의 [기능](luis-concept-feature.md)입니다.
-
-V3 제작은 컴퓨터에서 학습 한 엔터티와 응용 프로그램의 다른 엔터티 또는 기능에 관계를 추가 하는 기능과 함께 새로운 엔터티 형식인 컴퓨터에서 학습 한 엔터티를 제공 합니다.
+* **필수 기능은** 기능과 일치할 때 엔터티를 추출할 수 있도록 보장 하는 규칙입니다. 규칙은 모델에 대 한 필수 기능에 의해 정의 됩니다.
+    * [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md)
+    * [정규식 엔터티](reference-entity-regular-expression.md)
+    * [엔터티를 나열](reference-entity-list.md)합니다.
 
 ## <a name="how-do-these-new-relationships-compare-to-v2-authoring"></a>이러한 새 관계를 V2 작성과 비교 하는 방법
 
@@ -61,7 +54,7 @@ V3에서 관계는 명시적 이며 앱 작성자가 설계 합니다. 이를 �
     * 엔터티
         * 계층적 엔터티
         * 복합 엔터티
-    * 역할-시스템에서 학습 한 (부모) 엔터티에만 역할을 적용할 수 있습니다. 역할은 하위 구성 요소에 적용할 수 없습니다.
+    * 역할-시스템에서 학습 한 (부모) 엔터티에만 역할을 적용할 수 있습니다. 하위 엔터티에는 역할을 적용할 수 없습니다.
     * 계층 구조 및 복합 엔터티를 사용 하는 일괄 처리 테스트 및 패턴
 
 마이그레이션 계획을 설계할 때 모든 계층 구조 및 복합 엔터티가 마이그레이션된 후 최종 컴퓨터에서 학습 한 엔터티를 검토 하는 시간을 남겨 둡니다. 직접 마이그레이션이 작동 하는 동안 일괄 처리 테스트 결과와 예측 JSON을 변경 하 고 검토 한 후에는 보다 통합 된 JSON으로 인해 클라이언트 쪽 앱에 제공 되는 최종 정보가 다르게 구성 될 수 있습니다. 이는 코드 리팩터링과 비슷하며 조직이 보유 하 고 있는 것과 동일한 검토 프로세스로 처리 되어야 합니다.
@@ -70,7 +63,7 @@ V2 모델에 대해 배치 테스트를 수행 하지 않고, 마이그레이션
 
 ## <a name="migrating-from-v2-entities"></a>V2 엔터티에서 마이그레이션
 
-V3 제작 모델로 이동할 때 제약 조건 및 설명자를 포함 하 여 컴퓨터에서 학습 한 엔터티 및 해당 하위 구성 요소로 이동 하는 방법을 고려해 야 합니다.
+V3 제작 모델로 이동 하기 시작 하는 경우 컴퓨터에서 학습 한 엔터티 및 해당 하위 엔터티 및 기능으로 이동 하는 방법을 고려해 야 합니다.
 
 다음 표에서는 v 2에서 V3 엔터티 디자인으로 마이그레이션하는 데 필요한 엔터티를 설명 합니다.
 
@@ -81,26 +74,26 @@ V3 제작 모델로 이동할 때 제약 조건 및 설명자를 포함 하 여 
 
 ## <a name="migrate-v2-composite-entity"></a>V2 복합 엔터티 마이그레이션
 
-V2 복합의 각 자식은 V3 기계 학습 엔터티의 하위 구성 요소와 함께 표시 되어야 합니다. 복합 자식은 미리 작성 된 정규식 또는 목록 엔터티인 경우 자식을 나타내는 하위 구성 요소에 대 한 **제약 조건** 으로 적용 해야 합니다.
+V2 복합의 각 자식은 V3 기계 학습 엔터티의 하위 엔터티로 표시 되어야 합니다. 복합 자식이 미리 작성 된 정규식 또는 목록 엔터티인 경우이 항목을 하위 엔터티에 필요한 기능으로 적용 해야 합니다.
 
 복합 엔터티를 기계 학습 엔터티로 마이그레이션할 계획인 경우 고려 사항:
 * 자식 엔터티는 패턴에서 사용할 수 없습니다.
 * 하위 엔터티는 더 이상 공유 되지 않습니다.
 * 컴퓨터를 사용 하지 않는 것으로 확인 되 면 자식 엔터티를 레이블 해야 합니다.
 
-### <a name="existing-descriptors"></a>기존 설명자
+### <a name="existing-features"></a>기존 기능
 
-복합 엔터티에서 단어를 승격 하는 데 사용 되는 모든 구 목록은 컴퓨터에서 학습 한 (부모) 엔터티, 하위 구성 요소 (자식) 엔터티 또는 의도 (문구 목록이 한 의도에만 적용 되는 경우)에 대 한 설명자로 적용 되어야 합니다. 가장 현저 하 게 향상 시켜야 하는 엔터티에 설명자를 추가 하도록 계획 합니다. 하위 구성 요소 (자식)의 예측이 크게 향상 되는 경우 일반적으로 컴퓨터에서 학습 한 (부모) 엔터티에 설명자를 추가 하지 마세요.
+복합 엔터티에서 단어를 승격 하는 데 사용 되는 모든 구 목록은 컴퓨터에서 학습 한 (부모) 엔터티, 하위 엔터티 (자식) 엔터티 또는 의도 (문구 목록이 한 의도에만 적용 되는 경우)에 기능으로 적용 되어야 합니다. 가장 현저 하 게 향상 되어야 하는 엔터티에 기능을 추가 하도록 계획 합니다. 하위 엔터티 (자식)의 예측을 최대한 향상 시킬 수 있는 경우 일반적으로 컴퓨터에서 학습 한 (부모) 엔터티에이 기능을 추가 하지 마세요.
 
-### <a name="new-descriptors"></a>새 설명자
+### <a name="new-features"></a>새 기능
 
-V3 제작에서 모든 엔터티 및 의도에 대해 엔터티를 가능한 설명자로 평가 하는 계획 단계를 추가 합니다.
+V3 제작에서 모든 엔터티 및 의도에 대 한 가능한 기능으로 엔터티를 평가 하는 계획 단계를 추가 합니다.
 
 ### <a name="example-entity"></a>예제 엔터티
 
 이 엔터티는 예입니다. 사용자 고유의 엔터티 마이그레이션에는 다른 고려 사항이 필요할 수 있습니다.
 
-에서 사용 하는 피자 `order` 를 수정 하기 위해 V2 복합을 고려 합니다.
+에서 사용 하는 피자를 수정 하기 위해 V2 복합을 고려 합니다 `order` .
 * 배달 시간에 대 한 미리 빌드된 datetimeV2
 * 피자, 원형, crust 및 topping과 같은 특정 단어를 상승 시키기 위한 구 목록
 * 토 핑 (예: 버섯, olives, pepperoni)를 검색 하는 엔터티를 나열 합니다.
@@ -114,8 +107,8 @@ V3 제작에서 모든 엔터티 및 의도에 대해 엔터티를 가능한 설
 |V2 모델|V3 모델|
 |--|--|
 |부모-구성 요소 엔터티 이름`Order`|부모-컴퓨터에서 학습 된 엔터티`Order`|
-|자식-미리 작성 datetimeV2|* 미리 작성 된 엔터티를 새 앱으로 마이그레이션합니다.<br>* 미리 작성 한 datetimeV2에 대 한 부모에 제약 조건을 추가 합니다.|
-|토 핑에 대 한 자식 목록 엔터티|* 목록 엔터티를 새 앱으로 마이그레이션<br>* 그런 다음 목록 엔터티의 부모에 대 한 제약 조건을 추가 합니다.|
+|자식-미리 작성 datetimeV2|* 미리 작성 된 엔터티를 새 앱으로 마이그레이션합니다.<br>* 미리 작성 한 datetimeV2에 대 한 필수 기능을 부모에 추가 합니다.|
+|토 핑에 대 한 자식 목록 엔터티|* 목록 엔터티를 새 앱으로 마이그레이션<br>* 그런 다음 목록 엔터티의 부모에 필요한 기능을 추가 합니다.|
 
 
 ## <a name="migrate-v2-hierarchical-entity"></a>V2 계층적 엔터티 마이그레이션
@@ -124,11 +117,11 @@ V2 제작에서 계층 구조 엔터티는 LUIS의 기존 역할 이전에 제�
 
 V3 제작에서:
 * 컴퓨터에서 학습 한 (부모) 엔터티에 역할을 적용할 수 있습니다.
-* 모든 하위 구성 요소에는 역할을 적용할 수 없습니다.
+* 모든 하위 엔터티에 역할을 적용할 수 없습니다.
 
 이 엔터티는 예입니다. 사용자 고유의 엔터티 마이그레이션에는 다른 고려 사항이 필요할 수 있습니다.
 
-피자 `order`를 수정 하기 위한 V2 계층적 엔터티를 고려 합니다.
+피자를 수정 하기 위한 V2 계층적 엔터티를 고려 합니다 `order` .
 * 각 자식은 원래 topping 또는 final topping을 결정 합니다.
 
 이 엔터티에 대 한 예제 utterance는 다음과 같습니다.
@@ -140,7 +133,57 @@ V3 제작에서:
 |V2 모델|V3 모델|
 |--|--|
 |부모-구성 요소 엔터티 이름`Order`|부모-컴퓨터에서 학습 된 엔터티`Order`|
-|원본 및 최종 피자를 사용 하는 자식 계층 구조 엔터티 topping|* 각 topping `Order` 에 대 한 역할을에 추가 합니다.|
+|원본 및 최종 피자를 사용 하는 자식 계층 구조 엔터티 topping|* `Order` 각 topping에 대 한 역할을에 추가 합니다.|
+
+## <a name="api-change-constraint-replaced-with-required-feature"></a>API 변경 제약 조건이 필수 기능으로 바뀜
+
+이 변경 사항은 빌드 회의에서 2020 년 5 월에 적용 되었으며, 앱이 제한 된 기능을 사용 하는 경우에만 v3 authoring Api에 적용 됩니다. V2 제작에서 v3 authoring로 마이그레이션하거나 v3 제한 기능을 사용 하지 않은 경우이 섹션을 건너뜁니다.
+
+**기능** -다른 모델에 대 한 기능으로 기존 엔터티를 요구 하 고, 엔터티가 검색 된 경우에만 해당 모델을 추출할 수 있습니다. 기능이 변경 되지 않았지만 API와 용어가 변경 되었습니다.
+
+|이전 용어|새 용어|
+|--|--|
+|`constrained feature`<br>`constraint`<br>`instanceOf`|`required feature`<br>`isRequired`|
+
+#### <a name="automatic-migration"></a>자동 마이그레이션
+
+**6 월 19 2020**부터이 기능을 제공 하는 이전 authoring API를 사용 하 여 프로그래밍 방식으로 제약 조건을 만들 수 없습니다.
+
+모든 기존 제약 조건 기능은 필수 기능 플래그로 자동으로 마이그레이션됩니다. 예측 API에는 프로그래밍 방식으로 변경할 필요가 없으며 예측 정확도의 품질에 대 한 변경 사항은 없습니다.
+
+#### <a name="luis-portal-changes"></a>LUIS 포털 변경
+
+LUIS preview 포털은이 기능을 **제약 조건**으로 참조 했습니다. 현재 LUIS 포털은이 기능을 **필수 기능**으로 지정 합니다.
+
+#### <a name="previous-authoring-api"></a>이전 authoring API
+
+이 기능은 엔터티 자식의 속성을 사용 하 여 엔터티 정의의 일부로 미리 보기 제작 **[만들기 엔터티 자식 API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d86cf3c6a25a45529767d77)** 에 적용 되었습니다 `instanceOf` .
+
+```json
+{
+    "name" : "dayOfWeek",
+    "instanceOf": "datetimeV2",
+    "children": [
+        {
+           "name": "dayNumber",
+           "instanceOf": "number",
+           "children": []
+        }
+    ]
+}
+```
+
+#### <a name="new-authoring-api"></a>새 제작 API
+
+이 기능은 이제 및 속성을 사용 하 여 **[엔터티 추가 기능 관계 API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d9dc1781e38aaec1c375f26)** 와 함께 적용 됩니다 `featureName` `isRequired` . 속성의 값은 `featureName` 모델의 이름입니다.
+
+```json
+{
+    "featureName": "YOUR-MODEL-NAME-HERE",
+    "isRequired" : true
+}
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

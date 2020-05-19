@@ -8,20 +8,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192989"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591763"
 ---
 # <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 정보 유형이 포함 될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="may-2020---build-conference"></a>2020 년 5 월-또는 회의 빌드
+
+**공개 미리 보기**에서 사용할 수 있는 기능은 다음과 같습니다.
+
+ * 학습 동작으로 서의 [수련 한 모드](concept-apprentice-mode.md) 입니다.
 
 ### <a name="march-2020"></a>2020년 3월
 
@@ -38,7 +44,7 @@ ms.locfileid: "82192989"
 
 * [순위 및 보상 학습 루프](what-is-personalizer.md)
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 
 ### <a name="2019-build-videos"></a>2019 비디오 빌드
 

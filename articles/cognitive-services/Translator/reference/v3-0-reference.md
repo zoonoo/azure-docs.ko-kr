@@ -1,7 +1,7 @@
 ---
-title: Translator Text API V3.0 참조
+title: Translator V 3.0 참조
 titleSuffix: Azure Cognitive Services
-description: Translator Text API V3.0에 대한 참조 문서입니다. Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다.
+description: Translator V 3.0에 대 한 참조 설명서입니다. 변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857304"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592273"
 ---
-# <a name="translator-text-api-v30"></a>Translator Text API v3.0
+# <a name="translator-v30"></a>Translator v 3.0
 
 ## <a name="whats-new"></a>새로운 기능
 
-Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
+변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
 
  * 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 음차하여 변환
  * 단일 요청에서 여러 언어로 번역
@@ -37,7 +37,7 @@ Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. �
 * **아시아 태평양:** 한국 남부, 일본 동부, 동남 아시아 및 오스트레일리아 동부
 * **유럽:** 서유럽 및 유럽 서부
 
-Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생 하는 경우 요청은 Azure 지리 외부에서 라우팅될 수 있습니다.
+Microsoft Translator에 대 한 요청은 대부분의 경우 요청이 시작 된 위치와 가장 가까운 데이터 센터에 의해 처리 됩니다. 데이터 센터 오류가 발생 하는 경우 요청은 Azure 지리 외부에서 라우팅될 수 있습니다.
 
 특정 Azure 지리에서 요청을 처리 하도록 강제 하려면 API 요청의 전역 끝점을 원하는 지역 끝점으로 변경 합니다.
 
@@ -45,33 +45,33 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
+|Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
 ## <a name="authentication"></a>인증
 
-Azure Cognitive Services에서 Translator Text API 또는 [Cognitive Services 다중 서비스](https://azure.microsoft.com/pricing/details/cognitive-services/) 를 구독 하 고 구독 키 (Azure Portal에서 사용 가능)를 사용 하 여 인증 합니다. 
+Azure Cognitive Services에서 Translator 또는 [Cognitive Services 다중 서비스](https://azure.microsoft.com/pricing/details/cognitive-services/) 를 구독 하 고 구독 키 (Azure Portal에서 사용 가능)를 사용 하 여 인증 합니다. 
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 다음 표에서는 각를 사용 하는 방법을 설명 합니다.
 
-|headers|설명|
+|헤더|설명|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 |권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
 |Ocp-Apim-Subscription-Region|*Cognitive Services 다중 서비스 및 지역 변환기 리소스와 함께 사용 합니다.*<br/>값은 다중 서비스 또는 지역 변환기 리소스의 지역입니다. 전역 변환기 리소스를 사용 하는 경우이 값은 선택 사항입니다.|
 
 ###  <a name="secret-key"></a>비밀 키
-첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. 요청에 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 헤더를 추가 합니다.
+첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>`요청에 헤더를 추가 합니다.
 
 #### <a name="authenticating-with-a-global-resource"></a>전역 리소스를 사용 하 여 인증
 
-[전역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우에는 하나의 헤더를 포함 하 여 translator API를 호출 해야 합니다.
+[전역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우 번역기를 호출 하는 헤더를 하나 포함 해야 합니다.
 
-|headers|설명|
+|헤더|설명|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 
-전역 변환기 리소스를 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
+전역 변환기 리소스를 사용 하 여 변환기를 호출 하는 예제 요청은 다음과 같습니다.
 
 ```curl
 // Pass secret key using headers
@@ -84,14 +84,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### <a name="authenticating-with-a-regional-resource"></a>지역 리소스를 사용 하 여 인증
 
 [지역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우
-Translator API를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
+변환기를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
 
-|headers|설명|
+|헤더|설명|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 |Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. |
 
-지역 변환기 리소스를 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
+지역 변환기 리소스를 사용 하 여 변환기를 호출 하는 예제 요청은 다음과 같습니다.
 
 ```curl
 // Pass secret key and region using headers
@@ -106,16 +106,16 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 인식 서비스의 다중 서비스 리소스를 사용 하는 경우 그러면 단일 비밀 키를 사용하여 여러 서비스에 대한 요청을 인증할 수 있습니다. 
 
-다중 서비스 비밀 키를 사용 하는 경우 요청에 인증 헤더를 두 개 포함 해야 합니다. Translator API를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
+다중 서비스 비밀 키를 사용 하는 경우 요청에 인증 헤더를 두 개 포함 해야 합니다. 변환기를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
 
-|headers|설명|
+|헤더|설명|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 값은 다중 서비스 리소스에 대 한 Azure 비밀 키입니다.|
 |Ocp-Apim-Subscription-Region| 값은 다중 서비스 리소스의 지역입니다. |
 
 다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
 
-사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus` `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `japaneast` `japanwest` `southafricanorth`,, `westus2`,,,,,,,,,,,,,,, 및입니다. `koreacentral` `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus`
+사용 가능한 지역은,,,,,,,,,,,,,,,,,,,,, `australiaeast` `brazilsouth` `canadacentral` `centralindia` `centralus` `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `japaneast` `japanwest` `koreacentral` `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` 및 `southafricanorth` 입니다.
 
 `Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
 
@@ -143,22 +143,22 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 Authorization: Bearer <Base64-access_token>
 ```
 
-인증 토큰은 10분 동안 유효합니다. Translator Api를 여러 번 호출 하는 경우 토큰을 다시 사용 해야 합니다. 그러나 프로그램에서 오랜 시간 동안 변환기 API에 대 한 요청을 수행 하는 경우 프로그램은 정기적으로 새 액세스 토큰을 요청 해야 합니다 (예: 8 분 마다).
+인증 토큰은 10분 동안 유효합니다. 변환기를 여러 번 호출 하는 경우 토큰을 다시 사용 해야 합니다. 그러나 프로그램에서 오랜 시간 동안 변환기에 요청을 수행 하는 경우 프로그램은 정기적으로 새 액세스 토큰을 요청 해야 합니다 (예: 8 분 마다).
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
 
-Translator 서비스는 이제 제한 된 지역`WestUS2`(, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`)에서 Virtual Network 기능을 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)을 참조 하세요. 
+Translator 서비스는 이제 제한 된 지역 ( `WestUS2` , `EastUS` , `SouthCentralUS` ,, `WestUS` `CentralUSEUAP` , `global` )에서 Virtual Network 기능을 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)을 참조 하세요. 
 
-이 기능을 켜면 사용자 지정 끝점을 사용 하 여 Translator API를 호출 해야 합니다. 전역 변환기 끝점 ("api.cognitive.microsofttranslator.com")을 사용할 수 없으며 액세스 토큰을 사용 하 여 인증할 수 없습니다.
+이 기능을 켜면 사용자 지정 끝점을 사용 하 여 변환기를 호출 해야 합니다. 전역 변환기 끝점 ("api.cognitive.microsofttranslator.com")을 사용할 수 없으며 액세스 토큰을 사용 하 여 인증할 수 없습니다.
 
 [Translator 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 만든 후 사용자 지정 끝점을 찾을 수 있습니다.
 
-|headers|설명|
+|헤더|설명|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| 값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 |Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. 리소스가 인 경우이 값은 선택 사항입니다.`global`|
 
-사용자 지정 끝점을 사용 하 여 Translator API를 호출 하는 예제 요청은 다음과 같습니다.
+사용자 지정 끝점을 사용 하 여 변환기를 호출 하는 예제 요청은 다음과 같습니다.
 
 ```curl
 // Pass secret key and region using headers
@@ -218,7 +218,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 | 400079| from과 to 언어 간의 변환에 대해 요청된 사용자 지정 시스템이 존재하지 않습니다.|
 | 400080| 언어 또는 스크립트에는 음이 지원 되지 않습니다.|
 | 401000| 자격 증명이 누락되었거나 올바르지 않으므로 요청에 권한이 없습니다.|
-| 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. 구독을 사용 하 여 Translator Text API 합니다. "|
+| 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. 번역기에 대 한 구독을 사용 합니다. "|
 | 403000| 작업이 허용되지 않습니다.|
 | 403001| 구독이 무료 할당량을 초과했기 때문에 작업이 허용되지 않습니다.|
 | 405000| 요청 메서드가 요청된 리소스에 대해 지원되지 않습니다.|

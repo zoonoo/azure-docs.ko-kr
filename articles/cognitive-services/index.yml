@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 734c95524088bf9b4f92e7e1981aabe3f1b963f2
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 3c68051c0df1cb2d15a1ef2bac6ea74fbf671f77
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529860"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83591797"
 highlightedContent:
   items:
   - title: Cognitive Services란?
@@ -83,7 +83,7 @@ conceptualContent:
       text: 텍스트 분석
     - url: ./translator/index.yml
       itemType: overview
-      text: Translator Text
+      text: 변환기
   - title: Speech
     summary: 음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.
     links:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77560901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593174"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech service로 마이그레이션
 
@@ -37,7 +37,7 @@ ms.locfileid: "77560901"
 | 단일 요청을 통해 여러 언어 번역 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK 사용 가능                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 사용 가능한 Sdk는 [음성 서비스 설명서](index.yml) 를 참조 하세요.                                                                                                                                                    |
 | WebSocket 연결                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [TRANSLATOR API 언어 참조](../translator-speech/languages-reference.md) 문서에 설명 된 것과 동일한 언어 범위를 지원 합니다. |
+| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [Translator 언어 참조](../translator-speech/languages-reference.md) 문서에 설명 된 것과 동일한 언어 범위를 지원 합니다. |
 | 욕설 필터 및 표식                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM을 입력으로 사용                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 다른 파일 형식을 입력으로 사용                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,7 +55,7 @@ ms.locfileid: "77560901"
 
 * 애플리케이션이 수명이 긴 연결을 사용하고 사용 가능한 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용할 수 있습니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
-* 응용 프로그램에서 Translator Text API 사용 하 Translator Speech API 고 사용자 지정 변환 모델을 사용 하도록 설정 하는 경우 Speech service를 사용 하 여 직접 범주 Id를 추가할 수 있습니다.
+* 응용 프로그램에서 변환기 서비스와 Translator Speech API 사용 하 여 사용자 지정 변환 모델을 사용 하도록 설정 하는 경우 Speech service를 사용 하 여 범주 Id를 직접 추가할 수 있습니다.
 
 * Translator Speech API와 달리 음성 서비스는 단일 요청에서 여러 언어로 번역을 완료할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "77560901"
 * [음성 서비스를 무료로 사용해 보세요.](get-started.md)
 * [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [음성 서비스는 무엇 인가요?](overview.md)
 * [Speech service 및 Speech SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

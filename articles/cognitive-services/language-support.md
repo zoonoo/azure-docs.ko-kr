@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530976"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592154"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -40,10 +40,10 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [몰입형 리더(미리 보기)](./immersive-reader/language-support.md)
 * [언어 이해(LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
-* [텍스트 분석](./text-analytics/text-analytics-supported-languages.md)
-* [Translator Text](./translator/languages.md)
+* [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
+* [Translator](./translator/languages.md)
 
-## <a name="speech"></a>Speech
+## <a name="speech"></a>음성
 
 * [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
@@ -51,19 +51,19 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 
 ## <a name="search"></a>검색
 
-* [Bing 사용자 지정 검색](./bing-custom-search/supported-countries-markets.md)
-* [Bing 이미지 검색](./bing-image-search/supported-countries-markets.md)
-* [Bing 뉴스 검색](./bing-news-search/supported-countries-markets.md)
+* [Bing Custom Search](./bing-custom-search/supported-countries-markets.md)
+* [Bing Image Search](./bing-image-search/supported-countries-markets.md)
+* [Bing News Search](./bing-news-search/supported-countries-markets.md)
 * [Bing Autosuggest](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
-* [Bing 맞춤법 검사](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Bing Spell Check](./bing-spell-check/bing-spell-check-supported-languages.md)
 * [Bing Visual Search](./bing-visual-search/supported-countries-markets.md)
-* [Bing 웹 검색](./bing-web-search/supported-countries-markets.md)
+* [Bing Web Search](./bing-web-search/supported-countries-markets.md)
 
 ## <a name="decision"></a>의사 결정
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Cognitive Services은 무엇 인가요?](welcome.md)
 * [계정 만들기](cognitive-services-apis-create-account.md)

@@ -2,34 +2,29 @@
 title: 응용 프로그램 설정-LUIS
 description: Azure Cognitive Services 언어 이해 앱에 대 한 응용 프로그램 설정은 앱 및 포털에 저장 됩니다.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382197"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590991"
 ---
-# <a name="application-settings"></a>애플리케이션 설정
+# <a name="app-and-version-settings"></a>앱 및 버전 설정
 
-이러한 응용 프로그램 설정은 [내보낸](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) 앱에 저장 되 고 REST api를 사용 하 여 [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 됩니다. 앱 버전 설정을 변경 하면 앱 학습 상태를 학습 되지 않음으로 다시 설정 합니다.
+이러한 설정은 [내보낸](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) 앱에 저장 되 고 REST API 또는 LUIS 포털로 업데이트 됩니다.
 
-분음 부호 및 문장 부호의 [개념](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) 에 대해 알아봅니다.
+앱 버전 설정을 변경 하면 앱 학습 상태를 학습 되지 않음으로 다시 설정 합니다.
 
-|설정|기본값|메모|
-|--|--|--|
-|NormalizePunctuation|True|문장 부호를 제거 합니다.|
-|NormalizeDiacritics|True|분음 부호를 제거 합니다.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+텍스트 참조 및 예제는 다음과 같습니다.
+
+* [종결](#punctuation-normalization)
+* [부호가](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>분음 부호 정규화
-
-`settings` 매개 변수에서 LUIS JSON 앱 파일의 분음 부호에 대 한 utterance 정규화를 설정 합니다.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 다음 길이 발언 분음 부호 정규화가 길이 발언에 미치는 영향을 보여 줍니다.
 
@@ -40,7 +35,7 @@ ms.locfileid: "81382197"
 
 ### <a name="language-support-for-diacritics"></a>분음 부호에 대 한 언어 지원
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>포르투갈어 `pt-br` (브라질) 분음 부호
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>포르투갈어 (브라질) `pt-br` 분음 부호
 
 |분음 부호가 false로 설정 됩니다.|분음 부호를 true로 설정|
 |-|-|
@@ -133,16 +128,7 @@ ms.locfileid: "81382197"
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>문장 부호 정규화
-
-`settings` 매개 변수에서 LUIS JSON 앱 파일에 대 한 문장 부호에 대 한 utterance 정규화를 설정 합니다.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 다음 길이 발언에서는 문장 부호가 길이 발언에 미치는 영향을 보여 줍니다.
 
@@ -153,7 +139,7 @@ ms.locfileid: "81382197"
 
 ### <a name="punctuation-removed"></a>문장 부호 제거 됨
 
-이 true로 설정 된 `NormalizePunctuation` 경우 다음 문장 부호가 제거 됩니다.
+이 true로 설정 된 경우 다음 문장 부호가 제거 됩니다 `NormalizePunctuation` .
 
 |문장 부호|
 |--|

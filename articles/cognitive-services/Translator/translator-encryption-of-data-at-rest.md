@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372417"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590896"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>미사용 데이터의 변환기 암호화
 
@@ -41,7 +41,7 @@ Microsoft에서 관리 하는 암호화 키만 지 원하는 구독의 경우에
 
 번역기에 대 한 고객이 관리 하는 키를 사용 하도록 설정 하려면 다음 단계를 따르세요.
 
-1. 새 지역 Translator Text 또는 지역 Cognitive Services 리소스를 만듭니다. 전역 리소스에서는 작동 하지 않습니다.
+1. 새 지역 번역기 또는 지역 Cognitive Services 리소스를 만듭니다. 전역 리소스에서는 작동 하지 않습니다.
 2. Azure Portal에서 관리 Id를 사용 하도록 설정 하 고 고객 관리 키 정보를 추가 합니다.
 3. 사용자 지정 번역기에 새 작업 영역을 만들고이 구독 정보를 연결 합니다.
 

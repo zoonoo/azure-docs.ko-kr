@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856418"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591026"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "82856418"
 > [!IMPORTANT]
 > 모든 음성 컨테이너는 현재 [공용 "제어 된" 미리 보기](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)의 일부로 제공 됩니다. 음성 컨테이너가 GA (일반 공급)로 진행 될 때 알림이 생성 됩니다.
 
-| 기능 | 기능 | 최신 버전 |
+| 기능 | 기능 | 최신 |
 |--|--|--|
 | 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.2.0 |
 | Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.2.0 |
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-[Cognitive Services 음성 컨테이너 요청 양식을](https://aka.ms/speechcontainerspreview/) 작성 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 합니다. 
+컨테이너에 대 한 액세스를 요청 하는 [Cognitive Services 컨테이너 요청 양식을](https://aka.ms/cognitivegate) 작성 하 고 제출 합니다.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -151,11 +151,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> 태그 `latest` 는 `en-US` 로캘을 끌어옵니다. 추가 로캘은 [음성 텍스트 로캘을](#speech-to-text-locales)참조 하세요.
+> `latest`태그는 로캘을 끌어옵니다 `en-US` . 추가 로캘은 [음성 텍스트 로캘을](#speech-to-text-locales)참조 하세요.
 
 #### <a name="speech-to-text-locales"></a>음성 텍스트 로캘
 
-을 `latest` 제외한 모든 태그는 다음과 같은 형식 이며 대/소문자를 구분 합니다.
+을 제외한 모든 태그는 `latest` 다음과 같은 형식 이며 대/소문자를 구분 합니다.
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 ```
 
 > [!NOTE]
-> 사용자 `locale` 지정 `voice` 음성 컨테이너의 및는 컨테이너에 의해 수집 된 사용자 지정 모델에 의해 결정 됩니다.
+> `locale` `voice` 사용자 지정 음성 컨테이너의 및는 컨테이너에 의해 수집 된 사용자 지정 모델에 의해 결정 됩니다.
 
 # <a name="text-to-speech"></a>[텍스트 음성 변환](#tab/tts)
 
@@ -197,7 +197,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### <a name="text-to-speech-locales"></a>텍스트 음성 변환
 
-을 `latest` 제외한 모든 태그는 다음과 같은 형식 이며 대/소문자를 구분 합니다.
+을 제외한 모든 태그는 `latest` 다음과 같은 형식 이며 대/소문자를 구분 합니다.
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
@@ -212,7 +212,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 지원 되는 모든 로캘과 **텍스트 음성 변환** 컨테이너의 해당 음성에 대해 [텍스트 음성 변환 이미지 태그](../containers/container-image-tags.md#text-to-speech)를 참조 하세요.
 
 > [!IMPORTANT]
-> *표준 텍스트 음성 변환* HTTP POST를 생성 하는 경우 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md) 메시지에는 `name` 특성이 있는 `voice` 요소가 필요 합니다. 값은 해당 컨테이너 로캘 및 음성 ( ["짧은 이름"](language-support.md#standard-voices)이 라고도 함)입니다. 예를 들어 `latest` 태그에는의 `en-US-JessaRUS`음성 이름이 있습니다.
+> *표준 텍스트 음성 변환* HTTP POST를 생성 하는 경우 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md) 메시지에는 `voice` 특성이 있는 요소가 필요 합니다 `name` . 값은 해당 컨테이너 로캘 및 음성 ( ["짧은 이름"](language-support.md#standard-voices)이 라고도 함)입니다. 예를 들어 태그에는 `latest` 의 음성 이름이 `en-US-JessaRUS` 있습니다.
 
 # <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
 
@@ -225,7 +225,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 ```
 
 > [!NOTE]
-> 사용자 `locale` 지정 `voice` 음성 컨테이너의 및는 컨테이너에 의해 수집 된 사용자 지정 모델에 의해 결정 됩니다.
+> `locale` `voice` 사용자 지정 음성 컨테이너의 및는 컨테이너에 의해 수집 된 사용자 지정 모델에 의해 결정 됩니다.
 
 ***
 
@@ -238,11 +238,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. 명령의 추가 예도 사용할 수 있습니다. [examples](speech-container-configuration.md#example-docker-run-commands) `docker run`
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. 명령의 추가 [예](speech-container-configuration.md#example-docker-run-commands) `docker run` 도 사용할 수 있습니다.
 
 # <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
-*음성 텍스트* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
+*음성 텍스트* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -262,7 +262,7 @@ ApiKey={API_KEY}
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 출력에서 감정 분석 
 
-음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예를 들어: 
+음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -302,7 +302,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 ![사용자 지정 음성 학습 페이지](media/custom-speech/custom-speech-model-training.png)
 
-명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** `ModelId` 를 `docker run` 가져옵니다.
+명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 를 가져옵니다 `ModelId` `docker run` .
 <br>
 
 ![사용자 지정 음성 모델 세부 정보](media/custom-speech/custom-speech-model-details.png)
@@ -316,7 +316,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 | `{ENDPOINT_URI}` | 이 끝점은 계량 및 요금 청구에 필요 합니다. 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. |
 | `{API_KEY}` | API 키가 필요 합니다. 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. |
 
-*Custom Speech-텍스트* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
+*Custom Speech-텍스트* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -340,7 +340,7 @@ ApiKey={API_KEY}
 
 # <a name="text-to-speech"></a>[텍스트 음성 변환](#tab/tts)
 
-*텍스트 음성 변환* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
+*텍스트 음성 변환* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -364,7 +364,7 @@ ApiKey={API_KEY}
 
 ![사용자 지정 음성 학습 페이지](media/custom-voice/custom-voice-model-training.png)
 
-Docker run 명령의 `ModelId` 매개 변수에 대 한 인수로 사용할 **모델 ID** 를 가져옵니다.
+Docker run 명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 를 가져옵니다 `ModelId` .
 <br>
 
 ![사용자 지정 음성 모델 세부 정보](media/custom-voice/custom-voice-model-details.png)
@@ -378,7 +378,7 @@ Docker run 명령의 `ModelId` 매개 변수에 대 한 인수로 사용할 **�
 | `{ENDPOINT_URI}` | 이 끝점은 계량 및 요금 청구에 필요 합니다. 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. |
 | `{API_KEY}` | API 키가 필요 합니다. 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. |
 
-*사용자 지정 텍스트 음성 변환* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
+*사용자 지정 텍스트 음성 변환* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -425,7 +425,7 @@ WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용�
 
 # <a name="simple-format"></a>[단순 형식](#tab/simple-format)
 
-간단한 형식을 사용 하도록 음성 클라이언트를 구성 하려면에 `"Sentiment"` `Simple.Extensions`값을 추가 합니다. 특정 Text Analytics 모델 버전을 선택 하려면 `'latest'` `speechcontext-phraseDetection.sentimentAnalysis.modelversion` 속성 구성에서를 대체 합니다.
+간단한 형식을 사용 하도록 음성 클라이언트를 구성 하려면 `"Sentiment"` 에 값을 추가 `Simple.Extensions` 합니다. 특정 Text Analytics 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(
@@ -459,7 +459,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[자세한 형식](#tab/detailed-format)
 
-자세한 형식을 사용 하도록 음성 클라이언트를 구성 하려면, 또는 둘 `"Sentiment"` 다의 `Detailed.Extensions`값으로를 `Detailed.Options`추가 합니다. 특정 Text Analytics 모델 버전을 선택 하려면 `'latest'` `speechcontext-phraseDetection.sentimentAnalysis.modelversion` 속성 구성에서를 대체 합니다.
+자세한 형식을 사용 하도록 음성 클라이언트를 구성 하려면 `"Sentiment"` `Detailed.Extensions` , 또는 둘 다의 값으로를 추가 `Detailed.Options` 합니다. 특정 Text Analytics 모델 버전을 선택 하려면 `'latest'` 속성 구성에서를 대체 합니다 `speechcontext-phraseDetection.sentimentAnalysis.modelversion` .
 
 ```python
 speech_config.set_service_property(
@@ -479,7 +479,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`응답의 루트 계층에 감정 결과를 제공 합니다. `Detailed.Options`응답의 계층에 `NBest` 결과를 제공 합니다. 개별적으로 또는 함께 사용할 수 있습니다.
+`Detailed.Extensions`응답의 루트 계층에 감정 결과를 제공 합니다. `Detailed.Options`응답의 계층에 결과를 제공 합니다 `NBest` . 개별적으로 또는 함께 사용할 수 있습니다.
 
 ```json
 {
@@ -524,7 +524,7 @@ speech_config.set_service_property(
 
 ---
 
-감정 분석을 완전히 사용 하지 않도록 설정 하려면에 `false` `sentimentanalysis.enabled`값을 추가 합니다.
+감정 분석을 완전히 사용 하지 않도록 설정 하려면 `false` 에 값을 추가 `sentimentanalysis.enabled` 합니다.
 
 ```python
 speech_config.set_service_property(
@@ -556,7 +556,7 @@ speech_config.set_service_property(
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 음성 컨테이너는 Azure 계정의 *음성* 리소스를 사용하여 청구 정보를 Azure로 보냅니다.
 

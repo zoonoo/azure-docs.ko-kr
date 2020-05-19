@@ -1,20 +1,33 @@
 ---
 title: 새로운 기능-Language Understanding (LUIS)
 description: 이 문서는 Azure Cognitive Services Language Understanding API 대 한 뉴스로 정기적으로 업데이트 됩니다.
-ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: overview
+ms.date: 05/08/2020
+ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097730"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592800"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지 하려면이 페이지에 책갈피를 설정 합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="may-2020---build"></a>2020 년 5 월 ~ 빌드
+
+* GA ( **일반 공급)로 출시** 됨:
+    * [Language Understanding 컨테이너](luis-container-howto.md)
+    * Preview 포털이 [현재 포털로](https://www.luis.ai)승격 됨, [이전](https://previous.luis.ai) 포털을 계속 사용할 수 있음
+    * 새 컴퓨터-학습 된 엔터티 만들기 및 레이블 지정 환경
+    * 복합 엔터티 및 단순 엔터티에서 기계 학습 엔터티로 [업그레이드 프로세스](migrate-from-composite-entity.md)
+    * 단어 변형 정규화 지원 [설정](how-to-application-settings-portal.md)
+* Preview 제작 API 변경
+    * 중첩 된 컴퓨터에서 배운 엔터티의 앱 스키마 4.x
+    * [필수 기능으로 마이그레이션](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+
 
 ### <a name="march-2020"></a>2020년 3월
 
@@ -26,7 +39,7 @@ ms.locfileid: "82097730"
 
 * 개발자 생산성 향상
     * [예측 끝점 V3](luis-migration-api-v3.md)의 일반 공급입니다.
-    * . Lu ([Ludown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) 형식을 사용 하 여 앱을 가져오고 내보낼 수 있습니다. 이를 통해 효과적인 CI/CD 프로세스를 마련 수 있습니다.
+    * `.lu`([Ludown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) 형식을 사용 하 여 앱을 가져오고 내보낼 수 있습니다. 이를 통해 효과적인 CI/CD 프로세스를 마련 수 있습니다.
 * 언어 확장
     * 공개 미리 보기로 제공 되는 [아랍어 및 힌디어](luis-language-support.md) .
 * 미리 작성된 모델
@@ -80,7 +93,7 @@ ms.locfileid: "82097730"
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 
 ### <a name="2019-ignite-videos"></a>2019 Ignite 비디오
 

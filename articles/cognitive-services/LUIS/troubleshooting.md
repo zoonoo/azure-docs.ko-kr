@@ -2,14 +2,14 @@
 title: FAQ (질문과 대답)-LUIS
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101113"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592851"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -66,7 +66,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 빌드된 엔터티에는 사용자 지정 엔터티가 아닌 예제 utterance 태그가 지정 됩니다. 이 문제를 해결하려면 어떻게 해야 합니까?
 
-LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블을 지정할 수 있습니다. LUIS 포털에 올바른 엔터티 예측이 표시 되지 않는 경우에는 길이 발언를 추가 하 고 텍스트 내에 엔터티 레이블을 추가 하거나 기능 등의 설명자를 추가 해야 할 수 있습니다.
+LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블을 지정할 수 있습니다. LUIS 포털에 올바른 엔터티 예측이 표시 되지 않는 경우에는 길이 발언를 추가 하 고 텍스트 내에 엔터티 레이블을 추가 하거나 기능을 추가 해야 할 수 있습니다.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져오려고 했지만 오류가 발생 했습니다. 문제가 발생 한 경우
 
@@ -216,7 +216,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 건가요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 무슨 일이 일어났나요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.
 

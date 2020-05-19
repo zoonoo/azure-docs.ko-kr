@@ -2,13 +2,13 @@
 title: 좋은 예 길이 발언-LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382280"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592868"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
@@ -20,7 +20,7 @@ ms.locfileid: "81382280"
 * 단어 길이 및 문구 길이
 * 단어 배치 - 발언의 시작, 중간 및 끝에 있는 엔터티
 * 문법
-* 복수형
+* 복수화
 * 형태소 분석
 * 명사 및 동사 선택
 * [문장 부호](luis-reference-application-settings.md#punctuation-normalization) -정확 하 고 잘못 된 문법 및 문법을 사용 하지 않는 다양 한 기능을 사용 합니다.
@@ -68,11 +68,27 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 ## <a name="utterance-normalization"></a>Utterance 정규화
 
-Utterance 표준화는 학습 및 예측 중에 문장 부호와 분음 부호의 효과를 무시 하는 프로세스입니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용 하 여 utterance 정규화가 utterance 예측에 미치는 영향을 제어 합니다.
+Utterance 표준화는 학습 및 예측 중에 문장 부호 및 분음 부호와 같은 텍스트 형식의 효과를 무시 하는 프로세스입니다.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>분음 부호 및 문장 부호에 대 한 Utterance 정규화
+Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 이러한 설정은 다음과 같습니다.
 
-Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 가져올 때 정의 됩니다. Utterance 정규화 설정은 기본적으로 해제 되어 있습니다.
+* Word 양식
+* 부호가
+* 문장 부호
+
+정규화 설정을 켜면 **테스트** 창, 일괄 처리 테스트 및 끝점 쿼리의 점수가 해당 정규화 설정에 대 한 모든 길이 발언에 대해 변경 됩니다.
+
+LUIS 포털에서 버전을 복제 하는 경우 버전 설정은 복제 된 새 버전으로 계속 됩니다.
+
+LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 [업데이트 버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 통해 버전 설정을 설정 합니다. [참조](luis-reference-application-settings.md)의 이러한 정규화 변경 내용에 대해 자세히 알아보세요.
+
+### <a name="word-forms"></a>Word 양식
+
+**단어 형식** 표준화는 루트를 벗어나 확장 되는 단어의 차이를 무시 합니다. 예를 들어, 및 라는 단어는 `run` `running` `runs` 동사 시제에 따라 변경 됩니다.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>부호가
 
 분음 부호는 다음과 같이 텍스트에서 표시 되거나 서명 됩니다.
 
@@ -80,24 +96,8 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-앱에서 정규화를 설정 하면 **테스트** 창의 점수, 일괄 처리 테스트 및 끝점 쿼리가 분음 부호 나 문장 부호를 사용 하 여 모든 길이 발언에 대해 변경 됩니다.
-
-`settings` 매개 변수에서 LUIS JSON 앱 파일에 대 한 분음 부호 또는 문장 부호에 대 한 utterance 정규화를 설정 합니다.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-**문장 부호** 표준화는 모델이 학습 되 고 끝점 쿼리가 예측 되기 전에 길이 발언에서 문장 부호가 제거 된다는 것을 의미 합니다.
-
-**분음 부호** 를 정규화 하면 길이 발언의 분음 부호 문자를 일반 문자로 바꿉니다. 예를 들어 `Je parle français` 은 `Je parle francais`가 됩니다.
-
-정규화는 예제 길이 발언 또는 예측 응답에서 문장 부호와 분음 부호를 표시 하지 않는다는 것을 의미 하지 않습니다. 단순히 학습 및 예측 중에 무시 됩니다.
-
 ### <a name="punctuation-marks"></a>문장 부호
+**문장 부호** 표준화는 모델이 학습 되 고 끝점 쿼리가 예측 되기 전에 길이 발언에서 문장 부호가 제거 된다는 것을 의미 합니다.
 
 문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표를 포함 하지 않는 end와 utterance를 포함 하는 utterance는 두 개의 개별 길이 발언 이며 두 개의 다른 예측을 받을 수 있습니다.
 
@@ -109,9 +109,11 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 ### <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
 
-패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호의 _ignore_ 구문과 `[]`함께 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 합니다.
+패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호의 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 `[]` 합니다.
 
-## <a name="training-utterances"></a>발언 학습
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>모든 길이 발언으로 교육
 
 학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다.
 모든 교육 데이터를 사용하기 위해 `UseAllTrainingData` 이름/값 쌍으로 [버전 설정](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.

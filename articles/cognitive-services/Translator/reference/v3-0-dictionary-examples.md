@@ -1,7 +1,7 @@
 ---
-title: Translator Text API 사전 예제 메서드
+title: Translator 사전 예제 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API Dictionary 예제 메서드는 사전의 용어를 컨텍스트에서 사용 하는 방법을 보여 주는 예제를 제공 합니다.
+description: Translator 사전 예제 메서드는 컨텍스트에서 사전의 용어를 사용 하는 방법을 보여 주는 예제를 제공 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592511"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
+# <a name="translator-30-dictionary-examples"></a>Translator 3.0: 사전 예제
 
 사전의 용어가 컨텍스트에서 사용되는 방식을 보여 주는 예제를 제공합니다. 이 작업은 [사전 조회](./v3-0-dictionary-lookup.md)와 함께 사용됩니다.
 
@@ -33,15 +33,15 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수 | Description |
+| 쿼리 매개 변수 | 설명 |
 | --------- | ----------- |
 | api-version <img width=200/> | **필수 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
 | 원본 | **필수 매개 변수**입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
-| to | **필수 매개 변수**입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.  | 
+| 다음으로 변경: | **필수 매개 변수**입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
 
-| headers  | Description |
+| 헤더  | 설명 |
 | ------ | ----------- |
 | 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
 | 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |

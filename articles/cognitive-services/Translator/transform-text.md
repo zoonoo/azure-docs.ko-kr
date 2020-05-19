@@ -1,7 +1,7 @@
 ---
-title: 텍스트 변환 - Translator Text API
+title: 텍스트 변환-변환기
 titleSuffix: Azure Cognitive Services
-description: Translator Text API를 사용하여 텍스트를 변환합니다.
+description: 변환기를 사용 하 여 텍스트를 변환 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,17 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba8cf9a25a12ecc261845477c4e32a86f585906e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68594900"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592205"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText 메서드 사용 방법
 
 > [!NOTE]
-> 이 메서드는 더 이상 사용되지 않습니다. Translator Text API V3.0에서는 사용할 수 없습니다.
+> 이 메서드는 더 이상 사용되지 않습니다. 이 파일은 변환기의 V 3.0에서 사용할 수 없습니다.
 
 TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수로, 입력의 정규화된 형식을 반환합니다. 기계 번역이나 일반적으로 소셜 미디어 또는 사용자 생성 콘텐츠에서 찾을 수 없는 명확한 입력 텍스트가 필요한 기타 애플리케이션에서 이 메서드를 전처리 단계로 사용할 수 있습니다. 함수는 현재 영어 입력으로만 작동합니다.
 
@@ -28,7 +28,7 @@ TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수
 
 ## <a name="parameters"></a>매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:---|:---|
 | 권한 부여 헤더 | **필수** 애플리케이션을 식별하는 데 사용되는 HTTP 헤더입니다. “Authorization” 키와 “Bearer” + “ “ + 액세스 토큰 값을 사용합니다. 자세한 내용은 여기를 참조하세요.|
 | 언어 | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|

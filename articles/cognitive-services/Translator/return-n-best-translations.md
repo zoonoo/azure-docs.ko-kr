@@ -1,7 +1,7 @@
 ---
-title: N-최적 번역 반환-Translator Text
+title: N-최적 번역 반환-번역기
 titleSuffix: Azure Cognitive Services
-description: Translator Text API를 사용 하 여 N-최상의 번역을 반환 합니다.
+description: 변환기를 사용 하 여 N-최상의 번역을 반환 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
-ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837253"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592681"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
 
 > [!NOTE]
-> 이 메서드는 더 이상 사용되지 않습니다. Translator Text API V3.0에서는 사용할 수 없습니다.
+> 이 메서드는 더 이상 사용되지 않습니다. 이 파일은 변환기의 V 3.0에서 사용할 수 없습니다.
 
-Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서드에는 선택적인 부울 플래그 "IncludeMultipleMTAlternatives"가 포함됩니다.
+변환기의 GetTranslations () 및 GetTranslationsArray () 메서드에는 선택적 부울 플래그 "IncludeMultipleMTAlternatives"가 포함 됩니다.
 메서드는 번역기 엔진의 N-Best 목록에서 데이터를 제공하는 최대 maxTranslations 대안을 반환합니다.
 
 서명은 다음과 같습니다.
@@ -36,12 +36,12 @@ Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서�
 
 **매개 변수**
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:---|:---|
 | appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
 | text | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
 | 원본 | **필수** 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. |
-| to | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
+| 다음으로 변경: | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
 | maxTranslations | **필수** 반환할 번역의 최대 수를 나타내는 int입니다. |
 | 옵션 | **선택 사항** 아래에 나열된 값을 포함하는 TranslateOptions 개체입니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다.
 

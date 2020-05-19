@@ -1,7 +1,7 @@
 ---
-title: 언어 지원 - Translator Text API
+title: 언어 지원-번역기
 titleSuffix: Azure Cognitive Services
-description: Translator Text API는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
+description: Cognitive Services Translator는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81684838"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592732"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
+# <a name="language-and-region-support-for-translator"></a>번역기에 대 한 언어 및 지역 지원
 
-Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합니다. NMT(신경 기계 번역)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 신경계를 사용할 수 있을 때 Translator Text API V3를 통해 기본 방식으로 사용할 수 있습니다.
+변환기는 텍스트에서 텍스트 변환에 대해 다음과 같은 언어를 지원 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="translation"></a>Translation
 
-**V2 Translator API**
+**V2 번역기**
 
 > [!NOTE]
 > V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
@@ -35,7 +35,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 * 신경망: 신경망은 기본 변환 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
 * 신경망: 신경망만 사용할 수 있습니다.
 
-**V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다.
+**V3 변환기** V3 번역기는 기본적으로 신경망 이며 통계 시스템은 신경망이 존재 하지 않는 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
 > 현재 사용자 지정 변환기에서 신경망의 하위 집합을 사용할 수 있으며,이를 점차적으로 추가 하는 중입니다. [사용자 지정 번역기에서 현재 사용할 수 있는 보기 언어](#customization)입니다.
@@ -116,20 +116,20 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |유카텍 마야어|  `yua`   |   통계|
 
 > [!NOTE]
-> 언어 코드 `pt` 는 기본적으로 `pt-br`포르투갈어 (브라질)로 바뀝니다.
+> 언어 코드 `pt` 는 기본적으로 `pt-br` 포르투갈어 (브라질)로 바뀝니다.
 
 ## <a name="transliteration"></a>음역
 
 음역 방법은 다음과 같은 언어를 지원합니다. "대상/원본"에서 "<-->"은 언어가 나열된 스크립트에서/로 음역될 수 있음을 나타냅니다. "-->"은 언어가 한 스크립트에서 다른 스크립트로만 음역될 수 있음을 나타냅니다.
 
-| 언어    | 언어 코드 | 스크립트 | 대상/원본 | 스크립트|
+| 언어    | 언어 코드 | 스크립트 | 끝/시작 | 스크립트|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 아랍어 | `ar` | 아랍어 `Arab` | <--> | 라틴어 `Latn` |
 |벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
-| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
-| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
-| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
-| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
+| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
+| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
+| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
+| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
 | 구자라트어 | `gu`  | 구자라트어 `Gujr` | --> | 라틴어 `Latn` |
 | 히브리어 | `he` | 히브리어 `Hebr` | <--> | 라틴어 `Latn` |
 | 힌디어 | `hi` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
@@ -204,12 +204,12 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 ## <a name="detect"></a>Detect
 
-Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 검색 합니다.
+Translator는 번역 및 음에 사용할 수 있는 모든 언어를 검색 합니다.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Translator Text API 언어 목록에 프로그래밍 방식으로 액세스
+## <a name="access-the-translator-language-list-programmatically"></a>프로그래밍 방식으로 번역기 언어 목록 액세스
 
-언어 메서드를 사용하여 Translator Text API v3.0에 대해 지원되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
+언어 메서드를 사용 하 여 Translator v 3.0에 대해 지원 되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
 
 [언어 작업 참조 설명서 보기](reference/v3-0-languages.md)
 
@@ -269,6 +269,6 @@ Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 �
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Microsoft Translator 웹 사이트에서 목록에 액세스
 
-언어를 빠르게 확인하려는 경우 Microsoft Translator 웹 사이트는Translator Text 및 Speech API에서 지원하는 모든 언어를 표시합니다. 이 목록에는 언어 코드와 같은 개발자별 정보는 포함되지 않습니다.
+언어에 대 한 간략 한 개요를 보려면 Microsoft Translator 웹 사이트에서 변환기 및 음성 Api에서 지원 되는 모든 언어를 표시 합니다. 이 목록에는 언어 코드와 같은 개발자별 정보는 포함되지 않습니다.
 
 [언어 목록을 참조하세요](https://www.microsoft.com/translator/languages.aspx).

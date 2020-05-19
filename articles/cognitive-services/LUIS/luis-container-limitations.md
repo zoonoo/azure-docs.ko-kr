@@ -10,24 +10,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7fe773b35c5aba31b2fea66bd2be7b2745eac3ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879244"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592902"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>LUIS (Language Understanding) 컨테이너 제한 사항
 
 LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니다. 지원 되지 않는 종속성부터 지원 되는 언어의 하위 집합까지이 문서에서는 이러한 제한 사항에 대해 자세히 설명 합니다.
 
-## <a name="supported-dependencies-for-latest-container"></a>컨테이너에 대해 `latest` 지원 되는 종속성
+## <a name="supported-dependencies-for-latest-container"></a>컨테이너에 대해 지원 되는 종속성 `latest`
 
-[Build/2019](https://news.microsoft.com/build2019/)에서 릴리스된 최신 LUIS 컨테이너는 다음을 지원 합니다.
+최신 LUIS 컨테이너는 다음을 지원 합니다.
 
 * [새 미리](luis-reference-prebuilt-domains.md)작성 된 도메인: 이러한 엔터프라이즈 중심 도메인에는 엔터티, 예 길이 발언 및 패턴이 포함 됩니다. 사용자 용도에 맞게 이러한 도메인을 확장 합니다.
 
-## <a name="unsupported-dependencies-for-latest-container"></a>컨테이너에 대해 `latest` 지원 되지 않는 종속성
+## <a name="unsupported-dependencies-for-latest-container"></a>컨테이너에 대해 지원 되지 않는 종속성 `latest`
 
 [컨테이너에 대해 내보내려면](luis-container-howto.md#export-packaged-app-from-luis)LUIS 앱에서 지원 되지 않는 종속성을 제거 해야 합니다. 컨테이너에 대해 내보내기를 시도 하면 LUIS 포털에서 제거 해야 하는 지원 되지 않는 이러한 기능을 보고 합니다.
 
@@ -35,18 +35,18 @@ LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니�
 
 지원되지 않는 앱 구성|세부 정보|
 |--|--|
-|지원되지 않는 컨테이너 문화권| 네덜란드어 (`nl-NL`)<br>일본어 (`ja-JP`)<br>독일어는 [1.0.2 토크](luis-language-support.md#custom-tokenizer-versions)에서 유일 하 게 지원 됩니다.|
+|지원되지 않는 컨테이너 문화권| 네덜란드어 ( `nl-NL` )<br>일본어 ( `ja-JP` )<br>독일어는 [1.0.2 토크](luis-language-support.md#custom-tokenizer-versions)에서 유일 하 게 지원 됩니다.|
 |모든 문화권에 지원되지 않는 엔터티|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) 모든 문화권에 미리 빌드된 엔터티|
-|지원 되지 않는 영어 (`en-US`) 문화권 엔터티|[GeographyV2](luis-reference-prebuilt-geographyV2.md) 미리 빌드된 엔터티|
+|지원 되지 않는 영어 ( `en-US` ) 문화권 엔터티|[GeographyV2](luis-reference-prebuilt-geographyV2.md) 미리 빌드된 엔터티|
 |음성 초기화|컨테이너에서 외부 종속성은 지원되지 않습니다.|
-|정서 분석|컨테이너에서 외부 종속성은 지원되지 않습니다.|
+|감정 분석|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 |Bing 맞춤법 검사|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 
 ## <a name="languages-supported"></a>지원되는 언어
 
 LUIS 컨테이너는 LUIS에서 [지 원하는 언어](luis-language-support.md#languages-supported) 의 하위 집합을 지원 합니다. LUIS 컨테이너는 길이 발언를 이해 하는 데 사용할 수 있는 언어는 다음과 같습니다.
 
-| 언어 | Locale | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 | 로캘 | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
