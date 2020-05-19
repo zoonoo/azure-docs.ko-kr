@@ -9,46 +9,46 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 077e29856842972fae2c723d4a2c368cbb80df06
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76311719"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593259"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
 LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 > [!CAUTION]
-> 패턴에는 하위 구성 요소가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
+> 패턴에는 자식 엔터티가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
 
 ## <a name="adding-example-utterances-as-pattern"></a>패턴으로 예제 길이 발언 추가
 
 엔터티에 대 한 패턴을 추가 하려면 _가장 쉬운_ 방법은 의도 세부 정보 페이지에서 패턴을 만드는 것입니다. 이렇게 하면 구문이 예제 utterance와 일치 하 게 됩니다.
 
-1. [PREVIEW LUIS 포털](https://preview.luis.ai)의 **내 앱** 페이지에서 앱을 선택 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **의도** 목록 페이지에서 utterance 템플릿을 만들 utterance의 의도 이름을 선택 합니다.
 1. 의도 세부 정보 페이지에서 템플릿 utterance 사용할 예제 utterance의 행을 선택 하 고, 상황에 맞는 도구 모음에서 **+ 추가 패턴** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![의도 세부 정보 페이지에서 예제 utterance를 템플릿 패턴으로 선택 하는 스크린샷](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. 팝업 상자의 **패턴 확인** 페이지에서 **완료** 를 선택 합니다. 엔터티의 하위 구성 요소, 제약 조건 또는 설명자를 정의할 필요가 없습니다. 컴퓨터에서 학습 한 엔터티를 나열 하기만 하면 됩니다.
+1. 팝업 상자의 **패턴 확인** 페이지에서 **완료** 를 선택 합니다. 엔터티 하위 엔터티 또는 기능을 정의할 필요가 없습니다. 컴퓨터에서 학습 한 엔터티를 나열 하기만 하면 됩니다.
 
     > [!div class="mx-imgBorder"]
     > ![의도 세부 정보 페이지에서 예제 utterance를 템플릿 패턴으로 확인 하는 스크린샷](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-1. `[]` (사각형) 대괄호를 사용 하 여 텍스트를 선택적으로 선택 하는 것과 같이 템플릿을 편집 해야 하는 경우 **패턴** 페이지에서이 편집 작업을 수행 해야 합니다.
+1. (사각형) 대괄호를 사용 하 여 텍스트를 선택적으로 선택 하는 것과 같이 템플릿을 편집 해야 하는 경우 `[]` **패턴** 페이지에서이 편집 작업을 수행 해야 합니다.
 
 1. 탐색 모음에서 **학습** 을 선택 하 여 새 패턴으로 앱을 학습 합니다.
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>올바른 구문을 사용 하 여 template utterance 추가
-
-1. **내 앱** 페이지에서 이름을 선택하여 앱을 열고 왼쪽 패널의 **앱 성능 개선** 아래에서 **패턴**을 선택합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. 왼쪽 패널에서 **응용 프로그램 성능 향상**의 **패턴** 을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![패턴 목록 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-1.png)
@@ -60,7 +60,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
     > [!div class="mx-imgBorder"]
     > ![패턴에 대한 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    엔터티에 [역할](luis-concept-roles.md)을 포함 하는 경우 엔터티 이름 뒤에 단일 콜론을 `:`사용 하 여 역할을 지정 `{Location:Origin}`합니다 (예:). 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다.
+    엔터티에 [역할](luis-concept-roles.md)을 포함 하는 경우 엔터티 이름 뒤에 단일 콜론을 사용 하 여 역할을 지정 `:` 합니다 (예:) `{Location:Origin}` . 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![역할이 있는 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-4.png)
