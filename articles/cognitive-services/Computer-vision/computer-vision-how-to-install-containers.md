@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879346"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593338"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
@@ -68,7 +68,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |-----------|------------|
 | 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용 하 여 컨테이너 이미지를 다운로드 합니다.
+명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 컨테이너 이미지를 다운로드 합니다.
 
 ### <a name="docker-pull-for-the-read-container"></a>읽기 컨테이너의 Docker pull
 
@@ -125,13 +125,13 @@ ApiKey={API_KEY}
 
 ### <a name="asynchronous-read"></a>비동기 읽기
 
-`POST /vision/v2.0/read/core/asyncBatchAnalyze` 및 `GET /vision/v2.0/read/operations/{operationId}` 작업을 함께 사용 하 여 COMPUTER VISION 서비스에서 해당 REST 작업을 사용 하는 방법과 유사한 방식으로 이미지를 비동기적으로 읽을 수 있습니다. 비동기 POST 메서드는 HTTP GET 요청 `operationId` 에 대 한 식별자로 사용 되는를 반환 합니다.
+및 작업을 함께 사용 하 여 `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` Computer Vision 서비스에서 해당 REST 작업을 사용 하는 방법과 유사한 방식으로 이미지를 비동기적으로 읽을 수 있습니다. 비동기 POST 메서드는 `operationId` HTTP GET 요청에 대 한 식별자로 사용 되는를 반환 합니다.
 
-Swagger UI에서을 선택 `asyncBatchAnalyze` 하 여 브라우저에서 확장 합니다. 그런 다음 > **파일 선택** **을 선택 합니다**. 이 예제에서는 다음 이미지를 사용 합니다.
+Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장 합니다. **그런 다음**  >  **파일 선택**을 선택 합니다. 이 예제에서는 다음 이미지를 사용 합니다.
 
 ![탭 및 공백](media/tabs-vs-spaces.png)
 
-비동기 게시물이 성공적으로 실행 되 면 **HTTP 202** 상태 코드를 반환 합니다. 응답의 일부로 요청에 대 한 결과 끝점 `operation-location` 을 포함 하는 헤더가 있습니다.
+비동기 게시물이 성공적으로 실행 되 면 **HTTP 202** 상태 코드를 반환 합니다. 응답의 일부로 `operation-location` 요청에 대 한 결과 끝점을 포함 하는 헤더가 있습니다.
 
 ```http
  content-length: 0
@@ -140,7 +140,7 @@ Swagger UI에서을 선택 `asyncBatchAnalyze` 하 여 브라우저에서 확장
  server: Kestrel
 ```
 
-는 `operation-location` 정규화 된 URL 이며 HTTP GET을 통해 액세스 됩니다. 이전 이미지에서 URL을 `operation-location` 실행 하 여 받은 JSON 응답은 다음과 같습니다.
+는 `operation-location` 정규화 된 URL 이며 HTTP GET을 통해 액세스 됩니다. 이전 이미지에서 URL을 실행 하 여 받은 JSON 응답은 `operation-location` 다음과 같습니다.
 
 ```json
 {
@@ -186,7 +186,7 @@ Swagger UI에서을 선택 `asyncBatchAnalyze` 하 여 브라우저에서 확장
 
 ### <a name="synchronous-read"></a>동기 읽기
 
-`POST /vision/v2.0/read/core/Analyze` 작업을 사용 하 여 이미지를 동기적으로 읽을 수 있습니다. 전체적으로 이미지를 읽으면 API는 JSON 응답을 반환 합니다. 단, 오류가 발생 하는 경우는 예외입니다. 오류가 발생 하면 다음 JSON이 반환 됩니다.
+작업을 사용 하 여 `POST /vision/v2.0/read/core/Analyze` 이미지를 동기적으로 읽을 수 있습니다. 전체적으로 이미지를 읽으면 API는 JSON 응답을 반환 합니다. 단, 오류가 발생 하는 경우는 예외입니다. 오류가 발생 하면 다음 JSON이 반환 됩니다.
 
 ```json
 {
@@ -194,7 +194,7 @@ Swagger UI에서을 선택 `asyncBatchAnalyze` 하 여 브라우저에서 확장
 }
 ```
 
-JSON 응답 개체에는 비동기 버전과 동일한 개체 그래프가 있습니다. JavaScript 사용자 이며 형식 안전성을 원하는 경우 다음 형식을 사용 하 여 JSON 응답을 `AnalyzeResult` 개체로 캐스팅할 수 있습니다.
+JSON 응답 개체에는 비동기 버전과 동일한 개체 그래프가 있습니다. JavaScript 사용자 이며 형식 안전성을 원하는 경우 다음 형식을 사용 하 여 JSON 응답을 개체로 캐스팅할 수 있습니다 `AnalyzeResult` .
 
 ```typescript
 export interface AnalyzeResult {
@@ -253,7 +253,7 @@ export interface Word {
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 Cognitive Services 컨테이너는 Azure 계정의 해당 리소스를 사용 하 여 Azure로 청구 정보를 보냅니다.
 
