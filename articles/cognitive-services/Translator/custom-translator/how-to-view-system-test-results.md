@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595607"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584725"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -102,6 +102,6 @@ ms.locfileid: "68595607"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 사용합니다.
+- [변환기 V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)을 통해 배포 된 사용자 지정 변환 모델 사용을 시작 합니다.
 - [설정을 관리](how-to-manage-settings.md)하여 작업 영역을 공유하고 구독 키를 관리하는 방법을 알아봅니다.
 - [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아봅니다.

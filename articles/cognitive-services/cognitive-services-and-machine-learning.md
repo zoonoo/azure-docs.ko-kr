@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531482"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584623"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -22,12 +22,12 @@ Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼�
 
 [Cognitive Services](welcome.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
 
-|서비스 범주|목적|
+|서비스 범주|용도|
 |--|--|
 |[의사 결정](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
 |[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.|
 |[검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Bing Search API를 앱에 추가하고, 단일 API 호출을 통해 수십억 개의 웹 페이지, 이미지, 비디오 및 뉴스를 검색하세요.|
-|[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
+|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
 |[시각](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
 ||||
 
@@ -98,7 +98,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
 |[Face](./Face/Overview.md)|x|x||
 |[Form Recognizer](./form-recognizer/overview.md)||x||
-|[몰입형 판독기](./immersive-reader/overview.md)|x|||
+|[몰입형 리더](./immersive-reader/overview.md)|x|||
 |[Ink Recognizer](./Ink-recognizer/overview.md)|x|x||
 |[언어 이해(LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
@@ -107,9 +107,9 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |[음성 텍스트 음성 변환 (TTS)](speech-service/text-to-speech.md)|x|x||
 |[음성 텍스트 음성 변환 (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[텍스트 분석](./text-analytics/overview.md)|x|||
-|[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text-사용자 지정 변환기](./translator/custom-translator/overview.md)||x||
+|[Text Analytics](./text-analytics/overview.md)|x|||
+|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator-사용자 지정 번역기](./translator/custom-translator/overview.md)||x||
 
 * Personalizer 정책 및 데이터를 평가 하기 위해 서비스에서 수집 하는 학습 데이터 (실시간으로 작동 함)만 필요 합니다. Personalizer에는 사전 또는 일괄 학습을 위한 대량 기록 데이터 집합이 필요 하지 않습니다. 
 

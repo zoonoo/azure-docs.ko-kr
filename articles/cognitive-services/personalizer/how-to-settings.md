@@ -2,13 +2,13 @@
 title: Personalizer 구성
 description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221214"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584657"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Personalizer learning 루프 구성
 
@@ -18,6 +18,23 @@ Personalizer 리소스에 대 한 Azure Portal **구성** 페이지에서 학습
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>구성 변경 계획
+
+일부 구성 변경 내용은 [모델을 다시 설정](#settings-that-include-resetting-the-model)하므로 구성 변경을 계획 해야 합니다.
+
+[수련 여 모드](concept-apprentice-mode.md)를 사용 하려는 경우에는 Personalizer 구성을 검토 한 후에 수련으로 전환 해야 합니다.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>모델 재설정을 포함 하는 설정
+
+다음 동작에서는 지난 2 일 동안 사용 가능한 데이터를 사용 하 여 모델 재 학습을 트리거합니다.
+
+* 보상
+* 탐색
+
+모든 데이터를 [지우려면](how-to-manage-model.md) **모델 및 학습 설정** 페이지를 사용 합니다.
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>피드백 루프의 보상 구성
 
@@ -50,7 +67,7 @@ Personalizer 리소스에 대 한 Azure Portal **구성** 페이지에서 학습
 
 **모델 업데이트 빈도** 는 모델을 학습 하는 빈도를 설정 합니다.
 
-|빈도 설정|목적|
+|빈도 설정|용도|
 |--|--|
 |1분|1 분 업데이트 빈도는 Personalizer를 사용 하 여 응용 프로그램 코드를 **디버깅** 하거나, 데모를 수행 하거나, 기계 학습 측면을 대화형으로 테스트할 때 유용 합니다.|
 |15분|높은 모델 업데이트 빈도는 사용자 동작의 **변경 내용을 면밀** 하 게 추적 하려는 경우에 유용 합니다. 라이브 뉴스, 바이럴 콘텐츠 또는 라이브 상품 입찰에서 실행하는 사이트를 예로 들 수 있습니다. 이러한 시나리오에서 15분 빈도를 사용할 수 있습니다. |
@@ -66,16 +83,7 @@ Personalizer 리소스에 대 한 Azure Portal **구성** 페이지에서 학습
 
 이 값을 변경한 후에는 **저장**을 선택 해야 합니다.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>모델 재설정을 포함 하는 설정
-
-다음 동작에는 지난 2 일간의 데이터를 사용 하 여 모델을 즉시 다시 학습 하는 작업이 포함 됩니다.
-
-* 보상
-* 탐색
-
-모든 데이터를 [지우려면](how-to-manage-model.md) * * 모델 및 학습 설정 * * 페이지를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
