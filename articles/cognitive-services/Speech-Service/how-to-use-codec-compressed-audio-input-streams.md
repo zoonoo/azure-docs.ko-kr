@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637292"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585025"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
-음성 서비스 SDK **압축 오디오 입력 스트림** API는 또는 `PullStream` `PushStream`을 사용 하 여 음성 서비스에 압축 오디오를 스트리밍하는 방법을 제공 합니다.
+음성 서비스 SDK **압축 오디오 입력 스트림** API는 또는을 사용 하 여 음성 서비스에 압축 오디오를 스트리밍하는 방법을 제공 합니다 `PullStream` `PushStream` .
 
-스트리밍 압축 입력 오디오는 현재 c #, c + +, Windows의 Java (UWP 응용 프로그램은 지원 되지 않음) 및 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)에서 지원 됩니다. Android의 Java 및 iOS 플랫폼의 목적-C 에서도 지원 됩니다.
+스트리밍 압축 입력 오디오는 현재 c #, c + +, Windows의 Java (UWP 응용 프로그램은 지원 되지 않음) 및 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)에서 지원 됩니다. Android의 Java 및 iOS 플랫폼의 목적-C 에서도 지원 됩니다.
 * RHEL 8 및 CentOS 8에는 Speech SDK 버전 1.10.0 이상이 필요 합니다.
 * Windows의 경우 Speech SDK 버전 1.11.0 이상이 필요 합니다.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

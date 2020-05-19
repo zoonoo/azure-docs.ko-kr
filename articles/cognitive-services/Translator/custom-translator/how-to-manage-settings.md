@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221242"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587245"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -29,11 +29,11 @@ Custom Translator 설정 페이지 내에서 새 작업 영역을 만들고, 작
 
 ## <a name="associating-microsoft-translator-subscription"></a>Microsoft Translator 구독 연결
 
-모델을 학습 또는 배포하려면 작업 영역과 연결된 Microsoft Translator Text API 구독 키가 필요합니다.
+모델을 학습 하거나 배포 하려면 작업 영역과 연결 된 번역기 구독 키가 있어야 합니다.
 
 구독이 없으면 다음 단계를 수행합니다.
 
-1. Microsoft Translator Text API를 구독합니다. 이 문서에서는 Microsoft Translator Text API를 구독하는 방법을 보여줍니다.
+1. 번역기를 구독 합니다. 이 문서에서는 번역기를 구독 하는 방법을 보여 줍니다.
 2. 번역기 구독에 대한 키를 적어둡니다. Key1 또는 Key2가 허용됩니다.
 3. Custom Translator 포털로 다시 이동합니다.
 

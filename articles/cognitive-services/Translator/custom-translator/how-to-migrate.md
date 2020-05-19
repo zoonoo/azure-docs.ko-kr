@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446775"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587003"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -134,16 +134,16 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | 예   | 예 |
-| NMT 사용자 지정 | 예    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 예    | 예 |
+| SMT 사용자 지정 | 예   | 아니요 |
+| NMT 사용자 지정 | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
 | 추적 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어
 
-Microsoft Translator [custommt@microsoft.com](mailto:custommt@microsoft.com) 에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 자세한 내용을 확인 하세요.
+Microsoft Translator에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 [custommt@microsoft.com](mailto:custommt@microsoft.com) 자세한 내용을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [모델을 학습](how-to-train-model.md)합니다.
-- 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)를 통해 사용합니다.
+- [변환기 V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)을 통해 배포 된 사용자 지정 변환 모델 사용을 시작 합니다.

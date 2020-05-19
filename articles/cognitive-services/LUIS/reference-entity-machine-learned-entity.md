@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75552001"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585592"
 ---
 # <a name="machine-learned-entity"></a>기계 학습된 엔터티
 
@@ -38,13 +38,13 @@ ms.locfileid: "75552001"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-컴퓨터에서 학습 한 엔터티에는 제약 조건 및 설명자를 포함 하는 여러 하위 구성 요소가 포함 될 수 있으므로이는 단지 예입니다. 엔터티가 반환 하는 항목에 대 한 가이드로 간주 되어야 합니다.
+컴퓨터에서 학습 한 엔터티에는 필요한 기능이 포함 된 많은 하위 엔터티가 있을 수 있으므로이는 단지 예 일 뿐입니다. 엔터티가 반환 하는 항목에 대 한 가이드로 간주 되어야 합니다.
 
 다음 쿼리를 살펴보십시오.
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ ms.locfileid: "75552001"
 
 ```
 
-이는 쿼리 문자열에 `verbose=true` 가 설정 된 경우 JSON입니다.
+이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {

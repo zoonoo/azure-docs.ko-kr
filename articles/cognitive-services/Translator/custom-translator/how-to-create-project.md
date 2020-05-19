@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836558"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587666"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "73836558"
 
     b.  설명: 프로젝트에 대한 간단한 요약입니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않지만, 여러 프로젝트를 구분하는 데 도움이 될 수 있습니다.
 
-    다.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
+    c.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
 
     d.  범주(필수): 프로젝트에 해당하는 카테고리를 선택합니다. 범주는 번역하려는 문서의 스타일과 용어를 설명합니다.
 
@@ -52,7 +52,7 @@ Custom Translator 방문 페이지에는 작업 영역에 포함된 처음 10개
 
 프로젝트를 선택하면 프로젝트 페이지에서 다음을 확인할 수 있습니다.
 
-- CategoryID: CategoryID는 WorkspaceID, 프로젝트 레이블, 범주 코드를 연결하여 만들어집니다. CategoryID를 Text Translator API와 함께 사용하면 사용자 지정 번역을 얻을 수 있습니다.
+- CategoryID: CategoryID는 WorkspaceID, 프로젝트 레이블, 범주 코드를 연결하여 만들어집니다. 텍스트 변환기와 함께 CategoryID를 사용 하 여 사용자 지정 번역을 가져옵니다.
 
 - 훈련 단추: 이 단추를 사용하여 [모델 훈련](how-to-train-model.md)을 시작합니다.
 

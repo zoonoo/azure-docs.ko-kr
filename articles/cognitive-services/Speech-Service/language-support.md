@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113836"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587377"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 음성 지원
 
@@ -24,7 +24,7 @@ ms.locfileid: "82113836"
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다. 음성 사용자 지정은 현재 및 `en-US` `de-DE`에만 사용할 수 있습니다. [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
+Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다. 음성 사용자 지정은 현재 및에만 사용할 수 있습니다 `en-US` `de-DE` . [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
 
 <!--
 To get the AM and ML bits:
@@ -34,14 +34,14 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Locale  | 언어                          | 지원됨 | 사용자 지정                                    |
+| 로캘  | 언어                          | 지원됨 | 사용자 지정                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 예                                                |
+| `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 아니요                                                |
 | `ar-BH` | 아랍어 (바레인), 최신 표준 | 예       | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 예       | 언어 모델                                    |
-| `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 예                                                |
-| `ar-QA` | 아랍어(카타르)                    | 예       | 예                                                |
-| `ar-SA` | 아랍어(사우디아라비아)             | 예       | 예                                                |
+| `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 아니요                                                |
+| `ar-QA` | 아랍어(카타르)                    | 예       | 아니요                                                |
+| `ar-SA` | 아랍어(사우디아라비아)             | 예       | 아니요                                                |
 | `ar-SY` | 아랍어(시리아)                    | 예       | 언어 모델                                    |
 | `ca-ES` | 카탈로니아어                           | 예       | 언어 모델                                    |
 | `da-DK` | 덴마크어(덴마크)                  | 예       | 언어 모델                                    |
@@ -71,16 +71,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | 러시아어(러시아)                  | 예       | 음향 모델<br>언어 모델                  |
 | `sv-SE` | 스웨덴어(스웨덴)                  | 예       | 언어 모델                                    |
 | `ta-IN` | 타밀어(인도)                     | 예       | 언어 모델                                    |
-| `te-IN` | 텔루구어(인도)                    | 예       | 예                                                |
-| `th-TH` | 태국어(태국)                   | 예       | 예                                                |
-| `tr-TR` | 터키어(터키)                  | 예       | 예                                                |
+| `te-IN` | 텔루구어(인도)                    | 예       | 아니요                                                |
+| `th-TH` | 태국어(태국)                   | 예       | 아니요                                                |
+| `tr-TR` | 터키어(터키)                  | 예       | 아니요                                                |
 | `zh-CN` | 중국어(북경어, 간체)    | 예       | 음향 모델<br>언어 모델                  |
 | `zh-HK` | 중국어 (광둥어, 번체)  | 예       | 언어 모델                                    |
 | `zh-TW` | 중국어(대만어)      | 예       | 언어 모델                                    |
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
-Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특정 언어 및 언어를 지 원하는 이러한 음성을 지원 합니다.
+Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특정 언어 및 언어를 지 원하는 이러한 음성을 지원 합니다. 또한 [음성/목록 API](rest-text-to-speech.md#get-a-list-of-voices)를 통해 각 특정 지역/끝점에 대해 지원 되는 언어 및 음성의 전체 목록을 가져올 수 있습니다. 
 
 > [!IMPORTANT]
 > 가격 책정은 표준, 사용자 지정 및 인공신경망 음성마다 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 페이지를 참조하세요.
@@ -93,124 +93,139 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| Locale  | 언어            | 성별 | 전체 서비스 이름 매핑                                               | 짧은 음성 이름        |
-|---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
-| `de-DE` | 독일어(독일)    | Female | "Microsoft Server Speech Text to Speech Voice (de, KatjaNeural)"     | "KatjaNeural"     |
-| `en-US` | 영어(미국)        | Female | "Microsoft Server Speech Text to Speech Voice (en-us, AriaNeural)"      | "en-us-AriaNeural"      |
-| `en-US` | 영어(미국)        | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)"       | "en-us-GuyNeural"       |
-| `it-IT` | 이탈리아어(이탈리아)     | Female | "Microsoft Server Speech Text to Speech Voice (it IT, ElsaNeural)"      | "it-ElsaNeural"      |
-| `pt-BR` | 포르투갈어(브라질) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "FranciscaNeural" |
-| `zh-CN` | 중국어(북경어, 간체)  | Female | "Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)"  | "zh-cn-XiaoxiaoNeural"  |
+|로캘  | 언어            | 성별 | 음성 이름  | Bi-다국어 지원 | 스타일 지원 |
+|--|--|--|--|--|--|
+| `de-DE` | 독일어(독일)    | Female | "KatjaNeural" | 예. 영어(미국) | 일반 |
+| `en-AU` | 영어(오스트레일리아) | Female |  "en-us-NatashaNeural" | 아니요 | 일반 |
+| `en-CA` | 영어(캐나다)    | Female |  "ClaraNeural"| 아니요 | 일반 |
+| `en-GB` | 영어(영국)        | Female |  "en-us-및 By신경망"| 아니요 | 일반 |
+|  |      | Female |  "en-us-MiaNeural" | 아니요 | 일반 |
+| `en-US` | 영어(미국)        | Female |  "en-us-AriaNeural"| 아니요 | 일반, 여러 음성 스타일 사용 가능 |
+|  |      | Male   | "en-us-GuyNeural" | 아니요 | 일반 |
+| `es-ES` | 스페인어(스페인)     | Female |  "es-ElviraNeural"| 예. 영어(미국) | 일반 |
+| `es-MX` | 스페인어(멕시코)    | Female |  "DaliaNeural" | 예. 영어(미국) | 일반 |
+| `fr-CA` | 프랑스어(캐나다)     | Female |  "fr-fr-SylvieNeural" | 예. 영어(미국) | 일반 |
+| `fr-FR` | 프랑스어(프랑스)     | Female | "fr-fr-DeniseNeural"  | 예. 영어(미국) | 일반 |
+| `it-IT` | 이탈리아어(이탈리아)     | Female |  "it-ElsaNeural"  | 예. 영어(미국) | 일반 |
+| `ja-JP` | 일본어            | Female |  "ja-jp-NanamiNeural" | 예. 영어(미국) | 일반 |
+| `ko-KR` | 한국어              | Female |  "ko-kr-SunHiNeural" | 예. 영어(미국) | 일반 |
+| `nb-NO` | 노르웨이어           | Female | "nb-아니요-IselinNeural" | 아니요 | 일반 |
+| `pt-BR` | 포르투갈어(브라질) | Female |  "FranciscaNeural" | 아니요 | 일반 |
+| `tr-TR` | 터키어             | Female | "tr – TR-EmelNeural" | 아니요 | 일반 |
+| `zh-CN` | 중국어(북경어, 간체)  | Female |  "zh-cn-XiaoxiaoNeural"  | 예. 영어(미국) | 일반, 여러 음성 스타일 사용 가능 |
+|  |  | Female |  "zh-cn-XiaoyouNeural"  | 예. 영어(미국) | 어린이 음성, 스토리 narrating에 최적화 됨 |
+|  |  | Male |  "zh-cn-YunyangNeural"  | 예. 영어(미국) | 뉴스 읽기에 최적화 됨, 여러 음성 스타일 사용 가능 |
+|  |  | Male |  "zh-cn-YunyeNeural"  | 아니요 | 스토리 narrating에 최적화 됨 |
 
 > [!IMPORTANT]
-> `en-US-JessaNeural` 음성이로 `en-US-AriaNeural`변경 되었습니다. 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.
+> `en-US-JessaNeural`음성이로 변경 되었습니다 `en-US-AriaNeural` . 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.
 
 신경망을 구성 하 고 조정 하는 방법을 알아보려면 [음성 합성 마크업 언어](speech-synthesis-markup.md#adjust-speaking-styles)를 참조 하세요.
 
 > [!TIP]
-> 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.
+> 음성 합성 요청에서 "Microsoft Server Speech Text to Speech Voice (en-us, AriaNeural)"와 같은 전체 서비스 이름 매핑을 계속 사용할 수 있습니다.
 
 ### <a name="standard-voices"></a>표준 음성
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| Locale | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름 |
-|--|--|--|--|--|
-| <sup>1(sp1)</sup>`ar-EG` | 아랍어(이집트) | Female | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-예-Hoda" |
-| `ar-SA` | 아랍어(사우디아라비아) | Male | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)” | "ar-Naayf" |
-| `bg-BG` | 불가리아어 | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)” | "bg-BG-Ivan" |
-| `ca-ES` | 카탈로니아어(스페인) | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)” | "HerenaRUS" |
-| `cs-CZ` | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)” | "cs-CZ-Jakub" |
-| `da-DK` | 덴마크어 | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)” | "da-HelleRUS" |
-| `de-AT` | 독일어(오스트리아) | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)” | "Michael" |
-| `de-CH` | 독일어(스위스) | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)” | "Karsten" |
-| `de-DE` | 독일어(독일) | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda)" | "Hedda" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)" | "HeddaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)" | "Stefan-아폴로" |
-| `el-GR` | 그리스어 | Male | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)” | "el-GR-Stefanos" |
-| `en-AU` | 영어(오스트레일리아) | Female | "Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)" | "en-us-Catherine" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)” | "en-us-HayleyRUS" |
-| `en-CA` | 영어(캐나다) | Female | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)" | "Linda" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)” | "HeatherRUS" |
-| `en-GB` | 영어(영국) | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, Susan, Apollo)” | "en-us-김소미-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)” | "en-us-HazelRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(en-GB, George, Apollo)” | "en-us-George-아폴로" |
-| `en-IE` | 영어(아일랜드) | Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)” | "en-us-최유정" |
-| `en-IN` | 영어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)” | "en-us-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)” | "en-us-PriyaRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)” | "Ralvi-아폴로" |
-| `en-US` | 영어(미국) | Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)” | "en-us-ZiraRUS" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-us, AriaRUS)" | "en-us-AriaRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)” | "en-us-BenjaminRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(en-US, Guy24kRUS)” | "en-us-Guy24kRUS" |
-| `es-ES` | 스페인어(스페인) | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, Laura, Apollo)” | "es-김-아폴로-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, HelenaRUS)” | "es-온-우" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(es-ES, Pablo, Apollo)” | "es-Pablo-아폴로" |
-| `es-MX` | 스페인어(멕시코) | Female | “Microsoft Server Speech Text to Speech Voice(es-MX, HildaRUS)” | "HildaRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(es-MX, Raul, Apollo)” | "es-MX-Raul-아폴로" |
-| `fi-FI` | 핀란드어 | Female | “Microsoft Server Speech Text to Speech Voice(fi-FI, HeidiRUS)” | "fi-HeidiRUS" |
-| `fr-CA` | 프랑스어(캐나다) | Female | “Microsoft Server Speech Text to Speech Voice(fr-CA, Caroline)” | "fr-fr-Caroline" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(fr-CA, HarmonieRUS)” | "fr-fr-HarmonieRUS" |
-| `fr-CH` | 프랑스어(스위스) | Male | “Microsoft Server Speech Text to Speech Voice(fr-CH, Guillaume)” | "fr-fr-Guillaume" |
-| `fr-FR` | 프랑스어(프랑스) | Female | “Microsoft Server Speech Text to Speech Voice(fr-FR, Julie, Apollo)” | "fr-fr" (Julie-아폴로) |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(fr-FR, HortenseRUS)” | "fr-fr-HortenseRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(fr-FR, Paul, Apollo)” | "fr-fr-아폴로-아폴로" |
-| `he-IL` | 히브리어(이스라엘) | Male | “Microsoft Server Speech Text to Speech Voice(he-IL, Asaf)” | "he-Asaf" |
-| `hi-IN` | 힌디어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana, Apollo)” | "Kalpana-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana)” | "Kalpana" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(hi-IN, Hemant)” | "Hemant" |
-| `hr-HR` | 크로아티아어 | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)” | "hr-HR-Matej" |
-| `hu-HU` | 헝가리어 | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)” | "hu-hu-HU-HU-Szabolcs" |
-| `id-ID` | 인도네시아어 | Male | "Microsoft Server Speech Text to Speech Voice(id-ID, Andika)" | "id-ID-Andika" |
-| `it-IT` | 이탈리아어 | Male | “Microsoft Server Speech Text to Speech Voice(it-IT, Cosimo, Apollo)” | "it-IT-아폴로" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice(it-IT, LuciaRUS)" | "it-LuciaRUS" |
-| `ja-JP` | 일본어 | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)” | "ja-jp-Ayumi-아폴로" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)” | "ja-jp-Ichiro-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)” | "ja-jp-HarukaRUS" |
-| `ko-KR` | 한국어 | Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)” | "ko-kr-한국" |
-| `ms-MY` | 말레이어 | Male | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)” | "ms-Rizwan" |
-| `nb-NO` | 노르웨이어 | Female | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)” | "nb-HuldaRUS" |
-| `nl-NL` | 네덜란드어 | Female | “Microsoft Server Speech Text to Speech Voice(nl-NL, HannaRUS)” | "nl-NL-Hus" |
-| `pl-PL` | 폴란드어 | Female | “Microsoft Server Speech Text to Speech Voice(pl-PL, PaulinaRUS)” | "pl-PL-PaulinaRUS" |
-| `pt-BR` | 포르투갈어(브라질) | Female | “Microsoft Server Speech Text to Speech Voice(pt-BR, HeloisaRUS)” | "pt-BR-" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(pt-BR, Daniel, Apollo)” | "pt-Daniel-아폴로" |
-| `pt-PT` | 포르투갈어(포르투갈) | Female | “Microsoft Server Speech Text to Speech Voice(pt-PT, HeliaRUS)” | "pt – PT-고-미국" |
-| `ro-RO` | 루마니아어 | Male | “Microsoft Server Speech Text to Speech Voice(ro-RO, Andrei)” | "ro-RO-Andrei" |
-| `ru-RU` | 러시아어 | Female | “Microsoft Server Speech Text to Speech Voice(ru-RU, Irina, Apollo)” | "Irina-아폴로" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(ru-RU, Pavel, Apollo)” | "Pavel-아폴로" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice(ru-RU, EkaterinaRUS)" | EkaterinaRUS |
-| `sk-SK` | 슬로바키아어 | Male | “Microsoft Server Speech Text to Speech Voice(sk-SK, Filip)” | "나이-Filip" |
-| `sl-SI` | 슬로베니아어 | Male | “Microsoft Server Speech Text to Speech Voice(sl-SI, Lado)” | "sl-SI-Lado" |
-| `sv-SE` | 스웨덴어 | Female | “Microsoft Server Speech Text to Speech Voice(sv-SE, HedvigRUS)” | "HedvigRUS" |
-| `ta-IN` | 타밀어(인도) | Male | “Microsoft Server Speech Text to Speech Voice(ta-IN, Valluvar)” | "ta-Valluvar" |
-| `te-IN` | 텔루구어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(te-IN, Chitra)” | "te-Chitra" |
-| `th-TH` | 태국어 | Male | “Microsoft Server Speech Text to Speech Voice(th-TH, Pattara)” | "Pattara" |
-| `tr-TR` | 터키어(터키) | Female | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)” | "tr-SedaRUS" |
-| `vi-VN` | 베트남어 | Male | “Microsoft Server Speech Text to Speech Voice(vi-VN, An)” | "vi-VN" |
-| `zh-CN` | 중국어(북경어, 간체) | Female | “Microsoft Server Speech Text to Speech Voice(zh-CN, HuihuiRUS)” | "zh-cn-HuihuiRUS" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(zh-CN, Yaoyao, Apollo)” | "zh-cn-Yaoyao-아폴로" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(zh-CN, Kangkang, Apollo)” | "zh-cn-Kangkang-아폴로" |
-| `zh-HK` | 중국어 (광둥어, 번체) | Female | “Microsoft Server Speech Text to Speech Voice(zh-HK, Tracy, Apollo)” | "zh-cn-HK-Tracy-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(zh-HK, TracyRUS)” | "zh-cn-HK-TracyRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(zh-HK, Danny, Apollo)” | "zh-cn-HK-Danny-아폴로" |
-| `zh-TW` | 중국어(대만어) | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, Yating, Apollo)” | "zh-cn-아폴로" |
-|  |  | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)” | "zh-cn-HanHanRUS" |
-|  |  | Male | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)” | "zh-cn-Zhiwei-아폴로" |
+| 로캘 | 언어 | 성별 | 음성 이름 |
+|--|--|--|--|
+| <sup>1(sp1)</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-예-Hoda" |
+| `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-Naayf" |
+| `bg-BG` | 불가리아어 | Male |  "bg-BG-Ivan" |
+| `ca-ES` | 카탈로니아어(스페인) | Female |  "HerenaRUS" |
+| `cs-CZ` | 체코어 | Male | "cs-CZ-Jakub" |
+| `da-DK` | 덴마크어 | Female |  "da-HelleRUS" |
+| `de-AT` | 독일어(오스트리아) | Male | "Michael" |
+| `de-CH` | 독일어(스위스) | Male |  "Karsten" |
+| `de-DE` | 독일어(독일) | Female |  "Hedda" |
+|  |  | Female | "HeddaRUS" |
+|  |  | Male |  "Stefan-아폴로" |
+| `el-GR` | 그리스어 | Male | "el-GR-Stefanos" |
+| `en-AU` | 영어(오스트레일리아) | Female |  "en-us-Catherine" |
+|  |  | Female |  "en-us-HayleyRUS" |
+| `en-CA` | 영어(캐나다) | Female |  "Linda" |
+|  |  | Female |  "HeatherRUS" |
+| `en-GB` | 영어(영국) | Female |  "en-us-김소미-아폴로" |
+|  |  | Female |  "en-us-HazelRUS" |
+|  |  | Male |  "en-us-George-아폴로" |
+| `en-IE` | 영어(아일랜드) | Male | "en-us-최유정" |
+| `en-IN` | 영어(인도) | Female | "en-us-아폴로" |
+|  |  | Female |  "en-us-PriyaRUS" |
+|  |  | Male |  "Ralvi-아폴로" |
+| `en-US` | 영어(미국) | Female |  "en-us-ZiraRUS" |
+|  |  | Female | "en-us-AriaRUS" |
+|  |  | Male | "en-us-BenjaminRUS" |
+|  |  | Male |  "en-us-Guy24kRUS" |
+| `es-ES` | 스페인어(스페인) | Female |  "es-김-아폴로-아폴로" |
+|  |  | Female | "es-온-우" |
+|  |  | Male | "es-Pablo-아폴로" |
+| `es-MX` | 스페인어(멕시코) | Female |  "HildaRUS" |
+|  |  | Male | "es-MX-Raul-아폴로" |
+| `fi-FI` | 핀란드어 | Female | "fi-HeidiRUS" |
+| `fr-CA` | 프랑스어(캐나다) | Female | "fr-fr-Caroline" |
+|  |  | Female | "fr-fr-HarmonieRUS" |
+| `fr-CH` | 프랑스어(스위스) | Male | "fr-fr-Guillaume" |
+| `fr-FR` | 프랑스어(프랑스) | Female |  "fr-fr" (Julie-아폴로) |
+|  |  | Female |"fr-fr-HortenseRUS" |
+|  |  | Male |  "fr-fr-아폴로-아폴로" |
+| `he-IL` | 히브리어(이스라엘) | Male |  "he-Asaf" |
+| `hi-IN` | 힌디어(인도) | Female | "Kalpana-아폴로" |
+|  |  | Female |  "Kalpana" |
+|  |  | Male |  "Hemant" |
+| `hr-HR` | 크로아티아어 | Male | "hr-HR-Matej" |
+| `hu-HU` | 헝가리어 | Male |  "hu-hu-HU-HU-Szabolcs" |
+| `id-ID` | 인도네시아어 | Male | "id-ID-Andika" |
+| `it-IT` | 이탈리아어 | Male |  "it-IT-아폴로" |
+|  |  | Female |  "it-LuciaRUS" |
+| `ja-JP` | 일본어 | Female |  "ja-jp-Ayumi-아폴로" |
+|  |  | Male | "ja-jp-Ichiro-아폴로" |
+|  |  | Female |  "ja-jp-HarukaRUS" |
+| `ko-KR` | 한국어 | Female | "ko-kr-한국" |
+| `ms-MY` | 말레이어 | Male |  "ms-Rizwan" |
+| `nb-NO` | 노르웨이어 | Female |  "nb-HuldaRUS" |
+| `nl-NL` | 네덜란드어 | Female |  "nl-NL-Hus" |
+| `pl-PL` | 폴란드어 | Female |  "pl-PL-PaulinaRUS" |
+| `pt-BR` | 포르투갈어(브라질) | Female | "pt-BR-" |
+|  |  | Male |  "pt-Daniel-아폴로" |
+| `pt-PT` | 포르투갈어(포르투갈) | Female | "pt – PT-고-미국" |
+| `ro-RO` | 루마니아어 | Male | "ro-RO-Andrei" |
+| `ru-RU` | 러시아어 | Female |  "Irina-아폴로" |
+|  |  | Male | "Pavel-아폴로" |
+|  |  | Female |  EkaterinaRUS |
+| `sk-SK` | 슬로바키아어 | Male | "나이-Filip" |
+| `sl-SI` | 슬로베니아어 | Male |  "sl-SI-Lado" |
+| `sv-SE` | 스웨덴어 | Female | "HedvigRUS" |
+| `ta-IN` | 타밀어(인도) | Male |  "ta-Valluvar" |
+| `te-IN` | 텔루구어(인도) | Female |  "te-Chitra" |
+| `th-TH` | 태국어 | Male |  "Pattara" |
+| `tr-TR` | 터키어(터키) | Female | "tr-SedaRUS" |
+| `vi-VN` | 베트남어 | Male |  "vi-VN" |
+| `zh-CN` | 중국어(북경어, 간체) | Female |  "zh-cn-HuihuiRUS" |
+|  |  | Female | "zh-cn-Yaoyao-아폴로" |
+|  |  | Male | "zh-cn-Kangkang-아폴로" |
+| `zh-HK` | 중국어 (광둥어, 번체) | Female |  "zh-cn-HK-Tracy-아폴로" |
+|  |  | Female | "zh-cn-HK-TracyRUS" |
+|  |  | Male |  "zh-cn-HK-Danny-아폴로" |
+| `zh-TW` | 중국어(대만어) | Female |  "zh-cn-아폴로" |
+|  |  | Female | "zh-cn-HanHanRUS" |
+|  |  | Male |  "zh-cn-Zhiwei-아폴로" |
 
 **1** *ar-예: 최신 표준 아랍어 (MSA)를 지원 합니다.*
 
 > [!IMPORTANT]
-> `en-US-Jessa` 음성이로 `en-US-Aria`변경 되었습니다. 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.
+> `en-US-Jessa`음성이로 변경 되었습니다 `en-US-Aria` . 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.
 
 > [!TIP]
-> 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.
+> 음성 합성 요청에서 "Microsoft Server Speech Text to Speech Voice (en-us, AriaRUS)"와 같은 전체 서비스 이름 매핑을 계속 사용할 수 있습니다.
 
 ### <a name="customization"></a>사용자 지정
 
-음성 사용자 지정은, `de-DE` `en-GB` `en-IN` `en-US`,,, `es-MX` `fr-FR` `it-IT` `pt-BR`,,, 및 `zh-CN`에 사용할 수 있습니다. 사용자 지정 음성 모델을 학습 하는 데 사용할 학습 데이터와 일치 하는 올바른 로캘을 선택 합니다. 예를 들어, 기록 데이터를 영국 악센트를 사용 하 여 영어로 말한 경우를 선택 `en-GB`합니다.
+음성 사용자 지정은,,,,,,, 및에 사용할 수 있습니다 `de-DE` `en-GB` `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` `zh-CN` . 사용자 지정 음성 모델을 학습 하는 데 사용할 학습 데이터와 일치 하는 올바른 로캘을 선택 합니다. 예를 들어, 기록 데이터를 영국 악센트를 사용 하 여 영어로 말한 경우를 선택 `en-GB` 합니다.
 
 > [!NOTE]
-> 중국어 (번체) bi-다국어를 제외 하 고 사용자 지정 음성에서는 bi-다국어 모델 교육을 지원 하지 않습니다. 영어를 사용할 수 있는 중국어 음성을 학습 하려면 "중국어-영어"를 선택 합니다. 모든 로캘의 음성 교육은의 경우를 제외 하 고 `en-US` `zh-CN` 는 2000 + 길이 발언 데이터 집합으로 시작 합니다.
+> 중국어 (번체) bi-다국어를 제외 하 고 사용자 지정 음성에서는 bi-다국어 모델 교육을 지원 하지 않습니다. 영어를 사용할 수 있는 중국어 음성을 학습 하려면 "중국어-영어"를 선택 합니다. 모든 로캘의 음성 교육은의 경우를 제외 하 고는 2000 + 길이 발언 데이터 집합으로 시작 `en-US` 합니다 `zh-CN` .
 
 ## <a name="speech-translation"></a>음성 번역
 

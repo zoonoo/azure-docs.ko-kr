@@ -1,21 +1,14 @@
 ---
 title: 정규식 엔터티 형식-LUIS
-titleSuffix: Azure Cognitive Services
 description: 정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74841220"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585609"
 ---
 # <a name="regular-expression-entity"></a>정규식 엔터티
 
@@ -32,13 +25,13 @@ ms.locfileid: "74841220"
 
 ## <a name="usage-considerations"></a>용도 고려 사항
 
-정규식이 일치 하는 것 보다 더 일치 하는 것으로 간주 될 수 있습니다. 이에 대 한 예는 `one` 및 `two`와 같은 숫자 단어 일치입니다. 예를 들면 다음 regex를 사용 하 여 숫자 `one` 와 다른 숫자를 일치 시킵니다.
+정규식이 일치 하는 것 보다 더 일치 하는 것으로 간주 될 수 있습니다. 이에 대 한 예는 및와 같은 숫자 단어 일치입니다 `one` `two` . 예를 들면 다음 regex를 사용 하 여 숫자 `one` 와 다른 숫자를 일치 시킵니다.
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-이 regex 식도와 `phone`같이 이러한 숫자로 끝나는 단어를 찾습니다. 이와 같은 문제를 해결 하려면 regex와 일치 하는 단어 경계를 사용 해야 합니다. 이 예제에서 단어 경계를 사용 하는 regex는 다음 regex에 사용 됩니다.
+이 regex 식도와 같이 이러한 숫자로 끝나는 단어를 찾습니다 `phone` . 이와 같은 문제를 해결 하려면 regex와 일치 하는 단어 경계를 사용 해야 합니다. 이 예제에서 단어 경계를 사용 하는 regex는 다음 regex에 사용 됩니다.
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +39,7 @@ ms.locfileid: "74841220"
 
 ### <a name="example-json"></a>예제 JSON
 
-정규식 엔터티 `kb[0-9]{6}`정의로를 사용 하는 경우 다음 JSON 응답은 쿼리에 대해 반환 된 정규식 엔터티를 사용 하는 utterance 예입니다.
+`kb[0-9]{6}`정규식 엔터티 정의로를 사용 하는 경우 다음 JSON 응답은 쿼리에 대해 반환 된 정규식 엔터티를 사용 하는 utterance 예입니다.
 
 `When was kb123456 published?`:
 
@@ -67,7 +60,7 @@ ms.locfileid: "74841220"
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -77,7 +70,7 @@ ms.locfileid: "74841220"
 }
 ```
 
-이는 쿼리 문자열에 `verbose=true` 가 설정 된 경우 JSON입니다.
+이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -106,4 +99,7 @@ ms.locfileid: "74841220"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [자습서](tutorial-regex-entity.md)에서는 **정규식** 엔터티를 사용 하 여 utterance에서 일관 되 게 서식이 지정 된 데이터를 추출 하는 앱을 만듭니다.
+엔터티에 대 한 자세한 정보:
+
+* [개념](luis-concept-entity-types.md)
+* [만드는 방법](luis-how-to-add-entities.md)

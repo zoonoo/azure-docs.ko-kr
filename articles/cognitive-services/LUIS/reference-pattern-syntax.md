@@ -4,25 +4,25 @@ description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 �
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382152"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585575"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
 패턴 구문은 발언의 템플릿입니다. 템플릿에는 일치 시키려는 단어와 엔터티 뿐만 아니라 무시 하려는 단어와 [문장 부호가](luis-reference-application-settings.md#punctuation-normalization) 포함 되어야 합니다. 정규식은 **아닙니다**.
 
 > [!CAUTION]
-> 패턴에는 하위 구성 요소가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
+> 패턴에는 자식 엔터티가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
 
 패턴의 엔터티는 중괄호 `{}`로 묶입니다. 패턴은 엔터티 및 역할이 있는 엔터티를 포함할 수 있습니다. [패턴. any](luis-concept-entity-types.md#patternany-entity) 는 패턴에만 사용 되는 엔터티입니다.
 
 패턴 구문에서는 다음 구문을 지원 합니다.
 
-|함수|구문|중첩 수준|예제|
+|기능|구문|중첩 수준|예제|
 |--|--|--|--|
 |엔터티| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
 |선택적|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
@@ -32,7 +32,7 @@ ms.locfileid: "81382152"
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form` 이 예에서는 다음 길이 발언을 허용 합니다.
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form`. 이 예에서는 다음 길이 발언을 허용 합니다.
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -40,7 +40,7 @@ ms.locfileid: "81382152"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
@@ -57,7 +57,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |허용됨|예제|
 |--|--|
 |예|([(test1 &#x7c; test2)] &#x7c; test3)|
-|예|([([test1] &#x7c; test2)] &#x7c; test3)|
+|아니요|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>또는 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
@@ -66,7 +66,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 |허용됨|예제|
 |--|--|
 |예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
-|예|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|아니요|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문
 패턴 템플릿에 엔터티를 추가하려면 엔터티 이름을 중괄호로 묶습니다(예: `Who does {Employee} manage?`).
@@ -117,7 +117,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-위의 표에서 제목은 (책 제목) 이어야 `the man from La Mancha` 하지만 제목에 선택적 단어가 `from`포함 되어 있으므로 제목은 잘못 예측 됩니다.
+위의 표에서 제목은 `the man from La Mancha` (책 제목) 이어야 하지만 제목에 선택적 단어가 포함 되어 있으므로 `from` 제목은 잘못 예측 됩니다.
 
 패턴에서 이러한 예외를 해결하려면 [명시적 목록에 대한 API 작성](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 `the man from la mancha`를 추가합니다.
 
@@ -129,7 +129,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 |`[find] email about {subject} [from {person}]`|`find`및 `from {person}` 는 선택 사항입니다.|
 |' 도와 주세요. [?]|구두점 표시는 선택 사항입니다.|
 
-문장 부호 (`?`, `!`, `.`)는 무시 해야 하며 패턴의 대괄호 구문을 사용 하 여 무시 해야 합니다.
+문장 부호 ( `?` , `!` , `.` )는 무시 해야 하며 패턴의 대괄호 구문을 사용 하 여 무시 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109944"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584929"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
@@ -25,14 +25,14 @@ ms.locfileid: "74109944"
 
 - 오디오 스트림의 형식을 식별합니다. 형식은 음성 SDK 및 Speech Service에서 지원되어야 합니다. 현재는 다음 구성만 지원됩니다.
 
-  PCM 형식의 오디오 샘플, 채널 1개, 초당 샘플 16000개, 초당 32000바이트, 블록 정렬 2개(하나의 샘플에 대한 패딩을 포함하여 16비트), 샘플당 16비트.
+  PCM 형식의 오디오 샘플, 채널 1 개, 샘플 당 16 비트, 8000 또는 16000 샘플 (초당 16000 또는 32000 바이트), 2 개의 블록 맞춤 (샘플에 대 한 안쪽 여백을 포함 하는 16 비트)
 
   오디오 형식을 만들기 위한 SDK의 해당 코드는 다음과 같습니다.
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
