@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71695160"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588907"
 ---
-# <a name="composite-entity"></a>복합 엔터티 
+# <a name="composite-entity"></a>복합 엔터티
 
-복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
+복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
+
+> [!CAUTION]
+> 이 엔터티는 **더 이상 사용 되지**않습니다. 컴퓨터에서 학습 한 [엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
 
 **데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.**
 
-* 서로 관련이 있습니다. 
+* 서로 관련이 있습니다.
 * 발언의 컨텍스트에서 서로 관련되어 있습니다.
 * 다양한 엔터티 형식을 사용합니다.
 * 클라이언트 애플리케이션에서 정보 단위로 그룹화되고 처리되어야 합니다.
@@ -33,7 +36,7 @@ ms.locfileid: "71695160"
 
 ## <a name="example-json"></a>예제 JSON
 
-다음 utterance을 `Location::ToLocation` 사용 하 여 `number` 미리 작성 된의 복합 엔터티를 고려 합니다.
+다음 utterance을 사용 하 여 미리 작성 된의 복합 엔터티를 고려 합니다 `number` `Location::ToLocation` .
 
 `book 2 tickets to cairo`
 
@@ -87,11 +90,11 @@ ms.locfileid: "71695160"
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -108,7 +111,7 @@ ms.locfileid: "71695160"
 }
 ```
 
-이는 쿼리 문자열에 `verbose=true` 가 설정 된 경우 JSON입니다.
+이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -169,14 +172,17 @@ ms.locfileid: "71695160"
 }
 ```
 
-* * * 
+* * *
 
 
-|데이터 개체|엔터티 이름|Value|
+|데이터 개체|엔터티 이름|값|
 |--|--|--|
 |미리 빌드된 엔터티 - number|“builtin.number”|“2”|
 |미리 작성 한 엔터티-GeographyV2|“Location::ToLocation”|카이로|
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [자습서](luis-tutorial-composite-entity.md)에서는 **복합 엔터티** 를 추가 하 여 다양 한 형식의 추출 된 데이터를 포함 하는 단일 엔터티에 추가 합니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
+엔터티에 대 한 자세한 정보:
+
+* [개념](luis-concept-entity-types.md)
+* [만드는 방법](luis-how-to-add-entities.md)

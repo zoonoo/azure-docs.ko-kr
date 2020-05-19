@@ -1,7 +1,7 @@
 ---
-title: Translator Text API 언어 메서드
+title: Translator 언어 메서드
 titleSuffix: Azure Cognitive Services
-description: 언어 메서드는 Translator Text API의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다.
+description: 언어 메서드는 변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73835825"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588601"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
+# <a name="translator-30-languages"></a>Translator 3.0: 언어
 
-현재 Translator Text API의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
+변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다. 
 
 ## <a name="request-url"></a>요청 URL
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>api-version</td>
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -48,8 +48,8 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 요청 헤더는 다음과 같습니다.
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">헤더</th>
+  <th>설명</th>
   <tr>
     <td>Accept-Language</td>
     <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
@@ -229,8 +229,8 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">헤더</th>
+  <th>설명</th>
   <tr>
     <td>ETag</td>
     <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `If-None-Match` 헤더 필드에서 `ETag` 값을 보낼 수 있습니다.
@@ -251,7 +251,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>성공했습니다.</td>
+    <td>성공.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -259,7 +259,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>400</td>
-    <td>쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
+    <td>쿼리 매개 변수 중 하나가 없거나 잘못되었습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -275,7 +275,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
 ## <a name="examples"></a>예
 

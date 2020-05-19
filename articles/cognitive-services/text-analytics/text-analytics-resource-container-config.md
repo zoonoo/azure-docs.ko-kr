@@ -11,23 +11,23 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878682"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590557"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Text Analytics Docker 컨테이너 구성
 
-Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
+Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다. 몇 가지 [예제 docker 실행 명령을](how-tos/text-analytics-how-to-install-containers.md#run-the-container-with-docker-run) 사용할 수도 있습니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)및 [`Eula`](#eula-setting) 설정이 함께 사용 되며 세 가지 모두에 대해 유효한 값을 제공 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
+> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정이 함께 사용 되며, 그 중 세 가지 모두에 대해 유효한 값을 제공 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -49,7 +49,7 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 * Azure Portal: **Text Analytics** 개요, 레이블`Endpoint`
 
-|필수| 속성 | 데이터 형식 | Description |
+|필수| 이름 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -77,42 +77,10 @@ Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
-|Optional| 속성 | 데이터 형식 | Description |
+|선택 사항| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Text Analytics 컨테이너에는 사용되지 않습니다.|
-|Optional| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
-
-다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](how-tos/text-analytics-how-to-install-containers.md#stop-the-container)할 때까지 계속 실행됩니다.
-
-* **줄 연속 문자**: 다음 섹션의 docker 명령은 백슬래시를 `\`줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
-* **인수 순서**: docker 컨테이너에 대해 잘 알고 있지 않으면 인수의 순서를 변경 하지 마세요.
-
-{_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
-
-| 자리 표시자 | Value | 형식 또는 예 |
-|-------------|-------|---|
-| **{API_KEY}** | Azure `Text Analytics` 키 페이지에서 사용할 `Text Analytics` 수 있는 리소스의 끝점 키입니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure `Text Analytics` 개요 페이지에서 사용할 수 있습니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) 을 참조 하세요. |
-
-> [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 Azure `Text Analytics` 리소스 키 페이지의 **키** 입니다. 
-
-#### <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
-
-#### <a name="language-detection"></a>[언어 감지](#tab/language)
-
-[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
-
-#### <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
-
-***
+|선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="next-steps"></a>다음 단계
 

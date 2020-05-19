@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647689"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590641"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Cognitive Services에 대 한 사용자 지정 하위 도메인 이름
 
@@ -51,7 +51,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>사용자 지정 하위 도메인 이름에 대 한 요구 사항은 무엇 인가요?
 
-사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 이름에는 영숫자 문자와 `-` 문자만 사용할 수 있습니다. 길이는 `-`2 ~ 64 자 여야 하며로 끝날 수 없습니다.
+사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 이름에는 영숫자 문자와 문자만 사용할 수 있습니다 `-` .이 이름은 2 ~ 007e; 64 자 사이 여야 하며로 끝날 수 없습니다 `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>사용자 지정 도메인 이름을 변경할 수 있나요?
 
@@ -66,11 +66,11 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 예. Azure Cognitive Services 리소스에 사용할 수 있는 지역 끝점의 목록입니다.
 
 > [!NOTE]
-> Translator Text API 및 Bing Search API는 전역 끝점을 사용 합니다.
+> Translator 서비스와 Bing Search API는 전역 끝점을 사용 합니다.
 
 | 엔드포인트 유형 | 지역 | 엔드포인트 |
 |---------------|--------|----------|
-| 공용 | 전역 (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
+| 공용 | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | 오스트레일리아 동부 | `https://australiaeast.api.cognitive.microsoft.com` |
 | | 브라질 남부 | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | 캐나다 중부 | `https://canadacentral.api.cognitive.microsoft.com` |
@@ -96,7 +96,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 | 중국 | 중국 동부 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | 중국 북부 | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Cognitive Services은 무엇 인가요?](Welcome.md)
 * [인증](authentication.md)

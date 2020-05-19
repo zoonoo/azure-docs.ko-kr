@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221356"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589196"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
@@ -23,44 +23,42 @@ Computer Vision의 일부 기능은 여러 언어를 지원 합니다. 여기서
 
 ## <a name="text-recognition"></a>텍스트 인식
 
-Computer Vision는 여러 언어로 텍스트를 인식할 수 있습니다. 특히, [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) api는 다양 한 언어를 지원 하지만, [읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) api 및 [텍스트 인식](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) api는 영어만 지원 합니다. 이 기능과 각 API의 이점에 대 한 자세한 내용은 [인쇄 및 필기 텍스트 인식](concept-recognizing-text.md) 을 참조 하세요.
+Computer Vision는 여러 언어로 텍스트를 인식할 수 있습니다. OCR 및 Read Api는 언어 코드를 지정 하지 않아도 됩니다. 이 기능과 각 API의 이점에 대 한 자세한 내용은 [인쇄 및 필기 텍스트 인식](concept-recognizing-text.md) 을 참조 하세요.
 
-OCR은 입력 자료의 언어를 자동으로 검색 하므로 API 호출에서 언어 코드를 지정할 필요가 없습니다. 그러나 언어 코드는 항상 JSON 응답의 `"language"` 노드 값으로 반환 됩니다.
-
-|언어| 언어 코드 | OCR API |
-|:-----|:----:|:-----:|
-|아랍어 | `ar`|✔ |
-|중국어 (간체) | `zh-Hans`|✔ |
-|중국어 (번체) | `zh-Hant`|✔ |
-|체코어 | `cs` |✔ |
-|덴마크어 | `da` |✔ |
-|네덜란드어 | `nl` |✔ |
-|영어 | `en` |✔ |
-|핀란드어 | `fi` |✔ |
-|프랑스어 | `fr` |✔ |
-|독일어 | `de` |✔ |
-|그리스어 | `el` |✔ |
-|헝가리어 | `hu` |✔ |
-|이탈리아어 | `it` |✔ |
-|일본어 | `ja` |✔ |
-|한국어 | `ko` |✔ |
-|노르웨이어 | `nb` |✔ |
-|폴란드어 | `pl` |✔ |
-|포르투갈어 | `pt` |✔ |
-|루마니아어 | `ro` |✔ |
-|러시아어 | `ru` |✔ |
-|세르비아어(키릴 자모) | `sr-Cyrl` |✔ |
-|세르비아어(라틴 문자) | `sr-Latn` |✔ |
-|슬로바키아어 | `sk` |✔ |
-|스페인어 | `es` |✔ |
-|스웨덴어 | `sw` |✔ |
-|터키어 | `tr` |✔ |
+|언어| 언어 코드 | OCR API | 읽기 API |
+|:-----|:----:|:-----:|:---:|
+|아랍어 | `ar`|✔ | |
+|중국어(간체) | `zh-Hans`|✔ | |
+|중국어(번체) | `zh-Hant`|✔ | |
+|체코어 | `cs` |✔ | |
+|덴마크어 | `da` |✔ | |
+|네덜란드어 | `nl` |✔ |✔ |
+|영어 | `en` |✔ |✔ |
+|핀란드어 | `fi` |✔ | |
+|프랑스어 | `fr` |✔ |✔ |
+|독일어 | `de` |✔ |✔ |
+|그리스어 | `el` |✔ | |
+|헝가리어 | `hu` |✔ | |
+|이탈리아어 | `it` |✔ |✔ |
+|일본어 | `ja` |✔ | |
+|한국어 | `ko` |✔ | |
+|노르웨이어 | `nb` |✔ | |
+|폴란드어 | `pl` |✔ | |
+|포르투갈어 | `pt` |✔ |✔ |
+|루마니아어 | `ro` |✔ | |
+|러시아어 | `ru` |✔ | |
+|세르비아어(키릴 자모) | `sr-Cyrl` |✔ | |
+|세르비아어(라틴 문자) | `sr-Latn` |✔ | |
+|슬로바키아어 | `sk` |✔ | |
+|스페인어 | `es` |✔ |✔ |
+|스웨덴어 | `sw` |✔ | |
+|터키어 | `tr` |✔ | |
 
 ## <a name="image-analysis"></a>이미지 분석
 
-[분석-이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 작업은 `language` 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다. 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 `visualFeatures` 및 `details` 쿼리 매개 변수를 사용 하 여 지정 됩니다. 이미지 분석으로 수행할 수 있는 모든 작업 목록은 [개요](home.md) 를 참조 하세요.
+[분석-이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 작업은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 및 쿼리 매개 변수를 사용 하 여 지정 됩니다 `visualFeatures` `details` . 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](home.md) 를 참조 하세요.
 
-|언어 | 언어 코드 | 범주 | 태그들 | Description | 성인 | 브랜드 | 색상 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
+|언어 | 언어 코드 | 범주 | 태그 | 설명 | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |중국어 | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |영어 | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

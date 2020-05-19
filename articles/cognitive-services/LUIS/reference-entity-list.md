@@ -2,13 +2,13 @@
 title: 엔터티 형식 나열-LUIS
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097577"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588890"
 ---
 # <a name="list-entity"></a>목록 엔터티
 
@@ -84,7 +84,7 @@ ms.locfileid: "82097577"
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ ms.locfileid: "82097577"
 }
 ```
 
-이는 쿼리 문자열에 `verbose=true` 가 설정 된 경우 JSON입니다.
+이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -125,11 +125,14 @@ ms.locfileid: "82097577"
 
 * * *
 
-|데이터 개체|엔터티 이름|Value|
+|데이터 개체|엔터티 이름|값|
 |--|--|--|
 |엔터티 나열|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [자습서](tutorial-list-entity.md)에서는 **목록 엔터티** 를 사용 하 여 알려진 항목 목록에서 정확히 일치 하는 텍스트를 추출 하는 방법에 대해 알아봅니다.
+엔터티에 대 한 자세한 정보:
+
+* [개념](luis-concept-entity-types.md)
+* [만드는 방법](luis-how-to-add-entities.md)

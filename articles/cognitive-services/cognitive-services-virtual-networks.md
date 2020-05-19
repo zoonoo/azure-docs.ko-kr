@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202083"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588346"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -50,7 +50,7 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 > * [Form Recognizer](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
-> * [텍스트 분석](./text-analytics/index.yml)
+> * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 
 아래에 나열 된 Cognitive Services에 대 한 가상 네트워크 지원은 미국 *중부 EUAP*, 미국 *중부*, 미국 *동부*, 미국 *서 부 2*, *글로벌*및 *US Gov 버지니아* Azure 지역으로 제한 됩니다.
@@ -68,9 +68,9 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 > * [Form Recognizer](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
-> * [텍스트 분석](./text-analytics/index.yml)
+> * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](./translator/index.yml)
+> * [Translator](./translator/index.yml)
 > * [Speech Service](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경

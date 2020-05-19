@@ -1,7 +1,7 @@
 ---
-title: Translator Text API BreakSentence 메서드
+title: Translator 사이 문장의 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API 사이 문장의 메서드는 텍스트 부분에서 문장 경계의 위치를 식별 합니다.
+description: Translator 사이 문장 메서드는 텍스트 부분에서 문장 경계의 위치를 식별 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548121"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588635"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
+# <a name="translator-30-breaksentence"></a>Translator 3.0:가 중 문장
 
 텍스트에서 문장 경계의 위치를 식별합니다.
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수 | Description |
+| 쿼리 매개 변수 | 설명 |
 | -------| ----------- |
 | api-version <img width=200/>   | **필수 쿼리 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
 | 언어 | **선택적 쿼리 매개 변수**입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 요청 헤더에는 다음이 포함됩니다.
 
-| headers | Description |
+| 헤더 | 설명 |
 | ------- | ----------- |
 | 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
 | 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
@@ -96,8 +96,8 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">헤더</th>
+  <th>설명</th>
   <tr>
     <td>X-RequestId</td>
     <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>
@@ -113,11 +113,11 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>성공했습니다.</td>
+    <td>성공.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
+    <td>쿼리 매개 변수 중 하나가 없거나 잘못되었습니다. 다시 시도하기 전에 요청 매개 변수를 수정합니다.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -141,7 +141,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
 ## <a name="examples"></a>예
 

@@ -2,14 +2,14 @@
 title: LUIS 앱 빌드에 대 한 모범 사례
 description: LUIS 앱 모델에서 최상의 결과를 얻기 위한 모범 사례를 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382382"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589808"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>언어 이해 (LUIS) 앱 빌드에 대 한 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다.
@@ -29,13 +29,13 @@ ms.locfileid: "81382382"
 ## <a name="do-and-dont"></a>허용 및 금지
 다음 목록에는 LUIS 앱의 모범 사례가 포함되어 있습니다.
 
-|해야 할 일|하지 않아야 할 일|
+|수행|안 함|
 |--|--|
-|[고유한 의도 정의](#do-define-distinct-intents)<br>[의도에 설명자 추가](#do-add-descriptors-to-intents) |[의도에 많은 예제 발화 추가](#dont-add-many-example-utterances-to-intents)<br>[소수의 엔터티 또는 단순 엔터티 사용](#dont-use-few-or-simple-entities) |
+|[고유한 의도 정의](#do-define-distinct-intents)<br>[의도에 기능 추가](#do-add-features-to-intents) |[의도에 많은 예제 발화 추가](#dont-add-many-example-utterances-to-intents)<br>[소수의 엔터티 또는 단순 엔터티 사용](#dont-use-few-or-simple-entities) |
 |[각 의도에 너무 일반적 및 너무 구체적 사이에 안정적인 지점 찾기](#do-find-sweet-spot-for-intents)|[LUIS를 학습 플랫폼으로 사용](#dont-use-luis-as-a-training-platform)|
 |[버전을 사용 하 여 반복적으로 앱 빌드](#do-build-your-app-iteratively-with-versions)<br>[모델 분해를 위한 엔터티 빌드](#do-build-for-model-decomposition)|[동일한 형식의 많은 예제 발화를 추가하여 다른 형식 무시](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[이후 반복에서 패턴 추가](#do-add-patterns-in-later-iterations)|[의도 및 엔터티 정의 혼합](#dont-mix-the-definition-of-intents-and-entities)|
-|None 의도를 제외한 [모든 의도에서 발언의 균형 맞추기](#balance-your-utterances-across-all-intents)<br>[None 의도에 예제 발화 추가](#do-add-example-utterances-to-none-intent)|[가능한 모든 값을 사용 하 여 설명자 만들기](#dont-create-descriptors-with-all-the-possible-values)|
+|None 의도를 제외한 [모든 의도에서 발언의 균형 맞추기](#balance-your-utterances-across-all-intents)<br>[None 의도에 예제 발화 추가](#do-add-example-utterances-to-none-intent)|[모든 가능한 값을 사용하여 구문 목록 만들기](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[활성 학습의 제안 기능 활용](#do-leverage-the-suggest-feature-for-active-learning)|[너무 많은 패턴 추가](#dont-add-many-patterns)|
 |[Batch 테스트를 사용 하 여 앱 성능 모니터링](#do-monitor-the-performance-of-your-app)|[추가된 모든 단일 예제를 사용하여 학습 및 게시](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -51,11 +51,11 @@ ms.locfileid: "81382382"
 |항공권 예약|
 |호텔 예약|
 
-`Book a flight`및 `Book a hotel` 는의 `book a `동일한 어휘를 사용 합니다. 이 형식은 동일 하므로의 `flight` `hotel` 다른 단어와 추출 된 엔터티로 동일한 의도 여야 합니다.
+`Book a flight`및는 `Book a hotel` 의 동일한 어휘를 사용 `book a ` 합니다. 이 형식은 동일 하므로의 다른 단어와 추출 된 엔터티로 동일한 의도 여야 합니다 `flight` `hotel` .
 
-## <a name="do-add-descriptors-to-intents"></a>의도에 설명자를 추가 합니다.
+## <a name="do-add-features-to-intents"></a>의도에 기능 추가
 
-설명자 도움말은 의도에 대 한 기능을 설명 합니다. 설명자는 해당 의도 나 해당 의도에 중요 한 엔터티에 중요 한 단어의 문구 목록 일 수 있습니다.
+기능은 의도에 대 한 개념을 설명 합니다. 기능은 해당 의도 나 해당 의도에 중요 한 엔터티에 중요 한 단어의 문구 목록이 될 수 있습니다.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>의도의 안정적인 지점 찾기
 LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다. 겹치는 의도는 LUIS에 혼동을 유발합니다. 결과는 상위 점수 의도가 다른 의도에 너무 가깝다는 것입니다. LUIS는 매번 학습할 데이터를 통해 똑같은 경로를 사용하지 않으므로 겹치는 의도는 학습에서 첫 번째 또는 두 번째가 될 수 있습니다. 이러한 플립플롭이 발생하지 않도록 각 의도의 발언 점수가 멀리 떨어지는 좋습니다. 의도를 분명히 구별하면 매번 상위 의도가 예측됩니다.
@@ -73,17 +73,22 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 * 클라이언트 앱의 사용자 의도에 따라 **의도** 만들기
 * 실제 사용자 입력을 기반으로 15-30 예제 길이 발언 추가
 * 예 utterance에서 최상위 데이터 개념 레이블
-* 데이터 개념을 하위 구성 요소로 분할
-* 구성 요소에 설명자 (기능) 추가
-* 의도에 설명자 (기능) 추가
+* 하위 엔터티로 데이터 개념 분할
+* 하위 엔터티에 기능 추가
+* 의도에 기능 추가
 
 의도를 만들고 예제 길이 발언를 추가한 후에는 다음 예제에서 엔터티 분해에 대해 설명 합니다.
 
-먼저 utterance에서 추출 하려는 전체 데이터 개념을 파악 합니다. 이 엔터티는 컴퓨터에서 학습 한 엔터티입니다. 그런 다음 구를 해당 부분으로 분해 합니다. 여기에는 설명자 및 제약 조건과 함께 하위 구성 요소 (엔터티)를 식별 하는 작업이 포함 됩니다.
+먼저 utterance에서 추출 하려는 전체 데이터 개념을 파악 합니다. 이 엔터티는 컴퓨터에서 학습 한 엔터티입니다. 그런 다음 구를 해당 부분으로 분해 합니다. 여기에는 하위 엔터티 및 기능을 식별 하는 작업이 포함 됩니다.
 
-예를 들어 주소를 추출 하려는 경우 맨 위에 있는 컴퓨터에서 배운 엔터티를 호출할 `Address`수 있습니다. 주소를 만드는 동안 주소, 구/군/시, 시/도 및 우편 번호와 같은 일부 하위 구성 요소를 식별 합니다.
+예를 들어 주소를 추출 하려는 경우 맨 위에 있는 컴퓨터에서 배운 엔터티를 호출할 수 있습니다 `Address` . 주소를 만드는 동안 주소, 구/군/시, 시/도 및 우편 번호와 같은 하위 엔터티 중 일부를 식별 합니다.
 
-우편 번호를 정규식으로 **제한** 하 여 이러한 요소를 계속 분해. 주소를 주소 (미리 작성 된 번호 사용), 주소 및 거리 유형으로 분해 합니다. 통로, circle, 도로의, 레인 등의 **설명자** 목록을 사용 하 여 거리 유형을 설명할 수 있습니다.
+다음 방법으로 이러한 요소를 계속 분해.
+* 일반 식 엔터티로 우편 번호의 필수 기능을 추가 합니다.
+* 분해 주소를 다음과 같이 구성 합니다.
+    * 미리 작성 된 number 엔터티의 필수 기능을 포함 하는 **번 지 수** 입니다.
+    * **주소의 이름**입니다.
+    * 통로, 원,도로, 레인 등의 단어를 포함 하는 목록 엔터티의 필수 기능을 포함 하는 **번 지 형식** 입니다.
 
 V3 authoring API는 모델 분해를 허용 합니다.
 
@@ -145,9 +150,9 @@ LUIS는 의도의 발화에서 변형을 예측합니다. 전체 의미는 동�
 
 항공편을 위한 봇의 경우 **Bookflight** 의도를 만듭니다. 모든 항공사 또는 모든 목적지의 의도는 만들지 마세요. 이러한 데이터 조각을 [엔터티](luis-concept-entity-types.md)로 사용하고 예제 발화에서 이러한 데이터를 표시합니다.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>가능한 모든 값을 사용 하 여 설명자를 만들지 마세요.
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>모든 가능한 값을 사용하여 구문 목록 만들지 않음
 
-설명자 [문구 목록](luis-concept-feature.md) 에 몇 가지 예를 제공 하지만 일부 단어는 제공 하지 않습니다. LUIS는 컨텍스트를 일반화하고 고려합니다.
+[구 목록](luis-concept-feature.md) 에 몇 가지 예를 제공 하지만 일부 단어 또는 문구는 제공 하지 않습니다. LUIS는 컨텍스트를 일반화하고 고려합니다.
 
 ## <a name="dont-add-many-patterns"></a>너무 많은 패턴 추가 안 함
 

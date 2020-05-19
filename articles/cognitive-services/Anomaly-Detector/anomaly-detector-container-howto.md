@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875052"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589978"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>변칙 탐지기 컨테이너 설치 및 실행 (미리 보기)
 
 변칙 탐지기에는 다음과 같은 컨테이너 기능 기능이 있습니다.
 
-| 함수 | 기능 |
+| 기능 | 기능 |
 |--|--|
 | Anomaly Detector | <li> 는 실시간으로 발생 하는 변칙을 검색 합니다. <li> 일괄 처리로 데이터 집합 전체에서 변칙을 검색 합니다. <li> 데이터의 정상적인 범위를 유추 합니다. <li> 데이터에 더 잘 맞도록 변칙 검색 민감도 조정을 지원 합니다. |
 
@@ -34,21 +34,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |변칙 탐지기 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure _변칙 탐지기_ 리소스입니다. 두 값은 모두 Azure Portal의 **변칙 탐지기** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
-
-먼저 [변칙 탐지기 컨테이너 요청 양식을](https://aka.ms/adcontainer) 완료 하 고 제출 하 여 컨테이너에 대 한 액세스를 요청 해야 합니다.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>호스트 컴퓨터
 
@@ -60,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 표에서는 변칙 탐지기 컨테이너에 할당 하는 데 필요한 최소 및 권장 CPU 코어 및 메모리를 설명 합니다.
 
-| QPS (초당 쿼리 수) | 최소 | 권장 |
+| QPS (초당 쿼리 수) | 최소값 | 권장 |
 |-----------|---------|-------------|
 | 10 QPS | 4 코어, 1gb 메모리 | 8 코어 2gb 메모리 |
 | 20 QPS | 8 코어, 2gb 메모리 | 16 코어 4gb 메모리 |
@@ -71,11 +63,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용 하 여 컨테이너 이미지를 다운로드 합니다.
+명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 컨테이너 이미지를 다운로드 합니다.
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -85,7 +77,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>변칙 탐지기 컨테이너에 대 한 Docker 풀
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
@@ -103,7 +95,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -168,7 +160,7 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 변칙 탐지기 컨테이너는 Azure 계정에서 _변칙 탐지기_ 리소스를 사용 하 여 azure로 청구 정보를 보냅니다. 
 

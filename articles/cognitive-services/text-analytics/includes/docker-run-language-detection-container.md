@@ -7,16 +7,16 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 1f6bfbf3a15f17c3cfd0487cdd0bbb535ffc31ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41b926e3c44da85e7cb2c2e62405bd8f14488fbd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877047"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588404"
 ---
-*언어 감지* 컨테이너를 실행 하려면 다음 `docker run` 명령을 실행 합니다.
+*언어 감지* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

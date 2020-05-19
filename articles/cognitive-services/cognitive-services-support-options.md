@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258433"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590539"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Azure Cognitive Services 지원 및 사용자 의견 옵션
 
@@ -28,7 +28,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
+클라우드를 시작 하는 개발자 또는 비즈니스에 중요 한 전략적 응용 프로그램을 배포 하는 대기업에 있든 관계 없이 [Azure 지원 옵션](https://azure.microsoft.com/support/plans) 의 범위를 살펴보고 가장 적합 한 계획을 선택 합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
@@ -39,7 +39,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
 </div>
 
-더 빠른 결과를 위해 [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)또는 [GitHub 코드 샘플과](https://github.com/azure-samples)같은 관련 사이트에 대 한 검색을 수행 합니다. 자주 사용 `site:` 하는 [검색 엔진](https://bing.com)에서 쿼리 표기법을 사용 합니다. 예를 들면 다음과 같습니다.
+더 빠른 결과를 위해 [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)또는 [GitHub 코드 샘플과](https://github.com/azure-samples)같은 관련 사이트에 대 한 검색을 수행 합니다. 자주 사용 하는 `site:` [검색 엔진](https://bing.com)에서 쿼리 표기법을 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```
 {search keywords} site:stackoverflow.com
@@ -83,8 +83,8 @@ Azure 블로그의 새 릴리스 또는 뉴스의 기능에 대 한 정보를 �
  - [언어 이해(LUIS)](LUIS/whats-new.md)
  - [음성 서비스](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
- - [텍스트 분석](text-analytics/whats-new.md)
- - [비디오 인덱서](../media-services/video-indexer/release-notes.md)
+ - [Text Analytics](text-analytics/whats-new.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Azure 블로그
 
@@ -102,7 +102,7 @@ Cognitive Services에 대 한 뉴스는 [Azure 블로그에서](https://azure.mi
 
 Reddit는 커뮤니티 중심의 토론 웹 사이트로, [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) 뉴스, 도움말, 정보, 팁 및 요령에 대 한 최신 대화를 제공 합니다. 등록 된 구성원은 콘텐츠를 제출할 수 있으며, 다른 사용자가 투표 하 여 가장 관련성이 높은 콘텐츠를 피드 유기적으 상승 시킬 수 있습니다.
 
-## <a name="give-feedback"></a>피드백 제공
+## <a name="give-feedback"></a>피드백 보내기
 
 ### <a name="uservoice-forum"></a>UserVoice 포럼
 
@@ -131,9 +131,9 @@ Reddit는 커뮤니티 중심의 토론 웹 사이트로, [Azure Cognitive Servi
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| 텍스트 분석                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator Text               | https://cognitive.uservoice.com/forums/558796-translator |
-| 비디오 인덱서                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Translator               | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>버그 보고
 
