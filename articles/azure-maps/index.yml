@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132456"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589264"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Azure Maps API 사용 메트릭 보기
       url: how-to-view-api-usage.md
+- title: Creator를 사용하여 개발
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 실내 맵 개념
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Creator를 사용하여 실내 맵 데이터 만들기
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creator 실내 맵 관리
+      url: how-to-manage-creator.md
+    - text: 실내 맵을 위한 동적 스타일 지정 구현
+      url: indoor-map-dynamic-styling.md
+    - text: Azure Maps 그리기 오류 시각화 도우미 사용
+      url: drawing-error-visualizer.md
+    - text: 실내 맵 모듈 사용
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: 변환 서비스
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: 데이터 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: 타일 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: 기능 상태 세트 서비스
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Web SDK를 사용하여 개발
   linkLists:
   - linkListType: concept
@@ -132,7 +162,7 @@ landingContent:
       url: how-to-render-custom-data.md
   - linkListType: reference
     links:
-    - text: 검색 서비스
+    - text: Search Service
       url: https://docs.microsoft.com/rest/api/maps/search
     - text: Route Service
       url: https://docs.microsoft.com/rest/api/maps/route

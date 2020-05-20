@@ -58,6 +58,7 @@
       items:
         - name: 출력 개요
           href: stream-analytics-define-outputs.md
+          displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
         - name: Cosmos DB 출력
           href: stream-analytics-documentdb-output.md
         - name: Azure SQL DB 출력
@@ -127,14 +128,22 @@
           href: copy-job.md
         - name: 안정성을 위해 작업 페어링
           href: stream-analytics-job-reliability.md
-        - name: 관리 ID로 인증 - ADLS Gen 1 출력
-          href: stream-analytics-managed-identities-adls.md
         - name: SQL 참조 데이터 사용
           href: sql-reference-data.md
-        - name: 관리 ID로 인증 - Blob 출력
-          href: blob-output-managed-identity.md
-        - name: 관리 ID를 사용하여 인증 - Power BI
-          href: powerbi-output-managed-identity.md
+        - name: 관리 ID를 사용하여 인증
+          items:
+            - name: ADLS Gen 1
+              href: stream-analytics-managed-identities-adls.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Blob Storage
+              href: blob-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Power BI
+              href: powerbi-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Azure SQL DB
+              href: sql-database-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
         - name: 데이터 암호화
           href: data-protection.md
     - name: 솔루션 빌드
@@ -226,6 +235,18 @@
           href: stream-analytics-job-diagnostic-logs.md
         - name: 데이터 오류
           href: data-errors.md
+        - name: 오류 코드
+          items:
+            - name: 구성 오류
+              href: configuration-error-codes.md
+            - name: 데이터 오류
+              href: data-error-codes.md
+            - name: 외부 가용성 오류
+              href: external-availability-error-codes.md
+            - name: 외부 오류
+              href: external-error-codes.md
+            - name: 내부 오류
+              href: internal-error-codes.md
     - name: 기계 학습과 통합
       items:
         - name: ML 모델을 사용하여 감정 분석

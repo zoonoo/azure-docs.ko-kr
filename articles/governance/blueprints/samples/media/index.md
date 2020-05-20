@@ -12,7 +12,7 @@ ms.locfileid: "78201509"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Media 청사진 샘플의 개요
 
-Media 청사진 샘플은 [Media](../../../policy/overview.md) 증명에 도움이 되는 [Azure Policy](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
+Media 청사진 샘플은 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) 증명에 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
 
 ## <a name="blueprint-sample"></a>청사진 샘플
 

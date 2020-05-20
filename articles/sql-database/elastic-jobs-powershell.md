@@ -134,7 +134,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 탄력적 작업 에이전트는 작업을 생성하고 실행하고 관리하기 위한 Azure 리소스입니다. 에이전트는 일정에 따라 또는 일회성 작업으로 작업을 실행합니다.
 
-**resourceGroupName**, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 *New-AzSqlElasticJobAgent* cmdlet에는 Azure SQL 데이터베이스 cmdlet이 있어야 합니다.
+*resourceGroupName*, *serverName* 및  *databaseName* 매개 변수가 모두 기존 리소스를 가리켜야 하므로 **New-AzSqlElasticJobAgent** cmdlet에는 Azure SQL 데이터베이스 cmdlet이 있어야 합니다.
 
 ```powershell
 Write-Output "Creating job agent..."

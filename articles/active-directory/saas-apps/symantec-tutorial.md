@@ -114,7 +114,7 @@ Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하려
     b. **회신 URL** 텍스트 상자에서 `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost` URL을 입력합니다.
 
     > [!NOTE]
-    > [식별자](https://www.symantec.com/contact-us) 및 **회신 URL** 값이 어떤 이유로 작동하지 않는 경우 **Symantec WSS(Web Security Service) 클라이언트 지원 팀**에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > **식별자** 및 **회신 URL** 값이 어떤 이유로 작동하지 않는 경우 [Symantec WSS(Web Security Service) 클라이언트 지원 팀](https://www.symantec.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

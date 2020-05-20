@@ -111,7 +111,7 @@ LoginRadius에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://LoginRadius.hub.loginradius.com/` URL을 입력합니다.
 
     > [!NOTE]
-    > 로그온 URL 페이지를 엽니다. **Single Sign On** 탭을 클릭하여 **LoginRadius 지원 팀**에서 준 [플러그인 이름](mailto:support@loginradius.com)을 입력한 다음, **로그인** 단추를 클릭하면 로그인을 위한 Azure AD 페이지로 리디렉션됩니다.
+    > 로그온 URL 페이지를 엽니다. **Single Sign On** 탭을 클릭하여 [LoginRadius 지원 팀](mailto:support@loginradius.com)에서 준 **플러그인 이름**을 입력한 다음, **로그인** 단추를 클릭하면 로그인을 위한 Azure AD 페이지로 리디렉션됩니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

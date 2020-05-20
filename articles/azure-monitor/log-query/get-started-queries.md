@@ -95,7 +95,7 @@ SecurityEvent
 ## <a name="where-filtering-on-a-condition"></a>Where: 조건에 대한 필터링
 해당 이름으로 표시된 대로 Filters, 특정 조건에 따라 데이터를 필터링합니다. 이는 관련 정보에 대한 쿼리 결과를 제한하는 가장 일반적인 방법입니다.
 
-쿼리에 필터를 추가하려면 하나 이상의 조건이 뒤에 오는 **where** 연산자를 사용합니다. 예를 들어 다음 쿼리는 *Level*이 _8_인 _SecurityEvent_ 레코드만을 반환합니다.
+쿼리에 필터를 추가하려면 하나 이상의 조건이 뒤에 오는 **where** 연산자를 사용합니다. 예를 들어 다음 쿼리는 _Level_이 _8_인 *SecurityEvent* 레코드만을 반환합니다.
 
 ```Kusto
 SecurityEvent

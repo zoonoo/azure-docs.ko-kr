@@ -33,7 +33,7 @@ Azure Functions [소비 계획](../functions-scale.md#consumption-plan)에서 �
 
 ## <a name="durable-http-polling"></a>지속성 HTTP 폴링
 
-[HTTP 기능 문서](durable-functions-http-features.md)에서 설명한 대로 오케스트레이터 함수는 외부 엔드포인트에 대한 장기 실행 HTTP 호출을 수행할 수 있습니다. **비동기 202 패턴**을 따르는 동안 C# **CallHttpAsync** 메서드와 JavaScript의 [callHttp](durable-functions-http-features.md#http-202-handling) 메서드는 내부적으로 HTTP 엔드포인트를 폴링할 수 있습니다.
+[HTTP 기능 문서](durable-functions-http-features.md)에서 설명한 대로 오케스트레이터 함수는 외부 엔드포인트에 대한 장기 실행 HTTP 호출을 수행할 수 있습니다. [비동기 202 패턴](durable-functions-http-features.md#http-202-handling)을 따르는 동안 C# **CallHttpAsync** 메서드와 JavaScript의 **callHttp** 메서드는 내부적으로 HTTP 엔드포인트를 폴링할 수 있습니다.
 
 현재 내부 HTTP 폴링 작업에 대해서는 직접적으로 청구하지 않습니다. 단, 내부 폴링으로 인해 오케스트레이터 함수가 정기적으로 재생될 수 있습니다. 이러한 내부 함수 재생에 대한 표준 요금은 청구됩니다.
 

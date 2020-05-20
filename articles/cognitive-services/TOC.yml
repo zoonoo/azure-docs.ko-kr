@@ -9,6 +9,8 @@
       href: cognitive-services-and-machine-learning.md
     - name: Cognitive Services용 사용자 지정 하위 도메인
       href: cognitive-services-custom-subdomains.md
+    - name: Cognitive Services 제어 프로세스
+      href: cognitive-services-gating-process.md
     - name: 언어 지원
       href: language-support.md
 - name: 빠른 시작

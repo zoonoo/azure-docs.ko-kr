@@ -1,28 +1,30 @@
 ### YamlMime:Landing
-title: Azure Active Directory B2B 설명서
-summary: Azure AD B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 게스트 사용자와 모든 조직의 외부 파트너와 안전하게 공유하면서 자체 회사 데이터에 대한 제어는 유지하는 방법을 알아봅니다.
+title: External Identities 설명서
+summary: External Identities는 조직이 고객과 파트너 등의 외부 사용자를 보호하고 관리할 수 있도록 하는 기능 집합입니다. B2B 협업을 기반으로 하는 External Identities는 조직 외부 사용자와 상호 작용하고 연결하기 위한 추가 기능을 제공합니다.
 metadata:
-  title: 애플리케이션 관리 설명서
-  description: Azure AD B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 게스트 사용자와 모든 조직의 외부 파트너와 안전하게 공유하면서 자체 회사 데이터에 대한 제어는 유지하는 방법을 알아봅니다.
+  title: External Identities 설명서
+  description: External Identities는 조직이 고객과 파트너 등의 외부 사용자를 보호하고 관리할 수 있도록 하는 기능 집합입니다. B2B 협업을 기반으로 하는 External Identities는 조직 외부 사용자와 상호 작용하고 연결하기 위한 추가 기능을 제공합니다.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2019
+  ms.date: 05/19/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74272691"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83587479"
 landingContent:
-- title: B2B Collaboration 정보
+- title: External Identities 정보
   linkLists:
   - linkListType: overview
     links:
+    - text: External Identities 솔루션 비교
+      url: compare-with-b2c.md
     - text: B2B 게스트 사용자 액세스란?
       url: what-is-b2b.md
 - title: B2B 게스트 사용자 초대

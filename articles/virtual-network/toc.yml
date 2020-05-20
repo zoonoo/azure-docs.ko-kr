@@ -88,6 +88,8 @@
           href: ipv6-overview.md
         - name: 공용 IPv6 주소 접두사
           href: ipv6-public-ip-address-prefix.md
+        - name: 라우팅 기본 설정
+          href: routing-preference-overview.md
     - name: 보안
       items:
         - name: 네트워크 보안 그룹
@@ -222,6 +224,24 @@
               href: manage-public-ip-address-prefix.md
             - name: NIC에서 IP 주소 추가 또는 제거
               href: virtual-network-network-interface-addresses.md
+            - name: 라우팅 기본 설정
+              items:
+                - name: 공용 IP 주소 만들기
+                  items:
+                    - name: Azure portal
+                      href: routing-preference-portal.md
+                    - name: Azure PowerShell
+                      href: routing-preference-powershell.md
+                    - name: Azure CLI
+                      href: routing-preference-cli.md
+                - name: 인터넷 라우팅 기본 설정을 사용하여 VM 구성
+                  items:
+                    - name: Azure portal
+                      href: tutorial-routing-preference-virtual-machine-portal.md
+                    - name: Azure PowerShell
+                      href: configure-routing-preference-virtual-machine-powershell.md
+                    - name: Azure CLI
+                      href: configure-routing-preference-virtual-machine-cli.md
     - name: 보안
       items:
         - name: 네트워크 트래픽 필터링

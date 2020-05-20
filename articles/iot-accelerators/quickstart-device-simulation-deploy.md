@@ -86,7 +86,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 추가 탐색하려는 경우 디바이스 시뮬레이션을 배포된 대로 둡니다.
 
-디바이스 시뮬레이션이 더 이상 필요하지 않은 경우 해당 타일을 클릭한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
+디바이스 시뮬레이션이 더 이상 필요하지 않은 경우 해당 타일을 클릭한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-device-simulation-deploy/deletesolution.png)
 

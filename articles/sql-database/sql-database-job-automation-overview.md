@@ -205,7 +205,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 *작업 데이터베이스*는 문자 그대로 새 것일 필요는 없지만 깨끗하고 비어있고 S0 이상의 서비스 개체여야 합니다. *작업 데이터베이스*의 권장되는 서비스 개체는 S1 이상이지만 작업 단계 수, 작업 대상 수 및 작업 실행 빈도 같은 사용자 작업의 성능 요구에 따라 달라집니다. 예를 들어 S0 데이터베이스는 10개 미만의 데이터베이스를 대상으로 한 시간에 거의 작업을 실행하지 않는 작업 에이전트에는 충분할 수 있지만, 1분마다 실행하는 작업에 S0 데이터베이스를 사용하면 빠르지 않을 수 있으며, 서비스 계층이 높을 수록 효과는 더 좋을 수 있습니다.
 
-작업 데이터베이스에 대한 작업이 예상보다 느린 경우 Azure Portal 또는 [sys.dm_db_resource_stats](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring) DMV를 사용하여 속도 저하 기간 동안 작업 데이터베이스에서 데이터베이스 성능 및 리소스 사용률을 [모니터링](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)할 수 있습니다. CPU, 데이터 IO 또는 로그 쓰기와 같은 리소스의 사용률이 100%에 도달하고 속도 저하 기간과 상관 관계에 있는 경우, 작업 데이터베이스 성능이 충분히 향상될 때까지 데이터베이스를 더 높은 서비스 개체([DTU 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 모델](sql-database-service-tiers-vcore.md)에서)로 증분 확장하는 것이 좋습니다.
+작업 데이터베이스에 대한 작업이 예상보다 느린 경우 Azure Portal 또는 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV를 사용하여 속도 저하 기간 동안 작업 데이터베이스에서 데이터베이스 성능 및 리소스 사용률을 [모니터링](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring)할 수 있습니다. CPU, 데이터 IO 또는 로그 쓰기와 같은 리소스의 사용률이 100%에 도달하고 속도 저하 기간과 상관 관계에 있는 경우, 작업 데이터베이스 성능이 충분히 향상될 때까지 데이터베이스를 더 높은 서비스 개체([DTU 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 모델](sql-database-service-tiers-vcore.md)에서)로 증분 확장하는 것이 좋습니다.
 
 ##### <a name="job-database-permissions"></a>작업 데이터베이스 사용 권한
 
@@ -267,7 +267,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 #### <a name="job-history"></a>작업 기록
 
-작업 실행 기록은 *작업 데이터베이스*에 저장됩니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 **작업 데이터베이스**에서 *sp_purge_history* 저장 프로시저를 호출합니다.
+작업 실행 기록은 *작업 데이터베이스*에 저장됩니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 *작업 데이터베이스*에서 **sp_purge_history** 저장 프로시저를 호출합니다.
 
 ### <a name="agent-performance-capacity-and-limitations"></a>에이전트 성능, 용량 및 제한 사항
 

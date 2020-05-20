@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Azure Static Web Apps 설명서
+summary: Azure Static Web Apps를 사용하면 GitHub에서 변경한 내용으로부터 자동으로 게시되는 JavaScript 웹 애플리케이션을 빌드할 수 있습니다.
+metadata:
+  title: Azure Static Web Apps 설명서
+  description: Azure Static Web Apps를 사용하면 GitHub에서 변경한 내용으로부터 자동으로 게시되는 JavaScript 웹 애플리케이션을 빌드할 수 있습니다.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+  ms.openlocfilehash: 8dd4f7420c4b58d621312f361beede1e48bc17b5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593072"
+landingContent:
+- title: Static Web Apps 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Static Web Apps란?
+      url: overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 첫 번째 Angular 앱 만들기
+      url: /azure/static-web-apps/getting-started?tabs=angular
+    - text: 첫 번째 React 앱 만들기
+      url: /azure/static-web-apps/getting-started?tabs=react
+    - text: 첫 번째 Vue 앱 만들기
+      url: /azure/static-web-apps/getting-started?tabs=vue
+    - text: 첫 번째 앱 만들기(프레임워크 없음)
+      url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+  - linkListType: learn
+    links:
+    - text: Angular, React, Svelte 또는 Vue JavaScript 앱 및 API 게시
+      url: /learn/modules/publish-app-service-static-web-app-api
+- title: 주요 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 경로
+      url: routes.md
+    - text: 공용 API
+      url: apis.md
+    - text: 스테이징
+      url: review-publish-pull-requests.md
+    - text: 액세스 제한
+      url: authentication-authorization.md
+- title: 시나리오 게시
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Gatsby에서 게시
+      url: publish-gatsby.md
+    - text: Hugo에서 게시
+      url: publish-hugo.md
+    - text: VuePress에서 게시
+      url: publish-vuepress.md
+    - text: Next.js에서 배포
+      url: deploy-nextjs.md
+    - text: Nuxt.js에서 배포
+      url: deploy-nuxtjs.md
+  - linkListType: learn
+    links:
+    - text: Gatsby를 사용하여 정적 웹앱 게시
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service

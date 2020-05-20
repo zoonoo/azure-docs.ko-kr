@@ -23,6 +23,8 @@
           href: tutorial-create-store-locator.md
     - name: REST API 자습서
       items:
+        - name: 실내 맵 만들기
+          href: tutorial-creator-indoor-maps.md
         - name: 지오펜스 설정
           href: tutorial-geofence.md
         - name: 공간 분석
@@ -49,6 +51,12 @@
       href: azure-maps-event-grid-integration.md
     - name: 올바른 가격 책정 계층 선택
       href: choose-pricing-tier.md
+    - name: 실내 맵용 Creator
+      items:
+        - name: 실내 맵 개념
+          href: creator-indoor-maps.md
+        - name: 그리기 변환 오류 및 경고
+          href: drawing-conversion-error-codes.md
     - name: 적용 범위
       items:
         - name: 지오코딩 검사
@@ -83,6 +91,8 @@
           href: how-to-manage-authentication.md
         - name: 가격 책정 계층 관리
           href: how-to-manage-pricing-tier.md
+        - name: Creator 관리
+          href: how-to-manage-creator.md
         - name: 사용 메트릭 보기
           href: how-to-view-api-usage.md
     - name: REST API에서 지도 데이터 가져오기
@@ -201,12 +211,22 @@
           href: how-to-add-tile-layer-android-map.md
         - name: 트래픽 데이터 표시
           href: how-to-show-traffic-android.md
+    - name: Creator 실내 맵을 사용하여 개발
+      items:
+        - name: 실내 맵 모듈
+          href: how-to-use-indoor-module.md
+        - name: 실내 맵을 위한 동적 스타일 지정
+          href: indoor-map-dynamic-styling.md
+        - name: 그리기 오류 시각화 도우미
+          href: drawing-error-visualizer.md
     - name: 데이터 피드백 제공
       href: how-to-use-feedback-tool.md
 - name: 참조
   items:
     - name: API 및 매개 변수 확장
       items:
+        - name: 그리기 패키지 요구 사항
+          href: drawing-requirements.md
         - name: 차량 소비 모델
           href: consumption-model.md
         - name: GeoJSON 형식 확장
@@ -229,7 +249,7 @@
           href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Search 서비스
+        - name: 검색 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: 공간 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/spatial'
@@ -251,6 +271,8 @@
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
         - name: 공간 IO 모듈
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+        - name: 실내 모듈
+          href: 'https://aka.ms/am-indoor-module-websdk/'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.maps/accounts
 - name: 리소스
@@ -287,7 +309,7 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-maps'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-maps'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'

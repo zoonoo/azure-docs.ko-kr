@@ -189,7 +189,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이전 섹션에서는 시뮬레이션된 로그인을 평가하는 방법을 배웠습니다. 시뮬레이션 외에도, 조건부 액세스 정책이 예상대로 작동하는지 테스트해야 합니다.
 
-정책을 테스트하려면 [Isabella Simonsen](https://portal.azure.com) 테스트 계정을 사용하여 **Azure portal**에 로그인합니다. 사용 약관에 동의하도록 요구하는 대화 상자가 표시됩니다.
+정책을 테스트하려면 **Isabella Simonsen** 테스트 계정을 사용하여 [Azure portal](https://portal.azure.com)에 로그인합니다. 사용 약관에 동의하도록 요구하는 대화 상자가 표시됩니다.
 
 ![사용 약관](./media/require-tou/57.png)
 

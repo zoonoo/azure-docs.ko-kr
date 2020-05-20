@@ -68,7 +68,7 @@ az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-n
 
 변경 내용을 매개 변수 파일에 저장합니다.  
 
-*frontEndCpu* 매개 변수는 *mesh_rp.windows.json 배포 템플릿*의 [parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 섹션에 선언되어 있습니다.
+*frontEndCpu* 매개 변수는 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)의 *parameters* 섹션에 선언되어 있습니다.
 
 ```json
 "frontEndCpu": {

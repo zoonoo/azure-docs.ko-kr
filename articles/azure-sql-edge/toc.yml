@@ -1,0 +1,75 @@
+- name: SQL Edge 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: SQL Edge란?
+      href: overview.md
+    - name: 지원되는 버전 및 기능
+      href: features.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: SQL Edge 배포
+      href: deploy-portal.md
+    - name: SQL Edge에서 ONNX 모델 배포
+      href: deploy-onnx.md
+- name: 자습서
+  items:
+    - name: Azure Data Factory와 데이터 동기화
+      href: tutorial-sync-data-factory.md
+    - name: SQL 데이터 동기화로 데이터 동기화
+      href: tutorial-sync-data-sync.md
+    - name: SQL Edge로 엔드투엔드 IoT 솔루션 빌드
+      items:
+        - name: Azure 리소스 설정
+          href: tutorial-deploy-azure-resources.md
+        - name: IoT Edge 모듈 설정
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: SQL Edge에 모델 배포
+          href: tutorial-run-ml-model-on-sql-edge.md
+- name: 방법
+  items:
+    - name: DAC 패키지 및 Stream Analytics 작업
+      href: stream-analytics.md
+    - name: 복제 구성
+      href: configure-replication.md
+    - name: 데이터 변경 내용 추적
+      href: track-data-changes.md
+    - name: T-SQL 스트리밍 작업 관리
+      href: create-stream-analytics-job.md
+    - name: SQL Edge에 연결
+      href: connect.md
+    - name: SQL Edge 구성
+      href: configure.md
+    - name: DAC 패키지 적용
+      href: deploy-dacpac.md
+- name: 개념
+  items:
+    - name: ONNX를 통한 기계 학습 및 AI
+      href: onnx-overview.md
+    - name: 백업 및 복원
+      href: backup-restore.md
+    - name: SQL Edge의 데이터 스트리밍
+      items:
+        - name: 스트림 데이터
+          href: stream-data.md
+        - name: Create External Stream(Transact-SQL)
+          href: create-external-stream-transact-sql.md
+        - name: Alter External Stream(Transact-SQL)
+          href: alter-external-stream-transact-sql.md
+        - name: Drop External Stream(Transact-SQL)
+          href: drop-external-stream-transact-sql.md
+        - name: 스트리밍 뷰 및 DMV
+          items:
+            - name: 스트리밍 뷰 및 DMV
+              href: streaming-catalog-views.md
+            - name: sys.external_job_streams(Transact-SQL)
+              href: sys-external-job-streams.md
+            - name: sys.external-streaming_jobs(Transact-SQL)
+              href: sys-external-streaming-jobs.md
+            - name: sys.external_streams(Transact-SQL)
+              href: sys-external-streams.md
+    - name: 시계열 데이터 처리
+      items:
+        - name: Date_Bucket(Transact-SQL)
+          href: date-bucket-tsql.md

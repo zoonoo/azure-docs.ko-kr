@@ -30,7 +30,7 @@ ms.locfileid: "76768568"
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Homebrew와 Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치하려면 **macOS에서 SQL Server를 사용하여 Python 앱 만들기**의 **1.2**, **1.3** 및 [2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/) 단계를 사용합니다.
+  Homebrew와 Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치하려면 [macOS에서 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)의 **1.2**, **1.3** 및 **2.1** 단계를 사용합니다.
 
   자세한 내용은 [macOS의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)를 참조하세요.
 
@@ -58,7 +58,7 @@ ms.locfileid: "76768568"
 >
 > 만들고 구성하려면 [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) 또는 [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 사용한 다음, [온-사이트](sql-database-managed-instance-configure-p2s.md) 또는 [VM](sql-database-managed-instance-configure-vm.md) 연결을 설정합니다.
 >
-> 데이터를 로드하려면 [Adventure Works](sql-database-import.md) 파일을 사용하여 [BACPAC로 복원](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+> 데이터를 로드하려면 [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일을 사용하여 [BACPAC로 복원](sql-database-import.md) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
 
 Python 및 Azure SQL 데이터베이스를 자세히 살펴보려면 [Python용 Azure SQL 데이터베이스 라이브러리](/python/api/overview/azure/sql), [pyodbc 리포지토리](https://github.com/mkleehammer/pyodbc/wiki/) 및 [pyodbc 샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)을 참조하세요.
 
