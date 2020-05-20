@@ -38,7 +38,7 @@ CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. *az group create*를 사용하여 [myResourceGroupAG](/cli/azure/group#az-group-create)라는 Azure 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 *myResourceGroupAG*라는 Azure 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -143,7 +143,7 @@ az vmss extension set \
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-*az storage account create*를 사용하여 [myagstore1](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)이라는 스토리지 계정을 만듭니다.
+[az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
 ```azurecli-interactive
 az storage account create \

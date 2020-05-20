@@ -36,7 +36,7 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 * **시계열** - 시계열은 시간 경과에 따른 메트릭의 변화를 보여줍니다.
 
 ## <a name="profile-and-test-creation"></a>프로필 및 테스트 만들기
-1. **Azure Internet Analyzer FAQ**의 [미리 보기에 참여하는 방법](internet-analyzer-faq.md) 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
+1. [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)의 **미리 보기에 참여하는 방법** 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
 2. [Azure CLI를 설치합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. `login` 명령을 실행하여 CLI 세션을 시작합니다.
     ```azurecli-interactive

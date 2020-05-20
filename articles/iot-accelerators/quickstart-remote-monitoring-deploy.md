@@ -131,7 +131,7 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 
 자습서를 계속 진행하려는 경우 배포된 원격 모니터링 솔루션 가속기를 그대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 

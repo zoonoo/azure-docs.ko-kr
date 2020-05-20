@@ -30,15 +30,15 @@ ms.locfileid: "76768597"
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Homebrew 및 Node.js를 설치한 다음, **macOS에서 SQL Server를 사용하여 Node.js 앱 만들기**의 **1.2** 및 [1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/) 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
+  Homebrew 및 Node.js를 설치한 다음, [macOS에서 SQL Server를 사용하여 Node.js 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/node/mac/)의 **1.2** 및 **1.3** 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
 
   # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Node.js를 설치한 다음, **Ubuntu에서 SQL Server를 사용하여 Node.js 앱 만들기**의 **1.2** 및 [1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
+  Node.js를 설치한 다음, [Ubuntu에서 SQL Server를 사용하여 Node.js 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/)의 **1.2** 및 **1.3** 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
 
   # <a name="windows"></a>[Windows](#tab/windows)
 
-  Chocolatey 및 Node.js를 설치한 다음, **Windows에서 SQL Server를 사용하여 Node.js 앱 만들기**의 **1.2** 및 [1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/) 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
+  Chocolatey 및 Node.js를 설치한 다음, [Windows에서 SQL Server를 사용하여 Node.js 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)의 **1.2** 및 **1.3** 단계를 사용하여 ODBC 드라이버와 SQLCMD를 설치합니다.
 
   ---
 
@@ -50,7 +50,7 @@ ms.locfileid: "76768597"
 >
 > 만들고 구성하려면 [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) 또는 [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 사용한 다음, [온-사이트](sql-database-managed-instance-configure-p2s.md) 또는 [VM](sql-database-managed-instance-configure-vm.md) 연결을 설정합니다.
 >
-> 데이터를 로드하려면 [Adventure Works](sql-database-import.md) 파일을 사용하여 [BACPAC로 복원](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+> 데이터를 로드하려면 [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일을 사용하여 [BACPAC로 복원](sql-database-import.md) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 

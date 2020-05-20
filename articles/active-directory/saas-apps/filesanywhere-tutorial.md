@@ -123,7 +123,7 @@ FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 
 
     ![이미지](common/edit-attribute.png)
 
-    사용자가 FilesAnywhere로 등록할 때 **FilesAnywhere 팀**으로부터 [clientid](mailto:support@FilesAnywhere.com) 특성 값을 받습니다. FilesAnywhere가 제공된 고유한 값을 사용하여 "클라이언트 ID" 특성을 추가해야 합니다.
+    사용자가 FilesAnywhere로 등록할 때 [FilesAnywhere 팀](mailto:support@FilesAnywhere.com)으로부터 **clientid** 특성 값을 받습니다. FilesAnywhere가 제공된 고유한 값을 사용하여 "클라이언트 ID" 특성을 추가해야 합니다.
 
 7. 위에서 언급한 특성 외에도, FilesAnywhere 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 

@@ -46,7 +46,7 @@ ms.locfileid: "67509137"
 1. 목록에서 **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
       >[!IMPORTANT]
-      >애플리케이션에서 *DefaultFullSharedAccessSignature* 정책을 **사용하지 마세요**. 이는 백 엔드에서만 사용할 수 있습니다.
+      >애플리케이션에서 **DefaultFullSharedAccessSignature** 정책을 *사용하지 마세요*. 이는 백 엔드에서만 사용할 수 있습니다.
       >
 
       ![Azure Portal - 알림 허브 연결 문자열](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

@@ -12,7 +12,7 @@ ms.locfileid: "75470069"
 ---
 # <a name="overview-of-the-hipaa-hitrust-blueprint-sample"></a>HIPAA HITRUST 청사진 샘플의 개요
 
-HIPAA HITRUST 청사진 샘플은 [HIPAA HITRUST](../../../policy/overview.md) 증명에 도움이 되는 [Azure Policy](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
+HIPAA HITRUST 청사진 샘플은 [HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) 증명에 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 일련의 거버넌스 가드 레일을 제공합니다. 
 
 ## <a name="blueprint-sample"></a>청사진 샘플
 

@@ -17,7 +17,7 @@ ms.locfileid: "67182870"
 
     ![Data Box 대시보드](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
-2. **계정 이름** 및 **계정 키**(로컬 웹 UI의 **연결 및 복사** 페이지에서 키 1 값)를 붙여넣습니다. Storage 엔드포인트 도메인을 **기타(아래 입력)** 으로 선택한 다음, 아래 표시된 것처럼 Blob 서비스 엔드포인트를 제공합니다. **http**를 통해 전송하는 경우에만 *HTTP 사용* 옵션을 선택합니다. *https*를 사용하는 경우 옵션을 선택하지 않은 상태로 둡니다. **다음**을 선택합니다.
+2. **계정 이름** 및 **계정 키**(로컬 웹 UI의 **연결 및 복사** 페이지에서 키 1 값)를 붙여넣습니다. Storage 엔드포인트 도메인을 **기타(아래 입력)** 으로 선택한 다음, 아래 표시된 것처럼 Blob 서비스 엔드포인트를 제공합니다. *http*를 통해 전송하는 경우에만 **HTTP 사용** 옵션을 선택합니다. *https*를 사용하는 경우 옵션을 선택하지 않은 상태로 둡니다. **다음**을 선택합니다.
 
     ![Data Box 대시보드](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
 

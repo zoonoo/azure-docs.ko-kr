@@ -34,7 +34,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-1. [Azure 개발](https://www.visualstudio.com/)과 **ASP.NET 및 웹 개발** 워크로드가 있는 **Visual Studio 2019 설치**
+1. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019 설치](https://www.visualstudio.com/)
 2. [Git 설치](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK 설치](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. 다음 명령을 실행하여 Visual Studio에서 로컬 Service Fabric 클러스터에 배포하도록 합니다.

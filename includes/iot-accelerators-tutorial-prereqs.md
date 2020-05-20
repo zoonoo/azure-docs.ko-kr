@@ -25,4 +25,4 @@ ms.locfileid: "67182633"
 
 브라우저에서 원격 모니터링 솔루션 대시보드를 보려면 먼저 [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators#dashboard)로 이동합니다. Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
 
-**빠른 시작**에서 배포한 원격 모니터링 솔루션 가속기의 타일에서 [시작](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)을 클릭합니다.
+[빠른 시작](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)에서 배포한 원격 모니터링 솔루션 가속기의 타일에서 **시작**을 클릭합니다.

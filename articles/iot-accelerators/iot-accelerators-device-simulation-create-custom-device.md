@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
 
-그런 다음, **Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행** 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 [시작](quickstart-device-simulation-deploy.md)을 클릭합니다.
+그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작**을 클릭합니다.
 
 ## <a name="view-your-device-models"></a>디바이스 모델 보기
 

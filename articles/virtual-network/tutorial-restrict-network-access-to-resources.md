@@ -99,7 +99,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Resource group | **기존 항목 사용**을 선택하고, *myResourceGroup*을 선택합니다.|
     |위치| **미국 동부**를 선택합니다. |
 
-4. 네트워크 보안 그룹이 만들어진 후에 포털 맨 위에 있는 *리소스, 서비스 및 문서 검색* 상자에 **myNsgPrivate**를 입력합니다. 검색 결과에 **myNsgPrivate**가 표시되면 선택합니다.
+4. 네트워크 보안 그룹이 만들어진 후에 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myNsgPrivate*를 입력합니다. 검색 결과에 **myNsgPrivate**가 표시되면 선택합니다.
 5. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
 6. **+추가**를 선택합니다.
 7. Azure Storage 서비스에 대해 아웃바운드 통신을 허용하는 규칙을 만듭니다. 다음 정보를 입력하거나 선택한 다음, **추가**를 선택합니다.
@@ -177,7 +177,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
    ![스토리지 계정](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
 3. **+ 파일 공유**를 선택합니다.
-4. *이름*에서 **my-file-share**를 입력하고 **확인**을 선택합니다.
+4. **이름**에서 *my-file-share*를 입력하고 **확인**을 선택합니다.
 5. **파일 서비스** 상자를 닫습니다.
 
 ### <a name="restrict-network-access-to-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
@@ -281,7 +281,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
 1. 포털 맨 위에 있는 *리소스, 서비스 및 문서 검색* 상자에 **myVirtualNetwork**를 입력합니다.
 2. 검색 결과에 **myVmPublic**이 표시되면 선택합니다.
-3. [myVmPublic](#confirm-access-to-storage-account) VM에 대한 *스토리지 계정에 대한 액세스 확인*에서 1-6단계를 완료합니다.
+3. *myVmPublic* VM에 대한 [스토리지 계정에 대한 액세스 확인](#confirm-access-to-storage-account)에서 1-6단계를 완료합니다.
 
    잠시 기다리면 `New-PSDrive : Access is denied` 오류가 발생합니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *공용* 서브넷에는 Azure Storage에 사용하도록 설정된 서비스 엔드포인트가 없습니다. 스토리지 계정은 *공용* 서브넷이 아닌 *프라이빗* 서브넷으로부터의 네트워크 액세스만을 허용합니다.
 
@@ -300,9 +300,9 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
 더 이상 필요하지 않은 경우, 리소스 그룹 및 이 그룹에 포함된 리소스를 모두 삭제합니다.
 
-1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
+1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. *리소스 그룹 이름 입력:* 에 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
