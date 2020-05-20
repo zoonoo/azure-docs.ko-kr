@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 7f953c7de34e5574deb843dc42092103c8d9b87a
-  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+  ms.date: 05/19/2020
+  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "81603338"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83591916"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -81,34 +81,6 @@ conceptualContent:
       text: Azure Multi-Factor Authentication 사용
     footerLink:
       url: ./authentication/index.yml
-      text: 자세히 보기
-  - title: B2B(Business to Business)
-    links:
-    - url: ./b2b/what-is-b2b.md
-      itemType: overview
-      text: Azure AD B2B란?
-    - url: ./b2b/add-users-administrator.md
-      itemType: how-to-guide
-      text: 포털에서 게스트 사용자 추가
-    - url: ./b2b/o365-external-user.md
-      itemType: concept
-      text: B2B 및 Office 365 공유
-    footerLink:
-      url: ./b2b/index.yml
-      text: 자세히 보기
-  - title: B2C(Business to Consumer)
-    links:
-    - url: ../active-directory-b2c/active-directory-b2c-overview.md
-      itemType: overview
-      text: Azure AD B2C란?
-    - url: ../active-directory-b2c/tutorial-create-tenant.md
-      itemType: tutorial
-      text: Azure AD B2C 테넌트 만들기
-    - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
-      itemType: how-to-guide
-      text: Azure AD B2C의 사용자 지정 정책
-    footerLink:
-      url: ../active-directory-b2c/index.yml
       text: 자세히 보기
   - title: 클라우드 프로비저닝
     links:
@@ -193,6 +165,20 @@ conceptualContent:
       text: Azure AD 서비스 제한 및 제한 사항
     footerLink:
       url: ./users-groups-roles/index.yml
+      text: 자세히 보기
+  - title: 외부 ID
+    links:
+    - url: ./b2b/compare-with-b2c.md
+      itemType: overview
+      text: 외부 사용자용 솔루션 비교
+    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+      itemType: overview
+      text: 앱을 소비자에 맞게 확장(B2C)
+    - url: ./b2b/what-is-b2b.md
+      itemType: overview
+      text: 조직 외부 사용자와 공동 작업(B2B)
+    footerLink:
+      url: ./b2b/index.yml
       text: 자세히 보기
   - title: 하이브리드 ID
     links:

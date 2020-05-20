@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Translator Text 설명서
-summary: Translator Text는 간단한 REST API 호출을 통해 근실시간으로 텍스트를 번역하는 데 사용할 수 있는 클라우드 기반 기계 번역 서비스입니다. API는 최신 신경망 기계 번역 기술을 사용하고 통계 기계 번역 기술을 제공합니다. Custom Translator는 인공신경망 번역 시스템을 빌드할 수 있는 Translator Text API의 확장입니다. 사용자 지정 번역 시스템을 사용하여 Translator Text API 또는 Microsoft Speech Services로 텍스트를 변역할 수 있습니다.
+title: Translator 설명서
+summary: Translator는 간단한 REST API 호출을 통해 근 실시간으로 텍스트를 번역하는 데 사용할 수 있는 클라우드 기반 기계 번역 서비스입니다. 이 서비스는 최신 신경망 기계 번역 기술을 사용하고 통계 기계 번역 기술을 제공합니다. Custom Translator는 인공신경망 번역 시스템을 빌드할 수 있는 Translator의 확장입니다. 사용자 지정 번역 시스템을 사용하여 Translator 또는 Microsoft Speech Services로 텍스트를 번역할 수 있습니다.
 metadata:
-  title: Translator Text 설명서 - 빠른 시작, 자습서, API 참조
+  title: Translator 설명서 - 빠른 시작, 자습서, API 참조
   titleSuffix: Azure Cognitive Services
-  description: Translator Text는 간단한 REST API 호출을 통해 근실시간으로 텍스트를 번역하는 데 사용할 수 있는 클라우드 기반 기계 번역 서비스입니다. API는 최신 신경망 기계 번역 기술을 사용하고 통계 기계 번역 기술을 제공합니다. Custom Translator는 인공신경망 번역 시스템을 빌드할 수 있는 Translator Text API의 확장입니다. 사용자 지정 번역 시스템을 사용하여 Translator Text API 또는 Microsoft Speech Services로 텍스트를 변역할 수 있습니다.
+  description: Translator는 간단한 REST API 호출을 통해 근 실시간으로 텍스트를 번역하는 데 사용할 수 있는 클라우드 기반 기계 번역 서비스입니다. 이 서비스는 최신 신경망 기계 번역 기술을 사용하고 통계 기계 번역 기술을 제공합니다. Custom Translator는 인공신경망 번역 시스템을 빌드할 수 있는 Translator의 확장입니다. 사용자 지정 번역 시스템을 사용하여 Translator 또는 Microsoft Speech Services로 텍스트를 번역할 수 있습니다.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529803"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592749"
 landingContent:
 - title: 변환기
   linkLists:
   - linkListType: overview
     links:
-    - text: Translator Text API
+    - text: 변환기
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: FAQ
       url: https://www.microsoft.com/translator/faq.aspx
-- title: Translator Text API
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Translator Text API 참조(v3)
+    - text: Translator 참조(v3)
       url: reference/v3-0-reference.md
     - text: 요청 제한
       url: request-limits.md
@@ -104,5 +104,5 @@ landingContent:
     links:
     - text: GitHub 샘플
       url: https://aka.ms/TranslatorGitHub
-    - text: 스택 오버플로
+    - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-translator

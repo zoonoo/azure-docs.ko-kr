@@ -36,6 +36,8 @@
           href: quickstart-load-studio-sql-pool.md
     - name: SQL 주문형 사용
       href: quickstart-sql-on-demand.md
+    - name: Cosmos DB용 Synapse Link에 연결
+      href: quickstart-connect-synapse-link-cosmos-db.md
 - name: 자습서
   items:
     - name: Spark 풀에 대해 Apache Spark 애플리케이션 실행
@@ -324,6 +326,10 @@
               href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 리소스 클래스
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Synapse Link
+      items:
+        - name: Synapse Link 지원 기능
+          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
     - name: '도구 통합(AI, ETL, BI)'
       items:
         - name: Synapse Analytics Studio 문제 해결
@@ -406,6 +412,12 @@
               href: data-integration/data-integration-data-lake.md
     - name: 데이터 변환 및 분석
       items:
+        - name: Synapse Link
+          items:
+            - name: Cosmos DB용 Azure Synapse Link에 연결
+              href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+            - name: Azure Synapse Analytics용 Apache Spark와 함께 Azure Cosmos DB 분석 저장소 쿼리
+              href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Synapse SQL
           items:
             - name: 스토리지의 데이터 쿼리

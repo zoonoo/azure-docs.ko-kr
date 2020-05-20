@@ -1,10 +1,10 @@
-- name: Translator Text 설명서
+- name: Translator 설명서
   href: index.yml
-- name: Translator Text API
+- name: 변환기
   items:
     - name: 개요
       items:
-        - name: Translator Text API란?
+        - name: Translator란?
           href: translator-info-overview.md
     - name: 빠른 시작
       items:
@@ -22,7 +22,7 @@
           href: quickstart-sentences.md
     - name: 자습서
       items:
-        - name: 'Translator Text에 대한 WPF 앱 만들기 - C#'
+        - name: 'Translator용 WPF 앱 만들기, C#'
           href: tutorial-wpf-translation-csharp.md
         - name: Flask 번역 앱 만들기 - Python
           href: tutorial-build-flask-app-translation-synthesis.md
@@ -34,7 +34,7 @@
           href: character-counts.md
     - name: 방법 가이드
       items:
-        - name: Translator Text API에 등록
+        - name: Translator에 등록
           href: translator-text-how-to-signup.md
         - name: V3 텍스트 API로 마이그레이션
           href: migrate-to-v3.md
@@ -66,7 +66,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: 참조
       items:
-        - name: v3 Translator Text API 참조
+        - name: v3 Translator 참조
           href: reference/v3-0-reference.md
           items:
             - name: 언어
@@ -83,7 +83,7 @@
               href: reference/v3-0-dictionary-lookup.md
             - name: 사전 예제
               href: reference/v3-0-dictionary-examples.md
-        - name: v2 Translator Text API 참조(사용되지 않음)
+        - name: v2 Translator 참조(사용되지 않음)
           href: reference/v2-0-reference.md
           items:
             - name: 텍스트 변환
@@ -108,7 +108,7 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: 요청 제한
           href: request-limits.md
-        - name: 스택 오버플로
+        - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
   items:
@@ -174,5 +174,5 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: 암호화
           href: translator-encryption-of-data-at-rest.md
-        - name: 스택 오버플로
+        - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

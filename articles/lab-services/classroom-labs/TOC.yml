@@ -28,6 +28,24 @@
       items:
         - name: 클래스를 수행하기 위해 랩 사용
           href: classroom-labs-scenarios.md
+        - name: 클래스룸 랩 - 클래스 형식
+          items:
+            - name: 클래스 형식 개요
+              href: class-types.md
+            - name: 자연어 처리의 딥 러닝
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Linux에서 셸 스크립팅
+              href: class-type-shell-scripting-linux.md
+            - name: 윤리적 해킹
+              href: class-type-ethical-hacking.md
+            - name: 데이터베이스 관리
+              href: class-type-database-management.md
+            - name: Python 및 Jupyter Notebooks
+              href: class-type-jupyter-notebook.md
+            - name: Android Studio를 사용한 모바일 앱 개발
+              href: class-type-mobile-dev-android-studio.md
+            - name: 빅 데이터 분석
+              href: class-type-big-data-analytics.md
 - name: 방법 가이드
   items:
     - name: 관리자 가이드
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: 가속화된 랩 설정 가이드
       href: setup-guide.md
-    - name: 클래스룸 랩 - 클래스 형식
-      items:
-        - name: 클래스 형식 개요
-          href: class-types.md
-        - name: 자연어 처리의 딥 러닝
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Linux에서 셸 스크립팅
-          href: class-type-shell-scripting-linux.md
-        - name: 윤리적 해킹
-          href: class-type-ethical-hacking.md
-        - name: 데이터베이스 관리
-          href: class-type-database-management.md
-        - name: Python 및 Jupyter Notebooks
-          href: class-type-jupyter-notebook.md
-        - name: Android Studio를 사용한 모바일 앱 개발
-          href: class-type-mobile-dev-android-studio.md
-        - name: 빅 데이터 분석
-          href: class-type-big-data-analytics.md
     - name: 랩 계정 만들기 및 구성(랩 계정 소유자)
       items:
         - name: 랩 계정 만들기 및 관리
           href: how-to-manage-lab-accounts.md
-        - name: 랩 계정 구성
+        - name: 랩 계정에서 랩 관리
+          href: manage-labs.md
+        - name: VM의 자동 종료 구성
           href: how-to-configure-lab-accounts.md
         - name: 랩 작성자 추가
           href: add-lab-creator.md
@@ -76,7 +78,7 @@
           href: specify-marketplace-images.md
         - name: 지원 정보 지정(랩 계정 소유자)
           href: lab-account-owner-support-information.md
-    - name: 클래스룸 랩 만들기 및 구성(교사)
+    - name: 클래스룸 랩 만들기 및 구성(교육자)
       items:
         - name: 클래스룸 랩 만들기 및 관리
           href: how-to-manage-classroom-labs.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Windows 종료 동작 제어
           href: how-to-windows-shutdown.md
-        - name: 지원 정보 보기(강사)
+        - name: 지원 정보 보기(교육자)
           href: lab-creator-support-information.md
-        - name: 강사 보기에서 학생 VM 액세스
+        - name: 교육자 보기에서 학생 VM 액세스
           href: instructor-access-virtual-machines.md
     - name: 클래스룸 랩에서 VM에 연결(학생)
       items:

@@ -39,6 +39,8 @@
         - name: 학습 정책
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: 실습생 모드
+          href: concept-apprentice-mode.md
         - name: 활성 및 비활성 이벤트
           href: concept-active-inactive-events.md
         - name: 보상
@@ -62,9 +64,11 @@
   items:
     - name: Personalizer 리소스 만들기
       href: how-to-create-resource.md
-    - name: 학습 루프 구성
+    - name: Personalizer 구성
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: 실습생 모드 사용
+      href: how-to-learning-behavior.md
     - name: 모델 및 학습 설정 관리
       href: how-to-manage-model.md
     - name: 오프라인 평가를 사용하여 분석
@@ -111,9 +115,9 @@
       href: personalizer-encryption-of-data-at-rest.md
     - name: Azure 로드맵
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/personalizer'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/921562-personalizer'

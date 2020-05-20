@@ -138,9 +138,6 @@
       href: concept-model-management-and-deployment.md
     - name: 모델 이식성(ONNX)
       href: concept-onnx.md
-    - name: 모델 해석력
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
     - name: ML 파이프라인
       href: concept-ml-pipelines.md
     - name: 엔터프라이즈 준비 및 보안
@@ -172,6 +169,20 @@
           href: how-to-setup-authentication.md
         - name: Azure Machine Learning 모니터링
           href: monitor-azure-machine-learning.md
+    - name: Responsible ML
+      items:
+        - name: Responsible ML 개요
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: 모델 해석력
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Machine Learning의 공정성
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: 차등 프라이버시
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
 - name: 방법 가이드
   items:
     - name: 작업 영역 만들기 및 관리
@@ -273,6 +284,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: 보충 학습
+          href: how-to-use-reinforcement-learning.md
     - name: 모델 해석 및 설명
       displayName: interpretability
       items:

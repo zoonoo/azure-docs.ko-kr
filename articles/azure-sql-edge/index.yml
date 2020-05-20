@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Azure SQL Edge(미리 보기) 설명서
+summary: Azure SQL Edge는 IoT 및 에지 배포를 위해 최적화된 관계형 데이터베이스 엔진입니다.
+metadata:
+  title: Azure SQL Edge(미리 보기) 설명서
+  meta.description: Learn how to use Azure SQL Edge (Preview).
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 05/19/2020
+  ms.openlocfilehash: a2e26d4bfbec3a139987e2a7a0fe21c429c740a5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593140"
+landingContent:
+- title: SQL Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL Edge란?
+      url: overview.md
+  - linkListType: deploy
+    links:
+    - text: SQL Edge 배포
+      url: deploy-portal.md
+- title: 데이터 동기화
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Data Factory와 SQL Edge 데이터 동기화
+      url: tutorial-sync-data-factory.md
+    - text: SQL Database와 SQL Edge 데이터 동기화
+      url: tutorial-sync-data-sync.md
+- title: 데이터 스트리밍
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 데이터 스트리밍
+      url: stream-data.md
+    - text: 스트리밍 카탈로그 뷰
+      url: streaming-catalog-views.md
+- title: 기계 학습
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 기계 학습 및 AI
+      url: onnx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: SQL Edge에서 ONNX 배포
+      url: deploy-onnx.md
