@@ -162,7 +162,7 @@ LockPath Keylight에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
     e. **SAML 사용자 ID 위치**를 **Subject 문의 NameIdentifier 요소**로 설정합니다.
 
-    f. **패턴을 사용하여**Keylight 서비스 공급자`https://<CompanyName>.keylightgrc.com`를 입력합니다.
+    f. `https://<CompanyName>.keylightgrc.com` 패턴을 사용하여 **Keylight 서비스 공급자**를 입력합니다.
 
     g. **사용자 자동 프로비전**을 **활성**으로 설정합니다.
 

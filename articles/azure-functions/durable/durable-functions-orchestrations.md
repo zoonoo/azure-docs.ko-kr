@@ -188,7 +188,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>임계 섹션(Durable Functions 2.x, 현재 .NET에만 해당)
 
-오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 *메서드를 사용하여*임계 영역`LockAsync`을 정의할 수 있습니다.
+오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 `LockAsync` 메서드를 사용하여 *임계 영역*을 정의할 수 있습니다.
 
 다음 샘플 코드에서는 임계 영역을 정의하는 오케스트레이터 함수를 보여 줍니다. `LockAsync` 메서드를 사용하여 임계 영역에 들어갑니다. 이 메서드를 사용하려면 잠금 상태를 지속적으로 관리하는 [지속성 엔터티](durable-functions-entities.md)에 하나 이상의 참조를 전달해야 합니다. 이 오케스트레이션의 단일 인스턴스만 임계 영역의 코드를 한 번에 실행할 수 있습니다.
 
@@ -267,7 +267,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)의 새로운 기능을 사용하는 것입니다.
+.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

@@ -155,7 +155,7 @@ API 응답은 청구 계정 및 청구 프로필 목록을 반환합니다.
 
 ### <a name="get-azure-credit-balance"></a>Azure 크레딧 잔액 가져오기
 
-`<billingProfileId>`를 첫 번째 단계(`id`)에서 복사한 ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```로 바꿔서 다음 요청을 수행합니다.
+`<billingProfileId>`를 첫 번째 단계(```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행합니다.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -206,7 +206,7 @@ API 응답은 청구 프로필에 대한 예상 및 현재 잔액을 반환합�
 
 ### <a name="get-list-of-credits"></a>크레딧 목록 가져오기
 
-`<billingProfileId>`를 첫 번째 단계(`id`)에서 복사한 ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```로 바꿔서 다음 요청을 수행합니다.
+`<billingProfileId>`를 첫 번째 단계(```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행합니다.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
@@ -270,7 +270,7 @@ API 응답은 청구 프로필에 대한 Azure 크레딧 목록을 반환합니�
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>크레딧 잔액에 영향을 주는 트랜잭션 가져오기
 
-`<billingProfileId>`를 첫 번째 단계(`id`)에서 복사한 ```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```로 바꿔서 다음 요청을 수행합니다. 필요한 기간에 대한 트랜잭션을 가져오려면 **startDate** 및 **endDate**를 전달해야 합니다.
+`<billingProfileId>`를 첫 번째 단계(```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```)에서 복사한 `id`로 바꿔서 다음 요청을 수행합니다. 필요한 기간에 대한 트랜잭션을 가져오려면 **startDate** 및 **endDate**를 전달해야 합니다.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01

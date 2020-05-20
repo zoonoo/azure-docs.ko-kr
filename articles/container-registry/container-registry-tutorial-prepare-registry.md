@@ -55,7 +55,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][tut-portal-02]
 
-이 자습서의 나머지 부분에서는 선택한 컨테이너 `<acrName>`레지스트리 이름**의 자리 표시자로** 을 사용합니다.
+이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
 
 > [!TIP]
 > Azure Container Registry는 일반적으로 여러 컨테이너 호스트에서 사용되는 수명이 긴 리소스이기 때문에 자체 리소스 그룹에 레지스트리를 만드는 것이 좋습니다. 지리적 복제 레지스트리와 webhook를 구성할 때 이러한 추가 리소스는 동일한 리소스 그룹에 배치됩니다.
@@ -205,7 +205,7 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-지역에서 복제를 위해 레지스트리를 구성했으므로 단일 *명령으로*미국 서부*및*미국 동부`docker push` 지역 모두에 이미지가 자동으로 복제됩니다.
+지역에서 복제를 위해 레지스트리를 구성했으므로 단일 `docker push` 명령으로 *미국 서부* 및 *미국 동부* 지역 모두에 이미지가 자동으로 복제됩니다.
 
 ```console
 $ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1

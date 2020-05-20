@@ -35,7 +35,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
         <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
     </dependency>
     ```
-1. `spring.redis.*` 파일에서 `application.properties` 속성을 제거합니다.
+1. `application.properties` 파일에서 `spring.redis.*` 속성을 제거합니다.
 
 1. `az spring-cloud app update`를 사용하여 현재 배포를 업데이트하거나 `az spring-cloud app deployment create`를 사용하여 새 배포를 만듭니다.
 

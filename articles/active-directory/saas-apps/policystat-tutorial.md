@@ -178,7 +178,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     다. **Last Name Attribute**(성 특성) 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
 
-    d. **이메일 특성** 텍스트 상자에 사용자 **의** 이메일 주소`BrittaSimon@contoso.com`를 입력합니다.
+    d. **이메일 특성** 텍스트 상자에 사용자 `BrittaSimon@contoso.com`의 **이메일 주소**를 입력합니다.
 
     e. **변경 내용 저장**을 클릭합니다.
 

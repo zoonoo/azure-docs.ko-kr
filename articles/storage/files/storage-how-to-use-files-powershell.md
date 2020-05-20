@@ -203,7 +203,7 @@ $snapshot = $share.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
-`$snapshot` cmdlet의 `-Share` 매개 변수에 스냅샷 참조(`Get-AzStorageFile`)를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
+`Get-AzStorageFile` cmdlet의 `-Share` 매개 변수에 스냅샷 참조(`$snapshot`)를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Share $snapshot
@@ -238,7 +238,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
-[ 매개 변수에 대한 ](/powershell/module/az.storage/Remove-AzStorageShare) 참조를 포함하는 변수와 함께 `$snapshot`Remove-AzStorageShare`-Share` cmdlet을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
+`-Share` 매개 변수에 대한 `$snapshot` 참조를 포함하는 변수와 함께 [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) cmdlet을 사용하여 공유 스냅샷을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare `

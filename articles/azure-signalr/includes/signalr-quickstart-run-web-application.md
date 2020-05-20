@@ -34,4 +34,4 @@ ms.locfileid: "67182574"
 1. 다른 브라우저 창에서 웹 애플리케이션의 다른 인스턴스를 엽니다. 애플리케이션의 모든 인스턴스에 전송된 메시지가 표시됩니다.
 
 > [!IMPORTANT]
-> HTML 페이지는 HTTPS를 통해 제공되지만 로컬 Azure Functions 런타임은 기본적으로 HTTP를 사용하기 때문에, 브라우저(예: Firefox)는 함수에 대한 웹 페이지의 요청을 차단하는 혼합 콘텐츠 정책을 적용할 수 있습니다. 이 문제를 해결하려면 이러한 제한 사항이 없는 브라우저를 사용하거나 [/docs/demo/chat-v2](https://www.npmjs.com/package/http-server) 디렉터리에서 *http-server*와 같은 로컬 HTTP 서버를 시작합니다. `CORS`local.settings.json*의*  설정에 원본이 추가되어 있는지 확인합니다.
+> HTML 페이지는 HTTPS를 통해 제공되지만 로컬 Azure Functions 런타임은 기본적으로 HTTP를 사용하기 때문에, 브라우저(예: Firefox)는 함수에 대한 웹 페이지의 요청을 차단하는 혼합 콘텐츠 정책을 적용할 수 있습니다. 이 문제를 해결하려면 이러한 제한 사항이 없는 브라우저를 사용하거나 */docs/demo/chat-v2* 디렉터리에서 [http-server](https://www.npmjs.com/package/http-server)와 같은 로컬 HTTP 서버를 시작합니다. *local.settings.json*의 `CORS` 설정에 원본이 추가되어 있는지 확인합니다.

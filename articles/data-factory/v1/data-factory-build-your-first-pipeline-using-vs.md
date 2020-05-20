@@ -275,7 +275,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     HDInsight Hive 작업에만 특정되는 형식 속성에서 Azure Storage 연결된 서비스에 있는 Hive 스크립트 파일, 스크립트 파일에 대한 경로 및 스크립트 파일에 대한 매개 변수를 지정합니다. 
 
-    Hive 스크립트 파일 **partitionweblogs.hql**은 Azure Storage 계정(scriptLinkedService에 의해 지정됨)과 `script`라는 컨테이너의 `adfgetstarted` 폴더에 저장됩니다.
+    Hive 스크립트 파일 **partitionweblogs.hql**은 Azure Storage 계정(scriptLinkedService에 의해 지정됨)과 `adfgetstarted`라는 컨테이너의 `script` 폴더에 저장됩니다.
 
     `defines` 섹션은 Hive 스크립트에 Hive 구성 값(예: `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
@@ -288,7 +288,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
 2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
-다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **Blob 컨테이너의**스크립트`adfgetstarted` 폴더에 업로드됩니다.   
+다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 `adfgetstarted` Blob 컨테이너의 **스크립트** 폴더에 업로드됩니다.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>데이터 팩터리 엔터티 게시/배포
 이 단계에서는 Azure Data Factory 서비스에 프로젝트의 데이터 팩터리 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 게시합니다. 게시 과정에서 데이터 팩터리의 이름을 지정합니다. 
@@ -375,7 +375,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
    > 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.  
    
     ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. 조각이 **준비** 상태이면 Blob Storage의 `partitioneddata` 컨테이너에 있는 `adfgetstarted` 폴더에서 출력 데이터를 확인합니다.  
+10. 조각이 **준비** 상태이면 Blob Storage의 `adfgetstarted` 컨테이너에 있는 `partitioneddata` 폴더에서 출력 데이터를 확인합니다.  
 
     ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. 자세한 내용을 보려면 **데이터 조각** 블레이드에서 조각을 클릭합니다.
@@ -402,11 +402,11 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
     ![활동 창 세부 정보](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 `inputdata` 컨테이너의 `adfgetstarted` 폴더에 입력 파일(input.log)을 업로드합니다.
+> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 `adfgetstarted` 컨테이너의 `inputdata` 폴더에 입력 파일(input.log)을 업로드합니다.
 
 ### <a name="additional-notes"></a>추가적인 참고 사항
 - 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 컴퓨팅 서비스 목록은 [연결된 컴퓨팅 서비스](data-factory-compute-linked-services.md)를 참조하세요.
-- 연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 컴퓨팅 서비스 목록 및 여기에서 실행할 수 있는 [변환 작업](data-factory-compute-linked-services.md)은 [연결된 컴퓨팅 서비스](data-factory-data-transformation-activities.md)를 참조하세요.
+- 연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 컴퓨팅 서비스 목록 및 여기에서 실행할 수 있는 [변환 작업](data-factory-data-transformation-activities.md)은 [연결된 컴퓨팅 서비스](data-factory-compute-linked-services.md)를 참조하세요.
 - Azure Storage 연결된 서비스 정의에서 사용된 JSON 속성에 대한 자세한 내용은 [Azure Blob 간에 데이터 이동](data-factory-azure-blob-connector.md#azure-storage-linked-service)을 참조하세요.
 - 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md)를 참조하세요.
 -  데이터 팩터리는 앞의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.

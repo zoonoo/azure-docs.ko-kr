@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2020
 ms.locfileid: "78191058"
 ---
-다음 코드와 일치하도록 *HttpExample\\\_\_init\_\_.py*를 업데이트하여 `msg` 매개 변수를 함수 정의에 추가하고 `msg.set(name)` 문 아래에 `if name:`을 추가합니다.
+다음 코드와 일치하도록 *HttpExample\\\_\_init\_\_.py*를 업데이트하여 `msg` 매개 변수를 함수 정의에 추가하고 `if name:` 문 아래에 `msg.set(name)`을 추가합니다.
 
 :::code language="python" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 

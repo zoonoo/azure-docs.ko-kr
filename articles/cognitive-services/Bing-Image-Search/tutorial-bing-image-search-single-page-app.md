@@ -104,7 +104,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ## <a name="send-search-requests"></a>검색 요청 보내기
 
-이 애플리케이션은 `<form>` 특성을 사용하여 `onsubmit`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `newBingImageSearch()`을 사용합니다.
+이 애플리케이션은 `onsubmit` 특성을 사용하여 `newBingImageSearch()`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `<form>`을 사용합니다.
 
 ```html
 <form name="bing" onsubmit="return newBingImageSearch(this)">

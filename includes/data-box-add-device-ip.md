@@ -27,7 +27,7 @@ ms.locfileid: "67182868"
 
     ![Data Box 대시보드](media/data-box-add-device-ip/data-box-connect-via-rest-4.png)
 
-5. 관리자 권한으로 **메모장**을 시작하고 **에 있는** 호스트`C:\Windows\System32\Drivers\etc` 파일을 엽니다.
+5. 관리자 권한으로 **메모장**을 시작하고 `C:\Windows\System32\Drivers\etc`에 있는 **호스트** 파일을 엽니다.
 6. 다음 항목을 **호스트** 파일에 추가합니다. `<device IP address> <Blob service endpoint>`
 7. 참조를 위해 다음 이미지를 사용합니다. **호스트** 파일을 저장합니다.
 

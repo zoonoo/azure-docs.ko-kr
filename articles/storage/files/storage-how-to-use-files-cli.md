@@ -222,7 +222,7 @@ snapshot=$(az storage share snapshot \
 ```
 
 ### <a name="browse-share-snapshot-contents"></a>공유 스냅샷 콘텐츠 찾아보기
-`$snapshot` 명령에 대한 `az storage file list` 변수에서 캡처한 공유 스냅샷의 타임스탬프를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
+`az storage file list` 명령에 대한 `$snapshot` 변수에서 캡처한 공유 스냅샷의 타임스탬프를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurecli-interactive
 az storage file list \
@@ -275,7 +275,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
-[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다. `$SNAPSHOT` 매개 변수에 대한 `--snapshot` 참조를 포함하는 변수를 사용합니다.
+[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다. `--snapshot` 매개 변수에 대한 `$SNAPSHOT` 참조를 포함하는 변수를 사용합니다.
 
 ```azurecli-interactive
 az storage share delete \

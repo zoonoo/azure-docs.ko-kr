@@ -125,7 +125,7 @@ My Award Points Top Sub/Top Team과 Azure AD Single Sign-On을 구성하려면 �
     다. 로그아웃 URL
 
     >[!NOTE]
-    >Azure Portal의 `<Azure AD Identifier>`기본 SAML 구성**섹션에 있는**에서 복사한 Azure AD 식별자 값에 로그온 URL을 추가합니다.
+    >Azure Portal의 **기본 SAML 구성** 섹션에 있는 `<Azure AD Identifier>`에서 복사한 Azure AD 식별자 값에 로그온 URL을 추가합니다.
 
 ### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>My Award Points Top Sub/Top Team Single Sign-On 구성
 

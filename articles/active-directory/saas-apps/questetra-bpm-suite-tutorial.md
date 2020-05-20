@@ -226,9 +226,9 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단�
    
     ![테스트 사용자 만들기][300] 
    
-    a. **이름** 텍스트 상자에 사용자 **의** 이름britta.simon@contoso.com을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자 britta.simon@contoso.com의 **이름**을 입력합니다.
    
-    b. **이메일** 텍스트 상자에 사용자 **의** 이메일britta.simon@contoso.com을 입력합니다.
+    b. **이메일** 텍스트 상자에 사용자 britta.simon@contoso.com의 **이메일**을 입력합니다.
    
     다. **암호** 텍스트 상자에 사용자의 **암호**를 입력합니다.
     

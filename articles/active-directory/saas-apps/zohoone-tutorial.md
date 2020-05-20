@@ -110,7 +110,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **회신 URL** 텍스트 상자에서 `https://accounts.zoho.com/samlresponse/<saml-identifier>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 위의 **회신 URL** 값은 실제 값이 아닙니다. 자습서의 뒷부분에서 설명하는 `<saml-identifier>`Zoho One Single Sign-On 구성**섹션의 4단계에서** 값을 가져올 것입니다.
+    > 위의 **회신 URL** 값은 실제 값이 아닙니다. 자습서의 뒷부분에서 설명하는 **Zoho One Single Sign-On 구성** 섹션의 4단계에서 `<saml-identifier>` 값을 가져올 것입니다.
 
     다. **추가 URL 설정**을 클릭합니다.
 
@@ -160,7 +160,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     d. **저장**을 클릭합니다.
 
-4. SAML 인증 설정을 저장한 후에는 **SAML 식별자** 값을 복사하고 **처럼**  자리에 `<saml-identifier>`회신 URL`https://accounts.zoho.com/samlresponse/one.zoho.com`을 추가한 다음, 생성된 값을 **기본 SAML 구성을** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+4. SAML 인증 설정을 저장한 후에는 **SAML 식별자** 값을 복사하고 `https://accounts.zoho.com/samlresponse/one.zoho.com`처럼 `<saml-identifier>` 자리에 **회신 URL**을 추가한 다음, 생성된 값을 **기본 SAML 구성을** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
     ![Zoho One saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 

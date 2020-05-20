@@ -141,7 +141,7 @@ public class BingWebSearchSample {
 
 ## <a name="construct-a-request"></a>요청 구성
 
-`runSample` 클래스에 있는 `BingWebSearchSample` 메서드는 요청을 구성합니다. 이 코드를 애플리케이션에 복사합니다.
+`BingWebSearchSample` 클래스에 있는 `runSample` 메서드는 요청을 구성합니다. 이 코드를 애플리케이션에 복사합니다.
 
 ```java
 public static boolean runSample(BingWebSearchAPI client) {

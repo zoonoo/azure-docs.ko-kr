@@ -269,7 +269,7 @@ Azure AD 사용자가 Absorb LMS에 로그인하려면 Absorb LMS에서 해당 �
     ![SSO 로그인만 허용 설정/해제](./media/absorblms-tutorial/save.png)
 
     > [!NOTE]
-    > 기본적으로 SSO에서는 사용자 프로비전을 사용하도록 설정되어 있지 않습니다. 고객이 이 기능을 사용하도록 설정하려면, [현재](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) 문서의 설명에 따라 설정해야 합니다. 또한, 사용자 프로비전은 ACS URL-**을 통해** Absorb 5 - New Learner Experience`https://company.myabsorb.com/api/rest/v2/authentication/saml`에서만 사용할 수 있다는 점에 유의해야 합니다.
+    > 기본적으로 SSO에서는 사용자 프로비전을 사용하도록 설정되어 있지 않습니다. 고객이 이 기능을 사용하도록 설정하려면, [현재](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) 문서의 설명에 따라 설정해야 합니다. 또한, 사용자 프로비전은 ACS URL-`https://company.myabsorb.com/api/rest/v2/authentication/saml`을 통해 **Absorb 5 - New Learner Experience**에서만 사용할 수 있다는 점에 유의해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

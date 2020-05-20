@@ -52,7 +52,7 @@ SignalR Service는 애플리케이션 서버의 하트비트를 모니터링합�
 
 ## <a name="why-does-my-custom-iuseridprovider-throw-exception-when-switching-from-aspnet-core-signalr--sdk-to-azure-signalr-service-sdk"></a>ASP.NET Core SignalR SDK에서 Azure SignalR Service SDK로 전환하는 경우 사용자 지정 `IUserIdProvider`에서 예외가 발생하는 이유가 무엇인가요?
 
-`HubConnectionContext context`가 호출되는 경우 ASP.NET Core SignalR SDK와 Azure SignalR Service SDK의 매개 변수 `IUserIdProvider`가 다릅니다.
+`IUserIdProvider`가 호출되는 경우 ASP.NET Core SignalR SDK와 Azure SignalR Service SDK의 매개 변수 `HubConnectionContext context`가 다릅니다.
 
 ASP.NET Core SignalR에서 `HubConnectionContext context`는 모든 속성에 대해 유효한 값이 있는 실제 클라이언트 연결의 컨텍스트입니다.
 

@@ -16,7 +16,7 @@ ms.locfileid: "75446429"
 
 다음으로, 새로 학습된 모델을 사용하여 문서를 분석하고 키-값 쌍 및 테이블을 추출합니다. 새 Python 스크립트에서 다음 코드를 실행하여 **[양식 분석](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 **샘플 데이터 세트**의 [Test](https://go.microsoft.com/fwlink/?linkid=2090451) 폴더에 있는 파일을 사용할 수 있습니다.
+1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다.
 1. `<model_id>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
 1. `<endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`입니다.
@@ -62,7 +62,7 @@ ms.locfileid: "75446429"
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. `python form-recognizer-analyze.py`)을 입력합니다.
 
-**양식 분석** API를 호출하면 `201 (Success)`Operation-Location**헤더가 있는** 응답을 받게 됩니다. 이 헤더의 값은 분석 작업의 결과를 추적하는 데 사용하는 ID입니다. 위의 스크립트는 이 헤더 값을 콘솔에 출력합니다.
+**양식 분석** API를 호출하면 **Operation-Location** 헤더가 있는 `201 (Success)` 응답을 받게 됩니다. 이 헤더의 값은 분석 작업의 결과를 추적하는 데 사용하는 ID입니다. 위의 스크립트는 이 헤더 값을 콘솔에 출력합니다.
 
 ## <a name="get-the-analyze-results"></a>분석 결과 가져오기
 

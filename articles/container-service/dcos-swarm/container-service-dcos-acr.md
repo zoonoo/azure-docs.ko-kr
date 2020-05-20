@@ -127,7 +127,7 @@ Ubuntu 이미지에서 컨테이너를 만듭니다.
 docker run ubuntu --name base-image
 ```
 
-이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer` 형식으로 컨테이너 레지스트리의 `loginServer/imageName` 이름을 포함해야 합니다.
+이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer/imageName` 형식으로 컨테이너 레지스트리의 `loginServer` 이름을 포함해야 합니다.
 
 ```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo

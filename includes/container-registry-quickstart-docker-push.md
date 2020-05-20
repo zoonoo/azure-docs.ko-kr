@@ -31,7 +31,7 @@ docker pull hello-world
 docker tag hello-world <acrLoginServer>/hello-world:v1
 ```
 
-마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. `<acrLoginServer>`를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다. 이 예제에서는 **이미지를 포함하는**hello-world`hello-world:v1` 리포지토리를 만듭니다.
+마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. `<acrLoginServer>`를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다. 이 예제에서는 `hello-world:v1` 이미지를 포함하는 **hello-world** 리포지토리를 만듭니다.
 
 ```
 docker push <acrLoginServer>/hello-world:v1

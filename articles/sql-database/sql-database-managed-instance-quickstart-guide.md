@@ -45,7 +45,7 @@ ms.locfileid: "73821729"
 
 관리되는 인스턴스를 만들고 액세스를 구성한 후 SQL Server 온-프레미스 또는 Azure VM에서 데이터베이스 마이그레이션을 시작할 수 있습니다. 마이그레이션할 원본 데이터베이스에 지원되지 않는 기능이 있으면 마이그레이션이 실패합니다. 실패를 방지하고 호환성을 확인하려면 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 설치하면 됩니다. DMA는 SQL Server의 데이터베이스를 분석하여 관리되는 인스턴스로 마이그레이션을 차단할 수 있는 문제(예: 여러 로그 파일 또는 [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) 존재)를 찾습니다. 이러한 문제를 해결하면 데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있습니다. [데이터베이스 실험 도우미](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/)는 또 다른 유용한 도구입니다. SQL Server에 워크로드를 기록하고 관리되는 인스턴스에서 재생할 수 있기 때문에 관리되는 인스턴스로 마이그레이션할 때 성능 문제가 있는지를 확인할 수 있습니다.
 
-데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있다는 확신이 들면 원시 SQL Server 복원 기능을 사용하여 `.bak` 파일에서 관리되는 인스턴스로 데이터베이스를 복원할 수 있습니다. 온-프레미스 또는 Azure VM에 설치된 SQL Server 데이터베이스 엔진에서 데이터베이스를 마이그레이션하려면 이 메서드를 사용할 수 있습니다. 빠른 시작의 경우 [백업에서 관리되는 인스턴스로 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 `.bak` Transact-SQL 명령을 사용하여 Azure Blob Storage에 저장된 `RESTORE` 파일로 복원합니다.
+데이터베이스를 관리되는 인스턴스로 마이그레이션할 수 있다는 확신이 들면 원시 SQL Server 복원 기능을 사용하여 `.bak` 파일에서 관리되는 인스턴스로 데이터베이스를 복원할 수 있습니다. 온-프레미스 또는 Azure VM에 설치된 SQL Server 데이터베이스 엔진에서 데이터베이스를 마이그레이션하려면 이 메서드를 사용할 수 있습니다. 빠른 시작의 경우 [백업에서 관리되는 인스턴스로 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 `RESTORE` Transact-SQL 명령을 사용하여 Azure Blob Storage에 저장된 `.bak` 파일로 복원합니다.
 
 > [!TIP]
 > `BACKUP` Transact-SQL 명령을 사용하여 Azure Blob Storage에 데이터베이스 백업을 만들려면 [URL에 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)을 참조하세요.

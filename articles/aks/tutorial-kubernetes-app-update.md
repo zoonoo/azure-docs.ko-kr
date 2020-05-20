@@ -34,7 +34,7 @@ Kubernetes에서 애플리케이션을 배포한 후 새 컨테이너 이미지 
 
 ## <a name="update-an-application"></a>애플리케이션 업데이트
 
-샘플 애플리케이션을 변경한 다음, AKS 클러스터에 배포된 버전을 업데이트하겠습니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인합니다. 그런 다음, *azure-vote* 디렉터리 내에서 애플리케이션 예제 소스 코드를 찾을 수 있습니다. *같은 편집기를 사용하여*config_file.cfg`vi` 파일을 엽니다.
+샘플 애플리케이션을 변경한 다음, AKS 클러스터에 배포된 버전을 업데이트하겠습니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인합니다. 그런 다음, *azure-vote* 디렉터리 내에서 애플리케이션 예제 소스 코드를 찾을 수 있습니다. `vi` 같은 편집기를 사용하여 *config_file.cfg* 파일을 엽니다.
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -85,7 +85,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
 
 > [!NOTE]
-> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기][az-acr-login] 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 명령을 실행합니다. `az acr login --name <azure container registry name>`)을 입력합니다.
+> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. `az acr login --name <azure container registry name>`)을 입력합니다.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

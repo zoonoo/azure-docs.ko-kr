@@ -197,7 +197,7 @@ moconavi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 테스트](./media/moconavi-tutorial/testing1.png)
 
-4. `https://mcs-admin.moconavi.biz/gateway`URL에 연결**텍스트 상자에서**를 입력한 다음, **완료** 단추를 클릭합니다.
+4. **URL에 연결** 텍스트 상자에서 `https://mcs-admin.moconavi.biz/gateway`를 입력한 다음, **완료** 단추를 클릭합니다.
 
     ![Single Sign-On 테스트](./media/moconavi-tutorial/testing2.png)
 
@@ -205,9 +205,9 @@ moconavi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 테스트](./media/moconavi-tutorial/testing3.png)
 
-    a. **인증 키 입력** 텍스트 상자에서 `azureAD`인증 키 입력 **:** 를 입력합니다.
+    a. **인증 키 입력** 텍스트 상자에서 **인증 키 입력**: `azureAD`를 입력합니다.
 
-    b. **사용자 ID 입력** 텍스트 상자에서 `your ad account`사용자 ID 입력 **:** 를 입력합니다.
+    b. **사용자 ID 입력** 텍스트 상자에서 **사용자 ID 입력**: `your ad account`를 입력합니다.
 
     다. **로그인**을 클릭합니다.
 
