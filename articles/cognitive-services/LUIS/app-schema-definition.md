@@ -3,12 +3,12 @@ title: 앱 스키마 정의
 description: LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예제 길이 발언, 기능 및 설정을 포함 합니다.
 ms.topic: reference
 ms.date: 05/05/2020
-ms.openlocfilehash: 21b58f79ffd2baf553c6f8b07daa84473e620f77
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599570"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684352"
 ---
 # <a name="app-schema-definition"></a>앱 스키마 정의
 
@@ -25,8 +25,8 @@ LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예�
 
 ## <a name="version-7x"></a>버전 4.x
 
-* 버전 4.x로 이동 하 여 엔터티는 중첩 된 컴퓨터에서 학습 된 엔터티로 표시 됩니다.
-* 다음 제작 Api의 속성을 사용 하 여 중첩 된 컴퓨터에서 학습 한 엔터티를 제작할 수 `enableNestedChildren` 있습니다.
+* 버전 4.x로 이동 하면 엔터티가 중첩 된 기계 학습 엔터티로 표시 됩니다.
+* 다음 제작 Api의 속성을 사용 하 여 중첩 된 machine learning 엔터티를 제작할 수 `enableNestedChildren` 있습니다.
     * [레이블 추가](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
     * [일괄 처리 레이블 추가](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09)
     * [레이블 검토](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c0a)
@@ -64,7 +64,7 @@ LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예�
 
 ## <a name="version-6x"></a>버전 6.x
 
-* 버전 6.x로 이동 하 여 새 [컴퓨터에서 배운 엔터티](reference-entity-machine-learned-entity.md) 를 사용 하 여 엔터티를 나타냅니다.
+* 버전 6.x로 이동 하 여 새 [machine learning 엔터티](reference-entity-machine-learned-entity.md) 를 사용 하 여 엔터티를 나타냅니다.
 
 ```json
 {

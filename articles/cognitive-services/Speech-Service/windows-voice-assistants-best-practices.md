@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997773"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714783"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Windows 10 용 디자인 도우미 환경
 
@@ -63,25 +63,22 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 - 도우미가 응답을 처리 하 고 준비 중입니다.
 - 도우미가 응답 중입니다.
 
-상태가 빠르게 변경 되는 경우에도 기간은 Windows 에코 시스템에서 가변적인 상태 이므로 상태에 대 한 UX를 제공 하는 것을 고려할 가치가 있습니다. 시각적 피드백 뿐만 아니라 brief 단점 &quot;&quot;이라고 하는 brief 오디오 chimes 또는 chimes는 솔루션에 포함 될 수 있습니다. 마찬가지로, 오디오 설명과 결합 된 시각적 카드는 좋은 응답 옵션을 위해 작성 되었습니다.
+상태가 빠르게 변경 되는 경우에도 기간은 Windows 에코 시스템에서 가변적인 상태 이므로 상태에 대 한 UX를 제공 하는 것을 고려할 가치가 있습니다. 시각적 피드백 뿐만 아니라 brief 단점 이라고 하는 brief 오디오 chimes 또는 chimes는 &quot; &quot; 솔루션에 포함 될 수 있습니다. 마찬가지로, 오디오 설명과 결합 된 시각적 카드는 좋은 응답 옵션을 위해 작성 되었습니다.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>앱 내 음성 활성화를 위한 디자인 지침
 
 길잡이 앱에 포커스가 있는 경우 고객 의도가 명확 하 게 앱과 상호 작용 하 여 모든 음성 활성화 환경을 기본 앱 보기에서 처리 해야 합니다. 이 보기는 고객의 크기를 조정할 수 있습니다. 이 문서의 나머지 부분에서는 도우미 셸 상호 작용을 설명 하기 위해 Contoso 라는 금융 서비스 길잡이의 구체적인 예를 사용 합니다. 이 다이어그램과 이후 다이어그램에서 고객에 게 표시 되는 것은 오른쪽의 카툰 거품형에서 보조자 응답을 사용 하 여 왼쪽에 있는 만화 음성 거품에 표시 됩니다.
 
-**앱 내 보기입니다. 음성 활성화 시작 시 초기 상태:**
-![활성화 하기 전에 Windows에서 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**앱 내 보기입니다. 음성 활성화 시작 시 초기 상태:** 
+ ![ 활성화 하기 전에 Windows에서 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**앱 내 보기입니다. 음성 활성화가 완료 되 면 수신 환경이 시작 됩니다.**![음성 길잡이가 수신 대기 하는 동안 Windows에서 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/listening.png)
+**앱 내 보기입니다. 음성 활성화가 완료 되 면 수신 환경이 시작 됩니다.** ![ 음성 길잡이가 수신 대기 하는 동안 Windows에서 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**앱 내 보기입니다. 모든 응답은 앱 환경에서 유지 됩니다.** ![길잡이 회신으로 Windows의 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/response.png)
+**앱 내 보기입니다. 모든 응답은 앱 환경에서 유지 됩니다.** ![ 길잡이 회신으로 Windows의 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>잠금 위의 음성 활성화를 위한 디자인 지침
 
 19H2에서 사용할 수 있습니다. Windows 음성 정품 인증 플랫폼을 기반으로 하는 길잡이는 위의 잠금에 대답할 수 있습니다.
-
-> [!NOTE]
-> 활성 문제로 인해 위의 잠금 UI를 그리는 도우미가 모든 dismissals에 대해 WindowService. CloseWindow ()를 구현 해야 합니다. 그러면 앱 종료가 발생 하지만 기술 문제를 완화 하 고 길잡이를 깨끗 한 상태로 유지 합니다. 또한 앱이 잠금 음성 활성화를 위해 사용 하도록 설정 된 경우 clean 상태를 유지 하기 위해 장치를 잠그면 잠금 상태 변경 및 WindowService. CloseWindow ()를 수신 대기 해야 합니다.
 
 ### <a name="customer-opt-in"></a>고객 옵트인
 
@@ -108,16 +105,16 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 - **위의 잠금을 보여 주는 모든 보조자 캔버스** 는 도우미를 해제 하는 오른쪽 위에 X를 포함 해야 합니다.
 - **키를 누르면 길잡이 앱도 해제 해야**합니다. 키보드 입력은 고객이 로그인 하려는 기존의 잠금 앱 신호입니다. 따라서 키보드/텍스트 입력을 앱으로 전달 하면 안 됩니다. 대신, 사용자가 장치에 쉽게 로그인 할 수 있도록 키보드 입력이 검색 되 면 앱을 자동으로 해제 해야 합니다.
 - **화면이 꺼진 경우 앱을 자동으로 해제 해야 합니다.** 이렇게 하면 다음에 고객이 PC를 사용할 때 로그인 화면이 준비 되 고 대기 하 게 됩니다.
-- 앱을 사용&quot;중인 &quot;경우 잠금을 계속 진행할 수 있습니다. &quot;in 사용&quot; 에서 입력 또는 출력을 구성 합니다. 예를 들어 음악 또는 동영상을 스트리밍할 때 앱이 잠금을 계속 진행할 수 있습니다. &quot;후속&quot; 및 기타 multiturn 대화 상자 단계를 통해 앱을 잠금 상태로 유지할 수 있습니다.
+- 앱을 사용 중인 경우 &quot; &quot; 잠금을 계속 진행할 수 있습니다. &quot;in 사용에서 &quot; 입력 또는 출력을 구성 합니다. 예를 들어 음악 또는 동영상을 스트리밍할 때 앱이 잠금을 계속 진행할 수 있습니다. &quot;후속 &quot; 및 기타 multiturn 대화 상자 단계를 통해 앱을 잠금 상태로 유지할 수 있습니다.
 - **응용 프로그램 해제에 대 한 구현 세부 정보** 는 [위의 잠금 구현 가이드에서](windows-voice-assistants-implementation-guide.md#closing-the-application)찾을 수 있습니다.
 
 ![정품 인증 전의 Windows 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
 ![정품 인증 전의 Windows 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
-### <a name="privacy-amp-security-considerations-above-lock"></a>잠금 &amp; 위에 있는 개인 정보 보호 보안 고려 사항
+### <a name="privacy-amp-security-considerations-above-lock"></a>잠금 위에 있는 개인 정보 보호 &amp; 보안 고려 사항
 
-많은 Pc는 이식 가능 하지만 항상 고객에 게 도달 하는 것은 아닙니다. 다른 사람이 물리적으로 액세스 하는 호텔 대화방, 비행기 좌석 또는 작업 영역에 잠시 남아 있을 수 있습니다. 잠금을 통해 사용 하도록 설정 된 도우미가 준비 되지 않은 경우에는 &quot; [악의적인 maid](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; 공격 클래스가 될 수 있습니다.
+많은 Pc는 이식 가능 하지만 항상 고객에 게 도달 하는 것은 아닙니다. 다른 사람이 물리적으로 액세스 하는 호텔 대화방, 비행기 좌석 또는 작업 영역에 잠시 남아 있을 수 있습니다. 잠금을 통해 사용 하도록 설정 된 도우미가 준비 되지 않은 경우에는 &quot; [악의적인 maid](https://en.wikipedia.org/wiki/Evil_maid_attack) 공격 클래스가 될 수 있습니다 &quot; .
 
 따라서 도우미는이 섹션의 지침에 따라 환경을 안전 하 게 유지 해야 합니다. 위의 상호 작용 잠금은 Windows 사용자가 인증 되지 않은 경우에 발생 합니다. 즉, 일반적으로 **도우미에 대 한 입력도 인증 되지 않은 것으로 처리**되어야 합니다.
 
@@ -127,9 +124,9 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 
 | **Action 클래스** | **설명** | **예 (전체 목록 아님)** |
 | --- | --- | --- |
-| 인증 없이 안전 | 범용 정보 또는 기본 앱 명령 및 제어 | &quot;몇 시예요? &quot;다음 &quot;트랙을 재생 합니다.&quot; |
-| 스피커 ID로 안전 | 가장 위험은 개인 정보를 노출 합니다. | &quot;다음 약속을&#39;하는 것은 무엇 인가요? &quot;에서 &quot;내 쇼핑 목록을&quot;검토 하 &quot;고 통화에 답변 합니다.&quot; |
-| Windows 인증 후에만 안전 | 공격자가 고객을 손상 시키는 데 사용할 수 있는 높은 위험 수준 작업 | &quot;더 많은 잡화&quot;를 &quot;구매 하 고 (중요)&quot;약속 &quot;을 삭제 하 고 (평균)&quot;문자 &quot;메시지를 보내고 (부정한) 웹 페이지를 시작 합니다.&quot; |
+| 인증 없이 안전 | 범용 정보 또는 기본 앱 명령 및 제어 | &quot;시간 이란 무엇 인가요? &quot; &quot; 다음 트랙을 재생 합니다.&quot; |
+| 스피커 ID로 안전 | 가장 위험은 개인 정보를 노출 합니다. | &quot;다음 약속을&#39;하 &quot; 고, &quot; 쇼핑 목록을 검토 하 고 &quot; , &quot; 통화에 답변 하세요.&quot; |
+| Windows 인증 후에만 안전 | 공격자가 고객을 손상 시키는 데 사용할 수 있는 높은 위험 수준 작업 | &quot;더 많은 잡화 &quot; 를 구매 하 고 ( &quot; 중요) 약속을 삭제 하 고 &quot; &quot; (평균) 문자 메시지 &quot; 를 보내고 &quot; (부정한) 웹 페이지를 시작 합니다.&quot; |
 
 Contoso의 경우 공개 주식 정보에 대 한 일반 정보는 인증 없이 안전 합니다. 소유 하 고 있는 공유 수와 같은 고객 관련 정보는 발표자 ID로 안전 합니다. 그러나 Windows 인증 없이는 주식 구매 또는 판매를 허용 해서는 안 됩니다.
 

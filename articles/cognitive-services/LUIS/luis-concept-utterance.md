@@ -2,17 +2,17 @@
 title: 좋은 예 길이 발언-LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592868"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685278"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
-**발언**은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 활성 학습 또는 새 발언에 대한 지속적인 학습 프로세스는 LUIS에서 제공하는 기계 학습 인텔리전스에 반드시 필요합니다.
+**발언**은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
 
 사용자가 입력할만한 발언을 수집합니다. 같은 의미를 갖지만 다르게 구성된 다양한 발언을 포함시킵니다.
 
@@ -84,7 +84,7 @@ LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 
 
 ### <a name="word-forms"></a>Word 양식
 
-**단어 형식** 표준화는 루트를 벗어나 확장 되는 단어의 차이를 무시 합니다. 예를 들어, 및 라는 단어는 `run` `running` `runs` 동사 시제에 따라 변경 됩니다.
+**단어 형식** 표준화는 루트를 벗어나 확장 되는 단어의 차이를 무시 합니다.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

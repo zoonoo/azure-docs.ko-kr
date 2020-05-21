@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592188"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701817"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592188"
 
 **Q: 사용할 수 있는 기능은 무엇 인가요?**
 
-**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 [제어 된 미리 보기로](../cognitive-services-gating-process.md)사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. 
+**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. 
 
 **Q: Cognitive Services 클라우드와 컨테이너 간에 차이가 있나요?**
 
@@ -108,7 +108,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-billing]
 * [언어 이해(LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
-* [Text Analytics][ta-containers-billing]
+* [텍스트 분석][ta-containers-billing]
 
 > [!IMPORTANT]
 > Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.
@@ -135,7 +135,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-recommendations]
 * [언어 이해(LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
-* [Text Analytics][ta-containers-recommendations]
+* [텍스트 분석][ta-containers-recommendations]
  
 **Q: 이러한 컨테이너는 현재 Windows에서 지원 되나요?**
 

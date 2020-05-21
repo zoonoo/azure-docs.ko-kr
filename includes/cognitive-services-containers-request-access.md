@@ -1,20 +1,20 @@
 ---
-author: IEvangelist
-ms.author: dapine
+author: aahill
+ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
-ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/18/2020
+ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593337"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698541"
 ---
-컨테이너에 대 한 액세스를 요청 하는 [Cognitive Services 컨테이너 요청 양식을](https://aka.ms/cognitivegate) 작성 하 고 제출 합니다. 이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식을 제출한 후 Azure Cognitive Services 팀은이를 검토 하 여 개인 컨테이너 레지스트리에 대 한 액세스 조건을 충족 하는지 확인 합니다.
+이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식을 제출한 후 Azure Cognitive Services 팀은이를 검토 하 여 개인 컨테이너 레지스트리에 대 한 액세스 조건을 충족 하는지 확인 합니다.
 
 > [!IMPORTANT]
-> 양식의 Microsoft 계정 (MSA) 또는 Azure Active Directory (Azure AD) 계정에 연결 된 전자 메일 주소를 사용 해야 합니다. 승인 기준에 대 한 자세한 내용은 [Cognitive Services 제어 프로세스](../articles/cognitive-services/cognitive-services-gating-process.md)를 참조 하세요.
+> 양식의 Microsoft 계정 (MSA) 또는 Azure Active Directory (Azure AD) 계정에 연결 된 전자 메일 주소를 사용 해야 합니다.
 
 요청이 승인 되 면 자격 증명을 가져오고 개인 컨테이너 레지스트리에 액세스 하는 방법을 설명 하는 지침이 포함 된 전자 메일을 받게 됩니다.
 

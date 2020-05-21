@@ -8,14 +8,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8be5dac2d1d5e8a5a3ceafff6b51b2d89e03993f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593287"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685292"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가
 
@@ -25,24 +25,28 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ## <a name="plan-entities-then-create-and-label"></a>엔터티 계획, 만들기 및 레이블 만들기
 
-컴퓨터에서 배운 엔터티는 예제 길이 발언에서 만들거나 **엔터티** 페이지에서 만들 수 있습니다.
+기계 학습 엔터티는 예제 길이 발언에서 만들거나 **엔터티** 페이지에서 만들 수 있습니다.
 
-일반적으로 포털에서 컴퓨터에서 학습 한 엔터티를 만들기 전에 엔터티를 계획 하는 데 시간을 할애 하는 것이 가장 좋습니다. 그런 다음 사용자가 알고 있는 하위 엔터티 및 기능에 대 한 세부 정보를 사용 하 여 예제 utterance에서 컴퓨터에서 배운 엔터티를 만듭니다. [없습니다 entity 자습서](tutorial-machine-learned-entity.md) 에서는이 메서드를 사용 하는 방법을 보여 줍니다.
+일반적으로 포털에서 기계 학습 엔터티를 만들기 전에 엔터티를 계획 하는 데 시간을 할애 하는 것이 가장 좋습니다. 그런 다음 사용자가 알고 있는 하위 엔터티 및 기능에 대 한 세부 정보를 사용 하 여 예제 utterance에서 machine learning 엔터티를 만듭니다. [없습니다 entity 자습서](tutorial-machine-learned-entity.md) 에서는이 메서드를 사용 하는 방법을 보여 줍니다.
 
 엔터티를 계획 하는 과정에서 텍스트 일치 엔터티 (예: 미리 작성 된 엔터티, 정규식 엔터티 또는 목록 엔터티)가 필요 하다는 것을 알 수 있습니다. 예 길이 발언에서 레이블을 지정 하기 전에 **엔터티** 페이지에서 만들 수 있습니다.
 
-레이블을 지정 하는 경우 개별 엔터티의 레이블을 지정 하 고 부모 컴퓨터에서 학습 한 엔터티까지 빌드할 수 있습니다. 또는 부모 컴퓨터에서 학습 한 엔터티로 시작 하 고 자식 엔터티로 분해할 수 있습니다.
+레이블을 지정할 때 개별 엔터티의 레이블을 지정 하 고 부모 기계 학습 엔터티를 만들 수 있습니다. 또는 부모 기계 학습 엔터티로 시작 하 고 자식 엔터티로 분해할 수 있습니다.
 
 > [!TIP]
 >클라이언트 응용 프로그램에서 추출할 때 단어가 사용 되지 않더라도 엔터티를 나타낼 수 있는 모든 단어에 레이블을 지정 합니다.
 
-## <a name="creating-an-entity-before-or-with-labeling"></a>레이블 앞에 또는 레이블 지정을 사용 하 여 엔터티 만들기
+## <a name="when-to-create-an-entity"></a>엔터티를 만들어야 하는 경우
 
-다음 표를 사용 하 여 각 엔터티를 만들거나 앱에 추가할 엔터티를 파악 합니다.
+엔터티를 계획 한 후에는 기계 학습 엔터티와 하위 엔터티를 만들어야 합니다. 이렇게 하려면 미리 작성 한 엔터티 또는 텍스트 일치 엔터티를 추가 하 여 기계 학습 엔터티에 대 한 기능을 제공 해야 할 수 있습니다. 이러한 작업은 레이블을 지정 하기 전에 모두 수행 해야 합니다.
+
+길이 발언 예제에 대 한 레이블 지정을 시작한 후에는 컴퓨터에서 학습 한 엔터티를 만들거나 목록 엔터티를 확장할 수 있습니다.
+
+다음 표를 사용 하 여 앱에 각 엔터티 형식을 만들거나 추가할 위치를 파악 합니다.
 
 |엔터티 유형|LUIS 포털에서 엔터티를 만들 위치|
 |--|--|
-|기계 학습된 엔터티|엔터티 또는 의도 세부 정보|
+|기계 학습 엔터티|엔터티 또는 의도 세부 정보|
 |목록 엔터티|엔터티 또는 의도 세부 정보|
 |정규식 엔터티|엔터티|
 |Pattern.any 엔터티|엔터티|
@@ -51,27 +55,11 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 **엔터티 페이지에서** 모든 엔터티를 만들거나, **의도 세부 정보** 페이지의 예제 utterance에서 엔터티 레이블 지정의 일부로 두 엔터티를 만들 수 있습니다. **의도 세부 정보** 페이지의 utterance 예에서는 엔터티의 _레이블을_ 지정할 수 있습니다.
 
-## <a name="create-a-machine-learned-entity"></a>컴퓨터에서 학습 한 엔터티 만들기
 
-[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## <a name="create-a-text-matching-entity"></a>텍스트 일치 엔터티 만들기
+## <a name="how-to-create-a-new-custom-entity"></a>새 사용자 지정 엔터티를 만드는 방법
 
-텍스트 일치 엔터티를 사용 하 여 데이터를 추출 하는 여러 가지 방법을 제공 합니다.
-
-|텍스트 일치 엔터티|용도|
-|--|--|
-|[목록 엔터티](reference-entity-list.md)|다른 형태의 동의어와 함께 정식 이름 목록|
-|정규식 엔터티|정규식 엔터티를 사용 하 여 텍스트 일치|
-|[미리 빌드된 엔터티](luis-reference-prebuilt-entities.md)|숫자, 전자 메일, 날짜 등의 공통 데이터 형식 일치|
-|미리 빌드된 도메인 엔터티|선택한 주체 도메인을 사용한 일치|
-|[Pattern.any](reference-entity-pattern-any.md)| 주변 텍스트와 쉽게 혼동 될 수 있는 엔터티를 일치 시키려면|
-
-미리 작성 된 엔터티는 사용자 지정 학습 데이터를 제공 하지 않고 작동 합니다. 다른 엔터티에는 고객 학습 데이터 (예: 엔터티 항목 나열) 또는 식 (예: 정규식 또는 패턴)을 제공 해야 합니다.
-
-<a name="add-list-entities"></a>
-
-### <a name="how-to-create-a-new-custom-entity"></a>새 사용자 지정 엔터티를 만드는 방법
+이 프로세스는 컴퓨터에서 배운 엔터티, 목록 엔터티 및 정규식 엔터티를 위해 작동 합니다.
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
@@ -79,7 +67,50 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 1. **+ 만들기**를 선택한 다음 엔터티 형식을 선택 합니다.
 1. 엔터티를 계속 구성 하 고 완료 되 면 **만들기** 를 선택 합니다.
 
-### <a name="add-list-entities-for-exact-matches"></a>정확히 일치 하는 항목에 대 한 목록 엔터티 추가
+## <a name="create-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티 만들기
+
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
+1. **엔터티 형식 만들기** 대화 상자에서 엔터티의 이름을 입력 하 고 **학습 된 컴퓨터**를 선택 하 고를 선택 합니다. 하위 엔터티를 추가 하려면 **구조 추가**를 선택 합니다. **만들기**를 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![컴퓨터에서 배운 엔터티를 만드는 스크린샷](media/add-entities/machine-learned-entity-with-structure.png)
+
+1. 하위 엔터티 **추가**에서 **+** 부모 엔터티 행의을 선택 하 여 하위 엔터티를 추가 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![하위 엔터티를 추가 하는 스크린샷](media/add-entities/machine-learned-entity-with-subentities.png)
+
+1. **만들기** 를 선택 하 여 만들기 프로세스를 완료 합니다.
+
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티에 기능 추가
+
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 컴퓨터에서 배운 엔터티를 선택 합니다.
+1. 엔터티 또는 하위 엔터티 행에서 **+ 기능 추가** 를 선택 하 여 기능을 추가 합니다.
+1. 기존 엔터티 및 구 목록에서 선택 합니다.
+1. 기능이 있는 경우에만 엔터티를 추출 해야 하는 경우 `*` 해당 기능에 대해 별표를 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![엔터티에 기능을 추가 하는 스크린샷](media/add-entities/machine-learned-entity-schema-with-features.png)
+
+## <a name="create-a-regular-expression-entity"></a>정규식 엔터티 만들기
+
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
+
+1. **엔터티 형식 만들기** 대화 상자에서 엔터티의 이름을 입력 하 고 **regex**를 선택 하 고 **regex** 필드에 정규식을 입력 한 다음 **만들기**를 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![정규식 엔터티를 만드는 스크린샷](media/add-entities/add-regular-expression-entity.png)
+
+
+<a name="add-list-entities"></a>
+
+## <a name="create-a-list-entity"></a>목록 엔터티 만들기
 
 목록 엔터티는 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. 작성자가 목록을 변경할 수 있는 반면 LUIS는 목록을 확장 하거나 축소할 수 없습니다. [List entity. json 형식을](reference-entity-list.md#example-json-to-import-into-list-entity)사용 하 여 기존 목록 엔터티로 가져올 수도 있습니다.
 
@@ -88,7 +119,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 |색 목록 항목 이름|색-동의어|
 |--|--|
 |빨강|크림슨, 피, apple, 화재-엔진|
-|파랑|하늘, azure, 코발트|
+|파랑|하늘, 코발트|
 |녹색|최소라, 라임|
 
 목록 엔터티를 만들려면 절차를 사용 합니다. 목록 엔터티를 만든 후에는 길이 발언 예제에 레이블을 추가할 필요가 없습니다. 목록 항목과 동의어가 정확히 일치 하는 텍스트를 사용 하 여 일치 합니다.
@@ -138,47 +169,38 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
     이 역할은 미리 작성 된 엔터티에 추가 되지만 해당 엔터티를 사용 하는 길이 발언에는 추가 되지 않습니다.
 
 ### <a name="label-text-with-a-role-in-an-example-utterance"></a>예 utterance에서 역할을 사용 하 여 텍스트 레이블
+
+> [!TIP]
+> 역할은 기계 학습 엔터티의 하위 엔터티로 레이블을 지정 하 여 바꿀 수 있습니다.
+
 1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 역할을 사용 하는 예제 길이 발언를 포함 하는 의도 세부 정보 페이지로 이동 합니다.
-1. 역할을 사용 하 여 레이블을 적용 하려면 예제 utterance에서 엔터티 레이블 (텍스트 아래 실선)을 선택 하 고 드롭다운 목록에서 **엔터티 팔레트에서 보기** 를 선택 합니다.
+1. 역할을 사용 하 여 레이블을 표시 하려면 utterance 예제에서 엔터티 레이블 (텍스트 아래 실선)을 선택 하 고 드롭다운 목록에서 **엔터티 창에서 보기** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)
+    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/view-in-entity-pane.png)
 
     엔터티 팔레트가 오른쪽에 열립니다.
 
 1. 엔터티를 선택 하 고 팔레트 아래쪽으로 이동 하 여 역할을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![엔터티 팔레트에서 보기 선택의 스크린샷](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
+<a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="add-a-patternany-entity"></a>패턴 추가. 모든 엔터티
+## <a name="create-a-patternany-entity"></a>패턴 만들기. 모든 엔터티
 
-[패턴. 모든](luis-concept-entity-types.md) 엔터티는 의도 하지 않은 ' 예 길이 발언 ' [패턴](luis-how-to-model-intent-pattern.md)에서만 유효 합니다. 이 유형의 엔터티는 LUIS가 다양한 길이 및 단어 선택이 포함된 엔터티의 끝을 찾는 데 도움을 줍니다. 이 엔터티는 패턴에 사용되므로 LUIS는 발화 템플릿에서 엔터티의 끝 위치를 알 수 있습니다.
+**패턴입니다. 모든** 엔터티는 [패턴](luis-how-to-model-intent-pattern.md)에서만 사용할 수 있습니다.
 
-### <a name="steps-to-create-a-patternany-entity"></a>패턴을 만드는 단계. 모든 엔터티
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
-1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
-
-1. **엔터티 형식 선택** 대화 상자에서 **이름** 상자에 엔터티 이름을 입력 하 고 **패턴. Any** 를 **형식** 으로 선택한 다음 **만들기**를 선택 합니다.
-
-    이 엔터티를 사용 하 여 [utterance 패턴을 만든](luis-how-to-model-intent-pattern.md) 후에는 결합 된 컴퓨터에서 배운 텍스트 일치 알고리즘을 사용 하 여 엔터티를 추출 합니다.
-
-### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>패턴을 사용할 패턴 템플릿 utterance를 만듭니다. 모든 엔터티
-
-pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
-
-Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다.
 
 ## <a name="do-not-change-entity-type"></a>엔터티 형식 변경 안 함
 
 LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 항목을 잘 모르기 때문에 엔터티의 형식을 변경하도록 허용하지 않습니다. 형식을 변경하기 위해서는 약간 다른 이름을 사용하여 올바른 형식의 새 엔터티를 만드는 것이 좋습니다. 엔터티가 만들어지면 각 발언에서 이전 레이블이 지정된 엔터티 이름을 제거한 후 새 엔터티 이름을 추가합니다. 모든 발언에 레이블이 다시 지정되면 이전 엔터티를 삭제합니다.
 
-<a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>다음 단계
 

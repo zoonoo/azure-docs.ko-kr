@@ -1,7 +1,7 @@
 ---
 title: 단순 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
-description: 간단한 엔터티는 컴퓨터에서 학습 한 컨텍스트의 단일 개념을 설명 합니다. 간단한 엔터티를 사용 하 여 결과를 개선할 때 구 목록을 추가 합니다.
+description: 간단한 엔터티는 기계 학습 컨텍스트의 단일 개념을 설명 합니다. 간단한 엔터티를 사용 하 여 결과를 개선할 때 구 목록을 추가 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74894752"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684563"
 ---
 # <a name="simple-entity"></a>단순 엔터티
 
-단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 단준 엔터티 이름이 일반적으로 회사 이름, 제품 이름 또는 이름의 기타 범주와 같은 이름이기 때문에 사용된 이름의 신호를 향상시키기 위해 간단한 엔터티를 사용하는 경우 [구 목록](luis-concept-feature.md)을 추가합니다.
+간단한 엔터티는 단일 개념을 설명 하 고 기계 학습 컨텍스트에서 학습 된 일반 엔터티입니다. 단준 엔터티 이름이 일반적으로 회사 이름, 제품 이름 또는 이름의 기타 범주와 같은 이름이기 때문에 사용된 이름의 신호를 향상시키기 위해 간단한 엔터티를 사용하는 경우 [구 목록](luis-concept-feature.md)을 추가합니다.
 
 **다음과 같은 경우 이 엔터티가 적합합니다.**
 
@@ -51,7 +51,7 @@ ms.locfileid: "74894752"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-이는 쿼리 문자열에 `verbose=false` 가 설정 된 경우 JSON입니다.
+이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
 "entities": {
@@ -88,7 +88,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-|데이터 개체|엔터티 이름|Value|
+|데이터 개체|엔터티 이름|값|
 |--|--|--|
 |단순 엔터티|`Customer`|`bob jones`|
 

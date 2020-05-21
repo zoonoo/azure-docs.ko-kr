@@ -4,19 +4,19 @@ description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 �
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585575"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684539"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
 패턴 구문은 발언의 템플릿입니다. 템플릿에는 일치 시키려는 단어와 엔터티 뿐만 아니라 무시 하려는 단어와 [문장 부호가](luis-reference-application-settings.md#punctuation-normalization) 포함 되어야 합니다. 정규식은 **아닙니다**.
 
 > [!CAUTION]
-> 패턴에는 자식 엔터티가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
+> 패턴에는 하위 엔터티가 아닌 machine learning 엔터티 부모만 포함 됩니다.
 
 패턴의 엔터티는 중괄호 `{}`로 묶입니다. 패턴은 엔터티 및 역할이 있는 엔터티를 포함할 수 있습니다. [패턴. any](luis-concept-entity-types.md#patternany-entity) 는 패턴에만 사용 되는 엔터티입니다.
 

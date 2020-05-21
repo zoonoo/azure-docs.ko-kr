@@ -1,7 +1,7 @@
 ---
-title: 컴퓨터에서 배운 엔터티 형식-LUIS
+title: 기계 학습 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
-description: 컴퓨터에서 배운 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
+description: 기계 학습 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585592"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684567"
 ---
-# <a name="machine-learned-entity"></a>기계 학습된 엔터티
+# <a name="machine-learning-entity"></a>기계 학습 엔터티
 
-컴퓨터에서 배운 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
+기계 학습 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
 
 
 ## <a name="example-json"></a>예제 JSON
@@ -38,7 +38,7 @@ ms.locfileid: "83585592"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-컴퓨터에서 학습 한 엔터티에는 필요한 기능이 포함 된 많은 하위 엔터티가 있을 수 있으므로이는 단지 예 일 뿐입니다. 엔터티가 반환 하는 항목에 대 한 가이드로 간주 되어야 합니다.
+기계 학습 엔터티에는 필요한 기능이 포함 된 많은 하위 엔터티가 있을 수 있으므로이는 단지 예 일 뿐입니다. 엔터티가 반환 하는 항목에 대 한 가이드로 간주 되어야 합니다.
 
 다음 쿼리를 살펴보십시오.
 

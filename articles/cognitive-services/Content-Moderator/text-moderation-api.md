@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81274013"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685072"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
-Content Moderator의 기계 지원 텍스트 조정 및 [사용자 검토](Review-Tool-User-Guide/human-in-the-loop.md) 기능을 사용 하 여 일반 텍스트 콘텐츠를 제공 합니다.
+텍스트 콘텐츠를 분석 하려면 Content Moderator의 텍스트 중재 모델을 사용 합니다.
 
-정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토합니다. 사용자의 환경 중재를 강화하여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성하도록 하는 데 사용됩니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다. 
+정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토할 수 있습니다 (사용자 리뷰를 설정 하는 방법을 알아보려면 [리뷰, 워크플로 및 작업](./review-api.md) 참조). 텍스트 조정 모델을 사용 하 여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성 하는 환경에 대 한 사용자 중재를 보강 합니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다. 
 
 서비스 응답에는 다음 정보가 포함됩니다.
 
@@ -80,7 +80,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
 
-- 전자 메일 주소
+- 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호
@@ -155,4 +155,4 @@ Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [
 
 ## <a name="next-steps"></a>다음 단계
 
-[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 c #에 대해 잘 알고 있는 경우 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 텍스트 조정 섹션도 확인 하세요.
+[텍스트 중재 api 콘솔](try-text-api.md)을 사용 하 여 api를 테스트 합니다. 또한 [리뷰, 워크플로 및 작업](./review-api.md) 을 참조 하 여 인간 리뷰를 설정 하는 방법을 알아보세요.

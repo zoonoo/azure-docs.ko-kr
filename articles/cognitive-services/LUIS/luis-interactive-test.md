@@ -2,13 +2,13 @@
 title: LUIS 포털에서 앱 테스트
 description: Language Understanding(LUIS)을 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591865"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714419"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 
@@ -42,33 +42,36 @@ ms.locfileid: "83591865"
 
 1. 발화, 상위 의도 및 점수가 텍스트 상자 아래 발화 목록에 추가됩니다.
 
-    ![대화형 테스트에서 잘못된 의도 식별](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![대화형 테스트에서 잘못된 의도 식별](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>점수 검사
+## <a name="inspect-the-prediction"></a>예측 검사
 
 **검사** 패널에서 테스트 결과의 세부 정보를 검사 합니다.
 
 1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사**를 선택합니다.
 
-    ![테스트 결과에 대한 자세한 내용을 보려면 [검사] 단추를 선택합니다.](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![테스트 결과에 대한 자세한 내용을 보려면 [검사] 단추를 선택합니다.](./media/luis-how-to-interactive-test/inspect.png)
 
-1. **검사** 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
+1. **검사** 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 이 패널에는 선택한 utterance의 예측이 표시 됩니다.
 
-    ![패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.](./media/luis-how-to-interactive-test/inspect-panel.png)
+    > [!div class="mx-imgBorder"]
+    > ![테스트 검사 패널의 부분 스크린샷](./media/luis-how-to-interactive-test/inspect-panel.png)
 
-## <a name="correct-top-scoring-intent"></a>상위 점수 의도 수정
+## <a name="add-to-example-utterances"></a>예 길이 발언에 추가
 
-1. 상위 점수 의도가 잘못된 경우, **편집** 단추를 선택합니다.
+검사 패널에서 **예제 길이 발언에 추가를**선택 하 여 테스트 utterance을 의도에 추가할 수 있습니다.
 
-1.  드롭다운 목록에서 발화의 올바른 의도를 선택합니다.
+## <a name="disable-required-features"></a>필수 기능 사용 안 함
 
-    ![올바른 의도 선택](./media/luis-how-to-interactive-test/intent-select.png)
+엔터티의 기능이 필요 하지 않은 경우이 옵션을 선택 하 여 예측 결과를 확인 합니다.
+
+이 토글은 학습 된 앱이 필요한 기능을 기준으로 엔터티를 올바르게 예측 하는지 여부를 확인 하는 데 도움이 됩니다. 학습 된 앱은 길이 발언 예의 잘못 된 레이블 지정을 기반으로 하는 컴퓨터의 학습 된 엔터티를 예측 실패 수 있습니다. 또는 필요한 기능이 텍스트와 일치 하지 않습니다.
 
 ## <a name="view-sentiment-results"></a>감정 결과 보기
 
 **감정 분석**이 **[게시](luis-how-to-publish-app.md#enable-sentiment-analysis)** 페이지에 구성되어 있으면 테스트 결과에는 발화에서 발견된 감정이 포함됩니다.
-
-![감정 분석이 포함된 테스트 창 이미지](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>일치하는 패턴의 의도 수정
 
@@ -78,12 +81,14 @@ ms.locfileid: "83591865"
 
 게시된 [엔드포인트](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교**를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다.
 
-![게시된 버전과 비교](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![게시된 버전과 비교](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>테스트 패널에서 엔드포인트 JSON 보기
 **JSON 보기 표시**를 선택하여 비교에 반환된 엔드포인트 JSON을 볼 수 있습니다.
 
-![게시된 JSON 응답](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![게시된 JSON 응답](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>테스트 패널의 추가 설정
 
