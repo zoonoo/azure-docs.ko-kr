@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584976"
+ms.locfileid: "83654033"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
 LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다.
 
-의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관리된 다음, 왼쪽 패널의 **의도**에서 관리됩니다.
+LUIS 포털에서 의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관리 된 후 왼쪽 패널의 **의도**에서 관리 됩니다.
 
-## <a name="add-intent"></a>의도 추가
+## <a name="add-an-intent-to-your-app"></a>앱에 의도 추가
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
@@ -34,7 +34,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
     > [!div class="mx-imgBorder"]
     > ![의도 추가](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    의도에 길이 발언 예제가 필요 합니다.
+    게시 된 예측 끝점에서 길이 발언를 예측 하려면 의도에 [길이 발언 예제가](luis-concept-utterance.md) 필요 합니다.
 
 ## <a name="add-an-example-utterance"></a>예제 발화 추가
 
@@ -51,16 +51,16 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 ## <a name="intent-prediction-errors"></a>의도 예측 오류
 
-의도 한 utterance 예제에는 utterance가 현재 있는 것과 학습 중에 결정 된 의도 사이에 의도 예측 오류가 있을 수 있습니다.
+의도 예측 오류는 의도에 대해 학습 된 앱으로 utterance 예측 되지 않을 때 결정 됩니다.
 
-Utterance 예측 오류를 찾아 해결 하려면 **자세히 보기**의 **보기** 옵션과 부정확 하 고 명확 하지 않은 **필터** 옵션을 사용 합니다.
+1. Utterance 예측 오류를 찾아 수정 하려면 부정확 하 고 명확 하지 않은 **필터** 옵션을 사용 합니다.
 
-![Utterance 예측 오류를 찾아 수정 하려면 필터 옵션을 사용 합니다.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Utterance 예측 오류를 찾아 수정 하려면 필터 옵션을 사용 합니다.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-필터와 보기가 적용 되 고 오류가 있는 예 길이 발언가 있는 경우 예제 utterance 목록에 길이 발언와 문제가 표시 됩니다.
+1. 의도 정보 페이지에서 점수 값을 표시 하려면 **보기** 옵션 메뉴에서 **자세한 정보 표시 점수 표시** 를 선택 합니다.
 
-> [!div class="mx-imgBorder"]
-> ![! [필터 및 보기가 적용 되 고 길이 발언 예제가 있는 경우 예제 utterance 목록에는 길이 발언와 문제가 표시 됩니다.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    필터와 보기가 적용 되 고 오류가 있는 예 길이 발언가 있는 경우 예제 utterance 목록에 길이 발언와 문제가 표시 됩니다.
 
 각 행은 예 utterance의 현재 학습 예측 점수를 보여 줍니다. 가장 가까운 경쟁의 점수는 이러한 두 점수의 차이입니다.
 

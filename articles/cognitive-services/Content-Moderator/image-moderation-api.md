@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404257"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684071"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
-Content Moderator의 기계 지원 이미지 조정 및 사용자가 [반복 하는 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 사용 합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
+Content Moderator의 기계 지원 이미지 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 보호 합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>성인 및 외설 콘텐츠 평가
 
@@ -147,4 +147,4 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 c #에 대해 잘 알고 있는 경우 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 이미지 조정 섹션도 확인 하세요.
+[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 [리뷰, 워크플로 및 작업](./review-api.md) 을 참조 하 여 인간 리뷰를 설정 하는 방법을 알아보세요.

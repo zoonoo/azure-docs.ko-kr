@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399713"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650596"
 ---
 ## <a name="reference-docs"></a>참조 문서
 
@@ -43,5 +43,6 @@ ms.locfileid: "81399713"
 다양 한 Speech service REST Api에 대 한 참조는 아래 목록을 참조 하세요.
 
 - [REST API: 음성 텍스트 변환](../rest-speech-to-text.md)
+- [REST API: 발음 평가](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: 텍스트 음성 변환](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: 일괄 처리 기록 및 사용자 지정<span class="docon docon-navigate-external x-hidden-focus"></span></a>

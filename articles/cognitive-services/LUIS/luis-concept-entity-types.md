@@ -2,13 +2,13 @@
 title: 엔터티 형식-LUIS
 description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585643"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682179"
 ---
 # <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
@@ -16,11 +16,11 @@ ms.locfileid: "83585643"
 
 엔터티는 다음과 같은 여러 가지 유형이 있습니다.
 
-* [기계 학습된 엔터티](reference-entity-machine-learned-entity.md)
-* 비 기계어 학습 된 텍스트 일치, 패턴 일치 또는 미리 작성 된 엔터티에서의 검색에 필요한 [기능](luis-concept-feature.md) 으로 사용 됩니다.
+* [machine learning 엔터티](reference-entity-machine-learned-entity.md) -기본 엔터티입니다. 다른 엔터티를 사용 하기 전에이 엔터티 형식으로 스키마를 디자인 해야 합니다.
+* 비 기계어 학습은 정확히 일치 하는 텍스트 일치, 패턴 일치 또는 미리 빌드된 엔터티에의 한 검색에 필요한 [기능](luis-concept-feature.md) 으로 사용 됩니다.
 * [패턴.](#patternany-entity) [패턴](reference-entity-pattern-any.md) 에서 책 제목과 같은 자유 형식 텍스트를 추출 하는 데 사용 됩니다.
 
-컴퓨터에서 배운 엔터티는 가장 넓은 범위의 데이터 추출 선택 항목을 제공 합니다. 컴퓨터에서 학습 하지 않은 엔터티는 텍스트 일치를 통해 작동 하며 컴퓨터에서 학습 한 엔터티 또는 의도에 대 한 [필수 기능](#design-entities-for-decomposition) 으로 사용 됩니다.
+기계 학습 엔터티는 가장 넓은 범위의 데이터 추출 선택 항목을 제공 합니다. 비 기계어 학습 엔터티는 텍스트 일치를 통해 작동 하며 기계 학습 엔터티 또는 의도에 대 한 [필수 기능](#design-entities-for-decomposition) 으로 사용 됩니다.
 
 ## <a name="entities-represent-data"></a>데이터를 나타내는 엔터티
 
@@ -51,18 +51,26 @@ ms.locfileid: "83585643"
 |--|--|--|--|
 |도움말|도움말|-|추출할 항목이 없습니다.|
 |항목 보내기|sendSomething|-|추출할 항목이 없습니다. 모델에는이 컨텍스트에서 추출 하는 데 필요한 기능이 없으며 `something` 받는 사람이 언급 되지 않습니다.|
-|Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 컴퓨터에서 학습 한 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
-|Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 가지 중요 한 데이터, `Bob` 및는 `box of chocolates` 컴퓨터에서 배운 엔터티에 의해 추출 되었습니다.|
+|Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 기계 학습 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
+|Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 개의 중요 한 데이터 `Bob` 및는 `box of chocolates` 기계 학습 엔터티에 의해 추출 됩니다.|
 
 ## <a name="design-entities-for-decomposition"></a>분해를 위한 엔터티 디자인
 
-컴퓨터에서 배운 엔터티를 사용 하면 분해를 위해 앱 스키마를 디자인 하 여 큰 개념을 하위 엔터티로 나눌 수 있습니다.
+기계 학습 엔터티를 사용 하면 분해를 위해 앱 스키마를 디자인 하 여 큰 개념을 하위 엔터티로 나눌 수 있습니다.
 
 분해를 위한 디자인을 통해 LUIS은 클라이언트 응용 프로그램에 깊이 있는 엔터티 해상도를 반환할 수 있습니다. 이렇게 하면 클라이언트 응용 프로그램이 비즈니스 규칙에 집중 하 고 데이터 확인을 LUIS로 유지할 수 있습니다.
 
-길이 발언 예제를 통해 학습 된 컨텍스트를 기반으로 하는 컴퓨터의 학습 된 엔터티 트리거입니다.
+기계 학습 엔터티는 예제 길이 발언를 통해 학습 된 컨텍스트를 기반으로 트리거됩니다.
 
-[**컴퓨터에서 학습 한 엔터티**](tutorial-machine-learned-entity.md) 는 최상위 수준 추출기. 하위 엔터티는 컴퓨터에서 학습 한 엔터티의 자식 엔터티입니다.
+[**기계 학습 엔터티**](tutorial-machine-learned-entity.md) 는 최상위 수준 추출기. 하위 엔터티는 기계 학습 엔터티의 자식 엔터티입니다.
+
+## <a name="effective-machine-learned-entities"></a>유효한 컴퓨터에서 엔터티를 배웠습니다.
+
+컴퓨터에서 얻은 엔터티를 효과적으로 빌드하려면 다음과 같이 합니다.
+
+* 레이블 지정은 의도에 따라 일치 해야 합니다. 여기에는이 엔터티를 포함 하는 **없음** 의도에서 제공 하는 길이 발언 포함 됩니다. 그렇지 않으면 모델에서 시퀀스를 효과적으로 확인할 수 없습니다.
+* 하위 엔터티를 사용 하 여 컴퓨터에서 엔터티를 학습 한 경우 엔터티 및 하위 엔터티의 다른 주문 및 변형이 레이블이 지정 된 길이 발언에 표시 되는지 확인 합니다. 레이블이 지정 된 예 길이 발언는 유효한 모든 폼을 포함 하 고, 표시 되 고 존재 하지 않으며 utterance 내에서 순서가 지정 된 엔터티를 포함 해야 합니다.
+* 엔터티를 매우 고정 된 집합으로 과잉 맞춤 하는 것을 피해 야 합니다. **과잉 맞춤** 는 모델을 일반화 하지 않고 기계 학습 모델에서 일반적인 문제가 발생 한 경우에 발생 합니다. 이는 앱이 새 데이터에 적절 하 게 작동 하지 않음을 의미 합니다. 또한 앱이 사용자가 제공 하는 제한 된 예를 넘어 일반화할 수 있도록 레이블이 지정 된 예제 길이 발언를 변경 해야 합니다. 표시 된 예제 뿐 아니라 더 많은 개념을 고려 하기 위해 모델에 대 한 변경 내용이 충분 한 하위 엔터티를 다르게 지정 해야 합니다.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -73,7 +81,7 @@ ms.locfileid: "83585643"
 
 ## <a name="types-of-entities"></a>엔터티의 형식
 
-부모에 대 한 하위 엔터티는 컴퓨터에서 학습 된 엔터티입니다. 하위 엔터티는 컴퓨터에서 학습 하지 않은 엔터티를 [기능](luis-concept-feature.md)으로 사용할 수 있습니다.
+부모에 대 한 하위 엔터티는 기계 학습 엔터티입니다. 대상는 비 기계어 학습 엔터티를 [기능](luis-concept-feature.md)으로 사용할 수 있습니다.
 
 데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
 
@@ -84,6 +92,15 @@ ms.locfileid: "83585643"
 |[**패턴. 모든**](#patternany-entity)|엔터티 끝을 찾는 엔터티는 자유 형식 이므로 확인 하기 어렵습니다. [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.|
 |[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
 |[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|
+
+
+## <a name="extraction-versus-resolution"></a>추출 및 해결
+
+엔터티는 데이터가 utterance에 표시 될 때 데이터를 추출 합니다. 엔터티는 데이터를 변경 하거나 확인 하지 않습니다. 엔터티가 엔터티에 대 한 유효한 값인 경우 엔터티는 어떤 확인도 제공 하지 않습니다.
+
+해결 방법에 대 한 해결 방법을 제공 하는 방법이 있지만,이로 인해 응용 프로그램의 기능을 변형 및 실수에 대해 면역으로 제한할 수 있습니다.
+
+목록 엔터티 및 정규식 (텍스트 일치) 엔터티를 하위 엔터티에 [필요한 기능](luis-concept-feature.md#required-features) 으로 사용 하 고 추출에 대 한 필터 역할을 할 수 있습니다. 이를 신중 하 게 사용 하 여 앱의 예측 기능을 방해 합니다.
 
 ## <a name="extracting-contextually-related-data"></a>컨텍스트 관련 데이터 추출
 
@@ -124,5 +141,5 @@ LUIS 포털은 엔터티에 utterance 예제에 대해 선택한 엔터티와 �
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
 
-컴퓨터에서 학습 한 엔터티를 사용 하 여 utterance에서 구조화 된 데이터를 추출 하는 방법에 대 한 자세한 내용은 [자습서: utterance에서 컴퓨터에서 배운 Language Understanding 엔터티를 사용 하 여 사용자에서 구조화 된 데이터 추출](tutorial-machine-learned-entity.md) 을 참조 하세요.
+Machine learning 엔터티를 사용 하 여 utterance에서 구조화 된 데이터를 추출 하는 방법에 대해 알아보려면 [자습서: utterance Language Understanding 엔터티를 사용 하 여 사용자에서 구조화 된 데이터 추출 (LUIS)](tutorial-machine-learned-entity.md) 을 참조 하세요.
 

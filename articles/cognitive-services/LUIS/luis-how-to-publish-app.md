@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585660"
+ms.locfileid: "83653934"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -37,7 +37,7 @@ ms.locfileid: "83585660"
 
 팝업 창이 표시 되 면 올바른 슬롯을 선택 합니다.
 
-* 준비
+* 스테이징
 * 생산
 
 두 게시 슬롯을 모두 사용 하면 게시 된 끝점에서 두 가지 다른 버전의 앱을 사용할 수 있거나 두 개의 서로 다른 끝점에서 동일한 버전을 사용할 수 있습니다.
@@ -57,7 +57,7 @@ ms.locfileid: "83585660"
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
 * 감정 분석
-* 맞춤법 수정-v2 예측 끝점만
+* [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
 * 음성 초기화
 
 게시 한 후에는 **관리** 섹션의 **게시 설정** 페이지에서 이러한 설정을 검토할 수 있습니다. 모든 게시를 사용 하 여 설정을 변경할 수 있습니다. 게시를 취소 하면 게시 중에 적용 한 변경 내용도 취소 됩니다.
@@ -78,7 +78,7 @@ Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비
 
 감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다. `positive`, `neutral` 및 `negative`의 감정 레이블은 지원되는 문화를 따릅니다. 현재 영어만 감정 레이블을 지원합니다.
 
-감정 분석에서 JSON 엔드포인트의 응답에 대한 자세한 내용은 [감정 분석](luis-concept-data-extraction.md#sentiment-analysis)을 참조하세요.
+감정 분석에서 JSON 엔드포인트의 응답에 대한 자세한 내용은 [감정 분석](luis-reference-prebuilt-sentiment.md)을 참조하세요.
 
 ## <a name="spelling-correction"></a>맞춤법 교정
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591842"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683909"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
@@ -36,16 +36,16 @@ ms.locfileid: "83591842"
 패턴은 다음과 같은 상황을 해결합니다.
 
 * 의도 점수가 낮음
-* 올바른 의도가 가장 중요 한 점수가 아니라 가장 높은 점수에 가깝습니다. 
+* 올바른 의도가 가장 중요 한 점수가 아니라 가장 높은 점수에 가깝습니다.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>패턴은 의도를 보장하지 않음
 패턴은 혼합된 예측 기술을 사용합니다. 템플릿 발언에 대한 의도를 패턴으로 설정해도 의도 예측이 제대로 이루어질 것이라고 보장할 수 없지만 강력한 신호가 될 수 있습니다.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>패턴은 컴퓨터에서 학습 한 엔터티 검색을 개선 하지 않습니다.
+## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>패턴은 기계 학습 엔터티 검색을 개선 하지 않습니다.
 
-패턴은 주로 의도 및 역할의 예측을 지 원하는 데 도움이 됩니다. _패턴입니다._ 자유 형식 엔터티를 추출 하는 데 엔터티를 사용 합니다. 패턴에서 엔터티를 사용 하는 동안 패턴은 컴퓨터에서 학습 한 엔터티를 검색 하는 데 도움이 되지 않습니다.
+패턴은 주로 의도 및 역할의 예측을 지 원하는 데 도움이 됩니다. _패턴입니다._ 자유 형식 엔터티를 추출 하는 데 엔터티를 사용 합니다. 패턴에서 엔터티를 사용 하는 동안 패턴은 기계 학습 엔터티를 검색 하는 데 도움이 되지 않습니다.
 
 여러 발언을 단일 패턴으로 축소하는 경우에는 향상된 엔터티 예측을 기대하지 못합니다. 단순 엔터티를 실행 하려면 길이 발언를 추가 하거나 엔터티 목록을 사용 해야 합니다. 그렇지 않으면 패턴이 실행 되지 않습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "83591842"
 먼저 패턴 내 엔터티를 검색된 후, 패턴의 나머지 단어 및 단어 순서가 유효한지 검사됩니다. 패턴이 일치하려면 패턴에 엔터티가 필요합니다. 패턴은 문자 수준이 아닌 토큰 수준에서 적용됩니다.
 
 ## <a name="pattern-only-apps"></a>패턴 전용 앱
-각 의도에 대 한 패턴이 있는 한 예 길이 발언 없는 의도를 사용 하 여 앱을 빌드할 수 있습니다. 패턴 전용 앱의 경우에는 예제 길이 발언이 필요 하므로 패턴은 컴퓨터에서 배운 엔터티를 포함 하지 않아야 합니다.
+각 의도에 대 한 패턴이 있는 한 예 길이 발언 없는 의도를 사용 하 여 앱을 빌드할 수 있습니다. 패턴 전용 앱의 경우에는 예제 길이 발언이 필요 하므로 패턴은 기계 학습 엔터티를 포함 하지 않아야 합니다.
 
 ## <a name="patternany-entity"></a>Pattern.any 엔터티
 

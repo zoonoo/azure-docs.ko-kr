@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/19/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+zone_pivot_groups: programming-languages-set-nineteen
+ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402199"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658456"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
 자동 언어 검색은 제공 된 언어 목록과 비교할 때 음성 SDK에 전달 되는 오디오에 대해 가장 가능성이 높은 일치 항목을 확인 하는 데 사용 됩니다. 자동 언어 검색에서 반환 되는 값은 음성 텍스트에 대 한 언어 모델을 선택 하 여 더 정확한 기록을 제공 하는 데 사용 됩니다. 사용할 수 있는 언어를 확인 하려면 [언어 지원](language-support.md)을 참조 하세요.
 
-이 문서에서는를 사용 `AutoDetectSourceLanguageConfig` 하 여 `SpeechRecognizer` 개체를 생성 하 고 검색 된 언어를 검색 하는 방법을 배웁니다.
+이 문서에서는를 사용 하 여 `AutoDetectSourceLanguageConfig` 개체를 생성 하 `SpeechRecognizer` 고 검색 된 언어를 검색 하는 방법을 배웁니다.
 
 > [!IMPORTANT]
-> 이 기능은 c #, c + +, Java 및 Python 용 Speech SDK 에서만 사용할 수 있습니다.
+> 이 기능은 c #, c + +, Java, Python 및 객관적인-C를 사용 하는 음성 SDK에만 사용할 수 있습니다.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 자동 언어 검색
 
-자동 언어 검색에는 현재 검색 당 두 가지 언어의 서비스 쪽 제한이 있습니다. 개체를 `AudoDetectSourceLanguageConfig` 생성할 때 이러한 제한을 염두에 두십시오. 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig`다음이를 사용 하 여를 `SpeechRecognizer`생성 합니다.
+자동 언어 검색에는 현재 검색 당 두 가지 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AudoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
 
 > [!TIP]
 > 음성 텍스트를 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조 하세요.
@@ -118,11 +118,28 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+NSArray *languages = @[@"zh-CN", @"de-DE"];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]init:languages];
+SPXSpeechRecognizer* speechRecognizer = \
+        [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                           autoDetectSourceLanguageConfiguration:autoDetectSourceLanguageConfig
+                                              audioConfiguration:audioConfig];
+SPXSpeechRecognitionResult *result = [speechRecognizer recognizeOnce];
+SPXAutoDetectSourceLanguageResult *languageDetectionResult = [[SPXAutoDetectSourceLanguageResult alloc] init:result];
+NSString *detectedLanguage = [languageDetectionResult language];
+```
+
+::: zone-end
+
 ## <a name="use-a-custom-model-for-automatic-language-detection"></a>자동 언어 검색에 사용자 지정 모델 사용
 
 음성 서비스 모델을 사용 하는 언어 검색 외에도, 향상 된 인식을 위한 사용자 지정 모델을 지정할 수 있습니다. 사용자 지정 모델을 제공 하지 않으면 서비스에서 기본 언어 모델을 사용 합니다.
 
-아래 코드 조각은 음성 서비스 호출에서 사용자 지정 모델을 지정 하는 방법을 보여 줍니다. 검색 된 언어가 `en-US`이면 기본 모델이 사용 됩니다. 검색 된 언어가 `fr-FR`이면 사용자 지정 모델의 끝점이 사용 됩니다.
+아래 코드 조각은 음성 서비스 호출에서 사용자 지정 모델을 지정 하는 방법을 보여 줍니다. 검색 된 언어가 이면 `en-US` 기본 모델이 사용 됩니다. 검색 된 언어가 이면 `fr-FR` 사용자 지정 모델의 끝점이 사용 됩니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -178,6 +195,20 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
  fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
  auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
         sourceLanguageConfigs=[en_language_config, fr_language_config])
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];
+SPXSourceLanguageConfiguration* frLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"fr-FR"
+                                                     endpointId:@"The Endpoint Id for custom model of fr-FR"];
+NSArray *languageConfigs = @[enLanguageConfig, frLanguageConfig];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]initWithSourceLanguageConfigurations:languageConfigs];
 ```
 
 ::: zone-end

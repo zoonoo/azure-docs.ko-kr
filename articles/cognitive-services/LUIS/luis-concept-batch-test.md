@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221340"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680426"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
@@ -24,7 +24,7 @@ ms.locfileid: "79221340"
 
 ## <a name="group-data-for-batch-test"></a>일괄 처리 테스트를 위해 데이터 그룹화
 
-일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 길이 발언 데이터 집합을 사용 하는 경우 길이 발언를 세 개의 집합으로 나눕니다. 예를 들어 길이 발언는 의도에 추가 되 고, 게시 된 끝점에서 수신 되는 길이 발언, 학습 된 후 테스트 길이 발언를 일괄 처리 하는 데 사용 된 LUIS입니다. 
+일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 길이 발언 데이터 집합을 사용 하는 경우 길이 발언를 세 개의 집합으로 나눕니다. 예를 들어 길이 발언는 의도에 추가 되 고, 게시 된 끝점에서 수신 되는 길이 발언, 학습 된 후 테스트 길이 발언를 일괄 처리 하는 데 사용 된 LUIS입니다.
 
 ## <a name="a-data-set-of-utterances"></a>길이 발언의 데이터 집합
 
@@ -35,7 +35,7 @@ ms.locfileid: "79221340"
 |*중복 발언 없음|
 |1000개 이하의 발언|
 
-*중복은 먼저 토큰화된 일치가 아니라 정확한 문자열 일치로 간주됩니다. 
+*중복은 먼저 토큰화된 일치가 아니라 정확한 문자열 일치로 간주됩니다.
 
 ## <a name="entities-allowed-in-batch-tests"></a>일괄 테스트에서 허용되는 엔터티
 
@@ -46,7 +46,7 @@ ms.locfileid: "79221340"
 
 ## <a name="batch-file-format"></a>배치 파일 형식
 
-배치 파일은 발언으로 구성됩니다. 각 발언에는 감지될 것으로 예상하는 모든 [Machine Learning 엔터티](luis-concept-entity-types.md#types-of-entities)와 함께 예상된 의도 예측이 있어야 합니다. 
+배치 파일은 발언으로 구성됩니다. 각 utterance에는 검색 된 것으로 예상 되는 [기계 학습 엔터티와](luis-concept-entity-types.md#types-of-entities) 함께 예상 된 의도 예측이 있어야 합니다.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>엔터티를 사용한 의도에 대한 일괄 처리 구문 템플릿
 
@@ -57,7 +57,7 @@ ms.locfileid: "79221340"
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ ms.locfileid: "79221340"
 ]
 ```
 
-일괄 처리 파일은 **startPos** 및 **endPos** 속성을 사용하여 엔터티의 시작과 끝을 나타냅니다. 값은 0부터 시작하고 공백으로 시작하거나 끝나면 안 됩니다. 이 파일은 startIndex 및 endIndex 속성을 사용하는 쿼리 로그와 다릅니다. 
+일괄 처리 파일은 **startPos** 및 **endPos** 속성을 사용하여 엔터티의 시작과 끝을 나타냅니다. 값은 0부터 시작하고 공백으로 시작하거나 끝나면 안 됩니다. 이 파일은 startIndex 및 endIndex 속성을 사용하는 쿼리 로그와 다릅니다.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -97,7 +97,7 @@ ms.locfileid: "79221340"
 
 ## <a name="common-errors-importing-a-batch"></a>배치를 가져오는 중 발생하는 일반적인 오류
 
-일반적인 오류는 다음과 같습니다. 
+일반적인 오류는 다음과 같습니다.
 
 > * 1,000개 발언 초과
 > * 엔터티 속성이 없는 발언 JSON 개체입니다. 속성은 빈 배열일 수 있습니다.
@@ -112,7 +112,7 @@ LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적 합니다. 
 
 ## <a name="batch-test-results"></a>일괄 테스트 결과
 
-일괄 처리 테스트 결과는 오류 행렬이라고 하는 분산형 그래프입니다. 이 그래프는 일괄 처리 파일의 발언과 현재 모델의 예측 의도 및 엔터티를 4방향에서 비교한 것입니다. 
+일괄 처리 테스트 결과는 오류 행렬이라고 하는 분산형 그래프입니다. 이 그래프는 일괄 처리 파일의 발언과 현재 모델의 예측 의도 및 엔터티를 4방향에서 비교한 것입니다.
 
 **거짓 긍정** 및 **거짓 부정** 섹션의 데이터 요소는 오류를 나타내며, 조사해야 합니다. 모든 데이터 요소가 **참 긍정** 및 **참 부정** 섹션에 있는 경우이 데이터 집합에 대 한 앱의 정확성이 완벽 합니다.
 
@@ -124,13 +124,13 @@ LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적 합니다. 
 
 ## <a name="errors-in-the-results"></a>결과 오류
 
-일괄 처리 테스트의 오류는 배치 파일에 명시된 대로 예측되지 않은 의도를 나타냅니다. 차트의 두 빨간색 섹션에 오류가 표시됩니다. 
+일괄 처리 테스트의 오류는 배치 파일에 명시된 대로 예측되지 않은 의도를 나타냅니다. 차트의 두 빨간색 섹션에 오류가 표시됩니다.
 
-거짓 긍정 섹션은 발언이 의도 또는 엔터티와 일치하지 않았어야 하는데 일치했음을 나타냅니다. 거짓 부정은 발언이 의도 또는 엔터티와 일치했어야 하는데 일치하지 않았음을 나타냅니다. 
+거짓 긍정 섹션은 발언이 의도 또는 엔터티와 일치하지 않았어야 하는데 일치했음을 나타냅니다. 거짓 부정은 발언이 의도 또는 엔터티와 일치했어야 하는데 일치하지 않았음을 나타냅니다.
 
 ## <a name="fixing-batch-errors"></a>일괄 처리 오류 수정
 
-일괄 처리 테스트에 오류가 있는 경우 의도에 발언을 더 추가하거나, LUIS에서 의도를 구분하는 데 도움이 되도록 더 많은 발언에 엔터티로 레이블을 지정할 수 있습니다. 발언을 추가하고 레이블을 지정했지만 일괄 처리 테스트에서 예측 오류가 계속 발생하는 경우에는 LUIS 학습 속도 향상에 도움이 되도록 도메인 특정 어휘가 포함된 [구 목록](luis-concept-feature.md) 기능을 추가하는 것이 좋습니다. 
+일괄 처리 테스트에 오류가 있는 경우 의도에 발언을 더 추가하거나, LUIS에서 의도를 구분하는 데 도움이 되도록 더 많은 발언에 엔터티로 레이블을 지정할 수 있습니다. 발언을 추가하고 레이블을 지정했지만 일괄 처리 테스트에서 예측 오류가 계속 발생하는 경우에는 LUIS 학습 속도 향상에 도움이 되도록 도메인 특정 어휘가 포함된 [구 목록](luis-concept-feature.md) 기능을 추가하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

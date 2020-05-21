@@ -3,12 +3,12 @@ title: 기술 자료 개선 - QnA Maker
 description: 활성 학습을 사용 하 여 기술 자료의 품질을 향상 시킵니다. 기존 질문을 삭제하거나 변경하지 않고 검토, 수락, 거부 또는 추가합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756774"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650768"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -31,7 +31,7 @@ ms.locfileid: "80756774"
 
     [![제안 별 필터 설정/해제를 사용 하 여 활성 학습의 제안 된 질문에 대 한 대체 유형만 표시 합니다.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. 각 QnA 쌍은 질문 또는 `✔` `x` 를 수락 하 여 제안을 거부 하는 확인 표시로 새로운 질문을 제안 합니다. 질문을 추가하려면 확인 표시를 선택합니다.
+1. 각 QnA 쌍은 `✔` 질문 또는를 수락 하 여 제안을 거부 하는 확인 표시로 새로운 질문을 제안 합니다 `x` . 질문을 추가하려면 확인 표시를 선택합니다.
 
     [![녹색 확인 표시 또는 빨간색 삭제 표시를 선택 하 여 활성 학습의 제안 된 질문의 대안을 선택 하거나 거부 합니다.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -50,7 +50,7 @@ ms.locfileid: "80756774"
 
 봇 또는 다른 클라이언트 응용 프로그램은 다음 아키텍처 흐름을 사용 하 여 활성 학습을 사용 해야 합니다.
 
-* 봇은 `top` 속성을 사용 하 여 [기술 자료에서](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) generateanswer API를 사용 하 여 답변을 확인 하 고 많은 답변을 가져옵니다.
+* 봇은 속성을 사용 하 여 [기술 자료에서](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) GENERATEANSWER API를 사용 하 여 답변을 확인 하 고 `top` 많은 답변을 가져옵니다.
 * 봇은 명시적인 피드백을 결정 합니다.
     * [사용자 고유의 사용자 지정 비즈니스 논리](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)를 사용 하 여 낮은 점수를 필터링 합니다.
     * 봇 또는 클라이언트 응용 프로그램에서 사용자에 게 가능한 답변 목록을 표시 하 고 사용자가 선택한 대답을 가져옵니다.
@@ -59,7 +59,7 @@ ms.locfileid: "80756774"
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>GenerateAnswer 요청에서 top 속성을 사용 하 여 여러 일치 대답을 가져옵니다.
 
-답변에 대 한 QnA Maker 질문을 제출할 때 JSON 본문 `top` 의 속성은 반환할 대답 수를 설정 합니다.
+답변에 대 한 QnA Maker 질문을 제출할 때 `top` JSON 본문의 속성은 반환할 대답 수를 설정 합니다.
 
 ```json
 {
@@ -71,7 +71,7 @@ ms.locfileid: "80756774"
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>비즈니스 논리와 함께 점수 속성을 사용 하 여 사용자 표시에 대 한 답변 목록 가져오기
 
-클라이언트 응용 프로그램 (예: 채팅 봇)이 응답을 받으면 상위 3 개의 질문이 반환 됩니다. 점수 간의 `score` 근접을 분석 하려면 속성을 사용 합니다. 이러한 근접 범위는 사용자 고유의 비즈니스 논리에 의해 결정 됩니다.
+클라이언트 응용 프로그램 (예: 채팅 봇)이 응답을 받으면 상위 3 개의 질문이 반환 됩니다. `score`점수 간의 근접을 분석 하려면 속성을 사용 합니다. 이러한 근접 범위는 사용자 고유의 비즈니스 논리에 의해 결정 됩니다.
 
 ```json
 {
@@ -127,22 +127,22 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|속성|Type|목적|
+|HTTP 요청 속성|이름|유형|용도|
 |--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|string|기술 자료를 위한 GUID입니다.|
-|사용자 지정 하위 도메인|QnAMaker 리소스 이름|string|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host`.|
-|헤더|콘텐츠 형식|string|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다.`application/json`|
-|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
+|사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
+|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다.`application/json`|
+|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|Type|목적|
+|JSON 본문 속성|유형|용도|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
-|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
-|`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
+|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
+|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
+|`qnaID`|숫자|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -162,7 +162,7 @@ JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>여러 피드백 레코드를 단일 호출로 일괄 처리
 
-Bot와 같은 클라이언트 쪽 응용 프로그램에서 데이터를 저장 한 다음 `feedbackRecords` 배열의 단일 JSON 본문에 많은 레코드를 보낼 수 있습니다.
+Bot와 같은 클라이언트 쪽 응용 프로그램에서 데이터를 저장 한 다음 배열의 단일 JSON 본문에 많은 레코드를 보낼 수 있습니다 `feedbackRecords` .
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -309,9 +309,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>활성 학습은 내보낸 기술 자료에 저장 됩니다.
 
-앱에서 활성 학습을 사용 하도록 설정 하 고 앱을 내보내는 경우 tsv `SuggestedQuestions` 파일의 열은 활성 학습 데이터를 유지 합니다.
+앱에서 활성 학습을 사용 하도록 설정 하 고 앱을 내보내는 경우 `SuggestedQuestions` tsv 파일의 열은 활성 학습 데이터를 유지 합니다.
 
-열 `SuggestedQuestions` 은 암시적, `autosuggested`및 명시적인 `usersuggested` 피드백에 대 한 정보의 JSON 개체입니다. 사용자가 제출한 단일 질문 `help` 에 대 한이 JSON 개체의 예는 다음과 같습니다.
+`SuggestedQuestions`열은 암시적, `autosuggested` 및 명시적인 피드백에 대 한 정보의 JSON 개체입니다 `usersuggested` . 사용자가 제출한 단일 질문에 대 한이 JSON 개체의 예는 `help` 다음과 같습니다.
 
 ```JSON
 [
@@ -329,11 +329,6 @@ async callTrain(stepContext){
     }
 ]
 ```
-
-REST 또는 언어 기반 Sdk를 사용 하 여 이러한 변경 내용을 검토 하려면 다운로드 변경 API를 사용할 수도 있습니다.
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 이 앱을 다시 가져오는 경우 활성 학습은 계속 해 서 정보를 수집 하 고 기술 자료에 대 한 제안을 권장 합니다.
 

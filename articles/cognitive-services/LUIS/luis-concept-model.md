@@ -3,12 +3,12 @@ title: 모델을 사용 하 여 디자인-LUIS
 description: 언어 이해는 여러 유형의 모델을 제공 합니다. 일부 모델은 여러 가지 방법으로 사용할 수 있습니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591882"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683923"
 ---
 # <a name="design-with-intent-and-entity-models"></a>의도 및 엔터티 모델로 디자인
 
@@ -24,7 +24,7 @@ LUIS의 기계 학습 방법론을 사용 하면 컴퓨터에 대 한 개념을 
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## <a name="intents-classify-utterances"></a>의도 분류 길이 발언
+## <a name="intents-classify-utterances"></a>의도가 발화 분류
 
 의도 분류 예 길이 발언는 의도에 대해 LUIS를 학습 합니다. 의도 내에서 예제 길이 발언는 utterance의 긍정적인 예제로 사용 됩니다. 이러한 동일한 길이 발언는 다른 모든 의도의 부정 예제로 사용 됩니다.
 
@@ -34,9 +34,9 @@ LUIS의 기계 학습 방법론을 사용 하면 컴퓨터에 대 한 개념을 
 
 `Buy the top-rated book on bot architecture.`
 
-## <a name="entities-extract-data"></a>엔터티 데이터 추출
+## <a name="entities-extract-data"></a>엔터티가 데이터 추출
 
-엔터티는 utterance에서 추출 하려는 데이터의 단위를 나타냅니다. 컴퓨터에서 학습 한 엔터티는 하위 엔터티를 포함 하는 최상위 엔터티가 며,이 엔터티는 컴퓨터에서 학습 하는 엔터티인 이기도 합니다.
+엔터티는 utterance에서 추출 하려는 데이터의 단위를 나타냅니다. Machine learning 엔터티는 기계 학습 엔터티인 하위 엔터티를 포함 하는 최상위 엔터티입니다.
 
 기계 학습 엔터티의 예는 평면 티켓의 순서입니다. 개념적으로이는 날짜, 시간, 좌석 수량, 첫 번째 클래스 또는 coach, 원본 위치, 대상 위치, 식사 선택 등의 다양 한 데이터 단위가 포함 된 단일 트랜잭션입니다.
 
@@ -65,11 +65,11 @@ LUIS는 작성 Api를 사용 하 여 _모델 분해_ 를 지원 하 고 개념�
 
 * [의도](#intents-classify-utterances)
     * [요소](#features)
-* [컴퓨터에서 배운 엔터티](reference-entity-machine-learned-entity.md)
-    * 하위 엔터티 (컴퓨터에서 학습 한 엔터티 이기도 함)
+* [기계 학습 엔터티](reference-entity-machine-learned-entity.md)
+    * 하위 엔터티 (기계 학습 엔터티 이기도)
         * [요소](#features)
             * [구 목록](luis-concept-feature.md)
-            * [정규식](reference-entity-regular-expression.md), [목록](reference-entity-list.md)및 미리 작성 된 [엔터티와](luis-reference-prebuilt-entities.md) 같이 [기계어에서 학습 하지 않은 엔터티](luis-concept-feature.md)
+            * [정규식](reference-entity-regular-expression.md), [목록](reference-entity-list.md)및 [미리](luis-reference-prebuilt-entities.md) 작성 된 엔터티와 같은 [비 기계어 학습 엔터티](luis-concept-feature.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>
