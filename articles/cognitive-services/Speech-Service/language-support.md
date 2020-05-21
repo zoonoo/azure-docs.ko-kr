@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587377"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726080"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 음성 지원
 
@@ -24,7 +24,11 @@ ms.locfileid: "83587377"
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다. 음성 사용자 지정은 현재 및에만 사용할 수 있습니다 `en-US` `de-DE` . [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
+Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 
+
+정확도를 높이기 위해 **오디오 + 사람이 레이블 지정 된 성적 증명서** 또는 **관련 텍스트: 문장을**업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다. 사용자 지정에 대해 자세히 알아보려면 [Custom Speech 시작](how-to-custom-speech.md)을 참조 하세요.
+
+발음을 개선할 수 있는 방법에 대 한 자세한 내용은 [Custom Speech 모델 향상](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation)을 참조 하세요.
 
 <!--
 To get the AM and ML bits:
@@ -39,7 +43,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 아니요                                                |
 | `ar-BH` | 아랍어 (바레인), 최신 표준 | 예       | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 예       | 언어 모델                                    |
+| `ar-IL` | 아랍어 (이스라엘)                   | 예       | 아니요                                                |
 | `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 아니요                                                |
+| `ar-PS` | 아랍어 (팔레스타인 자치 정부)                | 예       | 아니요                                                |
 | `ar-QA` | 아랍어(카타르)                    | 예       | 아니요                                                |
 | `ar-SA` | 아랍어(사우디아라비아)             | 예       | 아니요                                                |
 | `ar-SY` | 아랍어(시리아)                    | 예       | 언어 모델                                    |
@@ -73,7 +79,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ta-IN` | 타밀어(인도)                     | 예       | 언어 모델                                    |
 | `te-IN` | 텔루구어(인도)                    | 예       | 아니요                                                |
 | `th-TH` | 태국어(태국)                   | 예       | 아니요                                                |
-| `tr-TR` | 터키어(터키)                  | 예       | 아니요                                                |
+| `tr-TR` | 터키어(터키)                  | 예       | 언어 모델                                    |
 | `zh-CN` | 중국어(북경어, 간체)    | 예       | 음향 모델<br>언어 모델                  |
 | `zh-HK` | 중국어 (광둥어, 번체)  | 예       | 언어 모델                                    |
 | `zh-TW` | 중국어(대만어)      | 예       | 언어 모델                                    |
@@ -93,29 +99,29 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|로캘  | 언어            | 성별 | 음성 이름  | Bi-다국어 지원 | 스타일 지원 |
-|--|--|--|--|--|--|
-| `de-DE` | 독일어(독일)    | Female | "KatjaNeural" | 예. 영어(미국) | 일반 |
-| `en-AU` | 영어(오스트레일리아) | Female |  "en-us-NatashaNeural" | 아니요 | 일반 |
-| `en-CA` | 영어(캐나다)    | Female |  "ClaraNeural"| 아니요 | 일반 |
-| `en-GB` | 영어(영국)        | Female |  "en-us-및 By신경망"| 아니요 | 일반 |
-|  |      | Female |  "en-us-MiaNeural" | 아니요 | 일반 |
-| `en-US` | 영어(미국)        | Female |  "en-us-AriaNeural"| 아니요 | 일반, 여러 음성 스타일 사용 가능 |
-|  |      | Male   | "en-us-GuyNeural" | 아니요 | 일반 |
-| `es-ES` | 스페인어(스페인)     | Female |  "es-ElviraNeural"| 예. 영어(미국) | 일반 |
-| `es-MX` | 스페인어(멕시코)    | Female |  "DaliaNeural" | 예. 영어(미국) | 일반 |
-| `fr-CA` | 프랑스어(캐나다)     | Female |  "fr-fr-SylvieNeural" | 예. 영어(미국) | 일반 |
-| `fr-FR` | 프랑스어(프랑스)     | Female | "fr-fr-DeniseNeural"  | 예. 영어(미국) | 일반 |
-| `it-IT` | 이탈리아어(이탈리아)     | Female |  "it-ElsaNeural"  | 예. 영어(미국) | 일반 |
-| `ja-JP` | 일본어            | Female |  "ja-jp-NanamiNeural" | 예. 영어(미국) | 일반 |
-| `ko-KR` | 한국어              | Female |  "ko-kr-SunHiNeural" | 예. 영어(미국) | 일반 |
-| `nb-NO` | 노르웨이어           | Female | "nb-아니요-IselinNeural" | 아니요 | 일반 |
-| `pt-BR` | 포르투갈어(브라질) | Female |  "FranciscaNeural" | 아니요 | 일반 |
-| `tr-TR` | 터키어             | Female | "tr – TR-EmelNeural" | 아니요 | 일반 |
-| `zh-CN` | 중국어(북경어, 간체)  | Female |  "zh-cn-XiaoxiaoNeural"  | 예. 영어(미국) | 일반, 여러 음성 스타일 사용 가능 |
-|  |  | Female |  "zh-cn-XiaoyouNeural"  | 예. 영어(미국) | 어린이 음성, 스토리 narrating에 최적화 됨 |
-|  |  | Male |  "zh-cn-YunyangNeural"  | 예. 영어(미국) | 뉴스 읽기에 최적화 됨, 여러 음성 스타일 사용 가능 |
-|  |  | Male |  "zh-cn-YunyeNeural"  | 아니요 | 스토리 narrating에 최적화 됨 |
+|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
+|--|--|--|--|--|
+| `de-DE` | 독일어(독일)                | Female | "KatjaNeural"      | 일반 |
+| `en-AU` | 영어(오스트레일리아)             | Female | "en-us-NatashaNeural"    | 일반 |
+| `en-CA` | 영어(캐나다)                | Female | "ClaraNeural"      | 일반 |
+| `en-GB` | 영어(영국)                    | Female | "en-us-및 By신경망"      | 일반 |
+|         |                                 | Female | "en-us-MiaNeural"        | 일반 |
+| `en-US` | 영어(미국)                    | Female | "en-us-AriaNeural"       | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Male   | "en-us-GuyNeural"        | 일반 |
+| `es-ES` | 스페인어(스페인)                 | Female | "es-ElviraNeural"     | 일반 |
+| `es-MX` | 스페인어(멕시코)                | Female | "DaliaNeural"      | 일반 |
+| `fr-CA` | 프랑스어(캐나다)                 | Female | "fr-fr-SylvieNeural"     | 일반 |
+| `fr-FR` | 프랑스어(프랑스)                 | Female | "fr-fr-DeniseNeural"     | 일반 |
+| `it-IT` | 이탈리아어(이탈리아)                 | Female | "it-ElsaNeural"       | 일반 |
+| `ja-JP` | 일본어                        | Female | "ja-jp-NanamiNeural"     | 일반 |
+| `ko-KR` | 한국어                          | Female | "ko-kr-SunHiNeural"      | 일반 |
+| `nb-NO` | 노르웨이어                       | Female | "nb-아니요-IselinNeural"     | 일반 |
+| `pt-BR` | 포르투갈어(브라질)             | Female | "FranciscaNeural"  | 일반 |
+| `tr-TR` | 터키어                         | Female | "tr – TR-EmelNeural"       | 일반 |
+| `zh-CN` | 중국어(북경어, 간체)  | Female | "zh-cn-XiaoxiaoNeural"   | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Female | "zh-cn-XiaoyouNeural"    | 어린이 음성, 스토리 narrating에 최적화 됨 |
+|         |                                 | Male   | "zh-cn-YunyangNeural"    | 뉴스 읽기에 최적화 됨, 여러 음성 스타일 사용 가능 |
+|         |                                 | Male   | "zh-cn-YunyeNeural"      | 스토리 narrating에 최적화 됨 |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`음성이로 변경 되었습니다 `en-US-AriaNeural` . 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.

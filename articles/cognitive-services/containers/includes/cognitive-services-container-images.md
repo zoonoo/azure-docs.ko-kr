@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590669"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721141"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
 
@@ -31,7 +31,7 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 
 자세한 내용은 [LUIS 컨테이너를 실행 하 고 설치 하는 방법](../../LUIS/luis-container-howto.md) 을 참조 하세요.
 
-#### <a name="text-analytics"></a>[Text Analytics](#tab/text-analytics)
+#### <a name="text-analytics"></a>[텍스트 분석](#tab/text-analytics)
 
 | Text Analytics 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|
@@ -56,13 +56,13 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [변칙 탐지기](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>공용 "제어 된" 미리 보기 (컨테이너 레지스트리: `containerpreview.azurecr.io` )
 
-다음 제어 된 미리 보기 컨테이너는 컨테이너 미리 보기 레지스트리에 호스트 되며 응용 프로그램에서에 액세스 해야 합니다. 자세한 내용은 [Cognitive Services 게이팅 프로세스](../../cognitive-services-gating-process.md) 를 참조 하세요.
+다음 제어 된 미리 보기 컨테이너는 컨테이너 미리 보기 레지스트리에 호스트 되며 응용 프로그램에서에 액세스 해야 합니다. 자세한 내용은 다음 컨테이너 문서를 참조 하세요.
 
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|

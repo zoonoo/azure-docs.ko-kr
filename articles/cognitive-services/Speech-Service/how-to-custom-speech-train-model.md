@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77137764"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722629"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Custom Speech 모델 학습
 
@@ -42,7 +42,7 @@ ms.locfileid: "77137764"
 2. **음성 텍스트 > Custom Speech > 학습**으로 이동 합니다.
 3. **모델 학습**을 클릭 합니다.
 4. 다음으로, 교육에 **이름** 및 **설명을**제공 합니다.
-5. **시나리오 및 기준 모델** 드롭다운 메뉴에서 도메인에 가장 적합 한 시나리오를 선택 합니다. 선택할 시나리오를 잘 모르겠으면 **일반**을 선택 합니다. 기준선 모델은 학습을 위한 시작점입니다. 기본 설정이 없는 경우 최신 버전을 사용할 수 있습니다.
+5. **시나리오 및 기준 모델** 드롭다운 메뉴에서 도메인에 가장 적합 한 시나리오를 선택 합니다. 선택할 시나리오를 잘 모르겠으면 **일반**을 선택 합니다. 기준선 모델은 학습을 위한 시작점입니다. 일반적으로 최신 모델을 선택 하는 것이 가장 좋습니다.
 6. 학습 **데이터 선택** 페이지에서 학습에 사용할 오디오 + 사람이 레이블 지정 된 기록 데이터 집합을 하나 또는 여러 개 선택 합니다.
 7. 교육이 완료 되 면 새로 학습 된 모델에 대 한 정확도 테스트를 수행 하도록 선택할 수 있습니다. 이 단계는 선택 사항입니다.
 8. 만들기를 선택 하 여 사용자 지정 모델을 **만듭니다** .
