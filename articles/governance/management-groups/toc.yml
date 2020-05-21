@@ -26,3 +26,5 @@
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
     - name: REST (영문)
       href: /rest/api/resources/managementgroups
+    - name: 리소스 관리자 템플릿
+      href: /azure/templates/microsoft.management/managementgroups

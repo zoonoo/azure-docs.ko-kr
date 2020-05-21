@@ -30,6 +30,8 @@
   items:
     - name: Azure 리소스
       href: Concepts/azure-resources.md
+    - name: 다른 사람과 공동 작업
+      href: Concepts/role-based-access-control.md
     - name: 기술 자료 디자인
       items:
         - name: 언어용
@@ -107,10 +109,6 @@
     - name: 기술 자료 쿼리
       href: How-To/metadata-generateanswer-usage.md
       displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
-    - name: 클라이언트 애플리케이션과 함께 사용
-      items:
-        - name: LUIS 및 QnA Maker
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: Analytics 및 원격 분석
       href: How-To/get-analytics-knowledge-base.md
     - name: REST API 사용
@@ -155,6 +153,8 @@
       href: Overview/language-support.md
     - name: 제한
       href: limits.md
+    - name: RBAC(역할 기반 액세스 제어)
+      href: reference-role-based-access-control.md
     - name: 문제 해결
       href: troubleshooting.md
     - name: 서비스 구성

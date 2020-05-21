@@ -16,7 +16,7 @@
   expanded: true
   items:
     - name: 프라이빗 Azure Red Hat OpenShift 4 클러스터 만들기
-      href: create-private-cluster.md
+      href: howto-create-private-cluster-4x.md
     - name: Azure Red Hat OpenShift 4 클러스터에 대한 DNS 전달 구성
       href: dns-forwarding.md
     - name: Azure Red Hat OpenShift 4 클러스터에 대한 Azure Active Directory 인증 구성
@@ -48,7 +48,7 @@
         - name: Azure Red Hat OpenShift 3.11 클러스터에서 프로젝트 관리
           href: howto-manage-projects.md
         - name: 프라이빗 Azure Red Hat OpenShift 3.11 클러스터 만들기
-          href: howto-create-private-cluster.md
+          href: howto-create-private-cluster-3x.md
         - name: Azure Red Hat OpenShift 3.11 모니터링 및 로깅
           items:
             - name: Azure Red Hat OpenShift 3.11의 컨테이너용 Azure Monitor(미리 보기)

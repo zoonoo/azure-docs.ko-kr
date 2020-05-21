@@ -81,6 +81,11 @@
       href: tutorial-firmware-update.md
     - name: 디바이스 연결 테스트
       href: tutorial-connectivity.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: TLS 지원
@@ -506,7 +511,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'

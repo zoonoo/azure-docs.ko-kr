@@ -50,6 +50,8 @@
           href: ./samples/pattern-parameters.md
         - name: 효과 세부 정보
           href: ./samples/pattern-effect-details.md
+        - name: 태그들
+          href: ./samples/pattern-tags.md
         - name: Value 연산자
           href: ./samples/pattern-value-operator.md
         - name: Count 연산자
@@ -76,13 +78,8 @@
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Kubernetes에 대한 Azure Policy
-      items:
-        - name: AKS용 정책
-          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/rego-for-aks.md
-        - name: AKS 엔진용 정책
-          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/aks-engine.md
+      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+      href: ./concepts/policy-for-kubernetes.md
     - name: 게스트 구성을 사용하여 VM 감사
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
