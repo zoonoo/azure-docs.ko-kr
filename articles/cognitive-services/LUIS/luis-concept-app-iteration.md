@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: cc994875e39410ecf01417c4d08248d5bc7d034a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589825"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683121"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS에 대 한 반복적인 앱 디자인
 
@@ -115,7 +115,7 @@ LUIS 앱의 [끝점](luis-glossary.md#endpoint)에서는 학습 된 버전을 �
 
 내보낸 파일에는 다음이 포함 **되지 않습니다** .
 
-* 가져온 후 앱을 다시 학습 때문에 컴퓨터에서 배운 정보
+* 컴퓨터 학습 정보 (앱을 가져온 후 다시 학습)
 * 참가자 정보
 
 LUIS 앱 스키마를 백업 하려면 [LUIS 포털](https://www.luis.ai/applications)에서 버전을 내보냅니다.

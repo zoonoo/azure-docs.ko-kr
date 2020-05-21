@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 57de7f1e7c37fec66cda666d3f144e52849a026f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d9c6062e7106f764058d6c96c6f730d235b2ef0c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399868"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673036"
 ---
 MacOS 용으로 개발 하는 경우 세 가지 음성 Sdk를 사용할 수 있습니다.
 
@@ -18,7 +18,7 @@ MacOS 용으로 개발 하는 경우 세 가지 음성 Sdk를 사용할 수 있�
 - Python Speech SDK는 PyPI 모듈로 사용할 수 있습니다.
 
 > [!TIP]
-> Swift와 함께 목표-C Speech SDK를 사용 하는 방법에 대 한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift <span class="docon docon-navigate-external x-hidden-focus"> </span>로 목표-c 가져오기 </a>를 참조 하세요.
+> Swift와 함께 목표-C Speech SDK를 사용 하는 방법에 대 한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift <span class="docon docon-navigate-external x-hidden-focus"></span> 로 목표-c 가져오기 </a>를 참조 하세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 
@@ -28,7 +28,7 @@ MacOS 용으로 개발 하는 경우 세 가지 음성 Sdk를 사용할 수 있�
 
 :::row:::
     :::column span="3":::
-        Macos CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (이상) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> IDE (통합 개발 환경)에서 다운로드 하 여 사용할 수 있습니다. 먼저 <a href="https://aka.ms/csspeech/macosbinary" target="_blank">이진 CocoaPod <span class="docon docon-navigate-external x-hidden-focus"> </span>를 다운로드 </a>합니다. 사용 하기 위해 동일한 디렉터리에서 pod를 추출 하 고, *Podfile* 을 만들고,를 `pod` 로 나열 합니다 `target`.
+        MacOS CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (이상) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> IDE (통합 개발 환경)에서 다운로드 하 여 사용할 수 있습니다. 먼저 <a href="https://aka.ms/csspeech/macosbinary" target="_blank">이진 CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span> 를 다운로드 </a>합니다. 사용 하기 위해 동일한 디렉터리에서 pod를 추출 하 고, *Podfile* 을 만들고,를 `pod` 로 나열 합니다 `target` .
     :::column-end:::
     :::column:::
         <br>
@@ -43,15 +43,15 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.11.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.0'
 end
 ```
 
-# <a name="xamarinmac"></a>[Xamarin.ios](#tab/mac-xamarin)
+# <a name="xamarinmac"></a>[Xamarin.Mac](#tab/mac-xamarin)
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac은 .NET 개발자가 C#을 사용하여 원시 Mac 애플리케이션을 빌드하기 위한 전체 macOS SDK를 제공합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">xamarin.ios <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>를 참조 하세요.
+        Xamarin.Mac은 .NET 개발자가 C#을 사용하여 원시 Mac 애플리케이션을 빌드하기 위한 전체 macOS SDK를 제공합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">xamarin.ios <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 참조 하세요.
     :::column-end:::
     :::column:::
         <br>

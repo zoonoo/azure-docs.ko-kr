@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592307"
+ms.locfileid: "83654087"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>기능을 사용 하 여 단어 목록 신호 상승
 
@@ -49,8 +49,23 @@ ms.locfileid: "83592307"
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > **ML 기능** 페이지의 상황별 도구 모음에서 구 목록을 삭제 하거나 비활성화할 수 있습니다.
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>전체 앱에 적용 되는 글로벌 문구 목록
+
+지원 하려는 의도 또는 엔터티에 문구 목록을 적용 해야 하지만 전체 앱에 전체 앱에 **대 한 문구** 목록을 적용 해야 하는 경우가 있을 수 있습니다.
+
+ML 기능 페이지에서 구 목록을 선택 하 고 위쪽 상황별 도구 모음에서 **전역 설정** 을 선택 합니다.
+
+## <a name="model-as-a-feature"></a>기능으로 서의 모델
+
+엔터티는 [의도 또는 엔터티에 대 한 기능](luis-concept-feature.md)일 수 있습니다.
+
+엔터티를 의도에 대 한 기능으로 추가 하려면 의도 페이지에서 의도를 선택한 다음 상황별 도구 모음 위에서 **+ 기능 추가** 를 선택 합니다. 이 목록에는 기능으로 적용할 수 있는 모든 구 목록과 엔터티가 포함 됩니다.
+
+엔터티를 다른 엔터티에 기능으로 추가 하려면 [엔터티 색상표](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) 를 사용 하 여 의도 세부 정보 페이지에 기능을 추가 하거나 엔터티 세부 정보 페이지에 [기능을 추가할](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

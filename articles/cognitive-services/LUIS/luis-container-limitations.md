@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592902"
+ms.locfileid: "83659277"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>LUIS (Language Understanding) 컨테이너 제한 사항
 
@@ -35,7 +35,7 @@ LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니�
 
 지원되지 않는 앱 구성|세부 정보|
 |--|--|
-|지원되지 않는 컨테이너 문화권| 네덜란드어 ( `nl-NL` )<br>일본어 ( `ja-JP` )<br>독일어는 [1.0.2 토크](luis-language-support.md#custom-tokenizer-versions)에서 유일 하 게 지원 됩니다.|
+|지원되지 않는 컨테이너 문화권| 네덜란드어 ( `nl-NL` ), 일본어 ( `ja-JP` ) 및 독일어 ( `de-DE` ) 언어는 [1.0.2 토크](luis-language-support.md#custom-tokenizer-versions)에서 유일 하 게 지원 됩니다.|
 |모든 문화권에 지원되지 않는 엔터티|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) 모든 문화권에 미리 빌드된 엔터티|
 |지원 되지 않는 영어 ( `en-US` ) 문화권 엔터티|[GeographyV2](luis-reference-prebuilt-geographyV2.md) 미리 빌드된 엔터티|
 |음성 초기화|컨테이너에서 외부 종속성은 지원되지 않습니다.|

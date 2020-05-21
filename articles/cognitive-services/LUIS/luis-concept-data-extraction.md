@@ -4,17 +4,17 @@ description: 의도 및 엔터티를 사용 하 여 utterance 텍스트에서 �
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589723"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682199"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
 
-정확히 일치하는 텍스트가 아니므로 추출하기 가장 어려운 데이터는 기계 학습 데이터입니다. 기계 학습 [엔터티](luis-concept-entity-types.md)의 데이터 추출은 사용자가 예상한 데이터를 받는다고 확신할 때까지 [작성 주기](luis-concept-app-iteration.md)에 포함되어야 합니다.
+추출 하는 데 가장 어려운 데이터는 정확히 일치 하는 텍스트가 아니므로 기계 학습 데이터입니다. 컴퓨터 학습 [엔터티의](luis-concept-entity-types.md) 데이터 추출은 원하는 데이터를 받을 때까지 [제작 주기의](luis-concept-app-iteration.md) 일부로 포함 되어야 합니다.
 
 ## <a name="data-location-and-key-usage"></a>데이터 위치 및 키 사용
 LUIS는 게시 된 [끝점](luis-glossary.md#endpoint)에서 사용자의 utterance 데이터를 추출 합니다. **HTTPS 요청**(POST 또는 GET)에는 스테이징 또는 프로덕션 환경과 같은 일부 선택적 구성과 발화가 포함됩니다.
@@ -245,7 +245,7 @@ LUIS에서 [토큰 지원을](luis-language-support.md#tokenization) 검토 합�
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 
-[패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다. 패턴에 사용 되는 엔터티는 패턴을 적용 하기 위해 찾을 수 있어야 합니다. 
+[패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다. 패턴에 사용 되는 엔터티는 패턴을 적용 하기 위해 찾을 수 있어야 합니다.
 
 ## <a name="sentiment-analysis"></a>감정 분석
 [게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석을 구성 하는 경우 LUIS json 응답은 감정 분석을 포함 합니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.

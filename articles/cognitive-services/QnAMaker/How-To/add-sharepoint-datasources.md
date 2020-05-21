@@ -3,12 +3,12 @@ title: SharePoint 파일-QnA Maker
 description: 기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294872"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660301"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
@@ -18,7 +18,7 @@ ms.locfileid: "80294872"
 
 QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우에는 Active Directory manager와 통신 하 여이 프로세스를 완료 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 클라우드 기반 SharePoint QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
 * URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다.`https://\*.sharepoint.com`
@@ -27,12 +27,12 @@ QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우
 
 SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../Concepts/content-types.md) 기술 자료에 추가할 수 있습니다. 파일 리소스를 안전 하 게 보호 하는 경우 [사용 권한을](#permissions) 부여 해야 할 수 있습니다.
 
-1. SharePoint 사이트를 사용 하는 라이브러리에서 파일의 줄임표 메뉴를 `...`선택 합니다.
+1. SharePoint 사이트를 사용 하는 라이브러리에서 파일의 줄임표 메뉴를 선택 `...` 합니다.
 1. 파일의 URL을 복사 합니다.
 
    ![파일의 줄임표 메뉴를 선택 하 고 URL을 복사 하 여 SharePoint 파일 URL을 가져옵니다.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. QnA Maker 포털의 **설정** 페이지에서 기술 자료에 [URL을 추가](manage-knowledge-bases.md#edit-knowledge-base) 합니다.
+1. QnA Maker 포털의 **설정** 페이지에서 기술 자료에 URL을 추가 합니다.
 
 ### <a name="images-with-sharepoint-files"></a>SharePoint 파일이 있는 이미지
 
@@ -44,7 +44,7 @@ SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../
 ![Explanation or description of image](URL of public image)
 ```
 
-대괄호 `[]`안의 텍스트는 이미지에 대해 설명 합니다. 괄호 `()`안의 URL은 이미지에 대 한 직접 링크입니다.
+대괄호 안의 텍스트는 `[]` 이미지에 대해 설명 합니다. 괄호 안의 URL은 `()` 이미지에 대 한 직접 링크입니다.
 
 대화형 테스트 패널에서 QnA 쌍을 테스트 하면 QnA Maker 포털에서 markdown 텍스트가 아닌 이미지가 표시 됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 이미지를 공개적으로 검색할 수 있는지 유효성을 검사 합니다.
 
@@ -113,7 +113,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Active Directory manager는 Azure Portal에 로그인 하 고 **[엔터프라이즈 응용 프로그램](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** 을 엽니다.
 
-1. `QnAMakerPortalSharePoint` QnA Maker 앱 선택을 검색 합니다.
+1. `QnAMakerPortalSharePoint`QnA Maker 앱 선택을 검색 합니다.
 
     [![Enterprise apps 목록에서 QnAMakerPortalSharePoint를 검색 합니다.](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585626"
+ms.locfileid: "83653920"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또는 LUIS 제작 [API](developer-reference-resource.md)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -45,10 +45,10 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 
 ## <a name="create-new-app-in-luis"></a>LUIS에서 새 앱 만들기
 
-1. **내 앱** 페이지에서 구독을 선택 하 고 리소스를 작성 한 후 **+ 만들기**를 선택 합니다. 무료 평가판 키를 사용 하는 경우 [제작 리소스를 만드는](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)방법에 대해 알아보세요.
+1. **내 앱** 페이지에서 **구독**을 선택 하 고 **리소스를 작성** 한 후 **+ 만들기**를 선택 합니다. 무료 평가판 키를 사용 하는 경우 [제작 리소스를 만드는](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)방법에 대해 알아보세요.
 
-    ![LUIS 앱 목록](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![LUIS 앱 목록](./media/create-app-in-portal.png)
 
 1. 대화 상자에서 응용 프로그램의 이름 (예:)을 입력 합니다 `Pizza Tutorial` .
 
@@ -64,7 +64,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
     > [!div class="mx-imgBorder"]
     > ![예 길이 발언 없이 만든 의도가 없는 의도 목록입니다.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>사용할 수 있는 기타 작업
+## <a name="other-actions-available-on-my-apps-page"></a>내 앱 페이지에서 사용할 수 있는 기타 작업
 
 상황에 맞는 도구 모음은 다른 작업을 제공 합니다.
 

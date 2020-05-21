@@ -10,19 +10,19 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588907"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681397"
 ---
 # <a name="composite-entity"></a>복합 엔터티
 
 복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 
 > [!CAUTION]
-> 이 엔터티는 **더 이상 사용 되지**않습니다. 컴퓨터에서 학습 한 [엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
+> 이 엔터티는 **더 이상 사용 되지**않습니다. [Machine learning 엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
 
 **데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.**
 

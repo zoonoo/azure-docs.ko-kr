@@ -3,12 +3,12 @@ title: 용어집-LUIS
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589672"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681607"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -141,7 +141,7 @@ LUIS는 엔터티를 예측 하는 데 사용 하는 기계 학습 모델의 유
 
 하위 엔터티는 기계 학습 엔터티의 자식 엔터티입니다.
 
-### <a name="non-machine-learned-entity"></a>컴퓨터에서 학습 하지 않은 엔터티
+### <a name="non-machine-learning-entity"></a>비 기계어 학습 엔터티
 
 텍스트 일치를 사용 하 여 데이터를 추출 하는 엔터티입니다.
 * 목록 엔터티
@@ -164,7 +164,7 @@ LUIS는 엔터티를 예측 하는 데 사용 하는 기계 학습 모델의 유
 
 기계 학습에서 기능은 모델이 특정 개념을 인식 하는 데 도움이 되는 특징입니다. LUIS는 사용할 수 있지만 하드 규칙은 사용할 수 없다는 힌트입니다.
 
-이 용어를 **[컴퓨터에서 학습 한 기능](luis-concept-feature.md)** 이 라고도 합니다.
+이 용어를 **[기계 학습 기능이](luis-concept-feature.md)** 라고도 합니다.
 
 이러한 힌트는 레이블과 함께 사용 되어 새 데이터를 예측 하는 방법을 알아봅니다. LUIS는 구 목록과 다른 모델을 기능으로 사용 하는 기능을 모두 지원 합니다.
 
@@ -199,6 +199,10 @@ LUIS에서는 의도의 예제 utterance에 있는 단어 또는 구의 레이�
 ## <a name="normalized-value"></a>정규화 된 값
 
 [목록](#list-entity) 엔터티에 값을 추가 합니다. 이러한 각 값에는 하나 이상의 동의어 목록이 있을 수 있습니다. 정규화 된 값만 응답에서 반환 됩니다.
+
+## <a name="overfitting"></a>과잉 맞춤
+
+과잉 맞춤는 모델이 특정 예제에 고정 되어 있어 효율적으로 사용할 수 없을 때 발생 합니다.
 
 ## <a name="owner"></a>소유자
 
@@ -260,7 +264,7 @@ LUIS 할당량은 Azure 구독 계층의 제한 사항입니다. LUIS 할당량�
 
 ## <a name="schema"></a>스키마
 
-스키마는 하위 엔터티와 함께 사용자의 의도 및 엔터티를 포함 합니다. 스키마는 초기에 계획 된 후 시간이 지남에 따라 반복 됩니다. 이 스키마에는 앱 설정, 기능 또는 예제 길이 발언 포함 되지 않습니다. 
+스키마는 하위 엔터티와 함께 사용자의 의도 및 엔터티를 포함 합니다. 스키마는 초기에 계획 된 후 시간이 지남에 따라 반복 됩니다. 이 스키마에는 앱 설정, 기능 또는 예제 길이 발언 포함 되지 않습니다.
 
 ## <a name="sentiment-analysis"></a>감정 분석
 감정 분석은 [Text Analytics](../text-analytics/overview.md)에서 제공되는 발화의 긍정적 또는 부정적 값을 제공합니다.

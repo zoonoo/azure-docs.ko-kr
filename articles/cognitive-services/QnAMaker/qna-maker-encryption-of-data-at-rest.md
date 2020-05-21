@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372391"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653654"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 QnA Maker
 
@@ -37,7 +37,7 @@ QnA Maker 서비스는 Azure Search 서비스의 CMK를 사용 합니다. CMKs�
 
    ![암호화 설정 보기](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. QnA Maker 리소스를 만들면 자동으로 Azure Search 인스턴스와 연결 됩니다. CMK와 함께 사용할 수 없습니다. CMK를 사용 하려면 1 단계에서 만든 Azure Search의 새로 만든 인스턴스를 연결 해야 합니다. 특히 QnA Maker 리소스에서 `AzureSearchAdminKey` 및 `AzureSearchName` 를 업데이트 해야 합니다.
+2. QnA Maker 리소스를 만들면 자동으로 Azure Search 인스턴스와 연결 됩니다. CMK와 함께 사용할 수 없습니다. CMK를 사용 하려면 1 단계에서 만든 Azure Search의 새로 만든 인스턴스를 연결 해야 합니다. 특히 `AzureSearchAdminKey` QnA Maker 리소스에서 및를 업데이트 해야 `AzureSearchName` 합니다.
 
    ![암호화 설정 보기](../media/cognitive-services-encryption/qna-encryption-2.png)
 
@@ -52,6 +52,11 @@ QnA Maker 서비스는 Azure Search 서비스의 CMK를 사용 합니다. CMKs�
 ## <a name="regional-availability"></a>국가별 가용성
 
 모든 Azure Search 지역에서 고객 관리 키를 사용할 수 있습니다.
+
+## <a name="encryption-of-data-in-transit"></a>전송 중 데이터 암호화
+
+QnA Maker 포털은 사용자의 브라우저에서 실행 됩니다. 모든 작업은 각 인식 서비스 API에 대 한 직접 호출을 트리거합니다. 따라서 QnA Maker은 전송 중인 데이터를 준수 합니다.
+그러나 QnA Maker 포털 서비스는 미국 서 부에서 호스트 되므로 미국 이외 고객에 게는 적합 하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

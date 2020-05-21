@@ -11,17 +11,17 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588407"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702141"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
 > [!NOTE]
-> * 감정 분석 v3의 컨테이너가 이제 일반 공급 됩니다. 핵심 문구 추출 및 언어 검색 컨테이너는 제어 되지 않은 [공개 미리 보기로](../../cognitive-services-gating-process.md)제공 됩니다.
+> * 감정 분석 v3의 컨테이너가 이제 일반 공급 됩니다. 핵심 문구 추출 및 언어 검색 컨테이너는 제어 되지 않은 공개 미리 보기로 제공 됩니다.
 > * 엔터티 링크 및 NER는 현재 컨테이너로 사용할 수 없습니다.
 
 컨테이너를 사용 하면 사용자 환경에서 텍스트 분석 Api를 실행할 수 있으며 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. Text Analytics 컨테이너는 원시 텍스트에 대 한 고급 자연어 처리를 제공 하며, 감정 분석, 핵심 구 추출 및 언어 감지 라는 세 가지 주요 함수를 포함 합니다. 
@@ -31,7 +31,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 > [!IMPORTANT]
 > 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 

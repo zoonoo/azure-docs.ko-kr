@@ -2,14 +2,14 @@
 title: V3 API의 예측 끝점 변경 내용
 description: 쿼리 예측 끝점 V3 Api가 변경 되었습니다. 이 가이드를 사용 하 여 버전 3 끝점 Api로 마이그레이션하는 방법을 이해할 수 있습니다.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530388"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653855"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -39,11 +39,11 @@ V 3에서 GA로 이동 하는 과정의 일부로 다음과 같이 변경 했습
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * 에서 `units` 로 측정 가능한 단위 키 이름`unit`
+    * 에서로 측정 가능한 단위 키 이름 `units``unit`
 
 * 요청 본문 JSON 변경:
     * 시작 `preferExternalEntities` 까지`preferExternalEntities`
-    * 외부 `score` 엔터티에 대 한 선택적 매개 변수
+    * `score`외부 엔터티에 대 한 선택적 매개 변수
 
 * 응답 본문 JSON 변경 내용:
     * `normalizedQuery`제거
@@ -73,16 +73,9 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 
 ### <a name="changes-by-slot-name-and-version-name"></a>슬롯 이름 및 버전 이름 변경
 
-V3 끝점 HTTP 호출의 형식이 변경 되었습니다.
+[V3 끝점 HTTP 호출의 형식이](developer-reference-resource.md#rest-endpoints) 변경 되었습니다.
 
-버전을 기준으로 쿼리하려면 먼저를 사용 `"directVersionPublish":true`하 여 API를 [통해 게시](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) 해야 합니다. 슬롯 이름 대신 버전 ID를 참조 하는 끝점을 쿼리 합니다.
-
-|예측 API 버전|METHOD|URL|
-|--|--|--|
-|V3|GET|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{앱 ID}</b>/slots/<b>{SLOT-NAME}</b>/predict? query =<b>{query}</b>|
-|V3|POST|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{응용 프로그램 ID}</b>/slots/<b>{슬롯-이름}</b>/예측|
-|V2|GET|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{앱 ID}</b>/versions/<b>{VERSION-id}</b>/predict? query =<b>{query}</b>|
-|V2|POST|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{앱 id}</b>/versions/<b>{버전 id}</b>/예측|
+버전을 기준으로 쿼리하려면 먼저를 사용 하 여 API를 [통해 게시](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) 해야 `"directVersionPublish":true` 합니다. 슬롯 이름 대신 버전 ID를 참조 하는 끝점을 쿼리 합니다.
 
 |유효한 값`SLOT-NAME`|
 |--|
@@ -95,14 +88,14 @@ V3 끝점 HTTP 호출의 형식이 변경 되었습니다.
 
 V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 
-|매개 변수 이름|Type|버전|기본값|목적|
+|매개 변수 이름|유형|버전|기본값|용도|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 False입니다.|
-|`query`|string|V3만|기본값 없음-GET 요청에 필요 합니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
-|`show-all-intents`|boolean|V3만|false|**예측과** 개체의 해당 점수를 사용 하 여 모든 의도를 반환 합니다. 의도는 부모 `intents` 개체에서 개체로 반환 됩니다. 이렇게 하면 배열 `prediction.intents.give`에서 의도를 찾을 필요 없이 프로그래밍 방식으로 액세스할 수 있습니다. V 2에서는 배열에이 반환 되었습니다. |
-|`verbose`|boolean|V2 & V3|false|V 2 **에서**true로 설정 하면 예측 된 모든 것이 반환 됩니다. 모든 예측 의도를 필요로 하는 경우의 `show-all-intents`V3 매개 변수를 사용 합니다.<br><br>**V3에서**이 매개 변수는 엔터티 예측의 엔터티 메타 데이터 정보만 제공 합니다.  |
-|`timezoneOffset`|string|V2|-|DatetimeV2 엔터티에 적용 되는 표준 시간대입니다.|
-|`datetimeReference`|string|V3|-|DatetimeV2 엔터티에 적용 되는 [표준 시간대](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) 입니다. V2 `timezoneOffset` 에서 대체 합니다.|
+|`query`|문자열|V3만|기본값 없음-GET 요청에 필요 합니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
+|`show-all-intents`|boolean|V3만|false|**예측과** 개체의 해당 점수를 사용 하 여 모든 의도를 반환 합니다. 의도는 부모 개체에서 개체로 반환 됩니다 `intents` . 이렇게 하면 배열에서 의도를 찾을 필요 없이 프로그래밍 방식으로 액세스할 수 `prediction.intents.give` 있습니다. V 2에서는 배열에이 반환 되었습니다. |
+|`verbose`|boolean|V2 & V3|false|V 2 **에서**true로 설정 하면 예측 된 모든 것이 반환 됩니다. 모든 예측 의도를 필요로 하는 경우의 V3 매개 변수를 사용 `show-all-intents` 합니다.<br><br>**V3에서**이 매개 변수는 엔터티 예측의 엔터티 메타 데이터 정보만 제공 합니다.  |
+|`timezoneOffset`|문자열|V2|-|DatetimeV2 엔터티에 적용 되는 표준 시간대입니다.|
+|`datetimeReference`|문자열|V3|-|DatetimeV2 엔터티에 적용 되는 [표준 시간대](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) 입니다. `timezoneOffset`V2에서 대체 합니다.|
 
 
 ### <a name="v3-post-body"></a>V3 POST 본문
@@ -119,13 +112,13 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 }
 ```
 
-|속성|Type|버전|기본값|목적|
+|속성|유형|버전|기본값|용도|
 |--|--|--|--|--|
 |`dynamicLists`|array|V3만|필요하지 않음.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
 |`externalEntities`|array|V3만|필요하지 않음.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
-|`options.datetimeReference`|string|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
+|`options.datetimeReference`|문자열|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
 |`options.preferExternalEntities`|boolean|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](schema-change-prediction-runtime.md#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
-|`query`|string|V3만|필수 사항입니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
+|`query`|문자열|V3만|필수 사항입니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
 
 ## <a name="response-changes"></a>응답 변경
 
@@ -135,7 +128,7 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 
 
 
-V 2의 상위 JSON 속성은가 true `verbose` 로 설정 된 경우 `intents` 속성에서 모든 의도 및 해당 점수를 반환 합니다.
+V 2의 상위 JSON 속성은 `verbose` 가 true로 설정 된 경우 속성에서 모든 의도 및 해당 점수를 반환 합니다 `intents` .
 
 ```JSON
 {
@@ -160,7 +153,7 @@ V3의 top JSON 속성은 다음과 같습니다.
 }
 ```
 
-`intents` 개체가 순서가 지정 되지 않은 목록입니다. 의 첫 번째 자식이에 `intents` 해당 하는 것으로 가정 `topIntent`하지 마십시오. 대신 `topIntent` 값을 사용 하 여 점수를 찾습니다.
+`intents`개체가 순서가 지정 되지 않은 목록입니다. 의 첫 번째 자식이에 해당 하는 것으로 가정 하지 마십시오 `intents` `topIntent` . 대신 값을 사용 `topIntent` 하 여 점수를 찾습니다.
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
@@ -169,26 +162,26 @@ const score = intents[topIntentName];
 
 응답 JSON 스키마 변경 내용:
 
-* 원래 utterance `query`의 차이를 명확 하 게 구분 하 고 `prediction`예측을 반환 합니다.
+* 원래 utterance의 차이를 명확 하 게 구분 하 `query` 고 예측을 반환 `prediction` 합니다.
 * 예측 된 데이터에 대 한 프로그래밍 방식의 액세스를 용이 하 게 합니다. V 2에서 배열을 열거 하는 대신 **이름** 및 엔터티 모두에 대 한 값에 액세스할 수 있습니다. 예측 된 엔터티 역할의 경우 전체 앱에서 고유 하므로 역할 이름이 반환 됩니다.
 * 데이터 형식이 결정 되 면 적용 됩니다. 숫자는 더 이상 문자열로 반환 되지 않습니다.
-* 첫 번째 우선 순위 예측 정보와 추가 메타 데이터의 차이 ( `$instance` 개체에 반환 됨)
+* 첫 번째 우선 순위 예측 정보와 추가 메타 데이터의 차이 (개체에 반환 됨) `$instance`
 
 ### <a name="entity-response-changes"></a>엔터티 응답 변경
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>길이 발언에서 엔터티 배치 표시
 
-V 2 **에서**엔터티는 `startIndex` and `endIndex`를 사용 하 여 utterance로 표시 되었습니다.
+V 2 **에서**엔터티는 and를 사용 하 여 utterance로 표시 되었습니다 `startIndex` `endIndex` .
 
-**V3에서**엔터티는 및 `startIndex` `entityLength`로 표시 됩니다.
+**V3에서**엔터티는 및로 표시 됩니다 `startIndex` `entityLength` .
 
-#### <a name="access-instance-for-entity-metadata"></a>엔터티 `$instance` 메타 데이터에 대 한 액세스
+#### <a name="access-instance-for-entity-metadata"></a>`$instance`엔터티 메타 데이터에 대 한 액세스
 
-엔터티 메타 데이터가 필요한 경우 쿼리 문자열은 플래그를 `verbose=true` 사용 해야 하 고 응답에는 `$instance` 개체의 메타 데이터가 포함 됩니다. 다음 섹션의 JSON 응답에 예제가 나와 있습니다.
+엔터티 메타 데이터가 필요한 경우 쿼리 문자열은 플래그를 사용 해야 하 `verbose=true` 고 응답에는 개체의 메타 데이터가 포함 `$instance` 됩니다. 다음 섹션의 JSON 응답에 예제가 나와 있습니다.
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>예측 된 각 엔터티는 배열로 표시 됩니다.
 
-Utterance `prediction.entities.<entity-name>` 에서 각 엔터티를 두 번 이상 예측할 수 있으므로 개체는 배열을 포함 합니다.
+`prediction.entities.<entity-name>`Utterance에서 각 엔터티를 두 번 이상 예측할 수 있으므로 개체는 배열을 포함 합니다.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
@@ -210,7 +203,7 @@ V3 response 개체에는 미리 빌드된 엔터티에 대 한 변경 내용이 
 ```
 각 내부 배열은 utterance 내부의 텍스트에 해당 합니다. 동일한 텍스트가 목록 엔터티의 여러 하위 목록에 나타날 수 있기 때문에 내부 개체는 배열입니다.
 
-개체를 `$instance` 개체로 매핑할 `entities` 때 목록 엔터티 예측에 대해 개체의 순서가 유지 됩니다.
+개체 `entities` 를 개체로 매핑할 때 `$instance` 목록 엔터티 예측에 대해 개체의 순서가 유지 됩니다.
 
 ```nodejs
 const item = 0; // order preserved, use same enumeration for both
@@ -222,7 +215,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 V 2에서 `entities` 배열은 엔터티 이름이 고유 식별자 인 예측 된 엔터티를 모두 반환 했습니다. V3에서 엔터티가 역할을 사용 하 고 예측을 엔터티 역할에 사용 하는 경우 기본 식별자는 역할 이름입니다. 이는 엔터티 역할 이름이 다른 모델 (의도, 엔터티) 이름을 포함 하 여 전체 앱에서 고유 해야 하기 때문에 가능 합니다.
 
-다음 예제에서는 텍스트를 포함 하는 utterance을 `Yellow Bird Lane`고려 합니다. 이 텍스트는의 `Location` `Destination`사용자 지정 엔터티의 역할로 예측 됩니다.
+다음 예제에서는 텍스트를 포함 하는 utterance을 고려 `Yellow Bird Lane` 합니다. 이 텍스트는의 사용자 지정 `Location` 엔터티의 역할로 예측 됩니다 `Destination` .
 
 |Utterance 텍스트|엔터티 이름|역할 이름|
 |--|--|--|
@@ -253,7 +246,7 @@ V3에서 엔터티는 역할에 대 한 예측 인 경우 _엔터티 역할_에�
 }
 ```
 
-V3에서 다음과 같이 `verbose` 플래그를 사용 하 여 엔터티 메타 데이터를 반환 합니다.
+V3에서 다음과 같이 플래그를 사용 `verbose` 하 여 엔터티 메타 데이터를 반환 합니다.
 
 ```JSON
 "entities":{

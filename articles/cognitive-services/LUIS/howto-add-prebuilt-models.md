@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584997"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680943"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>일반적인 사용 시나리오에 대 한 미리 빌드된 모델 추가
 
@@ -40,7 +40,7 @@ LUIS에는 일반적인 대화형 사용자 시나리오를 신속 하 게 추�
 
 1. **의도** 페이지에서 의도 목록 위의 도구 모음에서 미리 작성 된 **도메인 의도 추가** 를 선택 합니다.
 
-1. 팝업 대화 상자에서 **Utilities.Cancel** 의도를 선택합니다.
+1. 팝업 대화 상자에서 의도를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![미리 빌드된 의도 추가](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -61,13 +61,24 @@ LUIS에는 일반적인 대화형 사용자 시나리오를 신속 하 게 추�
 
 1. **완료** 를 선택합니다. 엔터티를 추가한 후에는 앱을 학습할 필요가 없습니다.
 
+## <a name="add-a-prebuilt-domain-entity"></a>미리 빌드된 도메인 엔터티 추가
+1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
+1. 왼쪽에서 **엔터티** 를 선택 합니다.
+
+1. **엔터티** 페이지에서 미리 작성 된 **도메인 엔터티 추가**를 선택 합니다.
+
+1. 미리 작성 된 **도메인 모델 추가** 대화 상자에서 미리 빌드된 도메인 엔터티를 선택 합니다.
+
+1. **완료** 를 선택합니다. 엔터티를 추가한 후에는 앱을 학습할 필요가 없습니다.
+
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>게시-예측 끝점에서 미리 작성 한 모델 보기
 
 미리 작성 된 모델의 값을 보는 가장 쉬운 방법은 게시 된 끝점에서 쿼리 하는 것입니다.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>미리 작성 된 엔터티 토큰을 포함 하는 엔터티
 
-미리 빌드된 엔터티의 필수 기능을 필요로 하는 컴퓨터에서 학습 한 엔터티가 있는 경우 컴퓨터에서 학습 한 엔터티에 하위 구성 요소를 추가한 다음 미리 작성 된 엔터티의 _필수_ 기능을 추가 합니다.
+미리 빌드된 엔터티의 필수 기능을 필요로 하는 기계 학습 엔터티가 있는 경우 하위 엔터티를 기계 학습 엔터티에 추가 하 고 미리 작성 된 엔터티의 _필수_ 기능을 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
