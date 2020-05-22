@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 82766e969f62f35f39f6545eb4c2c6bdda29c11b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69906501"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586542"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>응답을 구문 분석하는 함수 만들기
 
-이 간단한 함수는 Translator Text 서비스의 JSON 응답을 구문 분석하고 꾸밉니다.
+이 간단한 함수는 Translator 서비스의 JSON 응답을 구문 분석하고 꾸밉니다.
 
 ```java
 // This function prettifies the json response.
@@ -180,7 +180,7 @@ gradle run
 
 ## <a name="next-steps"></a>다음 단계
 
-Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+Translator로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

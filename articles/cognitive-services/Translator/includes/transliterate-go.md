@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 5510088925b7a628417c7f3c11bb89c5ce915381
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 5116df10fa6732f1b28ff83dc8854616264222bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69906499"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586536"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>main 함수 만들기
 
-이 샘플에서는 `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` 및 `TRANSLATOR_TEXT_ENDPOINT` 환경 변수에서 Translator Text 구독 키와 엔드포인트를 읽으려고 합니다. 환경 변수에 익숙하지 않은 경우 `subscriptionKey` 및 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+이 샘플에서는 `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` 및 `TRANSLATOR_TEXT_ENDPOINT` 환경 변수에서 Translator 구독 키와 엔드포인트를 읽으려고 합니다. 환경 변수에 익숙하지 않은 경우 `subscriptionKey` 및 `endpoint`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
 
 이 코드를 프로젝트에 복사합니다.
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-transliterate-text"></a>텍스트를 음역하는 함수 만들기
 
-텍스트를 음역하는 함수를 만들겠습니다. 이 함수는 단일 인수인 Translator Text 구독 키를 사용합니다.
+텍스트를 음역하는 함수를 만들겠습니다. 이 함수는 단일 인수인 Translator 구독 키를 사용합니다.
 
 ```go
 func transliterate(subscriptionKey string, uri string) {
@@ -93,7 +93,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)를 참조하세요.
+> 엔드포인트, 경로 및 요청 매개 변수에 대한 자세한 내용은 [Translator 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)를 참조하세요.
 
 ## <a name="create-a-struct-for-your-request-body"></a>요청 본문의 구조체 만들기
 
@@ -111,7 +111,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>요청 빌드
 
-이제 요청 본문을 JSON으로 인코딩했으므로 POST 요청을 빌드하고 Translator Text API를 호출할 수 있습니다.
+이제 요청 본문을 JSON으로 인코딩했으므로 POST 요청을 빌드하고 Translator를 호출할 수 있습니다.
 
 ```go
 // Build the HTTP POST request
@@ -123,7 +123,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -149,7 +149,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-이것으로, Translator Text API를 호출하여 JSON 응답을 반환하는 간단한 프로그램이 만들어집니다. 이제 프로그램을 실행해 보겠습니다.
+이것으로, Translator를 호출하여 JSON 응답을 반환하는 간단한 프로그램이 만들어집니다. 이제 프로그램을 실행해 보겠습니다.
 
 ```console
 go run transliterate-text.go
@@ -170,7 +170,7 @@ go run transliterate-text.go
 
 ## <a name="next-steps"></a>다음 단계
 
-Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+Translator로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -2,13 +2,13 @@
 title: '빠른 시작: LUIS 포털에서 앱 배포'
 description: 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 리소스를 할당하고, 앱을 학습시키고 게시하여 앱을 배포하는 방법을 보여 줍니다.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756296"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585089"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -30,7 +30,7 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
 
 LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리소스를 LUIS 앱에 할당해야 합니다. 리소스가 할당되면 새 리소스를 만들지 않는 이상 이 단계를 다시 수행할 필요가 없습니다. 앱의 영역을 확장하거나 더 많은 예측 쿼리를 지원하기 위해 새 리소스를 만들어야 하는 경우가 있습니다.
 
-1. [LUIS 포털 미리 보기](https://preview.luis.ai)에 로그인하고 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고, 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
 
 1. 오른쪽 상단 메뉴에서 **관리**를 선택한 다음, **Azure Resources**를 선택합니다.
 
@@ -59,7 +59,7 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 
 ## <a name="prediction-endpoint-request"></a>예측 엔드포인트 요청
 
-미리 보기 포털에서 URL 끝에 있는 `query=`는 사용자의 발화가 GET 요청에 추가되는 위치입니다. 이전 빠른 시작의 끝부분에 사용한 것과 동일한 사용자 발화를 `query=` 뒤에 입력합니다.
+포털에서 URL 끝에 있는 `query=`는 사용자의 발화가 GET 요청에 추가되는 위치입니다. 이전 빠른 시작의 끝부분에 사용한 것과 동일한 사용자 발화를 `query=` 뒤에 입력합니다.
 
 ```Is there a form named hrf-234098```
 

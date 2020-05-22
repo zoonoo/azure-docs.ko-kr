@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 4dbf9dddd46e38ae9b8cec3288bdacccb1ef1c78
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69906901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586886"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -132,7 +132,7 @@ static string PrettyPrint(string s)
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 `GetLanguages()` 함수에서 `Main`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
+마지막 단계는 `Main` 함수에서 `GetLanguages()`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
 
 ```csharp
 GetLanguages();
@@ -241,7 +241,7 @@ dotnet run
 
 ## <a name="next-steps"></a>다음 단계
 
-Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+Translator로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169103"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588295"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -52,7 +52,7 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "언어 이해")|LUIS(Language Understanding) 서비스를 사용하면 애플리케이션에서 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker를 사용하여 반구조화된 콘텐츠로부터 질문 및 답변 서비스를 작성할 수 있습니다.|
 |[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "텍스트 분석")|텍스트 분석은 감정 분석, 핵심 구 추출 및 언어 감지를 위한 원시 텍스트의 자연어 처리를 제공합니다.|
-|[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator Text는 거의 실시간으로 컴퓨터 기반 텍스트 번역을 제공합니다.|
+|[Translator](https://docs.microsoft.com/azure/cognitive-services/translator/ "변환기")|Translator는 거의 실시간으로 머신 기반 텍스트 번역을 제공합니다.|
 
 
 ## <a name="search-apis"></a>Search API

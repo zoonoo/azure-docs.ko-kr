@@ -1,14 +1,14 @@
 ---
 title: '자습서: 의도 예측 - LUIS'
-description: 이 자습서에서는 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 이 앱은 이메일 주소 또는 날짜 등의 발화 텍스트에서 다양한 데이터 요소를 추출하지 않으므로 가장 간단한 형식의 LUIS 앱입니다.
+description: 이 자습서의 발화(텍스트)를 기반으로 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다.
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80286747"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588956"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -37,7 +37,7 @@ ms.locfileid: "80286747"
 |`ModifyOrder`|사용자의 피자 주문을 확인합니다.|
 |`Greeting`|Bot 대화를 시작합니다.|
 |`ConfirmOrder`|피자 주문을 확인합니다.|
-|`None`|사용자가 앱에서 대답할 수 없는 내용을 질문하고 있는지 확인합니다. 이 의도가 앱 만들기의 일부로 제공된 경우에는 삭제할 수 없습니다. |
+|`None`|사용자가 LUIS 앱이 응답하도록 설계되지 않은 것을 질문하고 있는지 확인합니다. 이 의도는 앱 만들기의 일부로 제공되며 삭제할 수 없습니다. |
 
 ## <a name="create-a-new-app"></a>새 앱 만들기
 
@@ -64,9 +64,10 @@ ms.locfileid: "80286747"
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![예제 발화 추가](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![의도 페이지의 LUIS 포털에서 예제 발화 추가 스크린샷](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    _예제 발화_을 입력하면 LUIS가 이 의도에 대해 예측해야 하는 발화의 종류를 학습하게 됩니다.
+    _예제 발화_을 입력하면 LUIS가 이 의도에 대해 예측해야 하는 발화의 종류를 학습하게 됩니다. 이는 올바른 예제입니다. 다른 모든 의도의 발화는 이 의도에 대한 잘못된 예제로 취급됩니다.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -178,6 +179,8 @@ ms.locfileid: "80286747"
 
 ## <a name="client-application-next-steps"></a>클라이언트-애플리케이션 다음 단계
 
+이 자습서에서는 LUIS 앱을 만들고, 의도를 만들고, 각 의도에 예제 발화를 추가하고, 없음 의도에 예제 발화를 추가하고, 엔드포인트에서 학습/게시/테스트했습니다. LUIS 모델을 빌드하는 기본 단계입니다.
+
 LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다. LUIS는 사용자 발화에 대답을 제공하지 않고, 자연어에 요청되는 정보의 형식만 식별합니다. 대화형 후속 작업은 Azure Bot 같은 클라이언트 애플리케이션을 통해 제공됩니다.
 
 
@@ -193,8 +196,6 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 
 
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 LUIS 앱을 만들고, 의도를 만들고, 각 의도에 예제 발화를 추가하고, 없음 의도에 예제 발화를 추가하고, 엔드포인트에서 학습/게시/테스트했습니다. LUIS 모델을 빌드하는 기본 단계입니다.
 
 > [!div class="nextstepaction"]
 > [이 앱에 분해 가능한 엔터티 추가](tutorial-machine-learned-entity.md)

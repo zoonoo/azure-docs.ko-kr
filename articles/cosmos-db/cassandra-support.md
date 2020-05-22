@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 978dbf3d8e6a92242c0a984b26bb35cf911a3369
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80420146"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590431"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -104,9 +104,13 @@ Azure Cosmos DB Cassandra API는 관리되는 서비스 플랫폼입니다. 그�
 
 * 계정 관리를 위해 지원되는 다른 메커니즘으로는 Azure Portal의 데이터 탐색기, 메트릭, 로그 진단, PowerShell 및 CLI 등이 있습니다.
 
-## <a name="cql-shell"></a>CQL Shell  
+## <a name="hosted-cql-shell-preview"></a>호스팅된 CQL 셸(미리 보기)
 
-Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 일부 환경 변수를 설정하면 바로 작동합니다.
+호스팅된 네이티브 Cassandra 셸(CQLSH v5.0.1)은 [Azure Portal](data-explorer.md) 또는 [Azure Cosmos 탐색기](https://cosmos.azure.com/)의 데이터 탐색기에서 직접 열 수 있습니다. CQL 셸을 사용하도록 설정하기 전에 계정에서 [Notebooks 기능을 사용하도록 설정](enable-notebooks.md)해야 합니다(아직 활성화하지 않은 경우 `Open Cassandra Shell`을 클릭하면 메시지가 표시됨). 지원되는 Azure 지역에 대해 [Azure Cosmos DB 계정용 Notebooks 사용](enable-notebooks.md)에서 강조 표시된 메모를 확인합니다.
+
+![CQLSH](./media/cassandra-support/cqlsh.png)
+
+로컬 머신에 설치된 CQLSH를 사용하여 Azure Cosmos DB의 Cassandra API에 연결할 수도 있습니다. Apache Cassandra 3.1.1과 함께 제공되며 환경 변수를 설정하여 즉시 사용할 수 있습니다. 다음 섹션에는 CQLSH를 사용하여 Windows 또는 Linux에서 Azure Cosmos DB의 Cassandra API를 설치, 구성 및 연결하는 지침이 포함되어 있습니다.
 
 **Windows:**
 
@@ -198,9 +202,8 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Cassandra 다시 시도 연결 정책 사용
 
-Azure Cosmos DB는 리소스 관리 시스템입니다. 즉, 작업에서 사용하는 요청 단위에 따라 특정 초에 특정 작업을 수행할 수 있습니다. 애플리케이션이 지정된 초 안에 해당 제한을 초과하는 경우 요청은 속도로 제한되며 예외가 throw됩니다. Azure Cosmos DB의 Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환합니다. 애플리케이션에서 대/소문자 제한으로 요청을 가로채고 다시 시도할 수 있도록 하기 위해 [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 및 [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) 확장이 제공됩니다. 다른 SDK를 사용하여 Azure Cosmos DB에서 Cassandra API에 액세스하는 경우 이러한 예외에 대해 다시 시도하는 연결 정책을 만듭니다.
+Azure Cosmos DB는 리소스 관리 시스템입니다. 즉, 작업에서 사용하는 요청 단위에 따라 특정 초에 특정 작업을 수행할 수 있습니다. 애플리케이션이 지정된 초 안에 해당 제한을 초과하는 경우 요청은 속도로 제한되며 예외가 throw됩니다. Azure Cosmos DB의 Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환합니다. 속도 제한이 있는 경우 애플리케이션이 요청을 가로채고 다시 시도할 수 있도록 [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 및 [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) 확장이 제공됩니다. Azure Cosmos DB의 Cassandra API에 연결하는 경우 [버전 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) 및 [버전 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax 드라이버에 대한 Java 코드 샘플도 참조하세요. 다른 SDK를 사용하여 Azure Cosmos DB에서 Cassandra API에 액세스하는 경우 이러한 예외에 대해 다시 시도하는 연결 정책을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
-

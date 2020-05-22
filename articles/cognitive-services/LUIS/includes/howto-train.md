@@ -10,18 +10,15 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 59d78f60081367b7f5544229b7749d71b7a1dd2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77279560"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585090"
 ---
 1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
 
     ![학습 단추](../media/train-button-preview.png)
 
-2. 성공 여부를 확인하는 상태가 표시되면 학습을 완료합니다.
-
-    > [!Tip]
-    > **알림**은 오른쪽 위 탐색에서 제공되며 기록을 포함합니다.
+1. **학습** 단추의 상태 표시기가 녹색이면 학습이 완료된 것입니다.

@@ -3,12 +3,12 @@ title: Personalizer란?
 description: Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687254"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586221"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -70,17 +70,24 @@ Personalizer는 그룹 정보를 거의 실시간으로 사용하여 가장 적�
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>클라이언트 애플리케이션에 대해 Personalizer를 설계 및 구현하는 방법
 
 1. 콘텐츠, **_작업_** 및 **_컨텍스트_** 를 [설계](concepts-features.md)하고 계획합니다. **_보상_** 점수에 대한 보상 알고리즘을 결정합니다.
-1. 만드는 각 [Personalizer 리소스](how-to-settings.md)는 하나의 학습 루프로 간주됩니다. 루프는 해당 콘텐츠 또는 사용자 환경에 대한 순위 및 보상 호출을 모두 받습니다.
-1. Personalizer를 웹 사이트 또는 콘텐츠 시스템에 추가합니다.
+1. 사용자가 만드는 각 [Personalizer 리소스](how-to-settings.md)는 하나의 학습 루프로 간주됩니다. 루프는 해당 콘텐츠 또는 사용자 환경에 대한 순위 및 보상 호출을 모두 받습니다.
+
+    |리소스 유형| 목적|
+    |--|--|
+    |[실습생 모드](concept-apprentice-mode.md) `E0`|기존 애플리케이션에 영향을 주지 않고 Personalizer 모델을 학습한 다음, 프로덕션 환경에서의 온라인 학습 동작에 배포합니다.|
+    |표준, `S0`|프로덕션 환경에서의 온라인 학습 동작|
+    |체험판, `F0`| 비프로덕션 환경에서 온라인 학습 동작 시도|
+
+1. Personalizer를 애플리케이션, 웹 사이트 또는 시스템에 추가합니다.
     1. 콘텐츠가 사용자에게 표시되기 전에 애플리케이션, 웹 사이트 또는 시스템에서 **순위** 호출을 Personalizer에 추가하여 가장 적합한 단일 _콘텐츠_ 항목을 확인합니다.
     1. 반환되는 _보상 작업 ID_인 가장 적합한 단일 _콘텐츠_ 항목을 사용자에게 표시합니다.
-    1. 다음과 같이 _알고리즘_을 사용자의 동작 방식에 대해 수집한 정보에 적용하여 **보상** 점수를 확인합니다.
+    1. 다음과 같이 _비즈니스 논리_를 사용자의 동작 방식에 대해 수집한 정보에 적용하여 **보상** 점수를 확인합니다.
 
-        |동작|계산된 보상 점수|
-        |--|--|
-        |사용자가 가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택함|**1**|
-        |사용자가 다른 콘텐츠를 선택함|**0**|
-        |가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택하기 전에 사용자가 일시 중지하여 막연하게 스크롤함|**0.5**|
+    |동작|계산된 보상 점수|
+    |--|--|
+    |사용자가 가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택함|**1**|
+    |사용자가 다른 콘텐츠를 선택함|**0**|
+    |가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택하기 전에 사용자가 일시 중지하여 막연하게 스크롤함|**0.5**|
 
     1. 0과 1 사이의 보상 점수를 보내는 **보상** 호출을 추가합니다.
         * 콘텐츠를 표시한 직후

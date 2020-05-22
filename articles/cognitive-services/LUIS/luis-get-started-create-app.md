@@ -2,13 +2,13 @@
 title: '빠른 시작: 앱 만들기 - LUIS'
 description: 이 빠른 시작에서는 미리 빌드된 도메인 `HomeAutomation`을 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 앱을 만드는 방법을 보여줍니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 마치면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 05/05/2020
+ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80287801"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589155"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -21,11 +21,15 @@ ms.locfileid: "80287801"
 ## <a name="create-a-new-app"></a>새 앱 만들기
 애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다.
 
-1. 내 앱 목록에서 **+ 대화용 새 앱**을 선택합니다.
+1. 내 앱 목록에서 **+ 대화용 새 앱**을 선택한 다음, 옵션 목록에서 **+ 대화용 새 앱**을 다시 선택합니다.
 
-1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정합니다. 문화권으로 **영어**를 선택합니다. 설명은 선택 사항이며 작성 또는 예측에 사용되지 않습니다. LUIS 앱을 만들 때 예측 리소스도 선택 사항입니다. **완료** 를 선택합니다.
+1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정합니다.
+1. 문화권으로 **영어**를 선택합니다.
+1. 선택적 설명을 입력합니다.
+1. 리소스를 아직 만들지 않은 경우 예측 리소스를 선택하지 마세요. 앱의 예측 엔드포인트(스테이징 또는 프로덕션)를 사용하려면 예측 리소스를 할당해야 합니다.
+1. **완료** 를 선택합니다.
 
-    LUIS가 앱을 만듭니다. 앱을 프로덕션에 게시할 때 앱이 많은 요청을 처리할 수 있도록 예측 리소스를 할당해야 합니다.
+    LUIS가 앱을 만듭니다.
 
     ![대화 상자에서 애플리케이션 이름을 'Home Automation'으로 지정합니다.](./media/create-new-app-details.png)
 
@@ -34,24 +38,27 @@ ms.locfileid: "80287801"
 
 ## <a name="add-prebuilt-domain"></a>미리 빌드된 도메인 추가
 
-**미리 빌드된 도메인**을 선택한 후 **HomeAutomation**을 검색합니다. HomeAutomation 카드에서 **도메인 추가**를 선택합니다.
+1. 왼쪽 탐색 영역에서 **미리 빌드된 도메인**을 선택합니다.
+1. **HomeAutomation**을 검색합니다.
+1. HomeAutomation 카드에서 **도메인 추가**를 선택합니다.
 
-!['미리 빌드된 도메인'을 선택한 후 'HomeAutomation'을 검색합니다. HomeAutomation 카드에서 '도메인 추가'를 선택합니다.](media/luis-quickstart-new-app/home-automation.png)
+    !['미리 빌드된 도메인'을 선택한 후 'HomeAutomation'을 검색합니다. HomeAutomation 카드에서 '도메인 추가'를 선택합니다.](media/luis-quickstart-new-app/home-automation.png)
 
-도메인 추가에 성공하면 미리 작성된 도메인 상자에 **도메인 제거** 단추가 표시됩니다.
+    도메인 추가에 성공하면 미리 작성된 도메인 상자에 **도메인 제거** 단추가 표시됩니다.
 
 ## <a name="intents-and-entities"></a>의도 및 엔터티
 
-**의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 미리 빌드된 도메인 의도에 샘플 발언이 포함되어 있습니다.
+1. **의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 미리 빌드된 도메인 의도에는 예제 발화가 있습니다.
 
-![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")
+    ![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")
 
-> [!NOTE]
-> **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이것은 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다.
+    > [!NOTE]
+    > **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이것은 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다.
 
-**HomeAutomation.TurnOff** 의도를 선택합니다. 엔터티를 사용하여 레이블이 지정된 발언 목록이 의도에 포함된 것을 볼 수 있습니다.
+1. **HomeAutomation.TurnOff** 의도를 선택합니다. 의도에는 엔터티를 사용하여 레이블이 지정된 예제 발화 목록이 포함되어 있습니다.
 
-[![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class="mx-imgBorder"]
+    > [![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
@@ -60,21 +67,22 @@ ms.locfileid: "80287801"
 ## <a name="test-your-app"></a>앱 테스트
 앱을 학습시킨 후에는 테스트할 수 있습니다.
 
-1. 오른쪽 상단 탐색에서 **테스트**를 선택합니다. 1. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다.
+1. 오른쪽 상단 탐색에서 **테스트**를 선택합니다.
+
+1. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다.
 
     ```
     Turn off the lights
     ```
 
-    점수가 가장 높은 의도가 각 테스트 발언에 대한 의도와 일치하는지 확인합니다.
-
     이 예제에서 `Turn off the lights`는 **HomeAutomation.TurnOff**의 최고 득점 의도로 올바르게 확인되었습니다.
 
     ![발언이 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. **검사**를 선택하여 예측에 대한 자세한 정보를 검토합니다.
+1. **검사**를 선택하여 예측에 대한 자세한 정보를 봅니다.
 
-    ![검사 정보가 포함된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![검사 정보가 포함된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png)
 
 1. 테스트 창을 닫습니다.
 

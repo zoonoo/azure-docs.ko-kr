@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81fb599ca4987adccdb91baa7a74c33ae3af48d4
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 4573224a77b080e0ba6cefe5069164466e7df5b9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69906513"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586538"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>JSON 응답을 위한 클래스 만들기
 
-다음으로, Translator Text API에서 반환된 JSON 응답을 역직렬화할 때 사용되는 클래스를 만듭니다.
+다음으로, Translator에서 반환된 JSON 응답을 역직렬화할 때 사용되는 클래스를 만듭니다.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TransliterationResult
 {
@@ -171,7 +171,7 @@ Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 `TransliterateTextRequest()` 함수에서 `Main`를 호출하는 것입니다. 이 샘플에서는 일본어를 라틴 스크립트로 음역합니다. `static void Main(string[] args)`를 찾아 다음 코드로 바꿉니다.
+마지막 단계는 `Main` 함수에서 `TransliterateTextRequest()`를 호출하는 것입니다. 이 샘플에서는 일본어를 라틴 스크립트로 음역합니다. `static void Main(string[] args)`를 찾아 다음 코드로 바꿉니다.
 
 ```csharp
 static async Task Main(string[] args)
@@ -223,7 +223,7 @@ Transliterated to latn script: Kon\'nichiwa
 
 ## <a name="next-steps"></a>다음 단계
 
-Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+Translator로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
