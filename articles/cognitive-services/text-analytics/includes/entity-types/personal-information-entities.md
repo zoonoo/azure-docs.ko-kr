@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086869"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778150"
 ---
 ## <a name="personal-information-entity-types"></a>개인 정보 엔터티 형식:
 
@@ -25,7 +25,7 @@ ms.locfileid: "77086869"
 
 | 하위 형식 이름 | Description                                               | 모델 버전부터 사용 가능 |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| 해당 없음          | 인식할 수 있는 이름 ( `Bill Gates`예:)`Marie Curie` | `2020-02-01`                           |
+| 해당 없음          | 인식할 수 있는 `Bill Gates` 이름 (예:)`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>조직  
 
@@ -37,7 +37,7 @@ ms.locfileid: "77086869"
 
 | 하위 형식 이름 | Description                                                                                       | 모델 버전부터 사용 가능|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| 해당 없음          | 조직 (예: `Microsoft` `NASA`)`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| 해당 없음          | 조직 `Microsoft` (예:) `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>전화 번호
 
@@ -127,7 +127,7 @@ ms.locfileid: "77086869"
 
 인증 정보 및 연결 문자열을 포함 하는 식별 가능한 Azure 정보 
 
-* 모델 버전 `2019-10-01`부터 사용 가능 합니다.
+* 모델 버전부터 사용 가능 `2019-10-01` 합니다.
 
 언어:
 
@@ -149,7 +149,7 @@ ms.locfileid: "77086869"
 
 ### <a name="identification"></a>Identification(식별)
 
-* 모델 버전 `2019-10-01`부터 사용 가능 합니다.
+* 모델 버전부터 사용 가능 `2019-10-01` 합니다.
 
 언어:
 
@@ -164,9 +164,9 @@ ms.locfileid: "77086869"
 | 신용 카드                | 신용 카드 번호.                                                       |
 | IBAN 코드                  | 지불 지침 정보에 대 한 IBAN 코드입니다.                            |
 
-#### <a name="government-and-country-specific-identification"></a>정부 및 국가 관련 식별
+#### <a name="government-and-countryregion-specific-identification"></a>정부 및 국가/지역 관련 Id
 
-아래 엔터티는 country로 그룹화 되 고 나열 됩니다.
+아래 엔터티는 country/region으로 그룹화 되 고 나열 됩니다.
 
 아르헨티나
 * DNI (국가 Id) 번호
@@ -186,7 +186,7 @@ ms.locfileid: "77086869"
 * CPF 번호
 * 국가 ID 카드 (RG)
 
-Canada
+캐나다
 * Passport ID
 * 드라이버의 라이선스 ID
 * 의료 보험 수
@@ -205,7 +205,7 @@ Canada
 * ID 카드 번호
 * 있는 OIB (개인 ID) 번호
 
-체코
+체코 공화국
 * 국가 ID 카드 번호
 
 덴마크
@@ -294,7 +294,7 @@ EU (유럽 연합)
 싱가포르
 * 국가별 등록 ID 카드 (NRIC) 번호
 
-남아프리카
+남아프리카 공화국
 * ID 번호
 * 상주 등록 번호
 
@@ -316,7 +316,7 @@ EU (유럽 연합)
 태국
 * 모집단 식별 코드
 
-United Kingdom
+영국
 * Passport ID
 * 드라이버의 라이선스 ID
 * 국가 보험 번호 (NINO)
