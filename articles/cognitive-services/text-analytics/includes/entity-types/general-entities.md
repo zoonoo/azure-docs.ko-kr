@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77211400"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778277"
 ---
 ## <a name="general-entity-types"></a>일반 엔터티 형식:
 
@@ -22,11 +22,11 @@ ms.locfileid: "77211400"
 텍스트의 사람 이름을 인식 합니다.
 
 언어:
-* 공개 미리 보기 `Arabic`: `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Swedish` ,, `Polish`,,,,,,,,,,,, 및 `Korean` `Norwegian (Bokmål)` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish``Turkish`
+* 공개 미리 보기: `Arabic` ,, `Czech` `Chinese-Simplified` , `Danish` , `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,,,,,,,,,,,,,, 및`Turkish`
 
 | 하위 형식 이름 | Description                                                      | 모델 버전부터 사용 가능 |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| 해당 없음          | 인식할 수 있는 사용자 이름 ( `Bill Gates`예:)`Marie Curie` | `2019-10-01`                          | 
+| 해당 없음          | 인식할 수 있는 사용자 `Bill Gates` 이름 (예:)`Marie Curie` | `2019-10-01`                          | 
 
 ### <a name="persontype"></a>PersonType
 작업 유형 또는 개인이 보유 한 역할입니다.
@@ -36,7 +36,7 @@ ms.locfileid: "77211400"
 
 | 하위 형식 이름 | Description                                                                                | 모델 버전부터 사용 가능 |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| 해당 없음          | 작업 `civil engineer`유형 ( `salesperson` `chef`예:,, `librarian`,)`nursing aide` | `2020-02-01`                           |
+| 해당 없음          | 작업 유형 (예:,, `civil engineer` `salesperson` `chef` `librarian` ,)`nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>위치
 
@@ -44,12 +44,12 @@ ms.locfileid: "77211400"
 
 언어:
 
-* 공개 미리 보기 `Arabic`: `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Swedish` ,, `Polish`,,,,,,,,,,,, 및 `Korean` `Norwegian (Bokmål)` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish``Turkish`
+* 공개 미리 보기: `Arabic` ,, `Czech` `Chinese-Simplified` , `Danish` , `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,,,,,,,,,,,,,, 및`Turkish`
 
 | 하위 형식 이름              | Description                                                                              | 모델 버전부터 사용 가능 |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| 해당 없음                       | 위치 (예: `Atlantic Ocean` `library` `Eiffel Tower`,,)`Statue of Liberty`  | `2019-10-01`                           |
-| 지정 학적 Entity (GPE)-영어만| 도시, 국가, 상태 (예 `Seattle`: `Pennsylvania`, `South Africa`,)`Tokyo` | `2020-02-01`                           |
+| 해당 없음                       | 위치 ( `Atlantic Ocean` 예:,,) `library` `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
+| 지정 학적 Entity (GPE)-영어만| 도시, 국가/지역, 상태 (예 `Seattle` : `Pennsylvania` , `South Africa` ,)`Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>조직  
 
@@ -57,11 +57,11 @@ ms.locfileid: "77211400"
 
 언어: 
 
-* 공개 미리 보기 `Arabic`: `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Swedish` ,, `Polish`,,,,,,,,,,,, 및 `Korean` `Norwegian (Bokmål)` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish``Turkish`
+* 공개 미리 보기: `Arabic` ,, `Czech` `Chinese-Simplified` , `Danish` , `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,,,,,,,,,,,,,, 및`Turkish`
 
 | 하위 형식 이름 | Description                                                                                             | 모델 버전부터 사용 가능 |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| 해당 없음          | 조직 (예: `Microsoft` `NASA` `National Oceanic and Atmospheric Administration`,,)`VOA` | `2019-10-01`                           |
+| 해당 없음          | 조직 ( `Microsoft` 예:,,) `NASA` `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>이벤트  
 
@@ -73,7 +73,7 @@ ms.locfileid: "77211400"
 
 | 하위 형식 이름 | Description                                                            | 모델 버전부터 사용 가능 |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| 해당 없음          | 이벤트 (예 `wedding`: `hurricane`, `car accident`, `solar eclipse`,,)`American Revolution` | `2020-02-01`                           |
+| 해당 없음          | 이벤트 (예:,,, `wedding` `hurricane` `car accident` `solar eclipse` ,)`American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Product  
 
@@ -85,7 +85,7 @@ ms.locfileid: "77211400"
 
 | 하위 형식 이름 | Description                                                                        | 모델 버전부터 사용 가능 |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| 해당 없음          | 예: `Microsoft Surface laptop`, `sunglasses` `motorcycle`,,, `bag``Xbox` | `2020-02-01`                           |
+| 해당 없음          | 예: `Microsoft Surface laptop` ,, `sunglasses` , `motorcycle` `bag` ,`Xbox` | `2020-02-01`                           |
 | 컴퓨팅    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### <a name="skill"></a>기술  
@@ -156,13 +156,13 @@ ms.locfileid: "77211400"
 
 언어:
 
-* 공개 미리 보기 `Chinese-Simplified`: `English`, `French`, `German` 및`Spanish`
+* 공개 미리 보기: `Chinese-Simplified` ,, `English` `French` `German` 및`Spanish`
 
 | 하위 형식 이름    | 예                     |
 |-------------|------------------------------|
 | 해당 없음         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
 | Date  | `May 2nd, 2017`, `05/02/2017`       |
-| 시간     | `8:15`, `6AM`              |
+| Time     | `8:15`, `6AM`              |
 | DateRange    | `August 2nd to August 5th`         |
 | TimeRange   | `4-6PM`, `10:00AM to Noon`          |
 | Duration | `2.5 minutes`, `one and a half hours`         |
@@ -176,14 +176,14 @@ ms.locfileid: "77211400"
 
 언어:
 
-* 공개 미리 보기 `Chinese-Simplified`: `English`, `French`, `German` 및`Spanish`
+* 공개 미리 보기: `Chinese-Simplified` ,, `English` `French` `German` 및`Spanish`
 
 | 하위 형식 이름    | 예                     |
 |-------------|------------------------------|
-| 번호         | `6`, `six`                   |
+| 숫자         | `6`, `six`                   |
 | 백분율  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Age         | `90 day old`, `30 years old` |
-| Currency    | `$10.99`, `€30.00`           |
+| 통화    | `$10.99`, `&euro;30.00`           |
 | 차원   | `10 miles`, `40 cm`          |
 | 온도 | `32 degrees`, `10°C`         |

@@ -1623,20 +1623,6 @@
                     - name: Azure AD 토큰 인증 개요
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Azure AD 인증 라이브러리를 사용하여 Azure AD 토큰 가져오기
-                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-                      maintainContext: true
-                    - name: 서비스 주체를 사용하여 Azure AD 토큰 가져오기
-                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-                      maintainContext: true
-                    - name: Azure AD 액세스 토큰 문제 해결
-                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-                  maintainContext: true
-                - name: Azure Active Directory 토큰
-                  items:
-                    - name: Azure AD 토큰 인증 개요
-                      href: /azure/databricks/dev-tools/api/latest/aad/index
-                      maintainContext: true
                     - name: AAD 인증 라이브러리를 사용하여 Azure AD 토큰 가져오기
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
