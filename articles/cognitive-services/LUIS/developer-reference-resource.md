@@ -3,12 +3,12 @@ title: 개발자 리소스-Language Understanding
 description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Understanding) 앱을 개발 하는 데 도움이 됩니다. Azure 리소스를 관리 하 고 예측을 LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: c86dad46b09c2f761e73f38187b4824c0a17406f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655554"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758064"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
@@ -56,7 +56,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 * 학습 끝점에서 **제작**
 * 런타임 끝점에 대 한 쿼리 **예측** 입니다.
 
-|용도|URL|
+|목적|URL|
 |--|--|
 |학습 끝점에서 V2 제작|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
 |학습 끝점에 대 한 V3 제작|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/authoring/v3.0-preview/apps/{appID}/`|
@@ -66,7 +66,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 다음 표에서는 앞의 표에서 중괄호 `{}`로 표시된 매개 변수에 대해 설명합니다.
 
-|매개 변수|용도|
+|매개 변수|목적|
 |--|--|
 |`your-resource-name`|Azure 리소스 이름|
 |`q` 또는 `query`|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
@@ -119,7 +119,7 @@ Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 �
 * [Luisgen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -LUIS 의도 및 엔터티에 대 한 c #/Typescript 클래스 지원 자동 생성
 * [Bot framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases) -봇 개발자가 BOT framework SDK를 사용 하 여 빌드한 봇을 테스트 하 고 디버그할 수 있도록 하는 데스크톱 응용 프로그램입니다.
 * [Bot Framework 작성기](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) -개발자와 멀티 disciplinary 팀이 Microsoft bot framework로 봇 및 대화형 환경을 빌드하는 통합 개발 도구입니다.
-
+* [Bot Framework 샘플](https://github.com/microsoft/botbuilder-samples) -#C, JavaScript, TypeScript 및 Python
 ## <a name="next-steps"></a>다음 단계
 
 * 일반적인 [HTTP 오류 코드](luis-reference-response-codes.md) 에 대 한 자세한 정보

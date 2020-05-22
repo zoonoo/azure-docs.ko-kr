@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659277"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745364"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>LUIS (Language Understanding) 컨테이너 제한 사항
 
@@ -46,9 +46,9 @@ LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니�
 
 LUIS 컨테이너는 LUIS에서 [지 원하는 언어](luis-language-support.md#languages-supported) 의 하위 집합을 지원 합니다. LUIS 컨테이너는 길이 발언를 이해 하는 데 사용할 수 있는 언어는 다음과 같습니다.
 
-| 언어 | 로캘 | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 | Locale | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
-| 미국 영어 | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| 영어(미국) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | 프랑스어(프랑스) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | 프랑스어(캐나다) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

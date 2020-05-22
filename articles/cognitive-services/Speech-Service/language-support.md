@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 423d65cc77cb06a6084ad9ad56f3d7274e057ffb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726080"
+ms.locfileid: "83746505"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 음성 지원
 
@@ -38,7 +38,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| 로캘  | 언어                          | 지원됨 | 사용자 지정                                    |
+| Locale  | 언어                          | 지원됨 | 사용자 지정                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | 아랍어 (아랍에미리트)                      | 예       | 아니요                                                |
 | `ar-BH` | 아랍어 (바레인), 최신 표준 | 예       | 언어 모델                                    |
@@ -99,7 +99,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
+|Locale  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
 | `de-DE` | 독일어(독일)                | Female | "KatjaNeural"      | 일반 |
 | `en-AU` | 영어(오스트레일리아)             | Female | "en-us-NatashaNeural"    | 일반 |
@@ -135,12 +135,12 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| 로캘 | 언어 | 성별 | 음성 이름 |
+| Locale | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
 | <sup>1(sp1)</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-예-Hoda" |
 | `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-Naayf" |
 | `bg-BG` | 불가리아어 | Male |  "bg-BG-Ivan" |
-| `ca-ES` | 카탈로니아어(스페인) | Female |  "HerenaRUS" |
+| `ca-ES` | 카탈로니아어 | Female |  "HerenaRUS" |
 | `cs-CZ` | 체코어 | Male | "cs-CZ-Jakub" |
 | `da-DK` | 덴마크어 | Female |  "da-HelleRUS" |
 | `de-AT` | 독일어(오스트리아) | Male | "Michael" |

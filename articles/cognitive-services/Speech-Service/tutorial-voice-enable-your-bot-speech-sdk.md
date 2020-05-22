@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732374"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745607"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -104,7 +104,7 @@ ms.locfileid: "82732374"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial**)에 음성 리소스가 있는지 확인 합니다.
 
-| 이름 | Type  | 위치 |
+| 이름 | 유형  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
@@ -125,7 +125,7 @@ ms.locfileid: "82732374"
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial-ResourceGroup**)에 두 개의 리소스가 있는지 확인 합니다.
 
-| 이름 | Type  | 위치 |
+| 이름 | 유형  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
@@ -146,7 +146,7 @@ ms.locfileid: "82732374"
    ```
 
 2. Visual Studio를 시작합니다.
-3. 도구 모음에서 **파일** > **열기** > **프로젝트/솔루션**을 선택 하 고 Echo Bot project 솔루션을 엽니다.
+3. 도구 모음에서 **파일**  >  **열기**  >  **프로젝트/솔루션**을 선택 하 고 Echo Bot project 솔루션을 엽니다.
 
    ```
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
@@ -163,8 +163,8 @@ ms.locfileid: "82732374"
 
 1. [Bot Framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) 버전 4.3.0 이상을 설치 합니다.
 2. Bot Framework 에뮬레이터를 시작 하 고 bot를 엽니다.
-   * **파일** -> **열기 봇**.
-3. 봇의 URL을 입력 합니다. 예를 들어:
+   * **파일**  ->  **Bot를 엽니다**.
+3. 봇의 URL을 입력 합니다. 다음은 그 예입니다.
 
    ```
    http://localhost:3978/api/messages
@@ -178,7 +178,7 @@ ms.locfileid: "82732374"
 다음 단계는 Echo Bot를 Azure에 배포 하는 것입니다. 몇 가지 방법으로 봇을 배포할 수 있지만이 자습서에서는 Visual Studio에서 직접 게시 하는 방법을 집중적으로 설명 합니다.
 
 > [!NOTE]
-> 또는 [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) 및 [배포 템플릿을](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates)사용 하 여 봇을 배포할 수 있습니다.
+> 또는 [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) 및 [배포 템플릿을](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot)사용 하 여 봇을 배포할 수 있습니다.
 
 1. Visual Studio에서 직접 선 음성 채널에서 사용 하도록 구성 된 Echo Bot를 엽니다.
 
@@ -207,7 +207,7 @@ ms.locfileid: "82732374"
 1. 기본 브라우저가 열리고 "봇이 준비 되었습니다!" 라는 페이지가 표시 됩니다.
 1. 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 하 고 세 가지 리소스가 있는지 확인 합니다.
 
-| 이름 | Type  | 위치 |
+| 이름 | 유형  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -241,14 +241,14 @@ ms.locfileid: "82732374"
    * **리소스 그룹**에 대해 **SpeechEchoBotTutorial-ResourceGroup**을 선택 합니다.
    * **위치**에서 **미국 서 부**를 선택 합니다.
      * **가격 책정 계층**에 대해 **F0**를 선택 합니다.
-     * **메시징 끝점**의 경우 끝에 추가 된 `/api/messages` 경로를 사용 하 여 웹 앱에 대 한 URL을 입력 합니다. 예: 전역적으로 고유한 앱 이름이 **EchoBot20190805125647**인 경우 메시징 끝점은 `https://EchoBot20190805125647.azurewebsites.net/api/messages/`입니다.
+     * **메시징 끝점**의 경우 끝에 추가 된 경로를 사용 하 여 웹 앱에 대 한 URL을 입력 합니다 `/api/messages` . 예: 전역적으로 고유한 앱 이름이 **EchoBot20190805125647**인 경우 메시징 끝점은 `https://EchoBot20190805125647.azurewebsites.net/api/messages/` 입니다.
      * **Application insights**의 경우이를 **Off**로 설정할 수 있습니다. 자세한 내용은 [봇 분석](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0)을 참조 하세요.
      * **앱 ID 및 암호 자동 생성을**무시 합니다.
 5. **Bot 채널 등록** 블레이드의 아래쪽에서 **만들기**를 클릭 합니다.
 
 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 합니다. 이제 다음 4 개의 리소스를 표시 해야 합니다.
 
-| 이름 | Type  | 위치 |
+| 이름 | 유형  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -309,7 +309,7 @@ Windows 음성 도우미 클라이언트에는 bot에 대 한 연결을 구성 �
 
 ### <a name="view-bot-activities"></a>Bot 활동 보기
 
-모든 봇은 **활동** 메시지를 보내고 받습니다. Windows Voice Assistant 클라이언트의 **활동 로그** 창에는 클라이언트가 봇에서 받은 각 활동이 있는 타임 스탬프 로그가 표시 됩니다. 메서드를 [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) 사용 하 여 클라이언트에서 봇으로 보낸 작업을 볼 수도 있습니다. 로그 항목을 선택 하면 연결 된 작업의 세부 정보가 JSON으로 표시 됩니다.
+모든 봇은 **활동** 메시지를 보내고 받습니다. Windows Voice Assistant 클라이언트의 **활동 로그** 창에는 클라이언트가 봇에서 받은 각 활동이 있는 타임 스탬프 로그가 표시 됩니다. 메서드를 사용 하 여 클라이언트에서 봇으로 보낸 작업을 볼 수도 있습니다 [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) . 로그 항목을 선택 하면 연결 된 작업의 세부 정보가 JSON으로 표시 됩니다.
 
 클라이언트에서 받은 작업의 샘플 json은 다음과 같습니다.
 
@@ -351,7 +351,7 @@ JSON 출력에서 반환 되는 항목에 대 한 자세한 내용은 [활동의
 
 ### <a name="view-client-source-code-for-calls-to-the-speech-sdk"></a>음성 SDK 호출에 대 한 클라이언트 소스 코드 보기
 
-Windows 음성 도우미 클라이언트는 [cognitiveservices account](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)를 사용 하며이는 speech SDK를 포함 합니다. 샘플 코드 검토를 시작 하는 좋은 위치는 다음 두 가지 음성 SDK 개체를 [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)만드는 파일의 메서드 InitSpeechConnector ()입니다.
+Windows 음성 도우미 클라이언트는 [cognitiveservices account](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)를 사용 하며이는 speech SDK를 포함 합니다. 샘플 코드 검토를 시작 하는 좋은 위치는 [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) 다음 두 가지 음성 SDK 개체를 만드는 파일의 메서드 InitSpeechConnector ()입니다.
 - [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig)-구성 설정 (예: 음성 구독 키, 키 지역)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor)-인식 된 음성 및 봇 응답을 처리 하기 위해 채널 연결 및 클라이언트 구독 이벤트를 관리 합니다.
 
@@ -367,8 +367,8 @@ Speech SDK는 사용자 지정 키워드 활성화를 지원 합니다. Microsof
 다음 단계를 수행 하 여 키워드 모델을 만들고,이 모델을 사용 하도록 Windows Voice Assistant 클라이언트를 구성 하 고, 마지막으로 봇으로 테스트 합니다.
 
 1. [음성 서비스를 사용 하 여 사용자 지정 키워드를 만들려면](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)다음 지침을 따르세요.
-2. 이전 단계에서 다운로드 한 모델 파일의 압축을 풉니다. 키워드의 이름을로 지정 해야 합니다. 이라는 `kws.table`파일을 찾고 있습니다.
-3. Windows 음성 도우미 클라이언트에서 **설정** 메뉴를 찾습니다. 오른쪽 위에 있는 기어 아이콘을 찾습니다. **모델 파일 경로** 를 찾고 2 단계에서 `kws.table` 파일의 전체 경로 이름을 입력 합니다.
+2. 이전 단계에서 다운로드 한 모델 파일의 압축을 풉니다. 키워드의 이름을로 지정 해야 합니다. 이라는 파일을 찾고 있습니다 `kws.table` .
+3. Windows 음성 도우미 클라이언트에서 **설정** 메뉴를 찾습니다. 오른쪽 위에 있는 기어 아이콘을 찾습니다. **모델 파일 경로** 를 찾고 `kws.table` 2 단계에서 파일의 전체 경로 이름을 입력 합니다.
 4. **사용**확인란을 선택 했는지 확인 합니다. 확인란 옆에 "다음 연결 시 키워드를 수신 합니다." 라는 메시지가 표시 됩니다. 잘못 된 파일 또는 잘못 된 경로를 제공한 경우 오류 메시지가 표시 됩니다.
 5. 음성 **구독 키**, **구독 키 영역**을 입력 한 다음 **확인** 을 클릭 하 여 **설정** 메뉴를 닫습니다.
 6. **다시 연결**을 클릭 합니다. "새 대화가 시작 되었습니다. 형식, 마이크 단추를 누르거나 키워드를 표시 합니다." 라는 메시지가 표시 됩니다. 이제 앱이 지속적으로 수신 대기 중입니다.
@@ -384,18 +384,18 @@ Speech SDK는 사용자 지정 키워드 활성화를 지원 합니다. Microsof
 
 Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 확인 하 여 키워드 검색을 사용 하는 데 사용 되는 코드를 검토 합니다.
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs)에는 디스크의 로컬 파일에서 모델 [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)을 인스턴스화하는 데 사용 되는 Speech SDK 메서드에 대 한 호출이 포함 되어 있습니다.
-1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)연속 키워드 검색을 활성화 하는 [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)Speech SDK 메서드에 대 한 호출을 포함 합니다.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs)에는 [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) 디스크의 로컬 파일에서 모델을 인스턴스화하는 데 사용 되는 SPEECH SDK 메서드에 대 한 호출이 포함 되어 있습니다.
+1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)연속 키워드 검색을 활성화 하는 Speech SDK 메서드에 대 한 호출을 포함 [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) 합니다.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>필드 언어 및 봇 음성 변경
 
-사용자가 만든 봇은 영어로 수신 하 고 응답 하며, 기본 미국 영어 텍스트 음성 변환 음성을 사용 하 여 영어로 응답 합니다. 그러나 영어 또는 기본 음성을 사용 하는 것으로 제한 되지 않습니다. 이 섹션에서는 봇에서 수신 하 고 응답 하는 언어를 변경 하는 방법에 대해 알아봅니다. 해당 언어에 대해 다른 음성을 선택 하는 방법에 대해서도 알아봅니다.
+사용자가 만든 봇은 영어 (미국) 및 영어 (미국) 음성 텍스트 음성으로 음성을 수신 하 고 응답 합니다. 그러나 영어 또는 기본 음성을 사용 하는 것으로 제한 되지 않습니다. 이 섹션에서는 봇에서 수신 하 고 응답 하는 언어를 변경 하는 방법에 대해 알아봅니다. 해당 언어에 대해 다른 음성을 선택 하는 방법에 대해서도 알아봅니다.
 
 ### <a name="change-the-language"></a>언어 변경
 
 [음성 텍스트](language-support.md#speech-to-text) 표에 언급 된 언어 중 하나에서 선택할 수 있습니다. 아래 예제에서는 언어를 독일어로 변경 합니다.
 
-1. Windows 음성 도우미 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에를 `de-de` 입력 합니다 ( [음성 텍스트](language-support.md#speech-to-text) 테이블에서 언급 한 로캘 값). 그러면 음성 언어가 인식 되며 기본값 `en-us`을 재정의 합니다. 또한 직접 선 음성 채널에 봇 회신에 대 한 기본 독일어 음성을 사용 하도록 지시 합니다.
+1. Windows 음성 도우미 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 `de-de` 언어 필드에를 입력 합니다 ( [음성 텍스트](language-support.md#speech-to-text) 테이블에서 언급 한 로캘 값). 그러면 음성 언어가 인식 되며 기본값을 재정의 합니다 `en-us` . 또한 직접 선 음성 채널에 봇 회신에 대 한 기본 독일어 음성을 사용 하도록 지시 합니다.
 2. 설정 페이지를 닫고 다시 연결 단추를 클릭 하 여 echo 봇에 대 한 새 연결을 설정 합니다.
 3. 마이크 단추를 클릭 하 고 독일어로 된 구를 말합니다. 인식 된 텍스트와 echo 봇이 기본 독일 음성으로 회신 하는 것을 볼 수 있습니다.
 
@@ -403,7 +403,7 @@ Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 �
 
 텍스트 음성 변환 음성 및 발음 제어를 선택 하는 것은 봇이 간단한 텍스트가 아닌, SSML ( [음성 합성 마크업 언어](speech-synthesis-markup.md) ) 형식의 회신을 지정 하는 경우 수행할 수 있습니다. Echo 봇은 SSML를 사용 하지 않지만이를 수행 하도록 코드를 쉽게 수정할 수 있습니다. 아래 예제에서는 기본 여성 음성 대신 독일어 voice Stefan 아폴로 (남성 음성)를 사용 하도록 echo bot 회신에 SSML을 추가 합니다. 해당 언어에 대해 지원 되는 [표준 음성](language-support.md#standard-voices) 및 [신경망](language-support.md#neural-voices) 목록을 참조 하세요.
 
-1. 먼저를 열어 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`보겠습니다.
+1. 먼저를 열어 보겠습니다 `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs` .
 2. 다음 두 줄을 찾습니다.
     ```csharp
     var replyText = $"Echo: {turnContext.Activity.Text}";
@@ -428,7 +428,7 @@ Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 �
 1. 솔루션 탐색기 창에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다.
 2. 이전 배포 구성이 이미 기본값으로 로드 되었습니다. **EchoBot20190805125647-웹 배포 옆의** **게시** 를 클릭 하기만 하면 됩니다.
 3. **게시 성공** 메시지가 Visual Studio 출력 창에 표시 되 고 웹 페이지가 "봇 준비 되었습니다!" 라는 메시지와 함께 시작 됩니다.
-4. Windows Voice Assistant 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에가 `de-de` 계속 있는지 확인 합니다.
+4. Windows Voice Assistant 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에가 계속 있는지 확인 `de-de` 합니다.
 5. [Windows 음성 도우미 클라이언트를 실행](#run-the-windows-voice-assistant-client) 하 여 새로 배포 된 봇에 다시 연결 하 고, 새 언어로 말한 후 새 음성으로 해당 언어로 회신 하는 방법에 대 한 지침을 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
