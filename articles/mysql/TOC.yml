@@ -276,6 +276,8 @@
       items:
         - name: Azure AD 통합 구성
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: 관리 ID를 사용하여 연결
+          href: howto-connect-with-managed-identity.md
     - name: 퍼블릭 네트워크 액세스 거부
       items:
         - name: Azure portal

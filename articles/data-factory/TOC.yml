@@ -25,8 +25,6 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: 데이터 팩터리 만들기 - Resource Manager 템플릿
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: 보안 - 고객 관리형 키 암호화 사용
-      href: quickstart-enable-customer-managed-key.md
     - name: 데이터 흐름 만들기
       href: data-flow-create.md
 - name: 자습서
@@ -122,7 +120,7 @@
                   href: tutorial-transform-data-hive-virtual-network-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-hive-virtual-network.md
-    - name: 흐름 제어
+    - name: 제어 흐름
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-control-flow-portal.md
@@ -188,8 +186,6 @@
               href: wrangling-data-flow-functions.md
     - name: 역할 및 권한
       href: concepts-roles-permissions.md
-    - name: 가격 책정 이해
-      href: pricing-concepts.md
     - name: 이름 지정 규칙
       href: naming-rules.md
 - name: 방법 가이드
@@ -370,6 +366,8 @@
           href: connector-servicenow.md
         - name: SFTP
           href: connector-sftp.md
+        - name: SharePoint Online 목록
+          href: connector-sharepoint-online-list.md
         - name: Shopify
           href: connector-shopify.md
         - name: Spark
@@ -416,6 +414,8 @@
           href: copy-activity-schema-and-type-mapping.md
         - name: 내결함성
           href: copy-activity-fault-tolerance.md
+        - name: 데이터 일관성 확인
+          href: copy-activity-data-consistency.md
         - name: 형식 및 압축 지원(레거시)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 데이터 변환
@@ -553,8 +553,12 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Data Factory에 대한 관리 ID
           href: data-factory-service-identity.md
+        - name: 고객 관리형 키 암호화
+          href: quickstart-enable-customer-managed-key.md
     - name: 모니터링 및 관리
       items:
+        - name: 시각적으로 모니터링
+          href: monitor-visually.md
         - name: Azure Monitor로 모니터링
           href: monitor-using-azure-monitor.md
         - name: SDK로 모니터링
@@ -577,6 +581,8 @@
           href: create-azure-ssis-integration-runtime.md
         - name: 자체 호스팅 통합 런타임 공유
           href: create-shared-self-hosted-integration-runtime-powershell.md
+        - name: 자체 호스팅 통합 런타임의 자동화 스크립트
+          href: self-hosted-integration-runtime-automation-scripts.md
     - name: Azure에서 SSIS 패키지 실행
       items:
         - name: Azure에 배포된 SSIS 패키지를 SSDT에서 실행
@@ -597,12 +603,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Azure-SSIS IR에 Azure AD 인증 사용
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Windows 인증을 사용하여 데이터에 연결
-          href: ssis-azure-connect-with-windows-auth.md
-        - name: 파일 저장 및 파일 공유에 연결
-          href: ssis-azure-files-file-shares.md
         - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Azure-SSIS IR의 기본 제공 구성 요소 및 미리 설치된 구성 요소
+          href: built-in-preinstalled-components-ssis-integration-runtime.md
         - name: Azure-SSIS IR을 위한 설치 사용자 지정
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Azure-SSIS IR에 대한 라이선스가 있는 구성 요소 설치
@@ -613,6 +617,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Elastic Database 작업을 사용하여 SSISDB 로그 정리
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Azure-SSIS IR에서 Azure SQL Managed Instance 사용
+          href: how-to-use-sql-managed-instance-with-ir.md
         - name: SSMS를 사용하여 SSIS 작업 마이그레이션
           href: how-to-migrate-ssis-job-ssms.md
     - name: 트리거 만들기
@@ -645,6 +651,12 @@
           href: solution-template-move-files.md
         - name: Azure Databricks를 통한 변환
           href: solution-template-databricks-notebook.md
+    - name: 가격 책정 이해
+      items:
+        - name: 비용 계획 및 관리
+          href: plan-manage-costs.md
+        - name: 가격 책정 예제
+          href: pricing-concepts.md
     - name: 문제 해결 가이드
       items:
         - name: 활동

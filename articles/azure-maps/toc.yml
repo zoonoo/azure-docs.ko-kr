@@ -249,7 +249,7 @@
           href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: 검색 서비스
+        - name: Search 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: 공간 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/spatial'
@@ -259,6 +259,20 @@
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
         - name: Weather Service
           href: 'https://docs.microsoft.com/rest/api/maps/weather'
+        - name: Maps Creator 서비스
+          items:
+            - name: 별칭 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/alias'
+            - name: 변환 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/conversion'
+            - name: 데이터 세트 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/dataset'
+            - name: Feature State 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/featurestate'
+            - name: 타일 세트 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/tileset'
+            - name: WFS 서비스
+              href: 'https://docs.microsoft.com/rest/api/maps/wfs'
         - name: Maps 계정 관리
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

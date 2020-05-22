@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: f5b1594993a1d4361746847439374dd2b7122510
-  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.openlocfilehash: 71f591f04e8762761c449ca4924db5edb4de3f6c
+  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/31/2020
-  ms.locfileid: "80420096"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83681773"
 landingContent:
 - title: Microsoft ID 플랫폼 정보
   linkLists:
@@ -30,16 +30,14 @@ landingContent:
     links:
     - text: 인증 기본 사항
       url: authentication-scenarios.md
-    - text: 기본 개념을 설명하는 동영상
-      url: identity-videos.md
     - text: 인증 흐름 및 앱 시나리오
       url: authentication-flows-app-scenarios.md
     - text: 모범 사례 및 추천 사항
       url: identity-platform-integration-checklist.md
-  - linkListType: learn
+  - linkListType: video
     links:
-    - text: 1분 개발 비디오 - Microsoft ID 플랫폼
-      url: https://youtu.be/y_fgJAatVhk
+    - text: '시리즈: 개발자를 위한 ID 플랫폼'
+      url: identity-videos.md
 - title: 단일 페이지 앱 빌드
   linkLists:
   - linkListType: get-started
@@ -48,13 +46,17 @@ landingContent:
       url: scenario-spa-overview.md
   - linkListType: quickstart
     links:
-    - text: JavaScript
+    - text: JavaScript - 인증 코드
+      url: quickstart-v2-javascript-auth-code.md
+    - text: JavaScript - 암시적
       url: quickstart-v2-javascript.md
     - text: Angular
       url: quickstart-v2-angular.md
   - linkListType: tutorial
     links:
-    - text: JavaScript
+    - text: JavaScript - 인증 코드
+      url: tutorial-v2-javascript-auth-code.md
+    - text: JavaScript - 암시적
       url: tutorial-v2-javascript-spa.md
   - linkListType: download
     links:

@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Blob 스토리지에 저장된 음성 인식
           href: quickstarts/from-blob.md
+        - name: 참조 입력을 사용하여 발음 평가
+          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: 방법 가이드
       items:
         - name: 음성 인식 모드 선택
@@ -61,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Custom Speech 정확도 평가
           href: how-to-custom-speech-evaluate-data.md
+        - name: Custom Speech 정확도 개선
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Custom Speech 모델 학습
           href: how-to-custom-speech-train-model.md
         - name: 사용자 지정 모델 배포
@@ -547,7 +551,7 @@
           href: how-to-devices-microphone-array-configuration.md
     - name: 빠른 시작
       items:
-        - name: Speech Devices SDK 사용
+        - name: 음성 디바이스 SDK 사용
           href: speech-devices-sdk-quickstart.md
     - name: 리소스
       items:

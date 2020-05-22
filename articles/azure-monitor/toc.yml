@@ -240,10 +240,7 @@
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Azure Kubernetes Service
-              items:
-                - name: Kubernetes(사용되지 않음)
-                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-                  href: app/kubernetes.md
+              href: app/kubernetes-codeless.md
             - name: 독립 실행형 - 모든 환경
               items:
                 - name: Java(미리 보기)
@@ -1000,8 +997,6 @@
           items:
             - name: 가용성
               href: app/monitor-web-app-availability.md
-            - name: 메트릭 경고
-              href: app/alerts.md
         - name: 메트릭 경고 규칙
           items:
             - name: 메트릭 경고 관리
@@ -1144,7 +1139,7 @@
                   href: app/powershell-azure-diagnostics.md
         - name: Azure CLI 샘플
           href: platform/cli-samples.md
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: platform/template-workspace-configuration.md
     - name: Extend
       items:
@@ -1268,6 +1263,8 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights 커넥터
           href: platform/app-insights-connector.md
+        - name: AKS용 Application Insights(코드리스)
+          href: app/kubernetes.md
         - name: Docker 애플리케이션 모니터링
           href: app/docker.md
         - name: OMS 포털 사용 중단

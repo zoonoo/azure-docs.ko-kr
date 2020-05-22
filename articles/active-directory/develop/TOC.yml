@@ -28,7 +28,9 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript - 인증 코드 흐름
+          href: quickstart-v2-javascript-auth-code.md
+        - name: JavaScript - 암시적 흐름
           href: quickstart-v2-javascript.md
     - name: 웹 앱
       items:
@@ -73,7 +75,9 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript - 인증 코드 흐름
+          href: tutorial-v2-javascript-auth-code.md
+        - name: JavaScript - 암시적 흐름
           href: tutorial-v2-javascript-spa.md
     - name: 웹 앱
       items:
@@ -479,6 +483,10 @@
           href: active-directory-optional-claims.md
         - name: 토큰 수명 구성
           href: active-directory-configurable-token-lifetimes.md
+        - name: Chrome 브라우저에서 SameSite 쿠키 변경 내용 처리
+          href: howto-handle-samesite-cookie-changes-chrome-browser.md
+        - name: Safari에서 ITP 처리
+          href: reference-third-party-cookies-spas.md
     - name: 애플리케이션 구성
       displayName: App configuration
       items:

@@ -32,13 +32,15 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Azure MySQL에 애플리케이션 바인딩
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Azure Spring Cloud를 사용하는 회로 차단기 대시보드
+      href: spring-cloud-tutorial-circuit-breaker.md
     - name: Azure Spring Cloud에 사용자 지정 DNS 이름 매핑
       href: spring-cloud-tutorial-custom-domain.md
     - name: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
       href: spring-cloud-tutorial-intellij-deploy-apps.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -69,7 +71,6 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Azure Spring Cloud에서 영구 스토리지 사용
       href: spring-cloud-howto-persistent-storage.md
-    - name: Azure Spring Cloud에 DevOps 배포
     - name: Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
       href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: Azure Spring Cloud에 DevOps 배포

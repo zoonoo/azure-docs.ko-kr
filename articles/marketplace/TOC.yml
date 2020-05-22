@@ -1,7 +1,7 @@
 - name: 상용 마켓플레이스 설명서
   href: index.yml
   items:
-    - name: 상용 마켓플레이스 로드맵
+    - name: 상용 마켓플레이스 업데이트
       href: ./marketplace-roadmap.md
     - name: 상용 마켓플레이스 정책 및 용어
       href: ./policies-terms.md
@@ -76,10 +76,6 @@
 - name: 클라우드 파트너 포털
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
-    - name: 파트너 센터로 클라우드 파트너 포털 마이그레이션
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
-    - name: 마이그레이션 FAQ
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: 포털 둘러보기
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -134,8 +130,6 @@
           items:
             - name: 시작하기
               href: ./cloud-partner-portal-orig/si-getting-started.md
-            - name: 새로운 기능
-              href: ./cloud-partner-portal-orig/si-changes.md
             - name: 웹 분석
               href: ./cloud-partner-portal-orig/web-analytics.md
             - name: 정의
@@ -264,67 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: 가상 머신 제안
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-          items:
-            - name: 사전 요구 사항
-              href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
-            - name: VM 제품 만들기
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
-              items:
-                - name: 제품 설정 탭
-                  href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
-                - name: SKU 탭
-                  href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
-                - name: 시험 사용 탭
-                  href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
-                - name: Marketplace 탭
-                  href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
-                - name: 지원 탭
-                  href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
-            - name: VM 기술 자산 만들기
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
-              items:
-                - name: VHD 만들기
-                  href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
-                - name: 일반적인 VHD 생성 문제
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
-                - name: VM에 연결
-                  href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
-                - name: VM 구성
-                  href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
-                - name: Windows 원격 관리
-                  href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
-                  items:
-                    - name: VM 생성 후 WinRM 구성
-                      href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
-                - name: VM 배포
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
-                  items:
-                    - name: 사용자 VM 이미지 만들기
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
-                    - name: Key Vault 인증서 만들기
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
-                      items:
-                        - name: Key Vault 배포 템플릿
-                          href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
-                - name: 사용자 VHD의 VM 배포
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
-                  items:
-                    - name: VHD 배포 템플릿
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
-                    - name: Marketplace의 VM 배포
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
-                - name: VM 이미지 인증
-                  href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
-                - name: VM 자체 테스트 클라이언트
-                  href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
-                - name: SAS URI 가져오기
-                  href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
-                - name: 일반적인 SAS URL 문제
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
-            - name: VM 제품 게시
-              href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
-            - name: 기존 제품 업데이트
-              href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
     - name: API 참조
       items:
         - name: 개요
@@ -361,6 +294,8 @@
   items:
     - name: 상용 마켓플레이스 개요
       href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: 마이그레이션 FAQ
+      href: ./cloud-partner-portal-migration-faq.md
     - name: 계정 관리
       items:
         - name: 새 파트너 센터 계정 만들기

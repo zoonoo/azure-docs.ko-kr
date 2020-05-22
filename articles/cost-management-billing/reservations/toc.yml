@@ -6,7 +6,6 @@
     - name: Azure Reservations란?
       href: save-compute-costs-reservations.md
 - name: 방법 가이드
-  expanded: true
   items:
     - name: 구매할 항목 확인
       items:
@@ -56,12 +55,17 @@
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
         - name: 예약 교환 및 환불
           href: exchange-and-refund-azure-reservations.md
+    - name: 비용 보고
+      items:
+        - name: 예약 트랜잭션 보기
+          href: view-purchase-refunds.md
+        - name: 예약 비용 차지백(charge back)
+          href: charge-back-usage.md
     - name: 예약 갱신
       items:
         - name: 예약 갱신
           href: reservation-renew.md
 - name: 개념
-  expanded: true
   items:
     - name: 예약 권장 사항을 만드는 방법
       href: reserved-instance-purchase-recommendations.md

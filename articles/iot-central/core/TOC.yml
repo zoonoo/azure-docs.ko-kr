@@ -6,8 +6,14 @@
       href: overview-iot-central.md
     - name: UI 둘러보기
       href: overview-iot-central-tour.md
+    - name: 디바이스 개발
+      href: overview-iot-central-developer.md
     - name: 최근 업데이트
       items:
+        - name: 2020년 4월 새 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
+        - name: 2020년 4월 업데이트
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
         - name: 2020년 3월
           href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: 빠른 시작
@@ -81,6 +87,8 @@
           href: howto-manage-devices.md
         - name: 규칙 구성
           href: howto-configure-rules.md
+        - name: 워크플로를 사용하여 다른 서비스와 통합
+          href: howto-configure-rules-advanced.md
         - name: 디바이스 데이터 분석
           href: howto-create-analytics.md
         - name: 대시보드에 타일 추가

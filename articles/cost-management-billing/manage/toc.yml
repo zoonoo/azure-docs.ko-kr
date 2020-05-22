@@ -87,18 +87,26 @@
           href: understand-ea-roles.md
         - name: Azure EA Portal 관리
           href: ea-portal-administration.md
+        - name: 파트너 대신 Azure EA Portal 관리
+          href: ea-partner-portal-administration.md
+        - name: Azure Enterprise 전송
+          href: ea-transfers.md
         - name: Microsoft 고객 계약의 EA 작업
           href: mca-enterprise-operations.md
         - name: Azure EA 계약 및 수정안
           href: ea-portal-agreements.md
         - name: 기업 등록계약 송장
           href: ea-portal-enrollment-invoices.md
+        - name: Azure EA 가격 책정
+          href: ea-pricing-overview.md
         - name: Azure 엔터프라이즈 REST API
           href: ea-portal-rest-apis.md
         - name: Azure EA VM 예약 인스턴스
           href: ea-portal-vm-reservations.md
         - name: Azure EA Portal 액세스 문제 해결
           href: ea-portal-troubleshoot.md
+        - name: Azure Marketplace
+          href: ea-azure-marketplace.md
 - name: 문제 해결
   items:
     - name: 구독을 찾을 수 없음

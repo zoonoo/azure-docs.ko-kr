@@ -79,9 +79,8 @@
     - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: 디자이너 데이터 세트
-      href: sample-designer-datasets.md
-    - name: 디자이너 샘플 파이프라인
+    - name: 디자이너 예제 및 데이터 세트
+      displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: 엔드투엔드 MLOps 예제
       href: 'https://github.com/microsoft/MLOps'
@@ -261,6 +260,9 @@
             - name: 데이터 세트 버전 지정 및 추적
               displayName: 'data, data set'
               href: how-to-version-track-datasets.md
+            - name: 데이터 프라이버시 유지
+              displayName: 'data,privacy,differential privacy'
+              href: how-to-differential-privacy.md
     - name: 모델 학습
       items:
         - name: ML용 추정기 사용
@@ -376,6 +378,9 @@
               href: how-to-monitor-data-drift.md
             - name: Application Insights로 모니터링
               href: how-to-enable-app-insights.md
+        - name: 암호화된 추론 서비스 배포
+          displayName: 'homomorhic,encryption,deployment'
+          href: how-to-homomorphic-encryption-seal.md
     - name: ML 파이프라인 작성 및 사용
       displayName: pipelines
       items:
@@ -393,9 +398,6 @@
         - name: Application Insights에서 파이프라인 디버깅
           displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
-        - name: CI/CD용 Azure Pipelines
-          displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: 디자이너 변환 데이터
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -417,6 +419,9 @@
         - name: 기계 학습 파이프라인 반복 및 진화
           displayName: modularizing testing
           href: concept-pipeline-practices-tips.md
+    - name: CI/CD용 Azure Pipelines
+      displayName: 'continuous, integration, delivery'
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md

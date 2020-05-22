@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 694b5fee19a1c0dca752e02259e3cc398ae6e55e
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83587479"
+  ms.locfileid: "83641867"
 landingContent:
 - title: External Identities 정보
   linkLists:
@@ -27,6 +27,18 @@ landingContent:
       url: compare-with-b2c.md
     - text: B2B 게스트 사용자 액세스란?
       url: what-is-b2b.md
+- title: 셀프 서비스 가입(미리 보기)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 셀프 서비스 가입이란?
+      url: self-service-sign-up-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 셀프 서비스 가입 사용자 흐름 추가
+      url: self-service-sign-up-user-flow.md
+    - text: 사용자 흐름의 사용자 지정 특성 정의
+      url: user-flow-add-custom-attributes.md
 - title: B2B 게스트 사용자 초대
   linkLists:
   - linkListType: concept

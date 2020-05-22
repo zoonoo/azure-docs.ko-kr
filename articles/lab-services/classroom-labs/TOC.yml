@@ -118,10 +118,12 @@
       items:
         - name: 클래스룸 랩 액세스
           href: how-to-use-classroom-lab.md
-        - name: Linux VM용 원격 데스크톱 연결 사용
+        - name: Linux VM에 연결
           href: how-to-use-remote-desktop-linux-student.md
         - name: RDP를 사용하여 Mac에서 VM에 연결
-          href: connect-virtual-machine-mac-rdp.md
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: RDP를 사용하여 Chromebook에서 VM에 연결
+          href: connect-virtual-machine-chromebook-remote-desktop.md
         - name: 가상 머신의 암호 설정 또는 재설정
           href: how-to-set-virtual-machine-passwords-student.md
         - name: 지원 정보 보기(학생)

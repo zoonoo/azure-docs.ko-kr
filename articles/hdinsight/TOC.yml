@@ -59,6 +59,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: 클러스터 용량 계획
           href: ./hdinsight-capacity-planning.md
+        - name: CPU 코어 할당량에 대한 요청 증가
+          href: ./quota-increase-request.md
         - name: 클러스터 관리 모범 사례
           href: ./cluster-management-best-practices.md
         - name: 가용성 및 안정성
@@ -243,6 +245,8 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Apache Oozie 문제 해결
               href: ./troubleshoot-oozie.md
+            - name: WebHCat 오류 이해 및 해결
+              href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: 참조
       items:
         - name: Azure PowerShell
@@ -285,8 +289,6 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: WebHCat 오류 이해 및 해결
-          href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
         - name: 포럼에서 도움말 보기
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
         - name: 요금 계산기
@@ -330,6 +332,8 @@
           href: ./spark/apache-spark-settings.md
         - name: Apache Spark 작업 최적화
           href: ./spark/apache-spark-perf.md
+        - name: Spark 2.3 또는 2.4로 마이그레이션
+          href: ./spark/migrate-versions.md
     - name: 방법
       items:
         - name: 도구 사용
@@ -736,6 +740,8 @@
       items:
         - name: 게이트웨이 모범 사례
           href: ./interactive-query/gateway-best-practices.md
+        - name: 크기 조정 지침
+          href: ./interactive-query/sizing-guidelines.md
     - name: 방법
       items:
         - name: 개발
@@ -780,6 +786,8 @@
               href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
             - name: Apache Tez 애플리케이션이 중지됨
               href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+            - name: Apache Hive LLAP 크기 조정 지침
+              href: ./interactive-query/hive-llap-sizing-guide.md
             - name: Apache Hive LLAP 쿼리 성능
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: 저속 reducer

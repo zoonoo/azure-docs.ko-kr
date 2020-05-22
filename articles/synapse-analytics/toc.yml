@@ -25,9 +25,13 @@
         - name: 웹 도구를 사용하여 Apache Spark 노트북 만들기
           href: quickstart-apache-spark-notebook.md
         - name: Azure Portal을 사용하여 Apache Spark 풀 만들기
-          href: quickstart-create-apache-spark-pool.md
-        - name: SQL 풀 만들기
-          href: quickstart-create-sql-pool.md
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Synapse Studio를 사용하여 Apache Spark 풀 만들기
+          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Azure Portal을 사용하여 SQL 풀 만들기
+          href: quickstart-create-sql-pool-portal.md
+        - name: Synapse Studio를 사용하여 SQL 풀 만들기
+          href: quickstart-create-sql-pool-studio.md
     - name: SQL 풀을 사용하여 데이터 로드
       items:
         - name: COPY 문
@@ -144,7 +148,7 @@
                   href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 취약점 평가
                   href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Advanced Threat Protection
+                - name: 고급 위협 보호
                   href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 감사
                   href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -308,7 +312,7 @@
                   href: sql/develop-storage-files-overview.md
                 - name: 스토리지 액세스 제어
                   href: sql/develop-storage-files-storage-access-control.md
-                - name: Spark 테이블
+                - name: Azure Synapse 외부 테이블에 대한 Apache Spark
                   href: sql/develop-storage-files-spark-tables.md
         - name: 워크로드 관리
           items:
@@ -328,8 +332,16 @@
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link
       items:
+        - name: Azure Cosmos DB용 Synapse Link
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Analytical Store 개요
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse Link 지원 기능
           href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Synapse Link FAQ
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Synapse Link 사용 사례
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: '도구 통합(AI, ETL, BI)'
       items:
         - name: Synapse Analytics Studio 문제 해결
@@ -414,6 +426,8 @@
       items:
         - name: Synapse Link
           items:
+            - name: Synapse Link 구성
+              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cosmos DB용 Azure Synapse Link에 연결
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Azure Synapse Analytics용 Apache Spark와 함께 Azure Cosmos DB 분석 저장소 쿼리
@@ -860,14 +874,16 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: 기능 요청
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 기능 요청
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: 질문과 대답
+      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

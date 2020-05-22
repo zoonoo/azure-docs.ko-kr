@@ -3,7 +3,7 @@ title: Azure 네트워킹 설명서
 summary: Azure의 리소스에 대한 연결을 제공하고, 애플리케이션을 제공 및 보호하고, 다양한 Azure 네트워킹 서비스에 대해 알아봅니다.
 brand: azure
 metadata:
-  title: 가상 네트워킹 설명서
+  title: Azure 네트워킹 설명서
   description: Azure 네트워킹 서비스는 Azure의 리소스에 대한 연결을 제공하고, 애플리케이션을 제공 및 보호하고, 네트워크를 보호합니다.
   ms.service: virtual-network
   ms.topic: hub-page
@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 03/17/2020
-  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
-  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+  ms.openlocfilehash: 99b15e3b311a033e346cb8994bb9109401d90a20
+  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80294324"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83715772"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Azure의 허브-스포크 네트워크 토폴로지
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: SQL 데이터베이스 서버에 대한 프라이빗 액세스
-    itemType: tutorial
-    url: ../private-link/create-private-endpoint-portal.md
+  - title: 라우팅 기본 설정이란?
+    itemType: concept
+    url: ../virtual-network/routing-preference-overview.md
   - title: Azure 서비스를 사용하여 원격으로 작업
     itemType: concept
     url: working-remotely-support.md

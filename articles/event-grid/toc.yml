@@ -132,6 +132,14 @@
               href: event-schema-azure-signalr.md
             - name: Azure 구독
               href: event-schema-subscriptions.md
+    - name: 파트너 토픽
+      items:
+        - name: 파트너 토픽 개요
+          href: partner-topics-overview.md
+        - name: Auth0
+          href: auth0-overview.md
+        - name: Event Grid 파트너 되기
+          href: partner-onboarding-overview.md
     - name: 이벤트 도메인
       href: event-domains.md
     - name: 이벤트 스키마 형식
@@ -186,6 +194,8 @@
   items:
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
+    - name: Auth0 이벤트 구독
+      href: auth0-how-to.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
     - name: 배달 못한 편지 및 다시 시도
@@ -214,6 +224,8 @@
           href: configure-firewall.md
         - name: AAD를 사용한 보안 WebHook
           href: secure-webhook-delivery.md
+        - name: 관리 ID를 사용하여 이벤트 전달
+          href: managed-service-identity.md
     - name: 문제 해결
       items:
         - name: 진단 로그 활성화

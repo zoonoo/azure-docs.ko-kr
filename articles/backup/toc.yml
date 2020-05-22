@@ -345,7 +345,7 @@
       items:
         - name: 개요
           href: security-overview.md
-        - name: 역할 기반 액세스 제어
+        - name: 역할 기반 Access Control
           href: backup-rbac-rs-vault.md
         - name: 일시 삭제
           items:
@@ -407,8 +407,8 @@
       href: compliance-offerings.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Microsoft 질문 및 답변 - Azure Backup
+      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트

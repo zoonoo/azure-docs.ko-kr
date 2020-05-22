@@ -278,6 +278,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: 동기화 규칙 만들기 및 사용자 지정
           href: how-to-connect-create-custom-sync-rule.md
+        - name: Azure AD Connect 동기화 V2 엔드포인트 API
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Azure AD Connect 동기화 서비스 관리자
           items:
             - name: 서비스 관리자 작업 탭 관리

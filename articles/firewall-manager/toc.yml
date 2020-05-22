@@ -4,8 +4,13 @@
   items:
     - name: Azure Firewall Manager란?
       href: overview.md
-- name: 자습서
+- name: 빠른 시작
   expanded: true
+  items:
+    - name: 보안 가상 허브
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: 자습서
   items:
     - name: 가상 WAN 보안 - 포털
       href: secure-cloud-network.md
@@ -57,7 +62,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

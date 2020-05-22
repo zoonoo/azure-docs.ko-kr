@@ -12,6 +12,8 @@
       items:
         - name: Azure CLI 사용
           href: kubernetes-walkthrough.md
+        - name: Azure PowerShell 사용
+          href: kubernetes-walkthrough-powershell.md
         - name: Azure Portal 사용
           href: kubernetes-walkthrough-portal.md
         - name: ARM 템플릿 사용
@@ -225,7 +227,7 @@
         - name: API 서버 권한이 부여된 IP 범위 정의
           href: api-server-authorized-ip-ranges.md
         - name: Azure Policy로 컨트롤 배포(미리 보기)
-          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+          href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: 클러스터 자격 증명 업데이트
           href: update-credentials.md
         - name: 클러스터 송신 트래픽 제한 및 제어
@@ -263,6 +265,8 @@
       items:
         - name: AKS 클러스터 만들기
           href: windows-container-cli.md
+        - name: PowerShell에서 AKS 클러스터 만들기
+          href: windows-container-powershell.md
         - name: 원격으로 연결
           href: rdp.md
         - name: 알려진 제한 사항

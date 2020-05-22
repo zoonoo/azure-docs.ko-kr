@@ -15,6 +15,9 @@
       href: quick-run-dotnet.md
     - name: Batch 작업 실행 - Python
       href: quick-run-python.md
+    - name: 배치 계정 만들기 - ARM 템플릿
+      href: quick-create-template.md
+      displayName: Resource Manager
 - name: 자습서
   items:
     - name: 병렬 파일 처리 - .NET
@@ -169,32 +172,32 @@
               href: batch-cli-templates.md
     - name: Batch Node.js SDK 사용
       href: batch-nodejs-get-started.md
-- name: 워크로드 실행
-  items:
-    - name: MPI 작업
-      href: batch-mpi.md
-    - name: 컨테이너 워크로드
-      href: batch-docker-container-workloads.md
-    - name: 렌더링
+    - name: 워크로드 실행
       items:
-        - name: Azure를 사용한 렌더링
-          href: batch-rendering-service.md
-        - name: VM 이미지 렌더링
-          href: batch-rendering-applications.md
-        - name: Batch 렌더링 기능
-          href: batch-rendering-functionality.md
-        - name: Batch 렌더링 사용
-          href: batch-rendering-using.md
-        - name: 렌더링 관리자 사용
-          href: batch-rendering-render-managers.md
-        - name: 렌더링 애플리케이션 참조
-          href: batch-rendering-application-reference.md
-        - name: Storage 및 데이터 이동
-          href: batch-rendering-storage-data-movement.md
-        - name: 렌더링 아키텍처
-          href: batch-rendering-architectures.md
-    - name: Batch 및 데이터 팩터리를 사용하여 데이터 처리
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+        - name: MPI 작업
+          href: batch-mpi.md
+        - name: 컨테이너 워크로드
+          href: batch-docker-container-workloads.md
+        - name: 렌더링
+          items:
+            - name: Azure를 사용한 렌더링
+              href: batch-rendering-service.md
+            - name: VM 이미지 렌더링
+              href: batch-rendering-applications.md
+            - name: Batch 렌더링 기능
+              href: batch-rendering-functionality.md
+            - name: Batch 렌더링 사용
+              href: batch-rendering-using.md
+            - name: 렌더링 관리자 사용
+              href: batch-rendering-render-managers.md
+            - name: 렌더링 애플리케이션 참조
+              href: batch-rendering-application-reference.md
+            - name: Storage 및 데이터 이동
+              href: batch-rendering-storage-data-movement.md
+            - name: 렌더링 아키텍처
+              href: batch-rendering-architectures.md
+        - name: Batch 및 데이터 팩터리를 사용하여 데이터 처리
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: 참조
   items:
     - name: Azure CLI

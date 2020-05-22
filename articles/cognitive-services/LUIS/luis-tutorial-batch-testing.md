@@ -2,13 +2,13 @@
 title: '자습서: 문제를 찾기 위한 일괄 처리 테스트 - LUIS'
 description: 이 자습서에서는 일괄 처리 테스트를 사용하여 LUIS(Language Understanding) 앱의 품질에 대한 유효성을 검사하는 방법을 보여 줍니다.
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78250526"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592596"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -41,7 +41,9 @@ ms.locfileid: "78250526"
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true)을 다운로드하고 저장합니다.
 
-1. [미리 보기 LUIS 포털](https://preview.luis.ai/)을 사용하여 JSON을 새 앱으로 가져오고, 앱 이름을 `Pizza app`으로 지정합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. JSON을 새 앱으로 가져오고 앱 이름을 `Pizza app`으로 지정합니다.
+
 
 1. 탐색 영역의 오른쪽 위 모서리에서 **학습**을 선택하여 앱을 학습시킵니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: 텍스트를 번역, 합성 및 분석하는 Flask 앱 만들기 - Translator Text API'
+title: '자습서: 텍스트를 번역, 합성 및 분석하는 Flask 앱 빌드 - Translator'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Flask 기반 웹앱을 빌드하여 텍스트를 번역하고, 감정을 분석하고 번역된 텍스트를 음성으로 합성합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5034dafa015054e9e9d0804088f345929815b974
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592358"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "80397947"
 > * Azure 구독 키 받기
 > * 개발 환경 설정 및 종속성 설치
 > * Flask 앱 만들기
-> * Translator Text API를 사용하여 텍스트 번역
+> * Translator를 사용하여 텍스트 번역
 > * Text Analytics를 사용하여 입력 텍스트 및 번역에 대한 긍정적/부정적 감정 분석
 > * Speech Services를 사용하여 번역된 텍스트를 합성된 음성으로 변환
 > * 로컬에서 Flask 앱 실행
@@ -52,14 +52,14 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Git 도구](https://git-scm.com/downloads)
 * IDE 또는 [Visual Studio Code](https://code.visualstudio.com/)나 [Atom](https://atom.io/) 같은 텍스트 편집기  
 * [Chrome](https://www.google.com/chrome/browser/) 또는 [Firefox](https://www.mozilla.org/firefox)
-* **Translator Text** 구독 키(지역을 선택할 필요는 없습니다.)
+* **Translator** 구독 키(지역을 선택할 필요는 없습니다.)
 * **미국 서부** 지역의 **Text Analytics** 구독 키.
 * **미국 서부** 지역의 **Speech Services** 구독 키.
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>계정 만들기 및 리소스 구독
 
 앞에서 설명한 대로 이 자습서를 실행하려면 구독 키 3개가 필요합니다. 즉, Azure 계정 내에 다음을 위한 리소스를 만들어야 합니다.
-* Translator Text
+* 변환기
 * 텍스트 분석
 * Speech Services
 
@@ -245,14 +245,14 @@ def about():
 
 이제 간단한 Flask 앱의 작동 원리를 파악했으므로 다음 단계로 넘어가겠습니다.
 
-* Translator Text API를 호출하고 응답을 반환하는 몇몇 Python 작성
+* Translator를 호출하고 응답을 반환하는 몇 가지 Python 작성
 * Python 코드를 호출하는 Flask 경로 만들기
 * 텍스트 입력 및 번역 영역, 언어 선택, 그리고 번역 단추를 사용하여 HTML 업데이트
 * 사용자가 HTML에서 Flask 앱과 상호 작용할 수 있게 해주는 Javascript 작성
 
-### <a name="call-the-translator-text-api"></a>Translator Text API 호출
+### <a name="call-the-translator"></a>Translator 호출
 
-가장 먼저 해야 할 일은 Translator Text API를 호출하는 함수를 작성하는 것입니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 번역 단추를 누를 때마다 호출됩니다. HTML의 텍스트 영역은 `text_input`으로 전송되며, HTML의 언어 선택 값은 `language_output`으로 전송됩니다.
+가장 먼저 해야 할 일은 Translator를 호출하는 함수를 작성하는 것입니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 번역 단추를 누를 때마다 호출됩니다. HTML의 텍스트 영역은 `text_input`으로 전송되며, HTML의 언어 선택 값은 `language_output`으로 전송됩니다.
 
 1. 먼저 작업 디렉터리의 루트에 `translate.py`라는 파일을 만들어 보겠습니다.
 2. 다음으로, 이 코드를 `translate.py`에 추가합니다. 이 함수는 `text_input` 및 `language_output` 두 인수를 사용합니다.
@@ -288,7 +288,7 @@ def about():
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Translator Text 구독 키를 추가하고 저장합니다.
+3. Translator 구독 키를 추가하고 저장합니다.
 
 ### <a name="add-a-route-to-apppy"></a>`app.py`에 경로 추가
 
@@ -964,6 +964,6 @@ flask run
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Translator Text API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

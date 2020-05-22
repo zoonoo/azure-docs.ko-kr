@@ -2,13 +2,13 @@
 title: '자습서: 패턴 - LUIS'
 description: 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높이고 발화 예제를 줄입니다. 패턴은 템플릿 발화 예제로 제공되며, 여기에는 엔터티 및 무시해도 되는 텍스트를 식별하는 구문이 포함됩니다.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592919"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
@@ -41,7 +41,8 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
 
-1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 JSON 파일을 새 앱으로 가져옵니다. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 다운로드한 파일을 선택합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. JSON을 [LUIS 포털](https://www.luis.ai)에 있는 새 앱으로 가져옵니다. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 다운로드한 파일을 선택합니다.
 
 1. **관리** 섹션의 **버전** 탭에서 활성 버전을 선택한 다음, **복제**를 선택합니다. 복제된 버전 `patterns`의 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
@@ -468,33 +469,7 @@ Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻�
 
 ## <a name="using-patternany-entity"></a>Pattern.any 엔터티 사용
 
-pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지 부분에서 엔터티의 끝을 확인하기 어렵게 만드는 자유 형식 데이터를 찾을 수 있습니다.
-
-이 Human Resources 앱도 직원들이 회사 양식을 찾는 데 도움이 됩니다.
-
-|발화|
-|--|
-|Where is **HRF-123456**?|
-|Who authored **HRF-123234**?|
-|**HRF-456098** is published in French?|
-
-그러나 각 양식은 `Request relocation from employee new to the company 2018 version 5`과 같이 친숙한 이름 뿐만 아니라 이전 표에서 사용된 적절한 형식의 이름도 갖습니다.
-
-친숙한 양식 이름을 갖는 발언은 다음과 같습니다.
-
-|발화|
-|--|
-|Where is **Request relocation from employee new to the company 2018 version 5**?|
-|Who authored **"Request relocation from employee new to the company 2018 version 5"** ?|
-|**Request relocation from employee new to the company 2018 version 5** is published in French?|
-
-다양한 길이에는 LUIS에서 엔터티가 끝나는 위치를 혼동할 수 있는 단어가 포함됩니다. 패턴에서 Pattern.any 엔터티를 사용하면 LUIS가 양식 이름을 올바르게 추출하도록 양식 이름의 시작 및 끝을 지정할 수 있습니다.
-
-|템플릿 발화 예제|
-|--|
-|Where is {FormName}[?]|
-|Who authored {FormName}[?]|
-|{FormName} is published in French[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Pattern.any를 사용하여 발화 예제 추가
 

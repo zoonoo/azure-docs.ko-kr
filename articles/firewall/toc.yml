@@ -17,13 +17,13 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: IP 그룹을 사용하여 배포
+    - name: IP 그룹을 사용하여 배포 - ARM 템플릿
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: 여러 주소를 사용하여 배포
+    - name: 여러 주소를 사용하여 배포 - ARM 템플릿
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: 가용성 영역을 사용하여 배포
+    - name: 가용성 영역을 사용하여 배포 - ARM 템플릿
       displayName: Resource Manager
       href: deploy-template.md
 - name: 샘플

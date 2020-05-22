@@ -200,6 +200,8 @@
               href: howto-create-users.md
             - name: Azure AD 통합 구성
               href: howto-configure-sign-in-aad-authentication.md
+            - name: 관리 ID를 사용하여 연결
+              href: howto-connect-with-managed-identity.md
         - name: 최적화
           items:
             - name: 대량 삽입
