@@ -72,7 +72,7 @@
   items:
     - name: Service Bus 샘플
       href: service-bus-samples.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: 메시징 엔터티 일시 중단 및 다시 활성화
           href: entity-suspend.md
+        - name: Service Bus Explorer를 사용하여 Service Bus에서 데이터 작업을 수행합니다.
+          href: explorer.md
         - name: ARM 템플릿 사용
           href: service-bus-resource-manager-overview.md
           items:

@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
 ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82930151"
@@ -36,7 +36,7 @@ ms.locfileid: "82930151"
 * 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>비디오 내용: 데이터 과학으로 답변할 수 있는 5가지 질문
+## <a name="transcript-the-5-questions-data-science-answers"></a>대본: 데이터 과학으로 답변할 수 있는 5가지 질문
 안녕하세요. 비디오 시리즈 *초급자를 위한 데이터 과학*에 오신 것을 환영합니다.
 
 데이터 과학이 어렵게 느껴질 수 있으므로, 여기서는 방정식이나 컴퓨터 프로그래밍 특수 용어 없이 기본 개념을 소개하겠습니다.
@@ -58,7 +58,7 @@ ms.locfileid: "82930151"
 알고리즘을 레시피로, 데이터를 재료로 생각하면 도움이 될 것입니다. 알고리즘은 답변을 얻기 위해 데이터를 조합하고 혼합하는 방법을 설명합니다. 컴퓨터는 믹서기와 같습니다. 알고리즘의 어려운 작업 대부분을 꽤 빠르게 처리합니다.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>질문 1: 이것은 A인가요 B인가요?에서는 분류 알고리즘을 사용합니다.
-질문: 이것은 A인가요 B인가요?부터 시작해 보겠습니다.
+먼저 질문을 사용하여 시작해 보겠습니다. 이것은 A인가요 B인가요?
 
 ![분류 알고리즘: 이것은 A인가요 B인가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
@@ -66,24 +66,24 @@ ms.locfileid: "82930151"
 
 두 가지 가능한 답변이 있는 질문에 유용합니다.
 
-다음은 그 예입니다. 
+다음은 그 예입니다.
 
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
 
-이 질문을 3개 이상의 옵션을 포함하도록 “이것은 A인가요? B인가요? C인가요? D인가요?” 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
+이 질문을 3개 이상의 옵션을 포함하도록 이것은 A인가요? B인가요? C인가요? D인가요? 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
 
-## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 감지 알고리즘을 사용합니다.
-데이터 과학으로 답변을 얻을 수 있는 다음 질문은 이것은 이상한가요?입니다. 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
+## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 검색 알고리즘을 사용합니다.
+데이터 과학으로 답변을 얻을 수 있는 다음 질문은 다음과 같습니다. 이것은 이상한가요? 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
 
-![변칙 감지 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![변칙 검색 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-신용 카드가 있는 경우 이미 변칙 검색을 통해 혜택을 얻었습니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
+신용 카드가 있는 경우 이미 변칙 검색을 통한 혜택을 보고 있는 것입니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
 
 이 질문은 다양한 측면에서 유용할 수 있습니다. 예:
 
 * 자동차에 압력 계기판이 있는 경우 이 압력 계기판에 정상적인 수치가 표시되는지 알고 싶을 수 있습니다.
-* 인터넷을 모니터링 하는 경우 인터넷의이 메시지가 일반적인 지 확인 하는 것이 좋습니다.
+* 인터넷을 모니터링하는 경우 다음 사항을 알고 싶습니다. 인터넷의 이 메시지가 정상적인가요?
 
 변칙 감지는 예기치 않거나 비정상적인 이벤트 또는 동작에 플래그를 지정합니다. 어디서 문제점을 찾아내야 할지에 대한 단서를 줍니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "82930151"
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>질문 4: 어떻게 구성되어 있나요?에서는 클러스터링 알고리즘을 사용합니다.
 마지막 두 개의 질문은 좀 더 수준이 높습니다.
 
-데이터 집합의 구조를 이해하고 싶을 수 있습니다. 이러한 경우 어떻게 구성되어 있나요?라고 질문할 수 있습니다. 이 질문에 대 한 결과를 이미 알고 있는 예제는 없습니다.
+데이터 집합의 구조를 이해하고 싶을 수 있습니다. 이러한 경우 어떻게 구성되어 있나요?라고 질문할 수 있습니다. 이 질문의 경우 여러분이 결과를 이미 알고 있는 예제는 없을 것입니다.
 
 데이터 구조를 조작할 수 있는 방법이 많이 있습니다. 한 가지 방법은 클러스터링입니다. 이 방식은 보다 쉬운 해석을 위해 데이터를 적절한 "그룹"으로 분리합니다. 클러스터링을 사용하면 한 가지 정답은 없습니다.
 
@@ -135,5 +135,5 @@ ms.locfileid: "82930151"
 지금까지 데이터 과학으로 답변할 수 있는 5가지 질문에 대해 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
+* [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/overview-what-is-azure-ml)

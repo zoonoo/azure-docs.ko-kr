@@ -48,6 +48,8 @@
       href: upgrade-virtual-wan.md
     - name: 사용자 지정 IPsec 정책 구성
       href: virtual-wan-custom-ipsec-portal.md
+    - name: 허브에 Azure Firewall 설치
+      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: ExpressRoute 연결 만들기
@@ -84,6 +86,8 @@
           href: openvpn-azure-ad-client.md
         - name: 다중 애플리케이션 Azure AD 인증 구성
           href: openvpn-azure-ad-tenant-multi-app.md
+        - name: 허브에 Azure Firewall 설치
+          href: howto-firewall.md
     - name: 라우팅
       items:
         - name: 가상 허브에서 NVA로 트래픽 라우팅
@@ -94,6 +98,10 @@
               href: virtual-wan-route-table.md
         - name: 가상 허브 유효 경로 보기
           href: effective-routes-virtual-hub.md
+    - name: 보안
+      items:
+        - name: 허브에 Azure Firewall 설치
+          href: howto-firewall.md
 - name: 참조
   items:
     - name: Azure PowerShell

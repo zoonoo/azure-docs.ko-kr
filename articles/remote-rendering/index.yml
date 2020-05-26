@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: a257b294c105ca153a57afe90db95a1bd1b753e8
-  ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+  ms.openlocfilehash: e379515ea34206e21f80ceb23a465858d6d4da81
+  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80678317"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83773222"
 landingContent:
 - title: Azure Remote Rendering 정보
   linkLists:
@@ -58,9 +58,11 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Unity 프로젝트를 처음부터 설정
+    - text: 'Unity: 처음부터 프로젝트 설정'
       url: tutorials/unity/project-setup.md
-    - text: Unity에서 원격 엔터티로 작업
+    - text: 'Unity: 원격 엔터티로 작업'
       url: tutorials/unity/working-with-remote-entities.md
-    - text: 환경 및 재질 변경
+    - text: 'Unity: 환경 및 재질 변경'
       url: tutorials/unity/changing-environment-and-materials.md
+    - text: '네이티브 C++: Hololens Holographic 앱에 Remote Rendering 통합'
+      url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

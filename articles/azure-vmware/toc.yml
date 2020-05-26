@@ -30,6 +30,8 @@
       href: concepts-upgrades.md
 - name: 방법 가이드
   items:
+    - name: HCX 설정
+      href: hybrid-cloud-extension-installation.md
     - name: DHCP 관리
       href: manage-dhcp.md
     - name: 재해 복구

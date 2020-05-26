@@ -163,11 +163,11 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/dns/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

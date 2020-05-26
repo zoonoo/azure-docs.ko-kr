@@ -30,8 +30,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: SLA 미리 보기
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

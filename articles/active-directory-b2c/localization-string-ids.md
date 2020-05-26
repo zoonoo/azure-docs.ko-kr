@@ -1,21 +1,21 @@
 ---
 title: 지역화 문자열 ID - Azure Active Directory B2C | Microsoft Docs
-description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정하는 방법을 설명합니다.
+description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 05/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3abf38a4b1ea798c39150454ac33f73ea588b782
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264376"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900526"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -33,7 +33,7 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | **logonIdentifier_email** | 메일 주소 |
 | **requiredField_email** | 이메일을 입력하세요. |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. |
-| **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' *+/=? ^ _\`{\|} ~-] + @ [a-za-z0-9-] + (?:\\. [ A-za-z0-9-] +)* $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | 사용자 이름으로 로그인 |
 | **logonIdentifier_username** | 사용자 이름 |
 | **requiredField_username** | 사용자 이름을 입력하세요. |
@@ -102,7 +102,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **cancel_message** | 사용자가 자체 어설션된 정보의 입력을 취소함 |
 | **preloader_alt** | 기다려 주세요. |
 | **ver_but_send** | 확인 코드 보내기 |
-| **alert_yes** | yes |
+| **alert_yes** | 예 |
 | **error_fieldIncorrect** | 하나 이상의 필드가 잘못 채워졌습니다. 항목을 확인하고 다시 시도하세요. |
 | **year** | Year |
 | **verifying_blurb** | 정보를 처리하는 동안 잠시 기다려 주세요. |
@@ -146,7 +146,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 다음 예제에서는 등록 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![레이블이 지정 된 UI 요소 이름이 있는 등록 페이지](./media/localization-string-ids/localization-sign-up.png)
+![레이블이 지정된 UI 요소 이름이 있는 등록 페이지](./media/localization-string-ids/localization-sign-up.png)
 
 다음 예제에서는 사용자가 확인 코드 보내기 단추를 클릭한 후 등록 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
@@ -190,7 +190,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 | **number_label** | 전화 번호 |
 | **error_tryagain** | 제공한 전화 번호가 통화 중이거나 사용될 수 없습니다. 번호를 확인 후 다시 시도하세요. |
 | **error_incorrect_code** | 입력한 확인 코드가 레코드와 일치하지 않습니다. 다시 시도하거나 새 코드를 요청하세요. |
-| **countryList** | {\"DEFAULT\":\"Country/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"VG\":\"British Virgin Islands\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo (DRC)\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong SAR\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IM\":\"Isle of Man\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JE\":\"Jersey\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KR\":\"Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Laos\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao SAR\",\"MK\":\"North Macedonia\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"KP\":\"North Korea\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Authority\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn Islands\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Réunion\",\"RO\":\"Romania\",\"RU\":\"Russia\",\"RW\":\"Rwanda\",\"BL\":\"Saint Barthélemy\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"MF\":\"Saint Martin\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé and Príncipe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SX\":\"Sint Maarten\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and South Sandwich Islands\",\"SS\":\"South Sudan\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SH\":\"St Helena, Ascension, Tristan da Cunha\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Swaziland\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syria\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UM\":\"U.S. Outlying Islands\",\"VI\":\"U.S. Virgin Islands\",\"UG\":\"Uganda\",\"UA\":\"Ukraine\",\"AE\":\"United Arab Emirates\",\"GB\":\"United Kingdom\",\"US\":\"United States\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Vatican City\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis and Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
+| **countryList** | {\"DEFAULT\":\"국가/지역\",\"AF\":\"아프가니스탄\",\"AX\":\"올란드 제도\",\"AL\":\"알바니아\",\"DZ\":\"알제리\",\"AS\":\"아메리칸 사모아\",\"AD\":\"안도라\",\"AO\":\"안도라\",\"AI\":\"앵귈라\",\"AQ\":\"남극\",\"AG\":\"앤티가 바부다\",\"AR\":\"아르헨티나\",\"AM\":\"아르메니아\",\"AW\":\"아루바\",\"AU\":\"오스트레일리아\",\"AT\":\"오스트리아\",\"AZ\":\"오스트리아\",\"BS\":\"바하마\",\"BH\":\"바레인\",\"BD\":\"방글라데시\",\"BB\":\"바베이도스\",\"BY\":\"벨라루스\",\"BE\":\"벨기에\",\"BZ\":\"벨리스\",\"BJ\":\"베냉\",\"BM\":\"버뮤다\",\"BT\":\"부탄\",\"BO\":\"볼리비아\",\"BQ\":\"보네르\",\"BA\":\"보스니아 헤르체고비나\",\"BW\":\"보츠와나\",\"BV\":\"부베섬\",\"BR\":\"브라질\",\"IO\":\"영국령 인도양 식민지\",\"VG\":\"영국령 버진아일랜드\",\"BN\":\"브루나이\",\"BG\":\"불가리아\",\"BF\":\"부르키나파소\",\"BI\":\"부룬디\",\"CV\":\"카보베르데\",\"KH\":\"캄보디아\",\"CM\":\"카메룬\",\"CA\":\"캐나다\",\"KY\":\"케이맨 제도\",\"CF\":\"중앙 아프리카 공화국\",\"TD\":\"차드\",\"CL\":\"칠레\",\"CN\":\"중국\",\"CX\":\"크리스마스섬\",\"CC\":\"코코스 제도\",\"CO\":\"콜롬비아\",\"KM\":\"코모로스\",\"CG\":\"콩고\",\"CD\":\"콩고민주공화국\",\"CK\":\"쿡 제도\",\"CR\":\"코스타리카\",\"CI\":\"코트디부아르\",\"HR\":\"크로아티아\",\"CU\":\"쿠바\",\"CW\":\"퀴라소\",\"CY\":\"키프로스\",\"CZ\":\"체코 공화국\",\"DK\":\"덴마크\",\"DJ\":\"지부티\",\"DM\":\"도미니카\",\"DO\":\"도미니카 공화국\",\"EC\":\"에콰도르\",\"EG\":\"이집트\",\"SV\":\"엘살바도르\",\"GQ\":\"적도 기니\",\"ER\":\"에리트리아\",\"EE\":\"에스토니아\",\"ET\":\"에티오피아\",\"FK\":\"포클랜드 제도\",\"FO\":\"페로 제도\",\"FJ\":\"피지\",\"FI\":\"핀란드\",\"FR\":\"프랑스\",\"GF\":\"프랑스령 기아나\",\"PF\":\"프랑스령 폴리네시아\",\"TF\":\"프랑스 남부 지방\",\"GA\":\"가봉\",\"GM\":\"감비아\",\"GE\":\"그루지야\",\"DE\":\"독일\",\"GH\":\"가나\",\"GI\":\"지브롤터\",\"GR\":\"그리스\",\"GL\":\"그린란드\",\"GD\":\"그레나다\",\"GP\":\"과들루프\",\"GU\":\"괌\",\"GT\":\"과테말라\",\"GG\":\"건지\",\"GN\":\"기니\",\"GW\":\"기니비사우\",\"GY\":\"가이아나\",\"HT\":\"아이티\",\"HM\":\"허드 맥도널드 제도\",\"HN\":\"온두라스\",\"HK\":\"홍콩 특별행정구\",\"HU\":\"헝가리\",\"IS\":\"아이슬란드\",\"IN\":\"인도\",\"ID\":\"인도네시아\",\"IR\":\"이란\",\"IQ\":\"Iraq\",\"IE\":\"아일랜드\",\"IM\":\"맨 섬\",\"IL\":\"이스라엘\",\"IT\":\"이탈리아\",\"JM\":\"자메이카\",\"JP\":\"일본\",\"JE\":\"저지\",\"JO\":\"요르단\",\"KZ\":\"카자흐스탄\",\"KE\":\"케냐\",\"KI\":\"키리바시\",\"KR\":\"대한민국\",\"KW\":\"쿠웨이트\",\"KG\":\"키르기스스탄\",\"LA\":\"라오스\",\"LV\":\"라트비아\",\"LB\":\"레바논\",\"LS\":\"레소토\",\"LR\":\"라이베리아\",\"LY\":\"리비아\",\"LI\":\"리히텐슈타인\",\"LT\":\"리투아니아\",\"LU\":\"룩셈부르크\",\"MO\":\"마카오 특별행정구\",\"MK\":\"북마케도니아\",\"MG\":\"마다가스카르\",\"MW\":\"말라위\",\"MY\":\"말레이시아\",\"MV\":\"몰디브\",\"ML\":\"말리\",\"MT\":\"몰타\",\"MH\":\"마셜 제도\",\"MQ\":\"마르티니크\",\"MR\":\"모리타니아\",\"MU\":\"모리셔스\",\"YT\":\"마요트\",\"MX\":\"멕시코\",\"FM\":\"미크로네시아\",\"MD\":\"몰도바\",\"MC\":\"모나코\",\"MN\":\"몽골\",\"ME\":\"몬테네그로\",\"MS\":\"몬트세라트\",\"MA\":\"모로코\",\"MZ\":\"모잠비크\",\"MM\":\"미얀마\",\"NA\":\"나미비아\",\"NR\":\"나우루\",\"NP\":\"네팔\",\"NL\":\"네덜란드\",\"NC\":\"뉴칼레도니아\",\"NZ\":\"뉴질랜드\",\"NI\":\"니카라과\",\"NE\":\"니제르\",\"NG\":\"나이지리아\",\"NU\":\"니우에\",\"NF\":\"노퍽섬\",\"KP\":\"북한\",\"MP\":\"북마리아나제도\",\"NO\":\"노르웨이\",\"OM\":\"오만\",\"PK\":\"파키스탄\",\"PW\":\"팔라우\",\"PS\":\"팔레스타인 자치 정부\",\"PA\":\"파나마\",\"PG\":\"파푸아뉴기니\",\"PY\":\"파라과이\",\"PE\":\"페루\",\"PH\":\"필리핀\",\"PN\":\"핏케언 제도\",\"PL\":\"폴란드\",\"PT\":\"포르투갈\",\"PR\":\"푸에르토리코\",\"QA\":\"카타르\",\"RE\":\"리유니온\",\"RO\":\"루마니아\",\"RU\":\"러시아\",\"RW\":\"르완다\",\"BL\":\"생바르텔레미\",\"KN\":\"세인트키츠 네비스\",\"LC\":\"세인트루시아\",\"MF\":\"셍마르탱\",\"PM\":\"생피에르 미클롱\",\"VC\":\"세인트빈센트그레나딘\",\"WS\":\"사모아\",\"SM\":\"산마리노\",\"ST\":\"상투메 프린시페\",\"SA\":\"사우디아라비아\",\"SN\":\"세네갈\",\"RS\":\"세르비아\",\"SC\":\"세이셸\",\"SL\":\"시에라리온\",\"SG\":\"싱가포르\",\"SX\":\"신트마르턴\",\"SK\":\"슬로바키아\",\"SI\":\"슬로베니아\",\"SB\":\"솔로몬 제도\",\"SO\":\"소말리아\",\"ZA\":\"남아프리카\",\"GS\":\"사우스조지아 사우스샌드위치 제도\",\"SS\":\"남수단\",\"ES\":\"스페인\",\"LK\":\"스리랑카\",\"SH\":\"세인트헬레나 어센션 트리스탄다쿠냐\",\"SD\":\"수단\",\"SR\":\"수리남\",\"SJ\":\"스발바르\",\"SZ\":\"스와질란드\",\"SE\":\"스웨덴\",\"CH\":\"스위스\",\"SY\":\"시리아\",\"TW\":\"대만\",\"TJ\":\"타지키스탄\",\"TZ\":\"탄자니아\",\"TH\":\"태국\",\"TL\":\"동티모르 \",\"TG\":\"토고\",\"TK\":\"토켈라우\",\"TO\":\"통가\",\"TT\":\"트리니다드토바고\",\"TN\":\"튀니지\",\"TR\":\"터키\",\"TM\":\"투르크메니스탄\",\"TC\":\"터크스 케이커스 제도\",\"TV\":\"투발루\",\"UM\":\"미국령 해외 제도\",\"VI\":\"미국령 버진아일랜드\",\"UG\":\"우간다\",\"UA\":\"우크라이나\",\"AE\":\"아랍에미리트\",\"GB\":\"영국\",\"US\":\"미국\",\"UY\":\"우루과이\",\"UZ\":\"우즈베키스탄\",\"VU\":\"바누아투\",\"VA\":\"바티칸 시국\",\"VE\":\"베네수엘라\",\"VN\":\"베트남\",\"WF\":\"월리스 푸투나\",\"YE\":\"예멘\",\"ZM\":\"잠비아\",\"ZW\":\"짐바브웨\"} |
 | **error_448** | 제공한 전화 번호에 연결할 수 없습니다. |
 | **error_449** | 사용자가 다시 시도 횟수를 초과했습니다. |
 | **verification_code_input_placeholder_text** | 확인 코드 |
@@ -205,13 +205,13 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 ## <a name="verification-display-control-user-interface-elements"></a>확인 표시 컨트롤 사용자 인터페이스 요소
 
-[확인 표시 컨트롤](display-control-verification.md) 에 대 한 id는 다음과 같습니다.
+[확인 표시 컨트롤](display-control-verification.md)에 대한 ID는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
 |verification_control_but_change_claims |변경 |
-|verification_control_fail_send_code |코드를 보내지 못했습니다. 나중에 다시 시도 하세요. |
-|verification_control_fail_verify_code |코드를 확인 하지 못했습니다. 나중에 다시 시도 하세요. |
+|verification_control_fail_send_code |코드를 전송하지 못했습니다. 나중에 다시 시도하세요. |
+|verification_control_fail_verify_code |코드를 확인하지 못했습니다. 나중에 다시 시도하세요. |
 |verification_control_but_send_code |코드 보내기 |
 |verification_control_but_send_new_code |새 코드 보내기 |
 |verification_control_but_verify_code |코드 확인 |
@@ -233,15 +233,45 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 </LocalizedResources>
 ```
 
-## <a name="one-time-password-error-messages"></a>일회용 암호 오류 메시지
-다음은 [일회성 암호 기술 프로필](one-time-password-technical-profile.md) 오류 메시지의 id입니다.
+## <a name="azure-mfa-error-messages"></a>Azure MFA 오류 메시지
+
+[Azure MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지에 대한 ID는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |한 번의 암호 확인 제공으로 최대 시도 횟수를 초과 했습니다. |
-|UserMessageIfSessionDoesNotExist |한 번의 암호 확인 세션이 만료 되었습니다. |
-|UserMessageIfSessionConflict |한 번의 암호 확인 세션 충돌 |
-|Usermessageifin유효한 코드 |확인을 위해 제공한 일회용 암호가 올바르지 않습니다. |
+|UserMessageIfCouldntSendSms | 휴대폰으로 SMS를 보낼 수 없습니다. 다른 전화 번호를 사용해 보세요. |
+|UserMessageIfInvalidFormat | 전화 번호 형식이 잘못되었습니다. 전화 번호를 수정하고 다시 시도하세요.|
+|UserMessageIfMaxAllowedCodeRetryReached | 잘못된 코드를 너무 많이 입력했습니다. 나중에 다시 시도하세요.|
+|UserMessageIfServerError | MFA 서비스를 사용할 수 없습니다. 나중에 다시 시도하세요.|
+|UserMessageIfThrottled | 요청이 제한되었습니다. 나중에 다시 시도하세요.|
+|UserMessageIfWrongCodeEntered|잘못된 코드를 입력했습니다. 다시 시도하세요.|
+
+### <a name="example"></a>예제
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="one-time-password-error-messages"></a>일회용 암호 오류 메시지
+
+[일회용 암호 기술 프로필](one-time-password-technical-profile.md) 오류 메시지에 대한 ID는 다음과 같습니다.
+
+| ID | 기본값 |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |확인을 위해 제공한 일회용 암호가 최대 시도 횟수를 초과했습니다. |
+|UserMessageIfSessionDoesNotExist |일회용 암호 확인 세션이 만료되었습니다. |
+|UserMessageIfSessionConflict |일회용 암호 확인 세션이 충돌되었습니다. |
+|UserMessageIfInvalidCode |확인을 위해 제공한 일회용 암호가 잘못되었습니다. |
+|UserMessageIfVerificationFailedRetryAllowed |해당 코드가 잘못되었습니다. 나중에 다시 시도하세요. | 
 
 ### <a name="example"></a>예제
 
@@ -252,9 +282,36 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
+
+
+## <a name="claims-transformations-error-messages"></a>클레임 변환 오류 메시지
+
+클레임 변환 오류 메시지에 대한 ID는 다음과 같습니다.
+
+| ID | 클레임 변환 | 기본값 |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | 클레임 유형 "inputClaim"에 대한 부울 클레임 값을 비교하지 못했습니다.| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | 클레임 값을 비교하지 못했습니다. 제공된 왼쪽 피연산자가 오른쪽 피연산자보다 큽니다.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | StringComparison "OrdinalIgnoreCase"를 사용하여 클레임 값을 비교하지 못했습니다.|
+
+### <a name="example"></a>예제
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+
 
 
 

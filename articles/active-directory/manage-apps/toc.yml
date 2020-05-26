@@ -42,7 +42,7 @@
               href: access-panel-deployment-plan.md
             - name: 개발자를 위한 지침
               href: developer-guidance-for-integrating-applications.md
-        - name: SSO(Single sign-on)
+        - name: Single Sign-On
           items:
             - name: Single Sign-On이란?
               href: what-is-single-sign-on.md
@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: 홈 영역 검색
               href: configure-authentication-for-federated-users-portal.md
+        - name: MS Graph API를 사용하여 SAML 기반 Single Sign-On 자동화
+          href: application-saml-sso-configure-api.md
         - name: 앱을 Azure AD로 마이그레이션
           items:
             - name: 마이그레이션 리소스
@@ -345,7 +347,7 @@
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

@@ -182,8 +182,8 @@
       href: frequently-asked-questions.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: 서비스 업데이트
