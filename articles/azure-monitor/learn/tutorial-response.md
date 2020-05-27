@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670375"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835872"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure Monitor 경고로 이벤트에 응답
 Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](tutorial-logs-dashboards.md) 자습서와 이어집니다.   
@@ -23,7 +23,7 @@ Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보�
 > * 경고 규칙 만들기
 > * 이메일 알림을 보내도록 작업 그룹 구성
 
-이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](../../azure-monitor/learn/quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
+이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
@@ -69,4 +69,4 @@ Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보�
 미리 빌드된 Log Analytics 스크립트 샘플을 보려면 이 링크를 따릅니다.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics 스크립트 샘플](../../azure-monitor/platform/powershell-samples.md)
+> [Log Analytics 스크립트 샘플](../samples/powershell-samples.md)

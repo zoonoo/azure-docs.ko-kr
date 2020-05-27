@@ -39,7 +39,7 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -162,5 +162,5 @@
       href: cache-faq.md
     - name: 동영상
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'

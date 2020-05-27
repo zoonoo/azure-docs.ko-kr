@@ -289,8 +289,8 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: 포럼에서 도움말 보기
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
+        - name: Microsoft Q&A 질문 페이지에 대한 도움말 보기
+          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: HDInsight에 대한 Windows 도구

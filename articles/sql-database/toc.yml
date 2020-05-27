@@ -422,7 +422,7 @@
                       items:
                         - name: 예제 앱 배포
                           href: saas-standaloneapp-get-started-deploy.md
-                        - name: 테넌트 프로비저닝
+                        - name: 테넌트 프로비전
                           href: saas-standaloneapp-provision-and-catalog.md
                     - name: 테넌트당 데이터베이스
                       items:
@@ -430,7 +430,7 @@
                           href: saas-dbpertenant-wingtip-app-overview.md
                         - name: 예제 앱 배포
                           href: saas-dbpertenant-get-started-deploy.md
-                        - name: 테넌트 프로비저닝
+                        - name: 테넌트 프로비전
                           href: saas-dbpertenant-provision-and-catalog.md
                         - name: 데이터베이스 성능 모니터링
                           href: saas-dbpertenant-performance-monitoring.md
@@ -456,7 +456,7 @@
                   items:
                     - name: 예제 앱 배포
                       href: saas-multitenantdb-get-started-deploy.md
-                    - name: 테넌트 프로비저닝
+                    - name: 테넌트 프로비전
                       href: saas-multitenantdb-provision-and-catalog.md
                     - name: 데이터베이스 성능 모니터링
                       href: saas-multitenantdb-performance-monitoring.md
@@ -852,8 +852,8 @@
       href: sql-database-public-data-sets.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-sql-database.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: 문제 해결

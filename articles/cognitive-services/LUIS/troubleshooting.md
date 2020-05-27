@@ -4,12 +4,12 @@ description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질�
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592851"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835005"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -333,4 +333,4 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 LUIS에 대한 자세한 내용은 다음 리소스를 참조하세요.
 * [LUIS로 태그가 지정된 스택 오버플로 질문](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN LUIS(Language Understanding Intelligent Services) 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Microsoft Q&MSDN Language Understanding Intelligent Services (LUIS)에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

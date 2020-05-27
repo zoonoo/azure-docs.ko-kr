@@ -68,15 +68,15 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Azure 데이터 카탈로그에 대한 키보드 바로 가기
       href: data-catalog-keyboard-shortcuts.md
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
-    - name: 가격
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-catalog'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-catalog'
     - name: 용어
       href: data-catalog-terminology.md

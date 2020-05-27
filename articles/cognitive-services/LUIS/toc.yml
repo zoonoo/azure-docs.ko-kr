@@ -181,6 +181,8 @@
       href: luis-get-started-get-intent-from-browser.md
     - name: 마이그레이션
       items:
+        - name: 개요
+          href: migration.md
         - name: 복합 엔터티에서 마이그레이션
           href: migrate-from-composite-entity.md
         - name: 작성 리소스로 마이그레이션

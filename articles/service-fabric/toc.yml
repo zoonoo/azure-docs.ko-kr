@@ -892,8 +892,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 일반적인 질문
       href: service-fabric-common-questions.md
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-service-fabric.html'
     - name: Azure Resource Manager 배포 가드레일
       href: service-fabric-azure-resource-manager-guardrails.md
     - name: 가격 책정

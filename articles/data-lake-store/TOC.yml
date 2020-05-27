@@ -185,8 +185,8 @@
       href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
     - name: Uservoice에서 사용자 의견 제공
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-lake-store/'
     - name: 요금 계산기

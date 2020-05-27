@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 838835cf44b5ca5048ea6cb7bc1bba582b2a0926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278533"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647972"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "79278533"
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-두 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
+클래식 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
     Get-Module Az | format-table version
@@ -122,19 +122,19 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | 속성 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
-| Size |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
-| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 |Standard |
+| 크기 |캐시의 크기. 유효한 값은 다음과 같습니다. P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값은 다음과 같습니다. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |캐시의 SKU를 지정합니다. 유효한 값은 다음과 같습니다. Basic, Standard, Premium |Standard |
 | RedisConfiguration |Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
 | EnableNonSslPort |비 SSL 포트를 사용하는지 여부를 나타냅니다. |False |
 | MaxMemoryPolicy |이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
 | StaticIP |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. | |
 | 서브넷 |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. | |
 | VirtualNetwork |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 VNET의 리소스 ID를 지정합니다. | |
-| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값: 주, 보조 | |
+| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값은 다음과 같습니다. Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 속성
-| 속성 | 설명 | 가격 책정 계층 |
+| 속성 | Description | 가격 책정 계층 |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 |프리미엄 전용 |
 | rdb-storage-connection-string |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
@@ -775,9 +775,9 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [MSDN에 있는 Azure Cache for Redis cmdlet 설명서](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Azure Resource Manager Cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
-* [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
+* [Azure Resource Manager cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765) Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
+* [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure Portal에서 리소스 그룹을 만들고 관리하는 방법
 * [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
-* [Windows PowerShell 블로그](https://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
+* [Windows PowerShell 블로그](https://devblogs.microsoft.com/powershell/): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 * ["Hey, Scripting Guy!" 블로그](https://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 

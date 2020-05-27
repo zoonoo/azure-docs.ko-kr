@@ -216,9 +216,9 @@
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
     - name: 관련된 Microsoft 리소스
       items:
-        - name: MSDN 포럼
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
-        - name: 스택 오버플로
+        - name: Microsoft Q&A 질문 페이지
+          href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html'
+        - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
         - name: 동영상
           href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
