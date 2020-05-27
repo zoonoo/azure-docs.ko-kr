@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9618dc1cef8d04cc5906579af0ef372694aeaaa9
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674695"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673410"
 ---
 ## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
 
 `environmental-sensor`라는 폴더를 로컬 머신에 만듭니다.
 
-[환경 센서 기능 모델](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON 파일을 다운로드하여 `environmental-sensor` 폴더에 저장합니다.
+[환경 센서 기능 모델](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON 파일을 다운로드하여 `environmental-sensor` 폴더에 저장합니다.
 
 텍스트 편집기를 사용하여 다운로드한 `EnvironmentalSensorInline.capabilitymodel.json` 파일에서 `{YOUR_COMPANY_NAME_HERE}`의 두 인스턴스를 회사 이름으로 바꿉니다.
 

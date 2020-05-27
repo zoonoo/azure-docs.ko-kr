@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117210"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660572"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -39,7 +39,7 @@ DR 사이트로 장애 조치(failover)할 때 고려할 두 가지 경우가 �
 여러 SAP HANA 인스턴스를 장애 조치(failover)하려는 경우 azure_hana_dr_failover 명령을 여러 번 실행하세요. 요청된 경우 장애 조치(failover)하고 복원하려는 SAP HANA SID를 입력합니다. 
 
 
-실제 복제 관계에 영향을 주지 않고 DR 장애 조치(failover)를 테스트할 수 있습니다. 테스트 장애 조치(failover)를 수행하려면 [Azure 기반 SAP HANA용 Microsoft 스냅샷 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf)의 "테스트 DR 장애 조치(failover) 수행 - azure_hana_test_dr_failover"의 단계를 따르세요. 
+실제 복제 관계에 영향을 주지 않고 DR 장애 조치(failover)를 테스트할 수 있습니다. 테스트 장애 조치(failover)를 수행하려면 [Azure 기반 SAP HANA용 Microsoft 스냅샷 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf)의 "테스트 DR 장애 조치(failover) 수행 - azure_hana_test_dr_failover"의 단계를 따르세요. 
 
 >[!IMPORTANT]
 >**장애 조치(failover) 테스트** 과정을 통해 DR 사이트에서 만든 인스턴스에서 프로덕션 트랜잭션을 실행하지 *않습니다*. azure_hana_test_dr_failover 명령은 기본 사이트와 아무 관계도 없는 볼륨 세트를 만듭니다. 따라서 기본 사이트로 다시 동기화할 수 *없습니다*. 
@@ -117,7 +117,7 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 
 스토리지 복제 진행 상태를 모니터링하려면 `azure_hana_replication_status` 스크립트를 실행합니다. 이 명령은 재해 복구 위치에서 실행되는 단위에서 실행해야 올바르게 작동합니다. 이 명령은 복제가 활성 상태인지 여부에 관계없이 작동합니다. 이 명령은 재해 복구 위치에서 테넌트의 모든 HANA 대규모 인스턴스 단위에 대해 실행할 수 있습니다. 부팅 볼륨에 대한 세부 정보를 가져오는 데는 사용할 수 없습니다. 
 
-명령 및 해당 출력에 대한 자세한 내용은 [Azure 기반 SAP HANA용 Microsoft 스냅샷 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf)의 "DR 복제 상태 가져오기 - azure_hana_replication_status"를 참조하세요.
+명령 및 해당 출력에 대한 자세한 내용은 [Azure 기반 SAP HANA용 Microsoft 스냅샷 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf)의 "DR 복제 상태 가져오기 - azure_hana_replication_status"를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

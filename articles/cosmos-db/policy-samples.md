@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에 대한 기본 제공 정책 정의
 description: Azure Cosmos DB에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 0a1c9f406864e19b2125ea6e7fb6a6b2870762de
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 948bb93d550a70db6b6fbc2c31a94e4cd1d34eda
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836475"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659478"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure Policy 기본 제공 정책 정의
 
