@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: d1df46a5a8de4396011cc18ea062fe2d6b52ca8d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773960"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816236"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "83773960"
 > [!IMPORTANT]
 > 모든 음성 컨테이너는 현재 [공용 "제어 된" 미리 보기](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)의 일부로 제공 됩니다. 음성 컨테이너가 GA (일반 공급)로 진행 될 때 알림이 생성 됩니다.
 
-| 기능 | 기능 | 최신 |
+| 함수 | 기능 | 최신 |
 |--|--|--|
 | 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.2.0 |
 | Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.2.0 |
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-[요청 양식을](https://aka.ms/speechcontainerspreview/) 작성 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 합니다. 
+[요청 양식을](https://aka.ms/cognitivegate) 작성 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 합니다. 
 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
@@ -310,7 +310,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -372,7 +372,7 @@ Docker run 명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -557,7 +557,7 @@ speech_config.set_service_property(
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 음성 컨테이너는 Azure 계정의 *음성* 리소스를 사용하여 청구 정보를 Azure로 보냅니다.
 
