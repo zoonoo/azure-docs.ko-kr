@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166022"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872146"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
-- Azure 개발 워크로드가 설치된 Windows의 Visual Studio 2019. 웹 개발 워크로드와 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 설치된 Windows의 Visual Studio 2017도 사용할 수 있습니다. Visual Studio가 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
+- Azure 개발 워크로드가 설치된 Windows의 Visual Studio 2019. Visual Studio가 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
@@ -94,7 +94,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-위의 예제에서 공용 URL은 `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/` 입니다. 
+위의 예제에서 공용 URL은 `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`입니다. 
 
 **디버그**를 선택한 다음, **디버깅 시작**을 선택합니다. 몇 초 후에 서비스가 시작되고 Visual Studio에서 서비스의 공용 URL이 있는 브라우저를 엽니다. 브라우저가 자동으로 열리지 않으면 브라우저에서 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 

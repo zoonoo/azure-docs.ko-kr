@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: a09f995f4d022c47b573281183d07b7973215494
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ef7208596ead8f7d3903bb614ccb980df782e581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778250"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837942"
 ---
 ## <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
 
 LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인한 후 국가/지역을 선택하고 사용 약관에 동의합니다. **내 앱**이 대신 표시되는 경우 LUIS 리소스가 이미 존재하므로 앱 만들기로 건너뛰어야 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인한 후 국가/지역을 선택하고 사용 약관에 동의합니다. **내 앱**이 대신 표시되는 경우 LUIS 리소스가 이미 존재하므로 앱 만들기로 건너뛰어야 합니다. 지원되는 지역은 [작성 및 게시 지역과 관련 키](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)를 방문하세요.
 
 1. **Azure 리소스 만들기**를 선택한 다음, **앱을 마이그레이션할 제작 리소스 만들기**를 선택합니다.
 

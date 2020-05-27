@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 67e67c8790628ea589f7f8232248c8ccbc1ba811
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 08f0f1c1e9bbfcd27f97cd58fa6c6e40f448f9f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649012"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "67094630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>자습서: PerformanceCentre와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ PerformanceCentre에서 Azure AD Single Sign-on을 구성하려면 다음 단계
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<companyname>.performancecentre.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PerformanceCentre 클라이언트 지원 팀](https://www.performio.co/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PerformanceCentre 클라이언트 지원 팀](https://www.performancecentre.com/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

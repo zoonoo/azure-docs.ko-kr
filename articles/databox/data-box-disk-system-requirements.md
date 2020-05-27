@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214261"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873948"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ Windows 클라이언트의 경우 다음 항목도 설치해야 합니다.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## <a name="other-required-software-for-linux-clients"></a>Linux 클라이언트에 필요한 다른 소프트웨어
@@ -79,10 +79,6 @@ Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 
 | 클래식 | Standard |
 | 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
 | Blob Storage 계정 | |
-
->[!NOTE]
-> Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다.
-
 
 ## <a name="supported-storage-types-for-upload"></a>업로드를 위해 지원되는 스토리지 형식
 

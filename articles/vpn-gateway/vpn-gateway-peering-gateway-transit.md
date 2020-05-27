@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c243c6ded4057c9e4ac63345f300f3b3b690b363
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161888"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798935"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -30,6 +30,11 @@ ms.locfileid: "77161888"
 
 1. 두 가상 네트워크는 Resource Manager 배포 모델을 사용합니다.
 2. 스포크 가상 네트워크는 클래식이며, 게이트웨이를 사용하는 허브 가상 네트워크는 Resource Manager에 있습니다.
+
+
+>[!NOTE]
+> 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
+>
 
 ## <a name="requirements"></a>요구 사항
 
@@ -48,7 +53,7 @@ ms.locfileid: "77161888"
 2. [동일한 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [다른 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a><a name="permissions"></a>사용 권한
+## <a name="permissions"></a><a name="permissions"></a>권한
 
 가상 네트워크 피어링을 만드는 데 사용하는 계정에는 필요한 역할 또는 권한이 있어야 합니다. 아래 예에서 허브-RM 및 스포크-클래식이라는 두 가상 네트워크를 피어링하는 경우 계정에는 각 가상 네트워크에 대한 다음과 같은 역할 또는 권한이 있어야 합니다.
     
