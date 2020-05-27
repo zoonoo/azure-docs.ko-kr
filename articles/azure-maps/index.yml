@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 83a51c7dff6d616297c7f558b20e7d1934c668d6
+  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83589264"
+  ms.lasthandoff: 05/25/2020
+  ms.locfileid: "83829889"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작하기
+- title: 시작
   linkLists:
   - linkListType: quickstart
     links:
@@ -68,7 +68,7 @@ landingContent:
       url: tutorial-creator-indoor-maps.md
   - linkListType: how-to-guide
     links:
-    - text: Creator 실내 맵 관리
+    - text: Creator 관리
       url: how-to-manage-creator.md
     - text: 실내 맵을 위한 동적 스타일 지정 구현
       url: indoor-map-dynamic-styling.md
@@ -162,7 +162,7 @@ landingContent:
       url: how-to-render-custom-data.md
   - linkListType: reference
     links:
-    - text: Search Service
+    - text: 검색 서비스
       url: https://docs.microsoft.com/rest/api/maps/search
     - text: Route Service
       url: https://docs.microsoft.com/rest/api/maps/route

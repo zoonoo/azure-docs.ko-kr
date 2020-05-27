@@ -266,7 +266,7 @@
     - name: Azure 파일 동기화 릴리스 정보
       href: storage-files-release-notes.md
     - name: Azure Storage 포럼
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+      href: 'https://docs.microsoft.com/answers/products/azure?product=storage'
     - name: Stack Overflow의 Azure Storage
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Azure Storage 가격 책정

@@ -72,7 +72,7 @@
   items:
     - name: Service Bus 샘플
       href: service-bus-samples.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -267,8 +267,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: 블로그
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/forums/home?forum=servbus'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-service-bus.html'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: 요금 계산기

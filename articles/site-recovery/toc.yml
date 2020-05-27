@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
+    - name: 근접 배치 그룹에 대한 Site Recovery 지원
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: 앱에 대한 재해 복구
       items:
         - name: 온-프레미스 앱에 대한 재해 복구 정보
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: 학습 경로
       href: /learn/azure/
     - name: 가격 책정
