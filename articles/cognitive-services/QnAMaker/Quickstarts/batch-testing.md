@@ -1,21 +1,14 @@
 ---
 title: '빠른 시작: 일괄 처리 질문을 사용하여 기술 자료 테스트'
-titleSuffix: Azure Cognitive Services
-description: ''
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: QnA Maker 일괄 처리 테스트 도구에서 QnA Maker 리소스의 기술 자료를 테스트하여 예상 대답, 신뢰도 점수 및 다중 턴 프롬프트를 확인합니다.
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/26/2020
+ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756706"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873669"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>빠른 시작: 일괄 처리 질문 및 예상 대답을 사용하여 기술 자료 테스트
 
