@@ -3,7 +3,7 @@ title: CLI 예제 지역 백업 복원 - Azure SQL Database
 description: 지역 중복 백업에서 Azure SQL Managed Instance Database를 복원하는 Azure CLI 예제 스크립트입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061755"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774468"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>CLI를 사용하여 다른 지역으로 Managed Instance 데이터베이스 복원
 

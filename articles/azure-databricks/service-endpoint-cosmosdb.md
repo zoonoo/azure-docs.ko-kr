@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706155"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779591"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>자습서: Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
 
@@ -107,8 +107,6 @@ ms.locfileid: "74706155"
 ## <a name="create-a-cluster-and-add-library"></a>클러스터 만들기 및 라이브러리 추가
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Databricks 서비스로 이동하여 **작업 영역 시작**을 선택합니다.
-
-   ![Databricks 작업 영역 시작](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. 새 클러스터를 만듭니다. 클러스터 이름을 선택하고 나머지 기본 설정을 그대로 수락합니다.
 
