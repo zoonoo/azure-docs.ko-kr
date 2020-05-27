@@ -83,8 +83,6 @@
       href: high-availability-disaster-recovery.md
     - name: 작업 런타임 환경 변수
       href: batch-compute-node-environment-variables.md
-    - name: Azure 정책과 Batch 통합
-      href: batch-integration-policies.md
 - name: 방법 가이드
   items:
     - name: Batch 계정 관리
@@ -265,8 +263,8 @@
       href: 'https://github.com/Azure/Batch'
     - name: Batch 피드백
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Batch 포럼
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
+    - name: Batch에 대한 Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-batch.html'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: 블로그
