@@ -48,9 +48,9 @@
       href: 'https://azure.microsoft.com/updates/?product=scheduler'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
-    - name: 스택 오버플로
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-scheduler.html'
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/scheduler/'

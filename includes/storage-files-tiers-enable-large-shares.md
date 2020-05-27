@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a2e5defd0672516d52d4f3477641f39eca63368
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536495"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "77597836"
 ---
-기본적으로, 공유 제한을 100 TiB로 늘릴 수 있지만 표준 파일 공유는 최대 5 개의 TiB 확장할 수 있습니다. 이렇게 하려면 저장소 계정 수준에서 *대량 파일 공유* 기능을 사용 하도록 설정 해야 합니다. Premium storage 계정 (*FileStorage* storage 계정)에는 모든 프리미엄 파일 공유가 전체 100 TiB 용량까지 프로 비전 할 수 있도록 이미 설정 되어 있으므로 대용량 파일 공유 기능 플래그가 없습니다.
+기본적으로 표준 파일 공유는 최대 5TiB까지만 사용할 수 있지만 공유 한도는 100 TiB로 늘릴 수 있습니다. 이렇게 하려면 저장소 계정 수준에서 *대용량 파일 공유* 기능을 사용하도록 설정해야 합니다. 모든 프리미엄 파일 공유가 이미 전체 100 TiB 용량까지 프로비저닝할 수 있도록 설정되어 있기 때문에 프리미엄 저장소*계정(FileStorage* Storage storage 계정)에는 대용량 파일 공유 기능 플래그가 없습니다.
 
-로컬 중복 또는 영역 중복 표준 저장소 계정에 대해서만 대량 파일 공유를 사용 하도록 설정할 수 있습니다. 대량 파일 공유 기능 플래그를 사용 하도록 설정 하면 중복 수준을 지역 중복 또는 지역 중복 저장소로 변경할 수 없습니다.
+로컬 중복 또는 영역 중복 표준 저장소 계정에서만 대용량 파일 공유를 사용하도록 설정할 수 있습니다. 큰 파일 공유 피쳐 플래그를 사용하도록 설정한 후에는 중복 수준을 지리적 중복 또는 지역 영역 중복 저장소로 변경할 수 없습니다.
 
-기존 저장소 계정에서 파일 공유를 사용 하도록 설정 하려면 저장소 계정의 목차에서 **구성** 뷰로 이동 하 고 large file share rocker 스위치를 enabled로 전환 합니다.
+기존 저장소 계정에서 대용량 파일 공유를 사용하려면 저장소 계정의 내용 테이블의 **구성** 보기로 이동한 다음 대용량 파일 공유 로커 스위치를 사용하도록 설정합니다.
 
-![Azure Portal에서 large file share 사용 rocker 스위치의 스크린샷](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
+![Azure 포털에서 대용량 파일 공유 로커 스위치 사용의 스크린샷](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
 
-[`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet 및 [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) Azure CLI 명령을 통해 100 TiB 파일 공유를 사용 하도록 설정할 수도 있습니다. 대량 파일 공유 사용에 대 한 자세한 지침은 [대량 파일 공유 사용 및 만들기](../articles/storage/files/storage-files-how-to-create-large-file-share.md)를 참조 하세요.
+[`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet 및 Azure CLI 명령을 통해 100개의 TiB 파일 공유를 활성화할 [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) 수도 있습니다.
 
-새 저장소 계정에서 파일 공유를 만드는 방법에 대해 자세히 알아보려면 [Azure 파일 공유 만들기](../articles/storage/files/storage-how-to-create-file-share.md)를 참조 하세요.
+새 저장소 계정에 대 용량 파일 공유를 사용하도록 설정하는 방법에 대해 자세히 알아보려면 [Azure 파일 공유 만들기를](../articles/storage/files/storage-how-to-create-file-share.md)참조하십시오.

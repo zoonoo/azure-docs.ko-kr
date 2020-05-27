@@ -74,6 +74,8 @@
           href: tutorial-setup-vscode-extension.md
         - name: TensorFlow 이미지 분류 모델 학습 및 배포
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Resource Manager 템플릿으로 작업 영역 만들기
+      href: tutorial-resource-manager-workspace.md
 - name: 샘플
   items:
     - name: Jupyter Notebook

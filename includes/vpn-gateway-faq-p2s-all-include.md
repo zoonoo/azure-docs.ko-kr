@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be858e9200191de7e0bda0ae227519666d80fb7a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117117"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500580"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -29,7 +29,7 @@ ms.locfileid: "79117117"
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
 * Windows Server 2016(64비트 전용)
-* Windows 10
+* 윈도우 10
 * Mac OS X 버전 10.11 이상
 * Linux(StrongSwan)
 * iOS
@@ -58,13 +58,9 @@ Azure는 다음과 같은 세 가지 유형의 지점 및 사이트 간 VPN 옵�
 
 예. Resource Manager 배포 모델의 경우 게이트웨이에 대한 경로 기반 VPN 형식이 있어야 합니다. 클래식 배포 모델의 경우 동적 게이트웨이가 필요합니다. 고정 라우팅 VPN Gateway 또는 경로 기반 VPN Gateway에 지점 및 사이트 간 연결을 지원하지 않습니다.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>동시에 여러 가상 네트워크 게이트웨이에 연결 하도록 지점 및 사이트 간 클라이언트를 구성할 수 있나요?
-
-사용 되는 VPN 클라이언트 소프트웨어에 따라 연결 되는 가상 네트워크 간에 충돌 하는 주소 공간이 없거나 클라이언트가 연결 된 네트워크와는 다른 여러 Virtual Network 게이트웨이에 연결할 수 있습니다.  Azure VPN 클라이언트는 여러 VPN 연결을 지원 하지만 지정 된 시간에 연결을 하나만 연결할 수 있습니다.
-
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 
-예, 다른 Vnet와 피어 링 되는 VNet에 배포 된 Virtual Network 게이트웨이에 대 한 지점 및 사이트 간 연결에는 다른 피어 링 Vnet에 대 한 액세스 권한이 있을 수 있습니다.  피어 링 Vnet가 UseRemoteGateway/AllowGatewayTransit 기능을 사용 하는 경우 지점 및 사이트 간 클라이언트는 해당 피어 링 Vnet에 연결할 수 있습니다.  자세한 내용은 [이](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) 문서를 참조 하세요.
+아니요. 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>사이트 간 연결 또는 지점 및 사이트 간 연결을 통해 어느 정도의 처리량을 제공할 수 있습니까?
 

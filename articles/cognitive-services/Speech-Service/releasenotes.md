@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c7caa6c2b329d7d24d6c9a3008d884b396fc99ce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ecd1c650456bf506f22366ca1d59a3634751b9e0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584912"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800227"
 ---
 # <a name="release-notes"></a>릴리스 정보
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020-릴리스 수
 
-**SPX Azure Speech Services 명령 콘솔**
+**Azure Speech CLI**
 - **SPX** 는 명령줄에서 인식, 합성, 번역, 배치 기록 및 사용자 지정 음성 관리를 수행할 수 있도록 하는 새로운 명령줄 도구입니다. 이를 사용 하 여 Azure Speech service를 테스트 하거나 수행 해야 하는 음성 서비스 작업을 스크립팅할 수 있습니다. 도구를 다운로드 하 고 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview)에서 설명서를 읽으십시오.
 
 **새 기능**
@@ -135,7 +135,7 @@ ms.locfileid: "83584912"
 - JavaScript: `FromHost API` 온-프레미스 컨테이너 및 소 버린 클라우드에서 쉽게 사용할 수 있도록에 대 한 지원이 추가 되었습니다. [여기](speech-container-howto.md)에서 설명서를 참조 하세요.
 - JavaScript: 이제 `NODE_TLS_REJECT_UNAUTHORIZED` [orgads](https://github.com/orgads)의 기여로 감사 합니다. 자세한 내용은 [여기](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)를 참조하세요.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - `OpenSSL`는 버전 1.1.1 b로 업데이트 되었으며 Linux 용 Speech SDK core 라이브러리에 정적으로 연결 됩니다. 이로 인해 수신함이 `OpenSSL` 시스템의 디렉터리에 설치 되지 않은 경우에는 중단 될 수 있습니다 `/usr/lib/ssl` . 문제를 해결 하려면 Speech SDK 문서에서 [설명서](how-to-configure-openssl-linux.md) 를 확인 하세요.
 - C #에 대해 반환 되는 데이터 형식을 `WordLevelTimingResult.Offset` 에서로 변경 하 여 `int` `long` `WordLevelTimingResults` 음성 데이터가 2 분 보다 오래 된 경우에 액세스할 수 있습니다.
@@ -176,7 +176,7 @@ ms.locfileid: "83584912"
 - `KeywordRecognizer`NuGet 및 Unity 패키지를 통해 Windows (UWP), Android 및 iOS에 대 한 지원이 추가 되었습니다.
 - 비동기 일괄 처리에서 대화 기록을 수행 하기 위해 원격 대화 Java API가 추가 되었습니다.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - 대화 Transcriber 기능이 네임 스페이스에서 이동 `Microsoft.CognitiveServices.Speech.Transcription` 되었습니다.
 - 대화 Transcriber 메서드의 일부가 새 클래스로 이동 됩니다 `Conversation` .
@@ -483,7 +483,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - iOS에서 Objective-C를 지원합니다. [iOS용 Objective-C 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md)을 확인하세요.
 - 브라우저에서 JavaScript를 지원합니다. [JavaScript 빠른 시작](quickstart-js-browser.md)을 확인하세요.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - 이 릴리스에서는 몇 가지 주요 변경 사항이 도입 되었습니다.
   자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0) 를 확인 하세요.
@@ -502,7 +502,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 - 연결 오류에 대한 추가 오류 세부 정보를 표시합니다.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - Java(Android)에서, `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` 함수는 더 이상 경로 매개 변수를 요구하지 않습니다. 이제 지원되는 모든 플랫폼에서 경로가 자동으로 검색됩니다.
 - Java 및 C#에서 `EndpointUrl` 속성의 get-accessor가 제거되었습니다.
@@ -531,7 +531,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 인식 결과에 더 많은 필드가 포함됩니다. 인식된 텍스트의 오디오 시작 및 지속 시간의 오프셋(두 가지 모두 틱 단위) 및 인식 상태를 나타내는 추가 값(예: `InitialSilenceTimeout`, `InitialBabbleTimeout`)입니다.
 - 팩터리 인스턴스를 만들기 위한 AuthorizationToken을 지원합니다.
 
-**호환성이 손상되는 변경**
+**주요 변경 내용**
 
 - 인식 이벤트: 이벤트 `NoMatch` 유형이 이벤트에 병합 되었습니다 `Error` .
 - C #의 SpeechOutputFormat `OutputFormat` 는 c + +에 맞게 변경 되었습니다.

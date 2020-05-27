@@ -1,6 +1,6 @@
 ---
-title: Azure Lab Services에서 Linux 용 원격 데스크톱 사용 | Microsoft Docs
-description: Azure Lab Services에서 랩에서 Linux 가상 머신에 대 한 원격 데스크톱을 사용 하는 방법에 대해 알아봅니다.
+title: Azure Lab Services에서 Linux용 원격 데스크톱 사용 | Microsoft Docs
+description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 사용하는 방법에 대해 알아봅니다.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8ccad0698ea6560dd183cacc71f5f3a644e8220c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73585098"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588108"
 ---
-# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 클래스 룸 랩에서 Linux 가상 머신에 대 한 원격 데스크톱 사용
-이 문서에서는 학생이 RDP/SSH를 사용 하 여 랩에서 Linux VM (가상 머신)에 연결할 수 있는 방법을 보여 줍니다. 
+# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 교실 랩에서 Linux 가상 머신에 대해 원격 데스크톱 사용
+이 문서에서는 학생이 RDP/SSH를 사용하여 랩에서 Linux VM(가상 머신)에 연결할 수 있는 방법을 보여 줍니다. 
 
-강사는 학생이 교실 랩의 VM에 연결 하기 전에 원격 데스크톱 연결 기능을 사용 하도록 설정 해야 합니다. 강사가 원격 데스크톱 연결 기능을 사용 하도록 설정 하는 방법에 대 한 지침은 [Linux 가상 머신에 대 한 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조 하세요.
+강사는 학생이 교실 랩의 VM에 연결하기 전에 원격 데스크톱 연결 기능을 사용하도록 설정해야 합니다. 강사가 원격 데스크톱 연결 기능을 사용하도록 설정하는 방법에 대한 지침은 [Linux 가상 머신에 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조하세요.
 
 > [!IMPORTANT] 
-> **원격 데스크톱 연결** 을 사용 하도록 설정 하면 Linux 컴퓨터 에서만 **RDP** 포트가 열립니다. 강사는 처음으로 SSH를 사용 하 여 Linux 컴퓨터에 연결 하 고 rdp 및 GUI 패키지를 설치 하 여 나중에 RDP를 사용 하 여 Linux 컴퓨터에 연결할 수 있습니다. 
+> **원격 데스크톱 연결**을 사용하도록 설정하면 Linux 머신에서 **RDP** 포트만 열립니다. 강사는 처음으로 SSH를 사용하여 Linux 머신에 연결하고, RDP 및 GUI 패키지를 설치하여 나중에 RDP를 사용하여 Linux 머신에 연결할 수 있도록 해야 합니다. 
 
 ## <a name="connect-to-the-student-vm"></a>학생 VM에 연결
-학생은 랩 소유자 (교사/교수)가 컴퓨터에 설치 된 RDP 및 GUI 패키지를 사용 하 여 템플릿 VM을 **게시** 한 후 해당 Linux VM에 rdp 할 수 있습니다. 다음 단계를 참조하십시오. 
+학생은 랩 소유자(교육자)가 머신에 설치된 RDP 및 GUI 패키지를 사용하여 템플릿 VM을 **게시**한 후 Linux VM에 RDP할 수 있습니다. 다음 단계를 참조하십시오. 
 
-1. 학생이 실습 포털에 직접 로그인 (`https://labs.azure.com`) 하거나 등록 링크 (`https://labs.azure.com/register/<registrationCode>`)를 사용 하 여 학생 들이 액세스할 수 있는 각 랩에 대 한 타일이 표시 됩니다. 
-2. 타일에서 VM이 중지 됨 상태인 경우 VM을 시작 하려면 단추를 전환 합니다. 
-3. **연결**을 선택합니다. VM에 연결 하는 두 가지 옵션은 **SSH** 및 **원격 데스크톱**입니다.
+1. 학생이 랩 포털에 직접(`https://labs.azure.com`) 또는 등록 링크(`https://labs.azure.com/register/<registrationCode>`)를 사용하여 로그인하면 학생이 액세스할 수 있는 각 랩에 대한 타일이 표시됩니다. 
+2. 타일에서 VM이 중지된 상태인 경우 단추를 전환하여 VM을 시작합니다. 
+3. **연결**을 선택합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **원격 데스크톱**
 
-    ![학생 VM-연결 옵션](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
+    ![학생 VM - 연결 옵션](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-## <a name="connect-using-ssh-or-rdp"></a>SSH 또는 RDP를 사용 하 여 연결
-**SSH** 옵션을 선택 하면 다음과 같이 **가상 컴퓨터에 연결** 대화 상자가 표시 됩니다.  
+## <a name="connect-using-ssh-or-rdp"></a>SSH 또는 RDP를 사용하여 연결
+**SSH** 옵션을 선택하면 다음 **가상 머신에 연결** 대화 상자가 표시됩니다.  
 
 ![SSH 연결 문자열](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-텍스트 상자 옆의 **복사** 단추를 선택 하 여 클립보드에 복사 합니다. SSH 연결 문자열을 저장 합니다. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 문자열을 사용하여 가상 머신에 연결합니다.
+텍스트 상자 옆에 있는 **복사** 단추를 선택하여 클립보드에 복사합니다. SSH 연결 문자열을 저장합니다. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 문자열을 사용하여 가상 머신에 연결합니다.
 
-**Rdp** 옵션을 선택 하면 rdp 파일이 컴퓨터에 다운로드 됩니다. 이를 저장 하 고 열어 컴퓨터에 연결 합니다. 
+**RDP** 옵션을 선택하면 RDP 파일이 머신에 다운로드됩니다. 이를 저장하고 열어 머신에 연결합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-교실 랩에서 Linux Vm에 대 한 원격 데스크톱 연결 기능을 사용 하도록 설정 하는 방법을 알아보려면 [linux 가상 머신에 대 한 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조 하세요. 
+교실 랩에서 Linux VM에 대해 원격 데스크톱 연결 기능을 사용하도록 설정하는 방법에 대한 내용은 [Linux 가상 머신에 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조하세요. 
 

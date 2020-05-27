@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050732"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585833"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -88,6 +88,19 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
 
 - [Azure AD 권한 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)를 사용하여 [외부 사용자에 대한 액세스를 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다.
 - [B2B 협업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 온보딩 환경을 사용자 지정합니다.
+
+## <a name="integrate-with-identity-providers"></a>ID 공급자와 통합
+
+Azure AD는 Facebook, Microsoft 계정, Google 또는 엔터프라이즈 ID 공급자와 같은 외부 ID 공급자를 지원합니다. 외부 사용자가 애플리케이션에 대해서만 새 계정을 만드는 대신 기존 소셜 또는 엔터프라이즈 계정으로 로그인할 수 있도록 ID 공급자와의 페더레이션을 설정할 수 있습니다. External Identities용 ID 공급자에 대해 자세히 알아봅니다.
+
+![ID 공급자 페이지를 보여주는 스크린샷](media/what-is-b2b/identity-providers.png)
+
+
+## <a name="create-a-self-service-sign-up-user-flow-preview"></a>셀프 서비스 등록 사용자 흐름 만들기(미리 보기)
+
+셀프 서비스 등록 사용자 흐름을 통해 앱에 액세스하려는 외부 사용자를 위한 등록 환경을 만들 수 있습니다. 등록 흐름의 일부로서, 다른 소셜 또는 엔터프라이즈 ID 공급자에 대한 옵션을 제공하고 사용자에 대한 정보를 수집할 수 있습니다. 셀프 서비스 등록 및 설정 방법에 대해 알아봅니다.
+
+![사용자 흐름 페이지를 보여주는 스크린샷](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## <a name="next-steps"></a>다음 단계
 

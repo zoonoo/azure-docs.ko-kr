@@ -10,16 +10,24 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
-ms.openlocfilehash: 82e9c9a6dd8dc18f186a21e72a1a3d205094b707
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bed9424fd7e7dfcb03610fb9d7796cefc5b016be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155191"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589094"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 유형의 정보를 릴리스할 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 유형의 정보를 릴리스할 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
+
+## <a name="may-2020"></a>2020년 5월
+Computer Vision API v3.0에서 [읽기 API](concept-recognizing-text.md)에 대한 업데이트와 함께 일반 공급으로 전환되었습니다.
+
+* 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어 지원
+* 정확도 개선
+* 추출된 각 단어에 대한 신뢰도 점수
+* 새 출력 형식
 
 ## <a name="march-2020"></a>2020년 3월
 

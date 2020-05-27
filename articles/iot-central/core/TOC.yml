@@ -131,6 +131,8 @@
               href: howto-manage-iot-central-from-cli.md
             - name: Azure PowerShell에서 관리
               href: howto-manage-iot-central-from-powershell.md
+            - name: 프로그래밍 방식 관리
+              href: howto-manage-iot-central-programmatically.md
             - name: CSP 포털에서 관리
               href: howto-create-and-manage-applications-csp.md
         - name: 애플리케이션 개인 설정

@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 50252d0a308c4232b84bffddd905d8a84e1be0d8
-  ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+  ms.openlocfilehash: 87190c5cab772e4b8dc04672066e575b10c14533
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83707975"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800774"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -130,13 +130,13 @@ conceptualContent:
   - title: 도구
     links:
     - itemType: overview
-      text: SPX 정보 - 코드 없이 Speech Service 사용
+      text: Speech CLI 정보(코드 명령줄 도구 없음)
       url: spx-overview.md
     - itemType: how-to-guide
-      text: SPX 기본 사항
+      text: Speech CLI 기본 사항(설치 및 예제)
       url: spx-basics.md
     - itemType: overview
-      text: Speech Studio 정보 - 코드 없는 Speech Service 사용자 지정
+      text: Speech Studio 정보(사용자 지정)
       url: https://speech.microsoft.com
   - title: Hosting
     links:
@@ -158,7 +158,7 @@ conceptualContent:
       text: Speech Devices SDK 정보
       url: speech-devices-sdk.md
     - itemType: how-to-guide
-      text: 음성 디바이스 SDK 가져오기
+      text: Speech Devices SDK 가져오기
       url: get-speech-devices-sdk.md
     - itemType: quickstart
       text: Speech Devices SDK 사용

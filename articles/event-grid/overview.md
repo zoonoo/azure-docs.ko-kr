@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393196"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587598"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -52,15 +52,15 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 
 각 소스의 기능에 대한 전체 내용 및 관련 문서는 [이벤트 원본](event-handlers.md)을 참조하세요. 현재 다음 Azure 서비스는 Event Grid의 이벤트 처리를 지원합니다. 
 
-* [Azure Automation](event-handlers.md#azure-automation)
-* [Azure Functions](event-handlers.md#azure-functions)
-* [Event Hubs](event-handlers.md#event-hubs)
-* [VNet](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Azure Automation](handler-webhooks.md#azure-automation)
+* [Azure Functions](handler-functions.md)
+* [Event Hubs](handler-event-hubs.md)
+* [릴레이 하이브리드 연결](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
 * [Power Automate(이전에는 Microsoft Flow로 알려져 있음)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](event-handlers.md#service-bus)
-* [Queue Storage](event-handlers.md#queue-storage)
-* [웹후크](event-handlers.md#webhooks)
+* [Service Bus](handler-service-bus.md)
+* [Queue Storage](handler-storage-queues.md)
+* [웹후크](handler-webhooks.md)
 
 ## <a name="concepts"></a>개념
 

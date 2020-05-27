@@ -1,6 +1,6 @@
 ---
-title: 교실 랩 개념-Azure Lab Services | Microsoft Docs
-description: Lab Services의 기본 개념과이를 사용 하 여 랩을 손쉽게 만들고 관리할 수 있는 방법에 대해 알아봅니다.
+title: 클래스룸 랩 개념 - Azure Lab Services | Microsoft Docs
+description: 랩 서비스의 기본 개념과 이를 사용하여 랩을 손쉽게 만들고 관리할 수 있는 방법에 대해 알아봅니다.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,38 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115050"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592630"
 ---
 # <a name="classroom-labs-concepts"></a>클래스룸 랩 개념
 
-다음 목록에는 주요 랩 서비스 개념 및 정의가 포함 되어 있습니다.
+다음 목록은 주요 랩 서비스 개념 및 정의를 포함합니다.
 
 ## <a name="quota"></a>할당량
 
-할당량은 교사가 랩 VM을 사용 하도록 학생에 대해 설정할 수 있는 시간 제한 (시간)입니다. 0 또는 특정 시간 수로 설정할 수 있습니다. 할당량이 0으로 설정 되 면 학생이 일정을 실행 하는 경우 또는 교사가 학생의 가상 컴퓨터를 수동으로 켤 때만 가상 컴퓨터를 사용할 수 있습니다.  
+할당량은 교육자가 랩 VM을 사용하도록 학생에 대해 설정할 수 있는 시간 제한(시간)입니다. 0 또는 특정 시간 수로 설정할 수 있습니다. 할당량이 0으로 설정되면 학생이 일정을 실행하는 경우 또는 교육자가 학생의 가상 머신을 수동으로 켤 때만 가상 머신을 사용할 수 있습니다.  
 
-학생이 랩 VM 자체를 시작할 때 할당량 시간이 계산 됩니다.  교사가 학생에 대해 랩 VM을 수동으로 시작 하는 경우 할당량 시간은 해당 학생에 대해 사용 되지 않습니다.
+학생이 랩 VM 자체를 시작할 때 할당량 시간이 계산됩니다.  교육자에서 학생에 대한 랩 VM을 수동으로 시작하는 경우 할당량 시간은 해당 학생에 대해 사용되지 않습니다.
 
 ## <a name="schedules"></a>일정
 
-일정은 교사가 클래스에 대해 만들 수 있는 시간 슬롯으로, 학생 Vm을 클래스 시간에 사용할 수 있습니다.  일정은 일회성 또는 되풀이 일 수 있습니다.  일정을 실행 하는 경우 할당량 시간이 사용 되지 않습니다.
+일정은 교육자가 클래스에 대해 만들 수 있는 시간 슬롯으로, 학생 VM을 클래스 시간에 사용할 수 있습니다.  일정은 일회성 또는 되풀이일 수 있습니다.  일정을 실행하는 경우 할당량 시간이 사용되지 않습니다.
 
-표준, 시작 전용 및 중지에 해당 하는 세 가지 유형의 일정이 있습니다.
+일정 유형은 다음 3가지입니다. Standard, Start only 및 Stop only
 
-- **표준**.  이 일정은 지정 된 시작 시간에 모든 학생 Vm을 시작 하 고 지정 된 중지 시간에 모든 학생 Vm을 종료 합니다.
-- **시작만**   이 일정은 지정 된 시간에 모든 학생 Vm을 시작 합니다.  학생 들이 Azure Lab Services 포털을 통해 VM을 중지할 때까지 또는 중지 전용 일정만 발생 하기 전 까지는 학생 Vm이 중지 되지 않습니다.
-- **중지만**  이 일정은 지정 된 시간에 모든 학생 Vm을 중지 합니다.  
+- **Standard**.  이 일정은 지정된 시작 시간에 모든 학생 VM을 시작하고 지정된 중지 시간에 모든 학생 VM을 종료합니다.
+- **Start only**   이 일정은 지정된 시간에 모든 학생 VM을 시작합니다.  학생이 Azure Lab Services 포털을 통해 VM을 중지할 때까지 또는 Stop only 일정이 발생하기 전까지는 학생 VM이 중지되지 않습니다.
+- **Stop only**  이 일정은 지정된 시간에 모든 학생 VM을 중지합니다.  
 
-## <a name="template-virtual-machine"></a>템플릿 가상 컴퓨터
+## <a name="template-virtual-machine"></a>템플릿 가상 머신
 
-랩의 템플릿 가상 머신은 모든 사용자의 가상 머신을 만드는 기본 가상 머신 이미지입니다. 교육 담당자/랩 작성자는 템플릿 가상 머신을 설정 하 고 랩을 교육 하기 위해 제공 하려는 소프트웨어를 사용 하 여 구성 합니다. 템플릿 VM을 게시 하는 경우 템플릿 VM을 기반으로 랩 Vm을 만들거나 업데이트 Azure Lab Services 합니다.
+랩의 템플릿 가상 머신은 모든 사용자의 가상 머신이 만들어지는 기본 가상 머신 이미지입니다. 강사/랩 작성자는 템플릿 가상 머신을 설정하고 랩 수행을 위해 학습 참여자에게 제공하려는 소프트웨어를 사용하여 구성합니다. 템플릿 VM이 게시되면 Azure Lab Services에서 템플릿 VM을 기반으로 랩 VM을 만들거나 업데이트합니다.
 
 ## <a name="user-profiles"></a>사용자 프로필
 
@@ -50,13 +50,13 @@ ms.locfileid: "83115050"
 
 ### <a name="lab-account-owner"></a>랩 계정 소유자
 
-일반적으로 Azure 구독을 소유 하는 조직의 클라우드 리소스의 IT 관리자는 랩 계정 소유자 역할을 하며 다음 작업을 수행 합니다.
+Azure 구독을 소유한 조직 내 클라우드 리소스의 IT 관리자는 일반적으로 랩 계정 소유자 역할을 하며 다음 작업을 수행합니다.
 
 - 조직에 대한 랩 계정을 설정합니다.
 - 모든 랩에서 정책을 관리하고 구성합니다.
 - 조직의 사람들에게 랩 계정으로 랩을 만들 수있는 권한을 부여합니다.
 
-### <a name="professor"></a>교수
+### <a name="educator"></a>강사
 
 일반적으로 강사 또는 온라인 강사와 같은 사용자는 랩 계정에 속한 클래스룸 랩을 만듭니다. 강사가 수행하는 작업은 다음과 같습니다.
 

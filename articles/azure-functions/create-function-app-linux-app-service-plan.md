@@ -4,10 +4,10 @@ description: Azure Portal를 사용하여 서버를 사용하지 않는 실행�
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83116210"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
@@ -39,7 +39,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
     | **함수 앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.  |
-    |**게시**| **Code** (기본값) | 코드 파일 또는 Docker 컨테이너를 게시하는 옵션입니다. |
+    |**게시**| **코드**(기본값) | 코드 파일 또는 Docker 컨테이너를 게시하는 옵션입니다. |
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET Core**를 선택합니다. |
     |**버전**| 버전 번호 | 설치된 런타임의 버전을 선택합니다.  |
     |**지역**| 기본 지역 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
@@ -48,7 +48,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
 1. **다음: 호스팅**을 선택합니다. **호스팅** 페이지에서 다음 설정을 입력합니다.
 
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Storage 계정](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../azure-functions/functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
     |**운영 체제**| **Linux** | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
@@ -60,7 +60,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
     | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **예** (기본값) | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장 하거나 **새로 만들기**를 선택 하 여 Application Insights 이름을 변경 하거나 데이터를 저장 하려는 [Azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/) 에서 다른 지역을 선택할 수 있습니다. |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **예**(기본값) | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장하거나 **새로 만들기**를 선택하면 Application Insights 이름을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 지역을 선택할 수 있습니다. |
 
    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="모니터링 페이지":::
 
@@ -68,7 +68,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
 1. **검토 + 만들기** 페이지에서 설정을 검토한 다음, **만들기**를 선택하여 함수 앱을 프로비저닝하고 배포합니다.
 
-1. 포털의 오른쪽 위 모퉁이에 있는 **알림** 아이콘을 선택 하 고 **배포 성공** 메시지를 시청 합니다.
+1. 포털의 오른쪽 위 모서리에 있는 **알림** 아이콘을 선택하고 **배포 성공** 메시지를 확인합니다.
 
 1. **리소스로 이동**을 선택하여 함수 앱을 봅니다. **대시보드에 고정**을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.
 
@@ -85,29 +85,29 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 > [!NOTE]
 > 포털 개발 환경은 Azure Functions를 사용해 보는 데 유용할 수 있습니다. 대부분의 시나리오에서 [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) 또는 [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project)를 사용하여 함수를 개발하고 함수 앱에 프로젝트를 게시하는 것이 좋습니다.  
 
-1. **함수** 창의 왼쪽 메뉴에서 **함수**를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
  
-1. **새 함수** 창에서 **Http 트리거**를 선택 합니다.
+1. **새 함수** 창에서 **Http 트리거**를 선택합니다.
 
     ![HTTP 트리거 함수 선택](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. 새 **함수** 창에서 **새 함수의**기본 이름을 그대로 적용 하거나 새 이름을 입력 합니다. 
+1. **새 함수** 창에서 **새 함수**의 기본 이름을 적용하거나 새 이름을 입력합니다. 
 
-1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음 **함수 만들기**를 선택 합니다.
+1. **권한 부여 수준** 드롭다운 목록에서 **익명**을 선택한 다음, **함수 만들기**를 선택합니다.
 
     Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트** 를 선택 하 고 최상위 메뉴에서 **함수 URL 가져오기** 를 선택 합니다.
+1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트**를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기**를 선택합니다.
 
-    ![함수 URL 가져오기 선택](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
+    ![[함수 URL 가져오기] 선택](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
 
-1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값** 을 선택 하 고 **클립보드로 복사** 아이콘을 선택 합니다. 
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값**을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 
-1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 이 URL의 끝에 쿼리 문자열 값을 추가 하 `?name=<your_name>` 고 enter 키를 눌러 요청을 실행 합니다. 
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `?name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
 
     다음 예에서는 브라우저의 응답을 보여 줍니다.
 
@@ -115,7 +115,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
     요청 URL에는 기본적으로 HTTP를 통해 함수에 액세스하는 데 필요한 키가 포함됩니다.
 
-1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털에서 **코드 + 테스트** 페이지로 돌아가서 페이지 맨 아래에 있는 **로그** 화살표를 확장 합니다.
+1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털의 **코드 + 테스트** 페이지로 돌아가서 페이지 하단에 있는 **로그** 화살표를 확장합니다.
 
    ![Azure Portal에서 함수 로그 뷰어.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
@@ -125,7 +125,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-간단한 HTTP 트리거 함수로 함수 앱을 만들었습니다.  
+간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

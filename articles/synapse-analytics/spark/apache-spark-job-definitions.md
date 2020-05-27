@@ -1,6 +1,6 @@
 ---
-title: '자습서 - Azure Synapse Analytics: Synapse에 대한 Spark 작업 정의'
-description: Azure Synapse Analytics를 사용하여 Spark 작업 정의를 만들어서 Synapse Spark 풀에 제출합니다.
+title: '자습서 - Azure Synapse Analytics용 Apache Spark: Synapse에 대한 Apache Spark 작업 정의'
+description: 자습서 - Azure Synapse Analytics를 사용하여 Spark 작업 정의를 만들어서 Azure Synapse Analytics용 Apache Spark 풀에 제출합니다.
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425912"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587938"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>자습서: Azure Synapse Analytics를 사용하여 Synapse Spark 풀에 대한 Apache Spark 작업 정의 만들기
 

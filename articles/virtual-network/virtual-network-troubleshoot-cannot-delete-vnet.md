@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c2152b872c82c224c786e56db0318c9df994ac25
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 2a64f42c8672972939bb2870ba40876e5cc8d855
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801589"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591950"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=a13a0908-28e0-f9f7-c6c7-301fcd187560" target='_blank'>Start</a></span><span class="has-padding-small">가상 에이전트를 사용 하 여 <b>자동 진단을</b> 실행 하 여 문제를 빠르게 해결 합니다.</span> <span class="has-padding-small"> <sub>Privacy Statement</sub> 개인정보 <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
-Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
+
+Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>문제 해결 지침 
 
-1. 가상 네트워크 게이트웨이가 가상 네트워크 [에서 실행 되 고 있는지 확인](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)합니다.
-2. [응용 프로그램 게이트웨이가 가상 네트워크에서 실행 되 고 있는지 확인](#check-whether-an-application-gateway-is-running-in-the-virtual-network)합니다.
-3. [가상 네트워크에서 Azure Active Directory 도메인 서비스가 사용 하도록 설정 되어 있는지 확인](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)합니다.
-4. [가상 네트워크가 다른 리소스에 연결 되어 있는지 확인](#check-whether-the-virtual-network-is-connected-to-other-resource)하십시오.
+1. [가상 네트워크에서 가상 네트워크 게이트웨이가 실행 중인지 확인](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)합니다.
+2. [가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인](#check-whether-an-application-gateway-is-running-in-the-virtual-network)합니다.
+3. [가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)합니다.
+4. [가상 네트워크가 다른 리소스에 연결되어 있는지 확인](#check-whether-the-virtual-network-is-connected-to-other-resource)합니다.
 5. [가상 네트워크에서 가상 컴퓨터가 여전히 실행 중인지 확인](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)합니다.
 6. [가상 네트워크가 마이그레이션 도중에 걸려 있는지 확인](#check-whether-the-virtual-network-is-stuck-in-migration)합니다.
 

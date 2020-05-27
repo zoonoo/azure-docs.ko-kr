@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 65f6c6627093358f8cbc66055bb9b16561f7c610
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420957"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587881"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics(작업 영역 미리 보기)란?
 
@@ -24,11 +24,11 @@ ms.locfileid: "81420957"
 
 이러한 솔루션은 구축, 구성, 보안 및 유지 관리가 어렵기 때문에 인텔리전트 인사이트를 신속하게 추출하기 까지 시간이 지체되었습니다.
 
-**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 모든 규모의 모든 데이터에 대한 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터 분석에 사용되는 **Spark** 기술 및 **파이프라인**을 결합하여 활동 및 데이터 이동을 조정합니다. 
+**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 모든 규모의 모든 데이터에 대한 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터 분석에 사용되는 **Spark** 기술 및 **파이프라인**을 결합하여 활동 및 데이터 이동을 조정합니다.
 
 Azure Synapse에는 관리, 모니터링, 코딩 및 보안을 위한 단일 환경과 모델을 제공하는 웹 네이티브 **Studio** 사용자 환경이 제공됩니다.
 
-Azure Synapse는 기업에서 가장 익숙한 분석 방식을 사용하여 모든 규모의 데이터에 대한 인사이트를 모을 수 있는 가장 쉽고 빠른 방법을 제공합니다. **Power BI**와 긴밀히 통합되기 때문에, 데이터 엔지니어는 엔드투엔드로 작동하여 비즈니스 인텔리전스를 제공하는 분석 솔루션을 구축할 수 있습니다. 
+Azure Synapse는 기업에서 가장 익숙한 분석 방식을 사용하여 모든 규모의 데이터에 대한 인사이트를 모을 수 있는 가장 쉽고 빠른 방법을 제공합니다. **Power BI**와 긴밀히 통합되기 때문에, 데이터 엔지니어는 엔드투엔드로 작동하여 비즈니스 인텔리전스를 제공하는 분석 솔루션을 구축할 수 있습니다.
 
 또한, Azure Synapse를 사용하면 **AzureML**에 기본 제공되는 지원을 통해 기계 학습을 사용하여 예측 모델 구축 및 고급 분석이 가능합니다.
 
@@ -44,14 +44,14 @@ Azure Synapse는 기업에서 가장 익숙한 분석 방식을 사용하여 모
 
 ### <a name="industry-standard-apache-spark"></a>업계 표준 Apache Spark
 
-**Synapse Spark**는 데이터 준비, 데이터 엔지니어링, ETL 및 기계 학습에 사용되는 가장 인기있는 오픈 소스 빅 데이터 엔진인 Apache Spark를 긴밀하고 원활하게 통합합니다.
+**Azure Synapse용 Apache Spark**는 데이터 준비, 데이터 엔지니어링, ETL 및 기계 학습에 사용되는 가장 인기있는 오픈 소스 빅 데이터 엔진인 Apache Spark를 긴밀하고 원활하게 통합합니다.
 
 * Linux Foundation Delta Lake가 기본적으로 지원되는 Apache Spark 2.4용 AzureML 통합 및 SparkML 알고리즘이 포함된 ML 모델
 * 클러스터 관리에 대해 걱정할 필요가 없는 간소화된 리소스 모델
 * 신속한 Spark 시작 및 적극적인 자동 크기 조정
 * Spark 애플리케이션 내에서 기존 .NET 코드와 C# 전문 지식을 활용할 수 있도록 .NET for Spark 기본 지원
 
-### <a name="interop-of-sql-and-spark-on-your-data-lake"></a>Data Lake에서 SQL과 Spark 상호 운용
+### <a name="interop-of-sql-and-apache-spark-on-your-data-lake"></a>Data Lake에서 SQL과 Apache Spark 상호 운용
 
 Azure Synapse는 SQL과 Spark를 함께 사용하는 기존의 기술 장벽을 제거합니다. 사용자의 요구 사항과 전문 지식에 맞게 원활하게 조합하여 사용할 수 있습니다.
 
@@ -88,5 +88,5 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 * [작업 영역 만들기](quickstart-create-workspace.md)
 * [Synapse Studio 사용](quickstart-synapse-studio.md)
 * [SQL 풀 만들기](quickstart-create-sql-pool.md)
-* [주문형 SQL 사용](quickstart-sql-on-demand.md)
+* [SQL 주문형 사용](quickstart-sql-on-demand.md)
 * [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
