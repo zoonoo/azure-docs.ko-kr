@@ -3,7 +3,7 @@ title: 템플릿 예제 - Azure SQL Database에서 관리형 인스턴스 만들
 description: 이 Azure PowerShell 예제 스크립트를 사용하여 Azure SQL Database에서 관리형 인스턴스를 만듭니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: seo-dt-2019
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: e5be8c9441be5ca441a5c0f7c4444c2edbdc7a95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eccc3dcb2731183719833ae99f475eb27e6a05c1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811226"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774517"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Azure Resource Manager 템플릿과 함께 PowerShell을 사용하여 Azure SQL Database에서 Managed Instance 만들기
 
