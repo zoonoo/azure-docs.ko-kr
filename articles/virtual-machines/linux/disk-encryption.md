@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: ff6722fbc825ff736a9870618984bbe2c735acfa
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402416"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651034"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure Managed Disks의 서버 쪽 암호화
 
@@ -131,8 +131,6 @@ Ultra Disks의 경우 키를 사용하지 않도록 설정하거나 삭제해도
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
     
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
         ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 VM을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.

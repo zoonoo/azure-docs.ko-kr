@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046609"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648605"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -247,7 +247,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-workday-test-user"></a>Workday 테스트 사용자 만들기
 
-이 섹션에서는 Workday에 B.Simon이라는 사용자를 만듭니다. Workday 플랫폼에서 사용자를 추가하려면 [Workday 클라이언트 지원 팀](https://www.workday.com/partners-services/services/support.html)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Workday에 B.Simon이라는 사용자를 만듭니다. Workday 플랫폼에서 사용자를 추가하려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

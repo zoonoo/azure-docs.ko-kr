@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: b0a596ee4c576ff98be302b15a86a8758b11ce25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596342"
+ms.locfileid: "83654427"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -49,7 +49,7 @@ ms.locfileid: "83596342"
  - 사용자 고유의 Jupyter Notebook 서버
 
     - [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 설치합니다.
-    - [Azure Machine Learning RL SDK](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
+    - [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
     - [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
     - 가상 네트워크 [설치 Notebook](https://aka.ms/azure-rl-env-setup)을 실행하여 분산된 보충 학습에 사용되는 네트워크 포트를 엽니다.
 
@@ -210,7 +210,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>보충 학습 예측 도구 만들기
 
-이 섹션에서는 [ReinforcementLearningEstimator](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&branch=harnvirdebug)를 사용하여 학습 작업을 Azure Machine Learning에 제출하는 방법을 알아봅니다.
+이 섹션에서는 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py)를 사용하여 학습 작업을 Azure Machine Learning에 제출하는 방법을 알아봅니다.
 
 Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성하는 방법을 쉽게 지정할 수 있습니다. Azure Machine Learning 예측 도구 패턴에 대한 자세한 내용은 [예측 도구를 사용하여 모델을 학습시키는 방법](how-to-train-ml-models.md)을 참조하세요.
 

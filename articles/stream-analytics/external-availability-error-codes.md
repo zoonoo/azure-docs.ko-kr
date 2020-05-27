@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 092b548e73330fe80ef10b2e25d9ab7883b256ac
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ce867d60c53b9befe5b4480693b54d2c9eba018
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595202"
+ms.locfileid: "83650062"
 ---
 # <a name="azure-stream-analytics-external-availability-error-codes"></a>Azure Stream Analytics 외부 가용성 오류 코드
 
@@ -20,11 +20,7 @@ ms.locfileid: "83595202"
 ## <a name="externalserviceunavailable"></a>ExternalServiceUnavailable
 
 * **원인**: 서비스를 일시적으로 사용할 수 없습니다.
-* **권장 사항**: Stream Analytics에서 서비스에 계속 연결을 시도합니다. 
-
-## <a name="kafkaservernotavailable"></a>KafkaServerNotAvailable
-
-* **원인**: Kafka 서버를 사용할 수 없습니다.
+* **권장 사항**: Stream Analytics에서 서비스에 계속 연결을 시도합니다.
 
 ## <a name="eventhubmessagingerror"></a>EventHubMessagingError
 

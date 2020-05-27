@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3177de6816dd690514620098e79db844077fbaf6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779014"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655437"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 이 자습서에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 
- 아래의 상세 단계를 사용하여 작업 영역에서 자습서를 복제하고 실행합니다. 
+ 이 비디오를 따르거나 아래의 상세 단계를 사용하여 작업 영역에서 자습서를 복제하고 실행합니다. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
 ### <a name="clone-a-notebook-folder"></a>Notebook 폴더 복제
 

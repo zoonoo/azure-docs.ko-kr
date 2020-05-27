@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: c7180be2afa541f743d7bd81627b93f34d9bb4eb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595272"
+ms.locfileid: "83655211"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
 
@@ -150,7 +150,7 @@ Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_w
 
 | 명령            | Description |
 |---------------------|-------------|
-| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어 각도 애플리케이션에 대한 프로덕션 빌드를 구성하려면 `ng build -prod`를 입력합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:Azure` 명령을 실행하려고 시도합니다.  |
+| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어 각도 애플리케이션에 대한 프로덕션 빌드를 구성하려면 `ng build --prod`를 입력합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:Azure` 명령을 실행하려고 시도합니다.  |
 | `api_build_command` | Azure Functions API 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다. |
 
 ## <a name="route-file-location"></a>경로 파일 위치

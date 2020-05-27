@@ -1,14 +1,14 @@
 ---
 title: IRS 1075 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 IRS 1075(Rev.11-2016) 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 11/20/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546810"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653089"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>IRS 1075 청사진 샘플 배포
 

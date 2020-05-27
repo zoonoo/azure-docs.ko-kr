@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897805"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647615"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>자습서: AwardSpring과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -157,7 +157,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 이 섹션에서는 AwardSpring에서 B.Simon이라는 사용자를 만듭니다. AwardSpring은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. AwardSpring에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 > [!Note]
-> 사용자를 수동으로 만들어야 하는 경우 [AwardSpring 지원 팀](maito:support@awardspring.com)에 문의하세요.
+> 사용자를 수동으로 만들어야 하는 경우 [AwardSpring 지원 팀](mailto:support@awardspring.com)에 문의하세요.
 
 ## <a name="test-sso"></a>SSO 테스트
 

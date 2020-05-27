@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 04/26/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 47105fdbc2bc48d43aa5539613854c82ce4ffbd6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6a7f128dd2479645cc379f36532563c0ade5d14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191218"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651652"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 

@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: e7ef1adea72ed69dc11f0ea8c7e3ce0db3e6ab7c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fad0794a3628e6a89d1c2b2c80bb27d70937db95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594082"
+ms.locfileid: "83650040"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Azure Stream Analytics 외부 오류 코드
 
@@ -24,10 +24,6 @@ ms.locfileid: "83594082"
 ## <a name="adapterfailedtowriteevents"></a>AdapterFailedToWriteEvents
 
 * **원인**: 어댑터에 데이터를 쓰는 중 오류가 발생했습니다.
-
-## <a name="kafkaservererror"></a>KafkaServerError
-
-* **원인**: Kafka 서버가 오류를 반환했습니다.
 
 ## <a name="azurefunctionhttperror"></a>AzureFunctionHttpError
 

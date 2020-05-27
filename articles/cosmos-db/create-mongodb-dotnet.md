@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.openlocfilehash: 55f40e8f22b39caa3527a378f33982276bed597d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 08aa887025908b50c9de9a4bb92012c9f0b4e934
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214951"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650307"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 .NET 웹앱 빌드 
 
@@ -23,7 +23,7 @@ ms.locfileid: "79214951"
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 

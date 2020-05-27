@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d353aad9f0ecf871410dd94b0081381a0b1304c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71129734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647334"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>자습서: Apptio와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -129,11 +129,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-apptio-sso"></a>Apptio SSO 구성
 
-**Apptio** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Apptio 지원 팀](https://www.apptio.com/about/contact)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Apptio** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Apptio 지원 팀](https://www.apptio.com/resources/customer-support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-apptio-test-user"></a>Apptio 테스트 사용자 만들기
 
-이 섹션에서는 Apptio에 B.Simon이라는 사용자를 만듭니다. Apptio 플랫폼에서 사용자를 추가하려면  [Apptio 지원 팀](https://www.apptio.com/about/contact)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Apptio에 B.Simon이라는 사용자를 만듭니다. Apptio 플랫폼에서 사용자를 추가하려면  [Apptio 지원 팀](https://www.apptio.com/resources/customer-support/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

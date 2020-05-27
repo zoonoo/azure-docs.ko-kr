@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a1d4836586bac359c3208147ec7bf59061cf0928
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095002"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>자습서: Panopto와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Panopto에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     **로그인 URL** 텍스트 상자에서 `https://<tenant-name>.panopto.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Panopto 클라이언트 지원 팀](mailto:support@panopto.com%E2%80%8E)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Panopto 클라이언트 지원 팀](mailto:support@panopto.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

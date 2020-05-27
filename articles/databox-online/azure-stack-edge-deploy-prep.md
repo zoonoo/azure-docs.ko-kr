@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e453723692e0e6c08c1bd03301318688082201c2
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564921"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652055"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>자습서: Azure Stack Edge 배포 준비  
 
@@ -25,12 +25,13 @@ ms.locfileid: "82564921"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 새 리소스 만들기
 > * 활성화 키 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작하기
 
 Azure Stack Edge를 배포하려면 다음 자습서를 지정된 순서대로 참조하세요.
 
@@ -52,14 +53,15 @@ Azure Stack Edge를 배포하려면 다음 자습서를 지정된 순서대로 �
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Azure Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. 종량제 구독은 지원되지 않습니다.
-- Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+* Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다.
 
-    - Azure Stack Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
-    - IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
-    - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
-- Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
-- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
+* Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+
+  * Azure Stack Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+  * IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+  * 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
+* Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
+* 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 
 ### <a name="for-the-azure-stack-edge-device"></a>Azure Stack Edge 디바이스
 
@@ -70,7 +72,6 @@ Azure Stack Edge를 배포하려면 다음 자습서를 지정된 순서대로 �
 - 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
 - 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
 - 물리적 디바이스에 대한 액세스 권한이 있습니다.
-
 
 ### <a name="for-the-datacenter-network"></a>데이터 센터 네트워크의 경우
 
@@ -90,7 +91,7 @@ Azure Stack Edge를 배포하려면 다음 자습서를 지정된 순서대로 �
 Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. Microsoft Azure 자격 증명을 사용하여 
-    
+
     - URL [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인하거나
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
@@ -155,14 +156,16 @@ Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니�
     ![활성화 키 가져오기](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - 활성화 키는 생성되고 3일 후에 만료됩니다.
-> - 키가 만료된 경우 새 키를 만듭니다. 이전 키는 유효하지 않습니다.
+>
+> * 활성화 키는 생성되고 3일 후에 만료됩니다.
+> * 키가 만료된 경우 새 키를 만듭니다. 이전 키는 유효하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음과 같은 Azure Stack Edge 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
+>
 > * 새 리소스 만들기
 > * 활성화 키 가져오기
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116658"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644665"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark란?
 
@@ -35,7 +35,7 @@ Azure Synapse의 Spark 풀은 완전 관리형 Spark 서비스를 제공합니�
 | 기능 | Description |
 | --- | --- |
 | 속도 및 효율성 |Spark 인스턴스는 60개 미만의 노드의 경우 약 2분 안에 시작되고 60개가 넘는 노드의 경우 약 5분 안에 시작됩니다. 인스턴스는 노트북 연결로 유지되지 않는 한, 기본적으로 마지막 작업이 실행된 후 5분이 지나면 종료됩니다. |
-| 만들기 편의성 |Azure Portal, Azure PowerShell 또는 Synapse Analytics .NET SDK를 사용하여 몇 분 안에 Azure Synapse에서 새 Spark 풀을 만들 수 있습니다. [Synapse Analytics에서 Spark 풀 시작](../quickstart-create-apache-spark-pool.md)을 참조하세요. |
+| 만들기 편의성 |Azure Portal, Azure PowerShell 또는 Synapse Analytics .NET SDK를 사용하여 몇 분 안에 Azure Synapse에서 새 Spark 풀을 만들 수 있습니다. [Synapse Analytics에서 Spark 풀 시작](../quickstart-create-apache-spark-pool-studio.md)을 참조하세요. |
 | 사용 편의성 |Synapse Analytics에는 [Nteract](https://nteract.io/)에서 파생된 사용자 지정 노트북이 포함되어 있습니다. 이러한 노트북을 대화형 데이터 처리 및 시각화에 사용할 수 있습니다.|
 | REST API |Synapse Analytics의 Spark에는 작업을 원격으로 제출하고 모니터링하는 REST API 기반 Spark 작업 서버인 [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. |
 | Azure Data Lake Storage 2세대에 대한 지원| Azure Synapse의 Spark 풀은 Blob Storage뿐만 아니라 Azure Data Lake Storage 2세대를 사용할 수 있습니다. Data Lake Storage에 대한 자세한 내용은 [Azure Data Lake Storage 개요](../../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
@@ -78,7 +78,7 @@ Apache Spark에는 Synapse Analytics의 Spark 풀에서 사용할 수 있는 Spa
 
 다음 문서를 사용하여 Synapse Analytics의 Apache Spark에 대해 자세히 알아볼 수 있습니다.
 
-- [빠른 시작: Azure Synapse에서 Spark 풀 만들기](../quickstart-create-apache-spark-pool.md)
+- [빠른 시작: Azure Synapse에서 Spark 풀 만들기](../quickstart-create-apache-spark-pool-portal.md)
 - [빠른 시작: Apache Spark Notebook 만들기](../quickstart-apache-spark-notebook.md)
 - [자습서: Apache Spark를 사용한 기계 학습](./apache-spark-machine-learning-mllib-notebook.md)
 - [Apache Spark 공식 설명서](https://spark.apache.org/docs/latest/)
@@ -90,4 +90,4 @@ Apache Spark에는 Synapse Analytics의 Spark 풀에서 사용할 수 있는 Spa
 
 이 개요에서는 Azure Synapse Analytics의 Apache Spark에 대한 기본적인 지식을 알아보았습니다. 다음 문서로 이동하여 Azure Synapse Analytics에서 Spark 풀을 만드는 방법을 알아보세요.
 
-- [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-apache-spark-pool.md)
+- [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-apache-spark-pool-portal.md)
