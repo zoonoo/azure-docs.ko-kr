@@ -2,13 +2,13 @@
 title: '빠른 시작: LUIS 포털에서 새 앱 만들기'
 description: 이 빠른 시작에서는 앱, 의도 및 엔터티의 기본 부분을 만들고, LUIS 포털에서 발화 샘플을 사용하여 테스트합니다.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585243"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697287"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -137,7 +137,7 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
 1. 왼쪽 메뉴에서 **의도**를 선택하여 엔터티가 **FindForm** 의도에 있는지 확인합니다. 그런 다음, **FindForm** 의도를 선택합니다.
 
-   예제 발화에서 해당 엔터티가 있는 위치가 표시됩니다. 엔터티 이름 대신 원래 텍스트를 보려면 도구 모음에서 **엔터티 보기**를 토글합니다.
+   예제 발화에서 해당 엔터티가 있는 위치가 표시됩니다.
 
    > [!div class="mx-imgBorder"]
    > [![엔터티로 표시된 모든 예제 발화의 스크린샷](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

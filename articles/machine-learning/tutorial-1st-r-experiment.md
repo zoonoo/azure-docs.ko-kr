@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256487"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684740"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>자습서: R을 사용하여 기계 학습 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -338,7 +338,7 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>ACI에 배포
-이 자습서에서는 ACI에 서비스를 배포합니다. 이 코드는 단일 컨테이너를 프로비저닝하여 테스트 및 간단한 부하에 적합한 인바운드 요청에 응답합니다. 구성 가능한 추가 옵션에 대해서는 [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html)를 참조하세요. (프로덕션 규모 배포의 경우 [Azure Kubernetes Service에 배포](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html)할 수도 있습니다.)
+이 자습서에서는 ACI에 서비스를 배포합니다. 이 코드는 단일 컨테이너를 프로비저닝하여 테스트 및 간단한 부하에 적합한 인바운드 요청에 응답합니다. 구성 가능한 추가 옵션에 대해서는 [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html)를 참조하세요. (프로덕션 규모 배포의 경우 [Azure Kubernetes Service에 배포](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html)할 수도 있습니다.)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)

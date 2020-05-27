@@ -1,24 +1,14 @@
 ---
 title: Azure CLI 스크립트 예제 - Batch 작업 실행
 description: 이 스크립트는 Batch 작업을 만들고 일련의 태스크를 작업에 추가합니다. 또한 작업 및 태스크를 모니터링하는 방법도 보여 줍니다.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 12/12/2019
-ms.author: labrenne
-ms.openlocfilehash: b93a4e20bb053ba5e91ef4cafdd2fb58ccd2e89f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ce3c06b4631095df54371ca2417dc45d493a437d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460332"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681834"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 예제: Azure Batch로 작업 및 태스크 실행
 

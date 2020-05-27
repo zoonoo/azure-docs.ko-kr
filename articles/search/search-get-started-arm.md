@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
-ms.openlocfilehash: 6da2c324872a86c2c0ce6f55801bc7b0ee8d713e
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 670cebe1c0f1c9002e33b729d0db9ee9f9a01283
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80611817"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682538"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Cognitive Search 배포
 
@@ -30,9 +30,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 템플릿](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchservices)에서 가져온 것입니다.
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)에서 나온 것입니다.
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50":::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
 
 이 템플릿에 정의된 Azure 리소스는 다음과 같습니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 이 템플릿은 Azure Cognitive Search 리소스를 만듭니다.
 
-[![Azure에 배포](./media/search-get-started-arm/arm-deploybuttona.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 포털에는 매개 변수 값을 쉽게 입력할 수 있는 양식이 표시됩니다. 일부 매개 변수는 템플릿의 기본값으로 미리 채워져 있습니다. 구독, 리소스 그룹, 위치 및 서비스 이름을 입력해야 합니다. [AI 보강](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 파이프라인에서 Cognitive Services를 사용하려면(예: 텍스트의 이진 이미지 파일 분석) Cognitive Search 및 Cognitive Services를 모두 제공하는 위치를 선택합니다. 두 서비스가 AI 보강 워크로드에 대한 동일한 지역에 있어야 합니다. 양식을 모두 작성한 후에는 사용 약관에 동의하고 구매 단추를 선택하여 배포를 완료해야 합니다.
 

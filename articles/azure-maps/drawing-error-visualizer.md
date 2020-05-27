@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596662"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681960"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Azure Maps 그리기 오류 시각화 도우미 사용
 
-그리기 오류 시각화 도우미는 변환 프로세스 중에 감지된 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 표시하는 독립 실행형 웹 애플리케이션입니다. 오류 시각화 도우미 웹 애플리케이션은 인터넷에 연결하지 않고 사용할 수 있는 정적 페이지로 구성됩니다.  오류 시각화 도우미를 사용하여 [그리기 패키지 요구 사항](drawing-requirements.md)에 따라 오류 및 경고를 해결할 수 있습니다. [Azure Maps 변환 API](https://docs.microsoft.com/rest/api/maps/data/conversion)는 오류가 감지된 경우에만 오류 시각화 도우미에 대한 링크가 있는 응답만 반환합니다.
+그리기 오류 시각화 도우미는 변환 프로세스 중에 감지된 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 표시하는 독립 실행형 웹 애플리케이션입니다. 오류 시각화 도우미 웹 애플리케이션은 인터넷에 연결하지 않고 사용할 수 있는 정적 페이지로 구성됩니다.  오류 시각화 도우미를 사용하여 [그리기 패키지 요구 사항](drawing-requirements.md)에 따라 오류 및 경고를 해결할 수 있습니다. [Azure Maps 변환 API](https://docs.microsoft.com/rest/api/maps/conversion)는 오류가 감지된 경우에만 오류 시각화 도우미에 대한 링크가 있는 응답만 반환합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -90,7 +90,7 @@ _ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[그리기 패키지 요구 사항이 충족되면](drawing-requirements.md) [Azure Maps Dataset 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)를 사용하여 그리기 패키지를 데이터 세트로 변환할 수 있습니다. 그런 다음, Indoor Maps 웹 모듈을 사용하여 애플리케이션을 개발할 수 있습니다. 자세히 알아보려면 다음 문서를 참조하세요.
+[그리기 패키지 요구 사항이 충족되면](drawing-requirements.md) [Azure Maps Dataset 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용하여 그리기 패키지를 데이터 세트로 변환할 수 있습니다. 그런 다음, Indoor Maps 웹 모듈을 사용하여 애플리케이션을 개발할 수 있습니다. 자세히 알아보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [그리기 변환 오류 코드](drawing-conversion-error-codes.md)

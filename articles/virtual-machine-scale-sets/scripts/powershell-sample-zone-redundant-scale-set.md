@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 57dfbb7ebdb2ca8d323dadfca570360211a16484
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0c97206d4e2f0c0484cfd89138dde7e2b0d0c625
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197535"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698637"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 영역 중복 가상 머신 확장 집합 만들기
 이 스크립트는 여러 가용성 영역에 걸쳐 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 머신에 액세스할 수 있습니다.
@@ -49,5 +49,3 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
-
-추가 가상 머신 확장 집합 PowerShell 스크립트 샘플은 [Azure 가상 머신 확장 집합 설명서](../powershell-samples.md)에서 찾을 수 있습니다.

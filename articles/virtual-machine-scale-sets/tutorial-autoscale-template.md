@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201375"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700931"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 자동으로 가상 머신 확장 집합 크기 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -272,8 +272,3 @@ az group delete --name myResourceGroup --yes --no-wait
 > * 자동 크기 조정 규칙 만들기 및 사용
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
-
-실제로 사용되는 가상 머신 확장 집합의 추가 예제는 다음 샘플 Azure CLI 샘플 스크립트를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Azure CLI용 확장 집합 스크립트 샘플](cli-samples.md)

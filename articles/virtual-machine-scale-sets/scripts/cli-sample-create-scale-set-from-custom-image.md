@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 7e706eb76560b6479d7579c59aaf48b5dfdaf968
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 91673f945104bd7b26d21b11ec3b710bac9db9cb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117226"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699914"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 VM 이미지에서 가상 머신 확장 집합 만들기
 이 스크립트는 사용자 지정 VM 이미지를 VM 인스턴스의 원본으로 사용하는 가상 머신 확장 집합을 만듭니다.
@@ -44,5 +44,3 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
-
-추가 가상 머신 확장 집합 Azure CLI 스크립트 샘플은 [Azure 가상 머신 확장 집합 설명서](../cli-samples.md)에서 찾을 수 있습니다.

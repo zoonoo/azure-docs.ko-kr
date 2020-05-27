@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: PowerShell을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1fe1c7ee50c1e93f94d387440a22b011d392ffca
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75978300"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684499"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -41,10 +41,10 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 새 정책 할당을 만들려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
-# Get a reference to the resource group that will be the scope of the assignment
+# Get a reference to the resource group that is the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
-# Get a reference to the built-in policy definition that will be assigned
+# Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 
 # Create the policy assignment with the built-in definition against your resource group

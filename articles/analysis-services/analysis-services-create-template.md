@@ -8,12 +8,12 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d292500c5e26d3c07ff2402964166b3928cc7e44
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384105"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697436"
 ---
 # <a name="quickstart-create-a-server---azure-resource-manager-template"></a>빠른 시작: 서버 만들기 - Azure Resource Manager 템플릿
 
@@ -32,7 +32,7 @@ ms.locfileid: "81384105"
 
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-analysis-services-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
 방화벽 규칙을 사용하는 단일 [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) 리소스가 템플릿에 정의되어 있습니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "81384105"
 
 1. 다음 [Azure에 배포] 링크를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 Analysis Services 서버 리소스를 만들고 필수 속성 및 선택적 속성을 지정하는 데 사용됩니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-template/deploy-azure.png" alt="deploy to azure"/></a>
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "81384105"
 
 Azure Portal 또는 Azure PowerShell을 사용하여 리소스 그룹 및 서버 리소스가 생성되었는지 확인합니다.
 
-#### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -96,6 +96,8 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

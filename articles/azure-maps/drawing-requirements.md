@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596642"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681898"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 이 문서에서는 Conversion API의 그리기 패키지 요구 사항에 대해 설명합니다. 패키지 샘플을 보려면 [그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 샘플을 다운로드하면 됩니다.
+[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 이 문서에서는 Conversion API의 그리기 패키지 요구 사항에 대해 설명합니다. 패키지 샘플을 보려면 [그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples) 샘플을 다운로드하면 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "83596642"
 
 그리기 패키지에서 그리기를 생성할 CAD 소프트웨어를 선택할 수 있습니다.  
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)는 그리기 패키지를 맵 데이터로 변환합니다.  Conversion 서비스는 AutoCAD DWG 파일 형식을 사용하여 개발 및 테스트되었습니다. `AC1032`는 DWG 파일의 내부 형식 버전입니다. 내부 DWG 파일 형식 버전으로 `AC1032`를 선택하는 것이 좋습니다.  
+[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)는 그리기 패키지를 맵 데이터로 변환합니다.  Conversion 서비스는 AutoCAD DWG 파일 형식을 사용하여 개발 및 테스트되었습니다. `AC1032`는 DWG 파일의 내부 형식 버전입니다. 내부 DWG 파일 형식 버전으로 `AC1032`를 선택하는 것이 좋습니다.  
 
 이 문서 내에서 사용되는 용어는 다음과 같습니다.
 
@@ -54,7 +54,7 @@ DWG 파일은 폴더 내에서 어떤 방식으로든 구성할 수 있지만, �
 * 여러 수준의 기능을 포함할 수 없습니다.
 * 여러 시설의 기능을 포함할 수 없습니다.
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)는 DWG 파일에서 다음 기능 클래스를 추출할 수 있습니다.
+[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)는 DWG 파일에서 다음 기능 클래스를 추출할 수 있습니다.
 
 * Levels
 * Units
@@ -71,11 +71,11 @@ DWG 레이어에는 단일 클래스의 기능이 포함되어야 합니다. 클
 
 * 모든 DWG 파일의 그리기 원점은 동일한 위도와 경도에 맞춰야 합니다.
 * 각 수준은 다른 수준과 동일한 방향이어야 합니다.
-* 자체 교차 다각형은 자동으로 복구되고 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)에서 경고를 발생시킵니다. 복구된 결과가 예상 결과와 일치하지 않을 수 있으므로 수동으로 검사하는 것이 좋습니다.
+* 자체 교차 다각형은 자동으로 복구되고 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)에서 경고를 발생시킵니다. 복구된 결과가 예상 결과와 일치하지 않을 수 있으므로 수동으로 검사하는 것이 좋습니다.
 
 모든 레이어 엔터티는 선, 폴리라인, 다각형, 원호, 원, 텍스트(단일선) 형식 중 하나여야 합니다. 다른 모든 엔터티 형식은 무시됩니다.
 
-아래 표에는 각 레이어에 지원되는 엔터티 형식과 기능이 간략히 나와 있습니다. 레이어에 지원되지 않는 엔터티 형식이 포함되면 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)에서 이러한 엔터티를 무시합니다.  
+아래 표에는 각 레이어에 지원되는 엔터티 형식과 기능이 간략히 나와 있습니다. 레이어에 지원되지 않는 엔터티 형식이 포함되면 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)에서 이러한 엔터티를 무시합니다.  
 
 | 계층 | 엔터티 형식 | 기능 |
 | :----- | :-------------------| :-------
@@ -167,11 +167,11 @@ Zonelabel 레이어의 예제는 [그리기 패키지 샘플](https://github.com
 
 ## <a name="manifest-file-requirements"></a>매니페스트 파일 요구 사항
 
-zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 포함해야 하며, 파일 이름은 **manifest.json**이어야 합니다. 이는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)에서 콘텐츠를 구문 분석할 수 있도록 하는 DWG 파일에 대해 설명합니다. 매니페스트에서 식별된 파일만 수집됩니다. zip 폴더에 있지만 매니페스트에 제대로 나열되지 않은 파일은 무시됩니다.
+zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 포함해야 하며, 파일 이름은 **manifest.json**이어야 합니다. 이는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)에서 콘텐츠를 구문 분석할 수 있도록 하는 DWG 파일에 대해 설명합니다. 매니페스트에서 식별된 파일만 수집됩니다. zip 폴더에 있지만 매니페스트에 제대로 나열되지 않은 파일은 무시됩니다.
 
 매니페스트 파일의 **buildingLevels** 개체에 있는 파일 경로는 zip 폴더의 루트에 대한 상대 경로여야 합니다. DWG 파일 이름은 시설 수준의 이름과 정확히 일치해야 합니다. 예를 들어 "Basement(지하실)" 수준에 대한 DWG 파일은 "Basement.dwg"입니다. 수준 2에 대한 DWG 파일은 "level_2.dwg"로 명명됩니다. 수준 이름에 공백이 있는 경우 밑줄을 사용합니다. 
 
-매니페스트 개체를 사용하는 경우 요구 사항이 있지만 일부 개체만 필요합니다. 아래 표에는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion) 버전 1.1의 필수 개체 및 선택적 개체가 나와 있습니다.
+매니페스트 개체를 사용하는 경우 요구 사항이 있지만 일부 개체만 필요합니다. 아래 표에는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion) 버전 1.1의 필수 개체 및 선택적 개체가 나와 있습니다.
 
 | Object | 필수 | Description |
 | :----- | :------- | :------- |
@@ -402,7 +402,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ## <a name="next-steps"></a>다음 단계
 
-그리기 패키지에서 요구 사항이 충족되면 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)를 사용하여 패키지를 맵 데이터 세트로 변환할 수 있습니다. 그런 다음, 데이터 세트를 사용하여 실내 맵 모듈을 통해 실내 맵을 생성할 수 있습니다. 다음 문서를 참조하여 실내 맵 모듈을 사용하는 방법에 대해 자세히 알아보세요.
+그리기 패키지에서 요구 사항이 충족되면 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용하여 패키지를 맵 데이터 세트로 변환할 수 있습니다. 그런 다음, 데이터 세트를 사용하여 실내 맵 모듈을 통해 실내 맵을 생성할 수 있습니다. 다음 문서를 참조하여 실내 맵 모듈을 사용하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 >[실내 맵용 Creator](creator-indoor-maps.md)

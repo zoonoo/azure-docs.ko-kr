@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595072"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682430"
 ---
 # <a name="publisher-verification-preview"></a>게시자 확인(미리 보기)
 
-Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성을 관리자와 최종 사용자가 알 수 있도록 도와주는 것이 게시자 확인(미리 보기)입니다. 다시 말해서, 게시자가 알려진 소스인지 아니면 자신을 잘 알려진 게시자로 위장하는 악의적인 행위자인지 파악하는 데 도움이 됩니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
+Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성을 관리자와 최종 사용자가 알 수 있도록 도와주는 것이 게시자 확인(미리 보기)입니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
 
 다음과 같이 파란색 "확인" 배지가 Azure AD 동의 확인 프롬프트 및 다른 화면에 표시됩니다. ![동의 확인 프롬프트](./media/publisher-verification-overview/consent-prompt.png)
 

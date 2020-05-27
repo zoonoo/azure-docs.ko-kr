@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ad21a816aba5bd8f8de1c541cc4bc34243956d35
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7f80515a0a441f910a2133a36d62a09062c3840f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200984"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699781"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 이 스크립트는 Ubuntu 운영 체제 및 부하 분산 장치를 포함한 관련 네트워킹 리소스가 있는 Azure 가상 머신 확장 집합을 만듭니다. 스크립트가 실행되면 SSH를 통해 VM 인스턴스에 액세스할 수 있습니다.
@@ -44,5 +44,3 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
-
-추가 가상 머신 확장 집합 Azure CLI 스크립트 샘플은 [Azure 가상 머신 확장 집합 설명서](../cli-samples.md)에서 찾을 수 있습니다.

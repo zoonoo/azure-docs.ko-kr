@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201363"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700819"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 
@@ -255,8 +255,3 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > * 자동 크기 조정 규칙 만들기 및 사용
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
-
-작동 중인 가상 머신 확장 집합에 대한 자세한 예제는 다음 샘플 Azure PowerShell 샘플 스크립트를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Azure PowerShell용 확장 집합 스크립트 샘플](powershell-samples.md)

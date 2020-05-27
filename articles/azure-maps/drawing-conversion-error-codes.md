@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596782"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681965"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>그리기 변환 오류 및 경고
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
+[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
 
 변환 경고가 있으면 Conversion 서비스가 성공합니다. 그러나 모든 경고를 검토하고 해결하는 것이 좋습니다. 경고는 변환의 일부가 무시되거나 자동으로 수정되었음을 의미합니다. 경고가 해결되지 않으면 후자의 프로세스에서 오류가 발생할 수 있습니다.
 
@@ -73,7 +73,7 @@ Conversion 서비스는 잘못된 엔터티에서 맵 기능을 만들 수 없�
 
 아래 이미지에서는 레이블 레이어에서 지원되지 않는 엔터티 형식을 여러 줄 텍스트 개체로 보여 줍니다.
   
-![레이블 레이어에 있는 여러 줄 텍스트 개체의 예](./media/drawing-conversion-error-codes/multiline.png)
+![레이블 레이어에 있는 여러 줄 텍스트 개체의 예](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*unsupportedFeatureRepresentation을 해결하는 방법*
 
@@ -494,7 +494,7 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 
 다음 이미지에서는 둘 이상의 수직 침투 영역이 인접한 수준에서 겹치는 수직 침투 영역을 보여 줍니다.
 
-![수직 침투 2의 예](./media/drawing-conversion-error-codes/vrt.png)
+![수직 침투 2의 예](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>verticalPenetrationError를 해결하는 방법
 
