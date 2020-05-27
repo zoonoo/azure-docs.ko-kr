@@ -265,8 +265,8 @@
       href: 'https://github.com/Azure/Batch'
     - name: Batch 피드백
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Batch에 대한 Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-batch.html'
+    - name: Batch 포럼
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: 블로그
