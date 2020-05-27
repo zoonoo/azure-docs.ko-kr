@@ -721,8 +721,8 @@
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: 블로그
       href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
-    - name: 질문하기 - MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: 질문하기 - Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: 질문하기 - 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 기능 요청

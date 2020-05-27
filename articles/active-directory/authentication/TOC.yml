@@ -138,6 +138,8 @@
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: SMS 기반 인증 사용(미리 보기)
       href: howto-authentication-sms-signin.md
+    - name: 이메일 주소 로그인 사용(미리 보기)
+      href: howto-authentication-use-email-signin.md
     - name: Azure AD 스마트 잠금
       href: howto-password-smart-lockout.md
     - name: 인증서 기반 인증
@@ -223,8 +225,8 @@
   items:
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트

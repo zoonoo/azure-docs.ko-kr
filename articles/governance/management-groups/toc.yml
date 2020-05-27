@@ -14,6 +14,8 @@
       href: ./create.md
     - name: 리소스 관리
       href: ./manage.md
+    - name: 리소스 계층 구조 보호
+      href: ./how-to/protect-resource-hierarchy.md
 - name: 참조
   items:
     - name: Azure CLI

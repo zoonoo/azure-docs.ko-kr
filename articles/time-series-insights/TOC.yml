@@ -152,7 +152,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: 가격 책정 및 가용성
       items:
-        - name: 가격
+        - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -164,14 +164,14 @@
           href: 'https://azure.microsoft.com/support/options/'
         - name: Azure IoT 지원 및 도움말 옵션
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
-        - name: 스택 오버플로
+        - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: MSDN 포럼
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Microsoft Q&A 질문 페이지
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
     - name: 피드백 및 포럼
       items:
-        - name: MSDN 포럼
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Microsoft Q&A 질문 페이지
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
         - name: 제품 요청 및 제안
           href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Azure 비디오
