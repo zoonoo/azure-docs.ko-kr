@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067675"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798666"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -53,7 +53,7 @@ ms.locfileid: "80067675"
 
 ## <a name="use-built-in-workbooks"></a>기본 제공 통합 문서 사용<a name="dashboards"></a>
 
-기본 제공 통합 문서는 연결된 데이터 원본의 통합 데이터를 제공하여 해당 서비스에서 생성된 이벤트를 자세히 분석할 수 있도록 합니다. 기본 제공 통합 문서에는 방화벽 트래픽 로그, Office 365 및 Windows 이벤트 기반 비보안 프로토콜을 포함하여 서버의 Windows 이벤트, 자사 경고, 타사의 데이터가 될 수 있는 Azure AD, Azure 활동 이벤트 및 온-프레미스가 포함됩니다. 통합 문서는 Azure Monitor 통합 문서에 기반하기 때문에, 자신의 통합 문서를 직접 디자인할 때 향상된 사용자 지정 기능으로 보다 유연하게 디자인할 수 있습니다. 자세한 내용은 [통합 문서](../azure-monitor/app/usage-workbooks.md)를 참조하세요.
+기본 제공 통합 문서는 연결된 데이터 원본의 통합 데이터를 제공하여 해당 서비스에서 생성된 이벤트를 자세히 분석할 수 있도록 합니다. 기본 제공 통합 문서에는 방화벽 트래픽 로그, Office 365 및 Windows 이벤트 기반 비보안 프로토콜을 포함하여 서버의 Windows 이벤트, 자사 경고, 타사의 데이터가 될 수 있는 Azure AD, Azure 활동 이벤트 및 온-프레미스가 포함됩니다. 통합 문서는 Azure Monitor 통합 문서에 기반하기 때문에, 자신의 통합 문서를 직접 디자인할 때 향상된 사용자 지정 기능으로 보다 유연하게 디자인할 수 있습니다. 자세한 내용은 [통합 문서](../azure-monitor/platform/workbooks-overview.md)를 참조하세요.
 
 1. **설정**에서 **통합 문서**를 선택합니다. **설치됨** 아래에서 설치된 통합 문서를 모두 볼 수 있습니다. **모두** 아래에서 설치할 수 있는 기본 제공 통합 문서의 전체 갤러리를 볼 수 있습니다. 
 2. 특정 통합 문서를 검색하여 각 통합 문서가 제공하는 항목의 전체 목록 및 설명을 볼 수 있습니다. 

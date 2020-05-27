@@ -11,15 +11,15 @@
   items:
     - name: 사용자에 대한 액세스 권한 보기
       href: check-access.md
+    - name: ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: 자습서
   items:
     - name: 사용자 액세스 권한 부여 - 포털
       href: quickstart-assign-role-user-portal.md
     - name: 사용자 액세스 권한 부여 - PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: 사용자 액세스 권한 부여 - Resource Manager 템플릿
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: 그룹 액세스 권한 부여 - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: 사용자 지정 역할 만들기 - PowerShell
@@ -67,7 +67,8 @@
           href: role-assignments-cli.md
         - name: REST API
           href: role-assignments-rest.md
-        - name: 템플릿
+        - name: ARM 템플릿
+          displayName: Resource Manager
           href: role-assignments-template.md
     - name: 거부 할당 목록
       items:
@@ -113,8 +114,8 @@
       href: /cli/azure/role?view=azure-cli-latest
     - name: REST API
       href: /rest/api/authorization/
-    - name: 리소스 관리자 템플릿
-      displayName: ARM
+    - name: ARM 템플릿
+      displayName: Resource Manager
       items:
         - name: 역할 할당
           href: /azure/templates/microsoft.authorization/roleassignments

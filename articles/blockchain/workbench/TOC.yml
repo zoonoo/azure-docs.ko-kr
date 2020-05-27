@@ -59,8 +59,8 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: MSDN 지원 포럼
-      href: 'https://aka.ms/workbenchforum'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html'
     - name: 커뮤니티 지원
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Stack Overflow 지원

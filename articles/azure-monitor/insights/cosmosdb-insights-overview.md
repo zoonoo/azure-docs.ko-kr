@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195407"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797585"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
 
@@ -124,4 +124,4 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 * [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
 
-* [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../app/usage-workbooks.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
+* [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
