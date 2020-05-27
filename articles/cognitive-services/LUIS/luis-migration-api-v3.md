@@ -4,12 +4,12 @@ description: 쿼리 예측 끝점 V3 Api가 변경 되었습니다. 이 가이�
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653855"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849334"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -57,7 +57,7 @@ Bot Framework를 사용 하거나 V7를 Bing Spell Check 하거나 LUIS 앱 제�
 
 ## <a name="not-supported"></a>지원되지 않음
 
-### <a name="bing-spell-check"></a>Bing 맞춤법 검사
+### <a name="bing-spell-check"></a>Bing Spell Check
 
 이 API는 V3 예측 끝점에서 지원 되지 않습니다. 계속 해 서 V2 API 예측 끝점을 사용 하 여 맞춤법을 수정 하세요. V3 API를 사용 하는 동안 맞춤법 수정이 필요한 경우 LUIS API로 텍스트를 보내기 전에 클라이언트 응용 프로그램에서 [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) api를 호출 하 고 텍스트를 올바른 철자에 맞게 변경 합니다.
 
@@ -88,7 +88,7 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 
 V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 
-|매개 변수 이름|유형|버전|기본값|용도|
+|매개 변수 이름|형식|버전|기본값|목적|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 False입니다.|
 |`query`|문자열|V3만|기본값 없음-GET 요청에 필요 합니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
@@ -112,7 +112,7 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 }
 ```
 
-|속성|유형|버전|기본값|용도|
+|속성|형식|버전|기본값|목적|
 |--|--|--|--|--|
 |`dynamicLists`|array|V3만|필요하지 않음.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
 |`externalEntities`|array|V3만|필요하지 않음.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
@@ -283,4 +283,4 @@ V2 API는 V3 미리 보기 후 9 개월 이상 사용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-V3 API 설명서를 사용 하 여 LUIS [끝점](https://aka.ms/luis-api-v3) api에 대 한 기존 REST 호출을 업데이트 합니다.
+V3 API 설명서를 사용 하 여 LUIS [끝점](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) api에 대 한 기존 REST 호출을 업데이트 합니다.
