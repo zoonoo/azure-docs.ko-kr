@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 945c7035c2eeada3fea358489460f80c40438950
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595942"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677961"
 ---
 # <a name="manage-azure-maps-creator"></a>Azure Maps Creator 관리
 
@@ -39,7 +39,7 @@ Azure Maps Creator를 이용하면 프라이빗 실내 지도 데이터를 만�
 
 5. 설정을 검토하고 **만들기**를 클릭합니다.
 
-    ![Creator 계정 설정 페이지 확인](./media/how-to-manage-creator/creator-create.PNG)
+    ![Creator 계정 설정 페이지 확인](./media/how-to-manage-creator/creator-create-dialog.png)
 
 6. 배포가 완료되면 성공 또는 실패 메시지가 포함된 페이지가 표시됩니다.
 

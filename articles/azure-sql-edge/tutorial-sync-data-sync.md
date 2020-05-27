@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bcdfc3eb09b6c5ed4f8dde4d48a34bee8746e1e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7971681c3f0c99a11567e6a30e61167c5d42348c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593447"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680511"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>자습서: SQL 데이터 동기화를 사용하여 SQL Edge에서 Azure SQL Database로 데이터 동기화
 
@@ -32,7 +32,7 @@ SQL Edge는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-ser
 
 * Azure SQL Database 배포에 테이블 및 기타 필요한 개체를 만듭니다.
 
-* Azure SQL Edge 배포에 필요한 테이블 및 개체를 만듭니다. 자세한 내용은 [SQL Edge에서 SQL Database DAC 패키지 사용](stream-analytics.md)을 참조하세요.
+* Azure SQL Edge 배포에 필요한 테이블 및 개체를 만듭니다. 자세한 내용은 [SQL Edge에서 SQL Database DAC 패키지 사용](deploy-dacpac.md)을 참조하세요.
 
 * Azure SQL Edge 인스턴스를 Azure SQL 데이터 동기화용 데이터 동기화 에이전트에 등록합니다. 자세한 내용은 [온-프레미스 SQL Server 데이터베이스 추가](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem)를 참조하세요.
 

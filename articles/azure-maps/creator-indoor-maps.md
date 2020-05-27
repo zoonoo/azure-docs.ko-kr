@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596062"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677803"
 ---
 # <a name="creator-for-indoor-maps"></a>실내 맵용 Creator
 
@@ -35,7 +35,7 @@ Creator는 업로드된 그리기 패키지를 변환하여 실내 맵 데이터
 
 ## <a name="convert-a-drawing-package"></a>그리기 패키지 변환
 
-[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/data/conversion)는 업로드된 그리기 패키지를 실내 맵 데이터로 변환합니다. 또한 Conversion 서비스는 패키지의 유효성을 검사합니다. 유효성 검사 문제는 오류와 경고의 두 가지 유형으로 분류됩니다. 오류가 검색되면 변환 프로세스가 실패합니다. 경고가 검색되면 변환이 성공합니다. 그러나 모든 경고를 검토하고 해결하는 것이 좋습니다. 경고는 변환의 일부가 무시되었거나 자동으로 수정되었음을 나타냅니다. 경고가 해결되지 않으면 후자의 프로세스에서 오류가 발생할 수 있습니다. 자세한 내용은 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 참조하세요.
+[Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)는 업로드된 그리기 패키지를 실내 맵 데이터로 변환합니다. 또한 Conversion 서비스는 패키지의 유효성을 검사합니다. 유효성 검사 문제는 오류와 경고의 두 가지 유형으로 분류됩니다. 오류가 검색되면 변환 프로세스가 실패합니다. 경고가 검색되면 변환이 성공합니다. 그러나 모든 경고를 검토하고 해결하는 것이 좋습니다. 경고는 변환의 일부가 무시되었거나 자동으로 수정되었음을 나타냅니다. 경고가 해결되지 않으면 후자의 프로세스에서 오류가 발생할 수 있습니다. 자세한 내용은 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 참조하세요.
 
 오류가 발생하면 Conversion 서비스에서 [Azure Maps 그리기 오류 시각화 도우미](drawing-error-visualizer.md) 독립 실행형 웹 애플리케이션에 대한 링크를 제공합니다. 그리기 오류 시각화 도우미를 사용하여 변환 프로세스 중에 발생한 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 검사할 수 있습니다. 오류가 수정되었으면 패키지를 업로드하고 변환할 수 있습니다.
 
