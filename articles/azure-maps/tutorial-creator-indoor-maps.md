@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596592"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745930"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Creator를 사용하여 실내 맵 만들기
 
@@ -57,7 +57,7 @@ ms.locfileid: "83596592"
 
 4. **헤더** 탭에서 `Content-Type` 키의 값을 지정합니다. 그리기 패키지는 압축된 폴더이므로 `application/octet-stream` 값을 사용합니다. **본문** 탭에서 **이진**을 선택합니다. **파일 선택**을 클릭하고 그리기 패키지를 선택합니다.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. 파란색 **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
 
@@ -215,7 +215,7 @@ ms.locfileid: "83596592"
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. 응답 본문은 GeoJSON 형식으로 전달되며 데이터 세트의 모든 컬렉션을 포함합니다. 간단히 하기 위해 다음 예제에서는 `unit` 컬렉션만 보여 줍니다. 모든 컬렉션이 포함된 예제를 보려면 [WFS 컬렉션 설명 API](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview)를 참조하세요. 컬렉션에 대해 자세히 알아보려면 `link` 요소 내의 URL을 클릭하면 됩니다.
+3. 응답 본문은 GeoJSON 형식으로 전달되며 데이터 세트의 모든 컬렉션을 포함합니다. 간단히 하기 위해 다음 예제에서는 `unit` 컬렉션만 보여 줍니다. 모든 컬렉션이 포함된 예제를 보려면 [WFS 컬렉션 설명 API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview)를 참조하세요. 컬렉션에 대해 자세히 알아보려면 `link` 요소 내의 URL을 클릭하면 됩니다.
 
     ```json
     {
@@ -285,7 +285,7 @@ ms.locfileid: "83596592"
 
 1. Postman 애플리케이션에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. 페이지 맨 아래에 있는 **저장**
 
-2. [상태 세트 만들기 API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview)에 대한 **POST** 요청을 수행합니다. 수정하려는 상태가 포함된 데이터 세트의 `datasetId`를 사용합니다. 요청은 다음 URL과 같습니다.
+2. [상태 세트 만들기 API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview)에 대한 **POST** 요청을 수행합니다. 수정하려는 상태가 포함된 데이터 세트의 `datasetId`를 사용합니다. 요청은 다음 URL과 같습니다.
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
