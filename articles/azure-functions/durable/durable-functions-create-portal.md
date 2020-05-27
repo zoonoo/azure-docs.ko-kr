@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83120155"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
@@ -17,12 +17,12 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * C #에서 지 속성 함수를 개발 하는 경우 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 대신 고려해 야 합니다.
+> * C#에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 고려해야 합니다.
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화 하 여 리소스를 보다 쉽게 관리, 배포, 크기 조정 및 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 리소스를 보다 쉽게 관리, 배포, 크기 조정 및 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -30,15 +30,15 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>durable-functions npm 패키지 설치(JavaScript만 해당)
 
-JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패키지](https://www.npmjs.com/package/durable-functions)를 설치 해야 합니다.
+JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키지](https://www.npmjs.com/package/durable-functions)를 설치해야 합니다.
 
-1. 함수 앱 페이지의 왼쪽 창에 있는 **개발 도구** 에서 **고급 도구** 를 선택 합니다.
+1. 함수 앱 페이지에서 왼쪽 창의 **개발 도구** 아래에서 **고급 도구**를 선택합니다.
 
-   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Functions 플랫폼 기능에서 Kudu를 선택함":::
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Functions 플랫폼 기능에서 Kudu 선택":::
 
-2. **고급 도구** 페이지에서 **이동**을 선택 합니다.
+2. **고급 도구** 페이지에서 **Go**를 선택합니다.
 
-3. Kudu 콘솔 내에서 **디버그 콘솔**, **CMD**를 차례로 선택 합니다.
+3. Kudu 콘솔 내에서 **디버그 콘솔**을 선택한 다음, **CMD**를 선택합니다.
 
    :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu 디버그 콘솔":::
 
@@ -60,23 +60,23 @@ JavaScript Durable Functions를 만드는 경우 [ `durable-functions` npm 패�
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱의 왼쪽 창에서 **함수** 를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
+1. 함수 앱의 왼쪽 창에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
 
-1. **새 함수** 페이지의 검색 필드에를 입력 하 `durable` 고 **Durable Functions HTTP 스타터** 템플릿을 선택 합니다.
+1. **새 함수** 페이지의 검색 필드에 `durable`을 입력한 다음, **Durable Functions HTTP 시작** 템플릿을 선택합니다.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Durable Functions HTTP 스타터를 선택 합니다.":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Durable Functions HTTP 시작 선택":::
 
-1. **새 함수** 이름에를 입력 한 `HttpStart` 다음 **함수 만들기**를 선택 합니다.
+1. **새 함수** 이름에 `HttpStart`를 입력한 다음, **함수 만들기**를 선택합니다.
 
    만들어진 함수를 사용하오여 오케스트레이션을 시작합니다.
 
-1. 이번에는 **Durable Functions orchestrator** 템플릿을 사용 하 여 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
+1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-1. `Hello` **Durable Functions 활동** 템플릿을 사용 하 여 라는 세 번째 함수를 만듭니다.
+1. **Durable Functions 작업** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
-1. **Httpstart** 함수로 돌아가서 **함수 Url 가져오기**를 선택 하 고 **클립보드로 복사** 아이콘을 선택 하 여 Url을 복사 합니다. 이 URL을 사용하여 **HelloSequence** 함수를 시작합니다.
+1. **HttpStart** 함수로 돌아가서 **함수 URL 가져오기**를 선택하고 **클립보드에 복사** 아이콘을 선택하여 URL을 복사합니다. 이 URL을 사용하여 **HelloSequence** 함수를 시작합니다.
 
 1. Postman 또는 cURL과 같은 HTTP 도구를 사용하여 POST 요청을 사용자가 복사한 URL로 보냅니다. 다음 예제는 Durable Functions로 POST 요청을 보내는 cURL 명령입니다.
 

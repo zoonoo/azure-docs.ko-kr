@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83123764"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
@@ -46,31 +46,31 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거 만들기
 
-1. 함수 앱의 왼쪽 메뉴에서 **함수** 를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
+1. 함수 앱의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
 
-1. **새 함수** 페이지에서 `cosmos` 검색 필드에를 입력 한 다음 **Azure Cosmos DB 트리거** 템플릿을 선택 합니다.
+1. **새 함수** 페이지의 검색 필드에 `cosmos`를 입력한 다음, **Azure Cosmos DB 트리거** 템플릿을 선택합니다.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Portal의 함수 페이지":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Portal의 Functions 페이지":::
 
 
-1. 다음 표에 지정 된 대로 설정을 사용 하 여 새 트리거를 구성 합니다.
+1. 다음 표에 지정된 설정을 사용하여 새 트리거를 구성합니다.
 
-    | 설정      | 제안 값  | 설명                                |
+    | 설정      | 제안 값  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **새 함수** | 기본 이름 적용 | 함수의 이름입니다. |
-    | **Cosmos DB 계정 연결** | 기본 새 이름 적용 | **새로 만들기**, 이전에 만든 **데이터베이스 계정** , **확인**을 차례로 선택 합니다. 이 작업을 수행 하면 계정 연결에 대 한 응용 프로그램 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
-    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션을 포함 하는 데이터베이스의 이름입니다. |
-    | **컬렉션 이름** | 항목 | 모니터링할 컬렉션의 이름입니다. |
-    | **임대 컬렉션 이름** | leases | 임대를 저장 하는 컬렉션의 이름입니다. |
-    | **임대 컬렉션 (없는 경우)을 만듭니다.** | 예 | 임대 컬렉션의 존재 여부를 확인 하 고 자동으로 만듭니다. |
+    | **Cosmos DB 계정 연결** | 새 기본 이름 적용 | **새로 만들기**, 이전에 만든 **데이터베이스 계정**을 선택한 다음, **확인**을 선택합니다. 이 작업은 계정 연결을 위한 애플리케이션 설정을 만듭니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
+    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션이 포함된 데이터베이스의 이름입니다. |
+    | **컬렉션 이름** | Items | 모니터링할 컬렉션의 이름입니다. |
+    | **임대 컬렉션 이름** | 임대 | 임대를 저장하는 컬렉션의 이름입니다. |
+    | **임대 컬렉션이 없는 경우 만들기** | 예 | 임대 컬렉션이 있는지 확인하고 자동으로 만듭니다. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Azure Cosmos DB에 의해 트리거되는 함수 만들기":::
 
-1. **함수 만들기**를 선택 합니다. 
+1. **함수 만들기**를 선택합니다. 
 
     Azure에서 Cosmos DB 트리거 함수를 만듭니다.
 
-1. 템플릿 기반 함수 코드를 표시 하려면 **코드 + 테스트**를 선택 합니다.
+1. 템플릿 기반 함수 코드를 표시하려면 **코드 + 테스트**를 선택합니다.
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="C#의 Cosmos DB 함수 템플릿":::
 

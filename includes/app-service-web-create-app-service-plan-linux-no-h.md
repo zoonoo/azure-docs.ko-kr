@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: c2711d102c9dfeb00394fa5b5b69065115ce235e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 25003269fb6e00cadcc14d2356308cae54c70bf7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75681048"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82085339"
 ---
 Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
 
@@ -27,7 +27,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -38,9 +38,9 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-```
+</pre>

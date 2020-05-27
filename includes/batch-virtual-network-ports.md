@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: batch
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/03/2020
+ms.date: 03/04/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80657494"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79086265"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -49,41 +49,38 @@ ms.locfileid: "80657494"
 **추가 네트워킹 리소스** - Batch는 VNet을 포함하는 리소스 그룹에서 추가 네트워킹 리소스를 자동으로 할당합니다.
 
 > [!IMPORTANT]
->각 50 전용 노드 (또는 각각 20 개의 낮은 우선 순위 노드)에 대해 일괄 처리는 하나의 NSG (네트워크 보안 그룹), 하나의 공용 IP 주소 및 부하 분산 장치 하나를 할당 합니다. 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대량 풀의 경우 이러한 리소스 중 하나 이상에 대 한 할당량 증가를 요청 해야 할 수 있습니다.
+>각 50개의 전용 노드(또는 우선 순위가 낮은 각 20개 노드)에 대해 일괄 처리는 하나의 네트워크 보안 그룹(NSG), 하나의 공용 IP 주소 및 하나의 로드 밸런서를 할당합니다. 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대규모 풀의 경우 이러한 리소스 중 하나 이상에 대한 할당량 증가를 요청해야 할 수 있습니다.
 
 #### <a name="network-security-groups-batch-default"></a>네트워크 보안 그룹: 일괄 처리 기본값
 
-서브넷은 Batch 서비스의 인바운드 통신이 계산 노드에 대 한 작업을 예약 하 고, 아웃 바운드 통신을 사용 하 여 작업에 필요한 대로 Azure Storage 또는 다른 리소스와 통신할 수 있도록 해야 합니다. 가상 컴퓨터 구성의 풀에 대해 Batch는 계산 노드에 연결 된 Nic (네트워크 인터페이스) 수준에서 NSGs를 추가 합니다. 이러한 NSGs는 다음과 같은 추가 규칙으로 구성 됩니다.
+서브넷은 Batch 서비스의 인바운드 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 하며, 워크로드에 필요한 경우 Azure Storage 또는 기타 리소스와 통신하기 위한 아웃바운드 통신을 허용해야 합니다. 가상 컴퓨터 구성의 풀의 경우 Batch는 계산 노드에 연결된 네트워크 인터페이스(NIC) 수준에서 NSG를 추가합니다. 이러한 NSG는 다음과 같은 추가 규칙으로 구성됩니다.
 
-* `BatchNodeManagement` 서비스 태그에 해당 하는 BATCH 서비스 IP 주소에서 포트 29876 및 29877에 대 한 인바운드 TCP 트래픽
-* 원격 액세스 허용을 위한 포트 22(Linux 노드) 또는 포트 3389(Windows 노드) 인바운드 TCP 트래픽 특정 유형의 다중 인스턴스 작업 (예: MPI)에 대해, Batch 계산 노드를 포함 하는 서브넷의 Ip에 대해 SSH 포트 22 트래픽만 허용 해야 합니다. 서브넷 수준 NSG 규칙에 따라 차단 될 수 있습니다 (아래 참조).
-* 가상 네트워크에 대한 모든 포트의 아웃바운드 트래픽 이는 서브넷 수준 NSG 규칙에 따라 수정 될 수 있습니다 (아래 참조).
-* 모든 포트에서 인터넷으로의 아웃 바운드 트래픽 이는 서브넷 수준 NSG 규칙에 따라 수정 될 수 있습니다 (아래 참조).
+* 서비스 태그에 해당하는 일괄 처리 서비스 IP 주소에서 포트 29876 및 `BatchNodeManagement` 29877의 인바운드 TCP 트래픽입니다.
+* 원격 액세스 허용을 위한 포트 22(Linux 노드) 또는 포트 3389(Windows 노드) 인바운드 TCP 트래픽 Linux의 특정 유형의 다중 인스턴스 작업(예: MPI)의 경우 Batch 계산 노드가 포함된 서브넷의 IP에 대해 SSH 포트 22 트래픽을 허용해야 합니다. 이는 서브넷 수준 NSG 규칙(아래 참조)에 따라 차단될 수 있습니다.
+* 가상 네트워크에 대한 모든 포트의 아웃바운드 트래픽 이는 서브넷 수준 NSG 규칙에 따라 수정될 수 있습니다(아래 참조).
+* 모든 포트에서 인터넷에 대한 아웃바운드 트래픽입니다. 이는 서브넷 수준 NSG 규칙에 따라 수정될 수 있습니다(아래 참조).
 
 > [!IMPORTANT]
-> Batch 구성 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. 지정된 서브넷에서 컴퓨팅 노드와의 통신을 NSG에서 거부한 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음**으로 설정합니다. 또한 일괄 처리로 생성 된 리소스에는 리소스 잠금을 적용 하지 않아야 합니다. 그렇지 않으면 풀 삭제와 같이 사용자가 시작한 작업의 결과로 리소스 정리가 방지 될 수 있습니다.
+> Batch 구성 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. 지정된 서브넷에서 컴퓨팅 노드와의 통신을 NSG에서 거부한 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음**으로 설정합니다. 또한 Batch에서 만든 리소스에 리소스 잠금을 적용하지 않아야 하며, 그렇지 않으면 풀 삭제와 같은 사용자가 시작한 작업의 결과로 리소스정리가 방지될 수 있습니다.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>네트워크 보안 그룹: 서브넷 수준 규칙 지정
 
-Batch에서 자체 NSGs를 구성 하기 때문에 가상 네트워크 서브넷 수준에서 NSGs를 지정할 필요가 없습니다 (위 참조). Batch 계산 노드가 배포 되는 서브넷과 연결 된 NSG가 있거나 적용 된 기본값을 재정의 하는 사용자 지정 NSG 규칙을 적용 하려는 경우 다음 표에 표시 된 것 처럼 최소 인바운드 및 아웃 바운드 보안 규칙을 사용 하 여이 NSG를 구성 해야 합니다.
+Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에서 NSG를 지정할 필요가 없습니다(위 참조). Batch 계산 노드가 배포되는 서브넷과 연결된 NSG가 있거나 적용된 기본값을 재정의하기 위해 사용자 지정 NSG 규칙을 적용하려는 경우 다음과 같이 최소한 인바운드 및 아웃바운드 보안 규칙으로 이 NSG를 구성해야 합니다. 테이블.
 
-외부 원본에서 계산 노드에 대 한 원격 액세스를 허용 해야 하는 경우에만 포트 3389 (Windows) 또는 22 (Linux)에서 인바운드 트래픽을 구성 합니다. 특정 MPI 런타임을 사용 하 여 다중 인스턴스 작업을 지원 해야 하는 경우 Linux에서 포트 22 규칙을 사용 하도록 설정 해야 할 수 있습니다. 풀 계산 노드에는 이러한 포트에 대 한 트래픽을 허용 하는 것이 반드시 필요한 것은 아닙니다.
+외부 소스에서 계산 노드에 대한 원격 액세스를 허용해야 하는 경우에만 포트 3389(Windows) 또는 22(Linux)에서 인바운드 트래픽을 구성합니다. 특정 MPI 런타임이 있는 다중 인스턴스 작업에 대한 지원이 필요한 경우 Linux에서 포트 22 규칙을 사용하도록 설정해야 할 수 있습니다. 풀 계산 노드를 사용할 수 있도록 이러한 포트의 트래픽을 허용하는 것은 엄격히 필요하지 않습니다.
 
 **인바운드 보안 규칙**
 
 | 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 해당 없음 | `BatchNodeManagement`[서비스 태그](../articles/virtual-network/security-overview.md#service-tags) (지역 변형을 사용 하는 경우 Batch 계정과 동일한 지역에 있는 경우) | * | 모두 | 29876-29877 | TCP | Allow |
-| 필요한 경우 컴퓨터에 원격으로 액세스 하기 위한 사용자 원본 Ip 및 Linux 다중 인스턴스 작업을 위한 계산 노드 서브넷 | 해당 없음 | * | 모두 | 3389(Windows), 22(Linux) | TCP | Allow |
-
-> [!WARNING]
-> Batch 서비스 IP 주소는 시간이 지남에 따라 변경 될 수 있습니다. 따라서 NSG 규칙에 대 한 `BatchNodeManagement` 서비스 태그 (또는 지역 변형)를 활용 하는 것이 좋습니다. Batch 서비스 IP 주소를 사용 하 여 NSG 규칙을 직접 채우지 않는 것이 좋습니다.
+| 해당 없음 | `BatchNodeManagement`[서비스 태그(일괄](../articles/virtual-network/security-overview.md#service-tags) 처리 계정과 동일한 리전에서 지역 변형을 사용하는 경우) | * | 모두 | 29876-29877 | TCP | Allow |
+| 필요한 경우 Linux 다중 인스턴스 작업에 대한 컴퓨팅 노드 및/또는 계산 노드 서브넷에 원격으로 액세스하기 위한 사용자 소스 IP입니다. | 해당 없음 | * | 모두 | 3389(Windows), 22(Linux) | TCP | Allow |
 
 **아웃바운드 보안 규칙**
 
 | 원본 | 원본 포트 | 대상 | 대상 서비스 태그 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 모두 | * | [서비스 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(지역 변형을 사용 하는 경우 Batch 계정과 동일한 지역에서) | 443 | TCP | Allow |
+| 모두 | * | [서비스 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(지역 별 변형을 사용하는 경우 Batch 계정과 동일한 지역에서) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Cloud Services 구성의 풀
 
@@ -103,14 +100,14 @@ Batch에서 자체 NSGs를 구성 하기 때문에 가상 네트워크 서브넷
 
 Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 구성하므로 NSG를 지정할 필요가 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 다음 표에서처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. 지정된 서브넷에서 컴퓨팅 노드와의 통신을 NSG에서 거부한 경우 Batch 서비스는 컴퓨팅 노드의 상태를 **사용할 수 없음**으로 설정합니다.
 
-풀 노드에 대 한 RDP 액세스를 허용 해야 하는 경우 Windows 용 포트 3389에서 인바운드 트래픽을 구성 합니다. 풀 노드가 사용 가능할 필요는 없습니다.
+풀 노드에 대한 RDP 액세스를 허용해야 하는 경우 Windows용 포트 3389에서 인바운드 트래픽을 구성합니다. 풀 노드가 사용 가능할 필요는 없습니다.
 
 **인바운드 보안 규칙**
 
 | 원본 IP 주소 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- |
 모두 <br /><br />이렇게 하면 결과적으로 “모두 허용”이 필요하지만 Batch 서비스는 모든 Batch 외 서비스 IP 주소를 필터링하는 각 노드 수준에서 ACL을 적용합니다. | * | 모두 | 10100, 20100, 30100 | TCP | Allow |
-| 선택 사항으로, RDP에서 계산 노드에 대 한 액세스를 허용 합니다. | * | 모두 | 3389 | TCP | Allow |
+| 선택 사항으로, RDP 액세스를 허용하여 노드를 계산합니다. | * | 모두 | 3389 | TCP | Allow |
 
 **아웃바운드 보안 규칙**
 

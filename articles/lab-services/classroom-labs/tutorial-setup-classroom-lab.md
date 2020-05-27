@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77592223"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591780"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -37,9 +37,9 @@ ms.locfileid: "77592223"
 
 Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습니다.
 
-1. 랩 계정 작성자는 **랩 작성자** 역할에 다른 사용자를 추가합니다. 예를 들어 랩 계정 작성자/관리자는 **랩 작성자** 역할에 교수를 추가하여 해당 클래스에 대한 랩을 만들 수 있습니다. 
-2. 그런 다음, 교수는 클래스에 대한 VM을 사용하여 랩을 만들고 클래스에서 학생에게 등록 링크를 보냅니다. 
-3. 학생들이 교수님에게 받은 등록 링크를 사용하여 랩에 등록합니다. 등록된 학생은 랩의 VM을 사용하여 강의 학습 및 숙제를 할 수 있습니다. 
+1. 랩 계정 작성자는 **랩 작성자** 역할에 다른 사용자를 추가합니다. 예를 들어 랩 계정 작성자/관리자는 **랩 작성자** 역할에 교육자를 추가하여 해당 클래스에 대한 랩을 만들 수 있습니다. 
+2. 그런 다음, 교육자는 클래스에 대한 VM을 사용하여 랩을 만들고 클래스에서 학생에게 등록 링크를 보냅니다. 
+3. 학생은 교육자로부터 받은 등록 링크를 사용하여 랩에 등록합니다. 등록된 학생은 랩의 VM을 사용하여 강의 학습 및 숙제를 할 수 있습니다. 
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 이 단계에서는 Azure에서 클래스에 대한 랩을 만듭니다. 
