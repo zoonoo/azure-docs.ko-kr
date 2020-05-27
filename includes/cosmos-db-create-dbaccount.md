@@ -6,20 +6,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/08/2019
+ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 9c6ce482a4f6464008f4be0ecd94455f0239ede2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81274805"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81422223"
 ---
-1. [Azure Portal](https://portal.azure.com/)로 이동하여 Azure Cosmos DB 계정을 만듭니다. **Azure Cosmos DB**를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 Azure Cosmos DB 계정을 만듭니다. 홈 페이지의 **Azure 서비스** 패널에서 **리소스 만들기**를 선택합니다.
 
-   ![Azure Portal 데이터베이스 창](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![리소스 만들기](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
 
-1. **추가**를 선택합니다.
+1. **Azure Cosmos DB**를 검색하여 선택합니다.
+
+   ![Azure Portal 리소스 드롭다운](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
+
+1. **만들기**를 선택합니다.
+
+   ![Azure Cosmos DB 리소스 만들기](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+
 1. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos 계정에 대한 기본 설정을 입력합니다. 
 
     |설정|값|Description |
@@ -31,6 +38,7 @@ ms.locfileid: "81274805"
     |체험 계층 할인 적용|적용 또는 적용 안 함|Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정에 무료로 제공됩니다. [체험 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)에 대해 자세히 알아보세요.|
     |위치|사용자와 가장 가까운 지역|Azure Cosmos DB 계정을 호스트할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.|
     |계정 유형|프로덕션 또는 비프로덕션|계정이 프로덕션 워크로드에 사용되는 경우 **프로덕션**을 선택합니다. 계정이 비프로덕션(예: 개발, 테스트, QA 또는 준비)에 사용되는 경우 **비프로덕션**을 선택합니다. 이는 포털 환경을 조정하지만 기본 Azure Cosmos DB 계정에는 영향을 주지 않는 Azure 리소스 태그 설정입니다. 이 값은 언제든지 변경할 수 있습니다.|
+
 
     > [!NOTE]
     > Azure 구독당 최대 1개의 체험 계층 Azure Cosmos DB 계정을 사용할 수 있으며 계정을 만들 때 옵트인해야 합니다. 체험 계층 할인을 적용하는 옵션이 표시되지 않으면 구독의 다른 계정에서 이미 체험 계층을 사용하도록 설정되었음을 의미합니다.
