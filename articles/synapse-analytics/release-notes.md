@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 059e77c063d00ef850a171507ca2e06422ade426
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 514694dc2e3f06db2fb80f6b3ba0106343be11d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191773"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658496"
 ---
 # <a name="azure-synapse-analytics-preview-release-notes"></a>Azure Synapse Analytics(미리 보기) 릴리스 정보
 
@@ -38,6 +38,6 @@ ms.locfileid: "82191773"
 
 * [작업 영역 만들기](quickstart-create-workspace.md)
 * [Synapse Studio 사용](quickstart-synapse-studio.md)
-* [SQL 풀 만들기](quickstart-create-sql-pool.md)
+* [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
 * [SQL 주문형 사용](quickstart-sql-on-demand.md)
-* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
+* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)

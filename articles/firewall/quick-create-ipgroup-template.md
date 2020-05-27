@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605239"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680562"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - Resource Manager 템플릿
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 네트워크 규칙 및 애플리케이션 규칙에 사용되는 샘플 IP 그룹으로 Azure Firewall을 배포합니다.
-
-IP 그룹은 IP 주소, 범위 및 서브넷을 단일 개체로 정의하고 그룹화할 수 있는 최상위 수준 리소스입니다. 이는 Azure Firewall 규칙에서 IP 주소를 관리하는 데 유용합니다. IP 주소를 수동으로 입력하거나 파일에서 가져올 수 있습니다.
+이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 네트워크 규칙 및 애플리케이션 규칙에 사용되는 샘플 IP 그룹으로 Azure Firewall을 배포합니다. IP 그룹은 IP 주소, 범위 및 서브넷을 단일 개체로 정의하고 그룹화할 수 있는 최상위 수준 리소스입니다. 이는 Azure Firewall 규칙에서 IP 주소를 관리하는 데 유용합니다. IP 주소를 수동으로 입력하거나 파일에서 가져올 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,22 +31,21 @@ IP 그룹은 IP 주소, 범위 및 서브넷을 단일 개체로 정의하고 �
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)에서 나온 것입니다.
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
 - [**Microsoft.Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 

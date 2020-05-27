@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663065"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682879"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.locfileid: "77663065"
 - 방법: [Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Automation 계정
-Azure Automation의 모든 리소스는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정]( solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 Automation 계정은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Azure Automation의 모든 리소스는 [Automation 계정](../../automation/automation-security-overview.md)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정]( solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 Automation 계정은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 각 Automation 리소스의 이름에는 해당 Automation 계정의 이름이 포함됩니다.  이 작업은 다음 runbook 리소스 예제와 같이 **accountName** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -240,7 +240,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 [Azure Automation 변수](../../automation/automation-variables.md)의 형식은 **Microsoft.Automation/automationAccounts/variables**이며, 다음과 같은 구조를 가집니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다.
 
     {
@@ -265,7 +265,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
 | type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| value | 변수의 값입니다. |
+| 값 | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  
@@ -274,7 +274,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 데이터 형식 | Description | 예제 | 결과 값 |
 |:--|:--|:--|:--|
-| string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
+| 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
 | boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
 | Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
@@ -315,7 +315,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 다음은 다음 리소스를 포함하는 솔루션의 샘플입니다.
 
 - Runbook -  공용 GitHub 리포지토리에 저장된 샘플 Runbook입니다.

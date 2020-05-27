@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652285"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. 결과 목록에서 **Key Vault**를 선택합니다.
 4. Key Vault 섹션에서 **만들기**를 선택합니다.
 5. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.
-    - **이름**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
+    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
     - **구독**: 구독을 선택합니다.
     - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
     - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
@@ -59,11 +59,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **생성/가져오기**를 클릭합니다.
 3. **비밀 만들기** 화면에서 다음 값을 선택합니다.
     - **업로드 옵션**: 수동.
-    - **이름**: ExamplePassword.
+    - **Name**: ExamplePassword.
     - **값**: hVFkk965BuUv
     - 다른 값은 기본값으로 그대로 둡니다. **만들기**를 클릭합니다.
 
-비밀이 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 그런 다음, 속성 중 일부를 볼 수 있습니다. 현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.
+비밀이 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Key Vault에서 비밀 검색
+
+현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.
 
 ![비밀 속성](../media/quick-create-portal/current-version-hidden.png)
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61483437"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684456"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
 Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 사용을 규정하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 클라우드 서비스 공급자의 가장 포괄적인 인증 및 증명 모음을 제공합니다.
 
-아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage 같은 Azure Storage 제품에 적용 가능합니다.
+아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. 다음 Azure Storage 제품에 적용 가능합니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage.
 
 ## <a name="global"></a>Global
 
@@ -34,7 +34,7 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 * [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)
 * [WCAG 2.0](https://www.microsoft.com/trustcenter/compliance/accessibility#WCAG-2-0)
 
-## <a name="us-government"></a>US Government
+## <a name="us-government"></a>미국 정부
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
 * [DoE 10 CFR Part 810](https://aka.ms/AzureCompliance)
@@ -64,7 +64,6 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 * [MAS + ABS(싱가포르)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510(네덜란드)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit(영국)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [공유 평가](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)
@@ -79,7 +78,7 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 * [ENISA IAF(EU)](https://aka.ms/AzureCompliance)
 * [ENS(스페인)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [EU-Model-Clauses](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
-* [EU-U. 개인 정보 보호](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [EU-U.S. 개인 정보 보호](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030(중국)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR(EU)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook(독일)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)

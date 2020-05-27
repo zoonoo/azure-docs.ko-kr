@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663541"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798135"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -49,7 +49,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
    | [**경고**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  경고를 보고, 만들고, 관리합니다. |
    | [**메트릭**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | 메트릭 기반 데이터를 시각화하고 탐색합니다.    |
    | [**활동 로그**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Azure에서 발생한 구독 수준 이벤트입니다.  |
-   | [**응용 프로그램 맵**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | 분산 애플리케이션 토폴로지를 탐색하여 성능 병목 상태 또는 실패 핫스폿을 찾습니다. |
+   | [**애플리케이션 맵**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | 분산 애플리케이션 토폴로지를 탐색하여 성능 병목 상태 또는 실패 핫스폿을 찾습니다. |
 
 ## <a name="failures-and-performance"></a>오류 및 성능
 
@@ -117,6 +117,6 @@ Azure Monitor for Resource Groups는 Azure Monitor 경고 관리 시스템을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Azure Monitor 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

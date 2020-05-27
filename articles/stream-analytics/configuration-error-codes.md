@@ -6,28 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 9951a6ddfbd1c562184e2b7e02a9da98f7d94b12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595592"
+ms.locfileid: "83650063"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Azure Stream Analytics 구성 오류 코드
 
 활동 로그 및 리소스 로그를 사용하여 Azure Stream Analytics 작업에서 예기치 않은 동작을 디버그할 수 있습니다. 이 문서에는 모든 구성 오류 코드에 대한 설명이 나와 있습니다. 구성 오류는 작업 구성 또는 입력 및 출력 구성과 관련이 있습니다.
-
-## <a name="kafkainvalidpermission"></a>KafkaInvalidPermission
-
-* **원인**: Stream Analytics 작업에 특정 작업을 수행할 수 있는 적절한 권한이 없습니다.
-
-## <a name="kafkainvalidconfiguration"></a>KafkaInvalidConfiguration
-
-* **원인**: Kafka 어댑터의 특정 구성이 잘못되었습니다.
-
-## <a name="kafkainvalidtimestamptype"></a>KafkaInvalidTimestampType
-
-* **원인**: Kafka에서 사용하는 타임스탬프 형식이 잘못되었습니다.
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 

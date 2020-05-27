@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592953"
+ms.locfileid: "83656183"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀(미리 보기) 만들기
 
@@ -29,7 +29,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse Analytics 작업 영역](quickstart-create-workspace.md)
-- [Apache Spark 풀](quickstart-create-apache-spark-pool.md)
+- [Apache Spark 풀](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -133,7 +133,9 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure Synapse는 데이터를 Azure Data Lake Storage에 저장합니다. Spark 인스턴스를 사용하지 않는 경우 안전하게 종료할 수 있습니다. Azure Synapse Apache Spark 풀이 사용되지 않는 경우에도 실행되는 동안에는 요금이 청구됩니다. 풀에 대한 요금은 스토리지 요금보다 많은 시간입니다. 따라서 Spark 인스턴스를 사용하지 않을 때 종료하는 것이 경제적으로 의미가 있습니다.
+Azure Synapse는 데이터를 Azure Data Lake Storage에 저장합니다. Spark 인스턴스를 사용하지 않는 경우 안전하게 종료할 수 있습니다. Azure Synapse Apache Spark 풀이 사용되지 않는 경우에도 실행되는 동안에는 요금이 청구됩니다. 
+
+풀 요금은 스토리지 요금보다 몇 배나 비싸므로 사용하지 않는 경우 Spark 인스턴스를 종료하는 것이 경제적입니다.
 
 Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 종료합니다. Apache Spark 풀에 지정된 **유휴 시간**에 도달하면 풀이 종료됩니다. Notebook 아래쪽의 상태 표시줄에서 **세션 종료**를 선택할 수도 있습니다.
 

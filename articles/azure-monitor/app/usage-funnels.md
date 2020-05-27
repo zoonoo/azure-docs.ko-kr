@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671055"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797823"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 애플리케이션을 사용하는 방법 검색
 
-고객 환경을 이해하는 것이 비즈니스에 가장 중요합니다. 애플리케이션이 여러 단계와 관련된 경우, 고객 대부분이 전체 프로세스를 거치는지 아니면 특정 시점에서 프로세스를 종료하는지를 알아야 합니다. 웹 응용 프로그램에서 일련의 단계를 진행 하는 과정을 *깔때기형*이라고 합니다. Azure Application Insights Funnels를 사용하여 사용자에 대한 정보를 얻고 단계별 전환율을 모니터링할 수 있습니다. 
+고객 환경을 이해하는 것이 비즈니스에 가장 중요합니다. 애플리케이션이 여러 단계와 관련된 경우, 고객 대부분이 전체 프로세스를 거치는지 아니면 특정 시점에서 프로세스를 종료하는지를 알아야 합니다. 웹 애플리케이션에서 일련의 단계를 거치는 것을 *깔때기*라고 합니다. Azure Application Insights Funnels를 사용하여 사용자에 대한 정보를 얻고 단계별 전환율을 모니터링할 수 있습니다. 
 
 ## <a name="create-your-funnel"></a>깔때기 만들기
 깔때기를 만들기 전에 먼저 답변하려는 질문에 관해 결정합니다. 예를 들어, 고객 프로필을 보고 티켓을 만들어 몇 명의 사용자가 홈페이지를 보고 있는지 확인하려고 할 수 있습니다. 이 예제에서는 Fabrikam Fiber 회사 소유자가 성공적으로 고객 티켓을 생성한 고객의 비율을 확인하려고 합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "77671055"
 깔때기를 만들기 위해 수행하는 단계는 다음과 같습니다.
 
 1. Application Insights Funnels 도구에서 **새로 만들기**를 선택합니다.
-1. **시간 범위** 드롭다운 메뉴에서 **지난 90일**을 선택합니다. **My funnels** 또는 **Shared funnels**를 선택 합니다.
+1. **시간 범위** 드롭다운 메뉴에서 **지난 90일**을 선택합니다. **내 깔때기** 또는 **공유 깔때기**를 선택합니다.
 1. **1단계** 드롭다운 목록에서 **인덱스**를 선택합니다. 
 1. **2단계** 목록에서 **고객**을 선택합니다.
 1. **3단계** 목록에서 **만들기**를 선택합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "77671055"
   * [사용 현황 개요](usage-overview.md)
   * [사용자, 세션 및 이벤트](usage-segmentation.md)
   * [보존](usage-retention.md)
-  * [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+  * [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
   * [사용자 컨텍스트 추가](usage-send-user-context.md)
   * [Power BI에 내보내기](../../azure-monitor/app/export-power-bi.md )
 

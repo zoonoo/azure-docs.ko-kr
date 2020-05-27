@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421227"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700323"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -50,7 +50,7 @@ AAD 권한 부여는 Azure Active Directory를 사용하여 사용자 관리를 
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
-## <a name="sql-on-demand-preview"></a>SQL 주문형(미리 보기)
+## <a name="sql-on-demand-preview"></a>[SQL 주문형(미리 보기)](#tab/serverless)
 
 SQL에 액세스할 수 있는 사용자를 관리하려면 아래 지침을 사용하면 됩니다.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 로그인 및 사용자가 생성되면 일반 SQL Server 구문을 사용하여 권한을 부여할 수 있습니다.
 
-## <a name="sql-pool"></a>SQL 풀
+## <a name="sql-pool"></a>[SQL 풀](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 
@@ -127,6 +127,8 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ### <a name="login-managers"></a>로그인 관리자
 
 다른 관리 역할은 로그인 관리자 역할입니다. 이 역할의 멤버는 master 데이터베이스에 새 로그인을 만들 수 있습니다. 원한다면 동일한 단계(로그인 및 사용자 만들기, 사용자를 **loginmanager** 역할에 추가)를 완료하여 사용자가 master에서 새 로그인을 만들 수 있도록 합니다. 일반적으로 Microsoft는 로그인 기반 사용자를 사용하는 대신 데이터베이스 수준에서 인증하는 포함된 데이터베이스 사용자를 사용할 것을 권장하므로 로그인이 필수는 아닙니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+
+---
 
 ## <a name="non-administrator-users"></a>비관리자 사용자
 

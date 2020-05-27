@@ -3,18 +3,18 @@ title: PowerShell을 사용하여 Application Insights에서 경고 설정 | Mic
 description: Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669848"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701821"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/app/alerts.md)의 구성을 자동화할 수 있습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/platform/alerts-log.md)의 구성을 자동화할 수 있습니다.
 
 또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "77669848"
 * [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
-## <a name="connect-to-azure"></a>Azure 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)합니다.
 
 ```powershell

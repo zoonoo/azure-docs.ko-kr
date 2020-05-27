@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050236"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826862"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>빠른 시작: 애플리케이션에서 지원되는 계정 수정
 
@@ -69,6 +69,8 @@ SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 �
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>OAuth 2.0 암시적 허용을 사용하도록 설정하려면
 
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택합니다.
+1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 앱의 **개요** 페이지에서 **인증** 섹션을 선택합니다.
 1. **고급 설정**에서**암시적 허용** 섹션을 찾습니다.
 1. **ID 토큰**, **액세스 토큰** 또는 둘 다를 선택합니다.
