@@ -1,15 +1,15 @@
 ---
 title: 자습서 - 로컬 Azure Resource Manager 템플릿 배포
 description: 로컬 컴퓨터에서 Azure Resource Manager 템플릿을 배포하는 방법 알아보기
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188827"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714069"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>자습서: 로컬 Azure Resource Manager 템플릿 배포
 
@@ -69,7 +69,7 @@ Azure 구독이 여러 개 있으면 사용할 구독을 선택합니다.
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
