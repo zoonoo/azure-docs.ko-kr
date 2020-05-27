@@ -1,21 +1,21 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6707e844948ac76d4cec29faf69d80b3c9cb3c0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392298"
 ---
-| 리소스 | Basic | Standard | Premium |
+| 리소스 | Basic | Standard | 프리미엄 |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10GiB | 100GiB| 500GiB |
 | 최대 이미지 계층 크기 | 200 GiB | 200 GiB | 200 GiB |
@@ -24,15 +24,13 @@ ms.locfileid: "79117093"
 | 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
 | 업로드 대역폭 MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhook | 2 | 10 | 500 |
-| 지역에서 복제 | 해당 없음 | 해당 없음 | [지원 여부][geo-replication] |
-| 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원 여부][content-trust] |
-| 가상 네트워크 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
-| 개인 링크 통합 | 해당 없음 | 해당 없음 | [미리 보기][plink] |
-| 고객 관리형 키 | 해당 없음 | 해당 없음 | [미리 보기][cmk] |
-| 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|
-| &bull;토큰 | 해당 없음 | 해당 없음 | 20,000 |
-| &bull;범위 맵 | 해당 없음 | 해당 없음 | 20,000 |
-| &bull;범위 맵 당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
+| 지역에서 복제 | N/A | N/A | [지원됨][geo-replication] |
+| 콘텐츠 신뢰 | N/A | N/A | [지원됨][content-trust] |
+| 가상 네트워크 액세스 | N/A | N/A | [미리 보기][vnet] |
+| 리포지토리 범위 권한 | N/A | N/A | [미리 보기][token]|
+| 토큰 &bull; | N/A | N/A | 20,000 |
+| &bull; 범위 맵 | N/A | N/A | 20,000 |
+| 범위 맵 당 &bull; 리포지토리 | N/A | N/A | 500 |
 
 
 <sup>1</sup> 지정 된 저장소 제한은 각 계층에 대해 *포함* 된 저장소의 크기입니다. 이러한 한도 초과 이미지 스토리지에 대해 GiB당 추가 일별 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
@@ -50,6 +48,4 @@ ms.locfileid: "79117093"
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
-[plink]: ../articles/container-registry/container-registry-private-link.md
-[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

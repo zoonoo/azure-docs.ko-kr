@@ -42,7 +42,7 @@
               href: access-panel-deployment-plan.md
             - name: 개발자를 위한 지침
               href: developer-guidance-for-integrating-applications.md
-        - name: Single Sign-On
+        - name: SSO(Single sign-on)
           items:
             - name: Single Sign-On이란?
               href: what-is-single-sign-on.md
@@ -341,8 +341,8 @@
       href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Microsoft Q&A 질문 페이지
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 서비스 업데이트

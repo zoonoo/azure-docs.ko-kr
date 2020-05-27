@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290471"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593021"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -23,7 +23,7 @@ Azure Machine Learning은 전통적인 기계 학습부터 딥 러닝, 감독 �
 
 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 
 
-또한 이 서비스는 PyTorch, TensorFlow, scikit-learn 등과 같은 유명한 오픈 소스 도구와 상호 운용됩니다.
+이 서비스는 PyTorch, TensorFlow, scikit-learn 및 Ray RLlib와 같은 널리 사용되는 딥 러닝 및 강화 오픈 소스 도구와도 상호 운용됩니다. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -51,6 +51,8 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 + [기계 학습 CLI](reference-azure-machine-learning-cli.md)
 
 + PyTorch, TensorFlow, scikit-learn 등과 같은 많은 오픈 소스 프레임워크
+
++ Ray RLlib를 사용하는 [보충 학습](how-to-use-reinforcement-learning.md)
 
 [MLflow를 사용하여 메트릭을 추적](how-to-use-mlflow.md)하거나 Kubeflow를 사용하여 [엔드투엔드 워크플로 파이프라인을 빌드](https://www.kubeflow.org/docs/azure/)할 수도 있습니다.
 

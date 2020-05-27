@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: roygara
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 625b7fc8d49c91a9f2b1c09e1add72993e828d43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597840"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81536494"
 ---
-100TiB 용량 제한이 있는 표준 파일 공유는 다음을 제외한 모든 Azure 지역에서 전 세계적으로 사용할 수 있습니다.
+100 TiB 용량의 표준 파일 공유에는 특정 제한 사항이 있습니다.
 
-- 로컬 중복 저장소: 남아프리카 공화국, 남아프리카 서부, 독일 서부 중부 및 독일 북부를 제외한 모든 지역입니다.
-- 영역 중복 저장소: 일본 동부, 북유럽, 남아프리카 북부를 제외한 영역 중복 저장소가 지원되는 모든 지역에 대해 지원됩니다.
-- 지리적 중복/GeoZone 중복 저장소: 지원 되지 않습니다.
+- 현재 LRS (로컬 중복 저장소) 및 ZRS (영역 중복 저장소) 계정만 지원 됩니다.
+- 대량 파일 공유를 사용 하도록 설정 하면 저장소 계정을 GRS (지역 중복 저장소) 또는 GZRS (지역 중복 저장소) 계정으로 변환할 수 없습니다.
+- 대량 파일 공유를 사용 하도록 설정 하면 사용 하지 않도록 설정할 수 없습니다.

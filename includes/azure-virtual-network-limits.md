@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81112852"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335032"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure 리소스 관리자
 다음 제한은 구독당 지역별 **Azure 리소스 관리자를** 통해 관리되는 네트워킹 리소스에만 적용됩니다. [구독 한도에 대해 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md)방법을 알아봅니다.
@@ -72,12 +72,10 @@ ms.locfileid: "81112852"
 | NIC당 규칙(NIC의 모든 IP에 걸쳐) | 300                           |
 | 프런트 엔드 IP 구성              | 600                           |
 | 백 엔드 풀 크기                       | 1,000개의 IP 구성, 단일 가상 네트워크 |
-| 로드 밸러울러 <sup>1당 백엔드 리소스 1<sup> | 150                   |
 | 고가용성 포트                 | 내부 프런트 엔드당 1       |
-| 로드 밸러블러당 아웃바운드 규칙        | 600                           |
+| 로드 밸러블러당 아웃바운드 규칙        | 20                            |
 | [TCP 유휴 시간](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4분/30분          |
 
-<sup>1개</sup> 독립 실행형 가상 시스템 리소스, 가용성 집합 리소스 및 가상 시스템 확장 설정 리소스의 조합에서 최대 150개의 리소스가 제한됩니다.
 
 **기본 로드 밸러블러**
 

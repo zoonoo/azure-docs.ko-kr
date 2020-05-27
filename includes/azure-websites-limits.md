@@ -4,20 +4,20 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: af0f7ef04ce746c502a8ddf7b0d3971f13a42484
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82844583"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "78304935"
 ---
-| 리소스 | Free | Shared | Basic | Standard | 프리미엄(v2) | 격리 </th> |
+| 리소스 | 무료 | Shared | Basic | Standard | 프리미엄(v2) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Azure App Service 요금제](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> 당 [웹, 모바일 또는 API 앱](https://azure.microsoft.com/services/app-service/) |10 |100 |무제한<sup>2</sup> |무제한<sup>2</sup> |무제한<sup>2</sup> |무제한<sup>2</sup>|
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) |지역당 10개 |리소스 그룹 당 10 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100|
 | 컴퓨팅 인스턴스 유형 |Shared |Shared |전용<sup>3</sup> |전용<sup>3</sup> |전용<sup>3</sup></p> |전용<sup>3</sup>|
 | [규모 확장](../articles/app-service/manage-scale-up.md) (최대 인스턴스) |1개 공유됨 |1개 공유됨 |3개 전용됨<sup>3</sup> |10개 전용됨<sup>3</sup> |30 전용<sup>3</sup>|100개 전용됨<sup> 4</sup>|
-| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup> <br/><br/> 250 GB 이상이 면 지원 요청을 제출 합니다. |1TB<sup>5</sup> <br/><br/> 사용 가능한 저장소 할당량은 999 GB입니다. |
+| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup></p> |1TB<sup>5</sup>|
 | CPU 시간 (5 분)<sup>6</sup> |3분 |3분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a>|
 | CPU 시간(일)<sup>6</sup> |60분 |240분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |
 | 메모리(1시간) |App Service 요금제 당 1024 MB |앱 당 1024 MB |해당 없음 |해당 없음 |해당 없음 |해당 없음 |
