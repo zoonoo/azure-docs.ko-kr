@@ -13,13 +13,13 @@ ms.custom:
 - seo-java-august2019
 - seo-java-september2019
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: 954fe6f92b68d011aaff0fff7925b3409ee628cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: 225b9407bff4294288bb4834cbb0d919698b78c6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769108"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873140"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>빠른 시작: Azure IoT 허브로 원격 분석을 전송하고 Java 애플리케이션으로 읽기
 
@@ -133,7 +133,7 @@ az extension add --name azure-iot
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![디바이스에서 IoT 허브로 보낸 원격 분석의 출력](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![디바이스에서 IoT 허브로 보낸 원격 분석의 출력](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
@@ -145,9 +145,9 @@ az extension add --name azure-iot
 
     | 변수 | 값 |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
-    | `eventHubsCompatiblePath`     | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
-    | `iotHubSasKey`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
+    | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
+    | `EVENT_HUBS_COMPATIBLE_PATH`     | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
+    | `IOT_HUB_SAS_KEY`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 빌드합니다.
 
@@ -163,7 +163,7 @@ az extension add --name azure-iot
 
     다음 스크린샷에서는 시뮬레이션된 디바이스에서 허브에 보낸 원격 분석을 백 엔드 애플리케이션에서 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션으로 출력하여 IoT 허브에 전송된 원격 분석 수신](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
+    ![백 엔드 애플리케이션으로 출력하여 IoT 허브에 전송된 원격 분석 수신](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

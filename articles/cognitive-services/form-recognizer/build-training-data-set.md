@@ -9,18 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75380629"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873303"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
-폼 인식기 사용자 지정 모델을 사용 하는 경우 모델에서 산업별 양식으로 교육을 할 수 있도록 고유한 학습 데이터를 제공 합니다. 5 개의 채워진 폼 또는 빈 양식 (파일 이름에 "empty" 라는 단어를 포함 해야 함)을 사용 하 여 모델을 학습 하 고 두 개의 채워진 폼을 사용할 수 있습니다. 학습을 위해 채워진 폼이 충분 한 경우에도 학습 데이터 집합에 빈 양식을 추가 하면 모델의 정확도를 향상 시킬 수 있습니다.
+폼 인식기 사용자 지정 모델을 사용 하는 경우 모델에서 산업별 양식으로 교육을 할 수 있도록 고유한 학습 데이터를 제공 합니다. 
 
-수동으로 레이블이 지정 된 학습 데이터를 사용 하려는 경우에는 동일한 형식의 5 개 이상의 양식으로 시작 해야 합니다. 동일한 데이터 집합에서 레이블이 없는 폼과 빈 폼을 계속 사용할 수 있습니다.
+수동 레이블 없이 학습 하는 경우 5 개의 채워진 양식 또는 빈 형태 (파일 이름에 "empty" 라는 단어를 포함 해야 함)와 두 개의 채워진 폼을 사용할 수 있습니다. 채워진 폼이 충분 한 경우에도 학습 데이터 집합에 빈 양식을 추가 하면 모델의 정확도를 향상 시킬 수 있습니다.
+
+수동으로 레이블이 지정 된 학습 데이터를 사용 하려는 경우에는 동일한 형식의 5 개 이상의 채워진 양식으로 시작 해야 합니다. 필요한 데이터 집합 외에도 레이블이 없는 폼과 빈 폼을 계속 사용할 수 있습니다.
 
 ## <a name="training-data-tips"></a>학습 데이터 팁
 
@@ -42,6 +44,8 @@ ms.locfileid: "75380629"
 
 학습에 사용할 양식 문서 집합을 함께 배치한 경우 Azure blob storage 컨테이너에 업로드 해야 합니다. 컨테이너를 사용 하 여 Azure storage 계정을 만드는 방법을 모를 경우 [에는 Azure Portal에 대 한 Azure Storage 빠른](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)시작을 수행 합니다.
 
+수동으로 레이블이 지정 된 데이터를 사용 하려는 경우 학습 문서에 해당 하는 *. labels* 및 *.* i n i 파일을 업로드 해야 합니다. [샘플 레이블 도구](./quickstarts/label-tool.md) (또는 사용자 고유의 UI)를 사용 하 여 이러한 파일을 생성할 수 있습니다.
+
 ### <a name="organize-your-data-in-subfolders-optional"></a>하위 폴더의 데이터 구성 (선택 사항)
 
 기본적으로 [학습 사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) API는 저장소 컨테이너의 루트에 있는 양식 문서만 사용 합니다. 그러나 API 호출에서 지정 하는 경우 하위 폴더의 데이터로 학습을 수행할 수 있습니다. 일반적으로 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) 호출의 본문에는 다음과 같은 형식이 있습니다. 여기서 `<SAS URL>` 은 컨테이너의 공유 액세스 서명 URL입니다.
@@ -52,7 +56,7 @@ ms.locfileid: "75380629"
 }
 ```
 
-요청 본문에 다음 콘텐츠를 추가 하면 API가 하위 폴더에 있는 문서를 학습 합니다. 필드 `"prefix"` 는 선택 사항이 며, 경로가 지정 된 문자열로 시작 하는 파일에 대 한 학습 데이터 집합을 제한 합니다. 예를 들어 값 `"Test"`을 사용 하면 API가 "Test" 라는 단어로 시작 되는 파일이 나 폴더만 볼 수 있습니다.
+요청 본문에 다음 콘텐츠를 추가 하면 API가 하위 폴더에 있는 문서를 학습 합니다. `"prefix"`필드는 선택 사항이 며, 경로가 지정 된 문자열로 시작 하는 파일에 대 한 학습 데이터 집합을 제한 합니다. 예를 들어 값을 `"Test"` 사용 하면 API가 "Test" 라는 단어로 시작 되는 파일이 나 폴더만 볼 수 있습니다.
 
 ```json
 {
@@ -69,6 +73,7 @@ ms.locfileid: "75380629"
 
 학습 데이터 집합을 작성 하는 방법을 배웠으므로 이제 빠른 시작을 따라 사용자 지정 양식 인식기 모델을 학습 하 고 폼에서 사용 하기 시작 합니다.
 
-* [퀵 스타트: 모델 학습 및 말아 넘기기를 사용 하 여 양식 데이터 추출](./quickstarts/curl-train-extract.md)
-* [빠른 시작: Python을 사용 하 여 모델을 학습 하 고 양식 데이터를 추출 합니다. REST API](./quickstarts/python-train-extract.md)
+* [모델 학습 및 말아 넘기기를 사용 하 여 양식 데이터 추출](./quickstarts/curl-train-extract.md)
+* [REST API와 Python을 사용 하 여 모델을 학습 하 고 양식 데이터를 추출 합니다.](./quickstarts/python-train-extract.md)
+* [샘플 레이블 도구를 사용 하 여 레이블로 학습](./quickstarts/label-tool.md)
 * [REST API 및 Python을 사용하여 레이블로 학습](./quickstarts/python-labeled-data.md)
