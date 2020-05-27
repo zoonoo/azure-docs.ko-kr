@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8faa1d0ecfec629487c9cddee6a01fb9f809393f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7aa6c799535db21a9d40f2eb8b74300a8c6b00f0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70165986"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>자습서: Palo Alto Networks - GlobalProtect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -165,7 +165,5 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD에서 Palo Alto Networks - GlobalProtect 사용해 보기](https://aad.portal.azure.com/)

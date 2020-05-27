@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 8c3a9c6c5e835104675239882d2a1929a3c07c82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9afd1c4ca5e4c652a03bc2ef652b8e43ea12787
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81771037"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727202"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -141,7 +141,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 메시지를 모니터링합니다.
+이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 메시지를 모니터링합니다.
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 

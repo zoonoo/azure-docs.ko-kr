@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: ab947dd5485c68e8b971b1cf98fc389945a69914
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 67d56429f092343193fe5c1e3449aff033673320
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769307"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727178"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>빠른 시작: Android 디바이스에서 IoT 원격 분석 데이터 전송
 
@@ -108,7 +108,7 @@ az extension add --name azure-iot
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
+이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 

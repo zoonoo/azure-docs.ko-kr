@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ee9a9d404e9a08d8b795a3d73907e84d25b73107
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063325"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739756"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory의 애플리케이션 관리
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)는 사용자의 클라우드 및 온-프레미�
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>조건부 액세스 정책을 사용하여 위험 관리
 
-Azure AD SSO(Single Sign-On)를 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 보안 기능에는 클라우드 규모 ID 보호, 위험 기반 액세스 제어, 기본 다단계 인증 및 조건부 액세스 정책이 포함됩니다. 이러한 기능을 사용하면 애플리케이션 또는 높은 수준의 보안이 필요한 그룹을 기반으로 제어 정책을 세분화할 수 있습니다.
+Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 보안 기능에는 클라우드 규모 ID 보호, 위험 기반 액세스 제어, 기본 다단계 인증 및 조건부 액세스 정책이 포함됩니다. 이러한 기능을 사용하면 애플리케이션 또는 높은 수준의 보안이 필요한 그룹을 기반으로 제어 정책을 세분화할 수 있습니다.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Single Sign-On으로 생산성 개선
 
