@@ -4,20 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 1e25656b58fe675cfbe87fef75af4fcb174b7f55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589741"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81791643"
 ---
 Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
 
-출력 바인딩을 구현하기 전에 필요한 패키지 참조가 제자리에 있는지 확인합니다.
+출력 바인딩을 구현 하려고 하기 전에 필요한 패키지 참조가 준비 되어 있는지 확인 합니다.
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 메서드 반환 값을 출력으로 사용하여 이벤트 허브로 메시지를 쓰는 [C# 함수](../articles/azure-functions/functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -31,7 +31,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-다음 예제에서는 인터페이스를 `IAsyncCollector` 사용하여 메시지 일괄 처리를 보내는 방법을 보여 줍니다. 이 시나리오는 한 이벤트 허브에서 오는 메시지를 처리하고 결과를 다른 이벤트 허브로 보내는 경우에 일반적입니다.
+다음 예제에서는 `IAsyncCollector` 인터페이스를 사용 하 여 메시지 일괄 처리를 보내는 방법을 보여 줍니다. 이 시나리오는 하나의 이벤트 허브에서 들어오는 메시지를 처리 하 고 그 결과를 다른 이벤트 허브로 보내는 경우에 일반적입니다.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -55,7 +55,7 @@ public static async Task Run(
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](../articles/azure-functions/functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
-다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 첫 번째 예는 함수 2.x 이상에 대 한, 두 번째 는 함수 1.x에 대 한. 
+다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 첫 번째 예제는 함수 2.x 이상에 대 한 것이 고 두 번째 예제는 함수 1.x에 대 한 것입니다. 
 
 ```json
 {
@@ -103,11 +103,11 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](../articles/azure-functions/functions-reference-node.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
-다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 첫 번째 예는 함수 2.x 이상에 대 한, 두 번째 는 함수 1.x에 대 한. 
+다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 첫 번째 예제는 함수 2.x 이상에 대 한 것이 고 두 번째 예제는 함수 1.x에 대 한 것입니다. 
 
 ```json
 {
@@ -187,7 +187,7 @@ def main(timer: func.TimerRequest) -> str:
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 현재 시간을 포함하는 메시지를 이벤트 허브에 기록하는 Java 함수를 보여 주었습니다.
+다음 예에서는 현재 시간을 포함 하는 메시지를 이벤트 허브에 기록 하는 Java 함수를 보여 줍니다.
 
 ```java
 @FunctionName("sendTime")
@@ -204,7 +204,7 @@ public String sendTime(
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](../articles/azure-functions/functions-dotnet-class-library.md)에서 [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) 특성을 사용합니다.
 
@@ -223,101 +223,71 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-특성은 C# 스크립트에서 지원되지 않습니다.
+특성은 c # 스크립트에서 지원 되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-속성은 자바 스크립트에서 지원되지 않습니다.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-특성은 파이썬에서 지원되지 않습니다.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java [함수 런타임 라이브러리에서](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)이벤트 허브에 값이 게시될 매개 변수에 [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 추가를 사용합니다. 매개 변수는 POJO `T` 또는 모든 네이티브 Java 형식인 형식이어야 `OutputBinding<T>` 합니다.
+[Java 함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 값이 이벤트 허브에 게시 되는 매개 변수에 대해 [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 주석을 사용 합니다. 매개 변수는 형식 `OutputBinding<T>` 이어야 합니다. 여기서 `T` 은 Pojo 또는 네이티브 Java 형식입니다.
 
 ---
 
 ## <a name="configuration"></a>Configuration
 
-다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `EventHub` 구성 속성에 대해 설명합니다.
+다음 표에서는 *함수. json* 파일 및 `EventHub` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류** | 해당 없음 | "eventHub"로 설정해야 합니다. |
-|**direction** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
-|**(이름)** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
-|**경로** |**이벤트 허브 이름** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**eventHubName** |**이벤트 허브 이름** | 2.x 이상 기능. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임스페이스의* **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.|
+|**type** | 해당 없음 | "eventHub"로 설정해야 합니다. |
+|**방향도** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
+|**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
+|**eventHubName** |**EventHubName** | 함수 2.x 이상 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
+|**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임 스페이스*에 대 한 **연결 정보** 단추를 클릭 하 여이 연결 문자열을 복사 합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-`out string paramName`와 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+와 `out string paramName`같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
 
 # <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-`out string paramName`와 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+와 `out string paramName`같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*function.json*의 `context.bindings.<name>` `<name>` `name` 속성에 지정된 값을 사용하여 출력 이벤트에 액세스합니다.
+을 `context.bindings.<name>` 사용 하 여 출력 이벤트에 `<name>` 액세스 합니다. 여기서은 `name` *함수 json*의 속성에 지정 된 값입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-함수에서 이벤트 허브 메시지를 입력하는 데는 두 가지 옵션이 있습니다.
+함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
 
-- **반환 값**: `name` *function.json에서* `$return`속성을 으로 설정합니다. 이 구성을 사용하면 함수의 반환 값이 이벤트 허브 메시지로 유지됩니다.
+- **반환 값**: `name` *함수 json* 의 속성을로 `$return`설정 합니다. 이 구성을 사용 하 여 함수의 반환 값은 이벤트 허브 메시지로 유지 됩니다.
 
-- 명령적 : [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 유형으로 선언된 매개 변수의 [설정](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 **전달합니다.** `set` 전달된 값은 이벤트 허브 메시지로 유지됩니다.
+- **명령적**: [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. 에 `set` 전달 된 값은 이벤트 허브 메시지로 유지 됩니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 기능을 사용하여 함수에서 이벤트 허브 메시지를 출력하는 두 가지 옵션이 있습니다.
+[EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 주석을 사용 하 여 함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션이 있습니다.
 
-- **반환 값**: 함수 자체에 추가를 적용하면 함수의 반환 값이 이벤트 허브 메시지로 유지됩니다.
+- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 이벤트 허브 메시지로 유지 됩니다.
 
-- **명령적**: 메시지 값을 명시적으로 설정하려면 POJO 또는 네이티브 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)Java `T` 형식인 형식의 특정 매개 변수에 추가를 적용합니다. 이 구성을 사용하면 `setValue` 메서드에 값을 전달하면 값이 이벤트 허브 메시지로 유지됩니다.
+- **명령적**: 메시지 값을 명시적으로 설정 하려면 형식의 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)특정 매개 변수에 주석을 적용 합니다. 여기서 `T` 은 pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 `setValue` 메서드에 값을 전달 하면 값이 이벤트 허브 메시지로 유지 됩니다.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
 | 이벤트 허브 | [운영 가이드](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>host.json 설정
-
-이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명합니다. 아래의 host.json 예제 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상의 전역 구성 설정에 대한 자세한 내용은 [Azure Functions에 대한 host.json 참조를](../articles/azure-functions/functions-host-json.md)참조하십시오.
-
-> [!NOTE]
-> Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](../articles/azure-functions/functions-host-json-v1.md)를 참조하세요.
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "eventHubs": {
-            "batchCheckpointFrequency": 5,
-            "eventProcessorOptions": {
-                "maxBatchSize": 256,
-                "prefetchCount": 512
-            }
-        }
-    }
-}  
-```
-
-|속성  |기본값 | 설명 |
-|---------|---------|---------|
-|`maxBatchSize`|10|수신 루프 당 받은 최대 이벤트 수입니다.|
-|`prefetchCount`|300|기본 `EventProcessorHost`에서 사용하는 기본 사전 가져오기 개수입니다.|
-|`batchCheckpointFrequency`|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|

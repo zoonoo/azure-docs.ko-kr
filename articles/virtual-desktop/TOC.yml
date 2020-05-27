@@ -140,6 +140,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 학습 경로
       href: 'https://docs.microsoft.com/learn/paths/m365-wvd/'
+    - name: 사용 방법 비디오
+      href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
     - name: 기술 커뮤니티 지원 그룹
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
     - name: UserVoice 포럼
