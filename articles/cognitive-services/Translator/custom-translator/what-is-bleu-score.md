@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 85c4ee27a828a05c64ca6cbf84bff438535328be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b35dce5a2b572e5a3f11601d5e67efb2da02cdec
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647368"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997063"
 ---
 # <a name="what-is-a-bleu-score"></a>BLEU 점수란?
 
@@ -26,7 +26,7 @@ BLEU 알고리즘은 자동 번역의 연속 구문을 참조 번역에서 찾�
 
 ## <a name="how-bleu-works"></a>BLEU가 작동하는 방식은?
 
-BLEU의 장점은 모든 문장에 대한 정확한 사람의 판단을 고안하려 하기보다 테스트 모음에 대한 개별 문장 판단 오류를 평균 내어 사람의 판단과 밀접한 관련이 있다는 점입니다.
+BLEU의 장점은 모든 문장에 대해 정확한 사람이 판단 하는 것이 아니라 테스트 모음에 대해 개별 문장의 영향을 받은 오류를 평균 하 여 사용자의 판단에 잘 상관 한다는 것입니다.
 
 BLEU 점수에 대한 자세한 설명은 [여기](https://youtu.be/-UqDljMymMg)에 있습니다.
 

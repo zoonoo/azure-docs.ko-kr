@@ -1,24 +1,24 @@
 ---
 title: 데이터 원본에서 가져오기-QnA Maker
-description: QnA Maker 기술 자료는 QnA (질문과 대답) 집합 및 각 QnA 쌍과 연결 된 선택적 메타 데이터로 구성 됩니다.
+description: QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 된 선택적 메타 데이터 집합으로 구성 됩니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804285"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993102"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
-기술 자료는 공용 Url 및 파일에서 가져온 질문 및 답변 집합으로 구성 됩니다.
+기술 자료는 공용 Url 및 파일에서 가져온 질문과 대답 쌍으로 구성 됩니다.
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
 콘텐츠는 데이터 원본에서 기술 자료로 가져옵니다. 데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일**입니다.
 
-인증으로 보안이 설정 된 [SharePoint 파일](../how-to/add-sharepoint-datasources.md)은 예외입니다. SharePoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. URL이와 같은 웹 확장명으로 끝나는 경우입니다. ASPX는 SharePoint에서 QnA Maker으로 가져오지 않습니다.
+인증으로 보안이 설정 된 [SharePoint 파일](../how-to/add-sharepoint-datasources.md)은 예외입니다. SharePoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. URL은 .ASPX와 같은 웹 확장명으로 끝나는 경우 SharePoint에서 QnA Maker로 가져오지 않습니다.
 
 ## <a name="chit-chat-content"></a>Chit 채팅 콘텐츠
 
@@ -26,21 +26,21 @@ Chit chat QnA 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전�
 
 ## <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
-기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 질문 `.tsv` 및 대답이 포함 된 구조적 파일이 필요 합니다. 이 정보를 통해 질문-답변 집합을 그룹화 하 고 특성을 특정 데이터 원본에 특성을 QnA Maker 수 있습니다.
+기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 `.tsv` 질문 및 대답이 포함 된 구조적 파일이 필요 합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
 
-| 질문  | Answer  | 원본| 메타 데이터 (1 개 키: 1 값) |
+| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## <a name="structured-multi-turn-format-through-import"></a>가져오기를 통해 구조적 다중 전환 형식
 
-`.tsv` 파일 형식으로 다중 전환 대화를 만들 수 있습니다. 형식은 이전 채팅 로그 (QnA Maker를 사용 하지 않는 다른 프로세스와 함께)를 분석 한 다음 자동화를 통해 `.tsv` 파일을 만드는 기능을 제공 합니다. 파일을 가져와 기존 기술 자료를 바꿉니다.
+파일 형식으로 다중 전환 대화를 만들 수 있습니다 `.tsv` . 형식은 이전 채팅 로그 (QnA Maker를 사용 하지 않는 다른 프로세스와 함께)를 분석 한 다음 자동화를 통해 파일을 만드는 기능을 제공 합니다 `.tsv` . 파일을 가져와 기존 기술 자료를 바꿉니다.
 
 > [!div class="mx-imgBorder"]
 > ![3 수준의 다중 전환 질문에 대 한 개념적 모델](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-다중 전환 `.tsv`에 대 한 열에는 다중 전환에 대 한 **메시지가 표시**됩니다. Excel에 `.tsv`표시 된 예제는 다중 턴 자식을 정의 하기 위해 포함할 정보를 표시 합니다.
+다중 전환에 대 한 열에는 다중 전환에 대 한 `.tsv` **메시지가 표시**됩니다. `.tsv`Excel에 표시 된 예제는 다중 턴 자식을 정의 하기 위해 포함할 정보를 표시 합니다.
 
 ```JSON
 [
@@ -56,9 +56,9 @@ Chit chat QnA 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전�
 
 ## <a name="export-as-example"></a>예제로 내보내기
 
-파일에서 QnA 쌍을 표시 하는 방법을 잘 모르겠으면 다음 `.tsv` 을 수행 합니다.
+파일에서 QnA 쌍을 표시 하는 방법을 잘 모르겠으면 `.tsv` 다음을 수행 합니다.
 * [GitHub에서이 다운로드 가능한 예제](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true) 사용
-* 또는 집합을 표시 하는 방법에 대 한 예제를 보려면 QnA Maker 포털에서 집합을 만든 다음 기술 자료를 내보냅니다.
+* 또는 쌍을 나타내는 방법에 대 한 예제를 보려면 QnA Maker 포털에서 쌍을 만든 후 기술 자료를 내보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

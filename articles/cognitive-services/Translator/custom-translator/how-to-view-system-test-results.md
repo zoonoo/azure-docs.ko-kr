@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584725"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994264"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -68,7 +68,7 @@ ms.locfileid: "83584725"
 
 1.  프로젝트를 선택하고 [모델] 탭으로 이동합니다.
 
-2. 성공적으로 훈련된 모델에는 (아직 배포되지 않은 경우) “배포” 단추가 표시됩니다.
+2. 성공적으로 학습 된 모델의 경우 배포 되지 않은 경우 "배포" 단추를 표시 합니다.
 
     ![모델 배포](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "83584725"
 
     ![모델 배포](media/how-to/how-to-deploy-model-regions.png)
 
-5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
+5.  "상태" 열에서 모델의 상태를 볼 수 있습니다.
 
 >[!Note]
 >사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원 합니다.
