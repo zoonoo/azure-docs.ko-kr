@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714324"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017773"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -55,7 +55,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: `en` ) 또는 언어 코드와 대문자/지역 (예:)이 포함 될 수 있습니다 `en-US` . | 필수 |
@@ -75,7 +75,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -98,7 +98,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -118,7 +118,7 @@ speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C++](#tab/cpp)
+# <a name="c"></a>[C](#tab/cpp)
 
 자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
 
@@ -208,13 +208,13 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정 합니다. 현재 말하는 스타일은 음성 전용입니다. | 신경망의 말하기 스타일을 조정 하는 경우에 필요 합니다. 을 사용 하 `mstts:express-as` 는 경우 스타일을 제공 해야 합니다. 잘못 된 값을 제공 하는 경우이 요소는 무시 됩니다. |
 
 이 표를 사용 하 여 각 신경망에 대해 지원 되는 말하는 스타일을 결정 합니다.
 
-| 음성                   | 스타일                     | 설명                                                 |
+| 음성                   | 스타일                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast"`        | Narrating news의 공식 및 전문 톤을 나타냅니다. |
 |                         | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  |
@@ -258,12 +258,12 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 선택 사항 |
 | `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및입니다.`500` | 선택 사항 |
 
-| 강도가                      | 설명 |
+| 강도가                      | Description |
 |-------------------------------|-------------|
 | 없음 또는 제공 된 값이 없는 경우 | 0 밀리초        |
 | x-약함                        | 250 밀리초      |
@@ -328,9 +328,9 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자 <span class="docon docon-navigate-external x-hidden-focus"></span> </a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;범용 전화 번호 설정</li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 선택 사항 |
+| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자 <span class="docon docon-navigate-external x-hidden-focus"></span> </a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 선택 사항 |
 | `ph` | 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열 `phoneme` 입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
 **예제**
@@ -374,11 +374,11 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명                               | 필수/선택 |
+| attribute | Description                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | 외부 j 문서의 주소입니다. | 필수 사항입니다.           |
 
-**사용 현황**
+**사용**
 
 여러 엔터티를 읽는 방법을 정의 하려면 .xml 또는. j 파일로 저장 된 사용자 지정 어휘를 만들 수 있습니다. 다음은 샘플 .xml 파일입니다.
 
@@ -489,7 +489,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul>. | 선택 사항 |
 | `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 선택 사항 |
@@ -572,7 +572,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
 | `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 선택 사항 |
@@ -594,7 +594,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 | `telephone` | | 텍스트는 전화 번호로 표시 됩니다. 특성에는 `format` 국가 코드를 나타내는 숫자가 포함 될 수 있습니다. 예를 들어 미국의 경우 "1"이 고 이탈리아의 경우 "39"입니다. 음성 합성 엔진은이 정보를 사용 하 여 전화 번호의 발음을 안내할 수 있습니다. 전화 번호에는 국가 코드도 포함 될 수 있으며,이 경우의 국가 코드 보다 우선적으로 적용 `format` 됩니다. 음성 합성 엔진 pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />"내 숫자가 지역 코드 8 8 8 5 5 5 1 2 1 2입니다." |
 | `time` | hms12, hms24 | 텍스트를 시간으로 읽습니다. `format`특성은 시간이 12 시간제 (hms12) 또는 24 시간제 (hms24)를 사용 하 여 지정 되었는지 여부를 지정 합니다. 콜론을 사용 하 여 시간, 분, 초를 나타내는 숫자를 구분 합니다. 다음은 유효한 시간 예: 12:35, 1:14:32, 08:15 및 02:50:45입니다. 음성 합성 엔진 pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />"The 트레인 분리 4 A M." |
 
-**사용 현황**
+**사용**
 
 `say-as`요소는 텍스트만 포함할 수 있습니다.
 
@@ -634,7 +634,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 **특성**
 
-| attribute | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 audio 요소를 사용 하는 경우 필요 합니다. |
 
@@ -670,7 +670,7 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
 | `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 값: `0` `100` 포함 기본값은 `1`입니다. | 선택 사항 |
