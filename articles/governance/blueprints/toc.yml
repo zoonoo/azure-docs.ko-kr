@@ -285,7 +285,7 @@
     - name: GitHub - Azure Blueprints 샘플
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Azure Blueprints에 대한 Microsoft Q&A
-      href: /answers/topics/azure-blueprints.html
+      href: /answers/topics/azure-blueprints.html.html
     - name: 거버넌스 YouTube 채널
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Friday - Azure Blueprints 개요
