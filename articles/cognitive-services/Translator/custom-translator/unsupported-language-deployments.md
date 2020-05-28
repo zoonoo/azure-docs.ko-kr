@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584701"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996366"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -25,14 +25,14 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 
 이제 사용자 지정 변환기를 통해 지원 되지 않는 모델을 배포할 수 있는 프로세스가 있습니다.  이 프로세스를 통해 최신 V3 API를 사용 하 여 계속 콘텐츠를 번역할 수 있습니다.  이러한 모델은 배포를 취소 하거나 사용자 지정 변환기에서 언어 쌍을 사용할 수 있게 될 때까지 호스팅됩니다.  이 문서에서는 지원 되지 않는 언어 쌍을 사용 하 여 모델을 배포 하는 프로세스를 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 모델이 배포 후보가 되려면 다음 조건을 충족 해야 합니다.
 * 모델을 포함 하는 프로젝트는 마이그레이션 도구를 사용 하 여 허브에서 사용자 지정 변환기로 마이그레이션해야 합니다.  프로젝트 및 작업 영역을 마이그레이션하는 프로세스는 [여기](how-to-migrate.md)에서 찾을 수 있습니다.
 * 마이그레이션은 발생 하면 모델은 배포 된 상태 여야 합니다.  
 * 모델의 언어 쌍은 사용자 지정 변환기에서 지원 되지 않는 언어 쌍 이어야 합니다.  언어가 영어에서 지원 되는 언어 쌍 이지만 쌍 자체에는 영어가 포함 되지 않으며 지원 되지 않는 언어 배포의 후보가 됩니다.  예를 들어 프랑스어에서 독일어로의 언어 쌍에 대 한 허브 모델은 지원 되는 언어 쌍으로 간주 됩니다.
 
-## <a name="process"></a>프로세스
+## <a name="process"></a>Process
 배포 후보가 되는 허브에서 모델을 마이그레이션한 후에는 작업 영역에 대 한 **설정** 페이지로 이동 하 여 **지원 되지 않는 Translator 허브 학습** 섹션이 표시 되는 페이지의 끝으로 스크롤하여 해당 모델을 찾을 수 있습니다.  이 섹션은 위에서 언급 한 필수 조건을 충족 하는 프로젝트가 있는 경우에만 표시 됩니다.
 
 ![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
@@ -45,7 +45,7 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 
 ![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>새로운 기능
+## <a name="whats-next"></a>다음 단계
 
 배포 하도록 선택한 모델은 허브가 서비스 해제 되 고 모든 모델의 배포를 취소 한 후에 저장 됩니다.  지원 되지 않는 모델의 배포에 대 한 요청을 24 년 5 월까지 제출할 수 있습니다.  이 모델은 6 월 15 일에 배포 되며,이 시점에서 변환기 V3 API를 통해 액세스할 수 있습니다.  또한 7 월 1 일까 지 V2 API를 통해 사용할 수 있습니다.  
 

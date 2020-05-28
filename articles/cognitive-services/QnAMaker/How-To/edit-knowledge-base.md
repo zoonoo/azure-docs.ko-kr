@@ -3,12 +3,12 @@ title: 기술 자료 편집 - QnA Maker
 description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650821"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993578"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -85,7 +85,7 @@ QnA 쌍의 모든 필드는 원래 데이터 원본에 관계 없이 편집할 �
 
 ## <a name="delete-a-qna-pair"></a>QnA 쌍 삭제
 
-QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘을 클릭합니다. 영구 작업입니다. 실행을 취소할 수 없습니다. 집합을 삭제 하기 전에 **게시** 페이지에서 KB를 내보내는 것이 좋습니다.
+QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘을 클릭합니다. 영구 작업입니다. 실행을 취소할 수 없습니다. 쌍을 삭제하기 전에 **게시** 페이지에서 KB를 내보내는 것이 좋습니다.
 
 ![QnA 쌍 삭제](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 
 ## <a name="add-metadata"></a>메타데이터 추가
 
-먼저 **보기 옵션**을 선택 하 고 **메타 데이터 표시**를 선택 하 여 메타 데이터 집합을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, 서명을 선택 **+** 하 여 메타 데이터 집합을 추가 합니다. 이 집합은 하나의 키와 하나의 값으로 구성 됩니다.
+먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>QnA 쌍의 변경 내용 저장
 

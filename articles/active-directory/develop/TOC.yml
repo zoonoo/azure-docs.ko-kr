@@ -595,7 +595,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: Microsoft Graph의 ID 및 액세스 API
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
+      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
     - name: 인증 및 권한 부여 오류 코드
       displayName: AADSTS
       href: reference-aadsts-error-codes.md

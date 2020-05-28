@@ -1,7 +1,7 @@
 ---
 title: GenerateAnswer API와 메타데이터 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 사용자 쿼리를 사용 하 여 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다.
+description: QnA Maker를 사용 하면 키/값 쌍의 형태로 메타 데이터를 질문/답변 쌍에 추가할 수 있습니다. 사용자 쿼리를 사용 하 여 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659549"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993510"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
 사용자의 질문에 대 한 예측 답변을 얻으려면 GenerateAnswer API를 사용 합니다. 기술 자료를 게시할 때 **게시** 페이지에서이 API를 사용 하는 방법에 대 한 정보를 볼 수 있습니다. 메타 데이터 태그를 기준으로 응답을 필터링 하도록 API를 구성 하 고 테스트 쿼리 문자열 매개 변수를 사용 하 여 끝점에서 기술 자료를 테스트할 수도 있습니다.
 
-QnA Maker를 사용 하면 질문 및 답변 집합에 키 및 값 쌍의 형태로 메타 데이터를 추가할 수 있습니다. 그런 다음이 정보를 사용 하 여 사용자 쿼리에 대 한 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
+QnA Maker를 사용 하면 키/값 쌍의 형태로 메타 데이터를 질문 및 답변 쌍에 추가할 수 있습니다. 그런 다음이 정보를 사용 하 여 사용자 쿼리에 대 한 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
 
 <a name="qna-entity"></a>
 
@@ -37,7 +37,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 답변 예측 가져오기
 
-봇 또는 응용 프로그램에서 [GENERATEANSWER API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 를 사용 하 여 사용자 질문을 통해 기술 자료를 쿼리하고 질문 및 답변 집합에서 가장 일치 하는 항목을 가져옵니다.
+봇 또는 응용 프로그램에서 [GENERATEANSWER API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 를 사용 하 여 사용자 질문을 통해 기술 자료를 쿼리하고 질문 및 답변 쌍에서 가장 일치 하는 항목을 가져옵니다.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -196,7 +196,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>질문 및 답변 결과를 사용 하 여 대화 컨텍스트 유지
 
-GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에 해당 하는 메타 데이터 정보가 포함 됩니다. 클라이언트 응용 프로그램에서이 정보를 사용 하 여 이후 대화에서 사용할 이전 대화의 컨텍스트를 저장할 수 있습니다.
+GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 쌍에 해당 하는 메타 데이터 정보가 포함 됩니다. 클라이언트 응용 프로그램에서이 정보를 사용 하 여 이후 대화에서 사용할 이전 대화의 컨텍스트를 저장할 수 있습니다.
 
 ```json
 {
@@ -243,7 +243,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 |코드|설명|
 |:--|--|
-|2xx|Success|
+|2xx|성공|
 |400|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |400|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |401|잘못된 키|
