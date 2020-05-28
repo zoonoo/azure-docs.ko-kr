@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996213"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator V2에서 V3로 마이그레이션
 
@@ -32,25 +32,25 @@ Microsoft Translator 팀은 변환기의 V3 (버전 3)을 릴리스 했습니다
 
 * No Trace - V3에서 No Trace는 Azure Portal에서 모든 가격 책정 계층에 적용됩니다. 이 기능은 V3 API에 제출된 텍스트가 Microsoft에 저장되지 않습니다.
 * JSON - XML은 JSON으로 바뀝니다. 서비스에 보내고 서비스로부터 받은 모든 데이터는 JSON 형식입니다.
-* 단일 요청의 여러 대상 언어 - 변환 메서드는 단일 요청의 변환에 여러 '대상' 언어를 허용합니다. 예를 들어 단일 요청은 '원본' 영어 및 '대상' 독일어, 스페인어 및 일본어 또는 다른 그룹의 언어일 수 있습니다.
-* 이중언어 사전 - 이중언어 사전 메서드가 API에 추가되었습니다. 이 메서드에는 '조회' 및 '예제'가 포함됩니다.
+* 단일 요청에서 여러 대상 언어-변환 메서드는 단일 요청에서 번역을 위해 여러 ' to ' 언어를 허용 합니다. 예를 들어 단일 요청은 ' from ' 영어 및 ' to ' 독일어, 스페인어, 일본어 또는 다른 언어 그룹이 될 수 있습니다.
+* 이중언어 사전 - 이중언어 사전 메서드가 API에 추가되었습니다. 이 메서드에는 ' lookup ' 및 ' 예제 '가 포함 됩니다.
 * 음역 - 음역 메서드가 API에 추가되었습니다. 이 메서드는 하나의 스크립트에서 단어 및 문장(예: 아랍어)을 다른 스크립트(예: 라틴어)로 변환합니다.
-* 언어 - 새로운 '언어' 메서드는 '번역', '사전' 및 '음역' 메서드와 함께 사용하기 위해 JSON 형식으로 언어 정보를 제공합니다.
-* 번역에 대한 새로운 기능 - 새 기능이 '번역' 메서드에 추가되어 별도 메서드로 V2 API에 있던 기능 중 일부를 지원합니다. 예제는 TranslateArray입니다.
+* 언어-새로운 ' 언어 ' 메서드는 ' 변환 ', ' 사전 ' 및 ' 음 차 ' 메서드와 함께 사용할 언어 정보를 JSON 형식으로 제공 합니다.
+* 새로운 번역 기능-V2 API에 있던 기능 중 일부를 개별 메서드로 지원 하기 위해 새 기능이 ' 번역 ' 메서드에 추가 되었습니다. 예제는 TranslateArray입니다.
 * 말하기 방법-텍스트를 음성으로 변환 기능은 Microsoft Translator에서 더 이상 지원 되지 않습니다. [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)에서 텍스트 음성 변환 기능을 사용할 수 있습니다.
 
 다음과 같은 V2 및 V3 메서드 목록은 V2와 함께 포함된 기능을 제공하는 V3 메서드 및 API를 식별합니다.
 
 | V2 API 메서드   | V3 API 호환성 |
 |:----------- |:-------------|
-| `Translate`     | [번역하기](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [번역하기](reference/v3-0-translate.md)        |
+| `Translate`     | [번역](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [번역](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [언어](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [언어](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Detect](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
+| `Detect`     | [검색](reference/v3-0-detect.md)         |
+| `DetectArray`     | [검색](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 기능은 더 이상 지원되지 않습니다.       |
 | `AddTranslationArray`    | 기능은 더 이상 지원되지 않습니다.          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -86,7 +86,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
-전역
+Global
 
 * api.cognitive.microsofttranslator.com
 
@@ -116,10 +116,10 @@ Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합�
 
 V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
 
-| |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
+| |엔드포인트|    GDPR 프로세서 규정 준수|    Translator Hub 사용|    Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator 버전 2|  api.microsofttranslator.com|    아니요  |예    |아니요|
-|Translator 버전 3|  api.cognitive.microsofttranslator.com|  예|    아니요| 예|
+|Translator 버전 2|    api.microsofttranslator.com|    예    |예    |예|
+|Translator 버전 3|    api.cognitive.microsofttranslator.com|    예|    예|    예|
 
 **Translator 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

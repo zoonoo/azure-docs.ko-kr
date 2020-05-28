@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 71f1e3f460fa58b999af0a60c8cffa90c8ac8cd4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc81b0c01bf749bf7f643833026e364fa7c8ebd2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221232"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996332"
 ---
 # <a name="what-are-trainings-and-models"></a>학습 및 모델이란?
 
@@ -27,7 +27,7 @@ ms.locfileid: "79221232"
 
 학습 세트에 포함된 문서는 Custom Translator에서 모델을 빌드하기 위한 기준으로 사용됩니다. 학습을 실행하는 동안 이러한 문서에 나온 문장이 정렬됩니다(또는 쌍으로 작성됨). 학습 문서의 세트를 자유롭게 구성할 수 있습니다. 접선 관련성이 있다고 생각되는 문서들을 하나의 모델에 포함시킬 수 있습니다. [BLEU(Bilingual Evaluation Understudy) 점수](what-is-bleu-score.md)에서 영향을 확인하려면 다른 점수에서 해당 항목을 다시 제외합니다. 튜닝 세트 및 테스트 세트 상수를 유지하는 한 학습 세트 조합을 자유롭게 사용해 볼 수 있습니다. 이 방법은 번역 시스템의 품질을 수정하기 위한 효과적인 방법입니다.
 
-프로젝트 내에서 여러 학습을 실행하고 실행되는 모든 학습 간 [BLEU 점수](what-is-bleu-score.md)를 비교합니다. 비교를 위해 여러 학습을 실행할 때는 매번 동일한 튜닝/테스트 데이터를 지정해야 합니다. 또한 [“테스트”](how-to-view-system-test-results.md) 탭에서 결과를 수동으로도 검사해야 합니다.
+프로젝트 내에서 여러 학습을 실행하고 실행되는 모든 학습 간 [BLEU 점수](what-is-bleu-score.md)를 비교합니다. 비교를 위해 여러 학습을 실행할 때는 매번 동일한 튜닝/테스트 데이터를 지정해야 합니다. 또한 ["테스트"](how-to-view-system-test-results.md) 탭에서 수동으로 결과를 검사 해야 합니다.
 
 ## <a name="tuning-document-type-for-custom-translator"></a>사용자 지정 번역기의 튜닝 문서 유형
 
