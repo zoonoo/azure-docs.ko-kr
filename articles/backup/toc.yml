@@ -46,7 +46,7 @@
           href: tutorial-sap-hana-manage-cli.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -393,8 +393,10 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup?view=azure-cli-latest
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
+    - name: PowerShell – Azure Backup 에이전트
+      href: /powershell/module/msonlinebackup
     - name: REST - 백업
       href: /rest/api/backup/
     - name: REST - Recovery Services 자격 증명 모음
