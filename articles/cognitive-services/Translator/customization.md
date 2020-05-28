@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588652"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997001"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -49,12 +49,12 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 |   | **허브** | **Custom Translator**|
 |:-----|:----:|:----:|
-|사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
-| Text API 버전  | V2만   | V3만 |
-| SMT 사용자 지정 | 예   | 아니요 |
-| NMT 사용자 지정 | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
-| [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
+|사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
+| Text API 버전    | V2만    | V3만 |
+| SMT 사용자 지정    | 예    | 예 |
+| NMT 사용자 지정    | 예    | 예 |
+| 새로운 통합 Speech Service 사용자 지정    | 예    | 예 |
+| [추적 없음](https://www.aka.ms/notrace) | 예    | 예 |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 

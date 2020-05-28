@@ -32,6 +32,8 @@
       href: clean-missing-data.md
     - name: 메타데이터 편집
       href: edit-metadata.md
+    - name: Bin으로 데이터 그룹화
+      href: group-data-into-bins.md
     - name: 데이터 조인
       href: join-data.md
     - name: 데이터 정규화
@@ -130,6 +132,8 @@
       href: execute-r-script.md
 - name: 텍스트 분석
   items:
+    - name: Word를 벡터로 변환
+      href: convert-word-to-vector.md
     - name: 텍스트에서 N-Gram 기능 추출
       href: extract-n-gram-features-from-text.md
     - name: 기능 해싱
