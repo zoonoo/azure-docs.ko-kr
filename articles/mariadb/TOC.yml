@@ -9,10 +9,17 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: DB 만들기 - 포털
-      href: quickstart-create-mariadb-server-database-using-azure-portal.md
-    - name: DB 만들기 - Azure CLI
-      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: DB 만들기
+      items:
+        - name: DB 만들기 - 포털
+          href: quickstart-create-mariadb-server-database-using-azure-portal.md
+        - name: DB 만들기 - Azure CLI
+          href: quickstart-create-mariadb-server-database-using-azure-cli.md
+        - name: DB 만들기 - Azure PowerShell
+          href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+        - name: DB 만들기 - ARM 템플릿
+          href: quickstart-create-mariadb-server-database-arm-template.md
+          displayName: deploy azure resource manager template
     - name: 연결 및 쿼리
       items:
         - name: MySQL Workbench
@@ -25,6 +32,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -119,6 +128,8 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: 데이터베이스 마이그레이션
       items:
         - name: 덤프 및 복원
@@ -137,12 +148,16 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: 자동 증가 스토리지
       items:
         - name: Azure portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: 퍼블릭 네트워크 액세스 거부
       items:
         - name: Azure portal
@@ -173,6 +188,8 @@
           href: howto-read-replicas-portal.md
         - name: '읽기 복제본 Azure CLI, REST API 만들기'
           href: howto-read-replicas-cli.md
+        - name: Azure PowerShell 읽기 복제본 만들기
+          href: howto-read-replicas-powershell.md
     - name: 문제 해결
       items:
         - name: 연결 오류 문제 해결
@@ -201,6 +218,8 @@
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: 참조
   items:
     - name: Azure CLI

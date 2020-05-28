@@ -284,13 +284,15 @@
   items:
     - name: GitHub - Azure Blueprints 샘플
       href: 'https://github.com/Azure/azure-blueprints'
+    - name: Azure Blueprints에 대한 Microsoft Q&A
+      href: /answers/topics/azure-blueprints.html.html
+    - name: 거버넌스 YouTube 채널
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Azure Friday - Azure Blueprints 개요
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
-    - name: 거버넌스 YouTube 채널
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Azure Friday - Azure Blueprints 개요
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345058'

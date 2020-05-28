@@ -83,7 +83,7 @@
       href: cli-samples.md
     - name: Azure 리소스 관리자
       href: resource-manager-samples.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -141,7 +141,7 @@
           href: autoscale-faq.md
     - name: SQL 쿼리(SQL query)
       items:
-        - name: 시작
+        - name: 시작하기
           displayName: 'sql query, query basics'
           href: sql-query-getting-started.md
         - name: 절
@@ -373,6 +373,9 @@
                     - name: STARTSWITH
                       displayName: 'STARTSWITH, starts with, built-in functions'
                       href: sql-query-startswith.md
+                    - name: STRINGEQUALS
+                      displayName: 'STRINGEQUALS, equals, case-insensitive'
+                      href: sql-query-stringequals.md
                     - name: StringToArray
                       displayName: 'StringToArray, string to array, built-in functions'
                       href: sql-query-stringtoarray.md
@@ -1007,7 +1010,7 @@
       items:
         - name: Java V4 SDK로 마이그레이션
           href: migrate-java-v4-sdk.md
-    - name: 피드 변경
+    - name: 변경 피드
       items:
         - name: Azure Cosmos DB 트리거 로그
           href: how-to-configure-cosmos-db-trigger-logs.md

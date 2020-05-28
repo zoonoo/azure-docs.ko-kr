@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: 자격 증명 모음 삭제
               href: delete-vault.md
-    - name: 근접 배치 그룹에 대한 Site Recovery 지원
+    - name: 근접 배치 그룹에 대한 Site Recovery
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: 앱에 대한 재해 복구
       items:
