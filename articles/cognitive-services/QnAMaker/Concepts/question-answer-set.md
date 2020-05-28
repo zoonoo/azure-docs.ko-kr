@@ -1,29 +1,29 @@
 ---
 title: 기술 자료 설계-QnA Maker
-description: QnA Maker 기술 자료는 QnA (질문과 대답) 집합 및 각 QnA 쌍과 연결 된 선택적 메타 데이터로 구성 됩니다.
+description: QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 된 선택적 메타 데이터 집합으로 구성 됩니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756797"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993000"
 ---
-# <a name="question-and-answer-set-concepts"></a>질문 및 답변 집합 개념
+# <a name="question-and-answer-pair-concepts"></a>질문 및 답변 쌍 개념
 
-기술 자료는 QnA (질문과 대답) 집합으로 구성 됩니다.  각 집합에는 하나의 대답이 있으며 집합에는 해당 _대답과_연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다.
+기술 자료는 QnA (질문과 대답) 쌍으로 구성 됩니다.  각 쌍에는 하나의 대답이 있으며 쌍에는 해당 _대답과_연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다.
 
-## <a name="question-and-answer-sets"></a>질문 및 대답 세트
+## <a name="question-and-answer-pairs"></a>질문 및 답변 쌍
 
-질문 및 답변 (QnA) 집합에서 **필요한** 설정은 다음과 같습니다.
+질문 및 답변 (QnA) 쌍에서 **필요한** 설정은 다음과 같습니다.
 
 * 기계 학습을 QnA Maker 하는 데 사용 되는 **질문** 텍스트를 사용 하 여 다른 단어를 사용 하는 사용자의 질문 텍스트에 맞추고 동일한 답변을 사용 합니다.
-* **대답** -이 집합의 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우 반환 되는 응답입니다.
+* **답변** -쌍의 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우 반환 되는 응답입니다.
 
-각 집합은 **ID**로 표시 됩니다.
+각 쌍은 **ID**로 표시 됩니다.
 
-집합에 대 한 **선택적** 설정에는 다음이 포함 됩니다.
+쌍에 대 한 **선택적** 설정에는 다음이 포함 됩니다.
 
 * **질문의 대체 형태** -다양 한 질문에 대 한 올바른 답을 반환 QnA Maker 수 있습니다. 위해 구와
 * **메타 데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.

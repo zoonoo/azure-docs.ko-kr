@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 0219940a4ac60e4a6187d13802c36e8bff1925b3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7fad90cf47591b5ffab4232c2be3180138738f01
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587326"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992836"
 ---
 # <a name="how-the-translator-counts-characters"></a>변환기에서 문자 수를 계산 하는 방법
 

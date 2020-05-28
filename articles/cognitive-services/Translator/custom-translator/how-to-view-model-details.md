@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595571"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994192"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 
@@ -58,7 +58,7 @@ ms.locfileid: "68595571"
 
 8.  Mono 문장 수: Mono 세트로 사용된 총 문장 수를 표시합니다.
 
-9.  배포 작업 단추: 성공적으로 학습된 모델에서 배포되지 않은 경우 “배포” 단추가 표시됩니다. 모델이 배포되면 “배포 취소” 단추가 표시됩니다.
+9.  배포 작업 단추: 성공적으로 학습 된 모델의 경우 배포 되지 않은 경우 "배포" 단추를 표시 합니다. 모델을 배포 하는 경우 "배포 취소" 단추가 표시 됩니다.
 
 10. 삭제: 모델을 삭제하려는 경우 이 단추를 사용할 수 있습니다. 모델을 삭제해도 해당 모델을 만드는 데 사용된 문서는 삭제되지 않습니다.
 

@@ -6,25 +6,25 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587003"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992905"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
 [Microsoft Translator Hub](https://hub.microsofttranslator.com/) 작업 영역 및 프로젝트를 Custom Translator로 쉽게 마이그레이션할 수 있습니다. 마이그레이션은 작업 영역 또는 프로젝트를 선택하고, Custom Translator에서 작업 영역을 선택한 다음, 전송하려는 학습을 선택하여 Microsoft Hub에서 시작됩니다. 마이그레이션이 시작된 후 선택한 학습 설정은 모든 관련 문서를 통해 전송됩니다. 배포된 모델은 학습되며 완료 시 자동 배포될 수 있습니다.
 
 마이그레이션하는 중에 이러한 작업을 수행합니다.
-* 모든 문서와 프로젝트 정의에는 이름에 "hub_" 접두사를 추가하여 전송된 해당 이름이 있습니다. 자동으로 생성된 테스트 및 튜닝 데이터는 hub_systemtune_\<modelid> 또는 hub_systemtest_\<modelid>라고 합니다.
+* 모든 문서와 프로젝트 정의는 이름 앞에 "hub_"를 추가 하 여 해당 이름을 전송 합니다. 자동으로 생성된 테스트 및 튜닝 데이터는 hub_systemtune_\<modelid> 또는 hub_systemtest_\<modelid>라고 합니다.
 * 마이그레이션을 수행하는 경우 배포된 상태에 있던 모든 학습을 Hub 학습 문서를 사용하여 자동으로 학습합니다. 이 학습은 구독에 대한 비용은 청구되지 않습니다. 마이그레이션에 대해 자동 배포가 선택된 경우 완료 시 학습된 모델을 배포합니다. 일반 호스팅 요금을 적용합니다.
 * 배포 상태에 있지 않던 모든 마이그레이션된 학습은 마이그레이션된 초안 상태에 놓이게 됩니다. 이 상태에서는 마이그레이션된 정의를 사용하여 모델을 학습하는 옵션이 있지만 일반적인 학습 비용이 적용됩니다.
-* 허브 학습에서 마이그레이션된 BLEU 점수는 언제든 "MT 허브의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
+* 언제 든 지 허브 학습에서 마이그레이션된 BLEU 점수는 "MT Hub의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
 
 > [!Note] 
 > 학습에 성공 하려면 사용자 지정 변환기에 1만의 고유 하 고 압축을 푼 문장이 필요 합니다. 사용자 지정 번역기는 [제안 된 최소값](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)보다 작은 학습을 수행할 수 없습니다.
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -92,7 +92,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 ## <a name="migration-history"></a>마이그레이션 기록
 
-허브에서 작업 영역/프로젝트 마이그레이션을 요청한 경우 Custom Translator 설정 페이지에서 마이그레이션 기록을 찾을 수 있습니다.
+허브에서 작업 영역/프로젝트 마이그레이션을 요청 하면 사용자 지정 변환기 설정 페이지에서 마이그레이션 기록이 검색 됩니다.
 
 마이그레이션 기록을 보려면 다음 단계를 수행합니다.
 
@@ -132,11 +132,11 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 |   | 허브 | Custom Translator |
 |:-----|:----:|:----:|
-|사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
-| Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | 예   | 아니요 |
-| NMT 사용자 지정 | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
+|사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
+| Text API 버전    | V2     | V3  |
+| SMT 사용자 지정    | 예    | 예 |
+| NMT 사용자 지정    | 예    | 예 |
+| 새로운 통합 Speech Service 사용자 지정    | 예    | 예 |
 | 추적 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어

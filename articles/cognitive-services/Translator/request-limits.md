@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592239"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995788"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -27,14 +27,14 @@ ms.locfileid: "83592239"
 
 다음 표에서는 변환기의 각 작업에 대 한 배열 요소 및 문자 제한을 나열 합니다.
 
-| 작업(Operation) | 배열 요소의 최대 크기 |   최대 배열 요소 수 |  최대 요청 크기 (문자) |
+| 작업(Operation) | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
 |:----|:----|:----|:----|
-| Translate | 5,000 | 100   | 5,000 |
-| Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10000 | 100 |   50,000 |
-| BreakSentence | 10000    | 100 | 50,000 |
-| 사전 조회| 100 |  10  | 1,000 |
-| 사전 예제 | 100 for text 및 100 (200 total)| 10|   2,000 |
+| Translate | 5,000    | 100    | 5,000 |
+| Transliterate | 5,000    | 10    | 5,000 |
+| Detect | 10000 |    100 |    50,000 |
+| BreakSentence | 10000    | 100 |    50,000 |
+| 사전 조회| 100 |    10    | 1,000 |
+| 사전 예제 | 100 for text 및 100 (200 total)| 10|    2,000 |
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
@@ -82,4 +82,4 @@ ms.locfileid: "83592239"
 
 * [가격](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [국가별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [v3 변환기 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [v3 Translator 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

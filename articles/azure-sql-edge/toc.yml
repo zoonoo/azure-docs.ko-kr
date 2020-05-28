@@ -29,7 +29,7 @@
           href: tutorial-run-ml-model-on-sql-edge.md
 - name: 방법
   items:
-    - name: DAC 패키지 및 Stream Analytics 작업
+    - name: Stream Analytics 작업 배포
       href: stream-analytics.md
     - name: 복제 구성
       href: configure-replication.md

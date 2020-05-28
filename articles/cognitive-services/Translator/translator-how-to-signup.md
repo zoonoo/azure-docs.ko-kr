@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: seodec18
-ms.openlocfilehash: 1a26b00a95b1b71993385e816d06d6686f89a5a1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 15204a081f001d421574daa7f5ec2bac40152a19
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599602"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995754"
 ---
 # <a name="how-to-sign-up-for-translator"></a>번역기에 등록 하는 방법
 
@@ -58,7 +57,7 @@ Translator에 등록 하면 구독에 고유한 개인 설정 된 액세스 키�
 
 ## <a name="customization"></a>사용자 지정
 
-사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세히 알아보기](customization.md)
+사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세한 정보](customization.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

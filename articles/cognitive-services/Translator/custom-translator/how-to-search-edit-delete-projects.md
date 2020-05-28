@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996740"
 ---
 # <a name="search-edit-and-delete-projects"></a>프로젝트 검색, 편집, 삭제
 
@@ -34,7 +34,7 @@ Custom Translator는 프로젝트를 효율적으로 관리하는 다양한 방�
 
     ![프로젝트 검색 필터 옵션](media/how-to/how-to-search-project-filters.png)
 
-3.  필터를 지우고 모든 프로젝트를 보려면 “지우기”를 탭합니다.
+3.  "Clear"를 탭 하 여 모든 프로젝트를 보려면 필터를 선택 취소 합니다.
 
 
 ## <a name="edit-a-project"></a>프로젝트 편집
