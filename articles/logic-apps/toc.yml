@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: 메시지 일괄 처리
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: 순서대로 메시지 보내기 - 순차 호위(convoy)
+          href: send-related-messages-sequential-convoy.md
         - name: JSON 정의 작성
           href: logic-apps-author-definitions.md
         - name: 콘텐츠 형식 처리
