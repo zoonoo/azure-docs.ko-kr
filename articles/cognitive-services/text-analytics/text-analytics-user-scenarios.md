@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221194"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141819"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
 
@@ -41,7 +41,7 @@ Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서�
 
 ## <a name="monitor-your-products-social-media-feeds"></a>제품의 소셜 미디어 피드 모니터링
 
-제품의 twitter 또는 Facebook 페이지에 올라오는 사용자 제품 피드백을 모니터링합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. 예제 [Microsoft Flow 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)을 참조하세요.
+제품의 twitter 또는 Facebook 페이지에서 사용자 제품 피드백을 모니터링 합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. 예제 [Microsoft Flow 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)을 참조하세요.
 
 ![핵심 구 추출을 사용하여 소셜 미디어의 제품 및 회사 피드백을 모니터링하는 방법을 설명하는 이미지](media/use-cases/social-feed.svg)
 
@@ -50,6 +50,13 @@ Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서�
 명명 된 엔터티 인식을 사용 하 여 문서에서 개인 정보 및 중요 한 정보를 식별 합니다. 데이터를 사용 하 여 문서를 분류 하거나 안전 하 게 공유할 수 있도록 교정 합니다.
 
 ![NER를 사용 하 여 개인 정보를 검색 하 고 문서를 분류 및 교정 하는 방법을 설명 하는 이미지](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>의견 마이닝 수행
+
+설문 조사, 고객 의견 또는 텍스트에 대 한 의견이 있는 경우 제품 또는 서비스의 특정 측면과 관련 된 의견을 그룹화 합니다. 이 정보를 사용 하 여 제품 시작, 개선, 마케팅 활동을 안내 하거나 제품 또는 서비스의 수행 방식을 강조 합니다. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="호텔에 대 한 예제 의견입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

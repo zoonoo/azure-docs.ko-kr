@@ -7,12 +7,15 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Databricks 작업 영역 만들기 - 포털
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Databricks 작업 영역 만들기 - Resource Manager 템플릿
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Databricks 작업 영역 만들기 - 가상 네트워크
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: 작업 영역 만들기
+      items:
+        - name: 포털
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: ARM 템플릿
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: 가상 네트워크
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: 자습서
   items:
     - name: Docker 컨테이너에서 실행 중인 SQL Server 쿼리

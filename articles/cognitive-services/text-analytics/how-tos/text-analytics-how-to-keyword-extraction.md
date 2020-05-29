@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/29/2019
-ms.author: raymondl
-ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/13/2020
+ms.author: aahi
+ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72429032"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142404"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법
 
-[핵심 구 추출 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다.
+[핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다.
 
 이 기능은 문서 컬렉션에서 주요 지점을 빠르게 식별해야 하는 경우에 유용합니다. 예를 들어 "음식이 맛있고 훌륭한 직원이 있었습니다"라는 입력 텍스트가 제공되면 서비스에서 "음식" 및 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
-자세한 내용은 [지원 되는 언어](../text-analytics-supported-languages.md)를 참조 하세요.
+자세한 내용은 [지원되는 언어](../text-analytics-supported-languages.md)를 참조하세요.
 
 > [!TIP]
 > Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
@@ -72,16 +72,16 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대 한 자세한 내용은 [텍스트 분석 API 호출 하는 방법](text-analytics-how-to-call-api.md)을 참조 하세요. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대 한 API 설명서를 검토 합니다. [핵심 구 api](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
++ **POST** 요청을 만듭니다. 이 요청에 대 한 API 설명서를 검토 합니다. [핵심 구 api](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에 `/text/analytics/v2.1/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에 `/text/analytics/v3.0/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -152,17 +152,18 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 이 문서에서는 Cognitive Services에서 Text Analytics를 사용 하 여 핵심 문구 추출에 대 한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
-+ [핵심 구 추출 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)는 선택한 언어로 사용할 수 있습니다.
++ [핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)는 선택한 언어로 사용할 수 있습니다.
 + 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/keyphrases` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대 한 키워드와 구를 구성 하는 응답 출력은 Excel 및 Power BI Microsoft Office를 포함 하 여 JSON을 허용 하는 모든 앱으로 스트리밍하 고 몇 가지 이름을 지정할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
  [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
  [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [텍스트 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
+* [Text Analytics 개요](../overview.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [새로운 기능](../whats-new.md)
