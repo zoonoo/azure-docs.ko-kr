@@ -1,0 +1,145 @@
+### YamlMime:Landing
+title: Azure SQL Database 설명서
+summary: Azure SQL Database에서 단일화된 데이터베이스와 풀링된 데이터베이스에 대한 개념, 빠른 시작, 자습서 및 샘플을 찾습니다.
+metadata:
+  title: Azure SQL Database 설명서
+  description: 안정적인 최신 버전의 Microsoft SQL Server를 기반으로 하는 PaaS(Platform-as-a-Service)인 Azure SQL Database에 대한 설명서를 찾습니다.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: 0faf1311e3a570028884f826b7d8b4ff3cd5e9e2
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023826"
+landingContent:
+- title: Azure SQL Database
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: SQL Database 만들기
+      url: single-database-create-quickstart.md
+    - text: 방화벽 구성
+      url: firewall-create-server-level-portal-quickstart.md
+  - linkListType: concept
+    links:
+    - text: 새로운 기능
+      url: doc-changes-updates-release-notes.md?tabs=single-database
+    - text: SQL Database 정의
+      url: sql-database-paas-overview.md
+    - text: 구매 옵션
+      url: purchasing-models.md
+    - text: 서비스 계층
+      url: service-tiers-general-purpose-business-critical.md
+    - text: 서버리스 컴퓨팅
+      url: serverless-tier-overview.md
+    - text: 하이퍼스케일 서비스 계층
+      url: service-tier-hyperscale.md
+    - text: SQL Server에서 마이그레이션
+      url: migrate-to-database-from-sql-server.md
+    - text: SQL Server와 T-SQL의 차이점
+      url: transact-sql-tsql-differences-sql-server.md
+- title: 비즈니스 연속성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 비즈니스 연속성
+      url: business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: 고가용성
+      url: high-availability-sla.md
+    - text: 활성 지역 복제
+      url: active-geo-replication-overview.md
+    - text: 자동 장애 조치 그룹
+      url: auto-failover-group-overview.md
+    - text: 자동화된 백업
+      url: automated-backups-overview.md
+    - text: 백업으로 복구
+      url: recovery-using-backups.md
+    - text: 장기 백업 보존
+      url: long-term-retention-overview.md
+- title: 고급 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 기능
+      url: security-overview.md
+    - text: 보안 모범 사례
+      url: security-best-practice.md
+    - text: 로그인, 사용자 계정, 역할 및 사용 권한
+      url: logins-create-manage.md
+    - text: Azure Active Directory
+      url: authentication-aad-overview.md
+    - text: 감사
+      url: auditing-overview.md
+    - text: TDE(투명한 데이터 암호화)
+      url: transparent-data-encryption-tde-overview.md
+    - text: 동적 데이터 마스킹
+      url: dynamic-data-masking-overview.md
+- title: 탄력적 풀
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 탄력적 풀이란?
+      url: elastic-pool-overview.md
+    - text: 관리
+      url: elastic-pool-manage.md
+    - text: 확장
+      url: elastic-pool-scale.md
+    - text: 리소스 관리
+      url: elastic-pool-resource-management.md
+- title: 참조
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 교육용 SQL 리소스
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Azure CLI 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: PowerShell 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: ARM 템플릿 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SSMS(SQL Server Management Studio)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: 마이그레이션 가이드
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL(T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: 확장성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 동적으로 확장 또는 축소
+      url: scale-resources.md
+    - text: 읽기 확장
+      url: read-scale-out.md
+    - text: 크로스 데이터베이스 작업
+      url: elastic-jobs-overview.md
+    - text: 탄력적 확장
+      url: elastic-scale-introduction.md
+    - text: 탄력적 쿼리
+      url: elastic-query-overview.md

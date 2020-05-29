@@ -11,12 +11,12 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  ms.openlocfilehash: 5e7c778eb3d5de197044cb51e35875399908d205
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 5ab646f80296352bce30eedcbf9b0de670011118
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83657220"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84118742"
 landingContent:
 - title: Azure Data Factory 정보
   linkLists:
@@ -108,7 +108,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: SSIS 패키지를 Azure SQL Database 관리형 인스턴스로 마이그레이션
+    - text: SSIS 패키지를 Azure SQL Managed Instance로 마이그레이션
       url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
   - linkListType: tutorial
     links:
@@ -166,7 +166,7 @@ landingContent:
       url: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory/
     - text: Python
       url: https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python
-    - text: REST (영문)
+    - text: REST
       url: https://docs.microsoft.com/rest/api/datafactory/
     - text: Resource Manager 템플릿
       url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions

@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9232082e845ef651d188adcc2ccd5cd3b96d90b4
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: 8dd70bbe8b3e495473523a662e0501613703354f
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849606"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84021775"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -597,14 +597,26 @@ productDirectory:
     - databases
     - migration
     url: dms/index.yml
+  - title: Azure SQL
+    summary: 마이그레이션 및 앱 현대화를 위한 최신 SQL 제품군
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+    azureCategories:
+    - featured
+    - hybrid
+    - databases
+    url: azure-sql/index.yml
   - title: Azure SQL Database
     summary: 클라우드의 관리형 인텔리전트 SQL
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
-    - featured
     - databases
-    - hybrid
-    url: sql-database/index.yml
+    url: azure-sql/database/index.yml
+  - title: Azure SQL Managed Instance
+    summary: 클라우드에서 항상 관리되는 최신 SQL 인스턴스
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
+    azureCategories:
+    - databases
+    url: azure-sql/managed-instance/index.yml
   - title: Azure SQL Edge(미리 보기)
     summary: 설치 공간을 적게 차지하고 에지에 최적화되어 있으며 AI가 내장된 데이터 엔진
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg

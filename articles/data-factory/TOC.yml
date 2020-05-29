@@ -194,7 +194,7 @@
       items:
         - name: 데이터 팩터리 시각화
           href: author-visually.md
-        - name: 원본 제어
+        - name: 소스 제어
           href: source-control.md
         - name: 지속적인 통합 및 업데이트
           href: continuous-integration-deployment.md
@@ -236,8 +236,8 @@
           href: connector-azure-file-storage.md
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
-        - name: Azure SQL Database Managed Instance
-          href: connector-azure-sql-database-managed-instance.md
+        - name: Azure SQL Managed Instance
+          href: connector-azure-sql-managed-instance.md
         - name: Azure Synapse Analytics(이전의 SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
@@ -339,7 +339,7 @@
           href: connector-presto.md
         - name: QuickBooks Online
           href: connector-quickbooks.md
-        - name: REST (영문)
+        - name: REST
           href: connector-rest.md
         - name: Salesforce
           href: connector-salesforce.md
@@ -697,7 +697,7 @@
       items:
         - name: SSIS 마이그레이션 개요
           href: scenario-ssis-migration-overview.md
-        - name: Azure SQL Database 관리형 인스턴스로 SSISDB 마이그레이션
+        - name: Azure SQL Managed Instance로 SSISDB 마이그레이션
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: 참조
   items:

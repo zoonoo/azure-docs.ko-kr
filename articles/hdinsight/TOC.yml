@@ -772,6 +772,8 @@
               href: ./hadoop/hdinsight-use-hive.md
             - name: Apache Hive View 사용
               href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+            - name: Apache Beeline에 연결
+              href: ./hadoop/connect-install-beeline.md
             - name: Apache Hive Beeline 사용
               href: ./hadoop/apache-hadoop-use-hive-beeline.md
             - name: Grafana 사용

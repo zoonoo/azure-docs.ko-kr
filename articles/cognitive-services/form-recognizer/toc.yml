@@ -10,6 +10,8 @@
 - name: 빠른 시작
   expaned: true
   items:
+    - name: 클라이언트 라이브러리 사용
+      href: quickstarts/client-library.md
     - name: 샘플 레이블 지정 도구 사용
       items:
         - name: 레이블로 사용자 지정 모델 학습
@@ -36,8 +38,6 @@
           items:
             - name: Python
               href: quickstarts/python-layout.md
-    - name: .NET SDK 사용
-      href: quickstarts/dotnet-sdk.md
 - name: 자습서
   items:
     - name: Logic Apps에서 Form Recognizer 사용
@@ -67,7 +67,13 @@
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview'
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview'
 - name: 리소스
   items:
     - name: 가격 책정 및 제한

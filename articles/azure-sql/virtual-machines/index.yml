@@ -1,0 +1,131 @@
+### YamlMime:Landing
+title: Azure VM 설명서의 SQL Server
+summary: Windows와 Linux 모두에서 Azure 가상 머신에 설치된 SQL Server에 대한 개념, 빠른 시작, 자습서 및 샘플을 찾습니다.
+metadata:
+  title: Azure VM 설명서의 SQL Server
+  description: Windows와 Linux 모두에서 Azure 가상 머신에 설치된 SQL Server에 대한 설명서를 찾습니다.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: a02a76e3d0080e731643ff82162aafdf3b783423
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023775"
+landingContent:
+- title: Azure VM의 SQL Server
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Windows SQL VM 만들기(포털)
+      url: windows/sql-vm-create-portal-quickstart.md
+    - text: Windows SQL VM 만들기(PowerShell)
+      url: windows/sql-vm-create-powershell-quickstart.md
+    - text: Linux SQL VM 만들기(포털)
+      url: linux/sql-vm-create-portal-quickstart.md
+  - linkListType: overview
+    links:
+    - text: 새로운 기능
+      url: windows/doc-changes-updates-release-notes.md?
+    - text: Azure VM의 SQL Server란?
+      url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+    - text: Linux VM의 SQL Server란?
+      url: linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+    - text: SQL Server에서 마이그레이션
+      url: windows/migrate-to-vm-from-sql-server.md
+    - text: 보안 고려 사항
+      url: windows/security-considerations-best-practices.md
+    - text: 성능 지침
+      url: windows/performance-guidelines-best-practices.md
+    - text: 가격 책정 지침
+      url: windows/pricing-guidance.md
+- title: 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: SQL Server IaaS 에이전트 확장
+      url: windows/sql-server-iaas-agent-extension-automate-management.md
+    - text: Azure Portal로 관리
+      url: windows/manage-sql-vm-portal.md
+    - text: SQL VM 리소스 공급자에 등록
+      url: windows/sql-vm-resource-provider-register.md
+    - text: 자동화된 패치
+      url: windows/automated-patching.md
+    - text: 라이선스 유형 변경
+      url: windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+    - text: SQL Server 버전 변경
+      url: windows/change-sql-server-edition.md
+    - text: 새 영역으로 이동
+      url: windows/move-sql-vm-different-region.md
+    - text: Azure Key Vault와 통합
+      url: windows/azure-key-vault-integration-configure.md
+- title: 비즈니스 연속성
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 고가용성 및 재해 복구
+      url: windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+    - text: 백업 및 복원
+      url: windows/backup-restore.md
+    - text: 가용성 그룹
+      url: windows/availability-group-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 가용성 그룹(Az CLI)
+      url: windows/availability-group-az-cli-configure.md
+    - text: 클러스터가 없는 가용성 그룹
+      url: windows/availability-group-clusterless-workgroup-configure.md
+    - text: FCI(스토리지 공간 다이렉트)
+      url: windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+    - text: FCI(프리미엄 파일 공유)
+      url: windows/failover-cluster-instance-premium-file-share-manually-configure.md
+  - linkListType: tutorial
+    links:
+    - text: 가용성 그룹(수동)
+      url: windows/availability-group-manually-configure-prerequisites-tutorial.md
+    - text: Stonith 가용성 그룹(RHEL)
+      url: linux/rhel-high-availability-stonith-tutorial.md
+    - text: 가용성 그룹 수신기(RHEL)
+      url: linux/rhel-high-availability-listener-tutorial.md
+- title: 참조
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 교육용 SQL 리소스
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Azure CLI 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: PowerShell 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: ARM 템플릿 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SSMS(SQL Server Management Studio)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: 마이그레이션 가이드
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL(T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/sql/

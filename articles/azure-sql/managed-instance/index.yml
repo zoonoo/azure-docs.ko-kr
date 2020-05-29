@@ -1,0 +1,123 @@
+### YamlMime:Landing
+title: Azure SQL Managed Instance 설명서
+summary: 안정적인 최신 버전의 Microsoft SQL Server를 기반으로 하는 Azure의 관리형 인스턴스인 Azure SQL Managed Instance에 대한 설명서를 찾습니다.
+metadata:
+  title: Azure SQL Managed Instance 설명서
+  description: 안정적인 최신 버전의 Microsoft SQL Server를 기반으로 하는 Azure의 관리형 인스턴스인 Azure SQL Managed Instance에 대한 설명서를 찾습니다.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: 967bf5461a1f4e6cf8869bcea6a0e7c74204d1a1
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023622"
+landingContent:
+- title: Azure SQL Managed Instance
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: SQL Managed Instance 만들기
+      url: instance-create-quickstart.md
+  - linkListType: concept
+    links:
+    - text: 새로운 기능
+      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: SQL Managed Instance란?
+      url: sql-managed-instance-paas-overview.md
+    - text: 구매 옵션
+      url: ../database/purchasing-models.md
+    - text: 서비스 계층
+      url: ../database/service-tiers-general-purpose-business-critical.md
+    - text: 트랜잭션 복제
+      url: replication-transactional-overview.md
+    - text: SQL Server에서 마이그레이션
+      url: migrate-to-instance-from-sql-server.md
+    - text: SQL Server와 T-SQL의 차이점
+      url: transact-sql-tsql-differences-sql-server.md
+- title: 고급 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 기능
+      url: ../database/security-overview.md
+    - text: 보안 모범 사례
+      url: ../database/security-best-practice.md
+    - text: 로그인, 사용자 계정, 역할 및 사용 권한
+      url: ../database/logins-create-manage.md
+    - text: Azure Active Directory
+      url: ../database/authentication-aad-overview.md
+    - text: 감사
+      url: auditing-configure.md
+    - text: TDE(투명한 데이터 암호화)
+      url: ../database/transparent-data-encryption-tde-overview.md
+    - text: 동적 데이터 마스킹
+      url: ../database/dynamic-data-masking-overview.md
+    - text: 퍼블릭 엔드포인트
+      url: public-endpoint-overview.md
+- title: 참조
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 교육용 SQL 리소스
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Azure CLI 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: PowerShell 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: ARM 템플릿 샘플
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SSMS(SQL Server Management Studio)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: 마이그레이션 가이드
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL(T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: 비즈니스 연속성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 비즈니스 연속성
+      url: ../database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: 고가용성
+      url: ../database/high-availability-sla.md
+    - text: 자동 장애 조치 그룹
+      url: ../database/auto-failover-group-overview.md
+    - text: 자동화된 백업
+      url: ../database/automated-backups-overview.md
+    - text: 백업으로 복구
+      url: ../database/recovery-using-backups.md
+    - text: 장기 백업 보존
+      url: ../database/long-term-retention-overview.md
+- title: 인스턴스 풀
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 인스턴스 풀이란?
+      url: instance-pools-overview.md
+    - text: 구성
+      url: instance-pools-configure.md

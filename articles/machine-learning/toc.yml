@@ -311,11 +311,14 @@
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: ML 작업 정의
-          displayName: 'machine learning, task type'
+          displayName: 'machine learning, task type, automl'
           href: how-to-define-task-type.md
         - name: 예측 모델 자동 학습
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: 자동화된 ML(Python)의 기능화
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-auto-features.md
         - name: ML 파이프라인에서 자동화된 ML 사용(Python)
           displayName: machine learning automl
           href: how-to-use-automlstep-in-pipelines.md
@@ -449,8 +452,6 @@
     - name: 디자이너 모듈 참조
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
-    - name: 규모에 따른 ML
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: 데이터 참조 모니터링
       href: monitor-resource-reference.md
     - name: Machine Learning 파이프라인 YAML 참조

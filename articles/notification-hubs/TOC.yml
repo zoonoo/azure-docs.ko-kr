@@ -13,7 +13,7 @@
       href: create-notification-hub-portal.md
     - name: 알림 허브 만들기 - Azure CLI
       href: create-notification-hub-azure-cli.md
-    - name: 알림 허브 만들기 - Azure Resource Manager 템플릿
+    - name: 알림 허브 만들기 - ARM 템플릿
       href: create-notification-hub-template.md
     - name: 알림 허브 구성
       href: configure-notification-hub-portal-pns-settings.md
@@ -154,7 +154,7 @@
       href: /cli/azure/ext/notification-hub/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions

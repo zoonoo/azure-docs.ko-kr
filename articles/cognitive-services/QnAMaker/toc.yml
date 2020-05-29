@@ -44,7 +44,7 @@
           href: Concepts/knowledge-base.md
         - name: 콘텐츠 유형 가져옴
           href: Concepts/content-types.md
-        - name: 질문 및 대답 세트
+        - name: 질문 및 대답 쌍
           href: Concepts/question-answer-set.md
     - name: 기술 자료 수명 주기
       items:
@@ -72,8 +72,6 @@
         - name: 리소스 관리
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: 비즈니스 연속성 계획 만들기
-          href: How-To/business-continuity-plan.md
         - name: 공동 작업
           href: How-To/collaborate-knowledge-base.md
         - name: 활성 학습 설정

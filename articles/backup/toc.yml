@@ -46,7 +46,7 @@
           href: tutorial-sap-hana-manage-cli.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -345,7 +345,7 @@
       items:
         - name: 개요
           href: security-overview.md
-        - name: 역할 기반 Access Control
+        - name: 역할 기반 액세스 제어
           href: backup-rbac-rs-vault.md
         - name: 일시 삭제
           items:
@@ -355,6 +355,8 @@
               href: soft-delete-virtual-machines.md
             - name: Azure VM에서 SQL Server 및 SAP HANA의 경우
               href: soft-delete-sql-saphana-in-azure-vm.md
+        - name: Azure 파일 공유에 대한 보호 삭제
+          href: soft-delete-azure-file-share.md
         - name: 하이브리드 백업 보안
           href: backup-azure-security-feature.md
         - name: 프라이빗 엔드포인트

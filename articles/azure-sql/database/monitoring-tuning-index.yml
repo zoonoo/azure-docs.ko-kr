@@ -1,0 +1,121 @@
+### YamlMime:Landing
+title: Azure SQL Database 및 Azure SQL Managed Instance 모니터링 및 성능 튜닝
+summary: Azure SQL Database 및 Azure SQL Managed Instance는 데이터베이스를 모니터링하고 성능을 향상시키기 위해 메트릭과 진단 정보를 수집하는 데 도움이 되는 도구를 제공합니다.
+metadata:
+  title: Azure SQL Database 및 Azure SQL Managed Instance 모니터링 및 튜닝 설명서
+  description: 메트릭 및 진단을 수집하고 데이터베이스 성능을 향상시키는 데 도움이 되는 Azure SQL Database 모니터링 및 성능 조정 도구에 대해 알아봅니다.
+  ms.service: sql-database
+  ms.subservice: performance
+  ms.custom: sqldbrb=2
+  ms.topic: landing-page
+  ms.collection: performance
+  author: CarlRabeler
+  ms.author: carlrab
+  ms.date: 03/10/2020
+  ms.openlocfilehash: d25dfaa9dc51fd781c2b8640f34cc5221f7990ec
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84117874"
+landingContent:
+- title: 모니터링 및 성능 튜닝 시작
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 모니터링 및 성능 튜닝
+      url: monitor-tune-overview.md
+  - linkListType: learn
+    links:
+    - text: Microsoft Azure Database 모니터링 플레이북
+      url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+- title: Azure SQL Database 인텔리전트 성능 권장 사항
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: SQL Database Advisor 튜닝 권장 사항
+      url: database-advisor-implement-performance-recommendations.md
+    - text: 자동 조정
+      url: automatic-tuning-enable.md
+    - text: 쿼리
+      url: query-performance-insight-use.md
+  - linkListType: video
+    links:
+    - text: 자동 조정
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
+- title: Azure SQL Database 및 Azure SQL Managed Instance 리소스 제한
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 단일 데이터베이스 vCore 리소스 제한
+      url: resource-limits-vcore-single-databases.md
+    - text: 단일 데이터베이스 DTU 리소스 제한
+      url: resource-limits-dtu-single-databases.md
+    - text: 탄력적 풀 vCore 리소스 제한
+      url: resource-limits-vcore-elastic-pools.md
+    - text: 탄력적 풀 DTU 리소스 제한
+      url: resource-limits-dtu-elastic-pools.md
+    - text: SQL Managed Instance 리소스 제한
+      url: ../managed-instance/resource-limits.md
+    - text: 인스턴스 풀 리소스 제한
+      url: ../managed-instance/instance-pools-overview.md#resource-limitations
+- title: Azure SQL Database 및 Azure SQL Managed Instance에 대한 인텔리전트 성능 분석
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: AI를 사용하는 Intelligent Insights
+      url: intelligent-insights-overview.md
+  - linkListType: concept
+    links:
+    - text: 메트릭 및 진단 로깅
+      url: metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+    - text: 성능 진단 로그 이해
+      url: intelligent-insights-use-diagnostics-log.md
+    - text: Azure SQL Analytics
+      url: ../../azure-monitor/insights/azure-sql.md
+    - text: 검색 가능한 성능 패턴
+      url: intelligent-insights-troubleshoot-performance.md
+    - text: 인텔리전트 쿼리 처리
+      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+  - linkListType: video
+    links:
+    - text: 인텔리전스 Insights
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+- title: Azure SQL Database 및 Azure SQL Managed Instance에 대한 수동 성능 튜닝
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 쿼리 성능 문제 식별
+      url: ../identify-query-performance-issues.md
+  - linkListType: concept
+    links:
+    - text: DMV를 사용한 모니터링
+      url: monitoring-with-dmvs.md
+    - text: 애플리케이션 및 데이터베이스 튜닝
+      url: performance-guidance.md
+    - text: 쿼리 저장소 사용
+      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+    - text: 확장 이벤트 사용
+      url: xevent-db-diff-from-svr.md
+    - text: 하이퍼스케일 성능 진단
+      url: hyperscale-performance-diagnostics.md
+- title: Azure SQL Database 및 Azure SQL Managed Instance 리소스 크기 조정
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 동적으로 리소스 크기 조정
+      url: scale-resources.md
+  - linkListType: concept
+    links:
+    - text: 단일 데이터베이스 리소스 크기 조정
+      url: single-database-scale.md
+    - text: 탄력적 풀 리소스 크기 조정
+      url: elastic-pool-scale.md
+    - text: 관리형 인스턴스 리소스 크기 조정
+      url: ../managed-instance/sql-managed-instance-paas-overview.md#management-operations
+    - text: 읽기 확장
+      url: read-scale-out.md
+  - linkListType: video
+    links:
+    - text: 동적 확장성
+      url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player

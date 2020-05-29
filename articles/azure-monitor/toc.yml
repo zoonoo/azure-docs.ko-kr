@@ -807,7 +807,7 @@
               href: app/continuous-monitoring.md
         - name: 고급 구성
           items:
-            - name: Access Control
+            - name: 액세스 제어
               href: app/resources-roles-access-control.md
             - name: IP 주소 수집
               href: app/ip-collection.md
@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: 상태 모니터링 구성
           href: insights/container-insights-health-monitors-config.md
+        - name: 비용 및 사용량 관리
+          href: insights/container-insights-cost.md
         - name: 모니터링 사용 안 함
           items:
             - name: AKS 모니터링 사용 안 함
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Key Vault
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: 네트워크
           href: insights/network-insights-overview.md
         - name: 스토리지
@@ -1103,7 +1105,7 @@
           href: platform/workbooks-automate.md
         - name: 구성
           items:
-            - name: Access Control
+            - name: 액세스 제어
               href: platform/workbooks-access-control.md
             - name: 매개 변수
               items:
