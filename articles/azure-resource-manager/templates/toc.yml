@@ -58,6 +58,8 @@
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 관리되는 애플리케이션
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Notification Hubs
+          href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 정책
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Resource Graph
@@ -252,7 +254,7 @@
           href: secure-template-with-sas-token.md
     - name: 범위가 지정된 배포
       items:
-        - name: 구독
+        - name: Subscription
           href: deploy-to-subscription.md
         - name: 관리 그룹
           href: deploy-to-management-group.md
@@ -335,7 +337,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
