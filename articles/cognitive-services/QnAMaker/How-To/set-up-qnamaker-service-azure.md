@@ -2,13 +2,13 @@
 title: QnA Maker 서비스 설정-QnA Maker
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402980"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171177"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -58,6 +58,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
    ![QnA Maker 서비스를 새로 만든 리소스](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     _Cognitive Services_ 형식의 리소스에는 _구독_ 키가 있습니다.
+
 
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Azure Portal에서 구독 키 찾기
 
@@ -117,7 +118,7 @@ Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **�
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
-현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
+현재 Azure search SKU의 전체 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Azure Portal에서 새 Azure search 리소스를 만들고 원하는 SKU를 선택 합니다.
 
@@ -145,7 +146,7 @@ Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **�
 
 QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up-qnamaker-service-azure.md) 때 배포 되는 Azure App Service 인스턴스의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service 인스턴스는 4 월 2019 사이트 확장 릴리스 (버전 5 이상) 이후 자동 업데이트 모드에 있습니다. 이 업데이트는 업그레이드 하는 동안 가동 중지 시간을 0으로 처리 하도록 설계 되었습니다.
 
-에서 https://www.qnamaker.ai/UserSettings현재 버전을 확인할 수 있습니다. 버전이 버전 5.x 보다 이전 버전인 경우 App Service를 다시 시작 하 여 최신 업데이트를 적용 해야 합니다.
+에서 현재 버전을 확인할 수 있습니다 https://www.qnamaker.ai/UserSettings . 버전이 버전 5.x 보다 이전 버전인 경우 App Service를 다시 시작 하 여 최신 업데이트를 적용 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스 (리소스 그룹)로 이동 합니다.
 
@@ -210,6 +211,29 @@ App Service [응용 프로그램 설정을](../../../app-service/configure-commo
 
 App Service [일반 설정을](../../../app-service/configure-common.md#configure-general-settings)구성 하는 방법에 대해 자세히 알아보세요.
 
+## <a name="business-continuity-with-traffic-manager"></a>Traffic manager를 통한 비즈니스 연속성
+
+비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 애플리케이션에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
+
+> [!div class="mx-imgBorder"]
+> ![QnA Maker bcp 계획](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
+
+1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
+
+1. 기본 QnA Maker App service를 [백업](../../../app-service/manage-backup.md) 하 고 보조 설정에서 [복원](../../../app-service/web-sites-restore.md) 합니다. 이렇게 하면 두 설정이 동일한 호스트 이름 및 키로 작동 합니다.
+
+1. 기본 및 보조 Azure 검색 인덱스를 동기화 된 상태로 유지 합니다. Azure 인덱스를 백업 하는 방법을 보려면 [여기](https://github.com/pchoudhari/QnAMakerBackupRestore) 에서 GitHub 샘플을 사용 하세요.
+
+1. [연속 내보내기](../../../application-insights/app-insights-export-telemetry.md)를 사용하여 Application Insights를 백업합니다.
+
+1. 기본 및 보조 스택이 설치되면 [트래픽 관리자](../../../traffic-manager/traffic-manager-overview.md)를 사용하여 두 개의 엔드포인트를 구성하고 라우팅 메서드를 설정합니다.
+
+1. Traffic manager 끝점에 대해 이전에는 TLS (전송 계층 보안), 이전에는 SSL (SSL(Secure Sockets Layer)) 인증서를 만들어야 합니다. App service에서 [TLS/SSL 인증서를 바인딩합니다](../../../app-service/configure-ssl-bindings.md) .
+
+1. 마지막으로, 봇 또는 앱에서 트래픽 관리자 엔드포인트를 사용합니다.
+
 ## <a name="delete-azure-resources"></a>Azure 리소스 삭제
 
 QnA Maker 기술 자료에 사용되는 Azure 리소스를 삭제하는 경우 기술 자료는 더 이상 작동하지 않습니다. 모든 리소스를 삭제하기 전에 **설정** 페이지에서 기술 자료를 내보냈는지 확인합니다.
@@ -219,4 +243,4 @@ QnA Maker 기술 자료에 사용되는 Azure 리소스를 삭제하는 경우 �
 [App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [기술 자료 만들기 및 게시](../Quickstarts/create-publish-knowledge-base.md)
+> [다른 사용자와 작성 하는 방법 알아보기](../how-to/collaborate-knowledge-base.md)
