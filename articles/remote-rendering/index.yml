@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: e379515ea34206e21f80ceb23a465858d6d4da81
-  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
+  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/21/2020
-  ms.locfileid: "83773222"
+  ms.lasthandoff: 05/28/2020
+  ms.locfileid: "84142132"
 landingContent:
 - title: Azure Remote Rendering 정보
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
       url: quickstarts/deploy-to-desktop.md
     - text: 렌더링을 위해 모델 변환
       url: quickstarts/convert-model.md
-- title: Unity에서 고유 앱을 빌드하는 방법 알아보기
+- title: 고유 앱을 빌드하는 방법 알아보기
   linkLists:
   - linkListType: tutorial
     links:

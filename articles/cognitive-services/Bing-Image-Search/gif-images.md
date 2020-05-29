@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74072650"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169987"
 ---
 # <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
@@ -46,7 +46,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 - 지원되는 언어 및 위치의 전체 목록은 [mkt](supported-countries-markets.md)를 참조하세요.
 - *AnimatedGifHttps*는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 애플리케이션은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
 
-<a name="gifExample" />
+<a name="gifExample"></a>
 
 ## <a name="example-search-for-animated-gif-using-java"></a>Java를 사용하는 애니메이션된 gif 검색 예제
 

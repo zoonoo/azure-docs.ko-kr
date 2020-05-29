@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 457be5ac014fda6b4984ed7af3dcc89780b16379
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79203494"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141620"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -23,97 +23,32 @@ ms.locfileid: "79203494"
 
 ### <a name="entity-linking"></a>엔터티 연결
 
-엔터티 연결은 텍스트에 있는 엔터티의 id를 식별 하 고 구분 하는 기능으로, 예를 들어 단어 `Mars` 의 발생이 행성을 참조 하는지 또는 전쟁의 로마자를 참조 하는지 확인 합니다. 이 프로세스에서는 인식 된 엔터티를 텍스트에 연결 하기 위해 기술 자료가 적절 한 언어로 존재 해야 합니다. 엔터티 링크는이 기술 자료로 [위키백과](https://www.wikipedia.org/) 를 사용 합니다.
+엔터티 연결은 텍스트에 있는 엔터티의 id를 식별 하 고 구분 하는 기능입니다. 예를 들어 "Mars" 라는 단어의 발생이 행성을 참조 하는지 또는 전쟁의 Roman 신의 것을 확인 하는 것입니다. 이 프로세스에서는 인식 된 엔터티를 텍스트에 연결 하기 위해 기술 자료가 적절 한 언어로 존재 해야 합니다. 엔터티 링크는이 기술 자료로 [위키백과](https://www.wikipedia.org/) 를 사용 합니다.
 
 
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
 NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식별 하 여 사용자, 위치, 이벤트, 제품, 조직 등의 미리 정의 된 클래스 또는 형식으로 분류 하는 기능입니다.  
 
-버전 3부터 텍스트 분석 API의이 기능은 전화 번호, 주민 등록 번호, 전자 메일 주소 및 은행 계좌 번호와 같은 개인 정보 및 중요 한 정보 유형도 식별할 수 있습니다.  이러한 엔터티를 식별 하면 중요 한 문서를 분류 하 고 개인 정보를 수정 수 있습니다.
-
 ## <a name="named-entity-recognition-versions-and-features"></a>명명 된 엔터티 인식 버전 및 기능
 
-텍스트 분석 API는 두 가지 버전의 명명 된 엔터티 인식-v2 및 v3을 제공 합니다. 버전 3 (공개 미리 보기)은 검색 및 분류 될 수 있는 엔터티에서 세부 정보를 제공 합니다.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| 기능                                                         | NER v2 | NER v3 |
-|-----------------------------------------------------------------|--------|--------|
-| 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X      |
-| 여러 범주에서 기본 엔터티 인식              | X      | X      |
-| 인식 된 엔터티의 확장 된 분류                 |        | X      |
-| 엔터티 연결 및 NER 요청을 보내기 위한 별도의 끝점입니다. |        | X      |
-| 모델 버전 관리                                                |        | X      |
+| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 1 |
+|-----------------------------------------------------------------|--------|----------|
+| 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
+| 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
+| 엔터티 연결 및 NER 요청을 보내기 위한 별도의 끝점입니다. | X      | X        |
+| 개인 ( `PII` ) 및 상태 ( `PHI` ) 정보 엔터티 인식        |        | X        |
 
-자세한 내용은 [언어 지원](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) 을 참조 하세요.
-
-
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+자세한 내용은 [언어 지원](../language-support.md) 을 참조 하세요.
 
 ### <a name="entity-types"></a>엔터티 형식
 
-명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v3은 다음과 같은 범주의 엔터티를 인식할 수 있습니다.
+명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v 3.0은 [일반 엔터티 범주의](../named-entity-types.md)엔터티를 인식할 수 있습니다.
 
-* 일반
-* 개인 정보 
+명명 된 엔터티 인식 v 3.1-preview. 1은 v 3.0의 검색 기능과 `PII` 끝점을 사용 하 여 개인 정보 ()를 검색 하는 기능을 포함 합니다. `v3.1-preview.1/entities/recognition/pii` 선택적 매개 변수를 사용 `domain=phi` 하 여 기밀 상태 정보 ()를 검색할 수 있습니다 `PHI` . 자세한 내용은 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요.
 
-지원 되는 엔터티 및 언어의 자세한 목록은 [NER v3 지원 되는 엔터티 형식](../named-entity-types.md) 문서를 참조 하세요.
-
-### <a name="request-endpoints"></a>요청 끝점
-
-명명 된 엔터티 인식 v3은 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
-
-NER
-* 일반 엔터티-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* 개인 정보-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
-
-엔터티 연결
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
-
-### <a name="model-versioning"></a>모델 버전 관리
-
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
-
-#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-### <a name="entity-types"></a>엔터티 형식
-
-> [!NOTE]
-> NER (명명 된 엔터티 인식) 버전 2는 다음 엔터티만 지원 합니다. NER v3은 공개 미리 보기 상태 이며 텍스트에서 인식 되는 엔터티의 수와 깊이를 크게 확장 합니다.   
-
-| Type  | 하위 유형 | 예제 |
-|:-----------   |:------------- |:---------|
-| Person        | 해당 없음\*         | "Jeff", "Bill Gates"     |
-| 위치      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
-| 조직  | 해당 없음\*         | "Microsoft"   |
-| 수량      | 번호        | "6", "six"     |
-| 수량      | 백분율    | "50%", "fifty percent"|
-| 수량      | Ordinal       | "2nd", "second"     |
-| 수량      | Age           | "90 day old", "30 years old"    |
-| 수량      | Currency      | "$10.99"     |
-| 수량      | 차원     | "10 miles", "40 cm"     |
-| 수량      | 온도   | "32 degrees"    |
-| DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | 시간          | "8am", "8:00"  |
-| DateTime      | DateRange     | "May 2nd to May 5th"    |
-| DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
-| DateTime      | 설정           | "every Tuesday"     |
-| URL           | 해당 없음\*         | "https:\//www.bing.com"    |
-| 메일         | 해당 없음\*         | "support@contoso.com" |
-| 미국 전화 번호  | 해당 없음\*         | (미국 전화 번호만 해당) "(312) 555-0176" |
-| IP 주소    | 해당 없음\*         | 10.0.0.100 |
-
-\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열 된 모든 지원 되는 엔터티 형식은 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어에 대해서만 사용할 수 있습니다.
-
-### <a name="request-endpoints"></a>요청 끝점
-
-명명 된 엔터티 인식 v2는 NER 및 엔터티 연결 요청에 대해 단일 끝점을 사용 합니다.
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
----
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기
 
@@ -130,27 +65,34 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-[명명 된 엔터티 인식 v3 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
+### <a name="request-endpoints"></a>요청 끝점
 
-버전 3에서는 NER 및 엔터티 연결 요청에 대 한 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-NER
-* 일반 엔터티-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* 개인 정보 엔터티-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+명명 된 엔터티 인식 v3은 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
 엔터티 연결
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
-#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
+NER
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-[NER (명명 된 엔터티 인식) v2 참조](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+#### <a name="version-31-preview1"></a>[버전 3.1-미리 보기. 1](#tab/version-3-preview)
 
-버전 2는 엔터티 링크 및 NER 요청에 대해 다음 끝점을 사용 합니다. 
+명명 된 엔터티 인식은 `v3.1-preview.1` NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+엔터티 연결
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+
+NER
+* 일반 엔터티-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+
+* 개인 ( `PII` ) 정보-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+
+선택적 `domain=phi` 매개 변수를 사용 하 여 텍스트에서 상태 ( `PHI` ) 정보를 검색할 수도 있습니다. 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
 
 ---
 
@@ -164,12 +106,13 @@ Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요�
 {
   "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "I had a wonderful trip to Seattle last week."
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
     }
   ]
 }
+
 ```
 
 ## <a name="post-the-request"></a>요청 게시
@@ -184,8 +127,6 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다. 다국어 지원으로 인해 응답에는 텍스트 오프셋이 포함 될 수 있습니다. 자세한 내용은 [텍스트 오프셋을 처리 하는 방법을](../concepts/text-offsets.md) 참조 하세요.
 
-#### <a name="version-30-preview"></a>[버전 3.0-미리 보기)](#tab/version-3)
-
 ### <a name="example-v3-responses"></a>V3 응답 예
 
 버전 3은 NER 및 엔터티 링크에 대 한 별도의 끝점을 제공 합니다. 두 작업 모두에 대 한 응답은 아래와 같습니다. 
@@ -194,97 +135,109 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 ```json
 {
-    "documents": [{
-    "id": "1",
-    "entities": [{
-        "text": "Seattle",
-        "type": "Location",
-        "offset": 26,
-        "length": 7,
-        "score": 0.80624294281005859
-    }, {
-        "text": "last week",
-        "type": "DateTime",
-        "subtype": "DateRange",
-        "offset": 34,
-        "length": 9,
-        "score": 0.8
-    }]
-    }],
-    "errors": [],
-    "modelVersion": "2019-10-01"
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
+
 
 #### <a name="example-entity-linking-response"></a>엔터티 연결 응답 예제
 
 ```json
 {
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7,
-        "score": 0.15046201222847677
-      }],
-      "language": "en",
-      "id": "Seattle",
-      "url": "https://en.wikipedia.org/wiki/Seattle",
-      "dataSource": "Wikipedia"
-    }]
-  }],
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
+        },
+        {
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
+        }
+      ],
+      "warnings": []
+    }
+  ],
   "errors": [],
-  "modelVersion": "2019-10-01"
+  "modelVersion": "2020-02-01"
 }
 ```
 
-#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-### <a name="example-ner-v2-response"></a>예제 NER v2 응답
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
----
 
 ## <a name="summary"></a>요약
 
 이 문서에서는 Cognitive Services의 텍스트 분석을 사용하여 엔터티 링크 설정에 대한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
-* 명명 된 엔터티 인식은 두 버전에서 선택한 언어로 사용할 수 있습니다.
 * 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
 * POST 요청은 개인 설정 된 [액세스 키와](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 구독에 유효한 끝점을 사용 하 여 하나 이상의 끝점으로 전송 됩니다.
 * 연결된 엔터티(각 문서 ID에 대한 신뢰도 점수, 오프셋 및 웹 링크 포함)로 구성된 응답 출력은 모든 애플리케이션에서 사용할 수 있습니다.

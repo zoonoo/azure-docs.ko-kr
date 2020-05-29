@@ -102,6 +102,8 @@
           href: troubleshoot-conditional-access.md
         - name: What If 도구를 사용하여 문제 해결
           href: troubleshoot-conditional-access-what-if.md
+        - name: FAQ
+          href: faqs.md
 - name: 리소스
   items:
     - name: Azure 피드백 포럼
