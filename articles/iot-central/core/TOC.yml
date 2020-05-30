@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: 규칙 구성
           href: howto-configure-rules.md
-        - name: 워크플로를 사용하여 다른 서비스와 통합
-          href: howto-configure-rules-advanced.md
         - name: 디바이스 데이터 분석
           href: howto-create-analytics.md
         - name: 대시보드에 타일 추가
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: 규칙에서 웹후크 만들기
           href: howto-create-webhooks.md
+        - name: 워크플로를 사용하여 다른 서비스와 통합
+          href: howto-configure-rules-advanced.md
         - name: 규칙에서 Azure Monitor 작업 그룹 연결
           href: howto-use-action-groups.md
         - name: 사용자 지정 규칙 만들기

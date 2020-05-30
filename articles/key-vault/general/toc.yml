@@ -1,6 +1,7 @@
 - name: 일반
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure Key Vault 정보
       href: overview.md

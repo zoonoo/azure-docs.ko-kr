@@ -422,6 +422,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: VM 만들기
                   items:
+                    - name: 특수화
+                      href: ../vm-specialized-image-version-cli.md
                     - name: 일반화
                       href: ../vm-generalized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
