@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584623"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220210"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -107,7 +107,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |[음성 텍스트 음성 변환 (TTS)](speech-service/text-to-speech.md)|x|x||
 |[음성 텍스트 음성 변환 (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[Text Analytics](./text-analytics/overview.md)|x|||
+|[텍스트 분석](./text-analytics/overview.md)|x|||
 |[Translator](./translator/translator-info-overview.md)|x|||
 |[Translator-사용자 지정 번역기](./translator/custom-translator/overview.md)||x||
 
