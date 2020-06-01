@@ -20,6 +20,8 @@
       href: create-private-link-service-powershell.md
     - name: Private Link 서비스 만들기 - Azure CLI
       href: create-private-link-service-cli.md
+    - name: Private Link 서비스 만들기 - ARM 템플릿
+      href: create-private-link-service-template.md
 - name: 개념
   items:
     - name: Private Endpoint

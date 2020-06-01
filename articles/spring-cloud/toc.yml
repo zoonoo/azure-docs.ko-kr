@@ -49,6 +49,8 @@
       href: spring-cloud-quotas.md
     - name: Azure Spring Cloud의 메트릭 이해
       href: spring-cloud-concept-metrics.md
+    - name: Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
+      href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
     - name: Azure Spring Cloud Service의 보안 컨트롤
       href: spring-cloud-concept-security-controls.md
     - name: Azure Spring Cloud의 앱 상태 이해
