@@ -1,4 +1,4 @@
-- name: Load Balancer 설명서
+- name: 부하 분산 장치 설명서
   href: index.yml
 - name: 개요
   items:
@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: 아웃바운드 연결
       href: load-balancer-outbound-connections.md
-    - name: 아웃바운드 규칙
-      href: load-balancer-outbound-rules-overview.md
     - name: 유휴 시간 제한에 도달하면 TCP 재설정
       href: load-balancer-tcp-reset.md
     - name: 표준 Load Balancer 및 가용성 영역
