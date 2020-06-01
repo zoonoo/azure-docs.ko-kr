@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
-  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 05/29/2020
+  ms.openlocfilehash: e5567804ec64fd4c1399bc3c978287ddec9817ce
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591916"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84233942"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -109,20 +109,6 @@ conceptualContent:
       text: 위치 기반 조건
     footerLink:
       url: ./conditional-access/index.yml
-      text: 자세히 보기
-  - title: 개발자
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Microsoft ID 플랫폼 정보
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: OAuth 2.0 코드 흐름 부여
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Microsoft ID 플랫폼을 사용하여 앱 등록
-    footerLink:
-      url: ./develop/index.yml
       text: 자세히 보기
   - title: 디바이스 관리
     links:
@@ -235,6 +221,20 @@ conceptualContent:
       text: 관리 ID를 지원하는 서비스
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
+      text: 자세히 보기
+  - title: Microsoft ID 플랫폼
+    links:
+    - url: ./develop/v2-overview.md
+      itemType: overview
+      text: Microsoft ID 플랫폼 정보
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: OAuth 2.0 코드 흐름 부여
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Microsoft ID 플랫폼을 사용하여 앱 등록
+    footerLink:
+      url: ./develop/index.yml
       text: 자세히 보기
   - title: PIM(Privileged Identity Management)
     links:

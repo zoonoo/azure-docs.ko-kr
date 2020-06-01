@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: 클래스룸 랩 아키텍처 기본 사항
       href: classroom-labs-fundamentals.md
+    - name: 용량 제한
+      href: capacity-limits.md
     - name: 시나리오
       items:
         - name: 클래스를 수행하기 위해 랩 사용

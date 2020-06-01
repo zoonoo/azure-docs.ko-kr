@@ -3,12 +3,12 @@ title: QnA Maker 서비스 설정-QnA Maker
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171177"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235528"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -210,6 +210,11 @@ App Service [응용 프로그램 설정을](../../../app-service/configure-commo
 1. 새 설정을 사용 하도록 앱을 다시 시작할지 묻는 메시지가 표시 됩니다. **계속**을 선택합니다.
 
 App Service [일반 설정을](../../../app-service/configure-common.md#configure-general-settings)구성 하는 방법에 대해 자세히 알아보세요.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Qna Maker를 호스팅하도록 App Service Environment 구성 App Service
+App Service Environment를 사용 하 여 App Service QnA Maker를 호스트할 수 있습니다. 내부 App Service Environment 경우 다음 단계를 수행 해야 합니다.
+1. App service 및 azure search 서비스를 만듭니다.
+2. 공용 DNS 및 허용 목록 QnA Maker 서비스 태그 CognitiveServicesManagement에 app service를 표시 하거나 인터넷에 연결 하세요.
+3. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Traffic manager를 통한 비즈니스 연속성
 

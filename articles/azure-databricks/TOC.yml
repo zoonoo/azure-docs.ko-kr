@@ -12,7 +12,6 @@
         - name: 포털
           href: quickstart-create-databricks-workspace-portal.md
         - name: ARM 템플릿
-          displayName: Resource Manager
           href: quickstart-create-databricks-workspace-resource-manager-template.md
         - name: 가상 네트워크
           href: quickstart-create-databricks-workspace-vnet-injection.md
@@ -368,6 +367,9 @@
           maintainContext: true
         - name: Notebooks 사용
           href: /azure/databricks/notebooks/notebooks-use
+          maintainContext: true
+        - name: Notebook 범위의 Python 라이브러리
+          href: /azure/databricks/notebooks/notebooks-python-libraries
           maintainContext: true
         - name: 버전 제어
           items:
@@ -1029,7 +1031,7 @@
               href: /azure/databricks/security/access-control/pool-acl
               maintainContext: true
             - name: 작업 액세스 제어
-              href: /azure/databricks/security/access-control/jobs-acl
+              href: /azure/databricks/security/access-control/job-acl
               maintainContext: true
             - name: 테이블 액세스 제어
               items:
@@ -1665,7 +1667,7 @@
                 - name: SCIM API(사용자)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-users
                 - name: SCIM API(그룹)
-                  href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
             - name: 비밀
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1721,6 +1723,8 @@
       href: /rest/api/databricks
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.databricks/workspaces
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/ext/databricks/databricks?view=azure-cli-latest'
 - name: 리소스
   items:
     - name: Apache Spark
@@ -1862,13 +1866,13 @@
                 - name: Databricks Runtime 7.0 Genomics(베타)
                   href: /azure/databricks/release-notes/runtime/7.0genomics
                   maintainContext: true
-                - name: Databricks Runtime 6.6(베타)
+                - name: Databricks Runtime 6.6
                   href: /azure/databricks/release-notes/runtime/6.6
                   maintainContext: true
-                - name: Databricks Runtime 6.6 ML(베타)
+                - name: Databricks Runtime 6.6 ML
                   href: /azure/databricks/release-notes/runtime/6.6ml
                   maintainContext: true
-                - name: Databricks Runtime 6.6 Genomics(베타)
+                - name: Databricks Runtime 6.6 Genomics
                   href: /azure/databricks/release-notes/runtime/6.6genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.5

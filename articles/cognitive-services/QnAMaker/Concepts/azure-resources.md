@@ -3,12 +3,12 @@ title: Azure 리소스-QnA Maker
 description: QnA Maker는 각각 다른 용도로 사용 되는 여러 Azure 소스를 사용 합니다. 이를 개별적으로 사용 하는 방법을 이해 하면 올바른 가격 책정 계층을 계획 하 고 선택 하거나 가격 책정 계층을 변경 하는 시기를 알 수 있습니다. 이러한 기능을 조합 하 여 사용 하는 방법을 이해 하면 문제 발생 시 문제를 찾아 해결할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80873908"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236080"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -47,7 +47,7 @@ QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타�
 |                        | QnA Maker 관리 | App Service | Azure Cognitive Search | 제한 사항                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | 실험        | 체험 SKU             | 체험 계층   | 체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
-| 개발/테스트 환경   | 표준 SKU         | Shared      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
+| 개발/테스트 환경   | 표준 SKU         | Shared      | 기본        | 최대 14KB, 2GB 크기까지 게시    |
 | 프로덕션 환경 | 표준 SKU         | Basic       | Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ## <a name="recommended-settings"></a>권장 설정
@@ -72,7 +72,7 @@ QnA Maker 기술 자료를 처음으로 개발 하는 경우에는 프로토타�
 
 ## <a name="resource-naming-considerations"></a>리소스 명명 고려 사항
 
-과 `qna-westus-f0-b`같은 QnA Maker 리소스의 리소스 이름도 다른 리소스의 이름을 사용 하는 데 사용 됩니다.
+과 같은 QnA Maker 리소스의 리소스 이름도 `qna-westus-f0-b` 다른 리소스의 이름을 사용 하는 데 사용 됩니다.
 
 Azure Portal 만들기 창에서 QnA Maker 리소스를 만들고 다른 리소스에 대 한 가격 책정 계층을 선택할 수 있습니다.
 
@@ -150,7 +150,7 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 
 |App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
 |App Service|X|디자인에서 불가능|
 |Application Insights|✔|공유할 수 있습니다.|
-|Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름입니다. 다른 사용자는 사용할 수 없습니다.<br>2. 이름이 `synonym-map` 인 동의어 맵이 QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
+|Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름이 인 동의어 맵이 `synonym-map` QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>단일 Cognitive Search 서비스 사용
 
@@ -172,7 +172,7 @@ Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-|속성|위치|목적|
+|Name|위치|용도|
 |--|--|--|
 |작성 키|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점을 쿼리하여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 쿼리 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
@@ -182,6 +182,14 @@ Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 
 용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키**였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
 
 어떤 키를 찾아야 하는지 파악 하기 위해 키에 액세스 하는 기술 자료 관리 또는 기술 자료 쿼리를 알고 있어야 합니다.
+
+## <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
+
+* [가상 네트워크를 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)하 여 공용 액세스에서 인지 서비스 리소스를 보호 합니다.
+* 공용 액세스에서 App Service (QnA Runtime) 보호:
+    * 인지 서비스 Ip의 트래픽만 허용 합니다. 이러한 설정은 서비스 태그 "CognitiveServicesManagement"에 이미 포함 되어 있습니다. 이는 app service를 호출 하 고 Azure Search 서비스를 업데이트 하는 Api (만들기/업데이트 KB)를 작성 하는 데 필요 합니다.
+    * 또한 Bot service, QnA Maker portal (corpnet 일 수 있음) 등의 다른 진입점을 허용 하 고, 예측 "GenerateAnswer" API 액세스를 위한 것입니다.
+    * [서비스 태그에 대 한 자세한 정보를](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

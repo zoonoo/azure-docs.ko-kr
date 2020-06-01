@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: a0e43171e70923cfb3af551391204f118be01970
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 11c3c464de5efc9b38426fa7ea015f63b37a8b52
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75932657"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84235507"
 productDirectory:
   items:
   - title: Azure Blockchain 서비스
@@ -32,13 +32,6 @@ productDirectory:
     - url: ./workbench/overview.md
       text: Azure Blockchain Workbench란?
     - url: ./workbench/index.yml
-      text: 자세히 보기 >
-  - title: Azure Blockchain 토큰
-    imageSrc: ./media/index/blockchain-tokens.svg
-    links:
-    - url: ./tokens/overview.md
-      text: Azure Blockchain 토큰이란?
-    - url: ./tokens/index.yml
       text: 자세히 보기 >
 conceptualContent:
   title: 시작하기
@@ -71,17 +64,6 @@ conceptualContent:
     - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
       itemType: video
       text: 첫 번째 애플리케이션을 빌드하는 방법 보기
-  - title: 토큰 만들기 및 관리
-    links:
-    - url: ./tokens/templates.md
-      itemType: concept
-      text: 미리 빌드된 템플릿을 사용하여 토큰 정의
-    - url: ./tokens/account-management.md
-      itemType: concept
-      text: Azure Blockchain 토큰을 사용하여 토큰 관리
-    - url: https://aka.ms/ABTokensPartI
-      itemType: video
-      text: Azure Blockchain 토큰 소개 보기
   - title: Blockchain Data Manager를 사용하여 블록체인 데이터 게시
     links:
     - url: ./service/data-manager.md
