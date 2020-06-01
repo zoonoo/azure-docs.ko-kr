@@ -60,20 +60,34 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: 리소스 배포
           href: ./samples/pattern-deploy-resources.md
+    - name: 규정 준수 기본 제공
+      items:
+        - name: Azure Security Benchmark
+          href: ./samples/azure-security-benchmark.md
+        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+          href: ./samples/cis-azure-1-1-0.md
+        - name: NIST SP 800-53 R4
+          href: ./samples/nist-sp-800-53-r4.md
 - name: 개념
   items:
-    - name: Azure Policy 정의 구조
+    - name: 정의 구조
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Policy 효과 이해
+    - name: 효과 이해
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Azure Policy 할당 구조
+    - name: 이니셔티브 구조
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: 할당 구조
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: 새 정책의 영향 평가
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: 규정 준수
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: 코드 워크플로서의 디자인 정책
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -127,6 +141,8 @@
         - name: VM용 Azure Monitor 사용(미리 보기)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: 문제 해결
+  href: ./troubleshoot/general.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -183,7 +199,7 @@
           href: /rest/api/policy-insights/remediations
         - name: 게스트 구성
           href: /rest/api/guestconfiguration/
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: 할당
           href: /azure/templates/microsoft.authorization/policyassignments
@@ -198,7 +214,7 @@
     - name: GitHub - 커뮤니티 정책 리포지토리
       href: 'https://github.com/Azure/Community-Policy'
     - name: Azure Policy에 대한 Microsoft Q&A
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: 거버넌스 YouTube 채널
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: 게스트 구성 비디오

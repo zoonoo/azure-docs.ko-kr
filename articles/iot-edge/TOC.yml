@@ -177,6 +177,8 @@
       items:
         - name: IoT Edge 배포 모니터링
           href: how-to-monitor-iot-edge-deployments.md
+        - name: 모듈 쌍 모니터링
+          href: how-to-monitor-module-twins.md
         - name: EdgeAgent 직접 메서드
           href: how-to-edgeagent-direct-method.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용

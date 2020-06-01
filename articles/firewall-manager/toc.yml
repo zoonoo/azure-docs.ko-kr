@@ -7,7 +7,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 보안 가상 허브
+    - name: 가상 허브 보안 - ARM 템플릿
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: 자습서

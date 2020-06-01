@@ -80,8 +80,10 @@
           href: virtual-network-for-azure-services.md
     - name: IP 서비스
       items:
-        - name: IP 주소
-          href: virtual-network-ip-addresses-overview-arm.md
+        - name: 공용 IP
+          href: public-ip-addresses.md
+        - name: 개인 IP
+          href: private-ip-addresses.md
         - name: 공용 IP 접두사
           href: public-ip-address-prefix.md
         - name: Azure VNET의 IPv6

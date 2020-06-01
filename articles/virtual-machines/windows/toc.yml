@@ -148,7 +148,7 @@
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: template-description.md
     - name: 영역
       href: regions.md
@@ -449,6 +449,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: VM 만들기
                   items:
+                    - name: 특수화
+                      href: ../vm-specialized-image-version-cli.md
                     - name: 일반화
                       href: ../vm-generalized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
@@ -664,7 +666,7 @@
                       items:
                         - name: Virtual Machine
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                        - name: VM 확장 집합
+                        - name: 확장 집합
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Event Hubs로 보내기
                       href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

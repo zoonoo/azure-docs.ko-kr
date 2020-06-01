@@ -58,7 +58,7 @@
       items:
         - name: 데이터 가져오기
           href: import-data.md
-        - name: 온-프레미스 SQL에서 데이터 사용
+        - name: SQL Server의 데이터 사용
           displayName: on-premises
           href: use-data-from-an-on-premises-sql-server.md
     - name: 모델 학습

@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 03/25/2020
+ms.date: 05/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41a08a70df24f80ea324860d6d1db16c9ed99760
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6e9c3b92942f24ae0a9972fa61340775262af761
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697191"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203905"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -24,7 +24,7 @@ ms.locfileid: "83697191"
 다음은 Azure Policy에서 언어와 연산자를 사용하는 다양한 패턴의 예입니다.
 
 - [논리 연산자](./pattern-logical-operators.md)
-- [Fields](./pattern-fields.md)
+- [필드](./pattern-fields.md)
 - [매개 변수](./pattern-parameters.md)
 - [효과 세부 정보](./pattern-effect-details.md)
 - [태그 사용](./pattern-effect-details.md)
@@ -32,6 +32,14 @@ ms.locfileid: "83697191"
 - [Count 연산자](./pattern-count-operator.md)
 - [이니셔티브에서 정책 정의 그룹화](./pattern-group-with-initiative.md)
 - [deployIfNotExists를 사용하여 리소스 배포](./pattern-deploy-resources.md)
+
+## <a name="regulatory-compliance"></a>규정 준수
+
+다음은 [규정 준수](../concepts/regulatory-compliance.md) 기본 제공입니다.
+
+- [Azure Security Benchmark](./azure-security-benchmark.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 
 ## <a name="other-samples"></a>기타 샘플
 

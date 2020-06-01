@@ -12,6 +12,8 @@
       href: create-private-endpoint-powershell.md
     - name: 프라이빗 엔드포인트 만들기 - Azure CLI
       href: create-private-endpoint-cli.md
+    - name: 프라이빗 엔드포인트 만들기 - Azure 템플릿
+      href: create-private-endpoint-template.md
     - name: Private Link 서비스 만들기 - 포털
       href: create-private-link-service-portal.md
     - name: Private Link 서비스 만들기 - PowerShell

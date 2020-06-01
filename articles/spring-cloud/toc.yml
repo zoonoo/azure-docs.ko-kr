@@ -73,6 +73,8 @@
       href: spring-cloud-howto-persistent-storage.md
     - name: Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
       href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Azure Spring Cloud 애플리케이션에 대해 시스템에서 할당한 관리 ID 사용
+      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
 - name: Azure Spring Cloud에 DevOps 배포
   items:
     - name: Azure DevOps를 사용하는 CI/CD

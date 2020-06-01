@@ -67,15 +67,17 @@
         - name: 첫 번째 ML 실험 만들기(R)
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: CLI를 사용하여 학습 및 배포
+          href: tutorial-train-deploy-model-cli.md
+        - name: Resource Manager 템플릿을 사용하여 작업 영역 만들기
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Azure Machine Learning 확장 설정
           href: tutorial-setup-vscode-extension.md
         - name: TensorFlow 이미지 분류 모델 학습 및 배포
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Resource Manager 템플릿으로 작업 영역 만들기
-      href: tutorial-resource-manager-workspace.md
 - name: 샘플
   items:
     - name: Jupyter Notebook

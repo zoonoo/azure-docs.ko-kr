@@ -98,6 +98,8 @@
               href: virtual-wan-route-table.md
         - name: 가상 허브 유효 경로 보기
           href: effective-routes-virtual-hub.md
+        - name: 여러 ISP 링크 - Azure Path Selection
+          href: path-selection-multiple-links.md
     - name: 보안
       items:
         - name: 허브에 Azure Firewall 설치

@@ -17,12 +17,12 @@
       href: quick-create-python.md
 - name: 자습서
   items:
-    - name: HSM 보호 키 가져오기
+    - name: HSM 보호 키 가져오기(개요)
       href: hsm-protected-keys.md
-    - name: HSM 보호 키 가져오기(미리 보기)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: HSM 보호 키 가져오기(레거시)
-      href: hsm-protected-keys-legacy.md
+    - name: HSM 보호 키 가져오기(BYOK)
+      href: hsm-protected-keys-byok.md
+    - name: HSM 보호 키 가져오기(nCipher)
+      href: hsm-protected-keys-ncipher.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능
@@ -47,6 +47,8 @@
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: 사용자 고유 키 사양 가져오기
+      href: byok-specification.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -1,4 +1,4 @@
-- name: 부하 분산 장치 설명서
+- name: Load Balancer 설명서
   href: index.yml
 - name: 개요
   items:
@@ -135,12 +135,14 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: 내부 부하 분산 장치 - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
-    - name: 문제 해결
-      items:
-        - name: Azure Load Balancer 문제 해결
-          href: load-balancer-troubleshoot.md
-        - name: 일반 배포 오류 문제 해결
-          href: load-balancer-common-deployment-errors.md
+- name: 문제 해결
+  items:
+    - name: Azure Load Balancer 문제 해결
+      href: load-balancer-troubleshoot.md
+    - name: 일반 배포 오류 문제 해결
+      href: load-balancer-common-deployment-errors.md
+    - name: 일반적인 아웃바운드 연결 문제 해결
+      href: troubleshoot-outbound-connection.md
 - name: 참조
   items:
     - name: 코드 샘플

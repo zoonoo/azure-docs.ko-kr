@@ -42,6 +42,8 @@
   items:
     - name: Logic Apps에서 Form Recognizer 사용
       href: tutorial-form-recognizer-with-logic-apps.md
+    - name: Cognitive Search와 함께 Form Recognizer 사용
+      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: 방법 가이드
   items:
     - name: 학습 데이터 세트 빌드
