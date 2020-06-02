@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c02e823202aa848a4de94885276835899562e4b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79367842"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266018"
 ---
-# <a name="what-are-custom-commands-preview"></a>사용자 지정 명령 (미리 보기) 이란?
+# <a name="what-is-custom-commands-preview"></a>사용자 지정 명령 (미리 보기) 이란?
 
-[음성 도우미](voice-assistants.md) 와 같은 음성 응용 프로그램은 사용자를 수신 대기 하 고 응답으로 작업을 수행 하는 경우가 많습니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 음성 SDK `DialogServiceConnector` 개체를 사용 하 여 도우미에 연결 합니다.
+[음성 도우미](voice-assistants.md) 와 같은 음성 응용 프로그램은 사용자를 수신 대기 하 고 응답으로 작업을 수행 하는 경우가 많습니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 음성 SDK 개체를 사용 하 여 도우미에 연결 `DialogServiceConnector` 합니다.
 
 **사용자 지정 명령 (미리 보기)** 은 음성 응용 프로그램을 만들기 위한 간소화 된 솔루션입니다. 통합 된 작성 환경을 제공 하 고, 자동 호스팅 모델을 제공 하며, 비교적 낮은 복잡성과 [직접 줄 음성](direct-line-speech.md)같은 기타 옵션을 제공 합니다. 그러나이 단순화는 유연성이 줄어듭니다. 따라서 사용자 지정 명령 (미리 보기)은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합 합니다. 사물 인터넷 (IoT) 및 헤드리스 장치에 대해 특히 잘 일치 합니다.
 

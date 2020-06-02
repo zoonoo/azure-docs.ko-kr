@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78330722"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267106"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "78330722"
 
 ## <a name="set-up-powershell-environment"></a>PowerShell 환경 설정
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)를 열어 시작 합니다. Cloud shell은 왼쪽 위 드롭다운에서 PowerShell로 설정 하거나를 입력 `pwsh`하 여 설정 해야 합니다.
+1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)를 열어 시작 합니다. Cloud Shell를 왼쪽 위 드롭다운에서 PowerShell로 설정 하거나를 입력 하 여 확인 `pwsh` 합니다.
 
 1. 다음 코드 조각을 복사 하 여 셸에 붙여 넣습니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "78330722"
     }
     ```
 
-1. 매개 변수를 `Create-ImmersiveReaderResource`적절 하 게 제공 하 여 함수를 실행 합니다.
+1. `Create-ImmersiveReaderResource`매개 변수를 적절 하 게 제공 하 여 함수를 실행 합니다.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -162,12 +162,12 @@ ms.locfileid: "78330722"
     | SubscriptionName |몰입 형 판독기 리소스에 사용할 Azure 구독의 이름입니다. 리소스를 만들려면 구독이 있어야 합니다. |
     | ResourceName |  '-'가 첫 번째 또는 마지막 문자가 아닌 경우 영숫자 여야 하며 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다.|
     | ResourceSubdomain |사용자 지정 하위 도메인은 몰입 형 판독기 리소스에 필요 합니다. 하위 도메인은 몰입 형 판독기 서비스를 호출 하 여 판독기를 시작할 때 SDK에서 사용 됩니다. 하위 도메인은 전역적으로 고유 해야 합니다. '-'가 첫 번째 또는 마지막 문자가 아닌 경우 하위 도메인은 영숫자 여야 하 고 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceSKU |옵션: `S0`. 사용 가능한 각 SKU에 대 한 자세한 내용은 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) 를 참조 하세요. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceLocation |옵션: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2` `australiaeast` `northeurope` `uksouth`,,,,,,, `westeurope` `southeastasia` `centralindia` `japaneast` 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
+    | ResourceSKU |옵션: `S0` . 사용 가능한 각 SKU에 대 한 자세한 내용은 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) 를 참조 하세요. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
+    | ResourceLocation |옵션: `eastus` , `eastus2` , `southcentralus` , `westus` , `westus2` , `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` ,,,,,, `westeurope` 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
     | ResourceGroupName |리소스는 구독 내의 리소스 그룹에 만들어집니다. 기존 리소스 그룹의 이름을 제공 합니다. 리소스 그룹이 아직 없는 경우이 이름을 가진 새 리소스 그룹이 생성 됩니다. |
-    | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공 해야 합니다. 위치 목록을 찾으려면를 실행 `az account list-locations`합니다. 반환 된 결과의 *이름* 속성 (공백 없음)을 사용 합니다. 리소스 그룹이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
+    | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공 해야 합니다. 위치 목록을 찾으려면를 실행 `az account list-locations` 합니다. 반환 된 결과의 *이름* 속성 (공백 없음)을 사용 합니다. 리소스 그룹이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
     | AADAppDisplayName |Azure Active Directory 응용 프로그램 표시 이름입니다. 기존 Azure AD 응용 프로그램을 찾을 수 없는 경우이 이름을 가진 새 응용 프로그램이 생성 됩니다. Azure AD 응용 프로그램이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
-    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. `https://immersivereaderaad-mycompany`)을 입력합니다. |
+    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예: `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |사용자가 만드는 암호는 나중에 몰입 형 판독기를 시작 하기 위해 토큰을 획득 하는 경우 나중에 인증 하는 데 사용 됩니다. 암호는 16 자 이상 이어야 하 고 하나 이상의 특수 문자를 포함 하 고 하나 이상의 숫자 문자를 포함 해야 합니다. |
 
 1. 나중에 사용 하기 위해 JSON 출력을 텍스트 파일로 복사 합니다. 출력은 다음과 비슷합니다.
@@ -183,7 +183,7 @@ ms.locfileid: "78330722"
 
 ## <a name="next-steps"></a>다음 단계
 
-* Node.js를 사용하여 몰입형 판독기 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](./quickstart-nodejs.md)을 살펴보세요.
+* Node.js를 사용하여 몰입형 판독기 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)을 살펴보세요.
 * Python을 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Python 자습서](./tutorial-python.md)를 살펴보세요.
 * Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [Swift 자습서](./tutorial-ios-picture-immersive-reader.md) 를 확인 하세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
