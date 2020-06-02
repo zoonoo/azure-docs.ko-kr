@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78967716"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -93,8 +93,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 값을 입력합니다.
 
-    b. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
+    엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
+
+    개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    다. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
 
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 

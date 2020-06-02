@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76986736"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648460"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -158,7 +158,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     h. 페이지 맨 아래에 있는 **저장**
 
     > [!NOTE]
-    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm) 문서를 참조하세요.
+    > 고객은 확장명이 .crt인 PEM으로 인코딩된 x509 인증서 파일 및 확장명이 .key인 RSA 또는 DSA 프라이빗 키 파일을 인증서 키 파일로 업로드해야 합니다. 인증서 파일 및 인증서 키 파일에 대한 자세한 내용은 [이](https://help.tableau.com/current/server/en-us/saml_requ.htm) 문서를 참조하세요. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [Server Wide SAML 구성](https://help.tableau.com/current/server/en-us/config_saml.htm) 문서를 참조하세요.
 
 ### <a name="create-tableau-server-test-user"></a>Tableau Server 테스트 사용자 만들기
 

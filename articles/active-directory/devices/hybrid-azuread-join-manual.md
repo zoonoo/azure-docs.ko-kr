@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201026"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778732"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -200,7 +200,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 컴퓨터에 대한 해당 클레임 하나를 제공해야 합니다.
+ImmutableID 클레임(예: `mS-DS-ConsistencyGuid` 또는 다른 특성을 ImmutableID의 원본 값으로 사용)을 이미 발급 중인 경우 컴퓨터에 대한 해당 클레임 하나를 제공해야 합니다.
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -329,7 +329,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 ![회사 도메인 목록](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>사용자에 대한 ID가 있는 경우(예: 대체 로그인 ID가 설정된 경우) 컴퓨터에 대한 ImmutableID 발급
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>사용자용 컴퓨터가 있는 경우 컴퓨터에 ImmutableID를 발급합니다(예: ImmutableID의 원본으로 mS-DS-ConsistencyGuid 사용).
 
 `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` 클레임은 컴퓨터에 대한 유효한 값을 포함해야 합니다. AD FS에서 다음과 같은 발급 변환 규칙을 만들 수 있습니다.
 
@@ -549,16 +549,71 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 ## <a name="verify-joined-devices"></a>가입 디바이스 확인
 
-[Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 성공적으로 조인된 디바이스를 확인할 수 있습니다.
+디바이스 상태를 찾고 확인하는 3가지 방법은 다음과 같습니다.
 
-이 cmdlet의 출력은 Azure AD로 등록 및 가입된 디바이스를 보여 줍니다. 모든 디바이스를 가져오려면 **-All** 매개 변수를 사용한 다음, **deviceTrustType** 속성을 사용하여 디바이스를 필터링합니다. 도메인에 가입된 디바이스는 **도메인 가입** 값을 갖습니다.
+### <a name="locally-on-the-device"></a>디바이스에서 로컬로
+
+1. Windows PowerShell을 엽니다.
+2. `dsregcmd /status`를 입력합니다.
+3. **AzureAdJoined** 및 **DomainJoined**가 모두 **예**로 설정되어 있는지 확인합니다.
+4. **DeviceId**를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
+
+### <a name="using-the-azure-portal"></a>Azure Portal 사용
+
+1. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하여 디바이스 페이지로 이동합니다.
+2. 디바이스를 찾는 방법에 대한 정보는 [Azure Portal을 사용하여 디바이스 ID를 관리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices)에서 찾을 수 있습니다.
+3. **Registered** 열에 **보류 중**이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다. 페더레이션된 환경에서는 등록에 실패하고 AAD 연결이 디바이스를 동기화하도록 구성된 경우에만 이 문제가 발생할 수 있습니다.
+4. **Registered** 열에 **날짜/시간**이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
+
+### <a name="using-powershell"></a>PowerShell 사용
+
+**[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** 를 사용하여 Azure 테넌트의 디바이스 등록 상태를 확인합니다. 이 cmdlet은 [Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에 있습니다.
+
+**Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
+
+- **디바이스 ID**가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
+- **DeviceTrustType** 값은 **Domain Joined**입니다. 이 설정은 Azure AD 포털에서 **디바이스** 페이지의 **하이브리드 Azure AD 조인**과 같습니다.
+- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값은 **True**이고, **DeviceTrustLevel**은 **Managed**입니다.
+
+1. 관리자 권한으로 Windows PowerShell을 엽니다.
+2. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>모든 하이브리드 Azure AD 조인 디바이스 수(**보류 중** 상태 제외)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>**보류 중** 상태가 포함된 모든 하이브리드 Azure AD 조인 디바이스 수
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>모든 하이브리드 Azure AD 조인 디바이스 나열
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>**보류 중** 상태가 포함된 모든 하이브리드 Azure AD 조인 디바이스 나열
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>단일 디바이스의 세부 정보를 나열합니다.
+
+1. `get-msoldevice -deviceId <deviceId>`(디바이스에서 로컬로 가져온 **DeviceId**)를 입력합니다.
+2. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결
 
-도메인 조인 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료할 때 문제가 발생하면 다음을 참조하세요.
+도메인 조인 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료하는 데 문제가 발생하는 경우 다음을 참조하세요.
 
-* [Windows 최신 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-* [Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+- [dsregcmd 명령을 사용하여 디바이스 문제 해결](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [하이브리드 Azure Active Directory 조인 디바이스 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+- [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>다음 단계
 

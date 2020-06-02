@@ -3,12 +3,12 @@ title: 자습서 - CLI를 사용하여 Azure에서 SAP HANA DB 백업
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78206625"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747283"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet은 등록, 백업 구성, 백업 데이터 삭제 등과 같은 다른 작업뿐 아니라 보호된 데이터베이스에서 실행되었거나 현재 실행 중인 모든 백업 작업(예약된 백업 또는 요청 시 백업)을 나열합니다.
+
+>[!NOTE]
+>Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.
+>
+>필요에 따라 정책을 수동으로 수정합니다.
 
 ## <a name="trigger-an-on-demand-backup"></a>주문형 백업 트리거
 

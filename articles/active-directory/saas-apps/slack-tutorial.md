@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c80963976783321d05fc6f32bb24daed36fa105
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985557"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834410"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>자습서: Slack과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -39,6 +39,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Slack SSO(Single Sign-On)가 설정된 구독
 
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
@@ -47,9 +50,6 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Slack이 **JIT(Just-in-time)** 사용자 프로비전을 지원
 * Slack이 [**자동화된** 사용자 프로비전](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)을 지원
 * Slack을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
-> [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-slack-from-the-gallery"></a>갤러리에서 Slack 추가
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.slack.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://< DOMAIN NAME>.slack.com/sso/saml/start` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://slack.com` URL을 입력합니다.
 
@@ -104,6 +104,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | | |
+
+> [!NOTE]
+    > SP(서비스 공급자) 구성을 설정하려면 SAML 구성 페이지에서 **고급 옵션** 옆의 있는 **확장**을 클릭해야 합니다. **Service Provider Issuer** 상자에 작업 영역 URL을 입력합니다. 기본값은 slack.com입니다. 
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -149,15 +152,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **Microsoft Azure AD**, **팀 설정**으로 차례로 이동합니다.
 
-     ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial_slack_001.png)
+     ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial-slack-001.png)
 
 3. **팀 설정** 섹션에서 **인증** 탭을 클릭한 다음 **설정 변경**을 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial_slack_002.png)
+    ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial-slack-002.png)
 
 4. **SAML 인증 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial_slack_003.png)
+    ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial-slack-003.png)
 
     a.  **SAML 2.0 엔드포인트(HTTP)** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -167,7 +170,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. 위의 세 가지 설정을 Slack 팀에 적합하게 구성합니다. 설정에 대한 자세한 내용은 **Slack의 SSO 구성 가이드**를 참조하세요. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    e.  **구성 저장**을 클릭하십시오.
+    ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial-slack-004.png)
+
+    e. **확장**을 클릭하고 **ID 공급자 인증서 발급자** 텍스트 상자에 `https://slack.com`을 입력합니다.
+
+    f.  **구성 저장**을 클릭하십시오.
 
 ### <a name="create-slack-test-user"></a>Slack 테스트 사용자 만들기
 

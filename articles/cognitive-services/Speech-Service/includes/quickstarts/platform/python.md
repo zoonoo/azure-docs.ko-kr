@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 924532318fc6638059bbe9eef0065349463523ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7947c468f5d35869b9185062b8dc479234297486
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400869"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673240"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 `pip install azure-cognitiveservices-speech`를 실행합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "81400869"
   - Mac: macOS X 버전 10.12 이상
   - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8(x64 기반)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 지원되는 Linux 플랫폼에는 특정 라이브러리가 설치되어 있어야 합니다(보안 소켓 레이어 지원을 위한 `libssl` 및 사운드 지원을 위한 `libasound2`). 이러한 라이브러리의 올바른 버전을 설치하는 데 필요한 명령은 아래 배포를 참조하세요.
 
@@ -40,7 +40,7 @@ ms.locfileid: "81400869"
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - RHEL/CentOS 8에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
+  - RHEL/CentOS에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 
         ```sh
         sudo yum update
@@ -48,10 +48,11 @@ ms.locfileid: "81400869"
         ```
 
 > [!NOTE]
-> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
+> - RHEL/CentOS 7에서 [Speech SDK용 RHEL/CentOS 7을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md)의 지침을 따르세요.
+> - RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 - Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하는 경우 이 가이드를 계속하기 전에 Windows를 다시 시작해야 할 수 있습니다.
-- 마지막으로 [Python 3.5~3.8](https://www.python.org/downloads/)이 필요합니다. 설치를 확인하려면 명령 프롬프트를 열고 `python --version` 명령을 입력하고 결과를 확인합니다. 올바르게 설치된 경우 "Python 3.5.1" 또는 이와 유사한 응답을 얻게 됩니다.
+- 마지막으로 [Python 3.5~3.8](https://www.python.org/downloads/)이 필요합니다. 설치를 확인하려면 명령 프롬프트를 열어 `python --version` 명령을 입력하고 결과를 확인합니다. 올바르게 설치된 경우 "Python 3.5.1" 또는 이와 유사한 응답을 얻게 됩니다.
 
 ## <a name="install-the-speech-sdk-from-pypi"></a>PyPI에서 Speech SDK 설치
 

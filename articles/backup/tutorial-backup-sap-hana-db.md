@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501444"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747222"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -32,6 +32,11 @@ ms.locfileid: "79501444"
   * MDC의 경우 키가 **NAMESERVER**의 SQL 포트를 가리켜야 합니다. SDC의 경우 **INDEXSERVER**의 SQL 포트를 가리켜야 합니다.
   * 사용자를 추가하고 삭제하려면 자격 증명이 있어야 합니다
 * HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하면 HANA 시스템이 백업 준비가 됩니다. [사전 등록 스크립트의 기능](#what-the-pre-registration-script-does) 섹션을 참조하면 사전 등록 스크립트에 대해 자세히 이해할 수 있습니다.
+
+>[!NOTE]
+>Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.
+>
+>필요에 따라 정책을 수동으로 수정합니다.
 
 ## <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 

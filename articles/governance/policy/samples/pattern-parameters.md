@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 매개 변수
 description: 이 Azure Policy 패턴은 정책 정의에서 매개 변수를 사용하는 방법에 대한 예제를 제공합니다.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696734"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Azure Policy 패턴: 매개 변수
 
@@ -16,7 +16,10 @@ ms.locfileid: "77170181"
 
 ## <a name="sample-1-string-parameters"></a>샘플 1: String 매개 변수
 
-이 정책 정의는 두 개의 매개 변수, 즉 **tagName** 및 **tagValue**를 사용하여 정책 할당에서 리소스에 대해 찾고 있는 항목을 설정합니다. 이 형식을 사용하면 원하는 수의 태그 이름 및 태그 값 조합에 정책을 사용할 수 있지만 단일 정책 정의만 유지 관리합니다.
+이 정책 정의는 두 개의 매개 변수, 즉 **tagName** 및 **tagValue**를 사용하여 정책 할당에서 리소스에 대해 찾고 있는 항목을 설정합니다. 이 형식을 사용하면 원하는 수의 태그 이름 및 태그 값 조합에 정책 정의를 사용할 수 있지만 단일 정책 정의만 유지 관리합니다.
+
+> [!NOTE]
+> _모든_ **모드**를 사용하고 리소스 그룹과 작동하는 태그 샘플은 [패턴: 태그 - 샘플 #1](./pattern-tags.md#sample-1-parameterize-tags)을 참조하세요.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -47,6 +50,22 @@ ms.locfileid: "77170181"
 여기에서 정의된 값 중 하나로 **serviceProvider.bandwidthInMbps** 별칭에 대해 사용됩니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>샘플 3: 매개 변수화된 효과
+
+정책 정의를 다시 사용할 수 있도록 하는 일반적인 방법은 효과 자체를 매개 변수화하는 것입니다. 이 예제에서는 단일 매개 변수 **효과**를 사용합니다. 효과를 매개 변수화하면 다른 효과를 가진 범위에 동일한 정의를 할당할 수 있습니다.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>샘플 3: 설명
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+정책 정의의 이 부분에서 **효과** 매개 변수는 _문자열_로 정의됩니다. 정책 정의는 할당의 기본값을 _감사_로 설정하고 다른 옵션을 _사용 안함_ 및 _거부_로 제한합니다.
+
+그런 다음, _효과_에 대한 **policyRule.then** 블록에서 매개 변수를 사용합니다.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>다음 단계
 

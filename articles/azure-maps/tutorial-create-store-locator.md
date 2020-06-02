@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333851"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746053"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -375,7 +375,7 @@ ms.locfileid: "80333851"
     }
    ```
 
-지금 애플리케이션을 실행하면 헤더, 검색 상자 및 검색 단추가 나타납니다. 하지만, 지도는 아직 로드되지 않았으므로 보이지 않습니다. 검색을 수행하려는 경우 아무 작업도 발생하지 않습니다. 다음 섹션에서 설명하는 JavaScript 논리를 설정해야 합니다. 이 논리는 저장 로케이터의 모든 기능에 액세스합니다.
+지금 애플리케이션을 실행하면 헤더, 검색 상자 및 검색 단추가 나타납니다. 하지만, 맵이 아직 로드되지 않았으므로 표시되지 않습니다. 검색을 수행하려는 경우 아무 작업도 발생하지 않습니다. 다음 섹션에서 설명하는 JavaScript 논리를 설정해야 합니다. 이 논리는 저장 로케이터의 모든 기능에 액세스합니다.
 
 ## <a name="wire-the-application-with-javascript"></a>애플리케이션을 JavaScript에 연결
 
@@ -397,7 +397,7 @@ ms.locfileid: "80333851"
 
 1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
 
-   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
+   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가/지역 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
    검색이 완료되면 첫 번째 결과를 가져와 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하면 HTML5 지리적 위치 API를 사용하여 사용자의 위치를 검색합니다. 이 API는 브라우저에 기본 제공됩니다. 그런 다음, 지도의 위치를 가운데에 맞춥니다.  
 
@@ -453,7 +453,7 @@ ms.locfileid: "80333851"
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ ms.locfileid: "80333851"
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.

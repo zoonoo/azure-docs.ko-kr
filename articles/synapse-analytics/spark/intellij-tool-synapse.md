@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790969"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644849"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 Spark 풀(미리 보기)용 Apache Spark 애플리케이션 만들기
 
@@ -62,6 +62,7 @@ ms.locfileid: "82790969"
     |프로젝트&nbsp;위치| 프로젝트를 저장할 위치를 입력합니다.|
     |프로젝트 SDK| IDEA를 처음 사용하는 경우에는 비어 있을 수 있습니다. **새로 만들기...** 를 만들기 JDK로 이동합니다.|
     |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Synapse는 **Spark 2.4.0**만 지원합니다.|
+    |||
 
     ![Apache Spark SDK 선택](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -141,9 +142,9 @@ Scala 애플리케이션을 만든 후에는 원격으로 실행할 수 있습�
     |Spark 풀|애플리케이션을 실행하려는 Spark 풀을 선택합니다.|
     |제출할 아티팩트를 선택합니다.|기본 설정을 유지합니다.|
     |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
-    |작업 구성|기본 키 및 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
+    |작업 구성|기본 키 및 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 및 [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 및 [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
     |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|
@@ -176,7 +177,7 @@ Scala 애플리케이션을 만든 후에는 원격으로 실행할 수 있습�
 
     ![Intellij 구성 실행 디버그 로컬 실행](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. 로컬 실행이 완료되고 스크립트에 출력이 포함되어 있으면 **data** >  **__default__** 에서 출력 파일을 확인할 수 있습니다.
+3. 로컬 실행이 완료되고 스크립트에 출력이 포함되어 있으면 **data** > **__default__** 에서 출력 파일을 확인할 수 있습니다.
 
     ![Intellij 프로젝트 로컬 실행 결과](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -270,4 +271,4 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Azure Synapse Analytics 작업 영역에 사용할 새 Apache Spark 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Azure Synapse Analytics 작업 영역에 사용할 새 Apache Spark 풀 만들기](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

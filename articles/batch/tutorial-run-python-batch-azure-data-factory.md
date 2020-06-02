@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 통해 Python 스크립트 실행 - Azure Batch Python
+title: Data Factory를 통해 Python 스크립트 실행
 description: 자습서 - Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트를 파이프라인의 일부로 실행하는 방법을 알아봅니다.
 author: mammask
 ms.devlang: python
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117066"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773188"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>자습서: Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트 실행
 
@@ -34,6 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * 로컬 테스트를 위해 설치된 [Python](https://www.python.org/downloads/) 배포
 * [Azure](https://pypi.org/project/azure/) `pip` 패키지
+* [iris.csv 데이터 세트](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Azure Batch 계정 및 연결된 Azure Storage 계정. Batch 계정을 만들고 스토리지 계정에 연결하는 방법에 대한 자세한 내용은 [Batch 계정 만들기](quick-create-portal.md#create-a-batch-account)를 참조하세요.
 * Azure Data Factory 계정. Azure Portal을 통해 데이터 팩터리를 만드는 방법에 대한 자세한 내용은 [데이터 팩터리 만들기](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory)를 참조하세요.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
@@ -66,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. Azure 자격 증명을 사용하여 Storage Explorer에 로그인합니다.
 1. Batch 계정에 연결된 스토리지 계정을 사용하여 [Blob 컨테이너 만들기](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container)의 단계에 따라 두 개의 Blob 컨테이너(입력 파일용 1개, 출력 파일용 1개)를 만듭니다.
     * 이 예제에서는 입력 컨테이너 `input`과 출력 컨테이너 `output`을 호출합니다.
-1. [Blob 컨테이너의 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)의 단계에 따라 Storage Explorer를 사용하여 `main.py` 및 `iris.csv`를 `input` 입력 컨테이너에 업로드합니다.
+1. [Blob 컨테이너의 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)의 단계에 따라 Storage Explorer를 사용하여 `main.py` 및 [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)를 `input` 입력 컨테이너에 업로드합니다.
 
 
 ## <a name="develop-a-script-in-python"></a>Python에서 스크립트 개발

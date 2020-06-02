@@ -1,38 +1,28 @@
 ---
-title: Azure VM에 대한 업데이트 및 패치 관리
-description: 이 문서에서는 Azure Automation 업데이트 관리를 사용하여 Azure 및 비 Azure VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
+title: Azure Automation의 Azure VM에 대한 업데이트 및 패치 관리
+description: 이 문서에서는 업데이트 관리를 사용하여 Azure VM에 대한 업데이트 및 패치를 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604687"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829157"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
-업데이트 관리 솔루션을 사용하여 가상 머신의 업데이트 및 패치를 관리할 수 있습니다. 이 자습서에서는 사용 가능한 업데이트의 상태를 빠르게 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하고, 업데이트가 성공적으로 적용되었는지 확인하는 경고를 만드는 방법을 알아봅니다.
+이 문서에서는 Azure Automation [업데이트 관리](automation-update-management.md) 기능을 사용하여 Azure Windows VM에 대한 업데이트 및 패치를 관리하는 방법을 설명합니다. 
 
 가격 책정 정보에 대해서는 [업데이트 관리를 위한 Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
-
-> [!div class="checklist"]
-> * 업데이트 평가 보기
-> * 경고 구성
-> * 업데이트 배포 예약
-> * 배포 결과 보기
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
-
-* 하나 이상의 VM에 [업데이트 관리](automation-update-management.md) 솔루션을 사용하도록 설정되었습니다.
-* 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
+* 하나 이상의 VM에 [업데이트 관리](automation-update-management.md) 기능을 사용하도록 설정되었습니다. 
+* 업데이트 관리에 [가상 머신](../virtual-machines/windows/quick-create-portal.md)을 사용하도록 설정되었습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -95,7 +85,7 @@ Automation 계정이 이미 리소스로 선택되어 있습니다. 변경하려
 
 ## <a name="schedule-an-update-deployment"></a>업데이트 배포 예약
 
-따라서 릴리스 일정 및 서비스 기간 이후로 배포를 예약하여 업데이트를 설치합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
+릴리스 일정 및 서비스 기간 이후로 배포를 예약하여 업데이트를 설치합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
 
 >[!NOTE]
 >업데이트 배포를 예약하면 대상 머신에서 업데이트 배포를 처리하는 **MicrosoftOMSComputers** Runbook에 연결된 [일정](shared-resources/schedules.md) 리소스가 만들어집니다. 배포를 만든 후 Azure Portal에서 또는 PowerShell을 사용하여 일정 리소스를 삭제하면 예약된 업데이트 배포가 중단되고 포털에서 예약 리소스를 다시 구성하려고 할 때 오류가 표시됩니다. 해당 배포 일정을 삭제해야만 일정 리소스를 삭제할 수 있습니다.  
@@ -112,16 +102,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운 메뉴에서 **머신**을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 각 머신의 준비 상태는 **업데이트 에이전트 준비** 열에 표시됩니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
 
-* **업데이트 분류**: 업데이트 배포에 포함할 업데이트를 제외하고 각 제품에 대해 지원되는 모든 업데이트 분류를 선택 취소합니다. 이 자습서에서는 모든 제품에 대해 선택한 모든 형식을 그대로 둡니다.
-
-  분류 형식은 다음과 같습니다.
-
-   |OS  |Type  |
-   |---------|---------|
-   |Windows     | 중요 업데이트</br>보안 업데이트</br>업데이트 롤업</br>기능 팩</br>서비스 팩</br>정의 업데이트</br>도구</br>업데이트<br>드라이버        |
-   |Linux     | 중요 업데이트 및 보안 업데이트</br>다른 업데이트       |
-
-   분류 형식에 대한 설명은 [업데이트 분류](automation-view-update-assessments.md#update-classifications)를 참조하세요.
+* **업데이트 분류**: 업데이트 배포에 포함할 업데이트를 제외하고 각 제품에 대해 지원되는 모든 업데이트 분류를 선택 취소합니다. 분류 형식에 대한 설명은 [업데이트 분류](automation-view-update-assessments.md#work-with-update-classifications)를 참조하세요.
 
 * **포함/제외할 업데이트** - [포함/제외] 페이지가 열립니다. 포함할 업데이트 또는 제외할 업데이트는 KB 문서 ID 번호를 지정하여 별도의 탭에 배치됩니다. 하나 이상의 ID 번호를 지정하는 경우 업데이트 배포를 사용하여 모든 분류를 제거하거나 선택 취소해야 합니다. 이렇게 하면 업데이트 ID를 지정할 때 다른 업데이트가 업데이트 패키지에 포함되지 않습니다.
 
@@ -131,7 +112,6 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 > [!NOTE]
 > 업데이트 배포에 포함하기 위해 대체된 업데이트를 지정할 수 없습니다.
 >
-
 * **일정 설정**: 일정 설정 창이 열립니다. 기본 시작 시간은 현재 시간으로부터 30분 후입니다. 앞으로 10분 이후부터 언제든지 시작 시간을 설정할 수 있습니다.
 
    배포가 한 번만 수행될지 여부를 지정하거나 되풀이 일정을 설정할 수도 있습니다. **되풀이**에서 **한 번**을 선택합니다. 기본값인 1일을 그대로 두고 **확인**을 클릭합니다. 이러한 항목은 되풀이 일정을 설정합니다.
@@ -196,16 +176,4 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * 업데이트 관리를 위한 VM 온보딩
-> * 업데이트 평가 보기
-> * 경고 구성
-> * 업데이트 배포 예약
-> * 배포 결과 보기
-
-업데이트 관리 솔루션에 대한 개요로 계속 진행하세요.
-
-> [!div class="nextstepaction"]
-> [업데이트 관리 솔루션](automation-update-management.md)
+* 업데이트 관리에 대한 자세한 내용은 [업데이트 관리 개요](automation-update-management.md)를 참조하세요.

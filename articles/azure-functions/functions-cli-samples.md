@@ -1,17 +1,16 @@
 ---
 title: Azure CLI 샘플 - Azure Functions
 description: Azure CLI 샘플 - Azure Functions
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223750"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779552"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
@@ -22,8 +21,8 @@ ms.locfileid: "79223750"
 | 앱 만들기 | Description |
 |---|---|
 | [서버를 사용하지 않고 실행하기 위한 함수 앱 만들기](scripts/functions-cli-create-serverless.md) | 소비 계획에서 함수 앱을 만듭니다.  |
-| [서버리스 Python 함수 앱 만들기](scripts/functions-cli-create-serverless-python.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
-| [확장 가능한 프리미엄 플랜에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
+| [서버리스 Python 함수 앱 만들기](scripts/functions-cli-create-serverless-python.md) | 소비 계획에서 Python 함수 앱을 만듭니다. |
+| [확장 가능한 프리미엄 플랜에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md) | 프리미엄 플랜에서 함수 앱을 만듭니다. |
 | [전용(App Service) 계획에서 함수 앱 만들기](scripts/functions-cli-create-app-service-plan.md) | 전용 App Service 계획에서 함수 앱을 만듭니다. |
 
 | 통합 | Description|

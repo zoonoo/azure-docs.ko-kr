@@ -12,12 +12,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1251049add8c9d3c71b6ba13aff24e086613e84b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450958"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640568"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -150,6 +150,12 @@ var currentAccount: MSALAccount?
 ```
 
 위에서 수정해야 하는 값은 [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id)`kClientID`에 할당된 값뿐입니다. 이 값은 이 자습서의 시작 부분에서 애플리케이션을 Azure Portal에 등록하는 단계에서 저장한 MSAL 구성 데이터의 일부입니다.
+
+## <a name="configure-xcode-project-settings"></a>Xcode 프로젝트 설정 구성
+
+프로젝트 **서명 및 기능**에 새 키 집합 그룹을 추가합니다. 키 집합 그룹은 iOS에서는 `com.microsoft.adalcache`, macOS에서는 `com.microsoft.identity.universalstorage`여야 합니다.
+
+![키 집합 그룹을 설정하는 방법을 표시하는 Xcode UI](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 
 ## <a name="for-ios-only-configure-url-schemes"></a>iOS의 경우에만 URL 스키마 구성
 

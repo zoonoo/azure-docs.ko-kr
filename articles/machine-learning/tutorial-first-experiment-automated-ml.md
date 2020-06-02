@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366529"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656520"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -23,6 +23,8 @@ ms.locfileid: "80366529"
 이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습 인터페이스를 사용하여 코드 줄을 하나도 작성하지 않고 기본 분류 모델을 만드는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
 자동화된 기계 학습을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
+
+시계열 예측 예제를 보려면 [자습서: 수요 예측 및 AutoML](tutorial-automated-ml-forecast.md)을 참조하세요.
 
 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
@@ -221,7 +223,8 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 > [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
-+ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요. + [기능화](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요.
++ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
++ [기능화](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요.
 + [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보
 
 

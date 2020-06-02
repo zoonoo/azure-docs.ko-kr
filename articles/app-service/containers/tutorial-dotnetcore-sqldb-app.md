@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208128"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846939"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> 새 터미널 창을 열 경우 [프로덕션 데이터베이스로 데이터베이스 마이그레이션 실행](#run-database-migrations-to-the-production-database)에서와 같이 터미널의 프로덕션 데이터베이스로 연결 문자열을 설정해야 합니다.
+>
+
 ### <a name="use-the-new-property"></a>새 속성 사용
 
 `Done` 속성을 사용하도록 코드를 약간 변경합니다. 이 자습서에서는 간단하게 `Index` 및 `Create` 보기만 변경하여 속성의 실제 작동을 확인합니다.
@@ -367,6 +371,10 @@ _Views/Todos/Index.cshtml_을 엽니다.
 ```bash
 dotnet run
 ```
+
+> [!NOTE]
+> 새 터미널 창을 열 경우 [프로덕션 데이터베이스로 데이터베이스 마이그레이션 실행](#run-database-migrations-to-the-production-database)에서와 같이 터미널의 프로덕션 데이터베이스로 연결 문자열을 설정해야 합니다.
+>
 
 브라우저에서 `http://localhost:5000/`로 이동합니다. 이제 할 일 항목을 추가하고 **완료**를 확인할 수 있습니다. 그러면 홈페이지에 완료된 항목으로 표시됩니다. `Edit` 보기를 변경하지 않았으므로 `Edit` 보기에서 `Done` 필드가 표시되지 않습니다.
 

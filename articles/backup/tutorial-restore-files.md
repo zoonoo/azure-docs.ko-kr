@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure VM에서 파일 
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171729"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653270"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
 
@@ -117,6 +117,9 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 ## <a name="restore-file-to-your-vm"></a>VM에 파일 복원
 
 이제 VM에 복사된 복구 스크립트를 사용하여 복구 지점을 연결하고 파일을 복원할 수 있습니다.
+
+>[!NOTE]
+> 계속하기 전에 [여기](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script)를 확인하여 VM에서 스크립트를 실행할 수 있는지 확인합니다.
 
 1. SSH를 사용하여 VM에 연결합니다. 다음과 같이 *publicIpAddress*를 VM의 공용 IP 주소로 바꿉니다.
 

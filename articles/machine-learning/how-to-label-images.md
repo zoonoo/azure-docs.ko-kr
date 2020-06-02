@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204324"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758914"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
+# <a name="tag-images-in-a-labeling-project-preview"></a>레이블 지정 프로젝트에서 이미지에 태그 지정(미리 보기)
 
 프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구(공개 미리 보기)를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
@@ -65,11 +65,13 @@ Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단
 
 ### <a name="assisted-machine-learning"></a>지원 기계 학습 
 
-기계 학습 알고리즘은 다중 클래스 또는 다중 레이블 분류 작업 중에 트리거될 수 있습니다. 프로젝트에서 이러한 알고리즘을 사용하는 경우 다음이 표시될 수 있습니다.
+기계 학습 알고리즘이 트리거될 수 있습니다. 프로젝트에서 이러한 알고리즘을 사용하는 경우 다음이 표시될 수 있습니다.
 
 * 일부 이미지를 레이블 지정한 후에는 프로젝트 이름 옆의 화면 위쪽에서 **클러스터된 작업**이 표시될 수 있습니다.  즉, 동일한 페이지에 비슷한 이미지를 표시하도록 이미지가 그룹화됩니다.  그렇다면 여러 이미지 뷰 중 하나로 전환하여 그룹화를 활용합니다.  
 
 * 나중에 프로젝트 이름 옆에 **미리 레이블이 지정된 작업**이 표시될 수 있습니다.  그러면 이미지는 기계 학습 분류 모델에서 제공하는 제안된 레이블로 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 이미지만 사용하지만 이러한 이미지는 여전히 잘못된 레이블이 지정될 수 있습니다.  이러한 레이블이 표시되면 페이지를 전송하기 전에 잘못된 레이블을 수정합니다.  
+
+* 개체 검색 모델의 경우 경계 상자와 레이블이 이미 있는 것을 볼 수 있습니다.  페이지를 제출하기 전에 잘못된 내용을 수정합니다.
 
 특히 레이블 지정 프로젝트의 초기에 기계 학습 모델은 이미지의 작은 하위 세트에 레이블을 지정할 정도로만 정확할 수 있습니다. 이러한 이미지가 레이블 지정되면 레이블 지정 프로젝트가 수동 레이블 지정으로 반환되어 다음 라운드 모델 학습에 대한 추가 데이터를 수집합니다. 시간이 지남에 따라 모델은 더 높은 비율의 이미지에 대해 더 확실하게 되므로 나중에 프로젝트에서 더 많은 사전 레이블 작업을 진행합니다.
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223600"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681824"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -73,7 +73,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 
 ### <a name="producerjava"></a>Producer.java
 
-생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [GitHub 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)의 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
+생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [GitHub 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)의 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여 줍니다. 엔터프라이즈 보안을 사용하는 클러스터의 경우 추가 속성을 추가해야 합니다. "properties.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
 
 ```java
 Properties properties = new Properties();
@@ -87,7 +87,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
 ### <a name="consumerjava"></a>Consumer.java
 
-소비자는 Kafka broker 호스트(작업자 노드)와 통신하고, 루프에서 레코드를 읽습니다. [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) 파일의 다음 코드 조각은 소비자 속성을 설정합니다.
+소비자는 Kafka broker 호스트(작업자 노드)와 통신하고, 루프에서 레코드를 읽습니다. [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) 파일의 다음 코드 조각은 소비자 속성을 설정합니다. 엔터프라이즈 보안을 사용하는 클러스터의 경우 추가 속성을 추가해야 합니다. "properties.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
 
 ```java
 KafkaConsumer<String, String> consumer;
@@ -115,6 +115,16 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
+### <a name="use-pre-built-jar-files"></a>미리 빌드된 JAR 파일 사용
+
+[Kafka Get Started Azure 샘플](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars)에서 jar을 다운로드합니다. 클러스터가 **ESP(Enterprise Security Package)** 를 사용하도록 설정된 경우 kafka-producer-consumer-esp.jar을 사용합니다. 아래 명령을 사용하여 클러스터에 jar을 복사합니다.
+
+```cmd
+scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+```
+
+### <a name="build-the-jar-files-from-code"></a>코드에서 JAR 파일 빌드
+
 이 단계를 건너뛰려면 `Prebuilt-Jars` 하위 디렉터리에서 미리 작성된 jar을 다운로드할 수 있습니다. kafka-producer-consumer.jar을 다운로드합니다. 클러스터가 **ESP(Enterprise Security Package)** 를 사용하도록 설정된 경우 kafka-producer-consumer-esp.jar을 사용합니다. 3단계를 실행하여 jar을 HDInsight 클러스터에 복사합니다.
 
 1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 예제를 다운로드하여 압축을 풉니다.
@@ -125,12 +135,12 @@ consumer = new KafkaConsumer<>(properties);
     mvn clean package
     ```
 
-    이 명령은 `kafka-producer-consumer-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다.
+    이 명령은 `kafka-producer-consumer-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다. ESP 클러스터의 경우 이 파일은 `kafka-producer-consumer-esp-1.0-SNAPSHOT.jar`입니다.
 
 3. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 다음 명령을 입력하여 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다. 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
     ```cmd
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+    scp ./target/kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
 ## <a name="run-the-example"></a><a id="run"></a> 예제 실행
@@ -169,6 +179,7 @@ consumer = new KafkaConsumer<>(properties);
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
+    scp ./target/kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
     레코드 수와 함께 읽은 레코드가 표시됩니다.
@@ -203,6 +214,12 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 > 소비자 그룹에는 파티션보다 더 많은 소비자 인스턴스가 있을 수 없습니다. 이 예제에서 하나의 소비자 그룹은 토픽의 파티션 수이기 때문에 최대 8개 소비자를 포함할 수 있습니다. 또는 소비자가 8개 이하인 소비자 그룹이 여러 개 있을 수 있습니다.
 
 Kafka에 저장된 레코드는 파티션 내에서 받은 순서대로 저장됩니다. *파티션 내의* 레코드에 대해 순서대로 전달하려면 파티션 수와 일치하는 소비자 인스턴스가 있는 소비자 그룹을 만듭니다. *토픽 내의* 레코드에 대해 순서대로 전달하려면 하나의 소비자 인스턴스만 사용하는 소비자 그룹을 만듭니다.
+
+## <a name="common-issues-faced"></a>일반적인 문제
+
+1. **항목 만들기 실패** 클러스터가 엔터프라이즈 보안 팩을 사용하도록 설정된 경우 [생산자 및 소비자에 대해 미리 빌드된 JAR 파일](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)을 사용합니다. [`DomainJoined-Producer-Consumer` 하위 디렉터리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)의 코드에서 ESP jar을 빌드할 수 있습니다. 생산자 및 소비자 속성은 ESP 사용 클러스터에 대한 추가 속성 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`입니다.
+
+2. **ESP 사용 클러스터와 관련된 문제** 생산자 및 소비자 작업이 실패하고 ESP 사용 클러스터를 사용하는 경우 사용자 `kafka`가 모든 Ranger 정책에 있는지 확인합니다. 없는 경우 모든 Ranger 정책에 추가합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

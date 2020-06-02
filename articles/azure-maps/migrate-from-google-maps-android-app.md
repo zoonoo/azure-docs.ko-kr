@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209735"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747428"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Google Maps에서 Android 앱 마이그레이션
 
@@ -314,7 +314,7 @@ Azure Maps 컨트롤은 보다 강력한 축소를 지원하고 더 많은 월�
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-대상 그룹이 여러 국가에 분산되어 있거나 다른 언어를 사용하는 경우 지역화가 중요합니다.
+대상 그룹이 여러 국가/지역에 분산되어 있거나 다른 언어를 사용하는 경우 지역화가 중요합니다.
 
 **이전: Google Maps**
 

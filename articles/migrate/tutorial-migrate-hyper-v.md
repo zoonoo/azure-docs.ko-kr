@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 87f746108599928d3e1b4a022abc1b3a3779ef29
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 3b50c11f43d29de354f04e1a4296818c5bd8cbab
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853547"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773529"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate:Server Migration 도구를 추가합니다.
 
-- 두 번째 자습서에 따라 [VMware VM을 평가](tutorial-assess-hyper-v.md)한 경우 이미 Azure Migrate 프로젝트를 설정했으므로 계속해서 도구를 추가할 수 있습니다.
+- 두 번째 자습서에 따라 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)한 경우 이미 Azure Migrate 프로젝트를 설정했으므로 계속해서 도구를 추가할 수 있습니다.
 - 두 번째 자습서를 따르지 않은 경우 [이러한 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정합니다. 프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
 
 프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.

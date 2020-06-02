@@ -11,12 +11,12 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f0aabf4bd18f82c247a43931e02e4b6890b2ef4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207805"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650675"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 워크로드 격리 구성
 
@@ -25,11 +25,11 @@ ms.locfileid: "82207805"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 > [!NOTE]
-> Azure Synapse Analytics에서 SQL Analytics 인스턴스를 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+> Azure Synapse Analytics에서 Synapse SQL 인스턴스를 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작에서는 Azure Synapse에 SQL Analytics 인스턴스가 이미 있고 CONTROL DATABASE 권한이 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
+이 빠른 시작에서는 Azure Synapse에 Synapse SQL 인스턴스가 이미 있고 CONTROL DATABASE 권한이 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
 
 ## <a name="create-login-for-dataloads"></a>DataLoads에 대한 로그인 만들기
 
@@ -110,5 +110,5 @@ DROP USER [ELTLogin]
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이제 워크로드 분류자를 만들었습니다. ELTLogin으로 몇 가지 쿼리를 실행하여 어떻게 수행되는지 확인합니다. 쿼리 및 할당된 워크로드 그룹을 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+- 이제 워크로드 분류자를 만들었습니다. ELTLogin으로 몇 가지 쿼리를 실행하여 수행하는 방법을 확인합니다. 쿼리 및 할당된 워크로드 그룹을 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 - Synapse SQL 워크로드 관리에 대한 자세한 내용은 [워크로드 관리](sql-data-warehouse-workload-management.md)와 [워크로드 격리](sql-data-warehouse-workload-isolation.md)를 참조하세요.

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143747"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640180"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -58,6 +58,10 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
    * SSPR 범위에 포함되도록 하려는 사용자 OU(조직 구성 단위)
 
 이러한 권한을 할당하지 않으면 쓰기 저장이 올바르게 구성된 것처럼 표시되지만 사용자가 클라우드에서 온-프레미스 암호를 관리할 때 오류가 발생합니다. "만료되지 않은 암호"가 표시되도록 하려면 **이 개체 및 모든 하위 개체**에 사용 권한을 적용해야 합니다.  
+
+> [!TIP]
+>
+> 일부 사용자 계정의 암호가 온-프레미스 디렉터리에 다시 기록되지 않는 경우 온-프레미스 AD DS 환경의 계정에 대해 상속이 비활성화되어 있지 않은지 확인합니다. 기능이 제대로 작동하려면 암호에 대한 쓰기 권한을 하위 개체에 적용해야 합니다.
 
 비밀번호 쓰기 저장이 발생하도록 적절한 사용 권한을 설정하려면 다음 단계를 완료하세요.
 

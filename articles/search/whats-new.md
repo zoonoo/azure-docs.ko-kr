@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
-ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80247200"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682470"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
-<a name="new-service-name"></a>
-
-## <a name="new-service-name"></a>새 서비스 이름
-
-핵심 작업에서 확장된 인지 기술과 AI 처리(아직 선택 사항)를 사용할 수 있도록 Azure Search의 이름이 이제 **Azure Cognitive Search**로 변경되었습니다. API 버전, NuGet 패키지, 네임스페이스 및 엔드포인트는 변경되지 않았습니다. 새 검색 솔루션과 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
-
 ## <a name="feature-announcements"></a>기능 공지
+
+### <a name="may-2020-microsoft-build"></a>2020년 5월(Microsoft Build)
+
++ [디버그 세션](cognitive-search-debug-session.md) 기능은 현재 미리 보기로 제공됩니다. [액세스를 요청하려면 등록하세요](https://aka.ms/DebugSessions). 디버그 세션은 기술 세트 관련 문제를 조사하고 해결할 수 있는 포털 기반 인터페이스를 제공합니다. 디버그 세션에서 만들어진 픽스는 프로덕션 기술 세트에 저장할 수 있습니다. [이 자습서](cognitive-search-tutorial-debug-sessions.md)를 시작합니다.
+
++ 향상된 보안 기능에는 공용 인터넷에서 액세스할 수 없는 [프라이빗 검색 엔드포인트(미리 보기)를 설정](service-create-private-endpoint.md)하는 기능이 포함됩니다. [인바운드 방화벽 지원(미리 보기)에 대한 IP 규칙을 구성](service-configure-firewall.md)할 수도 있습니다.
+
++ [시스템 관리 ID(미리 보기)](search-howto-managed-identities-data-sources.md)를 사용하여 인덱싱을 위해 Azure 데이터 원본에 대한 연결을 설정합니다. Azure SQL Database, Azure Cosmos DB 및 Azure Storage와 같은 Azure 데이터 원본에서 콘텐츠를 수집하는 [인덱서](search-indexer-overview.md)에 적용됩니다.
+
++ [scoringStatistics=global 쿼리 매개 변수](index-similarity-and-scoring.md#scoring-statistics)를 사용하여 분할 단위에서 전체 분할 검색 점수가 계산되는 방식의 기본을 변경합니다.
 
 ### <a name="march-2020"></a>2020년 3월
 
@@ -45,7 +49,7 @@ ms.locfileid: "80247200"
 
 + 검색 서비스에 대한 프라이빗 액세스는 현재 미리 보기에 있는 두 가지 메커니즘을 통해 제공됩니다.
 
-  + `api-version=2019-10-01-Preview` 관리 REST API를 사용하여 서비스를 만들면 특정 IP 주소에 대한 액세스를 제한할 수 있습니다. 미리 보기 API의 **CreateOrUpdate API**에는 새로운 **IpRule** 및 [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service) 속성이 있습니다. 이 미리 보기 기능은 선택한 지역에서 사용할 수 있습니다. 자세한 내용은 [관리 REST API를 사용하는 방법](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)을 참조하세요.
+  + `api-version=2019-10-01-Preview` 관리 REST API를 사용하여 서비스를 만들면 특정 IP 주소에 대한 액세스를 제한할 수 있습니다. 미리 보기 API의 [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service)에는 새로운 **IpRule** 및 **NetworkRuleSet** 속성이 있습니다. 이 미리 보기 기능은 선택한 지역에서 사용할 수 있습니다. 자세한 내용은 [관리 REST API를 사용하는 방법](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)을 참조하세요.
 
   + 이 액세스는 현재 제한된 액세스 미리 보기를 통해 사용할 수 있으며, 동일한 가상 네트워크의 클라이언트에서 연결하기 위해 Azure 프라이빗 엔드포인트를 지원하는 Azure Search 서비스를 프로비저닝할 수 있습니다. 자세한 내용은 [보안 연결을 위한 프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)를 참조하세요.
 
@@ -73,6 +77,12 @@ ms.locfileid: "80247200"
 ### <a name="july-2019"></a>2019년 7월
 
 + [Azure Government 클라우드](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)에서 일반적으로 사용할 수 있습니다.
+
+<a name="new-service-name"></a>
+
+## <a name="new-service-name"></a>새 서비스 이름
+
+핵심 작업에서 확장된 인지 기술과 AI 처리(아직 선택 사항)를 사용할 수 있도록 Azure Search의 이름이 이제 **Azure Cognitive Search**로 변경되었습니다. API 버전, NuGet 패키지, 네임스페이스 및 엔드포인트는 변경되지 않았습니다. 새 검색 솔루션과 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
 
 ## <a name="service-updates"></a>서비스 업데이트
 

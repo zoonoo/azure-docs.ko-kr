@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200591"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747158"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 
-2019년 9월 14일 현재, [유럽 경제 지역](https://en.wikipedia.org/wiki/European_Economic_Area)에 속한 31개 국가의 은행은 결제를 처리하기 전에 온라인 구매자의 신분을 의무적으로 확인해야 합니다. 신분을 확인하려면 다단계 인증이 필요하며, 신분 확인을 통해 온라인 구매를 안전하게 보호할 수 있습니다. 일부 국가에서는 이 확인 요구 사항의 날짜가 지연될 예정입니다. 자세한 내용은 [PSD2에 대한 Microsoft FAQ](https://support.microsoft.com/en-us/help/4517854?preview)를 참조하세요.
+2019년 9월 14일 현재, [유럽 경제 지역](https://en.wikipedia.org/wiki/European_Economic_Area)에 속한 31개 국가/지역의 은행은 결제를 처리하기 전에 온라인 구매자의 신분을 의무적으로 확인해야 합니다. 신분을 확인하려면 다단계 인증이 필요하며, 신분 확인을 통해 온라인 구매를 안전하게 보호할 수 있습니다. 일부 국가/지역에서는 이 확인 요구 사항의 날짜가 지연될 예정입니다. 자세한 내용은 [PSD2에 대한 Microsoft FAQ](https://support.microsoft.com/en-us/help/4517854?preview)를 참조하세요.
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Azure 고객을 위한 PSD2의 의미
 

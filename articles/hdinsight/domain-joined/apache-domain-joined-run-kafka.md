@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78204738"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677545"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -147,7 +147,8 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 
-**참고:  이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).**
+> [!NOTE]  
+> 이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).
 
 5. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
 

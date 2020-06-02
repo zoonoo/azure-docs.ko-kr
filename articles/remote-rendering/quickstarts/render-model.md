@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677688"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682560"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -66,7 +66,7 @@ Unity Hub를 열고 *ARR\azure-remote-rendering\Unity\Quickstart* 폴더인 샘�
 
 1. Unity 자산 브라우저에서 *Scenes* 폴더로 이동하여 **빠른 시작** 장면을 엽니다.
 1. *계층*에서 **RemoteRendering** 게임 개체를 선택합니다.
-1. *검사기*에 [계정 자격 증명](../how-tos/create-an-account.md)을 입력합니다.
+1. *검사기*에 [계정 자격 증명](../how-tos/create-an-account.md)을 입력합니다. 아직 계정이 없는 경우 [계정을 만듭니다](../how-tos/create-an-account.md).
 
 ![ARR 계정 정보](./media/arr-sample-account-info.png)
 

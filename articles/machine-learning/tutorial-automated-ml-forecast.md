@@ -1,5 +1,5 @@
 ---
-title: 자동화된 ML 실험을 통해 자전거 공유 수요 예측
+title: '자습서: 수요 예측 및 AutoML'
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Studio에서 자동화된 Machine Learning을 사용하여 수요 예측 모델을 학습시키고 배포하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088327"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656557"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>자습서: 자동화된 Machine Learning을 통해 자전거 공유 수요 예측
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 자습서에서는 Azure Machine Learning Studio에서 자동화된 Machine Learning 또는 자동화된 ML을 사용하여 자전거 공유 서비스에 대한 임대 수요를 예측하는 시계열 예측 모델을 만듭니다.
+이 자습서에서는 Azure Machine Learning Studio에서 자동화된 기계 학습 또는 자동화된 ML을 사용하여 자전거 공유 서비스에 대한 임대 수요를 예측하는 시계열 예측 모델을 만듭니다.
+
+분류 모델 예제를 보려면 [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조하세요.
 
 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 데이터 세트를 만들고 로드합니다.
 > * 자동화된 ML 실험을 구성하고 실행합니다.
+> * 예측 설정을 지정합니다.
 > * 실험 결과를 살펴봅니다.
 > * 최적의 모델을 배포합니다.
 
@@ -129,7 +132,7 @@ ms.locfileid: "77088327"
 
 1. **시간 열**로 **date**를 선택하고 **열별 그룹화**를 비워 둡니다. 
 
-    1. **추가 구성 설정 보기**를 선택하고 다음과 같이 필드를 채웁니다. 이러한 설정은 학습 작업을 더 효율적으로 제어하기 위한 것입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다.
+    1. **추가 구성 설정 보기**를 선택하고 다음과 같이 필드를 채웁니다. 이러한 설정은 학습 작업을 보다 효율적으로 제어하고 예측에 대한 설정을 지정하기 위한 것입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다.
 
   
         추가&nbsp;구성|Description|Value&nbsp;for&nbsp;tutorial
@@ -138,7 +141,7 @@ ms.locfileid: "77088327"
         자동 기능화| 전처리를 사용하도록 설정합니다. 여기에는 자동 데이터 정리, 준비 및 가상 기능 생성을 위한 변환이 포함됩니다.| 사용
         최상의 모델 설명(미리 보기)| 자동화된 ML에서 만든 최상의 모델에 대한 설명 가능성을 자동으로 표시합니다.| 사용
         차단된 알고리즘 | 학습 작업에서 제외할 알고리즘| 최대 임의 트리
-        추가 예측 설정| 이러한 설정은 모델의 정확도를 향상시키는 데 도움이 됩니다. <br><br> _**예측 기간**_ : 예측하려는 미래의 기간 지정 <br> _**대상 지연 예측:**_ 대상 변수의 지연 시간을 얼마 전으로 구성할지 지정 <br> _**대상 이동 기간**_ : *max, min* 및 *sum* 같은 기능이 생성되는 이동 기간의 크기 지정 |예측 기간: 14 <br> 대상&nbsp;지연&nbsp;예측: None <br> 대상&nbsp;이동&nbsp;기간&nbsp;크기: None
+        추가 예측 설정| 이러한 설정은 모델의 정확도를 향상시키는 데 도움이 됩니다. <br><br> _**예측 기간**_: 예측하려는 미래의 기간 지정 <br> _**대상 지연 예측:**_ 대상 변수의 지연 시간을 얼마 전으로 구성할지 지정 <br> _**대상 이동 기간**_: *max, min* 및 *sum* 같은 기능이 생성되는 이동 기간의 크기 지정 |예측 기간: 14 <br> 대상&nbsp;지연&nbsp;예측: None <br> 대상&nbsp;이동&nbsp;기간&nbsp;크기: None
         종료 기준| 조건을 충족하는 경우 학습 작업이 중지됩니다. |학습&nbsp;작업&nbsp;시간(시): 3 <br> 메트릭&nbsp;점수&nbsp;임계값: None
         유효성 검사 | 교차 유효성 검사 유형 및 테스트 수를 선택합니다.|유효성 검사 유형:<br>&nbsp;k겹&nbsp;교차 유효성 검사 <br> <br> 유효성 검사 수: 5
         동시성| 반복당 실행되는 최대 병렬 반복 수| 최대&nbsp;동시&nbsp;반복: 6
@@ -224,6 +227,10 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 > [!div class="nextstepaction"]
 > [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
++ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
++ [기능화](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요.
++ [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보
 
 >[!NOTE]
 > 이 자전거 공유 데이터 세트는 이 자습서에 맞게 수정되었습니다. 이 데이터 세트는 [Kaggle Competition](https://www.kaggle.com/c/bike-sharing-demand/data)의 일부로 제공되었고 원래는 [Capital Bikeshare](https://www.capitalbikeshare.com/system-data)를 통해 제공되었습니다. 또한 [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset) 내에서도 확인할 수 있습니다.<br><br>

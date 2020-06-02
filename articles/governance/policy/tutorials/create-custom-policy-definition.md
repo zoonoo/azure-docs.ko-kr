@@ -1,14 +1,14 @@
 ---
 title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190710"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683249"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -321,7 +321,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 비 규격 리소스를 어떻게 할 것인지 결정하는 사안은 무엇을 평가할 것인지 결정하는 사안만큼 중요합니다. 비 규격 리소스에 대해 나올 수 있는 각 대응을 [효과](../concepts/effects.md)라고 합니다. 효과는 비 규격 리소스가 로깅되는지, 차단되는지, 데이터가 추가되었는지 또는 리소스를 규정 준수 상태로 되돌리기 위한 배포가 연결되는지 여부를 제어합니다.
 
-우리 예에서는 Azure 환경에 비 규격 리소스를 만들지 않을 것이므로 우리에게 필요한 효과는 Deny입니다. 감사는 정책을 Deny로 설정하기 전에 정책의 영향을 확인하기에 좋은 정책 효과입니다. 할당별 효과를 보다 쉽게 변경하는 한 가지 방법은 효과를 매개 변수화하는 것입니다. 자세한 방법은 아래의 [매개 변수](#parameters)를 참조하세요.
+우리 예제에서는 Azure 환경에 비 규격 리소스를 만들지 않을 것이므로 우리에게 필요한 효과는 Deny입니다. 감사는 정책을 Deny로 설정하기 전에 정책의 영향을 확인하기에 좋은 정책 효과입니다. 할당별 효과를 보다 쉽게 변경하는 한 가지 방법은 효과를 매개 변수화하는 것입니다. 자세한 방법은 아래의 [매개 변수](#parameters)를 참조하세요.
 
 ## <a name="compose-the-definition"></a>정의 작성
 

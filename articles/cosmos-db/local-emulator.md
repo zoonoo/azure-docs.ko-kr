@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 9650bb3214c22926427717569f718ca0426ed729
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: cd7f1ba856cb2c58d14f7a2560a7716beff92076
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618741"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849011"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -40,6 +40,7 @@ Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 
 * Azure Cosmos Emulator는 [다중 지역 복제](distribute-data-globally.md)를 제공하지 않습니다.
 * Azure Cosmos Emulator의 복사본은 항상 Azure Cosmos DB 서비스의 최신 변경 사항이 적용된 최신 상태로 유지되지 않을 수도 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 애플리케이션에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
 * Azure Cosmos Emulator를 사용하는 경우, 기본적으로, 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](#set-partitioncount)을 참조하세요.
+* 에뮬레이터는 254자의 최대 ID 속성 크기를 지원합니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 

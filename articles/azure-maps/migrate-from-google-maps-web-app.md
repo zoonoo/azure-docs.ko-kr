@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: bdbf2a975cbdc3d06745b9375c1e6f8e751ddfd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df23226adfa8caa86b7ad91dd28a9352381f4170
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77914093"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747557"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Google Maps에서 웹앱 마이그레이션
 
@@ -194,7 +194,7 @@ Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK
 
 ### <a name="localizing-the-map"></a>맵 지역화
 
-대상 그룹이 여러 국가에 분산되어 있거나 여러 언어를 사용하는 경우 지역화가 중요합니다.
+대상 그룹이 여러 국가/지역에 분산되어 있거나 다른 언어를 사용하는 경우 지역화가 중요합니다.
 
 **이전: Google Maps**
 

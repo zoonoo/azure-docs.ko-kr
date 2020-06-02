@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371471"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747494"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
 
@@ -56,7 +56,7 @@ Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비
 Azure Maps는 다음과 같은 주소를 지오코딩하는 여러 가지 방법을 제공합니다.
 
 - [**자유 형식 주소 지오코딩**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): 단일 주소 문자열을 지정하고 요청을 즉시 처리합니다. "1 Microsoft way, Redmond, WA"는 단일 주소 문자열의 예입니다. 이 API는 개별 주소를 신속하게 지오코딩해야 하는 경우 권장됩니다.
-- [**정형 주소 지오코딩**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 API는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 권장됩니다.
+- [**정형 주소 지오코딩**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가/지역, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 API는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 권장됩니다.
 - [**일괄 처리 주소 지오코딩**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): 최대 10,000개의 주소를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 주소가 서버에서 병렬로 지오코딩되며, 코딩이 완료되면 전체 결과 세트를 다운로드할 수 있습니다. 대형 데이터 세트를 지오코딩할 때 추천하는 방법입니다.
 - [**유사 항목 검색**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 자유 형식 문자열을 사용합니다. 이 문자열은 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있습니다. 이 API는 거의 실시간으로 요청을 처리합니다. 이 API는 사용자가 동일한 텍스트 상자에서 주소 또는 관심 지점을 검색하는 애플리케이션에 권장됩니다.
 - [**유사 항목 일괄 검색**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
@@ -67,7 +67,7 @@ Azure Maps는 다음과 같은 주소를 지오코딩하는 여러 가지 방법
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` 및 `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - 시<br/>`municipalitySubdivision` – 이웃 도시, 하위 도시/대도시권<br/>`countrySubdivision` - 도<br/>`countrySecondarySubdivision` - 군<br/>`countryTertiarySubdivision` - 구<br/>`countryCode` - 두 자로 된 국가 번호 |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - 시<br/>`municipalitySubdivision` – 이웃 도시, 하위 도시/대도시권<br/>`countrySubdivision` - 도<br/>`countrySecondarySubdivision` - 군<br/>`countryTertiarySubdivision` - 구<br/>`countryCode` - 두 문자로 된 국가/지역 코드 |
 | `key`                       | `subscription-key` – [Azure Maps로 인증](azure-maps-authentication.md) 설명서도 참조하세요. |
 | `language`                  | `language` - [지원되는 언어](supported-languages.md) 설명서를 참조하세요.  |
 | `region`                    | `countrySet`                       |
@@ -179,7 +179,7 @@ Azure Maps를 사용하여 경로와 방향을 계산합니다. Azure Maps에는
 
 Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공합니다.
 
-- [**경로 계산**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다. Azure Maps의 POST 경로 방향에는 수천 개의 [지원 요소](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints)를 사용할 수 있는 옵션이 있으며 이를 사용하여 둘 사이의 논리적 경로를 다시 만들 수 있습니다(도로에 맞춤). 
+- [**경로 계산**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 권장되는 방법입니다. Azure Maps의 POST 경로 방향에는 수천 개의 [지원 요소](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints)를 사용할 수 있는 옵션이 있으며 이를 사용하여 둘 사이의 논리적 경로를 다시 만들 수 있습니다(도로에 맞춤). 
 - [**일괄 처리 경로**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 - [**모바일 서비스**](https://docs.microsoft.com/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 

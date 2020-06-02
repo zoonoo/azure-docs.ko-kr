@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720917"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743586"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "73720917"
 
 1. 새 Notebook이 만들어지면 **VisualizeRetailData.ipynb**와 같은 이름으로 바꿀 수 있습니다.
 
-1. 다음으로, 소매 데이터를 저장할 "RetailDemo"라는 데이터베이스와 "WebsiteData"라는 컨테이너를 만듭니다. 파티션 키로 /CardID를 사용할 수 있습니다. 다음 코드를 복사하여 Notebook의 새 셀에 붙여넣고 실행합니다.
+1. 다음으로, 소매 데이터를 저장할 "RetailDemo"라는 데이터베이스와 "WebsiteData"라는 컨테이너를 만듭니다. 파티션 키로 /CartID를 사용할 수 있습니다. 다음 코드를 복사하여 Notebook의 새 셀에 붙여넣고 실행합니다.
 
    ```python
    import azure.cosmos
@@ -121,7 +121,7 @@ ms.locfileid: "73720917"
 {Query text}
 ```
 
-자세한 내용은 [Azure Cosmos DB의 기본 제공 Notebook 명령 및 기능](use-notebook-features-and-commands.md) 문서를 참조하세요. `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` 쿼리를 실행합니다. 결과는 df_cosmos라는 Pandas DataFrame에 저장됩니다. 다음 명령을 새 Notebook 셀에 붙여넣고 실행합니다.
+자세한 내용은 [Azure Cosmos DB의 기본 제공 Notebook 명령 및 기능](use-python-notebook-features-and-commands.md) 문서를 참조하세요. `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` 쿼리를 실행합니다. 결과는 df_cosmos라는 Pandas DataFrame에 저장됩니다. 다음 명령을 새 Notebook 셀에 붙여넣고 실행합니다.
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 이 섹션에서는 검색된 데이터에 대해 몇 가지 쿼리를 실행합니다.
 
-* **쿼리 1**: DataFrame에 대해 Group by 쿼리를 실행하여 각 국가의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
+* **쿼리 1**: DataFrame에 대해 Group by query를 실행하여 각 국가/지역의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ df_cosmos.head(10)
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. 다음으로, 데이터를 지도에 그릴 준비를 합니다. Azure Cosmos DB의 데이터를 Azure Blob 스토리지에 있는 국가 정보와 조인하고, 결과를 GeoJSON 형식으로 변환합니다. 다음 코드를 새 Notebook 셀에 복사하여 실행합니다.
+1. 다음으로, 데이터를 지도에 그릴 준비를 합니다. Azure Cosmos DB의 데이터를 Azure Blob 스토리지에 있는 국가/지역 정보와 조인하고, 결과를 GeoJSON 형식으로 변환합니다. 다음 코드를 새 Notebook 셀에 복사하여 실행합니다.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ df_cosmos.head(10)
    json_data = json.dumps(merged_json)
    ```
 
-1. 새 Notebook 셀에서 다음 코드를 실행하여 세계 지도에서 여러 국가의 매출 수익을 시각화합니다.
+1. 새 Notebook 셀에서 다음 코드를 실행하여 세계 지도에서 여러 국가/지역의 매출 수익을 시각화합니다.
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ df_cosmos.head(10)
    show(p)
    ```
 
-   출력에 여러 색을 사용한 세계 지도가 표시됩니다. 색이 짙을수록 더 높은 수익의 국가를 나타냅니다.
+   출력에 여러 색을 사용한 세계 지도가 표시됩니다. 색이 짙을수록 더 높은 수익의 국가/지역을 나타냅니다.
 
-   ![국가별 수익 지도 시각화](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![국가/지역별 수익 지도 시각화](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. 데이터 시각화의 또 다른 사례를 살펴보겠습니다. WebsiteData 컨테이너에는 항목을 보고, 카트에 추가하고, 해당 항목을 구매한 사용자의 레코드가 있습니다. 구매한 항목의 전환율을 그려보겠습니다. 새 셀에서 다음 코드를 실행하여 각 항목의 전환율을 시각화합니다.
 
@@ -290,4 +290,4 @@ df_cosmos.head(10)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Notebook 명령에 대한 자세한 내용은 [Azure Cosmos DB에서 기본 제공 Notebook 명령과 기능을 사용하는 방법](use-notebook-features-and-commands.md) 문서를 참조하세요.
+* Python Notebook 명령에 대한 자세한 내용은 [Azure Cosmos DB에서 기본 제공 Notebook 명령과 기능을 사용하는 방법](use-python-notebook-features-and-commands.md) 문서를 참조하세요.

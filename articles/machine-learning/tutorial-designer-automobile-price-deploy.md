@@ -1,5 +1,5 @@
 ---
-title: '자습서: 디자이너를 사용하여 Machine Learning 모델 배포'
+title: '자습서: 디자이너를 사용하여 ML 모델 배포'
 titleSuffix: Azure Machine Learning
 description: 이 자습서에서는 Azure Machine Learning 디자이너(미리 보기)에서 예측 분석 솔루션을 빌드하는 방법을 보여줍니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
 author: peterclu
@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389395"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656529"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591780"
+ms.locfileid: "83643464"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -70,6 +70,9 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
     1. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿 VM인 경우, SSH 또는 RDP(RDP가 활성화된 경우) 중 무엇을 사용하여 연결할지 선택합니다.
     3. 템플릿 VM의 클래스에 필요한 소프트웨어를 설치하고 구성합니다. 
     4. 템플릿 VM을 **중지**합니다.  
+
+    > [!NOTE]
+    > 템플릿 VM은 실행될 때 **비용**이 발생하므로 템플릿 VM을 실행할 필요가 없는 경우 종료해야 합니다. 
 
 ## <a name="publish-the-template-vm"></a>템플릿 VM 게시
 이 단계에서는 템플릿 VM을 게시합니다. 템플릿 VM이 게시되면 Azure Lab Services에서 템플릿을 사용하여 VM을 랩에 만듭니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.

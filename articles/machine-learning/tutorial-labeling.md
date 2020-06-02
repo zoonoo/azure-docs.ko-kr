@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203644"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759186"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트(미리 보기) 만들기 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 기계 학습 모델을 빌드하기 위한 데이터로 사용되는 이미지 레이블 지정(태그 지정이라고도 함) 프로세스를 관리하는 방법을 보여 줍니다. Azure Machine Learning의 데이터 레이블 지정은 공개 미리 보기에 있습니다.
@@ -77,7 +77,7 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
 
 ### <a name="create-a-labeling-project"></a>레이블 지정 프로젝트 만들기
 
-이제 레이블 지정자 목록이 있고 레이블을 지정하려는 데이터에 액세스할 수 있으므로 레이블 지정 프로젝트를 만듭니다.
+이제 레이블을 지정하려는 데이터에 액세스할 수 있으므로 레이블 지정 프로젝트를 만듭니다.
 
 1. 페이지 위쪽에서 **프로젝트**를 선택합니다.
 
