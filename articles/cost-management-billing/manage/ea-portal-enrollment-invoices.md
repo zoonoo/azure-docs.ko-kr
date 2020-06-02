@@ -3,22 +3,22 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6f654e0b043cfc9f5a90fb84156269fecfbff5bf
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 03e2a778559f97e1a7455180b287d44b55361a0e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691205"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654768"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
 이 문서에서는 Azure EA(Azure 기업계약) 청구서를 관리하고 작업하는 방법에 대해 설명합니다. 청구서는 요금 청구 명세를 나타냅니다. 이에 대한 정확성을 검토합니다. 또한 청구서 관리에 필요할 수 있는 다른 작업에도 익숙해져야 합니다.
 
-## <a name="change-a-po-number-for-an-overage-invoice"></a>초과분 청구서의 PO 번호 변경
+## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>예정된 초과분 청구서의 PO 번호 변경
 
 엔터프라이즈 관리자가 청구서 날짜 앞에 PO(구매 주문) 번호를 설정하지 않으면 Azure Enterprise Portal에서 기본 PO 번호를 자동으로 생성합니다. 엔터프라이즈 관리자는 자동화된 청구서 알림 이메일을 받은 후 최대 7일 이내에 PO 번호를 업데이트할 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "82691205"
 1. **PO 번호** 필드에서 새 PO 번호를 입력합니다.
 1. **저장**을 선택하여 변경 내용을 제출합니다.
 
-## <a name="cadence-of-azure-enterprise-billing"></a>Azure 엔터프라이즈 청구 흐름
+## <a name="azure-enterprise-billing-frequency"></a>Azure 엔터프라이즈 대금 청구 주기
 
 Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금을 매년 등록 개시 날짜에 청구합니다. 약정 금액을 초과하는 사용량에 대해 Microsoft는 미지급 금액으로 청구합니다.
 
@@ -105,7 +105,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 
 결합 청구서로 전환하는 동안 부분 Azure Marketplace 청구서를 받게 됩니다. 이 마지막 개별 청구서에는 청구 업데이트 날짜 이전에 발생한 Azure Marketplace 요금이 표시됩니다. 해당 날짜 이후에 발생한 Azure Marketplace 요금은 Azure 청구서에 표시됩니다. 전환 기간 후에는 모든 Azure 및 Azure Marketplace 요금이 결합 청구서에 표시됩니다.  
 
-## <a name="adjust-billing-frequency"></a>대금 청구 주기 변경
+### <a name="adjust-billing-frequency"></a>대금 청구 주기 변경
 
 고객의 대금 청구 주기는 연간, 분기별 또는 월간입니다. 청구 기간은 고객이 계약서에 서명할 때 결정됩니다. 월간 청구는 가장 짧은 청구 간격입니다.
 
@@ -116,6 +116,10 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 현재 청구 분기가 끝나면 변경 내용이 적용됩니다.
 
 수정계약 M503에 서명한 경우 청구 주기를 월간 청구로 변경할 수 있습니다. 
+
+### <a name="request-an-invoice-copy"></a>청구서 사본 요청
+
+청구서 사본을 요청하려면 파트너에게 문의하세요.
 
 ## <a name="credits-and-adjustments"></a>크레딧 및 조정
 
@@ -129,11 +133,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 1. Azure 서비스 약정 테이블에서 조정 필드를 확장합니다.
 1. 등록에 적용되는 크레딧과 간단한 설명이 표시됩니다. 다음은 그 예입니다.  서비스 수준 계약 크레딧이라는 설명이 표시될 수 있습니다.
 
-## <a name="request-an-invoice-copy"></a>청구서 사본 요청
-
-청구서 사본을 요청하려면 파트너에게 문의하세요.
-
-## <a name="overage-offset"></a>초과분 오프셋
+## <a name="pay-your-overage-with-your-monetary-commitment"></a>금액 약정을 통해 초과분 지불
 
 약정 금액을 초과분에 적용하려면 다음 조건을 충족해야 합니다.
 
@@ -145,215 +145,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 
 초과분 오프셋을 완료하기 위해 사용자 또는 계정 팀에서 지원 요청을 열 수 있습니다. 엔터프라이즈 관리자 또는 대금 청구 담당자의 이메일 승인이 필요합니다.
 
-## <a name="view-price-sheet-information"></a>가격표 정보 보기
-
-엔터프라이즈 관리자는 Azure 서비스 등록과 관련된 가격표를 볼 수 있습니다.
-
-현재 가격표를 보려면 다음을 수행합니다.
-
-1. Azure Enterprise Portal에서 **보고서**, **가격표**를 차례로 선택합니다.
-2. 가격표를 보거나 **다운로드**를 선택합니다.
-
-![가격표 정보를 보여주는 예제](./media/ea-portal-enrollment-invoices/ea-create-view-price-sheet-information.png)
-
-이전 가격 목록을 다운로드하려면 다음을 수행합니다.
-
-1. Azure Enterprise Portal에서 **보고서**를 선택한 다음, **사용량 다운로드**를 선택합니다.
-2. 가격표를 다운로드합니다.
-
-![이전 가격표를 다운로드하는 위치를 보여주는 예제](./media/ea-portal-enrollment-invoices/create-ea-view-price-sheet-download-historical-price-list.png)
-
-가격의 차이에 대한 몇 가지 이유는 다음과 같습니다.
-
-- 이전 등록과 새 등록의 가격 책정이 변경되었을 수 있습니다. 가격 책정은 계약의 시작 날짜부터 종료 날짜까지 특정 등록에 대한 계약이므로 가격 변경이 발생할 수 있습니다.
-- 새 등록으로 이전하는 경우 가격이 새 계약으로 변경됩니다. 가격 책정은 가격표로 정의되며, 새 등록에서 더 높을 수 있습니다.
-- 등록 기간이 연장되는 경우에도 가격 책정이 변경됩니다. 가격이 종량제 요금으로 변경됩니다.
-
-## <a name="request-detailed-usage-information"></a>자세한 사용 정보 요청
-
-엔터프라이즈 관리자는 Azure Enterprise Portal에서 사용량 데이터, 사용된 약정 금액, 추가 사용량 관련 요금에 대한 요약 정보를 볼 수 있습니다. 요금 정보는 모든 계정 및 구독에서 요약 정보로 제공됩니다.
-
-특정 계정의 자세한 사용량을 보려면 **보고서** > **사용량 다운로드**로 차례로 이동하여 사용량 세부 정보 보고서를 다운로드합니다.
-
-> [!NOTE]
-> 사용량 세부 정보 보고서에는 관련 세금이 포함되지 않습니다. 사용량이 발생한 시점부터 보고서에 반영되는 시점까지 최대 8시간의 대기 시간이 있을 수 있습니다.
-
-간접 등록의 경우 파트너가 표시 함수를 사용하도록 설정해야만 비용 관련 정보를 볼 수 있습니다.
-
-## <a name="reports"></a>보고서
-
-엔터프라이즈 관리자는 Azure Enterprise Portal에서 사용량 데이터, 사용된 약정 금액, 추가 사용량 관련 요금에 대한 요약 정보를 볼 수 있습니다. 요금 정보는 모든 계정 및 구독에서 요약 정보로 제공됩니다.
-
-### <a name="azure-enterprise-reports"></a>Azure 엔터프라이즈 보고서
-
-- 사용 요약 및 그래프
-- 서비스 사용 보고서
-- 잔액 및 요금 보고서
-- 사용량 세부 정보 보고서
-- Azure Marketplace 요금 보고서
-- 가격표
-- 고급 보고서 다운로드
-- CSV 보고서 서식 지정
-
-### <a name="to-view-the-usage-summary-reports-and-graphs"></a>사용 요약 보고서 및 그래프를 보려면 다음을 수행합니다.
-
-1. Azure Enterprise portal로 이동합니다.
-1. 왼쪽 창에서 **보고서**를 선택합니다.
-1. **사용 요약** 탭을 선택합니다.
-1. 왼쪽 위의 날짜 범위 메뉴에서 약정 기간을 선택합니다.
-1. 그래프에서 기간 또는 월을 선택하여 추가 세부 정보를 봅니다.
-1. 이 탭에서는 다음을 수행할 수 있습니다.
-   - 사용량, 서비스 과잉 청구 요금, 별도 청구 요금 및 Azure Marketplace 요금에 대한 자세한 분석과 함께 전월 대비 사용량 그래프를 봅니다.
-   - 그래프 아래의 부서, 계정 및 구독을 기준으로 필터링합니다.
-   - **서비스별 요금** 분석과 **계층 구조별 요금** 분석 간을 전환합니다.
-   - Azure 서비스, 별도 청구 요금 및 Azure Marketplace 요금에 대한 세부 정보를 봅니다.
-
-## <a name="service-usage-report"></a>서비스 사용 보고서
-
-엔터프라이즈 관리자는 서비스 사용 보고서 페이지에서 서비스 사용량 데이터의 요약 정보를 볼 수 있습니다. 사용량은 모든 계정 및 구독에서 요약 수준으로 제공됩니다. 자세한 사용량을 보려면 계정 또는 구독을 기준으로 보고서를 필터링할 수 있습니다.
-
-> [!NOTE]
-> 발생한 사용량 날짜와 해당 사용량이 이 보고서에 반영되는 날짜 사이에 최대 5일의 대기 시간이 있을 수 있습니다.
-
-### <a name="to-view-the-report"></a>보고서를 보려면 다음을 수행합니다.
-
-1. Azure Enterprise Portal에 로그인합니다.
-1. 왼쪽 탐색 영역에서 **보고서**를 선택합니다.
-1. **사용 요약** 탭을 선택합니다.
-1. 날짜 범위를 선택합니다.
-1. 보고 싶은 계정 또는 구독을 선택합니다.
-1. 필요에 따라 다음을 수행할 수 있습니다.
-   - **서비스별 요금** 및 **계층 구조별 요금** 간의 보기를 변경하여 서로 다른 분석을 표시합니다.
-   - 서비스 이름, 측정 단위, 사용한 단위, 유효 요율 및 확장 비용에 대한 세부 정보를 봅니다.
-
-## <a name="download-csv-reports"></a>CSV 보고서 다운로드
-
-엔터프라이즈 관리자는 월간 보고서 다운로드 페이지를 통해 여러 보고서를 CSV 파일로 다운로드할 수 있습니다. 다운로드할 수 있는 보고서는 다음과 같습니다.
-
-- 잔액 및 요금 보고서
-- 사용량 세부 정보 보고서
-- Azure Marketplace 요금 보고서
-- 가격표
-
-### <a name="to-download-reports"></a>보고서를 다운로드하려면 다음을 수행합니다.
-
-1. Azure Enterprise Portal에서 **보고서**를 선택합니다.
-1. 위쪽 리본에서 **사용량 다운로드**를 선택합니다.
-1. 적절한 월의 보고서 옆에 있는 **다운로드**를 선택합니다.
-
-### <a name="csv-report-formatting-issues"></a>CSV 보고서 서식 지정 문제
-
-Azure Enterprise Portal의 CSV 보고서를 유로 화폐 단위로 표시하는 고객에게는 쉼표 및 마침표와 관련된 서식 지정 문제가 발생할 수 있습니다.
-
-예를 들어 다음 메시지가 표시될 수 있습니다.
-
-| **ServiceResource** | **ResourceQtyConsumed** | **ResourceRate** | **ExtendedCost** |
-| --- | --- | --- | --- |
-| 시간 | 24 | 0,0535960591133005 | 12,863,054,187,192,100,000,000 |
-
-다음과 같은 결과가 표시됩니다.
-
-| ServiceResource | ResourceQtyConsumed | ResourceRate | ExtendedCost |
-| --- | --- | --- | --- |
-| 시간 | 24 | 0,0535960591133005 | 1,2863054187192120000000 |
-
-이 서식 지정 문제는 Excel의 가져오기 기능의 기본 설정으로 인해 발생합니다. Excel에서는 모든 필드를 '일반' 텍스트로 가져오고, 수학적 표준에서 숫자가 구분되어 있다고 가정합니다. 다음은 그 예입니다.  "1,000.00"에서 구분되는 것으로 가정합니다.
-
-유럽 통화에서 1000 단위 구분 기호로 마침표(.)를 사용하고 소수 자릿수 구분 기호로 쉼표(,)를 사용하는 경우 올바르게 표시되지 않습니다. 다음은 그 예입니다.  "1.000,00"입니다. 가져오기 결과는 지역별 언어 설정에 따라 달라질 수 있습니다.
-
-### <a name="to-import-the-csv-file-without-formatting-issues"></a>서식 지정 문제 없이 CSV 파일을 가져오려면 다음을 수행합니다.
-
-1. Microsoft Excel에서 **파일** > **열기**로 차례로 이동합니다.
-   텍스트 가져오기 마법사가 나타납니다.
-1. **원본 데이터 형식** 아래에서 **구분 기호로 분리됨**을 선택합니다.  기본값은 **고정 폭**입니다.
-1. **다음**을 선택합니다.
-1. 구분 기호 아래에서 **쉼표**의 확인란을 선택합니다. 이 확인란이 선택되면 **탭**을 지웁니다.
-1. **다음**을 선택합니다.
-1. **ResourceRate** 및 **ExtendedCost** 열로 스크롤합니다.
-1. **ResourceRate** 열을 선택합니다. 검은색으로 강조 표시됩니다.
-1. **열 데이터 서식** 섹션 아래에서 **일반** 대신 **텍스트**를 선택합니다. 열 머리글이 **일반**에서 **텍스트**로 변경됩니다.
-1. **확장 비용** 열에 대해 8단계와 9단계를 반복한 다음, **마침**을 선택합니다.
-
-> [!TIP]
-> Excel에서 CSV 파일을 자동으로 열도록 설정한 경우 Excel에서 **열기** 기능을 대신 사용해야 합니다. Excel에서 **파일** > **열기**로 차례로 이동하세요.
-
-## <a name="balance-and-charge-report"></a>잔액 및 요금 보고서
-
-잔액 및 요금 보고서는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과분 요금에 대한 월간 요약 정보를 제공합니다.
-
-Azure 서비스 약정 요약 테이블의 모든 행은 전월 대비 고정된 상태로 유지됩니다. 모든 구매 및 조정에 대한 세부 정보는 **새 구매 세부 정보** 및 **조정 세부 정보** 섹션에서 확인할 수 있습니다.
-
-### <a name="download-the-balance-and-charge-report"></a>잔액 및 요금 보고서 다운로드
-
-1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
-1. 왼쪽 창에서 **보고서**를 선택합니다.
-1. **보고서 다운로드** 탭을 선택합니다.
-1. **잔액 및 요금** 열 아래에서 적절한 월을 선택하고, 보고서를 다운로드하도록 선택합니다.
-
-## <a name="usage-detail-report"></a>사용량 세부 정보 보고서
-
-사용량 세부 정보 보고서는 서비스 및 수량의 등록 사용량에 대한 월간 요약 정보를 제공합니다. 여기에는 측정기 이름, 측정기 종류 및 사용한 수량에 대한 정보가 포함됩니다.
-
-### <a name="download-the-usage-detail-report"></a>사용량 세부 정보 보고서 다운로드
-
-1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
-1. 왼쪽 탐색 영역에서 **보고서**를 선택합니다.
-1. **사용량 다운로드** 탭을 선택합니다.
-1. **사용량 세부 정보** 열에서 해당 월을 선택하고, 보고서를 다운로드하도록 선택합니다.
-
-## <a name="azure-marketplace-charges-in-azure-enterprise-portal-reports"></a>Azure Enterprise Portal 보고서의 Azure Marketplace 요금
-
-다음 두 가지 유형의 Azure Marketplace 요금이 있습니다.
-
-- **사용량 기준:** 트랜잭션 단위로 측정되는 제품입니다.  예를 들어 가상 머신은 시간을 기준으로 요금이 청구되고, Bing API 검색은 검색 건수를 기준으로 요금이 청구됩니다.
-- **월간 요금 기준:** 사용량 또는 액세스를 기준으로 매월 청구됩니다.
-
-Azure Marketplace 요금에 대한 자세한 내용은 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)를 참조하세요.
-
-Azure Enterprise Portal에서 다른 요금을 보려면,
-
-- **사용 요약 보고서**: 사용량 기준 및 월간 요금 기준 Azure Marketplace 요금을 **모두** 표시합니다.
-- **Marketplace 요금 보고서**: 사용량 기준 Azure Marketplace 요금**만** 표시합니다.  일회성 요금은 표시되지 않습니다.
-
-> [!NOTE]
-> MPSA 등록에는 Azure Marketplace를 사용할 수 없습니다.
-
-## <a name="advanced-report-download"></a>고급 보고서 다운로드
-
-특정 날짜 범위 또는 계정에 대한 보고를 원하는 경우 고급 보고서 다운로드를 사용할 수 있습니다. 2016년 8월 30일부터 출력 파일의 형식은 더 큰 레코드 세트를 수용할 수 있는 CSV입니다.
-
-1. Azure Enterprise Portal에서 **고급 보고서 다운로드**를 선택합니다.
-1. **적절한 날짜 범위**를 선택합니다.
-1. **올바른 계정**을 선택합니다.
-1. **사용 데이터 요청**을 선택합니다.
-1. 보고서 상태가 **다운로드**로 업데이트될 때까지 **새로 고침** 단추를 선택합니다.
-1. 보고서를 다운로드합니다.
-
-## <a name="reporting-for-non-enterprise-administrators"></a>비-엔터프라이즈 관리자를 위한 보고서
-
-엔터프라이즈 관리자는 DA(부서 관리자)와 AO(계정 소유자)에게 등록에 대한 요금을 볼 수 있는 권한을 부여할 수 있습니다. 액세스 권한이 있는 계정 소유자는 자신의 계정 및 구독과 관련된 CSV 보고서를 다운로드할 수 있습니다. 또한 Azure Enterprise Portal의 보고 섹션에서 정보를 시각적으로 볼 수도 있습니다.
-
-### <a name="to-enable-access"></a>액세스를 설정하려면 다음을 수행합니다.
-
- 1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
- 1. 왼쪽 탐색 영역에서 **관리**를 선택합니다.
- 1. **등록** 탭을 선택합니다.
- 1. **등록 세부 정보** 섹션 아래에서 **DA 요금 보기** 또는 **AO 요금 보기** 옆에 있는 연필 아이콘을 선택합니다.
- 1. **사용**을 선택합니다.
- 1. **저장**을 선택합니다.
-
-### <a name="to-view-reports"></a>보고서를 보려면 다음을 수행합니다.
-
-1. 부서 관리자 또는 계정 소유자 권한으로 Azure Enterprise Portal에 로그인합니다.
-1. 왼쪽 탐색 영역에서 **보고서**를 선택합니다.
-1. **사용 요약** 탭을 선택하여 계정 및 구독에 대한 정보를 시각적으로 봅니다.
-1. **사용량 다운로드**를 선택하여 CSV 보고서를 봅니다.
-
-부서 관리자 및 계정 소유자는 **고급 보고서 다운로드** 기능을 사용하는 경우 요금을 볼 수 없습니다. 비용이 $0로 표시됩니다.
-
-요금을 볼 수 있는 계정 소유자 권한은 계정 소유자 및 연결된 구독에 대한 권한이 있는 모든 사용자로 확장됩니다. 간접 고객인 경우 채널 파트너가 비용 기능을 사용하도록 설정해야 합니다.
-
-## <a name="move-usage-data-to-another-enrollment"></a>사용량 데이터를 다른 등록으로 이동
+## <a name="move-charges-to-another-enrollment"></a>다른 등록으로 요금 이동
 
 사용량 데이터는 양도를 소급 적용하는 경우에만 이동됩니다. 다음과 같은 두 가지 옵션을 통해 한 등록에서 다른 등록으로 사용량 데이터를 이동할 수 있습니다.
 
@@ -361,40 +153,6 @@ Azure Enterprise Portal에서 다른 요금을 보려면,
 - 한 등록에서 다른 등록으로 등록 양도
 
 두 옵션 모두 지원을 받으려면 [EA 지원 팀](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)에 지원 요청을 제출해야 합니다. 
-
-## <a name="azure-ea-pricing-overview"></a>Azure EA 가격 책정 개요
-
-이 섹션에서는 사용량을 계산하는 방법에 대해 자세히 설명합니다. 여기서는 계산이 더 복잡한 기업계약에서 다양한 Azure 서비스의 요금에 대해 자주 묻는 많은 질문에 답변합니다.
-
-### <a name="price-protection"></a>가격 보호
-
-고객 또는 채널 파트너는 CPS(고객 가격표)에 표시된 가격 이하의 가격 또는 Azure 구매 개시 날짜에 적용되는 가격을 받을 수 있습니다. 이 가격을 기준 가격이라고 합니다. Azure 구매 후에 도입된 서비스의 경우 서비스가 처음 도입될 때 적용되는 할인 수준으로 적용되는 가격이 청구됩니다. 이 가격 보호는 기업계약에 따라 1년 또는 3년의 약정 기간 동안 적용됩니다.
-
-### <a name="price-changes"></a>가격 변경
-
-Microsoft는 등록 기간 동안 개별 Azure 서비스에 대한 현재 기업계약 가격을 인하할 수 있습니다. 더 낮은 가격이 적용되는 동안 이러한 할인 요율은 기존 고객으로까지 확장됩니다. 이러한 요율이 나중에 인상되는 경우 위에서 정의한 대로 등록의 서비스 가격은 가격 보호 최고 한도 이상으로 증가하지 않습니다. 그러나 이 요율은 이전에 인하된 가격에 비해 증가할 수 있습니다. 두 경우 모두에서 등록과 연결된 엔터프라이즈 및 파트너 관리자에게 이메일을 보내 고객과 간접 파트너에게 향후의 가격 변경을 알립니다.
-
-### <a name="current-effective-pricing"></a>현재 실효 가격 책정
-
-고객 및 채널 파트너는 [Azure Enterprise Portal](https://ea.azure.com/)에 로그인하고 등록에 대한 가격표 페이지를 표시하여 해당 등록의 현재 가격 책정을 볼 수 있습니다. 채널 파트너 중 하나를 통해 Azure를 간접적으로 구매하는 경우 고객의 등록에 대한 가격 인상 가격 책정을 표시하도록 설정하지 않았으면 채널 파트너로부터 가격 책정 업데이트를 얻어야 합니다.
-
-### <a name="introduction-of-new-azure-services"></a>새 Azure 서비스 도입
-
-Microsoft는 Azure를 지속적으로 개선하고 있으며, 기존 서비스와 별도로 가격이 책정되는 새로운 서비스를 정기적으로 추가하고 있습니다. 일부 미리 보기 서비스는 자동으로 사용할 수 있지만, 다른 일부는 고객이 [Azure 계정 포털](https://account.windowsazure.com/PreviewFeatures)에서 작업을 수행해야 합니다.
-
-일부 서비스는 처음 도입될 때 판촉 가격 책정으로 시작되며 이후에 가격이 인상될 수 있습니다.
-
-서비스가 미리 보기에서 GA(일반 공급)로 전환되면 전체 성능과 안정성 SLA가 적용됨에 따라 가격이 인상될 수 있습니다. 이러한 인상은 일반적인 기준 가격 보호로 제한되지 않습니다. 이러한 서비스의 사용량은 인상된 요율로 청구됩니다. 이러한 새 서비스와 관련된 요금을 방지하려면 해당 서비스의 사용을 옵트아웃해야 합니다.
-
-### <a name="introduction-of-regional-pricing"></a>영역별 가격 책정 도입
-
-새 서비스의 도입 외에도, 서비스에 대한 지역별 지원이 증가함에 따라 이러한 서비스는 단일 글로벌 기반에서 더 많은 지역별 모델로 정기적으로 변경됩니다.
-
-서비스의 지역화가 처음 도입되면 이러한 새 지역에 대한 기준 가격 보호가 적용됩니다. 그러나 나중에 동일한 서비스에 대한 추가 지역이 도입되면 이러한 지역은 새 서비스로 간주되며, 기준 가격 보호에 관계없이 자체의 개별 요금으로 제공됩니다.
-
-### <a name="enterprise-devtest"></a>Enterprise 개발/테스트
-
-엔터프라이즈 관리자는 계정 소유자가 Enterprise 개발/테스트 제품을 기반으로 하여 구독을 만들 수 있도록 설정할 수 있습니다. 계정 소유자는 기본 구독자에게 필요한 Enterprise 개발/테스트 구독을 설정해야 합니다. 이 구성을 통해 활성 Visual Studio 구독자는 특별한 Enterprise 개발/테스트 요율로 Azure에서 개발 및 테스트 워크로드를 실행할 수 있습니다. 자세한 내용은 [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)를 참조하세요.
 
 ## <a name="enterprise-agreement-usage-calculations"></a>기업계약 사용량 계산
 
@@ -500,228 +258,6 @@ Azure 현금 약정 금액은 Azure 서비스 선결제 금액입니다. 서비�
 채널 파트너(COCP)의 변경이 월 중간에 발생하는 경우 고객은 이전에 연결된 파트너의 사용량에 대한 청구서와 새 파트너의 사용량에 대한 다른 청구서를 받게 됩니다.
 
 청구서는 청구 기간이 끝난 다음달에 청구됩니다. 청구 주기가 매월인 경우 9월의 청구서가 10월에 두 파트너 모두에게 청구됩니다. 청구 주기가 분기별 또는 매년인 경우 고객은 이전 관련 파트너의 해당 기간 동안 사용량에 대한 청구서로 간주되고, 나머지는 청구 주기를 기준으로 새 파트너에게 청구됩니다.
-
-## <a name="azure-marketplace-for-ea-customers"></a>EA 고객용 Azure Marketplace
-
-직접 고객의 경우 Azure Marketplace 요금은 Azure Enterprise Portal에 표시됩니다. Azure Marketplace 구매 및 소비량은 분기별 또는 월간 주기 및 미지급에 대한 약정 금액 외의 금액으로 청구됩니다.
-
-간접 고객은 Azure Enterprise Portal의 **구독 관리** 페이지에서 Azure Marketplace 구독을 찾을 수 있지만, 가격은 숨겨집니다. 고객은 Azure Marketplace 요금에 대한 자세한 내용을 LSP(라이선스 솔루션 공급자)에 문의해야 합니다.
-
-매월 또는 매년 반복되는 새로운 Azure Marketplace 구매에 대한 전체 요금은 Azure Marketplace 항목을 구매하는 기간 동안 청구됩니다. 이러한 항목은 그 다음 기간의 최초 구매와 동일한 날짜에 자동 갱신됩니다.
-
-매월 반복되는 기존 요금은 각 달력 월의 1일에 계속 갱신됩니다. 연간 요금은 구매 갱신 날짜에 갱신됩니다.
-
-Azure Marketplace에서 사용할 수 있는 일부 타사 재판매인 서비스는 이제 EA(기업계약) 약정 금액 잔액을 사용합니다. 이전에는 이러한 서비스가 EA 현금 약정 금액과 별도로 청구되었으며 별도의 청구서가 발송되었습니다. EA 약정 금액을 Azure Marketplace의 이러한 서비스에 사용하면 고객 구매 및 결제 관리를 간소화할 수 있습니다. 현재 약정 금액을 사용하는 서비스의 전체 목록은 [Azure 웹 사이트에서 2018년 3월 6일 업데이트](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)를 참조하세요.
-
-### <a name="partners"></a>파트너
-
-LSP는 Azure Enterprise Portal의 가격표 페이지에서 Azure Marketplace 가격표를 다운로드할 수 있습니다. 오른쪽 위에서 **Marketplace 가격표** 링크를 선택합니다. Azure Marketplace 가격표에는 사용 가능한 모든 서비스 및 해당 가격이 표시됩니다.
-
-가격표를 다운로드 하려면 다음을 수행합니다.
-
-1. Azure Enterprise Portal에서 **보고서** > **가격표**로 차례로 이동합니다.
-1. 오른쪽 위 모서리에서 사용자 이름 아래에 있는 Azure Marketplace 가격표에 대한 링크를 찾습니다.
-1. 마우스 오른쪽 단추로 해당 링크를 클릭하고, **대상을 다른 이름으로 저장**을 선택합니다.
-1. **저장** 창에서 문서 제목을 `AzureMarketplacePricelist.zip`으로 변경합니다. 그러면 파일이 .xlsx에서 .zip 파일로 변경됩니다.
-1. 다운로드가 완료되면 국가별 가격표가 포함된 zip 파일이 제공됩니다.
-1. LSP는 국가별 가격 책정에 대한 개별 국가 파일을 참조해야 합니다. LSP는 **알림** 탭을 사용하여 완전히 새롭거나 사용 중지된 SKU를 인식할 수 있습니다.
-1. 가격 변경은 자주 발생하지 않습니다. LSP는 30일 전에 가격 인상 및 FX(외환) 변경에 대한 이메일 알림을 받습니다.
-1. LSP는 등록별, ISV별, 분기별로 하나의 청구서를 받습니다.
-
-### <a name="enabling-azure-marketplace-purchases"></a>Azure Marketplace 구매 사용
-
-엔터프라이즈 관리자는 등록된 모든 Azure 구독에 대해 Azure Marketplace 구매를 사용하거나 사용하지 않도록 설정할 수 있습니다. 엔터프라이즈 관리자가 구매를 사용하지 않도록 설정하고 이미 Azure Marketplace 구독이 포함된 Azure 구독이 있는 경우 해당 Azure Marketplace 구독은 취소되거나 영향을 받지 않습니다.
-
-고객이 Azure 구독을 Azure Enterprise Portal의 등록에 직접 연결하여 자신의 직접 Azure 구독을 Azure EA로 변환할 수 있지만, 이 경우 자식 구독을 자동으로 변환하지 않습니다.
-
-Azure Marketplace 구매를 사용하도록 설정하려면 다음을 수행합니다.
-
-1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
-1. **관리**로 이동합니다.
-1. **등록 세부 정보** 아래에서 **Azure Marketplace** 품목 옆에 있는 연필 아이콘을 선택합니다.
-1. **사용/사용 안 함** 또는 무료 **BYOL SKU만**을 적절하게 전환합니다.
-1. **저장**을 선택합니다.
-
-> [!NOTE]
-> BYOL(사용자 라이선스 필요) 및 무료 전용 옵션은 Azure Marketplace SKU의 구매 및 취득을 BYOL 및 무료 SKU로 제한합니다.
-
-[Azure Enterprise Portal 보고서의 Azure Marketplace 요금](#azure-marketplace-charges-in-azure-enterprise-portal-reports)에서 자세한 내용을 확인하세요.
-
-### <a name="services-billed-hourly-for-azure-ea"></a>Azure EA에 대한 시간당 서비스 요금이 청구되는 서비스
-
-MOSP의 월별 요율 대신 기업계약에 따른 시간당 요금이 청구되는 서비스는 다음과 같습니다.
-
-- 애플리케이션 전달 네트워크
-- 웹 애플리케이션 방화벽
-
-### <a name="azure-remoteapp"></a>Azure RemoteApp
-
-기업계약을 체결한 경우 기업계약 가격 수준에 따라 Azure RemoteApp에 대한 요금을 지불합니다. 추가 요금이 없습니다. 표준 가격에는 초기 40시간이 포함됩니다. 무제한 가격에는 초기 80시간이 포함됩니다. 80시간을 초과하면 RemoteApp에서 사용량 내보내기를 중지합니다.
-
-## <a name="azure-marketplace-faq"></a>Azure Marketplace FAQ
-
-이 섹션에서는 Azure 약정 금액이 Azure Marketplace의 일부 타사 재판매인 서비스에 적용되는 방법에 대해 설명합니다.
-
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>Azure Marketplace 서비스와 EA 약정 금액으로 변경된 사항은 무엇인가요?
-
-2018년 3월 1일부터 일부 타사 재판매인 서비스는 EA MC(약정 금액)를 사용합니다. 이전에는 Azure RI(예약 VM 인스턴스)를 제외한 서비스에 대한 요금이 EA 약정 금액 이외의 금액으로 청구되었으며, 청구서가 별도로 발부되었습니다.
-
-타사 게시 Azure Marketplace 서비스 중 일부를 포함하도록 MC 사용을 확장했습니다. EA 약정 금액을 Azure Marketplace의 이러한 서비스에 사용하면 구매 및 결제 관리를 간소화할 수 있습니다.
-
-### <a name="why-did-we-make-this-change"></a>왜 이렇게 변경했나요?
-
-고객은 선불 MC 결제를 활용할 수 있는 추가적인 방법을 지속적으로 찾고 있습니다. 이 변경은 고객이 자주 요청했으며, 대부분의 Azure Marketplace 고객에게 영향을 주었습니다.
-
-### <a name="how-do-you-benefit"></a>혜택을 받으려면 어떻게 하나요?
-
-더 간단한 청구 환경을 받을 수 있고, EA 약정 금액을 더 효율적으로 사용할 수 있습니다. 이러한 서비스는 선불 MC에 포함되어 있으므로 EA 약정 금액이 더 유용합니다.
-
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>EA 약정 금액을 사용하는 Azure Marketplace 서비스는 무엇이며, 어떻게 알 수 있나요?
-
-MC를 사용하는 서비스를 구입하면 Azure Marketplace에 대한 고지 사항이 표시됩니다. Red Hat, SUSE, Autodesk 및 Oracle에서 게시한 일부 서비스가 지원됩니다. 현재 다른 당사자가 게시한 비슷한 이름의 서비스는 MC에서 공제되지 않습니다. 전체 목록은 이 FAQ의 마지막 부분에 제공됩니다.
-
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>EA 약정 금액이 소진되면 어떻게 되나요?
-
-모든 MC를 소진하여 초과분으로 이동하는 경우 이러한 서비스와 관련된 요금은 다른 소비 서비스와 함께 다음 초과분 청구서에 표시됩니다. 2018년 3월 1일 변경 전에 이러한 요금은 다른 Azure Marketplace 서비스에서 청구되었습니다.
-
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>모든 Azure Marketplace에서 EA 약정 금액을 사용하지 않는 이유는 무엇인가요?
-
-EA 약정 금액과 관련하여 최상의 고객 환경을 제공하기 위해 열심히 노력하고 있습니다. 이 변경에 따라 많은 고객과 Azure Marketplace의 총 지출 중 상당 부분이 해결되었습니다. 나중에 다른 서비스가 추가될 수 있습니다.
-
-### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>간접 등록 및 파트너에는 어떤 영향이 있을까요?
-
-간접 등록 고객 또는 파트너에게는 아무 영향을 주지 않습니다. 이러한 서비스는 다른 사용 서비스와 동일한 파트너 가격 인상 기능을 따릅니다. 요금이 다른 청구서에 표시되고 요금 지불은 고객의 EA 약정 금액에서 나온다는 것이 유일한 변경입니다.
-
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>EA 약정 금액을 사용하는 Azure Marketplace 서비스의 목록이 있나요?
-
-특정 Azure Marketplace 제품은 약정 금액 자금을 사용할 수 있습니다. 이 프로그램에 참여하는 제품의 전체 목록은 [약정 금액을 사용하는 타사 서비스](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment)를 참조하세요.
-
-## <a name="power-bi-reporting"></a>Power BI 보고
-
-Power BI 보고는 청구 정보를 볼 수 있는 액세스 권한이 있는 EA 직접 고객, 파트너 및 간접 고객에게 제공됩니다.
-
-### <a name="power-bi-pro"></a>Power BI Pro
-
-EA 고객은 Power BI Pro를 사용할 수 있습니다. Power BI Pro를 사용하면 보고서를 생성하고 공유하여 비용 데이터를 효과적으로 관리할 수 있습니다. 추가 협업 및 데이터 새로 고침 기능도 있습니다 Power BI Pro는 더 높은 데이터 용량 및 데이터 스트리밍 제한을 제공합니다.
-
-<!--We plan to add new cost management features for Azure Enterprise customers.
-
-Current Power BI (free) users who use the Microsoft Azure Consumption Insights content pack can get a 60-day free trial of Power BI Pro. After the trial is over, you can continue using Power BI Pro by adding a license.
-
-To sign up for the free Power BI Pro trial:
-
-1. From the gear icon in Power BI, select **Manage personal storage**.
-1. Select **Try Pro for free** on the right.
-
-See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) for more information on the Power BI Pro free trial.
-
-### Azure EA Power BI Pro trial terms
-
-- **General purpose**: The extended Power BI Pro for the "Microsoft Azure Enterprise" content pack trial offer (the "Offer") is available to existing qualified users during the term of the Offer, to allow them to access certain insights related to their Azure consumption through the use of a specific Power BI content pack.
-- **Eligibility**: Users under an Enterprise Agreement (EA) can participate in the Offer if they have a function related to their organization's Azure billing, service, or cost management.
-- **Exclusions**:
-  - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
-  - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
-  -->
-
-### <a name="to-access-microsoft-azure-consumption-insights"></a>Microsoft Azure Consumption Insights에 액세스하려면
-
-1. [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)로 이동합니다.
-1. **지금 가져오기**를 선택합니다.
-1. 등록 번호와 개월 수를 제공하고, **다음**을 선택합니다.
-1. 연결할 API 액세스 키를 입력합니다. [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)에서 등록에 대한 키를 찾을 수 있습니다.
-1. **로그인**을 선택하여 가져오기 프로세스를 자동으로 시작합니다.
-1. 프로세스가 완료되면 탐색 창에 새 대시보드, 보고서 및 모델이 표시됩니다. 대시보드를 선택하여 가져온 데이터를 확인합니다.
-
-> [!TIP]
->
-> - 등록에 대한 API 키를 생성하는 방법에 대한 자세한 내용은 [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)에서 API 보고서 도움말 파일을 참조하세요.
-> - Power BI를 Azure 사용량에 연결하는 방법에 대한 자세한 내용은 [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management)를 참조하세요.
-
-### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>레거시 Power BI EA 콘텐츠 팩에 액세스하려면 다음을 수행합니다.
-
-1. [Power BI 웹 사이트](https://app.powerbi.com/getdata/services/azure-enterprise)로 이동합니다.
-1. 유효한 회사 또는 학교 계정으로 로그인합니다.
-
-   회사 또는 학교 계정은 Azure Enterprise Portal을 통해 등록에 액세스하는 데 사용하는 것과 동일하거나 다를 수 있습니다.
-1. 서비스 대시보드에서 **Microsoft Azure 엔터프라이즈**, **연결**을 차례로 선택합니다.
-1. **Azure 엔터프라이즈에 연결** 화면에서 다음 필드를 채웁니다.
-    - Azure 환경 URL: [https://ea.azure.com](https://ea.azure.com/)
-    - 개월 수: 1-36
-    - 등록 번호: 사용자의 등록 번호
-1. **다음**을 선택합니다.
-1. **인증 키 상자**에서 API 키를 입력합니다.
-
-    API 키는 Azure Enterprise Portal의 **사용량 다운로드** 탭 아래에서 가져올 수 있습니다. **API 액세스 키**를 선택한 다음, 해당 키를 **계정 키** 상자에 붙여넣습니다.
-1. 데이터 세트의 크기에 따라 Power BI에서 데이터를 로드하는 데 약 5-30분이 걸립니다.
-
-## <a name="reports-faq"></a>보고서 FAQ
-
-이 섹션에서는 보고서에 대한 일반적인 질문을 다룹니다.
-
-### <a name="why-is-my-cost-showing-as-0"></a>비용이 $0로 표시되는 이유는 무엇인가요?
-
-**직접 등록** 고객의 경우 엔터프라이즈 관리자는 계정 소유자 및 부서 관리자에게 사용량 보고서에 대한 비용/가격 책정 정보에 대한 액세스 권한을 부여할 수 있습니다. 다음 단계를 수행하세요.
-
-1. Azure Enterprise Portal의 왼쪽 탐색 영역에서 **관리**를 선택합니다.
-1. DA(부서 관리자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
-1. **사용**를 선택하고 저장합니다.
-1. AO(계정 소유자) 요금 보기 옆에 있는 파란색 연필을 선택합니다.
-1. **사용**를 선택하고 저장합니다.
-
-> [!NOTE]
-> 계정 소유자 또는 부서 관리자인 경우 엔터프라이즈 관리자에게 문의하여 가격 책정 기능을 사용하도록 설정합니다.
-
-**간접 등록** 고객의 경우 파트너에게 문의하여 가격 책정 기능을 사용하도록 설정했는지 확인합니다. 파트너만 이 작업을 수행할 수 있습니다. 사용하도록 설정되면 엔터프라이즈 관리자가 등록에 대한 비용과 가격 책정을 볼 수 있습니다.
-
-계정 소유자 또는 부서 관리자의 요금 보기 기능을 사용하도록 설정하려면 파트너가 **직접 등록**의 단계를 수행합니다.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>사용량 세부 정보 보고서에 SKU 정보가 없는 이유는 무엇인가요?
-
-사용량 세부 정보 보고서에는 SKU 정보가 포함되지 않습니다. 그러나 이 보고서에는 사용량 정보가 포함되어 있으므로 가격표 보고서를 다운로드하여 SKU 정보를 얻을 수 있습니다.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>Azure Marketplace의 총 금액이 사용 요약 및 세부 정보 보고서와 일치하지 않는 이유는 무엇인가요?
-
-Azure Marketplace 요금 보고서에는 사용량 기준 요금만 표시됩니다. 일회성 요금은 표시되지 않습니다. 최신의 사용량 기준 요금과 일회성 요금에 대해서는 사용 요약 페이지를 참조하세요.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>API 보고서에 정보가 없는 이유는 무엇인가요?
-
-API 키는 6개월마다 만료됩니다. 문제가 있는 경우 엔터프라이즈 관리자가 새 API 키를 생성해야 합니다. API 보고서 FAQ의 단계를 수행해야 합니다.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>Power BI 보고서가 작동하지 않는 이유는 무엇인가요?
-
-Power BI 관련 문제의 경우 [Power BI 지원 팀](https://support.powerbi.com)을 통해 티켓을 기록하세요.
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>보고서에 리소스 태그가 표시되지 않는 이유는 무엇인가요?
-
-리소스 태그는 Azure Portal에서 관리됩니다. [Azure Portal](https://portal.azure.com)에서 Azure 구독 팀에 문의할 수 있습니다. [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 문서의 단계를 수행합니다.
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>리소스 요금이 매일 변경되는 이유는 무엇인가요?
-
-자세한 사용량 보고서에 표시된 리소스 요율은 계산된 값입니다. 이는 서비스에 대해 청구된 월간 평균 요율을 나타냅니다. 리소스 요율은 서비스 단위에 대한 월간 약정 및 월간 초과분 요금의 평균에서 계산됩니다. 약정 및 초과분 요율에 대해 청구되는 사용량 부분은 해당 월의 마감 날짜로 변경됩니다. 따라서 나열된 리소스 요율도 해당 월 중에 변경됩니다. 해당 월이 끝난 후 5일째에 리소스 요금이 잠깁니다.
-
-### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>리소스 요금을 계산하는 프로세스 용어집
-
-- **총 원시 단위:** 자세한 사용량 보고서의 사용한 수량입니다.
-- **단위당 MOCP 리소스:** 업스트림 사용 시스템에서는 각 서비스의 사용량을 서로 다른 단위로 내보냅니다. (사전 설정)
-- **단위당 사용량:** Azure Enterprise 측정 단위입니다. (사전 설정)
-- **가격:** Azure Enterprise Portal의 단가입니다.
-- **총 비용:** 자세한 사용량 보고서의 확장 비용 또는 Azure Enterprise Portal의 약정 사용량 + 초과분입니다.
-
-### <a name="charges-calculations"></a>요금 계산
-
-- **사용된 MOCP 리소스로 변환** = `ROUND(Total RAW Units * MOCP Resource Per Unit,4)`
-- **사용된 단위로 변환** = `Consumed MOCP Resources / Consumption per Unit`
-- **총 비용 계산** = `Consumed Units * Price`
-
-### <a name="logic-in-the-usage-calculation-logic"></a>사용량 계산 논리의 논리
-
-**리소스 요율** = `Total Cost /(Total RAW Units / MOCP Resource Per Unit)`
-
-리소스 요율은 요금을 기준으로 도출됩니다. 가격표의 실제 단가와 일치하지 않을 수 있습니다.
-
-사용량 데이터 보고서 다운로드에서 원시 리소스 사용량을 소수점 이하 최대 6 자릿수까지 확인할 수 있습니다. 이 데이터는 초과분 요금을 계산하는 데 사용됩니다. 그러나 Azure Enterprise Portal에 표시된 사용량 데이터는 약정 단위에 대해 소수점 이하 4 자릿수로 반올림되고 초과분 단위에 대해 소수점 이하 0 자릿수로 잘립니다. Azure Enterprise Portal에서 모든 초과분 사용량에 대한 요금은 전체 단위에 대해서만 청구됩니다. 초과분 또는 혼합 월로 청구되는 사용량에 대한 단가와 리소스 요율 사이에는 큰 차이가 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,22 +1,22 @@
 ---
-title: Azure 빠른 시작 - DSC를 사용한 VM 구성 | Microsoft Docs
-description: DSC(Desired State Configuration)를 사용하여 Linux 가상 머신에서 LAMP 스택을 구성합니다.
+title: Azure 빠른 시작 - Desired State Configuration을 사용하여 VM 구성 | Microsoft Docs
+description: 이 문서는 Desired State Configuration을 사용하여 VM 구성을 시작하는 데 도움이 됩니다.
 services: automation
 ms.subservice: dsc
 keywords: DSC, 구성, 자동화
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 1a146ab7c05d200b71a33a72fa6362c3cf62629a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457521"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836722"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>필요한 상태 구성을 사용하여 가상 머신 구성
+# <a name="configure-a-vm-with-desired-state-configuration"></a>Desired State Configuration을 사용하여 VM 구성
 
-Azure Automation State Configuration을 사용하도록 설정하면 DSC(Desired State Configuration)를 사용하여 Windows 및 Linux 서버의 구성을 관리하고 모니터링할 수 있습니다. 필요한 구성에서 벗어나는 구성을 식별하거나 자동으로 수정할 수 있습니다. 이 빠른 시작에서는 Linux VM을 등록하고 DSC로 LAMP 스택을 배포하는 방법을 안내합니다.
+Azure Automation State Configuration을 사용하도록 설정하면 DSC(Desired State Configuration)를 사용하여 Windows 및 Linux 서버의 구성을 관리하고 모니터링할 수 있습니다. 필요한 구성에서 벗어나는 구성을 식별하거나 자동으로 수정할 수 있습니다. 이 빠른 시작에서는 Azure Automation State Configuration을 사용하여 Linux VM을 사용하도록 설정하고 LAMP 스택을 배포하는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,9 +29,9 @@ Azure Automation State Configuration을 사용하도록 설정하면 DSC(Desired
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 https://portal.azure.com 에서 Azure에 로그인합니다.
 
-## <a name="onboard-a-virtual-machine"></a>가상 머신 등록
+## <a name="enable-a-virtual-machine"></a>가상 머신 사용
 
-여러 가지 방법으로 컴퓨터를 등록하고 DSC를 사용하도록 설정할 수 있습니다. 이 빠른 시작에서는 Automation 계정을 통한 등록에 대해 설명합니다. [등록](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) 문서를 참조하여 컴퓨터를 State Configuration에 등록하는 방법에 대해 자세히 알아볼 수 있습니다.
+State Configuration 기능을 위해 머신을 활성화하는 방법에는 여러 가지가 있습니다. 이 빠른 시작에서는 Automation 계정을 사용하여 VM의 기능을 활성화하는 방법을 설명합니다. [Azure Automation State Configuration을 통해 관리할 머신 사용](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)을 읽어 State Configuration을 위해 머신을 사용하도록 설정하는 다양한 방법에 대해 자세히 알아봅니다.
 
 1. Azure Portal의 왼쪽 창에서 **Automation 계정**을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스**를 클릭하고 결과 보기에서 검색합니다.
 1. 목록에서 Automation 계정을 선택합니다.
@@ -42,7 +42,7 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 `Node Configuration Name`으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
 6. **확인**을 클릭합니다. DSC 확장이 가상 머신에 배포되는 동안 상태는 `Connecting`으로 표시됩니다.
 
-![DSC에 Azure VM 등록](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![DSC용 Azure VM 사용](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>모듈 가져오기
 
@@ -128,11 +128,7 @@ Automation 계정에서 모든 State Configuration 관리 노드의 상태를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Linux VM을 State Configuration에 등록하고 LAMP 스택에 대한 구성을 만들어 VM에 배포했습니다. Azure Automation State Configuration을 사용하여 지속적인 배포를 사용하도록 설정하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+이 빠른 시작에서는 State Configuration을 위한 Linux VM을 활성화하고 LAMP 스택에 대한 구성을 만들어 VM에 배포했습니다. Azure Automation State Configuration을 사용하여 지속적인 배포를 사용하도록 설정하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [DSC 및 Chocolatey를 사용하여 VM에 지속적으로 배포](./automation-dsc-cd-chocolatey.md)
-
-* PowerShell DSC에 대해 자세히 알아보려면 [PowerShell Desired State Configuration 개요](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)를 참조하세요.
-* PowerShell에서 State Configuration을 관리하는 방법에 대해 자세히 알아보려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)을 참조하세요.
-* 보고 및 경고를 위해 Azure Monitor 로그에 DSC 보고서를 전달하는 방법을 알아보려면 [Azure Monitor 로그에 DSC 보고서 전달](automation-dsc-diagnostics.md)을 참조하세요.
+> [Chocolatey를 사용한 연속 배포 설정](./automation-dsc-cd-chocolatey.md)

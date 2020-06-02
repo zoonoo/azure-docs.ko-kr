@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB용 Azure Synapse Link 지원 기능
+title: Azure Cosmos DB용 Azure Synapse Link(미리 보기) 지원 기능
 description: Azure Cosmos DB용 Azure Synapse Link에서 지원하는 현재 작업 목록 이해
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1b94d7677026f3695d07be4d83a5059373078c2e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599035"
+ms.locfileid: "83658849"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
+# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link(미리 보기) 지원 기능
 
 이 문서에서는 Azure Cosmos DB용 Azure Synapse Link에서 현재 지원되는 기능을 설명합니다. 
 
@@ -28,11 +28,11 @@ Azure Cosmos DB에는 다음과 같은 두 가지 유형의 컨테이너가 있�
 
 Synapse Link를 활성화하지 않고 Azure Cosmos DB 컨테이너에 연결할 수 있습니다. 이 경우 트랜잭션 저장소에 대한 읽기/쓰기만 가능합니다. Azure Cosmos DB용 Synapse Link 내에서 현재 지원되는 기능 목록은 다음과 같습니다. 
 
-| Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL 서버리스](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| 범주              | 설명 |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL 서버리스](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **런타임 지원** |Azure Synapse 런타임에 의한 읽기 또는 쓰기 지원| ✓ | [문의처](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Azure Cosmos DB API 지원** |Synapse Link로 API 지원| SQL / MongoDB | SQL / MongoDB |
-| **Object**  |Azure Cosmos DB 컨테이너를 직접 가리키면서 만들 수 있는 테이블과 같은 개체| 뷰, 테이블 | 보기 |
+| **Object**  |Azure Cosmos DB 컨테이너를 직접 가리키면서 만들 수 있는 테이블과 같은 개체| 보기, 테이블 | 보기 |
 | **읽기**    |Azure Cosmos DB 컨테이너에서 데이터 읽기| OLTP / HTAP | HTAP  |
 | **쓰기**   |런타임에서 Azure Cosmos DB 컨테이너에 데이터 쓰기| OLTP | 해당 없음 |
 
@@ -41,7 +41,7 @@ Synapse Link를 활성화하지 않고 Azure Cosmos DB 컨테이너에 연결할
 
 ## <a name="supported-code-generated-actions-for-spark"></a>Spark에 대해 지원되는 코드 생성 작업
 
-| 제스처              | Description |OLTP |HTAP  |
+| 제스처              | 설명 |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **DataFrame에 로드** |Spark DataFrame에 데이터 로드 및 읽기 |X| ✓ |
 | **Spark 테이블 만들기** |Azure Cosmos DB 컨테이너를 가리키는 테이블 만들기|X| ✓ |
@@ -53,7 +53,7 @@ Synapse Link를 활성화하지 않고 Azure Cosmos DB 컨테이너에 연결할
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>SQL 서버리스에 대해 지원되는 코드 생성 작업
 
-| 제스처              | Description |OLTP |HTAP |
+| 제스처              | 설명 |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **상위 100개 선택** |컨테이너에서 상위 100개 항목 미리 보기|X| ✓ |
 | **뷰 만들기** |Synapse SQL을 통해 컨테이너에서 직접 BI에 액세스할 수 있는 뷰 만들기|X| ✓ |

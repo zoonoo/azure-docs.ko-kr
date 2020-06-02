@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6287b9b8e6129fd62a896e5ac1fcca29febbf01a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6cdee6dd30c1af44b321b12c96f3e2ecdcd0d2b3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478551"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871964"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보낼 수 있습니다. 이 Python 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보내는 방법을 알아봅니다. 이 Python 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다.
+[MyBinder](https://mybinder.org)에서 이 예제를 Jupyter Notebook으로 실행하려면 **바인더 시작** 배지를 선택합니다.
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
@@ -40,7 +40,7 @@ ms.locfileid: "80478551"
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. 즐겨찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 모듈을 가져옵니다. 구독 키, 검색 엔드포인트 및 검색 용어에 대한 변수를 만듭니다. `search_url`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+1. 즐겨찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 모듈을 가져옵니다. 구독 키, 검색 엔드포인트 및 검색 용어에 대한 변수를 만듭니다. `search_url`의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```python
     import requests
@@ -61,7 +61,7 @@ ms.locfileid: "80478551"
 
 ## <a name="create-and-send-a-search-request"></a>검색 요청 만들기 및 보내기
 
-1. 검색 요청의 매개 변수에 대한 사전을 만듭니다. `q` 매개 변수에 검색 용어를 추가합니다. 공용 도메인에서 이미지를 검색하려면 `license` 매개 변수에 대해 "public"을 사용합니다. 사진만 검색하려면 `imageType`에 대해 "photo"를 사용합니다.
+1. 검색 요청의 매개 변수에 대한 사전을 만듭니다. `q` 매개 변수에 검색 용어를 추가합니다. 공용 도메인에서 이미지를 검색하려면 `license` 매개 변수를 `public`으로 설정합니다. 사진만 검색하려면 `imageType`을 `photo`로 설정합니다.
 
     ```python
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
@@ -78,7 +78,7 @@ ms.locfileid: "80478551"
 
 ## <a name="view-the-response"></a>응답 보기
 
-1. matplotlib 라이브러리를 사용하여 4개의 열과 4개의 행을 사용하여 새 그림을 만듭니다. 
+1. matplotlib 라이브러리를 사용하여 4개의 열과 4개의 행으로 새 그림을 만듭니다. 
 
 2. 그림의 행과 열을 반복하고, PIL 라이브러리의 `Image.open()` 메서드를 사용하여 이미지 썸네일을 각 공간에 추가합니다. 
 
@@ -151,7 +151,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 > [Bing Image Search 단일 페이지 앱 자습서](../tutorial-bing-image-search-single-page-app.md)
 
 * [Bing Image Search API란?](../overview.md)  
-* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [무료 Cognitive Services 액세스 키를 가져옵니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api). 
+* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

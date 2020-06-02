@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732328"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834325"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 
@@ -39,8 +39,8 @@ ms.locfileid: "82732328"
 
 | 주체 유형 | 엔드포인트:포트 |
 | --- | --- |
-| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br>  login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br>  login.microsoftonline.de:443 |
+| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login.microsoftonline.us:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
 | 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체 및 AD FS(Active Directory Federation Services) 또는 다른 페더레이션된 엔드포인트(예: user@contoso.com) |회사 또는 학교 계정에 대한 모든 엔드포인트 및 AD FS 또는 다른 페더레이션된 엔드포인트 |
 
 다른 복잡한 시나리오도 가능합니다. 추가 정보는 [Azure Active Directory 인증 흐름](../../active-directory/develop/authentication-scenarios.md), [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/active-directory-how-to-integrate.md) 및 [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 참조하세요.  
@@ -52,7 +52,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 | 연산 유형 | 엔드포인트:포트 |
 | --- | --- |
 | Key Vault 제어 평면 작업<br> \- Azure Resource Manager 사용 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**전역:**<br> graph.microsoft.com:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.microsoft.com:443<br><br> **Azure 독일:**<br>  graph.cloudapi.de:443 |
+| Microsoft Graph API |**전역:**<br> graph.microsoft.com:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.microsoft.com:443<br><br> **Azure 독일:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Key Vault 작업
 
@@ -74,4 +74,4 @@ Key Vault 서비스는 PaaS 인프라와 같은 다른 Azure 리소스를 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-Key Vault에 대한 질문이 있으면 [Azure Key Vault 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)을 방문하세요.
+Key Vault에 대한 질문이 있으면 [Azure Key Vault에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-key-vault.html)를 방문하세요.

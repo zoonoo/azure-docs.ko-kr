@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a9009121c2dab0701d08f40de7c8f26777bc3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e3226ef8d739df6902a96cff336762ce4425c5de
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82189973"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740349"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>자습서: EasySSO for Jira와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -57,7 +57,6 @@ EasySSO for Jira가 Azure AD에 통합되도록 구성하려면 갤러리에서 
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **EasySSO for Jira**를 입력합니다.
 1. 결과 패널에서 **EasySSO for Jira**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-jira"></a>EasySSO for Jira용 Azure AD Single Sign-On 구성 및 테스트
 
@@ -144,13 +143,50 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-easysso-for-jira-sso"></a>EasySSO for Jira SSO 구성
 
-**EasySSO for Jira** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [EasySSO for Jira 지원 팀](mailto:support@techtime.co.nz)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. 관리자 권한으로 Atlassian Jira 인스턴스에 로그인하고 **앱 관리** 섹션으로 이동합니다.
+
+    ![앱 관리](./media/easysso-for-jira-tutorial/jira-admin-1.png)
+
+1. **EasySSO**를 클릭합니다.
+
+    ![EasySSO](./media/easysso-for-jira-tutorial/jira-admin-2.png)
+
+1. **SAML** 옵션을 선택합니다. 그러면 SAML 구성 섹션으로 이동합니다.
+
+    ![SAML](./media/easysso-for-jira-tutorial/jira-admin-3.png)
+
+1. 상단에 있는 **인증서** 탭을 선택하면 다음 화면이 표시되고 **Azure AD SSO** 구성의 이전 단계에서 저장한 **인증서(Base64)** 또는 **메타데이터 파일**을 찾을 수 있습니다. 진행 방법에 대한 다음 옵션을 사용할 수 있습니다.
+
+    ![메타데이터 URL](./media/easysso-for-jira-tutorial/jira-admin-4.png)
+
+    a. 컴퓨터의 로컬 파일로 다운로드한 앱 페더레이션 **메타데이터 파일**을 사용합니다. **업로드** 라디오 단추를 선택하고 운영 체제와 관련된 파일 업로드 대화 상자를 따릅니다.
+
+    **OR**
+
+    b. 앱 페더레이션 **메타데이터 파일**을 열어 파일의 콘텐츠(일반 텍스트 편집기)를 확인하고 클립보드에 복사합니다. **입력** 옵션을 선택하고 텍스트 필드에 클립보드 콘텐츠를 붙여넣습니다.
+
+    **OR**
+
+    다. 완전 수동 구성. 앱 페더레이션 **인증서(Base64)** 를 열어 파일의 콘텐츠(일반 텍스트 편집기)를 확인하고 클립보드에 복사합니다. **IdP 토큰 서명 인증서** 텍스트 필드에 붙여넣습니다. 그런 다음, **일반** 탭으로 이동하여 이전에 저장한 **로그인 URL** 및 **Azure AD 식별자**에 대한 각각의 값으로 **POST Binding URL** 및 **엔터티 ID** 필드를 채웁니다.
+
+1. 페이지 아래쪽에서 **저장** 단추를 클릭합니다. 구성 필드로 구문 분석된 메타데이터 및 인증서 파일의 내용을 볼 수 있습니다. EasySSO for Jira 구성이 완료되었습니다.
+
+1. 최상의 테스트 환경을 위해 **모양 및 느낌** 탭으로 이동하여 **SAML 로그인 단추** 옵션을 선택합니다. 이렇게 하면 특히 Jira 로그인 화면에서 별도의 단추를 사용하여 Azure AD SAML 통합을 엔드투엔드로 테스트할 수 있습니다. 이 단추를 켜놓고 프로덕션 모드의 배치, 색 및 변환을 구성할 수도 있습니다.
+
+    ![모양 및 느낌](./media/easysso-for-jira-tutorial/jira-admin-5.png)
+
+    > [!NOTE]
+    > 문제가 발생하는 경우 [EasySSO 지원 팀](mailto:support@techtime.co.nz)에 문의하세요.
 
 ### <a name="create-easysso-for-jira-test-user"></a>EasySSO for Jira 테스트 사용자 만들기
 
-이 섹션에서는 EasySSO for Jira에서 Britta Simon이라는 사용자를 만듭니다. EasySSO for Jira는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. EasySSO for Jira에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+이 섹션에서는 Jira에서 B.Simon이라는 사용자를 만듭니다. EasySSO for Jira는 기본적으로 **비활성화**된 Just-In-Time 사용자 프로비저닝을 지원합니다. 사용자 프로비저닝을 사용하도록 설정하려면 EasySSO 플러그 인 구성의 일반 섹션에서 **성공적인 로그인 시 사용자 만들기** 옵션을 명시적으로 선택해야 합니다. Jira에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+그러나 사용자가 처음 로그인할 때 자동 사용자 프로비저닝을 사용하지 않으려면, 사용자는 LDAP 또는 Atlassian Crowd와 같이 Jira 인스턴스가 사용하는 백 엔드 사용자 디렉터리에 있어야 합니다.
+
+![사용자 프로비전](./media/easysso-for-jira-tutorial/jira-admin-6.png)
+
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -169,4 +205,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [고급 표시 유형 및 컨트롤을 사용하여 EasySSO for Jira를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

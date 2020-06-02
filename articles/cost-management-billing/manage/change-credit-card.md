@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199860"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834971"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가, 업데이트 또는 제거
 
@@ -29,9 +29,9 @@ Microsoft 고객 계약의 경우 결제 방법이 청구 프로필과 연결됩
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Azure 구독의 신용 카드 관리
 
-다음 섹션은 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. 청구 계정 유형이 Microsoft Online Services 프로그램인 경우 결제 방법이 개별 Azure 구독과 연결됩니다.
+다음 섹션은 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. 청구 계정 유형이 Microsoft Online Services 프로그램인 경우 결제 방법이 개별 Azure 구독과 연결됩니다. 신용 카드를 추가한 후 오류가 표시되면 [Azure 등록 시 신용 카드 거부](../../billing/billing-credit-card-fails-during-azure-sign-up.md)를 참조하세요.
 
-### <a name="change-credit-card-for-a-subscription"></a>구독의 신용 카드 변경
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>새 신용 카드를 추가하여 구독에 대한 신용 카드 변경
 
 Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에서 이전에 저장한 신용 카드로 변경할 수 있습니다. 신용 카드를 변경하려면 계정 관리자여야 합니다. 둘 이상의 구독에 동일한 활성 결제 방법이 있는 경우 이러한 구독 중에서 활성 결제 방법을 변경하면 다른 구독에 대한 활성 결제 방법도 업데이트됩니다.
 
@@ -57,7 +57,7 @@ Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에
 
 1. **다음**을 선택합니다.
 
-신용 카드를 추가한 후 오류가 표시되면 [Azure 등록 시 신용 카드 거부](../../billing/billing-credit-card-fails-during-azure-sign-up.md)를 참조하세요.
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>이전에 저장한 신용 카드로 구독하기 위한 신용 카드 변경
 
 다음 단계를 수행하여 구독의 기본 신용 카드를 계정에 이미 저장된 신용 카드로 변경할 수도 있습니다.
 
@@ -116,6 +116,7 @@ Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에
 다음 섹션은 Microsoft 고객 계약을 보유하고 있고 신용 카드로 Azure 온라인에 가입한 고객에게 적용됩니다. [Microsoft 고객 계약을 보유하고 있는지 확인하는 방법을 알아보세요](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>기본 신용 카드 변경
+
 Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩니다. 청구 프로필의 결제 방법을 변경하려면 Azure에 가입하고 청구 계정을 만든 사람이어야 합니다.
 
 청구 프로필의 기본 결제 방법을 수표/전신 송금으로 변경하려는 경우 [청구서로 Azure 구독 비용 지불](pay-by-invoice.md)을 참조하세요.
@@ -159,9 +160,11 @@ Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩
 1. 신용 카드를 삭제하려면 바로 가기 메뉴에서 **삭제**를 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
+
 가상 카드 또는 선불 카드는 지원하지 않습니다. 유효한 신용 카드를 추가하거나 업데이트할 때 오류가 발생하면 프라이빗 모드에서 브라우저를 열어 보세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
+
 다음 섹션에서는 신용 카드 정보를 변경하는 방법에 관한 자주 묻는 질문에 대답합니다.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>내 구독을 사용할 수 없습니다. 지금 내 신용 카드를 제거할 수 없는 이유는 무엇입니까?
@@ -189,6 +192,7 @@ Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩
 세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터](https://account.azure.com/Profile)에서 프로필을 업데이트한 다음, **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
 ## <a name="check-the-type-of-your-account"></a>계정 유형 확인
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
@@ -196,4 +200,5 @@ Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
+
 - 비용을 절감할 수 있는지 확인하기 위해 [Azure Reservations](../reservations/save-compute-costs-reservations.md)에 대해 알아봅니다.

@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 포털 쿼리'
 description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 따릅니다.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74406788"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872097"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -36,11 +36,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. **Name** 속성을 기준으로 정렬(`order by`)하도록 쿼리를 업데이트합니다(`Resources | project name, type | limit 5 | order by name asc`). 그런 다음, **쿼리 실행**을 선택합니다.
 
    > [!NOTE]
-   > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이렇게 하면 먼저 쿼리 결과가 제한된 후 정렬됩니다.
+   > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이 명령 순서는 먼저 쿼리 결과를 제한한 다음, 정렬합니다.
 
 1. 먼저 **Name** 속성을 기준으로 정렬(`order by`)한 다음, 상위 5개 결과로 제한(`limit`)하도록 쿼리를 업데이트합니다(`Resources | project name, type | order by name asc | limit 5`). 그런 다음, **쿼리 실행**을 선택합니다.
 
-최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 일관되고, 예상대로 **Name** 속성을 기준으로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
+최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
 ### <a name="schema-browser"></a>스키마 브라우저
 
@@ -119,7 +119,7 @@ Azure Portal 환경에서 Resource Graph 샘플 대시보드를 제거하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리를 실행하고 Resource Graph에서 구동하는 대시보드 예제를 살펴보았습니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리를 실행하고 Resource Graph에서 구동하는 대시보드 예제를 살펴보았습니다. Resource Graph 언어에 대해 자세히 알아보려면 쿼리 언어 정보 페이지로 이동하세요.
 
 > [!div class="nextstepaction"]
 > [쿼리 언어에 대한 자세한 정보 가져오기](./concepts/query-language.md)

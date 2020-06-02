@@ -2,13 +2,13 @@
 title: 애플리케이션 설정
 description: 발화 정규화 및 앱 개인 정보 보호와 같은 LUIS 포털에서 애플리케이션 및 버전 설정을 구성합니다.
 ms.topic: quickstart
-ms.date: 05/04/2020
-ms.openlocfilehash: 4f0703973a4ef15f1d9b6582bd4789cd825dfe9f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: c1d5572c3eeb71ec0631a03444d08da46d0a0106
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599564"
+ms.locfileid: "83653176"
 ---
 # <a name="application-and-version-settings"></a>애플리케이션 및 버전 설정
 
@@ -21,21 +21,25 @@ ms.locfileid: "83599564"
 1. [LUIS 포털](https://www.luis.ai)에 로그인합니다.
 1. **내 앱** 목록에서 앱을 선택합니다.
 .
-1. 위쪽 탐색 모음에서 **관리**를 선택한 다음, 왼쪽 탐색 모음에서 **애플리케이션 설정**을 선택합니다.
+1. 위쪽 탐색 모음에서 **관리**를 선택한 다음, 왼쪽 탐색 모음에서 **설정**을 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![LUIS 포털, 관리 섹션, 애플리케이션 설정 페이지의 스크린샷](media/app-settings/luis-portal-manage-section-application-settings.png)
 
 
-## <a name="change-training-and-endpoint-settings"></a>학습 및 엔드포인트 설정 변경
+## <a name="change-application-settings"></a>애플리케이션 설정 변경
 
 설정을 변경하려면 페이지에서 설정/해제를 선택합니다.
 
-[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+[!INCLUDE [App settings](includes/app-settings.md)]
 
+## <a name="change-version-settings"></a>버전 설정 변경
 
-앱 및 버전 [설정 참조](luis-reference-application-settings.md)를 사용하여 무시되는 텍스트 양식을 파악합니다.
+설정을 변경하려면 페이지에서 설정/해제를 선택합니다.
+
+[!INCLUDE [Version settings](includes/app-version-settings.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 작성자와 [협업](luis-how-to-collaborate.md)하는 방법
+* [게시 설정](luis-how-to-publish-app.md#configuring-publish-settings)

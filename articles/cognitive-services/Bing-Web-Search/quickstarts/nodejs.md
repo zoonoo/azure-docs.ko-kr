@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 54f4b38e01b51289319390779a140346befc6f0c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168814"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873953"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>빠른 시작: Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받아보세요. 이 Node.js 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Web Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 Node.js 애플리케이션은 검색 요청을 API에 보내고 JSON 응답을 표시합니다. 이 애플리케이션은 JavaScript로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,8 +33,7 @@ ms.locfileid: "76168814"
 
 ## <a name="create-a-project-and-declare-required-modules"></a>프로젝트 만들기 및 필요한 모듈 선언
 
-즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다.
-그런 다음, 아래 코드 조각을 `search.js`라는 파일의 프로젝트에 복사합니다.
+즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다. 그런 다음, 다음 코드 조각을 search.js라는 파일의 프로젝트에 복사합니다.
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -44,9 +43,9 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>구독 키 설정
 
-이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다. [API 페이지](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)로 이동하여 구독 키를 조회합니다.
+이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다. 구독 키를 조회하려면 [사용자의 API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)를 참조하세요.
 
-환경 변수 사용에 익숙하지 않거나 이 앱을 가능한 빨리 실행하려는 경우 `process.env['AZURE_SUBSCRIPTION_KEY']`를 문자열로 설정한 구독 키로 바꿀 수 있습니다.
+환경 변수 사용에 익숙하지 않거나 이 앱을 가능한 빨리 실행하려는 경우 `process.env['AZURE_SUBSCRIPTION_KEY']`를 문자열로 설정한 구독 키로 바꿉니다.
 
 ```javascript
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
@@ -57,7 +56,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>요청을 만드는 함수 만들기
 
-이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. `hostname`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.  `encodeURIComponent`는 잘못된 문자를 이스케이프하는 데 사용되고, 구독 키는 헤더에 전달됩니다. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 완료되면 앱은 흥미로운 헤더 및 메시지 본문을 인쇄합니다. 색을 사용하여 재생하고 기본 설정에 맞도록 깊이를 설정할 수 있으며, `1`의 깊이는 응답의 유용한 요약을 제공합니다.
+이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. 
+
+1. `hostname` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.  
+
+2. `encodeURIComponent`를 사용하여 잘못된 문자를 이스케이프합니다. 구독 키는 헤더로 전달됩니다. 
+
+3. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 
+
+4. 앱이 완료되면 관련 헤더 및 메시지 본문을 출력합니다. 색을 조정하고 깊이를 기본 설정에 맞게 설정할 수 있습니다. `1` 깊이는 응답에 대한 유용한 요약을 제공합니다.
 
 ```javascript
 function bingWebSearch(query) {
@@ -103,7 +110,7 @@ bingWebSearch(query)
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 코드를 실행하는 것입니다. `node search.js "<your query>"`
+마지막 단계는 `node search.js "<your query>"` 명령을 사용하여 코드를 실행하는 것입니다.
 
 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
 
@@ -140,7 +147,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 bingWebSearch(query)
 ```
 
-## <a name="sample-response"></a>샘플 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
@@ -269,6 +276,6 @@ Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

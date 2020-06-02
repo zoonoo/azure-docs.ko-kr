@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314352"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747774"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽
 
@@ -72,7 +72,7 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 - 하한값과 상한값이 있는 구성 가능한 요청 크기 제한
 - WAF 평가에서 특정 요청 특성을 생략할 수 있는 제외 목록. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
 - 애플리케이션의 특정 요구 사항에 맞는 사용자 지정 규칙 만들기
-- 특정 국가의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽 (미리 보기)
+- 특정 국가/지역의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽. (미리 보기)
 - 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호 (미리 보기)
 
 ## <a name="waf-policy"></a>WAF 정책

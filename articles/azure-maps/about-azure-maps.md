@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdac12350db785e6194cd3d057f4d2adfefa5969
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 113e745e078bd5d345845318af1b10ed98f2aecb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80335744"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746910"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -155,7 +155,7 @@ Traffic Service는 교통 정보가 필요한 웹 및 모바일 애플리케이�
 
 ### <a name="ip-to-location-service"></a>IP to Location Service
 
-IP to Location Service를 사용하여 IP 주소의 검색된 두 글자 국가 번호를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정된 애플리케이션 콘텐츠를 제공하여 사용자 환경을 개선하는 데 도움을 줄 수 있습니다.
+IP to Location Service를 사용하여 IP 주소의 검색된 두 문자 국가/지역 코드를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정된 애플리케이션 콘텐츠를 제공하여 사용자 환경을 개선하는 데 도움을 줄 수 있습니다.
 
 REST API의 IP to Location Service에 대한 자세한 내용은 [Azure Maps Geolocation API 설명서](https://docs.microsoft.com/rest/api/maps/geolocation)를 참조하세요.
 
@@ -180,7 +180,7 @@ Azure Maps API는 현재 다음 지역을 제외한 모든 국가 및 지역에�
 * 중국
 * 대한민국
 
-현재 IP 주소의 위치가 지원되는 국가에 포함되어 있는지 확인하세요.
+현재 IP 주소의 위치가 지원되는 국가/지역에 포함되어 있는지 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

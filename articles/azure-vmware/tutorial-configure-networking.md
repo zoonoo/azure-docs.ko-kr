@@ -1,14 +1,14 @@
 ---
-title: 자습서 - Azure에서 VMWare 프라이빗 클라우드에 대한 네트워킹 구성
+title: 자습서 - Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 description: Azure에서 프라이빗 클라우드를 배포하는 데 필요한 네트워킹을 만들고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837620"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873858"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMWare 프라이빗 클라우드에 대한 네트워킹 구성
 

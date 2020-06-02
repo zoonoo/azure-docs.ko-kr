@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419557"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645315"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 
@@ -30,8 +30,9 @@ Azure Synapse는 프라이빗 링크를 지원합니다. 프라이빗 링크를 
 
 >[!IMPORTANT]
 >관리형 프라이빗 엔드포인트는 관리형 작업 영역 VNet이 연결된 Azure Synapse 작업 영역에서만 지원됩니다.
+
 >[!NOTE]
->모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 관리형 작업 영역 VNet의 모든 아웃바운드 트래픽은 향후에 차단될 예정입니다.
+>관리형 프라이빗 엔드포인트를 제외한 관리 작업 영역 VNet의 모든 아웃바운드 트래픽은 향후에 차단될 예정입니다. 작업 영역 외부의 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
 
 Azure Synapse에서 관리형 프라이빗 엔드포인트를 만들 때 프라이빗 엔드포인트 연결이 "보류 중" 상태로 생성됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 

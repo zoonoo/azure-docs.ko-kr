@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76775345"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827238"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션
 
@@ -53,11 +53,11 @@ IoT 솔루션을 만들기 위한 Azure 기술 및 서비스에 대해 설명합
 
 검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 서비스 관련 포럼의 MSDN에 제출합니다.
 
-- [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Azure Digital Twins에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Azure IoT Hub에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Azure IoT Edge에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Azure Maps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Azure Time Series Insights에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Azure 피드백에 대한 사용자 의견 제출
 

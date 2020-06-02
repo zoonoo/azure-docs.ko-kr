@@ -8,30 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735116"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869811"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사
 
-이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Java 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Java 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
+
+이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java)에 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * JDK(Java Development Kit) 7 이상
 
-* [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) 또는 최신 [Gson](https://github.com/google/gson) 버전을 가져옵니다. 명령줄 실행의 경우 기본 클래스를 사용하여 Java 폴더에 `.jar`을 추가합니다.
+* [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) 또는 최신 [Gson](https://github.com/google/gson) 버전을 가져옵니다. 명령줄 실행의 경우 주 클래스를 사용하여 Java 폴더에 `.jar`을 추가합니다.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-an-application"></a>애플리케이션 만들기 및 초기화
 
-1. 선택한 클래스 이름을 사용하여 원하는 IDE 또는 편집기에서 새 Java 프로젝트를 만든 다음, 다음과 같은 패키지를 가져옵니다.
+1. 선택한 클래스 이름을 사용하여 원하는 IDE 또는 편집기에서 새 Java 프로젝트를 만든 후, 다음 패키지를 가져옵니다.
 
     ```java
     import java.io.*;
@@ -40,7 +42,7 @@ ms.locfileid: "82735116"
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. API 엔드포인트의 호스트, 경로 및 구독 키에 대한 변수를 만듭니다. 그런 다음, 지역/국가, 맞춤법을 검사할 텍스트 및 맞춤법 검사 모드의 문자열에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+2. API 엔드포인트의 호스트, 경로 및 구독 키에 대한 변수를 만듭니다. 그런 다음, 지역/국가, 맞춤법을 검사할 텍스트 및 맞춤법 검사 모드의 문자열에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,7 +57,11 @@ ms.locfileid: "82735116"
 
 ## <a name="create-and-send-an-api-request"></a>API 요청 만들기 및 보내기
 
-1. `check()`라는 함수를 만들고 API 요청을 만들어서 보냅니다. 그 안에서 다음 단계를 수행합니다. 요청 매개 변수에 대한 문자열을 만듭니다. 지역/국가 문자열에 `?mkt=` 매개 변수를 추가하고 맞춤법 검사 모드에 `&mode=` 매개 변수를 추가합니다.  
+1. `check()`라는 함수를 만들고 API 요청을 만들어서 보냅니다. 이 함수 내에서 다음 단계에서 지정한 코드를 추가합니다. 요청 매개 변수에 대한 문자열을 만듭니다.
+
+   a. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 
+
+   b. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 
 
    ```java
    public static void check () throws Exception {
@@ -71,7 +77,7 @@ ms.locfileid: "82735116"
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. URL에 대한 연결을 엽니다. 요청 메서드를 `POST`로 설정합니다. 요청 매개 변수를 추가합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 반드시 추가해야 합니다.
+3. URL에 대한 연결을 엽니다. 요청 메서드를 `POST`로 설정하고 요청 매개 변수를 추가합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가해야 합니다.
 
     ```java
     connection.setRequestMethod("POST");
@@ -91,7 +97,7 @@ ms.locfileid: "82735116"
 
 ## <a name="format-and-read-the-api-response"></a>API 응답 형식 지정 및 읽기
 
-1. 클래스에 이 메서드를 추가합니다. 더 읽기 쉬운 출력으로 JSON 형식을 지정합니다.
+1. 더 읽기 쉬운 출력을 위해 JSON 형식을 지정하는 클래스에 `prettify()` 메서드를 추가합니다.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +123,7 @@ ms.locfileid: "82735116"
 
 ## <a name="call-the-api"></a>API 호출
 
-애플리케이션의 main 함수에서 앞서 만든 check() 함수를 호출합니다.
+애플리케이션의 main 함수에서 이전에 만든 `check()` 메서드를 호출합니다.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,19 +137,19 @@ ms.locfileid: "82735116"
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-프로젝트를 빌드한 후 실행합니다.
+프로젝트를 빌드한 후 실행합니다. 명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션을 빌드하고 실행합니다.
 
-명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션은 빌드하고 실행합니다.
+1. 애플리케이션을 빌드합니다.
 
-**빌드:**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**실행:**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. 애플리케이션을 실행합니다.
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 

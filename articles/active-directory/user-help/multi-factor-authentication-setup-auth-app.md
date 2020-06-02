@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062577"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738645"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>2단계 인증 방법으로 인증자 앱 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "77062577"
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>알림을 보내도록 Microsoft Authenticator 앱 설정
 
-1. **추가 보안 인증** 페이지에서 **모바일 앱**을 선택합니다. **1단계: 사용자에게 연락하는 방법** 영역에서 찾을 수 있습니다.
+1. [추가 보안 인증](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) 페이지에서 **모바일 앱**을 선택합니다. **1단계: 사용자에게 연락하는 방법** 영역에서 찾을 수 있습니다.
 
 2. **모바일 앱을 사용하시겠습니까?** 영역에서 **확인 시 알림 수신**을 선택한 다음, **설정**을 선택합니다.
 

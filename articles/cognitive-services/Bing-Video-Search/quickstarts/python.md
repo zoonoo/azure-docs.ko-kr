@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28d9726bfa1e195fa87b41914841083c56dbc844
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382687"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849589"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>빠른 시작: Bing Video Search REST API 및 Python을 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 Python 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py)에서 사용할 수 있습니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Python 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 
 
-바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다. 
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py)에서 사용할 수 있습니다.
+
+**바인더 시작** 배지를 선택하여 [MyBinder](https://mybinder.org)에서 Jupyter Notebook으로 이 예제를 실행할 수 있습니다. 
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
@@ -40,7 +42,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     import requests
     from IPython.display import HTML
     ```
-2.  구독 키, 검색 엔드포인트 및 검색어에 대한 변수를 만듭니다. `search_url`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+2.  구독 키, 검색 엔드포인트 및 검색어에 대한 변수를 만듭니다. `search_url` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
     
     ```python
     subscription_key = None
@@ -57,7 +59,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ## <a name="send-your-request"></a>요청 보내기
 
-1. `params`라고 명명된 사전을 만들어 요청에 매개 변수를 추가합니다. 검색어를 `q` 매개 변수에 추가하고, 비디오 수에 5, 반환된 비디오의 가격 책정에 `free`, 비디오 길이에 `short`를 입력합니다.
+1. `params`라고 명명된 사전을 만들어 요청에 매개 변수를 추가합니다. 검색어를 `q` 매개 변수(비디오 수에 5, 반환된 비디오의 가격 책정에 `free`, 비디오 길이에 `short`)에 추가합니다.
 
     ```python
     params  = {"q": search_term, "count":5, "pricing": "free", "videoLength":"short"}

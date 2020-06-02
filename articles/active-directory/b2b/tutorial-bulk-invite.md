@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603400"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926926"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대
 
@@ -29,6 +29,27 @@ Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 
 
 Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+## <a name="understand-the-csv-template"></a>CSV 템플릿 이해
+
+대량 업로드 CSV 템플릿을 다운로드하고 입력하여 대량으로 Azure AD 게스트 사용자를 성공적으로 만들 수 있습니다. 다운로드한 CSV 템플릿은 다음 예제와 같이 표시될 수 있습니다.
+
+![업로드용 스프레드시트 및 각 행과 열에 대한 용도 및 값에 대한 설명](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>CSV 템플릿 구조
+
+다운로드된 CSV 템플릿의 행은 다음과 같습니다.
+
+- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 CSV 업로드에 포함되어야 합니다.
+- **열 머리글**: 열 머리글의 형식은 &lt;*항목 이름*&gt; [PropertyName] &lt;*필수 또는 비워 둠*&gt;입니다. `Email address to invite [inviteeEmail] Required`)을 입력합니다. 템플릿의 일부 이전 버전은 약간 다를 수 있습니다.
+- **예제 행**: 템플릿에는 각 열에 대해 허용 가능한 값의 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
+
+### <a name="additional-guidance"></a>추가 지침
+
+- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 이렇게 하면 업로드를 처리할 수 없습니다.
+- 필수 열이 먼저 나열됩니다.
+- 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
+- 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 초대를 보낼 수 있는 두 개 이상의 테스트 메일 계정이 필요합니다. 계정은 조직 외부에서 가져와야 합니다. gmail.com 또는 outlook.com 주소와 같은 소셜 계정을 포함하여 모든 계정 유형을 사용할 수 있습니다.
@@ -38,11 +59,11 @@ Azure Active Directory가 없는 경우 시작하기 전에 [체험 계정](http
 1. 조직에서 사용자 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **사용자** > **일괄 초대**를 선택합니다.
-4. **사용자 일괄 초대** 페이지에서 **다운로드**를 선택하여 초대 속성이 포함된 올바른 .csv 파일을 가져옵니다.
+4. **사용자 일괄 초대** 페이지에서 **다운로드**를 선택하여 초대 속성이 포함된 올바른 .csv 템플릿을 가져옵니다.
 
     ![일괄 초대 다운로드 단추](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. .csv 파일을 열고 각 게스트 사용자에 대한 줄을 추가합니다. 필요한 값은 다음과 같습니다.
+5. .csv 템플릿을 열고 각 게스트 사용자에 대한 줄을 추가합니다. 필요한 값은 다음과 같습니다.
 
    * **초대할 이메일 주소** - 초대를 받을 사용자
 

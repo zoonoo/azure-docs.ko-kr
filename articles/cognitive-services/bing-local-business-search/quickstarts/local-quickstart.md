@@ -8,31 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 62e975121c05bd4fde2438480f7042b0957a9c82
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475604"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873128"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>빠른 시작: C#에서 Bing Local Business Search API에 쿼리 보내기
 
-이 빠른 시작을 사용하여 Azure Cognitive Service인 Bing Local Business Search API에 요청 전송을 시작합니다. 이 샘플 애플리케이션은 C#에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
+이 빠른 시작을 사용하여 Azure Cognitive Service인 Bing Local Business Search API에 요청을 보내는 방법을 알아봅니다. 이 간단한 애플리케이션은 C#에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
 
-이 예제 애플리케이션은 검색 쿼리 `hotel in Bellevue`에 대한 API에서 로컬 응답 데이터를 가져옵니다.
+이 예제 애플리케이션은 검색 쿼리에 대한 API에서 로컬 응답 데이터를 가져옵니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
-
-Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+* Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 API 키를 저장합니다. 자세한 내용은 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)를 참조하세요.
 
 ## <a name="create-the-request"></a>요청 만들기 
 
-다음 코드에서는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, “restaurant in Bellevue”에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
+다음 코드에서는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, *restaurant in Bellevue*에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -54,10 +53,10 @@ Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.mic
 
 ## <a name="run-the-complete-application"></a>전체 애플리케이션 실행
 
-Bing Local Business Search API는 Bing 검색 엔진의 지역화된 검색 결과를 반환합니다.
-1. Visual Studio(Community Edition 사용 가능)에서 새 콘솔 솔루션을 만듭니다.
+다음 코드에서는 Bing Local Business Search API를 사용하여 Bing 검색 엔진에서 지역화된 검색 결과를 반환합니다. 다음 단계에 따라 이 코드를 사용할 수 있습니다.
+1. Visual Studio에서 새 콘솔 솔루션을 만듭니다(Community Edition이면 충분).
 2. Program.cs를 아래에 제공된 코드로 바꿉니다.
-3. accessKey 값을 구독에 유효한 액세스 키로 바꿉니다.
+3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -210,5 +209,5 @@ namespace localSearch
 
 ## <a name="next-steps"></a>다음 단계
 - [Local Business Search Java 빠른 시작](local-search-java-quickstart.md)
-- [Local Business Search Node 빠른 시작](local-search-node-quickstart.md)
+- [Local Business Search Node.js 빠른 시작](local-search-node-quickstart.md)
 - [Local Business Search Python 빠른 시작](local-search-python-quickstart.md)

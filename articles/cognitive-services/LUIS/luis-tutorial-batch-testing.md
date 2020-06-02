@@ -3,12 +3,12 @@ title: '자습서: 문제를 찾기 위한 일괄 처리 테스트 - LUIS'
 description: 이 자습서에서는 일괄 처리 테스트를 사용하여 LUIS(Language Understanding) 앱의 품질에 대한 유효성을 검사하는 방법을 보여 줍니다.
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592596"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681638"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -49,13 +49,13 @@ ms.locfileid: "83592596"
 
 ## <a name="what-should-the-batch-file-utterances-include"></a>배치 파일 발화에 포함되는 내용
 
-배치 파일에는 시작 및 끝 위치를 포함하여 레이블이 지정된 최상위 수준의 기계 학습된 엔터티가 있는 발화가 포함되어야 합니다. 발화는 이미 앱에 있는 예제의 일부가 아니어야 합니다. 의도 또는 엔터티에 대해 긍정적으로 예측하려는 발화여야 합니다.
+배치 파일에는 시작 및 끝 위치를 포함하여 레이블이 지정된 최상위 수준의 기계 학습 엔터티가 있는 발화가 포함되어야 합니다. 발화는 이미 앱에 있는 예제의 일부가 아니어야 합니다. 의도 또는 엔터티에 대해 긍정적으로 예측하려는 발화여야 합니다.
 
 의도 및/또는 엔터티별로 테스트를 분리하거나 모든 테스트(최대 1,000개 발화)를 동일한 파일에 포함할 수 있습니다.
 
 ## <a name="batch-file"></a>일괄 처리 파일
 
-JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정된 하나의 엔터티가 있는 하나의 발화가 포함되어 있습니다. 사용자 고유의 테스트에는 올바른 의도 및 레이블이 지정된 기계 학습된 엔터티가 포함된 발화가 많이 있어야 합니다.
+JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정된 하나의 엔터티가 있는 하나의 발화가 포함되어 있습니다. 사용자 고유의 테스트에는 올바른 의도 및 레이블이 지정된 기계 학습 엔터티가 포함된 발화가 많이 있어야 합니다.
 
 1. 텍스트 편집기에서 `pizza-with-machine-learned-entity-test.json`을 만들거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)합니다.
 

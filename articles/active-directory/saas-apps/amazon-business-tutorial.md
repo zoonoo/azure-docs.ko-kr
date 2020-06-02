@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68496568"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773031"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>자습서: Azure Active Directory와 Amazon Business 통합
 
@@ -87,24 +87,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| 북아메리카 |
+       | `https://www.amazon.co.jp`| 동아시아 |
+       | `https://www.amazon.de`| 유럽 |
 
     1. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| 북아메리카 |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| 동아시아 |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| 유럽 |
 
        > [!NOTE]
        > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. `<idpid>` 값은 자습서의 뒷부분에서 설명하는 Amazon Business SSO 구성 섹션에서 가져올 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 `https://www.amazon.com/` URL을 입력합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 Amazon Business 구성에서 제공된 전체 URL을 **추가 URL 설정** 섹션의 **로그온 URL**에 추가해야 합니다.
 
 1. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **사용자 특성 및 클레임** 섹션에서 **편집** 아이콘을 클릭하여 특성을 편집합니다.
 
@@ -153,6 +151,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Set up SSO**(SSO 설정) 마법사에서 조직의 요구 사항에 따라 공급자를 선택하고 **Next**(다음)를 클릭합니다.
 
     ![기본 그룹](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Microsoft ADFS는 목록에 있는 옵션이지만 Azure AD SSO에서는 작동하지 않습니다.
 
 1. **New user account defaults**(새 사용자 계정 기본값) 마법사에서 **Default Group**(기본 그룹)을 선택한 다음, 조직의 사용자 역할에 따라 **Default Buying Role**(기본 구매 역할)을 선택하고 **Next**(다음)를 클릭합니다.
 
@@ -197,7 +198,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 마지막으로 **SSO Connection details**(SSO 연결 세부 정보) 섹션에서 **Status**(상태)가 **Active**(활성)로 표시됩니다.
 
     ![연결](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > **SP** 시작 모드에서 애플리케이션을 구성하려면 다음 단계를 완료하고 Azure Portal에서 **추가 URL 설정** 섹션의 **로그온 URL** 텍스트 상자에 있는 상단의 스크린샷에서 로그온 URL을 붙여넣습니다. 이때 다음 형식을 사용합니다.
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.

@@ -3,15 +3,15 @@ author: erikhopf
 ms.author: erhopf
 ms.service: cognitiveservices
 ms.topic: include
-ms.date: 08/16/2018
-ms.openlocfilehash: 759a79d92a9594abb1be1c6461752420fea4a41e
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 05/20/2020
+ms.openlocfilehash: a560c40efca040c85783fb709d243c86e86c111c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67182530"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873762"
 ---
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Web Search API 개요](../articles/cognitive-services/Bing-Web-Search/overview.md)
+* [Bing Web Search API란?](../articles/cognitive-services/Bing-Web-Search/overview.md)
 * [Bing Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

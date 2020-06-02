@@ -1,30 +1,30 @@
 ---
 title: 자습서 - Blob 스토리지에서 고가용성 애플리케이션 빌드
 titleSuffix: Azure Storage
-description: 읽기 액세스 지역 중복 스토리지를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
+description: RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606021"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856136"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
 이 자습서는 시리즈의 1부입니다. 여기서는 Azure에서 애플리케이션 데이터의 고가용성을 지원하는 방법을 알아봅니다.
 
-이 자습서를 완료하면 [RA-GRS(읽기 액세스 지역 중복)](../common/storage-redundancy.md) 스토리지 계정으로 Blob을 업로드하고 검색하는 콘솔 애플리케이션을 갖게 됩니다.
+이 자습서를 완료하면 [RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)](../common/storage-redundancy.md) 계정으로 Blob을 업로드하고 검색하는 콘솔 애플리케이션을 갖게 됩니다.
 
-RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 애플리케이션은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류 및 복구가 시뮬레이션될 때 엔드포인트를 자동으로 전환합니다.
+Azure Storage의 지역 중복은 기본 지역에서 수백 마일 떨어진 보조 지역에 비동기적으로 트랜잭션을 복제합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 콘솔 애플리케이션은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류 및 복구가 시뮬레이션될 때 엔드포인트 사이를 자동으로 전환합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -64,25 +64,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다.
 
-아래 단계에 따라 읽기 액세스 지역 중복 스토리지 계정을 만듭니다.
+다음과 같은 단계에 따라 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지) 계정을 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택합니다.
-2. **새로 만들기** 페이지에서 **스토리지**를 선택합니다.
-3. **추천**에서 **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** 단추를 선택합니다.
+2. **새로 만들기** 페이지에서 **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 4. 다음 정보로 스토리지 계정 양식을 작성하고(아래 이미지 참조) **만들기**를 선택합니다.
 
-   | 설정       | 제안 값 | Description |
+   | 설정       | 샘플 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **이름** | mystorageaccount | 스토리지 계정의 고유한 값 |
-   | **배포 모델** | 리소스 관리자  | 리소스 관리자에는 최신 기능이 포함되어 있습니다.|
-   | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [스토리지 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
-   | **성능** | Standard | Standard는 샘플 시나리오에 충분합니다. |
-   | **복제**| RA-GRS(읽기 액세스 지역 중복 스토리지) | 샘플 작동에 필요합니다. |
-   |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |
-   |**ResourceGroup** | myResourceGroup |유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
-   |**위치** | 미국 동부 | 위치를 선택합니다. |
+   | **구독** | *내 구독* | 구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |
+   | **ResourceGroup** | *myResourceGroup* | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
+   | **이름** | *mystorageaccount* | 스토리지 계정에 사용할 고유한 이름. |
+   | **위치** | *미국 동부* | 위치를 선택합니다. |
+   | **성능** | *Standard* | 표준 성능은 예제 시나리오에 적합한 옵션입니다. |
+   | **계정 종류** | *StorageV2* | 범용 v2 스토리지 계정 사용이 권장됩니다. Azure Storage 계정 유형에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요. |
+   | **복제**| *RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)* | 주 지역은 영역 중복이며 보조 지역에 복제되고 보조 지역에 대한 읽기 액세스가 사용됩니다. |
+   | **액세스 계층**| *핫* | 자주 액세스하는 데이터에 대해 핫 계층을 사용합니다. |
 
-![스토리지 계정 만들기](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![스토리지 계정 만들기](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -173,7 +172,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플리케이션 디버깅을 시작합니다. Visual Studio는 구성된 경우 누락된 NuGet 패키지를 자동으로 복원합니다. 자세한 내용은 [패키지 복원으로 패키지 설치 및 다시 설치](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)에서 확인하세요.
 
-콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
+콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GZRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플
 
 # <a name="python"></a>[Python](#tab/python)
 
-터미널 또는 명령 프롬프트에서 애플리케이션을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
+터미널 또는 명령 프롬프트에서 애플리케이션을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GZRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 엔드포인트을 나타내고 **S**는 보조 엔드포인트을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 파트 1에서는 RA-GRS 스토리지 계정으로 애플리케이션의 고가용성을 지원하는 방법에 대해 알아봤습니다.
+시리즈의 1부에서는 RA-GZRS 스토리지 계정으로 애플리케이션의 고가용성을 지원하는 방법에 대해 알아봤습니다.
 
-시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 엔드포인트를 사용하도록 애플리케이션을 강제하는 방법을 알아 보세요.
+시리즈의 2부에서는 오류를 시뮬레이션하고 애플리케이션에서 보조 RA-GZRS 엔드포인트를 사용하도록 강제 적용하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [주 지역에서 읽기 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)
+> [주 지역에서 읽기 오류 시뮬레이션](simulate-primary-region-failure.md)

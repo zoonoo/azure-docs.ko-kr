@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587881"
+ms.locfileid: "83656214"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics(작업 영역 미리 보기)란?
 
@@ -63,7 +63,7 @@ Azure Synapse는 SQL과 Spark를 함께 사용하는 기존의 기술 장벽을 
 
 Azure Synapse에는 Azure Data Factory와 동일한 데이터 통합 엔진과 환경이 기본으로 제공되기 때문에 별도의 오케스트레이션 엔진을 사용하지 않고도 풍부한 데이터 파이프라인을 만들 수 있습니다.
 
-* Synapse와 85개가 넘는 온-프레미스 데이터 소스 간에 데이터 이동
+* Azure Synapse와 90개가 넘는 온-프레미스 데이터 원본 간에 데이터 이동
 * 노트북, 파이프라인, Spark 작업, SQL 스크립트, 저장 프로시저 오케스트레이션
 * 데이터 흐름 활동을 사용하는 코드 없는 ETL
 
@@ -87,6 +87,6 @@ Azure Synapse는 엔터프라이즈에서 분석 리소스를 관리하고, 사�
 
 * [작업 영역 만들기](quickstart-create-workspace.md)
 * [Synapse Studio 사용](quickstart-synapse-studio.md)
-* [SQL 풀 만들기](quickstart-create-sql-pool.md)
+* [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
 * [SQL 주문형 사용](quickstart-sql-on-demand.md)
-* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
+* [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)

@@ -8,30 +8,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 7ea8b272871e681bd9caacf8cf1a84eb91d8849d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: e1084c1962db3c04b951245361da80bee098329a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80238901"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199828"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>빠른 시작: C#을 사용하여 Bing Custom Search 엔드포인트 호출 
 
-이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다. 이 애플리케이션은 C#으로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs)에서 확인할 수 있습니다.
+이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청하는 방법에 대해 알아봅니다. 이 애플리케이션은 C#으로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs)에 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- [Visual Studio 2019 이상](https://www.visualstudio.com/downloads/)의 모든 버전
+- Bing Custom Search 인스턴스 자세한 내용은 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
+- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- [Visual Studio 2019 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
-- [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet 페키지. 
-    - Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 메뉴에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지를 설치합니다. NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설치됩니다.
-        - Microsoft.Rest.ClientRuntime
-        - Microsoft.Rest.ClientRuntime.Azure
-        - Newtonsoft.Json
+- [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet 페키지. 
+
+   Visual Studio에서 이 패키지를 설치하려면 다음을 수행합니다. 
+     1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다. 
+     2. *Microsoft.Azure.CognitiveServices.Search.CustomSearch*를 검색하여 선택한 다음, 패키지를 설치합니다.
+
+   Bing Custom Search NuGet 패키지를 설치하면 Visual Studio에서 다음 패키지도 설치합니다.
+     - **Microsoft.Rest.ClientRuntime**
+     - **Microsoft.Rest.ClientRuntime.Azure**
+     - **Newtonsoft.Json**
+
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
@@ -70,7 +76,7 @@ ms.locfileid: "80238901"
     }
     ```
 
-3. 프로젝트의 기본 메서드에서 Bing Custom Search API 구독 키, 검색 인스턴스의 사용자 지정 구성 ID 및 검색어에 대한 변수를 만듭니다.
+3. 프로젝트의 기본 메서드에서 Bing Custom Search API 구독 키, 검색 인스턴스의 사용자 지정 구성 ID 및 검색어에 대해 다음과 같은 변수를 만듭니다.
 
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
@@ -78,7 +84,7 @@ ms.locfileid: "80238901"
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. 검색어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=`에 추가하여 요청 URL을 구성합니다. 매개 변수를 `&` 문자로 분리합니다. `url`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+4. 검색어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=` 매개 변수에 추가하여 요청 URL을 구성합니다. 매개 변수를 앰퍼샌드(`&`)로 분리합니다. `url` 변수 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
@@ -102,9 +108,9 @@ ms.locfileid: "80238901"
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-   ## <a name="process-and-view-the-results"></a>결과 처리 및 보기
+## <a name="process-and-view-the-results"></a>결과 처리 및 보기
 
-3. 응답 개체를 반복하여 해당 이름, URL 및 웹 페이지가 마지막으로 크롤링된 날짜를 포함하는 각 검색 결과에 대한 정보를 표시합니다.
+- 응답 개체를 반복하여 해당 이름, URL 및 웹 페이지가 마지막으로 크롤링된 날짜를 포함하는 각 검색 결과에 대한 정보를 표시합니다.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

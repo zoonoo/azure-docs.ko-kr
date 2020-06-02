@@ -2,19 +2,19 @@
 title: SQL 주문형(미리 보기) 자가 진단
 description: 이 섹션에는 SQL 주문형(미리 보기)의 문제를 해결하는 데 도움이 되는 정보가 포함되어 있습니다.
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421197"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658882"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 자가 진단
 
@@ -33,13 +33,43 @@ Synapse Studio가 SQL 주문형에 대한 연결을 설정할 수 없는 경우 
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>현재 리소스 제약 조건으로 인해 쿼리를 실행할 수 없어 쿼리가 실패 
 
-'현재 리소스 제약 조건으로 인해 이 쿼리를 실행할 수 없습니다'라는 내용의 오류 메시지와 함께 쿼리가 실패하는 경우에는 리소스 제약 조건으로 인해 현재 SQL OD가 이 쿼리를 실행할 수 없다는 의미입니다. 
+'현재 리소스 제약 조건으로 인해 이 쿼리를 실행할 수 없습니다.'라는 오류 메시지와 함께 쿼리가 실패하는 경우에는 리소스 제약 조건으로 인해 현재 SQL 주문형이 쿼리를 실행할 수 없음을 의미입니다. 
 
 - 적절한 크기의 데이터 형식이 사용되는지 확인하세요. 또한 문자열 열의 Parquet 파일에 대한 스키마를 지정하세요. 기본적으로 VARCHAR(8000)입니다. 
 
 - 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-sql-on-demand-preview)를 고려해 보세요. 
 
 - [SQL 주문형의 성능 모범 사례](best-practices-sql-on-demand.md)를 방문하여 쿼리를 최적화하세요.  
+
+## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT'는 마스터 데이터베이스에서 지원되지 않습니다.
+
+다음 오류 메시지와 함께 쿼리가 실패하는 경우:
+
+> '쿼리를 실행하지 못했습니다. 오류: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT은 마스터 데이터베이스에서 지원되지 않습니다.' 
+
+즉, 주문형 SQL의 마스터 데이터베이스는 다음 생성을 지원하지 않습니다.
+  - 외부 테이블
+  - 외부 데이터 원본
+  - 데이터베이스 범위 자격 증명
+  - 외부 파일 형식
+
+해결 방법:
+
+  1. 사용자 데이터베이스를 만듭니다.
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. 마스터 데이터베이스에 대해 이전에 실패한 <DATABASE_NAME> 컨텍스트에서 create 문을 실행합니다. 
+  
+  외부 파일 형식 생성 예:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함한 CIS Microsoft Azure Foundations Benchmark 청사진 샘플의 배포 단계입니다.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544516"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864473"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark 청사진 샘플 배포
 
@@ -93,8 +93,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|\[미리 보기\]: CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|세미콜론으로 구분된 영역 목록입니다. 전체 영역 목록을 보려면 Get-AzLocation을 사용하세요. 예: eastus, eastus2|
-|\[미리 보기\]: CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|사용이 승인된 가상 머신 확장 목록|세미콜론으로 구분된 확장 목록입니다. 전체 가상 머신 확장 목록을 보려면 Get-AzVMExtensionImage를 사용하세요. 예: AzureDiskEncryption, IaaSAntimalware|
+|CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|세미콜론으로 구분된 영역 목록입니다. 전체 영역 목록을 보려면 Get-AzLocation을 사용하세요. 예: eastus, eastus2|
+|CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|사용이 승인된 가상 머신 확장 목록|세미콜론으로 구분된 확장명 목록입니다. 전체 가상 머신 확장 목록을 확인하려면 Get-AzVMExtensionImage를 사용하세요. 예: AzureDiskEncryption, IaaSAntimalware|
 
 ## <a name="next-steps"></a>다음 단계
 

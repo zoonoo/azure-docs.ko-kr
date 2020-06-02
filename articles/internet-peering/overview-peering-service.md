@@ -3,17 +3,17 @@ title: 인터넷 피어링과 Peering Service
 titleSuffix: Azure
 description: 인터넷 피어링과 Peering Service
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75772810"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849385"
 ---
 # <a name="internet-peering-vs-peering-service"></a>인터넷 피어링과 Peering Service
 
@@ -38,13 +38,13 @@ Microsoft Cloud에 연결할 때의 기본 목표는 사용자 사이트에서 M
 
 **Peering Service 고객 혜택:**
 * 최적의 성능 및 안정성을 위해 인터넷을 통해 Microsoft Cloud Services에 가장 적합한 공용 라우팅입니다.
-* Microsoft Cloud에 연결할 기본 설정 SP를 선택할 수 있습니다.
+* Microsoft Cloud에 연결할 기본 설정 Service Provider를 선택할 수 있습니다.
 * 대기 시간 보고 및 접두사 모니터링과 같은 트래픽 인사이트.
 * Microsoft Cloud에서 최적의 네트워크 홉(AS 홉)입니다.
 * 경로 분석 및 통계 - [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)(Border Gateway Protocol)에 대한 이벤트는 변칙(누수/가로채기 검색) 및 최적이 아닌 라우팅을 라우팅합니다.
 
 ## <a name="peering-service-partnership-requirements"></a>Peering Service 파트너 관계 요구 사항
-* 고객과 가장 가까운 위치에 있는 Microsoft Cloud에 대한 연결. 파트너 서비스 공급자는 사용자 트래픽을 사용자에게 가장 가까운 Microsoft Edge로 라우팅합니다. 마찬가지로 사용자에 대한 트래픽에서 Microsoft는 사용자에게 가장 가까운 에지에 트래픽을 라우팅하며(BGP 태그 사용), SP는 사용자에게 트래픽을 전달합니다.
+* 고객과 가장 가까운 위치에 있는 Microsoft Cloud에 대한 연결. 파트너 서비스 공급자는 사용자 트래픽을 사용자에게 가장 가까운 Microsoft Edge로 라우팅합니다. 마찬가지로 사용자에 대한 트래픽에서 Microsoft는 사용자에게 가장 가까운 에지에 트래픽을 라우팅하며(BGP 태그 사용), Service Provider는 사용자에게 트래픽을 전달합니다.
 * 파트너는 Microsoft 글로벌 네트워크를 통해 고가용성, 높은 처리량 및 지역 중복 연결을 유지합니다.
 * 파트너는 요구 사항을 충족하는 경우 기존 피어링을 활용하여 Peering Service를 지원할 수 있습니다.
 

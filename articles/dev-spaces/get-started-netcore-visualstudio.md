@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75770716"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873621"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio 및 .NET Core
 
@@ -50,7 +50,7 @@ ms.locfileid: "75770716"
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio 도구 가져오기
-최신 버전의 [Visual Studio](https://www.visualstudio.com/vs/)를 설치합니다. Windows에서 Visual Studio 2019를 사용하려면 Azure Development 워크로드를 설치해야 합니다. Windows에서 Visual Studio 2017을 사용하려면 [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)뿐만 아니라 ASP.NET 및 웹 개발 워크로드를 설치해야 합니다.
+Azure Development 워크로드를 사용하여 Windows에 최신 버전의 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 

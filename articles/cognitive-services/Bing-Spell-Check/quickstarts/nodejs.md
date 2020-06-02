@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382860"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869846"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>빠른 시작: Bing Spell Check REST API 및 Node.js로 맞춤법 검사
 
-이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Node 애플리케이션은 API에 요청을 보내고 인식하지 못한 단어 목록과 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Node.js로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 JavaScript 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
+
+이 애플리케이션은 JavaScript로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js)에 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,7 +32,7 @@ ms.locfileid: "75382860"
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 JavaScript 파일을 만듭니다. 엄격성을 설정하고 `https`를 요구하도록 설정합니다. 그런 다음, API 엔드포인트의 호스트, 경로 및 구독 키에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 JavaScript 파일을 만듭니다. 엄격성을 설정하고 `https`를 요구하도록 설정합니다. 그런 다음, API 엔드포인트의 호스트, 경로 및 구독 키에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```javascript
     'use strict';
@@ -41,7 +43,11 @@ ms.locfileid: "75382860"
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. 검색 매개 변수 및 확인할 텍스트에 대한 변수를 만듭니다. `mkt=` 뒤에 시장 코드를 추가합니다. 시장 코드는 요청을 수행한 국가입니다. 또한 `&mode=` 뒤에 맞춤법 검사 모드를 추가합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음)입니다.
+2. 검색 매개 변수 및 확인할 텍스트에 대한 변수를 만듭니다. 
+
+   a. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
+
+   b. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다.
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +58,7 @@ ms.locfileid: "75382860"
 
 ## <a name="create-the-request-parameters"></a>요청 매개 변수 만들기
 
-`POST` 메서드로 새 개체를 만들어서 요청 매개 변수를 만듭니다. 엔드포인트 경로와 쿼리 문자열을 추가하여 경로를 추가합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다.
+`POST` 메서드로 새 개체를 만들어서 요청 매개 변수를 만듭니다. 엔드포인트 경로와 쿼리 문자열을 추가하여 경로를 추가합니다. 그런 다음, `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다.
 
 ```javascript
 let request_params = {
@@ -69,7 +75,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>응답 처리기 만들기
 
-`response_handler`라는 함수를 만들어 API에서 JSON 응답을 받아서 출력합니다. 응답 본문에 대한 변수를 만듭니다. `data` 플래그가 수신되면 `response.on()`을 사용하여 응답을 추가합니다. `end` 플래그가 수신되면 JSON 본문을 콘솔에 출력합니다.
+`response_handler`라는 함수를 만들어 API에서 JSON 응답을 받아서 출력합니다. 응답 본문에 대한 변수를 만듭니다. `data` 플래그가 수신되면 `response.on()`을 사용하여 응답을 추가합니다. `end` 플래그가 수신된 후 JSON 본문을 콘솔에 출력합니다.
 
 ```javascript
 let response_handler = function (response) {
@@ -89,7 +95,7 @@ let response_handler = function (response) {
 
 ## <a name="send-the-request"></a>요청 보내기
 
-요청 매개 변수 및 응답 핸들러와 함께 `https.request()`를 사용하여 API를 호출합니다. API에 텍스트를 작성한 후 나중에 요청을 종료합니다.
+요청 매개 변수 및 응답 핸들러와 함께 `https.request()`를 사용하여 API를 호출합니다. API에 텍스트를 작성한 다음, 요청을 종료합니다.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -100,13 +106,13 @@ req.end ();
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-프로젝트를 빌드한 후 실행합니다.
+1. 프로젝트를 빌드한 후 실행합니다.
 
-명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션은 빌드하고 실행합니다.
+1. 명령줄을 사용하는 경우 다음 명령을 사용하여 애플리케이션을 빌드하고 실행합니다.
 
-```bash
-node <FILE_NAME>.js
-```
+   ```bash
+   node <FILE_NAME>.js
+   ```
 
 
 ## <a name="example-json-response"></a>예제 JSON 응답

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8c27a50f823dcda74d735e6314c9004ec36769d4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75465189"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870877"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin Android 앱 만들기
 
@@ -62,6 +62,10 @@ Visual Studio에서 `Xamarin/SampleXamarin.sln`을 엽니다.
 `SpatialAnchorsAccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
+
+`Xamarin/SampleXamarin.Android/AzureSpatialAnchorsManager.cs`를 엽니다.
+
+`AzureSpatialAnchorsManager(Session arCoreSession)`을 찾아 이전 버전의 계정 도메인으로 대체하는 `this.spatialAnchorsSession.Configuration.AccountDomain = "MyAccountDomain";` 줄을 추가합니다.
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Android 디바이스에 앱 배포
 

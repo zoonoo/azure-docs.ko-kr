@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70387799"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745581"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -155,9 +155,9 @@ Text Analytics REST API의 [언어 감지](https://westcentralus.dev.cognitive.m
 
 ### <a name="ambiguous-content"></a>모호한 콘텐츠
 
-일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가 코드는 `countryHint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `countryHint = ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다.
+일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가/지역 코드는 `countryHint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `countryHint = ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다.
 
-예를 들어 "Impossible"은 영어와 프랑스어 모두에 공통적이며, 제한된 컨텍스트로 제공되는 경우 응답은 "US" 국가 힌트를 기반으로 합니다. 텍스트의 원본이 힌트로 제공될 수 있는 프랑스에서 온 것으로 알려진 경우입니다.
+예를 들어 "Impossible"은 영어와 프랑스어 모두에 공통적이며, 제한된 컨텍스트로 제공되는 경우 응답은 "US" 국가/지역 힌트를 기반으로 합니다. 텍스트의 원본이 힌트로 제공될 수 있는 프랑스에서 온 것으로 알려진 경우입니다.
 
 **Input**
 

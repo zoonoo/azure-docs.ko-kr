@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685447"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930474"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -26,6 +26,10 @@ Key Vault는 암호 및 데이터베이스 연결 문자열과 같은 안전한 
 매우 중요한 데이터의 경우 클라이언트가 데이터에 대한 추가 보호 레이어를 고려해야 합니다. 예를 들어 별도의 보호 키를 사용하여 데이터를 암호화한 후 Key Vault에 스토리지합니다.  
 
 Key Vault는 비밀에 대한 contentType 필드도 지원합니다. 클라이언트는 비밀 데이터에 대해 검색 시 해당 데이터를 해석하는 데 도움이 되는 콘텐츠 형식을 지정할 수 있습니다. 이 필드의 최대 길이는 255자이며, 미리 정의된 값이 없습니다. 비밀 데이터를 해석하기 위한 힌트로 사용하는 것이 좋습니다. 예를 들어 구현에서는 암호와 인증서를 모두 비밀로 저장한 다음, 이 필드를 사용하여 구분할 수 있습니다. 미리 정의된 값이 없습니다.  
+
+## <a name="encryption"></a>암호화
+
+Key Vault의 모든 비밀은 암호화된 상태로 저장됩니다. 이 암호화는 투명하며 사용자의 작업이 필요하지 않습니다. Azure Key Vault 서비스는 비밀을 추가할 때 암호화하고 읽을 때 암호를 자동으로 해독합니다. 암호화 키는 각 키 자격 증명 모음에 대해 고유합니다.
 
 ## <a name="secret-attributes"></a>비밀 특성
 

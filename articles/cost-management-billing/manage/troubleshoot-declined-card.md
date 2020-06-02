@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409393"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745517"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Azure 등록 시 거부된 카드 문제 해결
 
@@ -20,9 +20,9 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 Azure 등록 시 신용 
 
 문제를 해결하려면 오류와 가장 유사한 아래 항목을 선택합니다.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>신용 카드 공급 기업이 사용자의 국가에 승인되지 않습니다.
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>신용 카드 공급 기업이 사용자의 국가/지역에 승인되지 않습니다.
 
-카드를 선택할 때 선택한 국가에서 유효한 카드 옵션인지 Azure에 표시됩니다. 본인의 신용 카드를 국제 거래에 사용할 수 있는지 확인하려면 해당 은행 또는 카드 발급자에게 문의하세요. 지원되는 국가 및 통화에 대한 자세한 내용은 [Azure 구매 FAQ](https://azure.microsoft.com/pricing/faq/)를 참조하세요.
+카드를 선택할 때 선택한 국가/지역에서 유효한 카드 옵션인지 Azure에 표시됩니다. 본인의 신용 카드를 국제 거래에 사용할 수 있는지 확인하려면 해당 은행 또는 카드 발급자에게 문의하세요. 지원되는 국가/지역 및 통화에 대한 자세한 내용은 [Azure 구매 FAQ](https://azure.microsoft.com/pricing/faq/)를 참조하세요.
 
 >[!Note]
 >American Express 신용 카드는 현재 인도에서 결제 방법으로 지원되지 않습니다. 승인된 형태의 결제인 경우에는 시간 프레임을 사용할 수 없습니다.

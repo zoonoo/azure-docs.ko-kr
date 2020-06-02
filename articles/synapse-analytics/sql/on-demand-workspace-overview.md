@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421307"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702049"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형(미리 보기) 
 
@@ -21,14 +21,14 @@ ms.locfileid: "81421307"
 
 SQL 주문형은 데이터 레이크의 데이터에 대한 쿼리 서비스입니다. 다음 기능을 통해 데이터에 액세스할 수 있도록 합니다.
  
-- 데이터를 특수화된 저장소에 복사하거나 로드할 필요 없이 데이터를 적절히 쿼리할 수 있는 친숙한 T-SQL 구문 
-- 가장 인기 있는 드라이버를 포함하여 광범위한 비즈니스 인텔리전스 및 임시 쿼리 도구를 제공하는 T-SQL 인터페이스를 통한 통합 연결 
+- 데이터를 특수화된 저장소에 복사하거나 로드할 필요 없이 데이터를 적절히 쿼리할 수 있는 친숙한 T-SQL 구문입니다. 
+- 가장 인기 있는 드라이버를 포함하여 광범위한 비즈니스 인텔리전스 및 임시 쿼리 도구를 제공하는 T-SQL 인터페이스를 통한 통합 연결. 
 
-SQL 주문형은 대규모 데이터 및 컴퓨팅을 위해 구축된 분산 데이터 처리 시스템입니다. SQL 주문형을 사용하면 워크로드에 따라 몇 초에서 몇 분 내에 빅 데이터를 분석할 수 있습니다. 기본 제공 쿼리 실행 내결함성을 통해 시스템에서 큰 데이터 세트와 관련된 장기 실행 쿼리에도 높은 안정성과 성공률을 제공합니다.
+SQL 주문형은 대규모 데이터 및 컴퓨팅을 위해 빌드된 분산 데이터 처리 시스템입니다. SQL 주문형을 사용하면 워크로드에 따라 몇 초에서 몇 분 내에 빅 데이터를 분석할 수 있습니다. 기본 제공 쿼리 실행 내결함성을 통해 시스템에서 큰 데이터 세트와 관련된 장기 실행 쿼리에도 높은 안정성과 성공률을 제공합니다.
 
 SQL 주문형은 서버리스이므로 설정할 인프라 또는 유지 관리할 클러스터가 없습니다. 이 서비스에 대한 기본 엔드포인트가 모든 Azure Synapse 작업 영역 내에 제공되므로 작업 영역이 만들어지는 즉시 데이터 쿼리를 시작할 수 있습니다. 예약된 리소스에는 요금이 부과되지 않고 실행하는 쿼리에서 검색된 데이터에 대한 요금만 청구되므로 이 모델은 진정한 종량제 모델입니다.  
 
-데이터 파이프라인에서 Spark를 데이터 준비, 정리 또는 보강에 사용하는 경우 프로세스에서 만든 [Spark 테이블을 SQL 주문형에서 직접 쿼리](develop-storage-files-spark-tables.md)할 수 있습니다. [Private Link](../security/how-to-connect-to-workspace-with-private-links.md)를 사용하여 SQL 주문형 엔드포인트를 [관리형 작업 영역 VNet](../security/synapse-workspace-managed-vnet.md)으로 가져옵니다.  
+데이터 파이프라인에서 데이터 준비, 정리 또는 보강을 위해 Apache Spark for Azure Synapse를 사용하는 경우 프로세스에서 만든 [외부 Spark 테이블](develop-storage-files-spark-tables.md)을 SQL 주문형에서 직접 쿼리할 수 있습니다. [Private Link](../security/how-to-connect-to-workspace-with-private-links.md)를 사용하여 SQL 주문형 엔드포인트를 [관리형 작업 영역 VNet](../security/synapse-workspace-managed-vnet.md)으로 가져옵니다.  
 
 ## <a name="who-is-sql-on-demand-for"></a>SQL 주문형의 대상이 되는 사용자
 
@@ -42,7 +42,7 @@ SQL 주문형에서는 다음과 같은 다양한 전문가 역할을 활용할 
 
 - 데이터 엔지니어는 이 서비스를 사용하여 레이크를 검색하고, 데이터를 변환 및 준비하며, 데이터 변환 파이프라인을 간소화할 수 있습니다. 자세한 내용은 이 [자습서](tutorial-data-analyst.md)를 참조하세요.
 - 데이터 과학자는 OPENROWSET 및 자동 스키마 유추와 같은 기능을 통해 레이크에 있는 데이터의 내용과 구조를 빠르게 추론할 수 있습니다.
-- 데이터 분석가는 친숙한 T-SQL 언어 또는 즐겨찾는 도구를 사용하여 데이터 과학자 또는 데이터 엔지니어가 만든 [데이터 및 Spark 테이블을 검색](develop-storage-files-spark-tables.md)할 수 있으며, 이를 SQL 주문형에 연결할 수 있습니다.
+- 데이터 분석가는 친숙한 T-SQL 언어 또는 즐겨찾는 도구를 사용하여 데이터 과학자 또는 데이터 엔지니어가 만든 [데이터 및 Spark 외부 테이블을 검색](develop-storage-files-spark-tables.md)할 수 있으며, 이를 SQL 주문형에 연결할 수 있습니다.
 - BI 전문가는 [레이크 및 Spark 테이블의 데이터를 기반으로 하여 Power BI 보고서를 빠르게 만들](tutorial-connect-power-bi-desktop.md) 수 있습니다.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>사용을 시작하려면 어떻게 해야 하나요?
@@ -94,7 +94,7 @@ SQL 주문형은 데이터 레이크의 파일에 상주하는 데이터를 적�
 
 [분리된 텍스트 작업에 대한 추가 옵션(필드 종결자, 행 종결자, 이스케이프 문자)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
 
-[선택한 열 하위 세트 읽기](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[선택한 열 하위 집합 읽기](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
 
 [스키마 유추](develop-storage-files-overview.md#schema-inference)
 
@@ -108,9 +108,9 @@ SQL 주문형은 데이터 레이크의 파일에 상주하는 데이터를 적�
 
 SQL 주문형은 데이터에 대한 액세스를 보호하는 메커니즘을 제공합니다.
 
-### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication
+### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 다단계 인증
 
-SQL 주문형을 사용하면 [Azure Active Directory 통합](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 통해 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure AD(Azure Active Directory)는 Single Sign-On 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시키기 위해 [MFA(Multi-Factor Authentication)](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 지원합니다.
+SQL 주문형을 사용하면 [Azure Active Directory 통합](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 통해 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure AD(Azure Active Directory)는 Single Sign-On 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시키기 위해 [MFA(다단계 인증)](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 지원합니다.
 
 #### <a name="authentication"></a>인증
 

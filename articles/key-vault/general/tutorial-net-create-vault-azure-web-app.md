@@ -1,5 +1,5 @@
 ---
-title: 자습서 - .NET에서 Azure Web App과 Azure Key Vault 사용 | Microsoft Docs
+title: 자습서 - .NET에서 Azure 웹앱을 통해 Azure Key Vault 사용 | Microsoft Docs
 description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션을 구성합니다.
 services: key-vault
 author: msmbaldwin
@@ -7,209 +7,242 @@ manager: rajvijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: bb907c809d411128ee799d5057379a2022144882
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425782"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996995"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
-
-Azure Key Vault는 API 키 및 데이터베이스 연결 문자열과 같은 비밀을 보호하는 데 도움이 됩니다. 애플리케이션, 서비스 및 IT 리소스에 대한 액세스도 제공합니다.
-
-이 자습서에서는 Azure Key Vault에서 정보를 읽을 수 있는 Azure 웹 애플리케이션을 만드는 방법을 알아봅니다. 이 프로세스에서는 Azure 리소스에 대해 관리 ID를 사용합니다. Azure 웹 애플리케이션에 대한 자세한 내용은 [Azure App Service](../../app-service/overview.md)를 참조하세요.
-
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
-
-> [!div class="checklist"]
-> * 키 자격 증명 모음을 만듭니다.
-> * 키 자격 증명 모음에 비밀 추가
-> * 키 자격 증명 모음에서 비밀을 검색합니다.
-> * Azure Web App을 만듭니다.
-> * 웹앱의 관리 ID를 사용하도록 설정합니다.
-> * 웹앱에 대한 권한을 할당합니다.
-> * Azure에서 웹앱을 실행합니다.
-
-시작하기 전에 [Key Vault 기본 개념](basic-concepts.md)을 읽어보세요. 
-
-Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-* Windows: [.NET Core 2.1 SDK 이상](https://www.microsoft.com/net/download/windows)
-* Mac: [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
-* Windows, Mac 및 Linux:
-  * [Git](https://git-scm.com/downloads)
-  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
-  * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
-
-## <a name="about-managed-service-identity"></a>관리 서비스 ID 정보
-
-Azure Key Vault는 자격 증명을 안전하게 저장하므로 자격 증명이 코드에 표시되지 않습니다. 그러나 키를 검색하려면 Azure Key Vault에서 인증을 받아야 합니다. Key Vault에서 인증을 받으려면 자격 증명이 필요합니다. 이것이 바로 클래식 부트스트랩의 딜레마입니다. MSI(관리 서비스 ID)는 프로세스를 간소화하는 _부트스트랩 ID_를 제공하여 이 문제를 해결합니다.
-
-Azure 서비스(예: Azure Virtual Machines, Azure App Service 또는 Azure Functions)에 대해 MSI를 사용하도록 설정하면 Azure는 [서비스 주체](basic-concepts.md)를 만듭니다. MSI는 Azure AD(Azure Active Directory)에서 서비스의 인스턴스에 대해 이 작업을 수행하고 서비스 주체 자격 증명을 해당 인스턴스에 삽입합니다.
-
-![MSI 다이어그램](../media/MSI.png)
-
-다음으로, 액세스 토큰을 가져오기 위해 코드는 Azure 리소스에 사용할 수 있는 로컬 메타데이터 서비스를 호출합니다. 코드는 Azure Key Vault 서비스를 인증하기 위해 로컬 MSI 엔드포인트에서 가져오는 액세스 토큰을 사용합니다.
-
-## <a name="log-in-to-azure"></a>Azure에 로그인
-
-Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
-
-```azurecli
-az login
-```
-
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
-
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
-
-그런 후, 리소스 그룹 이름을 선택하고 자리 표시자를 입력합니다. 다음 예제에서는 미국 서부 위치에 리소스 그룹을 만듭니다.
-
-   ```azurecli
-   # To list locations: az account list-locations --output table
-   az group create --name "<YourResourceGroupName>" --location "West US"
-   ```
-
-이 자습서 전체에서 이 리소스 그룹을 사용합니다.
-
-## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
-
-리소스 그룹에 Key Vault를 만들려면 다음 정보를 제공합니다.
-
-* Key Vault 이름: 숫자(0-9), 문자(a-z, A-Z) 및 하이픈(-)만 포함할 수 있는 3~24자 문자열입니다.
-* 리소스 그룹 이름
-* 위치: **미국 서부**
-
-Azure CLI에서 다음 명령을 입력합니다.
-
-```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
-```
-
-이 시점에서 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
-
-## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
-
-이제 비밀을 추가할 수 있습니다. 이러한 비밀은 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 해야 하는 기타 정보 또는 SQL 연결 문자열일 수 있습니다.
-
-Key Vault에 **AppSecret**라는 비밀을 만들려면 다음 명령을 입력합니다. 
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
-
-이 비밀에는 값 **MySecret**이 저장됩니다.
-
-비밀에 들어 있는 값을 일반 텍스트로 보려면 다음 명령을 입력합니다.
-
-```azurecli
-az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
-```
-
-이 명령은 URI를 포함한 비밀 정보를 표시합니다. 
-
-이러한 단계가 완료되면 비밀에 대한 URI가 키 자격 증명 모음에 있어야 합니다. 이 자습서에서 나중에 사용하게 되므로 이 정보를 기록해 둡니다. 
-
-## <a name="create-a-net-core-web-app"></a>.NET Core Web App 만들기
-
-.NET Core 웹앱을 만들고 Azure에 게시하려면 [Azure에서 ASP.NET Core 웹앱 만들기](../../app-service/app-service-web-get-started-dotnet.md)의 지침을 따릅니다. 
-
-이 비디오를 시청할 수도 있습니다.
-
->[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
-
-## <a name="open-and-edit-the-solution"></a>솔루션 열기 및 편집
-
-1. **Pages** > **About.cshtml.cs** 파일로 이동합니다.
-
-1. 다음 NuGet 패키지를 설치합니다.
-   - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
-   - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
-
-1. 다음 코드를 *About.cshtml.cs* 파일로 가져옵니다.
-
-   ```csharp
-    using Microsoft.Azure.KeyVault;
-    using Microsoft.Azure.KeyVault.Models;
-    using Microsoft.Azure.Services.AppAuthentication;
-   ```
-
-   AboutModel 클래스의 코드는 다음과 같이 표시됩니다.
-
-   ```csharp
-    public class AboutModel : PageModel
-    {
-        public string Message { get; set; }
-
-        public async Task OnGetAsync()
-        {
-            Message = "Your application description page.";
-            int retries = 0;
-            bool retry = false;
-            try
-            {
-                /* The next four lines of code show you how to use AppAuthentication library to fetch secrets from your key vault */
-                AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
-                        .ConfigureAwait(false);
-                Message = secret.Value;
-            }
-            /* If you have throttling errors see this tutorial https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app */
-            /// <exception cref="KeyVaultErrorException">
-            /// Thrown when the operation returned an invalid status code
-            /// </exception>
-            catch (KeyVaultErrorException keyVaultException)
-            {
-                Message = keyVaultException.Message;
-            }
-        }
-
-        // This method implements exponential backoff if there are 429 errors from Azure Key Vault
-        private static long getWaitTime(int retryCount)
-        {
-            long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
-            return waitTime;
-        }
-
-        // This method fetches a token from Azure Active Directory, which can then be provided to Azure Key Vault to authenticate
-        public async Task<string> GetAccessTokenAsync()
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-            return accessToken;
-        }
-    }
-    ```
-
-## <a name="run-the-web-app"></a>웹앱 실행
-
-1. Visual Studio 2019의 주 메뉴에서 디버깅하거나 디버깅하지 않고 **디버그** > **시작**을 선택합니다. 
-1. 브라우저에서 다음과 같이 **정보** 페이지로 이동합니다.  
-    **AppSecret**에 대한 값이 표시됩니다.
-
-## <a name="enable-a-managed-identity"></a>관리 ID 사용
+# <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 
 Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 표시할 필요가 없습니다.
 
-Azure CLI에서 이 애플리케이션에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
+이 자습서에서는 관리 ID를 사용하여 Azure Key Vault에서 Azure Web App을 인증합니다. 이 단계에서는 [.NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)용 Azure Key Vault v4 클라이언트 라이브러리를 사용하지만, 선택한 개발 언어 Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
 
-```azurecli
-az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 빠른 시작을 완료하려면 다음이 필요합니다.
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview)
+
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 키 자격 증명 모음과 웹앱을 모두 저장할 리소스 그룹을 만듭니다.
+
+```azurecli-interactive
+az group create --name "myResourceGroup" -l "EastUS"
 ```
 
-\<YourAppName>을 Azure에 게시된 앱의 이름으로 바꿉니다.  
-    예를 들어, 게시된 앱 이름이 **MyAwesomeapp.azurewebsites.net**이면 \<YourAppName>을 **MyAwesomeapp**으로 바꿉니다.
+## <a name="set-up-your-key-vault"></a>키 자격 증명 모음 설정
 
-Azure에 애플리케이션을 게시할 때 `PrincipalId`를 기록해 둡니다. 1단계의 명령 출력은 다음과 같은 형식이어야 합니다.
+이제 이 자습서의 뒷부분에서 사용할 수 있도록 키 자격 증명 모음을 만들어 비밀을 배치합니다.
+
+키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용합니다.
+
+> [!Important]
+> 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서 <your-keyvault-name>을 키 자격 증명 모음의 이름으로 바꿉니다.
+
+```azurecli-interactive
+az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
+```
+
+반환된 `vaultUri`를 적어 둡니다. 이는 "https://<your-keyvault-name>.vault.azure.net/" 형식이며, [코드 업데이트](#update-the-code) 단계에서 사용됩니다.
+
+이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용하여 비밀을 키 자격 증명 모음에 배치할 수 있습니다. 비밀의 이름을 "MySecret"으로 설정하고, 값을 "Success!"로 설정합니다.
+
+```azurecli-interactive
+az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
+```
+
+## <a name="create-a-net-web-app"></a>.NET 웹앱 만들기
+
+### <a name="create-a-local-app"></a>로컬 앱 만들기
+
+컴퓨터의 터미널 창에서 `akvwebapp`라는 디렉터리를 만들고 현재 디렉터리를 이 디렉터리로 변경합니다.
+
+```bash
+mkdir akvwebapp
+cd akvwebapp
+```
+
+이제 [dotnet new web](/dotnet/core/tools/dotnet-new) 명령을 사용하여 새 .NET Core 앱을 만듭니다.
+
+```bash
+dotnet new web
+```
+
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 
+
+```bash
+dotnet run
+```
+
+웹 브라우저를 열고 `http://localhost:5000`의 앱으로 이동합니다.
+
+표시된 샘플 앱의 **Hello World** 메시지가 페이지에 표시됩니다.
+
+### <a name="initialize-the-git-repository"></a>Git 리포지토리 초기화
+
+터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.  .NET Core 프로젝트에 대해 Git 리포지토리를 초기화합니다.
+
+```bash
+git init
+git add .
+git commit -m "first commit"
+```
+
+### <a name="configure-a-deployment-user"></a>배포 사용자 구성
+
+FTP 및 로컬 Git는 *배포 사용자*를 통해 Azure 웹앱에 배포할 수 있습니다. 일단 배포 사용자를 구성하면 모든 Azure 배포에 사용할 수 있습니다. 계정 수준 배포 사용자 이름 및 암호는 Azure 구독 자격 증명과 다릅니다. 
+
+배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 실행합니다. 다음 지침을 준수하는 사용자 이름과 암호를 선택합니다. 
+
+- 사용자 이름은 Azure 내에서 고유해야 하고, 로컬 Git 푸시의경우 ' @' 기호를 포함하면 안 됩니다. 
+- 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다. 
+
+```azurecli-interactive
+az webapp deployment user set --user-name "<username>" --password "<password>"
+```
+
+JSON 출력에는 암호가 `null`로 나옵니다. `'Conflict'. Details: 409` 오류가 발생하면 사용자 이름을 변경합니다. `'Bad Request'. Details: 400` 오류가 발생하면 더 강력한 암호를 사용합니다. 
+
+웹앱을 배포할 때 사용할 수 있도록 사용자 이름 및 암호를 기록해 둡니다.
+
+### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+
+Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) 명령을 사용하여 App Service 계획을 만듭니다. 다음 예제에서는 **Free(체험)** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+```
+
+App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
+
+<pre>
+{ 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "app",
+  "location": "West Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  &lt; JSON data removed for brevity. &gt;
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+</pre>
+
+
+### <a name="create-a-remote-web-app"></a>원격 웹앱 만들기
+
+`myAppServicePlan` App Service 계획에서 [Azure 웹앱](../../app-service/containers/app-service-linux-intro.md)을 만듭니다. 
+
+> [!Important]
+> Key Vault와 마찬가지로 Azure Web App의 이름도 고유해야 합니다. 다음 예제에서 \<your-webapp-name\>을 웹앱의 이름으로 바꿉니다.
+
+
+```azurecli-interactive
+az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
+```
+
+웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
+
+<pre>
+Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;ayour-webapp-name&gt;.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "&lt;your-webapp-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;your-webapp-name&gt;.git",
+  "enabled": true,
+  &lt; JSON data removed for brevity. &gt;
+}
+</pre>
+
+
+Git 원격의 URL은 `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
+
+새로 만든 앱으로 이동합니다. _&lt;your-webapp-name>_ 을 앱 이름으로 바꿉니다.
+
+```bash
+https://<your-webapp-name>.azurewebsites.net
+```
+
+새로 만든 Azure Web App에 대한 기본 웹 페이지가 표시됩니다.
+
+### <a name="deploy-your-local-app"></a>로컬 앱 배포
+
+로컬 터미널 창으로 돌아가서 Azure 원격을 로컬 Git 리포지토리에 추가합니다. 여기서 *\<deploymentLocalGitUrl-from-create-step>* 을 [원격 웹앱 만들기](#create-a-remote-web-app) 단계에서 저장한 Git 원격의 URL로 바꿉니다.
+
+```bash
+git remote add azure <deploymentLocalGitUrl-from-create-step>
+```
+
+다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git 자격 증명 관리자에서 자격 증명을 묻는 메시지가 표시되면 [배포 사용자 구성](#configure-a-deployment-user) 단계에서 만든 자격 증명을 사용합니다.
+
+```bash
+git push azure master
+```
+
+이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
+<pre>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Deploy Async
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'd6b54472f7'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote:
+remote: Oryx Version      : 0.2.20200114.13, Commit: 204922f30f8e8d41f5241b8c218425ef89106d1d, ReleaseTagName: 20200114.13
+remote: Build Operation ID: |imoMY2y77/s=.40ca2a87_
+remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
+.
+.
+.
+remote: Deployment successful.
+remote: Deployment Logs : 'https://&lt;your-webapp-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
+To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-name&gt;.git
+   d87e6ca..d6b5447  master -> master
+</pre>
+
+웹 브라우저를 사용하여 배포된 애플리케이션을 찾아보거나 새로 고칩니다.
+
+```bash
+http://<your-webapp-name>.azurewebsites.net
+```
+
+이전에 `http://localhost:5000`을 방문했을 때 확인한 "Hello World!"라는 메시지가 표시됩니다.
+
+## <a name="create-and-assign-a-managed-identity"></a>관리 ID 만들기 및 할당
+
+Azure CLI에서 이 애플리케이션에 대한 ID를 만들려면 [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
+```
+
+이 작업을 수행하면 다음 JSON 코드 조각이 반환됩니다.
 
 ```json
 {
@@ -219,35 +252,87 @@ Azure에 애플리케이션을 게시할 때 `PrincipalId`를 기록해 둡니�
 }
 ```
 
->[!NOTE]
->이 절차의 명령은 [Azure Portal](https://portal.azure.com)로 이동하여 웹 애플리케이션 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
+키 자격 증명 모음에서 **get** 및 **list** 작업을 수행할 수 있는 웹앱 권한을 부여하려면 principalID를 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령에 전달합니다.
 
-## <a name="assign-permissions-to-your-app"></a>앱에 사용 권한 할당
-
-다음 명령에서 \<YourKeyVaultName>을 Key Vault의 이름으로, \<PrincipalId>를 **PrincipalId**의 값으로 바꿉니다.
-
-```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
+```azurecli-interactive
+az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
-이 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 사용 권한의 ID(MSI)를 제공합니다.
 
-## <a name="publish-the-web-app-to-azure"></a>Azure에 웹앱 게시
+## <a name="modify-the-app-to-access-your-key-vault"></a>키 자격 증명 모음에 액세스하도록 앱 수정
 
-웹앱을 Azure에 한 번 더 게시하여 실시간 웹앱이 비밀 값을 가져올 수 있는지 확인합니다.
+### <a name="install-the-packages"></a>패키지 설치
 
-1. Visual Studio에서 **key-vault-dotnet-core-quickstart** 프로젝트를 선택합니다.
-2. **게시** > **시작**을 차례로 선택합니다.
-3. **만들기**를 선택합니다.
+터미널 창에서 .NET용 Azure Key Vault 클라이언트 라이브러리 패키지를 설치합니다.
 
-애플리케이션을 실행하여 비밀 값을 검색할 수 있는지 확인합니다.
+```console
+dotnet add package Azure.Identity
+dotnet add package Azure.Security.KeyVault.Secrets
+```
 
-Key Vault에서 비밀을 저장하고 인출하는 웹앱을 .NET에서 성공적으로 만들었습니다.
+### <a name="update-the-code"></a>코드 업데이트
 
-## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않으면 가상 머신 및 Key Vault를 삭제해도 됩니다.
+akvwebapp 프로젝트에서 Startup.cs 파일을 찾아서 엽니다. 
+
+다음 두 줄을 헤더에 추가합니다.
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+```
+
+이러한 줄을 `app.UseEndpoints` 호출 앞에 추가하고, 키 자격 증명 모음의 `vaultUri`를 반영하도록 URI를 업데이트합니다. 아래 코드에서는 키 자격 증명 모음에 대한 인증을 위해 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)을 사용하며, 이는 애플리케이션 관리 ID의 토큰을 사용하여 인증합니다. 또한 키 자격 증명 모음이 제한되는 경우 지수 백오프를 다시 시도에 사용합니다.
+
+```csharp
+SecretClientOptions options = new SecretClientOptions()
+    {
+        Retry =
+        {
+            Delay= TimeSpan.FromSeconds(2),
+            MaxDelay = TimeSpan.FromSeconds(16),
+            MaxRetries = 5,
+            Mode = RetryMode.Exponential
+         }
+    };
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
+
+KeyVaultSecret secret = client.GetSecret("mySecret");
+
+string secretValue = secret.Value;
+```
+
+읽을 `await context.Response.WriteAsync("Hello World!");` 줄을 업데이트합니다.
+
+```csharp
+await context.Response.WriteAsync(secretValue);
+```
+
+다음 단계로 진행하기 전에 변경 내용을 저장해야 합니다.
+
+### <a name="redeploy-your-web-app"></a>웹앱 다시 배포
+
+코드가 업데이트되었으면 다음 Git 명령을 사용하여 이를 Azure에 다시 배포할 수 있습니다.
+
+```bash
+git add .
+git commit -m "Updated web app to access my key vault"
+git push azure master
+```
+
+## <a name="visit-your-completed-web-app"></a>완성된 웹앱 방문
+
+```bash
+http://<your-webapp-name>.azurewebsites.net
+```
+
+**Hello World**를 확인하기 전에 이제 다음과 같이 비밀 값이 표시됩니다. **성공!**
 
 ## <a name="next-steps"></a>다음 단계
 
->[!div class="nextstepaction"]
->[Azure Key Vault 개발자 가이드](developers-guide.md)
+- [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보기
+- [App Service에 대한 관리 ID](../../app-service/overview-managed-identity.md?tabs=dotnet)에 대해 자세히 알아보기
+- [.NET용 Azure Key Vault 클라이언트 라이브러리 API 참조](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) 참조
+- [.NET용 Azure Key Vault 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) 참조
+- [.NET용 Azure Key Vault 클라이언트 라이브러리 v4 NuGet 패키지](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/) 참조
+
+

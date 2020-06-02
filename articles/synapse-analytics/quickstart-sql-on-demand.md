@@ -9,20 +9,20 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692163"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836807"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
+# <a name="quickstart-use-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
 
-Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 SQL 주문형을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다.
+Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 SQL 주문형을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다. 지원되는 형식은 [OPENROWSET](sql/develop-openrowset.md)에 나열되어 있습니다.
 
-다음 파일 형식이 지원됩니다. JSON, CSV, Apache Parquet
+이 빠른 시작에서는 쿼리를 보여줍니다. CSV, Apache Parquet 및 JSON 파일.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 쿼리를 실행할 SQL 클라이언트를 선택합니다.
 
@@ -30,25 +30,25 @@ Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL
 - [Azure Data Studio](sql/get-started-azure-data-studio.md)는 주문형 데이터베이스에서 SQL 쿼리와 Notebook을 실행할 수 있는 클라이언트 도구입니다.
 - [SQL Server Management Studio](sql/get-started-ssms.md)는 주문형 데이터베이스에서 SQL 쿼리를 실행할 수 있는 클라이언트 도구입니다.
 
-빠른 시작의 매개 변수:
+이 빠른 시작의 매개 변수:
 
-| 매개 변수                                 | Description                                                   |
+| 매개 변수                                 | 설명                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용됩니다.                                   |
+| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
 | SQL 주문형 서비스 엔드포인트 영역     | 샘플에 사용할 스토리지를 결정하는 데 사용 |
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 엑세스에 사용                               |
 | 보기를 만드는 데 사용되는 데이터베이스         | 샘플에서 시작점으로 사용되는 데이터베이스       |
 
 ## <a name="first-time-setup"></a>처음 설정
 
-샘플을 사용하기 전에:
+샘플을 사용하기 전에 다음을 수행합니다.
 
 - 보기에 대한 데이터베이스 만들기(보기를 사용하려는 경우)
 - SQL 주문형에서 스토리지의 파일에 액세스하는 데 사용할 자격 증명 만들기
 
 ### <a name="create-database"></a>데이터베이스 만들기
 
-데모용 데이터베이스를 직접 만드세요. 이 데이터베이스를 사용하여 보기 및 이 문서의 샘플 쿼리를 만듭니다.
+데모용 데이터베이스를 직접 만듭니다. 이 데이터베이스를 사용하여 보기 및 이 문서의 샘플 쿼리를 만듭니다.
 
 > [!NOTE]
 > 데이터베이스는 실제 데이터가 아닌 메타데이터를 보는 용도로만 사용됩니다.
@@ -60,40 +60,28 @@ Synapse SQL 주문형(미리 보기)은 Azure Storage에 있는 파일에서 SQL
 CREATE DATABASE mydbname
 ```
 
-### <a name="create-credentials"></a>자격 증명 만들기
+### <a name="create-data-source"></a>데이터 원본 만들기
 
-SQL 주문형을 사용하여 쿼리를 실행하려면 스토리지의 파일에 액세스하는 데 사용할 SQL 주문형의 자격 증명을 만듭니다.
-
-> [!NOTE]
-> 이 섹션에서 샘플을 성공적으로 실행하려면 SAS 토큰을 사용해야 합니다.
->
-> SAS 토큰을 사용하려면 UserIdentity를 삭제해야 하며, 이에 대한 내용은 다음 [문서](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)에 설명되어 있습니다.
->
-> 기본적으로 SQL 주문형은 항상 AAD 통과를 사용합니다.
-
-스토리지 액세스 제어를 관리하는 방법에 대한 자세한 내용은 [SQL 주문형에 대한 스토리지 계정 액세스 제어](sql/develop-storage-files-storage-access-control.md) 문서를 참조하세요.
-
-다음 코드 조각을 실행하여 이 섹션의 샘플에 사용된 자격 증명을 만듭니다.
+SQL 주문형을 사용하여 쿼리를 실행하려면 SQL 주문형이 스토리지의 파일에 액세스하는 데 사용할 수 있는 데이터 원본을 만듭니다.
+다음 코드 조각을 실행하여 이 섹션의 샘플에 사용된 데이터 원본을 만듭니다.
 
 ```sql
 -- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## <a name="querying-csv-files"></a>CSV 파일 쿼리
+## <a name="query-csv-files"></a>CSV 파일 쿼리
 
 다음 이미지는 쿼리할 파일의 미리 보기입니다.
 
-![헤더가 없는 CSV 파일의 처음 10개 행, Windows 스타일 새 줄](./sql/media/query-single-csv-file/population.png)
+![헤더가 없는 CSV 파일의 처음 10개 행, Windows 스타일 새 줄.](./sql/media/query-single-csv-file/population.png)
 
 다음 쿼리는 Windows 스타일 새 행과 쉼표로 구분된 열을 사용하여 헤더 행 없는 CSV 파일을 읽는 방법을 보여 줍니다.
 
@@ -101,8 +89,9 @@ GO
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -118,7 +107,7 @@ WHERE
 쿼리 컴파일 시간에 스키마를 지정할 수 있습니다.
 더 많은 예제는 [CSV 파일 쿼리](sql/query-single-csv-file.md)를 참조하세요.
 
-## <a name="querying-parquet-files"></a>parquet 파일 쿼리
+## <a name="query-parquet-files"></a>Parquet 파일 쿼리
 
 다음 샘플에서는 Parquet 파일을 쿼리하기 위한 자동 스키마 유추 기능을 보여줍니다. 이 샘플에서는 스키마를 지정하지 않고 2017년 9월의 행 수를 반환합니다.
 
@@ -129,14 +118,15 @@ WHERE
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
 [parquet 파일 쿼리](sql/query-parquet-files.md)에 대해 자세히 알아보세요.
 
-## <a name="querying-json-files"></a>JSON 파일 쿼리
+## <a name="query-json-files"></a>JSON 파일 쿼리
 
 ### <a name="json-sample-file"></a>JSON 샘플 파일
 
@@ -158,7 +148,7 @@ FROM OPENROWSET
 }
 ```
 
-### <a name="querying-json-files"></a>JSON 파일 쿼리
+### <a name="query-json-files"></a>JSON 파일 쿼리
 
 다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*라는 제목의 서적에서 스칼라 값(제목, 게시자)을 검색하는 방법을 보여 줍니다.
 
@@ -169,7 +159,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

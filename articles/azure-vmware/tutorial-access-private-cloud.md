@@ -3,18 +3,18 @@ title: 자습서 - 프라이빗 클라우드에 액세스하는 방법 알아보
 description: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 액세스하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: fcee332818c89d9c8b00795dca9e74f68260eefd
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739588"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873596"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>자습서: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 액세스하는 방법 알아보기
 
 미리 보기 중에 AVS를 사용하면 온-프레미스 vCenter에서 프라이빗 클라우드를 관리할 수 없습니다. Jumpbox를 통해 추가 설정 및 로컬 vCenter 인스턴스에 연결해야 합니다. 
 
-이 자습서에서는 이전의 [자습서: Azure에서 VMWare 프라이빗 클라우드에 대한 네트워킹 구성](tutorial-configure-networking.md) 자습서에서 만든 리소스 그룹의 Jumpbox에 대한 Windows 가상 머신을 만들고, vCenter에 로그인합니다. 이는 사용자가 만든 것과 동일한 가상 네트워크의 VM이며, vCenter 및 NSX 관리자에 대한 액세스를 제공합니다. 
+이 자습서에서는 이전의 [자습서: Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성](tutorial-configure-networking.md) 자습서에서 만든 리소스 그룹의 점프 상자에 대한 Windows 가상 머신을 만들고, vCenter에 로그인합니다. 이는 사용자가 만든 것과 동일한 가상 네트워크의 VM이며, vCenter 및 NSX 관리자에 대한 액세스를 제공합니다. 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

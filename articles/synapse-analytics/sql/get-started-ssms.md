@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658184"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 Synapse SQL에 연결
 > [!div class="op_single_selector"]
@@ -30,15 +30,18 @@ SSMS([SQL Server Management Studio)](/sql/ssms/download-sql-server-management-st
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에 지원되는 도구
 
-SSMS는 연결 및 쿼리와 같은 제한된 기능으로 버전 18.5부터 부분적으로 지원됩니다. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)는 완전히 지원됩니다.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)는 버전 1.18.0부터 완전히 지원됩니다. SSMS는 버전 18.5부터 부분적으로 지원되며, 연결 및 쿼리에만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 쿼리 실행시 AAD 로그인에 1시간을 초과하여 연결이 열려 있는 경우 AAD를 사용하는 모든 쿼리는 실패합니다. 여기에는 AAD 통과 및 AAD와 상호 작용하는 명령문(예: CREATE EXTERNAL PROVIDER)을 사용하여 스토리지를 쿼리하는 작업이 포함됩니다. 이는 SSMS 및 ADS의 쿼리 편집기와 같이 연결이 열린 상태로 유지되는 모든 도구에 영향을 줍니다. 쿼리를 실행하기 위해 새 연결을 여는 도구(예: Synapse Studio)는 영향을 받지 않습니다.
+> 이 문제를 완화하기 위해 SSMS를 다시 시작하거나 ADS에서 연결 및 연결 해제할 수 있습니다. .
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.  
 
 * [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* SQL 풀의 경우 기존 데이터 웨어하우스가 필요합니다. 만들려면 [SQL 풀 만들기](../quickstart-create-sql-pool.md)를 참조하세요. SQL 주문형의 경우 만들 때 작업 영역에 이미 프로비저닝되어 있습니다. 
-* 정규화된 SQL 서버 이름 이를 찾으려면 [Synapse SQL에 연결](connect-overview.md)을 참조하세요.
+* SQL 풀의 경우 기존 데이터 웨어하우스가 필요합니다. 만들려면 [SQL 풀 만들기](../quickstart-create-sql-pool-portal.md)를 참조하세요. SQL 주문형의 경우 만들 때 작업 영역에 이미 프로비저닝되어 있습니다. 
+* 정규화된 SQL 서버 이름입니다. 이를 찾으려면 [Synapse SQL에 연결](connect-overview.md)을 참조하세요.
 
 ## <a name="connect"></a>연결
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133175"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745535"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
@@ -63,7 +63,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>신용 카드 양식이 내 청구 주소를 지원하지 않습니다.
 
-청구 주소는 **내 정보** 섹션에서 선택한 국가에 속해야 합니다. 올바른 국가를 선택했는지 확인합니다.
+청구 주소는 **내 정보** 섹션에서 선택한 국가/지역에 속해야 합니다. 올바른 국가/지역을 선택했는지 확인합니다.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>계정 확인을 등록할 때 문자 메시지 또는 호출이 표시되지 않았습니다
 
@@ -72,7 +72,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 
 다음은 몇 가지 추가 팁입니다.
 
 - VoiP(Voice-over-IP) 전화 번호는 전화 인증 프로세스에 사용할 수 없습니다.
-- 드롭다운 메뉴에서 선택한 국가 번호를 포함하여 입력한 전화 번호를 재차 확인하십시오.
+- 드롭다운 메뉴에서 선택한 국가/지역 코드를 포함하여 입력한 전화 번호를 재차 확인하세요.
 - 전화가 문자 메시지(SMS)를 수신하지 못하는 경우 **전화 걸기** 옵션을 시도합니다.
 - 전화가 미국 전화 번호로 거는 전화 또는 SMS 메시지를 수신할 수 있는지 확인합니다.
 

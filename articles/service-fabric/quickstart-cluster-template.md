@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150488"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722459"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Service Fabric 클러스터 만들기
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿은 https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json 에서 볼 수 있습니다.
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 파일을 참조하세요.
 
 템플릿에 여러 Azure 리소스가 정의되어 있습니다.
 
@@ -113,7 +113,7 @@ Azure Service Fabric에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 * **adminPassword**는 기본 *GEN-PASSWORD* 토큰이 아닌 다른 값입니다.
 * **certificateThumbprint**, **sourceVaultResourceId** 및 **certificateUrlValue**는 모두 빈 문자열(`""`)입니다.
 
-다음은 그 예입니다. 
+다음은 그 예입니다.
 
 ```json
 {

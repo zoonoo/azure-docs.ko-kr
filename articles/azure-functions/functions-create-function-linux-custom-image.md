@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165725"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123560"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -295,17 +295,24 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
     # <a name="portal"></a>[포털](#tab/portal)
 
-    1. Azure Portal에 로그인한 다음, 페이지 위쪽의 **검색** 상자에서 함수 앱 이름을 입력하여 함수 앱을 찾습니다. 결과에서 **App Service** 리소스를 선택합니다.
+    1. Azure Portal에 로그인한 다음, **함수 앱**을 검색하고 선택합니다.
 
-    1. 왼쪽 탐색 패널의 **함수(읽기 전용)** 아래에서 함수 이름을 선택합니다.
+    1. 확인하려는 함수를 선택합니다.
 
-    1. 세부 정보 패널에서 **</>함수 URL 가져오기**를 선택합니다.
+    1. 왼쪽 탐색 패널에서 **함수**를 선택한 다음, 확인하려는 함수를 선택합니다.
+
+        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. **함수 URL 가져오기**를 선택합니다.
 
-    1. 팝업에서 **기본값(함수 키)** , **복사**를 차례로 선택합니다. 키는 `?code=` 뒤에 나오는 문자열입니다.
+        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Azure Portal에서 함수 URL 복사](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. 팝업 창에서 **기본값(함수 키)** 을 선택한 다음, URL을 클립보드에 복사합니다. 키는 `?code=` 뒤에 나오는 문자열입니다.
+
+        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > 함수 앱이 컨테이너로 배포되기 때문에 포털에서 함수 코드를 변경할 수 없습니다. 대신, 로컬 이미지에서 프로젝트를 업데이트하고, 해당 이미지를 레지스트리로 다시 푸시한 다음, Azure로 다시 배포해야 합니다. 이후 섹션에서 지속적인 배포를 설정할 수 있습니다.
@@ -340,11 +347,11 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
     ---
 
-1. 함수 URL을 브라우저의 주소 표시줄에 붙여넣고, `&name=Azure` 매개 변수를 이 URL의 끝에 추가합니다. 브라우저에 "Hello Azure"와 같은 텍스트가 표시됩니다.
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여넣고, `&name=Azure` 매개 변수를 이 URL의 끝에 추가합니다. 브라우저에 "Hello, Azure"와 같은 텍스트가 표시되어야 합니다.
 
     ![브라우저에 함수 응답.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. 권한 부여를 테스트하려면 URL에서 code= 매개 변수를 제거하고 함수에서 응답을 받지 않았는지 확인합니다.
+1. 권한 부여를 테스트하려면 URL에서 `code=` 매개 변수를 제거하고 함수에서 응답을 받지 않았는지 확인합니다.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Azure로의 지속적인 배포 사용

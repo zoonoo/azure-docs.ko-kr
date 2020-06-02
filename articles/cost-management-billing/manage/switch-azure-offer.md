@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199520"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715888"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
 
@@ -54,7 +54,7 @@ ms.locfileid: "77199520"
 1. 전환하려는 제안에 따라 전환의 영향에 대한 메모를 볼 수 있습니다. 계속하기 전에 이 목록을 꼼꼼히 살펴보고 지침을 따르세요.
 
    ![메모를 검토합니다.](./media/switch-azure-offer/thingstonote.png)
-1. 구독 이름을 바꿀 수 있습니다. 기본적으로 새 제안 이름으로 설정됩니다. 프로세스를 완료하려면 **제품 전환**을 클릭합니다.
+1. 구독 이름을 바꿀 수 있습니다. 기본적으로 새 제품 이름으로 설정되지 않습니다. 프로세스를 완료하려면 **제품 전환**을 클릭합니다.
 
    ![녹색 단추를 클릭합니다.](./media/switch-azure-offer/confirmpage.png)
 1. 성공! 이제 구독이 새 제안으로 전환되었습니다.
@@ -100,7 +100,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>종량제 요금을 사용하는 구독에서 CSP(클라우드 솔루션 공급자) 또는 EA(기업 계약)로 마이그레이션할 수 있나요?
 
-* CSP에 마이그레이션하려면 [CSP에 Azure 종량제 구독 마이그레이션](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)을 참조하세요.
+* CSP로 마이그레이션하려면 [구독자와 CSP 간에 Azure 구독 전송](transfer-subscriptions-subscribers-csp.md)을 참조하세요.
 * EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 전자 메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 EA 포털에서 [기존 계정 연결](https://ea.azure.com/helpdocs/associateExistingAccount)을 참조하세요.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?

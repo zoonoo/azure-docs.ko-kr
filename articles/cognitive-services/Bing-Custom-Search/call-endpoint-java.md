@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 02c86e5a4c1a04b98ebba73653980e8e5e00f645
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 292b94e56d988a1126db83e2f8ce40bbb0af6f42
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80238885"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873250"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>빠른 시작: Java를 사용하여 Bing Custom Search 엔드포인트 호출
 
-이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다. 이 애플리케이션은 Java로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청하는 방법에 대해 알아봅니다. 이 애플리케이션은 Java로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java)에 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
+- Bing Custom Search 인스턴스 자세한 내용은 [빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 
-- 최신 [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+- 최신 [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-- [Gson 라이브러리](https://github.com/google/gson)
+- [Gson 라이브러리](https://github.com/google/gson).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+1. 주로 사용하는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
 
     ```java
     import java.io.InputStream;
@@ -50,7 +50,7 @@ ms.locfileid: "80238885"
     import com.google.gson.JsonParser;
     ```
 
-2. `CustomSrchJava`라는 클래스를 만들고 구독 키, 사용자 지정 검색 엔드포인트 및 검색 인스턴스의 사용자 지정 구성 ID에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+2. `CustomSrchJava`라는 클래스를 만든 다음, 구독 키, 사용자 지정 검색 엔드포인트 및 검색 인스턴스의 사용자 지정 구성 ID에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -63,8 +63,8 @@ ms.locfileid: "80238885"
 
 3. `SearchResults`라는 또 다른 클래스를 만들고 Bing Custom Search 인스턴스의 응답을 포함합니다.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
@@ -120,7 +120,7 @@ ms.locfileid: "80238885"
         }
     ```
 
-3. 애플리케이션의 Main 메서드에서 검색 용어를 사용하여 `SearchWeb()`을 호출하고, 
+3. JSON 응답을 출력합니다.
 
     ```java
     System.out.println("\nJSON Response:\n");

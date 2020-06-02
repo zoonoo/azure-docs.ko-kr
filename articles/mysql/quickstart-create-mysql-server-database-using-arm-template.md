@@ -1,23 +1,22 @@
 ---
 title: ARM 템플릿을 사용하여 Azure DB for MySQL 만들기
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 알아봅니다.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630369"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800207"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
-Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. 이 빠른 시작에서는 미리 정의된 ARM(Azure Resource Manager) 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 보여 줍니다. 서버는 Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 만들 수 있습니다.
+Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. 이 빠른 시작에서는 ARM 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만듭니다. Azure Portal, Azure CLI 또는 Azure PowerShell에서 서버를 만들 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

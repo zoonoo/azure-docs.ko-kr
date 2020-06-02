@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637886"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850065"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -115,7 +115,7 @@ Linux 컴퓨터에서 프록시 서버를 통해 Log Analytics에 통신해야 �
 
 Azure Monitor는 장기 분석 및 보고를 위해 Linux Syslog 및 성능 카운터에서 이벤트를 수집할 수 있습니다. 또한 특정 조건이 감지되면 조치를 취할 수도 있습니다. 다음 단계에 따라 Linux Syslog의 수집과 시작할 몇 가지 일반 성능 카운터를 구성하세요.  
 
-1. Azure Portal의 왼쪽 아래 모서리에서 **추가 서비스**를 선택합니다. 검색 상자에서 **Log Analytics**를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 Log Analytics를 입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택하고, Log Analytics 작업 영역 목록에서 원하는 작업 영역을 선택하고, **Log Analytics** 작업 영역의 **고급 설정**을 선택합니다.
 
 2. **데이터**를 선택한 다음, **Syslog**를 선택합니다.  
 

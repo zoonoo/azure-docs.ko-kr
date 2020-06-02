@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68976870"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860990"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 
@@ -22,6 +22,9 @@ Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!Note]
+> Azure 보안 요구 사항으로 인해 Azure Data Catalog는 TLS(전송 계층 보안) 1.2를 강화했습니다. TLS 1.0 및 TLS 1.1이 비활성화되었습니다. 머신이 TLS 1.2용으로 업데이트되지 않은 경우 등록 도구를 실행하는 동안 오류가 발생할 수 있습니다. TLS 1.2에 대해 머신을 업데이트하려면 [전송 계층 보안(1.2) 사용](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)을 참조하세요.
 
 시작하려면 다음이 필요합니다.
 

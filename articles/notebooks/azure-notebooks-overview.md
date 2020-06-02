@@ -3,16 +3,16 @@ title: Azure Notebooks 미리 보기 개요
 description: 설정 또는 구성이 필요하지 않은 경우 무료 Azure Notebooks 미리 보기 서비스를 사용하여 클라우드에서 Jupyter Notebook을 실행합니다.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646333"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647545"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 개요
 
-Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
+Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 *Notebook*(jupyter.org의 이미지 허가)이라는 공유 가능한 단일 캔버스로 손쉽게 결합할 수 있습니다.
 
 [![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -73,7 +73,7 @@ Azure Notebooks는 기본 배포 외에 추가 패키지도 포함합니다. Pyt
 
 Azure Notebooks는 다음 Jupyter 확장을 사용하여 미리 구성됩니다.
 
-- [RISE](https://github.com/damianavila/RISE): Jupyter 슬라이드 쇼 확장(live_reveal이라고도 함) 자세한 내용은 [Notebook 슬라이드 쇼 실행](present-jupyter-notebooks-slideshow.md)을 참조하세요.
+- [RISE](https://github.com/damianavila/RISE): Jupyter 슬라이드 쇼 확장(live_reveal이라고도 함)입니다. 자세한 내용은 [Notebook 슬라이드 쇼 실행](present-jupyter-notebooks-slideshow.md)을 참조하세요.
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): Jupyter Notebook과 함께 작업하기 위한 전체 계산 환경입니다.
 - [Altair](https://github.com/ellisonbg/altair): Python에 대한 선언적 통계 시각화 라이브러리입니다.
 - [BQPlot](https://github.com/bloomberg/bqplot): Jupyter Notebook에 대한 대화형 플로팅 프레임워크입니다.

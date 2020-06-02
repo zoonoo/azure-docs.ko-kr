@@ -6,30 +6,34 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d13d15fe950c89687acfca355d4ed183756536a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419977"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701430"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
 외부 테이블은 Hadoop, Azure Storage Blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다. 외부 테이블은 Azure Storage의 파일에서 데이터를 읽거나 쓰는 데 사용됩니다. Synapse SQL을 사용하면 외부 테이블을 사용하여 SQL 풀 또는 SQL 주문형(미리 보기)에서 데이터를 읽고 쓸 수 있습니다.
 
-## <a name="external-tables-in-sql-pool"></a>SQL 풀의 외부 테이블
+## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Synapse SQL 풀 및 주문형의 외부 테이블
+
+### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool) 
 
 SQL 풀에서 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
 
 - Transact-SQL 문을 사용하여 Azure Blob Storage 및 Azure Data Lake Gen2를 쿼리합니다.
 - 데이터를 Azure Blob Storage 및 Azure Data Lake Storage에서 SQL 풀로 가져오고 저장합니다.
 
-[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL 풀 내의 테이블로 가져옵니다. 외부 테이블은 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 외에도 데이터를 로드하는 데 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL 풀 내의 테이블로 가져옵니다. 외부 테이블은 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 외에도 데이터를 로드하는 데 유용합니다. 
 
-## <a name="external-tables-in-sql-on-demand-preview"></a>SQL 주문형(미리 보기)의 외부 테이블
+로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+
+### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
 
 SQL 주문형의 경우 외부 테이블을 사용하여 다음을 수행할 수 있습니다.
 
@@ -42,23 +46,56 @@ SQL 주문형의 경우 외부 테이블을 사용하여 다음을 수행할 수
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
 
+---
+
+### <a name="security"></a>보안
+
+사용자가 데이터를 읽으려면 외부 테이블에 대해 `SELECT` 권한이 있어야 합니다.
+다음 규칙을 사용하여 데이터 원본에 정의된 데이터베이스 범위의 자격 증명을 사용하는 기본 Azure Storage에 대한 외부 테이블 액세스:
+- 자격 증명이 없는 데이터 원본의 경우 외부 테이블이 Azure Storage에서 공개적으로 사용 가능한 파일에 액세스할 수 있습니다.
+- 데이터 원본에는 외부 테이블이 SAS 토큰 또는 작업 영역 관리 ID를 사용해서 Azure Storage에 있는 파일만 액세스하도록 설정하는 자격 증명이 포함되어 있습니다. 예를 들어 [스토리지 파일 개발 스토리지 액세스 제어](develop-storage-files-storage-access-control.md#examples) 문서를 참조하세요.
+
+> [!IMPORTANT]
+> SQL 풀에서 자격 증명이 없는 데이터 원본에서는 Azure AD 사용자가 자신의 Azure AD ID를 사용해서 스토리지 파일에 액세스할 수 있습니다. 주문형 SQL에서는 `IDENTITY='User Identity'` 속성이 포함된 데이터베이스 범위의 자격 증명을 사용하여 데이터 원본을 만들어야 합니다. [예제는 여기를 참조하세요](develop-storage-files-storage-access-control.md#examples).
+
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
 외부 데이터 원본은 스토리지 계정에 연결하는 데 사용됩니다. 전체 설명서는 [여기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 요약되어 있습니다.
 
-## <a name="syntax-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 구문
+### <a name="syntax-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 구문
+
+#### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
-(    LOCATION         = '<prefix>://<path>' )
+(    LOCATION         = '<prefix>://<path>'
+     [, CREDENTIAL = <database scoped credential> ]
+     , TYPE = HADOOP
+)
 [;]
 ```
 
-## <a name="arguments-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 인수
+#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
 
-data_source_name - 데이터 원본에 대한 사용자 정의 이름을 지정합니다. 이름은 반드시 데이터베이스 내에서 고유해야 합니다.
+```syntaxsql
+CREATE EXTERNAL DATA SOURCE <data_source_name>
+WITH
+(    LOCATION         = '<prefix>://<path>'
+     [, CREDENTIAL = <database scoped credential> ]
+)
+[;]
+```
 
+---
+
+### <a name="arguments-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 인수
+
+data_source_name
+
+데이터 원본에 대한 사용자 정의 이름을 지정합니다. 이름은 반드시 데이터베이스 내에서 고유해야 합니다.
+
+#### <a name="location"></a>위치
 LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프로토콜 및 경로를 제공합니다. 경로에는 `'<prefix>://<path>/container'` 형식의 컨테이너와 `'<prefix>://<path>/container/folder'` 형식의 폴더가 포함될 수 있습니다.
 
 | 외부 데이터 원본        | 위치 접두사 | 위치 경로                                         |
@@ -67,7 +104,19 @@ LOCATION = `'<prefix>://<path>'` - 외부 데이터 원본에 대한 연결 프�
 | Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
 
-## <a name="example-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 예제
+#### <a name="credential"></a>자격 증명
+CREDENTIAL = `<database scoped credential>`은 Azure Storage에서 인증을 수행하기 위해 사용되는 선택적인 자격 증명입니다. 자격 증명이 없는 외부 데이터 원본은 공용 스토리지 계정에 액세스할 수 있습니다. 
+
+SQL 풀에서 자격 증명이 없는 외부 데이터 원본은 또한 호출자 Azure AD ID를 사용하여 스토리지에 있는 파일에 액세스할 수 있습니다. 자격 증명이 있는 외부 데이터 원본은 자격 증명에 지정된 ID를 사용하여 파일에 액세스합니다.
+- SQL 풀에서 데이터베이스 범위의 자격 증명은 사용자 지정 애플리케이션 ID, 작업 영역 관리 ID 또는 SAK 키를 지정할 수 있습니다. 
+- 주문형 SQL에서 데이터베이스 범위의 자격 증명은 호출자의 Azure AD ID, 작업 영역 관리 ID 또는 SAS 키를 지정할 수 있습니다. 
+
+#### <a name="type"></a>TYPE
+TYPE = `HADOOP`는 SQL 풀에서 필수 옵션이며, 기본 파일 액세스를 위해 Polybase 기술이 사용되도록 지정합니다. 기본 제공되는 고유 판독기를 사용하는 주문형 SQL 서비스에서는 이 매개 변수를 사용할 수 없습니다.
+
+### <a name="example-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 예제
+
+#### <a name="sql-pool"></a>[SQL 풀](#tab/sql-pool)
 
 다음 예제에서는 뉴욕 데이터 세트를 가리키는 Azure Data Lake Gen2에 대한 외부 데이터 원본을 만듭니다.
 
@@ -81,13 +130,37 @@ WITH
   ) ;
 ```
 
+#### <a name="sql-on-demand"></a>[SQL 주문형](#tab/sql-on-demand)
+
+다음 예제에서는 SAS 자격 증명을 사용하여 액세스될 수 있는 Azure Data Lake Gen2에 대한 외부 데이터 원본을 만듭니다.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+GO
+
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
+```
+
+다음 예제에서는 공개적으로 사용할 수 있는 뉴욕 데이터 세트를 가리키는 Azure Data Lake Gen2에 대한 외부 데이터 원본을 만듭니다.
+
+```sql
+CREATE EXTERNAL DATA SOURCE YellowTaxi
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+```
+---
+
 ## <a name="create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT
 
 Azure Blob Storage 또는 Azure Data Lake Storage에 저장된 외부 데이터를 정의하는 외부 파일 형식 개체를 만듭니다. 외부 파일 형식을 만드는 것은 외부 테이블을 만들기 위한 필수 구성 요소입니다. 전체 설명서는 [여기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 있습니다.
 
 외부 파일 형식을 만드는 경우 외부 테이블에서 참조하는 데이터의 실제 레이아웃을 지정합니다.
 
-## <a name="syntax-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 구문
+### <a name="syntax-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 구문
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -103,6 +176,7 @@ WITH (
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
     FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
     [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
     );  
 
@@ -116,7 +190,7 @@ WITH (
 }
 ```
 
-## <a name="arguments-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 인수
+### <a name="arguments-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 인수
 
 file_format_name - 외부 파일 형식의 이름을 지정합니다.
 
@@ -155,14 +229,20 @@ FALSE - 모든 누락된 값을 NULL로 저장합니다. 구분 기호로 분리
 
 Encoding = {'UTF8' | 'UTF16'} - SQL 주문형에서 분리된 UTF8 및 UTF16 인코딩 텍스트 파일을 읽을 수 있습니다.
 
-DATA_COMPRESSION = *data_compression_method* - 이 인수는 외부 데이터에 대한 데이터 압축 방법을 지정합니다. 외부 테이블에서 읽는 경우에는 무시됩니다. [CETAS](develop-tables-cetas.md)를 사용하여 외부 테이블에 쓰는 경우에만 사용됩니다.
+DATA_COMPRESSION = *data_compression_method* - 이 인수는 외부 데이터에 대한 데이터 압축 방법을 지정합니다. 
 
 PARQUET 파일 형식 유형은 다음 압축 메서드를 지원합니다.
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
 
-## <a name="example-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 예제
+PARQUET 외부 테이블에서 읽을 때는 이 인수가 무시되지만, [CETAS](develop-tables-cetas.md)를 사용하여 외부 테이블에 쓸 때 사용됩니다.
+
+DELIMITEDTEXT 파일 형식 유형은 다음 압축 메서드를 지원합니다.
+
+- DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+
+### <a name="example-for-create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT 예제
 
 다음 예제에서는 인구 조사 파일에 대한 외부 파일 형식을 만듭니다.
 
@@ -179,9 +259,9 @@ WITH
 
 CREATE EXTERNAL TABLE 명령은 Synapse SQL에서 Azure Blob Storage 또는 Azure Data Lake Storage에 저장된 데이터에 액세스하기 위한 외부 테이블을 만듭니다. 
 
-## <a name="syntax-for-create-external-table"></a>CREATE EXTERNAL TABLE 구문
+### <a name="syntax-for-create-external-table"></a>CREATE EXTERNAL TABLE 구문
 
-```syntaxsql
+```sql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
@@ -196,11 +276,11 @@ column_name <data_type>
     [ COLLATE collation_name ]
 ```
 
-## <a name="arguments-create-external-table"></a>CREATE EXTERNAL TABLE 인수
+### <a name="arguments-create-external-table"></a>CREATE EXTERNAL TABLE 인수
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 SQL 주문형은 테이블 메타데이터만 저장됩니다. SQL 주문형에서는 실제 데이터가 이동하거나 저장되지 않습니다.
+만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 SQL 주문형은 테이블 메타데이터만 저장합니다. SQL 주문형에서는 실제 데이터가 이동하거나 저장되지 않습니다.
 
 <column_definition>, ...*n* ]
 
@@ -228,11 +308,11 @@ DATA_SOURCE = *external_data_source_name* - 외부 데이터의 위치를 포함
 
 FILE_FORMAT = *external_file_format_name* - 외부 데이터의 파일 형식 및 압축 방법을 저장하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT](#create-external-file-format)을 사용합니다.
 
-## <a name="permissions-create-external-table"></a>CREATE EXTERNAL TABLE 권한
+### <a name="permissions-create-external-table"></a>CREATE EXTERNAL TABLE 권한
 
 외부 테이블에서 선택하려면 목록 및 읽기 권한이 있는 적절한 자격 증명이 필요합니다.
 
-## <a name="example-create-external-table"></a>CREATE EXTERNAL TABLE 예제
+### <a name="example-create-external-table"></a>CREATE EXTERNAL TABLE 예제
 
 다음 예제에서는 외부 테이블을 만듭니다. 첫 번째 행을 반환합니다.
 
@@ -262,7 +342,7 @@ SELECT TOP 1 * FROM census_external_table
 
 이제 Data Lake 검색 기능을 사용하면 마우스 오른쪽 단추로 파일을 간단히 클릭하여 SQL 풀 또는 SQL 주문형에서 외부 테이블을 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>사전 요구 사항
 
 - 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 ARM 액세스 역할 이상)이 있어야 합니다.
 
@@ -293,4 +373,4 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="next-steps"></a>다음 단계
 
-쿼리 결과를 Azure Storage의 외부 테이블에 저장하는 방법은 [CETAS](develop-tables-cetas.md) 문서를 확인하세요. 또는 [Spark 테이블](develop-storage-files-spark-tables.md) 쿼리를 시작할 수 있습니다.
+쿼리 결과를 Azure Storage의 외부 테이블에 저장하는 방법은 [CETAS](develop-tables-cetas.md) 문서를 확인하세요. 또는 [Apache Spark for Azure Synapse 외부 테이블](develop-storage-files-spark-tables.md) 쿼리를 시작할 수 있습니다.

@@ -1,26 +1,27 @@
 ---
-title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색 | Microsoft Azure Maps'
+title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색'
 description: Microsoft Azure Maps 웹 SDK를 사용하여 대화형 맵 검색을 위한 데모 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
 author: philmea
 ms.author: philmea
-ms.date: 1/14/2020
+ms.date: 5/21/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 13dc5f6c7175e1ed568199abcbaa4c5d9a20fa7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da225f9a0bac5d179efadb7d507750c8aa0bc13e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80334433"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872112"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
 이 문서에서는 사용자에게 대화형 검색 환경을 제공하는 지도를 만드는 Azure Maps의 기능을 보여 줍니다. 여기서는 다음 기본 단계를 단계별로 안내합니다.
+
 * 사용자 고유의 Azure Maps 계정을 만듭니다.
-* 웹 애플리케이션 데모에서 사용할 계정 키를 가져옵니다.
+* 데모 웹 애플리케이션에서 사용할 기본 키를 가져옵니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -51,24 +52,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
 
-Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 키를 검색합니다. Azure Maps 서비스를 호출할 때 계정의 기본 키를 구독 키로 사용하는 것이 좋습니다.
+Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 기본 키를 검색합니다.
 
 1. 포털에서 Maps 계정을 엽니다.
 2. 설정 섹션에서 **인증**을 선택합니다.
 3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
+>[!NOTE]
+> 기본 키 대신 구독 키를 사용하면 맵이 제대로 렌더링되지 않습니다. 또한 보안을 위해 기본 키와 보조 키 사이를 회전하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)을 참조하세요.
+
 ![Azure Portal에서 기본 Key Azure Maps 키 가져오기](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 
-1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html)로 이동하고 이를 클릭하여 GitHub 사용자 인터페이스 내의 콘텐츠를 확인합니다. **Raw** 단추를 마우스 오른쪽 단추로 클릭하고 파일 내용을 복사하거나 '다른 이름으로 저장'을 클릭하여 파일을 다운로드합니다.
+1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html)로 이동합니다. 파일 내용을 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장합니다. 텍스트 편집기에서 엽니다.
 3. `<Your Azure Maps Key>` 문자열을 검색합니다. 이 문자열을 이전 섹션의 **기본 키** 값으로 바꿉니다.
 
 ## <a name="open-the-application"></a>애플리케이션 열기
 
 1. 원하는 브라우저에서 **AzureMapDemo.html** 파일을 엽니다.
-2. 로스앤젤레스 시의 지도를 관찰합니다. 확대 및 축소하여 확대/축소 수준에 따라 지도가 더 많거나 더 적은 정보로 자동으로 렌더링되도록 하는 방법을 확인합니다. 
+2. 로스앤젤레스 시의 지도를 관찰합니다. 확대 및 축소하여 확대/축소 수준에 따라 지도가 더 많거나 더 적은 정보로 자동으로 렌더링되도록 하는 방법을 확인합니다.
 3. 지도의 기본 센터를 변경합니다. **AzureMapDemo.html** 파일에서 **center**라는 변수를 검색합니다. 이 변수에 대한 위도, 경도 쌍 값을 새 값인 **[-74.0060, 40.7128]** 로 바꿉니다. 파일을 저장하고 브라우저를 새로 고칩니다.
 4. 대화형 검색 환경을 사용해 봅니다. 웹 애플리케이션 데모의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
 5. 검색 상자 아래에 표시되는 주소와 위치의 목록 위로 마우스를 이동합니다. 지도의 해당 핀이 해당 위치에 대한 정보를 팝업하는 상태를 확인합니다. 프라이빗 비즈니스의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.

@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78668289"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721400"
 ---
 >[!NOTE]
 >더 많은 지역을 추가하기 위해 열심히 노력하고 있습니다. 지역이 추가되면 이 목록에 추가됩니다.
@@ -35,6 +35,8 @@ ms.locfileid: "78668289"
 * 프랑스 중부
 * 북유럽
 * 노르웨이 동부
+* 노르웨이 서부
+* 스위스 북부
 * 영국 남부
 * 영국 서부
 * 서유럽
@@ -49,6 +51,7 @@ ms.locfileid: "78668289"
 * 한국 중부
 * 한국 남부
 * 동남아시아
+* 인도 중부
 * 인도 서부
 
 **중동 및 아프리카**

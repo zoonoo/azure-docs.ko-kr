@@ -1,17 +1,17 @@
 ---
 title: Azure Automation에서 Python Runbook 만들기
-description: 간단한 Python Runbook을 만들고, 테스트하고, 게시하는 방법을 보여주는 자습서입니다.
+description: 이 문서에서는 간단한 Python Runbook을 만들고, 테스트하고, 게시하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2b20796fdcf71ccfb60c519d081b42fba982f0b6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608697"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714477"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>자습서: Python Runbook 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "82608697"
 > [!div class="checklist"]
 > * 간단한 Python Runbook 만들기
 > * Runbook 테스트 및 게시
-> * Runbook 작업의 상태 실행 및 추적
+> * Runbook 작업 실행 및 상태 추적
 > * Runbook 매개 변수를 사용하여 Azure 가상 머신을 시작하도록 Runbook 업데이트
 
 > [!NOTE]
@@ -79,13 +79,11 @@ print("Hello World!")
 
 ## <a name="publish-and-start-the-runbook"></a>Runbook 게시 및 시작
 
-방금 만든 Runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하려면 먼저 게시해야 합니다.
-Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다.
-이 예에서는 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
+방금 만든 Runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하려면 먼저 게시해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 예에서는 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 
-2. **Runbooks** 페이지에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
+2. Runbooks 페이지에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
 
 3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Python**창이 표시됩니다.
 
@@ -246,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
-- 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
-- PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
-- Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.
-- Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](/azure/python/)를 참조하세요.
-- 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)를 참조하세요.
+- [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)
+- [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)
+- [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)
+- [Azure Automation Runbook 형식](../automation-runbook-types.md)
+- [Python 개발자용 Azure](/azure/python/)
+- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

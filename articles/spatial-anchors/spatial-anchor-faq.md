@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76844890"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004465"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -49,6 +49,10 @@ Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에서 다중 사
 
 **A:** 앵커는 Azure 계정으로 격리됩니다. 계정에 대한 액세스 권한을 부여한 앱만 계정 내의 앵커에 액세스할 수 있습니다.
 
+**Q: Azure Spatial Anchors는 데이터를 어떻게 저장하나요?**
+
+**A:** 모든 데이터는 Microsoft 관리 데이터 암호화 키로 암호화되어 저장됩니다.
+
 **Q: Azure Spatial Anchors를 사용하는 경우 서비스에 전송되고 저장되는 환경에 대한 정보는 무엇인가요? 환경 관련 사진이 전송되고 저장되나요?**
 
 **A**: 앵커를 만들거나 찾을 때 환경 관련 사진이 디바이스에서 파생된 형식으로 처리됩니다. 이 파생된 형식은 서비스에 전송되고 저장됩니다.
@@ -59,7 +63,6 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 ![환경 및 파생된 해당 스파스 지점 클라우드](./media/sparse-point-cloud.png)
 *그림 1: 환경 및 파생된 해당 스파스 지점 클라우드*
-
 
 **Q: 진단 정보를 Microsoft로 보낼 수 있는 방법이 있나요?**
 

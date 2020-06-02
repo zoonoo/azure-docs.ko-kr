@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682584"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770927"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
@@ -55,9 +55,6 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 
 코드가 관리 ID를 사용하여 Azure AD 인증을 지원하는 서비스용 액세스 토큰을 요청할 수 있습니다. 서비스 인스턴스가 사용하는 자격 증명 롤링은 Azure에서 처리합니다. 
 
-## <a name="credential-rotation"></a>자격 증명 회전
-자격 증명 회전은 Azure 리소스를 호스트하는 리소스 공급자에 의해 제어됩니다. 자격 증명의 기본 회전은 46일마다 발생합니다. 새 자격 증명을 요청하는 일은 리소스 공급자가 담당하므로 리소스 공급자는 46일 이상 기다릴 수 있습니다.
-
 다음 다이어그램은 관리 서비스 ID가 Azure VM(가상 머신)에서 작동하는 방식을 보여줍니다.
 
 ![관리 서비스 ID 및 Azure VM](media/overview/data-flow.png)
@@ -65,7 +62,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 |  속성    | 시스템 할당 관리 ID | 사용자 할당 관리 ID |
 |------|----------------------------------|--------------------------------|
 | 만들기 |  Azure 리소스의 일부로 생성됨(예: Azure 가상 머신 또는 Azure App Service) | 독립 실행형 Azure 리소스로 생성됨 |
-| 수명 주기 | 관리 ID를 만드는 데 사용된 Azure 리소스와 공유되는 수명 주기입니다. <br/> 부모 리소스를 삭제하면 관리 ID도 삭제됩니다. | 독립적인 수명 주기입니다. <br/> 명시적으로 삭제되어야 합니다. |
+| 수명 주기 | 관리 ID를 만드는 데 사용된 Azure 리소스와 공유되는 수명 주기입니다. <br/> 부모 리소스를 삭제하면 관리 ID도 삭제됩니다. | 독립적인 수명 주기. <br/> 명시적으로 삭제되어야 합니다. |
 | Azure 리소스 전체에서 공유 | 공유할 수 없습니다. <br/> 단일 Azure 리소스하고만 연결할 수 있습니다. | 공유할 수 있습니다. <br/> 동일한 사용자 할당 관리 ID를 둘 이상의 Azure 리소스와 연결할 수 있습니다. |
 | 일반 사용 예 | 단일 Azure 리소스에 포함된 워크로드 <br/> 독립적인 ID가 필요한 워크로드 <br/> 예를 들어 단일 가상 머신에서 실행되는 애플리케이션 | 여러 리소스에서 실행되며 단일 ID를 공유할 수 있는 워크로드입니다. <br/> 프로비전 흐름에 보안 리소스 사전 승인이 필요한 워크로드입니다. <br/> 리소스가 자주 재활용되지만 권한이 알관적으로 유지되어야 하는 워크로드입니다. <br/> 예를 들어 여러 가상 머신이 동일한 리소스에 액세스해야 하는 워크로드가 있습니다. |
 
@@ -107,6 +104,9 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 
 6. 3단계에서 구성한 클라이언트 ID 및 인증서를 사용하여 5단계에서 지정한 대로 액세스 토큰을 요청하는 Azure AD에 대한 호출이 생성됩니다. Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
+
+## <a name="credential-rotation"></a>자격 증명 회전
+자격 증명 회전은 Azure 리소스를 호스트하는 리소스 공급자에 의해 제어됩니다. 자격 증명의 기본 회전은 46일마다 발생합니다. 새 자격 증명을 요청하는 일은 리소스 공급자가 담당하므로 리소스 공급자는 46일 이상 기다릴 수 있습니다.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 사용하는 방법
 

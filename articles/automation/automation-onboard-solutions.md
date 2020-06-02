@@ -1,158 +1,111 @@
 ---
-title: Azure Automation에 대한 업데이트, 변경 내용 추적 및 인벤토리 솔루션 등록
-description: Azure Automation에 업데이트 및 변경 내용 추적 솔루션을 등록하는 방법을 알아봅니다.
+title: Runbook에서 Azure Automation 업데이트 관리 사용
+description: 이 문서에서는 Runbook에서 업데이트 관리를 사용하도록 설정하는 방법을 설명합니다.
 services: automation
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 721157c333e381799ef08930c667c51a51a4fd6a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457623"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836059"
 ---
-# <a name="onboard-update-change-tracking-and-inventory-solutions-to-azure-automation"></a>Azure Automation에 대한 업데이트, 변경 내용 추적 및 인벤토리 솔루션 등록
+# <a name="enable-update-management-from-a-runbook"></a>Runbook에서 업데이트 관리 사용
 
-이 자습서에서는 다음과 같이 VM에 대한 업데이트, 변경 내용 추적 및 인벤토리 솔루션을 Azure Automation에 자동으로 등록하는 방법을 알아봅니다.
+이 문서에서는 Runbook을 사용하여 사용자 환경의 VM에 [업데이트 관리](automation-update-management.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 VM을 사용하도록 설정해야 합니다. 
 
-> [!div class="checklist"]
-> * Azure VM 등록
-> * 솔루션 사용
-> * 모듈 설치 및 업데이트
-> * 온보딩 Runbook 가져오기
-> * Runbook을 시작합니다.
-
->[!NOTE]
->이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대한 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md)을 사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+> [!NOTE]
+> 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음 항목이 필요합니다.
-
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
-* 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
+* [가상 머신](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="onboard-an-azure-vm"></a>Azure VM 등록
+## <a name="enable-update-management"></a>업데이트 관리 사용
 
-머신을 등록하는 여러 가지 방법이 있으며, [가상 머신](automation-onboard-solutions-from-vm.md), [여러 머신 검색](automation-onboard-solutions-from-browse.md), [Automation 계정](automation-onboard-solutions-from-automation-account.md) 또는 runbook에서 솔루션을 등록할 수 있습니다. 이 자습서에서는 Runbook을 통해 업데이트 관리를 사용하도록 설정하는 과정을 안내합니다. Azure Virtual Machines를 규모에 맞게 등록하려면 변경 내용 추적 또는 업데이트 관리 솔루션으로 기존 VM을 등록해야 합니다. 이 단계에서는 가상 머신을 업데이트 관리 및 변경 내용 추적에 등록합니다.
+1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
 
-### <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
+2. Log Analytics 작업 영역을 선택한 다음, **사용**을 클릭합니다. 업데이트 관리가 사용하도록 설정되어 있으면 파란색 배너가 표시됩니다. 
 
-변경 내용 추적 및 인벤토리 솔루션을 사용하면 가상 머신에서 [변경 내용 추적](automation-vm-change-tracking.md) 및 [인벤토리](automation-vm-inventory.md)를 할 수 있습니다. 이 단계에서는 가상 머신에 솔루션을 사용할 수 있습니다.
+    ![업데이트 관리 사용](media/automation-onboard-solutions/update-onboard.png)
 
-1. Azure Portal에서 **Automation 계정**을 선택한 다음, 목록에서 자동화 계정을 선택합니다.
-1. **Configuration Management**에서 **인벤토리**를 선택합니다.
-1. 기존 Log Analytics 작업 영역을 선택하거나 새로운 작업 영역을 만듭니다. 
-1. **사용**을 클릭합니다.
+## <a name="select-azure-vm-to-manage"></a>관리할 Azure VM 선택
 
-    ![업데이트 솔루션 등록](media/automation-onboard-solutions/inventory-onboard.png)
+업데이트 관리를 사용하도록 설정하면 Azure VM을 추가하여 업데이트를 받을 수 있습니다.
 
-### <a name="enable-update-management"></a>업데이트 관리 사용
+1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
 
-업데이트 관리 솔루션을 사용하면 Azure Windows VM에 대한 업데이트 및 패치를 관리할 수 있습니다. 사용 가능한 업데이트의 상태를 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하여 업데이트가 VM에 성공적으로 적용되었는지 확인할 수 있습니다. 이 단계에서는 VM에 솔루션을 사용할 수 있습니다.
+2. **Azure VM 추가**를 선택하여 VM을 추가합니다.
 
-1. Automation 계정의 **업데이트 관리** 섹션에서 **업데이트 관리**를 선택합니다.
-1. 선택한 로그 분석 작업 영역은 이전 단계에서 사용된 작업 영역입니다. **사용**을 클릭하여 업데이트 관리 솔루션을 등록합니다. 업데이트 관리 솔루션을 설치하는 동안 파란색 배너가 표시됩니다. 
+3. 목록에서 VM을 선택하고 **사용**을 클릭하여 업데이트할 VM을 설정합니다. 
 
-    ![업데이트 솔루션 등록](media/automation-onboard-solutions/update-onboard.png)
+   ![VM에 업데이트 관리 사용](media/automation-onboard-solutions/enable-update.png)
 
-### <a name="select-azure-vm-to-be-managed"></a>Azure VM을 관리하도록 선택
-
-솔루션을 사용했으므로 해당 솔루션에 등록할 Azure VM을 추가할 수 있습니다.
-
-1. Automation 계정의 **Configuration Management**에서 **변경 내용 추적**을 선택합니다. 
-2. 변경 내용 추적 페이지에서 **Azure VM 추가**를 클릭하여 VM을 추가합니다.
-
-3. 목록에서 VM을 선택하고 **사용**을 클릭합니다. 이 작업을 사용하면 VM에 대한 변경 내용 추적 및 인벤토리 솔루션을 사용할 수 있습니다.
-
-   ![VM에 업데이트 솔루션 사용](media/automation-onboard-solutions/enable-change-tracking.png)
-
-4. VM 등록 알림이 완료되면 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
-
-5. **Azure VM 추가**를 선택하여 VM을 추가합니다.
-
-6. 목록에서 VM을 선택하고 **사용**을 선택합니다. 이 작업을 통해 VM에 대한 업데이트 관리 솔루션을 사용할 수 있습니다.
-
-   ![VM에 업데이트 솔루션 사용](media/automation-onboard-solutions/enable-update.png)
-
-> [!NOTE]
-> 다른 솔루션이 완료될 때까지 기다리지 않고 다음 솔루션을 사용하도록 설정하면 `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.` 메시지가 표시됩니다.
+    > [!NOTE]
+    > 업데이트 관리 설정이 완료되기 전에 다른 기능을 사용하도록 설정하려고 하면 다음 메시지가 표시됩니다. `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## <a name="install-and-update-modules"></a>모듈 설치 및 업데이트
 
-솔루션 등록을 성공적으로 자동화하려면 최신 Azure 모듈로 업데이트하고 [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) 모듈을 가져와야 합니다.
-
-## <a name="update-azure-modules"></a>Azure 모듈 업데이트
+VM에 업데이트 관리를 사용하도록 설정하려면 최신 Azure 모듈로 업데이트하고 [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) 모듈을 가져와야 합니다.
 
 1. Automation 계정의 **공유 리소스**에서 **모듈**을 선택합니다. 
 2. **Azure 모듈 업데이트**를 선택하여 Azure 모듈을 최신 버전으로 업데이트합니다. 
 3. **예**를 클릭하여 기존의 모든 Azure 모듈을 최신 버전으로 업데이트합니다.
 
-![모듈 업데이트](media/automation-onboard-solutions/update-modules.png)
+    ![모듈 업데이트](media/automation-onboard-solutions/update-modules.png)
 
-### <a name="install-azoperationalinsights-module"></a>Az.OperationalInsights 모듈 설치
+4. **공유 리소스**에서 **모듈**로 돌아갑니다. 
+5. **갤러리 찾아보기**를 선택하여 모듈 갤러리를 엽니다. 
+6. `Az.OperationalInsights`를 검색하고 이 모듈을 Automation 계정으로 가져옵니다.
 
-1. Automation 계정의 **공유 리소스**에서 **모듈**을 선택합니다. 
-2. **갤러리 찾아보기**를 선택하여 모듈 갤러리를 엽니다. 
-3. Az.OperationalInsights를 검색하고 Automation 계정으로 이 모듈을 가져옵니다.
+    ![OperationalInsights 모듈 가져오기](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-![OperationalInsights 모듈 가져오기](media/automation-onboard-solutions/import-operational-insights-module.png)
-
-## <a name="import-the-onboarding-runbook"></a>온보딩 Runbook 가져오기
+## <a name="import-a-runbook-to-enable-update-management"></a>업데이트 관리를 사용하도록 설정할 Runbook 가져오기
 
 1. Automation 계정의 **프로세스 자동화**에서 **Runbook**을 선택합니다.
-1. **갤러리 찾아보기**를 선택합니다.
-1. `update and change tracking`를 검색합니다.
-3. Runbook을 선택하고 원본 보기 페이지에서 **가져오기**를 클릭합니다. 
-4. **확인**을 클릭하여 Runbook을 Automation 계정으로 가져옵니다.
+2. **갤러리 찾아보기**를 선택합니다.
+3. `update and change tracking`를 검색합니다.
+4. Runbook을 선택하고 원본 보기 페이지에서 **가져오기**를 클릭합니다. 
+5. **확인**을 클릭하여 Runbook을 Automation 계정으로 가져옵니다.
 
-   ![온보딩 Runbook 가져오기](media/automation-onboard-solutions/import-from-gallery.png)
+   ![설정할 Runbook 가져오기](media/automation-onboard-solutions/import-from-gallery.png)
 
 6. Runbook 페이지에서 **편집**을 클릭한 다음, **게시**를 선택합니다. 
 7. Runbook 게시 창에서 **예**를 클릭하여 Runbook을 게시합니다.
 
 ## <a name="start-the-runbook"></a>Runbook을 시작합니다.
 
-이 Runbook을 시작하려면 변경 내용 추적 또는 업데이트 솔루션을 Azure VM에 등록했어야 합니다. 매개 변수로 솔루션이 등록된 기존 가상 머신 및 리소스 그룹이 필요합니다.
+이 Runbook을 시작하려면 Azure VM에 대한 업데이트 관리가 사용하도록 설정되어 있어야 합니다. 기존 VM 및 리소스 그룹의 매개 변수에 이 기능이 사용하도록 설정되어 있어야 합니다.
 
 1. **Enable-MultipleSolution** Runbook을 엽니다.
 
    ![다중 솔루션 Runbook](media/automation-onboard-solutions/runbook-overview.png)
 
-1. 시작 단추를 클릭하고 매개 변수에 대해 다음 값을 입력합니다.
+2. 시작 단추를 클릭하고 다음 필드에 매개 변수 값을 입력합니다.
 
-   * **VMNAME** - 빈 상태로 둡니다. 업데이트 또는 변경 내용 추적 솔루션에 등록할 기존 VM의 이름입니다. 이 값을 비워 두면 리소스 그룹에 있는 모든 VM이 등록됩니다.
-   * **VMRESOURCEGROUP** - 등록할 VM에 대한 리소스 그룹의 이름입니다.
-   * **SUBSCRIPTIONID** - 비워 둡니다. 등록할 새 VM의 구독 ID입니다. 이를 비워 두면 작업 영역의 구독이 사용됩니다. 다른 구독 ID를 지정하는 경우 이 Automation 계정에 대한 실행 계정을 이 구독에 대한 참가자로도 추가해야 합니다.
-   * **ALREADYONBOARDEDVM** - 업데이트 또는 변경 내용 추적 솔루션에 수동으로 등록한 VM의 이름입니다.
+   * **VMNAME** - 업데이트 관리에 추가할 기존 VM의 이름입니다. 리소스 그룹의 모든 VM을 추가하려면 이 필드를 비워 두세요.
+   * **VMRESOURCEGROUP** - 사용하도록 설정할 VM의 리소스 그룹 이름입니다.
+   * **SUBSCRIPTIONID** - 사용하도록 설정할 새 VM의 구독 ID입니다. 작업 영역의 구독을 사용하려면 이 필드를 비워 두세요. 다른 구독 ID를 사용하는 경우 Automation 계정의 실행 계정을 구독의 기여자로 추가합니다.
+   * **ALREADYONBOARDEDVM** - 이미 수동으로 업데이트를 사용하도록 설정한 VM의 이름입니다.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - VM이 속한 리소스 그룹의 이름입니다.
-   * **SOLUTIONTYPE** - **업데이트** 또는 **변경 내용 추적**을 입력합니다.
+   * **SOLUTIONTYPE** - **업데이트**를 입력합니다.
 
    ![Enable-MultipleSolution Runbook 매개 변수](media/automation-onboard-solutions/runbook-parameters.png)
 
-1. **확인**을 선택하여 Runbook 작업을 시작합니다.
-1. runbook 작업 페이지에서 진행률 및 오류를 모니터링합니다.
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-업데이트 관리에서 VM을 제거하려면:
-
-1. Log Analytics 작업 영역의 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-2. [Windows용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
+3. **확인**을 선택하여 Runbook 작업을 시작합니다.
+4. runbook 작업 페이지에서 진행률 및 오류를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * Azure Virtual Machine을 수동으로 등록합니다.
-> * 필요한 Azure 모듈을 설치 및 업데이트합니다.
-> * Azure VM을 등록하는 Runbook을 가져옵니다.
-> * Azure VM을 자동으로 등록하는 Runbook을 시작합니다.
-
-Runbook을 예약하는 방법에 대해 더 자세한 내용을 알아보려면 이 링크를 따라가세요.
-
-> [!div class="nextstepaction"]
-> [Runbook 예약](automation-schedules.md)
+* Runbook을 예약하려면 [Azure Automation에서 일정 관리](shared-resources/schedules.md)를 참조하세요.
+* VM에 업데이트 관리를 사용하려면 [Azure VM의 업데이트 및 패치 관리](automation-tutorial-update-management.md)를 참조하세요.
+* 범위 구성은 [범위 구성으로 작업](automation-scope-configurations-update-management.md)을 참조하세요.
+* Log Analytics 작업 영역이 더 이상 필요하지 않은 경우 [업데이트 관리 대상 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)의 지침을 참조하세요.
+* 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
+* 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.
+* Windows 업데이트 에이전트 문제를 해결하려면 [Windows 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues.md)을 참조하세요.
+* Linux 업데이트 에이전트 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.

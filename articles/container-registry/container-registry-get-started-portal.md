@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 Azure Container Registry에서 프라�
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409276"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682808"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -21,7 +21,7 @@ Azure 컨테이너 레지스트리는 프라이빗 Docker 컨테이너 이미지
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -35,7 +35,7 @@ Azure 컨테이너 레지스트리는 프라이빗 Docker 컨테이너 이미지
 
 나머지 설정에 대해 기본값을 그대로 적용합니다. 그런 다음, **검토 + 만들기**를 선택합니다. 설정을 검토한 후 **만들기**를 선택합니다.
 
-이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
+이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
 **배포 성공** 메시지가 표시되면 포털에서 컨테이너 레지스트리를 선택합니다. 
 

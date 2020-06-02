@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76167663"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873883"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>빠른 시작: Bing Web Search REST API 및 C#을 사용하여 웹 검색
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받아보세요. 이 C# 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Web Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 C# 애플리케이션은 검색 요청을 API에 보내고 JSON 응답을 표시합니다. 이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+
+이 빠른 시작의 예제 프로그램에서는 .NET Core 클래스만 사용합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,13 +32,11 @@ ms.locfileid: "76167663"
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * 구독 키
 
-이 예제 프로그램에서는 .NET Core 클래스만 사용합니다.
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>프로젝트 만들기 및 종속성 선언
 
-Visual Studio 또는 Mono에서 새 프로젝트를 만듭니다. 그런 다음, 이 코드를 사용하여 필요한 네임스페이스 및 형식을 가져옵니다.
+Visual Studio 또는 Mono에서 새 프로젝트를 만듭니다. 다음 코드를 사용하여 필요한 네임스페이스 및 형식을 가져옵니다.
 
 ```csharp
 using System;
@@ -62,7 +62,13 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>변수 정의
 
-계속하기 전에 몇 가지 변수를 설정해야 합니다.  `uriBase`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다. `uriBase`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `searchTerm` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다. 위에서 설명한 것처럼 이 코드를 `Program` 클래스에 추가해야 합니다.
+계속하기 전에 몇 가지 변수를 설정해야 합니다. 이전 섹션에서 만든 `Program` 클래스에 이 코드를 추가합니다. 
+
+1. `uriBase` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다. 
+
+2. `uriBase`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다. 
+
+3. 필요에 따라 `searchTerm`의 값을 바꿔 검색 쿼리를 사용자 지정합니다. 
 
 ```csharp
 // Enter a valid subscription key.
@@ -80,7 +86,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 `Main()` 메서드는 필수이며, 프로그램 시작 시 호출되는 첫 번째 메서드입니다. 이 애플리케이션에서 main 메서드는 `accessKey`의 유효성을 검사하고, 요청하고, 응답을 출력합니다.
 
-`main()`은 다음 몇 개의 섹션에서 만드는 메서드에 따라 달라집니다.
+`main()` 메서드는 다음 섹션에서 만드는 방법에 따라 달라집니다.
 
 ```csharp
 static void Main()
@@ -109,7 +115,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>검색 결과에 대한 구조체 만들기
 
-이 구조체는 관련 헤더가 있는 검색 결과를 반환합니다. Bing Web Search API에 결과 개체를 만들도록 요청할 때 호출됩니다.
+관련 헤더가 있는 검색 결과를 반환하는 구조체를 만듭니다. Bing Web Search API에 결과 개체를 만들도록 요청할 때 호출합니다.
 
 ```csharp
 // Returns search results with headers.
@@ -158,7 +164,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## <a name="format-the-response"></a>응답 형식 지정
 
-이 메서드는 JSON 응답 형식, 주로 들여쓰기 및 줄 바꿈 추가를 지정합니다.
+이 메서드는 주로 들여쓰기 및 줄 바꿈을 추가하여 JSON 응답 형식을 지정합니다.
 
 ```csharp
 /// <summary>
@@ -235,9 +241,9 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 코드를 실행하는 것입니다! 자신의 코드와 비교하려면 [GitHub에 있는 샘플 코드를 사용할 수 있습니다](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
+마지막 단계는 코드를 실행하는 것입니다. 자신의 코드와 비교하려면 [GitHub의 샘플 코드](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs)를 참조하세요.
 
-## <a name="sample-response"></a>샘플 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.  
 
@@ -366,6 +372,6 @@ Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

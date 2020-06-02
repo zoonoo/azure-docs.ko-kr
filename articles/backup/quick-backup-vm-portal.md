@@ -1,21 +1,20 @@
 ---
 title: 빠른 시작 - Azure Portal을 사용하여 VM 백업
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 만들고, Azure VM에서 보호를 사용하도록 설정하고, VM을 백업하는 방법을 알아봅니다.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215331"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656997"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 
-Azure Portal을 통해 Azure Backup을 만들 수 있습니다. 이 방법은 Azure Backup 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure Portal에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다.
+Azure Portal을 통해 Azure 백업을 만들 수 있습니다. 이 방법은 Azure 백업 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure Portal에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다.
 
 이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure Portal을 사용하여 VM을 만들](../virtual-machines/windows/quick-create-portal.md) 수 있습니다.
 
@@ -27,8 +26,8 @@ Azure Portal을 통해 Azure Backup을 만들 수 있습니다. 이 방법은 Az
 
 간단한 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다.
 
-1. 왼쪽 메뉴에서 **가상 머신**를 선택합니다.
-2. 목록에서 백업할 VM을 선택합니다. 샘플 VM 빠른 시작 명령을 사용한 경우 VM은 *myResourceGroup* 리소스 그룹에서 *myVM*이라는 이름으로 지정됩니다.
+1. 왼쪽 메뉴에서 **가상 머신**을 선택합니다.
+2. 목록에서 백업할 VM을 선택합니다. 샘플 VM 빠른 시작 명령을 사용하는 경우 VM은 *myResourceGroup* 리소스 그룹에서 *myVM*이라는 이름으로 지정됩니다.
 3. **작업** 섹션에서 **백업**을 선택합니다. **백업 사용** 창이 열립니다.
 
 ## <a name="enable-backup-on-a-vm"></a>VM에서 백업 사용
@@ -64,15 +63,15 @@ VM의 **백업** 창에서 백업의 상태 및 완료된 복원 지점 수가 �
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-더 이상 필요하지 않은 경우 VM에 대한 보호를 사용하지 않도록 설정하고, 복원 지점 및 Recovery Services 자격 증명 모음을 제거한 후 리소스 그룹 및 연결된 VM 리소스를 삭제할 수 있습니다.
+더 이상 필요하지 않은 경우 VM에 대한 보호를 사용하지 않도록 설정하고, 복원 지점 및 Recovery Services 자격 증명 모음을 제거한 다음, 리소스 그룹 및 연결된 VM 리소스를 삭제할 수 있습니다.
 
 VM에 대한 데이터를 복원하는 방법에 대해 설명하는 백업 자습서를 계속 진행하는 경우 이 섹션의 단계를 건너뛰고 [다음 단계](#next-steps)로 이동합니다.
 
 1. VM에 **백업** 옵션을 선택합니다.
 
-2. **...추가**를 선택하여 추가 옵션을 표시하고 **백업 중지**를 선택합니다.
+2. **백업 중지**를 선택합니다.
 
-    ![Azure Portal의 VM 백업 중지](./media/quick-backup-vm-portal/stop-backup.png)
+    ![Azure Portal에서 VM 백업 중지](./media/quick-backup-vm-portal/stop-backup.png)
 
 3. 드롭다운 메뉴에서 **백업 데이터 삭제**를 선택합니다.
 
@@ -82,7 +81,7 @@ VM에 대한 데이터를 복원하는 방법에 대해 설명하는 백업 자�
 
 5. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 6. 목록에서 리소스 그룹을 선택합니다. 샘플 VM 빠른 시작 명령을 사용한 경우 리소스 그룹은 *myResourceGroup*이라는 이름으로 지정됩니다.
-7. **리소스 그룹 삭제**를 선택합니다. 확인하려면 리소스 그룹 이름을 입력한 다음 **삭제**를 선택합니다.
+7. **리소스 그룹 삭제**를 선택합니다. 확인하려면 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
 
     ![Azure Portal에서 리소스 그룹을 삭제합니다.](./media/quick-backup-vm-portal/delete-resource-group.png)
 

@@ -410,6 +410,8 @@
               href: id-tokens.md
             - name: 액세스 토큰
               href: access-tokens.md
+            - name: UserInfo 엔드포인트
+              href: userinfo.md
             - name: 인증서 자격 증명
               href: active-directory-certificate-credentials.md
         - name: SAML 2.0 프로토콜

@@ -8,32 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: c50222c645926a6e48995e6c66d7844adc02699f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74665188"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873009"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 
-이 빠른 시작을 사용하여 Azure Cognitive Service인 Bing Local Business Search API에 요청 전송을 시작합니다. 이 샘플 애플리케이션은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
+이 빠른 시작을 사용하여 Azure Cognitive Service인 Bing Local Business Search API에 요청을 보내는 방법을 알아봅니다. 이 간단한 애플리케이션은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
 
-이 예제 애플리케이션은 검색 쿼리 `hotel in Bellevue`에 대한 API에서 로컬 응답 데이터를 가져옵니다.
+이 예제 애플리케이션은 검색 쿼리에 대한 API에서 로컬 응답 데이터를 가져옵니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 API 키를 저장합니다. 자세한 내용은 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)를 참조하세요.
 
-Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
-
-이 예제 애플리케이션은 *hotel in Bellevue*에 대한 쿼리에서 로컬 응답 데이터를 가져옵니다.
 
 ## <a name="create-the-request"></a>요청 만들기 
 
-다음 코드에서는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, “hotel in Bellevue”에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
+다음 코드에서는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, *hotel in Bellevue*에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
 
 ```java
     // construct URL of search request (endpoint + query string)
@@ -51,11 +49,11 @@ Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.mic
 
 ## <a name="run-the-complete-application"></a>전체 애플리케이션 실행
 
-Bing Local Business Search API는 Bing 검색 엔진의 결과를 반환합니다.
+다음 코드에서는 Bing Local Business Search API를 사용하여 Bing 검색 엔진에서 검색 결과를 반환합니다. 다음 단계에 따라 이 코드를 실행합니다.
 1. gson 라이브러리를 다운로드하거나 설치합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.
 3. 아래 제공된 코드를 추가합니다.
-4. subscriptionKey 값을 구독에 유효한 액세스 키로 바꿉니다.
+4. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 5. 프로그램을 실행합니다.
 
 ```java
@@ -165,6 +163,6 @@ public class LocalSearchCls {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Local Business Search 빠른 시작](local-quickstart.md)
-- [Local Business Search Node 빠른 시작](local-search-node-quickstart.md)
+- [Local Business Search C# 빠른 시작](local-quickstart.md)
+- [Local Business Search Node.js 빠른 시작](local-search-node-quickstart.md)
 - [Local Business Search Python 빠른 시작](local-search-python-quickstart.md)

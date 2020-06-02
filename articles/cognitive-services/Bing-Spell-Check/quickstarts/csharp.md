@@ -8,33 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3bb126dc31620515c54a653ef595bfc017aaac73
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382954"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869596"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
 
-이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 C# 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs)에 제공됩니다.
+이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 C# 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
+
+이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs)에 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
-* Visual Studio에서 `Newtonsoft.Json`을 NuGet 패키지로 설치하려면 다음을 수행합니다.
-    1. **솔루션 탐색기**에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
-    1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
-    1. `Newtonsoft.Json`을 검색하고 패키지를 설치합니다.
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Newtonsoft.Json NuGet 패키지입니다. 
+     
+   Visual Studio에서 이 패키지를 설치하려면 다음을 수행합니다.
+
+     1. **솔루션 탐색기**에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
+     1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
+     1. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
+
+* Linux/MacOS를 사용하는 경우 [Mono](https://www.mono-project.com/)를 사용하여 이 애플리케이션을 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. Visual Studio에서 `SpellCheckSample`라는 새 콘솔 솔루션을 만듭니다. 그런 다음, 주 코드 파일에 다음 네임스페이스를 추가합니다.
+1. Visual Studio에서 SpellCheckSample이라는 새 콘솔 솔루션을 만듭니다. 그런 다음, 주 코드 파일에 다음 네임스페이스를 추가합니다.
     
     ```csharp
     using System;
@@ -46,7 +52,7 @@ ms.locfileid: "75382954"
     using Newtonsoft.Json;
     ```
 
-2. API 엔드포인트, 구독 키 및 맞춤법을 검사할 텍스트에 대한 변수를 만듭니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+2. API 엔드포인트, 구독 키 및 맞춤법을 검사할 텍스트에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +68,11 @@ ms.locfileid: "75382954"
     }
     ```
 
-3. 검색 매개 변수에 대한 변수를 만듭니다. `mkt=` 뒤에 시장 코드를 추가합니다. 시장 코드는 요청을 수행한 국가입니다. 또한 `&mode=` 뒤에 맞춤법 검사 모드를 추가합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음)입니다.
+3. 검색 매개 변수에 대한 문자열을 만듭니다. 
+
+   a. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
+
+   b. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다.
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,7 +80,7 @@ ms.locfileid: "75382954"
 
 ## <a name="create-and-send-a-spell-check-request"></a>맞춤법 검사 요청 만들기 및 보내기
 
-1. `SpellCheck()`라는 비동기식 함수를 만들어서 API에 요청을 보냅니다. `HttpClient`를 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다. 그런 다음, 함수 내에서 다음 단계를 수행합니다.
+1. `SpellCheck()`라는 비동기식 함수를 만들어서 API에 요청을 보냅니다. `HttpClient`를 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다. 함수 내에서 다음 단계를 수행합니다.
 
     ```csharp
     async static void SpellCheck()
@@ -127,7 +137,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>맞춤법 검사 함수 호출
 
-프로젝트의 Main 함수에서 `SpellCheck()`를 호출합니다.
+프로젝트의 `Main()` 함수에서 `SpellCheck()`를 호출합니다.
 
 ```csharp
 static void Main(string[] args)

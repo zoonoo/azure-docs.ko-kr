@@ -1,14 +1,14 @@
 ---
 title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75980912"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828150"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요
 
@@ -18,7 +18,7 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 
 다음 다이어그램에서는 애플리케이션이나 리소스를 유지 관리하는 데 필요한 관리의 다른 영역을 보여줍니다. 이러한 여러 영역을 수명 주기로 간주할 수 있습니다. 각 영역은 리소스의 수명을 계속 연속하는 데 필요 합니다. 이 리소스 수명은 초기 배포로 시작하고 연속된 작업을 거친 다음, 마지막으로 사용 중지될 때 끝납니다.
 
-![Azure의 관리 분야](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Azure의 관리 분야" border="false":::
 
 단일 Azure 서비스가 특정 관리 영역의 요구 사항을 완전히 충족시키지 못합니다. 대신, 각 요구 사항은 함께 작동하는 여러 서비스를 통해 실현됩니다. Application Insights와 같은 일부 서비스는 웹 애플리케이션에 대한 대상 모니터링 기능을 제공합니다. Azure Monitor 로그와 같은 다른 서비스는 기타 서비스에 대한 관리 데이터를 저장합니다. 이 기능을 사용하면 다양한 서비스에서 수집된 다양한 유형의 데이터를 분석할 수 있습니다.
 
@@ -36,7 +36,9 @@ Azure의 거버넌스는 Azure 관리의 측면 중 하나입니다. 이 문서�
 ## <a name="govern"></a>거버넌스
 
 거버넌스는 Azure에서 애플리케이션 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다. 거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.
-Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azure Policy](./policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.
+Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azure Policy](./policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다.
+이 기능은 해당 리소스가 회사 표준을 준수하게 합니다.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.
 
 ## <a name="secure"></a>보안
 

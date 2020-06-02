@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76713089"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683988"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Internet Analyzer 테스트에서 평가할 사용자 지정 엔드포인트 측정 
 
@@ -31,7 +31,7 @@ Internet Analyzer 리소스를 설정하고 "사용자 지정 엔드포인트" �
 
 1. [여기](https://fpc.msedge.net/apc/trans.gif)에서 투명한 1픽셀 테스트 이미지를 다운로드합니다. 이 1픽셀 이미지는 클라이언트 JavaScript가 성능 측정을 위해 가져오는 자산입니다.
 2. 사용자 지정 웹 애플리케이션에서 공개적으로 액세스 가능한 경로에 테스트 이미지를 배포합니다. 경로가 HTTPS에서 작동해야 합니다. 
-3. 테스트 작성 중 전체 사용자 지정 엔드포인트 URL(예: https://contoso.com/test/trans.gif) )을 사용자 지정 엔드포인트 필드에 복사합니다.
+3. 테스트 작성 중 전체 사용자 지정 엔드포인트 URL(예: `https://contoso.com/test/trans.gif`)을 사용자 지정 엔드포인트 필드에 복사합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

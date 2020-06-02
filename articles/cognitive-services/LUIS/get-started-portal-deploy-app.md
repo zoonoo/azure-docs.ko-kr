@@ -3,12 +3,12 @@ title: '빠른 시작: LUIS 포털에서 앱 배포'
 description: 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 리소스를 할당하고, 앱을 학습시키고 게시하여 앱을 배포하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585089"
+ms.locfileid: "83653241"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -40,7 +40,8 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 
 1. 테넌트, 구독 및 리소스 이름을 선택합니다. **리소스 할당**을 선택합니다.
 
-   ![앱에 리소스 할당](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![앱에 리소스 할당](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. 작성 키를 앱에 추가하려면 동일한 단계를 수행합니다.
 
@@ -51,11 +52,11 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 
 ## <a name="train-the-app"></a>앱 학습
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+마지막으로 앱을 학습한 후에 변경한 경우 앱을 [학습](get-started-portal-build-app.md)합니다.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>예측 엔드포인트에 앱 게시
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>예측 엔드포인트 요청
 

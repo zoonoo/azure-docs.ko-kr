@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/26/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 1e51c4e9d0c3da8b6ad76b4b45869ea8b2394008
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77372044"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871257"
 ---
 Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -28,53 +28,12 @@ Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* LUIS(Language Understanding) 포털 계정: [체험 계정 만들기](https://www.luis.ai)
-* [Python 3.x](https://www.python.org/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* [Python 3.x](https://www.python.org/)의 현재 버전입니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 [언어 이해 작성 리소스를 만들어](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
+    * 애플리케이션을 언어 이해 작성에 연결하려면 [만든](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다. 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
-
-### <a name="get-your-language-understanding-luis-starter-key"></a>LUIS(Language Understanding) 시작 키 가져오기
-
-LUIS 작성 리소스를 만들어 [스타터 키](../luis-how-to-azure-subscription.md#starter-key)를 가져옵니다. 다음 단계를 위해 키와 키의 영역을 유지합니다.
-
-### <a name="create-an-environment-variable"></a>환경 변수 만들기
-
-키와 키 영역을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
-
-* `LUIS_AUTHORING_KEY` - 요청을 인증하기 위한 리소스 키입니다.
-* `LUIS_REGION` - 키와 연결된 지역입니다. 예: `westus`.
-
-운영 체제에 대한 지침을 사용합니다.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_REGION <replace-with-your-luis-region>
-```
-
-환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
-***
 
 ### <a name="install-the-python-library-for-luis"></a>LUIS용 Python 라이브러리 설치
 

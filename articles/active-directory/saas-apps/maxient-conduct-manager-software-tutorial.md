@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a657a7d57b3e725b0ae92b5110935c0aecf73f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75533036"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>자습서: Maxient Conduct Manager Software와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Maxient Conduct Manager Software를 통합하는 방법을 알아봅니다. Azure AD와 Maxient Conduct Manager Software를 통합하는 경우 다음을 수행할 수 있습니다.
 
-* Maxient Conduct Manager Software에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* Azure AD를 사용하여 Maxient Conduct Manager Software에서 사용자 인증
 * 사용자가 자신의 Azure AD 계정으로 Maxient Conduct Manager Software에 자동으로 로그인되도록 설정합니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
@@ -42,8 +42,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
-
+이 자습서에서는 Maxient Conduct Manager Software에 사용할 수 있도록 Azure AD를 구성합니다.
 
 
 * Maxient Conduct Manager Software는 **SP 및 IDP** 시작 SSO를 지원합니다.
@@ -65,16 +64,13 @@ Maxient Conduct Manager Software의 Azure AD 통합을 구성하려면 갤러리
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-maxient-conduct-manager-software"></a>Maxient Conduct Manager Software용 Azure AD Single Sign-On 구성 및 테스트
 
-**B. Simon**이라는 테스트 사용자를 사용하여 Maxient Conduct Manager Software에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Maxient Conduct Manager Software의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+Maxient Conduct Manager Software용 Azure AD SSO 구성 및 테스트 SSO가 작동하려면 Azure AD와 Maxient Conduct Manager Software 간에 연결을 설정해야 합니다.
 
 Maxient Conduct Manager Software를 사용하여 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-1. **[Maxient Conduct Manager Software SSO 구성](#configure-maxient-conduct-manager-software-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Maxient Conduct Manager Software 테스트 사용자 만들기](#create-maxient-conduct-manager-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 사용자를 Maxient Conduct Manager Software에 만듭니다.
-1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - Maxient Conduct Manager Software에 사용할 수 있도록 사용자 인증을 지원합니다.
+    1. **[Maxient를 사용하도록 모든 사용자 할당](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - 조직 내 모든 사람이 인증을 수행할 수 있도록 허용합니다.
+1. **[Maxient를 사용하여 Azure AD 설정 테스트](#test-with-maxient)** - 구성이 작동하고 올바른 특성이 릴리스되는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -93,27 +89,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://cm.maxient.com/<SCHOOLCODE>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Maxient Conduct Manager Software 클라이언트 지원 팀](mailto:support@maxient.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. Maxient 구현/지원 담당자와 협력해서 값을 가져옵니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.  Maxient 구현/지원 담당자에게 이 URL을 제공해야 합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Maxient Conduct Manager Software에서 인증을 수행할 수 있도록 모든 사용자 할당
 
-이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
-1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
-   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B. Simon에게 Maxient Conduct Manager Software에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Maxient Conduct Manager Software에서 Azure 시스템을 사용하여 인증을 수행할 수 있도록 모든 계정에 대해 액세스 권한을 부여합니다.  Maxient가 올바르게 작동하려면 이 단계가 **필수** 단계입니다.  Maxient는 Azure AD 시스템을 활용해서 사용자 *인증*을 수행합니다. 사용자에 대한 *권한 부여*는 사용자가 수행하려는 특정 기능에 따라 Maxient 시스템 내에서 수행됩니다. Maxient는 이러한 결정을 내릴 때 해당 디렉터리의 특성을 사용하지 않습니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **Maxient Conduct Manager Software**를 선택합니다.
@@ -125,24 +109,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 모든 사용자(또는 적합한 그룹)를 선택하고 Maxient에서 인증을 수행할 수 있도록 사용자를 **할당**합니다.
 
-## <a name="configure-maxient-conduct-manager-software-sso"></a>Maxient Conduct Manager Software SSO 구성
+## <a name="test-with-maxient"></a>Maxient로 테스트 
 
-**Maxient Conduct Manager Software** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [Maxient Conduct Manager Software 지원 팀](mailto:support@maxient.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-### <a name="create-maxient-conduct-manager-software-test-user"></a>Maxient Conduct Manager Software 테스트 사용자 만들기
-
-이 섹션에서는 Maxient Conduct Manager Software에서 Britta Simon이라는 사용자를 만듭니다. Maxient Conduct Manager Software 플랫폼에서 사용자를 추가하려면  [Maxient Conduct Manager Software 지원 팀](mailto:support@maxient.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
-
-## <a name="test-sso"></a>SSO 테스트 
-
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
-
-액세스 패널에서 Maxient Conduct Manager Software 타일을 클릭하면 SSO를 설정한 Maxient Conduct Manager Software에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
-
+지원 티켓이 아직 Maxient 구현/지원 담당자에게 열려 있지 않으면, "캠퍼스 기반 인증/Azure 설정 - \<\<학교 이름\>\>" 제목을 사용해서 [support@maxient.com](mailto:support@maxient.com)으로 이메일을 전송하세요. 이메일 본문에는 **앱 페더레이션 메타데이터 URL**을 제공하세요. Maxient 직원은 적절한 특성이 릴리스되는지 확인하기 위한 테스트 링크를 제공합니다.  
+    
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)

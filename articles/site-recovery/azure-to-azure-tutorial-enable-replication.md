@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292478"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871499"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -170,8 +170,8 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
    1. **키 암호화 Key Vault**: 기본적으로 Site Recovery는 대상 지역에 새 Key Vault를 만듭니다. 이름은 `asr` 접미사를 사용하며, 원본 VM 키 암호화 키를 기반으로 합니다. Site Recovery에서 만든 Key Vault가 이미 있으면 다시 사용됩니다.
 1. **사용자 지정**을 선택하여 사용자 지정 키 자격 증명 모음을 선택합니다.
 
-> [!NOTE]
-> Azure Site Recovery에서는 Windows 운영 체제에서 실행 중인 Azure VM과 [Azure AD 앱을 통한 암호화가 가능](https://aka.ms/ade-aad-app)한 Azure VM만 지원됩니다.
+>[!NOTE]
+> 현재 Site Recovery는 Windows 운영 체제를 실행하는 VM에 대해 AAD(Azure Active Directory) 유무에 관계없이 ADE를 지원합니다. Linux 운영 체제의 경우 AAD가 없는 ADE만 지원합니다. 또한 AAD 없이 ADE 1.1을 실행하는 머신의 경우 VM은 관리 디스크를 사용해야 합니다. 비관리 디스크가 있는 VM은 지원되지 않습니다. ADE 0.1(AAD 포함)에서 1.1로 전환하는 경우에는 1.1을 사용하도록 설정한 후 복제를 비활성화하고 VM에 대한 복제를 활성화해야 합니다.
 
 ### <a name="track-replication-status"></a>복제 상태 추적
 

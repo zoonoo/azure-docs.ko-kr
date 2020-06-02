@@ -2,19 +2,19 @@
 title: 빠른 시작 - 작업 영역 만들기
 description: 이 가이드의 단계에 따라 Azure Synapse Analytics 작업 영역을 만듭니다.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792210"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656147"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>빠른 시작: Azure Synapse Analytics 작업 영역(미리 보기) 만들기
 
@@ -26,6 +26,9 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
+## <a name="register-azure-synapse-resource-provider"></a>Azure Synapse 리소스 공급자 등록
+아직 등록하지 않은 경우 Azure Synapse 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. Azure Synapse 리소스 공급자를 등록하려면 [Azure 리소스 공급자 및 유형](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요. 등록할 때 리소스 공급자 목록에서 *Microsoft.Synapse*를 선택합니다.
+
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)
@@ -33,9 +36,9 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Synapse 작업 영역 만들기
 
 1. Microsoft Azure 검색 창에 **Synapse 작업 영역**을 입력하고 이 서비스를 선택합니다.
-![Azure Synapse 작업 영역이 입력된 Azure Portal 검색 창](media/quickstart-create-synapse-workspace/workspace-search.png)
+![Azure Synapse 작업 영역이 입력된 Azure Portal 검색 창.](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. **Synapse 작업 영역** 페이지에서 **+ 추가**를 클릭합니다.
-![새 Azure Synapse 작업 영역을 만드는 명령이 강조 표시된 화면](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![강조 표시된 새 Azure Synapse 작업 영역을 만드는 명령.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. **Azure Synapse 작업 영역** 양식에 다음 정보를 입력합니다.
 
     | 설정 | 제안 값 | Description |
@@ -47,7 +50,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
     | **Data Lake Storage Gen2** | 계정: `storage account name` </br> 파일 시스템: `root file system to use` | 기본 스토리지로 사용할 ADLS Gen2 스토리지 계정과 사용할 파일 시스템을 지정합니다.|
     ||||
 
-    ![작업 영역 프로비전 흐름 - 기본 사항 탭](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![작업 영역 프로비전 흐름 - 기본 사항 탭](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     스토리지 계정은 다음 위치에서 선택할 수 있습니다.
     - 해당 구독에서 사용할 수 있는 ADLS Gen2 계정 목록
@@ -60,8 +63,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 4. (선택 사항) **보안 + 네트워킹 기본값** 탭을 수정합니다.
 5. (선택 사항) **태그** 탭에서 태그를 추가합니다.
-6. **요약** 탭에서는 작업 영역을 만들 수 있도록 필수 유효성 검사가 실행됩니다. 유효성 검사가 성공하면 **만들기**를 누릅니다.![작업 영역 프로비전 흐름 - 확인 탭](media/quickstart-create-synapse-workspace/create-workspace-05.png)
-7. 리소스 프로비저닝 프로세스가 성공적으로 완료되면 생성된 작업 영역의 항목이 Synapse 작업 영역 목록에 표시됩니다. ![새로 프로비저닝된 작업 영역을 보여주는 Synapse 작업 영역 목록](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. **요약** 탭에서는 작업 영역을 만들 수 있도록 필수 유효성 검사가 실행됩니다. 유효성 검사가 성공하면 **만들기** ![작업 영역 프로비저닝 흐름 - 확인 탭을 누릅니다.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. 리소스 프로비저닝 프로세스가 성공적으로 완료되면 생성된 작업 영역의 항목이 Synapse 작업 영역 목록에 표시됩니다. ![새로 프로비저닝된 작업 영역을 보여주는 Synapse 작업 영역 목록](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -82,4 +85,4 @@ Azure Synapse 작업 영역을 삭제하려면 다음 단계를 완료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로 [SQL 풀 만들기](quickstart-create-sql-pool.md) 또는 [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)를 수행하여 데이터를 분석하고 살펴볼 수 있습니다.
+다음으로 [SQL 풀 만들기](quickstart-create-sql-pool-studio.md) 또는 [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-studio.md)를 수행하여 데이터를 분석하고 살펴볼 수 있습니다.

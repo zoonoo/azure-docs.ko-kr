@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9605d20fa6a1480b24d7b64963aa9579ed3b5a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81115169"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770825"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
@@ -66,7 +66,11 @@ Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Syna
 
    성능 수준에 대한 자세한 내용은 [Azure SQL Data Warehouse에서 컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 
-5. Azure Synapse Analytics 양식의 기본 사항 탭을 완료했으면 **검토 + 만들기**와 **만들기**를 차례로 선택하여 SQL 풀을 만듭니다. 프로비전하는 데 몇 분이 걸립니다.
+5. AdventureWorksDW가 샘플 데이터베이스로 생성되도록 **기존 데이터 사용**에서 **추가 설정**을 선택하고 **샘플**을 선택합니다.
+
+    ![[기존 데이터 사용] 선택](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+
+6. Azure Synapse Analytics 양식의 기본 사항 탭을 완료했으면 **검토 + 만들기**와 **만들기**를 차례로 선택하여 SQL 풀을 만듭니다. 프로비전하는 데 몇 분이 걸립니다.
 
    ![검토 + 만들기 선택](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -148,6 +152,8 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
    ![데이터베이스 개체](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>일부 쿼리 실행
+
+[제한된 리소스 클래스](resource-classes-for-workload-management.md)를 사용하므로 서버 관리자로 기록되는 동안에는 많은 쿼리를 실행하지 않는 것이 좋습니다. 대신 [자습서에 설명된](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data) 대로 [워크로드 격리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql)를 구성합니다.
 
 SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 열고 T-SQL 쿼리 몇 개를 실행하려면 다음 단계를 수행합니다.
 

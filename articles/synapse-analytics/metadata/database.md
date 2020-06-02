@@ -6,39 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3651467de86d3b026ab348675249f93ebf3a86a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: da1bd9c812c20f60264d1a5ee1f8821128900618
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420217"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698856"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
-Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 Spark 풀(미리 보기), SQL 주문형(미리 보기) 엔진, SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 Spark 풀(미리 보기)과 SQL 주문형(미리 보기) 엔진 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Spark 작업을 사용하여 만든 데이터베이스는 작업 영역에 있는 모든 현재 및 미래의 Spark 풀(미리 보기)과 SQL 주문형 엔진에 동일한 이름으로 표시됩니다.
 
-메타데이터 동기화가 활성화된 작업 영역에 SQL 풀이 있거나 메타데이터 동기화가 활성화된 새 SQL 풀을 만드는 경우 이러한 Spark 생성 데이터베이스는 SQL 풀 데이터베이스의 특수 스키마에 자동으로 매핑됩니다. 
+`default`라는 Spark 기본 데이터베이스는 SQL 주문형 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다.
 
-각 스키마 이름은 Spark 데이터베이스 이름 다음에 `$` 접두사를 붙이는 방식으로 지정됩니다. Spark에서 생성한 데이터베이스의 외부 테이블과 관리형 테이블은 모두 해당하는 특수 스키마에서 외부 테이블로 공개됩니다.
-
-또한 `default`라는 Spark 기본 데이터베이스는 SQL 주문형 컨텍스트에서 `default`라는 데이터베이스로 표시되고, 메타데이터 동기화가 켜진 SQL 풀 데이터베이스에서 `$default`로 표시됩니다.
-
-데이터베이스가 SQL 주문형 및 SQL 풀에 비동기적으로 동기화되므로 해당 테이블이 표시될 때까지 시간이 걸립니다.
+데이터베이스는 SQL 주문형에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
 
 ## <a name="manage-a-spark-created-database"></a>Spark에서 만든 데이터베이스 관리
 
 Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
 
 SQL주문형을 사용하여 Spark에서 만든 데이터베이스에 개체를 만들거나 데이터베이스를 삭제하려고 시도하면 작업이 성공합니다. 그러나 원래 Spark 데이터베이스는 변경되지 않습니다.
-
-SQL 풀에서 동기화된 스키마를 삭제하거나 테이블을 이 풀에 만들려고 시도하면 Azure에서 오류를 반환합니다.
 
 ## <a name="handling-of-name-conflicts"></a>이름 충돌 처리
 
@@ -79,22 +73,7 @@ SELECT * FROM sys.databases;
 
 결과에 `mytestdb`가 포함되어 있는지 확인합니다.
 
-### <a name="exposing-a-spark-database-in-a-sql-pool"></a>SQL 풀에서 Spark 데이터베이스 공개
-
-이전 예제에서 데이터베이스를 만들었으므로, 이제 작업 영역에서 메타데이터 동기화를 사용하도록 설정하는 `mysqlpool`이라는 SQL 풀을 만듭니다.
-
-`mysqlpool` SQL 풀에 대해 다음 명령문을 실행합니다.
-
-```sql
-SELECT * FROM sys.schema;
-```
-
-결과에서 새로 만든 데이터베이스의 스키마를 확인합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics의 공유 메타데이터에 대한 자세한 정보](overview.md)
 - [Azure Synapse Analytics의 공유 메타데이터 테이블에 대한 자세한 정보](table.md)
-
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

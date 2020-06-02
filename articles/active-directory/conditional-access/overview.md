@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79215991"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798254"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -47,7 +48,7 @@ ms.locfileid: "79215991"
    - 특정 사용자 및 그룹을 정책 대상으로 지정하여 관리자에게 세분화된 액세스 제어 권한을 제공할 수 있습니다.
 - IP 위치 정보
    - 조직에서는 정책을 결정할 때 사용할 수 있는 신뢰할 수 있는 IP 주소 범위를 만들 수 있습니다. 
-   - 관리자는 전체 국가의 IP 범위를 지정하여 해당 범위의 트래픽을 차단하거나 허용할 수 있습니다.
+   - 관리자는 전체 국가/지역 IP 범위를 지정하여 해당 범위의 트래픽을 차단하거나 허용할 수 있습니다.
 - 디바이스
    - 특정 플랫폼이 설치된 디바이스 또는 특정 상태로 표시된 디바이스를 사용하는 사용자는 조건부 액세스 정책을 적용할 때 사용할 수 있습니다.
 - 애플리케이션
@@ -63,7 +64,7 @@ ms.locfileid: "79215991"
    - 가장 제한적인 결정
 - 액세스 권한 부여
    - 가장 제한이 적은 결정에서도 다음 옵션 중 하나 이상을 요구할 수 있습니다.
-      - Multi-Factor Authentication 필요
+      - 다단계 인증 필요
       - 디바이스를 준수 상태로 표시해야 함
       - 하이브리드 Azure AD 조인된 디바이스 필요
       - 승인된 클라이언트 앱 필요
@@ -71,7 +72,7 @@ ms.locfileid: "79215991"
 
 ## <a name="commonly-applied-policies"></a>일반적으로 적용되는 정책
 
-많은 조직의 일반적인 액세스 관련 문제는 다음과 같은 조건부 액세스 정책으로 해결할 수 있습니다.
+많은 조직은 다음과 같이 [조건부 액세스 정책이 도움을 줄 수 있는 일반적인 액세스 문제](concept-conditional-access-policy-common.md)가 있습니다.
 
 - 관리자 역할이 할당된 사용자에게 다단계 인증 요구
 - Azure 관리 작업 시 다단계 인증 요구
@@ -79,7 +80,7 @@ ms.locfileid: "79215991"
 - Azure Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
 - 특정 위치의 액세스 차단 또는 액세스 권한 부여
 - 위험한 로그인 동작 차단
-- 특정 애플리케이션에는 조직에서 관리하는 디바이스를 사용하도록 요구
+- 특정 애플리케이션에는 조직에서 관리 디바이스를 사용하도록 요구
 
 ## <a name="customer-case-studies"></a>고객 사례 연구
 
@@ -96,12 +97,8 @@ ms.locfileid: "79215991"
 
 ## <a name="next-steps"></a>다음 단계
 
-[단계별로 조건부 액세스 정책 작성](concept-conditional-access-policies.md)
-
-사용자 환경에서 조건부 액세스를 구현하는 방법은 [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)을 참조하세요.
-
-[ID 보호에 대한 자세한 정보](../identity-protection/overview-v2.md)
-
-[Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
-
-[Microsoft Intune에 대한 자세한 정보](/intune/index)
+- [단계별로 조건부 액세스 정책 작성](concept-conditional-access-policies.md)
+- [조건부 액세스 배포 계획](plan-conditional-access.md)
+- [ID 보호에 대한 자세한 정보](../identity-protection/overview-v2.md)
+- [Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
+- [Microsoft Intune에 대한 자세한 정보](/intune/index)

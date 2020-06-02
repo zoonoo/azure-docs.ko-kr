@@ -1,14 +1,14 @@
 ---
 title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행
 description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116352"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779559"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -74,7 +74,7 @@ Batch의 일반적인 시나리오에는 본질적으로 컴퓨팅 노드 풀에
 
 이 방법은 Batch를 사용하는 한 가지 방법일 뿐이며 이 시나리오에서는 일부 기능만 설명합니다. 예를 들어 각 컴퓨팅 노드에서 [여러 태스크를 병렬로](batch-parallel-node-tasks.md) 실행할 수 있습니다. 또한 [작업 준비 및 완료 태스크](batch-job-prep-release.md)를 사용하여 작업용 노드를 준비한 후 정리할 수 있습니다. 
 
-Batch 애플리케이션을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크 및 여러 API 기능에 대한 자세한 내용은 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
+풀, 노드, 작업 및 태스크와 같은 기능에 대한 개요는 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)를 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

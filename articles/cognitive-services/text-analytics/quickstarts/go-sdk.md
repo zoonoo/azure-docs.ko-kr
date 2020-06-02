@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: f9b5fb1837fdafe818fdb27221f8575d93ec304d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77912646"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701618"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>빠른 시작: Go용 Text Analytics 클라이언트 라이브러리 사용
 
-[참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [패키지(GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/blob/090dc0ee4d8d2d60e2a9525774d967a4111a2b0c/services/cognitiveservices/v2.1/textanalytics/client.go) | [패키지(GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 > [!NOTE]
 > 이 빠른 시작은 Text Analytics 버전 2.1에만 적용됩니다. 현재 Go용 v3 클라이언트 라이브러리를 사용할 수 없습니다.
@@ -89,7 +89,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [Bas
 
 ## <a name="code-examples"></a>코드 예제
 
-여기에 나와 있는 코드 조각에서는 Python용 Text Analytics 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
+이러한 코드 조각은 Go용 Text Analytics 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis)

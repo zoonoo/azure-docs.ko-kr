@@ -7,18 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 9b6635a0dab20c8122ad4df4b7fbc5a0cb6f4c99
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a9ab62d5ea408a5c7683d2f06e2cd52f52da1bb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71351125"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683874"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 .NET 예제
+
 > [!div class="op_single_selector"]
-> * [.NET 예제](sql-api-dotnet-samples.md)
-> * [Java 예제](sql-api-java-samples.md)
-> * [비동기 Java 예제](sql-api-async-java-samples.md)
+> * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
+> * [Java V4 SDK 예제](sql-api-java-sdk-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

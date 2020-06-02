@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770720"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744073"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
@@ -35,9 +35,7 @@ A: Azure Synapse는 BI, AI 및 지속적인 인텔리전스를 위한 통합 데
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>Q: Azure Synapse Analytics를 시작하려면 어떻게 하나요?
 
-A: Azure Synapse Analytics 사용을 시작하려면 [Synapse 작업 영역](https://portal.azure.com)을 만들고(무료) 해당 작업 영역에서 원하는 리소스를 만듭니다. 간단한 사용 사례를 안내하는 [Synapse SQL 풀 만들기](quickstart-create-sql-pool.md) 또는 [작업 영역 만들기](quickstart-create-workspace.md)와 같은 빠른 시작 자습서 중 하나를 수행할 수 있습니다. 
-
-또한 Notebook 및 SQL 스크립트 샘플은 [리포지토리](https://github.com/Azure/azure-synapse-analytics/tree/master/samples)에서 찾을 수 있습니다. 퍼블릭 데이터 세트에 연결해야 하는 경우 다음 특성을 사용하여 새 연결된 서비스를 만듭니다.
+A: Azure Synapse Analytics 사용을 시작하려면 리소스 공급자 목록에서 *Microsoft.Synapse*를 선택하여 [Azure Synapse 리소스 공급자를 등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)합니다. 그런 다음, [Synapse 작업 영역](https://portal.azure.com)을 만들고(무료) 해당 작업 영역에서 원하는 리소스를 만듭니다. 간단한 사용 사례를 안내하는 [Synapse SQL 풀 만들기](quickstart-create-sql-pool-portal.md) 또는 [작업 영역 만들기](quickstart-create-workspace.md)와 같은 빠른 시작 자습서 중 하나를 수행할 수 있습니다. 또한 Notebook 및 SQL 스크립트 샘플은 [리포지토리](https://github.com/Azure-Samples/Synapse)에서 찾을 수 있습니다. 퍼블릭 데이터 세트에 연결해야 하는 경우 다음 특성을 사용하여 새 연결된 서비스를 만듭니다.
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""** )
@@ -94,9 +92,9 @@ A: 데이터 흐름을 통해 데이터 엔지니어가 코드를 작성하지 �
 
 A: Synapse Analytics에서 엔드투엔드 Single Sign-On 환경은 중요한 인증 프로세스입니다. 완전한 AAD 통합을 통해 ID를 관리하고 전달해야 합니다.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>Q: ADLSg2에서 파일 및 폴더에 액세스하려면 어떻게 하나요?
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>Q: ADLS Gen2에서 파일 및 폴더에 액세스하는 방법
 
-A: 파일 및 폴더에 대한 액세스는 현재 ADLSg2를 통해 관리됩니다. 자세한 내용은 [Data Lake Storage 액세스 제어](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+A: 파일 및 폴더에 대한 액세스는 현재 ADLS Gen2를 통해 관리됩니다. 자세한 내용은 [Data Lake Storage 액세스 제어](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>Q: 타사 비즈니스 인텔리전스 도구를 사용하여 Azure Synapse Analytics에 액세스할 수 있나요?
 
@@ -106,6 +104,6 @@ A: 예, Tableau 및 Power BI와 같은 타사 비즈니스 애플리케이션을
 
 - [작업 영역 만들기](quickstart-create-workspace.md)
 - [Synapse Studio 사용](quickstart-synapse-studio.md)
-- [SQL 풀 만들기](quickstart-create-sql-pool.md)
+- [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
 - [SQL 주문형 사용](quickstart-sql-on-demand.md)
-- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md) 
+- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md) 

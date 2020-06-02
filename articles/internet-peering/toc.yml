@@ -56,6 +56,10 @@
           href: howto-legacy-exchange-portal.md
         - name: Azure PowerShell
           href: howto-legacy-exchange-powershell.md
+    - name: 경로 서버를 사용하여 Exchange 피어링 만들기 또는 수정
+      items:
+        - name: 포털
+          href: how-to-exchange-route-server-portal.md
 - name: 참조
   items:
     - name: Azure CLI

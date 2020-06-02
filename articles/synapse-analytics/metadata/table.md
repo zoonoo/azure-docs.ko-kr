@@ -6,37 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420837"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701070"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀(미리 보기), SQL 주문형(미리 보기) 엔진 및 SQL 풀 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀(미리 보기), SQL 주문형(미리 보기) 엔진 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
 
 Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 
-또한 Spark에서 만든 관리형 및 외부 테이블은 SQL 주문형의 해당 동기화된 데이터베이스 및 해당 메타데이터 동기화를 사용하도록 설정된 SQL 풀의 해당 `$` 접두사가 있는 스키마에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#exposing-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
+또한 Spark에서 만든 관리형 및 외부 테이블은 SQL 주문형의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#exposing-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
 
-테이블이 SQL 주문형 및 SQL 풀에 비동기적으로 동기화되므로 해당 테이블이 표시될 때까지 지연됩니다.
-
-테이블은 외부 테이블, 데이터 원본 및 파일 형식에 매핑됩니다.
+테이블은 SQL 주문형에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
 
 ## <a name="manage-a-spark-created-table"></a>Spark에서 만든 테이블 관리
 
 Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
 
 SQL 주문형에서 이러한 데이터베이스의 개체를 만들거나 데이터베이스를 삭제하려고 하면 이 작업이 성공하지만 원본 Spark 데이터베이스는 변경되지 않습니다.
-
-SQL 풀에서 동기화된 스키마를 삭제하거나 테이블을 이 풀에 만들려고 하면 Azure에서 오류를 반환합니다.
 
 ## <a name="exposing-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
 
@@ -193,27 +189,6 @@ id | name | birthdate
 ---+-------+-----------
 1 | Alice | 2010-01-01
 ```
-
-### <a name="querying-spark-tables-in-a-sql-pool"></a>SQL 풀에서 Spark 테이블 쿼리
-
-이전 예제에서 만든 테이블을 사용하는 경우 이제 메타데이터 동기화를 사용하도록 설정하는 `mysqlpool`이라는 SQL 풀을 작업 영역에 만들거나 [SQL 풀에서 Spark 데이터베이스 공개](database.md#exposing-a-spark-database-in-a-sql-pool)에서 이미 만든 풀을 사용합니다.
-
-`mysqlpool` SQL 풀에 대해 다음 문을 실행합니다.
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-`$mytestdb` 스키마에 `myParquetTable` 및 `myExternalParquetTable` 테이블이 표시되는지 확인합니다.
-
-이제 다음과 같이 SQL 주문형에서 데이터를 읽을 수 있습니다.
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-위의 SQL 주문형과 동일한 결과를 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

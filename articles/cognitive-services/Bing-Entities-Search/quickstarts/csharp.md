@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd89f2ae13b10c83c3fc22023fc2e3cae1770c98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448660"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650281"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
 이 빠른 시작을 사용하여 Bing Entity Search API를 처음 호출하고 JSON 응답을 봅니다. 이 간단한 C# 애플리케이션은 뉴스 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs)에 제공됩니다.
 
-이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -32,7 +32,7 @@ ms.locfileid: "75448660"
 
    1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
    2. **NuGet 패키지 관리**를 선택합니다.
-   3. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
+   3. *Newtonsoft.Json*을 검색하여 선택한 다음, 패키지를 설치합니다.
 
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "75448660"
     using System.Text;
     ```
 
-2. 새 클래스를 만들고 API 엔드포인트, 구독 키 및 검색하려는 쿼리에 대한 변수를 추가합니다. 아래의 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
+2. 새 클래스를 만들고 API 엔드포인트, 구독 키 및 검색하려는 쿼리에 대한 변수를 추가합니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     namespace EntitySearchSample
@@ -73,11 +73,13 @@ ms.locfileid: "75448660"
 
 ## <a name="send-a-request-and-get-the-api-response"></a>요청 보내기 및 API 응답 받기
 
-1. 클래스 내에서 `Search()`라는 함수를 만듭니다. 새 `HttpClient` 개체를 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
+1. 클래스 내에서 `Search()`라는 함수를 만듭니다. 이 함수 내에서 새 `HttpClient` 개체를 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
 
-   1. 호스트와 경로를 결합하여 요청의 URI를 구성합니다. 그런 다음, 시장을 추가하고 쿼리를 URL로 인코딩합니다.
-   2. `client.GetAsync()`를 기다려서 HTTP 응답을 받고 `ReadAsStringAsync()`를 기다려서 json 응답을 저장합니다.
-   3. `JsonConvert.DeserializeObject()`를 사용하여 JSON 문자열의 서식을 지정한 후 콘솔에 출력합니다.
+2. 호스트와 경로를 결합하여 요청의 URI를 구성합니다. 그런 다음, 시장을 추가하고 쿼리를 URL로 인코딩합니다.
+
+3. `client.GetAsync()`를 기다려서 HTTP 응답을 가져온 다음, `ReadAsStringAsync()`를 기다려서 JSON 응답을 저장합니다.
+
+4. `JsonConvert.DeserializeObject()`를 사용하여 JSON 문자열의 서식을 지정한 후 콘솔에 출력합니다.
 
       ```csharp
       async static void Search()
@@ -96,7 +98,7 @@ ms.locfileid: "75448660"
       }
       ```
 
-2. 애플리케이션의 Main 메서드에서 `Search()` 함수를 호출합니다.
+5. 애플리케이션의 `Main()` 메서드에서 `Search()` 함수를 호출합니다.
     
     ```csharp
     static void Main(string[] args)
@@ -178,4 +180,4 @@ ms.locfileid: "75448660"
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Bing Entity Search API란?](../overview.md )
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

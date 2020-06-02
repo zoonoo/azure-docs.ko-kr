@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589281"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835838"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
 
@@ -26,11 +26,7 @@ SQL 주문형 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure
 
 ## <a name="supported-storage-authorization-types"></a>지원되는 스토리지 권한 부여 유형
 
-SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공개적으로 사용할 수 없는 경우 해당 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. 지원되는 세 가지 권한 부여 유형은 다음과 같습니다.
-
-- [공유 액세스 서명](?tabs=shared-access-signature)
-- [사용자 ID](?tabs=user-identity)
-- [관리 ID](?tabs=managed-identity)
+SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공개적으로 사용할 수 없는 경우 해당 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
 
 > [!NOTE]
 > [Azure AD 통과](#force-azure-ad-pass-through)는 작업 영역을 만들 때의 기본 동작입니다. 이를 사용하는 경우 Azure AD 로그인을 사용하여 액세스하는 각 스토리지 계정에 대한 자격 증명을 만들 필요가 없습니다. [이 동작을 사용하지 않도록 설정](#disable-forcing-azure-ad-pass-through)할 수 있습니다.
@@ -42,7 +38,7 @@ SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공
 **Azure Portal > 스토리지 계정 > 공유 액세스 서명 > 권한 구성 > SAS 및 연결 문자열 생성**으로 차례로 이동하여 SAS 토큰을 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> SAS 토큰이 생성되면 토큰의 시작 부분에 물음표('?')가 포함됩니다. SQL 주문형에서 토큰을 사용하려면 자격 증명을 만들 때 물음표('')를 제거해야 합니다. 다음은 그 예입니다.
+> SAS 토큰이 생성되면 토큰의 시작 부분에 물음표('?')가 포함됩니다. SQL 주문형에서 토큰을 사용하려면 자격 증명을 만들 때 물음표('')를 제거해야 합니다. 예를 들면 다음과 같습니다.
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -99,7 +95,7 @@ DROP CREDENTIAL [UserIdentity];
 
 ### <a name="anonymous-access"></a>[익명 액세스](#tab/public-access)
 
-[익명 액세스를 허용](/azure/storage/blobs/storage-manage-access-to-resources.md)하는 Azure 스토리지 계정에 있는 공개적으로 사용 가능한 파일에 액세스할 수 있습니다.
+[익명 액세스를 허용](/azure/storage/blobs/storage-manage-access-to-resources)하는 Azure 스토리지 계정에 있는 공개적으로 사용 가능한 파일에 액세스할 수 있습니다.
 
 ---
 
@@ -256,11 +252,11 @@ GO
 
 ### <a name="public-access"></a>[공용 액세스](#tab/public-access)
 
-데이터베이스 범위 자격 증명은 공개적으로 사용 가능한 파일에 대한 액세스를 허용하는 데 필요하지 않습니다. Azure Storage에서 공개적으로 사용 가능한 파일에 액세스하려면 [데이터베이스 범위 자격 증명 없이 데이터 소스](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source)를 만듭니다.
+데이터베이스 범위 자격 증명은 공개적으로 사용 가능한 파일에 대한 액세스를 허용하는 데 필요하지 않습니다. Azure Storage에서 공개적으로 사용 가능한 파일에 액세스하려면 [데이터베이스 범위 자격 증명 없이 데이터 원본](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source)을 만듭니다.
 
 ---
 
-데이터베이스 범위 자격 증명은 외부 데이터 소스에서 이 스토리지에 액세스하는 데 사용할 인증 방법을 지정하는 데 사용됩니다.
+데이터베이스 범위 자격 증명은 외부 데이터 원본에서 이 스토리지에 액세스하는 데 사용할 인증 방법을 지정하는 데 사용됩니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -269,11 +265,11 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 )
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 **공개적으로 사용 가능한 데이터 소스에 액세스**
 
-다음 스크립트를 사용하여 공개적으로 사용 가능한 데이터 소스에 액세스하는 테이블을 만듭니다.
+다음 스크립트를 사용하여 공개적으로 사용 가능한 데이터 원본에 액세스하는 테이블을 만듭니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -286,7 +282,7 @@ CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000),
 WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
-데이터베이스 사용자는 데이터 소스를 참조하는 [OPENROWSET](develop-openrowset.md) 함수나 외부 테이블을 사용하여 데이터 소스에서 파일의 콘텐츠를 읽을 수 있습니다.
+데이터베이스 사용자는 데이터 원본을 참조하는 [OPENROWSET](develop-openrowset.md) 함수나 외부 테이블을 사용하여 데이터 원본에서 파일의 콘텐츠를 읽을 수 있습니다.
 
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
@@ -295,7 +291,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE 
 GO
 ```
 
-**자격 증명을 사용하여 데이터 소스에 액세스**
+**자격 증명을 사용하여 데이터 원본에 액세스**
 
 다음 스크립트를 수정하여 SAS 토큰, 사용자의 Azure AD ID 또는 작업 영역의 관리 ID를 사용하여 Azure 스토리지에 액세스하는 외부 테이블을 만듭니다.
 
@@ -330,7 +326,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_
 
 ```
 
-데이터베이스 사용자는 데이터 소스를 참조하는 [OPENROWSET](develop-openrowset.md) 함수나 [외부 테이블](develop-tables-external-tables.md)을 사용하여 데이터 소스에서 파일의 콘텐츠를 읽을 수 있습니다.
+데이터베이스 사용자는 데이터 원본을 참조하는 [OPENROWSET](develop-openrowset.md) 함수나 [외부 테이블](develop-tables-external-tables.md)을 사용하여 데이터 원본에서 파일의 콘텐츠를 읽을 수 있습니다.
 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;

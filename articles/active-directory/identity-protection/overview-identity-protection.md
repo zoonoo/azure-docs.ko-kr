@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79497683"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647343"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -85,6 +85,8 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 | 보안 관리자 | ID 보호에 대한 완전한 액세스 | 사용자 암호 다시 설정 |
 | 보안 운영자 | 모든 Identity Protection 보고서 및 개요 블레이드 보기 <br><br> 사용자 위험 해제, 안전 로그인 확인, 손상 확인 | 정책 구성 또는 변경 <br><br> 사용자 암호 다시 설정 <br><br> 경고 구성 |
 | 보안 판독기 | 모든 Identity Protection 보고서 및 개요 블레이드 보기 | 정책 구성 또는 변경 <br><br> 사용자 암호 다시 설정 <br><br> 경고 구성 <br><br> 검색에 대한 피드백 제공 |
+
+현재 보안 운영자 역할은 위험 로그인 보고서에 액세스할 수 없습니다.
 
 조건부 액세스 관리자는 로그인 위험을 조건으로 고려하는 정책을 만들 수도 있습니다. 자세한 내용은 [조건부 액세스: 조건](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) 문서에서 찾을 수 있습니다.
 

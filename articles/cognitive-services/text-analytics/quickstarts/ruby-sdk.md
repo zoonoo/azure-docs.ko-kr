@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77919671"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996975"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>빠른 시작: Ruby용 Text Analytics 클라이언트 라이브러리 사용
 
@@ -31,7 +31,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 > [!NOTE]
 > 이 빠른 시작은 Text Analytics 버전 2.1에만 적용됩니다. 현재 Ruby용 v3 클라이언트 라이브러리를 사용할 수 없습니다.
 
-[참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [패키지(RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [패키지(RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증합니다. 
 
 ## <a name="code-examples"></a>코드 예제
 
-여기에 나와 있는 코드 조각에서는 Python용 Text Analytics 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
+이러한 코드 조각에서는 Ruby용 Text Analytics 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis)

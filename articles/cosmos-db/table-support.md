@@ -4,16 +4,16 @@ description: 동일한 테이블 데이터 모델 작업을 공유하여 Azure C
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 05/21/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 65cc378ab5b6fd7d2ed724f56a68bdf989ced48c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6f10763f6906f67a3378d54df0574060294ef87d
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611724"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800383"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 
@@ -40,7 +40,7 @@ Table API를 사용하여 작업하는 방법에 관한 추가 정보는 [FAQ: T
 
 Azure Table Storage에는 개발에 사용할 수 있는 다음과 같은 SDK가 있습니다.
 
-- [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 스토리지 Table 서비스를 사용할 수 있습니다.
+- [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/), [Microsoft.Azure.Storage.File](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/), [Microsoft.Azure.Storage.Queue](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) 및 [Microsoft.Azure.Storage.Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) 라이브러리를 통해 Azure Table 스토리지 서비스를 사용할 수 있습니다. Azure Cosmos DB에서 Table API를 사용하는 경우 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) 라이브러리를 대신 사용할 수 있습니다.
 - [Python SDK](https://github.com/Azure/azure-cosmos-table-python). Python용 Azure Cosmos DB Table SDK는 Table Storage 서비스를 지원합니다(Azure Table Storage 및 Cosmos DB의 Table API는 동일한 기능과 함수를 공유하므로 SDK 개발 노력을 고려하기 위해 이 SDK를 사용하는 것이 좋습니다).
 - [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 스토리지를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
 - [Node.js SDK](https://github.com/Azure/azure-storage-node). 이 SDK는 스토리지 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.

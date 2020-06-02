@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652647"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Azure Synapse Analytics 참고 자료
 
@@ -30,8 +30,8 @@ Azure Synapse Analytics 참고 자료는 서비스의 기본 개념과 중요한
 ## <a name="concepts"></a>개념
 | 명사 및 동사                         | 수행하는 작업       |
 |:---                                 |:---                 |
-| **Synapse 작업 영역(미리 보기)** | Azure에서 클라우드 기반 엔터프라이즈 분석을 수행할 수 있는 안전한 협업 경계입니다. 작업 영역은 특정 지역에 배포되며 임시 데이터를 저장하기 위한 ADLSg2 계정 및 파일 시스템과 연결됩니다. 작업 영역은 리소스 그룹에 있습니다. |
-| **SQL Analytics**   | 풀 또는 주문형 기능을 사용하여 분석을 실행합니다.  |
+| **Synapse 작업 영역(미리 보기)** | Azure에서 클라우드 기반 엔터프라이즈 분석을 수행할 수 있는 안전한 협업 경계입니다. 작업 영역은 특정 지역에 배포되며 임시 데이터를 저장하기 위한 ADLS Gen2 계정 및 파일 시스템과 연결됩니다. 작업 영역은 리소스 그룹에 있습니다. |
+| **Synapse SQL**   | 풀 또는 주문형 기능을 사용하여 분석을 실행합니다.  |
 | **SQL 풀**   | 해당 데이터베이스가 포함된 0-N개의 SQL 프로비저닝 리소스를 작업 영역에 배포할 수 있습니다. 각 SQL 풀에는 데이터베이스가 연결됩니다. SQL 풀은 수동 또는 자동으로 크기를 조정하고, 일시 중지하고, 다시 시작할 수 있습니다. SQL 풀은 DWU를 100개부터 30,000개까지 확장할 수 있습니다.       |
 | **SQL 주문형(미리 보기)**   | 데이터 레이크의 데이터에 대한 T-SQL 쿼리를 실행할 수 있도록 대규모 데이터용으로 개발된 분산 데이터 처리 시스템입니다. 서버리스이므로 인프라를 관리할 필요가 없습니다.       |
 |**Apache Spark** | Spark 풀에서 사용되는 Spark 런타임입니다. 지원되는 현재 버전은 Python 3.6.1, Scala 2.11.12, Apache Spark 0.5에 대한 .NET 지원, Delta Lake 0.3이 포함된 Spark 2.4입니다.  | 
@@ -55,7 +55,7 @@ Azure Synapse Analytics 참고 자료는 서비스의 기본 개념과 중요한
 
 - [작업 영역 만들기](quickstart-create-workspace.md)
 - [Synapse Studio 사용](quickstart-synapse-studio.md)
-- [SQL 풀 만들기](quickstart-create-sql-pool.md)
+- [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
 - [SQL 주문형 사용](quickstart-sql-on-demand.md)
-- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool.md)
+- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md)
 

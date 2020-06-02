@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448374"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849572"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>빠른 시작: Bing Video Search REST API 및 Ruby를 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 Ruby 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb)에서 사용할 수 있습니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Ruby 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 
+
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +39,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     require 'json'
     ```
 
-2. API 엔드포인트, 비디오 API 검색 경로, 구독 키 및 검색어에 대한 변수를 만듭니다. `uri`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+2. API 엔드포인트, 비디오 API 검색 경로, 구독 키 및 검색어에 대한 변수를 만듭니다. `url` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,7 +50,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ## <a name="create-and-send-an-api-request"></a>API 요청 만들기 및 보내기
 
-1. 마지막 단계에서 변수를 사용하여 요청에 대한 검색 URL의 형식을 지정합니다. URI 및 경로를 결합한 다음, `?q=` 매개 변수에 추가하기 전에 검색어를 URL로 인코딩합니다.
+1. 이전 단계에서 변수를 사용하여 요청에 대한 검색 URL의 형식을 지정합니다. URI 및 경로를 결합한 다음, `?q=` 매개 변수에 추가하기 전에 검색어를 url로 인코딩합니다.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -61,7 +63,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. 요청을 보내고 응답을 저장합니다.
+3. 요청을 보낸 다음, 응답을 저장합니다.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -71,11 +73,11 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ## <a name="process-and-view-the-response"></a>응답 처리 및 보기
 
-1. 응답을 받은 후에 JSON 응답을 출력할 수 있습니다.
+응답을 받은 후에 JSON 응답을 출력합니다.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## <a name="json-response"></a>JSON 응답
 

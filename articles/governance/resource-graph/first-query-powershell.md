@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 PowerShell 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e98ca5974ba46d4d908cfe6dd8c04d3f6ba33a2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215631"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871997"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -54,7 +54,7 @@ PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph**입니다.
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**와 함께 처음 5개 Azure 리소스를 반환합니다.
+Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 1. `Search-AzGraph` cmdlet을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 
@@ -76,7 +76,7 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
    ```
 
    > [!NOTE]
-   > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이렇게 하면 먼저 쿼리 결과가 제한된 후 정렬됩니다.
+   > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이 명령 순서는 먼저 쿼리 결과를 제한한 다음, 정렬합니다.
 
 1. **Name** 속성에 대해 `order by`를 먼저 수행한 후 상위 5개 결과로 `limit`를 수행하도록 쿼리를 업데이트합니다.
 
@@ -85,7 +85,7 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
    Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
-최종 쿼리가 여러 번 실행되는 경우, 사용자 환경이 전혀 변경되지 않는다고 가정하면, 반환되는 결과는 일치하며 예상대로 **Name** 속성별로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
+최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
 > [!NOTE]
 > 사용자에게 액세스 권한이 이미 있는 구독에서 쿼리가 결과를 반환하지 않는 경우 `Search-AzGraph` cmdlet이 기본 컨텍스트에서 구독으로 기본 설정됨을 유의하세요. 기본 컨텍스트의 일부인 구독 ID 목록을 보려면 이 `(Get-AzContext).Account.ExtendedProperties.Subscriptions`를 실행합니다. 액세스 권한이 있는 모든 구독을 검색하려면 `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`를 실행하여 `Search-AzGraph` cmdlet에 대해 PSDefaultParameterValues를 설정합니다.
@@ -107,7 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Resource Graph 모듈을 Azure PowerShell 환경에 추가하고 첫 번째 쿼리를 실행합니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+이 빠른 시작에서는 Resource Graph 모듈을 Azure PowerShell 환경에 추가하고 첫 번째 쿼리를 실행합니다. Resource Graph 언어에 대해 자세히 알아보려면 쿼리 언어 정보 페이지로 이동하세요.
 
 > [!div class="nextstepaction"]
 > [쿼리 언어에 대한 자세한 정보 가져오기](./concepts/query-language.md)

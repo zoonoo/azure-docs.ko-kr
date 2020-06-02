@@ -3,12 +3,12 @@ title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
 description: Azure Container Registry를 사용하여 클라우드에 주문형 Docker 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76986277"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680647"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-이 예제에서는 Azure Container Registry에 대해 학습하고 있는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
+이 예제에서는 Azure Container Registry에 대해 학습하고 있는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드
 
@@ -50,7 +50,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry008 --s
 echo FROM hello-world > Dockerfile
 ```
 
-[az acr build][az-acr-build] 명령을 실행하여 이미지를 빌드합니다. 성공적으로 빌드된 이미지는 레지스트리로 푸시됩니다. 다음 예제는 `sample/hello-world:v1` 이미지를 푸시합니다. 명령 끝부분의 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
+[az acr build][az-acr-build] 명령을 실행하여 이미지를 빌드합니다. 성공적으로 빌드된 이미지는 레지스트리로 푸시됩니다. 다음 예제는 `sample/hello-world:v1` 이미지를 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \

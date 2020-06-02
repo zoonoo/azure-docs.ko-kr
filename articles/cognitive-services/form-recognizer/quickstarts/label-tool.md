@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691331"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871367"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -143,6 +143,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     > * 양식에 나타나는 대로 값에 레이블을 지정합니다. 두 개의 다른 태그를 사용하여 값을 두 부분으로 분할하지 마십시오. 예를 들어, 주소 필드가 여러 줄에 걸쳐 있더라도 단일 태그로 레이블을 지정해야 합니다.
     > * 태그가 지정된 필드에 키를 포함하지 말고&mdash;값만 포함합니다.
     > * 테이블 데이터는 자동으로 검색되어야 하며 최종 출력 JSON 파일에서 사용이 가능합니다. 하지만 모델이 테이블 데이터를 모두 검색하지 못하면 해당 필드에 수동으로 태그를 지정할 수도 있습니다. 테이블의 각 셀에 다른 레이블로 태그를 지정합니다. 양식에 행 수가 다양한 테이블이 있는 경우, 가장 큰 테이블이 있는 하나 이상의 양식에 태그를 지정합니다.
+    > * 적용된 태그를 삭제하려면 문서 보기에서 사각형을 선택하고 삭제 키를 누릅니다.
 
 ![샘플 레이블 지정 도구의 주 편집기 창](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     * 기본값, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> 날짜 형식 지정은 다음 규칙을 참조하세요.
+> 
+> 다음(`, - / . \`) 문자를 DMY 날짜 구분 기호로 사용할 수 있습니다. 공백은 구분 기호로 사용할 수 없습니다. 다음은 그 예입니다.
+> * 2020,01,01
+> * 2020-01-01
+> * 2020/01/01
+>
+> 일과 월은 각각 한 자리 또는 두 자리 숫자로 작성될 수 있으며 연도는 두 자리 또는 네 자리 숫자일 수 있습니다.
+> * 2020-1-1
+> * 20-1-01
+>
+> DMY 날짜 문자열에 8자리 숫자가 있는 경우 구분 기호는 선택 사항입니다.
+> * 20200101
+> * 2020 01 01
+>
+> 월은 전체 또는 짧은 이름으로 작성할 수도 있습니다. 이름을 사용하는 경우 구분 기호 문자는 선택 사항입니다.
+> * 2020/Jan/01
+> * 2020Jan01
+> * 2020 Jan 01
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 

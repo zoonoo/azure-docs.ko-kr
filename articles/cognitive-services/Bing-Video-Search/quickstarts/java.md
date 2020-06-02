@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0728aa84447573bd8d335daf84c01138c627ecb5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382653"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848667"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>빠른 시작: Bing Video Search REST API 및 Java를 사용하여 비디오 검색
 
-Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 Java 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플에 대한 소스 코드는 추가 오류 처리, 기능 및 코드 주석과 함께 [GitHub에서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) 사용할 수 있습니다.
+이 빠른 시작을 사용하여 Bing Video Search API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Java 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, JSON 응답을 표시합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 
+
+이 샘플에 대한 소스 코드는 추가 오류 처리, 기능 및 코드 주석과 함께 [GitHub에서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,7 +34,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+1. 주로 사용하는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
 
     ```java
     import java.net.*;
@@ -59,7 +61,7 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
     }
     ```
 
-3. API 엔드포인트 호스트 및 경로, 사용자의 구독 키 및 검색어에 대한 변수를 사용하여 `SearchVideos()`라는 새 메서드를 만듭니다. `SearchResults` 개체를 반환합니다. `host`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+3. API 엔드포인트 호스트 및 경로, 사용자의 구독 키 및 검색어에 대한 변수를 사용하여 `SearchVideos()`라는 새 메서드를 만듭니다. 이 메서드는 `SearchResults` 개체를 반환합니다. `host` 값의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -72,66 +74,66 @@ Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 
 
 ## <a name="construct-and-send-the-search-request"></a>검색 요청 생성 및 보내기
 
-1. `SearchVideos()`에서 다음 단계를 수행합니다.
+`SearchVideos()` 메서드에서 다음 단계를 수행합니다.
 
-    1. API 호스트, 경로 및 검색어 인코딩을 결합하여 요청에 대한 URL을 만듭니다. 그런 다음, `openConnection()`을 사용하여 연결을 만들고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
+1. API 호스트, 경로 및 인코딩된 검색 쿼리를 결합하여 요청에 대한 URL을 구성합니다. `openConnection()`을 사용하여 연결을 만든 다음, 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
 
-        ```java
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        ```
+     ```java
+     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+     ```
 
-    2. API에서 응답을 가져와서 JSON 문자열을 저장합니다.
+2. API에서 응답을 가져와서 JSON 문자열을 저장합니다.
 
-        ```java
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-        ```
+     ```java
+     InputStream stream = connection.getInputStream();
+     String response = new Scanner(stream).useDelimiter("\\A").next();
+     ```
 
-    3. `getHeaderFields();`를 사용하여 응답에서 HTTP 헤더를 추출하고 Bing 관련 항목을 `results` 개체에 저장합니다. 그런 다음, 스트림을 닫고 결과를 반환합니다.
+ 3. `getHeaderFields()`를 사용하여 응답에서 HTTP 헤더를 추출하고 Bing 관련 항목을 `results` 개체에 저장합니다. 그런 다음, 스트림을 닫고 결과를 반환합니다.
 
-        ```java
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
-        }
-        stream.close();
-        return results;
-        ```
+     ```java
+     // extract Bing-related HTTP headers
+     Map<String, List<String>> headers = connection.getHeaderFields();
+     for (String header : headers.keySet()) {
+         if (header == null) continue;      // may have null key
+         if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+             results.relevantHeaders.put(header, headers.get(header).get(0));
+         }
+     }
+     stream.close();
+     return results;
+     ```
 
 ## <a name="format-the-response"></a>응답 형식 지정
 
-1. `prettify()`라는 메서드를 만들어 Bing Video API에서 반환된 응답 형식을 지정합니다. Gson 라이브러리의 `JsonParser`를 사용하여 JSON 문자열에 가져와 개체로 변환합니다. 그런 다음, `GsonBuilder()` 및 `toJson()`을 사용하여 서식이 지정된 문자열을 만듭니다. 
+`prettify()`라는 메서드를 만들어 Bing Video API에서 반환된 응답 형식을 지정합니다. Gson 라이브러리의 `JsonParser`를 사용하여 JSON 문자열을 개체로 변환합니다. 그런 다음, `GsonBuilder()` 및 `toJson()`을 사용하여 서식이 지정된 문자열을 만듭니다.
 
-    ```java
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    ```
+```java
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
 ## <a name="send-the-request-and-print-the-response"></a>요청 보내기 및 응답 출력
 
-1. 애플리케이션의 기본 메서드에서 검색어를 사용하여 `SearchVideos`를 호출합니다. 그러면 응답에 저장된 HTTP 헤더뿐만 아니라 API에서 반환한 JSON 문자열을 출력할 수 있습니다.
+애플리케이션의 기본 메서드에서 검색어를 사용하여 `SearchVideos`를 호출합니다. 그런 다음, 응답에 저장된 HTTP 헤더와 API에서 반환한 JSON 문자열을 출력합니다.
 
-    ```java
-    public static void main (String[] args) {
+ ```java
+ public static void main (String[] args) {
 
-        SearchResults result = SearchVideos(searchTerm);
-        //print the Relevant HTTP Headers
-        for (String header : result.relevantHeaders.keySet())
-            System.out.println(header + ": " + result.relevantHeaders.get(header));
-        System.out.println(prettify(result.jsonResponse));
-    }
-    ```
+     SearchResults result = SearchVideos(searchTerm);
+     //print the Relevant HTTP Headers
+     for (String header : result.relevantHeaders.keySet())
+         System.out.println(header + ": " + result.relevantHeaders.get(header));
+     System.out.println(prettify(result.jsonResponse));
+ }
+ ```
 
 ## <a name="json-response"></a>JSON 응답
 

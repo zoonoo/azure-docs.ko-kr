@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: ac46eb0119ac95cf09e48823686a6c563d8d4d4a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 3793f57a6c3dff04f678e629b2903ab216611f75
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887393"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82975085"
 ---
 .NET용 Bing Autosuggest 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 
@@ -23,29 +23,24 @@ ms.locfileid: "80887393"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 Azure 구독이 아직 없는 경우 [체험 구독을 만들 수 있습니다](https://azure.microsoft.com/free/).
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-
-## <a name="setting-up"></a>설치
-
-### <a name="create-an-azure-resource"></a>Azure 리소스 만들기
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### <a name="create-an-environment-variable"></a>환경 변수 만들기
+## <a name="create-environment-variables"></a>환경 변수 만들기
 
 >[!NOTE]
 > 2019년 7월 1일 이후에 생성된 비평가판 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)을 참조하세요. 
 
 만든 리소스의 키 및 엔드포인트를 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
 <!-- replace the below variable names with the names expected in the code sample.-->
-* `AUTOSUGGEST_SUBSCRIPTION_KEY` - 요청을 인증하기 위한 리소스 키입니다.
-* `AUTOSUGGEST_ENDPOINT` - API 요청을 보내기 위한 리소스 엔드포인트입니다. 다음과 같이 표시됩니다. 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_SUBSCRIPTION_KEY`: 요청을 인증하기 위한 리소스 키입니다.
+* `AUTOSUGGEST_ENDPOINT`: API 요청을 보내기 위한 리소스 엔드포인트입니다. `https://<your-custom-subdomain>.api.cognitive.microsoft.com`와 비슷한 형식이어야 합니다. 
 
 운영 체제에 대한 지침을 사용합니다.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
+### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -54,7 +49,7 @@ setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
 
-#### <a name="linux"></a>[Linux](#tab/linux)
+### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -63,7 +58,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
 
-#### <a name="macos"></a>[macOS](#tab/unix)
+### <a name="macos"></a>[macOS](#tab/unix)
 
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 
@@ -75,7 +70,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
 ***
 
-### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
+## <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
 선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
 
@@ -111,7 +106,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-`Program` 클래스에서 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다.
+`Program` 클래스에서 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어야 합니다.
 
 ```csharp
 private const string key_var = "AUTOSUGGEST_SUBSCRIPTION_KEY";
@@ -133,7 +128,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+## <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Bing Autosuggest 클라이언트 라이브러리를 설치합니다.
 
@@ -148,9 +143,9 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 여기에 나와 있는 코드 조각에서는 .NET용 Bing Autosuggest 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
-* [자동 제안 요청 보내기](#send-an-autosuggest-request)
+* [Autosuggest 요청 보내기](#send-an-autosuggest-request)
 
-## <a name="authenticate-the-client"></a>클라이언트 인증
+### <a name="authenticate-the-client"></a>클라이언트 인증
 
 > [!NOTE]
 > 이 빠른 시작에서는 `AUTOSUGGEST_SUBSCRIPTION_KEY`라는 Bing Autosuggest 키와 `AUTOSUGGEST_ENDPOINT`라는 엔드포인트에 대한 [환경 변수를 만들었다고](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) 가정합니다.
@@ -170,9 +165,9 @@ async static Task RunQuickstart()
 }
 ```
 
-## <a name="send-an-autosuggest-request"></a>자동 제안 요청 보내기
+### <a name="send-an-autosuggest-request"></a>Autosuggest 요청 보내기
 
-동일한 메서드에서 클라이언트의 [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) 메서드를 사용하여 Bing에 쿼리를 보냅니다. 그런 다음, [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) 응답을 반복하고, 첫 번째 제안을 인쇄합니다.
+동일한 메서드에서 클라이언트의 [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) 메서드를 사용하여 Bing에 쿼리를 보냅니다. 그런 다음, [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) 응답을 반복하고 첫 번째 제안을 인쇄합니다.
 
 ```csharp
 var result = await client.AutoSuggestMethodAsync("xb");
@@ -210,8 +205,8 @@ dotnet run
 
 Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
 
-* [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Azure Portal에서 리소스 그룹을 삭제합니다](../../../cognitive-services-apis-create-account.md#clean-up-resources).
+* [Azure CLI에서 리소스 그룹을 삭제합니다](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).
 
 ## <a name="next-steps"></a>다음 단계
 

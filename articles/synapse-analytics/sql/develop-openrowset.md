@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591423"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702038"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 OPENROWSET를 사용하는 방법
 
@@ -45,10 +45,12 @@ Synapse SQL의 OPENROWSET 함수는 데이터 소스에서 파일 콘텐츠를 �
                     TYPE = 'PARQUET') AS file
     ```
 
+
     이 옵션을 사용하면 데이터 소스에서 스토리지 계정의 위치를 구성하고 스토리지에 액세스하는 데 사용해야 하는 인증 방법을 지정할 수 있습니다. 
     
     > [!IMPORTANT]
     > `DATA_SOURCE`가 있는 `OPENROWSET`는 스토리지 파일에 쉽고 빠르게 액세스하는 방법을 제공하지만 제한된 인증 옵션을 제공합니다. 예를 들어 Azure AD 보안 주체는 [Azure AD ID](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through)를 사용해서만 파일에 액세스할 수 있으며 공개적으로 사용 가능한 파일에는 액세스할 수 없습니다. 더 강력한 인증 옵션이 필요하면 `DATA_SOURCE` 옵션을 사용하고 스토리지에 액세스하는 데 사용할 자격 증명을 정의하십시오.
+
 
 ## <a name="security"></a>보안
 
@@ -58,9 +60,9 @@ Synapse SQL의 OPENROWSET 함수는 데이터 소스에서 파일 콘텐츠를 �
 
 `OPENROWSET`는 다음 규칙을 사용하여 스토리지 인증 방법을 결정합니다.
 - `DATA_SOURCE`가 없는 `OPENROWSET`에서 인증 메커니즘은 호출자 유형에 따라 달라집니다.
-  - Azure 스토리지에서 Azure AD 사용자가 기본 파일에 액세스하도록 허용하거나(예를 들어, 호출자에게 스토리지에 대한 Storage Reader 권한이 있는 경우) Synapse SQL 서비스에서 [Azure AD 통과 인증을 사용하도록 설정](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through)하면 AAD 로그인은 자체 [Azure AD ID](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through)를 사용해야만 파일에 액세스할 수 있습니다.
-  - SQL 로그인도 `DATA_SOURCE` 없이 `OPENROWSET`을 사용하여 공개적으로 사용 가능한 파일, SAS 토큰을 사용하여 보호된 파일 또는 Synapse 작업 영역의 관리 ID에 액세스 할 수 있습니다. 스토리지 파일에 대한 액세스를 허용하려면 [서버 범위 자격 증명을 만들어야](develop-storage-files-storage-access-control.md#examples) 합니다. 
-- `DATA_SOURCE`가 있는 `OPENROWSET`에서 인증 메커니즘은 참조된 데이터 소스에 할당된 데이터베이스 범위 자격 증명에 정의됩니다. 이 옵션을 사용하면 공개적으로 사용 가능한 스토리지에 액세스하거나 SAS 토큰, 작업 영역의 관리 ID 또는 [호출자의 Azure AD ID](develop-storage-files-storage-access-control.md?tabs=user-identity#)(호출자가 Azure AD 보안 주체인 경우)를 사용하여 스토리지에 액세스할 수 있습니다. `DATA_SOURCE`가 공용이 아닌 Azure 스토리지를 참조하는 경우에는 [데이터베이스 범위 자격 증명](develop-storage-files-storage-access-control.md#examples)을 만들어서 `DATA SOURCE`에서 참조하여 스토리지 파일에 대한 액세스를 허용해야 합니다.
+  - Azure 스토리지에서 Azure AD 사용자가 기본 파일에 액세스하도록 허용하거나(예: 호출자에게 스토리지에 대한 Storage Reader 권한이 있는 경우) Synapse SQL 서비스에서 [Azure AD 통과 인증을 사용하도록 설정](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through)하면 Azure AD 로그인은 자체 [Azure AD ID](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types)를 사용해야만 파일에 액세스할 수 있습니다.
+  - SQL 로그인도 `DATA_SOURCE` 없이 `OPENROWSET`를 사용하여 공개적으로 사용 가능한 파일, SAS 토큰으로 보호된 파일 또는 Synapse 작업 영역의 관리 ID에 액세스 할 수 있습니다. 스토리지 파일에 대한 액세스를 허용하려면 [서버 범위 자격 증명을 만들어야](develop-storage-files-storage-access-control.md#examples) 합니다. 
+- `DATA_SOURCE`가 있는 `OPENROWSET`에서 인증 메커니즘은 참조된 데이터 원본에 할당된 데이터베이스 범위 자격 증명에 정의됩니다. 이 옵션을 사용하면 공개적으로 사용 가능한 스토리지에 액세스하거나 SAS 토큰, 작업 영역의 관리 ID 또는 [호출자의 Azure AD ID](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types)(호출자가 Azure AD 보안 주체인 경우)를 사용하여 스토리지에 액세스할 수 있습니다. `DATA_SOURCE`가 공용이 아닌 Azure 스토리지를 참조하는 경우에는 [데이터베이스 범위 자격 증명](develop-storage-files-storage-access-control.md#examples)을 만들어서 `DATA SOURCE`에서 참조하여 스토리지 파일에 대한 액세스를 허용해야 합니다.
 
 호출자에게 자격 증명에 대한 `REFERENCES` 권한이 있어야 이 권한을 사용하여 스토리지를 인증할 수 있습니다.
 
@@ -204,7 +206,7 @@ CSV 파서 버전 2.0 세부 정보:
 
 - 일부 데이터 유형은 지원되지 않습니다.
 - 최대 행 크기 제한은 8MB입니다.
-- 다음 옵션이 지원되지 않습니다. DATA_COMPRESSION.
+- 다음 옵션은 지원되지 않습니다. DATA_COMPRESSION.
 - 따옴표로 묶인 빈 문자열("")은 빈 문자열로 해석됩니다.
 
 ## <a name="examples"></a>예
@@ -237,8 +239,8 @@ FROM
 ```
 
 파일을 나열할 수 없다는 오류가 표시되면 주문형 Synapse SQL에서 퍼블릭 스토리지에 액세스가 가능하도록 설정해야 합니다.
-- SQL 로그인을 사용하는 경우에는 [ 스토리지에 액세스를 허용하는 서버 범위 자격 증명을 만들어야](develop-storage-files-storage-access-control.md#examples) 합니다.
-- Azure AD 보안 주체를 사용하여 퍼블릭 스토리지에 액세스하는 경우에는, [공용 스토리지에 액세스를 허용하는 서버 범위 자격 증명을 만들어야](develop-storage-files-storage-access-control.md#examples) 하고 [Azure AD 통과 인증](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)을 사용하지 않도록 설정해야 합니다.
+- SQL 로그인을 사용하는 경우에는 [퍼블릭 스토리지에 액세스할 수 있는 서버 범위 자격 증명을 생성](develop-storage-files-storage-access-control.md#examples)해야 합니다.
+- Azure AD 보안 주체를 사용하여 퍼블릭 스토리지에 액세스하는 경우에는 [퍼블릭 스토리지에 액세스할 수 있는 서버 범위 자격 증명을 생성](develop-storage-files-storage-access-control.md#examples)해야 하고 [Azure AD 통과 인증](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)을 사용하지 않도록 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

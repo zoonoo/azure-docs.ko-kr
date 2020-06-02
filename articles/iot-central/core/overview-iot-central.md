@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656409"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -61,13 +61,6 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 - 디바이스에 저장되지 않는 클라우드 속성
 - IoT Central 애플리케이션의 일부인 사용자 지정, 대시보드 및 양식
 
-### <a name="pricing"></a>가격 책정
-
-7일 무료 평가판을 사용하여 IoT Central 애플리케이션을 만들어도 되고, 표준 가격 책정 플랜을 사용해도 됩니다.
-
-- *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5대의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
-- *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 무료 및 표준 가격 책정 플랜에 대해 자세히 알아보세요.
-
 ### <a name="create-device-templates"></a>디바이스 템플릿 만들기
 
 [IoT 플러그 앤 플레이(미리 보기)](../../iot-pnp/overview-iot-plug-and-play.md)를 사용하면 포함된 디바이스 코드를 작성하지 않고도 IoT Central에서 디바이스를 통합할 수 있습니다. IoT 플러그 앤 플레이(미리 보기)의 핵심은 디바이스 기능을 설명하는 디바이스 기능 모델 스키마입니다. IoT Central 애플리케이션에서 디바이스 템플릿은 이러한 IoT 플러그 앤 플레이(미리 보기) 디바이스 기능 모델을 사용합니다.
@@ -81,6 +74,8 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 솔루션 개발자는 IoT Central을 사용하여 디바이스 템플릿의 유효성을 검사하는 테스트 디바이스용 코드를 생성할 수 있습니다.
 
+디바이스 개발자인 경우 이러한 디바이스 템플릿을 사용하는 디바이스 구현에 대한 소개는 [IoT Central 디바이스 개발 개요](./overview-iot-central-developer.md)를 참조하세요.
+
 ### <a name="customize-the-ui"></a>UI 사용자 지정
 
 또한 솔루션 개발자는 애플리케이션의 일상적인 사용을 담당하는 운영자를 위해 IoT Central 애플리케이션 UI를 사용자 지정할 수 있습니다. 솔루션 개발자가 수행할 수 있는 사용자 지정은 다음과 같습니다.
@@ -89,43 +84,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 - 운영자가 인사이트를 발견하고 문제를 더 빨리 해결할 수 있도록 사용자 지정 대시보드 구성.
 - 연결된 디바이스에서 시계열 데이터를 탐색하는 사용자 지정 분석 구성.
 
-## <a name="pricing"></a>가격 책정
-
-7일 무료 평가판을 사용하여 IoT Central 애플리케이션을 만들어도 되고, 표준 가격 책정 플랜을 사용해도 됩니다.
-
-- *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5대의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
-- *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요.
-
-## <a name="connect-your-devices"></a>사용자 디바이스 연결
-
-Azure IoT Central은 모든 디바이스 등록 및 연결에 [Azure IoT Hub DPS(Device Provisioning Service)](../../iot-dps/about-iot-dps.md)를 사용합니다.
-
-DPS를 사용하면 다음과 같은 장점이 있습니다.
-
-- IoT Central이 디바이스를 대규모로 온보딩하고 연결하는 것을 지원합니다.
-- IoT Central UI를 통해 디바이스를 등록할 필요 없이 오프라인으로 디바이스 자격 증명을 생성하고 디바이스를 구성할 수 있습니다.
-- 디바이스에서 공유 액세스 서명을 사용하여 연결할 수 있습니다.
-- 디바이스에서 업계 표준 X.509 인증서를 사용하여 연결할 수 있습니다.
-- 사용자의 고유한 디바이스 ID를 사용하여 IoT Central에서 디바이스를 등록할 수 있습니다. 사용자의 고유한 디바이스 ID를 사용하면 기존 백 오피스 시스템과 간편하게 통합할 수 있습니다.
-- 디바이스를 IoT Central에 연결하는 한 가지 일관적인 방법이 있습니다.
-
-자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
-
-### <a name="azure-iot-edge-devices"></a>Azure IoT Edge 디바이스
-
-[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)를 사용하여 만든 디바이스 뿐만 아니라 [Azure IoT Edge 디바이스](../../iot-edge/about-iot-edge.md)도 IoT Central 애플리케이션에 연결할 수 있습니다. Azure IoT Edge에서는 IoT Central에서 관리하는 IoT 디바이스에서 직접 클라우드 인텔리전스 및 사용자 지정 논리를 실행할 수 있습니다. IoT Edge 런타임을 사용하면 다음을 수행할 수 있습니다.
-
-- 디바이스에 워크로드를 설치하고 업데이트합니다.
-- 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
-- IoT Edge 모듈이 항상 실행되도록 합니다.
-- 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
-- 다운스트림 리프 디바이스와 IoT Edge 디바이스 간, IoT Edge 디바이스의 모듈 간, IoT Edge 디바이스와 클라우드 간의 통신을 관리합니다.
-
-자세한 내용은 [Azure IoT Edge 디바이스 및 IoT Central](concepts-architecture.md#azure-iot-edge-devices)을 참조하세요.
-
-## <a name="stay-connected"></a>연결 유지
-
-IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므로 애플리케이션 관리 부담이 줄어듭니다.
+## <a name="manage-your-devices"></a>디바이스 관리
 
 운영자는 IoT Central 애플리케이션을 사용하여 IoT Central 솔루션의 디바이스를 관리합니다. 운영자는 다음과 같은 작업을 수행합니다.
 
@@ -134,8 +93,6 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 - 새 디바이스 프로비저닝.
 
 솔루션 개발자는 연결된 디바이스의 스트리밍 데이터에 적용되는 사용자 지정 규칙 및 작업을 정의할 수 있습니다. 운영자는 디바이스 수준에서 이러한 규칙을 사용하거나 사용하지 않도록 설정하여 애플리케이션 내에서 작업을 제어하고 자동화할 수 있습니다.
-
-관리자는 [사용자 역할 및 권한](howto-administer.md)을 사용하여 애플리케이션에 대한 액세스를 관리할 수 있습니다.
 
 대규모로 작동하도록 설계된 IoT 솔루션을 사용하는 경우 디바이스 관리에 대한 체계적인 접근 방식이 중요합니다. 디바이스를 클라우드에 연결하는 것만으로는 충분 하지 않고, 디바이스를 계속 연결된 정상 상태로 유지해야 합니다. 운영자는 다음과 같은 IoT Central 기능을 사용하여 애플리케이션의 전체 수명 주기 동안 디바이스를 관리할 수 있습니다.
 
@@ -149,23 +106,13 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 ### <a name="jobs"></a>작업
 
-[작업](howto-run-a-job.md)을 사용하면 속성을 설정하거나 명령을 호출하여 디바이스에 단일 또는 대량 업데이트를 적용할 수 있습니다. 
+[작업](howto-run-a-job.md)을 사용하면 속성을 설정하거나 명령을 호출하여 디바이스에 단일 또는 대량 업데이트를 적용할 수 있습니다.
 
-### <a name="user-roles-and-permissions"></a>사용자 역할 및 권한
-
-관리자는 [역할 및 권한](howto-manage-users-roles.md)을 사용하여 각 사용자의 경험을 조정할 수 있습니다. 관리자는 웹 UI를 사용하여 역할을 만들고 권한을 할당합니다.
-
-## <a name="transform-your-iot-data"></a>IoT 데이터 변환
+## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
 애플리케이션 플랫폼인 IoT Central에서는 IoT 데이터를, 실행 가능한 결과를 도출하는 비즈니스 인사이트로 변환할 수 있습니다. [규칙](./tutorial-create-telemetry-rules.md), [데이터 내보내기](./howto-export-data.md) 및 [공용 REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/)는 IoT Central을 LOB(기간 업무) 애플리케이션과 통합하는 방법을 보여주는 예입니다.
 
 ![IoT Central에서 IoT 데이터를 변환하는 방법](media/overview-iot-central/transform.png)
-
-### <a name="monitor-device-health-and-operations-using-rules"></a>규칙을 사용하여 디바이스 상태 및 작업 모니터링
-
-디바이스가 연결되어 데이터를 보낼 때 규칙을 통해 문제가 있는 디바이스 또는 오류 메시지를 보내는 디바이스를 식별하여 해결하면 가동 중지 시간을 최소화할 수 있습니다. 디바이스의 원격 분석을 모니터링하다가 메트릭이 임계값을 초과하거나 디바이스에서 특정 메시지를 보내면 그 사실을 운영자에게 알리도록 IoT Central 애플리케이션에서 규칙을 작성할 수 있습니다. 규칙에 대한 이메일 작업 및 webhook는 적절한 사람과 적절한 다운스트림 시스템에 알립니다.
-
-### <a name="run-custom-analytics-and-processing-on-your-exported-data"></a>내보낸 데이터에 대한 사용자 지정 분석 및 처리 실행
 
 디바이스의 원격 분석을 처리하고 그 결과를 저장하는 사용자 지정 분석 파이프라인을 빌드하여 제조 현장의 머신 효율성 추세를 확인하거나 향후 에너지 사용량을 예측하는 등의 비즈니스 인사이트를 생성할 수 있습니다. IoT Central 애플리케이션에서 원격 분석을 내보내는 데이터 내보내기, 디바이스 속성 변경, 원하는 도구를 사용하여 데이터를 분석, 저장 및 시각화할 수 있는 다른 서비스로의 디바이스 템플릿 변경을 구성할 수 있습니다.
 
@@ -176,6 +123,17 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 - 디바이스를 원격으로 설정하고 제어할 수 있는 모바일 도우미 앱
 - 기존 LOB(기간 업무) 애플리케이션이 IoT 디바이스 및 데이터와 상호 작용할 수 있는 사용자 지정 통합
 - 디바이스 모델링, 온보딩, 관리 및 데이터 액세스를 위한 디바이스 관리 애플리케이션
+
+## <a name="administer-your-application"></a>애플리케이션 관리
+
+IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므로 애플리케이션 관리 부담이 줄어듭니다. 관리자는 [사용자 역할 및 권한](howto-administer.md)을 사용하여 애플리케이션에 대한 액세스를 관리할 수 있습니다.
+
+## <a name="pricing"></a>가격 책정
+
+7일 무료 평가판을 사용하여 IoT Central 애플리케이션을 만들어도 되고, 표준 가격 책정 플랜을 사용해도 됩니다.
+
+- *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5대의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
+- *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요.
 
 ## <a name="quotas"></a>할당량
 

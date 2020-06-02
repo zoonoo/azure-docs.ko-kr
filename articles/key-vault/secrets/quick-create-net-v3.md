@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: bdc686284711fb39e6cedb18aea4d1f5c9d1d318
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 056dc7bbe29c3c963818ee2fca626be4e2be9645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421447"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983485"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리(SDK v3)
 
@@ -38,7 +38,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [.NET Core 2.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/2.1)
+* [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview)
 
 이 빠른 시작에서는 Windows 터미널(예: [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6) 또는 [Azure Cloud Shell](https://shell.azure.com/))에서 `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 및 Windows 명령을 실행한다고 가정합니다.
@@ -99,12 +99,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-클라우드 기반 .NET 애플리케이션을 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [App Service 관리 ID를 사용하여 Azure Key Vault에 액세스](../general/managed-identity.md)를 참조하세요. 그러나 간단히 하기 위해 이 빠른 시작에서는 .NET 콘솔 애플리케이션을 만듭니다. Azure를 사용하여 데스크톱 애플리케이션을 인증하려면 서비스 주체 및 액세스 제어 정책을 사용해야 합니다.
+클라우드 기반 .NET 애플리케이션을 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [App Service 관리 ID를 사용하여 Azure Key Vault에 액세스](../general/managed-identity.md)를 참조하세요. 
+
+그러나 간단히 하기 위해 이 빠른 시작에서는 서비스 주체 및 액세스 제어 정책을 사용해야 하는 .NET 콘솔 애플리케이션을 만듭니다. 서비스 원칙에는 "http://&lt;my-unique-service-principle-name&gt;" 형식의 고유한 이름이 필요합니다.
 
 서비스 주체는 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) Azure CLI 명령을 사용하여 만듭니다.
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다. 

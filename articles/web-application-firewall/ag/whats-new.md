@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73495498"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745154"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽의 새로운 기능이란?
 
@@ -28,7 +28,7 @@ Azure 웹 애플리케이션 방화벽은 지속적으로 업데이트됩니다.
 |기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
 |봇 완화 규칙 세트(미리 보기)|선택한 CRS 규칙 세트와 함께 봇 완화 규칙 세트를 사용하도록 설정할 수 있습니다. | 2019년 11월 |
-|GeoDB 통합(미리 보기)|이제 원산국별로 트래픽을 제한하는 사용자 지정 규칙을 만들 수 있습니다. | 2019년 11월 |
+|GeoDB 통합(미리 보기)|이제 원산 국가/지역별로 트래픽을 제한하는 사용자 지정 규칙을 만들 수 있습니다. | 2019년 11월 |
 |WAF 사이트별/URI별 정책(미리 보기)|WAF-v2는 이제 경로 기반 규칙 뿐만 아니라 수신기에 정책을 적용하도록 지원합니다. [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요. | 2019년 11월 |
 |WAF 사용자 지정 규칙 |Application Gateway WAF_v2는 이제 사용자 지정 규칙 만들기를 지원합니다. [Application Gateway 사용자 지정 규칙](custom-waf-rules-overview.md)을 참조하세요. |2019년 6월 |
 |WAF 구성 및 제외 목록     |WAF를 구성하고 가양성을 줄이는 데 도움이 되는 옵션이 추가되었습니다. 자세한 내용은 [웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록](application-gateway-waf-configuration.md)을 참조하세요.|2018년 12월|

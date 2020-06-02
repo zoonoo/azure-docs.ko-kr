@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7e164420b02be35069103ac06238d56449eb7ef
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78274066"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996726"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 
@@ -189,15 +189,27 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. 솔루션에서 *Startup.cs* 파일을 열고 `ConfigureServices` 메서드를 다음으로 바꿉니다.
+1. 솔루션에서 *Startup.cs* 파일을 열어 구성을 읽고 클라이언트를 초기화하는 다음 **InitializeCosmosClientInstanceAsync** 메서드를 추가합니다.
 
-    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
-    이 단계의 코드는 클라이언트를 구성에 따라 [ASP.NET Core의 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)을 통해 주입할 단일 인스턴스로 초기화합니다.
+1. 동일한 파일에서 `ConfigureServices` 메서드를 다음으로 바꿉니다.
 
-1. 구성을 읽고 클라이언트를 초기화하는 다음 **InitializeCosmosClientInstanceAsync** 메서드를 동일한 파일 내에 추가합니다.
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+   이 단계의 코드는 클라이언트를 구성에 따라 [ASP.NET Core의 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)을 통해 주입할 단일 인스턴스로 초기화합니다.
+
+   그리고 동일한 파일의 `Configure` 메서드에서 경로를 편집하여 기본 MVC 컨트롤러를 `Item`으로 변경해야 합니다.
+
+   ```csharp
+    app.UseEndpoints(endpoints =>
+          {
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller=Item}/{action=Index}/{id?}");
+          });
+   ```
+
 
 1. 다음 코드 조각과 같이 프로젝트의 *appsettings.json* 파일에서 구성을 정의합니다.
 

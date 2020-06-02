@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 333b1fd94372a79e501de6be261a4cde5c6ab074
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282276"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658361"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 AI Data Science Virtual Machine이란?
 
-지리적 AI Data Science Virtual Machine(지리적 AI Data Science VM 또는 Geo-DSVM이라고도 함)은 DSVM(Azure Data Science Virtual Machine)에서 지리 공간적 분석 기능을 제공합니다. 특히 이 VM은 ESRI에서 시장 선도적인 [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) 지리 정보 시스템을 추가하여 [DSVM](overview.md)의 AI 및 데이터 과학 도구 키트를 확장합니다.
+지리적 AI Data Science Virtual Machine(지리적 AI Data Science VM 또는 Geo-DSVM이라고도 함)은 DSVM(Azure Data Science Virtual Machine)에서 지리 공간적 분석 기능을 제공합니다. 특히 이 VM은 Esri에서 시장 선도적인 [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) 지리 정보 시스템을 추가하여 [DSVM](overview.md)의 AI 및 데이터 과학 도구 키트를 확장합니다.
 
- 지리적 AI Data Science VM은 ESRI와 Microsoft의 협업에서 제공되는 제품입니다. 결과적으로 다음과 같은 기능을 제공하는 강력한 환경이 제공됩니다.
+ 지리적 AI Data Science VM은 Esri와 Microsoft의 협업에서 제공되는 제품입니다. 결과적으로 다음과 같은 기능을 제공하는 강력한 환경이 제공됩니다.
 
 - 가장 인기 있는 AI 및 데이터 과학 도구를 사용하여 데이터 검색
 - 지리적 또는 공간적 측면이 있는 데이터에 통계 분석 적용
@@ -37,7 +37,7 @@ ms.locfileid: "80282276"
 
 Microsoft의 [DSVM(Data Science Virtual Machine)](overview.md)은 Azure에서 인기 있는 실험 및 모델링 환경이며, AI, Machine Learning 및 데이터 과학 도구의 모음을 제공합니다. 이러한 플랫폼과 도구는 모두 즉시 사용할 수 있도록 미리 구성되어 있습니다.
 
-지리적 AI Data Science VM은 DSVM의 예측 기능을 Azure 클라우드의 확장성 및 [ESRI](https://www.esri.com)의 지리 공간적 분석 소프트웨어와 결합합니다. 이 선구적인 통합은 데이터 과학자와 지리 공간적 분석가에게 데이터에서 새 인텔리전스를 얻고 새로운 기회를 식별할 수 있는 생산적인 플랫폼을 제공합니다.
+지리적 AI Data Science VM은 DSVM의 예측 기능을 Azure 클라우드의 확장성 및 [Esri](https://www.esri.com)의 지리 공간적 분석 소프트웨어와 결합합니다. 이 선구적인 통합은 데이터 과학자와 지리 공간적 분석가에게 데이터에서 새 인텔리전스를 얻고 새로운 기회를 식별할 수 있는 생산적인 플랫폼을 제공합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

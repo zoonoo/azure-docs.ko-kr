@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d8002530120eee4a3613f2310c4a59cc18612cad
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405155"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679886"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>빠른 시작: Computer Vision REST API 및 C#을 사용하여 로컬 이미지 분석
 
@@ -33,13 +33,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Visual Studio에서 샘플을 만들려면 다음 단계를 수행합니다.
 
-1. Visual C# 콘솔 앱(.NET Framework) 템플릿을 사용하여 Visual Studio에서 새 Visual Studio 솔루션을 만듭니다.
+1. Visual C# 콘솔 앱(.NET Core Framework) 템플릿을 사용하여 Visual Studio에서 새 Visual Studio 솔루션/프로젝트를 만듭니다.
 1. Newtonsoft.Json NuGet 패키지를 설치합니다.
     1. 메뉴에서 **도구**를 클릭하고, **NuGet 패키지 관리자**를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
-    1. **찾아보기** 탭을 클릭하고 **검색** 상자에 "Newtonsoft.Json"을 입력합니다.
-    1. **Newtonsoft.Json**이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
+    1. **찾아보기** 탭을 클릭하고 **검색** 상자에 "Newtonsoft.Json"을 입력합니다(아직 표시되지 않은 경우).
+    1. **Newtonsoft.Json**을 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고 **설치**를 클릭합니다.
+1. 아래 샘플 코드 조각을 Program.cs 파일에 복사/붙여넣습니다. 네임스페이스 이름이 만든 네임스페이스 이름과 다른 경우 조정합니다.
+1. 선택한 이미지를 bin/debug/netcoreappX.X 폴더에 추가한 다음, 이미지 이름(확장명 포함)을 'imageFilePath' 변수에 추가합니다.
 1. 프로그램을 실행합니다.
-1. 프롬프트에서 로컬 이미지에 경로를 입력합니다.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -59,26 +60,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -167,7 +160,7 @@ namespace CSHttpClientSample
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON을 통해 반환됩니다. 애플리케이션 예제는 다음 예제와 유사하게 콘솔 창에서 성공한 응답을 구문 분석하고 표시합니다.
+성공적인 응답은 다음 예제와 유사하게 콘솔 창에서 사용하는 사용자 고유의 이미지에 따라 JSON으로 반환됩니다.
 
 ```json
 {

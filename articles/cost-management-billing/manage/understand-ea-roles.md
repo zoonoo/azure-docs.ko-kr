@@ -5,16 +5,16 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: banders
-ms.openlocfilehash: b8c523acabd02dc30e9b13f7f83a4a44554cbd4d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690933"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660364"
 ---
-# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
+# <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
 
 조직의 사용량 및 지출 관리를 지원하기 위해 EA(기업계약)를 체결한 Azure 고객은 다음 5개의 관리 역할을 할당할 수 있습니다.
 
@@ -62,6 +62,19 @@ ms.locfileid: "82690933"
 - <sup>4</sup> 알림 연락처에는 Azure 기업계약에 대한 이메일 통신이 전송됩니다.
 - <sup>5</sup> 작업은 부서의 계정으로 제한됩니다.
 
+## <a name="add-a-new-enterprise-administrator"></a>새 엔터프라이즈 관리자 추가
+
+엔터프라이즈 관리자는 Azure EA 등록을 관리할 때 가장 많은 권한을 가집니다. EA 계약이 설정될 때 초기 Azure EA 관리자가 생성되었습니다. 하지만 언제든지 관리자를 새로 추가하거나 제거할 수 있습니다. 기존 관리자만이 새 관리자를 추가할 수 있습니다. 엔터프라이즈 관리자 추가에 대한 자세한 내용은 [다른 엔터프라이즈 관리자 만들기](ea-portal-get-started.md#create-another-enterprise-administrator)를 참조하세요. 청구 프로필 역할 및 작업에 대한 자세한 내용은 [청구 프로필 역할 및 작업](understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
+
+## <a name="update-account-owner-state-from-pending-to-active"></a>계정 소유자 상태를 보류 중에서 활성으로 업데이트
+
+새 AO(계정 소유자)를 Azure EA 등록에 처음으로 추가하면 상태가 _보류 중_으로 표시됩니다. 새 계정 소유자는 활성화 시작 이메일을 받으면 로그인하여 계정을 활성화할 수 있습니다. 계정이 활성화되면 계정 상태가 _보류 중_에서 _활성_으로 업데이트됩니다. 계정 소유자는 '경고' 메시지를 읽고 **계속**을 선택해야 합니다. 신규 사용자가 상거래 계정을 만들 때 이름과 성을 입력하라는 메시지가 표시될 수 있습니다. 이 경우 계속하려면 필요한 정보를 추가해야 합니다. 그러면 계정이 활성화됩니다.
+
+## <a name="add-a-department-admin"></a>부서 관리자 추가
+
+Azure EA 관리자가 부서를 만들면 Azure 엔터프라이즈 관리자는 부서 관리자를 추가하고 각 부서 관리자를 부서에 연결할 수 있습니다. 부서 관리자는 새 계정을 만들 수 있습니다. Azure EA 구독을 만들려면 새 계정이 필요합니다.
+
+부서 관리자 추가에 대한 자세한 내용은 [Azure EA 부서 관리자 만들기](ea-portal-get-started.md#add-a-department-administrator)를 참조하세요.
 
 ## <a name="usage-and-costs-access-by-role"></a>역할별 사용량 및 비용 액세스
 
@@ -77,8 +90,7 @@ ms.locfileid: "82690933"
 - <sup>6</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **DA 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 부서 관리자가 부서의 비용 세부 정보를 볼 수 있습니다.
 - <sup>7</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **AO 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 계정 소유자가 계정의 비용 세부 정보를 볼 수 있습니다.
 
-
-## <a name="pricing-in-azure-portal"></a>Azure Portal의 가격
+## <a name="see-pricing-for-different-user-roles"></a>다른 사용자 역할에 대한 가격 책정 보기
 
 Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터프라이즈 관리자가 요금 보기 정책을 설정한 방식에 따라 다를 수 있습니다. Azure Portal에 표시되는 가격에 영향을 주는 Enterprise Portal의 두 가지 정책은 다음과 같습니다.
 
@@ -98,6 +110,8 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |None|해당 없음 |소유자|소매 가격|
 
 엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. RBAC 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

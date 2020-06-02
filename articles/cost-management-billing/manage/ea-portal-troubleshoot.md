@@ -3,16 +3,16 @@ title: Azure EA Portal 액세스 문제 해결
 description: 이 문서에서는 Azure EA Portal에서 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: fdcce868cb53c0fdd6a51f2b351491e1ee998d61
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 97ba4e77c96859115c974b630a455f4bea62051a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654751"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 
@@ -64,15 +64,15 @@ Azure EA Portal에 로그인하려고 시도할 때 오류 메시지가 표시�
   - 기본 별칭을 확인해야 하는 경우 [https://account.live.com](https://account.live.com)으로 이동합니다. 그런 다음, **사용자 정보**, **Microsoft에 로그인하는 방법 관리**를 차례로 클릭합니다. 프롬프트에 따라 암호 확인용 메일을 확인하고 중요한 정보에 액세스하기 위한 코드를 얻습니다. 보안 코드를 입력합니다. 2단계 인증을 설정하지 않으려면 **나중에 설정**을 선택합니다.
   - 계정 별칭을 볼 수 있는 **Microsoft에 로그인하는 방법 관리** 페이지가 표시됩니다. Azure EA Portal에 로그인하는 데 기본 별칭을 사용하고 있는지 확인합니다. 그렇지 않으면 기본 별칭으로 만들 수 있습니다. 또는 Azure EA Portal에 대한 기본 별칭을 대신 사용할 수 있습니다.
 
-## <a name="no-activation-email-received"></a>활성화 이메일을 받지 못함
+## <a name="azure-ea-activation-faq"></a>Azure EA 활성화 FAQ
+
+이 문서 섹션에서는 Azure EA 활성화와 관련된 일반적인 문제에 대한 해결 방법을 간략하게 설명합니다.
+
+### <a name="i-didnt-receive-an-activation-email"></a>활성화 이메일을 받지 못했습니다.
 
 Azure EA Portal의 활성화 이메일은 *waep@microsoft.com* 에서 전송됩니다. 활성화 이메일을 받지 못한 경우 이메일에 대해 스팸 또는 정크 메일 폴더를 확인하세요. _Invitation to View/Manage the Microsoft Azure service_subject_ 로 전송됩니다. 새로 추가된 모든 EA 관리자에게 전송됩니다.
 
 이미 EA 관리자로 설정된 경우에는 Azure EA Portal에 로그인하기 위해 활성화 이메일을 받을 때까지 기다릴 필요가 없습니다. [https://ea.azure.com](https://ea.azure.com )으로 이동하여 이메일 주소(회사, 학교 또는 Microsoft 계정)와 암호를 사용하여 로그인할 수 있습니다.
-
-## <a name="azure-ea-activation-faq"></a>Azure EA 활성화 FAQ
-
-이 문서 섹션에서는 Azure EA 활성화와 관련된 일반적인 문제에 대한 해결 방법을 간략하게 설명합니다.
 
 ### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>새 EA 관리자를 내 등록에 추가하려고 합니다.
 

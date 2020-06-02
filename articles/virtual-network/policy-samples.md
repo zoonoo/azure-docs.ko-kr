@@ -1,33 +1,26 @@
 ---
-title: Azure 템플릿 샘플 | Microsoft Docs
-description: Virtual Network용 Azure Policy 템플릿 샘플입니다.
-services: virtual-network
-documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-network
-ms.devlang: na
+title: Azure Virtual Network에 대한 기본 제공 정책 정의
+description: Azure Virtual Network에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
+ms.date: 05/13/2020
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
-ms.date: 05/05/2020
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.service: virtual-network
+ms.custom: subject-policy-samples
+ms.openlocfilehash: bae8d7b6e102cb5fdc4938ee4951f8a89a50753e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839133"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659905"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>가상 네트워크용 Azure Policy 샘플 기본 제공
+# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Azure Virtual Network에 대한 Azure Policy 기본 제공 정책 정의
 
-다음 표에는 [Azure Policy](../governance/policy/overview.md) 샘플이 포함되어 있습니다. 샘플은 [Azure Policy 샘플 리포지토리](https://github.com/Azure/azure-policy)에 있습니다.
+이 페이지는 Azure Virtual Network에 대한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
-## <a name="network"></a>네트워크
+Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **GitHub** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
+
+## <a name="azure-virtual-network"></a>Azure Virtual Network
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
@@ -38,3 +31,9 @@ ms.locfileid: "82839133"
 ## <a name="general"></a>일반
 
 [!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 기능을 참조하세요.
+- [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)를 검토합니다.
+- [정책 효과 이해](../governance/policy/concepts/effects.md)를 검토합니다.

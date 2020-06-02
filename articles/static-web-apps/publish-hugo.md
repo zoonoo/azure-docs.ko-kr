@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593700"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870697"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
@@ -99,7 +99,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. **리소스 만들기**를 클릭합니다.
-1. **Static Web Apps** 검색
+1. **Static Web Apps**를 검색합니다.
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 
@@ -133,13 +133,11 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
 
-1. _앱 위치_를 **/** 로 설정합니다.
+1. _앱 위치_를 **공개**로 설정합니다.
 
-1. _앱 아티팩트 위치_를 **공개**로 설정합니다.
+1. _앱 아티팩트 위치_를 비워 둡니다.
 
    현재 API를 배포하지 않으므로 _API 위치_에 대한 값이 필요하지 않습니다.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="빌드 설정":::
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
@@ -155,12 +153,12 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. 텍스트 편집기에서 Hugo 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
 
-1. Hugo 애플리케이션을 빌드하려면 줄 `- uses: actions/checkout@v1`(18줄)을 다음으로 바꿉니다.
+1. Hugo 애플리케이션을 빌드하려면 줄 `- uses: actions/checkout@v2`(18줄)을 다음으로 바꿉니다.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

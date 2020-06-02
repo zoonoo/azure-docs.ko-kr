@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b5fec8bbc0db78454b080a411702014bd96f7db9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4df49b4e68769a907423c4edef9f8820df4d20b7
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76887792"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006426"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>클라우드 공간 앵커 찾기
 
@@ -12,6 +12,9 @@ ms.locfileid: "76887792"
 - 식별자로 앵커를 찾습니다.
 - 이전에 찾은 앵커에 연결된 앵커를 찾습니다. [여기에서](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/) 앵커 관계에 대해 알아볼 수 있습니다.
 - [광역 위치 재결정](/azure/spatial-anchors/concepts/coarse-reloc/)을 사용하여 앵커를 찾습니다.
+
+> [!NOTE]
+> 앵커를 찾을 때마다 Azure Spatial Anchors는 수집된 환경 데이터를 사용하여 앵커에 대한 시각적 정보를 보강하려고 합니다. 앵커를 찾는 데 문제가 있는 경우 앵커를 만든 다음, 서로 다른 각도와 조명 조건에서 여러 번 배치하는 것이 유용할 수 있습니다.
 
 식별자로 클라우드 공간 앵커를 찾는 경우 클라우드 공간 앵커 식별자를 애플리케이션의 백 엔드 서비스에 저장하고 적절하게 인증할 수 있는 모든 디바이스에서 액세스할 수 있도록 합니다. 이에 대한 예제는 [자습서: 여러 디바이스 간에 Spatial Anchors 공유](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/)를 참조하세요.
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78298822"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681320"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -199,7 +199,9 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 3.  `Start-ADSyncSyncCycle`을 실행합니다.  Enter 키를 누릅니다.  
 
 >[!NOTE] 
->AAD Connect 동기화에 대한 사용자 지정 스케줄러를 실행하는 경우 스케줄러를 사용하도록 설정하세요. 
+>Azure AD Connect 동기화에 대한 사용자 지정 스케줄러를 실행하는 경우 스케줄러를 사용하도록 설정하세요. 
+
+스케줄러를 사용하도록 설정하면 Azure AD Connect는 참조 특성(예: 관리자)이 업데이트되지 않는 한 메타버스의 `cloudNoFlow=true`를 사용하여 개체에 대한 변경 내용 내보내기를 중지합니다. 개체에 대한 참조 특성 업데이트가 있는 경우 Azure AD Connect는 `cloudNoFlow` 신호를 무시하고 개체에 대한 모든 업데이트를 내보냅니다.
 
 ## <a name="something-went-wrong"></a>문제가 발생한 경우
 파일럿 테스트가 예상대로 작동하지 않는 경우 아래 단계에 따라 Azure AD Connect 동기화 설정으로 돌아갈 수 있습니다.

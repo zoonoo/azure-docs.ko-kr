@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181599"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201321"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -343,7 +343,6 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로, Angular 자습서에서 사용자를 로그인하고 토큰을 획득하는 방법을 알아보세요.
+ID 및 액세스 관리를 처음 접하는 경우 [인증 및 권한 부여](authentication-vs-authorization.md)를 시작으로 최신 인증 개념을 배우는 데 도움이 되는 몇 가지 문서가 있습니다.
 
-> [!div class="nextstepaction"]
-> [Angular 자습서](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+Microsoft ID 플랫폼에서 단일 페이지 애플리케이션 개발에 대해 자세히 알아보려면 일련의 다중 파트 [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md) 문서를 통해 시작하면 됩니다.

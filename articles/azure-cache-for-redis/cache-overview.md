@@ -5,21 +5,21 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/11/2020
-ms.openlocfilehash: cd4e7c8e2693c25f3fc092fb53874a97cfd62434
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/12/2020
+ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113207"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196365"
 ---
-# <a name="azure-cache-for-redis-description"></a>Azure Cache for Redis 설명
+# <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
 Azure Cache for Redis는 오픈 소스 소프트웨어 [Redis](https://redis.io/)를 기반으로 하는 메모리 내 데이터 저장소를 제공합니다. 캐시로 사용되는 경우 Redis는 백 엔드 데이터 저장소에 크게 의존하는 시스템의 성능 및 확장성을 개선합니다. 성능 향상을 위해 자주 액세스하는 데이터를 애플리케이션 가까이에 있는 빠른 스토리지에 복사합니다. Azure Cache for Redis를 사용하면 이 빠른 스토리지는 데이터베이스에 의해 디스크에서 로드되는 대신 메모리 내에 위치합니다.
 
-Azure Cache for Redis를 메모리 내 데이터 구조 저장소, 분산된 비관계형 데이터베이스 및 메시지 브로커로 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 애플리케이션 성능이 향상됩니다.
+Azure Cache for Redis는 분산 데이터 캐시, 세션 저장소 및 메시지 브로커로 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 애플리케이션 성능이 향상됩니다.
 
-Azure Cache for Redis는 안전한 전용 Redis Cache에 액세스할 수 있도록 합니다. Azure Cache for Redis는 Microsoft에서 관리하고, Azure 내에 호스트되고, Azure 내부 또는 외부의 모든 애플리케이션에서 액세스할 수 있습니다. 또한 Azure Redis for Cache는 디스크 없는 복제 전략을 사용하여 지불 카드 산업과의 호환성을 향상시킵니다.
+Azure Cache for Redis는 안전한 전용 Redis Cache에 대한 액세스를 제공합니다. Microsoft에서 관리하고, Azure에서 호스트되고, Azure 내부 또는 외부의 모든 애플리케이션에서 액세스할 수 있습니다.
 
 ## <a name="using-azure-cache-for-redis"></a>Azure Cache for Redis 사용
 

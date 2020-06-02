@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75376463"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652508"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -86,6 +86,8 @@ Android Studio를 엽니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
+`public AzureSpatialAnchorsManager(Session arCoreSession)`을 찾아 이전 버전의 계정 도메인으로 대체하는 `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");` 줄을 추가합니다.
+
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`를 엽니다.
@@ -93,6 +95,8 @@ Android Studio를 엽니다.
 `SpatialAnchorsAccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
+
+`AzureSpatialAnchorsApplication::StartCloudSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");` 줄을 추가합니다.
 
 ---
 

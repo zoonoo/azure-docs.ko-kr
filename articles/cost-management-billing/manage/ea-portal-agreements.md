@@ -3,34 +3,26 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691003"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648189"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
 이 문서에서는 Azuree EA 계약 및 수정안이 Azure 서비스에 대한 액세스, 사용 및 결제 방법에 어떤 영향을 미칠 수 있는지 설명합니다.
 
-## <a name="amendment-status"></a>수정안 상태
-
-Azure 고객을 위한 모든 수정안은 파트너 또는 Microsoft 계정 팀을 통해야 하며 지역 운영 센터를 통해 처리되어야 합니다. 수정안이 처리되지 않는다고 생각되면 파트너, 소프트웨어 고문 또는 Microsoft 계정 팀에 문의하세요.
-
 ## <a name="enrollment-provisioning-status"></a>등록 프로비저닝 상태
 
 새로운 금액 약정 시작 날짜는 지역 운영 센터에서 처리한 날짜를 기준으로 정해집니다. Azure EA Portal을 통한 현금 약정 금액 주문은 UTC 표준 시간대로 처리되기 때문에, 현금 약정 금액 구매 주문이 다른 영역에서 처리되는 경우 약간의 지연이 발생할 수 있습니다. [https://www.explore.ms](https://www.explore.ms ) 의 구매 주문 적용 시작 날짜는 금액 약정의 시작을 표시합니다. 적용 시작 날짜는 해당 금액 약정이 Azure EA 포털에 나타나는 날짜입니다.
 
-## <a name="support-offer-not-provisioned"></a>지원 제품이 프로비저닝되지 않음
-
-지원별 SKU를 구매하여 표준 또는 전문가 지원을 주문할 수 있습니다. 주문은 EA Azure 금액 SKU 구매 주문과 비슷합니다. 예를 들어 6QK-00001입니다. 지원 SKU 번호는 W6T-00002(전문가 지원) 및 W6T-00003(표준)입니다. 지원 SKU를 구매하기 전에 현재 지원 제품을 확인하세요.
-
-등록에는 지원 제품을 프로비저닝할 수 있는 활성 계정이 하나 이상 있어야 합니다.
+## <a name="support-for-enterprise-customers"></a>기업 고객 지원
 
  Azure [기업계약 지원 플랜 제품](https://azure.microsoft.com/offers/enterprise-agreement-support/)은 일부 고객에게 제공됩니다.
 
@@ -158,24 +150,6 @@ Microsoft에서는 적어도 구매한 월별 약정에 포함된 관련 사용 
 - 서비스와 연결된 Azure 개발자 포털 구독 ID
   - 구독 ID를 얻는 방법에 대한 자세한 내용은 [고객 지원팀에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Azure CPP(컴퓨팅 사전 구매 플랜)
-
-Azure CPP(사전 구매 플랜 - 이전 명칭은 Azure 컴퓨팅 프로모션)는 상황이 안정적이고 워크로드를 예측할 수 있는 고객에게 추천하는 제품으로, 12개월 Azure 컴퓨팅을 사전 구매하여 대폭 할인된 가격으로 컴퓨팅 리소스를 얻을 수 있습니다. EA에 사용할 수 있으며 EA Portal에 표시됩니다.
-
-CPP SKU를 주문한 경우 특정 데이터 센터의 특정 머신 유형에 적용됩니다. 현재 이 기능이 유효하기 때문에 고객이 구매한 CPP 구매 목록을 모두 제공하지는 않으며, 따라서 대기 크레딧 목록이 없습니다. 그러나 머신을 구매한 데이터 센터에서 구매한 머신 유형을 구성할 때 EA Portal의 사용 요약 보고서에 월별 할당이 표시됩니다.
-
-사전 구매한 금액이 "포함된 단위" 열에 크레딧으로 표시되고, 이 크레딧 대비 사용량에 따라 "포함된 단위"가 사용되기 전에는 사용 요금이 발생하지 않습니다. 포함된 단위가 사용되면 일반 EA 고객 가격표에 협상된 요금이 추가됩니다.
-
-크레딧 구매 방법은 월별 클래스의 머신 수를 기준으로 합니다. 예를 들어 미국 동부 2에서 일년 동안 A2 VM 70대를 구매한 경우 EA Portal에는 구매할 때와 동일한 방식으로 표시되지 않습니다.
-
-월별 머신은 매월 744시간을 실행하는 것으로 계산됩니다. 이것을 시간으로 변환하면 매월 A2 VM을 70 곱하기 744 또는 52,080시간 구매한 것입니다. EA Portal 사용 요약에는 A2 VM이 100시간 증가한 것으로 보고되는데, 사용자에게는 매월 520.8(52080/100)크레딧이 "포함된 단위"로 표시되고 해당 월에 소비한 단위가 표시됩니다. 사용 요금은 월별 사용 단위가 월별 포함된 단위를 초과할 때까지 0으로 표시됩니다.
-
-머신 유형에 따라 측정 단위가 다릅니다. 예를 들어 D3 및 D4 VM은 사용 요약 보고서에서 10시간을 측정 단위로 사용하므로 VM을 70대 구매할 경우 매월 포함된 단위가 5208(52080/10)로 표시합니다.
-
-일반적으로 아래 수식은 측정 단위를 기준으로 구매한 VM 수를 알려줍니다.
-
-<center><b> ("포함된 수량" * "측정 단위") / 744 </b></center>
-
 ## <a name="plan-skus"></a>플랜 SKU
 
 플랜 SKU는 통합 서비스 제품군을 할인된 가격으로 구매할 수 있는 기능을 제공합니다. 플랜 SKU는 긴밀하게 통합된 제품을 통해 서로를 보완하고 비용을 대폭 절감할 수 있도록 설계 되었습니다.
@@ -191,35 +165,6 @@ OMS(Operations Management Suite) 구독을 예로 들 수 있습니다. OMS는 �
 1. **가격표** 탭을 클릭합니다.
 1. 오른쪽 위 모서리에서 '다운로드' 아이콘을 클릭합니다.
 1. "포함된 수량" 열에서 필터를 사용하여 해당하는 플랜 SKU 부품 번호를 찾고, "0"보다 큰 값을 선택합니다.
-
-### <a name="provision-the-plan-skus"></a>플랜 SKU 프로비전
-
-엔터프라이즈 관리자는 Azure EA Portal에서 다음 단계에 따라 새 계정 소유자를 추가하거나, 기존 계정 소유자를 연결하거나, 기존 계정 소유자에게 Azure EA Portal에 로그인하여 이전에 구매한 플랜 SKU를 프로비저닝해 달라고 요청할 수 있습니다.  
-
-**새 계정 소유자 추가(EA 관리자가 완료):**
-
-1. Azure EA Portal의 왼쪽 탐색 영역에서 **관리**를 선택합니다.
-1. **계정** 탭을 클릭합니다.
-1. 계정 페이지에서 **+ 계정 추가**를 클릭합니다.
-1. 부서를 선택하거나 할당되지 않은 상태로 둡니다.
-1. 원하는 인증 유형을 선택합니다.
-1. 보고서에서 이 계정을 식별하는 데 사용할 식별 이름을 입력합니다.
-1. 새 계정과 연결할 계정 소유자 이메일 주소를 입력합니다.
-1. 새 계정과 연결할 이메일 주소를 확인합니다.
-1. **추가**를 클릭합니다.
-1. **다른 계정 추가**를 클릭하거나 왼쪽에 있는 도구 모음의 오른쪽 아래 모서리에서 **추가** 단추를 클릭하여 다른 계정을 추가할 수 있습니다.
-1. 이제 계정 소유자는 로그인하여 플랜 SKU를 프로비저닝할 관련 구독을 추가할 수 있습니다.
-
-**기존 계정 소유자 연결:**
-
-1. Enterprise Portal에서 **관리**를 클릭합니다.
-1. **계정** 탭을 클릭합니다.
-1. **+계정 추가**를 클릭합니다. 기존 계정과 연결된 Microsoft 계정이나 회사 또는 학교 계정을 입력합니다.
-1. 기존 계정과 연결된 Microsoft 계정이나 회사 또는 학교 계정을 확인합니다.
-1. 보고서에서 이 계정을 식별하는 데 사용할 이름을 입력합니다.
-1. **추가**를 클릭합니다.
-1. **+ 계정 추가** 옵션을 다시 선택하여 계정을 추가하거나, **관리** 단추를 선택하여 홈 페이지로 돌아갈 수 있습니다.  
-1. 클릭하여 계정 페이지를 보면 새로 추가된 계정이 "보류 중" 상태로 표시됩니다. 계정 소유자가 EA Portal에 처음으로 로그온하면 "활성" 상태로 변경됩니다.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>새 구독을 만들 기존/새 계정 소유자
 

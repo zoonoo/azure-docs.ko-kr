@@ -1,24 +1,24 @@
 ---
 title: Azure Analysis Services란? | Microsoft Docs
-description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)인 Azure Analysis Services에 대해 알아봅니다.
+description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전 관리형 PaaS(platform as a service)인 Azure Analysis Services에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992aa8a4cb0ff31f7f1657be45fa1a64fdb27e7c
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128879"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780554"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)입니다. 고급 매시업 및 모델링 기능을 사용하여 여러 데이터 원본의 데이터를 결합하고, 메트릭을 정의하고, 신뢰할 수 있는 유의적 단일 데이터 모델에서 데이터를 보호합니다. 데이터 모델은 사용자가 Power BI 및 Excel과 같은 도구를 사용하여 임시 데이터 분석을 보다 쉽고 빠르게 수행할 수 있는 방법을 제공합니다.
+Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전 관리형 PaaS(platform as a service)입니다. 고급 매시업 및 모델링 기능을 사용하여 여러 데이터 원본의 데이터를 결합하고, 메트릭을 정의하고, 신뢰할 수 있는 유의적 단일 데이터 모델에서 데이터를 보호합니다. 데이터 모델은 사용자가 Power BI 및 Excel과 같은 도구를 사용하여 임시 데이터 분석을 보다 쉽고 빠르게 수행할 수 있는 방법을 제공합니다.
 
 ![데이터 원본](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -32,13 +32,13 @@ Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis
 
 Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
-## <a name="the-right-tier-when-you-need-it"></a>필요할 때 올바른 계층
+## <a name="the-right-tier-when-you-need-it"></a>필요할 때 적합한 계층
 
 Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, QPU(쿼리 처리 단위) 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’.  이 계층에는 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층에는 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -47,7 +47,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="basic-tier"></a>기본 계층
 
-해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’.  큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
+이 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -134,13 +134,13 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 총 비용은 요인 수에 따라 다릅니다(예: 선택한 지역, 계층, 쿼리 복제본 및 일시 중지/다시 시작). [Azure Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/) 계산기를 사용하여 해당 지역에 대한 일반적인 가격 책정을 결정합니다. 이 도구는 단일 지역의 단일 서버 인스턴스에 대한 가격 책정을 계산합니다. 쿼리 복제본은 서버와 동일한 요금이 청구됩니다. 
 
-## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services에 구축
+## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services 기반
 
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 유용한 기능과 호환됩니다. Azure Analysis Services는 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
 
 메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 주체가 지원되므로 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하는 유연성을 제공합니다. 
 
-DirectQuery 모드*는 스토리지 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure Synapse Analytics(SQL Data Warehouse), Oracle 및 Teradata 데이터 원본에서 매우 큰 데이터 세트가 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
+DirectQuery 모드*는 스토리지 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure Synapse Analytics(SQL Data Warehouse), Oracle 및 Teradata 데이터 원본에서 매우 큰 데이터 세트가 지원됩니다. 백 엔드 데이터 세트는 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 
 \* 기능 가용성은 계층에 따라 다릅니다.
 
@@ -150,7 +150,7 @@ Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파
 
 ## <a name="compatibility-level"></a>호환성 수준
 
-호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [테이블 형식 모델의 호환성 수준](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)을 참조하세요.
+호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. Azure Analysis Services는 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [테이블 형식 모델의 호환성 수준](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)을 참조하세요.
 
 
 ## <a name="your-data-is-secure"></a>데이터가 안전함
@@ -161,7 +161,7 @@ Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보
 
 ### <a name="firewall"></a>방화벽
 
-Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외의 모든 클라이언트 연결을 차단합니다. 기본적으로 방화벽 보호는 새 서버에 사용할 수 없습니다. 방화벽 보호를 사용하도록 설정하고 규칙이 서버 프로비전 스크립트의 일부로 구성되거나 서버를 만드는 즉시 포털에 구성되는 것이 좋습니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 포털에서 또는 PowerShell을 사용하여 방화벽 및 규칙을 구성합니다. 자세한 내용은 [서버 방화벅 구성](analysis-services-qs-firewall.md)을 참조하세요.
+Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외의 모든 클라이언트 연결을 차단합니다. 기본적으로 방화벽 보호는 새 서버에 사용할 수 없습니다. 방화벽 보호를 사용하도록 설정하고 규칙이 서버 프로비저닝 스크립트의 일부로 구성되거나 서버를 만드는 즉시 포털에 구성되는 것이 좋습니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 포털에서 또는 PowerShell을 사용하여 방화벽 및 규칙을 구성합니다. 자세한 내용은 [서버 방화벅 구성](analysis-services-qs-firewall.md)을 참조하세요.
 
 ### <a name="authentication"></a>인증
 
@@ -234,19 +234,19 @@ Azure Analysis Services는 Azure Monitor 메트릭과 통합되어 서버의 성
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 
-## <a name="documentation"></a>문서화
+## <a name="documentation"></a>설명서
 
-Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 아티클을 찾습니다. 
+Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 문서를 찾습니다. 
 
 Azure Analysis Services의 테이블 형식 모델은 SQL Server Analysis Services 및 Power BI Premium 데이터 세트의 테이블 형식 모델과 거의 동일하기 때문에 [Analysis Services 설명서](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. 공유 Analysis Services 설명서의 문서는 제목 아래의 적용 대상 배너에 의해 Azure Analysis Services에도 적용되는지를 보여줍니다. 목차 위의 버전 선택기를 사용하여 사용 중인 플랫폼에 적용되는 문서만 볼 수도 있습니다.
 
 ![공유 설명서](./media/analysis-services-overview/aas-overview-applies-to.png)
 
-### <a name="contribute"></a>참가
+### <a name="contribute"></a>기여!
 
-이 아티클과 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](https://docs.microsoft.com/contribute/)를 참조하세요. 
+이 문서와 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](https://docs.microsoft.com/contribute/)를 참조하세요. 
 
-Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 아티클 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
+Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 문서 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
 
 ## <a name="blogs"></a>블로그
 

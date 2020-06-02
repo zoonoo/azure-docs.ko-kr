@@ -4,12 +4,12 @@ description: Visual Studio Code 프로젝트에 출력 바인딩을 추가하여
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673494"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125850"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "80673494"
 
 * [Visual Studio Code 빠른 시작의 1부](functions-create-first-function-vs-code.md)의 단계를 완료합니다. 
 
-이 문서는 Visual Studio Code에서 Azure 구독에 이미 로그인했다고 가정합니다. 명령 팔레트에서 `Azure: Sign In`을 실행하여 로그인할 수 있습니다. 
+이 문서에서는 Visual Studio Code에서 Azure 구독에 이미 로그인했다고 가정합니다. 명령 팔레트에서 `Azure: Sign In`을 실행하여 로그인할 수 있습니다. 
 
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 
@@ -56,7 +56,7 @@ Queue storage 출력 바인딩을 사용하므로 프로젝트를 실행하기 �
 
 프로젝트가 미리 정의된 확장 패키지 세트를 자동으로 설치하는 [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하도록 구성되었습니다. 
 
-확장 번들은 프로젝트의 루트에 있는 host.json 파일에서 사용하도록 설정되며, 다음과 같습니다.
+확장 번들 사용은 프로젝트의 루트에 있는 host.json 파일에서 사용하도록 설정되며, 다음과 같이 표시됩니다.
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -176,7 +176,7 @@ Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 �
 
 1. **큐** 노드를 확장한 다음 이름이 **outqueue**인 큐를 선택합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:   Azure’입니다.
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:  Azure’입니다.
 
     ![Azure Storage Explorer에 표시되는 큐 메시지](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -200,7 +200,7 @@ Azure Storage Explorer를 이미 설치했고 Azure 계정에 연결한 경우 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure에서 *리소스*란 함수 앱, 함수, 스토리지 계정 등을 의미합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다.
+Azure에서 *리소스*는 함수 앱, 함수, 스토리지 계정 등을 참조합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다.
 
 이러한 빠른 시작을 완료하기 위해 리소스를 만들었습니다. [계정 상태](https://azure.microsoft.com/account/) 및 [서비스 가격 책정](https://azure.microsoft.com/pricing/)에 따라 리소스에 대해 요금이 청구될 수 있습니다. 리소스가 더 이상 필요하지 않게 되면 다음과 같이 삭제합니다.
 

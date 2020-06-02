@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508431"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698086"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -31,6 +31,7 @@ ms.locfileid: "82508431"
 * [ICMP ping이 실패함](#icmp-ping-is-failing)
 * [연결 실패](#connectivity-failures)
 * [IPv6 공존](#ipv6-coexistence)
+* [NAT 게이트웨이 IP에서 연결이 시작되지 않음](#connection-doesnt-originate-from-nat-gateway-ips)
 
 이러한 문제를 해결하려면 다음 섹션의 단계를 따르세요.
 
@@ -61,10 +62,10 @@ _**해결 방법:**_ 적절한 패턴 및 모범 사례 사용
 - 클라이언트에서 DNS 해결 프로그램 결과를 캐싱하지 않으면 DNS가 볼륨에 여러 개별 흐름을 들일 수 있습니다. 캐싱을 사용하세요.
 - UDP 흐름(예: DNS 조회)은 유휴 시간 제한 동안 SNAT 포트를 할당합니다. 유휴 시간 제한이 길수록 SNAT 포트가 받는 압력이 높아집니다. 유휴 시간 제한을 짧게(예: 4분) 설정하세요.
 - 연결 풀을 사용하여 연결 볼륨을 셰이핑하세요.
-- 절대로 TCP 흐름을 자동으로 중단하고 TCP 타이머를 사용하여 흐름을 정리하지 마세요. TCP에서 연결을 명시적으로 닫지 않는 경우 상태는 중간 시스템 및 엔드포인트에서 할당된 상태를 유지하고 다른 연결에서 SNAT 포트를 사용할 수 없게 만듭니다. 그러면 애플리케이션 오류 및 SNAT 고갈이 트리거될 수 있습니다. 
+- 절대로 TCP 흐름을 자동으로 중단하고 TCP 타이머를 사용하여 흐름을 정리하지 마세요. TCP에서 연결을 명시적으로 닫지 않는 경우 상태는 중간 시스템 및 엔드포인트에서 할당된 상태를 유지하고 다른 연결에서 SNAT 포트를 사용할 수 없게 만듭니다. 이 패턴은 애플리케이션 오류 및 SNAT 고갈이 트리거할 수 있습니다. 
 - 영향에 대한 전문 지식이 없으면 OS 수준 TCP 닫기 관련 타이머 값을 변경하지 마세요. TCP 스택이 복구되는 동안 연결의 엔드포인트에 예상과 다른 부분이 있으면 애플리케이션 성능에 부정적인 영향을 미칠 수 있습니다. 타이머를 변경하고 싶다는 생각이 들면 일반적으로 디자인에 근본적인 문제가 있다는 신호입니다. 다음 권장 사항을 검토하세요.
 
-기본 애플리케이션의 다른 안티패턴 때문에 SNAT 고갈이 더 심해지는 경우가 종종 있습니다. 다음 추가 패턴 및 모범 사례를 검토하여 서비스의 규모와 안정성을 개선하세요.
+기본 애플리케이션의 다른 안티패턴 때문에 SNAT 고갈이 더 심해질 수 있습니다. 다음 추가 패턴 및 모범 사례를 검토하여 서비스의 규모와 안정성을 개선하세요.
 
 - SNAT 포트 인벤토리를 해제하기 위해 기본 유휴 시간 제한(4분)을 포함하여 [TCP 유휴 시간 제한](nat-gateway-resource.md#timers)을 감소시켜 값을 낮출 수 있는 영향을 살펴봅니다.
 - [비동기 폴링 패턴](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)을 장기 실행 작업에 사용하여 다른 작업에 대한 연결 리소스를 확보하는 것이 좋습니다.
@@ -116,7 +117,7 @@ _**해결 방법:**_ 대신 TCP 연결 테스트(예: "TCP ping") 및 UDP별 애
 
 #### <a name="configuration"></a>구성
 
-다음 항목을 확인합니다.
+구성 확인:
 1. NAT 게이트웨이 리소스에 하나 이상의 공용 IP 리소스 또는 하나의 공용 IP 접두사 리소스가 있나요? 아웃바운드 연결을 제공할 수 있으려면 NAT 게이트웨이와 연결된 IP 주소가 하나 이상 있어야 합니다.
 2. 가상 네트워크의 서브넷이 NAT 게이트웨이를 사용하도록 구성되어 있나요?
 3. UDR(사용자 정의 경로)을 사용하고 있으며 대상을 재정의하고 있나요?  NAT 게이트웨이 리소스는 구성된 서브넷에서 기본 경로(0/0)가 됩니다.
@@ -182,6 +183,18 @@ _**해결 방법:**_
 _**해결 방법:**_ NAT 게이트웨이를 IPv6 접두사가 없는 서브넷에 배포합니다.
 
 [Virtual Network NAT UserVoice](https://aka.ms/natuservoice)를 통해 추가 기능에 대한 관심을 나타낼 수 있습니다.
+
+### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>NAT 게이트웨이 IP에서 연결이 시작되지 않음
+
+NAT 게이트웨이, 사용할 IP 주소 및 NAT 게이트웨이 리소스를 사용해야 하는 서브넷을 구성합니다. 그러나 NAT 게이트웨이가 배포되기 전에 있던 가상 머신 인스턴스에서의 연결은 IP 주소를 사용하지 않습니다.  NAT 게이트웨이 리소스와 함께 사용되지 않는 IP 주소를 사용하는 것으로 나타납니다.
+
+_**해결 방법:**_
+
+[Virtual Network NAT](nat-overview.md)는 구성된 서브넷에 대한 아웃바운드 연결을 대체합니다. 기본 SNAT 또는 부하 분산 장치 아웃바운드 SNAT에서 NAT 게이트웨이를 사용하도록 전환하는 경우 NAT 게이트웨이 리소스와 연결된 IP 주소를 사용하여 새 연결이 즉시 시작됩니다.  그러나 NAT 게이트웨이 리소스로 전환하는 동안 가상 머신에 설정된 연결이 있는 경우 연결이 설정되었을 때 할당된 이전 SNAT IP 주소를 사용하여 연결이 계속됩니다.  OS 또는 브라우저가 연결 풀에서 연결을 캐싱하기 때문에 이미 존재하는 연결을 다시 사용하는 대신 새 연결을 설정하고 있는지 확인합니다.  예를 들어 PowerShell에서 _curl_을 사용하는 경우 새 연결을 적용하려면 _-DisableKeepalive_ 매개 변수를 지정해야 합니다.  브라우저를 사용하는 경우에는 연결이 풀링될 수도 있습니다.
+
+NAT 게이트웨이 리소스에 대한 서브넷을 구성하는 가상 머신을 다시 부팅할 필요는 없습니다.  그러나 가상 머신이 다시 부팅되면 연결 상태가 플러시됩니다.  연결 상태가 플러시된 경우 모든 연결은 NAT 게이트웨이 리소스의 IP 주소를 사용하여 시작됩니다.  그러나 이는 가상 머신이 다시 부팅될 때의 부작용이므로, 다시 부팅이 필수라는 뜻은 아닙니다.
+
+여전히 문제가 발생하는 경우 지원 사례를 열어 추가 문제 해결을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

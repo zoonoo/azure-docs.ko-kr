@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Workbench 미리 보기 개요
 description: Azure Blockchain Workbench 미리 보기 및 관련 기능에 대해 간략하게 설명합니다.
-ms.date: 09/05/2019
+ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 162626ba2303ab04bd2963a5add61c556615ebec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f2eafb892be4134d4fb178235249e5640544459
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79203647"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850031"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench란?
 
@@ -55,7 +55,7 @@ Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.mic
 
 Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
 
-* [Azure Blockchain MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Azure Blockchain Workbench에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

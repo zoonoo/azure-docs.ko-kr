@@ -46,6 +46,8 @@
           href: test-createuidefinition.md
         - name: Just-In-Time 액세스 요청
           href: request-just-in-time-access.md
+        - name: 기존 가상 네트워크 사용
+          href: existing-vnet-integration.md
         - name: 관리되는 리소스 업데이트
           href: update-managed-resources.md
         - name: 포털을 사용하여 애플리케이션 정의 게시

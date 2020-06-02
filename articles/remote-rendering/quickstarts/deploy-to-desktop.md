@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415716"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758999"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>빠른 시작: 데스크톱에 Unity 샘플 배포
 
@@ -46,7 +46,7 @@ ms.locfileid: "81415716"
 ## <a name="build-the-sample-project"></a>샘플 프로젝트 빌드
 
 1. *파일 > 빌드 설정*을 엽니다.
-1. *플랫폼*을 **유니버설 Windows 플랫폼**으로 변경합니다.
+1. *플랫폼*을 **유니버설 Windows 플랫폼**(**PC 독립 실행형**도 지원되지만 여기서는 사용되지 않음)으로 변경합니다.
 1. *대상 디바이스*를 **PC**로 설정합니다.
 1. *아키텍처*를 **x86**로 설정합니다.
 1. *빌드 형식*을 **D3D 프로젝트**로 설정합니다.

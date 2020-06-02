@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261723"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929828"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -67,8 +67,8 @@ Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이
 
 |OS|필수 라이선스|
 |---|---|
-|Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business 프리미엄<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business 프리미엄<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
@@ -98,9 +98,12 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |prod.warmpath.msftcloudes.com|443|에이전트 트래픽|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows 정품 인증|인터넷|
+|wvdportalstorageblob.blob.core.windows.net|443|Azure Portal 지원|AzureCloud|
 
 >[!IMPORTANT]
->대부분의 경우 서비스 문제를 방지하기 위해 URL 대신 태그를 사용하는 것이 좋습니다. 이러한 URL의 차단을 해제하는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+>이제 Windows Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-windows-virtual-desktop.md)를 참조하세요.
+>
+>서비스 문제를 방지하기 위해 URL 대신 FQDN 태그를 사용하는 것이 좋습니다. 나열된 URL과 태그는 Windows Virtual Desktop 사이트 및 리소스에만 해당됩니다. Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함되지 않습니다.
 
 다음 표에는 Azure 가상 머신에서 액세스할 수 있는 선택적 URL이 나열되어 있습니다.
 
@@ -180,20 +183,22 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows
 
 사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
 
-|운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|Windows Virtual Desktop 에이전트 업데이트|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 다중 세션, 버전 1903|예|예|예|예|자동|
-|Windows 10 다중 세션, 버전 1809|예|예|예|예|자동|
-|Windows 10 Enterprise, 버전 1903|예|예|예|예|자동|
-|Windows 10 Enterprise, 버전 1809|예|예|예|예|자동|
-|Windows 7 Enterprise|예|예|예|예|설명서|
-|Windows Server 2019|예|예|예|예|자동|
-|Windows Server 2016|예|예|예|예|자동|
-|Windows Server 2012 R2|예|예|예|예|자동|
+|운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 다중 세션, 버전 1903|예|예|예|예|
+|Windows 10 다중 세션, 버전 1809|예|예|예|예|
+|Windows 10 Enterprise, 버전 1903|예|예|예|예|
+|Windows 10 Enterprise, 버전 1809|예|예|예|예|
+|Windows 7 Enterprise|예|예|예|예|
+|Windows Server 2019|예|예|예|예|
+|Windows Server 2016|예|예|예|예|
+|Windows Server 2012 R2|예|예|예|예|
 
 ## <a name="next-steps"></a>다음 단계
 
-시작하려면 테넌트를 만들어야 합니다. 테넌트를 만드는 자세한 방법을 알아보려면 테넌트 만들기 자습서를 계속 진행하세요.
+Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)에서 자습서를 시작할 수 있습니다.
+
+Windows Virtual Desktop 2020년 봄 릴리스를 사용하는 경우 호스트 풀을 대신 만들어야 합니다. 시작하려면 다음 자습서를 시작하세요.
 
 > [!div class="nextstepaction"]
-> [Windows Virtual Desktop에서 테넌트 만들기](tenant-setup-azure-active-directory.md)
+> [Azure Portal로 호스트 풀 만들기](create-host-pools-azure-marketplace.md)

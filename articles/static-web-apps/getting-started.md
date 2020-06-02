@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599134"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714239"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>빠른 시작: 첫 번째 정적 웹앱 빌드
 
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
 - [Azure Portal](https://portal.azure.com)로 이동합니다.
 - **리소스 만들기**를 클릭합니다.
-- **Static Web Apps** 검색
+- **Static Web Apps**를 검색합니다.
 - **Static Web Apps(미리 보기)** 를 클릭합니다.
 - **만들기**
 
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 - _Azure 구독_ 선택
 - 새 _리소스 그룹_ 선택 또는 만들기
 - 앱 이름을 **my-first-static-web-app**으로 지정합니다.
-  - 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `_`입니다.
+  - 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.
 - 가장 가까운 _지역_을 선택합니다.
 - **무료** _SKU_를 선택합니다.
 - **GitHub로 로그인** 단추를 클릭하고 GitHub로 인증합니다.
@@ -130,6 +130,8 @@ GitHub로 로그인한 다음, 리포지토리 정보를 입력합니다.
 **검토 + 만들기** 단추를 클릭합니다.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="만들기 단추 검토":::
+
+앱을 만든 후 이러한 값을 변경하려면 [워크플로 파일](github-actions-workflow.md)을 편집하면 됩니다.
 
 ### <a name="review--create"></a>검토 + 만들기
 

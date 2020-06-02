@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 02/05/2020
+ms.date: 05/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743112"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657002"
 ---
 # <a name="about-azure-virtual-wan"></a>Azure Virtual WAN 정보
 
-Azure Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다. 이러한 기능에는 분기 연결(SD-WAN 또는 VPN CPE와 같은 Virtual WAN 파트너 디바이스에서 연결 자동화를 통해), 사이트 간 VPN 연결, 원격 사용자 VPN(지점 및 사이트 간) 연결, 프라이빗(ExpressRoute) 연결, 클라우드 연결(Virtual Networks에 대한 전이 연결), VPN ExpressRoute 상호 연결, 라우팅, Azure 방화벽, 프라이빗 연결용 암호화 등이 포함됩니다. Virtual WAN 사용을 시작하는 데에는 이러한 사용 사례 중 일부만 필요합니다. 단 하나의 사용 사례로 시작하여 네트워크가 발전함에 따라 네크워크를 조정할 수 있습니다. Virtual WAN 아키텍처는 분기(VPN/SD-WAN 디바이스), 사용자(Azure VPN/OpenVPN/IKEv2 클라이언트), ExpressRoute 회로 및 Virtual Networks를 위한 확장 및 성능이 기본 제공되는 허브 및 스포크 아키텍처입니다. 이를 통해 클라우드 호스팅된 네트워크 '허브'가 서로 다른 유형의 '스포크'에 분산될 수 있는 엔드포인트 간의 전이적 연결을 가능하게 하는 [글로벌 전송 네트워크 아키텍처](virtual-wan-global-transit-network-architecture.md)를 활성화합니다.
+Azure Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다. 이러한 기능에는 분기 연결(SD-WAN 또는 VPN CPE와 같은 Virtual WAN 파트너 디바이스에서 연결 자동화를 통해), 사이트 간 VPN 연결, 원격 사용자 VPN(지점 및 사이트 간) 연결, 프라이빗(ExpressRoute) 연결, 클라우드 연결(가상 네트워크에 대한 전이 연결), VPN ExpressRoute 상호 연결, 라우팅, Azure Firewall, 프라이빗 연결용 암호화 등이 포함됩니다. Virtual WAN 사용을 시작하는 데에는 이러한 사용 사례 중 일부만 필요합니다. 하나의 사용 사례만으로 시작한 다음, 네트워크가 발전함에 따라 네크워크를 조정할 수 있습니다.
 
-Azure 지역은 연결하도록 선택할 수 있는 허브 역할을 합니다. 모든 허브가 표준 Virtual WAN에서 풀 메시로 연결되므로 사용자는 Microsoft 백본을 임의(모든 스포크) 연결에 쉽게 사용할 수 있습니다. SD-WAN/VPN 디바이스와의 스포크 연결의 경우 사용자는 Azure Virtual WAN에서 수동으로 설정하거나 Virtual WAN CPE(SD-WAN/VPN) 파트너 솔루션을 사용하여 Azure에 대한 연결을 설정할 수 있습니다. Azure Virtual WAN과의 연결 자동화(디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, 연결을 설정할 수 있는 기능)를 지원하는 파트너 목록이 있습니다. 자세한 내용은 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. 
+Virtual WAN 아키텍처는 분기(VPN/SD-WAN 디바이스), 사용자(Azure VPN/OpenVPN/IKEv2 클라이언트), ExpressRoute 회로 및 가상 네트워크를 위한 확장 및 성능이 기본 제공되는 허브 및 스포크 아키텍처입니다. 이를 통해 클라우드 호스팅된 네트워크 '허브'가 서로 다른 유형의 '스포크'에 분산될 수 있는 엔드포인트 간의 전이적 연결을 가능하게 하는 [글로벌 전송 네트워크 아키텍처](virtual-wan-global-transit-network-architecture.md)를 활성화합니다.
+
+Azure 지역은 연결하도록 선택할 수 있는 허브 역할을 합니다. 모든 허브가 표준 Virtual WAN에서 풀 메시로 연결되므로 사용자는 Microsoft 백본을 임의(모든 스포크) 연결에 쉽게 사용할 수 있습니다. SD-WAN/VPN 디바이스와의 스포크 연결의 경우 사용자는 Azure Virtual WAN에서 수동으로 설정하거나 Virtual WAN CPE(SD-WAN/VPN) 파트너 솔루션을 사용하여 Azure에 대한 연결을 설정할 수 있습니다. Azure Virtual WAN과의 연결 자동화(디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, 연결을 설정할 수 있는 기능)를 지원하는 파트너 목록이 있습니다. 자세한 내용은 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요.
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan1.png)
 

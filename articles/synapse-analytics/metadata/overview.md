@@ -6,23 +6,21 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b26d516080961a482a3ba67f314e98ece4c9f24
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7bd44a350b3c3eeb723b73b0ec416cdd1c0ec643
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420177"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698777"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 
-Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 Spark 풀(미리 보기), SQL 주문형 엔진(미리 보기), SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 Spark 풀(미리 보기)과 SQL 주문형 엔진(미리 보기) 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
 [!INCLUDE [preview](../includes/note-preview.md)]
-
-
 
 이러한 공유는 최신 데이터 웨어하우스 패턴을 지원하며, Spark로 만든 데이터베이스 및 테이블에 대한 액세스 권한을 작업 영역 SQL 엔진에 제공합니다. 또한 SQL 엔진이 다른 엔진과 공유되지 않는 고유한 개체를 만들 수 있게 해줍니다.
 
@@ -34,9 +32,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 
 2. Spark에서 만든 데이터베이스와 모든 테이블은 모든 Azure Synapse 작업 영역 Spark 풀 인스턴스에 표시되며 모든 Spark 작업에서 사용할 수 있습니다. 작업 영역의 모든 Spark 풀이 동일한 기본 카탈로그 메타 저장소를 공유하므로 이 기능에는 [권한](#security-model-at-a-glance)이 적용됩니다.
 
-3. Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 작업 영역 SQL 주문형 엔진에 표시됩니다. [데이터베이스](database.md)는 SQL 주문형 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 SQL 주문형 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. <!--For more details, see [ADD LINK].-->
-
-4. 메타데이터 동기화가 활성화된 작업 영역에 SQL 풀 인스턴스가 있거나 <!--[ADD LINK]--> 메타데이터 동기화를 사용하도록 설정된 새 SQL 풀 인스턴스가 만들어지면 Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 [Azure Synapse Analytics 공유 데이터베이스](database.md)에 설명된 대로 SQL 풀 데이터베이스에 자동으로 매핑됩니다.
+3. Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 작업 영역 SQL 주문형 엔진에 표시됩니다. [데이터베이스](database.md)는 SQL 주문형 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 SQL 주문형 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. 
 
 <!--[INSERT PICTURE]-->
 
@@ -56,7 +52,7 @@ Spark 데이터베이스와 테이블은 SQL 엔진에서 동기화되는 해당
 
 ## <a name="change-maintenance"></a>변경 내용 유지 관리
 
-Spark를 사용하여 메타데이터 개체를 삭제하거나 변경하는 경우 변경 내용이 선택되어 SQL 주문형 엔진 및 개체가 동기화된 SQL 풀로 전파됩니다. 동기화는 비동기 작업이며 약간의 지연 후 변경 내용이 SQL 엔진에 반영됩니다.
+Spark를 사용하여 메타데이터 개체를 삭제하거나 변경하는 경우 변경 내용이 선택되어 SQL 주문형 엔진으로 전파됩니다. 동기화는 비동기 작업이며 약간의 지연 후 변경 내용이 SQL 엔진에 반영됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

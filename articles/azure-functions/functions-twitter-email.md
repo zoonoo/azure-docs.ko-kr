@@ -4,21 +4,21 @@ description: Azure Logic Apps 및 Azure Cognitive Services와 통합하는 함�
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190302"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116370"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
 Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합니다. 이 통합을 통해 다른 Azure 및 타사 서비스와 함께 오케스트레이션에서 함수의 컴퓨팅 기능을 사용할 수 있습니다. 
 
-이 자습서에서는 Azure의 Logic Apps 및 Cognitive Services와 함께 Functions를 사용하여 Twitter 게시물의 감정을 분석하는 방법을 보여줍니다. HTTP 트리거된 함수는 감정 점수를 기준으로 트윗을 녹색, 노랑 또는 빨강으로 분류합니다. 불량 감정이 감지되면 전자 메일이 전송됩니다. 
+이 자습서에서는 Azure의 Logic Apps 및 Cognitive Services와 함께 Azure Functions를 사용하여 Twitter 게시물의 감정을 분석하는 방법을 보여 줍니다. HTTP 트리거 함수는 감정 점수를 기준으로 트윗을 녹색, 노랑 또는 빨강으로 분류합니다. 불량 감정이 감지되면 전자 메일이 전송됩니다. 
 
 ![논리 앱 디자이너에서 앱의 처음 2단계를 보여 주는 이미지](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -74,21 +74,21 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 ## <a name="create-the-function-app"></a>함수 앱 만들기
 
-함수는 논리 앱 워크플로에서 처리 작업을 오프로드하는 훌륭한 방법을 제공합니다. 이 자습서는 HTTP 트리거된 함수를 사용하여 Cognitive Services에서 트윗 감정 점수를 처리하고 범주 값을 반환합니다.  
+Azure Functions를 통해 논리 앱 워크플로에서 처리 작업을 오프로드할 수 있습니다. 이 자습서는 HTTP 트리거 함수를 사용하여 Cognitive Services에서 트윗 감정 점수를 처리하고 범주 값을 반환합니다.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>HTTP 트리거 함수 만들기  
+## <a name="create-an-http-trigger-function"></a>HTTP 트리거 함수 만들기  
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택합니다.
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다.
 
-    ![Azure Portal에서 함수 빨리 시작하기 페이지](media/functions-twitter-email/05-function-app-create-portal.png)
+2. **새 함수** 창에서 **HTTP 트리거**를 선택합니다.
 
-2. 다음으로, **Webhook + API**를 선택하고 **만들기**를 클릭합니다. 
+    ![HTTP 트리거 함수 선택](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![HTTP 트리거 선택](./media/functions-twitter-email/06-function-webhook.png)
+3. **새 함수** 페이지에서 **함수 만들기**를 선택합니다.
 
-3. `run.csx` 파일의 콘텐츠를 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
+4. 새 HTTP 트리거 함수에서 왼쪽 메뉴의 **코드 + 테스트**를 선택하고 `run.csx` 파일의 콘텐츠를 다음 코드로 바꾼 다음, **저장**을 선택합니다.
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     이 함수 코드는 요청에서 받은 감정 점수를 기준으로 색 범주를 반환합니다. 
 
-4. 함수를 테스트하려면 오른쪽 끝의 **테스트** 를 클릭하여 테스트 탭을 확장합니다. **요청 본문**에 `0.2` 값을 입력한 다음 **실행** 을 클릭합니다. 응답의 본문에 **RED** 값이 반환됩니다. 
+5. 함수를 테스트하려면 위쪽 메뉴에서 **테스트**를 선택합니다. **입력** 탭에서 **본문**에 `0.2` 값을 입력한 다음, **실행**을 선택합니다. **RED** 값은 **출력** 탭의 **HTTP 응답 콘텐츠**에 반환됩니다. 
 
-    ![Azure Portal에서 함수 테스트](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="프록시 설정 정의":::
 
 이제 감정 점수를 분류하는 함수가 있습니다. 다음으로 Twitter 및 Cognitive Services API와 함수를 통합하는 논리 앱을 만듭니다. 
 
@@ -187,7 +188,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![새 단계 후 작업 추가](media/functions-twitter-email/12-connection-settings.png)
 
-4. 다음으로, 텍스트 상자에 **트윗 텍스트**를 입력하고 **새 단계**를 클릭합니다.
+4. 다음으로, 텍스트 상자에 **트윗 텍스트**를 입력한 다음, **새 단계**를 클릭합니다.
 
     ![분석할 텍스트 정의](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -215,7 +216,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 ## <a name="add-email-notifications"></a>전자 메일 알림 추가
 
-워크플로의 마지막 부분은 감정이 _RED_로 점수가 매겨질 때 전자 메일을 트리거하는 것입니다. 이 항목에서는 Outlook.com 커넥터를 사용합니다. 비슷한 단계를 수행하여 Gmail 또는 Office 365 Outlook 커넥터를 사용할 수 있습니다.   
+워크플로의 마지막 부분은 감정이 _RED_로 점수가 매겨질 때 전자 메일을 트리거하는 것입니다. 이 문서에서는 Outlook.com 커넥터를 사용합니다. 비슷한 단계를 수행하여 Gmail 또는 Office 365 Outlook 커넥터를 사용할 수 있습니다.   
 
 1. Logic Apps 디자이너에서 **새 단계** > **조건 추가**를 클릭합니다. 
 
@@ -277,7 +278,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     > [!IMPORTANT]
     > 이 자습서를 완료 한 후 논리 앱을 비활성화해야 합니다. 앱을 비활성화하여 Cognitive Services API에서 실행에 대한 요금 부과 및 트랜잭션 소모를 방지할 수 있습니다.
 
-이제 Logic Apps 워크플로로 함수를 통합하는 것이 얼마나 쉬운지 살펴보았습니다.
+이제 Logic Apps 워크플로로 함수를 통합하는 것이 얼마나 쉬운지 알았습니다.
 
 ## <a name="disable-the-logic-app"></a>논리 앱 비활성화
 

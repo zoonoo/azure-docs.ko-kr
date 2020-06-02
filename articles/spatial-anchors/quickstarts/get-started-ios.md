@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1da5bd7020304c67bd9f9058612f47d528611a9e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195340"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873115"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>빠른 시작: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 iOS 앱 만들기
 
@@ -101,6 +101,8 @@ open ./SampleObjC.xcworkspace
 
 `spatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
+`startSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `cloudSession!.configuration.accountDomain = "MyAccountDomain";` 줄을 추가합니다.
+
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 `iOS/Objective-C/SampleObjC/BaseViewController.m`를 엽니다.
@@ -108,6 +110,8 @@ open ./SampleObjC.xcworkspace
 `SpatialAnchorsAccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
+
+`startSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `_cloudSession.configuration.accountDomain = @"MyAccountDomain";` 줄을 추가합니다.
 
 ---
 

@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192266"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773282"
 ---
 # <a name="confidential-computing-on-azure"></a>Azure의 기밀 컴퓨팅
 
@@ -37,22 +37,22 @@ Azure 기밀 컴퓨팅을 사용하면 클라우드에서 처리하는 동안 �
 - 회사 내에서 권한이 있는 관리자의 보안 위협을 방지하려면 어떻게 해야 하나요?
 - 타사에서 중요한 고객 데이터에 액세스하지 못하도록 방지하는 다른 방법은 무엇인가요?
 
-Microsoft Azure를 통해 공격 표면을 최소화하여 더 강력한 데이터 보호를 확보할 수 있습니다. Azure는 클라이언트 쪽 암호화 및 서버 쪽 암호화와 같은 모델을 통해 [**저장 데이터**](../security/fundamentals/encryption-atrest.md)를 보호할 수 있는 많은 도구를 이미 제공하고 있습니다. 또한 Azure는 TLS 및 HTTPS와 같은 보안 프로토콜을 통해 [**전송 중 데이터**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit)를 암호화하는 메커니즘도 제공합니다. 이 페이지에서는 데이터 암호화의 세 번째 단계인 **사용 중 데이터** 암호화를 소개합니다.
+Microsoft Azure를 통해 공격 표면을 최소화하여 더 강력한 데이터 보호를 확보할 수 있습니다. Azure는 클라이언트 쪽 암호화 및 서버 쪽 암호화와 같은 모델을 통해 [**미사용 데이터**](../security/fundamentals/encryption-atrest.md)를 보호할 수 있는 많은 도구를 이미 제공하고 있습니다. 또한 Azure는 TLS 및 HTTPS와 같은 보안 프로토콜을 통해 [**전송 중 데이터**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit)를 암호화하는 메커니즘도 제공합니다. 이 페이지에서는 데이터 암호화의 세 번째 단계인 **사용 중 데이터** 암호화를 소개합니다.
 
 
 ## <a name="introduction-to-confidential-computing"></a>기밀 컴퓨팅 소개 <a id="intro to acc"></a>
 
-기밀 컴퓨팅은 기밀 컴퓨팅의 채택을 정의 및 가속화하기 위한 기반인 [CCC(기밀 컴퓨팅 컨소시엄)](https://confidentialcomputing.io/)에서 정의한 업계 용어입니다. 기밀 컴퓨팅은 계산을 수행할 때 사용되는 데이터를 보호하는 것입니다. 계산은 하드웨어 기반 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다.
+기밀 컴퓨팅은 기밀 컴퓨팅의 채택을 정의 및 가속화하기 위한 기반인 [CCC(기밀 컴퓨팅 컨소시엄)](https://confidentialcomputing.io/)에서 정의한 업계 용어입니다. CCC는 하드웨어 기반 TEE(신뢰할 수 있는 실행 환경)에서 계산을 수행하여 사용 중인 데이터 보호로 기밀 컴퓨팅을 정의합니다.
 
 TEE는 권한 있는 코드만 실행하는 환경입니다. TEE의 모든 데이터는 해당 환경 외부의 코드에서 읽거나 변경할 수 없습니다.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>enclave 및 신뢰할 수 있는 실행 환경
+### <a name="enclaves"></a>Enclave
 
-기밀 컴퓨팅의 컨텍스트에서 TEE는 일반적으로 *enclave* 또는 *보안 enclave*라고 합니다. enclave는 하드웨어의 프로세서 및 메모리에 대한 보안 부분입니다. 디버거를 사용하는 경우에도 enclave 내부의 데이터 또는 코드를 볼 수 있는 방법이 없습니다. 신뢰할 수 없는 코드에서 enclave 메모리의 콘텐츠를 수정하려고 하면 환경이 사용하지 않도록 설정되고 작업이 거부됩니다.
+Enclave는 하드웨어의 프로세서 및 메모리에 대한 보안 부분입니다. 디버거를 사용하는 경우에도 enclave 내부의 데이터 또는 코드를 볼 수 있는 방법이 없습니다. 신뢰할 수 없는 코드에서 enclave 메모리의 콘텐츠를 수정하려고 하면 환경이 사용하지 않도록 설정되고 작업이 거부됩니다.
 
 애플리케이션을 개발할 때 [소프트웨어 도구](#oe-sdk)를 사용하여 enclave 내의 코드 및 데이터 부분을 보호할 수 있습니다. 이러한 도구는 신뢰할 수 있는 환경 외부의 사용자가 코드와 데이터를 보거나 수정할 수 없도록 합니다. 
 
-기본적으로 enclave는 블랙 박스로 간주됩니다. 암호화된 코드와 데이터를 이 블랙 박스에 넣습니다. 블랙 박스 외부에서는 아무것도 볼 수 없습니다. 데이터를 해독할 수 있는 키를 enclave에 지정합니다. 그러면 데이터를 처리하고 다시 암호화한 후에 enclave에서 내보냅니다.
+기본적으로 enclave는 블랙 박스로 간주됩니다. 암호화된 코드와 데이터를 박스에 넣습니다. 박스 외부에서는 아무것도 볼 수 없습니다. 데이터를 해독할 수 있는 키를 enclave에 지정합니다. 그러면 데이터를 처리하고 다시 암호화한 후에 enclave에서 내보냅니다.
 
 ### <a name="attestation"></a>증명
 
@@ -60,7 +60,7 @@ TEE는 권한 있는 코드만 실행하는 환경입니다. TEE의 모든 데�
 
 증명을 통해 신뢰 당사자는 (1) 자신의 소프트웨어가 enclave에서 실행되고 (2) enclave가 최신 상태이고 안전하다는 확신을 높일 수 있습니다. 예를 들어 enclave는 기본 하드웨어에서 enclave가 플랫폼에 존재한다는 증명을 포함하는 자격 증명을 생성하도록 이 기본 하드웨어에 요청합니다. 그런 다음, 동일한 플랫폼에서 보고서가 생성되었는지 확인하는 두 번째 enclave에 보고서를 제공할 수 있습니다.
 
-증명은 시스템 소프트웨어 및 실리콘과 호환되는 보안 증명 서비스를 사용하여 구현해야 합니다. [Intel의 증명 및 프로비전 서비스](https://software.intel.com/sgx/attestation-services)는 Azure 기밀 컴퓨팅 가상 머신과 호환됩니다.
+증명은 시스템 소프트웨어 및 실리콘과 호환되는 보안 증명 서비스를 사용하여 구현해야 합니다. [Intel의 증명 및 프로비저닝 서비스](https://software.intel.com/sgx/attestation-services)는 Azure 기밀 컴퓨팅 가상 머신과 호환됩니다.
 
 
 ## <a name="using-azure-for-cloud-based-confidential-computing"></a>클라우드 기반 기밀 컴퓨팅에 Azure 사용 <a id="cc-on-azure"></a>
@@ -96,11 +96,11 @@ enclave를 사용하여 빌드된 애플리케이션은 다음 두 가지 방법
 1. "신뢰할 수 없는" 구성 요소(호스트)
 1. "신뢰할 수 있는" 구성 요소(enclave)
 
-**호스트**는 신뢰할 수 없는 환경에서 실행되는 enclave 애플리케이션입니다. 호스트의 코드에서 enclave에 로드된 코드에 액세스할 수 없습니다. 
+**호스트**는 신뢰할 수 없는 환경에서 실행되는 enclave 애플리케이션입니다. 호스트에 배포된 enclave 코드는 호스트에서 액세스할 수 없습니다. 
 
-**enclave**는 코드와 데이터가 TEE 구현 내에서 실행되는 위치입니다. 비밀 및 중요한 데이터가 보호된 상태로 유지되도록 보안 계산이 enclave에서 수행되어야 합니다. 
+**enclave**는 애플리케이션 코드와 캐시된 데이터/메모리가 실행되는 위치입니다. 비밀 및 중요한 데이터가 보호된 상태로 유지되도록 보안 계산이 enclave에서 수행되어야 합니다. 
 
-enclave 애플리케이션 개발을 시작하는 경우 보호해야 하는 코드와 데이터를 결정해야 합니다. 신뢰할 수 있는 구성 요소에 배치하도록 선택한 코드는 애플리케이션의 나머지 부분과 격리됩니다. enclave가 초기화되고 코드가 메모리에 로드되면 보호된 외부 환경에서 해당 코드를 읽거나 변경할 수 없습니다.
+애플리케이션을 디자인하는 동안 enclaves에서 실행해야 하는 애플리케이션 부분을 식별하고 결정하는 것이 중요합니다. 신뢰할 수 있는 구성 요소에 배치하도록 선택한 코드는 애플리케이션의 나머지 부분과 격리됩니다. enclave가 초기화되고 코드가 메모리에 로드되면 신뢰할 수 없는 구성 요소에서 해당 코드를 읽거나 변경할 수 없습니다. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>OE SDK(Open Enclave 소프트웨어 개발 키트) <a id="oe-sdk"></a>
 

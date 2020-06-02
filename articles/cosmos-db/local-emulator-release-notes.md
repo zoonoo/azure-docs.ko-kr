@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77168639"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746997"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,15 @@ ms.locfileid: "77168639"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2110"></a>2.11.0
+
+- 이 릴리스에서는 자동 크기 조정 프로비저닝된 처리량에 대한 지원이 도입되었습니다. 이러한 새로운 기능에는 사용자 지정 최대 프로비저닝된 처리량 수준을 요청 단위(RU/s)로 설정하고, 기존 데이터베이스 및 컨테이너에서 자동 크기 조정을 사용하고, Azure Cosmos DB SDK를 통해 프로그래밍 방식으로 지원할 수 있는 기능이 포함됩니다.
+- 내부 오류 상태 코드 500으로 인해 에뮬레이터가 실패했으므로 대량의 문서(1GB 초과)를 통해 쿼리하는 동안 문제를 해결합니다.
+
+### <a name="292"></a>2.9.2
+
+- 이 릴리스는 MongoDb 엔드포인트 버전 3.2에 대한 지원을 사용하도록 설정하는 동안 버그를 수정합니다. LOGMAN 대신 WPR을 사용하여 문제 해결을 위한 ETL 추적 생성 지원도 추가합니다.
 
 ### <a name="291"></a>2.9.1
 

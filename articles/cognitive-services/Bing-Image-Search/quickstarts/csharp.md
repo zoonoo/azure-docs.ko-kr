@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 6d9ceac5a63a7a644989430b0349a16369c7133a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8018fa3935e780f8c4002483c5eebdade82b5f1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478633"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119034"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보낼 수 있습니다. 이 C# 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보내는 방법을 알아봅니다. 이 C# 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 C#으로 작성되었지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)에서 사용할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "80478633"
     using Newtonsoft.Json.Linq;
     ```
 
-2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다. `uriBase`은 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+2. API 엔드포인트, 구독 키 및 검색 용어에 대한 변수를 만듭니다. `uriBase`의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
     ```csharp
     //...
@@ -97,7 +97,7 @@ namespace BingSearchApisQuickstart
 
 `BingImageSearch` 메서드에서 다음 단계를 수행합니다.
 
-1. 검색 요청의 URI를 생성합니다. `SearchTerm` 검색 용어는 문자열에 추가되기 전에 형식을 지정해야 합니다.
+1. 검색 요청의 URI를 생성합니다. 문자열에 추가하기 전에 `SearchTerm` 검색어의 형식을 지정합니다.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -115,7 +115,7 @@ namespace BingSearchApisQuickstart
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. 검색 결과 개체를 만들고 Bing HTTP 헤더를 추출합니다. 그런 다음, `searchResult`을 반환합니다.
+3. 검색 결과 개체를 만들고 Bing HTTP 헤더를 추출합니다. 그런 다음, `searchResult`를 반환합니다.
 
     ```csharp
     // Create the result object for return
@@ -208,9 +208,9 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Bing Image Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [온라인 대화형 데모를 사용해보세요](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [무료 Cognitive Services 액세스 키를 가져옵니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

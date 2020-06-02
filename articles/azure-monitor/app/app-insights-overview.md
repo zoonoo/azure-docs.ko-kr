@@ -4,12 +4,12 @@ description: 라이브 웹 애플리케이션의 애플리케이션 성능을 �
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891734"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828732"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 개발자 및 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 애플리케이션을 모니터링하는 데 사용합니다. 성능 이상을 자동으로 감지하고, 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 온-프레미스, 하이브리드 또는 퍼블릭 클라우드에서 호스팅되는 .NET, Node.js, Java 및 Python을 포함하여 다양한 플랫폼의 앱에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -49,7 +49,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 |  |  |
 | --- | --- |
-| [**스마트 검색 및 수동 경고**](../../azure-monitor/app/proactive-diagnostics.md)<br/>앱의 일반적인 원격 분석 패턴에 맞게 자동경고가 설정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../../azure-monitor/app/alerts.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
+| [**스마트 검색 및 수동 경고**](../../azure-monitor/app/proactive-diagnostics.md)<br/>앱의 일반적인 원격 분석 패턴에 맞게 자동경고가 설정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../../azure-monitor/platform/alerts-log.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
 | [**애플리케이션 맵**](../../azure-monitor/app/app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소를 살펴봅니다. |![애플리케이션 맵](./media/app-insights-overview/appmap-tn.png)  |
 | [**프로파일러**](../../azure-monitor/app/profiler.md)<br/>샘플링된 요청의 실행 프로필을 검사합니다. |![프로파일러](./media/app-insights-overview/profiler.png) |
 | [**사용량 현황 분석**](../../azure-monitor/app/usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
@@ -127,7 +127,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 ## <a name="support-and-feedback"></a>지원 및 피드백
 * 질문 및 문제:
   * [문제 해결][qna]
-  * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * 사용자 제안:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

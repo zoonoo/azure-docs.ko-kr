@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d2226e161d96a52834dc3d0c16a1a053d39f02e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5c3a6ba009771a879694fe869862f2c3e5836114
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404483"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685083"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>빠른 시작: Computer Vision REST API 및 Node.js를 사용하여 썸네일 생성
 
@@ -24,7 +24,7 @@ ms.locfileid: "81404483"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Node.js](https://nodejs.org) 4.x 이상이 설치되어 있어야 합니다.
 - [npm](https://www.npmjs.com/)이 설치되어 있어야 합니다.
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. npm [`request`](https://www.npmjs.com/package/request) 패키지를 설치합니다.
    1. 관리자로 명령 프롬프트 창을 엽니다.
-   1. 다음 명령 실행:
+   1. 다음 명령을 실행합니다.
 
       ```console
       npm install request
@@ -46,23 +46,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요에 따라 `imageUrl` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.js` 확장명의 파일로 저장합니다. `get-thumbnail.js`)을 입력합니다.
+1. 코드를 `.js` 확장명의 파일로 저장합니다. 예들 들어 `get-thumbnail.js`입니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. `node get-thumbnail.js`)을 입력합니다.
+1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. 예들 들어 `node get-thumbnail.js`입니다.
 
 ```javascript
 'use strict';
 
-const request = require('request');
+const fs = require('fs');
+const request = require('request').defaults({ encoding: null });
 
 let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v2.1/generateThumbnail';
+var uriBase = endpoint + 'vision/v3.0/generateThumbnail';
 
-const imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 
 // Request parameters.
 const params = {
@@ -71,6 +70,7 @@ const params = {
     'smartCropping': 'true'
 };
 
+// Construct the request
 const options = {
     uri: uriBase,
     qs: params,
@@ -79,18 +79,23 @@ const options = {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key' : subscriptionKey
     }
-};
+}
 
+// Post the request and get the response (an image stream)
 request.post(options, (error, response, body) => {
-  if (error) {
-    console.log('Error: ', error);
-    return;
-  }
+    // Write the stream to file
+    var buf = Buffer.from(body, 'base64');
+    fs.writeFile('thumbnail.png', buf, function (err) {
+        if (err) throw err;
+    });
+
+    console.log('Image saved')
 });
 ```
 
 ## <a name="examine-the-response"></a>응답 검사
 
+쎔네일 이미지의 팝업이 표시됩니다.
 성공적인 응답이 썸네일에 대한 이미지 데이터를 나타내는 이진 데이터로 반환됩니다. 요청이 실패하면 응답이 콘솔 창에 표시됩니다. 실패된 요청에 대한 응답은 무엇이 잘못되었는지 확인할 수 있도록 오류 코드 및 메시지를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 02/01/2020
+ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77915642"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816372"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door의 Azure 웹 애플리케이션 방화벽
 
@@ -26,7 +26,7 @@ WAF는 공격 소스에 가까운 악의적인 공격이 가상 네트워크에 
 
 ## <a name="waf-policy-and-rules"></a>WAF 정책 및 규칙
 
-WAF 정책을 구성한 후 보호를 위해 하나 이상의 Front Door 프런트 엔드에 정책을 연결할 수 있습니다. WAF 정책은 다음 두 가지 유형의 보안 규칙으로 구성됩니다.
+[WAF 정책](waf-front-door-create-portal.md)을 구성하고 보호를 위해 하나 이상의 Front Door 프런트 엔드에 해당 정책을 연결할 수 있습니다. WAF 정책은 다음 두 가지 유형의 보안 규칙으로 구성됩니다.
 
 - 고객이 작성한 사용자 지정 규칙
 

@@ -8,29 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 836012c11d16810172c27fb948e1185f99f7de83
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a0fb6bc96441fe36713d931e561c6d1e272b7819
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446635"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872622"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>빠른 시작: Bing Visual Search REST API 및 Go를 사용하여 이미지 인사이트 가져오기
 
-이 빠른 시작에서는 Go 프로그래밍 언어를 사용하여 Bing Visual Search API를 호출하고 결과를 표시합니다. POST 요청은 API 엔드포인트에 이미지를 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
+이 빠른 시작을 통해 Go 프로그래밍 언어를 사용하여 Bing Visual Search API를 처음 호출합니다. POST 요청은 API 엔드포인트에 이미지를 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Go 이진 파일](https://golang.org/dl/)을 설치합니다.
-* go-spew 깔끔한 프린터는 결과를 표시하는 데 사용됩니다. go-spew는 `$ go get -u https://github.com/davecgh/go-spew` 명령으로 설치할 수 있습니다.
+* 결과를 표시하는 데 사용되는 go-spew 깔끔한 프린터를 설치합니다. go-spew를 설치하려면 `$ go get -u https://github.com/davecgh/go-spew` 명령을 사용합니다.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-libraries"></a>프로젝트 및 라이브러리
 
-IDE 또는 편집기에서 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`을 가져옵니다. `go-spew` 라이브러리는 JSON 결과 구문 분석에 사용됩니다.
+IDE 또는 편집기에서 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`을 가져옵니다. `go-spew` 라이브러리를 사용하여 JSON 결과를 구문 분석합니다.
 
 ```go
 package main
@@ -109,7 +109,12 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Main 함수 및 변수  
 
-다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다. `fileName` 변수는 POST의 이미지 파일을 식별합니다. `endpoint`는 아래의 글로벌 엔드포인트이거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트일 수 있습니다.
+다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 
+
+1. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. 
+2. `batchNumber`의 경우 POST 데이터의 선행 및 후행 경계에 필요한 GUID를 할당합니다. 
+3. `fileName`의 경우 POST에 사용할 이미지 파일을 할당합니다. 
+4. `endpoint`의 경우 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
 ```go
 func main() {
@@ -159,7 +164,12 @@ func main() {
 
 ## <a name="boundaries-of-post-body"></a>POST 본문의 경계
 
-Visual Search 엔드포인트에 대한 POST 요청에서는 선행 및 후행 경계로 POST 데이터를 둘러싸야 합니다. 선행 경계에는 일괄 처리 번호, 콘텐츠 형식 식별자 `Content-Disposition: form-data; name="image"; filename=`과 POST에 대한 이미지 파일 이름이 포함됩니다. 후행 경계는 일괄 처리 번호만으로 이루어집니다. 이러한 함수는 `main` 블록에 포함되지 않습니다.
+Visual Search 엔드포인트에 대한 POST 요청에는 POST 데이터를 둘러싸기 위한 선행 및 후행 경계가 필요합니다. 이러한 함수는 `main()` 블록에 포함되지 않습니다.
+
+선행 경계에는 일괄 처리 번호, 콘텐츠 형식 식별자 `Content-Disposition: form-data; name="image"; filename=` 및 POST에 대한 이미지 파일 이름이 포함됩니다. 
+
+후행 경계에는 일괄 처리 번호만 포함됩니다. 
+
 
 ```go
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -178,7 +188,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## <a name="add-image-bytes-to-post-body"></a>POST 본문에 이미지 바이트 추가
 
-이 코드 세그먼트에서는 이미지 데이터를 포함하는 POST 요청을 만듭니다.
+다음 코드에서는 이미지 데이터가 포함된 POST 요청을 만듭니다.
 
 ```go
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {

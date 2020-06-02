@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419487"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645226"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics 관리형 가상 네트워크(미리 보기)
 
@@ -40,6 +40,8 @@ SQL 풀 및 SQL 주문형은 다중 테넌트 기능이므로 관리형 작업 �
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>관리형 작업 영역 VNet이 연결된 Azure Synapse 작업 영역 만들기
 
+아직 등록하지 않은 경우 네트워크 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. [등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)할 때 리소스 공급자 목록에서 *Microsoft.Network*를 선택합니다.
+
 관리형 작업 영역 VNet이 연결된 Azure Synapse 작업 영역을 만들려면 Azure Portal에서 **보안 + 네트워킹** 탭을 선택하고 **관리형 가상 네트워크 사용** 확인란을 선택합니다.
 
 확인란을 선택하지 않으면 작업 영역에 VNet이 연결되지 않습니다.
@@ -50,7 +52,7 @@ SQL 풀 및 SQL 주문형은 다중 테넌트 기능이므로 관리형 작업 �
 ![관리형 작업 영역 VNet 사용](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->관리형 작업 영역 VNet의 모든 아웃바운드 트래픽은 향후에 차단될 예정입니다. 관리형 프라이빗 엔드포인트를 사용하여 모든 데이터 원본에 연결하는 것이 좋습니다.
+>관리형 프라이빗 엔드포인트를 제외한 관리 작업 영역 VNet의 모든 아웃바운드 트래픽은 향후에 차단될 예정입니다. 작업 영역 외부의 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
 
 Azure Portal에서 **개요**를 선택하여 Azure Synapse 작업 영역이 관리형 작업 영역 VNet에 연결되었는지 확인할 수 있습니다.
 

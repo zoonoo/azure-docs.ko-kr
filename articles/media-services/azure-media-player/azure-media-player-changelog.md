@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727600"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698315"
 ---
 # <a name="changelog"></a>Changelog #
 
@@ -577,8 +577,8 @@ ms.locfileid: "81727600"
 - [버그 수정][AzureHtml5JS] 사소한 부정확이 타임스탬프에 있으면 MPD 업데이트에서 라이브 재생이 멈춤
 - [버그 수정][AzureHtml5JS] 몇 가지 라이브 재생 문제가 완화됨
 - [버그 수정][AzureHtml5JS] 창 크기 추론이 설정되고 더 높은 해상도 화면으로 이동하면 버퍼가 플러시됨
-- [버그 수정][AzureHtml5JS] Chrome에서 이제 종료된 이벤트를 올바르게 표시합니다. 이전에 *AzureHtml5JS를 사용하는 경우 Chrome에서 â&euro;œendedâ&euro; 이벤트를 제대로 보내지 않습니다. 기본 브라우저에 문제가 있습니다.* 라고 알려진 문제와 연결되어 있습니다.
-- [버그 수정][AzureHtml5JS] Safari를 이 기술에 사용하지 않도록 설정됩니다. 이는 *AzureHtml5JS 기술을 사용하는 OSX Yosemite와 관련된 재생 문제입니다. MSE 구현 문제가 있습니다. 임시 완화: 이러한 사용자 에이전트에 대한 기술 순서로 â&euro;œflashSSâ&euro;, â&euro;œsilverlightSSâ&euro;를 강제로 적용합니다.* 라는 문제를 해결하기 위한 것입니다.
+- [버그 수정][AzureHtml5JS] Chrome에서 이제 종료된 이벤트를 올바르게 표시합니다. 이전에 *AzureHtml5JS를 사용할 때 Chrome에서 종료된 이벤트를 제대로 보내지 않습니다. 기본 브라우저에 문제가 있습니다.* 라고 알려진 문제와 연결되어 있습니다.
+- [버그 수정][AzureHtml5JS] Safari를 이 기술에 사용하지 않도록 설정됩니다. 이는 *AzureHtml5JS 기술을 사용하는 OSX Yosemite와 관련된 재생 문제입니다. MSE 구현 문제가 있습니다. 임시 완화: 이러한 사용자 에이전트에 대한 기술 순서로 flashSS, silverlightSS 강제 적용*
 - [버그 수정][FlashSS] 오류가 발생하면 loadstart가 실행됨
 
 ## <a name="020-beta"></a>0.2.0(베타) ##

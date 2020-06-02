@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238162"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745844"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -144,8 +144,8 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩니다. 그러나 구독을 다른 Azure AD 테넌트의 계정에 양도하는 경우 구독에 대한 [관리자 역할](add-change-subscription-administrator.md) 및 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당은 [양도되지 않습니다](#transfer-a-subscription-to-another-azure-ad-tenant-account). 또한 [앱 등록](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 구독과 함께 양도되지 않습니다.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>소유권을 다른 국가의 계정에 양도할 수 있나요?
-안타깝지만 국가 간 양도는 Azure Portal에서 수행할 수 없습니다. 국가 간에 구독을 양도하려면 [고객 지원팀에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>소유권을 다른 국가/지역의 계정에 양도할 수 있나요?
+안타깝지만 국가/지역 간 양도는 Azure Portal에서 수행할 수 없습니다. 국가/지역 간에 구독을 양도하려면 [고객 지원팀에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>저는 두 계정의 관리자입니다. 한 계정에서 다른 계정으로 구독을 양도할 수 있나요?
 예, 계정 간에 구독을 양도할 수 있습니다. 두 계정은 개념적으로 서로 다른 두 사용자의 계정으로 간주되므로 위의 단계에 따라 계정 간에 구독을 양도할 수 있습니다.
