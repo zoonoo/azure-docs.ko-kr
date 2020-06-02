@@ -7,12 +7,8 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 'C# 사용'
-      href: Quickstart.md
-    - name: Node.js 사용
-      href: quickstart-nodejs.md
-    - name: Swift 사용(iOS)
-      href: ios-quickstart.md
+    - name: 클라이언트 라이브러리 사용
+      href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 몰입형 판독기(Python) 시작

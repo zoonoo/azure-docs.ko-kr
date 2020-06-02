@@ -123,6 +123,8 @@
               href: howto-customize-ui.md
             - name: 애플리케이션 내보내기
               href: howto-use-app-templates.md
+            - name: 애플리케이션 상태 모니터링
+              href: howto-monitor-application-health.md
         - name: 다른 장소에서 관리
           items:
             - name: Azure Portal에서 관리

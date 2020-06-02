@@ -199,8 +199,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 사례 연구
       href: data-factory-customer-case-studies.md
-    - name: 학습 경로
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
     - name: Microsoft Q&A 질문 페이지
       href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: 가격 책정

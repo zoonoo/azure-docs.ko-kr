@@ -221,6 +221,8 @@
           href: resource-manager-exceptions.md
 - name: 참조
   items:
+    - name: SDK
+      href: sdks.md
     - name: .NET
       items:
         - name: 클라이언트 라이브러리
@@ -271,6 +273,12 @@
               href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
         - name: 관리 라이브러리
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+    - name: Go
+      items:
+        - name: 클라이언트 라이브러리
+          href: 'https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc'
+        - name: 관리 라이브러리
+          href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
     - name: REST (영문)
       href: /rest/api/eventhub
     - name: Resource Manager 템플릿

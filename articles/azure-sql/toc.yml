@@ -50,6 +50,8 @@
               href: database/advanced-data-security.md
             - name: 고급 위협 보호
               href: database/threat-detection-overview.md
+            - name: 데이터 검색 및 분류
+              href: database/data-discovery-and-classification-overview.md
             - name: 동적 데이터 마스킹
               href: database/dynamic-data-masking-overview.md
             - name: SQL 취약성 평가
@@ -73,8 +75,6 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: BYOK(Bring Your Own Key)
                   href: database/transparent-data-encryption-byok-overview.md
-                - name: 데이터 검색 및 분류
-                  href: database/data-discovery-and-classification-overview.md
         - name: 비즈니스 연속성
           displayName: 'Backup, back up, restore, recovery'
           items:
@@ -1001,7 +1001,7 @@
               href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
             - name: SQL Server 드라이버
               href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
-            - name: REST
+            - name: REST (영문)
               href: /rest/api/
         - name: 리소스
           items:
@@ -1063,7 +1063,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM
