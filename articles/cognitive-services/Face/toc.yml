@@ -37,8 +37,6 @@
       items:
         - name: 'C#'
           href: Tutorials/FaceAPIinCSharpTutorial.md
-        - name: Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 개념
   items:
     - name: 얼굴 감지
