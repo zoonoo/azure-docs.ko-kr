@@ -4,12 +4,12 @@ description: 명령줄에서 함수를 만든 다음, 로컬 프로젝트를 Azu
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626261"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195041"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -105,7 +105,7 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 | **groupId** | `com.fabrikam` | Java에 대한 [패키지 명명 규칙](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)에 따라 모든 프로젝트에서 프로젝트를 고유하게 식별하는 값입니다. |
 | **artifactId** | `fabrikam-functions` | 버전 번호가 없는 jar의 이름인 값입니다. |
 | **version** | `1.0-SNAPSHOT` | 기본값을 선택합니다. |
-| **package** | `com.fabrikam.functions` | 생성된 함수 코드에 대한 Java 패키지인 값입니다. 기본값을 사용하세요. |
+| **package** | `com.fabrikam` | 생성된 함수 코드에 대한 Java 패키지인 값입니다. 기본값을 사용하세요. |
 
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
@@ -145,7 +145,7 @@ cd fabrikam-functions
 #### <a name="functionjava"></a>Function.java
 *Function.java*에는 `request` 변수에서 요청 데이터를 수신하는 `run` 메서드가 포함되며, 트리거 동작을 정의하는 [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) 주석으로 데코레이트된 [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage)입니다. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 응답 메시지는 [HttpResponseMessage](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) API에서 생성됩니다.
 
@@ -153,7 +153,7 @@ cd fabrikam-functions
 
 앱을 호스트하기 위해 만든 Azure 리소스의 설정은 생성된 pom.xml 파일에 있는 `com.microsoft.azure`의 **groupId**를 사용하여 플러그 인의 **configuration** 요소에 정의됩니다. 예를 들어 아래 구성 요소는 `westus` 지역의 `java-functions-group` 리소스 그룹에 함수 앱을 만들도록 Maven 기반 배포에 지시합니다. 함수 앱 자체는 `java-functions-app-service-plan` 플랜에서 호스트되는 Windows에서 실행되며, 이 플랜은 기본적으로 서버리스 사용 플랜입니다.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 초기 배포 전에 `runtime.os`를 `windows`에서 `linux`로 변경하는 등의 방법으로 이러한 설정을 변경하면 Azure에서 리소스를 만드는 방식을 제어할 수 있습니다. Maven 플러그 인에서 지원하는 전체 설정 목록은 [구성 세부 정보](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details)를 참조하세요.
 
@@ -414,3 +414,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Azure Storage 큐에 연결](functions-add-output-binding-storage-queue-cli.md)
+ 
