@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5ebf7086aba3e311bc595c6eafa4b2debdc32e7f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836807"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118365"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>빠른 시작: SQL 주문형 사용
 
@@ -66,6 +66,9 @@ SQL 주문형을 사용하여 쿼리를 실행하려면 SQL 주문형이 스토�
 다음 코드 조각을 실행하여 이 섹션의 샘플에 사용된 데이터 원본을 만듭니다.
 
 ```sql
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
+
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
