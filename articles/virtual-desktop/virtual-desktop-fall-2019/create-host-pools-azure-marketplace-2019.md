@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 741bd94b290560bdc850cbf7bc24ec57104d8a66
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8afc8b70257f07c95b34c4e372e0e7425ae20fcd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112674"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -162,4 +162,4 @@ Azure Marketplace에서 풀 만들기가 완료되면 더 많은 사용자를 �
 호스트 풀을 만들고, 해당 데스크톱에 액세스할 수 있는 사용자를 할당했습니다. 호스트 풀을 RemoteApp 프로그램으로 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대해 알아보려면 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [앱 그룹 관리 자습서](../manage-app-groups.md)
+> [앱 그룹 관리 자습서](manage-app-groups-2019.md)

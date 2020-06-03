@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MariaDB에 대한 기본 제공 정책 정의
 description: Azure Database for MariaDB에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 35141784e21b0c11fa7fd6a66fbd76610c291ea1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9f3f01e23b6ac56daba0a6739141ac7299faa58
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656773"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235483"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 Azure Policy 기본 제공 정책 정의
 
