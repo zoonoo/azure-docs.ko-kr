@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067159"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296530"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files 네트워킹 고려 사항 
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
@@ -51,7 +51,7 @@ Azure Files에서 지원하는 온-프레미스 워크스테이션/서버 및 Az
 
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): VPN Gateway는 인터넷을 통해 Azure 가상 네트워크와 대체 위치(예: 온-프레미스) 간에 암호화된 트래픽을 보내는 데 사용되는 특정 유형의 가상 네트워크 게이트웨이입니다. Azure VPN Gateway는 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포할 수 있는 Azure 리소스입니다. VPN 게이트웨이는 다음 두 가지 유형의 연결을 공개합니다.
     - [P2S(지점 및 사이트 간) VPN](../../vpn-gateway/point-to-site-about.md) 게이트웨이 연결 - Azure와 개별 클라이언트 간의 VPN 연결입니다. 이 솔루션은 이동 중에 집, 커피숍 또는 호텔에서 Azure 파일 공유를 탑재할 수 있도록 하려는 재택 근무자와 같이 조직의 온-프레미스 네트워크에 속하지 않은 디바이스에 주로 유용합니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. P2S VPN 연결의 배포를 간소화하려면 [Azure Files에서 사용하도록 Windows에서 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-windows.md) 및 [Azure Files에서 사용하도록 Linux에서 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-linux.md)을 참조하세요.
-    - [S2S(사이트 간) VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) - Azure와 조직의 네트워크 간의 VPN 연결입니다. S2S VPN 연결을 사용하면 VPN 연결을 Azure 파일 공유에 액세스해야 하는 모든 클라이언트 디바이스에 대해 구성하는 것이 아니라 조직의 네트워크에서 호스팅되는 VPN 서버 또는 디바이스에 대해 한 번만 구성할 수 있습니다. S2S VPN 연결의 배포를 간소화하려면 [Azure Files에서 사용하도록 S2S(사이트 간) VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
+    - [S2S(사이트 간) VPN](../../vpn-gateway/design.md#s2smulti) - Azure와 조직의 네트워크 간의 VPN 연결입니다. S2S VPN 연결을 사용하면 VPN 연결을 Azure 파일 공유에 액세스해야 하는 모든 클라이언트 디바이스에 대해 구성하는 것이 아니라 조직의 네트워크에서 호스팅되는 VPN 서버 또는 디바이스에 대해 한 번만 구성할 수 있습니다. S2S VPN 연결의 배포를 간소화하려면 [Azure Files에서 사용하도록 S2S(사이트 간) VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
 - [ExpressRoute](../../expressroute/expressroute-introduction.md) - 이를 사용하면 인터넷을 트래버스하지 않는 온-프레미스 네트워크와 Azure 간에 정의된 경로를 만들 수 있습니다. ExpressRoute는 온-프레미스 데이터 센터와 Azure 간의 전용 경로를 제공하므로 네트워크 성능을 고려할 때 ExpressRoute가 유용할 수 있습니다. ExpressRoute는 조직의 정책 또는 규정 요구 사항에서 클라우드의 리소스에 대한 결정적 경로가 필요한 경우에도 유용한 옵션입니다.
 
 Azure 파일 공유에 액세스하는 데 사용하는 터널링 방법에 관계없이 스토리지 계정에 대한 트래픽이 일반 인터넷 연결이 아니라 터널을 통해 이동하도록 하는 메커니즘이 필요합니다. 스토리지 계정의 퍼블릭 엔드포인트로 라우팅하는 것이 기술적으로 가능하지만, 스토리지 계정은 언제든지 스토리지 클러스터 간에 이동할 수 있으므로 지역의 Azure 스토리지 클러스터에 대한 모든 IP 주소를 하드 코딩해야 합니다. 또한 이 경우 항상 새 클러스터가 추가되므로 IP 주소 매핑을 지속적으로 업데이트해야 합니다.

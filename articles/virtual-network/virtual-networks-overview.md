@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 0577b61cd30ef0f8fd5fc8ef1593d210c00bb25c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879363"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300087"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -59,9 +59,9 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 다음 옵션을 원하는 대로 조합하여 온-프레미스 컴퓨터 및 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
-- **지점 및 사이트 간 VPN(가상 사설망):** 가상 네트워크와 사용자 네트워크의 단일 컴퓨터 간에 설정됩니다. 가상 네트워크와 연결하려는 각 컴퓨터는 연결을 구성해야 합니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 컴퓨터와 가상 네트워크 간의 통신은 인터넷을 통한 암호화된 터널로 전송됩니다. 자세한 내용은 [지점-사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S)을 참조하세요.
-- **사이트 간 VPN:** 온-프레미스 VPN 디바이스와 가상 네트워크에 배포된 Azure VPN Gateway 간에 설정됩니다. 이 연결 형식을 사용하면 사용자가 권한을 부여하는 모든 온-프레미스 리소스가 가상 네트워크에 액세스할 수 있습니다. 온-프레미스 VPN 디바이스 및 Azure VPN Gateway 간의 통신은 인터넷을 통해 암호화된 터널로 전송됩니다. 자세한 내용은 [사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti)을 참조하세요.
-- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 사용자 네트워크와 Azure 간에 설정됩니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. 자세한 내용은 [ExpressRoute](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ExpressRoute)를 참조하세요.
+- **지점 및 사이트 간 VPN(가상 사설망):** 가상 네트워크와 사용자 네트워크의 단일 컴퓨터 간에 설정됩니다. 가상 네트워크와 연결하려는 각 컴퓨터는 연결을 구성해야 합니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 컴퓨터와 가상 네트워크 간의 통신은 인터넷을 통한 암호화된 터널로 전송됩니다. 자세한 내용은 [지점-사이트 간 VPN](../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json#)을 참조하세요.
+- **사이트 간 VPN:** 온-프레미스 VPN 디바이스와 가상 네트워크에 배포된 Azure VPN Gateway 간에 설정됩니다. 이 연결 형식을 사용하면 사용자가 권한을 부여하는 모든 온-프레미스 리소스가 가상 네트워크에 액세스할 수 있습니다. 온-프레미스 VPN 디바이스 및 Azure VPN Gateway 간의 통신은 인터넷을 통해 암호화된 터널로 전송됩니다. 자세한 내용은 [사이트 간 VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti)을 참조하세요.
+- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 사용자 네트워크와 Azure 간에 설정됩니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. 자세한 내용은 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="filter-network-traffic"></a>네트워크 트래픽 필터링
 
