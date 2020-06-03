@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744073"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118379"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
@@ -32,13 +32,6 @@ A: Azure Synapse는 BI, AI 및 지속적인 인텔리전스를 위한 통합 데
 - 모든 계층의 작업 영역 활동에서 발생하는 이벤트를 쉽게 모니터링하고 빠르게 최적화, 대응 및 디버그합니다.
 - 엔진 전체에서 메타데이터를 관리합니다. Spark 테이블을 만듭니다. 그러면 Azure Synapse 데이터베이스에서 자동으로 사용할 수 있습니다.
 - 통합 사용자 환경을 통해 데이터와 상호 작용합니다. Synapse Studio는 빅 데이터 개발자, 데이터 엔지니어, DBA, 데이터 분석가 및 데이터 과학자를 동일한 플랫폼에 제공합니다.
-
-### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>Q: Azure Synapse Analytics를 시작하려면 어떻게 하나요?
-
-A: Azure Synapse Analytics 사용을 시작하려면 리소스 공급자 목록에서 *Microsoft.Synapse*를 선택하여 [Azure Synapse 리소스 공급자를 등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)합니다. 그런 다음, [Synapse 작업 영역](https://portal.azure.com)을 만들고(무료) 해당 작업 영역에서 원하는 리소스를 만듭니다. 간단한 사용 사례를 안내하는 [Synapse SQL 풀 만들기](quickstart-create-sql-pool-portal.md) 또는 [작업 영역 만들기](quickstart-create-workspace.md)와 같은 빠른 시작 자습서 중 하나를 수행할 수 있습니다. 또한 Notebook 및 SQL 스크립트 샘플은 [리포지토리](https://github.com/Azure-Samples/Synapse)에서 찾을 수 있습니다. 퍼블릭 데이터 세트에 연결해야 하는 경우 다음 특성을 사용하여 새 연결된 서비스를 만듭니다.
-
-- azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (write **""** )
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>Q: Azure Synapse Analytics의 주요 구성 요소는 무엇인가요?
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388573"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310583"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
@@ -36,13 +36,13 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |오스트리아|AT|
 |벨기에|BE|
 |브라질|BR|
-|Canada|CA|
+|캐나다|CA|
 |칠레|CL|
 |덴마크|DK|
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩 특별 행정구|HK|
+|홍콩 특별행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -65,7 +65,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |스위스|CH|
 |대만|TW|
 |터키|TR|
-|United Kingdom|GB|
+|영국|GB|
 |미국|US|
 
 
@@ -79,19 +79,19 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|Canada|영어|en-CA|
-|Canada|프랑스어|fr-CA|
+|캐나다|영어|en-CA|
+|캐나다|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|
+|홍콩 특별행정구|중국어(번체)|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|한국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -110,6 +110,6 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |스위스|독일어|de-CH|
 |대만|중국어(번체)|zh-TW|
 |터키|터키어|tr-TR|
-|United Kingdom|영어|en-GB|
-|미국|영어|ko-KR|
+|영국|영어|en-GB|
+|미국|영어|en-US|
 |미국|스페인어|es-US|
