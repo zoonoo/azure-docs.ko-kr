@@ -6,8 +6,6 @@
   items:
     - name: DSVM(Data Science Virtual Machine)이란?
       href: overview.md
-    - name: Geo AI Data Science Virtual Machine이란?
-      href: geo-ai-dsvm-overview.md
     - name: Data Science Virtual Machine에 포함된 도구
       href: tools-included.md
 - name: 빠른 시작
@@ -17,8 +15,6 @@
       href: provision-vm.md
     - name: Ubuntu Data Science Virtual Machine 만들기
       href: dsvm-ubuntu-intro.md
-    - name: Geo AI Data Science Virtual Machine 만들기
-      href: provision-geo-ai-dsvm.md
 - name: 개념
   items:
     - name: 심층 학습 및 AI 프레임워크
@@ -45,8 +41,6 @@
       href: vm-do-ten-things.md
     - name: Linux Data Science Virtual Machine 사용
       href: linux-dsvm-walkthrough.md
-    - name: Geo AI Data Science Virtual Machine 사용
-      href: use-geo-ai-dsvm.md
     - name: 자동 크기 조정된 Data Science Virtual Machine 풀 만들기
       href: dsvm-pools.md
     - name: Active Directory와 통합할 수 있습니다.
