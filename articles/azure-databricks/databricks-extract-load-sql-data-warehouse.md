@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382733"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018721"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -370,7 +370,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > [!NOTE]
    > 이 샘플에서는 Azure Synapse가 액세스 키를 사용하여 Blob 스토리지의 데이터에 액세스하도록 하는 `forward_spark_azure_storage_credentials` 플래그를 사용합니다. 이것이 유일하게 지원되는 인증 방법입니다.
    >
-   > Azure Blob Storage가 가상 네트워크를 선택하도록 제한되면 Azure Synapse에 [액세스 키 대신 관리되는 서비스 ID](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)가 필요합니다. 이렇게 하면 "이 요청은 작업을 수행할 권한이 없습니다." 오류가 발생합니다.
+   > Azure Blob Storage가 가상 네트워크를 선택하도록 제한되면 Azure Synapse에 [액세스 키 대신 관리되는 서비스 ID](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)가 필요합니다. 이렇게 하면 "이 요청은 작업을 수행할 권한이 없습니다." 오류가 발생합니다.
 
 6. SQL 데이터베이스에 연결하여 **SampleTable**이라는 데이터베이스가 있는지 확인합니다.
 

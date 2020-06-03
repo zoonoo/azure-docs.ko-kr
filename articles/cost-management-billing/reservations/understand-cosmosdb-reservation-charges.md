@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 81818cc5ba2af1f9f0f70f7aa27fe62ed2c90c77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065678"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015950"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
@@ -117,7 +117,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure 예약이란?](save-compute-costs-reservations.md)  
 * [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../sql-database/sql-database-reserved-capacity.md)  
+* [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Azure용 예약 관리](manage-reserved-vm-instance.md)  
 * [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)  
 * [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)

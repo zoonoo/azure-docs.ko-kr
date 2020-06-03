@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587343"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310600"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
 
@@ -48,7 +48,7 @@ ms.locfileid: "83587343"
   * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
   * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
 > [!NOTE]
-> 중국어 (중국), 중국어 (홍콩), 중국어 (대만), 일본어 및 한국어의 경우 한 단어는 두 문자로 계산 됩니다. 
+> 중국어 (중국), 중국어 (홍콩 특별 행정구), 중국어 (대만), 일본어 및 한국어의 경우 한 단어는 두 문자로 계산 됩니다. 
 
 ## <a name="submit-synthesis-requests"></a>합성 요청 제출
 
@@ -56,9 +56,9 @@ ms.locfileid: "83587343"
 
 **HTTP 상태 코드** 는 일반적인 오류를 표시 합니다.
 
-| API | HTTP 상태 코드 | 설명 | 제안 |
+| API | HTTP 상태 코드 | Description | 제안 |
 |-----|------------------|-------------|----------|
-| 만들기 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
+| 생성 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
 |        | 400 | 이 영역에 대 한 **표준** 음성 구독만 유효 합니다. | 음성 구독 키를 "표준" 가격 책정 계층으로 변경 합니다. |
 |        | 400 | Azure 계정에 대 한 2만 요청 제한을 초과 합니다. 새 요청을 제출 하기 전에 일부 요청을 제거 하세요. | 서버는 각 Azure 계정에 대해 최대 2만 개의 요청을 유지 합니다. 새 요청을 제출 하기 전에 일부 요청을 삭제 합니다. |
 |        | 400 | 이 모델은 음성 합성에서 사용할 수 없습니다. {modelID}. | {ModelID}의 상태가 올바른지 확인 하세요. |
@@ -71,7 +71,7 @@ ms.locfileid: "83587343"
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
 | 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
-| 삭제    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패**한 요청만 삭제할 수 있습니다. |
+| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패**한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정 된 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인 합니다. |
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
@@ -114,7 +114,7 @@ ms.locfileid: "83587343"
 
 * [빠른 시작: Python](https://aka.ms/long-audio-python)
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 긴 오디오 API에 대 한 샘플 코드는 GitHub에서 사용할 수 있습니다.
 
 * [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)

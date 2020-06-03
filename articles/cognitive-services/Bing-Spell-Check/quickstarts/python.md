@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 7f1da47d913b76edb42aab82f588a2b218eac854
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ce0e72545c8ecd82b78d437f2c4939aff6930c3d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869338"
+ms.locfileid: "83993561"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
@@ -56,9 +56,9 @@ ms.locfileid: "83869338"
 
 2. 요청에 대한 매개 변수를 추가합니다. 
 
-   a. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
+   1. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 시장 코드는 요청을 수행한 국가/지역의 코드입니다. 
 
-   b. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다. 
+   1. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음) 중 하나일 수 있습니다. 
  
     ```python
     params = {
