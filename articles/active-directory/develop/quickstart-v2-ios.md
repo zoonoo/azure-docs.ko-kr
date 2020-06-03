@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536134"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169851"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -126,12 +126,12 @@ ms.locfileid: "81536134"
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. [Azure AD 국가별 클라우드](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints)에 대한 앱을 빌드하는 경우 'let kGraphEndpoint' 및 'let kAuthority'로 시작하는 줄을 올바른 엔드포인트로 바꿉니다. 글로벌 액세스의 경우 기본값을 사용합니다.
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 > 1. 다른 엔드포인트는 [여기에](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints) 설명되어 있습니다. 예를 들어 Azure AD 독일에서 빠른 시작을 실행하려면 다음을 사용합니다.
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```

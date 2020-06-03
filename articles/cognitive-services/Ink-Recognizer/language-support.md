@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721746"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309699"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
 
@@ -70,7 +70,7 @@ ms.locfileid: "67721746"
 | 러시아어                                    |     `ru-RU`     |
 | 스코틀랜드 게일어                            |     `gd-GB`     |
 | 북부 소토어                           |    `nso-ZA`     |
-| 세르비아어(키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
+| 세르비아어 (키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
 | 세르비아어 (키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
 | 세르비아어(키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
 | 세르비아어 (라틴 문자, 보스니아 헤르체고비나)    |  `sr-Latn-BA`   |

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68950242"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021605"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>자습서: Azure Data Catalog에서 데이터 자산 등록
 
@@ -39,7 +39,7 @@ ms.locfileid: "68950242"
 
 ### <a name="register-a-data-source"></a>데이터 원본 등록
 
-이 자습서에서는 [Azure SQL 데이터베이스 샘플](../sql-database/sql-database-single-database-get-started.md)의 데이터 자산(테이블)을 등록하지만 사용자의 역할과 관련된 친숙한 데이터로 작업하는 것을 선호하는 경우 지원되는 모든 데이터 원본을 사용할 수 있습니다. 지원되는 데이터 원본 목록은 [지원되는 데이터 원본](data-catalog-dsr.md)을 참조하세요.
+이 자습서에서는 [Azure SQL 데이터베이스 샘플](../azure-sql/database/single-database-create-quickstart.md)의 데이터 자산(테이블)을 등록하지만 사용자의 역할과 관련된 친숙한 데이터로 작업하는 것을 선호하는 경우 지원되는 모든 데이터 원본을 사용할 수 있습니다. 지원되는 데이터 원본 목록은 [지원되는 데이터 원본](data-catalog-dsr.md)을 참조하세요.
 
 이 자습서에서 사용하는 Azure SQL 데이터베이스 이름은 *RLSTest*입니다.
 

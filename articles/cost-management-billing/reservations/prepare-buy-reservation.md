@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 6b01253d12b67c327bc67416ca569ccb7ee469ae
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780643"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019044"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -72,7 +72,7 @@ Azure Portal, API, PowerShell, CLI에서 예약을 구매할 수 있습니다. �
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [소프트웨어 플랜](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [스토리지](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [SQL 데이터베이스](../../sql-database/sql-database-reserved-capacity.md)
+- [SQL 데이터베이스](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
