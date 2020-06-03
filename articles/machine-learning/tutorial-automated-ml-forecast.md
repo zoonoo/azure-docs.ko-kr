@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 05/19/2020
-ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656557"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118887"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -229,7 +229,7 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
 + 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
-+ [기능화](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요.
++ [기능화](how-to-configure-auto-features.md#featurization)에 대해 자세히 알아보세요.
 + [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보
 
 >[!NOTE]

@@ -3,12 +3,12 @@ title: '자습서: Azure Portal에서 쿼리 관리'
 description: 이 자습서에서는 Resource Graph 쿼리를 만들고 Azure Portal의 다른 사용자와 새 쿼리를 공유합니다.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637757"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148024"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>자습서: Azure Portal에서 Azure Resource Graph 쿼리 만들기 및 공유
 
@@ -44,7 +44,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
    **쿼리 실행**을 선택하여 아래쪽 창에서 쿼리 결과를 확인합니다.
 
-   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-virtual-machines-by-os-type)을 참조하세요.
+   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
 
 
 1. **저장** 또는 **다른 이름으로 저장**을 선택하고, 이름으로 **OS별로 VM 수 계산**을 입력하고, 유형을 **프라이빗 쿼리**로 그대로 두고, **쿼리 저장** 창의 아래쪽에서 **저장**을 선택합니다. 탭 제목이 **쿼리 1**에서 **OS별로 VM 수 계산**으로 변경됩니다.
@@ -76,7 +76,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
     
    **쿼리 실행**을 선택하여 아래쪽 창에서 쿼리 결과를 확인합니다.
 
-   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-virtual-machines-by-os-type)을 참조하세요.
+   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
 
 1. **저장** 또는 **다른 이름으로 저장**을 선택합니다.
 
