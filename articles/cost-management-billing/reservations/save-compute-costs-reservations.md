@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: ae94a5c8d7e9ff93098e85535aea3699206b9e03
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: b41435cb0b337edc2d73820c75da847913326315
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626960"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015984"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -127,6 +127,6 @@ Windows 가상 머신 및 SQL Database의 경우, 예약 할인은 소프트웨�
 - 다음과 같은 서비스 플랜 예약에 대해 자세히 알아보세요.
     - [Azure Reserved VM Instances를 사용하는 Virtual Machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB 예약 용량을 사용하는 Azure Cosmos DB 리소스](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [Azure SQL Database 예약 용량을 사용하는 SQL Database 컴퓨팅 리소스](../../sql-database/sql-database-reserved-capacity.md) 다음과 같은 소프트웨어 플랜 예약에 대해 자세히 알아보세요.
+    - [Azure SQL Database 예약 용량을 사용하는 SQL Database 컴퓨팅 리소스](../../azure-sql/database/reserved-capacity-overview.md) 다음과 같은 소프트웨어 플랜 예약에 대해 자세히 알아보세요.
     - [Azure 예약의 Red Hat 소프트웨어 플랜](../../virtual-machines/linux/prepay-rhel-software-charges.md)
     - [Azure 예약의 SUSE 소프트웨어 플랜](../../virtual-machines/linux/prepay-suse-software-charges.md)

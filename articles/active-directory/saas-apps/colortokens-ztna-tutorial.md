@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315d8bce655cdf21160e3b4c75d2182ff41200a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 37d3127ed9082c73218aede7daf054f0bfe3df2c
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662082"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-colortokens-ztna"></a>자습서: ColorTokens ZTNA와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -82,11 +82,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<COLORMASTER_HOST>/colormaster/api/v1/<TENANT_NAME>/saml/login?resourceId=<RESOURCEID>&iwa=<TRUE/FALSE>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<tenantname>.spectrum.colortokens.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<COLORMASTER_HOST>.com/<TENANT_NAME>` 패턴을 사용하는 URL을 입력합니다.
-
-    다. **회신 URL** 텍스트 상자에서 `https://<COLORMASTER_HOST>.com/<TENANT_NAME>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값을 얻으려면 [ColorTokens ZTNA 클라이언트 지원 팀](mailto:support@colortokens.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
