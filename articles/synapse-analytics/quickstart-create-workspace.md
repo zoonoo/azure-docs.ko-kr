@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656147"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112858"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>빠른 시작: Azure Synapse Analytics 작업 영역(미리 보기) 만들기
 
@@ -25,9 +25,6 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="register-azure-synapse-resource-provider"></a>Azure Synapse 리소스 공급자 등록
-아직 등록하지 않은 경우 Azure Synapse 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. Azure Synapse 리소스 공급자를 등록하려면 [Azure 리소스 공급자 및 유형](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요. 등록할 때 리소스 공급자 목록에서 *Microsoft.Synapse*를 선택합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

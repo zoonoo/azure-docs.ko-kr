@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061933"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022780"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>CLI를 사용하여 Azure SQL Database 탄력적 풀을 장애 조치(failover) 그룹에 추가
 
@@ -61,4 +61,4 @@ az group delete --name $resource
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
 
-추가 SQL Database Azure CLI 스크립트 샘플은 [Azure SQL Database Azure CLI 스크립트](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
+추가 SQL Database Azure CLI 스크립트 샘플은 [Azure SQL Database Azure CLI 스크립트](../../azure-sql/database/az-cli-script-samples-content-guide.md)에서 찾을 수 있습니다.

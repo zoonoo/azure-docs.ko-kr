@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701562"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248858"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine)은 여러 [Hystrix](https://github.com/Netflix/Hystrix) 메트릭 스트림을 집계하는 데 널리 사용되므로 Hystrix 대시보드를 사용하여 단일 뷰에서 스트림을 모니터링할 수 있습니다. 이 자습서에서는 Azure Spring Cloud에서 이를 사용하는 방법을 설명합니다.
@@ -59,7 +59,7 @@ az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/
 퍼블릭 엔드포인트 또는 프라이빗 테스트 엔드포인트를 사용하여 인증합니다.
 
 ### <a name="using-public-endpoints"></a>퍼블릭 엔드포인트 사용
-브라우저에서 `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` 경로를 사용하여 hystrix-turbine에 액세스합니다.  다음 그림은 이 앱에서 실행되는 Hystrix 대시보드를 보여 줍니다.
+브라우저에서 `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` 경로를 사용하여 hystrix-turbine에 액세스합니다.  다음 그림은 이 앱에서 실행되는 Hystrix 대시보드를 보여 줍니다.
 
 ![Hystrix 대시보드](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
