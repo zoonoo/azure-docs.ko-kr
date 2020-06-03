@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656588"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119029"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -220,11 +220,9 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **회귀** > **선형 회귀**를 선택하여 파이프라인 캔버스로 끌어서 놓습니다.
 
-1. **선형 회귀** 모듈의 출력을 **모델 학습** 모듈의 왼쪽 입력에 연결합니다.
-
 1. 모듈 팔레트에서 **모듈 학습**(Module training) 섹션을 펼치고 **모델 학습** 모듈을 캔버스로 끌어서 놓습니다.
 
-1. **모델 학습** 모듈을 선택하고 파이프라인 캔버스로 끌어옵니다.
+1. **선형 회귀** 모듈의 출력을 **모델 학습** 모듈의 왼쪽 입력에 연결합니다.
 
 1. **데이터 분할** 모듈의 학습 데이터 출력(왼쪽 포트)을 **모델 학습** 모듈의 오른쪽 입력에 연결합니다.
     

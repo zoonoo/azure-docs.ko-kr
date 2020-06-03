@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869811"
+ms.locfileid: "83995976"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사
 
@@ -23,7 +23,7 @@ ms.locfileid: "83869811"
 
 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java)에 제공됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * JDK(Java Development Kit) 7 이상
 
@@ -59,9 +59,9 @@ ms.locfileid: "83869811"
 
 1. `check()`라는 함수를 만들고 API 요청을 만들어서 보냅니다. 이 함수 내에서 다음 단계에서 지정한 코드를 추가합니다. 요청 매개 변수에 대한 문자열을 만듭니다.
 
-   a. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 
+   1. `=` 연산자를 사용하여 `mkt` 매개 변수에 시장 코드를 할당합니다. 
 
-   b. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 
+   1. `&` 연산자를 사용하여 `mode` 매개 변수를 추가한 다음, 맞춤법 검사 모드를 할당합니다. 
 
    ```java
    public static void check () throws Exception {

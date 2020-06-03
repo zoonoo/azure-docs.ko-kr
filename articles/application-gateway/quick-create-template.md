@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604896"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170497"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Resource Manager 템플릿
 
@@ -26,7 +26,7 @@ ms.locfileid: "81604896"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -60,7 +60,9 @@ Azure에 Resource Manager 템플릿 배포:
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만들고, 가상 머신 관리자의 사용자 이름 및 암호를 입력합니다.
-3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포를 완료하는 데 20분 이상 걸릴 수 있습니다.
+3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+
+   배포를 완료하는 데 20분 이상 걸릴 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

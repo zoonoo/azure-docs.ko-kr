@@ -5,22 +5,13 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183388"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297493"
 ---
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. **애플리케이션**을 선택합니다.
-1. *webapi1* 애플리케이션을 선택하여 해당 **속성** 페이지를 엽니다.
-1. **게시된 범위**를 선택합니다. 게시된 범위는 클라이언트 애플리케이션에 웹 API에 대한 특정 권한을 부여하는 데 사용할 수 있습니다.
-1. **범위**에 대해 `demo.read`를 입력하고, **설명**에 대해 `Read access to the web API`를 입력합니다.
-1. **범위**에 대해 `demo.write`를 입력하고, **설명**에 대해 `Write access to the web API`를 입력합니다.
-1. **저장**을 선택합니다.
-
 #### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **앱 등록(미리 보기)** 를 선택합니다.
@@ -37,3 +28,12 @@ ms.locfileid: "78183388"
     1. **범위 이름**: `demo.write`
     1. **관리자 동의 표시 이름**: `Write access to demo API`
     1. **관리자 동의 설명**: `Allows write access to the demo API`
+
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
+
+1. **애플리케이션**을 선택합니다.
+1. *webapi1* 애플리케이션을 선택하여 해당 **속성** 페이지를 엽니다.
+1. **게시된 범위**를 선택합니다. 게시된 범위는 클라이언트 애플리케이션에 웹 API에 대한 특정 권한을 부여하는 데 사용할 수 있습니다.
+1. **범위**에 대해 `demo.read`를 입력하고, **설명**에 대해 `Read access to the web API`를 입력합니다.
+1. **범위**에 대해 `demo.write`를 입력하고, **설명**에 대해 `Write access to the web API`를 입력합니다.
+1. **저장**을 선택합니다.

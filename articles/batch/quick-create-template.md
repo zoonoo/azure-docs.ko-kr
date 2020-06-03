@@ -4,22 +4,20 @@ description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 �
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694126"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266902"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 배치 계정 만들기
 
-컴퓨팅 리소스(컴퓨팅 노드의 풀) 및 Batch 작업을 만들려면 배치 계정이 필요합니다. Azure Storage 계정을 배치 계정과 연결할 수 있습니다. 이는 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다.
-
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 스토리지를 비롯한 배치 계정을 만드는 방법을 보여 줍니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+컴퓨팅 리소스(컴퓨팅 노드의 풀) 및 Batch 작업을 만들려면 배치 계정이 필요합니다. Azure Storage 계정을 배치 계정과 연결할 수 있습니다. 이는 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 스토리지를 비롯한 배치 계정을 만드는 방법을 보여 줍니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 활성 Azure 구독이 있어야 합니다.
 
@@ -29,9 +27,9 @@ ms.locfileid: "83694126"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 

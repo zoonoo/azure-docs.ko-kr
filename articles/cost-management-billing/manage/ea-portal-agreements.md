@@ -3,16 +3,16 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648189"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298145"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -43,7 +43,7 @@ ms.locfileid: "83648189"
 
 **만료됨** - EA 등록이 기업계약 종료 날짜에 도달하면 등록이 만료됩니다. EA 고객이 기간 연장을 옵트아웃했으며 모든 서비스가 비활성화됩니다.
 
-2019년 8월 1일부터는 Azure 상업용 고객에 대한 새 옵트아웃 양식이 승인되지 않습니다. 대신 모든 등록이 무기한으로 이동됩니다. Azure 서비스 사용을 중지하려면 [Azure EA Portal](https://portal.azure.com)에서 구독을 종료하세요. 또는 파트너가 https://www.explore.ms 에서 종료 요청을 제출할 수 있습니다. 정부 계약 유형을 사용하는 고객은 변경 사항이 없습니다.
+2019년 8월 1일부터는 Azure 상업용 고객에 대한 새 옵트아웃 양식이 승인되지 않습니다. 대신 모든 등록이 무기한으로 이동됩니다. Azure 서비스 사용을 중지하려면 [Azure Portal](https://portal.azure.com)에서 구독을 종료하세요. 또는 파트너가 https://www.explore.ms 에서 종료 요청을 제출할 수 있습니다. 정부 계약 유형을 사용하는 고객은 변경 사항이 없습니다.
 
 **이전** - 이전 상태는 연결된 계정 및 서비스가 새 등록으로 이전된 등록에 적용됩니다. 갱신하는 동안 새 등록 번호가 생성되면 등록이 자동으로 전송되지 않습니다. 이전의 등록 번호는 자동 전송에 대한 고객의 갱신 요청에 포함되어야 합니다.
 

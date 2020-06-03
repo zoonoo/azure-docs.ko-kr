@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598398"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217292"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "82598398"
 
 활성 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 후에 시작할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 없음
 
@@ -29,13 +29,13 @@ ms.locfileid: "82598398"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): 자격 증명 모음을 만듭니다.
+- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): 자격 증명 모음을 만듭니다.
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): 자격 증명 모음의 백업 중복 설정을 구성합니다.
 
 템플릿에는 자격 증명 모음의 백업 구성에 대한 선택적 매개 변수가 포함되어 있습니다. 스토리지 중복 설정은 LRS(로컬 중복 스토리지) 또는 GRS(지역 중복 스토리지)입니다. 자세한 내용은 [스토리지 중복 설정](../backup/backup-create-rs-vault.md#set-storage-redundancy)을 참조하세요.
