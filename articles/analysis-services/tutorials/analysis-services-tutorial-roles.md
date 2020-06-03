@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454257"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016392"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -59,7 +59,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
     ![SSMS에서 연결](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > [Active Directory - MFA 지원을 통한 유니버설 인증]을 선택하는 것이 좋습니다. 이 인증 유형은 [비대화형 및 다단계 인증](../../sql-database/sql-database-ssms-mfa-authentication.md)을 지원합니다. 
+    > [Active Directory - MFA 지원을 통한 유니버설 인증]을 선택하는 것이 좋습니다. 이 인증 유형은 [비대화형 및 다단계 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 지원합니다. 
 
 3. **개체 탐색기**에서 서버 개체를 펼쳐서 살펴봅니다. 서버 속성을 마우스 오른쪽 단추를 클릭하여 확인합니다.
    

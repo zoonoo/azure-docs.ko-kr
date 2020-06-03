@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418731"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022115"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * Azure Storage 계정. Blob 스토리지를 원본 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 * Azure Storage Explorer. 이 도구를 설치하려면 [Azure Storage Explorer](https://storageexplorer.com/)를 참조하세요.
-* Azure SQL Database. 데이터베이스를 싱크 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
+* Azure SQL Database. 데이터베이스를 싱크 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 * Visual Studio. 이 문서에서는 Visual Studio 2019를 사용합니다.
 * Azure .NET SDK. [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 
