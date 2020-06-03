@@ -2,19 +2,19 @@
 title: Azure SQL Edge(미리 보기)에서 데이터 변경 내용 추적
 description: Azure SQL Edge(미리 보기)에서 변경 내용 추적 및 변경 데이터 캡처에 대해 알아보기
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a91ed5d4763aa521c9f6ed913dc532b08e37039f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3e3a6c3e171383d1812f63b945735d1b82f70b9c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594452"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235093"
 ---
 # <a name="tracking-data-changes-in-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 데이터 변경 내용 추적
 

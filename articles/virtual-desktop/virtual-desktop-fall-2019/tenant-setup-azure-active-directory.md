@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124400"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234115"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에서 테넌트 만들기
 
@@ -152,9 +152,6 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>다음 단계
-
-자세히 알아보려면 [Windows Virtual Desktop 학습 경로](https://docs.microsoft.com/learn/paths/m365-wvd/)를 확인하세요.
-
 테넌트를 만든 후 Azure Active Directory에서 서비스 주체를 만들고 Windows Virtual Desktop 내에서 역할을 할당해야 합니다. 이 서비스 주체를 사용하면 Windows Virtual Desktop Azure Marketplace 제품을 배포하여 호스트 풀을 만들 수 있습니다. 호스트 풀에 대해 자세히 알아보려면 Windows Virtual Desktop에서 호스트 풀을 만드는 방법에 대한 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]

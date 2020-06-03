@@ -2,19 +2,19 @@
 title: Azure SQL Edge(미리 보기)에서 Azure Stream Analytics Edge 작업 사용
 description: Azure SQL Edge(미리 보기)에서 Stream Analytics 작업을 사용하는 방법 알아보기
 keywords: SQL Edge, stream analytics,
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 3b57cb8cae80381a6c2cd88358dd9284ba56c919
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594522"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233149"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>SQL Edge에서 Azure Stream Analytics 작업 사용
 

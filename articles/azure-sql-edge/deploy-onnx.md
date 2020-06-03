@@ -2,19 +2,19 @@
 title: Azure SQL Edge(미리 보기)에서 ONNX를 통한 배포 및 예측 수행
 description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge(미리 보기)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 기본 PREDICT를 실행하는 방법에 대해 알아봅니다.
 keywords: SQL Edge 배포
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: f0b64dd9f752a2d574a04022c84eae05d9ff6445
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 66e2fb663d14ed2590af9c0cc62e6dad119d086f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594662"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233254"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 ONNX 모델을 통한 배포 및 예측 수행
 
@@ -384,7 +384,7 @@ AS (
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV
-FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
+FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p
 ```
 
 ## <a name="next-steps"></a>다음 단계

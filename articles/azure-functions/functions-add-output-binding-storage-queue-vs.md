@@ -4,12 +4,12 @@ description: Visual Studio를 사용하여 C# 클래스 라이브러리 함수�
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74849210"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235364"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "74849210"
 
 이 문서를 시작하기 전에 다음을 수행해야 합니다. 
 
- - [Visual Studio 빠른 시작의 1부](./functions-create-first-function-vs-code.md)를 완료합니다. 
+ - [Visual Studio 빠른 시작의 1부](./functions-create-your-first-function-visual-studio.md)를 완료합니다. 
 
 - Visual Studio에서 Azure 구독에 로그인합니다.
 
