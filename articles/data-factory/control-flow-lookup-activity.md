@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418003"
@@ -54,10 +54,10 @@ ms.locfileid: "81418003"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | Type | 필수 여부
+Name | Description | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 해당 하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 세부 정보를 가져옵니다. | 키/값 쌍 | 예
+source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | 부울 | 아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
@@ -106,9 +106,9 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [Azure Data Factory를 사용하여 여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
 
 ### <a name="pipeline"></a>파이프라인
-이 파이프라인은 조회 및 복사 작업을 포함하고 있습니다. 
+이 파이프라인은 조회 및 복사 작업을 포함합니다. 
 
-- 조회 작업은 Azure Blob storage의 위치를 참조 하는 **LookupDataset**을 사용 하도록 구성 됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
+- 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset**를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
 - 복사 작업은 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. **SourceDataset**의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
 
 ```json
@@ -190,7 +190,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>복사 작업의 **원본** 데이터 세트
-**원본** 데이터 집합은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. 복사 작업은 이 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **sink** 속성을 통해 지정합니다. 
+**원본** 데이터 세트는 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. 복사 작업은 이 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **sink** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -307,4 +307,4 @@ Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 - [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)

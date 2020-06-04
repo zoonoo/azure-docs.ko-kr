@@ -17,7 +17,7 @@ ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025121"
@@ -28,7 +28,7 @@ Azure Sentinel에 연결된 Microsoft 보안 솔루션(예: Microsoft Cloud App 
 
 이 문서의 지침에 따라, 연결된 Microsoft 보안 솔루션에서 경고가 트리거될 때마다 인시던트가 자동으로 생성되도록 Azure Sentinel을 쉽게 구성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 보안 서비스 경고에서 인시던트가 생성되려면 [Microsoft 보안 솔루션을 연결](connect-data-sources.md#data-connection-methods)해야 합니다.
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Microsoft 보안 인시던트 생성 분석 규칙 사용

@@ -9,7 +9,7 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437499"
@@ -29,7 +29,7 @@ ms.locfileid: "80437499"
 > * VM에 대한 복제 사용
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오를 완료하려면:
 

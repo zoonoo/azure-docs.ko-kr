@@ -17,7 +17,7 @@ ms.author: mazha
 ms.custom: has-adal-ref
 ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82611469"
@@ -74,7 +74,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  필요에 따라 ** &lt;꺾쇠 괄호&gt;** 를 포함 하 여 자리 표시자를 사용자 고유의 값으로 바꾸어야 합니다.
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
 
     ```csharp
     //Tenant app constants

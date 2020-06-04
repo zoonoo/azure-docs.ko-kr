@@ -16,7 +16,7 @@ ms.date: 11/17/2016
 ms.author: allensu
 ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148106"
@@ -216,7 +216,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --public-ip-address myPublicIP3
         ```
 
-    - **기존 IP 구성에 리소스 연결** 공용 IP 주소 리소스는 아직 연결 된 리소스가 없는 IP 구성에만 연결할 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
+    - **기존 IP 구성에 리소스 연결** 공용 IP 주소 리소스는 아직 연결한 리소스가 없는 IP 구성에만 연결될 수 있습니다. 다음 명령을 입력하면 IP 구성에 연결된 공용 IP 주소가 있는지 여부를 확인할 수 있습니다.
 
         ```azurecli
         az network nic ip-config list \
@@ -244,7 +244,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
         --allocation-method Static
         ```
     
-        다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IPConfig-3*이라는 기존 ip 구성에 연결 합니다.
+        *IPConfig 3*이라는 기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
     
         ```azurecli
         az network nic ip-config update \

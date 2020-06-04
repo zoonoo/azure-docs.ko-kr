@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536882"
@@ -25,7 +25,7 @@ ms.locfileid: "81536882"
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
    
    ![Azure Portal에서 새로 만들기, 데이터, 스토리지 선택](./media/export-stream-analytics/030.png)
 2. 컨테이너 만들기
@@ -58,7 +58,7 @@ ms.locfileid: "81536882"
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
-2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. 이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 Visual C#/클라우드/Microsoft Azure SDK for .NET 가져오기를 엽니다.
+2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -89,13 +89,13 @@ ms.locfileid: "81536882"
 
 ### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
 
-**날짜 형식을 YYYY-MM-DD (대시 포함)로 설정 해야 합니다.**
+**날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
 전위 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-이 예제에 대한 설명:
+이 예제에서:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
 * `1234...`는 **대시를 생략한**Application Insights 리소스의 계측 키입니다. 
@@ -107,7 +107,7 @@ ms.locfileid: "81536882"
 > 
 
 ## <a name="add-new-output"></a>새 출력 추가
-이제 **출력** > **추가**> 작업을 선택 합니다.
+이제 작업 > **출력** > **추가**를 선택합니다.
 
 ![](./media/export-stream-analytics/SA006.png)
 

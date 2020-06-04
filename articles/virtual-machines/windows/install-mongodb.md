@@ -11,15 +11,15 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: a5ba7d7fce3f3eabd223956ca8d9cc824fbd0c5f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869446"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
-[MongoDB](https://www.mongodb.org)는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2016 VM(가상 머신)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
+[MongoDB](https://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2016 VM(가상 머신)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 MongoDB를 설치 및 구성하기 전에 VM을 만들고, 데이터 디스크를 추가해야 합니다. 다음 문서를 참조하여 VM을 만들고 데이터 디스크를 추가하세요.
 
 * [Azure Portal](quick-create-portal.md) 또는 [Azure PowerShell](quick-create-powershell.md)을 사용하여 Windows Server VM을 만듭니다.
@@ -41,7 +41,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
    * **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *https://\*.mongodb.com*을 추가하고 대화 상자를 닫습니다.
      
      ![Internet Explorer 보안 설정 구성](./media/install-mongodb/configure-internet-explorer-security.png)
-4. [MongoDB - 다운로드](https://www.mongodb.com/downloads) 페이지(https://www.mongodb.com/downloads))로 이동합니다.
+4. [MongoDB - 다운로드](https://www.mongodb.com/downloads) 페이지(https://www.mongodb.com/downloads) )로 이동합니다.
 5. 필요한 경우 **커뮤니티 서버** 버전을 선택한 후 *Windows Server 2008 R2 64비트 이상*의 최신 안정판을 선택합니다. 설치 관리자를 다운로드하려면 **다운로드(msi)** 를 클릭합니다.
    
     ![MongoDB 설치 관리자 다운로드](./media/install-mongodb/download-mongodb.png)
@@ -54,13 +54,13 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
 ## <a name="configure-the-vm-and-mongodb"></a>VM 및 MongoDB 구성
 1. path 변수는 MongoDB 설치 관리자를 통해 업데이트되지 않습니다. path 변수에 MongoDB `bin` 위치가 없으면 MongoDB 실행 파일을 사용할 때마다 전체 경로를 지정해야 합니다. path 변수에 위치를 추가하려면:
    
-   * **시작** 메뉴를 마우스 오른쪽 단추로 클릭 하 고 **시스템**을 선택 합니다.
+   * **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
    * **고급 시스템 설정**을 클릭한 다음 **환경 변수**를 클릭합니다.
-   * **시스템 변수**에서 **Path**를 선택하고 **편집**을 클릭합니다.
+   * **시스템 변수**에서 **경로**를 선택한 다음 **편집**을 클릭합니다.
      
      ![PATH 변수 구성](./media/install-mongodb/configure-path-variables.png)
      
-     MongoDB `bin` 폴더에 경로를 추가합니다. MongoDB는 일반적으로 *C:\Program Files\MongoDB*에 설치 됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
+     MongoDB `bin` 폴더에 경로를 추가합니다. 일반적으로 MongoDB는 *C:\Program Files\MongoDB*에 설치됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin

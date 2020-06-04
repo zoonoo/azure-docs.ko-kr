@@ -139,7 +139,7 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 
 원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 예측 도구 패턴의 기본 사항을 보여 주는 Notebook은 다음을 참조하세요.
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 

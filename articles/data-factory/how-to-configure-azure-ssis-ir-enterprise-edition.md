@@ -12,7 +12,7 @@ ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606168"
@@ -65,6 +65,6 @@ Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고�
 
 ## <a name="next-steps"></a>다음 단계
 
--   [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)
+-   [Azure-SSIS Integration Runtime의 사용자 지정 설치](how-to-configure-azure-ssis-ir-custom-setup.md)
 
 -   [Azure-SSIS Integration Runtime에 대한 유료 또는 라이선스 사용자 지정 구성 요소를 개발하는 방법](how-to-develop-azure-ssis-ir-licensed-components.md)

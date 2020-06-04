@@ -137,7 +137,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 | 로캘 | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
-| <sup>1(sp1)</sup>`ar-EG` | 아랍어(이집트) | `Female` | "ar-예-Hoda" |
+| <sup>1</sup>`ar-EG` | 아랍어(이집트) | `Female` | "ar-예-Hoda" |
 | `ar-SA` | 아랍어(사우디아라비아) | `Male` | "ar-Naayf" |
 | `bg-BG` | 불가리아어 | `Male` |  "bg-BG-Ivan" |
 | `ca-ES` | 카탈로니아어 | `Female` |  "HerenaRUS" |
