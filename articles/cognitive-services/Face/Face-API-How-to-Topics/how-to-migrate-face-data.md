@@ -23,7 +23,7 @@ ms.locfileid: "83120813"
 
 이러한 동일한 마이그레이션 전략이 LargePersonGroup 및 LargeFaceList 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 c #에서 Face .NET 클라이언트 라이브러리를 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 

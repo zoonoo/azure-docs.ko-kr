@@ -19,7 +19,7 @@ ms.locfileid: "82735405"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
-Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는 `PullStream` `PushStream`를 사용 하 여 음성 서비스에 오디오를 스트리밍하 여 여러 참가자를 추가, 제거 및 식별 하는 기능을 통해 모임 및 기타 대화를 높여줄 수 있습니다. 이 항목에서는 Speech SDK (버전 1.8.0 이상)에서 음성 텍스트를 사용 하는 방법을 알고 있어야 합니다. 자세한 내용은 [Speech Services 란?](overview.md)을 참조 하세요.
+Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는를 사용 하 여 음성 서비스에 오디오를 스트리밍하 여 여러 참가자를 추가, 제거 및 식별 하는 기능을 통해 모임 및 기타 대화를 높여줄 수 있습니다 `PullStream` `PushStream` . 이 항목에서는 Speech SDK (버전 1.8.0 이상)에서 음성 텍스트를 사용 하는 방법을 알고 있어야 합니다. 자세한 내용은 [Speech Services 란?](overview.md)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -48,9 +48,9 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는 `PullStrea
 - 음성 서명을 만들기 위한 입력 오디오 웨이브 파일은 16 비트 샘플, 16Khz 샘플 요금 및 단일 채널 (mono) 형식 이어야 합니다.
 - 각 오디오 샘플의 권장 길이는 30 초에서 2 분 사이입니다.
 
-### <a name="sample-code"></a>예제 코드
+### <a name="sample-code"></a>샘플 코드
 
-다음 예제에서는 c #에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 두 가지 방법을 보여 줍니다. "SpeakerVoice"에 대 한 실제 정보, ""에 대 한 웨이브 파일 이름, 및 "YourServiceRegion" (_centralus_ 또는 _eastasia_)의 `{region}` 지역으로 대체 해야 합니다.
+다음 예제에서는 c #에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 두 가지 방법을 보여 줍니다. "SpeakerVoice"에 대 한 실제 정보, ""에 대 한 웨이브 파일 이름, `{region}` 및 "YourServiceRegion" (_centralus_ 또는 _eastasia_)의 지역으로 대체 해야 합니다.
 
 ```csharp
 class Program
@@ -108,8 +108,8 @@ class Program
 
 샘플 코드 하이라이트는 다음과 같습니다.
 
-- 을 사용 `Conversation` 하 여 생성 `SpeechConfig` 된 회의 식별자를 사용 하 여 개체에서 개체 만들기`Guid.NewGuid()`
-- 개체를 `ConversationTranscriber` 만들고와 `JoinConversationAsync()` 대화를 조인 하 여 기록을 시작 합니다.
+- 을 `Conversation` `SpeechConfig` 사용 하 여 생성 된 회의 식별자를 사용 하 여 개체에서 개체 만들기`Guid.NewGuid()`
+- 개체를 만들고 `ConversationTranscriber` 와 대화를 조인 `JoinConversationAsync()` 하 여 기록을 시작 합니다.
 - 관심 있는 이벤트 등록
 - 대화 개체를 사용 하 여 대화에 참가자 추가 또는 제거
 - 오디오 스트리밍

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: f1bad4a8f178358ba33d1a14815b8630b447615a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4af8f90abf2a5581ec18ea550cbc5f1a5df50a4e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680409"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344903"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
 LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.
@@ -26,7 +26,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>올바른 구문을 사용 하 여 template utterance 추가
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 왼쪽 패널에서 **응용 프로그램 성능 향상**의 **패턴** 을 선택 합니다.
 
@@ -51,7 +51,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
 
 [패턴. 모든](luis-concept-entity-types.md) 엔터티는 의도 하지 않은 ' 예 길이 발언 ' [패턴](luis-how-to-model-intent-pattern.md)에서만 유효 합니다. 이 유형의 엔터티는 LUIS가 다양한 길이 및 단어 선택이 포함된 엔터티의 끝을 찾는 데 도움을 줍니다. 이 엔터티는 패턴에 사용되므로 LUIS는 발화 템플릿에서 엔터티의 끝 위치를 알 수 있습니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 
@@ -63,7 +63,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
 
 엔터티에 대 한 패턴을 추가 하려면 _가장 쉬운_ 방법은 의도 세부 정보 페이지에서 패턴을 만드는 것입니다. 이렇게 하면 구문이 예제 utterance와 일치 하 게 됩니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **의도** 목록 페이지에서 utterance 템플릿을 만들 utterance의 의도 이름을 선택 합니다.
 1. 의도 세부 정보 페이지에서 템플릿 utterance 사용할 예제 utterance의 행을 선택 하 고, 상황에 맞는 도구 모음에서 **+ 추가 패턴** 을 선택 합니다.

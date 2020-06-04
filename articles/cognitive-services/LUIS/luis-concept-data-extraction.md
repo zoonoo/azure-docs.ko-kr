@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83682199"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용하여 발화 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
 
 추출 하는 데 가장 어려운 데이터는 정확히 일치 하는 텍스트가 아니므로 기계 학습 데이터입니다. 컴퓨터 학습 [엔터티의](luis-concept-entity-types.md) 데이터 추출은 원하는 데이터를 받을 때까지 [제작 주기의](luis-concept-app-iteration.md) 일부로 포함 되어야 합니다.
@@ -71,7 +71,7 @@ LUIS는 게시 된 [끝점](luis-glossary.md#endpoint)에서 사용자의 uttera
 
 |데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|
-|Intent|문자열|topScoringIntent.intent|“GetStoreInfo”|
+|Intent|String|topScoringIntent.intent|“GetStoreInfo”|
 
 두 개 이상의 의도 점수에 따라 의사 결정 봇 또는 LUIS 호출 앱이 결정 되 면 모든 의도의 점수를 반환 합니다.
 
@@ -133,8 +133,8 @@ Querystring 매개 변수를 설정 `show-all-intents=true` 합니다. 엔드포
 
 |데이터 개체|데이터 형식|데이터 위치|값|점수|
 |--|--|--|--|:--|
-|Intent|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
-|Intent|문자열|intents[1].intent|“None”|0.0168218873|
+|Intent|String|intents[0].intent|“GetStoreInfo”|0.984749258|
+|Intent|String|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
 
@@ -194,9 +194,9 @@ Querystring 매개 변수를 설정 `show-all-intents=true` 합니다. 엔드포
 
 |도메인|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
-|유틸리티|Intent|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|Intent|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
-||Intent|문자열|intents[2].intent|“None”|
+|유틸리티|Intent|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|통신|Intent|String|intents[1].intent|<b>Communication</b>.StartOver”|
+||Intent|String|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터
@@ -247,7 +247,7 @@ LUIS에서 [토큰 지원을](luis-language-support.md#tokenization) 검토 합�
 
 [패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다. 패턴에 사용 되는 엔터티는 패턴을 적용 하기 위해 찾을 수 있어야 합니다.
 
-## <a name="sentiment-analysis"></a>감정 분석
+## <a name="sentiment-analysis"></a>정서 분석
 [게시](luis-how-to-publish-app.md#sentiment-analysis)하는 동안 감정 분석을 구성 하는 경우 LUIS json 응답은 감정 분석을 포함 합니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 ## <a name="key-phrase-extraction-entity-data"></a>키 구문 추출 엔터티 데이터

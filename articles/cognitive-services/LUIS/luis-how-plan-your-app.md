@@ -1,14 +1,14 @@
 ---
 title: 앱 계획-LUIS
 description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 애플리케이션 계획을 만듭니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654117"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340235"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>주제 도메인 및 데이터 추출을 사용 하 여 LUIS 앱 스키마 계획
 

@@ -54,7 +54,7 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
   ![텍스트 - 화면 콘솔 쿼리 매개 변수](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>콘텐츠 유형
+### <a name="content-type"></a>내용 유형
 
 **Content-type**의 경우 차단하려는 콘텐츠 유형을 선택합니다. 이 예제의 경우 기본 **텍스트/일반** 콘텐츠 형식을 사용합니다. **Ocp-Apim-Subscription-Key** 상자에 구독 키를 입력합니다.
 

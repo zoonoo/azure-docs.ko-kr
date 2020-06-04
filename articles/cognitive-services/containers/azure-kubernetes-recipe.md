@@ -311,14 +311,14 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
 1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    언어-프런트 엔드 배포 설정|목적|
+    언어-프런트 엔드 배포 설정|용도|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
 1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    |언어 배포 설정|목적|
+    |언어 배포 설정|용도|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|

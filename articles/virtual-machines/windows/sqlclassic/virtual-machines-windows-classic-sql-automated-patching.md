@@ -15,17 +15,17 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b977c0900178d64f202d4faa122f5d0ef90187c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978077"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014658"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)
 > [!div class="op_single_selector"]
-> * [리소스 관리자](../sql/virtual-machines-windows-sql-automated-patching.md)
-> * [기존](../classic/sql-automated-patching.md)
+> * [리소스 관리자](../../../azure-sql/virtual-machines/windows/automated-patching.md)
+> * [클래식](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -37,9 +37,9 @@ ms.locfileid: "75978077"
 자동화된 패치는 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)에 따라 다릅니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.  이 문서의 리소스 관리자 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)](../sql/virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 패치](../../../azure-sql/virtual-machines/windows/automated-patching.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -74,7 +74,7 @@ ms.locfileid: "75978077"
 | **패치 범주** |중요 |다운로드 및 설치할 업데이트의 범주입니다. |
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
-다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **New-AzureVMSqlServerAutoPatchingConfig** 명령을 통해 자동화된 업데이트를 위한 새 유지 관리 기간을 구성합니다.
+다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **New-AzureVMSqlServerAutoPatchingConfig** 명령은 자동 업데이트에 대한 새 유지 관리 기간을 구성합니다.
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
@@ -96,5 +96,5 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)을 참조하세요.
 
-Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.
 

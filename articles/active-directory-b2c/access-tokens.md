@@ -1,41 +1,41 @@
 ---
-title: 액세스 토큰 요청-Azure Active Directory B2C | Microsoft Docs
-description: Azure Active Directory B2C에서 액세스 토큰을 요청 하는 방법을 알아봅니다.
+title: 액세스 토큰 요청 - Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C에서 액세스 토큰을 요청하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259774"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635440"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
-*액세스 토큰* 에는 Azure Active Directory B2C (Azure AD B2C)에서 api에 부여 된 사용 권한을 식별 하는 데 사용할 수 있는 클레임이 포함 되어 있습니다. 리소스 서버를 호출 하는 경우에는 HTTP 요청에 액세스 토큰이 있어야 합니다. 액세스 토큰은 Azure AD B2C 응답에서 **access_token** 로 표시 됩니다.
+*액세스 토큰*에는 API에 부여된 권한을 식별하기 위해 Azure AD B2C(Azure Active Directory B2C)에서 사용할 수 있는 클레임이 포함되어 있습니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다. 액세스 토큰은 Azure AD B2C의 응답에서 **access_token**으로 표시됩니다.
 
-이 문서에서는 웹 응용 프로그램 및 web API에 대 한 액세스 토큰을 요청 하는 방법을 보여 줍니다. Azure AD B2C 토큰에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](tokens-overview.md)를 참조 하세요.
+이 문서에서는 웹 애플리케이션 및 Web API에 대한 액세스 토큰을 요청하는 방법을 보여 줍니다. Azure AD B2C의 토큰에 대한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](tokens-overview.md)를 참조하세요.
 
 > [!NOTE]
-> **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.** -대부분의 아키텍처에는 다른 다운스트림 웹 API를 호출 해야 하는 web API가 포함 되어 있으며 둘 다 Azure AD B2C으로 보안이 유지 됩니다. 이 시나리오는 웹 API 백 엔드가 있는 클라이언트에서 일반적으로 다른 서비스를 호출 합니다. On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 웹 API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
+> **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.** - 많은 아키텍처에는 다른 다운스트림 웹 API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 다른 서비스를 호출하는 Web API 백 엔드가 있는 클라이언트에서 일반적입니다. On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 웹 API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 사용자가 애플리케이션에 가입하고 로그인할 수 있는 [사용자 흐름을 만듭니다](tutorial-create-user-flows.md).
-- 아직 수행 하지 않은 경우 [Azure Active Directory B2C 테 넌 트에 WEB API 응용 프로그램을 추가](add-web-application.md)합니다.
+- 아직 수행하지 않았다면 [Azure Active Directory B2C 테넌트에 Web API 애플리케이션을 추가](add-web-application.md)합니다.
 
 ## <a name="scopes"></a>범위
 
-범위는 보호 된 리소스에 대 한 사용 권한을 관리 하는 방법을 제공 합니다. 액세스 토큰이 요청 될 때 클라이언트 응용 프로그램은 요청의 **범위** 매개 변수에서 원하는 권한을 지정 해야 합니다. 예 `https://contoso.onmicrosoft.com/api/read`를 들어 `https://contoso.onmicrosoft.com/api`의 **앱 ID URI** 를 포함 `read` 하는 API에 대 한의 **범위 값** 을 지정 하려면 범위는입니다.
+범위는 보호된 리소스에 대한 사용 권한을 관리하는 방법을 제공합니다. 액세스 토큰을 요청할 때 클라이언트 애플리케이션에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/api`의 **앱 ID URI**가 있는 API에 대한 **범위 값** `read`를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/api/read`가 됩니다.
 
-범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 웹 API 사용자가 읽기 및 쓰기 액세스 권한을 모두 갖고 있을 수도 있고, 읽기 권한만 갖고 있을 수도 있습니다. 동일한 요청에서 여러 권한을 얻으려면 요청에서 단일 **범위** 매개 변수에 여러 항목을 공백으로 구분 하 여 추가할 수 있습니다.
+범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 웹 API 사용자가 읽기 및 쓰기 액세스 권한을 모두 갖고 있을 수도 있고, 읽기 권한만 갖고 있을 수도 있습니다. 같은 요청에 여러 권한을 얻기 위해 요청의 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다.
 
 다음 예제에서는 URL에서 디코딩된 범위를 보여 줍니다.
 
@@ -49,22 +49,22 @@ scope=https://contoso.onmicrosoft.com/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-클라이언트 응용 프로그램에 부여 된 것 보다 더 많은 범위를 요청 하는 경우 하나 이상의 사용 권한이 부여 되 면 호출이 성공 합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여 된 사용 권한으로 채워집니다. Openid connect Connect 표준은 몇 가지 특수 범위 값을 지정 합니다. 다음 범위는 사용자의 프로필에 액세스할 수 있는 권한을 나타냅니다.
+클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음과 같은 범위는 사용자 프로필에 액세스하기 위한 권한을 나타냅니다.
 
-- **openid connect** -ID 토큰을 요청 합니다.
-- **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용 하 여 새로 고침 토큰을 요청 합니다.
+- **openid** - ID 토큰을 요청합니다.
+- **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용하여 새로 고침 토큰을 요청합니다.
 
-`/authorize` 요청의 `token` **response_type** 매개 변수에이 포함 되어 있는 경우 **범위** 매개 변수에는가 아닌 `openid` `offline_access` 하나 이상의 리소스 범위를 포함 해야 하며,이 경우에는 허용 됩니다. 그렇지 않으면 `/authorize` 요청이 실패 합니다.
+`/authorize` 요청의 **response_type** 매개 변수가 `token`을 포함하는 경우 **scope** 매개 변수는 권한이 부여될 하나 이상의 리소스 범위(`openid` 및 `offline_access` 이외)를 포함해야 합니다. 그렇지 않으면 `/authorize` 요청이 실패합니다.
 
 ## <a name="request-a-token"></a>토큰 요청
 
-액세스 토큰을 요청 하려면 인증 코드가 필요 합니다. 다음은 인증 코드의 `/authorize` 끝점에 대 한 요청의 예입니다. 사용자 지정 도메인은 액세스 토큰과 함께 사용 하도록 지원 되지 않습니다. 요청 URL에서 tenant-name.onmicrosoft.com 도메인을 사용 합니다.
+액세스 토큰을 요청하려면 인증 코드가 필요합니다. 다음은 `/authorize` 엔드포인트에 대한 인증 코드 요청 예제입니다. 사용자 지정 도메인은 액세스 토큰과 함께 사용하도록 지원되지 않습니다. 요청 URL에서 tenant-name.onmicrosoft.com 도메인을 사용합니다.
 
 다음 예제에서는 다음 값을 바꿉니다.
 
 - `<tenant-name>` - Azure AD B2C 테넌트의 이름.
 - `<policy-name>` - 사용자 지정 정책 또는 사용자 흐름의 이름.
-- `<application-ID>`-사용자 흐름을 지원 하기 위해 등록 한 웹 응용 프로그램의 응용 프로그램 식별자입니다.
+- `<application-ID>` - 사용자 흐름을 지원하기 위해 등록한 웹 애플리케이션의 애플리케이션 식별자
 - `<redirect-uri>` - 클라이언트 애플리케이션을 등록할 때 입력한 **리디렉션 URI**.
 
 ```HTTP
@@ -76,16 +76,16 @@ client_id=<application-ID>
 &response_type=code
 ```
 
-인증 코드에 대 한 응답은 다음 예제와 유사 해야 합니다.
+인증 코드에 대한 응답은 다음 예제와 유사해야 합니다.
 
 ```
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-인증 코드를 성공적으로 받은 후에는이를 사용 하 여 액세스 토큰을 요청할 수 있습니다.
+인증 코드를 성공적으로 받은 후에는 이 코드를 사용하여 다음과 같이 액세스 토큰을 요청할 수 있습니다.
 
 ```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -97,7 +97,7 @@ grant_type=authorization_code
 &client_secret=2hMG2-_:y12n10vwH...
 ```
 
-다음 응답과 유사한 내용이 표시 되어야 합니다.
+다음 응답과 비슷한 내용이 표시됩니다.
 
 ```JSON
 {
@@ -111,7 +111,7 @@ grant_type=authorization_code
 }
 ```
 
-를 사용 https://jwt.ms 하 여 반환 된 액세스 토큰을 검사할 때 다음 예제와 유사한 내용이 표시 되어야 합니다.
+https://jwt.ms 를 사용하여 반환된 액세스 토큰을 검사하는 경우 다음 예제와 유사한 내용이 표시되어야 합니다.
 
 ```JSON
 {
@@ -137,4 +137,4 @@ grant_type=authorization_code
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C에서 토큰을 구성](configure-tokens.md) 하는 방법에 대해 알아봅니다.
+- [Azure AD B2C에서 토큰을 구성](configure-tokens.md)하는 방법을 알아봅니다.

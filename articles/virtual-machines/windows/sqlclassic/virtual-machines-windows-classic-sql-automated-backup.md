@@ -15,26 +15,26 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43ff230d4769a23c9007b3da29858d2105366f9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c792b217f49121b6d3d6eaf2d8f8380997683bd8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978094"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014675"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)
 > [!div class="op_single_selector"]
-> * [리소스 관리자](../sql/virtual-machines-windows-sql-automated-backup.md)
-> * [기존](../classic/sql-automated-backup.md)
+> * [리소스 관리자](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md)
+> * [클래식](../classic/sql-automated-backup.md)
 > 
 > 
 
 자동화된 Backup에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 Backup](https://msdn.microsoft.com/library/dn449496.aspx) 을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 따라 다릅니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.  이 문서의 리소스 관리자 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 백업(리소스 관리자)](../sql/virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 백업](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -68,7 +68,7 @@ ms.locfileid: "75978094"
 
 | 설정 | 범위(기본값) | Description |
 | --- | --- | --- |
-| **자동화 된 백업** |사용/사용 안 함(사용 안 함) |SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
+| **자동화된 Backup** |사용/사용 안 함(사용 안 함) |SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** |1-30일(30일) |백업 보존 기간(일 수)입니다. |
 | **Storage 계정** |Azure Storage 계정(지정된 VM에 대해 만든 스토리지 계정) |Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
 | **암호화** |사용/사용 안 함(사용 안 함) |암호화 사용 여부를 설정합니다. 암호화 기능을 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 자동 백업 컨테이너에 지정한 스토리지 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
@@ -109,9 +109,9 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 ## <a name="next-steps"></a>다음 단계
 자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [관리되는 Backup 설명서를 검토](https://msdn.microsoft.com/library/dn449496.aspx) 하여 동작 및 의미를 이해해야 합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 항목을 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](../../../azure-sql/virtual-machines/windows/backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 문서를 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)을 참조하세요.
 
-Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.
 

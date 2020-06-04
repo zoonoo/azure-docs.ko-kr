@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수  | 설명 |
+| 쿼리 매개 변수  | Description |
 | ------ | ----------- |
 | api-version <img width=200/>   | **필수 매개 변수**입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 이어야 합니다.`3.0` |
 | 원본 | **필수 매개 변수**입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
@@ -42,7 +42,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 요청 헤더에는 다음이 포함됩니다.
 
-| 헤더  | 설명 |
+| 헤더  | Description |
 | ------ | ----------- |
 | 인증 헤더 <img width=200/>  | **필수 요청 헤더**<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요. |
 | 콘텐츠 형식 | **필수 요청 헤더**<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다. |
@@ -80,7 +80,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
     * `posTag`: 이 용어를 음성 부분 태그에 연결하는 문자열입니다.
 
-        | 태그 이름 | 설명  |
+        | 태그 이름 | Description  |
         |----------|--------------|
         | ADJ      | 형용사   |
         | ADV      | 부사      |

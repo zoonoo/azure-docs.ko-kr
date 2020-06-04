@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454648"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012979"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "81454648"
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 
-미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 스토리지에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 Table Storage 등 서로 다른 요구 사항을 충족하는 다양한 데이터 스토리지 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
+미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 스토리지에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 Table Storage 등 서로 다른 요구 사항을 충족하는 다양한 데이터 스토리지 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
 
 저장 데이터 암호화는 SaaS(Software-as-a-Service), PaaS(Platform-as-a-Service) 및 IaaS(Infrastructure-as-a-Service) 클라우드 모델 간의 서비스에 사용 가능합니다. 이 문서에서는 Azure의 암호화 옵션을 사용하는 데 도움이 되는 리소스를 요약하여 제공합니다.
 
@@ -40,7 +40,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="client-side-encryption"></a>클라이언트 쪽 암호화
 
-클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다.  다음을 포함합니다.
+클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다. 다음을 포함합니다.
 
 - 고객의 데이터 센터에서 실행 중인 애플리케이션 또는 서비스 애플리케이션으로 암호화된 데이터.
 - Azure에서 수신될 때 이미 암호화된 데이터입니다.
@@ -51,11 +51,11 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 세 가지 서버 쪽 암호화 모델은 요구 사항에 따라 선택할 수 있는 서로 다른 키 관리 특성을 제공합니다.
 
-- **서비스 관리 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
+- **서비스 관리형 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
 
-- **고객 관리 키**: BYOK를 지원하거나 새 키를 생성하는 기능을 비롯하여 고객이 키를 제어할 수 있습니다.
+- **고객 관리형 키**: BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
 
-- **고객 제어 하드웨어에서 서비스 관리 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
+- **고객 제어형 하드웨어의 서비스 관리형 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,11 +85,11 @@ Key Vault를 사용한 클라이언트 쪽 암호화에 대해 자세히 알아�
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Azure SQL Database에서 미사용 데이터 암호화
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md)는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Azure의 범용 관계형 데이터베이스 서비스입니다. SQL Database는 TDE(투명한 데이터 암호화) 기능을 통한 서버 쪽 암호화와 Always Encrypted 기능을 통한 클라이언트 쪽 암호화를 모두 지원합니다.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Azure의 범용 관계형 데이터베이스 서비스입니다. SQL Database는 TDE(투명한 데이터 암호화) 기능을 통한 서버 쪽 암호화와 Always Encrypted 기능을 통한 클라이언트 쪽 암호화를 모두 지원합니다.
 
 #### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) 및 [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
 
 TDE는 AES 및 3DES(Triple Data Encryption Standard) 암호화 알고리즘을 사용하여 데이터 및 로그 파일을 보호합니다. 데이터베이스 파일의 암호화는 페이지 수준에서 수행됩니다. 암호화된 데이터베이스에서 페이지는 디스크에 기록되기 전에 암호화되고 메모리로 읽어올 때 암호 해독됩니다. 기본적으로 TDE는 이제 새로 만든 Azure SQL 데이터베이스에서 사용하도록 설정됩니다.
 
@@ -105,7 +105,7 @@ CLE에는 대칭 또는 비대칭 키를 사용하고 인증서의 공개 키 �
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB 데이터베이스 암호화
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) 은 Microsoft의 전 세계적으로 분산 된 다중 모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Data Lake의 미사용 암호화
 
@@ -207,5 +207,5 @@ Key Vault는 조직이 HSM(하드웨어 보안 모듈) 및 키 관리 소프트�
 - [Azure 네트워크 보안 개요](network-overview.md)
 - [Azure 데이터베이스 보안 개요](database-security-overview.md)
 - [Azure 가상 머신 보안 개요](virtual-machines-overview.md)
-- [휴지 상태의 데이터 암호화](encryption-atrest.md)
+- [저장 데이터 암호화](encryption-atrest.md)
 - [데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)

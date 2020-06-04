@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -49,7 +49,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
     <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
@@ -230,7 +230,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `If-None-Match` 헤더 필드에서 `ETag` 값을 보낼 수 있습니다.

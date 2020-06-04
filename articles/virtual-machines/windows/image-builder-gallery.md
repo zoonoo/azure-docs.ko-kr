@@ -1,51 +1,51 @@
 ---
-title: Windows Vm 용 이미지 갤러리에서 Azure 이미지 작성기 사용 (미리 보기)
-description: Azure 이미지 작성기 및 Azure PowerShell를 사용 하 여 Azure 공유 갤러리 이미지 버전을 만듭니다.
+title: Windows VM용 이미지 갤러리에서 Azure Image Builder 사용(미리 보기)
+description: Azure Image Builder 및 Azure PowerShell을 사용하여 Azure 공유 갤러리 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 89c93d83631884cab1143a520fea01246f1b5e89
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871832"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656662"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들고 공유 이미지 갤러리에 배포 합니다. 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
-이 문서에서는 Azure 이미지 작성기를 사용 하 고 Azure PowerShell 하 여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다. [Azure CLI](../linux/image-builder-gallery.md)를 사용 하 여이 작업을 수행할 수도 있습니다.
+이 문서에서는 Azure Image Builder 및 Azure PowerShell을 사용하여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전체적으로 이미지를 배포하는 방법을 보여 줍니다. [Azure CLI](../linux/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
-이미지를 구성 하는 데 사용 되는 json 템플릿을 사용 합니다. 사용 중인. json 파일은 [armTemplateWinSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json)입니다. 이 문서는 로컬 PowerShell 세션을 사용 하 여 작성 되므로 템플릿의 로컬 버전을 다운로드 하 고 편집 하 게 됩니다.
+이미지를 구성하는 데 .json 템플릿을 사용합니다. 사용 중인 .json 파일은 [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json)에 있습니다. 이 문서는 로컬 PowerShell 세션을 사용하여 작성되었으므로 템플릿의 로컬 버전을 다운로드하여 편집합니다.
 
-공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서는 템플릿의 `distribute` 섹션에 대 한 값으로 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) 를 사용 합니다.
+공유 이미지 갤러리에 이미지를 배포하기 위해 이 템플릿에서는 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage)를 템플릿의 `distribute` 섹션 값으로 사용합니다.
 
-Azure 이미지 작성기는 자동으로 sysprep를 실행 하 여 이미지를 일반화 합니다 .이는 일반 sysprep 명령으로, 필요한 경우 [재정의할](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) 수 있습니다. 
+Azure Image Builder는 sysprep를 자동으로 실행하여 이미지를 일반화합니다. 이 명령은 필요한 경우 [재정의](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully)할 수 있는 일반 sysprep 명령입니다. 
 
-레이어 사용자 지정 횟수를 확인 합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. Sysprep을 8 번 실행 한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수에 대 한 제한](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조 하세요. 
+사용자 지정 레이어링 횟수를 확인합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8번 실행할 수 있습니다. Sysprep을 8번 실행한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수 제한](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조하세요. 
 
 > [!IMPORTANT]
-> Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Image Builder는 현재 퍼블릭 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure 이미지 작성기를 사용 하려면 새 기능을 등록 해야 합니다.
+미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
 
 ```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-기능 등록의 상태를 확인 합니다.
+기능 등록 상태를 확인합니다.
 
 ```powershell
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-다음 단계로 `RegistrationState` 이동 `Registered` 하기 전에가 될 때까지 기다립니다.
+다음 단계로 이동하기 전에 `RegistrationState`가 `Registered` 상태가 될 때까지 기다립니다.
 
-공급자 등록을 확인 합니다. 각가를 반환 `Registered`하는지 확인 합니다.
+공급자 등록을 확인합니다. 각 공급자가 `Registered`를 반환하는지 확인합니다.
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +54,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-반환 `Registered`되지 않으면 다음을 사용 하 여 공급자를 등록 합니다.
+`Registered`를 반환하지 않는 경우 다음을 사용하여 공급자를 등록합니다.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +65,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>변수 만들기
 
-일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다. 및 `username` `vmpassword`와 같은 변수 값을 사용자의 정보로 바꿉니다.
+일부 정보를 반복해서 사용하게 되며, 해당 정보를 저장하기 위해 몇 가지 변수를 만듭니다. `username` 및 `vmpassword`와 같은 변수의 값을 원하는 정보로 바꿉니다.
 
 ```powershell
 # Get existing context
@@ -97,29 +97,29 @@ New-AzResourceGroup `
 ```
 
 
-## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 id 만들기 및 리소스 그룹에 대 한 사용 권한 설정
-이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) 를 사용 하 여 Azure 공유 이미지 갤러리 (SIG)에 이미지를 삽입 합니다. 이 예제에서는 SIG에 이미지를 배포 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 사용자 id에 할당 됩니다.
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
+Image Builder는 제공된 [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)를 사용하여 Azure SIG(공유 이미지 갤러리)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```powershell
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
-### <a name="assign-permissions-for-identity-to-distribute-images"></a>Id에 대 한 사용 권한을 할당 하 여 이미지 배포
+### <a name="assign-permissions-for-identity-to-distribute-images"></a>ID에서 이미지를 배포하기 위한 권한 할당
 
-이 명령은 Azure 역할 정의 템플릿을 다운로드 하 고 앞에서 지정한 매개 변수를 사용 하 여 템플릿을 업데이트 합니다.
+이 명령은 Azure 역할 정의 템플릿을 다운로드하고 앞에서 지정한 매개 변수를 사용하여 템플릿을 업데이트합니다.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -136,7 +136,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -145,9 +145,9 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 
 ## <a name="create-the-shared-image-gallery"></a>Shared Image Gallery 만들기
 
-공유 이미지 갤러리에서 이미지 작성기를 사용 하려면 기존 이미지 갤러리 및 이미지 정의가 있어야 합니다. 이미지 작성기는 이미지 갤러리 및 이미지 정의를 만들지 않습니다.
+공유 이미지 갤러리에서 Image Builder를 사용하려면 기존 이미지 갤러리 및 이미지 정의가 있어야 합니다. Image Builder는 이미지 갤러리 및 이미지 정의를 만들지 않습니다.
 
-사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들기를 시작 합니다. 먼저 이미지 갤러리를 만듭니다.
+사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들기 시작합니다. 먼저 이미지 갤러리를 만듭니다.
 
 ```powershell
 # Image gallery name
@@ -180,9 +180,9 @@ New-AzGalleryImageDefinition `
 
 
 
-## <a name="download-and-configure-the-template"></a>템플릿 다운로드 및 구성
+## <a name="download-and-configure-the-template"></a>템플릿을 다운로드하고 구성합니다.
 
-Json 템플릿을 다운로드 하 고 변수로 구성 합니다.
+.json 템플릿을 다운로드하고 변수로 구성합니다.
 
 ```powershell
 
@@ -207,13 +207,13 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-템플릿을 서비스에 제출 해야 합니다. 그러면 스크립트와 같은 모든 종속 아티팩트가 다운로드 되어 준비 리소스 그룹에 저장 됩니다. 여기에는 *IT_* 접두사가 붙습니다.
+템플릿을 서비스에 제출해야 합니다. 그러면 스크립트와 같은 모든 종속 아티팩트가 다운로드되고, *IT_* 접두사가 추가된 상태로 스테이징 리소스 그룹에 저장됩니다.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -224,7 +224,7 @@ New-AzResourceGroupDeployment `
    -svclocation $location
 ```
 
-이미지를 빌드하려면 템플릿에서 ' 실행 '을 호출 해야 합니다.
+이미지를 작성하려면 템플릿에서 '실행'을 호출해야 합니다.
 
 ```powershell
 Invoke-AzResourceAction `
@@ -235,14 +235,14 @@ Invoke-AzResourceAction `
    -Action Run
 ```
 
-이미지를 만들고 두 영역에 복제 하는 데 다소 시간이 걸릴 수 있습니다. VM 만들기로 이동 하기 전에이 부분이 완료 될 때까지 기다립니다.
+이미지를 만들고 두 지역에 복제하는 데 다소 시간이 걸릴 수 있습니다. VM 만들기를 계속 진행하기 전에 이 부분이 완료될 때까지 기다립니다.
 
-이미지 빌드 상태 가져오기를 자동화 하는 옵션에 대 한 자세한 내용은 GitHub에서이 템플릿의 [추가 정보](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) 를 참조 하세요.
+이미지 작성 상태 가져오기를 자동화하는 옵션에 대한 내용은 GitHub에서 이 템플릿에 대한 [추가 정보](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query)를 참조하세요.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-Azure 이미지 작성기에서 만든 이미지 버전에서 VM을 만듭니다.
+Azure Image Builder에서 만든 이미지 버전에서 VM을 만듭니다.
 
 만든 이미지 버전을 가져옵니다.
 ```powershell
@@ -252,7 +252,7 @@ $imageVersion = Get-AzGalleryImageVersion `
    -GalleryImageDefinitionName $imageDefName
 ```
 
-이미지가 복제 된 두 번째 지역에서 VM을 만듭니다.
+이미지가 복제된 두 번째 지역에서 VM을 만듭니다.
 
 ```powershell
 $vmResourceGroup = "myResourceGroup"
@@ -289,22 +289,22 @@ New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfi
 ```
 
 ## <a name="verify-the-customization"></a>사용자 지정 확인
-VM을 만들 때 설정한 사용자 이름 및 암호를 사용 하 여 VM에 대 한 원격 데스크톱 연결을 만듭니다. VM 내에서 cmd 프롬프트를 열고 다음을 입력 합니다.
+VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대한 원격 데스크톱 연결을 만듭니다. VM 내에서 cmd 프롬프트를 열고 다음을 입력합니다.
 
 ```console
 dir c:\
 ```
 
-이미지를 사용자 지정 하는 `buildActions` 동안 만들어진 라는 디렉터리가 표시 되어야 합니다.
+이미지를 사용자 지정하는 동안 만들어진 `buildActions`라는 디렉터리가 표시됩니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이제 이미지 버전을 다시 사용자 지정 하 여 동일한 이미지의 새 버전을 만들려면 **이 단계를 건너뛰고** [Azure 이미지 작성기를 사용 하 여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)로 이동 하세요.
+이제 이미지 버전을 다시 사용자 지정하여 동일한 이미지의 새 버전을 만들려면**이 단계를 건너뛰고** [Azure Image Builder를 사용하여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 계속 진행합니다.
 
 
-그러면 생성 된 이미지와 함께 다른 모든 리소스 파일이 삭제 됩니다. 리소스를 삭제 하기 전에이 배포를 완료 했는지 확인 합니다.
+그러면 생성된 이미지와 다른 모든 리소스 파일이 삭제됩니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.
 
-먼저 리소스 그룹 템플릿을 삭제 합니다. 그렇지 않으면 AIB에서 사용 하는 스테이징 리소스 그룹 (*IT_*)이 정리 되지 않습니다.
+먼저 리소스 그룹 템플릿을 삭제합니다. 그러지 않으면 AIB에서 사용하는 스테이징 리소스 그룹(*IT_* )이 정리되지 않습니다.
 
 이미지 템플릿의 ResourceID를 가져옵니다. 
 
@@ -312,7 +312,7 @@ dir c:\
 $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-이미지 템플릿을 삭제 합니다.
+이미지 템플릿을 삭제합니다.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
@@ -321,22 +321,22 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 역할 할당 삭제
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 정의 제거
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
-id 삭제
+ID 삭제
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
-리소스 그룹을 삭제 합니다.
+리소스 그룹 삭제
 
 ```powerShell
 Remove-AzResourceGroup $imageResourceGroup -Force
@@ -344,4 +344,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-만든 이미지 버전을 업데이트 하는 방법을 알아보려면 [Azure 이미지 작성기를 사용 하 여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 참조 하세요.
+만든 이미지 버전을 업데이트하는 방법을 알아보려면 [Azure Image Builder를 사용하여 다른 이미지 버전 만들기](image-builder-gallery-update-image-version.md)를 참조하세요.

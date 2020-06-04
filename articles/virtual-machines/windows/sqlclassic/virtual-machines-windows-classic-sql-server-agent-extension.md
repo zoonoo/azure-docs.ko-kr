@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982278"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017543"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
-> * [리소스 관리자](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [기존](../classic/sql-server-agent-extension.md)
+> * [리소스 관리자](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [클래식](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
 관리 작업을 자동화하기 위해 Azure 가상 머신에서 SQL Server IaaS 에이전트 확장(SQLIaaSAgent)을 실행합니다. 이 항목에서는 설치, 상태 및 제거에 대한 지침뿐만 아니라 확장에 의해 지원되는 서비스의 개요를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.  이 문서의 리소스 관리자 버전을 보려면 [SQL Server VM 리소스 관리자에 대한 SQL Server 에이전트 확장](../sql/virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [SQL Server VM Resource Manager에 대한 SQL Server 에이전트 확장](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)을 참조하세요.
 
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
@@ -43,7 +43,7 @@ SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 | **SQL 자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 패치(클래식)](../classic/sql-automated-patching.md)를 참조하세요. |
 | **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)](../classic/ps-sql-keyvault.md)을 참조하세요. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항:
 
 ### <a name="operating-system"></a>운영 체제:
@@ -82,14 +82,14 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
 > 클래식 가상 머신에는 포털을 통해 SQL IaaS 에이전트 확장을 설치 및 구성하기 위한 옵션이 없습니다.
 
 > [!NOTE]
-> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 수동으로 확장을 설치 및 관리할 수 있지만 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 사용자 지정하는 것이 좋습니다.
+> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 수동으로 확장을 설치 및 관리할 수 있지만 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 사용자 지정하는 것이 좋습니다.
 
 ## <a name="status"></a>상태
 확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 블레이드에서 나열된 가상 머신을 선택하고 **확장**을 클릭합니다. 목록에 **SQLIaaSAgent** 확장이 표시되어야 합니다.
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
-**Set-azurevmsqlserverextension** Azure Powershell cmdlet을 사용할 수도 있습니다.
+**Get-AzureVMSqlServerExtension** Azure Powershell cmdlet을 사용할 수도 있습니다.
 
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
@@ -105,5 +105,5 @@ Azure Portal에서 가상 머신 속성의 **확장** 블레이드에서 줄임�
 ## <a name="next-steps"></a>다음 단계
 확장에 의해 지원되는 서비스 중 하나를 사용하기 시작합니다. 자세한 내용은 이 문서의 [지원되는 서비스](#supported-services) 섹션에 참조된 항목을 참조하세요.
 
-Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.
 

@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 기술 자료 만들기, 학습 및 게시-QnA Maker'
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871441"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340592"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -35,7 +35,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 1. **3단계**에서는 Active 디렉터리, 구독, 서비스(리소스) 및 서비스에서 만든 모든 기술 자료에 대한 언어를 선택합니다.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="QnA Maker 서비스 기술 자료를 선택하는 스크린샷":::
-    
+
 1. **3단계**에서는 기술 자료의 이름을 **내 샘플 QnA KB**로 지정합니다.
 
 1. **4단계**에서는 다음 표를 사용하여 설정을 구성합니다.

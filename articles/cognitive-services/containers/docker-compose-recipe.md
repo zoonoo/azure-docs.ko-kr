@@ -172,7 +172,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>테스트 컨테이너
 
-호스트 컴퓨터에서 브라우저를 열고 *docker-작성* 파일 (예:)의 지정 된 포트를 사용 하 여 http://localhost:5021/swagger/index.html **localhost** 로 이동 합니다. 예를 들어 API에서 **사용해 보기** 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다. 두 컨테이너 swagger 페이지가 모두 사용 가능 하 고 테스트 가능 해야 합니다.
+호스트 컴퓨터에서 브라우저를 열고 *docker-작성* 파일 (예:)의 지정 된 포트를 사용 하 여 **localhost** 로 이동 http://localhost:5021/swagger/index.html 합니다. 예를 들어 API에서 **사용해 보기** 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다. 두 컨테이너 swagger 페이지가 모두 사용 가능 하 고 테스트 가능 해야 합니다.
 
 ![양식 인식기 컨테이너](media/form-recognizer-swagger-page.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: c976d3b74badc4eeb5978af352fe425089f2fbfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 687f2a80b362ca559d054b81d464daf2f6f85c09
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584971"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340609"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "83584971"
 
 LUIS 포털을 사용 하 여 올바른 끝점 쿼리를 생성 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **관리** 섹션으로 이동한 다음 **Azure 리소스**를 선택 합니다.
 1. 할당 된 예측 리소스의 경우 **쿼리 매개 변수 변경**을 선택 합니다.
