@@ -73,8 +73,8 @@
               href: how-dev-spaces-works-routing.md
             - name: 원격 디버깅
               href: how-dev-spaces-works-remote-debugging.md
-            - name: AKS에 개발 컴퓨터 연결
-              href: how-dev-spaces-works-connect.md
+            - name: Kubernetes를 사용한 로컬 프로세스
+              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: VS Code가 Dev Spaces에서 작동하는 방법
           href: how-vs-code-works-with-dev-spaces.md
         - name: 다양한 네트워크 토폴로지의 네트워킹 구성
@@ -111,8 +111,10 @@
           href: how-to/ingress-https-traefik.md
         - name: 사용자 지정 수신 및 HTTPS에 NGINX 사용
           href: how-to/ingress-https-nginx.md
-        - name: 개발 컴퓨터를 AKS 클러스터에 연결(미리 보기)
-          href: how-to/connect.md
+        - name: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
+          href: how-to/local-process-kubernetes-vs-code.md
+        - name: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
+          href: how-to/local-process-kubernetes-visual-studio.md
     - name: 문제 해결
       href: troubleshooting.md
     - name: FAQ

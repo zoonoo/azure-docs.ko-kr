@@ -69,6 +69,8 @@
       items:
         - name: 부트 진단
           href: boot-diagnostics.md
+        - name: 부팅 오류 - 디스크 읽기 오류 발생
+          href: boot-error-disk-read-error-occurred.md
         - name: BitLocker 오류
           href: troubleshoot-bitlocker-boot-error.md
         - name: 블루 스크린 오류

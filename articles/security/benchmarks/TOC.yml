@@ -41,6 +41,8 @@
       href: ../../backup/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
+    - name: Container Instances 보안 기준
+      href: ../../container-instances/security-baseline.md
     - name: Container Registry 보안 기준
       href: ../../container-registry/security-baseline.md
     - name: Cosmos DB 보안 기준

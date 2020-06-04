@@ -548,6 +548,9 @@
               href: msal-js-pass-custom-state-authentication-request.md
             - name: 프롬프트 동작
               href: msal-js-prompt-behavior.md
+            - name: SPA를 암시적 인증 코드 흐름으로 마이그레이션
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
         - name: iOS 및 macOS용 MSAL
           items:
             - name: iOS 및 macOS용 MSAL 간 차이점

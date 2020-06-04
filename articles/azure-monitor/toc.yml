@@ -464,6 +464,8 @@
               href: platform/alerts-metric-logs.md
             - name: Resource Manager 템플릿 사용
               href: platform/alerts-metric-create-templates.md
+            - name: 메트릭 경고 문제 해결
+              href: platform/alerts-troubleshoot-metric.md
         - name: 로그 경고 규칙
           items:
             - name: 분석 쿼리에 대한 경고 구성
@@ -807,7 +809,7 @@
               href: app/continuous-monitoring.md
         - name: 고급 구성
           items:
-            - name: 액세스 제어
+            - name: Access Control
               href: app/resources-roles-access-control.md
             - name: IP 주소 수집
               href: app/ip-collection.md
@@ -992,10 +994,10 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
-        - name: Key Vault
-          href: insights/key-vaults-insights-overview.md
         - name: 네트워크
           href: insights/network-insights-overview.md
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: 스토리지
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1069,7 +1071,7 @@
                   href: platform/view-designer-conversion-tasks.md
                 - name: 타일 변환
                   href: platform/view-designer-conversion-tiles.md
-                - name: 예
+                - name: 예제
                   href: platform/view-designer-conversion-examples.md
             - name: 뷰 디자이너
               href: platform/view-designer.md
@@ -1096,6 +1098,7 @@
     - name: 통합 문서
       items:
         - name: 개요
+          displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: 시각화
           href: platform/workbooks-visualizations.md
@@ -1105,7 +1108,7 @@
           href: platform/workbooks-automate.md
         - name: 구성
           items:
-            - name: 액세스 제어
+            - name: Access Control
               href: platform/workbooks-access-control.md
             - name: 매개 변수
               items:

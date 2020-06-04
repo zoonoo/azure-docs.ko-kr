@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/28/2020
+ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683337"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187607"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -21,7 +21,9 @@ ms.locfileid: "83683337"
 
 조회 변환을 사용하여 데이터 흐름 스트림의 다른 원본에서 데이터를 참조할 수 있습니다. 조회 변환은 일치하는 데이터의 열을 원본 데이터에 추가합니다.
 
-조회 변환은 왼쪽 우선 외부 조인과 유사합니다. 기본 스트림의 모든 행이 조회 스트림의 추가 열과 함께 출력 스트림에 존재하게 됩니다. 
+조회 변환은 왼쪽 우선 외부 조인과 유사합니다. 기본 스트림의 모든 행이 조회 스트림의 추가 열과 함께 출력 스트림에 존재하게 됩니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
 ## <a name="configuration"></a>구성
 

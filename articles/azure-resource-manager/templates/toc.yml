@@ -61,11 +61,13 @@
         - name: HDInsight - ML Services
           href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Key Vault
-          href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Load Balancer
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 관리되는 애플리케이션
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Machine Learning
+          href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Notification Hubs
           href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 정책
@@ -81,7 +83,7 @@
         - name: Site Recovery
           href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: SQL Database
-          href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 가상 머신 확장 집합 - Linux
           href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 가상 머신 확장 집합 - Windows
@@ -164,6 +166,8 @@
   items:
     - name: 템플릿 모범 사례
       href: template-best-practices.md
+    - name: 질문과 대답
+      href: frequently-asked-questions.md
     - name: 클라우드 일관성을 위한 템플릿
       href: templates-cloud-consistency.md
     - name: 배포 모드

@@ -952,8 +952,10 @@
               href: configure-raid.md
             - name: LVM 구성
               href: configure-lvm.md
-        - name: 연결되지 않은 디스크 찾기
+        - name: 연결되지 않은 디스크 찾기 - CLI
           href: find-unattached-disks.md
+        - name: 연결되지 않은 디스크 찾기 - 포털
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: File Storage 사용
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 디스크 FAQ

@@ -87,11 +87,11 @@
         - name: SAML 서비스 공급자 등록
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
-        - name: Graph 애플리케이션 등록
+        - name: Microsoft Graph 애플리케이션 등록
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
         - name: 웹 API 애플리케이션 추가
-          href: add-web-application.md
+          href: add-web-api-application.md
         - name: 네이티브 클라이언트 애플리케이션 추가
           href: add-native-application.md
         - name: 앱 인증을 사용한 iOS ObjC
@@ -279,7 +279,7 @@
                       href: date-transformations.md
                     - name: 일반
                       href: general-transformations.md
-                    - name: '정수 '
+                    - name: 정수
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
@@ -397,6 +397,8 @@
           href: user-migration.md
 - name: 참조
   items:
+    - name: 앱 등록
+      href: app-registrations-training-guide.md
     - name: 청구 모델
       href: billing.md
     - name: 코드 샘플

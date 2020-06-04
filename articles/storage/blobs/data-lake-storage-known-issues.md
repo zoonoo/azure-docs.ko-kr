@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642202"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193457"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -60,7 +60,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>SDK, PowerShell 및 Azure CLI의 파일 시스템 지원
 
@@ -79,25 +79,25 @@ Blob 스냅샷 삭제는 아직 지원되지 않습니다.
 
 Blobfuse는 지원되지 않습니다.
 
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## <a name="azcopy"></a>AzCopy
 
 최신 버전의 AzCopy만 사용하십시오([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). AzCopy v8.1과 같은 이전 버전의 AzCopy는 지원되지 않습니다.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
  `1.6.0`  버전 이상만 사용하십시오.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Azure Portal의 Storage Explorer
 
 ACL은 아직 지원되지 않습니다.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## <a name="thirdpartyapplications"></a>타사 애플리케이션
 
@@ -111,7 +111,7 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
-진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 다음은 그 예입니다.
+진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 #To login

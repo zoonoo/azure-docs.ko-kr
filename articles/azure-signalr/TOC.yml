@@ -73,6 +73,12 @@
       items:
         - name: 액세스 키 회전
           href: signalr-howto-key-rotation.md
+        - name: Azure Service 태그 사용
+          href: howto-service-tags.md
+        - name: Azure 프라이빗 엔드포인트 사용
+          href: howto-private-endpoints.md
+        - name: 네트워크 액세스 제어 관리
+          href: howto-network-access-control.md
     - name: 통합
       items:
         - name: Azure Functions 바인딩
@@ -105,7 +111,7 @@
       href: signalr-resource-faq.md
     - name: SignalR Service 구독 수준 제한
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 동영상
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'

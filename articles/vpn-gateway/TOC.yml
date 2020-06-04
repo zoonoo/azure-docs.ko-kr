@@ -24,6 +24,8 @@
           href: work-remotely-support.md
         - name: NVA 구성 및 원격 작업
           href: nva-work-remotely-support.md
+    - name: VPN Gateway 디자인 정보
+      href: design.md
     - name: VPN Gateway 설정 정보
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: VPN 디바이스 정보
