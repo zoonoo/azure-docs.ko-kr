@@ -8,16 +8,17 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b5d8add293a2ba8f14dc2d2fb8ba3b4228f455b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: monitoring
+ms.openlocfilehash: 10768ca4c6fbe4afc322fa9a7045c7cc4fe6f175
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176229"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681311"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
-Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 앞으로 이전 메트릭의 서비스는 Azure Policy을 기반으로 하는 초기 알림으로 종료 됩니다. 이전 스토리지 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
+Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 메트릭을 Azure Monitor 플랫폼에 통합합니다. 나중에 Azure Policy에 따라 조기 통지를 통해 이전 메트릭의 서비스가 종료될 예정입니다. 이전 스토리지 메트릭을 사용하는 경우 메트릭 정보를 유지하기 위해 서비스 종료 날짜 이전에 마이그레이션해야 합니다.
 
 이 문서에서는 이전 메트릭에서 새 메트릭으로 마이그레이션하는 방법을 보여 줍니다.
 
@@ -100,7 +101,7 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 | **Success** | **ResponseType** 차원이 **Success**와 동일한 트랜잭션 |
 | **ThrottlingError** | **ResponseType** 차원이 **ClientThrottlingError** 또는 **ServerBusyError**와 동일한 **트랜잭션**|
 | **TotalBillableRequests** | **트랜잭션** |
-| **TotalEgress** | **Egress** |
+| **TotalEgress** | **송신** |
 | **TotalIngress** | **수신** |
 | **TotalRequests** | **트랜잭션** |
 
@@ -117,4 +118,4 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor의 저장소 메트릭](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor의 스토리지 메트릭](./storage-metrics-in-azure-monitor.md)

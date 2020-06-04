@@ -1,17 +1,17 @@
 ---
-title: Azure 애플리케이션 Insights를 사용 하 여 웹 앱 사용자 보존 분석
+title: Azure Application Insights를 사용한 웹앱 사용자 재방문 주기 분석
 description: 앱으로 돌아온 사용자는 몇 명이나 되나요?
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 654dba968ba4efec1c30c94082726da04059adc0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892413"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797743"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
@@ -63,7 +63,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
     - [사용자, 세션, 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
 
 

@@ -1,21 +1,21 @@
 ---
 title: Azure Portal에서 계정 만들기
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113224"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800246"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
 [Azure Portal][azure_portal]에 Azure Batch 계정을 만들고 컴퓨팅 시나리오에 적합한 계정 속성을 선택하는 방법에 대해 알아봅니다. 액세스 키 및 계정 URL과 같은 중요한 계정 속성을 찾는 위치에 대해 알아봅니다.
 
-Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basics.md)를 참조하세요.
+Batch 계정 및 시나리오에 대한 자세한 내용은 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요.
 
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
@@ -23,7 +23,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
 
-1. **리소스** > 만들기**계산** > **일괄 처리 서비스**를 선택 합니다.
+1. **리소스 만들기** > **계산** > **Batch Service**를 선택합니다.
 
     ![Marketplace에서 Batch][marketplace_portal]
 
@@ -39,7 +39,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
-    e. **Storage 계정**: Batch 계정과 연결 하는 선택적 Azure Storage 계정입니다. 최상의 성능을 위해 범용 v2 스토리지 계정이 권장됩니다. Batch의 모든 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
+    e. **스토리지 계정**: Batch 계정과 연결하는 Azure Storage 계정(선택 사항)입니다. 최상의 성능을 위해 범용 v2 스토리지 계정이 권장됩니다. Batch의 모든 스토리지 계정 옵션은 [Batch 기능 개요](accounts.md#azure-storage-accounts)를 참조하세요. 포털에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
 
       ![스토리지 계정 만들기][storage_account]
 
@@ -52,6 +52,9 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 ## <a name="view-batch-account-properties"></a>Batch 계정 속성 보기
 
 계정이 만들어지면 계정을 선택하여 해당 설정 및 속성에 액세스합니다. 왼쪽 메뉴를 사용하여 모든 계정 설정 및 속성에 액세스할 수 있습니다.
+
+> [!NOTE]
+> Batch 계정의 이름은 해당 ID이며 변경할 수 없습니다. Batch 계정의 이름을 변경해야 하는 경우 계정을 삭제하고 원하는 이름으로 새 계정을 만들어야 합니다.
 
 ![Azure Portal에서 배치 계정 페이지][account_blade]
 
@@ -75,13 +78,13 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
 
-1. **모든 서비스** > **구독**을 선택 하 고 Batch 계정에 사용할 구독을 선택 합니다.
+1. **모든 서비스** > **구독**을 선택하고, 배치 계정에 사용할 구독을 선택합니다.
 
 1. **구독** 페이지에서 **리소스 공급자**를 선택하고, **Microsoft.Batch**를 검색합니다. **Microsoft.Batch** 리소스 공급자가 구독에 등록되었는지 확인합니다. 등록되지 않았으면 **등록** 링크를 선택합니다.
 
     ![Microsoft.Batch 공급자 등록][register_provider]
 
-1. **구독** 페이지에서 **액세스 제어(IAM)** > **역할 할당** > **역할 할당 추가**를 차례로 선택합니다.
+1. **구독** 페이지에서 **액세스 제어(IAM)**  > **역할 할당** > **역할 할당 추가**를 차례로 선택합니다.
 
     ![구독 액세스 제어][subscription_access]
 
@@ -102,17 +105,17 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. **Key Vault 만들기** 페이지에서 키 자격 증명 모음의 이름을 입력하고, Batch 계정에 사용할 지역에 리소스 그룹을 만듭니다. 나머지 설정은 기본값으로 그대로 두고 **만들기**를 선택합니다.
 
-사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대 한 리소스 그룹을 사용 합니다. **사용자 구독** 을 풀 할당 모드로 지정 하 고, 키 자격 증명 모음을 선택 하 고, 키 자격 증명 모음에 대 한 Azure Batch 액세스 권한을 부여 하는 확인란을 선택 합니다. 
+사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대한 리소스 그룹을 사용합니다. 풀 할당 모드로 **사용자 구독**을 지정하고, 키 자격 증명 모음을 선택하고, 키 자격 증명 모음에 대한 Azure Batch 액세스 허용 확인란을 선택합니다. 
 
-키 자격 증명 모음에 대 한 액세스 권한을 수동으로 부여 하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 하 고 **Microsoft Azure Batch**를 검색 합니다. 선택한 후에는 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 해야 합니다. Azure Batch에는 최소한 **Get**, **List**, **Set**및 **Delete** 권한이 제공 되어야 합니다.
+키 자격 증명 모음에 대한 액세스를 수동으로 허용하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동하여 **액세스 정책 추가**를 선택하고 **Microsoft Azure Batch**를 검색합니다. 선택한 후 드롭다운 메뉴를 사용하여 **비밀 사용 권한**을 구성해야 합니다. Azure Batch에 최소 **가져오기**, **나열**, **설정**, **삭제** 사용 권한을 지정해야 합니다.
 
-![Azure Batch에 대 한 보안 권한](./media/batch-account-create-portal/secret-permissions.png)
+![Azure Batch의 비밀 사용 권한](./media/batch-account-create-portal/secret-permissions.png)
 
 
 > [!NOTE]
-> 연결 된 **Key Vault** 리소스에 대 한 **액세스 정책** 아래에 Azure Resource Manager 배포 및 **템플릿 배포** 에 대 한 **Azure Virtual Machines** 확인란이 선택 되어 있는지 확인 합니다.
+> 연결된 **Key Vault** 리소스에 대한 **액세스 정책**에서 **개발용 Azure Virtual Machines** 및 **템플릿 배포용 Azure Resource Manager** 확인란이 선택되었는지 확인합니다.
 > 
-> ![필수 Key Vault 액세스 정책](./media/batch-account-create-portal/key-vault-access-policy.png) Azure Portal에서 Batch 계정을 만들 때 반드시 필요한 것은 아닙니다. 옵션은 기본적으로 선택 되어 있습니다.
+> ![필수 Key Vault 액세스 정책](./media/batch-account-create-portal/key-vault-access-policy.png) 이는 Azure Portal에서 Batch 계정을 만들 때 반드시 필요한 것은 아닙니다. 이 옵션은 기본적으로 선택되어 있습니다.
 
 
 
@@ -120,7 +123,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 코어 할당량은 사용자 구독 배치 계정에 기본적으로 설정되지 않습니다. 표준 Batch 코어 할당량은 사용자 구독 모드의 계정에 적용되지 않으므로 코어 할당량을 수동으로 설정해야 합니다.
 
-1. [Azure Portal][azure_portal]에서 사용자 구독 모드 배치 계정을 선택하여 해당 설정과 속성을 표시합니다.
+1. [Azure Portal][azure_portal]에서 사용자 구독 모드 Batch 계정을 선택하여 해당 설정과 속성을 표시합니다.
 
 1. 왼쪽 메뉴에서 **할당량**을 선택하여 배치 계정과 연결된 코어 할당량을 보고 구성합니다.
 
@@ -130,13 +133,13 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batch 계정을 만들고 관리할 수 있습니다.
 
-* [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
+* [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](batch-cli-get-started.md)
 * [Batch 관리 .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 컴퓨팅 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 컴퓨팅 워크로드를 위한 서비스 기능 개요를 제공합니다.
+* 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
 * [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 
 [azure_portal]: https://portal.azure.com

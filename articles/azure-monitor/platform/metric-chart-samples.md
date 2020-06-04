@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 메트릭 차트 예제
+title: Azure Monitor 메트릭 차트 예
 description: Azure Monitor 데이터를 시각화하는 방법을 알아봅니다.
 author: vgorbenko
 services: azure-monitor
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77660873"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797441"
 ---
 # <a name="metric-chart-examples"></a>메트릭 차트 예 
 
@@ -52,5 +52,5 @@ App Service 리소스를 선택하고 **CPU 백분율** 메트릭을 찾습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor [통합 문서](../../azure-monitor/app/usage-workbooks.md)에 대해 알아보기
+* Azure Monitor [통합 문서](../../azure-monitor/platform/workbooks-overview.md)에 대해 알아보기
 * [메트릭 탐색기](metrics-charts.md)에 대해 자세히 알아보기

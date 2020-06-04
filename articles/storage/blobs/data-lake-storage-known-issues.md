@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119895"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642202"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -107,7 +107,7 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 컨테이너에 [익명 읽기 액세스](storage-manage-access-to-resources.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
 
-## <a name="premium-performance-block-blob-storage-accounts"></a>프리미엄 성능 블록 Blob Storage 계정
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>프리미엄 성능 BlockBlobStorage 스토리지 계정
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
@@ -126,7 +126,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 
-- 수명 주기 관리 정책은 프리미엄 블록 Blob Storage 계정에서 아직 지원되지 않습니다. 
+- 수명 주기 관리 정책은 프리미엄 BlockBlobStorage 계정에서 아직 지원되지 않습니다. 
 
 - 데이터를 프리미엄 계층에서 하위 계층으로 이동할 수 없습니다. 
 
@@ -134,11 +134,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="hdinsight-support"></a>HDInsight 지원
 
-HDInsight 클러스터를 만들 때는 계층 구조 네임스페이스 기능이 활성화된 블록 Blob 스토리지 계정을 아직 선택할 수 없습니다. 하지만 계정을 만든 후에는 클러스터에 계정을 연결할 수 있습니다.
+HDInsight 클러스터를 만들 때는 계층 구조 네임스페이스 기능이 활성화된 BlockBlobStorage 계정을 아직 선택할 수 없습니다. 하지만 계정을 만든 후에는 클러스터에 계정을 연결할 수 있습니다.
 
 ### <a name="dremio-support"></a>Dremio 지원
 
-Dremio는 계층 구조 네임스페이스 기능이 활성화된 블록 Blob 스토리지 계정에 아직 연결되지 않습니다. 
+Dremio는 계층 구조 네임스페이스 기능이 활성화된 BlockBlobStorage 계정에 아직 연결되지 않습니다. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>WASB(Windows Azure Storage Blob) 드라이버(Data Lake Storage Gen2에서 지원되지 않음)
 

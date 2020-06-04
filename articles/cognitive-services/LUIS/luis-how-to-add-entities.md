@@ -7,15 +7,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685292"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344478"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가
 
@@ -61,7 +61,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 이 프로세스는 컴퓨터에서 배운 엔터티, 목록 엔터티 및 정규식 엔터티를 위해 작동 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **엔터티** 페이지를 선택 합니다.
 1. **+ 만들기**를 선택한 다음 엔터티 형식을 선택 합니다.
@@ -69,7 +69,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ## <a name="create-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티 만들기
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 1. **엔터티 형식 만들기** 대화 상자에서 엔터티의 이름을 입력 하 고 **학습 된 컴퓨터**를 선택 하 고를 선택 합니다. 하위 엔터티를 추가 하려면 **구조 추가**를 선택 합니다. **만들기**를 선택합니다.
@@ -86,7 +86,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ## <a name="add-a-feature-to-a-machine-learned-entity"></a>컴퓨터에서 배운 엔터티에 기능 추가
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 컴퓨터에서 배운 엔터티를 선택 합니다.
 1. 엔터티 또는 하위 엔터티 행에서 **+ 기능 추가** 를 선택 하 여 기능을 추가 합니다.
@@ -98,7 +98,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ## <a name="create-a-regular-expression-entity"></a>정규식 엔터티 만들기
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 
@@ -123,7 +123,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 |녹색|최소라, 라임|
 
 목록 엔터티를 만들려면 절차를 사용 합니다. 목록 엔터티를 만든 후에는 길이 발언 예제에 레이블을 추가할 필요가 없습니다. 목록 항목과 동의어가 정확히 일치 하는 텍스트를 사용 하 여 일치 합니다.
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티** 를 선택 하 고 **+ 만들기**를 선택 합니다.
 
@@ -151,7 +151,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 `Pick up the package from Seattle and deliver to New York City.`
 
 이 절차에서는 미리 작성 `origin` `destination` 된 geographyV2 엔터티에 및 역할을 추가 합니다.
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 
@@ -173,7 +173,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 > [!TIP]
 > 역할은 기계 학습 엔터티의 하위 엔터티로 레이블을 지정 하 여 바꿀 수 있습니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 역할을 사용 하는 예제 길이 발언를 포함 하는 의도 세부 정보 페이지로 이동 합니다.
 1. 역할을 사용 하 여 레이블을 표시 하려면 utterance 예제에서 엔터티 레이블 (텍스트 아래 실선)을 선택 하 고 드롭다운 목록에서 **엔터티 창에서 보기** 를 선택 합니다.

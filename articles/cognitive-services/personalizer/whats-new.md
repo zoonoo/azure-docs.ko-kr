@@ -7,15 +7,15 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800620"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342115"
 ---
 # <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
@@ -33,7 +33,7 @@ ms.locfileid: "83800620"
 
 * 이제 TLS 1.2는 이 서비스에 대한 모든 HTTP 요청에 적용됩니다. 자세한 내용은 [Azure Cognitive Services 보안](../cognitive-services-security.md)을 참조하세요.
 
-### <a name="november-2019---ignite-conference"></a>11 월 2019-Ignite 회의
+### <a name="november-2019---ignite-conference"></a>2019년 11월 - Ignite 컨퍼런스
 
 * Personalizer는 일반적으로 사용 가능 (GA)
 * 전체 수명 주기를 포함 하는 Azure Notebooks [자습서](tutorial-use-azure-notebook-generate-loop-data.md)

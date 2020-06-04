@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 갤러리에 다중 테 넌 트 앱 추가
+title: Azure AD 애플리케이션 갤러리에 다중 테넌트 앱 추가
 description: 사용자 지정 개발된 다중 테넌트 애플리케이션을 Azure AD 애플리케이션 갤러리에서 나열하는 방법을 설명합니다.
 services: active-directory
 documentationCenter: na
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 90f4d22ba782fd71460595f69a52e70be87a3047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b8d998d40b9920ccbdaf0079c32a0feb84bba87b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883256"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680272"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리에 다중 테넌트 애플리케이션 추가
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
-Azure AD(Azure Active Directory)는 클라우드 기반 ID 서비스입니다. [Azure AD 애플리케이션 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)는 모든 애플리케이션 커넥터가 SSO(Single Sign-On) 및 사용자 프로비전을 위해 게시되는 Azure Marketplace 앱 스토어에 위치합니다. Azure AD를 ID 공급자로 사용하는 고객은 여기에서 게시된 다른 SaaS 애플리케이션 커넥터를 찾습니다. IT 관리자는 앱 갤러리의 커넥터를 추가한 다음, SSO(Single Sign-On) 및 프로비전을 위해 커넥터를 구성하고 사용합니다. Azure AD는 SSO(Single Sign-On)에 대해 SAML 2.0, OpenID Connect, OAuth 및 WS-Fed와 같은 주요 페더레이션 프로토콜을 모두 지원합니다. 
+Azure AD(Azure Active Directory)는 클라우드 기반 ID 서비스입니다. [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)는 모든 애플리케이션 커넥터가 SSO(Single Sign-On) 및 사용자 프로비전을 위해 게시되는 Azure Marketplace 앱 스토어에 위치합니다. Azure AD를 ID 공급자로 사용하는 고객은 여기에서 게시된 다른 SaaS 애플리케이션 커넥터를 찾습니다. IT 관리자는 앱 갤러리의 커넥터를 추가한 다음, SSO(Single Sign-On) 및 프로비전을 위해 커넥터를 구성하고 사용합니다. Azure AD는 SSO(Single Sign-On)에 대해 SAML 2.0, OpenID Connect, OAuth 및 WS-Fed와 같은 주요 페더레이션 프로토콜을 모두 지원합니다. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>애플리케이션이 SAML 또는 OpenIDConnect를 지원하는 경우
 Azure AD 애플리케이션 갤러리에 나열하려는 다중 테넌트 애플리케이션이 있는 경우 먼저 애플리케이션이 다음 Single Sign-On 기술 중 하나를 지원하는지 확인해야 합니다.

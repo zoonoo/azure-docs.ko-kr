@@ -1,40 +1,40 @@
 ---
 title: Azure Resource Manager 템플릿으로 작업 영역 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Resource Manager 템플릿을 사용 하 여 새 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다.
+description: Azure Resource Manager 템플릿을 사용하여 새 Azure Machine Learning 작업 영역을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 568bcdcfd8ae50fff58964ecc74176b151db22a4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121323"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681554"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다.
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 작업 영역을 만드는 여러 가지 방법을 알아봅니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역을 만드는 몇 가지 방법을 설명합니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-다음 리소스 관리자 템플릿을 사용 하 여 Azure Machine Learning 작업 영역 및 연결 된 Azure 리소스를 만들 수 있습니다.
+다음 Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역 및 관련된 Azure 리소스를 만들 수 있습니다.
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -58,14 +58,14 @@ ms.locfileid: "83121323"
 * **workspace name** - Azure Machine Learning 작업 영역의 이름입니다.
 
     > [!NOTE]
-    > 작업 영역 이름은 대/소문자를 구분 하지 않습니다.
+    > 작업 영역 이름은 대/소문자를 구분하지 않습니다.
 
     다른 서비스의 이름은 임의로 생성됩니다.
 
 > [!TIP]
-> 이 문서와 연결 된 템플릿은 새 Azure Container Registry을 만들지만 컨테이너 레지스트리를 만들지 않고 새 작업 영역을 만들 수도 있습니다. 하나는 컨테이너 레지스트리가 필요한 작업을 수행할 때 만들어집니다. 예를 들어 모델을 학습 하거나 배포 합니다.
+> 이 문서와 연결된 템플릿은 새 Azure Container Registry를 만들지만 컨테이너 레지스트리를 만들지 않고도 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 필요한 작업을 수행할 때 하나의 작업 영역이 만들어집니다. 예를 들어 모델을 학습하거나 배포합니다.
 >
-> 새 컨테이너 레지스트리를 만드는 대신 Azure Resource Manager 템플릿에서 기존 컨테이너 레지스트리 또는 저장소 계정을 참조할 수도 있습니다.
+> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,25 +77,24 @@ ms.locfileid: "83121323"
 
 ### <a name="advanced-template"></a>고급 템플릿
 
-다음 예제 템플릿에서는 세 가지 설정으로 작업 영역을 만드는 방법을 보여 줍니다.
+다음 템플릿 예에서는 세 가지 설정으로 작업 영역을 만드는 방법을 보여 줍니다.
 
 * 작업 영역에 대해 높은 기밀성 설정 사용
-* 작업 영역에 대 한 암호화 사용
-* 기존 Azure Key Vault를 사용 하 여 고객 관리 키를 검색 합니다.
+* 작업 영역에 대한 암호화 사용
+* 기존 Azure Key Vault를 사용하여 고객 관리형 키 검색
 
-자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조하세요.
 
 > [!IMPORTANT]
-> 이 템플릿을 사용 하기 전에 구독에서 충족 해야 하는 몇 가지 특정 요구 사항이 있습니다.
-> * __Azure Machine Learning__ 응용 프로그램은 Azure 구독에 대 한 __참가자__ 여야 합니다.
-> * 암호화 키를 포함 하는 기존 Azure Key Vault 있어야 합니다.
-> * Azure Key Vault에는 __Azure Cosmos DB__ 응용 프로그램에 대 한 __가져오기__, __래핑__및 __래핑__ 해제 액세스 권한을 부여 하는 액세스 정책이 있어야 합니다.
-> * Azure Key Vault은 Azure Machine Learning 작업 영역을 만들 위치와 동일한 지역에 있어야 합니다.
-> * 구독에서 Azure Cosmos DB에 대 한 __고객 관리 키__ 를 지원 해야 합니다.
+> 이 템플릿을 사용하기 전에 구독에서 충족해야 하는 특정 요구 사항이 있습니다.
+> * __Azure Machine Learning__ 애플리케이션은 Azure 구독에 대한 __contributor__여야 합니다.
+> * 암호화 키를 포함하는 기존 Azure Key Vault가 있어야 합니다.
+> * __Azure Cosmos DB__ 애플리케이션에 대해 __가져오기__, __래핑__ 및 __래핑 해제__ 액세스 권한을 부여하는 액세스 정책이 Azure Key Vault에 있어야 합니다.
+> * Azure Key Vault는 Azure Machine Learning 작업 영역을 만들 위치와 동일한 영역에 있어야 합니다.
 
-__Azure Machine Learning 앱을 참가자로 추가 하려면__다음 명령을 사용 합니다.
+__Azure Machine Learning 앱을 contributor로 추가하려면__ 다음 명령을 사용합니다.
 
-1. CLI에서 Azure에 인증 하려면 다음 명령을 사용 합니다.
+1. CLI에서 Azure에 인증하려면 다음 명령을 사용합니다.
 
     ```azurecli-interactive
     az login
@@ -103,43 +102,41 @@ __Azure Machine Learning 앱을 참가자로 추가 하려면__다음 명령을 
     
     [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
 
-1. Azure Machine Learning 앱의 개체 ID를 가져오려면 다음 명령을 사용 합니다. 각 Azure 구독에 대 한 값은 다를 수 있습니다.
+1. Azure Machine Learning 앱의 개체 ID를 가져오려면 다음 명령을 사용합니다. 이 값은 각 Azure 구독에 따라 다를 수 있습니다.
 
     ```azurecli-interactive
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
-    이 명령은 GUID 인 개체 ID를 반환 합니다.
+    이 명령은 GUID인 개체 ID를 반환합니다.
 
-1. 구독에 개체 ID를 참가자로 추가 하려면 다음 명령을 사용 합니다. `<object-ID>`을 이전 단계의 GUID로 바꿉니다. `<subscription-ID>`을 Azure 구독의 이름 또는 ID로 바꿉니다.
+1. 구독에 개체 ID를 contributor로 추가하려면 다음 명령을 사용합니다. `<object-ID>`를 이전 단계의 GUID로 바꿉니다. `<subscription-ID>`를 Azure 구독의 이름 또는 ID로 바꿉니다.
 
     ```azurecli-interactive
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-__Azure Key Vault에 키를 추가 하려면__ __Azure CLI를 사용 하 여 관리 Key Vault__ 의 [키 자격 증명 모음에 키, 암호 또는 인증서 추가](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) 섹션의 정보를 사용 합니다.
+__Azure Key Vault에 키를 추가하려면__ __Azure CLI를 사용한 Key Vault 관리__ 문서의 [키 자격 증명 모음에 키, 비밀 또는 인증서 추가](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) 섹션에 있는 정보를 사용합니다.
 
-__키 자격 증명 모음에 액세스 정책을 추가 하려면 다음 명령을 사용 합니다__.
+__키 자격 증명 모음에 액세스 정책을 추가하려면 다음 명령을 사용합니다.__
 
-1. Azure Cosmos DB 앱의 개체 ID를 가져오려면 다음 명령을 사용 합니다. 각 Azure 구독에 대 한 값은 다를 수 있습니다.
+1. Azure Cosmos DB 앱의 개체 ID를 가져오려면 다음 명령을 사용합니다. 이 값은 각 Azure 구독에 따라 다를 수 있습니다.
 
     ```azurecli-interactive
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
     
-    이 명령은 GUID 인 개체 ID를 반환 합니다.
+    이 명령은 GUID인 개체 ID를 반환합니다.
 
-1. 정책을 설정 하려면 다음 명령을 사용 합니다. `<keyvault-name>`기존 Azure Key Vault의 이름으로 대체 합니다. `<object-ID>`을 이전 단계의 GUID로 바꿉니다.
+1. 정책을 설정하려면 다음 명령을 사용합니다. `<keyvault-name>`를 기존 Azure Key Vault 이름으로 바꿉니다. `<object-ID>`를 이전 단계의 GUID로 바꿉니다.
 
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
 
-__Azure Cosmos DB에 대해 고객이 관리 하는 키를 사용 하도록 설정 하려면__AZURE 구독 ID를 사용 하 여에 메일을 보냅니다 azurecosmosdbcmk@service.microsoft.com . 자세한 내용은 [Azure Cosmos 계정에 대 한 고객 관리 키 구성](..//cosmos-db/how-to-setup-cmk.md)을 참조 하세요.
+이 템플릿에 필요한 `cmk_keyvault`(Key Vault ID) 및 `resource_cmk_uri`(키 URI) 매개 변수에 대한 __값을 가져오려면__ 다음 단계를 사용합니다.
 
-__To get the values__ `cmk_keyvault` 이 템플릿에 필요한 (Key Vault ID) 및 `resource_cmk_uri` (키 URI) 매개 변수에 대 한 값을 가져오려면 다음 단계를 사용 합니다.
-
-1. Key Vault ID를 가져오려면 다음 명령을 사용 합니다.
+1. Key Vault ID를 가져오려면 다음 명령을 사용합니다.
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
@@ -147,7 +144,7 @@ __To get the values__ `cmk_keyvault` 이 템플릿에 필요한 (Key Vault ID) �
 
     이 명령은 `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`와 비슷한 값을 반환합니다.
 
-1. Customer 관리 키의 URI에 대 한 값을 가져오려면 다음 명령을 사용 합니다.
+1. 고객 관리형 키에 대한 URI 값을 가져오려면 다음 명령을 사용합니다.
 
     ```azurecli-interactive
     az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
@@ -160,17 +157,17 @@ __예제 템플릿__
 :::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
-> 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대 한 설정을 변경할 수 없습니다. 이러한 값을 변경 하려면 새 값을 사용 하 여 새 작업 영역을 만들어야 합니다.
+> 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.
 
-   * 구독: 이러한 리소스에 사용할 Azure 구독을 선택 합니다.
-   * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택 하거나 만듭니다.
-   * 작업 영역 이름: 생성 될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
-   * 위치: 리소스를 만들 위치를 선택 합니다.
+   * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
+   * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
+   * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
+   * 위치: 리소스가 생성될 위치를 선택합니다.
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 
@@ -210,25 +207,25 @@ az group deployment create \
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 액세스 정책 및 Azure Resource Manager 템플릿
 
-Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 리소스 (Azure Key Vault 포함)를 여러 번 만드는 경우 예를 들어 연속 통합 및 배포 파이프라인의 일부와 동일한 매개 변수를 사용 하 여 템플릿을 여러 번 사용 합니다.
+Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리소스(Azure Key Vault 포함)를 만드는 경우 여러 번 사용합니다. 예를 들어 연속 통합 및 배포 파이프라인의 일부와 동일한 매개 변수와 함께 템플릿을 여러 번 사용합니다.
 
-템플릿을 통한 대부분의 리소스 생성 작업은 idempotent 템플릿이 사용 될 때마다 액세스 정책을 지우는 Key Vault. 액세스 정책을 지우면 사용 중인 기존 작업 영역에 대 한 Key Vault 액세스가 중단 됩니다. 예를 들어 Azure Notebooks VM의 중지/만들기 기능이 실패할 수 있습니다.  
+템플릿을 통한 대부분의 리소스 생성 작업은 여러 번 사용해도 결과가 달라지지 않지만 Key Vault는 템플릿이 사용될 때마다 액세스 정책을 지웁니다. 액세스 정책을 지우면 사용 중인 기존 작업 영역에 대한 Key Vault 액세스가 중단됩니다. 예를 들어 Azure Notebooks VM의 중지/만들기 기능이 실패할 수 있습니다.  
 
-이 문제를 방지 하려면 다음 방법 중 하나를 사용 하는 것이 좋습니다.
+이 문제를 방지하려면 다음 방법 중 하나를 사용하는 것이 좋습니다.
 
-* 동일한 매개 변수에 템플릿을 두 번 이상 배포 하지 마십시오. 또는 템플릿을 사용 하 여 기존 리소스를 다시 만들기 전에 삭제 합니다.
+* 동일한 매개 변수에 템플릿을 두 번 이상 배포하지 마세요. 다시 배포하려면 기존 리소스를 삭제한 후에 템플릿을 다시 만들어 사용해야 합니다.
 
-* Key Vault 액세스 정책을 검토 한 후 이러한 정책을 사용 하 여 템플릿의 속성을 설정 합니다 `accessPolicies` . 액세스 정책을 보려면 다음 Azure CLI 명령을 사용 합니다.
+* Key Vault 액세스 정책을 검토한 후 이러한 정책을 사용하여 템플릿의 `accessPolicies` 속성을 설정합니다. 액세스 정책을 보려면 다음 Azure CLI 명령을 사용합니다.
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    템플릿의 섹션 사용에 대 한 자세한 내용은 `accessPolicies` [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조 하세요.
+    템플릿의 `accessPolicies` 섹션 사용에 대한 자세한 내용은 [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조하세요.
 
-* Key Vault 리소스가 이미 있는지 확인 합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새 항목을 만드는 대신 기존 Key Vault를 사용 하려면 템플릿을 다음과 같이 변경 합니다.
+* Key Vault 리소스가 이미 있는지 확인합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새로 만드는 대신 기존 Key Vault를 사용하려면 템플릿을 다음과 같이 변경합니다.
 
-    * 기존 Key Vault 리소스의 ID를 허용 하는 매개 변수를 **추가** 합니다.
+    * 기존 Key Vault 리소스의 ID를 허용하는 매개 변수를 **추가**합니다.
 
         ```json
         "keyVaultId":{
@@ -239,7 +236,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
         }
       ```
 
-    * Key Vault 리소스를 만드는 섹션을 **제거** 합니다.
+    * Key Vault 리소스를 만드는 섹션을 **제거**합니다.
 
         ```json
         {
@@ -259,7 +256,7 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
         },
         ```
 
-    * **Remove** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 작업 영역의 섹션에서 줄을 제거 `dependsOn` 합니다. 또한 **Change** `keyVault` 작업 영역의 항목을 변경 `properties` 하 여 매개 변수를 참조 합니다 `keyVaultId` .
+    * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거**합니다. 또한 `keyVaultId` 매개 변수를 참조하여 작업 영역의 `properties` 섹션에서 `keyVault` 항목을 **변경**합니다.
 
         ```json
         {
@@ -287,9 +284,9 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
         }
         ```
 
-    이러한 변경 후 템플릿을 실행할 때 기존 Key Vault 리소스의 ID를 지정할 수 있습니다. 그런 다음 템플릿에서 `keyVault` 작업 영역의 속성을 해당 ID로 설정 하 여 Key Vault를 다시 사용 합니다.
+    이러한 변경 후 템플릿을 실행할 때 기존 Key Vault 리소스의 ID를 지정할 수 있습니다. 그런 다음 템플릿에서 작업 영역의 `keyVault` 속성을 해당 ID로 설정하여 Key Vault를 다시 사용합니다.
 
-    Key Vault의 ID를 가져오려면 원래 템플릿 실행의 출력을 참조 하거나 Azure CLI를 사용 합니다. 다음 명령은 Azure CLI를 사용 하 여 Key Vault 리소스 ID를 가져오는 예입니다.
+    Key Vault의 ID를 가져오기 위해 원래 템플릿 실행의 출력을 참조하거나 Azure CLI를 사용할 수 있습니다. 다음 명령은 Azure CLI를 사용하여 Key Vault 리소스 ID를 가져오는 예입니다.
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
@@ -303,5 +300,5 @@ Azure Resource Manager 템플릿을 사용 하 여 작업 영역 및 연결 된 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스를 배포](../azure-resource-manager/templates/deploy-rest.md)합니다.
+* [Resource Manager 템플릿 및 Resource Manager REST API를 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-rest.md)
 * [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)

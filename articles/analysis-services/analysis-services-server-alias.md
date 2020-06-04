@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 별칭 서버 이름 | Microsoft Docs
-description: Azure Analysis Services 서버 이름 별칭을 만드는 방법에 대해 알아봅니다. 그러면 사용자가 서버 이름 대신 짧은 별칭 이름으로 서버에 연결할 수 있습니다.
+description: Azure Analysis Services 서버 이름 별칭을 만드는 방법에 대해 알아봅니다. 그러면 사용자는 서버 이름 대신 짧은 별칭 이름으로 서버에 연결할 수 있습니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572289"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698993"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 

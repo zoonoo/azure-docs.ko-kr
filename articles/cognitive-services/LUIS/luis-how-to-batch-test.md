@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 4d3535d419b0f99491795b3920fdd295e3128299
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ee15d08c820492cfa2c0701dfe3b682d57e00187
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653995"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344410"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -30,13 +30,13 @@ ms.locfileid: "83653995"
 
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. **데이터 집합 가져오기**를 선택 합니다. **새 데이터 세트 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
+2. **데이터 세트 가져오기**를 선택합니다. **새 데이터 세트 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
 3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다.**** 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다.
 
-4. **완료** 를 선택합니다. 데이터 세트 파일이 추가됩니다.
+4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>데이터 세트 실행, 이름 바꾸기, 내보내기 또는 삭제
 

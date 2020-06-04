@@ -1,5 +1,5 @@
 ---
-title: Linux VM에서 데이터 디스크 분리-Azure
+title: Linux VM에서 데이터 디스크 분리 - Azure
 description: Azure CLI 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036377"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830007"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
@@ -106,17 +106,15 @@ az vm disk detach \
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
 1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
-2. 분리 하려는 데이터 디스크가 있는 가상 컴퓨터를 선택 하 고 **중지** 를 클릭 하 여 VM의 할당을 취소 합니다.
-3. 가상 머신 창에서 **디스크**를 선택합니다.
-4. **디스크** 창 상단에서 **편집**을 선택합니다.
-5. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
-5. 디스크를 제거한 후에 창 상단에서 저장을 클릭합니다.
-6. 가상 머신 창에서 **개요**를 클릭한 다음 창 상단에서 **시작** 단추를 클릭하여 VM을 다시 시작합니다.
+1. 가상 컴퓨터 블레이드에서 **디스크**를 선택합니다.
+1. **디스크** 블레이드 상단에서 **편집**을 선택합니다.
+1. **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
+1. 디스크를 제거한 후에 블레이드 상단에서 **저장**을 클릭합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
-데이터 디스크를 다시 사용 하려는 경우 [다른 VM에 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하면 됩니다.
+데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수 있습니다.
 
