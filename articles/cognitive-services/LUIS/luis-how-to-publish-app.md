@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653934"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340694"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
 활성 LUIS 앱 빌드, 학습 및 테스트를 마치면 클라이언트 응용 프로그램에서 끝점에 게시 하 여 사용할 수 있도록 설정 합니다.
 
 ## <a name="publishing"></a>게시
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시**를 선택하세요.
 
@@ -38,7 +38,7 @@ ms.locfileid: "83653934"
 팝업 창이 표시 되 면 올바른 슬롯을 선택 합니다.
 
 * 스테이징
-* 생산
+* 프로덕션
 
 두 게시 슬롯을 모두 사용 하면 게시 된 끝점에서 두 가지 다른 버전의 앱을 사용할 수 있거나 두 개의 서로 다른 끝점에서 동일한 버전을 사용할 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "83653934"
 
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
-* 감정 분석
+* 정서 분석
 * [맞춤법 수정](luis-tutorial-bing-spellcheck.md) -v2 예측 끝점만
 * 음성 초기화
 
@@ -68,7 +68,7 @@ ms.locfileid: "83653934"
 
 엔드포인트 URL이 필요한 경우 링크를 선택하세요. 상단 메뉴에서 **관리** 를 선택 하 고 왼쪽 메뉴에서 **Azure 리소스** 를 선택 하 여 끝점 url로 이동할 수도 있습니다.
 
-## <a name="sentiment-analysis"></a>감정 분석
+## <a name="sentiment-analysis"></a>정서 분석
 
 <a name="enable-sentiment-analysis"></a>
 

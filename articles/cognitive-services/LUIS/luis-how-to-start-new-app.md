@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653920"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343169"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또는 LUIS 제작 [API](developer-reference-resource.md)를 통해 LUIS 앱을 만들 수 있습니다.

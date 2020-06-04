@@ -16,17 +16,17 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249712"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014787"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
 > [!div class="op_single_selector"]
-> * [리소스 관리자](../sql/virtual-machines-windows-sql-connect.md)
-> * [기존](../classic/sql-connect.md)
+> * [리소스 관리자](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)
+> * [클래식](../classic/sql-connect.md)
 > 
 > 
 
@@ -34,7 +34,7 @@ ms.locfileid: "79249712"
 이 항목에서는 Azure 가상 머신에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../sql/virtual-machines-windows-sql-connect.md)을 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server Virtual Machine에 연결](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)을 참조하세요.
 
 ## <a name="connection-scenarios"></a>연결 시나리오
 클라이언트가 Virtual Machine을 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
@@ -87,10 +87,10 @@ ms.locfileid: "79249712"
 
 * [가상 컴퓨터에 대한 TCP 엔드포인트 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [TCP 프로토콜을 수신 대기하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
-* [혼합 모드 인증을 위해 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
+* [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
 * [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
-* [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+* [가상 머신의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
 * [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
 
 연결 경로는 다음 다이어그램에 요약되어 있습니다.
@@ -106,9 +106,9 @@ ms.locfileid: "79249712"
 ## <a name="next-steps"></a>다음 단계
 고가용성 및 재해 복구를 위해 AlwaysOn 가용성 그룹도 사용하려는 경우 수신기의 구현을 고려해야 합니다. 데이터베이스 클라이언트는 SQL Server 인스턴스 중 하나에 직접 연결하기 보다는 수신기에 연결합니다. 수신기는 가용성 그룹의 주 복제본에 클라이언트를 라우팅합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
 
-Azure 가상 머신에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](../sql/virtual-machines-windows-sql-security.md)을 참조하세요.
+Azure 가상 머신에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md)을 참조하세요.
 
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다. 
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.
 

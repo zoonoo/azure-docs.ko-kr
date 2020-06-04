@@ -1,14 +1,14 @@
 ---
 title: LUIS 포털에서 앱 테스트
 description: Language Understanding(LUIS)을 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714419"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344155"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 
@@ -22,7 +22,7 @@ ms.locfileid: "83714419"
 
 ## <a name="train-before-testing"></a>테스트 전 학습
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 최신 버전의 활성 앱에 대해 테스트 하려면 테스트 하기 전에 상단 메뉴에서 **학습** 을 선택 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "83714419"
 
 테스트 utterance는 응용 프로그램의 예제 길이 발언와 정확 하 게 일치 하면 안 됩니다. 테스트 utterance에는 사용자에 게 필요한 단어 선택, 구 길이 및 엔터티 사용이 포함 되어야 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인 하 고 **구독** 및 **제작 리소스** 를 선택 하 여 해당 제작 리소스에 할당 된 앱을 확인 합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 
 1. **테스트** 슬라이드 외부 패널에 액세스 하려면 응용 프로그램의 위쪽 패널에서 **테스트** 를 선택 합니다.

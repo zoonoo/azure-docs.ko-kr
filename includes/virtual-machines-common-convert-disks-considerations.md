@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9f7e2760ef8bf06a2e680dce90c323672ca9d491
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: 091e4dc0759ce1b227349d5d1b6b08b9eda66ee0
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "66416076"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237674"
 ---
 * 변환은 기존 유지 관리 기간 동안 VM의 마이그레이션을 예약하도록 VM의 재시작이 필요합니다. 
 
@@ -19,6 +19,6 @@ ms.locfileid: "66416076"
 
 * 변환을 테스트해야 합니다. 프로덕션에서 마이그레이션을 수행하기 전에 테스트 가상 머신을 마이그레이션합니다.
 
-* 변환 중 VM의 할당을 취소합니다. VM은 변환 후 시작될 때 새 IP 주소를 받습니다. 필요한 경우 VM에 [고정 IP 주소를 할당](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md)할 수 있습니다.
+* 변환 중 VM의 할당을 취소합니다. VM은 변환 후 시작될 때 새 IP 주소를 받습니다. 필요한 경우 VM에 [고정 IP 주소를 할당](../articles/virtual-network/public-ip-addresses.md)할 수 있습니다.
 
 * 변환 프로세스를 지원하는 데 필요한 최소 버전의 Azure VM 에이전트를 검토합니다. 에이전트 버전을 확인하고 업데이트하는 방법에 대한 정보는 [Azure에서 VM 에이전트에 대한 최소 버전 지원](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)을 참조하세요.

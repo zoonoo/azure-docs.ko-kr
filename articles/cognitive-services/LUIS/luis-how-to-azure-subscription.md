@@ -2,14 +2,14 @@
 title: 제작 및 런타임 키를 사용 하는 방법-LUIS
 description: Language Understanding (LUIS)를 처음 사용 하는 경우 제작 키를 만들 필요가 없습니다. 앱을 게시 하려는 경우 런타임 끝점을 사용 하 여 앱에 대 한 런타임 키를 만들고 할당 해야 합니다.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101028"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344461"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -51,7 +51,7 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다.
 
-리소스 `kind`:
+리소스 `kind` :
 
 * 만들`LUIS.Authoring`
 * 예측`LUIS`
@@ -64,13 +64,13 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
     그러면 올바른 계정을 선택 하 고 인증을 제공할 수 있는 브라우저가 열립니다.
 
-1. `westus` 지역 `my-resource-group` 에 대해 이라는 _기존_ 리소스 그룹에 `LUIS.Authoring`이라는 `my-luis-authoring-resource` 종류의 **LUIS authoring resource**를 만듭니다.
+1. **LUIS authoring resource** `LUIS.Authoring` `my-luis-authoring-resource` 지역에 대해 이라는 _기존_ 리소스 그룹에 이라는 종류의 LUIS authoring resource를 만듭니다 `my-resource-group` `westus` .
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. `westus` 지역 `my-resource-group` 에 대해 이라는 _기존_ 리소스 그룹에 이라는 `LUIS`이름의 `my-luis-prediction-resource` **LUIS 예측 끝점 리소스**를 만듭니다. 무료 계층 보다 높은 처리량을 원하는 경우로 `F0` `S0`변경 합니다. [가격 책정 계층 및 처리량](luis-limits.md#key-limits)에 대해 자세히 알아보세요.
+1. **LUIS prediction endpoint resource** `LUIS` `my-luis-prediction-resource` 지역에 대해 이라는 _기존_ 리소스 그룹에 이라는 이름의 LUIS 예측 끝점 리소스를 만듭니다 `my-resource-group` `westus` . 무료 계층 보다 높은 처리량을 원하는 경우 `F0` 로 변경 `S0` 합니다. [가격 책정 계층 및 처리량](luis-limits.md#key-limits)에 대해 자세히 알아보세요.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -111,7 +111,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |헤더|Value|
+    |헤더|값|
     |--|--|
     |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |`Ocp-Apim-Subscription-Key`|작성 키|

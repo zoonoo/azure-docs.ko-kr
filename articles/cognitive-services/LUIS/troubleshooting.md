@@ -1,15 +1,15 @@
 ---
 title: FAQ (질문과 대답)-LUIS
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835005"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343543"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -216,7 +216,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 무슨 일이 일어났나요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 건가요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.
 

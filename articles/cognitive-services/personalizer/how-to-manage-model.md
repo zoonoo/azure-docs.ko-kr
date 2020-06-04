@@ -1,14 +1,14 @@
 ---
 title: 모델 및 학습 설정 관리-Personalizer
 description: 컴퓨터에서 학습 한 모델 및 학습 설정은 자신의 원본 제어 시스템에서 백업용으로 내보낼 수 있습니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624329"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344359"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>모델 및 학습 설정을 관리 하는 방법
 

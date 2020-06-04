@@ -1,14 +1,14 @@
 ---
 title: Personalizer 리소스 만들기
 description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b56516b5555ca971d7ab1db3caf5b76f252729b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80336055"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344376"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
 
