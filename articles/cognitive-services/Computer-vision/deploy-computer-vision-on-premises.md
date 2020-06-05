@@ -21,11 +21,11 @@ ms.locfileid: "80877979"
 
 온-프레미스 Computer Vision 컨테이너를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 Computer Vision 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스를 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Computer Vision 컨테이너 설치 및 실행](computer-vision-how-to-install-containers.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 온-프레미스 Computer Vision 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
-| 필수 | 목적 |
+| 필수 | 용도 |
 |----------|---------|
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] 는 컨테이너 레지스트리에서 공유 자격 증명을 관리 하는 데 필요 합니다. Kubernetes는 Kubernetes 패키지 관리자 인 투구 이전에도 필요 합니다. |
@@ -48,9 +48,9 @@ ms.locfileid: "80877979"
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Kubernetes 클러스터를 사용 하 여 Docker 자격 증명 공유
 
-컨테이너 레지스트리에서 구성 된 이미지에 `docker pull` 대 한 Kubernetes 클러스터를 허용 하려면 docker 자격 증명을 클러스터로 전송 해야 합니다. `containerpreview.azurecr.io` 컨테이너 레지스트리 [`kubectl create`][kubectl-create] 액세스 필수 구성 요소에서 제공 된 자격 증명에 따라 *docker 레지스트리 암호* 를 만들려면 아래 명령을 실행 합니다.
+컨테이너 레지스트리에서 구성 된 이미지에 대 한 Kubernetes 클러스터를 허용 하려면 `docker pull` `containerpreview.azurecr.io` docker 자격 증명을 클러스터로 전송 해야 합니다. [`kubectl create`][kubectl-create]컨테이너 레지스트리 액세스 필수 구성 요소에서 제공 된 자격 증명에 따라 *docker 레지스트리 암호* 를 만들려면 아래 명령을 실행 합니다.
 
-원하는 명령줄 인터페이스에서 다음 명령을 실행 합니다. `<username>`, `<password>`및 `<email-address>` 를 컨테이너 레지스트리 자격 증명으로 바꾸어야 합니다.
+원하는 명령줄 인터페이스에서 다음 명령을 실행 합니다. `<username>`, `<password>` 및를 `<email-address>` 컨테이너 레지스트리 자격 증명으로 바꾸어야 합니다.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,7 +61,7 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> `containerpreview.azurecr.io` 컨테이너 레지스트리에 대 한 액세스 권한이 이미 있는 경우 대신 일반 플래그를 사용 하 여 Kubernetes 암호를 만들 수 있습니다. Docker 구성 JSON에 대해 실행 되는 다음 명령을 고려 합니다.
+> 컨테이너 레지스트리에 대 한 액세스 권한이 이미 있는 경우 `containerpreview.azurecr.io` 대신 일반 플래그를 사용 하 여 Kubernetes 암호를 만들 수 있습니다. Docker 구성 JSON에 대해 실행 되는 다음 명령을 고려 합니다.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -74,13 +74,13 @@ kubectl create secret docker-registry containerpreview \
 secret "containerpreview" created
 ```
 
-비밀이 만들어졌는지 확인 하려면 [`kubectl get`][kubectl-get] `secrets` 플래그를 사용 하 여를 실행 합니다.
+비밀이 만들어졌는지 확인 하려면 플래그를 사용 하 여를 실행 합니다 [`kubectl get`][kubectl-get] `secrets` .
 
 ```console
 kubectl get secrets
 ```
 
-를 실행 `kubectl get secrets` 하면 구성 된 모든 암호가 인쇄 됩니다.
+를 실행 하면 `kubectl get secrets` 구성 된 모든 암호가 인쇄 됩니다.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
@@ -98,7 +98,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
-투구 차트 기본값을 구성 하려면 다음 YAML를 복사 하 여 라는 `values.yaml`파일에 붙여 넣습니다. `# {ENDPOINT_URI}` 및 `# {API_KEY}` 주석을 사용자 고유의 값으로 바꿉니다.
+투구 차트 기본값을 구성 하려면 다음 YAML를 복사 하 여 라는 파일에 붙여 넣습니다 `values.yaml` . `# {ENDPOINT_URI}`및 `# {API_KEY}` 주석을 사용자 고유의 값으로 바꿉니다.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -118,9 +118,9 @@ read:
 ```
 
 > [!IMPORTANT]
-> `billing` 및 `apikey` 값이 제공 되지 않은 경우 서비스는 15 분 후에 만료 됩니다. 마찬가지로, 서비스를 사용할 수 없게 되 면 확인이 실패 합니다.
+> `billing`및 `apikey` 값이 제공 되지 않은 경우 서비스는 15 분 후에 만료 됩니다. 마찬가지로, 서비스를 사용할 수 없게 되 면 확인이 실패 합니다.
 
-*읽기* 디렉터리 아래에 *템플릿* 폴더를 만듭니다. 다음 YAML을 복사 하 여 라는 `deployment.yaml`파일에 붙여 넣습니다. 이 `deployment.yaml` 파일은 투구 템플릿 역할을 합니다.
+*읽기* 디렉터리 아래에 *템플릿* 폴더를 만듭니다. 다음 YAML을 복사 하 여 라는 파일에 붙여 넣습니다 `deployment.yaml` . `deployment.yaml`이 파일은 투구 템플릿 역할을 합니다.
 
 > 템플릿은 Kubernetes에서 이해할 수 있는 YAML 형식의 리소스 설명 인 매니페스트 파일을 생성 합니다. [-투구 차트 템플릿 가이드][chart-template-guide]
 
@@ -167,15 +167,15 @@ spec:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지 (투구 차트)
 
-*투구 차트* 에는 `containerpreview.azurecr.io` 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다.
+*투구 차트* 에는 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다 `containerpreview.azurecr.io` .
 
 > [투구 차트][helm-charts] 는 관련 된 Kubernetes 리소스 집합을 설명 하는 파일의 컬렉션입니다. 단일 차트는 memcached pod 또는 HTTP 서버, 데이터베이스, 캐시 등의 전체 웹 앱 스택과 같이 복잡 한 항목을 배포 하는 데 사용할 수 있습니다.
 
-제공 된 *투구 차트* 는 Computer Vision 서비스의 docker 이미지와 `containerpreview.azurecr.io` 컨테이너 레지스트리에서 해당 하는 서비스를 가져옵니다.
+제공 된 *투구 차트* 는 Computer Vision 서비스의 docker 이미지와 컨테이너 레지스트리에서 해당 하는 서비스를 가져옵니다 `containerpreview.azurecr.io` .
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 투구 차트 설치
 
-*투구 차트*를 설치 하려면 [`helm install`][helm-install-cmd] 명령을 실행 해야 합니다. `read` 폴더 위의 디렉터리에서 install 명령을 실행 해야 합니다.
+*투구 차트*를 설치 하려면 명령을 실행 해야 [`helm install`][helm-install-cmd] 합니다. 폴더 위의 디렉터리에서 install 명령을 실행 해야 `read` 합니다.
 
 ```console
 helm install read ./read

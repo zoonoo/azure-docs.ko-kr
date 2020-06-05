@@ -19,7 +19,7 @@ ms.locfileid: "80876442"
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>핵심 구 추출 컨테이너 인스턴스 확인
 
 1. **개요** 탭을 선택 하 고 IP 주소를 복사 합니다.
-1. 새 브라우저 탭을 열고 IP 주소를 입력 합니다. 예를 들어를 `http://<IP-address>:5000 (http://55.55.55.55:5000`입력 합니다. 컨테이너의 홈 페이지가 표시 됩니다. 그러면 컨테이너가 실행 중임을 알 수 있습니다.
+1. 새 브라우저 탭을 열고 IP 주소를 입력 합니다. 예를 들어를 입력 `http://<IP-address>:5000 (http://55.55.55.55:5000` 합니다. 컨테이너의 홈 페이지가 표시 됩니다. 그러면 컨테이너가 실행 중임을 알 수 있습니다.
 
     ![컨테이너 홈 페이지를 확인 하 여 실행 중인지 확인 합니다.](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "80876442"
     }
     ```
 
-1. **Showstats** 를로 `true`설정 합니다.
+1. **Showstats** 를로 설정 `true` 합니다.
 
 1. **실행** 을 선택 하 여 텍스트의 감정 확인 합니다.
 
@@ -100,4 +100,4 @@ ms.locfileid: "80876442"
     }
     ```
 
-이제 응답 페이로드의 JSON 데이터 문서 `id` 를 원래 요청 페이로드 문서 `id`와의 상관 관계를 지정할 수 있습니다. 결과 문서에는 해당 `keyPhrases` 입력 문서에서 추출 된 키 구 목록이 포함 된 배열이 있습니다. 또한 각 결과 문서에 대해 및 `characterCount` `transactionCount` 와 같은 다양 한 통계가 있습니다.
+이제 `id` 응답 페이로드의 JSON 데이터 문서를 원래 요청 페이로드 문서와의 상관 관계를 지정할 수 있습니다 `id` . 결과 문서에는 `keyPhrases` 해당 입력 문서에서 추출 된 키 구 목록이 포함 된 배열이 있습니다. 또한 `characterCount` `transactionCount` 각 결과 문서에 대해 및와 같은 다양 한 통계가 있습니다.
