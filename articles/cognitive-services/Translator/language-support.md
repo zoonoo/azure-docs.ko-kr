@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996077"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434293"
 ---
 # <a name="language-and-region-support-for-translator"></a>번역기에 대 한 언어 및 지역 지원
 
@@ -74,10 +74,11 @@ ms.locfileid: "83996077"
 |아일랜드어 | `ga`| 신경
 |이탈리아어|    `it`    |    신경|
 |일본어|    `ja`    |    신경|
-|칸나다어|`kn`| 신경
+|칸나다어|`kn`| 신경|
+|카자흐어 |`kk`| 신경|
 |스와힐리어|    `sw`    |    통계|
-|클링곤어|    `tlh`    |    통계|
-|클링곤어(plqaD)|    `tlh-Qaak`    |    통계|
+|클링곤어|    `tlh-Latn`    |    통계|
+|클링곤어(plqaD)|    `tlh-Piqd`    |    통계|
 |한국어    |`ko`    |    신경|
 |라트비아어|    `lv`    |    신경|
 |리투아니아어|    `lt`    |    신경|
@@ -130,20 +131,20 @@ ms.locfileid: "83996077"
 | 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
 | 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
 | 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
-| 구자라트어 | `gu`  | 구자라트어 `Gujr` | --> | 라틴어 `Latn` |
+| 구자라트어 | `gu`  | 구자라트어 `Gujr` | <--> | 라틴어 `Latn` |
 | 히브리어 | `he` | 히브리어 `Hebr` | <--> | 라틴어 `Latn` |
 | 힌디어 | `hi` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
 | 일본어 | `ja` | 일본어 `Jpan` | <--> | 라틴어 `Latn` |
-| 칸나다어 | `kn` | 칸나다어 `Knda` | --> | 라틴어 `Latn` |
-| 말라얄람어 | `ml` | 말라얄람어 `Mlym` | --> | 라틴어 `Latn` |
-| 마라티어 | `mr` | 데바나가리어 `Deva` | --> | 라틴어 `Latn` |
+| 칸나다어 | `kn` | 칸나다어 `Knda` | <--> | 라틴어 `Latn` |
+| 말라얄람어 | `ml` | 말라얄람어 `Mlym` | <--> | 라틴어 `Latn` |
+| 마라티어 | `mr` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
 | 오리야어 | `or` | 오리야어 `Orya` | <--> | 라틴어 `Latn` |
 | 펀잡어 | `pa` | 굴묵키어 `Guru`  | <--> | 라틴어 `Latn`  |
 | 세르비아어(키릴 자모) | `sr-Cyrl` | 키릴 자모 `Cyrl`  | --> | 라틴어 `Latn` |
 | 세르비아어(라틴 문자) | `sr-Latn` | 라틴어 `Latn` | --> | 키릴 자모 `Cyrl`|
-| 타밀어 | `ta` | 타밀어 `Taml` | --> | 라틴어 `Latn` |
-| 텔루구어 | `te` | 텔루구어 `Telu` | --> | 라틴어 `Latn` |
-| 태국어 | `th` | 태국어 `Thai` | --> | 라틴어 `Latn` |
+| 타밀어 | `ta` | 타밀어 `Taml` | <--> | 라틴어 `Latn` |
+| 텔루구어 | `te` | 텔루구어 `Telu` | <--> | 라틴어 `Latn` |
+| 태국어 | `th` | 태국어 `Thai` | <--> | 라틴어 `Latn` |
 
 ## <a name="dictionary"></a>Dictionary
 
@@ -177,7 +178,7 @@ ms.locfileid: "83996077"
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
 | 스와힐리어      | `sw`          |
-| 클링곤어      | `tlh`          |
+| 클링곤어      | `tlh-Latn`          |
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |

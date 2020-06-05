@@ -19,7 +19,7 @@ ms.locfileid: "80876440"
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Cognitive Services Text Analytics 리소스 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **리소스 만들기**를 선택 하 고 **AI + Machine Learning** > **Text Analytics**로 이동 합니다.
+1. **리소스 만들기**를 선택 하 고 **AI + Machine Learning**  >  **Text Analytics**로 이동 합니다.
    또는 [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)로 이동 합니다.
 1. 필요한 설정을 모두 입력 합니다.
 
@@ -32,9 +32,9 @@ ms.locfileid: "80876440"
     |Resource group|사용 가능한 리소스 그룹을 선택 합니다.|
 
 1. **만들기**를 선택 하 고 리소스가 생성 될 때까지 기다립니다. 브라우저가 새로 만든 리소스 페이지로 자동으로 리디렉션됩니다.
-1. 구성 `endpoint` 된 및 API 키를 수집 합니다.
+1. 구성 된 `endpoint` 및 API 키를 수집 합니다.
 
-    |포털의 리소스 탭|설정|Value|
+    |포털의 리소스 탭|설정|값|
     |--|--|--|
-    |**개요**|엔드포인트|끝점을 복사 합니다. 와 유사 하 게 `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`표시 됩니다.|
-    |**키**|API 키|두 키 중 하나를 복사 합니다. <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>는 공백이 나 대시가 없는 32 자리의 영숫자 문자열입니다.|
+    |**개요**|엔드포인트|끝점을 복사 합니다. 와 유사 하 게 표시 됩니다 `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0` .|
+    |**키**|API 키|두 키 중 하나를 복사 합니다. <>는 공백이 나 대시가 없는 32 자리의 영숫자 문자열 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 입니다.|
