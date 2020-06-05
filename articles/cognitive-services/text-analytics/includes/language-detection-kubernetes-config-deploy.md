@@ -24,7 +24,7 @@ ms.locfileid: "80877839"
     az login
     ```
 
-1. AKS 클러스터에 로그인 합니다. 및 `your-cluster-name` `your-resource-group` 을 적절 한 값으로 바꿉니다.
+1. AKS 클러스터에 로그인 합니다. `your-cluster-name`및을 `your-resource-group` 적절 한 값으로 바꿉니다.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -48,7 +48,7 @@ ms.locfileid: "80877839"
     code .
     ```
 
-1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. 및 `apikey/value` 을 사용자의 `billing/value` 정보로 바꾸어야 합니다.
+1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value`및을 `apikey/value` 사용자의 정보로 바꾸어야 합니다.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,7 +95,7 @@ ms.locfileid: "80877839"
     ```
 
 1. 파일을 저장 하 고 텍스트 편집기를 닫습니다.
-1. Kubernetes `apply` 파일을 대상으로 하 여 다음 명령을 실행 합니다 *.*
+1. Kubernetes 파일을 `apply` 대상으로 하 여 다음 명령을 실행 합니다 *.*
 
     ```console
     kubectl apply -f language.yaml
