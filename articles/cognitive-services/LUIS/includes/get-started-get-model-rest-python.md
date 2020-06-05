@@ -6,21 +6,19 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 4d8da7d2bc51c4fc4ebc8d71f230f24f20b3aa24
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: a8ac208c77a3c25d03b09e0c70eb5edcd9bd0383
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77368424"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416408"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+[참조 설명서](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-model-with-rest/model.py)
 
-* Azure Language Understanding - 작성 리소스 32자 키 및 작성 엔드포인트 URL입니다. [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 또는 [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli)를 사용하여 만듭니다.
-* cognitive-services-language-understanding GitHub 리포지토리에서 [TravelAgent 앱](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json)을 가져옵니다.
-* 가져온 TravelAgent 앱의 LUIS 애플리케이션 ID입니다. 애플리케이션 ID는 애플리케이션 대시보드에 표시됩니다.
-* 발언을 수신하는 애플리케이션 내의 버전 ID입니다. 기본 ID는 "0.1"입니다.
+## <a name="prerequisites"></a>필수 구성 요소
+
 * [Python 3.6](https://www.python.org/downloads/) 이상
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -28,19 +26,23 @@ ms.locfileid: "77368424"
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
+## <a name="create-pizza-app"></a>Pizza 앱 만들기
+
+[!INCLUDE [Create pizza app](get-started-get-model-create-pizza-app.md)]
+
 ## <a name="change-model-programmatically"></a>프로그래밍 방식으로 모델 변경
 
 1. 이름이 `model.py`인 새 파일을 만듭니다. 다음 코드를 추가합니다.
 
-    [!code-python[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
+    [!code-python[Add example utterances to Language Understanding in python](~/cognitive-services-quickstart-code/python/LUIS/python-model-with-rest/model.py)]
 
 1. `YOUR-`에서 시작하는 값을 고유한 값으로 바꿉니다.
 
     |정보|목적|
     |--|--|
-    |`YOUR-KEY`|32자 작성 키입니다.|
-    |`YOUR-ENDPOINT`| 작성 URL 엔드포인트입니다. `replace-with-your-resource-name.api.cognitive.microsoft.com`)을 입력합니다. 리소스를 만들 때 리소스 이름을 설정합니다.|
     |`YOUR-APP-ID`| LUIS 앱 ID입니다. |
+    |`YOUR-AUTHORING-KEY`|32자 작성 키입니다.|
+    |`YOUR-AUTHORING-ENDPOINT`| 작성 URL 엔드포인트입니다. 예들 들어 `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`입니다. 리소스를 만들 때 리소스 이름을 설정합니다.|
 
     할당된 키와 리소스는 **Azure Resources** 페이지의 관리 섹션에 있는 LUIS 포털에 표시됩니다. 앱 ID는 **애플리케이션 설정** 페이지의 동일한 관리 섹션에서 사용할 수 있습니다.
 
@@ -48,6 +50,110 @@ ms.locfileid: "77368424"
 
     ```console
     python model.py
+    ```
+
+1. 제작 응답을 검토합니다.
+
+    ```console
+    Add the list of utterances:
+    [{'value': {'ExampleId': 1137150691, 'UtteranceText': 'order a pizza'}, 'hasError': False}, {'value': {'ExampleId': 1137150692, 'UtteranceText': 'order a large pepperoni pizza'}, 'hasError': False}, {'value': {'ExampleId': 1137150693, 'UtteranceText': 'i want two large pepperoni pizzas on thin crust'}, 'hasError': False}]
+    Request training:
+    {'statusId': 9, 'status': 'Queued'}
+    Request training status:
+    [{'modelId': 'edb46abf-0000-41ab-beb2-a41a0fe1630f', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': 'a5030be2-616c-4648-bf2f-380fa9417d37', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': 'e4b6704b-1636-474c-9459-fe9ccbeba51c', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '031d3777-2a00-4a7a-9323-9a3280a30000', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '9250e7a1-06eb-4413-9432-ae132ed32583', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}]
+    ```
+
+    가독성을 위해 형식이 지정된 출력은 다음과 같습니다.
+
+    ```json
+    Add the list of utterances:
+    [
+      {
+        'value': {
+          'ExampleId': 1137150691,
+          'UtteranceText': 'order a pizza'
+        },
+        'hasError': False
+      },
+      {
+        'value': {
+          'ExampleId': 1137150692,
+          'UtteranceText': 'order a large pepperoni pizza'
+        },
+        'hasError': False
+      },
+      {
+        'value': {
+          'ExampleId': 1137150693,
+          'UtteranceText': 'i want two large pepperoni pizzas on thin crust'
+        },
+        'hasError': False
+      }
+    ]
+
+    Request training:
+    {
+      'statusId': 9,
+      'status': 'Queued'
+    }
+
+    Request training status:
+    [
+      {
+        'modelId': 'edb46abf-0000-41ab-beb2-a41a0fe1630f',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': 'a5030be2-616c-4648-bf2f-380fa9417d37',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': 'e4b6704b-1636-474c-9459-fe9ccbeba51c',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '031d3777-2a00-4a7a-9323-9a3280a30000',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '9250e7a1-06eb-4413-9432-ae132ed32583',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      }
+    ]
     ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

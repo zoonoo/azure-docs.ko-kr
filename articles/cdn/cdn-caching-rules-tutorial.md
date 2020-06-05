@@ -24,11 +24,11 @@ ms.locfileid: "81254311"
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 
 > [!NOTE] 
-> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN**의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 [관리](cdn-rules-engine.md) 포털에서 **Verizon Premium 규칙 엔진**을 사용해야 합니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN**의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
  
 
 이 자습서에서는 Azure CDN(Content Delivery Network) 캐싱 규칙을 사용하여 전역적으로 그리고 사용자 지정 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정하는 방법을 설명합니다. Azure CDN에는 두 가지 유형의 캐싱 규칙이 제공됩니다.
-- 전역 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 전역 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
+- 글로벌 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 글로벌 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
 
 - 사용자 지정 캐싱 규칙: 프로필의 각 엔드포인트에 대해 하나 이상의 사용자 지정 캐싱 규칙을 설정할 수 있습니다. 사용자 지정 캐싱 규칙은 설정되면 특정 경로 및 파일 확장명과 일치하고, 순서대로 처리되며, 전역 캐싱 규칙을 재정의합니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "81254311"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
@@ -79,7 +79,7 @@ ms.locfileid: "81254311"
     
 2. **캐싱 동작**을 **재정의**로 설정하고 **일** 필드에 30일 입력합니다.
        
-    이 사용자 지정 캐싱 규칙은 엔드포인트의 `.jpg` 폴더에 있는 모든 `/images` 이미지 파일의 캐시 기간을 30일로 설정합니다. 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.
+    이 사용자 지정 캐싱 규칙은 엔드포인트의 `/images` 폴더에 있는 모든 `.jpg` 이미지 파일의 캐시 기간을 30일로 설정합니다. 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.
 
     ![사용자 지정 캐싱 규칙](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 

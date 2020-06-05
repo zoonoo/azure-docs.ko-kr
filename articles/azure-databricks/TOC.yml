@@ -1188,6 +1188,8 @@
             - name: 사용자 정의 경로 설정
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
+            - name: MySQL IP 주소
+              href: mysql-ip-address.md
     - name: 문제 해결
       items:
         - name: 일반적인 질문

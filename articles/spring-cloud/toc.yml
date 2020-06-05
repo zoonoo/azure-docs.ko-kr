@@ -40,7 +40,7 @@
       href: spring-cloud-tutorial-intellij-deploy-apps.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -77,6 +77,8 @@
       href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: Azure Spring Cloud 애플리케이션에 대해 시스템에서 할당한 관리 ID 사용
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+    - name: Azure Spring Cloud의 자체 진단 및 문제 해결
+      href: spring-cloud-howto-self-diagnose-solve.md
 - name: Azure Spring Cloud에 DevOps 배포
   items:
     - name: Azure DevOps를 사용하는 CI/CD

@@ -2,14 +2,14 @@
 title: 콘솔 애플리케이션용 Azure Application Insights | Microsoft Docs
 description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니터링합니다.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655432"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774032"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -18,7 +18,7 @@ ms.locfileid: "77655432"
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 > [!NOTE]
-> 콘솔 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 데 사용할 수 있는 [Microsoft](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK 라는 새로운 SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)를 대상으로 하므로 .net Core 2.0 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+> [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)라는 새 Application Insights SDK가 있습니다. 이를 사용하여 모든 콘솔 애플리케이션에 대해 Application Insights를 사용하도록 설정할 수 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서 이 패키지 및 관련 지침을 사용하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)를 대상으로 하므로 .NET Core 2.0 이상 및 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -36,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> 원격 분석은 즉시 전송 되지 않습니다. 원격 분석 항목은 ApplicationInsights SDK에서 일괄 처리 되 고 전송 됩니다. 메서드를 호출한 `Track()` 후 바로 종료 되는 콘솔 응용 프로그램에서는이 문서의 뒷부분에 나오는 `Flush()` `Sleep` [전체 예제](#full-example) 에 표시 된 대로 앱이 종료 되기 전에 및가 수행 되지 않는 한 원격 분석을 보낼 수 없습니다.
+> 원격 분석은 즉시 전송되지 않습니다. 원격 분석 항목은 ApplicationInsights SDK에 의해 일괄 처리되고 전송됩니다. `Track()` 메서드를 호출한 직후에 종료되는 콘솔 앱에서는 이 문서의 뒷부분에 있는 [전체 예제](#full-example)에 표시된 것처럼 앱이 종료되기 전에 `Flush()` 및 `Sleep`/`Delay`가 수행되지 않는 한 원격 분석을 보낼 수 없습니다. `InMemoryChannel`을 사용하는 경우 `Sleep`은 필요하지 않습니다. 여기에서 추적되는 `Sleep`에 대한 요구 사항과 관련된 문제가 있습니다. [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 패키지의 최신 버전을 설치합니다. 이 패키지는 HTTP, SQL 또는 기타 외부 종속성 호출을 자동으로 추적합니다.
@@ -96,7 +96,7 @@ var telemetryClient = new TelemetryClient(configuration);
 
 ### <a name="configuring-telemetry-collection-from-code"></a>코드에서 원격 분석 컬렉션 구성
 > [!NOTE]
-> .NET Core에서는 구성 파일 읽기가 지원 되지 않습니다. [ASP.NET Core APPLICATION INSIGHTS SDK를](../../azure-monitor/app/asp-net-core.md) 사용 하는 것을 고려할 수 있습니다.
+> .NET Core에서는 구성 파일 읽기가 지원되지 않습니다. [ASP.NET Core용 Application Insights SDK](../../azure-monitor/app/asp-net-core.md)를 사용하는 것을 고려할 수 있습니다.
 
 * 애플리케이션이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 싱글톤이어야 하며 애플리케이션 수명 동안 유지되어야 합니다.
 
@@ -125,13 +125,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-일반 `TelemetryConfiguration()` 생성자를 사용 하 여 구성을 만든 경우 상관 관계 지원을 추가로 사용 하도록 설정 해야 합니다. `TelemetryConfiguration.CreateDefault()` 또는 `TelemetryConfiguration.Active`를 사용 하 여 파일에서 구성을 읽는 경우에는 **필요 하지 않습니다** .
+일반 `TelemetryConfiguration()` 생성자를 사용하여 구성을 만든 경우 상관 관계 지원을 추가로 사용하도록 설정해야 합니다. `TelemetryConfiguration.CreateDefault()` 또는 `TelemetryConfiguration.Active`를 사용하여 파일에서 구성을 읽는 경우에는 **필요하지 않습니다**.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* [여기](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/) 에 설명 된 대로 성능 카운터 수집기 모듈을 설치 하 고 초기화할 수도 있습니다.
+* [여기](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)에 설명된 대로 성능 카운터 수집기 모듈을 설치하고 초기화할 수도 있습니다.
 
 
 #### <a name="full-example"></a>전체 예제
@@ -172,7 +172,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking so wait a bit
+            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
+            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
             Task.Delay(5000).Wait();
 
         }

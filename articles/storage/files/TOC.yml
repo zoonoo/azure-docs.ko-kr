@@ -148,9 +148,9 @@
               href: storage-files-identity-auth-active-directory-enable.md
             - name: AD DS 인증 사용
               href: storage-files-identity-ad-ds-enable.md
-            - name: 권한 할당
+            - name: 공유 수준 권한 할당
               href: storage-files-identity-ad-ds-assign-permissions.md
-            - name: 권한 구성
+            - name: 디렉터리/파일 수준 권한 할당
               href: storage-files-identity-ad-ds-configure-permissions.md
             - name: 파일 공유 탑재
               href: storage-files-identity-ad-ds-mount-file-share.md
@@ -234,48 +234,8 @@
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: 참조
   items:
-    - name: Azure PowerShell(Storage)
-      href: /powershell/module/az.storage
-    - name: Azure PowerShell(StorageSync)
-      href: /powershell/module/az.storagesync
-    - name: Azure CLI
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: 파일(버전 11.x)
-          href: /dotnet/api/microsoft.azure.storage.file
-        - name: 데이터 이동
-          href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: 스토리지 리소스 공급자
-          href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-        - name: 파일(버전 8.x)
-          href: /java/api/com.microsoft.azure.storage.file
-        - name: 스토리지 리소스 공급자
-          href: /java/api/overview/azure/storage/management
-    - name: JavaScript(버전 10.x)
-      href: /javascript/api/@azure/storage-file
-    - name: Python(버전 2.x)
-      href: /python/api/azure-storage-file/?view=azure-python
-    - name: REST (영문)
-      items:
-        - name: 'Blob, 큐, 테이블 및 파일'
-          href: /rest/api/storageservices
-        - name: 스토리지 리소스 공급자
-          href: /rest/api/storagerp
-        - name: 가져오기/내보내기
-          href: /rest/api/storageimportexport
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+    - name: Azure 파일 공유 스토리지 참조
+      href: ../files/reference.md
     - name: Resource Manager 템플릿
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions

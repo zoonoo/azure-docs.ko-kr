@@ -11,9 +11,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83806423"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에:
+시작하기 전에 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>

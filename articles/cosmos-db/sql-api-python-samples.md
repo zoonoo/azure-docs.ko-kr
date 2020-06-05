@@ -30,7 +30,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
 * 각 Python 예제 프로젝트 파일에서 작업에 연결합니다.
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

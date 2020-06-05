@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671038"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797899"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -56,7 +56,7 @@ Impact는 표준 및 사용자 지정 속성/측정을 모두 지원합니다. �
 2. **분석 대상** 드롭다운에서 "국가 또는 지역"을 선택합니다.
 3. **이 다음의 사용량에 미치는 영향을 분석합니다.** 드롭다운에서는 1단계에서 선택한 페이지 보기의 UI 요소와 일치하는 사용자 지정 이벤트를 선택합니다.
 
-이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 국가/지역을 기준으로 사용자 지정 이벤트에 대 한 변환의 변형을 보기 위해 **사용량** 을 기준으로 정렬 합니다.
+이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 국가/지역별 고객 전환율 변화를 보려면 **사용량**을 기준으로 정렬합니다.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Impact 도구는 어떤 방식으로 전환율을 계산하나요?
@@ -67,7 +67,7 @@ Impact Analysis의 기본적인 작동 원리는 다음과 같습니다.
 
 _A_ = 첫 번째 드롭다운 목록에서 선택하는 기본 페이지 보기/사용자 지정 이벤트/요청. (**페이지 보기의 경우**).
 
-_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트(**이 다음의 사용량에 미치는 영향을 분석합니다.**).
+_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트(**이 다음의 사용량에 미치는 영향을 분석합니다.** ).
 
 Impact는 선택한 시간 범위에서 사용자의 모든 세션의 예제를 살펴봅니다. 각 세션에서, _A_의 발생을 찾습니다.
 
@@ -85,5 +85,5 @@ Impact의 궁극적인 계산 방법은 분석 기준이 메트릭인지 아니�
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)

@@ -1,16 +1,16 @@
 ---
-title: Application Insights 배포를 설계 하는 방법-하나는 많은 리소스에 대 한 것입니다.
+title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 및 여러 리소스
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125692"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773688"
 ---
-# <a name="how-many-application-insights-resources-should-i-deploy"></a>배포 해야 하는 Application Insights 리소스의 수
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
 웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다.
 
@@ -20,24 +20,24 @@ ms.locfileid: "83125692"
 
 사용자 웹앱에 대해 Application Insights 모니터링을 설정할 경우 Microsoft Azure에서 Application Insights *리소스*를 만듭니다. 앱에서 수집된 원격 분석을 보고 분석하기 위해서는 Azure Portal에서 이 리소스를 엽니다. 리소스는 해당 *계측 키*(ikey)로 식별됩니다. 앱을 모니터링하기 위해 Application Insights 패키지를 설치하는 경우 원격 분석을 보낼 위치를 파악할 수 있도록 계측 키로 구성합니다.
 
-각 Application Insights 리소스에는 기본 제공 되는 메트릭이 제공 됩니다. 구성 요소를 동일한 Application Insights 리소스로 완전히 분리 하는 경우 이러한 메트릭은에서 대시보드/경고에 적합 하지 않을 수 있습니다.
+각 Application Insights 리소스에는 기본 제공되는 메트릭이 제공됩니다. 완전히 별개의 구성 요소가 동일한 Application Insights 리소스에 보고되는 경우 이러한 메트릭은 대시보드/경고에 적합하지 않을 수 있습니다.
 
-### <a name="when-to-use-a-single-application-insights-resource"></a>단일 Application Insights 리소스를 사용 하는 경우
+### <a name="when-to-use-a-single-application-insights-resource"></a>단일 Application Insights 리소스를 사용하는 경우
 
--   함께 배포 되는 응용 프로그램 구성 요소 일반적으로 단일 팀에서 개발 되며 동일한 DevOps/ITOps 사용자 집합을 통해 관리 됩니다.
--   응답 기간과 같은 Kpi (핵심 성과 지표)를 집계 하는 것이 적절 한 경우에는 기본적으로 모든 항목에서 기본적으로 (역할 메트릭 탐색기 이름별로 분할 하도록 선택할 수 있음).
--   응용 프로그램 구성 요소 간에 RBAC (역할 기반 Access Control)를 다르게 관리할 필요가 없는 경우
--   구성 요소 간에 다른 메트릭 경고 조건이 필요 하지 않은 경우
+-   함께 배포되는 애플리케이션 구성 요소의 경우 일반적으로 단일 팀에서 개발되며 동일한 DevOps/ITOps 사용자 세트를 통해 관리됩니다.
+-   기본적으로 응답 기간, 대시보드의 실패율 등과 같은 KPI(핵심 성과 지표)를 전체적으로 집계하는 것이 적절한 경우에는 메트릭 탐색기 환경에서 역할 이름별로 분류하도록 선택할 수 있습니다.
+-   애플리케이션 구성 요소 간에 RBAC(역할 기반 액세스 제어)를 다르게 관리할 필요가 없는 경우
+-   구성 요소 간에 다른 메트릭 경고 조건이 필요하지 않은 경우
 -   구성 요소 간에 연속 내보내기를 다르게 관리할 필요가 없는 경우
 -   구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
--   API 키가 모든 구성 요소의 데이터에 대해 동일한 액세스 권한을 갖도록 할 수 있습니다. 및 10 개의 API 키를 통해 모든 요구 사항을 충족할 수 있습니다.
--   모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정이 있어야 합니다.
+-   API 키가 모든 구성 요소의 데이터에 동일한 액세스 권한을 갖도록 할 수 있는 경우 그리고 10개의 API 키를 통해 모든 요구 사항을 충족할 수 있는 경우
+-   모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정을 사용해야 하는 경우
 
-### <a name="other-things-to-keep-in-mind"></a>염두에 두어야 할 기타 사항
+### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 
--   의미 있는 값이 [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) 특성으로 설정 되도록 하려면 사용자 지정 코드를 추가 해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정 되지 않은 경우에는 *어떤* 포털 환경도 작동 하지 않습니다.
-- Service Fabric 응용 프로그램 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고이를 설정 합니다. 다른 모든 유형의 앱에 대해서는이를 명시적으로 설정 해야 할 수도 있습니다.
--   라이브 메트릭 환경은 역할 이름으로 분할 하는 것을 지원 하지 않습니다.
+-   의미 있는 값이 [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
+- Service Fabric 애플리케이션 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고 이를 설정합니다. 다른 모든 유형의 앱의 경우 이를 명시적으로 설정해야 할 수도 있습니다.
+-   라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -58,7 +58,7 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
-IKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app/javascript.md)의 앱 웹 페이지 에서도 사용 됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
+iKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app/javascript.md)에 있는 앱의 웹페이지에서도 사용됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
 *Razor에서 JavaScript*
 
@@ -75,7 +75,7 @@ IKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app
 
 ## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
 
-Application Insights 리소스를 만들려면 [리소스 만들기 가이드](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 따르세요.
+Application Insights 리소스를 만들려면 [리소스 생성 가이드](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 따르세요.
 
 ### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
 계측 키는 사용자가 만든 리소스를 식별합니다.
@@ -117,14 +117,14 @@ Application Insights 리소스를 만들려면 [리소스 만들기 가이드](h
     </PropertyGroup>
     ```
 
-    이렇게 하면 해당 하는 *projectname*이라는 파일이 생성 됩니다. BuildInfo. .config. 게시 프로세스에서이 이름을 BuildInfo .config로 바꿉니다.
+    그러면 *yourProjectName*.BuildInfo.config 파일이 생성됩니다. 게시 프로세스의 이름이 BuildInfo.config로 바뀝니다.
 
     Visual Studio를 사용하여 빌드할때 빌드 레이블에는 자리 표시자(AutoGen_...)가 포함됩니다. MSBuild로 빌드할 때는 정확한 버전 번호가 입력됩니다.
 
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. 파일에서 `.csproj` 다음을 추가 합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가합니다.  
 
 ```XML
 
@@ -135,10 +135,10 @@ Application Insights 리소스를 만들려면 [리소스 만들기 가이드](h
 
 빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
-그러나 빌드 버전 번호는 Visual Studio에서 개발자가 작성 하는 것이 아니라 Microsoft Build Engine만 생성 됩니다.
+그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성됩니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
-Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
+Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

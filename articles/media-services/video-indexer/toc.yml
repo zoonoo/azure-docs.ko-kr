@@ -23,8 +23,6 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: 개념
   items:
-    - name: 개요
-      href: video-indexer-concepts.md
     - name: Video Indexer와 Media Services 사전 설정 비교
       href: compare-video-indexer-with-media-services-presets.md
     - name: 여러 테넌트 관리

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68728067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650092"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 해결 방법 
+# <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF-구성 파일에 serviceDebug 노드를 포함 하지 않습니다.](#servicedebug)</li><li>[WCF - 구성 파일에 serviceMetadata 노드를 포함하지 않음](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[ASP.NET Web API에서 적절 한 예외 처리가 수행 되었는지 확인](#exception)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[오류 메시지에 보안 정보를 노출 하지 않음](#messages)</li><li>[기본 오류 처리 페이지 구현](#default)</li><li>[IIS에서 배포 방법을 일반 정품으로 설정](#deployment)</li><li>[안전한 예외 실패](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF - 구성 파일에 serviceDebug 노드를 포함하지 않음](#servicedebug)</li><li>[WCF - 구성 파일에 serviceMetadata 노드를 포함하지 않음](#servicemetadata)</li></ul> |
+| **앱 API** | <ul><li>[ASP.NET Web API에서 적절한 예외 처리가 수행되었는지 확인](#exception)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[오류 메시지에 보안 정보를 노출하지 않음](#messages)</li><li>[기본 오류 처리 페이지 구현](#default)</li><li>[IIS에서 배포 방법을 일반 정품으로 설정](#deployment)</li><li>[안전한 예외 실패](#fail)</li></ul> |
 
 ## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF - 구성 파일에 serviceDebug 노드를 포함하지 않음
 
@@ -180,7 +180,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-의 예외 처리 및 모델 유효성 검사에 대 한 자세한 내용은 참조 섹션의 링크를 확인 ASP.NET Web API 
+ASP.NET Web API의 예외 처리 및 모델 유효성 검사에 대한 자세한 내용은 참조 섹션의 링크를 확인하세요. 
 
 ## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>오류 메시지에 보안 정보를 노출하지 않음
 
@@ -223,7 +223,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [안전하게 실패](https://www.owasp.org/index.php/Fail_securely) |
+| **참조**              | [안전하게 실패](https://owasp.org/www-community/Fail_securely) |
 | **단계** | 애플리케이션은 안전하게 실패해야 합니다. 수행되는 특정 결정에 따라 부울 값을 반환하는 모든 메서드는 신중하게 예외 블록을 만들어야 합니다. 부주의하게 예외 블록이 작성되면 보안 문제로 인한 논리적 오류가 많이 발생합니다.|
 
 ### <a name="example"></a>예제

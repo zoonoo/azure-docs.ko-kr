@@ -114,6 +114,8 @@
   items:
     - name: 관리
       items:
+        - name: 자동 크기 조정 작업
+          href: stream-analytics-autoscale.md
         - name: 자격 증명 업데이트
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: 이벤트 순서 정책 구성
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure CLI
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: 리소스
   items:
     - name: Stream Analytics 미리 보기

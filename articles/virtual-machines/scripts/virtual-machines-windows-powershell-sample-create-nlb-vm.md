@@ -67,7 +67,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 가상 머신을 만듭니다. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 
-사용자 고유의 관리되는 사용자 지정 이미지를 사용하여 VM을 만들 수도 있습니다. VM 구성에서 `Set-AzVMSourceImage`의 경우 `-Id`, `-VM`, `-PublisherName` 및 `-Offer` 대신 `-Skus` 및 `-Version` 매개 변수를 사용합니다.
+사용자 고유의 관리되는 사용자 지정 이미지를 사용하여 VM을 만들 수도 있습니다. VM 구성에서 `Set-AzVMSourceImage`의 경우 `-PublisherName`, `-Offer`, `-Skus` 및 `-Version` 대신 `-Id` 및 `-VM` 매개 변수를 사용합니다.
 
 예를 들어 VM 구성을 만드는 방법은 다음과 같습니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f9fafc4b03d5ce18fcfedcffaf2d81f847537865
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596412"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744671"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
 
@@ -106,7 +106,7 @@ Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로
 
 다음 이미지에서는 Microsoft Azure Cosmos DB를 사용하는 워크로드 패턴을 보여줍니다. ![Microsoft Azure Cosmos DB용 Synapse Link 워크로드 패턴](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-인벤토리 관리 플랫폼의 트랜잭션 및 분석 요구 사항을 모두 지원하는 단일 실시간 데이터베이스로 Microsoft Azure Cosmos DB를 선택하는 이점을 설명하기 위해 전 세계 20개국에서 사업을 운영 중인 전자 상거래 회사 CompanyXYZ를 예로 들어 보겠습니다.
+인벤토리 관리 플랫폼의 트랜잭션 및 분석 요구 사항을 모두 지원하는 단일 실시간 데이터베이스로 Microsoft Azure Cosmos DB를 선택하는 이점을 설명하기 위해 전 세계 20개 국가/지역에서 사업을 운영 중인 전자 상거래 회사 CompanyXYZ를 예로 들어 보겠습니다.
 
 * CompanyXYZ의 핵심 사업은 인벤토리 시스템에 의존하므로 가용성 및 신뢰성이 핵심 기둥 요구 사항입니다. Microsoft Azure Cosmos DB 사용의 이점:
 

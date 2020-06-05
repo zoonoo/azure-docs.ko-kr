@@ -142,6 +142,8 @@
           href: howto-connection-string.md
         - name: SSL 구성
           href: howto-configure-ssl.md
+        - name: TLS 구성
+          href: howto-tls-configurations.md
     - name: 서버 매개 변수 구성
       items:
         - name: Azure portal

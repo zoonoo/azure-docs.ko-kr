@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443874"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674234"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -30,13 +30,13 @@ ms.locfileid: "75443874"
 
 IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 애플리케이션 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
 
-[Microsoft Azure 모니터 로그](/azure/operations-management-suite/operations-management-suite-overview) 는 온-프레미스 및 클라우드 인프라를 관리 하 고 보호 하는 데 도움이 되는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
+[Microsoft Azure Monitor 로그](/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
-다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Azure Monitor 로그는 모든 종류의 데이터에서 모든 작업을 사용할 수 있도록 해당 데이터에 대해 수행 되는 작업과 데이터 컬렉션을 명확 하 게 구분 합니다.
+다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Azure Monitor 로그는 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
 ### <a name="automation"></a>Automation
 
@@ -60,11 +60,11 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 -   클라우드 서비스로 IAM(ID 및 액세스 관리) 사용
 -   중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
--   Salesforce, Google Apps, Box, Concur 등을 포함하여 Azure Marketplace에서 [수천 개의 애플리케이션](https://azure.microsoft.com/marketplace/active-directory/)에 대한 통합된 액세스 관리 지원
+-   Salesforce, Google Apps, Box, Concur 등을 포함하여 Azure Marketplace에서 [수천 개의 애플리케이션](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)에 대한 통합된 액세스 관리 지원
 
 또한 Azure AD에는 다음을 비롯해 전체 [ID 관리 기능](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)이 포함되어 있습니다.
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [다단계 인증](/azure/multi-factor-authentication/multi-factor-authentication)
 - [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [셀프 서비스 그룹 관리](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [권한 있는 계정 관리](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -73,11 +73,11 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [풍부한 감사](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다.  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](/azure/security-center/security-center-intro) 를 통해 Azure 리소스의 보안을 향상 하 고,이에 대 한 향상 된 가시성을 통해 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Azure Security Center](/azure/security-center/security-center-intro)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 [VM(가상 머신) 데이터를 보호](/azure/security-center/security-center-linux-virtual-machine)합니다. Security Center는 다음의 목적으로 가상 머신을 모니터링할 수 있습니다.
 
@@ -94,7 +94,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 >[!Note]
 >Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](/azure/security-center/security-center-permissions)을 참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, 이는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
+Security Center에서는 Microsoft Monitoring Agent를 사용하며, Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -145,9 +145,9 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 - [IP 흐름 확인](/azure/network-watcher/network-watcher-ip-flow-verify-overview): 흐름 정보의 5-튜플 패킷 매개 변수(대상 IP, 원본 IP, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷을 허용하거나 거부하는지 확인합니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 그룹이 반환됩니다.
 - [다음 홉](/azure/network-watcher/network-watcher-next-hop-overview): 잘못 구성된 사용자 정의 경로를 진단할 수 있도록 Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정합니다.
 - [보안 그룹 보기](/azure/network-watcher/network-watcher-security-group-view-overview): VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
-- [네트워크 보안 그룹의 NSG 흐름 로그](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있도록 합니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5-튜플 정보로 정의됩니다.
-- [Virtual Network 게이트웨이 및 연결 문제 해결](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Virtual Network 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
-- [네트워크 구독 제한](/azure/network-watcher/network-watcher-monitoring-overview): 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
+- [네트워크 보안 그룹의 NSG 흐름 로그](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5-튜플 정보로 정의됩니다.
+- [Virtual Network 게이트웨이 및 연결 문제 해결](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
+- [네트워크 구독 제한](/azure/network-watcher/network-watcher-monitoring-overview): 제한 대비 네트워크 리소스 사용량을 볼 수 있습니다.
 - [진단 로그](/azure/network-watcher/network-watcher-monitoring-overview): 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
 
 자세한 내용은 [Network Watcher 구성](/azure/network-watcher/network-watcher-create)을 참조하세요.

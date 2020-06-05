@@ -1,6 +1,6 @@
 ---
-title: 전화 번호를 확인 방법으로 설정-Azure AD
-description: 확인 방법으로 전화 번호와 모바일 장치를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
+title: 인증 방법으로 전화 번호 설정 - Azure AD
+description: 확인 방법으로 전화 번호 및 모바일 디바이스를 사용하여 ID를 확인하는 보안 정보(미리 보기) 페이지를 설정하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,17 +8,17 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628387"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744460"
 ---
-# <a name="set-up-a-phone-number-as-your-verification-method"></a>전화 번호를 확인 방법으로 설정 합니다.
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>확인 방법으로 전화 번호 설정
 
 이 단계를 수행하여 2단계 확인 및 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "82628387"
 > [!Note]
 > 보안 정보는 내선 번호 사용을 지원하지 않습니다. 올바른 형식인 +1 4255551234X12345를 추가하더라도, 통화가 되기 전에 내선 번호가 제거됩니다.
 >
-> 전화 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인 하는 것을 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
+> 전화 옵션이 표시되지 않으면 조직에서 이 옵션을 사용하여 인증하지 못할 수 있습니다. 이 경우 다른 방법을 선택하거나 조직의 지원 데스크에 문의하여 추가 지원을 받아야 합니다.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
 
@@ -116,9 +116,9 @@ ms.locfileid: "82628387"
 
 - **모바일 디바이스 텍스트.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정에 사용할 코드가 포함된 문자를 받습니다. 문자 메시지(SMS)를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [문자 메시지(SMS)를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)을 참조하세요.
 
-- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키를 사용하여 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조하세요.
 
-- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 

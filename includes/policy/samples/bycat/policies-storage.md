@@ -12,7 +12,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84233922"
 ---
-|속성 |Description |효과 |버전 |GitHub |
+|Name |Description |효과 |버전 |GitHub |
 |---|---|---|---|---|
 |[허용되는 스토리지 계정 SKU](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7433c107-6db4-4ad1-b57a-a76dce0154a1) |이 정책을 사용하면 조직에서 배포할 수 있는 스토리지 계정 SKU 세트를 지정할 수 있습니다. |거부 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/AllowedStorageSkus_Deny.json) |
 |[스토리지 계정에 Advanced Threat Protection 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F361c2074-3595-4e5d-8cab-4f21dffc835c) |이 정책은 스토리지 계정에서 Advanced Threat Protection을 사용하도록 설정합니다. |DeployIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAdvancedThreatProtection_Deploy.json) |

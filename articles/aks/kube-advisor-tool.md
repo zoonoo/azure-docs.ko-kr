@@ -1,5 +1,5 @@
 ---
-title: 모범 사례에 대 한 배포 확인
+title: 모범 사례에 대한 배포 확인
 titleSuffix: Azure Kubernetes Service
 description: kube-advisor를 사용하여 Azure Kubernetes Service에 대한 배포의 모범 사례 구현을 확인하는 방법 알아보기
 services: container-service
@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 17e21c142dc354de7b72bc17396b19366027c5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668390"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773799"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -22,7 +22,7 @@ ms.locfileid: "80668390"
 
 [kube-advisor 도구][kube-advisor-github]는 클러스터에서 실행되도록 설계된 단일 컨테이너입니다. Kubernetes API 서버에 배포에 대한 정보를 쿼리하여 제안된 개선 사항 집합을 반환합니다.
 
-Kube-advisor 도구는 Linux 응용 프로그램 뿐만 아니라 Windows 응용 프로그램에 대해 PodSpecs에 누락 된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube 도구 자체는 Linux pod에서 예약 해야 합니다. Pod 구성에서 [노드 선택기][k8s-node-selector] 를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 pod를 예약할 수 있습니다.
+Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플리케이션용 PodSpecs에서 누락된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube-advisor 도구 자체는 Linux Pod에서 예약해야 합니다. Pod의 구성에서 [노드 선택기][k8s-node-selector]를 사용하여 특정 OS가 있는 노드 풀에서 실행되도록 Pod를 예약할 수 있습니다.
 
 > [!NOTE]
 > kube-advisor 도구는 최상의 노력을 기준으로 Microsoft에서 지원됩니다. 문제와 제안은 GitHub에 제출해야 합니다.
@@ -34,7 +34,7 @@ Kube-advisor 도구는 Linux 응용 프로그램 뿐만 아니라 Windows 응용
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
-kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
 RBAC를 사용하지 않는 경우 다음과 같이 명령을 실행할 수 있습니다.

@@ -13,6 +13,9 @@
       href: quick-create-powershell.md
     - name: VM 만들기 - Azure CLI
       href: quick-create-cli.md
+    - name: VM 만들기 - ARM 템플릿
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: 자습서
   items:
     - name: 1 - VM 만들기/관리
@@ -148,7 +151,7 @@
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: template-description.md
     - name: 영역
       href: regions.md

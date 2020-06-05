@@ -235,6 +235,10 @@
               href: howto-migrate-using-export-and-import.md
             - name: 최소 가동 중지 시간 마이그레이션
               href: howto-migrate-online.md
+        - name: 애플리케이션 연결
+          items:
+            - name: TLS 구성
+              href: howto-tls-configurations.md
         - name: 서버 매개 변수 구성
           items:
             - name: Azure portal

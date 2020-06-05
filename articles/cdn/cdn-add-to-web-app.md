@@ -38,7 +38,7 @@ ms.locfileid: "81254617"
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "81254617"
 
 ## <a name="create-the-web-app"></a>웹앱 만들기
 
-사용할 웹앱을 만들려면 [앱 찾아보기](../app-service/app-service-web-get-started-html.md) 단계를 통해 **정적 HTML 빠른 시작**을 수행합니다.
+사용할 웹앱을 만들려면 **앱 찾아보기** 단계를 통해 [정적 HTML 빠른 시작](../app-service/app-service-web-get-started-html.md)을 수행합니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

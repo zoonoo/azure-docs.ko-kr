@@ -177,6 +177,14 @@
               href: map-get-information-from-coordinate.md
             - name: A에서 B로의 방향 표시
               href: map-route.md
+        - name: 실내 맵 모듈
+          items:
+            - name: 실내 맵 모듈
+              href: how-to-use-indoor-module.md
+            - name: 실내 맵을 위한 동적 스타일 지정
+              href: indoor-map-dynamic-styling.md
+            - name: 그리기 오류 시각화 도우미
+              href: drawing-error-visualizer.md
         - name: 공간 IO 모듈
           items:
             - name: 공간 IO 모듈 사용
@@ -211,14 +219,6 @@
           href: how-to-add-tile-layer-android-map.md
         - name: 트래픽 데이터 표시
           href: how-to-show-traffic-android.md
-    - name: Creator 실내 맵을 사용하여 개발
-      items:
-        - name: 실내 맵 모듈
-          href: how-to-use-indoor-module.md
-        - name: 실내 맵을 위한 동적 스타일 지정
-          href: indoor-map-dynamic-styling.md
-        - name: 그리기 오류 시각화 도우미
-          href: drawing-error-visualizer.md
     - name: 데이터 피드백 제공
       href: how-to-use-feedback-tool.md
 - name: 참조

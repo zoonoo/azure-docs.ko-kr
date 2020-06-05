@@ -100,6 +100,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
     - name: HoloLens C++/WinRT용 SDK
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
+    - name: Azure CLI
+      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: 리소스
   items:
     - name: 릴리스 정보
@@ -110,7 +112,7 @@
       href: spatial-anchor-faq.md
     - name: 제품 사용자 의견 제공
       href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
     - name: 지원
       href: spatial-anchor-support.md

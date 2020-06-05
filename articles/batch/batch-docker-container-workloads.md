@@ -1,15 +1,15 @@
 ---
 title: 컨테이너 워크로드
-description: Azure Batch의 컨테이너 이미지에서 앱을 실행 하 고 크기를 조정 하는 방법을 알아봅니다. 컨테이너 작업 실행을 지 원하는 계산 노드의 풀을 만듭니다.
-ms.topic: article
-ms.date: 03/02/2020
+description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 크기를 조정하는 방법을 알아봅니다. 컨테이너 작업 실행을 지원하는 컴퓨팅 노드 풀을 만듭니다.
+ms.topic: how-to
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116131"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726726"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -23,14 +23,14 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **SDK 버전**: Batch sdk는 다음 버전의 컨테이너 이미지를 지원 합니다.
+* **SDK 버전**: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
     * Batch REST API 버전 2017-09-01.6.0
     * Batch .NET SDK 버전 8.0.0
     * Batch Python SDK 버전 4.0
     * Batch Java SDK 버전 3.0
     * Batch Node.js SDK 버전 3.0
 
-* **계정**: Azure 구독에서 Batch 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
+* **계정**: Azure 구독에서 배치 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
 
 * **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
 
@@ -46,33 +46,33 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ### <a name="windows-support"></a>Windows 지원
 
-Batch는 컨테이너 지원 명칭을 포함 하는 Windows server 이미지를 지원 합니다. 일반적으로 이러한 이미지 sku 이름의 접미사는 `-with-containers` 또는 `-with-containers-smalldisk`입니다. 또한 [모든 지원 되는 이미지를 나열 하는 API](batch-linux-nodes.md#list-of-virtual-machine-images) 는 이미지에서 `DockerCompatible` Docker 컨테이너를 지 원하는 경우 기능을 나타냅니다.
+Batch는 컨테이너 지원 지정이 있는 Windows 서버 이미지를 지원합니다. 일반적으로 이러한 이미지 sku 이름에는 `-with-containers` 또는 `-with-containers-smalldisk`로 접미사가 붙습니다. 또한 이미지가 Docker 컨테이너를 지원하는 경우 [Batch에서 지원되는 모든 이미지를 나열하는 API](batch-linux-nodes.md#list-of-virtual-machine-images)는 `DockerCompatible` 기능을 나타냅니다.
 
 Windows에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다.
 
 ### <a name="linux-support"></a>Linux 지원
 
-Linux 컨테이너 워크 로드의 경우 Batch는 현재 사용자 지정 이미지를 요구 하지 않고 Azure Marketplace Microsoft Azure Batch에서 게시 한 다음 Linux 이미지를 지원 합니다.
+Linux 컨테이너 워크로드의 경우 현재 Batch는 사용자 지정 이미지 없이 Azure Marketplace의 Microsoft Azure Batch에 의해 게시된 다음 Linux 이미지를 지원합니다.
 
-#### <a name="vm-sizes-without-rdma"></a>RDMA를 사용 하지 않는 VM 크기
+#### <a name="vm-sizes-without-rdma"></a>RDMA가 없는 VM 크기
 
-- 발행자`microsoft-azure-batch`
-  - 제안을`centos-container`
-  - 제안을`ubuntu-server-container`
+- 게시자: `microsoft-azure-batch`
+  - 제품: `centos-container`
+  - 제품: `ubuntu-server-container`
 
-#### <a name="vm-sizes-with-rdma"></a>RDMA를 사용 하는 VM 크기
+#### <a name="vm-sizes-with-rdma"></a>RDMA를 사용한 VM 크기
 
-- 발행자`microsoft-azure-batch`
-  - 제안을`centos-container-rdma`
-  - 제안을`ubuntu-server-container-rdma`
+- 게시자: `microsoft-azure-batch`
+  - 제품: `centos-container-rdma`
+  - 제품: `ubuntu-server-container-rdma`
 
-이러한 이미지는 Azure Batch 풀 에서만 사용할 수 있으며 Docker 컨테이너 실행을 위해 설계 되었습니다. 특징은 다음과 같습니다.
+이러한 이미지는 Azure Batch 풀에서만 사용할 수 있으며 Docker 컨테이너 실행에 적합합니다. 특징은 다음과 같습니다.
 
-* 사전 설치 된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
+* 사전 설치된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
 
-* Azure N 시리즈 Vm에 대 한 배포를 간소화 하기 위해 사전 설치 된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너 런타임
+* Azure N 시리즈 VM의 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너
 
-* 접미사가 있는 이미지에 대 한 Infiniband RDMA VM 크기를 지 원하는 미리 설치 된/미리 구성 된 이미지 `-rdma`입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원 하지 않습니다.
+* 접미사가 `-rdma`인 이미지의 Infiniband RDMA VM 크기를 지원하는 사전 설치/사전 구성된 이미지입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원하지 않습니다.
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
@@ -159,32 +159,40 @@ new_pool = batch.models.PoolAddParameter(
 다음 C# 예제에서는 [Docker 허브](https://hub.docker.com)에서 TensorFlow 이미지를 프리페치한다고 가정합니다. 이 예에는 풀 노드의 VM 호스트에서 실행되는 시작 작업이 포함되어 있습니다. 예를 들어 컨테이너에서 액세스할 수 있는 파일 서버를 탑재하려는 경우 호스트에서 시작 작업을 실행할 수 있습니다.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
@@ -195,22 +203,22 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
+ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -225,7 +233,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 컨테이너 사용 풀에서 컨테이너 작업을 실행하려면 컨테이너별 설정을 지정합니다. 설정에는 사용할 이미지, 레지스트리 및 컨테이너 실행 옵션이 포함됩니다.
 
-* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션을 일괄 처리로 처리 하므로 추가 `--runtime` 옵션이 필요 하지 않습니다.
+* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션은 Batch에 의해 처리되므로 추가 `--runtime` 옵션이 필요하지 않습니다.
 
 * 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 
@@ -285,7 +293,6 @@ task = batch.models.TaskAddParameter(
 
 ```csharp
 // Simple container task command
-
 string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
@@ -295,10 +302,9 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine);
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

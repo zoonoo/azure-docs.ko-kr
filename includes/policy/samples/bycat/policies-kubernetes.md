@@ -12,7 +12,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84233532"
 ---
-|속성 |Description |효과 |버전 |GitHub |
+|Name |Description |효과 |버전 |GitHub |
 |---|---|---|---|---|
 |[Kubernetes 클러스터에서 권한 있는 컨테이너를 허용하지 않음](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |이 정책은 Kubernetes 클러스터에서 권한 있는 컨테이너를 생성하는 것을 허용하지 않습니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |enforceOPAConstraint, 사용 안 함 |3.0.0-preview |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege_EnforceOPAConstraint.json) |
 |[Kubernetes 클러스터에서 HTTPS 수신 적용](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |이 정책은 Kubernetes 클러스터에서 HTTPS 수신을 적용합니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |enforceOPAConstraint, 사용 안 함 |3.0.0-preview |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly_EnforceOPAConstraint.json) |

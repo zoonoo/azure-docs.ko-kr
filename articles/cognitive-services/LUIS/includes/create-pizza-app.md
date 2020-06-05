@@ -19,7 +19,7 @@ ms.locfileid: "83588955"
     > [!div class="mx-imgBorder"]
     > [![LUIS(Language Understanding) 내 앱 페이지 스크린샷](../media/create-app-in-portal.png "LUIS(Language Understanding) 내 앱 페이지 스크린샷")](../media/create-app-in-portal.png#lightbox)
 
-1. 팝업 대화 상자에 `Pizza tutorial` 이름을 입력하고 기본 문화권인 **영어**를 유지합니다. 다른 필드는 선택 사항이므로 설정하지 마세요. **완료** 를 선택합니다.
+1. 팝업 대화 상자에 `Pizza tutorial` 이름을 입력하고 기본 문화권인 **영어**를 유지합니다. 다른 필드는 선택 사항이므로 설정하지 마세요. **완료**를 선택합니다.
 
     ![새 LUIS 앱의 이름 입력](../media/create-pizza-tutorial-app-in-portal.png)
 

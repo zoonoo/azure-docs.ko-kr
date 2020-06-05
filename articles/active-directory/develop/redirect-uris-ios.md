@@ -36,7 +36,7 @@ MSAL(Microsoft 인증 라이브러리)을 사용하려면 리디렉션 URI를 �
 
 Microsoft Identity 플랫폼이 여러 앱 간에 토큰을 공유하려면 각 앱의 클라이언트 ID 또는 애플리케이션 ID가 동일해야 합니다. 이것은 앱을 포털에 등록할 때 제공되는 고유 식별자입니다(Apple에서 앱별로 등록하는 애플리케이션 번들 ID는 아님).
 
-리디렉션 URI는 iOS 앱마다 달라야 합니다. 그래야 애플리케이션 ID를 공유하는 다른 앱을 Microsoft ID 서비스가 고유하게 식별할 수 있습니다. 각 애플리케이션은 Azure Portal에 여러 리디렉션 URI를 등록할 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 다음은 그 예입니다.
+리디렉션 URI는 iOS 앱마다 달라야 합니다. 그래야 애플리케이션 ID를 공유하는 다른 앱을 Microsoft ID 서비스가 고유하게 식별할 수 있습니다. 각 애플리케이션은 Azure Portal에 여러 리디렉션 URI를 등록할 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예를 들면 다음과 같습니다.
 
 Azure Portal에 다음과 같은 애플리케이션 등록이 있는 경우,
 
@@ -74,11 +74,11 @@ ADAL(Azure AD 인증 라이브러리)을 사용하는 코드를 MSAL로 마이�
 
 MSAL은 리디렉션 URI가 올바르게 등록되었는지 확인하고 그렇지 않으면 오류를 반환합니다.
     
-* 유니버설 링크를 리디렉션 URI로 사용하려면 `<scheme>`이 `https`여야 하고 `CFBundleURLSchemes`에서 선언할 필요가 없습니다. 대신 [개발자용 유니버설 링크](https://developer.apple.com/ios/universal-links/)에서 Apple의 지침에 따라 앱과 도메인을 구성하고, 유니버설 링크를 통해 애플리케이션이 열릴 때 `handleMSALResponse:sourceApplication:`의 `MSALPublicClientApplication` 메서드를 호출합니다.
+* 유니버설 링크를 리디렉션 URI로 사용하려면 `<scheme>`이 `https`여야 하고 `CFBundleURLSchemes`에서 선언할 필요가 없습니다. 대신 [개발자용 유니버설 링크](https://developer.apple.com/ios/universal-links/)에서 Apple의 지침에 따라 앱과 도메인을 구성하고, 유니버설 링크를 통해 애플리케이션이 열릴 때 `MSALPublicClientApplication`의 `handleMSALResponse:sourceApplication:` 메서드를 호출합니다.
 
 ## <a name="use-a-custom-redirect-uri"></a>사용자 지정 리디렉션 URI 사용
 
-사용자 지정 리디렉션 URI를 사용하려면 `redirectUri` 매개 변수를 `MSALPublicClientApplicationConfig`에 전달하고 개체를 초기화할 때 해당 개체를 `MSALPublicClientApplication`에 전달합니다. 리디렉션 URI가 유효하지 않으면 이니셜라이저는 `nil`을 반환하고 추가 정보를 사용하여 `redirectURIError`를 설정합니다.  다음은 그 예입니다.
+사용자 지정 리디렉션 URI를 사용하려면 `redirectUri` 매개 변수를 `MSALPublicClientApplicationConfig`에 전달하고 개체를 초기화할 때 해당 개체를 `MSALPublicClientApplication`에 전달합니다. 리디렉션 URI가 유효하지 않으면 이니셜라이저는 `nil`을 반환하고 추가 정보를 사용하여 `redirectURIError`를 설정합니다.  예를 들면 다음과 같습니다.
 
 Objective-C:
 
@@ -110,7 +110,7 @@ do {
 
 ## <a name="handle-the-url-opened-event"></a>열린 URL 이벤트 처리
 
-애플리케이션은 URL 스키마나 유니버설 링크를 통해 응답을 받으면 MSAL을 호출해야 합니다. 애플리케이션이 열리면 `handleMSALResponse:sourceApplication:`의 `MSALPublicClientApplication` 메서드를 호출합니다. 다음은 사용자 지정 스키마의 예입니다.
+애플리케이션은 URL 스키마나 유니버설 링크를 통해 응답을 받으면 MSAL을 호출해야 합니다. 애플리케이션이 열리면 `MSALPublicClientApplication`의 `handleMSALResponse:sourceApplication:` 메서드를 호출합니다. 다음은 사용자 지정 스키마의 예입니다.
 
 Objective-C:
 

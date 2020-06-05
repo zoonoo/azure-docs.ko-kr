@@ -1,16 +1,16 @@
 ---
-title: Application Insights를 사용 하 여 Azure Service Fabric 이벤트 분석
+title: Application Insights를 사용한 Azure Service Fabric 이벤트 분석
 description: Azure Service Fabric 클러스터의 모니터링 및 진단을 위해 Application Insights를 사용하여 이벤트를 시각화 및 분석하는 방법에 대해 알아봅니다.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464760"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701904"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -73,5 +73,5 @@ Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [AI에 경고 설정](/azure/azure-monitor/platform/alerts-log) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행

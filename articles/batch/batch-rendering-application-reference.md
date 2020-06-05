@@ -1,16 +1,16 @@
 ---
-title: 렌더링 응용 프로그램 사용
-description: Azure Batch에서 렌더링 응용 프로그램을 사용 하는 방법 이 문서에서는 각각의 렌더링 애플리케이션을 실행하는 방법을 간단히 설명합니다.
+title: 렌더링 애플리케이션 사용
+description: Azure Batch에서 렌더링 애플리케이션을 사용하는 방법입니다. 이 문서에서는 각각의 렌더링 애플리케이션을 실행하는 방법을 간단히 설명합니다.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115808"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726505"
 ---
 # <a name="rendering-applications"></a>렌더링 애플리케이션
 
@@ -37,7 +37,7 @@ ms.locfileid: "82115808"
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
 ```
 
-메모:
+참고:
 
 * 자산 파일을 찾을 수 있게 세심한 주의가 필요합니다.  **자산 추적** 창이나 명령줄에서 `-bitmapPath` 매개 변수를 사용하여 경로가 정확하고 상대적인지 확인합니다.
 * 자산 찾기 실패 등, 작업이 실행될 때 3ds Max에서 작성한 `stdout.txt` 파일을 확인하여 렌더링에 문제가 있는지 확인합니다.

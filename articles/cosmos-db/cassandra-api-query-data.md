@@ -27,7 +27,7 @@ ms.locfileid: "82853013"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 시작하기 전에 Cassandra API 계정, 키스페이스, 테이블을 만들고, [테이블에 샘플 데이터를 로드](cassandra-api-load-data.md)하는 이전 단계를 완료해야 합니다. 
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음 단계에 따라 Cassandra API 계정에서 데이터를 쿼리합니다.
 
-1. `UserRepository.java` 폴더에서 `src\main\java\com\azure\cosmosdb\cassandra` 파일을 엽니다. 다음 코드 블록을 추가합니다. 이 코드는 다음 세 가지 방법을 제공합니다. 
+1. `src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserRepository.java` 파일을 엽니다. 다음 코드 블록을 추가합니다. 이 코드는 다음 세 가지 방법을 제공합니다. 
 
    * 데이터베이스의 모든 사용자를 쿼리
    * 사용자 ID로 필터링한 특정 사용자를 쿼리
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    }
    ```
 
-2. `UserProfile.java` 폴더에서 `src\main\java\com\azure\cosmosdb\cassandra` 파일을 엽니다. 이 클래스에는 이전에 정의한 데이터 삽입 메서드인 createKeyspace 및 createTable을 호출하는 main 메서드가 들어 있습니다. 이제 모든 사용자나 특정 사용자를 쿼리하는 다음 코드를 추가합니다.
+2. `src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserProfile.java` 파일을 엽니다. 이 클래스에는 이전에 정의한 데이터 삽입 메서드인 createKeyspace 및 createTable을 호출하는 main 메서드가 들어 있습니다. 이제 모든 사용자나 특정 사용자를 쿼리하는 다음 코드를 추가합니다.
 
    ```java
    LOGGER.info("Select all users");

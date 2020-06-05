@@ -37,7 +37,7 @@ ms.locfileid: "82159338"
 > * Python 스크립트를 사용하여 이벤트 허브에 데이터 보내기
 > * 다른 Python 스크립트를 사용하여 Event Hubs 캡처에서 파일 읽기 및 처리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - PIP가 설치 및 업데이트된 Python 2.7 및 3.5 이상.  
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).  

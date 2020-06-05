@@ -1,16 +1,16 @@
 ---
 title: 렌더링 기능 사용
-description: Azure Batch 렌더링 기능 사용 방법 클라이언트 응용 프로그램 플러그 인에서 직접 또는 호출 하는 Batch Explorer 응용 프로그램을 사용해 보세요.
+description: Azure Batch 렌더링 기능을 사용하는 방법. 직접 또는 클라이언트 애플리케이션 플러그 인에서 호출된 Batch Explorer 애플리케이션을 사용해 보세요.
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
-ms.topic: conceptual
-ms.openlocfilehash: 6dd7d73d2b04f6e076794ee63d0a546170782fce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115638"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726403"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -46,18 +46,18 @@ Batch Explorer에 다양한 템플릿을 사용하면 풀, 작업, 태스크를 
 
 템플릿은 Marketplace 렌더링 VM 이미지에 있는 모든 애플리케이션에 대해 준비되어 제공됩니다.  각 애플리케이션에 대해 CPU 및 GPU 풀, Windows 풀 및 Linux 풀을 서비스하는 풀 템플릿 등, 여러 템플릿이 존재하며 작업 템플릿은 전체 프레임 또는 타일 방식 Blender 렌더링 및 V-Ray 분산 렌더링을 포함합니다. 제공된 템플릿 집합은 시간에 따라 풀 자동 크기 조정과 같은 다른 Batch 기능을 서비스하기 위해 확장됩니다.
 
-고객 템플릿은 처음부터 새로 만들거나 제공된 템플릿을 수정하여 만들 수 있습니다. Batch Explorer의 ' 갤러리 ' 섹션에서 ' 로컬 템플릿 ' 항목을 선택 하 여 사용자 지정 템플릿을 사용할 수 있습니다.
+고객 템플릿은 처음부터 새로 만들거나 제공된 템플릿을 수정하여 만들 수 있습니다. Batch Explorer의 '갤러리' 섹션에서 '로컬 템플릿' 항목을 선택하여 사용자 지정 템플릿을 사용할 수 있습니다.
 
 ### <a name="file-system-and-data-movement"></a>파일 시스템 및 데이터 이동
 
-Batch Explorer의 ' Data ' 섹션을 통해 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
+Batch Explorer의 '데이터' 섹션을 통해 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
 
 ## <a name="client-application-plug-ins"></a>클라이언트 애플리케이션 플러그 인
 
 일부 클라이언트 애플리케이션에는 플러그 인을 사용할 수 있습니다.  플러그 인을 사용하면 풀 및 작업을 애플리케이션에서 직접 만들거나 Batch Explorer를 호출할 수 있습니다.
 
 * [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
+* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
@@ -66,4 +66,4 @@ Batch Explorer의 ' Data ' 섹션을 통해 로컬 파일 시스템과 Azure Sto
 Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
 
 * [Azure CLI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Batch Explorer를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Batch ExplorerI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

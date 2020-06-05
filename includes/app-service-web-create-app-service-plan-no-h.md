@@ -19,7 +19,7 @@ Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
 
-다음 예에서는 `myAppServicePlan`체험**가격 책정 계층에서**이라는 App Service 계획을 만듭니다.
+다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE

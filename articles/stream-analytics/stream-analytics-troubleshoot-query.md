@@ -8,27 +8,27 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bd2440ecf04bb4481b5497317e0acd2641710ccf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133317"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836875"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
 이 문서에서는 Stream Analytics 쿼리 개발과 관련한 일반적인 문제 및 그 해결 방법을 설명합니다.
 
-이 문서에서는 Azure Stream Analytics 쿼리 개발과 관련 된 일반적인 문제, 쿼리 문제를 해결 하는 방법 및 문제를 해결 하는 방법을 설명 합니다. 대부분의 문제 해결 단계에서는 Stream Analytics 작업에 대 한 리소스 로그를 사용 하도록 설정 해야 합니다. 리소스 로그를 사용 하도록 설정 하지 않은 경우 [리소스 로그를 사용 하 여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조 하세요.
+이 문서에서는 Azure Stream Analytics 쿼리 개발과 관련한 일반적인 문제, 쿼리 문제를 해결하는 방법 및 해당 문제를 해결하는 방법을 설명합니다. 대부분의 문제 해결 단계에서는 Stream Analytics 작업에 대해 리소스 로그를 사용하도록 설정해야 합니다. 리소스 로그를 사용하도록 설정하지 않은 경우 [리소스 로그를 사용하여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조 하세요.
 
 ## <a name="query-is-not-producing-expected-output"></a>쿼리가 예상 출력을 생성하지 않음
 
 1.  로컬로 테스트하여 오류를 검사합니다.
 
-    - Azure Portal의 **쿼리** 탭에서 **테스트**를 선택 합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
-    - Visual Studio 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)Azure Stream Analytics 도구를 사용 하 여 [쿼리를 로컬로 테스트할](stream-analytics-live-data-local-testing.md) 수도 있습니다. 
+    - Azure Portal의 **쿼리** 탭에서 **테스트**를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
+    - Visual Studio용 Azure Stream Analytics 도구 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)를 사용하여 [쿼리를 로컬로 테스트](stream-analytics-live-data-local-testing.md)할 수도 있습니다. 
 
-2.  Visual Studio 용 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용 하 여 로컬로 쿼리 디버그 단계별 작업 다이어그램을 사용](debug-locally-using-job-diagram.md) 합니다. 작업 다이어그램은 여러 쿼리 단계를 통해 입력 원본 (이벤트 허브, IoT Hub 등)에서 데이터 흐름을 표시 하 고 마지막으로 출력 싱크로 이동 하는 방법을 보여 줍니다. 각 쿼리 단계는 WITH 문을 사용 하 여 스크립트에 정의 된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 메트릭 뿐만 아니라 데이터를 보고 문제의 원인을 찾을 수 있습니다.
+2.  Visual Studio용 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용하여 로컬로 쿼리를 단계별로 디버그](debug-locally-using-job-diagram.md)합니다. 작업 다이어그램은 입력 원본(Event Hub, IoT Hub 등)에서 여러 쿼리 단계를 거쳐 최종적으로 출력 싱크까지의 데이터 흐름 방식을 보여줍니다. 각 쿼리 단계는 WITH 문을 사용하여 스크립트에 정의된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 메트릭뿐만 아니라 데이터를 보고 문제의 원인을 찾을 수 있습니다.
 
     ![작업 다이어그램 미리 보기 결과](./media/debug-locally-using-job-diagram/preview-result.png)
 
@@ -38,14 +38,14 @@ ms.locfileid: "82133317"
     - 쿼리의 [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
     - [**캐스트**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)를 대신 사용하세요.
     - 창 함수를 사용하는 경우 전체 창 기간을 기다려서 쿼리의 출력을 확인합니다.
-    - 이벤트에 대 한 타임 스탬프는 작업 시작 시간 보다 앞에 오고 이벤트는 삭제 됩니다.
-    - [**조인**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 조건이 일치 하지 않습니다. 일치 하는 항목이 없으면 출력이 0이 됩니다.
+    - 이벤트에 대한 타임스탬프가 작업 시작 시간보다 앞에 오고 이벤트는 삭제됩니다.
+    - [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 조건이 일치하지 않습니다. 일치하는 항목이 없으면 출력이 0이 됩니다.
 
-5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정** 으로 이동 하 여 [**이벤트 순서**](stream-analytics-out-of-order-and-late-events.md)를 선택 합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
+5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정**으로 이동하여 [**이벤트 순서 지정**](stream-analytics-out-of-order-and-late-events.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
 
-6. 활동 및 리소스 로그를 사용 하 여 디버그:
-    - [활동 로그](../azure-resource-manager/resource-group-audit.md)및 필터를 사용 하 여 오류를 식별 하 고 디버그 합니다.
-    - [작업 리소스 로그](stream-analytics-job-diagnostic-logs.md) 를 사용 하 여 오류를 식별 하 고 디버그할 수 있습니다.
+6. 활동 및 리소스 로그를 사용하여 디버그:
+    - [활동 로그](../azure-resource-manager/resource-group-audit.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
+    - [작업 리소스 로그](stream-analytics-job-diagnostic-logs.md)를 사용하여 오류를 식별하고 디버그합니다.
 
 ## <a name="resource-utilization-is-high"></a>리소스 사용률이 높습니다.
 
@@ -53,7 +53,7 @@ Azure Stream Analytics의 병렬 처리를 활용해야 합니다. 입력 파티
 
 ## <a name="debug-queries-progressively"></a>점진적으로 쿼리 디버그
 
-실시간 데이터를 처리하는 동안 쿼리 중간에 데이터가 어떤 상태인지를 알면 유용할 수 있습니다. Visual Studio의 작업 다이어그램을 사용 하 여이를 확인할 수 있습니다. Visual Studio가 없는 경우 추가 단계를 수행 하 여 중간 데이터를 출력할 수 있습니다.
+실시간 데이터를 처리하는 동안 쿼리 중간에 데이터가 어떤 상태인지를 알면 유용할 수 있습니다. Visual Studio의 작업 다이어그램을 사용하여 이를 확인할 수 있습니다. Visual Studio가 없는 경우 추가 단계를 수행하여 중간 데이터를 출력할 수 있습니다.
 
 Azure Stream Analytics 작업의 입력 또는 단계를 여러 번 읽을 수 있기 때문에 추가 SELECT INTO 문을 작성할 수 있습니다. 이렇게 하면 프로그램을 디버그할 때 *watch 변수*가 동작하는 것처럼 중간 데이터가 스토리지로 출력되어 데이터의 정확성을 검사할 수 있습니다.
 
@@ -77,10 +77,10 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 이제 작업을 다시 시작하고 몇 분 동안 실행되도록 합니다. 그런 다음 Visual Studio Cloud Explorer를 통해 temp1 및 temp2를 쿼리하여 다음과 같은 테이블을 생성합니다.
 
-**temp1 table**
+**temp1 테이블**
 ![SELECT INTO temp1 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**temp2 table**
+**temp2 테이블**
 ![SELECT INTO temp2 테이블 Stream Analytics 쿼리](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 보시다시피 temp1 및 temp2에 모두 데이터가 있고 이름 열이 temp2에서 올바르게 채워집니다. 그러나 여전히 출력에 데이터가 없기 때문에 문제가 있습니다.
@@ -103,12 +103,12 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 사용해 보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

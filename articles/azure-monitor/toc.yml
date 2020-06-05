@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -230,7 +230,7 @@
                     - name: 버전 기록
                       href: platform/diagnostics-extension-versions.md
                     - name: JSON 줄 리소스 로그 형식
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: 문제 해결
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: 플랫폼 로그
       items:
+        - name: 지원되는 리소스 로그 형식 및 범주
+          href: platform/resource-logs-categories.md
         - name: 리소스 로그 스키마
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: 활동 로그 스키마
           href: platform/activity-log-schema.md
     - name: 진단 확장 스키마
@@ -1237,7 +1239,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions

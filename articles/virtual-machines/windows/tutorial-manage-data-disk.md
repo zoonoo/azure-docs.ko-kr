@@ -138,7 +138,7 @@ Get-Disk | Where partitionstyle -eq 'raw' |
 
 ## <a name="verify-the-data-disk"></a>데이터 디스크 확인
 
-데이터 디스크가 연결되어 있는지를 확인하려면 연결된 `StorageProfile`에 대한 `DataDisks`을 확인합니다.
+데이터 디스크가 연결되어 있는지를 확인하려면 연결된 `DataDisks`에 대한 `StorageProfile`을 확인합니다.
 
 ```azurepowershell-interactive
 $vm.StorageProfile.DataDisks

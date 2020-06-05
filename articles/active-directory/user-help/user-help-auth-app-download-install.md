@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator 앱 다운로드 및 설치-Azure AD
-description: 2 단계 인증을 사용 하는 동안 Microsoft Authenticator 앱을 다운로드 하 고 설치 하 여 id를 확인 합니다.
+title: Microsoft Authenticator 앱 다운로드 및 설치 - Azure AD
+description: 2단계 인증을 사용하는 동안 Microsoft Authenticator 앱을 다운로드하고 설치하여 ID를 확인합니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,16 +8,16 @@ ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063903"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741361"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 다운로드 및 설치
 
@@ -46,12 +46,12 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 운영 체제에 따라 최신 버전의 Microsoft Authenticator 앱을 설치합니다.
 
-- **Google Android.** Android 디바이스에서 Google Play로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator)합니다.
+- **Google Android** Android 디바이스에서 Google Play로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator)합니다.
 
-- **Apple iOS.** Apple iOS 디바이스에서 App Store로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)합니다.
+- **Apple iOS** Apple iOS 디바이스에서 App Store로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)합니다.
 
 >[!Important]
->현재 모바일 장치에 있지 않은 경우에도 [Microsoft Authenticator 페이지](https://www.microsoft.com/en-us/account/authenticator)에서 다운로드 링크를 보내 Microsoft Authenticator 앱을 가져올 수 있습니다.
+>현재 모바일 디바이스에 있지 않은 경우에도 [Microsoft Authenticator 페이지](https://www.microsoft.com/en-us/account/authenticator)에서 자신에게 다운로드 링크를 전송하여 Microsoft Authenticator 앱을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -63,8 +63,8 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키를 사용하여 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조하세요.
 
-- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.

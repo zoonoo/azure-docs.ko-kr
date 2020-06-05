@@ -122,7 +122,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>VM 인스턴스 이미지 이해
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 `--image`UbuntuLTS*의* 가 지정되었습니다. Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image) 명령을 사용하세요.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *UbuntuLTS*의 `--image`가 지정되었습니다. Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image) 명령을 사용하세요.
 
 ```azurecli-interactive
 az vm image list --output table
@@ -220,7 +220,7 @@ az vm list-sizes --location eastus --output table
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>특정 VM 인스턴스 크기로 확장 집합 만들기
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_D1_v2*의 기본 VM SKU가 제공되었습니다. [az vm list-sizes](/cli/azure/vm)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 `--vm-sku`Standard_F1*의 VM 인스턴스 크기를 지정하는*  매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_D1_v2*의 기본 VM SKU가 제공되었습니다. [az vm list-sizes](/cli/azure/vm)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `--vm-sku` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -234,7 +234,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
-자습서의 시작 부분에서 확장 집합을 만들 때 두 개의 VM 인스턴스가 기본적으로 배포되었습니다. `--instance-count`az vmss create[에 ](/cli/azure/vmss) 매개 변수를 지정하여 확장 집합으로 만든 인스턴스의 수를 변경할 수 있습니다. 기존 확장 집합의 VM 인스턴스 수를 늘리거나 줄이려면 용량을 수동으로 변경할 수 있습니다. 확장 집합은 필요한 수의 VM 인스턴스를 만들거나 제거한 다음, 부하 분산 장치에서 트래픽을 분산하도록 구성합니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 두 개의 VM 인스턴스가 기본적으로 배포되었습니다. [az vmss create](/cli/azure/vmss)에 `--instance-count` 매개 변수를 지정하여 확장 집합으로 만든 인스턴스의 수를 변경할 수 있습니다. 기존 확장 집합의 VM 인스턴스 수를 늘리거나 줄이려면 용량을 수동으로 변경할 수 있습니다. 확장 집합은 필요한 수의 VM 인스턴스를 만들거나 제거한 다음, 부하 분산 장치에서 트래픽을 분산하도록 구성합니다.
 
 확장 집합의 VM 인스턴스 수를 수동으로 늘리거나 줄이려면 [az vmss scale](/cli/azure/vmss)을 사용합니다. 다음 예제에서는 확장 집합의 VM 인스턴스 수를 *3*으로 설정합니다.
 

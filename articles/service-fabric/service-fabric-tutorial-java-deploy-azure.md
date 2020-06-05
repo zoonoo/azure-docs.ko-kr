@@ -32,7 +32,7 @@ ms.locfileid: "80292046"
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -225,7 +225,7 @@ ms.locfileid: "80292046"
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
-7. 클러스터에서 애플리케이션을 제거하려면 *스크립트* 폴더에서 **uninstall.sh** 스크립트 실행
+7. 클러스터에서 애플리케이션을 제거하려면 **스크립트** 폴더에서 *uninstall.sh* 스크립트 실행
 
     ```bash
     ./uninstall.sh

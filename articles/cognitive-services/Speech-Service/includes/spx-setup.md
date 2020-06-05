@@ -12,7 +12,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83800689"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 유일한 필수 구성 요소는 Azure Speech 구독입니다. 새 구독을 아직 만들지 않은 경우 [가이드](../get-started.md#new-resource)를 참조하세요.
 

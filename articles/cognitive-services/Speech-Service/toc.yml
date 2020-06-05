@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Blob 스토리지에 저장된 음성 인식
           href: quickstarts/from-blob.md
+        - name: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
+          href: quickstarts/speech-studio-test-model.md
     - name: 방법 가이드
       items:
         - name: 음성 인식 모드 선택

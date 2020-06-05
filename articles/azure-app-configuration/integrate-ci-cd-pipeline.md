@@ -32,7 +32,7 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 로컬로 빌드하는 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 아직 없으면 Azure CLI를 다운로드하여 설치합니다.
 
@@ -48,7 +48,7 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 호출하여 내보낸 JSON 파일을 사용하도록 `config.AddJsonFile()` 메서드를 업데이트합니다.  `System.Reflection` 네임스페이스도 추가합니다.
+1. *Program.cs*를 열고, `config.AddJsonFile()` 메서드를 호출하여 내보낸 JSON 파일을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.  `System.Reflection` 네임스페이스도 추가합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

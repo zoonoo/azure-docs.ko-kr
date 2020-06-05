@@ -20,7 +20,7 @@ ms.locfileid: "83673155"
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -35,14 +35,14 @@ ms.locfileid: "83673155"
 
 Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지 확인합니다.
 
-* Ubuntu:
+* Ubuntu에서:
 
   ```sh
   sudo apt-get update
   sudo apt-get install libssl1.0.0 libasound2
   ```
 
-* Debian 9:
+* Debian 9에서:
 
   ```sh
   sudo apt-get update

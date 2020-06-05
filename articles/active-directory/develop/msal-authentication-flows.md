@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 47978317b1ae914e952b764def854d8a011293e0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772134"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266613"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -43,7 +43,7 @@ ms.locfileid: "83772134"
 |-----|----------|----------|--------------|---------------|--------------------|
 |[인증 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[하이브리드 OIDC 흐름](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[하이브리드 OIDC 흐름](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[새로 고침 토큰 상환](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | 새로 고침 토큰 | x | x | x| |
 |[On-Behalf-Of 흐름](v2-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
 |[디바이스 코드 흐름](v2-oauth2-device-code.md) | | x| x| x| |
@@ -182,7 +182,7 @@ IWA는 .NET Framework, .NET Core 및 유니버설 Windows 플랫폼용으로 작
 
 IWA는 다단계 인증을 바이패스하지 않습니다. 다단계 인증이 구성된 경우 다단계 인증 질문이 필요하면 IWA가 실패할 수 있습니다. 다단계 인증을 사용하려면 사용자 조작이 필요합니다.
 
-사용자는 ID 공급자가 언제 2단계 인증을 수행하도록 요청하는지 제어하지 않습니다. 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않은 경우 2단계 인증이 필요하며 VPN을 통해 연결된 경우에도 간혹 필요한 경우가 있습니다. Azure AD는 AI를 사용하여 2단계 인증이 필요한 경우를 계속 학습합니다. IWA가 실패하면 [대화형 사용자 프롬프트](#대화형)로 대체해야 합니다.
+사용자는 ID 공급자가 언제 2단계 인증을 수행하도록 요청하는지 제어하지 않습니다. 테넌트 관리자가 제어합니다. 일반적으로 다른 국가/지역에서 로그인할 때, VPN을 통해 회사 네트워크에 연결되어 있지 않은 경우 2단계 인증이 필요하며 VPN을 통해 연결된 경우에도 간혹 필요한 경우가 있습니다. Azure AD는 AI를 사용하여 2단계 인증이 필요한 경우를 계속 학습합니다. IWA가 실패하면 [대화형 사용자 프롬프트]\(#대화형)로 대체해야 합니다.
 
 공용 클라이언트 애플리케이션을 구성할 때 전달되는 인증 기관은 다음 중 하나여야 합니다.
 - 테넌트(`https://login.microsoftonline.com/{tenant}/` 형식, 여기서 `tenant`는 테넌트 ID 또는 테넌트와 연결된 도메인을 나타내는 GUID)

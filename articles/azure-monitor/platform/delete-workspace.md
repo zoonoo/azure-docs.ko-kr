@@ -5,26 +5,26 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/30/2020
-ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731903"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860667"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
-이 문서에서는 Azure Log Analytics 작업 영역 일시 삭제의 개념과 삭제 된 작업 영역을 복구 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Log Analytics 작업 영역 일시 삭제의 개념과 삭제된 작업 영역을 복구하는 방법을 설명합니다.
 
-## <a name="considerations-when-deleting-a-workspace"></a>작업 영역을 삭제할 때의 고려 사항
+## <a name="considerations-when-deleting-a-workspace"></a>작업 영역 삭제 시 고려 사항
 
-Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에이전트를 포함 하는 작업 영역을 14 일 내에 복구 하도록 허용 하기 위해 일시 삭제 작업이 수행 됩니다. 일시 삭제 기간이 지나면 작업 영역 리소스와 해당 데이터는 복구할 수 없습니다. 해당 데이터가 영구적으로 삭제 되 고 30 일 이내에 완전히 제거 될 때까지 대기 됩니다. 작업 영역 이름은 ' 릴리스 ' 이며 새 작업 영역을 만드는 데 사용할 수 있습니다.
+Log Analytics 작업 영역을 삭제하면 삭제가 우연인지 의도적인지 여부에 관계 없이 해당 데이터 및 연결된 에이전트를 포함하여 14일 이내에 작업 영역을 복구할 수 있도록 일시 삭제 작업이 수행됩니다. 일시 삭제 기간이 후 작업 영역 리소스와 해당 데이터는 복구할 수 없습니다. 해당 데이터가 영구적으로 삭제되고 30일 내에 완전히 제거될 때까지 대기됩니다. 작업 영역 이름은 '릴리스'이며 새 작업 영역을 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 일시 삭제 동작을 재정의 하 고 작업 영역을 영구적으로 삭제 하려면 [영구 작업 영역 삭제](#permanent-workspace-delete)의 단계를 수행 합니다.
+> 일시 삭제 동작을 재정의하고 작업 영역을 영구적으로 삭제하려는 경우 [영구 작업 영역 삭제](#permanent-workspace-delete)의 단계를 수행합니다.
 
-작업 영역을 삭제할 때 서비스 작업에 부정적인 영향을 줄 수 있는 중요 한 데이터 및 구성이 있을 수 있으므로 주의를 기울여야 합니다. 다음과 같이 Log Analytics에 데이터를 저장 하는 에이전트, 솔루션 및 기타 Azure 서비스와 소스를 검토 합니다.
+서비스 작업에 부정적인 영향을 미칠 수 있는 중요한 데이터 및 구성이 있을 수 있으므로 작업 영역을 삭제할 때는 주의해야 합니다. 다음과 같이 Log Analytics에 데이터를 저장하는 에이전트, 솔루션 및 다른 Azure 서비스와 소스를 검토합니다.
 
 * 관리 솔루션
 * Azure Automation
@@ -32,70 +32,76 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 * 사용자 환경의 Windows 및 Linux 컴퓨터에서 실행되는 에이전트
 * System Center Operations Manager
 
-일시 삭제 작업은 작업 영역 리소스를 삭제 하 고 연결 된 사용자의 사용 권한은 중단 됩니다. 사용자가 다른 작업 영역과 연결 되어 있으면 다른 작업 영역과 함께 Log Analytics를 계속 사용할 수 있습니다.
+일시 삭제 작업은 작업 영역 리소스를 삭제하고 연결된 사용자의 사용 권한은 중단됩니다. 사용자가 다른 작업 영역과 연결되어 있으면 다른 작업 영역에서 Log Analytics를 계속 사용할 수 있습니다.
 
 ## <a name="soft-delete-behavior"></a>일시 삭제 동작
 
-작업 영역 삭제 작업은 작업 영역 리소스 관리자 리소스를 제거 하지만 해당 구성과 데이터는 14 일 동안 유지 되지만 작업 영역을 삭제 하는 모양을 제공 합니다. 작업 영역에 보고 하도록 구성 된 모든 에이전트와 System Center Operations Manager 관리 그룹은 일시 삭제 기간 동안 분리 된 상태로 유지 됩니다. 이 서비스는 데이터 및 연결 된 리소스를 포함 하 여 삭제 된 작업 영역을 복구 하는 메커니즘을 제공 하며, 기본적으로 삭제를 취소 합니다.
+작업 영역 삭제 작업은 작업 영역 Resource Manager 리소스를 제거하지만 해당 구성과 데이터는 14일 동안 유지하는 동시에 작업 영역이 삭제된 것처럼 보이게 합니다. 작업 영역에 보고하도록 구성된 모든 에이전트 및 System Center Operations Manager 관리 그룹은 일시 삭제 기간 동안 분리된 상태로 유지됩니다. 또한 서비스는 해당 데이터와 연결된 리소스를 포함하여 삭제된 작업 영역을 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다.
 
 > [!NOTE] 
-> 설치 된 솔루션 및 Azure Automation 계정과 같은 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 복구할 수 없습니다. 이전에 구성 된 상태로 작업 영역을 가져오기 위해 복구 작업 후 다시 구성 해야 합니다.
+> 설치된 솔루션과 Azure Automation 계정과 같은 연결된 서비스는 삭제 시 작업 영역에서 영구적으로 제거되어 복구할 수 없습니다. 이전에 구성된 상태로 작업 영역을 가져오기 위해 복구 작업 후 다시 구성해야 합니다.
 
-[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
+[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 작업 영역을 삭제할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. 
-2. Azure Portal에서 **모든 서비스**를 선택 합니다. 리소스 목록에서 **Log Analytics**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
-3. Log Analytics 작업 영역 목록에서 작업 영역을 선택한 다음 가운데 창의 위쪽에서 **삭제** 를 클릭 합니다.
-   ![작업 영역 속성 창에서 옵션 삭제](media/delete-workspace/log-analytics-delete-workspace.png)
-4. 작업 영역 삭제를 확인할지 묻는 확인 메시지 창이 나타나면 **예**를 클릭합니다.
-   ![작업 영역 삭제 확인](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+3. Log Analytics 작업 영역 목록에서 작업 영역을 선택한 다음, 가운데 창 위쪽에서 **삭제**를 클릭합니다.
+4. 지난 주 동안 작업 영역에 대한 데이터 수집을 보여 주는 확인 페이지가 나타납니다. 작업 영역의 이름을 입력하여 확인한 다음, **삭제**를 클릭합니다.
+
+   ![작업 영역 삭제 확인](media/delete-workspace/workspace-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-### <a name="troubleshooting"></a>문제 해결
-
-작업 영역을 삭제 하려면 적어도 *Log Analytics 참가자* 권한이 있어야 합니다.<br>
-*이 작업 영역 이름이 이미 사용* 중이거나 작업 영역을 만들 때 *충돌* 하는 경우 다음 이후 일 수 있습니다.
-* 작업 영역 이름을 사용할 수 없으며 조직의 누군가가 나 다른 고객에 의해 사용 되 고 있습니다.
-* 작업 영역이 지난 14 일 이내에 삭제 되 고 이름이 일시 삭제 기간 동안 예약 된 상태로 유지 됩니다. 일시 삭제를 재정의 하 고 작업 영역을 영구적으로 삭제 하 여 동일한 이름을 가진 새 작업 영역을 만들려면 다음 단계를 수행 하 여 작업 영역을 먼저 복구 하 고 영구 삭제를 수행 합니다.<br>
-   1. 작업 영역을 [복구](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) 합니다.
-   2. 작업 영역을 [영구적으로 삭제](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) 합니다.
-   3. 동일한 작업 영역 이름을 사용 하 여 새 작업 영역을 만듭니다.
-
 ## <a name="permanent-workspace-delete"></a>영구 작업 영역 삭제
-일시 삭제 방법은 개발 및 테스트와 같은 일부 시나리오에 맞지 않을 수 있습니다 .이 경우 동일한 설정 및 작업 영역 이름으로 배포를 반복 해야 합니다. 이 경우 작업 영역을 영구적으로 삭제 하 고 일시 삭제 기간을 "재정의" 할 수 있습니다. 영구 작업 영역 삭제 작업은 작업 영역 이름을 해제 하 고 동일한 이름을 사용 하 여 새 작업 영역을 만들 수 있습니다.
+일시 삭제 방법은 개발 및 테스트와 같은 일부 시나리오에 맞지 않을 수 있습니다. 이 경우 동일한 설정 및 작업 영역 이름으로 배포를 반복해야 합니다. 이 경우 작업 영역을 영구적으로 삭제하고 일시 삭제 기간을 "재정의"할 수 있습니다. 영구 작업 영역 삭제 작업은 작업 영역 이름을 해제하고 동일한 이름을 사용하여 새 작업 영역을 만들 수 있습니다.
 
 
 > [!IMPORTANT]
-> 영구적 작업 영역 삭제 작업은 취소할 수 없으므로 주의 해 서 사용 해야 하며 작업 영역 및 데이터를 복구할 수 없습니다.
+> 영구 작업 영역 삭제 작업은 취소할 수 없고 작업 영역 및 해당 데이터를 복구할 수 없으므로 주의해서 사용해야 합니다.
 
-영구 작업 영역 삭제는 현재 REST API를 통해 수행할 수 있습니다.
+작업 영역을 영구적으로 삭제하려면 force 태그와 함께 [작업 영역 – 삭제](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST 요청을 사용합니다.
 
-> [!NOTE]
-> 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
->
-> 토큰은 다음을 사용 하 여 가져올 수 있습니다.
-> - [앱 등록](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-> - 브라우저에서 F12 (개발자 콘솔)를 사용 하 여 Azure Portal로 이동 합니다. **요청 헤더**의 인증 문자열에 대해 **batch?** 인스턴스 중 하나를 확인 합니다. 이는 패턴 *권한 부여: 전달자 <token> *에 있습니다. 예제에 표시 된 것 처럼이를 복사 하 여 API 호출에 추가 합니다.
-> - Azure REST 설명서 사이트로 이동 합니다. 모든 API에서 **시도** 를 누르고 전달자 토큰을 복사 하 여 api 호출에 추가 합니다.
-작업 영역을 영구적으로 삭제 하려면 [작업 영역]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 을 사용 합니다. force 태그를 사용 하 여 REST API 호출을 삭제 합니다.
->
-> ```rst
-> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
-> ```
-Where ' eyJ0eXAiOiJKV1Qi ... ' 전체 권한 부여 토큰을 나타냅니다.
+```rst
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+Authorization: Bearer <token>
+```
+
+또는 Azure REST 설명서 사이트에서 작업을 실행할 수 있습니다.
+1.  [작업 영역 - 삭제](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST API로 이동하고 **시도**를 클릭합니다. 
+2.  영구적으로 삭제하려는 작업 영역의 세부 정보를 입력합니다.
+3.  *true*의 값으로 새 매개 변수 *force*를 입력합니다.
+4.  값의 오른쪽에 있는 '+' 아이콘을 클릭합니다. 요청에서 URI에 *force=true*를 추가합니다.
+5.  *실행* 단추를 클릭합니다.
+
+응답은 200 OK이어야 합니다.
 
 ## <a name="recover-workspace"></a>작업 영역 복구
+Log Analytics 작업 영역을 실수로 또는 의도적으로 삭제하면 서비스에서 작업 영역에 액세스할 수 없도록 하는 일시 삭제 상태로 작업 영역을 배치합니다. 삭제된 작업 영역의 이름은 일시 삭제 기간 동안 보존되며 새 작업 영역을 만드는 데 사용할 수 없습니다. 일시 삭제 기간이 지나면 작업 영역은 복구할 수 없는 상태가 되고, 영구적으로 삭제되고 이름이 해제되며 새 작업 영역을 만드는 데 사용할 수 있습니다.
 
-일시 삭제 작업 이전에 작업 영역이 연결 된 구독 및 리소스 그룹에 대 한 참가자 권한이 있는 경우 해당 데이터, 구성 및 연결 된 에이전트를 포함 하 여 일시 삭제 기간 동안 복구할 수 있습니다. 일시 삭제 기간이 지나면 작업 영역은 복구 불가능 하 고 영구 삭제를 위해 할당 됩니다. 삭제 된 작업 영역의 이름은 일시 삭제 기간 동안 보존 되며 새 작업 영역을 만들려고 할 때 사용할 수 없습니다.  
+해당 데이터, 구성 및 연결된 에이전트를 포함하여 일시 삭제 기간 동안 작업 영역을 복구할 수 있습니다. 일시 삭제 작업 전에 작업 영역이 있는 리소스 그룹 및 구독에 대한 기여자 권한이 필요합니다. 작업 영역 복구는 다음을 포함하여 삭제된 작업 영역의 세부 정보를 사용하여 Log Analytics 작업 영역을 만드는 방식으로 수행됩니다.
 
-삭제 된 작업 영역의 세부 정보를 포함 하는 작업 영역을 만들어 작업 영역을 복구할 수 있습니다. 여기에는 *구독 ID*, *리소스 그룹 이름*, *작업 영역 이름* 및 *지역이*포함 됩니다. 리소스 그룹이 삭제 되 고 존재 하지 않는 경우 삭제 전에 사용 된 동일한 이름을 사용 하 여 리소스 그룹을 만든 다음 [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) 또는 [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)중 하나를 사용 하 여 작업 영역을 만듭니다.
+- 구독 ID
+- 리소스 그룹 이름
+- 작업 영역 이름
+- 지역
+
+### <a name="azure-portal"></a>Azure portal
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다. 선택한 범위에 있는 작업 영역 목록이 표시됩니다.
+3. 왼쪽 위 메뉴에서 **복구**를 클릭하여 복구할 수 있는 일시 삭제 상태의 작업 영역을 포함하는 페이지를 엽니다.
+
+   ![작업 영역 복구](media/delete-workspace/recover-menu.png)
+
+4. 작업 영역을 선택하고 **복구**를 클릭하여 해당 작업 영역을 복구합니다.
+
+   ![작업 영역 복구](media/delete-workspace/recover-workspace.png)
+
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
@@ -103,9 +109,16 @@ PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
 PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name-the-workspace-was-in" -Name "deleted-workspace-name" -Location "region-name-the-workspace-was-in"
 ```
 
-작업 영역 및 모든 해당 데이터는 복구 작업 후에 다시 가져옵니다. 솔루션 및 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 작업 영역을 이전에 구성 된 상태로 전환 하도록 다시 구성 해야 합니다. 연결 된 솔루션을 다시 설치 하 고 해당 스키마를 작업 영역에 추가할 때까지 작업 영역 복구 후에 일부 데이터를 쿼리에 사용할 수 없습니다.
+작업 영역 및 모든 해당 데이터는 복구 작업 후에 다시 가져옵니다. 솔루션 및 연결된 서비스는 삭제 시 작업 영역에서 영구적으로 제거되며 작업 영역을 이전에 구성된 상태로 가져오도록 다시 구성해야 합니다. 연결된 솔루션을 다시 설치하고 해당 스키마를 작업 영역에 추가할 때까지 작업 영역 복구 후에 일부 데이터를 쿼리에 사용할 수 없습니다.
 
 > [!NOTE]
-> * 작업 영역 복구는 [Azure Portal](https://portal.azure.com)에서 지원 되지 않습니다. 
-> * 일시 삭제 기간 동안 작업 영역을 다시 만들면이 작업 영역 이름이 이미 사용 중임을 나타냅니다. 
-> 
+> * 일시 삭제 기간 동안 작업 영역을 다시 만들면 이 작업 영역 이름이 이미 사용 중임을 나타냅니다. 
+ 
+### <a name="troubleshooting"></a>문제 해결
+작업 영역을 삭제하려면 적어도 *Log Analytics 기여자* 권한이 있어야 합니다.<br>
+작업 영역을 만들 때 *이 작업 영역 이름은 이미 사용 중입니다* 또는 *충돌* 오류 메시지가 표시되는 원인은 다음과 같습니다.
+* 작업 영역 이름을 사용할 수 없으며 조직의 누군가 또는 다른 고객에 의해 사용되고 있습니다.
+* 최근 14일 이내에 작업 영역이 삭제되었으며 일시 삭제 기간 동안 해당 이름이 예약되어 있습니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하여 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.<br>
+   1. [작업 영역](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace)을 복구합니다.
+   2. 작업 영역을 [영구 삭제](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)합니다.
+   3. 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.

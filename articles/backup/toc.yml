@@ -46,7 +46,7 @@
           href: tutorial-sap-hana-manage-cli.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -123,6 +123,8 @@
               href: backup-azure-linux-app-consistent.md
         - name: 복원
           items:
+            - name: Azure VM 복원 정보
+              href: about-azure-vm-restore.md
             - name: 포털에서 Azure VM 복원
               href: backup-azure-arm-restore-vms.md
             - name: Azure VM 백업에서 파일 복구
@@ -345,7 +347,7 @@
       items:
         - name: 개요
           href: security-overview.md
-        - name: 역할 기반 액세스 제어
+        - name: 역할 기반 Access Control
           href: backup-rbac-rs-vault.md
         - name: 일시 삭제
           items:

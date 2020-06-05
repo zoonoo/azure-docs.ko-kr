@@ -70,7 +70,8 @@
       items:
         - name: CLI를 사용하여 학습 및 배포
           href: tutorial-train-deploy-model-cli.md
-        - name: Resource Manager 템플릿을 사용하여 작업 영역 만들기
+        - name: ARM 템플릿을 사용하여 작업 영역 만들기
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:

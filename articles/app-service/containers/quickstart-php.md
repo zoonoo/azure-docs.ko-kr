@@ -26,7 +26,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -150,7 +150,7 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
+왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

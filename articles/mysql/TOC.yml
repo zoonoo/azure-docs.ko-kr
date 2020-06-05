@@ -190,6 +190,8 @@
           href: howto-connection-string.md
         - name: SSL 구성
           href: howto-configure-ssl.md
+        - name: TLS 구성
+          href: howto-tls-configurations.md
         - name: 웹 앱
           href: howto-connect-webapp.md
         - name: 리디렉션으로 연결
