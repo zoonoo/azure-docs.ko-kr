@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142166"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465595"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>텍스트 분석 API v3 언어 지원 
 
 > [!IMPORTANT]
-> 텍스트 분석 API의 버전 3(sp3)은 현재 Central 인도, Fairfax, 아랍에미리트 북부, 남아프리카 공화국 북부, 중국 북부 2, 중국 동부 지역에서 사용할 수 없습니다.
+> 텍스트 분석 API의 버전 3(sp3)은 현재 Central 인도, 아랍에미리트 북부, 중국 북부 2, 중국 동부 지역에서 사용할 수 없습니다.
 
 
 #### <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment-analysis)
 
-| 언어              | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전을 시작 하는 중: |              참고 |
+| 언어              | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전을 시작 하는 중: |              메모 |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | 중국어 간체    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`도 허용됨 |
 | 중국어 번체   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,18 +49,18 @@ ms.locfileid: "84142166"
 
 ### <a name="opinion-mining-v31-preview-only"></a>의견 마이닝 (v 3.1-미리 보기 전용)
 
-| 언어              | 언어 코드 | V3 모델 버전부터: |              참고 |
+| 언어              | 언어 코드 | V3 모델 버전부터: |              메모 |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | 영어               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[명명 된 엔터티 인식 (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[NER(명명된 엔터티 인식)](#tab/named-entity-recognition)
 
 > [!NOTE]
 > * NER v3은 현재 영어 언어만 지원 합니다. 다른 언어로 NER v3을 호출 하는 경우 버전 2.1에서 해당 언어가 지원 되는 경우 API는 v 2.1 결과를 반환 합니다.
 > * v 2.1은 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어에 대해 사용 가능한 엔터티의 전체 집합만 반환 합니다.  다른 지원 되는 언어에 대해 "Person", "Location" 및 "조직" 엔터티가 반환 됩니다.
 
-| 언어               | 언어 코드 | v 2.1 지원 | v3 지원 | V3 모델 버전부터: |       참고        |
+| 언어               | 언어 코드 | v 2.1 지원 | v3 지원 | V3 모델 버전부터: |       메모        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | 아랍어                |     `ar`      |     ✓      |            |                                 |                    |
 | 체코어                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -88,7 +88,7 @@ ms.locfileid: "84142166"
 
 #### <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/key-phrase-extraction)
 
-| 언어              | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전부터 사용 가능: |       참고        |
+| 언어              | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전부터 사용 가능: |       메모        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | 네덜란드어                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | 영어               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +108,7 @@ ms.locfileid: "84142166"
 
 #### <a name="entity-linking"></a>[엔터티 연결](#tab/entity-linking)
 
-| 언어 | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전부터 사용 가능: | 참고 |
+| 언어 | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전부터 사용 가능: | 메모 |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | 영어  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | 스페인어  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
@@ -123,6 +123,6 @@ ms.locfileid: "84142166"
 
 ---
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-* [텍스트 분석 API란?](overview.md)   
+* [텍스트 분석 API 이란?](overview.md)   

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: 32dc7e86d5cd737533a4a6c8b3d9ce7d00795c65
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140511"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462800"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -97,7 +97,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 메일 
+    * Email 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소
@@ -137,7 +137,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API란?](overview.md)  
+* [텍스트 분석 API 이란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)
