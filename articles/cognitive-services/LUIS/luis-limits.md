@@ -2,13 +2,13 @@
 title: 제한-LUIS
 description: 이 문서에는 Azure Cognitive Services Language Understanding(LUIS)의 알려진 제한이 포함됩니다. LUIS에는 몇 가지 제한 영역이 있습니다. 모델 제한은 LUIS의 의도, 엔터티 및 기능을 제어 합니다. 할당량은 키 형식에 따라 제한됩니다. 키보드 조합은 LUIS 웹 사이트를 제어합니다.
 ms.topic: reference
-ms.date: 05/06/2020
-ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/04/2020
+ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684609"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449501"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
 LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의도, 엔터티 및 기능을 제어 하는 [모델 제한](#model-limits)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 제한의 세 번째 영역은 LUIS 웹 사이트를 제어 하는 [키보드 조합](#keyboard-controls) 입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다.
@@ -19,7 +19,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 앱이 LUIS 모델 제한을 초과 하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱을 사용 하거나 [LUIS 컨테이너](luis-container-howto.md)를 사용 하는 것이 좋습니다.
 
-|영역|제한|
+|Area|제한|
 |--|:--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
 | 애플리케이션| 500 Azure 제작 리소스 당 응용 프로그램 |
@@ -37,8 +37,8 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 | [미리 빌드된 엔터티](./luis-prebuilt-entities.md) | 제한 없음|
 | [정규식 엔터티](./luis-concept-entity-types.md)|20개 엔터티<br>정규식 엔터티 패턴당 최대 500자|
 | [역할](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
-| [발화][utterances] | 500자|
-| [발언][utterances] | 15000 응용 프로그램당-길이 발언 수에 제한이 없습니다.|
+| [발화][utterances] | 500자<br><br>이 문자 제한 보다 긴 텍스트가 있는 경우 LUIS에 대 한 입력 전에 utterance을 분할 하 고 그에 따라 응답을 병합 해야 합니다. 문장 부호와 음성의 긴 일시 중지와 같이 사용할 수 있는 명확한 나누기가 있습니다.|
+| [Utterance 예제][utterances] | 15000 응용 프로그램당-길이 발언 수에 제한이 없습니다.<br><br>더 많은 예제를 사용 하 여 응용 프로그램을 학습 해야 하는 경우 [디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) 모델 방법을 사용 합니다. 하나 이상의 의도를 사용 하 여 개별 LUIS 앱 (부모 디스패치 앱에 자식 앱 이라고 함)을 학습 한 다음 각 자식 LUIS 앱의 길이 발언에서 샘플링 하는 디스패치 앱을 학습 하 여 예측 요청을 올바른 자식 앱으로 전달 합니다. |
 | [버전](luis-concept-version.md)| 응용 프로그램당 100 버전 |
 | [버전 이름][luis-how-to-manage-versions] | 128자 |
 
@@ -50,7 +50,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 개체 이름은 같은 수준의 다른 개체와 비교 했을 때 고유 해야 합니다.
 
-|개체|제한|
+|개체|제한 사항|
 |--|--|
 |의도, 엔터티|모든 의도 및 엔터티 이름은 앱 버전에서 고유 해야 합니다.|
 |ML 엔터티 구성 요소|모든 기계 학습 엔터티 구성 요소 (자식 엔터티)는 동일한 수준의 구성 요소에 대 한 해당 엔터티 내에서 고유 해야 합니다.|
@@ -94,7 +94,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 |F0-무료 계층 |10000/월, 5/초|
 |S0-표준 계층|50/초|
 
-### <a name="sentiment-analysis"></a>감정 분석
+### <a name="sentiment-analysis"></a>정서 분석
 
 감정 정보를 제공 하는 [감정 analysis 통합](luis-how-to-publish-app.md#enable-sentiment-analysis)은 다른 Azure 리소스를 요구 하지 않고 제공 됩니다.
 
@@ -106,7 +106,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | 설명 |
+|키보드 입력 | Description |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 
