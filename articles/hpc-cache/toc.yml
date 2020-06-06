@@ -38,6 +38,10 @@
       href: hpc-cache-manage.md
     - name: 옵션 설정 구성
       href: configuration.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/hpc-cache/hpc-cache
 - name: 리소스
   items:
     - name: 지원 티켓 열기
