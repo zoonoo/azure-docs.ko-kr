@@ -12,6 +12,7 @@
         - name: 포털
           href: quickstart-create-databricks-workspace-portal.md
         - name: ARM 템플릿
+          displayName: Resource Manager
           href: quickstart-create-databricks-workspace-resource-manager-template.md
         - name: 가상 네트워크
           href: quickstart-create-databricks-workspace-vnet-injection.md

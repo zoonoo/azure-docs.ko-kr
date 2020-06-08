@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: 클러스터 용량 계획
           href: ./hdinsight-capacity-planning.md
-        - name: CPU 코어 할당량에 대한 요청 증가
-          href: ./quota-increase-request.md
         - name: 클러스터 관리 모범 사례
           href: ./cluster-management-best-practices.md
         - name: 가용성 및 안정성
@@ -239,6 +237,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: 문제 해결
           items:
+            - name: CPU 코어 할당량에 대한 요청 증가
+              href: ./quota-increase-request.md
             - name: 스크립트 동작 문제 해결
               href: ./troubleshoot-script-action.md
             - name: 리소스 만들기 실패

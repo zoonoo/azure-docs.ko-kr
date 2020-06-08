@@ -195,7 +195,13 @@
 - name: 방법 가이드
   items:
     - name: '시스템 항목 만들기, 보기 및 관리'
-      href: create-view-manage-system-topics.md
+      items:
+        - name: Azure portal
+          href: create-view-manage-system-topics.md
+        - name: Azure CLI
+          href: create-view-manage-system-topics-cli.md
+        - name: Azure Resource Manager 템플릿
+          href: create-view-manage-system-topics-arm.md
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
     - name: Auth0 이벤트 구독

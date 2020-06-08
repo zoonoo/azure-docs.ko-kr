@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648550"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194906"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -48,7 +48,7 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 CLI([Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
 
@@ -76,7 +76,7 @@ CLI([Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?vie
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
 
@@ -132,7 +132,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)를 참조하세요.
+이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)를 완료하세요.
 
 1. **Storage Explorer(미리 보기)** 를 선택합니다.
 
@@ -195,7 +195,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## <a name="find-the-website-url"></a>웹 사이트 URL 찾기
 
@@ -234,7 +234,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## <a name="enable-metrics-on-static-website-pages"></a>정적 웹 사이트 페이지에서 메트릭 사용
 

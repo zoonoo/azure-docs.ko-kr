@@ -14,6 +14,7 @@
         - name: Azure portal
           href: stream-analytics-quick-create-portal.md
         - name: ARM 템플릿
+          displayName: Resource Manager
           href: quick-create-azure-resource-manager.md
         - name: PowerShell
           href: stream-analytics-quick-create-powershell.md
@@ -48,6 +49,10 @@
       href: feature-comparison.md
     - name: 로컬에서 개발
       href: develop-locally.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 작업에 대한 입력 형식
       items:
         - name: 입력 개요

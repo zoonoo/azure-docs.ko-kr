@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800281"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266766"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -128,7 +128,7 @@ DAST(동적 애플리케이션 보안 테스트)는 애플리케이션이 작동
 
 DAST는 SAST(정적 애플리케이션 보안 테스트)와는 다릅니다. SAST 도구는 코드가 실행되지 않을 때 소스 코드 또는 컴파일된 코드 버전을 분석하여 보안 결함을 찾습니다.
 
-가급적이면 보안 전문가([침투 테스터](../fundamentals/pen-testing.md) 또는 취약성 평가자)의 도움을 받아 DAST를 수행하세요. 보안 전문가의 도움을 받을 수 없으면 약간의 학습을 통해 웹 프록시 스캐너를 사용하여 DAST를 직접 수행할 수 있습니다. 코드에 명백한 보안 문제가 발생하지 않도록 DAST 스캐너를 일찍 연결하세요. 웹 애플리케이션 취약성 스캐너 목록은 [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) 사이트를 참조하세요.
+가급적이면 보안 전문가([침투 테스터](../fundamentals/pen-testing.md) 또는 취약성 평가자)의 도움을 받아 DAST를 수행하세요. 보안 전문가의 도움을 받을 수 없으면 약간의 학습을 통해 웹 프록시 스캐너를 사용하여 DAST를 직접 수행할 수 있습니다. 코드에 명백한 보안 문제가 발생하지 않도록 DAST 스캐너를 일찍 연결하세요. 웹 애플리케이션 취약성 스캐너 목록은 [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) 사이트를 참조하세요.
 
 ### <a name="perform-fuzz-testing"></a>퍼지 테스트 수행
 

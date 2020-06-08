@@ -341,6 +341,12 @@
   items:
     - name: API 참조
       items:
+        - name: ARM 템플릿
+          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+        - name: Azure CLI
+          href: /cli/azure/functionapp
+        - name: Azure PowerShell
+          href: /powershell/module/az.functions
         - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
@@ -461,6 +467,9 @@
           items:
             - name: 개요
               href: functions-bindings-signalr-service.md
+              displayName: SignalR Service
+            - name: 트리거
+              href: functions-bindings-signalr-service-trigger.md
               displayName: SignalR Service
             - name: 입력
               href: functions-bindings-signalr-service-input.md

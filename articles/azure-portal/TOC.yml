@@ -70,6 +70,8 @@
       href: azure-portal-safelist-urls.md
     - name: Azure 대시보드의 구조
       href: azure-portal-dashboards-structure.md
+    - name: Azure CLI
+      href: /cli/azure/ext/portal/portal
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -80,7 +82,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Azure 비디오
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'

@@ -195,6 +195,19 @@
         - name: 스트리밍
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: 문제 해결
+      items:
+        - name: 질문과 대답
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: 오류 코드
+          items:
+            - name: 스트리밍 엔드포인트 오류 코드
+              href: streaming-endpoint-error-codes.md
+            - name: 라이브 이벤트 오류 코드
+              href: live-event-error-codes.md
+            - name: 작업 오류 코드
+              href: job-error-codes.md
     - name: v2에서 v3로 마이그레이션
       items:
         - name: v2와 v3 비교
@@ -340,19 +353,6 @@
           href: download-results-howto.md
         - name: 신호 설명 오디오
           href: signal-descriptive-audio-howto.md
-    - name: 문제 해결
-      items:
-        - name: 질문과 대답
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: 오류 코드
-          items:
-            - name: 스트리밍 엔드포인트 오류 코드
-              href: streaming-endpoint-error-codes.md
-            - name: 라이브 이벤트 오류 코드
-              href: live-event-error-codes.md
-            - name: 작업 오류 코드
-              href: job-error-codes.md
 - name: 참조
   items:
     - name: OpenAPI 사양(Swagger)
