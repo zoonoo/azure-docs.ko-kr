@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 통합 런타임
       href: concepts-integration-runtime.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 데이터 흐름
       items:
         - name: 데이터 흐름 매핑으로 데이터 변환
