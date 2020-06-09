@@ -3,26 +3,26 @@ title: '빠른 시작: 사용자 지정 명령 미리 보기 앱 만들기-음�
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 호스트 된 사용자 지정 명령 미리 보기 응용 프로그램을 만들고 테스트 합니다. 응용 프로그램에서 길이 발언를 처리 합니다.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 80111ff370f3a5412b45adc04c82c9dee103c01d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 5b54923bb667053ffc886b335ab9d1b0cf4cb754
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142353"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509358"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-app"></a>빠른 시작: 사용자 지정 명령 미리 보기 앱 만들기
 
 이 빠른 시작에서는 사용자 지정 명령 응용 프로그램을 만들고 테스트 하는 방법을 배웁니다.
 응용 프로그램은 "tv 켜기"와 같은 길이 발언를 처리 하 고 "확인, tv 켜기"와 같은 간단한 메시지를 사용 하 여 회신 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>

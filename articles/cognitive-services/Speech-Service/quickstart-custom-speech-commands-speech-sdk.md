@@ -3,19 +3,19 @@ title: '빠른 시작: 음성 SDK를 사용 하 여 사용자 지정 명령 앱�
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 사용자 지정 명령을 사용 하 여 음성 SDK 클라이언트 응용 프로그램을 만듭니다.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: donkim
-ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.author: nitinme
+ms.openlocfilehash: f2e8292ccace38e1a167c3ecdfb924589e4ebf0e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872502"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508933"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "82872502"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 아직 만들지 않은 경우 이러한 이전 빠른 시작에서 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -120,7 +120,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 응용 프로그램이 예상 대로 작동 하도록 코드 숨김이 소스를 추가 합니다. 코드 숨김 원본은 다음을 포함합니다.
 
-- 및 네임 스페이스에 대 한 필수 `using` `Speech` `Speech.Dialog`
+- `using` `Speech` 및 `Speech.Dialog` 네임 스페이스에 대 한 필수 문
 - 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
 - 애플리케이션에서 메시지 및 오류를 표시하는 기본 UI 도우미
 - 나중에 채울 초기화 코드 경로에 대한 시작 지점
@@ -129,7 +129,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 다음과 같이 코드의 소스를 추가 합니다.
 
-1. **솔루션 탐색기**에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래 `MainPage.xaml`에 그룹화 됨)을 엽니다.
+1. **솔루션 탐색기**에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래에 그룹화 됨)을 엽니다. `MainPage.xaml`
 
 1. 파일의 내용을 다음 코드로 바꿉니다. 
 
@@ -321,7 +321,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. 문자열 `YourApplicationId`, `YourSpeechSubscriptionKey`및 `YourServiceRegion` 를 앱, 음성 구독 및 [지역](regions.md) 에 대 한 사용자 고유의 값으로 바꿉니다.
+1. 문자열 `YourApplicationId` , 및를 `YourSpeechSubscriptionKey` `YourServiceRegion` 앱, 음성 구독 및 [지역](regions.md) 에 대 한 사용자 고유의 값으로 바꿉니다.
 
 1. 다음 코드 조각을의 메서드 본문 끝에 추가 합니다.`InitializeDialogServiceConnector`
 
@@ -381,7 +381,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    };
    ```
 
-1. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음 코드 조각을 추가 합니다.
+1. `ListenButton_ButtonClicked`클래스의 메서드 본문에 다음 코드 조각을 추가 합니다. `MainPage`
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -405,7 +405,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    }
    ```
 
-1. 메뉴 모음에서 **파일** > **모두 저장** 을 선택 하 여 변경 내용을 저장 합니다.
+1. 메뉴 모음에서 **파일**  >  **모두 저장** 을 선택 하 여 변경 내용을 저장 합니다.
 
 ## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
@@ -424,8 +424,8 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
+> [방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)](./how-to-custom-speech-commands-fulfill-sdk.md) 
+>  [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
 
 ## <a name="sample-source-code"></a>샘플 소스 코드
 [GitHub에서 VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant) 의 클라이언트 샘플 코드를 확인 하세요.
