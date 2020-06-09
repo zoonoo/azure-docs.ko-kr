@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745126"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020084"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -27,7 +27,7 @@ ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파�
 
 ## <a name="orchestration"></a>오케스트레이션
 
-오케스트레이션은 ETL 파이프라인의 모든 단계에 걸쳐 있습니다. HDInsight의 ETL 작업은 몇 가지 다른 제품과 함께 상호 작동하는 경우가 많습니다. 다음은 그 예입니다.
+오케스트레이션은 ETL 파이프라인의 모든 단계에 걸쳐 있습니다. HDInsight의 ETL 작업은 몇 가지 다른 제품과 함께 상호 작동하는 경우가 많습니다. 예를 들면 다음과 같습니다.
 
 - Apache Pig에서 다른 부분을 정리하는 동안 Apache Hive를 사용하여 데이터의 일부분을 정리할 수 있습니다.
 - Azure Data Factory를 사용하여 Azure Data Lake Store에서 Azure SQL Database로 데이터를 로드할 수 있습니다.
@@ -106,9 +106,9 @@ HBase 적응성은 HDInsight 클러스터의 노드 수에 따라 달라집니�
 
 Azure는 다음과 같은 세 가지 PaaS 관계형 데이터베이스를 제공합니다.
 
-- [Azure SQL Database](../../sql-database/sql-database-technical-overview.md)는 Microsoft SQL Server를 구현한 데이터베이스입니다. 성능에 대한 자세한 내용은 [Azure SQL Database에서 성능 튜닝](../../sql-database/sql-database-performance-guidance.md)을 참조하세요.
-- [Azure Database for MySQL](../../mysql/overview.md)은 Oracle MySQL을 구현한 데이터베이스입니다.
-- [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md)은 PostgreSQL을 구현한 데이터베이스입니다.
+* [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)는 Microsoft SQL Server를 구현한 데이터베이스입니다. 성능에 대한 자세한 내용은 [Azure SQL Database에서 성능 튜닝](../../azure-sql/database/performance-guidance.md)을 참조하세요.
+* [Azure Database for MySQL](../../mysql/overview.md)은 Oracle MySQL을 구현한 데이터베이스입니다.
+* [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md)은 PostgreSQL을 구현한 데이터베이스입니다.
 
 이들 제품을 스케일 업하려면 CPU와 메모리를 추가하세요.  또한 I/O 성능을 향상시키기 위해 제품과 함께 프리미엄 디스크를 사용하도록 선택할 수도 있습니다.
 
