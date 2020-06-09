@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 5d995e9a5cdb6fc18532e0c3533959e9feece908
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310203"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021248"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>자습서: Unity에서 원격 엔터티로 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "81310203"
 > * 원격 엔터티를 옮깁니다.
 > * 절단면을 사용하여 개체 내부를 봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 자습서는 [자습서: Unity 프로젝트를 처음부터 설정](project-setup.md)을 기반으로 합니다.
 
@@ -192,7 +192,7 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> 이 스크립트는 아래 코드에 의해 프로그래밍 방식으로 할당되므로 게임 개체에 할당하지 마세요.
+> 이 스크립트는 아래 코드에 의해 프로그래밍 방식으로 할당되므로 Unity 게임 개체에 할당하지 마세요.
 
 다음으로, *RemoteRaycaster*를 확장하여 방금 선택한 개체에 *RemoteModelEntity*를 추가해야 합니다.
 

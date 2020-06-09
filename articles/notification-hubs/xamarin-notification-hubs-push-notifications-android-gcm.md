@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72387660"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308135"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>자습서: Notification Hubs를 사용하여 Xamarin.Android 앱에 푸시 알림 보내기
 
@@ -40,7 +40,7 @@ ms.locfileid: "72387660"
 > * Xamarin.Android 앱을 생성한 후 알림 허브에 연결
 > * Azure Portal에서 테스트 알림 전송
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Windows의 경우 [Xamarin이 포함된 Visual Studio] 또는 OS X의 경우 [Mac용 Visual Studio]
@@ -248,7 +248,7 @@ ms.locfileid: "72387660"
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. `MyFirebaseMessagingService.cs`에 다음 코드를 추가하여 수신된 메시지를 처리합니다. 
+18. `MyFirebaseMessagingService` 클래스 내에 다음 코드를 추가하여 수신된 메시지를 처리합니다. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -292,7 +292,7 @@ ms.locfileid: "72387660"
         }
     ```
 
-19. MyFirebaseMessagingService 클래스에 다음 메서드를 추가하여 FCM 등록 토큰을 받고 Notification Hubs 인스턴스(허브)로 보냅니다. 
+19. 다음 메서드를MyFirebaseMessagingService 클래스(이전 단계에서 추가된 코드 바로 아래)에 추가하여 FCM 등록 토큰을 받고 Notification Hubs 인스턴스(허브)로 보냅니다. 
 
     ```csharp
         public override void OnNewToken(string token)

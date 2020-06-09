@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700323"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020775"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -164,9 +164,9 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> SQL Database 서버 로그인을 기반으로 데이터베이스 사용자를 만드는 일반적인 이유 중 하나는 여러 데이터베이스에 액세스해야 하는 사용자입니다. 포함된 데이터베이스 사용자가 개별 엔터티이므로 각 데이터베이스는 자체 사용자 및 암호를 유지합니다. 따라서 사용자가 각 데이터베이스의 암호를 모두 기억해야 하므로 오버헤드가 발생할 수 있으며, 여러 데이터베이스의 여러 암호를 변경해야 할 때 변경이 어려울 수 있습니다. 그러나 SQL Server 로그인 및 고가용성(활성 지역 복제 및 장애 조치(failover) 그룹)을 사용할 때 각 서버에서 SQL Server 로그인을 수동으로 설정해야 합니다. 그렇지 않으면 장애 조치(failover) 발생 후 데이터베이스 사용자가 더 이상 서버 로그인에 매핑되지 않으며, 장애 조치(failover) 후 데이터베이스에 액세스할 수 없게 됩니다. 
+> 서버 로그인을 기반으로 데이터베이스 사용자를 만드는 일반적인 이유 중 하나는 여러 데이터베이스에 액세스해야 하는 사용자를 위한 것입니다. 포함된 데이터베이스 사용자가 개별 엔터티이므로 각 데이터베이스는 자체 사용자 및 암호를 유지합니다. 따라서 사용자가 각 데이터베이스의 암호를 모두 기억해야 하므로 오버헤드가 발생할 수 있으며, 여러 데이터베이스의 여러 암호를 변경해야 할 때 변경이 어려울 수 있습니다. 그러나 SQL Server 로그인 및 고가용성(활성 지역 복제 및 장애 조치(failover) 그룹)을 사용할 때 각 서버에서 SQL Server 로그인을 수동으로 설정해야 합니다. 그렇지 않으면 장애 조치(failover) 발생 후 데이터베이스 사용자가 더 이상 서버 로그인에 매핑되지 않으며, 장애 조치(failover) 후 데이터베이스에 액세스할 수 없게 됩니다. 
 
-지역 복제에 대한 로그인을 구성하는 방법에 대한 자세한 내용은 [지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+지역 복제에 대한 로그인을 구성하는 방법에 대한 자세한 내용은 [지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 ### <a name="configuring-the-database-level-firewall"></a>데이터베이스 수준 방화벽 구성
 

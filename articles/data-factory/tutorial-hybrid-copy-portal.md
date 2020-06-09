@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 7e222762c8bfa7218fd27e15b97de7b1166d749d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 708236cbbd9bf10c6e9edf6b59a3d8e814a40e9f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418578"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194611"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
 
 > [!NOTE]
 > 이 문서에서는 Data Factory를 자세히 소개하지 않습니다. 자세한 내용은 [Data Factory 소개](introduction.md)를 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "81418578"
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 ### <a name="azure-subscription"></a>Azure 구독
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -48,7 +48,7 @@ ms.locfileid: "81418578"
 구독에 대한 권한을 보려면 Azure Portal로 이동합니다. 오른쪽 위 모서리에서 사용자 이름을 선택한 다음, **권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침을 보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 및 2017
-이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob Storage(싱크)로 데이터를 복사합니다. 그런 다음, SQL Server 데이터베이스에 **emp**라는 테이블을 만들고, 동일한 두 개의 샘플 항목을 이 테이블에 삽입합니다.
+이 자습서에서는 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Blob 스토리지(싱크)로 데이터를 복사합니다. 그런 다음, SQL Server 데이터베이스에 **emp**라는 테이블을 만들고, 동일한 두 개의 샘플 항목을 이 테이블에 삽입합니다.
 
 1. SQL Server Management Studio를 시작합니다. 아직 컴퓨터에 설치되지 않은 경우 [SQL Server Management Studio 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "81418578"
    ```
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 대상/싱크 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob Storage(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure 스토리지 계정(특히 Blob Storage)을 대상/싱크 데이터 스토리지로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Blob 스토리지(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>스토리지 계정 이름 및 계정 키 가져오기
 이 자습서에서는 스토리지 계정의 이름과 키를 사용합니다. 스토리지 계정의 이름과 키를 가져오려면 다음 단계를 수행합니다.
@@ -144,7 +144,7 @@ ms.locfileid: "81418578"
 
    ![시작 페이지](./media/doc-common-process/get-started-page.png)
 
-1. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에서 **SQLServerToBlobPipeline**을 입력합니다.
+1. **속성** 아래의 일반 패널에서 **이름**에 **SQLServerToBlobPipeline**을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환**을 펼칩니다. **복사** 활동을 파이프라인 디자인 화면으로 끌어서 놓습니다. 활동 이름을 **CopySqlServerToAzureBlobActivity**로 설정합니다.
 

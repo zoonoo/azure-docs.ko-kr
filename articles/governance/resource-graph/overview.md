@@ -3,12 +3,12 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381524"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167267"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -22,7 +22,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 이 설명서에서는 각 기능을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history)
 > _visual diff_에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
@@ -79,16 +79,17 @@ Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 �
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 
-Azure Portal의 일부인 Azure Resource Graph Explorer를 사용하면 Azure Portal에서 직접 Resource Graph 쿼리를 실행할 수 있습니다. 결과를 동적 차트로 고정하여 포털 워크플로에 실시간 동적 정보를 제공합니다. 자세한 내용은 [Azure Resource Graph Explorer를 사용한 첫 번째 쿼리](first-query-portal.md)를 참조하세요.
+Azure Portal의 일부인 Azure Resource Graph Explorer를 사용하면 Azure Portal에서 직접 Resource Graph 쿼리를 실행할 수 있습니다. 결과를 동적 차트로 고정하여 포털 워크플로에 실시간 동적 정보를 제공합니다. 자세한 내용은 [Azure Resource Graph Explorer를 사용한 첫 번째 쿼리](./first-query-portal.md)를 참조하세요.
 
-Resource Graph는 Azure CLI, Azure PowerShell, Azure SDK for .NET 등을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. 다음을 사용하여 Resource Graph를 활성화하는 방법을 알아봅니다.
+Resource Graph는 Azure CLI, Azure PowerShell, Python용 Azure SDK 등을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. 다음을 사용하여 Resource Graph를 활성화하는 방법을 알아봅니다.
 
-- [Azure Portal 및 Resource Graph Explorer](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure Portal 및 Resource Graph Explorer](./first-query-portal.md) 
+- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
-- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
-- [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리를 실행합니다.
+- [쿼리 언어](./concepts/query-language.md)에 대해 자세히 알아보기
+- [시작 쿼리](./samples/starter.md)에 사용되는 언어를 참조하세요.
+- [고급 쿼리](./samples/advanced.md)의 고급 사용법을 참조하세요.

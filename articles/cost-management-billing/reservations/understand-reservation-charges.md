@@ -7,16 +7,18 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46236355ca569c28ed9418f9c341a1510c1335b1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200285"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114074"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Azure SQL Database에 예약 할인이 적용되는 방법
 
 Azure SQL Database 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL Database에 자동으로 적용됩니다. 예약은 SQL Database의 컴퓨팅 비용을 포함합니다. 정상 요금으로 소프트웨어, 스토리지 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
+
+Azure SQL Database 서버리스에는 예약 할인이 적용되지 않습니다.
 
 Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인 이해](../manage/understand-vm-reservation-charges.md)를 참조하세요.
 
@@ -32,13 +34,13 @@ Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인
 
 다음 예제에서는 구입한 코어 수 및 실행되는 시기에 따라 SQL Database 예약된 용량 할인이 적용되는 방법을 보여줍니다.
 
-- 시나리오 1: 8코어 SQL Database에 대한 SQL Database 예약된 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16코어 SQL Database를 실행합니다. SQL Database 컴퓨팅 사용량의 8개 코어에 대한 종량제 가격으로 요금이 청구됩니다. 8코어 SQL Database 컴퓨팅 사용량의 1시간 동안 예약 할인을 받게 됩니다.
+- 시나리오 1: 8개 코어 SQL Database에 대한 SQL Database 예약 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16코어 SQL Database를 실행합니다. SQL Database 컴퓨팅 사용량의 8개 코어에 대한 종량제 가격으로 요금이 청구됩니다. 8코어 SQL Database 컴퓨팅 사용량의 1시간 동안 예약 할인을 받게 됩니다.
 
 이러한 예제의 나머지의 경우 구입하는 SQL Database 예약된 용량이 16코어 SQL Database에 대한 것이며 나머지 예약 특성이 실행 중인 SQL Database와 일치한다고 가정합니다.
 
-- 시나리오 2: 각각의 1시간 동안 8개의 코어를 사용하여 두 개의 SQL Database를 실행합니다. 16코어 예약 할인은 8개의 코어 SQL Database 모두에 대한 컴퓨팅 사용량에 적용됩니다.
-- 시나리오 3: 오후 1시에서 오후 1시 30분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
-- 시나리오 4: 오후 1시에서 오후 1시 45분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
+- 시나리오 2: 두 개의 8개 코어 SQL Database를 각각 1시간 동안 실행합니다. 16코어 예약 할인은 8개의 코어 SQL Database 모두에 대한 컴퓨팅 사용량에 적용됩니다.
+- 시나리오 3: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 30분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
+- 시나리오 4: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 45분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
 
 청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
 
@@ -52,7 +54,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../sql-database/sql-database-reserved-capacity.md)
+- [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)

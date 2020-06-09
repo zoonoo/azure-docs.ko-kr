@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538647"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309308"
 ---
 # <a name="language-support-for-immersive-reader"></a>몰입형 리더를 위한 언어 지원
 
@@ -33,16 +33,16 @@ ms.locfileid: "81538647"
 | 카탈로니아어 | ca-ES |
 | 중국어 | zh |
 | 중국어(중국) | zh-CN |
-| 중국어(홍콩) | zh-HK |
-| 중국어(마카오) | zh-MO |
+| 중국어(홍콩 특별 행정구) | zh-HK |
+| 중국어(마카오 특별 행정구) | zh-MO |
 | 중국어(싱가포르) | zh-SG |
 | 중국어(대만) | zh-TW |
 | 중국어 간체 | zh-Hans |
 | 중국어 간체(중국) | zh-Hans-CN |
 | 중국어 간체(싱가포르) | zh-Hans-SG |
 | 중국어 번체 | zh-Hant-CN |
-| 중국어 번체(홍콩) | zh-Hant-HK |
-| 중국어 번체(마카오) | zh-Hant-MO |
+| 중국어 번체(홍콩 특별 행정구) | zh-Hant-HK |
+| 중국어 번체(마카오 특별 행정구) | zh-Hant-MO |
 | 중국어 번체(대만) | zh-Hant-TW |
 | 크로아티아어 | hr |
 | 크로아티아어(크로아티아) | hr-HR |
@@ -135,16 +135,16 @@ ms.locfileid: "81538647"
 | 카탈로니아어 | ca-ES |
 | 중국어 | zh |
 | 중국어(중국) | zh-CN |
-| 중국어(홍콩) | zh-HK |
-| 중국어(마카오) | zh-MO |
+| 중국어(홍콩 특별 행정구) | zh-HK |
+| 중국어(마카오 특별 행정구) | zh-MO |
 | 중국어(싱가포르) | zh-SG |
 | 중국어(대만) | zh-TW |
 | 중국어 간체 | zh-Hans |
 | 중국어 간체(중국) | zh-Hans-CN |
 | 중국어 간체(싱가포르) | zh-Hans-SG |
 | 중국어 번체 | zh-Hant-CN |
-| 중국어 번체(홍콩) | zh-Hant-HK |
-| 중국어 번체(마카오) | zh-Hant-MO |
+| 중국어 번체(홍콩 특별 행정구) | zh-Hant-HK |
+| 중국어 번체(마카오 특별 행정구) | zh-Hant-MO |
 | 중국어 번체(대만) | zh-Hant-TW |
 | 크로아티아어 | hr |
 | 크로아티아어(크로아티아) | hr-HR |
@@ -267,8 +267,8 @@ ms.locfileid: "81538647"
 | 중국어 간체(중국) | zh-Hans-CN |
 | 중국어 간체(싱가포르) | zh-Hans-SG |
 | 중국어 번체 | zh-Hant-CN |
-| 중국어 번체(홍콩) | zh-Hant-HK |
-| 중국어 번체(마카오) | zh-Hant-MO |
+| 중국어 번체(홍콩 특별 행정구) | zh-Hant-HK |
+| 중국어 번체(마카오 특별 행정구) | zh-Hant-MO |
 | 중국어 번체(대만) | zh-Hant-TW |
 | 크로아티아어 | hr |
 | 크로아티아어(크로아티아) | hr-HR |

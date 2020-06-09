@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883816"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308492"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
@@ -73,4 +73,4 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 * [앱을 등록](quickstart-register-app.md)하고 Microsoft ID 플랫폼과 통합합니다. 
 * [인증의 기본 사항](authentication-scenarios.md)에 대해 알아봅니다.
-* 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory와 Azure 구독을 연결하는 방법](../fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
+* 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.

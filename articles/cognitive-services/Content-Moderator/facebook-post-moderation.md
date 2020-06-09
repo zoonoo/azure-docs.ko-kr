@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76774277"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118646"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!IMPORTANT]
 > 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사 정책을 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Content Moderator 구독 키. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - [Facebook 계정](https://www.facebook.com/)
@@ -70,14 +70,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     | 앱 설정 이름 | 값   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Content Moderator 팀 ID  | 
-    | cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 |
-    | cm:Region | Content Moderator 지역 이름(공백 없이) 이는 Azure 리소스의 **개요** 탭에 있는 **위치** 필드에서 찾을 수 있습니다.|
-    | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
-    | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
-    | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |
-    | fb:VerificationToken | Facebook 피드 이벤트 구독에 사용되는 사용자가 만든 비밀 토큰 |
-    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 이 토큰을 가져옵니다. |
+    | `cm:TeamId`   | Content Moderator 팀 ID  | 
+    | `cm:SubscriptionKey` | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 |
+    | `cm:Region` | Content Moderator 지역 이름(공백 없이) 이 이름은 Azure 리소스의 **개요** 탭에 있는 **위치** 필드에서 찾을 수 있습니다.|
+    | `cm:ImageWorkflow` | 이미지에서 실행할 워크플로의 이름 |
+    | `cm:TextWorkflow` | 텍스트에서 실행할 워크플로의 이름 |
+    | `cm:CallbackEndpoint` | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |
+    | `fb:VerificationToken` | Facebook 피드 이벤트 구독에 사용되는 사용자가 만든 비밀 토큰 |
+    | `fb:PageAccessToken` | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 이 토큰을 가져옵니다. |
 
     페이지 위쪽에 있는 **저장** 단추를 클릭합니다.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55305fff95e9707b35ea265915e2893a736ab97d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1a8dc8bec5d5e81a8e1e23e7697e6e630b307670
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81264878"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortes-change-cloud"></a>자습서: Fortes Change Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -32,7 +32,7 @@ ms.locfileid: "81264878"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<identifier>.fortes-online.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<identifier>.fortes-online.com/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://<identifier>.fortes-online.com/saml/SSO` 패턴을 사용하여 URL을 입력합니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Fortes Change Cloud 클라이언트 지원 팀](mailto:support@fortes.nl)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. Fortes Change Cloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Fortes Change Cloud 애플리케이션에서는 **nameidentifier**가 **user.samaccountname**과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
+1. Fortes Change Cloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Fortes Change Cloud 애플리케이션에서는 **고유 사용자 식별자**가 **user.mail**과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -110,7 +110,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

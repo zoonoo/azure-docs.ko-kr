@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239679"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298961"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -45,7 +45,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성](tutorial-hybrid-ps.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 하이브리드 네트워크는 허브 및 스포크 아키텍처 모델을 사용하여 Azure VNet과 온-프레미스 네트워크 간에 트래픽을 라우팅합니다. 허브 및 스포크 아키텍처에는 다음과 같은 요구 사항이 있습니다.
 
@@ -131,18 +131,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. **주소 범위(CIDR 블록)** 에 대해 **192.168.2.0/24**를 입력합니다.
 5. **확인**을 선택합니다.
 
-### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-
-온-프레미스 게이트웨이에 사용되는 공용 IP 주소입니다.
-
-1. Azure Portal 홈 페이지에서 **리소스 만들기**를 선택합니다.
-2. 검색 텍스트 상자에서 **공용 IP 주소**를 입력하고, **Enter** 키를 누릅니다.
-3. **공용 IP 주소**, **만들기**를 차례로 선택합니다.
-4. 이름에 대해 **VNet-Onprem-GW-pip**를 입력합니다.
-5. 리소스 그룹에 대해 **FW-Hybrid-Test**를 입력합니다.
-6. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
-7. 나머지 항목에 대해 기본값을 적용한 다음, **만들기**를 선택합니다.
-
 ## <a name="configure-and-deploy-the-firewall"></a>방화벽 구성 및 배포
 
 이제 방화벽을 방화벽 허브 가상 네트워크에 배포합니다.
@@ -153,9 +141,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<구독\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
-   |속성     |**AzFW01**|
+   |Name     |**AzFW01**|
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 리소스 사용**:<br> **VNet-hub**|
    |공용 IP 주소     |새로 만들기: <br>**이름** - **fw-pip**. |
@@ -422,7 +410,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 프라이빗 IP\>로 이동합니다.
+3. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
 
    **VM-spoke-01** 웹 페이지가 표시됩니다. ![VM-spoke-01 웹 페이지](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 

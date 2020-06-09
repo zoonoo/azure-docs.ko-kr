@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: df26021a3718c17d72f0fdb25588487043918732
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 45c1f9b5425b7e826776dc0f52681c67846bfdc5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084110"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218166"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
@@ -26,7 +26,7 @@ ms.locfileid: "82084110"
 
 이 빠른 시작에서는 GitHub에서 예제를 복제하여 .NET과 Azure Cosmos DB [Table API](table-introduction.md)를 통해 앱을 빌드하는 방법을 보여 줍니다. 또한 Azure Cosmos DB 계정을 만드는 방법 및 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법도 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
@@ -66,7 +66,8 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
-> ![팁] 비슷한 코드에 대한 자세한 내용은 [Cosmos DB Table API 샘플](table-storage-how-to-use-dotnet.md) 문서를 참조하세요.
+> [!TIP]
+> 비슷한 코드에 대한 자세한 내용은 [Cosmos DB Table API 샘플](table-storage-how-to-use-dotnet.md) 문서를 참조하세요.
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 애플리케이션 열기
 
@@ -75,6 +76,26 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
    ![솔루션 열기](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
 2. 샘플 애플리케이션을 복제한 폴더로 이동한 다음, TableStorage.sln 파일을 엽니다.
+
+## <a name="review-the-code"></a>코드 검토
+
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 이 문서의 [연결 문자열 업데이트](#update-your-connection-string) 섹션으로 건너뛸 수 있습니다.
+
+* 다음 코드에서는 Azure Storage 내에서 테이블을 만드는 방법을 보여줍니다.
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* 다음 코드에서는 테이블에 데이터를 삽입하는 방법을 보여줍니다.
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* 다음 코드에서는 테이블에서 데이터를 쿼리하는 방법을 보여줍니다.
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* 다음 코드에서는 테이블에서 데이터를 삭제하는 방법을 보여줍니다.
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 

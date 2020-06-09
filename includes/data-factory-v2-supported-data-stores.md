@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: data-factory
 author: linda33wj
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c4225ab2505fc072f705f8126fc8a04581e0f80c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae329ece6432444162f060be283e10d9088c23db
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75440349"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124379"
 ---
-| 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 에서 지원 됨 |
+| 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob 저장소](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cognitive Search 인덱스](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB의 API for MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB의 MongoDB API](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
@@ -29,9 +29,9 @@ ms.locfileid: "75440349"
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL Managed Instance](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics(이전의 SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure 테이블 저장소](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
@@ -49,7 +49,7 @@ ms.locfileid: "75440349"
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Presto(미리 보기)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
-| &nbsp; |[개방형 허브를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
+| &nbsp; |[Open Hub를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[MDX를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
 | &nbsp; |[SAP 테이블](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  |
@@ -75,7 +75,7 @@ ms.locfileid: "75440349"
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
+| &nbsp; |[Azure IoT Hub](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot(미리 보기)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
@@ -86,7 +86,7 @@ ms.locfileid: "75440349"
 | &nbsp; |[Oracle Eloqua(미리 보기)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys(미리 보기)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Service Cloud(미리 보기)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
-| &nbsp; |[PayPal (미리 보기)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
+| &nbsp; |[PayPal(미리 보기)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  |
@@ -94,11 +94,12 @@ ms.locfileid: "75440349"
 | &nbsp; |[SAP Cloud for Customer(C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
+|  |[SharePoint Online 목록](../articles/data-factory/connector-sharepoint-online-list.md) |✓ | |✓ |✓ |
 | &nbsp; |[Shopify(미리 보기)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square(미리 보기)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[웹 테이블 (HTML 테이블)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
+| &nbsp; |[웹 테이블(HTML 테이블)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho(미리 보기)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> 커넥터가 *미리 보기로*표시 된 경우이를 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 대 한 종속성을 사용 하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의 하세요.
+> 커넥터가 *미리 보기*로 표시되어 있으면 이를 사용해보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.

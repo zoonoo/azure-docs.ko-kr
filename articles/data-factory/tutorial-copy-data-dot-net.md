@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: a835e67b1091a55c832955d8dac8615289a6d99e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418697"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118160"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -38,10 +38,10 @@ ms.locfileid: "81418697"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * *Azure Storage 계정*. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. Azure 스토리지 계정이 없는 경우 [범용 스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
-* *Azure SQL Database*. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-single-database-get-started.md)를 참조하세요.
+* *Azure SQL Database*. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 * *Visual Studio* 이 문서의 연습에서는 Visual Studio 2019를 사용합니다.
 * *[.NET용 Azure SDK](/dotnet/azure/dotnet-tools)* .
 * *Azure Active Directory 애플리케이션*. Azure Active Directory 애플리케이션이 없는 경우 [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 섹션을 참조하세요. [방법: 포털을 사용하여 Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)에서 찾을 수 있습니다. 이후 단계에서 사용할 수 있도록 다음 값을 복사합니다. **애플리케이션(클라이언트) ID**, **인증 키** 및 **디렉터리(테넌트) ID** 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Azure 서비스에서 SQL 서버에 액세스하도록 허용합니다. Data Factory 서비스에서 Azure SQL 서버에 데이터를 쓸 수 있도록 Azure SQL 서버의 Azure 서비스에 액세스할 수 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
+2. Azure 서비스에서 SQL Database에 액세스하도록 허용합니다. Data Factory 서비스에서 SQL Database에 데이터를 쓸 수 있도록 서버의 Azure 서비스에 액세스할 수 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
     1. SQL 서버를 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **SQL 서버**를 검색하여 선택합니다.
 

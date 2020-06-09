@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402434"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994275"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>자습서: Trelica와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -34,7 +34,7 @@ ms.locfileid: "83402434"
 
 Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -90,9 +90,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. **회신 URL** 상자에 URL을 `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` 패턴으로 입력합니다.
 
     > [!NOTE]
-    > **회신 URL**은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 이 값을 얻으려면 [Trelica 클라이언트 지원 팀](mailto:support@trelica.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL(ACS라고도 함)로 이 값을 업데이트합니다.
+    > Trelica에 로그인하고 [SAML ID 공급자 구성 페이지](https://app.trelica.com/Admin/Profile/SAML)(관리자 > 계정 > SAML)로 이동하면 이를 찾을 수 있습니다. **ACS(Assertion Consumer Service) URL** 옆에 있는 복사 단추를 클릭하여 이를 클립보드에 저장하고 Azure AD의 **회신 URL** 텍스트 상자에 붙여넣을 수 있습니다.
+    > 질문이 있는 경우 [Trelica 도움말 설명서](https://docs.trelica.com/admin/saml/azure-ad)을 읽거나 [Trelica 클라이언트 지원 팀](mailto:support@trelica.com)에 문의하세요.
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 **SAML 서명 인증서** 섹션으로 이동합니다. **앱 페더레이션 메타데이터 URL** 오른쪽에서 복사 단추를 선택하여 URL을 복사합니다. 컴퓨터에 URL을 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
     ![[앱 페더레이션 메타데이터 URL] 옆에 복사 단추가 강조 표시된 [SAML 서명 인증서] 섹션](common/copy-metadataurl.png)
 
@@ -104,7 +106,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에서 **B.Simon**을 입력합니다.
-   1. **사용자 이름** 필드에 **B.Simon@** _companydomain_ **.** _extension_을 입력합니다. B.Simon@contoso.com)을 입력합니다.
+   1. **사용자 이름** 필드에 **B.Simon@** _companydomain_ **.** _extension_을 입력합니다. 예들 들어 B.Simon@contoso.com입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 선택합니다.
 
@@ -128,11 +130,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-trelica-sso"></a>Trelica SSO 구성
 
-**Trelica** 쪽에서 Single Sign-on을 구성하려면 복사된 **앱 페더레이션 메타데이터 URL**을 [Trelica 지원 팀](mailto:support@trelica.com)으로 보내야 합니다. 해당 팀에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 구성합니다.
+**Trelica** 쪽에서 Single Sign-On을 구성하려면 [SAML ID 공급자 구성 페이지](https://app.trelica.com/Admin/Profile/SAML)(관리자 > 계정 > SAML)로 이동합니다. **새로 만들기** 단추를 클릭합니다. 이름으로 **Azure AD**를 입력하고 메타데이터 유형에 대해 **URL의 메타데이터**를 선택합니다. Azure AD에서 수행한 **앱 페더레이션 메타데이터 URL**을 Trelica의 **메타데이터 URL** 필드에 붙여넣습니다.
+
+질문이 있는 경우 [Trelica 도움말 설명서](https://docs.trelica.com/admin/saml/azure-ad)을 읽거나 [Trelica 클라이언트 지원 팀](mailto:support@trelica.com)에 문의하세요.
 
 ### <a name="create-a-trelica-test-user"></a>Trelica 테스트 사용자 만들기
-
-이 섹션에서는 Trelica에서 B.Simon이라는 사용자를 만듭니다.
 
 Trelica는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에서는 사용자가 수행할 작업이 없습니다. Trelica에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 

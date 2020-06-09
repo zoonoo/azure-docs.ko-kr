@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: aahi
-ms.openlocfilehash: d58f294195efc393c07ecc3886c29e33dba02e6d
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: b842084d00c1ce8ec347994371a55c97b89ba54f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81422204"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140740"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 [v3 참조 설명서](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
@@ -23,7 +23,7 @@ ms.locfileid: "81422204"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -37,7 +37,7 @@ ms.locfileid: "81422204"
 
 Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 ```console
 pip install azure-ai-textanalytics
@@ -71,7 +71,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## <a name="object-model"></a>개체 모델
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `TextAnalyticsClient` 개체입니다. 이 클라이언트는 텍스트를 일괄 처리로 분석하는 여러 메서드를 제공합니다. 
 
@@ -100,7 +100,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [Tex
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 위에서 만든 `key` 및 `endpoint`를 사용하여 `TextAnalyticsClient` 개체를 인스턴스화하는 기능을 만듭니다. 그런 다음, 새 클라이언트를 만듭니다. 
 
@@ -129,7 +129,7 @@ client = authenticate_client()
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
 
@@ -146,7 +146,7 @@ def sentiment_analysis_example(client):
         response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Length: {}]".format(sentence.grapheme_length))
+        print("Sentence: {}".format(sentence.text))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
         print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
             sentence.confidence_scores.positive,
@@ -163,14 +163,14 @@ sentiment_analysis_example(client)
 Document Sentiment: positive
 Overall scores: positive=1.00; neutral=0.00; negative=0.00 
 
-[Length: 30]
+Sentence: I had the best day of my life.
 Sentence 1 sentiment: positive
 Sentence score:
 Positive=1.00
 Neutral=0.00
 Negative=0.00
 
-[Length: 30]
+Sentence: I wish you were there with me.
 Sentence 2 sentiment: neutral
 Sentence score:
 Positive=0.21
@@ -197,7 +197,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>언어 검색
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 클라이언트를 인수로 사용하는 `language_detection_example()`이라는 새 함수를 만든 다음, `detect_language()` 함수를 호출합니다. 반환된 응답 개체에는 성공하면 `primary_language`에서 검색된 언어가 포함되고, 그렇지 않으면 `error`가 포함됩니다.
 
@@ -242,10 +242,10 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 > [!NOTE]
-> 버전 `3.0-preview`에서 다음을 수행합니다. 
+> 버전 `3.0`에서 다음을 수행합니다. 
 > * 엔터티 연결은 NER과 별개의 요청입니다.
 
 클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
@@ -260,7 +260,7 @@ def entity_recognition_example(client):
         print("Named Entities:\n")
         for entity in result.entities:
             print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -272,11 +272,14 @@ entity_recognition_example(client)
 ```console
 Named Entities:
 
-    Text:    Seattle        Category:        Location       SubCategory:     GPE
-    Length:          7      Confidence Score:        0.92
+        Text:    trip   Category:        Event  SubCategory:     None
+        Confidence Score:        0.61
 
-    Text:    last week      Category:        DateTime       SubCategory:     DateRange
-    Length:          9      Confidence Score:        0.8
+        Text:    Seattle        Category:        Location       SubCategory:     GPE
+        Confidence Score:        0.82
+
+        Text:    last week      Category:        DateTime       SubCategory:     DateRange
+        Confidence Score:        0.8
 ```
 
 ## <a name="entity-linking"></a>엔터티 연결
@@ -301,7 +304,7 @@ def entity_linking_example(client):
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score), "\tLength: {}\n".format(match.grapheme_length))
+                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -313,47 +316,40 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800     Id:  Altair 8800     Url:  https://en.wikipedia.org/wiki/Altair_8800 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Altair 8800
-        Confidence Score: 0.00     Length: 11
-
-    Name:  Bill Gates     Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Bill Gates
-        Confidence Score: 0.00     Length: 10
-
-        Text: Gates
-        Confidence Score: 0.00     Length: 5
-
-    Name:  Paul Allen     Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Paul Allen
-        Confidence Score: 0.00     Length: 10
-
-    Name:  Microsoft     Id:  Microsoft     Url:  https://en.wikipedia.org/wiki/Microsoft 
-    Data Source:  Wikipedia
-    Matches:
-        Text: Microsoft
-        Confidence Score: 0.00     Length: 9
-
-        Text: Microsoft
-        Confidence Score: 0.00     Length: 9
-
-    Name:  April 4     Id:  April 4     Url:  https://en.wikipedia.org/wiki/April_4 
-    Data Source:  Wikipedia
-    Matches:
-        Text: April 4
-        Confidence Score: 0.00     Length: 7
-
-    Name:  BASIC     Id:  BASIC     Url:  https://en.wikipedia.org/wiki/BASIC 
-    Data Source:  Wikipedia
-    Matches:
-        Text: BASIC
-        Confidence Score: 0.00     Length: 5
+        Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+        Data Source:  Wikipedia
+        Matches:
+                Text: Altair 8800
+                Confidence Score: 0.88
+        Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+        Data Source:  Wikipedia
+        Matches:
+                Text: Bill Gates
+                Confidence Score: 0.63
+                Text: Gates
+                Confidence Score: 0.63
+        Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+        Data Source:  Wikipedia
+        Matches:
+                Text: Paul Allen
+                Confidence Score: 0.60
+        Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+        Data Source:  Wikipedia
+        Matches:
+                Text: Microsoft
+                Confidence Score: 0.55
+                Text: Microsoft
+                Confidence Score: 0.55
+        Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+        Data Source:  Wikipedia
+        Matches:
+                Text: April 4
+                Confidence Score: 0.32
+        Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+        Data Source:  Wikipedia
+        Matches:
+                Text: BASIC
+                Confidence Score: 0.33
 ```
 
 #### <a name="version-21"></a>[버전 2.1](#tab/version-2)
@@ -409,7 +405,7 @@ Document ID: 2
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 클라이언트를 인수로 사용하는 `key_phrase_extraction_example()`이라는 새 함수를 만든 다음, `extract_key_phrases()` 함수를 호출합니다. 결과에는 성공하면 `key_phrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 핵심 구를 출력합니다.
 

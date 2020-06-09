@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 70bc79470cd72ce01007265c6c1236c951ddd7d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81411428"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194574"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
+# <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>자습서: SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
+이 자습서에서는 Azure PowerShell을 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스를 자세히 소개하지 않습니다. 자세한 내용은 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "81411428"
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 ### <a name="azure-subscription"></a>Azure 구독
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -48,7 +48,7 @@ ms.locfileid: "81411428"
 구독에서 사용 권한을 보려면 Azure Portal로 이동하고, 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음 **사용 권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침을 보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md) 문서를 참조하세요.
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 및 2017
-이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Azure Blob Storage(싱크)로 데이터를 복사합니다. 그런 다음 SQL Server 데이터베이스에 **emp**라는 테이블을 만들고 테이블에 동일한 두 개의 샘플 항목을 삽입합니다.
+이 자습서에서는 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Azure Blob 스토리지(싱크)로 데이터를 복사합니다. 그런 다음 SQL Server 데이터베이스에 **emp**라는 테이블을 만들고 테이블에 동일한 두 개의 샘플 항목을 삽입합니다.
 
 1. SQL Server Management Studio를 시작합니다. 컴퓨터에 아직 설치되어 있지 않으면 [SQL Server Management Studio 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "81411428"
 
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Azure Blob Storage(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 이 Azure Blob 스토리지(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>스토리지 계정 이름 및 계정 키 가져오기
 이 자습서에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음을 수행하여 스토리지 계정의 이름 및 키를 가져옵니다.
@@ -179,7 +179,7 @@ ms.locfileid: "81411428"
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참여자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자*여야 합니다.
-> * Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+> * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 >
 >
 
@@ -309,7 +309,7 @@ ms.locfileid: "81411428"
     이전 값은 모두 나중에 이 자습서에서 사용합니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결하려면 데이터 팩터리에서 연결된 서비스를 만듭니다. 이 자습서에서는 Azure Storage 계정 및 온-프레미스 SQL Server 인스턴스를 데이터 저장소에 연결합니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
+데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결하려면 데이터 팩터리에서 연결된 서비스를 만듭니다. 이 자습서에서는 Azure 스토리지 계정 및 SQL Server 인스턴스를 데이터 저장소에 연결합니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Azure Storage 연결된 서비스(대상/싱크) 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
@@ -317,7 +317,7 @@ ms.locfileid: "81411428"
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureStorageLinkedService.json*이라는 JSON 파일을 만듭니다. *ADFv2Tutorial* 폴더가 아직 없는 경우 만듭니다.  
 
     > [!IMPORTANT]
-    > 파일을 저장하기 전에 \<accountName>과 \<accountKey>를 Azure Storage 계정의 이름과 키로 바꿉니다. [필수 구성 요소](#get-storage-account-name-and-account-key) 섹션에 적어둡니다.
+    > 파일을 저장하기 전에 \<accountName>과 \<accountKey>를 Azure 스토리지 계정의 이름과 키로 바꿉니다. [필수 구성 요소](#get-storage-account-name-and-account-key) 섹션에 적어둡니다.
 
    ```json
     {
@@ -355,7 +355,7 @@ ms.locfileid: "81411428"
     "파일을 찾을 수 없음" 오류가 발생하는 경우 `dir` 명령을 실행하여 파일이 있는지 확인합니다. 파일 이름에 *.txt* 확장명이 있으면(예: AzureStorageLinkedService.json.txt) 확장명을 제거하고 PowerShell 명령을 다시 실행합니다.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server 연결된 서비스(원본) 만들기 및 암호화
-이 단계에서 온-프레미스 SQL Server 인스턴스를 데이터 팩터리에 연결합니다.
+이 단계에서는 SQL Server 인스턴스를 데이터 팩터리에 연결합니다.
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerLinkedService.json*이라는 JSON 파일을 만듭니다.
 
@@ -413,8 +413,8 @@ ms.locfileid: "81411428"
 
     > [!IMPORTANT]
     > - SQL Server 인스턴스에 연결하는 데 사용한 인증에 기반한 섹션을 선택합니다.
-    > - **\<integration runtime 이름>** 을 사용자의 Integration Runtime 이름으로 바꿉니다.
-    > - 파일을 저장하기 전에 **\<servername>** , **\<databasename>** , **\<username>** 및 **\<password>** 를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
+    > - **\<integration runtime name>** 를 통합 런타임의 이름으로 바꿉니다.
+    > - 파일을 저장하기 전에 **\<servername>** , **\<databasename>** , **\<username>** 및 **\<password>** 를 SQL Server 인스턴스의 값으로 바꿉니다.
     > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다.
 
 1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  
@@ -432,7 +432,7 @@ ms.locfileid: "81411428"
 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 입력 및 출력 데이터 세트를 만듭니다. 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 복사 작업에 입력 및 출력 데이터를 나타냅니다.
+이 단계에서는 입력 및 출력 데이터 세트를 만듭니다. SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 복사 작업에 입력 및 출력 데이터를 나타냅니다.
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>원본 SQL Server 데이터베이스에 대한 데이터 세트 만들기
 이 단계에서는 SQL Server 데이터베이스 인스턴스에 있는 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 SqlServerTable 형식입니다. 이 데이터 집합은 이전 단계에서 만든 SQL Server 연결된 서비스를 참조합니다. 연결된 서비스에는 Data Factory 서비스가 런타임 시 SQL Server 인스턴스에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 데이터가 포함된 데이터베이스에 SQL 테이블을 지정합니다. 이 자습서에서 **emp** 테이블에는 원본 데이터가 포함됩니다.
@@ -480,7 +480,7 @@ ms.locfileid: "81411428"
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Azure Blob Storage(싱크)에 대한 데이터 세트 만들기
 이 단계에서는 Azure Blob Storage에 복사될 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 AzureBlob 형식입니다. 이 데이터 집합은 이 자습서의 앞부분에서 만든 Azure Storage 연결된 서비스를 참조합니다.
 
-연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 *가 Blob 컨테이너이며,* 이 폴더인 `adftutorial`adftutorial/fromonprem`fromonprem`입니다.
+연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem*입니다.
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json*이라는 JSON 파일을 만듭니다.
 
@@ -707,7 +707,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ```
 
 ## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 *Blob 컨테이너에서*fromonprem`adftutorial`이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
+파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
 
 1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침**을 선택합니다.
 1. 폴더 목록에서 `fromonprem`을 선택합니다.

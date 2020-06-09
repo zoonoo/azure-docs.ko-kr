@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 655a98ef1b6b8b2d4086b472ee7ce4d67346e5ca
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418714"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248620"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 
@@ -38,10 +38,10 @@ ms.locfileid: "81418714"
 > * 일정에 따라 파이프라인 트리거
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
-* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -75,7 +75,7 @@ ms.locfileid: "81418714"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. Data Factory에서 SQL Server에 데이터를 쓸 수 있도록 SQL Server에 대해 **Azure 서비스 방문 허용**이 **켜기**로 설정되어 있는지 확인합니다. 이 설정을 확인하고 켜려면 Azure SQL Server > 개요 > 서버 방화벽 설정>으로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
+1. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. Data Factory에서 SQL Server에 데이터를 쓸 수 있도록 SQL Server에 대해 **Azure 서비스 방문 허용**이 **켜기**로 설정되어 있는지 확인합니다. 이 설정을 확인하고 켜려면 논리 SQL Server > 개요 > 서버 방화벽 설정>으로 이동하여 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.
@@ -114,7 +114,8 @@ ms.locfileid: "81418714"
 1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다.
 
    ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
-1. 파이프라인의 **일반** 탭에 있는 파이프라인의 **이름**에 대해 **CopyPipeline**을 입력합니다.
+
+1. 1. **속성** 아래의 일반 패널에서 **이름**에 **CopyPipeline**을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름**에 대해 **CopyFromBlobToSql**을 지정합니다.
 

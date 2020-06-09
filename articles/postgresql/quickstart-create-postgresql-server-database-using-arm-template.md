@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 6273043fc50938961caaf9f5a84273ec93c7521c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 70def2584cf8855e8fdf4a74081dc5a9a8c46f68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801721"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205112"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Database for PostgreSQL 만들기 - 단일 서버
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Portal, PowerShell 또는 Azure CLI에서 Azure Database for PostgreSQL 단일 서버를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 Postg
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
@@ -56,9 +56,9 @@ PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 Postg
 * [**Microsoft.DBforPostgreSQL/servers/virtualNetworkRules**](/azure/templates/microsoft.dbforpostgresql/servers/virtualnetworkrules)
 * [**Microsoft.DBforPostgreSQL/servers/firewallRules**](/azure/templates/microsoft.dbforpostgresql/servers/firewallrules)
 
-Azure Database for PostgreSQL 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular)에서 확인할 수 있습니다.
+Azure Database for PostgreSQL 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
-## <a name="deploy-the-template"></a>템플릿 배포
+### <a name="deploy-the-template"></a>템플릿 배포
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

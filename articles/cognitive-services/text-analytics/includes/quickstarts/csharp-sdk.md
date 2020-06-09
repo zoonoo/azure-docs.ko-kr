@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 0e98a10573a2e3abda255c325845190ed5067bb3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 979c714ca5446d3f1eabb76e97535ee5ffa2e359
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778223"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140742"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 [v3 참조 설명서](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [v3 패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [v3 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
@@ -28,7 +28,7 @@ ms.locfileid: "83778223"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
@@ -42,9 +42,9 @@ ms.locfileid: "83778223"
 
 Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이렇게 하면 *program.cs*라는 단일 C# 원본 파일이 포함된 "Hello World" 프로젝트가 생성됩니다.
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Azure.AI.TextAnalytics`를 검색합니다. `1.0.0-preview.4` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
+**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Azure.AI.TextAnalytics`를 검색합니다. `1.0.0-preview.5` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub에서](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs) 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다. 
@@ -58,7 +58,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 
 ---
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 *program.cs* 파일을 열고 다음 `using` 지시문을 추가합니다.
 
@@ -121,7 +121,7 @@ private static readonly string endpoint = "<replace-with-your-text-analytics-end
 
 Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍스트를 단일 문자열 또는 일괄 처리로 허용하는 함수를 제공하는 `TextAnalyticsClient` 개체입니다. 텍스트는 API에 동기식 또는 비동기식으로 보낼 수 있습니다. 응답 개체에는 보내는 각 문서에 대한 분석 정보가 포함됩니다. 
 
-서비스 버전 `3.0-preview`를 사용하는 경우 선택적 `TextAnalyticsClientOptions` 인스턴스를 사용하여 다양한 기본 설정(예: 기본 언어 또는 국가/지역 힌트)으로 클라이언트를 초기화할 수 있습니다. Azure Active Directory 토큰을 사용하여 인증할 수도 있습니다. 
+서비스 버전 `3.0`를 사용하는 경우 선택적 `TextAnalyticsClientOptions` 인스턴스를 사용하여 다양한 기본 설정(예: 기본 언어 또는 국가/지역 힌트)으로 클라이언트를 초기화할 수 있습니다. Azure Active Directory 토큰을 사용하여 인증할 수도 있습니다. 
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -133,7 +133,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 이전의 main 메서드에서 엔드포인트와 자격 증명을 사용하여 새 클라이언트 개체를 만들었는지 확인합니다.
 
@@ -155,7 +155,7 @@ var client = new TextAnalyticsClient(endpoint, credentials);
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 앞에서 만든 클라이언트를 사용하고 해당 `AnalyzeSentiment()` 함수를 호출하는 `SentimentAnalysisExample()`이라는 새 함수를 만듭니다. 반환된 `Response<DocumentSentiment>` 개체에는 전체 입력 문서의 감정 레이블과 점수가 포함되며, 성공하는 경우 각 문장에 대한 감정 분석도 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 
@@ -169,8 +169,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
-        Console.WriteLine($"\tSentence [length {sentence.GraphemeLength}]");
-        Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.GraphemeOffset, sentence.GraphemeLength)}\"");
+        Console.WriteLine($"\tText: \"{sentence.Text}\"");
         Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
         Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
         Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
@@ -184,14 +183,12 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 ```console
 Document sentiment: Positive
 
-        Sentence [length 30]
         Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
-        Sentence [length 30]
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
@@ -215,7 +212,7 @@ Sentiment Score: 0.87
 
 ## <a name="language-detection"></a>언어 검색
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 
 앞에서 만든 클라이언트를 사용하고 해당 `DetectLanguage()` 함수를 호출하는 `LanguageDetectionExample()`이라는 새 함수를 만듭니다. 반환된 `Response<DetectedLanguage>` 개체에는 해당 이름 및 ISO-6391 코드와 함께 검색된 언어가 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
@@ -258,11 +255,11 @@ Language: English
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 
 > [!NOTE]
-> `3.0-preview` 버전의 새로운 기능:
+> `3.0` 버전의 새로운 기능:
 > * 엔터티 연결은 이제 엔터티 인식과 분리됩니다.
 
 
@@ -276,7 +273,7 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
@@ -285,11 +282,14 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 
 ```console
 Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Length: 7,      Score: 0.92
+                Score: 0.82
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Length: 9,      Score: 0.80
+                Score: 0.80
 ```
 
 ## <a name="entity-linking"></a>엔터티 연결
@@ -313,7 +313,7 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         foreach (var match in entity.Matches)
         {
             Console.WriteLine($"\t\tText: {match.Text}");
-            Console.WriteLine($"\t\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
+            Console.WriteLine($"\t\tScore: {match.ConfidenceScore:F2}\n");
         }
     }
 }
@@ -326,38 +326,38 @@ Linked Entities:
         Name: Altair 8800,      ID: Altair 8800,        URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Length: 11,     Score: 0.78
+                Score: 0.88
 
         Name: Bill Gates,       ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Length: 10,     Score: 0.55
+                Score: 0.63
 
                 Text: Gates
-                Length: 5,      Score: 0.55
+                Score: 0.63
 
         Name: Paul Allen,       ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Length: 10,     Score: 0.53
+                Score: 0.60
 
         Name: Microsoft,        ID: Microsoft,  URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
         Name: April 4,  ID: April 4,    URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Length: 7,      Score: 0.25
+                Score: 0.32
 
         Name: BASIC,    ID: BASIC,      URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Length: 5,      Score: 0.28
+                Score: 0.33
 ```
 
 #### <a name="version-21"></a>[버전 2.1](#tab/version-2)
@@ -374,7 +374,7 @@ Linked Entities:
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 앞에서 만든 클라이언트를 사용하고 해당 `ExtractKeyPhrases()` 함수를 호출하는 `KeyPhraseExtractionExample()`이라는 새 함수를 만듭니다. 반환된 `<Response<IReadOnlyCollection<string>>` 개체에는 검색된 핵심 구의 목록이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 

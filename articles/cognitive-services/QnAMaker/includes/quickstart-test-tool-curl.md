@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203971"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237694"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 [**cURL**](https://curl.haxx.se/)
 * 다음이 있어야 합니다.
@@ -77,9 +77,11 @@ ms.locfileid: "82203971"
     }
     ```
 
-    검색 용어는 충족하지 않지만 필터는 충족하는 질문 및 답변 세트가 있으면 반환되지 않습니다. 대신 일반 `No good match found in KB.` 답변이 반환됩니다.
+    검색어는 충족하지 않지만 필터는 충족하는 질문 및 답변 쌍이 있으면 반환되지 않습니다. 대신 일반 `No good match found in KB.` 답변이 반환됩니다.
 
 ## <a name="use-debug-query-property"></a>디버그 쿼리 속성 사용
+> [!NOTE]
+>종속성에 디버그 속성을 사용하지 않는 것이 좋습니다. 이 속성은 제품 팀의 문제 해결을 돕기 위해 추가되었습니다.
 
 디버그 정보를 사용하면 반환된 대답이 어떻게 결정되었는지 이해할 수 있습니다. 유용하지만 반드시 필요한 것은 아닙니다. 디버그 정보를 사용하여 대답을 생성하려면 `debug` 속성을 추가합니다.
 

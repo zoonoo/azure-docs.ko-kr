@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73682851"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119276"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "73682851"
 > 
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -189,7 +189,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
 1. 다음 내용이 포함된 AzureSqlLinkedService.json이라는 JSON 파일을 C:\ADFGetStartedPSH 폴더에 만듭니다.
 
     > [!IMPORTANT]
-    > &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; 및 &lt;password&gt;를 Azure SQL Server의 이름, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+    > &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; 및 &lt;password&gt;를 서버, 데이터베이스, 사용자 계정 및 암호의 이름로 바꿉니다.
     
     ```json
     {
@@ -218,7 +218,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ProvisioningState : Succeeded
     ```
 
-   SQL 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
+   서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
     1. [Azure Portal](https://portal.azure.com)에 로그인
     1. 왼쪽에 있는 **더 많은 서비스 >** 를 클릭하고 **데이터베이스** 범주에서 **SQL 서버**를 클릭합니다.
@@ -427,7 +427,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
      
      **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2016-02-03"은 "2016-02-03T00:00:00Z"과 동일합니다.
      
-     start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 다음은 그 예입니다.  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
+     start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들면 다음과 같습니다. 2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
      
      **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
      
@@ -461,7 +461,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-    다음은 그 예입니다.
+    예를 들면 다음과 같습니다.
     ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```

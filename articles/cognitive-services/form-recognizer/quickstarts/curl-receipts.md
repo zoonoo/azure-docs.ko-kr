@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77118500"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116590"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>빠른 시작: cURL과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 
-이 빠른 시작에서는 cURL과 함께 Azure Form Recognizer REST API를 사용하여 미국 판매 영수증의 관련 정보를 추출하고 식별합니다.
+이 빠른 시작에서는 cURL과 함께 Azure Form Recognizer REST API를 사용하여 미국 판매 영수증에서 관련 정보를 추출하고 식별합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - [cURL](https://curl.haxx.se/windows/) 설치
-- 영수증 이미지의 URL. 이 빠른 시작에서는 [샘플 이미지](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true)를 사용할 수 있습니다.
+- 영수증 이미지의 URL. 이 빠른 시작에서는 [샘플 이미지](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg)를 사용할 수 있습니다.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -399,7 +399,7 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 cURL과 Form Recognizer REST API를 사용하여 판매 영수증의 콘텐츠를 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
+이 빠른 시작에서는 cURL과 함께 Form Recognizer REST API를 사용하여 판매 영수증의 콘텐츠를 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

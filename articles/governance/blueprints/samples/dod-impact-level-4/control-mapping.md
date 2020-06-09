@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플 컨트롤
 description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024832"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168984"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑
 
@@ -132,9 +132,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) 감사 검토, 분석 및 보고 | 통합/검색 및 모니터링 기능
 
-이 청사진은 가상 머신, 가상 머신 확장 집합, SQL 관리형 인스턴스 및 SQL 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다.
-또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다.
-자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 활용하는 것이 좋습니다.
+이 청사진은 가상 머신, 가상 머신 확장 집합, SQL Database 서버 및 SQL Managed Instance 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다. 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 활용하는 것이 좋습니다.
 
 - \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.

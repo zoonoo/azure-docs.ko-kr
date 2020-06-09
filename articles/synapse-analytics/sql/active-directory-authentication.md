@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086099"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021656"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -22,7 +22,7 @@ Azure Active Directory 인증은 Azure AD(Azure Active Directory)에서 ID를 �
 Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용자의 ID를 중앙에서 관리하여 권한 관리를 간소화할 수 있습니다. 이점은 다음과 같습니다.
 
 - 일반 사용자 이름 및 암호 인증을 대신할 수 있는 대안을 제공합니다.
-- 데이터베이스 서버 전체에서 사용자 ID의 확산을 중지합니다.
+- 서버 전체에서 사용자 ID의 확산을 중지하는 데 도움이 됩니다.
 - 한 곳에서 암호를 회전할 수 있습니다.
 - 고객이 외부(Azure AD) 그룹을 사용하여 권한을 관리할 수 있습니다.
 - Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.

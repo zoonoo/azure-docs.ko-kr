@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9db32912e86079875ad382fb23e521c720fc7fbd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b6dceff8b777d09a6f791437eb4aaca70365b518
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775621"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300720"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>자습서: Hololens Holographic 앱에 Remote Rendering 통합
 
@@ -26,13 +26,16 @@ ms.locfileid: "83775621"
 > [!TIP]
 > [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 이 자습서의 결과가 사용할 준비가 된 Visual Studio 프로젝트로 포함되어 있습니다. 또한 이는 `StatusDisplay` UI 클래스를 통해 적절한 오류 및 상태 보고 기능으로 보강되었습니다. 자습서 내에서 모든 ARR 특정 추가 기능의 범위는 `#ifdef USE_REMOTE_RENDERING` / `#endif`로 지정되에 Remote Rendering 추가 기능을 쉽게 식별할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에는 다음이 필요합니다.
 
 * 계정 정보(계정 ID, 계정 키, 구독 ID). Azure 계정이 없는 경우 [계정을 만듭니다](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+  * **C++를 사용한 데스크톱 개발**
+  * **UWP(유니버설 Windows 플랫폼) 개발**
 * Visual Studio용 Windows Mixed Reality 앱 템플릿[(다운로드)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX)
 
 ## <a name="create-a-new-holographic-app-sample"></a>새 Holographic 앱 샘플 만들기

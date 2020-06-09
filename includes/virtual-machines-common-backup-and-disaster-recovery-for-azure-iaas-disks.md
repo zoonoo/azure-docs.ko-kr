@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77179088"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124590"
 ---
 이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 
@@ -61,9 +61,9 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 스토리지 플랫폼
 
 DR 고려 사항에는 다음과 같은 측면이 포함될 수 있습니다.
 
-- 고가용성: 애플리케이션에서 상당한 가동 중지 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 애플리케이션에서 응답하고 사용자가 애플리케이션에 연결하여 애플리케이션과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
+- 고가용성: 애플리케이션에서 상당한 가동 중지 시간 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 애플리케이션에서 응답하고 사용자가 애플리케이션에 연결하여 애플리케이션과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
 
-- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하는 경우 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
+- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하더라도 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
 
 ## <a name="backup-and-dr-scenarios"></a>백업 및 DR 시나리오
 
@@ -96,7 +96,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>재해 복구 솔루션: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) 은 백업 및 DR에 사용 되며 관리 되는 [디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 및 관리 되지 않는 디스크와 함께 작동 합니다. 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다.
+[Azure Backup](https://azure.microsoft.com/services/backup/)은 백업 및 DR에 사용되며 [관리 디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 및 비관리 디스크에서 작동합니다. 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다.
 
 [프리미엄 SSD](../articles/virtual-machines/windows/disks-types.md), [관리 디스크](../articles/virtual-machines/windows/managed-disks-overview.md) 또는 [로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md) 옵션이 적용된 다른 디스크 유형을 사용하는 경우 정기적인 DR 백업을 만드는 것이 특히 중요합니다. Azure Backup은 장기 보존을 위해 복구 서비스 자격 증명 모음에 데이터를 저장합니다. 백업 복구 서비스 자격 증명 모음에 대해 [지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md) 옵션을 선택합니다. 이 옵션은 지역 재해로부터 보호하기 위해 백업을 다른 Azure 지역에 복제하도록 합니다.
 
@@ -128,7 +128,7 @@ Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우�
 
 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md)은 Windows 또는 Linux를 실행 중인 VM을 Azure 복구 서비스 자격 증명 모음으로 백업할 수 있습니다. 데이터를 생성하는 애플리케이션이 실행되는 동안 중요 업무용 데이터를 백업해야 하므로 이러한 데이터를 백업하고 복원하는 것은 복잡합니다. 
 
-이 문제를 해결하기 위해 Azure Backup은 Microsoft 워크로드에 대해 애플리케이션에 일관된 백업을 제공합니다. 데이터가 스토리지에 올바르게 작성되었는지를 확인하는 데 볼륨 섀도 서비스를 사용합니다. Linux Vm의 경우 기본 백업 일관성 모드는 Windows의 경우와 같이 볼륨 섀도 서비스에 해당 하는 기능이 Linux에 없기 때문에 파일 일치 백업입니다. Linux 컴퓨터의 경우 [Azure Linux vm의 응용 프로그램 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조 하세요.
+이 문제를 해결하기 위해 Azure Backup은 Microsoft 워크로드에 대해 애플리케이션에 일관된 백업을 제공합니다. 데이터가 스토리지에 올바르게 작성되었는지를 확인하는 데 볼륨 섀도 서비스를 사용합니다. Linux VM의 경우 기본 백업 일괄성 모드는 Windows의 경우와 같이 Linux에는 볼륨 섀도 서비스에 해당하는 기능이 없기 때문에 파일 일치 백업입니다. Linux 머신의 경우 [Azure Linux VM의 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조하세요.
 
 ![Azure Backup 흐름][1]
 
@@ -146,7 +146,7 @@ Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치�
 
     b. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭하고, 단계에 따라 VM과 동일한 지역에 새 자격 증명 모음을 만듭니다. 예를 들어 VM이 미국 서부 지역에 있으면 미국 서부를 선택하여 자격 증명 모음을 찾습니다.
 
-1.  새로 만든 자격 증명 모음에 대한 스토리지 복제를 확인합니다. 자격 증명 모음 **Recovery Services** 자격 증명 모음에 액세스 하 고 **속성** > **백업 구성** > **업데이트**로 이동 합니다. **지역 중복 스토리지** 옵션을 기본적으로 선택하도록 합니다. 이 옵션을 사용하면 자격 증명 모음이 보조 데이터 센터에 자동으로 복제됩니다. 예를 들어 미국 서부의 자격 증명 모음이 미국 동부에 자동으로 복제됩니다.
+1.  새로 만든 자격 증명 모음에 대한 스토리지 복제를 확인합니다. **Recovery Services 자격 증명 모음** 아래에서 자격 증명 모음에 액세스하고 **속성** > **백업 구성** > **업데이트**로 이동합니다. **지역 중복 스토리지** 옵션을 기본적으로 선택하도록 합니다. 이 옵션을 사용하면 자격 증명 모음이 보조 데이터 센터에 자동으로 복제됩니다. 예를 들어 미국 서부의 자격 증명 모음이 미국 동부에 자동으로 복제됩니다.
 
 1.  백업 정책을 구성하고 동일한 UI에서 VM을 선택합니다.
 
@@ -231,7 +231,7 @@ DR에 대한 증분 스냅샷을 효율적으로 복사하려면 [증분 스냅�
 
 ### <a name="sql-server"></a>SQL Server
 
-VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Blob Storage 또는 파일 공유에 백업하는 자체의 기본 제공 기능이 있습니다. 스토리지 계정이 지역 중복 스토리지 또는 읽기 액세스 지역 중복 스토리지인 경우 재해 발생 시 스토리지 계정의 보조 데이터 센터에 있는 백업에 액세스할 수 있으며 앞에서 설명한 것과 동일한 제한 사항이 적용됩니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server의 백업 및 복원](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. 백업 및 복원 외에도 [SQL Server Always On 가용성 그룹](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)은 데이터베이스의 보조 복제본을 유지 관리할 수 있습니다. 이 기능을 통해 재해 복구 시간이 크게 줄어듭니다.
+VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Blob Storage 또는 파일 공유에 백업하는 자체의 기본 제공 기능이 있습니다. 스토리지 계정이 지역 중복 스토리지 또는 읽기 액세스 지역 중복 스토리지인 경우 재해 발생 시 스토리지 계정의 보조 데이터 센터에 있는 백업에 액세스할 수 있으며 앞에서 설명한 것과 동일한 제한 사항이 적용됩니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server의 백업 및 복원](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md)을 참조하세요. 백업 및 복원 외에도 [SQL Server Always On 가용성 그룹](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md)은 데이터베이스의 보조 복제본을 유지 관리할 수 있습니다. 이 기능을 통해 재해 복구 시간이 크게 줄어듭니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
@@ -244,7 +244,7 @@ VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Bl
 
 선택한 백업 옵션에 따라 데이터와 구성의 백업을 처리해야 할 수도 있고, 백업 서비스에서 모든 백업을 처리할 수도 있습니다.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복의 영향 이해
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복성의 영향 이해
 
 Azure에 있는 스토리지 계정의 경우 재해 복구와 관련하여 세 가지 유형의 데이터 중복성, 즉 로컬 중복, 지역 중복 또는 읽기 액세스 지역 중복를 고려해야 합니다. 
 

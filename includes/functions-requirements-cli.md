@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 3929ffa81a8b558d8cb0dbd74135acc9cf1ea47b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 49610c178b577c4d81376a535355d140e8a144cb
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82875986"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84144972"
 ---
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
@@ -21,7 +21,13 @@ ms.locfileid: "82875986"
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 버전 2.7.1846 이상 2.x 버전
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-+ Python 3.6 및 3.7에는 [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 버전 2.7.1846 이상 2.x 버전이 필요합니다. Python 3.8에는 Core Tools의 [버전 3.x](../articles/azure-functions/functions-run-local.md#v2)가 필요합니다.
++ 설치된 Python 버전에 해당하는 Azure Functions Core Tools 버전:
+
+   | Python 버전 | Core Tools 버전 |
+   | -------------- | ------------------ |
+   | Python 3.8     | [버전 3.x](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [버전 2.7.1846 이상](../articles/azure-functions/functions-run-local.md#v2) |
+  
 ::: zone-end
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상. 

@@ -35,6 +35,8 @@
       href: security-baselines-overview.md
     - name: API Management 보안 기준
       href: ../../api-management/security-baseline.md
+    - name: Application Gateway 보안 기준
+      href: ../../application-gateway/security-baseline.md
     - name: Azure Cache for Redis 보안 기준
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Backup 보안 기준
@@ -47,8 +49,12 @@
       href: ../../container-registry/security-baseline.md
     - name: Cosmos DB 보안 기준
       href: ../../cosmos-db/security-baseline.md
+    - name: 고객 Lockbox 보안 기준
+      href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Data Explorer 보안 기준
       href: /azure/data-explorer/security-baseline
+    - name: Data Factory 보안 기준
+      href: /azure/data-factory/security-baseline
     - name: Databricks 보안 기준
       href: ../../azure-databricks/security-baseline.md
     - name: Event Hubs 보안 기준
@@ -67,5 +73,7 @@
       href: ../../postgresql/security-baseline.md
     - name: SQL Database 보안 기준
       href: ../../sql-database/security-baseline.md
+    - name: Stream Analytics 기준
+      href: ../../stream-analytics/security-baseline.md
     - name: Storage 보안 기준
       href: ../../storage/common/security-baseline.md

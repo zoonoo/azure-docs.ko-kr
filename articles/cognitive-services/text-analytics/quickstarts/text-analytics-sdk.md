@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/25/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240115"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140741"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>빠른 시작: Text Analytics 클라이언트 라이브러리 사용
 
@@ -32,7 +32,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Text Analytics API의 최신 미리 보기 버전은 `3.0-preview`입니다. 여기에는 향상된 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [NER(명명된 엔터티 인식)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)에 대한 공개 미리 보기가 포함됩니다. 안정적인 최신 버전은 `2.1`입니다.
+> * Text Analytics 클라이언트 라이브러리의 안정적인 최신 버전은 `3.0`입니다.
 >    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
 
@@ -43,7 +43,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * 이 빠른 시작은 향상된 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [NER(명명된 엔터티 인식)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)에 대한 공개 미리 보기가 포함된 Text Analytics 클라이언트 라이브러리의 `3.0-preview` 버전에만 해당됩니다.
+> * Text Analytics 클라이언트 라이브러리의 안정적인 최신 버전은 `3.0`입니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -53,7 +53,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Text Analytics API의 최신 미리 보기 버전은 `3.0-preview`입니다. 여기에는 향상된 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [NER(명명된 엔터티 인식)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)에 대한 공개 미리 보기가 포함됩니다. 안정적인 최신 버전은 `2.1`입니다.
+> * Text Analytics 클라이언트 라이브러리의 안정적인 최신 버전은 `3.0`입니다.
 >    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
 > * [브라우저에서](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md) 이 버전의 Text Analytics 클라이언트 라이브러리를 실행할 수도 있습니다.
@@ -65,7 +65,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Text Analytics API의 최신 미리 보기 버전은 `3.0-preview`입니다. 여기에는 향상된 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [NER(명명된 엔터티 인식)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)에 대한 공개 미리 보기가 포함됩니다. 안정적인 최신 버전은 `2.1`입니다.
+> * Text Analytics 클라이언트 라이브러리의 안정적인 최신 버전은 `3.0`입니다.
 >    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요. 
 

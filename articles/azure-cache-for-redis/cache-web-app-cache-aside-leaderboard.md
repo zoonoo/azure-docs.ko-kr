@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411948"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195586"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "75411948"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -642,9 +642,9 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ## <a name="publish-and-run-in-azure"></a>Azure에서 게시 및 실행
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>앱에 대한 SQL Azure 데이터베이스 프로비전
+### <a name="provision-a-database-for-the-app"></a>앱용 데이터베이스 프로비전
 
-이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 새로운 SQL Azure 데이터베이스를 프로비전합니다.
+이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 SQL Database의 새 데이터베이스를 프로비저닝합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 

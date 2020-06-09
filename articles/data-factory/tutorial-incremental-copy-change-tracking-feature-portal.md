@@ -1,6 +1,6 @@
 ---
 title: 변경 내용 추적을 사용하여 데이터 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415439"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196289"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -42,7 +42,7 @@ ms.locfileid: "81415439"
 다음은 변경 내용 추적 기술을 사용하여 데이터 증분을 로드하는 일반적인 엔드투엔드 워크플로 단계입니다.
 
 > [!NOTE]
-> Azure SQL Database와 SQL Server 모두 변경 내용 추적 기술을 지원합니다. 이 자습서는 Azure SQL Database를 원본 데이터 저장소로 사용합니다. 온-프레미스 SQL Server를 사용할 수도 있습니다.
+> Azure SQL Database와 SQL Server 모두 변경 내용 추적 기술을 지원합니다. 이 자습서는 Azure SQL Database를 원본 데이터 저장소로 사용합니다. SQL Server 인스턴스를 사용할 수도 있습니다.
 
 1. **과거 데이터의 초기 로드**(한 번 실행):
     1. 원본 Azure SQL 데이터베이스에서 변경 내용 추적 기술을 사용하도록 설정합니다.
@@ -69,12 +69,12 @@ ms.locfileid: "81415439"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-* **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 원본 테이블 만들기
-1. **SQL Server Management Studio**를 시작하고 Azure SQL Server에 연결합니다.
+1. **SQL Server Management Studio**를 시작하고 SQL Database에 연결합니다.
 2. **서버 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 3. Azure SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 데이터 원본 저장소로 `data_source_table`이라는 테이블을 만듭니다.  
 
@@ -216,8 +216,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
     1. **이름** 필드에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다.
-    2. **서버 이름** 필드에 대해 Azure SQL 서버를 선택합니다.
-    4. **데이터베이스 이름** 필드에 대해 Azure SQL 데이터베이스를 선택합니다.
+    2. **서버 이름** 필드에 대한 서버를 선택합니다.
+    4. **데이터베이스 이름** 필드에 대한 데이터베이스를 선택합니다.
     5. **사용자 이름** 필드에 대해 사용자의 이름을 입력합니다.
     6. **암호** 필드에 대해 사용자의 암호를 입력합니다.
     7. **연결 테스트**를 클릭하여 연결을 테스트합니다.
@@ -416,7 +416,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. **가져오기 매개 변수**를 선택합니다.
     3. **저장 프로시저 매개 변수** 섹션에서 매개 변수에 대해 다음 값을 지정합니다.
 
-        | 속성 | Type | 값 |
+        | Name | Type | 값 |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
         | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |

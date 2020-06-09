@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739280"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020866"
 ---
 # <a name="introduction"></a>소개
 
@@ -38,7 +38,7 @@ Azure Synapse Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 �
 
 - 이 커넥터는 Scala에서만 작동합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터를 주고 받을 데이터베이스/SQL 풀에서 **db_exporter** 역할이 있어야 합니다.
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 import 문은 필요하지 않습니다. Notebook 환경용으로 미리 가져오기됩니다.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>작업 영역과 연결된 논리 서버(DW 인스턴스)의 SQL 풀과 데이터 전송
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>작업 영역과 연결된 SQL 풀과 데이터 전송
 
 > [!NOTE]
 > **Notebook 환경에서 가져올 필요 없음**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 Storage 및 SQL Server에 대한 인증이 수행됩니다.
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 논리 서버의 데이터베이스와 데이터를 주고 받는 경우
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 데이터베이스와 데이터를 주고 받는 경우
 
 > [!NOTE]
 > Notebook 환경에서 가져올 필요 없음

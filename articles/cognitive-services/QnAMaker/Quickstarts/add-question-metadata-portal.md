@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: QnA Maker 포털에서 질문 및 답변 추가'
-description: 이 빠른 시작에서는 질문에 대한 올바른 답변을 찾을 수 있도록 메타데이터가 포함된 질문 및 답변 집합을 추가하는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 질문에 대한 올바른 답변을 찾을 수 있도록 메타데이터가 포함된 질문 및 답변 쌍을 추가하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873682"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266579"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가
 
-기술 자료가 생성되면 메타데이터가 포함된 QnA(질문 및 답변) 집합을 추가하여 답변을 필터링합니다. 다음 표의 질문은 Azure 서비스 제한에 대한 것이지만 각각 다른 Azure 서비스와 관련이 있습니다.
+기술 자료가 생성되면 메타데이터가 포함된 QnA(질문 및 답변) 쌍을 추가하여 답변을 필터링합니다. 다음 표의 질문은 Azure 서비스 제한에 대한 것이지만 각각 다른 Azure 서비스와 관련이 있습니다.
 
 <a name="qna-table"></a>
 
-|설정|질문|Answer|메타데이터|
+|Pair|질문|Answer|메타데이터|
 |--|--|--|--|
 |#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -27,7 +27,7 @@ ms.locfileid: "83873682"
 * 모든 답변을 받지만 각 답변의 메타데이터에 따라 해당 답변을 사후 처리합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [이전 빠른 시작](./create-publish-knowledge-base.md) 완료
 
@@ -39,11 +39,11 @@ ms.locfileid: "83873682"
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>대체 구문이 추가된 질문 추가
 
-현재 기술 자료에는 QnA Maker 문제 해결 QnA 쌍이 있습니다. 이러한 세트는 만들기 프로세스 중에 URL이 기술 자료에 추가될 때 만들어졌습니다.
+현재 기술 자료에는 QnA Maker 문제 해결 QnA 쌍이 있습니다. 이러한 쌍은 만들기 프로세스 중에 URL이 기술 자료에 추가될 때 만들어졌습니다.
 
 이 URL을 가져올 때 하나의 답변이 있는 하나의 질문만 만들어졌습니다. 이 절차에서는 추가 질문을 추가합니다.
 
-1. **편집** 페이지에서 질문 및 답변 세트 위에 있는 검색 텍스트 상자를 사용하여 `How large a knowledge base can I create?` 질문을 찾습니다.
+1. **편집** 페이지에서 질문 및 답변 쌍 위에 있는 검색 텍스트 상자를 사용하여 `How large a knowledge base can I create?` 질문을 찾습니다.
 
 1. **질문** 열에서 **+ 대체 구문 추가**를 선택한 다음, 다음 표에 제공된 각각의 새 구문을 추가합니다.
 
@@ -70,9 +70,9 @@ ms.locfileid: "83873682"
 
 ## <a name="add-metadata-to-filter-the-answers"></a>답변을 필터링하기 위한 메타데이터 추가
 
-메타데이터가 질문 및 답변 세트에 추가되면 클라이언트 애플리케이션에서 필터링된 답변을 요청할 수 있습니다. 이 필터는 [첫 번째 및 두 번째 순위 매기기](../concepts/query-knowledge-base.md#ranker-process)를 적용하기 전에 적용됩니다.
+메타데이터가 질문 및 답변 쌍에 추가되면 클라이언트 애플리케이션에서 필터링된 답변을 요청할 수 있습니다. 이 필터는 [첫 번째 및 두 번째 순위 매기기](../concepts/query-knowledge-base.md#ranker-process)를 적용하기 전에 적용됩니다.
 
-1. [이 빠른 시작의 첫 번째 테이블](#qna-table)에서 메타데이터 없이 두 번째 질문 및 답변 세트를 추가한 다음, 다음 단계를 계속 진행합니다.
+1. [이 빠른 시작의 첫 번째 테이블](#qna-table)에서 메타데이터 없이 두 번째 질문 및 답변 쌍을 추가한 후, 다음 단계를 계속 진행합니다.
 
 1. **보기 옵션**을 선택한 다음, **메타데이터 표시**를 선택합니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "83873682"
 1. 동일한 두 메타데이터 태그에 대한 메타데이터 쌍을 추가합니다.
 
     `link_in_answer` : `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     이제 서로 다른 값이 있는 동일한 메타데이터 태그가 포함된 두 개의 질문이 있습니다.
 

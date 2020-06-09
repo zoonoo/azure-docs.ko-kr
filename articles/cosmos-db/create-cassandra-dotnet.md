@@ -3,23 +3,25 @@ title: '빠른 시작: Cassandra API와 .NET - Azure Cosmos DB'
 description: 이 빠른 시작에서는 Azure Portal 및 .NET과 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/18/2020
+ms.openlocfilehash: abab57a84a7c630bcce71056b49d73024ae75e9f
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215011"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310804"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.JS](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
@@ -28,7 +30,7 @@ ms.locfileid: "79215011"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 

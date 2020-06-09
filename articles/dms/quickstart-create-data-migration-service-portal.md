@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/08/2020
-ms.openlocfilehash: 3b2a6566322f29870d2376007060acedac62692a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873534"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187533"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.  인스턴스를 만든 후에는 이 인스턴스를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database로 데이터를 마이그레이션할 수 있습니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.  인스턴스를 만든 후에는 이 인스턴스를 사용하여 SQL Server에서 Azure SQL Database로 데이터를 마이그레이션할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -78,4 +78,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [온-프레미스 SQL Server를 Azure SQL Database로 마이그레이션](tutorial-sql-server-to-azure-sql.md)
+> [SQL Server를 Azure SQL Database로 마이그레이션](tutorial-sql-server-to-azure-sql.md)

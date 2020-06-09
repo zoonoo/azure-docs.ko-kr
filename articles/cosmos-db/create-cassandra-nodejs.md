@@ -1,32 +1,34 @@
 ---
 title: '빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB'
 description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여줍니다.
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/18/2020
+ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77210367"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310056"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.JS](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
 
 이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고 GitHub에서 복제된 Cassandra Node.js 앱을 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 

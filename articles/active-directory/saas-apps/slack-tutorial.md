@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70caf48163483b449fa2cf3576681b5c9c15f4f2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834410"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259289"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>자습서: Slack과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "83834410"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Slack SSO(Single Sign-On)가 설정된 구독
 
 > [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+> 하나의 테넌트에서 둘 이상의 Slack 인스턴스와 통합해야 하는 경우 각 애플리케이션의 식별자는 변수가 될 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -93,20 +93,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 구하려면 [Slack 클라이언트 지원팀](https://slack.com/help/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    
+    > [!NOTE]
+    > 테넌트와 통합해야 하는 둘 이상의 Slack 인스턴스가 있는 경우 **식별자(엔터티 ID)** 의 값은 변수가 될 수 있습니다. `https://<DOMAIN NAME>.slack.com` 패턴을 사용합니다. 이 시나리오에서는 동일한 값을 사용하여 Slack의 다른 설정과도 쌍으로 연결해야 합니다.
 
 1. Slack 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도 Slack 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다. 사용자에게 이메일 주소가 없는 경우 **emailaddress**를 **user.userprincipalname**에 매핑합니다.
+1. 위에서 언급한 특성 외에도 Slack 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다. `email` 특성도 추가해야 합니다. 사용자에게 이메일 주소가 없는 경우 **emailaddress**를 **user.userprincipalname**에 매핑하고 **이메일**을 **user.userprincipalname**에 매핑합니다.
 
-    | 속성 | 원본 특성 |
+    | Name | 원본 특성 |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | 이메일 | user.userprincipalname |
     | | |
 
-> [!NOTE]
-    > SP(서비스 공급자) 구성을 설정하려면 SAML 구성 페이지에서 **고급 옵션** 옆의 있는 **확장**을 클릭해야 합니다. **Service Provider Issuer** 상자에 작업 영역 URL을 입력합니다. 기본값은 slack.com입니다. 
+   > [!NOTE]
+   > SP(서비스 공급자) 구성을 설정하려면 SAML 구성 페이지에서 **고급 옵션** 옆의 있는 **확장**을 클릭해야 합니다. **Service Provider Issuer** 상자에 작업 영역 URL을 입력합니다. 기본값은 slack.com입니다. 
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -124,7 +128,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -166,15 +170,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b.  **ID 공급자 발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
-    다.  다운로드한 인증서 파일을 메모장에서 열고 내용을 클립보드에 복사한 다음 **공용 인증서** 텍스트 상자에 붙여넣습니다.
+    다.  다운로드한 인증서 파일을 메모장에서 열고 내용을 클립보드에 복사한 다음, **공용 인증서** 텍스트 상자에 붙여넣습니다.
 
     d. 위의 세 가지 설정을 Slack 팀에 적합하게 구성합니다. 설정에 대한 자세한 내용은 **Slack의 SSO 구성 가이드**를 참조하세요. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. **확장**을 클릭하고 **ID 공급자 인증서 발급자** 텍스트 상자에 `https://slack.com`을 입력합니다.
+    e. **확장**을 클릭하고 **서비스 공급자 인증서 발급자** 텍스트 상자에 `https://slack.com`을 입력합니다.
 
     f.  **구성 저장**을 클릭하십시오.
+    
+    > [!NOTE]
+    > Azure AD와 통합해야 하는 둘 이상의 Slack 인스턴스가 있는 경우 `https://<DOMAIN NAME>.slack.com`을 **서비스 공급자 인증서 발급자**로 설정하여 Azure 애플리케이션 **식별자** 설정과 쌍으로 연결할 수 있습니다.
 
 ### <a name="create-slack-test-user"></a>Slack 테스트 사용자 만들기
 

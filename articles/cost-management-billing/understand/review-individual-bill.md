@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199129"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194131"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>자습서: 개별 Azure 청구서 검토
 
@@ -21,13 +21,15 @@ ms.locfileid: "77199129"
 
 이 자습서는 개별 구독을 체결한 Azure 고객에게만 적용됩니다. 일반적인 개별 구독은 Azure 웹 사이트에서 직접 구매한 종량제 요금입니다.
 
+예기치 않은 요금을 이해하는 데 도움이 필요한 경우 [예기치 않은 요금 분석](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges)을 참조하세요. 또는 Azure 구독을 취소해야 하는 경우 [Azure 구독 취소](../manage/cancel-azure-subscription.md)를 참조하세요.
+
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용 파일을 사용하여 송장이 청구된 요금 비교
 > * 비용 분석에서 요금 및 사용량 비교
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 유료 *Microsoft Online Services 프로그램* 청구 계정이 있어야 합니다. 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 [종량제 요금을 사용하는 계정](https://azure.microsoft.com/offers/ms-azr-0003p/)이 있거나 [Visual Studio 구독자](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)인 경우입니다.
 
@@ -47,7 +49,7 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 Azure Portal에서 검색 상자에 *구독*을 입력한 다음, [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 클릭합니다.
 
-![구독으로 이동](./media/review-individual-bill/navigate-subscriptions.png)
+[![구독으로 이동](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 구독 목록에서 구독을 클릭합니다.
 
@@ -84,7 +86,7 @@ Azure Portal에서 검색 상자에 *구독*을 입력한 다음, [구독](https
 | 청구서(PDF) | 자세한 사용 현황(CSV)|
 | --- | --- |
 |청구 주기 | BillingPeriodStartDate BillingPeriodEndDate |
-|속성 |미터 범주 |
+|Name |미터 범주 |
 |Type |미터 하위 범주 |
 |리소스 |MeterName |
 |지역 |MeterRegion |
@@ -147,7 +149,7 @@ Azure는 리소스 요금을 기준으로 직접 청구하지 않습니다. 리�
 
 VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합니다. 이 사용량과 미터의 요금은 Azure 계량 시스템에서 추적됩니다.
 
-사용 현황 CSV 파일에서 청구서를 계산하는 데 사용된 미터를 확인할 수 있습니다.
+이전 예제에서와 같이 사용량 CSV 파일에서 청구서를 계산하는 데 사용된 미터를 확인할 수 있습니다.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>청구서 결제
 

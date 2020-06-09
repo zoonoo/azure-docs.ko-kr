@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 991a31898bb010dab3db7a545cd115a60bfe3ed1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592358"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995719"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -44,7 +44,7 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Flask 설명서](http://flask.pocoo.org/)
 * [Flask for Dummies - 초보자용 Flask 가이드](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 위해 필요한 소프트웨어 및 구독 키를 살펴보겠습니다.
 
@@ -144,7 +144,7 @@ Requests는 HTTP 1.1 요청을 보내는 데 사용되는 인기 있는 모듈�
    ```
    터미널에 버전이 표시될 것입니다. 다른 내용이 표시되면 문제가 발생했음을 의미합니다.
 
-2. Flask 앱을 실행하려면 Flask에서 flask 명령 또는 Python의 -m 스위치를 사용할 수 있습니다. `FLASK_APP` 환경 변수를 내보내서 작동할 앱을 터미널에 지시해야 그렇게 할 수 있습니다.
+2. Flask 앱을 실행하려면 Flask에서 flask 명령 또는 Python의 -m 스위치를 사용하면 됩니다. `FLASK_APP` 환경 변수를 내보내서 작동할 앱을 터미널에 지시해야 그렇게 할 수 있습니다.
 
    **macOS/Linux**:
    ```

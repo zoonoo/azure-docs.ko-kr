@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/01/2020
+ms.openlocfilehash: 2efd2c982fcd4c799a6c9daa1d89fde25e7f2c64
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769128"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307662"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(.NET)으로 읽습니다.
 
@@ -31,9 +31,9 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 컴퓨터에서 .NET Core SDK 2.1.0 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 머신에는 .NET Core SDK 3.0 이상이 필요합니다.
 
 [.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
 
@@ -42,6 +42,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ```cmd/sh
 dotnet --version
 ```
+
+> [!NOTE]
+> 이 빠른 시작에서 원격 분석을 읽는 데 사용되는 Event Hubs 서비스 코드를 컴파일하려면 .NET Core SDK 3.0 이상이 권장됩니다. [허브에서 원격 분석 읽기](#read-the-telemetry-from-your-hub) 섹션에서 설명한 대로 미리 보기로 서비스 코드의 언어 버전을 설정한 경우 .NET Core SDK 2.1을 사용할 수 있습니다.
 
 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
@@ -125,7 +128,7 @@ az extension add --name azure-iot
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
@@ -137,9 +140,12 @@ az extension add --name azure-iot
 
     | 변수 | 값 |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
-    | `s_eventHubsCompatiblePath`     | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
-    | `s_iotHubSasKey`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
+    | `EventHubsCompatibleEndpoint` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
+    | `EventHubName`                | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
+    | `IotHubSasKey`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
+
+    > [!NOTE]
+    > .NET Core SDK 2.1을 사용하는 경우 언어 버전을 미리 보기로 설정하여 코드를 컴파일해야 합니다. 이렇게 하려면 **read-d2c-messages.csproj** 파일을 열고 `<LangVersion>` 요소의 값을 `preview`로 설정합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 
@@ -155,7 +161,7 @@ az extension add --name azure-iot
 
     다음 스크린샷에서는 시뮬레이션된 디바이스에서 허브에 보낸 원격 분석을 백 엔드 애플리케이션에서 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

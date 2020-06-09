@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836059"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204075"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Runbook에서 업데이트 관리 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "83836059"
 > [!NOTE]
 > 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
@@ -103,9 +103,6 @@ VM에 업데이트 관리를 사용하도록 설정하려면 최신 Azure 모듈
 
 * Runbook을 예약하려면 [Azure Automation에서 일정 관리](shared-resources/schedules.md)를 참조하세요.
 * VM에 업데이트 관리를 사용하려면 [Azure VM의 업데이트 및 패치 관리](automation-tutorial-update-management.md)를 참조하세요.
-* 범위 구성은 [범위 구성으로 작업](automation-scope-configurations-update-management.md)을 참조하세요.
-* Log Analytics 작업 영역이 더 이상 필요하지 않은 경우 [업데이트 관리 대상 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)의 지침을 참조하세요.
-* 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
 * 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.
 * Windows 업데이트 에이전트 문제를 해결하려면 [Windows 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues.md)을 참조하세요.
-* Linux 업데이트 에이전트 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.
+* Linux 업데이트 에이전트 관련 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.

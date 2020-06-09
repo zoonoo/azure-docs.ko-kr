@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370239"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195683"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 
@@ -26,7 +26,7 @@ Azure Database Migration Service 하이브리드 모드는 클라우드에서 �
 >[!NOTE]
 >현재 하이브리드 모드에서 실행되는 Azure Database Migration Service는 다음과 같은 항목으로 SQL Server 마이그레이션을 지원합니다.
 >
->- 가동 중지 시간이 거의 없는(온라인) Azure SQL Database Managed Instance
+>- 가동 중지 시간이 거의 없는(온라인) Azure SQL Managed Instance.
 >- 어느 정도의 가동 중지 시간(오프라인)이 있는 Azure SQL Database 단일 데이터베이스
 >- MongoDb에서 가동 중지 시간이 거의 없는(온라인) Azure CosmosDB로
 >- MongoDb에서 어느 정도의 가동 중지 시간(오프라인)이 있는 Azure CosmosDB로
@@ -191,5 +191,5 @@ Azure Portal을 통해 Azure Database Migration Service Hybrid Worker를 설치�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [SQL Server에서 Azure SQL Database Managed Instance 온라인으로 마이그레이션](tutorial-sql-server-managed-instance-online.md)
-> [SQL Server를 Azure SQL Database 오프라인의 단일 데이터베이스 또는 풀링 데이터베이스로 마이그레이션](tutorial-sql-server-to-azure-sql.md)
+> [SQL Server에서 Azure SQL Managed Instance로 온라인 마이그레이션](tutorial-sql-server-managed-instance-online.md)
+> [SQL Server에서 Azure SQL Database로 오프라인 마이그레이션](tutorial-sql-server-to-azure-sql.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677928"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021445"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering 정보
 
@@ -22,7 +22,11 @@ ms.locfileid: "80677928"
 
 ![샘플 모델](../media/arr-engine.png)
 
-테더링되지 않은 디바이스는 복잡한 모델을 렌더링하는 컴퓨팅 성능이 제한적입니다. 하지만 많은 애플리케이션에서는 어떤 형태로든 시각적 충실도를 낮추는 것이 용납되지 않습니다.
+테더링되지 않은 디바이스는 복잡한 모델을 렌더링하는 컴퓨팅 성능이 제한적입니다. 하지만 많은 애플리케이션에서는 어떤 형태로든 시각적 충실도를 낮추는 것이 용납되지 않습니다. 다음 스크린샷에서는 일반적인 콘텐츠 생성 도구를 사용하여 손상된 모델과 전체 정보가 있는 모델을 비교합니다.
+
+![샘플 모델](./media/engine-model-decimated.png)
+
+축소된 모델은 원래 모델의 1800만 개가 넘는 삼각형에 비해 약 20만 개 삼각형(자세한 내부 부분 포함)으로 구성됩니다.
 
 *원격 렌더링*은 렌더링 워크로드를 클라우드의 고성능 GPU로 이동하여 이 문제를 해결합니다. 클라우드에 호스팅되는 그래픽 엔진은 이미지를 렌더링하고, 비디오 스트림으로 인코딩하고, 대상 디바이스로 스트리밍합니다.
 

@@ -9,30 +9,29 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cbf6d42f3b1d130a6bf89f07bd3a7009ff0e8fa8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d73e895371764d9dd28290648551d84181e022cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647525"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117586"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 통해 SQL 주문형(미리 보기)를 사용하여 스토리지에 쿼리 결과 저장
 
 이 문서에서는 SQL 주문형(미리 보기)을 사용하여 쿼리 결과를 스토리지에 저장하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-첫 번째 단계는 아래 문서를 검토하여 필수 구성 요소를 충족하는지 확인하는 것입니다.
+첫 번째 단계는 쿼리를 실행할 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플의 데이터를 읽는 데 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
-- [처음 설정](query-data-storage.md#first-time-setup)
-- [필수 구성 요소](query-data-storage.md#prerequisites)
+이 문서의 지침에 따라 출력 스토리지에 데이터를 쓰는 데 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
 ## <a name="create-external-table-as-select"></a>선택 항목으로 외부 테이블 만들기
 
 CREATE EXTERNAL TABLE AS SELECT(CETAS) 문을 사용하여 스토리지에 쿼리 결과를 저장할 수 있습니다.
 
 > [!NOTE]
-> 쿼리의 첫 번째 줄(예: [mydbname])을 변경하여 사용자가 만든 데이터베이스를 사용합니다. 데이터베이스를 만들지 않은 경우 [처음 설정](query-data-storage.md#first-time-setup)을 참조하세요. 쓰기 권한이 있는 위치를 가리키도록 MyDataSource 외부 데이터 원본에 대한 위치를 변경해야 합니다. 
+> 쿼리의 첫 번째 줄(예: [mydbname])을 변경하여 사용자가 만든 데이터베이스를 사용합니다.
 
 ```sql
 USE [mydbname];
@@ -63,8 +62,9 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT='CSV'
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
@@ -79,7 +79,7 @@ FROM
 CETAS를 통해 생성된 외부 테이블을 일반 외부 테이블처럼 사용할 수 있습니다.
 
 > [!NOTE]
-> 쿼리의 첫 번째 줄(예: [mydbname])을 변경하여 사용자가 만든 데이터베이스를 사용합니다. 데이터베이스를 만들지 않은 경우 [처음 설정](query-data-storage.md#first-time-setup)을 참조하세요.
+> 쿼리의 첫 번째 줄(예: [mydbname])을 변경하여 사용자가 만든 데이터베이스를 사용합니다.
 
 ```sql
 USE [mydbname];

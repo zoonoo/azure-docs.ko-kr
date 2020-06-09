@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418663"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022064"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 스토리지에서 SQL Database로 데이터 복사
 
@@ -38,11 +38,11 @@ ms.locfileid: "81418663"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**: Blob 스토리지를 _원본_ 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
-* **Azure SQL Database**: SQL Database를 _싱크_ 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [SQL Database 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 참조하세요.
+* **Azure SQL Database**: SQL Database를 _싱크_ 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [SQL Database 만들기](../azure-sql/database/single-database-create-quickstart.md)의 지침을 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -76,7 +76,7 @@ ms.locfileid: "81418663"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 설정하려면 Azure SQL 서버 > 보안 > 방화벽 및 가상 네트워크로 차례로 이동하여 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 옵션을 **켜기**로 설정합니다.
+2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 설정하려면 논리 SQL 서버 > 보안 > 방화벽 및 가상 네트워크로 차례로 이동하여 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 옵션을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
@@ -89,7 +89,7 @@ ms.locfileid: "81418663"
 
     ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
 
-    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 1. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
 

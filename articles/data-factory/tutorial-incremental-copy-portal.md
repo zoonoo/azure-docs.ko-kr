@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409326"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249096"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -64,8 +64,8 @@ ms.locfileid: "81409326"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요.
 * **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
@@ -182,7 +182,7 @@ END
 1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다.
 
    ![Data Factory UI의 시작 페이지 가져오기](./media/doc-common-process/get-started-page.png)    
-3. 파이프라인에 대한 **속성** 창의 **일반** 페이지에서 **IncrementalCopyPipeline** 이름을 입력합니다.
+3. **속성** 아래의 일반 패널에서 **이름**에 **IncrementalCopyPipeline**을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 4. 이전 워터마크 값을 가져오는 첫 번째 조회 활동을 추가하겠습니다. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupOldWaterMarkActivity**로 변경합니다.
 
@@ -196,7 +196,7 @@ END
 8. **연결된 서비스**에서 **새로 만들기**를 선택하고 다음 단계를 수행합니다.
 
     1. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다.
-    2. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
+    2. **서버 이름**에 대해 서버를 선택합니다.
     3. 드롭다운 목록에서 **데이터베이스 이름**을 선택합니다.
     4. **사용자 이름** & **암호**를 입력합니다.
     5. Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
@@ -272,7 +272,7 @@ END
     1. **저장 프로시저 이름**에 대해 **usp_write_watermark**를 선택합니다.
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다.
 
-        | 속성 | Type | 값 |
+        | Name | Type | 값 |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -398,7 +398,7 @@ PersonID | Name | LastModifytime
 > * 두 번째 파이프라인 실행 모니터링
 > * 두 번째 실행 결과 검토
 
-이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
+이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. SQL Server 데이터베이스의 여러 테이블에서 SQL Database로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
 >[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-portal.md)

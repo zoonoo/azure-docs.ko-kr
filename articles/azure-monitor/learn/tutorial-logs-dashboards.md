@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661535"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148262"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -35,6 +35,14 @@ Log Analytics 대시보드를 통해 저장된 모든 로그 쿼리를 시각화
 ![Azure 포털 대시보드](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Azure Log Analytics의 원격 분석을 포함하여, 모든 Azure 리소스에서 IT에 가장 중요한 운영 데이터를 이곳에 한데 모을 수 있습니다.  로그 쿼리 시각화를 단계별로 실행하기 전에 먼저 대시보드를 만들어 공유해 보겠습니다.  다음으로 꺾은선형 차트로 렌더링될 예제 성능 로그 쿼리에 집중하여 대시보드에 추가할 수 있습니다.  
+
+> [!NOTE]
+> 다음 차트 종류는 로그 쿼리를 사용하여 Azure 대시보드에서 지원됩니다.
+> - areachart
+> - columnchart
+> - piechart(대시보드에서 도넛형으로 렌더링됨)
+> - scatterchart
+> - 시간 차트
 
 대시보드를 만들려면 현재 대시보드 이름 옆에 있는 **새 대시보드** 단추를 선택합니다.
 

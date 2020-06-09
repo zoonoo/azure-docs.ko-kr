@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183387"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298853"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
@@ -29,7 +29,7 @@ ms.locfileid: "78183387"
 > * 웹 API에 사용 권한 부여
 > * 애플리케이션을 사용하도록 샘플 업데이트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [자습서: 네이티브 데스크톱 클라이언트에서 사용자 인증](tutorial-desktop-app.md)의 단계와 필수 조건을 완료합니다.
 
@@ -51,17 +51,11 @@ ms.locfileid: "78183387"
 
 필수 조건 자습서에서 *nativeapp1*이라는 네이티브 클라이언트 애플리케이션을 등록했습니다. 다음 단계에서는 이전 섹션에서 *webapi1*을 위해 노출한 API 범위를 사용하여 이 네이티브 애플리케이션 등록을 구성합니다. 이렇게 하면 데스크톱 애플리케이션이 Azure AD B2C에서 액세스 토큰을 가져올 수 있으며, 웹 API는 이 액세스 토큰을 사용하여 Azure AD B2C 리소스에 대한 범위가 지정된 액세스를 확인하고 제공할 수 있습니다. 자습서의 뒷부분에서 데스크톱 애플리케이션과 웹 API의 코드 샘플을 모두 구성하고 실행합니다.
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
+Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
 
-1. **애플리케이션**을 선택하고 *nativeapp1*을 선택합니다.
-1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
-1. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
-1. **범위 선택** 드롭다운에서 이전에 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
-1. **확인**을 선택합니다.
+#### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
-
-1. **앱 등록(미리 보기)** 을 선택한 다음, API에 대한 액세스 권한이 있어야 하는 네이티브 클라이언트 애플리케이션을 선택합니다. 예를 들어 *nativeapp1*과 같습니다.
+1. **앱 등록**을 선택한 다음, API에 대한 액세스 권한이 있어야 하는 네이티브 클라이언트 애플리케이션을 선택합니다. 예를 들어 *nativeapp1*과 같습니다.
 1. **관리** 아래에서 **API 권한**을 선택합니다.
 1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **내 API** 탭을 선택합니다.
@@ -72,6 +66,14 @@ ms.locfileid: "78183387"
 1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
 1. **수락**을 선택합니다.
 1. **새로 고침**을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
+
+#### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
+
+1. **애플리케이션(레거시)** 을 선택한 다음, *nativeapp1*을 선택합니다.
+1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
+1. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
+1. **범위 선택** 드롭다운에서 이전에 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
+1. **확인**을 선택합니다.
 
 * * *
 

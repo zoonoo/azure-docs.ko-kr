@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682560"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300575"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -25,7 +25,7 @@ ARR API 자체 또는 새 Unity 프로젝트를 설정하는 방법은 자세히
 >* Unity용 ARR 빠른 시작 샘플 앱을 가져와서 빌드
 >* ARR 빠른 시작 샘플 앱에서 모델 렌더링
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들어야 합니다](../how-tos/create-an-account.md).
 
@@ -33,6 +33,9 @@ Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들�
 
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+  * **C++를 사용한 데스크톱 개발**
+  * **UWP(유니버설 Windows 플랫폼) 개발**
 * GIT([다운로드](https://git-scm.com/downloads))
 * Unity 2019.3.1[(다운로드)](https://unity3d.com/get-unity/download)
   * 다음 모듈을 Unity에 설치합니다.

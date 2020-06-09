@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 00d54f9adcab93152881852b6fcac417e9d7c7d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409912"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194485"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 
@@ -32,7 +32,7 @@ ms.locfileid: "81409912"
 
 단계별 지침은 다음 자습서를 참조하세요. 
 - [Azure SQL Database의 한 테이블에서 Azure Blob 스토리지로 데이터 증분 복사](tutorial-incremental-copy-powershell.md)
-- [온-프레미스 SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 복사](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [SQL Server 인스턴스의 여러 테이블에서 Azure SQL Database로 데이터 증분 복사](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 - [컨트롤 테이블을 사용하여 델타 복사](solution-template-delta-copy-with-control-table.md)

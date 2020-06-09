@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ff8d82966d479491bc9600a0331f69ffd09253d1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701070"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112699"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -92,7 +92,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 
 폴더 및 파일에 대한 권한을 설정하는 방법에 대한 자세한 내용은 [Synapse Analytics 공유 데이터베이스](database.md)를 참조하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 관리형 테이블 만들기 및 SQL 주문형에서 쿼리
 
@@ -193,6 +193,6 @@ id | name | birthdate
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics의 공유 메타데이터에 대한 자세한 정보](overview.md)
-- [Azure Synapse Analytics의 공유 메타데이터 테이블에 대한 자세한 정보](table.md)
+- [Azure Synapse Analytics의 공유 메타데이터 데이터베이스에 대한 자세한 정보](database.md)
 
 

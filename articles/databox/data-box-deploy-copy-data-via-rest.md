@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 7642c009a5bcd1d00efb432975fff5a65c7ba340
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297191"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219150"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -24,11 +24,11 @@ ms.locfileid: "80297191"
 
 > [!div class="checklist"]
 >
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -36,17 +36,16 @@ ms.locfileid: "80297191"
 2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
 3. [Data Box Blob 스토리지의 시스템 요구 사항](data-box-system-requirements-rest.md)을 검토했으며 API, SDK 및 도구의 지원 버전에 대해 잘 알고 있습니다.
 4. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
-    - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
-    - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만, 이 경우 복사 속도가 떨어집니다.
+    * [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
+    * 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만, 이 경우 복사 속도가 떨어집니다.
 5. 호스트 컴퓨터에서 [AzCopy 7.1.0을 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다. AzCopy를 사용하여 호스트 컴퓨터에서 Azure Data Box Blob 스토리지에 데이터를 복사합니다.
-
 
 ## <a name="connect-via-http-or-https"></a>http 또는 https를 통해 연결
 
 *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 수 있습니다.
 
-- *Https*는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
-- *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
+* *Https*는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
+* *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
 
 연결하는 단계는 Data Box Blob Storage에 연결할 때 *http* 또는 *https*를 사용했는지에 따라 다릅니다.
 
@@ -54,8 +53,8 @@ ms.locfileid: "80297191"
 
 *http*를 통해 Data Box Blob 스토리지 REST API에 연결하려면 다음 단계를 수행해야 합니다.
 
-- 디바이스 IP 및 Blob 서비스 엔드포인트를 원격 호스트에 추가
-- 타사 소프트웨어 구성 및 연결 확인
+* 디바이스 IP 및 Blob 서비스 엔드포인트를 원격 호스트에 추가
+* 타사 소프트웨어 구성 및 연결 확인
 
 이러한 각 단계는 다음 섹션에 설명되어 있습니다.
 
@@ -63,7 +62,7 @@ ms.locfileid: "80297191"
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
+### <a name="verify-connection-and-configure-partner-software"></a>연결 확인 및 파트너 소프트웨어 구성
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -73,10 +72,10 @@ ms.locfileid: "80297191"
 
 https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단계를 수행해야 합니다.
 
-- Azure Portal에서 인증서 다운로드
-- 클라이언트 또는 원격 호스트의 인증서 가져오기
-- 클라이언트 또는 원격 호스트에 디바이스 IP 및 Blob 서비스 엔드포인트 추가
-- 타사 소프트웨어 구성 및 연결 확인
+* Azure Portal에서 인증서 다운로드
+* 클라이언트 또는 원격 호스트의 인증서 가져오기
+* 클라이언트 또는 원격 호스트에 디바이스 IP 및 Blob 서비스 엔드포인트 추가
+* 타사 소프트웨어 구성 및 연결 확인
 
 이러한 각 단계는 다음 섹션에 설명되어 있습니다.
 
@@ -86,11 +85,11 @@ Azure Portal을 사용하여 인증서를 다운로드합니다.
 
 1. Azure Portal에 로그인합니다.
 2. 해당 Data Box 주문으로 이동하고 **일반 > 디바이스 세부 정보**로 이동합니다.
-3. **디바이스 자격 증명**에서 **디바이스에 대한 API 액세스**로 이동합니다. **다운로드**를 클릭합니다. 이 작업은 **\<순서 이름>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장**합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
+3. **디바이스 자격 증명**에서 **디바이스에 대한 API 액세스**로 이동합니다. **다운로드**를 클릭합니다. 이 작업은 **\<your order name>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장**합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
 
     ![Azure Portal에서 인증서 다운로드](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
- 
-### <a name="import-certificate"></a>인증서 가져오기 
+
+### <a name="import-certificate"></a>인증서 가져오기
 
 HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 TLS/SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 일부 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후에 인증서에 액세스할 수 있는 반면 다른 애플리케이션은 해당 메커니즘을 사용하지 않습니다.
 
@@ -109,16 +108,16 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 
 #### <a name="use-windows-server-ui"></a>Windows Server UI 사용
 
-1.   `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
-2.   **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
+1. `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
+2. **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.   **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
+3. **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.   **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
+4. **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -128,13 +127,13 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 
 Ubuntu 및 Debian 같은 여러 배포판은 `update-ca-certificates` 명령을 사용합니다.  
 
-- `.crt` 확장명이 포함되도록 Base64 인코딩 인증서 파일의 이름을 바꾸고 `/usr/local/share/ca-certificates directory`에 복사합니다.
-- `update-ca-certificates` 명령을 실행합니다.
+* `.crt` 확장명이 포함되도록 Base64 인코딩 인증서 파일의 이름을 바꾸고 `/usr/local/share/ca-certificates directory`에 복사합니다.
+* `update-ca-certificates` 명령을 실행합니다.
 
 RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용합니다.
 
-- 인증서 파일을 `/etc/pki/ca-trust/source/anchors` 디렉터리에 복사합니다.
-- `update-ca-trust`을 실행합니다.
+* 인증서 파일을 `/etc/pki/ca-trust/source/anchors` 디렉터리에 복사합니다.
+* `update-ca-trust`을 실행합니다.
 
 자세한 내용은 해당 배포판의 설명서를 참조하세요.
 
@@ -144,7 +143,7 @@ RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용�
 
 ### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
 
-[*http*를 통해 연결할 때 사용되는 파트너 소프트웨어 구성](#configure-partner-software-and-verify-connection)의 단계를 따릅니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
+[*http*를 통해 연결할 때 사용되는 파트너 소프트웨어 구성](#verify-connection-and-configure-partner-software)의 단계를 따릅니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
 
 ## <a name="copy-data-to-data-box"></a>Data Box에 데이터 복사
 
@@ -152,15 +151,17 @@ Data Box Blob 스토리지에 연결한 후 다음 단계는 데이터를 복사
 
 * 데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
 * Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
-* Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
+
+> [!IMPORTANT]
+> Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 이 자습서에서는 Data Box Blob 스토리지에 데이터를 복사하는 데 AzCopy를 사용합니다. Azure Storage Explorer(GUI 기반 도구를 선호하는 경우) 또는 파트너 소프트웨어를 사용하여 데이터를 복사할 수도 있습니다.
 
 복사 절차에는 다음 단계가 있습니다.
 
-- 컨테이너 만들기
-- 폴더의 콘텐츠를 Data Box Blob 스토리지에 업로드
-- Data Box Blob 스토리지에 수정된 파일 업로드
+* 컨테이너 만들기
+* 폴더의 콘텐츠를 Data Box Blob 스토리지에 업로드
+* Data Box Blob 스토리지에 수정된 파일 업로드
 
 이러한 각 단계는 다음 섹션에서 자세히 설명합니다.
 
@@ -195,7 +196,6 @@ AzCopy를 사용하여 폴더의 모든 파일을 Windows 또는 Linux의 Blob �
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
-
 `<key>`를 사용자의 계정 키로 바꿉니다. 계정 키를 가져오려면 Azure Portal에서 스토리지 계정으로 이동합니다. **설정 > 액세스 키**로 이동하고 키를 선택하며 AzCopy 명령에 붙여넣습니다.
 
 지정된 대상 컨테이너가 존재하지 않을 경우 AzCopy는 컨테이너를 만든 후 여기에 파일을 업로드합니다. 원본 경로를 데이터 디렉터리로 업데이트하고 대상 URL의 `data-box-storage-account-name`을 사용자의 Data Box와 연결된 스토리지 계정 이름으로 바꿉니다.
@@ -229,10 +229,10 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+>
+> * 필수 구성 요소
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
-
 
 Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

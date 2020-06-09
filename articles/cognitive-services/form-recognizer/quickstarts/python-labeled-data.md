@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 482e1bfe14181a59b744efd794a5636a442ce9a4
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594171"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141945"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -22,11 +22,14 @@ ms.locfileid: "82594171"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
-- 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트할 것입니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+- 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 URL로 액세스하는 원격 문서를 사용합니다. 로컬 파일을 대신 사용하려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)를 참조하세요.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -34,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="set-up-training-data"></a>학습 데이터 설정
 
-다음으로, 필요한 입력 데이터를 설정해야 합니다. 레이블 지정 데이터 기능에는 사용자 지정 모델을 학습시키는 데 필요한 것보다 특별한 입력 요구 사항이 있습니다. 
+다음으로, 필요한 입력 데이터를 설정해야 합니다. 레이블이 지정된 데이터 기능에는 레이블이 없는 사용자 지정 모델을 학습하는 데 필요한 것 이상의 특별한 입력 요구 사항이 있습니다.
 
 모든 학습 문서가 동일한 형식인지 확인합니다. 양식의 형식이 여러 개인 경우 공통 형식에 따라 하위 폴더로 구성합니다. 학습시킬 때 API를 하위 폴더로 전달해야 합니다.
 
@@ -116,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-the-label-files"></a>레이블 파일 만들기
 
-레이블 파일에는 사용자가 수동으로 입력한 키-값 연결이 포함되어 있습니다. 레이블 지정 데이터 학습에 필요하지만, 모든 원본 파일에 해당 레이블 파일이 있어야 하는 것은 아닙니다. 레이블이 없는 원본 파일은 일반적인 학습 문서로 취급됩니다. 안정적인 학습을 위해 레이블 지정 파일을 5개 이상 사용하는 것이 좋습니다.
+레이블 파일에는 사용자가 수동으로 입력한 키-값 연결이 포함되어 있습니다. 레이블 지정 데이터 학습에 필요하지만, 모든 원본 파일에 해당 레이블 파일이 있어야 하는 것은 아닙니다. 레이블이 없는 원본 파일은 일반적인 학습 문서로 취급됩니다. 안정적인 학습을 위해 레이블 지정 파일을 5개 이상 사용하는 것이 좋습니다. [샘플 레이블 지정 도구](./label-tool.md)와 같은 UI 도구를 사용하여 이러한 파일을 생성할 수 있습니다.
 
 레이블 파일을 만들 때 필요에 따라 영역, 즉, 문서에서 값의 정확한 값 위치를 지정할 수 있습니다. 이렇게 하면 학습의 정확도가 대폭 향상됩니다. 영역은 네 가지 X, Y 좌표(왼쪽 위, 오른쪽 위, 오른쪽 아래, 왼쪽 아래)에 해당하는 8개의 값 세트로 형식이 지정됩니다. 좌표 값은 0에서 1 사이이며, 페이지 크기에 맞게 조정됩니다.
 
@@ -187,8 +190,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
                 ...
 ```
 
-> [!NOTE]
-> 각 텍스트 요소에 레이블을 하나만 적용할 수 있으며, 각 레이블은 페이지마다 한 번만 적용할 수 있습니다. 현재는 레이블 하나를 여러 페이지에 적용할 수 없습니다.
+> [!IMPORTANT]
+> 각 텍스트 요소에 레이블을 하나만 적용할 수 있으며, 각 레이블은 페이지마다 한 번만 적용할 수 있습니다. 여러 페이지에 레이블을 적용할 수 없습니다.
 
 
 ## <a name="train-a-model-using-labeled-data"></a>레이블 지정 데이터를 사용하여 모델 학습
@@ -554,4 +557,7 @@ print("Train operation did not complete within the allocated time.")
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Python과 함께 Form Recognizer REST API를 사용하여 수동 레이블 지정 데이터로 모델을 학습시키는 방법을 알아보았습니다. 다음으로, [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)를 통해 Form Recognizer API에 대해 자세히 살펴보세요.
+이 빠른 시작에서는 Python과 함께 Form Recognizer REST API를 사용하여 수동 레이블 지정 데이터로 모델을 학습시키는 방법을 알아보았습니다. 다음으로, API 참조 설명서를 통해 Form Recognizer API에 대해 자세히 살펴보세요.
+
+> [!div class="nextstepaction"]
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

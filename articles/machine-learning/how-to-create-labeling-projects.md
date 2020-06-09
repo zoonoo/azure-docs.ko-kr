@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007541"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171563"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -38,7 +38,7 @@ Azure Machine Learning은 진행 상황을 추적하고 불완전한 레이블 �
 > * 레이블 내보내기
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 
 * 레이블을 지정하려는 데이터(로컬 파일 또는 Azure Blob 스토리지에 있음)
@@ -55,8 +55,7 @@ Azure Machine Learning은 진행 상황을 추적하고 불완전한 레이블 �
 
 프로젝트를 만들려면 **프로젝트 추가**를 선택합니다. 프로젝트에 대한 적절한 이름을 지정하고, **레이블 지정 작업 유형**을 선택합니다.
 
-![레이블 지정 프로젝트 만들기 마법사](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="레이블 지정 프로젝트 만들기 마법사":::
 
 * 클래스 세트에서 *단일 클래스*만 이미지에 적용하려면 프로젝트에 대해 **이미지 분류 다중 클래스**를 선택합니다.
 * 클래스 세트에서 *하나 이상*의 레이블을 이미지에 적용하려면 프로젝트에 대해 **이미지 분류 다중 레이블**을 선택합니다. 예를 들어 개의 사진에는 *dog* 및 *daytime*이라는 레이블이 모두 지정될 수 있습니다.

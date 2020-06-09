@@ -2,19 +2,19 @@
 title: Azure SQL Edge에서 IoT Edge 모듈 설정
 description: 철광석 불순물 예측을 위해 세 부분으로 구성된 이번 Azure SQL Edge 자습서 중 2부에서는 IoT Edge 모듈 및 연결을 설정합니다.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: bbbbe09aac30165a2f9b7bbe54f58e0c09a6cf09
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593502"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235032"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>IoT Edge 모듈 및 연결 설정
 
@@ -25,7 +25,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 ## <a name="create-azure-stream-analytics-module"></a>Azure Stream Analytics 모듈 만들기
 
-이 자습서에서 사용되는 Azure Stream Analytics 모듈을 만듭니다. SQL Edge에서 스트리밍 작업을 사용하는 방법에 대한 자세한 내용은 [SQL Database Edge에서 스트리밍 작업 사용](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge)을 참조하세요.
+이 자습서에서 사용되는 Azure Stream Analytics 모듈을 만듭니다. SQL Edge에서 스트리밍 작업을 사용하는 방법에 대한 자세한 내용은 [SQL Edge에서 스트리밍 작업 사용](stream-analytics.md)을 참조하세요.
 
 호스팅 환경을 Edge로 설정하여 Azure Stream Analytics 작업을 만든 후에는 자습서에 대한 입력 및 출력을 설정합니다.
 
@@ -77,7 +77,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
    _필드_|_값_
    -------|-------
-   속성|레지스트리 이름
+   Name|레지스트리 이름
    주소|로그인 서버
    사용자 이름|사용자 이름
    암호|암호
@@ -91,7 +91,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
    *컨테이너 레지스트리의 로그인 서버*/*리포지토리 이름*:*태그 이름*
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
@@ -101,7 +101,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Azure SQL Edge 모듈 배포
 
-1. [Azure SQL Database Edge 배포 미리 보기](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge)에 나열된 단계를 수행하여 Azure SQL Edge 모듈을 배포합니다.
+1. [Azure SQL Edge 배포(미리 보기)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal)에 나열된 단계를 수행하여 Azure SQL Edge 모듈을 배포합니다.
 
 2. **모듈 설정** 페이지의 **경로 지정**에서 다음과 같이 모듈의 경로를 IoT Edge 허브 통신으로 지정합니다. 
 
@@ -110,7 +110,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
    ```
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")

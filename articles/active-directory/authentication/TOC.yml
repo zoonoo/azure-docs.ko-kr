@@ -80,6 +80,8 @@
           href: howto-mfa-userstates.md
         - name: 인증 공급자 구성
           href: concept-mfa-authprovider.md
+        - name: 앱 암호 사용
+          href: howto-mfa-app-passwords.md
         - name: 디렉터리 페더레이션
           items:
             - name: Windows Server 2016 AD FS 어댑터
@@ -169,6 +171,8 @@
           href: howto-mfaserver-deploy-userportal.md
         - name: 모바일 앱 웹 서비스
           href: howto-mfaserver-deploy-mobileapp.md
+        - name: 설정 구성
+          href: howto-mfa-server-settings.md
         - name: 고가용성 구성
           href: howto-mfaserver-deploy-ha.md
         - name: MFA 서버 업그레이드

@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131761"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117524"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-개발자는 관심 있는 시각적 기능에 따라 Azure의 Computer Vision 서비스를 통해 이미지를 처리하고 정보를 반환하는 고급 알고리즘을 사용할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
+Azure의 Computer Vision 서비스는 개발자에게 관심 있는 시각적 기능을 기반으로 이미지를 처리하고 정보를 반환하는 고급 알고리즘을 대한 액세스 권한을 제공합니다. 예를 들어, Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지, 특정 브랜드 또는 개체를 찾거나, 사람의 얼굴을 찾는지 여부를 확인할 수 있습니다.
 
-네이티브 SDK를 통해 또는 REST API를 직접 호출하여 애플리케이션에서 Computer Vision을 사용할 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+클라이언트 라이브러리 SDK를 통해 또는 REST API를 직접 호출하여 애플리케이션에서 Computer Vision을 사용할 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>디지털 자산 관리를 위한 Computer Vision
 
@@ -32,7 +32,7 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 
 ## <a name="analyze-images-for-insight"></a>인사이트를 위한 이미지 분석
 
-이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 검색하고 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API로 제공됩니다.
+이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API로 제공됩니다.
 
 | 작업 | Description |
 | ------ | ----------- |
@@ -45,12 +45,12 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 |**[이미지 유형 감지](concept-detecting-image-types.md)**|이미지가 선 그리기인지, 아니면 이미지가 클립 아트인지 여부와 같은 이미지에 대한 특성을 감지합니다.|
 |**[도메인 특정 콘텐츠 감지](concept-detecting-domain-content.md)**|도메인 모델을 사용하여 유명인 및 랜드마크와 같은 이미지의 도메인 관련 콘텐츠를 감지하고 식별합니다. 예를 들어 이미지에 사람이 포함되어있는 경우 Computer Vision은 유명인에 대한 도메인 모델을 사용하여 이미지에서 감지된 사람이 알려진 유명인과 일치하는지 확인합니다.|
 |**[색 구성표 감지](concept-detecting-color-schemes.md)**|이미지 내의 색 사용을 분석합니다. Computer Vision은 이미지가 흑백인지, 아니면 컬러인지 여부를 결정할 수 있고, 컬러 이미지의 경우 기준 컬러와 테마 컬러를 식별할 수 있습니다.|
-|**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다.  그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
-|**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다.  이미지를 자르고 썸네일을 생성하는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
+|**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다. 그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
+|**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다. 이미지를 자르고 썸네일을 생성하는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
 
 ## <a name="extract-text-from-images"></a>이미지에서 텍스트 추출
 
-Computer Vision [Read](concept-recognizing-text.md#read-api) API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재 유일하게 지원되는 언어는 영어와 스페인어입니다.
+Computer Vision [Read](concept-recognizing-text.md#read-api) API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재는 7가지 언어에 대해 작동합니다([언어 지원](./language-support.md)참조).
 
 [OCR(광학 문자 인식)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API를 사용하여 여러 언어로 인쇄된 텍스트를 추출할 수도 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
 

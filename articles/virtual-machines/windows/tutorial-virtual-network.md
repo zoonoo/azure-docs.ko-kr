@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dff2acba63eaa2caabaddb0228424744be6ded16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80f7ba4a4493299d9d1795631401689f4619d873
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101691"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014630"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -31,7 +31,7 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 
 ## <a name="vm-networking-overview"></a>VM 네트워킹 개요
 
-Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인터넷 및 다른 Azure 서비스(예: Azure SQL 데이터베이스) 간에 안전하게 연결할 수 있습니다. 가상 네트워크는 서브넷이라는 논리적 세그먼트로 구분됩니다. 서브넷은 보안 경계로서 네트워크 흐름을 제어하는 데 사용됩니다. VM을 배포할 때는 일반적으로 서브넷에 연결된 가상 네트워크 인터페이스가 포함됩니다.
+Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인터넷 및 다른 Azure 서비스(예: Azure SQL Database) 간에 안전하게 연결할 수 있습니다. 가상 네트워크는 서브넷이라는 논리적 세그먼트로 구분됩니다. 서브넷은 보안 경계로서 네트워크 흐름을 제어하는 데 사용됩니다. VM을 배포할 때는 일반적으로 서브넷에 연결된 가상 네트워크 인터페이스가 포함됩니다.
 
 이 자습서를 완료하면 다음과 같은 리소스가 만들어진 것을 볼 수 있습니다.
 

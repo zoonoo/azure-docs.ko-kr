@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678654"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300592"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>자습서: Unity 프로젝트를 처음부터 설정
 
@@ -25,13 +25,16 @@ ms.locfileid: "80678654"
 > * 렌더링 세션에 모델 로드
 > * 연결 통계 표시
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에는 다음이 필요합니다.
 
 * 계정 정보(계정 ID, 계정 키, 구독 ID). Azure 계정이 없는 경우 [계정을 만듭니다](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/) 
+* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+  * **C++를 사용한 데스크톱 개발**
+  * **UWP(유니버설 Windows 플랫폼) 개발**
 * GIT([다운로드](https://git-scm.com/downloads))
 * Unity 2019.3.1[(다운로드)](https://unity3d.com/get-unity/download)
   * 다음 모듈을 Unity에 설치합니다.
@@ -77,7 +80,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>최신 버전의 패키지가 있는지 확인
 
 다음 단계에서는 프로젝트에서 최신 버전의 원격 렌더링 패키지를 사용하는지 확인합니다.
-1. [Project] 창에서 패키지를 선택하고, 패키지 아이콘을 클릭합니다. ![패키지 아이콘 선택](media/package-icons.png)
+1. 프로젝트 창에서 패키지를 선택하고 :::no-loc text="package"::: 아이콘을 클릭합니다. ![패키지 아이콘 선택](media/package-icons.png)
 1. 검사기에서 "View in Package Manager(패키지 관리자에서 보기)"를 클릭합니다. ![패키지 검사기](media/package-properties.png)
 1. 원격 렌더링 패키지의 패키지 관리자 페이지에서 업데이트 단추를 사용할 수 있는지 여부를 확인합니다. 해당하는 경우 이 단추를 클릭하면 패키지가 사용 가능한 최신 버전으로 업데이트됩니다. ![패키지 관리자의 ARR 패키지](media/package-manager.png)
 1. 경우에 따라 패키지를 업데이트하면 콘솔에서 오류가 발생할 수 있습니다. 이 경우 프로젝트를 닫고 다시 열어 보세요.
@@ -90,11 +93,11 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
     ![카메라 변환 다시 설정](media/camera-reset-transform.png)
 
-1. **Clear flags(플래그 지우기)** 를 *Solid Color(단색)* 로 설정합니다.
+1. **:::no-loc text="Clear flags":::** 를 *:::no-loc text="Solid Color":::* 로 설정
 
-1. **Background(배경)** 를 *Black(검은색)* 으로 설정합니다.
+1. **:::no-loc text="Background":::** 를 *:::no-loc text="Black":::* 로 설정
 
-1. **Clipping Planes(클리핑 거리)** 를 *Near(근거리) = 0.3* 및 *Far(원거리) = 20*으로 설정합니다. 즉, 렌더링에서 30cm보다 더 가깝거나 20m보다 더 먼 기하 도형을 클리핑합니다.
+1. **:::no-loc text="Clipping Planes":::** 를 *Near = 0.3* 및 *Far = 20*으로 설정합니다. 즉, 렌더링에서 30cm보다 더 가깝거나 20m보다 더 먼 기하 도형을 클리핑합니다.
 
     ![Unity 카메라 속성](media/camera-properties.png)
 

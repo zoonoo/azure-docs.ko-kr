@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b0d6221aaafe3ade70bc23ce4196a7b53c9474c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421037"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169970"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -67,6 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![인증서 속성](../media/certificates/quick-create-portal/current-version-hidden.png)
 
+## <a name="export-certificate-from-key-vault"></a>Key Vault에서 인증서 내보내기
 "CER 형식으로 다운로드" 또는 "PFX/PEM 형식으로 다운로드" 단추를 클릭하면 인증서를 다운로드할 수 있습니다. 
 
 ![인증서 다운로드](../media/certificates/quick-create-portal/current-version-shown.png)

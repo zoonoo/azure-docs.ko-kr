@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780082"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996315"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -43,7 +43,7 @@ HDInsight의 [Enterprise Security Package](apache-domain-joined-architecture.md)
 
 대부분의 기업이 따르는 모범 사례는 모든 직원이 모든 엔터프라이즈 리소스에 완전히 액세스할 수 있는 것은 아닙니다. 마찬가지로 관리자는 클러스터 리소스에 대한 역할 기반 액세스 제어 정책을 정의할 수 있습니다. 이 작업은 ESP 클러스터에서만 사용할 수 있습니다.
 
-Hadoop 관리자는 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 구성에서는 Apache Range 플러그 인으로 Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) 및 [Kafka](apache-domain-joined-run-kafka.md)를 보호합니다. RBAC 정책을 구성하면 권한을 조직의 역할과 연결할 수 있습니다. 이 추상화 계층을 사용하면 사용자가 자신의 업무를 수행하는 데 필요한 권한만 더 쉽게 부여받을 수 있습니다. 또한 Ranger를 사용하면 직원의 데이터 액세스와 액세스 제어 정책에 대한 모든 변경을 감사할 수 있습니다.
+Hadoop 관리자는 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 구성에서는 Apache Ranger 플러그 인으로 Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) 및 [Kafka](apache-domain-joined-run-kafka.md)를 보호합니다. RBAC 정책을 구성하면 권한을 조직의 역할과 연결할 수 있습니다. 이 추상화 계층을 사용하면 사용자가 자신의 업무를 수행하는 데 필요한 권한만 더 쉽게 부여받을 수 있습니다. 또한 Ranger를 사용하면 직원의 데이터 액세스와 액세스 제어 정책에 대한 모든 변경을 감사할 수 있습니다.
 
 예를 들어, 관리자는 [Apache Ranger](https://ranger.apache.org/)를 구성하여 Hive에 대한 액세스 제어 정책을 설정할 수 있습니다. 이 기능은 행 수준 및 열 수준 필터링(데이터 마스킹)을 보장합니다. 그리고 권한이 없는 사용자의 중요한 데이터를 필터링합니다.
 

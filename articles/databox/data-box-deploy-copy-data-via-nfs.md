@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501829"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219119"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>자습서: NFS를 통해 Azure Data Box에 데이터 복사
 
@@ -23,11 +23,11 @@ ms.locfileid: "79501829"
 
 > [!div class="checklist"]
 >
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * Data Box에 연결
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -94,7 +94,9 @@ Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 �
   * 파일은 대/소문자를 구분하지 않습니다.
 
     예를 들어 `SampleFile.txt` 및 `Samplefile.Txt`를 복사할 경우 Data Box에 복사되는 이름의 대/소문자는 유지되지만 두 번째 파일은 동일한 파일로 인식되어 첫 번째 파일을 덮어씁니다.
-* Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
+
+> [!IMPORTANT]
+> Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 유틸리티를 사용합니다. Linux에서 사용할 수 있는 대안 중 일부는 [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 또는 [Ultracopier](https://ultracopier.first-world.info/)입니다.  
 
@@ -102,31 +104,31 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 
 다중 스레드 복사에 rsync 옵션을 사용하는 경우 다음 지침을 따르세요.
 
- - Linux 클라이언트에서 사용하는 파일 시스템에 따라 **CIFS 유틸리티** 또는 **NFS 유틸리티** 패키지를 설치합니다.
+* Linux 클라이언트에서 사용하는 파일 시스템에 따라 **CIFS 유틸리티** 또는 **NFS 유틸리티** 패키지를 설치합니다.
 
     `sudo apt-get install cifs-utils`
 
     `sudo apt-get install nfs-utils`
 
- -  **Rsync** 및 **Parallel**을 설치합니다(Linux 배포판 버전에 따라 다름).
+* **Rsync** 및 **Parallel**을 설치합니다(Linux 배포판 버전에 따라 다름).
 
     `sudo apt-get install rsync`
    
     `sudo apt-get install parallel` 
 
- - 탑재 지점을 만듭니다.
+* 탑재 지점을 만듭니다.
 
     `sudo mkdir /mnt/databox`
 
- - 볼륨을 탑재합니다.
+* 볼륨을 탑재합니다.
 
     `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
 
- - 폴더 디렉터리 구조를 미러링합니다.  
+* 폴더 디렉터리 구조를 미러링합니다.  
 
     `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
 
- - 파일을 복사합니다. 
+* 파일을 복사합니다.
 
     `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
 
@@ -140,22 +142,20 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 오류 파일을 다운로드하세요. 자세한 내용은 [Data Box로 데이터를 복사하는 동안 오류 로그 보기](data-box-logs.md#view-error-log-during-data-copy)를 참조하세요. 데이터를 복사하는 동안 발생하는 오류에 대한 자세한 목록을 보려면 [Data Box 문제 해결](data-box-troubleshoot.md)을 참조하세요.
 
 데이터 무결성을 보장하기 위해, 데이터가 복사될 때 체크섬이 인라인으로 계산됩니다. 복사가 완료되면 디바이스에서 사용 중인 공간과 여유 공간을 확인합니다.
-    
-   ![대시보드에서 여유 공간 및 사용 중인 공간 확인](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+   ![대시보드에서 여유 공간 및 사용 중인 공간 확인](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+>
+> * 필수 구성 요소
 > * Data Box에 연결
 > * Data Box에 데이터 복사
-
 
 Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 배송](./data-box-deploy-picked-up.md)
-

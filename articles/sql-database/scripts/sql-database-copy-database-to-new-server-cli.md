@@ -1,6 +1,6 @@
 ---
-title: CLI 예제 복사 Azure SQL 데이터베이스 새 서버
-description: SQL 데이터베이스를 새 서버에 복사하는 Azure CLI 예제 스크립트
+title: 'Azure CLI: Azure SQL Database의 데이터베이스를 새 서버에 복사'
+description: Azure SQL Database의 데이터베이스를 새 서버에 복사하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067471"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022695"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>CLI를 사용하여 SQL 데이터베이스를 새 서버에 복사
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>CLI를 사용하여 Azure SQL Database의 데이터베이스를 새 서버에 복사
 
 이 Azure CLI 스크립트 예제는 새 서버에 기존 데이터베이스의 복사본을 만듭니다.
 
@@ -61,4 +61,4 @@ az group delete --name $targetResource
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
+추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../../azure-sql/database/az-cli-script-samples-content-guide.md)에서 찾을 수 있습니다.

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: f0c1e9eccda8171ab816d33dac3f1947cea67eea
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c30374b21c1d95b6b710de10da08391d0af4f538
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714613"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141962"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 텍스트 및 레이아웃 정보 추출
 
@@ -22,11 +22,15 @@ ms.locfileid: "83714613"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
 - 양식 문서입니다. 이 빠른 시작에 대한 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)에서 이미지를 다운로드할 수 있습니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 로컬에 저장된 문서를 사용합니다. URL로 액세스하는 원격 파일을 사용하는 방법을 알아보려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)를 참조하세요.
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -75,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognizer-layout.py*입니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. `python form-recognizer-layout.py`)을 입력합니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예들 들어 `python form-recognizer-layout.py`입니다.
 
 **Operation-Location** 헤더가 포함된 `202 (Success)` 응답을 받게 되며, 스크립트가 콘솔에 인쇄됩니다. 이 헤더에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 작업 ID가 포함됩니다. 다음 예제 값에서 `operations/` 다음 문자열은 작업 ID입니다.
 
@@ -115,7 +119,7 @@ while n_try < n_tries:
 ```
 
 1. 스크립트를 저장합니다.
-1. `python` 명령을 다시 사용하여 샘플을 실행합니다. `python form-recognizer-layout.py`)을 입력합니다.
+1. `python` 명령을 다시 사용하여 샘플을 실행합니다. 예들 들어 `python form-recognizer-layout.py`입니다.
 
 ### <a name="examine-the-response"></a>응답 검사
 

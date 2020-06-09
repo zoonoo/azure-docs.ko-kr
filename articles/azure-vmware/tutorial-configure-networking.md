@@ -3,14 +3,14 @@ title: 자습서 - Azure에서 VMware 프라이빗 클라우드에 대한 네트
 description: Azure에서 프라이빗 클라우드를 배포하는 데 필요한 네트워킹을 만들고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6cac420fb77526746dbdbfef5a88b071c007d555
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873858"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148109"
 ---
-# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMWare 프라이빗 클라우드에 대한 네트워킹 구성
+# <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 
 AVS(Azure VMware 솔루션) 프라이빗 클라우드에는 가상 네트워크가 필요합니다. 미리 보기 중에는 AVS에서 온-프레미스 vCenter를 지원하지 않으므로 온-프레미스 환경과 통합하기 위한 추가 단계가 필요합니다. ExpressRoute 회로와 가상 네트워크 게이트웨이도 설정해야 하며 이 자습서에서 설명합니다.
 

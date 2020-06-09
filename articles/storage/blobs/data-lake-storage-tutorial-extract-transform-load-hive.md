@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74327570"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014913"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>자습서: Azure HDInsight를 사용하여 데이터 추출, 변환 및 로드
 
@@ -28,7 +28,7 @@ ms.locfileid: "74327570"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **HDInsight에 대해 구성된 Azure Data Lake Storage Gen2 스토리지 계정**
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다.
 
-   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 프라이빗 키와 일치하는 경로를 지정합니다. `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`)을 입력합니다.
+   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 프라이빗 키와 일치하는 경로를 지정합니다. 예들 들어 `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`입니다.
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. 명령 프롬프트에서 다음 명령을 입력합니다.
 
@@ -244,12 +244,12 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. 설치가 완료되면 다음 명령을 사용하여 SQL Database 서버에 연결합니다.
+6. 설치가 완료되면 다음 명령을 사용하여 SQL Database에 연결합니다.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * `<server-name>` 자리 표시자를 SQL Database 서버 이름으로 바꿉니다.
+   * `<server-name>` 자리 표시자를 논리 SQL 서버 이름으로 바꿉니다.
 
    * `<admin-login>` 자리 표시자를 SQL Database의 관리 로그인으로 바꿉니다.
 

@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732893"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300075"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "81732893"
 Cloud Shell 프롬프트에서 다음 Maven 명령을 실행하여 `helloworld`라는 새 앱을 만듭니다.
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
 ```
 그런 다음, 작업 디렉터리를 프로젝트 폴더로 변경합니다.
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Maven 플러그 인 구성
 
-Azure App Service에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio)에 대한 세부 정보를 확인합니다.
 
-```azurecli
-az login
-```
-
-그런 다음, 배포를 구성하고 명령 프롬프트에서 maven 명령을 실행하고 **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER** 키를 눌러 기본 구성을 사용한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
+배포를 구성하려면 명령 프롬프트에서 maven 명령을 실행하고 **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER**를 눌러 기본 구성을 사용한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 애플리케이션도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
 
-`pom.xml`로 다시 이동하여 업데이트된 플러그인 구성을 확인하고 필요한 경우 App Service에 대한 다른 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
+`pom.xml`을 열어 업데이트된 구성을 확인합니다.
+
+```bash
+code pom.xml
+```
+
+필요한 경우 App Service에 대한 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
  속성 | 필수 | Description | 버전
 ---|---|---|---
@@ -147,7 +149,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 > [Java를 사용하여 Azure DB for PostgreSQL에 연결](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Java 앱 구성](configure-custom-container.md)
+> [Java 앱 구성](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [Jenkins를 사용하는 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)

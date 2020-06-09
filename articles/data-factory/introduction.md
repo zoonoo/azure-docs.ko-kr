@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410937"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191115"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -83,7 +83,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 
 연결된 서비스는 데이터 팩터리 내에서 두 가지 용도로 사용됩니다.
 
-- 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 **데이터 스토리지**를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
+- SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 **데이터 저장소**를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
 
 - 활동의 실행을 호스팅할 수 있는 **컴퓨팅 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
 

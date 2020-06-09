@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77118278"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118545"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>자습서: Azure Logic Apps에서 Form Recognizer를 사용하여 청구서 분석
 
@@ -31,7 +31,7 @@ ms.locfileid: "77118278"
 > * Form Recognizer 리소스를 사용하도록 논리 앱 구성
 > * 논리 앱을 실행하여 워크플로 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -377,11 +377,10 @@ Form Recognizer 서비스를 사용하여 청구서를 분석하려면 먼저 �
       }
     ]
     ```
-    이 자습서를 성공적으로 완료했습니다!
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Form Recognizer를 사용하여 모델을 학습시키고 청구서의 콘텐츠를 추출하도록 Azure Logic Apps 워크플로를 설정했습니다. 다음으로, 사용자 고유의 양식을 사용하여 비슷한 시나리오를 만들 수 있도록 학습 데이터 세트를 빌드하는 방법을 알아봅니다.
+이 자습서에서는 Form Recognizer를 사용하여 모델을 학습하고 청구서의 콘텐츠를 추출하도록 Azure Logic Apps 워크플로를 설정했습니다. 다음으로, 사용자 고유의 양식을 사용하여 비슷한 시나리오를 만들 수 있도록 학습 데이터 세트를 빌드하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [학습 데이터 세트 빌드](build-training-data-set.md)

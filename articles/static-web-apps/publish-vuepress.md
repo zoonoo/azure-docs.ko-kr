@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: bd9eaad0c141eda815da159e3c13d6c51f5e6200
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593601"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298002"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 VuePress 사이트 게시
 
@@ -26,7 +26,7 @@ ms.locfileid: "83593601"
 > - Azure Static Web Apps 설정
 > - VuePress 앱을 Azure에 배포
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - GitHub 계정. 계정이 없는 경우 [체험 계정을 만들](https://github.com/join) 수 있습니다.
@@ -110,7 +110,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. **리소스 만들기**를 클릭합니다.
-1. **Static Web Apps** 검색
+1. **Static Web Apps**를 검색합니다.
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 
@@ -120,7 +120,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _리소스 그룹_에서 **새로 만들기**를 선택합니다. _새 리소스 그룹 이름_에서 **vuepress-static-app**을 입력하고 **확인**을 선택합니다.
 
-1. 그런 다음, **이름** 상자에 앱의 전역적으로 고유한 이름을 입력합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다. 이 값은 `https://<APP_NAME>.azurestaticapps.net` 형식의 정적 앱에 대한 URL 접두사로 사용됩니다.
+1. 그런 다음, **이름** 상자에 있는 앱 이름을 선택합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
 
 1. _지역_에 대해 가까운 사용 가능한 지역을 선택합니다.
 

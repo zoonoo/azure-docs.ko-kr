@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74183204"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266307"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -40,7 +40,7 @@ ms.locfileid: "74183204"
 > * Resource Manager의 스토리지 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

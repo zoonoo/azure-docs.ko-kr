@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836790"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171058"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Azure VM에서 변경 내용 추적 및 인벤토리 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "83836790"
 > [!NOTE]
 > 변경 내용 추적 및 인벤토리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
@@ -27,7 +27,7 @@ ms.locfileid: "83836790"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -41,15 +41,7 @@ ms.locfileid: "83836790"
 
 5. Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 VM에 대해 변경 내용 추적 및 인벤토리를 사용하도록 설정합니다. 설정을 완료하는 데 최대 15분이 걸립니다. 
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>범위 구성 확인
-
-변경 내용 추적 및 인벤토리는 작업 영역 내의 범위 구성을 사용하고 컴퓨터를 대상으로 하여 이 기능을 사용할 수 있도록 합니다. 범위 구성은 기능 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
 * 이 기능으로 하는 작업에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조하세요.
-* 범위 구성에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
-* 이 기능을 사용하여 사용자 환경에 설치된 소프트웨어를 파악하는 방법에 대한 자세한 내용은 [VM에 설치된 소프트웨어 검색](automation-tutorial-installed-software.md)을 참조하세요.
-* 기능을 사용하도록 설정할 때 Automation 계정을 Log Analytics 작업 영역에 통합하지 않으려는 경우 [Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-change-tracking.md)를 참조하세요.
-* VM에 대한 변경 내용을 배포하는 작업이 완료되면 [변경 내용 추적 및 인벤토리에서 VM 제거](automation-remove-vms-from-change-tracking.md)에 설명된 대로 제거할 수 있습니다.
 * 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.

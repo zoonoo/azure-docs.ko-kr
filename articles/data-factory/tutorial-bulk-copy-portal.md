@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418782"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249181"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -33,7 +33,7 @@ ms.locfileid: "81418782"
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure Synapse Analytics(이전의 SQL DW) 및 Azure Storage 연결된 서비스를 만듭니다.
 > * Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL DW) 데이터 세트를 만듭니다.
-> * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
+> * 복사할 테이블을 조회하는 파이프라인을 만들고 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "81418782"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure Synapse Analytics(이전의 SQL DW)** . 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **원본 Azure SQL Database 준비**:
 
-[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
+[Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
 
 **싱크 Azure Synapse Analytics(이전의 SQL DW) 준비**:
 
@@ -68,11 +68,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="azure-services-to-access-sql-server"></a>SQL 서버에 액세스하는 Azure 서비스
 
-SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. Azure SQL 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 **켜기**로 지정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics(이전의 SQL DW)에 데이터를 쓸 수 있습니다. 
+SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 **켜기**로 지정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics(이전의 SQL DW)에 데이터를 쓸 수 있습니다. 
 
-이 설정을 확인하고 설정하려면 Azure SQL 서버 > 보안 > 방화벽 및 가상 네트워크로 차례로 이동하여 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 옵션을 **켜기**로 설정합니다.
+이 설정을 확인하고 설정하려면 서버 > 보안 > 방화벽 및 가상 네트워크로 이동하여 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용**을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
 1. Azure Portal 메뉴의 왼쪽에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
@@ -114,7 +115,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 
     a. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다.
     
-    b. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
+    b. **서버 이름**에 대해 서버를 선택합니다.
     
     다. **데이터베이스 이름**에 대해 Azure SQL 데이터베이스를 선택합니다. 
     
@@ -135,7 +136,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
    
     a. **이름**에 대해 **AzureSqlDWLinkedService**를 입력합니다.
      
-    b. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
+    b. **서버 이름**에 대해 서버를 선택합니다.
      
     다. **데이터베이스 이름**에 대해 Azure SQL 데이터베이스를 선택합니다. 
      
@@ -212,7 +213,8 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
 
     ![새 파이프라인 메뉴](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. **일반** 탭에서 이름에 대해 **IterateAndCopySQLTables**를 지정합니다. 
+ 
+1. **속성** 아래의 일반 패널에서 **이름**에 대해 **IterateAndCopySQLTables**를 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **매개 변수** 탭으로 전환하고 다음 작업을 수행합니다. 
 

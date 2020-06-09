@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754317"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018398"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
 Azure SQL Database 확장을 사용하여 ARM(Azure Resource Manager) 템플릿을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다.
 
-이 자습서에서는 Azure SQL Server, SQL Database를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. ARM 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 [자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)를 참조하세요.
+이 자습서에서는 [논리 SQL 서버](../../azure-sql/database/logical-servers.md) 및 단일 데이터베이스를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. ARM 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 [자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)를 참조하세요.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
+>
 > * BACPAC 파일을 준비합니다.
 > * 빠른 시작 템플릿을 엽니다.
 > * 템플릿을 편집합니다.
@@ -29,12 +30,12 @@ Azure SQL Database 확장을 사용하여 ARM(Azure Resource Manager) 템플릿�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
 * Resource Manager Tools 확장이 있는 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
-* 보안을 강화하려면 Azure SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
+* 보안을 강화하려면 서버 관리자 계정에 대해 생성된 암호를 사용합니다. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-bacpac-file"></a>BACPAC 파일 준비
 
-BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../../sql-database/sql-database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
+BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../../azure-sql/database/database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
 
 ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다. 다음 PowerShell 스크립트는 다음 단계를 수행하여 BACPAC 파일을 준비합니다.
 
@@ -142,7 +143,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
 1. 두 개의 추가 리소스를 템플릿에 추가합니다.
 
-    * SQL Database 확장이 BACPAC 파일을 가져올 수 있도록 허용하려면 Azure 서비스의 트래픽을 허용해야 합니다. SQL 서버 정의 아래에서 다음 방화벽 규칙 정의를 추가합니다.
+    * SQL Database 확장이 BACPAC 파일을 가져올 수 있도록 허용하려면 Azure 서비스의 트래픽을 허용해야 합니다. 서버 정의 아래에서 다음 방화벽 규칙 정의를 추가합니다.
 
         ```json
         "resources": [
@@ -238,7 +239,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="verify-the-deployment"></a>배포 확인
 
-클라이언트 컴퓨터에서 SQL 서버에 액세스하려면 방화벽 규칙을 추가해야 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules)를 참조하세요.
+클라이언트 컴퓨터에서 서버에 액세스하려면 방화벽 규칙을 추가해야 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)를 참조하세요.
 
 Azure Portal에서 새로 배포된 리소스 그룹의 SQL 데이터베이스를 선택합니다. **쿼리 편집기(미리 보기)** 를 선택한 다음, 관리자 자격 증명을 입력합니다. 두 테이블을 데이터베이스로 가져온 것을 볼 수 있습니다.
 
@@ -255,7 +256,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 SQL Server 및 SQL Database를 배포하고 BACPAC 파일을 가져왔습니다. 템플릿 배포 문제를 해결하는 방법에 대한 자세한 내용은
+이 자습서에서는 서버 및 데이터베이스를 배포하고 BACPAC 파일을 가져왔습니다. 템플릿 배포 문제를 해결하는 방법에 대한 자세한 내용은
 
 > [!div class="nextstepaction"]
 > [ARM 템플릿 배포 문제 해결](./template-tutorial-troubleshoot.md)을 참조하세요.

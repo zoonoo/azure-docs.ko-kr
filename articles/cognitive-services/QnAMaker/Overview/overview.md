@@ -3,12 +3,12 @@ title: QnA Maker 서비스란?
 description: QnA Maker는 데이터를 통해 자연스러운 대화형 계층을 쉽게 만드는 클라우드 기반 NLP 서비스입니다. 사용자 지정 KB(기술 자료) 정보에서 지정된 자연어 입력에 가장 적합한 대답을 찾는 데 사용할 수 있습니다.
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873719"
+ms.locfileid: "83994870"
 ---
 # <a name="what-is-the-qna-maker-service"></a>QnA Maker 서비스란?
 
@@ -40,9 +40,9 @@ QnA Maker 기술 자료가 게시되면 클라이언트 애플리케이션에서
 
 ## <a name="what-is-a-knowledge-base"></a>기술 자료란?
 
-QnA Maker는 사용자 콘텐츠를 질문 및 대답 세트의 기술 자료로 [가져옵니다](../concepts/knowledge-base.md). 가져오기 프로세스는 정형 콘텐츠와 반정형 콘텐츠의 부분 간의 관계에 대한 정보를 추출하여 질문과 대답 세트 간의 관계를 암시합니다. 이러한 질문과 대답 세트를 편집하거나 새 세트를 추가할 수 있습니다.
+QnA Maker는 질문 및 대답 쌍의 기술 자료로 [콘텐츠를 가져옵니다](../concepts/knowledge-base.md). 가져오기 프로세스는 정형 콘텐츠와 반정형 콘텐츠의 부분 간의 관계에 대한 정보를 추출하여 질문과 대답 쌍 간의 관계를 암시합니다. 이러한 질문과 대답 쌍을 편집하거나 새 쌍을 추가할 수 있습니다.
 
-질문 및 답변 세트의 내용에는 다음이 포함됩니다.
+질문 및 답변 쌍의 콘텐츠에는 다음이 포함됩니다.
 * 모든 형식의 대체 질문
 * 검색 중에 답변 선택을 필터링하는 데 사용되는 메타데이터 태그
 * 검색 구체화를 계속하는 후속 프롬프트
@@ -53,7 +53,7 @@ QnA Maker는 사용자 콘텐츠를 질문 및 대답 세트의 기술 자료로
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>코드 없이 봇 만들기, 관리 및 게시
 
-QnA Maker 포털은 완벽한 기술 자료 작성 환경을 제공합니다. 현재 양식의 문서를 기술 자료로 가져올 수 있습니다. 이러한 문서(예: FAQ, 제품 설명서, 스프레드시트 또는 웹 페이지)는 질문 및 대답 세트로 변환됩니다. 각 세트는 추가 작업 프롬프트에 대해 분석되고 다른 세트에 연결됩니다. 최종 _markdown_ 형식은 이미지와 링크를 포함하여 다양한 표현을 지원합니다.
+QnA Maker 포털은 완벽한 기술 자료 작성 환경을 제공합니다. 현재 양식의 문서를 기술 자료로 가져올 수 있습니다. 이러한 문서(예: FAQ, 제품 설명서, 스프레드시트 또는 웹 페이지)는 질문 및 대답 쌍으로 변환됩니다. 각 쌍은 추가 작업 프롬프트에 대해 분석되고 다른 쌍에 연결됩니다. 최종 _markdown_ 형식은 이미지와 링크를 포함하여 다양한 표현을 지원합니다.
 
 기술 자료가 편집되면 아무 코드도 작성하지 않고 기술 자료를 작업 중인 [Azure Web App 봇](https://azure.microsoft.com/services/bot-service/)에 게시합니다. [Azure Portal](https://portal.azure.com)에서 봇을 테스트하거나 다운로드하여 개발을 계속합니다.
 
@@ -63,7 +63,7 @@ QnA Maker의 시스템은 계층화된 순위 지정 방법입니다. 데이터�
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker를 통해 대화 프로세스 향상
 
-QnA Maker는 기본 질문 및 대답 세트를 향상시키는 데 도움이 되는 다중 턴 프롬프트 및 활성 학습을 제공합니다.
+QnA Maker는 기본 질문 및 대답 쌍을 향상시키는 데 도움이 되는 다중 턴 프롬프트 및 활성 학습을 제공합니다.
 
 **다중 턴 프롬프트**는 질문 및 대답 쌍을 연결할 수 있는 기회를 제공합니다. 이 연결을 통해 클라이언트 애플리케이션은 최상의 대답을 제공하고, 최종 대답의 검색을 구체화하기 위한 추가 질문을 제공합니다.
 

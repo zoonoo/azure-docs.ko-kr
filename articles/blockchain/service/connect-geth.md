@@ -1,23 +1,23 @@
 ---
 title: Geth를 사용하여 Azure Blockchain Service에 연결
 description: Azure Blockchain Service 트랜잭션 노드의 Geth 인스턴스에 연결
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74455836"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994786"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>빠른 시작: Geth를 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결
 
-이 빠른 시작에서는 Geth 클라이언트를 사용하여 Azure Blockchain Service 트랜잭션 노드의 Geth 인스턴스에 연결했습니다. 연결되면 Geth JavaScript 콘솔을 사용하여 web3 JavaScript Dapp API를 호출합니다.
+이 빠른 시작에서는 Geth 클라이언트를 사용하여 Azure Blockchain Service 트랜잭션 노드의 Geth 인스턴스에 연결했습니다. 연결되면 Geth 콘솔을 사용하여 Ethereum JavaScript API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Geth](https://github.com/ethereum/go-ethereum/wiki/geth) 설치
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
@@ -39,13 +39,13 @@ Azure Portal에서 Azure Blockchain Service 트랜잭션 노드에 대한 Geth �
 ## <a name="connect-to-geth"></a>Geth에 연결
 
 1. 명령 프롬프트 또는 셸을 엽니다.
-1. Geth attach 하위 명령을 사용하여 트랜잭션 노드에서 실행 중인 Geth 인스턴스에 연결합니다. 연결 문자열을 attach 하위 명령의 인수로 붙여넣습니다. 다음은 그 예입니다.
+1. Geth attach 하위 명령을 사용하여 트랜잭션 노드에서 실행 중인 Geth 인스턴스에 연결합니다. 연결 문자열을 attach 하위 명령의 인수로 붙여넣습니다. 예를 들면 다음과 같습니다.
 
     ``` bash
     geth attach <connection string>
     ```
 
-1. 트랜잭션 노드의 Ethereum 콘솔에 연결되면 web3 JavaScript Dapp API 또는 관리 API를 호출할 수 있습니다.
+1. 트랜잭션 노드의 Ethereum 콘솔에 연결되면 Ethereum JavaScript API를 사용할 수 있습니다.
 
     예를 들어 다음 API를 사용하여 chainId를 확인합니다.
 

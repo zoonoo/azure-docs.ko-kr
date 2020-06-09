@@ -194,6 +194,30 @@
               href: wrangling-data-flow-overview.md
             - name: 지원되는 함수
               href: wrangling-data-flow-functions.md
+    - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
+      items:
+        - name: Azure Data Factory를 사용해야 하는 이유
+          href: data-migration-guidance-overview.md
+        - name: AWS S3에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-s3-azure-storage.md
+        - name: 온-프레미스 Hadoop 클러스터에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-hdfs-azure-storage.md
+        - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
+          href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: 데이터 흐름 매핑을 사용한 변환
+      items:
+        - name: 고정 너비 텍스트 파일 처리
+          href: how-to-fixed-width.md
+        - name: 오류 행 처리
+          href: how-to-data-flow-error-rows.md
+        - name: Azure SQL DB에서 CosmosDB로
+          href: how-to-sqldb-to-cosmosdb.md
+    - name: 온-프레미스에서 SSIS 마이그레이션
+      items:
+        - name: SSIS 마이그레이션 개요
+          href: scenario-ssis-migration-overview.md
+        - name: Azure SQL Managed Instance로 SSISDB 마이그레이션
+          href: scenario-ssis-migration-ssisdb-mi.md
     - name: 역할 및 권한
       href: concepts-roles-permissions.md
     - name: 이름 지정 규칙
@@ -697,32 +721,6 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Azure-SSIS IR에서 패키지 실행
           href: ssis-integration-runtime-ssis-activity-faq.md
-- name: 시나리오
-  items:
-    - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
-      items:
-        - name: Azure Data Factory를 사용해야 하는 이유
-          href: data-migration-guidance-overview.md
-        - name: AWS S3에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-s3-azure-storage.md
-        - name: 온-프레미스 Hadoop 클러스터에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-hdfs-azure-storage.md
-        - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: 데이터 흐름 매핑을 사용한 변환
-      items:
-        - name: 고정 너비 텍스트 파일 처리
-          href: how-to-fixed-width.md
-        - name: 오류 행 처리
-          href: how-to-data-flow-error-rows.md
-        - name: Azure SQL DB에서 CosmosDB로
-          href: how-to-sqldb-to-cosmosdb.md
-    - name: 온-프레미스에서 SSIS 마이그레이션
-      items:
-        - name: SSIS 마이그레이션 개요
-          href: scenario-ssis-migration-overview.md
-        - name: Azure SQL Managed Instance로 SSISDB 마이그레이션
-          href: scenario-ssis-migration-ssisdb-mi.md
 - name: 참조
   items:
     - name: 데이터 흐름 스크립트

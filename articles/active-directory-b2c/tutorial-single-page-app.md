@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 4a36019f9023490c3aac68dbe7004b053f08e5ec
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875571"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298825"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "80875571"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서의 단계를 진행하려면 다음과 같은 Azure AD B2C 리소스가 있어야 합니다.
 
@@ -51,28 +51,27 @@ ms.locfileid: "80875571"
 
 필수 조건의 일부로 완료한 두 번째 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 코드 샘플과의 통신을 사용하도록 설정하려면 애플리케이션 등록에 회신 URL(리디렉트 URI라고도 함)을 추가해야 합니다.
 
-현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
-1. **애플리케이션**을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
-1. **회신 URL** 아래에서 `http://localhost:6420`을 추가합니다.
-1. **저장**을 선택합니다.
-1. 속성 페이지에서 **애플리케이션 ID**를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록(미리 보기)** 를 선택하고, **소유한 애플리케이션** 탭을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
-1. **인증**을 선택한 후 **새 환경을 체험해 보세요**(표시된 경우)를 선택합니다.
+1. **앱 등록**을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `http://localhost:6420`을 입력한 후 **저장**을 선택합니다.
 1. **개요**를 선택합니다.
 1. 단일 페이지의 웹 애플리케이션에서 코드를 업데이트하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+
+#### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
+1. **애플리케이션(레거시)** 을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
+1. **회신 URL** 아래에서 `http://localhost:6420`을 추가합니다.
+1. **저장**을 선택합니다.
+1. 속성 페이지에서 **애플리케이션 ID**를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
 
 * * *
 
@@ -111,7 +110,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-1. 콘솔 창을 열고 샘플이 포함된 디렉터리로 변경합니다. 다음은 그 예입니다.
+1. 콘솔 창을 열고 샘플이 포함된 디렉터리로 변경합니다. 예를 들면 다음과 같습니다.
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

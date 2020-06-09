@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204888"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997131"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -40,7 +40,7 @@ CSP 파트너는 Cost Management를 사용하여:
 
 Azure Cost Management에서 사용 가능한 모든 기능은 REST API로도 사용할 수 있습니다. API를 사용하여 비용 관리 작업을 자동화할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 파트너의 경우 Azure 플랜에 있는 구독에만 Azure Cost Management를 기본적으로 사용할 수 있습니다.
 
@@ -246,7 +246,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 **PartnerEarnedCreditApplied** 속성이 _False_인 경우 관련 비용이 크레딧에 필요한 자격을 충족하지 못합니다. 또는 구매한 서비스가 파트너 획득 크레딧을 받을 자격이 없습니다.
 
-서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [사용 현황 데이터 업데이트 빈도 변동](understand-cost-mgt-data.md#usage-data-update-frequency-varies)을 참조하세요. PEC 크레딧은 Azure Cost Management에 액세스한 후 48시간 이내에 표시됩니다.
+서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧은 Azure Cost Management에 액세스한 후 48시간 이내에 표시됩니다.
 
 
 **그룹화 방법** 옵션을 사용하여 **PartnerEarnedCreditApplied** 속성을 기준으로 그룹화하고 필터링할 수도 있습니다. 이 옵션을 사용하여 PEC가 있거나 없는 비용을 검사할 수 있습니다.
@@ -375,7 +375,7 @@ GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccou
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-그런 다음, 비동기 작업 속성 값을 호출합니다. 다음은 그 예입니다.
+그런 다음, 비동기 작업 속성 값을 호출합니다. 예를 들면 다음과 같습니다.
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview

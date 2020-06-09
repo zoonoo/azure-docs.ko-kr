@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870697"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298036"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
@@ -28,7 +28,7 @@ ms.locfileid: "83870697"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - GitHub 계정. 계정이 없는 경우 [체험 계정을 만들](https://github.com/join) 수 있습니다.
@@ -109,7 +109,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _리소스 그룹_에서 **새로 만들기**를 선택합니다. _새 리소스 그룹 이름_에서 **hugo-static-app**을 입력하고 **확인**을 선택합니다.
 
-1. 그런 다음, **이름** 상자에 앱의 전역적으로 고유한 이름을 입력합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다. 이 값은 `https://<APP_NAME>....` 형식의 정적 앱에 대한 URL 접두사로 사용됩니다.
+1. 그런 다음, **이름** 상자에 있는 앱 이름을 선택합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
 
 1. _지역_에 대해 가까운 사용 가능한 지역을 선택합니다.
 
@@ -153,7 +153,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. 텍스트 편집기에서 Hugo 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
 
-1. Hugo 애플리케이션을 빌드하려면 줄 `- uses: actions/checkout@v2`(18줄)을 다음으로 바꿉니다.
+1. Hugo 애플리케이션을 빌드하려면 줄 `- uses: actions/checkout@v2`(18줄)을 다음으로 바꿉니다. Hugo Extended가 필요한 경우 `extended: true`의 주석 처리를 제거합니다.
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

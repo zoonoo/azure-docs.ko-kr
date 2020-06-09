@@ -10,30 +10,28 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743524"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996672"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 알림 허브 만들기
 
 Azure Notification Hubs는 알림을 모든 백 엔드(클라우드 또는 온-프레미스)에서 모든 플랫폼(iOS, Android, Windows, Kindle 등)으로 보낼 수 있는 사용하기 쉽고 규모가 확장된 푸시 엔진을 제공합니다. 서비스에 대한 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)을 참조하세요.
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Notification Hubs 네임스페이스 및 해당 네임스페이스 내에 "MyHub"라는 알림 허브를 만듭니다.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Notification Hubs 네임스페이스 및 해당 네임스페이스 내에 **MyHub**라는 알림 허브를 만듭니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 없음
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Notification Hubs 네임스페이스 및 허브 만들기
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>템플릿 검토
 
@@ -48,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Notification Hubs 네임스페이스 이름을 매개 변수로 사용합니다. 그런 다음, 템플릿은 해당 이름으로 네임스페이스를 만들고 해당 네임스페이스 내에 **MyHub**라는 알림 허브를 만듭니다.
 
-[![Azure에 배포](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 

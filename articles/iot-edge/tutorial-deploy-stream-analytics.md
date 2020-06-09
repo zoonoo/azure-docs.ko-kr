@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76906278"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220281"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
@@ -38,7 +38,7 @@ Azure Stream Analytics는 클라우드와 IoT Edge 디바이스 모두에서 데
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스:
 
@@ -68,7 +68,7 @@ IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들
    | ----- | ----- |
    | Subscription | IoT Hub와 동일한 구독을 선택합니다. |
    | Resource group | IoT Edge 빠른 시작 및 자습서에 대한 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
-   | 속성 | 스토리지 계정의 고유한 이름을 입력합니다. |
+   | Name | 스토리지 계정의 고유한 이름을 입력합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
 
 1. 다른 필드는 기본값으로 유지하고, **검토 + 만들기**를 선택합니다.
@@ -169,7 +169,7 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
    1. 이름에 대해 **SimulatedTemperatureSensor**를 입력합니다.
    1. 이미지 URI에 대해 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**을 입력합니다.
-   1. 다른 설정은 변경하지 않고 **저장**을 선택합니다.
+   1. 다른 설정은 변경하지 않고 **추가**를 선택합니다.
 
 1. 다음 단계에 따라 Azure Stream Analytics Edge 작업을 추가합니다.
 
@@ -187,13 +187,13 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
    기본적으로 Stream Analytics 모듈은 기반이 되는 작업과 동일한 이름을 사용합니다. 원하는 경우 이 페이지에서 모듈 이름을 변경할 수 있지만 반드시 필요한 것은 아닙니다.
 
-1. **취소** 또는 **저장**을 선택합니다.
+1. **업데이트** 또는 **취소**를 선택합니다.
 
 1. 그 다음 단계에서 필요하므로 Stream Analytics 모듈 이름을 적어 두고 **다음: 경로**를 선택하여 계속 진행합니다.
 
 1. **경로** 탭에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 메시지는 이름/값 쌍을 사용하여 생성됩니다. 기본 `route` 및 `upstream` 이름 및 값을 다음 테이블에 표시된 쌍, 다음 이름/값 쌍으로 바꿔 _{moduleName}_ 의 인스턴스를 Azure Stream Analytics 모듈 이름으로 바꿉니다.
 
-    | 속성 | 값 |
+    | Name | 값 |
     | --- | --- |
     | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
     | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |

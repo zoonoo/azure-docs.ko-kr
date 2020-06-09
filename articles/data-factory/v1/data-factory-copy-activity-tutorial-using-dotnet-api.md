@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74931730"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119286"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -34,16 +34,16 @@ ms.locfileid: "74931730"
 
 이 문서에서는 [.NET API](https://portal.azure.com)를 사용하여 Azure Blob Storage에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
-이 자습서에는 한 가지 작업 즉, 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
+이 자습서에는 다음 한 가지 작업이 포함된 파이프라인을 만듭니다. 복사 작업 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
 
 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [파이프라인의 여러 작업](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
 
 > [!NOTE] 
 > Data Factory용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요.
 > 
-> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -132,7 +132,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 3. **패키지 관리자 콘솔**에서 다음 단계를 수행합니다.
    1. 다음 명령을 실행하여 Data Factory 패키지를 설치합니다. `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Azure Active Directory 패키지를 설치하려면 다음 명령을 실행합니다(코드에서 Active Directory API를 사용함). `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이 설정은 도우미 메서드 **GetAuthorizationHeader**에서 사용됩니다.
+4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이 설정은 도우미 메서드: **GetAuthorizationHeader**에서 사용됩니다.
 
     **&lt;애플리케이션 ID&gt;** , **&lt;암호&gt;** , **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;** 의 값을 고유한 값으로 바꿉니다.
 
@@ -240,7 +240,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 9. **Azure SQL 연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
    > [!IMPORTANT]
-   > **servername**, **databasename**, **username** 및 **password**를 Azure SQL Server의 이름, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+   > **servername**, **databasename**, **username** 및 **password**를 서버, 데이터베이스, 사용자 및 암호의 이름으로 바꿉니다.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -260,7 +260,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     );
     ```
 
-    AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 {1}DSVM{2}(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.
+    AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.
 10. **입력 및 출력 데이터 세트**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
     ```csharp
@@ -341,7 +341,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
     Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure Storage 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(InputDataset)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
-    마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. {1}Azure File Storage 정보를 수동으로 입력하는 방법:{2} 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다.
+    마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure File Storage 정보를 수동으로 입력하는 방법: 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다.
 
     이 단계에서는 AzureStorageLinkedService 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 InputDataset이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다.    
 
@@ -514,7 +514,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 18. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 19. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **LinkedService_AzureStorage**
-    * 데이터 세트: **InputDataset** 및 **OutputDataset**.
+    * 데이터 세트: **InputDataset** 및 **OutputDataset**
     * 파이프라인: **PipelineBlobSample**
 20. 지정된 Azure SQL 데이터베이스의 **emp** 테이블에서 두 개의 직원 레코드가 만들어졌는지 확인합니다.
 

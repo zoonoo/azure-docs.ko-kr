@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 67674092bd27b85e3e915fe82a7cb7189ff22b02
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77118074"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141911"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -22,11 +22,15 @@ ms.locfileid: "77118074"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
 - 동일한 형식의 5개 이상 양식으로 구성된 세트. 이 데이터를 사용하여 모델을 학습합니다. 양식은 파일 형식이 다를 수 있지만 동일한 형식의 문서여야 합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 URL로 액세스하는 원격 문서를 사용합니다. 로컬 파일을 대신 사용하려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)를 참조하세요.
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -66,7 +70,7 @@ Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학�
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body =  {
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,
@@ -88,7 +92,7 @@ Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학�
     ```
 1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognizer-train.py*입니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. `python form-recognizer-train.py`)을 입력합니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예들 들어 `python form-recognizer-train.py`입니다.
 
 ## <a name="get-training-results"></a>학습 결과 가져오기
 

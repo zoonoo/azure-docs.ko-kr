@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -622,6 +622,10 @@
                   href: app/javascript.md
                 - name: JavaScript 소스 맵
                   href: app/source-map-support.md
+                - name: 문제 해결
+                  items:
+                    - name: SDK 로드 실패
+                      href: app/javascript-sdk-load-failure.md
             - name: Application Insights API 요약
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -743,6 +747,8 @@
               href: app/profiler-settings.md
             - name: 프로파일링을 위한 요청 추적
               href: app/profiler-trackrequests.md
+            - name: BYOS(Bring Your Own Storage) 구성
+              href: app/profiler-bring-your-own-storage.md
             - name: Profiler 문제 해결
               href: app/profiler-troubleshooting.md
         - name: 스냅샷 디버거
@@ -756,6 +762,8 @@
               href: app/snapshot-debugger-vm.md
             - name: 스냅샷 디버거 업그레이드
               href: app/snapshot-debugger-upgrade.md
+            - name: BYOS(Bring Your Own Storage) 구성
+              href: app/profiler-bring-your-own-storage.md
             - name: 스냅샷 디버거 문제 해결
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md
@@ -1239,7 +1247,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions

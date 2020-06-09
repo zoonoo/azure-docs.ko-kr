@@ -8,24 +8,18 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e81f584892126a1d79e0d56ecacaa8c202fa81e3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81422223"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647687"
 ---
-1. [Azure Portal](https://portal.azure.com/)로 이동하여 Azure Cosmos DB 계정을 만듭니다. 홈 페이지의 **Azure 서비스** 패널에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 
-   ![리소스 만들기](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
+1. **새로 만들기** 페이지에서 **Azure Cosmos DB**를 검색하여 선택합니다.
 
-1. **Azure Cosmos DB**를 검색하여 선택합니다.
-
-   ![Azure Portal 리소스 드롭다운](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
-
-1. **만들기**를 선택합니다.
-
-   ![Azure Cosmos DB 리소스 만들기](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+1. **Azure Cosmos DB** 페이지에서 **만들기**를 선택합니다.
 
 1. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos 계정에 대한 기본 설정을 입력합니다. 
 
@@ -33,7 +27,7 @@ ms.locfileid: "81422223"
     |---|---|---|
     |Subscription|구독 이름|이 Azure Cosmos 계정에 사용하려는 Azure 구독을 선택합니다. |
     |리소스 그룹|리소스 그룹 이름|리소스 그룹을 선택하거나 **새로 만들기**를 선택한 후, 새 리소스 그룹에 고유한 이름을 입력합니다. |
-    |계정 이름|고유한 이름|Azure Cosmos 계정을 식별하는 이름을 입력합니다. URI를 만들기 위해 제공하는 이름에 *documents.azure.com*이 추가되므로 고유한 이름을 사용합니다.<br><br>이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~31자여야 합니다.|
+    |계정 이름|고유한 이름|Azure Cosmos 계정을 식별하는 이름을 입력합니다. URI를 만들기 위해 제공하는 이름에 *documents.azure.com*이 추가되므로 고유한 이름을 사용합니다.<br><br>이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 길이는 3~44자여야 합니다.|
     |API|만들 계정 형식|**Core(SQL)** 를 선택하여 문서 데이터베이스를 만들고 SQL 구문을 사용하여 쿼리합니다. <br><br>API는 만들 계정의 형식을 결정합니다. Azure Cosmos DB는 문서 데이터용 Core(SQL) 및 MongoDB, 그래프 데이터용 Gremlin, Azure Table 및 Cassandra, 이렇게 5가지 API를 제공합니다. 현재 각 API에 대한 별도의 계정을 만들어야 합니다. <br><br>[SQL API에 대한 자세한 정보](../articles/cosmos-db/documentdb-introduction.md)|
     |체험 계층 할인 적용|적용 또는 적용 안 함|Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정에 무료로 제공됩니다. [체험 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)에 대해 자세히 알아보세요.|
     |위치|사용자와 가장 가까운 지역|Azure Cosmos DB 계정을 호스트할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.|

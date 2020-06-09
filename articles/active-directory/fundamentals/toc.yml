@@ -11,6 +11,8 @@
       href: whats-new.md
     - name: Microsoft 365 Government의 새로운 기능
       href: whats-new-microsoft-365-government.md
+    - name: Azure AD의 새로운 기능 보관
+      href: whats-new-archive.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -51,6 +53,8 @@
       items:
         - name: '배포 30, 90 이상'
           href: active-directory-deployment-checklist-p2.md
+        - name: Azure Active Directory 배포 계획
+          href: active-directory-deployment-plans.md
     - name: 데이터 스토리지
       items:
         - name: 유럽에 대한 ID 데이터 스토리지
@@ -100,6 +104,8 @@
           href: active-directory-groups-settings-azure-portal.md
         - name: 그룹 소유자 추가 또는 제거
           href: active-directory-accessmanagement-managing-group-owners.md
+        - name: 그룹을 사용하여 리소스에 대한 액세스 관리
+          href: active-directory-manage-groups.md
     - name: 사용자
       items:
         - name: 새 사용자 추가 또는 삭제
@@ -114,14 +120,10 @@
           href: license-users-groups.md
         - name: 삭제한 사용자 복원
           href: active-directory-users-restore.md
-- name: 리소스
+- name: 문제 해결
   expanded: true
   items:
     - name: Azure Active Directory에 대한 지원 받기
       href: active-directory-troubleshooting-support-howto.md
     - name: Azure Active Directory FAQ
       href: active-directory-faq.md
-    - name: Azure Active Directory 배포 계획
-      href: active-directory-deployment-plans.md
-    - name: Azure AD의 새로운 기능 보관
-      href: whats-new-archive.md

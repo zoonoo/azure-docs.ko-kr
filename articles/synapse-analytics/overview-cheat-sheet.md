@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 660e77e130d5546d29730680c5863e25c052e5d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652647"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234839"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Azure Synapse Analytics 참고 자료
 
@@ -27,14 +27,14 @@ Azure Synapse Analytics 참고 자료는 서비스의 기본 개념과 중요한
 > [!div class="mx-imgBorder"]
 >![Synapse 아키텍처](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
 
-## <a name="concepts"></a>개념
-| 명사 및 동사                         | 수행하는 작업       |
+## <a name="terminology"></a>용어
+| 용어                         | 정의      |
 |:---                                 |:---                 |
 | **Synapse 작업 영역(미리 보기)** | Azure에서 클라우드 기반 엔터프라이즈 분석을 수행할 수 있는 안전한 협업 경계입니다. 작업 영역은 특정 지역에 배포되며 임시 데이터를 저장하기 위한 ADLS Gen2 계정 및 파일 시스템과 연결됩니다. 작업 영역은 리소스 그룹에 있습니다. |
 | **Synapse SQL**   | 풀 또는 주문형 기능을 사용하여 분석을 실행합니다.  |
 | **SQL 풀**   | 해당 데이터베이스가 포함된 0-N개의 SQL 프로비저닝 리소스를 작업 영역에 배포할 수 있습니다. 각 SQL 풀에는 데이터베이스가 연결됩니다. SQL 풀은 수동 또는 자동으로 크기를 조정하고, 일시 중지하고, 다시 시작할 수 있습니다. SQL 풀은 DWU를 100개부터 30,000개까지 확장할 수 있습니다.       |
 | **SQL 주문형(미리 보기)**   | 데이터 레이크의 데이터에 대한 T-SQL 쿼리를 실행할 수 있도록 대규모 데이터용으로 개발된 분산 데이터 처리 시스템입니다. 서버리스이므로 인프라를 관리할 필요가 없습니다.       |
-|**Apache Spark** | Spark 풀에서 사용되는 Spark 런타임입니다. 지원되는 현재 버전은 Python 3.6.1, Scala 2.11.12, Apache Spark 0.5에 대한 .NET 지원, Delta Lake 0.3이 포함된 Spark 2.4입니다.  | 
+|**Synapse용 Apache Spark** | Spark 풀에서 사용되는 Spark 런타임입니다. 지원되는 현재 버전은 Python 3.6.1, Scala 2.11.12, Apache Spark 0.5에 대한 .NET 지원, Delta Lake 0.3이 포함된 Spark 2.4입니다.  | 
 | **Apache Spark 풀(미리 보기)**  | 해당 데이터베이스가 포함된 0-N개의 Spark 프로비저닝 리소스를 작업 영역에 배포할 수 있습니다. Spark 풀은 자동으로 일시 중지하고, 다시 시작하고, 크기를 조정할 수 있습니다.  |
 | **Spark 애플리케이션**  |   드라이버 프로세스와 실행기 프로세스 세트로 구성됩니다. Spark 애플리케이션은 Spark 풀에서 실행됩니다.            |
 | **Spark 세션**  |   Spark 애플리케이션의 통합 진입점입니다. 더 적은 구문으로 Spark의 다양한 기능과 상호 작용할 수 있습니다. Notebook을 실행하려면 세션을 만들어야 합니다. 특정 크기, 특정 개수의 실행자에서 실행되도록 세션을 구성할 수 있습니다. Notebook 세션의 기본 구성은 중간 크기 실행기 2개에서 실행하는 것입니다. |

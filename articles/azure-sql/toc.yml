@@ -96,7 +96,7 @@
                   href: database/long-term-retention-overview.md
         - name: 모니터링 및 튜닝
           items:
-            - name: 문서화
+            - name: 설명서
               href: database/monitoring-tuning-index.yml
             - name: 개요
               href: database/monitor-tune-overview.md
@@ -200,7 +200,7 @@
                   href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
 - name: SQL Database(SQL DB)
   items:
-    - name: 문서화
+    - name: 설명서
       href: database/index.yml
     - name: 개요
       items:
@@ -447,7 +447,7 @@
             - name: 연결 문제에 대해 Resource Health 사용
               href: database/resource-health-to-troubleshoot-connectivity.md
             - name: vCore로 DTU 마이그레이션
-              href: database/resource-health-to-troubleshoot-connectivity.md
+              href: database/migrate-dtu-to-vcore.md
             - name: 데이터베이스 리소스 크기 조정
               href: database/single-database-scale.md
             - name: 풀 리소스 크기 조정
@@ -648,7 +648,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Managed Instance(SQL MI)
   items:
-    - name: 문서화
+    - name: 설명서
       href: managed-instance/index.yml
     - name: 개요
       items:
@@ -872,7 +872,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM의 SQL Server
   items:
-    - name: 문서화
+    - name: 설명서
       href: virtual-machines/index.yml
     - name: Windows
       items:
@@ -977,7 +977,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: 수동으로 구성
                       items:
-                        - name: 사전 요구 사항
+                        - name: 필수 구성 요소
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: 자습서
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

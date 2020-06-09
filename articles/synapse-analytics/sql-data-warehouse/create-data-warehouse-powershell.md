@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
-description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀 논리 서버를 신속하게 만듭니다.
+description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀을 신속하게 만듭니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90c976da7316652b1d700a4deda7ba6e42894c78
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631336"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015763"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
 Azure PowerShell을 사용하여 Azure Synapse Analytics에서 Synapse SQL 풀(데이터 웨어하우스)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -59,7 +59,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (don't capitalize)
+# The server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
 # Set an admin name and password for your database
 # The sign-in information for the server
@@ -74,15 +74,15 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 컨테이너입니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 
-## <a name="create-a-logical-server"></a>논리 서버 만들기
+## <a name="create-a-server"></a>서버 만들기
 
-[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure SQL 논리 서버](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
+[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [논리 SQL 서버](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 만듭니다. 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -91,9 +91,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
+## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다.
+[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다.
 
 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
@@ -104,7 +104,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL 엔드포인트는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL 서버에 연결할 수 없습니다.
+> SQL 엔드포인트는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 >
 
 ## <a name="create-a-sql-pool"></a>SQL 풀 만들기

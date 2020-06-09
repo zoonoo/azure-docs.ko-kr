@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844525"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995652"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -57,7 +57,7 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 
 지원되지 않는 제품은 다음과 같습니다.
 
-| Category  | **제품 이름** | **할당량 ID** | **제품 번호** |
+| 범주  | **제품 이름** | **할당량 ID** | **제품 번호** |
 | --- | --- | --- | --- |
 | **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
@@ -75,7 +75,12 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 | **지원 플랜** | Azure Government Pro-Direct 지원 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **지원 플랜** | Azure Government 개발자 지원  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>제품 유형 결정
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>평가판을 종량제로 업그레이드
+
+평가판에서 종량제 가격으로 업그레이드한 후 체험 계층 서비스의 가용성에 대한 자세한 내용은 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요.
+
+### <a name="determine-your-offer-type"></a>제품 유형 결정
+
 구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 선택합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
 
 ![제품 및 제품 ID가 표시된 구독 개요 탭의 예](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 - 리소스 태그는 리소스 그룹에 배포된 리소스에 대해서만 지원됩니다.
 - 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다. [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
 - 태그를 적용하는 동안에는 사용량 데이터에만 리소스 태그가 포함됩니다. 태그는 기록 데이터에 적용되지 않습니다.
-- 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다. [사용량 데이터 업데이트 빈도 변동](#usage-data-update-frequency-varies)을 참조하세요.
+- 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다. [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
 - 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우(예제: VM이 할당 취소되지 않은 경우)에만 Cost Management에서 사용할 수 있습니다.
 - 태그를 관리하려면 각 리소스에 대한 기여자 액세스 권한이 필요합니다.
 - 태그 정책을 관리하려면 소유자 또는 정책 기여자에게 관리 그룹, 구독 또는 리소스 그룹에 대한 액세스 권한이 있어야 합니다.
@@ -114,7 +119,7 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 고려하세요.
 
 - 태그가 리소스에 직접 적용되었습니까?
-- 태그가 24시간 전에 적용되었습니까? [사용량 데이터 업데이트 빈도 변동](#usage-data-update-frequency-varies)을 참조하세요.
+- 태그가 24시간 전에 적용되었습니까? [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
 - 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
     - Azure Active Directory B2C 디렉터리
     - Azure Firewall
@@ -134,24 +139,22 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 - 태그 API를 Query 또는 UsageDetails와 함께 사용하여 현재 태그를 기준으로 모든 비용을 가져옵니다.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>평가판을 종량제로 업그레이드
+## <a name="cost-and-usage-data-updates-and-retention"></a>비용, 사용량 데이터 업데이트 및 보존
 
-평가판에서 종량제 가격으로 업그레이드한 후 체험 계층 서비스의 가용성에 대한 자세한 내용은 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요.
+비용 및 사용량 데이터는 일반적으로 Azure Portal의 비용 관리 + 청구와 [지원 API](../index.yml)에서 8-24시간 내에 사용할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
 
-## <a name="rated-usage-data-refresh-schedule"></a>평가된 사용량 데이터 새로 고침 일정
-
-비용 및 사용량 데이터는 Azure Portal의 비용 관리 + 청구와 [지원 API](../index.yml)에서 확인할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
-
+- 각 Azure 서비스(예: 스토리지, 컴퓨팅 및 SQL)는 다른 간격으로 사용량을 내보냅니다. 일부 서비스에 대한 데이터는 다른 서비스보다 빨리 볼 수 있습니다.
 - 현재 청구 기간의 예상 요금은 하루에 6번 업데이트됩니다.
 - 현재 청구 기간의 예상 요금은 사용량이 증가함에 따라 변경될 수 있습니다.
 - 각 업데이트는 누적되며, 이전 업데이트의 모든 라인 항목 및 정보를 포함합니다.
-- Azure는 청구 기간이 종료된 후 최대 72시간(3일) 이내에 현재 청구 기간을 ‘마감’합니다. 
+- Azure는 청구 기간이 종료된 후 최대 72시간(3일) 이내에 현재 청구 기간을 ‘마감’합니다.
 
-다음 예제에서는 청구 기간이 종료될 수 있는 방식을 보여 줍니다.
+다음 예제에서는 청구 기간이 종료되는 방식을 보여줍니다.
 
-EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트됩니다. 이 예제에서는 4월 4일 자정(UTC)까지입니다.
+* EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트됩니다. 이 예제에서는 4월 4일 자정(UTC)까지입니다.
+* 종량제 구독 - 청구 월이 5월 15일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트될 수 있습니다. 이 예제에서는 5월 19일 자정(UTC)까지입니다.
 
-종량제 구독 - 청구 월이 5월 15일에 종료되는 경우 예상 요금이 최대 72시간 후에 업데이트될 수 있습니다. 이 예제에서는 5월 19일 자정(UTC)까지입니다.
+Cost Management + 청구에서 비용 및 사용량 데이터를 사용할 수 있게 되면 최소 7년 동안 보존됩니다.
 
 ### <a name="rerated-data"></a>데이터 재평가
 
@@ -159,23 +162,13 @@ EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상
 
 ## <a name="cost-rounding"></a>비용 반올림
 
-Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 다음은 그 예입니다.
+Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 예를 들면 다음과 같습니다.
 
 - Azure Portal의 비용 분석 - 요금은 표준 반올림 규칙을 사용하여 반올림됩니다. 즉 0.5보다 큰 값은 반올림되고, 그렇지 않으면 비용이 반올림됩니다. 값이 표시되는 경우에만 반올림이 수행됩니다. 데이터 처리 및 집계 중에는 반올림이 수행되지 않습니다. 예를 들어 비용 분석에서 집계하는 비용은 다음과 같습니다.
   -    요금 1: $0.004
   - 요금 2: $0.004
   -    집계 요금이 렌더링됩니다. 0.004 + 0.004 = 0.008. 표시되는 요금은 $0.01입니다.
 - 쿼리 API - 요금은 소수점 이하 8자리까지 표시되며 반올림되지 않습니다.
-
-
-## <a name="usage-data-update-frequency-varies"></a>사용량 데이터 업데이트 빈도 변동
-
-Cost Management에서 발생한 사용량 데이터의 사용 가능 여부는 다음과 같은 몇 가지 요인에 따라 달라집니다.
-
-- Azure 서비스(예: 스토리지, 컴퓨팅, CDN 및 SQL)에서 사용량을 내보내는 빈도
-- 평가 엔진 및 비용 관리 파이프라인을 통해 사용량 데이터를 처리하는 데 걸리는 시간
-
-일부 서비스는 다른 서비스보다 더 빈번하게 사용량을 내보냅니다. 따라서 일부 서비스에 대한 데이터는 데이터를 내보내는 빈도가 더 낮은 다른 서비스보다 먼저 Cost Management에 표시될 수 있습니다. 일반적으로 서비스 사용량이 Cost Management에 표시되기까지 8-24시간이 걸립니다. 업데이트는 누적되므로 사용량이 증가함에 따라 진행 중인 월의 데이터가 새로 고쳐집니다.
 
 ## <a name="historical-data-might-not-match-invoice"></a>기록 데이터가 청구서와 일치하지 않을 수 있음
 

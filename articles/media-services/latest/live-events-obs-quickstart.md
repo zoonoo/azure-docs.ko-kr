@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 04/16/2020
-ms.openlocfilehash: 74aa17fb17d682449bd817945c3b8bbf3f95363e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727690"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147820"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>OBS를 사용하여 Azure Media Services 라이브 스트림 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "81727690"
 - 기본 스트리밍 엔드포인트 실행
 - Azure Media Player를 사용하여 라이브 스트림 및 주문형 출력 보기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -147,7 +147,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
    ![OBS 출력 설정](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. 나머지 설정은 그대로 두고 **확인**을 클릭합니다.
+1. 나머지 설정은 변경하지 않은 상태로 두고 **확인**을 클릭합니다.
 
 ### <a name="start-streaming"></a>스트리밍 시작
 

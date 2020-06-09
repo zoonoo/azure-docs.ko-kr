@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 282222aad68df94ea9eff4151d31eb5e488bca81
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770825"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116968"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
 Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Synapse SQL 풀을 신속하게 만들고 쿼리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Syna
 
 ## <a name="create-a-sql-pool"></a>SQL 풀 만들기
 
-데이터 웨어하우스는 Azure Synapse Analytics에서 SQL 풀을 사용하여 생성됩니다. SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [Azure SQL 논리 서버](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 생성됩니다.
+데이터 웨어하우스는 Azure Synapse Analytics에서 SQL 풀을 사용하여 생성됩니다. SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [논리 SQL 서버](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 생성됩니다.
 
 다음 단계에 따라 **AdventureWorksDW** 샘플 데이터가 포함된 SQL 풀을 만듭니다.
 
@@ -64,7 +64,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Syna
 
    ![데이터 웨어하우스 성능 수준 변경](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   성능 수준에 대한 자세한 내용은 [Azure SQL Data Warehouse에서 컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
+   성능 수준에 대한 자세한 내용은 [Azure Synapse Analytics에서 컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 
 5. AdventureWorksDW가 샘플 데이터베이스로 생성되도록 **기존 데이터 사용**에서 **추가 설정**을 선택하고 **샘플**을 선택합니다.
 
@@ -76,16 +76,16 @@ Azure Portal을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서Syna
 
    ![만들기 선택](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
+7. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
 
    ![알림](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-Azure Synapse 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽은 외부 애플리케이션 및 도구가 서버나 서버의 데이터베이스에 연결하지 못하도록 차단합니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
+Azure Synapse 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽은 외부 애플리케이션 및 도구가 서버나 서버의 데이터베이스에 연결하지 못하도록 차단합니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
 
 > [!NOTE]
-> Azure Synapse는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
+> Azure Synapse는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 
 1. 배포가 완료되면 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. **데이터베이스**를 선택하고 **Azure Synapse Analytics** 옆에 있는 별표를 선택하여 Azure Synapse Analytics를 즐겨찾기에 추가합니다.
 
@@ -99,24 +99,24 @@ Azure Synapse 서비스는 서버 수준에서 방화벽을 만듭니다. 방화
 
    ![서버 설정](./media/create-data-warehouse-portal/server-settings.png)
 
-5. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다.
+5. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
    ![서버 방화벽 규칙](./media/create-data-warehouse-portal/server-firewall-rule.png)
 
 6. 현재 IP 주소를 새 방화벽 규칙에 추가하려면 도구 모음에서 **클라이언트 IP 추가**를 선택합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-7. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+7. **저장**을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 8. **확인**을 선택한 다음, **방화벽 설정** 페이지를 닫습니다.
 
-이제 이 IP 주소를 사용하여 SQL 서버 및 해당 SQL 풀에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.
+이제 이 IP 주소를 사용하여 서버 및 해당 SQL 풀에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.
 
 > [!IMPORTANT]
 > SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **꺼짐**을 선택한 다음 **저장**을 선택하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
 
 ## <a name="get-the-fully-qualified-server-name"></a>정규화된 서버 이름 확인
 
-Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
+Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -128,7 +128,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
@@ -196,7 +196,7 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
 3. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 SQL 풀을 제거하려면 **삭제**를 선택합니다.
 
-4. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **sqlpoolservername.database.windows.net**을 선택한 다음, **삭제**를 선택합니다. 서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
+4. 만든 서버를 제거하려면 이전 이미지에 있는 **sqlpoolservername.database.windows.net**을 선택한 다음, **삭제**를 선택합니다. 서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
 
 5. 리소스 그룹을 제거하려면 **myResourceGroup**을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 

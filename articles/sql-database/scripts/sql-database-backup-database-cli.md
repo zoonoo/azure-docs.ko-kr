@@ -1,5 +1,5 @@
 ---
-title: CLI 예제 백업 - Azure SQL 데이터베이스
+title: 'Azure CLI: Azure SQL Database에서 데이터베이스 백업'
 description: Azure SQL 단일 데이터베이스를 Azure 스토리지 컨테이너에 백업하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 68af42bd83565243dad5d48f227fa5cef3115cf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061874"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022712"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>CLI를 사용하여 Azure SQL 단일 데이터베이스를 Azure 스토리지 컨테이너에 백업
 
-이 Azure CLI 예제는 Azure SQL 데이터베이스를 Azure 스토리지 컨테이너에 백업합니다.  
+이 Azure CLI 예제는 SQL Database의 데이터베이스를 Azure 스토리지 컨테이너에 백업합니다.  
 
 CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -60,4 +60,4 @@ az group delete --name $resource
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
+추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../../azure-sql/database/az-cli-script-samples-content-guide.md)에서 찾을 수 있습니다.

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501868"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219155"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "79501868"
 >
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -50,7 +50,8 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
 
 * 데이터 복사 서비스가 데이터를 읽는 동안 데이터가 변동되는 경우 오류 또는 데이터 손상이 표시될 수 있습니다.
 
-* Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
+> [!IMPORTANT]
+> Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다.
 
@@ -63,7 +64,7 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
     
     |필드                          |값    |
     |-------------------------------|---------|
-    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. 다음 문자는 작업 이름에 허용되지 않습니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\.         |
+    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\. 문자는 작업 이름에 사용할 수 없습니다.         |
     |**원본 위치**                |`\\<ServerIPAddress>\<ShareName>` 또는 `\\<ServerName>\<ShareName>` 형식으로 데이터 소스에 대한 SMB 경로를 를 제공합니다.        |
     |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다. 로컬 관리자가 연결하는 경우 명시적 보안 권한이 필요합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **보안**을 선택합니다. 이렇게 하면 **보안** 탭에 로컬 관리자가 추가됩니다.       |
     |**암호**                       |데이터 원본에 액세스하기 위한 암호입니다.           |
@@ -150,4 +151,3 @@ Data Box 디바이스를 Microsoft로 다시 배송하는 방법을 알아보려
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 디바이스 배송](./data-box-deploy-picked-up.md)
-

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 556cce9e18c812759ccb6c4b8ee2c91c4cef2b5a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b4c44f0097b2896a063f3f3922760860e1d4a22
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658887"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118306"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -42,7 +42,7 @@ Synapse SQL의 소비 모델을 사용하면 다양한 데이터베이스 개체
 | **[테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | 예 | 예 |
 | **[테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | 예 | 예 |
 | **[통계](develop-tables-statistics.md)**            | 예 | 예 |
-| **[리소스 클래스 및 동시성](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | 예    | 예 |
+| **[작업 관리, 리소스 클래스 및 동시성 제어](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | 예    | 예 |
 
 ## <a name="query-language"></a>쿼리 언어
 
@@ -50,7 +50,7 @@ Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되�
 
 |   | 프로비전됨 | 서버를 사용하지 않음 |
 | --- | --- | --- |
-| **SELECT 문** | 예. Transact-SQL 쿼리 절인 [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)는 지원되지 않습니다. | 예. Transact-SQL 쿼리 절인 [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 및 쿼리 힌트는 지원되지 않습니다. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) 및[PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)는 임시 테이블(외부 데이터 아님)의 데이터를 쿼리하는 데만 사용할 수 있습니다. |
+| **SELECT 문** | 예. Transact-SQL 쿼리 절인 [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)는 지원되지 않습니다. | 예. Transact-SQL 쿼리 절인 [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 및 쿼리 힌트는 지원되지 않습니다. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) 및 [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 시스템 개체(외부 데이터 아님)를 쿼리할 수 있습니다. |
 | **INSERT 문** | 예 | 예 |
 | **UPDATE 문** | 예 | 예 |
 | **DELETE 문** | 예 | 예 |
@@ -77,20 +77,31 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 | --- | --- | --- |
 | **로그인** | 해당 없음(포함된 사용자만 데이터베이스에서 지원됨) | 예 |
 | **사용자** |  해당 없음(포함된 사용자만 데이터베이스에서 지원됨) | 예 |
-| **[포함된 사용자](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | 예. **참고:** AAD 사용자 한 명만 무제한 관리자가 될 수 있음 | 예 |
-| **AAD(Azure Active Directory) 인증**| 예, AAD 사용자 | 예, AAD 로그인 및 사용자 |
-| **스토리지 AAD 통과 인증** | 예 | 예 |
+| **[포함된 사용자](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | 예. **참고:** Azure AD 사용자 한 명만 무제한 관리자가 될 수 있음 | 예 |
+| **SQL 사용자 이름/암호 인증**| 예 | 예 |
+| **AAD(Azure Active Directory) 인증**| 예, Azure AD 사용자 | 예, Azure AD 로그인 및 사용자 |
+| **스토리지 AAD(Azure Active Directory) 통과 인증** | 예 | 예 |
 | **스토리지 SAS 토큰 인증** | 예 | 예, 인스턴스 수준 [자격 증명](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 또는 [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용합니다. |
 | **스토리지 액세스 키 인증** | 예, [외부 데이터 원본](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에서 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용합니다. | 예 |
-| **스토리지 관리 ID 인증** | 예, [관리되는 서비스 ID 자격 증명](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용합니다. | 예, `Managed Identity` 자격 증명을 사용합니다. |
+| **스토리지 [관리 ID](../security/synapse-workspace-managed-identity.md) 인증** | 예, [관리되는 서비스 ID 자격 증명](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용합니다. | 예, `Managed Identity` 자격 증명을 사용합니다. |
 | **스토리지 애플리케이션 ID 인증** | [예](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | 예 |
 | **권한 - 개체 수준** | 예, 사용자 권한을 부여, 거부 및 해지하는 기능을 포함합니다. | 예, 지원되는 시스템 개체의 사용자/로그인 권한을 부여, 거부 및 해지하는 기능을 포함합니다. |
 | **권한 - 스키마 수준** | 예, 스키마의 사용자/로그인 권한을 부여, 거부 및 해지하는 기능을 포함합니다. | 예, 스키마의 사용자/로그인 권한을 부여, 거부 및 해지하는 기능을 포함합니다. |
 | **권한 - [데이터베이스 수준](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | 예 | 예 |
 | **권한 - [서버 수준](/sql/relational-databases/security/authentication-access/server-level-roles)** | 예 | 예, sysadmin 및 기타 서버 역할이 지원됩니다. |
+| **권한 - [열 수준 보안](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | 예 | 예 |
 | **역할/그룹** | 예(데이터베이스 범위) | 예(서버 및 데이터베이스 범위 모두) |
 | **보안 &amp; ID 함수** | 몇 가지 Transact-SQL 보안 함수 및 연산자: `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | 몇 가지 Transact-SQL 보안 함수 및 연산자: `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS` 및 `REVERT`. 보안 함수는 외부 데이터를 쿼리하는 데 사용할 수 없습니다(쿼리에 사용할 수 있는 변수에 결과를 저장).  |
 | **DATABASE SCOPED CREDENTIAL** | 예 | 예 |
+| **SERVER SCOPED CREDENTIAL** | 예 | 예 |
+| **행 수준 보안** | [예](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | 예 |
+| **TDE(투명한 데이터 암호화)** | [예](/azure/sql-database/transparent-data-encryption-azure-sql?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=azure-portal) | 예 | 
+| **데이터 검색 및 분류** | [예](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예 |
+| **취약성 평가** | [예](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예 |
+| **Advanced Threat Protection** | [예](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+| **감사** | [예](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예 |
+| **[방화벽 규칙](../security/synapse-workspace-ip-firewall.md)**| 예 | 예 |
+| **[프라이빗 엔드포인트](../security/synapse-workspace-managed-private-endpoints.md)**| 예 | 예 |
 
 SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이터를 쿼리합니다. 자세한 차이점은 [Transact-SQL 언어 참조](/sql/t-sql/language-reference)에서 참조하세요.
 
@@ -120,6 +131,7 @@ SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이�
 | **내부 스토리지** | 예 | 예 |
 | **Azure Data Lake v2** | 예 | 예 |
 | **Azure Blob Storage** | 예 | 예 |
+| **Azure CosmosDB 분석 스토리지** | 예 | 예, [Synapse 링크](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 사용([제어된 미리 보기](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)에서) |
 
 ## <a name="data-formats"></a>데이터 형식
 
@@ -133,6 +145,7 @@ SQL 풀 및 주문형 SQL은 표준 Transact-SQL 언어를 사용하여 데이�
 | **Hive ORC** | [예](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | 예 |
 | **Hive RC** | [예](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | 예 |
 | **JSON** | 예 | [예](query-json-files.md) |
+| **Avro** | 예 | 예 |
 | **[Delta-lake](https://delta.io/)** | 예 | 예 |
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | 예 | 예 |
 

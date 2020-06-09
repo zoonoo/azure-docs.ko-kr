@@ -7,23 +7,23 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637254"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021707"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
-프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 프라이빗 엔드포인트가 있는 SQL Database Server인 Azure Virtual Network에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
+프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 프라이빗 엔드포인트가 있는 논리 SQL 서버인 Azure Virtual Network에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database에 안전하게 액세스할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 Private Link 리소스(이 예제에서는 Azure의 SQL 서버)에 액세스하는 데 사용되는 VM을 호스트하는 가상 네트워크와 서브넷을 만듭니다.
@@ -93,8 +93,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
-## <a name="create-a-sql-database-server"></a>SQL 데이터베이스 서버 만들기
-이 섹션에서는 Azure에서 SQL 데이터베이스 서버를 만듭니다. 
+## <a name="create-a-logical-sql-server"></a>논리 SQL 서버 만들기
+
+이 섹션에서는 Azure에서 논리 SQL 서버를 만듭니다. 
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **SQL 데이터베이스**를 선택합니다.
 
@@ -137,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
-    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | Name | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**WestCentralUS**를 선택합니다.|
     |||
 5. 완료되면 **다음: 리소스**를 선택합니다.
@@ -193,7 +194,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>VM에서 비공개로 SQL 데이터베이스 서버에 액세스
+## <a name="access-sql-database-privately-from-the-vm"></a>VM에서 비공개로 SQL Database에 액세스
 
 1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
@@ -233,4 +234,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 가상 네트워크, SQL 데이터베이스 서버 및 프라이빗 액세스를 위한 프라이빗 엔드포인트에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 프라이빗 링크를 사용하여 SQL 데이터베이스 서버에 안전하게 전달했습니다. 프라이빗 엔드포인트에 대해 자세히 알아보려면 [Azure 프라이빗 엔드포인트란?](private-endpoint-overview.md)을 참조하세요.
+이 빠른 시작에서는 가상 네트워크, 논리 SQL 서버 및 프라이빗 액세스를 위한 프라이빗 엔드포인트에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 Private Link를 사용하여 SQL Database와 안전하게 통신했습니다. 프라이빗 엔드포인트에 대해 자세히 알아보려면 [Azure 프라이빗 엔드포인트란?](private-endpoint-overview.md)을 참조하세요.

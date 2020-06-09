@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 0f73095f72d07989cdfa309454a2b54efa8e5f95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418765"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118196"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -46,7 +46,7 @@ ms.locfileid: "81418765"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 **원본 Azure SQL Database 준비**:
 
-[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 SQL 데이터 웨어하우스로 복사합니다.
+[Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 SQL 데이터 웨어하우스로 복사합니다.
 
 **싱크 Azure SQL Data Warehouse 준비**
 
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="azure-services-to-access-sql-server"></a>SQL 서버에 액세스하는 Azure 서비스
 
-SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL 서버에 액세스할 수 있도록 허용합니다. Azure SQL 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **켜기**로 지정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database의 데이터를 읽고 Azure SQL Data Warehouse에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
+SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **켜기**로 지정되었는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database의 데이터를 읽고 Azure SQL Data Warehouse에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
 1. 왼쪽에서 **모든 서비스**를 클릭하고 **SQL 서버**를 클릭합니다.
 2. 서버를 선택하고 **설정** 아래의 **방화벽**을 클릭합니다.

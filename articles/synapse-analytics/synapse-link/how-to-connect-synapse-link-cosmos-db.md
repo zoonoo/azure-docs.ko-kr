@@ -9,20 +9,23 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6bdc2eca3bdf02814ee851ff266e04bb57f7978c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 32087b1b2340508f7f868455e2db476046eaa4b5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658832"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235265"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link(미리 보기)에 연결
 
 이 문서에서는 Azure Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Cosmos DB 데이터베이스에 액세스하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Cosmos DB 데이터베이스를 작업 영역에 연결하기 전에 다음 항목이 필요합니다.
+
+> [!IMPORTANT]
+> Azure Cosmos DB용 Azure Synapse Link는 현재 관리형 가상 네트워크가 활성화되지 않은 작업 영역에서 지원됩니다. 
 
 * 기존 Azure Cosmos DB 데이터베이스 또는 이 [빠른 시작](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)에 따라 새 계정을 만듭니다.
 * 이 [빠른 시작](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)에 따라 기존 Synapse 작업 영역을 만들거나 새 작업 영역을 만듭니다. 

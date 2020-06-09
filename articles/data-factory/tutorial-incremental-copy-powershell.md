@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f4de4c25cea251ea0db72bcb435ceb63eb308ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409221"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194517"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>PowerShell을 사용하여 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -59,11 +59,11 @@ ms.locfileid: "81409221"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요.
 * **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
@@ -732,7 +732,7 @@ END
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다.
 
-이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
+이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. SQL Server 데이터베이스의 여러 테이블에서 SQL Database로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
 >[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-powershell.md)

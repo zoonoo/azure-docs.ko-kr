@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs 및 Firebase를 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
+title: Azure Notification Hubs 및 Firebase SDK 버전 0.6을 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs
+description: 이 자습서에서는 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림, 푸시알림, Android 푸시 알림, FCM, Firebase Cloud Messaging
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/11/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80521565"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170446"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>자습서: Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>자습서: Firebase SDK 버전 0.6을 사용하여 Android 디바이스에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 Azure Notification Hubs 및 FCM(Firebase Cloud Messaging)을 사용하여 Android 애플리케이션에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs 및 FCM(Firebase Cloud Messaging) SDK 버전 0.6을 사용하여 Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
 이 자습서의 완성된 코드는 [GitHub에서](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp) 다운로드할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "80521565"
 > * 허브에 앱을 연결합니다.
 > * 앱을 테스트합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/free/)을 참조하세요. 
 

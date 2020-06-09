@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745411"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258286"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop으로 SQL 주문형(미리 보기)을 사용하고 보고서 만들기
 
@@ -27,18 +27,22 @@ ms.locfileid: "83745411"
 > - SQL 주문형에 Power BI Desktop 연결
 > - 보기 기반의 보고서 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 다음 소프트웨어가 필요합니다.
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/) - 데이터를 시각화하고 보고서를 만드는 데 필요합니다.
+- [Azure Synapse 작업 영역](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) - 데이터베이스, 외부 데이터 원본 및 보기를 만드는 데 필요합니다.
+
+선택 사항:
 
 - [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) 또는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 같은 SQL 쿼리 도구
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 다음 매개 변수의 값:
 
-| 매개 변수                                 | Description                                                   |
+| 매개 변수                                 | 설명                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용됩니다.                                   |
+| SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
 | SQL 주문형 서비스 엔드포인트 영역     | 샘플에 사용할 스토리지를 확인하는 데 사용 |
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 엑세스에 사용                               |
 | 보기를 만드는 데 사용할 데이터베이스     | 샘플에서 시작점으로 사용되는 데이터베이스       |

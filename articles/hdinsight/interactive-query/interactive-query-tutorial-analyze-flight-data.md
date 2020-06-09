@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313750"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021741"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
@@ -28,7 +28,7 @@ ms.locfileid: "81313750"
 > * Azure SQL 데이터베이스에 테이블 만들기
 > * Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터 내보내기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 대화형 쿼리 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **대화형 쿼리**를 선택합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "81313750"
 
 2. 페이지에서 모든 필드의 선택을 취소하고 다음 값을 선택합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
@@ -205,7 +205,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. 설치가 완료된 후에 다음 명령을 사용하여 SQL Database 서버에 연결합니다.
+2. 설치가 완료되면 다음 명령을 사용하여 SQL Database에 연결합니다.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438866"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119242"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.locfileid: "75438866"
 >  
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -121,7 +121,7 @@ JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](da
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> **servername**, **databasename**, **username** 및 **password**를 Azure SQL Server의 이름, SQL Database의 이름, 사용자 계정 및 계정의 암호로 바꿉니다.  
+> **servername**, **databasename**, **username** 및 **password**를 Server의 이름, SQL Database의 이름, 사용자 계정 및 계정의 암호로 바꿉니다.  
 > 
 >
 
@@ -285,7 +285,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
  
 **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2017-02-03"은 "2017-02-03T00:00:00Z"와 동일합니다.
  
-start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 다음은 그 예입니다.  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
+start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들면 다음과 같습니다. 2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
  
 **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
  
@@ -403,7 +403,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Azure SQL 연결된 서비스 만들기
-이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 이 섹션에서 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.
+이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다. 
    

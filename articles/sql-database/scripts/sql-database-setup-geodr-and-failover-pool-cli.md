@@ -1,22 +1,22 @@
 ---
-title: CLI 예제 - 활성 지역 복제 - 풀링된 Azure SQL 데이터베이스
+title: 'Az CLI: 탄력적 풀에 대한 활성 지역 복제 구성'
 description: Azure SQL Database에 풀링된 데이터베이스에 대한 활성 지역 복제를 설정하여 장애 조치(failover)를 수행하는 Azure CLI 예제 스크립트입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: sqldbrb=1
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 2646ed98f4a73c69d339df0134e8a565c958c514
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a272564684671e38100e5390e95129121fcbd0f8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067352"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019386"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>CLI를 사용하여 Azure SQL Database에 풀링된 데이터베이스에 대한 활성 지역 복제 구성
 
@@ -62,4 +62,4 @@ az group delete --name $secondaryResource
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
+추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../../azure-sql/database/az-cli-script-samples-content-guide.md)에서 찾을 수 있습니다.

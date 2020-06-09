@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747222"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248246"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -22,7 +22,10 @@ ms.locfileid: "83747222"
 
 현재 지원되는 모든 시나리오는 [여기](sap-hana-backup-support-matrix.md#scenario-support)에 나와 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+>[!NOTE]
+>RHEL용 SAP HANA 백업 미리 보기(7.4, 7.6, 7.7 또는 8.1)로 [시작](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db)하세요. 추가 쿼리는 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 기록합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 백업을 구성하기 전에 다음을 수행해야 합니다.
 
@@ -34,9 +37,7 @@ ms.locfileid: "83747222"
 * HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하면 HANA 시스템이 백업 준비가 됩니다. [사전 등록 스크립트의 기능](#what-the-pre-registration-script-does) 섹션을 참조하면 사전 등록 스크립트에 대해 자세히 이해할 수 있습니다.
 
 >[!NOTE]
->Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.
->
->필요에 따라 정책을 수동으로 수정합니다.
+>사전 등록 스크립트는 RHEL(7.4, 7.6 및 7.7)에서 실행되는 SAP HANA 워크로드용 **compat-unixODBC234** 및 RHEL 8.1용 **unixODBC**를 설치합니다. [이 패키지는 RHEL for SAP HANA(RHEL 7 Server의 경우), RPM(SAP 솔루션용 업데이트 서비스) 리포지토리에 있습니다](https://access.redhat.com/solutions/5094721).  Azure Marketplace RHEL 이미지의 경우 리포지토리는 **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**입니다.
 
 ## <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 

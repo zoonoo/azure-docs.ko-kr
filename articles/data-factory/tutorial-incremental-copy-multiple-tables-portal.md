@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 여러 테이블 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419275"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247260"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
+이 자습서에서는 델타 데이터를 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -67,13 +67,13 @@ ms.locfileid: "81419275"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요. 
+## <a name="prerequisites"></a>필수 구성 요소
+* **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
+* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
-1. SQL Server Management Studio를 열고 온-프레미스 SQL Server 데이터베이스에 연결합니다.
+1. SQL Server Management Studio를 열고 SQL Server 데이터베이스에 연결합니다.
 
 1. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -269,7 +269,7 @@ END
 1. **자체 호스팅**을 선택하고 **계속**을 클릭합니다. 
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **만들기**를 클릭합니다. 
 
-1. **옵션 1: 빠른 설치** 섹션에서 **Click here to launch the express setup for this computer**(이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하세요.)를 클릭합니다. 
+1. 다음 위치에서 **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. **옵션 1: 빠른 설치** 섹션 
 
    ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 
@@ -281,10 +281,10 @@ END
 1. 통합 런타임 목록에 **MySelfHostedIR**이 표시되는지 확인합니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 온-프레미스 SQL Server 데이터베이스와 Azure SQL 데이터베이스에 대한 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스와 Azure SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
-이 단계에서 온-프레미스 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
+이 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
 1. **연결** 창의 **통합 런타임** 탭에서 **연결된 서비스** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
 
@@ -310,7 +310,7 @@ END
 1. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
     1. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다. 
-    1. **서버 이름**의 경우 드롭다운 목록에서 Azure SQL 서버의 이름을 선택합니다. 
+    1. **서버 이름**의 경우 드롭다운 목록에서 서버의 이름을 선택합니다. 
     1. **데이터베이스 이름**의 경우 필수 구성 요소의 일부로 customer_table 및 project_table을 만든 Azure SQL 데이터베이스를 선택합니다. 
     1. **사용자 이름**의 경우 Azure SQL 데이터베이스에 대한 액세스가 있는 사용자의 이름을 입력합니다. 
     1. **암호**의 경우 사용자에 대한 **암호**를 입력합니다. 
@@ -388,7 +388,7 @@ END
 
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
 
-1. **일반** 탭에서 **이름**에 대해 **IncrementalCopyPipeline**을 입력합니다. 
+1. **속성** 아래의 일반 패널에서 **이름**에 **IncrementalCopyPipeline**을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.  
 
 1. **매개 변수** 탭에서 다음 단계를 수행합니다. 
 
@@ -398,7 +398,7 @@ END
 
 1. **활동** 도구 상자에서 **반복 및 조건부**를 펼치고, **ForEach** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. **속성** 창의 **일반** 탭에서 **IterateSQLTables**를 입력합니다. 
 
-1. **설정** 탭으로 전환하고 `@pipeline().parameters.tableList`항목**에 대해** 를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
+1. **설정** 탭으로 전환하고 **항목**에 대해 `@pipeline().parameters.tableList`를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
 
     ![ForEach 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
@@ -469,7 +469,7 @@ END
     1. **가져오기 매개 변수**를 선택합니다. 
     1. 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | 속성 | Type | 값 | 
+        | Name | Type | 값 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

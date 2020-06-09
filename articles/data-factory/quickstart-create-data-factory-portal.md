@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683349"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248535"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 
@@ -143,12 +143,13 @@ ms.locfileid: "83683349"
     f. **확인**을 선택합니다.   
 
     ![OutputDataset에 대한 속성 설정](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## <a name="create-a-pipeline"></a>파이프라인 만들기 
 이 절차에서는 입력 및 출력 데이터 세트를 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 세트 설정에 지정된 파일의 데이터를 출력 데이터 세트 설정에 지정된 파일로 복사합니다. 입력 데이터 세트에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
 
 1. **+** (더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다. 
 
-1. **일반** 탭에서 **이름**으로 **CopyPipeline**을 지정합니다. 
+1. **속성** 아래의 일반 패널에서 **이름**에 **CopyPipeline**을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환**을 펼칩니다. **데이터 복사** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. **이름**에 대해 **CopyFromBlobToBlob**을 지정합니다.
    ![데이터 복사 작업 만들기](./media/quickstart-create-data-factory-portal/copy-activity.png)

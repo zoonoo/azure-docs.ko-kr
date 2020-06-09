@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714239"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259255"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>빠른 시작: 첫 번째 정적 웹앱 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -31,25 +31,25 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-- 다음 위치로 이동하여 새 리포지토리를 만듭니다.
+- GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
   - https://github.com/staticwebdev/angular-basic/generate
 - 리포지토리 이름을 **my-first-static-web-app**으로 지정합니다.
 
 # <a name="react"></a>[React](#tab/react)
 
-- 다음 위치로 이동하여 새 리포지토리를 만듭니다.
+- GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
   - https://github.com/staticwebdev/react-basic/generate
 - 리포지토리 이름을 **my-first-static-web-app**으로 지정합니다.
 
 # <a name="vue"></a>[Vue](#tab/vue)
 
-- 다음 위치로 이동하여 새 리포지토리를 만듭니다.
+- GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
   - https://github.com/staticwebdev/vue-basic/generate
 - 리포지토리 이름을 **my-first-static-web-app**으로 지정합니다.
 
 # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
-- 다음 위치로 이동하여 새 리포지토리를 만듭니다.
+- GitHub에 로그인했는지 확인하고 다음 위치로 이동하여 새 리포지토리를 만듭니다.
   - https://github.com/staticwebdev/vanilla-basic/generate
 - 리포지토리 이름을 **my-first-static-web-app**으로 지정합니다.
 

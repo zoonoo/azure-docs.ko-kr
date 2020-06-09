@@ -9,22 +9,22 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8501f9d07ffa2d04915d4d1a351317cc145f9844
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116250"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118258"
 ---
 # <a name="overview-query-data-in-storage"></a>개요: 스토리지의 데이터 쿼리
 
 이 섹션에는 Azure Synapse Analytics 내에서 SQL 주문형(미리 보기) 리소스를 사용해 볼 수 있는 샘플 쿼리가 포함되어 있습니다.
-현재 지원되는 파일은 다음과 같습니다. 
+현재 지원되는 파일 형식은 다음과 같습니다.  
 - CSV
 - Parquet
 - JSON
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 쿼리를 실행하는 데 필요한 도구:
 
@@ -35,76 +35,22 @@ ms.locfileid: "82116250"
 
 그리고 매개 변수는 다음과 같습니다.
 
-| 매개 변수                                 | Description                                                   |
+| 매개 변수                                 | 설명                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
 | SQL 주문형 서비스 엔드포인트 주소    | 서버 이름으로 사용됩니다.                                   |
 | SQL 주문형 서비스 엔드포인트 영역     | 샘플에 사용할 스토리지를 확인하는 데 사용됩니다. |
 | 엔드포인트 액세스를 위한 사용자 이름 및 암호 | 엔드포인트 액세스하는 데 사용됩니다.                               |
 | 보기를 만드는 데 사용할 데이터베이스     | 이 데이터베이스는 샘플의 시작점으로 사용됩니다.       |
 
-## <a name="first-time-setup"></a>처음 설치
+## <a name="first-time-setup"></a>처음 설정
 
-이 문서의 뒷부분에 포함된 샘플을 사용하기 전에 다음 두 단계를 수행합니다.
-
-- 보기에 대한 데이터베이스 만들기(보기를 사용하려는 경우)
-- SQL 주문형에서 스토리지의 파일에 액세스하는 데 사용할 자격 증명 만들기
-
-### <a name="create-database"></a>데이터베이스 만들기
-
-보기를 만들려면 데이터베이스가 필요합니다. 이 데이터베이스는 이 설명서의 샘플 쿼리에 사용됩니다.
+첫 번째 단계는 쿼리를 실행할 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플의 데이터를 읽는 데 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
 > [!NOTE]
 > 데이터베이스는 실제 데이터가 아닌 메타데이터를 보는 용도로만 사용됩니다.  사용할 데이터베이스 이름을 적어 둡니다. 나중에 필요합니다.
 
 ```sql
 CREATE DATABASE mydbname;
-```
-
-### <a name="create-credentials"></a>자격 증명 만들기
-
-쿼리를 실행하려면 먼저 자격 증명을 만들어야 합니다. 이 자격 증명은 SQL 주문형 서비스에서 스토리지의 파일에 액세스하는 데 사용됩니다.
-
-> [!NOTE]
-> 이 섹션의 방법을 성공적으로 실행하려면 SAS 토큰을 사용해야 합니다.
->
-> SAS 토큰을 사용하려면 UserIdentity를 삭제해야 하며, 이에 대한 내용은 다음 [문서](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)에 설명되어 있습니다.
->
-> 기본적으로 SQL 주문형은 항상 AAD 통과를 사용합니다.
-
-스토리지 액세스 제어를 관리하는 방법에 대한 자세한 내용은 이 [링크](develop-storage-files-storage-access-control.md)를 확인하세요.
-
-CSV, JSON 및 Parquet 컨테이너에 대한 자격 증명을 만들려면 아래 코드를 실행합니다.
-
-```sql
--- create credentials for CSV container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for JSON container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for PARQUET container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
 ```
 
 ## <a name="provided-demo-data"></a>제공된 데모 데이터
@@ -132,24 +78,6 @@ GO
 | /json/                                                       | JSON 형식의 데이터에 대한 부모 폴더                        |
 | /json/books/                                                 | 서적 데이터가 포함된 JSON 파일                                   |
 
-## <a name="validation"></a>유효성 검사
-
-다음 세 개 쿼리를 실행하여 자격 증명이 올바르게 생성되었는지 확인합니다.
-
-> [!NOTE]
-> 샘플 쿼리의 모든 URI는 북유럽 Azure 지역에 있는 스토리지 계정을 사용합니다. 적절한 자격 증명을 만들었는지 확인합니다. 아래 쿼리를 실행하고 스토리지 계정이 나열되는지 확인합니다.
-
-```sql
-SELECT name
-FROM sys.credentials
-WHERE
-     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
-     'https://sqlondemandstorage.blob.core.windows.net/parquet',
-     'https://sqlondemandstorage.blob.core.windows.net/json');
-```
-
-적절한 자격 증명을 찾을 수 없으면 [처음 설치](#first-time-setup)를 확인합니다.
-
 ### <a name="sample-query"></a>샘플 쿼리
 
 유효성 검사의 마지막 단계는 다음 쿼리를 실행하는 것입니다.
@@ -159,7 +87,8 @@ SELECT
     COUNT_BIG(*)
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
         FORMAT='PARQUET'
     ) AS nyc;
 ```

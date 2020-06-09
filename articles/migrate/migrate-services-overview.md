@@ -4,12 +4,12 @@ description: Azure Migrate 서비스에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: fe6386346282cf182397f6420c541d629ba0aab3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768389"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193588"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -23,10 +23,10 @@ Azure Migrate는 다음과 같은 기능을 제공합니다.
 - **도구 범위**: 평가 및 마이그레이션에 사용할 도구 범위입니다. 도구에는 Azure Migrate: Server Assessment 및 Azure Migrate: Server Migration에 연결합니다. Azure Migrate는 다른 Azure 서비스, 기타 도구 및 ISV(독립 소프트웨어 공급업체) 제품과 통합됩니다.
 - **평가 및 마이그레이션**: Azure Migrate 허브에서 다음을 평가하고 마이그레이션할 수 있습니다.
     - **서버**: 온-프레미스 서버를 평가하고 Azure 가상 머신으로 마이그레이션합니다.
-    - **데이터베이스**: 온-프레미스 데이터베이스를 평가하고 Azure SQL Database 또는 Azure SQL Database Managed Instance로 마이그레이션합니다.
+    - **데이터베이스**: 온-프레미스 데이터베이스를 평가하고 Azure SQL Database 또는 SQL Managed Instance로 마이그레이션합니다.
     - **웹 애플리케이션**: Azure App Service Migration Assistant를 사용하여 온-프레미스 웹 애플리케이션을 평가하고 마이그레이션합니다.
     - **가상 데스크톱**: 온-프레미스 VDI(가상 데스크톱 인프라)를 평가하고 Azure의 Windows Virtual Desktop으로 마이그레이션합니다.
-    - **데이터**: Azure Data Box 제품을 사용하여 대량의 데이터를 Azure로 빠르고 비용 효율적으로 마이그레이션합니다.
+    - **Data**: Azure Data Box 제품을 사용하여 대량의 데이터를 Azure로 빠르고 비용 효율적으로 마이그레이션합니다.
 
 ## <a name="integrated-tools"></a>통합 도구
 
@@ -36,8 +36,8 @@ Azure Migrate 허브에는 다음 도구가 포함되어 있습니다.
 --- | --- | ---
 **Azure Migrate: Server Assessment** | 서버를 평가합니다. | Azure로 마이그레이션하기 위한 준비 과정으로 온-프레미스 VMware VM, Hyper-V VM 및 물리적 서버를 검색하고 평가합니다.
 **Azure Migrate: Server Migration** | 서버를 마이그레이션합니다. | VMware VM, Hyper-V VM, 물리적 서버, 기타 가상화된 머신 및 퍼블릭 클라우드 VM을 Azure로 마이그레이션합니다.
-**Data Migration Assistant** | Azure SQL Database, Azure SQL Database Managed Instance 또는 SQL Server를 실행하는 Azure VM으로 마이그레이션하기 위해 온-프레미스 SQL Server 데이터베이스를 평가합니다. | Data Migration Assistant는 마이그레이션을 차단하는 잠재적인 문제를 파악하는 데 도움이 됩니다. 이는 지원되지 않는 기능, 마이그레이션 후 유용할 수 있는 새로운 기능, 데이터베이스 마이그레이션의 올바른 경로를 식별합니다. [자세히 알아보기](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | 온-프레미스 데이터베이스를 SQL Server, Azure SQL Database 및 Azure SQL Database Managed Instance를 실행하는 Azure VM으로 마이그레이션합니다. | Database Migration Service에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/dms/dms-overview)
+**데이터 Migration Assistant** | Azure SQL Database, Azure SQL Managed Instance 또는 SQL Server를 실행하는 Azure VM으로 마이그레이션할 SQL Server 데이터베이스를 평가합니다. | Data Migration Assistant는 마이그레이션을 차단하는 잠재적인 문제를 파악하는 데 도움이 됩니다. 이는 지원되지 않는 기능, 마이그레이션 후 유용할 수 있는 새로운 기능, 데이터베이스 마이그레이션의 올바른 경로를 식별합니다. [자세히 알아보기](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | 온-프레미스 데이터베이스를 SQL Server, Azure SQL Database 또는 SQL Managed Instance를 실행하는 Azure VM으로 마이그레이션합니다. | Database Migration Service에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/dms/dms-overview)
 **Movere** | 서버를 평가합니다. | Movere에 대해 [자세히 알아보세요](#movere).
 **Web App Migration Assistant** | 온-프레미스 웹앱을 평가하고 Azure로 마이그레이션합니다. |  Azure App Service Migration Assistant를 사용하여 Azure App Service으로 마이그레이션하기 위한 온-프레미스 웹 사이트를 평가합니다.<br/><br/> 이 Migration Assistant를 사용하여 .NET 및 PHP 웹앱을 Azure로 마이그레이션합니다. Azure App Service Migration Assistant에 대해 [자세히 알아보세요](https://appmigration.microsoft.com/).
 **Azure Data Box** | 오프라인 데이터를 마이그레이션합니다. | Azure Data Box 제품을 사용하여 대량의 오프라인 데이터를 Azure로 이동합니다. [자세히 알아보기](https://docs.microsoft.com/azure/databox/).

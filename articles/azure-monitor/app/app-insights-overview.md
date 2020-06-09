@@ -4,18 +4,18 @@ description: 라이브 웹 애플리케이션의 애플리케이션 성능을 �
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828732"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996094"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 개발자 및 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 애플리케이션을 모니터링하는 데 사용합니다. 성능 이상을 자동으로 감지하고, 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 온-프레미스, 하이브리드 또는 퍼블릭 클라우드에서 호스팅되는 .NET, Node.js, Java 및 Python을 포함하여 다양한 플랫폼의 앱에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
 
 ## <a name="how-does-application-insights-work"></a>Application Insights의 작동 방식
-작은 계측 패키지(SDK)를 애플리케이션에 설치하거나, [지원되는 경우](../../azure-monitor/app/platforms.md) 코드 없이 Application Insights를 사용하도록 설정할 수 있습니다. 계측은 앱을 모니터링하고, 계측 키라고 하는 고유한 GUID를 사용하여 원격 분석 데이터를 Azure Application Insights 리소스로 보냅니다.
+작은 계측 패키지(SDK)를 애플리케이션에 설치하거나, [지원되는](../../azure-monitor/app/platforms.md) 경우 Application Insights Agent를 사용하여 Application Insights를 사용하도록 설정합니다. 계측은 앱을 모니터링하고, 계측 키라고 하는 고유한 GUID를 사용하여 원격 분석 데이터를 Azure Application Insights 리소스로 보냅니다.
 
 웹 서비스 애플리케이션뿐 아니라 모든 백그라운드 구성 요소와 웹 페이지 자체의 JavaScript까지 계측할 수 있습니다. 애플리케이션 및 해당 구성 요소는 어디서나 실행될 수 있으며 Azure에서 호스팅할 필요가 없습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "83828732"
 이러한 모든 원격 분석 스트림은 Azure Monitor에 통합되어 있습니다. Azure Portal에서 강력한 분석 및 검색 도구를 원시 데이터에 적용할 수 있습니다.
 
 ### <a name="whats-the-overhead"></a>오버헤드는 무엇입니까?
-앱 성능에 미치는 영향을 매우 작습니다. 추적 호출은 차단되지 않으며, 별도의 스레드로 일괄 처리 및 전송합니다.
+앱 성능에 미치는 영향은 적습니다. 추적 호출은 차단되지 않으며, 별도의 스레드로 일괄 처리 및 전송합니다.
 
 ## <a name="what-does-application-insights-monitor"></a>Application Insights는 무엇을 모니터링하나요?
 

@@ -10,21 +10,21 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203972"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237710"
 ---
 이 Postman 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 [**Postman**](https://www.getpostman.com/).
 * 다음이 있어야 합니다.
     * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)
-    * 메타데이터 및 잡담으로 구성된 빠른 시작에서 빌드된 [질문과 대답을 사용한 기술 자료](../Quickstarts/add-question-metadata-portal.md)(학습 및 게시됨)
+    * 메타데이터 및 잡담으로 구성된 빠른 시작에서 빌드된 [질문과 대답을 사용한 기술 자료](../Quickstarts/add-question-metadata-portal.md)(학습 및 게시됨).
 
 > [!NOTE]
 > 기술 자료에서 질문에 대한 대답을 생성할 준비가 되면 기술 자료를 [학습](../Quickstarts/create-publish-knowledge-base.md#save-and-train) 및 [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)해야 합니다. 기술 자료가 게시되면 **게시** 페이지에 대답을 생성하기 위한 HTTP 요청 설정이 표시됩니다. **Postman** 탭에는 대답을 생성하는 데 필요한 설정이 표시됩니다.
@@ -37,7 +37,7 @@ ms.locfileid: "82203972"
 
 1. 기술 자료의 **설정** 페이지에서 **Postman** 탭을 선택하여 기술 자료에서 대답을 생성하는 데 사용되는 구성을 확인합니다. Postman에서 사용하는 다음 정보를 복사합니다.
 
-    |속성|설정|용도 및 값|
+    |Name|설정|용도 및 값|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|이는 URL에 대한 HTTP 메서드 및 경로입니다.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|이는 URL의 호스트입니다. 호스트 및 게시 값을 연결하여 전체 generateAnswer URL을 가져옵니다.|
@@ -64,7 +64,7 @@ ms.locfileid: "82203972"
     }
     ```
 
-    질문은 한 단어(`size`)에 불과하며, 두 개의 질문 및 대답 세트 중 하나를 반환할 수 있습니다. `strictFilters` 배열은 `qna_maker` 답변만 줄이도록 응답에 지시합니다.
+    질문은 한 단어(`size`)에 불과하며, 두 개의 질문 및 대답 쌍 중 하나를 반환할 수 있습니다. `strictFilters` 배열은 `qna_maker` 답변만 줄이도록 응답에 지시합니다.
 
 1. 응답에는 필터 조건을 충족하는 답변만 포함됩니다.
 
@@ -103,9 +103,12 @@ ms.locfileid: "82203972"
     }
     ```
 
-    검색 용어는 충족하지 않지만 필터는 충족하는 질문 및 답변 세트가 있으면 반환되지 않습니다. 대신 일반 `No good match found in KB.` 답변이 반환됩니다.
+    검색어는 충족하지 않지만 필터는 충족하는 질문 및 답변 쌍이 있으면 반환되지 않습니다. 대신 일반 `No good match found in KB.` 답변이 반환됩니다.
 
 ## <a name="use-debug-query-property"></a>디버그 쿼리 속성 사용
+
+> [!NOTE]
+>종속성에 디버그 속성을 사용하지 않는 것이 좋습니다. 이 속성은 제품 팀의 문제 해결을 돕기 위해 추가되었습니다.
 
 디버그 정보를 사용하면 반환된 대답이 어떻게 결정되었는지 이해할 수 있습니다. 유용하지만 반드시 필요한 것은 아닙니다. 디버그 정보를 사용하여 대답을 생성하려면 `debug` 속성을 추가합니다.
 

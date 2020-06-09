@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74e5af6c295ffada0fbb8d1ded63177afadad285
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80058128"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015491"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>CLI를 사용하여 SQL Database에 App Service 앱 연결
 
@@ -41,8 +41,8 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 앱을 만듭니다. |
-| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | SQL Database 서버를 만듭니다.  |
-| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | SQL Database 서버를 사용하여 새 데이터베이스를 만듭니다. |
+| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | 서버를 만듭니다.  |
+| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | 새 데이터베이스를 만듭니다. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | 데이터베이스에 대한 연결 문자열을 생성합니다. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
 

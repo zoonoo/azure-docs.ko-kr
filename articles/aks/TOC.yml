@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: 작동 시간 SLA 사용
           href: uptime-sla.md
+        - name: 노드 이미지 업그레이드(미리 보기)
+          href: node-image-upgrade.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
         - name: AKS 클러스터 구성

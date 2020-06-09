@@ -2,24 +2,24 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fcf9c31c074583093aa5f9fd317a7bf20e82cd5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 840ea502e2d57662a4fba0c058cc38a7ef7fbecd
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651287"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234287"
 ---
-|속성 |Description |효과 |버전 |GitHub |
+|Name |Description |효과 |버전 |GitHub |
 |---|---|---|---|---|
 |[\[미리 보기\] Virtual Machines에서 취약성 평가를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Virtual Machines에서 Azure Security Center 취약성 평가에 의해 검색된 취약성을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |1.0.0-preview |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
-|[\[미리 보기\]: 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |가상 머신의 NIC에서 IP 전달을 사용하도록 설정하면 머신이 다른 대상으로 주소가 지정된 트래픽을 수신할 수 있습니다. IP 전달은 거의 필요하지 않으므로(예: VM을 네트워크 가상 어플라이언스로 사용하는 경우), 네트워크 보안 팀에서 검토해야 합니다. |AuditIfNotExists, 사용 안 함 |1.0.0-preview |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json) |
 |[인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure Security Center에서 네트워크 보안 그룹의 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인바운드 규칙에서 '모두' 또는 '인터넷' 범위에서 들어오는 액세스를 허용해서는 안 됩니다. 그러면 리소스가 공격자의 표적이 되기 쉽습니다. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
 |[가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |가능한 애플리케이션 허용 목록 구성은 Azure Security Center에서 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AppWhitelistMonitoring_Audit.json) |
 |[재해 복구가 구성되어 있지 않은 가상 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |재해 복구가 구성되지 않은 가상 머신을 감사합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](https://aka.ms/asr-doc)를 참조하세요. |auditIfNotExists |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[인터넷 연결 가상 머신은 네트워크 보안 그룹과 함께 보호되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |NSG(네트워크 보안 그룹)를 통해 VM에 대한 액세스를 제한하여 잠재적인 위협으로부터 VM을 보호합니다. NSG를 사용하여 트래픽을 제어하는 방법에 대해 자세히 알아보려면 [https://aka.ms/nsg-doc](https://aka.ms/nsg-doc)를 참조하세요. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnVirtualMachines_Audit.json) |
+|[가상 머신에서 IP 전달을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |가상 머신의 NIC에서 IP 전달을 사용하도록 설정하면 머신이 다른 대상으로 주소가 지정된 트래픽을 수신할 수 있습니다. IP 전달은 거의 필요하지 않으므로(예: VM을 네트워크 가상 어플라이언스로 사용하는 경우), 네트워크 보안 팀에서 검토해야 합니다. |AuditIfNotExists, 사용 안 함 |1.0.1 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json) |
 |[가상 머신에서 관리 포트를 닫아야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22730e10-96f6-4aac-ad84-9383d35b5917) |열려 있는 원격 관리 포트는 위험도가 높은 인터넷 기반 공격에 VM을 노출시킵니다. 이러한 공격은 자격 증명을 무차별적으로 대입하여 머신에 대한 관리자 액세스 권한을 획득하려고 시도합니다. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OpenManagementPortsOnVirtualMachines_Audit.json) |
 |[Azure Security Center에서 누락된 Endpoint Protection 모니터링](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Endpoint Protection 에이전트가 설치되어 있지 않은 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 |[시스템 업데이트를 머신에 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |서버의 누락된 보안 시스템 업데이트는 Azure Security Center에서 권장 사항으로 모니터링합니다. |AuditIfNotExists, 사용 안 함 |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |

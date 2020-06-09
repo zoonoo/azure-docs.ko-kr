@@ -50,8 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Azure Files 및 Azure AD DS 사용
           href: create-profile-container-adds.md
-    - name: 프로필 컨테이너 파일 공유 만들기
-      href: create-file-share.md
+        - name: Azure Files 및 AD DS 사용
+          href: create-file-share.md
     - name: 호스트 풀 설정 구성
       items:
         - name: RDP 속성
@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: 문제 식별 및 진단
       href: diagnostics-role-service.md
-    - name: 테넌트 및 호스트 풀 만들기
+    - name: 호스트 풀 만들기
       href: troubleshoot-set-up-issues.md
     - name: 세션 호스트 가상 머신 구성
       href: troubleshoot-vm-configuration.md

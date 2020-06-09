@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183327"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298768"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "78183327"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
@@ -42,28 +42,27 @@ ms.locfileid: "78183327"
 
 ### <a name="add-a-redirect-uri-reply-url"></a>리디렉션 URI 추가(회신 URL)
 
-현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **애플리케이션**을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
-1. **회신 URL** 아래에서 `https://localhost:44316`을 추가합니다.
-1. **저장**을 선택합니다.
-1. 속성 페이지에서 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 애플리케이션 ID를 기록합니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록(미리 보기)** 를 선택하고, **소유한 애플리케이션** 탭을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
-1. **인증**을 선택한 후 **새 환경을 체험해 보세요**(표시된 경우)를 선택합니다.
+1. **앱 등록**을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `https://localhost:44316`을 입력한 후 **저장**을 선택합니다.
 1. **개요**를 선택합니다.
 1. 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+
+#### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. **애플리케이션(레거시)** 을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
+1. **회신 URL** 아래에서 `https://localhost:44316`을 추가합니다.
+1. **저장**을 선택합니다.
+1. 속성 페이지에서 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 애플리케이션 ID를 기록합니다.
 
 * * *
 
@@ -93,6 +92,7 @@ Web.config 파일의 설정을 사용자 흐름에 맞게 업데이트합니다.
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 1. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다.
     1. `ida:Tenant` 및 `ida:AadInstance`의 값을 앞에서 만든 Azure AD B2C 테넌트 이름으로 바꿉니다. 예를 들어 `fabrikamb2c`를 `contoso`로 바꿉니다.
+    1. `ida:TenantId`의 값을 Azure B2C 테넌트의 속성에서 찾을 수 있는 디렉터리 ID로 바꿉니다(**Azure Active Directory** > **Properties** > **Directory ID** 아래의 Azure Portal에서).
     1. `ida:ClientId`의 값을 앞에서 기록한 애플리케이션 ID로 바꿉니다.
     1. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. 클라이언트 비밀에 미리 정의된 XML 엔터티가 포함된 경우(예: 보다 작음(`<`), 보다 큼(`>`), 앰퍼샌드(`&`) 또는 큰따옴표(`"`)) Web.config에 추가하기 전에 클라이언트 비밀을 XML로 인코딩하여 해당 문자를 이스케이프해야 합니다.
     1. `ida:SignUpSignInPolicyId`의 값을 `b2c_1_signupsignin1`로 바꿉니다.

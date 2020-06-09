@@ -31,6 +31,8 @@
           href: understand-cost-mgt-data.md
         - name: 범위 이해 및 작업
           href: understand-work-scopes.md
+        - name: 자동화로 비용 관리
+          href: manage-automation.md
         - name: EA에서 MCA API로 마이그레이션
           href: migrate-cost-management-api.md
     - name: 방법 가이드

@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: 9d247f00bdfc5a5ac1642c853923dc8fc84d6e18
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cbc545551c650ad3140cbd6a9b40ab7dee1c0f3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883175"
+ms.locfileid: "83996145"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -16,7 +16,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Python에 필요한 �
 
 이 과정이 끝나면 Python 설치에 라이브러리가 추가되고 첫 번째 Resource Graph 쿼리를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -53,15 +53,13 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
    ```
 
    > [!NOTE]
-   > 모든 사용자용으로 Python이 설치된 경우에는 상승된 권한의 콘솔에서 이 명령을 실행해야 합니다.
+   > 모든 사용자용으로 Python이 설치된 경우에는 이러한 명령은 관리자 권한 콘솔에서 실행해야 합니다.
 
 1. 라이브러리가 설치되어 있는지 확인 합니다. `azure-mgmt-resourcegraph`는 **2.0.0** 이상이고, `azure-mgmt-resource`는 **9.0.0** 이상이고, `azure-cli-core`는 **2.5.0** 이상이어야 합니다.
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph
-   pip show azure-mgmt-resource
-   pip show azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
    ```
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
@@ -82,18 +80,20 @@ Python 라이브러리가 선택한 환경에 추가되었으므로 간단한 Re
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subClient = get_client_from_cli_profile(SubscriptionClient)
-       subsRaw = [sub.as_dict() for sub in subClient.subscriptions.list()]
-       subList = []
+       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       subsRaw = []
+       for sub in subsClient.subscriptions.list():
+           subsRaw.append(sub.as_dict())
+       subsList = []
        for sub in subsRaw:
-           subList.append(sub.get('subscription_id'))
+           subsList.append(sub.get('subscription_id'))
        
        # Create Azure Resource Graph client and set options
        argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
        
        # Create query
-       argQuery = arg.models.QueryRequest(subscriptions=subList, query=strQuery, options=argQueryOptions)
+       argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
        
        # Run query
        argResults = argClient.resources(argQuery)
@@ -130,9 +130,7 @@ Python 환경에서 설치된 라이브러리를 제거하려면 다음 명령�
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph
-pip uninstall azure-mgmt-resource
-pip uninstall azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 ```
 
 ## <a name="next-steps"></a>다음 단계

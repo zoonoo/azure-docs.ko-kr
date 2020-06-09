@@ -3,17 +3,17 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101759"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142438"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -36,7 +36,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > * PowerShell을 사용하여 예산 만들기 및 편집
 > * Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
 
@@ -115,6 +115,15 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 앞의 예제에서는 구독에 대한 예산을 만들었습니다. 리소스 그룹에 대한 예산을 만들 수도 있습니다. 리소스 그룹에 대한 예산을 만들려는 경우 **Cost Management + 청구**&gt;**구독**&gt;으로 이동하여 구독을 선택하고 > **리소스 그룹**에서 > 리소스 그룹을 선택하고 > **예산**에서 > 예산을 **추가**합니다.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Azure 및 AWS 비용 통합에 대한 예산 만들기
+
+관리 그룹을 통합 및 연결된 계정과 함께 커넥터에 할당하여 Azure 및 AWS 비용을 함께 그룹화할 수 있습니다. 동일한 관리 그룹에 Azure 구독을 할당합니다. 그런 다음, 통합 비용에 대한 예산을 만듭니다.
+
+1. Cost Management에서 **예산**을 선택합니다.
+1. **추가**를 선택합니다.
+1. **범위 변경**을 선택한 다음, 관리 그룹을 선택합니다.
+1. 완료될 때까지 예산 작성을 계속 진행합니다.
+
 ## <a name="costs-in-budget-evaluations"></a>예산 평가의 비용
 
 이제 예산 비용 평가에 예약 인스턴스 및 구매 데이터가 포함됩니다. 요금이 적용되는 경우 요금을 평가에 통합할 때 경고를 받을 수 있습니다. [Azure Portal](https://portal.azure.com)에 로그인하여 예산 임계값이 새 비용을 고려하도록 제대로 구성되어 있는지 확인하는 것이 좋습니다. Azure 청구 요금은 변경되지 않습니다. 이제 예산은 더욱 완전한 비용 세트를 기준으로 평가됩니다. 요금이 적용되지 않으면 예산 동작이 변경되지 않은 상태로 유지됩니다.
@@ -125,7 +134,6 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 - 요금 유형: 사용
 
 예산 비용 평가는 실제 비용을 기준으로 합니다. 여기에는 할부 상환이 포함되지 않습니다. 예산에서 사용할 수 있는 필터링 옵션에 대한 자세한 내용은 [그룹화 및 필터링 옵션 이해](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options)를 참조하세요.
-
 
 ## <a name="trigger-an-action-group"></a>작업 그룹 트리거
 

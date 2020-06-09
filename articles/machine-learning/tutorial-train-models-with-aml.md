@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60f539dfad4f5f3942be92f35b84cc42968f95a0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115570"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220744"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 >[!NOTE]
 > 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.83으로 테스트되었습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 자습서를 시작하기 전에 [자습서: 첫 번째 Azure ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
     * 작업 영역 만들기
@@ -107,7 +107,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 이 자습서의 뒷부분에서 이 VM에서 실행할 Python 코드를 제출합니다. 
 
-아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
+아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다. 사용하지 않을 때는 0으로 축소되는 클러스터를 설정하고 최대 4개의 노드로 확장할 수 있습니다. 
 
  **컴퓨팅 대상을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅 리소스가 있으면 코드는 해당 컴퓨팅 리소스를 사용하고 만들기 프로세스를 건너뜁니다.
 

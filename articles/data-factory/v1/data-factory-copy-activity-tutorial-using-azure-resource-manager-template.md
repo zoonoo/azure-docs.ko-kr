@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3800460c7b17adf1a10c1efc3adc12d65bbeb670
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438849"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021996"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.locfileid: "75438849"
 > [!NOTE] 
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ ms.locfileid: "75438849"
 | Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage는 원본 데이터 저장소이고 Azure SQL 데이터베이스는 자습서의 복사 작업에 대한 싱크 데이터 저장소입니다. 복사 작업을 위한 입력 데이터가 포함된 스토리지 계정을 지정합니다. |
 | Azure SQL Database 연결된 서비스 |Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 복사 작업에 대한 출력 데이터를 보유하는 Azure SQL 데이터베이스를 지정합니다. |
 | Azure Blob 입력 데이터 세트 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 세트은 입력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다. |
-| Azure SQL 출력 데이터 세트 |Azure SQL 연결된 서비스를 참조하세요. Azure SQL 연결된 서비스는 Azure SQL Server를 말하며 Azure SQL 데이터 세트는 출력 데이터를 가진 테이블의 이름을 지정합니다. |
+| Azure SQL 출력 데이터 세트 |Azure SQL 연결된 서비스를 참조하세요. Azure SQL 연결 서비스는 논리 SQL 서버를 가리키며 Azure SQL 데이터 세트는 출력 데이터를 가진 테이블의 이름을 지정합니다. |
 | 데이터 파이프라인 |파이프라인에는 입력으로 Azure Blob 데이터 세트를 사용하고 출력으로 Azure SQL 데이터 세트를 사용하는 복사 유형의 작업이 하나 포함됩니다. 복사 작업은 Azure Blob의 데이터를 Azure SQL 데이터베이스의 테이블에 복사합니다. |
 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(복사 활동)이 있는 파이프라인을 만듭니다.
@@ -106,9 +106,9 @@ ms.locfileid: "75438849"
       "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
       "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
       "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
-      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
-      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
-      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
+      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the logical SQL server that will hold the output/copied data." } },
+      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the logical SQL server." } },
+      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the logical SQL server." } },
       "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
       "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
       } 
@@ -288,7 +288,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 > [!IMPORTANT]
 > storageAccountName 및 storageAccountKey 매개 변수에 대한 Azure Storage 계정의 이름과 키를 지정합니다.  
 > 
-> sqlServerName, databaseName, sqlServerUserName 및 sqlServerPassword 매개 변수에 대한 Azure SQL 서버, 데이터베이스, 사용자 및 암호를 지정합니다.  
+> sqlServerName, databaseName, sqlServerUserName 및 sqlServerPassword 매개 변수에 대한 논리 SQL 서버, 데이터베이스, 사용자 및 암호를 지정합니다.  
 
 ```json
 {
@@ -301,7 +301,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
-        "sqlServerName": { "value": "<Name of the Azure SQL server>" },
+        "sqlServerName": { "value": "<Name of the logical SQL server>" },
         "databaseName": { "value": "<Name of the Azure SQL database>" },
         "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
         "sqlServerPassword": { "value": "<password for the user>" },
@@ -413,7 +413,7 @@ AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에
 connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStorageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스
-AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다. 이 섹션에서 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.  
+AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.  
 
 ```json
 {

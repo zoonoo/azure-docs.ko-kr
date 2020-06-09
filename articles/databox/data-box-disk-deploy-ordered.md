@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746090"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266528"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -28,7 +28,7 @@ Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 디바이스를 배포하기 전에, Data Box 서비스 및 Data Box Disk에 대한 구성 필수 조건을 완료해야 합니다.
 
@@ -78,7 +78,7 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
     |설정|값|
     |---|---|
-    |속성|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
+    |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
     |Resource group| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
     |대상 Azure 지역| 스토리지 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 스토리지 계정이 지원됩니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
@@ -105,7 +105,7 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
 7. **배송 주소** 탭에서 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 제공합니다. **주소 확인**을 클릭합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
 
-   주문이 처리되면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-disk-portal-customer-managed-shipping.md)을 참조하세요.
+   주문이 처리되면 이메일 알림을 받게 됩니다. 자체 관리형 배송을 선택한 경우 [자체 관리형 배송 사용](data-box-disk-portal-customer-managed-shipping.md)을 참조하세요.
 
     ![배송 주소 제공](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. **알림 세부 정보**에서 이메일 주소를 지정합니다. 서비스에서는 주문 상태에 대한 모든 업데이트와 관련된 이메일 알림을 지정한 이메일 주소로 보냅니다.

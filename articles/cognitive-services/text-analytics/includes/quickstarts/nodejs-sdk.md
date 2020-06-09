@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 8bcc919aee7548e8596d1f44c8a357d3f84dfb14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096049"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140738"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 [v3 참조 설명서](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 패키지(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
@@ -29,7 +29,7 @@ ms.locfileid: "82096049"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org/)
@@ -56,12 +56,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 `@azure/ai-text-analytics` NPM 패키지 설치:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.4
+npm install --save @azure/ai-text-analytics@1.0.0-preview.5
 ```
 
 > [!TIP]
@@ -83,7 +83,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.
 `index.js`라는 파일을 만들고 다음을 추가합니다.
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -128,7 +128,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 ## <a name="client-authentication"></a>클라이언트 인증
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 키와 엔드포인트를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만듭니다.
 
@@ -146,7 +146,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCrede
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과에는 오프셋, 길이 및 신뢰도 점수와 함께 문장 수준 감정이 포함됩니다.
 
@@ -213,7 +213,7 @@ ID: 0
 
 ## <a name="language-detection"></a>언어 검색
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `detectLanguage()` 메서드를 호출하고 반환된 `DetectLanguageResultCollection`를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID를 해당 기본 언어로 인쇄합니다.
 
@@ -262,7 +262,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 > [!NOTE]
 > 버전 `3.0-preview`에서 다음을 수행합니다.
@@ -283,7 +283,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
         });
     });
 }
@@ -297,26 +297,20 @@ entityRecognition(textAnalyticsClient);
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 1
+        Score: 0.29
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.67
+        Score: 0.78
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.81
+        Score: 0.82
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
         Score: 0.8
-        Name: interpreters      Category: PersonType    Subcategory: N/A
-        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
         Score: 0.8
 Document ID: 1
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.96
-        Name: Redmond   Category: Location      Subcategory: GPE
-        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.31
+        Score: 0.25
 ```
 
 ## <a name="entity-linking"></a>엔터티 연결
@@ -337,8 +331,8 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
-            });
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
         });
     });
 }
@@ -353,24 +347,24 @@ linkedEntityRecognition(textAnalyticsClient);
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800       Score: 0.78
+                Text: Altair 8800       Score: 0.88
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates        Score: 0.55
-                Text: Gates     Score: 0.55
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen        Score: 0.53
+                Text: Paul Allen        Score: 0.60
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft         Score: 0.47
-                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4   Score: 0.25
+                Text: April 4   Score: 0.32
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC     Score: 0.28
+                Text: BASIC     Score: 0.33
 ```
 
 #### <a name="version-21"></a>[버전 2.1](#tab/version-2)
@@ -418,7 +412,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `extractKeyPhrases()` 메서드를 호출하고 반환된 `ExtractKeyPhrasesResult` 개체를 가져옵니다. 결과를 반복하고 각 문서의 ID 및 검색된 주요 문구를 인쇄합니다.
 
