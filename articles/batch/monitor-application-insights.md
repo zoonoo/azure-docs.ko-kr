@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 Insights를 사용 하 여 일괄 처리 모니터링
+title: Azure Application Insights를 사용한 Batch 모니터링
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115468"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723615"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
@@ -19,7 +19,7 @@ ms.locfileid: "82115468"
 이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 컴퓨팅 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
 > [!TIP]
-> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows 용 [설치 패키지](https://azure.github.io/BatchExplorer/) 를 다운로드 합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
+> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
 >
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -280,7 +280,7 @@ Application Insights 리소스에서 추적 로그를 보려면 **검색**을 �
 사용자 지정 메트릭도 포털의 유용한 도구입니다. 예를 들어 각 컴퓨팅 노드가 처리 중인 필수 텍스트 파일을 다운로드하는 데 걸린 평균 시간을 표시할 수 있습니다.
 
 샘플 차트를 만들려면:
-1. Application Insights 리소스에서 **메트릭 탐색기** > **차트 추가**를 클릭 합니다.
+1. Application Insights 리소스에서 **메트릭 탐색기** > **차트 추가**를 클릭합니다.
 2. 추가된 차트에서 **편집**을 클릭합니다.
 2. 다음과 같이 차트 세부 정보를 업데이트합니다.
    * **차트 종류**를 **그리드**로 설정합니다.

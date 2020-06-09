@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231767"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773103"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -21,33 +21,33 @@ ms.locfileid: "82231767"
 
 Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 공유를 사용할 수 있습니다. 다음 표는 각 환경에서 파일 공유를 지원하는 OS 버전을 보여줍니다.
 
-| Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스 탑재 가능 |
+| Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
 |------------------------|-------------|-----------------------|-----------------------|
-| 시작 | SMB 3.0 | 예 | 예 |
+| Windows Server 2019 | SMB 3.0 | 예 | 예 |
 | Windows 10<sup>1</sup> | SMB 3.0 | 예 | 예 |
 | Windows Server 반기 채널<sup>2</sup> | SMB 3.0 | 예 | 예 |
 | Windows Server 2016 | SMB 3.0 | 예 | 예 |
 | Windows 8.1 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 R2 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 | SMB 3.0 | 예 | 예 |
-| Windows 7<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
+| Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 예 |
 
-<sup>1</sup> Windows 10, 버전 1507, 1607, 1709, 1803, 1809, 1903 및 1909입니다.  
-<sup>2</sup> Windows Server, 버전 1809, 1903 및 1909.  
-<sup>3</sup> Windows 7 및 Windows Server 2008 r 2에 대 한 일반 Microsoft 지원이 종료 되었습니다. [ESU (확장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대 한 추가 지원을 구매할 수 있습니다. 이러한 운영 체제는 마이그레이션하는 것이 좋습니다.
+<sup>1</sup>Windows 10, 버전 1507, 1607, 1709, 1803, 1809, 1903 및 1909  
+<sup>2</sup>Windows Server, 버전 1809, 1903 및 1909  
+<sup>3</sup>Windows 7 및 Windows Server 2008 R2에 대한 정식 Microsoft 지원이 종료되었습니다. [ESU(연장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대한 추가 지원을 구매할 수 있습니다. 이와 같은 운영 체제에서 마이그레이션하는 것이 좋습니다.
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건 
-* **Storage 계정 이름**: Azure 파일 공유를 탑재 하려면 저장소 계정 이름이 필요 합니다.
+## <a name="prerequisites"></a>사전 요구 사항 
+* **스토리지 계정 이름**: Azure 파일 공유를 탑재하려면 스토리지 계정의 이름이 필요합니다.
 
-* **Storage 계정 키**: Azure 파일 공유를 탑재 하려면 기본 (또는 보조) 저장소 키가 필요 합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
+* **스토리지 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 스토리지 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
-* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. [여기에서 차단 된 포트 445을 해결 하는 다양 한 방법](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에 대해 알아볼 수 있습니다.
+* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다.
 
-    다음 PowerShell 코드에서는 Azure PowerShell 모듈이 설치 되어 있다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps) 를 참조 하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
+    다음 PowerShell 코드는 Azure PowerShell 모듈이 설치된 것으로 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -80,7 +80,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 ## <a name="using-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑재하거나(드라이브 문자 또는 탑재 지점 경로에 할당한다는 의미) [UNC 경로](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)를 통해 액세스해야 합니다. 
 
-Windows Server, Linux Samba 서버 또는 NAS 디바이스에 호스트되는 공유처럼 여러분이 기존에 상호 작용하던 다른 SMB 공유와는 달리, Azure 파일 공유는 현재 AD(Active Directory) 또는 AAD(Azure Active Directory)에 Kerberos 인증을 지원하지 않습니다. 현재 이 기능을 [개발 중](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)입니다. 그 대신, Azure 파일 공유를 포함하는 스토리지 계정의 스토리지 계정 키를 사용하여 Azure 파일 공유에 액세스해야 합니다. 저장소 계정 키는 사용자가 액세스 하는 파일 공유 내의 모든 파일 및 폴더에 대 한 관리자 권한 및 저장소 계정 내에 포함 된 모든 파일 공유 및 기타 저장소 리소스 (blob, 큐, 테이블 등)에 대 한 관리자 권한을 포함 하 여 저장소 계정에 대 한 관리자 키입니다. 이 정도로는 워크로드에 충분하지 않은 경우 [Azure 파일 동기화](storage-sync-files-planning.md)는 AAD 기반 Kerberos 인증 및 ACL 지원이 공개적으로 제공될 때까지 부족한 Kerberos 인증 및 ACL 지원을 해결합니다.
+이 문서에서는 스토리지 계정 키를 사용하여 파일 공유에 액세스합니다. 스토리지 계정 키는 액세스하는 파일 공유 내 모든 파일 및 폴더에 대한 관리자 권한이 포함된 스토리지 계정의 관리 키이며, 스토리지 계정에 포함된 모든 파일 공유 및 다른 스토리지 리소스(Blob, 큐, 테이블 등)의 관리 키입니다. 스토리지 계정 키가 워크로드에 충분하지 않은 경우 [Azure 파일 동기화](storage-sync-files-planning.md)를 사용하거나 [SMB에 대한 ID 기반 인증](storage-files-active-directory-overview.md)을 사용할 수 있습니다.
 
 SMB 파일 공유를 기대하는 LOB 애플리케이션을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
 
@@ -126,7 +126,7 @@ User: AZURE\<your-storage-account-name>
 #### <a name="advanced-cmdkey-scenarios"></a>고급 cmdkey 시나리오
 cmdkey와 관련하여 고려해야 할 두 가지 시나리오가 더 있습니다. 하나는 서비스 계정 같은 다른 사용자의 계정을 머신에 저장하는 것이고, 다른 하나는 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것입니다.
 
-컴퓨터에 다른 사용자에 대 한 자격 증명을 저장 하는 것은 쉽습니다. 계정에 로그인 하는 경우 다음 PowerShell 명령을 실행 하기만 하면 됩니다.
+다른 사용자의 자격 증명을 머신에 저장하는 방법은 간단합니다. 계정에 로그인할 때 다음 PowerShell 명령을 실행하기만 하면 됩니다.
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -139,7 +139,7 @@ Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 하지만 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것은 불가능합니다. cmdkey는 추가의 경우에도 사용자가 PowerShell 원격을 통해 로그인 할 때 저장된 자격 증명에 액세스하는 것을 허용하지 않기 때문입니다. [원격 데스크톱](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)을 사용하여 머신에 로그인하는 것이 좋습니다.
 
 ### <a name="mount-the-azure-file-share-with-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 탑재
-일반 (상승 되지 않은) PowerShell 세션에서 다음 명령을 실행 하 여 Azure 파일 공유를 탑재 합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`을(를) 적절한 정보로 바꿉니다.
+일반(관리자 권한이 아닌) PowerShell 세션에서 다음 명령을 실행하여 Azure 파일 공유를 탑재합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`을(를) 적절한 정보로 바꿉니다.
 
 ```powershell
 $resourceGroupName = "<your-resource-group-name>"
@@ -182,11 +182,11 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. 파일 탐색기를 엽니다. [시작] 메뉴에서 열거나 Win+E 바로 가기 키를 눌러서 열 수 있습니다.
 
-1. 창의 왼쪽에 있는 **이 PC** 항목으로 이동 합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 **네트워크 드라이브 연결**을 선택합니다.
+1. 창 왼쪽에 있는 **이 PC** 항목으로 이동합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 **네트워크 드라이브 연결**을 선택합니다.
     
     !["네트워크 드라이브 연결" 드롭다운 메뉴의 스크린샷](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. 드라이브 문자를 선택 하 고 UNC 경로를 입력 `<storageAccountName>.file.core.windows.net/<fileShareName>`합니다. unc 경로 형식은입니다. 예: `anexampleaccountname.file.core.windows.net/example-share-name`
+1. 드라이브 문자를 선택하고 UNC 경로를 입력합니다. UNC 경로 형식은 `\\<storageAccountName>.file.core.windows.net\<fileShareName>`입니다. 예: `\\anexampleaccountname.file.core.windows.net\example-share-name`
     
     !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
@@ -201,7 +201,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. Azure 파일 공유를 분리할 준비가 되면 파일 탐색기의 **네트워크 위치** 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 **연결 해제**를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅샷에 액세스
-Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md)및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅숏을 만들 수 있습니다.
+Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅샷을 만들 수 있습니다.
 
 #### <a name="list-previous-versions"></a>이전 버전 나열
 복원해야 하는 항목 또는 부모 항목을 찾습니다. 해당 항목을 두 번 클릭하여 원하는 디렉터리로 이동합니다. 마우스 오른쪽 단추로 클릭하고 메뉴에서 **속성**을 선택합니다.
@@ -228,7 +228,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 
 | Windows 버전                           | SMB 1 기본 상태 | 해제/제거 방법       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| 시작                       | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows Server 2019                       | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 버전 1709+            | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows 10 버전 1709+                | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 2016                       | 사용              | Windows 기능을 사용하여 제거 |
@@ -240,7 +240,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 | Windows 7                                 | 사용              | 레지스트리를 사용하여 해제       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1 사용 감사
-> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows 10 (버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2 및 Windows 8.1에 적용 됩니다.
+> Windows Server 2019, Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows 10(버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2, Windows 8.1에 적용
 
 환경에서 SMB 1을 제거하기 전에, SMB 1 사용을 감사하여 변경 때문에 손상되는 클라이언트가 있는지 확인할 수 있습니다. SMB 1을 사용하여 SMB 공유에 대한 요청이 만들어지는 경우 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 아래의 이벤트 로그에 감사 이벤트가 기록됩니다. 
 
@@ -254,7 +254,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Windows Server에서 SMB 1 제거
-> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용 됩니다.
+> Windows Server 2019, Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용
 
 Windows Server 인스턴스에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
 
@@ -299,6 +299,6 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조하세요.
-- [Azure Files 배포에 대한 계획](storage-files-planning.md)
+- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 - [FAQ](../storage-files-faq.md)
 - [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      

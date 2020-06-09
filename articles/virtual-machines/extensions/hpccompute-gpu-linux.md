@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 드라이버 확장-Azure Linux Vm
+title: NVIDIA GPU 드라이버 확장 - Azure Linux VM
 description: Linux를 실행하는 N 시리즈 컴퓨팅 VM에서 NVIDIA GPU 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: e7f6653043d46925d6a4c35eedaf81224ea6c36d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415780"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773120"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -26,11 +26,11 @@ ms.locfileid: "81415780"
 
 이 확장은 Linux N 시리즈 VM에서 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 [NVIDIA 최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=874330)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-드라이버의 수동 설치 및 현재 지원 되는 버전에 대 한 지침은 [여기](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)에서 제공 됩니다.
+드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)에서 확인할 수 있습니다.
 확장은 [Windows N 시리즈 VM](hpccompute-gpu-windows.md)에서 NVIDIA GPU 드라이버를 설치하는 데 지원됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -75,8 +75,8 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| 게시자 | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | 문자열 |
+| type | NvidiaGpuDriverLinux | 문자열 |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>설정
@@ -86,7 +86,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | 속성 | Description | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | boolean |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | 그리드: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | string |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | 문자열 |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | boolean |
 
 
@@ -149,7 +149,7 @@ az vm extension set \
   --version 1.2 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85", \
+    "driverVersion": "9.1.85" \
   }'
 ```
 
@@ -186,9 +186,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 14 | 작업 실패 | 실행 출력 로그를 확인합니다. |
 
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 확장에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](features-linux.md)을 참조하세요.

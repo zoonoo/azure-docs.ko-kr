@@ -1,15 +1,15 @@
 ---
-title: 계산 노드에서 & 완료 작업을 준비 하는 작업 만들기
+title: 컴퓨팅 노드에서 작업을 준비 및 완료하는 태스크 만들기
 description: 작업 수준 준비 태스크를 사용하여 Azure Batch 컴퓨팅 노드로의 데이터 전송을 최소화하고 작업 완료 시 태스크를 해제하여 노드를 정리합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a73baa03500dfbcdd7193035bf70b0f3e03be283
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116063"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726675"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -50,12 +50,12 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 ## <a name="job-preparation-task"></a>작업 준비 태스크
 
 
-작업의 태스크를 실행 하기 전에 Batch는 작업을 실행 하도록 예약 된 각 계산 노드에서 작업 준비 태스크를 실행 합니다. 기본적으로 Batch는 노드에서 실행 하도록 예약 된 작업을 실행 하기 전에 작업 준비 작업이 완료 될 때까지 기다립니다. 그러나 서비스를 대기하지 않도록 구성할 수 있습니다. 노드가 다시 시작 되 면 작업 준비 태스크가 다시 실행 됩니다. 이 동작을 사용 하지 않도록 설정할 수도 있습니다. 작업 준비 태스크 및 작업 관리자 태스크가 구성 된 작업을 수행 하는 경우 작업 준비 태스크는 다른 모든 작업과 마찬가지로 작업 관리자 태스크 보다 먼저 실행 됩니다. 작업 준비 태스크는 항상 먼저 실행 됩니다.
+작업의 태스크를 실행하기 전에 Batch에서는 작업을 실행하도록 예약된 각 컴퓨팅 노드에서 작업 준비 태스크가 실행됩니다. 기본적으로 Batch는 노드에서 실행하도록 예약된 태스크를 실행하기 전에 작업 준비 태스크가 완료되기를 대기합니다. 그러나 서비스를 대기하지 않도록 구성할 수 있습니다. 노드가 다시 시작되면 작업 준비 태스크도 다시 실행되지만, 이 동작을 사용하지 않도록 설정할 수도 있습니다. 작업 준비 태스크와 작업 관리자 태스크가 구성된 작업이 있는 경우 다른 모든 태스크의 경우와 마찬가지로 작업 준비 태스크가 작업 관리자 태스크보다 먼저 실행됩니다. 작업 준비 태스크는 항상 먼저 실행됩니다.
 
 작업 준비 태스크는 태스크를 실행하도록 예약된 노드에서만 실행됩니다. 노드에 태스크를 할당하지 않은 경우 준비 태스크가 불필요하게 실행되지 않도록 방지합니다. 이는 작업에 대한 태스크 수가 풀의 노드 수보다 작은 경우에 발생할 수 있습니다. 이 방식은 [동시 태스크 실행](batch-parallel-node-tasks.md) 을 활성화할 때도 적용되며, 이는 태스크 개수가 가능한 총 동시 태스크 개수보다 작으면 노드 일부를 유휴 상태로 남겨둡니다. 유휴 노드에서 작업 준비 태스크를 실행하지 않으면 데이터 전송 요금에 적은 비용을 투자할 수 있습니다.
 
 > [!NOTE]
-> JobPreparationTask는 각 작업을 시작할 때 실행되지만 StartTask는 먼저 컴퓨팅 노드를 풀과 조인하거나 다시 시작할 때만 실행된다는 점에서 [JobPreparationTask][net_job_prep_cloudjob]은 [CloudPool.StartTask][pool_starttask]와 다릅니다.
+> JobPreparationTask는 각 작업을 시작할 때 실행되지만 StartTask는 먼저 컴퓨팅 노드를 풀과 조인하거나 다시 시작할 때만 실행된다는 점에서 [JobPreparationTask][net_job_prep_cloudjob]는 [CloudPool.StartTask][pool_starttask]와 다릅니다.
 >
 
 
@@ -66,14 +66,14 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 > [!NOTE]
 > 또한 작업 삭제는 작업 릴리스 태스크를 실행합니다. 그러나 작업이 이미 종료되었고 나중에 삭제되는 경우에는 해제 태스크가 다시 실행되지 않습니다.
 
-작업 릴리스 작업은 Batch 서비스에 의해 종료 되기 전에 최대 15 분 동안 실행할 수 있습니다. 자세한 내용은 [REST API 참조 설명서](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)를 참조 하세요.
+작업 해제 태스크는 Batch 서비스에 의해 종료되기 전까지 최대 15분 동안 실행될 수 있습니다. 자세한 내용은 [REST API 참조 문서](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)를 참조하세요.
 > 
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Batch .NET을 사용한 작업 준비 및 릴리스 태스크
 작업 준비 태스크를 사용하려면 [JobPreparationTask][net_job_prep] 개체를 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
 
-이 코드 조각에서 `myBatchClient`는 완전히 [BatchClient][net_batch_client]의 인스턴스이고 `myPool`은 Batch 계정에 있는 기존 풀입니다.
+이 코드 조각에서 `myBatchClient`는 [BatchClient][net_batch_client]의 인스턴스이고 `myPool`은 Batch 계정에 있는 기존 풀입니다.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -172,7 +172,7 @@ Sample complete, hit ENTER to exit...
 > 
 
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Azure 포털에서 작업 준비 및 해제 태스크 검사
-샘플 애플리케이션을 실행할 때 [Azure Portal][portal]을 사용하면 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정한 공유 텍스트 파일을 다운로드할 수도 있습니다.
+애플리케이션 예제를 실행할 때 [Azure Portal][portal]을 사용하면 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정한 공유 텍스트 파일을 다운로드할 수도 있습니다.
 
 다음은 샘플 애플리케이션을 실행한 후에 Azure Portal에서 **준비 태스크 블레이드**를 보여 주는 스크린샷입니다. 작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다.
 

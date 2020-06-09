@@ -1,16 +1,16 @@
 ---
-title: 렌더링 개요 - Azure Batch
+title: 렌더링 개요
 description: 렌더링에 Azure 사용 및 Azure Batch 렌더링 기능 개요 소개
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 515fc92aa14c0a86746d0a97d2bc601fab553aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115706"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726437"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
 
@@ -88,7 +88,7 @@ Azure Batch은 많은 워크로드에 사용되지만 다음 기능은 특히 �
   * 플러그 인을 통해 클라이언트 디자인 및 모델링 애플리케이션 안에서 직접 Batch 렌더링을 사용하도록 할 수 있습니다. 플러그 인은 주로 현재 3D 모델에 대한 컨텍스트 정보를 통해 Batch Explorer 애플리케이션을 호출합니다.
   * 다음과 같은 플러그 인을 사용할 수 있습니다.
     * [Azure Batch for Maya](https://github.com/Azure/azure-batch-maya)
-    * [3DS Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
     * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
 ## <a name="getting-started-with-azure-batch-rendering"></a>Azure Batch 렌더링 시작

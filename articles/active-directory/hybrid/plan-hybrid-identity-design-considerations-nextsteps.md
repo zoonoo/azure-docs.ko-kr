@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512966"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647259"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 디바이스 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.
@@ -37,9 +37,9 @@ ms.locfileid: "76512966"
 다음 리소스를 모니터링하면 모바일 디바이스 관리 솔루션에 대한 최신 뉴스 및 업데이트를 확인할 수 있습니다.
 
 * [Microsoft Enterprise Mobility 블로그](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft In The Cloud 블로그](https://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune 블로그](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft 끝점 Configuration Manager 블로그](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
+* [Microsoft In The Cloud 블로그](https://cloudblogs.microsoft.com/)
+* [Microsoft Intune 블로그](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
+* [Microsoft Endpoint Configuration Manager 블로그](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)

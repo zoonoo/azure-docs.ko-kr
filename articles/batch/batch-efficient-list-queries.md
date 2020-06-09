@@ -1,15 +1,15 @@
 ---
-title: 효율적인 목록 쿼리 디자인
+title: 효율적인 목록 쿼리 설계
 description: 풀, 작업, 태스크 및 컴퓨팅 노드와 같은 Batch 리소스에 대한 정보를 요청할 때 쿼리를 필터링하여 성능을 향상시킵니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 987a31f9506dcd1b13b04d544465c7529f23122d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116114"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726709"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
@@ -24,7 +24,7 @@ ms.locfileid: "82116114"
 ## <a name="meet-the-detaillevel"></a>DetailLevel 충족
 프로덕션 Batch 애플리케이션에서 작업, 태스크 및 컴퓨팅 노드 같은 엔터티가 수천 개 있을 수 있습니다. 이러한 리소스에 대한 정보를 요청할 때는 잠재적으로 각 쿼리에서 대량의 데이터를 Batch 서비스에서 애플리케이션으로 "아슬아슬하게 전달"해야 합니다. 쿼리에서 반환하는 항목의 수와 정보의 형식을 제한하여 쿼리의 속도를 높이고, 그 결과로 애플리케이션의 성능도 향상시킬 수 있습니다.
 
-이 [Batch .NET][api_net] API 코드 조각은 각 태스크의 속성 *모두*와 함께 작업과 관련된 *모든* 태스크를 나열합니다.
+이 [Batch .NET][api_net] API 코드 조각은 각 태스크의 속성 ‘모두’와 함께 작업과 관련된 ‘모든’ 태스크를 나열합니다. 
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -97,7 +97,7 @@ expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄�
 
 * [ODATADetailLevel][odata].[FilterClause][odata_filter]: 반환되는 항목 수를 제한합니다.
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: 각 항목에 반환되는 속성 값을 지정합니다.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: 각 항목에 대한 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: 각 항목의 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
 
 다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
 
@@ -136,13 +136,13 @@ List<CloudPool> testPools =
 filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 모두 해당 REST API 항목을 반영 *해야 합니다* . 다음 표는 .NET과 REST API 간의 매핑을 제공합니다.
 
 ### <a name="mappings-for-filter-strings"></a>filter 문자열 매핑
-* **.NET 목록 메서드**: 이 열의 각 .NET API 메서드는 [ODATADetailLevel][odata] 개체를 매개 변수 형태로 수락합니다.
+* **.NET 목록 메서드**: 이 열의 각 .NET API 메서드는 [ODATADetailLevel][odata] 개체를 매개 변수로 수락합니다.
 * **REST 목록 요청**: 이 열에 연결된 각 REST API 페이지에는 *filter* 문자열에서 허용되는 속성과 연산을 지정하는 테이블이 들어 있습니다. [ODATADetailLevel.FilterClause][odata_filter] 문자열을 구성할 때 이 속성 이름과 작업을 사용합니다.
 
 | .NET 목록 메서드 | REST 목록 요청 |
 | --- | --- |
 | [CertificateOperations.ListCertificates][net_list_certs] |[계정에 인증서 나열][rest_list_certs] |
-| [CloudTask.ListNodeFiles][net_list_task_files] |[태스크와 연관된 파일 나열][rest_list_task_files] |
+| [CloudTask.ListNodeFiles][net_list_task_files] |[작업과 연관된 파일 나열][rest_list_task_files] |
 | [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[작업 준비 및 작업에 대한 작업 릴리스 태스크의 상태 나열][rest_list_jobprep_status] |
 | [JobOperations.ListJobs][net_list_jobs] |[계정에 작업 나열][rest_list_jobs] |
 | [JobOperations.ListNodeFiles][net_list_nodefiles] |[노드에 파일 나열][rest_list_nodefiles] |
@@ -153,20 +153,20 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 | [PoolOperations.ListPools][net_list_pools] |[계정에 풀 나열][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>select 문자열 매핑
-* **Batch .NET 형식**: Batch .NET API 형식.
+* **Batch .NET 형식**: Batch .NET API 형식입니다.
 * **REST API 엔터티**: 이 열의 각 페이지에는 형식에 대한 REST API 속성 이름을 나열하는 하나 이상의 표가 들어 있습니다. 이러한 속성 이름은 *select* 문자열을 구성할 때 사용됩니다. [ODATADetailLevel.SelectClause][odata_select] 문자열을 구성할 때 이와 동일한 속성을 사용합니다.
 
 | Batch .NET 형식 | REST API 엔터티 |
 | --- | --- |
-| [인증서][net_cert] |[인증서 정보 가져오기][rest_get_cert] |
+| [MSSQLSERVER에 대한 프로토콜 속성][net_cert] |[인증서 정보 가져오기][rest_get_cert] |
 | [CloudJob][net_job] |[작업 정보 가져오기][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[작업 일정 정보 가져오기][rest_get_schedule] |
 | [ComputeNode][net_node] |[노드 정보 가져오기][rest_get_node] |
 | [CloudPool][net_pool] |[풀 정보 가져오기][rest_get_pool] |
-| [CloudTask][net_task] |[태스크 정보 가져오기][rest_get_task] |
+| [CloudTask][net_task] |[작업 정보 가져오기][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>예: filter 문자열 구성
-[ODATADetailLevel.FilterClause][odata_filter]에 대한 filter 문자열을 구성할 때는 "filter 문자열에 대한 매핑"에서 위의 표를 참조하여 수행하려는 목록 작업에 해당하는 REST API 설명서 페이지를 찾을 수 있습니다. 해당 페이지의 첫 번째 다중 행 표에 필터링 가능한 속성과 지원되는 연산자가 있습니다. 예를 들어, 종료 코드가 0이 아닌 모든 태스크를 검색하려는 경우 [작업과 연결된 태스크 목록][rest_list_tasks]의 이 행은 적용 가능한 속성 문자열과 허용 가능한 연산자를 지정합니다.
+[ODATADetailLevel.FilterClause][odata_filter]에 대한 filter 문자열을 구성할 때는 “filter 문자열에 대한 매핑”에서 위의 표를 참조하여 수행하려는 목록 작업에 해당하는 REST API 설명서 페이지를 찾을 수 있습니다. 해당 페이지의 첫 번째 다중 행 표에 필터링 가능한 속성과 지원되는 연산자가 있습니다. 예를 들어, 종료 코드가 0이 아닌 모든 태스크를 검색하려는 경우 [작업과 연결된 태스크 목록][rest_list_tasks]의 이 행은 적용 가능한 속성 문자열과 허용 가능한 연산자를 지정합니다.
 
 | 속성 | 허용되는 연산 | Type |
 |:--- |:--- |:--- |
@@ -177,7 +177,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>예: select 문자열 구성
-[ODATADetailLevel.SelectClause][odata_select]를 구성하려면 "select 문자열에 대한 매핑"에서 위의 표를 참조하고 나열하는 엔터티 형식에 해당하는 REST API 페이지로 이동합니다. 해당 페이지의 첫 번째 다중 행 표에 선택 가능한 속성과 지원되는 연산자가 있습니다. 목록의 각 태스크에 대해 ID와 명령줄만 검색하려면 [태스크 관련 정보 가져오기][rest_get_task]의 해당하는 표에서 이 행을 찾을 수 있습니다.
+[ODATADetailLevel.SelectClause][odata_select]를 구성하려면 “select 문자열에 대한 매핑”에서 위의 표를 참조하고 나열하는 엔터티 형식에 해당하는 REST API 페이지로 이동합니다. 해당 페이지의 첫 번째 다중 행 표에 선택 가능한 속성과 지원되는 연산자가 있습니다. 목록의 각 작업에 대해 ID와 명령줄만 검색하려면 [작업 관련 정보 가져오기][rest_get_task]의 해당하는 표에서 이 행을 찾을 수 있습니다.
 
 | 속성 | Type | 메모 |
 |:--- |:--- |:--- |

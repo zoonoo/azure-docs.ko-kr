@@ -1,23 +1,23 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67476270"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868036"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
-1. 새로 **만들기를 클릭 하** 여 새 액세스 검토를 만듭니다.
+1. 새 액세스 검토를 만들려면 **새로 만들기**를 클릭합니다.
 
 1. 액세스 검토의 이름을 지정합니다. 필요한 경우 검토에 설명을 지정합니다. 이름 및 설명이 검토자에게 표시됩니다.
 
@@ -27,37 +27,38 @@ ms.locfileid: "67476270"
 
     ![시작 날짜, 빈도, 기간, 종료, 횟수 및 종료 날짜](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. 액세스 검토를 반복 하려면 **빈도** 설정을 **한 시간** 에서 **매주**, **매월**, **분기별**, **매년**또는 **반기**로 변경 합니다. **기간** 슬라이더 또는 텍스트 상자를 사용 하 여 검토자의 입력을 위해 되풀이 계열의 각 검토가 열리는 일 수를 정의 합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
+1. 액세스 검토를 반복하려면 **빈도** 설정을 **한 번**에서 **매주**, **매월**, **분기마다**, **매년** 또는 **반년마다**로 변경합니다. **기간** 슬라이더 또는 텍스트 상자를 사용하여 검토자의 입력에 대해 반복 시리즈의 각 검토가 열릴 일수를 정의합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
 
-1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자는 다른 사용자 관리자 또는 다른 전역 관리자가 **설정**의 날짜를 변경 하 여 만든 후 해당 날짜에 끝나도록 계열을 중지할 수 있습니다.
+1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자, 다른 사용자 관리자 또는 다른 전역 관리자는 해당 날짜에 종료되도록 **설정**에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
 
-1. **사용자** 섹션에서 멤버 자격을 검토 하려는 하나 이상의 역할을 선택 합니다.
+1. **사용자** 섹션에서 멤버 자격을 검토할 역할을 하나 이상 선택합니다.
 
     ![역할 멤버 자격을 검토할 사용자 범위](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > 둘 이상의 역할을 선택 하면 여러 액세스 검토가 생성 됩니다. 예를 들어 5 개의 역할을 선택 하면 별도의 액세스 검토가 5 개 생성 됩니다.
+    > - 여기에서 선택한 역할에는 [영구적 역할 및 적격 역할](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)이 모두 포함됩니다.
+    > - 둘 이상의 역할을 선택하면 여러 액세스 검토가 생성됩니다. 예를 들어 5개의 역할을 선택하면 별도의 액세스 검토가 5개 생성됩니다.
 
-    Azure AD 역할에 대 한 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
+    **Azure AD 역할**의 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
 
-    ![선택할 수 있는 Azure AD 역할을 나열 하는 멤버 자격 창 검토](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![선택할 수 있는 Azure AD 역할을 나열하는 멤버 자격 검토 창](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Azure 리소스 역할에 대 한 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
+    **Azure 리소스 역할**의 액세스 검토를 만드는 경우 다음 이미지는 멤버 자격 검토 목록 예제를 보여 줍니다.
 
-    ![선택할 수 있는 Azure 리소스 역할을 나열 하는 멤버 자격 창 검토](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![선택할 수 있는 Azure 리소스 역할을 나열하는 멤버 자격 검토 창](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
-1. **검토자** 섹션에서 하나 이상의 사용자를 선택 하 여 모든 사용자를 검토 합니다. 또는 구성원이 자신의 액세스 권한을 검토하도록 할 수도 있습니다.
+1. **검토자** 섹션에서 모든 사용자를 검토할 한 명 이상의 사용자를 선택합니다. 또는 구성원이 자신의 액세스 권한을 검토하도록 할 수도 있습니다.
 
-    ![선택한 사용자 또는 멤버 (자체)의 검토자 목록](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![선택한 사용자 또는 멤버(자신)의 검토자 목록](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
-    - **선택한 사용자** -액세스 권한이 필요한 사용자를 알 수 없는 경우이 옵션을 사용 합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
-    - **멤버 (자체)** -사용자가 자신의 역할 할당을 검토 하도록 하려면이 옵션을 사용 합니다.
+    - **선택한 사용자** - 액세스가 필요한 사용자를 알 수 없는 경우 이 옵션을 사용합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
+    - **멤버(자신)** - 사용자에게 자신의 역할 할당을 검토하게 하려면 이 옵션을 사용합니다.
 
 ### <a name="upon-completion-settings"></a>완료 시 설정
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 
-    ![완료 설정이 자동 적용 될 때 응답 하지 않습니다.](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![자동 응답 및 검토자가 응답하지 않을 경우에 대한 완료 시 설정](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. 거부된 사용자에 대한 액세스를 자동으로 제거하려면 **결과를 리소스에 자동 적용**을 **사용**으로 설정합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
 
@@ -72,7 +73,7 @@ ms.locfileid: "67476270"
 
 1. 추가 설정을 지정하려면 **고급 설정** 섹션을 확장합니다.
 
-    ![권장 사항 표시, 승인 이유, 메일 알림 및 미리 알림에 대 한 고급 설정](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![권장 사항 표시, 승인 이유, 메일 알림 및 미리 알림에 대한 고급 설정](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. **권장 사항 표시**를 **사용**으로 설정하면 사용자의 액세스 정보에 따라 검토자에게 시스템 권장 사항이 표시됩니다.
 

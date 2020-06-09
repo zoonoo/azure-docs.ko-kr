@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "82609904"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860525"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -125,14 +125,39 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 1. 앱 등록을 만든 후에는 **애플리케이션(클라이언트) ID**의 값을 복사합니다.
 1. **API 사용 권한** > **사용 권한 추가** > **내 API**를 선택합니다.
 1. 앞에서 App Service 앱에 대해 만든 앱 등록을 선택합니다. 앱 등록이 표시되지 않으면 [Azure AD에서 App Service 앱의 앱 등록 만들기](#register)에서 **user_impersonation** 범위를 추가했는지 확인합니다.
-1. **user_impersonation**을 선택한 다음, **사용 권한 추가**를 선택합니다.
+1. **위임된 권한**에서 **user_impersonation**을 선택한 다음, **사용 권한 추가**를 선택합니다.
 
 사용자 대신 App Service 앱에 액세스할 수 있는 네이티브 클라이언트 애플리케이션 구성이 완료되었습니다.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>서비스 간 호출에 대한 디먼 클라이언트 애플리케이션 구성
+
+애플리케이션은 App Service 또는 애플리케이션 대신(사용자 대신이 아님) 함수 앱에서 호스트되는 웹 API를 호출하는 토큰을 획득할 수 있습니다. 이 시나리오는 로그인한 사용자가 없는 상태에서 작업을 수행하는 비대화형 디먼 애플리케이션에 유용합니다. 이 파일은 표준 OAuth 2.0 [클라이언트 자격 증명](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) 권한 부여를 사용합니다.
+
+1. [Azure portal]에서 **Active Directory** > **앱 등록** > **새 등록**을 선택합니다.
+1. **애플리케이션 등록** 페이지에서 디먼 앱 등록의 **이름**을 입력합니다.
+1. 디먼 애플리케이션의 경우에는 리디렉션 URI가 필요하지 않으므로 비워 둘 수 있습니다.
+1. **만들기**를 선택합니다.
+1. 앱 등록을 만든 후에는 **애플리케이션(클라이언트) ID**의 값을 복사합니다.
+1. **인증서 및 암호** > **새 클라이언트 암호** > **추가**를 선택합니다. 페이지에 표시되는 클라이언트 암호 값을 복사합니다. 다시 표시되지 않습니다.
+
+이제 `resource` 매개 변수를 대상 앱의 **애플리케이션 ID URI**로 설정하여 [클라이언트 ID 및 클라이언트 암호를 사용하여 액세스 토큰을 요청](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret)할 수 있습니다. 그런 다음, 결과적인 액세스 토큰은 표준 [OAuth 2.0 인증 헤더](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource)를 사용하여 대상 앱에 제공될 수 있으며, App Service 인증/권한 부여는 일반적인 방법으로 토큰의 유효성을 검사하고 사용하여 이제 호출자(이 경우에는 사용자가 아닌 애플리케이션)가 인증되었음을 표시합니다.
+
+현재 이 기능을 사용하면 Azure AD 테넌트의 ‘모든’ 클라이언트 애플리케이션이 액세스 토큰을 요청하고 대상 앱에 대한 인증을 수행할 수 있습니다. 특정 클라이언트 애플리케이션만 허용하도록 ‘권한 부여’를 적용하려면 몇 가지 추가 구성을 수행해야 합니다.
+
+1. 보호하려는 App Service 또는 함수 앱을 나타내는 앱 등록의 매니페스트에서 [앱 역할을 정의합니다](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. 권한이 부여되어야 하는 클라이언트를 나타내는 앱 등록에서 **API 사용 권한** > **사용 권한 추가** > **내 API**를 선택합니다.
+1. 이전에 만든 앱 등록을 선택합니다. 앱 등록이 표시되지 않으면 [앱 역할을 추가](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md)했는지 확인합니다.
+1. **애플리케이션 사용 권한**에서 이전에 만든 앱 역할을 선택하고 **사용 권한 추가**를 선택합니다.
+1. 권한을 요청하도록 클라이언트 애플리케이션에 권한을 부여하려면 **관리자 동의 부여**를 클릭해야 합니다.
+1. 이전 시나리오(어떤 역할도 추가되기 전)와 마찬가지로 이제 동일한 대상 `resource`에 대한 [액세스 토큰을 요청](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret)하면, 액세스 토큰에는 클라이언트 애플리케이션에 대한 권한이 부여된 앱 역할을 포함하는 `roles` 클레임이 포함됩니다.
+1. 이제 대상 App Service 또는 함수 앱 코드 내에서 예상한 역할이 토큰에 있는지 확인할 수 있습니다(App Service 인증/권한 부여에 의해 수행되지 않음). 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
+
+자체 ID를 사용하는 App Service 앱에 액세스할 수 있는 디먼 클라이언트 애플리케이션 구성이 완료되었습니다.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>다음 단계
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/

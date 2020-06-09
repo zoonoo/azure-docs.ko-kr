@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdc99ca50255bd9b75828f0a051f364c5218471
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 217cf8822fcd8ef515ac9ce2dacdac3682e5fd12
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115492"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680168"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
@@ -41,7 +41,7 @@ ms.locfileid: "83115492"
 |URL |사용 방법|
 |-----|-----|
 |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|에이전트는 다음과 같은 URL을 사용하여 Azure AD 클라우드 서비스와 통신합니다. |
-|mscrl.microsoft.us:80 </br>crl.microsoft.us:80 </br>ocsp.msocsp.us:80 </br>www.microsoft.us:80| 에이전트는 다음과 같은 URL을 사용하여 인증서를 확인합니다.|
+|`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| 에이전트는 다음과 같은 URL을 사용하여 인증서를 확인합니다.|
 |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| 에이전트는 등록 프로세스 동안 다음과 같은 URL을 사용합니다.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 에이전트를 설치합니다.
@@ -76,7 +76,7 @@ Azure Government 클라우드에 대한 에이전트를 설치하려면 다음 �
 
 ### <a name="roll-out-seamless-single-sign-on"></a>원활한 Single Sign-On 롤아웃
 
-다음 지침을 사용하여 Azure AD 원활한 Single Sign-On을 사용자에게 점진적으로 롤아웃할 수 있습니다. Active Directory의 그룹 정책을 사용하여 모든 또는 선택된 사용자의 인트라넷 영역 설정에 Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us)를 추가하기 시작합니다.
+다음 지침을 사용하여 Azure AD 원활한 Single Sign-On을 사용자에게 점진적으로 롤아웃할 수 있습니다. Active Directory의 그룹 정책을 사용하여 모든 또는 선택된 사용자의 인트라넷 영역 설정에 Azure AD URL `https://autologon.microsoft.us`를 추가하기 시작합니다.
 
 또한 **그룹 정책으로 스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 사용하도록 설정해야 합니다.
 
@@ -89,16 +89,16 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 1. Firefox를 실행하고 주소 표시줄에  **about:config** 를 입력합니다. 표시되는 모든 알림을 해제합니다.
 1.  **network.negotiate-auth.trusted-uris**  기본 설정을 검색합니다. 이 기본 설정은 Kerberos 인증을 위한 Firefox의 신뢰할 수 있는 사이트를 나열합니다.
 1. 기본 설정 이름을 마우스 오른쪽 단추로 클릭한 다음,  **수정**을 선택합니다.
-1. 상자에  [ **https://autologon.microsoft.us** ](https://autologon.microsoft.us**)  를 입력합니다.
+1. 상자에 `https://autologon.microsoft.us`를 입력합니다.
 1.  **확인** 을 선택한 다음, 브라우저를 다시 엽니다.
 
 ### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Chromium 기반 Microsoft Edge(모든 플랫폼)
 
-사용자 환경에서  `AuthNegotiateDelegateAllowlist`  또는 `AuthServerAllowlist`  정책 설정을 재정의한 경우 Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us)를 추가해야 합니다.
+사용자 환경에서  `AuthNegotiateDelegateAllowlist`  또는 `AuthServerAllowlist`  정책 설정을 재정의한 경우 Azure AD URL `https://autologon.microsoft.us`를 추가해야 합니다.
 
 ### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-사용자 환경에서  `AuthNegotiateDelegateWhitelist`  또는 `AuthServerWhitelist`  정책 설정을 재정의한 경우 Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us)를 추가해야 합니다.
+사용자 환경에서  `AuthNegotiateDelegateWhitelist`  또는 `AuthServerWhitelist`  정책 설정을 재정의한 경우 Azure AD URL `https://autologon.microsoft.us`를 추가해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

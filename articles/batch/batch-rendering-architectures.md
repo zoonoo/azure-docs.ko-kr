@@ -2,14 +2,14 @@
 title: Azure 렌더링 참조 아키텍처
 description: Azure Batch 및 기타 Azure 서비스를 통해 클라우드로 버스트하여 온-프레미스 렌더링 팜을 확장하는 아키텍처입니다.
 ms.date: 02/07/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115774"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726522"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 렌더링 참조 아키텍처
 
@@ -21,9 +21,9 @@ ms.locfileid: "82115774"
 
 * **컴퓨팅** - Azure Batch 풀 또는 Virtual Machine Scale Set입니다.
 
-* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet입니다.
+* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet.
 
-* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다. 또는 Avere: NFS를 사용 하 여 온-프레미스 NAS 장치에서 파일을 입력 또는 출력 vFXT 합니다.
+* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다. 또는 다음과 같습니다. NFS를 사용하여 온프레미스 NAS 디바이스의 파일을 입력하거나 출력하는 Avere vFXT.
 
   ![클라우드 버스팅 - NFS와 CFS가 있는 하이브리드](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
@@ -33,9 +33,9 @@ ms.locfileid: "82115774"
 
 * **컴퓨팅** - Azure Batch 풀 또는 Virtual Machine Scale Set입니다.
 
-* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet입니다.
+* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet.
 
-* **스토리지** - 입력 및 출력 파일: Blob 스토리지이며, Azure Blobfuse를 통해 컴퓨팅 리소스에 탑재됩니다.
+* **스토리지** - 입력 및 출력 파일: Azure Blobfuse를 통해 컴퓨팅 리소스에 탑재된 Blob Storage입니다.
 
   ![클라우드 버스팅 - Blobfuse가 있는 하이브리드](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -45,9 +45,9 @@ ms.locfileid: "82115774"
 
 * **컴퓨팅** - Azure Batch 풀 또는 Virtual Machine Scale Set입니다.
 
-* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet입니다.
+* **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet.
 
-* **스토리지** - 프레미스 간: Avere vFXT입니다. Azure Data Box를 통해 온-프레미스 파일을 선택적으로 Blob Storage 또는 온-프레미스 Avere FXT(NAS 가속화용)에 보관합니다.
+* **스토리지** - 크로스-프레미스: Avere vFXT. Azure Data Box를 통해 온-프레미스 파일을 선택적으로 Blob Storage 또는 온-프레미스 Avere FXT(NAS 가속화용)에 보관합니다.
 
   ![클라우드 버스트 - 하이브리드 컴퓨팅 및 스토리지](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 

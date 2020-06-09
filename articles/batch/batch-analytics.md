@@ -1,14 +1,14 @@
 ---
 title: Azure Batch 분석
 description: Batch 분석의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함되어 있습니다.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: d35bf249a3ae5dd06f42b89c3d5c2773f9508603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b07d362c3cc2d3b086cf0a82325025604907a393
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113071"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726862"
 ---
 # <a name="batch-analytics"></a>Batch 분석
 Batch 분석의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함되어 있습니다.

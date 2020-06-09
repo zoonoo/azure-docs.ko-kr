@@ -1,16 +1,16 @@
 ---
 title: 렌더링 기능
-description: 표준 Azure Batch 기능은 렌더링 워크 로드 및 앱을 실행 하는 데 사용 됩니다. 일괄 처리는 렌더링 작업을 지 원하는 특정 기능을 포함 합니다.
+description: 표준 Azure Batch 기능은 렌더링 워크로드 및 앱을 실행하는 데 사용됩니다. Batch에는 렌더링 워크로드를 지원하는 특정 기능이 포함됩니다.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115757"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726471"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -28,16 +28,16 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 
 풀 구성 예제는 [Azure CLI 렌더링 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)를 참조하세요.  Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 선택하기 위한 GUI 도구를 제공합니다.  Batch API를 사용하는 경우 풀을 만들 때 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference)에 대한 다음 속성 값을 지정합니다.
 
-| 게시자 | 제품 | SKU | 버전 |
+| 게시자 | 제안 | SKU | 버전 |
 |---------|---------|---------|--------|
 | 일괄 처리 | rendering-centos73 | 렌더링 | 최신 |
 | 일괄 처리 | rendering-windows2016 | 렌더링 | 최신 |
 
 추가 애플리케이션이 풀 VM에서 필요한 경우 다른 옵션을 사용할 수 있습니다.
 
-* 공유 이미지 갤러리의 사용자 지정 이미지:
-  * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [공유 이미지 갤러리를 사용 하 여 풀 만들기](batch-sig-images.md)를 참조 하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 애플리케이션 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
-* [응용 프로그램 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages):
+* Shared Image Gallery의 사용자 지정 이미지:
+  * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [Shared Image Gallery를 사용하여 풀 만들기](batch-sig-images.md)를 참조하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 애플리케이션 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
+* [애플리케이션 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
   * 하나 이상의 ZIP 파일을 사용하여 애플리케이션 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.
   * Azure Blob Storage에 애플리케이션 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
@@ -93,4 +93,4 @@ Azure Marketplace VM 이미지를 사용하는 경우의 모범 사례는 환경
 Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
 
 * [Azure CLI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Batch Explorer를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Batch ExplorerI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
