@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685072"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561038"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
 텍스트 콘텐츠를 분석 하려면 Content Moderator의 텍스트 중재 모델을 사용 합니다.
 
-정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토할 수 있습니다 (사용자 리뷰를 설정 하는 방법을 알아보려면 [리뷰, 워크플로 및 작업](./review-api.md) 참조). 텍스트 조정 모델을 사용 하 여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성 하는 환경에 대 한 사용자 중재를 보강 합니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다. 
+정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토할 수 있습니다 (사용자 리뷰를 설정 하는 방법을 알아보려면 [리뷰, 워크플로 및 작업](./review-api.md) 참조). 텍스트 조정 모델을 사용 하 여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성 하는 환경에 대 한 사용자 중재를 보강 합니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다.
 
 서비스 응답에는 다음 정보가 포함됩니다.
 
@@ -80,7 +80,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
 
-- 메일 주소
+- 전자 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호

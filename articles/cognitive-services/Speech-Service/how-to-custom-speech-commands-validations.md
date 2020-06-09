@@ -3,25 +3,25 @@ title: 사용자 지정 명령 미리 보기에서 유효성 검사 추가-음�
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 명령 미리 보기 앱에서 명령 매개 변수에 유효성 검사를 추가 하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: donkim
-ms.openlocfilehash: 6686016f109fad4ee8b7f4e494b1374a6003658c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.author: nitinme
+ms.openlocfilehash: eb011510a9f636aea9910a4be445cd094acf0c21
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310413"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509579"
 ---
 # <a name="add-validations-to-a-command-parameter-in-a-custom-commands-preview-application"></a>사용자 지정 명령 미리 보기 응용 프로그램에서 명령 매개 변수에 유효성 검사 추가
 
 이 문서에서는 매개 변수 및 수정 프롬프트에 유효성 검사를 추가 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 문서의 단계를 완료 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "84310413"
 
    | 설정    | 제안 값                                           |설명                                     |
    | ---------- | --------------------------------------------------------- |-----|
-   | 이름       | 확인 메시지                                      |규칙의 용도를 설명 하는 이름입니다. |
+   | Name       | 확인 메시지                                      |규칙의 용도를 설명 하는 이름입니다. |
    | **조건** | **필수 매개 변수-온도**                       |규칙을 실행할 수 있는 시기를 결정 하는 조건    |   
    | **actions**    | **음성 응답 보내기-정상, 온도를 {온도}도로 설정** | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
