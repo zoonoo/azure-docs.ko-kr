@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561625"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196630"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
@@ -33,7 +33,7 @@ ms.locfileid: "82561625"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
@@ -64,8 +64,8 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
 시작하기 전에
 
-- Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-port-requirements)을 참조하세요.
-- 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
+* Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-port-requirements)을 참조하세요.
+* 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
 ## <a name="check-the-host-system"></a>호스트 시스템 확인
 
@@ -75,11 +75,17 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 * 호스트에 연결된 Microsoft Windows 클라이언트의 Microsoft Hyper-V 관리자
 * 가상 디바이스를 만드는 기본 하드웨어(호스트 시스템)에서 가상 디바이스에 대해 다음 리소스를 전용으로 사용할 수 있는지 확인합니다.
 
-    * 최소 4개의 가상 프로세서
-    * RAM 8GB 이상
-    * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 
-    * 250GB OS 디스크
-    * 시스템 데이터용 가상 디스크 2TB
+  * 최소 4개의 가상 프로세서
+  * RAM 8GB 이상
+  * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나.
+  * 250GB OS 디스크
+  * 시스템 데이터용 가상 디스크 2TB
+
+## <a name="bitlocker-considerations"></a>BitLocker 고려 사항
+
+* Data Box Gateway 가상 머신에서 BitLocker를 사용하도록 설정하는 것이 좋습니다. 기본적으로 BitLocker가 활성화되지 않았습니다. 자세한 내용은 다음을 참조하세요.
+  * [Hyper-V 관리자의 암호화 지원 설정](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [가상 머신의 BitLocker 지원](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 디바이스 프로비전
 
@@ -136,7 +142,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
     ![이름 및 위치 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다.
-    
+
     2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 데이터 디스크 확장은 지원되지 않습니다. **다음**을 클릭합니다.
 
     ![디스크 구성 페이지](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,9 +154,11 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
     ![설정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
+
 가상 디바이스를 시작하여 연결하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
+
 1. 가상 디바이스를 시작합니다.
 
    ![가상 디바이스 시작](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -159,26 +167,25 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러서 가상 디바이스에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
 
    ![가상 디바이스에 로그인](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 디바이스를 부팅한 경우에는 다음 메시지가 표시됩니다.
-    
-7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
+4. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 디바이스를 부팅한 경우에는 다음 메시지가 표시됩니다.
+
+5. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
+
+6. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료합니다.
+
+7. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료합니다.
 
    ![IP 주소 및 연결 URL이 있는 가상 디바이스 배너](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 디바이스가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
-- [진단 테스트를 실행하여 웹 UI 설정 문제를 해결](data-box-gateway-troubleshoot.md#run-diagnostics)합니다.
-- [로그 패키지를 생성하고 로그 파일을 살펴봅니다](data-box-gateway-troubleshoot.md#collect-support-package).
+* [진단 테스트를 실행하여 웹 UI 설정 문제를 해결](data-box-gateway-troubleshoot.md#run-diagnostics)합니다.
+* [로그 패키지를 생성하고 로그 파일을 살펴봅니다](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>다음 단계
 
