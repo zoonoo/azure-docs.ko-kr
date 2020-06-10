@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300015"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485142"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 알림 허브 만들기
 
@@ -112,7 +112,7 @@ Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합
 
 2. 네임스페이스의 목록을 가져옵니다.
 
-   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) 명령을 사용합니다.  구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
+   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) 명령을 사용합니다.  구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합
 
 3. 알림 허브 목록을 가져옵니다.
 
-   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다.  [az notification-hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) 명령은 이 목적을 위해 설계되었습니다.
+   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다.  [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) 명령은 이 목적을 위해 설계되었습니다.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

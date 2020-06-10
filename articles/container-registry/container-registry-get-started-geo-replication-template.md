@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: a4aa7240cb91ef1048626b1578d7ab9e649832c6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263723"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558074"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 지역 복제 컨테이너 레지스트리 만들기
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/)에서 나온 것입니다. 템플릿은 레지스트리 및 추가 지역 복제본을 설정합니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/)에서 나온 것입니다. 템플릿은 레지스트리 및 추가 지역 복제본을 설정합니다.
 
 :::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
 

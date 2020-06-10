@@ -3,12 +3,12 @@ title: 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드�
 description: 이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 92367634a2f5785ecbb102db1e03f3d5f12d744e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7ff8502688e2b507b8a576c177948f29c2248be4
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300827"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456628"
 ---
 # <a name="tutorial-event-based-video-recording-to-cloud-and-playback-from-cloud"></a>자습서: 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 재생
 
@@ -181,7 +181,7 @@ Visual Studio Code에서 [다음](https://docs.microsoft.com/azure/iot-edge/tuto
 
 1. GraphTopologySet 노드에서 다음 항목을 편집합니다.
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
 1. 다음으로, GraphInstanceSet 및 GraphTopologyDelete 노드에서 다음 항목을 편집합니다.
 
@@ -245,7 +245,7 @@ Visual Studio Code에서 [다음](https://docs.microsoft.com/azure/iot-edge/tuto
      
 1. 그래프 인스턴스가 계속 실행되고 비디오를 녹화합니다. RTSP 시뮬레이터는 원본 비디오를 계속 반복합니다. 아래 섹션에 설명된 대로 메시지를 검토한 다음, 인스턴스를 중지하려면 터미널 창으로 돌아가서 "Enter" 키를 누릅니다. 리소스 정리를 위해 다음과 같은 일련의 호출을 수행합니다.
 
-     * 그래프 인스턴스를 비활성화는 GraphInstanceDeactivate 호출
+     * 그래프 인스턴스를 비활성화하는 GraphInstanceDeactivate 호출
      * 인스턴스를 삭제하는 GraphInstanceDelete 호출
      * 토폴로지를 삭제하는 GraphTopologyDelete 호출
      * 이제 목록이 비어 있음을 보여 주는 GraphTopologyList에 대한 최종 호출
@@ -410,4 +410,4 @@ Azure Portal에 로그인하여 비디오를 살펴보면 그래프에서 만든
 ## <a name="next-steps"></a>다음 단계
 
 * RTSP 시뮬레이터 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 프로필 G, S 또는 T를 준수하는 디바이스를 찾아 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다.
-* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)의 지침을 따른 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 빠른 시작의 지침에 따라 Azure IoT Hub에 디바이스를 등록할 수 있습니다.
+* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)의 지침을 따른 후 [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 빠른 시작의 지침을 따라 Azure IoT Hub에 디바이스를 등록할 수 있습니다.

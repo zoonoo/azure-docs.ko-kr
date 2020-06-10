@@ -35,6 +35,8 @@
           href: manage-automation.md
         - name: EA에서 MCA API로 마이그레이션
           href: migrate-cost-management-api.md
+        - name: 그룹 및 필터 옵션
+          href: group-filter.md
     - name: 방법 가이드
       items:
         - name: 예기치 않은 요금 방지 및 분석
