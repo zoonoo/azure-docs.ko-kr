@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142438"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559317"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -133,7 +133,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 - 게시자 유형: Azure
 - 요금 유형: 사용
 
-예산 비용 평가는 실제 비용을 기준으로 합니다. 여기에는 할부 상환이 포함되지 않습니다. 예산에서 사용할 수 있는 필터링 옵션에 대한 자세한 내용은 [그룹화 및 필터링 옵션 이해](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options)를 참조하세요.
+예산 비용 평가는 실제 비용을 기준으로 합니다. 여기에는 할부 상환이 포함되지 않습니다. 예산에서 사용할 수 있는 필터링 옵션에 대한 자세한 내용은 [그룹화 및 필터링 옵션 이해](group-filter.md)를 참조하세요.
 
 ## <a name="trigger-an-action-group"></a>작업 그룹 트리거
 

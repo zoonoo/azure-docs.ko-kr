@@ -3,17 +3,17 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997131"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554568"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -152,7 +152,7 @@ RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
-파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)하고 데이터를 [CSV 및 PNG 파일](quick-acm-cost-analysis.md#automation-and-offline-analysis)로 내보낼 수도 있습니다.
+파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)하고 데이터를 [CSV 및 PNG 파일](quick-acm-cost-analysis.md#download-usage-data)로 내보낼 수도 있습니다.
 
 고객 테넌트의 구독에 액세스할 수 있는 RBAC 사용자는 고객 테넌트의 구독에 대한 소매 비용을 분석하고, 보기를 저장하고, 데이터를 CSV 및 PNG 파일로 내보낼 수도 있습니다.
 

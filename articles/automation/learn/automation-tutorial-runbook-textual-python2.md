@@ -5,13 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
-ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714477"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559551"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>자습서: Python Runbook 만들기
 
@@ -244,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)
-- [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)
-- [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)
-- [Azure Automation Runbook 형식](../automation-runbook-types.md)
-- [Python 개발자용 Azure](/azure/python/)
-- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+- 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
+- PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
+- Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.
+- Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](/azure/python/)를 참조하세요.
+- 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)를 참조하세요.

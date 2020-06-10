@@ -9,12 +9,12 @@ ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.openlocfilehash: b6eac711ed6c420330b036cb6094c841508cee9f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 76f37beb22e28c0232efd0d62e82c8d3b60c78dc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790718"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345090"
 ---
 # <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-a-resource-manager-template"></a>자습서: Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역 배포 | Microsoft Docs
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,9 +33,9 @@ ms.locfileid: "83790718"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-machine-learning-create/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-machine-learning-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json" range="1-258" highlight="224-254":::
 
 다음 리소스는 템플릿에 정의되어 있습니다.
 

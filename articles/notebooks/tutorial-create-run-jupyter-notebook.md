@@ -3,12 +3,13 @@ title: 자습서 - Jupyter Notebook 만들기 및 실행 - Azure Notebooks 미�
 description: 데이터 과학의 선형 회귀 프로세스를 보여주는 Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: tracking-python
+ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75660820"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561745"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 

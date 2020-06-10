@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: glenga
-ms.openlocfilehash: 44969063765099d350e21abfbd07792891443911
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f89383c1b7d0ccce82f35d91acbe1ff8c902db29
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673187"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448916"
 ---
 ::: zone pivot="programming-language-python"  
 ## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>가상 환경 만들기 및 활성화
@@ -54,5 +54,5 @@ py -m venv .venv
 
 ---
 
-활성화된 가상 환경에서 이후의 모든 명령을 실행합니다. (가상 환경을 종료하려면 `deactivate`를 실행하세요.)
+활성화된 가상 환경에서 이후의 모든 명령을 실행합니다.   
 ::: zone-end

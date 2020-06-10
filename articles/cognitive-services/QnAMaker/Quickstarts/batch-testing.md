@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 일괄 처리 질문을 사용하여 기술 자료 테스트'
 description: QnA Maker 일괄 처리 테스트 도구에서 QnA Maker 리소스의 기술 자료를 테스트하여 예상 대답, 신뢰도 점수 및 다중 턴 프롬프트를 확인합니다.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873669"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337736"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>빠른 시작: 일괄 처리 질문 및 예상 대답을 사용하여 기술 자료 테스트
 
