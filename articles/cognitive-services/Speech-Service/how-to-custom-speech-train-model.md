@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722629"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629015"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Custom Speech 모델 학습
 
-음성 텍스트 모델을 학습 하면 Microsoft의 기본 모델에 대 한 인식 정확도를 향상 시킬 수 있습니다. 사용자 레이블이 지정 된 텍스트와 관련 텍스트를 사용 하 여 모델을 학습 합니다. 이러한 데이터 집합은 이전에 업로드 된 오디오 데이터와 함께 단어, 구, 머리글자어, 이름 및 기타 제품별 조건을 인식 하기 위해 음성 텍스트 모델을 구체화 하 고 학습 하는 데 사용 됩니다. 사용자가 제공 하는 더 많은 도메인 데이터 집합 (사용자에 게 표시 되는 데이터 및 인식할 수 있는 것과 관련 된 데이터)에 따라 모델이 더 정확 하 게 표시 되어 인식이 향상 됩니다. 관련 없는 데이터를 교육에 공급 하면 모델의 정확도를 줄이거나 줄일 수 있습니다.
+음성 텍스트 모델을 학습 하면 Microsoft의 기본 모델에 대 한 인식 정확도를 향상 시킬 수 있습니다. 사용자 레이블이 지정 된 텍스트와 관련 텍스트를 사용 하 여 모델을 학습 합니다. 이러한 데이터 집합은 이전에 업로드 된 오디오 데이터와 함께 음성 텍스트 모델을 구체화 하 고 학습 하는 데 사용 됩니다.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>학습을 사용 하 여 정확도 문제 해결
 
@@ -39,7 +39,7 @@ ms.locfileid: "83722629"
 모델을 학습 하는 첫 번째 단계는 학습 데이터를 업로드 하는 것입니다. [데이터 준비 및 테스트](how-to-custom-speech-test-data.md) 를 사용 하 여 사용자에 게 레이블이 지정 된 텍스트 (길이 발언 및 발음)를 준비 하는 단계별 지침을 확인 합니다. 학습 데이터를 업로드 한 후 다음 지침에 따라 모델에 대 한 학습을 시작 합니다.
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
-2. **음성 텍스트 > Custom Speech > 학습**으로 이동 합니다.
+2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 학습**으로 이동 합니다.
 3. **모델 학습**을 클릭 합니다.
 4. 다음으로, 교육에 **이름** 및 **설명을**제공 합니다.
 5. **시나리오 및 기준 모델** 드롭다운 메뉴에서 도메인에 가장 적합 한 시나리오를 선택 합니다. 선택할 시나리오를 잘 모르겠으면 **일반**을 선택 합니다. 기준선 모델은 학습을 위한 시작점입니다. 일반적으로 최신 모델을 선택 하는 것이 가장 좋습니다.

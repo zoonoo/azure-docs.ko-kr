@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67341715"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607036"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기
 
-Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대 한 자세한 내용은 [Bing Visual Search API?](overview.md)을 참조 하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 정보를 얻기 위해 이미지를 업로드 하는 방법을 보여 주는 예제는 빠른 시작 ([c #](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md))을 참조 하세요.
+Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대 한 자세한 내용은 [Bing Visual Search API?](overview.md)을 참조 하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 정보를 얻기 위해 이미지를 업로드 하는 방법을 보여 주는 예제는 빠른 시작 ([c #](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md))을 참조 하세요.
 
-이미지 토큰 또는 URL Bing Visual Search를 전송 하는 경우 다음은 게시물 본문에 포함 해야 하는 양식 데이터를 보여줍니다. 양식 데이터는 `Content-Disposition` 헤더를 포함 해야 하며 해당 `name` 매개 변수를 "knowledgeRequest"로 설정 해야 합니다. `imageInfo` 개체에 대 한 자세한 내용은 다음 요청을 참조 하십시오.
+이미지 토큰 또는 URL Bing Visual Search를 전송 하는 경우 다음은 게시물 본문에 포함 해야 하는 양식 데이터를 보여줍니다. 양식 데이터는 헤더를 포함 해야 `Content-Disposition` 하며 해당 `name` 매개 변수를 "knowledgeRequest"로 설정 해야 합니다. 개체에 대 한 자세한 `imageInfo` 내용은 다음 요청을 참조 하십시오.
 
 ```json
 {
@@ -43,7 +44,7 @@ Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보�
 }
 ```
 
-이 문서의 예제에서는 인사이트 토큰을 사용하는 방법을 보여 줍니다. /Images/search API 응답의 `Image` 개체에서 insights 토큰을 가져옵니다. Insights 토큰을 가져오는 방법에 대 한 자세한 내용은 [Bing Image Search API 이란?](../Bing-Image-Search/overview.md)을 참조 하세요.
+이 문서의 예제에서는 인사이트 토큰을 사용하는 방법을 보여 줍니다. `Image`/IMAGES/SEARCH API 응답의 개체에서 insights 토큰을 가져옵니다. Insights 토큰을 가져오는 방법에 대 한 자세한 내용은 [Bing Image Search API 이란?](../Bing-Image-Search/overview.md)을 참조 하세요.
 
 ```
 --boundary_1234-abcd
@@ -58,7 +59,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Insights 토큰을 사용 하는 예제는 [c #](#use-with-c) | [Java](#use-with-java) | [node.js](#use-with-nodejs) | [Python](#use-with-python)을 참조 하세요.
+Insights 토큰을 사용 하는 예제는 [c #](#use-with-c)  |  [Java](#use-with-java)  |  [node.js](#use-with-nodejs)  |  [Python](#use-with-python)을 참조 하세요.
 
 ## <a name="use-with-c"></a>C와 함께 사용 #
 

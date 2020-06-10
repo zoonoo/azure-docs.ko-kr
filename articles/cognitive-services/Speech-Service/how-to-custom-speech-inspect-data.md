@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a8fec876556d943d29756a38ffc27ae8095e3c4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466241"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629045"
 ---
 # <a name="inspect-custom-speech-data"></a>Custom Speech 데이터 검사
 
@@ -33,7 +33,7 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 테스트를 만들려면 다음 지침을 따르세요.
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
-2. **음성 텍스트 > Custom Speech > 테스트**로 이동 합니다.
+2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트**로 이동 합니다.
 3. **테스트 추가**를 클릭 합니다.
 4. **품질 검사 (오디오 전용 데이터)** 를 선택 합니다. 테스트에 이름, 설명을 지정 하 고 오디오 데이터 집합을 선택 합니다.
 5. 테스트 하려는 최대 2 개의 모델을 선택 합니다.

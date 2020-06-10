@@ -3,22 +3,22 @@ title: '빠른 시작: 기술 자료에서 답변 찾기 - REST, Python - QnA Ma
 description: 이 Python REST 기반 빠른 시작은 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, tracking-python
 ms.topic: how-to
-ms.openlocfilehash: ead33b3602c75046a71f67c5b5a556b17ae8703d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342768"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610137"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>빠른 시작: Python을 사용 하 여 기술 자료에서 질문에 대 한 답변 가져오기
 
 이 빠른 시작에서는 게시된 QnA Maker 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다. 기술 자료에는 FAQ와 같은 [데이터 원본](../Concepts/knowledge-base.md)의 질문과 답변이 있습니다. [질문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)은 QnA Maker 서비스로 전송됩니다. [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)은 예상되는 상위 답변을 포함합니다.
 
-[참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime)  |  [샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/get-answer/get-answer-3x.py)
+[참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/get-answer/get-answer-3x.py)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Python 3.6 이상](https://www.python.org/downloads/)
 * [Visual Studio Code](https://code.visualstudio.com/)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 437dc18dc16e879e95ff4ec7c1a9ab7ec3f17bef
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266001"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636107"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 음성 지원
 
@@ -44,7 +44,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | 아랍어 (바레인), 최신 표준 | 예       | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 예       | 언어 모델                                    |
 | `ar-IL` | 아랍어 (이스라엘)                   | 예       | 예                                                |
+| `ar-JO` | 아랍어(요르단)                   | 예       | 예                                                |
 | `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 예                                                |
+| `ar-LB` | 아랍어(레바논)                  | 예       | 예                                                |
 | `ar-PS` | 아랍어 (팔레스타인 자치 정부)                | 예       | 예                                                |
 | `ar-QA` | 아랍어(카타르)                    | 예       | 예                                                |
 | `ar-SA` | 아랍어(사우디아라비아)             | 예       | 예                                                |
@@ -77,7 +79,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | 러시아어(러시아)                  | 예       | 음향 모델<br>언어 모델                  |
 | `sv-SE` | 스웨덴어(스웨덴)                  | 예       | 언어 모델                                    |
 | `ta-IN` | 타밀어(인도)                     | 예       | 언어 모델                                    |
-| `te-IN` | 텔루구어(인도)                    | 예       | 예                                                |
+| `te-IN` | 텔루구어(인도)                    | 예       | 언어 모델                                    |
 | `th-TH` | 태국어(태국)                   | 예       | 예                                                |
 | `tr-TR` | 터키어(터키)                  | 예       | 언어 모델                                    |
 | `zh-CN` | 중국어(북경어, 간체)    | 예       | 음향 모델<br>언어 모델                  |
@@ -101,27 +103,27 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 |로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
-| `de-DE` | 독일어(독일)                | `Female` | "KatjaNeural"      | 일반 |
-| `en-AU` | 영어(오스트레일리아)             | `Female` | "en-us-NatashaNeural"    | 일반 |
-| `en-CA` | 영어(캐나다)                | `Female` | "ClaraNeural"      | 일반 |
-| `en-GB` | 영어(영국)                    | `Female` | "en-us-및 By신경망"      | 일반 |
-|         |                                 | `Female` | "en-us-MiaNeural"        | 일반 |
-| `en-US` | 영어(미국)                    | `Female` | "en-us-AriaNeural"       | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | `Male`   | "en-us-GuyNeural"        | 일반 |
-| `es-ES` | 스페인어(스페인)                 | `Female` | "es-ElviraNeural"     | 일반 |
-| `es-MX` | 스페인어(멕시코)                | `Female` | "DaliaNeural"      | 일반 |
-| `fr-CA` | 프랑스어(캐나다)                 | `Female` | "fr-fr-SylvieNeural"     | 일반 |
-| `fr-FR` | 프랑스어(프랑스)                 | `Female` | "fr-fr-DeniseNeural"     | 일반 |
-| `it-IT` | 이탈리아어(이탈리아)                 | `Female` | "it-ElsaNeural"       | 일반 |
-| `ja-JP` | 일본어                        | `Female` | "ja-jp-NanamiNeural"     | 일반 |
-| `ko-KR` | 한국어                          | `Female` | "ko-kr-SunHiNeural"      | 일반 |
-| `nb-NO` | 노르웨이어                       | `Female` | "nb-아니요-IselinNeural"     | 일반 |
-| `pt-BR` | 포르투갈어(브라질)             | `Female` | "FranciscaNeural"  | 일반 |
-| `tr-TR` | 터키어                         | `Female` | "tr – TR-EmelNeural"       | 일반 |
-| `zh-CN` | 중국어(북경어, 간체)  | `Female` | "zh-cn-XiaoxiaoNeural"   | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | `Female` | "zh-cn-XiaoyouNeural"    | 어린이 음성, 스토리 narrating에 최적화 됨 |
-|         |                                 | `Male`   | "zh-cn-YunyangNeural"    | 뉴스 읽기에 최적화 됨, 여러 음성 스타일 사용 가능 |
-|         |                                 | `Male`   | "zh-cn-YunyeNeural"      | 스토리 narrating에 최적화 됨 |
+| `de-DE` | 독일어(독일)                | Female | "KatjaNeural"      | 일반 |
+| `en-AU` | 영어(오스트레일리아)             | Female | "en-us-NatashaNeural"    | 일반 |
+| `en-CA` | 영어(캐나다)                | Female | "ClaraNeural"      | 일반 |
+| `en-GB` | 영어(영국)                    | Female | "en-us-및 By신경망"      | 일반 |
+|         |                                 | Female | "en-us-MiaNeural"        | 일반 |
+| `en-US` | 영어(미국)                    | Female | "en-us-AriaNeural"       | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Male   | "en-us-GuyNeural"        | 일반 |
+| `es-ES` | 스페인어(스페인)                 | Female | "es-ElviraNeural"     | 일반 |
+| `es-MX` | 스페인어(멕시코)                | Female | "DaliaNeural"      | 일반 |
+| `fr-CA` | 프랑스어(캐나다)                 | Female | "fr-fr-SylvieNeural"     | 일반 |
+| `fr-FR` | 프랑스어(프랑스)                 | Female | "fr-fr-DeniseNeural"     | 일반 |
+| `it-IT` | 이탈리아어(이탈리아)                 | Female | "it-ElsaNeural"       | 일반 |
+| `ja-JP` | 일본어                        | Female | "ja-jp-NanamiNeural"     | 일반 |
+| `ko-KR` | 한국어                          | Female | "ko-kr-SunHiNeural"      | 일반 |
+| `nb-NO` | 노르웨이어                       | Female | "nb-아니요-IselinNeural"     | 일반 |
+| `pt-BR` | 포르투갈어(브라질)             | Female | "FranciscaNeural"  | 일반 |
+| `tr-TR` | 터키어                         | Female | "tr – TR-EmelNeural"       | 일반 |
+| `zh-CN` | 중국어(북경어, 간체)  | Female | "zh-cn-XiaoxiaoNeural"   | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Female | "zh-cn-XiaoyouNeural"    | 어린이 음성, 스토리 narrating에 최적화 됨 |
+|         |                                 | Male   | "zh-cn-YunyangNeural"    | 뉴스 읽기에 최적화 됨, 여러 음성 스타일 사용 가능 |
+|         |                                 | Male   | "zh-cn-YunyeNeural"      | 스토리 narrating에 최적화 됨 |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`음성이로 변경 되었습니다 `en-US-AriaNeural` . 이전에 "Jessa"를 사용 하는 경우 "Aria"로 변환 합니다.
@@ -137,86 +139,86 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 | 로캘 | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
-| <sup>1</sup>`ar-EG` | 아랍어(이집트) | `Female` | "ar-예-Hoda" |
-| `ar-SA` | 아랍어(사우디아라비아) | `Male` | "ar-Naayf" |
-| `bg-BG` | 불가리아어 | `Male` |  "bg-BG-Ivan" |
-| `ca-ES` | 카탈로니아어 | `Female` |  "HerenaRUS" |
-| `cs-CZ` | 체코어 | `Male` | "cs-CZ-Jakub" |
-| `da-DK` | 덴마크어 | `Female` |  "da-HelleRUS" |
-| `de-AT` | 독일어(오스트리아) | `Male` | "Michael" |
-| `de-CH` | 독일어(스위스) | `Male` |  "Karsten" |
-| `de-DE` | 독일어(독일) | `Female` |  "Hedda" |
-|  |  | `Female` | "HeddaRUS" |
-|  |  | `Male` |  "Stefan-아폴로" |
-| `el-GR` | 그리스어 | `Male` | "el-GR-Stefanos" |
-| `en-AU` | 영어(오스트레일리아) | `Female` |  "en-us-Catherine" |
-|  |  | `Female` |  "en-us-HayleyRUS" |
-| `en-CA` | 영어(캐나다) | `Female` |  "Linda" |
-|  |  | `Female` |  "HeatherRUS" |
-| `en-GB` | 영어(영국) | `Female` |  "en-us-김소미-아폴로" |
-|  |  | `Female` |  "en-us-HazelRUS" |
-|  |  | `Male` |  "en-us-George-아폴로" |
-| `en-IE` | 영어(아일랜드) | `Male` | "en-us-최유정" |
-| `en-IN` | 영어(인도) | `Female` | "en-us-아폴로" |
-|  |  | `Female` |  "en-us-PriyaRUS" |
-|  |  | `Male` |  "Ralvi-아폴로" |
-| `en-US` | 영어(미국) | `Female` |  "en-us-ZiraRUS" |
-|  |  | `Female` | "en-us-AriaRUS" |
-|  |  | `Male` | "en-us-BenjaminRUS" |
-|  |  | `Male` |  "en-us-Guy24kRUS" |
-| `es-ES` | 스페인어(스페인) | `Female` |  "es-김-아폴로-아폴로" |
-|  |  | `Female` | "es-온-우" |
-|  |  | `Male` | "es-Pablo-아폴로" |
-| `es-MX` | 스페인어(멕시코) | `Female` |  "HildaRUS" |
-|  |  | `Male` | "es-MX-Raul-아폴로" |
-| `fi-FI` | 핀란드어 | `Female` | "fi-HeidiRUS" |
-| `fr-CA` | 프랑스어(캐나다) | `Female` | "fr-fr-Caroline" |
-|  |  | `Female` | "fr-fr-HarmonieRUS" |
-| `fr-CH` | 프랑스어(스위스) | `Male` | "fr-fr-Guillaume" |
-| `fr-FR` | 프랑스어(프랑스) | `Female` |  "fr-fr" (Julie-아폴로) |
-|  |  | `Female` |"fr-fr-HortenseRUS" |
-|  |  | `Male` |  "fr-fr-아폴로-아폴로" |
-| `he-IL` | 히브리어(이스라엘) | `Male` |  "he-Asaf" |
-| `hi-IN` | 힌디어(인도) | `Female` | "Kalpana-아폴로" |
-|  |  | `Female` |  "Kalpana" |
-|  |  | `Male` |  "Hemant" |
-| `hr-HR` | 크로아티아어 | `Male` | "hr-HR-Matej" |
-| `hu-HU` | 헝가리어 | `Male` |  "hu-hu-HU-HU-Szabolcs" |
-| `id-ID` | 인도네시아어 | `Male` | "id-ID-Andika" |
-| `it-IT` | 이탈리아어 | `Male` |  "it-IT-아폴로" |
-|  |  | `Female` |  "it-LuciaRUS" |
-| `ja-JP` | 일본어 | `Female` |  "ja-jp-Ayumi-아폴로" |
-|  |  | `Male` | "ja-jp-Ichiro-아폴로" |
-|  |  | `Female` |  "ja-jp-HarukaRUS" |
-| `ko-KR` | 한국어 | `Female` | "ko-kr-한국" |
-| `ms-MY` | 말레이어 | `Male` |  "ms-Rizwan" |
-| `nb-NO` | 노르웨이어 | `Female` |  "nb-HuldaRUS" |
-| `nl-NL` | 네덜란드어 | `Female` |  "nl-NL-Hus" |
-| `pl-PL` | 폴란드어 | `Female` |  "pl-PL-PaulinaRUS" |
-| `pt-BR` | 포르투갈어(브라질) | `Female` | "pt-BR-" |
-|  |  | `Male` |  "pt-Daniel-아폴로" |
-| `pt-PT` | 포르투갈어(포르투갈) | `Female` | "pt – PT-고-미국" |
-| `ro-RO` | 루마니아어 | `Male` | "ro-RO-Andrei" |
-| `ru-RU` | 러시아어 | `Female` |  "Irina-아폴로" |
-|  |  | `Male` | "Pavel-아폴로" |
-|  |  | `Female` |  EkaterinaRUS |
-| `sk-SK` | 슬로바키아어 | `Male` | "나이-Filip" |
-| `sl-SI` | 슬로베니아어 | `Male` |  "sl-SI-Lado" |
-| `sv-SE` | 스웨덴어 | `Female` | "HedvigRUS" |
-| `ta-IN` | 타밀어(인도) | `Male` |  "ta-Valluvar" |
-| `te-IN` | 텔루구어(인도) | `Female` |  "te-Chitra" |
-| `th-TH` | 태국어 | `Male` |  "Pattara" |
-| `tr-TR` | 터키어(터키) | `Female` | "tr-SedaRUS" |
-| `vi-VN` | 베트남어 | `Male` |  "vi-VN" |
-| `zh-CN` | 중국어(북경어, 간체) | `Female` |  "zh-cn-HuihuiRUS" |
-|  |  | `Female` | "zh-cn-Yaoyao-아폴로" |
-|  |  | `Male` | "zh-cn-Kangkang-아폴로" |
-| `zh-HK` | 중국어 (광둥어, 번체) | `Female` |  "zh-cn-HK-Tracy-아폴로" |
-|  |  | `Female` | "zh-cn-HK-TracyRUS" |
-|  |  | `Male` |  "zh-cn-HK-Danny-아폴로" |
-| `zh-TW` | 중국어(대만어) | `Female` |  "zh-cn-아폴로" |
-|  |  | `Female` | "zh-cn-HanHanRUS" |
-|  |  | `Male` |  "zh-cn-Zhiwei-아폴로" |
+| <sup>1(sp1)</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-예-Hoda" |
+| `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-Naayf" |
+| `bg-BG` | 불가리아어 | Male |  "bg-BG-Ivan" |
+| `ca-ES` | 카탈로니아어 | Female |  "HerenaRUS" |
+| `cs-CZ` | 체코어 | Male | "cs-CZ-Jakub" |
+| `da-DK` | 덴마크어 | Female |  "da-HelleRUS" |
+| `de-AT` | 독일어(오스트리아) | Male | "Michael" |
+| `de-CH` | 독일어(스위스) | Male |  "Karsten" |
+| `de-DE` | 독일어(독일) | Female |  "Hedda" |
+|  |  | Female | "HeddaRUS" |
+|  |  | Male |  "Stefan-아폴로" |
+| `el-GR` | 그리스어 | Male | "el-GR-Stefanos" |
+| `en-AU` | 영어(오스트레일리아) | Female |  "en-us-Catherine" |
+|  |  | Female |  "en-us-HayleyRUS" |
+| `en-CA` | 영어(캐나다) | Female |  "Linda" |
+|  |  | Female |  "HeatherRUS" |
+| `en-GB` | 영어(영국) | Female |  "en-us-김소미-아폴로" |
+|  |  | Female |  "en-us-HazelRUS" |
+|  |  | Male |  "en-us-George-아폴로" |
+| `en-IE` | 영어(아일랜드) | Male | "en-us-최유정" |
+| `en-IN` | 영어(인도) | Female | "en-us-아폴로" |
+|  |  | Female |  "en-us-PriyaRUS" |
+|  |  | Male |  "Ralvi-아폴로" |
+| `en-US` | 영어(미국) | Female |  "en-us-ZiraRUS" |
+|  |  | Female | "en-us-AriaRUS" |
+|  |  | Male | "en-us-BenjaminRUS" |
+|  |  | Male |  "en-us-Guy24kRUS" |
+| `es-ES` | 스페인어(스페인) | Female |  "es-김-아폴로-아폴로" |
+|  |  | Female | "es-온-우" |
+|  |  | Male | "es-Pablo-아폴로" |
+| `es-MX` | 스페인어(멕시코) | Female |  "HildaRUS" |
+|  |  | Male | "es-MX-Raul-아폴로" |
+| `fi-FI` | 핀란드어 | Female | "fi-HeidiRUS" |
+| `fr-CA` | 프랑스어(캐나다) | Female | "fr-fr-Caroline" |
+|  |  | Female | "fr-fr-HarmonieRUS" |
+| `fr-CH` | 프랑스어(스위스) | Male | "fr-fr-Guillaume" |
+| `fr-FR` | 프랑스어(프랑스) | Female |  "fr-fr" (Julie-아폴로) |
+|  |  | Female |"fr-fr-HortenseRUS" |
+|  |  | Male |  "fr-fr-아폴로-아폴로" |
+| `he-IL` | 히브리어(이스라엘) | Male |  "he-Asaf" |
+| `hi-IN` | 힌디어(인도) | Female | "Kalpana-아폴로" |
+|  |  | Female |  "Kalpana" |
+|  |  | Male |  "Hemant" |
+| `hr-HR` | 크로아티아어 | Male | "hr-HR-Matej" |
+| `hu-HU` | 헝가리어 | Male |  "hu-hu-HU-HU-Szabolcs" |
+| `id-ID` | 인도네시아어 | Male | "id-ID-Andika" |
+| `it-IT` | 이탈리아어 | Male |  "it-IT-아폴로" |
+|  |  | Female |  "it-LuciaRUS" |
+| `ja-JP` | 일본어 | Female |  "ja-jp-Ayumi-아폴로" |
+|  |  | Male | "ja-jp-Ichiro-아폴로" |
+|  |  | Female |  "ja-jp-HarukaRUS" |
+| `ko-KR` | 한국어 | Female | "ko-kr-한국" |
+| `ms-MY` | 말레이어 | Male |  "ms-Rizwan" |
+| `nb-NO` | 노르웨이어 | Female |  "nb-HuldaRUS" |
+| `nl-NL` | 네덜란드어 | Female |  "nl-NL-Hus" |
+| `pl-PL` | 폴란드어 | Female |  "pl-PL-PaulinaRUS" |
+| `pt-BR` | 포르투갈어(브라질) | Female | "pt-BR-" |
+|  |  | Male |  "pt-Daniel-아폴로" |
+| `pt-PT` | 포르투갈어(포르투갈) | Female | "pt – PT-고-미국" |
+| `ro-RO` | 루마니아어 | Male | "ro-RO-Andrei" |
+| `ru-RU` | 러시아어 | Female |  "Irina-아폴로" |
+|  |  | Male | "Pavel-아폴로" |
+|  |  | Female |  EkaterinaRUS |
+| `sk-SK` | 슬로바키아어 | Male | "나이-Filip" |
+| `sl-SI` | 슬로베니아어 | Male |  "sl-SI-Lado" |
+| `sv-SE` | 스웨덴어 | Female | "HedvigRUS" |
+| `ta-IN` | 타밀어(인도) | Male |  "ta-Valluvar" |
+| `te-IN` | 텔루구어(인도) | Female |  "te-Chitra" |
+| `th-TH` | 태국어 | Male |  "Pattara" |
+| `tr-TR` | 터키어(터키) | Female | "tr-SedaRUS" |
+| `vi-VN` | 베트남어 | Male |  "vi-VN" |
+| `zh-CN` | 중국어(북경어, 간체) | Female |  "zh-cn-HuihuiRUS" |
+|  |  | Female | "zh-cn-Yaoyao-아폴로" |
+|  |  | Male | "zh-cn-Kangkang-아폴로" |
+| `zh-HK` | 중국어 (광둥어, 번체) | Female |  "zh-cn-HK-Tracy-아폴로" |
+|  |  | Female | "zh-cn-HK-TracyRUS" |
+|  |  | Male |  "zh-cn-HK-Danny-아폴로" |
+| `zh-TW` | 중국어(대만어) | Female |  "zh-cn-아폴로" |
+|  |  | Female | "zh-cn-HanHanRUS" |
+|  |  | Male |  "zh-cn-Zhiwei-아폴로" |
 
 **1** *ar-예: 최신 표준 아랍어 (MSA)를 지원 합니다.*
 
