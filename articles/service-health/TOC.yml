@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: OpsGenie에 경고 보내기
       href: service-health-alert-webhook-opsgenie.md
-    - name: REST를 사용하여 상태 이벤트 검색
-      href: service-health-rest.md
     - name: 리소스 상태 이벤트에 대한 경고 구성
       href: resource-health-alert-arm-template-guide.md
 - name: 참조

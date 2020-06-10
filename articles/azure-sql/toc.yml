@@ -967,8 +967,6 @@
                   items:
                     - name: Azure SQL VM CLI
                       href: virtual-machines/windows/availability-group-az-cli-configure.md
-                    - name: Azure Portal 템플릿
-                      href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
                     - name: Azure 빠른 시작 템플릿
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: 다중 영역

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77621865"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636780"
 ---
 # <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
@@ -78,15 +78,6 @@ Azure Data Share를 사용하는 경우 데이터 소비자가 수행할 수 있
 * 데이터 공유를 구독하여 증분 스냅샷을 통해 데이터의 최신 복사본 받기
 
 위에 나열된 주요 기능은 모두 Azure Portal 또는 REST API를 통해 지원됩니다. REST API를 통해 Azure Data Share를 사용하는 방법에 대한 자세한 내용은 참조 설명서를 확인하세요. 
-
-## <a name="security"></a>보안
-
-Azure Data Share는 Azure에서 제공하는 기본 보안을 활용하여 저장 데이터와 전송 중 데이터를 보호합니다. 기본 데이터 저장소에서 지원하는 경우 미사용 데이터는 암호화됩니다. 전송 중 데이터도 암호화됩니다. 데이터 공유에 대한 메타데이터도 저장 상태 및 전송 중 상태에서 암호화됩니다. 
-
-권한이 부여된 사용자가 액세스할 수 있도록 액세스 제어는 Azure Data Share 리소스 수준에서 설정할 수 있습니다. 
-
-Azure Data Share는 Azure Resources(이전의 MSI)용 관리 ID를 활용하여 Azure Active Directory에서 ID를 자동으로 관리합니다. Azure Resources용 관리 ID는 데이터 공유에 사용되는 데이터 저장소에 액세스하는 데 활용됩니다. 자격 증명은 데이터 공급자와 데이터 소비자 간에 교환되지 않습니다. 자세한 내용은 [Azure Resources용 관리 ID 페이지](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 
-
 
 ## <a name="supported-regions"></a>지원되는 지역
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 95a01db7d4d889df4695390bfd0d01510d83a817
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c9e69e221dc21baae96ab814cb9fb0b65ce98126
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648050"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449484"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -37,9 +37,10 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 
 서버용 Azure Arc(미리 보기)를 사용할 경우 특정 영역만 지원됩니다.
 
+- EastUS
 - WestUS2
 - WestEurope
-- WestAsia
+- SoutheastAsia
 
 대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역을 포함하는 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단 시 복원력을 위해 지리적으로 중복된 서비스를 제공하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
 

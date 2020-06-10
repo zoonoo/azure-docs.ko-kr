@@ -11,12 +11,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: e1d3a947df486cd347c17afae5d8dbce21878e09
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 154e158079b9963c02aad02f6b399d28a0b34272
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80573301"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607893"
 ---
 # <a name="quickstart-use-the-bing-visual-search-client-library"></a>빠른 시작: Bing Visual Search 클라이언트 라이브러리 사용
 

@@ -8,18 +8,19 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066398"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341238"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 NAT 게이트웨이 만들기
 
@@ -96,7 +97,7 @@ VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그�
     | ------- | ----- |
     | IP 버전 | **IPv4**를 선택합니다.
     | SKU | **표준**을 선택합니다.
-    | 속성 | **myPublicIP**를 입력합니다. |
+    | Name | **myPublicIP**를 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **myResourceGroupNAT**를 선택합니다. |
     | 위치 | **미국 동부 2**를 선택합니다.|

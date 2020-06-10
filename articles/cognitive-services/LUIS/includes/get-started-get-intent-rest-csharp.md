@@ -6,16 +6,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 8ae5bf3790db82d8d96f872d6375e9d3b167bf6d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2b092d0e2c932e3d0c4b2d7880b1243513e45980
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654338"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418057"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+[참조 설명서](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/csharp-predict-with-rest/Program.cs)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [.NET Core V2.2 이상](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -43,78 +45,15 @@ C#(.NET Core)을 사용하여 [예측 엔드포인트](https://aka.ms/luis-apim-
 
 1. 즐겨찾는 IDE 또는 편집기에서 `Program.cs`를 엽니다. 그런 다음, `Program.cs`를 다음 코드로 덮어씁니다.
 
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Web;
+    [!code-csharp[Code snippet](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/csharp-predict-with-rest/Program.cs)]
 
-    namespace predict_with_rest
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-                var appId = "YOUR-APP-ID";
-
-                // YOUR-PREDICTION-KEY: 32 character key.
-                var key = "YOUR-PREDICTION-KEY";
-
-                // YOUR-PREDICTION-ENDPOINT: Example is "https://westus.api.cognitive.microsoft.com/"
-                var endpoint = "YOUR-PREDICTION-ENDPOINT";
-
-                // An utterance to test the pizza app.
-                var utterance = "I want two large pepperoni pizzas on thin crust please";
-
-                MakeRequest(key, endpoint, appId, utterance);
-
-                Console.WriteLine("Press ENTER to exit...");
-                Console.ReadLine();
-            }
-
-            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
-            {
-                var client = new HttpClient();
-                var queryString = HttpUtility.ParseQueryString(string.Empty);
-
-                // The request header contains your subscription key
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-                // The "q" parameter contains the utterance to send to LUIS
-                queryString["query"] = utterance;
-
-                // These optional request parameters are set to their default values
-                queryString["verbose"] = "true";
-                queryString["show-all-intents"] = "true";
-                queryString["staging"] = "false";
-                queryString["timezoneOffset"] = "0";
-
-                var endpointUri = String.Format("{0}luis/prediction/v3.0/apps/{1}/slots/production/predict?{2}", endpoint, appId, queryString);
-
-                // Remove these before updating the article.
-                Console.WriteLine("endpoint: " + endpoint);
-                Console.WriteLine("appId: " + appId);
-                Console.WriteLine("queryString: " + queryString);
-                Console.WriteLine("endpointUri: " + endpointUri);
-
-                var response = await client.GetAsync(endpointUri);
-
-                var strResponseContent = await response.Content.ReadAsStringAsync();
-
-                // Display the JSON result from LUIS.
-                Console.WriteLine(strResponseContent.ToString());
-            }
-        }
-    }
-    ```
-
-1. `YOUR-APP-ID`, `YOUR-KEY` 및 `YOUR-ENDPOINT` 값을 고유한 예측 키 및 엔드포인트로 바꿉니다.
+1. `YOUR-`에서 시작하는 값을 고유한 값으로 바꿉니다.
 
     |정보|목적|
     |--|--|
     |`YOUR-APP-ID`|앱 ID. LUIS 포털, 앱의 애플리케이션 설정 페이지에 있습니다.
     |`YOUR-PREDICTION-KEY`|32자 예측 키입니다. LUIS 포털, 앱의 Azure Resources 설정 페이지에 있습니다.
-    |`YOUR-PREDICTION-ENDPOINT`| 예측 URL 엔드포인트입니다. LUIS 포털, 앱의 Azure Resources 설정 페이지에 있습니다.<br>`https://westus.api.cognitive.microsoft.com/`)을 입력합니다.|
+    |`YOUR-PREDICTION-ENDPOINT`| 예측 URL 엔드포인트입니다. LUIS 포털, 앱의 Azure Resources 설정 페이지에 있습니다.<br>예들 들어 `https://westus.api.cognitive.microsoft.com/`입니다.|
 
 1. 다음 명령을 사용하여 콘솔 애플리케이션을 빌드합니다.
 

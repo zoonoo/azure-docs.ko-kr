@@ -151,7 +151,7 @@
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: template-description.md
     - name: 영역
       href: regions.md
@@ -624,7 +624,7 @@
           href: ../extensions/agent-windows.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
-        - name: 모니터 메타데이터
+        - name: Azure Instance Metadata Service
           href: instance-metadata-service.md
         - name: 중첩된 가상화 사용
           href: nested-virtualization.md

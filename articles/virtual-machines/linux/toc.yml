@@ -657,7 +657,7 @@
               href: update-agent.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
-        - name: 모니터 메타데이터
+        - name: Azure Instance Metadata Service
           href: instance-metadata-service.md
         - name: REST로 사용 메트릭 가져오기
           href: metrics-vm-usage-rest.md

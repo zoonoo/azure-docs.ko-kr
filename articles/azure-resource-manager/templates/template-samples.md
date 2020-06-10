@@ -3,12 +3,12 @@ title: 템플릿 샘플
 description: 역할 및 잠금과 같은 관리 기능을 배포하기 위한 Azure Resource Manager 템플릿 샘플입니다.
 ms.topic: sample
 ms.date: 11/16/2018
-ms.openlocfilehash: 61d46d4b032a4eaf326acd21e85b332bdb407f40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c0f942c91225a8a36ec11271a32658128f466760
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75471788"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484884"
 ---
 # <a name="azure-resource-manager-templates-for-management-features"></a>관리 기능에 대한 Azure Resource Manager 템플릿
 
@@ -20,9 +20,9 @@ ms.locfileid: "75471788"
 | [리소스 그룹에 대한 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)| 기존 리소스 그룹에 대해 사용자에게 기본 제공 역할을 할당합니다. |
 | [기존 가상 머신에 대한 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)| 기존 VM에 대해 사용자에게 기본 제공 역할을 할당합니다. |
 | [여러 가상 머신에 대한 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)| 하나 이상의 가상 머신에 대해 사용자에게 기본 제공 역할을 할당합니다. |
-| [Azure 구독에 대한 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/subscription-role-assigment)| Azure 구독에 대해 사용자에게 역할을 할당합니다. |
+| [Azure 구독에 대한 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/subscription-role-assignment)| Azure 구독에 대해 사용자에게 역할을 할당합니다. |
 |**역할 정의**||
-| [사용자 지정 역할 정의 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-role-def)| Azure 구독에 새 역할 정의를 만듭니다. |
+| [사용자 지정 역할 정의 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def)| Azure 구독에 새 역할 정의를 만듭니다. |
 |**리소스 잠금**||
-| [리소스 그룹 잠금](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)| 리소스 그룹을 만들고 리소스 그룹에 **DoNotDelete** 잠금을 적용합니다. 사용자에게 참가자 역할을 할당합니다. |
+| [리소스 그룹 잠금](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment)| 리소스 그룹을 만들고 리소스 그룹에 **DoNotDelete** 잠금을 적용합니다. 사용자에게 참가자 역할을 할당합니다. |
 | | |

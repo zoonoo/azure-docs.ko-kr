@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: bed65754dd872d51d4cbd1bccc673373e8e96846
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652987"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324575"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -59,7 +59,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 
 
-갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에는 대시가 포함될 수 없습니다.   갤러리 이름은 구독 내에서 고유해야 합니다. 
+갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다.   갤러리 이름은 구독 내에서 고유해야 합니다. 
 
 [az sig create](/cli/azure/sig#az-sig-create)를 사용하여 이미지 갤러리를 만드세요. 다음 예제에서는 *미국 동부*에 *myGalleryRG*라는 리소스 그룹 및 *myGallery*라는 갤러리를 만듭니다.
 
@@ -68,7 +68,7 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## <a name="get-infornation-about-the-vm"></a>VM 관련 정보 가져오기
+## <a name="get-information-about-the-vm"></a>VM 관련 정보 가져오기
 
 [az vm list](/cli/azure/vm#az-vm-list)를 사용하여 사용할 수 있는 VM 목록을 볼 수 있습니다. 
 
@@ -86,7 +86,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기
 
-이미지 정의는 이미지에 대한 논리적 그룹을 만들며, 내부에 만들어진 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 
 
 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 

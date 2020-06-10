@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a490550bf6652186c80268d4a99bff931897fcd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251887"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344189"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
-    | 속성                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |
@@ -140,9 +140,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *myNetworkSecurityGroup* - 네트워크 보안 그룹(방화벽)의 이름입니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-  
-   ![가상 머신 만들기](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. 1-6단계를 사용하여 영역 2에서 이름이 *VM2*인 두 번째 VM, 영역 3에서 세 번째 VM, 가상 네트워크 *myVnet*, 서브넷 *myBackendSubnet*, 네트워크 보안 그룹 **myNetworkSecurityGroup*을 만듭니다.
 
 ### <a name="install-iis-on-vms"></a>VM에 IIS 설치

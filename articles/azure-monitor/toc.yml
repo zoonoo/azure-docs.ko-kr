@@ -155,6 +155,8 @@
           displayname: VM
     - name: 관리 및 구성
       items:
+        - name: 대규모 배포
+          href: platform/deploy-scale.md
         - name: 역할 권한 및 보안
           href: platform/roles-permissions-security.md
         - name: IP 주소
