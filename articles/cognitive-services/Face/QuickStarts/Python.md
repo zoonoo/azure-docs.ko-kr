@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: tracking-python
+ms.openlocfilehash: 90a404ca25d4b5512b508fe150ba4a2f6ec61139
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403209"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610946"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
@@ -45,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. Face API 리소스의 엔드포인트 URL이 포함되도록 `face_api_url` 값을 편집합니다.
     1. 필요에 따라 `image_url` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. `detect-face.py`)을 입력합니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예들 들어 `detect-face.py`입니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. `python detect-face.py`)을 입력합니다.
 

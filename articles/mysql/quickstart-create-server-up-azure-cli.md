@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067711"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608028"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 
@@ -64,7 +64,7 @@ sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 �
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다.
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
 위치 | westus2 | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | 사용 안 함 | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다.
+ssl-enforcement | 사용 | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다.
 storage-size | 5120 | 서버의 스토리지 용량입니다(단위는 메가바이트).
 버전 | 5.7 | MySQL 주 버전입니다.
 admin-user | 시스템 생성 | 관리자 로그인에 대한 사용자 이름입니다.
