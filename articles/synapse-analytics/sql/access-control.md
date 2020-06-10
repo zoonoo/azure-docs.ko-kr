@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421107"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310260"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 
@@ -34,22 +34,32 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 
 1. `Synapse_WORKSPACENAME_Users`라는 보안 그룹 만들기
 2. `Synapse_WORKSPACENAME_Admins`라는 보안 그룹 만들기
-3. `ProjectSynapse_WORKSPACENAME_Users`에 `Synapse_WORKSPACENAME_Admins` 추가
+3. `Synapse_WORKSPACENAME_Users`에 `Synapse_WORKSPACENAME_Admins` 추가
+
+> [!NOTE]
+> [이 문서](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)에서 보안 그룹을 만드는 방법을 알아보세요.
+>
+> [이 문서](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal)에서 다른 보안 그룹에서 보안 그룹을 추가하는 방법을 알아보세요.
+>
+> WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.
 
 ### <a name="step-2-prepare-the-default-adls-gen2-account"></a>2단계: 기본 ADLS Gen2 계정 준비
 
-작업 영역을 프로비저닝할 때 작업 영역에서 사용할 ADLSGEN2 계정과 파일 시스템의 컨테이너를 선택해야 했습니다.
+작업 영역을 프로비저닝할 때 작업 영역에서 사용할 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 계정과 파일 시스템의 컨테이너를 선택해야 했습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-2. ADLSGEN2 계정으로 이동
+2. Azure Data Lake Storage Gen2 계정으로 이동
 3. Azure Synapse 작업 영역에 대해 선택한 컨테이너(파일 시스템)로 이동
 4. **액세스 제어(IAM)** 클릭
 5. 다음 역할 할당:
-   1. **Reader** 역할:  `Synapse_WORKSPACENAME_Users`
-   2. **Storage Blob 데이터 소유자** 역할:  `Synapse_WORKSPACENAME_Admins`
-   3. **Storage Blob 데이터 기여자** 역할: `Synapse_WORKSPACENAME_Users`
-   4. **Storage Blob 데이터 소유자** 역할:  `WORKSPACENAME`
-  
+   1. **읽기** 역할:  `Synapse_WORKSPACENAME_Users`
+   2. **Storage BLOB 데이터 소유자** 역할:  `Synapse_WORKSPACENAME_Admins`
+   3. **Storage BLOB 데이터 기여자** 역할: `Synapse_WORKSPACENAME_Users`
+   4. **Storage BLOB 데이터 소유자** 역할:  `WORKSPACENAME`
+
+> [!NOTE]
+> WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.
+
 ### <a name="step-3-configure-the-workspace-admin-list"></a>3단계: 작업 영역 관리자 목록 구성
 
 1. [**Azure Synapse 웹 UI**](https://web.azuresynapse.net)로 이동
@@ -66,10 +76,18 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 6. **선택** 클릭
 7. **저장** 클릭
 
+> [!NOTE]
+> WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.
+
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>5단계: 보안 그룹에 사용자 및 관리자 추가/제거
 
 1. 관리자 액세스 권한이 필요한 사용자를 `Synapse_WORKSPACENAME_Admins`에 추가
 2. 나머지 사용자는 `Synapse_WORKSPACENAME_Users`에 추가
+
+> [!NOTE]
+> [이 문서](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)에서 보안 그룹에 사용자를 멤버로 추가하는 방법을 알아보세요.
+> 
+> WORKSPACENAME - 이 파트를 실제 작업 영역 이름으로 바꾸어야 합니다.
 
 ## <a name="access-control-to-data"></a>데이터에 대한 액세스 제어
 
@@ -82,9 +100,13 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
 ## <a name="access-control-to-sql-databases"></a>SQL 데이터베이스에 대한 액세스 제어
 
 > [!TIP]
-> 사용자에게 모든 SQL 데이터베이스에 대한 액세스 권한을 부여하려면 **각** SQL 데이터베이스에 대해 아래 단계를 실행해야 합니다.
+> **각** SQL 데이터베이스에 대해 아래 단계를 실행하여 모든 SQL 데이터베이스에 대한 사용자 액세스를 부여해야 합니다. 단, 사용자에게 sysadmin 역할을 할당할 수 있는 [서버 수준 권한](#server-level-permission) 섹션은 제외합니다.
 
 ### <a name="sql-on-demand"></a>SQL 주문형
+
+이 섹션에서는 특정 데이터베이스 또는 전체 서버 권한에 대해 사용자에게 권한을 부여하는 방법의 예제를 알아볼 수 있습니다.
+
+#### <a name="database-level-permission"></a>데이터베이스 수준 권한
 
 사용자에게 **단일** SQL 주문형 데이터베이스에 대한 액세스 권한을 부여하려면 다음 예제의 단계를 따릅니다.
 
@@ -93,7 +115,7 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
     ```sql
     use master
     go
-    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     go
     ```
 
@@ -102,7 +124,7 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
     ```sql
     use yourdb -- Use your DB name
     go
-    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
 3. 지정된 역할의 구성원에 사용자 추가
@@ -110,8 +132,20 @@ Azure Synapse 작업 영역에 프로덕션 배포하는 경우 사용자 및 �
     ```sql
     use yourdb -- Use your DB name
     go
-    alter role db_owner Add member john -- Type USER name from step 2
+    alter role db_owner Add member alias -- Type USER name from step 2
     ```
+
+> [!NOTE]
+> 액세스를 제공하고자 하는 사용자의 별칭으로 별칭을 바꾸고 사용 중인 회사 도메인으로 도메인을 바꿉니다.
+
+#### <a name="server-level-permission"></a>서버 수준 권한
+
+사용자에게 **모든** SQL 주문형 데이터베이스에 대한 모든 액세스 권한을 부여하려면 다음 예제의 단계를 따릅니다.
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
 
 ### <a name="sql-pools"></a>SQL 풀
 
@@ -173,4 +207,4 @@ DROP USER [<workspacename>];
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse SQL의 액세스 및 제어에 대한 개요는 [Synapse SQL 액세스 제어](../sql/access-control.md)를 참조하세요. 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요. 데이터베이스 역할에 대한 추가 정보는 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx) 문서에서 찾을 수 있습니다.
+Synapse 작업 영역 관리 ID에 대한 개요는 [Azure Synapse 작업 영역 관리 ID](../security/synapse-workspace-managed-identity.md)를 참조하세요. 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요. 데이터베이스 역할에 대한 추가 정보는 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx) 문서에서 찾을 수 있습니다.

@@ -9,57 +9,49 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836484"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248331"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Azure Synapse Analytics 시작
 
-이 자습서에서는 Azure Synapse Analytics를 설정하고 사용하는 데 필요한 모든 기본 단계를 안내합니다.
+이 문서에서는 Azure Synapse Analytics를 설정하고 사용하는 데 필요한 모든 기본 단계를 안내합니다.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Synapse 작업 영역에서 사용할 스토리지 계정 준비
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. 다음 설정을 사용하여 새 스토리지 계정을 만듭니다.
-    * **기본 사항** 탭에서
+* [Azure Portal](https://portal.azure.com)을 엽니다.
+* 다음 설정을 사용하여 새 스토리지 계정을 만듭니다.
 
-    |설정 | 제안 값 | Description |
-    |---|---|---|
-    |**스토리지 계정 이름**| 임의의 이름을 지정할 수 있습니다.|이 문서에서는 `contosolake`로 참조합니다.
-    |**계정 종류**|`StorageV2`로 설정해야 합니다.||
-    |**위치**|임의의 위치를 선택할 수 있습니다.| Synapse 작업 영역과 ADLS(Azure Data Lake Storage) Gen2 계정이 동일한 지역에 있는 것이 좋습니다.|
-    ||||
-    
-    * **고급** 탭에서
-    
-    |설정 | 제안 값 | Description |
-    |---|---|---|
-    |**Data Lake Storage Gen2**|`Enabled`| Azure Synapse는 이 설정을 사용하도록 설정된 스토리지 계정에서만 작동합니다.|
-    ||||
+    |탭|설정 | 제안 값 | Description |
+    |---|---|---|---|
+    |기본 사항|**스토리지 계정 이름**| 임의의 이름을 지정할 수 있습니다.|이 문서에서는 `contosolake`로 참조합니다.|
+    |기본 사항|**계정 종류**|`StorageV2`로 설정해야 합니다.||
+    |기본 사항|**위치**|임의의 위치를 선택할 수 있습니다.| Synapse 작업 영역과 ADLS(Azure Data Lake Storage) Gen2 계정이 동일한 지역에 있는 것이 좋습니다.|
+    |고급|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse는 이 설정을 사용하도록 설정된 스토리지 계정에서만 작동합니다.|
 
 1. 스토리지 계정이 만들어지면 왼쪽 탐색 영역에서 **액세스 제어(IAM)** 를 선택합니다. 그런 다음, 다음 역할을 할당하거나 이미 할당되어 있는지 확인합니다. 
+
     a. * 스토리지 계정에서 **소유자** 역할에 할당합니다. b. * 스토리지 계정에서 **Storage Blob 데이터 소유자** 역할에 할당합니다.
+
 1. 왼쪽 탐색 영역에서 **컨테이너**를 선택하여 컨테이너를 만듭니다. 임의의 이름을 지정할 수 있습니다. 기본 **퍼블릭 액세스 수준**을 적용합니다. 이 문서에서는 `users` 컨테이너라고 합니다. **만들기**를 선택합니다. 
+
+다음 단계에서는 이 스토리지 계정을 "기본" 스토리지 계정으로 사용하고 작업 영역 데이터를 저장하는 컨테이너를 사용하도록 Synapse 작업 영역을 구성합니다. 작업 영역은 이 계정에서 `/synapse/workspacename`이라는 폴더 아래에 Apache Spark 테이블 및 Spark 애플리케이션 로그에 데이터를 저장합니다.
 
 ## <a name="create-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
-1. [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 `Synapse`를 검색합니다.
-1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics(작업 영역 미리 보기)** 를 선택합니다.
-1. **+ 추가**를 선택합니다.
-1. **기본 사항** 탭:
+* [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 `Synapse`를 검색합니다.
+* **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics(작업 영역 미리 보기)** 를 선택합니다.
+* **+ 추가**를 선택하여 다음 설정을 이용해 작업 영역을 만듭니다.
 
-    |설정 | 제안 값 | Description |
-    |---|---|---|
-    |**작업 영역 이름**|모든 항목을 호출할 수 있습니다.| 이 문서에서는 `myworkspace`를 사용합니다.
-    |**지역**|스토리지 계정의 지역과 일치합니다.||
-    |||
+    |탭|설정 | 제안 값 | Description |
+    |---|---|---|---|
+    |기본 사항|**작업 영역 이름**|모든 항목을 호출할 수 있습니다.| 이 문서에서는 `myworkspace`를 사용합니다.|
+    |기본 사항|**지역**|스토리지 계정의 지역과 일치합니다.|
 
 1. **Data Lake Storage Gen 2 선택** 아래에서 이전에 만든 계정과 컨테이너를 선택합니다.
-    > [!NOTE]
-    > 여기서 선택한 스토리지 계정을 Synapse 작업 영역의 "기본" 스토리지 계정으로 참조합니다. 이 계정은 Apache Spark 테이블 및 Spark 풀이 만들어지거나 Spark 애플리케이션이 실행될 때 만들어지는 로그에 데이터를 저장하는 데 사용됩니다.
 
 1. **검토 + 만들기**를 선택합니다. **만들기**를 선택합니다. 몇 분 후에 작업 영역이 준비됩니다.
 
@@ -81,27 +73,17 @@ Synapse 작업 영역이 만들어지면 두 가지 방법으로 Synapse Studio�
 ## <a name="create-a-sql-pool"></a>SQL 풀 만들기
 
 1. Synapse Studio의 왼쪽 탐색 영역에서 **관리 > SQL 풀**을 차례로 선택합니다.
-
-    > [!NOTE] 
-    > 모든 Synapse 작업 영역에는 **SQL 주문형**이라는 미리 만들어진 풀이 제공됩니다.
-
 1. **+ 새로 만들기**를 선택하고 다음 설정을 입력합니다.
 
     |설정 | 제안 값 | 
-    |---|---|---|
+    |---|---|
     |**SQL 풀 이름**| `SQLDB1`|
     |**성능 수준**|`DW100C`|
-    |||
 
 1. **검토 + 만들기**, **만들기**를 차례로 선택합니다.
-1. 몇 분 후에 SQL 풀이 준비됩니다.
+1. 몇 분 후에 SQL 풀이 준비됩니다. SQL 풀이 만들어지면 **SQLDB1**라고도 하는 SQL 풀 데이터베이스와 연결됩니다.
 
-    > [!NOTE]
-    > Synapse SQL 풀은 "Azure SQL Data Warehouse"라고 했던 풀에 해당합니다.
-
-SQL 풀은 실행되는 동안 청구 가능한 리소스를 사용합니다. 따라서 비용을 줄이기 위해 필요한 경우 풀을 일시 중지할 수 있습니다.
-
-SQL 풀이 만들어지면 **SQLDB1**라고도 하는 SQL 풀 데이터베이스와 연결됩니다.
+SQL 풀은 실행되는 동안 청구 가능한 리소스를 사용합니다. 비용을 줄이기 위해 풀을 일시 중지할 수 있습니다.
 
 ## <a name="create-an-apache-spark-pool"></a>Apache Spark 풀 만들기
 
@@ -109,11 +91,10 @@ SQL 풀이 만들어지면 **SQLDB1**라고도 하는 SQL 풀 데이터베이스
 1. **+ 새로 만들기**를 선택하고 다음 설정을 입력합니다.
 
     |설정 | 제안 값 | 
-    |---|---|---|
+    |---|---|
     |**Apache Spark 풀 이름**|`Spark1`
     |**노드 크기**| `Small`|
     |**노드 수**| 최솟값 및 최댓값을 각각 3으로 설정합니다.|
-    |||
 
 1. **검토 + 만들기**, **만들기**를 차례로 선택합니다.
 1. 몇 초 후에 Apache Spark 풀이 준비됩니다.
@@ -126,7 +107,7 @@ SQL 풀이 만들어지면 **SQLDB1**라고도 하는 SQL 풀 데이터베이스
 Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니다. 이 풀은 사용할 Spark 리소스 수를 Synapse에 알립니다. 사용한 리소스에 대해서만 비용을 지불합니다. 풀 사용을 적극적으로 중지하면 리소스가 자동으로 시간 제한되어 재활용됩니다.
 
 > [!NOTE]
-> Spark 데이터베이스는 Spark 풀에서 독립적으로 만들어집니다. 작업 영역에는 항상 **default**라는 Spark DB가 있으며, Spark 데이터베이스를 추가로 만들 수 있습니다.
+> Spark 데이터베이스는 Spark 풀에서 독립적으로 만들어집니다. 작업 영역에는 항상 **default**라는 Spark 데이터베이스가 있으며, Spark 데이터베이스를 추가로 만들 수 있습니다.
 
 ## <a name="the-sql-on-demand-pool"></a>SQL 주문형 풀
 
@@ -149,7 +130,7 @@ Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니�
 1. **SQLDB1 > 테이블**로 차례로 이동합니다. 여러 테이블이 로드된 것을 볼 수 있습니다.
 1. 마우스 오른쪽 단추로 **dbo.Trip** 테이블을 클릭하고, **새 SQL 스크립트 > 상위 100개 행 선택**을 차례로 선택합니다.
 1. 새 SQL 스크립트가 만들어지고 자동으로 실행됩니다.
-1. **연결 대상** SQL 스크립트의 위쪽에서 자동으로 SQLDB1이라는 SQL 풀로 설정됩니다.
+1. **연결 대상** SQL 스크립트의 위쪽에서 자동으로 `SQLDB1`이라는 SQL 풀로 설정됩니다.
 1. SQL 스크립트의 텍스트를 다음 코드로 바꾸고 실행합니다.
 
     ```sql
@@ -167,7 +148,7 @@ Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니�
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Spark nyctaxi 데이터베이스에 NYC 택시 샘플 데이터 로드
 
-`SQLDB1`의 테이블에는 사용할 수 있는 데이터가 있습니다. 이제 이를 'nyctaxi'라는 Spark 데이터베이스에 로드합니다.
+`SQLDB1`의 테이블에는 사용할 수 있는 데이터가 있습니다. 이제 이를 `nyctaxi`라는 Spark 데이터베이스에 로드합니다.
 
 1. Synapse Studio에서 **개발** 허브로 이동합니다.
 1. **+** , **Notebook**을 차례로 선택합니다.
@@ -189,7 +170,7 @@ Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니�
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Spark 및 Notebook을 사용하여 NYC 택시 데이터 분석
 
 1. Notebook으로 돌아갑니다.
-1. 새 코드 셀을 만들고, 아래 텍스트를 입력하고, 셀을 실행하여 `nyctaxi` Spark DB에 로드한 NYC 택시 데이터를 예로 사용합니다.
+1. 새 코드 셀을 만들고, 아래 텍스트를 입력하고, 셀을 실행하여 `nyctaxi` Spark 데이터베이스에 로드한 NYC 택시 데이터를 예로 사용합니다.
 
    ```py
    %%pyspark
@@ -299,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. **연결됨**을 선택합니다.
 1. **스토리지 계정 > myworkspace(기본 - contosolake)** 로 차례로 이동합니다.
 1. **사용자(기본)** 를 선택합니다.
-1. 'NYCTaxi'라는 폴더가 표시됩니다. 내부에는 'PassengerCountStats.csv' 및 'PassengerCountStats.parquet'라는 두 개의 폴더가 표시됩니다.
-1. 'PassengerCountStats.parquet' 폴더로 이동합니다.
+1. `NYCTaxi`라는 폴더가 표시됩니다. 내부에 `PassengerCountStats.csv` 및 `PassengerCountStats.parquet`의 두 폴더가 표시됩니다.
+1. `PassengerCountStats.parquet` 폴더로 이동합니다.
 1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭하고 **새 Notebook**을 선택합니다. 그러면 다음과 같은 셀이 있는 Notebook이 만들어집니다.
 
     ```py
@@ -342,11 +323,10 @@ Power BI 작업 영역을 Synapse 작업 영역에 연결할 수 있습니다. �
 1. **+ 새로 만들기**를 선택하고, **Power BI에 연결**을 선택하고, 다음 필드를 설정합니다.
 
     |설정 | 제안 값 | 
-    |---|---|---|
+    |---|---|
     |**이름**|`NYCTaxiWorkspace1`|
     |**작업 영역 이름**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. **만들기**를 선택합니다.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Synapse 작업 영역의 데이터를 사용하는 Power BI 데이터 세트 만들기

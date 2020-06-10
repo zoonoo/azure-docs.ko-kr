@@ -3,17 +3,17 @@ title: Azure Cost Management로 클라우드 투자를 최적화
 description: 이 문서는 클라우드 투자의 가치를 극대화하고, 비용을 줄이고, 비용이 어디에 지출되는지 평가하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791615"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142421"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -131,14 +131,39 @@ Azure Migrate는 온-프레미스 데이터 센터에서 조직의 현재 워크
 
 조직의 비용이 시간이 경과하면서 어떻게 변하는지 지속적으로 알려줍니다. 지출을 제대로 이해하고 관리하려면 다음 기법을 사용하십시오.
 
-### <a name="organize-and-tag-your-resources"></a>리소스 체계화 및 태그 지정
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>리소스를 정리하여 비용 인사이트 및 책임감 극대화
 
-비용을 고려하여 리소스를 체계화합니다. 구독 및 리소스 그룹을 만드는 경우, 관련 비용을 담당하는 팀을 고려합니다. 조직을 고려하여 보고서를 준비해야 합니다. 구독 및 리소스 그룹은 조직 전반의 지출을 체계화하고 분류하는 유용한 버킷을 제공합니다. 태그는 비용에 특성을 부여하는 유용한 방법입니다. 태그를 필터로 사용할 수 있습니다. 데이터를 분석하고 비용을 조사할 때 태그를 사용하여 그룹화할 수 있습니다. 기업 계약 고객은 부서를 만들어서 그 아래에 구독을 배치할 수 있습니다. Azure의 비용 기반 조직은 관련 인력이 팀의 지출을 줄이는데 책임감을 갖도록 도와줍니다.
+Azure 청구 및 리소스 계층 구조가 잘 계획된 조직 구조는 클라우드 인프라를 만들 때 비용에 대한 적절한 이해 및 제어에 도움이 됩니다. 사용할 수 있는 조직 도구와 이를 활용하는 방법에 대한 자세한 내용을 보려면 [엔터티 계층 구조 설정](https://www.youtube.com/watch?v=n3TLRaYJ1NY) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
-조직에서 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+사용자 요구를 충족하는 계층을 평가하고 만들 때 다음 질문을 스스로에게 물어보세요.
+
+*어떤 청구 계층이 제공되며, 사용 가능한 다른 범위는 무엇인가요?*
+
+Azure 제품 유형을 확인하여 조직의 청구 방식을 파악합니다. 각 Azure 청구 방식에 사용할 수 있는 범위는 [범위 이해 및 사용](understand-work-scopes.md)에 설명되어 있습니다.
+
+*여러 팀이 있을 경우 구독 및 리소스 그룹을 구성하려면 어떻게 해야 하나요?*
+
+팀별로 구독 또는 리소스 그룹을 만드는 것이 일반적인 방법입니다. 그러면 비용을 구별하고 팀에게 책임을 지울 수 있습니다. 하지만 비용은 구독 또는 리소스 그룹에 바인딩됩니다.
+
+여러 구독이 있는 팀이 이미 있는 경우 구독을 관리 그룹으로 그룹화하여 비용을 함께 분석하는 것이 좋습니다. 관리 그룹, 구독 및 리소스 그룹은 모두 Azure RBAC 계층의 일부입니다. 팀의 액세스 제어에 함께 사용하세요.
+
+리소스는 여러 범위에 걸쳐 있을 수 있으며, 여러 팀 또는 워크로드에서 공유하는 경우 특히 그렇습니다. 태그를 사용하여 리소스를 식별하는 것이 좋습니다. 태그는 다음 섹션에서 자세히 설명합니다.
+
+*개발 및 프로덕션 환경이 있나요?*
+
+개발 환경에 대한 개발/테스트 구독을 만들어 할인된 가격을 누리세요. 워크로드가 여러 팀 또는 Azure 범위에 걸쳐 있는 경우 태그를 사용하여 식별하는 것이 좋습니다.
+
+### <a name="tag-shared-resources"></a>공유 리소스에 태그 지정
+
+태그는 여러 팀 및 Azure 범위에 걸쳐 있는 비용을 이해하는 효과적인 방법입니다. 예를 들어 많은 팀에서 사용하는 이메일 서버와 같은 리소스가 있을 수 있습니다. 이메일 서버와 같은 공유 리소스를 공유 리소스 전용 구독에 배치하거나 기존 구독에 배치할 수 있습니다. 기존 구독에 배치할 경우 구독 소유자가 매월 팀에게 비용이 부과되지 않도록 하는 것이 좋습니다. 이 예에서는 태그를 사용하여 리소스를 공유 리소스로 식별할 수 있습니다.
+
+마찬가지로, 다른 팀이 소유한 여러 구독에서 리소스를 사용하는 웹앱 또는 환경(예: 테스트 또는 프로덕션)이 있을 수도 있습니다. 워크로드의 전체 비용을 보다 잘 이해하려면 워크로드에 사용되는 리소스에 태그를 지정합니다. 태그가 제대로 적용되면 비용 분석에서 해당 태그를 필터로 적용하여 추세를 보다 잘 이해할 수 있습니다.
+
+리소스 태그 지정을 계획한 후 리소스에 태그를 적용하도록 Azure 정책을 구성할 수 있습니다. 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>비용 분석 사용
 
