@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0cd86aa647655f92f4ae1b5de50f506e9aad0f4e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74187297"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558153"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>자습서: Azure Functions 앱에서 동적 구성 사용
 
@@ -67,7 +67,7 @@ App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기�
     }
     ```
 
-3. Functions 호출을 시작할 때 `Run` 메서드를 업데이트하고 `Refresh` 메서드를 사용하여 구성을 새로 고치도록 신호를 보냅니다. 이 동작은 캐시 만료 시간이 되기 전에는 작동하지 않습니다. 차단하지 않고 구성을 새로 고치려면 `await` 연산자를 제거합니다.
+3. Functions 호출을 시작할 때 `Run` 메서드를 업데이트하고 `TryRefreshAsync` 메서드를 사용하여 구성을 새로 고치도록 신호를 보냅니다. 이 동작은 캐시 만료 시간이 되기 전에는 작동하지 않습니다. 차단하지 않고 구성을 새로 고치려면 `await` 연산자를 제거합니다.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -75,7 +75,7 @@ App Configuration .NET 표준 구성 공급자는 애플리케이션 작업 기�
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
