@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140941"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637428"
 ---
 > [!NOTE]
 > 검색 하려면 `PHI` `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
 >
-> `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
 끝점에 요청을 보낼 때 다음 엔터티 범주가 반환 됩니다 `/v3.1-preview.1/entities/recognition/pii` .
 
-| Category   | 하위 범주 | 설명                          | 시작 모델 버전 | 참고 |
+| 범주   | 하위 범주 | 설명                          | 시작 모델 버전 | 메모 |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | 해당 없음         | 사람의 이름입니다.  | `2019-10-01`  | 또한로 반환 `domain=phi` 됩니다. |
 | PersonType | 해당 없음         | 사용자가 보유 한 작업 유형 또는 역할 | `2020-02-01` | |
@@ -37,11 +37,11 @@ ms.locfileid: "84140941"
 | URL | 해당 없음 | 웹 사이트에 대 한 Url입니다. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | IP | 해당 없음 | 네트워크 IP 주소. | `2019-10-01` | |
 | DateTime | 해당 없음 | 날짜 및 시간입니다. | `2019-10-01` |  | 
-| DateTime | 날짜 | 일정 날짜 | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
+| DateTime | Date | 일정 날짜 | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | 수량 | 해당 없음 | 숫자 및 숫자 수량. | `2019-10-01` |  |
 | 수량 | Age | 에이징을. | `2019-10-01` | | |
-| 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.   | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
-| 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.    | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
+| 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.   | `2020-04-01` | |
+| 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Azure 정보
 

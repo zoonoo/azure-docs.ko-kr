@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806099"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629051"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Custom Speech 정확도 평가
 
@@ -33,7 +33,7 @@ ms.locfileid: "74806099"
 * 삭제 (D): 가설 성적 증명서에서 감지 되지 않은 단어
 * 대체 (S): 참조와 가설 사이에서 대체 된 단어입니다.
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 ![잘못 식별 된 단어의 예](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -52,7 +52,7 @@ Microsoft의 음성 텍스트 기준선 모델 또는 학습 된 사용자 지�
 모델을 나란히 평가 하려면:
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
-2. **음성 텍스트 > Custom Speech > 테스트**로 이동 합니다.
+2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트**로 이동 합니다.
 3. **테스트 추가**를 클릭 합니다.
 4. **정확도 평가**를 선택 합니다. 테스트 이름, 설명을 지정 하 고 오디오 + 사람 레이블이 지정 된 기록 데이터 집합을 선택 합니다.
 5. 테스트 하려는 최대 2 개의 모델을 선택 합니다.

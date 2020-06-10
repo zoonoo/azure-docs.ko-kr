@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261815"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635172"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Azure Speaker Recognition 서비스는 무엇 인가요?
 
@@ -27,7 +27,7 @@ Speaker Verification는 암호 또는 자유 형식 음성 입력으로 등록 �
 
 ### <a name="how-does-speaker-verification-work"></a>Speaker Verification 작동 방법
 
-![스피커 확인이 작동 하는 방식](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="순서도를 Speaker Verification 합니다.":::
 
 스피커 확인은 텍스트 종속 또는 텍스트 독립적 일 수 있습니다. **텍스트 종속** 확인은 스피커가 등록 및 확인 단계에서 사용할 동일한 암호를 선택 해야 함을 의미 합니다. **텍스트 독립적인** 확인은 스피커가 등록 및 확인 구에 일상적인 언어로 말할 수 있음을 의미 합니다.
 
@@ -59,4 +59,5 @@ Speaker Identification는 등록 된 스피커 그룹 내에서 알 수 없는 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
+> * 응용 프로그램에서 사용할 수 있는 일반적인 디자인 패턴의 실행에 대 한 Speaker Recognition [기본 문서](speaker-recognition-basics.md) 를 완료 합니다.
 > * 텍스트 독립적인 스피커 확인에 대 한 [비디오 자습서](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) 를 참조 하세요.

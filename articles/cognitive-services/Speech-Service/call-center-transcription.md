@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806323"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636129"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -97,7 +97,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)는 각 기록에 대한 SAS(공유 액세스 디지털 서명) URI를 만들고 HTTP POST 요청을 트리거하여 전사를 시작하기 위해 사용됩니다. 또한 Azure Functions는 Batch Transcription API를 사용하여 전사를 검색하고 삭제하는 요청을 만들기 위해 사용됩니다.
 
 내부적으로는 위의 기술을 사용하여 일괄 처리 모드에서 Microsoft 고객 통화를 지원하고 있습니다.
-![일괄 처리 아키텍처](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Batch 모드에서 Microsoft 고객 호출을 지 원하는 데 사용 되는 기술입니다.":::
 
 ## <a name="real-time-transcription-for-call-center-data"></a>콜 센터 데이터에 대한 실시간 전사
 
@@ -121,11 +121,11 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
  음성 서비스는 기본 제공 모델에서 잘 작동 합니다. 그러나 제품 또는 환경에 대 한 환경을 추가로 사용자 지정 하 고 조정할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성 한 후에는 실시간 또는 일괄 처리 모드에서 음성 서비스 기능에 사용할 수 있습니다.
 
-| Speech Service | 모델 | Description |
+| Speech Service | 모델 | 설명 |
 | -------------- | ----- | ----------- |
 | 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 |                | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
-|                | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 음성 모델을 사용 하 여 윗주 형태 및 단어 또는 용어에 대 한 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 시작 해야 하는 모든 작업은 간단한 `.txt` 파일인 음성 파일입니다. |
+|                | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 음성 모델을 사용 하 여 윗주 형태 및 단어 또는 용어에 대 한 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 시작 해야 하는 모든 작업은 간단한 파일인 음성 파일입니다 `.txt` . |
 | 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
 
 ## <a name="sample-code"></a>예제 코드
