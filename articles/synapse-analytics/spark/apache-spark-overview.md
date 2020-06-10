@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644665"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140976"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark란?
 
@@ -39,9 +39,9 @@ Azure Synapse의 Spark 풀은 완전 관리형 Spark 서비스를 제공합니�
 | 사용 편의성 |Synapse Analytics에는 [Nteract](https://nteract.io/)에서 파생된 사용자 지정 노트북이 포함되어 있습니다. 이러한 노트북을 대화형 데이터 처리 및 시각화에 사용할 수 있습니다.|
 | REST API |Synapse Analytics의 Spark에는 작업을 원격으로 제출하고 모니터링하는 REST API 기반 Spark 작업 서버인 [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. |
 | Azure Data Lake Storage 2세대에 대한 지원| Azure Synapse의 Spark 풀은 Blob Storage뿐만 아니라 Azure Data Lake Storage 2세대를 사용할 수 있습니다. Data Lake Storage에 대한 자세한 내용은 [Azure Data Lake Storage 개요](../../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
-| 타사 IDE와의 통합 | Azure Synapse에는 애플리케이션을 만들어서 Spark 풀에 제출하는 데 유용한 [Jetbrains의 IntelliJ IDEA](https://www.jetbrains.com/idea/)용 IDE 플러그인이 제공됩니다. |
+| 타사 IDE와의 통합 | Azure Synapse는 애플리케이션을 만들어 Spark 풀에 제출하는 데 유용한 [JetBrains의 IntelliJ IDEA](https://www.jetbrains.com/idea/)용 IDE 플러그 인을 제공합니다. |
 | 미리 로드된 Anaconda 라이브러리 |Azure Synapse의 Spark 풀에는 Anaconda 라이브러리가 미리 설치되어 제공됩니다. [Anaconda](https://docs.continuum.io/anaconda/) 는 기계 학습, 데이터 분석, 시각화 등을 위해 약 200개의 라이브러리를 제공합니다. |
-| 확장성 | Azure Synapse의 Apache Spark 풀에 자동 크기 조정을 사용하도록 설정하여, 필요에 맞게 풀을 확장하고 축소할 수 있습니다. 또한 모든 데이터가 Azure Storage 또는 Data Lake Storage에 저장되므로 데이터 손실 없이 Spark 풀을 종료할 수 있습니다. |
+| 확장성 | Azure Synapse의 Apache Spark 풀에 자동 크기 조정을 사용하도록 설정하여, 필요에 따라 노드를 추가하거나 제거하여 풀을 확장할 수 있습니다. 또한 모든 데이터가 Azure Storage 또는 Data Lake Storage에 저장되므로 데이터 손실 없이 Spark 풀을 종료할 수 있습니다. |
 
 Azure Synapse의 Spark 풀에는 풀에서 기본적으로 사용할 수 있는 다음 구성 요소가 포함됩니다.
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a4d52ee3f39daef0e89ccb08cf5ab6a4ebfb735
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739102"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140799"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -36,7 +36,7 @@ Azure AD B2C 테넌트에서 사용하는 기본 리소스는 다음과 같습�
   * 애플리케이션에서 지원하려는 *소셜* ID 공급자(예: Facebook, LinkedIn 또는 Twitter).
   * 표준 ID 프로토콜을 지원하는 *외부* ID 공급자(예: OAuth 2.0, OpenID Connect 등).
   * 사용자 이름(이메일 주소 또는 다른 ID)과 암호를 사용하여 가입하고 로그인할 수 있게 하는 *로컬* 계정.
-* **키** - 토큰 서명 및 유효성 검사를 위한 암호화 키를 추가하고 관리합니다.
+* **키** - 토큰, 클라이언트 암호, 인증서 및 암호에 서명 및 유효성 검사를 위한 암호화 키를 추가하고 관리합니다.
 
 Azure AD B2C 테넌트는 Azure AD B2C를 시작하기 위해 만들어야 하는 첫 번째 리소스입니다. 방법에 대해서는 [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 만들 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure AD B2C의 사용자 계정 유형에 대해서는 [Azure Active Directory 
 
 ## <a name="external-identity-providers"></a>외부 ID 공급자
 
-사용자가 외부 소셜 또는 엔터프라이즈 IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 Facebook, Microsoft 계정, Google, Twitter와 같은 외부 자격 증명 공급자 및 OAuth 1.0, OAuth 2.0, OpenID Connect, SAML 또는 WS-Federation 프로토콜을 지원하는 모든 ID 공급자를 지원합니다.
+사용자가 외부 소셜 또는 엔터프라이즈 IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 Facebook, Microsoft 계정, Google, Twitter와 같은 외부 ID 공급자와 OAuth 1.0, OAuth 2.0, OpenID Connect 및 SAML 프로토콜을 지원하는 모든 ID 공급자를 지원합니다.
 
 ![외부 ID 공급자](media/technical-overview/external-idps.png)
 
@@ -134,15 +134,13 @@ Identity Experience Framework는 모든 단계 조합을 사용하여 사용자 
 
 ## <a name="protocols-and-tokens"></a>프로토콜 및 토큰
 
-Azure AD B2C는 사용자 경험에 대해 [OpenID Connect 및 OAuth 2.0 프로토콜](protocols-overview.md)을 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 애플리케이션은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 이동을 시작합니다.
+- 애플리케이션의 경우 Azure AD B2C는 사용자 경험에 대해 [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) 및 [SAML 프로토콜](connect-with-saml-service-providers.md)을 지원합니다. 애플리케이션은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 경험을 시작합니다. Azure AD B2C에 대한 요청의 결과는 [ID 토큰, 액세스 토큰](tokens-overview.md) 또는 SAML 토큰과 같은 보안 토큰입니다. 이 보안 토큰은 애플리케이션 내에서 사용자의 ID를 정의합니다.
 
-Azure AD B2C에 대한 요청의 결과는 [ID 토큰 또는 액세스 토큰](tokens-overview.md)과 같은 보안 토큰입니다. 이 보안 토큰은 사용자의 ID를 정의합니다. 토큰은 `/token` 또는 `/authorize` 엔드포인트와 같은 Azure AD B2C 엔드포인트로부터 받습니다. 이러한 토큰을 사용하면 ID의 유효성을 검사하고 보안 리소스에 대한 액세스를 허용하는 데 사용할 수 있는 클레임에 액세스할 수 있습니다.
+- 외부 ID의 경우 Azure AD B2C는 모든 OAuth 1.0, OAuth 2.0, OpenID Connect 및 SAML ID 공급자와의 페더레이션을 지원합니다.
 
-외부 ID의 경우 Azure AD B2C는 모든 OAuth 1.0, OAuth 2.0, OpenID Connect, SAML 및 WS-Fed ID 공급자와의 페더레이션을 지원합니다.
+다음 다이어그램에서는 Azure AD B2C가 동일한 인증 흐름 내에서 다양한 프로토콜을 사용하여 통신할 수 있는 방법을 보여줍니다.
 
 ![SAML 기반 IdP와 페더레이션하는 OIDC 기반 클라이언트 앱의 다이어그램](media/technical-overview/protocols.png)
-
-위의 다이어그램에서는 Azure AD B2C가 동일한 인증 흐름 내에서 다양한 프로토콜을 사용하여 통신할 수 있는 방법을 보여 줍니다.
 
 1. 신뢰 당사자 애플리케이션은 OpenID Connect를 사용하여 Azure AD B2C에 대한 권한 부여 요청을 시작합니다.
 1. 애플리케이션 사용자가 SAML 프로토콜을 사용하는 외부 ID 공급자를 사용하여 로그인하도록 선택하면 Azure AD B2C에서 SAML 프로토콜을 호출하여 해당 ID 공급자와 통신합니다.

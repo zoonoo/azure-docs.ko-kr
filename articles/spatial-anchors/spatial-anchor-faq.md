@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004465"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296672"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -72,21 +72,21 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 **Q: SLA를 제공하나요?**
 
-**A:** Azure 서비스 표준이므로 99.9%가 넘는 가용성을 목표로 합니다. Azure Spatial Anchors는 현재 미리 보기에 있으며, 이에 따라 [미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
+**A:** Azure 서비스 표준이므로 99.9%가 넘는 가용성을 목표로 합니다. 
 
 **Q: 내 앱은 Azure Spatial Anchors를 사용하여 앱 스토어에 게시할 수 있나요? Azure Spatial Anchors는 중요 업무용 프로덕션 시나리오에 사용할 수 있나요?**
 
-**A:** Azure Spatial Anchors는 현재 미리 보기에 있으며, 이 기간 동안 앱을 개발하고, 제품에 대한 [피드백을 제공](https://feedback.azure.com/forums/919252-azure-spatial-anchors)하며, 프로덕션 배포를 계획하는 것이 좋습니다.
-
-GA(일반 공급) 날짜는 곧 발표할 예정입니다.
+**A:** 예, Azure Spatial Anchors는 일반적으로 사용할 수 있으며 표준 Azure 서비스 SLA가 있습니다. 프로덕션 배포를 위한 앱을 개발하고 제품에 대한 [피드백을 공유](https://feedback.azure.com/forums/919252-azure-spatial-anchors)하세요.
 
 **Q: 적절한 제한 한도가 있나요?**
 
-**A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrs@microsoft.com). 이 미리 보기 단계에서는 계층화 및 가격 책정 구조를 아직 발표하지 않았지만 곧 발표할 것입니다.
+**A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrs@microsoft.com). 
 
 **Q: Azure Spatial Anchors를 사용할 수 있는 지역은 어떻게 되나요?**
 
-**A:** Azure Spatial Anchors 계정은 현재 Azure 미국 동부 2 지역에서 만들 수 있습니다. 즉 이 서비스에서 지원하는 컴퓨팅과 스토리지가 모두 이 지역에 있습니다. 다시 말하면, 클라이언트의 위치에는 제한이 없습니다. 서비스의 지역 가용성은 나중에 모든 Azure 주 지역으로 확장됩니다.
+**A:** Azure Spatial Anchors는 현재 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중남부, 서유럽, 북유럽, 영국 남부 및 오스트레일리아 동부에서 사용할 수 있습니다. 향후에 추가 지역이 제공될 것입니다.
+
+즉, 이 서비스에서 지원하는 컴퓨팅과 스토리지가 모두 이러한 지역에 있습니다. 다시 말하면, 클라이언트의 위치에는 제한이 없습니다. 
 
 **Q: Azure Spatial Anchors에 대해 요금을 부과하는가요? 혹은 청구되나요?**
 

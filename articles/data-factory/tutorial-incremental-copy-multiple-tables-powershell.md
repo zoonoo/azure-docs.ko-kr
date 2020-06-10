@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 여러 테이블 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410001"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194522"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL Database로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
+이 자습서에서는 델타 데이터를 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -67,14 +67,14 @@ ms.locfileid: "81410001"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요. 
+* **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
+* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
-1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 온-프레미스 SQL Server 데이터베이스에 연결합니다.
+1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
 
 2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**을 선택합니다.
 
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Azure SQL Database에 대상 테이블 만들기
 
-1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 온-프레미스 SQL Server 데이터베이스에 연결합니다.
+1. [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)를 열고 SQL Server 데이터베이스에 연결합니다.
 
 2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**을 선택합니다.
 
@@ -289,11 +289,11 @@ END
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 온-프레미스 SQL Server 데이터베이스와 Azure SQL Database에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스와 Azure SQL Database에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
 
-이 단계에서 온-프레미스 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
+이 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
 1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **SqlServerLinkedService.json**이라는 JSON 파일을 만듭니다(아직 없는 경우 로컬 폴더 생성). Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.  
 

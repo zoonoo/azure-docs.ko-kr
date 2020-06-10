@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: 142cd2611e0dcf3227474efadded7bac88a4390a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e38711cbb5ccd9fe4cc8584a9229a1c57550d618
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207636"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021231"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -41,21 +41,21 @@ ms.locfileid: "82207636"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md) 또는 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)에서 중단한 곳에서 이어집니다. 아직 수행하지 않은 경우 두 자습서 중 하나를 먼저 수행합니다. 또는 SQL Database를 사용하여 해당 .NET 앱에 맞게 단계를 조정할 수 있습니다.
 
-SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터에서 클라이언트 연결을 허용했는지 확인합니다. 그렇지 않은 경우 [Azure Portal를 사용하여 서버 수준 IP 방화벽 규칙 관리](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)의 단계에 따라 클라이언트 IP를 추가합니다.
+SQL Database를 백 엔드로 사용하여 앱을 디버깅하려면 컴퓨터에서 클라이언트 연결을 허용했는지 확인합니다. 그렇지 않은 경우 [Azure Portal를 사용하여 서버 수준 IP 방화벽 규칙 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)의 단계에 따라 클라이언트 IP를 추가합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Azure AD 사용자에 데이터베이스 액세스 권한 부여
 
-먼저 Azure AD 사용자를 SQL Database 서버의 Active Directory 관리자로 할당하여 SQL Database에 대한 Azure AD 인증을 사용하도록 설정합니다. 이 사용자는 Azure 구독에 가입하는 데 사용한 Microsoft 계정과 다릅니다. 자신이 만들거나, Azure AD로 가져오거나, 동기화하거나, 초대한 사용자여야 합니다. 허용된 Azure AD 사용자에 대한 자세한 내용은 [Azure AD 기능 및 SQL Database의 제한 사항](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)을 참조하세요.
+먼저 Azure AD 사용자를 서버의 Active Directory 관리자로 할당하여 SQL Database에 대한 Azure AD 인증을 사용하도록 설정합니다. 이 사용자는 Azure 구독에 가입하는 데 사용한 Microsoft 계정과 다릅니다. 자신이 만들거나, Azure AD로 가져오거나, 동기화하거나, 초대한 사용자여야 합니다. 허용된 Azure AD 사용자에 대한 자세한 내용은 [Azure AD 기능 및 SQL Database의 제한 사항](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations)을 참조하세요.
 
 Azure AD 테넌트에 아직 사용자가 없는 경우 [Azure Active Directory를 사용하여 사용자 추가 또는 삭제](../active-directory/fundamentals/add-users-azure-active-directory.md)의 단계에 따라 하나를 만듭니다.
 
-[`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list)를 사용하여 Azure AD 사용자의 개체 ID를 찾고 *\<user-principal-name>* 을 바꿉니다. 결과는 변수에 저장됩니다.
+[`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list)를 사용하여 Azure AD 사용자의 개체 ID를 찾고 *\<user-principal-name>* 를 바꿉니다. 결과는 변수에 저장됩니다.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -64,13 +64,13 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Azure AD의 모든 사용자 계정 이름 목록을 보려면 `az ad user list --query [].userPrincipalName`을 실행합니다.
 >
 
-Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 명령을 사용하여 이 Azure AD 사용자를 Active Directory 관리자로 추가합니다. 다음 명령에서 *\<server-name>* 을 `.database.windows.net` 접미사 없이 SQL Database 서버 이름으로 바꿉니다.
+Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 명령을 사용하여 이 Azure AD 사용자를 Active Directory 관리자로 추가합니다. 다음 명령에서 *\<server-name>* 을 서버 이름(`.database.windows.net` 접미사 없이)으로 바꿉니다.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
 ```
 
-Active Directory 관리자를 추가하는 방법에 대한 자세한 내용은 [Azure SQL Database Server의 Azure Active Directory 관리자 프로비저닝](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)을 참조하세요.
+Active Directory 관리자를 추가하는 방법에 대한 자세한 내용은 [서버의 Azure Active Directory 관리자 프로비전](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 참조하세요.
 
 ## <a name="set-up-visual-studio"></a>Visual Studio 설정
 
@@ -130,7 +130,7 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 > [!NOTE]
 > 방금 등록한 SqlAuthenticationProvider는 이전에 설치한 AppAuthentication 라이브러리를 기반으로 합니다. 기본적으로 시스템 할당 ID를 사용합니다. 사용자 할당 ID를 활용하려면 추가 구성을 제공해야 합니다. AppAuthentication 라이브러리는 [연결 문자열 지원](../key-vault/general/service-to-service-authentication.md#connection-string-support)을 참조하세요.
 
-SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다.
+SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database를 나중에 설정합니다.
 
 `Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
 
@@ -158,7 +158,7 @@ conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceT
 > [!NOTE]
 > 이 데모 코드는 명확성과 단순성을 위해 동기식입니다.
 
-SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다. `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 토큰을 새로 고치는 데 사용자 지정 코드는 필요하지 않습니다.
+SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database를 나중에 설정합니다. `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 토큰을 새로 고치는 데 사용자 지정 코드는 필요하지 않습니다.
 
 > [!TIP]
 > 구성한 Azure AD 사용자가 여러 테넌트에 액세스할 수 있는 경우 원하는 테넌트 ID로 `GetAccessTokenAsync("https://database.windows.net/", tenantid)`를 호출하여 적절한 액세스 토큰을 검색합니다.
@@ -204,7 +204,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 > ```
 >
 
-Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<server-name>_ 을 SQL Database 서버 이름으로 바꾸고, _\<db-name>_ 을 앱에서 사용하는 데이터베이스 이름으로 바꾸고, _\<aad-user-name>_ 및 _\<aad-password>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
+Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<server-name>_ 를 서버 이름으로, _\<db-name>_ 을 앱에서 사용하는 데이터베이스 이름으로, _\<aad-user-name>_ 및 _\<aad-password>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
 
 ```azurecli-interactive
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
@@ -229,7 +229,7 @@ GO
 
 ### <a name="modify-connection-string"></a>연결 문자열 수정
 
-*Web.config* 또는 *appsettings.json*에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령에서 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
+*Web.config* 또는 *appsettings.json*에서 변경한 내용은 관리 ID와 함께 작동하므로 Visual Studio가 처음으로 앱을 배포할 때 만든 기존 연결 문자열을 App Service에서 제거하기만 하면 됩니다. 다음 명령을 사용하되 *\<app-name>* 을 앱의 이름으로 바꾸어 사용합니다.
 
 ```azurecli-interactive
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection

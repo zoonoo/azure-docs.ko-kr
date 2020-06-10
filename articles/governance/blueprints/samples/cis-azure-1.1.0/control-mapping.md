@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 컨트롤
 description: Azure Policy에 대한 CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 추천 매핑입니다.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863963"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167233"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -192,14 +192,14 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 SQL Server의 'Advanced Data Security'가 '켬'으로 설정되어 있는지 확인
 
-이 청사진은 SQL Server 및 SQL 관리형 인스턴스에서 Advanced Data Security를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Database 및 SQL Managed Instance 서버에서 Advanced Data Security를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 '위협 탐지 유형'이 '모두'로 설정되어 있는지 확인
 
-이 청사진은 SQL Server 및 SQL 관리형 인스턴스에서 Advanced Threat Protection을 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Database 및 SQL Managed Instance 서버에서 지능형 위협 방지 기능을 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL Server의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
 - SQL 관리형 인스턴스의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
@@ -232,7 +232,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 SQL 서버의 TDE 보호기가 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인
 
-이 청사진은 SQL Server 및 SQL 관리형 인스턴스에 대한 투명한 데이터 암호화 보호기를 사용자 고유의 키로 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Database 및 SQL Managed Instance 서버에 대한 투명한 데이터 암호화 보호기를 사용자 고유의 키로 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL Server TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
 - SQL 관리형 인스턴스 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
