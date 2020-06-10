@@ -14,22 +14,25 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: ada3762b6daae86033903f72ad9865ca66904ead
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418646"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194640"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Azure Data Factory에서 PowerShell을 사용하여 Azure-SSIS IR 설정
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(Azure-SQL Server Integration Services Integration Runtime)을 설정하는 방법을 보여줍니다. Azure-SSIS IR은 다음에 배포된 패키지 실행을 지원 합니다.
-* Azure SQL Database 서버 인스턴스 또는 관리형 인스턴스(프로젝트 배포 모델)에서 호스팅하는 SSIS 카탈로그(SSISDB).
+이 자습서에서는 PowerShell을 사용하여 Azure Data Factory에서 Azure-SSIS IR(SQL Server Integration Services 통합 런타임)을 프로비저닝하는 단계를 제공합니다. Azure-SSIS IR은 다음에 배포된 패키지 실행을 지원 합니다.
+
+* SQL Database 또는 SQL Managed Instance(프로젝트 배포 모델)에서 호스팅되는 SSIS 카탈로그(SSISDB).
 * 파일 시스템, 파일 공유 또는 Azure Files 공유(패키지 배포 모델). 
 
-Azure-SSIS IR이 설정되면 SSDT(SQL Server Data Tools) 및 SSMS(SQL Server Management Studio)와 같은 친숙한 도구를 사용하여 Azure에서 패키지를 배포하고 실행할 수 있습니다. `dtinstall`, `dtutil` 및 `dtexec` 명령줄 유틸리티를 사용할 수도 있습니다.  
+Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에서 패키지를 배포하고 실행할 수 있습니다. 이러한 도구에는 SSDT(SQL Server Data Tools), SSMS(SQL Server Management Studio) 및 명령줄 도구(예: `dtinstall`, `dtutil` 및 `dtexec`)가 있습니다.
+
+Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 Azure PowerShell를 사용하여 Azure-SSIS IR을 설정하는 방법을 보여줍니다. Azure Portal 또는 Azure Data Factory 앱을 사용하여 Azure-SSIS IR을 설정하려면 [자습서: Azure-SSIS IR 설정](tutorial-create-azure-ssis-runtime-portal.md)을 참조하세요. 
@@ -42,20 +45,20 @@ Azure-SSIS IR이 설정되면 SSDT(SQL Server Data Tools) 및 SSMS(SQL Server Ma
 > * 전체 스크립트를 검토합니다.
 > * SSIS 패키지를 배포합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS Integration Runtime 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/). Azure-SSIS IR의 개념 정보는 [Azure-SSIS Integration Runtime 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
 
-- (선택 사항) Azure SQL Database 서버. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 그러면 Azure Data Factory가 이 데이터베이스 서버에 SSISDB를 만듭니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
-    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 관리형 인스턴스에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버 유형을 선택하기 위한 지침은 [Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리형 인스턴스 비교](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)를 참조하세요. 
+- **SQL Database 또는 SQL Managed Instance**: 아직 없는 경우 시작하기 전에 Azure Portal에서 하나 만듭니다. 그러면 Azure Data Factory가 이 SQL Database 또는 SQL Managed Instance에 SSISDB를 만듭니다. 통합 런타임과 동일한 Azure 지역에 SQL Database 또는 SQL Managed Instance를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
+    - 선택한 데이터베이스 서버에 따라 사용자 측에서 SQL Database 또는 SQL Managed Instance 탄력적 풀의 일부 또는 단일 데이터베이스로 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 및 SQL Managed Instance 비교](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)를 참조하세요.
     
-      IP 방화벽 또는 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database 서버 또는 프라이빗 엔드포인트가 있는 관리형 인스턴스를 사용하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
-    - 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. IP 방화벽 규칙 또는 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database 서버 또는 프라이빗 엔드포인트가 있는 관리형 인스턴스를 사용하여 SSISDB를 호스팅하는 경우에는 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../sql-database/sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
-    - 클라이언트 머신의 IP 주소 또는 이러한 주소가 포함된 IP 주소의 범위를 데이터베이스 서버에 대한 방화벽 설정의 클라이언트 IP 주소 목록에 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요.
-    - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 데이터베이스 서버에 연결하거나 데이터 팩터리에 대한 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. Azure AD 인증을 위해 데이터 팩터리의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가하려면 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
-    - 데이터베이스 서버에 SSISDB가 아직 없는지 확인합니다. Azure-SSIS IR을 설정할 때 기존 SSISDB 사용은 지원되지 않습니다.
+      IP 방화벽 또는 가상 네트워크 서비스 엔드포인트가 있는 SQL Database 또는 프라이빗 엔드포인트가 있는 SQL Managed Instance를 사용하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+    - SQL Database에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. IP 방화벽 규칙 또는 가상 네트워크 서비스 엔드포인트가 있는 SQL Database 또는 프라이빗 엔드포인트가 있는 SQL Managed Instance를 사용하여 SSISDB를 호스팅하는 경우에는 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
+    - 클라이언트 머신의 IP 주소 또는 이러한 주소가 포함된 IP 주소의 범위를 SQL Database에 대한 방화벽 설정의 클라이언트 IP 주소 목록에 추가합니다. 자세한 정보는 [서버 수준 및 데이터베이스 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 참조하세요.
+    - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 SQL Database 또는 SQL Managed Instance에 연결하거나 데이터 팩터리에 대한 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. Azure AD 인증을 위해 데이터 팩터리의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가하려면 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+    - SQL Database 또는 SQL Managed Instance에 SSISDB가 아직 없는지 확인합니다. Azure-SSIS IR을 설정할 때 기존 SSISDB 사용은 지원되지 않습니다.
 
 - Azure PowerShell. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 설정하려면 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
@@ -92,7 +95,7 @@ $AzureSSISNodeNumber = 2
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "Standard" # Standard by default, although Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your existing SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
 # For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to (2 x number of cores) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
@@ -100,11 +103,11 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob contain
 $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you use SSISDB, please ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
+$SSISDBServerEndpoint = "[your server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you use SSISDB, please ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database server or leave it empty for managed instance]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for SQL Database or leave it empty for SQL Managed Instance]"
 
 ### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
 $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
@@ -123,7 +126,7 @@ Select-AzSubscription -SubscriptionName $SubscriptionName
 
 ## <a name="validate-the-connection-to-your-database-server"></a>데이터베이스 서버에 대한 연결 유효성 검사
 
-Azure SQL Database 서버의 유효성을 검사하려면 다음 스크립트를 추가합니다. 
+연결의 유효성을 검사하려면 다음 스크립트를 추가합니다. 
 
 ```powershell
 # Validate only if you're using SSISDB
@@ -137,7 +140,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
     }
     Catch [System.Data.SqlClient.SqlException]
     {
-        Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
+        Write-Warning "Cannot connect, exception: $_";
         Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
         $yn = Read-Host
         if(!($yn -ieq "Y"))
@@ -357,7 +360,7 @@ $AzureSSISNodeNumber = 2
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your existing SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
 # For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to (2 x the number of cores) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
@@ -365,11 +368,11 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob contain
 $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you want to use SSISDB, ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
+$SSISDBServerEndpoint = "[your server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you want to use SSISDB, ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database server or leave it empty for managed instance]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for SQL Database or leave it empty for SQL Managed Instance]"
 
 ### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
 $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
@@ -392,7 +395,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
     }
     Catch [System.Data.SqlClient.SqlException]
     {
-        Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
+        Write-Warning "Cannot connect, exception: $_";
         Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
         $yn = Read-Host
         if(!($yn -ieq "Y"))
@@ -537,7 +540,7 @@ Azure-SSIS IR을 모니터링하고 관리하는 방법은 다음을 참조하�
 
 ## <a name="deploy-ssis-packages"></a>SSIS 패키지 배포
 
-SSISDB를 사용하는 경우 서버 엔드포인트를 통해 데이터베이스 서버에 연결하는 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio) 도구를 사용하여 패키지를 배포하고 Azure-SSIS IR에서 실행할 수 있습니다. 퍼블릭 엔드포인트를 사용하는 Azure SQL Database 서버 인스턴스 또는 관리형 인스턴스의 서버 엔드포인트 형식은 각각 *<server name>.database.windows.net* 및 *<server name>.public.<dns prefix>.database.windows.net,3342*입니다. 
+SSISDB를 사용하는 경우 서버 엔드포인트를 통해 데이터베이스 서버에 연결하는 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio) 도구를 사용하여 패키지를 배포하고 Azure-SSIS IR에서 실행할 수 있습니다. 퍼블릭 엔드포인트를 사용하는 SQL Database 또는 SQL Managed Instance에서 서버 엔드포인트 형식은 각각 *<server name>.database.windows.net* 및 *<server name>.public.<dns prefix>.database.windows.net,3342*입니다. 
 
 SSISDB를 사용하지 않을 경우 `dtinstall`/`dtutil`/`dtexec` 명령줄 유틸리티를 사용하여 파일 시스템, 파일 공유 또는 Azure Files 공유에 패키지를 배포하고 Azure-SSIS IR에서 실행할 수 있습니다. 자세한 내용은 [SSIS 패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)를 참조하세요. 
 

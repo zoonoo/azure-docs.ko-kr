@@ -1,23 +1,22 @@
 ---
-title: '자습서: SQL DB를 사용한 Linux ASP.NET Core'
+title: '자습서: SQL Database를 사용한 Linux ASP.NET Core'
 description: SQL Database에 연결하여 Azure App Service에서 작동하는 데이터 기반 Linux ASP.NET Core 앱을 가져오는 방법에 대해 알아봅니다.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 303177f1ee7a076a5c1756bfbb13a4364f43aca0
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020237"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
 > [!NOTE]
 > 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_에서 App Service에 배포하려면 [Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](../app-service-web-tutorial-dotnetcore-sqldb.md)를 참조하세요.
->
 
 [Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 Linux의 App Service에서 실행됩니다.
 
@@ -26,7 +25,8 @@ ms.locfileid: "83846939"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure에서 SQL Database 만들기
+>
+> * Azure SQL Database에서 데이터베이스 만들기
 > * SQL Database에 .NET Core 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
@@ -35,7 +35,7 @@ ms.locfileid: "83846939"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -77,28 +77,25 @@ dotnet run
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-sql-database"></a>프로덕션 SQL Database 만들기
+## <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 
-이 단계에서는 Azure에 SQL Database를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
-
-SQL Database의 경우 이 자습서에서는 [Azure SQL 데이터베이스](/azure/sql-database/)를 사용합니다.
+이 단계에서는 [Azure SQL Database](/azure/sql-database/)에서 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 데이터베이스가 사용됩니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
-### <a name="create-a-sql-database-logical-server"></a>SQL Database 논리 서버 만들기
+### <a name="create-a-server-in-azure-sql-database"></a>Azure SQL Database에서 서버 만들기
 
-Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
+Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 명령을 사용하여 Azure SQL Database에서 [서버](../../azure-sql/database/logical-servers.md)를 만듭니다. 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함하는 논리적 구조입니다.
 
-*\<server-name>* 자리 표시자를 *고유한* SQL Database 이름으로 바꿉니다. 이 이름은 전역적으로 고유한 SQL Database 엔드포인트 `<server-name>.database.windows.net`의 일부로 사용됩니다. 유효한 문자는 `a`-`z`, `0`-`9`, `-`입니다. 또한 *\<db-username>* 및 *\<db-password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
-
+*\<server-name>* 자리 표시자를 *고유한* SQL Database 이름으로 바꿉니다. 이 이름은 전역적으로 고유한 SQL Database 엔드포인트 `<server-name>.database.windows.net`의 일부로 사용됩니다. 유효한 문자는 `a`-`z`, `0`-`9`, `-`입니다. 또한 *\<db-username>* 및 *\<db-password>* 를 선택한 사용자 이름 및 암호로 바꿉니다.
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
+서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 <pre>
 {
@@ -120,15 +117,14 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 
 ### <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 명령을 사용하여 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다.
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP] 
+> [!TIP]
 > [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
->
 
 Cloud Shell에서 *\<your-ip-address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 액세스할 수 있도록 명령을 다시 실행합니다.
 
@@ -136,9 +132,9 @@ Cloud Shell에서 *\<your-ip-address>* 를 [로컬 IPv4 IP 주소](https://www.w
 az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
-### <a name="create-a-database"></a>데이터베이스 만들기
+### <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 
-[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) 명령을 사용하여 서버에서 [S0 성능 수준](../../sql-database/sql-database-service-tiers-dtu.md)인 데이터베이스를 만듭니다.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) 명령을 사용하여 서버에서 [S0 성능 수준](../../azure-sql/database/service-tiers-dtu.md)인 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -174,11 +170,10 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 > [!IMPORTANT]
 > 확장해야 하는 프로덕션 앱의 경우 [프로덕션에서 마이그레이션 적용](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)의 모범 사례를 따르세요.
-> 
 
 ### <a name="run-database-migrations-to-the-production-database"></a>프로덕션 데이터베이스로 데이터베이스 마이그레이션 실행
 
-앱이 현재 로컬 Sqlite 데이터베이스에 연결됩니다. 이제 Azure SQL Database를 구성했으므로 초기 마이그레이션을 다시 만들어 대상으로 설정합니다. 
+앱이 현재 로컬 Sqlite 데이터베이스에 연결됩니다. 이제 Azure에서 데이터베이스를 구성했으므로 초기 마이그레이션을 다시 만들어 대상으로 설정합니다.
 
 리포지토리 루트에서 다음 명령을 실행합니다. *\<connection-string>* 을 이전에 만든 연결 문자열로 바꿉니다.
 
@@ -210,7 +205,7 @@ dotnet run
 
 브라우저에서 `http://localhost:5000` 으로 이동합니다. **새로 만들기** 링크를 선택하고 두 개의 _할 일_ 항목을 만듭니다. 이제 앱에서 데이터를 읽고 프로덕션 데이터베이스에 쓰는 중입니다.
 
-로컬 변경 내용을 커밋한 다음, Git 리포지토리로 커밋합니다. 
+로컬 변경 내용을 커밋한 다음, Git 리포지토리로 커밋합니다.
 
 ```bash
 git add .
@@ -233,11 +228,11 @@ git commit -m "connect to SQLDB in Azure"
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
 ### <a name="configure-connection-string"></a>연결 문자열 구성
 
-Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
+Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 이전에 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
@@ -398,8 +393,8 @@ ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를
 
 샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
 
-- *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
-- *Program.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
+* *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
+* *Program.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
 
 App Service에서 ASP.NET Core [로그 수준](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 명령을 사용합니다.
 
@@ -409,7 +404,6 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 > [!NOTE]
 > 프로젝트의 로그 수준은 *appsettings.json*에서 `Information`으로 설정됩니다.
-> 
 
 로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 명령을 사용합니다.
 
@@ -438,12 +432,14 @@ ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로�
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## <a name="next-steps"></a>다음 단계
 
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Azure에서 SQL Database 만들기
+>
+> * Azure SQL Database에서 데이터베이스 만들기
 > * SQL Database에 .NET Core 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포

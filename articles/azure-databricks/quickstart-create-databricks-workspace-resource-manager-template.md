@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure Resource 관리자를 사용하여 Azure Databricks 작업 영역 만들기
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만든 다음, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다.
+title: 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역 만들기
+description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만드는 방법을 보여줍니다.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -8,36 +8,42 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/23/2020
-ms.openlocfilehash: d3c3c55a4ce3ee25db01128dcf50bb8763c5829b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.custom: mvc, subject-armqs
+ms.date: 05/27/2020
+ms.openlocfilehash: 8435704963e832020ecff27a11d00793ad28890c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604638"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171041"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
+# <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Apache Spark 클러스터가 있는 Azure Databricks 작업 영역을 만듭니다. 클러스터에서 작업을 실행하고 사용자 지정 차트를 사용하여 인구 통계 기반의 무료/유료 사용량 데이터로 실시간 보고서를 작성합니다.
+이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만듭니다. 작업 영역을 만든 후에는 배포의 유효성을 검사합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+이 문서를 완료하려면 다음이 필요합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-> [!Note]
-> 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
+### <a name="review-the-template"></a>템플릿 검토
+
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace)에서 나온 것입니다.
+
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+
+템플릿에 정의된 Azure 리소스는 Microsoft.Databricks/workspaces: Azure Databricks 작업 영역 만들기입니다. 
+
+## <a name="deploy-the-template"></a>템플릿 배포
+
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
-1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다.
+1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿이 Azure Databricks 작업 영역을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json)
 
@@ -55,142 +61,56 @@ ms.locfileid: "81604638"
    |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
    |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
-3. **위에 명시된 사용 약관에 동의함**을 선택하고 **대시보드에 고정**을 선택한 다음 **구매**를 클릭합니다.
+3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
 
-4. 작업 영역 생성에는 몇 분 정도가 소요됩니다. 작업 영역을 만드는 동안 포털의 오른쪽에 **Azure Databricks에 대한 배포 제출** 타일이 표시됩니다. 타일을 보려면 대시보드에서 오른쪽으로 스크롤해야 할 수도 있습니다. 화면 위쪽에 진행률 표시줄이 표시되기도 합니다. 두 영역에서 진행 상태를 볼 수 있습니다.
+4. 작업 영역 생성에는 몇 분 정도가 소요됩니다. 작업 영역 배포가 실패해도 작업 영역은 여전히 실패한 상태로 생성됩니다. 실패한 작업 영역을 삭제하고 배포 오류를 해결하는 새 작업 영역을 만듭니다. 실패한 작업 영역을 삭제하면 관리되는 리소스 그룹과 성공적으로 배포된 리소스도 모두 삭제됩니다.
 
-   ![Databricks 배포 타일](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks 배포 타일")
+## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-   작업 영역 배포가 실패해도 작업 영역은 여전히 실패한 상태로 생성됩니다. 실패한 작업 영역을 삭제하고 배포 오류를 해결하는 새 작업 영역을 만듭니다. 실패한 작업 영역을 삭제하면 관리되는 리소스 그룹과 성공적으로 배포된 리소스도 모두 삭제됩니다.
+Azure Portal을 사용하여 Azure Databricks 작업 영역을 확인하거나 다음 Azure CLI 또는 Azure PowerShell 스크립트를 사용하여 리소스를 나열합니다.
 
-## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
+### <a name="azure-cli"></a>Azure CLI
 
-1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음, **작업 영역 시작**을 클릭합니다.
+```azurecli-interactive
+echo "Enter your Azure Databricks workspace name:" &&
+read databricksWorkspaceName &&
+echo "Enter the resource group where the Azure Databricks workspace exists:" &&
+read resourcegroupName &&
+az databricks workspace show -g $resourcegroupName -n $databricksWorkspaceName
+```
 
-2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터**를 클릭합니다.
+### <a name="azure-powershell"></a>Azure PowerShell
 
-   ![Azure의 Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Azure의 Databricks")
-
-3. **새 클러스터** 페이지에서 값을 제공하여 클러스터를 만듭니다.
-
-   ![Azure에서 Databricks Spark 클러스터 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
-
-   다음 항목 이외의 다른 모든 기본값을 허용합니다.
-
-   * 클러스터의 이름을 입력합니다.
-   * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
-   * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
-
-   **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
-
-클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](/azure/databricks/clusters/create)를 참조하세요.
-
-## <a name="run-a-spark-sql-job"></a>Spark SQL 작업 실행
-
-이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
-
-* [Azure Blob Storage 계정을 만듭니다](../storage/common/storage-account-create.md).
-* [GitHub에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다.
-* 사용자가 만든 Azure Blob Storage 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
-
-다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob Storage 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
-
-1. 왼쪽 창에서 **작업 영역**을 클릭합니다. **작업 영역** 드롭 다운에서 **만들기**를 클릭한 다음, **Notebook**을 클릭합니다.
-
-   ![Databricks에서 Notebook 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
-
-2. **Notebook 만들기** 대화 상자에서 이름을 입력하고, 언어로 **Scala**를 선택한 다음, 이전에 만든 Spark 클러스터를 선택합니다.
-
-   ![Databricks에서 Notebook 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
-
-   **만들기**를 클릭합니다.
-
-3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. 이 연결을 수행하는 데는 두 가지 방법이 있습니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 애플리케이션에서 Azure Storage 계정에 직접 액세스할 수 있습니다.
-
-   > [!IMPORTANT]
-   >이 문서에서는 **DBFS를 사용하여 스토리지를 탑재**하는 방법을 사용합니다. 이 방법을 사용하면 탑재된 스토리지가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 애플리케이션에서도 연결된 스토리지를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 애플리케이션으로 제한됩니다.
-   >
-   > 탑재 방법을 사용하려면 이 문서에서 선택한 Databricks 런타임 버전 **4.0**을 사용하여 Spark 클러스터를 만들어야 합니다.
-
-   다음 코드 조각에서 `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` 및 `{YOUR STORAGE ACCOUNT ACCESS KEY}`를 Azure Storage 계정에 적절한 값으로 바꿉니다. 노트북의 빈 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 눌러 코드 셀을 실행합니다.
-
-   * **DBFS를 사용하여 스토리지 계정 탑재(권장)** 다음 코드 조각에서 Azure Storage 계정 경로는 `/mnt/mypath`에 탑재됩니다. 따라서 Azure Storage 계정에 액세스하는 향후의 모든 발생에서 전체 경로를 제공할 필요가 없습니다. `/mnt/mypath`만 사용하면 됩니다.
-
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
-
-   * **스토리지 계정에 직접 액세스**
-
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-
-     스토리지 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조하세요.
-
-   > [!NOTE]
-   > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)을 참조하세요.
-
-4. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 스토리지 계정 이름으로 대체합니다. 노트북의 코드 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 누릅니다. 코드 조각에서 `path`는 Azure Storage 계정에 업로드한 샘플 JSON 파일의 위치를 나타냅니다.
-
-   ```sql
-   %sql
-   DROP TABLE IF EXISTS radio_sample_data;
-   CREATE TABLE radio_sample_data
-   USING json
-   OPTIONS (
-    path "/mnt/mypath/small_radio_json.json"
-   )
-   ```
-
-   명령이 성공적으로 완료되면 JSON 파일의 모든 데이터가 Databricks 클러스터에 테이블로 저장됩니다.
-
-   `%sql` 언어 magic 명령을 사용하면 노트북이 다른 유형인 경우에도 노트북에서 SQL 코드를 실행할 수 있습니다. 자세한 내용은 [노트북에서 언어 혼합](/azure/databricks/notebooks/index)을 참조하세요.
-
-5. 사용자가 실행하는 쿼리를 더 잘 이해할 수 있도록 샘플 JSON 데이터의 스냅샷을 살펴보겠습니다. 코드 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
-
-   ```sql
-   %sql
-   SELECT * from radio_sample_data
-   ```
-
-6. 다음 스크린샷과 같이 테이블 형식으로 출력됩니다(일부 열만 표시됨).
-
-   ![샘플 JSON 데이터](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "샘플 JSON 데이터")
-
-   기타 세부 사항 중 샘플 데이터는 라디오 채널(열 이름, **성별**)의 청중의 성별과 구독이 무료 또는 유료(열 이름, **수준**)인지 여부를 캡처합니다.
-
-7. 이제 이 데이터를 시각적으로 표현하여 각 성별, 무료 계정을 가진 사용자 수 및 유료 구독자 수를 보여줍니다. 테이블 형식 출력 하단에서 **가로 막대형 차트** 아이콘을 클릭한 다음 **플롯 옵션**을 클릭합니다.
-
-   ![가로 막대형 차트 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "가로 막대형 차트 만들기")
-
-8. **사용자 지정 플롯**에서 스크린샷에 표시된 것과 같이 값을 끌어서 놓습니다.
-
-   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "가로 막대형 차트 사용자 지정")
-
-   * **키**를 **성별**로 설정합니다.
-   * **시계열 그룹화**를 **수준**으로 설정합니다.
-   * **값**을 **수준**으로 설정합니다.
-   * **집계**를 **COUNT**로 설정합니다.
-
-   **적용**을 클릭합니다.
-
-9. 출력은 다음 스크린샷에 표시된 것처럼 시각적인 표시를 보여줍니다.
-
-   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "가로 막대형 차트 사용자 지정")
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Databricks workspace exists"
+(Get-AzResource -ResourceType "Microsoft.Databricks/workspaces" -ResourceGroupName $resourceGroupName).Name
+ Write-Host "Press [ENTER] to continue..."
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서가 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 선택합니다. 종료하려는 클러스터에서 **작업** 열 아래의 줄임표 위로 커서를 이동한 다음, **종료** 아이콘을 선택합니다.
+후속 자습서를 계속 진행하려는 경우 이러한 리소스를 그대로 유지하는 것이 좋습니다. 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 해당 Azure Databricks 작업 영역 및 관련 리소스가 삭제됩니다. Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하려면 다음을 수행합니다.
 
-![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Databricks 클러스터 중지")
+### <a name="azure-cli"></a>Azure CLI
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Storage의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](/azure/databricks/data/data-sources/index)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
-
-Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
+이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만들고 배포의 유효성을 검사했습니다. Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](databricks-extract-load-sql-data-warehouse.md)

@@ -7,20 +7,18 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 16534343a831f0802a60a9214f567742153360e0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4e77b167f00e2cfa3838439143c6074bd4122976
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479001"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191383"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
 [Azure Portal](https://portal.azure.com/)에서 청구서를 다운로드하거나 이메일로 전송할 수 있습니다. 기업계약이 체결된 Azure 고객(EA 고객)의 경우 조직의 청구서를 다운로드할 수 없습니다. 대신, 등록에 대한 청구서를 받도록 설정된 사람에게 청구서가 전송됩니다.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="when-invoices-are-generated"></a>청구서가 생성되는 경우
 
@@ -58,7 +56,7 @@ MOSP 청구 계정에는 다음과 같은 청구서가 있을 수 있습니다.
 1. 청구 섹션에서 **청구서**를 선택합니다.  
     ![구독에 대한 청구서 옵션을 선택하는 사용자를 보여주는 스크린샷](./media/download-azure-invoice/select-subscription-invoice.png)
 1. **다운로드**를 선택하여 PDF 버전의 청구서를 다운로드한 다음, 청구서 섹션에서 **다운로드**를 선택합니다.  
-    [![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여주는 스크린샷](./media/download-azure-invoice/download-invoice-subscription.png)](./media/download-azure-invoice/download-invoice-subscription-zoomed.png#lightbox)
+    ![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여주는 스크린샷](./media/download-azure-invoice/downloadinvoice-subscription.png)
 1. 또한 사용량 세부 정보 섹션에서 **다운로드**를 선택하여 일일 사용량 분석 및 요금을 다운로드할 수 있습니다. CSV 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.  
     ![청구서 및 사용량 다운로드 옵션을 보여주는 스크린샷](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
@@ -66,39 +64,33 @@ MOSP 청구 계정에는 다음과 같은 청구서가 있을 수 있습니다.
 
 ## <a name="download-your-mosp-support-plan-invoice"></a>MOSP 지원 계획 청구서 다운로드
 
-청구서는 MOSP 청구 계정에 속한 지원 계획 구독에 대해서만 생성됩니다. [MOSP 계정에 대한 액세스 권한을 확인하세요](../manage/view-all-accounts.md#check-the-type-of-your-account). 
+청구서는 MOSP 청구 계정에 속한 지원 계획 구독에 대해서만 생성됩니다. [MOSP 계정에 대한 액세스 권한을 확인하세요](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 청구서를 다운로드하려면 지원 계획 구독에 대한 계정 관리자 역할이 있어야 합니다.
 
-1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1.  **Cost Management + 청구**를 검색합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Cost Management + 청구**를 검색합니다.  
     ![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/download-azure-invoice/search-cmb.png)
-1.  왼쪽에서 **청구서**를 선택합니다.
-1.  지원 계획 구독을 선택한 후 **다운로드**를 선택합니다.  
+1. 왼쪽에서 **청구서**를 선택합니다.
+1. 지원 계획 구독을 선택한 후 **다운로드**를 선택합니다.  
     [![청구 프로필 목록을 보여주는 스크린샷](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1.  **다운로드**를 선택하여 PDF 버전의 청구서를 다운로드합니다.  
+1. **다운로드**를 선택하여 PDF 버전의 청구서를 다운로드합니다.  
     ![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여주는 스크린샷](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## <a name="allow-others-to-download-an-mosp-subscription-invoice"></a>다른 사용자가 MOSP 구독 청구서를 다운로드할 수 있도록 허용
-
-PDF 버전의 청구서에는 계정 관리자에 대한 개인 정보가 포함되므로 이 구독의 계정 관리자는 다른 사용자에게 청구서를 다운로드할 수 있는 권한을 부여해야 합니다. 권한이 부여되면 다음 사용자와 적절한 역할이 있는 사용자가 구독 청구서를 다운로드할 수 있습니다.
-
-- 사용자
-- 그룹
-- 소유자 역할이 부여된 서비스 사용자
-- 참가자
-- 판독기
-- 사용자 액세스 관리자
-- 청구 읽기 권한자
-- 공동 관리자
-- 서비스 관리자
+## <a name="allow-others-to-download-the-your-subscription-invoice"></a>다른 사용자가 구독 청구서를 다운로드할 수 있도록 허용
 
 청구서를 다운로드하려면 다음을 수행합니다.
 
 1.  구독의 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1.  **Cost Management + 청구**를 검색합니다.  
-1.  왼쪽에서 **청구서**를 선택합니다.
-1.  Azure 구독을 선택한 다음, **청구서에 액세스**를 선택합니다.  
+
+2.  **Cost Management + 청구**를 검색합니다.
+
+    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/download-azure-invoice/search-cmb.png)
+
+3.  왼쪽에서 **청구서**를 선택합니다.
+
+4.  Azure 구독을 선택한 다음, **다른 사람이 청구서를 다운로드할 수 있도록 허용**을 클릭합니다.
+
     [![청구서에 액세스 선택을 보여주는 스크린샷](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  페이지 위쪽에서 **켜기**, **저장**을 차례로 선택합니다.  
     ![청구서에 액세스 켜기를 선택하는 모습을 보여주는 스크린샷](./media/download-azure-invoice/cmb-access-to-invoice.png)
@@ -108,16 +100,16 @@ PDF 버전의 청구서에는 계정 관리자에 대한 개인 정보가 포함
 이메일로 청구서를 받도록 옵트인하려면 구독 또는 지원 계획에 대한 계정 관리자 역할이 있어야 합니다. 이메일 청구서는 구독 및 지원 계획에만 지원되며 예약 또는 Azure Marketplace 구매에는 지원되지 않습니다. 옵트인한 후에는 이메일로 청구서를 받을 또 다른 수신자를 추가할 수 있습니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1.  **Cost Management + 청구**를 검색합니다.  
-1.  왼쪽에서 **청구서**를 선택합니다.
-1.  Azure 구독 또는 지원 계획 구독을 선택한 다음, **이메일 청구서**를 선택합니다.  
+2.  **Cost Management + 청구**를 검색합니다.  
+3.  왼쪽에서 **청구서**를 선택합니다.
+4.  Azure 구독 또는 지원 계획 구독을 선택한 다음, **이메일로 청구서 받기**를 선택합니다.  
     [![청구 프로필 목록을 보여주는 스크린샷](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-1. **옵트인**을 선택하고 조건에 동의합니다.  
-    ![옵트인 흐름 2단계를 보여주는 스크린샷](./media/download-azure-invoice/invoice-article-step02.png)
-1. 청구서는 기본 통신 이메일 주소로 전송됩니다. [청구 계정의 연락처 정보](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties)에서 이메일 주소를 업데이트할 수 있습니다.  
-    ![옵트인 흐름 3단계를 보여주는 스크린샷](./media/download-azure-invoice/invoice-article-step03-verify-email.png)
+5. **이메일 청구서**를 클릭하고 사용 약관에 동의합니다.  
+    ![옵트인 흐름 2단계를 보여주는 스크린샷](./media/download-azure-invoice/invoicearticlestep02.png)
+6. 청구서는 기본 통신 이메일로 전송됩니다. **프로필 업데이트**를 선택하여 이메일을 업데이트합니다.  
+    ![옵트인 흐름 3단계를 보여주는 스크린샷](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## <a name="share-your-mosp-invoices-with-others-by-email"></a>이메일을 통해 다른 사용자와 MOSP 청구서 공유
+## <a name="share-subscription-and-support-plan-invoices"></a>구독 및 지원 계획 청구서 공유
 
 구독 및 지원 계획에 대한 청구서를 매달 회계 팀과 공유하거나 다른 이메일 주소 중 하나로 보낼 수 있습니다.
 
@@ -140,13 +132,22 @@ MPA 청구 계정은 CSP(클라우드 솔루션 공급자) 파트너가 자체 �
 Azure Portal에서 청구서를 다운로드하려면 청구 프로필 소유자, 기여자, 읽기 권한자 또는 송장 관리자여야 합니다. 청구 계정에 대한 소유자, 기여자 또는 읽기 권한자 역할이 있는 사용자는 계정의 모든 청구 프로필에 대한 청구서를 다운로드할 수 있습니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1.  **Cost Management + 청구**를 검색합니다.  
-1. 왼쪽에서 **청구서**를 선택합니다.
-    [![MCA 청구 계정의 청구서 페이지를 보여주는 스크린샷](./media/download-azure-invoice/mca-billing-profile-invoices.png)](./media/download-azure-invoice/mca-billing-profile-invoices-zoomed.png#lightbox)
-1. 청구서 표에서 다운로드하려는 청구서를 선택합니다.
-1. 페이지 위쪽에서 **청구서 PDF 다운로드**를 선택합니다.  
-    ![청구서 PDF 다운로드를 보여주는 스크린샷](./media/download-azure-invoice/mca-billing-profile-download-invoice.png)
-1. 또한 **Azure 사용량 다운로드**를 선택하여 일일 사용량 분석 및 예상 요금이 포함된 CSV 파일을 다운로드할 수 있습니다. CSV 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.
+
+2.  **Cost Management + 청구**를 검색합니다.
+
+    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/download-azure-invoice/search-cmb.png)
+
+3. 왼쪽에서 **청구서**를 선택합니다.
+
+    [![MCA 청구 계정의 청구서 페이지를 보여주는 스크린샷](./media/download-azure-invoice/mca-billingprofile-invoices.png)](./media/download-azure-invoice/mca-billingprofile-invoices-zoomed-in.png#lightbox)
+
+4. 청구서 표에서 다운로드하려는 청구서를 선택합니다.
+
+5. 페이지 위쪽에서 **청구서 PDF 다운로드**를 클릭합니다.
+
+    [![청구서 PDF 다운로드를 보여 주는 스크린샷](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)](./media/download-azure-invoice/mca-billingprofile-download-invoice-zoomed-in.png#lightbox)
+
+6. 또한 **Azure 사용량 다운로드**를 클릭하여 일일 사용량 및 예상 요금을 다운로드할 수 있습니다. csv 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="get-your-billing-profiles-invoice-in-email"></a>청구 프로필의 청구서를 이메일로 받기
 
@@ -160,7 +161,15 @@ Azure Portal에서 청구서를 다운로드하려면 청구 프로필 소유자
     ![MCA 청구 계정의 청구서 페이지를 보여주는 스크린샷](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
 1.  **업데이트**를 선택합니다.
 
-## <a name="give-others-access-to-mca-or-mpa-invoices"></a>다른 사용자에게 MCA 또는 MPA 청구서에 대한 액세스 권한 부여
+2.  **Cost Management + 청구**를 검색합니다.
+
+    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/download-azure-invoice/search-cmb.png)
+
+3.  왼쪽에서 **청구서**를 선택한 다음, 페이지 위쪽에서 **이메일 청구서**를 선택합니다.
+
+    [![MCA 청구 계정의 청구서 페이지를 보여주는 스크린샷](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
+
+4.  여러 청구 프로필이 있는 경우 청구 프로필을 선택한 다음, **옵트인**을 선택합니다.
 
 MCA 또는 MPA 청구 프로필에 대한 송장 관리자 역할을 할당하여 다른 사용자에게 청구서를 보고, 다운로드하고, 요금을 지불할 수 있는 액세스 권한을 부여할 수 있습니다. 청구서를 이메일로 받기 위해 옵트인한 경우 사용자도 이메일로 청구서를 받게 됩니다.
 
@@ -173,15 +182,68 @@ MCA 또는 MPA 청구 프로필에 대한 송장 관리자 역할을 할당하�
 1. 역할 드롭다운 목록에서 **송장 관리자**를 선택합니다. 액세스 권한을 부여할 사용자의 이메일 주소를 입력합니다. **저장**을 선택하여 역할을 할당합니다.  
    ![사용자를 송장 관리자로 추가하는 것을 보여주는 스크린샷](./media/download-azure-invoice/mca-added-invoice-manager.png)
 
-## <a name="why-you-might-not-see-an-invoice"></a><a name="noinvoice"></a> 청구서가 보이지 않는 이유
+1. **Cost Management + 청구**를 검색합니다.
+
+   ![포털의 구독 검색을 보여 주는 스크린샷](./media/download-azure-invoice/search-cmb.png)
+
+1. 왼쪽에서 **청구 프로필**을 선택합니다. 청구 프로필 목록에서 송장 관리자 역할을 할당하려는 청구 프로필을 선택합니다.
+
+   ![청구 프로필 목록을 보여 주는 스크린샷](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
+
+1. 왼쪽에서 **Access Control(IAM)** 을 선택한 다음, 페이지 맨 위에서 **추가**를 선택합니다.
+
+   [![액세스 제어 페이지를 보여 주는 스크린샷](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
+
+1. 역할 드롭다운 목록에서 **송장 관리자**를 선택합니다. 액세스 권한을 부여할 사용자의 이메일 주소를 입력합니다. **저장**을 선택하여 역할을 할당합니다.
+
+   [![사용자를 송장 관리자로 추가하는 것을 보여주는 스크린샷](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   
+   
+##  <a name="why-you-might-not-see-an-invoice"></a>청구서가 보이지 않는 이유
+
+<a name="noinvoice"></a>
 
 몇 가지 이유로 인해 청구서가 보이지 않을 수 있습니다.
 
-- Azure를 구독한 지 30일 이내입니다. 
-- Azure는 청구 기간이 지나고 며칠 후에 요금을 청구합니다. 따라서 청구서가 아직 생성되지 않았을 수 있습니다.
-- 청구서를 볼 수 있는 권한이 없습니다.
-    MCA 또는 MPA 청구 계정이 있는 경우 청구서를 보려면 청구 프로필에 대한 소유자, 기여자, 읽기 권한자 또는 송장 관리자 역할이 있거나 청구 계정에 대한 소유자, 기여자 또는 읽기 권한자 역할이 있어야 합니다. 다른 구독의 경우 계정 관리자가 아니면 청구서가 보이지 않을 수 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](../manage/manage-billing-access.md)를 참조하세요.
-- MOSP 청구 계정이 있고 월별 크레딧 금액이 포함된 Azure 체험 계정 또는 구독에 가입한 경우 월별 크레딧 금액을 초과하는 경우에만 청구서를 받게 됩니다. MCA 또는 MPA에 대한 청구 계정이 있는 경우 항상 청구서를 받게 됩니다.
+- 청구서가 아직 준비되지 않았습니다.
+    
+    - Azure를 구독한 지 30일 이내입니다. 
+
+    - Azure는 청구 기간이 지나고 며칠 후에 요금을 청구합니다. 따라서 청구서가 아직 생성되지 않았을 수 있습니다.
+
+- 청구서를 볼 수 있는 권한이 없습니다. 
+    
+    - MCA 또는 MPA 청구 계정이 있는 경우 청구서를 보려면 청구 프로필에 대한 소유자, 기여자, 읽기 권한자 또는 송장 관리자 역할이 있거나 청구 계정에 대한 소유자, 기여자 또는 읽기 권한자 역할이 있어야 합니다. 
+    
+    - 다른 청구 계정의 경우 계정 관리자가 아니면 청구서가 보이지 않을 수 있습니다.
+
+- 계정이 청구서를 지원하지 않습니다.
+
+    - MOSP(Microsoft Online Services Program) 청구 계정이 있고 월별 크레딧 금액이 포함된 Azure 체험 계정 또는 구독에 가입한 경우 월별 크레딧 금액을 초과하는 경우에만 청구서를 받게 됩니다.
+
+    - MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트너 계약)의 청구 계정이 있는 경우 항상 청구서를 받게 됩니다.
+
+- 다른 계정 중 하나를 통해 청구서에 액세스할 수 있습니다.
+
+    - 이 상황은 일반적으로 포털에서 청구서를 확인할지 묻는 이메일의 링크를 클릭하면 발생합니다. 링크를 클릭하면 `We can't display your invoices. Please try again` 같은 오류 메시지가 표시됩니다. 청구서를 볼 권한이 있는 이메일 주소로 로그인했는지 확인하세요.
+
+- 다른 ID를 통해 청구서에 액세스할 수 있습니다. 
+
+    - 일부 고객에게는 동일한 이메일 주소를 가진 두 개의 ID(회사 계정 및 Microsoft 계정)가 있습니다. 일반적으로 해당 ID 중 하나에만 청구서를 볼 수 있는 권한이 부여됩니다. 권한이 없는 ID를 사용하여 로그인하면 청구서가 표시되지 않습니다. 올바른 ID를 사용하여 로그인하고 있는지 확인하세요.
+
+- 잘못된 AAD(Azure Active Directory) 테넌트에 로그인했습니다. 
+
+    - 청구 계정은 AAD 테넌트와 연결되어 있습니다. 잘못된 테넌트에 로그인하면 청구 계정에 구독에 대한 청구서가 표시되지 않습니다. 올바른 AAD(Azure Active Directory) 테넌트에 로그인했는지 확인하세요. 올바른 테넌트에 로그인하지 않은 경우 다음에 따라 Azure Portal에서 테넌트를 전환합니다.
+
+        1. 페이지 오른쪽 상단에서 이메일을 선택합니다.
+
+        2. **디렉터리 전환**을 선택합니다.
+
+           ![포털에서 디렉터리 전환을 선택하는 것을 보여 주는 스크린샷](./media/download-azure-invoice/select-switch-directory.png)
+
+        3. **모든 디렉터리** 섹션에서 디렉터리를 선택합니다.
+
+           ![포털에서 디렉터리를 선택하는 것을 보여 주는 스크린샷](./media/download-azure-invoice/select-directory.png)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
@@ -200,5 +262,3 @@ MCA가 있는 경우 다음을 참조하세요.
 - [청구 프로필 청구서의 요금 이해](review-customer-agreement-bill.md)
 - [청구 프로필 청구서의 용어 이해](mca-understand-your-invoice.md)
 - [청구 프로필에 대한 Azure 사용량 및 요금 파일 이해](mca-understand-your-usage.md)
-
-

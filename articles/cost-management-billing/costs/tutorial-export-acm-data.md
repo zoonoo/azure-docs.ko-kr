@@ -3,17 +3,17 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877952"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142322"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -31,7 +31,7 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 일일 내보내기 만들기
 > * 데이터가 수집되는지 확인
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 포함한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 - 소유자 – 구독에 대한 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다.
@@ -49,17 +49,15 @@ Azure Storage 계정의 경우:
 
 ## <a name="create-a-daily-export"></a>일일 내보내기 만들기
 
-데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **내보내기**를 선택한 다음, 내보내기 옵션을 선택합니다. 예를 들어,**내보내기 예약**을 선택합니다.  
+데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **설정** 을 선택하고 **내보내기**를 선택한 다음, 내보내기 옵션을 선택합니다.
 
 > [!NOTE]
 > - 구독 외에도 리소스 그룹, 계정, 부서 및 등록에서 내보내기를 만들 수 있습니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 >- 청구 계정 범위 또는 고객 테넌트에서 파트너로 로그인한 경우 파트너 스토리지 계정에 연결된 Azure Storage 계정으로 데이터를 내보낼 수 있습니다. 그러나 CSP 테넌트에 활성 구독이 있어야 합니다.
->
-
 
 **추가**를 선택하고 내보내기의 이름을 입력한 다음, **월간 누계 비용 매일 내보내기** 옵션을 선택합니다. **다음**을 선택합니다.
 
-![내보내기 형식을 표시하는 새 내보내기 예제](./media/tutorial-export-acm-data/basics_exports.png)
+[![내보내기 형식을 표시하는 새 내보내기 예제](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Azure Storage 계정에 대한 구독을 지정하고 스토리지 계정을 선택합니다.  내보내기 파일을 보낼 스토리지 컨테이너 및 디렉터리 경로를 지정합니다. **다음**을 선택합니다.
 
@@ -83,10 +81,19 @@ Azure Storage 계정에 대한 구독을 지정하고 스토리지 계정을 선
 **사용자 지정** – 주별 누계 및 월간 누계 옵션을 사용하여 주간 및 월간 내보내기를 예약할 수 있습니다. *초기 내보내기는 즉시 실행됩니다.*
 
 종량제, MSDN 또는 Visual Studio 구독이 있는 경우 송장 청구 기간이 달력상 월과 다를 수 있습니다. 구독 및 리소스 그룹의 형식의 경우 송장 기간 또는 달력상 월에 맞춰 조정된 내보내기를 만들 수 있습니다. 송장 월에 맞춰 조정된 내보내기를 만들려면 **사용자 지정**으로 이동한 다음, **Billing-period-to-date**를 선택합니다.  달력상 월에 맞춰 조정된 내보내기를 만들려면 **Month-to-date**를 선택합니다.
->
->
 
 ![새 내보내기 - 사용자 지정 주별 누계 선택 항목을 보여 주는 기본 사항 탭](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>여러 구독에 대한 내보내기 만들기
+
+기업계약을 보유한 경우 관리 그룹을 사용하여 단일 컨테이너의 구독 비용 정보를 집계할 수 있습니다. 그런 다음, 관리 그룹에 대한 비용 관리 데이터를 내보낼 수 있습니다.
+
+다른 구독 유형의 관리 그룹에 대한 내보내기는 지원되지 않습니다.
+
+1. 관리 그룹을 만들고 여기에 구독을 할당합니다.
+1. 내보내기에서 **범위**를 선택합니다.
+1. **이 관리 그룹 선택**을 선택합니다.
+1. 범위에서 내보내기를 만들어 관리 그룹의 구독에 대한 비용 관리 데이터를 가져옵니다.
 
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 
@@ -104,6 +111,18 @@ CSV 파일 확장명을 열도록 설정된 프로그램 또는 애플리케이�
 
 ![Excel에 표시되는 내보낸 CSV 데이터 예제](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>내보낸 CSV 데이터 파일 다운로드
+
+내보낸 CSV 파일은 Azure Portal에서 다운로드할 수도 있습니다. 다음 단계에서는 비용 분석에서 이를 찾는 방법을 설명합니다.
+
+1. 비용 분석에서 **설정**을 선택하고 **내보내기**를 선택합니다.
+1. 내보내기 목록에서 내보내기에 대한 스토리지 계정을 선택합니다.
+1. 스토리지 계정에서 **컨테이너**를 클릭합니다.
+1. 컨테이너 목록에서 컨테이너를 선택합니다.
+1. 디렉터리 및 스토리지 BLOB를 통해 원하는 날짜로 이동합니다.
+1. CSV 파일을 선택한 다음, **다운로드**를 선택합니다.
+
+[![데이터 내보내기 예제](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>다른 시스템에서 내보낸 데이터에 액세스
 

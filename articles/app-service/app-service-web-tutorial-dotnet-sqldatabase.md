@@ -1,28 +1,29 @@
 ---
-title: '자습서: SQL Database를 사용하는 ASP.NET 앱'
-description: SQL Server 데이터베이스를 사용하여 Azure에 C# ASP.NET 앱을 배포하는 방법을 알아봅니다.
+title: '자습서: Azure SQL Database를 사용하는 ASP.NET 앱'
+description: C# ASP.NET 앱을 Azure 및 Azure SQL Database에 배포하는 방법을 알아봅니다.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80047034"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013791"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
+# <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>자습서: Azure SQL Database를 사용하여 Azure에 ASP.NET 앱 배포
 
-[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 App Service에서 데이터 기반 ASP.NET 앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 App Service에서 데이터 기반 ASP.NET 앱을 개발하고 [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)에 연결하는 방법을 보여줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
 
 ![Azure App Service의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure에서 SQL Database 만들기
+>
+> * Azure SQL Database에서 데이터베이스 만들기
 > * SQL Database에 ASP.NET 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
@@ -31,7 +32,7 @@ ms.locfileid: "80047034"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -41,24 +42,24 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-- [샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-- *dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
+* [샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+* *dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
 
 샘플 프로젝트에는 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)를 사용하는 기본 [ASP.NET MVC](https://www.asp.net/mvc) CRUD(Create-Read-Update-Delete) 앱이 포함되어 있습니다.
 
 ### <a name="run-the-app"></a>앱 실행
 
-Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 엽니다. 
+Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 엽니다.
 
-디버깅 없이 앱을 실행하려면 `Ctrl+F5`를 입력합니다. 앱이 기본 브라우저에 표시됩니다. **새로 만들기** 링크를 선택하고 두 개의 *할 일* 항목을 만듭니다. 
+디버깅 없이 앱을 실행하려면 `Ctrl+F5`를 입력합니다. 앱이 기본 브라우저에 표시됩니다. **새로 만들기** 링크를 선택하고 두 개의 *할 일* 항목을 만듭니다.
 
 ![새 ASP.NET 프로젝트 대화 상자](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
 **편집**, **세부 정보** 및 **삭제** 링크를 테스트합니다.
 
-앱은 데이터베이스 컨텍스트를 사용하여 데이터베이스에 연결합니다. 이 샘플의 데이터베이스 컨텍스트에는 `MyDbConnection`이라는 연결 문자열이 사용됩니다. 연결 문자열은 *Web.config* 파일에서 설정되고 *Models\MyDatabaseContext.cs* 파일에서 참조됩니다. 연결 문자열 이름은 이 자습서의 뒷부분에서 Azure 앱을 Azure SQL Database에 연결하는 데 사용됩니다. 
+앱은 데이터베이스 컨텍스트를 사용하여 데이터베이스에 연결합니다. 이 샘플의 데이터베이스 컨텍스트에는 `MyDbConnection`이라는 연결 문자열이 사용됩니다. 연결 문자열은 *Web.config* 파일에서 설정되고 *Models\MyDatabaseContext.cs* 파일에서 참조됩니다. 연결 문자열 이름은 이 자습서의 뒷부분에서 Azure 앱을 Azure SQL Database에 연결하는 데 사용됩니다.
 
-## <a name="publish-to-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에 게시
+## <a name="publish-aspnet-application-to-azure"></a>Azure에 ASP.NET 애플리케이션 게시
 
 **솔루션 탐색기**에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -72,18 +73,16 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다. 
+**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다.
 
 > [!NOTE]
 > 이미 로그인한 경우 아직 **만들기**를 선택하지 마십시오.
->
->
-   
+
 ![Azure에 로그인](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>웹앱 이름 구성
 
-생성된 웹앱 이름을 유지하거나 다른 고유한 이름으로 변경할 수 있습니다(유효한 문자: `a-z`, `0-9` 및 `-`). 웹앱 이름은 앱의 기본 URL(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`는 웹앱 이름)의 일부로 사용됩니다. 웹앱 이름은 Azure의 모든 앱에서 고유해야 합니다. 
+생성된 웹앱 이름을 유지하거나 다른 고유한 이름으로 변경할 수 있습니다(유효한 문자: `a-z`, `0-9` 및 `-`). 웹앱 이름은 앱의 기본 URL(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`는 웹앱 이름)의 일부로 사용됩니다. 웹앱 이름은 Azure의 모든 앱에서 고유해야 합니다.
 
 ![앱 서비스 만들기 대화 상자](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
 
@@ -91,66 +90,66 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-**리소스 그룹** 옆에 있는 **새로 만들기**를 클릭합니다.
+1. **리소스 그룹** 옆에 있는 **새로 만들기**를 클릭합니다.
 
-![[리소스 그룹] 옆에 있는 [새로 만들기]를 클릭합니다.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+   ![[리소스 그룹] 옆에 있는 [새로 만들기]를 클릭합니다.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
-리소스 그룹 이름을 **myResourceGroup**으로 지정합니다.
+2. 리소스 그룹 이름을 **myResourceGroup**으로 지정합니다.
 
 ### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**App Service 계획** 옆에 있는 **새로 만들기**를 클릭합니다. 
+1. **App Service 계획** 옆에 있는 **새로 만들기**를 클릭합니다.
 
-**App Service 계획 구성** 대화 상자에서 다음 설정을 사용하여 새 App Service 계획을 구성합니다.
+2. **App Service 계획 구성** 대화 상자에서 다음 설정을 사용하여 새 App Service 계획을 구성합니다.
 
-![App Service 플랜 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+   ![App Service 플랜 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| 설정  | 제안 값 | 참조 항목 |
-| ----------------- | ------------ | ----|
-|**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
-|**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
-|**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+   | 설정  | 제안 값 | 참조 항목 |
+   | ----------------- | ------------ | ----|
+   |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
+   |**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+   |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
-### <a name="create-a-sql-server-instance"></a>SQL Server 인스턴스 만들기
+### <a name="create-a-server"></a>서버 만들기
 
-먼저 [Azure SQL Database 논리 서버](../sql-database/sql-database-features.md)가 있어야 데이터베이스를 만들 수 있습니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다.
+먼저 [논리 SQL 서버](../azure-sql/database/logical-servers.md)가 있어야 데이터베이스를 만들 수 있습니다. 논리 SQL 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함하는 논리적 구조입니다.
 
-**SQL Database 만들기**를 클릭합니다.
+1. **SQL Database 만들기**를 클릭합니다.
 
-![SQL Database 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+   ![SQL Database 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-**SQL Database 구성** 대화 상자에서 **SQL Server** 옆에 있는 **새로 만들기**를 클릭합니다. 
+2. **SQL Database 구성** 대화 상자에서 **SQL Server** 옆에 있는 **새로 만들기**를 클릭합니다.
 
-고유한 서버 이름이 생성됩니다. 이 이름은 논리 서버에 대한 기본 URL(`<server_name>.database.windows.net`)의 일부로 사용되며, Azure의 모든 논리 서버 인스턴스에서 고유해야 합니다. 서버 이름은 변경할 수 있지만 이 자습서에서는 생성된 값을 유지합니다.
+   고유한 서버 이름이 생성됩니다. 이 이름은 서버에 대한 기본 URL(`<server_name>.database.windows.net`)의 일부로 사용되며, Azure SQL의 모든 서버에서 고유해야 합니다. 서버 이름은 변경할 수 있지만 이 자습서에서는 생성된 값을 유지합니다.
 
-관리자 사용자 이름 및 암호를 추가합니다. 암호 복잡성 요구 사항은 [암호 정책](/sql/relational-databases/security/password-policy)을 참조하세요.
+3. 관리자 사용자 이름 및 암호를 추가합니다. 암호 복잡성 요구 사항은 [암호 정책](/sql/relational-databases/security/password-policy)을 참조하세요.
 
-이 사용자 이름과 암호를 기억해 두세요. 나중에 논리 서버 인스턴스를 관리하는 데 필요합니다.
+   이 사용자 이름과 암호를 기억해 두세요. 이후 서버를 관리할 때 필요합니다.
 
-> [!IMPORTANT]
-> 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](overview-managed-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
+   > [!IMPORTANT]
+   > 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](overview-managed-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 
-![SQL Server 인스턴스 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+   ![서버 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-**확인**을 클릭합니다. **SQL Database 구성** 대화 상자를 아직 닫지 마세요.
+4. **확인**을 클릭합니다. **SQL Database 구성** 대화 상자를 아직 닫지 마세요.
 
-### <a name="create-a-sql-database"></a>SQL Database 만들기
+### <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 
-**SQL Database 구성** 대화 상자에서 다음을 수행합니다. 
+1. **SQL Database 구성** 대화 상자에서 다음을 수행합니다.
 
-* 생성된 기본 **데이터베이스 이름**을 유지합니다.
-* **연결 문자열 이름**에 *MyDbConnection*을 입력합니다. 이 이름은 *Models\MyDatabaseContext.cs*에서 참조되는 연결 문자열과 일치해야 합니다.
-* **확인**을 선택합니다.
+   * 생성된 기본 **데이터베이스 이름**을 유지합니다.
+   * **연결 문자열 이름**에 *MyDbConnection*을 입력합니다. 이 이름은 *Models\MyDatabaseContext.cs*에서 참조되는 연결 문자열과 일치해야 합니다.
+   * **확인**을 선택합니다.
 
-![SQL Database 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
+    ![데이터베이스 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-**App Service 만들기** 대화 상자에서 구성한 리소스를 표시합니다. **만들기**를 클릭합니다. 
+2. **App Service 만들기** 대화 상자에서 구성한 리소스를 표시합니다. **만들기**를 클릭합니다.
 
-![만든 리소스](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+   ![만든 리소스](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
-마법사에서 Azure 리소스 만들기를 완료하면 ASP.NET 응용 프로그램을 Azure에 게시합니다. 기본 브라우저가 배포된 앱에 대한 URL로 시작됩니다. 
+마법사에서 Azure 리소스 만들기를 완료하면 ASP.NET 응용 프로그램을 Azure에 게시합니다. 기본 브라우저가 배포된 앱에 대한 URL로 시작됩니다.
 
 몇 가지 할 일 항목을 추가합니다.
 
@@ -158,9 +157,9 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 축하합니다! 데이터 기반 ASP.NET 애플리케이션이 Azure App Service에서 라이브로 실행되고 있습니다.
 
-## <a name="access-the-sql-database-locally"></a>로컬에서 SQL Database에 액세스
+## <a name="access-the-database-locally"></a>로컬에서 데이터베이스 접속
 
-Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 SQL Database를 쉽게 탐색하고 관리할 수 있습니다.
+Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 데이터베이스를 쉽게 탐색하고 관리할 수 있습니다.
 
 ### <a name="create-a-database-connection"></a>데이터베이스 연결 만들기
 
@@ -172,7 +171,7 @@ Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 SQL Data
 
 **연결** 대화 상자에서 **Azure** 노드를 확장합니다. 여기서는 Azure의 모든 SQL Database 인스턴스가 나열됩니다.
 
-이전에 만든 SQL Database를 선택합니다. 앞에서 만든 연결이 맨 아래쪽에 자동으로 채워집니다.
+이전에 만든 데이터베이스를 선택합니다. 앞에서 만든 연결이 맨 아래쪽에 자동으로 채워집니다.
 
 이전에 사용한 데이터베이스 관리자 암호를 입력하고 **연결**을 클릭합니다.
 
@@ -180,19 +179,19 @@ Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 SQL Data
 
 ### <a name="allow-client-connection-from-your-computer"></a>컴퓨터에서 클라이언트 연결 허용
 
-**새 방화벽 규칙 만들기** 대화 상자가 열립니다. 기본적으로 SQL Database 인스턴스는 Azure 앱과 같은 Azure 서비스의 연결만 허용합니다. 데이터베이스에 연결하려면 SQL Database 인스턴스에 방화벽 규칙을 만듭니다. 방화벽 규칙에는 로컬 컴퓨터의 공용 IP 주소가 허용됩니다.
+**새 방화벽 규칙 만들기** 대화 상자가 열립니다. 기본적으로 서버는 Azure 앱과 같은 Azure 서비스에서 해당 데이터베이스로의 연결만 허용합니다. Azure 외부에서 데이터베이스에 연결하려면 서버 수준에서 방화벽 규칙을 만듭니다. 방화벽 규칙에는 로컬 컴퓨터의 공용 IP 주소가 허용됩니다.
 
 대화 상자가 컴퓨터의 공용 IP 주소로 이미 채워져 있습니다.
 
-**내 클라이언트 IP 추가**가 선택되어 있는지 확인하고 **확인**을 클릭합니다. 
+**내 클라이언트 IP 추가**가 선택되어 있는지 확인하고 **확인**을 클릭합니다.
 
-![SQL Database 인스턴스에 대한 방화벽 설정](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
+![방화벽 규칙 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
 
 Visual Studio에서 SQL Database 인스턴스에 대한 방화벽 설정을 만든 후에 **SQL Server 개체 탐색기**에 연결이 표시됩니다.
 
-여기에서 쿼리 실행, 뷰 및 저장 프로시저 만들기 등의 가장 일반적이 데이터베이스 작업을 수행할 수 있습니다. 
+여기에서 쿼리 실행, 뷰 및 저장 프로시저 만들기 등의 가장 일반적이 데이터베이스 작업을 수행할 수 있습니다.
 
-연결 > **데이터베이스** >  **&lt;데이터베이스 >**  > **테이블**로 확장합니다. `Todoes` 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다. 
+연결 > **데이터베이스** >  **&lt;데이터베이스 >**  > **테이블**로 확장합니다. `Todoes` 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다.
 
 ![SQL Database 개체 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -212,7 +211,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Code First 마이그레이션을 로컬에서 실행
 
-몇 가지 명령을 실행하여 로컬 데이터베이스를 업데이트합니다. 
+몇 가지 명령을 실행하여 로컬 데이터베이스를 업데이트합니다.
 
 **도구** 메뉴에서 **NuGet 패키지 관리** > **패키지 관리자 콘솔**을 클릭합니다.
 
@@ -236,7 +235,7 @@ Update-Database
 
 `Ctrl+F5`를 입력하여 앱을 실행합니다. 편집, 세부 정보 및 만들기 링크를 테스트합니다.
 
-애플리케이션이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
+애플리케이션이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다.
 
 ### <a name="use-the-new-property"></a>새 속성 사용
 
@@ -284,7 +283,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 </td>
 ```
 
-`Index` 및 `Create` 보기에서 변경 내용을 확인하기만 하면 됩니다. 
+`Index` 및 `Create` 보기에서 변경 내용을 확인하기만 하면 됩니다.
 
 `Ctrl+F5`를 입력하여 앱을 실행합니다.
 
@@ -302,7 +301,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 마법사에서 **다음**을 클릭합니다.
 
-SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)** 로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다. 
+SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)** 로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다.
 
 **Execute Code First Migrations (runs on application start)** (Code First 마이그레이션 실행(애플리케이션 시작 시 실행))를 선택한 다음, **저장**을 클릭합니다.
 
@@ -320,7 +319,6 @@ SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)*
 
 기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 애플리케이션을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
-
 ## <a name="stream-application-logs"></a>애플리케이션 로그 스트림
 
 Azure 앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
@@ -331,7 +329,7 @@ _Controllers\TodosController.cs_를 엽니다.
 
 ### <a name="open-server-explorer"></a>서버 탐색기 열기
 
-**보기** 메뉴에서 **서버 탐색기**를 선택합니다. **서버 탐색기**에서 Azure 앱에 대한 로깅을 구성할 수 있습니다. 
+**보기** 메뉴에서 **서버 탐색기**를 선택합니다. **서버 탐색기**에서 Azure 앱에 대한 로깅을 구성할 수 있습니다.
 
 ### <a name="enable-log-streaming"></a>로그 스트리밍 사용
 
@@ -343,7 +341,7 @@ Azure 앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 �
 
 ![로그 스트리밍 사용](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
-이제 로그가 **출력** 창으로 스트리밍됩니다. 
+이제 로그가 **출력** 창으로 스트리밍됩니다.
 
 ![출력 창에서 로그 스트리밍](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
@@ -361,8 +359,6 @@ Azure 앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보기**
 
 > [!TIP]
 > 다양한 추적 수준을 사용하여 각 수준에서 표시되는 메시지 종류를 확인할 수 있습니다. 예를 들어 **정보** 수준에는 `Trace.TraceInformation()`, `Trace.TraceWarning()` 및 `Trace.TraceError()`로 생성된 모든 로그가 포함되지만 `Trace.WriteLine()`으로 생성된 로그는 포함되지 않습니다.
->
->
 
 브라우저에서 *http://&lt;your app name&gt;.azurewebsites.net*에 있는 앱으로 다시 이동한 다음, Azure에서 할 일 목록 애플리케이션 주위를 클릭해 보세요. 추적 메시지가 Visual Studio의 **출력** 창으로 스트리밍됩니다.
 
@@ -373,8 +369,6 @@ Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create
 Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 ```
 
-
-
 ### <a name="stop-log-streaming"></a>로그 스트리밍 중지
 
 로그 스트리밍 서비스를 중지하려면 **출력** 창에서 **모니터링 중지** 단추를 클릭합니다.
@@ -383,7 +377,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **App Services**를 검색하여 선택합니다. 
+웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **App Services**를 검색하여 선택합니다.
 
 ![Azure App Services 검색](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
@@ -391,9 +385,9 @@ Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-앱 페이지에 연결되었습니다. 
+앱 페이지에 연결되었습니다.
 
-기본적으로 포털에서 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다. 
+기본적으로 포털에서 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
@@ -404,7 +398,8 @@ Azure 앱의 이름을 선택합니다.
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Azure에서 SQL Database 만들기
+>
+> * Azure SQL Database에서 데이터베이스 만들기
 > * SQL Database에 ASP.NET 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
