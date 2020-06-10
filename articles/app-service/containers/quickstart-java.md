@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bff1e22df1583491bf8d249cdb8752e9a1e4f57
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300075"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485393"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -44,7 +44,7 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Maven 플러그 인 구성
 
-Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio)에 대한 세부 정보를 확인합니다.
+Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)에 대한 세부 정보를 확인합니다.
 
 배포를 구성하려면 명령 프롬프트에서 maven 명령을 실행하고 **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER**를 눌러 기본 구성을 사용한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
 ```cmd

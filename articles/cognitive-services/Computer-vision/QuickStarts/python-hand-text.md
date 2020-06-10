@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 4b5eb92e97675bee8d2d273ecdc8f23d7a12c53b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 9c76e77db424d357ffcff12124a86bd7df550f97
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299437"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608896"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄 및 필기 텍스트 추출
 
