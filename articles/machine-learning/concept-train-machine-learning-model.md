@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592392"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683003"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -111,6 +111,18 @@ R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SD
 + [분류: 고객 이탈, 성향 및 상향 판매 예측](how-to-designer-sample-classification-churn.md)
 + [사용자 지정 R 스크립트를 사용하여 분류: 항공편 지연 예측](how-to-designer-sample-classification-flight-delay.md)
 + [텍스트 분류: Wikipedia SP 500 데이터 세트](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>많은 모델 솔루션 가속기
+
+[많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기준으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
+
+예를 들어 다음 시나리오에서 __각 인스턴스 또는 개인__에 대한 모델을 빌드하면 결과가 향상될 수 있습니다.
+
+* 개별 스토어별 매출 예측
+* 수백 개의 유정에 대한 예측 유지 관리
+* 개별 사용자 환경 조정
+
+자세한 내용은 GitHub의 [많은 모델 솔루션 가속기](https://aka.ms/many-models)를 참조하세요.
 
 ## <a name="cli"></a>CLI
 

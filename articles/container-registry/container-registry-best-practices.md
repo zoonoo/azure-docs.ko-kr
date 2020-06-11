@@ -3,18 +3,18 @@ title: 레지스트리 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247073"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682690"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
 다음 모범 사례를 따르면 Azure에서 프라이빗 Docker 레지스트리 사용의 성능 및 비용 효과적 측면을 극대화하는 데 도움이 될 수 있습니다.
 
-레지스트리의 태그 및 버전 이미지에 대 한 전략의 컨테이너 이미지에 태그를 지정 하 고 버전을 지정 하기 [위한 권장](container-registry-image-tag-version.md) 사항도 참조 하세요. 
+레지스트리의 태그 및 버전 이미지과 관련된 전략에 대해서는 [컨테이너 이미지 태그 지정 및 버전 관리 권장 사항](container-registry-image-tag-version.md)을 참조하세요. 
 
 ## <a name="network-close-deployment"></a>네트워크가 가까운 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "79247073"
 
 리포지토리 네임스페이스를 활용하여 조직 내의 여러 그룹에서 단일 레지스트리 공유를 허용할 수 있습니다. 레지스트리는 배포 및 팀 간에 공유할 수 있습니다. Azure Container Registry는 중첩된 네임스페이스를 지원하여 그룹 격리를 허용합니다.
 
-예를 들어 다음 컨테이너 이미지 태그를 고려해 보세요. 와 같이 `aspnetcore`회사 전체에 사용 되는 이미지는 루트 네임 스페이스에 배치 되는 반면, 제품 및 마케팅 그룹이 소유한 컨테이너 이미지는 각각 고유한 네임 스페이스를 사용 합니다.
+예를 들어 다음 컨테이너 이미지 태그를 고려해 보세요. `aspnetcore`처럼 기업 전체에서 사용되는 이미지는 루트 네임스페이스에 두고, 제품 및 마케팅 그룹에서 소유하는 컨테이너 이미지에는 각각 자체 네임스페이스를 사용합니다.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -53,13 +53,13 @@ Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉
 | Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
 | 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 사용자](container-registry-authentication.md#service-principal) |
+| 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
 
 Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container Registry로 인증](container-registry-authentication.md)을 참조하세요.
 
 ## <a name="manage-registry-size"></a>레지스트리 크기 관리
 
-각 [컨테이너 레지스트리 SKU][container-registry-skus]의 스토리지 제약 조건은 일반적인 시나리오(시작의 경우 **기본**, 대다수 프로덕션 애플리케이션의 경우 **표준** 및 대규모 성능과 [지역 복제][container-registry-geo-replication]의 경우 **프리미엄**)와 일치하도록 설계되었습니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
+일반적인 시나리오에 맞게 각 [컨테이너 레지스트리 서비스 계층][container-registry-skus]의 스토리지 제약 조건이 결정됩니다. **기본**은 시작하는 고객, **표준**은 대부분의 프로덕션 애플리케이션, **프리미엄**은 하이퍼스케일 성능 및 [지역 복제][container-registry-geo-replication] 시나리오에 적합합니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
 Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
 
@@ -86,7 +86,7 @@ Azure Container Registry는 컨테이너 레지스트리에서 이미지 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Container Registry는 각각 서로 다른 기능을 제공하는 SKU라는 여러 계층에서 사용될 수 있습니다. 사용 가능한 SKU에 대한 자세한 내용은 [Azure Container Registry SKU](container-registry-skus.md)를 참조하세요.
+Azure Container Registry는 각각 서로 다른 기능을 제공하는 SKU라고도 하는 여러 계층에서 사용될 수 있습니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [Azure 컨테이너 레지스트리 서비스 계층](container-registry-skus.md)을 참조하세요.
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858786"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651123"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -68,7 +68,7 @@ Azure CLI를 사용할 수 있습니다.
 
 **한 스토리지 컨테이너에서 다른 스토리지 컨테이너로 데이터를 이동하려면 어떻게 할까요?**
 
-아래 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1.  대상 Blob에 컨테이너(폴더)를 만듭니다.
 
@@ -82,9 +82,9 @@ AzCopy를 사용하여 Azure Storage의 Azure 파일 공유 간에 데이터를 
 
 AzCopy를 사용하여 큰 .csv 파일을 Azure Storage에 업로드합니다. 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md) 및 [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)을 참조하세요.
 
-**매일 D 드라이브에서 Azure storage 계정으로 로그를 이동 해야 합니다. 어떻게 할까요? 자동화**
+**매일 D 드라이브에서 Azure Storage 계정으로 로그를 이동해야 합니다. 자동화하려면 어떻게 할까요?**
 
-AzCopy를 사용하고 작업 스케줄러에서 작업을 만들 수 있습니다. AzCopy 배치 스크립트를 사용하여 Azure Storage 계정에 파일을 업로드합니다. 자세한 내용은 [클라우드 서비스에 대 한 시작 작업을 구성 및 실행 하는 방법](../../cloud-services/cloud-services-startup-tasks.md)을 참조 하세요.
+AzCopy를 사용하고 작업 스케줄러에서 작업을 만들 수 있습니다. AzCopy 배치 스크립트를 사용하여 Azure Storage 계정에 파일을 업로드합니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](../../cloud-services/cloud-services-startup-tasks.md)을 참조하세요.
 
 **구독 간에 내 스토리지 계정을 이동하려면 어떻게 할까요?**
 
@@ -106,7 +106,7 @@ AzCopy를 사용하여 데이터를 이동합니다. 자세한 내용은 [Window
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-아래 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1.  관리 디스크가 연결된 가상 머신을 중지합니다.
 
@@ -152,7 +152,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 **Premium Storage 계정에서 표준 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
-아래 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1.  표준 스토리지 계정을 만듭니다. (또는 구독에서 기존 표준 스토리지 계정을 사용합니다.)
 
@@ -194,10 +194,10 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: 원본 스토리지 계정에 대한 URI를 제공합니다(컨테이너까지).  
-    - `/Dest`: 대상 스토리지 계정에 대한 URI를 제공합니다(컨테이너까지).  
-    - `/SourceKey`: 원본 스토리지 계정에 대한 기본 키를 제공합니다. Azure Portal에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.  
-    - `/DestKey`: 대상 스토리지 계정에 대한 기본 키를 제공합니다. 포털에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.
+    - `/Source`: 원본 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
+    - `/Dest`: 대상 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
+    - `/SourceKey`: 원본 스토리지 계정의 기본 키를 제공합니다. Azure Portal에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.  
+    - `/DestKey`: 대상 스토리지 계정의 기본 키를 제공합니다. 포털에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.
 
 이 명령을 실행하면 컨테이너 파일이 대상 스토리지 계정으로 이동됩니다.
 
@@ -215,11 +215,11 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 - 공유에서 스토리지 계정 내의 Blob 컨테이너나 다른 스토리지 계정으로 복사
 
 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)을 참조하세요.
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 **스토리지 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
-스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제](storage-redundancy.md)를 참조하세요.
+스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
 **Azure SSE(스토리지 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
 
@@ -227,7 +227,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 -  [Azure Storage 보안 가이드](../blobs/security-recommendations.md)
 
--  [휴지 상태의 데이터에 대 한 서비스 암호화 Azure Storage](storage-service-encryption.md)
+-  [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](storage-service-encryption.md)
 
 **스토리지 계정의 데이터를 암호화하려면 어떻게 할까요?**
 
@@ -243,7 +243,7 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
-**Standard storage 계정에서 premium storage 계정으로 업그레이드할 어떻게 할까요? 있나요? Premium storage 계정에서 표준 저장소 계정으로 다운 그레이드를 어떻게 할까요? 하 시겠습니까?**
+**표준 스토리지 계정에서 Premium Storage 계정으로 업그레이드하려면 어떻게 할까요? Premium Storage 계정에서 표준 스토리지 계정으로 다운그레이드하려면 어떻게 할까요?**
 
 대상 스토리지 계정을 만들고, 원본 계정에서 대상 계정으로 데이터를 복사한 다음, 원본 계정을 삭제해야 합니다. AzCopy와 같은 도구를 사용하여 데이터를 복사할 수 있습니다.
 
@@ -267,12 +267,12 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 -   64비트 버전을 설치한 경우 **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
 
-**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용 어떻게 할까요?? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시 하려면 어떻게 해야 하나요?**
+**내 스토리지 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시하려면 어떻게 해야 하나요?**
 
-TLS/SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원 되지 않습니다.
-하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob storage 끝점에 대 한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조 하세요.
+TLS/SSL은 현재 사용자 지정 도메인이 있는 스토리지 계정에서 지원되지 않습니다.
+하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob Storage 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
 
-## <a name="access-to-storage"></a>저장소에 대 한 액세스
+## <a name="access-to-storage"></a>스토리지에 대한 액세스
 
 **가상 머신에서 컨테이너 폴더를 매핑하려면 어떻게 할까요?**
 
@@ -284,13 +284,13 @@ Azure 파일 공유를 사용합니다.
 
 **복제된 스토리지 계정(예: 영역 중복 스토리지, 지역 중복 스토리지 또는 읽기 권한 액세스 지역 중복 스토리지)의 경우 보조 지역에 저장된 데이터에 액세스하려면 어떻게 할까요?**
 
--   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치 (failover) 프로세스에 대 한 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치](storage-disaster-recovery-guidance.md)(failover)를 참조 하세요.
+-   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [재해 복구 및 스토리지 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
 
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예를 들면 다음과 같습니다.  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-sas-overview.md)을 참조하세요.
 

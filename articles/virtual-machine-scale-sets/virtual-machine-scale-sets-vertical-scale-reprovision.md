@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 확장 집합을 수직으로 확장
+title: Azure 가상 머신 확장 집합을 수직으로 규모 조정
 description: Azure Automation을 사용하여 모니터링 경고에 대한 응답으로 Virtual Machine을 수직으로 확장하는 방법
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121000"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827269"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 
@@ -37,7 +37,7 @@ ms.locfileid: "83121000"
 4. Webhook 알림을 사용하여 가상 머신 확장 집합에 경고를 추가합니다.
 
 > [!NOTE]
-> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한 된 가상 머신 크기 확장/축소는 지원 되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
+> 첫 번째 Virtual Machine의 크기로 인해 확장할 수 있는 크기가 제한될 수 있습니다. 이는 현재 Virtual Machine이 배포된 클러스터에서 다른 크기의 가용성 때문입니다. 이 문서에서 사용된 게시된 자동화 runbook에서는 이 점을 염두에 두고 VM 크기 쌍 이내에서만 확장합니다. 따라서 Standard_D1v2 Virtual Machine이 갑자기 Standard_G5로 확장되거나 Basic_A0으로 축소되지 않습니다. 또한 제한된 가상 머신 크기를 확장/축소하는 것은 지원되지 않습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
 > 
 > | VM 크기 조정 쌍 |  |
 > | --- | --- |
@@ -118,7 +118,7 @@ Runbook을 가져온 후에는 가상 머신 확장 집합에서 경고를 통�
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>가상 머신 확장 집합에 경고 추가
 
-다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다.
+다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 경고를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell 샘플](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor 플랫폼 간 CLI 샘플](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>요약
 

@@ -1,14 +1,14 @@
 ---
-title: 잘못 된 템플릿 오류
-description: Azure Resource Manager 템플릿을 배포할 때 잘못 된 템플릿 오류를 해결 하는 방법을 설명 합니다.
+title: 잘못된 템플릿 오류
+description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154060"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832524"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -130,7 +130,7 @@ part of the allowed values
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
 
-단일 배포에 6개 이상의 대상 리소스 그룹을 지정하면 이 오류가 표시됩니다. 배포에서 리소스 그룹 수를 통합하거나 일부 템플릿을 별도의 배포로 배포하는 방법을 고려하세요. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
+단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
 
 <a id="circular-dependency" />
 
@@ -143,7 +143,7 @@ part of the allowed values
 1. 템플릿에서 순환 종속성 내에 식별된 리소스를 찾습니다.
 2. 해당 리소스에 대해 **dependsOn** 속성 및 **reference** 함수가 사용되었는지 검토하여 어떤 리소스에 종속되는지 확인합니다.
 3. 해당 리소스를 검토하여 어떤 리소스에 종속되는지 확인합니다. 원래 리소스에 종속되는 리소스를 확인할 때까지 종속성을 추적합니다.
-5. 순환 종속성에 관련된 리소스의 경우 **dependsOn** 속성이 사용된 부분을 신중하게 모두 검토하여 필요하지 않은 종속성이 있는지 식별합니다. 그러한 종속성을 제거합니다. 종속성이 필요한지 확신이 안되면 해당 종속성을 제거해 봅니다.
+5. 순환 종속성에 관련된 리소스의 경우 **dependsOn** 속성이 사용된 부분을 신중하게 모두 검토하여 필요하지 않은 종속성이 있는지 식별합니다. 그러한 종속성을 제거합니다. 종속성이 필요한지 확신이 안 되면 해당 종속성을 제거해 봅니다.
 6. 템플릿을 다시 배포합니다.
 
 **dependsOn** 속성에서 값을 제거하면 템플릿을 배포할 때 오류가 발생할 수 있습니다. 오류가 발생하면 해당 종속성을 템플릿에 다시 추가합니다.

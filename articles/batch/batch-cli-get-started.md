@@ -1,15 +1,15 @@
 ---
-title: 일괄 처리에 대 한 Azure CLI 시작
+title: Batch용 Azure CLI 시작
 description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117372"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780222"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -73,7 +73,7 @@ Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를
 
 Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
-- **Azure Active Directory (Azure AD) 인증 사용** 
+- **Azure AD(Azure Active Directory) 인증 사용** 
 
     Azure AD로 인증하는 것은 Batch와 함께 Azure CLI를 사용할 때의 기본값이며, 대부분의 시나리오에 적합합니다. 
     
@@ -103,7 +103,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
-Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [AZURE BATCH CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조 하세요.
+Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 ## <a name="script-examples"></a>스크립트 예제
 
@@ -162,9 +162,9 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
-* Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
-* 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
+* [Azure CLI 문서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+* 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+* [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)에서 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법을 알아봅니다.
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

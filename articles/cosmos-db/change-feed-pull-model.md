@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116716"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697720"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
 
@@ -43,7 +43,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 `FeedIterator`를 사용하면, 전체 컨테이너의 변경 피드를 원하는 속도로 쉽게 처리할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +61,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 특정 파티션 키의 변경 내용만 처리하려는 경우가 있습니다. 특정 파티션 키에 대한 `FeedIterator`를 가져와서 전체 컨테이너와 같은 방식으로 변경 내용을 처리할 수 있습니다.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ FeedRanges를 사용하려는 경우에는 FeedRanges를 가져와서 해당 머
 머신 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Cosmos 컨테이너가 여전히 존재하는 한 FeedIterator의 연속 토큰은 만료되지 않습니다.
+
 ## <a name="comparing-with-change-feed-processor"></a>변경 피드 프로세서와 비교
 
 많은 시나리오에서 [변경 피드 프로세서](change-feed-processor.md) 또는 끌어오기 모델을 사용하여 변경 피드를 처리할 수 있습니다. 끌어오기 모델의 연속 토큰 및 변경 피드 프로세서의 임대 컨테이너는 변경 피드에서 마지막으로 처리된 항목(또는 항목의 모음)에 대한 "책갈피"입니다.
@@ -156,9 +158,9 @@ FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIte
 
 다음 시나리오에서는 끌어오기 모델 사용을 고려해야 합니다.
 
-- 변경 피드의 기존 데이터를 한 번만 읽으려고 합니다.
-- 특정 파티션 키의 변경 내용만 읽으려고 합니다.
-- 밀어넣기 모델을 원하지 않으며, 변경 피드를 내 속도에 맞게 사용하려고 합니다.
+- 특정 파티션 키에서 변경 내용 읽기
+- 클라이언트에서 변경 내용을 받아 처리하는 속도 제어
+- 변경 피드에서 기존 데이터를 한 번 읽음(예: 데이터 마이그레이션 수행)
 
 변경 피드 프로세서와 끌어오기 모델의 주요 차이는 다음과 같습니다.
 

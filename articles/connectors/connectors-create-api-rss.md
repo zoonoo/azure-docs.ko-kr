@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1e95b7bfce3d57dfe579a5622c3c13fac2b6af68
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789344"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834818"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 RSS 피드 관리
 
@@ -23,7 +23,7 @@ Azure Logic Apps 및 RSS 커넥터를 통해 모든 RSS 피드에 대한 자동�
 
 Really Simple Syndication이라고도 하는 RSS(Rich Site Summary)는 웹 배포를 위한 인기 있는 형식으로서, 블로그 게시물 및 뉴스 헤드라인 같이 자주 업데이트되는 콘텐츠를 게시하는 데 사용됩니다. 많은 콘텐츠 게시자는 사용자가 해당 콘텐츠를 구독할 수 있도록 RSS 피드를 제공합니다. 
 
-RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,7 +31,7 @@ RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 
 
 * RSS 피드의 URL
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * RSS 피드에 액세스하려는 논리 앱입니다. RSS 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). RSS 동작을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -55,7 +55,7 @@ RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

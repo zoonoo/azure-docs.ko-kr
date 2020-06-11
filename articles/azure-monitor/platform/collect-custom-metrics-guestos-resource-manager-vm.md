@@ -1,45 +1,42 @@
 ---
-title: 템플릿을 사용 하 여 Azure Monitor에서 Windows VM 메트릭 수집
-description: Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+title: 템플릿을 사용하여 Azure Monitor에서 Windows VM 메트릭 수집
+description: Windows 가상 머신에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 데이터베이스 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 05/04/2020
+ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657370"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650551"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+Azure Virtual Machine의 게스트 OS 성능 데이터는 다른 [플랫폼 메트릭](../insights/monitor-azure-resource.md#monitoring-data)과 마찬가지로 자동으로 수집되지 않습니다. Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 설치하여 게스트 OS 메트릭을 메트릭 데이터베이스로 수집합니다. 이러한 메트릭은 근실시간 경고, 차트, 라우팅 및 REST API에서의 액세스를 비롯한 Azure Monitor 메트릭의 모든 기능에서 사용할 수 있습니다. 이 문서에서는 Resource Manager 템플릿을 사용하여 Windows 가상 머신에 대한 게스트 OS 성능 메트릭을 메트릭 데이터베이스로 보내는 프로세스에 대해 설명합니다. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!NOTE]
+> Azure Portal을 사용하여 게스트 OS 메트릭을 수집하도록 진단 확장을 구성하는 방법에 대한 자세한 내용은 [WAD(Windows Azure 진단) 확장 설치 및 구성](diagnostics-extension-windows-install.md)을 참조하세요.
 
-Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
 
-이 문서에서는 Windows 가상 머신에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다.
-
-이 위치에 메트릭을 저장하면 플랫폼 메트릭의 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅 및 REST API에서 액세스 등이 포함됩니다. 과거에는 진단 확장을 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.
-
-리소스 관리자 템플릿을 처음 접하는 경우 [템플릿 배포](../../azure-resource-manager/management/overview.md) 와 해당 구조 및 구문에 대해 알아보세요.
+Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/management/overview.md)와 해당 구조 및 구문에 대해 알아보세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 구독은 [Microsoft](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록 해야 합니다.
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다.
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
-- VM 리소스가 [사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다. 
+- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다. 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정
 Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다.
 
 ## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성
-이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows에 있습니다.
+이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 에 있습니다.
 
 - **Azuredeploy.json**은 가상 머신을 배포하도록 미리 구성된 Resource Manager 템플릿입니다.
 
@@ -48,7 +45,7 @@ Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메�
 두 파일을 다운로드하고 로컬로 저장합니다.
 
 ### <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json을 수정합니다.
-*Azuredeploy. parameters json* 파일을 엽니다.
+*azuredeploy.parameters.json* 파일을 엽니다.
 
 1. VM에 대해 **adminUsername** 및 **adminPassword**에 대한 값을 입력합니다. 이러한 매개 변수는 VM에 원격으로 액세스하는 데 사용됩니다. VM이 하이재킹되지 않도록 방지하려면 이 템플릿에서 해당 값을 사용하지 마세요. 봇은 공용 GitHub 리포지토리에서 사용자 이름 및 암호를 인터넷으로 검색합니다. 이러한 기본값을 사용하여 VM을 테스트할 수 있습니다.
 
@@ -58,7 +55,7 @@ Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메�
 
 *azuredeploy.json* 파일을 엽니다.
 
-저장소 계정 ID를 **Storageaccountname** 에 대 한 항목 뒤의 템플릿 **변수** 섹션에 추가 합니다.
+템플릿의 **variables** 섹션에 있는 **storageAccountName** 항목 뒤에 스토리지 계정 ID를 추가합니다.
 
 ```json
 // Find these lines.
@@ -69,7 +66,7 @@ Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메�
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-이 MSI (관리 서비스 ID) 확장을 **리소스** 섹션의 맨 위에 있는 템플릿에 추가 합니다. 이 확장을 통해 Azure Monitor에서 내보내는 메트릭을 허용합니다.
+템플릿의 **resources** 섹션 위쪽에 MSI(관리 서비스 ID) 확장을 추가합니다. 이 확장을 통해 Azure Monitor에서 내보내는 메트릭을 허용합니다.
 
 ```json
 //Find this code.
@@ -234,7 +231,7 @@ Azure에서 MSI 확장에 시스템 ID를 할당하도록 VM 리소스에 **iden
 ## <a name="deploy-the-resource-manager-template"></a>Resource Manager 템플릿 배포
 
 > [!NOTE]
-> Azure 진단 확장 버전 1.5 이상을 실행 하 고 리소스 관리자 템플릿에서 **autoUpgradeMinorVersion**: 속성을 ' t r u e '로 설정 해야 합니다. 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다.
+> Azure Diagnostics 확장 버전 1.5 이상을 실행하고 Resource Manager 템플릿에서 **autoUpgradeMinorVersion**: 속성을 ‘true’로 설정해야 합니다. 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다.
 
 
 Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합니다.
@@ -253,7 +250,7 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합�
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > [사용자 지정 메트릭에 대해 사용 하도록 설정 된 Azure 지역을 사용](metrics-custom-overview.md)해야 합니다.
+   > [사용자 지정 메트릭을 사용하도록 설정된 Azure 지역을 사용](metrics-custom-overview.md)해야 합니다.
 
 1. Resource Manager 템플릿을 사용하여 VM을 배포하려면 다음 명령을 실행합니다.
    > [!NOTE]

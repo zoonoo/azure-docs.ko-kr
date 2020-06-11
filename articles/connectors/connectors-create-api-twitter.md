@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f2db6d614c3c12cb1be87724e79d79a16769d6b8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789089"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829599"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twitter 모니터링 및 관리
 
@@ -21,7 +21,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 * 트윗을 모니터링, 게시 및 검색합니다.
 * 팔로워, 팔로우하는 사용자, 타임라인 등과 같은 데이터를 가져옵니다.
 
-트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,7 +31,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
    자격 증명을 통해 Twitter 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Twitter 계정에 액세스하려는 논리 앱입니다. Twitter 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Twitter 동작을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -55,7 +55,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
        또는
 
      * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-     표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+     표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
      
        검색 상자에서 필터로 “twitter”를 입력합니다. 
        작업 목록에서 원하는 작업을 선택합니다.
@@ -66,7 +66,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
 ## <a name="examples"></a>예
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 트리거: 새 트윗이 게시되는 경우
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 트리거: 새 트윗이 게시될 때
 
 이 트리거는 예를 들어 #Seattle이란 해시태그가 있는 새 트윗을 트리거에서 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 이러한 트윗을 찾으면 Dropbox 커넥터를 사용하여 Dropbox 계정과 같은 스토리지에 트윗의 콘텐츠가 포함된 파일을 추가할 수 있습니다. 
 
@@ -84,7 +84,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

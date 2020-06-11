@@ -1,32 +1,32 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 리소스 소유자 암호 자격 증명 흐름 구성
+title: 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 ROPC (리소스 소유자 암호 자격 증명) 흐름을 구성 하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 ROPC(리소스 소유자 암호 자격 증명) 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529175"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638571"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자격 증명 (ROPC) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
+Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 자격 증명) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -124,7 +124,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     </TechnicalProfile>
     ```
 
-    **Client_id** **DefaultValue** 를 필수 구성 요소 자습서에서 만든 ProxyIdentityExperienceFramework 응용 프로그램의 응용 프로그램 id로 바꿉니다. 그런 다음 **Resource_id** **DefaultValue** 를 필수 구성 요소 자습서에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 id로 바꿉니다.
+    **client_ID**의 **DefaultValue**를 필수 조건 자습서에서 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다. **resource_id**의 **DefaultValue**를 필수 조건 자습서에서 만든 IdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 5. 다음 **ClaimsProvider** 요소를 기술 프로필과 함께 **ClaimsProviders** 요소에 추가합니다.
 
@@ -239,21 +239,21 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     ```
 
 5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
-6. **정책이 있는 경우 덮어쓰기**를 사용 하도록 설정한 다음 *ROPC_Auth .xml* 파일로 이동 하 여 선택 합니다.
+6. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *ROPC_Auth.xml* 파일을 찾아서 선택합니다.
 7. **업로드**를 클릭합니다.
 
 ## <a name="test-the-policy"></a>정책 테스트
 
 선호하는 API 개발 애플리케이션을 사용하여 API 호출을 생성하고, 응답을 검토하여 정책을 디버그합니다. 다음 정보를 POST 요청의 본문으로 사용하여 이 예제와 같은 호출을 생성합니다.
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
+- `<tenant-name>`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
 | 키 | 값 |
 | --- | ----- |
-| username | `user-account` |
+| 사용자 이름 | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |
@@ -268,8 +268,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 실제 POST 요청은 다음 예제와 같이 표시됩니다.
 
 ```HTTPS
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -291,9 +291,9 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 여기에 표시된 것과 같은 POST 호출을 생성합니다. 다음 표의 정보를 요청의 본문으로 사용합니다.
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
+- `<tenant-name>`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
 | 키 | 값 |
@@ -301,7 +301,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| 리소스 | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.

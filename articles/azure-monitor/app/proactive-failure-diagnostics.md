@@ -4,19 +4,19 @@ description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대�
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536814"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700779"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
-웹 앱에서 실패 한 요청 비율이 비정상적으로 증가 하는 경우 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 거의 실시간으로 자동으로 경고 합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패 한 요청의 응답 코드는 일반적으로 400 이상입니다. 문제를 심사 하 고 진단 하는 데 도움이 되도록 오류 및 관련 응용 프로그램 데이터의 특징에 대 한 분석이 경고 세부 정보에 제공 됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 경고합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청의 일반적인 응답 코드는 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 애플리케이션 데이터의 특성에 대한 분석이 경고 정보에 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
 
-이 기능은 응용 프로그램 요청이 나 종속성 데이터를 생성 하는 클라우드 또는 자체 서버에서 호스트 되는 모든 웹 앱에 대해 작동 합니다. 예를 들어, 지 수 [요청 ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 또는 지 수 [종속성 ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)을 호출 하는 작업자 역할이 있는 경우입니다.
+이 기능은 애플리케이션 요청이나 종속성 데이터를 생성하는 클라우드 또는 자체 서버에서 호스트되는 모든 웹앱에 대해 작동합니다. 예를 들어 [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 또는 [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)를 호출하는 작업자 역할이 있다고 가정합니다.
 
-[프로젝트에 대 한 Application Insights](../../azure-monitor/app/app-insights-overview.md)를 설정 하 고 앱이 최소한의 데이터를 생성 하는 경우 오류 이상에 대 한 스마트 감지는 앱의 정상적인 동작을 파악 하는 데 24 시간이 걸리고,이를 전환 하 고 경고를 보낼 수 있습니다.
+[프로젝트에 대한 Application Insights](../../azure-monitor/app/app-insights-overview.md)를 설정한 후에 앱이 일정량의 최소 데이터를 생성하면 실패에 대한 스마트 검색은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
 
 샘플 경고는 다음과 같습니다.
 
@@ -26,29 +26,29 @@ ms.locfileid: "81536814"
 
 * 일반 앱 동작과 비교한 실패율
 * 영향을 받는 사용자 수 - 얼마나 고려해야 할지 알 수 있습니다.
-* 오류와 관련된 특성 패턴. 이 예제에는 특정 응답 코드, 요청 이름 (작업) 및 응용 프로그램 버전이 있습니다. 코드의 어디부터 살펴보아야 하는지 즉시 알려 줍니다. 다른 가능성으로 특정 브라우저 또는 클라이언트 운영 체제가 있을 수 있습니다.
+* 오류와 관련된 특성 패턴. 이 예제에는 특정 응답 코드, 요청 이름(작업) 및 애플리케이션 버전이 있습니다. 코드의 어디부터 살펴보아야 하는지 즉시 알려 줍니다. 다른 가능성으로 특정 브라우저 또는 클라이언트 운영 체제가 있을 수 있습니다.
 * 특징지어진 실패와 관련된 것으로 보이는 예외, 로그 추적 및 종속성 오류(데이터베이스 또는 다른 외부 구성 요소).
-* Application Insights 데이터에 대 한 관련 검색에 직접 연결 합니다.
+* Application Insights에서 데이터에 대한 관련 검색 직접 링크
 
 ## <a name="benefits-of-smart-detection"></a>스마트 감지의 이점
-일반 [메트릭 경고](../../azure-monitor/app/alerts.md) 는 문제일 수 있음을 알려 줍니다. 그러나 스마트 검색은 진단 작업을 시작 하 여 사용자가 직접 수행 해야 하는 분석을 많이 수행 합니다. 깔끔하게 정리된 결과를 얻고 문제의 원인을 신속하게 파악할 수 있습니다.
+일반 [메트릭 경고](../../azure-monitor/platform/alerts-log.md) 는 문제일 수 있음을 알려 줍니다. 하지만 스마트 감지는 진단 작업을 시작하여, 그렇지 않은 경우 사용자가 직접 수행해야 할 상당한 양의 분석을 수행합니다. 깔끔하게 정리된 결과를 얻고 문제의 원인을 신속하게 파악할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
-스마트 감지는 앱에서 받은 데이터 및 특히 실패율을 모니터링 합니다. 이 규칙은 `Successful request` 속성이 false인 요청 수와 `Successful call` 속이 false인 종속성 호출 수를 계산합니다. 요청의 경우 기본적으로 `Successful request == (resultCode < 400)`입니다(사용자 지정 코드를 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)에 작성하거나 사용자 고유 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 호출을 생성하지 않는 한). 
+## <a name="how-it-works"></a>작동 방법
+스마트 감지는 앱, 특히 실패 속도에서 받은 데이터를 모니터링합니다. 이 규칙은 `Successful request` 속성이 false인 요청 수와 `Successful call` 속이 false인 종속성 호출 수를 계산합니다. 요청의 경우 기본적으로 `Successful request == (resultCode < 400)`입니다(사용자 지정 코드를 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)에 작성하거나 사용자 고유 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 호출을 생성하지 않는 한). 
 
 앱의 성능에는 일반적인 동작의 패턴이 있습니다. 일부 요청 또는 종속성 호출은 다른 요청보다 오류 발생 가능성이 높으며 로드가 증가함에 따라 전체 실패율이 상승할 수 있습니다. 스마트 감지는 이러한 이상을 발견하는 데 기계 학습을 사용합니다.
 
-웹 앱에서 데이터가 Application Insights 되 면 스마트 검색은 현재 동작을 지난 며칠 동안 표시 된 패턴과 비교 합니다. 이전 성능과 비교하여 실패율에 비정상적인 증가가 관찰되면 분석이 트리거됩니다.
+웹앱에서 Application Insights로 데이터를 가져오면 스마트 검색에서 현재 동작을 과거 며칠 동안 확인된 패턴과 비교합니다. 이전 성능과 비교하여 실패율에 비정상적인 증가가 관찰되면 분석이 트리거됩니다.
 
 분석이 트리거되는 경우 서비스는 실패의 특성을 만드는 값의 패턴을 확인하기 위해 실패한 요청에 대한 클러스터 분석을 수행합니다. 
 
 위의 예에서 분석은 대부분의 오류가 특정 결과 코드, 요청 이름, 서버 URL 호스트 및 역할 인스턴스에 대한 것임을 발견했습니다. 
 
-이러한 호출을 사용 하 여 서비스를 계측 하는 경우 분석기는 해당 요청과 연결 된 추적 로그의 예제와 함께 확인 된 클러스터의 요청과 관련 된 예외 및 종속성 오류를 찾습니다.
+서비스가 이러한 호출로 계측되는 경우 분석기는 해당 요구와 연관된 추적 로그의 예제와 함께 확인된 클러스터의 요청과 관련된 예외 및 종속성 오류를 찾습니다.
 
 다르게 구성하지 않으면 결과 분석은 경고로 전송됩니다.
 
-[수동으로 설정한 경고](../../azure-monitor/app/alerts.md)와 같이 문제가 해결 된 경우 해결 될 수 있는 발생 한 경고의 상태를 검사할 수 있습니다. Application Insights 리소스의 경고 페이지에서 경고 규칙을 구성 합니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
+[수동으로 설정하는 경고](../../azure-monitor/platform/alerts-log.md)와 같이, 발생한 경고의 상태를 검사하여 문제가 해결되었는지 확인할 수 있습니다. Application Insights 리소스의 경고 페이지에서 경고 규칙을 구성합니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
 
 ### <a name="alert-logic-details"></a>경고 논리 세부 정보
 
@@ -57,20 +57,20 @@ ms.locfileid: "81536814"
 * 20분의 롤링 시간 범위에서 요청/종속성의 실패율을 분석합니다.
 * 최근 20분 동안 실패율을 최근 40분 및 최근 7일 동안과 비교하고 표준 편차의 X배를 초과한 심각한 편차를 찾습니다.
 * 최소 실패율에 대해 앱 요청/종속성의 볼륨에 따라 달라지는 적응형 제한을 사용합니다.
-* 8-24 시간 동안 문제가 더 이상 검색 되지 않는 경우 발생 하는 경고 모니터 조건을 자동으로 해결할 수 있는 논리가 있습니다.
+* 8-24시간 동안 문제가 더 이상 감지되지 않는 경우 발생한 경고 모니터 조건을 자동으로 해결할 수 있는 논리가 있습니다.
 
 ## <a name="configure-alerts"></a>경고 구성
 
-포털에서 또는 Azure Resource Manager를 사용 하 여 스마트 감지 경고 규칙을 사용 하지 않도록 설정할 수 있습니다 ([템플릿 예제 참조](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+포털에서 또는 Azure Resource Manager를 사용하여 스마트 검색 경고 규칙을 사용하지 않도록 설정할 수 있습니다([템플릿 예제 참조](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
 
-이 경고 규칙은 전자 메일 및 웹 후크 작업을 포함 하는 "Application Insights 스마트 검색" 이라는 연결 된 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 을 사용 하 여 생성 되며 경고가 발생 하면 추가 작업을 트리거하기 위해 확장 될 수 있습니다.
+이 경고 규칙은 메일 및 webhook 작업을 포함하고 경고가 발생하면 추가 작업을 트리거하기 위해 확장할 수 있는 "Application Insights 스마트 검색"이라고 하는 연결된 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)을 사용하여 생성됩니다.
 
 > [!NOTE]
-> 이제이 경고 규칙에서 보낸 전자 메일 알림이 구독의 모니터링 판독기 및 모니터링 참가자 역할에 연결 된 사용자에 게 기본적으로 전송 됩니다. 이에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)에서 제공 됩니다.
-> 이 경고 규칙에서 보낸 알림은 [일반적인 경고 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)를 따릅니다.
+> 이 경고 규칙에서 전송된 메일 알림은 이제 기본적으로 구독의 Monitoring Reader 및 Monitoring Contributor 역할과 연결된 사용자에게 전송됩니다. 이에 대한 자세한 정보는 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)에서 확인할 수 있습니다.
+> 이 경고 규칙에서 보낸 알림은 [일반 경고 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)를 따릅니다.
 >
 
-경고 페이지를 엽니다. 실패 이상 경고 규칙은 수동으로 설정 된 경고와 함께 포함 되며 현재 경고 상태 인지 여부를 확인할 수 있습니다.
+경고 페이지를 엽니다. 오류 이상 경고 규칙은 수동으로 설정된 경고와 함께 포함되며 현재 경고 상태인지 여부를 볼 수 있습니다.
 
 [![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
 
@@ -78,9 +78,9 @@ ms.locfileid: "81536814"
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-오류 이상 경고 규칙을 사용 하지 않도록 설정 하거나 삭제할 수 있지만 동일한 Application Insights 리소스에서 다른 경고 규칙을 만들 수는 없습니다.
+오류 이상 경고 규칙을 사용하지 않도록 설정하거나 삭제할 수 있지만 동일한 Application Insights 리소스에서 다른 경고 규칙을 만들 수는 없습니다.
 
-## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>오류 비정상 경고 webhook 페이로드의 예
+## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>오류 이상 경고 webhook 페이로드 예제
 
 ```json
 {
@@ -292,51 +292,51 @@ ms.locfileid: "81536814"
 
 경고는 실패한 요청 속도에서 비정상적인 증가가 감지되었음을 나타냅니다. 앱 또는 해당 환경에 문제가 있을 가능성이 있습니다.
 
-자세히 조사 하려면 ' Application Insights에서 전체 세부 정보 보기 '를 클릭 합니다 .이 페이지의 링크를 클릭 하면 관련 요청, 예외, 종속성 또는 추적으로 필터링 된 [검색 페이지로](../../azure-monitor/app/diagnostic-search.md) 바로 이동 합니다. 
+더 자세히 조사해야 하는 경우 이 페이지에서 'Application Insights의 전체 세부 정보 보기' 링크를 클릭하면 관련 요청, 예외, 종속성 또는 추적으로 필터링된 [검색 페이지](../../azure-monitor/app/diagnostic-search.md)로 바로 이동됩니다. 
 
-[Azure Portal](https://portal.azure.com)열고 앱에 대 한 Application Insights 리소스로 이동 하 여 오류 페이지를 열 수도 있습니다.
+또는 [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스로 이동한 후 오류 페이지를 열 수 있습니다.
 
-' 실패 진단 '을 클릭 하면 자세한 정보를 얻고 문제를 해결 하는 데 도움이 됩니다.
+'진단 오류'를 클릭하면 자세한 정보를 얻고 문제를 해결하는 데 도움을 얻을 수 있습니다.
 
 [![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
 
-영향을 받는 요청의 백분율 및 사용자 수에서 문제가 얼마나 긴급한지 결정할 수 있습니다. 위의 예에서 78.5%의 실패율은 정상 요금 2.2%와 비교 하 여 잘못 된 부분이 있음을 나타냅니다. 반면에 46 사용자 에게만 영향을 줍니다. 앱 인 경우 얼마나 심각한 지 평가할 수 있습니다.
+영향을 받는 요청의 백분율 및 사용자 수에서 문제가 얼마나 긴급한지 결정할 수 있습니다. 위의 예에서 78.5%의 실패율은 일반 비율 2.2%와 비교했을 때 무엇인가 잘못되었음을 나타냅니다. 반면에 46명의 사용자만 영향을 받았습니다. 앱에서 영향을 받은 경우 얼마나 심각한지 평가할 수 있습니다.
 
-대부분의 경우에는 요청 이름, 예외, 종속성 오류 및 제공 된 추적 데이터에서 신속 하 게 문제를 진단할 수 있습니다.
+대부분의 경우 요청 이름, 예외, 종속성 오류 및 제공된 추적 데이터에서 신속하게 문제를 진단할 수 있습니다.
 
-이 예제에서는 요청 제한에 도달 하 여 SQL 데이터베이스에서 예외가 발생 했습니다.
+이 예제에서는 요청 제한에 도달하여 SQL 데이터베이스에서 예외가 발생했습니다.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 
 ## <a name="review-recent-alerts"></a>최근 경고 검토
 
-Application Insights 리소스 페이지에서 **경고** 를 클릭 하 여 가장 최근에 발생 한 경고를 가져옵니다.
+Application Insights 리소스 페이지에서 **경고**를 클릭하여 가장 최근에 발생한 경고를 가져옵니다.
 
 [![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
 
 ## <a name="whats-the-difference-"></a>차이점은 무엇입니까...
 실패에 대한 스마트 검색은 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.
 
-* [메트릭 경고](../../azure-monitor/app/alerts.md) 는 사용자가 설정 하 고 CPU 선점, 요청 속도, 페이지 로드 시간 등과 같은 광범위 한 메트릭을 모니터링할 수 있습니다. 예를 들어 더 많은 리소스를 추가해야 하는 경우 경고하는 데 사용할 수 있습니다. 이와 대조적으로 오류 이상에 대 한 스마트 감지는 웹 앱의 정상적인 동작에 비해 웹 앱의 실패 한 요청 비율이 늘어나면 거의 실시간으로 사용자에 게 알리도록 설계 된 작은 범위 (현재 실패 한 요청 률만)를 포함 합니다. 메트릭 경고와 달리 스마트 검색은 동작의 응답 변경에 대 한 임계값을 자동으로 설정 하 고 업데이트 합니다. 또한 스마트 감지는 진단 작업을 시작 하 여 문제를 해결 하는 시간을 절약 합니다.
+* [메트릭 경고](../../azure-monitor/platform/alerts-log.md) 는 사용자에 의해 설정되며 CPU 점유율, 요청 속도, 페이지 로드 시간 등과 같은 광범위한 메트릭을 모니터링할 수 있습니다. 예를 들어 더 많은 리소스를 추가해야 하는 경우 경고하는 데 사용할 수 있습니다. 반면, 실패에 대한 스마트 감지는 중요한 메트릭의 작은 범위를 다루며(현재 실패한 요청 속도만 해당) 웹앱의 실패한 요청 속도가 웹앱의 일반적인 동작에 비해 증가하면 거의 실시간으로 알리도록 디자인되었습니다. 메트릭 경고와 달리 스마트 검색은 동작의 응답 변경에 대한 임계값을 자동으로 설정하고 업데이트합니다. 또한 스마트 검색은 진단 작업을 시작하여 문제 해결 시간을 절약합니다.
 
-* [성능 이상에 대한 스마트 감지](proactive-performance-diagnostics.md)는 컴퓨터 인텔리전스를 사용하여 메트릭에서 특수한 패턴을 검색하고 사용자에 의한 구성은 필요하지 않습니다. 하지만 실패에 대한 스마트 감지와 달리 성능 이상에 대한 스마트 감지의 목적은 예를 들어 특정 형식의 브라우저에 있는 특정 페이지에서 잘못 제공될 수 있는 사용 현황 다기관의 세그먼트를 찾는 것입니다. 분석은 매일 수행되고 결과가 있으면 경고보다 긴급하지 않을 수 있습니다. 이와 대조적으로 실패 이상에 대 한 분석은 들어오는 응용 프로그램 데이터에서 지속적으로 수행 되 고 서버 실패율이 예상 보다 높은 경우 몇 분 내에 알림이 표시 됩니다.
+* [성능 이상에 대한 스마트 감지](proactive-performance-diagnostics.md)는 컴퓨터 인텔리전스를 사용하여 메트릭에서 특수한 패턴을 검색하고 사용자에 의한 구성은 필요하지 않습니다. 하지만 실패에 대한 스마트 감지와 달리 성능 이상에 대한 스마트 감지의 목적은 예를 들어 특정 형식의 브라우저에 있는 특정 페이지에서 잘못 제공될 수 있는 사용 현황 다기관의 세그먼트를 찾는 것입니다. 분석은 매일 수행되고 결과가 있으면 경고보다 긴급하지 않을 수 있습니다. 이와 반대로 실패에 대한 스마트 감지 분석은 들어오는 애플리케이션 데이터에서 지속적으로 수행되고 서버 실패율이 예상보다 높은 경우 몇 분 내에 알립니다.
 
 ## <a name="if-you-receive-a-smart-detection-alert"></a>스마트 감지 경고를 받은 경우
 *이 경고를 받은 이유는 무엇입니까?*
 
-* 이전 기간의 일반적인 기준선에 비해 실패한 요청 속도가 비정상적으로 증가했음을 감지했습니다. 오류 및 관련 응용 프로그램 데이터를 분석 한 후에는 확인 해야 하는 문제가 있다고 생각 합니다.
+* 이전 기간의 일반적인 기준선에 비해 실패한 요청 속도가 비정상적으로 증가했음을 감지했습니다. 오류 및 관련 애플리케이션 데이터를 분석한 후 살펴보아야 하는 문제가 있다는 것을 알게 됩니다.
 
 *알림은 분명히 문제가 있음을 의미합니까?*
 
 * 앱 또는 사용자에 대한 의미 체계와 영향을 완전히 이해할 수 있는데도 앱 중단 또는 성능 저하에 대한 경고를 시도합니다.
 
-*응용 프로그램 데이터를 살펴보겠습니다.*
+*애플리케이션 데이터를 살펴보고 있나요?*
 
 * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 
 *이 경고를 구독해야 하나요?*
 
-* 아니요. 요청 데이터를 보내는 모든 응용 프로그램에는 스마트 검색 경고 규칙이 있습니다.
+* 아니요. 요청 데이터를 보내는 모든 애플리케이션에 스마트 검색 경고 규칙이 있습니다.
 
 *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
 
@@ -348,16 +348,16 @@ Application Insights 리소스 페이지에서 **경고** 를 클릭 하 여 가
 
 *경고의 일부가 알려진 문제이고 수신하고 싶지 않습니다.*
 
-* [경고 동작 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) 억제 기능을 사용할 수 있습니다.
+* [경고 작업 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) 비표시 기능을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이러한 진단 도구는 앱에서 데이터를 검사 하는 데 도움이 됩니다.
+이러한 진단 도구를 사용하면 앱에서 데이터를 검사할 수 있습니다.
 
 * [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)
 * [검색 탐색기](../../azure-monitor/app/diagnostic-search.md)
 * [분석 - 강력한 쿼리 언어](../../azure-monitor/log-query/get-started-portal.md)
 
-스마트 감지는 자동입니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
+스마트 검색은 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../../azure-monitor/app/alerts.md)
+* [수동으로 구성된 메트릭 경고](../../azure-monitor/platform/alerts-log.md)
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)
