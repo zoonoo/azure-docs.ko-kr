@@ -1,14 +1,14 @@
 ---
 title: LUIS 포털에서 앱 테스트
 description: Language Understanding(LUIS)을 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344155"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677742"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 
@@ -65,9 +65,25 @@ ms.locfileid: "84344155"
 
 ## <a name="disable-required-features"></a>필수 기능 사용 안 함
 
-엔터티의 기능이 필요 하지 않은 경우이 옵션을 선택 하 여 예측 결과를 확인 합니다.
+이 토글은 학습 된 앱이 필요한 기능을 기준으로 엔터티를 올바르게 예측 하는지 여부를 확인 하는 데 도움이 됩니다. 기본 설정은 예측 중에 필요에 따라 기능을 적용 하는 것입니다. 하위 엔터티의 기능이 필요 하지 않은 경우이 설정/해제를 선택 하 여 예측을 확인할 수 있습니다.
 
-이 토글은 학습 된 앱이 필요한 기능을 기준으로 엔터티를 올바르게 예측 하는지 여부를 확인 하는 데 도움이 됩니다. 학습 된 앱은 길이 발언 예의 잘못 된 레이블 지정을 기반으로 하는 컴퓨터의 학습 된 엔터티를 예측 실패 수 있습니다. 또는 필요한 기능이 텍스트와 일치 하지 않습니다.
+### <a name="when-to-disable-required-features"></a>필요한 기능을 사용 하지 않도록 설정 하는 경우
+
+학습 된 앱은 다음 중 하나에 따라 컴퓨터에서 학습 한 엔터티를 예측 실패 수 있습니다.
+* 예 길이 발언의 레이블 지정이 잘못 되었습니다.
+* 필요한 기능이 텍스트와 일치 하지 않습니다.
+
+예를 들어 사용자 이름의 하위 엔터티를 사용 하 여 컴퓨터에서 학습 한 엔터티를 예로 들 수 있습니다.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="LUIS 포털 컴퓨터의 스크린샷-필요한 기능을 사용 하 여 학습 한 엔터티 스키마":::
+
+이 기계 학습 엔터티에 대 한 예제 utterance은입니다. `Assign Bob Jones to work on the new security feature`
+
+추출은 엔터티에 대 `security feature` 한 두 개의 하위 엔터티로 서 티켓 설명 및 엔지니어로 지정 해야 합니다 `Bob Jones` `Assign ticket` .
+
+하위 엔터티가 성공적으로 예측 하도록 지원 하려면 미리 작성 된 엔터티 [PersonName](luis-reference-prebuilt-person.md) aa a 기능을 하위 엔터티에 추가 합니다 `engineer` . 이 기능을 필요한 경우에는 PersonName 미리 작성 된 엔터티가 텍스트에 대해 예측 되는 경우에만 하위 엔터티가 추출 됩니다. 즉, PersonName subentity를 사용 하 여 예측 하지 않는 텍스트의 모든 이름이 레이블이 지정 된 subentity로 반환 되지 않습니다 `engineer` .
+
+대화형 테스트 창을 사용 하는 경우 필수 기능이 포함 된 하위 엔터티가 예측 되지 않으면이 설정을 전환 하 여 필요한 기능 없이 하위 엔터티가 예측 되는지 확인 합니다. 예 길이 발언의 올바른 레이블 지정으로 인해 필요한 기능 없이 하위 엔터티를 올바르게 예측할 수 있습니다.
 
 ## <a name="view-sentiment-results"></a>감정 결과 보기
 

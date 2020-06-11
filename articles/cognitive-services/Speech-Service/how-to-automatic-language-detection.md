@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a9fac89f529cfefbb8a8d82135838bb96e2689db
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658456"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669820"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
@@ -29,7 +29,7 @@ ms.locfileid: "83658456"
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 자동 언어 검색
 
-자동 언어 검색에는 현재 검색 당 두 가지 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AudoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
+자동 언어 검색에는 현재 검색 당 4 개 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AudoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
 
 > [!TIP]
 > 음성 텍스트를 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조 하세요.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650592"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678072"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
 
@@ -25,7 +25,7 @@ ms.locfileid: "83650592"
 
 음성 텍스트 서비스는 기본적으로 유니버설 언어 모델을 사용 합니다. 이 모델은 Microsoft 소유의 데이터를 사용 하 여 학습 되었으며 클라우드에 배포 됩니다. 이는 대화형 및 받아쓰기 시나리오에 적합 합니다. 고유 환경에서 인식 및 기록을 위해 음성 텍스트를 사용 하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습할 수 있습니다. 사용자 지정은 주변 소음 또는 산업별 어휘를 해결 하는 데 유용 합니다.
 
-추가 참조 텍스트를 입력으로 사용 하는 경우 음성 텍스트 서비스를 사용 하 여 음성 발음을 평가 하 고 음성 오디오의 정확성과 능숙에 대 한 발표자 피드백 [을 제공할 수도](rest-speech-to-text.md#pronunciation-assessment-parameters) 있습니다. 발음 평가를 통해 언어 학습자는 사용자의 의견을 얻고 자신 있게 의견을 주고 받을 수 있도록 음성을 향상할 수 있습니다. 교육자는이 기능을 사용 하 여 여러 스피커의 발음을 실시간으로 평가할 수 있습니다. 이 기능은 현재 미국 영어를 지원 하 고 전문가 들이 수행한 음성 평가와의 상관 관계를 매우 합니다.
+추가 참조 텍스트를 입력으로 사용 하는 경우 음성 텍스트 서비스를 사용 하 여 음성 발음을 평가 하 고 음성 오디오의 정확성과 능숙에 대 한 발표자 피드백 [을 제공할 수도](rest-speech-to-text.md#pronunciation-assessment-parameters) 있습니다. 발음 평가를 통해 언어 학습자는 사용자의 의견을 얻고 자신 있게 의견을 주고 받을 수 있도록 음성을 향상할 수 있습니다. 교육자는이 기능을 사용 하 여 여러 스피커의 발음을 실시간으로 평가할 수 있습니다. 이 기능은 현재 미국 영어를 지원 하며 전문가 들이 수행한 음성 평가와의 상관 관계를 동일 하 게 합니다.
 
 > [!NOTE]
 > Bing Speech는 2019 년 10 월 15 일에 서비스 해제 되었습니다. 응용 프로그램, 도구 또는 제품이 Bing Speech Api를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.

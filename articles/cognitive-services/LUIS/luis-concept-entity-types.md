@@ -2,13 +2,13 @@
 title: 엔터티 형식-LUIS
 description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682179"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676491"
 ---
 # <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
@@ -41,7 +41,9 @@ ms.locfileid: "83682179"
 
 응용 프로그램이 개발 되 고 데이터에 대 한 새로운 요구 사항이 확인 되 면 나중에 LUIS 모델에 적절 한 엔터티를 추가할 수 있습니다.
 
-## <a name="entity-compared-to-intent"></a>엔터티 및 의도 비교
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>엔터티는 데이터 추출을 나타냅니다.
 
 엔터티는 _utterance 내의_데이터 개념을 나타냅니다. 의도는 _전체 utterance_을 분류 합니다.
 
@@ -53,6 +55,10 @@ ms.locfileid: "83682179"
 |항목 보내기|sendSomething|-|추출할 항목이 없습니다. 모델에는이 컨텍스트에서 추출 하는 데 필요한 기능이 없으며 `something` 받는 사람이 언급 되지 않습니다.|
 |Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 기계 학습 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
 |Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 개의 중요 한 데이터 `Bob` 및는 `box of chocolates` 기계 학습 엔터티에 의해 추출 됩니다.|
+
+## <a name="label-entities-in-all-intents"></a>모든 의도에서 엔터티 레이블
+
+엔터티는 예측 의도에 관계 없이 데이터를 추출 합니다. _모든 예제 길이 발언_ 의 레이블을 지정 해야 합니다. `None`의도 하지 않은 엔터티 레이블 지정은 다른 의도에 대해 훨씬 더 많은 교육 길이 발언 있는 경우에도 혼동을 일으킵니다.
 
 ## <a name="design-entities-for-decomposition"></a>분해를 위한 엔터티 디자인
 

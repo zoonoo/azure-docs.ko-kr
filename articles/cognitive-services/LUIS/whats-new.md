@@ -3,18 +3,24 @@ title: 새로운 기능-Language Understanding (LUIS)
 description: 이 문서는 Azure Cognitive Services Language Understanding API 대 한 뉴스로 정기적으로 업데이트 됩니다.
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675947"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678752"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지 하려면이 페이지에 책갈피를 설정 합니다.
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="june-2020"></a>2020년 6월
+
+* [Preview 3.0 제작](luis-migration-authoring-entities.md) SDK
+    * 버전 3.2.0-preview. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * 버전 4.0.0- [NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 
 ### <a name="may-2020---build"></a>2020 년 5 월 ~ 빌드
 
