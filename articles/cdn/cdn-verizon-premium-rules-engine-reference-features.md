@@ -1,184 +1,43 @@
 ---
-title: Verizon 프리미엄 규칙 엔진 기능에서 Azure CDN | Microsoft Docs
-description: Verizon 프리미엄 규칙 엔진 기능 Azure CDN에 대 한 참조 설명서입니다.
+title: Verizon Premium의 Azure CDN 규칙 엔진 기능 | Microsoft Docs
+description: Verizon Premium의 Azure CDN 규칙 엔진 기능에 대한 참조 설명서입니다.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d2d4090934a940809fe75ad70e0650eb1c9353f1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253495"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872724"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon 프리미엄 규칙 엔진 기능에서 Azure CDN
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능
 
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-verizon-premium-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
 
 규칙의 세 번째 부분은 기능을 다루고 있습니다. 기능은 일치 조건 집합으로 식별되는 요청 유형에 적용할 작업 유형을 정의합니다.
 
-## <a name="access-features"></a>액세스 기능
 
-이러한 기능은 콘텐츠에 대한 액세스를 제어하도록 설계되었습니다.
-
-속성 | 목적
------|--------
-[액세스 거부(403)](#deny-access-403) | 모든 요청이 403 사용 권한 없음 응답으로 거부되는지 여부를 결정합니다.
-[토큰 인증](#token-auth) | 요청에 토큰 기반 인증을 적용할지 여부를 결정합니다.
-[토큰 인증 거부 코드](#token-auth-denial-code) | 토큰 기반 인증에 따라 요청이 거부되는 경우 사용자에게 반환할 응답 유형을 결정합니다.
-[토큰 인증 URL 대/소문자 무시](#token-auth-ignore-url-case) | 토큰 기반 인증에서 URL 비교 시 대/소문자를 구분할지 결정합니다.
-[토큰 인증 매개 변수](#token-auth-parameter) | 토큰 기반 인증 쿼리 문자열 매개 변수 이름을 바꿔야 하는지 여부를 결정합니다.
-
-## <a name="caching-features"></a>캐싱 기능
-
-이러한 기능은 콘텐츠가 캐시되는 시기와 방식을 사용자 지정하기 위해 설계되었습니다.
-
-속성 | 목적
------|--------
-[대역폭 매개 변수](#bandwidth-parameters) | 대역폭 제한 매개 변수(예: ec_rate 및 ec_prebuf)를 활성화할지 여부를 결정합니다.
-[대역폭 제한](#bandwidth-throttling) | POP(상호 접속 위치)에서 제공하는 응답에 대한 대역폭을 제한합니다.
-[바이패스 캐시](#bypass-cache) | 요청이 캐싱을 무시할지 여부를 결정합니다.
-[Cache-Control 헤더 처리](#cache-control-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 POP에 의한 `Cache-Control` 헤더의 생성을 제어합니다.
-[Cache-Key 쿼리 문자열](#cache-key-query-string) | cache-key에서 요청과 관련된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지 여부를 결정합니다.
-[Cache-Key 다시 쓰기](#cache-key-rewrite) | 요청과 관련된 cache-key를 다시 씁니다.
-[전체 캐시 채우기](#complete-cache-fill) | 요청 결과, POP에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다.
-[압축 파일 형식](#compress-file-types) | 서버에서 압축할 파일 형식을 정의합니다.
-[기본 내부 Max-Age](#default-internal-max-age) | POP에서 원본 서버 캐시 유효성 재검사를 위한 기본 max-age 간격을 결정합니다.
-[만료 헤더 처리](#expires-header-treatment) | 외부 Max-Age 기능이 활성 상태일 때 POP에 의한 `Expires` 헤더의 생성을 제어합니다.
-[외부 Max-Age](#external-max-age) | 브라우저에서 POP 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
-[강제 내부 Max-Age](#force-internal-max-age) | POP에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다.
-[H.264 지원(HTTP 점진적 다운로드)](#h264-support-http-progressive-download) | 콘텐츠를 스트리밍하는 데 사용할 수 있는 H.264 파일 형식의 유형을 결정합니다.
-[캐시 없음 요청 적용](#honor-no-cache-request) | HTTP 클라이언트의 no-cache 요청을 원본 서버에 전달할지 여부를 결정합니다.
-[원본 No-Cache 무시](#ignore-origin-no-cache) | CDN이 원본 서버에서 제공되는 특정 지시문을 무시할지 여부를 결정합니다.
-[적절하지 않은 범위 무시](#ignore-unsatisfiable-ranges) | 요청에서 416 요청한 범위가 적절하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다.
-[내부 Max-Stale](#internal-max-stale) | POP가 원본 서버로 캐시된 자산의 유효성 재검사를 할 수 없는 경우 POP에서 캐시된 자산이 정상 만료 시간을 지나 얼마나 오래 제공될 수 있는지를 제어합니다.
-[부분 캐시 공유](#partial-cache-sharing) | 요청에서 부분적으로 캐시된 콘텐츠를 생성할 수 있는지 여부를 결정합니다.
-[캐시된 콘텐츠 사전 유효성 검사](#prevalidate-cached-content) | TTL이 만료되기 전에 캐시된 콘텐츠 유효성 재검사를 미리 수행할 수 있는지 여부를 결정합니다.
-[0바이트 캐시 파일 새로 고침](#refresh-zero-byte-cache-files) | 0바이트 캐시 자산에 대한 HTTP 클라이언트 요청이 POP에 의해 처리되는 방식을 결정합니다.
-[캐시 가능한 상태 코드 집합](#set-cacheable-status-codes) | 캐시된 콘텐츠가 발생할 수 있는 상태 코드 집합을 정의합니다.
-[오류 시 오래된 콘텐츠 배달](#stale-content-delivery-on-error) | 캐시 유효성 재검사 중에 오류가 발생하거나 고객 원본 서버에서 요청된 콘텐츠를 검색할 때 만료되고 캐시된 콘텐츠를 배달할지 여부를 결정합니다.
-[유효성 재검사 중 기한 경과](#stale-while-revalidate) | 유효성 재검사를 수행하는 동안 POP가 오래된 클라이언트를 요청자에게 제공하도록 하여 성능을 개선합니다.
-
-## <a name="comment-feature"></a>주석 기능
-
-이 기능은 규칙 내에 추가 정보를 제공하도록 설계되었습니다.
-
-속성 | 목적
------|--------
-[설명](#comment) | 규칙 내에 메모를 추가하도록 허용합니다.
-
-## <a name="header-features"></a>헤더 기능
-
-이러한 기능은 요청자 또는 응답에서 헤더를 추가, 수정 또는 삭제하도록 설계되었습니다.
-
-속성 | 목적
------|--------
-[Age 응답 헤더](#age-response-header) | 요청자에게 보내는 응답에 Age 응답 헤더를 포함할지 여부를 결정합니다.
-[디버그 캐시 응답 헤더](#debug-cache-response-headers) | 응답에 요청된 자산에 대한 캐시 정책 정보를 제공하는 X-EC-Debug 응답 헤더를 포함할 수 있는지 여부를 결정합니다.
-[클라이언트 요청 헤더 수정](#modify-client-request-header) | 요청에서 헤더를 덮어쓰기, 추가 또는 삭제합니다.
-[클라이언트 응답 헤더 수정](#modify-client-response-header) | 응답에서 헤더를 덮어쓰기, 추가 또는 삭제합니다.
-[클라이언트 IP 사용자 지정 헤더 설정](#set-client-ip-custom-header) | 클라이언트를 요청하는 IP 주소가 사용자 지정 요청 헤더로 요청에 추가되도록 합니다.
-
-## <a name="logging-features"></a>로깅 기능
-
-이러한 기능은 원시 로그 파일에 저장된 데이터를 사용자 지정하도록 설계되었습니다.
-
-속성 | 목적
------|--------
-[사용자 지정 로그 필드 1](#custom-log-field-1) | 원시 로그 파일의 사용자 지정 로그 필드에 할당할 콘텐츠와 형식을 결정합니다.
-[로그 쿼리 문자열](#log-query-string) | 액세스 로그에 쿼리 문자열을 URL과 함께 저장할지 여부를 결정합니다.
+가장 최근 기능에 대해서는 [Verizon 규칙 엔진 설명서](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions)를 참조하세요.
 
 
-<!---
-## Optimize
-
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
-
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-### Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
-
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
-
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
-
-**Default Behavior:** Disabled
-
-
-### Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Key information:
-
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
-
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
-
-**Default Behavior:** Site configurations are inactive by default.
---->
-
-## <a name="origin-features"></a>원본 기능
-
-이러한 기능은 CDN이 원본 서버와 통신하는 방법을 제어하도록 설계되었습니다.
-
-속성 | 목적
------|--------
-[최대 연결 유지 요청](#maximum-keep-alive-requests) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다.
-[프록시 특별 헤더](#proxy-special-headers) | POP에서 원본 서버로 전달할 CDN 특정 요청 헤더의 집합을 정의합니다.
-
-## <a name="specialty-features"></a>전문 기능
-
-이러한 기능은 고급 사용자용 고급 기능을 제공합니다.
-
-속성 | 목적
------|--------
-[캐시 가능한 HTTP 메서드](#cacheable-http-methods) | 네트워크에서 캐시할 수 있는 추가 HTTP 메서드 집합을 결정합니다.
-[캐시 가능한 요청 본문 크기](#cacheable-request-body-size) | POST 응답을 캐시할 수 있는지 여부를 결정하는 임계값을 정의합니다.
-[사용자 변수](#user-variable) | 내부 전용입니다.
-
-## <a name="url-features"></a>URL 기능
-
-이러한 기능을 통해 요청을 다른 URL로 리디렉션하거나 다시 작성할 수 있습니다.
-
-속성 | 목적
------|--------
-[리디렉션 추적](#follow-redirects) | 고객 원본 서버에서 반환된 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다.
-[URL 리디렉션](#url-redirect) | Location 헤더를 통해 요청을 리디렉션합니다.
-[URL 다시 쓰기](#url-rewrite)  | 요청 URL을 다시 씁니다.
-
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Verizon 프리미엄 규칙 엔진 기능 참조 Azure CDN
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능 참조
 
 ---
 
 ### <a name="age-response-header"></a>Age 응답 헤더
 
-**목적:** 요청자에게 보내는 응답에 Age 응답 헤더를 포함할지 여부를 결정합니다.
+**목적**: 요청자에게 보내는 응답에 Age 응답 헤더를 포함할지 여부를 결정합니다.
 
 값|결과
 --|--
 사용 | 요청자에게 보내는 응답에 Age 응답 헤더를 포함합니다.
 사용 안 함 | 요청자에게 보내는 응답에서 Age 응답 헤더를 제외합니다.
 
-**기본 동작**: 사용 안 함
+**기본 동작**: 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -197,7 +56,7 @@ If the desired site does not appear in the list, then you should edit its config
 사용|POP에서 대역폭 제한 요청을 따르도록 허용합니다.
 사용 안 함|POP에서 대역폭 제한 매개 변수를 무시하도록 합니다. 요청된 콘텐츠는 대역폭 제한 없이 정상적으로 처리됩니다.
 
-**기본 동작**: 사용
+**기본 동작:** 사용 여부
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -216,7 +75,7 @@ If the desired site does not appear in the list, then you should edit its config
 초당 킬로바이트|이 옵션을 응답을 전달하는 데 사용할 수 있는 최대 대역폭(Kbps)으로 설정합니다.
 Prebuf 초|이 옵션을 대역폭이 제한될 때까지 POP가 대기하는 시간(초)으로 설정합니다. 대역폭 제한이 없는 이 기간은 미디어 플레이어에서 대역폭 제한에 따른 스터터링 또는 버퍼링 문제가 발생하지 않도록 하기 위한 것입니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -280,7 +139,7 @@ Prebuf 초|이 옵션을 대역폭이 제한될 때까지 POP가 대기하는 �
     - 고유한 cache-key 보장
 - 최대 요청 본문 크기를 크게 정의하면 데이터 전달 성능에 영향을 줄 수 있습니다.
     - **권장되는 값:** 14Kb
-    - **최소값:** 1Kb
+    - **최솟값:** 1Kb
 
 **기본 동작:** 14Kb
 
@@ -303,7 +162,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/> - 원본 �
 없는 경우 추가|`Cache-Control` 헤더를 원본 서버로부터 수신하지 않은 경우 이 옵션은 외부 Max-Age 기능으로 생성한 `Cache-Control` 헤더를 추가합니다. 이 옵션은 모든 자산에 `Cache-Control` 헤더를 할당하도록 하는 데 유용합니다.
 제거| 이 옵션은 헤더 응답에 `Cache-Control` 헤더를 포함하지 않도록 합니다. `Cache-Control` 헤더가 이미 할당된 경우 헤더 응답에서 제거합니다.
 
-**기본 동작:** 언제.
+**기본 동작:** 덮어쓰기
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -320,7 +179,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/> - 원본 �
 - 하나 이상의 쿼리 문자열 매개 변수 이름을 지정하고, 각 매개 변수 이름은 단일 공백으로 구분합니다.
 - 이 기능은 cache-key에서 쿼리 문자열 매개 변수를 포함할지 또는 제외할지 여부를 결정합니다. 다음 표에 각 옵션에 대한 추가 정보가 제공됩니다.
 
-Type|설명
+Type|Description
 --|--
  포함|  지정된 매개 변수마다 cache-key에 포함되어야 함을 나타냅니다. 이 기능에 정의된 쿼리 문자열 매개 변수의 고유한 값을 포함하는 요청마다 고유한 cache-key가 생성됩니다.
  모두 포함  |고유한 쿼리 문자열을 포함하는 자산에 대한 요청마다 고유한 cache-key가 생성됨을 나타냅니다. 이러한 유형의 구성은 일반적으로 캐시 적중률이 낮을 수 있으므로 권장되지 않습니다. 캐시 적중 수가 적으면 원래 서버가 더 많은 요청을 처리해야 하기 때문에 로드가 증가합니다. 이 구성은 Query-String Caching 페이지에서 "unique-cache"로 알려진 캐싱 동작을 복제합니다.
@@ -338,14 +197,14 @@ Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작�
 
 이 기능에 대한 다음 샘플 사용은 샘플 요청 및 기본 캐시 키를 제공합니다.
 
-- **샘플 요청:** http://wpc.0001.&lt;D o&gt;/800001/Origin/folder/asset.htm? sessionid = 1234&language = EN&userid = 01
+- **샘플 요청:** http://wpc.0001.&lt;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **기본 cache-key:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>포함
 
 샘플 구성:
 
-- **형식:** 포함
+- **유형:** 포함
 - **매개 변수:** language
 
 이러한 유형의 구성은 다음과 같은 cache-key 쿼리 문자열 매개 변수를 생성합니다.
@@ -356,7 +215,7 @@ Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작�
 
 샘플 구성:
 
-- **형식:** 모두 포함
+- **유형:** 모두 포함
 
 이러한 유형의 구성은 다음과 같은 cache-key 쿼리 문자열 매개 변수를 생성합니다.
 
@@ -366,7 +225,7 @@ Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작�
 
 샘플 구성:
 
-- **형식:** 제외
+- **유형:** 제외
 - **매개 변수:** sessioned userid
 
 이러한 유형의 구성은 다음과 같은 cache-key 쿼리 문자열 매개 변수를 생성합니다.
@@ -377,7 +236,7 @@ Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작�
 
 샘플 구성:
 
-- **형식:** 모두 제외
+- **유형:** 모두 제외
 
 이러한 유형의 구성은 다음과 같은 cache-key 쿼리 문자열 매개 변수를 생성합니다.
 
@@ -400,7 +259,7 @@ cache-key는 캐싱을 위해 자산을 식별하는 상대 경로입니다. 즉
 옵션|Description
 --|--
 원래 경로| cache-key를 다시 쓰는 요청의 형식에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다.
-새 경로|새 cache-key에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다. 이 상대 경로는 [HTTP 변수](cdn-http-variables.md)를 사용 하 여 동적으로 생성 될 수 있습니다.
+새 경로|새 cache-key에 대한 상대 경로를 정의합니다. 상대 경로는 기본 경로를 선택한 다음 정규식 패턴을 정의함으로써 정의할 수 있습니다. 이 상대 경로는 [HTTP 변수](cdn-http-variables.md)를 사용하여 동적으로 생성할 수 있습니다.
 
 **기본 동작:** 요청의 cache-key는 요청 URI에 의해 결정됩니다.
 
@@ -412,7 +271,7 @@ cache-key는 캐싱을 위해 자산을 식별하는 상대 경로입니다. 즉
 
 ### <a name="comment"></a>주석
 
-**목적:** 규칙 내에 주석을 추가할 수 있도록 합니다.
+**목적:** 규칙 내에 메모를 추가하도록 허용합니다.
 
 이 기능의 한 가지 용도는 규칙의 일반 목적 또는 특정 일치 조건이나 기능을 규칙에 추가한 이유에 대한 추가 정보를 제공하는 것입니다.
 
@@ -446,7 +305,7 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 사용|기본 동작을 복원합니다. 기본 동작은 POP에서 원본 서버에 있는 자산의 백그라운드 페치를 시작하도록 하는 것입니다. 그런 다음 자산이 POP의 로컬 캐시에 저장됩니다.
 사용 안 함|POP에서 자산에 대한 백그라운드 페치를 수행하지 못하도록 합니다. 그 결과 해당 지역의 해당 자산에 대한 다음 요청으로 인해 POP에서 고객 원본 서버의 해당 자산을 요청하게 됩니다.
 
-**기본 동작**: 사용
+**기본 동작:** 사용 여부
 
 #### <a name="compatibility"></a>호환성
 
@@ -463,7 +322,7 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 - 요청 헤더 리터럴
 - 요청 헤더 Regex
 - 요청 헤더 와일드카드
-- Request 메서드
+- 요청 메서드
 - 요청 스키마
 - URL 쿼리 리터럴
 - URL 쿼리 Regex
@@ -487,8 +346,8 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 텍스트/일반|일반 텍스트 파일
 텍스트/html| HTML 파일
 텍스트/css|CSS(스타일시트)
-application/x-javascript|Javascript
-application/javascript|Javascript
+application/x-javascript|JavaScript
+application/javascript|JavaScript
 
 주요 정보:
 
@@ -506,7 +365,7 @@ application/javascript|Javascript
 
 ### <a name="custom-log-field-1"></a>사용자 지정 로그 필드 1
 
-**목적:** 원시 로그 파일의 사용자 지정 로그 필드에 할당할 형식과 콘텐츠를 결정합니다.
+**목적:** 원시 로그 파일의 사용자 지정 로그 필드에 할당할 콘텐츠와 형식을 결정합니다.
 
 이 사용자 지정 필드를 사용하면 로그 파일에 저장할 요청 및 응답 헤더 값을 결정할 수 있습니다.
 
@@ -516,7 +375,7 @@ application/javascript|Javascript
 
 헤더 형식|형식|예
 -|-|-
-요청 헤더|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {참조 페이지} i <br/> %{Authorization}i
+요청 헤더|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
 응답 헤더|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 주요 정보:
@@ -527,7 +386,7 @@ application/javascript|Javascript
 - 헤더를 여러 개 지정하려면 구분 기호를 사용하여 각 헤더를 나타냅니다. 예를 들어 각 헤더에 약어를 사용할 수 있습니다.
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o
 
-**기본값:** -
+**기본값:**  -
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -547,7 +406,7 @@ application/javascript|Javascript
 
 `X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
-**예제:**
+**예:**
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
@@ -556,7 +415,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 사용|디버그 캐시 응답 헤더에 대한 요청에서 X-EC-Debug 헤더를 포함한 응답을 반환합니다.
 사용 안 함|X-EC-Debug 응답 헤더가 응답에서 제외됩니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -579,7 +438,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 - 시간 단위를 “끄기”로 설정하면 `Cache-Control` 또는 `Expires` 헤더에 max-age 표시를 할당하지 않은 요청에 대해 기본 내부 max-age 간격을 7일로 할당합니다.
 
-**기본값:** 7일
+**기본값:** 7 일
 
 #### <a name="compatibility"></a>호환성
 
@@ -595,7 +454,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 요청 헤더 리터럴
 - 요청 헤더 Regex
 - 요청 헤더 와일드카드
-- Request 메서드
+- 요청 메서드
 - 요청 스키마
 - URL 쿼리 리터럴
 - URL 쿼리 Regex
@@ -610,7 +469,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ### <a name="deny-access-403"></a>액세스 거부(403)
 
-**목적**: 모든 요청이 403 사용할 수 없음 응답으로 거부되는지 여부를 결정합니다.
+**목적**: 모든 요청이 403 사용 권한 없음 응답으로 거부되는지 여부를 결정합니다.
 
 값 | 결과
 ------|-------
@@ -630,7 +489,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 ### <a name="expires-header-treatment"></a>만료 헤더 처리
 
-**목적:** 외부 Max-Age 기능이 활성 상태일 때 POP의 `Expires` 헤더 생성을 제어합니다.
+**목적:** 외부 Max-Age 기능이 활성 상태일 때 POP에 의한 `Expires` 헤더의 생성을 제어합니다.
 
 이 유형의 구성을 획득하는 가장 쉬운 방법은 동일한 문에 외부 Max-Age와 Expires 헤더 처리 기능을 배치하는 것입니다.
 
@@ -641,7 +500,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 없는 경우 추가| `Expires` 헤더를 원본 서버로부터 수신하지 않은 경우 이 옵션은 외부 Max-Age 기능으로 생성한 `Expires` 헤더를 추가합니다. 이 옵션은 모든 자산에 `Expires` 헤더를 할당하도록 하는 데 유용합니다.
 제거| 헤더 응답에 `Expires` 헤더를 포함하지 않도록 합니다. `Expires` 헤더가 이미 할당된 경우 헤더 응답에서 제거합니다.
 
-**기본 동작:** 덮어쓰기
+**기본 동작:** Overwrite
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -662,7 +521,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 - 이 기능을 음수 값으로 설정하면 POP에서 브라우저에 대한 각 응답과 함께 과거에 설정된 `Cache-Control: no-cache` 및 `Expires` 시간을 보냅니다. HTTP 클라이언트에서 응답을 캐시하지 않지만 이 설정은 원본 서버에서 응답을 캐시하는 POP의 기능에 영향을 주지 않습니다.
 - 시간 단위를 "끄기"로 설정하면 이 기능을 비활성화합니다. 원본 서버의 응답으로 캐시된 `Cache-Control` 및 `Expires` 헤더는 브라우저로 전달합니다.
 
-**기본 동작:** 끄기
+**기본 동작:** 꺼짐
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -672,7 +531,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 
 ### <a name="follow-redirects"></a>리디렉션 추적
 
-**목적:** 고객 원본 서버에서 반환한 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다.
+**목적:** 고객 원본 서버에서 반환된 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다.
 
 주요 정보:
 
@@ -683,7 +542,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 사용|요청을 리디렉션할 수 있습니다.
 사용 안 함|요청을 리디렉션하지 않습니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -706,7 +565,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 
 - 시간 단위를 "끄기"로 설정하면 이 기능을 비활성화합니다. 내부 max-age 간격은 요청된 자산에 할당되지 않습니다. 원래 헤더에 캐싱 지침이 없으면 기본 내부 Max-Age 기능의 활성 설정에 따라 자산이 캐시됩니다.
 
-**기본 동작:** 끄기
+**기본 동작:** 꺼짐
 
 #### <a name="compatibility"></a>호환성
 
@@ -722,7 +581,7 @@ Overwrite|다음과 같은 작업이 수행되도록 합니다.<br/>- 원본 서
 - 요청 헤더 리터럴
 - 요청 헤더 Regex
 - 요청 헤더 와일드카드
-- Request 메서드
+- 요청 메서드
 - 요청 스키마
 - URL 쿼리 리터럴
 - URL 쿼리 Regex
@@ -767,7 +626,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 이 기능에 따라 원본 서버로 전달할 수 있는 요청에 대해 보고되는 캐시 상태는 `TCP_Client_Refresh_Miss`입니다. 코어 보고 모듈에서 사용할 수 있는 캐시 상태 보고서는 캐시 상태별 통계 정보를 제공합니다. 이 보고서를 사용하면 이 기능에 따라 원본 서버로 전달되는 요청의 수와 백분율을 추적할 수 있습니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -787,7 +646,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 주요 정보:
 
 - 위의 지시문을 무시할 상태 코드의 공백으로 구분된 목록을 정의하여 이 기능을 구성합니다.
-- 이 기능에 대한 유효한 상태 코드 집합은 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 및 505입니다.
+- 이 기능에 대한 유효한 상태 코드 세트는 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, 505입니다.
 - 이 기능을 빈 값으로 설정하면 비활성화합니다.
 
 **기본 동작:** 위의 지시문을 허용하는 것입니다.
@@ -806,7 +665,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 요청 헤더 리터럴
 - 요청 헤더 Regex
 - 요청 헤더 와일드카드
-- Request 메서드
+- 요청 메서드
 - 요청 스키마
 - URL 쿼리 리터럴
 - URL 쿼리 Regex
@@ -821,7 +680,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ### <a name="ignore-unsatisfiable-ranges"></a>적절하지 않은 범위 무시
 
-**목적:** 요청에서 416 요청한 범위가 충분하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다.
+**목적:** 요청에서 416 요청한 범위가 적절하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다.
 
 기본적으로 POP에서 지정된 바이트 범위 요청을 충족할 수 없고 If-Range 요청 헤더 필드를 지정하지 않은 경우에 이 상태 코드를 반환합니다.
 
@@ -830,7 +689,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 사용|POP에서 416 요청한 범위가 충분하지 않음 상태 코드의 잘못된 바이트 범위 요청에 응답하지 못하도록 합니다. 대신 서버에서 요청된 자산을 제공하고 클라이언트에 200 확인을 반환합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 416 요청한 범위가 충분하지 않음 상태 코드를 허용하는 것입니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -874,7 +733,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 요청 헤더 리터럴
 - 요청 헤더 Regex
 - 요청 헤더 와일드카드
-- Request 메서드
+- 요청 메서드
 - 요청 스키마
 - URL 쿼리 리터럴
 - URL 쿼리 Regex
@@ -896,7 +755,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 사용|액세스 로그에 URL을 기록할 때 쿼리 문자열을 스토리지할 수 있습니다. URL에 쿼리 문자열이 없으면 이 옵션이 적용되지 않습니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 액세스 로그에 URL을 기록할 때 쿼리 문자열을 무시하는 것입니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -906,7 +765,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ### <a name="maximum-keep-alive-requests"></a>최대 연결 유지 요청
 
-**목적:** 연결을 종료하기 전까지 유지할 최대 요청 수를 정의합니다.
+**목적:** 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다.
 
 최대 요청 수를 낮은 값으로 설정하는 것은 권장되지 않으며 성능이 저하될 수 있습니다.
 
@@ -925,7 +784,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 ### <a name="modify-client-request-header"></a>클라이언트 요청 헤더 수정
 
-**목적:** 각 요청에는 이를 설명하는 요청 헤더 집합이 있습니다. 이 기능은 다음 중 하나를 수행할 수 있습니다.
+**목적:** 각 요청에는 이를 설명하는 요청 헤더 세트가 있습니다. 이 기능은 다음 중 하나를 수행할 수 있습니다.
 
 - 요청 헤더에 할당된 값을 추가하거나 덮어씁니다. 지정된 요청 헤더가 없는 경우 이 기능은 요청에 해당 헤더를 추가합니다.
 - 요청에서 요청 헤더를 삭제합니다.
@@ -938,7 +797,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 -|-|-
 추가|지정된 값이 기존 요청 헤더 값의 끝에 추가됩니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**요청 헤더 값(규칙 엔진):**<br/>값2 <br/>**새 요청 헤더 값:** <br/>Value1Value2
 Overwrite|요청 헤더 값을 지정된 된 값으로 설정합니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**요청 헤더 값(규칙 엔진):**<br/>값2<br/>**새 요청 헤더 값:**<br/> 값2 <br/>
-삭제|지정된 요청 헤더를 삭제합니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 요청 헤더 구성 수정:**<br/>요청 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 요청 헤더를 원본 서버로 전달하지 않습니다.
+DELETE|지정된 요청 헤더를 삭제합니다.|**요청 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 요청 헤더 구성 수정:**<br/>요청 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 요청 헤더를 원본 서버로 전달하지 않습니다.
 
 주요 정보:
 
@@ -978,7 +837,7 @@ Overwrite|요청 헤더 값을 지정된 된 값으로 설정합니다.|**요청
 -|-|-
 추가|지정된 값이 기존 응답 헤더 값의 끝에 추가됩니다.|**응답 헤더 값(클라이언트):**<br />값1<br/>**응답 헤더 값(규칙 엔진):**<br/>값2<br/>**새 응답 헤더 값:**<br/>Value1Value2
 Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤더 값(클라이언트):**<br/>값1<br/>**응답 헤더 값(규칙 엔진):**<br/>값2 <br/>**새 응답 헤더 값:**<br/>값2 <br/>
-삭제|지정된 응답 헤더를 삭제합니다.|**응답 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 응답 헤더 구성 수정:**<br/>응답 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 응답 헤더를 요청자에게 전달하지 않습니다.
+DELETE|지정된 응답 헤더를 삭제합니다.|**응답 헤더 값(클라이언트):**<br/>값1<br/>**클라이언트 응답 헤더 구성 수정:**<br/>응답 헤더를 질문에서 삭제합니다.<br/>**결과:**<br/>지정된 응답 헤더를 요청자에게 전달하지 않습니다.
 
 주요 정보:
 
@@ -991,7 +850,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 - 다음 헤더는 예약되어 있으며, 이 기능으로 수정할 수 없습니다.
     - accept-encoding
     - age
-    - connection
+    - 연결
     - content-encoding
     - content-length
     - content-range
@@ -1022,7 +881,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 사용|요청에서 부분적으로 캐시된 콘텐츠를 생성할 수 있습니다.
 사용 안 함|요청에서 요청한 콘텐츠에 대해 완전하게 캐시된 버전만 생성할 수 있습니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1032,7 +891,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 ### <a name="prevalidate-cached-content"></a>캐시된 콘텐츠 사전 유효성 검사
 
-**목적:** TTL이 만료되기 전에 캐시된 콘텐츠가 초기 유효성 재검사에 적합한지 여부를 결정합니다.
+**목적:** TTL이 만료되기 전에 캐시된 콘텐츠로 미리 유효성 재검사할 수 있는지 여부를 결정합니다.
 
 초기 유효성 재검사에 적합한 동안 요청된 콘텐츠의 TTL이 만료되기까지의 시간을 정의합니다.
 
@@ -1040,7 +899,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 - 시간 단위를 "끄기"로 선택하여 캐시된 콘텐츠의 TTL이 만료된 후에 유효성 재검사를 수행해야 합니다. 시간은 지정하지 않아야 하며, 무시됩니다.
 
-**기본 동작:** 해제. 유효성 재검사는 캐시된 콘텐츠의 TTL이 만료된 후에만 수행할 수 있습니다.
+**기본 동작:** 끄기 유효성 재검사는 캐시된 콘텐츠의 TTL이 만료된 후에만 수행할 수 있습니다.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1086,9 +945,9 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 사용|POP가 원본 서버로부터 자산을 다시 가져오도록 합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 요청 시 유효한 캐시 자산을 제공하는 것입니다.
 
-이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 POP로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 POP에서 캐시합니다. 0 바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 되지 않는 경우이 기능을 통해 이러한 유형의 자산이 클라이언트에 제공 되는 것을 방지할 수 있습니다.
+이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 POP로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 POP에서 캐시합니다. 0바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 아님을 알고 있는 경우 이 기능을 통해 이러한 유형의 자산을 클라이언트에 제공하지 못하도록 방지할 수 있습니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1098,7 +957,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 ### <a name="set-cacheable-status-codes"></a>캐시 가능한 상태 코드 집합
 
-**목적:** 캐시된 콘텐츠를 가져올 수 있는 상태 코드 집합을 정의합니다.
+**목적:** 캐시된 콘텐츠가 발생할 수 있는 상태 코드 집합을 정의합니다.
 
 기본적으로 캐싱은 200 확인 응답에만 사용할 수 있습니다.
 
@@ -1107,7 +966,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 주요 정보:
 
 - 원본 No-Cache 무시 기능을 활성화합니다. 이 기능을 사용할 수 없으면 비 200 확인 응답이 캐시되지 않을 수 있습니다.
-- 이 기능에 대한 유효한 상태 코드 집합은 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 및 505입니다.
+- 이 기능에 대한 유효한 상태 코드 세트는 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, 505입니다.
 - 이 기능은 200 확인 상태 코드를 생성하는 응답의 캐싱을 비활성화하는 데 사용할 수 없습니다.
 
 **기본 동작:** 캐싱은 200 확인 상태 코드를 생성하는 응답에만 사용할 수 있습니다.
@@ -1146,14 +1005,14 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 ### <a name="stale-content-delivery-on-error"></a>오류 시 오래된 콘텐츠 배달
 
-**목적:** 캐시 유효성 재검사 중 오류가 발생하는 경우 또는 고객 원본 서버에서 요청된 콘텐츠를 검색하는 경우 만료되고 캐시된 콘텐츠를 배달할지 여부를 결정합니다.
+**목적:** 캐시 유효성 재검사 중이나 고객 원본 서버에서 요청된 콘텐츠를 검색할 때 만료되고 캐시된 콘텐츠를 배달할지 여부를 결정합니다.
 
 값|결과
 -|-
 사용|원본 서버에 연결하는 동안 오류가 발생하면 요청자에게 부실 콘텐츠를 제공합니다.
 사용 안 함|요청자에게 원본 서버의 오류를 전달합니다.
 
-**기본 동작:** 해제
+**기본 동작:** 사용 안 함
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1168,11 +1027,11 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 주요 정보:
 
 - 이 기능의 동작은 선택한 시간 단위에 따라 다릅니다.
-    - **시간 단위:** 부실 콘텐츠 배달을 허용하려면 기간을 지정하고 시간 단위(예: 초, 분, 시간 등)를 선택합니다. 이 유형의 설정을 사용 하면 CDN에서 다음 수식에 따라 유효성 검사를 요구 하기 전에 콘텐츠를 배달할 시간 길이를 연장할 수 있습니다. 시간 유효성을 다시 검사**하는 동안 부실** **TTL** + 
+    - **시간 단위:** 부실 콘텐츠 배달을 허용하려면 기간을 지정하고 시간 단위(예: 초, 분, 시간 등)를 선택합니다. 이 유형의 설정을 사용하면 CDN에서 **TTL** + **유효성 재검사 중 기한 경과 시간** 수식에 따라 유효성 검사를 요구하기 전에 콘텐츠를 배달할 수 있는 기간을 연장할 수 있습니다.
     - **끄기:** 부실 콘텐츠에 대한 요청을 처리할 수 있기 전에 유효성 재검사를 요구하려면 "끄기"를 선택합니다.
         - 기간은 적용할 수 없으므로 지정하지 않아야 하며, 무시됩니다.
 
-**기본 동작:** 해제. 유효성 재검사는 요청된 콘텐츠를 제공할 수 있기 전에 수행해야 합니다.
+**기본 동작:** 끄기 유효성 재검사는 요청된 콘텐츠를 제공할 수 있기 전에 수행해야 합니다.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1188,7 +1047,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 토큰 값을 암호화 및 암호 해독하는 데 사용되는 암호화 키는 토큰 인증 페이지의 기본 키 및 백업 키 옵션으로 결정됩니다. 암호화 키는 플랫폼에 따라 다릅니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 이 기능은 URL 다시 쓰기 기능을 제외하고 대부분의 기능보다 우선합니다.
 
@@ -1209,7 +1068,7 @@ Overwrite|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤
 
 ### <a name="token-auth-denial-code"></a>토큰 인증 거부 코드
 
-**목적:** 토큰 기반 인증에 따라 요청을 거부할 때 사용자에게 반환할 응답 형식을 결정합니다.
+**목적:** 토큰 기반 인증으로 인해 요청이 거부되는 경우 사용자에게 반환할 응답 유형을 결정합니다.
 
 사용 가능한 응답 코드는 다음 표에 나열됩니다.
 
@@ -1260,7 +1119,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 ### <a name="token-auth-ignore-url-case"></a>토큰 인증 URL 대/소문자 무시
 
-**목적:** 토큰 기반 인증에서 URL 비교 시 대/소문자를 구분할지를 결정합니다.
+**목적:** 토큰 기반 인증에서 URL 비교 시 대/소문자를 구분할지 결정합니다.
 
 이 기능으로 영향을 받는 매개 변수는 다음과 같습니다.
 
@@ -1275,7 +1134,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 사용|토큰 기반 인증 매개 변수에 대한 URL을 비교할 때 POP에서 대/소문자를 무시하도록 합니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 토큰 인증을 위한 URL 비교에서 대/소문자를 구분하는 것입니다.
 
-**기본 동작:** 해제.
+**기본 동작:** 사용 안 함.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1285,7 +1144,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 ### <a name="token-auth-parameter"></a>토큰 인증 매개 변수
 
-**목적:** 토큰 기반 인증 쿼리 문자열 매개 변수의 이름을 바꿔야 하는지 여부를 결정합니다.
+**목적:** 토큰 기반 인증 쿼리 문자열 매개 변수 이름을 바꿔야 하는지 여부를 결정합니다.
 
 주요 정보:
 
@@ -1298,7 +1157,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 사용|값 옵션은 토큰을 정의해야 하는 쿼리 문자열 매개 변수 이름을 정의합니다.
 사용 안 함|토큰은 요청 URL에 정의되지 않은 쿼리 문자열 매개 변수로 지정될 수 있습니다.
 
-**기본 동작:** 해제. 토큰은 요청 URL에 정의되지 않은 쿼리 문자열 매개 변수로 지정될 수 있습니다.
+**기본 동작:** 사용 안 함. 토큰은 요청 URL에 정의되지 않은 쿼리 문자열 매개 변수로 지정될 수 있습니다.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1328,7 +1187,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![URL 리디렉션](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
-**핵심 사항:**
+**주요 정보:**
 
 - URL 리디렉션 기능은 리디렉션할 요청 URL을 정의합니다. 따라서 추가적인 일치 조건이 필요하지 않습니다. 일치 조건을 "Always"로 정의했지만 "marketing" 고객 원본의 "brochures" 폴더를 가리키는 요청만 리디렉션합니다.
 - 일치하는 모든 요청은 대상 옵션에 정의된 에지 CNAME URL로 리디렉션됩니다.
@@ -1360,8 +1219,8 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 옵션|Description
 -|-
- 원본 및 패턴 | 이러한 설정은 다시 쓸 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 다시 씁니다. <br/><br/>  - **원본 (또는 콘텐츠 액세스 지점):** 원본 서버를 식별 하는 상대 경로를 선택 합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/><br/> - **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다.
- 대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별 하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용 하 여 상대 경로를 정의 합니다. <br/>        - 정규식 패턴 <br/>        - [HTTP 변수](cdn-http-variables.md) <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다.
+ 원본 및 패턴 | 이러한 설정은 다시 쓸 수 있는 요청의 형식을 식별하는 요청 URI 패턴을 정의합니다. URL이 다음 기준을 모두 충족하는 요청만 다시 씁니다. <br/><br/>  - **원본(또는 콘텐츠 액세스 지점):** 원본 서버를 식별하는 상대 경로를 선택합니다. 이 경로는 _/XXXX/_ 섹션과 엔드포인트 이름입니다. <br/><br/> - **원본(패턴):** 상대 경로로 요청을 식별하는 패턴을 정의해야 합니다. 이 정규식 패턴은 이전에 선택한 콘텐츠 액세스 지점 바로 뒤에서 시작하는 경로를 정의해야 합니다(위 참조). <br/> 이전에 정의한 요청 URI 기준(즉, 원본 및 패턴)이 이 기능에 대해 정의된 일치 조건과 충돌하지 않는지 확인합니다. 패턴을 지정합니다. 패턴으로 빈 값을 사용하는 경우 모든 문자열이 일치됩니다.
+ 대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용하여 상대 경로 정의 <br/>        - 정규식 패턴 <br/>        - [HTTP 변수](cdn-http-variables.md) <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다.
 
  이 기능을 사용하면 POP에서 기존의 리디렉션을 수행하지 않고도 URL을 다시 쓸 수 있습니다. 즉 요청자가 다시 쓴 URL을 요청한 것처럼 동일한 응답 코드를 받습니다.
 
@@ -1379,7 +1238,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 
 이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![URL 리디렉션](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
-**핵심 사항:**
+**주요 정보:**
 
 - URL 다시 쓰기 기능은 다시 쓸 요청 URL을 정의합니다. 따라서 추가적인 일치 조건이 필요하지 않습니다. 일치 조건을 "Always"로 정의했지만 "marketing" 고객 원본의 "brochures" 폴더를 가리키는 요청만 다시 씁니다.
 
@@ -1416,13 +1275,10 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
 **목적:** 내부 전용입니다.
 
 [맨 위로 이동](#azure-cdn-from-verizon-premium-rules-engine-features)
-
-</br>
-
 ## <a name="next-steps"></a>다음 단계
 
 - [규칙 엔진 참조](cdn-verizon-premium-rules-engine-reference.md)
-- [규칙 엔진 조건 식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [규칙 엔진 조건식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [규칙 엔진 일치 조건](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [규칙 엔진을 사용하여 HTTP 동작 재정의](cdn-verizon-premium-rules-engine.md)
 - [Azure CDN 개요](cdn-overview.md)

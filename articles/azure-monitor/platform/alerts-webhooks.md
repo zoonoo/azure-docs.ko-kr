@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
+title: Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248984"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826913"
 ---
-# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
 
@@ -26,10 +26,10 @@ Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이
 
 ![경고 규칙 추가 창](./media/alerts-webhooks/Alertwebhook.png)
 
-또한 [Azure PowerShell cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), [플랫폼 간 CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
+또한 [Azure PowerShell cmdlet](../samples/powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../samples/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
-웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 웹후크 URI는 토큰 ID를 사용하여 저장됩니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 웹후크 URI는 토큰 ID를 사용하여 저장됩니다. 예: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>페이로드 스키마
 POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
@@ -92,7 +92,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| properties |N |Optional |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
 > [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.
@@ -100,7 +100,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 >
 
 ## <a name="next-steps"></a>다음 단계
-* [PagerDuty와 azure Alerts 통합](https://go.microsoft.com/fwlink/?LinkId=627080)비디오의 azure 경고 및 웹 후크에 대해 자세히 알아보세요.
+* [Azure 경고와 PagerDuty의 통합](https://go.microsoft.com/fwlink/?LinkId=627080) 비디오에서 Azure 경고와 웹후크에 대해 자세히 알아봅니다.
 * [Azure 경고에 대한 Azure Automation 스크립트(Runbook) 실행](https://go.microsoft.com/fwlink/?LinkId=627081) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) 방법을 알아봅니다.

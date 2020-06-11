@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877391"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827050"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -27,7 +27,7 @@ ms.locfileid: "80877391"
 
 * 온-프레미스 아웃바운드 프록시를 바이패스하도록 커넥터를 구성합니다.
 * 아웃바운드 프록시를 사용하여 Azure AD 애플리케이션 프록시에 액세스하도록 커넥터를 구성합니다.
-* 커넥터와 백 엔드 응용 프로그램 간의 프록시를 사용 하 여 구성 합니다.
+* 커넥터와 백 엔드 애플리케이션 간에 프록시를 사용하여 구성합니다.
 
 커넥터 작동 방법에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
@@ -39,7 +39,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 온-프레미스 프록시를 바이패스하여 Azure 서비스로 직접 연결을 사용하도록 커넥터를 구성할 수 있습니다. 이렇게 하면 유지할 구성이 줄어들기 때문에 네트워크 정책에서 허용하기만 한다면 이 방법을 사용하는 것이 좋습니다.
 
-커넥터에 대 한 아웃 바운드 프록시 사용을 사용 하지 않도록 설정 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집 하 고 다음 코드 샘플에 표시 된 *system.net* 섹션을 추가 합니다.
+커넥터에 아웃바운드 프록시 사용을 사용하지 않도록 설정하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -77,7 +77,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 환경에 WPAD가 사용되고 적절히 구성된 경우 커넥터는 아웃바운드 프록시 서버를 자동으로 검색하고 사용하려고 합니다. 하지만 트래픽이 아웃바운드 프록시를 통과하도록 명시적으로 커넥터를 구성할 수 있습니다.
 
-이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영 하도록 *proxyserver: 8080* 을 변경 합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
+이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 *proxyserver:8080*을 변경합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -105,7 +105,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 * 프록시 아웃바운드 규칙
 * 프록시 인증
 * 프록시 포트
-* TLS 검사
+* TLS 조사
 
 #### <a name="proxy-outbound-rules"></a>프록시 아웃바운드 규칙
 
@@ -114,10 +114,10 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | URL | 사용 방법 |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 Url을 사용 하 여 인증서를 확인 합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>*. microsoftonline-p.com<br>*. msauth.net<br>*. msauthimages.net<br>*. msecnd.net<br>*. msftauth.net<br>*. msftauthimages.net<br>*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽이 나 프록시를 사용 하 여 DNS 허용 목록을 구성할 수 있는 경우 msappproxy.net 및 \* \*. servicebus.windows.net에 대 한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
@@ -130,31 +130,31 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 
 #### <a name="proxy-ports"></a>프록시 포트
 
-커넥터는 CONNECT 메서드를 사용 하 여 아웃 바운드 TLS 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 비표준 SSL 포트 443 및 80으로 터널링을 허용하도록 프록시 서버를 구성합니다.
+커넥터는 CONNECT 메서드를 사용하여 아웃바운드 TLS 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 비표준 SSL 포트 443 및 80으로 터널링을 허용하도록 프록시 서버를 구성합니다.
 
 > [!NOTE]
 > Service Bus가 HTTPS를 초과하면 포트 443을 사용합니다. 하지만 기본적으로 Service Bus는 직접 TCP 연결을 시도하며 직접 연결이 실패할 때만 HTTPS를 대체합니다.
 
-#### <a name="tls-inspection"></a>TLS 검사
+#### <a name="tls-inspection"></a>TLS 조사
 
-커넥터 트래픽에 대 한 문제가 발생 하기 때문에 커넥터 트래픽에 대해 TLS 검사를 사용 하지 마십시오. 커넥터는 인증서를 사용 하 여 응용 프로그램 프록시 서비스를 인증 하 고, TLS 검사 중에 인증서가 손실 될 수 있습니다.
+커넥터 트래픽에 대한 문제를 발생시키기 때문에 커넥터 트래픽에 대한 TLS 검사를 사용하지 않습니다. 커넥터는 인증서를 사용하여 애플리케이션 프록시 서비스를 인증하며 TLS 검사 중에 인증서가 손실될 수 있습니다.
 
-## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>커넥터와 백 엔드 응용 프로그램 간에 프록시를 사용 하 여 구성
-백 엔드 응용 프로그램에 대 한 통신에 전달 프록시를 사용 하는 것은 일부 환경에서 특별 한 요구 사항입니다.
-이를 사용 하려면 다음 단계를 수행 하세요.
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>커넥터와 백 엔드 애플리케이션 간에 프록시를 사용하여 구성
+일부 환경에서는 백 엔드 애플리케이션에 대한 통신에 전달 프록시를 사용해야 할 수 있습니다.
+이를 사용하도록 설정하려면 다음 단계를 수행하세요.
 
-### <a name="step-1-add-the-required-registry-value-to-the-server"></a>1 단계: 서버에 필요한 레지스트리 값 추가
-1. 기본 프록시를 사용 하도록 설정 하려면 "HKEY_LOCAL_MACHINE \Software\Microsoft\Microsoft AAD App Proxy Connector `UseDefaultProxyForBackendRequests = 1` "에 있는 커넥터 구성 레지스트리 키에 다음 레지스트리 값 (DWORD)을 추가 합니다.
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>1단계: 서버에 필요한 레지스트리 값 추가
+1. 기본 프록시를 사용하도록 설정하려면 다음 레지스트리 값(DWORD) `UseDefaultProxyForBackendRequests = 1`을 "HKEY_LOCAL_MACHINE \Software\Microsoft\Microsoft AAD App Proxy Connector"에 있는 커넥터 구성 레지스트리 키에 추가합니다.
 
-### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>2 단계: netsh 명령을 사용 하 여 수동으로 프록시 서버 구성
-1.  그룹 정책 컴퓨터 단위로 프록시 설정 만들기를 사용 하도록 설정 합니다. 이는 다음에서 찾을 수 있습니다. Computer Configuration\Policies\Administrative. 이 정책을 사용자 단위로 설정 하지 않고 설정 해야 합니다.
-2.  서버 `gpupdate /force` 에서 실행 하거나 서버를 다시 부팅 하 여 업데이트 된 그룹 정책 설정을 사용 하는지 확인 합니다.
-3.  관리자 권한으로 관리자 권한 명령 프롬프트를 시작 하 `control inetcpl.cpl`고을 입력 합니다.
-4.  필요한 프록시 설정을 구성 합니다. 
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>2단계: netsh 명령을 사용하여 수동으로 프록시 서버 구성
+1.  ‘컴퓨터 단위로 프록시 설정 만들기’ 그룹 정책을 사용하도록 설정합니다. 이 정책 위치는 컴퓨터 구성\정책\관리 템플릿\Windows 구성 요소\Internet Explorer입니다. 이 정책은 사용자 단위가 아니라 컴퓨터 단위로 설정해야 합니다.
+2.  서버에서 `gpupdate /force`를 실행하거나 서버를 다시 부팅하여 업데이트된 그룹 정책 설정을 사용하도록 합니다.
+3.  관리자 권한으로 명령 프롬프트를 시작하고 `control inetcpl.cpl`을 입력합니다.
+4.  필요한 프록시 설정을 구성합니다. 
 
-이러한 설정은 커넥터에서 Azure 및 백 엔드 응용 프로그램에 대 한 통신에 동일한 전달 프록시를 사용 하도록 합니다. Azure로의 커넥터에 전달 프록시 또는 다른 전방 프록시가 필요 하지 않은 경우에는 아웃 바운드 프록시 사용 안 함 또는 아웃 바운드 프록시 서버 사용 섹션에 설명 된 대로 Applicationproxycluster.exe 파일을 수정 하 여이를 설정할 수 있습니다.
+이러한 설정은 커넥터에서 Azure 및 백 엔드 애플리케이션에 대한 통신에서 동일한 전달 프록시를 사용하도록 합니다. Azure와 커넥터 간 통신에 정방향 프록시가 필요하지 않거나 다른 정방향 프록시가 필요한 경우 아웃바운드 프록시 무시 또는 아웃바운드 프록시 서버 사용 섹션에 설명된 대로 ApplicationProxyConnectorService.exe.config 파일을 수정하여 설정할 수 있습니다.
 
-커넥터 업데이트 프로그램 서비스는 컴퓨터 프록시도 사용 합니다. Applicationproxyconnectorupdaterservice.exe.config 파일을 수정 하 여이 동작을 변경할 수 있습니다.
+커넥터 업데이트 프로그램 서비스는 컴퓨터 프록시도 사용합니다. ApplicationProxyConnectorUpdaterService.exe.config 파일을 수정하여 이 동작을 변경할 수 있습니다.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>커넥터 프록시 및 서비스 연결 문제 해결
 
@@ -162,7 +162,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 
 커넥터 연결 문제를 식별하고 해결하는 좋은 방법은 커넥터 서비스를 시작하는 동안 네트워크 캡처를 사용하는 것입니다. 다음은 네트워크 추적을 캡처 및 필터링하는 몇 가지 간단한 팁입니다.
 
-원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 메시지 분석기를 사용했습니다. [Microsoft에서 다운로드](https://www.microsoft.com/download/details.aspx?id=44226)할 수 있습니다.
+원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 메시지 분석기를 사용했습니다.
 
 다음 예는 메시지 분석기에 대한 내용이지만 원칙은 모든 분석 도구에 적용할 수 있습니다.
 
@@ -203,5 +203,5 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
-* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD)에 질문하거나 지원 팀을 사용하여 티켓을 만드세요.
+* [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
+* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)에서 질문하거나 지원 팀을 사용하여 티켓을 만드세요.

@@ -1,88 +1,49 @@
 ---
-title: 서비스 연결 문제 해결 Windows 가상 데스크톱-Azure
-description: Windows 가상 데스크톱 테 넌 트 환경에서 클라이언트 연결을 설정할 때 발생 하는 문제를 해결 하는 방법입니다.
+title: 서비스 연결 문제 해결 Windows Virtual Desktop - Azure
+description: Windows Virtual Desktop 테넌트 환경에서 클라이언트 연결을 설정할 때 발생하는 문제를 해결하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01aff34839cc7385834468a08f30696efe84561f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614773"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743594"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Windows 가상 데스크톱 서비스 연결
+# <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다. 스프링 2020 업데이트에 도입 된 Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-service-connection.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-service-connection.md)를 참조하세요.
 
-이 문서를 사용 하 여 Windows 가상 데스크톱 클라이언트 연결 문제를 해결할 수 있습니다.
+이 문서를 사용하여 Windows Virtual Desktop 클라이언트 연결 문제를 해결합니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-사용자 의견을 제공 하 고 windows 가상 [데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 제품 팀 및 기타 활성 커뮤니티 구성원에 게 Windows 가상 데스크톱 서비스에 대해 논의할 수 있습니다.
+[Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 제품 팀 및 기타 활성 커뮤니티 멤버와 Windows Virtual Desktop Service에 대해 피드백을 제공하고 논의할 수 있습니다.
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결 되어 있지만 아무것도 표시 되지 않습니다 (피드 없음).
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결했지만 아무것도 표시되지 않음(피드 없음)
 
-사용자가 원격 데스크톱 클라이언트를 시작 하 고 인증할 수 있지만 웹 검색 피드에 아이콘이 표시 되지 않습니다.
+사용자는 원격 데스크톱 클라이언트를 시작하고 인증할 수 있지만 웹 검색 피드에 아이콘이 표시되지 않습니다.
 
-다음 명령줄을 사용 하 여 문제를 보고 하는 사용자가 응용 프로그램 그룹에 할당 되었는지 확인 합니다.
+다음 명령줄을 사용하여 문제를 보고하는 사용자가 애플리케이션 그룹에 할당되었는지 확인합니다.
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-사용자가 올바른 자격 증명으로 로그인 하 고 있는지 확인 합니다.
+사용자가 올바른 자격 증명을 사용하여 로그인하고 있는지 확인합니다.
 
-웹 클라이언트를 사용 하는 경우 캐시 된 자격 증명 문제가 없는지 확인 합니다.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Windows 10 Enterprise 다중 세션 가상 컴퓨터가 응답 하지 않음
-
-가상 컴퓨터가 응답 하지 않으며 RDP를 통해 액세스할 수 없는 경우 호스트 상태를 확인 하 여 진단 기능으로 문제를 해결 해야 합니다.
-
-호스트 상태를 확인 하려면 다음 cmdlet을 실행 합니다.
-
-```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
-```
-
-호스트 상태가 인 경우 VM `NoHeartBeat`이 응답 하지 않으며 에이전트가 Windows 가상 데스크톱 서비스와 통신할 수 없음을 의미 합니다.
-
-```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-```
-
-NoHeartBeat 비트 상태를 수정 하기 위해 수행할 수 있는 몇 가지 작업이 있습니다.
-
-### <a name="update-fslogix"></a>FSLogix 업데이트
-
-FSLogix가 최신이 아닌 경우, 특히 frxdrvvt의 버전인 2.9.7205.27375 경우 교착 상태가 발생할 수 있습니다. [FSLogix를 최신 버전으로 업데이트](https://go.microsoft.com/fwlink/?linkid=2084562)해야 합니다.
-
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>BgTaskRegistrationMaintenanceTask 사용 안 함
-
-FSLogix 업데이트가 작동 하지 않는 경우 BiSrv 구성 요소가 주간 유지 관리 작업 중에 시스템 리소스를 소모 하는 문제가 발생할 수 있습니다. 다음 두 가지 방법 중 하나로 BgTaskRegistrationMaintenanceTask를 사용 하지 않도록 설정 하 여 유지 관리 작업을 일시적으로 해제 합니다.
-
-- 시작 메뉴로 이동 하 여 **작업 스케줄러**를 검색 합니다. **작업 스케줄러 Library** > **Microsoft** > **Windows**Windows > **BrokerInfrastructure**로 이동 합니다. **BgTaskRegistrationMaintenanceTask**라는 작업을 찾습니다. 찾은 경우 마우스 오른쪽 단추로 클릭 하 고 드롭다운 메뉴에서 **사용 안 함** 을 선택 합니다.
-- 관리자 권한으로 명령줄 메뉴를 열고 다음 명령을 실행 합니다.
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
+웹 클라이언트를 사용하는 경우 캐시된 자격 증명 문제가 없는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview-2019.md)을 참조 하세요.
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조 하세요.
-- Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration-2019.md)을 참조 하세요.
-- Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell-2019.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.
+- Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview-2019.md)을 참조하세요.
+- Windows Virtual Desktop 환경에서 테넌트 및 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [테넌트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조하세요.
+- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
+- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md)을 참조하세요.
+- 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.

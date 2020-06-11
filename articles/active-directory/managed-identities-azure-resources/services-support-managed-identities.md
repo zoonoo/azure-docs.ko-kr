@@ -1,21 +1,21 @@
 ---
-title: 관리 되는 id를 지 원하는 azure 서비스-Azure AD
+title: 관리 ID를 지원하는 Azure 서비스 - Azure AD
 description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원하는 서비스 목록
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/09/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c4c3da193a1f61280a13ff1e2fa9eea2ff4823
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 550c025807b1ec3d0d5b8fb54f4b358c9f1ec6d3
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196397"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846038"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -28,35 +28,18 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 다음 Azure 서비스는 Azure 리소스에 대한 관리 ID를 지원합니다.
 
-### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+### <a name="azure-api-management"></a>Azure API Management
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 | 
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 사용자 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
 
-사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+사용 가능한 지역에서 Azure API Management용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
-- [REST (영문)](qs-configure-rest-vm.md)
+- [Azure Resource Manager 템플릿](/azure/api-management/api-management-howto-use-managed-service-identity)
 
-### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
-
-|관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
-| 사용자 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
-
-사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
-
-- [Azure Portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
-- [REST (영문)](qs-configure-rest-vm.md)
 
 ### <a name="azure-app-service"></a>Azure App Service
 
@@ -73,18 +56,6 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 
-### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
-
-| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | - | - | - | 
-| 사용자 할당 | ![사용 가능][check] | - | - | - |
-
-
-자세한 내용은 [Azure Kubernetes 서비스에서 관리 되는 Id 사용](https://docs.microsoft.com/azure/aks/use-managed-identity)을 참조 하세요.
-
-
-
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
 |관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -92,37 +63,37 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
 
-[Azure 청사진](../../governance/blueprints/overview.md)에서 관리 되는 id를 사용 하려면 다음 목록을 참조 하세요.
+[Azure Blueprints](../../governance/blueprints/overview.md)에서 관리 ID를 사용하려면 다음 목록을 참조하세요.
 
-- [Azure Portal 청사진 할당](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [REST API 청사진 할당](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Azure Portal - 청사진 할당](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [REST API - 청사진 할당](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
-### <a name="azure-functions"></a>Azure 기능
 
-관리 ID 유형 |모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check]  | ![사용 가능][check]  | ![사용 가능][check]  |
-
-사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
-
-- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
-
-### <a name="azure-logic-apps"></a>Azure Logic Apps
+### <a name="azure-container-instances"></a>Azure Container Instances
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
-| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 시스템 할당 | Linux: 미리 보기<br>Windows: 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | Linux: 미리 보기<br>Windows: 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+사용 가능한 지역에서 Azure Container Instances용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
+- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
+- [Azure Resource Manager 템플릿](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
-사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+### <a name="azure-container-registry-tasks"></a>Azure Container Registry 작업
 
-- [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+사용 가능한 지역에서 Azure Container Registry 태스크용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
+- [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -138,51 +109,104 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [REST (영문)](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-### <a name="azure-api-management"></a>Azure API Management
+
+### <a name="azure-functions"></a>Azure 기능
+
+관리 ID 유형 |모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check]  | ![사용 가능][check]  | ![사용 가능][check]  |
+
+사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+### <a name="azure-iot-hub"></a>Azure IoT Hub
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
-| 사용자 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-사용 가능한 지역에서 Azure API Management용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+사용 가능한 지역에서 Azure Data Factory V2용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Resource Manager 템플릿](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-### <a name="azure-container-instances"></a>Azure Container Instances
+### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | - | - | - | 
+| 사용자 할당 | ![사용 가능][check] | - | - | - |
+
+
+자세한 내용은 [Azure Kubernetes Service에서 관리 ID 사용](https://docs.microsoft.com/azure/aks/use-managed-identity)을 참조하세요.
+
+
+### <a name="azure-logic-apps"></a>Azure Logic Apps
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | Linux: 미리 보기<br>Windows: 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 | Linux: 미리 보기<br>Windows: 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
 
-사용 가능한 지역에서 Azure Container Instances용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
-- [Azure Resource Manager 템플릿](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
-- [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
+사용 가능한 지역에서 Azure Functions용 관리 ID를 구성하려면 다음 목록을 참조하세요.
 
-### <a name="azure-container-registry-tasks"></a>Azure Container Registry 작업
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
+- [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
-관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-| 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
-
-Azure Container Registry 작업에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
-
-- [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
-[Service Fabric 응용 프로그램에 대 한 관리 id](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) 는 미리 보기 상태 이며 모든 지역에서 사용할 수 있습니다.
+[Service Fabric 애플리케이션용 관리 ID](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)는 미리 보기로 제공되며, 모든 지역에서 사용할 수 있습니다.
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |사용할 수 없음 |
 
-모든 지역에서 Azure Service Fabric 응용 프로그램에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
+모든 지역에서 Azure Service Fabric 애플리케이션에 대한 관리 ID를 구성하려면 다음 목록을 참조하세요.
 - [Azure Resource Manager 템플릿](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+
+
+
+### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
+
+|관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
+| 사용자 할당 | ![사용 가능][check] | 미리 보기 | 미리 보기 | 미리 보기 |
+
+사용 가능한 지역에서 Azure Virtual Machines Scale Sets용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
+- [REST (영문)](qs-configure-rest-vm.md)
+
+
+
+### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 | 
+| 사용자 할당 | ![사용 가능][check] | ![사용 가능][check] | 미리 보기 | 미리 보기 |
+
+사용 가능한 지역에서 Azure Virtual Machines용 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [Azure 리소스 관리자 템플릿](qs-configure-template-windows-vm.md)
+- [REST (영문)](qs-configure-rest-vm.md)
+
+
+
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
 
@@ -190,9 +214,9 @@ Azure AD 인증을 지원하며, Azure 리소스에 대해 관리 ID를 사용�
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
-Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을 참조 하세요.
+Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 참조하세요.
 
-- [Azure Portal를 통해 액세스 할당](howto-assign-access-portal.md)
+- [Azure Portal을 통해 액세스 할당](howto-assign-access-portal.md)
 - [PowerShell을 통해 액세스 할당](howto-assign-access-powershell.md)
 - [Azure CLI를 통해 액세스 할당](howto-assign-access-CLI.md)
 - [Azure Resource Manager 템플릿을 통해 액세스 할당](../../role-based-access-control/role-assignments-template.md)
@@ -213,7 +237,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 | Azure Germany |  `https://vault.microsoftazure.de` | ![사용 가능][check] |
 | Azure China 21Vianet | `https://vault.azure.cn` | ![사용 가능][check] |
 
-### <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure 데이터 레이크 
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|:-:|
@@ -257,7 +281,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 
 
 
-### <a name="azure-storage-blobs-and-queues"></a>Azure Storage blob 및 큐
+### <a name="azure-storage-blobs-and-queues"></a>Azure Storage Blob 및 큐
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|:-:|
@@ -285,7 +309,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![사용 가능][check] |
 
 > [!Note]
-> Microsoft Power BI [는 관리 id도 지원](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)합니다.
+> Microsoft Power BI에서도 [관리 ID](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)를 지원합니다.
 
 
-[check]: media/services-support-managed-identities/check.png "있게"
+[check]: media/services-support-managed-identities/check.png "사용 가능"

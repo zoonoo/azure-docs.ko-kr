@@ -1,6 +1,6 @@
 ---
-title: 확인 방법으로 보안 질문 설정-Azure AD
-description: 미리 정의 된 보안 질문을 확인 방법으로 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
+title: 보안 질문을 확인 방법으로 설정 - Azure AD
+description: 미리 정의된 보안 질문을 확인 방법으로 사용하여 ID를 확인하는 보안 정보(미리 보기) 페이지를 설정하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,24 +8,24 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: d4714a78ed03a9b861f3a266cfd0d7bca456b3c4
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 0c55f15d12ddc51573f59f56c742a8cac525af0b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628353"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744429"
 ---
-# <a name="set-up-security-questions-as-your-verification-method"></a>확인 방법으로 보안 질문 설정
+# <a name="set-up-security-questions-as-your-verification-method"></a>보안 질문을 확인 방법으로 설정
 
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->보안 질문 옵션이 표시 되지 않으면 조직에서 암호 재설정 방법으로이 옵션을 사용 하도록 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 자세한 도움을 요청 해야 합니다.
+>보안 질문 옵션이 표시되지 않으면 조직에서 암호 재설정 방법에 이 옵션을 사용하지 못하게 할 수 있습니다. 이 경우 다른 방법을 선택하거나 조직의 지원 데스크에 문의하여 자세한 도움을 요청해야 합니다.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
 
@@ -51,7 +51,7 @@ ms.locfileid: "82628353"
 >
 > 보안 질문 옵션이 보이지 않는 경우 사용자의 조직에서 인증에 보안 질문 사용을 허용하지 않았을 가능성이 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
 >
-> 관리자 계정은 암호 재설정 방법으로 보안 질문을 사용할 수 없습니다. 관리자 수준 계정으로 로그인 하는 경우 이러한 옵션은 표시 되지 않습니다.
+> 관리자 계정은 암호 재설정 방법으로 보안 질문을 사용할 수 없습니다. 관리자 수준 계정으로 로그인하는 경우 이러한 옵션은 표시되지 않습니다.
 
 ### <a name="to-set-up-your-security-questions"></a>본인 확인 질문을 설정하려면 다음을 수행합니다.
 
@@ -98,9 +98,9 @@ ms.locfileid: "82628353"
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키를 사용하여 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조하세요.
 
-- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

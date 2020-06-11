@@ -1,22 +1,22 @@
 ---
-title: Microsoft Authenticator 앱에 회사 또는 학교 계정 추가-Azure AD
-description: Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가 하 여 2 단계 인증을 사용 하는 동안 id를 확인 합니다.
+title: Microsoft Authenticator 앱에 회사 또는 학교 계정 추가 - Azure AD
+description: 2단계 인증을 사용하는 동안 Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하여 ID를 확인합니다.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cc14a53f7ead7f0a496728d477d7d30857a0fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063920"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741531"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 회사 또는 학교 계정 추가
 
@@ -30,7 +30,7 @@ ms.locfileid: "77063920"
 1. 컴퓨터에서 [추가 보안 확인](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) 페이지로 이동합니다.
 
     >[!Note]
-    >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대 한 자세한 내용은 [보안 정보 (미리 보기) 개요](user-help-security-info-overview.md)를 참조 하세요.
+    >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대한 자세한 내용은 [보안 정보(미리 보기) 개요](user-help-security-info-overview.md)를 참조하세요.
 
 2. **인증자 앱** 옆에 있는 확인란을 선택한 다음, **구성**을 선택합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "77063920"
 3. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 4. 디바이스 카메라를 사용해 컴퓨터의 **모바일 앱 구성** 화면에서 QR 코드를 스캔하고 **완료**를 선택합니다.
 

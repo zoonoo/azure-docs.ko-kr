@@ -1,22 +1,22 @@
 ---
-title: 비동기 Java SDK v2 Azure Cosmos DB 진단 및 문제 해결
-description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 비동기 Java SDK v 2의 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
+title: Azure Cosmos DB Async Java SDK v2 진단 및 문제 해결
+description: 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Async Java SDK v2의 Azure Cosmos DB 문제를 파악, 진단 및 해결합니다.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982618"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651898"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>SQL API 계정에서 Azure Cosmos DB Async Java SDK v2를 사용할 때 발생 하는 문제 해결
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Async Java SDK v2를 사용하는 경우 발생하는 문제 해결
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -25,12 +25,12 @@ ms.locfileid: "82982618"
 > 
 
 > [!IMPORTANT]
-> Azure Cosmos DB에 대 한 최신 Java SDK가 *아닙니다* . 프로젝트에 Azure Cosmos DB Java SDK v4를 사용 하는 것이 좋습니다. [Azure Cosmos DB JAVA SDK v4](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 Rxjava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 로 마이그레이션 가이드의 지침에 따라 업그레이드 합니다. 
+> Azure Cosmos DB의 최신 Java SDK가 *아닙니다*. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
 >
-> 이 문서에서는 Azure Cosmos DB Async Java SDK v 2의 문제 해결에 대해서만 다룹니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 [성능 팁](performance-tips-async-java.md) 을 참조 하세요.
+> 이 문서에서는 Azure Cosmos DB Async Java SDK v2에 대한 문제 해결만 다룹니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 [성능 팁](performance-tips-async-java.md)을 참조하세요.
 >
 
-이 문서에서는 SQL API 계정과 Azure Cosmos DB [Java ASYNC SDK](sql-api-sdk-async-java.md) 를 사용 하는 경우 일반적인 문제, 해결 방법, 진단 단계 및 도구에 대해 설명 합니다.
+이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 SDK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
 Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라이언트 쪽 논리적 표현을 제공합니다. 이 문서에서는 문제가 발생하는 경우 사용자에게 도움이 되는 도구 및 방법을 설명합니다.
 
 이 목록을 사용하여 시작합니다.
@@ -40,7 +40,7 @@ Java 비동기 SDK는 Azure Cosmos DB SQL API에 액세스하기 위한 클라�
 * [성능 팁](performance-tips-async-java.md)을 검토하고 제안된 사례를 따릅니다.
 * 솔루션을 찾지 못한 경우 이 문서의 나머지 부분을 읽어봅니다. 그런 후, [GitHub 문제](https://github.com/Azure/azure-cosmosdb-java/issues)를 제출합니다.
 
-## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 이슈 및 해결 방법
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>네트워크 문제, Netty 읽기 시간 제한 오류, 낮은 처리량, 높은 대기 시간
 
@@ -71,15 +71,15 @@ ulimit -a
     서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없음-방화벽
-``ConnectTimeoutException``SDK에서 서비스에 연결할 수 없음을 나타냅니다.
-직접 모드를 사용 하는 경우 다음과 유사한 오류가 발생할 수 있습니다.
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없음 - 방화벽
+``ConnectTimeoutException``은 SDK에서 서비스에 연결할 수 없음을 나타냅니다.
+직접 모드를 사용하는 경우 다음과 유사한 오류가 발생할 수 있습니다.
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-앱 컴퓨터에서 방화벽이 실행 되 고 있는 경우 직접 모드에서 사용 되는 포트 범위 1만 ~ 2만를 엽니다.
-또한 [호스트 컴퓨터에 대 한 연결 제한을](#connection-limit-on-host)따릅니다.
+앱 컴퓨터에서 방화벽이 실행 중인 경우 직접 모드에서 사용하는 10,000 ~ 20,000 포트 범위를 엽니다.
+또한 [호스트 컴퓨터의 연결 제한](#connection-limit-on-host)을 따릅니다.
 
 #### <a name="http-proxy"></a>HTTP 프록시
 
@@ -94,7 +94,7 @@ Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SD
 
 예를 들어, 다음 코드 조각을 살펴보세요. Netty 스레드에서 수 밀리초 이상 소요되는 오래 지속되는 작업을 수행할 수 있습니다. 이 경우 결과적으로 IO 작업을 처리하기 위한 Netty IO 스레드가 없는 상태가 될 수 있습니다. 따라서 ReadTimeoutException 오류가 발생합니다.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 @Test
@@ -149,7 +149,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
 ```
 해결 방법은 시간이 걸리는 작업을 수행하는 스레드를 변경하는 것입니다. 앱에 대한 스케줄러의 싱글톤 인스턴스를 정의합니다.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Have a singleton instance of an executor and a scheduler.
@@ -158,7 +158,7 @@ Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
 계산이 많은 작업 또는 차단 IO 작업과 같이 시간이 걸리는 작업을 수행해야 할 수 있습니다. 이 경우 `.observeOn(customScheduler)` API를 사용하여 `customScheduler`가 제공하는 작업자로 스레드를 전환합니다.
 
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven:: azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
@@ -189,17 +189,17 @@ Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK�
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-위의 예외는 RxJava lib의 이전 버전에 대 한 종속성을 제시 합니다 (예: 1.2.2). SDK는 rxjava의 이전 버전에서 사용할 수 없는 Api를 포함 하는 RxJava 1.3.8를 사용 합니다. 
+위의 예외에서는 이전 버전의 RxJava lib(예: 1.2.2)에 대한 종속성이 있다고 암시합니다. SDK는 이전 버전의 RxJava에서 사용할 수 없는 API를 포함하는 RxJava 1.3.8을 사용합니다. 
 
-이러한 문제에 대 한 해결 방법은 RxJava-1.2.2에서 제공 되는 다른 종속성을 식별 하 고 RxJava-1.2.2에 대 한 전이적 종속성을 제외 하 고 CosmosDB SDK에서 최신 버전을 가져오도록 허용 하는 것입니다.
+이러한 이슈에 대한 해결 방법은 RxJava-1.2.2에서 제공되는 다른 종속성을 식별하고, RxJava-1.2.2에 대한 전이 종속성을 제외하고, CosmosDB SDK에서 최신 버전을 가져오도록 허용하는 것입니다.
 
-RxJava-1.2.2에서 가져올 라이브러리를 식별 하려면 다음 명령을 실행 합니다.
+RxJava-1.2.2에서 제공되는 라이브러리를 식별하려면 프로젝트 pom.xml 파일 다음에 이 명령을 실행합니다.
 ```bash
 mvn dependency:tree
 ```
-자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조 하세요.
+자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
-RxJava-1.2.2가 프로젝트의 다른 종속성에 대 한 전이적 종속성을 식별 하면 pom 파일에서 해당 lib에 대 한 종속성을 수정 하 고 RxJava 전이적 종속성을 제외할 수 있습니다.
+RxJava-1.2.2가 프로젝트의 다른 종속성에 대한 전이 종속성임을 확인하면 pom 파일에서 해당 lib에 대한 종속성을 수정하고 RxJava 전이 종속성을 제외할 수 있습니다.
 
 ```xml
 <dependency>
@@ -215,7 +215,7 @@ RxJava-1.2.2가 프로젝트의 다른 종속성에 대 한 전이적 종속성�
 </dependency>
 ```
 
-자세한 내용은 [전이적 종속성 제외 가이드](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)를 참조 하세요.
+자세한 내용은 [전이 종속성 제외 가이드](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)를 참조하세요.
 
 
 ## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용
@@ -271,9 +271,9 @@ Azure Cosmos DB 엔드포인트에 대한 연결로만 결과를 필터링합니
 Azure Cosmos DB 엔드포인트에 대한 많은 연결이 `CLOSE_WAIT` 상태일 수 있습니다. 1,000개가 넘을 수 있습니다. 이렇게 숫자가 높으면 연결이 설정되었다가 빠르게 삭제되는 것을 나타냅니다. 이 경우 잠재적으로 문제가 발생할 수 있습니다. 자세한 내용은 [일반적인 문제 및 해결 방법] 섹션을 참조하세요.
 
  <!--Anchors-->
-[일반적인 이슈 및 해결 방법]: #common-issues-workarounds
+[일반적인 문제 및 해결 방법]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [호스트 컴퓨터의 연결 제한]: #connection-limit-on-host
-[Azure SNAT (PAT) 포트 고갈]: #snat
+[Azure SNAT(PAT) 포트 고갈]: #snat
 
 

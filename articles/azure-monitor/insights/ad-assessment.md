@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06c8949be681d13b9dc7d5c433197dd9371aeef8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667230"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651851"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -35,18 +35,18 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Active Directory Health Check 솔루션을 사용 하려면 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
-* 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
-* Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 추가 구성은 필요 하지 않습니다.
+* Active Directory Health Check 솔루션을 사용하려면 Windows용 Log Analytics[MMA(Microsoft Monitoring Agent)라고도 함]가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4.6.2 이상을 설치해야 합니다.  이 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.
+* 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2, Windows Server 2016 및 Windows Server 2019를 실행하는 도메인 컨트롤러를 지원합니다.
+* Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역. 추가 구성은 필요하지 않습니다.
 
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Azure Monitor로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
   >
   >
 
-평가할 도메인의 구성원 인 도메인 컨트롤러에 대 한 상태 검사를 수행 하려면 해당 도메인의 각 도메인 컨트롤러에서 다음 지원 되는 방법 중 하나를 사용 하 여 Azure Monitor에 대 한 에이전트 및 연결이 필요 합니다.
+평가되는 도메인의 구성원인 도메인 컨트롤러에 대해 상태 검사를 수행하려면 해당 도메인에 있는 각 도메인 컨트롤러에 에이전트가 필요하며 다음 지원되는 방법 중 하나를 사용하여 Azure Monitor에 연결해야 합니다.
 
-1. 도메인 컨트롤러가 아직 System Center 2016-Operations Manager 또는 Operations Manager 2012 r 2에서 모니터링 되지 않는 경우 [Windows 용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md) 를 설치 합니다.
+1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Azure Monitor 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Azure Monitor와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
 3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
@@ -79,8 +79,8 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 * 식별된 문제로 인해 문제가 발생될 수 있는 *확률*입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
-* 문제점으로 인해 문제가 발생하는 경우 조직에 주는 *영향*. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
-* 권장 사항을 구현하는 데 필요한 *작업*. 노력이 높을수록 권장 사항에 대한 전체 점수가 작아집니다.
+* 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
+* 권장 구성을 구현하는 데 필요한 *노력* 입니다. 노력이 높을수록 권장 사항에 대한 전체 점수가 작아집니다.
 
 각 권장 사항에 대한 가중치는 각 주요 영역에 사용할 수 있는 총 점수에 대한 백분율로 표현됩니다. 예를 들어, 보안 및 규정 준수 주요 영역의 권장 사항의 점수가 5%라면, 해당 권장 사항 구현에는 전체 보안 및 규정 준수 점수에서 5%가 증가합니다.
 
@@ -116,9 +116,9 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
 3. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.
 
-    ![Health Check 권장 사항의 이미지](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+    ![상태 검사 권장 사항 이미지](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 
-4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **통과한 개체**로 표시됩니다.
+4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 
@@ -134,7 +134,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-로그 쿼리를 보여 주는 스크린샷은 다음과 같습니다. <
+로그 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<
 
 ![실패한 권장 사항](media/ad-assessment/ad-failed-recommendations.png)
 
@@ -166,7 +166,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 ## <a name="ad-health-check-solutions-faq"></a>AD Health Check 솔루션 FAQ
 
-*AD 평가 솔루션에서 수행 하는 검사는 무엇입니까?*
+*AD 평가 솔루션에서 수행하는 검사는 무엇인가요?*
 
 * 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
 
@@ -193,15 +193,15 @@ ADAssessmentRecommendation
 
 * 3주 동안 서버가 데이터를 전송하지 않은 경우 제거 됩니다.
 
-*데이터 수집을 수행 하는 프로세스의 이름은 무엇 인가요?*
+*데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?*
 
 * AdvisorAssessment.exe
 
-*데이터를 수집 하는 데 얼마나 걸립니까?*
+*데이터를 수집하려면 시간이 얼마나 걸리나요?*
 
 * 서버에서의 실제 데이터 수집은 약 1시간이 걸립니다. Active Directory 서버가 많은 서버에서는 더 오래 걸릴 수 있습니다.
 
-*데이터 수집 시기를 구성 하는 방법이 있나요?*
+*데이터를 수집하는 경우 구성하는 방법이 있나요?*
 
 * 지금은 없습니다.
 
