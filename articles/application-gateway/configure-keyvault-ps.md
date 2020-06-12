@@ -1,35 +1,35 @@
 ---
-title: Key Vault 인증서를 사용 하 여 TLS 종료 구성-PowerShell
+title: Key Vault 인증서를 사용하여 TLS 종료 구성 - PowerShell
 titleSuffix: Azure Application Gateway
-description: HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault Azure 애플리케이션 Gateway를 통합 하는 방법에 대해 알아봅니다.
+description: HTTPS 지원 수신기에 연결된 서버 인증서를 위해 Azure Application Gateway를 Key Vault와 통합하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c638004d209996e52b0e57b467bfa184a77779c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457844"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873468"
 ---
-# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Key Vault 인증서로 TLS 종료 구성
+# <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 인증서로 TLS 종료 구성
 
-[Azure Key Vault](../key-vault/general/overview.md) 는 암호, 키 및 TLS/SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault와의 통합을 지원 합니다. 이 지원은 Application Gateway v2 SKU로 제한 됩니다.
+[Azure Key Vault](../key-vault/general/overview.md)는 비밀, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure Application Gateway는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 Application Gateway v2 SKU로 제한됩니다.
 
-자세한 내용은 [Key Vault 인증서를 사용 하는 TLS 종료](key-vault-certs.md)를 참조 하십시오.
+자세한 내용은 [Key Vault 인증서를 사용한 TLS 종료](key-vault-certs.md)를 참조하세요.
 
-이 문서에서는 Azure PowerShell 스크립트를 사용 하 여 TLS/SSL 종료 인증서용 응용 프로그램 게이트웨이와 key vault를 통합 하는 방법을 보여 줍니다.
+이 문서에서는 Azure PowerShell 스크립트를 사용하여 TLS/SSL 종료 인증서용 애플리케이션 게이트웨이와 Key Vault를 통합하는 방법을 보여줍니다.
 
-이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서의 명령을 실행 하려면를 실행 `Connect-AzAccount`하 여 Azure와의 연결도 만들어야 합니다.
+이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서의 명령을 실행하려면 `Connect-AzAccount`를 실행하여 Azure와의 연결도 만들어야 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작 하기 전에 ManagedServiceIdentity 모듈이 설치 되어 있어야 합니다.
+시작하기 전에 ManagedServiceIdentity 모듈이 설치되어 있어야 합니다.
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -44,11 +44,13 @@ Select-AzSubscription -Subscription <your subscription>
 ```azurepowershell
 $rgname = "KeyVaultTest"
 $location = "East US"
-$kv = "TestKeyVaultAppGw"
+$kv = "<your key vault name>"
 $appgwName = "AppGwKVIntegration"
 ```
+> [!IMPORTANT]
+> 키 자격 증명 모음 이름은 일반적으로 고유해야 합니다.
 
-### <a name="create-a-resource-group-and-a-user-managed-identity"></a>리소스 그룹 및 사용자 관리 id 만들기
+### <a name="create-a-resource-group-and-a-user-managed-identity"></a>리소스 그룹 및 사용자 관리 ID 만들기
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -56,7 +58,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Application gateway에서 사용할 키 자격 증명 모음, 정책 및 인증서 만들기
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>애플리케이션 게이트웨이에서 사용할 키 자격 증명 모음, 정책 및 인증서 만들기
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -71,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> TLS 종료가 제대로 작동 하려면-EnableSoftDelete 플래그를 사용 해야 합니다. [포털을 통해 Key Vault 일시 삭제](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)를 구성 하는 경우에는 기본값인 90 일에 보존 기간을 유지 해야 합니다. Application Gateway는 다른 보존 기간을 아직 지원 하지 않습니다. 
+> TLS 종료가 제대로 작동하려면 -EnableSoftDelete 플래그를 사용해야 합니다. [포털을 통해 Key Vault 일시 삭제](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)를 구성하는 경우 보존 기간은 기본값인 90일로 유지되어야 합니다. Application Gateway는 아직 다른 보존 기간을 지원하지 않습니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -82,7 +84,7 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>고정 공용 VIP (가상 IP) 주소 만들기
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>고정 공용 VIP(가상 IP) 주소 만들기
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
@@ -102,7 +104,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>키 자격 증명 모음에 대 한 TLS/SSL 인증서 가리키기
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>키 자격 증명 모음에 대한 TLS/SSL 인증서 가리키기
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -125,7 +127,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>응용 프로그램 게이트웨이에 사용자 관리 id 할당
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>애플리케이션 게이트웨이에 사용자 관리 ID 할당
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -144,4 +146,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>다음 단계
 
-[TLS 종료에 대 한 자세한 정보](ssl-overview.md)
+[TLS 종료에 대한 자세한 정보](ssl-overview.md)

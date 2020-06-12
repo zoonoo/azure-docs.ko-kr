@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: 8b67574f435681d8071eda1ad954dcafb5124cbf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655109"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015967"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL FQDN을 사용하여 Azure Firewall 애플리케이션 규칙 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "83655109"
 
 SQL FQDN을 사용하여 트래픽을
 
-- Vnet에서 Azure SQL Database 또는 Azure SQL Data Warehouse로 필터링할 수 있습니다. 다음은 그 예입니다.  *sql-server1.database.windows.net*에 대한 액세스만 허용합니다.
+- Vnet에서 Azure SQL Database 또는 Azure SQL Data Warehouse로 필터링할 수 있습니다. 예를 들면 다음과 같습니다. *sql-server1.database.windows.net*에 대한 액세스만 허용합니다.
 - 온-프레미스에서 Azure SQL Managed Instances 또는 VNet에서 실행되는 SQL IaaS로
 - 스포크-스포크에서 Azure SQL Managed Instances 또는 Vnet에서 실행되는 SQL IaaS로
 
@@ -63,4 +63,4 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL 데이터베이스 연결 아키텍처](../sql-database/sql-database-connectivity-architecture.md)를 참조하세요.
+SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL 데이터베이스 연결 아키텍처](../azure-sql/database/connectivity-architecture.md)를 참조하세요.

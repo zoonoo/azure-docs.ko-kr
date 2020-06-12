@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660091"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015831"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
 
@@ -130,7 +130,7 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 
 ## <a name="step-8-network-security"></a>8단계: 네트워크 보안
 
-작업 영역 방화벽, 가상 네트워크 및 [Private Link](../../sql-database/sql-database-private-endpoint-overview.md)를 구성합니다.
+작업 영역 방화벽, 가상 네트워크 및 [Private Link](../../azure-sql/database/private-endpoint-overview.md)를 구성합니다.
 
 ## <a name="step-9-completion"></a>9단계: Completion
 
