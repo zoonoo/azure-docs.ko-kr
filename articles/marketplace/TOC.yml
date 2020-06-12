@@ -128,7 +128,7 @@
               href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
         - name: Seller Insights
           items:
-            - name: 시작
+            - name: 시작하기
               href: ./cloud-partner-portal-orig/si-getting-started.md
             - name: 웹 분석
               href: ./cloud-partner-portal-orig/web-analytics.md
@@ -169,7 +169,7 @@
         - name: Azure 애플리케이션 제품
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: 사전 요구 사항
+            - name: 필수 구성 요소
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Azure 애플리케이션 제품 만들기
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -214,7 +214,7 @@
         - name: Dynamics 365 for Customer Engagement 제품
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: 사전 요구 사항
+            - name: 필수 구성 요소
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: 고객 참여 제품 만들기
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -236,7 +236,7 @@
         - name: Dynamics 365 for Operations 제품
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: 사전 요구 사항
+            - name: 필수 구성 요소
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: 게시 방법
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -262,7 +262,7 @@
       items:
         - name: 개요
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: 사전 요구 사항
+        - name: 필수 구성 요소
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: 고려 사항
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -344,7 +344,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: 컨설팅 서비스
           items:
-            - name: 사전 요구 사항
+            - name: 필수 구성 요소
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: 컨설팅 서비스 제품 만들기
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -378,8 +378,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: SaaS 제품 만들기
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: SaaS 요금 청구
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: SaaS 처리 API
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +389,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: SaaS 처리 API - FAQ
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: SaaS 요금 청구
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: 잠재 고객 관리 개요
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:

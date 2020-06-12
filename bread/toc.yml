@@ -54,6 +54,9 @@
         - name: ID 거버넌스
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
+        - name: 애플리케이션 프로비저닝
+          tocHref: /azure/active-directory/app-provisioning/
+          topicHref: /azure/active-directory/app-provisioning/
         - name: 애플리케이션 관리
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
