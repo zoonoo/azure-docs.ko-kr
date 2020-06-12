@@ -46,7 +46,7 @@
           href: tutorial-sap-hana-manage-cli.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -219,8 +219,12 @@
           href: sap-hana-db-manage.md
     - name: Azure Backup 서버(MABS)
       items:
-        - name: Azure Backup Server 보호 매트릭스
-          href: backup-mabs-protection-matrix.md
+        - name: 보호 매트릭스
+          items:
+            - name: MABS V3 UR1 보호 매트릭스
+              href: backup-mabs-protection-matrix.md
+            - name: MABS V3 RTM 보호 매트릭스
+              href: microsoft-azure-backup-server-protection-v3.md
         - name: 설치 또는 업그레이드
           items:
             - name: Azure Backup Server 설치
@@ -229,7 +233,7 @@
               href: backup-mabs-add-storage.md
             - name: MABS의 새로운 기능
               href: backup-mabs-whats-new-mabs.md
-            - name: 릴리스 정보 MABS V3
+            - name: 릴리스 정보 MABS
               href: backup-mabs-release-notes-v3.md
             - name: 무인 설치
               href: backup-mabs-unattended-install.md
@@ -284,7 +288,9 @@
         - name: 가져오기/내보내기를 사용한 오프라인 백업(MARS)
           href: backup-azure-backup-import-export.md
         - name: 가져오기/내보내기를 사용한 오프라인 백업(DPM/MABS)
-          href: backup-azure-backup-server-import-export-.md
+          href: backup-azure-backup-server-import-export.md
+        - name: DPM 및 MABS를 위한 오프라인 백업(이전 버전)
+          href: offline-backup-server-previous-versions.md
     - name: 모니터 및 경고
       items:
         - name: 백업 탐색기 사용

@@ -1,5 +1,5 @@
 ---
-title: Azure Logic Apps에서 여유 시간에 연결
+title: Azure Logic Apps에서 Slack에 연결
 description: Azure Logic Apps를 사용하여 Slack 계정에서 채널, 그룹 및 메시지를 관리하고 파일을 모니터링하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 194f75fbb486d5c53a8e650631c16fcf2649f277
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789174"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826029"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Slack을 모니터링 및 관리
 
@@ -23,7 +23,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
 * 메시지를 게시합니다.
 * 그룹을 만들고 방해 금지를 설정합니다.
 
-트리거를 사용하여 Slack 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Slack 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Slack 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 파일이 생성되면 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+트리거를 사용하여 Slack 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Slack 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Slack 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 파일이 생성되면 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,7 +33,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
 
   자격 증명을 통해 Slack 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Slack 계정에 액세스하려는 논리 앱입니다. Slack 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Slack 작업을 사용하려면 트리거(예: Slack 트리거 또는 **되풀이** 트리거와 같은 다른 트리거)를 통해 논리 앱을 시작합니다.
 
@@ -52,7 +52,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
    작업 목록에서 원하는 작업을 선택합니다.
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. Slack에 로그인하라는 메시지가 표시되면 Slack 작업 영역에 로그인합니다. 
 
@@ -70,7 +70,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

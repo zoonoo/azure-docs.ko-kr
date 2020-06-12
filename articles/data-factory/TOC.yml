@@ -302,6 +302,8 @@
           href: connector-dynamics-ax.md
         - name: Dynamics CRM
           href: connector-dynamics-crm-office-365.md
+        - name: Excel 형식
+          href: format-excel.md
         - name: 파일 시스템
           href: connector-file-system.md
         - name: FTP
@@ -499,7 +501,7 @@
           href: transform-data-using-stored-procedure.md
         - name: 컴퓨팅 연결 서비스
           href: compute-linked-services.md
-    - name: 흐름 제어
+    - name: 제어 흐름
       items:
         - name: 변수 작업 추가
           href: control-flow-append-variable-activity.md

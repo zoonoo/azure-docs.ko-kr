@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594962"
+ms.locfileid: "83655255"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 인증 및 권한 부여 미리 보기
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 플랫폼이 이후 요청에 대해 이 정보를 개별 앱에 제공하지 않도록 하려면 다음 URL에 요청을 제출합니다.
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>시스템 폴더
@@ -154,6 +154,11 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
 }
 ```
 
+### <a name="post-login-redirect"></a>사후 로그인 리디렉션
+
+사용자가 로그인한 후 특정 페이지로 돌아가도록 하려면 `post_login_redirect_uri` 쿼리 문자열 매개 변수에 URL을 제공합니다.
+
+
 ## <a name="logout"></a>Logout
 
 `/.auth/logout` 경로는 웹 사이트에서 사용자를 로그아웃합니다. 다음 예제와 같이 사용자가 로그아웃할 수 있도록 사이트 탐색에 링크를 추가할 수 있습니다.
@@ -170,6 +175,10 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>사후 로그아웃 리디렉션
+
+사용자가 로그아웃한 후 특정 페이지로 돌아가도록 하려면 `post_logout_redirect_uri` 쿼리 문자열 매개 변수에 URL을 제공합니다.
 
 ## <a name="block-an-authorization-provider"></a>권한 부여 공급자 차단
 

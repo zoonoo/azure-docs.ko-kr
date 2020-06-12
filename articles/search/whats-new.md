@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682470"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344206"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "83682470"
 
 + [시스템 관리 ID(미리 보기)](search-howto-managed-identities-data-sources.md)를 사용하여 인덱싱을 위해 Azure 데이터 원본에 대한 연결을 설정합니다. Azure SQL Database, Azure Cosmos DB 및 Azure Storage와 같은 Azure 데이터 원본에서 콘텐츠를 수집하는 [인덱서](search-indexer-overview.md)에 적용됩니다.
 
-+ [scoringStatistics=global 쿼리 매개 변수](index-similarity-and-scoring.md#scoring-statistics)를 사용하여 분할 단위에서 전체 분할 검색 점수가 계산되는 방식의 기본을 변경합니다.
++ [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) 및 sessionId 쿼리 매개 변수를 사용하여 분할 단위에서 전체 분할 검색 점수가 계산되는 방식의 기본을 변경합니다.
 
 ### <a name="march-2020"></a>2020년 3월
 

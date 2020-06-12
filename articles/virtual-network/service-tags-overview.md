@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: 서비스 태그에 대해 알아봅니다. 서비스 태그는 보안 규칙 생성의 복잡성을 최소화하는 데 유용합니다.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: jispar
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660593"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263204"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ ms.locfileid: "83660593"
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*참고:* 이 태그는 미국 중남부, 미국 동부, 미국 동부 2, 미국 서부 2 및 미국 중부 전용의 Azure Event Grid 엔드포인트에 적용됩니다. | 모두 | 예 | 예 |
+| **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door입니다. | 모두 | 예 | 예 |
 | **AzureInformationProtection** | Azure Information Protection입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureFrontDoor.Frontend** 및 **AzureFrontDoor.FirstParty** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureIoTHub** | Azure IoT Hub입니다. | 아웃바운드 | 예 | 예 |

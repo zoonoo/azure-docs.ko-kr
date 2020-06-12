@@ -15,6 +15,10 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python에서 Windows 가상 머신에 Azure Key Vault 사용
           href: tutorial-python-windows-virtual-machine.md
+    - name: Azure Kubernetes Service
+      items:
+        - name: Azure Key Vault와 Kubernetes 통합
+          href: key-vault-integrate-kubernetes.md
     - name: 관리 ID 및 .NET을 사용하여 Key Vault를 웹앱에 연결
       href: tutorial-net-create-vault-azure-web-app.md
 - name: 샘플

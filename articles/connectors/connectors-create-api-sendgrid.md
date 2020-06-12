@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b86a38278ae345fac376958d18912a878a53872b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789310"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834801"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SendGrid에서 이메일을 보내고 메일 그룹 관리
 
@@ -25,7 +25,7 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
 이러한 작업을 수행하려면 논리 앱에서 SendGrid 작업을 사용할 수 있습니다. SendGrid 작업의 출력을 사용하기 위한 다른 작업도 있을 수 있습니다. 
 
 이 커넥터에서는 논리 앱을 시작하고 **되풀이** 트리거 같은 별도 트리거를 사용하도록 작업만 제공합니다. 예를 들어, 받는 사람을 목록에 정기적으로 추가하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 받는 사람 및 목록에 대한 이메일을 보낼 수 있습니다.
-논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
 
    API 키는 연결을 만들고 SendGrid 계정에 액세스하는 권한을 논리 앱에 부여합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * SendGrid 계정에 액세스하려는 논리 앱입니다. SendGrid 동작을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -52,7 +52,7 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
      또는
 
    * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 검색 상자에 필터로 "sendgrid"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
@@ -68,7 +68,7 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -259,7 +259,7 @@
                 - name: 잘못된 레코드 및 파일 처리
                   href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
                   maintainContext: true
-                - name: 높은 동시성을 위한 작업 p
+                - name: 높은 동시성을 위한 작업 선점
                   href: /azure/databricks/spark/latest/spark-sql/preemption
                   maintainContext: true
                 - name: 대화형 워크플로에서 많은 쿼리 처리
@@ -1072,6 +1072,8 @@
               maintainContext: true
         - name: GDPR 모범 사례
           href: /azure/databricks/security/privacy/gdpr-delta
+        - name: IP 액세스 목록
+          href: /azure/databricks/security/network/ip-access-list
         - name: 클러스터 작업자 노드 간의 트래픽 암호화
           href: /azure/databricks/security/encryption/encrypt-otw
         - name: Notebooks에 고객 관리 키 사용
@@ -1160,10 +1162,13 @@
             - name: Notebook 기능에 대한 액세스 관리
               href: /azure/databricks/administration-guide/workspace/notebooks
               maintainContext: true
-        - name: 클러스터 구성 사용
+        - name: 클러스터 관리
           items:
-            - name: 클러스터 구성 개요
+            - name: 클러스터 구성 옵션 관리
               href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: 클러스터 정책 관리
+              href: /azure/databricks/administration-guide/clusters/policies
               maintainContext: true
             - name: Container Services 사용
               href: /azure/databricks/administration-guide/clusters/container-services
@@ -1191,8 +1196,6 @@
             - name: 사용자 정의 경로 설정
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
-            - name: MySQL IP 주소
-              href: mysql-ip-address.md
     - name: 문제 해결
       items:
         - name: 일반적인 질문
@@ -1256,6 +1259,18 @@
               maintainContext: true
             - name: Apache Spark UI가 총 노드 메모리보다 작음 표시
               href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
+            - name: CPU 코어 제한으로 클러스터 생성 방지
+              href: /azure/databricks/kb/clusters/azure-core-limit
+              maintainContext: true
+            - name: IP 주소 제한으로 클러스터 생성 방지
+              href: /azure/databricks/kb/clusters/azure-ip-limit
+              maintainContext: true
+            - name: 느린 클러스터 시작 및 누락된 노드
+              href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
+              maintainContext: true
+            - name: 사용자 지정 NTP 서버를 사용하도록 클러스터 구성
+              href: /azure/databricks/kb/clusters/use-internal-ntp
               maintainContext: true
         - name: 데이터 관리
           items:
@@ -1332,6 +1347,9 @@
               maintainContext: true
             - name: JDBC 데이터 원본에서 읽기 성능 최적화
               href: /azure/databricks/kb/data-sources/jdbc-optimize-read
+              maintainContext: true
+            - name: ADLS 및 WASB 쓰기 제한됨
+              href: /azure/databricks/kb/data-sources/azure-storage-throttling
               maintainContext: true
         - name: DBFS
           items:
@@ -1500,6 +1518,9 @@
             - name: 취소 명령 문제 해결
               href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
               maintainContext: true
+            - name: Notebook에 대한 현재 사용자 이름 검색
+              href: /azure/databricks/kb/notebooks/get-notebook-username
+              maintainContext: true
         - name: 보안 및 사용 권한
           items:
             - name: 보안 예외로 인해 테이블을 만들지 못함
@@ -1642,28 +1663,31 @@
                     - name: Azure AD 액세스 토큰 문제 해결
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
-            - name: 클러스터
+            - name: 클러스터 API
               href: /azure/databricks/dev-tools/api/latest/clusters
               maintainContext: true
-            - name: DBFS
+            - name: 클러스터 정책 API
+              href: /azure/databricks/dev-tools/api/latest/policies
+              maintainContext: true
+            - name: DBFS API
               href: /azure/databricks/dev-tools/api/latest/dbfs
               maintainContext: true
-            - name: 그룹
+            - name: 그룹 API
               href: /azure/databricks/dev-tools/api/latest/groups
               maintainContext: true
             - name: 인스턴스 풀 API
               href: /azure/databricks/dev-tools/api/latest/instance-pools
               maintainContext: true
-            - name: 작업
+            - name: 작업 API
               href: /azure/databricks/dev-tools/api/latest/jobs
               maintainContext: true
-            - name: 라이브러리
+            - name: 라이브러리 API
               href: /azure/databricks/dev-tools/api/latest/libraries
               maintainContext: true
-            - name: MLflow
+            - name: MLflow API
               href: /azure/databricks/dev-tools/api/latest/mlflow
               maintainContext: true
-            - name: SCIM
+            - name: SCIM API
               items:
                 - name: SCIM API 개요
                   href: /azure/databricks/dev-tools/api/latest/scim/index
@@ -1674,17 +1698,14 @@
                 - name: SCIM API(그룹)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
-            - name: 비밀
+            - name: 비밀 API
               href: /azure/databricks/dev-tools/api/latest/secrets
               maintainContext: true
-            - name: 토큰
+            - name: 토큰 API
               href: /azure/databricks/dev-tools/api/latest/tokens
               maintainContext: true
-            - name: 작업 영역
+            - name: 작업 영역 API
               href: /azure/databricks/dev-tools/api/latest/workspace
-              maintainContext: true
-            - name: REST API 호출에 대한 Runtime 버전 문자열
-              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
               maintainContext: true
         - name: REST API 1.2
           href: /azure/databricks/dev-tools/api/1.2/index
@@ -1767,6 +1788,9 @@
           items:
             - name: 플랫폼 릴리스 정보
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2020년 6월
+              href: /azure/databricks/release-notes/product/2020/june
               maintainContext: true
             - name: 2020년 5월
               href: /azure/databricks/release-notes/product/2020/may

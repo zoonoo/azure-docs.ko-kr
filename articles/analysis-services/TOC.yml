@@ -71,6 +71,8 @@
           href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
         - name: 서버 관리자 역할에 서비스 주체 추가
           href: analysis-services-addservprinc-admins.md
+        - name: 영역 간 이동
+          href: move-between-regions.md
     - name: 모델
       items:
         - name: 테이블 형식 모델링

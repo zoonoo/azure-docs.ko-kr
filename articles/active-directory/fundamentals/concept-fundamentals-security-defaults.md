@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 91a9a761b35a945fcd105465ae8dea7cb6623f42
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643320"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266358"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -65,7 +65,7 @@ Azure Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때
 - Exchange 관리자
 - 조건부 액세스 관리자
 - 보안 관리자
-- 기술 지원팀 관리자 또는 암호 관리자
+- 기술 지원팀 관리자
 - 대금 청구 관리자
 - 사용자 관리자
 - 인증 관리자

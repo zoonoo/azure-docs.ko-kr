@@ -1,6 +1,6 @@
 ---
-title: SQL 풀의 트랜잭션 최적화
-description: 긴 롤백에 대 한 위험을 최소화 하면서 SQL 풀 (데이터 웨어하우스)에서 트랜잭션 코드의 성능을 최적화 하는 방법에 대해 알아봅니다.
+title: SQL 풀 트랜잭션 최적화
+description: 긴 롤백에 대한 위험을 최소화하면서 SQL 풀(데이터 웨어하우스)의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8b5d508450d17d6e07e2c2bdb78b7934988936b9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428733"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715752"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 최적화
 
-긴 롤백에 대 한 위험을 최소화 하면서 SQL 풀에서 트랜잭션 코드의 성능을 최적화 하는 방법에 대해 알아봅니다.
+긴 롤백에 대한 위험을 최소화하면서 SQL 풀의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 
 ## <a name="transactions-and-logging"></a>트랜잭션 및 로깅
 
-트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL 풀은 데이터 수정 중에 트랜잭션을 사용 합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다.
+트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL 풀은 데이터 수정 중에 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다.
 
-SQL 풀은 트랜잭션 로그를 사용 하 여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
+SQL 풀은 트랜잭션 로그를 사용하여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
 
 * 가능하면 항상 최소한의 로깅 구문 사용
 * 한 트랜잭션이 오래 실행되지 않도록 범위가 지정된 배치 사용
@@ -44,7 +44,7 @@ SQL 풀은 트랜잭션 로그를 사용 하 여 데이터베이스에 변경 �
 
 다음은 최소한으로 로깅 가능한 작업입니다.
 
-* [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (CREATE TABLE AS SELECT
+* CREATE TABLE AS SELECT ([CTAS])(../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * INSERT..SELECT
 * CREATE  INDEX
 * ALTER INDEX REBUILD
@@ -78,7 +78,7 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 보조 또는 비클러스터형 인덱스를 업데이트하는 모든 쓰기 작업은 항상 전체 로깅됩니다.
 
 > [!IMPORTANT]
-> SQL 풀에는 60 개의 배포가 있습니다. 따라서 모든 행이 균등하게 분산되고 단일 파티션에 도착한다고 가정하면, 클러스터형 Columnstore 인덱스에 쓸 때 최소한으로 로깅하려면 배치에 6,144,000개 이상의 행이 포함되어야 합니다. 테이블이 분할되어 있고, 삽입되는 행이 파티션 경계에 걸쳐 있는 경우에는 데이터가 균등하게 분산된다는 가정하에 파티션 경계당 6,144,000개의 행이 필요합니다. 삽입 작업을 분산에 최소한으로 로깅하려면 각 분산의 각 파티션이 행 임계값 102,400을 독립적으로 초과해야 합니다.
+> SQL 풀에는 60개의 배포가 있습니다. 따라서 모든 행이 균등하게 분산되고 단일 파티션에 도착한다고 가정하면, 클러스터형 Columnstore 인덱스에 쓸 때 최소한으로 로깅하려면 배치에 6,144,000개 이상의 행이 포함되어야 합니다. 테이블이 분할되어 있고, 삽입되는 행이 파티션 경계에 걸쳐 있는 경우에는 데이터가 균등하게 분산된다는 가정하에 파티션 경계당 6,144,000개의 행이 필요합니다. 삽입 작업을 분산에 최소한으로 로깅하려면 각 분산의 각 파티션이 행 임계값 102,400을 독립적으로 초과해야 합니다.
 
 클러스터형 인덱스가 포함된 비어 있지 않은 테이블로 데이터를 로드하면 전체 로깅 행과 최소 로깅 행이 모두 포함되는 경우가 종종 있습니다. 클러스터형 인덱스는 균형 잡힌 페이지 트리(b-트리)입니다. 쓰여지고 있는 페이지가 이미 다른 트랜잭션의 행을 포함하고 있으면 쓰기 작업이 전체 로깅됩니다. 그러나 페이지가 비어 있으면 해당 페이지에 대한 쓰기 작업이 최소한으로 로깅됩니다.
 
@@ -116,7 +116,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
 
-UPDATE는 전체 로깅 작업입니다.  테이블이 나 파티션에서 많은 수의 행을 업데이트 해야 하는 경우에는 [Ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 와 같이 최소 로깅 작업을 사용 하는 것이 훨씬 효율적일 수 있습니다.
+UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> 큰 테이블을 다시 만들면 SQL 풀 작업 관리 기능을 사용 하는 이점을 누릴 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+> 대규모 테이블을 다시 만들면 SQL 풀 워크로드 관리 기능의 이점을 활용할 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 ## <a name="optimizing-with-partition-switching"></a>파티션 전환을 사용하여 최적화
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>일시 중지 및 크기 조정 지침
 
-Azure Synapse Analytics를 사용 하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 수 있습니다. 
+Azure Synapse Analytics를 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 크기 조정](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)할 있습니다. 
 
-SQL 풀을 일시 중지 하거나 크기를 조정 하는 경우 진행 중인 모든 트랜잭션이 즉시 종료 된다는 것을 이해 하는 것이 중요 합니다. 열려 있는 모든 트랜잭션을 롤백합니다. 
+SQL 풀을 일시 중지하거나 규모를 조정하면 진행 중인 모든 트랜잭션이 즉시 종료되고 열려 있는 모든 트랜잭션이 롤백됩니다. 
 
-일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소 하면 SQL 풀을 일시 중지 하거나 크기를 조정 하는 데 걸리는 시간에 영향을 줄 수 있습니다. 
+일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 실행 취소하면 SQL 풀을 일시 중지하거나 크기 조정하는 데 걸리는 시간에 영향을 줄 수 있습니다. 
 
 > [!IMPORTANT]
 > `UPDATE` 및 `DELETE`는 전체 로깅 작업이므로 이러한 실행 취소/다시 실행 작업이 최소 로깅에 비해 훨씬 오래 걸릴 수 있습니다.
 
-가장 좋은 시나리오는 SQL 풀을 일시 중지 하거나 크기를 조정 하기 전에 비행 데이터 수정 트랜잭션이 완료 되도록 하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
+가장 좋은 시나리오는 진행 중인 데이터 수정 트랜잭션이 완료된 후 SQL 풀을 일시 중지하거나 크기 조정하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
-* [Ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 를 사용 하 여 장기 실행 작업 다시 작성
+* [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 실행 시간이 긴 작업을 다시 작성
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
 
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL 풀의 트랜잭션](develop-transactions.md) 을 참조 하세요.  다른 모범 사례에 대 한 개요는 [SQL 풀 모범 사례](best-practices-sql-pool.md)를 참조 하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL 풀의 트랜잭션](develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요는 [SQL 풀 모범 사례](best-practices-sql-pool.md)를 참조하세요.

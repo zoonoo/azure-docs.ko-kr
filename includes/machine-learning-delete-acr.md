@@ -12,4 +12,4 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "77580548"
 ---
 > [!WARNING]
-> 작업 영역에 대 한 Azure Container Registry를 만든 후에는 삭제 하지 마십시오. 이렇게 하면 Azure Machine Learning 작업 영역이 중단 됩니다.
+> 작업 영역에 대해 Azure Container Registry가 만들어지면 이를 삭제하지 마세요. 삭제하면 Azure Machine Learning 작업 영역이 중단됩니다.

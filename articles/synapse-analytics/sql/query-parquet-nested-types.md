@@ -1,56 +1,55 @@
 ---
-title: SQL 주문형 (미리 보기)을 사용 하 여 Parquet 중첩 형식 쿼리
-description: 이 문서에서는 Parquet 중첩 형식을 쿼리 하는 방법에 대해 알아봅니다.
+title: SQL 주문형(미리 보기)을 사용하여 Parquet 중첩 형식 쿼리
+description: 이 문서에서는 Parquet 중첩 형식을 쿼리하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431658"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744232"
 ---
-# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형 (미리 보기)을 사용 하 여 Parquet 중첩 형식 쿼리
+# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 Parquet 중첩 형식 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 SQL 주문형 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법에 대해 알아봅니다.  이 쿼리는 Parquet 중첩 형식을 읽습니다.
+이 문서에서는 Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 쿼리를 작성하는 방법에 대해 알아봅니다.  이 쿼리는 Parquet 중첩 형식을 읽습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 나머지 부분을 읽기 전에 다음 문서를 검토 하세요.
-
-- [처음 설정](query-data-storage.md#first-time-setup)
-- [필수 구성 요소](query-data-storage.md#prerequisites)
+첫 번째 단계는 참조하는 데이터 원본을 통해 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플에서 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
 ## <a name="project-nested-or-repeated-data"></a>중첩되거나 반복되는 데이터 프로젝션
 
-다음 쿼리는 parquet 파일을 읽습니다 *justSimpleArray* . 중첩 되거나 반복 되는 데이터를 포함 하 여 Parquet 파일의 모든 열을 프로젝션 합니다.
+다음 쿼리는 *justSimpleArray.parquet* 파일을 읽습니다. 중첩되거나 반복되는 데이터를 포함하여 Parquet 파일의 모든 열을 프로젝션합니다.
 
 ```sql
 SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
 ## <a name="access-elements-from-nested-columns"></a>중첩된 열의 요소에 액세스
 
-다음 쿼리는 *structExample* 파일을 읽고 중첩 열의 요소를 표시 하는 방법을 보여 줍니다.
+다음 쿼리는 *structExample.parquet* 파일을 읽고 중첩 열의 요소를 표시하는 방법을 보여줍니다.
 
 ```sql
 SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/structExample.parquet',
+        BULK 'parquet/nested/structExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     )
     WITH (
@@ -70,7 +69,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>반복된 열의 요소에 액세스
 
-다음 쿼리는 *justSimpleArray* 파일을 읽고 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 배열 또는 맵과 같은 반복 열에서 **스칼라** 요소를 검색 합니다.
+다음 쿼리는 *justSimpleArray.parquet* 파일을 읽고 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 배열 또는 맵과 같은 반복되는 열 내에서 **스칼라** 요소를 검색합니다.
 
 ```sql
 SELECT
@@ -80,12 +79,13 @@ SELECT
     JSON_VALUE(SimpleArray, '$[2]') AS ThirdElement
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
-다음 쿼리는 *mapexample* 파일을 읽고 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 배열 또는 맵과 같은 반복 되는 열 내에서 **비 스칼라** 요소를 검색 합니다.
+다음 쿼리는 *mapExample.parquet* 파일을 읽고 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 배열 또는 맵과 같은 반복되는 열 내에서 **비스칼라** 요소를 검색합니다.
 
 ```sql
 SELECT
@@ -93,11 +93,12 @@ SELECT
     JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/mapExample.parquet',
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [JSON 파일을 쿼리](query-json-files.md)하는 방법을 보여 줍니다.
+다음 문서에서는 [JSON 파일을 쿼리](query-json-files.md)하는 방법을 보여줍니다.

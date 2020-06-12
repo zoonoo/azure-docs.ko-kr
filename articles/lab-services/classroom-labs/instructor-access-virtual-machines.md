@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4b4e6bf7b69f1b4c7664a104a0af70d9e486f08a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586170"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699967"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>교육자 뷰에서 학생으로 가상 머신에 액세스
 이 문서에서는 교육자가 학생으로 참석하는 클래스를 위해 VM에 액세스하는 방법을 보여줍니다. 
@@ -36,5 +36,6 @@ ms.locfileid: "83586170"
 다음 문서를 참조하세요.
 
 - [VM에 연결](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Mac에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-mac-rdp.md)
+- [Mac에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-mac-remote-desktop.md)
+- [에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Linux 가상 머신에 원격 데스크톱 사용](how-to-use-remote-desktop-linux-student.md)

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980952"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648078"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -21,9 +21,9 @@ ms.locfileid: "82980952"
 
 이 방법을 사용하려면 머신에 대한 관리자 권한으로 에이전트를 설치하고 구성할 수 있어야 합니다. Linux에서는 루트 계정을 사용하여 수행하고, Windows에서는 로컬 관리자 그룹의 멤버로 수행해야 합니다.
 
-시작하려면 먼저 [사전 요구 사항](overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다.
+시작하려면 먼저 [사전 요구 사항](agent-overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Azure Portal에서 설치 스크립트 생성
 
@@ -43,11 +43,11 @@ Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https:/
     >- WestEurope
     >- WestAsia
     >
-    >개요 문서 [에서 영역을](overview.md#supported-regions) 선택할 때 추가 고려 사항을 검토 합니다.
+    >개요 문서의 [여기](overview.md#supported-regions)에서 지역 선택 시 추가 고려 사항을 검토하세요.
 
 1. **스크립트 생성** 페이지의 **운영 체제** 드롭다운 목록에서 스크립트를 실행할 운영 체제를 선택합니다.
 
-1. 컴퓨터가 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 **다음: 프록시 서버**를 선택 합니다. 
+1. 머신에서 프록시 서버를 통해 통신하여 인터넷에 연결하는 경우 **다음: 프록시 서버**를 선택합니다. 
 1. **프록시 서버** 탭에서 머신에서 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름 및 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다. 
 1. **검토 + 생성**을 선택합니다.
 
@@ -57,7 +57,7 @@ Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https:/
 
 ### <a name="install-manually"></a>수동 설치
 
-*AzureConnectedMachineAgent.msi* Windows Installer 패키지를 실행하여 Connected Machine 에이전트를 수동으로 설치할 수 있습니다. 
+*AzureConnectedMachineAgent.msi* Windows Installer 패키지를 실행하여 Connected Machine 에이전트를 수동으로 설치할 수 있습니다. Microsoft 다운로드 센터에서 최신 버전의 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드할 수 있습니다. 
 
 > [!NOTE]
 > * 에이전트를 설치하거나 제거하려면 *관리자* 권한이 있어야 합니다.
@@ -65,21 +65,21 @@ Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https:/
 
 머신에서 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후에 이 문서의 뒷부분에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다.
 
-Windows Installer 패키지에 대 한 명령줄 옵션에 익숙하지 않은 경우 [msiexec 표준 명령줄 옵션](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) 및 [msiexec 명령줄 옵션](https://docs.microsoft.com/windows/win32/msi/command-line-options)을 검토 하십시오.
+Windows Installer 패키지에 대한 명령줄 옵션에 익숙하지 않은 경우 [Msiexec 표준 명령줄](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) 및 [Msiexec 명령줄 옵션](https://docs.microsoft.com/windows/win32/msi/command-line-options)을 검토하세요.
 
-예를 들어 `/?` 매개 변수를 사용 하 여 설치 프로그램을 실행 하면 도움말 및 빠른 참조 옵션을 검토할 수 있습니다. 
+예를 들어 `/?` 매개 변수를 사용하여 설치 프로그램을 실행하고 도움말 및 빠른 참조 옵션을 검토합니다. 
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-에이전트를 자동으로 설치 하 고 존재 하는 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행 합니다.
+에이전트를 자동으로 설치하고 이미 존재하는 `C:\Support\Logs` 폴더에 설치 로그 파일을 만들려면 다음 명령을 실행합니다.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-연결 된 컴퓨터 에이전트에 대 한 파일은 기본적으로 *C:\Program Files\AzureConnectedMachineAgent*에 설치 됩니다. 설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%Programfiles%\AzureConnectedMachineAgentAgent\logs*입니다.
+설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%Programfiles%\AzureConnectedMachineAgentAgent\logs*입니다.
 
 ### <a name="install-with-the-scripted-method"></a>스크립팅된 메서드를 사용하여 설치
 
@@ -88,6 +88,8 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagen
 1. 관리자 권한 PowerShell 명령 프롬프트를 엽니다.
 
 1. 스크립트를 복사한 폴더 또는 공유로 변경하고, `./OnboardingScript.ps1` 스크립트를 실행하여 서버에서 실행합니다.
+
+설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. 로그 디렉터리는 *%Programfiles%\AzureConnectedMachineAgentAgent\logs*입니다.
 
 ### <a name="configure-the-agent-proxy-setting"></a>에이전트 프록시 설정 구성
 
@@ -156,6 +158,6 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법, 컴퓨터에서 예상 Log Analytics 작업 영역에 보고 하는지 [확인,](../../governance/policy/concepts/guest-configuration.md)vm을 사용 하 여 [Azure Monitor](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)모니터링 사용 등의 작업을 수행 하는 방법을 알아봅니다.
+- [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)로 모니터링 등).
 
 - [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-intro.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.

@@ -1,5 +1,7 @@
 - name: 샘플 모델
   href: sample-model.md
+- name: Azure Remote Rendering 자산 도구
+  href: azure-remote-rendering-asset-tool.md
 - name: Unity 소개 애플리케이션
   href: showcase-app.md
 - name: 예제 PowerShell 스크립트

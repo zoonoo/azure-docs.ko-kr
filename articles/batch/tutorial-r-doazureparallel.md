@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117100"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418180"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
@@ -24,7 +24,7 @@ R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지�
 > * R 세션에 대한 병렬 백 엔드로 Batch 풀 만들기
 > * 풀에서 병렬 시뮬레이션 샘플 실행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 설치된 [R](https://www.r-project.org/) 배포(예:[ Microsoft R Open](https://mran.microsoft.com/open)). R 버전 3.3.1 이상을 사용합니다.
 
@@ -102,7 +102,7 @@ generateClusterConfig("cluster.json")
 이 자습서에서는 구성을 다음과 같이 변경합니다.
 
 * 각 노드의 두 코어를 모두 활용하려면 `maxTasksPerNode`를 *2*로 늘립니다.
-* `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `min`의 `lowPriorityNodes`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
+* `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다. 
 
 나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 결과는 다음과 비슷합니다.
 
@@ -208,7 +208,7 @@ difftime(end_s, start_s)
 ```
 
 
-이제 `foreach` 키워드가 있는 `%dopar%`를 사용하는 코드를 실행하여 Azure에서 1,000만 회의 시뮬레이션을 실행하는 데 걸리는 시간을 비교합니다. Batch를 사용하여 시뮬레이션을 병렬 처리하려면 10만 회의 시뮬레이션을 100회 반복합니다.
+이제 `%dopar%` 키워드가 있는 `foreach`를 사용하는 코드를 실행하여 Azure에서 1,000만 회의 시뮬레이션을 실행하는 데 걸리는 시간을 비교합니다. Batch를 사용하여 시뮬레이션을 병렬 처리하려면 10만 회의 시뮬레이션을 100회 반복합니다.
 
 ```R
 # Optimize runtime. Chunking allows running multiple iterations on a single R instance.

@@ -14,11 +14,11 @@
           href: use-gitops-connected-cluster.md
         - name: Helm에서 GitOps 사용
           href: use-gitops-with-helm.md
-        - name: Azure Policy 사용
+        - name: Azure Policy를 사용하여 GitOps 적용
           href: use-azure-policy.md
         - name: 컨테이너용 Azure Monitor
           href: deploy-azure-monitor-for-containers.md
-        - name: Azure Policy 추가 기능 설치
+        - name: Azure Policy를 사용한 허용 제어 정책
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: IoT 워크로드 배포
           href: deploy-azure-iot-edge-workloads.md

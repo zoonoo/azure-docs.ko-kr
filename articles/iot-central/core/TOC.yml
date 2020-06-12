@@ -111,6 +111,8 @@
           href: howto-create-custom-rules.md
         - name: Databricks를 사용하여 사용자 지정 분석 만들기
           href: howto-create-custom-analytics.md
+        - name: Power BI에서 데이터 시각화
+          href: howto-connect-powerbi.md
     - name: 관리
       items:
         - name: 애플리케이션 관리

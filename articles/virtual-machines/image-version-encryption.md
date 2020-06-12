@@ -1,78 +1,78 @@
 ---
-title: 미리 보기-고유한 키로 암호화 된 이미지 버전 만들기
-description: 고객이 관리 하는 암호화 키를 사용 하 여 공유 이미지 갤러리에서 이미지 버전을 만듭니다.
+title: 미리 보기 - 사용자 고유 키로 암호화된 이미지 버전 만들기
+description: 고객 관리형 암호화 키를 사용하여 Shared Image Gallery에서 이미지 버전을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: aeacfdc07e5349dfce45b209da1d78bddf870f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83269583"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683944"
 ---
-# <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 고객 관리 키를 사용 하 여 이미지 암호화
+# <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
-갤러리 이미지는 관리 디스크로 저장 되므로 서버 쪽 암호화를 사용 하 여 자동으로 암호화 됩니다. 서버 쪽 암호화는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), 사용 가능한 가장 강력한 블록 암호화 중 하나, FIPS 140-2 규격을 사용 합니다. 암호화 모듈 기본 Azure managed disks에 대 한 자세한 내용은 [암호화 API: 차세대](https://docs.microsoft.com/windows/desktop/seccng/cng-portal) 을 참조 하세요.
+갤러리 이미지는 관리 디스크로 저장되므로 서버 쪽 암호화를 사용하여 자동으로 암호화됩니다. 서버 쪽 암호화는 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)(FIPS 140-2 규격)를 사용합니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
-플랫폼 관리 키를 사용 하 여 이미지를 암호화 하거나 고유한 키를 사용 하 여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용 하 여 암호화를 관리 하도록 선택 하는 경우 이미지의 모든 디스크를 암호화 하 고 암호 해독 하는 데 사용할 *고객 관리 키* 를 지정할 수 있습니다. 
+플랫폼 관리형 키를 사용하여 이미지를 암호화하거나 사용자 고유의 키를 사용하여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용하여 암호화를 관리하는 경우 이미지의 모든 데이터를 암호화 및 암호 해독하는 데 사용할 고객 관리형 키를 지정할 수 있습니다. 
 
-고객 관리 키를 사용 하는 서버 쪽 암호화는 Azure Key Vault을 사용 합니다. Key Vault [rsa 키](../key-vault/keys/hsm-protected-keys.md) 를 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다.
+고객 관리형 키를 사용한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-이미지에 대 한 고객 관리 키를 사용 하려면 먼저 Azure Key Vault 필요 합니다. 그런 다음 디스크 암호화 집합을 만듭니다. 그런 다음 이미지 버전을 만들 때 디스크 암호화 집합이 사용 됩니다.
+이미지에 고객 관리형 키를 사용하려면 먼저 Azure Key Vault가 필요합니다. 그런 다음 디스크 암호화 집합을 만듭니다. 그러면 이미지 버전을 만들 때 디스크 암호화 집합이 사용됩니다.
 
-디스크 암호화 집합을 만들고 사용 하는 방법에 대 한 자세한 내용은 [고객 관리 키](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요.
+디스크 암호화 집합을 만들고 사용하는 방법에 대한 자세한 내용은 [고객 관리형 키](./windows/disk-encryption.md#customer-managed-keys)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-고객 관리 키를 사용 하 여 공유 이미지 갤러리 이미지를 암호화 하는 경우 몇 가지 제한 사항이 있습니다.  
+고객 관리형 키를 사용하여 Shared Image Gallery 이미지를 암호화하는 경우 몇 가지 제한 사항이 있습니다.  
 
 - 암호화 키 집합은 이미지와 동일한 구독 및 지역에 있어야 합니다.
 
-- 고객 관리 키를 사용 하는 이미지는 공유할 수 없습니다. 
+- 고객 관리형 키를 사용하는 이미지는 공유할 수 없습니다. 
 
-- 고객 관리 키를 사용 하는 이미지는 다른 지역에 복제할 수 없습니다.
+- 고객 관리형 키를 사용하는 이미지는 다른 지역에 복제할 수 없습니다.
 
-- 사용자 고유의 키를 사용 하 여 디스크 또는 이미지를 암호화 한 후에는 플랫폼 관리 키를 사용 하 여 해당 디스크나 이미지를 암호화할 수 없습니다.
+- 사용자 고유의 키를 사용하여 디스크 또는 이미지를 암호화한 후에는 플랫폼 관리형 키를 사용하여 해당 디스크나 이미지를 암호화할 수 없습니다.
 
 
 > [!IMPORTANT]
-> 고객 관리 키를 사용 하는 암호화는 현재 공개 미리 보기로 제공 됩니다.
+> 고객 관리형 키를 사용하는 암호화는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell
 
-공개 미리 보기의 경우 먼저 기능을 등록 해야 합니다.
+공개 미리 보기의 경우 먼저 기능을 등록해야 합니다.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-등록을 완료 하는 데 몇 분 정도 걸립니다. AzProviderFeature를 사용 하 여 기능 등록 상태를 확인 합니다.
+등록을 완료하려면 몇 분 정도 걸립니다. Get-AzProviderFeature를 사용하여 기능 등록 상태를 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-RegistrationState가 등록 된 것으로 반환 되 면 다음 단계로 이동할 수 있습니다.
+RegistrationState가 Registered를 반환되면 다음 단계로 이동할 수 있습니다.
 
-공급자 등록을 확인 합니다. 가 반환 되는지 확인 `Registered` 합니다.
+공급자 등록을 확인합니다. `Registered`를 반환하는지 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-반환 되지 않으면 `Registered` 다음을 사용 하 여 공급자를 등록 합니다.
+`Registered`를 반환하지 않는 경우 다음을 사용하여 공급자를 등록합니다.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-이미지 버전에 대해로 설정 된 디스크 암호화를 지정 하려면 매개 변수와 함께 [AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 를 사용 `-TargetRegion` 합니다. 
+이미지 버전에 대한 디스크 암호화 집합을 지정하려면 [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 `-TargetRegion` 매개 변수와 함께 사용합니다. 
 
 ```azurepowershell-interactive
 
@@ -108,43 +108,43 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>VM 만들기
 
-공유 이미지 갤러리에서 VM을 만들고, 고객 관리 키를 사용 하 여 디스크를 암호화할 수 있습니다. 구문은 이미지에서 [일반화](vm-generalized-image-version-powershell.md) 된 VM 또는 [특수](vm-specialized-image-version-powershell.md) 한 vm을 만드는 것과 동일 합니다. 확장 매개 변수 집합을 사용 하 여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` VM 구성에 추가 해야 합니다.
+Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지에서 [일반](vm-generalized-image-version-powershell.md) 또는 [특수](vm-specialized-image-version-powershell.md) VM을 만드는 것과 동일합니다. 확장 매개 변수 집합을 사용하고 VM 구성에 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage`를 추가해야 합니다.
 
-데이터 디스크의 경우 `-DiskEncryptionSetId $setID` [AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)를 사용할 때 매개 변수를 추가 해야 합니다.
+데이터 디스크의 경우 [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)를 사용할 때 `-DiskEncryptionSetId $setID` 매개 변수를 추가해야 합니다.
 
 
 ## <a name="cli"></a>CLI 
 
-공개 미리 보기의 경우 먼저 기능을 등록 해야 합니다.
+공개 미리 보기의 경우 먼저 기능을 등록해야 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption
 ```
 
-기능 등록의 상태를 확인 합니다.
+기능 등록 상태를 확인합니다.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
 ```
 
-이 값이 반환 되 면 `"state": "Registered"` 다음 단계로 이동할 수 있습니다.
+`"state": "Registered"`가 반환되면 다음 단계로 이동할 수 있습니다.
 
-등록을 확인 하세요.
+등록을 확인합니다.
 
 ```azurecli-interactive
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-등록 되지 않은 경우 다음을 실행 합니다.
+등록되지 않은 경우 다음을 실행합니다.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Compute
 ```
 
 
-이미지 버전에 대해로 설정 된 디스크 암호화를 지정 하려면 매개 변수와 함께 [az image gallery-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) 을 사용 `--target-region-encryption` 합니다. 의 형식은 `--target-region-encryption` OS 및 데이터 디스크를 암호화 하기 위한 공백으로 구분 된 키 목록입니다. `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`와 비슷한 형식이어야 합니다. 
+이미지 버전에 대해 디스크 암호화를 지정하려면 [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 `--target-region-encryption` 매개 변수와 함께 사용합니다. `--target-region-encryption`의 형식은 OS 및 데이터 디스크를 암호화하기 위한 공백으로 구분된 키 목록입니다. `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`와 비슷한 형식이어야 합니다. 
 
-OS 디스크의 원본이 관리 디스크 또는 VM 인 경우 `--managed-image` 를 사용 하 여 이미지 버전의 원본을 지정 합니다. 이 예제에서 원본은 OS 디스크 및 LUN 0의 데이터 디스크를 포함 하는 관리 되는 이미지입니다. OS 디스크는 DiskEncryptionSet1를 사용 하 여 암호화 되 고 데이터 디스크는 DiskEncryptionSet2로 암호화 됩니다.
+OS 디스크의 원본이 관리 디스크 또는 VM인 경우 `--managed-image`를 사용하여 이미지 버전의 원본을 지정합니다. 이 예제에서 원본은 OS 디스크 및 LUN 0 수준 데이터 디스크를 포함하는 관리형 이미지입니다. OS 디스크는 DiskEncryptionSet1을 사용하여 암호화되고 데이터 디스크는 DiskEncryptionSet2를 사용하여 암호화됩니다.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -157,9 +157,9 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
-OS 디스크의 원본이 스냅숏의 경우를 사용 `--os-snapshot` 하 여 os 디스크를 지정 합니다. 이미지 버전의 일부로도 사용 해야 하는 데이터 디스크 스냅숏이 있으면를 사용 하 여 `--data-snapshot-luns` LUN을 지정 하 고 스냅숏을 지정 하는 데를 추가 합니다 `--data-snapshots` .
+OS 디스크의 원본이 스냅샷이면 `--os-snapshot`을 사용하여 OS 디스크를 지정합니다. 이미지 버전의 일부로도 사용해야 하는 데이터 디스크 스냅샷이 있는 경우 `--data-snapshot-luns`를 사용하여 LUN을 지정하고 `--data-snapshots`를 사용하여 스냅샷을 지정합니다.
 
-이 예제에서 원본은 디스크 스냅숏입니다. OS 디스크 및 LUN 0에 데이터 디스크도 있습니다. OS 디스크는 DiskEncryptionSet1를 사용 하 여 암호화 되 고 데이터 디스크는 DiskEncryptionSet2로 암호화 됩니다.
+이 예제에서 원본은 디스크 스냅샷입니다. OS 디스크가 있고 LUN 0 수준 데이터 디스크도 있습니다. OS 디스크는 DiskEncryptionSet1을 사용하여 암호화되고 데이터 디스크는 DiskEncryptionSet2를 사용하여 암호화됩니다.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -177,21 +177,21 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>VM 만들기
 
-공유 이미지 갤러리에서 VM을 만들고, 고객 관리 키를 사용 하 여 디스크를 암호화할 수 있습니다. 구문은 이미지에서 [일반화](vm-generalized-image-version-cli.md) 된 VM 또는 [특수](vm-specialized-image-version-cli.md) 한 VM을 만드는 것과 동일 하며 `--os-disk-encryption-set` 암호화 집합의 ID를 사용 하 여 매개 변수를 추가 하기만 하면 됩니다. 데이터 디스크의 경우 `--data-disk-encryption-sets` 데이터 디스크에 대 한 디스크 암호화 집합의 공백으로 구분 된 목록을 추가 합니다.
+Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지에서 [일반](vm-generalized-image-version-cli.md) 또는 [특수](vm-specialized-image-version-cli.md) VM을 만드는 것과 동일합니다. 암호화 집합의 ID를 사용하여 `--os-disk-encryption-set` 매개 변수를 추가하기만 하면 됩니다. 데이터 디스크의 경우 데이터 디스크에 대한 디스크 암호화 집합의 공백으로 구분된 목록을 사용하여 `--data-disk-encryption-sets`를 추가합니다.
 
 
 ## <a name="portal"></a>포털
 
-포털에서 이미지 버전을 만들 때 **암호화** 탭을 사용 하 여 저장소 암호화 집합에 대 한 정보를 입력할 수 있습니다.
+포털에서 이미지 버전을 만들 때 **암호화** 탭을 사용하여 스토리지 암호화 집합에 대한 정보를 입력할 수 있습니다.
 
-1. **이미지 버전 만들기** 페이지에서 **암호화** 탭을 선택 합니다.
-2. **암호화 유형**에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화**를 선택 합니다. 
-3. 이미지에 있는 각 디스크에 대해 드롭다운에서 사용할 **디스크 암호화 집합** 을 선택 합니다. 
+1. **이미지 버전 만들기** 페이지에서 **암호화** 탭을 선택합니다.
+2. **암호화 유형**에서 **고객 관리형 키로 미사용 데이터 암호화**를 선택합니다. 
+3. 이미지의 각 디스크에 대해 드롭다운에서 사용할 **디스크 암호화 집합**을 선택합니다. 
 
 ### <a name="create-the-vm"></a>VM 만들기
 
-공유 이미지 갤러리에서 VM을 만들고, 고객 관리 키를 사용 하 여 디스크를 암호화할 수 있습니다. 포털에서 VM을 만들 때 **디스크** 탭에서 **암호화 종류**에 대 한 **고객 관리 키를 사용 하 여 미사용 암호화** 를 선택 합니다. 그런 다음 드롭다운에서 암호화 집합을 선택할 수 있습니다.
+Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 포털에서 VM을 만들 때 **디스크** 탭에서 **암호화 유형**으로 **고객 관리형 키로 미사용 데이터 암호화**를 선택합니다. 그런 다음 드롭다운에서 암호화 집합을 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[서버 쪽 디스크 암호화](/windows/disk-encryption.md)에 대해 자세히 알아보세요.
+[서버 쪽 디스크 암호화](./windows/disk-encryption.md)에 대해 알아봅니다.

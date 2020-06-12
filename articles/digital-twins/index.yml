@@ -1,75 +1,81 @@
 ### YamlMime:Landing
 title: Azure Digital Twins 미리 보기 설명서
-summary: Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다. 가상의 스마트 건물을 모니터링하고, 자세한 개념을 알아보고, 실제 환경을 모델링하는 차세대 IoT 솔루션을 만드는 빠른 시작 및 자습서를 설명합니다.
+summary: Azure Digital Twins를 사용하여 자산, 환경 및 비즈니스 시스템을 디지털로 표현하고 실제 세상을 모델링하는 차세대 IoT 솔루션을 빌드하는 방법을 알아봅니다.
 metadata:
   title: Azure Digital Twins 미리 보기 설명서 - 자습서, API 참조 | Microsoft Docs
   description: Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 02/07/2020
-  ms.openlocfilehash: e5d66ffb35cb0ce50aa7898cad30bf9fd0bf57ac
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77110579"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84610035"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Digital Twins란?
-      url: about-digital-twins.md
-  - linkListType: concept
-    links:
-    - text: Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
-      url: concepts-objectmodel-spatialgraph.md
-  - linkListType: video
-    links:
-    - text: Azure Digital Twins 소개
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-- title: 시작하기
+      url: overview.md
+- title: 자습서 시작
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 사용 가능한 공간 찾기
-      url: quickstart-view-occupancy-dotnet.md
   - linkListType: tutorial
     links:
-    - text: 배포 및 구성
-      url: tutorial-facilities-setup.md
-    - text: 조건 프로비전 및 모니터링
-      url: tutorial-facilities-udf.md
-    - text: Logic Apps를 사용하여 알림
-      url: tutorial-facilities-events.md
-    - text: Time Series Insights를 사용하여 이벤트 시각화
-      url: tutorial-facilities-analyze.md
-- title: Azure Digital Twins로 개발
+    - text: 클라이언트 앱 코딩
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: 샘플 클라이언트 앱으로 기본 사항 살펴보기
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: 엔드투엔드 솔루션 연결
+      url: tutorial-end-to-end.md
+- title: 배우기
   linkLists:
   - linkListType: concept
     links:
-    - text: 디바이스 연결 및 원격 분석 수신
-      url: concepts-device-ingress.md
-    - text: 데이터 처리 및 사용자 정의 함수
-      url: concepts-user-defined-functions.md
+    - text: 사용자 지정 모델
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Digital Twins 및 쌍 그래프
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: 쿼리 언어
+      url: concepts-query-language.md
+- title: 개발
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Postman 설정
-      url: how-to-configure-postman.md
-    - text: 사용자 정의 함수 만들기
-      url: how-to-user-defined-functions.md
+    - text: Azure Digital Twins CLI 사용
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Digital Twins 인스턴스 만들기
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: 클라이언트 애플리케이션 인증
+      url: how-to-authenticate-client.md
 - title: API 참조
   linkLists:
-  - linkListType: reference
-    links:
-    - text: 사용자 정의 함수 클라이언트 라이브러리
-      url: reference-user-defined-functions-client-library.md
   - linkListType: how-to-guide
     links:
-    - text: Digital Twins Swagger 사용
-      url: how-to-use-swagger.md
+    - text: Azure Digital Twins API 및 SDK 사용
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: AutoRest를 사용하여 사용자 지정 SDK 만들기
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

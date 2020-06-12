@@ -4,16 +4,19 @@
   items:
     - name: Azure Blueprints란?
       displayName: 'templates, policy, definition, assignment, rbac'
-      href: overview.md
+      href: ./overview.md
 - name: 빠른 시작
   expanded: true
   items:
     - name: 청사진 만들기 - Portal
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-portal.md
-    - name: 청사진 만들기 - PowerShell
+      href: ./create-blueprint-portal.md
+    - name: 청사진 만들기 - Azure PowerShell
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-powershell.md
+      href: ./create-blueprint-powershell.md
+    - name: 청사진 만들기 - Azure CLI
+      displayName: 'publish, assign, track, unassign, delete'
+      href: ./create-blueprint-azurecli.md
     - name: 청사진 만들기 - REST API
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
@@ -268,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: 참조
   items:
+    - name: Azure CLI
+      href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'
     - name: Azure SDK for .NET
@@ -285,7 +290,7 @@
     - name: GitHub - Azure Blueprints 샘플
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Azure Blueprints에 대한 Microsoft Q&A
-      href: /answers/topics/azure-blueprints.html.html
+      href: /answers/topics/azure-blueprints.html
     - name: 거버넌스 YouTube 채널
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Friday - Azure Blueprints 개요

@@ -1,26 +1,26 @@
 ---
-title: 계량 서비스 Api-Microsoft 상업적 marketplace
-description: 사용 이벤트 API를 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품에 대 한 사용 이벤트를 내보낼 수 있습니다.
+title: 계량 서비스 API - Microsoft 상업용 마켓플레이스
+description: 사용량 이벤트 API를 사용하여 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품에 대한 사용량 이벤트를 내보낼 수 있습니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857859"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725468"
 ---
 # <a name="marketplace-metering-service-apis"></a>Marketplace 계량 서비스 API
 
-사용 이벤트 API를 사용 하면 구매한 특정 엔터티에 대 한 사용 이벤트를 내보낼 수 있습니다. 사용 이벤트 요청은 제품을 게시할 때 게시자에서 정의한 계량 서비스 차원을 참조 합니다.
+사용량 이벤트 API를 사용하면 구매한 특정 엔터티에 대한 사용량 이벤트를 내보낼 수 있습니다. 사용량 이벤트 요청은 제품을 게시할 때 게시자에서 정의한 계량 서비스 차원을 참조합니다.
 
-## <a name="usage-event"></a>사용 이벤트
+## <a name="usage-event"></a>사용량 이벤트
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -32,11 +32,14 @@ ms.locfileid: "82857859"
 
 | Content-type       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | 클라이언트의 요청을 추적 하기 위한 고유 문자열 값 (가급적 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
-| `x-ms-correlationid` | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-| `authorization`   | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 `Bearer` 링크에서 가져온 토큰에 접두사를 붙입니다. |
+| `x-ms-requestid`     | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+| `x-ms-correlationid` | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+| `authorization`   | [JWT(JSON Web Token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조된 링크에서 가져온 토큰에 `Bearer` 접두사를 붙입니다. |
 
-*요구*
+>[!Note]
+>Azure 애플리케이션 관리 앱 계획의 경우 `resourceId`는 관리 앱 메타데이터 개체의 `billingDetails` 아래에 있는 `resourceUsageId`입니다.  이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다.  SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다.  SaaS 구독에 대한 자세한 내용은 [구독 나열](./pc-saas-fulfillment-api-v2.md#list-subscriptions)을 참조하세요.
+
+*요청:*
 
 ```json
 {
@@ -67,7 +70,7 @@ ms.locfileid: "82857859"
 ```
 
 코드: 400 <br>
-제공 되거나 만료 된 잘못 된 요청, 누락 또는 잘못 된 데이터
+제공되거나 만료된 잘못된 요청, 누락 또는 잘못된 데이터
 
 ```json
 {
@@ -85,7 +88,7 @@ ms.locfileid: "82857859"
 ```
 
 코드: 403<br>
-제공 되거나 만료 된 잘못 된 요청, 누락 또는 잘못 된 데이터
+제공되거나 만료된 잘못된 요청, 누락 또는 잘못된 데이터
 
 ```json
 {
@@ -95,7 +98,7 @@ ms.locfileid: "82857859"
 ```
 
 코드: 409<br>
-충돌, 사용 리소스 ID에 대 한 사용 호출 및 이미 존재 하는 유효 사용을 받게 됩니다. 응답에는 허용 `additionalInfo` 된 메시지에 대 한 정보가 포함 된 필드가 포함 됩니다.
+충돌, 사용량 리소스 ID에 대한 사용량 호출 및 이미 존재하는 유효 사용량을 받는 경우 응답에는 허용된 메시지에 대한 정보를 포함하는 `additionalInfo` 필드가 포함됩니다.
 
 ```json
 {
@@ -113,14 +116,14 @@ ms.locfileid: "82857859"
 }
 ```
 
-## <a name="batch-usage-event"></a>일괄 처리 사용 이벤트
+## <a name="batch-usage-event"></a>일괄 처리 사용량 이벤트
 
-Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에 대 한 사용 이벤트를 한 번에 내보낼 수 있습니다. Batch 사용 이벤트 요청은 제품을 게시할 때 게시자가 정의한 계량 서비스 차원을 참조 합니다.
+일괄 처리 사용량 이벤트 API를 사용하면 둘 이상의 구매한 특정 엔터티에 대한 사용량 이벤트를 한 번에 내보낼 수 있습니다. 일괄 처리 사용량 이벤트 요청은 제품을 게시할 때 게시자에서 정의한 계량 서비스 차원을 참조합니다.
 
 >[!Note]
->Microsoft의 상용 marketplace에서 여러 SaaS 제품을 등록할 수 있습니다. 등록 된 각 SaaS 제품에는 인증 및 권한 부여를 위해 등록 된 고유한 Azure AD 응용 프로그램이 있습니다. Batch에서 내보낸 이벤트는 제품을 등록할 때 동일한 Azure AD 응용 프로그램을 사용 하는 제품에 속해야 합니다.
+>Microsoft의 상업용 마켓플레이스에서 여러 SaaS 제품을 등록할 수 있습니다. 등록된 각 SaaS 제품에는 인증 및 권한 부여를 위해 등록된 고유한 Azure AD 애플리케이션이 있습니다. 일괄 처리에서 내보낸 이벤트는 제품을 등록할 때 동일한 Azure AD 애플리케이션을 사용하는 제품에 속해야 합니다.
 
-**POST:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -132,11 +135,11 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
 
 | Content-type       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | 클라이언트의 요청을 추적 하기 위한 고유 문자열 값 (가급적 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-| `x-ms-correlationid` | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-| `authorization`      | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 `Bearer` 링크에서 가져온 토큰에 접두사를 붙입니다.  |
+| `x-ms-requestid`     | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+| `x-ms-correlationid` | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+| `authorization`      | [JWT(JSON Web Token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조된 링크에서 가져온 토큰에 `Bearer` 접두사를 붙입니다.  |
 
-*요구*
+*요청:*
 ```json
 {
   "request": [
@@ -192,22 +195,22 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
 }
 ```
 
-API 응답에서 참조 되는 `BatchUsageEvent` 상태 코드에 대 한 설명:
+`BatchUsageEvent` API 응답에서 참조되는 상태 코드에 대한 설명:
 
 | 상태 코드  | Description |
 | ---------- | -------------------- |
-| `Accepted` | 허용 된 코드입니다. |
-| `Expired` | 만료 된 사용입니다. |
-| `Duplicate` | 중복 된 사용법이 제공 되었습니다. |
+| `Accepted` | 승인된 코드 |
+| `Expired` | 만료된 사용 |
+| `Duplicate` | 중복된 사용량이 제공되었습니다. |
 | `Error` | 오류 코드 |
-| `ResourceNotFound` | 제공 된 사용 리소스가 잘못 되었습니다. |
-| `ResourceNotAuthorized` | 이 리소스에 대 한 사용량을 제공할 수 있는 권한이 없습니다. |
-| `InvalidDimension` | 사용량이 전달 된 차원이이 제안/계획에 적합 하지 않습니다. |
-| `InvalidQuantity` | 전달 된 수량은 0 <입니다. |
-| `BadArgument` | 입력이 없거나 형식이 잘못 되었습니다. |
+| `ResourceNotFound` | 제공된 사용량 리소스가 잘못되었습니다. |
+| `ResourceNotAuthorized` | 이 리소스에 대한 사용량을 제공할 수 있는 권한이 없습니다. |
+| `InvalidDimension` | 사용량이 전달된 차원이 이 제품/계획에 적합하지 않습니다. |
+| `InvalidQuantity` | 전달된 수량은 <0입니다. |
+| `BadArgument` | 입력이 없거나 형식이 잘못되었습니다. |
 
 코드: 400<br>
-제공 되거나 만료 된 잘못 된 요청, 누락 또는 잘못 된 데이터
+제공되거나 만료된 잘못된 요청, 누락 또는 잘못된 데이터
 
 ```json
 {
@@ -224,7 +227,7 @@ API 응답에서 참조 되는 `BatchUsageEvent` 상태 코드에 대 한 설명
 }
 ```
 코드: 403<br>
-사용자가이 호출을 수행할 권한이 없습니다.
+사용자가 이 호출을 수행할 권한이 없습니다.
 
 ```json
 {
@@ -235,4 +238,4 @@ API 응답에서 참조 되는 `BatchUsageEvent` 상태 코드에 대 한 설명
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [SaaS 요금제](./saas-metered-billing.md)를 참조 하세요.
+자세한 내용은 [SaaS 요금 청구](./saas-metered-billing.md)를 참조하세요.

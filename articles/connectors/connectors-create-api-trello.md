@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1426bbe2064067b26f53a8f8e5d4aa842ede8c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789140"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829701"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Trello를 모니터링 및 관리
 
@@ -24,7 +24,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 * 보드, 보드 레이블, 보드의 카드, 카드 주석, 카드 멤버, 팀 멤버 및 멤버로 속한 팀을 나열합니다. 
 * 팀을 가져옵니다.
 
-트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,7 +34,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 
   자격 증명을 통해 Trello 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Trello 계정에 액세스하려는 논리 앱입니다. Trello 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Trello 동작을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -53,7 +53,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
    작업 목록에서 원하는 작업을 선택합니다.
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. Trello에 로그인하라는 메시지가 표시되면 논리 앱에 대한 액세스 권한을 부여하고 로그인합니다.
 
@@ -65,7 +65,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

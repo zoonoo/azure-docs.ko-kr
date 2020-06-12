@@ -977,46 +977,45 @@
           href: how-to-manage-indexing-policy.md
         - name: 고유 키 정의
           href: how-to-define-unique-keys.md
-    - name: 모범 사례
+    - name: 성능 및 문제 해결
       items:
-        - name: 성능 팁
+        - name: 쿼리
           items:
             - name: 쿼리 실행 메트릭 가져오기
-              displayName: 'query profile, profile'
               href: profile-sql-api-query.md
             - name: 쿼리 성능 조정
               href: sql-api-query-metrics.md
-            - name: .NET SDK용 성능 팁
+            - name: 쿼리 성능 문제 해결
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: .NET SDK v3용 성능 팁
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: .NET SDK v2용 성능 팁
               href: performance-tips.md
+            - name: .NET SDK 문제 해결
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
             - name: Java SDK v4용 성능 팁
               href: performance-tips-java-sdk-v4-sql.md
-            - name: 이전 Java SDK용 성능 팁
-              items:
-                - name: 비동기 Java SDK v2
-                  href: performance-tips-async-java.md
-                - name: 동기 Java SDK v2
-                  href: performance-tips-java.md
-            - name: 성능 테스트 - 샘플 앱
-              href: performance-testing.md
-        - name: 비용 효율적인 읽기 및 쓰기
-          href: key-value-store-cost.md
-    - name: 문제 해결
-      items:
-        - name: 쿼리 성능 문제 해결
-          href: troubleshoot-query-performance.md
-        - name: Java SDK v4 문제 해결
-          href: troubleshoot-java-sdk-v4-sql.md
-        - name: 이전 Java SDK 문제 해결
-          items:
+            - name: Java SDK v4 문제 해결
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: 비동기 Java SDK v2
+              href: performance-tips-async-java.md
+            - name: 동기 Java SDK v2
+              href: performance-tips-java.md
             - name: 비동기 Java SDK v2
               href: troubleshoot-java-async-sdk.md
-        - name: .NET SDK 문제 해결
-          href: troubleshoot-dot-net-sdk.md
+        - name: 성능 테스트 - 샘플 앱
+          href: performance-testing.md
+        - name: 비용 효율적인 읽기 및 쓰기
+          href: key-value-store-cost.md
     - name: 최신 SDK로 마이그레이션
       items:
         - name: Java V4 SDK로 마이그레이션
           href: migrate-java-v4-sdk.md
-    - name: 피드 변경
+    - name: 변경 피드
       items:
         - name: Azure Cosmos DB 트리거 로그
           href: how-to-configure-cosmos-db-trigger-logs.md
@@ -1194,28 +1193,30 @@
           href: how-to-migrate-from-bulk-executor-library.md
         - name: Bulk Executor - Java 라이브러리
           href: bulk-executor-java.md
-- name: 참조
+- name: SQL API SDK에 대한 참조
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: .NET 변경 피드 라이브러리
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: .NET Bulk Executor 라이브러리
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java Bulk Executor 라이브러리
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Core용 Java SDK v4
-      href: sql-api-sdk-java-v4.md
-    - name: Core용 Java SDK 이전 버전
+    - name: .NET SDK
       items:
+        - name: .NET SDK v3
+          href: sql-api-sdk-dotnet-standard.md
+        - name: .NET SDK v2
+          href: sql-api-sdk-dotnet.md
+        - name: .NET Core SDK v2
+          href: sql-api-sdk-dotnet-core.md
+        - name: .NET 변경 피드 라이브러리 v2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: .NET 대량 실행기 라이브러리 v2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: Java SDK
+      items:
+        - name: Java SDK v4
+          href: sql-api-sdk-java-v4.md
         - name: 비동기 Java SDK v2
           href: sql-api-sdk-async-java.md
         - name: 동기 Java SDK v2
           href: sql-api-sdk-java.md
+        - name: Java 대량 실행기 라이브러리 v2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

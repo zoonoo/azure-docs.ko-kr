@@ -1,14 +1,14 @@
 ---
-title: Azure Batch 풀 용 Azure 파일 공유
+title: Azure Batch 풀용 Azure 파일 공유
 description: Azure Batch의 Linux 또는 Windows 풀에서 컴퓨팅 노드의 Azure Files 공유를 탑재하는 방법입니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115451"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780278"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
@@ -39,8 +39,8 @@ ms.locfileid: "82115451"
 
 예를 들어, 각 작업 명령줄의 일부로 파일 공유를 탑재하려면 `net use` 명령을 포함합니다. 파일 공유를 탑재하려면 다음 자격 증명이 필요합니다.
 
-* **사용자 이름**: azure\\\<storageaccountname\>(예: azure\\*mystorageaccountname* )
-* **암호**: \<StorageAccountKeyWhichEnds in = => (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
+* **사용자 이름**: AZURE\\\<storageaccountname\>, 예: AZURE\\*mystorageaccountname*
+* **암호**: \<StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 *S:* 드라이브로 탑재합니다.
 
@@ -106,7 +106,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Linux 풀에서 공유 탑재
 
-Azure 파일 공유는 [CIFS 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용 하 여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 컴퓨팅 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
+Azure 파일 공유는 [CIFS 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 컴퓨팅 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 먼저 관리자 ID로 `cifs-utils` 패키지를 설치하고 로컬 파일 시스템에서 탑재 지점(예: */mnt/MyAzureFileShare*)을 만듭니다. 탑재 지점의 폴더는 파일 시스템의 어디에나 만들 수 있지만, 일반적으로 `/mnt` 폴더 아래에 만듭니다. `/mnt`(Ubuntu) 또는 `/mnt/resource`(다른 배포)에 직접 탑재 지점을 만들지는 마세요.
 
@@ -116,8 +116,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 그런 다음, `mount` 명령을 실행하여 파일 공유를 탑재하여 다음 자격 증명을 제공합니다.
 
-* **사용자 이름**: \<storageaccountname\>(예: *mystorageaccountname* )
-* **암호**: \<StorageAccountKeyWhichEnds in = => (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
+* **사용자 이름**: \<storageaccountname\>, 예: *mystorageaccountname*
+* **암호**: \<StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 */mnt/MyAzureFileShare*에 탑재합니다. 
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배치에서 데이터를 읽고 쓰는 기타 옵션은 [배치 기능 개요](batch-api-basics.md) 및 [작업 및 작업 출력 유지](batch-task-output.md)를 참조하세요.
-
+* Batch에서 데이터를 읽고 쓰기 위한 다른 옵션은 [작업 및 태스크 출력 유지](batch-task-output.md)를 참조하세요.
 * 배치 컨테이너 워크로드에 대한 파일 시스템을 배포하는 데 필요한 [Shipyard 레시피](https://github.com/Azure/batch-shipyard/tree/master/recipes)를 포함하는 [배치 Shipyard](https://github.com/Azure/batch-shipyard) 도구 키트도 참조하세요.

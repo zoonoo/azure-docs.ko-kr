@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Fivetran 및 데이터 웨어하우스'
-description: Fivetran 및 Azure Synapse Analytics 데이터 웨어하우스를 시작 하세요.
+description: Fivetran 및 Azure Synapse Analytics 데이터 웨어하우스를 시작합니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,36 +11,36 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414278"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659986"
 ---
-# <a name="quickstart-fivetran-with-data-warehouse"></a>빠른 시작: 데이터 웨어하우스로 Fivetran 
+# <a name="quickstart-fivetran-with-data-warehouse"></a>빠른 시작: 데이터 웨어하우스가 있는 Fivetran 
 
-이 빠른 시작에서는 SQL 풀로 프로 비전 된 Azure Synapse Analytics 데이터 웨어하우스와 함께 사용할 새 Fivetran 사용자를 설정 하는 방법을 설명 합니다. 이 문서에서는 기존 데이터 웨어하우스가 있다고 가정 합니다.
+이 빠른 시작에서는 SQL 풀을 사용하여 프로비전된 Azure Synapse Analytics 데이터 웨어하우스에서 작업할 새 Fivetran 사용자를 설정하는 방법을 설명합니다. 이 문서에서는 기존 데이터 웨어하우스가 있다고 가정합니다.
 
 ## <a name="set-up-a-connection"></a>연결 설정
 
-1. 데이터 웨어하우스에 연결 하는 데 사용 하는 정규화 된 서버 이름 및 데이터베이스 이름을 찾습니다.
+1. 데이터 웨어하우스에 연결하는 데 사용하는 정규화된 서버 이름 및 데이터베이스 이름을 찾습니다.
     
-    이 정보를 찾는 데 도움이 필요 하면 [데이터 웨어하우스에 연결](../sql/connect-overview.md)을 참조 하세요.
+    이 정보를 찾는 데 도움이 필요한 경우 [데이터 웨어하우스에 연결](../sql/connect-overview.md)을 참조하세요.
 
 2. 설정 마법사에서 데이터베이스를 직접 연결할지 또는 SSH 터널을 통해 연결할지 선택합니다.
 
    데이터베이스에 직접 연결을 선택하는 경우 액세스를 허용하는 방화벽 규칙을 만들어야 합니다. 이 방법이 가장 간단하고 가장 안전한 방법입니다.
 
-   SSH 터널을 사용 하 여 연결 하도록 선택 하면 Fivetran는 네트워크의 별도 서버에 연결 됩니다. 해당 서버에서 데이터베이스에 대한 SSH 터널을 제공합니다. 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 이 방법을 사용해야 합니다.
+   SSH 터널을 통한 연결을 선택하면 Fivetran이 네트워크의 별도 서버에 연결합니다. 해당 서버에서 데이터베이스에 대한 SSH 터널을 제공합니다. 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 이 방법을 사용해야 합니다.
 
-3. Fivetran에서 데이터 웨어하우스 인스턴스로 들어오는 연결을 허용 하도록 서버 수준 방화벽에 **52.0.2.4** IP 주소를 추가 합니다.
+3. Fivetran에서 데이터 웨어하우스 인스턴스에 들어오는 연결을 허용하도록 서버 수준 방화벽에 IP 주소 **52.0.2.4**를 추가합니다.
 
    자세한 내용은 [서버 수준 방화벽 규칙 만들기](create-data-warehouse-portal.md#create-a-server-level-firewall-rule)를 참조하세요.
 
 ## <a name="set-up-user-credentials"></a>사용자 자격 증명 설정
 
-1. SSMS (SQL Server Management Studio) 또는 선호 하는 도구를 사용 하 여 데이터 웨어하우스에 연결 합니다. 서버 관리 사용자로 로그인합니다. 그런 후에, 다음 SQL 명령을 실행하여 Fivetran의 사용자를 만듭니다.
+1. SSMS(SQL Server Management Studio) 또는 원하는 도구를 사용하여 데이터 웨어하우스에 연결합니다. 서버 관리 사용자로 로그인합니다. 그런 후에, 다음 SQL 명령을 실행하여 Fivetran의 사용자를 만듭니다.
 
     - master 데이터베이스의 경우: 
     
@@ -48,7 +48,7 @@ ms.locfileid: "81414278"
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - 데이터 웨어하우스 데이터베이스에서 다음을 수행 합니다.
+    - 데이터 웨어하우스 데이터베이스의 경우:
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -56,7 +56,7 @@ ms.locfileid: "81414278"
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. 데이터 웨어하우스에 대해 Fivetran 사용자에 게 다음 사용 권한을 부여 합니다.
+2. Fivetran 사용자에게 데이터 웨어하우스에 대한 다음 사용 권한을 부여합니다.
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -77,10 +77,10 @@ ms.locfileid: "81414278"
 
 ## <a name="connect-from-fivetran"></a>Fivetran에서 연결
 
-Fivetran 계정에서 데이터 웨어하우스에 연결 하려면 데이터 웨어하우스에 액세스 하는 데 사용 하는 자격 증명을 입력 합니다. 
+Fivetran 계정에서 데이터 웨어하우스에 연결하려면 데이터 웨어하우스에 액세스하는 데 사용하는 자격 증명을 입력합니다. 
 
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자 이름은 **\@fivetran server_name** 이어야 합니다. 여기서 *server_name* 은 Azure 호스트 URI: ** _\_server name_. database.windows.net**)의 일부입니다.
+* 사용자(사용자 이름은 **fivetran\@_server_name_** 이어야 하며, 여기서 *server_name*은 Azure host URI: **_server\_name_.database.windows.net**의 일부임).
 * Password.

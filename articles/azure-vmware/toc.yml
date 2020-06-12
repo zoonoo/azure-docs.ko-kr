@@ -36,6 +36,12 @@
       href: manage-dhcp.md
     - name: 재해 복구
       href: disaster-recovery.md
+    - name: AVS용 Azure Backup Server
+      items:
+        - name: AVS용 Azure Backup Server 설정
+          href: set-up-mabs-for-avs.md
+        - name: Azure Backup Server를 사용하여 AVS VM 백업
+          href: backup-avs-vms-with-mabs.md
 - name: 참조
   items: null
 - name: 리소스
