@@ -1,27 +1,27 @@
 ---
-title: Azure Logic Apps에 대 한 REST api & 웹 Api 만들기
+title: Azure Logic Apps용 웹 API 및 REST API 만들기
 description: Azure Logic Apps에서 시스템 통합을 위해 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API 만들기
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005259"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834495"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
-Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 개의 커넥터](../connectors/apis-list.md) 를 제공 하지만, 커넥터로 사용할 수 없는 api, 시스템 및 서비스를 호출 하는 것이 좋습니다. 논리 앱에서 사용할 동작과 트리거를 제공하는 자체 API는 직접 만들 수 있습니다. 논리 앱 워크플로에서 호출할 수 있는 API를 직접 만들려는 다른 이유는 다음가 같습니다.
+Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 개의 커넥터](../connectors/apis-list.md)를 제공하지만 커넥터로 사용할 수 없는 API, 시스템 및 서비스를 호출하는 것이 좋을 수도 있습니다. 논리 앱에서 사용할 동작과 트리거를 제공하는 자체 API는 직접 만들 수 있습니다. 논리 앱 워크플로에서 호출할 수 있는 API를 직접 만들려는 다른 이유는 다음가 같습니다.
 
 * 현재의 시스템 통합 및 데이터 통합 워크플로를 확장합니다.
 * 고객이 서비스를 사용하여 전문적이거나 개인적인 작업을 관리할 수 있도록 지원합니다.
 * 서비스에 대한 범위, 검색 기능 및 사용을 확장합니다.
 
-기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 끝점을 통해 통신 하는 REST Api 이므로 .NET, Java, Python 또는 node.js와 같은 모든 언어를 사용 하 여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/overview.md)에서 API를 호스팅할 수도 있습니다. 
+기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java, Python 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/overview.md)에서 API를 호스팅할 수도 있습니다. 
 
 사용자 지정 API가 논리 앱에서 작동하려면 API가 논리 앱 워크플로에서 특정 작업을 수행하는 [*동작*](./logic-apps-overview.md#logic-app-concepts)을 제공할 수 있습니다. 또한 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱 워크플로를 시작할 수도 있습니다. 이 항목에서는 API에서 제공할 동작에 따라 API에서 동작과 트리거를 빌드할 때 따라야 하는 일반적인 패턴에 대해 설명합니다.
 
@@ -41,7 +41,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 �
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>사용자 지정 API는 사용자 지정 커넥터와 어떻게 다른가요?
 
-사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 그리고 이러한 Api 및 커넥터는 HTTP 끝점을 통해 통신 하는 REST Api 이므로 .NET, Java, Python 또는 node.js와 같은 언어를 사용 하 여 사용자 지정 Api 및 커넥터를 빌드할 수 있습니다.
+사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](https://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 또한 이러한 API 및 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java, Python 또는 Node.js와 같은 언어를 사용하여 사용자 지정 API 및 커넥터를 빌드할 수 있습니다.
 
 사용자 지정 API는 커넥터가 아닌 API를 호출할 수 있도록 하고, HTTP + Swagger, Azure SAPI Management 또는 App Services를 사용하여 호출할 수 있는 엔드포인트를 제공합니다. 사용자 지정 커넥터는 사용자 지정 API처럼 작동하지만 다음과 같은 특성도 있습니다.
 
@@ -49,7 +49,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 �
 * Logic Apps 디자이너에서 Microsoft 관리 커넥터와 함께 아이콘으로 표시됩니다.
 * 커넥터의 작성자와 논리 앱이 배포된 지역에서 동일한 Azure Active Directory 테넌트 및 Azure 구독을 가지는 논리 앱 사용자만 사용할 수 있습니다.
 
-Microsoft 인증에 대해 등록된 커넥터를 지정할 수도 있습니다. 이 프로세스는 등록 된 커넥터가 공용 사용 조건을 충족 하는지 확인 하 고 사용자가 전원 자동화 및 Microsoft Power Apps에서 해당 커넥터를 사용할 수 있도록 합니다.
+Microsoft 인증에 대해 등록된 커넥터를 지정할 수도 있습니다. 이 프로세스는 등록된 커넥터가 공용 사용 조건을 충족하는지 확인하고 사용자가 Power Automate 및 Microsoft Power Apps에서 해당 커넥터를 사용할 수 있도록 합니다.
 
 사용자 지정 커넥터에 대한 자세한 내용은 다음을 참조하세요. 
 
@@ -100,9 +100,9 @@ API의 관점에서 설명하는 API의 구체적인 수행 단계는 다음과 
    
    `202 ACCEPTED` 응답에는 다음과 같은 헤더가 포함되어야 합니다.
    
-   * *필수*: Logic Apps 엔진이 API의 작업 상태를 확인할 수 있는 URL의 절대 경로를 지정하는 `location` 헤더
+   * *필수*:  Logic Apps 엔진이 API의 작업 상태를 확인할 수 있는 URL의 절대 경로를 지정하는 `location` 헤더
 
-   * *선택*: 작업 상태에 대해 `location` URL을 확인하기 전에 엔진에서 대기해야 하는 시간(초)을 지정하는 `retry-after` 헤더 
+   * *선택 사항*: 작업 상태에 대해 `location` URL을 확인하기 전에 엔진에서 대기해야 하는 시간(초)을 지정하는 `retry-after` 헤더 
 
      기본적으로 엔진은 매 20초마다 확인합니다. 다른 간격을 지정하려면 `retry-after` 헤더와 다음 폴링까지의 시간(초)을 포함합니다.
 
@@ -138,11 +138,11 @@ API가 이 패턴을 따르는 경우 작업 상태를 계속 확인하기 위�
 
 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 동작](../connectors/connectors-native-webhook.md)을 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)도 참조하세요. 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
 
-다음은 몇 가지 다른 팁과 메모입니다.
+몇 가지 다른 팁과 메모는 다음과 같습니다.
 
 * 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 
-* 논리 앱과 구독 서비스를 모두 소유 하는 경우 콜백 URL이 호출 된 후에 `unsubscribe` 끝점을 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임에서는 더 이상 호출이 필요 `unsubscribe` 하지 않고 서버 쪽에서 리소스 정리를 허용 하도록 끝점을 호출 해야 합니다.
+* 논리 앱과 구독 서비스를 모두 소유한 경우 콜백 URL이 호출된 후 `unsubscribe` 엔드포인트를 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임은 `unsubscribe` 엔드포인트를 호출하여 더 이상 호출이 필요하지 않는다는 신호를 보내고 서버 쪽에서 리소스 정리를 허용해야 합니다.
 
 <a name="triggers"></a>
 
@@ -202,17 +202,17 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 트리거](../connectors/connectors-native-webhook.md)를 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [HTTPWebhook 트리거](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)도 참조하세요. 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 컨트롤러 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
 
-다음은 몇 가지 다른 팁과 메모입니다.
+몇 가지 다른 팁과 메모는 다음과 같습니다.
 
 * 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 
 * 동일한 데이터를 여러 번 처리하지 않도록 방지하려면 트리거에서 이미 읽고 논리 앱에 전달된 데이터를 정리해야 합니다.
 
-* 논리 앱과 구독 서비스를 모두 소유 하는 경우 콜백 URL이 호출 된 후에 `unsubscribe` 끝점을 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임에서는 더 이상 호출이 필요 `unsubscribe` 하지 않고 서버 쪽에서 리소스 정리를 허용 하도록 끝점을 호출 해야 합니다.
+* 논리 앱과 구독 서비스를 모두 소유한 경우 콜백 URL이 호출된 후 `unsubscribe` 엔드포인트를 호출할 필요가 없습니다. 그렇지 않으면 Logic Apps 런타임은 `unsubscribe` 엔드포인트를 호출하여 더 이상 호출이 필요하지 않는다는 신호를 보내고 서버 쪽에서 리소스 정리를 허용해야 합니다.
 
-## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>논리 앱에서 Api 호출에 대 한 보안 향상
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>논리 앱에서 API 호출에 대한 보안 향상
 
-사용자 지정 API를 만든 후 논리 앱에서 안전하게 호출할 수 있도록 API에 대한 인증을 설정합니다. [논리 앱에서 사용자 지정 api 호출에 대 한 보안을 개선 하는 방법](../logic-apps/logic-apps-custom-api-authentication.md)에 대해 알아봅니다.
+사용자 지정 API를 만든 후 논리 앱에서 안전하게 호출할 수 있도록 API에 대한 인증을 설정합니다. [논리 앱에서 사용자 지정 API 호출에 대한 보안을 개선하는 방법](../logic-apps/logic-apps-custom-api-authentication.md)에 대해 알아봅니다.
 
 ## <a name="deploy-and-call-your-apis"></a>API 배포 및 호출
 
@@ -222,13 +222,13 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 사용자 지정 API를 Azure의 다른 Logic Apps 사용자가 사용할 수 있게 하려면 보안을 추가하고 Logic Apps 커넥터로 등록해야 합니다. 자세한 내용은 [사용자 지정 커넥터 개요](../logic-apps/custom-connector-overview.md)를 참조하세요. 
 
-Logic Apps, 파워 자동화 및 Microsoft Power Apps의 모든 사용자가 사용자 지정 Api를 사용할 수 있도록 하려면 보안을 추가 하 고, Api를 논리 앱 커넥터로 등록 하 고, [Microsoft Azure 인증 된 프로그램](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)의 커넥터를 추천 해야 합니다. 
+사용자 지정 API를 Logic Apps, Power Automate 및 Microsoft Power Apps의 모든 사용자가 사용할 수 있게 하려면 보안을 추가하고, API를 Logic Apps 커넥터로 등록하고, [Microsoft Azure 인증 프로그램](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)에 대한 커넥터로 지정해야 합니다. 
 
 ## <a name="get-support"></a>지원 받기
 
-* 사용자 지정 Api에 대 한 자세한 내용은 [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)을 참조 하세요.
+* 사용자 지정 API에 대한 구체적인 지원은 [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)에 문의해 주세요.
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 
 * Logic Apps 개선에 도움을 주려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요. 
 

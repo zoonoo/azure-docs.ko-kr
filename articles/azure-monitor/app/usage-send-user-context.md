@@ -1,17 +1,17 @@
 ---
-title: 활동 Azure 애플리케이션 정보를 추적 하기 위한 사용자 컨텍스트 Id
+title: 활동을 추적하기 위한 사용자 컨텍스트 ID - Azure Application Insights
 description: Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670936"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797692"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -22,7 +22,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 - [사용자, 세션, 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [깔때기](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [보존](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) 코호트
-- [통합 문서](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 다음 ID를 포함합니다.
 
@@ -134,4 +134,4 @@ namespace MvcWebRole.Telemetry
     - [사용자, 세션 및 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
-    - [통합 문서](../../azure-monitor/app/usage-workbooks.md)
+    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)

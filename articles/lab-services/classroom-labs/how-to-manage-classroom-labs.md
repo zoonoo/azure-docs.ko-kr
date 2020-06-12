@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4c2c02e47059d73e29da705fc9075721e080e636
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588176"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701803"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -29,18 +29,18 @@ ms.locfileid: "83588176"
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
 1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
-2. **로그인**을 선택하고 자격 증명을 입력합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID**를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
-3. **새 랩**을 선택합니다. 
+1. **로그인**을 선택하고 자격 증명을 입력합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID**를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
+1. **새 랩**을 선택합니다. 
     
     ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-button.png)
-3. **새 랩** 창에서 다음 작업을 수행합니다. 
+1. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 랩에 대한 **이름**을 지정합니다. 
-    2. 클래스에 필요한 **가상 머신 크기**를 선택합니다. 사용 가능한 크기 목록은 [VM 크기](#vm-sizes) 섹션을 참조하세요. 
-    3. 클래스 룸 랩에서 사용하려는 **가상 머신 이미지**를 선택합니다. Linux 이미지를 선택하면, 이에 대한 원격 데스크톱 연결을 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [Linux에 대한 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요.
+    1. 클래스에 필요한 **가상 머신 크기**를 선택합니다. 사용 가능한 크기 목록은 [VM 크기](#vm-sizes) 섹션을 참조하세요. 
+    1. 클래스 룸 랩에서 사용하려는 **가상 머신 이미지**를 선택합니다. Linux 이미지를 선택하면 **원격 데스크톱 연결 사용** 옵션이 표시됩니다. 자세한 내용은 [Linux에 대한 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요.
 
         랩 계정 소유자 자격 증명을 사용하여 로그인한 경우 랩에 더 많은 이미지를 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [랩 생성 시 이미지 사용](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation)을 참조하세요.
-    4. 페이지에 표시되는 **시간당 총 가격**을 검토합니다. 
-    6. **저장**을 선택합니다.
+    1. 페이지에 표시되는 **시간당 총 가격**을 검토합니다. 
+    1. **저장**을 선택합니다.
 
         ![새 랩 창](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -70,24 +70,24 @@ ms.locfileid: "83588176"
     ![템플릿 VM 만들기 상태](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. **템플릿** 페이지에서 다음 단계를 수행합니다. 이 자습서에서는 이러한 단계가 **선택 사항**입니다.
 
-    2. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿 VM인 경우, SSH 또는 RDP(RDP가 활성화된 경우) 중 무엇을 사용하여 연결할지 선택합니다.
+    1. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿 VM인 경우 SSH 또는 GUI 원격 데스크톱을 사용하여 연결할지 여부를 선택합니다.  GUI 원격 데스크톱을 사용하려면 추가 설정이 필요합니다. 자세한 내용은 [Linux 가상 머신에 그래픽 원격 데스크톱 사용](how-to-use-remote-desktop-linux-student.md)을 참조하세요.
     1. **암호 재설정**을 선택하여 VM에 대한 암호를 재설정합니다. 
     1. 템플릿 VM에 소프트웨어를 설치하고 구성합니다. 
     1. VM을 **중지**합니다.  
     1. 템플릿에 대한 **설명**을 입력합니다.
-10. **템플릿** 페이지의 도구 모음에서 **게시**를 선택합니다. 
+9.  **템플릿** 페이지의 도구 모음에서 **게시**를 선택합니다. 
 
     ![템플릿 게시 단추](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > 게시한 후에는 게시를 취소할 수 없습니다. 
-8. **템플릿 게시** 페이지에서 랩에서 만들려는 가상 머신의 수를 입력한 다음, **게시**를 선택합니다. 
+10. **템플릿 게시** 페이지에서 랩에서 만들려는 가상 머신의 수를 입력한 다음, **게시**를 선택합니다. 
 
     ![템플릿 게시 - VM 수](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. 템플릿 **게시 상태**가 페이지에 표시됩니다. 이 프로세스는 최대 1시간이 걸릴 수 있습니다. 
 
     ![템플릿 게시 - 진행률](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. 왼쪽 메뉴에서 가상 머신을 선택하거나 가상 머신 타일을 선택하여 **가상 머신 풀** 페이지로 전환합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
+12. 왼쪽 메뉴에서 가상 머신을 선택하거나 가상 머신 타일을 선택하여 **가상 머신 풀** 페이지로 전환합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
 
     ![중지됨 상태의 가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 

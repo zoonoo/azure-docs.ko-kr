@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: fd37ccc5850baf1cfb778b6706a76c91bd178922
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835175"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148279"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -115,7 +115,6 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ![배포 실행 결과](./media/pre-post-scripts/deployment-run.png)
 
-스크립트에 있습니다.
 
 ## <a name="stop-a-deployment"></a>배포 중지
 

@@ -4,19 +4,19 @@ description: Azure 관리 작업을 위해 다단계 인증을 요구하는 사�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54ec1392dab19491ba8c041d0342f0fe82e671fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 09d07717895c6faa506d692becb261e834e44890
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758200"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995363"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>조건부 액세스: Azure 관리용 MFA 필요
 
@@ -48,7 +48,7 @@ ms.locfileid: "83758200"
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함**에서 **앱 선택**을 선택하고, **Microsoft Azure Management**, **선택**, **완료**를 차례로 선택합니다.
 1. **조건** > **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정하고 **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.

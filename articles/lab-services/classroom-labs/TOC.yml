@@ -42,6 +42,8 @@
               href: class-type-ethical-hacking.md
             - name: 데이터베이스 관리
               href: class-type-database-management.md
+            - name: Azure SQL Database 관리 및 개발
+              href: class-type-sql-server.md
             - name: Python 및 Jupyter Notebooks
               href: class-type-jupyter-notebook.md
             - name: Android Studio를 사용한 모바일 앱 개발
@@ -74,6 +76,8 @@
           href: allow-lab-creator-pick-lab-location.md
         - name: 피어 가상 네트워크에 연결
           href: how-to-connect-peer-virtual-network.md
+        - name: 공유 리소스를 사용하여 랩을 만드는 방법
+          href: how-to-create-a-lab-with-shared-resource.md
         - name: 공유 이미지 갤러리 연결 또는 분리
           href: how-to-attach-detach-shared-image-gallery.md
         - name: 추가 소유자를 클래스룸 랩에 추가

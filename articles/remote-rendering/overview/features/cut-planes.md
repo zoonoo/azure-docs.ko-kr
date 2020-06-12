@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759084"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021367"
 ---
 # <a name="cut-planes"></a>평면 잘라내기
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 다음 속성은 절단면 구성 요소에서 노출됩니다.
 
-* **사용:** 구성 요소를 사용하지 않도록 설정하여 절단면을 일시적으로 해제할 수 있습니다. 비활성화된 절단면은 렌더링 오버헤드를 초래하지 않으며 글로벌 평면 잘라내기 제한에도 해당되지 않습니다.
+* `Enabled`: 구성 요소를 사용하지 않도록 설정하여 절단면을 일시적으로 해제할 수 있습니다. 비활성화된 절단면은 렌더링 오버헤드를 초래하지 않으며 글로벌 평면 잘라내기 제한에도 해당되지 않습니다.
 
-* **보통:** 보통 평면으로 사용되는 방향(+X,-X,+Y,-Y,+Z,-Z)을 지정합니다. 이 방향은 소유자 엔터티의 방향을 기준으로 합니다. 정확한 배치를 위해 소유자 엔터티를 이동하고 회전합니다.
+* `Normal`: 보통 평면으로 사용되는 방향(+X,-X,+Y,-Y,+Z,-Z)을 지정합니다. 이 방향은 소유자 엔터티의 방향을 기준으로 합니다. 정확한 배치를 위해 소유자 엔터티를 이동하고 회전합니다.
 
-* **FadeColor** 및 **FadeLength:**
+* `FadeColor` 및 `FadeLength`:
 
   *FadeColor*의 알파 값이 0이 아닌 경우 절단면에 가까운 픽셀은 FadeColor의 RGB 부분으로 페이드됩니다. 알파 채널의 강도에 따라 페이드 색을 완전히 페이드할지 아니면 부분적으로만 페이드할지 여부를 결정합니다. *FadeLength*는 이 페이드가 발생하는 거리를 정의합니다.
 

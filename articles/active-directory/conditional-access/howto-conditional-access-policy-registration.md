@@ -4,19 +4,19 @@ description: 보안 정보 등록을 위한 사용자 지정 조건부 액세스
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9eb3c8f34308271eb216cad25a5db4a62d03cb
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: acf17f4cef43fe4221781deedb130ef587208550
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845376"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993748"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>조건부 액세스: 보안 정보 등록 보호
 

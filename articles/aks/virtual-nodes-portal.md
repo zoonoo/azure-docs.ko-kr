@@ -4,12 +4,13 @@ description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행�
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7fa547ca8a3907669c9e7671b11fe3a6307d97f4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: references_regions
+ms.openlocfilehash: e27a920aea18affd78f840d3063b8082f716745b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773426"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193948"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -70,7 +71,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 

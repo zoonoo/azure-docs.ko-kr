@@ -1,39 +1,39 @@
 ---
 title: .NET Azure Functions에서 종속성 주입 사용
-description: .NET 함수에서 서비스를 등록 하 고 사용 하는 데 종속성 주입을 사용 하는 방법에 대해 알아봅니다.
+description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 주입을 사용하는 방법에 대해 알아보기
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678449"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739144"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
-Azure Functions는 클래스와 해당 종속성 간의 [IoC (제어 반전)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) 를 구현 하는 기술인 DI (종속성 주입) 소프트웨어 디자인 패턴을 지원 합니다.
+Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion)를 구현하는 기법인 DI(종속성 주입) 소프트웨어 디자인 패턴을 지원합니다.
 
-- Azure Functions의 종속성 주입은 .NET Core 종속성 주입 기능을 기반으로 합니다. [.Net Core 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) 에 대 한 지식이 권장 됩니다. 종속성을 재정의 하는 방법과 소비 계획에 Azure Functions 구성 값을 읽는 방법에는 차이가 있습니다.
+- Azure Functions의 종속성 주입은 .NET Core 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)에 대해 잘 알고 있는 것이 좋습니다. Azure Functions의 사용 계획에서 종속성을 재정의하는 방법과 관련 구성 값을 읽는 방법에는 차이가 있습니다.
 
-- 종속성 주입에 대 한 지원은 Azure Functions 2.x로 시작 합니다.
+- 종속성 주입에 대한 지원은 Azure Functions 2.x부터 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-종속성 주입을 사용 하려면 먼저 다음 NuGet 패키지를 설치 해야 합니다.
+종속성 주입을 사용하려면 먼저 다음 NuGet 패키지를 설치해야 합니다.
 
-- [Microsoft. Azure. 확장명](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- 1.0.28 [패키지](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 버전 이상 (영문)
+- [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 패키지 버전 1.0.28 이상
 
 ## <a name="register-services"></a>서비스 등록
 
-서비스를 등록 하려면 `IFunctionsHostBuilder` 인스턴스를 구성 하 고 구성 요소를 추가 하는 메서드를 만듭니다.  Azure Functions 호스트는의 `IFunctionsHostBuilder` 인스턴스를 만들고이를 메서드에 직접 전달 합니다.
+서비스를 등록하려면 구성 요소를 구성하고 `IFunctionsHostBuilder` 인스턴스에 추가하세요.  Azure Functions 호스트는 `IFunctionsHostBuilder` 인스턴스를 만들고 메서드에 직접 전달합니다.
 
-메서드를 등록 하려면 시작 하는 `FunctionsStartup` 동안 사용 되는 형식 이름을 지정 하는 assembly 특성을 추가 합니다.
+메서드를 등록하려면 시작 시 사용되는 형식 이름을 지정하는 `FunctionsStartup` 어셈블리 특성을 추가합니다.
 
 ```csharp
 using System;
@@ -64,17 +64,17 @@ namespace MyNamespace
 
 ### <a name="caveats"></a>제한 사항
 
-런타임이 시작 클래스를 처리 하기 전후에 일련의 등록 단계가 실행 됩니다. 따라서 다음 항목을 염두에 두어야 합니다.
+런타임이 시작 클래스를 처리하기 전후로 일련의 등록 단계가 실행됩니다. 따라서 다음 사항에 유의하세요.
 
-- *Startup 클래스는 설치 및 등록을 위해서만 사용할 수 있습니다.* 시작 시 등록 된 서비스를 시작 프로세스 중에 사용 하지 마십시오. 예를 들어 시작 하는 동안 등록 되는로 거에 메시지를 기록 하지 않습니다. 등록 프로세스의이 시점에서 서비스를 사용할 수 있는 것은 너무 이릅니다. `Configure` 메서드를 실행 한 후에는 함수 런타임이 추가 종속성을 계속 등록 하 여 서비스가 작동 하는 방식에 영향을 줄 수 있습니다.
+- *시작 클래스는 설치 및 등록에만 사용할 수 있습니다.* 시작 시 등록되는 서비스를 시작 프로세스 중에 사용하지 마세요. 예를 들어 시작 시 등록되는 로거에 메시지를 로깅하려고 하지 마세요. 등록 프로세스의 이 시점에 서비스를 사용하는 것은 너무 이릅니다. `Configure` 메서드가 실행되면 Functions 런타임이 추가 종속성을 계속 등록하여 서비스가 작동하는 방식에 영향을 줄 수 있습니다.
 
-- *종속성 주입 컨테이너는 명시적으로 등록 된 유형만 보유*합니다. Injectable 형식으로 사용할 수 있는 유일한 서비스는 `Configure` 메서드에서 설정 하는 것입니다. 그 결과, 및 `BindingContext` `ExecutionContext` 와 같은 함수 관련 형식은 설치 중 또는 injectable 형식으로 사용할 수 없습니다.
+- *종속성 주입 컨테이너에는 명시적으로 등록된 유형만 저장됩니다*. 주입 가능한 형식으로 제공되는 유일한 서비스는 `Configure` 메서드에 설정됩니다. 따라서 `BindingContext` 및 `ExecutionContext` 같은 Functions 관련 형식은 설치 중에 또는 주입 가능한 형식으로 사용할 수 없습니다.
 
-## <a name="use-injected-dependencies"></a>삽입 된 종속성 사용
+## <a name="use-injected-dependencies"></a>주입된 종속성 사용
 
-생성자 삽입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용 됩니다. 생성자 주입을 사용 하려면 정적 클래스를 사용 하지 않아야 합니다.
+생성자 주입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용됩니다. 생성자 주입을 사용하려면 정적 클래스를 사용해서는 안 됩니다.
 
-다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입 되는 방법을 보여 줍니다. 이 예제에서는 시작 `HttpClient` 시를 등록 하는 데 필요한 [Microsoft Extensions. Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 패키지를 사용 합니다.
+다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입되는 방법을 보여 줍니다. 이 예제에서는 시작 시 `HttpClient`를 등록하는 데 필요한 [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 패키지를 사용합니다.
 
 ```csharp
 using System;
@@ -117,25 +117,25 @@ namespace MyNamespace
 
 ## <a name="service-lifetimes"></a>서비스 수명
 
-Azure Functions 앱은 [ASP.NET 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공 합니다. 함수 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작 합니다.
+Azure Functions 앱은 [ASP.NET 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
 
-- **임시**: 임시 서비스는 서비스의 각 요청에 대해 만들어집니다.
-- **범위가**지정 된 서비스 수명은 함수 실행 수명과 일치 합니다. 범위가 지정 된 서비스는 실행 당 한 번 생성 됩니다. 실행 중에 해당 서비스에 대 한 이후 요청은 기존 서비스 인스턴스를 다시 사용 합니다.
-- **Singleton**: 단일 서비스 수명이 호스트 수명과 일치 하 고 해당 인스턴스의 함수 실행에서 다시 사용 됩니다. 단일 수명 서비스는 연결 및 클라이언트 (예: `SqlConnection` 또는 `HttpClient` 인스턴스)에 권장 됩니다.
+- **임시**: 임시 서비스는 서비스가 요청될 때마다 생성됩니다.
+- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 1회 실행당 한 번 생성됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
+- **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `SqlConnection` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
 
-GitHub의 [다른 서비스 수명 샘플](https://aka.ms/functions/di-sample) 을 보거나 다운로드 합니다.
+GitHub에서 [다양한 서비스 수명 샘플](https://aka.ms/functions/di-sample)을 보거나 다운로드하세요.
 
 ## <a name="logging-services"></a>로깅 서비스
 
-고유한 로깅 공급자가 필요한 경우 사용자 지정 형식을 `ILoggerProvider` 인스턴스로 등록 합니다. Application Insights는 Azure Functions 자동으로 추가 됩니다.
+자체 로깅 공급자가 필요한 경우 사용자 지정 형식을 `ILoggerProvider` 인스턴스로 등록합니다. Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
 > [!WARNING]
-> - 환경에서 제공 `AddApplicationInsightsTelemetry()` 하는 서비스와 충돌 하는 서비스를 등록 하므로 서비스 컬렉션에 추가 하지 마세요.
-> - 기본 제공 Application Insights 기능을 `TelemetryConfiguration` 사용 `TelemetryClient` 하는 경우에는 직접 등록 하지 마십시오. 사용자 고유의 `TelemetryClient` 인스턴스를 구성 해야 하는 경우 [모니터 Azure Functions](./functions-monitoring.md#version-2x-and-later-2)에 표시 된 `TelemetryConfiguration` 대로 삽입 된를 통해 하나를 만듭니다.
+> - `AddApplicationInsightsTelemetry()`는 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
+> - 기본 제공 Application Insights 기능을 사용하는 경우 자체 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록하지 마세요. 자체 `TelemetryClient` 인스턴스를 구성해야 하는 경우에는 [Azure Functions 모니터링](./functions-monitoring.md#version-2x-and-later-2)에 나와 있는 것처럼 주입된 `TelemetryConfiguration`을 통해 만듭니다.
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
 
-호스트에서 생성자에 `ILogger<T>` `ILoggerFactory` 서비스를 삽입 합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링 됩니다.  추가 필터 및 범주를 옵트인 `host.json` 하도록 파일을 수정 해야 합니다.  다음 샘플에서는 호스트에서 노출 `ILogger<HttpTrigger>` 되는 로그를 사용 하 여를 추가 하는 방법을 보여 줍니다.
+호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 주입합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링됩니다.  추가 필터 및 범주로 옵트인하려면 `host.json` 파일을 수정해야 합니다.  다음 샘플에서는 호스트에서 노출하는 로그가 포함된 `ILogger<HttpTrigger>`를 추가하는 방법을 보여 줍니다.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +160,7 @@ namespace MyNamespace
 }
 ```
 
-로그 필터 `host.json` 를 추가 하는 파일입니다.
+로그 필터를 추가하는 `host.json` 파일
 
 ```json
 {
@@ -181,26 +181,26 @@ namespace MyNamespace
 
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 
-함수 호스트는 많은 서비스를 등록 합니다. 다음 서비스는 응용 프로그램에서 종속성으로 사용 하기에 안전 합니다.
+함수 호스트는 많은 서비스를 등록합니다. 애플리케이션에서 종속성으로 사용하기에 안전한 서비스는 다음과 같습니다.
 
-|서비스 종류|수명|Description|
+|서비스 유형|수명|Description|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|런타임 구성|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|호스트 인스턴스의 ID를 제공 해야 합니다.|
+|`Microsoft.Extensions.Configuration.IConfiguration`|싱글톤|런타임 구성|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|싱글톤|호스트 인스턴스의 ID 제공 담당|
 
-종속성을 적용 하려는 다른 서비스가 있는 경우 [문제를 만들어 GitHub에서 제안](https://github.com/azure/azure-functions-host)합니다.
+종속성으로 사용하려는 다른 서비스가 있는 경우 [문제를 만들고 GitHub에서 제안합니다](https://github.com/azure/azure-functions-host).
 
 ### <a name="overriding-host-services"></a>호스트 서비스 재정의
 
-호스트에서 제공 하는 서비스 재정의는 현재 지원 되지 않습니다.  재정의 하려는 서비스가 있는 경우 [문제를 만들어 GitHub에서 제안](https://github.com/azure/azure-functions-host)합니다.
+호스트에서 제공하는 서비스 재정의는 현재 지원되지 않습니다.  재정의하려는 서비스가 있는 경우 [문제를 만들고 GitHub에서 제안합니다](https://github.com/azure/azure-functions-host).
 
-## <a name="working-with-options-and-settings"></a>옵션 및 설정 작업
+## <a name="working-with-options-and-settings"></a>옵션 및 설정 사용
 
-[앱 설정](./functions-how-to-use-azure-function-app-settings.md#settings) 에 정의 된 값은 `IConfiguration` 인스턴스에서 사용할 수 있으며,이 경우 시작 클래스에서 앱 설정 값을 읽을 수 있습니다.
+[앱 설정](./functions-how-to-use-azure-function-app-settings.md#settings)에 정의된 값은 `IConfiguration` 인스턴스에서 사용할 수 있으므로 시작 클래스에서 앱 설정 값을 읽을 수 있습니다.
 
-`IConfiguration` 인스턴스에서 사용자 지정 형식으로 값을 추출할 수 있습니다. 앱 설정 값을 사용자 지정 형식으로 복사 하면 이러한 값을 injectable 하 여 서비스를 쉽게 테스트할 수 있습니다. 구성 인스턴스로 읽은 설정은 단순 키/값 쌍 이어야 합니다.
+`IConfiguration` 인스턴스에서 사용자 지정 형식으로 값을 추출할 수 있습니다. 앱 설정 값을 사용자 지정 형식으로 복사하면 이러한 값을 주입 가능하게 만들어 서비스를 쉽게 테스트할 수 있습니다. 구성 인스턴스로 읽은 설정은 단순 키/값 쌍이어야 합니다.
 
-앱 설정과 일치 하는 라는 속성을 포함 하는 다음 클래스를 살펴보겠습니다.
+앱 설정과 일치하는 이름을 가진 속성을 포함하는 다음 클래스를 살펴보겠습니다.
 
 ```csharp
 public class MyOptions
@@ -209,7 +209,7 @@ public class MyOptions
 }
 ```
 
-다음과 같이 `local.settings.json` 사용자 지정 설정을 구성할 수 있는 파일입니다.
+사용자 지정 설정을 다음과 같이 구성할 수 있는 `local.settings.json` 파일:
 ```json
 {
   "IsEncrypted": false,
@@ -219,7 +219,7 @@ public class MyOptions
 }
 ```
 
-`Startup.Configure` 메서드 내에서 다음 코드를 사용 하 여 `IConfiguration` 인스턴스에서 사용자 지정 형식으로 값을 추출할 수 있습니다.
+`Startup.Configure` 메서드 내에서 다음 코드를 사용하여 `IConfiguration` 인스턴스에서 사용자 지정 형식으로 값을 추출할 수 있습니다.
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -229,9 +229,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-를 `Bind` 호출 하면 구성의 속성 이름과 일치 하는 값이 사용자 지정 인스턴스로 복사 됩니다. 이제 옵션 인스턴스를 IoC 컨테이너에서 함수에 삽입할 수 있습니다.
+`Bind`를 호출하면 구성의 속성 이름과 일치하는 값이 사용자 지정 인스턴스로 복사됩니다. 이제 옵션 인스턴스가 IoC 컨테이너에 제공되며 함수에 주입할 수 있습니다.
 
-Options 개체는 제네릭 `IOptions` 인터페이스의 인스턴스로 함수에 삽입 됩니다. 구성에 `Value` 있는 값에 액세스 하려면 속성을 사용 합니다.
+옵션 개체는 제네릭 `IOptions` 인터페이스의 인스턴스로 함수에 주입됩니다. `Value` 속성을 사용하여 구성에 있는 값에 액세스할 수 있습니다.
 
 ```csharp
 using System;
@@ -248,14 +248,14 @@ public class HttpTrigger
 }
 ```
 
-옵션 사용에 대 한 자세한 내용은 [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) 을 참조 하세요.
+옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
 > [!WARNING]
-> *로컬. settings* 또는 appsettings와 같은 파일에서 값을 읽으려고 시도 하지 마십시오 *. { 환경}.* 트리거 연결과 관련 된 이러한 파일에서 읽은 값은 호스팅 인프라가 구성 정보에 액세스할 수 없기 때문에 앱이 확장 될 때 사용할 수 없습니다.
+> 사용 계획의 *local.settings.json* 또는 *appsettings.{environment}.json* 같은 파일에서 값을 읽지 않도록 합니다. 트리거 연결과 관련된 이러한 파일에서 읽은 값은 앱이 스케일링되면 호스팅 인프라가 구성 정보에 액세스할 수 없으므로 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 자료를 참조하세요.
+자세한 내용은 다음 리소스를 참조하세요.
 
-- [함수 앱을 모니터링 하는 방법](functions-monitoring.md)
-- [함수에 대 한 모범 사례](functions-best-practices.md)
+- [함수 앱을 모니터링하는 방법](functions-monitoring.md)
+- [함수에 대한 모범 사례](functions-best-practices.md)

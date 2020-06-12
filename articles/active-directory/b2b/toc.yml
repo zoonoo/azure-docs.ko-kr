@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: 셀프 서비스 가입 사용자 흐름(미리 보기)
           href: self-service-sign-up-overview.md
+        - name: 셀프 서비스 등록 API 커넥터(미리 보기)
+          href: api-connectors-overview.md
         - name: Azure AD 권한 관리
           href: self-service-portal.md
         - name: 현재 제한 사항
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: 사용자 흐름 언어 사용자 지정
               href: user-flow-customize-language.md
+            - name: API 커넥터 추가
+              href: self-service-sign-up-add-api-connector.md
+            - name: 사용자 지정 승인 시스템 추가
+              href: self-service-sign-up-add-approvals.md
         - name: 게스트 계정 관리
           items:
             - name: 역할에 B2B 사용자 추가

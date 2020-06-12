@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384010"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837917"
 ---
-## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 시간은 얼마입니까?
+## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
 
-마이그레이션을 계획하고 실행하는 것은 아키텍처의 복잡성에 따라 크게 달라지며 몇 달이 걸릴 수 있습니다.  
+마이그레이션의 계획 및 실행은 아키텍처의 복잡성에 따라 크게 달라지며 몇 개월이 걸릴 수 있습니다.  
 
-## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS VM(클래식)에서 새로운 고객의 정의는 무엇입니까?
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS VM(클래식)에서 새 고객의 정의는 무엇인가요?
 
-2020년 2월(사용 중단이 시작되기 한 달 전)에 구독에 IaaS VM(클래식)이 없는 고객은 신규 고객으로 간주됩니다. 
+2020년 2월 동안(사용 중단을 시작하기 1개월 전) 구독에 IaaS VM(클래식)이 없는 고객은 새 고객으로 간주됩니다. 
 
-## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>IaaS 가상 머신(클래식)에서 기존 고객의 정의는 무엇입니까?
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>IaaS VM(클래식)에서 기존 고객의 정의는 무엇인가요?
 
-2020년 2월 한 달 동안 구독에 활성 상태이거나 중단되었지만 구독에 IaaS VM(클래식)을 할당한 고객은 기존 고객으로 간주됩니다. 이러한 고객만 2023년 3월 1일까지 Azure 서비스 관리자에서 Azure 리소스 관리자로 VM을 마이그레이션할 수 있습니다. 
+2020년 2월에 구독에 활성 상태 또는 중지되었지만 할당된 IaaS VM(클래식)이 있던 고객은 기존 고객으로 간주됩니다. 이러한 고객만 2023년 3월 1일까지 Azure Service Manager에서 Azure Resource Manager로 VM을 마이그레이션할 수 있습니다. 
 
-## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"라는 오류가 있는 이유는 무엇입니까?
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
 
-은퇴 프로세스의 일환으로 IaaS VM(클래식)은 더 이상 신규 고객에게 제공되지 않습니다. 우리는 당신을 새로운 고객으로 식별했기 때문에 귀하의 작업이 승인되지 않았습니다. ARM 을 [사용하여 Azure 가상 컴퓨터를](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)사용하는 것이 좋습니다. ARM을 사용하여 Azure VM을 사용할 수 없는 경우 구독 허용 목록에 대한 지원팀에 문의하십시오.
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용하는 것이 좋습니다. ARM을 사용하는 Azure VM을 사용할 수 없는 경우 고객 지원팀에 구독 허용 목록을 문의하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
-2023년 3월 1일까지 는 IaaS VM(클래식). IaaS VM(클래식)은 일반 공급에서 완벽하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023년 3월 1일에 이러한 VM은 완전히 폐기되고 활성 또는 할당된 VM은 할당 & 중단됩니다. 클라우드 서비스(클래식), 스토리지 계정(클래식) 등과 같은 다른 클래식 리소스에는 영향을 미치지 않습니다.   
+2023년 3월 1일까지는 IaaS VM(클래식)에 영향을 미치지 않습니다. IaaS VM(클래식)은 일반 공급에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023년 3월 1일부터 이러한 VM은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다. Cloud Services(클래식), 스토리지 계정(클래식) 등 다른 클래식 리소스에는 영향을 주지 않습니다.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까? 
 
-2023년 3월 1일에 IaaS VM(클래식)은 완전히 폐기되고 활성 또는 할당된 VM은 할당& 중단됩니다. 비즈니스 에 영향을 미치지 않도록 하기 위해 오늘 마이그레이션 계획을 시작하고 2023년 3월 1일 이전에 마이그레이션을 완료하기 위해 매우 재의견을 다시 작성했습니다. 기존 클래식 API, 클라우드 서비스 및 리소스 모델을 더 이상 사용하지 않습니다. 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. 이러한 리소스를 Azure 리소스 관리자로 마이그레이션할 계획을 시작하는 것이 좋습니다. 
+2023년 3월 1일부터 IaaS VM(클래식)은 완전히 사용 중지되며 활성 또는 할당된 VM이 중지 및 할당 취소됩니다. 비즈니스 영향을 방지하려면 지금 마이그레이션 계획을 시작하여 2023년 3월 1일 이전에 완료하는 것이 좋습니다. Microsoft는 기존 클래식 API, Cloud Services 및 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. 이러한 리소스를 Azure Resource Manager로 마이그레이션하는 계획을 마련하는 것을 권장합니다. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>이 마이그레이션 계획으로 기존 도구는 어떻게 되나요? 
 
@@ -53,7 +53,7 @@ ms.locfileid: "78384010"
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>커밋 작업이 실패한 경우 마이그레이션을 롤백할 수 있나요? 
 
-커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생하면 지원 티켓을 만듭니다.
+커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생하면 지원 티켓을 생성하세요.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
@@ -92,7 +92,7 @@ ms.locfileid: "78384010"
 
 ## <a name="how-do-i-report-an-issue"></a>문제를 보고하려면 어떻게 해야 하나요? 
 
-키워드 ClassicIaaSMigration을 사용하여 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)에 마이그레이션에 대한 문제와 질문을 게시하세요. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
+[VM에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)에 ClassicIaaSMigration 키워드를 사용하여 VM에 대한 문제 및 질문을 게시합니다. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>마이그레이션 중 플랫폼이 선택한 리소스 이름이 마음에 들지 않으면 어떻게 하나요? 
 
@@ -102,6 +102,6 @@ ms.locfileid: "78384010"
 
 구독 간 권한 부여 링크를 사용하는 ExpressRoute 회로는 가동 중지 시간 없이 자동으로 마이그레이션할 수 없습니다. 여기에서는 수동 단계를 사용하여 마이그레이션하는 방법을 소개합니다. 해당 단계와 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../articles/expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>*"VM이 전체 에이전트 상태를 준비되지 않음으로 보고하고 있습니다. 따라서 VM을 마이그레이션할 수 없습니다. VM 에이전트가 전체 에이전트 상태를 준비됨으로 보고하고 있는지* 또는 *"VM에 상태가 VM에서 보고되지 않는 확장이 포함되어 있는지 확인합니다. 따라서 이 VM을 마이그레이션할 수 없습니다."*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비된 상태"* 로 보고하고 있는지 또는 *"VM에서 보고되지 않은 상태의 확장이 VM에 포함되어 있는지 확인합니다. 따라서 이 VM은 마이그레이션할 수 없습니다."* 라는 메시지를 받았습니다.
 
 VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure Storage 계정에 연결해 5분 마다 에이전트 상태를 업데이트합니다.

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591984"
+ms.locfileid: "83660091"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
 
@@ -119,7 +119,7 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 | 3 | Spark 풀 만들기 | 예 [1] | 예 [1] | 아니요  |
 | 4 | Notebook으로 parquet 파일 읽기 | YES | YES | 아니요 |
 | 5 | Notebook에서 파이프라인을 만들고 파이프라인을 트리거하여 지금 실행 | YES | 아니요 | 아니요 |
-| 6 | SQL 풀을 만들고 &quot;SELECT 1&quot; 같은 SQL 스크립트 | 예 [1] | 아니요 | 예[1] |
+| 6 | SQL 풀을 만들고 &quot;SELECT 1&quot;과 같은 SQL 스크립트 실행 | 예 [1] | 아니요 | 예[1] |
 
 > [!NOTE]
 > [1] SQL 또는 Spark 풀을 만들려면 사용자에게 적어도 Synapse 작업 영역에 대한 기여자 역할이 있어야 합니다.

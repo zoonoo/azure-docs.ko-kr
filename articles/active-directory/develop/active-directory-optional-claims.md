@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737557"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993698"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
 
@@ -49,7 +49,7 @@ ms.locfileid: "83737557"
 
 **표 2: v1.0 및 v2.0 선택적 클레임 세트**
 
-| 속성                       |  Description   | 토큰 형식 | 사용자 유형 | 메모  |
+| Name                       |  Description   | 토큰 형식 | 사용자 유형 | 메모  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
@@ -78,14 +78,13 @@ ms.locfileid: "83737557"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 속성                            | Description                                | 메모 |
+| JWT 클레임     | Name                            | Description                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
 | `pwd_exp`     | 암호 만료 시간        | 암호가 만료되는 날짜/시간입니다. |       |
 | `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |   |
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 그러지 않으면 클레임이 포함되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
-| `nickname`    | 애칭                        | 사용자의 추가 이름입니다. 애칭은 이름 또는 성과는 별개입니다. `profile` 범위가 필요합니다.|
 | `family_name` | 성                       | 사용자 개체에 정의된 사용자의 성을 제공합니다. <br>"family_name":"Miller" | MSA 및 Azure AD에서 지원됩니다. `profile` 범위가 필요합니다.   |
 | `given_name`  | 이름                      | 사용자 개체에 설정된 대로 사용자의 이름 또는 "성"을 제공합니다.<br>"given_name": "Frank"                   | MSA 및 Azure AD에서 지원됩니다.  `profile` 범위가 필요합니다. |
 | `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. `profile` 범위가 필요합니다.|
@@ -185,7 +184,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| 속성          | Type                       | Description                                           |
+| Name          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -198,7 +197,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| 속성                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -260,7 +259,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    - "SecurityGroup"
    - "DirectoryRole"
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
     ```json
     "groupMembershipClaims": "SecurityGroup"

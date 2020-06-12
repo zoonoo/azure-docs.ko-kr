@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651940"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021690"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용
 
@@ -40,7 +40,7 @@ Azure Portal을 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
    ![SQL Database 참조 구성](./media/sql-reference-data/sql-input-config.png)
 
-3. SQL 쿼리 편집기에서 스냅샷 쿼리를 테스트합니다. 자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](../sql-database/sql-database-connect-query-portal.md)를 참조하세요.
+3. SQL 쿼리 편집기에서 스냅샷 쿼리를 테스트합니다. 자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](../azure-sql/database/connect-query-portal.md)를 참조하세요.
 
 ### <a name="specify-storage-account-in-job-config"></a>작업 구성에서 스토리지 계정 지정
 
@@ -69,7 +69,7 @@ Visual Studio를 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 ### <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
-SQL Server Management Studio를 사용하여 참조 데이터를 저장할 테이블을 만듭니다. 자세한 내용은 [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스 디자인](../sql-database/sql-database-design-first-database.md)을 참조하세요.
+SQL Server Management Studio를 사용하여 참조 데이터를 저장할 테이블을 만듭니다. 자세한 내용은 [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스 디자인](../azure-sql/database/design-first-database-tutorial.md)을 참조하세요.
 
 다음 예제에서 사용하는 예제 테이블은 다음 문에서 만들었습니다.
 
@@ -129,7 +129,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ## <a name="delta-query"></a>델타 쿼리
 
-델타 쿼리를 사용하는 경우 [Azure SQL Database의 temporal 테이블](../sql-database/sql-database-temporal-tables.md)을 사용하는 것이 좋습니다.
+델타 쿼리를 사용하는 경우 [Azure SQL Database의 temporal 테이블](../azure-sql/temporal-tables.md)을 사용하는 것이 좋습니다.
 
 1. Azure SQL Database에서 임시 테이블 만들기
    

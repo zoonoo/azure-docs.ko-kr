@@ -1,23 +1,23 @@
 ---
-title: 루프를 추가 하 여 작업 반복
+title: 루프를 추가하여 작업 반복
 description: Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270577"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831622"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
 논리 앱에서 배열을 처리하려면 ["Foreach" 루프](#foreach-loop)를 만들 수 있습니다. 이 루프는 배열의 각 항목에 대해 하나 이상의 작업을 반복합니다. "Foreach" 루프가 처리할 수 있는 배열 항목 수의 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
-조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내에서 모든 작업을 실행 한 다음 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행의 "Until" 루프 수 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
+조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내부의 모든 작업을 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행의 "Until" 루프 수 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 > [!TIP]
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "79270577"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 <a name="foreach-loop"></a>
 
@@ -40,7 +40,7 @@ ms.locfileid: "79270577"
 
 * 각 루프 반복 동안 변수 작업에서 예측 가능한 결과를 얻으려면 해당 루프를 순차적으로 실행합니다. 예를 들어, 동시에 실행 중인 루프가 종료될 때 변수에 대해 증가, 감소 및 추가 작업을 수행하면 예측 가능한 결과가 반환됩니다. 그러나 동시 실행 루프에서 각 반복이 수행되는 동안 이러한 작업을 수행하면 예기치 않은 결과가 반환될 수 있습니다. 
 
-* "Foreach" 루프의 작업에서는[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* "Foreach" 루프의 작업은 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 식을 사용하여 배열의 각 항목을 참조 및 처리합니다. 배열에 없는 데이터를 지정하면 논리 앱 워크플로가 실패합니다. 
 
 이 예제의 논리 앱은 웹 사이트 RSS 피드에 대한 일별 요약을 보냅니다. 앱은 각각의 새 항목에 대한 이메일을 보내는 "Foreach" 루프를 사용합니다.
@@ -50,11 +50,11 @@ ms.locfileid: "79270577"
 2. RSS 트리거와 이메일 보내기 작업 사이에 "Foreach" 루프를 추가합니다. 
 
    1. 단계 사이에서 루프를 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 **더하기 기호** (**+**)를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 **더하기 기호**( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
       ![“작업 추가” 선택](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에서 필터로 “for each”를 입력합니다. 작업 목록에서 **각 컨트롤에 대해** 다음 작업을 선택 합니다.
+   1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에서 필터로 “for each”를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **For each - 컨트롤**
 
       !["For each" 루프 추가](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -118,11 +118,11 @@ ms.locfileid: "79270577"
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>순차적 "Foreach" 루프
+## <a name="foreach-loop-sequential"></a>"Foreach" 루프: 순차
 
 기본적으로 “Foreach” 루프의 주기는 병렬로 실행됩니다. 각 주기를 순차적으로 실행하려면 루프의 **순차** 옵션을 설정합니다. "Foreach" 루프는 예측 가능한 결과를 예상할 경우 루프 내에 중첩된 루프 또는 변수가 있으면 순차적으로 실행되어야 합니다. 
 
-1. 루프의 오른쪽 위 모서리에서 **줄임표**(**...**) > **설정**을 선택합니다.
+1. 루프의 오른쪽 위 모서리에서 **줄임표**( **...** ) > **설정**을 선택합니다.
 
    !["Foreach" 루프에서 "..." > "설정"을 차례로 선택합니다.](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -150,7 +150,7 @@ ms.locfileid: "79270577"
 
 ## <a name="until-loop"></a>"Until" 루프
   
-조건이 충족 되거나 상태가 변경 될 때까지 실행 하 고 작업을 반복 하려면 "Until" 루프에 해당 작업을 배치 합니다. 논리 앱은 먼저 루프 내에서 모든 작업을 실행 한 다음 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다.
+조건이 충족되거나 상태가 변경될 때마다 작업을 실행하고 반복하려면 "Until" 루프에 해당 작업을 추가합니다. 논리 앱은 먼저 루프 내부의 작업을 모두 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다.
 
 "Until" 루프를 사용할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -165,7 +165,7 @@ ms.locfileid: "79270577"
 > [여기에 있는 커넥터 목록을 확인](https://docs.microsoft.com/connectors/)합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다. 
 
 1. 빈 논리 앱을 만듭니다. Logic Apps 디자이너의 검색 상자에서 **모두**를 선택합니다. "되풀이"를 검색합니다. 
-   트리거 목록에서 다음 트리거: **되풀이-일정** 을 선택 합니다.
+   트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정**
 
    !["되풀이 - 일정" 트리거 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -175,13 +175,13 @@ ms.locfileid: "79270577"
 
    | 속성 | 값 |
    | -------- | ----- |
-   | **간격은** | 1 | 
+   | **간격** | 1 | 
    | **빈도** | 일 |
    | **시간 선택** | 8 |
    ||| 
 
 1. 트리거 아래에서 **새 단계**를 선택합니다. 
-   "변수"를 검색 하 고 **변수 초기화-변수** 를 선택 합니다.
+   "변수"를 검색하고 다음 작업을 선택합니다. **변수 초기화 - 변수**
 
    !["변수 초기화 - 변수" 작업 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -192,13 +192,13 @@ ms.locfileid: "79270577"
    | 속성 | 값 | Description |
    | -------- | ----- | ----------- |
    | **이름** | 제한 | 변수의 이름 | 
-   | **Type** | 정수 | 변수의 데이터 형식 | 
+   | **형식** | 정수 | 변수의 데이터 형식 | 
    | **값** | 0 | 변수의 시작 값 | 
    |||| 
 
 1. **변수 초기화** 작업 아래에서 **새 단계**를 차례로 선택합니다. 
 
-1. 검색 상자에서 **모두**를 선택합니다. "Until"을 검색 하 고 **until-Control** 작업을 선택 합니다.
+1. 검색 상자에서 **모두**를 선택합니다. "Until"을 검색하고 다음 작업을 선택합니다. **Until - 컨트롤**
 
    !["Until" 루프 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
@@ -209,11 +209,11 @@ ms.locfileid: "79270577"
 
 1. 루프 내부에서 **작업 추가**를 선택합니다. 
 
-1. 검색 상자에서 **모두**를 선택합니다. "변수"를 검색 하 고 **변수 증가-변수** 를 선택 합니다.
+1. 검색 상자에서 **모두**를 선택합니다. "변수"를 검색하고 다음 작업을 선택합니다. **변수 증가 - 변수**
 
    ![변수를 증가시키기 위한 작업 추가](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. **이름**에 대해 **Limit** 변수를 선택합니다. **값**에 "1"을 입력 합니다. 
+1. **이름**에 대해 **Limit** 변수를 선택합니다. **값**에 대해 "1"을 입력합니다. 
 
      !["Limit"를 1씩 증가](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -232,9 +232,9 @@ ms.locfileid: "79270577"
 
       | 속성 | 값 | Description |
       | -------- | ----- | ----------- | 
-      | **받는 사람** | *\<전자 메일 주소\@도메인>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **수행할 작업** | *\<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
       | **Subject** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
-      | **본문** | <*전자 메일-콘텐츠*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
+      | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
       |||| 
 
 1. 논리 앱을 저장합니다. 논리 앱을 수동으로 테스트하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
@@ -247,7 +247,7 @@ ms.locfileid: "79270577"
 
 "Until" 루프에는 다음 조건 중 하나가 발생하는 경우 실행을 중지하는 기본 제한이 있습니다.
 
-| 속성 | 기본값 | 설명 | 
+| 속성 | 기본값 | Description | 
 | -------- | ------------- | ----------- | 
 | **Count** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
 | **Timeout** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
@@ -335,7 +335,7 @@ ms.locfileid: "79270577"
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

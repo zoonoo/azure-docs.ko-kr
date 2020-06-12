@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591967"
+ms.locfileid: "83644881"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
 
@@ -58,7 +58,7 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
     * **최소** 노드 수입니다.
     * **최대** 노드 수입니다.
 
-초기 노드 수는 최소입니다. 이 값은 생성 시 인스턴스의 초기 크기를 정의합니다. 최소 노드 수는 3개 미만일 수 없습니다.
+초기 노드 수는 최소입니다. 이 값은 생성 시 인스턴스의 초기 크기를 정의합니다. 최소 노드 수는 3개보다 적을 수 없습니다.
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -74,4 +74,4 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-새 Spark 풀을 설정하기 위한 빠른 시작 [Spark 풀 만들기](..\quickstart-create-apache-spark-pool.md)
+새 Spark 풀을 설정하기 위한 빠른 시작 [Spark 풀 만들기](../quickstart-create-apache-spark-pool-portal.md)

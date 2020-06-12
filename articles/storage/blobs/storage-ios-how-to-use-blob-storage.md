@@ -7,16 +7,16 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68726414"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831877"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
-이 문서에서는 Microsoft Azure Blob Storage를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대 한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조 하세요. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 애플리케이션에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
+이 문서에서는 Microsoft Azure Blob Storage를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 애플리케이션에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
 
 Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-blobs-introduction.md)를 참조하세요.
 
@@ -62,7 +62,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 라이브러리를 사용하는 다른 방법은 프레임워크를 수동으로 빌드하는 것입니다.
 
 1. 먼저, [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)를 다운로드하거나 복제합니다.
-2. *Azure 저장소-ios* -> *Lib* -> *Azure Storage 클라이언트 라이브러리로*이동 하 여 Xcode에서 엽니다 `AZSClient.xcodeproj` .
+2. *azure-storage-ios* -> *Lib* -> *Azure Storage 클라이언트 라이브러리*로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
 3. Xcode의 왼쪽 위에서 "Azure Storage 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
 4. 프로젝트를 빌드합니다(⌘+B). 그러면 바탕 화면에 `AZSClient.framework` 파일이 만들어집니다.
 
@@ -82,7 +82,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 #import <AZSClient/AZSClient.h>
 ```
 
-Swift를 사용 하는 경우 브리징 헤더를 만들고 z/z를 가져와야 \<> 합니다.
+Swift를 사용하는 경우 브리징 헤더를 만들고 \<AZSClient/AZSClient.h>를 가져와야 합니다.
 
 1. 헤더 파일 `Bridging-Header.h`를 만들고 위의 import 문을 추가합니다.
 2. *빌드 설정* 탭으로 이동하고 *Objective-C 브리징 헤더*를 검색합니다.
@@ -225,11 +225,11 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 - **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 스토리지 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
 - **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   - _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
-  - _AZSBlobListingDetailsSnapshots_: 커밋된 Blob과 Blob 스냅샷을 나열합니다.
+  - _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.
   - _AZSBlobListingDetailsMetadata_: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
-  - _AZSBlobListingDetailsUncommittedBlobs_: 커밋된 Blob과 커밋되지 않은 Blob을 나열합니다.
+  - _AZSBlobListingDetailsUncommittedBlobs_: 커밋 및 커밋되지 않은 Blob을 나열합니다.
   - _AZSBlobListingDetailsCopy_: 목록에 복사 속성을 포함합니다.
-  - _AZSBlobListingDetailsAll_: 사용 가능한 커밋된 Blob, 커밋되지 않은 Blob 및 스냅샷을 모두 나열하고 해당 Blob의 메타데이터와 복사 상태를 모두 반환합니다.
+  - _AZSBlobListingDetailsAll_: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅샷을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
 - **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
 - **completionHandler** - 나열 작업의 결과와 함께 실행할 코드 블록입니다.
 
@@ -391,8 +391,8 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 
 - [iOS용 Azure Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
 - [Azure Storage iOS 참조 설명서](https://azure.github.io/azure-storage-ios/)
-- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage)
+- [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage 팀 블로그](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
-이 라이브러리와 관련 하 여 궁금한 사항이 있는 경우 [MSDN Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 에 게시 하거나 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+이 라이브러리에 대한 문의 사항이 있는 경우 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
 Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.

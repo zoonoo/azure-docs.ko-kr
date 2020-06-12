@@ -1,49 +1,49 @@
 ---
 title: 질감
-description: 질감 리소스 워크플로
+description: 텍스처 리소스 워크플로
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681663"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759135"
 ---
 # <a name="textures"></a>질감
 
-질감은 변경할 수 없는 [공유 리소스](../concepts/lifetime.md)입니다. [자습서: 환경 및 재질 변경](../tutorials/unity/changing-environment-and-materials.md)에 설명 된 대로 [blob 저장소](../how-tos/conversion/blob-storage.md) 에서 텍스처를 로드 하 고 모델에 직접 적용할 수 있습니다. 그러나 일반적으로 질감은 [자료](materials.md)에서 참조 되는 [변환 된 모델](../how-tos/conversion/model-conversion.md)의 일부입니다.
+텍스처는 변경할 수 없는 [공유 리소스](../concepts/lifetime.md)입니다. 텍스처는 [Blob 스토리지](../how-tos/conversion/blob-storage.md)에서 로드되고 [자습서: 환경 및 재질 변경](../tutorials/unity/changing-environment-and-materials.md)에 설명된 대로 모델에 직접 적용될 수 있습니다. 그러나 가장 일반적으로 텍스처는 [변환된 모델](../how-tos/conversion/model-conversion.md)의 일부로 해당 [재료](materials.md)에 의해 참조됩니다.
 
-## <a name="texture-types"></a>질감 형식
+## <a name="texture-types"></a>텍스처 형식
 
-질감 형식 마다 사용 사례가 다릅니다.
+텍스처 형식마다 사용 사례가 다릅니다.
 
-* **2D 질감이** 주로 [자료](materials.md)에서 사용 됩니다.
-* **Cubemaps** 는 [하늘](../overview/features/sky.md)에 사용할 수 있습니다.
+* **2D 텍스처**는 주로 [재료](materials.md)에서 사용됩니다.
+* [sky](../overview/features/sky.md)에 **Cubemaps**를 사용할 수 있습니다.
 
-## <a name="supported-texture-formats"></a>지원 되는 질감 형식
+## <a name="supported-texture-formats"></a>지원되는 텍스처 형식
 
-ARR에 지정 된 모든 질감은 [DDS 형식](https://en.wikipedia.org/wiki/DirectDraw_Surface)이어야 합니다. Mip 맵을 및 질감 압축을 사용 하는 것이 좋습니다. 변환 프로세스를 자동화 하려면 [TexConv 명령줄 도구](../resources/tools/tex-conv.md) 를 참조 하세요.
+ARR에 지정된 모든 텍스처는 [DDS 형식](https://en.wikipedia.org/wiki/DirectDraw_Surface)이어야 합니다. mipmaps 및 텍스처 압축을 사용하는 것이 좋습니다. 변환 프로세스를 자동화하려면 [TexConv 명령줄 도구](../resources/tools/tex-conv.md)를 참조하세요.
 
-## <a name="loading-textures"></a>질감 로드
+## <a name="loading-textures"></a>텍스처 로드
 
-질감을 로드 하는 경우 예상 되는 형식을 지정 해야 합니다. 형식이 일치 하지 않으면 질감 로드에 실패 합니다.
-동일한 URI를 사용 하 여 질감을 두 번 로드 하면 [공유 리소스인](../concepts/lifetime.md)것 처럼 동일한 텍스처 개체가 반환 됩니다.
+텍스처를 로드하는 경우 예상되는 형식을 지정해야 합니다. 형식이 일치하지 않으면 텍스처 로드가 실패합니다.
+동일한 URI를 사용하여 텍스처를 두 번 로드하면 동일한 텍스처 개체가 반환됩니다. 이는 [공유 리소스](../concepts/lifetime.md)이기 때문입니다.
 
-모델을 로드 하는 것과 마찬가지로, 원본 blob 저장소에서 질감 자산을 주소 지정 하는 두 가지 변형이 있습니다.
+모델을 로드하는 것과 유사하게 원본 Blob 스토리지에서 텍스처 자산을 처리하는 두 가지 변형이 있습니다.
 
-* 질감 자산은 SAS URI로 주소를 지정할 수 있습니다. 관련 로드 함수는 `LoadTextureFromSASAsync` 매개 변수 `LoadTextureFromSASParams`를 사용 합니다. [기본 제공 질감](../overview/features/sky.md#built-in-environment-maps)을 로드 하는 경우에도이 변형을 사용 합니다.
-* [Blob 저장소를 계정에 연결](../how-tos/create-an-account.md#link-storage-accounts)하는 경우 blob 저장소 매개 변수를 통해 텍스처에 직접 주소를 지정할 수 있습니다. 이 경우 관련 로드 함수는 `LoadTextureAsync` 매개 변수 `LoadTextureParams`를 사용 합니다.
+* 텍스처 자산은 SAS URI로 처리할 수 있습니다. 매개 변수 `LoadTextureFromSASParams`와 관련된 로딩 함수는 `LoadTextureFromSASAsync`입니다. [기본 제공 텍스처](../overview/features/sky.md#built-in-environment-maps)를 로드하는 경우에도 이 변형을 사용합니다.
+* [Blob 스토리지가 계정에 연결](../how-tos/create-an-account.md#link-storage-accounts)된 경우 Blob 스토리지 매개 변수를 통해 텍스처를 직접 처리합니다. 이 경우 매개 변수 `LoadTextureParams`와 관련된 로딩 함수는 `LoadTextureAsync`입니다.
 
-다음 샘플 코드는 SAS URI (또는 기본 제공 텍스처)를 통해 텍스처를 로드 하는 방법을 보여 줍니다. 다른 경우에는 로딩 함수/매개 변수만 다릅니다.
+다음 샘플 코드는 SAS URI(또는 기본 제공 텍스처)를 통해 텍스처를 로드하는 방법을 보여줍니다. 다른 경우에는 로딩 함수/매개 변수만 다릅니다.
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -60,12 +60,34 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-질감이 사용 될 것으로 예상 되는 항목에 따라 질감 형식 및 콘텐츠에 대 한 제한이 있을 수 있습니다. 예를 들어, [.pbr 재질](../overview/features/pbr-materials.md) 의 황삭 맵은 회색조 여야 합니다.
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
+
+텍스처가 사용될 것으로 예상되는 항목에 따라 텍스처 형식 및 콘텐츠에 제한이 있을 수 있습니다. 예를 들어 [PBR 재질](../overview/features/pbr-materials.md)의 초고 맵은 회색조여야 합니다.
 
 > [!CAUTION]
-> ARR의 모든 *비동기* 함수는 비동기 작업 개체를 반환 합니다. 작업이 완료 될 때까지 해당 개체에 대 한 참조를 저장 해야 합니다. 그렇지 않으면 c # 가비지 수집기가 작업을 일찍 삭제할 수 있으며 완료 되지 않습니다. 위의 샘플 코드에서 멤버 변수 ' _textureLoad '는 *완료* 된 이벤트가 도착할 때까지 참조를 보관 하는 데 사용 됩니다.
+> ARR의 모든 *Async* 함수는 비동기 작업 개체를 반환합니다. 작업이 완료될 때까지 해당 개체에 대한 참조를 저장해야 합니다. 그렇지 않으면 C# 가비지 수집기가 작업을 일찍 삭제하여 작업을 완료할 수 없습니다. 위의 샘플 코드에서 멤버 변수 '_textureLoad'는 *완료* 이벤트가 도착할 때까지 참조를 보유하는 데 사용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [재질](materials.md)
-* [하늘색](../overview/features/sky.md)
+* [Sky](../overview/features/sky.md)

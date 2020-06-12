@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0491f10f22e35c81e5bc35d537546001f136be50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826828"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171075"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Azure Portal에서 변경 내용 추적 및 인벤토리 사용
 
@@ -21,7 +21,7 @@ VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배�
 > [!NOTE]
 > 변경 내용 추적 및 인벤토리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
@@ -61,8 +61,4 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 이 기능으로 수행하는 작업에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조하세요.
-* 범위 구성에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
-* 이 기능을 사용하여 사용자 환경에 설치된 소프트웨어를 파악하는 방법에 대한 자세한 내용은 [VM에 설치된 소프트웨어 검색](automation-tutorial-installed-software.md)을 참조하세요.
-* 기능을 사용하도록 설정할 때 Automation 계정을 Log Analytics 작업 영역에 통합하지 않으려는 경우 [Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-change-tracking.md)를 참조하세요.
-* VM에 대한 변경 내용을 배포하는 작업이 완료되면 [변경 내용 추적 및 인벤토리에서 VM 제거](automation-remove-vms-from-change-tracking.md)에 설명된 대로 제거할 수 있습니다.
 * 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.

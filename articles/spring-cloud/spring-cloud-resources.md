@@ -6,21 +6,21 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-ms.openlocfilehash: 36e9b272bb4648853829364b22881ab8bec1ff70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d65bd76fbef66f741f51292b24483e7df5da7c79
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733050"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836246"
 ---
-# <a name="azure-spring-cloud-developer-resources"></a>Azure 스프링 클라우드 개발자 리소스
+# <a name="azure-spring-cloud-developer-resources"></a>Azure Spring Cloud 개발자 리소스
 
-개발자는 다음과 같은 Azure 스프링 클라우드 리소스를 유용 하 게 사용할 수 있습니다.
+개발자에게는 다음과 같은 Azure Spring Cloud 리소스가 유용할 수 있습니다.
 
 * [Azure 로드맵](https://azure.microsoft.com/updates)
 * [질문과 대답](spring-cloud-faq.md)
 * [문제 해결 가이드](spring-cloud-troubleshoot.md)
-* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home)
+* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-spring-cloud.html)
 * [Java Spring Cloud 웹 사이트](https://spring.io/)
 * [Spring 프레임워크](https://cloud.spring.io/spring-cloud-azure/)
 * [Azure의 Spring](https://docs.microsoft.com/azure/developer/java/spring-framework/)

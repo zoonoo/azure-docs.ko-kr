@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
-ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866209"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778204"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
 
-* *관리/제어 평면은* 리소스 수정을 위해 관리/제어 평면 또는 API에 들어오는 호출에 대해 설명합니다. 예를 들어 VM을 만들고, VM을 다시 시작하고, 새 서브넷을 사용하여 가상 네트워크를 업데이트하는 등의 작업은 실행 중인 리소스를 관리합니다. VM을 연결하는 데 직접적으로 영향을 주지 않습니다.
-* *데이터 평면(응용* 프로그램)은 응용 프로그램 자체의 런타임을 설명하고 Azure API를 통과하지 않는 인스턴스와의 상호 작용을 포함합니다. 예를 들어 웹 사이트에 액세스하거나 실행 중인 SQL Server 인스턴스 또는 MongoDB 서버에서 데이터를 가져오는 것은 데이터 평면 또는 애플리케이션 상호 작용입니다. 다른 예로 스토리지 계정에서 Blob을 복사하고 가상 머신에 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 사용하기 위해 공용 IP 주소에 액세스하는 경우가 있습니다. 이러한 작업은 컴퓨팅, 네트워킹, 스토리지에서 애플리케이션을 계속 실행하는 상태에서 수행합니다.
+* *관리/제어 평면*은 리소스를 수정하기 위해 관리/제어 평면 또는 API로 들어오는 호출을 설명합니다. 예를 들어 VM을 만들고, VM을 다시 시작하고, 새 서브넷을 사용하여 가상 네트워크를 업데이트하는 등의 작업은 실행 중인 리소스를 관리합니다. VM을 연결하는 데 직접적으로 영향을 주지 않습니다.
+* *데이터 평면*(애플리케이션)은 애플리케이션 자체의 런타임을 설명하고, Azure API를 통과하지 않는 인스턴스와의 상호 작용을 포함합니다. 예를 들어 웹 사이트에 액세스하거나 실행 중인 SQL Server 인스턴스 또는 MongoDB 서버에서 데이터를 가져오는 것은 데이터 평면 또는 애플리케이션 상호 작용입니다. 다른 예로 스토리지 계정에서 Blob을 복사하고 가상 머신에 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 사용하기 위해 공용 IP 주소에 액세스하는 경우가 있습니다. 이러한 작업은 컴퓨팅, 네트워킹, 스토리지에서 애플리케이션을 계속 실행하는 상태에서 수행합니다.
 
 데이터 평면은 클래식 배포 모델 및 리소스 관리자 스택 간에 동일합니다. 차이점은 마이그레이션 프로세스 중에 Microsoft에서 클래식 배포 모델의 리소스 표현을 리소스 관리자 스택의 표현으로 변환한다는 것입니다. 결과적으로 새 도구, API 및 SDK를 사용하여 리소스 관리자 스택에서 리소스를 관리해야 합니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "81866209"
 유효성 검사를 마친 후 마이그레이션을 커밋할 수 있습니다. 리소스는 더 이상 클래식 배포 모델에서 표시되지 않으며 리소스 관리자 배포 모델에서만 사용할 수 있습니다. 새 포털에서는 마이그레이션된 리소스만 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패하면 지원 티켓을 만들거나 [Microsoft Q&A에서](https://docs.microsoft.com/answers/index.html) 포럼을 만듭니다.
+> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패하는 경우 지원 티켓을 만들거나 [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)에서 포럼을 만듭니다.
 >
 >
 
@@ -136,7 +136,7 @@ ms.locfileid: "81866209"
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>클래식 배포 모델을 리소스 관리자 리소스로 변환
 다음 표에서 클래식 배포 모델 및 리소스 관리자에서 리소스를 표현하는 방식을 확인할 수 있습니다. 다른 기능 및 리소스는 현재 지원되지 않습니다.
 
-| 클래식 표현 | Resource Manager 표현 | 참고 |
+| 클래식 표현 | Resource Manager 표현 | 메모 |
 | --- | --- | --- |
 | 클라우드 서비스 이름 |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
 | 가상 머신 |가상 머신 |VM 관련 속성은 변경되지 않고 마이그레이션됩니다. 컴퓨터 이름과 같은 특정 osProfile 정보는 클래식 배포 모델에 저장되지 않으며, 마이그레이션 후에도 비어 있습니다. |
@@ -151,11 +151,11 @@ ms.locfileid: "81866209"
 | 인바운드 NAT 규칙 |인바운드 NAT 규칙 |VM에 정의된 입력 엔드포인트는 마이그레이션 중에 부하 분산 장치의 인바운드 NAT(Network Address Translation) 규칙으로 변환됩니다. |
 | VIP 주소 |DNS 이름이 포함된 공용 IP 주소 |가상 IP 주소는 공용 IP 주소가 되며, 부하 분산 장치와 연결됩니다. 할당된 입력 엔드포인트가 있는 경우 가상 IP만 마이그레이션할 수 있습니다. |
 | 가상 네트워크 |가상 네트워크 |가상 네트워크는 모든 속성과 함께 Resource Manager 배포 모델로 마이그레이션됩니다. `-migrated`이름을 사용하여 새 리소스 그룹이 생성됩니다. |
-| 예약된 IP |정적 할당 방법의 공용 IP 주소 |부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 머신의 마이그레이션과 함께 마이그레이션됩니다. 연결되지 않고 예약된 IP 마이그레이션은 현재 지원되지 않습니다. |
+| 예약된 IP |정적 할당 방법의 공용 IP 주소 |부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 머신의 마이그레이션과 함께 마이그레이션됩니다. [Move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurereservedip?view=azuresmps-4.0.0)를 사용하여 연결되지 않은 예약 IP를 마이그레이션할 수 있습니다.  |
 | VM당 공용 IP 주소 |동적 할당 방법의 공용 IP 주소 |VM에 연결된 공용 IP 주소는 할당 방법이 정적으로 설정된 공용 IP 주소 리소스로 변환됩니다. |
-| NSG |NSG |서브넷과 연결된 네트워크 보안 그룹은 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. |
+| NSG |NSG |서브넷과 연결된 네트워크 보안 그룹은 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. [Move-AzureNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurenetworksecuritygroup?view=azuresmps-4.0.0)을 사용하여 연결되지 않은 NSG를 마이그레이션할 수 있습니다.|
 | DNS 서버 |DNS 서버 |가상 네트워크 또는 VM과 연결된 DNS 서버는 해당 리소스 마이그레이션 중 모든 속성과 함께 마이그레이션됩니다. |
-| UDR |UDR |서브넷과 연결된 사용자 정의 경로는 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 UDR는 제거되지 않습니다. 마이그레이션이 진행 중인 동안에는 UDR의 관리 평면 작업이 차단됩니다. |
+| UDR |UDR |서브넷과 연결된 사용자 정의 경로는 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 UDR는 제거되지 않습니다. 마이그레이션이 진행 중인 동안에는 UDR의 관리 평면 작업이 차단됩니다. [Move-AzureRouteTable](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Move-AzureRouteTable?view=azuresmps-4.0.0)을 사용하여 연결되지 않은 UDR을 마이그레이션할 수 있습니다. |
 | VM 네트워크 구성의 IP 전달 속성 |NIC의 IP 전달 속성 |마이그레이션 중 VM의 IP 전달 속성이 네트워크 인터페이스의 속성으로 변환됩니다. |
 | 여러 IP가 포함된 부하 분산 장치 |여러 공용 IP 리소스가 포함된 부하 분산 장치 |부하 분산 장치와 연결된 모든 공용 IP는 공용 IP 리소스로 변환되며, 마이그레이션 후에 부하 분산 장치와 연결됩니다. |
 | VM의 내부 DNS 이름 |NIC의 내부 DNS 이름 |마이그레이션하는 동안 VM의 내부 DNS 접미사는 NIC의 "InternalDomainNameSuffix"라는 읽기 전용 속성으로 마이그레이션됩니다. 마이그레이션 후에 접미사는 변경되지 않고 그대로 유지되며 VM 확인은 이전처럼 계속 작동해야 합니다. |

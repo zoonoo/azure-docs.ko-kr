@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6c951d7875086658763243c7c1973f08233f96e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748652"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170633"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -246,12 +246,15 @@ Azure Portal에서 복제 정책을 제거하려면 다음 단계를 수행합�
 복제 정책을 제거하려면 원본 계정 및 대상 계정 둘 다에서 정책을 삭제합니다. 또한 정책을 삭제하면 연결된 규칙도 모두 삭제됩니다.
 
 ```powershell
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $destAccountName |
-    Remove-AzStorageObjectReplicationPolicy
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $srcAccountName |
-    Remove-AzStorageObjectReplicationPolicy
+# Remove the policy from the destination account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -PolicyId $destPolicy.PolicyId
+
+# Remove the policy from the source account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $destPolicy.PolicyId
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

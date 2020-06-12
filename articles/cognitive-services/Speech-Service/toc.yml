@@ -462,6 +462,8 @@
       items:
         - name: Speaker Recognition이란?
           href: speaker-recognition-overview.md
+        - name: Speaker Recognition 기본 사항
+          href: speaker-recognition-basics.md
     - name: 참조
       items:
         - name: REST API
