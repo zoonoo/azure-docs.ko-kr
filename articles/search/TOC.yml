@@ -222,12 +222,12 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: 예 - Azure Form Recognizer
               href: cognitive-search-custom-skill-form.md
+            - name: 예 - Azure Machine Learning
+              href: cognitive-search-tutorial-aml-custom-skill.md
             - name: 예 - 컨테이너
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: 디자인 팁
           href: cognitive-search-concept-troubleshooting.md
-        - name: 문서 링크
-          href: cognitive-search-resources-documentation.md
         - name: 지식 저장소
           items:
             - name: REST 및 Postman을 사용하여 만들기
@@ -328,7 +328,7 @@
       items:
         - name: 개요
           href: search-security-overview.md
-        - name: 데이터 암호화.
+        - name: 데이터 암호화
           items:
             - name: 고객 관리형 키
               href: search-security-manage-encryption-keys.md
@@ -464,6 +464,8 @@
               href: cognitive-search-skill-text-translation.md
         - name: 사용자 지정 기술
           items:
+            - name: AML(Azure Machine Learning)
+              href: cognitive-search-aml-skill.md
             - name: 사용자 지정 Web API
               href: cognitive-search-custom-skill-web-api.md
         - name: 사용되지 않는 기술
@@ -481,6 +483,8 @@
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: 규정 준수 및 인증
       href: 'https://aka.ms/azurecompliance'
+    - name: 설명서 링크(정보 마이닝)
+      href: cognitive-search-resources-documentation.md
     - name: 데모 사이트
       items:
         - name: 재무 파일 데모

@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.custom: amqp
-ms.openlocfilehash: bf7c4118e17727c6c8141570ab146026d5383059
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996941"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872697"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -22,14 +22,14 @@ ms.locfileid: "82996941"
 
 | 속성            | Description |
 | ------------------- | ----------- |
-| **파티션 수** | 만들 때이 속성을 설정 하 여 장치-클라우드 이벤트 수집에 대 한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의 합니다. |
+| **분할 개수** | 이 속성은 생성 시 설정하여 디바이스-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
 | **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
-IoT Hub를 사용 하면 기본 제공 Event Hubs에서 최대 7 일 동안 데이터를 보존할 수 있습니다. IoT Hub를 만드는 동안 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 IoT Hub 계층 및 단위 유형에 따라 달라 집니다. 크기를 기준으로 기본 제공 Event Hubs는 최대 메시지 크기의 메시지를 24 시간 이상 할당량으로 유지할 수 있습니다. 예를 들어 1tb 단위 IoT Hub 1tb는 각각 4k 크기의 400K 메시지를 보존할 수 있는 충분 한 저장소를 제공 합니다. 장치에서 더 작은 메시지를 전송 하는 경우 사용 되는 저장소 크기에 따라 오랫동안 (최대 7 일) 보존 될 수 있습니다. 지정 된 보존 시간에 대 한 데이터를 최소로 유지 하는 것을 보장 합니다. 메시지는 만료 되며 보존 시간이 지나면 액세스할 수 없게 됩니다. 
+IoT Hub를 사용하면 기본 제공 Event Hubs에서 데이터를 최대 7일 동안 보존할 수 있습니다. IoT Hub를 만드는 중에 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 IoT 허브 계층 및 단위 유형에 따라 달라집니다. 크기 측면에서 기본 제공 Event Hubs는 최대 메시지 크기의 메시지를 최소 24시간의 할당량까지 유지할 수 있습니다. 예를 들어 1 S1 단위의 IoT Hub는 각각 4k 크기인 메시지를 400K 이상 보존할 수 있는 충분한 스토리지를 제공합니다. 디바이스에서 더 적은 수의 메시지를 보내는 경우 이러한 메시지는 사용되는 스토리지 양에 따라 최대 7일 동안 보존할 수 있습니다. 데이터를 지정된 보존 시간 동안 최소한으로 보존하도록 보장됩니다. 메시지는 만료되며, 보존 시간이 지나면 액세스할 수 없습니다. 
 
-또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다. 각 IoT Hub에 대해 최대 20 개의 소비자 그룹을 포함할 수 있습니다.
+또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다. 각 IoT Hub당 최대 20개의 소비자 그룹이 있을 수 있습니다.
 
-[메시지 라우팅을](iot-hub-devguide-messages-d2c.md) 사용 하는 경우 [대체 (fallback) 경로](iot-hub-devguide-messages-d2c.md#fallback-route) 를 사용 하는 경우 모든 경로에서 쿼리와 일치 하지 않는 모든 메시지는 기본 제공 끝점으로 이동 합니다. 이 대체 경로를 사용 하지 않도록 설정 하면 쿼리와 일치 하지 않는 메시지가 삭제 됩니다.
+[메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하고 [대체 경로](iot-hub-devguide-messages-d2c.md#fallback-route)를 사용하도록 설정된 경우 경로에 대한 쿼리와 일치하지 않는 모든 메시지가 기본 제공 엔드포인트로 이동합니다. 이 대체 경로를 사용하지 않도록 설정하면 쿼리와 일치하지 않는 메시지가 삭제됩니다.
 
 [IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 사용하여 또는 [Azure Portal](https://portal.azure.com)을 사용하여 프로그래밍 방식으로 보존 시간을 수정할 수 있습니다.
 
@@ -37,19 +37,19 @@ IoT Hub는 허브에서 수신한 디바이스-클라우드 메시지를 읽도�
 
 ## <a name="read-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 읽기
 
-일부 제품 통합 및 Event Hubs Sdk는 IoT Hub를 인식 하며 IoT Hub 서비스 연결 문자열을 사용 하 여 기본 제공 끝점에 연결할 수 있습니다.
+일부 제품 통합 및 Event Hubs SDK에서는 IoT Hub를 인식하며, IoT 허브 서비스 연결 문자열을 사용하여 기본 제공 엔드포인트에 연결할 수 있습니다.
 
-IoT Hub를 인식 하지 않는 Event Hubs Sdk 또는 제품 통합을 사용 하는 경우 Event Hub 호환 끝점 및 Event Hub 호환 이름이 필요 합니다. 다음과 같이 포털에서 이러한 값을 검색할 수 있습니다.
+IoT Hub를 인식하지 않는 Event Hubs SDK 또는 제품 통합을 사용하는 경우 Event Hub 호환 엔드포인트 및 Event Hub 호환 이름이 필요합니다. 이러한 값은 다음과 같이 포털에서 검색할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 
 2. **기본 제공 엔드포인트**를 클릭합니다.
 
-3. **Events** 섹션에는 **파티션**, **event Hub 호환 이름**, **event Hub 호환 끝점**, **보존 시간**및 **소비자 그룹**값이 포함 됩니다.
+3. **이벤트** 섹션에는 **파티션**, **Event Hub 호환 이름**, **Event Hub 호환 엔드포인트**, **보존 시간** 및 **소비자 그룹** 값이 포함되어 있습니다.
 
     ![디바이스-클라우드 설정](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-포털에서 Event Hub 호환 끝점 필드에는 **끝점 = sb://abcd1234namespace.servicebus.windows.net/;과 같은 완전 한 Event Hubs 연결 문자열이 포함 되어 있습니다. SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-1234-123456**. 사용 중인 SDK에 다른 값이 필요한 경우에는 다음을 수행 합니다.
+포털에서 Event Hub 호환 엔드포인트 필드에는 다음과 같은 전체 Event Hubs 연결 문자열이 포함되어 있습니다. **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456** 사용하는 SDK에 다른 값이 필요한 경우 다음과 같습니다.
 
 | 속성 | 값 |
 | ---- | ----- |
@@ -59,22 +59,22 @@ IoT Hub를 인식 하지 않는 Event Hubs Sdk 또는 제품 통합을 사용 �
 
 지정된 Event Hubs에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 정책을 사용할 수 있습니다.
 
-IoT Hub 노출 되는 기본 제공 이벤트 허브 호환 끝점에 연결 하는 데 사용할 수 있는 Sdk는 다음과 같습니다.
+IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연결하는 데 사용할 수 있는 SDK는 다음과 같습니다.
 
-| 언어 | SDK | 예제 |
+| 언어 | SDK) | 예제 |
 | -------- | --- | ------ |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [빠른 시작](quickstart-send-telemetry-dotnet.md) |
- Java | https://github.com/Azure/azure-event-hubs-java | [빠른 시작](quickstart-send-telemetry-java.md) |
+ Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [빠른 시작](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 
-IoT Hub 노출 되는 기본 제공 Event Hub 호환 끝점과 함께 사용할 수 있는 제품 통합은 다음과 같습니다.
+IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 사용할 수 있는 제품 통합은 다음과 같습니다.
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). [Azure Functions를 사용 하 여 IoT Hub에서 데이터 처리를](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/)참조 하세요.
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). [데이터를 Stream Analytics에 대 한 입력으로 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)을 참조 하세요.
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). [Time Series Insights 환경에 IoT hub 이벤트 원본 추가를](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md)참조 하세요.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). [Azure Functions를 사용하여 IoT Hub에서 데이터 처리](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/) 참조
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) - [Stream Analytics에 입력으로 데이터 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub) 참조
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). [Time Series Insights 환경에 IoT 허브 이벤트 원본 추가](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md) 참조
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
-* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>다음 단계

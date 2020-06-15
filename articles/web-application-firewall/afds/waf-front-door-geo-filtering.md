@@ -1,5 +1,5 @@
 ---
-title: Azure Front 도어 서비스에 대 한 도메인에서 지역 필터링
+title: Azure Front Door Service에 대한 도메인의 지역 필터링
 description: 이 문서에서는 Azure Front Door Service에 대한 지역 필터링 정책에 대해 알아봅니다.
 services: web-application-firewall
 author: vhorne
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f620ced1bc859e5c824b45839a21ab21d0244d89
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472608"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747782"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door용 도메인의 지역 필터링이란?
 
 기본적으로 Azure Front Door Service는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가/지역별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다. 
 
-WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙에서 일치 변수는 REMOTE_ADDR, 연산자는 GeoMatch, 값은 해당 국가의 2자 국가 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
+WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이고, 연산자는 GeoMatch이며, 값은 관심 있는 2문자 국가/지역 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
 
 [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)을 사용하여 Front Door에 대한 지역 필터링 정책을 구성할 수 있습니다.
 
-## <a name="country-code-reference"></a>국가 코드 참조
+## <a name="countryregion-code-reference"></a>국가/지역 코드 참조
 
-|국가 코드 | 국가 이름 |
+|국가/지역 코드 | 국가/지역 이름 |
 | ----- | ----- |
 | AD | 안도라 |
 | AE | 아랍에미리트|
@@ -35,7 +35,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | AM | 아르메니아|
 | AO | 앙골라|
 | AR | 아르헨티나|
-| AS | 미국령 사모아|
+| AS | 아메리칸 사모아|
 | AT | 오스트리아|
 | AU | 오스트레일리아|
 | AZ | 아제르바이잔|
@@ -48,7 +48,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | BH | 바레인|
 | BI | 부룬디|
 | BJ | 베냉|
-| BL | 세인트 바르텔레미|
+| BL | 생바르텔레미|
 | BN | 브루나이|
 | BO | 볼리비아|
 | BR | 브라질|
