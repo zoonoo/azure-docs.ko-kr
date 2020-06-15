@@ -1,6 +1,6 @@
 ---
 title: Azure Automation에서 인증서 관리
-description: Runbook 또는 DSC 구성에서 Azure 및 타사 리소스에 대해 인증 하기 위해 액세스할 수 있도록 인증서를 안전 하 게 저장 Azure Automation. 이 문서에서는 인증서에 대 한 세부 정보 및 텍스트와 그래픽 작성 모두에서 인증서를 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 Runbook 및 DSC 구성에서 액세스하기 위해 인증서를 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,70 +9,67 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2793679fb4588d00ea4e37340b19183398cb9d90
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864320"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745038"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Azure Automation에서 인증서 관리
 
-Azure Automation는 Azure Resource Manager 리소스에 대해 [AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet을 사용 하 여 RUNBOOK 및 DSC 구성에서 액세스 하기 위해 인증서를 안전 하 게 저장 합니다. 보안 인증서 저장소를 사용 하면 인증을 위해 인증서를 사용 하는 runbook 및 DSC 구성을 만들거나 Azure 또는 타사 리소스에 추가할 수 있습니다.
+Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet을 사용하여 Runbook 및 DSC 구성에서 액세스하기 위해 인증서를 안전하게 저장합니다. 보안 인증서 스토리지를 사용하여 인증을 위해 인증서를 사용하는 Runbook 및 DSC 구성을 만들거나 Azure 또는 타사 리소스에 추가할 수 있습니다.
 
 >[!NOTE]
->Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성 되는 고유 키를 사용 하 여 암호화 되 고 자동화에 저장 됩니다. Automation은 시스템 관리 Key Vault 서비스에 키를 저장 합니다. 보안 자산을 저장 하기 전에 Automation은 Key Vault에서 키를 로드 한 다음이를 사용 하 여 자산을 암호화 합니다. 
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Automation에 저장됩니다. Automation은 시스템 관리 Key Vault 서비스에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
 
->[!NOTE]
->이 문서에서는 Azure PowerShell Az module을 사용 하는 방법을 보여 줍니다. AzureRM 모듈을 계속 사용할 수 있습니다. Az module 및 AzureRM compatibility에 대해 자세히 알아보려면 [새 Azure PowerShell Az Module 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조 하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](../automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+## <a name="powershell-cmdlets-to-access-certificates"></a>인증서에 액세스하는 데 사용되는 PowerShell cmdlet
 
-## <a name="powershell-cmdlets-to-access-certificates"></a>인증서에 액세스 하기 위한 PowerShell cmdlet
-
-다음 표의 cmdlet은 PowerShell을 사용 하 여 자동화 인증서를 만들고 관리 합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공 됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 인증서를 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
 
 |Cmdlet |Description|
 | --- | ---|
-|[AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Runbook 또는 DSC 구성에 사용할 인증서 정보를 검색합니다. 내부 `Get-AutomationCertificate` cmdlet을 사용 하 여 인증서 자체를 검색할 수 있습니다.|
-|[AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Automation에서 새 인증서를 만듭니다.|
-|[AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Automation에서 인증서를 제거 합니다.|
-|[AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|인증서 파일 업로드 및 **.pfx** 파일에 대 한 암호 설정을 비롯 하 여 기존 인증서에 대 한 속성을 설정 합니다.|
+|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Runbook 또는 DSC 구성에 사용할 인증서 정보를 검색합니다. 내부 `Get-AutomationCertificate` cmdlet을 사용해야 인증서 자체를 검색할 수 있습니다.|
+|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Automation에서 새 인증서를 만듭니다.|
+|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Automation에서 인증서를 제거합니다.|
+|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|인증서 파일 업로드 및 **.pfx** 암호 설정을 포함하여 기존 인증서에 대한 속성을 설정합니다.|
 
-[AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) cmdlet을 사용 하 여 지정 된 클라우드 서비스에 대 한 서비스 인증서를 업로드할 수도 있습니다.
+[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) cmdlet을 사용하여 지정된 클라우드 서비스에 대한 서비스 인증서를 업로드할 수도 있습니다.
 
-## <a name="internal-cmdlets-to-access-certificates"></a>인증서에 액세스 하는 내부 cmdlet
+## <a name="internal-cmdlets-to-access-certificates"></a>인증서에 액세스하는 데 사용되는 내부 cmdlet
 
-다음 표의 내부 cmdlet은 runbook의 인증서에 액세스 하는 데 사용 됩니다. 이 cmdlet은 전역 모듈과 `Orchestrator.AssetManagement.Cmdlets`함께 제공 됩니다. 자세한 내용은 [내부 cmdlet](modules.md#internal-cmdlets)을 참조 하세요.
+다음 테이블의 내부 cmdlet은 Runbook의 인증서에 액세스하는 데 사용됩니다. 이 cmdlet은 글로벌 모듈 `Orchestrator.AssetManagement.Cmdlets`와 함께 제공됩니다. 자세한 내용은 [내부 cmdlet](modules.md#internal-cmdlets)을 참조하세요.
 
 | 내부 Cmdlet | Description |
 |:---|:---|
 |`Get-AutomationCertificate`|Runbook 또는 DSC 구성에 사용할 인증서를 가져옵니다. [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) 개체를 반환합니다.|
 
 > [!NOTE] 
-> Runbook 또는 DSC 구성의 `Name` 매개 변수 `Get-AutomationCertificate` 에서 변수를 사용 하지 않아야 합니다. 이러한 변수는 디자인 타임에 runbook 또는 DSC 구성과 자동화 변수 간의 종속성을 검색 하는 것이 복잡할 수 있습니다.
+> Runbook 또는 DSC 구성에서 `Get-AutomationCertificate`의 `Name` 매개 변수에 변수를 사용하지 않는 것이 좋습니다. 이러한 변수로 디자인 타임에 Runbook 또는 DSC 구성과 Automation 변수 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="python-2-functions-to-access-certificates"></a>인증서에 액세스 하는 Python 2 함수
+## <a name="python-2-functions-to-access-certificates"></a>인증서에 액세스하는 Python 2 함수
 
-다음 표의 함수를 사용 하 여 Python 2 runbook의 인증서에 액세스할 수 있습니다.
+다음 테이블의 함수를 사용하여 Python 2 Runbook의 인증서에 액세스합니다.
 
 | 함수 | Description |
 |:---|:---|
 | `automationassets.get_automation_certificate` | 인증서 자산에 대한 정보를 검색합니다. |
 
 > [!NOTE]
-> 자산 기능에 액세스 `automationassets` 하려면 Python runbook의 시작 부분에 있는 모듈을 가져와야 합니다.
+> 자산 함수에 액세스하려면 Python Runbook의 시작 부분에서 `automationassets` 모듈을 가져와야 합니다.
 
 ## <a name="create-a-new-certificate"></a>새 인증서 만들기
 
-새 인증서를 만들 때 .cer 또는 .pfx 파일을 Automation에 업로드 합니다. 인증서를 내보낼 수 있는 것으로 표시 하면 자동화 인증서 저장소에서 인증서를 전송할 수 있습니다. 내보낼 수 없는 경우 runbook 또는 DSC 구성 내에서 서명 하는 데만 사용할 수 있습니다. Automation을 사용 하려면 인증서에 **Microsoft 고급 RSA 및 AES 암호화 공급자**를 제공 해야 합니다.
+새 인증서를 만들 때 .cer 또는 .pfx 파일을 Automation에 업로드합니다. 인증서를 내보내기 가능한 것으로 표시한 경우 Automation 인증서 저장소 외부로 전송할 수 있습니다. 내보낼 수 없는 경우, Runbook 또는 DSC 구성 내에서 사용할 수 있는 것만 서명합니다. Automation을 사용하려면 인증서의 공급자가 **Microsoft Enhanced RSA and AES Cryptographic Provider**여야 합니다.
 
-### <a name="create-a-new-certificate-with-the-azure-portal"></a>Azure Portal를 사용 하 여 새 인증서 만들기
+### <a name="create-a-new-certificate-with-the-azure-portal"></a>Azure Portal을 사용하여 새 인증서 만들기
 
-1. Automation 계정에서 **자산** > **인증서** > **인증서 추가**를 선택 합니다.
-1. **이름** 필드에 인증서의 이름을 입력 합니다.
-1. **.Cer** 또는 **.pfx** 파일을 찾아보려면 **인증서 파일 업로드**아래에서 **파일 선택**을 선택 합니다. **.Pfx** 파일을 선택 하는 경우 암호를 지정 하 고 내보낼 수 있는지 여부를 지정 합니다.
-1. **만들기** 를 선택 하 여 새 인증서 자산을 저장 합니다.
+1. Automation 계정에서 **자산** > **인증서** > **인증서 추가**를 선택합니다.
+1. **이름** 필드에서 인증서의 이름을 입력합니다.
+1. **.cer** 또는 **.pfx** 파일을 찾아보려면 **인증서 파일 업로드** 아래에서 **파일 선택**을 선택합니다. **.pfx** 파일을 선택하는 경우 암호를 지정하고 내보낼 수 있는지 여부를 나타냅니다.
+1. **만들기**를 선택하여 새 인증서 자산을 저장합니다.
 
-### <a name="create-a-new-certificate-with-powershell"></a>PowerShell을 사용 하 여 새 인증서 만들기
+### <a name="create-a-new-certificate-with-powershell"></a>PowerShell을 사용하여 새 인증서 만들기
 
 다음 예제에서는 새 Automation 인증서를 만들고 내보내기 가능한 것으로 표시하는 방법을 보여 줍니다. 이 예제에서는 기존 **.pfx** 파일을 가져옵니다.
 
@@ -85,9 +82,9 @@ $ResourceGroup = "ResourceGroup01"
 New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
-### <a name="create-a-new-certificate-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 새 인증서 만들기
+### <a name="create-a-new-certificate-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 새 인증서 만들기
 
-다음 예제에서는 PowerShell을 통해 리소스 관리자 템플릿을 사용 하 여 Automation 계정에 인증서를 배포 하는 방법을 보여 줍니다.
+다음 예제에서는 PowerShell을 통해 Resource Manager 템플릿을 사용하여 Automation 계정에 인증서를 배포하는 방법을 보여 줍니다.
 
 ```powershell-interactive
 $AutomationAccountName = "<automation account name>"
@@ -130,11 +127,11 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>인증서 얻기
 
-인증서를 검색 하려면 내부 `Get-AutomationCertificate` cmdlet을 사용 합니다. [AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet은 인증서 자산에 대 한 정보를 반환 하지만 인증서 자체는 반환 하지 않으므로 사용할 수 없습니다.
+인증서를 검색하려면 내부 `Get-AutomationCertificate` cmdlet을 사용합니다. [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet은 인증서 자산에 대한 정보를 반환하지만 인증서 자체는 반환하지 않으므로 사용할 수 없습니다.
 
-### <a name="textual-runbook-example"></a>텍스트 runbook 예
+### <a name="textual-runbook-example"></a>텍스트 Runbook 예제
 
-다음 예제에서는 runbook에서 클라우드 서비스에 인증서를 추가 하는 방법을 보여 줍니다. 이 샘플에서는 암호화된 자동화 변수에서 암호를 검색합니다.
+다음 예제에서는 Runbook에서 클라우드 서비스에 인증서를 추가하는 방법을 보여 줍니다. 이 샘플에서는 암호화된 자동화 변수에서 암호를 검색합니다.
 
 ```powershell-interactive
 $serviceName = 'MyCloudService'
@@ -144,11 +141,11 @@ $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 
-### <a name="graphical-runbook-example"></a>그래픽 runbook 예
+### <a name="graphical-runbook-example"></a>그래픽 Runbook 예제
 
-라이브러리 창에서 인증서를 마우스 `Get-AutomationCertificate` 오른쪽 단추로 클릭 하 고 **캔버스에 추가**를 선택 하 여 내부 cmdlet에 대 한 활동을 그래픽 runbook에 추가 합니다.
+라이브러리 창에서 인증서를 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 내부 `Get-AutomationCertificate` cmdlet에 대한 작업을 그래픽 Runbook에 추가합니다.
 
-![캔버스에 인증서를 추가 하는 스크린샷](../media/certificates/automation-certificate-add-to-canvas.png)
+![캔버스에 인증서를 추가하는 스크린샷](../media/certificates/automation-certificate-add-to-canvas.png)
 
 다음 그림에서는 그래픽 Runbook에서 인증서를 사용하는 예제를 보여 줍니다. 
 
@@ -156,7 +153,7 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="python-2-example"></a>Python 2 예제
 
-다음 예제에서는 Python 2 runbook의 인증서에 액세스 하는 방법을 보여 줍니다.
+다음 예제에서는 Python 2 Runbook의 인증서에 액세스하는 방법을 보여 줍니다.
 
 ```python
 # get a reference to the Azure Automation certificate
@@ -168,6 +165,7 @@ print cert
 
 ## <a name="next-steps"></a>다음 단계
 
-* 인증서에 액세스 하는 데 사용 되는 cmdlet에 대 한 자세한 내용은 [Azure Automation 모듈 관리](modules.md)를 참조 하세요.
-* Runbook에 대 한 일반 정보는 [Azure Automation에서 runbook 실행](../automation-runbook-execution.md)을 참조 하세요.
-* DSC 구성에 대 한 자세한 내용은 [상태 구성 개요](../automation-dsc-overview.md)를 참조 하세요. 
+* 인증서에 액세스하는 데 사용되는 cmdlet에 대해 자세히 알아보려면 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
+* Runbook에 대한 일반적인 정보는 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
+* DSC 구성에 대한 자세한 내용은 [Azure Automation State Configuration 개요](../automation-dsc-overview.md)를 참조하세요. 
+

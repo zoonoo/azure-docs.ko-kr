@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB에서 데이터베이스 처리량 프로비전
-description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 데이터베이스 수준으로 처리량을 프로 비전 하는 방법을 알아봅니다.
+description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프로비저닝하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869877"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655331"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스에 대한 처리량 프로비전
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스에 대한 표준(수동) 처리량 프로비전
 
-이 문서에서는 Azure Cosmos DB의 데이터베이스에 대한 처리량을 프로비저닝하는 방법을 설명합니다. 단일 [컨테이너](how-to-provision-container-throughput.md)또는 데이터베이스에 대 한 처리량을 프로 비전 할 수 있으며 그 안에 있는 컨테이너 간에 처리량을 공유할 수 있습니다. 컨테이너 수준 및 데이터베이스 수준 처리량을 사용 하는 경우에 [대 한 자세한 내용은 컨테이너 및 데이터베이스에서 처리량을 프로 비전 하는 데 사용](set-throughput.md) 되는 사례 문서를 참조 하세요. Azure Portal 또는 Azure Cosmos DB SDK를 사용하여 데이터베이스 수준 처리량을 프로비저닝할 수 있습니다.
+이 문서에서는 Azure Cosmos DB의 데이터베이스에 대한 표준(수동) 처리량을 프로비저닝하는 방법을 설명합니다. 단일 [컨테이너](how-to-provision-container-throughput.md) 또는 데이터베이스의 처리량을 프로비전하고 그 안에 있는 컨테이너 간에 처리량을 공유할 수 있습니다. 컨테이너 수준 및 데이터베이스 수준 처리량을 언제 사용하는지 알아보려면 [컨테이너 및 데이터베이스의 처리량 프로비저닝 사용 사례](set-throughput.md) 문서를 참조하세요. Azure Portal 또는 Azure Cosmos DB SDK를 사용하여 데이터베이스 수준 처리량을 프로비저닝할 수 있습니다.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
 
@@ -34,19 +34,19 @@ ms.locfileid: "82869877"
 
     ![새 데이터베이스 대화 상자 스크린샷](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용 하 여 처리량 프로 비전
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용하여 처리량 프로비전
 
-공유 처리량이 있는 데이터베이스를 만들려면를 참조 하십시오.
+공유 처리량을 사용하여 데이터베이스를 만들려면 다음을 참조하세요.
 
-* [Azure CLI를 사용 하 여 데이터베이스 만들기](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Powershell을 사용 하 여 데이터베이스 만들기](manage-with-powershell.md#create-db-ru)
+* [Azure CLI를 사용하여 데이터베이스 만들기](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [PowerShell을 사용하여 데이터베이스 만들기](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>.NET SDK를 사용하여 처리량 프로비전
 
 > [!Note]
 > SQL API용 Cosmos SDK를 사용하여 모든 API의 처리량을 프로비저닝할 수 있습니다. 필요에 따라 Cassandra API에도 아래 예제를 사용할 수 있습니다.
 
-### <a name="all-apis"></a><a id="dotnet-all"></a>모든 Api
+### <a name="all-apis"></a><a id="dotnet-all"></a>모든 API
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -82,7 +82,8 @@ session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisio
 
 Azure Cosmos DB에서 프로비저닝된 처리량에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
-* [컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)
+* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
+* [컨테이너에 표준(수동) 처리량을 프로비저닝하는 방법](how-to-provision-container-throughput.md)
+* [컨테이너에 자동 크기 조정 처리량을 프로비저닝하는 방법](how-to-provision-autoscale-throughput.md)
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)

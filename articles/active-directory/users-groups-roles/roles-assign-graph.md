@@ -1,6 +1,6 @@
 ---
-title: Microsoft Graph API를 사용 하 여 Azure AD 관리자 역할 할당 | Microsoft Docs
-description: Azure Active Directory에서 Graph API를 사용 하 여 Azure AD 관리자 역할 할당 및 제거
+title: Microsoft Graph API를 사용하여 Azure AD 관리자 역할 할당 | Microsoft Docs
+description: Azure Active Directory에서 Graph API를 사용하여 Azure AD 관리자 역할 할당 및 제거
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,22 +13,22 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c93c8e354c7c02c6a085c2baa8fd664faaf1f64
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 7ac6f06a936893f26c634951e50a3579401c15d5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582622"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869613"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용하여 사용자 지정 관리자 역할 할당 
 
-Microsoft Graph API를 사용 하 여 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대 한 POST, GET 및 DELETE 작업에 대해 설명 합니다.
+Microsoft Graph API를 사용하여 사용자 계정에 역할을 할당하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대한 POST, GET 및 DELETE 작업에 대해 설명합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-전역 관리자 계정 또는 권한 있는 Id 관리자를 사용 하 여 Azure AD 조직에 연결 하 여 역할을 할당 하거나 제거 합니다.
+전역 관리자 계정 또는 권한 있는 ID 관리자를 사용하여 Azure AD 조직에 연결하여 역할을 할당하거나 제거합니다.
 
-## <a name="post-operations-on-roleassignment"></a>RoleAssignment에 대 한 POST 작업
+## <a name="post-operations-on-roleassignment"></a>RoleAssignment에 대한 POST 작업
 
 사용자와 역할 정의 간에 역할 할당을 만들기 위한 HTTP 요청입니다.
 
@@ -45,7 +45,7 @@ Content-type: application/json
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -55,7 +55,7 @@ Content-type: application/json
 HTTP/1.1 201 Created
 ```
 
-주 또는 역할 정의가 없는 역할 할당을 만들기 위한 HTTP 요청
+보안 주체 또는 역할 정의가 없는 역할 할당을 만들기 위한 HTTP 요청
 
 POST
 
@@ -69,7 +69,7 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
@@ -79,10 +79,10 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 HTTP/1.1 404 Not Found
 ```
 
-기본 제공 역할 정의에 대 한 단일 리소스 범위 역할 할당을 만들기 위한 HTTP 요청입니다.
+기본 제공 역할 정의에 대한 단일 리소스 범위 역할 할당을 만들기 위한 HTTP 요청입니다.
 
 > [!NOTE] 
-> 현재 기본 제공 역할에는 "/" 조직 전체의 범위 또는 "/AU/*" 범위로만 범위를 지정할 수 있는 제한 사항이 있습니다. 단일 리소스 범위 지정은 기본 제공 역할에 대해 작동 하지 않지만 사용자 지정 역할에 대해 작동 합니다.
+> 현재 기본 제공 역할에는 “/” 조직 전체 범위 또는 “/AU/*” 범위로만 범위를 지정할 수 있는 제한 사항이 있습니다. 단일 리소스 범위 지정은 기본 제공 역할에서는 작동하지 않지만 사용자 지정 역할에서는 작동합니다.
 
 POST
 
@@ -96,7 +96,7 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":["/ab2e1023-bddc-4038-9ac1-ad4843e7e539"]
+    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
 }
 ```
 
@@ -124,9 +124,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>RoleAssignment에 대 한 작업 가져오기
+## <a name="get-operations-on-roleassignment"></a>RoleAssignment에 대한 GET 작업
 
-지정 된 보안 주체에 대 한 역할 할당을 가져오기 위한 HTTP 요청
+지정된 보안 주체에 대한 역할 할당을 가져오기 위한 HTTP 요청
 
 GET
 
@@ -142,17 +142,17 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 } ,
 {
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
-지정 된 역할 정의에 대 한 역할 할당을 가져오기 위한 HTTP 요청입니다.
+지정된 역할 정의에 대한 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
 GET
 
@@ -168,11 +168,11 @@ HTTP/1.1 200 OK
     "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
-ID로 역할 할당을 가져오기 위한 HTTP 요청입니다.
+ID별 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
 GET
 
@@ -188,13 +188,13 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":["/"]
+    "resourceScopes":"/"
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>RoleAssignment에 대 한 삭제 작업
+## <a name="delete-operations-on-roleassignment"></a>RoleAssignment에 대한 DELETE 작업
 
-사용자와 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청입니다.
+사용자와 역할 정의 간에 역할 할당을 삭제하기 위한 HTTP 요청입니다.
 
 Delete
 
@@ -207,7 +207,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lA
 HTTP/1.1 204 No Content
 ```
 
-더 이상 존재 하지 않는 역할 할당을 삭제 하는 HTTP 요청
+더 이상 존재하지 않는 역할 할당을 삭제하기 위한 HTTP 요청
 
 Delete
 
@@ -221,7 +221,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lA
 HTTP/1.1 404 Not Found
 ```
 
-자체 역할과 기본 제공 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청
+자체 역할 정의와 기본 제공 역할 정의 간에 역할 할당을 삭제하기 위한 HTTP 요청
 
 Delete
 

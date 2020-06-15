@@ -213,8 +213,12 @@
           href: configure-customer-managed-key.md
     - name: 문제 해결
       items:
-        - name: 문제 해결 가이드
+        - name: 연결 문제 해결
           href: troubleshooting-guide.md
+        - name: 인증 및 권한 부여 문제 해결
+          href: troubleshoot-authentication-authorization.md
+        - name: Event Hubs용 kafka 문제 해결 가이드
+          href: apache-kafka-troubleshooting-guide.md
         - name: .NET 예외
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager 예외

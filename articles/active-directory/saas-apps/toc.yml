@@ -385,7 +385,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: cornerstone ondemand
+        - name: Cornerstone OnDemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -1457,6 +1457,8 @@
           href: smartfile-tutorial.md
         - name: 스마트 글로벌 거버넌스
           href: smart-global-governance-tutorial.md
+        - name: SmartKargo
+          href: smartkargo-tutorial.md
         - name: SmartLPA
           href: smartlpa-tutorial.md
         - name: SmartRecruiters
@@ -1822,7 +1824,7 @@
           href: comeet-recruiting-software-provisioning-tutorial.md
         - name: Concur
           href: concur-provisioning-tutorial.md
-        - name: cornerstone ondemand
+        - name: Cornerstone OnDemand
           href: cornerstone-ondemand-provisioning-tutorial.md
         - name: DocuSign
           href: docusign-provisioning-tutorial.md
