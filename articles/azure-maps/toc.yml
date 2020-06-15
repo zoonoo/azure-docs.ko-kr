@@ -59,6 +59,8 @@
           href: drawing-conversion-error-codes.md
     - name: 적용 범위
       items:
+        - name: 적용 범위
+          href: geographic-coverage.md
         - name: 지오코딩 검사
           href: geocoding-coverage.md
         - name: 트래픽 검사

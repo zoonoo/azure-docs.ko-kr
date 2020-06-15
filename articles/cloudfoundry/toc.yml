@@ -10,9 +10,9 @@
     - name: Azure에서 CF 만들기
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Azure에 CF 앱 배포
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: Azure의 CloudFoundry
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: CF OMS 노즐 배포
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Azure와 Cloud Foundry 통합

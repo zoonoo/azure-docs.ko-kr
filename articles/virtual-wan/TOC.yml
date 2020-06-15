@@ -36,8 +36,12 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: IPsec 정책
-      href: virtual-wan-ipsec.md
+    - name: 사이트 간
+      items:
+        - name: IPsec 정책 정보
+          href: virtual-wan-ipsec.md
+        - name: 여러 ISP 링크 - Azure 경로 선택
+          href: path-selection-multiple-links.md
 - name: 방법 가이드
   items:
     - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
@@ -58,8 +62,6 @@
       items:
         - name: 사이트 간 연결 만들기
           href: virtual-wan-site-to-site-portal.md
-        - name: 여러 ISP 링크 - Azure 경로 선택
-          href: path-selection-multiple-links.md
     - name: 사용자 VPN(지점 및 사이트 간)
       items:
         - name: 사용자 VPN 연결 만들기

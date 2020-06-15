@@ -36,6 +36,9 @@
           href: tutorial-desktop-app.md
         - name: 단일 페이지
           href: tutorial-single-page-app.md
+        - name: Python
+          href: tutorial-web-app-python.md
+          displayName: flask
     - name: API 액세스 권한 부여
       items:
         - name: ASP.NET

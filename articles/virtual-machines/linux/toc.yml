@@ -849,11 +849,7 @@
     - name: 애플리케이션 실행
       items:
         - name: Cloud Foundry
-          items:
-            - name: 개요
-              href: cloudfoundry-get-started.md
-            - name: 첫 번째 앱 배포
-              href: cloudfoundry-deploy-your-first-app.md
+          href: 'https://docs.microsoft.com/en-us/azure/cloudfoundry/'
         - name: Cassandra
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json'
         - name: OpenShift
