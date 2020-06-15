@@ -256,12 +256,10 @@
           href: limit-egress-traffic.md
         - name: Azure Active Directory 통합 사용
           items:
-            - name: Azure AD 통합(미리 보기)
+            - name: AKS로 관리되는 AAD(미리 보기)
               href: managed-aad.md
             - name: Azure CLI 사용
               href: azure-ad-integration-cli.md
-            - name: Azure Portal 사용
-              href: azure-ad-integration.md
         - name: Azure AD 통합에 Kubernetes RBAC 사용
           href: azure-ad-rbac.md
           maintainContext: true

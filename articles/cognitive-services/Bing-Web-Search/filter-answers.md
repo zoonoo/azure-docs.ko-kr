@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221380"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696714"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 
@@ -53,7 +53,7 @@ Bing에서 반환 된 대답을 필터링 하려면 API를 호출할 때 아래 
 
 응답이 [필터](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수 (예: 이미지, 비디오, 뉴스)를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다 .이 매개 변수는 쉼표로 구분 된 대답 목록입니다. Bing에서 관련 콘텐츠를 찾은 경우 응답에 답변이 포함 됩니다. 
 
-이미지와 같은 응답에서 특정 대답을 제외 하려면 응답 형식에 `-` 문자를 추가 합니다. 다음은 그 예입니다.
+이미지와 같은 응답에서 특정 대답을 제외 하려면 `-` 응답 형식에 문자를 추가 합니다. 다음은 그 예입니다.
 
 ```
 &responseFilter=-images,-videos
@@ -102,7 +102,7 @@ Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았�
 
 ### <a name="site"></a>사이트
 
-특정 도메인에서 검색 결과를 가져오려면 쿼리 문자열에 `site:` 쿼리 매개 변수를 포함 합니다.  
+특정 도메인에서 검색 결과를 가져오려면 쿼리 `site:` 문자열에 쿼리 매개 변수를 포함 합니다.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -119,7 +119,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 * `Week`-지난 7 일 내에 Bing에서 검색 한 웹 페이지를 반환 합니다.
 * `Month`-지난 30 일 내에 검색 된 웹 페이지를 반환 합니다.
 
-이 매개 변수를 형식의 사용자 지정 날짜 범위로 설정할 수도 있습니다 `YYYY-MM-DD..YYYY-MM-DD`. 
+이 매개 변수를 형식의 사용자 지정 날짜 범위로 설정할 수도 있습니다 `YYYY-MM-DD..YYYY-MM-DD` . 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
@@ -131,7 +131,7 @@ Bing에서 필터 조건과 일치 하는 웹 페이지 수가 요청한 웹 페
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>응답의 답변 수 제한
 
-Bing은 JSON 응답에서 여러 응답 형식을 반환할 수 있습니다. 예를 들어 *돛단 + dinghies*를 쿼리하면 `webpages`Bing에서, `images` `videos`, 및 `relatedSearches`를 반환할 수 있습니다.
+Bing은 JSON 응답에서 여러 응답 형식을 반환할 수 있습니다. 예를 들어 *돛단 + dinghies*를 쿼리하면 Bing에서,, 및를 반환할 수 있습니다 `webpages` `images` `videos` `relatedSearches` .
 
 ```json
 {

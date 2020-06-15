@@ -1,22 +1,22 @@
 ---
-title: Android 응용 프로그램에서 토큰 획득
+title: Android 애플리케이션에서 토큰 획득
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 AppAuth를 사용 하 여 사용자 id를 관리 하 고 사용자를 인증 하는 Android 앱을 만드는 방법입니다.
+description: Azure Active Directory B2C와 AppAuth를 함께 사용하는 Android 앱을 만들어 사용자 ID를 관리하고 사용자를 인증하는 방법
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183785"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638383"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Android 애플리케이션을 사용하여 로그인
 
@@ -35,13 +35,13 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-다음으로 Azure AD B2C 테 넌 트에 응용 프로그램을 등록 합니다. 이를 통해 Azure AD는 앱과 안전 하 게 통신 하는 데 필요한 정보를 제공 합니다.
+다음으로, Azure AD B2C 테넌트에 애플리케이션을 등록합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 
-또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록 합니다. `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`)을 입력합니다.
+또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록합니다. `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`)을 입력합니다.
 
 ## <a name="create-your-user-flows"></a>사용자 흐름 만들기
 
@@ -72,10 +72,10 @@ Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](user-flow-overv
 * 테넌트 ID(예: contoso.onmicrosoft.com)
 * 사용자 흐름 이름(예: B2C\_1\_SignUpIn)
 
-권한 부여 및 토큰 엔드포인트 URI를 자동으로 검색하려는 경우 검색 URI에서 정보를 가져와야 합니다. 검색 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
+권한 부여 및 토큰 엔드포인트 URI를 자동으로 검색하려는 경우 검색 URI에서 정보를 가져와야 합니다. 검색 URI는 다음 URL에서 `<tenant-id>` 및 `<policy-name>`을 바꿔서 만들 수 있습니다.
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 다음을 실행하면 권한 부여 및 토큰 엔드포인트 URI를 획득하고 AuthorizationServiceConfiguration 개체를 만들 수 있습니다.
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-권한 부여 및 토큰 엔드포인트 URI를 가져오기 위해 검색을 사용하는 대신 아래 URL에서 테넌트\_ID 및 정책\_이름을 바꾸면 명시적으로 지정할 수 있습니다.
+권한 부여 및 토큰 엔드포인트 URI를 가져오기 위해 검색을 사용하는 대신 아래 URL에서 `<tenant-id>` 및 `<policy-name>`을 바꾸면 명시적으로 지정할 수 있습니다.
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 다음 코드를 실행하여 AuthorizationServiceConfiguration 개체를 만듭니다.
@@ -120,8 +120,8 @@ AuthorizationServiceConfiguration config =
 
 권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
 
-* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. `00000000-0000-0000-0000-000000000000`)을 입력합니다.
-* 이전에 기록한 사용자 지정 리디렉션 URI입니다. `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`)을 입력합니다.
+* 이전에 기록한 클라이언트 ID(애플리케이션 ID). 예들 들어 `00000000-0000-0000-0000-000000000000`입니다.
+* 이전에 기록한 사용자 지정 리디렉션 URI. 예들 들어 `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`입니다.
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.
 

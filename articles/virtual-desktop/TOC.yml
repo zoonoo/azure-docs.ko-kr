@@ -4,6 +4,8 @@
   items:
     - name: Windows Virtual Desktop이란?
       href: overview.md
+    - name: 새로운 기능
+      href: whats-new.md
     - name: 2019년 가을 릴리스 설명서
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: 자습서
@@ -82,6 +84,8 @@
       href: teams-on-wvd.md
     - name: Azure Multi-Factor Authentication 설정
       href: set-up-mfa.md
+    - name: 자동 업데이트 구성
+      href: configure-automatic-updates.md
     - name: 언어 팩 설치
       href: language-packs.md
 - name: 개념

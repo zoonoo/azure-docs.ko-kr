@@ -1,127 +1,43 @@
 ---
-title: 리소스 그룹 & 구독 간 리소스 배포
+title: 구독 및 리소스 그룹 간 리소스 배포
 description: 배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/18/2020
+ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460350"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650630"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
+# <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>구독 또는 리소스 그룹 간 Azure 리소스 배포
 
-일반적으로 단일 [리소스 그룹](../management/overview.md)에 템플릿의 모든 리소스를 배포합니다. 그러나 일단의 리소스를 함께 배포하고 다른 리소스 그룹 또는 구독에 배치하려는 시나리오가 있습니다. 예를 들어 Azure Site Recovery의 백업 가상 컴퓨터를 별도의 리소스 그룹과 위치에 배포할 수 있습니다. 리소스 관리자를 사용 하면 중첩 된 템플릿을 사용 하 여 둘 이상의 구독 및 리소스 그룹을 대상으로 지정할 수 있습니다.
+Resource Manager를 사용하면 단일 배포에서 둘 이상의 리소스 그룹을 배포할 수 있습니다. 중첩된 템플릿을 사용하여 배포 작업의 리소스 그룹과 다른 리소스 그룹을 지정합니다. 리소스 그룹은 서로 다른 구독에 존재할 수 있습니다.
 
 > [!NOTE]
-> 단일 배포의 5개 리소스 그룹에만 배포할 수 있습니다. 일반적으로 이 제한 사항으로 인해 부모 템플릿에 지정된 하나의 리소스 그룹 및 중첩되거나 연결된 배포에서 최대 4개의 리소스 그룹에 배포할 수 있습니다. 그러나 부모 템플릿에 중첩되거나 연결된 템플릿만이 포함되고 자체적으로 리소스를 배포하지 않는 경우 중첩되거나 연결된 배포에서 최대 5개의 리소스 그룹이 포함될 수 있습니다.
+> 단일 배포의 **800개 리소스 그룹**에만 배포할 수 있습니다. 일반적으로 이 제한 사항으로 인해 부모 템플릿에 지정된 하나의 리소스 그룹 및 중첩되거나 연결된 배포에서 최대 799개의 리소스 그룹에 배포할 수 있습니다. 그러나 부모 템플릿에 중첩되거나 연결된 템플릿만이 포함되고 자체적으로 리소스를 배포하지 않는 경우 중첩되거나 연결된 배포에서 최대 800개의 리소스 그룹이 포함될 수 있습니다.
 
 ## <a name="specify-subscription-and-resource-group"></a>구독 및 리소스 그룹 지정
 
-다른 리소스 그룹 또는 구독을 대상으로 하려면 [중첩 되거나 연결 된 템플릿을](linked-templates.md)사용 합니다. 리소스 `Microsoft.Resources/deployments` 종류는 및 `resourceGroup`에 대 `subscriptionId` 한 매개 변수를 제공 합니다 .이를 통해 중첩 된 배포에 대 한 구독 및 리소스 그룹을 지정할 수 있습니다. 구독 ID 또는 리소스 그룹을 지정 하지 않으면 부모 템플릿의 구독 및 리소스 그룹이 사용 됩니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다.
+부모 템플릿의 리소스 그룹과 다른 리소스 그룹을 대상으로 하려면 [중첩되거나 연결된 템플릿](linked-templates.md)을 사용합니다. 배포 리소스 형식 내에서 중첩된 템플릿을 배포하려는 구독 ID 및 리소스 그룹의 값을 지정합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
+
+구독 ID 또는 리소스 그룹을 지정하지 않으면 부모 템플릿의 구독 및 리소스 그룹이 사용됩니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다.
 
 템플릿을 배포하는 데 사용할 계정에는 지정된 구독 ID에 배포하는 사용 권한이 있어야 합니다. 지정된 구독이 다른 Azure Active Directory 테넌트에 있는 경우 [다른 디렉터리에서 게스트 사용자를 추가](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)해야 합니다.
 
-다른 리소스 그룹 및 구독을 지정하려면 다음을 사용합니다.
+다음 예제에서는 두 개의 스토리지 계정을 만듭니다. 첫 번째 스토리지 계정은 배포 작업에 지정된 리소스 그룹에 배포됩니다. 두 번째 스토리지 계정은 `secondResourceGroup` 및 `secondSubscriptionID` 매개 변수에 지정된 리소스 그룹에 배포됩니다.
 
-```json
-"resources": [
-  {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "resourceGroup": "[parameters('secondResourceGroup')]",
-    "subscriptionId": "[parameters('secondSubscriptionID')]",
-    ...
-  }
-]
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
 
-리소스 그룹이 동일한 구독에 있는 경우 **subscriptionId** 값을 제거할 수 있습니다.
+`resourceGroup`을 존재하지 않는 리소스 그룹의 이름으로 설정하면 배포에 실패합니다.
 
-다음 예제에서는 두 개의 저장소 계정을 배포 합니다. 첫 번째 저장소 계정은 배포 중에 지정 된 리소스 그룹에 배포 됩니다. 두 번째 저장소 계정은 `secondResourceGroup` 및 `secondSubscriptionID` 매개 변수에 지정 된 리소스 그룹에 배포 됩니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "secondResourceGroup": {
-      "type": "string"
-    },
-    "secondSubscriptionID": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "secondStorageLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2017-06-01",
-      "name": "[variables('firstStorageName')]",
-      "location": "[resourceGroup().location]",
-      "sku":{
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "nestedTemplate",
-      "resourceGroup": "[parameters('secondResourceGroup')]",
-      "subscriptionId": "[parameters('secondSubscriptionID')]",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-06-01",
-            "name": "[variables('secondStorageName')]",
-            "location": "[parameters('secondStorageLocation')]",
-            "sku":{
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-          }
-          ]
-      },
-      "parameters": {}
-      }
-    }
-  ]
-}
-```
-
-존재 하지 않는 `resourceGroup` 리소스 그룹의 이름으로를 설정 하면 배포에 실패 합니다.
-
-위의 템플릿을 테스트 하 고 결과를 확인 하려면 PowerShell 또는 Azure CLI를 사용 합니다.
+위의 템플릿을 테스트하고 결과를 확인하려면 PowerShell 또는 Azure CLI를 사용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-두 개의 저장소 계정을 **동일한 구독의**두 리소스 그룹에 배포 하려면 다음을 사용 합니다.
+두 개의 스토리지 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -138,7 +54,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-두 개의 저장소 계정을 **두 개의 구독**에 배포 하려면 다음을 사용 합니다.
+두 개의 스토리지 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -164,7 +80,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-두 개의 저장소 계정을 **동일한 구독의**두 리소스 그룹에 배포 하려면 다음을 사용 합니다.
+두 개의 스토리지 계정을 **동일한 구독**의 두 리소스 그룹에 배포하려면 다음을 사용합니다.
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -179,7 +95,7 @@ az deployment group create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-두 개의 저장소 계정을 **두 개의 구독**에 배포 하려면 다음을 사용 합니다.
+두 개의 스토리지 계정을 **두 개의 구독**에 배포하려면 다음을 사용합니다.
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -205,117 +121,25 @@ az deployment group create \
 
 ## <a name="use-functions"></a>함수 사용
 
-[ResourceGroup ()](template-functions-resource.md#resourcegroup) 및 [subscription ()](template-functions-resource.md#subscription) 함수는 템플릿을 지정 하는 방법에 따라 다르게 확인 됩니다. 외부 템플릿에 연결 하는 경우 함수는 항상 해당 템플릿에 대 한 범위로 확인 됩니다. 부모 템플릿 내에서 템플릿을 중첩할 때 `expressionEvaluationOptions` 속성을 사용 하 여 함수가 부모 템플릿 또는 중첩 된 템플릿에 대 한 리소스 그룹 및 구독을 확인할 지 여부를 지정 합니다. 속성을로 `inner` 설정 하 여 중첩 된 템플릿의 범위를 확인 합니다. 부모 템플릿의 범위로 확인 `outer` 하도록 속성을로 설정 합니다.
+[resourceGroup()](template-functions-resource.md#resourcegroup) 및 [subscription()](template-functions-resource.md#subscription) 함수는 템플릿 지정 방식에 따라 다르게 확인됩니다. 외부 템플릿에 연결하는 경우 함수는 항상 해당 템플릿에 대한 범위로 확인됩니다. 부모 템플릿 내에서 템플릿을 중첩하는 경우 `expressionEvaluationOptions` 속성을 사용하여 함수에서 부모 템플릿 또는 중첩된 템플릿에 대한 리소스 그룹 및 구독을 확인할지 여부를 지정합니다. 속성을 `inner`로 설정하여 중첩된 템플릿의 범위를 확인합니다. 속성을 `outer`로 설정하여 부모 템플릿의 범위를 확인합니다.
 
-다음 표에서는 함수가 부모 또는 포함 된 리소스 그룹 및 구독을 확인 하는지 여부를 보여 줍니다.
+다음 표에서는 함수가 부모 또는 포함 리소스 그룹 및 구독을 확인하는지 여부를 보여줍니다.
 
 | 템플릿 형식 | 범위 | 해결 방법 |
 | ------------- | ----- | ---------- |
-| 중첩        | outer (기본값) | 부모 리소스 그룹 |
+| 중첩        | outer(기본값) | 부모 리소스 그룹 |
 | 중첩        | inner | 하위 리소스 그룹 |
-| 연결됨        | 해당 없음   | 하위 리소스 그룹 |
+| 연결        | 해당 없음   | 하위 리소스 그룹 |
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) 에서는 다음을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json)은 다음을 보여줍니다.
 
-* 기본 (외부) 범위를 사용 하는 중첩 된 템플릿
-* 내부 범위를 포함 하는 중첩 된 템플릿
-* 연결 된 템플릿
+* 기본(외부) 범위를 사용하는 중첩 템플릿
+* 내부 범위를 포함하는 중첩 템플릿
+* 연결된 템플릿
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "defaultScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "innerScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "expressionEvaluationOptions": {
-          "scope": "inner"
-      },
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "resourceGroup": "linkedGroup",
-      "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-          "contentVersion": "1.0.0.0",
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
-      },
-      "parameters": {}
-      }
-    }
-  ],
-  "outputs": {
-    "parentRG": {
-      "type": "string",
-      "value": "[concat('Parent resource group is ', resourceGroup().name)]"
-    },
-    "defaultScopeRG": {
-      "type": "string",
-      "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "innerScopeRG": {
-      "type": "string",
-      "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "linkedRG": {
-      "type": "string",
-      "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crossresourcegroupproperties.json":::
 
-위의 템플릿을 테스트 하 고 결과를 확인 하려면 PowerShell 또는 Azure CLI를 사용 합니다.
+위의 템플릿을 테스트하고 결과를 확인하려면 PowerShell 또는 Azure CLI를 사용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

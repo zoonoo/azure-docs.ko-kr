@@ -5,18 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: 463bccb29d59f06e7381d7d7123946029223a93a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199726"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649587"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Azure Firewall 강제 터널링
 
-모든 인터넷 바인딩된 트래픽을 인터넷으로 직접 이동하는 대신 지정된 다음 홉으로 라우팅하도록 Azure Firewall을 구성할 수 있습니다. 예를 들어 온-프레미스 에지 방화벽이나 기타 NVA(네트워크 가상 어플라이언스)를 통해 네트워크 트래픽을 인터넷에 전달하기 전에 처리할 수 있습니다.
+새 Azure Firewall을 구성하는 경우 인터넷으로 직접 이동하는 대신 인터넷에 바인딩된 모든 트래픽을 지정된 다음 홉으로 라우팅할 수 있습니다. 예를 들어 온-프레미스 에지 방화벽이나 기타 NVA(네트워크 가상 어플라이언스)를 통해 네트워크 트래픽을 인터넷에 전달하기 전에 처리할 수 있습니다. 그러나 강제 터널링을 위해 기존 방화벽을 구성할 수는 없습니다.
 
 기본적으로 강제 터널링은 Azure Firewall에서 모든 아웃바운드 Azure 종속성이 충족되도록 허용되지 않습니다. 인터넷으로 직접 이동하지 않는 기본 경로가 있는 *AzureFirewallSubnet*에 대한 UDR(사용자 정의 경로) 구성이 비활성화되어 있습니다.
 

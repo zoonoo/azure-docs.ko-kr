@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
-ms.openlocfilehash: 6e9c3b92942f24ae0a9972fa61340775262af761
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 7528a22ad09db1e06aabf84ad946ef7af36a8430
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203905"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736784"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -24,7 +24,7 @@ ms.locfileid: "84203905"
 다음은 Azure Policy에서 언어와 연산자를 사용하는 다양한 패턴의 예입니다.
 
 - [논리 연산자](./pattern-logical-operators.md)
-- [필드](./pattern-fields.md)
+- [Fields](./pattern-fields.md)
 - [매개 변수](./pattern-parameters.md)
 - [효과 세부 정보](./pattern-effect-details.md)
 - [태그 사용](./pattern-effect-details.md)
@@ -40,6 +40,7 @@ ms.locfileid: "84203905"
 - [Azure Security Benchmark](./azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
+- [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 
 ## <a name="other-samples"></a>기타 샘플
 

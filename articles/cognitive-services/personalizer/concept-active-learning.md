@@ -4,11 +4,11 @@ description: 학습 설정은 모델 학습의 하이퍼 *매개 변수* 를 결
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221212"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700735"
 ---
 # <a name="learning-policy-and-settings"></a>학습 정책 및 설정
 
@@ -28,7 +28,7 @@ Personalizer 리소스에 대 한 Azure Portal에서 학습 정책을 가져오�
 
 Personalizer는 [vowpalwabbit](https://github.com/VowpalWabbit) 를 사용 하 여 이벤트를 학습 하 고 점수를 계산 합니다. Vowpalwabbit를 사용 하 여 학습 설정을 편집 하는 방법에 대 한 [vowpalwabbit 설명서](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) 를 참조 하세요. 올바른 명령줄 인수를 사용 하는 경우 명령을 다음 형식으로 파일에 저장 하 고 (arguments 속성 값을 원하는 명령으로 바꾸기) Personalizer 리소스에 대 한 Azure Portal의 **모델 및 학습 설정** 창에서 학습 설정을 가져올 수 있도록 파일을 업로드 합니다.
 
-다음 `.json` 은 학습 정책의 예입니다.
+다음은 `.json` 학습 정책의 예입니다.
 
 ```json
 {

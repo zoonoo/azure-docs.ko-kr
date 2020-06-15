@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: SVD 추천 점수 매기기
       href: score-svd-recommender.md
+    - name: 와이드 및 딥 추천 점수 매기기
+      href: score-wide-and-deep-recommender.md
     - name: SVD 추천 학습
       href: train-svd-recommender.md
+    - name: 와이드 및 딥 추천 학습
+      href: train-wide-and-deep-recommender.md
 - name: 이상 감지
   items:
     - name: PCA 기반 변칙 검색

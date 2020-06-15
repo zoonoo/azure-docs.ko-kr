@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927210"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730308"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
 
@@ -33,11 +33,15 @@ Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 오디오�
 
 음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
-## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
+## <a name="get-the-speech-devices-sdk"></a>Speech Devices SDK 가져오기
 
 ### <a name="android"></a>Android
 
-Android의 경우 장치는 [Android Speech DEVICES SDK](https://aka.ms/sdsdk-download-android)의 최신 버전을 다운로드 합니다.
+Android 용 음성 장치 SDK는 [Roobo v1](speech-devices-sdk-roobo-v1.md) 및 이와 동등한 장치를 지원 합니다 .이 경우 [ANDROID Speech devices sdk](https://aka.ms/sdsdk-download-android)의 최신 버전을 다운로드 합니다.
+
+
+휴대폰 또는 모바일과 같은 다른 Android 장치를 사용 하는 경우 [Android SPEECH SDK](speech-sdk.md) 로 시작 합니다.
+
 
 ### <a name="windows"></a>Windows
 

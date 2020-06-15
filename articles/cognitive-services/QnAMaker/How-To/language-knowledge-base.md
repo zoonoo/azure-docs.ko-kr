@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221446"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693093"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA 작성기에 대한 기술 콘텐츠의 언어 지원
 
@@ -25,7 +25,7 @@ ms.locfileid: "79221446"
 
 ## <a name="one-language-for-all-knowledge-bases-in-resource"></a>리소스의 모든 기술 자료에 대 한 한 가지 언어
 
-QnA Maker를 사용 하 여 첫 번째 기술 자료를 만드는 동안 QnA 서비스에 대 한 언어를 선택할 수 있습니다. QnA Maker 리소스의 모든 기술 자료에 대해 모두 같은 언어로 되어 있어야 합니다. 이 언어를 변경할 수 없습니다.
+QnA Maker를 사용하여 첫 번째 기술 자료를 만드는 동안 QnA 서비스에 대한 언어를 선택할 수 있습니다. QnA Maker 리소스의 모든 기술 자료에 대해 모두 같은 언어로 되어 있어야 합니다. 이 언어를 변경할 수 없습니다.
 
 한 리소스에서 다른 언어로 기술 자료를 만들면 사용자 쿼리에 대 한 응답으로 제공 QnA Maker 결과의 관련성에 부정적인 영향을 줍니다.
 

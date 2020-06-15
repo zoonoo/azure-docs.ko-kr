@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221354"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689846"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "79221354"
 
 ## <a name="manage-team-and-subteams"></a>팀 및 하위 팀 관리
 
-**팀** 탭에서는 특정 사용자 [검토가](../review-api.md#reviews) 시작 될 때 알릴&mdash;수 있는 팀 및 하위 팀 그룹을 관리할 수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
+**팀** 탭에서는 &mdash; 특정 사용자 [검토가](../review-api.md#reviews) 시작 될 때 알릴 수 있는 팀 및 하위 팀 그룹을 관리할 수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
 
 ![검토 도구 팀 설정](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "79221354"
 
 ## <a name="tags"></a>태그들
 
-**태그** 탭에서는 두 개의 기본 중재 태그&mdash;**isadult** (**a**) 및 **isracy** (**r**)와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
+**태그** 탭에서는 두 개의 기본 중재 태그 &mdash; **isadult** (**a**) 및 **isracy** (**r**)와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
 ![태그 보기 ("표시 됨" 확인란 포함)](images/tags-4-disable.png)
 
@@ -97,7 +97,7 @@ ms.locfileid: "79221354"
 - Emotion
 - Face
 - PhotoDNA 클라우드 서비스
-- 텍스트 분석
+- Text Analytics
 
 ### <a name="add-a-connector"></a>커넥터 추가
 

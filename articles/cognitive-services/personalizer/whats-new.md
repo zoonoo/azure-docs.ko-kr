@@ -8,20 +8,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/23/2020
+ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342115"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700637"
 ---
 # <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 정보 유형이 포함 될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="june-2020"></a>2020년 6월
+
+* 새 자습서- [웹 앱에서 Personalizer 사용](tutorial-use-personalizer-web-app.md)
 
 ### <a name="may-2020---build-conference"></a>2020 년 5 월-또는 회의 빌드
 

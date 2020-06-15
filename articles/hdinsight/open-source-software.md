@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd32d176b3e8821236f39dd1677d6dbe78b40adb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195165"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836076"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Azure HDInsight의 오픈 소스 소프트웨어 지원
 
-Microsoft Azure HDInsight 서비스는 Apache Hadoop에 따라 형성 된 오픈 소스 기술의 환경을 사용 합니다. Microsoft Azure는 오픈 소스 기술에 대한 일반 수준의 지원을 제공합니다. 자세한 내용은 [Azure Support FAQ](https://azure.microsoft.com/support/faq/)의 **지원 범위** 섹션을 참조하세요. HDInsight 서비스는 기본 제공 구성 요소에 대해 추가 수준의 지원을 제공합니다.
+Microsoft Azure HDInsight 서비스는 Apache Hadoop을 기반으로 형성된 오픈 소스 기술의 환경을 사용합니다. Microsoft Azure는 오픈 소스 기술에 대한 일반 수준의 지원을 제공합니다. 자세한 내용은 [Azure Support FAQ](https://azure.microsoft.com/support/faq/)의 **지원 범위** 섹션을 참조하세요. HDInsight 서비스는 기본 제공 구성 요소에 대해 추가 수준의 지원을 제공합니다.
 
 ## <a name="components"></a>구성 요소
 
@@ -27,7 +27,7 @@ HDInsight 서비스에서는 두 가지 유형의 오픈 소스 구성 요소를
 
 이러한 구성 요소는 HDInsight 클러스터에 미리 설치되어 있으며 클러스터의 핵심 기능을 제공합니다. 이 범주에 속하는 구성 요소는 다음과 같습니다.
 
-* [APACHE HADOOP YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 리소스 관리자.
+* [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Resource Manager
 * [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) Hive 쿼리 언어
 * [Apache Mahout](https://mahout.apache.org/)
 
@@ -40,13 +40,13 @@ HDInsight 서비스에서는 두 가지 유형의 오픈 소스 구성 요소를
 > [!WARNING]  
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도와줍니다.
 >
-> 사용자 지정 구성 요소는 문제를 해결하는 데 도움이 되는 상업적으로 합리적인 지원을 받습니다. Microsoft 지원에서 이 문제를 해결할 수 있습니다. 또는 깊은 전문 지식이 있는 오픈 소스 기술에 사용할 수 있는 채널에 참여하도록 요청할 수도 있습니다. 다양한 커뮤니티 사이트를 사용할 수 있습니다. 예를 들어 [HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) 및 [Stack Overflow](https://stackoverflow.com)에 대한 MSDN 포럼이 있습니다.
+> 사용자 지정 구성 요소는 문제를 해결하는 데 도움이 되는 상업적으로 합리적인 지원을 받습니다. Microsoft 지원에서 이 문제를 해결할 수 있습니다. 또는 깊은 전문 지식이 있는 오픈 소스 기술에 사용할 수 있는 채널에 참여하도록 요청할 수도 있습니다. 다양한 커뮤니티 사이트를 사용할 수 있습니다. 예를 들어 [Microsoft HDInsight 관련 질문과 답변 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) 및 [Stack Overflow](https://stackoverflow.com)가 있습니다.
 >
 > Apache 프로젝트에는 [Apache 웹 사이트](https://apache.org)의 프로젝트 사이트도 있습니다. 예를 들어 [Hadoop](https://hadoop.apache.org/)이 있습니다.
 
-## <a name="component-usage"></a>구성 요소 사용
+## <a name="component-usage"></a>구성 요소 사용법
 
-HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방법을 제공합니다. 클러스터에서 구성 요소를 사용하거나 설치하는 방법과 상관없이 동일한 수준의 지원이 적용됩니다. 다음 표에서는 HDInsight 클러스터에서 사용자 지정 구성 요소가 사용 되는 가장 일반적인 방법에 대해 설명 합니다.
+HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방법을 제공합니다. 클러스터에서 구성 요소를 사용하거나 설치하는 방법과 상관없이 동일한 수준의 지원이 적용됩니다. 다음 표에는 HDInsight 클러스터에서 사용자 지정 구성 요소를 사용하는 가장 일반적인 방법이 나와 있습니다.
 
 |사용 |Description |
 |---|---|
@@ -56,6 +56,6 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스크립트 작업을 사용 하 여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md)
-* [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md)
+* [HDInsight용 스크립트 동작 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리](./spark/apache-spark-python-package-installation.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457102"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753192"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -50,7 +50,7 @@ ms.locfileid: "84457102"
 > * 사용자 지정 키워드 활성화 추가
 > * 인식 된 음성 및 음성 음성의 언어를 변경 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료 하는 데 필요한 사항은 다음과 같습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "84457102"
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) 이상
 - Azure 계정. [무료로 등록](https://azure.microsoft.com/free/ai/)하세요.
 - [GitHub](https://github.com/) 계정
-- [Windows 용 Git](https://git-scm.com/download/win)
+- [Windows용 GIT](https://git-scm.com/download/win)
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -253,7 +253,7 @@ ms.locfileid: "84457102"
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
-| SpeechEchoBotTutorial-BotRegistration-8726 | Bot 채널 등록 | 전역 |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Bot 채널 등록 | 글로벌 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
 > [!IMPORTANT]
@@ -265,7 +265,7 @@ Azure Bot 채널 등록 페이지에는 **Bot Management** **의 웹 채팅에 �
 
 1. [Azure Portal](https://portal.azure.com) 에서 **EchoBotTutorial-BotRegistration-#** # # 리소스를 찾아서 엽니다.
 1. **Bot management** 탐색에서 **설정**을 선택 합니다. **Microsoft 앱 ID** 아래에서 값을 복사 합니다.
-1. Visual Studio EchoBot 솔루션을 엽니다. 솔루션 탐색기에서 appsettings를 찾아 두 번 클릭 **합니다.**
+1. Visual Studio EchoBot 솔루션을 엽니다. 솔루션 탐색기에서 **appsettings.js** 을 찾아 두 번 클릭 합니다.
 1. JSON 파일에서 **MicrosoftAppId** 옆에 있는 빈 문자열을 복사 된 ID 값으로 바꿉니다.
 1. Azure Portal로 돌아가서 **봇 관리** 탐색에서 **설정**을 선택 하 고 **Microsoft 앱 ID** 옆의 **(관리)** 를 클릭 합니다.
 1. **새 클라이언트 암호**를 클릭 합니다. 설명 (예: "웹 채팅")을 추가 하 고 **추가**를 클릭 합니다. 새 비밀 복사
@@ -323,13 +323,16 @@ Windows 음성 도우미 클라이언트에는 bot에 대 한 연결을 구성 �
 
 | Error | 어떻게 해야 하나요? |
 |-------|----------------------|
-|오류 AuthenticationFailure: 인증 오류 (401)로 인해 WebSocket을 업그레이드 하지 못했습니다. 올바른 구독 키 (또는 권한 부여 토큰) 및 지역 이름 확인| 앱의 설정 페이지에서 음성 구독 키와 해당 영역을 올바르게 입력 했는지 확인 합니다.<br>음성 키와 키 영역을 올바르게 입력 했는지 확인 합니다. |
-|오류 ConnectionFailure: 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 메시지를 보내기 전에 봇에 연결할 수 없습니다. | ["스트리밍 끝점 사용"](#register-the-direct-line-speech-channel) 확인란을 선택 했는지 확인 하 고 [ **웹 소켓** ](#enable-web-sockets) 을 켜기로 전환 합니다.<br>Azure App Service 실행 중인지 확인 합니다. 인 경우 App Service를 다시 시작 하십시오.|
-|오류 ConnectionFailure: 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 응답 상태 코드는 성공: 500 (InternalServerError)을 나타내지 않습니다.| 봇이 output 활동 [말하기](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) 필드에서 신경망을 지정 했지만 음성 구독 키와 연결 된 Azure 지역은 신경망을 지원 하지 않습니다. [표준 및 신경망을](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)참조 하세요.|
-|오류 ConnectionFailure: 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1000. 오류 세부 정보: 최대 웹 소켓 연결 유휴 기간 (> 30만 밀리초)을 초과 했습니다.| 이 오류는 채널에 대 한 연결이 열려 있고 5 분 넘게 비활성 상태로 유지 되는 경우 예상 되는 오류입니다. |
+|오류 (AuthenticationFailure): 인증 오류 (401)로 인해 WebSocket을 업그레이드 하지 못했습니다. 올바른 구독 키 (또는 권한 부여 토큰) 및 지역 이름 확인| 앱의 설정 페이지에서 음성 구독 키와 해당 영역을 올바르게 입력 했는지 확인 합니다.<br>음성 키와 키 영역을 올바르게 입력 했는지 확인 합니다. |
+|오류 (ConnectionFailure): 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 메시지를 보내기 전에 봇에 연결할 수 없습니다. | ["스트리밍 끝점 사용"](#register-the-direct-line-speech-channel) 확인란을 선택 했는지 확인 하 고 [ **웹 소켓** ](#enable-web-sockets) 을 켜기로 전환 합니다.<br>Azure App Service 실행 중인지 확인 합니다. 인 경우 App Service를 다시 시작 하십시오.|
+|오류 (ConnectionFailure): 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1002. 오류 세부 정보: 서버에서 상태 코드 ' 101 '이 (가) 필요한 데 상태 코드 ' 503 '이 (가) 반환 되었습니다. | ["스트리밍 끝점 사용"](#register-the-direct-line-speech-channel) 확인란을 선택 했는지 확인 하 고 [ **웹 소켓** ](#enable-web-sockets) 을 켜기로 전환 합니다.<br>Azure App Service 실행 중인지 확인 합니다. 인 경우 App Service를 다시 시작 하십시오.|
+|오류 (ConnectionFailure): 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 응답 상태 코드는 성공: 500 (InternalServerError)을 나타내지 않습니다.| 봇이 output 활동 [말하기](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) 필드에서 신경망을 지정 했지만 음성 구독 키와 연결 된 Azure 지역은 신경망을 지원 하지 않습니다. [표준 및 신경망을](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)참조 하세요.|
 
-테이블에서 문제가 해결 되지 않으면 [음성 도우미: 질문과 대답](faq-voice-assistants.md)을 참조 하세요.
+테이블에서 문제가 해결 되지 않으면 [음성 도우미: 질문과 대답](faq-voice-assistants.md)을 참조 하세요. 이 자습서의 모든 단계를 수행한 후에도 문제를 해결할 수 없는 경우, [음성 도우미 GitHub 페이지](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues)에 새 문제를 입력 하세요.
 
+#### <a name="a-note-on-connection-time-out"></a>연결 제한 시간에 대 한 참고 사항
+
+Bot에 연결 되어 있고 지난 5 분 동안 활동이 발생 하지 않으면 서비스에서 클라이언트와 봇의 websocket 연결을 자동으로 종료 합니다. 이것은 의도적인 것입니다. *"활성 연결 시간이 초과 되었으나 요청 시 다시 연결할 준비가 되었습니다." 라는*메시지가 아래쪽 표시줄에 표시 됩니다. "다시 연결" 단추를 누르지 않아도 됩니다. 즉, 마이크 단추를 누르고 통신을 시작 하거나 문자 메시지를 입력 하거나 키워드 (사용 하도록 설정 된 경우) 라고 합니다. 연결이 자동으로 다시 설정 됩니다.  
 ### <a name="view-bot-activities"></a>Bot 활동 보기
 
 모든 봇은 **활동** 메시지를 보내고 받습니다. Windows Voice Assistant 클라이언트의 **활동 로그** 창에는 클라이언트가 봇에서 받은 각 활동이 있는 타임 스탬프 로그가 표시 됩니다. 메서드를 사용 하 여 클라이언트에서 봇으로 보낸 작업을 볼 수도 있습니다 [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) . 로그 항목을 선택 하면 연결 된 작업의 세부 정보가 JSON으로 표시 됩니다.

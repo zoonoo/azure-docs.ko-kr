@@ -62,12 +62,14 @@
           href: ./samples/pattern-deploy-resources.md
     - name: 규정 준수 기본 제공
       items:
-        - name: Azure 보안 벤치마크
+        - name: Azure Security Benchmark
           href: ./samples/azure-security-benchmark.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
           href: ./samples/cis-azure-1-1-0.md
         - name: NIST SP 800-53 R4
           href: ./samples/nist-sp-800-53-r4.md
+        - name: NIST SP 800-171 R2
+          href: ./samples/nist-sp-800-171-r2.md
 - name: 개념
   items:
     - name: 정의 구조
@@ -222,7 +224,7 @@
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: 게스트 구성 비디오
       items:
-        - name: 시작
+        - name: 시작하기
           href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
         - name: 해석 이니셔티브
           href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'

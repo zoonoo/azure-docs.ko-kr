@@ -1,5 +1,5 @@
 ---
-title: FreeBSD의 패킷 필터를 사용 하 여 Azure에서 방화벽 만들기
+title: Azure에서 FreeBSD의 패킷 필터를 사용하여 방화벽 만들기
 description: Azure에서 FreeBSD의 PF를 사용하여 NAT 방화벽을 배포하는 방법을 알아봅니다.
 author: KylieLiang
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945102"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652528"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
 이 문서에서는 일반 웹 서버 시나리오에 대해 Azure Resource Manager 템플릿을 통해 FreeBSD 패킷 필터를 사용하여 NAT 방화벽을 배포하는 방법을 소개합니다.
@@ -34,7 +34,7 @@ Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2�
 az group create --name myResourceGroup --location westus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 템플릿을 배포합니다. 동일한 경로에서 [azuredeploy](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) 를 다운로드 하 고 `adminPassword`, `networkPrefix`및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의 합니다. 
+다음으로, [az group deployment create](/cli/azure/group/deployment)를 사용하여 pf-freebsd-setup 템플릿을 배포합니다. 동일한 경로 아래에서 azuredeploy.parameters.jso을 다운로드하고, `adminPassword`, `networkPrefix` 및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의합니다. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -49,7 +49,7 @@ az network public-ip list --resource-group myResourceGroup
 ```
     
 ## <a name="next-steps"></a>다음 단계
-Azure에서 자체 NAT을 설정하려고 하나요? 무료 오픈 소스면서 강력한 기능을 원하시나요? 그렇다면 PF가 적격입니다. [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 템플릿을 사용하면 일반적인 웹 서버 시나리오에 대해 Azure에서 FreeBSD PF를 사용하여 라운드 로빈 부하 분산 방식으로 NAT 방화벽을 설정하는 데 5분이면 충분합니다. 
+Azure에서 자체 NAT을 설정하려고 하나요? 무료 오픈 소스면서 강력한 기능을 원하시나요? 그렇다면 PF가 적격입니다. pf-freebsd-setup 템플릿을 사용하면 일반적인 웹 서버 시나리오에서 Azure에서 FreeBSD의 PF를 사용하여 NAT 방화벽을 라운드 로빈 부하 분산 방식으로 설정하는 데 5분만 필요합니다. 
 
 Azure의 FreeBSD 제품에 대해 알아보려면 [Azure의 FreeBSD 소개](freebsd-intro-on-azure.md)를 참조하세요.
 

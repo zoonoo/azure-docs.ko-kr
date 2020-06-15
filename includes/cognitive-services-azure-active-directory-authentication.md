@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: ddc61a0d0cb5a630282a9ba0589cef6fda29c4b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eeaab547a1f0648d2e7a59fda24454d7bfe1fadf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343466"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754623"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
@@ -34,7 +34,7 @@ ms.locfileid: "83343466"
 2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [Cognitive Services 리소스를 만듭니다](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) . 하위 도메인 이름은 전역적으로 고유 해야 하며 특수 문자 (예: ".", "!", ",")를 포함할 수 없습니다.
 
    ```powershell-interactive
-   New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
+   $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
    ```
 
 3. 성공 하는 경우 **끝점** 은 리소스에 고유한 하위 도메인 이름을 표시 해야 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "83343466"
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
 
-   New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
+   $app = New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
    ```
 
    다음 단계에서 **ApplicationId** 가 필요 합니다.
