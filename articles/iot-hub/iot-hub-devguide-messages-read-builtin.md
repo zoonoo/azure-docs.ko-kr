@@ -7,14 +7,14 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872697"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310787"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -51,7 +51,7 @@ IoT Hub를 인식하지 않는 Event Hubs SDK 또는 제품 통합을 사용하�
 
 포털에서 Event Hub 호환 엔드포인트 필드에는 다음과 같은 전체 Event Hubs 연결 문자열이 포함되어 있습니다. **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456** 사용하는 SDK에 다른 값이 필요한 경우 다음과 같습니다.
 
-| 속성 | 값 |
+| Name | 값 |
 | ---- | ----- |
 | 엔드포인트 | sb://abcd1234namespace.servicebus.windows.net/ |
 | Hostname | abcd1234namespace.servicebus.windows.net |
@@ -63,8 +63,8 @@ IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연
 
 | 언어 | SDK) | 예제 |
 | -------- | --- | ------ |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [빠른 시작](quickstart-send-telemetry-dotnet.md) |
- Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](quickstart-send-telemetry-java.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [빠른 시작](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [빠른 시작](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 

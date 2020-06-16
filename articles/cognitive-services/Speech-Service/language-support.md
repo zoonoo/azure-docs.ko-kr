@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636107"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730325"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -27,8 +27,6 @@ ms.locfileid: "84636107"
 Microsoft Speech SDK와 REST API는 모두 다음 언어(로캘)를 지원합니다. 
 
 정확성을 향상시키기 위해 사용자 지정은 **오디오 + 휴먼 레이블 음성 텍스트** 또는 **관련 텍스트: 문장**을 업로드하여 언어의 하위 집합에 제공됩니다. 사용자 지정에 대한 자세한 내용은 [Custom Speech 시작](how-to-custom-speech.md)을 참조하세요.
-
-발음을 향상시킬 수 있는 방법에 대한 자세한 내용은 [Custom Speech에 대한 모델 향상](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation)을 참조하세요.
 
 <!--
 To get the AM and ML bits:

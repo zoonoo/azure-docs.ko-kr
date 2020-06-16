@@ -44,7 +44,7 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -97,6 +97,8 @@
           href: budget.md
         - name: 배치 계정으로 프라이빗 엔드포인트 사용
           href: private-connectivity.md
+        - name: 고객 관리형 키 구성
+          href: batch-customer-managed-key.md
     - name: Azure AD를 사용하여 인증
       items:
         - name: Batch 서비스 포함 Azure AD

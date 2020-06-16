@@ -36,7 +36,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 명명된 값에는 리터럴 문자열 및 [정책 식](/azure/api-management/api-management-policy-expressions)이 포함될 수 있습니다. 예를 들어 `Expression` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `Credential` 명명된 값은 비밀로 표시되므로 해당 값은 기본적으로 표시되지 않습니다.
 
-| 속성       | 값                      | 비밀 | 태그들          |
+| Name       | 값                      | 비밀 | 태그들          |
 | ---------- | -------------------------- | ------ | ------------- |
 | 값      | 42                         | False  | vital-numbers |
 | 자격 증명 | ••••••••••••••••••••••     | True   | security      |
