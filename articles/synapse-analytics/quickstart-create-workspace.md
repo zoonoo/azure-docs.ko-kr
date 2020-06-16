@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - 작업 영역 만들기
-description: 이 가이드의 단계에 따라 Azure Synapse Analytics 작업 영역을 만듭니다.
+title: 빠른 시작 - Synapse 작업 영역 만들기
+description: 이 가이드의 단계에 따라 Synapse 작업 영역을 만듭니다.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112858"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609474"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>빠른 시작: Azure Synapse Analytics 작업 영역(미리 보기) 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "84112858"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 

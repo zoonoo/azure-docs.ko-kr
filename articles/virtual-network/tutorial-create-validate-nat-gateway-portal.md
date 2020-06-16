@@ -8,18 +8,19 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084746"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417840"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>자습서: Azure Portal을 사용하여 NAT Gateway 만들기 및 NAT 서비스 테스트
 
@@ -104,7 +105,7 @@ NAT 게이트웨이를 테스트하기 위해 외부에서 이 VM에 액세스�
     | ------- | ----- |
     | IP 버전 | **IPv4**를 선택합니다.
     | SKU | **표준**을 선택합니다.
-    | 속성 | **myPublicIPsource**를 입력합니다. |
+    | Name | **myPublicIPsource**를 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **myResourceGroupNAT**를 선택합니다. |
     | 위치 | **미국 동부 2**를 선택합니다.|
@@ -169,9 +170,9 @@ NAT 게이트웨이를 테스트하기 위해 외부에서 이 VM에 액세스�
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | 미국 동부 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0/24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -286,13 +287,13 @@ go get -u github.com/rakyll/hey
 
 원본 VM에 로그인한 상태에서 **curl** 및 **hey**를 사용하여 대상 IP 주소에 대한 요청을 생성할 수 있습니다.
 
-curl을 사용하여 100KB 파일을 검색합니다.  아래 예제의 **\<ip-address-destination>** 을 이전에 복사한 대상 IP 주소로 바꿉니다.  **--output** 매개 변수는 검색된 파일이 삭제됨을 나타냅니다.
+curl을 사용하여 100KB 파일을 검색합니다.  아래 예제의 **\<ip-address-destination>** 를 이전에 복사한 대상 IP 주소로 바꿉니다.  **--output** 매개 변수는 검색된 파일이 삭제됨을 나타냅니다.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-또한 **hey**를 사용하여 일련의 요청을 생성할 수도 있습니다. 다시 한 번 **\<ip-address-destination>** 을 이전에 복사한 대상 IP 주소로 바꿉니다.
+또한 **hey**를 사용하여 일련의 요청을 생성할 수도 있습니다. 다시 한 번 아래 예제의 **\<ip-address-destination>** 를 이전에 복사한 대상 IP 주소로 바꿉니다.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

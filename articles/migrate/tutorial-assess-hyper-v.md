@@ -2,14 +2,14 @@
 title: Azure Migrate를 사용하여 Hyper-V VM 평가 및 Azure로 마이그레이션 | Microsoft Docs
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 Hyper-V VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535454"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331766"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -31,7 +31,7 @@ ms.locfileid: "81535454"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-hyper-v.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
@@ -96,12 +96,20 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  2\.19.07.30 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
+3.  최신 어플라이언스 버전을 확인하고 다음 값을 포함합니다.
 
-  **알고리즘** | **해시 값**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - Azure 퍼블릭 클라우드의 경우:
+
+        **시나리오** | **다운로드** | **SHA256**
+        --- | --- | ---
+        Hyper-V(8.93MB) | [최신 버전](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - Azure Government의 경우:
+
+        **시나리오*** | **다운로드** | **SHA256**
+        --- | --- | ---
+        Hyper-V(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
 

@@ -7,12 +7,13 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.custom: tracking-python
+ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758175"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607213"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Python)
 
@@ -33,7 +34,7 @@ ms.locfileid: "81758175"
 > * 보기를 사용하여 디바이스 속성을 관리합니다.
 > * 디바이스를 제어하는 동기 및 비동기 명령을 호출합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -307,8 +308,9 @@ python3 environmental_sensor.py
 
 디바이스 개발자로서, Node.js를 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
 
-- [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](./howto-connect-devkit.md) 방법 문서에서 실제 디바이스를 IoT Central에 연결하는 방법에 대해 알아봅니다.
-- IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](./howto-connect-devkit.md) 방법 문서에서 실제 디바이스를 IoT Central에 연결하는 방법에 대해 알아봅니다.
+* 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
+* IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
 
 IoT Central 자습서 세트를 계속 진행하고 IoT Central 솔루션 빌드에 대해 자세히 알아보려면 다음을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d29420d14a716e5a45e42dd681faa01f518f713a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665795"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417024"
 ---
 # <a name="iot-central-device-development-overview"></a>IoT Central 디바이스 개발 개요
 
@@ -85,7 +85,9 @@ DPS를 사용하면 다음과 같은 장점이 있습니다.
 - 디바이스와 IoT Central 간에 속성 값을 동기화합니다. IoT Central에서 정보를 표시할 수 있도록 디바이스 템플릿은 속성 이름과 데이터 형식을 지정합니다.
 - 디바이스 템플릿에서 지정하는 명령을 처리할 명령 처리기를 구현합니다. 디바이스 템플릿은 디바이스에서 사용할 명령 이름과 매개 변수를 지정합니다.
 
-자세한 내용은 [Node.js 클라이언트 애플리케이션을 만들어 연결](./tutorial-connect-device-nodejs.md) 또는 [Python 클라이언트 애플리케이션을 만들어 연결](./tutorial-connect-device-python.md)을 참조하세요.
+디바이스 템플릿의 역할에 대한 자세한 내용은 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
+
+일부 샘플 코드는 [Node.js 클라이언트 애플리케이션 만들기 및 연결](./tutorial-connect-device-nodejs.md) 또는 [Python 클라이언트 애플리케이션 만들기 및 연결](./tutorial-connect-device-python.md)을 참조하세요.
 
 ### <a name="languages-and-sdks"></a>언어 및 SDK
 

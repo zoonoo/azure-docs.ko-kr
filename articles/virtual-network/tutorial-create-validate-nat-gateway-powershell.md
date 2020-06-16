@@ -8,18 +8,19 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 61cda5e61d14c4eeaf2d88483603707598b1c911
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d674531a736e3d8f63f9d740758be8447df7d495
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202236"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343424"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -460,13 +461,13 @@ go get -u github.com/rakyll/hey
 
 원본 VM에 로그인한 상태에서 **curl** 및 **hey**를 사용하여 대상 IP 주소에 대한 요청을 생성할 수 있습니다.
 
-curl을 사용하여 100KB 파일을 검색합니다.  아래 예제의 **\<ip-address-destination>** 을 이전에 복사한 대상 IP 주소로 바꿉니다.  **--output** 매개 변수는 검색된 파일이 삭제됨을 나타냅니다.
+curl을 사용하여 100KB 파일을 검색합니다.  아래 예제의 **\<ip-address-destination>** 를 이전에 복사한 대상 IP 주소로 바꿉니다.  **--output** 매개 변수는 검색된 파일이 삭제됨을 나타냅니다.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-또한 **hey**를 사용하여 일련의 요청을 생성할 수도 있습니다. 다시 한 번 **\<ip-address-destination>** 을 이전에 복사한 대상 IP 주소로 바꿉니다.
+또한 **hey**를 사용하여 일련의 요청을 생성할 수도 있습니다. 다시 한 번 아래 예제의 **\<ip-address-destination>** 를 이전에 복사한 대상 IP 주소로 바꿉니다.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

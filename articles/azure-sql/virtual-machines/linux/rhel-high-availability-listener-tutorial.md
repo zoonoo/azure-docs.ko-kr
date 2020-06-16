@@ -1,5 +1,5 @@
 ---
-title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성 - Linux Virtual Machines | Microsoft Docs
+title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성 - Linux 가상 머신 | Microsoft Docs
 description: Azure에서 가용성 그룹 수신기를 RHEL 가상 머신의 SQL Server에 설정하는 방법을 알아봅니다.
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,22 +8,22 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025068"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343766"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > 제공된 자습서는 **공개 미리 보기**에 있습니다. 
 >
-> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 HA를 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령은 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 만들기 문서를 참조하세요.
+> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 고가용성을 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령이 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 문서를 참조하세요.
 
-이 자습서에서는 Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기를 만드는 방법에 대한 단계를 검토합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Azure의 RHEL VM(가상 머신)에서 SQL Server에 대한 가용성 그룹 수신기를 만드는 방법에 대한 단계를 설명합니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
 > - Azure Portal에서 부하 분산 장치 만들기
@@ -37,7 +37,7 @@ ms.locfileid: "84025068"
 
 ## <a name="prerequisite"></a>필수 요소
 
-[**자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성**](rhel-high-availability-stonith-tutorial.md) 완료
+[자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성](rhel-high-availability-stonith-tutorial.md)을 완료합니다.
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Azure Portal에서 부하 분산 장치 만들기
 
@@ -59,7 +59,7 @@ ms.locfileid: "84025068"
    | --- | --- |
    | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
    | **형식** |**내부** |
-   | **가상 네트워크** |이전에 만든 기본 VNet의 이름은 **VM1VNET**입니다. |
+   | **가상 네트워크** |이전에 만든 기본 가상 머신의 이름은 **VM1VNET**입니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. 기본값은 **VM1Subnet**입니다.|
    | **IP 주소 할당** |**정적** |
    | **개인 IP 주소** |클러스터에서 만든 `virtualip` IP 주소를 사용합니다. |
@@ -106,7 +106,7 @@ Azure에서 백 엔드 주소 풀 *백 엔드 풀*이 호출됩니다. 이 경�
 
 4.  **확인**을 클릭합니다. 
 
-5. 모든 가상 머신에 로그인하고, 다음 명령을 사용하여 프로브 포트를 엽니다.
+5. 모든 가상 머신에 로그인하고 다음 명령을 사용하여 프로브 포트를 엽니다.
 
     ```bash
     sudo firewall-cmd --zone=public --add-port=59999/tcp --permanent
@@ -139,13 +139,13 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
    :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="부하 분산 규칙 추가":::
 
 4. **확인**을 클릭합니다. 
-5. 부하 분산 규칙이 구성됩니다. 이제 가용성 그룹에 대한 수신기를 호스트하는 SQL Server 인스턴스로 트래픽을 라우트하도록 부하 분산 장치가 구성되었습니다. 
+5. Azure에서 부하 분산 규칙이 구성됩니다. 이제 가용성 그룹에 대한 수신기를 호스트하는 SQL Server 인스턴스로 트래픽을 라우트하도록 부하 분산 장치가 구성되었습니다. 
 
 이 시점에서 리소스 그룹에는 모든 SQL Server 머신에 연결하는 부하 분산 장치가 있습니다. 부하 분산 장치에는 SQL Server Always On 가용성 그룹 수신기에 대한 IP 주소도 있으므로 모든 머신에서 가용성 그룹에 대한 요청에 응답할 수 있습니다.
 
 ## <a name="create-the-load-balancer-resource-in-the-cluster"></a>클러스터에 부하 분산 장치 리소스 만들기
 
-1. 주 가상 머신에 로그인합니다. Azure 부하 분산 장치 프로브 포트(이 예제에서는 59999가 사용됨)를 사용하도록 설정하기 위한 리소스를 만들어야 합니다. 다음 명령을 실행합니다.
+1. 기본 가상 머신에 로그인합니다. Azure 부하 분산 장치 프로브 포트(이 예제에서는 59999가 사용됨)를 사용하도록 설정하기 위한 리소스를 만들어야 합니다. 다음 명령을 실행합니다.
 
     ```bash
     sudo pcs resource create azure_load_balancer azure-lb port=59999
@@ -220,9 +220,9 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
 ## <a name="test-the-listener-and-a-failover"></a>수신기 및 장애 조치 테스트
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>가용성 그룹 수신기를 사용하여 SQL Server에 대한 로그인 테스트
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>가용성 그룹 수신기를 사용하여 SQL Server에 로그인 테스트
 
-1. SQLCMD를 사용하여 가용성 그룹 수신기 이름을 사용하여 SQL Server의 주 노드에 로그인합니다.
+1. SQLCMD를 통해 가용성 그룹 수신기 이름을 사용하여 SQL Server의 기본 노드에 로그인합니다.
 
     - 이전에 만든 로그인을 사용하고 `<YourPassword>`를 올바른 암호로 바꿉니다. 아래 예제에서는 SQL Server로 사용하여 만든 `sa` 로그인을 사용합니다.
 
@@ -238,11 +238,11 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
     출력에 현재 주 노드가 표시됩니다. 장애 조치를 테스트한 적이 없는 경우 이 노드는 `VM1`입니다.
 
-    `exit` 명령을 입력하여 SQL 세션을 종료합니다.
+    `exit` 명령을 입력하여 SQL Server 세션을 종료합니다.
 
 ### <a name="test-a-failover"></a>장애 조치 테스트
 
-1. 다음 명령을 실행하여 주 복제본을 `<VM2>` 또는 다른 복제본으로 수동으로 장애 조치합니다. `<VM2>`를 서버 이름의 값으로 바꿉니다.
+1. 다음 명령을 실행하여 기본 복제본을 `<VM2>` 또는 다른 복제본으로 수동으로 장애 조치(failover)합니다. `<VM2>`를 서버 이름의 값으로 바꿉니다.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -274,13 +274,13 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
         virtualip  (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-1. SQLCMD를 사용하여 수신기 이름으로 주 복제본에 로그인합니다.
+1. SQLCMD를 통해 수신기 이름을 사용하여 기본 복제본에 로그인합니다.
 
     - 이전에 만든 로그인을 사용하고 `<YourPassword>`를 올바른 암호로 바꿉니다. 아래 예제에서는 SQL Server로 사용하여 만든 `sa` 로그인을 사용합니다.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. 연결된 서버를 확인합니다. SQLCMD에서 다음 명령을 실행합니다.
 
@@ -295,4 +295,4 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 Azure의 부하 분산 장치에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure SQL Server VM의 가용성 그룹에 대한 부하 분산 장치 구성](../windows/availability-group-load-balancer-portal-configure.md)
+> [Azure VM의 SQL Server에서 가용성 그룹에 대한 부하 분산 구성](../windows/availability-group-load-balancer-portal-configure.md)

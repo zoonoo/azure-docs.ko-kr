@@ -79,7 +79,7 @@
           href: allbound-sso-tutorial.md
         - name: Allocadia
           href: allocadia-tutorial.md
-        - name: Ally
+        - name: Ally.io
           href: ally-tutorial.md
         - name: Amazon Business
           href: amazon-business-tutorial.md
@@ -385,7 +385,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -721,6 +721,8 @@
           href: hr2day-tutorial.md
         - name: HRworks Single Sign-On
           href: hrworks-single-sign-on-tutorial.md
+        - name: 허브 Planner
+          href: hub-planner-tutorial.md
         - name: HubSpot SAML
           href: hubspot-tutorial.md
         - name: Huddle
@@ -735,6 +737,8 @@
           href: hyperanna-tutorial.md
         - name: IamIP 특허 플랫폼
           href: iamip-patent-platform-tutorial.md
+        - name: 클라우드의 IBM Digital Business Automation
+          href: ibm-digital-business-automation-on-cloud-tutorial.md
         - name: IBM Kenexa Survey Enterprise
           href: kenexasurvey-tutorial.md
         - name: IBM OpenPages
@@ -889,6 +893,8 @@
           href: kindling-tutorial.md
         - name: Kintone
           href: kintone-tutorial.md
+        - name: Kisi 물리적 보안
+          href: kisi-physical-security-tutorial.md
         - name: Kiteworks
           href: kiteworks-tutorial.md
         - name: Klue
@@ -1241,12 +1247,16 @@
           href: pronovos-ops-manager-tutorial.md
         - name: Proofpoint on Demand
           href: proofpoint-ondemand-tutorial.md
+        - name: Proto.io
+          href: proto.io-tutorial.md
         - name: Proxyclick
           href: proxyclick-tutorial.md
         - name: PureCloud by Genesys
           href: purecloud-by-genesys-tutorial.md
         - name: PurelyHR
           href: purelyhr-tutorial.md
+        - name: pymetrics
+          href: pymetrics-tutorial.md
     - name: Q - R
       items:
         - name: Qlik Sense Enterprise
@@ -1797,7 +1807,7 @@
         - name: Airstack
           href: airstack-provisioning-tutorial.md
         - name: AWS(Amazon Web Services) - 역할 프로비저닝
-          href: 'amazon-web-service-tutorial.md#configure-azure-ad-sso'
+          href: amazon-web-service-tutorial.md#configure-azure-ad-sso
         - name: Asana
           href: asana-provisioning-tutorial.md
         - name: Atlassian Cloud
@@ -1824,7 +1834,7 @@
           href: comeet-recruiting-software-provisioning-tutorial.md
         - name: Concur
           href: concur-provisioning-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-provisioning-tutorial.md
         - name: DocuSign
           href: docusign-provisioning-tutorial.md

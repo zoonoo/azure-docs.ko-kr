@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791581"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636396"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 이미지 만들기
 
@@ -140,7 +140,7 @@ New-AzGalleryImageVersion `
 
 ## <a name="create-a-vm"></a>VM 만들기 
 
-특수 이미지를 만든 후에 하나 이상의 새 VM을 만들 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet을 사용합니다. 이미지를 사용하려면 이미지 정의 ID(이 경우 $galleryImage.Id)에 대한 ``Set-AzVMSourceImage` and set the `-Id`를 사용하여 항상 최신 이미지 버전을 사용합니다. 
+특수 이미지를 만든 후에 하나 이상의 새 VM을 만들 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet을 사용합니다. 이미지를 사용하려면 `Set-AzVMSourceImage`를 사용하고 `-Id`를 이미지 정의 ID(이 경우 $galleryImage.Id)로 설정하여 항상 최신 이미지 버전을 사용합니다. 
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 

@@ -3,12 +3,12 @@ title: 여러 날 녹화본 재생 - Azure
 description: 이 자습서에서는 Azure Media Service API를 사용하여 여러 날 연속 비디오 녹화본을 재생하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260045"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433665"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>자습서: 여러 날 녹화본 재생  
 
@@ -57,7 +57,7 @@ ms.locfileid: "84260045"
 }
 ```
 
-다음으로, Visual Studio Code에서 src/ams-asset-player를 엽니다. 이 폴더에는 이 자습서를 진행하는 데 필요한 파일이 포함되어 있습니다. appsettings.json 파일을 열고 해당 파일의 내용을 새 파일인 appsettings.Developer.json에 복사합니다. 후자 파일을 다음과 같이 편집합니다.
+다음으로, Visual Studio Code에서 src/ams-asset-player를 엽니다. 이 폴더에는 이 자습서를 진행하는 데 필요한 파일이 포함되어 있습니다. appsettings.json 파일을 열고 해당 파일의 내용을 새 파일인 appsettings.development.json에 복사합니다. 후자 파일을 다음과 같이 편집합니다.
 
 ```
   "AMS" : {

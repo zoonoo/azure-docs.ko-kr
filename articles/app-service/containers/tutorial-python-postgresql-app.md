@@ -9,12 +9,13 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+- tracking-python
+ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609785"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559294"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Python(Django) 웹앱 배포
 
@@ -111,7 +112,7 @@ az login
 az extension add --name db-up
 ```
 
-다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 을 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com*임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
+다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com*임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -146,7 +147,7 @@ az postgres up --resource-group myResourceGroup --location westus2 --server-name
 
 앱이 리포지토리 루트(`djangoapp`) 디렉터리에서 배포되므로 이 디렉터리로 다시 이동해야 합니다.
 
-다음 예제와 같이 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 App Service 앱을 만듭니다. *\<app-name>* 을 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<app-name>.azurewebsites.net*임). *\<app-name>* 에 허용되는 문자는 `A`-`Z`, `0`-`9` 및 `-`입니다.
+다음 예제와 같이 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 App Service 앱을 만듭니다. *\<app-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<app-name>.azurewebsites.net*임). *\<app-name>* 에 허용되는 문자는 `A`-`Z`, `0`-`9` 및 `-`입니다.
 
 ```azurecli
 az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
@@ -195,7 +196,7 @@ az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-nam
 
 앱을 로컬로 실행하는 경우 터미널 세션에서 환경 변수를 설정할 수 있습니다. App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용하여 *앱 설정*을 통해 이 작업을 수행합니다.
 
-다음 명령을 실행하여 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. *\<app-name>* , *\<app-resource-group>* 및 *\<postgresql-name>* 을 사용자 고유의 값으로 바꿉니다. `root` 및 `Pollsdb1` 사용자 자격 증명은 `az postgres up`을 통해 만들어졌습니다.
+다음 명령을 실행하여 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. *\<app-name>* , *\<app-resource-group>* 및 *\<postgresql-name>* 를 사용자 고유의 값으로 바꿉니다. `root` 및 `Pollsdb1` 사용자 자격 증명은 `az postgres up`을 통해 만들어졌습니다.
 
 ```azurecli
 az webapp config appsettings set --name <app-name> --resource-group <app-resource-group> --settings DJANGO_ENV="production" DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="root@<postgresql-name>" DBPASS="Pollsdb1" DBNAME="pollsdb"
@@ -229,13 +230,13 @@ python manage.py createsuperuser
 
 브라우저에서 *http:\//\<app-name>.azurewebsites.net* URL을 사용하여 배포된 앱으로 이동합니다. 그러면 **사용할 수 있는 설문 조사가 없습니다**라는 메시지가 표시됩니다. 
 
-*http:\//\<app-name>.azurewebsites.net/admin*으로 이동하고, 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
+*http:\//\<app-name>.azurewebsites.net/admin*으로 이동하고 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다.
 
-*http:\//\<app-name>.azurewebsites.net* URL을 사용하여 배포된 앱으로 이동하고, 몇 가지 설문 조사 질문을 만듭니다. *http:\//\<app-name>.azurewebsites.net/* 에서 질문을 확인할 수 있습니다. 
+*http:\//\<app-name>.azurewebsites.net* URL을 사용하여 배포된 앱으로 이동하여 몇 가지 설문 조사 질문을 만듭니다. *http:\//\<app-name>.azurewebsites.net/* 에서 질문을 확인할 수 있습니다. 
 
 ![Azure의 App Service에서 Python Django 앱 실행](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-*http:\//\<app-name>.azurewebsites.net* URL을 사용하여 배포된 앱으로 다시 이동하고, 설문 조사 질문을 확인하고 질문에 답변합니다.
+*http:\//\<app-name>.azurewebsites.net* URL을 사용하여 배포된 앱으로 다시 이동하여 설문 조사 질문을 확인하고 질문에 답변합니다.
 
 App Service는 `manage.py startproject`에서 기본적으로 만드는 *wsgi.py* 파일을 각 하위 디렉터리에서 찾아 리포지토리에서 Django 프로젝트를 검색합니다. App Service에서 파일을 찾으면 Django 웹앱이 로드됩니다. App Service에서 Python 앱을 로드하는 방법에 대한 자세한 내용은 [기본 제공 Python 이미지 구성](how-to-configure-python.md)을 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 - Linux Virtual Machines | Microsoft Docs
+title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 - Linux 가상 머신 | Microsoft Docs
 description: RHEL 클러스터 환경에서 고가용성을 설정하고 STONITH를 설정하는 방법을 알아봅니다.
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
-ms.openlocfilehash: 445ab97e2e980cdcafe333fa05a340c0e5fef24b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024639"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343798"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -21,12 +21,12 @@ ms.locfileid: "84024639"
 > [!NOTE]
 > 제공된 자습서는 **공개 미리 보기**에 있습니다. 
 >
-> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 HA를 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령은 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 만들기 문서를 참조하세요.
+> 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 고가용성을 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령은 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 만들기 문서를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> - 새 리소스 그룹, 가용성 집합 및 Azure Linux VM(Virtual Machines) 만들기
+> - 새 리소스 그룹, 가용성 집합 및 Linux VM(가상 머신) 만들기
 > - HA(고가용성)를 사용하도록 설정
 > - Pacemaker 클러스터 만들기
 > - STONITH 디바이스를 만들어 펜싱 에이전트 구성
@@ -35,7 +35,7 @@ ms.locfileid: "84024639"
 > - Pacemaker 클러스터에서 AG(가용성 그룹) 리소스 구성
 > - 장애 조치 및 펜싱 에이전트 테스트
 
-이 자습서에서는 Azure CLI(명령줄 인터페이스)를 사용하여 리소스를 Azure에 배포합니다.
+이 자습서에서는 Azure CLI를 사용하여 리소스를 Azure에 배포합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -95,7 +95,7 @@ az vm availability-set create \
 >
 > "이중 청구"되지 않도록 하려면 Azure VM을 만들 때 RHEL HA 이미지를 사용합니다. RHEL-HA 이미지로 제공되는 이미지도 HA 리포지토리를 사용하도록 미리 설정된 PAYG 이미지입니다.
 
-1. HA를 사용하는 RHEL을 제공하는 VM(Virtual Machine) 이미지 목록을 가져옵니다.
+1. HA를 사용하는 RHEL을 제공하는 VM(가상 머신) 이미지 목록을 가져옵니다.
 
     ```azurecli-interactive
     az vm image list --all --offer "RHEL-HA"
@@ -134,7 +134,7 @@ az vm availability-set create \
     > [!IMPORTANT]
     > 가용성 그룹을 설정하려면 머신 이름이 15자 미만이어야 합니다. 사용자 이름은 대문자를 포함할 수 없으며, 암호는 13자 이상이어야 합니다.
 
-1. 세 개의 VM을 가용성 집합에 만들려고 합니다. 아래 명령에서 다음 항목을 바꿉니다.
+1. 3개의 VM을 가용성 집합에 만들려고 합니다. 아래 명령에서 다음 항목을 바꿉니다.
 
     - `<resourceGroupName>`
     - `<VM-basename>`
@@ -197,7 +197,7 @@ ssh <username>@publicipaddress
 
 `exit`를 입력하여 SSH 세션을 종료합니다.
 
-## <a name="enable-high-availability"></a>고가용성을 사용하도록 설정
+## <a name="enable-high-availability"></a>고가용성 사용
 
 > [!IMPORTANT]
 > 자습서의 이 부분을 완료하려면 RHEL 및 고가용성 추가 기능에 대한 구독이 있어야 합니다. 이전 섹션에서 추천하는 이미지를 사용하는 경우 다른 구독을 등록할 필요가 없습니다.
@@ -531,13 +531,13 @@ systemctl status mssql-server --no-pager
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>SQL Server Always On 가용성 그룹 구성
+## <a name="configure-an-availability-group"></a>가용성 그룹 구성
 
 다음 단계에 따라 VM에 대해 SQL Server Always On 가용성 그룹을 구성합니다. 자세한 내용은 [Linux에서 고가용성을 위한 SQL Server Always On 가용성 그룹 구성](/sql/linux/sql-server-linux-availability-group-configure-ha)을 참조하세요.
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>AlwaysOn 가용성 그룹을 사용하도록 설정하고 mssql-server 다시 시작
+### <a name="enable-always-on-availability-groups-and-restart-mssql-server"></a>AlwaysOn 가용성 그룹을 사용하도록 설정하고 mssql-server 다시 시작
 
-SQL Server 인스턴스를 호스트하는 각 노드에서 AlwaysOn 가용성 그룹을 사용하도록 설정합니다. 그런 다음, mssql-server를 다시 시작합니다. 다음 스크립트를 실행합니다.
+SQL Server 인스턴스를 호스트하는 각 노드에서 Always On 가용성 그룹을 사용하도록 설정합니다. 그런 다음, mssql-server를 다시 시작합니다. 다음 스크립트를 실행합니다.
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -566,19 +566,19 @@ AG 엔드포인트에 대한 AD 인증은 현재 지원하지 않습니다. 따�
 1. SSMS 또는 SQL CMD를 사용하여 주 복제본에 연결합니다. 다음 명령은 주 SQL Server 복제본에서 인증서를 `/var/opt/mssql/data/dbm_certificate.cer`에 만들고, 프라이빗 키를 `var/opt/mssql/data/dbm_certificate.pvk`에 만듭니다.
 
     - `<Private_Key_Password>`를 사용자 고유의 암호로 바꿉니다.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 `exit` 명령을 실행하여 SQL CMD 세션을 종료하고 SSH 세션으로 돌아갑니다.
  
@@ -631,7 +631,7 @@ GO
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>모든 복제본에서 데이터베이스 미러링 엔드포인트 만들기
 
-SQL CMD 또는 SSMS를 사용하여 모든 SQL 인스턴스에서 다음 스크립트를 실행합니다.
+SQL CMD 또는 SSMS를 사용하여 모든 SQL Server 인스턴스에서 다음 스크립트를 실행합니다.
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -687,7 +687,7 @@ GO
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Pacemaker용 SQL Server 로그인 만들기
 
-모든 SQL Server에서 Pacemaker에 대한 SQL 로그인을 만듭니다. 다음 Transact-SQL은 로그인을 만듭니다.
+모든 SQL Server 인스턴스에서 Pacemaker를 위한 SQL Server 로그인을 만듭니다. 다음 Transact-SQL은 로그인을 만듭니다.
 
 - `<password>`를 사용자 고유의 복합 암호로 바꿉니다.
 
@@ -702,7 +702,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-모든 SQL Server에서 SQL Server 로그인에 사용되는 자격 증명을 저장합니다. 
+모든 SQL Server 인스턴스에서 SQL Server 로그인에 사용되는 자격 증명을 저장합니다. 
 
 1. 파일을 만듭니다.
 
@@ -985,7 +985,7 @@ Node: <VM3> fenced
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Server에 가용성 그룹 수신기를 활용하려면 부하 분산 장치를 만들고 구성해야 합니다.
+SQL Server 인스턴스에 가용성 그룹 수신기를 활용하려면 부하 분산 장치를 만들고 구성해야 합니다.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성](rhel-high-availability-listener-tutorial.md)

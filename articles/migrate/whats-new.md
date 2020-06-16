@@ -4,16 +4,38 @@ description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: db52c8ce5e1b7e25d4af0c570189597e05b86588
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677236"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331868"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-june-2020"></a>업데이트(2020년 6월)
+
+새 Azure Migrate 어플라이언스 버전.
+
+### <a name="azure-public-cloud"></a>Azure 퍼블릭 클라우드
+
+**시나리오*** | **다운로드** | **SHA256**
+--- | --- | ---
+Hyper-V(8.93MB) | [최신 버전](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+VMware(10.9GB) | [최신 버전](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+
+
+### <a name="azure-government"></a>Azure Government
+
+**시나리오*** | **다운로드** | **SHA256**
+--- | --- | ---
+Hyper-V(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+VMware(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+
 
 
 ## <a name="update-april-2020"></a>업데이트(2020년 4월)
@@ -26,6 +48,7 @@ Azure Migrate는 Azure Government에서의 배포를 지원합니다.
 - Azure Government에 대해 지원되는 지역 및 영역을 [검토](migrate-support-matrix.md#supported-geographies-azure-government)합니다.
 - [에이전트 기반 종속성 분석](concepts-dependency-visualization.md#agent-based-analysis)은 Azure Government에서 지원되지 않습니다.
 - 미리 보기의 기능은 Azure Government, 특히 [에이전트 없는 종속성 분석](concepts-dependency-visualization.md#agentless-analysis), [애플리케이션 검색](how-to-discover-applications.md)에서 지원됩니다.
+
 
 ## <a name="update-march-2020"></a>업데이트(2020년 3월)
 

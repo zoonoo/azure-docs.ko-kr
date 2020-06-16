@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure Synapse Analytics
-description: Azure Synapse Analytics에 대한 FAQ입니다.
+title: FAQ - Azure Synapse Analytics(작업 영역 미리 보기)
+description: Azure Synapse Analytics(작업 영역 미리 보기)에 대한 FAQ
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118379"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609151"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
+# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
 이 가이드에서는 Synapse Analytics에 대한 질문과 대답을 찾을 수 있습니다.
 

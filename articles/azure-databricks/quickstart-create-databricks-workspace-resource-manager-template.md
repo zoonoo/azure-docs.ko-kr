@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/27/2020
-ms.openlocfilehash: 8435704963e832020ecff27a11d00793ad28890c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c8503aee5cefbe197fd63cd6406006a1cdf8afa9
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171041"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463153"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역 만들기
 
@@ -33,13 +33,13 @@ ms.locfileid: "84171041"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-workspace/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-템플릿에 정의된 Azure 리소스는 Microsoft.Databricks/workspaces: Azure Databricks 작업 영역 만들기입니다. 
+템플릿에 정의된 Azure 리소스는 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces): Azure Databricks 작업 영역 만들기입니다.
 
-## <a name="deploy-the-template"></a>템플릿 배포
+### <a name="deploy-the-template"></a>템플릿 배포
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 

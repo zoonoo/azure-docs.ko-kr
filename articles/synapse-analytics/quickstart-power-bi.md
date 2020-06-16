@@ -9,20 +9,20 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656087"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609491"
 ---
-# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>빠른 시작: Synapse Analytics 작업 영역에 Power BI 작업 영역 연결(미리 보기)
+# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
 
 이 빠른 시작에서는 Synapse Analytics 작업 영역에 Power BI 작업 영역을 연결하여 Synapse Studio(미리 보기)에서 새 Power BI 보고서 및 데이터 세트를 만드는 방법에 대해 설명합니다.
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse 작업 영역 및 연결된 스토리지 계정 만들기](quickstart-create-workspace.md)
 - [Power BI Professional 또는 Premium 작업 영역](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196535"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628374"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트(미리 보기) 만들기 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
     1. 목록에서 데이터 세트 이름(예: **images-for-tutorial**) 옆에 있는 원을 선택합니다.
 
 1. **다음**을 선택하여 프로젝트 만들기를 계속합니다.
+
+### <a name="incremental-refresh"></a>증분 새로 고침
+
+데이터 세트에 새 이미지를 추가하려는 경우 증분 새로 고침은 이러한 새 이미지를 찾아 프로젝트에 추가합니다.  이 기능을 활성화하면 프로젝트가 정기적으로 새 이미지를 확인합니다.  이 자습서에서는 데이터 저장소에 새 이미지를 추가하지 않으므로 이 기능을 선택하지 않은 상태로 둡니다.
+
+**다음**을 선택하여 계속합니다.
 
 ### <a name="label-classes"></a>레이블 클래스
 

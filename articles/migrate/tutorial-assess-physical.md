@@ -3,12 +3,12 @@ title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션�
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535437"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331800"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Azure Migrate:Server Assessment를 사용하여 물리적 서버 평가
 
@@ -30,7 +30,7 @@ ms.locfileid: "81535437"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-physical.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
@@ -102,20 +102,18 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  해시 값 확인:
- 
-    - 퍼블릭 클라우드의 경우(최신 어플라이언스 버전의 경우):
+3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
+    - 퍼블릭 클라우드의 경우:
 
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **시나리오** | **다운로드*** | **해시 값**
+        --- | --- | ---
+        Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - Azure 정부의 경우(최신 어플라이언스 버전의 경우):
+    - Azure Government의 경우:
 
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **시나리오** | **다운로드*** | **해시 값**
+        --- | --- | ---
+        Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248331"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605411"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Azure Synapse Analytics 시작
 
@@ -164,7 +164,7 @@ Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니�
 
 1. **데이터** 허브로 이동하여 마우스 오른쪽 단추로 **데이터베이스**를 클릭하고, **새로 고침**을 선택합니다.
 1. 이제 다음 데이터베이스가 표시됩니다.
-    - SQLDB(SQL 풀)
+    - SQLDB1(SQL 풀)
     - nyctaxi(Spark)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Spark 및 Notebook을 사용하여 NYC 택시 데이터 분석
@@ -190,10 +190,10 @@ Synapse에서 Spark 작업을 수행할 때 사용할 Spark 풀을 지정합니�
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. 셀 결과에서 **차트**를 선택하여 시각화된 데이터를 표시합니다.
  
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. **사용자(기본)** 를 선택합니다.
 1. `NYCTaxi`라는 폴더가 표시됩니다. 내부에 `PassengerCountStats.csv` 및 `PassengerCountStats.parquet`의 두 폴더가 표시됩니다.
 1. `PassengerCountStats.parquet` 폴더로 이동합니다.
-1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭하고 **새 Notebook**을 선택합니다. 그러면 다음과 같은 셀이 있는 Notebook이 만들어집니다.
+1. 내부의 `.parquet` 파일을 마우스 오른쪽 단추로 클릭하고 **새 Notebook**을 선택합니다. 그러면 다음과 같은 셀이 있는 Notebook이 만들어집니다.
 
     ```py
     %%pyspark

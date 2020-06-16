@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181565"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338927"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -50,19 +50,32 @@ ms.locfileid: "82181565"
 >
 > 코드 샘플을 먼저 구성한 후에 실행하려면 [구성 단계](#register-your-application)로 건너뜁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 자습서를 실행하려면 [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 연결되어 있어야 합니다.
 
 * 이 가이드의 지침은 Node.js에서 빌드된 웹 서버를 기반으로 합니다. [Visual Studio Code](https://code.visualstudio.com/download)를 IDE(통합 개발 환경)로 사용하는 것이 좋습니다.
 
+* 최신 웹 브라우저. 이 JavaScript 샘플은 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 규칙을 사용하므로 **Internet Explorer**를 지원하지 **않습니다**.
+
 ## <a name="create-your-project"></a>프로젝트 만들기
 
 [Node.js](https://nodejs.org/en/download/)가 설치되어 있는지 확인한 다음, 애플리케이션을 호스팅할 폴더를 만듭니다. 여기서는 `index.html` 파일을 제공하는 간단한 [Express](https://expressjs.com/) 웹 서버를 구현합니다.
 
-1. 먼저 Visual Studio Code 통합 터미널을 사용하여 프로젝트 폴더를 찾은 다음, NPM을 사용하여 Express를 설치합니다.
+1. 터미널(예: Visual Studio Code 통합 터미널)을 사용하여 프로젝트 폴더를 찾은 후, 다음을 입력합니다.
 
-1. 다음으로, `server.js`라는 .js 파일을 만들고, 다음 코드를 추가합니다.
+   ```console
+   npm init
+   ```
+
+2. 그런 다음, 필수 종속성을 설치합니다.
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. 이제 `index.js`라는 .js 파일을 만든 후, 다음 코드를 추가합니다.
 
    ```JavaScript
    const express = require('express');
@@ -269,12 +282,12 @@ ms.locfileid: "82181565"
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Node.js에 대한 리디렉션 URL 설정
 >
-> Node.js의 경우 *server.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
+> Node.js의 경우 *index.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
 >
 > 애플리케이션 등록 정보에 리디렉션 URL을 설정하려면, **애플리케이션 등록** 창으로 다시 전환하고 다음 중 하나를 수행합니다.
 >
 > - *`http://localhost:3000/`* 를 **리디렉션 URL**로 설정합니다.
-> - 사용자 지정 TCP 포트를 사용하는 경우에는, *`http://localhost:<port>/`* (여기서 *\<port>* 는 사용자 지정 TCP 포트 번호임)를 사용합니다.
+> - 사용자 지정 TCP 포트를 사용하는 경우에는 *`http://localhost:<port>/`* (여기서 *\<port>* 는 사용자 지정 TCP 포트 번호임)를 사용합니다.
 >   1. **URL** 값을 복사합니다.
 >   1. **애플리케이션 등록** 창으로 다시 전환한 후, 복사한 값을 **리디렉션 URL**로 붙여넣습니다.
 >
@@ -308,7 +321,7 @@ ms.locfileid: "82181565"
 ```
 
  위치:
- - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션에 대한 **애플리케이션(클라이언트) ID**입니다.
+ - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
  - *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)를 참조하세요.
  - *\<Enter_the_Tenant_info_here>* 는 다음 옵션 중 하나로 설정됩니다.
    - 애플리케이션이 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
@@ -433,7 +446,7 @@ ms.locfileid: "82181565"
    ```
 
    위치:
-   - *\<Enter_the_Graph_Endpoint_Here>* 은 MS Graph API의 인스턴스입니다. 글로벌 MS Graph API 엔드포인트의 경우 이 문자열을 `https://graph.microsoft.com`으로 바꾸기만 하면 됩니다. 국가별 클라우드 배포는 [Graph API 설명서](https://docs.microsoft.com/graph/deployments)를 참조하세요.
+   - *\<Enter_the_Graph_Endpoint_Here>* 는 MS Graph API의 인스턴스입니다. 글로벌 MS Graph API 엔드포인트의 경우 이 문자열을 `https://graph.microsoft.com`으로 바꾸기만 하면 됩니다. 국가별 클라우드 배포는 [Graph API 설명서](https://docs.microsoft.com/graph/deployments)를 참조하세요.
 
 1. 다음으로, Microsoft Graph API에 대한 REST 호출을 수행하는 `graph.js`라는 .js 파일을 만들고, 다음 코드를 추가합니다.
 
@@ -496,7 +509,5 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 
 > [!NOTE]
 > 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
-
-백 엔드 API에 범위가 필요하지 않은 경우(추천되지 않음) 토큰을 획득하기 위한 호출에서 *clientId*를 범위로 사용할 수 있습니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

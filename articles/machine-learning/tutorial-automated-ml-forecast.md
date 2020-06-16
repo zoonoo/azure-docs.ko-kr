@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
-ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118887"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433706"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "84118887"
 > * 실험 결과를 살펴봅니다.
 > * 최적의 모델을 배포합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning Enterprise Edition 작업 영역. 작업 영역이 없는 경우 [Enterprise Edition 작업 영역을 만드세요](how-to-manage-workspace.md). 
     * Azure Machine Learning Studio의 자동화된 Machine Learning은 Enterprise Edition 작업 영역에서만 사용할 수 있습니다. 
@@ -124,7 +124,7 @@ ms.locfileid: "84118887"
 
     1. **다음**을 선택합니다.
 
-## <a name="select-task-type-and-settings"></a>작업 유형 및 설정 선택
+## <a name="select-forecast-settings"></a>예측 설정 선택
 
 기계 학습 작업 유형 및 구성 설정을 지정하여 자동화된 ML 실험의 설정을 완료합니다.
 

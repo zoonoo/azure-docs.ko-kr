@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684975"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448685"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -39,6 +39,8 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식**이 �
 
 ![계층화된 부사 분산 장치 예제](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer에는 여러 프런트 엔드 IP가 있을 수 있습니다. [여러 프런트 엔드](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
+
 ## <a name="backend-pool"></a>백 엔드 풀
 
 들어오는 요청을 처리하는 가상 머신 또는 가상 머신 확장 집합 인스턴스의 그룹입니다. 대량의 들어오는 트래픽을 충족하도록 비용 효율적으로 크기를 조정하기 위해 컴퓨팅 지침에서는 일반적으로 백 엔드 풀에 더 많은 인스턴스를 추가하는 것을 권장합니다.
@@ -57,7 +59,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식**이 �
 - 유휴 제한 시간 발생
 - VM이 종료
 
-Load Balancer는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS
+Load Balancer는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS [Azure Load Balancer 상태 프로브에 대해 자세히 알아보세요](load-balancer-custom-probe-overview.md).
 
 기본 Load Balancer는 HTTPS 프로브를 지원하지 않습니다. 기본 Load Balancer는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
 
@@ -67,15 +69,32 @@ Load Balancer 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어�
 
 예를 들어 프런트 엔드 IP의 포트 80(또는 다른 포트)에 대한 트래픽을 모든 백 엔드 인스턴스의 포트 80으로 라우팅하려는 경우 부하 분산 규칙을 사용하여 이를 달성할 수 있습니다.
 
+### <a name="high-availability-ports"></a>고가용성 포트
+
+'protocol - all and port - 0'으로 구성된 Load Balancer 규칙입니다. 이를 통해 내부 Standard Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름의 부하를 분산하기 위한 단일 규칙을 제공할 수 있습니다. 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 이 작업은 다음과 같은 5개의 튜플 연결을 기반으로 합니다. 
+1. 원본 IP 주소
+2. 원본 포트
+3. 대상 IP 주소
+4. 대상 포트
+5. protocol
+
+HA 포트 부하 분산 규칙은 가상 네트워크 내 NVA(네트워크 가상 어플라이언스)의 고가용성 및 확장과 같은 중요한 시나리오를 지원합니다. 이 기능은 많은 수의 포트에서 부하를 분산시켜야 할 때도 도움이 될 수 있습니다.
+
+[HA 포트](load-balancer-ha-ports-overview.md)에 대해 자세히 알아볼 수 있습니다.
+
 ## <a name="inbound-nat-rules"></a>인바운드 NAT 규칙
 
 인바운드 NAT 규칙은 선택한 프런트 엔드 IP 주소 및 포트 조합으로 전송된 들어오는 트래픽을 **특정** 가상 머신 또는 백 엔드 풀의 인스턴스에 전달합니다. 포트 전달은 부하 분산과 동일한 해시 기반 배포를 통해 수행됩니다.
 
 예를 들어 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell) 세션에서 백 엔드 풀의 VM 인스턴스를 분리하려고 하는 경우입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 점프 상자 없이 VM을 원격으로 관리할 수 있습니다.
 
+VMSS(Virtual Machine Scale Sets) 컨텍스트의 인바운드 NAT 규칙은 인바운드 NAT 풀입니다. [Load Balancer 구성 요소 및 VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer)에 대해 자세히 알아봅니다.
+
 ## <a name="outbound-rules"></a>아웃바운드 규칙
 
 아웃바운드 규칙은 백 엔드 풀에서 식별된 모든 가상 머신 또는 인스턴스에 대한 아웃바운드 NAT(Network Address Translation)를 구성합니다. 이렇게 하면 백 엔드의 인스턴스가 인터넷 또는 다른 엔드포인트로 통신할 수 있습니다(아웃바운드).
+
+[아웃바운드 연결 및 규칙](load-balancer-outbound-connections.md)에 대해 자세히 알아봅니다.
 
 기본 부하 분산 장치는 아웃바운드 규칙을 지원하지 않습니다.
 
@@ -89,9 +108,6 @@ Load Balancer 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어�
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.
 - [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
-- [다중 프런트 엔드 IP 구성을 사용하는 Load Balancer](load-balancer-multivip-overview.md) 사용에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
-- [프로브 유형](load-balancer-custom-probe-overview.md#types)에 대해 알아봅니다.
 - [부사 분산 장치 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)에 대해 자세히 알아봅니다.
 - [포트 전달](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal) 사용에 대해 알아봅니다.
-- [부하 분산 장치 아웃바운드 규칙](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)에 대해 알아봅니다.

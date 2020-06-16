@@ -4,20 +4,26 @@ description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 05/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82106460"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433668"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
 Azure HPC Cache는 HPC(고성능 컴퓨팅) 작업을 위해 데이터 액세스 속도를 높입니다. Azure에서 파일을 캐싱하여 Azure HPC Cache는 기존 워크플로에 대한 클라우드 컴퓨팅의 확장성을 제공합니다. 이 서비스는 데이터가 로컬 데이터 센터 NAS(Network Attached Storage) 환경과 같이 WAN 연결을 통해 저장된 워크플로에서도 사용할 수 있습니다.
 
 Azure HPC Cache는 Azure Portal에서 쉽게 시작하고 모니터링할 수 있습니다. 기존 NFS 스토리지 또는 새 Blob 컨테이너가 집계된 네임스페이스의 일부로 포함될 수 있으므로, 백 엔드 스토리지 대상을 변경하더라도 클라이언트 액세스가 간소화됩니다.
+
+## <a name="overview-video"></a>개요 동영상
+
+[![비디오 썸네일: Azure HPC Cache 개요 - 클릭하여 비디오 페이지 방문](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+
+위의 이미지를 클릭하여 [Azure HPC Cache의 간단한 개요](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)를 시청하세요.
 
 ## <a name="use-cases"></a>사용 사례
 

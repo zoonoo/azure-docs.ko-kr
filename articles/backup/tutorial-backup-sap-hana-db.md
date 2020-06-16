@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248246"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417296"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -31,7 +31,7 @@ ms.locfileid: "84248246"
 
 * 아래 [네트워크 연결 설정](#set-up-network-connectivity) 절차에 설명된 대로 VM에서 인터넷에 연결하도록 허용합니다. 그래야 Azure에 연결할 수 있습니다.
 * **hdbuserstore**에 다음 조건을 충족하는 키가 있어야 합니다.
-  * 기본 **hdbuserstore**에 있어야 합니다.
+  * 기본 **hdbuserstore**에 있어야 합니다. 기본값은 SAP HANA가 설치된 `<sid>adm` 계정입니다.
   * MDC의 경우 키가 **NAMESERVER**의 SQL 포트를 가리켜야 합니다. SDC의 경우 **INDEXSERVER**의 SQL 포트를 가리켜야 합니다.
   * 사용자를 추가하고 삭제하려면 자격 증명이 있어야 합니다
 * HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하면 HANA 시스템이 백업 준비가 됩니다. [사전 등록 스크립트의 기능](#what-the-pre-registration-script-does) 섹션을 참조하면 사전 등록 스크립트에 대해 자세히 이해할 수 있습니다.
@@ -100,7 +100,7 @@ HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제
 
 사전 등록 스크립트를 실행하면 다음 기능이 수행됩니다.
 
-* 배포 시 Azure Backup 에이전트에 필요한 패키지를 설치하거나 업데이트합니다.
+* Linux 배포에 따라 스크립트는 Azure Backup 에이전트에 필요한 모든 패키지를 설치하거나 업데이트합니다.
 * Azure Active Directory 및 Azure Storage와 같은 종속 서비스 및 Azure Backup 서버와의 아웃바운드 네트워크 연결 검사를 수행합니다.
 * [사전 요구 사항](#prerequisites)의 일부로 나열된 사용자 키를 사용하여 HANA 시스템에 로그인합니다. 사용자 키는 HANA 시스템에서 백업 사용자(AZUREWLBACKUPHANAUSER)를 만드는 데 사용되며 사전 등록 스크립트가 성공적으로 실행된 후 사용자 키를 삭제할 수 있습니다.
 * AZUREWLBACKUPHANAUSER에는 다음과 같은 필수 역할 및 권한이 할당됩니다.

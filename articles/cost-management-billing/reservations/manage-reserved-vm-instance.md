@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019999"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434188"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -20,6 +20,7 @@ Azure 예약을 구입하면 다른 구독에 예약을 적용하거나, 예약�
 
 Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 최적화 설정을 변경할 수 있습니다. 예약 할인을 동일한 시리즈의 VM에 적용하거나, 특정 VM 크기에 대한 데이터 센터 용량을 예약할 수 있습니다. 그리고 예약이 완전히 사용되도록 예약을 최적화해야 합니다.
 
+*예약을 관리하는 데 필요한 권한은 구독 권한과는 다릅니다.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 예약 주문 또는 예약에 대한 역할에 사용자를 추가하여 예약 관리를 위임할 수 있습니다. 기본적으로 예약 주문을 수행한 사용자 및 계정 관리자에게는 예약 주문 및 예약에 대한 소유자 역할이 있습니다.
 
-예약 할인을 받는 구독과 별도로 예약 주문 및 예약에 대한 액세스를 관리할 수 있습니다. 다른 사용자에게 예약 주문 또는 예약을 관리할 수 있는 권한을 부여해도 구독을 관리할 수 있는 권한은 부여되지 않습니다. 마찬가지로, 다른 사용자에게 예약 범위 내에서 구독을 관리하는 권한을 부여하더라도 예약 주문 또는 예약을 관리하는 권한은 부여되지 않습니다.
+예약 할인을 받는 *구독과 별도로* 예약 주문 및 예약에 대한 액세스를 관리할 수 있습니다. 다른 사용자에게 예약 주문 또는 예약을 관리할 수 있는 권한을 부여해도 구독을 관리할 수 있는 권한은 부여되지 않습니다. 마찬가지로, 다른 사용자에게 예약 범위 내에서 구독을 관리하는 권한을 부여하더라도 예약 주문 또는 예약을 관리하는 권한은 부여되지 않습니다.
 
 교환 또는 환불을 수행하려면 예약 주문에 액세스할 수 있는 사용자여야 합니다. 다른 사용자에게 권한을 부여할 때는 예약이 아닌 예약 주문에 권한을 부여하는 것이 가장 좋습니다.
-
 
 예약에 대한 액세스 관리를 위임하려면:
 

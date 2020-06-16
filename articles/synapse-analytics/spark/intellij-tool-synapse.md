@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644849"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608760"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 Spark 풀(미리 보기)용 Apache Spark 애플리케이션 만들기
+# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>자습서: Synapse Analytics를 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기(작업 영역 미리 보기)
 
 이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 Spark 풀(미리 보기)에 제출하는 방법을 보여줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "83644849"
 > - Apache Spark 애플리케이션 개발
 > - Spark 풀에 애플리케이션 제출
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [IntelliJ IDEA Community 버전](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure 도구 키트 플러그 인 3.27.0-2019.2 – [IntelliJ 플러그 인 리포지토리](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 설치

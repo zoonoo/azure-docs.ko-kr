@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201349"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509375"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>자습서: Azure Active Directory와 Sage Intacct 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "82201349"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -88,13 +88,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![이미지](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도, Sage Intacct 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
+1. 위에서 언급한 특성 외에도, Sage Intacct 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성 및 클레임** 대화 상자에서 다음 단계를 수행하여 아래 표와 같이 SAML 토큰 특성을 추가합니다.
 
-    | 속성  |  원본 특성|
+    | 특성 이름  |  원본 특성|
     | ---------------| --------------- |
     | 회사 이름 | **Sage Intacct 회사 ID** |
     | name | 이 값은 **Sage Intacct 테스트 사용자 만들기 섹션**에서 입력하는 Sage Intacct **사용자 ID**와 동일해야 합니다. 이 내용은 자습서의 뒷부분에서 설명합니다. |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | 이 값은 **Sage Intacct 테스트 사용자 만들기 섹션**에서 입력하는 Sage Intacct **페더레이션된 SSO 사용자 ID**와 동일해야 합니다. 이 내용은 자습서의 뒷부분에서 설명합니다. |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -104,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. 원본을 **특성**으로 선택합니다.
 
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력하거나 선택합니다.
 
     f. **확인**을 클릭합니다.
 
@@ -126,7 +125,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

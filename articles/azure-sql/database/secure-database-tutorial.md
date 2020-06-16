@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267895"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323929"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>자습서: Azure SQL Database 보호
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -25,7 +25,7 @@ ms.locfileid: "84267895"
 > [!div class="checklist"]
 >
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
-> - Azure AD(Active Directory) 관리자 구성
+> - Azure AD(Azure Active Directory) 관리자 구성
 > - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
 > - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
 
@@ -42,7 +42,7 @@ Azure SQL Database는 다음과 같은 방법으로 데이터를 보호합니다
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](security-overview.md) 문서를 참조하세요.
 
 > [!TIP]
-> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
+> 다음 Microsoft Learn 모듈을 사용하면 [Azure SQL Database의 데이터베이스 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/) 방법에 대해 무료로 배울 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -50,7 +50,7 @@ Azure SQL Database는 다음과 같은 방법으로 데이터를 보호합니다
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - [서버](logical-servers.md) 및 단일 데이터베이스
-  - [Azure Portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md) 또는 [PowerShell](powershell-script-content-guide.md)을 사용하여 만들기
+  - [Azure Portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md) 또는 [PowerShell](powershell-script-content-guide.md)을 사용하여 만듭니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -73,7 +73,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 
 서버 수준 방화벽 규칙을 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
     ![서버 방화벽 규칙](./media/secure-database-tutorial/server-name.png)
 
@@ -94,7 +94,7 @@ SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니�
 
 데이터베이스 수준 방화벽 규칙은 개별 데이터베이스에만 적용됩니다. 데이터베이스는 서버를 장애 조치(failover)하는 동안 이러한 규칙을 유지합니다. 데이터베이스 수준 방화벽 규칙은 서버 수준 방화벽 규칙을 구성한 후에 T-SQL(Transact-SQL) 문만 사용하여 구성할 수 있습니다.
 
-데이터베이스 수준 방화벽 규칙을 설정하려면,
+데이터베이스 수준 방화벽 규칙을 설정하려면 다음을 수행합니다.
 
 1. [SQL Server Management Studio](connect-query-ssms.md)와 같은 도구를 사용하여 데이터베이스에 연결합니다.
 
@@ -223,7 +223,7 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 보안 연결 문자열을 복사하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **개요** 페이지에서 **데이터베이스 연결 문자열 표시**를 선택합니다.
 
@@ -244,7 +244,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 고급 데이터 보안을 사용하도록 설정하려면:
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **개요** 페이지에서 **서버 이름** 링크를 선택합니다. 서버 페이지가 열립니다.
 
@@ -270,7 +270,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 감사를 사용하도록 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **보안** 섹션에서 **감사**를 선택합니다.
 
@@ -309,7 +309,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 데이터 마스킹을 사용하도록 설정하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **보안**  섹션에서 **동적 데이터 마스킹**을 선택합니다.
 
@@ -327,7 +327,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 
 암호화를 사용하도록 설정하거나 확인하려면,
 
-1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **보안** 섹션에서 **투명 데이터 암호화**를 선택합니다.
 

@@ -2,14 +2,14 @@
 title: Azure Migrate 서버 평가를 사용하여 VMware VM 평가
 description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그레이션할 온-프레미스 VMware VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535369"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331885"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>서버 평가를 사용하여 VMware VM 평가
 
@@ -29,7 +29,7 @@ ms.locfileid: "81535369"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
@@ -85,18 +85,26 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 배포하기 전에 OVA 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
-1. 다음 명령을 실행하여 OVA 파일에 대한 해시를 생성합니다.
+2. 다음 명령을 실행하여 OVA 파일에 대한 해시를 생성합니다.
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-2\.19.07.30 버전의 경우 생성된 해시는 다음 값과 일치해야 합니다.
+3. 최신 어플라이언스 버전 및 해시 값을 확인합니다.
 
-**알고리즘** | **해시 값**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - Azure 퍼블릭 클라우드의 경우:
+    
+        **알고리즘** | **다운로드** | **SHA256**
+        --- | --- | ---
+        VMware(10.9GB) | [최신 버전](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - Azure Goverment의 경우:
+    
+        **알고리즘** | **다운로드** | **SHA256**
+        --- | --- | ---
+        VMware(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
 

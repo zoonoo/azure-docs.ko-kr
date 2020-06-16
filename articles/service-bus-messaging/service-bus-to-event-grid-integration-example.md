@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067760"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610496"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>자습서: Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -34,7 +34,7 @@ ms.locfileid: "80067760"
 > * Azure Functions를 사용하여 메시지 받기
 > * Logic Apps를 사용하여 메시지 받기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
@@ -122,19 +122,25 @@ ms.locfileid: "80067760"
     }
     
     ```
-2. **저장 및 실행**을 선택합니다.
+2. 도구 모음에서 **저장**을 선택하여 함수에 대한 코드를 저장합니다.
 
-    ![함수 앱 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+    ![함수 코드 저장](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
+3. 도구 모음에서 **테스트/실행**을 선택하여 본문에 이름을 입력하고 **실행**을 선택합니다. 
+
+    ![테스트 실행](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+4. 다음 이미지에 표시된 것처럼 출력과 로그가 표시되는지 확인합니다. 
+
+    ![테스트 실행 - 출력](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
 3. **함수 URL 가져오기**를 선택하고 URL을 기록해 둡니다. 
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. URL 텍스트 옆에 있는 **복사** 단추를 선택합니다.    
+    ![함수 URL 복사](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 # <a name="azure-functions-v1"></a>[Azure Functions V1](#tab/v1)
 
 1. 다음과 같이 **V1** 버전을 사용하도록 함수를 구성합니다. 
     1. 트리 보기에서 함수 앱을 선택하고 **함수 앱 설정**을 선택합니다. 
-
-        ![함수 앱 설정]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. **런타임 버전**으로 **~1**을 선택합니다. 
 2. 트리 보기에서 **함수**를 확장하고 함수를 선택합니다. 함수의 코드를 다음 코드로 바꿉니다. 
 
@@ -184,9 +190,11 @@ ms.locfileid: "80067760"
 4. **저장 및 실행**을 선택합니다.
 
     ![함수 앱 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
-4. **함수 URL 가져오기**를 선택하고 URL을 기록해 둡니다. 
+4. 도구 모음에서 **함수 URL 가져오기**를 선택합니다. 
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. URL 텍스트 옆에 있는 **복사** 단추를 선택합니다.    
+    ![함수 URL 복사](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 ---
 
@@ -201,16 +209,20 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 2. 도구 모음에서 **+ 이벤트 구독**을 선택합니다. 
 3. **이벤트 구독 만들기** 페이지에서 다음 단계를 수행합니다.
     1. 구독의 **이름**을 입력합니다. 
+    2. **시스템 항목**의 **이름**을 입력합니다. 시스템 항목은 Azure Storage 계정 및 Azure Service Bus와 같은 Azure 리소스용으로 만들어진 항목입니다. 시스템 항목에 대해 자세히 알아보려면 [시스템 항목 개요](../event-grid/system-topics.md)를 참조하세요.
     2. **엔드포인트 유형**으로 **웹후크**를 선택합니다. 
 
         ![Service Bus - Event Grid 구독](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
-    3. **엔드포인트 선택**을 선택하고 함수 URL을 붙여 넣은 후 **선택 확인**을 선택합니다. 
+    3. **엔드포인트 선택**을 선택하고 함수 URL을 붙여넣은 다음, **선택 확인**을 선택합니다. 
 
         ![함수 - 엔드포인트 선택](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
-    4. **필터** 탭으로 전환하고 **첫 번째 구독**의 이름을 이전에 만든 Service Bus 항목에 입력한 후 **만들기** 단추를 선택합니다. 
+    4. **필터** 탭으로 전환하고 다음 작업을 수행합니다.
+        1. **제목 필터링 사용**을 선택합니다.
+        2. 이전에 만든 Service Bus 항목에 **첫 번째 구독**의 이름을 입력합니다.
+        3. **만들기** 단추를 선택합니다. 
 
-        ![이벤트 구독 필터](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
-4. 목록에 해당 이벤트 구독이 표시되는지 확인합니다.
+            ![이벤트 구독 필터](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
+4. **이벤트** 페이지의 **이벤트 구독** 탭으로 전환하고 목록에 이벤트 구독이 표시되는지 확인합니다.
 
     ![목록의 이벤트 구독](./media/service-bus-to-event-grid-integration-example/event-subscription-in-list.png)
 
@@ -242,11 +254,15 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
         ![함수에 대한 게시 프로필 가져오기](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. 프로젝트의 폴더에 파일을 저장합니다. 
 4. Visual Studio에서 **SBEventGridIntegration**을 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다. 
-5. **게시** 페이지에서 **시작**을 선택합니다. 
-6. **게시 대상 선택** 페이지에서 다음 단계를 수행하고 **프로필 가져오기**를 선택합니다. 
+5. **게시**에서 다음 단계를 수행합니다. 
+    1. **게시** 페이지에서 **시작**을 선택합니다. 
+    2. **대상**에 대해 **프로필 가져오기**를 선택합니다. 
+    3. **다음**을 선택합니다. 
 
-    ![Visual Studio - 프로필 가져오기 단추](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
-7. 이전에 다운로드한 **프로필 파일 게시**를 선택합니다. 
+        ![Visual Studio - 프로필 가져오기 단추](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
+7. 이전에 다운로드한 **프로필 파일 게시**를 선택하고 **마침**을 선택합니다.
+
+    ![게시 프로필 선택](./media/service-bus-to-event-grid-integration-example/select-publish-profile.png)
 8. **게시** 페이지에서 **게시**를 선택합니다. 
 
     ![Visual Studio - 게시](./media/service-bus-to-event-grid-integration-example/select-publish.png)
@@ -295,7 +311,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
     4. **항목 구독에서 메시지 가져오기(보기 잠금)** 를 선택합니다. 
 
         ![Logic Apps 디자이너 - 메시지 가져오기 작업](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. **연결의 이름**을 입력합니다. 다음은 그 예입니다.  **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
+    5. **연결의 이름**을 입력합니다. 예를 들면 다음과 같습니다. **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
 
         ![Logic Apps 디자이너 - Service Bus 네임스페이스 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. **RootManageSharedAccessKey**를 선택합니다.

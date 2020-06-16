@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739501"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323028"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>중국 퍼블릭 클라우드의 Android용 Microsoft Authenticator
 
@@ -44,7 +44,7 @@ Android용 Microsoft Authenticator 앱은 Google의 Firebase Cloud Messaging 시
 
 ## <a name="multi-factor-authentication-workaround"></a>다단계 인증 해결 방법
 
-다단계 인증에 푸시 알림을 사용하는 대신, 사용자는 자신의 ID를 확인하는 데 사용할 수 있는 디바이스에서 확인 코드를 받도록 MFA를 설정할 수 있습니다. 이러한 확인 코드는 30초 동안 유효하며, 이를 사용하려면 관리자가 테넌트에서 TOTP(시간 제약이 있는 일회성 암호) 확인 코드를 사용하여 확인을 수행할 수 있도록 설정해야 합니다.
+다단계 인증에 푸시 알림을 사용하는 대신, 사용자는 MFA에서 자신의 ID를 확인하는 데 사용할 수 있는 디바이스에서 [확인 코드를 받도록 인증자 앱을 설정](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes)할 수 있습니다. 이러한 확인 코드는 30초 동안 유효하며, 이를 사용하려면 관리자가 테넌트에서 TOTP(시간 제약이 있는 일회성 암호) 확인 코드를 사용하여 확인을 수행할 수 있도록 설정해야 합니다.
 
 ## <a name="availability"></a>가용성
 

@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085861"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561098"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
@@ -31,7 +31,7 @@ ms.locfileid: "82085861"
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -139,7 +139,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 </pre>
 
-로컬 터미널 창에서 다음 예제와 같이 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. *\<azure-container-registry-name>* 및 *\<registry-username>* 을 레지스트리 값으로 바꿉니다. 메시지가 표시되면 이전 단계의 암호 중 하나를 입력합니다.
+로컬 터미널 창에서 다음 예제와 같이 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. *\<azure-container-registry-name>* 및 *\<registry-username>* 를 레지스트리의 값으로 바꿉니다. 메시지가 표시되면 이전 단계의 암호 중 하나를 입력합니다.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -149,7 +149,7 @@ docker login <azure-container-registry-name>.azurecr.io --username <registry-use
 
 ### <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 다음은 그 예입니다.
+Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 예를 들면 다음과 같습니다.
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -180,7 +180,7 @@ az acr repository list -n <azure-container-registry-name>
 
 ### <a name="create-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app-name>_ 을 고유한 앱 이름으로, _\<azure-container-registry-name>_ 을 레지스트리 이름으로 바꿉니다.
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app-name>_ 를 고유한 앱 이름으로 바꾸고 _\<azure-container-registry-name>_ 를 레지스트리 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
