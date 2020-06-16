@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221416"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782537"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
@@ -26,7 +26,7 @@ ms.locfileid: "79221416"
 
 음성 서비스 호출에 대 한 호출이 구독의 지역과 일치 하는지 확인 합니다.
 
-## <a name="speech-sdk"></a>음성 SDK
+## <a name="speech-sdk"></a>Speech SDK
 
 [음성 SDK](speech-sdk.md)에서 지역을 문자열로 지정합니다(예를 들어, C#용 Speech SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
 
@@ -38,7 +38,7 @@ ms.locfileid: "79221416"
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-[SPEECH SDK](speech-sdk.md)를 사용 하는 경우 **지역 식별자** (예:에 대 `SpeechConfig.FromSubscription`한 매개 변수로)가 영역을 지정 합니다. 지역이 구독의 지역과 일치 하는지 확인 합니다.
+[SPEECH SDK](speech-sdk.md)를 사용 하는 경우 **지역 식별자** (예:에 대 한 매개 변수로)가 영역을 지정 `SpeechConfig.FromSubscription` 합니다. 지역이 구독의 지역과 일치 하는지 확인 합니다.
 
 ### <a name="intent-recognition"></a>의도 인식
 
@@ -75,6 +75,10 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 | 북유럽   | `northeurope`        |
 | 동남아시아 | `southeastasia`      |
 
+### <a name="speaker-recognition"></a>Speaker Recognition
+
+Speaker Recognition 현재 지역 에서만 사용할 수 있습니다 `westus` .
+
 ## <a name="rest-apis"></a>REST API
 
 음성 서비스는 또한 음성-텍스트 및 텍스트-음성 변환 요청에 대한 REST 엔드포인트를 노출합니다.
@@ -89,7 +93,7 @@ REST API 끝점에는 다음과 같은 형식이 있습니다.
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-이 `<REGION_IDENTIFIER>` 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
+`<REGION_IDENTIFIER>`이 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b8ed60a1f8ddc98857b0f59aaefb141b3dab64f4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3aa7958ea4edf6cf3e3c1b170e2351f49f719983
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344869"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782843"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
@@ -65,7 +65,7 @@ ms.locfileid: "84344869"
 
 ## <a name="other-actions"></a>다른 작업
 
-* 버전을 **삭제**하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제**를 선택합니다. **확인을**선택 합니다.
+* 버전을 **삭제**하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제**를 선택합니다. **확인**을 선택합니다.
 * 버전의 **이름을 바꾸려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **이름 바꾸기**를 선택합니다. 새 이름을 입력하고 **완료**를 선택합니다.
-* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기**를 선택합니다. 백업용으로 내보낼 JSON을 선택 하 고 [LUIS 컨테이너에서이 앱을 사용](luis-container-howto.md)하려면 **컨테이너에 대해 내보내기** 를 선택 합니다.
+* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기**를 선택합니다. 백업에 대해 내보내려면 JSON 또는 LU를 선택 하 고, 원본 제어에 저장 하려면 **컨테이너에 대해 내보내기** 를 선택 하 여 [LUIS 컨테이너에서이 앱을 사용](luis-container-howto.md)합니다.
 

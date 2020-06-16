@@ -2,13 +2,13 @@
 title: 새로운 기능-Language Understanding (LUIS)
 description: 이 문서는 Azure Cognitive Services Language Understanding API 대 한 뉴스로 정기적으로 업데이트 됩니다.
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/15/2020
+ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678752"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789211"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -21,6 +21,14 @@ ms.locfileid: "84678752"
 * [Preview 3.0 제작](luis-migration-authoring-entities.md) SDK
     * 버전 3.2.0-preview. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * 버전 4.0.0- [NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* LUIS를 사용 하 여 DevOps 사례 적용
+    * 개념
+        * [LUIS에 대 한 DevOps 방법](luis-concept-devops-sourcecontrol.md)
+        * [LUIS DevOps에 대 한 지속적인 통합 및 지속적인 업데이트 워크플로](luis-concept-devops-automation.md)
+        * [LUIS DevOps 테스트](luis-concept-devops-testing.md)
+    * 방법
+        * [GitHub 작업을 사용 하 여 LUIS 앱 개발에 DevOps 적용](luis-how-to-devops-with-github.md)
+    * [전체 코드 GitHub 리포지토리](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>2020 년 5 월 ~ 빌드
 

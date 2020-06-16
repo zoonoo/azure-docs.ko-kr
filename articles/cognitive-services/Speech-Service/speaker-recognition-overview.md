@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635172"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780888"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Azure Speaker Recognition 서비스는 무엇 인가요?
 
@@ -55,6 +55,20 @@ Speaker Identification는 등록 된 스피커 그룹 내에서 알 수 없는 �
 데이터를 보존 해야 하는 기간을 제어 합니다. API 호출을 통해 개별 스피커에 대 한 등록 데이터를 만들고, 업데이트 하 고, 삭제할 수 있습니다. 구독이 삭제되면 구독과 연결된 모든 화자 등록 데이터도 삭제됩니다. 
 
 모든 Cognitive Services 리소스와 마찬가지로 Speaker Recognition 서비스를 사용 하는 개발자는 고객 데이터에 대 한 Microsoft의 정책을 인식 해야 합니다. 사용자가 Speaker Recognition에 대 한 적절 한 사용 권한을 받았는지 확인 해야 합니다. 자세한 내용은 Microsoft 보안 센터의 [Cognitive Services 페이지](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)를 참조 하세요   . 
+
+## <a name="common-questions-and-solutions"></a>일반적인 질문 및 해결 방법
+
+| 질문 | 해결 방법 |
+|---------|----------|
+| 어떤 시나리오를 사용할 수 Speaker Recognition 있나요? | 콜 센터 고객 검증, 음성 기반 환자 체크 인, 모임 기록, 다중 사용자 장치 개인 설정|
+| 식별과 확인의 차이점은 무엇 인가요? | 식별은 발표자 그룹의 멤버가 말하는 멤버를 검색 하는 프로세스입니다. 확인은 스피커가 알려진 음성 또는 **등록** 된 음성과 일치 하는지 확인 하는 행위입니다.|
+| 텍스트 종속 및 텍스트 독립적인 확인의 차이점은 무엇 인가요? | 텍스트 종속 확인에는 등록과 인식 모두를 위한 특정 구가 필요 합니다. 텍스트 독립적 인증에는 등록을 위한 긴 음성 샘플이 필요 하지만 인식 하는 동안을 비롯 하 여 모든 것을 말할 수 있습니다.|
+| 어떤 언어가 지원되나요? | 영어, 프랑스어, 스페인어, 중국어, 독일어, 이탈리아어, 일본어 및 포르투갈어 |
+| 지원 되는 Azure 지역은 무엇 인가요? | Speaker Recognition는 미리 보기 서비스 이며 현재 미국 서 부 지역 에서만 사용할 수 있습니다.|
+| 지원 되는 오디오 형식은 무엇입니까? | Mono 16 비트, 16kHz PCM-인코드된 WAV |
+| **수락** 및 **거부** 응답이 정확 하지 않습니다. 임계값을 조정 하는 방법 | 최적 임계값은 시나리오에 따라 달라 지기 때문에 API는 기본 임계값 0.5에 따라 간단히 "수락" 또는 "거부"를 결정 합니다. 고급 사용자는 기본 결정을 재정의 하 고 사용자의 시나리오에 따라 결과를 미세 조정 하는 것이 좋습니다. |
+| 하나의 스피커를 여러 번 등록할 수 있나요? | 예, 텍스트 종속 확인의 경우 최대 50 번 스피커를 등록할 수 있습니다. 텍스트 독립적인 확인 또는 발표자 id의 경우 최대 300 초까지 오디오를 등록할 수 있습니다. |
+| Azure에 저장 되는 데이터는 무엇 인가요? | 등록 오디오는 음성 프로필을 [삭제할](speaker-recognition-basics.md#deleting-voice-profile-enrollments)때까지 서비스에 저장 됩니다. 인식 오디오 샘플은 유지 되거나 저장 되지 않습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
