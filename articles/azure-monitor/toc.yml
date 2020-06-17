@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -197,7 +197,7 @@
             - name: 개요
               href: platform/agents-overview.md
             - name: FAQ
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Azure Diagnostics 확장
               items:
                 - name: 개요
@@ -905,7 +905,7 @@
         - name: 상용 서비스 관련 FAQ
           href: insights/vminsights-ga-release-faq.md
         - name: FAQ
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: 모니터링 사용
           items:
             - name: 모니터링 사용 개요
@@ -937,7 +937,7 @@
         - name: 개요
           href: insights/container-insights-overview.md
         - name: FAQ
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: 모니터링 사용
           items:
             - name: 모니터링 사용 개요
@@ -952,6 +952,8 @@
               href: insights/container-insights-azure-redhat-setup.md
             - name: Azure Red Hat OpenShift v4에 대해 활성화
               href: insights/container-insights-azure-redhat4-setup.md
+            - name: Arc 사용 클러스터에 사용
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: 지역 매핑
               href: insights/container-insights-region-mapping.md
         - name: 성능 모니터링
@@ -1249,7 +1251,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions

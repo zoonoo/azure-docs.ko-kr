@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: 봇으로 사용
       items:
-        - name: 'C# 사용'
+        - name: C# 사용
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Node.js 사용
@@ -125,6 +125,14 @@
         - name: 디자인 전략
           href: luis-concept-enterprise.md
           displayName: import
+    - name: LUIS를 사용하여 DevOps 사례 적용
+      items:
+        - name: LUIS에 대한 소스 제어 및 분기 전략
+          href: luis-concept-devops-sourcecontrol.md
+        - name: DevOps 테스트
+          href: luis-concept-devops-testing.md
+        - name: CI/CD 워크플로
+          href: luis-concept-devops-automation.md
 - name: 방법 가이드
   items:
     - name: 새 앱 시작
@@ -238,11 +246,13 @@
         - name: 컨테이너 제한 사항
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: DevOps 사용
+      href: luis-how-to-devops-with-github.md
     - name: 관련 서비스
       items:
         - name: Azure Bot Service
           href: 'https://dev.botframework.com/'
-        - name: '봇 작성기 4.x SDK C#'
+        - name: 봇 작성기 4.x SDK C#
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA Maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +294,7 @@
               href: luis-reference-response-codes.md
         - name: SDK
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: NuGet - 작성
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'

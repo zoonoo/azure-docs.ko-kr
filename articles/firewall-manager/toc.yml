@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: 일반 배포 프로세스
       href: deployment-overview.md
-    - name: 신뢰할 수 있는 보안 파트너
+    - name: 보안 파트너 공급자
       href: trusted-security-partners.md
     - name: 규칙 처리 논리
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: 방법 가이드
   items:
-    - name: 신뢰할 수 있는 보안 파트너 배포
+    - name: 보안 파트너 공급자 배포
       href: deploy-trusted-security-partner.md
     - name: 방화벽 정책으로 마이그레이션 - PowerShell
       href: migrate-to-policy.md
@@ -52,7 +52,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
       href: /rest/api/firewall
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

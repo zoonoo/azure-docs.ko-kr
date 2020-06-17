@@ -222,6 +222,9 @@
               href: http-application-routing.md
             - name: 내부 네트워크 사용
               href: ingress-internal-ip.md
+            - name: 기존 AKS 클러스터에 대한 AGIC 추가 기능 사용
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
             - name: 고유한 인증서와 함께 TLS 사용
               href: ingress-own-tls.md
             - name: Let's Encrypt와 함께 TLS 사용
@@ -416,7 +419,7 @@
     - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
-      href: '/powershell/module/az.aks#aks'
+      href: /powershell/module/az.aks#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python

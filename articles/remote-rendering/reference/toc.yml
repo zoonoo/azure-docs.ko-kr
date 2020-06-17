@@ -10,5 +10,7 @@
   href: 'https://github.com/Azure/azure-remote-rendering'
 - name: Azure Mixed Reality 리소스 관리 REST API
   href: 'https://docs.microsoft.com/rest/api/mixedreality/'
-- name: 'C# API 설명서'
+- name: C# API 설명서
   href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering'
+- name: C++ API 설명서
+  href: 'https://docs.microsoft.com/cpp/api/remote-rendering'
