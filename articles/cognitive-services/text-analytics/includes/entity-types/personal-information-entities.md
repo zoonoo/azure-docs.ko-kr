@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637428"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902734"
 ---
 > [!NOTE]
 > 검색 하려면 `PHI` `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "84637428"
  
 끝점에 요청을 보낼 때 다음 엔터티 범주가 반환 됩니다 `/v3.1-preview.1/entities/recognition/pii` .
 
-| 범주   | 하위 범주 | 설명                          | 시작 모델 버전 | 메모 |
+| 범주   | 하위 범주 | Description                          | 시작 모델 버전 | 메모 |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | 해당 없음         | 사람의 이름입니다.  | `2019-10-01`  | 또한로 반환 `domain=phi` 됩니다. |
 | PersonType | 해당 없음         | 사용자가 보유 한 작업 유형 또는 역할 | `2020-02-01` | |
@@ -33,21 +33,21 @@ ms.locfileid: "84637428"
 | 조직 | 스포츠 | 스포츠 관련 조직. | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
 | 주소 | 해당 없음 | 전체 우편 주소  | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
 | EU GPS 좌표 | 해당 없음 | 유럽 연합 내의 위치에 대 한 GPS 좌표입니다.  | `2019-10-01` |  |
-| 메일 | 해당 없음 | 전자 메일 주소. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다.   |
+| Email | 해당 없음 | 전자 메일 주소. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다.   |
 | URL | 해당 없음 | 웹 사이트에 대 한 Url입니다. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | IP | 해당 없음 | 네트워크 IP 주소. | `2019-10-01` | |
 | DateTime | 해당 없음 | 날짜 및 시간입니다. | `2019-10-01` |  | 
 | DateTime | Date | 일정 날짜 | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | 수량 | 해당 없음 | 숫자 및 숫자 수량. | `2019-10-01` |  |
 | 수량 | Age | 에이징을. | `2019-10-01` | | |
-| 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.   | `2020-04-01` | |
+| 질병의 국제 분류 (ICD-9-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.   | `2020-04-01` | |
 | 질병의 국제 분류 (ICD-10-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Azure 정보
 
 이 엔터티 범주는 인증 정보 및 연결 문자열을 포함 하는 식별 가능한 Azure 정보를 포함 합니다. 모델 버전부터 사용 가능 `2019-10-01` 합니다. 매개 변수를 사용 하 여 반환 되지 않습니다 `domain=phi` .
 
-| 하위 범주                           | 설명                                                                 |
+| 하위 범주                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB 인증 키             | Azure DocumentDB 서버용 인증 키입니다.                           |
 | Azure IAAS 데이터베이스 연결 문자열 및 Azure SQL 연결 문자열 | Azure IaaS (Infrastructure as a service) 데이터베이스에 대 한 연결 문자열 및 SQL 연결 문자열입니다. |

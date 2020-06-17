@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267242"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907383"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>몰입 형 판독기 SDK 참조 가이드
 
@@ -46,9 +46,9 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | `token` | 문자열 | Azure AD 인증 토큰입니다. |
 | `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
-| `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
+| `options` | [Options](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. (선택 사항) |
 
-### <a name="returns"></a>반환
+### <a name="returns"></a>반환 값
 
 `Promise<LaunchResponse>`몰입 형 판독기가 로드 될 때 확인 되는를 반환 합니다. 는 `Promise` 개체를 확인 [`LaunchResponse`](#launchresponse) 합니다.
 
@@ -82,9 +82,9 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | 속성 | Type | 설명 |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. 선택 사항입니다. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | RenderButtons 함수의 특정 동작을 구성 하는 옵션입니다. (선택 사항) |
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
 ### <a name="content"></a>콘텐츠
 
@@ -111,7 +111,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-에 대 한 호출의 응답을 포함 `ImmersiveReader.launchAsync` 합니다.
+에 대 한 호출의 응답을 포함 `ImmersiveReader.launchAsync` 합니다. 몰입 형 판독기를 포함 하는에 대 한 참조는를 `iframe` 통해 액세스할 수 있습니다 `container.firstChild` .
 
 ```typescript
 {
@@ -130,12 +130,12 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="supported-mime-types"></a>지원 되는 MIME 형식
 
-| MIME 형식 | 설명 |
+| MIME 형식 | Description |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
-| 텍스트/html | HTML 콘텐츠입니다. [자세히](#html-support)|
+| 텍스트/html | HTML 콘텐츠입니다. [자세히 알아보기](#html-support)|
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](./how-to/display-math.md).
-| application/vnd. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml | Microsoft Word .docx 형식 문서입니다.
+| 응용 프로그램/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx 형식 문서입니다.
 
 ### <a name="html-support"></a>HTML 지원
 
@@ -207,10 +207,10 @@ SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스
 
 다음 특성을 사용 하 여 단추의 모양과 느낌을 구성할 수 있습니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 | --------- | ----------- |
 | `data-button-style` | 단추의 스타일을 설정 합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
-| `data-locale` | 로캘을 설정 합니다. 예를 들어 `en-US` 또는 `fr-FR`로 이름을 지정할 수 있습니다. 기본값은 영어 `en` 입니다. |
+| `data-locale` | 로캘을 설정 합니다. 예를 들어 `en-US` 또는 `fr-FR`입니다. 기본값은 영어 `en` 입니다. |
 | `data-icon-px-size` | 아이콘의 크기 (픽셀)를 설정 합니다. 기본값은 20px입니다. |
 
 ## <a name="browser-support"></a>브라우저 지원

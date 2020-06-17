@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718447"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888296"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -186,7 +186,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 언어    | 언어 코드 | 스크립트 | 끝/시작 | 스크립트|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 아랍어 | `ar` | 아랍어 `Arab` | <--> | 라틴어 `Latn` |
-|벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
+| 벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
 | 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
 | 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
 | 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
