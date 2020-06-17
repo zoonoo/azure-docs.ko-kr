@@ -4,22 +4,22 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76769051"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560930"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
 이 빠른 시작에서는 macOS, Ubuntu Linux 또는 Windows에서 Python을 사용하여 Azure Database for PostgreSQL로 작업합니다. 이 빠른 시작에서는 데이터베이스에 연결하고 SQL 문을 사용하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 사용자가 Python에 익숙하지만 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -38,7 +38,7 @@ ms.locfileid: "76769051"
 Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. Azure Portal에서 이 정보를 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Database for PostgreSQL 서버 이름을 선택합니다. 
-1. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름**을 복사합니다. 정규화된 **서버 이름**은 항상 *\<my-server-name>.postgres.database.azure.com* 형식을 가지며, **관리자 사용자 이름**은 항상 *\<my-admin-username>@\<my-server-name>* 형식을 갖습니다. 
+1. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름**을 복사합니다. 정규화된 **서버 이름**은 항상 *\<my-server-name>my-server-name>.postgres.database.azure.com* 형식을 가지며, **관리 사용자 이름**은 항상 *\<my-admin-username>@\<my-server-name>* 형식을 갖습니다. 
    
    관리자 암호도 필요합니다. 이 암호를 잊어버린 경우 이 페이지에서 다시 설정할 수 있습니다. 
    

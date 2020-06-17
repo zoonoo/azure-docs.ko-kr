@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 840c0157713e9758092ca5cc51ee2745428ae568
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169851"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483534"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -70,56 +70,32 @@ ms.locfileid: "84169851"
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
-
-#### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
-
-- [iOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [macOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> 
+> #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
+> > [!div id="autoupdate_ios" class="nextstepaction"]
+> > [iOS용 코드 샘플 다운로드]()
+> 
+> > [!div id="autoupdate_macos" class="nextstepaction"]
+> > [macOS용 코드 샘플 다운로드]()
+> [!div renderon="docs"]
+> #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
+> 
+> - [iOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [macOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-install-dependencies"></a>3단계: 종속성 설치
 
 터미널 창에서 다운로드한 코드 샘플이 있는 폴더로 이동하고 `pod install`을 실행하여 최신 MSAL 라이브러리를 설치합니다.
 
-#### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
-
-> [!div renderon="docs"]
-> 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
-
 > [!div renderon="portal" class="sxs-lookup"]
-> 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
-> 1. **ViewController.swift**를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 클라이언트 ID로 업데이트해야 합니다.
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
-> 1. **ViewController.swift**를 편집하고, 'let kAuthority'로 시작하는 줄을 다음 코드 조각으로 바꿉니다.
->    ```swift
->    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
->    ```
-> 1. **ViewController.swift**를 편집하고, 'let kGraphEndpoint'로 시작하는 줄을 다음 코드 조각으로 바꿉니다.
->    ```swift
->    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
->    ```
-> 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
-> 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.
-> 1. iOS 전용으로, dict 루트 노드 아래에서 `CFBundleURLSchemes`를 포털에서 입력한 ***번들 ID***로 바꿉니다.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
-> 1. 앱을 빌드하고 실행합니다!
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
+> #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>4단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
+> >  [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
->
+>#### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
+> 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
 > 1. **ViewController.swift**를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
 >    ```swift
@@ -136,8 +112,8 @@ ms.locfileid: "84169851"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
-> 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.
-> 1. iOS 전용으로, dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID***로 바꿉니다.
+> 1. 마우스 오른쪽 단추로 **Info.plist**를 클릭하고, **파일 열기 형식** > **소스 코드**를 차례로 선택합니다.
+> 1. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID***로 바꿉니다.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

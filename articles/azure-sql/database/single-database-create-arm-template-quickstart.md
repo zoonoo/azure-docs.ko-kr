@@ -11,15 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 03d598e0c0756cd304248ab19ab28a25836c57ab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052411"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343866"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [단일 데이터베이스](single-database-overview.md)를 만드는 것이 Azure SQL Database에서 데이터베이스를 만드는 가장 빠르고 간단한 옵션입니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 단일 데이터베이스를 만드는 방법을 보여줍니다.
 
@@ -29,7 +28,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-None
+없음
 
 ## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
 
@@ -73,7 +72,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -112,7 +111,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -131,3 +130,4 @@ az group delete --name $resourceGroupName
 - Azure CLI를 사용하여 단일 데이터베이스를 만들려면 [Azure CLI 샘플](az-cli-script-samples-content-guide.md)을 참조하세요.
 - Azure PowerShell을 사용하여 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](powershell-script-content-guide.md)을 참조하세요.
 - Resource Manager 템플릿을 만드는 방법을 알아보려면 [첫 번째 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)를 참조하세요.
+ 

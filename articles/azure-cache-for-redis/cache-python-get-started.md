@@ -9,19 +9,20 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
+- tracking-python
 ms.date: 11/05/2019
-ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 120708cc72117495e6200f41f13422e94a58c265
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010854"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556475"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>빠른 시작: Azure Cache for Redis를 사용하는 Python 앱 만들기
 
 이 문서에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Python 앱에 통합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Python 2 또는 3](https://www.python.org/downloads/)
@@ -41,7 +42,7 @@ ms.locfileid: "81010854"
 
 ## <a name="read-and-write-to-the-cache"></a>캐시 읽기 및 캐시에 쓰기
 
-명령줄에서 Python을 실행하고 다음 코드를 사용하여 캐시를 테스트합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS 이름>.redis.cache.windows.net* 형식입니다.
+명령줄에서 Python을 실행하고 다음 코드를 사용하여 캐시를 테스트합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS name>.redis.cache.windows.net* 형식입니다.
 
 ```python
 >>> import redis
@@ -58,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Python 샘플 앱 만들기
 
-새 텍스트 파일을 만들고, 다음 스크립트를 추가한 후 파일을 *PythonApplication1.py*로 저장합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS 이름>.redis.cache.windows.net* 형식입니다.
+새 텍스트 파일을 만들고, 다음 스크립트를 추가한 후 파일을 *PythonApplication1.py*로 저장합니다. `<Your Host Name>` 및 `<Your Access Key>`를 Azure Cache for Redis 인스턴스의 값으로 바꿉니다. 호스트 이름은 *\<DNS name>.redis.cache.windows.net* 형식입니다.
 
 ```python
 import redis

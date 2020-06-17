@@ -1,20 +1,6 @@
 - name: 보안 개발 설명서
   href: index.yml
-- name: 샘플 앱
-  expanded: true
-  items:
-    - name: 새로운 보안 개발
-      items:
-        - name: Linux 컨테이너의 웹앱
-          href: secure-web-app.md
-        - name: Azure Active Directory를 사용하는 웹앱
-          href: secure-aad-app.md
-    - name: 산업 규정 준수 솔루션
-      items:
-        - name: 지불 카드 산업
-          href: secure-pci-web-app.md
 - name: 개념
-  expanded: true
   items:
     - name: 모범 사례
       items:
@@ -26,8 +12,8 @@
           href: secure-develop.md
         - name: 보안 앱 배포
           href: secure-deploy.md
-- name: 리소스
   expanded: true
+- name: 리소스
   items:
     - name: Microsoft 보안 코드 분석
       items:
@@ -95,3 +81,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: 세션 관리
               href: threat-modeling-tool-session-management.md
+  expanded: true

@@ -155,7 +155,7 @@
     - name: 이미지 변환 시작
       href: init-image-transformation.md
     - name: 이미지 디렉터리 분할
-      href: split-to-image-directory.md
+      href: split-image-directory.md
     - name: DenseNet
       href: densenet.md
     - name: ResNet

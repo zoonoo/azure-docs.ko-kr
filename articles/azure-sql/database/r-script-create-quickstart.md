@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6645b50a6cd2d2145f9510ca2e2de0ee702fc3ad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b78b696b42431c744c30c91a730fdc7ec8c1032
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053071"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324609"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "84053071"
 
 R 스크립트를 실행하려면 이를 시스템 저장 프로시저 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)에 대한 인수로 전달합니다.
 
-다음 단계에서는 SQL 데이터베이스에서 이 예제 R 스크립트를 실행합니다.
+다음 단계에서는 데이터베이스에서 이 예제 R 스크립트를 실행합니다.
 
 ```r
 a <- 1
@@ -51,9 +51,9 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. **SQL Server Management Studio**를 열고 SQL 데이터베이스에 연결합니다.
+1. **SQL Server Management Studio**를 열고 데이터베이스에 연결합니다.
 
-   연결에 도움이 필요한 경우 [빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리](connect-query-ssms.md)를 참조하세요.
+   연결에 도움이 필요한 경우 [빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL Database의 데이터베이스 연결 및 쿼리](connect-query-ssms.md)를 참조하세요.
 
 1. 전체 R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 전달합니다.
 
@@ -70,7 +70,7 @@ print(c(c, d))
     '
     ```
 
-   오류가 발생하면 SQL 데이터베이스에 Machine Learning Services(R 포함) 공개 미리 보기를 사용하도록 설정되지 않은 것입니다. 위의 [필수 조건](#prerequisites)을 참조하세요.
+   오류가 발생하면 데이터베이스에 Machine Learning Services(R 포함)의 공개 미리 보기를 사용하도록 설정되지 않은 것입니다. 위의 [필수 조건](#prerequisites)을 참조하세요.
 
    > [!NOTE]
    > 관리자는 외부 코드를 자동으로 실행할 수 있습니다. 다음 명령을 사용하여 다른 사용자에게 권한을 부여할 수 있습니다.
@@ -196,7 +196,7 @@ GO
 
 ## <a name="check-r-version"></a>R 버전 확인
 
-SQL 데이터베이스에 설치된 R의 버전을 확인하려면 다음 스크립트를 실행합니다.
+데이터베이스에 설치된 R의 버전을 확인하려면 다음 스크립트를 실행합니다.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -229,7 +229,7 @@ nickname       Someone to Lean On
 
 ## <a name="list-r-packages"></a>R 패키지 나열
 
-Microsoft는 SQL 데이터베이스에 Machine Learning Services가 미리 설치된 다양한 R 패키지를 제공합니다.
+Microsoft는 데이터베이스에 Machine Learning Services가 미리 설치된 다양한 R 패키지를 제공합니다.
 
 버전, 종속 항목, 라이선스 및 라이브러리 경로 정보를 포함하여 설치된 R 패키지 목록을 보려면 다음 스크립트를 실행합니다.
 

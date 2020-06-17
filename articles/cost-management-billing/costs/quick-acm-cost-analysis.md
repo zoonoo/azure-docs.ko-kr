@@ -3,17 +3,17 @@ title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 06/08/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874503"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560575"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -27,7 +27,7 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 - 비용 보기 사용자 지정
 - 비용 분석 데이터 다운로드
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
@@ -107,8 +107,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 일반적으로 8-12시간 이내에 사용된 리소스에 대한 데이터 또는 알림을 볼 수 있습니다.
 
-
-비용을 세분화하고 상위 기여자를 식별하기 위한 **그룹화 방법** 공용 속성이 있습니다. 예를 들어 리소스 태그별로 그룹화하려면 그룹화하려는 태그 키를 선택합니다. 비용은 해당 태그가 적용되지 않는 리소스에 대한 추가 세그먼트를 포함하여 각 태그 값에 따라 세분화됩니다.
+비용을 세분화하고 상위 기여자를 식별하기 위한 **그룹화 방법** 공용 속성이 있습니다. 예를 들어 리소스 태그별로 그룹화하려면 그룹화하려는 태그 키를 선택합니다. 비용은 해당 태그가 적용되지 않는 리소스에 대한 추가 세그먼트를 포함하여 각 태그 값에 따라 세분화됩니다.  그룹화 및 필터링 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter)을 참조하세요.
 
 대부분의 [Azure 리소스는 태그 지정을 지원합니다](../../azure-resource-manager/management/tag-support.md). 그렇지만 일부 태그는 Cost Management 및 청구에 사용할 수 없습니다. 또한 리소스 그룹 태그는 지원되지 않습니다. 태그에 대한 지원은 리소스에 적용된 *후*에 보고된 사용량에 적용됩니다. 비용 롤업에는 태그가 소급 적용되지 않습니다.
 
@@ -142,42 +141,6 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 ![테이블 보기의 현재 보기에 대한 데이터](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-
-## <a name="understanding-grouping-and-filtering-options"></a>그룹화 및 필터링 옵션에 대한 이해
-
-비용 분석에는 많은 그룹화 및 필터링 옵션이 있습니다. 그룹화 및 필터링 옵션에 대한 비디오를 시청하려면 [차원 및 태그별 Cost Management 보고](https://www.youtube.com/watch?v=2Vx7V17zbmk) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
-
->[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
-
-다음 표에는 가장 일반적인 그룹화 및 필터링 옵션과 함께 이러한 옵션을 사용해야 하는 경우가 나와 있습니다.
-
-| 속성 | 사용 시기 | 메모 |
-| --- | --- | --- |
-| **가용성 영역** | AWS 비용을 가용성 영역별로 분류합니다. | AWS 범위 및 관리 그룹에만 적용됩니다. Azure 데이터는 가용성 영역을 포함하지 않으며, **해당 없음**으로 표시됩니다. |
-| **청구 기간** | PAYG 비용을 청구서가 발부되었거나 발부될 월별로 분류합니다. | 청구서가 발부된 PAYG 요금을 정확하게 표현하려면 **청구 기간**을 사용합니다. 사용자 지정 날짜 범위를 기준으로 필터링하는 경우 청구 기간 전후의 2일을 추가로 포함시킵니다. 정확한 청구 기간 날짜로 제한하면 청구서와 일치하지 않습니다. 청구 기간의 모든 청구서에 대한 비용을 표시합니다. **청구서 ID**를 사용하여 특정 청구서로 필터링합니다. EA 및 MCA는 월별로 청구되므로 PAYG 구독에만 적용됩니다. EA/MCA 계정은 동일한 목표를 달성하기 위해 날짜 선택 또는 월간 세분성에서 달력 월을 사용할 수 있습니다. |
-| **요금 유형** | 사용량, 구매, 환불 및 사용되지 않은 예약 비용을 분류합니다. | 예약 구매 및 환불은 실제 비용을 사용하는 경우에만 사용할 수 있습니다(분할 상환 비용을 사용하는 경우에는 사용할 수 없음). 사용되지 않은 예약 비용은 분할 상환 비용을 확인하는 경우에만 사용할 수 있습니다. |
-| **부서** | 비용을 EA 부서별로 분류합니다. | EA 및 관리 그룹에 대해서만 사용할 수 있습니다. PAYG 구독은 부서를 사용하지 않으며, **해당 없음** 또는 **할당되지 않음**으로 표시됩니다. |
-| **등록 계정** | EA 계정 소유자별 비용을 분류합니다. | EA 청구 계정, 부서 및 관리 그룹에 대해서만 사용할 수 있습니다. PAYG 구독은 EA 등록 계정을 사용하지 않으며, **해당 없음** 또는  **할당되지 않음**으로 표시됩니다. |
-| **빈도** | 사용량 기반, 일회성 및 반복 비용을 분류합니다. | |
-| **청구서 ID** | 비용을 청구된 청구서별로 분류합니다. | 청구되지 않은 요금은 아직 청구서 ID를 사용하지 않고, EA 비용은 청구서 세부 정보를 포함하지 않으며 **해당 없음**으로 표시됩니다.  |
-| **미터** | 비용을 사용량 미터별로 분류합니다. | 구매 및 Marketplace 사용량은 **해당 없음**으로 표시됩니다. **요금 유형**을 참조하여 구매를 식별하고, **게시자 유형**을 참조하여 Marketplace 요금을 식별합니다. |
-| **연산** | AWS 비용을 작업별로 분류합니다. | AWS 범위 및 관리 그룹에만 적용됩니다. Azure 데이터는 작업을 포함하지 않으며, **해당 없음**으로 표시됩니다. 대신 **미터**를 사용하세요. |
-| **가격 책정 모델** | 비용을 요청 시, 예약 또는 스폿 사용량별로 분류합니다. | 구매는 **OnDemand**로 표시됩니다. **해당 없음**이 표시되면 **예약**을 기준으로 그룹화하여 예약 사용량 또는 요청 시 사용량인지 확인하고 **요금 유형**을 통해 구매를 식별합니다.
-| **공급자** | AWS 및 Azure별 비용을 분류합니다. | 관리 그룹에 대해서만 사용할 수 있습니다. |
-| **게시자 유형** | AWS, Azure 및 Marketplace 비용을 분류합니다. |  |
-| **예약** | 예약별 비용을 분류합니다. | 예약과 연결되지 않은 사용량 또는 구매는 **해당 없음**으로 표시됩니다. **게시자 유형**을 기준으로 그룹화하여 다른 Azure, AWS 또는 Marketplace 구매를 식별합니다. |
-| **리소스** | 리소스별 비용을 분류합니다. | 구매는 EA/PAYG 청구 계정 또는 MCA 청구 프로필 수준에서 적용되고 특정 리소스와 연결되지 않으므로 **해당 없음**으로 표시됩니다. **게시자 유형**을 기준으로 그룹화하여 다른 Azure, AWS 또는 Marketplace 구매를 식별합니다. |
-| **리소스 그룹** | 리소스 그룹별 비용을 분류합니다. | 구매, 구독과 연결되지 않은 테넌트 리소스, 리소스 그룹에 배포되지 않은 구독 리소스 및 클래식 리소스는 리소스 그룹을 사용하지 않으며, **기타**, **클래식 서비스**, **$system** 또는 **해당 없음**으로 표시됩니다. |
-| **리소스 종류** | 리소스 종류별 비용을 분류합니다. | 구매 및 클래식 서비스는 Azure Resource Manager 리소스 종류를 사용하지 않으며, **기타**, **클래식 서비스** 또는 **해당 없음**으로 표시됩니다. |
-| **리소스 위치** | 비용을 위치 또는 지역별로 분류합니다. | 구매 및 Marketplace 사용량은 **할당되지 않음**, **알 수 없음**, **매핑되지 않음** 또는 **해당 없음**으로 표시될 수 있습니다. |
-| **서비스 이름** 또는 **미터 범주** | Azure 서비스별 비용을 분류합니다. | 구매 및 Marketplace 사용량은 **해당 없음** 또는 **할당되지 않음**으로 표시됩니다. |
-| **서비스 계층** 또는 **미터 하위 범주** | Azure 사용량 미터 하위 범주별 비용을 분류합니다. | 구매 및 Marketplace 사용량은 **해당 없음** 또는 **할당되지 않음**으로 표시됩니다. |
-| **구독** | 비용을 Azure 구독 및 AWS 연결된 계정별로 분류합니다. | 구매 및 테넌트 리소스는 **해당 없음**으로 표시될 수 있습니다. |
-| **Tag** | 특정 태그 키에 대한 태그 값별 비용을 분류합니다. | 태그는 구매, 구독과 연결되지 않은 테넌트 리소스, 리소스 그룹에 배포되지 않은 구독 리소스 또는 클래식 리소스에 사용할 수 없습니다. 일부 서비스는 사용량 데이터에 태그를 포함하지 않습니다. [각 리소스 종류에 대한 태그 지원](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support)에 대해 자세히 알아보세요. |
-
-용어에 대한 자세한 내용은 [Azure 사용량 및 요금 파일에 사용되는 용어 이해](../understand/understand-usage.md)를 참조하세요.
-
-
 ## <a name="saving-and-sharing-customized-views"></a>사용자 지정 보기 저장 및 공유
 
 비용 분석을 Azure Portal 대시보드에 고정시키거나 비용 분석에 대한 링크를 복사하여 사용자 지정 보기를 저장하고 다른 사용자와 공유할 수 있습니다.
@@ -192,54 +155,12 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 지원되는 각 범위의 비용에 대한 액세스 권한을 부여하는 방법을 자세히 알아보려면 [범위 이해 및 작업](understand-work-scopes.md)을 검토하세요.
 
-
-
-## <a name="automation-and-offline-analysis"></a>자동화 및 오프라인 분석
+## <a name="download-usage-data"></a>사용량 데이터 다운로드
 
 추가 분석을 위해 데이터를 다운로드하거나, 사용자 고유의 데이터와 병합하거나, 사용자 고유의 시스템에 통합해야 하는 경우가 있습니다. Cost Management는 몇 가지 다른 옵션을 제공합니다. 처음에 비용 분석 내에서 제공되는 것과 같은 일시적인 개괄적 요약이 필요한 경우 필요한 보기를 작성합니다. 그런 다음, **내보내기**를 선택하고 **CSV로 데이터 다운로드** 또는 **Excel에 데이터 다운로드**를 선택하여 다운로드합니다. Excel 다운로드는 범위, 쿼리 구성, 총계 및 생성 날짜와 같이 다운로드를 생성하는 데 사용한 보기에 대한 추가 컨텍스트를 제공합니다.
 
 집계되지 않은 전체 데이터 세트가 필요한 경우 청구 계정에서 해당 데이터 세트를 다운로드합니다. 그런 다음, 포털의 왼쪽 탐색 창에 있는 서비스 목록에서 **비용 관리 + 청구**로 이동합니다. 청구 계정(해당하는 경우)을 선택합니다. **사용량 + 요금**으로 이동한 후 원하는 청구 기간에 대해 **다운로드** 아이콘을 선택합니다.
 
-비슷한 방법을 사용하여 비용 데이터 수신을 자동화합니다. 동적 필터링, 그룹화 및 집계를 통한 더 풍부한 분석을 위해 [쿼리 API](/rest/api/cost-management/query)를 사용하거나, 집계되지 않은 전체 데이터 세트에 대해 [UsageDetails API](/rest/api/consumption/usageDetails)를 사용합니다. 이러한 API의 GA(일반 공급) 버전은 2019-01-01입니다. 이러한 API 내에서 예약 및 Marketplace 구매의 미리 보기에 액세스하려면 **2019-04-01-preview**를 사용합니다.
-
-예를 들어, 다음은 요금 유형(사용량, 구매 또는 환불), 게시자 유형(Azure 또는 Marketplace), 리소스 그룹(구매의 경우 비어 있음) 및 예약(해당되지 않는 경우 비어 있음)별로 분류된 분할 상환 비용에 대한 집계 보기입니다.
-
-```
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
-Content-Type: application/json
-
-{
-  "type": "AmortizedCost",
-  "timeframe": "Custom",
-  "timePeriod": { "from": "2019-04-01", "to": "2019-04-30" },
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": { "name": "PreTaxCost", "function": "Sum" }
-    },
-    "grouping": [
-      { "type": "dimension", "name": "ChargeType" },
-      { "type": "dimension", "name": "PublisherType" },
-      { "type": "dimension", "name": "Frequency" },
-      { "type": "dimension", "name": "ResourceGroup" },
-      { "type": "dimension", "name": "SubscriptionName" },
-      { "type": "dimension", "name": "SubscriptionId" },
-      { "type": "dimension", "name": "ReservationName" },
-      { "type": "dimension", "name": "ReservationId" },
-    ]
-  },
-}
-```
-
-그리고 집계가 필요하지 않고 원시 데이터 세트 전체를 선호하는 경우 다음과 같습니다.
-
-```
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
-
-구매가 발생한 대로 표시하기 위해 실제 비용이 필요한 경우 **type**/**metric**을 **ActualCost**로 변경합니다. 이러한 API에 대한 자세한 내용은 [쿼리](/rest/api/cost-management/query) 및 [UsageDetails](/rest/api/consumption/usageDetails) API 설명서를 참조하세요. 게시된 문서는 GA 버전에 대한 것입니다. 그렇지만 새 type/metric 특성 및 변경된 속성 이름을 제외하고는 *2019-04-01-preview* API 버전에서 모두 동일하게 작동합니다. (아래의 속성 이름에 대해 자세히 읽어보세요.)
-
-Cost Management API는 리소스 위의 모든 범주, Azure RBAC 액세스를 통한 리소스 그룹, 구독 및 관리 그룹, EA 포털 액세스를 통한 EA 청구 계정(등록), 부서 및 등록 계정 등에 작동합니다. 범위 ID를 결정하는 방법 또는 액세스를 관리하는 방법을 포함하여 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)에서 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

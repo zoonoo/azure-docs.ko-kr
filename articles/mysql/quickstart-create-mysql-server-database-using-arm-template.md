@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9f38ba439a5f2facbc1c80493b802b5205a54691
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800207"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323594"
 ---
-# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
 Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. 이 빠른 시작에서는 ARM 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만듭니다. Azure Portal, Azure CLI 또는 Azure PowerShell에서 서버를 만들 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 

@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184336"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488123"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -57,6 +57,9 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
    > - Azure Security Center에서 만든 기본 작업 영역은 목록에 표시되지 않습니다. 기본 작업 영역에는 Azure Sentinel을 설치할 수 없습니다.
    > - Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 모든 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. Azure Sentinel에서 생성된 데이터(예: 이러한 작업 영역이 원본으로 사용되는 일부 고객 데이터를 포함할 수 있는 인시던트, 책갈피 및 경고 규칙)는 유럽(유럽에 있는 작업 영역용), 오스트레일리아(오스트레일리아에 있는 작업 영역용) 또는 미국 동부(다른 지역에 있는 작업 영역용)에 저장됩니다.
 
+   >[!IMPORTANT]
+   > - 작업 영역에서 Azure Sentinel을 사용하도록 설정한 후에는 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원 되지 않습니다. 작업 영역을 이동해야 하는 경우 고객 지원팀에게 문의하세요.
+
 1. **Azure Sentinel 추가**를 선택합니다.
   
 
@@ -65,7 +68,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentinel에 전달하여 서비스 및 앱에 대한 연결을 만듭니다. 컴퓨터 및 가상 머신의 경우 로그를 수집하고 Azure Sentinel에 전달하는 Azure Sentinel 에이전트를 설치할 수 있습니다. 방화벽과 프록시의 경우 Azure Sentinel은 Linux Syslog 서버를 활용합니다. 에이전트가 설치되고 에이전트가 로그 파일을 수집하여 Azure Sentinel에 전달합니다. 
  
 1. **데이터 커넥터**를 클릭합니다.
-2. 연결할 수 있는 각 데이터 원본에 대한 타일이 있습니다.<br>
+1. 연결할 수 있는 각 데이터 원본에 대한 타일이 있습니다.<br>
 예를 들어 **Azure Active Directory**를 클릭합니다. 이 데이터 원본을 연결하는 경우 Azure AD의 모든 로그를 Azure Sentinel로 스트리밍합니다. 가져오려는 로그 유형(로그인 로그 및/또는 감사 로그)을 선택할 수 있습니다. <br>
 아래에서 Azure Sentinel은 각 커넥터에 대해 설치해야 하는 통합 문서에 대한 권장 사항을 제공하므로 데이터에 대해 흥미로운 인사이트를 즉시 얻을 수 있습니다. <br> 자세한 내용은 설치 지침을 따르거나 [관련 연결 가이드](connect-data-sources.md)를 참조하세요. 데이터 커넥터에 대한 내용은 [Microsoft 서비스 연결](connect-data-sources.md)을 참조하세요.
 

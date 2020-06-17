@@ -6,14 +6,14 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605458"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324042"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
 
@@ -23,7 +23,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독 또는 Azure Cosmos DB 체험 계정
 
@@ -35,9 +35,9 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/)에서 나온 것입니다.
+이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 템플릿에 정의된 세 가지 Azure 리소스는 다음과 같습니다.
 
@@ -53,7 +53,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 이 템플릿은 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
@@ -68,6 +68,9 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
     * **위치**: Azure Cosmos 계정을 만들려는 위치를 입력합니다. Azure Cosmos 계정은 리소스 그룹과 동일한 위치에 있을 수 있습니다.
     * **주 지역**: Azure Cosmos 계정의 주 복제본 지역입니다.
     * **보조 지역**: Azure Cosmos 계정의 보조 복제본 지역입니다.
+    * **기본 일관성 수준**: Azure Cosmos 계정의 기본 일관성 수준입니다.
+    * **최대 부실 접두사**: 최대 부실 요청. BoundedStaleness에 필요합니다.
+    * **초당 최대 간격**: 최대 지연 시간입니다. BoundedStaleness에 필요합니다.
     * **데이터베이스 이름**: Azure Cosmos 데이터베이스의 이름입니다.
     * **컨테이너 이름**: Azure Cosmos 컨테이너의 이름입니다.
     * **처리량**:  컨테이너의 처리량입니다. 최소 처리량 값은 400RU/s입니다.
@@ -106,7 +109,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 ## <a name="clean-up-resources"></a>리소스 정리
 
 후속 빠른 시작 및 자습서를 계속 진행하려는 경우 이러한 리소스를 그대로 유지하는 것이 좋습니다.
-더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 해당 Azure Cosmos 계정 및 관련 리소스가 삭제됩니다. Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하려면:
+더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 해당 Azure Cosmos 계정 및 관련 리소스가 삭제됩니다. Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하려면 다음을 수행합니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

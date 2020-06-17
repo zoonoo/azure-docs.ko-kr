@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73718189"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610820"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
@@ -38,7 +38,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 > * 이벤트 허브로 데이터를 보내는 앱을 실행합니다.
 > * 데이터 웨어하우스에서 마이그레이션된 데이터를 봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -79,12 +79,11 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 ### <a name="use-azure-cli"></a>Azure CLI 사용
 
 1. 다음 CLI 명령을 실행하여 Azure 리소스 그룹을 만듭니다. 
-    1. 다음 명령을 복사하여 Cloud Shell 창에 붙여넣습니다.
+    1. 다음 명령을 복사하여 Cloud Shell 창에 붙여넣습니다. 원하는 경우 리소스 그룹 이름 및 위치를 변경합니다.
 
         ```azurecli
-        az group create -l eastus -n <Name for the resource group>
+        az group create -l eastus -n rgDataMigration
         ```
-    1. **리소스 그룹**의 이름을 지정합니다.
     2. **Enter**키를 누릅니다. 
 
         다음은 예제입니다.
@@ -107,7 +106,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 
         ```azurecli
         az group deployment create \
-            --resource-group rgDataMigrationSample \
+            --resource-group rgDataMigration \
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
@@ -132,7 +131,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
     1. 다음 명령을 복사하여 Cloud Shell 창에 붙여넣습니다.
 
         ```powershell
-        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location eastus
         ```
     2. **리소스 그룹**의 이름을 지정합니다.
     3. Enter 키를 누릅니다. 
@@ -170,11 +169,11 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 ### <a name="create-a-table-in-sql-data-warehouse"></a>SQL Data Warehouse에서 테이블 만들기
 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 스크립트를 실행하여 데이터 웨어하우스에 테이블을 만듭니다. 스크립트를 실행하려면 Visual Studio 또는 포털의 쿼리 편집기를 사용합니다. 다음 단계는 쿼리 편집기 사용 방법을 보여줍니다. 
 
-1. 리소스 그룹의 리소스 목록에서 해당 SQL 데이터 웨어하우스를 선택합니다. 
+1. 리소스 그룹의 리소스 목록에서 **시냅스 SQL 풀(데이터 웨어하우스)** 를 선택합니다. 
 2. SQL 데이터 웨어하우스 페이지의 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. 
 
     ![SQL 데이터 웨어하우스 페이지](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. SQL 서버의 **사용자** 이름 및 **암호**를 입력하고, **확인**을 선택합니다. 
+2. SQL 서버의 **사용자** 이름 및 **암호**를 입력하고, **확인**을 선택합니다. SQL server에 성공적으로 로그인 하려면 방화벽에 대한 클라이언트 IP 주소가 필요할 수 있습니다. 
 
     ![SQL 서버 인증](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. 쿼리 창에서 다음 SQL 스크립트를 복사하여 실행합니다. 
@@ -193,6 +192,17 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
     ![SQL 쿼리 실행](media/event-grid-event-hubs-integration/run-sql-query.png)
 5. 자습서가 끝나면 데이터가 생성되었는지는 확인할 수 있도록 이 탭 또는 창을 계속 열어 둡니다. 
 
+### <a name="update-the-function-runtime-version"></a>함수 런타임 버전 업데이트
+
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+2. 함수 앱이 있는 리소스 그룹을 선택합니다. 
+3. 리소스 그룹의 리소스 목록에서 **App Service** 형식의 함수 앱을 선택합니다.
+4. 왼쪽 메뉴의 **설정**에서 **구성**을 선택합니다. 
+5. 오른쪽 창에서 **함수 런타임 설정** 탭으로 전환합니다. 
+5. **런타임 버전**을 **~3**으로 업데이트합니다. 
+
+    ![함수 런타임 버전 업데이트](media/event-grid-event-hubs-integration/function-runtime-version.png)
+    
 
 ## <a name="publish-the-azure-functions-app"></a>Azure Functions 앱 게시
 
@@ -204,13 +214,20 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 4. 다음 화면이 보이면 **시작**을 선택합니다. 
 
    ![게시 시작 단추](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. **게시 대상 선택** 페이지에서 **기존 항목 선택** 옵션을 선택하고 **프로필 만들기**를 선택합니다. 
+5. **게시** 대화 상자에서 **대상**에 대해 **Azure**를 선택하고 **다음**을 선택합니다. 
 
-   ![게시 대상 선택](media/event-grid-event-hubs-integration/publish-select-existing.png)
-6. App Service 페이지에서 **Azure 구독**을 선택하고, 리소스 그룹의 **함수 앱**을 선택하고, **확인**을 선택합니다. 
+   ![게시 시작 단추](media/event-grid-event-hubs-integration/publish-select-azure.png)
+6. **Azure 함수 앱(Windows)** 를 선택하고 **다음**을 선택합니다. 
 
-   ![App Service 페이지](media/event-grid-event-hubs-integration/publish-app-service.png) 
-1. Visual Studio에서 프로필이 구성되었으면 **게시**를 선택합니다.
+   ![Azure 함수 앱 - Windows 선택](media/event-grid-event-hubs-integration/select-azure-function-windows.png)
+7. **함수 인스턴스** 탭에서 Azure 구독을 선택하고 리소스 그룹을 확장한 다음 함수 앱을 선택하고 **마침**을 선택합니다. 아직 수행하지 않은 경우 Azure 계정에 로그인을 합니다. 
+
+   ![함수 앱 선택](media/event-grid-event-hubs-integration/publish-select-function-app.png)
+8. **서비스 종속성** 섹션에서 **구성**을 선택합니다.
+9. **종속성 구성** 페이지에서 이전에 만든 스토리지 계정을 선택한 후 **다음**을 선택합니다. 
+10. 연결 문자열 이름 및 값에 대한 설정을 유지하고 **다음**을 선택합니다.
+11. **비밀 저장소** 옵션을 선택 취소하고 **마침**을 선택합니다.  
+8. Visual Studio에서 프로필이 구성되었으면 **게시**를 선택합니다.
 
    ![게시 선택](media/event-grid-event-hubs-integration/select-publish.png)
 
@@ -224,21 +241,24 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 4. 목록에서 해당 리소스 그룹을 선택합니다.
 
     ![리소스 그룹 선택](media/event-grid-event-hubs-integration/select-resource-group.png)
-4. 목록에서 App Service 플랜을 선택합니다. 
+4. 리소스 그룹의 리소스 목록에서(App Service가 아니라) App Service 계획을 선택합니다. 
 5. App Service 플랜 페이지의 왼쪽 메뉴에서 **앱**을 선택하고 함수 앱을 선택합니다. 
 
     ![함수 앱 선택](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
 6. 함수 앱을 확장하고, 함수를 확장하고, 함수를 선택합니다. 
+7. 도구 모음에서 **Event Grid 구독 추가**를 선택합니다. 
 
     ![Azure 함수 선택](media/event-grid-event-hubs-integration/select-function-add-button.png)
-7. 도구 모음에서 **Event Grid 구독 추가**를 선택합니다. 
 8. **Event Grid 구독 만들기** 페이지에서 다음 작업을 수행합니다. 
-    1. **토픽 세부 정보** 섹션에서 다음 작업을 수행합니다.
-        1. Azure 구독을 선택합니다.
+    1. **이벤트 구독 세부 정보** 페이지에서 구독 이름을 입력하고(예: captureEventSub) **만들기**를 선택합니다. 
+    2. **토픽 세부 정보** 섹션에서 다음 작업을 수행합니다.
+        1. **항목 형식**에 대한 **Event Hubs 네임 스페이스**를 선택합니다. 
+        2. Azure 구독을 선택합니다.
         2. Azure 리소스 그룹을 선택합니다.
         3. Event Hubs 네임스페이스를 선택합니다.
-    2. **이벤트 구독 세부 정보** 페이지에서 구독 이름을 입력하고(예: captureEventSub) **만들기**를 선택합니다. 
-
+    3. **이벤트 유형** 섹션에서 **이벤트 유형에 대한 필터**에 대해 **캡처 파일 생성**이 선택되어 있는지 확인합니다. 
+    4. **엔드포인트 세부 정보** 섹션에서 **엔드포인트 형식**이 **Azure 함수**로 설정되어 있는지 확인하고 **엔드포인트**가 Azure 함수로 설정되어 있는지 확인합니다. 
+    
         ![Event Grid 구독 만들기](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성

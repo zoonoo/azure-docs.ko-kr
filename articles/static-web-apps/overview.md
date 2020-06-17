@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: d416044599535e8acd363d09099e8667bba59a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599068"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488922"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
 
@@ -30,7 +30,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 
 ## <a name="key-features"></a>주요 기능
 
-- HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **체험 웹 호스팅**입니다.
+- HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **웹 호스팅**입니다.
 - Azure Functions에서 제공하는 **통합 API**.
 - 리포지토리 변경 시 빌드 및 배포가 트리거되는 **자사 GitHub 통합**.
 - **전역적으로 분산된** 정적 콘텐츠로, 사용자에게 더 가까운 콘텐츠를 제공합니다.

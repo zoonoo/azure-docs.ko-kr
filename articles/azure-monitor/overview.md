@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799991"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457153"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -32,7 +32,7 @@ Azure Monitor에서 수행할 수 있는 작업에 대한 몇 가지 예는 다�
 
 ## <a name="overview"></a>개요
 
-다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](platform/data-platform.md)를 채우는 [모니터링 데이터의 원본](platform/data-sources.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
+다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor에서 사용하는 두 가지 데이터 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](platform/data-platform.md)를 채우는 [모니터링 데이터의 원본](platform/data-sources.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
 
 ![Azure Monitor 개요](media/overview/overview.png)
 

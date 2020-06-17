@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890514"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322824"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
 이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
@@ -92,7 +92,7 @@ ms.locfileid: "82890514"
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -110,7 +110,7 @@ ms.locfileid: "82890514"
 > [!div renderon="docs"]
 >
 > 위치:
-> - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션에 대한 **애플리케이션(클라이언트) ID**입니다.
+> - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)를 참조하세요.
 > - *\<Enter_the_Tenant_info_here>* 는 다음 옵션 중 하나로 설정됩니다.
 >    - 애플리케이션이 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
@@ -130,8 +130,8 @@ ms.locfileid: "82890514"
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 다음은 그 예입니다. 
+상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.

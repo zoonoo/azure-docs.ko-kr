@@ -5,14 +5,14 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722561"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457068"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 
@@ -20,7 +20,7 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 이 문서에서는 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 마지막으로 디바이스가 IoT 허브에 추가될 때마다 Azure 논리 앱에서 알림 이메일을 보내도록 설정합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성화된 Azure 구독. 구독이 없는 경우 [체험 Azure 계정을 만들](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
@@ -175,19 +175,26 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 4. 다음 값을 가진 이벤트 구독을 만듭니다. 
 
-   * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
+    1. **이벤트 구독 세부 정보** 섹션에서 다음 작업을 수행합니다.
+        1. 이벤트 구독의 **이름**을 입력합니다. 
+        2. **이벤트 그리드**에 대해 **이벤트 그리드 스키마**를 선택합니다. 
+   2. **토픽 세부 정보** 섹션에서 다음 작업을 수행합니다.
+       1. **토픽 유형**이 **IoT Hub**로 설정되어 있는지 확인합니다. 
+       2. IoT hub 이름이 **원본 리소스** 필드의 값으로 설정되어 있는지 확인합니다. 
+       3. 생성될 **시스템 토픽**의 이름을 입력합니다. 시스템 항목에 대한 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조하십시오.
+   3. **이벤트 유형** 섹션에서 다음 작업을 수행합니다. 
+        1. **이벤트 유형**으로 필터링에서 **생성된 디바이스**를 제외한 모든 선택을 취소합니다.
 
-   * **이벤트 유형**: **이벤트 유형으로 필터링**에서 **디바이스를 만들었습니다**를 제외한 모든 선택을 취소합니다.
+           ![구독 이벤트 유형](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. **엔드포인트 세부 정보** 섹션에서 다음 작업을 수행합니다. 
+       1. **엔드포인트 유형**을 **webhook**으로 선택합니다.
+       2. **엔드포인트 선택하기**를 클릭하고 논리 앱에서 복사한 URL을 붙여넣은 다음 선택 사항을 확인합니다.
 
-       ![구독 이벤트 유형](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **엔드포인트 정보**: 엔드포인트 유형으로 **웹후크**를 선택하고, *엔드포인트 선택*을 선택하고,논리 앱에서 복사한 URL을 붙여넣고, 선택 사항을 확인합니다.
+         완료되면 창이 다음 예와 같이 표시됩니다. 
 
-     ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   완료되면 창이 다음 예와 같이 표시됩니다. 
-
-    ![샘플 이벤트 구독 양식](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![샘플 이벤트 구독 양식](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. 여기에 이벤트 구독을 저장하고 IoT 허브에서 생성된 모든 디바이스에 대한 알림을 받을 수 있습니다. 이 자습서에서는 선택적 필드를 사용하여 특정 디바이스를 필터링해 보겠습니다. 창의 위쪽에서 **필터**를 선택합니다.
 

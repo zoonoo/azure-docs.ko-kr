@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448732"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434581"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Custom Search API란?
 
@@ -29,7 +29,7 @@ Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 
 |[사용자 지정 이미지 검색 환경](get-images-from-instance.md)     | 사용자가 사용자 지정 검색 인스턴스에 지정된 도메인 및 웹 사이트에서 이미지를 검색할 수 있습니다.        |        
 |[사용자 지정 비디오 검색 환경](get-videos-from-instance.md)     | 사용자가 사용자 지정 검색 인스턴스에 지정된 도메인 및 사이트에서 비디오를 검색할 수 있습니다.        |    
 |[사용자 지정 검색 인스턴스 공유](share-your-custom-search.md)     | 팀 멤버와 공유하여 검색 인스턴스를 공동으로 편집하고 테스트합니다.        | 
-|[애플리케이션 및 웹 사이트에 대한 UI 구성](hosted-ui.md)     | 팀 멤버와 공유하여 검색 인스턴스를 공동으로 편집하고 테스트합니다.        | 
+|[애플리케이션 및 웹 사이트에 대한 UI 구성](hosted-ui.md)     | JavaScript 코드 조각으로 웹 페이지 및 웹 애플리케이션에 쉽게 통합할 수 있는 호스트된 UI를 제공합니다.        | 
 ## <a name="workflow"></a>워크플로
 
 [Bing Custom Search 포털](https://customsearch.ai)을 사용하여 사용자 지정된 검색 인스턴스를 만들 수 있습니다. 포털을 사용하면 Bing에서 검색 또는 검색하지 않으려는 도메인, 웹 사이트 및 웹 페이지를 지정하는 사용자 지정 검색 인스턴스를 만들 수 있습니다. 또한 포털을 사용하여 검색 환경을 미리 보고 API가 제공하는 검색 순위를 조정하며 필요할 경우 검색 가능한 사용자 인터페이스를 구성하여 웹 사이트 및 애플리케이션에서 렌더링할 수 있습니다.

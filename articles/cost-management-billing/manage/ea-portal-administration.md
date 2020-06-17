@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a2430e29acb83945e9893ca4c6e2e0110ef6e007
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298162"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456558"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -76,7 +76,7 @@ Azure EA Portal에서 Azure EA 비용 및 사용량을 관리할 수 있습니�
 
 Azure EA 계정은 Azure EA Portal의 조직 구성 단위입니다. 구독을 관리하는 데 사용되며, 보고하는 데에도 사용됩니다. Azure 서비스에 액세스하여 사용하려면 계정을 만들거나 다른 사람이 대신 계정을 만들어주어야 합니다.
 
-Azure 계정에 대한 자세한 내용은 계정 추가를 참조하세요.
+Azure 계정에 대한 자세한 내용은 [계정 추가](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account)를 참조하세요.
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise 개발/테스트 제안
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369464"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488769"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -25,15 +25,17 @@ ms.locfileid: "80369464"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-포털의 **데이터 가져오기** 마법사 및 **검색 탐색기** 도구를 사용하여 신속하게 개념을 파악하고, 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성합니다.
+**데이터 가져오기** 마법사는 몇 분 내에 흥미로운 쿼리를 작성할 수 있도록 검색 인덱스를 만드는 과정을 안내하는 Azure Portal 도구입니다. 
 
-도구가 너무 제한적인 경우 [.NET에서 Azure Cognitive Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman](search-get-started-postman.md)을 사용할 수 있습니다. 
+마법사에는 이미지 파일과 구조화되지 않은 텍스트에서 텍스트와 구조를 추출할 수 있도록 AI 보강 페이지가 포함되어 있습니다. AI를 사용하는 콘텐츠 처리에는 OCR(광학 인식), 키 구 및 엔터티 추출 및 이미지 분석이 포함됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="prerequisites"></a>사전 요구 사항
+시작하기 전에 다음이 있어야 합니다.
 
-[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+
++ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 ### <a name="check-for-space"></a>공간 확인
 
@@ -51,15 +53,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1단계 - 데이터 가져오기 마법사 시작 및 데이터 원본 만들기
 
-1. Azure Cognitive Search 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
+1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
+
+1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
 
    ![데이터 가져오기 명령](media/search-get-started-portal/import-data-cmd.png)
 
-2. 마법사에서 **데이터에 연결** > **샘플** > **hotels-sample**을 클릭합니다. 이 데이터 원본은 기본 제공됩니다. 사용자 고유의 데이터 원본을 만든 경우 이름, 형식 및 연결 정보를 지정해야 합니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
+1. 마법사에서 **데이터에 연결** > **샘플** > **hotels-sample**을 클릭합니다. 이 데이터 원본은 기본 제공됩니다. 사용자 고유의 데이터 원본을 만든 경우 이름, 형식 및 연결 정보를 지정해야 합니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
 
    ![샘플 데이터 세트 선택](media/search-get-started-portal/import-datasource-sample.png)
 
-3. 다음 페이지를 계속합니다.
+1. 다음 페이지를 계속합니다.
 
 ### <a name="step-2---skip-the-enrich-content-page"></a>2단계 - "콘텐츠 보강" 페이지 건너뛰기
 

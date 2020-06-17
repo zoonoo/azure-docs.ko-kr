@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: ef756f1b9b96f0e8fe9b77e6ae8f00f077fd1b88
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194522"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559616"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

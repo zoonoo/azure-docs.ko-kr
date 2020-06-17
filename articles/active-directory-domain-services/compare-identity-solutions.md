@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655521"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555136"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -31,21 +31,25 @@ ms.locfileid: "80655521"
     * Azure AD에 대한 자세한 내용은 [Azure Active Directory란?][whatis-azuread]을 참조하세요.
 * **Azure AD DS(Azure Active Directory Domain Services)** - 도메인 조인, 그룹 정책, LDAP 및 Kerberos / NTLM 인증과 같은 완전히 호환되는 기존 AD DS 기능의 하위 집합을 관리되는 도메인 서비스에 제공합니다.
     * Azure AD DS는 자체 온-프레미스 AD DS 환경과 동기화 할 수 있는 Azure AD와 통합됩니다. 이 기능은 중앙 ID 사용 사례를 리프트 앤 시프트 전략의 일부로 Azure에서 실행되는 기존 웹 애플리케이션으로 확장합니다.
+    * Azure AD와 온-프레미스의 동기화에 대한 자세한 내용은 [관리되는 도메인에서 개체 및 자격 증명을 동기화하는 방법][synchronization]을 참조하세요.
 
 이 개요 문서에서는 조직의 요구 사항에 따라 이러한 ID 솔루션이 함께 작동하거나 독립적으로 사용되는 방법을 비교 및 대조합니다.
 
-시작하려면 [Azure Portal을 사용하여 Azure AD DS 관리형 도메인을 만듭니다][tutorial-create].
+> [!div class="nextstepaction"]
+> [시작하려면 Azure Portal을 사용하여 Azure AD DS 관리형 도메인을 만듭니다][tutorial-create].
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS 및 자체 관리형 AD DS
 
 Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하는 애플리케이션과 서비스가 있는 경우 클라우드에서 Active Directory Domain Services를 제공하는 두 가지 방법이 있습니다.
 
-* Azure AD DS(Azure Active Directory Domain Services)를 사용하여 만든 *관리형* 도메인입니다. Microsoft에서 필요한 리소스를 만들고 관리합니다.
+* Azure AD DS(Azure Active Directory Domain Services)를 사용하여 만든 *관리형 도메인*입니다. Microsoft에서 필요한 리소스를 만들고 관리합니다.
 * VM(가상 머신), Windows Server 게스트 OS 및 AD DS(Active Directory Domain Services)와 같은 기존 리소스를 사용하여 만들고 구성한 *자체 관리형* 도메인입니다. 그런 다음, 이러한 리소스를 계속 관리합니다.
 
 Azure AD DS를 사용하면 Microsoft에서 핵심 서비스 구성 요소를 *관리형* 도메인 환경으로 배포하고 유지 관리합니다. VM, Windows Server OS 또는 DC(도메인 컨트롤러)와 같은 구성 요소에 대한 AD DS 인프라를 배포, 관리, 패치 및 보호하지 않습니다.
 
-Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 AD DS 환경에 제공하여 설계 및 관리 복잡성의 일부를 줄입니다. 예를 들어 설계하고 유지 관리할 AD 포리스트, 도메인, 사이트 및 복제 링크가 없습니다. 클라우드에서 실행되고 Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하는 애플리케이션과 서비스의 경우 Azure AD DS는 관리 오버헤드가 최소화된 관리되는 도메인 환경을 제공합니다.
+Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 AD DS 환경에 제공하여 설계 및 관리 복잡성의 일부를 줄입니다. 예를 들어 설계하고 유지 관리할 AD 포리스트, 도메인, 사이트 및 복제 링크가 없습니다. 그래도 [Azure AD DS와 온-프레미스 환경(현재 미리 보기)간에 포리스트 트러스트를 만들][create-forest-trust] 수 있습니다.
+
+클라우드에서 실행되고 Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하는 애플리케이션과 서비스의 경우 Azure AD DS는 관리 오버헤드가 최소화된 관리되는 도메인 환경을 제공합니다. 자세한 내용은 [Azure AD DS에서 사용자 계정, 암호 및 관리에 대한 관리 개념][administration-concepts]을 참조하세요.
 
 자체 관리형 AD DS 환경을 배포하고 실행하는 경우 연결된 모든 인프라 및 디렉터리 구성 요소를 유지 관리해야 합니다. 자체 관리형 AD DS 환경을 사용하면 유지 관리 오버헤드가 추가로 발생하지만, 스키마를 확장하거나 포리스트 트러스트를 만드는 것과 같은 추가 작업을 수행할 수 있습니다.
 
@@ -94,7 +98,7 @@ Azure AD 가입 디바이스에는 다음과 같은 이점이 있습니다.
 
 | **디바이스의 유형**                                        | **디바이스 플랫폼**             | **메커니즘**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| 개인 디바이스                                          | Windows 10, iOS, Android, Mac OS | Azure AD 등록    |
+| 개인 디바이스                                          | Windows 10, iOS, Android, macOS | Azure AD 등록    |
 | 온-프레미스 AD DS에 조인되지 않은 조직 소유의 디바이스 | 윈도우 10                       | Azure AD 가입        |
 | 온-프레미스 AD DS에 조인된 조직 소유의 디바이스  | 윈도우 10                       | 하이브리드 Azure AD 가입 |
 
@@ -115,6 +119,8 @@ Azure AD DS 조인 디바이스를 사용하면 애플리케이션에서 Kerbero
 
 Azure AD DS 사용을 시작하려면 [Azure Portal을 사용하여 Azure AD DS 관리형 도메인을 만듭니다][tutorial-create].
 
+또한 [Azure AD DS에서 사용자 계정, 암호 및 관리에 대한 관리 개념][administration-concepts]과 [관리되는 도메인에서 개체 및 자격 증명을 동기화하는 방법][synchronization]을 자세히 알아볼 수 있습니다.
+
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
 [deploy-kcd]: deploy-kcd.md
@@ -124,3 +130,6 @@ Azure AD DS 사용을 시작하려면 [Azure Portal을 사용하여 Azure AD DS 
 [tutorial-create]: tutorial-create-instance.md
 [whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[create-forest-trust]: tutorial-create-forest-trust.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

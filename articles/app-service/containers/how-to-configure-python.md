@@ -4,13 +4,13 @@ description: 앱에 대해 미리 빌드된 Python 컨테이너를 구성하는 
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 96f7684176df35e9ac085dd2d7a0c576b7266883
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046016"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553247"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -131,7 +131,7 @@ App Service에서 사용자 지정 명령, Django 앱 또는 Flask 앱을 찾지
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-예를 들어 기본 모듈이 *hello.py*이고 해당 파일의 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 *\<custom-command>* 는 다음과 같습니다.
+예를 들어 기본 모듈이 *hello.py*이고 해당 파일에서 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 다음과 같이 *\<custom-command>* 을 따르십시오:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,9 +143,9 @@ gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 *\<custom-command>* 에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
+또한 `--workers=4` 같은 Gunicorn에 대한 추가 인수를 *\<custom-command>* 에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
 
-[aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 비 Gunicorn 서버를 사용하려면 *\<custom-command>* 를 다음과 같은 항목으로 바꾸면 됩니다.
+[aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html) 같은 비 Gunicorn 서버를 사용하려면 *\<custom-command>* 를 다음과 같은 항목으로 바꾸면 됩니다:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func

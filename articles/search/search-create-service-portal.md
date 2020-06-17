@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 포털에서 검색 서비스 만들기'
+title: 포털에서 검색 서비스 만들기
 titleSuffix: Azure Cognitive Search
 description: 이 포털 빠른 시작에서는 Azure Portal에서 Azure Cognitive Search 리소스를 설정하는 방법을 알아봅니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: nitinme
@@ -7,17 +7,17 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77209361"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488225"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
-Azure Cognitive Search는 검색 환경을 사용자 지정 앱에 연결하는 데 사용되는 독립 실행형 리소스입니다. Azure Cognitive Search는 다른 Azure 서비스, 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 쉽게 통합됩니다.
+Azure Cognitive Search는 검색 환경을 사용자 지정 앱에 연결하는 데 사용되는 독립 실행형 리소스입니다. Cognitive Search는 다른 Azure 서비스, 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 쉽게 통합됩니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 리소스를 만드는 방법을 알아봅니다.
 
@@ -34,8 +34,10 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 ## <a name="find-azure-cognitive-search"></a>Azure Cognitive Search 찾기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
-3. 검색 창을 사용하여 "Azure Cognitive Search"를 찾거나 **웹** > **Azure Cognitive Search**를 통해 리소스로 이동합니다.
+
+1. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
+
+1. 검색 창을 사용하여 "Azure Cognitive Search"를 찾거나 **웹** > **Azure Cognitive Search**를 통해 리소스로 이동합니다.
 
 ![포털에서 리소스 만들기](./media/search-create-service-portal/find-search3.png "포털에서 리소스 만들기")
 
@@ -75,14 +77,20 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="choose-a-location"></a>위치 선택
 
-Azure 서비스인 Azure Cognitive Search는 전 세계 데이터 센터에 호스팅될 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요. 
-
-여러 서비스에 대해 동일한 위치를 선택하여 대역폭 요금을 최소화하거나 방지할 수 있습니다. 예를 들어 다른 Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에서 제공한 데이터를 인덱싱하는 경우 Azure Cognitive Search 서비스를 동일한 지역에 만들면 대역폭 요금이 발생하지 않습니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 발생하지 않음).
-
-AI 보강을 사용하는 경우 검색 서비스를 Cognitive Services와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Cognitive Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
+Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 
 > [!Note]
-> 인도 중부에서는 현재 새로운 서비스를 사용할 수 없습니다. 인도 중부에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 이 지역에 대한 제한은 일시적이며 새로운 서비스로만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
+> 인도 중부 및 아랍에미리트 북부는 현재 새 서비스에 사용할 수 없습니다. 해당 지역에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 제한 사항은 일시적이며 새로운 서비스만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
+
+### <a name="requirements"></a>요구 사항
+
+ AI 보강을 사용하는 경우 검색 서비스를 Cognitive Services와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Cognitive Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
+
+ BCDR(비즈니스 연속성 및 재해 복구) 요구 사항을 충족하는 고객은 [지역 쌍](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs)으로 서비스를 만들어야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 남부 중남부를 선택할 수 있습니다.
+
+### <a name="recommendations"></a>권장 사항
+
+여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스를 호스트하는 영역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
 
 ## <a name="choose-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 
@@ -142,9 +150,11 @@ AI 보강을 사용하는 경우 검색 서비스를 Cognitive Services와 동�
 
 대부분의 고객이 하나의 서비스만 사용하지만 운영과 관련해서 다음과 같은 사항이 요구될 경우 서비스 중복성이 필요할 수 있습니다.
 
-* 재해 복구(데이터 센터 작동 중단). Azure Cognitive Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다. 권장 사항 및 지침에 대해서는 [서비스 관리](search-manage.md)를 참조하세요.
-* 다중 테넌트 모델링을 조사한 결과, 추가 서비스가 최적의 디자인이라는 사실이 확인되었습니다. 자세한 내용은 [다중 테넌트 디자인](search-modeling-multitenant-saas-applications.md)을 참조하세요.
-* 전역적으로 배포된 애플리케이션의 경우 애플리케이션 해외 트래픽 대기 시간을 최소화하기 위해 여러 하위 지역에 Azure Cognitive Search 인스턴스가 필요할 수 있습니다.
++ [BCDR(비즈니스 연속성 및 재해 복구)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) Azure Cognitive Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다.
+
++ [다중 테넌트 아키텍처](search-modeling-multitenant-saas-applications.md)는 때로 두 개 이상의 서비스를 호출하는 경우도 있습니다.
+
++ 전세계적으로 배포된 애플리케이션은 대기 시간을 최소화하기 위해 각 지리에서 검색 서비스를 필요로 할 수 있습니다.
 
 > [!NOTE]
 > Azure Cognitive Search에서는 인덱싱 및 쿼리 작업을 분리할 수 없습니다. 따라서 분리된 워크로드에 대해 여러 서비스를 만들지 않습니다. 인덱스는 항상 만들어진 서비스에서 쿼리됩니다(한 서비스에서 인덱스를 만든 후 다른 서비스로 복사할 수 없음).

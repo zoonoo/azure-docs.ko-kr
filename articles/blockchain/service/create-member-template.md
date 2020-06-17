@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310362"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456534"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 
@@ -61,6 +61,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. **구매**를 선택하여 템플릿을 배포합니다.
 
   여기에서 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure PowerShell, Azure CLI 및 REST API를 사용할 수도 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
+
+## <a name="review-deployed-resources"></a>배포된 리소스 검토
+
+Azure Portal을 사용하여 배포된 Azure Blockchain 서비스 멤버의 세부 정보를 볼 수 있습니다. 포털에서 Azure Blockchain 서비스 멤버를 포함하는 리소스 그룹으로 이동합니다. 만든 블록체인 멤버를 선택합니다.
+
+![Azure Portal에서 배포된 Azure Blockchain Member 개요 세부 정보](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

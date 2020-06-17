@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605539"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424135"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Blob 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
@@ -24,7 +24,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
@@ -50,7 +50,8 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): Azure Storage 계정을 만듭니다.
-* [ **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): 스토리지 계정에 대한 Azure Event Grid 구독을 만듭니다.
+* [**Microsoft EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): 저장소 계정에 지정된 이름을 사용하여 시스템 항목을 만듭니다. 
+* [**Microsoft EventGrid/systemTopics/Eventgrid**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): 시스템 항목에 대한 Azure Event Grid 구독을 만듭니다.
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 

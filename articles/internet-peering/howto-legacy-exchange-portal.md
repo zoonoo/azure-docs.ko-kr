@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 5/21/2020
 ms.author: derekol
-ms.openlocfilehash: f9f93bc434a2eea34e8c0d1256cd72fa5527204f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e4f9f5b59b61065c300b58fb1cdb88e12b7ddbe0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849504"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247226"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 레거시 Exchange 피어링을 Azure 리소스로 변환
 
@@ -26,12 +26,11 @@ ms.locfileid: "83849504"
 
 ## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>레거시 Exchange 피어링을 Azure 리소스로 변환
 
-Internet Exchange 공급자는 [피어링을 만들어]( https://go.microsoft.com/fwlink/?linkid=2129593) Exchange 피어링 요청을 만들 수 있습니다.
+인터넷 교환 공급자는 [피어링을 만들어]( https://go.microsoft.com/fwlink/?linkid=2129593) Exchange 피어링 요청을 만들 수 있습니다.
 
 1. **피어링 만들기** 페이지의 **기본 사항** 탭에서 다음과 같이 상자를 입력합니다.
 
-
->   ![Peering Service 등록](./media/setup-basics-tab.png)
+   ![Peering Service 등록](./media/setup-basics-tab.png)
 
 * Azure 구독을 선택합니다.
 
@@ -41,38 +40,15 @@ Internet Exchange 공급자는 [피어링을 만들어]( https://go.microsoft.co
 
 * 기존 리소스 그룹을 선택한 경우 지역이 자동으로 선택됩니다. 새 리소스 그룹을 만들도록 선택한 경우에는 리소스를 저장할 Azure 지역도 선택해야 합니다.
 
->[!NOTE]
->리소스 그룹이 있는 지역은 Microsoft와 피어링을 만들려는 위치와 별개입니다. 하지만 가장 가까운 Azure 지역에 있는 리소스 그룹 내에 피어링 리소스를 구성하는 것이 좋습니다. 예를 들어 애슈번에서 피어링이 필요한 경우 미국 동부 또는 미국 동부 2에 리소스 그룹을 만들 수 있습니다.
+  >[!NOTE]
+  >리소스 그룹이 있는 지역은 Microsoft와 피어링을 만들려는 위치와 별개입니다. 하지만 가장 가까운 Azure 지역에 있는 리소스 그룹 내에 피어링 리소스를 구성하는 것이 좋습니다. 예를 들어 애슈번에서 피어링이 필요한 경우 미국 동부 또는 미국 동부 2에 리소스 그룹을 만들 수 있습니다.
 
 * **PeerASN** 상자에서 ASN을 선택합니다.
 
->[!IMPORTANT]  
->피어링 요청을 제출하기 전에 ValidationState가 Approved인 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 올바른 구독을 선택한 경우 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
+  >[!IMPORTANT]  
+  >피어링 요청을 제출하기 전에 ValidationState가 Approved인 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 올바른 구독을 선택한 경우 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
 
 * 완료되면 **다음: 구성**을 선택하여 계속 진행합니다.
-
-### <a name="convert-legacy-exchange-peering"></a><a name=create></a>레거시 Exchange 피어링 변환
-
-[피어링 만들기]( https://go.microsoft.com/fwlink/?linkid=2129593)를 사용하여 레거시 피어링 연결을 변환할 수 있습니다.
-
-####  <a name="configure-basic-settings"></a>기본 설정 구성
->   ![Peering Service 등록](./media/setup-basics-tab.png)
-
-* Azure 구독을 선택합니다.
-
-* 리소스 그룹의 경우 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 새로 만들기를 선택하여 새 그룹을 만들 수 있습니다. 이 예제에서는 새 리소스 그룹을 만듭니다.
-
-* 이름은 리소스 이름에 해당하며, 원하는 어떤 이름도 사용 가능합니다.
-
-* 기존 리소스 그룹을 선택한 경우 지역이 자동으로 선택됩니다. 새 리소스 그룹을 만들도록 선택한 경우에는 리소스를 저장할 Azure 지역도 선택해야 합니다.
-
->[!NOTE]
-    리소스 그룹이 있는 지역은 Microsoft와 피어링을 만들려는 위치와 별개입니다. 하지만 가장 가까운 Azure 지역에 있는 리소스 그룹 내에 피어링 리소스를 구성하는 것이 좋습니다. 예를 들어 애슈번에서 피어링이 필요한 경우 미국 동부 또는 미국 동부 2에 리소스 그룹을 만들 수 있습니다.
-
-* **PeerASN** 상자에서 ASN을 선택합니다.
-
->[!IMPORTANT]  
-    피어링 요청을 제출하기 전에 ValidationState가 Approved인 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 올바른 구독을 선택한 경우 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
 
 
 #### <a name="configure-connections-and-submit"></a>연결 구성 및 제출

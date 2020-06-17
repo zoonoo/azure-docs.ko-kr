@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310504"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457051"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
 
@@ -92,12 +92,9 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
    ![웹 후크 선택](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. **이벤트 구독 만들기** 페이지에서 다음 단계를 수행합니다. 
     1. 이벤트 구독에 대한 이벤트 **이름**을 입력합니다.
-    2. **시스템 항목**의 **이름**을 입력합니다. 
+    2. **시스템 항목**의 **이름**을 입력합니다. 시스템 항목에 대한 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조하십시오.
 
        ![이벤트 구독 및 시스템 항목의 이름 입력](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > 이전에는 Azure 원본에서 발생하는 이벤트에 대한 구독을 만들면 Event Grid 서비스에서 임의로 생성된 이름을 가진 시스템 항목을 자동으로 만들었습니다. 이제 이 텍스트 상자를 사용하여 시스템 항목의 이름을 지정할 수 있습니다. 이 시스템 항목 리소스를 사용하여 메트릭 및 진단 로그를 검색할 수 있습니다.
     2. **엔드포인트 유형**으로 **웹후크**를 선택합니다. 
 
        ![웹후크 엔드포인트 유형 선택](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

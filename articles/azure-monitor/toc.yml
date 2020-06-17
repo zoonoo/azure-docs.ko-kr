@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -946,14 +946,14 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: 기존 AKS 클러스터에 대해 활성화
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Arc 사용 클러스터에 사용
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: 하이브리드 클러스터에 대해 활성화
               href: insights/container-insights-hybrid-setup.md
             - name: Azure Red Hat OpenShift v3에 대해 활성화
               href: insights/container-insights-azure-redhat-setup.md
             - name: Azure Red Hat OpenShift v4에 대해 활성화
               href: insights/container-insights-azure-redhat4-setup.md
-            - name: Arc 사용 클러스터에 사용
-              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: 지역 매핑
               href: insights/container-insights-region-mapping.md
         - name: 성능 모니터링
@@ -1251,7 +1251,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions

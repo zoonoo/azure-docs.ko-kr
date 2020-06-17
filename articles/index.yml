@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2bd4075f405e034d15eaec3ac31065e4138c41fb
-  ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+  ms.openlocfilehash: f99b1adb71e7c20809b18699cb29a46dfca1b755
+  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/05/2020
-  ms.locfileid: "84447988"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84884282"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -1010,7 +1010,7 @@ productDirectory:
     - media
     url: media-services/latest/use-azure-media-player.md
   - title: Content Delivery Network
-    summary: 광범위한 글로벌 고객에게 안전하고 신뢰할 수 있는 콘텐츠 전송 보장
+    summary: 광범위한 글로벌 고객에게 안전하고 신뢰할 수 있는 콘텐츠 배달 보장
     imageSrc: https://static.docs.com/ui/media/product/azure/cdn-profiles.svg
     azureCategories:
     - media
@@ -1213,7 +1213,7 @@ productDirectory:
     azureCategories:
     - storage
     url: virtual-machines/windows/managed-disks-overview.md
-  - title: File Storage
+  - title: Azure 파일
     summary: 표준 SMB 3.0 프로토콜을 사용하는 파일 공유
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:

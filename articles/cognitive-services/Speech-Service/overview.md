@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 464e21caf3105b12f0fbf44dc2aa3674a252d3c6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81401033"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417228"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -37,6 +37,7 @@ Speech Service를 구성하는 기능은 다음과 같습니다. 이 표의 링�
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 예 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 예 |
 | [음성 도우미](voice-assistants.md) | 음성 도우미 | Speech Service를 사용하는 음성 도우미를 사용하면 개발자가 자신의 애플리케이션과 환경에 맞게 자연스럽고 인간적인 대화형 인터페이스를 만들 수 있습니다. 음성 도우미는 작업 완료를 위해 Bot Framework의 Direct Line Speech 채널 또는 통합 사용자 지정 명령(미리 보기) 서비스를 사용하는 도우미 구현과 디바이스 사이에 빠르고 안정적인 상호 작용을 제공합니다. | [예](voice-assistants.md) | 예 |
+| [화자 인식](speaker-recognition-overview.md) | 화자 검증 & 식별 | 화자 인식 서비스는 고유한 음성 특성에 따라 화자를 확인 및 식별하는 알고리즘을 제공합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. | 예 | [예](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]

@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/23/2020
+ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176688"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434457"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -22,7 +22,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -77,9 +77,13 @@ az storage account create \
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-Blob은 항상 컨테이너에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것과 비슷한 방식으로 컨테이너에서 Blob 그룹을 구성할 수 있습니다.
+Blob은 항상 컨테이너에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것과 비슷한 방식으로 컨테이너에서 Blob 그룹을 구성할 수 있습니다. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 
 
-Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+다음 예제에서는 Azure AD 계정을 사용하여 컨테이너를 만드는 작업에 권한을 부여합니다. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자인 경우에도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [Azure CLI 사용하여 액세스에 대한 RBAC 역할 할당](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json)을 참조하세요.  
+
+스토리지 계정 키를 사용하여 컨테이너를 만들도록 작업에 권한을 부여할 수도 있습니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json)를 참조하세요.
+
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
 az storage container create \

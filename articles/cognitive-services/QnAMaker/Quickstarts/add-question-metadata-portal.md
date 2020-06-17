@@ -3,16 +3,16 @@ title: '빠른 시작: QnA Maker 포털에서 질문 및 답변 추가'
 description: 이 빠른 시작에서는 질문에 대한 올바른 답변을 찾을 수 있도록 메타데이터가 포함된 질문 및 답변 쌍을 추가하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266579"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331392"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가
 
-기술 자료가 생성되면 메타데이터가 포함된 QnA(질문 및 답변) 쌍을 추가하여 답변을 필터링합니다. 다음 표의 질문은 Azure 서비스 제한에 대한 것이지만 각각 다른 Azure 서비스와 관련이 있습니다.
+기술 자료가 생성되면 메타데이터가 포함된 QnA(질문 및 답변) 쌍을 추가하여 답변을 필터링합니다. 다음 테이블의 질문은 Azure 서비스 제한에 대한 것이지만 각각 다른 Azure 검색 서비스와 관련이 있습니다.
 
 <a name="qna-table"></a>
 

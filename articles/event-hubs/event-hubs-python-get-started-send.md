@@ -9,12 +9,13 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162602"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558960"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>빠른 시작: Python(azure-eventhub 버전 1)을 사용하여 Event Hubs와 이벤트 주고 받기
 이 빠른 시작에서는 **azure-eventhubs 버전 1** Python 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -23,7 +24,7 @@ ms.locfileid: "77162602"
 > 이 빠른 시작에서는 이전 azure-eventhub 버전 1 패키지를 사용합니다. 패키지의 최신 **버전 5**를 사용하는 빠른 시작은 [azure-eventhub 버전 5를 사용하여 이벤트 보내기 및 받기](get-started-python-send-v2.md)를 참조하세요. 이전 패키지를 사용하던 애플리케이션을 새 패키지로 이동하려면 [azure-eventhub 버전 1에서 버전 5로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)를 참조하세요.
  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -47,7 +48,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 
 1. 선호하는 Python 편집기(예: [Visual Studio Code](https://code.visualstudio.com/))를 엽니다.
 2. *send.py*라는 새 파일을 만듭니다. 이 스크립트는 이벤트 허브에 100개의 이벤트를 전송합니다.
-3. 다음 코드를 *send.py* 파일에 붙여넣고, Event Hubs \<네임스페이스>, \<eventhub>, \<AccessKeyName> 및 \<기본 키 값>을 사용자 고유의 값으로 바꿉니다. 
+3. 다음 코드를 *send.py*에 붙여넣어 Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>및 \<primary key value>을 값으로 바꿉니다: 
    
    ```python
    import sys
@@ -110,7 +111,7 @@ start python send.py
 이벤트 허브에서 이벤트를 수신하는 Python 애플리케이션을 만드는 방법은 다음과 같습니다.
 
 1. Python 편집기에서 *recv.py*라는 파일을 만듭니다.
-2. 다음 코드를 *recv.py* 파일에 붙여넣고, Event Hubs \<네임스페이스>, \<eventhub>, \<AccessKeyName> 및 \<기본 키 값>을 사용자 고유의 값으로 바꿉니다. 
+2. 다음 코드를 *recv.py*에 붙여넣어 Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>및 \<primary key value>을 값으로 바꿉니다: 
    
    ```python
    import os

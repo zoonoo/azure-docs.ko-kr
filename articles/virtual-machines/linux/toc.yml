@@ -207,6 +207,8 @@
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Ddv4 및 Ddsv4 시리즈
               href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Dv4 및 Dsv4 시리즈
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 컴퓨팅 최적화
           items:
             - name: 개요
@@ -226,6 +228,8 @@
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Edv4 및 Edsv4 시리즈
               href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Ev4 및 Esv4 시리즈
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: M 시리즈
               href: ../m-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Mv2 시리즈
@@ -288,6 +292,8 @@
         - name: 스폿 VM
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: 임시 디스크가 없는 Azure VM
+          href: ../azure-vms-no-temp-disk.md
         - name: 이전 세대
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 격리된 크기
@@ -657,7 +663,7 @@
               href: update-agent.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
-        - name: Azure Instance Metadata Service
+        - name: 모니터 메타데이터
           href: instance-metadata-service.md
         - name: REST로 사용 메트릭 가져오기
           href: metrics-vm-usage-rest.md
@@ -693,7 +699,7 @@
             - name: 에이전트 개요
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Azure Diagnostics 확장
               items:
                 - name: 개요
@@ -750,7 +756,7 @@
             - name: 상용 서비스 관련 FAQ
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요

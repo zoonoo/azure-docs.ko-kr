@@ -5,16 +5,16 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71272365"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509426"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
+# <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 
 다음 표는 Azure Cosmos DB SQL(Core) API의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 다른 Azure Cosmos DB API에 대한 Azure CLI 샘플은 [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) 및 [Table API](cli-samples-table.md)를 참조하세요. 모든 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서 확인할 수 있습니다.
 
@@ -27,4 +27,5 @@ ms.locfileid: "71272365"
 | [IP 방화벽으로 보안](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| IP 방화벽이 구성된 Cosmos 계정을 만듭니다.|
 | [서비스 엔드포인트로 새 계정 보호](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Cosmos 계정을 만들고 서비스 엔드포인트로 보호합니다.|
 | [서비스 엔드포인트로 기존 계정 보호](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| 서브넷이 최종적으로 구성될 때 서비스 엔드포인트로 보호할 Cosmos 계정을 업데이트합니다.|
+| [삭제에서 리소스 잠그기](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||

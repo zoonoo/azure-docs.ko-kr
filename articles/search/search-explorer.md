@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369699"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488208"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>빠른 시작: 포털에서 검색 탐색기를 사용하여 쿼리 실행
 
-**검색 탐색기**는 Azure Cognitive Search의 검색 인덱스에 대한 쿼리를 실행하는 데 사용되는 기본 제공 쿼리 도구입니다. 이 도구를 사용하면 쉽게 쿼리 구문을 배우고, 쿼리 또는 필터 식을 테스트하고, 최신 콘텐츠가 있는지 확인하여 인덱스 새로 고침 결과를 확인할 수 있습니다.
+**검색 탐색기**는 Azure Cognitive Search의 검색 인덱스에 대한 쿼리를 실행하는 데 사용되는 기본 제공 쿼리 도구입니다. 이 도구를 사용하면 쿼리 구문을 쉽게 배우고 쿼리 또는 필터 식을 테스트 하거나 인덱스에 새 콘텐츠가 있는지 여부를 확인하여 데이터 새로 고침을 확인할 수 있습니다.
 
-이 빠른 시작에서는 **realestate-us-sample-index**를 사용하여 검색 탐색기를 보여줍니다. 요청은 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 공식화되며, 응답은 JSON 문서로 반환됩니다.
+이 빠른 시작에서는 기존 인덱스를 사용하여 검색 탐색기를 보여줍니다. 요청은 [검색 REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 공식화되며, 응답은 JSON 문서로 반환됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-+ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
+시작하기 전에 다음이 있어야 합니다.
 
-+ **realestate-us-sample-index**는 이 빠른 시작에 사용됩니다. [**데이터 가져오기**](search-import-data-portal.md) 마법사를 진행하여 기본 제공 샘플 데이터 원본에서 인덱스를 생성합니다.
++ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+
++ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
+
++ *realestate-us-sample-index*는 이 빠른 시작에 사용됩니다. [**데이터 가져오기**](search-import-data-portal.md) 마법사를 사용하여 인덱스를 만듭니다. 첫 번째 단계에서 데이터 원본에 대해 묻는 메시지가 표시되면 **샘플**을 선택한 다음 **realestate-us-sample-예제** 데이터 원본을 선택합니다. 모든 마법사 기본값을 그대로 적용하여 인덱스를 만듭니다.
 
 ## <a name="start-search-explorer"></a>검색 탐색기 시작
 

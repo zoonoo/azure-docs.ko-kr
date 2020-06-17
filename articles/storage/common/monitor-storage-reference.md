@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684915"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195218"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage 모니터링 데이터 참조
 
@@ -84,7 +84,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 
 | SuccessE2ELatency | 스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 유형: 평균 <br/> 적용 가능한 차원: GeoType, ApiName, Authentication([정의](#metrics-dimensions)) <br/> 값 예제: 1024 |
 | 가용성 | 스토리지 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 스토리지 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: 백분율 <br/> 집계 유형: 평균 <br/> 적용 가능한 차원: GeoType, ApiName, Authentication([정의](#metrics-dimensions)) <br/> 값 예제: 99.99 |
 
-<a id="metrics-dimensions" />
+<a id="metrics-dimensions"></a>
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -96,7 +96,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫**: 핫 액세스 계층</li> <li>**쿨**: 쿨 액세스 계층</li> <li>**보관**: 보관 액세스 계층</li> <li>**프리미엄**: 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 Blob 계층 유형</li> <li>**표준**: 표준 페이지 Blob 계층 유형</li> <li>**계층 없음**: 범용 v1 스토리지 계정 계층 유형</li> |
 | **GeoType** | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값에는 **기본**과 **보조**가 있습니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | **ResponseType** | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>**ServerOtherError**: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li>**ServerBusyError**: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li>**ServerTimeoutError**: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li>**AuthorizationError**: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li>**NetworkError**: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li><li>**ClientAccountBandwidthThrottlingError**: 요청이 [스토리지 계정 확장성 제한](scalability-targets-standard-account.md)을 초과하여 대역폭이 제한되었습니다.</li><li>**ClientAccountRequestThrottlingError**: 요청이 [스토리지 계정 확장성 제한](scalability-targets-standard-account.md)을 초과하여 요청 속도가 제한되었습니다.<li>**ClientThrottlingError**: 기타 클라이언트 쪽 제한 오류입니다. ClientAccountBandwidthThrottlingError 및 ClientAccountRequestThrottlingError는 제외됩니다.</li> <li>**ClientTimeoutError**: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 스토리지 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li>**ClientOtherError**: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li>**성공**: 성공한 요청입니다.</li> <li> **SuccessWithThrottling**: 첫 번째 시도에서 SMB 클라이언트가 제한되었지만 재시도 후에 성공하여 요청이 성공했습니다.</li> |
-| **ApiName** | 작업 이름입니다. 다음은 그 예입니다. <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
+| **ApiName** | 작업 이름입니다. 예를 들면 다음과 같습니다. <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
 | **인증** | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>**AccountKey**: 트랜잭션이 스토리지 계정 키를 사용하여 인증됩니다.</li> <li>**SAS**: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>**OAuth**: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>**Anonymous**: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>**AnonymousPreflight**: 트랜잭션이 실행 전 요청입니다.</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.

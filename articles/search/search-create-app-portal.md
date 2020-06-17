@@ -7,39 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369718"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488174"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 검색 앱 만들기(Azure Cognitive Search)
 
-포털의 **검색 앱 만들기** 마법사를 사용하여 브라우저에서 실행되는 다운로드 가능한 "localhost" 스타일 웹앱을 생성합니다. 구성에 따라 생성된 앱은 처음 사용할 때 원격 인덱스에 대한 라이브 연결을 사용하여 작동합니다. 기본 앱에는 검색 창, 결과 영역, 사이드바 필터 및 자동 완성 지원이 포함될 수 있습니다.
+Azure Portal의 **검색 앱 만들기** 마법사를 사용하여 브라우저에서 실행되는 다운로드 가능한 "localhost" 스타일 웹앱을 생성합니다. 구성에 따라 생성된 앱은 처음 사용할 때 원격 인덱스에 대한 라이브 연결을 사용하여 작동합니다. 기본 앱에는 검색 창, 결과 영역, 사이드바 필터 및 자동 완성 지원이 포함될 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="prerequisites"></a>사전 요구 사항
+시작하기 전에 다음이 있어야 합니다.
 
-이 빠른 시작을 위해 [최신 버전의 Microsoft Edge](https://www.microsoft.com/edge)로 업그레이드하거나 Google의 Chrome 브라우저를 사용합니다.
++ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-애플리케이션의 기반으로 사용할 [인덱스를 만듭니다](search-create-index-portal.md). 
++ [Microsoft Edge(최신 버전)](https://www.microsoft.com/edge) 또는 Google Chrome.
 
-이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다(마법사에서 결과 페이지에 이미지 추가를 지원함). 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
++ 생성된 애플리케이션의 기반으로 사용할 [검색 인덱스](search-create-index-portal.md)입니다. 
 
-![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/import-data-realestate.png)
+  이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다(마법사에서 결과 페이지에 이미지 추가를 지원함). 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
+
+  ![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/import-data-realestate.png)
 
 인덱스를 사용할 준비가 되면 다음 단계로 이동합니다.
 
 ## <a name="start-the-wizard"></a>마법사 시작
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 [검색 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
 
-1. [개요] 페이지의 가운데에 있는 링크에서 **인덱스**를 선택합니다. 
+1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 가운데에 있는 링크에서 **인덱스**를 선택합니다. 
 
 1. 기존 인덱스 목록에서 *realestate-us-sample-index*를 선택합니다.
 
@@ -57,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [설명]에서 다른 사용자가 특정 문서를 클릭할지 여부를 결정하는 데 도움이 될 수 있는 세부 정보를 제공하는 필드를 선택합니다.
 
-![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/configure-results.png)
+   ![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>사이드바 추가
 

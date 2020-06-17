@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053247"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324592"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,9 +53,9 @@ ms.locfileid: "84053247"
 
 다음 단계에서는 학습 데이터를 설정하고, 회귀 모델을 만들고, 학습 데이터를 사용하여 모델을 학습시킨 다음, 모델을 SQL 테이블에 저장합니다.
 
-1. **SQL Server Management Studio**를 열고 SQL 데이터베이스에 연결합니다.
+1. **SQL Server Management Studio**를 열고 데이터베이스에 연결합니다.
 
-   연결에 도움이 필요한 경우 [빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리](connect-query-ssms.md)를 참조하세요.
+   연결에 도움이 필요한 경우 [빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL Database의 데이터베이스 연결 및 쿼리](connect-query-ssms.md)를 참조하세요.
 
 1. **CarSpeed** 테이블을 만들어 학습 데이터를 저장합니다.
 
@@ -139,7 +139,7 @@ ms.locfileid: "84053247"
 
 일반적으로 저장 프로시저 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)의 R 출력은 단일 데이터 프레임으로 제한됩니다. 그러나 데이터 프레임 외에도 스칼라 같은 다른 유형의 출력을 반환할 수 있습니다.
 
-예를 들어 모델을 학습시키지만 모델의 계수 테이블을 즉시 보려고 한다고 가정합니다. 이렇게 하려면 계수 테이블을 기본 결과 집합으로 만들고, 학습된 모델을 SQL 변수에 출력합니다. 변수를 호출하여 모델을 즉시 다시 사용하거나 다음과 같이 모델을 테이블에 저장할 수 있습니다.
+예를 들어 모델을 학습시키지만 모델의 계수 테이블을 즉시 보려고 한다고 가정합니다. 이렇게 하려면 계수 테이블을 기본 결과 세트로 만들고, 학습된 모델을 SQL 변수에 출력합니다. 변수를 호출하여 모델을 즉시 다시 사용하거나 다음과 같이 모델을 테이블에 저장할 수 있습니다.
 
 ```sql
 DECLARE @model VARBINARY(max)

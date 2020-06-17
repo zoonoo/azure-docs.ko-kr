@@ -4,12 +4,12 @@ description: Azure Blockchain Service 개요
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 38d0a5564e1e7a28168ac95826cc527d47ef093b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8a73ed45279ce224441ea9c021b565e63bc4fc63
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844593"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432232"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -69,7 +69,7 @@ Azure Blockchain Service용 Blockchain Data Manager는 Azure Blockchain Service 
 
 Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
 
-제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어에 투표하세요.
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어를 게시하거나 투표하세요.
 
 ### <a name="community-support"></a>커뮤니티 지원
 

@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296530"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464813"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files 네트워킹 고려 사항 
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
 
 - SMB 또는 FileREST 프로토콜을 통해 공유에 직접 액세스합니다. 이 액세스 패턴은 최대한 많은 온-프레미스 서버를 제거할 때 주로 사용됩니다.
-- Azure 파일 동기화를 사용하여 온-프레미스 서버에서 Azure 파일 공유 캐시를 만들고, 사용 사례에 원하는 프로토콜(SMB, NFS, FTPS 등)을 사용하여 온-프레미스 서버에서 파일 공유의 데이터에 액세스합니다. 이 액세스 패턴은 온-프레미스 성능 및 클라우드 규모의 연결 가능한 서버리스 서비스(예: Azure Backup) 모두를 가장 효율적으로 결합하므로 편리합니다.
+- Azure File Sync를 사용하여 온-프레미스 서버(또는 Azure VM)에서 Azure 파일 공유 캐시를 만들고, 사용 사례에 원하는 프로토콜(SMB, NFS, FTPS 등)을 사용하여 온-프레미스 서버에서 파일 공유의 데이터에 액세스합니다. 이 액세스 패턴은 온-프레미스 성능 및 클라우드 규모의 연결 가능한 서버리스 서비스(예: Azure Backup) 모두를 가장 효율적으로 결합하므로 편리합니다.
 
-이 문서에서는 사용 사례에서 Azure 파일 동기화를 사용하지 않고 Azure 파일 공유에 직접 액세스하도록 호출하는 경우에 네트워킹을 구성하는 방법에 대해 중점적으로 설명합니다. Azure 파일 동기화 배포의 네트워킹 고려 사항에 대한 자세한 내용은 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](storage-sync-files-firewall-and-proxy.md)을 참조하세요.
+이 문서에서는 사용 사례에서 Azure 파일 동기화를 사용하지 않고 Azure 파일 공유에 직접 액세스하도록 호출하는 경우에 네트워킹을 구성하는 방법에 대해 중점적으로 설명합니다. Azure File Sync 배포의 네트워킹 고려 사항에 대한 자세한 내용은 [Azure File Sync 네트워킹 고려 사항](storage-sync-files-networking-overview.md)을 참조하세요.
 
 Azure 파일 공유에 대한 네트워킹 구성은 Azure 스토리지 계정에서 수행됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. 스토리지 계정은 파일 공유에 대한 네트워크 액세스를 보호하는 데 도움이 되는 여러 설정(네트워크 엔드포인트, 스토리지 계정 방화벽 설정 및 전송 중 암호화)을 공개합니다. 
 

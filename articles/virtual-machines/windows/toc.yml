@@ -148,10 +148,10 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: template-description.md
     - name: 영역
       href: regions.md
@@ -493,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Azure CLI 사용
               href: image-builder.md
+            - name: Azure PowerShell 사용
+              href: image-builder-powershell.md
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
             - name: 기존 이미지 업데이트
@@ -896,7 +898,7 @@
           href: portal-create-fqdn.md
         - name: DNS 확인
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: 관리 ID 구성
+    - name: 관리되는 ID 구성
       items:
         - name: 포털
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266834"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610154"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 
 자세한 내용은 [Azure Private Link란?](../../private-link/private-link-overview.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 키 자격 증명 모음을 Azure Private Link와 통합하려면 다음이 필요합니다.
 
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>제한 사항 및 디자인 고려 사항
 
+> [!NOTE]
+> 구독 당 프라이빗 엔드포인트를 사용하도록 설정된 키 자격 증명 모듬의 수는 조정할 수 있는 제한입니다. 아래에 표시된 제한은 기본 제한입니다. 서비스에 대한 한도 증가를 요청하려면 akv-privatelink@microsoft.com에 전자 메일을 보내 주세요. 이러한 요청은 사례별 기준으로 승인합니다.
+
 **가격 책정**: 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
 **제한 사항**:  Azure Key Vault용 프라이빗 엔드포인트는 Azure 공용 지역에서만 사용할 수 있습니다.
 
 **Key Vault당 최대 프라이빗 엔드포인트 수**: 64.
 
-**구독당 프라이빗 엔드포인트가 포함된 최대 Key Vault 수**: 64.
+**구독당 프라이빗 엔드포인트가 포함된 기본 키 자격 증명 모음의 수**: 400.
 
 자세한 내용은 [Azure Private Link 서비스: 제한 사항](../../private-link/private-link-service-overview.md#limitations)을 참조하세요.
 

@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: c4a699a6b531feee98f9c6f83ba19cfef9d27620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3265b1f8234e1f2a2f19fb488d5c311e501c770e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052906"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338297"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[단일 데이터베이스](../index.yml)는 완전 관리형 PaaS DbaaS(Database as a Service)이며, 최신 클라우드 기반 애플리케이션에 이상적인 스토리지 엔진입니다. 이 섹션에서는 Azure SQL Database에서 신속하게 단일 데이터베이스를 구성하고 만드는 방법을 알아봅니다.
+[단일 데이터베이스](../index.yml)는 완전 관리형 PaaS DbaaS(platform as a service Database as a Service)이며, 최신 클라우드 기반 애플리케이션에 이상적인 스토리지 엔진입니다. 이 섹션에서는 Azure SQL Database에서 신속하게 단일 데이터베이스를 구성하고 만드는 방법을 알아봅니다.
 
 ## <a name="quickstart-overview"></a>빠른 시작 개요
 
@@ -48,8 +48,8 @@ PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구
 다음 Microsoft Learn 모듈을 사용하면 Azure SQL Database에 대해 무료로 배울 수 있습니다.
 
 - [SQL Database에 데이터베이스를 프로비저닝하여 애플리케이션 데이터 저장](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Azure SQL Database를 쿼리하는 ASP.NET 애플리케이션 개발 및 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Azure SQL Database 보안](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Azure SQL Database의 데이터베이스를 쿼리하는 ASP.NET 애플리케이션 개발 및 구성](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Azure SQL Database에서 단일 데이터베이스 보호](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -58,4 +58,4 @@ PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구
 - [Azure SQL Database에서 단일 데이터베이스를 사용하는 방법](how-to-content-reference-guide.md)에서 고급 작업 방법을 자세히 알아보세요.
 - [PowerShell](powershell-script-content-guide.md) 및 [Azure CLI](az-cli-script-samples-content-guide.md)로 작성된 샘플 스크립트를 찾아봅니다.
 - 데이터베이스를 구성하는 데 사용할 수 있는 [관리 API](single-database-manage.md)에 대해 자세히 알아봅니다.
-- [온-프레미스 데이터베이스에 적합한 Azure SQL Database 또는 SQL Managed Instance SKU를 식별하세요](/sql/dma/dma-sku-recommend-sql-db/).
+- [온-프레미스 데이터베이스에 적합한 Azure SQL Database 또는 Azure SQL Managed Instance SKU를 식별하세요](/sql/dma/dma-sku-recommend-sql-db/).

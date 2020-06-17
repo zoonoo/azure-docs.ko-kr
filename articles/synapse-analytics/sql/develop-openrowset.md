@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702038"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560862"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 OPENROWSET를 사용하는 방법
 
@@ -209,7 +209,7 @@ CSV 파서 버전 2.0 세부 정보:
 - 다음 옵션은 지원되지 않습니다. DATA_COMPRESSION.
 - 따옴표로 묶인 빈 문자열("")은 빈 문자열로 해석됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제는 population*.csv 파일에서 서수가 1과 4인 열 두 개만 반환합니다. 다음과 같이 파일에 헤더 행이 없기 때문에 첫 번째 줄에서 읽기를 시작합니다.
 

@@ -3,13 +3,14 @@ title: Azure에서 HTTP 요청에 응답하는 함수 만들기
 description: 명령줄에서 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195041"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559888"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -408,6 +409,9 @@ az group delete --name AzureFunctionsQuickstart-rg
 ```azurecli
 az group delete --name java-functions-group
 ```
+::: zone-end
+::: zone pivot="programming-language-python"
+가상 환경을 종료하려면 `deactivate`를 실행하세요.
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

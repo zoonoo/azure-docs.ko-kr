@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal에서 기술 세트 만들기'
+title: Azure Portal에서 기술 세트 만들기
 titleSuffix: Azure Cognitive Search
 description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search의 인덱싱 파이프라인에 인지 기술을 추가하는 방법에 대해 알아봅니다. 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
 manager: nitinme
@@ -7,35 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77472420"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488956"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
-기술 세트는 크고 차별화되지 않은 텍스트 또는 이미지 파일에서 정보와 구조를 추출하여 전체 텍스트 검색 쿼리를 위해 Azure Cognitive Search에서 이를 인덱싱하고 검색할 수 있도록 하는 AI 기능입니다. 
+기술 세트는 크고 차별화되지 않은 텍스트 또는 이미지 파일에서 정보와 구조를 추출하여 Azure Cognitive Search에서 콘텐츠를 인덱싱하고 검색할 수 있도록 하는 AI 기반 기능입니다. 
 
-이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 기술 세트를 만듭니다. 모든 것이 준비되면 포털에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 포털([Search 탐색기](search-explorer.md))에서 쿼리할 수 있는 AI 처리에서 만든 데이터로 채워진 검색 가능한 인덱스입니다.
+이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 기술 세트를 만듭니다. 모든 것이 준비되면 Azure Portal에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 포털([Search 탐색기](search-explorer.md))에서 쿼리할 수 있는 AI 처리에서 만든 데이터로 채워진 검색 가능한 인덱스입니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="create-services-and-load-data"></a>서비스 만들기 및 데이터 로드
+시작하기 전에 다음이 있어야 합니다.
 
-이 빠른 시작에서는 Azure Cognitive Search, [Azure Blob 스토리지](https://docs.microsoft.com/azure/storage/blobs/) 및 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 AI에 사용합니다. 
++ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-워크로드가 너무 작으므로 최대 20개의 트랜잭션을 무료로 제공하기 위해 백그라운드에 탭으로 처리됩니다. 이러한 작은 데이터 세트의 경우 Cognitive Services 리소스 만들기 또는 연결을 건너뛸 수 있습니다.
++ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
+
++ [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)가 있는 Azure Storage 계정
+
+> [!NOTE]
+> 또한 이 빠른 시작은 AI에 대한 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
+
+## <a name="set-up-your-data"></a>데이터를 설정합니다.
+
+다음 단계에서는 다른 유형의 콘텐츠 파일을 저장할 Azure Storage의 blob 컨테이너를 설정합니다.
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 파일의 압축을 풉니다.
 
 1. [Azure 스토리지 계정을 만들](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   대역폭 요금이 부과되지 않도록 Azure Cognitive Search와 동일한 지역을 선택합니다. 
-   
-   나중에 다른 연습에서 지식 저장소 기능을 사용해 보려면 StorageV2(범용 V2) 계정 유형을 선택합니다. 그렇지 않으면 임의의 유형을 선택합니다.
+   + 대역폭 요금이 부과되지 않도록 Azure Cognitive Search와 동일한 지역을 선택합니다. 
+
+   + 나중에 다른 연습에서 지식 저장소 기능을 사용해 보려면 StorageV2(범용 V2) 계정 유형을 선택합니다. 그렇지 않으면 임의의 유형을 선택합니다.
 
 1. Blob 서비스 페이지를 열고 컨테이너를 만듭니다. 기본 퍼블릭 액세스 수준을 사용할 수 있습니다. 
 
@@ -43,15 +52,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Azure Cognitive Search 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
-
 이제 데이터 가져오기 마법사로 이동할 준비가 되었습니다.
 
 ## <a name="run-the-import-data-wizard"></a>데이터 가져오기 마법사 실행
 
-검색 서비스 [개요] 페이지의 명령 모음에서 **데이터 가져오기**를 클릭하여 다음 4개의 단계를 통해 인지 보강을 설정합니다.
+1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
 
-  ![데이터 가져오기 명령](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 바에서 **데이터 가져오기**를 클릭하여 4단계의 통해 인지 보강을 설정합니다.
+
+   ![데이터 가져오기 명령](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1---create-a-data-source"></a>1단계: 데이터 원본 만들기
 

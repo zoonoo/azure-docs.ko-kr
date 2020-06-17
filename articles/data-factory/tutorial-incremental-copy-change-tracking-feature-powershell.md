@@ -1,5 +1,5 @@
 ---
-title: 변경 내용 추적을 사용하여 데이터 증분 복사
+title: PowerShell을 사용하는 변경 추적을 사용하여 데이터 증분 복사
 description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b83b10c15bcc5d1a8ea9fc094e1d709d57221902
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2eb52ae24fe17a3e1a161ab132eee862efae9af1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196154"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559654"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>PowerShell을 사용하는 변경 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

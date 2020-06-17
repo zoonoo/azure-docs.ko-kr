@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c726b0d11759d30730046e635c701cf23d130dfc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187284"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561559"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>빠른 시작: Event Hubs 캡처 연습: Python(azure-eventhub 버전 1)
 
@@ -38,7 +38,7 @@ ms.locfileid: "77187284"
 > * Python 스크립트를 사용하여 이벤트 허브에 데이터 보내기
 > * 다른 Python 스크립트를 사용하여 Event Hubs 캡처에서 파일 읽기 및 처리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - `pip`가 설치 및 업데이트된 Python 3.4 이상
   
@@ -80,7 +80,7 @@ ms.locfileid: "77187284"
 
 1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
 2. *sender.py*라는 새 파일을 만듭니다. 
-3. 다음 코드를 *sender.py*에 붙여넣습니다. Event Hubs \<네임스페이스>, \<AccessKeyName>, \<기본 키 값> 및 \<eventhub>를 사용자 고유의 값으로 바꿉니다.
+3. 다음 코드를 *sender.py*에 붙여넣습니다. Event Hubs \<namespace>, \<AccessKeyName>, \<primary key value>및 \<eventhub>에 대한 고유한 값을 대체합니다.
    
    ```python
    import uuid
@@ -108,7 +108,7 @@ ms.locfileid: "77187284"
 이 스크립트는 캡처된 파일을 읽고 디바이스마다 파일을 만들어 해당 디바이스에 대한 데이터만 씁니다.
 
 1. Python 편집기에서 *capturereader.py*라는 새 파일을 만듭니다. 
-2. *capturereader.py*에 다음 코드를 붙여넣습니다. \<storageaccount>, \<스토리지 계정 액세스 키> 및 \<storagecontainer>를 저장된 값으로 바꿉니다.
+2. *capturereader.py*에 다음 코드를 붙여넣습니다. \<storageaccount>, \<storage account access key>및 \<storagecontainer>에 대해 저장된 값으로 대체합니다.
    
    ```python
    import os

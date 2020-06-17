@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114567"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342649"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
@@ -111,6 +111,7 @@ CSV 템플릿을 다운로드하고, 여기에 서버 정보를 추가합니다.
 **메모리** | 예 | 서버에 할당된 총 RAM 크기(MB)
 **OS 이름** | 예 | 서버 운영 체제 <br/> [이](#supported-operating-system-names) 목록의 이름과 일치하거나 이를 포함하는 운영 체제 이름은 평가에서 인식됩니다.
 **OS 버전** | 예 | 서버 운영 체제 버전
+**OS 아키텍처** | 예 | 서버 OS 아키텍처 <br/> 유효한 값은 x64, x86, amd64, 32 비트 또는 64 비트입니다.
 **디스크 수** | 예 | 개별 디스크 세부 정보가 제공되는 경우 필요하지 않습니다.
 **디스크 1 크기**  | 예 | 최대 디스크 크기(GB)<br/>템플릿에 [열을 추가](#add-multiple-disks)하여 추가 디스크에 대한 세부 정보를 추가할 수 있습니다. 최대 8개의 디스크를 추가할 수 있습니다.
 **디스크 1 읽기 작업** | 예 | 초당 디스크 읽기 작업

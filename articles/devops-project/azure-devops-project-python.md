@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure DevOps 스타터를 사용 하 여 Python 용 CI/CD 파이프라인 만들기'
-description: DevOps 스타터를 사용 하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
+title: '빠른 시작: Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기'
+description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,32 +12,32 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 5bd16b256076886232062be9786914e55db0185f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: e148d50af39e69750c3024d98abc833e40654705
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233758"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558737"
 ---
-# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 Python 용 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기
 
-이 빠른 시작에서는 간소화 된 Azure DevOps 시작 환경을 사용 하 여 Azure Pipelines에서 Python 앱에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 설정 합니다. Azure DevOps 스타터를 사용 하 여 앱을 개발, 배포 및 모니터링 하는 데 필요한 모든 항목을 설정할 수 있습니다. 
+이 빠른 시작에서는 간소화된 A Azure DevOps Starter 경험을 사용하여 Azure Pipelines에서 Python 앱용 CI(연속 통합) 및 CD(연속 업데이트) 파이프라인을 설정합니다. Azure DevOps Starter를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) 계정 및 조직입니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps 스타터는 선택한 Azure 구독에 Azure 리소스를 만듭니다.
+DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Starter는 선택한 Azure 구독에서 Azure 리소스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다.
+1. 검색 상자에 **DevOps Starter**를 입력한 다음, 선택합니다. **추가**를 클릭하여 새 항목을 만듭니다.
 
-    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png) 
+    ![DevOps Starter 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
@@ -55,7 +55,7 @@ DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다.
 
     1. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 입력한 후 **완료**를 선택합니다.  
     
-     몇 분 후에 스타터 대시보드가 Azure Portal 표시 됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.  
+     잠시 후에 스타터 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.  
     
 2. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
@@ -65,9 +65,9 @@ DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
-DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다. 
+DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다. 
 
-1. DevOps 스타터 대시보드의 왼쪽에서 마스터 분기에 대 한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps 스타터 대시보드 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
 1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제**를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
 
@@ -77,15 +77,15 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 
 1. **커밋**을 선택하고 변경 내용을 저장합니다.
 
-1. 브라우저에서 DevOps 스타터 대시보드로 이동 합니다. 이제 빌드가 진행되고 있다고 표시됩니다. 방금 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
+1. 브라우저에서 DevOps Starter 대시보드로 이동합니다. 이제 빌드가 진행되고 있다고 표시됩니다. 방금 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 단계에서 DevOps 스타터는 전체 CI/CD 파이프라인을 자동으로 구성 합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. 빌드 및 릴리스 파이프라인에 익숙해지려면 다음을 수행합니다.
+이전 단계에서 DevOps Starter가 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. 빌드 및 릴리스 파이프라인에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드 맨 위에서 **파이프라인 빌드**를 선택 합니다. 브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
+1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
 
-1. **상태** 필드를 가리킨 다음 **줄임표** (...)를 선택 합니다. 새 빌드를 큐에 대기 하 고, 빌드를 일시 중지 하 고, 빌드 파이프라인을 편집 하는 등의 몇 가지 옵션이 메뉴에 표시 됩니다.
+1. **상태** 필드를 가리킨 후 **줄임표**(...)를 선택합니다. 메뉴에 새 빌드 쿼리, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 몇 가지 옵션이 표시됩니다.
 
 1. **편집**을 선택합니다.
 
@@ -93,11 +93,11 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 
 1. 빌드 파이프라인의 맨 위에서 빌드 파이프라인 이름을 선택합니다.
 
-1. 빌드 파이프라인의 이름을 보다 설명적인 이름으로 변경 하 고, **큐 & 저장**을 선택한 다음, **저장**을 선택 합니다.
+1. 빌드 파이프라인의 이름을 좀 더 구체적인 것으로 변경하고 **저장 및 큐에 넣기**, **저장**을 차례로 선택합니다.
 
 1. 빌드 파이프라인 이름에서 **기록**을 선택합니다. 빌드에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
-1. **트리거**를 선택합니다. DevOps 스타터는 CI 트리거를 자동으로 만들며 리포지토리에 대 한 모든 커밋이 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps Starter는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
@@ -118,11 +118,11 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 
 1. **커밋**을 선택합니다. 이 보기에는 특정 배포와 연결된 코드 커밋이 표시됩니다. 
 
-1. **로그**를 선택 합니다. 로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
+1. **로그**를 선택합니다. 로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 경우 Azure App Service 및 관련 리소스를 삭제할 수 있습니다. DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
+더 이상 필요하지 않을 경우 Azure App Service 및 관련 리소스를 삭제할 수 있습니다. DevOps Starter 대시보드의 **삭제** 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

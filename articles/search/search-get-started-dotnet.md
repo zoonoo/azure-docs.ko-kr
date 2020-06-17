@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: .NET을 사용하여 C#에서 검색 인덱스 만들기'
+title: .NET에서 검색 인덱스 만들기
 titleSuffix: Azure Cognitive Search
 description: 이 C# 빠른 시작에서 Azure Cognitive Search .NET SDK를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
@@ -8,15 +8,15 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3d0006a3c77050c1bb21a0da8d6be51e659f933d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77589218"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634936"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#에서 Azure Cognitive Search 인덱스 만들기
+# <a name="quickstart-create-a-search-index-in-net"></a>빠른 시작: .NET에서 검색 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [포털](search-get-started-portal.md)
@@ -25,20 +25,22 @@ ms.locfileid: "77589218"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Visual Studio와 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 .NET Core C# 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 설명합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart)할 수 있습니다.
+Visual Studio와 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 C#의 .NET Core 콘솔 애플리케이션을 만듭니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 문서에서는 애플리케이션을 만드는 방법을 단계별로 설명합니다. 또한 코드를 미리 이동하려는 경우 [전체 응용 프로그램을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart)할 수도 있습니다.
 
 > [!NOTE]
 > 이 문서의 데모 코드는 간단히 하기 위해 Azure Cognitive Search .NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작에 필요한 서비스와 도구는 다음과 같습니다.
+시작하기 전에 다음이 있어야 합니다.
+
++ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+
++ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
-
-+ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 <a name="get-service-info"></a>
 
@@ -70,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **찾아보기**를 클릭합니다.
 
-1. `Microsoft.Azure.Search`를 검색하고 버전 9.0.1 이상을 선택합니다.
+1. `Microsoft.Azure.Search`를 검색하고 버전 9.0.1 이상을 선택합니다(안정적인 최신 버전은 10.1.0).
 
 1. 오른쪽에서 **설치**를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
 
@@ -87,26 +89,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 출력 디렉터리에 파일을 추가합니다. appsettings.json을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **출력 디렉터리로 복사**에서 **변경된 내용만 복사**를 선택합니다.
 
-1. 다음 JSON을 새 JSON 파일에 복사합니다. 검색 서비스 이름(YOUR-SEARCH-SERVICE-NAME)과 관리자 API 키(YOUR-ADMIN-API-KEY)를 유효한 값으로 바꿉니다. 서비스 엔드포인트가 `https://mydemo.search.windows.net`이면 서비스 이름은 "mydemo"가 됩니다.
+1. 다음 JSON을 새 JSON 파일에 복사합니다. 
 
-```json
-{
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchIndexName": "hotels-quickstart"
-}
-```
+    ```json
+    {
+      "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+      "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+      "SearchIndexName": "hotels-quickstart"
+    }
+    ```
+
+1. 검색 서비스 이름(YOUR-SEARCH-SERVICE-NAME)과 관리자 API 키(YOUR-ADMIN-API-KEY)를 유효한 값으로 바꿉니다. 서비스 엔드포인트가 `https://mydemo.search.windows.net`이면 서비스 이름은 "mydemo"가 됩니다.
 
 ### <a name="add-class-method-files-to-your-project"></a>프로젝트에 클래스 ".Method" 파일 추가
 
-콘솔 창에 결과를 출력할 때 Hotel 개체의 개별 필드를 문자열로 반환해야 합니다. 필요한 코드를 새 파일 2개에 복사하여, 이 작업을 수행하도록 [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8)을 구현할 수 있습니다.
+이 단계는 콘솔에서 의미 있는 출력을 생성하는 데 필요합니다. 콘솔 창에 결과를 출력할 때 Hotel 개체의 개별 필드를 문자열로 반환해야 합니다. 이 단계에서는 [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8)를 구현하여 이 작업을 수행합니다. 이 작업은 필요한 코드를 두 개의 새 파일에 복사하여 수행합니다.
 
 1. 프로젝트에 빈 클래스 정의 2개를 추가합니다. Address.Methods.cs, Hotel.Methods.cs
 
-1. Address.Methods.cs의 기본 콘텐츠를 다음 코드 [1~32줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32)로 덮어씁니다.
+1. Address.Methods.cs의 기본 콘텐츠를 다음 코드 [1-25줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25)로 덮어씁니다.
 
-1. Hotel.Methods.cs에서 [1~66줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66)을 복사합니다.
-
+1. Hotel.Methods.cs에서 [1-68줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68)을 복사합니다.
 
 ## <a name="1---create-index"></a>1 - 인덱스 만들기
 
@@ -271,7 +274,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
             // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
             private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
             {
-                var definition = new Index()
+                var definition = new Microsoft.Azure.Search.Models.Index()
                 {
                     Name = indexName,
                     Fields = FieldBuilder.BuildForType<Hotel>()
