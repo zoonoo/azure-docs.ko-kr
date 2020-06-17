@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731172"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657151"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
@@ -129,17 +129,30 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
 </dependency>
 ```
 
-## <a name="other-required-dependencies"></a>기타 필수 종속성
+## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Azure Spring Cloud 기능을 사용하도록 설정하기 위한 기타 권장 종속성
 
-Azure Spring Cloud의 기본 제공 기능을 사용하려면 애플리케이션에 다음 종속성이 포함되어야 합니다. 이렇게 포함하면 애플리케이션이 각 구성 요소에 맞게 올바르게 구성됩니다.
+서비스 레지스트리에서 분산 추적까지 Azure Spring Cloud의 다양한 기본 제공 기능을 사용하도록 설정하려면 애플리케이션에 다음 종속성도 포함해야 합니다. 특정 앱에 해당하는 기능이 필요하지 않은 경우 이러한 종속성 중 일부를 삭제할 수 있습니다.
 
-### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient 주석
+### <a name="service-registry"></a>서비스 레지스트리
+
+관리형 Azure Service Registry 서비스를 사용하려면 아래와 같이 `spring-cloud-starter-netflix-eureka-client` 종속성을 pom.xml 파일에 포함합니다.
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
+
+#### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient 주석
 
 애플리케이션 소스 코드에 다음 주석을 추가합니다.
 ```java
 @EnableDiscoveryClient
 ```
-예를 들어, 이전 예제의 piggymetrics 애플리케이션을 참조하세요.
+예를 들어 이전 예제의 piggymetrics 애플리케이션을 참조하세요.
 ```java
 package com.piggymetrics.gateway;
 
@@ -159,20 +172,7 @@ public class GatewayApplication {
 }
 ```
 
-### <a name="service-registry-dependency"></a>서비스 레지스트리 종속성
-
-관리형 Azure Service Registry 서비스를 사용하려면 아래와 같이 `spring-cloud-starter-netflix-eureka-client` 종속성을 pom.xml 파일에 포함합니다.
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
-
-### <a name="distributed-configuration-dependency"></a>분산 구성 종속성
+### <a name="distributed-configuration"></a>분산 구성
 
 분산 구성을 사용하도록 설정하려면, pom.xml 파일의 종속성 섹션에 `spring-cloud-config-client` 종속성을 포함합니다.
 
@@ -186,7 +186,7 @@ public class GatewayApplication {
 > [!WARNING]
 > 부트스트랩 구성에 `spring.cloud.config.enabled=false`를 지정하지 마세요. 그렇지 않으면 애플리케이션이 구성 서버 작업을 중지합니다.
 
-### <a name="metrics-dependency"></a>메트릭 종속성
+### <a name="metrics"></a>메트릭
 
 다음과 같이 pom.xml 파일의 종속성 섹션에 `spring-boot-starter-actuator` 종속성을 포함합니다.
 
@@ -199,7 +199,7 @@ public class GatewayApplication {
 
  JMX 엔드포인트에서 메트릭을 정기적으로 끌어옵니다. Azure Portal을 사용하여 메트릭을 시각화할 수 있습니다.
 
-### <a name="distributed-tracing-dependency"></a>분산 추적 종속성
+### <a name="distributed-tracing"></a>분산 추적
 
 pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
 

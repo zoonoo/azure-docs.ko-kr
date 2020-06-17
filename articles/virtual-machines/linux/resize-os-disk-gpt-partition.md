@@ -1,6 +1,6 @@
 ---
-title: GPT 파티션을 사용 하 여 OS 디스크 크기 조정 | Microsoft Docs
-description: 이 문서에서는 GPT 파티션을 사용 하 여 OS 디스크의 크기를 조정 하는 방법을 설명 합니다.
+title: GPT 파티션이 있는 OS 디스크 크기 조정 | Microsoft Docs
+description: 이 문서에서는 GPT 파티션이 있는 OS 디스크의 크기를 조정하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: f863233f0a34271841cc8e973f9aa3ca9416ceeb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 7c408e8e29b3f9ac423a6104c40242f11f93a171
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858991"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651097"
 ---
-# <a name="resize-an-os-disk-with-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
+# <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
 
 > [!NOTE]
-> 이 시나리오는 GPT 파티션이 있는 OS 디스크에만 적용 됩니다.
+> 이 시나리오는 GPT(GUID 파티션 테이블) 파티션이 있는 OS 디스크에만 적용됩니다.
 
-이 문서에서는 Linux에서 GPT 파티션을 사용 하 여 OS 디스크의 크기를 늘리는 방법을 설명 합니다.
+이 문서에서는 Linux에서 GPT 파티션이 있는 OS 디스크의 크기를 늘리는 방법을 설명합니다. 
 
-## <a name="identify-whether-the-os-disk-has-an-mbr-or-gpt-partition"></a>OS 디스크에 MBR 또는 GPT 파티션이 있는지 확인
+## <a name="identify-whether-the-os-disk-has-an-mbr-or-gpt-partition"></a>OS 디스크에 MBR 파티션과 GPT 파티션 중 어느 것이 있는지 확인
 
-**Parted** 명령을 사용 하 여 디스크 파티션이 MBR (마스터 부트 레코드) 파티션이나 GPT (GUID 파티션 테이블) 파티션으로 생성 되었는지 여부를 확인 합니다.
+**parted** 명령을 사용하여 디스크 파티션이 MBR(마스터 부트 레코드) 파티션과 GPT 파티션 중 어느 것으로 만들어졌는지 확인합니다.
 
 ### <a name="mbr-partition"></a>MBR 파티션
 
-다음 출력에서 **파티션 테이블** 은 **MBR** 파티션을 식별 하는 **msdos.sys**값을 표시 합니다.
+다음 출력에서 **Partition Table** 값이 **msdos**로 표시됩니다. 이 값은 MBR 파티션임을 나타냅니다.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>GPT 파티션
 
-다음 출력에서 **파티션 테이블** 은 gpt **값을 표시 하 고**gpt 파티션을 식별 합니다.
+다음 출력에서 **Partition Table** 값이 **gpt**로 표시됩니다. 이 값은 GPT 파티션임을 나타냅니다.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -67,25 +67,25 @@ Number  Start   End     Size    File system  Name                  Flags
 4       1052MB  68.7GB  67.7GB                                     lvm
 ```
 
-VM (가상 컴퓨터)에 OS 디스크의 GPT 파티션이 있는 경우 OS 디스크의 크기를 늘립니다.
+VM(가상 머신)의 OS 디스크에 GPT 파티션이 있는 경우 OS 디스크의 크기를 늘립니다.
 
-## <a name="increase-the-size-of-the-os-disk"></a>OS 디스크의 크기를 늘립니다.
+## <a name="increase-the-size-of-the-os-disk"></a>OS 디스크의 크기 늘리기
 
-다음 지침은 Linux 보증 배포판에 적용 됩니다.
+다음 지침은 Linux 보증 배포판에 적용됩니다.
 
 > [!NOTE]
-> 계속 진행 하기 전에 VM의 백업 복사본을 만들거나 OS 디스크의 스냅숏을 만듭니다.
+> 계속하기 전에 VM의 백업 복사본을 만들거나 OS 디스크의 스냅샷을 만드세요.
 
-### <a name="ubuntu-16x-and-18x"></a>Ubuntu 16.x 및 18.x
+### <a name="ubuntu"></a>Ubuntu
 
 Ubuntu 16.x 및 18.x에서 OS 디스크의 크기를 늘리려면:
 
 1. VM을 중지합니다.
-1. 포털에서 OSDisk 크기를 늘립니다.
-1. VM을 다시 시작한 다음 **루트** 사용자로 vm에 로그인 합니다.
-1. 이제 OSDisk에 증가 된 파일 시스템 크기가 표시 됩니다.
+1. 포털에서 OS 디스크의 크기를 늘립니다.
+1. VM을 다시 시작한 다음 **루트** 사용자로 VM에 로그인합니다.
+1. OS 디스크에 늘어난 파일 시스템 크기가 표시되는지 확인합니다.
 
-다음 예제에 표시 된 것 처럼 OS 디스크는 **/** 현재 탑재 된 **/dev/sda1** 파일 시스템이 97 gb를 표시 하므로 포털에서 100 GB로 크기가 조정 되었습니다.
+다음 예에서 볼 수 있듯이 포털에서 OS 디스크의 크기가 100GB로 조정되었습니다. **/** 에 탑재된 **/dev/sda1** 파일 시스템이 이제 97GB로 표시됩니다.
 
 ```
 user@myvm:~# df -Th
@@ -102,35 +102,35 @@ tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
 user@myvm:~#
 ```
 
-### <a name="suse-12-sp4suse-sles-12-for-sap-suse-sles-15-and-suse-sles-15-for-sap"></a>SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15 및 SUSE SLES 15 for SAP
+### <a name="suse"></a>SUSE
 
-SAP 용 SUSE 12 SP4, SUSE SLES 15 및 SUSE SLES 15에서 OS 디스크의 크기를 늘리려면:
+SUSE 12 SP4, SAP용 SUSE SLES 12, SUSE SLES 15, SAP용 SUSE SLES 15에서 OS 디스크의 크기를 늘리려면:
 
 1. VM을 중지합니다.
-1. 포털에서 OSDisk 크기를 늘립니다.
+1. 포털에서 OS 디스크의 크기를 늘립니다.
 1. VM을 다시 시작합니다.
 
-VM이 다시 시작 되 면 다음 단계를 수행 합니다.
+VM이 다시 시작되면 다음 단계를 수행합니다.
 
-   1. 다음 명령을 사용 하 여 **루트 사용자** 로 VM에 액세스 합니다.
+   1. 다음 명령을 사용하여 **루트** 사용자로 VM에 액세스합니다.
    
       `#sudo su`
 
-   1. 다음 명령을 사용 하 여 OS 디스크의 크기를 높이는 데 필요한 **gptfdisk** 패키지를 설치 합니다.
+   1. 다음 명령을 사용하여 OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치합니다.
 
       `#zypper install gptfdisk -y`
 
-   1. 디스크에서 사용할 수 있는 가장 큰 섹터를 보려면 다음 명령을 실행 합니다.
+   1. 디스크에서 사용할 수 있는 가장 큰 섹터를 보려면 다음 명령을 실행합니다.
 
       `#sgdisk -e /dev/sda`
 
-   1. 다음 명령을 사용 하 여 파티션을 삭제 하지 않고 크기를 조정 합니다. **Parted** 명령에는 파티션을 삭제 하지 않고 크기를 조정 하는 **resizepart** 라는 옵션이 있습니다. Resizepart 다음의 숫자 4는 네 번째 (4 번째) 파티션의 크기를 나타냅니다.
+   1. 다음 명령을 사용하여 파티션을 삭제하지 않고 크기를 조정합니다. **parted** 명령에는 파티션을 삭제하지 않고 크기를 조정하는 **resizepart**라는 옵션이 있습니다. **resizepart** 뒤에 오는 숫자 4는 네 번째 파티션의 크기가 조정됨을 나타냅니다.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
 
-   1. `#lsblk` 명령을 실행 하 여 파티션이 증가 했는지 여부를 확인 합니다.
+   1. **#lsblk** 명령을 실행하여 파티션이 늘어났는지 확인합니다.
 
-      다음 출력에서는 **/dev/sda4** 파티션이 98.5 GB로 크기 조정 되었음을 보여 줍니다.
+      다음 출력에서 **/dev/sda4** 파티션이 98.5GB로 크기 조정된 것을 볼 수 있습니다.
 
       ```
       user@myvm:~ # lsblk
@@ -143,7 +143,7 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       └─sdb1   8:17   0   20G  0 part /mnt/resource
       ```
       
-   1. 다음 명령을 사용 하 여 OSDisk의 파일 시스템 유형을 식별 합니다.
+   1. 다음 명령을 사용하여 OS 디스크의 파일 시스템 유형을 식별합니다.
 
       `blkid`
 
@@ -160,9 +160,9 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       /dev/sdb1: UUID="95239fce-ca97-4f03-a077-4e291588afc9" TYPE="ext4" PARTUUID="953afef3-01"
       ```
 
-   1. 파일 시스템 유형에 따라 적절 한 명령을 사용 하 여 파일 시스템의 크기를 조정 합니다.
+   1. 파일 시스템 유형을 기준으로 적절한 명령을 사용하여 파일 시스템의 크기를 조정합니다.
 
-      **Xfs**의 경우 다음 명령을 사용 합니다.
+      **xfs**의 경우 다음 명령을 사용합니다.
 
       ` #xfs_growfs /`
 
@@ -183,11 +183,11 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       data blocks changed from 7470331 to 25820172
       ```
 
-      **Ext4**의 경우 다음 명령을 사용 합니다.
+      **ext4**의 경우 다음 명령을 사용합니다.
 
       ```#resize2fs /dev/sda4```
 
-   1. 다음 명령을 사용 하 여 **df**에 대 한 파일 시스템 크기 증가를 확인 합니다.
+   1. 다음 명령을 사용하여 **df -Th**의 파일 시스템 크기가 늘어났는지 확인합니다.
 
       `#df -Th`
 
@@ -208,37 +208,39 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       user@myvm:~ #
       ```
 
-앞의 예제와 같이 OSDisk 파일 시스템 크기가 증가 한 것을 볼 수 있습니다.
+앞의 예제에서 OS 디스크의 파일 시스템 크기가 늘어난 것을 확인할 수 있습니다.
 
-### <a name="rhel-7x-with-lvm"></a>LVM을 사용 하는 RHEL 7.x
+### <a name="rhel"></a>RHEL
+
+LVM을 사용하여 RHEL 7.x에서 OS 디스크의 크기를 늘리려면:
 
 1. VM을 중지합니다.
-1. 포털에서 OSDisk 크기를 늘립니다.
+1. 포털에서 OS 디스크의 크기를 늘립니다.
 1. VM을 시작합니다.
 
-VM이 다시 시작 되 면 다음 단계를 수행 합니다.
+VM이 다시 시작되면 다음 단계를 수행합니다.
 
-   1. 다음 명령을 사용 하 여 **루트 사용자** 로 VM에 액세스 합니다.
+   1. 다음 명령을 사용하여 **루트** 사용자로 VM에 액세스합니다.
    
       `#sudo su`
 
-   1. OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치 합니다.
+   1. OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치합니다.
 
       `#yum install gdisk -y`
 
-   1. 디스크에서 사용할 수 있는 가장 큰 섹터를 보려면 다음 명령을 실행 합니다.
+   1. 디스크에서 사용할 수 있는 가장 큰 섹터를 보려면 다음 명령을 실행합니다.
 
       `#sgdisk -e /dev/sda`
 
-   1. 다음 명령을 사용 하 여 파티션을 삭제 하지 않고 크기를 조정 합니다. **Parted** 명령에는 파티션을 삭제 하지 않고 크기를 조정 하는 **resizepart** 라는 옵션이 있습니다. Resizepart 다음의 숫자 4는 네 번째 (4 번째) 파티션의 크기를 나타냅니다.
+   1. 다음 명령을 사용하여 파티션을 삭제하지 않고 크기를 조정합니다. **parted** 명령에는 파티션을 삭제하지 않고 크기를 조정하는 **resizepart**라는 옵션이 있습니다. **resizepart** 뒤에 오는 숫자 4는 네 번째 파티션의 크기가 조정됨을 나타냅니다.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
     
-   1. 다음 명령을 실행 하 여 파티션이 증가 했는지 확인 합니다.
+   1. 다음 명령을 실행하여 파티션이 늘어났는지 확인합니다.
 
       `#lsblk`
 
-      다음 출력에서는 **/dev/sda4** 파티션이 99 GB로 크기 조정 되었음을 보여 줍니다.
+      다음 출력에서 **/dev/sda4** 파티션이 99GB로 크기 조정된 것을 볼 수 있습니다.
 
       ```
       [user@myvm ~]# lsblk
@@ -259,11 +261,11 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. 다음 명령을 사용 하 여 **실제 볼륨 (PV)** 의 크기를 조정 합니다.
+   1. 다음 명령을 사용하여 PV(실제 볼륨)의 크기를 조정합니다.
 
       `#pvresize /dev/sda4`
 
-      다음 출력은 PV의 크기가 99.02 GB로 조정 되었음을 보여 줍니다.
+      다음 출력에서 PV가 99.02GB로 크기 조정된 것을 볼 수 있습니다.
 
       ```
       [user@myvm ~]# pvresize /dev/sda4
@@ -275,7 +277,7 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
 
-   1. 다음 예 `/dev/mapper/rootvg-rootlv` 에서는 파일 시스템의 크기를 조정 하는 다음 명령을 사용 하 여 2GB에서 12GB (10gb 씩 증가)로 크기를 조정 하 고 있습니다.
+   1. 다음 예제에서는 다음 명령에 의해 **/dev/mapper/rootvg-rootlv**가 2GB에서 12GB로 크기 조정됩니다(10GB 증가). 이 명령은 파일 시스템의 크키도 조정합니다.
 
       `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
 
@@ -297,7 +299,7 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       data blocks changed from 524288 to 3145728
       ```
          
-   1. `/dev/mapper/rootvg-rootlv` 에서 다음 명령을 사용 하지 않고 파일 시스템 크기를 증가 했는지 확인 합니다.
+   1. 다음 명령을 사용하여 **/dev/mapper/rootvg-rootlv**의 파일 시스템 크기가 증가했는지 확인합니다.
 
       `#df -Th /`
 
@@ -310,8 +312,8 @@ VM이 다시 시작 되 면 다음 단계를 수행 합니다.
       [user@myvm ~]#
       ```
 
-      > [!NOTE]
-      > 동일한 절차를 사용 하 여 다른 논리 볼륨의 크기를 조정 하려면 7 단계에서 **lv** 이름을 변경 합니다.
+   > [!NOTE]
+   > 동일한 절차를 사용하여 다른 논리 볼륨의 크기를 조정하려면 7단계에서 **lv** 이름을 변경하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

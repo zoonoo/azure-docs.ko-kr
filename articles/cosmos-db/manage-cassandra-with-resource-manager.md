@@ -1,47 +1,47 @@
 ---
-title: Azure Cosmos DB Cassandra API에 대 한 리소스 관리자 템플릿
-description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB Cassandra API를 만들고 구성 합니다.
+title: Azure Cosmos DB Cassandra API용 Resource Manager 템플릿
+description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Cassandra API를 만들고 구성합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: f16dec74b15f4945b54fe1423835fd8f5c8d96f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 630c965eadf17e21c75e1bd180fec4496df830e2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791275"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684830"
 ---
-# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB Cassandra API 리소스 관리
+# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Cassandra API 리소스 관리
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 키 공간 및 테이블을 배포 하 고 관리 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, 키스페이스 및 테이블을 배포 및 관리하는 방법을 알아봅니다.
 
-이 문서에는 Cassandra API 계정에 대 한 예제가 포함 되어 있습니다. 다른 API 형식 계정에 대 한 예제를 찾으려면 Azure Cosmos DB의 [SQL](manage-sql-with-resource-manager.md)용 api를 사용 하 여 Azure Resource Manager 템플릿 사용, [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [테이블](manage-table-with-resource-manager.md) 문서를 참조 하세요.
+이 문서에는 Cassandra API 계정의 예제만 있으며 다른 API 형식 계정의 예제를 찾으려면 [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) 문서의 Azure Cosmos DB API와 함께 Azure Resource Manager 템플릿을 사용하는 방법을 참조하세요.
 
 > [!IMPORTANT]
 >
-> * 계정 이름은 44 자 (모두 소문자)로 제한 됩니다.
-> * 처리량 값을 변경 하려면 업데이트 된 r u/s를 사용 하 여 템플릿을 다시 배포 합니다.
-> * Azure Cosmos 계정에 위치를 추가 하거나 제거 하는 경우 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행 해야 합니다.
+> * 계정 이름은 44자(모두 소문자)로 제한됩니다.
+> * 처리량 값을 변경하려면 업데이트된 RU/s로 템플릿을 다시 배포합니다.
+> * Azure Cosmos 계정에 위치를 추가하거나 제거하면 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행해야 합니다.
 
-아래 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사 합니다. 필요에 따라 다른 이름 및 값을 사용 하 여 동일한 리소스의 여러 인스턴스를 배포할 때 사용할 매개 변수 json 파일을 만들 수 있습니다. , [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯 한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
+아래의 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사합니다. 필요에 따라 이름 및 값이 다른 동일한 리소스의 여러 인스턴스를 배포할 때 매개 변수 json 파일을 만들 수 있습니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
 
 <a id="create-autoscale"></a>
 
-## <a name="azure-cosmos-account-for-cassandra-with-autoscale-provisioned-throughput"></a>자동 크기 조정 프로 비전 된 처리량을 제공 하는 Cassandra 용 Azure Cosmos 계정
+## <a name="azure-cosmos-account-for-cassandra-with-autoscale-provisioned-throughput"></a>프로비저닝된 자동 스케일링 처리량을 사용하는 Cassandra용 Azure Cosmos 계정
 
-이 템플릿은 일관성 및 장애 조치 (failover)에 대 한 옵션을 사용 하 여 두 지역에 Azure Cosmos 계정을 만들며 자동 크기 조정 처리량에 대해 구성 된 keyspace 및 테이블이 있습니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포 하는 경우에도 사용할 수 있습니다.
+다음 템플릿은 자동 스케일링 처리량에 대해 키스페이스 및 테이블이 구성된 상태에서 일관성 및 장애 조치(failover) 옵션을 사용하여 두 지역에 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autosscale%2Fazuredeploy.json)
+[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra-autoscale/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-for-cassandra-with-standard-manual-provisioned-throughput"></a>표준 (수동) 프로 비전 된 처리량을 제공 하는 Cassandra 용 Azure Cosmos 계정
+## <a name="azure-cosmos-account-for-cassandra-with-standard-provisioned-throughput"></a>프로비저닝된 표준 처리량을 사용하는 Cassandra용 Azure Cosmos 계정
 
-이 템플릿은 일관성 및 장애 조치 (failover) 옵션을 사용 하 여 두 지역에 Azure Cosmos 계정을 만들며 표준 처리량에 대해 구성 된 keyspace 및 테이블이 있습니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포 하는 경우에도 사용할 수 있습니다.
+다음 템플릿은 표준 처리량에 대해 키스페이스 및 테이블이 구성된 상태에서 일관성 및 장애 조치(failover) 옵션을 사용하여 두 지역에 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
 [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra%2Fazuredeploy.json)
 

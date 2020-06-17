@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585898"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826097"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -42,9 +42,9 @@ ms.locfileid: "83585898"
 
 > [!IMPORTANT]
 > 직접 링크는 테넌트와 관련되어야 합니다. 즉, 공유 앱이 있는 테넌트에서 게스트를 인증할 수 있도록 테넌트 ID 또는 확인된 도메인이 포함되어야 합니다. https://myapps.microsoft.com 형식의 일반적인 URL은 인증을 위해 해당 홈 테넌트로 리디렉션하기 때문에 게스트에게는 작동하지 않습니다. 다음은 테넌트 컨텍스트가 포함된 직접 링크의 예입니다.
- > - 앱 액세스 패널: https://myapps.microsoft.com/?tenantid=&lt;테넌트 id&gt; 
- > - 확인된 도메인의 앱 액세스 패널: https://myapps.microsoft.com/&lt;확인된 도메인&gt;
- > - Azure Portal: https://portal.azure.com/&lt;테넌트 id&gt;
+ > - 앱 액세스 패널: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - 확인된 도메인의 앱 액세스 패널: `https://myapps.microsoft.com/<;verified domain>`
+ > - Azure Portal: `https://portal.azure.com/<tenant id>`
  > - 개별 앱: [직접 로그온 링크](../manage-apps/end-user-experiences.md#direct-sign-on-links) 사용 방법을 참조하세요.
 
 다음과 같이 직접 링크를 통해 초대 이메일을 보내는 것이 좋은 경우도 있습니다. 이러한 특수한 사례가 조직에 중요한 경우 초대 이메일을 전송하는 방법을 사용하여 사용자를 초대하는 것이 좋습니다.

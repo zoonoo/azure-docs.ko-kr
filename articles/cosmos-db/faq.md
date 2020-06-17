@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 다양 한 Api에 대 한 질문과 대답
+title: Azure Cosmos DB의 다양한 API에 대해 자주 묻는 질문
 description: 전역적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에 대해 자주 묻는 질문에 대한 대답을 살펴봅니다. 용량, 성능 수준 및 크기 조정에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 976ff4d3be194bf33d2c01f06c66782caf8dad50
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608050"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834911"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -22,9 +22,9 @@ Azure Cosmos DB는 자동 크기 조정, 예측 가능한 성능, 밀리초 응�
 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Azure Cosmos DB는 어떻게 예측 가능한 성능을 제공하나요?
 
-RU([요청 단위](request-units.md))는 Azure Cosmos DB의 처리량 측정 단위입니다. 1gb 처리량은 1kb 문서의 GET 처리량에 해당 합니다. 읽기, 쓰기, SQL 쿼리, 저장 프로시저 실행 등 Azure Cosmos DB에서의 모든 작업에는 작업을 완료하는 데 필요한 처리량을 기반으로 하는 결정적 RU 값이 있습니다. CPU, IO 및 메모리와 이 각각이 애플리케이션 처리량에 미치는 영향을 고려하는 대신 단일 RU 측정값 측면에서 고려할 수 있습니다.
+RU([요청 단위](request-units.md))는 Azure Cosmos DB의 처리량 측정 단위입니다. 1RU 처리량은 1KB 문서의 GET 처리량에 해당합니다. 읽기, 쓰기, SQL 쿼리, 저장 프로시저 실행 등 Azure Cosmos DB에서의 모든 작업에는 작업을 완료하는 데 필요한 처리량을 기반으로 하는 결정적 RU 값이 있습니다. CPU, IO 및 메모리와 이 각각이 애플리케이션 처리량에 미치는 영향을 고려하는 대신 단일 RU 측정값 측면에서 고려할 수 있습니다.
 
-초당 처리량 RUs를 기준으로 프로 비전 된 처리량으로 각 Azure Cosmos 컨테이너를 구성할 수 있습니다. 모든 규모의 애플리케이션에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 애플리케이션 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대 한 자세한 내용과 컨테이너 요구 사항 결정에 대 한 자세한 내용은 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 참조 하세요.
+초당 RU 처리량 측면에서 프로비저닝된 처리량으로 각 Azure Cosmos 컨테이너를 구성할 수 있습니다. 모든 규모의 애플리케이션에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 애플리케이션 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대해 자세히 알아보고 컨테이너 요구 사항을 확인하는 데 도움을 받으려면 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 사용하세요.
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB에서는 키/값, 열 형식, 문서 및 그래프와 같은 다양한 데이터 모델을 어떻게 지원하나요?
 
@@ -32,15 +32,15 @@ Azure Cosmos DB는 ARS(아톰, 레코드 및 시퀀스) 디자인을 기반으�
 
 Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 요구하지 않고도 수집되는 모든 데이터를 자동으로 인덱싱할 수 있는 스키마 독립적인 인덱싱 엔진을 포함합니다. 이 엔진은 인덱스 및 쿼리 처리 하위 시스템에서 스토리지 레이아웃을 분리하는 논리적 인덱스 레이아웃 집합(반전됨, 열 형식, 트리)을 기반으로 합니다. Cosmos DB는 유선 프로토콜과 API 세트를 확장 가능한 방식으로 지원하고 핵심 데이터 모델(1)과 논리적 인덱스 레이아웃(2)으로 효율적으로 변환하여 기본적으로 둘 이상의 데이터 모델을 고유하게 지원할 수 있도록 합니다.
 
-### <a name="can-i-use-multiple-apis-to-access-my-data"></a>여러 Api를 사용 하 여 내 데이터에 액세스할 수 있나요?
+### <a name="can-i-use-multiple-apis-to-access-my-data"></a>여러 API를 사용하여 내 데이터에 액세스할 수 있나요?
 
-Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. 다중 모델이 여러 Api와 여러 데이터 모델을 지원 Azure Cosmos DB을 의미 하는 경우 다른 Api는 저장소 및 유선 프로토콜에 대해 서로 다른 데이터 형식을 사용 합니다. 예를 들어 SQL에서는 JSON을 사용 하 고 MongoDB는 BSON을 사용 하며, 테이블은 EDM을 사용 하 고, Cassandra는 CQL, Gremlin는 JSON 형식을 사용 합니다 따라서 지정 된 계정에 있는 데이터에 대 한 모든 액세스에 동일한 API를 사용 하는 것이 좋습니다.
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. 다중 모델이 Azure Cosmos DB가 여러 API와 여러 데이터 모델을 지원하는 것을 의미하는 경우 여러 API가 스토리지 및 유선 프로토콜에 대해 서로 다른 데이터 형식을 사용합니다. 예를 들어 SQL은 JSON, MongoDB는 BSON, Table은 EDM, Cassandra는 CQL, Gremlin은 JSON 형식을 사용합니다. 따라서 지정된 계정에 있는 데이터에 대한 모든 액세스에 동일한 API를 사용하는 것이 좋습니다.
 
-각 API는 상호 운용할 수 있는 Gremlin 및 SQL API를 제외 하 고 독립적으로 작동 합니다.
+각 API는 상호 운용할 수 있는 Gremlin 및 SQL API를 제외하고 독립적으로 작동합니다.
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB는 HIPAA 규격인가요?
 
-예, Azure Cosmos DB는 HIPAA 규격입니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)를 참조 하세요.
+예, Azure Cosmos DB는 HIPAA 규격입니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)를 참조하세요.
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Azure Cosmos DB의 스토리지 한도는 어느 정도인가요?
 
@@ -70,7 +70,7 @@ Azure를 처음 사용하는 경우 [Azure 체험 계정](https://azure.microsof
 
 기술 관련 질문을 하려면 다음 두 가지의 질문 및 답변 포럼 중 하나에 게시합니다.
 
-* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
 
 새로운 기능을 요청하려면 [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)에서 새 요청을 만듭니다.
@@ -79,28 +79,28 @@ Azure를 처음 사용하는 경우 [Azure 체험 계정](https://azure.microsof
 
 ## <a name="try-azure-cosmos-db-subscriptions"></a><a id="try-cosmos-db"></a>Azure Cosmos DB 구독 사용해 보기
 
-이제 구독이나 요금, 약정 없이 시간이 제한된 Cosmos DB를 경험할 수 있습니다. Try Azure Cosmos DB 구독에 등록 하려면 [무료로 Azure Cosmos DB 체험](https://azure.microsoft.com/try/cosmosdb/) 으로 이동 하 여 모든 개인 MICROSOFT 계정 (MSA)를 사용 하세요. 이 구독은 [Azure 평가판](https://azure.microsoft.com/free/)과 별도이며 Azure 평가판 또는 Azure 유료 구독과 함께 사용할 수 있습니다.
+이제 구독이나 요금, 약정 없이 시간이 제한된 Cosmos DB를 경험할 수 있습니다. Azure Cosmos DB 구독에 등록하려면 [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 체험하기)로 이동하여 개인 Microsoft 계정(MSA)을 사용합니다. 이 구독은 [Azure 평가판](https://azure.microsoft.com/free/)과 별도이며 Azure 평가판 또는 Azure 유료 구독과 함께 사용할 수 있습니다.
 
 Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆에 있는 Azure Portal에 표시됩니다.
 
 다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
 
-* 계정 액세스는 개인 Microsoft 계정 (MSA)에 부여할 수 있습니다. AAD (Active Directory) 계정 또는 회사 AAD 테 넌 트에 속하는 계정을 사용 하지 않는 것이 좋습니다. 여기에는 액세스 권한을 차단할 수 있는 제한 사항이 있을 수 있습니다.
-* SQL, Gremlin API 및 테이블 계정의 구독 당 하나의 [처리량으로 프로 비전 된 컨테이너](./set-throughput.md#set-throughput-on-a-container)
-* MongoDB 계정에 대 한 구독 당 최대 3 개의 [처리량 프로 비전 된 컬렉션](./set-throughput.md#set-throughput-on-a-container) .
-* 구독 당 하나의 [처리량 프로 비전 된 데이터베이스](./set-throughput.md#set-throughput-on-a-database) . 프로 비전 된 처리량 데이터베이스에는 내부에 있는 컨테이너 수에 제한이 없습니다.
+* 계정 액세스는 개인 Microsoft 계정(MSA)에 부여할 수 있습니다. AAD(Active Directory) 계정 또는 회사 AAD 테넌트에 속하는 계정을 사용하지 않는 것이 좋습니다. 이와 같은 계정에는 액세스 권한 부여를 차단하는 제한 사항이 있을 수 있습니다.
+* SQL, Gremlin API 및 테이블 계정에 대해 구독당 하나의 [처리량이 프로비저닝된 컨테이너](./set-throughput.md#set-throughput-on-a-container)
+* MongoDB 계정에 대해 구독당 최대 3개의 [처리량이 프로비저닝된 컬렉션](./set-throughput.md#set-throughput-on-a-container)
+* 구독당 하나의 [처리량이 프로비저닝된 데이터베이스](./set-throughput.md#set-throughput-on-a-database). 처리량이 프로비저닝된 데이터베이스에는 내부 컨테이너 수에 제한이 없습니다.
 * 10GB 스토리지 용량
-* 글로벌 복제는 미국 중부, 서유럽, 동남 아시아 등의 [Azure 지역](https://azure.microsoft.com/regions/)에서 사용할 수 있습니다.
-* 컨테이너 수준에서 프로 비전 되는 경우 5 K r u/초의 최대 처리량입니다.
-* 데이터베이스 수준에서 프로 비전 될 때 20 K r u/초의 최대 처리량입니다.
-* 구독은 30 일 후에 만료 되 고 최대 31 일의 합계로 확장할 수 있습니다.
+* 전역 복제는 [Azure 지역](https://azure.microsoft.com/regions/) 미국 중부, 북유럽 및 동남 아시아에서 사용할 수 있습니다.
+* 컨테이너 수준에서 프로비저닝되는 경우 최대 처리량은 5,000RU/초입니다.
+* 데이터베이스 수준에서 프로비저닝되는 경우 최대 처리량은 20,000RU/초입니다.
+* 구독은 30일 후에 만료되고 최대 총 31일까지 확장될 수 있습니다. 만료 후 포함된 정보는 삭제됩니다.
 * Azure Cosmos DB 체험 계정용으로 Azure 지원 티켓을 만들 수 없습니다. 단, 기존 지원 플랜을 사용하는 구독자에게는 지원이 제공됩니다.
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB 설정
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Azure Cosmos DB에는 어떻게 등록하나요?
 
-Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록 한 후에는 Azure 구독에 Azure Cosmos DB 계정을 추가할 수 있습니다.
+Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록한 후 Azure 구독에 Azure Cosmos DB 계정을 추가할 수 있습니다.
 
 ### <a name="what-is-a-master-key"></a>마스터 키란 무엇인가요?
 
@@ -108,7 +108,7 @@ Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure �
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>PreferredLocations를 설정할 수 있는 지역은 어디인가요?
 
-Cosmos DB를 사용할 수 있는 모든 Azure 지역에 PreferredLocations 값을 설정할 수 있습니다. 사용 가능한 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조 하세요.
+Cosmos DB를 사용할 수 있는 모든 Azure 지역에 PreferredLocations 값을 설정할 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Azure의 데이터 센터를 통해 전 세계에서 데이터를 배포하는 경우 알아야 할 점이 있나요?
 
@@ -118,21 +118,21 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>컨테이너 수준 처리량 프로비전에서 데이터베이스 수준 처리량 프로비전으로 전환할 수 있나요? 또는 그 반대로 가능한가요?
 
-컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컨테이너를 만든 다음 [대량 실행자 라이브러리나](bulk-executor-overview.md) [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용 하 여 데이터를 마이그레이션해야 합니다.
+컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컨테이너를 만든 다음, [대량 실행기 라이브러리](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB는 시계열 분석을 지원하나요?
 
 예, Azure CosmosDB는 시계열 분석을 지원합니다. 여기 [시계열 패턴](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns) 샘플이 있습니다. 이 샘플에서는 시계열 데이터에 따라 집계된 보기를 빌드하기 위해 변경 피드를 사용하는 방법을 보여 줍니다. Spark 스트리밍 또는 다른 스트림 데이터 프로세서를 사용 하여 이 접근 방식을 확장할 수 있습니다.
 
-## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Azure Cosmos DB 서비스 할당량 및 처리량 제한은 무엇 인가요?
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Azure Cosmos DB 서비스 할당량 및 처리량 제한이란 무엇인가요?
 
-자세한 내용은 Azure Cosmos DB [서비스 할당량](concepts-limits.md) 및 [컨테이너 당 제한 전체 및 데이터베이스](set-throughput.md#comparison-of-models) 문서를 참조 하세요.
+자세한 내용은 Azure Cosmos DB [서비스 할당량](concepts-limits.md) 및 [컨테이너 및 데이터베이스당 처리량 제한](set-throughput.md#comparison-of-models) 문서를 참조하세요.
 
-## <a name="frequently-asked-questions-about-sql-api"></a><a id="sql-api-faq"></a>SQL API에 대 한 질문과 대답
+## <a name="frequently-asked-questions-about-sql-api"></a><a id="sql-api-faq"></a>SQL API에 대해 자주 묻는 질문
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API에 대해 어떻게 개발을 시작하나요?
 
-먼저 Azure 구독에 등록해야 합니다. Azure 구독에 등록하면 사용자의 Azure 구독에 SQL API 컨테이너를 추가할 수 있습니다. Azure Cosmos DB 계정을 추가 하는 방법에 대 한 지침은 [Azure Cosmos 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account)를 참조 하세요.
+먼저 Azure 구독에 등록해야 합니다. Azure 구독에 등록하면 사용자의 Azure 구독에 SQL API 컨테이너를 추가할 수 있습니다. Azure Cosmos DB 계정 추가에 대한 지침은 [Azure Cosmos 데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account)를 참조하세요.
 
 [SDK](sql-api-sdk-dotnet.md) 는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](/rest/api/cosmos-db/)를 사용하여 다양한 플랫폼 및 언어의 Azure Cosmos DB 리소스를 조작할 수 있습니다.
 
@@ -153,7 +153,7 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 컨테이너는 문서 및 관련 JavaScript 애플리케이션 논리의 그룹입니다. 컨테이너는 처리량 및 사용한 스토리지에 따라 [비용](performance-levels.md)이 결정되는 청구 가능 엔터티입니다. 컨테이너는 하나 이상의 파티션 또는 서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 스토리지 또는 처리량을 처리하도록 확장할 수 있습니다.
 
 * SQL API의 경우 컨테이너는 컨테이너에 매핑됩니다.
-* MongoDB 계정에 대 한 Cosmos DB API의 경우 컨테이너는 컬렉션에 매핑됩니다.
+* Cosmos DB의 MongoDB용 API 계정인 경우 컨테이너가 컬렉션에 매핑됩니다.
 * Cassandra 및 Table API 계정의 경우 컨테이너는 테이블에 매핑됩니다.
 * Gremlin API 계정의 경우 컨테이너는 Graph에 매핑됩니다.
 
@@ -161,7 +161,7 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 
 ### <a name="how-do-i-create-a-database"></a>데이터베이스를 어떻게 만드나요?
 
-[컨테이너 추가](create-sql-api-java.md#add-a-container), [Azure Cosmos DB sdk](sql-api-sdk-dotnet.md)중 하나 또는 [REST api](/rest/api/cosmos-db/)에 설명 된 대로 [Azure Portal](https://portal.azure.com)를 사용 하 여 데이터베이스를 만들 수 있습니다.
+[컨테이너 추가](create-sql-api-java.md#add-a-container)의 설명대로 [Azure Portal](https://portal.azure.com)을 사용하거나 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](/rest/api/cosmos-db/)를 사용하여 데이터베이스를 만들 수 있습니다.
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>사용자 및 사용 권한을 어떻게 설정하나요?
 
@@ -183,7 +183,7 @@ SQL API는 HTTP 엔터티 태그 또는 ETag를 통해 OCC(낙관적 동시성 �
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>SQL API에서 어떻게 트랜잭션을 수행하나요?
 
-SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내의 모든 데이터베이스 작업은 스냅샷이 격리된 상태에서 실행됩니다. 단일 파티션 컨테이너의 경우 실행 범위는 컨테이너로 지정 됩니다. 컨테이너가 분할 된 경우 컨테이너 내에서 동일한 파티션 키 값을 가진 문서로 실행 범위가 한정 됩니다. 문서 버전의 스냅샷(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](stored-procedures-triggers-udfs.md)을 참조하세요.
+SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내의 모든 데이터베이스 작업은 스냅샷이 격리된 상태에서 실행됩니다. 단일 파티션 컨테이너인 경우 실행 범위는 해당 컨테이너로 지정됩니다. 컨테이너가 분할된 경우 실행 범위는 컨테이너 내에서 파티션 키 값이 동일한 문서로 지정됩니다. 문서 버전의 스냅샷(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](stored-procedures-triggers-udfs.md)을 참조하세요.
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Cosmos DB에 문서를 어떻게 일괄 삽입할 수 있나요?
 
@@ -195,7 +195,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API에서 리소스 링크 캐싱을 지원하나요?
 
-예, Azure Cosmos DB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. SQL API 클라이언트는 리소스와 유사한 문서나 컨테이너에 대 한 읽기의 "비-일치" 헤더를 지정한 다음 서버 버전이 변경 된 후 로컬 복사본을 업데이트할 수 있습니다.
+예, Azure Cosmos DB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. SQL API 클라이언트는 문서 또는 컨테이너와 같은 모든 리소스 읽기에 대해 “If-None-Match” 헤더를 지정한 다음, 서버 버전이 변경된 후 로컬 복사본을 업데이트할 수 있습니다.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API의 로컬 인스턴스를 사용할 수 있나요?
 
@@ -203,7 +203,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>이유는 포털의 데이터 탐색기에서 볼 때 반올림되는 문서에서 긴 부동 소수점 값이기 때문입니다.
 
-이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정 된 배정밀도 부동 소수점 형식 숫자를 사용 하 고-(2<sup>53</sup> -1)과 2<sup>53</sup>-1 (즉, 9007199254740991) 사이의 숫자를 안전 하 게 저장할 수 있습니다.
+이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정된 배정밀도 부동 소수점 형식 숫자를 사용하고 -(2<sup>53</sup> - 1)과 2<sup>53</sup>-1 사이의 숫자(즉, 9007199254740991)를 안전하게 유지할 수 있습니다.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>개체 계층 구조에서 사용 권한이 허용되나요?
 
@@ -214,9 +214,9 @@ ResourceTokens를 사용한 사용 권한 만들기는 컨테이너 수준 및 �
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 Api에서 자주 묻는 질문에 대 한 자세한 내용은 다음을 참조 하세요.
+다른 API에서 자주 묻는 질문에 대한 자세한 내용은 다음을 참조하세요.
 
-* [MongoDB에 대 한 AZURE COSMOS DB API](mongodb-api-faq.md) 에 대 한 질문과 대답
-* [Azure Cosmos DB의 GREMLIN API](gremlin-api-faq.md) 에 대 한 질문과 대답
-* [Azure Cosmos DB Cassandra API](cassandra-faq.md) 에 대 한 질문과 대답
-* [Azure Cosmos DB Table API](table-api-faq.md) 에 대 한 질문과 대답
+* [Azure Cosmos DB의 MongoDB용 API](mongodb-api-faq.md)에 대해 자주 묻는 질문
+* [Azure Cosmos DB의 Gremlin API](gremlin-api-faq.md)에 대해 자주 묻는 질문
+* [Azure Cosmos DB의 Cassandra API](cassandra-faq.md)에 대해 자주 묻는 질문
+* [Azure Cosmos DB의 Table API](table-api-faq.md)에 대해 자주 묻는 질문

@@ -8,12 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: monitoring
+ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605077"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684664"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -30,36 +31,36 @@ ms.locfileid: "81605077"
 Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가이드는, [Azure Storage 및 로깅, AzCopy, 메시지 분석기를 사용한 엔드투엔드 문제 해결](../storage-e2e-troubleshooting.md)을 참조하세요.
 
 * [소개]
-  * [이 가이드를 구성 하는 방법]
-* [스토리지 서비스 모니터링]
+  * [이 가이드의 구성 방식]
+* [저장소 서비스 모니터링]
   * [서비스 상태 모니터링]
   * [용량 모니터링]
   * [가용성 모니터링]
   * [성능 모니터링]
-* [저장소 문제 진단]
+* [스토리지 문제 진단]
   * [서비스 상태 문제]
   * [성능 문제]
   * [오류 진단]
   * [Storage 에뮬레이터 문제]
-  * [저장소 로깅 도구]
+  * [스토리지 로깅 도구]
   * [네트워크 로깅 도구 사용]
-* [종단 간 추적]
-  * [로그 데이터 상관 관계]
+* [엔드투엔드 추적]
+  * [로그 데이터 상관 관계 설정]
   * [클라이언트 요청 ID]
   * [서버 요청 ID]
   * [타임스탬프]
 * [문제 해결 지침]
   * [메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]
-  * [메트릭이 낮은 AverageE2ELatency 및 낮은 AverageServerLatency를 표시 하지만 클라이언트의 대기 시간이 깁니다.]
+  * [메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐]
   * [메트릭에서 AverageServerLatency가 높게 표시됨]
   * [큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함]
-  * [메트릭은 PercentThrottlingError의 증가를 보여 줍니다.]
+  * [메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]
   * [메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]
   * [메트릭에서 PercentNetworkError가 증가하는 것으로 표시됨]
-  * [클라이언트에서 HTTP 403 (사용할 수 없음) 메시지를 받고 있습니다.]
+  * [클라이언트에 HTTP 403(사용할 수 없음) 메시지가 표시됨]
   * [클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨]
   * [클라이언트에 HTTP 409(충돌) 메시지가 표시됨]
-  * [메트릭은 낮은 Percentsuccess가 또는 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 인 작업을 표시 합니다.]
+  * [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]
   * [용량 메트릭에 예기치 않은 스토리지 용량 사용 증가가 표시됨]
   * [개발 또는 테스트용으로 스토리지 에뮬레이터 사용 시 문제가 발생함]
   * [Azure SDK for .NET 설치 시 문제가 발생함]
@@ -69,11 +70,11 @@ Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가�
   * [Windows에서 Azure Files 문제 해결](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Linux에서 Azure Files 문제 해결](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [부록]
-  * [부록 1: Fiddler를 사용 하 여 HTTP 및 HTTPS 트래픽 캡처]
-  * [부록 2: Wireshark를 사용 하 여 네트워크 트래픽 캡처]
-  * [부록 3: Microsoft Message Analyzer를 사용 하 여 네트워크 트래픽 캡처]
-  * [부록 4: Excel을 사용 하 여 메트릭 및 로그 데이터 보기]
-  * [부록 5: Azure DevOps에 대 한 Application Insights 모니터링]
+  * [부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]
+  * [부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]
+  * [부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
+  * [부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기]
+  * [부록 5: Azure DevOps용 Application Insights를 사용한 모니터링]
 
 ## <a name="introduction"></a><a name="introduction"></a>소개
 이 가이드에서는 Azure Storage 분석 등의 도구, Azure Storage 클라이언트 라이브러리의 클라이언트 쪽 로깅 그리고 기타 타사 도구를 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결하는 방법에 대해 설명합니다.
@@ -102,7 +103,7 @@ Windows 성능 모니터링에 대해 잘 알고 있는 경우 Storage 메트릭
 
 [Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)를 참조하세요.
 
-저장소 (미리 보기) [에 대 한 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md) 를 검토 하는 것이 좋습니다. Azure Storage 서비스 성능, 용량 및 가용성에 대 한 통합 보기를 제공 하 여 Azure Storage 계정에 대 한 포괄적인 모니터링을 제공 하는 Azure Monitor 기능입니다. 모든 항목을 사용 하도록 설정 하거나 구성 하지 않아도 되며, 미리 정의 된 대화형 차트 및 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
+[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로, Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 스토리지 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 스토리지 작업을 기록하지는 못합니다.
 
@@ -140,7 +141,7 @@ Azure 애플리케이션을 지속적으로 모니터링한 후 다음을 수행
 Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대한 도움말은 [Azure Storage 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) 블로그 게시물을 참조하세요.
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>가용성 모니터링
-시간 또는 분 메트릭 테이블(**$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 스토리지 계정의 스토리지 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
+시간 또는 분 메트릭 테이블( **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 스토리지 계정의 스토리지 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
 
 값이 100%보다 작으면 일부 스토리지 요청이 실패함을 나타냅니다. 메트릭 데이터에서 **ServerTimeoutError**와 같이 오류 유형이 다른 요청 수를 표시하는 기타 열을 검사하여 해당 요청이 실패하는 이유를 확인할 수 있습니다. 서비스가 요청을 보다 효율적으로 부하 분산하기 위해 파티션을 이동하는 동안 일시적으로 서버 시간이 초과되는 등의 경우에는 **가용성**이 잠시 동안 100%보다 낮아질 수 있습니다. 클라이언트 애플리케이션의 다시 시도 논리가 이와 같은 일시적인 상황을 처리해야 합니다. [스토리지 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/azure/hh343260.aspx) 문서에는 Storage 메트릭이 해당 **가용성** 계산에 포함하는 트랜잭션 형식이 나와 있습니다.
 
@@ -165,7 +166,7 @@ Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대�
 다음과 같은 여러 가지 방법으로 애플리케이션의 문제를 파악할 수 있습니다.
 
 * 애플리케이션을 중단하거나 작동을 중지하는 중대한 오류
-* 메트릭의 값이 이전 섹션(&quot;[스토리지 서비스 모니터링]&quot;)에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상
+* 메트릭의 값이 이전 섹션(&quot;[저장소 서비스 모니터링]&quot;)에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상
 * 일부 특정 작업이 정상적으로 완료되지 않거나 일부 기능이 작동하지 않는다는 애플리케이션 사용자의 보고
 * 애플리케이션 내에서 생성되어 로그 파일이나 일부 기타 알림 방법을 통해 표시되는 오류
 
@@ -204,7 +205,7 @@ Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대�
 * [테이블 서비스 오류 코드](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [파일 서비스 오류 코드](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
-### <a name="storage-emulator-issues"></a><a name="storage-emulator-issues"></a>Storage 에뮬레이터 문제
+### <a name="storage-emulator-issues"></a><a name="storage-emulator-issues"></a>스토리지 에뮬레이터 문제
 Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리지 에뮬레이터가 포함되어 있습니다. Azure Storage 서비스의 동작을 대부분 시뮬레이트하는 이 에뮬레이터는 개발 및 테스트 중에 사용하면 유용하며, Azure 구독 및 Azure Storage 계정이 없어도 Azure Storage 서비스를 사용하는 애플리케이션을 실행할 수 있습니다.
 
 이 가이드의 &quot;[문제 해결 지침]&quot; 섹션에서는 스토리지 에뮬레이터 사용 시 발생하는 몇 가지 일반적인 문제에 대해 설명합니다.
@@ -222,14 +223,14 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 ### <a name="using-network-logging-tools"></a><a name="using-network-logging-tools"></a>네트워크 로깅 도구 사용
 클라이언트와 서버 간의 트래픽을 캡처하여 클라이언트와 서버가 교환하는 데이터 및 기본 네트워크 상태에 대한 상세 정보를 제공할 수 있습니다. 다음과 같은 유용한 네트워크 로깅 도구를 사용할 수 있습니다.
 
-* [Fiddler](https://www.telerik.com/fiddler) 는 HTTP/HTTPS 요청 및 응답 메시지의 헤더 및 페이로드 데이터를 검사하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 자세한 내용은 [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처](#appendix-1)를 참조하세요.
-* [Microsoft 네트워크 모니터(Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) 및 [Wireshark](https://www.wireshark.org/)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인하는 데 사용할 수 있는 무료 네트워크 프로토콜 분석기입니다. Wireshark에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처](#appendix-2)"를 참조하세요.
-* Microsoft Message Analyzer는 Netmon을 대체하는 Microsoft의 도구로, 네트워크 패킷 데이터를 캡처할 뿐 아니라 다른 도구에서 캡처한 로그 데이터를 확인 및 분석할 수도 있습니다. 자세한 내용은 "[부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처](#appendix-3)"를 참조하세요.
+* [Fiddler](https://www.telerik.com/fiddler) 는 HTTP/HTTPS 요청 및 응답 메시지의 헤더 및 페이로드 데이터를 검사하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 자세한 내용은 [부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처](#appendix-1)를 참조하세요.
+* [Microsoft 네트워크 모니터(Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) 및 [Wireshark](https://www.wireshark.org/)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인하는 데 사용할 수 있는 무료 네트워크 프로토콜 분석기입니다. Wireshark에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처](#appendix-2)”를 참조하세요.
+* Microsoft Message Analyzer는 Netmon을 대체하는 Microsoft의 도구로, 네트워크 패킷 데이터를 캡처할 뿐 아니라 다른 도구에서 캡처한 로그 데이터를 확인 및 분석할 수도 있습니다. 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처](#appendix-3)”를 참조하세요.
 * 기본 연결 테스트를 수행하여 클라이언트 컴퓨터가 네트워크를 통해 Azure Storage 서비스에 연결할 수 있는지를 확인하려는 경우 클라이언트에서 표준 **ping** 도구를 통해서는 이 작업을 수행할 수 없습니다. 그러나 [**tcping** 도구](https://www.elifulkerson.com/projects/tcping.php)를 사용하면 연결을 확인할 수 있습니다.
 
 대부분의 경우 스토리지 로깅 및 Storage 클라이언트 라이브러리의 로그 데이터로 문제를 충분히 진단할 수 있습니다. 그러나 이러한 네트워크 로깅 도구가 제공할 수 있는 상세 정보가 필요한 경우도 있습니다. 예를 들어 Fiddler를 통해 HTTP 및 HTTPS 메시지를 확인하면 스토리지 서비스가 보내고 받는 헤더 및 페이로드 데이터를 볼 수 있으므로 클라이언트 애플리케이션이 스토리지 작업을 다시 시도하는 방법을 검사할 수 있습니다. Wireshark 등의 프로토콜 분석기는 패킷 수준에서 작동하여 TCP 데이터를 확인할 수 있도록 합니다. 따라서 패킷 손실 및 연결 끊김 문제를 해결할 수 있습니다. 메시지 분석기는 HTTP 및 TCP 계층에서 모두 작동할 수 있습니다.
 
-## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>종단 간 추적
+## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>엔드투엔드 추적
 다양한 로그 파일을 사용하는 엔드투엔드 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
 
 ### <a name="correlating-log-data"></a><a name="correlating-log-data"></a>로그 데이터 상관 관계 지정
@@ -238,8 +239,8 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 ### <a name="client-request-id"></a><a name="client-request-id"></a>클라이언트 요청 ID
 스토리지 클라이언트 라이브러리는 모든 요청에 대해 고유한 클라이언트 요청 ID를 자동으로 생성합니다.
 
-* 저장소 클라이언트 라이브러리가 만드는 클라이언트 쪽 로그에서 클라이언트 요청 ID는 요청과 관련 된 모든 로그 항목의 **클라이언트 요청 id** 필드에 표시 됩니다.
-* Fiddler에 의해 캡처된 것과 같은 네트워크 추적에서 클라이언트 요청 ID는 요청 메시지에 표시 되며 **, 요청 메시지는 HTTP 헤더** 값입니다.
+* 스토리지 클라이언트 라이브러리가 만드는 클라이언트 쪽 로그에서 클라이언트 요청 ID는 요청과 관련된 모든 로그 항목의 **클라이언트 요청 ID** 필드에 표시됩니다.
+* Fiddler에서 캡처하는 것과 같은 네트워크 추적에서 클라이언트 요청 ID는 요청 메시지에 **x-ms-client-request-id** HTTP 헤더 값으로 표시됩니다.
 * 서버 쪽 스토리지 로깅 로그에서 클라이언트 요청 ID는 클라이언트 요청 ID 열에 표시됩니다.
 
 > [!NOTE]
@@ -248,11 +249,11 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 >
 
 ### <a name="server-request-id"></a><a name="server-request-id"></a>서버 요청 ID
-저장소 서비스에서 서버 요청 Id를 자동으로 생성 합니다.
+스토리지 서비스는 서버 요청 ID를 자동으로 생성합니다.
 
-* 서버 쪽 저장소 로깅 로그에서 서버 요청 ID는 **요청 id 헤더** 열에 표시 됩니다.
-* Fiddler에서 캡처되는 것과 같은 네트워크 추적에서 서버 요청 ID는 **요청** id HTTP 헤더 값으로 응답 메시지에 표시 됩니다.
-* 저장소 클라이언트 라이브러리가 만드는 클라이언트 쪽 로그에서 서버 요청 ID는 서버 응답의 세부 정보를 보여 주는 로그 항목의 **작업 텍스트** 열에 표시 됩니다.
+* 서버 쪽 스토리지 로깅 로그에서 서버 요청 ID는 **요청 ID 헤더** 열에 표시됩니다.
+* Fiddler에서 캡처하는 것과 같은 네트워크 추적에서 서버 요청 ID는 응답 메시지에 **x-ms-request-id** HTTP 헤더 값으로 표시됩니다.
+* 스토리지 클라이언트 라이브러리가 만드는 클라이언트 쪽 로그에서 서버 요청 ID는 서버 응답 세부 정보를 보여 주는 로그 항목의 **작업 텍스트** 필드에 표시됩니다.
 
 > [!NOTE]
 > 스토리지 서비스는 수신하는 모든 요청에 항상 고유한 서버 요청 ID를 할당하므로 클라이언트의 모든 다시 시도와 일괄 처리에 포함된 모든 작업에는 고유한 서버 요청 ID가 지정됩니다.
@@ -307,26 +308,26 @@ catch (StorageException storageException)
 문제가 스토리지 서비스 중 하나의 성능과 관련된 경우
 
 * [메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]
-* [메트릭이 낮은 AverageE2ELatency 및 낮은 AverageServerLatency를 표시 하지만 클라이언트의 대기 시간이 깁니다.]
+* [메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐]
 * [메트릭에서 AverageServerLatency가 높게 표시됨]
 * [큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함]
 
 ---
 문제가 스토리지 서비스 중 하나의 가용성과 관련된 경우
 
-* [메트릭은 PercentThrottlingError의 증가를 보여 줍니다.]
+* [메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]
 * [메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]
 * [메트릭에서 PercentNetworkError가 증가하는 것으로 표시됨]
 
 ---
  클라이언트 애플리케이션이 스토리지 서비스에서 HTTP 4XX(예: 404) 응답을 받는 경우
 
-* [클라이언트에서 HTTP 403 (사용할 수 없음) 메시지를 받고 있습니다.]
+* [클라이언트에 HTTP 403(사용할 수 없음) 메시지가 표시됨]
 * [클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨]
 * [클라이언트에 HTTP 409(충돌) 메시지가 표시됨]
 
 ---
-[메트릭은 낮은 Percentsuccess가 또는 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 인 작업을 표시 합니다.]
+[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]
 
 ---
 [용량 메트릭에 예기치 않은 스토리지 용량 사용 증가가 표시됨]
@@ -359,7 +360,7 @@ catch (StorageException storageException)
 #### <a name="investigating-client-performance-issues"></a>클라이언트 성능 문제 조사
 사용 가능한 연결 또는 스레드 수가 제한되거나 CPU, 메모리 또는 네트워크 대역폭과 같은 리소스가 부족한 경우 클라이언트의 응답 속도가 느려질 수 있습니다. 스토리지 서비스에 대한 비동기 호출을 사용하는 등 클라이언트 코드를 보다 효율적으로 수정하거나, 코어와 메모리가 더 많은 대형 Virtual Machine을 사용하면 문제가 해결될 수도 있습니다.
 
-테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 애플리케이션에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application_Start** 메서드 예제가 나와 있습니다.
+테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 애플리케이션에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application_Start** 메서드 예제가 나와 있습니다.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -374,9 +375,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 #### <a name="investigating-network-latency-issues"></a>네트워크 대기 시간 문제 조사
 일반적으로 네트워크에서 발생하는 긴 엔드투엔드 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 일시적인 네트워크 문제와 영구적인 네트워크 문제(예: 패킷 삭제)를 모두 조사해야 합니다.
 
-Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
 
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐
 이 시나리오에서는 스토리지 요청이 스토리지 서비스에 도착할 때까지의 대기 시간이 길어지는 경우로 인한 가능성이 가장 높습니다. 클라이언트의 요청이 Blob 서비스에 정상적인 속도로 도착하지 않는 원인을 조사해야 합니다.
@@ -391,9 +392,9 @@ Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하�
 
 클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 네트워크 문제를 조사할 수 있습니다.
 
-Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
 
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>메트릭에서 AverageServerLatency가 높게 표시됨
 Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되는 경우 Storage 로깅 로그를 사용하여 같은 Blob 또는 Blob 세트에 대해 요청이 반복되는지 여부를 확인해야 합니다. Blob 업로드 요청의 경우 클라이언트에서 사용 중인 블록 크기를 조사해야 합니다. 예를 들어 블록 크기가 64K보다 작은 경우 읽기도 64K 청크보다 작지 않으면 오버헤드가 발생합니다. 또한 여러 클라이언트가 같은 Blob에 병렬로 블록을 업로드하고 있는지도 조사해야 합니다. 요청 수가 급증하여 초당 확장성 목표가 초과되지 않는지 분당 메트릭도 확인해야 합니다. “[메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]”을 참조하세요.
@@ -403,7 +404,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 테이블이나 쿼리의 디자인이 잘못되어 검사 작업이 수행되거나 추가/앞에 추가 방지 패턴을 따르는 경우에도 **AverageServerLatency** 값이 높아지는 증상이 발생할 수 있습니다. 자세한 내용은 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]"을 참조하세요.
 
 > [!NOTE]
-> [Microsoft Azure Storage 성능 및 확장성 검사 목록](storage-performance-checklist.md)에서 포괄적 성능 및 확장성 검사 목록을 확인할 수 있습니다.
+> 다음에서 포괄적인 검사 목록 성능 검사를 찾을 수 있습니다. [Microsoft Azure Storage 성능 및 확장성 검사 목록](storage-performance-checklist.md).
 >
 >
 
@@ -417,17 +418,17 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 * **E2ELatency** 및 **ServerLatency** 값이 정상 상태보다 오랫동안 예상보다 높게 나타나는 큐 작업의 Storage 로깅 로그를 검사합니다.
 
 ### <a name="metrics-show-an-increase-in-percentthrottlingerror"></a><a name="metrics-show-an-increase-in-PercentThrottlingError"></a>메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨
-스토리지 서비스의 확장성 목표를 초과하면 제한 오류가 발생합니다. 스토리지 서비스는 단일 클라이언트나 테넌트만이 서비스를 사용하는 현상을 방지하기 위해 제한 오류를 발생시킵니다. 자세한 내용은 저장소 계정에 대 한 확장성 및 성능 목표에 대 한 자세한 내용 및 저장소 계정 내의 파티션에 대 한 성능 목표에 대 한 자세한 내용은 [standard storage 계정의 확장성 및 성능 목표](scalability-targets-standard-account.md) 를 참조 하세요.
+스토리지 서비스의 확장성 목표를 초과하면 제한 오류가 발생합니다. 스토리지 서비스는 단일 클라이언트나 테넌트만이 서비스를 사용하는 현상을 방지하기 위해 제한 오류를 발생시킵니다. 스토리지 계정의 확장성 목표와 스토리지 계정 내 파티션의 성능 목표에 대한 자세한 내용은 [표준 스토리지 계정의 확장성 및 성능 목표](scalability-targets-standard-account.md)를 참조하세요.
 
 **PercentThrottlingError** 메트릭에서 제한 오류로 인해 실패하는 요청 백분율이 증가하는 것으로 표시되면 다음의 두 시나리오 중 하나를 조사해야 합니다.
 
-* [PercentThrottlingError의 일시적인 증가]
+* [일시적인 PercentThrottlingError 증가]
 * [영구적인 PercentThrottlingError 증가]
 
 **PercentThrottlingError**는 스토리지 요청 수가 증가할 때 함께 증가하거나, 처음으로 애플리케이션의 부하를 테스트할 때 증가하는 경우가 많습니다. 또한 이 오류는 스토리지 작업에서 &quot;503 서버 사용 중&quot; 또는 &quot;500 작업 시간 초과&quot; HTTP 상태 메시지로 클라이언트에 표시될 수도 있습니다.
 
 #### <a name="transient-increase-in-percentthrottlingerror"></a><a name="transient-increase-in-PercentThrottlingError"></a>일시적인 PercentThrottlingError 증가
-애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 저장소 클라이언트 라이브러리를 사용 하 여 다시 시도 정책을 구현 하는 방법에 대 한 자세한 내용은 [microsoft.windowsazure.storage.retrypolicies 네임 스페이스](/dotnet/api/microsoft.azure.storage.retrypolicies)를 참조 하세요.
+애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 스토리지 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 [Microsoft.Azure.Storage.RetryPolicies 네임스페이스](/dotnet/api/microsoft.azure.storage.retrypolicies)를 참조하세요.
 
 > [!NOTE]
 > 애플리케이션의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 스토리지 서비스가 파티션을 이동 중일 가능성이 높습니다.
@@ -470,15 +471,15 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
-| Microsoft. Azure Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft. Azure Storage |정보 |3 |85d077ab -… |동기 요청을 시작 하는 중<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft. Azure Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
-| Microsoft. Azure Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
-| Microsoft. Azure Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft. Azure Storage |Warning |2 |85d077ab -… |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음. |
-| Microsoft. Azure Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환 했습니다: (403) 사용할 수 없음... |
-| Microsoft. Azure Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
-| Microsoft. Azure Storage |오류 |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 원격서버에서 작업이 실패했습니다:(403) 사용할 수 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>에 대한 동기 요청 시작 중 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |작업 중에 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
+| Microsoft.Azure.Storage |Error |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
 
 이 시나리오에서는 클라이언트가 서버에 토큰을 보내기 전에 SAS 토큰이 만료되는 이유를 조사해야 합니다.
 
@@ -494,7 +495,7 @@ Storage 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하�
 
 * [클라이언트 또는 다른 프로세스가 이전에 개체를 삭제함]
 * [SAS(공유 액세스 서명) 권한 부여 문제]
-* [클라이언트 쪽 JavaScript 코드에 개체에 액세스할 수 있는 권한이 없습니다.]
+* [클라이언트 쪽 JavaScript 코드에 개체 액세스 권한이 없음]
 * [네트워크 오류]
 
 #### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>클라이언트 또는 다른 프로세스가 이전에 개체를 삭제함
@@ -536,7 +537,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 | de8b1c3c-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`에 대한 동기 요청을 시작하는 중입니다. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |요청 데이터 쓰기를 준비하는 중입니다. |
-| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
+| e2d06d78-... |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (404) 찾을 수 없음 |
 | e2d06d78-... |응답을 받았습니다. 상태 코드 = 404, 요청 ID = 353ae3bc-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | e2d06d78-... |응답 본문을 다운로드하는 중입니다. |
@@ -546,16 +547,16 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 | e2d06d78-... |응답을 기다리는 중입니다. |
 | de8b1c3c-... |요청 데이터를 쓰는 중입니다. |
 | de8b1c3c-... |응답을 기다리는 중입니다. |
-| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (409) 충돌. |
+| e2d06d78-... |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (409) 충돌 |
 | e2d06d78-... |응답을 받았습니다. 상태 코드 = 409, 요청 ID = c27da20e-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |오류 응답 본문을 다운로드하는 중입니다. |
-| de8b1c3c-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
+| de8b1c3c-... |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (404) 찾을 수 없음 |
 | de8b1c3c-... |응답을 받았습니다. 상태 코드 = 404, 요청 ID = 0eaeab3e-..., Content-MD5 = , ETag = . |
-| de8b1c3c-... |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
-| de8b1c3c-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (404) 찾을 수 없음. |
-| e2d06d78-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (409) 충돌. |
+| de8b1c3c-... |작업 중에 예외를 throw함: 원격 서버에서 다음과 같은 오류를 반환했습니다. (404) 찾을 수 없음 |
+| de8b1c3c-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다. (404) 찾을 수 없음 |
+| e2d06d78-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다. (409) 충돌 |
 
-이 예제에서 로그는 클라이언트가 **Createifnotexists** 메서드 (request ID e2d06d78-....x-ms-date ...)의 요청을 **UploadFromStream** 메서드의 요청 (de8b1c3c-...)으로 인터리빙 하 고 있음을 보여 줍니다. 이 인터리빙은 클라이언트 응용 프로그램에서 이러한 메서드를 비동기적으로 호출 하기 때문에 발생 합니다. 클라이언트가 컨테이너의 Blob에 데이터 업로드를 시도하기 전에 해당 컨테이너를 만들도록 클라이언트에서 비동기 코드를 수정합니다. 모든 컨테이너를 미리 만드는 것이 가장 좋습니다.
+이 예제에서 로그에는 클라이언트가 **CreateIfNotExists** 메서드(요청 ID e2d06d78…)의 요청을 **UploadFromStream** 메서드(de8b1c3c-...)의 요청과 인터리빙함이 표시됩니다. 이러한 인터리빙은 클라이언트 애플리케이션이 이러한 메서드를 비동기식으로 호출하기 때문에 발생합니다. 클라이언트가 컨테이너의 Blob에 데이터 업로드를 시도하기 전에 해당 컨테이너를 만들도록 클라이언트에서 비동기 코드를 수정합니다. 모든 컨테이너를 미리 만드는 것이 가장 좋습니다.
 
 #### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>SAS(공유 액세스 서명) 권한 부여 문제
 클라이언트 애플리케이션이 작업에 필요한 권한을 포함하지 않는 SAS 키를 사용하려고 하면 스토리지 서비스는 HTTP 404(찾을 수 없음) 메시지를 클라이언트에 반환합니다. 그와 동시에 메트릭에서 **SASAuthorizationError** 에 대해 0이 아닌 값이 표시됩니다.
@@ -616,7 +617,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a><a name="network-failure"></a>네트워크 오류
 네트워크 패킷 손실로 인해 스토리지 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 애플리케이션이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 스토리지 예외를 throw하고 테이블 서비스에서 &quot;HTTP 404(찾을 수 없음)&quot; 상태 메시지를 보고할 수 있습니다. 그런데 Table Storage 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.
 
-클라이언트의 예외 정보에는 요청에 대 한 table service에서 할당 한 요청 ID (7e84f12d ... ...)가 포함 됩니다 .이 정보를 사용 하 여 로그 파일의 **요청 id 헤더** 열에서 검색 하 여 서버 쪽 저장소 로그에서 요청 정보를 찾을 수 있습니다. 메트릭을 사용하여 이러한 오류가 발생하는 시기를 파악한 다음 메트릭에서 이 오류를 기록한 시간을 기준으로 로그 파일을 검색할 수도 있습니다. 이 로그 항목에는 "HTTP(404) 클라이언트 기타 오류" 상태 메시지를 반환하며 실패한 삭제 작업이 표시됩니다. 클라이언트 **요청 id** 열 (813ea74f ... ...)에서 클라이언트에 의해 생성 된 요청 id도 동일한 로그 항목에 포함 됩니다.
+클라이언트의 예외 세부 정보에는 Table service가 요청에 대해 할당한 요청 ID(7e84f12d…)가 포함됩니다. 이 정보를 사용하여 로그 파일에서 **request-id-header** 열을 검색해 서버 쪽 스토리지 로그에서 요청 세부 정보를 찾을 수 있습니다. 메트릭을 사용하여 이러한 오류가 발생하는 시기를 파악한 다음 메트릭에서 이 오류를 기록한 시간을 기준으로 로그 파일을 검색할 수도 있습니다. 이 로그 항목에는 "HTTP(404) 클라이언트 기타 오류" 상태 메시지를 반환하며 실패한 삭제 작업이 표시됩니다. 같은 로그 항목의 **client-request-id** 열에는 클라이언트가 생성한 요청 ID(813ea74f…)도 포함됩니다.
 
 같은 엔터티/같은 클라이언트에서 성공한 삭제 작업에 대해 같은 **client-request-id** 값(813ea74f…)의 다른 항목도 서버 쪽 로그에 포함될 수 있습니다. 이와 같은 성공한 삭제 작업은 실패한 삭제 요청 직전에 수행된 것입니다.
 
@@ -625,7 +626,7 @@ client.SetServiceProperties(sp);
 이 문제가 자주 발생하는 경우 클라이언트가 테이블 서비스에서 승인을 받지 못하는 이유를 조사해야 합니다. 문제가 일시적으로 발생하는 경우 "HTTP(404) 찾을 수 없음" 오류를 트래핑하고 클라이언트에서 기록하되 클라이언트가 작업을 계속 진행하도록 허용해야 합니다.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>클라이언트에 HTTP 409(충돌) 메시지가 표시됨
-아래 표에는 두 클라이언트 작업과 관련하여 서버 쪽 로그에서 발췌한 내용이 나와 있습니다. 같은 Blob 컨테이너 이름을 사용하여 **DeleteIfExists**를 수행한 직후에 **CreateIfNotExists**를 수행합니다. 각 클라이언트 작업에서는 서버에 두 개의 요청을 보냅니다. 먼저 **GetContainerProperties** 요청을 보내 컨테이너가 있는지 확인한 다음, **DeleteContainer** 또는 **CreateContainer** 요청을 보냅니다.
+다음 표에서는 두 클라이언트 작업의 서버 쪽 로그에서 추출한 내용을 보여 줍니다. **DeleteIfExists**가 표시된 후 동일한 Blob 컨테이너 이름을 사용하여 **CreateIfNotExists**가 바로 나옵니다. 각 클라이언트 작업에서는 서버에 두 개의 요청을 보냅니다. 먼저 **GetContainerProperties** 요청을 보내 컨테이너가 있는지 확인한 다음, **DeleteContainer** 또는 **CreateContainer** 요청을 보냅니다.
 
 | 타임스탬프 | 작업(Operation) | 결과 | 컨테이너 이름 | 클라이언트 요청 ID |
 | --- | --- | --- | --- | --- |
@@ -657,7 +658,7 @@ client.SetServiceProperties(sp);
 
 * [&quot;X&quot; 기능이 스토리지 에뮬레이터에서 작동하지 않음]
 * [스토리지 에뮬레이터를 사용할 때 &quot;HTTP 헤더 중 하나의 값이 올바른 형식이 아닙니다.&quot; 오류가 발생함]
-* [저장소 에뮬레이터를 실행 하려면 관리자 권한이 필요 합니다.]
+* [스토리지 에뮬레이터를 실행하려면 관리 권한이 필요함]
 
 #### <a name="feature-x-is-not-working-in-the-storage-emulator"></a><a name="feature-X-is-not-working"></a>&quot;X&quot; 기능이 스토리지 에뮬레이터에서 작동하지 않음
 스토리지 에뮬레이터는 파일 서비스 등 Azure Storage 서비스의 일부 기능을 지원하지 않습니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
@@ -679,8 +680,8 @@ Storage 라이브러리 클라이언트 로그를 사용하여 해당 클라이�
 ### <a name="you-are-encountering-problems-installing-the-azure-sdk-for-net"></a><a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Azure SDK for .NET 설치 시 문제가 발생함
 SDK 설치 시 로컬 컴퓨터에서 스토리지 에뮬레이터 설치가 실패합니다. 이 경우 설치 로그에는 다음 메시지 중 하나가 포함됩니다.
 
-* CAQuietExec: 오류: SQL 인스턴스에 액세스할 수 없습니다.
-* CAQuietExec: 오류: 데이터베이스를 만들 수 없습니다.
+* CAQuietExec:  오류: SQL 인스턴스에 액세스할 수 없습니다.
+* CAQuietExec:  오류: 데이터베이스를 만들 수 없습니다.
 
 이 오류의 원인은 기존 LocalDB 설치의 문제입니다. 스토리지 에뮬레이터는 Azure Storage 서비스를 시뮬레이트할 때 기본적으로 LocalDB를 사용하여 데이터를 영구적으로 저장합니다. SDK를 설치하기 전에 명령 프롬프트 창에서 다음 명령을 실행하여 LocalDB 인스턴스를 다시 설정할 수 있습니다.
 
@@ -700,17 +701,17 @@ sqllocaldb create v11.0
 * 메트릭 정보를 사용하면 서버 쪽 로그 데이터에서 발생하는 오류에 대한 보다 자세한 정보를 검색할 수 있습니다. 이 정보는 문제를 해결하는 데 도움이 될 수 있습니다.
 * 서버 쪽 로그의 정보만으로는 문제를 올바르게 해결할 수 없는 경우에는 Storage 클라이언트 라이브러리 클라이언트 쪽 로그를 사용하여 클라이언트 애플리케이션의 동작을 조사하고 Fiddler, Wireshark, Microsoft Message Analyzer 등의 도구를 사용하여 네트워크를 조사할 수 있습니다.
 
-Fiddler 사용에 대한 자세한 내용은 “[부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]”를 참조하세요.
+Fiddler를 사용하는 방법에 대한 자세한 내용은 “[부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]”를 참조하세요.
 
-Wireshark 사용에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark를 사용하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
 
-Microsoft Message Analyzer 사용에 대한 자세한 내용은[부록3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처]를 참조하세요.
+Microsoft Message Analyzer를 사용하는 방법에 대한 자세한 내용은 “[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]”를 참조하세요.
 
-## <a name="appendices"></a><a name="appendices"></a>부록의
+## <a name="appendices"></a><a name="appendices"></a>부록
 부록에서는 Azure Storage 및 기타 서비스의 문제를 진단 및 해결할 때 유용할 수 있는 여러 가지 도구에 대해 설명합니다. 이러한 도구는 Azure Storage에 포함되지는 않으며, 타사 제품도 있습니다. 그러므로 이 부록에서 설명하는 도구에는 Microsoft Azure 또는 Azure Storage에 적용될 수 있는 지원 규약이 적용되지 않기 때문에 평가 프로세스의 일환으로 이러한 도구의 공급자가 제공하는 라이선스 및 지원 옵션을 확인해야 합니다.
 
-### <a name="appendix-1-using-fiddler-to-capture-http-and-https-traffic"></a><a name="appendix-1"></a>부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처
-[Fiddler](https://www.telerik.com/fiddler) 는 사용 중인 Azure 저장소 서비스와 클라이언트 응용 프로그램 간의 HTTP 및 HTTPS 트래픽을 분석 하는 데 유용한 도구입니다.
+### <a name="appendix-1-using-fiddler-to-capture-http-and-https-traffic"></a><a name="appendix-1"></a>부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처
+[Fiddler](https://www.telerik.com/fiddler)는 사용 중인 Azure Storage 서비스와 클라이언트 애플리케이션 간의 HTTP 및 HTTPS 트래픽을 분석하는 유용한 도구입니다.
 
 > [!NOTE]
 > Fiddler는 HTTPS 트래픽을 디코딩할 수 있습니다. Fiddler 설명서에서 Fiddler가 HTTPS 트래픽을 디코딩하는 방식과 그에 따른 보안 관련 사항을 자세히 확인해야 합니다.
@@ -724,11 +725,11 @@ Fiddler를 시작하면 로컬 컴퓨터에서 HTTP 및 HTTPS 트래픽 캡처�
 * 트래픽 캡처를 중지 및 시작하려면 주 메뉴에서 **파일**로 이동한 다음 **트래픽 캡처**를 클릭하여 캡처를 설정하거나 해제합니다.
 * 캡처된 트래픽 데이터를 저장하려면 주 메뉴에서 **파일**로 이동한 다음 **저장**, **모든 세션**을 차례로 클릭하면 세션 보관 파일에 트래픽을 저장할 수 있습니다. 세션 보관 파일은 나중에 분석을 위해 다시 로드하거나 Microsoft 지원에서 요청하는 경우 전송할 수 있습니다.
 
-Fiddler가 캡처하는 트래픽 양을 제한 하기 위해 **필터** 탭에서 구성한 필터를 사용할 수 있습니다. 다음 스크린샷은 **contosoemaildist.table.core.windows.net** 저장소 끝점으로 전송 되는 트래픽만 캡처하는 필터를 보여 줍니다.
+Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서 구성하는 필터를 사용할 수 있습니다. 아래 스크린샷에는 **contosoemaildist.table.core.windows.net** 스토리지 엔드포인트로 전송되는 트래픽만 캡처하는 필터가 나와 있습니다.
 
 ![][5]
 
-### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>부록2: Wireshark를 사용하여 네트워크 트래픽 캡처
+### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처
 [Wireshark](https://www.wireshark.org/) 는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인할 수 있는 네트워크 프로토콜 분석기입니다.
 
 다음 절차에서는 Wireshark를 설치한 로컬 컴퓨터에서 Azure Storage 계정의 테이블 서비스로 이동하는 트래픽에 대한 상세 패킷 정보를 캡처하는 방법을 설명합니다.
@@ -756,7 +757,7 @@ TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확�
 >
 >
 
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처
+### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처
 Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTTP 및 HTTPS 트래픽을 캡처할 수 있으며 Wireshark와 비슷한 방식으로 네트워크 트래픽을 캡처할 수 있습니다.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 웹 추적 세션 구성
@@ -790,7 +791,7 @@ Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이
 
 Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 [Microsoft-PEF-NDIS-PacketCapture 공급자](https://technet.microsoft.com/library/jj659264.aspx)를 참조하세요.
 
-### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기
+### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기
 다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 스토리지 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [스토리지 분석 로그 형식](https://msdn.microsoft.com/library/azure/hh343259.aspx) 및 [스토리지 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
 
 Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가져오려면 다음 단계를 수행합니다.
@@ -801,84 +802,84 @@ Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가
 
 **텍스트 가져오기 마법사**의 1단계에서 구분 기호로 **세미콜론**만 선택하고 **텍스트 한정자**로 큰따옴표를 선택합니다. 그런 다음 **마침** 을 클릭하고 통합 문서에서 데이터를 배치할 위치를 선택합니다.
 
-### <a name="appendix-5-monitoring-with-application-insights-for-azure-devops"></a><a name="appendix-5"></a>부록5: Azure DevOps용 Application Insights를 사용한 모니터링
+### <a name="appendix-5-monitoring-with-application-insights-for-azure-devops"></a><a name="appendix-5"></a>부록 5: Azure DevOps용 Application Insights를 사용한 모니터링
 성능 및 가용성 모니터링의 일부분으로 Azure DevOps의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
 * 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 디바이스 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다.
 * 웹 서비스의 성능 문제나 예외를 빠르게 진단합니다. CPU 또는 기타 리소스가 확대되는지 확인하고 예외에서 스택 추적을 가져오며 로그 추적을 쉽게 검색할 수 있습니다. 앱 성능이 허용 한도 미만으로 떨어지면 이메일이 전송될 수 있습니다. .NET 및 Java 웹 서비스를 모두 모니터링할 수 있습니다.
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 자세한 정보를 찾을 수 있습니다.
+[Application Insights란?](../../azure-monitor/app/app-insights-overview.md)에서 추가 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage 분석에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
+Azure Storage의 분석에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 포털에서 스토리지 계정 모니터링](storage-monitor-storage-account.md)
+* [Azure Portal에서 스토리지 계정 모니터링](storage-monitor-storage-account.md)
 * [스토리지 분석](storage-analytics.md)
-* [저장소 분석 메트릭](storage-analytics-metrics.md)
-* [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [스토리지 분석 메트릭](storage-analytics-metrics.md)
+* [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [스토리지 분석 로그](storage-analytics-logging.md)
-* [저장소 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
+* [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [소개]: #introduction
-[이 가이드를 구성 하는 방법]: #how-this-guide-is-organized
+[이 가이드의 구성 방식]: #how-this-guide-is-organized
 
-[스토리지 서비스 모니터링]: #monitoring-your-storage-service
+[저장소 서비스 모니터링]: #monitoring-your-storage-service
 [서비스 상태 모니터링]: #monitoring-service-health
 [용량 모니터링]: #monitoring-capacity
 [가용성 모니터링]: #monitoring-availability
 [성능 모니터링]: #monitoring-performance
 
-[저장소 문제 진단]: #diagnosing-storage-issues
+[스토리지 문제 진단]: #diagnosing-storage-issues
 [서비스 상태 문제]: #service-health-issues
 [성능 문제]: #performance-issues
 [오류 진단]: #diagnosing-errors
 [Storage 에뮬레이터 문제]: #storage-emulator-issues
-[저장소 로깅 도구]: #storage-logging-tools
+[스토리지 로깅 도구]: #storage-logging-tools
 [네트워크 로깅 도구 사용]: #using-network-logging-tools
 
-[종단 간 추적]: #end-to-end-tracing
-[로그 데이터 상관 관계]: #correlating-log-data
+[엔드투엔드 추적]: #end-to-end-tracing
+[로그 데이터 상관 관계 설정]: #correlating-log-data
 [클라이언트 요청 ID]: #client-request-id
 [서버 요청 ID]: #server-request-id
 [타임스탬프]: #timestamps
 
 [문제 해결 지침]: #troubleshooting-guidance
 [메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
-[메트릭이 낮은 AverageE2ELatency 및 낮은 AverageServerLatency를 표시 하지만 클라이언트의 대기 시간이 깁니다.]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
+[메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
 [메트릭에서 AverageServerLatency가 높게 표시됨]: #metrics-show-high-AverageServerLatency
 [큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함]: #you-are-experiencing-unexpected-delays-in-message-delivery
 
-[메트릭은 PercentThrottlingError의 증가를 보여 줍니다.]: #metrics-show-an-increase-in-PercentThrottlingError
-[PercentThrottlingError의 일시적인 증가]: #transient-increase-in-PercentThrottlingError
+[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]: #metrics-show-an-increase-in-PercentThrottlingError
+[일시적인 PercentThrottlingError 증가]: #transient-increase-in-PercentThrottlingError
 [영구적인 PercentThrottlingError 증가]: #permanent-increase-in-PercentThrottlingError
 [메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]: #metrics-show-an-increase-in-PercentTimeoutError
 [메트릭에서 PercentNetworkError가 증가하는 것으로 표시됨]: #metrics-show-an-increase-in-PercentNetworkError
 
-[클라이언트에서 HTTP 403 (사용할 수 없음) 메시지를 받고 있습니다.]: #the-client-is-receiving-403-messages
+[클라이언트에 HTTP 403(사용할 수 없음) 메시지가 표시됨]: #the-client-is-receiving-403-messages
 [클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨]: #the-client-is-receiving-404-messages
 [클라이언트 또는 다른 프로세스가 이전에 개체를 삭제함]: #client-previously-deleted-the-object
 [SAS(공유 액세스 서명) 권한 부여 문제]: #SAS-authorization-issue
-[클라이언트 쪽 JavaScript 코드에 개체에 액세스할 수 있는 권한이 없습니다.]: #JavaScript-code-does-not-have-permission
+[클라이언트 쪽 JavaScript 코드에 개체 액세스 권한이 없음]: #JavaScript-code-does-not-have-permission
 [네트워크 오류]: #network-failure
 [클라이언트에 HTTP 409(충돌) 메시지가 표시됨]: #the-client-is-receiving-409-messages
 
-[메트릭은 낮은 Percentsuccess가 또는 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 인 작업을 표시 합니다.]: #metrics-show-low-percent-success
+[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]: #metrics-show-low-percent-success
 [용량 메트릭에 예기치 않은 스토리지 용량 사용 증가가 표시됨]: #capacity-metrics-show-an-unexpected-increase
 [개발 또는 테스트용으로 스토리지 에뮬레이터 사용 시 문제가 발생함]: #your-issue-arises-from-using-the-storage-emulator
 [&quot;X&quot; 기능이 스토리지 에뮬레이터에서 작동하지 않음]: #feature-X-is-not-working
 [스토리지 에뮬레이터를 사용할 때 &quot;HTTP 헤더 중 하나의 값이 올바른 형식이 아닙니다.&quot; 오류가 발생함]: #error-HTTP-header-not-correct-format
-[저장소 에뮬레이터를 실행 하려면 관리자 권한이 필요 합니다.]: #storage-emulator-requires-administrative-privileges
+[스토리지 에뮬레이터를 실행하려면 관리 권한이 필요함]: #storage-emulator-requires-administrative-privileges
 [Azure SDK for .NET 설치 시 문제가 발생함]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
 [스토리지 서비스에서 다른 문제가 발생함]: #you-have-a-different-issue-with-a-storage-service
 
 [부록]: #appendices
-[부록 1: Fiddler를 사용 하 여 HTTP 및 HTTPS 트래픽 캡처]: #appendix-1
-[부록 2: Wireshark를 사용 하 여 네트워크 트래픽 캡처]: #appendix-2
-[부록 3: Microsoft Message Analyzer를 사용 하 여 네트워크 트래픽 캡처]: #appendix-3
-[부록 4: Excel을 사용 하 여 메트릭 및 로그 데이터 보기]: #appendix-4
-[부록 5: Azure DevOps에 대 한 Application Insights 모니터링]: #appendix-5
+[부록 1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]: #appendix-1
+[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
+[부록 3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
+[부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
+[부록 5: Azure DevOps용 Application Insights를 사용한 모니터링]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

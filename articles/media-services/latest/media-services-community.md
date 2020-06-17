@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 커뮤니티 개요
-description: 이 Azure Media Services 커뮤니티 페이지에서는 질문을 하 고, 피드백을 제공 하 고, Media Services 대 한 업데이트를 가져올 수 있는 다양 한 방법을 설명 합니다.
+description: 이 Azure Media Services 커뮤니티 페이지에서는 질문 및 피드백을 제공하고 Media Services에 대한 업데이트를 받는 다양한 방법을 다룹니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: juliako
-ms.openlocfilehash: 70d366551dc3130d2a1bdac6108e3b3de95976d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ab775e8d93111f7494d2bf321216e2725c438fc8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76545928"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828502"
 ---
 # <a name="azure-media-services-v3-community"></a>Azure Media Services v3 커뮤니티  
 
-이 Azure Media Services 커뮤니티 페이지에서는 질문을 하 고, 피드백을 제공 하 고, Media Services 대 한 업데이트를 가져올 수 있는 다양 한 방법을 설명 합니다.
+이 Azure Media Services 커뮤니티 페이지에서는 질문 및 피드백을 제공하고 Media Services에 대한 업데이트를 받는 다양한 방법을 다룹니다.
 
 ## <a name="provide-feedback-and-make-suggestions"></a>피드백 제공 및 제안하기
 
@@ -32,7 +32,7 @@ ms.locfileid: "76545928"
 
 ### <a name="twitter"></a>Twitter
 
-[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용 하 여 microsoft에 문의 하거나 twitter의 업데이트를 팔 로우 할 수 있습니다. [@AzureSupport](https://twitter.com/azuresupport) Twitter 핸들을 사용 하 여 twitter에서 지원을 요청 합니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용하여 Microsoft에 문의하거나 Twitter에서 업데이트를 팔로우할 수 있습니다. [@AzureSupport](https://twitter.com/azuresupport) Twitter 핸들을 사용하여 Twitter에서 지원을 요청하세요.  
 
 ### <a name="online-forums"></a>온라인 포럼
 
@@ -40,7 +40,7 @@ ms.locfileid: "76545928"
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
 
