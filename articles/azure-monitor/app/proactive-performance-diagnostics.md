@@ -4,12 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687685"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697168"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -34,7 +34,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="how-do-i-fix-it"></a>이 문제를 어떻게 해결하나요?
 
-알림에는 진단 정보가 포함되어 있습니다. 아래 예를 살펴보세요.
+알림에는 진단 정보가 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 
 ![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -49,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용 하도록 설정 되며, Application Insights 리소스가 있는 구독에 대 한 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사용자에 게 전송 됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * 메트릭이 임계값을 초과할 때이를 알리는 [경고를 설정](../../azure-monitor/app/alerts.md) 합니다.
-    * [원격](../../azure-monitor/app/export-telemetry.md) 분석을 사용자가 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 또는 [Power BI](../../azure-monitor/app/export-power-bi.md )로 내보냅니다.
+    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](/azure/azure-monitor/platform/alerts-log)할 수 있습니다.
+    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [Power BI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* *[메트릭 경고](../../azure-monitor/app/alerts.md)를 대체 하나요?*
+* 이것이 *메트릭 경고[를 대신하나요](/azure/azure-monitor/platform/alerts-log)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -107,9 +107,9 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ### <a name="improve-slow-pages"></a>느린 페이지 개선
 서버 응답 및 페이지 로드 시간을 향상시키는 데 대한 조언이 가득한 웹이 있으므로 여기서 모두 반복하지는 않겠습니다. 다음은 이미 알고 있는 몇 가지 팁을 상기시켜 드립니다.
 
-* 큰 파일로 인해 로드 속도가 느리다면 스크립트 및 기타 부분을 비동기적으로 로드합니다. 스크립트 묶음을 사용합니다. 해당 데이터를 별도로 로드하는 위젯에 기본 페이지를 나눕니다. 긴 테이블에 이전의 단순한 HTML을 보내지 않습니다. JSON 또는 다른 압축 형식으로 데이터를 요청하는 스크립트를 사용한 다음 테이블을 채웁니다. 이 모든 것을 도울 유용한 프레임워크가 있습니다. (또한 스크립트가 크다는 제약이 따릅니다.)
-* 서버 종속성이 느리면 구성 요소의 지리적 위치를 고려합니다. 예를 들어 Azure를 사용하는 경우 웹 서버와 데이터베이스가 동일한 지역에 있는지를 확인합니다. 쿼리가 필요한 양 보다 많은 정보를 검색합니까? 캐싱 또는 배치가 도움이 됩니까?
-* 용량 문제는 응답 시간 및 요청 수의 서버 메트릭을 살펴봅니다. 응답 시간이 요청 개수에서 불균형적으로 급증하면 서버가 늘어났을 가능성이 있습니다.
+* 큰 파일로 인한 느린 로딩: 스크립트 및 기타 부분을 비동기적으로 로드합니다. 스크립트 묶음을 사용합니다. 해당 데이터를 별도로 로드하는 위젯에 기본 페이지를 나눕니다. 긴 테이블에 이전의 단순한 HTML을 보내지 않습니다. JSON 또는 다른 압축 형식으로 데이터를 요청하는 스크립트를 사용한 다음 테이블을 채웁니다. 이 모든 것을 도울 유용한 프레임워크가 있습니다. (또한 스크립트가 크다는 제약이 따릅니다.)
+* 느린 서버 종속성: 구성 요소의 지리적 위치를 고려합니다. 예를 들어 Azure를 사용하는 경우 웹 서버와 데이터베이스가 동일한 지역에 있는지를 확인합니다. 쿼리가 필요한 양 보다 많은 정보를 검색합니까? 캐싱 또는 배치가 도움이 됩니까?
+* 용량 문제: 응답 시간 및 요청 수의 서버 메트릭을 살펴봅니다. 응답 시간이 요청 개수에서 불균형적으로 급증하면 서버가 늘어났을 가능성이 있습니다.
 
 
 ## <a name="server-response-time-degradation"></a>서버 응답 시간 성능 저하
@@ -125,11 +125,11 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
   * 작업 시간이 소요된 위치를 파악하는 데 도움이 되는 프로파일러 추적(검색 기간 동안 이 작업에 대해 프로파일러 추적 예제가 수집된 경우 해당 링크를 사용할 수 있음) 
   * 이 작업에 대한 시간 범위/필터를 분석 및 분할할 수 있는 메트릭 탐색기의 성능 보고서
   * 이 호출을 검색하여 특정 호출 속성을 확인합니다.
-  * 오류 보고서-count > 1 인 경우이 작업에서 성능 저하에 기여 했을 수 있는 오류가 발생 했음을 의미 합니다.
+  * 오류 보고 - 오류 수가 1보다 크면 성능 저하에 기여했을 수 있는 작업 실패가 발생한 것입니다.
 
 ## <a name="dependency-duration-degradation"></a>종속성 기간 저하
 
-최신 응용 프로그램은 대부분의 경우 외부 서비스의 안정성을 향상 시키는 마이크로 서비스 디자인 방법을 채택 합니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
+최신 애플리케이션이 점점 더 많이 마이크로 서비스 디자인 방식을 채택하게 되면서 외부 서비스에 과도하게 의존하는 경우가 많아지고 있습니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
 
 예제 종속성 성능 저하 알림:
 
@@ -160,7 +160,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 ![Azure에서 전자 메일 경고의 진단 보고서를 열려면 해당 링크를 클릭합니다.](./media/proactive-performance-diagnostics/03.png)
 
 * **When(시간)** 에는 문제가 감지된 시간이 표시됩니다.
-* 설명 하는 **내용** :
+* **What(내용)** 에는 다음 설명이 표시됩니다.
 
   * 감지된 문제
   * 문제가 되는 동작을 표시하는 이벤트의 특징
@@ -174,11 +174,11 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)
+* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
 * [분석](../../azure-monitor/log-query/get-started-portal.md)
 * [분석 스마트 진단](../../azure-monitor/app/analytics.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../../azure-monitor/app/alerts.md)
+* [수동으로 구성된 메트릭 경고](/azure/azure-monitor/platform/alerts-log)
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)

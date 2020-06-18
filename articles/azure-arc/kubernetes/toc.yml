@@ -4,6 +4,10 @@
   items:
     - name: Azure Arc를 지원하는 Kubernetes에 대한 정보
       href: overview.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공
+      href: ./policy-samples.md
 - name: 방법 가이드
   items:
     - name: 클러스터 작업

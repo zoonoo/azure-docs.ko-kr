@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789327"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834869"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Project Online 프로젝트, 작업 및 리소스 관리
 
@@ -23,7 +23,7 @@ Azure Logic Apps 및 Project Online 커넥터를 사용하면 Office 365를 통�
 * 기존 프로젝트 또는 작업을 나열합니다.
 * 프로젝트를 체크 아웃, 체크 인 및 게시합니다.
 
-Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 디바이스에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 디바이스에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,7 +31,7 @@ Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하
 
 * [Office 365 계정](https://www.office.com/)을 통해 사용할 수 있는 Project Online, 
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Project Online 데이터에 액세스하려는 논리 앱입니다. Project Online 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Project Online 작업을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -62,7 +62,7 @@ Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

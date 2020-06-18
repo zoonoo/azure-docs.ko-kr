@@ -1,14 +1,14 @@
 ---
 title: Azure 리소스 검색
-description: 리소스 그래프 쿼리 언어를 사용 하 여 리소스를 탐색 하 고 연결 방법을 검색 하는 방법을 알아봅니다.
-ms.date: 10/18/2019
+description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 연결되는 방식을 파악하는 방법에 대해 알아봅니다.
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76156984"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654495"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -104,7 +104,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 ]
 ```
 
-속성은 가상 머신 리소스 자체, SKU, OS, 디스크, 태그, 리소스 그룹 및 구독에 속하는 모든 항목에 대 한 추가 정보를 알려 줍니다.
+속성은 SKU, OS, 디스크, 태그, 리소스가 속한 리소스 그룹과 구독 등 가상 머신 리소스 자체에 대한 추가 정보를 제공합니다.
 
 ### <a name="virtual-machines-by-location"></a>위치별 가상 머신
 
@@ -176,7 +176,7 @@ Resources
 ```
 
 > [!NOTE]
-> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조 하세요.
+> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조하세요.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -257,7 +257,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>가상 머신을 탐색하여 공용 IP 주소 찾기
 
-이 쿼리 집합은 먼저 가상 컴퓨터에 연결 된 모든 NIC (네트워크 인터페이스) 리소스를 찾아 저장 합니다. 그런 다음 쿼리는 Nic 목록을 사용 하 여 공용 IP 주소인 각 IP 주소 리소스를 찾고 해당 값을 저장 합니다. 마지막으로 쿼리는 공용 IP 주소 목록을 제공 합니다.
+이 쿼리 집합은 먼저 가상 머신에 연결된 모든 NIC(네트워크 인터페이스) 리소스를 찾아 저장합니다. 그런 다음, 쿼리는 NIC 목록을 사용하여 공용 IP 주소인 각 IP 주소 리소스를 찾아 해당 값을 저장합니다. 마지막으로, 쿼리는 공용 IP 주소 목록을 제공합니다.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nics.txt' file
@@ -275,7 +275,7 @@ $nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virt
 $nics.nic
 ```
 
-다음 쿼리에서 파일 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 NIC에 연결 된 공용 IP 주소가 있는 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다.
+다음 쿼리에서 파일(Azure CLI) 또는 변수(Azure PowerShell)를 사용하여 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다. 이 세부 정보에 NIC에 연결된 공용 IP 주소가 포함되어 있습니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -293,7 +293,7 @@ $ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/netwo
 $ips.publicIp
 ```
 
-마지막으로, 파일에 저장 된 공용 IP 주소 리소스 목록 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 관련 개체와 표시에서 실제 공용 IP 주소를 가져옵니다.
+마지막으로 파일(Azure CLI) 또는 변수(Azure PowerShell)에 저장된 공용 IP 주소 리소스 목록을 사용해 관련 개체에서 실제 공용 IP 주소를 가져와서 표시합니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
@@ -305,10 +305,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-`join` 연산자를 사용 하 여 단일 쿼리에서 이러한 단계를 수행 하는 방법을 보려면 [네트워크 인터페이스를 사용 하 여 가상 컴퓨터 나열 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플을 참조 하세요.
+`join` 연산자를 사용하여 단일 쿼리에서 이러한 단계를 수행하는 방법에 대한 자세한 내용은 [네트워크 인터페이스 및 공용 IP 샘플과 함께 가상 머신 나열](../samples/advanced.md#join-vmpip)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [쿼리 언어](query-language.md)에 대해 자세히 알아보기
-- [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
-- [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
+- [시작 쿼리](../samples/starter.md)에 사용되는 언어를 확인합니다.
+- [고급 쿼리](../samples/advanced.md)의 고급 사용법을 확인합니다.

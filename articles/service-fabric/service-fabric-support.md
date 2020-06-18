@@ -1,16 +1,16 @@
 ---
-title: Azure Service Fabric 지원 옵션에 대 한 자세한 정보
+title: Azure Service Fabric 지원 옵션 알아보기
 description: 지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282095"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834597"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -20,15 +20,15 @@ ms.locfileid: "79282095"
 
 Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 또는 [Microsoft 지원 포털](https://support.microsoft.com/oas/default.aspx?prid=16146)에서 지원에 대한 티켓을 엽니다.
 
-다음에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아봅니다.
  
 - [Azure에 대한 Microsoft의 지원](https://azure.microsoft.com/support/plans/?b=16.44)
 - [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)
 
 > [!Note]
-> 청동 안정성 계층 또는 단일 노드 클러스터에서 실행 되는 클러스터는 테스트 작업을 실행할 수 있도록 합니다. 청동 안정성 또는 단일 노드 클러스터에서 실행 되는 클러스터에 문제가 발생 하는 경우 Microsoft 지원 팀은 문제를 완화 하는 데 도움을 주지만 근본 원인 분석을 수행 하지는 않습니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) 을 참조 하세요.
+> 브론즈 안정성 계층 또는 단일 노드 클러스터에서 클러스터를 실행하면 워크로드만을 테스트할 수 있습니다. 브론즈 안정성 또는 단일 노드 클러스터에서 실행되는 클러스터에 문제가 발생하는 경우 Microsoft 지원 팀에서 문제 완화를 지원하지만 근본 원인을 분석하지는 않습니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)을 참조하세요.
 >
-> 프로덕션 준비 클러스터에 필요한 항목에 대 한 자세한 내용은 [프로덕션 준비 검사 목록](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)을 참조 하세요.
+> 프로덕션 준비 클러스터에 필요한 사항에 대한 자세한 내용은 [프로덕션 준비 검사 목록](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)을 참조하세요.
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -36,7 +36,7 @@ Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure 
 
 프리미어 또는 기타 클라우드에 배포된 Service Fabric 클러스터의 문제를 보고하려면 [Microsoft 지원 포털](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 전문 지원에 대한 티켓을 여세요.
 
-다음에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아봅니다.
 
 - [온-프레미스에 대한 Microsoft의 전문 지원](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)
 - [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)
@@ -67,7 +67,7 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 [지원되는 Service Fabric 버전](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

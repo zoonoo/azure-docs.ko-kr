@@ -1,5 +1,5 @@
 ---
-title: 조직의 네트워크에 개인 장치 등록-Azure AD
+title: 조직의 네트워크 - Azure AD에 개인 디바이스 등록
 description: 조직의 보호된 리소스에 액세스할 수 있도록 조직의 네트워크에서 개인 디바이스를 등록하는 방법을 알아봅니다.
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/04/2019
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063869"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747400"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
 개인 디바이스(일반적으로 휴대폰이나 태블릿)를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
