@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68359588"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835634"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
@@ -23,7 +23,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 **2014년 11월 3일** 게스트 OS 제품군 1에 대한 연장 지원이 종료되어 완전히 사용 중지됩니다. 제품군 1의 모든 서비스에 적용됩니다. 언제든지 이러한 서비스를 중지할 수 있습니다. 수동으로 직접 업그레이드하지 않으면 서비스가 계속된다는 보장이 없습니다.
 
-추가 질문이 있으면 [Cloud Services 포럼](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](https://azure.microsoft.com/support/options/).
+추가 질문이 있는 경우 [Cloud Services에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cloud-services.html)를 방문하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요.
 
 ## <a name="are-you-affected"></a>영향을 받나요?
 다음 중 하나에 적용되는 경우 Cloud Services에 영향을 받습니다.

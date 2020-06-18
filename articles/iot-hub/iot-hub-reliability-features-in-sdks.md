@@ -1,5 +1,5 @@
 ---
-title: 장치 Sdk를 통해 신뢰할 수 있는 메시징 & IoT Hub 연결 관리
+title: 디바이스 SDK를 사용하여 신뢰할 수 있는 메시징 및 IoT Hub 연결 관리
 description: Azure IoT Hub 디바이스 SDK를 사용할 때 디바이스 연결 및 메시지를 개선하는 방법을 알아봅니다.
 services: iot-hub
 author: robinsh
@@ -10,12 +10,12 @@ ms.service: iot-hub
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6b8981f9a0b372c6c2d5b24236bb4f55dcf8a9d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7c9371b76d8bd7b4afd3f54e30dcf652b8b33d4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116743"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656809"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징 관리
 
@@ -37,11 +37,11 @@ ms.locfileid: "82116743"
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [PYTHON SDK](https://github.com/Azure/azure-iot-sdk-python) (안정성이 아직 구현 되지 않음)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python)(안정성이 아직 구현되지 않음)
 
 ## <a name="designing-for-resiliency"></a>복원력을 위한 디자인
 
-IoT 디바이스는 주로 불연속 네트워크 연결 또는 불안정한 네트워크 연결(예: GSM 또는 위성)을 사용합니다. 일시적인 서비스 가용성 및 인프라 수준 또는 일시적 오류 때문에 디바이스가 클라우드 기반 서비스와 상호 작용할 때 오류가 발생할 수 있습니다. 장치에서 실행 되는 응용 프로그램은 메시지를 보내고 받기 위한 연결, 다시 연결 및 재시도 논리에 대 한 메커니즘을 관리 해야 합니다. 또한 다시 시도 전략 요구 사항은 디바이스의 IoT 시나리오, 컨텍스트, 기능에 따라 크게 달라집니다.
+IoT 디바이스는 주로 불연속 네트워크 연결 또는 불안정한 네트워크 연결(예: GSM 또는 위성)을 사용합니다. 일시적인 서비스 가용성 및 인프라 수준 또는 일시적 오류 때문에 디바이스가 클라우드 기반 서비스와 상호 작용할 때 오류가 발생할 수 있습니다. 디바이스에서 실행되는 애플리케이션이 연결/다시 연결 메커니즘과 메시지 전송/수신 다시 시도 논리를 관리해야 합니다. 또한 다시 시도 전략 요구 사항은 디바이스의 IoT 시나리오, 컨텍스트, 기능에 따라 크게 달라집니다.
 
 Azure IoT Hub 디바이스 SDK의 목적은 클라우드-디바이스 및 디바이스-클라우드에서 연결 및 통신을 간소화하는 데 있습니다. 이러한 SDK는 Azure IoT Hub에 연결하는 강력한 방법 및 메시지 송신 및 수신에 대한 포괄적인 옵션 세트를 제공합니다. 개발자가 기존 구현을 수정하여 지정된 시나리오에 대한 향상된 재시도 전략을 사용자 지정할 수도 있습니다.
 
@@ -49,7 +49,7 @@ Azure IoT Hub 디바이스 SDK의 목적은 클라우드-디바이스 및 디바
 
 ## <a name="connection-and-retry"></a>연결 및 재시도
 
-이 섹션에서는 연결을 관리할 때 사용할 수 있는 다시 연결 및 다시 시도 패턴에 대 한 개요를 제공 합니다. 또한 디바이스 애플리케이션에서 서로 다른 재시도 정책을 사용하기 위한 구현 지침에 대해 자세히 설명하고 디바이스 SDK에서 관련 API를 나열합니다.
+이 섹션에는 연결을 관리할 때 사용할 수 있는 다시 연결/다시 시도 패턴의 개요가 나와 있습니다. 또한 디바이스 애플리케이션에서 서로 다른 재시도 정책을 사용하기 위한 구현 지침에 대해 자세히 설명하고 디바이스 SDK에서 관련 API를 나열합니다.
 
 ### <a name="error-patterns"></a>오류 패턴
 
@@ -82,7 +82,7 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
 * **지터를 사용한 지수적 백오프**: 이 기본 재시도 정책은 적극적으로 시작하고 최대 지연 시간에 도달할 때까지 시간이 지남에 따라 저하되는 경향이 있습니다. 이 디자인은 [Azure 아키텍처 센터의 재시도 지침](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)을 기반으로 합니다. 
 
-* **사용자 지정 재시도**: 일부 SDK 언어의 경우 시나리오에 더 적합한 사용자 지정 재시도 정책을 설계한 다음, RetryPolicy에 삽입할 수 있습니다. 사용자 지정 재시도는 C SDK에서 사용할 수 없으며, 현재 Python SDK에서 지원 되지 않습니다. Python SDK는 필요에 따라 다시 연결 합니다.
+* **사용자 지정 재시도**: 일부 SDK 언어의 경우 시나리오에 더 적합한 사용자 지정 재시도 정책을 설계한 다음, RetryPolicy에 삽입할 수 있습니다. 사용자 지정 다시 시도는 C SDK에서 사용할 수 없으며, 현재 Python SDK에서 지원되지 않습니다. Python SDK는 필요에 따라 다시 연결합니다.
 
 * **재시도 안 함**: 재시도 정책을 “재시도 안 함”으로 설정하여 재시도 논리를 사용하지 않도록 설정할 수 있습니다. SDK는 한 번 연결을 시도하고, 연결이 설정되면 한 번 메시지를 보냅니다. 이 정책은 일반적으로 대역폭 또는 비용 문제가 있는 시나리오에 사용됩니다. 이 옵션을 선택하면 보내지 못한 메시지가 손실되며 복구될 수 없습니다.
 
@@ -90,10 +90,10 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
    | SDK) | SetRetryPolicy 메서드 | 정책 구현 | 구현 지침 |
    |-----|----------------------|--|--|
-   |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **기본값**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**사용자 지정:** 사용 가능한 [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) 사용<BR>**재시도 안 함:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/iOS 구현](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
-   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **기본값**: [ExponentialBackoffWithJitter 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**사용자 지정:**[RetryPolicy 인터페이스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java) 구현<BR>**재시도 안 함:** [NoRetry 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java 구현](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
-   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **기본값**: [ExponentialBackoff 클래스](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**사용자 지정:**[IRetryPolicy 인터페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet) 구현<BR>**재시도 안 함:** [NoRetry 클래스](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C# 구현](https://github.com/Azure/azure-iot-sdk-csharp) | |
-   | 노드| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **기본값**: [ExponentialBackoffWithJitter 클래스](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**사용자 지정:**[RetryPolicy 인터페이스](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest) 구현<BR>**재시도 안 함:** [NoRetry 클래스](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Node 구현](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
+   |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **기본값**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**사용자 지정:** 사용 가능한 [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) 사용<BR>**재시도 안 함**: [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/iOS 구현](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
+   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **기본값**: [ExponentialBackoffWithJitter 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**사용자 지정:** [RetryPolicy 인터페이스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java) 구현<BR>**재시도 안 함**: [NoRetry 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java 구현](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
+   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **기본값**: [ExponentialBackoff 클래스](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**사용자 지정:** [IRetryPolicy 인터페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet) 구현<BR>**재시도 안 함**: [NoRetry 클래스](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C# 구현](https://github.com/Azure/azure-iot-sdk-csharp) | |
+   | 노드| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **기본값**: [ExponentialBackoffWithJitter 클래스](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java) | [Node 구현](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
    | Python| 현재 지원되지 않음 | 현재 지원되지 않음 | 현재 지원되지 않음 |
 
 다음 코드 샘플은 이 흐름을 보여 줍니다.
@@ -132,7 +132,7 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [PYTHON SDK](https://github.com/Azure/azure-iot-sdk-python) (안정성이 아직 구현 되지 않음)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python)(안정성이 아직 구현되지 않음)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -142,6 +142,6 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
 * [제한된 디바이스에 대한 개발](./iot-hub-devguide-develop-for-constrained-devices.md)
 
-* [모바일 디바이스에 대한 개발](./iot-hub-how-to-develop-for-mobile-devices.md)
+* [모바일 디바이스용 개발](./iot-hub-how-to-develop-for-mobile-devices.md)
 
 * [디바이스 연결 끊김 문제 해결](iot-hub-troubleshoot-connectivity.md)

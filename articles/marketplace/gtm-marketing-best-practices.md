@@ -1,27 +1,21 @@
 ---
-title: 시장 출시 서비스-마케팅 모범 사례 | Azure Marketplace
-description: 시장 진출 서비스 - 이 섹션에서는 Azure Marketplace의 게시자에 대한 마케팅 모범 사례를 설명합니다.
+title: 마케팅 모범 사례 - Microsoft 상업용 Marketplace
+description: Microsoft AppSource 및 Azure Marketplace의 파트너 게시 제품에 대한 마케팅 모범 사례 리소스를 받으세요.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684592"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658030"
 ---
 # <a name="marketing-best-practices"></a>마케팅 모범 사례
 
-최적화 된 marketplace 목록 및 출시 대비 캠페인은 고객의 획득 성장을 가속화 하는 데 도움이 될 수 있으므로 클라우드 비즈니스 전략 및 엔진에서 중요 한 역할을 할 수 있습니다. 제품을 나열 하 고, 고객 평가판을 제공 하 고, Microsoft 고객 및 파트너 커뮤니티와 연결 하도록 준비 하세요. [Appsource & Azure Marketplace 마케팅 모범 사례 가이드](https://aka.ms/marketplacebestpractices) 를 다운로드 하 여 온라인 마케팅 활동을 최대한 활용 하는 방법을 알아보세요.
+상업용 Marketplace에 대한 제품을 제작 및 나열하고, 고객 평가판을 제공하고, Microsoft 고객 및 파트너 커뮤니티와 연결할 때 마케팅 모범 사례를 염두에 두어야 합니다. 제품 목록과 시장 출시 캠페인을 최적화할 경우 고객 확보를 가속화할 수 있습니다. [Azure Marketplace 및 AppSource 모범 사례 가이드](https://aka.ms/marketplacebestpractices)를 다운로드하여 온라인 마케팅 활동을 최대한 활용하는 방법을 알아보세요.
 
-**다음 단계**
-
-[출시 서비스](https://partner.microsoft.com/reach-customers/gtm)로 이동하여 마켓플레이스 GTM 서비스에 대해 자세히 알아봅니다.
-
-[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 에 로그인 하 여 제품을 만들고 구성 합니다.
-
----
+Microsoft 파트너 네트워크가 비즈니스를 성장시키는 데 도움이 되는 방법에 대한 자세한 내용은 [Microsoft와 함께 마케팅](https://partner.microsoft.com/reach-customers/gtm)을 참조하세요. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/)에 로그인하여 제품을 만들고 구성합니다.

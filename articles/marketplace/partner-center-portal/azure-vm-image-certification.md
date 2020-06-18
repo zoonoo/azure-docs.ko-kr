@@ -1,35 +1,32 @@
 ---
-title: Azure 가상 컴퓨터 인증-Azure Marketplace
-description: 상용 marketplace에서 virtual machine 제품을 테스트 하 고 제출 하는 방법에 대해 알아봅니다.
+title: Azure 가상 머신 인증 - Azure Marketplace
+description: 상업용 Marketplace에서 가상 머신 제품을 테스트하고 제출하는 방법을 알아봅니다.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731119"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726148"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Azure VM (가상 머신) 이미지 인증
+# <a name="azure-virtual-machine-vm-image-certification"></a>Azure VM(가상 머신) 이미지 인증
 
-> [!NOTE]
-> Azure VM 제품의 관리를 Cloud 파트너 포털에서 파트너 센터로 전환 하 고 있습니다. 제품이 마이그레이션될 때까지 Cloud 파트너 포털에서 [Azure Key Vault에 대 한 인증서 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) 의 지침에 따라 제품을 관리 하세요.
+이 문서에서는 상업용 Marketplace에서 VM(가상 머신) 이미지를 테스트하고 제출하여 최신 Azure Marketplace 게시 요구 사항을 충족하도록 하는 방법을 설명합니다.
 
-이 문서에서는 상용 marketplace에서 VM (가상 머신) 이미지를 테스트 하 고 제출 하 여 최신 Azure Marketplace 게시 요구 사항을 충족 하는지 설명 합니다.
+VM 제품을 제출하기 전에 다음 단계를 완료합니다.
 
-VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
+1. 인증서를 만들고 배포합니다.
+2. 일반화된 이미지를 사용하여 Azure VM을 배포합니다.
+3. 유효성 검사를 실행합니다.
 
-1. 인증서를 만들고 배포 합니다.
-2. 일반화 된 이미지를 사용 하 여 Azure VM을 배포 합니다.
-3. 유효성 검사를 실행 합니다.
+## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Azure Key Vault에 대한 인증서 만들기 및 배포
 
-## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Azure Key Vault에 대 한 인증서 만들기 및 배포
-
-이 섹션에서는 Azure에서 호스트 되는 가상 컴퓨터에 대 한 Windows 원격 관리 (WinRM) 연결을 설정 하는 데 필요한 자체 서명 된 인증서를 만들고 배포 하는 방법을 설명 합니다.
+이 섹션에서는 Azure 호스티드 가상 머신에 대한 WinRM(Windows 원격 관리) 연결을 설정하는 데 필요한 자체 서명된 인증서를 만들고 배포하는 방법을 설명합니다.
 
 ### <a name="create-certificates-for-azure-key-vault"></a>Azure Key Vault용 인증서 만들기
 
@@ -37,21 +34,21 @@ VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
 
 1. 보안 인증서를 만듭니다.
 2. 인증서를 저장할 Azure Key Vault를 만듭니다.
-3. 키 자격 증명 모음에 인증서를 저장 합니다.
+3. Key Vault에 인증서를 저장합니다.
 
 이 작업에 대한 새 또는 기존 Azure 리소스 그룹을 사용할 수 있습니다.
 
-#### <a name="create-the-security-certificate"></a>보안 인증서 만들기
+#### <a name="create-the-security-certificate"></a>보안 인증서를 만들기
 
-다음 Azure PowerShell 스크립트를 편집 하 고 실행 하 여 로컬 폴더에 인증서 파일 (.pfx)을 만듭니다. 다음 표에 표시 된 매개 변수의 값을 바꿉니다.
+Azure PowerShell 스크립트를 편집한 후 실행하여 로컬 폴더에 인증서 파일(.pfx)을 만듭니다. 다음 표에 표시된 매개 변수의 값을 바꿉니다.
 
 | **매개 변수** | **설명** |
 | --- | --- |
-| $certroopath | .Pfx 파일을 저장할 로컬 폴더입니다. |
+| $certroopath | .pfx 파일을 저장할 로컬 폴더입니다. |
 | $location | Azure 표준 지리적 위치 중 하나입니다. |
-| $vmName | 계획 된 Azure 가상 머신의 이름입니다. |
-| $certname | 인증서의 이름입니다. 계획 된 VM의 정규화 된 도메인 이름과 일치 해야 합니다. |
-| $certpassword | 인증서의 암호는 계획 된 VM에 사용 되는 암호와 일치 해야 합니다. |
+| $vmName | 계획된 Azure Virtual Machine의 이름입니다. |
+| $certname | 인증서의 이름으로, 계획된 VM의 정규화된 도메인 이름과 일치해야 합니다. |
+| $certpassword | 인증서에 대한 암호로, 계획된 VM에 사용되는 암호와 일치해야 합니다. |
 | | |
 
 ```PowerShell
@@ -82,14 +79,14 @@ VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
 ```
 
 > [!TIP]
-> 이러한 단계에서 여러 매개 변수의 값을 유지 하기 위해 동일한 Azure PowerShell 콘솔 세션을 열고 실행 합니다.
+> 이러한 단계에서 동일한 Azure PowerShell 콘솔 세션을 열고 실행하여 여러 매개 변수의 값이 보존되도록 합니다.
 
 > [!WARNING]
-> 이 스크립트를 저장 하는 경우 보안 정보 (암호)를 포함 하므로 안전한 위치에 저장 합니다.
+> 이 스크립트는 보안 정보(암호)를 포함하므로 안전한 위치에 저장합니다.
 
-#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>인증서를 저장 하는 Azure key vault 만들기
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>이 인증서를 저장할 Azure Key Vault를 만듭니다.
 
-아래 템플릿의 내용을 로컬 컴퓨터의 파일에 복사 합니다. 아래 예제 스크립트에서이 리소스는 `C:\certLocation\keyvault.json`입니다.
+아래 템플릿의 내용을 로컬 머신의 파일에 복사합니다. (아래 예제 스크립트에서 이 리소스는 `C:\certLocation\keyvault.json`입니다.)
 
 ```json
 {
@@ -184,15 +181,15 @@ VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
 
 ```
 
-다음 Azure PowerShell 스크립트를 편집 하 고 실행 하 여 Azure Key Vault 및 연결 된 리소스 그룹을 만듭니다. 다음 표에 표시 된 매개 변수의 값을 바꿉니다.
+다음 Azure PowerShell 스크립트를 편집한 후 실행하여 Azure Key Vault 및 연결된 리소스 그룹을 만듭니다. 다음 표에 표시된 매개 변수의 값을 바꿉니다.
 
 | **매개 변수** | **설명** |
 | --- | --- |
-| $postfix | 배포 식별자에 연결 된 임의의 숫자 문자열입니다. |
-| $rgName | 만들 Azure 리소스 그룹 (RG) 이름입니다. |
+| $postfix | 배포 식별자에 연결된 임의의 숫자 문자열입니다. |
+| $rgName | 만들려는 Azure RG(리소스 그룹) 이름입니다. |
 | $location | Azure 표준 지리적 위치 중 하나입니다. |
-| $kvTemplateJson | 키 자격 증명 모음에 대 한 리소스 관리자 템플릿을 포함 하는 파일 (keyvault. json)의 경로입니다. |
-| $kvname | 새 key vault의 이름입니다.|
+| $kvTemplateJson | Key Vault에 대한 Resource Manager 템플릿을 포함하는 파일(keyvault.json)의 경로입니다. |
+| $kvname | 새 Key Vault의 이름입니다.|
 |   |   |
 
 ```PowerShell
@@ -291,9 +288,9 @@ VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
 
 ```
 
-#### <a name="store-the-certificates-to-the-key-vault"></a>키 자격 증명 모음에 인증서 저장
+#### <a name="store-the-certificates-to-the-key-vault"></a>Key Vault에 인증서를 저장합니다.
 
-다음 스크립트를 사용 하 여 .pfx 파일에 포함 된 인증서를 새 키 자격 증명 모음에 저장 합니다.
+다음 스크립트를 사용하여 .pfx 파일에 포함된 인증서를 새 Key Vault에 저장합니다.
 
 ```PowerShell
      $fileName =$certroopath+"\$certname"+".pfx"
@@ -317,13 +314,13 @@ VM 제품을 제출 하기 전에 다음 단계를 완료 합니다.
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>일반화 된 이미지를 사용 하 여 Azure VM 배포
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>일반화된 이미지를 사용하여 Azure VM 배포
 
-이 섹션에서는 일반화 된 VHD 이미지를 배포 하 여 새 Azure VM 리소스를 만드는 방법을 설명 합니다. 이 프로세스의 경우 제공 된 Azure Resource Manager 템플릿과 Azure PowerShell 스크립트를 사용 합니다.
+이 섹션에서는 일반화된 VHD 이미지를 배포하여 새 Azure VM 리소스를 만드는 방법을 설명합니다. 이 프로세스의 경우 제공된 Azure Resource Manager 템플릿과 Azure PowerShell 스크립트를 사용합니다.
 
 ### <a name="prepare-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 준비
 
-VHD 배포용 다음 Azure Resource Manager 템플릿을 VHDtoImage 라는 로컬 파일에 복사 합니다. 다음 스크립트는이 JSON을 사용 하도록 로컬 컴퓨터의 위치를 요청 합니다.
+다음 VHD 배포용 Azure Resource Manager 템플릿을 VHDtoImage.json이라는 로컬 파일에 복사합니다. 다음 스크립트는 이 JSON을 사용할 로컬 머신의 위치를 요청합니다.
 
 ```JSON
 {
@@ -558,32 +555,32 @@ VHD 배포용 다음 Azure Resource Manager 템플릿을 VHDtoImage 라는 로�
 
 ```
 
-이 파일을 편집 하 여 다음 매개 변수에 대 한 값을 제공 합니다.
+이 파일을 편집하여 다음 매개 변수 값을 제공합니다.
 
 | **매개 변수** | **설명** |
 | --- | --- |
-| ResourceGroupName | 기존 Azure 리소스 그룹 이름입니다. 일반적으로 키 자격 증명 모음과 동일한 RG를 사용 합니다. |
-| TemplateFile | VHDtoImage 파일에 대 한 전체 경로 이름입니다. |
+| ResourceGroupName | 기존 Azure 리소스 그룹 이름입니다. 일반적으로 Key Vault과 동일한 RG를 사용합니다. |
+| TemplateFile | VHDtoImage.json 파일에 대한 전체 경로 이름입니다. |
 | userStorageAccountName | 스토리지 계정 이름 |
-| sNameForPublicIP | 공용 IP에 대 한 DNS 이름입니다. 소문자 여야 합니다. |
+| sNameForPublicIP | 퍼블릭 IP의 DNS 이름입니다. 소문자여야 합니다. |
 | subscriptionId | Azure 구독 식별자입니다. |
 | 위치 | 리소스 그룹의 표준 Azure 지리적 위치입니다. |
-| vmName | 가상 컴퓨터의 이름입니다. |
-| vaultName | 키 자격 증명 모음의 이름입니다. |
+| vmName | 가상 머신의 이름입니다. |
+| vaultName | Key Vault의 이름입니다. |
 | vaultResourceGroup | Key Vault의 리소스 그룹 |
-| certificateUrl | 키 자격 증명 모음에 저장 된 버전을 포함 하는 인증서의 웹 주소 (URL)입니다 `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`(예:). |
+| certificateUrl | Key Vault에 저장된 버전을 포함하는 인증서의 웹 주소(URL)(예: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`)입니다. |
 | vhdUrl | 가상 하드 디스크의 웹 주소입니다. |
-| vmSize | 가상 컴퓨터 인스턴스의 크기입니다. |
-| publicIPAddressName | 공용 IP 주소의 이름입니다. |
+| vmSize | 가상 머신 인스턴스의 크기입니다. |
+| publicIPAddressName | 퍼블릭 IP 주소의 이름입니다. |
 | virtualNetworkName | 가상 네트워크의 이름입니다. |
-| nicName | 가상 네트워크에 대 한 네트워크 인터페이스 카드의 이름입니다. |
+| nicName | 가상 네트워크의 네트워크 인터페이스 카드 이름입니다. |
 | adminUserName | 관리자 계정의 사용자 이름입니다. |
-| adminPassword | 관리자 암호. |
+| adminPassword | 관리자 암호입니다. |
 |   |   |
 
 ### <a name="deploy-an-azure-vm"></a>Azure VM 배포
 
-다음 스크립트를 복사 하 고 편집 하 여 `$storageaccount` 및 `$vhdUrl` 변수에 대 한 값을 제공 합니다. 이 스크립트를 실행하여 일반화된 기존 VHD에서 Azure VM 리소스를 만듭니다.
+다음 스크립트를 복사 및 편집하여 `$storageaccount` 및 `$vhdUrl` 변수의 값을 제공합니다. 이 스크립트를 실행하여 일반화된 기존 VHD에서 Azure VM 리소스를 만듭니다.
 
 ```PowerShell
 
@@ -605,51 +602,51 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 ## <a name="run-validations"></a>유효성 검사 실행
 
-배포 된 이미지에 대해 유효성 검사를 실행 하는 방법에는 다음 두 가지가 있습니다.
+배포된 이미지에 대해 유효성 검사를 실행하는 방법에는 다음 두 가지가 있습니다.
 
-- Azure 인증을 위해 인증 테스트 도구 사용
+- Azure Certified용 인증 테스트 도구 사용
 - 자체 테스트 API 사용
 
 ### <a name="download-and-run-the-certification-test-tool"></a>인증 테스트 도구 다운로드 및 실행
 
-Azure 인증을 위한 인증 테스트 도구는 로컬 Windows 컴퓨터에서 실행 되지만 Azure 기반 Windows 또는 Linux VM을 테스트 합니다. 사용자 VM 이미지를 Microsoft Azure와 함께 사용할 수 있으며, VHD 준비에 대 한 지침과 요구 사항이 충족 되었음을 증명 합니다. 도구의 출력은 파트너 센터 포털에 업로드 하 여 VM 인증을 요청 하는 호환성 보고서입니다.
+Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azure 기반 Windows 또는 Linux VM을 테스트합니다. 사용자 VM 이미지를 Microsoft Azure에서 사용할 수 있는지, 즉 VHD 준비와 관련된 지침과 요구 사항이 충족되었는지를 확인합니다. 이 도구의 출력은 호환성 보고서이며, VM 인증을 요청하기 위해 파트너 센터에 업로드됩니다.
 
 1. 가장 최근의 [Azure Certified용 인증 테스트 도구](https://www.microsoft.com/download/details.aspx?id=44299)를 다운로드하여 설치합니다.
-2. 인증 도구를 연 다음 **새 테스트 시작**을 선택 합니다.
+2. 인증 도구를 연 다음, **새 테스트 시작**을 선택합니다.
 3. **테스트 정보** 화면에서 테스트 실행에 대한 **테스트 이름**이름을 입력합니다.
-4. VM에 대 한 **플랫폼** 을 Windows Server 또는 Linux 중에서 선택 합니다. 플랫폼 선택은 나머지 옵션에 영향을 줍니다.
-5. VM이이 데이터베이스 서비스를 사용 하는 경우 **Azure SQL Database에 대해 테스트** 확인란을 선택 합니다.
+4. VM에 대한 **플랫폼**(Windows Server 또는 Linux)을 선택합니다. 플랫폼 선택은 나머지 옵션에 영향을 줍니다.
+5. VM에서 이 데이터베이스 서비스를 사용하는 경우 **Azure SQL Database 테스트** 확인란을 선택합니다.
 
 ### <a name="connect-the-certification-tool-to-a-vm-image"></a>VM 이미지에 인증 도구 연결
 
-이 도구는 [Azure PowerShell](https://docs.microsoft.com/powershell/) 을 사용 하 여 Windows 기반 vm에 연결 하 고 [SSH.Net](https://www.ssh.com/ssh/protocol/)을 통해 Linux vm에 연결 합니다.
+도구에서 [Azure PowerShell](https://docs.microsoft.com/powershell/)을 사용하여 Windows 기반 VM에 연결하고, [SSH.Net](https://www.ssh.com/ssh/protocol/)을 통해 Linux VM에 연결합니다.
 
 ### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Linux VM 이미지에 인증 도구 연결
 
-1. **SSH 인증** 모드: 암호 인증 또는 키 파일 인증을 선택 합니다.
-2. 암호 기반 인증을 사용 하는 경우 **VM DNS 이름**, **사용자 이름**및 **암호**에 대 한 값을 입력 합니다. 기본 **SSH 포트** 번호를 변경할 수도 있습니다.
+1. **SSH 인증** 모드로 암호 인증 또는 키 파일 인증을 선택합니다.
+2. 암호 기반 인증을 사용하는 경우 **VM DNS 이름**, **사용자 이름** 및 **암호**에 대한 값을 입력합니다. 기본 **SSH 포트** 번호를 변경할 수도 있습니다.
 
     ![Azure 인증 테스트 도구, Linux VM 이미지의 암호 인증](media/avm-cert2.png)
 
-3. 키 파일 기반 인증을 사용하는 경우 **VM DNS Name**, **사용자 이름** 및 **프라이빗 키** 위치에 대한 값을 입력합니다. 또한 **암호** 를 포함 하거나 기본 **SSH 포트** 번호를 변경할 수 있습니다.
+3. 키 파일 기반 인증을 사용하는 경우 **VM DNS Name**, **사용자 이름** 및 **프라이빗 키** 위치에 대한 값을 입력합니다. **암호**를 제공하거나 기본 **SSH 포트** 번호를 변경할 수도 있습니다.
 
 ### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Windows 기반 VM 이미지에 인증 도구 연결**
 
-1. 정규화 된 **VM DNS 이름** (예: MyVMName.Cloudapp.net)을 입력 합니다.
+1. 정규화된 **VM DNS 이름**을 입력합니다(예: MyVMName.Cloudapp.net).
 2. **사용자 이름** 및 **암호**에 대한 값을 입력합니다.
 
     ![Azure 인증 테스트 도구, Windows 기반 VM 이미지의 암호 인증](media/avm-cert4.png)
 
 ### <a name="run-a-certification-test"></a>인증 테스트 실행
 
-인증 도구에서 VM 이미지에 대 한 매개 변수 값을 지정한 후 **연결 테스트** 를 선택 하 여 vm에 대 한 올바른 연결을 만듭니다. 연결이 확인되면 **다음**을 선택하여 테스트를 시작합니다. 테스트가 완료 되 면 테스트 결과가 테이블에 표시 됩니다. 상태 열에는 각 테스트에 대 한 (통과/실패/경고)가 표시 됩니다. 테스트 중 하나라도 실패하면 이미지가 인증되지 _않습니다_. 이 경우 요구 사항 및 오류 메시지를 검토 하 고, 제안 된 변경을 수행한 후 테스트를 다시 실행 합니다.
+인증 도구에서 VM 이미지에 대한 매개 변수 값을 제공한 후 **연결 테스트**를 선택하여 VM에 대한 유효한 연결을 만듭니다. 연결이 확인되면 **다음**을 선택하여 테스트를 시작합니다. 테스트가 완료되면 테스트 결과가 테이블에 표시됩니다. 상태 열에는 각 테스트에 대한 (통과/실패/경고)가 표시됩니다. 테스트 중 하나라도 실패하면 이미지가 인증되지 _않습니다_. 이 경우 요구 사항과 오류 메시지를 검토하고, 제안된 변경을 수행한 다음, 테스트를 다시 실행합니다.
 
-자동화 된 테스트가 완료 되 면 **질문** 및 시간, **일반 평가** 및 **커널 사용자 지정**의 두 탭에서 VM 이미지에 대 한 추가 정보를 제공 하 고 **다음**을 선택 합니다.
+자동화된 테스트가 완료되면 **질문서** 화면의 두 탭인 **일반 평가** 및 **커널 사용자 지정**에서 VM 이미지에 대한 추가 정보를 제공하고 **다음**을 선택합니다.
 
-마지막 화면에서 Linux VM 이미지에 대 한 SSH 액세스 정보와 같은 추가 정보를 제공 하 고, 예외를 찾고 있는 경우 실패 한 평가에 대 한 설명을 제공할 수 있습니다.
+마지막 화면에서는 Linux VM 이미지에 대한 SSH 액세스 정보 및 예외를 찾는 경우 실패한 평가에 대한 설명과 같은 추가 정보를 제공할 수 있습니다.
 
-마지막으로 **보고서 생성** 을 선택 하 여 실행 된 테스트 사례에 대 한 테스트 결과 및 로그 파일을 질문 및 답변에 대 한 응답과 함께 다운로드 합니다. VHD와 동일한 컨테이너에 결과를 저장합니다.
+마지막으로, **보고서 생성**을 선택하여 실행된 테스트 사례에 대한 테스트 결과 및 로그 파일과 질문서에 대한 답변을 다운로드합니다. VHD와 동일한 컨테이너에 결과를 저장합니다.
 
 ## <a name="next-step"></a>다음 단계
 
-- [각 VHD에 대 한 URI (uniform resource identifier)를 생성 합니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [각 VHD에 대한 URI(Uniform Resource Identifier) 생성](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929131"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745453"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -33,7 +33,7 @@ ms.locfileid: "82929131"
 
 토큰 인증은 요청에 요청자에 대한 인코딩된 정보가 포함된 토큰 값을 포함하도록 요구하여 요청이 신뢰할 수 있는 사이트에서 생성되었는지 확인합니다. 인코딩된 정보가 요구 사항을 충족하는 경우에만 요청자에게 콘텐츠가 제공되며, 그렇지 않으면 요청이 거부됩니다. 다음 매개 변수 중 하나 이상을 사용하여 요구 사항을 설정할 수 있습니다.
 
-- Country: [국가 코드](/previous-versions/azure/mt761717(v=azure.100))에 지정 된 국가/지역에서 발생 하는 요청을 허용 하거나 거부 합니다.
+- 국가/지역: [국가/지역 코드](/previous-versions/azure/mt761717(v=azure.100))에 지정된 국가/지역에서 발생한 요청을 허용하거나 거부합니다.
 - URL: 지정된 자산 또는 경로와 일치하는 요청만 허용합니다.
 - 호스트: 요청 헤더의 지정된 호스트를 사용하는 요청을 허용하거나 거부합니다.
 - 참조 페이지: 지정된 참조 페이지의 요청을 허용하거나 거부합니다.
@@ -66,13 +66,13 @@ ms.locfileid: "82929131"
 
 2. **HTTP Large**를 가리킨 다음, 플라이아웃에서 **토큰 인증**을 선택합니다. 그런 다음 암호화 키와 암호화 매개 변수를 다음과 같이 설정할 수 있습니다.
 
-   1. 하나 이상의 암호화 키를 만듭니다. 암호화 키는 대/소문자를 구분하고 모든 영숫자 조합을 포함할 수 있습니다. 공백을 비롯한 다른 형식의 문자는 허용되지 않습니다. 최대 길이는 250자입니다. 암호화 키가 무작위로 사용 되도록 하려면 [OpenSSL 도구](https://www.openssl.org/)를 사용 하 여 해당 키를 만드는 것이 좋습니다. 
+   1. 하나 이상의 암호화 키를 만듭니다. 암호화 키는 대/소문자를 구분하고 모든 영숫자 조합을 포함할 수 있습니다. 공백을 비롯한 다른 형식의 문자는 허용되지 않습니다. 최대 길이는 250자입니다. 암호화 키가 임의의 값이 되도록 하려면 [OpenSSL 도구](https://www.openssl.org/)를 사용하여 만드는 것이 좋습니다. 
 
       OpenSSL 도구에는 다음 구문이 있습니다.
 
       ```rand -hex <key length>```
 
-      다음은 그 예입니다. 
+      다음은 그 예입니다.
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -86,7 +86,7 @@ ms.locfileid: "82929131"
 
       ![CDN 토큰 인증 설정 키](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용 하 여 만료 시간, 국가/지역, 참조 페이지, 프로토콜 및 클라이언트 IP (임의 조합)에 따라 요청을 허용 하거나 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
+   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용하면 만료 시간, 국가/지역, 참조 페이지, 프로토콜 및 클라이언트 IP(모든 조합)를 기반으로 요청을 허용하거나 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
 
       ![CDN 암호화 도구](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ ms.locfileid: "82929131"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>하나 이상의 지정 된 국가/지역에서 시작 되는 요청만 허용 합니다. 다른 모든 국가/지역에서 시작 된 요청은 거부 됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
+      >    <td>하나 이상의 지정된 국가/지역에서 시작된 요청만 허용합니다. 다른 모든 국가/지역에서 시작된 요청은 거부됩니다. 각 국가/지역에 대해 두 문자 [ISO 3166 국가/지역 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>하나 이상의 지정 된 국가/지역에서 시작 된 요청을 거부 합니다. 다른 모든 국가/지역에서 시작 된 요청은 허용 됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
+      >    <td>하나 이상의 지정된 국가/지역에서 시작된 요청을 거부합니다. 다른 모든 국가/지역에서 시작된 요청은 허용됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가/지역 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -158,7 +158,7 @@ ms.locfileid: "82929131"
 
    5. 암호화 매개 변수 값 입력을 마친 후에는 **암호화할 키** 목록에서 암호화할 키(기본 키와 백업 키를 모두 만든 경우)를 선택합니다.
     
-   6. **암호화 버전** 목록에서 버전 2에 **V2** 또는 버전 3에 **V3**라는 암호화 버전을 선택합니다(권장됨). 
+   6. **암호화 버전** 목록에서 암호화 버전을 선택합니다. 즉, 버전 2에 대해서는 **V2**를 선택하고 버전 3에 대해서는 **V3**(권장)를 선택합니다. 
 
    7. **암호화**를 선택하여 토큰을 생성합니다.
 
@@ -179,11 +179,11 @@ ms.locfileid: "82929131"
 
 4. 규칙 엔진에서 추가 토큰 인증 관련 기능을 사용하도록 설정할 수도 있습니다. 다음 기능 중 하나를 사용하도록 설정하려면 **기능** 목록에서 해당 기능을 선택한 다음 **사용**을 선택합니다.
     
-   - **[토큰 인증 거부 코드](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**: 요청이 거부되는 경우 사용자에게 반환할 응답 형식을 결정합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
+   - **[토큰 인증 거부 코드](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : 요청이 거부되는 경우 사용자에게 반환할 응답 형식을 결정합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
 
-   - **[토큰 인증 URL 대/소문자 무시](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: 토큰 유효성을 검사하는 데 사용되는 URL의 대/소문자 구분 여부를 결정합니다.
+   - **[토큰 인증 URL 대/소문자 무시](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : 토큰 유효성을 검사하는 데 사용되는 URL의 대/소문자 구분 여부를 결정합니다.
 
-   - **[토큰 인증 매개 변수](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: 요청된 URL에 표시되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
+   - **[토큰 인증 매개 변수](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : 요청된 URL에 표시되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
         
      ![CDN 규칙 엔진 토큰 인증 설정 예제](./media/cdn-token-auth/cdn-rules-engine2.png)
 
@@ -195,7 +195,7 @@ ms.locfileid: "82929131"
    - PHP
    - Perl
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정
 

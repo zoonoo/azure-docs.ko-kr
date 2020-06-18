@@ -1,6 +1,6 @@
 ---
 title: Azure VM에서 게스트 OS 방화벽 사용 안 함 | Microsoft Docs
-description: 게스트 운영 체제 방화벽이 VM에 대 한 부분 또는 전체 트래픽을 필터링 하는 경우 문제 해결을 위한 해결 방법에 대해 알아봅니다.
+description: 게스트 운영 체제 방화벽이 VM에 대한 부분 또는 전체 트래픽을 필터링하는 경우 문제 해결 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422373"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774348"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
 이 문서에서는 게스트 운영 체제 방화벽이 VM(가상 머신) 트래픽의 일부 또는 전체를 필터링하는 것으로 의심되는 상황에 대한 참조를 제공합니다. 이 문제는 방화벽에서 RDP 연결 오류를 일으키는 변경 작업이 의도적으로 수행된 경우에 발생할 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
-이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용 하도록 설정 하는 것이 좋습니다. 방화벽 규칙을 구성 하는 방법은 필요한 VM에 대 한 액세스 수준에 따라 달라 집니다.
+이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용하려면 Microsoft 모범 사례가 필요합니다. 방화벽 규칙을 구성하는 방법은 필요한 VM에 대한 액세스 수준에 따라 달라집니다.
 
 ### <a name="online-solutions"></a>온라인 솔루션 
 
@@ -49,7 +49,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
 >   그러나 정책이 다시 적용되는 즉시 원격 세션이 종료됩니다. 이 문제를 영구적으로 해결하는 방법은 이 컴퓨터에 적용되는 정책을 수정하는 것입니다.
@@ -90,9 +90,9 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 다음 단계에 따라 [원격 레지스트리](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)를 사용합니다.
 
-1.  문제 해결 VM에서 레지스트리 편집기를 시작 하 고 **파일** > **연결 네트워크 레지스트리**로 이동 합니다.
+1.  문제 해결을 위한 VM에서 레지스트리 편집기를 시작한 다음, **파일** > **네트워크 레지스트리 연결**로 이동합니다.
 
-2.  *대상 컴퓨터*\SYSTEM 분기를 열고 다음 값을 지정 합니다.
+2.  *TARGET MACHINE*\SYSTEM 분기를 열고, 다음 값을 지정합니다.
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  서비스를 다시 시작합니다. 원격 레지스트리를 사용 하 여이 작업을 수행할 수 없으므로 원격 서비스 콘솔을 사용 해야 합니다.
+3.  서비스를 다시 시작합니다. 이 작업은 원격 레지스트리를 사용할 수 없으므로 서비스 제거 콘솔을 사용해야 합니다.
 
-4.  **Services.msc**의 인스턴스를 엽니다.
+4.  **Services.msc** 인스턴스를 엽니다.
 
 5.  **서비스(로컬)** 을 클릭합니다.
 
 6.  **다른 컴퓨터에 연결**을 선택합니다.
 
-7.  문제 VM의 **개인 IP 주소 (DIP)** 를 입력 합니다.
+7.  문제가 있는 VM의 **프라이빗 IP 주소(DIP)** 를 입력합니다.
 
 8.  로컬 방화벽 정책을 다시 시작합니다.
 
@@ -116,7 +116,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 ### <a name="offline-solutions"></a>오프라인 솔루션 
 
-어떤 방법으로도 VM에 연결할 수 없는 경우 사용자 지정 스크립트 확장이 실패할 것이며, 시스템 디스크를 통해 직접 작업하여 오프라인 모드로 작업해야 합니다. 이를 위해 다음 단계를 수행합니다.
+어떤 방법으로도 VM에 연결할 수 없는 경우 사용자 지정 스크립트 확장이 실패할 것이며, 시스템 디스크를 통해 직접 작업하여 오프라인 모드로 작업해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
 

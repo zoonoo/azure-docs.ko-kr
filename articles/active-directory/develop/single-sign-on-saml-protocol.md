@@ -1,6 +1,7 @@
 ---
 title: Azure Single Sign On SAML 프로토콜
-description: 이 문서에서는 Azure Active Directory에서 Single Sign On SAML 프로토콜을 설명합니다.
+titleSuffix: Microsoft identity platform
+description: 이 문서에서는 Azure Active Directory의 SSO(Single Sign On) SAML 프로토콜에 대해 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -9,24 +10,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853788"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771675"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
-이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 설명합니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 SSO(Single Sign-On)용으로 지원하는 SAML 2.0 인증 요청과 응답에 대해 설명합니다.
 
 아래 프로토콜 다이어그램은 Single Sign-On 시퀀스를 설명합니다. 클라우드 서비스(서비스 공급자)는 HTTP 리디렉션 바인딩을 사용하여 `AuthnRequest` (인증 요청) 요소를 Azure AD(ID 공급자)에 전달합니다. 그런 다음 Azure AD는 HTTP post 바인딩을 사용하여 `Response` 요소를 클라우드 서비스에 게시합니다.
 
-![Single Sign On 워크플로](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![SSO(Single Sign-on) 워크플로](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+
+> [!NOTE]
+> 이 문서에서는 Single Sign-On용 SAML 사용 방법에 대해 설명합니다. Single Sign-On을 처리할 수 있는 다른 방법(예: OpenID Connect 또는 Windows 통합 인증 사용)에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="authnrequest"></a>AuthnRequest
 
@@ -42,16 +46,16 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |
 | IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
-| AssertionConsumerServiceUrl | Optional | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
-| ForceAuthn | Optional | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
-| IsPassive | Optional | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
+| AssertionConsumerServiceUrl | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
+| ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
+| IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
 
-동의, `AuthnRequest` 대상, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex 및 ProviderName과 같은 다른 모든 특성은 **무시**됩니다.
+다른 모든 `AuthnRequest` 특성(예: onsent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex 및 ProviderName)은 **무시**됩니다.
 
 Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
@@ -77,15 +81,15 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
 `NameIDPolicy`가 제공된 경우 선택 사항인 `Format` 특성을 포함할 수 있습니다. `Format` 특성은 다음 값 중 하나만 포함할 수 있으며 다른 값을 사용하면 오류가 발생합니다.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory는 쌍별 식별자로 NameID 클레임을 발급합니다.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory는 전자 메일 주소 형식으로 NameID 클레임을 발급합니다.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값은 클레임 형식을 선택하기 위한 Azure Active Directory를 허용합니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하고 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory에서 NameID 클레임을 쌍별 식별자로 발급합니다.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory에서 NameID 클레임을 이메일 주소 형식으로 발급합니다.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값을 사용하면 Active Directory에서 클레임 형식을 선택할 수 있습니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하게 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
 
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `AuthnContextClassRef` 와 같은 값 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`을 지원 합니다.
+`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` 등의 `AuthnContextClassRef` 값을 지원합니다.
 
 ### <a name="scoping"></a>범위 지정
 ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는 `AuthnRequest` 요소에서 선택 사항입니다.
@@ -93,10 +97,10 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 제공되는 경우 `ProxyCount` 특성, `IDPListOption` 또는 `RequesterID` 요소는 지원되지 않으므로 포함하지 않습니다.
 
 ### <a name="signature"></a>서명
-Azure AD에서 서명된 인증 요청을 지원하지 않으므로 `Signature` 요소는 `AuthnRequest` 요소에 포함하지 않습니다.
+`AuthnRequest` 요소에 `Signature` 요소를 포함하지 마세요. Azure AD는 서명된 인증 요청의 유효성을 검사하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
 
-### <a name="subject"></a>주체
-Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
+### <a name="subject"></a>제목
+`Subject` 요소를 포함하지 마세요. Azure AD는 요청 주제 지정을 지원하지 않고, 요청이 제공되면 오류를 반환합니다.
 
 ## <a name="response"></a>응답
 요청한 로그온이 성공적으로 완료되면 Azure AD는 클라우드 서비스에 응답을 게시합니다. 성공적인 로그온 시도에 대한 응답은 다음 샘플과 같습니다.
@@ -153,7 +157,7 @@ Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 `Issuer` 요소를로 `https://sts.windows.net/<TenantIDGUID>/` 설정 \<합니다. 여기서 TenantIDGUID>는 Azure ad 테 넌 트의 테 넌 트 ID입니다.
+Azure AD는 `Issuer` 요소를 `https://sts.windows.net/<TenantIDGUID>/`로 설정합니다. 여기서 \<TenantIDGUID>는 Azure AD 테넌트의 테넌트 ID입니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
@@ -188,7 +192,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>발급자
 
-이는로 `https://sts.windows.net/<TenantIDGUID>/`설정 됩니다 \<. 여기서 TENANTIDGUID>는 Azure AD 테 넌 트의 테 넌 트 ID입니다.
+`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 \<TenantIDGUID>는 Azure AD 테넌트의 테넌트 ID입니다.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -206,7 +210,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>주체
+#### <a name="subject"></a>제목
 
 이 어설션의 문 주체인 보안 주체를 지정합니다. 여기에는 인증된 사용자를 나타내는 `NameID` 요소가 포함됩니다. `NameID` 값은 토큰의 대상 그룹인 서비스 공급자에만 전달되는 대상 지정 식별자입니다. 영구적이며 해지할 수 있지만 다시 할당되지는 않습니다. 또한 불투명하며 사용자에 대한 어떠한 정보도 표시하지 않으며 특성 쿼리의 식별자로 사용할 수 없습니다.
 
@@ -266,7 +270,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AttributeStatement>
 ```        
 
-* **이름 클레임** - `Name` 특성의 값 ()은`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`인증 된 사용자의 사용자 계정 이름 (예:)입니다 `testuser@managedtenant.com`.
+* **이름 클레임** - `Name` 특성 값(`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`)은 인증된 사용자의 사용자 주체 이름입니다(예: `testuser@managedtenant.com`).
 * **ObjectIdentifier 클레임** - `ObjectIdentifier` 특성 값(`http://schemas.microsoft.com/identity/claims/objectidentifier`)은 Azure AD에서 인증된 사용자를 나타내는 디렉터리 개체의 `ObjectId`입니다. `ObjectId`는 인증된 사용자에 대해 변경할 수 없고, 전역적으로 고유하며, 안전하게 다시 사용할 수 있는 식별자입니다.
 
 #### <a name="authnstatement"></a>AuthnStatement

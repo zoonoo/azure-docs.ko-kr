@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 DB2에서 데이터 복사
+title: Azure Data Factory를 사용하여 DB2에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 DB2에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891430"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873628"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -29,16 +29,16 @@ ms.locfileid: "82891430"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 DB2 데이터베이스 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 DB2 데이터베이스 커넥터는 다음과 같은 작업에서 지원됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히, 이 DB2 커넥터는 DRDA(분산 관계형 데이터베이스 아키텍처) SQLAM(SQL Access Manager) 버전 9, 10 및 11과 함께 다음 IBM DB2 플랫폼 버전을 지원합니다.
+특히, 이 DB2 커넥터는 DRDA(분산 관계형 데이터베이스 아키텍처) SQLAM(SQL Access Manager) 버전 9, 10 및 11과 함께 다음 IBM DB2 플랫폼 버전을 지원합니다.  DDM/DRDA 프로토콜을 활용합니다.
 
-* Z/OS 용 IBM DB2 12.1
+* z/OS용 IBM DB2 12.1
 * z/OS용 IBM DB2 11.1
 * z/OS용 IBM DB2 10.1
 * i용 IBM DB2 7.3
@@ -49,7 +49,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 * LUW용 IBM DB2 10.1
 
 >[!TIP]
->DB2 커넥터는 Microsoft OLE DB Provider for DB2 위에 빌드됩니다. DB2 커넥터 오류 문제를 해결 하려면 [Data Provider 오류 코드](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors)를 참조 하세요.
+>DB2 커넥터는 Microsoft OLE DB Provider for DB2를 토대로 빌드됩니다. DB2 커넥터 오류 문제를 해결하려면 [데이터 공급자 오류 코드](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -67,28 +67,28 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Db2**로 설정해야 합니다. | 예 |
-| connectionString | DB2 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다.<br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| type | type 속성을 다음으로 설정해야 합니다. **Db2** | 예 |
+| connectionString | DB2 인스턴스에 연결하는 데 필요한 정보를 지정합니다.<br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
-연결 문자열 내부의 일반적인 속성:
+연결 문자열 내부의 일반적인 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
+| 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`).<br>DB2 커넥터는 DDM/DRDA 프로토콜을 사용하며, 포트를 지정하지 않으면 기본적으로 포트 50000을 사용합니다. 특정 DB2 데이터베이스에서 사용하는 포트는 버전 및 설정에 따라 다를 수 있습니다. 예를 들어, DB2 LUW의 경우 기본 포트는 50000이고, AS400의 경우 기본 포트는 446 또는 448(TLS를 사용하도록 설정한 경우)입니다. 일반적으로 포트를 구성하는 방법에 대해서는 DB2 문서 [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) 및 [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html)를 참조하세요. |예 |
 | 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
-| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
-| username |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성 하는 위치를 지정 합니다. | 아니요 |
-| certificateCommonName | SSL(Secure Sockets Layer) (SSL) 또는 TLS (전송 계층 보안) 암호화를 사용 하는 경우 인증서 일반 이름에 값을 입력 해야 합니다. | 아니요 |
+| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic**. |예 |
+| 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성하는 위치를 지정합니다. 이 값을 설정하지 않으면 Data Factory는 {username}을 기본값으로 사용합니다. | 예 |
+| certificateCommonName | SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안) 암호화를 사용하는 경우 인증서 일반 이름에 값을 입력해야 합니다. | 예 |
 
 > [!TIP]
-> `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`에서 설명 하는 오류 메시지가 표시 되는 경우 사용자에 게 필요한 패키지가 생성 되지 않습니다. 기본적으로 ADF는 DB2에 연결 하는 데 사용한 사용자로 이름이 지정 된 패키지를 만들려고 시도 합니다. 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 만들 위치를 지정 하려면 패키지 컬렉션 속성을 지정 합니다.
+> `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`라는 오류 메시지가 표시되는 경우 필요한 패키지가 만들어지지 않은 것입니다. 기본적으로 ADF는 DB2에 연결하는 데 사용한 사용자 이름이 지정된 컬렉션 아내에 패키지를 만들려고 시도합니다. 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 만들 위치를 나타내는 패키지 컬렉션 속성을 지정합니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -96,7 +96,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;password=<password>;packageCollection=<packagecollection>;certificateCommonName=<certname>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -113,7 +113,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -131,7 +131,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-다음 페이로드를 사용 하 여 DB2 연결 된 서비스를 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+다음 페이로드에서 DB2 연결된 서비스를 사용하는 경우, 있는 그대로도 지원되지만 앞으로 새 옵션을 사용하는 것이 좋습니다.
 
 **이전 페이로드:**
 
@@ -160,16 +160,16 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 DB2 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 DB2 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
+DB2의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **Db2Table** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **Db2Table** | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 경우 `schema` 및 `table`를 사용합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -189,7 +189,7 @@ DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 }
 ```
 
-형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+`RelationalTable` 형식의 데이터 세트를 사용하고 있는 경우 현재까지 지원되지만 앞으로는 새 형식을 사용하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -197,14 +197,14 @@ DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 ### <a name="db2-as-source"></a>DB2를 원본으로
 
-DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
+DB2에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **Db2Source** 로 설정 해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **Db2Source** | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -236,7 +236,7 @@ DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에�
 ]
 ```
 
-형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+`RelationalSource` 형식의 원본을 사용하고 있는 경우 현재까지 지원되지만 앞으로는 새 형식을 사용하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-db2"></a>DB2에 대한 데이터 형식 매핑
 
@@ -249,7 +249,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Blob |Byte[] |
 | Char |String |
 | Clob |String |
-| 날짜 |DateTime |
+| Date |DateTime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -264,16 +264,16 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | 숫자 |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| 시간 |TimeSpan |
+| Time |TimeSpan |
 | 타임스탬프 |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
-| xml |Byte[] |
+| Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

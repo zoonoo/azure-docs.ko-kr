@@ -1,26 +1,26 @@
 ---
-title: Azure Active Directory를 사용하여 Microsoft AppSource와 Azure Marketplace 목록을 사용하도록 설정 | Azure
-description: 앱 및 서비스 게시자의 Azure Marketplace와 AppSource에서 Azure Active Directory를 사용하여 열거 형식을 사용하도록 설정합니다.
+title: Microsoft 상업용 Marketplace 제품과 Azure Active Directory 통합
+description: Azure Active Directory를 사용하여 Microsoft AppSource 및 Azure Marketplace 제품을 인증합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160616"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658052"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>상업용 Marketplace 목록과 Azure Active Directory 통합
 
- Azure AD(Azure Active Directory)는 Microsoft 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. Azure AD는 산업 표준 프레임워크를 사용합니다. [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory).
+ 이 문서에서는 Azure AD(Azure Active Directory)를 사용하여 상업용 Marketplace 목록 또는 제품을 통합하기 위한 요구 사항을 설명합니다. Azure AD는 업계 표준 프레임워크를 사용하여 Microsoft 계정으로 인증할 수 있도록 하는 클라우드 ID 서비스입니다. [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Azure AD 혜택
 
-Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용하여 목록 카탈로그를 검색합니다. 이 작업을 수행하려면 고객이 제품에 로그인해야 합니다. Azure AD 통합은 다음과 같은 이점을 제공합니다.
+Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용하여 상점 목록 카탈로그를 검색합니다. 이 작업을 수행하려면 고객이 제품에 로그인해야 합니다. Azure AD 통합은 다음과 같은 이점을 제공합니다.
 
 - 더 빠른 참여 및 최적화된 사용자 환경
 - 수백만 명의 엔터프라이즈 사용자를 위한 SSO(Single Sign-On)
@@ -29,17 +29,17 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용�
 
 ## <a name="offers-that-require-azure-ad"></a>Azure AD가 필요한 제공 사항
 
-AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 유형](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)에는 Azure AD 구현을 위한 다양한 요구 사항이 있습니다. 자세한 내용은 다음 표를 참조하세요.
+다양한 상업용 Marketplace [목록 옵션 및 제품 유형](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)에는 Azure AD 구현을 위한 다양한 요구 사항이 있습니다. 자세한 내용은 다음 표를 참조하세요.
 
-| **제안 유형**    | **Azure AD SSO 필수 여부**  |  |   |  |
+| **제품 유형**    | **Azure AD SSO 필수 여부**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | 연락처 | 평가판 | 시험 사용 | 거래 |
-| Virtual Machine | 해당 없음 | 아니요 | 아니요 | 아니요 |
+| Virtual Machine | 해당 없음 | 예 | 예 | 예 |
 | Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
-| 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
+| 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
 | SaaS  | 예 | 예 | 예 | 예 |
-| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
-| 컨설팅 서비스  | 아니요 | 해당 없음 | 해당 없음 | 해당 없음 |
+| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
+| 컨설팅 서비스  | 예 | 해당 없음 | 해당 없음 | 해당 없음 |
 
 SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조하세요.
 
@@ -73,7 +73,7 @@ Azure AD를 사용하여 다음 작업을 지원합니다.
 Azure AD 페더레이션 Single Sign-On을 처음 사용하는 경우 다음 단계를 완료하세요.
 
 1. Marketplace에서 앱을 등록합니다.
-1. [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 또는 [openid connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)를 사용 하 여 Azure AD에서 SSO를 개발 합니다.
+1. [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 또는 [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)를 사용하여 Azure AD를 통해 SSO를 개발합니다.
 1. Azure AD의 다중 테넌트 지원 기능으로 원클릭 체험 환경을 제공할 수 있습니다.
 
 ### <a name="single-tenant-solutions"></a>단일 테넌트 솔루션
@@ -89,8 +89,8 @@ Azure AD를 사용하여 다음 작업 중 하나를 지원합니다.
 
 아직 수행하지 않았다면 
 
-- Marketplace에 [대해 알아봅니다](https://azuremarketplace.microsoft.com/sell) .
+- 마켓플레이스에 대해 [자세히 알아봅니다](https://azuremarketplace.microsoft.com/sell).
 
-파트너 센터에 등록 하려면 새 제품 만들기 또는 기존 제품에 대 한 작업을 시작 합니다.
+파트너 센터에 등록하거나 새 제품을 만들거나 기존 제품에 대해 작업하려면
 
-- [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 하 여 제품을 만들거나 완성 합니다.
+- 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.

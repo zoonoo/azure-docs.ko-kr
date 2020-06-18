@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 1167846c399430bd2db2eaa3114628ebb63ce639
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592324"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699656"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Azure Lab Services를 사용하여 자연어 처리의 딥 러닝에 초점을 맞춘 랩을 설정
 이 문서는 Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점을 맞춘 랩을 설정하는 방법을 안내합니다. NLP(자연어 처리)는 번역, 음성 인식 및 기타 언어 이해 기능을 갖춘 컴퓨터를 가능케하는 AI(인공 지능) 형태입니다.  
@@ -40,7 +40,9 @@ NLP 클래스를 수강하는 학생은 Linux VM(가상 머신)을 통해 작성
 | ------------ | ------------------ |
 | VM(가상 머신) 크기 | 소형 GPU(컴퓨팅) 이 크기는 AI와 Deep Learning 같은 컴퓨팅 및 네트워크를 많이 사용하는 애플리케이션에 가장 적합합니다. |
 | VM 이미지 | [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 이 이미지는 기계 학습 및 데이터 과학을 위한 딥 러닝 프레임워크 및 도구를 제공합니다. 이 이미지에 설치된 도구에 대한 전체 목록을 보려면 다음 문서를 참조하세요. [DSVM에는 무엇이 포함되나요?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
-| 원격 데스크톱 연결을 사용하도록 설정 | <p>이 설정을 사용하도록 설정하면 교사와 학생이 RDP(원격 데스크톱)를 사용하여 해당 VM(가상 머신)에 연결할 수 있습니다.</p><p>**중요**: 이 설정을 사용하도록 설정하면 Linux 컴퓨터의 **RDP** 포트만 열립니다. 가상 머신 이미지에 RDP가 이미 설치되어 구성되어 있는 경우에는 추가 단계 없이 RDP를 통해 VM에 연결할 수 있습니다. <p>VM 이미지에 RDP가 설치 및 구성되어 있지 않은 경우에는 처음으로 SSH를 사용하여 Linux 컴퓨터에 연결하고 RDP 및 GUI 패키지를 설치하여 나중에 RDP를 사용하여 Linux 컴퓨터에 연결할 수 있도록 해야 합니다. 자세한 내용은 [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](../../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. 그런 다음, 학생이 학생 Linux VM에 RDP할 수 있도록 이미지를 게시합니다.  |
+| 원격 데스크톱 연결을 사용하도록 설정 | <p>교사와 학생이 GUI 원격 데스크톱을 사용하여 연결할 수 있도록 데이터 과학 이미지가 이미 X2Go를 사용하도록 구성되어 있습니다.  X2Go는 **원격 데스크톱 연결 사용** 설정을 사용하도록 설정할 필요가 *없습니다*.  이 설정은 RDP를 대신 사용하도록 선택하는 경우에만 사용하도록 설정해야 합니다.
+
+>**중요**: 데이터 과학 이미지에 X2Go를 사용하는 것이 좋지만 RDP를 대신 사용하도록 선택하는 경우 처음으로 SSH를 사용하여 Linux VM에 연결하고 RDP 및 GUI 패키지를 설치해야 합니다.  그런 다음, 나중에 RDP를 사용하여 Linux VM에 연결할 수 있습니다.  자세한 내용은 [Linux VM에 대해 그래픽 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조하세요.
 
 Linux 이미지용 Data Science Virtual Machine은 이 클래스 형식에 필요한 딥 러닝 프레임워크 및 도구를 제공합니다. 따라서 템플릿 머신을 만든 후에는 이를 추가로 사용자 지정할 필요가 없습니다. 학생들이 사용할 수 있도록 게시할 수 있습니다. 템플릿 페이지에서 **게시** 단추를 선택하여 랩에 템플릿을 게시합니다.  
 
@@ -55,7 +57,7 @@ Linux 이미지용 Data Science Virtual Machine은 이 클래스 형식에 필�
 이 문서에서는 자연어 처리 클래스에 대한 랩을 만드는 단계를 안내합니다. 다른 딥 러닝 클래스에 대해 유사한 설정을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-다음 단계는 모든 랩 설정에 공통되어 있습니다.
+다음 단계는 모든 랩 설정에 공통됩니다.
 
 - [사용자 추가](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)

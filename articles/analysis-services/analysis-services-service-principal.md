@@ -1,18 +1,18 @@
 ---
-title: 서비스 사용자를 사용 하 여 Azure Analysis Services 작업 자동화 | Microsoft Docs
-description: Azure Analysis Services 관리 작업을 자동화 하기 위한 서비스 주체를 만드는 방법에 대해 알아봅니다.
+title: 서비스 주체를 사용하여 Azure Analysis Services 작업 자동화 | Microsoft Docs
+description: Azure Analysis Services 관리 작업을 자동화하기 위해 서비스 주체를 만드는 방법을 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871168"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -20,20 +20,20 @@ ms.locfileid: "79266144"
 
 Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 애플리케이션 및 웹앱에 사용됩니다. 예를 들어 서버 프로비전, 모델 배포, 데이터 새로 고침, 규모 확대/축소 및 일시 중지/다시 시작은 모두 서비스 사용자를 사용하여 자동화될 수 있습니다. 일반 Azure AD UPN 계정과 매우 유사하게 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다.
 
-또한 Analysis Services은 서비스 주체를 사용 하 여 관리 id에서 수행 하는 작업도 지원 합니다. 자세한 내용은 azure [리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 및 azure [AD 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)를 참조 하세요.  
+또한 Analysis Services는 서비스 주체를 사용하여 관리 ID에서 수행하는 작업도 지원합니다. 자세히 알아보려면 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 및 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)를 참조하세요.  
 
 ## <a name="create-service-principals"></a>서비스 주체 만들기
  
 서비스 사용자는 Azure Portal에서 또는 PowerShell을 사용하여 만들 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-[서비스 사용자 만들기-Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
-[서비스 주체 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+[서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Azure Automation에서 자격 증명 및 인증서 자산 저장
 
 서비스 사용자 자격 증명 및 인증서는 Runbook 작업에 대해 Azure Automation에서 안전하게 저장될 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-[Azure Automation 자격 증명 자산](../automation/automation-credentials.md)   
+[Azure Automation의 자격 증명 자산](../automation/automation-credentials.md)   
 [Azure Automation의 인증서 자산](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>서버 관리자 역할에 서비스 사용자 추가
@@ -48,11 +48,11 @@ UPN과 거의 동일하게 서비스 사용자 appID 및 암호 또는 인증서
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Microsoft.analysisservices.sharepoint.integration.dll 모듈 사용
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Az.AnalysisServices 모듈 사용
 
-[Microsoft.analysisservices.sharepoint.integration.dll](/powershell/module/az.analysisservices) 모듈을 사용 하 여 리소스 관리 작업에 서비스 주체를 사용 하는 경우 `Connect-AzAccount` cmdlet을 사용 합니다. 
+[Az.AnalysisServices](/powershell/module/az.analysisservices) 모듈이 있는 리소스 관리 작업에 서비스 사용자를 사용하는 경우 `Connect-AzAccount` cmdlet을 사용합니다. 
 
-다음 예에서는 appID와 암호를 사용 하 여 읽기 전용 복제본과의 동기화에 대 한 제어 평면 작업을 수행 하 고 규모를 확장/축소 합니다.
+다음 예제에서는 appID와 암호를 사용하여 읽기 전용 복제본과의 동기화을 위한 제어 평면 작업을 수행하고 규모를 확장/축소합니다.
 
 ```powershell
 Param (
@@ -109,5 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure PowerShell를 사용 하 여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)   
+[Azure PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Logic Apps를 사용하여 새로 고침](analysis-services-refresh-logic-app.md)  
+[Azure Automation을 사용하여 새로 고침](analysis-services-refresh-azure-automation.md)  
+[서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)  
+[서비스 주체를 사용하여 Power BI Premium 작업 영역 및 데이터 세트 태스크 자동화](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

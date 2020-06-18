@@ -1,22 +1,22 @@
 ---
-title: Marketo의 리드 관리-Microsoft 상업적 marketplace
-description: Marketo CRM 시스템을 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 리드를 관리 하는 방법을 알아봅니다.
+title: Marketo의 잠재 고객 관리 - Microsoft 상업용 Marketplace
+description: Marketo CRM 시스템을 사용하여 Microsoft AppSource 및 Azure Marketplace에서 잠재 고객을 관리하는 방법을 알아봅니다.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789881"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849183"
 ---
-# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Marketo를 사용 하 여 상업적 marketplace 잠재 고객 관리
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Marketo를 사용하여 상업용 Marketplace 잠재 고객 관리
 
-이 문서에서는 Marketo CRM 시스템을 설정 하 여 Microsoft AppSource 및 Azure Marketplace에서 제품의 판매 리드를 처리 하는 방법을 설명 합니다.
+이 문서에서는 Microsoft AppSource 및 Azure Marketplace에서 제품의 판매 잠재 고객을 처리하도록 Marketo CRM 시스템을 설정하는 방법을 설명합니다.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Marketo CRM 시스템 설정
 
@@ -30,19 +30,19 @@ ms.locfileid: "82789881"
 
     ![Marketo 새 양식](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
-1.  **새 양식** 대화 상자에서 필수 필드를 입력 한 다음 **만들기**를 선택 합니다.
+1.  **새 양식** 대화 상자에서 필수 필드에 정보를 입력한 다음, **만들기**를 선택합니다.
 
     ![Marketo 새 양식 만들기](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-1.  **필드 세부 정보** 페이지에서 **마침**을 선택 합니다.
+1.  **필드 세부 정보** 페이지에서 **마침**을 선택합니다.
 
     ![Marketo 양식 마침](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-1.  승인 후 닫기.
+1.  승인하고 닫습니다.
 
-1. **MarketplaceLeadBackend** 탭에서 **Embed 코드**를 선택 합니다. 
+1. **MarketplaceLeadBackend** 탭에서 **Embed 태그**를 선택합니다. 
 
-    ![Marketo Embed 코드](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Marketo Embed 태그](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
 1. Marketo embed 태그에 다음 예제와 같은 코드가 표시됩니다.
 
@@ -51,43 +51,43 @@ ms.locfileid: "82789881"
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-1. Embed 코드 폼에 표시 된 다음 필드의 값을 복사 합니다. 이러한 값을 사용 하 여 다음 단계에서 잠재 고객을 받도록 제품을 구성 합니다. Marketo Embed 코드 예제에서 필요한 Id를 가져오기 위한 지침으로 다음 예제를 사용 합니다.
+1. Embed 코드 양식에 표시된 다음 필드의 값을 복사합니다. 이러한 값을 사용하여 다음 단계에서 잠재 고객을 수신하도록 제품을 구성합니다. 다음 예제를 참조하여 Marketo embed 태그 예제에서 필요한 ID를 가져옵니다.
 
     - 서버 ID = **ys12**
     - Munchkin ID = **123-PQR-789**
     - 양식 ID = **1179**
 
-    이러한 값을 확인 하는 또 다른 방법은 다음과 같습니다.
+    이러한 값을 확인하는 또 다른 방법은 다음과 같습니다.
 
-    - Marketo 인스턴스의 URL (예:)에 서버 ID가 `serverID.marketo.com`있습니다.
-    - **Munchkin 계정 ID** 필드 또는 Marketo REST API 호스트 하위 도메인 `https://{Munchkin ID}.mktorest.com`의 첫 번째 부분에서 **관리자** > **Munchkin** 메뉴로 이동 하 여 구독의 Munchkin ID를 가져옵니다.
-    - 양식 ID는 marketplace에서 잠재 고객을 라우팅하는 7 단계에서 만든 Embed 코드 양식의 ID입니다.
+    - Marketo 인스턴스의 URL(예: `serverID.marketo.com`)에서 서버 ID를 찾을 수 있습니다.
+    - **Munchkin 계정 ID** 필드 또는 Marketo REST API 호스트 하위 도메인 `https://{Munchkin ID}.mktorest.com`의 첫 번째 부분에서 **관리** > **Munchkin** 메뉴로 이동하여 구독의 Munchkin ID를 가져옵니다.
+    - 양식 ID는 Marketplace에서 잠재 고객을 라우팅하기 위해 7단계에서 만든 Embed 코드 양식의 ID입니다.
 
-## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Marketo에 잠재 고객을 보내도록 제품 구성
+## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Marketo로 잠재 고객을 보내도록 제품 구성
 
-게시 포털에서 제품에 대 한 리드 관리 정보를 구성할 준비가 되 면 다음 단계를 수행 합니다. 
+게시 포털에서 제품에 대한 잠재 고객 관리 정보를 구성할 준비가 되면 다음 단계를 수행합니다. 
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
-1. 제품을 선택 하 고 **제품 설정** 탭으로 이동 합니다.
+1. 제품을 선택하고 **제품 설정** 탭으로 이동합니다.
 
-1. **리드 관리** 섹션에서 **연결**을 선택 합니다. 
+1. **잠재 고객** 섹션에서 **연결**를 선택합니다.
 
-    ![리드 관리 섹션 연결 단추](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="잠재 고객":::
 
-1. **연결 정보** 팝업 창에서 **리드 대상**에 대해 **Marketo** 를 선택 합니다.
+1. **연결 세부 정보** 팝업 창에서 **잠재 고객 대상**으로 **Marketo**를 선택합니다.
 
-    ![리드 대상 선택](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+    ![잠재 고객 대상 선택](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. **서버 id**, **Munchkin 계정 ID**및 **양식 id**를 제공 합니다.
+1. **서버 ID**, **Munchkin 계정 ID**및 **양식 ID**를 제공합니다.
 
     > [!NOTE]
-    > 제안에 대 한 잠재 고객을 받으려면 먼저 나머지 제품을 구성 하 고 게시 해야 합니다. 
+    > 제품에 대한 잠재 고객을 받으려면 먼저 나머지 제품 구성을 끝내고 게시해야 합니다. 
 
-1. **연락처 전자 메일**에 새 잠재 고객이 수신 될 때 전자 메일 알림을 받을 회사의 사용자에 대 한 전자 메일 주소를 입력 합니다. 세미콜론으로 구분 하 여 여러 전자 메일 주소를 제공할 수 있습니다.
+1. **연락처 메일**에서 새 잠재 고객이 수신될 때 메일 알림을 받을 회사의 사용자에 대한 메일 주소를 입력합니다. 세미콜론으로 구분하여 여러 메일 주소를 입력할 수 있습니다.
 
 1. **확인**을 선택합니다.
 
-   선행 대상에 성공적으로 연결 되었는지 확인 하려면 **유효성 검사**를 선택 합니다. 성공 하면 잠재 고객 대상에 테스트 리드를 갖게 됩니다.
+   잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 **유효성 검사**를 선택합니다. 성공하면 잠재 고객 대상에서 테스트 잠재 고객이 생깁니다.
 
-   ![연결 정보 팝업 창](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![연결 세부 정보 팝업 창](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
