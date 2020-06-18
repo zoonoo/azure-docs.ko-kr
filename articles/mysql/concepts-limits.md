@@ -1,28 +1,28 @@
 ---
-title: 제한 사항-Azure Database for MySQL
+title: 제한 사항 - Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 스토리지 엔진 옵션과 같은 제한 사항을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548480"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659938"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
 
 ## <a name="server-parameters"></a>서버 매개 변수
 
-널리 사용 되는 여러 서버 매개 변수의 최소값 및 최대값은 가격 책정 계층 및 vCores에 의해 결정 됩니다. 제한 사항은 아래 표를 참조 하세요.
+널리 사용되는 여러 서버 매개 변수의 최솟값 및 최댓값은 가격 책정 계층 및 vCores에 의해 결정됩니다. 제한 사항은 아래 표를 참조하세요.
 
 ### <a name="max_connections"></a>max_connections
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
@@ -39,23 +39,23 @@ ms.locfileid: "80548480"
 |메모리 최적화|32|10000|10|20000|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
-> 오류 1040(08004): 너무 많은 연결이 있습니다.
+> 오류 1040(08004): 연결이 너무 많음
 
 > [!IMPORTANT]
-> 최상의 환경을 위해 ProxySQL과 같은 연결 풀을 사용 하 여 효율적으로 연결을 관리 하는 것이 좋습니다.
+> 최상의 환경을 위해 ProxySQL과 같은 연결 풀을 사용하여 연결을 효율적으로 관리하는 것이 좋습니다.
 
-MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리고 일단 설정 되 면 이러한 연결은 유휴 상태일 때에도 데이터베이스 리소스를 차지 합니다. 대부분의 응용 프로그램은이 상황을 복합어 하는 많은 단기 연결을 요청 합니다. 결과적으로 실제 워크 로드에 사용할 수 있는 리소스의 성능이 저하 될 수 있습니다. 유휴 연결을 줄이고 기존 연결을 다시 사용 하는 연결 풀러는 이러한 문제를 방지 하는 데 도움이 됩니다. ProxySQL 설정에 대 한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)을 참조 하세요.
+MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하며, 일단 설정되면 이러한 연결은 유휴 상태일 때에도 데이터베이스 리소스를 차지합니다. 대부분의 애플리케이션은 많은 단기 연결을 요청합니다. 이는 이러한 상황을 복잡하게 만듭니다. 결과적으로 실제 워크로드에 사용할 수 있는 리소스의 성능이 저하됩니다. 유휴 연결을 줄이고 기존 연결을 다시 사용하는 연결 풀러는 이러한 문제를 방지하는 데 도움이 됩니다. ProxySQL 설정에 대한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)을 참조하세요.
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-쿼리 캐시는 기본적으로 해제 되어 있습니다. 쿼리 캐시를 사용 하도록 설정 하려면 `query_cache_type` 매개 변수를 구성 합니다. 
+쿼리 캐시는 기본적으로 해제되어 있습니다. 쿼리 캐시를 사용하도록 설정하려면 `query_cache_type` 매개 변수를 구성합니다. 
 
-이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) 를 참조 하세요.
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size)를 참조하세요.
 
 > [!NOTE]
-> MySQL 5.7.20 및 MySQL 8.0에서 제거 된 쿼리 캐시는 더 이상 사용 되지 않습니다.
+> 쿼리 캐시는 MySQL 5.7.20부터 더 이상 사용되지 않으며 MySQL 8.0에서 제거되었습니다.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
@@ -73,9 +73,9 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) 를 참조 하세요.
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size)를 참조하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
@@ -93,9 +93,9 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) 를 참조 하세요.
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size)를 참조하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
@@ -113,9 +113,9 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) 를 참조 하세요.
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)를 참조하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
@@ -133,9 +133,9 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-이 매개 변수에 대 한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) 를 참조 하세요.
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)를 참조하세요.
 
-|**가격 책정 계층**|**vCore**|**기본값**|**최소 값**|**최 댓 값**|
+|**가격 책정 계층**|**vCore**|**기본값**|**최솟값**|**최댓값**|
 |---|---|---|---|---|
 |Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
@@ -153,18 +153,24 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 
 ### <a name="time_zone"></a>time_zone
 
-표준 시간대 테이블은 MySQL 명령줄 또는 MySQL 워크 벤치 `mysql.az_load_timezone` 와 같은 도구에서 저장 프로시저를 호출 하 여 채울 수 있습니다. 저장 프로시저를 호출 하 고 전역 또는 세션 수준 표준 시간대를 설정 하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) 문서를 참조 하세요.
+MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하면 표준 시간대 테이블을 채울 수 있습니다. 저장 프로시저를 호출하고 전역 또는 세션 수준 표준 시간대를 설정하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) 문서를 참조하세요.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 아니면 InnoDB가 file-per-table 테이블스페이스에 테이블을 만듭니다.
+
+Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB**를 지원합니다. 데이터베이스 크기가 1TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 1TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
 
 ## <a name="storage-engine-support"></a>스토리지 엔진 지원
 
 ### <a name="supported"></a>지원됨
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [RAM](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>지원되지 않음
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [보관](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>권한 지원
@@ -172,7 +178,7 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 ### <a name="unsupported"></a>지원되지 않음
 - DBA 역할: 서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 DBMS의 ACID 속성이 무효화될 수 있습니다. 따라서 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스에서는 DBA 역할이 노출되지 않습니다. 사용자는 새 데이터베이스 인스턴스를 만들 때 생성되는 기본 사용자 계정을 통해 관리되는 데이터베이스 인스턴스에서 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
 - SUPER 권한: 마찬가지로 [SUPER 권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)도 제한됩니다.
-- DEFINER:를 만들고 제한 되는 슈퍼 권한이 필요 합니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
+- DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
 
 ## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
 
@@ -199,7 +205,7 @@ MySQL에 대 한 새 클라이언트 연결을 만들면 시간이 오래 걸리
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
 ### <a name="storage-size"></a>스토리지 크기
-- 가격 책정 계층 당 저장소 크기 제한에 대 한 [가격 책정 계층](concepts-pricing-tiers.md) 을 참조 하세요.
+- 가격 책정 계층당 스토리지 크기 제한은 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
 - 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.

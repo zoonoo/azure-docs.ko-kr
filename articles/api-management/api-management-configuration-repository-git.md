@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259173"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649225"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -52,7 +52,7 @@ Git 구성 설정을 확인하고 구성하려면 **보안** 메뉴를 클릭하
 ![GIT 사용][api-management-enable-git]
 
 > [!IMPORTANT]
-> 명명 된 값으로 정의 되지 않은 암호는 리포지토리에 저장 되며, Git 액세스를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정할 때까지 기록에 유지 됩니다. 명명 된 값은 모든 API 구성 및 정책에서 암호를 포함 하 여 상수 문자열 값을 관리 하기 위한 안전한 장소를 제공 하므로 정책 문에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API Management 정책에 명명된 값을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
+> 명명된 값으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 명명된 값은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API Management 정책에 명명된 값을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
 >
 >
 
@@ -174,7 +174,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 >
 > * [사용자](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [구독](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [명명 된 값](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * 명명된 값
 > * 스타일 이외의 개발자 포털 엔터티
 >
 

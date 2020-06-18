@@ -1,6 +1,6 @@
 ---
-title: Azure Front 도어 서비스에 대 한 지역 필터링 웹 응용 프로그램 방화벽 정책 구성
-description: 이 자습서에서는 지역 필터링 정책을 만들고 정책을 기존 Front 도어가 프런트 엔드 호스트와 연결 하는 방법에 대해 알아봅니다.
+title: Azure Front Door 서비스용 지역 필터링 웹 애플리케이션 방화벽 정책 구성
+description: 이 자습서에서는 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135873"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747758"
 ---
-# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>프런트 도어의 지역 필터링 WAF 정책 설정
+# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책 설정
 
 이 자습서에서는 Azure PowerShell을 사용하여 간단한 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다. 이 샘플 지역 필터링 정책은 미국을 제외한 모든 국가/지역으로부터의 요청을 차단합니다.
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 지역 필터링 정책을 설정하기 전에 PowerShell 환경을 설정하고 Front Door 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
@@ -29,7 +29,7 @@ Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manag
 
 로컬 머신에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명으로 로그인하고 Az PowerShell 모듈을 설치합니다.
 
-#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>로그인을 위해 대화형 대화 상자를 사용 하 여 Azure에 연결
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>로그인용 대화형 대화 상자를 사용하여 Azure에 연결
 
 ```
 Install-Module -Name Az
@@ -48,11 +48,11 @@ Install-Module -Name Az.FrontDoor
 
 ### <a name="create-a-front-door-profile"></a>Front Door 프로필 만들기
 
-[빠른 시작: Front 도어 프로필 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명 된 지침에 따라 front 도어 프로필을 만듭니다.
+[빠른 시작: Front Door 프로필 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명된 지침에 따라 Front Door 프로필을 만듭니다.
 
 ## <a name="define-geo-filtering-match-condition"></a>지역 필터링 일치 조건 정의
 
-일치 조건을 만들 때 매개 변수에 [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)를 사용하여 "US"에서 발생하지 않는 요청을 선택하는 샘플 일치 조건을 만듭니다. 두 자로 된 국가에 [대 한 국가 매핑은 Azure Front 도어의 도메인에서 지역 필터링 이란?](waf-front-door-geo-filtering.md)에 제공 됩니다.
+일치 조건을 만들 때 매개 변수에 [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)를 사용하여 "US"에서 발생하지 않는 요청을 선택하는 샘플 일치 조건을 만듭니다. 국가/지역 매핑에 대한 두 문자 국가/지역 코드는 [Azure Front Door용 도메인의 지역 필터링이란?](waf-front-door-geo-filtering.md)에서 제공됩니다.
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 `Get-AzResourceGroup`을 사용하여 Front Door 프로필이 포함된 리소스 그룹의 이름을 찾습니다. 그런 다음, Front Door 프로필을 포함하는 지정된 리소스 그룹에 [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)를 사용하여 `nonUSBlockRule`이 포함된 `geoPolicy` 정책 개체를 만듭니다. 지역 정책에 고유한 이름을 제공해야 합니다. 
 
-다음 예제에서는 [빠른 시작: 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md) 문서에 제공 된 지침을 사용 하 여 front 도어 프로필을 만들었다고 가정 하 고 리소스 그룹 이름 *myResourceGroupFD1* 를 사용 합니다. 아래 예제에서 정책 이름 *geoPolicyAllowUSOnly*를 고유한 정책 이름으로 바꿉니다.
+다음 예에서는 리소스 그룹 이름으로 *myResourceGroupFD1*을 사용합니다. [빠른 시작: Front Door 만들기](../../frontdoor/quickstart-create-front-door.md) 문서에 제공된 지침을 사용하여 Front Door 프로필을 만들었다는 가정을 했기 때문입니다. 아래 예제에서 정책 이름 *geoPolicyAllowUSOnly*를 고유한 정책 이름으로 바꿉니다.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `

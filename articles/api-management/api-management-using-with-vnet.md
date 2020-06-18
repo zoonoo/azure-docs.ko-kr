@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
-ms.openlocfilehash: 92473dc7553286867a33100d7328dd0320d55823
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: references_regions
+ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799929"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300094"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -31,7 +32,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -265,7 +266,7 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 | Azure Government| 미국 국방부 동부| 52.181.32.192|
 
 ## <a name="related-content"></a><a name="related-content"> </a>관련 콘텐츠
-* [VPN Gateway를 사용하여 Virtual Network를 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [VPN Gateway를 사용하여 Virtual Network를 백 엔드에 연결](../vpn-gateway/design.md#s2smulti)
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
 * [가상 네트워크 FAQ(질문과 대답)](../virtual-network/virtual-networks-faq.md)

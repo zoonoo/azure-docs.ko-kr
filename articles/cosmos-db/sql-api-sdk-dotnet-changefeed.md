@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB .NET 변경 피드 프로세서 API, SDK 릴리스 정보
 description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660418"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -23,46 +23,47 @@ ms.locfileid: "80619436"
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [비동기 Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [비동기 Java SDK v2](sql-api-sdk-async-java.md)
+> * [동기 Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API 설명서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**시작**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
-|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET 코어](https://www.microsoft.com/net/download/core) |
+|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> 변경 피드 프로세서를 사용 하는 경우 SDK에 기본 제공 되는 변경 피드가 있는 [.NET SDK](change-feed-processor.md)의 최신 버전을 참조 하세요. 
+> 변경 피드 프로세서를 사용하는 경우 SDK에 변경 피드가 기본으로 제공되는 [.NET SDK](change-feed-processor.md)의 최신 3.x 버전을 참조하세요. 
 
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* 새 메서드 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 및 해당 공용 인터페이스 `ICheckpointPartitionProcessorFactory`를 추가 했습니다. 이를 통해 `IPartitionProcessor` 인터페이스를 구현 하 여 기본 제공 검사점 메커니즘을 사용할 수 있습니다. 새 팩터리는 해당 `IPartitionProcessorFactory` `Create` 메서드가 `ILeaseCheckpointer` 매개 변수도 사용 한다는 점을 제외 하 고 기존와 비슷합니다.
-* 두 메서드 `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`중 하나만 동일한 `ChangeFeedProcessorBuilder` 인스턴스에 사용할 수 있습니다.
+* 새 메서드 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 및 해당 공용 인터페이스 `ICheckpointPartitionProcessorFactory`가 추가되었습니다. 이를 통해 `IPartitionProcessor` 인터페이스를 구현하여 기본 제공 검사점 메커니즘을 사용할 수 있습니다. 새 팩터리는 기존 `IPartitionProcessorFactory`와 유사합니다. 단, 해당 `Create` 메서드가 `ILeaseCheckpointer` 매개 변수도 사용한다는 점이 다릅니다.
+* 두 메서드 `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` 또는 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 중 하나만 동일한 `ChangeFeedProcessorBuilder` 인스턴스에 사용할 수 있습니다.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
-* 안정성 및 진단 가능 향상 된 기능:
-  * 읽기 변경 피드를 검색 하는 데 오랜 시간이 소요 되는 지원이 추가 되었습니다. `ChangeFeedProcessorOptions.ChangeFeedTimeout` 속성에 지정 된 값 보다 오래 걸리면 다음 단계가 수행 됩니다.
-    * 문제가 있는 파티션에서 변경 피드를 읽는 작업이 중단 됩니다.
-    * 변경 피드 프로세서 인스턴스는 문제가 있는 임대의 소유권을 삭제 합니다. 삭제 된 임대는 동일 하거나 다른 변경 피드 프로세서 인스턴스에 의해 수행 되는 다음 임대 획득 단계 중에 선택 됩니다. 이러한 방식으로 변경 피드를 읽기가 시작 됩니다.
-    * 상태 모니터에 문제가 보고 됩니다. 기본 heath 모니터는 보고 로그에 보고 된 모든 문제를 보냅니다.
-  * 새 public 속성 `ChangeFeedProcessorOptions.ChangeFeedTimeout`를 추가 했습니다. 이 속성의 기본값은 10 분입니다.
-  * 새 공용 열거형 값 `Monitoring.MonitoredOperation.ReadChangeFeed`이 추가 되었습니다. 의 `HealthMonitoringRecord.Operation` 값이로 `Monitoring.MonitoredOperation.ReadChangeFeed`설정 된 경우 상태 문제는 변경 피드 읽기와 관련 되어 있음을 나타냅니다.
+* 안정성 및 진단 기능 향상:
+  * 시간이 오래 걸리는 읽기 변경 피드 검색에 대한 지원이 추가되었습니다. `ChangeFeedProcessorOptions.ChangeFeedTimeout` 속성에 지정된 값보다 오래 걸리면 다음 단계가 수행됩니다.
+    * 문제가 있는 파티션에서 변경 피드를 읽는 작업이 중단됩니다.
+    * 변경 피드 프로세서 인스턴스는 문제가 있는 임대의 소유권을 삭제합니다. 삭제된 임대는 같거나 다른 변경 피드 프로세서 인스턴스에 의해 수행되는 다음 임대 획득 단계 중에 선택됩니다. 이러한 방식으로 변경 피드 읽기가 다시 시작됩니다.
+    * 상태 모니터에 문제가 보고됩니다. 기본 상태 모니터는 보고된 모든 문제를 추적 로그에 보냅니다.
+  * 새 공용 속성 `ChangeFeedProcessorOptions.ChangeFeedTimeout`이 추가되었습니다. 이 속성의 기본값은 10분입니다.
+  * 새 공용 열거형 값 `Monitoring.MonitoredOperation.ReadChangeFeed`가 추가되었습니다. `HealthMonitoringRecord.Operation` 값이 `Monitoring.MonitoredOperation.ReadChangeFeed`로 설정된 경우 상태 문제가 변경 피드 읽기와 관련되어 있음을 나타냅니다.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
-* 모든 임대를 가져오는 경우의 시나리오에 대 한 향상 된 부하 분산 전략은 임대 만료 간격 (예: 네트워크 문제 때문) 보다 오래 걸립니다.
-  * 이 시나리오에서는 임대가 만료 된 것으로 간주 하 여 활성 소유자의 임대를 도용 하는 데 사용 되는 부하 분산 알고리즘이 사용 됩니다. 이로 인해 많은 임대를 불필요 하 게 다시 분산 시킬 수 있습니다.
-  * 이 문제는 소유자가 변경 하지 않고 만료 된 임대를 다음 부하 분산 반복으로 posponing 하는 만료 된 임대를 획득 하는 동안 충돌 시 재시도를 방지 하 여 해결 됩니다.
+* 모든 임대를 가져오는 시나리오에 대해 향상된 부하 분산 전략은 네트워크 문제 등으로 인해 임대 만료 간격보다 오래 걸립니다.
+  * 이 시나리오에서는 임대가 만료된 것으로 간주하여 활성 소유자의 임대를 도용하는 부하 분산 알고리즘이 사용됩니다. 이로 인해 많은 임대를 불필요하게 다시 분산시킬 수 있습니다.
+  * 이 릴리스에서는 소유자가 변경하지 않은 만료된 임대를 획득하는 동안 충돌 시 재시도를 방지하고 만료된 임대를 다음 부하 분산 반복으로 가져오는 것을 연기하여 이 문제를 해결했습니다.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * 관찰자 예외 처리가 향상되었습니다.
@@ -92,7 +93,7 @@ ms.locfileid: "80619436"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
-* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있도록 하는 고급 확장성 지점입니다. 예를 들어, 추가 추적, 오류 처리 등을 수행 하기 위해이에 대 한 모든 호출을 가로챌 DocumentClient를 사용할 수 있습니다. 이 업데이트를 사용 하는 경우 IChangeFeedDocumentClient을 구현 하는 코드를 변경 하 여 구현에 새 매개 변수를 포함 해야 합니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용하여 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient를 데코레이트하고 그에 대한 모든 호출을 가로채서 추가 추적, 오류 처리 등을 수행). 이 업데이트를 사용하면 새 매개 변수를 구현에 포함하도록 IChangeFeedDocumentClient를 구현하는 코드를 변경해야 합니다.
 * 사소한 진단 개선 사항입니다.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -153,7 +154,7 @@ ms.locfileid: "80619436"
 
 ### <a name="131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
-  * 일부 파티션에서 중지 된 관찰자를 발생 시킬 수 있는 취소 된 작업 처리 문제를 해결 합니다.
+  * 일부 파티션에서 관찰자를 중지할 수 있는 취소된 작업 문제의 처리를 수정합니다.
 * 수동 검사점 설정 지원
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
 
@@ -187,7 +188,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
-| [2.2.8](#2.2.8) |2019 년 10 월 28 일 |--- |
+| [2.2.8](#2.2.8) |2019년 10월 28일 |--- |
 | [2.2.7](#2.2.7) |2019년 5월 14일 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |

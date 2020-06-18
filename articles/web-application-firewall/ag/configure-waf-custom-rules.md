@@ -1,33 +1,33 @@
 ---
-title: PowerShell을 사용 하 여 v2 사용자 지정 규칙 구성
+title: PowerShell을 사용하여 v2 사용자 지정 규칙 구성
 titleSuffix: Azure Web Application Firewall
-description: Azure PowerShell를 사용 하 여 WAF v2 사용자 지정 규칙을 구성 하는 방법을 알아봅니다. 방화벽을 통과 하는 각 요청에 대해 평가 된 고유의 규칙을 만들 수 있습니다.
+description: Azure PowerShell을 사용하여 WAF(웹 애플리케이션 방화벽) v2 사용자 지정 규칙을 구성하는 방법을 알아봅니다. 방화벽을 통과하는 각 요청에 대해 평가된 고유의 규칙을 만들 수 있습니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471638"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758965"
 ---
-# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사용자 지정 규칙을 사용 하 여 Application Gateway에서 웹 응용 프로그램 방화벽 v2 구성
+# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 규칙으로 Application 게이트웨이에서 웹 애플리케이션 방화벽 v2 구성
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-사용자 지정 규칙을 사용 하면 WAF (웹 응용 프로그램 방화벽) v2를 통과 하는 각 요청에 대해 평가 되는 고유한 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 작업 (허용 또는 차단), 일치 조건 및 전체 사용자 지정을 허용 하는 연산자가 있습니다.
+사용자 지정 규칙을 사용하면 WAF(웹 애플리케이션 방화벽) v2를 통과하는 각 요청에 대해 평가된 고유한 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 작업(허용 또는 차단), 일치 조건 및 전체 사용자 지정을 허용하는 연산자가 있습니다.
 
-이 문서에서는 사용자 지정 규칙을 사용 하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
+이 문서에서는 사용자 지정 규칙을 사용하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
-더 많은 사용자 지정 규칙 예제를 보려면 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md) 을 참조 하세요.
+더 많은 사용자 지정 규칙 예를 보려면 [사용자 지정 웹 애플리케이션 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)을 참조하세요.
 
-복사, 붙여넣기 및 실행할 수 있는 하나의 연속 스크립트에서이 문서의 Azure PowerShell를 실행 하려면 [Azure 애플리케이션 Gateway PowerShell 샘플](powershell-samples.md)을 참조 하세요.
+이 문서에서 복사, 붙여넣기 및 실행을 수행할 수 있는 하나의 연속 스크립트의 Azure PowerShell을 실행하려면 [Azure Application Gateway PowerShell 샘플](powershell-samples.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
 
@@ -67,7 +67,7 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-vip"></a>정적 공용 VIP 만들기
+### <a name="create-a-static-public-vip"></a>고정 공용 IP 만들기
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
@@ -138,6 +138,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -FirewallPolicy $wafPolicy
 ```
 
+## <a name="update-your-waf"></a>WAF 업데이트
+
+WAF를 만든 후에는 다음 코드와 유사한 절차를 사용하여 WAF를 업데이트할 수 있습니다.
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway에서 웹 응용 프로그램 방화벽에 대 한 자세한 정보](ag-overview.md)
+[Application Gateway의 웹 애플리케이션 방화벽에 대해 자세히 알아보기](ag-overview.md)

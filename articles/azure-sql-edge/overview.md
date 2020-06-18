@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6e5e54f7bf61d933240403ff952c1aa6e162958f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594582"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712811"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)란?
 
@@ -33,7 +33,7 @@ Azure SQL Edge는 Azure Marketplace에서 사용할 수 있으며 [Azure IoT Edg
 
 ## <a name="editions-of-sql-edge"></a>SQL Edge 버전
 
-SQL Edge는 세 가지 버전 또는 소프트웨어 플랜으로 제공됩니다. 세 버전의 기능 세트는 동일하고 사용 권한과 지원하는 cpu/메모리의 양만 다릅니다.
+SQL Edge는 두 가지 버전 또는 소프트웨어 플랜으로 제공됩니다. 세 버전의 기능 세트는 동일하고 사용 권한과 지원하는 cpu/메모리의 양만 다릅니다.
 
    |**계획**  |**설명**  |
    |---------|---------|
@@ -42,7 +42,7 @@ SQL Edge는 세 가지 버전 또는 소프트웨어 플랜으로 제공됩니�
 
 ## <a name="pricing-and-availability"></a>가격 책정 및 가용성
 
-Azure SQL Edge는 현재 미리 보기로 제공됩니다. 가격 책정 및 가용성에 대한 자세한 내용은 [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/)를 참조하세요.
+Azure SQL Edge는 현재 미리 보기로 제공됩니다. 가격 책정 및 가용성에 대한 자세한 내용은 [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure SQL Edge와 SQL Server 간의 기능 차이점과 다양한 Azure SQL Database 옵션 간의 차이점을 알아보려면 [Azure SQL Edge에서 지원하는 기능](features.md)을 참조하세요.

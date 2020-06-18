@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735891"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170259"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -50,7 +50,7 @@ Error details: Failed to enable the Update solution
 
 * [네트워크 구성](../../azure-monitor/platform/log-analytics-agent.md#network-requirements)으로 이동하여 Log Analytics 에이전트가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 
-* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../automation-onboard-solutions-from-automation-account.md#scope-configuration)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 머신이 작업 영역에 표시되지만 업데이트 관리 포털에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 설정해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
+* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../automation-scope-configurations-update-management.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 머신이 작업 영역에 표시되지만 업데이트 관리 포털에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 설정해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
 
 * [온-프레미스 Windows 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) 또는 컴퓨터에서 [온-프레미스 Linux 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)의 단계에 따라 작업자 구성을 제거합니다. 
 

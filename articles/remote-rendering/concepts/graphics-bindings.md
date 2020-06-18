@@ -9,34 +9,34 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 8b5db0532f3dcc8b6dfb024238d0cacff2e6d2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681884"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758710"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
-사용자 지정 응용 프로그램에서 Azure 원격 렌더링을 사용할 수 있으려면 응용 프로그램의 렌더링 파이프라인에 통합 되어 있어야 합니다. 이 통합은 그래픽 바인딩의 책임입니다.
+사용자 지정 애플리케이션에서 Azure Remote Rendering을 사용할 수 있으려면 애플리케이션의 렌더링 파이프라인에 통합되어 있어야 합니다. 이 통합은 그래픽 바인딩의 책임입니다.
 
-설정 되 면 그래픽 바인딩은 렌더링 된 이미지에 영향을 주는 다양 한 함수에 대 한 액세스를 제공 합니다. 이러한 함수는 항상 사용할 수 있는 일반 함수와 선택한 `Microsoft.Azure.RemoteRendering.GraphicsApiType`와만 관련 된 특정 함수의 두 범주로 구분할 수 있습니다.
+일단 설정되면 그래픽 바인딩은 렌더링된 이미지에 영향을 주는 다양한 함수에 대한 액세스를 제공합니다. 이러한 함수는 항상 사용할 수 있는 일반 함수와 선택한 `Microsoft.Azure.RemoteRendering.GraphicsApiType`에만 관련된 특정 함수의 두 가지 범주로 구분할 수 있습니다.
 
 ## <a name="graphics-binding-in-unity"></a>Unity의 그래픽 바인딩
 
-Unity에서 전체 바인딩은로 `RemoteUnityClientInit` `RemoteManagerUnity.InitializeManager`전달 된 구조체에 의해 처리 됩니다. 그래픽 모드를 설정 하려면 `GraphicsApiType` 필드를 선택 된 바인딩으로 설정 해야 합니다. 필드는 XRDevice가 있는지 여부에 따라 자동으로 채워집니다. 다음 동작을 사용 하 여 동작을 수동으로 재정의할 수 있습니다.
+Unity에서 전체 바인딩은 `RemoteManagerUnity.InitializeManager`에 전달된 `RemoteUnityClientInit` 구조체에 의해 처리됩니다. 그래픽 모드를 설정하려면 `GraphicsApiType` 필드를 선택한 바인딩으로 설정해야 합니다. XRDevice가 있는지에 따라 필드가 자동으로 채워집니다. 다음 동작을 사용하여 동작을 수동으로 재정의할 수 있습니다.
 
-* **HoloLens 2**: [Windows Mixed Reality](#windows-mixed-reality) 그래픽 바인딩이 항상 사용 됩니다.
-* **플랫 UWP 데스크톱 앱**: [시뮬레이션이](#simulation) 항상 사용 됩니다. 이 모드를 사용 하려면 [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)하는 단계를 수행 해야 합니다.
-* **Unity 편집기**: WMR VR 헤드셋이 연결 되어 있지 않으면 항상 [시뮬레이션이](#simulation) 사용 됩니다 .이 경우에는 arr이 응용 프로그램의 비 arr 관련 부분을 디버그할 수 있도록 사용 하지 않도록 설정 됩니다. [Holographic remoting](../how-tos/unity/holographic-remoting.md)도 참조 하세요.
+* **HoloLens 2**: [Windows Mixed Reality](#windows-mixed-reality) 그래픽 바인딩이 항상 사용됩니다.
+* **플랫 UWP 데스크톱 앱**: [시뮬레이션](#simulation)이 항상 사용됩니다. 이 모드를 사용하려면 [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)을 참조하세요.
+* **Unity 편집기**: WMR VR 헤드셋이 연결되어 있지 않는 한 [시뮬레이션](#simulation)이 항상 사용됩니다. 이 경우 ARR은 애플리케이션의 비 ARR 관련 부분을 디버그할 수 있도록 사용하지 않도록 설정됩니다. 또한 [Holographic Remoting](../how-tos/unity/holographic-remoting.md)을 참조하세요.
 
-Unity에서 유일 하 게 관련 된 다른 부분은 [기본 바인딩에](#access)액세스 하는 것입니다. 아래의 다른 모든 섹션을 건너뛸 수 있습니다.
+Unity와 관련된 유일한 다른 관련 부분은 [기본 바인딩](#access)에 액세스하는 것입니다. 아래의 다른 모든 섹션을 건너뛸 수 있습니다.
 
-## <a name="graphics-binding-setup-in-custom-applications"></a>사용자 지정 응용 프로그램의 그래픽 바인딩 설정
+## <a name="graphics-binding-setup-in-custom-applications"></a>사용자 지정 애플리케이션의 그래픽 바인딩 설정
 
-그래픽 바인딩을 선택 하려면 다음 두 단계를 수행 합니다. 먼저 프로그램이 초기화 될 때 그래픽 바인딩이 정적으로 초기화 되어야 합니다.
+그래픽 바인딩을 선택하려면 다음 두 단계를 수행합니다. 먼저 그래픽 바인딩은 프로그램이 초기화될 때 정적으로 초기화되어야 합니다.
 
-``` cs
+```cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
 managerInit.graphicsApi = GraphicsApiType.WmrD3D11;
 managerInit.connectionType = ConnectionType.General;
@@ -44,70 +44,107 @@ managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
-위의 호출은 holographic Api로 Azure 원격 렌더링을 초기화 하는 데 필요 합니다. 이 함수는 holographic API를 호출 하 고 다른 원격 렌더링 Api에 액세스 하기 전에 호출 해야 합니다. 마찬가지로, holographic Api가 더 이상 호출 `RemoteManagerStatic.ShutdownRemoteRendering();` 되지 않은 후에는 해당 하는 init 함수를 호출 해야 합니다.
+```cpp
+RemoteRenderingInitialization managerInit;
+managerInit.graphicsApi = GraphicsApiType::WmrD3D11;
+managerInit.connectionType = ConnectionType::General;
+managerInit.right = ///...
+StartupRemoteRendering(managerInit); // static function in namespace Microsoft::Azure::RemoteRendering
+```
+
+위의 호출은 Azure Remote Rendering을 holographic API로 초기화하는 데 필요합니다. 이 함수는 holographic API를 호출하고 다른 Remote Rendering API에 액세스하기 전에 호출해야 합니다. 마찬가지로 holographic API가 더 이상 호출되지 않은 후에는 해당 de-init 함수 `RemoteManagerStatic.ShutdownRemoteRendering();`을 호출해야 합니다.
 
 ## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">그래픽 바인딩 액세스
 
-클라이언트를 설정한 후에는 `AzureSession.GraphicsBinding` getter를 사용 하 여 기본 그래픽 바인딩에 액세스할 수 있습니다. 예를 들어 마지막 프레임 통계는 다음과 같이 검색할 수 있습니다.
+클라이언트를 설정하면 기본 그래픽 바인딩에 `AzureSession.GraphicsBinding` getter를 사용하여 액세스할 수 있습니다. 예를 들어 마지막 프레임 통계는 다음과 같이 검색할 수 있습니다.
 
-``` cs
-AzureSession currentSesson = ...;
-if (currentSesson.GraphicsBinding)
+```cs
+AzureSession currentSession = ...;
+if (currentSession.GraphicsBinding)
 {
     FrameStatistics frameStatistics;
-    if (session.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) == Result.Success)
+    if (currentSession.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) == Result.Success)
     {
         ...
     }
 }
 ```
 
-## <a name="graphic-apis"></a>그래픽 Api
+```cpp
+ApiHandle<AzureSession> currentSession = ...;
+if (ApiHandle<GraphicsBinding> binding = currentSession->GetGraphicsBinding())
+{
+    FrameStatistics frameStatistics;
+    if (*binding->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        ...
+    }
+}
+```
 
-현재는 두 개의 그래픽 Api를 `WmrD3D11` 선택할 수 있습니다. `SimD3D11` 세 번째는 `Headless` 존재 하지만 클라이언트 쪽에서는 아직 지원 되지 않습니다.
+## <a name="graphic-apis"></a>Graphic API
+
+현재 선택할 수 있는 두 개의 그래픽 API, `WmrD3D11` 및 `SimD3D11`이 있습니다. 세 번째 `Headless`가 있지만 아직 클라이언트 쪽에서 지원되지 않습니다.
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`는 HoloLens 2에서 실행 되는 기본 바인딩입니다. 그러면 `GraphicsBindingWmrD3d11` 바인딩이 생성 됩니다. 이 모드에서 Azure 원격 렌더링 후크는 holographic Api에 직접 후크 됩니다.
+`GraphicsApiType.WmrD3D11`은 HoloLens 2에서 실행되는 기본 바인딩입니다. `GraphicsBindingWmrD3d11` 바인딩이 만들어집니다. 이 모드에서 Azure Remote Rendering은 holographic API에 직접 후크됩니다.
 
-파생 된 그래픽 바인딩에 액세스 하려면 base `GraphicsBinding` 를 캐스팅 해야 합니다.
-WMR 바인딩을 사용 하려면 다음 두 가지 작업을 수행 해야 합니다.
+파생 그래픽 바인딩에 액세스하려면 기본 `GraphicsBinding`을 캐스팅해야 합니다.
+WMR 바인딩을 사용하려면 다음 두 가지 작업을 수행해야 합니다.
 
-#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>사용 된 좌표계의 원격 렌더링을 알립니다.
+#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>사용된 좌표계의 Remote Rendering 알림
 
-``` cs
-AzureSession currentSesson = ...;
+```cs
+AzureSession currentSession = ...;
 IntPtr ptr = ...; // native pointer to ISpatialCoordinateSystem
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
-if (binding.UpdateUserCoordinateSystem(ptr) == Result.Success)
+if (wmrBinding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 {
     ...
 }
 ```
 
-위의 `ptr` 은 API의 좌표가 표시 되는 세계 좌표 `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` 좌표 시스템을 정의 하는 네이티브 개체에 대 한 포인터 여야 합니다.
+```cpp
+ApiHandle<AzureSession> currentSession = ...;
+void* ptr = ...; // native pointer to ISpatialCoordinateSystem
+ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
+if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
+{
+    //...
+}
+```
 
-#### <a name="render-remote-image"></a>렌더링 원격 이미지
 
-각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링 해야 합니다. 이 작업은 색 및 `BlitRemoteFrame`깊이 정보를 모두 현재 바인딩된 렌더링 대상으로 채우는를 호출 하 여 수행 됩니다. 따라서 백 버퍼를 렌더링 대상으로 바인딩한 후이 작업을 수행 하는 것이 중요 합니다.
+위의 `ptr`은 API의 좌표가 표시되는 세계 좌표 시스템을 정의하는 네이티브 `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` 개체에 대한 포인터여야 합니다.
 
-``` cs
-AzureSession currentSesson = ...;
+#### <a name="render-remote-image"></a>원격 이미지 렌더링
+
+각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링해야 합니다. 이 작업은 색상 및 깊이 정보를 모두 현재 바인딩된 렌더링 대상으로 채우는 `BlitRemoteFrame`을 호출하여 수행됩니다. 따라서 백 버퍼를 렌더링 대상으로 바인딩한 후 이 작업을 수행하는 것이 중요합니다.
+
+```cs
+AzureSession currentSession = ...;
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
-binding.BlitRemoteFrame();
+wmrBinding.BlitRemoteFrame();
+```
+
+```cpp
+ApiHandle<AzureSession> currentSession = ...;
+ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
+wmrBinding->BlitRemoteFrame();
 ```
 
 ### <a name="simulation"></a>시뮬레이션
 
-`GraphicsApiType.SimD3D11`는 시뮬레이션 바인딩이 고, 선택 하는 경우 `GraphicsBindingSimD3d11` 그래픽 바인딩을 만듭니다. 이 인터페이스는 데스크톱 응용 프로그램에서와 같이 헤드 이동을 시뮬레이션 하 고 monoscopic 이미지를 렌더링 하는 데 사용 됩니다.
-설치는 약간 더 복잡 하 고 다음과 같이 작동 합니다.
+`GraphicsApiType.SimD3D11`은 시뮬레이션 바인딩이며 선택하는 경우 `GraphicsBindingSimD3d11` 그래픽 바인딩을 만듭니다. 이 인터페이스는 데스크톱 애플리케이션에서와 같이 헤드 이동을 시뮬레이션하는 데 사용되며 Monoscopic 이미지를 렌더링합니다.
+설정은 약간 더 복잡하며 다음과 같이 작동합니다.
 
 #### <a name="create-proxy-render-target"></a>프록시 렌더링 대상 만들기
 
-`GraphicsBindingSimD3d11.Update` 함수에서 제공 하는 프록시 카메라 데이터를 사용 하 여 원격 및 로컬 콘텐츠를 ' 프록시 ' 라는 오프 스크린 색/깊이 렌더링 대상으로 렌더링 해야 합니다. 프록시가 백 버퍼의 확인과 일치 해야 합니다. 세션이 준비 되 면를 연결 `GraphicsBindingSimD3d11.InitSimulation` 하기 전에를 호출 해야 합니다.
+`GraphicsBindingSimD3d11.Update` 함수에서 제공하는 프록시 카메라 데이터를 사용하여 원격 및 로컬 콘텐츠를 '프록시'라는 오프스크린 색상/깊이 렌더링 대상으로 렌더링해야 합니다. 프록시가 백 버퍼의 확인 사항과 일치해야 합니다. 세션이 준비되면 연결하기 전에 `GraphicsBindingSimD3d11.InitSimulation`을 호출해야 합니다.
 
-``` cs
-AzureSession currentSesson = ...;
+```cs
+AzureSession currentSession = ...;
 IntPtr d3dDevice = ...; // native pointer to ID3D11Device
 IntPtr color = ...; // native pointer to ID3D11Texture2D
 IntPtr depth = ...; // native pointer to ID3D11Texture2D
@@ -118,19 +155,31 @@ GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as Graphics
 simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
 ```
 
-Init 함수는 네이티브 d3d 장치 및 프록시 렌더링 대상의 색 및 깊이 질감에 대 한 포인터와 함께 제공 해야 합니다. 초기화 `AzureSession.ConnectToRuntime` 된 후에 `DisconnectFromRuntime` 는 여러 번 호출할 수 있지만 다른 세션으로 전환할 때는 먼저 이전 `GraphicsBindingSimD3d11.DeinitSimulation` 세션에서를 호출 해야 다른 세션에서를 호출할 `GraphicsBindingSimD3d11.InitSimulation` 수 있습니다.
+```cpp
+ApiHandle<AzureSession> currentSession = ...;
+void* d3dDevice = ...; // native pointer to ID3D11Device
+void* color = ...; // native pointer to ID3D11Texture2D
+void* depth = ...; // native pointer to ID3D11Texture2D
+float refreshRate = 60.0f; // Monitor refresh rate up to 60hz.
+bool flipBlitRemoteFrameTextureVertically = false;
+bool flipReprojectTextureVertically = false;
+ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
+simBinding->InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
+```
+
+init 함수에는 네이티브 d3d 디바이스 및 프록시 렌더링 대상의 색상 및 깊이 텍스처에 대한 포인터를 함께 제공해야 합니다. 초기화되면 `AzureSession.ConnectToRuntime` 및 `DisconnectFromRuntime`을 여러 번 호출할 수 있지만 다른 세션으로 전환할 때 다른 세션에서 `GraphicsBindingSimD3d11.InitSimulation`을 호출하려면 먼저 이전 세션에서 `GraphicsBindingSimD3d11.DeinitSimulation`을 먼저 호출해야 합니다.
 
 #### <a name="render-loop-update"></a>렌더링 루프 업데이트
 
-렌더링 루프 업데이트는 여러 단계로 구성 됩니다.
+렌더링 루프 업데이트는 여러 단계로 구성됩니다.
 
-1. 렌더링을 수행 하기 전에 각 프레임 `GraphicsBindingSimD3d11.Update` 은 렌더링 될 서버에 전송 되는 현재 카메라 변환으로 호출 됩니다. 반환 된 프록시 변환이 프록시 카메라에 적용 되어 프록시 렌더링 대상으로 렌더링 됩니다.
-반환 된 프록시 업데이트가 `SimulationUpdate.frameId` null 이면 아직 원격 데이터가 없는 것입니다. 이 경우 프록시 렌더링 대상으로 렌더링 하는 대신, 현재 카메라 데이터를 사용 하 여 로컬 콘텐츠를 백 버퍼에 직접 렌더링 하 고 다음 두 단계를 건너뜁니다.
-1. 이제 응용 프로그램은 프록시 렌더링 대상을 바인딩하고를 호출 `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`해야 합니다. 이렇게 하면 원격 색 및 깊이 정보가 프록시 렌더링 대상에 채워집니다. 이제 프록시 카메라 변환을 사용 하 여 모든 로컬 콘텐츠를 프록시로 렌더링할 수 있습니다.
-1. 그런 다음 백 버퍼를 렌더링 대상으로 바인딩되어야 하 고 `GraphicsBindingSimD3d11.ReprojectProxy` 백 버퍼를 표시할 수 있는 지점에서를 호출 해야 합니다.
+1. 렌더링을 수행하기 전에 각 프레임은 렌더링 되는 서버에 전송되는 현재 카메라 변환으로 `GraphicsBindingSimD3d11.Update`가 호출됩니다. 동시에 반환된 프록시 변환이 프록시 카메라에 적용되어 프록시 렌더링 대상으로 렌더링되어야 합니다.
+반환된 프록시 업데이트 `SimulationUpdate.frameId`가 null이면 아직 원격 데이터가 없습니다. 이 경우 프록시 렌더링 대상으로 렌더링하는 대신, 현재 카메라 데이터를 사용하여 로컬 콘텐츠를 백 버퍼에 직접 렌더링하고 다음 두 단계를 건너뜁니다.
+1. 애플리케이션은 이제 프록시 렌더링 대상을 바인딩하고 `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`를 호출해야 합니다. 그러면 원격 색상 및 깊이 정보가 프록시 렌더링 대상에 채워집니다. 이제 프록시 카메라 변환을 사용하여 모든 로컬 콘텐츠를 프록시에 렌더링할 수 있습니다.
+1. 그런 다음 백 버퍼는 렌더링 대상으로 바인딩되어야 하고 백 버퍼를 표시할 수 있는 지점에서 `GraphicsBindingSimD3d11.ReprojectProxy`가 호출됩니다.
 
-``` cs
-AzureSession currentSesson = ...;
+```cs
+AzureSession currentSession = ...;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 SimulationUpdate update = new SimulationUpdate();
 // Fill out camera data with current camera data
@@ -146,6 +195,33 @@ if (proxyUpdate.frameId != 0)
     ...
     // Bind back buffer
     simBinding.ReprojectProxy();
+}
+else
+{
+    // Bind back buffer
+    // Use current camera data to render local content
+    ...
+}
+```
+
+```cpp
+ApiHandle<AzureSession> currentSession;
+ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
+
+SimulationUpdate update;
+// Fill out camera data with current camera data
+...
+SimulationUpdate proxyUpdate;
+simBinding->Update(update, &proxyUpdate);
+// Is the frame data valid?
+if (proxyUpdate.frameId != 0)
+{
+    // Bind proxy render target
+    simBinding->BlitRemoteFrameToProxy();
+    // Use proxy camera data to render local content
+    ...
+    // Bind back buffer
+    simBinding->ReprojectProxy();
 }
 else
 {
