@@ -1,6 +1,6 @@
 ---
-title: Android 맵 컨트롤 시작 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 Android 지도 컨트롤을 시작 하는 방법에 대해 알아봅니다.
+title: Android 지도 컨트롤 시작 | Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용하여 Android 지도 컨트롤을 시작하는 방법에 대해 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,53 +9,53 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548547"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648210"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
-Azure Maps Android SDK는 Android 용 벡터 맵 라이브러리입니다. 이 문서에서는 Azure Maps Android SDK를 설치 하 고 지도를 로드 하는 프로세스를 안내 합니다.
+Azure Maps Android SDK는 Android용 벡터 지도 라이브러리입니다. 이 문서에서는 Azure Maps Android SDK를 설치하고 맵을 로드하는 프로세스를 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료 하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정을 만들고](quick-demo-map-app.md#create-an-account-with-azure-maps) 계정에 대 한 [기본 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account) 합니다.
+이 문서의 절차를 완료하려면 먼저 S1 가격 책정 계층에서 [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)를 수행한 다음 계정에 대한 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 수행해야 합니다.
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
-### <a name="download-android-studio"></a>다운로드 Android Studio
+### <a name="download-android-studio"></a>Android Studio 다운로드
 
-Azure Maps Android SDK를 설치 하기 전에 Android Studio을 다운로드 하 고 빈 작업으로 프로젝트를 만듭니다. Google에서 무료로 [Android Studio를 다운로드할](https://developer.android.com/studio/) 수 있습니다. 
+Azure Maps Android SDK를 설치하기 전에 Android Studio을 다운로드하고 빈 작업으로 프로젝트를 만듭니다. Google에서 [Android Studio를 다운로드](https://developer.android.com/studio/)할 수 있습니다. 
 
 ## <a name="create-a-project-in-android-studio"></a>Android Studio에서 프로젝트 만들기
 
-먼저 빈 작업을 사용 하 여 새 프로젝트를 만듭니다. Android Studio 프로젝트를 만들려면 다음 단계를 완료 합니다.
+우선, 빈 작업으로 새 프로젝트를 만듭니다. Android Studio 프로젝트를 만들려면 다음 단계를 완료합니다.
 
-1. **프로젝트 선택**에서 **휴대폰 및 태블릿**을 선택 합니다. 응용 프로그램이이 폼 팩터로 실행 됩니다.
-2. **휴대폰 및 태블릿** 탭에서 **빈 작업**을 선택 하 고 **다음**을 선택 합니다.
-3. 프로젝트 구성에서 최소 SDK로 을 선택합니다. 이 버전은 Azure Maps Android SDK에서 지 원하는 가장 빠른 버전입니다.
-4. 기본값 `Activity Name` 을 `Layout Name` 그대로 적용 하 고 **마침**을 선택 합니다.
+1. **프로젝트 선택**에서 **휴대폰 및 태블릿**을 선택합니다. 애플리케이션이 이 폼 팩터에서 실행됩니다.
+2. **휴대폰 및 태블릿** 탭에서 **빈 작업**을 선택하고 **다음**을 선택합니다.
+3. **프로젝트 구성**에서 최소 SDK로 `API 21: Android 5.0.0 (Lollipop)`을 선택합니다. 이는 Azure Maps Android SDK에서 지원하는 가장 초기 버전입니다.
+4. 기본 `Activity Name` 및 `Layout Name`을 적용하고 **마침**을 선택합니다.
 
-Android Studio를 설치 하 고 새 프로젝트를 만드는 방법에 대 한 자세한 내용은 [Android Studio 설명서](https://developer.android.com/studio/intro/) 를 참조 하세요.
+Android Studio를 설치하고 새 프로젝트를 만드는 방법에 대한 자세한 도움말은 [Android Studio 문서](https://developer.android.com/studio/intro/)를 참조하세요.
 
-![Android studio에서 프로젝트 만들기 ](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Android Studio에서 프로젝트 만들기 ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>가상 디바이스 설정
 
-Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설정할 수 있습니다. 이렇게 하면 개발 하는 동안 응용 프로그램을 테스트 하는 데 도움이 됩니다. 가상 장치를 설정 하려면 프로젝트 화면의 오른쪽 위에 있는 AVD (Android 가상 장치) 관리자 아이콘을 선택 하 고 **가상 장치 만들기**를 선택 합니다. 도구 모음에서 **도구** > **Android** > **avd 관리자** 를 선택 하 여 avd manager로 이동할 수도 있습니다. **전화** 범주에서 **Nexus 5**를 선택 하 고 **다음**을 선택 합니다.
+Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설정할 수 있습니다. 이렇게 하면 개발 중에 애플리케이션을 테스트하는 데 도움이 됩니다. 가상 디바이스를 설정하려면 프로젝트 화면의 오른쪽 상단 모서리에 있는 AVD(Android 가상 디바이스) 관리자 아이콘을 선택한 다음 **가상 디바이스 만들기**를 선택합니다. 도구 모음에서 **도구** > **Android** > **AVD 관리자**를 선택하여 AVD 관리자가 될 수도 있습니다. **휴대폰** 범주에서 **Nexus 5X**를 선택한 후 **다음**을 선택합니다.
 
-[Android Studio 설명서](https://developer.android.com/studio/run/managing-avds)에서 avd를 설정 하는 방법에 대해 자세히 알아볼 수 있습니다.
+[Android Studio 문서](https://developer.android.com/studio/run/managing-avds)에서 AVD 설정 방법을 자세히 알아볼 수 있습니다.
 
 ![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
 
 ## <a name="install-the-azure-maps-android-sdk"></a>Azure Maps Android SDK 설치
 
-응용 프로그램을 빌드하는 다음 단계는 Azure Maps Android SDK를 설치 하는 것입니다. SDK를 설치 하려면 다음 단계를 완료 합니다.
+애플리케이션을 빌드하는 다음 단계에서 Azure Maps Android SDK를 설치합니다. SDK를 설치하려면 다음 단계를 완료합니다.
 
 1. 최상위 **build.gradle** 파일을 열고, **all projects**, **repositories** 블록에 다음 코드를 추가합니다.
 
@@ -80,7 +80,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     3. 다음과 같이 종속성 블록을 업데이트하고 최신 Azure Maps Android SDK에 대한 새 구현 종속성 줄을 추가합니다.
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
     4. 도구 모음에서 **파일**로 이동한 다음, **Gradle 파일과 프로젝트 동기화**를 클릭합니다.
@@ -111,16 +111,16 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 
     `setSubscriptionKey` 또는 `setAadProperties` 메서드를 사용하여 `AzureMaps` 클래스에 대한 인증 정보를 전역적으로 설정하면 보기마다 인증 정보를 추가할 필요가 없습니다. 
 
-    지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리하는 자체 수명 주기 메서드가 포함되어 있습니다. 이러한 수명 주기 메서드는 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램에서 맵 컨트롤의 수명 주기 메서드를 올바르게 호출 하려면 맵 컨트롤이 포함 된 활동에서 다음 수명 주기 메서드를 재정의 해야 합니다. 각 map 컨트롤 메서드를 호출 해야 합니다. 
+    지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리하는 자체 수명 주기 메서드가 포함되어 있습니다. 이러한 수명 주기 메서드는 포함된 작업에서 직접 호출해야 합니다. 앱에서 지도 컨트롤의 수명 주기 메서드를 올바르게 호출하려면 지도 컨트롤이 포함된 작업에서 다음 수명 주기 메서드를 재정의해야 합니다. 그리고 각 지도 컨트롤 메서드를 호출해야 합니다. 
 
-    * onCreate (번들) 
-    * onStart () 
-    * onResume () 
-    * onPause () 
-    * onStop () 
-    * onDestroy () 
-    * onSaveInstanceState (번들) 
-    * onLowMemory () 
+    * onCreate(Bundle) 
+    * onStart() 
+    * onResume() 
+    * onPause() 
+    * onStop() 
+    * onDestroy() 
+    * onSaveInstanceState(Bundle) 
+    * onLowMemory() 
 
     **MainActivity.java** 파일을 다음과 같이 편집합니다.
     
@@ -205,25 +205,25 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 
 ## <a name="import-classes"></a>클래스 가져오기
 
-위의 단계를 완료 한 후에는 일부 코드에 대 한 Android Studio에서 경고를 받게 됩니다. 이러한 경고를 해결 하려면에서 `MainActivity.java`참조 되는 클래스를 가져옵니다.
+위의 단계를 완료하면 일부 코드에 대한 Android Studio의 경고를 받을 수 있습니다. 이러한 경고를 해결하려면 `MainActivity.java`에서 참조되는 클래스를 가져옵니다.
 
-Alt + Enter (Mac에서 옵션 + 반환)를 선택 하 여 이러한 클래스를 자동으로 가져올 수 있습니다.
+Alt+Enter(Mac에서는 Option+Return)를 선택하여 이러한 클래스를 자동으로 가져올 수 있습니다.
 
-다음 그래픽에 표시 된 것 처럼 실행 단추를 선택 하거나 Mac에서 Control + R을 눌러 응용 프로그램을 빌드합니다.
+다음 그래픽에 표시된 대로 실행 단추를 선택하여(Mac에서는 Control+R을 누름) 애플리케이션을 빌드합니다.
 
 ![[실행]을 클릭합니다.](./media/how-to-use-android-map-control-library/run-app.png)
 
-응용 프로그램을 빌드하는 데 몇 초 정도 걸릴 Android Studio. 빌드가 완료 되 면 에뮬레이트된 Android 장치에서 응용 프로그램을 테스트할 수 있습니다. 다음과 같은 지도가 표시 됩니다.
+Android Studio에서 애플리케이션을 빌드하는 데 몇 초 정도 걸립니다. 빌드가 완료되면 에뮬레이트된 Android 디바이스에서 애플리케이션을 테스트할 수 있습니다. 다음과 같은 맵이 표시됩니다.
 
 <center>
 
-![Android 응용 프로그램의 Azure Maps](./media/how-to-use-android-map-control-library/android-map.png)</center>
+![Android 애플리케이션의 Azure Maps](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 하는 세 가지 다른 방법을 제공 합니다. 다음 코드에서는 언어를 프랑스어 ("fr-fr")로 설정 하 고 지역 보기를 "auto"로 설정 하는 방법을 보여 줍니다. 
+Azure Maps Android SDK는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 다음 코드에서는 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "auto"로 설정하는 방법을 보여 줍니다. 
 
-첫 번째 옵션은 정적 `AzureMaps` `setLanguage` 및 `setView` 메서드를 전역적으로 사용 하 여 언어를 전달 하 고 지역 정보를 클래스에 표시 하는 것입니다. 그러면 앱에 로드 된 모든 Azure Maps 컨트롤에 대해 기본 언어 및 지역 보기가 설정 됩니다.
+첫 번째 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용하여 `AzureMaps` 클래스에 언어를 전달하고 지역 정보를 보는 것입니다. 이렇게 하면 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다.
 
 ```Java
 static {
@@ -259,47 +259,47 @@ mapControl.onReady(map -> {
 });
 ```
 
-언어가 "fr-fr"로 설정 되 고 지역 보기가 "auto"로 설정 된 Azure Maps의 예는 다음과 같습니다.
+다음은 언어가 "fr-FR"로 설정되고 지역 보기가 "auto"로 설정된 Azure Maps의 예입니다.
 
 <center>
 
-![Azure Maps 프랑스어로 레이블을 표시 하는 지도 이미지](./media/how-to-use-android-map-control-library/android-localization.png)
+![Azure Maps, 프랑스어로 레이블을 표시하는 맵 이미지](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
 
 ## <a name="navigating-the-map"></a>맵 탐색
 
-지도를 확대/축소, 따라 이동, 회전 및 고주파음 할 수 있는 여러 가지 방법이 있습니다. 다음은 지도를 탐색 하는 다양 한 방법을 자세히 설명 합니다.
+여러 가지 방식으로 맵을 확대/축소, 이동, 회전 및 피치할 수 있습니다. 다음에서 맵을 탐색하는 다양한 방법을 자세히 설명합니다.
 
-**지도 확대/축소**
+**맵 확대/축소**
 
-- 두 손가락을 사용 하 여 지도를 터치 하 고 확대 하 여 손가락을 축소 하거나 확대 합니다.
-- 지도를 두 번 눌러 한 수준 확대 합니다.
-- 두 손가락을 두 번 눌러서 지도의 한 수준 축소 합니다.
-- 를 두 번 누릅니다. 두 번째 탭에서 지도에 손가락을 놓고 위로 끌어서 확대 하거나 축소 합니다.
+- 두 손가락으로 맵을 터치하고 두 손가락을 모으면 축소되고 두 손가락을 넓히면 확대됩니다.
+- 한 수준 확대하려면 맵을 두 번 탭합니다.
+- 두 손가락으로 두 번 탭하면 맵이 한 수준 축소됩니다.
+- 두 번 탭할 때 두 번째 탭에서 손가락을 맵에 고정한 채로 위나 아래로 끌면 확대 또는 축소됩니다.
 
-**지도 이동**
+**맵 이동**
 
-- 지도를 터치 하 고 원하는 방향으로 끕니다.
+- 맵을 터치하고 원하는 방향으로 끕니다.
 
-**지도 회전**
+**맵 회전**
 
-- 두 손가락으로 지도를 터치 하 고 회전 합니다.
+- 두 손가락으로 맵을 터치하고 회전합니다.
 
-**지도를 피치 합니다.**
+**맵 피치**
 
-- 두 손가락으로 지도를 터치 하 고 함께 끌어 놓습니다.
+- 두 손가락으로 맵을 터치하고 위나 아래로 함께 끕니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-지도에 오버레이 데이터를 추가 하는 방법을 알아봅니다.
+맵에 오버레이 데이터를 추가하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Android 맵에 기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에 셰이프 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
-> [Android maps에서 지도 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

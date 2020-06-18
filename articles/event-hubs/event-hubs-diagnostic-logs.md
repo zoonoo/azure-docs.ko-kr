@@ -16,18 +16,18 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649805"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259306"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그**를 선택하여 활동 로그 항목을 볼 수 있습니다. 다음은 그 예입니다.  "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
+* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그**를 선택하여 활동 로그 항목을 볼 수 있습니다. 예를 들면 다음과 같습니다. "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
 
     ![Event Hubs 네임스페이스에 대한 활동 로그](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)** : 진단 로그는 API를 사용하거나 언어 SDK의 관리 클라이언트를 통해 네임스페이스에 대해 수행된 작업 및 동작에 대한 자세한 정보를 제공합니다. 
@@ -55,7 +55,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
-| Category | Description | 
+| 범주 | Description | 
 | -------- | ----------- | 
 | 보관 로그 | [Event Hubs 캡처](event-hubs-capture-overview.md) 작업에 대한 정보, 특히 캡처 오류와 관련된 로그를 캡처합니다. |
 | 작업 로그 | Azure Event Hubs 네임스페이스에서 수행되는 모든 관리 작업을 캡처합니다. 데이터 작업은 Azure Event Hubs에서 수행되는 대량의 데이터 작업으로 인해 캡처되지 않습니다. |
@@ -72,7 +72,7 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+Name | Description
 ------- | -------
 TaskName | 실패한 작업에 대한 설명
 ActivityId | 추적에 사용되는 내부 ID
@@ -110,7 +110,7 @@ category | ArchiveLogs
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+Name | Description
 ------- | -------
 ActivityId | 추적 목적으로 사용되는 내부 ID |
 EventName | 작업 이름 |
@@ -120,7 +120,7 @@ EventTimeString | 작업 시간 |
 EventProperties | 작업 속성 |
 상태 | 작업 상태 |
 Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트) |
-Category | OperationalLogs |
+범주 | OperationalLogs |
 
 다음 코드는 작업 로그 JSON 문자열에 대한 예입니다.
 
@@ -142,7 +142,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
 | TrackingId | 추적 목적으로 사용되는 내부 ID |
 | ResourceId | Azure Resource Manager 리소스 ID입니다. |
@@ -161,7 +161,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
 | RequestId | 추적 목적으로 사용되는 요청 ID |
 | ResourceId | Azure Resource Manager 리소스 ID |
@@ -189,7 +189,7 @@ Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함
 ## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
 Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- |
 | TrackingId | 추적 목적으로 사용되는 추적 ID입니다. |
 | NamespaceName | 네임스페이스 이름 |
@@ -204,7 +204,7 @@ Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포�
 
 Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---  | ----------- | 
 | SubscriptionId | Azure 구독 ID입니다. |
 | NamespaceName | 네임스페이스 이름 |
@@ -232,9 +232,9 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| Name | Description |
 | ---- | ----------- | 
-| Category | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
+| 범주 | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | ResourceId | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |
 | KeyVault | Key Vault 리소스의 이름 |
 | 키 | Key Vault 키의 이름입니다. |
@@ -247,7 +247,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 
 ## <a name="next-steps"></a>다음 단계
 - [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
-- [Event Hubs API 개요](event-hubs-api-overview.md)
+- [Event Hubs 샘플](sdks.md)
 - Event Hubs 시작
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
