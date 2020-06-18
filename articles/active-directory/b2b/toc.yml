@@ -23,6 +23,8 @@
           href: b2b-tutorial-require-mfa.md
     - name: 샘플
       items:
+        - name: 셀프 서비스 가입 샘플
+          href: code-samples-self-service-sign-up.md
         - name: 코드 및 Azure PowerShell 샘플
           href: code-samples.md
     - name: 개념
@@ -52,7 +54,7 @@
           href: identity-providers.md
         - name: 셀프 서비스 가입 사용자 흐름(미리 보기)
           href: self-service-sign-up-overview.md
-        - name: 셀프 서비스 등록 API 커넥터(미리 보기)
+        - name: 셀프 서비스 가입 API 커넥터(미리 보기)
           href: api-connectors-overview.md
         - name: Azure AD 권한 관리
           href: self-service-portal.md

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248750"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740453"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -47,28 +47,28 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     search "[username goes here]"
     ```
   사람이 읽을 수 있는 사용자 이름뿐만 아니라 직접 특정 사용자에게 다시 추적할 수 있는 GUID도 검색해야 합니다.
-* *디바이스 ID*: 사용자 ID와 마찬가지로 디바이스 ID도 때때로 "프라이빗"으로 간주됩니다. 사용자 ID에 대해 위에서 나열한 것과 동일한 방법을 사용하여 이 문제가 될 수 있는 테이블을 식별합니다. 
-* *사용자 지정 데이터*: Log Analytics을 사용하면 사용자 지정 로그 및 사용자 지정 필드, [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md) 및 시스템 이벤트 로그의 일부로 수집된 사용자 지정 데이터 등 다양한 방법으로 수집할 수 있습니다. 이러한 방법은 모두 프라이빗 데이터를 포함하는 데 취약하고 이러한 정보가 있는지 여부를 확인하기 위해 조사해야 합니다.
-* *솔루션에서 캡처된 데이터*: 솔루션 메커니즘은 개방되어 있으므로 솔루션에서 생성된 모든 테이블을 검토하여 준수 여부를 확인하는 것이 좋습니다.
+* *디바이스 ID*: 사용자 ID와 마찬가지로 디바이스 ID는 '프라이빗'으로 간주되기도 합니다. 사용자 ID에 대해 위에서 나열한 것과 동일한 방법을 사용하여 이 문제가 될 수 있는 테이블을 식별합니다. 
+* *사용자 지정 데이터*: Log Analytics를 사용하면 사용자 지정 로그와 사용자 지정 필드, [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md) 및 시스템 이벤트 로그의 일부로 수집된 사용자 지정 데이터 등 다양한 방법으로 수집할 수 있습니다. 이러한 방법은 모두 프라이빗 데이터를 포함하는 데 취약하고 이러한 정보가 있는지 여부를 확인하기 위해 조사해야 합니다.
+* *솔루션에서 캡처된 데이터*: 솔루션 메커니즘은 제한되지 않으므로 솔루션에서 생성된 모든 테이블을 검토하여 규정 준수 여부를 확인하는 것이 좋습니다.
 
 ### <a name="application-data"></a>애플리케이션 데이터
 
-* *IP 주소*: Application Insights는 기본적으로 모든 IP 주소 필드를 "0.0.0.0"으로 난독 처리하는 반면 세션 정보를 유지하기 위해 실제 사용자로 이 값을 재정의하는 것은 상당히 일반적인 패턴입니다. 아래의 Analytics 쿼리는 지난 24 시간 동안 "0.0.0.0"이 아닌 IP 주소 열의 값을 포함한 모든 테이블을 찾는 데 사용될 수 있습니다.
+* *IP 주소*: Application Insights는 기본적으로 모든 IP 주소 필드를 "0.0.0.0"으로 난독 처리하지만, 세션 정보를 유지하기 위해 이 값을 실제 사용자로 재정의하는 것이 매우 일반적인 패턴입니다. 아래의 Analytics 쿼리는 지난 24 시간 동안 "0.0.0.0"이 아닌 IP 주소 열의 값을 포함한 모든 테이블을 찾는 데 사용될 수 있습니다.
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *사용자 ID*: 기본적으로 Application Insights는 사용자 및 세션 추적을 위해 임의로 생성된 ID를 사용합니다. 그러나 애플리케이션에 더 많은 관련이 있는 ID를 저장하려면 이러한 재정의된 필드를 확인하는 것이 일반적입니다. 예: 사용자 이름, AAD Guid 등 이러한 Id는 일반적으로 개인 데이터로 범위 내에 있는 것으로 간주 되므로 적절히 처리 해야 합니다. 이러한 ID는 항상 난독 처리하거나 익명화하는 것이 좋습니다. 이러한 값이 보통 발견되는 필드에는 session_Id, user_Id, user_AuthenticatedId, user_AccountId 및 customDimensions이 포함됩니다.
-* *사용자 지정 데이터*: Application Insights를 사용하면 모든 데이터 형식에 사용자 지정 크기 집합을 추가할 수 있습니다. 이러한 차원은 *모든* 데이터일 수 있습니다. 다음 쿼리를 사용하여 지난 24시간 동안 수집된 모든 사용자 지정 크기를 식별합니다.
+* *사용자 ID*: Application Insights는 기본적으로 사용자 및 세션 추적을 위해 임의로 생성된 ID를 사용합니다. 그러나 애플리케이션에 더 많은 관련이 있는 ID를 저장하려면 이러한 재정의된 필드를 확인하는 것이 일반적입니다. 예: 사용자 이름, AAD GUID 등. 이러한 ID는 자주 범위 내 개인 데이터로 간주되므로 적절하게 처리되어야 합니다. 이러한 ID는 항상 난독 처리하거나 익명화하는 것이 좋습니다. 이러한 값이 보통 발견되는 필드에는 session_Id, user_Id, user_AuthenticatedId, user_AccountId 및 customDimensions이 포함됩니다.
+* *사용자 지정 데이터*: Application Insights를 사용하면 모든 데이터 형식에 사용자 지정 차원 세트를 추가할 수 있습니다. 이러한 차원은 *모든* 데이터일 수 있습니다. 다음 쿼리를 사용하여 지난 24시간 동안 수집된 모든 사용자 지정 크기를 식별합니다.
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *메모리 내 및 전송 중인 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)를 사용합니다.
-* *스냅샷 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 예외가 애플리케이션의 프로덕션 인스턴스에 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
+* *메모리 내 및 전송 중 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)를 사용합니다.
+* *스냅샷 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
 
 ## <a name="how-to-export-and-delete-private-data"></a>프라이빗 데이터를 내보내고 삭제하는 방법
 
@@ -81,9 +81,9 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 데이터의 모양을 적절한 형식으로 변환하여 사용자에게 전달하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
 
 > [!IMPORTANT]
->  대부분의 제거 작업이 SLA 보다 훨씬 더 빠르게 완료 될 수 있지만 **제거 작업의 완료에 대 한 공식 SLA** 는 사용 되는 데이터 플랫폼에 미치는 영향 때문에 30 일 후에 설정 됩니다. 이는 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청할 수 있는 방법은 없습니다.
+>  대부분의 제거 작업은 SLA보다 훨씬 빠르게 완료될 수 있지만, 사용된 데이터 플랫폼에 큰 영향을 주기 때문에 **제거 작업 완료를 위한 공식 SLA는 30일로 설정**됩니다. 이는 자동화된 프로세스입니다. 작업을 더 빠르게 처리하도록 요청할 수 있는 방법은 없습니다.
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 > [!WARNING]
 > Log Analytics에서 삭제하는 작업은 파괴적이고 되돌릴 수 없습니다! 실행에 각별히 주의하세요.
@@ -93,7 +93,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 제거는 높은 수준의 권한이 필요한 작업으로 Azure의 사용자(리소스 소유자도 포함) 또는 앱이 Azure Resource Manager에서 명시적으로 역할을 부여받아야 실행할 수 있습니다. 이 역할은 _데이터 제거자_이며, 데이터 손실 가능성 때문에 신중하게 위임해야 합니다. 
 
 > [!IMPORTANT]
-> 시스템 리소스를 관리 하기 위해 제거 요청은 시간당 50 요청에 의해 제한 됩니다. 제거 해야 하는 모든 사용자 id가 조건자에 포함 된 단일 명령을 보내서 제거 요청 실행을 일괄 처리 해야 합니다. 여러 id를 지정 하려면 [in 연산자](/azure/kusto/query/inoperator) 를 사용 합니다. 결과를 예상 하는지 확인 하려면 제거 요청을 실행 하기 전에 쿼리를 실행 해야 합니다. 
+> 시스템 리소스를 관리하기 위해 제거 요청은 시간당 50개의 요청으로 제한됩니다. 제거가 필요한 모든 사용자 ID가 포함된 단일 명령을 전송하여 제거 요청 실행을 일괄 처리해야 합니다. [in 연산자](/azure/kusto/query/inoperator)를 사용하여 여러 ID를 지정합니다. 제거 요청을 실행하기 전에 쿼리를 실행하여 결과가 예상되는지 확인합니다. 
 
 
 
@@ -101,7 +101,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 
 #### <a name="log-data"></a>로그 데이터
 
-* [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
+* [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
 * GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
 
     ```
@@ -109,7 +109,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
     ```
 
 > [!IMPORTANT]
->  Log Analytics에서 사용 하는 데이터 플랫폼에 미치는 영향 때문에 대부분의 제거 작업이 SLA 보다 훨씬 더 빠르게 완료 될 것으로 생각 하지만 **제거 작업의 완료에 대 한 공식 SLA는 30 일로 설정 됩니다**. 
+>  대부분의 제거 작업은 SLA보다 훨씬 빨리 완료될 것으로 예상하지만, Log Analytics에서 사용하는 데이터 플랫폼에 많은 영향을 미치기 때문에 **제거 작업 완료에 대한 공식 SLA는 30일로 설정됩니다**. 
 
 #### <a name="application-data"></a>애플리케이션 데이터
 
@@ -121,7 +121,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
    ```
 
 > [!IMPORTANT]
->  대부분의 제거 작업은 SLA 보다 훨씬 더 빠르게 완료 될 수 있지만 Application Insights에서 사용 하는 데이터 플랫폼에 대 한 영향이 많기 때문에 **제거 작업 완료에 대 한 공식 SLA는 30 일로 설정 됩니다**.
+>  대부분의 제거 작업은 Application Insights에서 사용하는 데이터 플랫폼에 대한 많은 영향으로 인해 SLA보다 훨씬 빨리 완료할 수 있는 반면 **제거 작업 완료를 위한 공식 SLA는 30일로 설정됩니다**.
 
 ## <a name="next-steps"></a>다음 단계
 - Log Analytics 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Log Analytics 데이터 보안](../../azure-monitor/platform/data-security.md)을 참조하세요.

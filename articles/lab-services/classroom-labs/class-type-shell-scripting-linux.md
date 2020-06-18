@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbe0a0b7f22df20c8ce3d734738132b5056a36e4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589502"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697083"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Linux에서 셸 스크립팅을 학습하도록 랩 설정
 이 문서에서는 Linux에서 셸 스크립팅을 학습하도록 랩을 설정하는 방법을 알아봅니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상된 스크립트를 포함합니다. 향상된 스크립트는 bash 명령과 Ruby를 결합하는 스크립트입니다. 이 접근 방식을 사용하면 Ruby에서 데이터를 전달하고, bash 명령이 셸과 상호 작용할 수 있습니다. 
@@ -39,12 +39,11 @@ ms.locfileid: "83589502"
 | 랩 설정 | 값/지침 | 
 | ------------ | ------------------ |
 | VM(가상 머신) 크기 | 작음  |
-| VM 이미지 | Ubuntu Server 18.04 LTS |
-| 원격 데스크톱 연결을 사용하도록 설정 | 사용하도록 설정합니다. <p>이 설정을 사용하도록 설정하면 교사와 학생이 RDP(원격 데스크톱)를 사용하여 해당 VM에 연결할 수 있습니다. 자세한 내용은 [Azure Lab Services의 랩에서 Linux 가상 머신을 위한 원격 데스크톱을 사용하도록 설정](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)을 참조하세요. </p>|
+| VM 이미지 | Ubuntu Server 18.04 LTS|
+| 원격 데스크톱 연결을 사용하도록 설정 | 사용하도록 설정합니다. <p>이 설정을 사용하도록 설정하면 교사와 학생이 RDP(원격 데스크톱)를 사용하여 해당 VM에 연결할 수 있습니다. 자세한 내용은 [Azure Lab Services의 랩에서 Linux 가상 머신을 위한 원격 데스크톱을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요. </p>|
 
-
-## <a name="install-desktop-and-xrdp"></a>데스크톱 및 xrdp 설치
-Ubuntu Server 18.04 LTS 이미지는 기본적으로 원격 데스크톱 서버를 설치하지 않습니다. 템플릿 머신에서 원격 데스크톱 프로토콜을 통해 연결하는 데 필요한 패키지를 설치하려면 [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](../../virtual-machines/linux/use-remote-desktop.md) 문서의 지침을 따르세요.
+## <a name="install-desktop-and-rdp"></a>데스크톱 및 RDP 설치
+Ubuntu Server 18.04 LTS 이미지에는 기본적으로 RDP 원격 데스크톱 서버가 설치되어 있지 않습니다. [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](../../virtual-machines/linux/use-remote-desktop.md) 문서의 지침에 따라 템플릿 머신에서 RDP(원격 데스크톱 프로토콜)를 통해 연결하는 데 필요한 패키지를 설치합니다.
 
 ## <a name="install-ruby"></a>Ruby 설치
 Ruby는 bash 스크립트와 함께 사용할 수 있는 오픈 소스 동적 언어입니다. 이 섹션에서는 `apt-get`을 사용하여 [Ruby](https://www.ruby-lang.org/)의 최신 버전을 설치하는 방법을 보여 줍니다.

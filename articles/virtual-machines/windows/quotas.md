@@ -1,6 +1,6 @@
 ---
-title: Azure에 대 한 vCPU 할당량
-description: Azure virtual machines의 vCPU 할당량에 대해 알아봅니다.
+title: Azure에 대한 vCPU 할당량
+description: Azure 가상 머신에 대한 vCPU 할당량에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -8,18 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 13d9153d1bf6776b7d3d71c4a85c18d8529188b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6640640248854d91078203012a01d8865845702a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097883"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680926"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>가상 머신 vCPU 할당량
 
 가상 머신 및 가상 머신 확장 집합에 대한 vCPU 할당량은 각 지역의 각 구독에 대해 두 가지 계층으로 정렬됩니다. 첫 번째 계층은 지역별 총 vCPU이며 두 번째 계층은 D 시리즈 vCPU와 같은 다양한 VM 크기 제품군 코어입니다. 새 VM이 배포될 때마다 VM에 대한 vCPU는 VM 크기 제품군 또는 지역별 총 vCPU 할당량에 대한 vCPU 할당량을 초과하지 않아야 합니다. 이러한 할당량 중 하나가 초과되면 VM 배포가 허용되지 않습니다. 지역에서 전체 가상 머신의 수에 대한 할당량도 있습니다. 이러한 각 할당량의 세부 정보는 [Azure Portal](https://portal.azure.com)에서 **구독** 페이지의 **사용량 + 할당량** 섹션에서 볼 수 있거나 PowerShell을 사용하여 값에 대해 쿼리할 수 있습니다.
 
-   
+> [!NOTE]
+> 할당량은 할당 및 할당 취소된 총 코어 수를 기준으로 계산됩니다. 추가 코어가 필요한 경우 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)하거나 더 이상 필요하지 않은 VM을 삭제합니다. 
  
 ## <a name="check-usage"></a>사용량 확인
 

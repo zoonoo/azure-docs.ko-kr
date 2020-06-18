@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7c5e00f2e5565393ff46dbb06b30991ebcfc01f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590267"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873699"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -127,6 +127,16 @@ Load Balancer의 백 엔드 VM에서 호스트된 애플리케이션이 동일�
 내부 Load Balancer가 VNet 내에서 구성되고, 참여하는 백 엔드 Load Balancer 중 하나가 내부 Load Balancer 프런트 엔드에 액세스하려고 하면 흐름이 원본 VM에 매핑될 때 오류가 발생할 수 있습니다. 이 시나리오는 지원되지 않습니다. 자세한 내용은 [제한 사항](concepts.md#limitations)을 검토하세요.
 
 **해결 방법** 프록시를 사용하여이 시나리오의 차단을 해제하는 방법이 몇 가지 있습니다. Application Gateway 또는 기타 타사 프록시(예: nginx 또는 haproxy)를 평가하세요. Application Gateway에 대한 자세한 내용은 [Application Gateway에 대한 개요](../application-gateway/application-gateway-introduction.md)를 참조하세요.
+
+**세부 정보** Load Balancer는 둘 다 개인 IP 주소 공간에 있으므로 아웃바운드에서 시작된 연결을 내부 Load Balancer의 프런트 엔드로 변환하지 않습니다. 퍼블릭 Load Balancer는 가상 네트워크 내부의 프라이빗 IP 주소에서 퍼블릭 IP 주소로의 [아웃바운드 연결](load-balancer-outbound-connections.md)을 제공합니다. 내부 Load Balancer의 경우, 이렇게 하면 변환이 필요하지 않으면 고유한 내부 IP 주소 공간 내에서 SNAT 포트가 고갈될 가능성이 방지됩니다.
+
+부작용은 백 엔드 풀에 있는 VM에서의 아웃바운드 흐름이 해당 풀에 있는 내부 Load Balancer의 프런트 엔드로 흐름을 유도하_고_ 자체로 매핑되는 경우, 흐름의 두 레그가 일치하지 않는다는 것입니다. 두 레그가 일치하지 않기 때문에 흐름이 실패합니다. 흐름은 프런트 엔드로의 흐름을 생성한 백 엔드 풀의 동일한 VM에 다시 매핑되지 않으면 성공하게 됩니다.
+
+흐름이 스스로에게 다시 매핑되는 경우 아웃바운드 흐름은 VM에서 시작된 후 프런트 엔드에 나타나며 해당 인바운드 흐름은 VM에서 시작된 후 자신에게 나타납니다. 게스트 운영 체제의 관점에서 동일한 흐름의 인바운드 및 아웃바운드 부분은 가상 머신 내에서 일치하지 않습니다. TCP 스택은 동일한 흐름의 이러한 절반을 동일한 흐름의 일부로서 인식하지 않습니다. 소스와 대상은 일치하지 않습니다. 흐름이 백 엔드 풀에서 다른 모든 VM에 매핑되는 경우 흐름의 절반은 일치하며 VM은 흐름에 응답할 수 있습니다.
+
+이 시나리오에 대한 증상은 흐름이 흐름을 처음 시작한 동일한 백 엔드로 돌아갈 때 일시적인 연결 시간 제한입니다. 일반적인 해결 방법은 내부 Load Balancer 뒤에 프록시 계층을 삽입하고 DSR(Direct Server Return) 스타일 규칙을 사용하는 것입니다. 자세한 내용은 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 참조하세요.
+
+타사 프록시에 내부 Load Balancer를 결합하거나 HTTP/HTTPS가 있는 프록시 시나리오에 대해 내부 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용할 수 있습니다. 퍼블릭 Load Balancer를 사용하여 이 문제를 완화할 수는 있지만 결과 시나리오에서는 [SNAT 고갈](load-balancer-outbound-connections.md#snat)이 발생할 가능성이 높습니다. 신중하게 관리하지 못할 경우에는 이 두 번째 방법을 사용하지 마세요.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>증상: 백 엔드 풀에 배포된 VM 확장 집합이 있는 부하 분산 장치의 기존 LB 규칙에 대해 백 엔드 포트를 변경할 수 없습니다. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>원인 : VM 확장 집합에서 참조하는 부하 분산 장치의 상태 프로브에서 사용하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다.

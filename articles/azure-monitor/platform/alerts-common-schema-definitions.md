@@ -1,24 +1,24 @@
 ---
 title: Azure Monitor의 경고 스키마 정의
-description: Azure Monitor에 대 한 일반적인 경고 스키마 정의 이해
+description: Azure Monitor에 대한 일반 경고 스키마 정의 이해
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114454"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739991"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에서는 웹 후크, Azure Logic Apps, Azure Functions 및 Azure Automation runbook을 포함 하 여 Azure Monitor에 대 한 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 에 대해 설명 합니다. 
+이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs)에 대해 설명합니다. 
 
-모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명 합니다. 이러한 인스턴스는 다음 섹션의 공용 스키마에 설명 되어 있습니다.
-* **Essentials**: 모든 경고 유형에 공통적인 표준화 된 필드 집합으로, 경고가 발생 하는 리소스를 설명 하 고, 추가 공통 경고 메타 데이터 (예: 심각도 또는 설명)와 함께 사용 됩니다. 
-* **경고 컨텍스트**: 경고 유형에 따라 달라 지는 필드를 사용 하 여 경고의 원인을 설명 하는 필드 집합입니다. 예를 들어 메트릭 경고는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드를 포함 하는 반면, 활동 로그 경고에는 경고를 생성 한 이벤트에 대 한 정보가 포함 됩니다. 
+모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명합니다. 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명되어 있습니다.
+* **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 
+* **경고 컨텍스트**: 경고 유형에 따라 달라지는 필드를 사용하여 경고의 원인을 설명하는 필드 세트입니다. 예를 들어 메트릭 경고에는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드가 포함되는 반면, 활동 로그 경고에는 경고를 생성한 이벤트에 대한 정보가 있습니다. 
 
 **샘플 경고 페이로드**
 ```json
@@ -73,18 +73,18 @@ ms.locfileid: "81114454"
 
 | 필드 | Description|
 |:---|:---|
-| alertId | 경고 인스턴스를 고유 하 게 식별 하는 GUID입니다. |
-| Add-alertrule | 경고 인스턴스를 생성 한 경고 규칙의 이름입니다. |
-| 심각도 | 경고의 심각도입니다. 가능한 값은 Sev0, Sev1, Sev2, Sev3 또는 Sev4입니다. |
-| signalType | 경고 규칙이 정의 된 신호를 식별 합니다. 가능한 값은 메트릭, 로그 또는 활동 로그입니다. |
-| monitorCondition | 경고가 발생 하면 경고의 모니터 조건이 실행 됨으로 설정 **됩니다.** 경고를 발생 시킨 기본 조건이 취소 되 면 모니터 조건이 **해결 됨**으로 설정 됩니다.   |
-| monitoringService | 경고를 생성 한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트에 대 한 필드는 모니터링 서비스에 의해 결정 됩니다. |
-| alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager Id의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의 된 로그 경고의 경우 해당 작업 영역 또는 응용 프로그램입니다. |
-| originAlertId | 경고를 생성 하는 모니터링 서비스에서 생성 된 경고 인스턴스의 ID입니다. |
-| firedDateTime | 경고 인스턴스가 실행 된 날짜 및 시간 (UTC)입니다. |
-| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인** 되도록 설정 된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
-| description | 경고 규칙에 정의 된 설명입니다. |
-|essentialsVersion| Essentials 섹션의 버전 번호입니다.|
+| alertId | 경고 인스턴스를 고유하게 식별하는 GUID입니다. |
+| alertRule | 경고 인스턴스를 생성한 경고 규칙의 이름입니다. |
+| 심각도 | 경고 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3 또는 Sev4. |
+| signalType | 경고 규칙이 정의된 신호를 식별합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그 또는 활동 로그. |
+| monitorCondition | 경고가 발생할 때 경고의 모니터 조건은 **실행됨**으로 설정됩니다. 경고를 발생시킨 기본 조건이 사라지면 모니터 조건이 **해결됨**으로 설정됩니다.   |
+| monitoringService | 경고를 생성한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트의 필드는 모니터링 서비스에 의해 결정됩니다. |
+| alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager ID의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의된 로그 경고의 경우 해당 작업 영역 또는 애플리케이션입니다. |
+| originAlertId | 경고를 생성하는 모니터링 서비스에서 생성한 경고 인스턴스의 ID입니다. |
+| firedDateTime | 경고 인스턴스가 UTC(협정 세계시)로 실행된 날짜 및 시간입니다. |
+| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인됨**으로 설정된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용됩니다.|
+| description | 경고 규칙에 정의된 설명입니다. |
+|essentialsVersion| 필수 섹션의 버전 번호입니다.|
 |alertContextVersion | `alertContext` 섹션의 버전 번호입니다. |
 
 **샘플 값**
@@ -149,7 +149,7 @@ ms.locfileid: "81114454"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 전자 메일 제목 및/또는 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 전자 메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. 플래그 `IncludeSearchResults`를 확인 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)와 함께 검색 쿼리를 사용해야 합니다. 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -481,6 +481,6 @@ ms.locfileid: "81114454"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아보세요.
-- [일반적인 경고 스키마를 사용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations)에 대해 알아봅니다. 
+- [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아봅니다.
+- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations)을 알아봅니다. 
 

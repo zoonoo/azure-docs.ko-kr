@@ -6,6 +6,8 @@
       href: overview.md
     - name: 지원되는 버전 및 기능
       href: features.md
+    - name: 릴리스 정보
+      href: release-notes.md
 - name: 빠른 시작
   expanded: true
   items:

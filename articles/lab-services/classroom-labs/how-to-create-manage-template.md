@@ -11,43 +11,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57005bc18d1eda42043236086ebbac69e54cc505
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539031"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655790"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 템플릿 만들기 및 관리
 랩의 템플릿은 모든 사용자의 가상 머신이 만들어지는 기본 가상 머신 이미지입니다. 랩 사용자에게 제공하려는 구성과 정확히 일치하도록 템플릿 가상 머신을 설정합니다. 랩 사용자에게 표시되는 템플릿의 이름 및 설명을 제공할 수 있습니다. 그런 후 랩 사용자가 템플릿 VM의 인스턴스를 사용할 수 있도록 템플릿을 게시합니다. 템플릿을 게시하면 Azure Lab Services가 템플릿을 사용하여 랩에 VM을 만듭니다. 이 과정에서 만들어지는 VM 수는 랩에 허용되는 최대 사용자 수와 같으며, 이 값은 랩의 사용 정책에서 설정할 수 있습니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
 
 이 문서에서는 Azure Lab Services의 클래스룸 랩에서 템플릿 가상 머신을 만들고 관리하는 방법을 설명합니다. 
 
+> [!NOTE]
+> 랩을 만들면 템플릿 VM이 만들어지지만 시작되지는 않습니다. 이를 시작하고, 연결하고, 랩에 대한 필수 구성 요소 소프트웨어를 설치한 다음, 게시할 수 있습니다. 템플릿 VM을 게시하는 경우 자동으로 종료됩니다(아직 수행하지 않은 경우). 
+> 
+> 템플릿 VM은 실행될 때 **비용**이 발생하므로 템플릿 VM을 실행할 필요가 없는 경우 종료해야 합니다. 
+
+
 ## <a name="set-or-update-template-title-and-description"></a>템플릿 제목 및 설명 설정 또는 업데이트
 다음 단계에 따라 제목과 설명을 처음 설정한 후 나중에 업데이트합니다. 
 
-1. **템플릿** 페이지에서 랩의 새 **제목을** 입력 합니다.  
-2. 템플릿에 대 한 새 **설명을** 입력 합니다. 포커스를 텍스트 상자 밖으로 이동 하면 자동으로 저장 됩니다. 
+1. **템플릿** 페이지에서 랩의 새 **제목**을 입력합니다.  
+2. 템플릿에 대한 새 **설명**을 입력합니다. 포커스를 텍스트 상자 밖으로 이동하면 자동으로 저장됩니다. 
 
     ![템플릿 이름 및 설명](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="update-a-template-vm"></a>템플릿 VM 업데이트
-다음 단계를 사용 하 여 템플릿 VM을 업데이트 합니다.  
+템플릿 VM을 업데이트하려면 다음 단계를 따릅니다.  
 
-1. 템플릿 VM이 시작 될 때까지 기다린 후 도구 모음에서 **템플릿에 연결** 을 선택 하 여 템플릿 vm에 연결 하 고 지침을 따릅니다. Windows 컴퓨터의 경우 RDP 파일을 다운로드 하는 옵션이 표시 됩니다. 
-1. 템플릿에 연결 하 여 변경 하 고 나면 사용자에 게 마지막으로 게시 한 가상 머신과 동일한 설정이 더 이상 적용 되지 않습니다. 다시 게시 하기 전 까지는 사용자의 기존 가상 컴퓨터에 템플릿 변경 내용이 반영 되지 않습니다.
+1. 템플릿 VM이 시작될 때까지 기다린 다음, 도구 모음에서 **템플릿에 연결**을 선택하여 템플릿 VM에 연결하고 지침을 따릅니다. Windows 머신의 경우 RDP 파일을 다운로드할 수 있는 옵션이 표시됩니다. 
+1. 템플릿에 연결하여 변경하면 사용자에게 마지막으로 게시한 가상 머신과 동일한 설정이 더 이상 적용되지 않습니다. 템플릿 변경 내용은 다시 게시할 때까지 사용자의 기존 가상 머신에 반영되지 않습니다.
 
     ![템플릿 VM에 연결](../media/how-to-create-manage-template/connect-template-vm.png)
     
 1. 학생들이 랩을 사용하는 데 필요한 소프트웨어를 설치합니다(예: Visual Studio, Azure Storage Explorer 등). 
 1. 템플릿 VM의 연결을 종료합니다(원격 데스크톱 세션 종료). 
-1. **템플릿 중지**를 선택 하 여 템플릿 VM을 **중지** 합니다. 
-1. 다음 섹션의 단계에 따라 업데이트 된 템플릿 VM을 **게시** 합니다. 
+1. **템플릿 중지**를 선택하여 템플릿 VM을 **중지**합니다. 
+1. 다음 섹션의 단계에 따라 업데이트된 템플릿 VM을 **게시**합니다. 
 
 ## <a name="publish-the-template-vm"></a>템플릿 VM 게시  
-이 단계에서는 템플릿 VM을 게시합니다. 템플릿 VM을 게시 하면 Azure Lab Services 템플릿을 사용 하 여 랩에서 Vm을 만듭니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
+이 단계에서는 템플릿 VM을 게시합니다. 템플릿 VM이 게시되면 Azure Lab Services에서 템플릿을 사용하여 VM을 랩에 만듭니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
 
 
 1. **템플릿** 페이지의 도구 모음에서 **게시**를 선택합니다. 

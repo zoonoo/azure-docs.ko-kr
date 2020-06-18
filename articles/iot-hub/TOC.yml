@@ -379,6 +379,8 @@
       items:
         - name: 디바이스 연결 끊기
           href: iot-hub-troubleshoot-connectivity.md
+        - name: 메시지 라우팅 문제 해결
+          href: troubleshoot-message-routing.md
         - name: 문제 해결
           items:
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
@@ -416,7 +418,7 @@
     - name: Azure CLI
       href: /cli/azure/iot
     - name: Azure PowerShell
-      href: '/powershell/module/az.iothub#iot'
+      href: /powershell/module/az.iothub#iot
     - name: .NET(디바이스)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET(서비스)
@@ -474,12 +476,12 @@
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT 디바이스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Azure IoT 샘플
       items:
-        - name: 'C#(.NET)'
+        - name: C#(.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'

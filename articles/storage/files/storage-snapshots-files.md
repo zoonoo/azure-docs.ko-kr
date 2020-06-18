@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176144"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873585"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요 
 Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제공합니다. 공유 스냅샷은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅샷이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -37,7 +37,7 @@ REST API 및 SMB 둘 다를 사용하여 공유의 스냅샷을 볼 수 있습�
 
 공유 스냅샷 기능은 파일 공유 수준에서 제공됩니다. 검색은 개별 파일을 복원할 수 있도록 개별 파일 수준에서 제공됩니다. SMB, REST API, 포털, 클라이언트 라이브러리 또는 PowerShell/CLI 툴링을 사용하여 전체 파일 공유를 복원할 수 있습니다.
 
-파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http:\//storagesample.core.file.windows.net/myshare 인 경우 공유 스냅숏 uri는 다음과 유사 합니다.
+파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http:\//storagesample.core.file.windows.net/myshare인 경우 공유 스냅샷 URI는 다음과 유사합니다.
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -71,16 +71,16 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 
 공유 스냅샷은 복사 후 그대로 유지되지만 기본 파일 공유는 공유 스냅샷에 사용할 수 있는 데이터 복사본으로 덮어씁니다. 모든 복원된 파일은 "변경한 콘텐츠"에 포함됩니다.
 
-공유 스냅숏의 파일을 다른 이름으로 다른 대상에 복사할 수 있습니다. 그 결과 생성되는 대상 파일은 공유 스냅샷이 아닌 쓰기 가능한 파일입니다. 이 경우 기본 파일 공유는 그대로 유지 됩니다.
+공유 스냅샷의 파일을 다른 이름으로 다른 대상에 복사할 수 있습니다. 그 결과 생성되는 대상 파일은 공유 스냅샷이 아닌 쓰기 가능한 파일입니다. 이 경우 기본 파일 공유는 그대로 유지됩니다.
 
 대상 파일을 복사본으로 덮어쓸 때 원래 대상 파일과 연결된 공유 스냅샷은 그대로 유지됩니다.
 
-## <a name="general-best-practices"></a>일반적인 유용한 정보 
+## <a name="general-best-practices"></a>일반 모범 사례 
 Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. 자동화를 위해 REST API, 클라이언트 SDK 또는 스크립팅을 사용할 수 있습니다.
 
 공유 스냅샷 스케줄러를 배포하기 전에 불필요한 요금이 발생하지 않도록 공유 스냅샷 빈도 및 보존 설정을 신중히 고려하십시오.
 
-공유 스냅샷은 파일 수준 보호만 제공합니다. 공유 스냅샷은 파일 공유 또는 스토리지 계정에서 키보드 입력 실수로 인한 삭제를 방지하지 않습니다. 스토리지 계정이 실수로 삭제되지 않도록 보호하기 위해 스토리지 계정이나 리소스 그룹을 잠글 수 있습니다.
+공유 스냅샷은 파일 수준 보호만 제공합니다. 공유 스냅샷은 파일 공유 또는 스토리지 계정에서 키보드 입력 실수로 인한 삭제를 방지하지 않습니다. 스토리지 계정이 실수로 삭제되지 않도록 보호하기 위해 [임시 삭제를 사용](storage-files-prevent-file-share-deletion.md)하거나 스토리지 계정 및/또는 리소스 그룹을 잠글 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 다음에서 공유 스냅샷으로 작업:

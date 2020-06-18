@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
-  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
+  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/28/2020
-  ms.locfileid: "84142132"
+  ms.lasthandoff: 06/16/2020
+  ms.locfileid: "84808941"
 landingContent:
 - title: Azure Remote Rendering 정보
   linkLists:
@@ -52,6 +52,8 @@ landingContent:
       url: quickstarts/deploy-to-hololens.md
     - text: 데스크톱에 Unity 샘플 배포
       url: quickstarts/deploy-to-desktop.md
+    - text: HoloLens에 네이티브 C++ 샘플 배포
+      url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
     - text: 렌더링을 위해 모델 변환
       url: quickstarts/convert-model.md
 - title: 고유 앱을 빌드하는 방법 알아보기

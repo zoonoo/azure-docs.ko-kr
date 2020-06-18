@@ -41,10 +41,10 @@
           href: mca-section-invoice.md
         - name: Microsoft 고객 계약 청구 계정 설정
           href: mca-setup-account.md
-        - name: Office 365 계정을 사용하여 등록
-          href: office-365-account-for-azure-subscription.md
-        - name: Azure 계정으로 Office 365 등록
-          href: azure-account-for-office-365-subscription.md
+        - name: Microsoft 365 계정으로 가입
+          href: microsoft-365-account-for-azure-subscription.md
+        - name: Azure 계정으로 Microsoft 365 가입
+          href: azure-account-for-microsoft-365-subscription.md
         - name: 강력한 고객 인증을 사용하여 결제
           href: open-banking-strong-customer-authentication.md
     - name: 구독 관리
@@ -115,7 +115,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: 거부된 카드
       href: troubleshoot-declined-card.md
-    - name: Azure 계정 등록 문제
+    - name: Azure 계정 가입 문제
       href: troubleshoot-azure-sign-up.md
     - name: 구독 로그인 문제
       href: troubleshoot-sign-in-issue.md

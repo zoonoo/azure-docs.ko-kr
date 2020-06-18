@@ -1,6 +1,6 @@
 ---
-title: 미리 빌드된 템플릿을 사용 하 여 더 빠르게 논리 앱 워크플로 만들기
-description: Azure Logic Apps에서 제공 하는 미리 빌드된 템플릿을 사용 하 여 논리 앱 워크플로를 빠르게 빌드
+title: 미리 빌드된 템플릿을 사용하여 논리 앱 워크플로 빠르게 만들기
+description: Azure Logic Apps에서 제공하는 미리 빌드된 템플릿을 사용하여 논리 앱 워크플로 빠르게 빌드
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76905121"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834461"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
 
@@ -34,9 +34,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 ## <a name="create-logic-apps-from-templates"></a>템플릿에서 논리 앱 만들기
 
-1. 아직 로그인 하지 않은 경우 [Azure Portal](https://portal.azure.com "Azure portal")에 로그인 합니다.
+1. 아직 로그인하지 않은 경우 [Azure Portal](https://portal.azure.com "Azure portal")에 로그인합니다.
 
-2. 기본 Azure 메뉴에서 **리소스** > 만들기**엔터프라이즈 통합** > **논리 앱**을 선택 합니다.
+2. Azure 주 메뉴에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱**을 선택합니다.
 
    ![Azure Portal, New, 엔터프라이즈 통합, Logic App](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    | 설정 | 값 | Description | 
    | ------- | ----- | ----------- | 
-   | **이름** | *사용자의 논리 앱 이름* | 고유한 논리 앱 이름을 제공합니다. | 
+   | **이름** | *your-logic-app-name* | 고유한 논리 앱 이름을 제공합니다. | 
    | **구독** | *your-Azure-subscription-name* | 사용할 Azure 구독을 선택합니다. | 
    | **리소스 그룹** | *your-Azure-resource-group-name* | 이 논리 앱에 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만들거나 선택하고 이 앱과 연결된 모든 리소스를 구성합니다. | 
    | **위치** | *your-Azure-datacenter-region* | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다(예: 미국 서부). | 
-   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)를 사용 하 여 논리 앱에 대 한 [진단 로깅을](../logic-apps/monitor-logic-apps-log-analytics.md) 설정 합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
+   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)를 사용하여 논리 앱에 대한 [진단 로깅](../logic-apps/monitor-logic-apps-log-analytics.md)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
    |||| 
 
 4. 준비가 되면 **대시보드에 고정**을 선택합니다. 이런 방식으로 논리 앱은 자동으로 Azure 대시보드에 표시되고 배포 후에 열립니다. **만들기**를 선택합니다.
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 ## <a name="update-logic-apps-with-templates"></a>템플릿으로 논리 앱 업데이트
 
-1. [Azure Portal](https://portal.azure.com "Azure portal")에서 논리 앱을 찾아 논리 앱 디자이너에서 엽니다.
+1. [Azure Portal](https://portal.azure.com "Azure portal")의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
 2. 디자이너 도구 모음에서 **템플릿**을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인**을 선택합니다. 다음은 그 예입니다.
 
@@ -146,7 +146,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

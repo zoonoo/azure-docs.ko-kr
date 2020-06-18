@@ -1,20 +1,20 @@
 ---
-title: 사용자 계정에서 작업 실행-Azure Batch
-description: 작업을 실행 하려는 사용자 계정을 구성할 수 있는 것이 유용 합니다. 사용자 계정 유형 및 구성 방법에 대해 알아봅니다.
-ms.topic: article
+title: 사용자 계정으로 작업 실행
+description: 사용자 계정 유형과 구성 방법에 대해 알아봅니다.
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980289"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779488"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
 > [!NOTE] 
-> 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 
+> 이 문서에서 설명하는 사용자 계정은 보안상의 이유로 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸)에 사용되는 사용자 계정과 다릅니다. 
 >
 > SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
 > RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
@@ -40,14 +40,14 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 
 태스크가 시작 태스크를 실행하는 데 사용된 것과 동일한 계정에서 실행되는 경우 태스크에는 시작 태스크 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. 마찬가지로 태스크가 작업 준비 태스크를 실행하는 데 사용된 것과 동일한 계정에서 실행되는 경우 태스크에는 작업 준비 태스크 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. 태스크가 시작 태스크 또는 작업 준비 태스크와는 다른 계정에서 실행될 경우 태스크는 해당 디렉터리에 대해 읽기 액세스 권한만 있습니다.
 
-태스크에서 파일 및 디렉터리 액세스에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md#files-and-directories)을 참조하세요.
+태스크에서 파일 및 디렉터리에 액세스하는 방법에 대한 자세한 내용은 [파일 및 디렉터리](files-and-directories.md)를 참조하세요.
 
 ## <a name="elevated-access-for-tasks"></a>태스크에 대한 관리자 권한 액세스 
 
 사용자 계정의 권한 상승 수준은 태스크가 관리자 액세스 권한으로 실행되는지 여부를 나타냅니다. 자동 사용자 계정 및 명명된 사용자 계정 모두 관리자 권한 액세스로 실행될 수 있습니다. 권한 상승 수준의 두 가지 옵션은 다음과 같습니다.
 
-- **NonAdmin:** 태스크가 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin**입니다.
-- **Admin:** 태스크가 관리자 액세스 권한이 있는 사용자로 실행되고 모든 관리자 권한으로 작동됩니다. 
+- **NonAdmin:** 작업이 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin**입니다.
+- **Admin:** 작업이 관리자 액세스 권한이 있는 사용자로 실행되고 전체 관리자 권한으로 작동됩니다. 
 
 ## <a name="auto-user-accounts"></a>자동 사용자 계정
 
@@ -322,4 +322,5 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md)을 참조하세요.
+* 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+* Azure Batch에서 [파일 및 디렉터리](files-and-directories.md)에 대해 알아봅니다.

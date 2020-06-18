@@ -1,6 +1,6 @@
 ---
-title: Azure 가상 컴퓨터 복구 명령을 사용 하 여 Windows VM 복구 | Microsoft Docs
-description: 이 문서에서는 Azure VM 복구 명령을 사용 하 여 디스크를 다른 Windows VM에 연결 하 여 오류를 해결 한 다음 원래 VM을 다시 빌드하는 방법을 자세히 설명 합니다.
+title: Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구 | Microsoft Docs
+description: 이 문서에서는 Azure VM 복구 명령을 사용하여 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 다시 빌드하는 방법을 자세히 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -14,77 +14,78 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 2055558ef80a641084a7cf9d299281497d282936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060684"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774420"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
 
-Azure에서 Windows VM (가상 머신)에 부팅 또는 디스크 오류가 발생 하는 경우 디스크 자체에서 완화를 수행 해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 Azure VM 복구 명령을 사용 하 여 디스크를 다른 Windows VM에 연결 하 여 오류를 해결 한 다음 원래 VM을 다시 빌드하는 방법을 자세히 설명 합니다.
+Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 완화를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 Azure VM 복구 명령을 사용하여 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 다시 빌드하는 방법을 자세히 설명합니다.
 
 > [!IMPORTANT]
-> 이 문서의 스크립트는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용 하는 vm에만 적용 됩니다.
+> 이 문서의 스크립트는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 VM에만 적용됩니다.
 
-## <a name="repair-process-overview"></a>프로세스 복구 개요
+## <a name="repair-process-overview"></a>복구 프로세스 개요
 
-이제 Azure VM 복구 명령을 사용 하 여 VM에 대 한 OS 디스크를 변경할 수 있으며 더 이상 VM을 삭제 하 고 다시 만들 필요가 없습니다.
+이제 Azure VM 복구 명령을 사용하여 VM의 OS 디스크를 변경할 수 있으며, 더 이상 VM을 삭제하고 다시 만들 필요가 없습니다.
 
-VM 문제를 해결 하려면 다음 단계를 수행 합니다.
+VM 문제를 해결하려면 다음 단계를 수행합니다.
 
 1. Azure Cloud Shell 시작
-2. Az extension add/update를 실행 합니다.
-3. Az vm repair create를 실행 합니다.
-4. Az vm repair run을 실행 합니다.
-5. Az vm repair restore를 실행 합니다.
+2. az extension add/update를 실행합니다.
+3. az vm repair create를 실행합니다.
+4. az vm repair run을 실행합니다.
+5. az vm repair restore를 실행합니다.
 
-추가 설명서 및 지침은 [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair)를 참조 하세요.
+추가 설명서 및 지침은 [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair)를 참조하세요.
 
 ## <a name="repair-process-example"></a>복구 프로세스 예제
 
 > [!NOTE]
-> * 스크립트를 실행 하려면 VM (포트 443)의 아웃 바운드 연결이 필요 합니다.
+> * 스크립트를 실행하려면 VM(포트 443)에서 아웃바운드 연결이 필요합니다.
 > * 한 번에 하나의 스크립트만 실행할 수 있습니다.
 > * 실행 중인 스크립트는 취소할 수 없습니다.
-> * 스크립트를 실행할 수 있는 최대 시간은 90 분이 지나면 시간이 초과 됩니다.
+> * 스크립트를 실행할 수 있는 최대 시간은 90분으로, 그 후에는 시간이 초과됩니다.
 
 1. Azure Cloud Shell 시작
 
-   Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 여기에는 계정에 사용 하도록 미리 설치 되 고 구성 된 일반적인 Azure 도구가 포함 됩니다.
+   Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 사전 설치되어 계정에서 사용하도록 구성된 공용 Azure 도구가 포함됩니다.
 
-   Cloud Shell 열려면 코드 블록의 오른쪽 위 모퉁이에서 **시도** 를 선택 합니다. 을 (를) 방문 [https://shell.azure.com](https://shell.azure.com)하 여 별도의 브라우저 탭에서 Cloud Shell를 열 수도 있습니다.
+   Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. [https://shell.azure.com](https://shell.azure.com)을 방문하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다.
 
-   **복사** 를 선택 하 여 코드 블록을 복사한 다음 Cloud Shell에 코드를 붙여넣고 **Enter 키** 를 선택 하 여 실행 합니다.
+   **복사**를 선택하여 코드 블록을 복사한 다음, Cloud Shell에 해당 코드를 붙여넣고 **Enter**를 선택하여 실행합니다.
 
-   CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치 하거나 업그레이드 해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+   CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-2. `az vm repair` 명령을 처음 사용 하는 경우 VM 복구 CLI 확장을 추가 합니다.
+2. `az vm repair` 명령을 처음 사용하는 경우 vm-repair CLI 확장을 추가합니다.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   이전에 `az vm repair` 명령을 사용한 경우 vm 복구 확장에 업데이트를 적용 합니다.
+   이전에 `az vm repair` 명령을 사용한 경우 모든 업데이트를 vm-repair 확장에 적용합니다.
 
    ```azurecli-interactive
    az extension update -n vm-repair
    ```
 
-3. `az vm repair create`을 실행합니다. 이 명령은 작동 하지 않는 VM에 대 한 OS 디스크의 복사본을 만들고, 복구 VM을 만들고, 디스크를 연결 합니다.
+3. `az vm repair create`을 실행합니다. 이 명령은 비기능적 VM에 대한 OS 디스크의 복사본을 만들고, 새 리소스 그룹에 복구 VM을 만들고, OS 디스크 복사본을 연결합니다.  복구 VM은 지정된 비기능적 VM과 동일한 크기와 지역을 갖습니다.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. `az vm repair run`을 실행합니다. 이 명령을 실행 하면 복구 VM을 통해 연결 된 디스크에서 지정 된 복구 스크립트가 실행 됩니다.
+4. `az vm repair run`을 실행합니다. 이 명령은 복구 VM을 통해 연결된 디스크에서 지정된 복구 스크립트를 실행합니다.  사용 중인 문제 해결 가이드에서 run-id를 지정하는 경우 여기에서 사용합니다. 그렇지 않으면 `az vm repair list-scripts`를 사용하여 사용 가능한 복구 스크립트를 볼 수 있습니다.
 
    ```azurecli-interactive
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
+
+   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. `az vm repair restore`을 실행합니다. 이 명령은 복구 된 OS 디스크를 VM의 원래 OS 디스크와 교환 합니다.
+5. `az vm repair restore`을 실행합니다. 이 명령은 복구된 OS 디스크를 VM의 원래 OS 디스크와 교환합니다.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose
@@ -103,5 +104,5 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 ## <a name="next-steps"></a>다음 단계
 
 * VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection)을 참조하세요.
-* VM에서 실행 중인 응용 프로그램에 액세스 하는 데 문제가 있는 경우 [Azure의 가상 머신에서 응용 프로그램 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection)을 참조 하세요.
+* VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Azure의 가상 머신에서 애플리케이션 연결 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection)을 참조하세요.
 * Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.

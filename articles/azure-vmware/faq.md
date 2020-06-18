@@ -1,209 +1,238 @@
 ---
-title: 자주 묻는 질문
-description: Azure VMware 솔루션 (AVS)에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
+title: 질문과 대답
+description: AVS(Azure VMware Solution)에 대한 일반적인 질문에 대한 답변을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854607"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873309"
 ---
-# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Azure VMware 솔루션 (AVS) 미리 보기에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware Solution) 미리 보기에 대한 질문과 대답
 
-Azure VMware 솔루션 (AVS)에 대 한 자주 묻는 질문에 대 한 대답입니다.
+AVS(Azure VMware Solution)에 대해 자주 묻는 질문에 대답합니다.
 
 ## <a name="general"></a>일반
 
-**AVS(Azure VMware 솔루션)란?**
+**AVS(Azure VMware Solution)란?**
 
-기업은 IT 현대화 전략을 활용 하 여 비즈니스 민첩성을 개선 하 고 비용을 절감 하며 혁신을 가속화 하는 하이브리드 클라우드 플랫폼은 고객의 디지털 변환의 핵심 핵심으로 등장 했습니다. AVS는 VMware의 SDDC (소프트웨어 정의 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코 시스템과 결합 합니다. AVS 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족 하도록 관리 됩니다.
+기업은 비즈니스 민첩성을 개선하고, 비용을 절감하고, 혁신을 가속화하는 IT 현대화 전략을 찾고 있으며, 고객의 디지털 변환을 가능하게 하는 핵심 요소로 하이브리드 클라우드 플랫폼이 등장했습니다. AVS는 VMware의 SDDC(소프트웨어 정의 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코시스템과 결합합니다. AVS 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족하도록 관리됩니다.
 
 ## <a name="avs-service"></a>AVS 서비스
 
-**지금 AVS를 사용할 수 있는 곳은 어디 인가요?**
+**현재 AVS를 사용할 수 있는 곳은 어디인가요?**
 
-미리 보기 중에는 미국 동부에서 북아메리카 및 서 부의 암스테르담에서 사용할 수 있습니다.
+미리 보기 기간에는 북아메리카의 미국 동부와 서유럽의 암스테르담에서 사용할 수 있습니다.
 
-**Azure VMware 솔루션 (AVS) 인스턴스에서 실행 되는 워크 로드는 Azure 서비스를 사용 하거나 통합할 수 있나요?**
+**AVS(Azure VMware Solution) 인스턴스에서 실행되는 워크로드가 Azure 서비스를 사용하거나 Azure 서비스와 통합할 수 있나요?**
 
-모든 Azure 서비스는 AVS 솔루션 고객에 게 제공 됩니다. 특정 서비스에 대 한 성능 및 가용성 제한 사항은 사례별로 해결 해야 합니다.
+AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. 서비스의 성능 및 가용성 제한은 서비스마다 다르게 접근해야 합니다.
 
-**이제 사설 클라우드 리소스를 관리 하는 데 사용 하는 것과 동일한 도구를 사용 하나요?**
+**현재 프라이빗 클라우드 리소스를 관리하는 데 사용하는 것과 동일한 도구를 사용하나요?**
 
-예. Azure Portal은 배포 및 여러 관리 작업에 사용 됩니다. vCenter 및 NSX Manager는 vSphere NSX 리소스를 관리 하는 데 사용 됩니다.
+예. 배포 및 여러 관리 작업에는 Azure Portal을 사용합니다. vSphere 및 NSX-T 리소스 관리에는 vCenter 및 NSX Manager가 사용됩니다.
 
-**온-프레미스 vCenter를 사용 하 여 사설 클라우드를 관리할 수 있나요?**
+**온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 있나요?**
 
-시작 시, AVS는 온-프레미스 및 사설 클라우드 환경에서 단일 관리 환경을 지원 하지 않습니다. 사설 클라우드 클러스터는 사설 클라우드로의 vCenter 및 NSX Manager 로컬에서 관리 됩니다.
+시작할 때 AVS는 온-프레미스 및 프라이빗 클라우드 환경에서 단일 관리 환경을 지원하지 않습니다. 프라이빗 클라우드 클러스터는 프라이빗 클라우드에 로컬인 vCenter 및 NSX Manager를 통해 관리됩니다.
 
-**온-프레미스에서 실행 되는 vRealize Suite를 사용할 수 있나요?** 
+**온-프레미스에서 실행되는 vRealize Suite를 사용할 수 있나요?** 
 
-특정 통합 및 사용 사례는 사례별로 평가할 수 있습니다.
+구체적인 통합 및 사용 사례는 건별로 평가할 수 있습니다.
 
-**온-프레미스 환경에서 AVS 사설 클라우드로 vSphere Vm을 마이그레이션할 수 있나요?**
+**온-프레미스 환경의 vSphere VM을 AVS 프라이빗 클라우드로 마이그레이션할 수 있나요?**
 
-예. 표준 cross vCenter [vMotion 요구 사항] [https://kb.vmware.com/s/article/210695]이 충족 되는 경우 vm 마이그레이션 및 vMotion를 사용 하 여 사설 클라우드로 vm을 이동할 수 있습니다.
+예. 표준 교차 vCenter [vMotion 요구 사항][https://kb.vmware.com/s/article/210695 ]을 충족하는 경우 VM 마이그레이션 및 vMotion을 사용하여 VM을 프라이빗 클라우드로 이동할 수 있습니다.
 
-**온-프레미스 환경에 필요한 특정 버전의 vSphere 있나요?**
+**온-프레미스 환경에서 특정 버전의 vSphere가 필요한가요?**
 
-모든 클라우드 환경은 vMotion에 대 한 온-프레미스 환경에서 HCX, vSphere 5.5 이상으로 제공 됩니다.
+모든 클라우드 환경은 HCX가 함께 제공되므로vMotion에 대한 온-프레미스 환경에서 vSphere 5.5 이상이 필요합니다.
 
-**변경 제어 프로세스의 모양은 어떻게 되나요?**
+**변경 제어 프로세스는 어떻게 생겼나요?**
 
-서비스 자체에 대 한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 작업 관리 작업 및 관련 된 변경 관리 프로세스를 담당 합니다.
+서비스 자체에 대한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
 
-**CloudSimple에의 한 Azure VMware 솔루션과 어떻게 다른가?**
+**Azure VMware Solution by CloudSimple과 어떻게 다른가요?**
 
-새 Azure VMware 솔루션을 사용 하 여 Microsoft와 VMware에는 직접 클라우드 공급자의 파트너 관계가 있습니다. 새 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. 아키텍처는 Azure 전용 인프라에서 실행 되는 VMware 기술 스택을 사용 하 여 일관 된 솔루션입니다.
+새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새 솔루션을 설계, 빌드, 지원하는 일은 전적으로 Microsoft의 책임이고, VMware는 제품을 보증합니다. Azure 전용 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
 
-**기존 Azure VMware 솔루션 고객 인 경우이 미리 보기는 무엇을 의미 하나요?**
+**기존 Azure VMware Solution 고객에게 이 미리 보기는 어떤 의미인가요?**
 
-CloudSimple에의 한 기존 Azure VMware 솔루션은 변경 되지 않습니다. Azure에서 솔루션을 계속 지원 합니다. Azure VMware 솔루션은 [SLA (](https://aka.ms/CSVMwareSLA)서비스 수준 계약)에 의해 지원 됩니다. 고객은 프로덕션 워크 로드에 서비스를 계속 사용 해야 합니다. 이 솔루션은 [Microsoft 서비스 약관](https://azure.microsoft.com/support/legal/)에서 적용 하는 사용 가능한 솔루션입니다.
+기존 Azure VMware Solution by CloudSimple은 아무 것도 바뀌지 않습니다. Azure에서 솔루션을 계속 지원합니다. Azure VMware Solution은 [SLA(서비스 수준 계약)](https://aka.ms/CSVMwareSLA)를 통해 지원됩니다. 고객은 서비스를 프로덕션 워크로드에 계속 사용하면 됩니다. 이 솔루션은 [Microsoft 서비스 팀](https://azure.microsoft.com/support/legal/)에서 관리합니다.
 
-**CloudSimple을 통해이 새 솔루션으로 Azure VMware 솔루션에서 마이그레이션할 수 있나요?**
+**Azure VMware Solution by CloudSimple에서 이 새 솔루션으로 마이그레이션할 수 있나요?**
 
-예, Azure VMware 솔루션은 HCX와 같은 익숙한 VMware 도구를 사용 하 여 마이그레이션을 지원 합니다. 새 솔루션으로 마이그레이션하는 데 관심이 있는 고객의 경우 Microsoft 계정 팀과 협력 하 여 옵션 및 사용 가능한 지원을 살펴보세요.
+예, Azure VMware Solution은 HCX와 같은 익숙한 VMware 도구를 사용하여 마이그레이션하는 것을 지원합니다. 새 솔루션으로 마이그레이션하는 데 관심이 있는 고객은 담당 Microsoft 계정 팀과 함께 옵션 및 사용 가능한 지원을 살펴보세요.
 
-## <a name="compute-network-and-storage"></a>계산, 네트워크 및 저장소
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**기존 Azure VMware Solution의 호스트 할당량 증가를 요청하려면 어떻게 할까요?**
 
-**사용할 수 있는 호스트 유형이 둘 이상 있나요?**
+[지원 요청을 제출](..\azure-portal\supportability\how-to-create-azure-support-request.md)하여 할당량 증가를 요청할 수 있습니다. 할당량 관리 팀이 3영업일 이내에 요청을 평가하여 승인합니다.  
 
-사용할 수 있는 호스트 유형은 하나 뿐입니다.
+> [!IMPORTANT]
+> 할당량 증가를 요청하려면 먼저 Azure Portal에서 [ **Microsoft.AVS** 리소스 공급자를 등록](tutorial-create-private-cloud.md)해야 합니다.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> 리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요.
 
-**각 호스트 유형의 CPU 사양은 무엇 인가요?**
+1. Azure Portal의 **도움말 + 지원**에서 **새 지원 요청**을 작성하고, 티켓에 대한 다음 정보를 제공합니다.
+   - **문제 유형:** 기술
+   - **구독:** 구독 ID
+   - **서비스:**  Azure VMware 솔루션 
+   - **요약:** 할당량 증가
+   - **문제 유형:** 용량 관리 문제
+   - **문제 하위 유형:** 호스트 할당량/용량을 추가하기 위한 고객 요청
 
-서버에는 이중 18 코어 2.3 g h z Intel Cpu가 있습니다.
+1. 지원 티켓의 [설명]에 있는 [세부 정보] 탭에서 다음 정보를 입력합니다.
+   - 추가 노드 수   
+   - 노드 SKU
+   - 지역
 
-**각 호스트에 얼마나 많은 메모리가 있나요?**
+   > [!NOTE] 
+   > 기본적으로 최소 4개 노드가 부여됩니다.
 
-서버에는 576 GB의 RAM이 있습니다.
+1. **검토 + 만들기**를 클릭하여 요청을 제출합니다.
 
-**각 호스트의 저장소 용량은 무엇 인가요?**
+## <a name="compute-network-and-storage"></a>컴퓨팅, 네트워크 및 스토리지
 
-각 ESXi 호스트에는 15.2 TB의 용량 계층을 포함 하는 두 개의 VSAN diskgroups와 3.2 TB NVMe 캐시 계층 (각 diskgroups의 1.6 TB)이 있습니다.
+**사용 가능한 호스트 유형이 2개 이상 있나요?**
+
+사용 가능한 호스트 유형은 하나뿐입니다.
+
+**각 호스트 유형의 CPU 사양이 어떻게 되나요?**
+
+서버에는 듀얼 18코어 2.3GHz Intel CPU를 사용합니다.
+
+**각 호스트의 메모리는 얼마인가요?**
+
+서버의 RAM은 576GB입니다.
+
+**각 호스트의 스토리지 용량은 얼마인가요?**
+
+각 ESXi 호스트에는 15.2TB 용량 계층과 3.2TB(디스크 그룹마다 1.6 TB) NVMe 캐시 계층을 사용하는 VSAN 디스크 그룹이 2개 있습니다.
 
 **각 ESXi 호스트에서 사용할 수 있는 네트워크 대역폭은 얼마나 되나요?**
 
-ESXi 호스트는 최대 25Gbps의 연결 대역폭을 지원 합니다.
+ESXi 호스트는 최대 25Gbps의 연결 대역폭을 지원합니다.
 
-**미사용 암호화 된 VSAN 데이터 저장소에 저장 된 데이터 입니까?**
+**VSAN 데이터 저장소에 저장된 데이터는 암호화되나요?**
 
-예, 모든 VSAN 데이터는 Azure Key Vault에 저장 된 키를 사용 하 여 기본적으로 암호화 됩니다.
+예, 모든 VSAN 데이터는 기본적으로 Azure Key Vault에 저장된 키를 사용하여 암호화됩니다.
 
-## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 사설 클라우드
+## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 
-**기본 인프라가 공유 되나요?**
+**기본 인프라를 공유하나요?**
 
-아니요, 사설 클라우드 호스트 및 클러스터는 사용 전후에 안전 하 게 삭제 됩니다.
+아니요, 프라이빗 클라우드 호스트와 클러스터는 전용이며 사용 전과 후에 안전하게 삭제됩니다.
 
-**클러스터 당 호스트의 최소 및 최대 수는 얼마 인가요?**
+**클러스터당 최소/최대 호스트 수는 얼마인가요?**
 
-클러스터는 ESXi 호스트 수를 3 개에서 16 개 사이로 확장할 수 있습니다. 평가판 클러스터는 호스트 3 개로 제한 됩니다.
+ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
 
-**사설 클라우드 클러스터를 확장할 수 있나요?**
+**프라이빗 클라우드 클러스터를 스케일링할 수 있나요?**
 
-예, 클러스터는 ESXi 호스트의 최소 및 최대 수 사이에서 크기를 조정 합니다. 평가판 클러스터는 호스트 3 개로 제한 됩니다.
+예, 최소~최대 ESXi 호스트 수 사이에서 클러스터를 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
 
-**평가판 클러스터 란?**
+**평가판 클러스터란 무엇인가요?**
 
-평가판 클러스터는 AVS 사설 클라우드의 1 개월 평가에 사용 되는 세 개의 호스트 클러스터입니다.
+평가판 클러스터는 3개 호스트로 구성된 클러스터이며 AVS 프라이빗 클라우드를 한 달 동안 사용해 볼 수 있습니다.
 
-**평가판 클러스터에 대해 고성능 호스트를 사용할 수 있나요?**
+**평가판 클러스터에 고성능 호스트를 사용할 수 있나요?**
 
-아니요. 고성능 ESXi 호스트는 프로덕션 클러스터에서 사용 하도록 예약 되어 있습니다.
+아니요. 고성능 ESXi 호스트는 프로덕션 클러스터에 사용하도록 예약되어 있습니다.
 
 ## <a name="avs-and-vmware-software"></a>AVS 및 VMware 소프트웨어
 
-**사설 클라우드에서 사용 되는 VMware 소프트웨어 버전은 무엇 인가요?**
+**프라이빗 클라우드에 사용되는 VMware 소프트웨어 버전은 무엇인가요?**
 
-사설 클라우드는 NSX의 vSphere 6.7, Vsphere 6.7, HCX 및 버전 2.5를 사용 합니다.  
+프라이빗 클라우드에서는 vSphere 6.7, vSAN 6.7, HCX 및 NSX-T 2.5 버전을 사용합니다.  
 
-**사설 클라우드가 VMware NSX을 사용 하나요?**
+**프라이빗 클라우드는 VMware NSX를 사용하나요?**
 
-예, NSX-T 2.5은 AVS 사설 클라우드의 소프트웨어 정의 네트워킹에 사용 됩니다.
+예, AVS 프라이빗 클라우드의 소프트웨어 정의 네트워킹에 NSX-T 2.5가 사용됩니다.
 
-**사설 클라우드에서 VMware NSX-V를 사용할 수 있나요?**
+**프라이빗 클라우드에서 VMware NSX-V를 사용할 수 있나요?**
 
-아니요. NSX은 유일 하 게 지원 되는 NSX 버전입니다.
+아니요. 현재 지원되는 유일한 NSX 버전은 NSX-T입니다.
 
-**은 (는) 온-프레미스 환경 또는 사설 클라우드에 연결 하는 네트워크에서 NSX 필요 합니다.**
+**프라이빗 클라우드에 연결하는 온-프레미스 환경 또는 네트워크에서 NSX가 필요한가요?**
 
-아니요, NSX 온-프레미스를 사용할 필요가 없습니다.
+아니요, 온-프레미스에서는 NSX를 사용할 필요가 없습니다.
 
-**사설 클라우드의 VMware 소프트웨어에 대 한 업그레이드 및 업데이트 일정은 무엇 인가요?**
+**프라이빗 클라우드에서 VMware 소프트웨어를 업그레이드 및 업데이트하는 일정이 어떻게 되나요?**
 
-사설 클라우드 소프트웨어 번들 업그레이드는 소프트웨어 번들 형식의 최신 릴리스 버전 내에서 소프트웨어를 유지 하기 위해 수행 됩니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, VSAN)과 다를 수 있습니다.
+소프트웨어가 최신 버전의 소프트웨어 번들 형식 VMware보다 한 버전 이상 뒤쳐지지 않도록 유지하기 위해 수행하는 것이 프라이빗 클라우드 소프트웨어 번들 업그레이드입니다. 프라이빗 클라우드 소프트웨어 버전이 개별 소프트웨어 구성 요소(ESXi, NSX-T, vCenter, VSAN)의 최신 버전과 다를 수 있습니다.
 
-**사설 클라우드 소프트웨어 stack은 얼마나 자주 업데이트 되나요?**
+**프라이빗 클라우드 소프트웨어 스택은 얼마나 자주 업데이트되나요?**
 
-사설 클라우드 소프트웨어는 VMware에서 소프트웨어 번들의 릴리스와 함께 추적 되는 일정에 따라 업그레이드 됩니다. 사설 클라우드에는 업그레이드에 대 한 가동 중지 시간이 필요 하지 않습니다.
+프라이빗 클라우드 소프트웨어는 VMware의 소프트웨어 번들 릴리스를 따르는 일정에 따라 업그레이드 됩니다. 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
 
 ## <a name="connectivity"></a>연결
 
-**사설 클라우드를 온-프레미스 환경과 통합 하는 데 필요한 네트워크 IP 주소 계획은 무엇 인가요?**
+**프라이빗 클라우드를 온-프레미스 환경과 통합하는 데 필요한 네트워크 IP 주소 계획은 무엇인가요?**
 
-개인 네트워크/22 주소 공간은 AVS 사설 클라우드를 배포 하는 데 필요 합니다. 이 개인 주소 공간은 구독의 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치지 않아야 합니다.
+AVS 프라이빗 클라우드를 배포하려면 개인 네트워크/22 주소 공간이 필요합니다. 이 프라이빗 주소 공간은 구독의 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치지 않아야 합니다.
  
-**온-프레미스 환경에서 AVS 사설 클라우드로 연결 어떻게 할까요??**
+**온-프레미스 환경에서 AVS 프라이빗 클라우드로 연결하려면 어떻게 할까요?**
 
-다음 두 가지 방법 중 하나를 통해 서비스에 연결할 수 있습니다. 
+다음 두 가지 방법 중 하나로 서비스에 연결할 수 있습니다. 
 
-- 사설 클라우드로 Express 경로를 통해 피어 링 하는 Azure 가상 네트워크에 배포 된 VM 또는 응용 프로그램 게이트웨이 사용.
-- Express 경로를 통해 온-프레미스 데이터 센터에서 Azure Express 경로 회로로 Global Reach 합니다.
+- ExpressRoute를 통해 프라이빗 클라우드에 피어링되는 Azure 가상 네트워크에 배포된 VM 또는 애플리케이션 게이트웨이를 사용합니다.
+- ExpressRoute Global Reach를 통해 온-프레미스 데이터 센터에서 Azure ExpressRoute 회로로 연결합니다.
 
-**작업 VM을 인터넷 또는 Azure 서비스 끝점에 연결 어떻게 할까요??**
+**워크로드 VM을 인터넷 또는 Azure 서비스 엔드포인트에 연결하려면 어떻게 할까요?**
 
-Azure Portal에서 사설 클라우드에 대해 인터넷 연결을 사용 하도록 설정 합니다. NSX-T 관리자를 사용 하 여 NSX T1 라우터 및 논리 스위치를 만듭니다. 그런 다음 vCenter를 사용 하 여 논리 스위치에 의해 정의 된 네트워크 세그먼트에서 VM을 배포 합니다. 해당 VM은 인터넷 및 Azure 서비스에 대 한 네트워크 액세스 권한을 가집니다.
+Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도록 설정합니다. NSX-T 관리자를 사용하여 NSX-T T1 라우터와 논리 스위치를 만듭니다. 그런 다음, vCenter를 사용하여 논리 스위치가 정의한 네트워크 세그먼트에 VM을 배포합니다. 해당 VM은 네트워크를 통해 인터넷 및 Azure 서비스에 액세스할 수 있습니다.
 
-**사설 클라우드의 논리 네트워크에 있는 Vm에 대 한 인터넷 액세스를 제한 해야 하나요?**
+**프라이빗 클라우드의 논리 네트워크에 있는 VM에 대한 인터넷 액세스를 제한해야 하나요?**
 
-아니요. 인터넷에서 사설 클라우드로의 네트워크 트래픽 인바운드는 허용 되지 않습니다.
+아니요. 인터넷에서 프라이빗 클라우드로 직접 들어오는 네트워크 트래픽은 허용되지 않습니다.
 
-**논리 네트워크의 Vm에서 인터넷에 대 한 인터넷 액세스를 제한 해야 하나요?**
+**논리 네트워크의 VM에서 인터넷으로 액세스하는 것을 제한해야 하나요?**
 
-예. NSX를 사용 하 여 인터넷에 대 한 VM 액세스를 제한 하는 방화벽을 만들어야 합니다.
+예. NSX-T 관리자를 사용하여 VM의 인터넷 액세스를 제한하는 방화벽을 만들어야 합니다.
 
 ## <a name="accounts-and-privileges"></a>계정 및 권한
 
-**새 AVS 사설 클라우드를 사용 하 여 얻을 수 있는 계정 및 권한은 무엇 인가요?**
+**새 AVS 프라이빗 클라우드에서는 어떤 계정과 권한을 얻게 되나요?**
 
-NSX Manager의 vCenter 및 admin 액세스에서 cloudadmin 사용자에 대 한 자격 증명을 제공 합니다. 또한 Azure Active Directory를 통합 하는 데 사용할 수 있는 CloudAdmin 그룹이 있습니다. 자세한 내용은 [액세스 및 Id 개념](concepts-identity.md)을 참조 하세요.
+vCenter의 cloudadmin 사용자에 대한 자격 증명과 NSX-T 관리자에 대한 관리자 액세스 권한이 제공됩니다. Azure Active Directory를 통합하는 데 사용할 수 있는 CloudAdmin 그룹도 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
 
-**ESXi 호스트에 대 한 관리자 액세스 권한을 가질 수 있나요?**
+**ESXi 호스트에 관리자로 액세스할 수 있나요?**
 
-아니요, ESXi에 대 한 관리자 액세스는 솔루션의 보안 요구 사항을 충족 하도록 제한 됩니다.
+아니요, 솔루션의 보안 요구 사항을 충족하기 위해 ESXi에 대한 관리자 권한 액세스는 제한되어 있습니다.
 
-**VCenter에는 어떤 권한 및 사용 권한이 있나요?**
+**vCenter에서 어떤 권한을 얻게 되나요?**
 
-CloudAdmin 그룹 권한이 있습니다. 자세한 내용은 [액세스 및 Id 개념](concepts-identity.md)을 참조 하세요.
+CloudAdmin 그룹 권한을 얻게 됩니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
 
-**NSX manager에 대 한 권한 및 사용 권한은 무엇 인가요?**
+**NSX-T 관리자에서 어떤 권한을 얻게 되나요?**
 
-NSX에 대 한 모든 관리자 권한을 보유 하 고 NSX 데이터 센터 온-프레미스와 마찬가지로 역할 기반 액세스 제어를 관리할 수 있습니다. 자세한 내용은 [액세스 및 Id 개념](concepts-identity.md)을 참조 하세요.
+NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T 데이터 센터 온-프레미스와 마찬가지로 역할 기반 액세스 제어를 관리할 수 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
 
 > [!NOTE]
-> T0 라우터는 사설 클라우드 배포의 일부로 생성 및 구성 됩니다. 해당 논리 라우터 또는 NSX-T에 지 노드 Vm을 수정 하면 사설 클라우드에 대 한 연결에 영향을 줄 수 있습니다.
+> 프라이빗 클라우드 배포의 한 과정으로 T0 라우터가 생성 및 구성됩니다. 이 논리 라우터 또는 NSX-T 에지 노드 VM을 수정하면 프라이빗 클라우드에 연결하는 데 영향을 줄 수 있습니다.
 
 ## <a name="billing-and-support"></a>청구 및 지원
 
-**AVS 미리 보기 중에 요금이 청구 되는 방식**
+**AVS가 미리 보기로 제공되는 기간에는 어떤 방식으로 요금이 청구되나요?**
 
-미리 보기 중에는에 대 한 청구는 종 량 제 기준으로 매달 청구 됩니다. 추가 옵션은 일반 공급에서 사용할 수 있습니다.
+미리 보기 기간에는 종량제 기준으로 매달 AVS 요금이 청구됩니다. 추가 옵션은 일반 공급으로 전환되는 시점에 사용할 수 있습니다.
 
-**AVS 미리 보기 중에는 가격 책정을 어떻게 구성 하나요?**
+**AVS가 미리 보기로 제공되는 기간에는 가격 책정 구조가 어떻게 되나요?**
 
-가격 책정에 대 한 일반적인 질문은 Azure VMware 솔루션 [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조 하세요. 요청에 따라 미리 보기 가격 책정을 사용할 수 있습니다. 계정 팀에 문의 하거나 가격 책정 페이지의 링크를 따라 판매 담당자에 게 문의 하세요.
+가격 책정에 대한 일반적인 질문은 Azure VMware 솔루션Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요. 미리 보기 가격 책정 정보는 요청하신 분들에게 제공되며, 담당 계정 팀에 문의하거나 가격 책정 페이지의 링크를 따라 판매 담당자에게 문의하세요.
 
-**AVS를 지 원하는 사람은 누구 인가요?**
+**AVS를 지원하는 사람은 누구인가요?**
 
-Microsoft에서 AVS에 대 한 지원을 제공 합니다. 미리 보기 지침에 따라 9 ~ 5 pm PST 업무 시간 월요일부터 금요일까지 지원 서비스를 제공할 예정입니다. [이 링크](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 에서 지원 티켓을 발생 시킬 수 있습니다.
+AVS 지원은 Microsoft에서에서 제공합니다. 미리 보기 지침에 따라 월~금요일 오전 9시부터 오후 5시 영업 시간(PST)에 지원을 제공할 예정입니다. [이 링크](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 티켓을 제출할 수 있습니다.
 
-**AVS 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?**
+**AVS 프라이빗 클라우드를 만들려면 어떤 계정이 필요한가요?**
 
-Azure 구독에는 Azure 계정이 필요 합니다.
+Azure 구독의 Azure 계정이 필요합니다.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

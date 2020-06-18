@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 인증 및 사용자 권한 | Microsoft Docs
-description: 이 문서에서는 Azure Analysis Services에서 id 관리 및 사용자 인증에 Azure Active Directory (Azure AD)를 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Analysis Services가 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용하는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 5ca9b1d9fbd18f60de80a80c932f0e27b8dc8583
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572758"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701054"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -28,11 +28,11 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-dire
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 애플리케이션에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 
-Excel 및 Power BI Desktop 같은 클라이언트 응용 프로그램과 SSMS, Visual Studio 용 Analysis Services 프로젝트 확장 등의 도구는 최신 릴리스로 업데이트 될 때 최신 버전의 라이브러리를 설치 합니다. Power BI Desktop, SSMS 및 Analysis Services 프로젝트 확장은 매월 업데이트 됩니다. Excel은 [Office 365로 업데이트](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Office 365 업데이트는 자주 수행되지 않으며 일부 조직에서는 지연 채널을 사용합니다. 즉, 업데이트가 최대 3개월까지 지연됩니다.
+Excel 및 Power BI Desktop과 같은 클라이언트 애플리케이션과 SSMS 및 Visual Studio용 Analysis Services 프로젝트 확장과 같은 도구는 최신 릴리스로 업데이트될 때 최신 버전의 라이브러리를 설치합니다. Power BI Desktop, SSMS 및 Analysis Services 프로젝트 확장은 매월 업데이트됩니다. Excel은 [Office 365로 업데이트](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Office 365 업데이트는 자주 수행되지 않으며 일부 조직에서는 지연 채널을 사용합니다. 즉, 업데이트가 최대 3개월까지 지연됩니다.
 
 사용하는 클라이언트 애플리케이션이나 도구에 따라 인증 유형 및 로그인 방법이 달라질 수 있습니다. 각 애플리케이션은 Azure Analysis Services와 같은 클라우드 서비스에 연결하는 다양한 기능을 지원할 수 있습니다.
 
-Power BI Desktop, Visual Studio 및 SSMS는 MFA (Azure Multi-Factor Authentication)도 지 원하는 대화형 메서드인 유니버설 인증 Active Directory 지원 합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
+Power BI Desktop, Visual Studio 및 SSMS는 Azure MFA(Multi-factor Authentication)도 지원하는 대화형 메서드인 Active Directory 유니버설 인증을 지원합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
 
 Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)가 필요합니다. 페더레이션, Azure AD 및 Office 365 사용자는 온-프레미스 자격 증명을 사용하여 인증되며 Azure 리소스에 액세스할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Analysis Services 서버는 Windows 인증, Active Directory 암호 인증
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Visual Studio는 MFA 지원과 Active Directory 유니버설 인증을 사용 하 여 Azure Analysis Services에 연결 합니다. 처음으로 배포하면 사용자에게 Azure에 로그인하라는 메시지가 표시됩니다. 사용자는 배포되는 서버에 대해 서버 관리자 권한이 있는 계정으로 Azure에 로그인해야 합니다. 처음으로 Azure에 로그인하면 토큰이 할당됩니다. 토큰은 나중에 다시 연결 하기 위해 메모리 내에 캐시 됩니다.
+Visual Studio는 MFA를 지원하는 Active Directory 유니버설 인증을 사용하여 Azure Analysis Services에 연결합니다. 처음으로 배포하면 사용자에게 Azure에 로그인하라는 메시지가 표시됩니다. 사용자는 배포되는 서버에 대해 서버 관리자 권한이 있는 계정으로 Azure에 로그인해야 합니다. 처음으로 Azure에 로그인하면 토큰이 할당됩니다. 토큰은 나중에 다시 연결할 수 있도록 메모리 내에 캐시합니다.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
 
@@ -60,7 +60,7 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 
 ## <a name="user-permissions"></a>사용자 권한
 
-**서버 관리자**는 Azure Analysis Services 서버 인스턴스와 관련이 있습니다. Azure Portal, SSMS, Visual Studio와 같은 도구를 사용 하 여 데이터베이스 추가 및 사용자 역할 관리와 같은 작업을 수행 합니다. 기본적으로 서버를 만드는 사용자는 Analysis Services 서버 관리자로 자동 추가됩니다. 다른 관리자는 Azure Portal이나 SSMS를 사용하여 추가할 수 있습니다. 서버 관리자는 동일한 구독의 Azure AD 테넌트에 계정이 있어야 합니다. 자세한 내용은 [서버 관리자 관리](analysis-services-server-admins.md)를 참조하세요. 
+**서버 관리자**는 Azure Analysis Services 서버 인스턴스와 관련이 있습니다. 서버 관리자는 Azure Portal, SSMS 및 Visual Studio와 같은 도구에 연결하여 데이터베이스 추가, 사용자 역할 관리 등의 작업을 수행합니다. 기본적으로 서버를 만드는 사용자는 Analysis Services 서버 관리자로 자동 추가됩니다. 다른 관리자는 Azure Portal이나 SSMS를 사용하여 추가할 수 있습니다. 서버 관리자는 동일한 구독의 Azure AD 테넌트에 계정이 있어야 합니다. 자세한 내용은 [서버 관리자 관리](analysis-services-server-admins.md)를 참조하세요. 
 
 **데이터베이스 사용자**는 Excel 또는 Power BI와 같은 클라이언트 애플리케이션을 사용하여 model 데이터베이스에 연결합니다. 사용자는 데이터베이스 역할에 추가되어야 합니다. 데이터베이스 역할은 데이터베이스에 대해 관리자, 처리 또는 읽기 권한을 정의합니다. 관리자 권한이 있는 역할의 데이터베이스 사용자는 서버 관리자와 다르다는 점을 이해해야 합니다. 그러나 기본적으로 서버 관리자는 데이터베이스 관리자이기도 합니다. 자세한 내용은 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)를 참조하세요.
 
@@ -74,11 +74,11 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 
  테이블 형식 모델에 대해 정의된 역할이 데이터베이스 역할입니다. 즉, 이 역할에는 해당 멤버가 model 데이터베이스에서 수행할 수 있는 작업을 정의하는 특정 권한이 있는 Azure AD 사용자 및 보안 그룹으로 구성된 멤버가 포함됩니다. 데이터베이스 역할은 별도의 개체로 데이터베이스에 생성되며, 해당 역할이 생성된 데이터베이스에만 적용됩니다.   
   
- 기본적으로 새 테이블 형식 모델 프로젝트를 만들 경우 모델 프로젝트에는 아무 역할도 없습니다. Visual Studio의 역할 관리자 대화 상자를 사용 하 여 역할을 정의할 수 있습니다. 모델 프로젝트 디자인 중 정의된 역할은 모델 작업 영역 데이터베이스에만 적용됩니다. 모델을 배포하면 배포된 모델에 동일한 역할이 적용됩니다. 모델을 배포한 후 서버 및 데이터베이스 관리자는 SSMS를 사용하여 역할 및 멤버를 관리할 수 있습니다. 자세한 내용은 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)를 참조하세요.
+ 기본적으로 새 테이블 형식 모델 프로젝트를 만들 경우 모델 프로젝트에는 아무 역할도 없습니다. 역할은 Visual Studio의 [역할 관리자] 대화 상자를 사용하여 정의할 수 있습니다. 모델 프로젝트 디자인 중 정의된 역할은 모델 작업 영역 데이터베이스에만 적용됩니다. 모델을 배포하면 배포된 모델에 동일한 역할이 적용됩니다. 모델을 배포한 후 서버 및 데이터베이스 관리자는 SSMS를 사용하여 역할 및 멤버를 관리할 수 있습니다. 자세한 내용은 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)를 참조하세요.
   
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)   
+[Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [서버 관리자 관리](analysis-services-server-admins.md)  
 [역할 기반 Access Control](../role-based-access-control/overview.md)  

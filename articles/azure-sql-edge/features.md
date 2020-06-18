@@ -2,19 +2,19 @@
 title: Azure SQL Edge(미리 보기)에서 지원하는 기능
 description: Azure SQL Edge(미리 보기)에서 지원하는 기능에 대한 자세한 내용
 keywords: SQL Edge 소개, SQL Edge란, SQL Edge 개요
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d33c2bef1cd0f7bfab4ec3c09f16c049881d1cd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594622"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233204"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 지원하는 기능 
 
@@ -34,7 +34,7 @@ Azure SQL Edge는 두 가지 버전 또는 소프트웨어 플랜으로 제공�
 
 ## <a name="operating-system"></a>운영 체제
 
-Azure SQL Edge 컨테이너는 현재 Ubuntu(16.04 및 18.04) 기반이므로 Ubuntu 16.04 및 18.04를 실행하는 docker 호스트에서만 실행할 수 있습니다. Azure SQL Edge는 다른 운영 체제 호스트(예: Docker CE 또는 Docker EE를 사용하는 Linux 또는 Windows의 다른 배포판)에서 실행할 수 있지만, 이러한 구성은 Microsoft의 광범위한 테스트를 거치지 않았습니다.
+Azure SQL Edge 컨테이너는 현재 Ubuntu 16.04를 기반으로 하므로 Ubuntu 16.04(권장) 또는 Ubuntu 18.04 중 하나를 실행하는 docker 호스트에서만 실행할 수 있습니다. Azure SQL Edge는 다른 운영 체제 호스트(예: Docker CE 또는 Docker EE를 사용하는 Linux 또는 Windows의 다른 배포판)에서 실행할 수 있지만, 이러한 구성은 Microsoft의 광범위한 테스트를 거치지 않았습니다.
 
 Azure SQL Edge는 현재 Azure IoT Edge를 통한 배포만 지원합니다. Azure IoT Edge를 지원하는 시스템에 대한 자세한 내용은 [Azure IoT Edge 지원 시스템](https://docs.microsoft.com/azure/iot-edge/support)을 참조하세요.
 

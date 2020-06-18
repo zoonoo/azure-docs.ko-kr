@@ -1,19 +1,19 @@
 ---
-title: 범위 별로 작업 그룹화 및 실행
-description: Azure Logic Apps의 그룹 상태에 따라 실행 되는 범위 지정 작업을 만듭니다.
+title: 범위별로 작업 그룹화 및 실행
+description: Azure Logic Apps에서 그룹 작업 상태에 따라 실행되는 범위가 지정된 작업 만들기
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74791499"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831588"
 ---
-# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps 범위를 사용 하 여 그룹 상태에 따라 작업 실행
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위를 사용하여 그룹 상태에 따라 작업 실행
 
 다른 작업 그룹이 성공하거나 실패한 후에만 작업을 실행하려면 해당 작업을 *범위* 내에 그룹화합니다. 이 구조는 작업을 논리 그룹으로 구성하고, 해당 그룹의 상태를 평가하고, 범위의 상태에 따라 작업을 수행하려는 경우에 유용합니다. 범위 내 모든 작업의 실행이 완료되면 범위에서 자체의 상태도 가져옵니다. 예를 들어 [예외 및 오류 처리](../logic-apps/logic-apps-exception-handling.md#scopes)를 구현하려는 경우 범위를 사용할 수 있습니다. 
 
@@ -23,7 +23,7 @@ ms.locfileid: "74791499"
 
 !["일정 - 되풀이" 트리거 설정](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 예를 수행하려면 다음 항목이 필요합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "74791499"
 
 * Bing 지도 키입니다. 이 키를 가져오려면 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing 지도 키 가져오기</a>를 참조하세요.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 ## <a name="create-sample-logic-app"></a>샘플 논리 앱 만들기
 
@@ -48,9 +48,9 @@ ms.locfileid: "74791499"
 
 논리 앱은 언제든지 저장할 수 있으므로 작업을 자주 저장합니다.
 
-1. 아직 없는 경우 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인 합니다. 빈 논리 앱을 만듭니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다(아직 로그인하지 않은 경우). 빈 논리 앱을 만듭니다.
 
-1. **간격** = "1" 및 **빈도** = "분" 설정이 있는 **일정 - 되풀이** 트리거를 추가합니다.
+1. 다음 설정을 사용하여 **일정 - 되풀이** 트리거를 추가합니다. **Interval** = "1" 및 **Frequency** = "Minute"
 
    !["일정 - 되풀이" 트리거 설정](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -61,10 +61,10 @@ ms.locfileid: "74791499"
 
    1. 아직 Bing 지도 연결이 아직 없으면 연결을 만들도록 요청하는 메시지가 표시됩니다.
 
-      | 설정 | 값 | 설명 |
+      | 설정 | 값 | Description |
       | ------- | ----- | ----------- |
       | **연결 이름** | BingMapsConnection | 연결 이름을 입력합니다. | 
-      | **API 키** | <*사용자의 Bing Maps-키*> | 이전에 받은 Bing 지도 키를 입력합니다. | 
+      | **API 키** | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. | 
       ||||  
 
    1. 다음 이미지 아래의 표와 같은 **경로 가져오기** 작업을 설정합니다.
@@ -73,22 +73,22 @@ ms.locfileid: "74791499"
 
       이러한 매개 변수에 대한 자세한 내용은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요.
 
-      | 설정 | 값 | 설명 |
+      | 설정 | 값 | Description |
       | ------- | ----- | ----------- |
-      | **중간 지점 1** | <*시작*> | 경로의 출발지를 입력합니다. | 
-      | **중간 지점 2** | <*종단*> | 경로의 도착지를 입력합니다. | 
-      | **하지 말아야 할 일** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
-      | **최적화** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
-      | **거리 단위** | <*기본 설정*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예에서는 "마일" 값을 사용합니다. | 
-      | **이동 모드** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
-      | **전송 날짜 및 시간** | 없음 | 대중교통 모드에만 적용됩니다. | 
-      | **Transit Date-Type Type** | 없음 | 대중교통 모드에만 적용됩니다. | 
+      | **Waypoint 1** | <*start*> | 경로의 출발지를 입력합니다. | 
+      | **Waypoint 2** | <*end*> | 경로의 도착지를 입력합니다. | 
+      | **Avoid** | None | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
+      | **Optimize** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
+      | **Distance unit** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예제에서는 다음 값을 사용합니다. "마일" | 
+      | **Travel mode** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
+      | **Transit Date-Time** | None | 대중교통 모드에만 적용됩니다. | 
+      | **Transit Date-Type Type** | None | 대중교통 모드에만 적용됩니다. | 
       ||||  
 
 1. 운행과 관련된 현재 이동 시간이 지정된 시간을 초과하는지 확인하는 [조건을 추가](../logic-apps/logic-apps-control-flow-conditional-statement.md)합니다. 
    이 예제에서는 다음 단계를 따릅니다.
 
-   1. **운행 시간이 지정된 시간을 초과하는 경우**라는 설명이 포함되도록 조건 이름을 바꿉니다.
+   1. 이 설명이 포함되도록 조건 이름을 바꿉니다. **트래픽 시간이 지정된 시간보다 많은 경우**
 
    1. 맨 왼쪽 열에서 **값 선택** 상자 내부를 클릭하면 동적 콘텐츠 목록이 표시됩니다. 이 목록에서 초 단위의 **운행 기간 트래픽** 필드를 선택합니다. 
 
@@ -96,7 +96,7 @@ ms.locfileid: "74791499"
 
    1. 가운데 상자에서 **보다 큼** 연산자를 선택합니다.
 
-   1. 가장 오른쪽 열에 다음 비교 값을 입력 합니다 .이 값은 초 이며 10 분에 해당 합니다. **600**
+   1. 맨 오른쪽 열에서 다음 비교 값을 입력합니다. 이 값은 초 단위이며 10분과 동일합니다. **600**
 
       여기까지 마쳤으면 조건이 다음 예제와 비슷하게 표시됩니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "74791499"
 
       !["운행 기간 트래픽" 선택](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. 필드를 JSON 형식으로 확인 한 후에는 **트래픽 기간 트래픽의** 값을 초에서 ```60``` 분으로 변환 하도록 **쉼표** (```,```) 뒤에 숫자를 추가 합니다. 
+   1. 필드가 JSON 형식으로 확인되면 **운행 기간 트래픽**의 값을 초 단위에서 분 단위로 변환할 수 있도록 **쉼표**(```,```) 뒤에 숫자(```60```)를 추가합니다. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -143,7 +143,7 @@ ms.locfileid: "74791499"
    1. 작업을 완료하면 **확인**을 선택합니다.
 
    <!-- markdownlint-disable MD038 -->
-   1. 식이 확인 되 면 선행 공백을 사용 하 여이 텍스트를 추가 합니다.``` minutes```
+   1. 식이 해결되면 선행 공백이 있는 ``` minutes``` 텍스트를 추가합니다.
   
        이제 **본문** 필드가 다음 예와 같습니다.
 
@@ -161,7 +161,7 @@ ms.locfileid: "74791499"
 1. 원하는 워크플로 위치에 범위를 추가합니다. 예를 들어 논리 앱 워크플로의 기존 단계 사이에 범위를 추가하려면 다음 단계를 수행합니다. 
 
    1. 범위를 추가하려는 화살표 위로 포인터를 이동합니다. 
-   **더하기 기호** (**+**) > 선택 하 여 **작업을 추가**합니다.
+   **더하기 기호**( **+** ) > **작업 추가**를 선택합니다.
 
       ![범위 추가](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -179,7 +179,7 @@ ms.locfileid: "74791499"
 
    ![추가된 범위](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. **범위가 실패한 경우**라는 설명이 포함되도록 조건 이름을 바꿉니다.
+1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. 이 설명이 포함되도록 조건 이름을 바꿉니다. **범위가 실패한 경우**
 
    ![범위 상태를 확인하는 조건 추가](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -388,7 +388,7 @@ ms.locfileid: "74791499"
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

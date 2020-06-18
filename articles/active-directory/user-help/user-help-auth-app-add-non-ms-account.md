@@ -1,24 +1,24 @@
 ---
-title: Microsoft Authenticator 앱에 타사 계정 추가-Azure AD
-description: 2 단계 인증을 사용 하는 동안 id를 확인 하기 위해 Google 또는 Facebook과 같은 타사 계정을 Microsoft Authenticator 앱에 추가 합니다.
+title: Microsoft Authenticator 앱에 비 Microsoft 계정 추가 - Azure AD
+description: 2단계 인증을 사용하는 동안 Microsoft Authenticator 앱에 Google 또는 Facebook과 같은 비 Microsoft 계정을 추가하여 ID를 확인합니다.
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8650d0170e8ff910140e2b432dd1c998d19e72d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063954"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741579"
 ---
-# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 타사 계정 추가
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 비 Microsoft 계정 추가
 
 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가합니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "77063954"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
+1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome 으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
 
 2. 페이지에 표시되는 단계에 따라 개인 Google 계정에 2단계 인증을 설정합니다.
 
@@ -80,13 +80,13 @@ ms.locfileid: "77063954"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 Facebook을 열고, 오른쪽 위 모서리에 있는 드롭다운 메뉴를 선택한 다음, **설정** > **보안 및 로그인**으로 이동 합니다.
+1. 컴퓨터에서 Facebook을 열고 오른쪽 위의 드롭다운 메뉴를 선택한 다음, **설정** > **보안 및 로그인**으로 이동합니다.
 
     **보안 및 로그인** 페이지가 표시됩니다.
 
 2. **2단계 인증** 섹션의 아래쪽에 있는 **2단계 인증 사용**으로 이동한 다음, **수정**을 선택합니다.
 
-    **2 단계 인증** 페이지가 표시 됩니다.
+    **2단계 인증** 페이지가 표시됩니다.
 
 3. **시작하기**를 선택합니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "77063954"
 
     **고급 보안 설정** 페이지가 표시됩니다.
 
-3. **시작**을 선택 합니다.
+3. **시작**을 선택합니다.
 
 4. **코드를 받을 방법 선택** 페이지에서 **Authenticator 앱**을 선택합니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "77063954"
 
 10. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-11. **거의 완료** 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 선택 **합니다. 2 단계 인증을 설정**합니다.
+11. **거의 완료됨** 페이지에서 컴퓨터를 신뢰할 수 있는 디바이스로 설정할지 여부를 결정한 다음, **가져오기: 2단계 인증 설정**을 선택합니다.
 
     **고급 보안 설정** 페이지가 나타나고, 업데이트된 2단계 인증 세부 정보가 표시됩니다.
 

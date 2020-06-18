@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730325"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783098"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Locale  | 언어                          | 지원됨 | 사용자 지정                                    |
+| 로캘  | 언어                          | 지원됨 | 사용자 지정                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | 아랍어(UAE)                      | 예       | 예                                                |
 | `ar-BH` | 아랍어(바레인), 최신 표준 | 예       | 언어 모델                                    |
@@ -99,7 +99,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|Locale  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
+|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
 | `de-DE` | 독일어(독일)                | Female | "de-DE-KatjaNeural"      | 일반 |
 | `en-AU` | 영어(오스트레일리아)             | Female | "en-AU-NatashaNeural"    | 일반 |
@@ -135,7 +135,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| Locale | 언어 | 성별 | 음성 이름 |
+| 로캘 | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-EG-Hoda" |
 | `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-SA-Naayf" |
@@ -312,6 +312,27 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 베트남어              | `vi`          |
 | 웨일스어                   | `cy`          |
 | 유카텍 마야어            | `yua`         |
+
+## <a name="speaker-recognition"></a>Speaker Recognition
+
+다양한 Speaker Recognition API에 대해 지원되는 언어는 다음 테이블을 참조하세요. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
+
+| 로캘 | 언어 | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
+|----|----|----|----|----|
+| ko-KR | 영어(미국) | 예 | 예 | 예 |
+|zh-CN  |중국어(북경어, 간체)|    해당 없음|    예|    예|
+|de-DE  |독일어(독일)   |해당 없음    |예    |예|
+|en-GB  |영어(영국)   |해당 없음    |예    |예|
+|fr-FR  |프랑스어(프랑스)    |해당 없음    |예    |예|
+|en-AU  |영어(오스트레일리아)    |해당 없음    |예    |예|
+|en-CA  |영어(캐나다)   |해당 없음|   예|    예|
+|fr-CA  |프랑스어(캐나다)    |해당 없음    |예|   예|
+|it-IT  |이탈리아어|   해당 없음 |예|   예|
+|es-ES| 스페인어(스페인) |해당 없음    |예|   예|
+|es-MX  |스페인어(멕시코)   |해당 없음|   예|    예|
+|ja-JP| 일본어    |해당 없음    |예    |예|
+|pt-BR| 포르투갈어(브라질)|    해당 없음|    예|    예|
+|en-US| 한국어  |해당 없음    |예|   예|
 
 ## <a name="next-steps"></a>다음 단계
 

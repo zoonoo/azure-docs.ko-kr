@@ -1,6 +1,6 @@
 ---
 title: 보고서용 Azure Monitor 통합 문서 | Microsoft Docs
-description: Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법에 대해 알아봅니다.
+description: Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법을 알아봅니다.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,86 +14,86 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690625"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799360"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법
 
 > [!IMPORTANT]
-> 이 통합 문서에서 기본 쿼리를 최적화 하려면 "편집"을 클릭 하 고 설정 아이콘을 클릭 한 다음 쿼리를 실행 하려는 작업 영역을 선택 하세요. 통합 문서는 기본적으로 Azure AD 로그를 라우팅하는 모든 작업 영역을 선택 합니다. 
+> 이 통합 문서의 기본 쿼리를 최적화하려면 "편집"을 클릭하고, [설정] 아이콘을 클릭하고, 쿼리를 실행하려는 작업 영역을 선택하세요. 통합 문서는 기본적으로 사용자가 Azure AD 로그를 라우팅하는 모든 작업 영역을 선택합니다. 
 
-다음 작업을 수행 하 시겠습니까?
+이 문서에서는 다음과 같은 내용을 다룹니다.
 
-- 사용자의 로그인 환경에 대 한 [조건부 액세스 정책의](../conditional-access/overview.md) 효과를 이해 합니다.
+- [조건부 액세스 정책](../conditional-access/overview.md)이 사용자의 로그인 환경에 미치는 영향 이해
 
-- 로그인 오류 문제를 해결 하 여 조직의 로그인 상태를 더 잘 파악 하 고 문제를 신속 하 게 해결 하 시겠습니까?
+- 로그인 오류 문제를 해결하여 조직의 로그인 상태를 보다 정확하게 파악하고 문제를 보다 신속하게 해결
 
-- 사용자 환경에 로그인 하는 데 레거시 인증을 사용 하는 사용자를 알고 싶으세요? [레거시 인증을 차단](../conditional-access/block-legacy-authentication.md)하 여 테 넌 트의 보호를 향상할 수 있습니다.
+- 레거시 인증을 사용하여 환경에 로그인하는 사람이 누구인지 알아보기 ([레거시 인증을 차단](../conditional-access/block-legacy-authentication.md)하면 테넌트 보안을 강화할 수 있습니다.)
 
-- 테 넌 트에서 조건부 액세스 정책의 영향을 이해 해야 하나요?
+- 테넌트에서 조건부 액세스 정책이 미치는 영향 알아보기
 
-- 로그인 로그 쿼리를 검토 하는 기능을 원하는 경우 통합 문서는 액세스 권한이 부여 되거나 거부 된 사용자 수 및 리소스에 액세스할 때 조건부 액세스 정책을 바이패스 한 사용자 수를 보고 하나요?
+- 로그인 로그 쿼리를 검토하는 기능 알아보기 - 통합 문서는 액세스 권한이 부여되거나 액세스가 거부된 사용자 수와 리소스에 액세스할 때 조건부 액세스 정책을 무시한 사용자 수를 보고합니다.
 
-- 보다 심층적으로 이해 하는 데 관심이 있습니다. 장치 플랫폼, 장치 상태, 클라이언트 앱, 로그인 위험, 위치 및 응용 프로그램을 포함 하 여 정책에 대 한 영향이 까닭 될 수 있도록 조건 당 통합 문서 세부 정보를 확인 하세요.
+- 디바이스 플랫폼, 디바이스 상태, 클라이언트 앱, 로그인 위험, 위치 및 애플리케이션을 비롯한 조건에 따라 정책의 영향을 컨텍스트화할 수 있도록 조건에 따른 통합 문서 세부 정보를 자세히 이해
 
-- 로그인 로그 쿼리를 심층적으로 파악 하 고, 통합 문서는 액세스 권한이 부여 되거나 거부 된 사용자 수 및 리소스에 액세스할 때 조건부 액세스 정책을 바이패스 한 사용자 수를 보고 합니다.
+- 로그인 로그 쿼리에 대한 심층적 인사이트 획득 - 통합 문서는 액세스 권한이 부여되거나 액세스가 거부된 사용자 수와 리소스에 액세스할 때 조건부 액세스 정책을 우회한 사용자 수를 보고합니다.
 
-- 이러한 질문을 해결 하는 데 도움이 되도록 Azure Active Directory는 모니터링을 위한 통합 문서를 제공 합니다. [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) 는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다.
+- 이러한 질문을 해결할 수 있도록 Azure Active Directory는 모니터링을 위한 통합 문서를 제공합니다. [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합합니다.
 
 
 
 이 문서의 내용:
 
-- [통합 문서 모니터링을 사용 하 여 대화형 보고서를 만드는](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)방법을 잘 알고 있다고 가정 합니다.
+- [Monitor 통합 문서를 사용하여 대화형 보고서를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)을 잘 알고 있다고 가정합니다.
 
-- 통합 문서 모니터링을 사용 하 여 조건부 액세스 정책의 영향을 파악 하 고, 로그인 오류 문제를 해결 하 고, 레거시 인증을 식별 하는 방법을 설명 합니다.
+- Monitor 통합 문서를 사용하여 조건부 액세스 정책의 영향을 이해하고, 로그인 오류 문제를 해결하고, 레거시 인증을 식별하는 방법을 설명합니다.
  
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-통합 문서 모니터링을 사용 하려면 다음이 필요 합니다.
+Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
 
-- Premium (P1 또는 P2) 라이선스가 있는 Azure Active Directory 테 넌 트. [프리미엄 라이선스를 얻는](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)방법에 대해 알아봅니다.
+- 프리미엄(P1 또는 P2) 라이선스를 사용하는 Azure Active Directory 테넌트. [프리미엄 라이선스를 얻는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)을 알아보세요.
 
-- [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)입니다.
+- [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-- Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
-- Azure Active Directory의 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
+- Log Analytics 작업 영역에 대한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) 권한
+- Azure Active Directory의 다음 역할(Azure Active Directory 포털을 통해 Log Analytics에 액세스하는 경우)
     - 보안 관리자
     - 보안 판독기
-    - 보고서 구독자
+    - 보고서 읽기 권한자
     - 전역 관리자
 
 ## <a name="roles"></a>역할
-다음 역할 중 하나에 있어야 하며 통합 문서를 관리 하기 위해 [기본 Log Analytics 작업 영역에 액세스할](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 수 있어야 합니다.
+통합 문서를 관리하려면 다음 역할 중 하나여야 하고 [기본 Log Analytics 작업 영역에 대한 액세스 권한](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)이 있어야 합니다.
 -   전역 관리자
 -   보안 관리자
 -   보안 판독기
--   보고서 구독자
+-   보고서 읽기 권한자
 -   애플리케이션 관리자
 
 ## <a name="workbook-access"></a>통합 문서 액세스 
 
-통합 문서에 액세스 하려면:
+통합 문서에 액세스하는 방법은 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Azure Active Directory** > **Monitoring**Monitoring > **통합 문서**로 이동 합니다. 
+1. **Azure Active Directory** > **모니터링** > **통합 문서**로 이동합니다. 
 
-1. 보고서 또는 템플릿을 선택 하거나 도구 모음에서 **열기**를 선택 합니다. 
+1. 보고서 또는 템플릿을 선택하거나, 도구 모음에서 **열기**를 선택합니다. 
 
 ![Azure AD에서 Azure Monitor 통합 문서 찾기](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>로그인 분석
 
-로그인 분석 통합 문서에 액세스 하려면 **사용** 섹션에서 **로그인**을 선택 합니다. 
+로그인 분석 통합 문서에 액세스하려면 **사용** 섹션에서 **로그인**을 선택합니다. 
 
-이 통합 문서는 다음과 같은 로그인 추세를 보여 줍니다.
+이 통합 문서는 다음과 같은 로그인 추세를 보여줍니다.
 
 - 모든 로그인
 
@@ -103,7 +103,7 @@ ms.locfileid: "82690625"
 
 - 실패
 
-각 추세는 다음 범주로 필터링 할 수 있습니다.
+각 추세를 다음 범주로 필터링할 수 있습니다.
 
 - 시간 범위
 
@@ -114,7 +114,7 @@ ms.locfileid: "82690625"
 ![로그인 분석](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-각 추세에 대해 다음 범주의 분석 결과를 얻을 수 있습니다.
+각 추세를 다음 범주로 분석한 결과가 제공됩니다.
 
 - 위치
 
@@ -122,22 +122,22 @@ ms.locfileid: "82690625"
 
 - 디바이스
 
-    ![장치에서 로그인](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![디바이스별 로그인](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
-## <a name="sign-ins-using-legacy-authentication"></a>레거시 인증을 사용 하 여 로그인 
+## <a name="sign-ins-using-legacy-authentication"></a>레거시 인증을 사용한 로그인 
 
 
-[레거시 인증](../conditional-access/block-legacy-authentication.md)을 사용 하는 로그인에 대 한 통합 문서에 액세스 하려면 **사용** 섹션에서 **레거시 인증을 사용 하 여 로그인**을 선택 합니다. 
+[레거시 인증](../conditional-access/block-legacy-authentication.md)을 사용하는 로그인에 대한 통합 문서에 액세스하려면 **사용** 섹션에서 **레거시 인증을 사용한 로그인**을 선택합니다. 
 
-이 통합 문서는 다음과 같은 로그인 추세를 보여 줍니다.
+이 통합 문서는 다음과 같은 로그인 추세를 보여줍니다.
 
 - 모든 로그인
 
 - Success
 
 
-각 추세는 다음 범주로 필터링 할 수 있습니다.
+각 추세를 다음 범주로 필터링할 수 있습니다.
 
 - 시간 범위
 
@@ -147,21 +147,21 @@ ms.locfileid: "82690625"
 
 - 프로토콜
 
-![레거시 인증으로 로그인](./media/howto-use-azure-monitor-workbooks/47.png)
+![레거시 인증을 사용한 로그인](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
-각 추세에 대해 앱 및 프로토콜을 기준으로 분석을 받습니다.
+각 추세를 앱 및 프로토콜 기준으로 분석한 결과가 제공됩니다.
 
-![앱 및 프로토콜인 레거시 인증 로그인](./media/howto-use-azure-monitor-workbooks/48.png)
-
-
-
-## <a name="sign-ins-by-conditional-access"></a>조건부 액세스로 로그인 
+![앱 및 프로토콜별 레거시 인증 로그인](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
-[조건부 액세스 정책의](../conditional-access/overview.md)로그인에 대 한 통합 문서에 액세스 **하려면 조건부 액세스 섹션에서** **조건부 액세스 별 로그인**을 선택 합니다. 
 
-이 통합 문서에서는 비활성화 된 로그인에 대 한 추세를 보여 줍니다. 각 추세는 다음 범주로 필터링 할 수 있습니다.
+## <a name="sign-ins-by-conditional-access"></a>조건부 액세스를 사용한 로그인 
+
+
+[조건부 액세스 정책](../conditional-access/overview.md)별 로그인에 대한 통합 문서에 액세스하려면 **조건부 액세스** 섹션에서 **조건부 액세스를 사용한 로그인**을 선택합니다. 
+
+이 통합 문서는 사용되지 않는 로그인에 대한 추세를 보여줍니다. 각 추세를 다음 범주로 필터링할 수 있습니다.
 
 - 시간 범위
 
@@ -172,7 +172,7 @@ ms.locfileid: "82690625"
 ![조건부 액세스를 사용하여 로그인](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-비활성화 된 로그인의 경우 조건부 액세스 상태에 대 한 분석을 받게 됩니다.
+사용되지 않는 로그인의 경우 조건부 액세스 상태별로 분석한 결과가 제공됩니다.
 
 ![조건부 액세스 상태](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -181,10 +181,10 @@ ms.locfileid: "82690625"
 
 ### <a name="overview"></a>개요
 
-통합 문서에는 IT 관리자가 테 넌 트의 조건부 액세스 정책의 영향을 모니터링 하는 데 도움이 되는 로그인 로그 쿼리가 포함 되어 있습니다. 액세스 권한이 부여 되거나 거부 된 사용자 수에 대해 보고할 수 있습니다. 통합 문서에는 로그인 시 해당 사용자의 특성을 기반으로 조건부 액세스 정책을 우회 한 사용자 수에 대 한 정보가 포함 되어 있습니다. 장치 플랫폼, 장치 상태, 클라이언트 앱, 로그인 위험, 위치 및 응용 프로그램을 비롯 한 조건에 따라 정책의 영향을 까닭 수 있도록 조건 당 세부 정보를 포함 합니다.
+통합 문서에는 IT 관리자가 테넌트의 조건부 액세스 정책의 영향을 모니터링하는 데 도움이 되는 로그인 로그 쿼리가 포함되어 있습니다. 액세스 권한이 부여되거나 거부된 사용자 수를 보고하는 기능이 있습니다. 통합 문서에는 로그인 시 사용자의 특성을 기반으로 조건부 액세스 정책을 우회한 사용자 수에 대한 인사이트가 포함되어 있습니다. 여기에는 디바이스 플랫폼, 디바이스 상태, 클라이언트 앱, 로그인 위험, 위치 및 애플리케이션을 비롯한 조건에 따라 정책의 영향을 컨텍스트화할 수 있도록 조건에 따른 세부 정보가 포함되어 있습니다.
 
 ### <a name="instructions"></a>Instructions 
-조건부 액세스 정보에 대 한 통합 문서에 액세스 하려면 조건부 액세스 섹션에서 **조건부 액세스 insights** 통합 문서를 선택 합니다. 이 통합 문서에서는 테 넌 트의 각 조건부 액세스 정책에 대 한 예상 된 영향을 보여 줍니다. 드롭다운 목록에서 조건부 액세스 정책을 하나 이상 선택 하 고 다음 필터를 적용 하 여 통합 문서의 범위를 좁힙니다. 
+조건부 액세스 인사이트에 대한 통합 문서에 액세스하려면 [조건부 액세스] 섹션에서 **조건부 액세스 인사이트**를 선택합니다. 이 통합 문서는 테넌트의 각 조건부 액세스 정책이 미칠 것으로 예상되는 영향을 보여줍니다. 드롭다운 목록에서 조건부 액세스 정책을 하나 이상 선택하고, 다음 필터를 적용하여 통합 문서의 범위를 좁힙니다. 
 
 - **시간 범위**
 
@@ -197,12 +197,12 @@ ms.locfileid: "82690625"
 ![조건부 액세스 상태](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
-영향 요약은 선택한 정책에 특정 결과가 발생 한 사용자 또는 로그인의 수를 표시 합니다. Total은 선택한 정책이 선택한 시간 범위에서 평가 된 사용자 또는 로그인의 수입니다. 타일을 클릭 하 여 해당 결과 유형별로 통합 문서의 데이터를 필터링 합니다. 
+[영향 요약]은 선택한 정책이 특정 결과를 가져온 사용자 또는 로그인 수를 보여줍니다. [합계]는 선택한 시간 범위에서 선택한 정책을 평가한 사용자 또는 로그인의 수입니다. 타일을 클릭하면 통합 문서의 데이터를 해당 결과 유형별로 필터링할 수 있습니다. 
 
 ![조건부 액세스 상태](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
-이 통합 문서는 다음 6 가지 조건에 따라 선택한 정책의 영향을 보여 줍니다. 
-- **장치 상태**
+이 통합 문서는 선택한 정책의 영향을 다음 6개 조건별로 나누어서 보여줍니다. 
+- **디바이스 상태**
 - **디바이스 플랫폼**
 - **클라이언트 앱**
 - **로그인 위험**
@@ -211,7 +211,7 @@ ms.locfileid: "82690625"
 
 ![조건부 액세스 상태](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
-통합 문서에서 선택한 매개 변수를 기준으로 필터링 된 개별 로그인을 조사할 수도 있습니다. 개별 사용자를 검색 하 고 로그인 빈도를 기준으로 정렬 한 다음 해당 로그인 이벤트를 확인 합니다. 
+통합 문서에서 선택한 매개 변수를 기준으로 필터링된 개별 로그인을 조사할 수도 있습니다. 개별 사용자를 검색하고(로그인 빈도를 기준으로 정렬됨), 해당하는 로그인 이벤트를 확인합니다. 
 
 ![조건부 액세스 상태](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
@@ -219,22 +219,22 @@ ms.locfileid: "82690625"
 
 
 
-## <a name="sign-ins-by-grant-controls"></a>권한 부여 컨트롤을 통한 로그인
+## <a name="sign-ins-by-grant-controls"></a>권한 부여 컨트롤별 로그인
 
-[권한 부여 컨트롤](../conditional-access/controls.md)을 사용 하 여 로그인에 대 한 통합 문서에 액세스 하려면 **조건부 액세스** 섹션에서 **권한 부여 컨트롤을 사용 하 여 로그인**을 선택 합니다. 
+[권한 부여 컨트롤](../conditional-access/controls.md)별 로그인에 대한 통합 문서에 액세스하려면 **조건부 액세스** 섹션에서 **권한 부여 컨트롤별 로그인**을 선택합니다. 
 
-이 통합 문서는 다음과 같은 비활성화 된 로그인 추세를 보여 줍니다.
+이 통합 문서는 다음과 같이 사용되지 않는 로그인 추세를 보여줍니다.
 
-- MFA 필요
+- MFA 요구
  
 - 사용 약관 필요
 
-- 개인정보 취급 방침 필요
+- 개인정보처리방침 필요
 
 - 기타
 
 
-각 추세는 다음 범주로 필터링 할 수 있습니다.
+각 추세를 다음 범주로 필터링할 수 있습니다.
 
 - 시간 범위
 
@@ -242,28 +242,28 @@ ms.locfileid: "82690625"
 
 - 사용자
 
-![권한 부여 컨트롤을 통한 로그인](./media/howto-use-azure-monitor-workbooks/50.png)
+![권한 부여 컨트롤별 로그인](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
-각 추세에 대해 앱 및 프로토콜을 기준으로 분석을 받습니다.
+각 추세를 앱 및 프로토콜 기준으로 분석한 결과가 제공됩니다.
 
 ![최근 로그인 분석](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
-## <a name="sign-ins-failure-analysis"></a>로그인 오류 분석
+## <a name="sign-ins-failure-analysis"></a>로그인 실패 분석
 
-다음을 사용 하 여 오류를 해결 하려면 **로그인 오류 분석** 통합 문서를 사용 합니다.
+**로그인 실패 분석** 통합 문서를 사용하여 다음 항목의 오류를 해결할 수 있습니다.
 
 - 로그인
 - 조건부 액세스 정책
 - 레거시 인증 
 
 
-조건부 액세스 데이터를 사용 하 여 로그인에 액세스 하려면 **문제 해결** 섹션에서 **레거시 인증을 사용 하 여 로그인**을 선택 합니다. 
+조건부 액세스별 로그인 데이터에 액세스하려면 **문제 해결** 섹션에서 **레거시 인증을 사용한 로그인**을 선택합니다. 
 
-이 통합 문서는 다음과 같은 로그인 추세를 보여 줍니다.
+이 통합 문서는 다음과 같은 로그인 추세를 보여줍니다.
 
 - 모든 로그인
 
@@ -274,7 +274,7 @@ ms.locfileid: "82690625"
 - 실패
 
 
-각 추세는 다음 범주로 필터링 할 수 있습니다.
+각 추세를 다음 범주로 필터링할 수 있습니다.
 
 - 시간 범위
 
@@ -285,7 +285,7 @@ ms.locfileid: "82690625"
 ![로그인 문제 해결](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-로그인 문제를 해결 하는 데 도움이 되도록 Azure Monitor는 다음 범주의 분류를 제공 합니다.
+로그인 문제 해결을 도와주기 위해 Azure Monitor에서는 다음과 같은 범주를 기준으로 분석한 정보를 제공합니다.
 
 - 상위 오류
 
@@ -293,7 +293,7 @@ ms.locfileid: "82690625"
 
 - 사용자 작업을 기다리는 로그인
 
-    ![사용자 작업을 기다리는 로그인의 요약](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![사용자 작업을 기다리는 로그인 요약](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -302,4 +302,4 @@ ms.locfileid: "82690625"
 
 ## <a name="next-steps"></a>다음 단계
 
-[통합 문서 모니터링을 사용 하 여 대화형 보고서를 만듭니다](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Monitor 통합 문서를 사용하여 대화형 보고서를 작성합니다](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

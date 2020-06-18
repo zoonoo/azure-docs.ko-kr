@@ -1,6 +1,6 @@
 ---
-title: 확인 방법으로 문자 메시지 설정-Azure AD
-description: 확인 방법으로 문자 메시지를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
+title: 확인 방법으로 문자 메시지 설정 - Azure AD
+description: 확인 방법으로 문자 메시지를 사용하여 ID를 확인하는 보안 정보(미리 보기) 페이지를 설정하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,17 +8,17 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 32ec35094740f05a2c2a6f17ab5dafa29d30a0f1
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628813"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747234"
 ---
-# <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지를 설정 합니다.
+# <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지 설정
 
 이 단계를 수행하여 2단계 확인 및 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "82628813"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->전화 옵션이 표시 되지 않으면 조직에서이 옵션을 사용 하 여 확인 하는 것을 허용 하지 않을 수 있습니다. 이 경우 다른 방법을 선택 하거나 조직의 지원 센터에 문의 하 여 추가 지원을 요청 해야 합니다.
+>전화 옵션이 표시되지 않으면 조직에서 이 옵션을 사용하여 인증하지 못할 수 있습니다. 이 경우 다른 방법을 선택하거나 조직의 지원 데스크에 문의하여 추가 지원을 받아야 합니다.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>보안 정보 페이지에서 문자 메시지 설정
 
@@ -81,7 +81,7 @@ ms.locfileid: "82628813"
 
 ## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
-2 단계 인증을 사용 하 여 회사 또는 학교 계정에 로그인 하거나 암호 재설정 요청을 수행할 때 문자 메시지를 기본 방법으로 사용 하려면 **보안 정보** 페이지에서 설정할 수 있습니다.
+2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 문자 메시지를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
 
 ### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
 
@@ -103,9 +103,9 @@ ms.locfileid: "82628813"
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+- **보안 키.** Microsoft 호환 보안 키를 등록하고 2단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용합니다. 보안 키를 사용하여 ID를 확인하는 방법에 대한 단계별 지침은 [보안 키를 사용하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조하세요.
 
-- **전자 메일 주소입니다.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
+- **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
 - **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 

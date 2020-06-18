@@ -1,15 +1,15 @@
 ---
 title: PowerShell 시작
 description: Batch 리소스를 관리하는 데 사용할 수 있는 Azure PowerShell cmdlet에 대한 간략한 소개입니다.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995328"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779616"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -39,13 +39,13 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 ### <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 다음은 그 예입니다. 
+**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 다음은 그 예입니다.
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 다음은 그 예입니다. 
+그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 다음은 그 예입니다.
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -79,7 +79,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Batch 계정 삭제
 
-**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 다음은 그 예입니다. 
+**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 다음은 그 예입니다.
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -114,7 +114,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>Batch 풀 만들기
 
-Batch 풀을 만들거나 업데이트할 때 컴퓨팅 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 컴퓨팅 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열된 지원되는 Linux 또는 Windows VM 이미지 중 하나를 지정하거나 미리 준비한 사용자 지정 이미지를 제공할 수 있습니다.
+Batch 풀을 만들거나 업데이트할 때 컴퓨팅 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([노드 및 풀](nodes-and-pools.md#configurations) 참조). 클라우드 서비스 구성을 지정하면 컴퓨팅 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 머신 구성을 지정하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열된 지원되는 Linux 또는 Windows VM 이미지 중 하나를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다.
 
 **New-AzBatchPool**을 실행하는 경우 PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
@@ -164,7 +164,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount 매개 변수 사용
 
-기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 다음은 그 예입니다. 
+기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 다음은 그 예입니다.
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
@@ -192,13 +192,13 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 애플리케이션 패키지는 풀에서 컴퓨팅 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
-응용 프로그램을 **만듭니다** .
+**만듭니다** .
 
 ```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
-응용 프로그램 패키지를 **추가** 합니다.
+**추가합니다** .
 
 ```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
@@ -247,9 +247,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-이제 풀을 만들고 패키지 참조 개체를 `ApplicationPackageReferences` 옵션에 대한 인수로 지정:
+이제 구성 및 풀을 만듭니다. 이 예에서는 `$configuration`에서 초기화된 `PSCloudServiceConfiguration` 형식 개체와 함께 **CloudServiceConfiguration** 매개 변수를 사용합니다. 이 매개 변수는 'Windows Server 2019'의 경우 **OSFamily**를 `6`으로 설정하고, **OSVersion**을 `*`로 설정합니다. 패키지 참조 개체를 `ApplicationPackageReferences` 옵션에 대한 인수로 지정합니다.
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

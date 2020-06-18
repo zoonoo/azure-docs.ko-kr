@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 201d3203d845ce84207d103750709fe2ff93f022
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596322"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798876"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus**는 그 중 하나입니다. 
@@ -69,6 +69,97 @@ az eventgrid event-subscription create \
 조정된 메시지로 Service Bus 큐 또는 토픽으로 이벤트를 보낼 때 조정된 메시지의 `messageid`는 **이벤트 ID**입니다.
 
 이벤트를 다시 전달하는 동안 이벤트 ID가 유지되므로 Service Bus 엔터티에서 **중복 검색**을 설정하여 중복 전달 문제를 방지할 수 있습니다. Service Bus 엔터티에서 중복 검색 기간을 이벤트의 TTL(Time-to-Live) 또는 최대 다시 시도 기간 중 더 긴 기간으로 설정하는 것이 좋습니다.
+
+## <a name="rest-examples-for-put"></a>REST 예제(PUT의 경우)
+
+### <a name="service-bus-queue"></a>Service Bus 큐
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-queue---delivery-with-managed-identity"></a>Service Bus 쿼리 - 관리 ID로 전달
+
+```json
+{
+    "properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusQueue",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic"></a>Service Bus 토픽
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusTopic",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic---delivery-with-managed-identity"></a>Service Bus 토픽 - 관리 ID로 전달
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusTopic",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

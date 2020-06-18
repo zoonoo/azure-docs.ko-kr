@@ -1,0 +1,97 @@
+- name: FHIR용 Azure API
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure API for FHIR 정보
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Azure API for FHIR 배포 - 포털
+      href: fhir-paas-portal-quickstart.md
+    - name: Azure API for FHIR 배포 - PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - name: Azure API for FHIR 배포 - CLI
+      href: fhir-paas-cli-quickstart.md
+    - name: FHIR Server for Azure 배포 - 포털
+      href: fhir-oss-portal-quickstart.md
+    - name: FHIR Server for Azure 배포 - PowerShell
+      href: fhir-oss-powershell-quickstart.md
+    - name: FHIR Server for Azure 배포 - CLI
+      href: fhir-oss-cli-quickstart.md
+- name: 자습서
+  expanded: false
+  items:
+    - name: JavaScript 애플리케이션 배포
+      expanded: false
+      items:
+        - name: 1. 초기 설정 및 FHIR 배포
+          href: tutorial-web-app-fhir-server.md
+        - name: 2. 퍼블릭 클라이언트 애플리케이션 등록
+          href: tutorial-web-app-public-app-reg.md
+        - name: 3. Postman을 사용하여 테스트 설정
+          href: tutorial-web-app-test-postman.md
+        - name: 4. 웹 애플리케이션 작성
+          href: tutorial-web-app-write-web-app.md
+    - name: Postman에서 FHIR API에 액세스
+      href: access-fhir-postman-tutorial.md
+    - name: FHIR 프록시에 SMART 사용
+      href: use-smart-on-fhir-proxy.md
+- name: 방법 가이드
+  expanded: false
+  items:
+    - name: 애플리케이션 등록
+      expanded: false
+      items:
+        - name: Azure API for FHIR용 애플리케이션 등록 개요
+          href: fhir-app-registration.md
+        - name: 리소스 애플리케이션
+          href: register-resource-azure-ad-client-app.md
+        - name: 기밀 클라이언트 애플리케이션
+          href: register-confidential-azure-ad-client-app.md
+        - name: 퍼블릭 클라이언트 애플리케이션
+          href: register-public-azure-ad-client-app.md
+        - name: 클라이언트 애플리케이션 서비스
+          href: register-service-azure-ad-client-app.md
+    - name: 설정 구성
+      expanded: false
+      items:
+        - name: 추가 Azure API for FHIR 설정 구성
+          href: azure-api-for-fhir-additional-settings.md
+        - name: Azure RBAC 구성
+          href: configure-azure-rbac.md
+        - name: 로컬 RBAC 구성
+          href: configure-local-rbac.md
+        - name: 데이터베이스 설정 구성
+          href: configure-database.md
+        - name: CORS 구성
+          href: configure-cross-origin-resource-sharing.md
+        - name: 내보내기 구성
+          href: configure-export-data.md
+    - name: ID 개체 ID 찾기
+      href: find-identity-object-ids.md
+    - name: Azure API for FHIR®에서 진단 로깅 사용
+      href: enable-diagnostic-logging.md
+    - name: Azure API for FHIR의 토큰 가져오기 - CLI
+      href: get-healthcare-apis-access-token-cli.md
+- name: 개념
+  expanded: false
+  items:
+    - name: Azure AD 및 Azure API for FHIR 개요
+      href: azure-ad-hcapi.md
+    - name: 액세스 토큰 유효성 검사
+      href: azure-ad-hcapi-token-validation.md
+    - name: 사용자 지정 HTTP 헤더를 사용하여 감사 로그에 데이터 추가
+      href: use-custom-headers.md
+- name: 리소스
+  items:
+    - name: FAQ
+      href: fhir-faq.md
+    - name: 지원되는 기능
+      href: fhir-features-supported.md
+    - name: 파트너 에코시스템
+      href: partner-ecosystem.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/healthcareapis/healthcareapis

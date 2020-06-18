@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197844"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848824"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Azure Cache for Redis 사용에서 TLS 1.0과 1.1 제거
 
@@ -31,12 +31,12 @@ ms.locfileid: "83197844"
 
 이러한 변경 사항이 적용되는 날짜는 다음과 같습니다.
 
-| 클라우드               | 1단계 시작 날짜 | 2단계 시작 날짜      |
-|---------------------|--------------------|-------------------------|
-| Azure(글로벌)      |  2020년 1월 13일  | 2020년 5월 11일            |
-| Azure Government    |  2020년 3월 13일    | 2020년 5월 11일            |
-| Azure Germany       |  2020년 3월 13일    | 2020년 5월 11일            |
-| Azure 중국         |  2020년 3월 13일    | 2020년 5월 11일            |
+| 클라우드                | 1단계 시작 날짜 | 2단계 시작 날짜      |
+|----------------------|--------------------|-------------------------|
+| Azure(글로벌)       |  2020년 1월 13일  | 2020년 5월 11일            |
+| Azure Government     |  2020년 3월 13일    | 2020년 5월 11일            |
+| Azure Germany        |  2020년 3월 13일    | 2020년 5월 11일            |
+| Azure China 21Vianet |  2020년 3월 13일    | 2020년 5월 11일            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>애플리케이션이 이미 규격에 맞는지 확인
 
@@ -55,7 +55,12 @@ Redis .NET 클라이언트는 .NET Framework 4.5.2 또는 이전 버전에서 �
 
 ### <a name="net-core"></a>.NET Core
 
-Redis .NET Core 클라이언트는 기본적으로 최신 TLS 버전을 사용합니다.
+Redis .NET Core 클라이언트는 OS 자체에 따라 달라지는 OS 기본 TLS 버전으로 기본 설정됩니다. 
+
+OS가 릴리스된 시기 및 다른 패치가 기본 TLS 버전을 변경한 경우에 따라 OS TLS 버전은 매우 달라질 수 있습니다. 이에 대한 전체 정보는 없지만 Windows OS의 경우 [여기](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)에서 자세한 정보를 찾을 수 있습니다. 
+
+그러나 이전 OS를 사용하고 있는 경우 클라이언트를 통해 기본 설정된 TLS 버전을 수동으로 구성하는 것이 좋습니다.
+
 
 ### <a name="java"></a>Java
 

@@ -6,7 +6,7 @@
     - name: Azure Machine Learning이란?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning 및 Studio
+    - name: Azure Machine Learning 및 Studio(클래식)
       displayName: 'AML, Studio, designer'
       href: compare-azure-ml-to-studio-classic.md
     - name: 아키텍처 및 용어

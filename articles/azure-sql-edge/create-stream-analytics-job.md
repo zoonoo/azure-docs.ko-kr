@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595392"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685165"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 Stream Analytics 작업 만들기 
 
@@ -22,6 +22,9 @@ ms.locfileid: "83595392"
 
 1. 외부 스트림 입력 및 출력 개체 만들기
 2. 스트리밍 작업을 만드는 과정에서 스트리밍 작업 쿼리 정의
+
+> [!NOTE]
+> Azure SQL Edge에서 T-SQL 스트리밍 기능을 사용하도록 설정하려면 TF 11515를 시작 옵션으로 활성화하거나 [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) 명령을 사용합니다. mssql.conf 파일을 사용하여 추적 플래그를 활성화하는 방법에 대한 자세한 내용은 [mssql.conf 파일을 사용한 구성](configure.md#configure-using-mssqlconf-file)을 참조하세요. 이 요구 사항은 향후 Azure SQL Edge 업데이트(미리 보기)에서 제거됩니다.
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>외부 스트림 입력 및 출력 개체 구성
 

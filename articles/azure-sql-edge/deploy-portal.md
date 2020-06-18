@@ -2,19 +2,19 @@
 title: Azure Portal을 사용하여 Azure SQL Edge(미리 보기) 배포
 description: Azure Portal을 사용하여 Azure SQL Edge(미리 보기)를 배포하는 방법 알아보기
 keywords: SQL Edge 배포
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dfc7b680c6b7d6b2a3641b25c0f82665143bde1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594672"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233252"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기) 배포 
 
@@ -57,7 +57,7 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
    |**매개 변수**  |**설명**|
    |---------|---------|
-   | 속성 | 모듈의 이름입니다. |
+   | Name | 모듈의 이름입니다. |
    |SA_PASSWORD  | SQL Edge 관리자 계정의 강력한 암호를 지정합니다. |
    |MSSQL_LCID   | SQL Server에 사용할 언어 ID를 설정합니다. 예를 들어 1036은 프랑스어입니다. |
    |MSSQL_COLLATION | SQL Server에 대한 기본 데이터 정렬을 설정합니다. 이 설정은 데이터 정렬에 대한 언어 ID(LCID)의 기본 매핑을 재정의합니다. |
@@ -119,4 +119,4 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Edge에 ONNX를 사용하는 Machine Learning 및 AI](onnx-overview.md)
-- IoT Edge를 사용하여 SQL Edge에 엔드투엔드 IoT 솔루션 빌드
+- [IoT Edge를 사용하여 SQL Edge로 엔드투엔드 IoT 솔루션 빌드](tutorial-deploy-azure-resources.md).

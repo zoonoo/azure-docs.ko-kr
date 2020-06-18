@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965662"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833934"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Virtual Machines의 SQL Server에서 Azure Premium Storage 사용
 
@@ -29,11 +29,11 @@ ms.locfileid: "75965662"
 [Azure 프리미엄 SSD](../disks-types.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 스토리지로, IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 워크로드에서 매우 효율적입니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 문서에서는 SQL Server를 실행하는 Virtual Machine이 Premium Storage를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 스토리지) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 스토리지를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
-IAAS VM의 SQL Server에서 Azure Premium Storage를 활용하는 엔드투엔드 프로세스를 이해해야 합니다. 여기에는 다음 항목이 포함됩니다.
+IAAS VM의 SQL Server에서 Azure Premium Storage를 활용하는 엔드투엔드 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
 
 * Premium Storage를 사용하기 위한 필수 구성 요소 파악
 * 새 배포를 위해 IaaS의 SQL Server를 Premium Storage에 배포하는 예제
@@ -64,7 +64,7 @@ Premium Storage를 사용하려면 DS 시리즈 VM(Virtual Machines)을 사용�
 
 ### <a name="regional-vnets"></a>지역별 VNET
 
-DS* VM에 대해 VM을 호스팅하는 VNET(Virtual Network)을 해당 지역용으로 구성해야 합니다. 이와 같이 VNET을 확장하면 대형 VM을 다른 클러스터에 프로비전할 수 있으며 클러스터가 서로 통신할 수 있습니다. 다음 스크린샷에서 강조 표시된 위치에는 지역 VNET이 나와 있고 첫 번째 결과에는 축소된 VNET이 나와 있습니다.
+DS* VM에 대해 VM을 호스팅하는 VNET(Virtual Network)을 해당 지역용으로 구성해야 합니다. 이와 같이 VNET을 "확장"하면 대형 VM을 다른 클러스터에 프로비저닝하고 클러스터 간의 통신을 허용합니다. 다음 스크린샷에서 강조 표시된 위치에는 지역 VNET이 나와 있고 첫 번째 결과에는 "축소"된 VNET이 나와 있습니다.
 
 ![RegionalVNET][1]
 
@@ -97,7 +97,7 @@ VNET으로 마이그레이션하려면 Microsoft 지원 티켓을 제출할 수 
 
 ### <a name="storage-accounts"></a>Storage 계정
 
-Premium Storage용으로 구성된 새 스토리지 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
+Premium Storage용으로 구성된 새 스토리지 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 Premium 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
 
 아래에 나와 있는 "Premium_LRS" **형식**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 Premium Storage 계정을 만듭니다.
 
@@ -108,7 +108,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 
 ### <a name="vhds-cache-settings"></a>VHD 캐시 설정
 
-Premium Storage 계정의 일부분인 디스크를 만들 때의 기본적인 차이점은 디스크 캐시 설정입니다. SQL Server 데이터 볼륨 디스크의 경우에는 ‘**Read Caching**’을 사용하는 것이 좋습니다. 트랜잭션 로그 볼륨의 경우에는 디스크 캐시 설정을 ‘**None**’으로 지정해야 합니다. 이러한 설정은 Standard Storage 계정에 대한 권장 사항과는 다릅니다.
+Premium Storage 계정의 일부분인 디스크를 만들 때의 기본적인 차이점은 디스크 캐시 설정입니다. SQL Server 데이터 볼륨 디스크의 경우에는 '**Read Caching**'을 사용하는 것이 좋습니다. 트랜잭션 로그 볼륨의 경우에는 디스크 캐시 설정을 '**None**'으로 지정해야 합니다. 이러한 설정은 Standard Storage 계정에 대한 권장 사항과는 다릅니다.
 
 VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
@@ -139,14 +139,14 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. DiskName 및 LUN에 유의 하십시오.
+1. DiskName과 LUN을 참고하세요.
 
     ![DisknameAndLUN][2]
-1. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **Device Manager** | **디스크 드라이브**로 이동 합니다. 각 ‘Microsoft 가상 디스크'의 속성을 확인합니다.
+1. VM에 원격 데스크톱으로 연결합니다. 그런 다음 **컴퓨터 관리** | **디바이스 관리자** | **디스크 드라이브**로 이동합니다. 각 'Microsoft Virtual Disks'의 속성을 확인합니다.
 
     ![VirtualDiskProperties][3]
 1. 여기서 LUN 번호는 VHD를 VM에 연결할 때 지정하는 LUN 번호에 대한 참조입니다.
-1. 'Microsoft 가상 디스크'의 경우 **세부 정보** 탭으로 이동한 다음 **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 스토리지 풀이 참조하는 PhysicalDisk2를 나타냅니다.
+1. 'Microsoft Virtual Disk'의 경우 **세부 정보** 탭으로 이동한 다음, **속성** 목록에서 **드라이버 키**로 이동합니다. **값**에서 **오프셋**을 확인합니다. 아래 스크린샷에서 오프셋은 0002입니다. 0002는 스토리지 풀이 참조하는 PhysicalDisk2를 나타냅니다.
 
     ![VirtualDiskPropertyDetails][4]
 1. 각 스토리지 풀에 대해 연결된 디스크를 덤프합니다.
@@ -271,7 +271,7 @@ $pass = "mycomplexpwd4*"
 $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
 #Add Data and Log Disks to VM Config
-#Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
+#Note the size specified '-DiskSizeInGB 1023', this attaches 2 x P30 Premium Storage Disk Type
 #Utilising the Premium Storage enabled Storage account
 
 $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -293,7 +293,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 이 시나리오에서는 Standard Storage 계정에 기존의 사용자 지정된 이미지가 있는 경우를 설명합니다. 앞에서 설명한 것처럼, OS VHD를 Premium Storage에 배치하려는 경우 Standard Storage 계정에 있는 이미지를 복사한 다음, Premium Storage로 전송해야 해당 VHD를 사용할 수 있습니다. 온-프레미스에 이미지가 있는 경우에는 이 방법을 통해 Premium Storage 계정으로 이미지를 직접 복사할 수도 있습니다.
 
-#### <a name="step-1-create-storage-account"></a>1단계: Storage 계정 만들기
+#### <a name="step-1-create-storage-account"></a>1단계: 스토리지 계정 만들기
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -316,7 +316,7 @@ New-AzureService $destcloudsvc -Location $location
 
 #### <a name="step-3-use-existing-image"></a>3단계: 기존 이미지 사용
 
-기존 이미지를 사용할 수 있으며 [기존 컴퓨터의 이미지를 사용](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수도 있습니다. 이미지를 생성하는 컴퓨터는 DS* 컴퓨터가 아니어도 됩니다. 이미지를 만든 후 다음 단계에서는 **시작-AzureStorageBlobCopy** PowerShell을 사용 하 여 Premium Storage 계정에 복사 하는 방법을 보여 줍니다.
+기존 이미지를 사용할 수 있으며 [기존 컴퓨터의 이미지를 사용](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수도 있습니다. 이미지를 생성하는 컴퓨터는 DS* 컴퓨터가 아니어도 됩니다. 다음 단계에서는 이미지를 생성한 후 **Start-AzureStorageBlobCopy** PowerShell commandlet을 사용하여 Premium Storage 계정에 해당 이미지를 복사하는 방법을 보여 줍니다.
 
 ```powershell
 #Get storage account keys:
@@ -361,7 +361,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 > [!NOTE]
 > 상태는 성공으로 보고되는데 디스크 임대 오류가 발생하는 경우가 있습니다. 이 경우 10분 정도 기다립니다.
 
-#### <a name="step-7--build-the-vm"></a>7단계: VM 빌드
+#### <a name="step-7--build-the-vm"></a>7단계:  VM 빌드
 
 이 단계에서는 이미지에서 VM을 빌드하고 Premium Storage VHD 두 개를 연결합니다.
 
@@ -405,7 +405,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 Always On 가용성 그룹 사용 여부에 따라 SQL Server 배포 관련 고려 사항이 달라집니다. Always On을 사용하지 않으며 기존 독립 실행형 SQL Server가 있는 경우 새 클라우드 서비스 및 Storage 계정을 사용하여 Premium Storage로 업그레이드할 수 있습니다. 다음 옵션을 살펴보세요.
 
-* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 애플리케이션을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
+* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 애플리케이션을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 'db 외부'의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
 * **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음, 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 Premium Storage 계정으로 복사합니다. VM이 온라인 상태가 되면 애플리케이션은 이전과 같이 서버 호스트 이름을 참조합니다. 기존 디스크의 크기가 성능 특성에 영향을 준다는 것에 유의하세요. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 Premium Storage VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
 
 > [!NOTE]
@@ -438,7 +438,7 @@ Microsoft Azure에서는 VM의 NIC에 IP 주소를 하나만 할당할 수 있�
 1. **기존 Always On 클러스터에 보조 복제본 더 추가**
 2. **새 Always On 클러스터로 마이그레이션**
 
-#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. 기존 Always On 클러스터에 보조 복제본을 더 추가 합니다.
+#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. 기존 Always On 클러스터에 보조 복제본 더 추가
 
 전략 중 하나는 Always On 가용성 그룹에 보조 복제본을 더 추가하는 것입니다. 이러한 복제본을 새 클라우드 서비스에 추가하고 새 부하 분산 장치 IP로 수신기를 업데이트해야 합니다.
 
@@ -461,7 +461,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 
 1. Premium Storage가 연결된 새 클라우드 서비스에 SQL Server 두 개를 새로 만듭니다.
 2. **NORECOVERY**를 사용하여 전체 백업 및 복원을 복사합니다.
-3. 로그인 등의 사용자 DB 외부에 있는 종속 개체를 복사합니다.
+3. 로그인 등의 사용자 'DB 외부'에 있는 종속 개체를 복사합니다.
 4. 새 ILB(내부 부하 분산 장치) 또는 ELB(외부 부하 분산 장치)를 만든 다음 두 새 노드에 모두 부하 분산된 엔드포인트를 설정합니다.
 
    > [!NOTE]
@@ -474,7 +474,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 8. 유효성 검사가 정상적으로 완료되면 모든 SQL Server 서비스를 시작합니다.
 9. 트랜잭션 로그를 백업하고 사용자 데이터베이스를 복원합니다.
 10. Always On 가용성 그룹에 새 노드를 추가하고 복제를 **동기**로 설정합니다.
-11. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 다중 사이트 예제를 기준으로 하여 Always On용 PowerShell을 통해 새 클라우드 서비스 ILB/ELB의 IP 주소 리소스를 추가합니다. Windows 클러스터링에서 **IP 주소** 리소스의 **가능한 소유자**를 새 노드로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+11. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 다중 사이트 예제를 기준으로 하여 Always On용 PowerShell을 통해 새 클라우드 서비스 ILB/ELB의 IP 주소 리소스를 추가합니다. Windows 클러스터링에서 **IP 주소** 리소스의 **가능한 소유자**를 새 노드로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 '동일한 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 12. 새 노드 중 하나로 장애 조치(failover)합니다.
 13. 새 노드를 자동 장애 조치(failover)로 지정한 다음 장애 조치(failover)를 테스트합니다.
 14. 가용성 그룹에서 원래 노드를 제거합니다.
@@ -520,10 +520,10 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 
 가동 중지 시간을 최소화해야 하는 Always On 배포를 마이그레이션할 때는 두 가지 전략을 사용할 수 있습니다.
 
-1. **기존 보조 데이터베이스 활용: 단일 사이트**
+1. **기존 보조 복제본 활용: 단일 사이트**
 2. **기존 보조 복제본 활용: 다중 사이트**
 
-#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. 기존 보조 데이터베이스를 활용 합니다. 단일 사이트
+#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. 기존 보조 복제본 활용: 단일 사이트
 
 가동 중지 시간을 최소화하는 전략 중 하나는 기존의 클라우드 보조 복제본을 가져온 다음 현재 클라우드 서비스에서 제거하는 것입니다. 그런 다음 새 Premium Storage 계정에 VHD를 복사하고 새 클라우드 서비스에서 VM을 만듭니다. 그리고 나서 클러스터링 및 장애 조치(failover)에서 수신기를 업데이트합니다.
 
@@ -531,7 +531,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 
 * 부하 분산된 엔드포인트로 최종 노드를 업데이트할 때 가동 중지 시간이 발생합니다.
 * 클라이언트/DNS 구성에 따라 클라이언트 다시 연결이 지연될 수 있습니다.
-* Always On 클러스터 그룹을 오프라인으로 설정하여 IP 주소를 교환하려는 경우에는 가동 중지 시간이 추가로 발생합니다. 추가되는 IP 주소 리소스에 대해 OR 종속성 및 가능한 소유자를 사용하면 이러한 가동 중지 시간을 방지할 수 있습니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+* Always On 클러스터 그룹을 오프라인으로 설정하여 IP 주소를 교환하려는 경우에는 가동 중지 시간이 추가로 발생합니다. 추가되는 IP 주소 리소스에 대해 OR 종속성 및 가능한 소유자를 사용하면 이러한 가동 중지 시간을 방지할 수 있습니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 '동일한 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 
 > [!NOTE]
 > 추가한 노드를 Always On 장애 조치(failover) 파트너로 사용하려는 경우에는 부하 분산된 집합에 대한 참조와 함께 Azure 엔드포인트를 추가해야 합니다. 이를 위해 **Add-AzureEndpoint** 명령을 실행하면 현재 연결은 계속 열려 있지만 부하 분산 장치를 업데이트할 때까지 수신기에 대한 새 연결을 설정할 수 없습니다. 테스트에서는 이 시간이 90~120초로 확인되었지만 실제 환경에서 테스트를 수행해야 합니다.
@@ -564,7 +564,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 * ILB/ELB를 구성하고 엔드포인트 추가
 * 다음 중 하나를 수행하여 수신기 업데이트
   * Always On 그룹을 오프라인으로 설정하고 새 ILB/ELB IP 주소로 Always On 수신기를 업데이트합니다.
-  * PowerShell을 통해 새 클라우드 서비스 iLB/ELB의 IP 주소 리소스를 Windows 클러스터링에 추가합니다. 그런 다음 IP 주소 리소스의 가능한 소유자를 마이그레이션된 노드인 SQL2로 설정하고 네트워크 이름에서 해당 노드를 OR 종속성으로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+  * PowerShell을 통해 새 클라우드 서비스 iLB/ELB의 IP 주소 리소스를 Windows 클러스터링에 추가합니다. 그런 다음 IP 주소 리소스의 가능한 소유자를 마이그레이션된 노드인 SQL2로 설정하고 네트워크 이름에서 해당 노드를 OR 종속성으로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 '동일한 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 * 클라이언트에 대한 DNS 구성/전파 확인
 * SQL1 VM을 마이그레이션하고 2~4단계 수행
 * 5ii단계를 사용하는 경우 추가된 IP 주소 리소스의 가능한 소유자로 SQL1 추가
@@ -621,7 +621,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 
 이 문서의 나머지 부분에서는 다중 사이트 Always On 클러스터를 Premium Storage로 변환하는 자세한 예제를 제공합니다. 또한 ELB(외부 부하 분산 장치)를 사용하는 수신기가 ILB(내부 부하 분산 장치)를 사용하도록 변환합니다.
 
-### <a name="environment"></a>환경
+### <a name="environment"></a>Environment
 
 * Windows 2012/SQL 2012
 * SP의 DB 파일 하나
@@ -635,7 +635,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 스토리지 풀을 사용
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>사전 단계: 구독에 연결
+### <a name="pre-steps-connect-to-subscription"></a>이전 단계: 구독에 연결
 
 ```powershell
 Add-AzureAccount
@@ -681,9 +681,9 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2 단계: 리소스 \<에 대해 허용 되는 오류 늘리기 (선택 사항>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2단계: 리소스에 대해 허용되는 실패 횟수 늘리기 \<선택 사항>
 
-Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서비스가 리소스 그룹의 재시작을 시도하는 일정 기간 동안 발생 가능한 실패 횟수에 대한 한도가 있습니다. 이 절차를 진행하면서 해당 횟수를 늘리는 것이 좋습니다. 수동으로 장애 조치(failover)하지 않고 컴퓨터를 종료하여 장애 조치(failover)를 트리거하는 경우에는 이 제한에 접근할 수 있기 때문입니다.
+Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서비스가 리소스 그룹의 재시작을 시도하는 일정 기간 동안 발생 가능한 실패 횟수에 대한 한도가 있습니다. 이 절차를 진행하면서 해당 횟수를 늘리는 것이 좋습니다. 수동으로 장애 조치(failover)하지 않고 머신을 종료하여 장애 조치(failover)를 트리거하는 경우에는 이 제한에 접근할 수 있기 때문입니다.
 
 실패 허용 횟수는 두 배로 늘리는 것이 좋습니다. 이렇게 하려면 장애 조치(Failover) 클러스터 관리자에서 Always On 리소스 그룹의 속성으로 이동합니다.
 
@@ -691,7 +691,7 @@ Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서�
 
 최대 실패 횟수를 6으로 변경합니다.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3 단계: 클러스터 그룹 \<의 추가 IP 주소 리소스 선택적>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3단계: 클러스터 그룹에 IP 주소 리소스 추가 \<선택 사항>
 
 클러스터 그룹의 IP 주소가 하나뿐이며 해당 주소가 클라우드 서브넷에 지정되어 있는 경우, 해당 네트워크에서 클라우드의 모든 클러스터 노드를 실수로 오프라인으로 전환하면 클러스터 IP 리소스 및 클러스터 네트워크 이름이 온라인으로 전환될 수 없습니다. 이 상황에서는 다른 클러스터 리소스에 대한 업데이트가 차단됩니다.
 
@@ -705,15 +705,15 @@ Always On이 설치될 때 Windows 클러스터 리소스 그룹을 만듭니다
 
 SQL Server에 연결할 때 SQL Server 클라이언트 드라이버는 수신기와 연결된 DNS 레코드를 검색한 다음, Always On에 연결된 각 IP 주소에 연결을 시도합니다. 다음으로, 이 연결에 영향을 줄 수 있는 몇 가지 요인에 대해 설명합니다.
 
-수신기 이름에 연결되는 동시 DNS 레코드의 수는 연결된 IP 주소의 수뿐만 아니라 Always On VNN 리소스에 대한 장애 조치(failover) 클러스터링의 ‘RegisterAllIpProviders’ 설정에 따라서도 달라집니다.
+수신기 이름에 연결되는 동시 DNS 레코드의 수는 연결된 IP 주소의 수뿐만 아니라 Always On VNN 리소스에 대한 장애 조치(failover) 클러스터링의 'RegisterAllIpProviders' 설정에 따라서도 달라집니다.
 
-Azure에서 Always On을 배포할 때는 다른 단계를 수행하여 수신기와 IP 주소를 만듭니다. 온-프레미스 Always On 배포에서는 ‘RegisterAllIpProviders’가 이미 1로 설정되어 있지만, 이 경우에는 해당 값을 1로 수동 구성해야 합니다.
+Azure에서 Always On을 배포할 때는 다른 단계를 수행하여 수신기와 IP 주소를 만듭니다. 온-프레미스 Always On 배포에서는 'RegisterAllIpProviders'가 이미 1로 설정되어 있지만, 이 경우에는 해당 값을 1로 수동 구성해야 합니다.
 
-‘RegisterAllIpProviders’가 0이면 수신기와 연결된 DNS에 DNS 레코드가 하나만 표시됩니다.
+'RegisterAllIpProviders'가 0이면 수신기와 연결된 DNS에 DNS 레코드가 하나만 표시됩니다.
 
 ![Appendix4][14]
 
-'RegisterAllIpProviders'가 1인 경우에는 다음 레코드가 표시됩니다.
+'RegisterAllIpProviders'가 1인 경우:
 
 ![Appendix5][15]
 
@@ -745,11 +745,11 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 ```
 
 > [!NOTE]
-> ‘HostRecordTTL’이 낮을수록 DNS 트래픽이 더 많이 발생합니다.
+> 'HostRecordTTL'이 낮을수록 DNS 트래픽이 더 많이 발생합니다.
 
 ##### <a name="client-application-settings"></a>클라이언트 애플리케이션 설정
 
-SQL 클라이언트 응용 프로그램에서 .NET 4.5 SQLClient를 지 원하는 경우 ' MULTISUBNETFAILOVER = TRUE ' 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
+SQL 클라이언트 애플리케이션에서 .NET 4.5 SQLClient를 지원하는 경우 'MULTISUBNETFAILOVER=TRUE' 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
 
 이전 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)도 참조하세요.
 
@@ -776,7 +776,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConf
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>7단계: 장애 조치(failover) 파트너 및 복제 모드 변경
 
-SQL Server가 셋 이상이면 다른 DC 또는 온-프레미스의 다른 보조 복제본 장애 조치(failover)를 ‘동기’로 변경하고 해당 복제본을 AFP(자동 장애 조치(failover) 파트너)로 지정해야 합니다. 그러면 변경 시 HA가 유지됩니다. SSMS를 통해 TSQL modify를 사용하여 이 작업을 수행할 수 있습니다.
+SQL Server가 셋 이상이면 다른 DC 또는 온-프레미스의 다른 보조 복제본 장애 조치(failover)를 '동기'로 변경하고 해당 복제본을 AFP(자동 장애 조치(failover) 파트너)로 지정해야 합니다. 그러면 변경 시 HA가 유지됩니다. SSMS를 통해 TSQL modify를 사용하여 이 작업을 수행할 수 있습니다.
 
 ![Appendix6][16]
 
@@ -841,7 +841,7 @@ TLOG 볼륨의 경우 디스크 캐싱을 NONE으로 설정해야 합니다.
 
 ![Appendix7][17]
 
-#### <a name="step-10-copy-vhds"></a>10단계: VHD 복사
+#### <a name="step-10-copy-vhds"></a>10단계: VHDS 복사
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1094,7 +1094,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $
 Select-AzureSubscription -SubscriptionName $mysubscription -Current
 ```
 
-#### <a name="step-20-copy-vhds"></a>20단계: VHD 복사
+#### <a name="step-20-copy-vhds"></a>20단계: VHDS 복사
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1220,9 +1220,9 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>23단계: 장애 조치(failover) 테스트
+#### <a name="step-23-test-failover"></a>23단계: 테스트 장애 조치
 
-마이그레이션된 노드가 온-프레미스 Always On 노드와 동기화될 때까지 기다립니다. 동기 복제 모드로 설정하고 동기화될 때까지 기다립니다. 그런 다음 온-프레미스에서 마이그레이션된 첫 번째 노드 (AFP)로 장애 조치 (failover) 합니다. 장애 조치(failover)가 정상적으로 수행되면 마지막으로 마이그레이션한 노드를 AFP로 변경합니다.
+마이그레이션된 노드가 온-프레미스 Always On 노드와 동기화될 때까지 기다립니다. 동기 복제 모드로 설정하고 동기화될 때까지 기다립니다. 그런 다음, 온-프레미스에서 마이그레이션된 첫 번째 노드(AFP)로 장애 조치(failover)합니다. 장애 조치(failover)가 정상적으로 수행되면 마지막으로 마이그레이션한 노드를 AFP로 변경합니다.
 
 모든 노드 간에 장애 조치(failover)를 테스트하고 비정상 상황 테스트를 실행하여 장애 조치(failover)가 제때 정상적으로 작동하는지 확인해야 합니다.
 
@@ -1236,10 +1236,10 @@ SQL Server가 두 개뿐이며 이러한 SQL Server를 새 클라우드 서비�
 
 IP 주소를 추가하려면 부록의 14단계를 참조하세요.
 
-1. 현재 IP 주소 리소스의 경우 가능한 소유자를 ‘기존 주 SQL Server’로 변경합니다(예제에서는 ‘dansqlams4’).
+1. 현재 IP 주소 리소스의 경우 가능한 소유자를 '기존 기본 SQL Server'로 변경합니다(예제에서는 'dansqlams4').
 
     ![Appendix13][23]
-2. 새 IP 주소 리소스의 경우 가능한 소유자를 ‘마이그레이션된 보조 SQL Server’로 변경합니다(예제에서는 ‘dansqlams5’).
+2. 새 IP 주소 리소스의 경우 가능한 소유자를 '마이그레이션된 보조 SQL Server'로 변경합니다(예제에서는 'dansqlams5').
 
     ![Appendix14][24]
 3. 이와 같이 설정하면 장애 조치(failover)를 수행할 수 있으며, 마지막 노드를 마이그레이션할 때 가능한 소유자를 편집하여 해당 노드를 가능한 소유자로 추가해야 합니다.

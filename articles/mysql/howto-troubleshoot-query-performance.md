@@ -1,17 +1,17 @@
 ---
-title: 쿼리 성능 문제 해결-Azure Database for MySQL
-description: 설명을 사용 하 여 Azure Database for MySQL에서 쿼리 성능 문제를 해결 하는 방법에 대해 알아봅니다.
+title: 쿼리 성능 문제 해결 - Azure Database for MySQL
+description: EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능 문제를 해결하는 방법을 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec926bf6065e11e1b6ca2e3f6df22c4b5ee2c2c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067835"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836127"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
@@ -120,7 +120,7 @@ possible_keys: covered
 위의 EXPLAIN에서 보면 MySQL은 이제 covered 인덱스를 사용하기 때문에 임시 테이블을 만들지 않아도 됩니다. 
 
 ## <a name="combined-index"></a>결합된 인덱스
-결합된 인덱스는 여러 열의 값으로 구성되며 인덱싱된 열의 값을 연결하여 정렬되는 행의 배열로 간주할 수 있습니다.이 메서드는 **GROUP BY** 문에 유용할 수 있습니다.
+결합된 인덱스는 여러 열의 값으로 구성되며 인덱싱된 열의 값을 연결하여 정렬되는 행의 배열로 간주할 수 있습니다. 이 메서드는 **GROUP BY** 문에 유용할 수 있습니다.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -163,8 +163,8 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>결론
  
-EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있으면 MySQL이이를 쿼리에 사용할 수 있다는 의미는 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
+EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 MySQL이 해당 인덱스를 쿼리에 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계
-- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [MSDN 포럼](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.
+- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.

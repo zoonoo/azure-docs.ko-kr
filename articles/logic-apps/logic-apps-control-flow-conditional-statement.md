@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793258"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831503"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 제어하는 조건문 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "74793258"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * 이 문서의 예를 수행하려면 Outlook.com 또는 Office 365 Outlook 계정으로 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -36,13 +36,13 @@ ms.locfileid: "74793258"
 
 1. 원하는 위치에 조건을 추가합니다. 
 
-   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시 되는 **더하기 기호** (**+**)를 선택 하 고 **작업 추가**를 선택 합니다. 예를 들면 다음과 같습니다.
+   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음 **작업 추가**를 선택합니다. 다음은 그 예입니다.
 
    ![단계 사이에 작업 추가](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   워크플로 끝 부분에 조건을 추가하려면 논리 앱의 맨 아래에서 **새 단계** > **작업 추가**를 선택합니다.
+   워크플로 끝 부분에 조건을 추가하려면 논리 앱의 맨 아래에서 **새 단계** >**작업 추가**를 선택합니다.
 
-1. 검색 상자에서 필터로 “조건”을 입력합니다. **조건 - 제어** 작업을 선택합니다.
+1. 검색 상자에서 필터로 “조건”을 입력합니다. 현재 선택한 작업: **조건 - 컨트롤**
 
    ![조건 추가](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -59,17 +59,17 @@ ms.locfileid: "74793258"
    이 예제에서는 "**포함**"을 선택합니다. 
 
    1. 오른쪽 상자에서 또는 필드를 기준으로 값 지정합니다. 
-   예를 들어 **Microsoft**라는 문자열을 지정합니다.
+   이 예에서는 다음 문자열을 지정합니다. **Microsoft**
 
    완성된 조건은 다음과 같습니다.
 
    ![완성된 조건](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   조건에 다른 행을 추가 하려면 **추가** > **행**추가를 선택 합니다. 
-   Subconditions를 사용 하 여 그룹을 추가 **하려면 추가** > **그룹**추가를 선택 합니다. 
+   조건에 다른 행을 추가하려면 **추가** > **행 추가**를 선택합니다. 
+   하위 조건이 있는 그룹을 추가하려면 **추가** > **그룹 추가**를 선택합니다. 
    기존 행을 그룹화하려면 해당 행의 확인란을 선택하고, 임의 행의 줄임표(...) 단추를 선택한 다음, **그룹 만들기**를 선택합니다.
 
-1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예를 들면 다음과 같습니다.
+1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 다음은 그 예입니다.
 
    !["If true" 및 "If false" 경로를 포함한 조건](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "74793258"
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

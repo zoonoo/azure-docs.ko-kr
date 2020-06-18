@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: c9ce4e7da51005dcb06c9df420d80f4d2c7b93e9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f46b17fdffc870e6afc5f3b0711169db8270a540
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596022"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800437"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 이벤트 허브
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Event Hubs**가 그 중 하나입니다. 
@@ -34,11 +34,57 @@ ms.locfileid: "83596022"
 | ------------- | ----------- | 
 | aeg-subscription-name | 이벤트 구독의 이름입니다. |
 | aeg-delivery-count | <p>이벤트를 시도한 횟수입니다.</p> <p>예제: "1"</p> |
-| aeg-event-type | <p>이벤트의 유형입니다.</p><p> 예제: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>이벤트의 메타데이터 버전입니다.</p> <p>예제: "1".</p><p> **Event Grid 이벤트 스키마**의 경우 이 속성은 메타데이터 버전을 나타내고 **클라우드 이벤트 스키마**의 경우 **사양 버전**을 나타냅니다. </p>|
-| aeg-data-version | <p>이벤트의 데이터 버전입니다.</p><p>예제: "1".</p><p>**Event Grid 이벤트 스키마**의 경우 이 속성은 데이터 버전을 나타내고 **클라우드 이벤트 스키마**에 대해서는 적용되지 않습니다.</p> |
+| aeg-event-type | <p>이벤트의 유형입니다.</p><p> 예제: “Microsoft.Storage.blobCreated”</p> | 
+| aeg-metadata-version | <p>이벤트의 메타데이터 버전입니다.</p> <p>예제: “1”.</p><p> **Event Grid 이벤트 스키마**의 경우 이 속성은 메타데이터 버전을 나타내고 **클라우드 이벤트 스키마**의 경우 **사양 버전**을 나타냅니다. </p>|
+| aeg-data-version | <p>이벤트의 데이터 버전입니다.</p><p>예제: “1”.</p><p>**Event Grid 이벤트 스키마**의 경우 이 속성은 데이터 버전을 나타내고 **클라우드 이벤트 스키마**에 대해서는 적용되지 않습니다.</p> |
 | aeg-output-event-id | Event Grid 이벤트의 ID입니다. |
 
+## <a name="rest-examples-for-put"></a>REST 예제(PUT의 경우)
+
+
+### <a name="event-hub"></a>이벤트 허브
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "EventHub",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="event-hub---delivery-with-managed-identity"></a>이벤트 허브 - 관리 ID로 전달
+
+```json
+{
+    "properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "EventHub",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

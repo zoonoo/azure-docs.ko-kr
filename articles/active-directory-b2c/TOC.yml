@@ -105,7 +105,7 @@
       items:
         - name: 흐름 만들기
           items:
-            - name: 등록 또는 로그인
+            - name: 가입 또는 로그인
               href: tutorial-create-user-flows.md
             - name: 리소스 소유자 암호 자격 증명
               href: configure-ropc.md
@@ -178,7 +178,7 @@
               displayName: kmsi
             - name: 암호 변경
               href: custom-policy-password-change.md
-            - name: 휴대폰 등록 및 로그인
+            - name: 휴대폰 가입 및 로그인
               href: phone-authentication.md
               displayName: 'otp, passwordless, phone number'
         - name: UX 사용자 지정
@@ -357,6 +357,20 @@
               href: relyingparty.md
             - name: 클레임 해결자
               href: claim-resolver-overview.md
+    - name: 파트너 통합
+      items:
+        - name: Azure AD B2C 파트너 갤러리
+          href: partner-gallery.md
+        - name: Arkose Labs
+          href: partner-arkose-labs.md
+        - name: IDology
+          href: partner-idology.md
+        - name: itsme
+          href: partner-itsme.md
+        - name: Trusona
+          href: partner-trusona.md
+        - name: Twilio
+          href: partner-twilio.md
     - name: b2clogin.com 사용
       items:
         - name: b2clogin.com 개요

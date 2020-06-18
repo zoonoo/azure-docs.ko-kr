@@ -1,14 +1,14 @@
 ---
 title: Azure Stack에 Azure Backup Server 설치
-description: 이 문서에서는 Azure Backup Server를 사용 하 여 Azure Stack에서 작업을 보호 하거나 백업 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77583438"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747445"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -91,7 +91,7 @@ Azure Backup Server 가상 머신을 도메인에 조인해야 합니다. 관리
 
 Azure Backup Server에 사용할 서버를 선택할 때 Windows Server 2012 R2 Datacenter 또는 Windows Server 2016 Datacenter 갤러리 이미지로 시작하는 것이 좋습니다. [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서는 권장 가상 머신을 시작하는 방법에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
-Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
+Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
@@ -107,7 +107,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대 한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조 하세요.
+Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -163,7 +163,7 @@ Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 
 
     ![다운로드 센터 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    모든 설치 파일의 다운로드 크기가 3gb 보다 큽니다. 10Mbps 다운로드 링크에서 모든 설치 파일을 다운로드하는 데 최대 60분이 걸릴 수 있습니다. 지정한 다운로드 위치에 파일이 다운로드됩니다.
+    모든 설치 파일의 다운로드 크기는 3GB보다 큽니다. 10Mbps 다운로드 링크에서 모든 설치 파일을 다운로드하는 데 최대 60분이 걸릴 수 있습니다. 지정한 다운로드 위치에 파일이 다운로드됩니다.
 
 ## <a name="extract-azure-backup-server-install-files"></a>Azure Backup Server 설치 파일 추출
 
@@ -243,7 +243,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관련된 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12))을 참조하세요.
+    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 대한 자세한 내용은 [데이터 스토리지 준비](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조하세요.
 
 6. **보안 설정** 화면에서, 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
@@ -320,7 +320,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
 
-이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인 하 고 관리 하려면 [구독 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인 합니다.
+이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인하고 관리하려면 [구독 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
 
 Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하여 제공된 백업/복원 기능에 미치는 영향을 알아볼 수 있습니다.
 
@@ -335,7 +335,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 
-방화벽 또는 프록시가 Azure에 대 한 액세스를 차단 하는 경우 방화벽/프록시 프로필 허용 목록에 다음 도메인 주소를 추가 합니다.
+방화벽 또는 프록시가 Azure에 대한 액세스를 차단하고 있는 경우 방화벽/프록시 프로필 허용 목록에 다음 도메인 주소를 추가합니다.
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

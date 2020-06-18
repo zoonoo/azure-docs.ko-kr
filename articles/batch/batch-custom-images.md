@@ -1,53 +1,51 @@
 ---
-title: 관리 되는 이미지에서 사용자 지정 풀 프로 비전
-description: 응용 프로그램에 대 한 소프트웨어 및 데이터를 사용 하 여 계산 노드를 프로 비전 하기 위해 관리 되는 이미지 리소스에서 Batch 풀을 만듭니다.
-ms.topic: article
-ms.date: 09/16/2019
-ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+title: 관리형 이미지에서 사용자 지정 풀 프로비전
+description: 관리형 이미지 리소스에서 Batch 풀을 만들어 애플리케이션의 소프트웨어 및 데이터를 사용하여 컴퓨팅 노드를 프로비저닝합니다.
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117321"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847993"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>관리 되는 이미지를 사용 하 여 가상 머신 풀 만들기
+# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>관리형 이미지를 사용하여 가상 머신 풀 만들기
 
-Batch 풀의 Vm (가상 머신)에 대 한 사용자 지정 이미지를 만들려면 [공유 이미지 갤러리](batch-sig-images.md)또는 *관리 되는 이미지* 리소스를 사용할 수 있습니다.
+Batch 풀의 VM(가상 머신)에 대한 사용자 지정 이미지를 만들려면 관리형 이미지를 사용하여 [Shared Image Gallery](batch-sig-images.md)를 만들면 됩니다. 관리형 이미지만 사용하는 것도 지원되지만 2019-08-01 이하의 API 버전에 대해서만 지원됩니다.
 
-> [!TIP]
-> 대부분의 경우 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지를 만들어야 합니다. 공유 이미지 갤러리를 사용 하면 풀을 더 빠르게 프로 비전 하 고, 더 많은 수의 Vm을 확장 하 고, Vm을 프로 비전 할 때 안정성을 향상 시킬 수 있습니다. 자세히 알아보려면 [공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조 하세요.
+> [!IMPORTANT]
+> 대부분의 경우 Shared Image Gallery를 사용하여 사용자 지정 이미지를 만들어야 합니다. Shared Image Gallery를 사용하면 풀을 더 빠르게 프로비저닝하고, 더 많은 수의 VM을 확장하고, VM을 프로비저닝할 때 안정성을 개선할 수 있습니다. 자세히 알아보려면 [Shared Image Gallery를 사용하여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 Batch 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 리소스가 있거나 해당 리소스를 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다. 자세한 내용 및 관리되는 이미지를 준비하는 단계는 다음 섹션을 참조하세요.
+- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 Batch 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 리소스가 있거나 해당 리소스를 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다.
   - 작성하는 각 풀에 대해 고유한 사용자 지정 이미지를 사용합니다.
-  - Batch API를 사용하여 이미지로 풀을 만들려면 이미지의 **리소스 ID**를 지정합니다. 리소스 ID의 형식은 다음과 같습니다. `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` 포털을 사용하려면 이미지의 **이름**을 사용합니다.  
+  - Batch API를 사용하여 이미지로 풀을 만들려면 이미지의 **리소스 ID**를 지정합니다. 리소스 ID의 형식은 다음과 같습니다. `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`
   - 관리되는 이미지 리소스는 강화에 사용할 수 있도록 풀 수명 동안 유지되어야 하며, 풀을 삭제한 후에 제거할 수 있습니다.
 
-- **AAD (Azure Active Directory) 인증**. Batch 클라이언트 API가 AAD 인증을 사용해야 합니다. AAD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
+- **Azure AD(Azure Active Directory) 인증**. Batch 클라이언트 API는 Azure AD 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
 
 ## <a name="prepare-a-custom-image"></a>사용자 지정 이미지 준비
 
-Azure에서 관리 되는 이미지를 준비 하려면 다음을 수행 합니다.
+Azure의 다음에서 관리형 이미지를 준비할 수 있습니다.
 
-- Azure VM의 OS 및 데이터 디스크의 스냅숏
-- 관리 디스크를 사용 하는 일반화 된 Azure VM
-- 클라우드로 업로드 된 일반화 된 온-프레미스 VHD
+- Azure VM의 OS 및 데이터 디스크의 스냅샷
+- 관리 디스크를 사용하는 일반화된 Azure VM
+- 클라우드로 업로드된 일반화된 온-프레미스 VHD
 
-사용자 지정 이미지를 사용하여 안정적으로 Batch 풀 크기를 조정하려는 경우 VM 디스크의 스냅샷을 사용하는 *첫 번째 방법만* 사용하여 관리되는 이미지를 만드는 것이 좋습니다. VM을 준비하고 스냅샷을 생성하고 스냅샷에서 이미지를 만들려면 다음 단계를 참조하세요.
+관리형 이미지를 사용하여 안정적으로 Batch 풀 크기를 조정하려는 경우 VM 디스크의 스냅샷을 사용하는 첫 번째 방법*만* 사용하여 관리형 이미지를 만드는 것이 좋습니다. 다음 단계는 VM을 준비하고, 스냅샷을 만들고, 스냅샷에서 관리형 이미지를 만드는 방법을 보여줍니다.
 
 ### <a name="prepare-a-vm"></a>VM 준비
 
-이미지에 대 한 새 VM을 만드는 경우 Batch에서 지원 되는 첫 번째 파티 Azure Marketplace 이미지를 관리 되는 이미지의 기본 이미지로 사용 합니다. 첫 번째 파티 이미지만 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지 원하는 Azure Marketplace 이미지 참조의 전체 목록을 얻으려면 [노드 에이전트 Sku 나열](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업을 참조 하세요.
+이미지용으로 새 VM을 만드는 경우 Batch에서 지원하는 자사 Azure Marketplace 이미지를 관리형 이미지의 기본 이미지로 사용합니다. 자사 이미지만 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 전체 목록을 가져오려면 [노드 에이전트 SKU 나열](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업을 참조하세요.
 
 > [!NOTE]
-> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) VM을 참조하세요.
+> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VM을 참조하세요.
 
-- VM이 관리 디스크를 사용 하 여 만들어졌는지 확인 합니다. VM을 만들 때 기본 스토리지 설정입니다.
+- 관리 디스크로 VM이 생성되었는지 확인합니다. VM을 만들 때 기본 스토리지 설정입니다.
 - 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.
-- 연결 된 데이터 디스크를 사용 하는 경우 VM 내에서 디스크를 탑재 하 고 포맷 하 여 사용 해야 합니다.
+- 연결된 데이터 디스크를 사용하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 - 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하도록 해야 합니다. Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상합니다.
 - VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.  
 
@@ -59,35 +57,76 @@ Azure에서 관리 되는 이미지를 준비 하려면 다음을 수행 합니�
 
 스냅샷에서 관리되는 이미지를 만들려면 [az image create](/cli/azure/image) 명령과 같은 Azure 명령줄 도구를 사용합니다. OS 디스크 스냅샷을 지정하고 필요에 따라 데이터 디스크 스냅샷을 하나 이상 지정하여 이미지를 만들 수 있습니다.
 
-## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>포털의 사용자 지정 이미지에서 풀 만들기
+## <a name="create-a-pool-from-a-custom-image"></a>사용자 지정 이미지에서 풀 만들기
 
-사용자 지정 이미지를 저장했으며 리소스 ID 또는 이름을 알고 있다면 해당 이미지에서 Batch 풀을 만듭니다. 다음 단계는 Azure Portal에서 풀을 만드는 방법을 보여줍니다.
+관리형 이미지의 리소스 ID를 찾았으면 해당 이미지에서 사용자 지정 이미지 풀을 만듭니다. 다음 단계에서는 Batch Service 또는 Batch Management를 사용하여 사용자 지정 이미지 풀을 만드는 방법을 보여줍니다.
 
 > [!NOTE]
-> Batch API 중 하나를 사용하여 풀을 만드는 경우 AAD 인증에 사용하는 ID가 이미지 리소스에 대한 권한을 가지고 있는지 확인합니다. [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)을 참조하세요.
+> Azure AD 인증에 사용하는 ID에 이미지 리소스에 대한 권한이 있는지 확인합니다. [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)을 참조하세요.
 >
-> 관리 되는 이미지에 대 한 리소스는 풀의 수명 동안 존재 해야 합니다. 기본 리소스를 삭제 하면 풀 크기를 조정할 수 없습니다.
+> 관리형 이미지에 대한 리소스는 풀의 수명 동안 존재해야 합니다. 기본 리소스를 삭제하면 풀 크기를 조정할 수 없습니다.
 
-1. Azure Portal에서 Batch 계정으로 이동합니다. 이 계정은 사용자 지정 이미지가 포함된 리소스 그룹과 동일한 구독 및 지역에 있어야 합니다.
-2. 왼쪽의 **설정** 창에서 **풀** 메뉴 항목을 선택합니다.
-3. **풀** 창에서 **추가** 명령을 선택합니다.
-4. **풀 추가** 창의 **이미지 형식** 드롭다운에서 **사용자 지정 이미지(Linux/Windows)** 를 선택합니다. **사용자 지정 VM 이미지** 드롭다운에서 이미지 이름(리소스 ID의 약식)을 선택합니다.
-5. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku**를 선택합니다.
-6. **노드 크기**, **대상 전용 노드**및 **우선 순위가 낮은 노드**를 포함 하 여 나머지 필수 설정을 지정 하 고 원하는 선택적 설정도 지정 합니다.
+### <a name="batch-service-net-sdk"></a>Batch Service .NET SDK
 
-    예를 들어 Microsoft Windows Server Datacenter 2016 사용자 지정 이미지에 대해서는 아래 표시된 것처럼 **풀 추가** 창이 나타납니다.
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-    ![사용자 지정 Windows 이미지에서 풀 추가](media/batch-custom-images/add-pool-custom-image.png)
-  
-기존 풀이 사용자 지정 이미지를 기반으로 하는지 확인하려면 **풀** 창의 리소스 요약 섹션에 있는 **운영 체제** 속성을 참조하세요. 사용자 지정 이미지에서 풀을 만든 경우 **사용자 지정 VM 이미지**로 설정합니다.
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
+}
 
-풀과 연결된 모든 사용자 지정 이미지가 해당 풀의 **속성** 창에 표시됩니다.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
+```
+
+### <a name="batch-management-rest-api"></a>Batch Management REST API
+
+REST API URI
+
+```http
+ PUT https://management.azure.com/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Batch/batchAccounts/{account name}/pools/{pool name}?api-version=2020-03-01
+```
+
+요청 본문
+
+```json
+ {
+   "properties": {
+     "vmSize": "{VM size}",
+     "deploymentConfiguration": {
+       "virtualMachineConfiguration": {
+         "imageReference": {
+           "id": "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image name}"
+         },
+         "nodeAgentSkuId": "{Node Agent SKU ID}"
+       }
+     }
+   }
+ }
+```
 
 ## <a name="considerations-for-large-pools"></a>대형 풀 관련 고려 사항
 
 사용자 지정 이미지를 사용하여 VM이 수백 개인 풀을 만들려는 경우에는 위의 지침에 따라 VM 스냅샷에서 만든 이미지를 사용해야 합니다.
 
-다음 사항에 유의 해야 합니다.
+다음 고려 사항도 유의해야 합니다.
 
 - **크기 제한** - 사용자 지정 이미지 사용 시에는 Batch의 풀 크기가 전용 컴퓨팅 노드 2,500개 또는 낮은 우선 순위 노드 1,000개로 제한됩니다.
 
@@ -99,18 +138,19 @@ Azure에서 관리 되는 이미지를 준비 하려면 다음을 수행 합니�
 
   풀에 컴퓨팅 노드를 300개보다 많이 포함하려는 경우에는 풀이 대상 크기에 도달하도록 크기를 여러 번 조정해야 할 수 있습니다.
   
-[공유 이미지 갤러리](batch-sig-images.md)를 사용 하 여 더 많은 공유 이미지 복제본과 함께 사용자 지정 된 이미지를 사용 하 여 더 큰 풀을 만들 수 있습니다. 공유 이미지를 사용 하는 경우 풀이 안정 된 상태에 도달 하는 데 걸리는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
+[Shared Image Gallery](batch-sig-images.md)를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다. 공유 이미지를 사용하는 경우 풀이 안정된 상태에 도달하는 데 걸리는 시간은 최대 25% 더 빠르며, VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 
-## <a name="considerations-for-using-packer"></a>패키지 사용에 대 한 고려 사항
+## <a name="considerations-for-using-packer"></a>Packer 사용을 위한 고려 사항
 
-패키지를 직접 사용 하 여 관리 되는 이미지 리소스를 만드는 작업은 사용자 구독 모드 Batch 계정 으로만 수행할 수 있습니다. Batch 서비스 모드 계정의 경우 먼저 VHD를 만든 다음, VHD를 관리 되는 이미지 리소스로 가져와야 합니다. 풀 할당 모드 (사용자 구독 또는 Batch 서비스)에 따라 관리 되는 이미지 리소스를 만드는 단계는 다양 합니다.
+Packer를 사용하여 관리형 이미지 리소스를 직접 만드는 작업은 사용자 구독 모드 Batch 계정으로만 수행할 수 있습니다. Batch 서비스 모드 계정의 경우 먼저 VHD를 만든 다음, VHD를 관리형 이미지 리소스로 가져와야 합니다. 풀 할당 모드(사용자 구독 또는 Batch 서비스)에 따라 관리형 이미지 리소스를 만드는 단계가 달라집니다.
 
-사용자 지정 이미지를 참조 하는 모든 풀의 수명 동안 관리 되는 이미지를 만드는 데 사용 되는 리소스가 있는지 확인 합니다. 이렇게 하지 않으면 풀 할당 오류 및/또는 크기 조정 오류가 발생할 수 있습니다.
+관리형 이미지를 생성하는 데 사용되는 리소스가 사용자 지정 이미지를 참조하는 모든 풀의 수명 동안 존재하는지 확인합니다. 이렇게 하지 않으면 풀 할당 오류 및/또는 크기 조정 오류가 발생할 수 있습니다.
 
-이미지 또는 기본 리소스가 제거 되 면 다음과 `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`유사한 오류가 발생할 수 있습니다. 이 오류가 발생 하는 경우 기본 리소스가 제거 되지 않았는지 확인 합니다.
+이미지 또는 기본 리소스가 제거되면 `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`와 유사한 오류가 발생할 수 있습니다. 이 오류가 발생하는 경우 기본 리소스가 제거되지 않았는지 확인합니다.
 
-패키지를 사용 하 여 VM을 만드는 방법에 대 한 자세한 내용은 패키지를 사용 하 여 [Linux 이미지 빌드](../virtual-machines/linux/build-image-with-packer.md) 또는 패키지를 [사용 하 여 Windows 이미지 빌드](../virtual-machines/windows/build-image-with-packer.md)를 참조 하세요.
+Packer를 사용하여 VM을 만드는 방법에 대한 자세한 내용은 [Packer를 사용하여 Linux 이미지 빌드](../virtual-machines/linux/build-image-with-packer.md) 또는 [Packer를 사용하여 Windows 이미지 빌드](../virtual-machines/windows/build-image-with-packer.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md)을 참조하세요.
+- [Shared Image Gallery](batch-sig-images.md)를 사용하여 사용자 지정 풀을 만드는 방법을 알아봅니다.
+- Batch에 대한 자세한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요.

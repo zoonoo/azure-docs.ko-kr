@@ -1,44 +1,44 @@
 ---
-title: Blob에 대 한 일시 삭제를 사용 하도록 설정 하 고 관리 합니다.
+title: Blob에 대한 일시 삭제를 사용 및 관리
 titleSuffix: Azure Storage
-description: Blob 개체에 대해 일시 삭제를 사용 하도록 설정 하 여 데이터를 잘못 수정 하거나 삭제 한 경우 더 쉽게 복구할 수 있습니다.
+description: Blob 개체에 대해 일시 삭제를 사용하여 데이터를 잘못 수정하거나 삭제할 때 더 쉽게 복구할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120099"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634114"
 ---
-# <a name="enable-and-manage-soft-delete-for-blobs"></a>Blob에 대 한 일시 삭제를 사용 하도록 설정 하 고 관리 합니다.
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Blob에 대한 일시 삭제를 사용 및 관리
 
-일시 삭제는 blob 데이터가 실수로 또는 실수로 수정 되거나 삭제 되지 않도록 보호 합니다. 저장소 계정에 대해 일시 삭제를 사용 하도록 설정한 경우 해당 저장소 계정의 blob, blob 버전 (미리 보기) 및 스냅숏은 지정 된 보존 기간 내에 삭제 된 후 복구 될 수 있습니다.
+일시 삭제는 Blob 데이터가 실수로 또는 잘못하여 수정되거나 삭제되지 않도록 보호합니다. 스토리지 계정에 대해 일시 삭제를 사용할 때 해당 스토리지 계정의 Blob, Blob 버전(미리 보기) 및 스냅샷은 지정된 보존 기간 내에 삭제된 후 복구될 수 있습니다.
 
-응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 수 있는 경우에는 일시 삭제를 설정 하는 것이 좋습니다.
+Microsoft는 데이터가 애플리케이션 또는 다른 스토리지 계정 사용자에 의해 실수로 수정 또는 삭제될 가능성이 있다면 일시 삭제를 설정할 것을 권장합니다.
 
-이 문서에서는 일시 삭제를 시작 하는 방법을 보여 줍니다.
+이 문서에서는 일시 삭제를 시작하는 방법을 보여줍니다.
 
 ## <a name="enable-soft-delete"></a>일시 삭제 사용
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 저장소 계정의 blob에 대해 일시 삭제를 사용 하도록 설정 합니다.
+Azure Portal을 사용하여 스토리지 계정의 Blob에 대해 일시 삭제를 다음과 같이 사용합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
 
-2. **Blob Service**에서 **데이터 보호** 옵션으로 이동 합니다.
+2. **Blob Service** 아래의 **데이터 보호** 옵션으로 이동합니다.
 
-3. **Blob 일시 삭제** 아래에서 **사용** 을 클릭 합니다.
+3. **Blob 일시 삭제**에서 **사용**을 클릭합니다.
 
-4. **보존 정책** 에서 *보존할* 일 수를 입력 합니다.
+4. *보존 정책*에**보존하려는**일 수를 입력합니다.
 
-5. **저장** 단추를 선택 하 여 데이터 보호 설정 확인
+5. **저장** 단추를 선택하여 데이터 보호 설정을 확인합니다.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
@@ -137,7 +137,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소**를 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+특정 Blob 버전을 복구하려면 먼저 Blob에서 삭제 취소를 호출한 다음, Blob을 통해 원하는 스냅샷을 복사합니다. 다음 예제에서는 블록 Blob을 가장 최근에 생성된 스냅샷으로 복구합니다.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다.
 
@@ -153,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob**을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
+실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소**를 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
 
 ```csharp
 // Recover all blobs in a container
@@ -177,11 +191,11 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob 저장소에 대 한 일시 삭제](soft-delete-overview.md)
-- [Blob 버전 관리 (미리 보기)](versioning-overview.md)
+- [Blob Storage에 대한 일시 삭제](soft-delete-overview.md)
+- [Blob 버전 관리(미리 보기)](versioning-overview.md)
