@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4790585d089ab287260f74001a8aa3f1cb7e5f7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585405"
+ms.locfileid: "83647511"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -80,7 +80,7 @@ Azure Stream Analytics 작업은 Azure Synapse Analytics의 SQL 풀 테이블로
 
 먼저 SQL 풀 테이블이 있어야 이를 Stream Analytics 작업의 출력으로 추가할 수 있습니다. 테이블 스키마는 작업 출력의 필드 및 해당 형식과 일치해야 합니다. 
 
-Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되어 있는지 확인해야 합니다. 스토리지 계정 설정으로 이동하여 스토리지 계정을 구성합니다. 테이블을 지원하는 스토리지 계정 유형(범용 V2 및 범용 V1)만 허용됩니다.   
+Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되어 있는지 확인해야 합니다. 스토리지 계정 설정으로 이동하여 스토리지 계정을 구성합니다. 테이블을 지원하는 스토리지 계정 유형(범용 V2 및 범용 V1)만 허용됩니다. 표준 계층만 선택합니다. 프리미엄 계층은 지원되지 않습니다.   
 
 다음 표에는 Azure Synapse Analytics 출력을 만들기 위한 속성 이름 및 해당 설명이 나와 있습니다.
 
@@ -119,9 +119,9 @@ Azure Blob Storage는 클라우드에서 대량의 비정형 데이터를 저장
 
 Blob 스토리지를 출력으로 사용할 때 새 파일이 Blob에 만들어지는 경우는 다음과 같습니다.
 
-* 파일이 허용되는 최대 블록 수(현재 50,000)를 초과하는 경우. 허용되는 최대 Blob 크기에 도달하지 않고 허용되는 최대 블록 수에 도달할 수 있습니다. 예를 들어 출력 속도가 높으면 블록당 더 많은 바이트를 볼 수 있으며 파일 크기는 더 커집니다. 출력 속도가 낮고 각 블록의 데이터가 적고 파일 크기가 작은 경우
+* 파일이 허용되는 최대 블록 수(현재 50,000)를 초과합니다. 허용되는 최대 Blob 크기에 도달하지 않고 허용되는 최대 블록 수에 도달할 수 있습니다. 예를 들어 출력 속도가 높으면 블록당 더 많은 바이트를 볼 수 있으며 파일 크기는 더 커집니다. 출력 속도가 낮으면 각 블록의 데이터가 줄어들고 파일 크기도 작아집니다.
 * 출력의 스키마가 변경되고 출력 형식에 고정 스키마(CSV 및 Avro)가 필요한 경우
-* 외부적으로 사용자가 작업을 중지했다가 시작하거나 내부적으로 시스템 유지 관리 또는 오류 복구를 위해 해당 작업이 다시 시작되는 경우
+* 작업이 다시 시작되는 경우 사용자가 외부적으로 또는 시스템 유지 관리 또는 오류 복구의 경우 내부적으로 중지하고 시작합니다.
 * 쿼리가 완전히 분할되고 각 출력 파티션에 대해 새 파일이 만들어지는 경우
 * 사용자가 스토리지 계정의 파일 또는 컨테이너를 삭제하는 경우
 * 경로 접두사 패턴을 사용하여 출력 시간이 분할되고 쿼리가 다음 시간으로 이동할 때 새 Blob이 사용되는 경우

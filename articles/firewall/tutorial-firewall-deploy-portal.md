@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223650"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687194"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -140,9 +140,9 @@ VNet에 방화벽을 배포합니다.
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<구독\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
-   |속성     |**Test-FW01**|
+   |Name     |**Test-FW01**|
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 리소스 사용**: **Test-FW-VN**|
    |공용 IP 주소     |**새로 추가합니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|

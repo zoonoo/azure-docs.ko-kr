@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426377"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747629"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -25,7 +25,7 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR (MAX) 여야 합니다.
+입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR(MAX)여야 합니다.
 
 ### <a name="example"></a>예제
 
@@ -71,16 +71,16 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 다음 서식 지정자 토큰은 사용자 지정 날짜/시간 형식을 설정하기 위해 단독 또는 함께 사용할 수 있습니다.
 
-|형식 지정자   |설명   |예제 시간 2018-01-02T10:06:08에 대한 결과|
+|서식 지정자   |Description   |예제 시간 2018-01-02T10:06:08에 대한 결과|
 |----------|-----------|------------|
 |{datetime:yyyy}|연도(4자리 숫자)|2018|
 |{datetime:MM}|월(01-12)|01|
 |{datetime:M}|월(1-12)|1|
 |{datetime:dd}|일(01-31)|02|
-|{datetime:d}|일(1-12)|2|
+|{datetime:d}|일(1-31)|2|
 |{datetime:HH}|시간(00-23의 24시간 형식)|10|
-|{datetime:mm}|분(00-24)|06|
-|{datetime:m}|분(0-24)|6|
+|{datetime:mm}|분(00-60)|06|
+|{datetime:m}|분(0-60)|6|
 |{datetime:ss}|초(00-60)|08|
 
 사용자 지정 날짜/시간 패턴을 사용하려는 경우 {date} 및/또는 {time} 토큰을 경로 접두사에 추가하여 기본 제공 날짜/시간 서식을 사용하여 드롭다운을 생성할 수 있습니다.

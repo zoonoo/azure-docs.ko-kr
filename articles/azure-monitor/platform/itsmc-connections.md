@@ -1,20 +1,20 @@
 ---
-title: Azure Monitor IT 서비스 관리 커넥터
+title: Azure Monitor의 IT 서비스 관리 커넥터
 description: 이 문서에서는 ITSM 제품/서비스를 Azure Monitor의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 05/24/2018
-ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/12/2020
+ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870586"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655896"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
-이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대 한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조 하세요.
+이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
 
 다음 ITSM 제품/서비스는 지원되지 않습니다. 제품을 ITSMC에 연결하는 방법에 대한 자세한 정보를 보려면 제품을 선택합니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "81870586"
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
-- 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection)
-- 지원되는 Service Manager 버전: 2012 R2 또는 2016
-- 사용자 역할: [고급 운영자](https://technet.microsoft.com/library/ff461054.aspx)
+- 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
+- 지원되는 Service Manager 버전:  2012 R2 또는 2016.
+- 사용자 역할:  [고급 운영자](https://technet.microsoft.com/library/ff461054.aspx).
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -66,9 +66,9 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 | **서버 URL**   | Service Manager 웹앱의 URL을 입력합니다. Service Manager 웹앱에 대한 자세한 내용은 [여기](#create-and-deploy-service-manager-web-app-service)에 나와 있습니다.
 | **클라이언트 ID**   | 웹앱을 인증하기 위해 생성한 클라이언트 ID를 입력합니다(자동 스크립트 사용). 자동화된 스크립트에 대한 자세한 내용은 [여기](../../azure-monitor/platform/itsmc-service-manager-script.md)에 나와 있습니다.|
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
-| **데이터 동기화**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:** 인시던트, 변경 요청|
-| **데이터 동기화 범위** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
-| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 Log Analytics는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로(존재하지 않는 CI의 경우) 만듭니다. **기본값**: 사용 안 함 |
+| **데이터 동기화**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:**  인시던트, 변경 요청.|
+| **데이터 동기화 범위** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 Log Analytics는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로(존재하지 않는 CI의 경우) 만듭니다. **기본**: 사용하지 않도록 설정됩니다. |
 
 ![서비스 관리자 연결](media/itsmc-connections/service-manager-connection.png)
 
@@ -79,7 +79,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Service Manager 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Service Manager 웹앱 서비스 만들기 및 배포
 
@@ -88,7 +88,7 @@ Azure에서 ITSMC에 온-프레미스 Service Manager를 연결하기 위해 Mic
 Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니다.
 
 - **웹앱 배포** – 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다. Microsoft에서 제공한 [자동화 스크립트](../../azure-monitor/platform/itsmc-service-manager-script.md)를 사용하여 웹앱을 배포할 수 있습니다.
-- **하이브리드 연결** - 구성[이 연결](#configure-the-hybrid-connection)을 수동으로 구성 합니다.
+- **하이브리드 연결 구성** - 수동으로 [이 연결을 구성](#configure-the-hybrid-connection)합니다.
 
 #### <a name="deploy-the-web-app"></a>웹앱 배포
 자동화 [스크립트](../../azure-monitor/platform/itsmc-service-manager-script.md)를 사용하여 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다.
@@ -102,14 +102,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 - 웹앱에 대한 사이트 이름 접두사
 - ServiceBus 네임스페이스.
 
-이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹 앱 URL**, **클라이언트 ID** 및 **클라이언트 암호**를 생성 합니다.
+이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹앱 URL**, **클라이언트 ID** 및 **클라이언트 암호**를 생성합니다.
 
 값을 저장한 다음, ITSMC와의 연결을 만들 때 사용합니다.
 
 **웹앱 설치 확인**
 
-1. **Azure Portal** > **리소스**로 이동 합니다.
-2. 웹 앱을 선택 하 고 **설정** > **응용 프로그램 설정**을 클릭 합니다.
+1. **Azure Portal** > **리소스**로 이동합니다.
+2. 웹앱을 선택하고 **설정** > **애플리케이션 설정**을 클릭합니다.
 3. 스크립트를 통해 앱을 배포할 때 제공한 Service Manager 인스턴스에 대한 정보를 확인합니다.
 
 ### <a name="configure-the-hybrid-connection"></a>하이브리드 연결 구성
@@ -117,7 +117,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 절차에 따라 Service Manager 인스턴스를 Azure의 ITSMC에 연결하는 하이브리드 연결을 구성합니다.
 
 1. **Azure 리소스** 아래에서 Service Manager 웹앱을 찾습니다.
-2. **설정** > **네트워킹**을 클릭 합니다.
+2. **설정** > **네트워킹**을 클릭합니다.
 3. **하이브리드 연결**에서 **하이브리드 연결 엔드포인트 구성**을 클릭합니다.
 
     ![하이브리드 연결 네트워킹](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
@@ -133,10 +133,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
    - **엔드포인트 이름**: 새 하이브리드 연결의 이름을 지정합니다.
    - **엔드포인트 호스트**: Service Manager 관리 서버의 FQDN입니다.
-   - **엔드포인트 포트**: 5724를 입력합니다.
+   - **엔드포인트 포트**: Type 5724
    - **Servicebus 네임스페이스**: 기존 Servicebus 네임스페이스를 사용하거나 새로 만듭니다.
    - **위치**: 위치를 선택합니다.
-   - **이름**: servicebus를 만드는 경우 이름을 지정합니다.
+   - **Name**: Servicebus를 만드는 경우 이름을 지정합니다.
 
      ![하이브리드 연결 값](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. **확인**을 클릭하여 **하이브리드 연결 만들기** 블레이드를 닫고 하이브리드 연결을 만듭니다.
@@ -178,31 +178,33 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)
-- ServiceNow 지원 버전: 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ServiceNow는 지원되는 버전: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 > [!NOTE]
-> ITSMC는 지금 서비스에서 제공 하는 공식 SaaS 제공만 지원 합니다. 이제 서비스의 개인 배포가 지원 되지 않습니다. 
+> ITSMC는 Service Now의 공식 SaaS 제품만 지원합니다. Service Now의 비공개 배포는 지원되지 않습니다. 
 
-**Servicenow 관리자는 servicenow 인스턴스에서 다음을 수행 해야 합니다**.
+**ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
 
-    - [뉴욕에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [마드리드에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [런던에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [New York에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Madrid에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [London에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 > [!NOTE]
-> "OAuth 설정"의 일부로 다음을 권장 합니다.
+> "OAuth 설정" 정의의 일부로 다음을 권장합니다.
 >
-> 1) **새로 고침 토큰 수명을 90 일 (7776000 초)으로 업데이트 합니다.** 2 단계: 클라이언트에서 [끝점](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) 정의 후 [인스턴스에 액세스할 수 있도록 끝점을 만듭니다](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) . 2 단계: 클라이언트에서 끝점을 정의 하 고, 시스템 OAuth를 검색 하려면 응용 프로그램 레지스트리를 선택 합니다. 정의 된 OAuth의 이름을 선택 하 고 새로 고침 토큰 수명의 필드를 7776000 (90 일 초)로 업데이트 합니다.
-> 끝에서 업데이트를 클릭 합니다.
-> 2) **연결이 활성 상태로 유지 되도록 내부 프로시저를 설정 하는 것이 좋습니다.** 토큰 새로 고침에 대 한 새로 고침 토큰 수명에 따라 새로 고침 토큰 수명이 만료 되기까지 몇 일 후에 다음 작업을 수행 해야 합니다.
+> 1) **새로 고침 토큰 수명을 90일(7,776,000초)로 업데이트:** [OAuth 설정](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0)의 2단계 [인스턴스에 액세스할 때 사용할 클라이언트 엔드포인트 만들기](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0)에서 엔드포인트 정의 후 ServiceNow 블레이드에서 시스템 OAuth를 검색한 후 애플리케이션 레지스트리를 선택합니다. 정의된 OAuth의 이름을 선택하고 새로 고침 토큰 수명 필드를 7,776,000(초, 90일)로 업데이트합니다.
+> 마지막으로, 업데이트를 클릭합니다.
+> 2) **연결이 활성 상태로 유지되도록 내부 프로시저 설정(권장):** 새로 고침 토큰 수명에 따라 토큰을 새로 고칩니다. 새로 고침 토큰의 예상 만료 시간 전에 다음 작업을 수행해야 합니다(새로 고침 토큰 수명이 만료되기 며칠 전에 수행할 것을 권장):
 >
->>  1) [ITSM 커넥터 구성에 대 한 수동 동기화 프로세스 완료](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) 보안상의 이유로 이전 키를에서 유지 하지 않는 것이 좋습니다. ServiceNow 블레이드에서 System OAuth를 검색 하 고 토큰 관리를 선택 합니다. OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택 합니다. 취소에서 액세스 취소 및 취소를 클릭 합니다.
+> 1. [ITSM 커넥터 구성에 대한 수동 동기화 프로세스 완료](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 2. 보안상의 이유로 이전 키를 유지하지 않는 것이 좋으므로 이전 새로 고침 토큰을 철회하세요. ServiceNow 블레이드에서 시스템 OAuth를 검색한 후 토큰 관리를 선택합니다. OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다.
+> ![SNOW 시스템 OAuth 정의](media/itsmc-connections/snow-system-oauth.png)
+> 3. 액세스 철회, 철회를 차례로 클릭합니다.
 
 - Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
@@ -228,14 +230,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | --- | --- |
 | **연결 이름**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 Log Analytics에서 사용합니다. |
 | **파트너 유형**   | **ServiceNow**를 선택합니다. |
-| **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할 만들기](#create-integration-user-role-in-servicenow-app)|
-| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰을 생성 하는 데만 사용 되며 itsmc 서비스 내에 저장 되지 않습니다.  |
-| **서버 URL**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 URL을 입력합니다. URL은 "servicenow.com" 접미사를 사용 하 여 지원 되는 SaaS 버전을 가리켜야 합니다.|
-| **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보: [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup) |
+| **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할](#create-integration-user-role-in-servicenow-app).|
+| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.  |
+| **서버 URL**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 URL을 입력합니다. URL은 ".servicenow.com" 접미사를 사용하여 지원되는 SaaS 버전을 가리켜야 합니다.|
+| **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보:   [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
-| **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 ServiceNow 작업 항목을 선택합니다.  선택한 값을 로그 분석으로 가져옵니다.   **옵션:** 인시던트 및 변경 요청|
-| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
-| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본값**: 사용 안 함 |
+| **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 ServiceNow 작업 항목을 선택합니다.  선택한 값을 로그 분석으로 가져옵니다.   **옵션:**  인시던트 및 변경 요청.|
+| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다. |
 
 ![ServiceNow 연결](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
@@ -245,7 +247,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow 앱에서 통합 사용자 역할 만들기
 
@@ -297,10 +299,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 필수 조건이 충족되는지 확인합니다.
 
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요.
 
-- 사용자 역할: 관리자
+- 사용자 역할:  관리자.
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -324,12 +326,12 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **연결 이름**   | ITSMC에 연결하려는 Provance 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM의 작업 항목을 구성하고 자세한 로그 분석을 확인할 때 사용합니다. |
 | **파트너 유형**   | **Provance**를 선택합니다. |
 | **사용자 이름**   | ITSMC에 연결할 수 있는 사용자 이름을 입력합니다.    |
-| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.|
+| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고:** 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.|
 | **서버 URL**   | ITSMC에 연결하려는 Provance 인스턴스의 URL을 입력합니다. |
 | **클라이언트 ID**   | Provance 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.  클라이언트 ID에 대한 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요. |
-| **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 Provance 작업 항목을 선택합니다.  이러한 작업 항목을 로그 분석으로 가져옵니다.   **옵션:**   인시던트, 변경 요청|
-| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
-| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본값**: 사용 안 함|
+| **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 Provance 작업 항목을 선택합니다.  이러한 작업 항목을 로그 분석으로 가져옵니다.   **옵션:**   인시던트, 변경 요청.|
+| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다.|
 
 ![Provance 연결](media/itsmc-connections/itsm-connections-provance-latest.png)
 
@@ -339,7 +341,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Provance 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell을 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -349,9 +351,9 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)
-- 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell)
-- 사용자 역할: 관리자
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell).
+- 사용자 역할:  관리자.
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -375,12 +377,12 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **연결 이름**   | ITSMC에 연결하려는 Cherwell 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM의 작업 항목을 구성하고 자세한 로그 분석을 확인할 때 사용합니다. |
 | **파트너 유형**   | **Cherwell**을 선택합니다. |
 | **사용자 이름**   | ITSMC에 연결할 수 있는 Cherwell 사용자 이름을 입력합니다. |
-| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고:** 사용자 이름 및 암호는 인증 토큰을 생성 하는 데만 사용 되며 ITSMC 서비스에는 저장 되지 않습니다.|
+| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고:** 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.|
 | **서버 URL**   | ITSMC에 연결하려는 Cherwell 인스턴스의 URL을 입력합니다. |
 | **클라이언트 ID**   | Cherwell 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.   |
-| **데이터 동기화 범위**   | ITSMC를 통해 동기화할 Cherwell 작업 항목을 선택합니다.  이러한 작업 항목을 로그 분석으로 가져옵니다.   **옵션:** 인시던트, 변경 요청 |
-| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
-| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본값**: 사용 안 함 |
+| **데이터 동기화 범위**   | ITSMC를 통해 동기화할 Cherwell 작업 항목을 선택합니다.  이러한 작업 항목을 로그 분석으로 가져옵니다.   **옵션:**  인시던트, 변경 요청. |
+| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다. |
 
 
 ![Provance 연결](media/itsmc-connections/itsm-connections-cherwell-latest.png)
@@ -391,18 +393,18 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Cherwell 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="generate-client-id-for-cherwell"></a>Cherwell용 클라이언트 ID 생성
 
 Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합니다.
 
 1. Cherwell 인스턴스에 관리자로 로그인합니다.
-2. **보안** > **편집 REST API 클라이언트 설정**을 클릭 합니다.
-3. **새 클라이언트** > **클라이언트 암호**만들기를 선택 합니다.
+2. **보안** > **REST API 클라이언트 설정 편집**을 클릭합니다.
+3. **새 클라이언트 만들기** > **클라이언트 암호**를 선택합니다.
 
     ![Cherwell 사용자 ID](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>다음 단계
- - [Azure alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Azure 경고에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

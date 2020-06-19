@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 86fc5d4845e746604c1ba69f661d1b9ea9d8dca4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3fa56daee5d2dba98fa9fd420524a9b7e4c60ba
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732308"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726114"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -28,34 +28,34 @@ IoT Hub는 모든 기능을 갖춘 MQTT broker가 아니며 MQTT v3.1.1 표준�
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub는 포트 1883을 통한 비보안 연결을 지원 하지 않습니다.
+IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub는 1883 포트를 통한 비보안 연결을 지원하지 않습니다.
 
 ## <a name="connecting-to-iot-hub"></a>IoT Hub에 연결
 
-장치는 다음 옵션 중 하나를 사용 하 여 MQTT 프로토콜을 사용 하 여 IoT hub에 연결할 수 있습니다.
+디바이스는 다음 옵션을 통해 MQTT 프로토콜을 사용하여 IoT 허브에 연결할 수 있습니다.
 
-* [Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)의 라이브러리.
-* MQTT 프로토콜 직접.
+* [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)의 라이브러리.
+* 또는 MQTT 프로토콜 직접 사용.
 
-여러 회사 및 교육 네트워킹 환경에서 MQTT 포트 (8883)가 차단 됩니다. 방화벽에서 8883 포트를 열 수 없는 경우에는 웹 소켓을 통한 MQTT를 사용 하는 것이 좋습니다. 웹 소켓을 통한 MQTT는 거의 항상 네트워킹 환경에서 열리는 443 포트를 통해 통신 합니다. Azure IoT Sdk를 사용 하는 경우 웹 소켓 프로토콜을 통해 MQTT 및 MQTT를 지정 하는 방법을 알아보려면 [장치 Sdk 사용](#using-the-device-sdks)을 참조 하세요.
+MQTT 포트(8883)는 많은 회사 및 교육 네트워킹 환경에서 차단됩니다. 방화벽에서 포트 8883을 열 수 없는 경우에는 웹 소켓을 통한 MQTT를 사용하는 것이 좋습니다. 웹 소켓을 통한 MQTT는 네트워킹 환경에서 거의 항상 열리는 포트 443을 통해 통신합니다. Azure IoT SDK를 사용하는 경우 MQTT 및 웹 소켓을 통한 MQTT 프로토콜을 지정하는 방법을 알아보려면 [디바이스 SDK 사용](#using-the-device-sdks)을 참조하세요.
 
 ## <a name="using-the-device-sdks"></a>디바이스 SDK 사용
 
-MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통해 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
+MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통한 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
 
 디바이스가 IoT Hub에 연결되면 디바이스 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
 
-다음 표에서는 지원 되는 각 언어에 대 한 코드 샘플에 대 한 링크를 제공 하 고, 웹 소켓 프로토콜을 통해 MQTT 또는 MQTT를 사용 하 여 IoT Hub에 연결 하는 데 사용할 매개 변수를 지정 합니다.
+다음 표에는 지원되는 각 언어의 코드 샘플 링크가 있고 MQTT 또는 웹 소켓을 통한 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 데 사용할 매개 변수를 지정합니다.
 
-| 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓 프로토콜 매개 변수를 통한 MQTT
+| 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
 | --- | --- | --- |
-| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-장치-mqtt. Mqtt | azure-iot-장치-mqtt. MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol MQTT_WS |
+| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | MQTT가 실패 하는 경우 TransportType는 웹 소켓을 통해 MQTT로 대체 됩니다. 웹 소켓에만 MQTT를 지정 하려면 TransportType를 사용 Mqtt_WebSocket_Only 합니다. |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 기본적으로 MQTT 지원 | 호출 `websockets=True` 에를 추가 하 여 클라이언트 만들기 |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 기본적으로 MQTT를 지원합니다. | 호출에 `websockets=True`를 추가하여 클라이언트를 만듭니다. |
 
-다음 조각은 Azure IoT node.js SDK를 사용 하는 경우 웹 소켓 프로토콜을 통해 MQTT를 지정 하는 방법을 보여 줍니다.
+다음 조각은 Azure IoT Node.js SDK를 사용할 경우 웹 소켓을 통한 MQTT 프로토콜을 지정하는 방법을 보여 줍니다.
 
 ```javascript
 var Client = require('azure-iot-device').Client;
@@ -63,7 +63,7 @@ var Protocol = require('azure-iot-device-mqtt').MqttWs;
 var client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
-다음 조각은 Azure IoT Python SDK를 사용 하는 경우 웹 소켓 프로토콜을 통해 MQTT를 지정 하는 방법을 보여 줍니다.
+다음 조각은 Azure IoT Python SDK를 사용할 경우 웹 소켓을 통한 MQTT 프로토콜을 지정하는 방법을 보여 줍니다.
 
 ```python
 from azure.iot.device.aio import IoTHubDeviceClient
@@ -72,21 +72,21 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 ### <a name="default-keep-alive-timeout"></a>기본 keep-alive 시간 제한
 
-클라이언트/IoT Hub 연결이 유지 되도록 하기 위해 서비스와 클라이언트는 모두 연결 *유지* ping을 서로 정기적으로 보냅니다. IoT SDK를 사용 하는 클라이언트는 아래 테이블에 정의 된 간격으로 keep-alive를 전송 합니다.
+클라이언트/IoT Hub 연결을 유지하기 위해 서비스와 클라이언트는 둘 다 서로에게 정기적으로 *keep-alive* ping을 전송합니다. IoT SDK를 사용하는 클라이언트는 아래 표에 정의된 간격으로 keep-alive를 전송합니다.
 
 |언어  |기본 keep-alive 간격  |구성 가능 여부  |
 |---------|---------|---------|
-|Node.js     |   180 초      |     아니요    |
-|Java     |    230 초     |     아니요    |
-|C     | 240 초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|Node.js     |   180초      |     예    |
+|Java     |    230초     |     예    |
+|C     | 240초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300초 |  [예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60초 |  아니요   |
+|Python(V2)   | 60초 |  예   |
 
-[Mqtt 사양을](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)따라 IoT Hub의 keep-alive ping 간격은 클라이언트 연결 유지 값의 1.5 배입니다. 그러나 모든 Azure 서비스가 Azure 부하 분산 장치 TCP 유휴 시간 제한 (29.45 분)에 바인딩되기 때문에 IoT Hub는 최대 서버 쪽 제한 시간을 29.45 분 (1767 초)으로 제한 합니다. 
+[MQTT 사양](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)에 따라 IoT Hub의 keep-alive ping 간격은 클라이언트 keep-alive 값의 1.5배입니다. 그러나 모든 Azure 서비스가 Azure Load Balancer TCP 유휴 시간 제한(29.45분)에 바인딩되므로 IoT Hub는 최대 서버 쪽 시간 제한을 29.45분(1767초)으로 제한합니다. 
 
-예를 들어, Java SDK를 사용 하는 장치는 keep-alive ping을 보낸 다음 네트워크 연결을 잃게 됩니다. 230 초 후 장치는 오프 라인 상태 이기 때문에 keep-alive ping이 누락 되었습니다. 그러나 IoT Hub는 연결을 즉시 닫지 않으며 [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)오류와 `(230 * 1.5) - 230 = 115` 함께 장치 연결을 끊기 전에 잠시 대기 합니다. 
+예를 들어 Java SDK를 사용하는 디바이스는 keep-alive ping을 전송한 다음, 네트워크 연결이 해제됩니다. 230초 후에 디바이스는 오프라인 상태이기 때문에 keep-alive ping을 놓칩니다. 그러나 IoT Hub는 즉시 연결을 닫지 않습니다. 디바이스의 연결을 끊기 전에 또 다른 `(230 * 1.5) - 230 = 115`초 동안 대기하고 [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md) 오류가 발생합니다. 
 
-설정할 수 있는 최대 클라이언트 연결 유지 값은 `1767 / 1.5 = 1177` 초입니다. 모든 트래픽은 keep-alive로 다시 설정 됩니다. 예를 들어 성공적인 SAS 토큰 새로 고침은 keep-alive를 다시 설정 합니다.
+설정할 수 있는 최대 클라이언트 keep-alive 값은 `1767 / 1.5 = 1177`초입니다. 트래픽이 발생하면 keep-alive가 다시 설정됩니다. 예를 들어 SAS 토큰 새로 고침에 성공하면 keep-alive가 다시 설정됩니다.
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>디바이스 앱을 AMQP에서 MQTT로 마이그레이션
 
@@ -98,11 +98,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * MQTT는 [클라우드-디바이스 메시지](iot-hub-devguide-messaging.md)를 수신할 때 *reject* 작업을 지원하지 않습니다. 백 엔드 앱이 디바이스 앱에서 응답을 수신해야 할 경우 [직접 메서드](iot-hub-devguide-direct-methods.md) 사용을 고려합니다.
 
-* AMQP는 Python SDK에서 지원 되지 않습니다.
+* AMQP는 Python SDK에서 지원되지 않습니다.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>MQTT 프로토콜 직접 사용(디바이스로)
 
-디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **연결** 패킷에서 장치는 다음 값을 사용 해야 합니다.
+디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 디바이스는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 
@@ -117,11 +117,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md) 을 참조 하 고 [아래](#tlsssl-configuration)코드 지침을 따릅니다.
+  > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub에서 X.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조하고 [아래](#tlsssl-configuration) 코드 지침을 따르세요.
 
-  SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 디바이스 섹션을 참조하세요.
+  SAS 토큰을 생성하는 방법에 관한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Azure Iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az IoT hub](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 를 사용 하 여 사용자 고유의 코드에 복사 하 여 붙여넣을 수 있는 sas 토큰을 빠르게 생성할 수 있습니다.
+  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)을 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
 
 ### <a name="for-azure-iot-tools"></a>Azure IoT Tools의 경우
 
@@ -145,42 +145,42 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 디바이스 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 디바이스 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 디바이스에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
 
-### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Azure IoT C SDK 없이 MQTT를 사용 하는 C 코드의 예
-이 [리포지토리에서](https://github.com/Azure-Samples/IoTMQTTSample)Azure IOT C SDK를 사용 하지 않고 원격 분석 메시지를 보내고 iot hub를 사용 하 여 이벤트를 수신 하는 방법을 보여 주는 2 개의 c/c + + 데모 프로젝트를 찾을 수 있습니다. 
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Azure IoT C SDK 없이 MQTT를 사용하는 C 코드의 예
+이 [리포지토리](https://github.com/Azure-Samples/IoTMQTTSample)에서는 C++ Azure Iot C SDK를 사용하지 않고 IoT 허브를 통해 원격 분석 메시지를 보내고 이벤트를 수신하는 방법을 보여 주는 몇 개의 C/C++ 데모 프로젝트를 찾을 수 있습니다. 
 
-이러한 샘플은 Eclipse Mosquitto 라이브러리를 사용 하 여 IoT hub에서 구현 된 MQTT Broker로 메시지를 보냅니다.
+해당 샘플은 Eclipse Mosquitto 라이브러리를 사용하여 IoT 허브에서 구현된 MQTT Broker로 메시지를 보냅니다.
 
-이 리포지토리에는 다음이 포함 됩니다.
+이 리포지토리에는 다음이 포함됩니다.
 
 **Windows의 경우:**
 
-* TelemetryMQTTWin32: 원격 분석 메시지를 Azure IoT hub에 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다.
+* TelemetryMQTTWin32: Windows 컴퓨터에서 빌드 및 실행되며 원격 분석 메시지를 Azure IoT Hub에 전송하는 코드를 포함합니다.
 
-* SubscribeMQTTWin32: Windows 컴퓨터에서 지정 된 IoT hub의 이벤트를 구독 하는 코드를 포함 합니다.
+* SubscribeMQTTWin32: Windows 컴퓨터에서 지정된 IoT 허브의 이벤트를 구독하는 코드를 포함합니다.
 
-* DeviceTwinMQTTWin32: Windows 컴퓨터의 Azure IoT hub에서 장치의 장치 쌍 이벤트를 쿼리하고 구독 하는 코드를 포함 합니다.
+* DeviceTwinMQTTWin32: Windows 컴퓨터에서 Azure IoT Hub의 디바이스에 관련된 디바이스 쌍 이벤트를 쿼리 및 구독하는 코드를 포함합니다.
 
-* PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
+* PnPMQTTWin32: Windows 컴퓨터에서 빌드 및 실행되며 IoT 플러그 앤 플레이 미리 보기 디바이스 기능을 통해 원격 분석 메시지를 Azure IoT Hub에 전송하는 코드를 포함합니다. [여기](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)에서 IoT 플러그 앤 플레이를 자세히 알아보세요.
 
 **Linux의 경우:**
 
-* MQTTLinux: Linux에서 실행할 코드 및 빌드 스크립트를 포함 합니다 (WSL, Ubuntu 및 Raspbian는 지금까지 테스트 됨).
+* MQTTLinux: Linux에서 실행할 코드 및 빌드 스크립트를 포함합니다(지금까지 WSL, Ubuntu 및 Raspbian이 테스트됨).
 
-* LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
+* LinuxConsoleVS2019: 동일한 코드를 포함하지만 WSL(Windows Linux 하위 시스템)을 대상으로 하는 VS2019 프로젝트에 포함됩니다. 이 프로젝트에서는 Visual Studio에서 단계별로 Linux에서 실행되는 코드를 디버그할 수 있습니다.
 
-**Mosquitto_pub:**
+**mosquitto_pub의 경우:**
 
-이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
+이 폴더에는 Mosquitto.org에서 제공하는 mosquitto_pub 유틸리티 도구에서 사용되는 두 가지 샘플 명령이 포함됩니다.
 
-* Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 보냅니다.
+* Mosquitto_sendmessage: 디바이스 역할을 하는 Azure IoT Hub에 eksans 메시지를 보냅니다.
 
-* Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합니다.
+* Mosquitto_subscribe: Azure IoT Hub에서 발생하는 이벤트를 확인합니다.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>MQTT 프로토콜 직접 사용(모듈로)
 
 모듈 ID를 사용하여 MQTT를 통해 IoT Hub에 연결하는 작업은 디바이스([위](#using-the-mqtt-protocol-directly-as-a-device)에서 설명됨)와 비슷하지만 다음을 사용해야 합니다.
 
-* 클라이언트 ID를로 `{device_id}/{module_id}`설정 합니다.
+* 클라이언트 ID를 `{device_id}/{module_id}`로 설정합니다.
 
 * 사용자 이름 과 암호를 사용하여 인증하는 경우 사용자 이름을 `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30`으로 설정하고 모듈 ID와 연결된 SAS 토큰을 암호로 사용합니다.
 
@@ -196,9 +196,9 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 MQTT 프로토콜을 직접 사용하려면 클라이언트가 *반드시* TLS/SSL를 통해 연결되어야 합니다. 이 단계를 건너뛰려고 하면 연결 오류가 발생하여 실패합니다.
 
-TLS 연결을 설정하려면 DigiCert Baltimore 루트 인증서를 다운로드하여 참조해야 할 수 있습니다. 이 인증서는 Azure가 연결 보호에 사용합니다. 이 인증서는 [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 저장소에 있습니다. 이 인증서에 대한 자세한 내용은 [Digicert의 웹 사이트](https://www.digicert.com/digicert-root-certificates.htm)에 있습니다.
+TLS 연결을 설정하려면 DigiCert Baltimore 루트 인증서를 다운로드하여 참조해야 할 수 있습니다. 이 인증서는 Azure가 연결 보호에 사용합니다. 이 인증서는 [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 리포지토리에서 찾을 수 있습니다. 이 인증서에 관한 자세한 내용은 [Digicert 웹 사이트](https://www.digicert.com/digicert-root-certificates.htm)에서 찾을 수 있습니다.
 
-Eclipse Foundation에서 Python 버전의 [Paho MQTT 라이브러리](https://pypi.python.org/pypi/paho-mqtt)를 사용하여 이것을 구현하는 방법의 예는 다음과 유사합니다.
+Eclipse Foundation에서 [Paho MQTT 라이브러리](https://pypi.python.org/pypi/paho-mqtt)의 Python 버전을 사용하여 이를 구현하는 방법의 예제는 다음과 같습니다.
 
 먼저, 명령줄 환경에서 Paho 라이브러리를 설치합니다.
 
@@ -257,7 +257,7 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-장치 인증서를 사용 하 여 인증 하려면 위의 코드 조각을 다음과 같이 변경 합니다. 인증서 기반 인증을 준비 하는 방법에 대 한 [X.509 CA 인증서를 가져오는 방법](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) 을 참조 하세요.
+디바이스 인증서를 사용하여 인증하려면 위 코드 조각을 다음 변경 내용으로 업데이트합니다. 인증서 기반 인증을 준비하는 방법에 관한 자세한 내용은 [x.509 CA 인증서를 가져오는 방법](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate)을 참조하세요.
 
 ```python
 # Create the client as before
@@ -286,7 +286,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> 이 `{property_bag}` 요소는 HTTPS 프로토콜의 쿼리 문자열과 동일한 인코딩을 사용 합니다.
+> 이 `{property_bag}` 요소는 HTTPS 프로토콜의 쿼리 문자열과 동일한 인코딩을 사용합니다.
 
 다음은 IoT Hub 구현 관련 동작의 목록입니다.
 
@@ -300,19 +300,19 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ## <a name="receiving-cloud-to-device-messages"></a>클라우드-디바이스 메시지 수신
 
-IoT Hub에서 메시지를 수신 하려면 장치는를 `devices/{device_id}/messages/devicebound/#` **토픽 필터로**사용 하 여 구독 해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
+IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
 디바이스는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 디바이스 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
-IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_id}/messages/devicebound/`, 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사가 **$** 있습니다. 응용 프로그램 속성은 접두사 없이 원래 속성 이름을 사용 합니다.
+IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`인 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 
 디바이스 앱이 **QoS 2**의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다. 그런 다음 IoT Hub는 메시지를 QoS 1을 사용하는 디바이스에 전달합니다.
 
 ## <a name="retrieving-a-device-twins-properties"></a>디바이스 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 대해 채워진 값을 `$iothub/twin/GET/?$rid={request id}`사용 하 여 항목에 빈 메시지를 보냅니다. 그러면 서비스는 요청과 동일한 `$iothub/twin/res/{status}/?$rid={request id}` **요청 ID** 를 사용 하 여 토픽의 장치 쌍 데이터를 포함 하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
-요청 ID는 [IoT Hub 메시징 개발자 가이드](iot-hub-devguide-messaging.md)에 따라 메시지 속성 값에 대 한 유효한 값일 수 있으며 상태는 정수로 유효성이 검사 됩니다.
+요청 ID는 [IoT Hub 메시징 개발자 가이드](iot-hub-devguide-messaging.md)에 따라 메시지 속성 값의 유효한 값일 수 있으며 상태는 정수로 확인됩니다.
 
 응답 본문에는 다음 응답 예제와 같이 디바이스 쌍의 속성 섹션이 포함되어 있습니다.
 
@@ -334,7 +334,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 |상태 | Description |
 | ----- | ----------- |
-| 200 | 성공 |
+| 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
 | 5** | 서버 오류 |
 
@@ -342,17 +342,17 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ## <a name="update-device-twins-reported-properties"></a>디바이스 쌍의 reported 속성 업데이트
 
-reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서이 유형의 요청/응답 상호 작용을 구현 하기 위해 업데이트 요청에서 장치에 의해 처음`$rid`제공 된 요청 ID ()의 개념을 활용 합니다. 이 요청 ID는 장치에서 특정 이전 요청에 대 한 응답과의 상관 관계를 지정할 수 있도록 IoT Hub의 응답에도 포함 됩니다.
+reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음에 제공한 request ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
 
 다음 시퀀스에서는 디바이스가 IoT Hub의 디바이스 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
 
 1. 디바이스는 먼저 `$iothub/twin/res/#` 항목을 구독하여 IoT Hub에서 작업의 응답을 수신해야 합니다.
 
-2. 디바이스는 디바이스 쌍 업데이트를 포함하는 메시지를 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 항목에 전송합니다. 이 메시지는 **요청 ID** 값을 포함 합니다.
+2. 디바이스는 디바이스 쌍 업데이트를 포함하는 메시지를 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 항목에 전송합니다. 이 메시지는 **요청 ID** 값을 포함합니다.
 
-3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 요청과 동일한 **요청 ID** 를 사용 합니다.
+3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 장치 쌍의 문서에서 해당 멤버를 업데이트 하거나 추가 합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -400,7 +400,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 }
 ```
 
-속성 업데이트의 경우 `null` 값은 JSON 개체 멤버가 삭제 됨을 의미 합니다. 또한 `$version`은 쌍에 포함된 원하는 속성 섹션의 새 버전을 나타냅니다.
+속성 업데이트의 경우 `null` 값은 JSON 개체 멤버가 삭제되고 있음을 의미합니다. 또한 `$version`은 쌍에 포함된 원하는 속성 섹션의 새 버전을 나타냅니다.
 
 > [!IMPORTANT]
 > IoT Hub는 디바이스가 연결된 경우에만 변경 알림을 생성하여 desired 속성이 IoT Hub와 디바이스 앱 간에 동기화 상태를 유지하기 위해 [디바이스 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow)이 수행되도록 합니다.
@@ -421,7 +421,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="next-steps"></a>다음 단계
 
-MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서](https://mqtt.org/documentation)를 참조하세요.
+MQTT 프로토콜에 관한 자세한 내용은 [MQTT 설명서](https://mqtt.org/documentation)를 참조하세요.
 
 IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 

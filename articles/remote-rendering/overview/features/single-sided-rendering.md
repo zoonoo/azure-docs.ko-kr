@@ -1,45 +1,45 @@
 ---
 title: 단일 면 렌더링
-description: 단일 면 렌더링 설정 및 사용 사례에 대해 설명 합니다.
+description: 단일 면 렌더링 설정 및 사용 사례를 설명합니다.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682014"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759101"
 ---
 # <a name="single-sided-rendering"></a>단일 면 렌더링
 
-대부분의 렌더러는 [백 페이스 고르기](https://en.wikipedia.org/wiki/Back-face_culling) 를 사용 하 여 성능을 향상 시킵니다. 그러나 메시를 사용 하 여 메시 [를 잘라 면](cut-planes.md)사용자가 삼각형의 뒷면을 볼 수 있습니다. 이러한 삼각형이 추출 않으면 결과가 잘못 된 것으로 보입니다.
+대부분 렌더러는 [뒷면 선별](https://en.wikipedia.org/wiki/Back-face_culling)을 사용하여 성능을 개선합니다. 그러나 [평면 잘라내기](cut-planes.md)를 통해 메시가 잘려 있으면 종종 사용자에게 삼각형의 뒷면이 보입니다. 해당 삼각형이 선별되지 않으면 결과가 설득력 있는 것으로 보이지 않습니다.
 
-이 문제를 안정적으로 방지 하는 방법은 삼각형 양면을 렌더링 하는 *것입니다.* 고르기를 사용 하지 않는 것과 같이 성능에 영향을 미칠 수 있으므로 기본적으로 Azure 원격 렌더링은 잘라내기 평면과 교차 하는 메시에 대 한 양면 렌더링 으로만 전환 합니다.
+이 문제를 안정적으로 방지하는 방법은 ‘양면’ 삼각형을 렌더링하는 것입니다. 뒷면 선별을 사용하지 않으면 성능에 영향을 미치므로 Azure Remote Rendering은 기본적으로 잘린 평면과 교차하는 메시의 양면 렌더링으로만 전환합니다.
 
-*단일 면 렌더링* 설정을 사용 하 여이 동작을 사용자 지정할 수 있습니다.
+‘단면 렌더링’ 설정을 사용하여 이 동작을 사용자 지정할 수 있습니다.
 
 > [!CAUTION]
-> 단일 면 렌더링 설정은 실험적 기능입니다. 이후에 다시 제거 될 수도 있습니다. 응용 프로그램에서 중요 한 문제를 해결 하는 경우를 제외 하 고는 기본 설정을 변경 하지 마세요.
+> 단면 렌더링 설정은 실험적 기능입니다. 이후에 다시 제거될 수 있습니다. 실제로 애플리케이션에서 중요한 문제를 해결하는 경우가 아니면 기본 설정을 변경하지 마세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-단일 면 렌더링 설정은로 `opaqueMaterialDefaultSidedness` `SingleSided`설정 된 옵션을 사용 하 여 [변환](../../how-tos/conversion/configure-model-conversion.md) 된 메시에만 적용 됩니다. 기본적으로이 옵션은로 `DoubleSided`설정 되어 있습니다.
+단면 렌더링 설정은 `opaqueMaterialDefaultSidedness` 옵션을 `SingleSided`로 설정하여 [변환된](../../how-tos/conversion/configure-model-conversion.md) 메시에만 적용됩니다. 기본적으로 이 옵션은 `DoubleSided`로 설정됩니다.
 
-## <a name="single-sided-rendering-setting"></a>단일 면 렌더링 설정
+## <a name="single-sided-rendering-setting"></a>단면 렌더링 설정
 
-3 가지 모드가 있습니다.
+다음과 같은 세 가지 모드가 있습니다.
 
-**보통:** 이 모드에서 메시는 변환 될 때 항상 렌더링 됩니다. 즉,로 설정 된 `opaqueMaterialDefaultSidedness` 메시는 `SingleSided` 잘린 평면을 교차 하는 경우에도 항상 뒷면 얼굴 고르기 사용 하도록 렌더링 됩니다.
+**보통:** 이 모드에서 메시는 변환될 때 항상 렌더링됩니다. 즉, `opaqueMaterialDefaultSidedness`를 `SingleSided`로 설정하여 변환된 메시는 잘린 평면과 교차하는 경우에도 항상 뒷면 선별을 사용하여 렌더링됩니다.
 
-**DynamicDoubleSiding:** 이 모드에서 자르기 평면은 메시와 교차 하면 자동으로 양면 렌더링으로 전환 됩니다. 이 모드는 기본 모드입니다.
+**DynamicDoubleSiding:** 이 모드에서 잘린 평면은 메시와 교차하는 경우 자동으로 양면 렌더링으로 전환됩니다. 이 모드가 기본 모드입니다.
 
-**AlwaysDoubleSided:** 모든 단일 면 기 하 도형을 항상 양면으로 렌더링 합니다. 이 모드는 주로 단일 면과 양면 렌더링의 성능 영향을 쉽게 비교할 수 있도록 노출 됩니다.
+**AlwaysDoubleSided:** 항상 모든 단면 기하 도형을 양면으로 렌더링합니다. 이 모드는 주로 단면 렌더링과 양면 렌더링 간에 성능 영향을 쉽게 비교할 수 있도록 공개됩니다.
 
-단일 면 렌더링 설정을 변경 하는 작업은 다음과 같이 수행할 수 있습니다.
+단면 렌더링 설정을 변경하는 작업은 다음과 같이 수행할 수 있습니다.
 
-``` cs
+```cs
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -49,6 +49,19 @@ void ChangeSingleSidedRendering(AzureSession session)
 
     // Single-sided geometry is always rendered double-sided
     settings.Mode = SingleSidedMode.AlwaysDoubleSided;
+}
+```
+
+```cpp
+void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+
+    // Single-sided geometry is rendered as is
+    settings->Mode(SingleSidedMode::Normal);
+
+    // Single-sided geometry is always rendered double-sided
+    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

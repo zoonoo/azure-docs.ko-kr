@@ -12,16 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92fbd254f223e2c7eb70a4e86bb7e904294395e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595082"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712273"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Facebook을 외부 ID에 대한 ID 공급자로 추가
 
 사용자가 자신의 Facebook 계정을 사용하여 애플리케이션에 로그인할 수 있도록 셀프 서비스 등록 사용자 흐름(미리 보기)에 Facebook을 추가할 수 있습니다. 사용자가 Facebook을 사용하여 로그인할 수 있도록 하려면 먼저 테넌트에 대해 [셀프 서비스 등록을 사용하도록 설정](self-service-sign-up-user-flow.md)해야 합니다. Facebook을 ID 공급자로 추가한 후에는 애플리케이션에 대한 사용자 흐름을 설정하고 로그인 옵션 중 하나로 Facebook을 선택합니다.
+
+> [!NOTE]
+> 사용자는 자신의 Facebook 계정을 사용하여 셀프 서비스 가입 및 사용자 흐름에 따라 앱에 가입할 수만 있습니다. 사용자는 Facebook 계정을 사용하여 초대를 받고 초대권을 사용할 수 없습니다.
 
 ## <a name="create-an-app-in-the-facebook-developers-console"></a>Facebook 개발자 콘솔에서 앱 만들기
 
@@ -53,7 +56,9 @@ ms.locfileid: "83595082"
 18. Azure AD에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 페이지 오른쪽 위에 있는 상태 선택기를 선택한 후, **켜기**로 바꾸어 애플리케이션을 공용으로 만들고 **모드 전환**을 선택합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
     
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성
+이제 Azure AD 포털에 입력하거나 PowerShell을 사용하여 Facebook 클라이언트 ID 및 클라이언트 암호를 설정합니다. 셀프 서비스 가입이 설정된 앱에서 사용자 흐름을 통해 가입하여 Facebook 구성을 테스트할 수 있습니다.
 
+### <a name="to-configure-facebook-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Facebook 페더레이션을 구성하려면 다음을 수행합니다.
 1. Azure AD 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services**에서 **Azure Active Directory**를 선택합니다.
 3. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
@@ -64,8 +69,38 @@ ms.locfileid: "83595082"
    ![소셜 ID 공급자 추가 페이지를 보여 주는 스크린샷](media/facebook-federation/add-social-identity-provider-page.png)
 
 7. **저장**을 선택합니다.
+### <a name="to-configure-facebook-federation-by-using-powershell"></a>PowerShell을 사용하여 Facebook 페더레이션을 구성하려면 다음을 수행합니다.
+1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. 명령 `Connect-AzureAD`를 실행합니다.
+3. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다.  
+4. 다음 명령 실행: 
+   
+   `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
+ 
+   > [!NOTE]
+   > Facebook 개발자 콘솔에서 위에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
+
+## <a name="how-do-i-remove-facebook-federation"></a>Facebook 페더레이션을 제거하려면 어떻게 해야 하나요?
+Facebook 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 Facebook 계정으로 사용자 흐름을 통해 가입한 모든 사용자가 더 이상 로그인할 수 없습니다. 
+
+### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Facebook 페더레이션을 삭제하려면 다음을 수행합니다. 
+1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
+2. **외부 ID**를 선택합니다.
+3. **모든 ID 공급자**를 선택합니다.
+4. **Facebook** 줄에서 바로 가기 메뉴( **...** )를 선택한 다음, **삭제**를 선택합니다. 
+5. **예**를 선택하여 삭제를 확인합니다.
+
+### <a name="to-delete-facebook-federation-by-using-powershell"></a>PowerShell을 사용하여 Facebook 페더레이션을 삭제하려면 다음을 수행합니다. 
+1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. `Connect-AzureAD`을 실행합니다.  
+4. 로그인 프롬프트에서 관리형 전역 관리자 계정으로 로그인합니다.  
+5. 다음 명령을 입력합니다.
+
+    `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
+
+   > [!NOTE]
+   > 자세한 내용은 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [외부 사용자에게 협업 초대](add-users-administrator.md)
 - [앱에 셀프 서비스 등록 추가](self-service-sign-up-user-flow.md)
