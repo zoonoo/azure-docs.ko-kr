@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b6cad548c9fdc5b5157c842d6302c8635e21a15
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996825"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099322"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -23,9 +23,20 @@ ms.locfileid: "83996825"
 > [!NOTE]
 > 폼 인식기에 대 한 빠른 시작 및 가이드는 지정 되지 않은 경우 항상 최신 버전의 API를 사용 합니다.
 
+## <a name="june-2020"></a>2020년 6월
+
+### <a name="new-features"></a>새로운 기능
+* **클라이언트 sdk에 추가 된 Copymodel API** 이제 클라이언트 Sdk를 사용 하 여 한 구독에서 다른 구독으로 모델을 복사할 수 있습니다. 이 기능에 대 한 일반 정보는 [모델 백업 및 복구](./disaster-recovery.md) 를 참조 하세요.
+* **Azure Active Directory 통합** 이제 AAD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
+* **SDK 관련 변경 내용** 여기에는 보조 기능 추가 및 주요 변경 내용이 모두 포함 됩니다. 자세한 내용은 SDK changelogs를 참조 하십시오.
+  * [C # SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Python SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Java SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [JavaScript SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
 ## <a name="april-2020"></a>2020년 4월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 * **양식 인식기 API v 2.0 공개 미리 보기에 대 한 SDK 지원** 이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원을 확장 했습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
    * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
    * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
@@ -45,7 +56,7 @@ ms.locfileid: "83996825"
 
 ## <a name="march-2020"></a>2020년 3월 
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **레이블 지정을 위한 값 형식** 이제 폼 인식기 샘플 레이블 지정 도구를 사용 하 여 레이블을 지정 하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
   * `string`
@@ -90,7 +101,7 @@ ms.locfileid: "83996825"
 
 이 릴리스에는 폼 인식기 2.0 (미리 보기)가 도입 되었습니다. 아래 섹션에는 새로운 기능, 향상 된 기능 및 변경 내용에 대 한 자세한 내용이 나와 있습니다. 
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **사용자 지정 모델**
   * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이 방법은 모델 성능이 향상되며, 복잡한 양식 또는 키 없는 값을 포함하는 양식과 함께 작동하는 모델을 생성할 수 있습니다.

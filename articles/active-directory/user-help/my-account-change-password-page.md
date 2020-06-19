@@ -1,6 +1,6 @@
 ---
-title: 회사 또는 학교 계정 암호 변경-Azure AD
-description: 내 계정 포털의 암호 변경 페이지에서 회사 또는 학교 계정 암호를 변경 하는 방법에 대해 알아봅니다.
+title: 회사 또는 학교 계정 암호 변경 - Azure AD
+description: 내 계정 포털의 암호 변경 페이지에서 회사 또는 학교 계정 암호를 변경하는 방법을 알아봅니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,49 +8,49 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: a93ee781648440a6e656ff8fd948b2eb9e96bd43
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625955"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735942"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>암호 변경 페이지에서 회사 또는 학교 계정 암호를 변경 합니다.
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>암호 변경 페이지에서 회사 또는 학교 계정 암호 변경
 
-**내 계정** 포털의 **암호 변경** 페이지에서는 회사 또는 학교 계정에 대 한 기존 암호를 업데이트 하는 데 도움이 됩니다. 암호를 잊어버린 경우 사용자가 계정에서 잠그지 않은 것으로 가정 합니다. 암호를 기억할 수 없는 경우, 계정에서 잠긴 경우 또는 조직에서 암호를 얻지 못한 경우에는 보안 정보와 모바일 장치를 사용 하 여 암호를 다시 설정할 수 있습니다.
+**내 계정** 포털의 **암호 변경** 페이지는 회사 또는 학교 계정의 기존 암호를 업데이트하는 데 도움이 됩니다(사용자가 암호를 기억하고 있고 계정이 잠기지 않은 것으로 가정). 암호를 기억하지 못하거나, 계정이 잠겼거나, 조직에서 암호를 받은 적이 없는 경우에는 보안 정보와 모바일 디바이스를 사용하여 암호를 재설정할 수 있습니다.
 
 >[!Important]
->이 문서는 기존 회사 또는 학교 계정에 대해 알려진 암호를 업데이트 하려는 사용자를 위해 작성 되었습니다. Xbox, Hotmail 또는 Outlook.com와 같은 개인 계정으로 전환 하려는 사용자의 경우 [Microsoft 계정에 로그인 할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 제안 해 보세요. 관리자가 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 테스트 하는 방법에 대 한 자세한 정보를 확인 하려는 경우 [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)을 참조 하세요.
+>이 문서는 기존 회사 또는 학교 계정에 대해 알려진 암호를 업데이트하려는 사용자를 위해 작성되었습니다. Xbox, Hotmail, Outlook.com과 같은 개인 계정에 다시 액세스하려는 사용자인 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요. 직원 또는 다른 사용자를 위해 셀프 서비스 암호 재설정을 테스트하는 방법에 대한 자세한 정보를 확인하려는 관리자인 경우 [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)을 참조하세요.
 
-## <a name="update-a-password-from-the-change-password-page"></a>암호 변경 페이지에서 암호를 업데이트 합니다.
+## <a name="update-a-password-from-the-change-password-page"></a>암호 변경 페이지에서 암호 업데이트
 
-1. 기존 암호를 사용 하 여 회사 또는 학교 계정에 로그인 한 다음 **내 계정** (페이지)https://myaccount.microsoft.com/) 으로 이동 합니다.
+1. 기존 암호를 사용하여 회사 또는 학교 계정에 로그인한 다음 **내 계정**(https://myaccount.microsoft.com/) 페이지로 이동합니다.
 
-2. 왼쪽 탐색 창에서 **암호** 를 선택 하거나 암호 블록에서 **암호 변경** 링크를 **선택 합니다.**
+2. 왼쪽 탐색 창에서 **암호**를 선택하거나 **암호** 블록에서 **암호 변경** 링크를 선택합니다.
 
-    ![내 계정 페이지, 강조 표시 된 암호 변경 링크 표시](media/my-account-portal/my-account-portal-change-password.png)
+    ![암호 변경 링크가 강조 표시된 내 계정 페이지](media/my-account-portal/my-account-portal-change-password.png)
 
-3. 이전 암호를 입력 한 다음 새 암호를 만들고 확인 합니다.
+3. 이전 암호를 입력한 다음, 새 암호를 만들고 확인합니다.
 
-    ![암호 필드를 표시 하는 암호 변경 페이지](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![암호 필드가 표시된 암호 변경 페이지](media/my-account-portal/my-account-portal-change-password-page.png)
 
 4. **제출**을 선택합니다.
 
-    암호가 변경 되 고 회사 또는 학교 계정에 다시 로그인 하 라는 메시지가 표시 됩니다.
+    암호가 변경되고 회사 또는 학교 계정에 다시 로그인하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 암호를 변경한 후 다음을 수행할 수 있습니다.
 
-- [보안 정보](user-help-security-info-overview.md)를 보거나 관리 합니다.
+- [보안 정보](user-help-security-info-overview.md)를 보거나 관리합니다.
 
-- 연결 된 [장치](my-account-portal-devices-page.md)를 보거나 관리 합니다.
+- 연결된 [디바이스](my-account-portal-devices-page.md)를 보거나 관리합니다.
 
-- [조직을](my-account-portal-organizations-page.md)보거나 관리 합니다.
+- [조직](my-account-portal-organizations-page.md)을 보거나 관리합니다.
 
 - [로그인 활동](my-account-portal-sign-ins-page.md)을 봅니다.
 
-- 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인 합니다.
+- 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인합니다.

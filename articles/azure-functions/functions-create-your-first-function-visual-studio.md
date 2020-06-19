@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231600"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676457"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 
@@ -40,7 +40,7 @@ Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포�
 
 1. 코드에서 Function1 클래스의 이름을 'HttpExample'로 바꿉니다.
 
-1. `HttpTrigger` 메서드 `run`에서 `FunctionName` 메서드 특성을 `HttpExample`로 바꿉니다.
+1. `HttpTrigger` 메서드 `Run`에서 `FunctionName` 메서드 특성을 `HttpExample`로 바꿉니다.
 
 이제 함수의 이름을 바꾸었으므로 로컬 컴퓨터에서 이를 테스트할 수 있습니다.
 

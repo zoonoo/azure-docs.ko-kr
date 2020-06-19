@@ -1,32 +1,32 @@
 ---
-title: 자습서-다중 컨테이너 그룹 배포-템플릿
-description: 이 자습서에서는 Azure CLI에 Azure Resource Manager 템플릿을 사용 하 여 Azure Container Instances에 여러 컨테이너가 있는 컨테이너 그룹을 배포 하는 방법에 대해 알아봅니다.
+title: 자습서 - 다중 컨테이너 그룹 배포 - 템플릿
+description: 이 자습서에서는 Azure CLI에서 Azure Resource Manager 템플릿을 사용하여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
-ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b08a974cbbdc9e4bdf1594672f82748bfabe88b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533629"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653520"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>자습서: Resource Manager 템플릿을 사용하여 다중 컨테이너 그룹 배포
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [리소스 관리자](container-instances-multi-container-group.md)
 
-Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 로깅, 모니터링 또는 서비스가 두 번째 연결 된 프로세스를 필요로 하는 기타 구성에 대해 사이드카 응용 프로그램을 빌드할 때 유용 합니다.
+Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 애플리케이션 사이드카를 빌드할 때 컨테이너 그룹을 사용하면 유용합니다.
 
-이 자습서에서는 Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포하여 간단한 두 컨테이너 사이드카 구성을 실행하는 단계를 따릅니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 다중 컨테이너 그룹 템플릿 구성
 > * 컨테이너 그룹 배포
 > * 컨테이너 로그 보기
 
-컨테이너 그룹을 사용 하 여 추가 Azure 서비스 리소스 (예: Azure Files 공유 또는 가상 네트워크)를 배포 해야 하는 경우 시나리오에 대 한 리소스 관리자 템플릿을 쉽게 수정할 수 있습니다. 
+컨테이너 그룹을 사용하여 추가 Azure 서비스 리소스(예: Azure Files 공유 또는 가상 네트워크)를 배포해야 하는 경우 시나리오에 맞게 Resource Manager 템플릿을 쉽게 조정할 수 있습니다. 
 
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="configure-a-template"></a>템플릿 구성
 
-다음 JSON을 이라는 `azuredeploy.json`새 파일에 복사 하 여 시작 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
+먼저 다음 JSON을 `azuredeploy.json`이라는 새 파일에 복사합니다. Azure Cloud Shell에서 Visual Studio Code를 사용하여 작업 디렉터리에 파일을 만들 수 있습니다.
 
 ```
 code azuredeploy.json
@@ -111,11 +111,11 @@ code azuredeploy.json
           "ports": [
             {
               "protocol": "tcp",
-              "port": "80"
+              "port": 80
             },
             {
                 "protocol": "tcp",
-                "port": "8080"
+                "port": 8080
             }
           ]
         }
@@ -131,7 +131,7 @@ code azuredeploy.json
 }
 ```
 
-프라이빗 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구성은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
+프라이빗 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구현은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
 
 ```JSON
 "imageRegistryCredentials": [
@@ -161,7 +161,7 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 
 ## <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
+배포 상태를 확인하려면 다음 [az container show][az-container-show] 명령을 사용합니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>컨테이너 로그 보기
 
-[az container logs][az-container-logs] 명령을 사용하여 컨테이너의 로그 출력을 확인합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제에서는 `aci-tutorial-app` 컨테이너를 지정 합니다.
+[az container logs][az-container-logs] 명령을 사용하여 컨테이너의 로그 출력을 확인합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제에서는 `aci-tutorial-app` 컨테이너를 지정합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -192,7 +192,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-사이드카 컨테이너에 대 한 로그를 보려면 `aci-tutorial-sidecar` 컨테이너를 지정 하는 비슷한 명령을 실행 합니다.
+사이드카 컨테이너의 로그를 보려면 `aci-tutorial-sidecar` 컨테이너를 지정하여 비슷한 명령을 실행합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,20 +218,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. 이 사이드카 예제는 이외의 `200 OK`HTTP 응답 코드를 받은 경우 경고를 트리거하기 위해 확장할 수 있습니다.
+위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. `200 OK` 이외의 HTTP 응답 코드가 수신된 경우에는 이 사이드카 예제를 확장하여 경고를 트리거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Container Instances에서 Azure Resource Manager 템플릿을 사용 하 여 다중 컨테이너 그룹을 배포 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
+이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Container Instances에서 다중 컨테이너 그룹을 배포했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 다중 컨테이너 그룹 템플릿 구성
 > * 컨테이너 그룹 배포
 > * 컨테이너 로그 보기
 
-추가 템플릿 샘플은 [Azure Container Instances Azure Resource Manager 템플릿](container-instances-samples-rm.md)을 참조 하세요.
+추가 템플릿 샘플은 [Azure Container Instances용 Azure Resource Manager 템플릿](container-instances-samples-rm.md)을 참조하세요.
 
-[Yaml 파일](container-instances-multi-container-yaml.md)을 사용 하 여 다중 컨테이너 그룹을 지정할 수도 있습니다. YAML 형식의 보다 간결한 특성으로 인해, 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일을 사용 하 여 배포 하는 것이 좋습니다.
+[YAML 파일](container-instances-multi-container-yaml.md)을 사용하여 다중 컨테이너 그룹을 지정할 수도 있습니다. YAML 형식이 더 간결하기 때문에 배포에 컨테이너 인스턴스만 있는 경우 YAML 파일을 사용하여 배포하는 것이 좋습니다.
 
 
 <!-- LINKS - Internal -->

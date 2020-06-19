@@ -219,10 +219,6 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: VSCode용 Spark 및 Hive 도구
               href: ./hdinsight-for-vscode.md
-            - name: Hortonworks 샌드박스를 사용한 HDInsight Tools for IntelliJ
-              href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-            - name: Hortonworks 샌드박스를 사용한 Data Lake 도구
-              href: ./hdinsight-hadoop-emulator-visual-studio.md
         - name: 모니터링
           items:
             - name: Azure Monitor 로그 사용
@@ -501,7 +497,7 @@
                   href: ./hadoop/apache-hadoop-run-samples-linux.md
                 - name: 사용자 지정 Apache Hadoop MapReduce 프로그램 실행
                   href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'C# 스트리밍 MapReduce 프로그램 개발'
+                - name: C# 스트리밍 MapReduce 프로그램 개발
                   href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
                 - name: Java MapReduce 프로그램 개발
                   href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -758,7 +754,7 @@
           items:
             - name: JSON 문서 처리 및 분석
               href: ./hadoop/using-json-in-hive.md
-            - name: 'C# 사용자 정의 함수 사용'
+            - name: C# 사용자 정의 함수 사용
               href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
             - name: Apache Hive 및 Apache Pig와 함께 Python 사용
               href: ./hadoop/python-udf-hdinsight.md
@@ -893,7 +889,7 @@
                   href: ./storm/apache-storm-develop-java-topology.md
                 - name: Python을 사용하여 토폴로지 개발
                   href: ./storm/apache-storm-develop-python-topology.md
-                - name: 'C#을 사용하여 토폴로지 개발'
+                - name: C#을 사용하여 토폴로지 개발
                   href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
                 - name: SCP.NET 프로그래밍 가이드
                   href: ./storm/apache-storm-scp-programming-guide.md
@@ -901,7 +897,7 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: 스트리밍 파이프라인
               items:
-                - name: 'Event Hub 및 Apache Storm(C# 및 Java)'
+                - name: Event Hub 및 Apache Storm(C# 및 Java)
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: 관리
           items:

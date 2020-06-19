@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310600"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080651"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
 
@@ -66,7 +66,7 @@ ms.locfileid: "84310600"
 |        | 400 | 음성 합성은 바이트 순서 표식을 사용 하 여 UTF-8 인코딩의 텍스트 파일만 지원 합니다. | 입력 파일이 바이트 순서 표식을 사용 하 여 UTF-8 인코딩으로 되어 있는지 확인 합니다. |
 |        | 400 | 음성 합성 요청에서는 유효한 SSML 입력만 허용 됩니다. | 입력 SSML 식이 올바른지 확인 합니다. |
 |        | 400 | 입력 파일에 음성 이름 {voiceName}이 (가) 없습니다. | 입력 SSML 음성 이름이 모델 ID와 맞지 않습니다. |
-|        | 400 | 입력 파일의 단락 크기는 1만 미만 이어야 합니다. | 파일의 단락이 1만 미만 인지 확인 합니다. |
+|        | 400 | 입력 파일의 단락 수는 1만 미만 이어야 합니다. | 파일의 단락 수가 1만 미만 인지 확인 합니다. |
 |        | 400 | 입력 파일은 400 자이 하 여야 합니다. | 입력 파일이 400 자를 초과 하는지 확인 합니다. |
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
@@ -114,7 +114,7 @@ ms.locfileid: "84310600"
 
 * [빠른 시작: Python](https://aka.ms/long-audio-python)
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 긴 오디오 API에 대 한 샘플 코드는 GitHub에서 사용할 수 있습니다.
 
 * [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)

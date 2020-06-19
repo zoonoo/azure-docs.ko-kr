@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: NAT 게이트웨이 만들기 - Resource Manager 템플릿'
+title: '자습서: NAT 게이트웨이 만들기 - Resource Manager 템플릿'
 titleSuffix: Azure Virtual Network NAT
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 NAT 게이트웨이를 만드는 방법을 보여 줍니다.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 5e0d62885598aea6f1656d0cdcef5f0c3406e7dd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341034"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703573"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>빠른 시작: NAT 게이트웨이 만들기 - Resource Manager 템플릿
+# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>자습서: NAT 게이트웨이 만들기 - Resource Manager 템플릿
 
 Azure Resource Manager 템플릿을 사용하여 Virtual Network NAT를 시작합니다.  이 템플릿은 가상 네트워크, NAT 게이트웨이 리소스 및 Ubuntu 가상 머신을 배포합니다. Ubuntu 가상 머신은 NAT 게이트웨이 리소스와 연결된 서브넷에 배포됩니다.
 

@@ -3,7 +3,7 @@ title: 'PowerShell: 자동 장애 조치(failover) 그룹에 관리형 인스턴
 titleSuffix: Azure SQL Managed Instance
 description: 관리형 인스턴스를 만들어 자동 장애 조치(failover) 그룹에 추가하고 장애 조치(failover)를 테스트하는 Azure PowerShell 예제 스크립트입니다.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 27179f217d370a5ae4b9a4e87eaebc7659b66930
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b6ad060939af0d79f93e15672af45e0224c1ca5c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220934"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708555"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>PowerShell을 사용하여 관리형 인스턴스를 장애 조치(failover) 그룹에 추가 
 

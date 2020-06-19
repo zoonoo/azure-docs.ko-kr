@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609474"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656697"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>빠른 시작: Azure Synapse Analytics 작업 영역(미리 보기) 만들기
+# <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Synapse 작업 영역을 만드는 단계를 설명합니다.
 

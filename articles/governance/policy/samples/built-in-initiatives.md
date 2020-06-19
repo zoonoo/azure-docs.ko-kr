@@ -1,21 +1,25 @@
 ---
 title: 기본 제공 정책 이니셔티브 목록
 description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나열합니다. 범주에는 규정 준수, 게스트 구성 등이 포함됩니다.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b3b0826e2121e7d609bd4091a162fa1820c1be53
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 41e19426daeaee799f9ad008c820a689fe552ec4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233964"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709157"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 
 이 페이지는 Azure Policy 기본 제공 이니셔티브 정의의 인덱스입니다.
 
 각 기본 제공 기능의 이름은 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 이니셔티브 정의 원본에 연결됩니다. 기본 제공 기능은 **메타데이터**의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주**로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
+
+## <a name="cosmos-db"></a>Cosmos DB
+
+[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>게스트 구성
 

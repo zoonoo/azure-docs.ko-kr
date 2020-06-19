@@ -128,7 +128,7 @@
               href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
         - name: Seller Insights
           items:
-            - name: 시작하기
+            - name: 시작
               href: ./cloud-partner-portal-orig/si-getting-started.md
             - name: 웹 분석
               href: ./cloud-partner-portal-orig/web-analytics.md
@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Azure VM 기술 자산 만들기
               items:
+                - name: 가상 머신 인증 - 문제 및 해결
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Azure VM 기술 자산 만들기
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Azure VM 기술 자산 FAQ
