@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -114,6 +114,8 @@
         - name: 로그 데이터 수집 시간
           displayname: latency
           href: platform/data-ingestion-time.md
+        - name: Event Hubs로 데이터 스트리밍
+          href: platform/stream-monitoring-data-event-hubs.md
     - name: 자세한 정보
       href: insights/insights-overview.md
     - name: 데이터 보안
@@ -299,36 +301,12 @@
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/platform-logs-overview.md
         - name: 활동 로그
-          items:
-            - name: Azure Portal에서 보기
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-view.md
-            - name: 수집 및 분석
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-collect.md
-            - name: 내보내기(레거시)
-              displayname: Activity log
-              href: platform/activity-log-export.md
-        - name: Log Analytics 작업 영역으로 보내기
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-workspace.md
-        - name: Azure 스토리지로 보내기
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-storage.md
-        - name: Event Hubs로 보내기
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-stream-event-hubs.md
-        - name: 진단 설정 만들기
+          href: platform/activity-log.md
+        - name: 리소스 로그
+          href: platform/resource-logs.md
+        - name: 진단 설정
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/diagnostic-settings.md
-        - name: Resource Manager를 사용하여 진단 설정 만들기
-          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings-template.md
-        - name: Blob 스토리지 형식으로 변경
-          displayname: Diagnostic settings
-          href: platform/resource-logs-blob-format.md
-        - name: Event Hubs로 데이터 스트리밍
-          href: platform/stream-monitoring-data-event-hubs.md
     - name: Log Analytics
       items:
         - name: 로그 쿼리 개요
@@ -1015,6 +993,8 @@
           href: insights/storage-insights-overview.md
         - name: 리소스 그룹
           href: insights/resource-group-insights.md
+        - name: 인사이트 문제 해결
+          href: insights/troubleshoot-workbooks.md
     - name: 솔루션
       items:
         - name: 개요
@@ -1185,12 +1165,12 @@
           href: platform/alerts-metric-near-real-time.md
     - name: 플랫폼 로그
       items:
-        - name: 지원되는 리소스 로그 형식 및 범주
-          href: platform/resource-logs-categories.md
-        - name: 리소스 로그 스키마
-          href: platform/resource-logs-schema.md
         - name: 활동 로그 스키마
           href: platform/activity-log-schema.md
+        - name: 리소스 로그 스키마
+          href: platform/resource-logs-schema.md
+        - name: 지원되는 리소스 로그 범주
+          href: platform/resource-logs-categories.md
     - name: 진단 확장 스키마
       items:
         - name: Windows 진단 확장
@@ -1251,7 +1231,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions
@@ -1277,6 +1257,9 @@
           href: platform/oms-portal-transition.md
         - name: 디스크 메트릭 사용 중단
           href: platform/portal-disk-metrics-deprecation.md
+        - name: Blob 스토리지 형식으로 변경
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
 - name: 리소스
   items:
     - name: Azure 로드맵

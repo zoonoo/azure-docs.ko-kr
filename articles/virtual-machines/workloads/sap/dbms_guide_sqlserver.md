@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645806"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014522"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645806"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/eresources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -320,15 +320,15 @@ ms.locfileid: "75645806"
 
 일반적으로 최신 SQL Server 릴리스를 사용하여 Azure IaaS에서 SAP 작업을 실행하는 것이 좋습니다. 최신 SQL Server 릴리스는 Azure 서비스 및 기능 중 일부와 더 효율적으로 통합됩니다. 또는 Azure IaaS 인프라에서 작업을 최적화하도록 변경되었습니다.
 
-계속하기 전에 [이 설명서][virtual-machines-sql-server-infrastructure-services]를 검토하는 것이 좋습니다.
+계속하기 전에 [이][virtual-machines-sql-server-infrastructure-services] 설명서를 검토하는 것이 좋습니다.
 
 다음 섹션에서는 위 링크에 속한 설명서의 일부를 묶어 설명합니다. SAP에 대한 정보도 언급되며 몇 가지 개념도 보다 자세히 설명합니다. 그러나 SQL Server 관련 문서를 읽기 전에 먼저 위의 문서를 통해 작업하는 것이 좋습니다.
 
 계속하기 전에 다음과 같은 IaaS의 SQL Server 관련 정보를 참조하세요.
 
-* **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure Virtual Machine에서 SQL Server 2008 R2 이상이 지원됩니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. 일반적으로 최신 SQL Server 릴리스를 사용하여 Azure IaaS에서 SAP 작업을 실행하는 것이 좋습니다. 최신 SQL Server 릴리스는 Azure 서비스 및 기능 중 일부와 더 효율적으로 통합됩니다. 또는 Azure IaaS 인프라에서 작업을 최적화하도록 변경되었습니다. 따라서 이 문서는 SQL Server 2016 및 SQL Server 2017로 제한됩니다.
-* **SQL 성능**: Microsoft Azure에서 호스팅하는 Virtual Machines는 다른 퍼블릭 클라우드 가상화 제품에 비해 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) 문서를 확인하세요.
-* **Azure Marketplace에서 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure Marketplace의 이미지를 사용하는 것입니다. Azure Marketplace에는 최신 SQL Server 릴리스가 포함된 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 애플리케이션에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
+* **SQL 지원 버전**: SAP 고객의 경우 Microsoft Azure Virtual Machine에서 SQL Server 2008 R2 이상이 지원됩니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. 일반적으로 최신 SQL Server 릴리스를 사용하여 Azure IaaS에서 SAP 작업을 실행하는 것이 좋습니다. 최신 SQL Server 릴리스는 Azure 서비스 및 기능 중 일부와 더 효율적으로 통합됩니다. 또는 Azure IaaS 인프라에서 작업을 최적화하도록 변경되었습니다. 따라서 이 문서는 SQL Server 2016 및 SQL Server 2017로 제한됩니다.
+* **SQL 성능**: Microsoft Azure에서 호스트하는 Virtual Machines는 다른 퍼블릭 클라우드 가상화 제품에 비해 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) 문서를 확인하세요.
+* **Azure Marketplace의 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure Marketplace의 이미지를 사용하는 것입니다. Azure Marketplace에는 최신 SQL Server 릴리스가 포함된 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 애플리케이션에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>SAP 관련 SQL Server 배포용 VM/VHD 구조에 대한 권장 사항
@@ -341,7 +341,7 @@ ms.locfileid: "75645806"
 이러한 구성을 사용하면 tempdb에서 시스템 드라이브에서 제공할 수 있는 것보다 더 많은 공간을 사용할 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 적절한 tempdb 크기를 결정하기 위해 기존 시스템에서 tempdb 크기를 확인할 수 있습니다. 
 
 >[!NOTE]
-> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. D:\ 이후 드라이브는 VM을 다시 부팅 한 후 새로 초기화 됩니다. 모든 파일 및 디렉터리 구조가 지워집니다. D:\에서 최종 디렉터리 구조를 다시 만들 수 있습니다. [이 문서](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)에서는 SQL Server 서비스가 시작 되기 전의 드라이브를 설명 합니다.
+> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. VM이 다시 부팅되면 D:\ 드라이브가 새로 초기화되므로 모든 파일과 디렉터리의 구조가 초기화됩니다. SQL Server 서비스가 시작되기 전에 D:\ 드라이브에 최종 디렉터리 구조를 다시 만들 수 있는 가능성은 [이 문서](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)에서 설명하고 있습니다.
 
 SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb 로그 파일이 D:\ 드라이브에 배치된 VM 구성은 다음과 같습니다.
 
@@ -361,7 +361,7 @@ Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Pre
 ### <a name="formatting-the-disks"></a>디스크 형식 설정
 SQL Server의 경우 SQL Server 서버 데이터 및 로그 파일이 포함된 디스크의 NTFS 블록 크기는 64KB여야 합니다. D:\ 드라이브의 형식을 설정할 필요가 없습니다. 이 드라이브는 미리 포맷되어 있습니다.
 
-파일의 내용을 제거하여 데이터베이스를 복원하거나 만들더라도 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행되고 있는 사용자 컨텍스트에 특정 권한이 있는지 확인해야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행 되는 경우 해당 사용자에 게 **볼륨 유지 관리 작업을 수행**하는 사용자 권한을 할당 해야 합니다.  자세한 내용은 이 Microsoft 기술 자료 문서(<https://support.microsoft.com/kb/2574695>)를 참조하세요.
+파일의 내용을 제거하여 데이터베이스를 복원하거나 만들더라도 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행되고 있는 사용자 컨텍스트에 특정 권한이 있는지 확인해야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행되는 경우 해당 사용자에게 **볼륨 유지 관리 작업 수행** 사용자 권한을 할당해야 합니다.  자세한 내용은 이 Microsoft 기술 자료 문서(<https://support.microsoft.com/kb/2574695>)를 참조하세요.
 
 ### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
 I/O 대역폭이 제한 요인이 될 수 있는 구성에서 측정마다 IOPS를 줄여 Azure와 같이 IaaS 시나리오에서 실행할 수 있는 워크로드를 늘릴 수 있습니다. 따라서 아직 수행하지 않은 경우 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP와 Microsoft 모두에서 SQL Server 페이지 압축을 적용하는 것이 좋습니다.
@@ -407,7 +407,7 @@ Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virt
 2.  SQL Server 2012 CU4 이상에서는 데이터베이스를 Azure Storage URL에 백업할 수 있습니다.
 3.  Azure Blob Storage의 데이터베이스 파일에 대한 파일-스냅샷 백업 이 방법은 SQL Server 데이터 및 로그 파일이 Azure Blob Storage에 있는 경우에만 작동합니다.
 
-첫 번째 방법은 온-프레미스 세계의 많은 경우에 잘 알려져 있고 적용 됩니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 스토리지 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
+첫 번째 방법은 잘 알려져 있으며 대부분의 경우 온-프레미스 환경에서도 적용됩니다. 그럼에도 불구하고 사용자가 장기 백업 위치를 해결해야 합니다. 로컬로 연결된 Azure Storage에서 30일 이상 백업을 유지하지 않으려면, Azure Backup 서비스 또는 백업에 대한 액세스 및 보존 관리가 포함된 다른 타사 백업/복구 도구 중 하나를 사용해야 합니다. 또는 Windows 스토리지 공간을 사용하여 Azure에서 대형 파일 서버를 구축합니다.
 
 두 번째 방법은 [URL에 대한 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017) 문서에서 자세히 설명하고 있습니다. SQL Server의 다른 릴리스에서는 이 기능이 약간 다릅니다. 따라서 이러한 특정 SQL Server 릴리스와 관련하여 설명서를 확인해야 합니다. 이 문서에는 많은 제한 사항이 나와 있습니다. 다음에 대해 백업을 수행할 수 있습니다.
 
@@ -448,7 +448,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 
 * 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.
-* Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2 명령을 실행합니다.   
+* 다음 명령을 실행합니다. Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`>은 갤러리를 통해 처음으로 VM을 배포할 때 관리자 계정으로 정의된 계정입니다.
 
 이 프로세스는 몇 분밖에 안 걸립니다. 단계가 올바르게 수행되었는지 확인하려면 다음 단계를 수행하세요.
@@ -475,8 +475,8 @@ HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구�
 SQL Server 로그 전달 기능은 Azure에서 거의 사용되지 않아 하나의 Azure 지역 내에서 고가용성을 달성할 수 없었습니다. 그러나 다음 시나리오에서 SAP 고객은 Azure와 함께 로그 전달을 성공적으로 사용하고 있었습니다.
 
 - Azure 지역 간 재해 복구 시나리오
-- 온-프레미스에서 Azure 지역으로 재해 복구 구성
-- 온-프레미스에서 Azure로의 시나리오를 차단 합니다. 이러한 경우 로그 전달은 Azure의 새 DBMS 배포를 온-프레미스에서 진행 중인 프로덕션 시스템과 동기화 하는 데 사용 됩니다. 전환 시점에서 프로덕션이 종료되고, 마지막 및 최신 트랜잭션 로그 백업이 Azure DBMS 배포로 전송되었는지 확인합니다. 그러면 프로덕션에 대한 Azure DBMS 배포가 열립니다.  
+- 온-프레미스에서 Azure 지역으로의 재해 복구 구성
+- 온-프레미스에서 Azure로 전환하는 시나리오. 이러한 경우 로그 전달은 Azure에서 새 DBMS 배포를 온-프레미스에서 진행 중인 프로덕션 시스템과 동기화하는 데 사용됩니다. 전환 시점에서 프로덕션이 종료되고, 마지막 및 최신 트랜잭션 로그 백업이 Azure DBMS 배포로 전송되었는지 확인합니다. 그러면 프로덕션에 대한 Azure DBMS 배포가 열립니다.  
 
 
 
@@ -496,7 +496,7 @@ Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]�
 
 * 가용성 그룹 수신기는 Windows Server 2012 이상을 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되어 있는지 확인해야 합니다. 
 * Windows Server 2008 R2의 경우 이 패치가 없으며, 연결 문자열에서 장애 조치 파트너를 지정하여 데이터베이스 미러링과 동일한 방식으로 Always On을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908] 참조).
-* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 두 VM이 우발적으로 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않도록 하려면 Always On 구성에서 해당 VM의 네트워크 인터페이스에 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이 문서][virtual-networks-reserved-private-ip]에서 설명).
+* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 두 VM이 우발적으로 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않도록 하려면 Always On 구성에서 해당 VM의 네트워크 인터페이스에 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명).
 * 현재 기능의 Azure는 클러스터가 만들어진 노드와 동일한 IP 주소를 클러스터 이름에 할당하므로 클러스터에 특정 IP 주소를 할당해야 하는 WSFC 클러스터를 구성할 때는 특별한 단계가 필요합니다. 즉, 클러스터에 다른 IP 주소를 할당하기 위해서는 수동 단계를 수행해야 합니다.
 * 가용성 그룹 수신기는 가용성 그룹의 기본 및 보조 복제본을 실행 중인 VM에 할당된 TCP/IP 엔드포인트를 사용하여 Azure에서 만들어집니다.
 * 이러한 엔드포인트는 ACL로 보호해야 할 수 있습니다.
@@ -521,15 +521,15 @@ SQL Server Always On은 SAP 워크로드용 Azure 배포에 가장 일반적으�
 Azure에서 SAP SQL Server 데이터베이스를 배포하는 경우 많은 고객이 SQL Server [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)를 사용하고 있습니다. SQL Server TDE 기능은 SAP에서 완벽하게 지원됩니다(SAP Note [#1380493](https://launchpad.support.sap.com/#/notes/1380493) 참조). 
 
 ### <a name="applying-sql-server-tde"></a>SQL Server TDE 적용
-온-프레미스를 실행 하는 다른 DBMS에서 Azure에서 실행 되는 Windows/SQL Server로 다른 유형의 마이그레이션을 수행 하는 경우에는 미리 SQL Server에서 빈 대상 데이터베이스를 만들어야 합니다. 다음 단계로 SQL Server TDE 기능을 적용합니다. 프로덕션 시스템을 온-프레미스에서 계속 실행 하 고 있습니다. 이 순서로 수행하려는 이유는 빈 데이터베이스를 암호화하는 프로세스에 시간이 상당히 오래 걸릴 수 있다는 것입니다. 그러면 SAP 가져오기 프로세스에서 가동 중지 시간 단계 동안 데이터를 암호화된 데이터베이스로 가져옵니다. 암호화된 데이터베이스로 가져오는 오버헤드는 가동 중지 시간 단계에서 내보내기 단계 이후에 데이터베이스를 암호화하는 것보다 시간으로 인한 영향이 훨씬 적습니다. 데이터베이스를 기반으로 하여 실행되는 SAP 워크로드를 사용하여 TDE를 적용하려고 할 때 부정적인 경험을 하게 됩니다. 따라서 TDE 배포를 특정 데이터베이스에서 SAP 워크로드 없이 수행해야 하는 작업으로 처리하는 것이 좋습니다.
+온-프레미스에서 실행되는 다른 DBMS에서 Azure에서 실행되는 Windows/SQL Server로 이기종 마이그레이션을 수행하는 경우, SQL Server에 빈 대상 데이터베이스를 미리 만들어야 합니다. 다음 단계로 SQL Server TDE 기능을 적용합니다. 한편 프로덕션 시스템은 온-프레미스에서 계속 실행되고 있습니다. 이 순서로 수행하려는 이유는 빈 데이터베이스를 암호화하는 프로세스에 시간이 상당히 오래 걸릴 수 있다는 것입니다. 그러면 SAP 가져오기 프로세스에서 가동 중지 시간 단계 동안 데이터를 암호화된 데이터베이스로 가져옵니다. 암호화된 데이터베이스로 가져오는 오버헤드는 가동 중지 시간 단계에서 내보내기 단계 이후에 데이터베이스를 암호화하는 것보다 시간으로 인한 영향이 훨씬 적습니다. 데이터베이스를 기반으로 하여 실행되는 SAP 워크로드를 사용하여 TDE를 적용하려고 할 때 부정적인 경험을 하게 됩니다. 따라서 TDE 배포를 특정 데이터베이스에서 SAP 워크로드 없이 수행해야 하는 작업으로 처리하는 것이 좋습니다.
 
-SAP SQL Server 데이터베이스를 온-프레미스에서 Azure로 이동 하는 경우 암호화를 가장 빠르게 적용할 수 있는 인프라를 테스트 하는 것이 좋습니다. 이를 위해 다음 사실에 유념하세요.
+SAP SQL Server 데이터베이스를 온-프레미스에서 Azure로 이동하는 경우 암호화를 가장 빠르게 적용할 수 있는 인프라에서 테스트하는 것이 좋습니다. 이를 위해 다음 사실에 유념하세요.
 
 - 데이터베이스에 데이터 암호화를 적용하는 데 사용되는 스레드 수는 정의할 수 없습니다. 스레드 수는 주로 SQL Server 데이터 및 로그 파일이 분산되는 디스크 볼륨의 수에 따라 달라집니다. 즉, 더 명확한 볼륨(드라이브 문자)이 있을수록 암호화를 수행하기 위해 더 많은 스레드가 병렬로 참여하게 됩니다. 이러한 구성은 Azure VM에서 SQL Server 데이터베이스 파일용 스토리지 공간을 하나 또는 여러 개를 구축하는 경우의 이전 디스크 구성 제안과 약간 충돌합니다. 볼륨 수가 적은 구성에서는 암호화를 실행하는 스레드 수가 적습니다. 단일 스레드 암호화는 64KB 익스텐트를 읽고, 암호화한 다음, 익스텐트가 암호화되었음을 알리는 레코드를 트랜잭션 로그 파일에 기록합니다. 결과적으로 트랜잭션 로그의 부하는 중간 수준입니다.
-- 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. 이 동작은 계획에서 SQL Server 데이터베이스 온-프레미스를 암호화 한 다음 azure에 백업을 복사 하 여 Azure에서 데이터베이스를 복원 하는 경우 문제를 발생 시킬 수 있습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
+- 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. SQL Server 데이터베이스를 온-프레미스에서 암호화한 다음, 백업을 Azure에 복사하여 Azure에서 데이터베이스를 복원하려고 했을 때 이 동작은 문제로 발전할 수 있었습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
 - SQL Server 2016에서 SQL Server는 효율적인 방식으로 암호화된 데이터베이스도 압축할 수 있는 새로운 기능을 도입했습니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/)를 참조하세요.
  
-SAP 워크 로드를 거의 사용 하지 않고 TDE 암호화의 응용 프로그램을 처리 하는 경우에는 SAP 데이터베이스 온-프레미스에 TDE를 적용 하거나 Azure에서 수행 하는 것이 더 좋은지 여부에 대 한 특정 구성을 테스트 해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
+SAP 워크로드를 거의 사용하지 않고 TDE 암호화 애플리케이션을 처리하는 경우, 온-프레미스와 Azure 중 어느 것에서 TDE를 SAP 데이터베이스에 적용하는 것이 더 나은지 여부에 대한 특정 구성을 테스트해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 Azure는 암호화 키를 저장하기 위해 [Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스를 제공합니다. 다른 쪽의 SQL Server는 Azure Key Vault를 TDE 인증서 저장소로 활용할 수 있는 커넥터를 제공합니다.
@@ -546,7 +546,7 @@ SQL Server TDE에 Azure Key Vault를 사용하는 방법에 대한 자세한 내
 >특히 Azure Key Vault에서 SQL Server TDE를 사용하는 경우 SQL Server 2014, SQL Server 2016 및 SQL Server 2017의 최신 패치를 사용하는 것이 좋습니다. 이는 고객의 피드백에 따라 최적화 및 수정이 코드에 적용되었기 때문입니다. 예를 들어 [KBA #4058175](https://support.microsoft.com/help/4058175/tde-enabled-backup-and-restore-slow-if-encryption-key-is-stored-in-ekm)를 확인하세요.
 >  
 
-## <a name="general-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP에 대 한 일반 SQL Server 요약
+## <a name="general-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP용 SQL Server에 대한 일반적 요약
 이 가이드에는 많은 권장 사항이 있으며 Azure 배포를 계획하기 전에 두 번 이상 읽는 것이 좋습니다. 하지만 일반적으로 Azure 관련 권장 사항에서 다음과 같은 최상위 일반 DBMS를 따라야 합니다.
 
 1. SQL Server 2017과 같이 Azure에서 가장 많은 이점을 제공하는 최신 DBMS 릴리스를 사용합니다. 

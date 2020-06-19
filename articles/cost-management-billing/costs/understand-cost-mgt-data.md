@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995652"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791285"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -122,6 +122,7 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 - 태그가 24시간 전에 적용되었습니까? [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
 - 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
     - Azure Active Directory B2C 디렉터리
+    - Azure Bastion
     - Azure Firewall
     - Azure NetApp Files
     - Data Factory

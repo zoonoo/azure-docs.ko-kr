@@ -12,17 +12,17 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79214791"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707415"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 2대의 VM(가상 머신)을 배포합니다. 다음으로 VM 간에 안전하게 통신하고 인터넷에서 VM에 연결합니다. 가상 네트워크는 Azure에서 프라이빗 네트워크의 기본 구성 요소입니다. 이 네트워크를 사용하면 VM과 같은 Azure 리소스가 서로 인터넷을 통해 안전하게 통신할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
@@ -40,7 +40,7 @@ ms.locfileid: "79214791"
     | ------- | ----- |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 속성 | *myVirtualNetwork*를 입력합니다. |
+    | Name | *myVirtualNetwork*를 입력합니다. |
     | 위치 | **미국 동부**를 선택합니다.|
 
 1. 완료되면 **다음: IP 주소**를 선택하고, **IPv4 주소 공간**에 대해 *10.1.0.0/16*을 입력합니다.
@@ -107,7 +107,7 @@ ms.locfileid: "79214791"
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *myvmstorageaccount*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
+    | Name | *myvmstorageaccount*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 계정 종류 | **스토리지(범용 v1)** 로 기본값이 지정되어 있습니다. |
     | 성능 | **표준**으로 기본값이 지정되어 있습니다. |
     | 복제 | **LRS(로컬 중복 스토리지)** 로 기본값이 지정되어 있습니다. |

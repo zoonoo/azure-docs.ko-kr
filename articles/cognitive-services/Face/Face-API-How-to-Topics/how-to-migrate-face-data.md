@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120813"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986664"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
-이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services 얼굴 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 평가판 구독을 사용 하 여 PersonGroup 개체를 만들고 유료 구독으로 마이그레이션하려는 경우를 가정해 보겠습니다. 또는 대기업 작업을 위해 다른 지역의 구독에서 얼굴 데이터를 동기화 해야 할 수도 있습니다.
+이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services 얼굴 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 구독을 사용 하 여 PersonGroup 개체를 만든 다음이를 유료 구독으로 마이그레이션하려는 경우가 있을 수 있습니다. 또는 대기업 작업을 위해 다른 지역의 구독에서 얼굴 데이터를 동기화 해야 할 수도 있습니다.
 
 이러한 동일한 마이그레이션 전략이 LargePersonGroup 및 LargeFaceList 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 c #에서 Face .NET 클라이언트 라이브러리를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 항목이 필요 합니다.
 

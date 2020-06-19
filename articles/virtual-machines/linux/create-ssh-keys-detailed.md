@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969547"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142472"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 
@@ -35,7 +35,7 @@ SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증�
 
 ## <a name="generate-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 키 생성하기
 
-키를 만들려면 기본 설정 명령은 `ssh-keygen`로서 Azure Cloud Shell, macOS 또는 Linux 호스트, [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about) 및 기타 도구에서 OpenSSH 유틸리티를 사용할 수 있습니다. `ssh-keygen`은 일련의 사항을 질문한 다음, 프라이빗 키와 일치하는 공개 키를 작성합니다. 
+키를 만들려면 기본 설정 명령은 `ssh-keygen`로서 Azure Cloud Shell, macOS 또는 Linux 호스트 및 Windows 10에서 OpenSSH 유틸리티를 사용할 수 있습니다. `ssh-keygen`은 일련의 사항을 질문한 다음, 프라이빗 키와 일치하는 공개 키를 작성합니다. 
 
 SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
 
@@ -64,7 +64,7 @@ ssh-keygen \
 
 `ssh-keygen` = 키를 만드는 데 사용한 프로그램
 
-`-m PEM`= 키의 형식을 PEM으로 지정
+`-m PEM` = 키의 형식을 PEM으로 지정
 
 `-t rsa` = 이 경우 RSA 형식으로 만들 키 유형
 
@@ -236,5 +236,5 @@ SSH 키를 사용하는 서버에 처음 로그인하면 명령은 해당 키 �
 다음으로 새 SSH 공개 키를 사용하여 Azure Linux VM을 만듭니다. 기본 로그인 방법(암호)을 사용하여 만든 VM보다 SSH 공개 키를 로그인으로 사용하여 만든 Azure VM의 보안성이 더 우수합니다.
 
 * [Azure Portal을 사용하여 Linux 가상 머신 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI를 사용 하 여 Linux 가상 머신 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI를 사용하여 Linux 가상 머신 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 템플릿을 사용하여 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

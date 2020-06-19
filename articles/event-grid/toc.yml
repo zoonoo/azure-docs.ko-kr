@@ -88,7 +88,7 @@
           href: scripts/event-grid-powershell-resource-group.md
         - name: 리소스 그룹에 대한 이벤트 구독 및 필터링
           href: scripts/event-grid-powershell-resource-group-filter.md
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       href: template-samples.md
     - name: 코드 샘플
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
@@ -244,7 +244,7 @@
           href: troubleshoot-errors.md
         - name: 구독 유효성 검사 문제 해결
           href: troubleshoot-subscription-validation.md
-        - name: 이벤트 전달 모니터링
+        - name: 메트릭 보기 및 경고 설정
           href: monitor-event-delivery.md
 - name: 참조
   items:

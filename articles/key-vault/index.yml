@@ -13,32 +13,32 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 7a0efa00b4fc881c113e151c6730ca5185ea0349
-  ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+  ms.openlocfilehash: 55cf57d283433936b0cba03b67de8726d0ee98c8
+  ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84194447"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84945599"
 highlightedContent:
   items:
   - title: Azure Key Vault 소개
     itemType: overview
     url: ./general/overview.md
-  - title: 기본 개념
+  - title: 인증
     itemType: overview
-    url: ./general/basic-concepts.md
+    url: ./general/authentication.md
   - title: 일시 삭제
     itemType: overview
     url: ./general/overview-soft-delete.md
+  - title: 기본 개념
+    itemType: overview
+    url: ./general/basic-concepts.md
   - title: 로깅
     itemType: overview
     url: ./general/logging.md
   - title: 제한
     itemType: overview
     url: ./general/overview-throttling.md
-  - title: 보안 권장 사항
-    itemType: overview
-    url: ./general/security-recommendations.md
 conceptualContent:
   items:
   - title: 인증서
@@ -63,6 +63,9 @@ conceptualContent:
     - url: ./keys/about-keys.md
       itemType: overview
       text: 키 정보
+    - url: ../security/fundamentals/encryption-atrest.md
+      itemType: overview
+      text: 데이터 암호화
     - url: ./keys/quick-create-portal.md
       itemType: quickstart
       text: Azure Portal을 사용하여 Azure Key Vault에서 키 설정 및 검색
@@ -131,6 +134,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Azure Kubernetes Service - AKS에서 Key Vault 비밀, 인증서 및 키 사용
-    - url: ../data-factory/store-credentials-in-key-vault.md
+    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
       itemType: overview
-      text: Azure Data Factory - Key Vault에서 자격 증명 유지 관리
+      text: Azure Databricks - Key Vault를 사용한 비밀 관리

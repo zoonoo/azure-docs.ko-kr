@@ -1,19 +1,19 @@
 ---
-title: 다중 인스턴스 작업을 사용 하 여 MPI 응용 프로그램 실행
+title: 다중 인스턴스 작업을 사용하여 MPI 애플리케이션 실행
 description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 애플리케이션을 실행하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 43902e774f4c291e8d6a9c659b575d7e75ca032e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735269"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724230"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
-다중 인스턴스 작업을 통해 여러 컴퓨팅 노드에서 동시에 Azure Batch 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 애플리케이션과 같은 고성능 컴퓨팅 시나리오를 Batch로 수행할 수 있습니다. 이 문서에서 [Batch .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
+다중 인스턴스 작업을 통해 여러 컴퓨팅 노드에서 동시에 Azure Batch 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 애플리케이션과 같은 고성능 컴퓨팅 시나리오를 Batch로 수행할 수 있습니다. 이 문서에서는 [Batch .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 문서의 예제에서는 Batch .NET, MS-MPI 및 Windows 컴퓨팅 노드에 집중하는 반면 여기에서 설명한 다중 인스턴스 작업 개념은 다른 플랫폼 및 기술(예를 들어 Linux 노드의 Python 및 Intel MPI)에 적용됩니다.
@@ -95,15 +95,15 @@ Batch 풀에서 컴퓨팅 노드에 대해 A9 등, [RDMA 지원 크기](../virtu
   * [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)(Windows만 해당)
 * **VirtualMachineConfiguration** 풀
 
-  * [Azure의 가상 머신 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  * [Azure의 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  * [Azure에서 가상 머신 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
+  * [Azure에서 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
 
 > [!NOTE]
 > [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Batch .NET을 사용하여 다중 인스턴스 작업 만들기
-이제 풀 요구 사항 및 MPI 패키지 설치를 다루었으며 다중 인스턴스 작업을 만들어 보겠습니다. 이 코드 조각에서 표준 [CloudTask][net_task]를 만든 다음 해당 [MultiInstanceSettings][net_multiinstance_prop] 속성을 구성합니다. 이전에 설명했듯이 다중 인스턴스 작업은 고유한 작업 유형이 아니지만 다중 인스턴스 설정으로 구성된 표준 Batch 작업입니다.
+이제 풀 요구 사항 및 MPI 패키지 설치를 다루었으며 다중 인스턴스 작업을 만들어 보겠습니다. 이 코드 조각에서 표준 [CloudTask][net_task]를 만든 다음, 해당 [MultiInstanceSettings][net_multiinstance_prop] 속성을 구성합니다. 이전에 설명했듯이 다중 인스턴스 작업은 고유한 작업 유형이 아니지만 다중 인스턴스 설정으로 구성된 표준 Batch 작업입니다.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -150,7 +150,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-이 조정 명령에서 `start`를 사용합니다. `smpd.exe` 애플리케이션은 실행 후 즉시 반환하지 않으므로 필요합니다. [start][cmd_start] 명령을 사용하지 않고 이 조정 명령에서 반환하지 않으므로 애플리케이션 명령의 실행이 차단됩니다.
+이 조정 명령에서 `start`를 사용합니다. `smpd.exe` 애플리케이션은 실행 후 즉시 반환하지 않으므로 필요합니다. [start][cmd_start] 명령을 사용하지 않으면 이 조정 명령이 결과를 반환하지 않으므로 애플리케이션 명령의 실행이 차단됩니다.
 
 ## <a name="application-command"></a>애플리케이션 명령
 주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 조정 명령과 구분하도록 **애플리케이션 명령**이라고 합니다.
@@ -167,7 +167,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 >
 
 ## <a name="environment-variables"></a>환경 변수
-배치는 다중 인스턴스 작업에 할당된 컴퓨팅 노드의 다중 인스턴스 작업에 관련된 여러 [환경 변수][msdn_env_var]를 만듭니다. 조정 및 애플리케이션 명령줄은 실행하는 스크립트 및 프로그램을 참조할 수 있는 것처럼 이러한 환경 변수를 참조할 수 있습니다.
+Batch는 다중 인스턴스 작업에 할당된 컴퓨팅 노드의 다중 인스턴스 작업과 관련된 여러 [환경 변수][msdn_env_var]를 만듭니다. 조정 및 애플리케이션 명령줄은 실행하는 스크립트 및 프로그램을 참조할 수 있는 것처럼 이러한 환경 변수를 참조할 수 있습니다.
 
 다음 환경 변수는 다중 인스턴스 작업에서 사용하기 위해 Batch 서비스에 의해 생성됩니다.
 
@@ -202,15 +202,15 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 다중 인스턴스 작업을 삭제하는 경우 주 및 모든 하위 작업도 Batch 서비스에서 삭제됩니다. 모든 하위 작업 디렉터리 및 해당 파일은 표준 작업의 경우처럼 컴퓨팅 노드에서 삭제됩니다.
 
-[MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] 및 [RetentionTime][net_taskconstraint_retention] 속성과 같은 다중 인스턴스 작업에 대한 [TaskConstraints][net_taskconstraints]는 표준 작업에 대한 것이므로 적용되고 주 및 모든 하위 작업에 적용됩니다. 그러나 다중 인스턴스 태스크를 작업에 추가한 후 [RetentionTime][net_taskconstraint_retention] 속성을 변경하는 경우 이 변경은 주 작업에만 적용됩니다. 모든 하위 작업은 원래 [RetentionTime][net_taskconstraint_retention]을 계속해서 사용합니다.
+[MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] 및 [RetentionTime][net_taskconstraint_retention] 속성과 같은 다중 인스턴스 작업에 대한 [TaskConstraints][net_taskconstraints]는 표준 작업에 대한 것이므로 주 및 모든 하위 작업에 적용됩니다. 그러나 다중 인스턴스 태스크를 작업에 추가한 후 [RetentionTime][net_taskconstraint_retention] 속성을 변경하는 경우 이 변경은 주 작업에만 적용됩니다. 모든 하위 작업은 원래 [RetentionTime][net_taskconstraint_retention]을 계속해서 사용합니다.
 
 컴퓨팅 노드의 최근 작업 목록은 최근 작업이 다중 인스턴스 작업의 일부일 경우 하위 작업의 ID를 반영합니다.
 
 ## <a name="obtain-information-about-subtasks"></a>하위 작업에 대한 정보 가져오기
-Batch .NET 라이브러리를 사용하여 하위 작업에 대한 정보를 가져오려면 [CloudTask.ListSubtasks][net_task_listsubtasks] 메서드를 호출합니다. 이 메서드는 모든 하위 작업에 대한 정보 및 작업을 실행하는 컴퓨팅 노드에 대한 정보를 반환합니다. 이 정보로부터 각 하위 작업의 루트 디렉터리, 풀 ID, 현재 상태, 종료 코드 등을 확인할 수 있습니다. [PoolOperations.GetNodeFile][poolops_getnodefile] 메서드와 함께 이 정보를 사용하여 하위 작업의 파일을 가져올 수 있습니다. 이 메서드는 주 작업(ID 0)에 대한 정보를 반환하지 않습니다.
+Batch .NET 라이브러리를 사용하여 하위 작업에 대한 정보를 가져오려면 [CloudTask.ListSubtasks][net_task_listsubtasks] 메서드를 호출합니다. 이 메서드는 모든 하위 작업에 대한 정보 및 작업을 실행하는 컴퓨팅 노드에 대한 정보를 반환합니다. 이 정보로부터 각 하위 작업의 루트 디렉터리, 풀 ID, 현재 상태, 종료 코드 등을 확인할 수 있습니다. 이 정보를 [PoolOperations.GetNodeFile][poolops_getnodefile] 메서드와 함께 사용하여 하위 작업의 파일을 가져올 수 있습니다. 이 메서드는 주 작업(ID 0)에 대한 정보를 반환하지 않습니다.
 
 > [!NOTE]
-> 별도로 언급하지 않는 한 다중 인스턴스 [CloudTask][net_task] 자체에서 작동하는 Batch .NET 메서드는 주 작업에*만* 적용됩니다. 예를 들어 다중 인스턴스 작업에서 [CloudTask.ListNodeFiles][net_task_listnodefiles] 메서드를 호출하는 경우 주 작업의 파일만 반환됩니다.
+> 별도로 언급하지 않는 한 다중 인스턴스 [CloudTask][net_task] 자체에서 작동하는 Batch .NET 메서드는 *주 작업에만* 적용됩니다. 예를 들어 다중 인스턴스 작업에서 [CloudTask.ListNodeFiles][net_task_listnodefiles] 메서드를 호출하는 경우 주 작업의 파일만 반환됩니다.
 >
 >
 
@@ -257,7 +257,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스턴스 태스크를 사용하여 Batch 컴퓨팅 노드에서 [MS-MPI][msmpi_msdn] 애플리케이션을 실행하는 방법을 보여 줍니다. [준비](#preparation) 및 [실행](#execution)의 단계에 따라 샘플을 실행합니다.
 
 ### <a name="preparation"></a>준비
-1. [How to compile and run a simple MS-MPI program][msmpi_howto](간단한 MS-MPI 프로그램을 컴파일하고 실행하는 방법)의 처음 두 단계를 수행합니다. 이렇게 하면 다음 단계의 필수 조건이 충족됩니다.
+1. [간단한 MS-MPI 프로그램을 컴파일하고 실행하는 방법][msmpi_howto]의 처음 두 단계를 수행합니다. 이렇게 하면 다음 단계의 필수 조건이 충족됩니다.
 2. [MPIHelloWorld][helloworld_proj] 샘플 MPI 프로그램의 *릴리스* 버전을 빌드합니다. 이는 다중 인스턴스 태스크를 통해 컴퓨팅 노드에서 실행할 프로그램입니다.
 3. `MPIHelloWorld.exe`(2단계에서 빌드) 및 `MSMpiSetup.exe`(1단계에서 다운로드)를 포함하는 Zip 파일을 만듭니다. 다음 단계의 애플리케이션 패키지로 이 Zip 파일을 업로드합니다.
 4. [Azure Portal][portal]을 사용하여 "MPIHelloWorld"라는 Batch [애플리케이션](batch-application-packages.md)을 만들고, 이전 단계에서 만든 Zip 파일을 버전 "1.0"의 애플리케이션 패키지로 지정합니다. 자세한 내용은 [애플리케이션 업로드 및 관리](batch-application-packages.md#upload-and-manage-applications)를 참조하세요.
@@ -269,12 +269,12 @@ GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스�
 
 ### <a name="execution"></a>실행
 1. GitHub에서 [azure-batch-samples][github_samples_zip]를 다운로드합니다.
-2. Visual Studio 2019에서 MultiInstanceTasks **솔루션** 을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
+2. Visual Studio 2019에서 MultiInstanceTasks **솔루션**을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. **Microsoft.Azure.Batch.Samples.Common** 프로젝트의 `AccountSettings.settings`에 Batch 계정 및 Storage 계정의 자격 증명을 입력합니다.
 4. MultiInstanceTasks 솔루션을 **빌드 및 실행**하여 Batch 풀의 컴퓨팅 노드에서 MPI 샘플 애플리케이션을 실행합니다.
-5. *선택 사항*: [Azure Portal][portal] 또는 [Batch 탐색기][batch_labs]를 사용하여 리소스를 삭제하기 전에 샘플 풀, 작업 및 태스크("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask")를 검사합니다.
+5. *선택 사항*: 리소스를 삭제하기 전에 [Azure Portal][portal] 또는 [Batch Explorer][batch_labs]를 사용하여 샘플 풀, 작업 및 태스크("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask")를 검사합니다.
 
 > [!TIP]
 > Visual Studio가 없는 경우 [Visual Studio 커뮤니티][visual_studio]를 무료로 다운로드할 수 있습니다.
@@ -317,7 +317,7 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Microsoft HPC 및 Azure Batch 팀 블로그는 [Azure Batch의 Linux에 대한 MPI 지원][blog_mpi_linux]을 설명하고 Batch와 함께 [OpenFOAM][openfoam] 사용에 대한 정보를 포함합니다. [GitHub에서 OpenFOAM 예제][github_mpi]에 대한 Python 코드 샘플을 찾을 수 있습니다.
+* Microsoft HPC 및 Azure Batch 팀 블로그는 [Azure Batch의 Linux에 대한 MPI 지원][blog_mpi_linux]을 설명하고 Batch와 함께 [OpenFOAM][openfoam]을 사용하는 방법에 대한 정보를 포함합니다. [GitHub에서 OpenFOAM 예제][github_mpi]에 대한 Python 코드 샘플을 찾을 수 있습니다.
 * Azure Batch MPI 솔루션에서 사용하기 위해 [Linux 컴퓨팅 노드 풀을 만드는 방법](batch-linux-nodes.md)을 알아봅니다.
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld

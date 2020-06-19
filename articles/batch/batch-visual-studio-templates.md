@@ -1,24 +1,22 @@
 ---
-title: Visual Studio 템플릿을 사용하여 솔루션 빌드 - Azure Batch | Microsoft Docs
+title: Visual Studio 템플릿을 사용하여 솔루션 빌드
 description: Visual Studio 프로젝트 템플릿을 통해 Azure Batch에서 계산 집약적인 워크로드를 어떻게 구현하고 실행할 수 있는지 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117525"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779505"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
 
 Batch용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플릿**은 최소한의 노력으로 Batch에서 계산 집약적 워크로드를 구현 및 실행하는 데 도움이 되는 코드를 제공합니다. 이 문서에서는 이러한 템플릿을 설명하고 템플릿을 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 이러한 두 템플릿에 해당하는 정보만 다루며 사용자가 Batch 서비스 및 이와 관련된 주요 개념(풀, 컴퓨팅 노드, 작업 및 태스크, 작업 관리자 태스크, 환경 변수 및 기타 관련 정보)에 익숙하다고 가정합니다. 자세한 내용은 [Azure Batch의 기본 사항](batch-technical-overview.md) 및 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 참조하세요.
-> 
-> 
+> 이 문서에서는 이러한 두 템플릿에 해당하는 정보만 다루며 사용자가 Batch 서비스 및 이와 관련된 주요 개념(풀, 컴퓨팅 노드, 작업 및 태스크, 작업 관리자 태스크, 환경 변수 및 기타 관련 정보)에 익숙하다고 가정합니다. 자세한 내용은 [Azure Batch의 기본 사항](batch-technical-overview.md) 및 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요. 
 
 ## <a name="high-level-overview"></a>대략적인 개요
 작업 관리자 및 태스크 프로세서 템플릿은 다음 두 가지 유용한 구성 요소를 만드는 데 사용할 수 있습니다.
@@ -41,7 +39,7 @@ Batch용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플�
 
 ![클라이언트 코드가 Batch 서비스와 상호 작용하는 방법을 보여 주는 다이어그램][diagram01]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Batch 템플릿을 사용하려면 다음이 필요합니다.
 
 * Visual Studio 2015가 설치된 컴퓨터. 일괄 처리 템플릿은 현재 Visual Studio 2015에 대해서만 지원됩니다.
@@ -57,7 +55,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 ## <a name="preparation"></a>준비
 작업 관리자 및 태스크 프로세서 프로그램 간에 코드를 쉽게 공유할 수 있으므로 작업 관리자 및 태스크 프로세서를 포함할 수 있는 솔루션을 만드는 것이 좋습니다. 이 솔루션을 만들려면 다음 단계를 따르세요.
 
-1. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택 합니다.
+1. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿** 아래에서 **기타 프로젝트 형식**을 확장하고 **Visual Studio 솔루션**을 클릭한 후 **빈 솔루션**을 선택합니다.
 3. 애플리케이션 및 이 솔루션의 용도를 설명하는 이름을 입력합니다(예: "LitwareBatchTaskPrograms").
 4. 새 솔루션을 만들려면 **확인**을 클릭합니다.
@@ -69,7 +67,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 * Batch에서 실행하려면 이러한 태스크를 제출합니다.
 
 > [!NOTE]
-> 작업 관리자 태스크에 대한 자세한 내용은 [개발자를 위한 Batch 기능 개요](batch-api-basics.md#job-manager-task)를 참조하세요.
+> 작업 관리자 작업에 대한 자세한 내용은 [작업](jobs-and-tasks.md#job-manager-task)을 참조하세요.
 > 
 > 
 
@@ -77,7 +75,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 이전에 만든 솔루션에 작업 관리자를 추가하려면 다음 단계를 수행합니다.
 
 1. Visual Studio에서 기존 솔루션을 엽니다.
-2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **Add** > **새 프로젝트**추가를 클릭 합니다.
+2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure Batch 작업 관리자 및 작업 분할자**을 클릭합니다.
 4. 애플리케이션을 설명하고 이 프로젝트를 작업 관리자로 식별하는 이름을 입력합니다(예: "LitwareJobManager").
 5. 프로젝트를 만들려면 **확인**을 클릭합니다.
@@ -87,7 +85,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 작업 관리자 템플릿을 사용하여 프로젝트를 만들면 세 가지 코드 파일 그룹이 생성됩니다.
 
 * 메인 프로그램 파일(Program.cs). 여기에는 프로그램 진입점과 최상위 예외 처리가 포함됩니다. 일반적으로 이 값을 수정할 필요가 없습니다.
-* 프레임워크 디렉터리. 여기에는 작업 관리자 프로그램에서 수행 하는 ' 상용구 ' 작업 (매개 변수 압축 풀기, 일괄 처리 작업에 태스크 추가 등)을 담당 하는 파일이 포함 됩니다. 일반적으로 이러한 파일을 수정할 필요가 없습니다.
+* 프레임워크 디렉터리. 여기에는 매개 변수 압축 해제, Batch 작업에 태스크 추가 등 작업 관리자 프로그램이 수행했던 '상용구' 작업을 담당하는 파일이 포함됩니다. 일반적으로 이러한 파일을 수정할 필요가 없습니다.
 * 작업 분할자 파일(JobSplitter.cs). 작업을 태스크로 분할하기 위해 애플리케이션 관련 논리를 배치할 위치입니다.
 
 물론 작업 분할 논리의 복잡성에 따라 작업 분할자 코드를 지원하는 데 필요하다면 파일을 더 추가할 수 있습니다.
@@ -100,11 +98,11 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 
 **프레임워크 파일**
 
-* `Configuration.cs`: Batch 계정 정보, 연결된 스토리지 계정 자격 증명, 작업 및 태스크 정보 및 작업 매개 변수와 같은 작업 구성 데이터의 로드를 캡슐화합니다. 또한 Configuration.EnvironmentVariable 클래스를 통해 Batch 정의된 환경 변수(Batch 설명서에서 태스크에 대한 환경 설정 참조)에 대한 액세스도 제공합니다.
-* `IConfiguration.cs`: 모조 또는 모의 구성 개체를 사용하여 작업 분할자의 단위 태스크를 수행할 수 있도록 구성 클래스의 구현을 추상화합니다.
+* `Configuration.cs`: 배치 계정 정보, 연결된 스토리지 계정 자격 증명, 작업 및 태스크 정보 및 작업 매개 변수와 같은 작업 구성 데이터의 로드를 캡슐화합니다. 또한 Configuration.EnvironmentVariable 클래스를 통해 Batch 정의된 환경 변수(Batch 설명서에서 태스크에 대한 환경 설정 참조)에 대한 액세스도 제공합니다.
+* `IConfiguration.cs`: 모조 또는 모의 구성 개체를 사용하여 작업 분할자의 단위 테스트를 수행할 수 있도록 구성 클래스의 구현을 추상화합니다.
 * `JobManager.cs`: 작업 관리자 프로그램의 구성 요소를 오케스트레이션합니다. 작업 분할자의 초기화, 작업 분할자 호출 및 작업 분할자에서 태스크 제출자로 반환되는 태스크 디스패치를 담당합니다.
 * `JobManagerException.cs`: 작업 관리자를 종료해야 하는 오류를 나타냅니다. JobManagerException은 종료의 일부분으로 특정 진단 정보를 제공할 수 있는 '예상된' 오류를 래핑하는 데 사용됩니다.
-* `TaskSubmitter.cs`:이 클래스는 작업 분할자가 반환한 태스크를 Batch 작업에 추가하는 것을 담당합니다. JobManager 클래스는 태스크 시퀀스를 배치로 효율적으로 집계하여 작업에 시기 적절하게 추가한 후 각 배치에 대한 백그라운드 스레드에서 TaskSubmitter.SubmitTasks를 호출합니다.
+* `TaskSubmitter.cs`: 이 클래스는 작업 분할자가 반환한 태스크를 Batch 작업에 추가하는 것을 담당합니다. JobManager 클래스는 태스크 시퀀스를 배치로 효율적으로 집계하여 작업에 시기 적절하게 추가한 후 각 배치에 대한 백그라운드 스레드에서 TaskSubmitter.SubmitTasks를 호출합니다.
 
 **작업 분할자**
 
@@ -112,8 +110,8 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 
 **표준 .NET 명령줄 프로젝트 파일**
 
-* `App.config`: 표준 .NET 애플리케이션 구성 파일
-* `Packages.config`: 표준 NuGet 패키지 종속성 파일
+* `App.config`: 표준 .NET 애플리케이션 구성 파일입니다.
+* `Packages.config`: 표준 NuGet 패키지 종속성 파일입니다.
 * `Program.cs`: 프로그램 진입점과 최상위 예외 처리가 포함됩니다.
 
 ### <a name="implementing-the-job-splitter"></a>작업 분할자 구현
@@ -188,7 +186,7 @@ Split() 구현에서는 다음에 액세스할 수 있습니다.
 
 작업 관리자 태스크가 실패하는 경우 일부 태스크는 오류가 발생하기 전에 서비스에 추가되었을 수 있습니다. 이러한 태스크는 정상적으로 실행됩니다. 이 코드 경로에 대한 설명은 위의 "작업 분할자 오류"를 참조하세요.
 
-예외에서 반환된 모든 정보는 stdout.txt 및 stderr.txt 파일에 기록됩니다. 자세한 내용은 [오류 처리](batch-api-basics.md#error-handling)를 참조하세요.
+예외에서 반환된 모든 정보는 stdout.txt 및 stderr.txt 파일에 기록됩니다. 자세한 내용은 [오류 처리](error-handling.md)를 참조하세요.
 
 ### <a name="client-considerations"></a>클라이언트 고려 사항
 이 섹션에서는 이 템플릿을 기반으로 작업 관리자를 호출할 때 일부 클라이언트 구현 요구 사항에 대해 설명합니다. 매개 변수 및 환경 설정 전달에 대한 자세한 내용은 [클라이언트 코드에서 매개 변수 및 환경 변수를 전달하는 방법](#pass-environment-settings) 을 참조하세요.
@@ -223,7 +221,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 클라이언트는 *resourceFiles* 또는 *applicationPackageReferences* 컬렉션을 사용하여 작업 관리자 실행 파일(및 필요한 DLL)이 컴퓨팅 노드에 배포되도록 해야 합니다.
 
-기본적으로 작업 관리자는 실패한 경우 재시도되지 않습니다. 작업 관리자 논리에 따라 클라이언트는*maxTaskRetryCount* *제약 조건을*/통해 재시도를 사용 하도록 설정할 수 있습니다.
+기본적으로 작업 관리자는 실패한 경우 재시도되지 않습니다. 사용자의 작업 논리자 논리에 따라 클라이언트가 *constraints*/*maxTaskRetryCount*를 통해 재시도를 활성화하려고 할 수 있습니다.
 
 **작업 설정**
 
@@ -256,7 +254,7 @@ Batch에서 태스크를 실행하는 데 태스크 프로세서가 반드시 �
 태스크 프로세서 템플릿을 사용하여 프로젝트를 만들면 세 가지 코드 파일 그룹이 생성됩니다.
 
 * 메인 프로그램 파일(Program.cs). 여기에는 프로그램 진입점과 최상위 예외 처리가 포함됩니다. 일반적으로 이 값을 수정할 필요가 없습니다.
-* 프레임워크 디렉터리. 여기에는 작업 관리자 프로그램에서 수행 하는 ' 상용구 ' 작업 (매개 변수 압축 풀기, 일괄 처리 작업에 태스크 추가 등)을 담당 하는 파일이 포함 됩니다. 일반적으로 이러한 파일을 수정할 필요가 없습니다.
+* 프레임워크 디렉터리. 여기에는 매개 변수 압축 해제, Batch 작업에 태스크 추가 등 작업 관리자 프로그램이 수행했던 '상용구' 작업을 담당하는 파일이 포함됩니다. 일반적으로 이러한 파일을 수정할 필요가 없습니다.
 * 태스크 프로세서 파일(TaskProcessor.cs). 태스크를 실행(일반적으로 기존 실행 파일을 호출)하기 위해 애플리케이션 관련 논리를 배치할 위치입니다. 전처리 및 후처리 코드(예: 추가 데이터 다운로드 또는 결과 파일 업로드 등)도 여기에 포함됩니다.
 
 물론 작업 분할 논리의 복잡성에 따라 태스크 프로세서 코드를 지원하는 데 필요하다면 파일을 더 추가할 수 있습니다.
@@ -269,13 +267,13 @@ Batch에서 태스크를 실행하는 데 태스크 프로세서가 반드시 �
 
 **프레임워크 파일**
 
-* `Configuration.cs`: Batch 계정 정보, 연결된 스토리지 계정 자격 증명, 작업 및 태스크 정보 및 작업 매개 변수와 같은 작업 구성 데이터의 로드를 캡슐화합니다. 또한 Configuration.EnvironmentVariable 클래스를 통해 Batch 정의된 환경 변수(Batch 설명서에서 태스크에 대한 환경 설정 참조)에 대한 액세스도 제공합니다.
-* `IConfiguration.cs`: 모조 또는 모의 구성 개체를 사용하여 작업 분할자의 단위 태스크를 수행할 수 있도록 구성 클래스의 구현을 추상화합니다.
+* `Configuration.cs`: 배치 계정 정보, 연결된 스토리지 계정 자격 증명, 작업 및 태스크 정보 및 작업 매개 변수와 같은 작업 구성 데이터의 로드를 캡슐화합니다. 또한 Configuration.EnvironmentVariable 클래스를 통해 Batch 정의된 환경 변수(Batch 설명서에서 태스크에 대한 환경 설정 참조)에 대한 액세스도 제공합니다.
+* `IConfiguration.cs`: 모조 또는 모의 구성 개체를 사용하여 작업 분할자의 단위 테스트를 수행할 수 있도록 구성 클래스의 구현을 추상화합니다.
 * `TaskProcessorException.cs`: 작업 관리자를 종료해야 하는 오류를 나타냅니다. TaskProcessorException은 종료의 일부분으로 특정 진단 정보를 제공할 수 있는 '예상된' 오류를 래핑하는 데 사용됩니다.
 
 **태스크 프로세서**
 
-* `TaskProcessor.cs`: 태스크를 실행합니다. 프레임워크는 TaskProcessor.Run 메서드를 호출합니다. 태스크의 애플리케이션 관련 논리를 삽입할 클래스입니다. 다음을 수행하는 Run 메서드를 구현합니다.
+* `TaskProcessor.cs`: 작업을 실행합니다. 프레임워크는 TaskProcessor.Run 메서드를 호출합니다. 태스크의 애플리케이션 관련 논리를 삽입할 클래스입니다. 다음을 수행하는 Run 메서드를 구현합니다.
   * 태스크 매개 변수 구문 분석 및 유효성 검사
   * 호출하려는 모든 외부 프로그램에 대한 명령줄 작성
   * 디버깅 용도로 필요할 수 있는 모든 진단 정보 기록
@@ -286,8 +284,8 @@ Batch에서 태스크를 실행하는 데 태스크 프로세서가 반드시 �
 
 **표준 .NET 명령줄 프로젝트 파일**
 
-* `App.config`: 표준 .NET 애플리케이션 구성 파일
-* `Packages.config`: 표준 NuGet 패키지 종속성 파일
+* `App.config`: 표준 .NET 애플리케이션 구성 파일입니다.
+* `Packages.config`: 표준 NuGet 패키지 종속성 파일입니다.
 * `Program.cs`: 프로그램 진입점과 최상위 예외 처리가 포함됩니다.
 
 ## <a name="implementing-the-task-processor"></a>태스크 프로세서 구현
@@ -399,7 +397,7 @@ SAS와 함께 컨테이너 URL을 사용하는 것을 선호하는 경우 작업
 * Batch 계정 URL
 * Batch 계정 키
 
-배치 서비스에는 [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask]에서 `EnvironmentSettings` 속성을 사용하여 환경 설정을 작업 관리자 태스크로 전달하는 간단한 메커니즘이 있습니다.
+Batch 서비스에는 [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask]에서 `EnvironmentSettings` 속성을 사용하여 환경 설정을 작업 관리자 작업으로 전달하는 간단한 메커니즘이 있습니다.
 
 예를 들어 Batch 계정에 대한 `BatchClient` 인스턴스를 가져오려면 클라이언트 코드에서 Batch 계정에 대한 URL 및 공유 키 자격 증명을 환경 변수로 전달할 수 있습니다. 마찬가지로 Batch 계정에 연결되는 스토리지 계정에 액세스하려면 스토리지 계정 이름 및 스토리지 계정 키를 환경 변수로 전달할 수 있습니다.
 

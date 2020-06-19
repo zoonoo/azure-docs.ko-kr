@@ -3,7 +3,7 @@ title: 'PowerShell: 관리되는 인스턴스 만들기'
 titleSuffix: Azure SQL Managed Instance
 description: 이 문서에서는 관리형 인스턴스를 만드는 Azure PowerShell 예제 스크립트를 제공합니다.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: af4add4f14457ea3cbf2acf88fb8d1cc11409c7a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 455860b2ccdfe3188c4985b64bd76ce51ab991ca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220898"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708487"
 ---
 # <a name="use-powershell-to-create-a-managed-instance"></a>PowerShell을 사용하여 관리형 인스턴스 만들기
 

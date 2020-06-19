@@ -1,32 +1,32 @@
 ---
 title: 사용자 지정 데이터 및 Azure Virtual Machines
-description: Azure Virtual Machines에서 사용자 지정 데이터 및 클라우드 초기화 사용에 대 한 세부 정보
+description: 사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int 사용에 대한 자세한 정보
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759126"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259119"
 ---
-# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Azure Virtual Machines의 사용자 지정 데이터 및 클라우드 초기화
+# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
 
-## <a name="what-is-custom-data"></a>사용자 지정 데이터 란?
+## <a name="what-is-custom-data"></a>사용자 지정 데이터란?
 
-고객은 프로 비전 시에 사용자가 스크립트 또는 다른 메타 데이터를 Microsoft Azure 가상 컴퓨터에 삽입할 수 있는 방법을 묻는 경우가 종종 있습니다.  다른 클라우드에서이 개념을 종종 사용자 데이터 라고 합니다.  Microsoft Azure에는 사용자 지정 데이터 라는 유사한 기능이 있습니다. 
+고객이 프로비저닝 시간에 Microsoft Azure Virtual Machine으로 스크립트나 다른 메타데이터를 삽입할 수 있는지 질문하는 경우가 종종 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
 
-사용자 지정 데이터는 처음 부팅/초기 설치 중에만 VM에 사용할 수 있습니다 .이 ' 프로 비전 ' 이라고 합니다. 프로 비전은 vm 만들기 매개 변수 (예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키 등)를 VM에서 사용할 수 있도록 하 고 프로 비전 에이전트가 [Linux 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 및 [클라우드 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)와 같은 해당 매개 변수를 처리 하는 프로세스입니다. 
+사용자 지정 데이터는 첫 부팅/최초 설정 시에만 VM에 제공되므로 이를 ‘프로비저닝’이라고 합니다. 프로비저닝은 VM Create 매개변수(예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키)를 VM에 제공하고 프로비저닝 에이전트(예: [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 및 [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init))가 이를 처리하는 과정입니다. 
 
 
 ## <a name="passing-custom-data-to-the-vm"></a>VM에 사용자 지정 데이터 전달
-사용자 지정 데이터를 사용 하려면 AZ CLI와 같이 사용자에 대 한 변환을 수행 하는 CLI 도구를 사용 하지 않는 한, 해당 콘텐츠를 API에 전달 하기 전에 먼저 base64로 인코딩해야 합니다. 크기는 64 KB를 초과할 수 없습니다.
+사용자 지정 데이터를 사용하려면 base64를 사용하여 내용을 인코딩한 다음, API에 전달해야 합니다. 단, AZ CLI와 같이 변환을 대신해주는 CLI 도구를 사용할 경우에는 예외입니다. 파일 크기는 64KB를 초과할 수 없습니다.
 
-CLI에서 사용자 지정 데이터를 파일로 전달할 수 있으며이는 base64로 변환 됩니다.
+CLI에서 사용자 지정 데이터를 파일로 전달할 수 있고 이는 base64로 변환됩니다.
 ```bash
 az vm create \
   --resource-group myResourceGroup \
@@ -36,7 +36,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-ARM (Azure Resource Manager)에는 [base64 함수가](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64)있습니다.
+Azure Resource Manager(ARM)에는 [base64 함수](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64)가 있습니다.
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -59,39 +59,39 @@ ARM (Azure Resource Manager)에는 [base64 함수가](https://docs.microsoft.com
 ```
 
 ## <a name="processing-custom-data"></a>사용자 지정 데이터 처리
-Vm에 설치 된 프로 비전 에이전트는 플랫폼과 상호 작용 하 여 파일 시스템에 배치 합니다. 
+VM에 설치된 프로비저닝 에이전트가 플랫폼과의 연결을 처리하고 파일 시스템에 할당합니다. 
 
 ### <a name="windows"></a>Windows
-사용자 지정 데이터는 *%SYSTEMDRIVE%\AzureData\CustomData.bin* 에 이진 파일로 배치 되지만 처리 되지 않습니다. 이 파일을 처리 하려는 경우에는 사용자 지정 이미지를 빌드하고 CustomData를 처리 하는 코드를 작성 해야 합니다.
+사용자 지정 데이터는 *%SYSTEMDRIVE%\AzureData\CustomData.bin*에 바이너리 파일로 저장되지만 처리되지는 않습니다. 이 파일을 처리하려면 사용자 지정 이미지를 빌드하고 CustomData.bin을 처리하는 코드를 작성해야 합니다.
 
 ### <a name="linux"></a>Linux  
-Linux OS의 경우 사용자 지정 데이터가 ovf-env 파일을 통해 VM에 전달 됩니다 .이 파일은 프로 비전 하는 동안 */dev/sv/waagent* 디렉터리에 복사 됩니다.  최신 버전의 Microsoft Azure Linux 에이전트는 편의상 base64 인코딩 데이터를 */var/lib/waagent/CustomData* 에도 복사 합니다.
+Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 전달되는데, 프로비저닝 중에 */var/lib/waagent* 디렉터리로 복사됩니다.  Microsoft Azure Linux Agent의 최신 버전도 편의를 위해 base64로 인코딩된 데이터를 */var/lib/waagent/CustomData*에 복사합니다.
 
-Azure는 현재 두 가지 프로 비전 에이전트를 지원 합니다.
-* Linux 에이전트-기본적으로 에이전트는 사용자 지정 데이터를 처리 하지 않습니다 .이를 사용 하도록 설정 된 사용자 지정 이미지를 만들어야 합니다. 관련 설정은 [설명서](https://github.com/Azure/WALinuxAgent#configuration) 에 따라 다음과 같습니다.
+현재 Azure는 두 가지 프로비저닝 에이전트를 지원합니다.
+* Linux Agent - 기본적으로 Linux 에이전트는 사용자 지정 데이터를 처리하지 않습니다. 이를 활성화한 상태에서 사용자 지정 이미지를 빌드해야 합니다. [설명서](https://github.com/Azure/WALinuxAgent#configuration)에 나와 있는 관련 설정은 다음과 같습니다.
     * Provisioning.DecodeCustomData
     * Provisioning.ExecuteCustomData
 
-사용자 지정 데이터를 사용 하도록 설정 하 고 스크립트를 실행 하는 경우 스크립트가 완료 될 때까지 VM 보고를 지연 시키거나 프로 비전이 성공 했음을 지연 합니다. 스크립트가 총 VM 프로 비전 시간 허용치를 40 분을 초과 하면 VM 만들기가 실패 합니다. 스크립트를 실행 하는 데 실패 하거나 실행 하는 동안 오류가 발생 하는 경우에는 심각한 프로 비전 실패로 간주 되지 않습니다. 또한 알림 경로를 만들어 스크립트의 완료 상태를 확인 해야 합니다.
+사용자 지정 데이터를 활성화하고 스크립트를 실행하면 VM이 준비되었다는 보고 또는 프로비저닝이 성공했다는 보고를 스크립트가 완료될 때까지 미룹니다. 스크립트가 허용된 VM 프로비저닝 시간(40분)을 초과하면 VM 만들기가 실패합니다. 참고로 스크립트가 실행되지 않거나 실행 중에 오류가 발생하면 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다.
 
-사용자 지정 데이터 실행 문제를 해결 하려면 */var/log/waagent.log* 를 검토 하십시오.
+사용자 지정 데이터 실행 문제를 해결하려면 */var/log/waagent.log*를 검토하세요.
 
-* 기본적으로 클라우드 초기화-기본적으로 사용자 지정 데이터를 처리 합니다. 클라우드 초기화는 클라우드 초기화 구성, 스크립트 등의 [여러 가지](https://cloudinit.readthedocs.io/en/latest/topics/format.html) 사용자 지정 데이터 형식을 허용 합니다. 클라우드 에이전트와 마찬가지로, 클라우드 초기화에서 사용자 지정 데이터를 처리 합니다. 구성 처리 또는 스크립트를 실행 하는 동안 오류가 발생 하는 경우에는 심각한 프로 비전 실패로 간주 되지 않으므로 스크립트의 완료 상태에 대 한 경고를 표시 하는 알림 경로를 만들어야 합니다. 그러나 Linux 에이전트와는 달리, 클라우드 초기화는 VM이 준비 된 플랫폼에 보고 하기 전에 사용자 지정 데이터 구성이 완료 될 때까지 기다리지 않습니다. Azure의 클라우드 초기화에 대 한 자세한 내용은 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)를 참조 하세요.
+* cloud-init - 기본적으로 사용자 지정 데이터를 처리합니다. cloud-init는 사용자 지정 데이터의 [여러 가지 형식](https://cloudinit.readthedocs.io/en/latest/topics/format.html)(예: cloud-init 구성, 스크립트)을 지원합니다. Linux Agent와 마찬가지로 cloud-init는 사용자 지정 데이터를 처리합니다. 구성 처리 또는 스크립트 실행 중에 오류가 발생할 경우 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다. 그러나 Linux Agent와 달리 cloud-init는 사용자 지정 데이터 구성이 완료되기를 기다리지 않고 플랫폼에 VM이 준비되었다고 보고합니다. Azure의 cloud-init에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)를 참조하세요.
 
 
-사용자 지정 데이터 실행 문제를 해결 하려면 문제 해결 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)를 검토 하세요.
+사용자 지정 데이터 실행 문제를 해결하려면 문제 해결 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)를 참조하세요.
 
 
 ## <a name="faq"></a>FAQ
-### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>VM을 만든 후 사용자 지정 데이터를 업데이트할 수 있나요?
-단일 Vm의 경우 VM 모델의 사용자 지정 데이터를 업데이트할 수 없지만 VMSS의 경우 REST API를 통해 VMSS 사용자 지정 데이터를 업데이트할 수 있습니다 (PS 또는 AZ CLI 클라이언트에는 적용 되지 않음). VMSS 모델에서 사용자 지정 데이터를 업데이트 하는 경우:
-* VMSS의 기존 인스턴스는 이미지로 다시 설치 될 때 까지만 업데이트 된 사용자 지정 데이터를 가져오지 않습니다.
-* 업그레이드 된 VMSS의 기존 인스턴스는 업데이트 된 사용자 지정 데이터를 가져오지 않습니다.
+### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>VM이 생성된 후 사용자 지정 데이터를 업데이트할 수 있나요?
+단일 VM의 경우, VM 모델의 사용자 지정 데이터는 업데이트할 수 없지만 VMSS에서는 [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update)를 통해 VMSS 사용자 지정 데이터를 업데이트할 수 있습니다(PS 또는 AZ CLI 클라이언트에는 적용되지 않음). VMSS 모델에서 사용자 지정 데이터 업데이트:
+* VMSS의 기존 인스턴스는 새로 이미지를 생성하지 않는 한 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
+* 업그레이드된 VMSS의 기존 인스턴스는 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
 * 새 인스턴스는 새 사용자 지정 데이터를 받게 됩니다.
 
-### <a name="can-i-place-sensitive-values-in-custom-data"></a>중요 한 값을 사용자 지정 데이터에 저장할 수 있나요?
-중요 한 데이터를 사용자 지정 데이터에 저장 **하지 않는** 것이 좋습니다. 자세한 내용은 [Azure 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)를 참조 하세요.
+### <a name="can-i-place-sensitive-values-in-custom-data"></a>사용자 지정 데이터에 중요한 값을 저장할 수 있나요?
+사용자 지정 데이터에는 중요한 데이터를 저장하지 **않는** 것이 좋습니다. 자세한 내용은 [Azure 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)를 참조하세요.
 
 
-### <a name="is-custom-data-made-available-in-imds"></a>사용자 지정 데이터를 IMDS에서 사용할 수 있나요?
-아니요,이 기능은 현재 사용할 수 없습니다.
+### <a name="is-custom-data-made-available-in-imds"></a>사용자 지정 데이터가 IMDS에 제공되나요?
+아니요, 현재 이 기능은 사용할 수 없습니다.

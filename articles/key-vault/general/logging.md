@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9198892f95635add27bcfe9e479d0dd6fe3f08d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425372"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790486"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -38,7 +38,7 @@ ms.locfileid: "81425372"
 
 Key Vault에 대한 개요 정보는 [Azure Key Vault란?](overview.md)을 참조하세요). Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -169,7 +169,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 
 동일한 스토리지 계정을 사용하여 여러 리소스에 대한 로그를 수집할 수 있으므로 Blob 이름의 전체 리소스 ID는 필요한 Blob에 액세스하거나 다운로드하는 데 유용합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-Blob을 다운로드할 폴더를 만듭니다. 다음은 그 예입니다.
+Blob을 다운로드할 폴더를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -189,7 +189,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 구조를 사용하여 Blob을 다운로드하고 파일로 저장합니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 다음은 그 예입니다.
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들면 다음과 같습니다.
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 
@@ -216,13 +216,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Key Vault 로그 해석
 
-개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 다음 명령을 실행합니다.
-
-```powershell
-Get-AzKeyVault -VaultName 'contosokeyvault'`
-```
-
-다음과 비슷한 로그 항목을 반환합니다.
+개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 
 
 ```json
     {
@@ -265,7 +259,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **identity** |REST API 요청에 제공된 토큰의 ID입니다. Azure PowerShell cmdlet에서 발생하는 요청의 경우와 마찬가지로 일반적으로 "사용자", "서비스 주체" 또는 "사용자+appId"의 조합입니다. |
 | **properties** |작업(**operationName**)에 따라 달라지는 정보입니다. 대부분의 경우 이 필드에는 클라이언트 정보(클라이언트에서 전달한 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드가 포함됩니다. 또한 개체가 요청의 결과로 반환되면(예: **KeyCreate** 또는 **VaultGet**) 키 URI("id"로), 자격 증명 모음 URI 또는 비밀 URI도 포함됩니다. |
 
-**operationName** 필드 값은 *ObjectVerb* 형식입니다. 다음은 그 예입니다.
+**operationName** 필드 값은 *ObjectVerb* 형식입니다. 예를 들면 다음과 같습니다.
 
 * 모든 키 자격 증명 모음 작업은 `Vault<action>` 형식입니다(예: `VaultGet` 및 `VaultCreate`).
 * 모든 키 작업은 `Key<action>` 형식입니다(예: `KeySign` 및 `KeyList`).
