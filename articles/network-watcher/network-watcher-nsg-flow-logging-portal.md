@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76896441"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808698"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |속성|myVm|
+    |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
@@ -93,7 +93,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
     | 설정        | 값                                                        |
     | ---            | ---   |
-    | 속성           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
+    | Name           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
@@ -123,7 +123,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
    ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 스토리지 계정을 선택합니다.
-4. **Blob service**에서 **Blob**을 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
+4. **Blob 서비스**에서 **컨테이너**를 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
 5. 컨테이너에서 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 탐색합니다. 다음 명명 규칙에 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![흐름 로그](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

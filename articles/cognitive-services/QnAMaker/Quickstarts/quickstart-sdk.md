@@ -2,19 +2,19 @@
 title: '빠른 시작: SDK를 사용하여 기술 자료 만들기 및 관리 - QnA Maker'
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 06/11/2020
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 97d0ddd571f089cea2c656f6277e45d0d5eddb3d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f80e791435d4bf9093b07842430e678b93843311
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608624"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765144"
 ---
-# <a name="quickstart-create-and-manage-knowledge-base"></a>빠른 시작: 기술 자료 만들기 및 관리
+# <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
 
-QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
+.NET용 QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
@@ -28,6 +28,13 @@ QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계�
 [!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
 ::: zone-end
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+
+* [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
@@ -36,3 +43,4 @@ QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계�
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)
 * [사용량 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
+

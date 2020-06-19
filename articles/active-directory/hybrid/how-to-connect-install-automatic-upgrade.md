@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926479"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680228"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -37,13 +37,13 @@ ms.locfileid: "82926479"
 
 자동 업그레이드의 현재 상태는 PowerShell cmdlet `Get-ADSyncAutoUpgrade`로 확인할 수 있습니다. 아래와 같은 상태가 표시됩니다.
 
-| 시스템 상태 | 설명 |
+| 시스템 상태 | 주석 |
 | --- | --- |
 | 사용 |자동 업그레이드를 사용할 수 있습니다. |
 | 일시 중단 |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
 | 사용 안 함 |자동 업그레이드를 사용할 수 없습니다. |
 
-`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1.1.750.0 이전에는 ADSyncAutoUpgrade cmdlet이 자동 업그레이드 상태가 일시 중단으로 설정 된 경우 Autoupgrade를 차단 합니다. 이제이 기능이 변경 되어 AutoUpgrade를 차단 하지 않습니다.
+`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1\.1.750.0 이전 버전에서는 자동 업그레이드 상태가 일시 중단됨으로 설정되어 있으면 Set-ADSyncAutoUpgrade cmdlet이 자동 업그레이드를 차단합니다. 이제 이 기능이 자동 업그레이드를 차단하지 않도록 변경되었습니다.
 
 자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 **Office 365 URL 및 IP 주소 범위** 에서 설명하는 대로 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)용 프록시 서버에서 URL을 열었는지 확인합니다.
 
@@ -67,9 +67,9 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 
 결과 코드의 상태 개요 앞에는 접두사가 붙습니다.
 
-| 결과 코드 접두사 | 설명 |
+| 결과 코드 접두사 | Description |
 | --- | --- |
-| 성공 |설치가 성공적으로 업그레이드되었습니다. |
+| Success |설치가 성공적으로 업그레이드되었습니다. |
 | UpgradeAborted |일시적인 현상으로 업그레이드가 중지되었습니다. 다시 시도하면 나중에 업그레이드됩니다. |
 | UpgradeNotSupported |시스템이 자동으로 업그레이드되지 않도록 차단하는 구성이 시스템에 있습니다. 상태가 변경되었는지 다시 시도하겠지만 시스템을 수동으로 업그레이드해야 할 것으로 보입니다. |
 
@@ -92,7 +92,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. |
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
 | UpgradeNotSupportedDeviceWritebackEnabled |[디바이스 쓰기 저장](how-to-connect-device-writeback.md) 기능을 사용하도록 설정했습니다. |
-| UpgradeNotSupportedGroupWritebackEnabled |[그룹 쓰기 저장](how-to-connect-preview.md#group-writeback) 기능을 사용하도록 설정했습니다. |
+| UpgradeNotSupportedGroupWritebackEnabled |그룹 쓰기 저장 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
