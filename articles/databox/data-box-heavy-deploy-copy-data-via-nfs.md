@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222810"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711258"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>자습서: NFS를 통해 Azure Data Box Heavy에 데이터 복사
 

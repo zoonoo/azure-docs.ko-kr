@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344019"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669905"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
@@ -133,9 +133,9 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
 
-1. _앱 위치_를 **공개**로 설정합니다.
+1. _앱 위치_를 **/** 로 설정합니다.
 
-1. _앱 아티팩트 위치_를 비워 둡니다.
+1. _앱 아티팩트 위치_를 **공개**로 설정합니다.
 
    현재 API를 배포하지 않으므로 _API 위치_에 대한 값이 필요하지 않습니다.
 

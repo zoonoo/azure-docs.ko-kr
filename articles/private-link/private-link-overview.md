@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/02/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4752fe65cf06b894413df2fda0decdfbb427afd5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449382"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673414"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -63,7 +63,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |Azure Event Grid| 모든 공용 지역       |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | 모든 공용 지역      |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | 미국 동부, 미국 서부 2, 미국 중남부      |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| IoT Hub | 모든 공용 지역    |   미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure IoT Hub | 모든 공용 지역    |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | 미국 동부, 미국 서부 2, 미국 중남부      |   미리 보기   <br/> [자세히 알아보기](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
 

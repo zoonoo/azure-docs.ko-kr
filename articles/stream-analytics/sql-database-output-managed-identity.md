@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 70ad69c1a34f656347b0cf53b28a1c35ac6ad043
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595842"
+ms.locfileid: "83651963"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Azure SQL Database에 액세스(미리 보기)
 
@@ -56,13 +56,17 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
    ![Active Directory 관리자 페이지](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Active Directory 관리자 페이지에서 SQL Server의 관리자가 될 사용자 또는 그룹을 검색하고 **선택**을 클릭합니다.  
+1. Active Directory 관리자 페이지에서 SQL Server의 관리자가 될 사용자 또는 그룹을 검색하고 **선택**을 클릭합니다.
 
    ![Active Directory 관리자 추가](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. **Active Directory 관리자** 페이지에서 **저장**을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.  
+   Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다.  [SQL Database 또는 Azure Synapse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)의  **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다. 또한 선택한 사용자 또는 그룹은 다음 섹션에서 **포함된 데이터베이스 사용자**를 만들 수 있는 사용자입니다.
 
-## <a name="create-a-database-user"></a>데이터베이스 사용자 만들기
+1. **Active Directory 관리자** 페이지에서 **저장**을 선택합니다. 관리자를 변경하는 프로세스는 몇 분 정도 걸립니다.
+
+   Azure AD 관리자를 설정하는 경우 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 사용자로 가상 master 데이터베이스에 있을 수는 없습니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며 만들기 작업을 롤백하여 관리자(이름)가 이미 있다는 것을 나타냅니다. SQL Server 인증 사용자는 Azure AD에 속하지 않기 때문에 해당 사용자로 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 실패합니다. 
+
+## <a name="create-a-contained-database-user"></a>포함된 데이터베이스 사용자 만들기
 
 다음으로, Azure Active Directory ID에 매핑되는 포함된 데이터베이스 사용자를 SQL Database에 만듭니다. 포함된 데이터베이스 사용자는 master 데이터베이스에 로그인할 수 없지만, 데이터베이스와 연결된 디렉터리의 ID에 매핑됩니다. Azure Active Directory ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 이 경우 Stream Analytics 작업에 대한 포함된 데이터베이스 사용자를 만들어야 합니다. 
 
@@ -92,15 +96,27 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. Microsoft Azure Active Directory에서 Stream Analytics 작업이 SQL Database에 액세스했는지 확인하려면 데이터베이스와 통신할 Azure Active Directory 권한을 부여해야 합니다. 이렇게 하려면 Azure Portal의 “방화벽 및 가상 네트워크” 페이지로 다시 이동하여 “Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용”을 사용하도록 설정합니다. 
+
+   ![방화벽 및 가상 네트워크](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## <a name="grant-stream-analytics-job-permissions"></a>Stream Analytics 작업 권한 부여
 
-Stream Analytics 작업은 SQL Database 리소스에 **CONNECT**하는 관리 ID의 권한을 갖고 있습니다. 대부분 Stream Analytics 작업에서 **SELECT** 같은 명령을 실행하도록 허용하는 것이 효율적입니다. SQL Server Management Studio를 사용하여 Stream Analytics 작업에 이러한 권한을 부여할 수 있습니다. 자세한 내용은 [GRANT(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) 참조를 확인하세요.
+이전 섹션에서 설명한 대로 포털에서 포함된 데이터베이스 사용자를 만들고 Azure 서비스에 대한 액세스 권한을 부여하고 나면 Stream Analytics 작업에는 관리 ID를 통해 SQL Database 리소스에 대한 관리 ID의 **CONNECT** 권한이 포함됩니다. 나중에 Stream Analytics 워크플로에서 필요하므로 Stream Analytics 작업에 대한 SELECT 및 INSERT 권한을 부여하는 것이 좋습니다. **SELECT** 권한이 있으면 작업에서 SQL Database의 테이블에 대한 연결을 테스트할 수 있습니다. **INSERT** 권한이 있으면 입력 및 SQL Database 출력을 구성한 후 엔드투엔드 Stream Analytics 쿼리를 테스트할 수 있습니다. SQL Server Management Studio를 사용하여 Stream Analytics 작업에 해당 권한을 부여할 수 있습니다. 자세한 내용은 [GRANT(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) 참조를 확인하세요.
+
+데이터베이스의 특정 테이블 또는 개체에만 권한을 부여하려면 다음 T-SQL 구문을 사용하고 쿼리를 실행합니다. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 또는 SQL Server Management Studio에서 SQL 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **속성 > 권한**을 선택할 수도 있습니다. 권한 메뉴에서 이전에 추가한 Stream Analytics 작업을 볼 수 있으며, 필요에 따라 수동으로 권한을 부여하거나 거부할 수 있습니다.
 
 ## <a name="create-an-azure-sql-database-output"></a>Azure SQL Database 출력 만들기
 
 관리 ID를 구성했으므로, 이제 Azure SQL Database를 Stream Analytics 작업에 출력으로 추가할 수 있습니다.
+
+적절한 출력 스키마를 사용하여 SQL Database에 테이블을 만들었는지 확인합니다. 이 테이블의 이름은 Stream Analytics 작업에 SQL Database 출력을 추가할 때 작성해야 하는 필수 속성 중 하나입니다. 또한 연결을 테스트하고 Stream Analytics 쿼리를 실행하기 위한 **SELECT** 및 **INSERT** 권한이 작업에 있는지 확인합니다. 아직 수행하지 않은 경우 [Stream Analytics 작업 권한 부여](#grant-stream-analytics-job-permissions) 섹션을 참조하세요. 
 
 1. Stream Analytics 작업으로 돌아가서 **작업 토폴로지**에서 **출력** 페이지로 이동합니다. 
 

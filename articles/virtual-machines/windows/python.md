@@ -1,5 +1,5 @@
 ---
-title: Python을 사용 하 여 Azure에서 Windows VM 만들기 및 관리
+title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 81b8f83115a8bcb953fc4445899f7ea9afc1007c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098071"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233342"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -32,8 +32,8 @@ ms.locfileid: "82098071"
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
-2. Visual Studio를 설치 하 고 시작한 후 **파일** > **새로 만들기** > **프로젝트**를 클릭 합니다.
-3. **템플릿** > **python** *myPythonProject* **OK****Python Application**python 응용 프로그램을 클릭 하 고 프로젝트 이름으로 myPythonProject를 입력 한 다음 프로젝트의 위치를 선택 하 고 확인을 클릭 합니다. > 
+2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트**를 클릭합니다.
+3. **템플릿** > **Python** > **Python 애플리케이션**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
 
 ## <a name="install-packages"></a>패키지 설치
 
@@ -118,7 +118,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="create-the-vm-and-supporting-resources"></a>VM 및 지원 리소스 만들기
 
-모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함 되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함되어야 합니다.
 
 1. 리소스 그룹을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -164,7 +164,7 @@ compute_client = ComputeManagementClient(
     input('Availability set created. Press enter to continue...')
     ```
 
-[공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)는 가상 머신과 통신해야 합니다.
+[공용 IP 주소](../../virtual-network/public-ip-addresses.md)는 가상 머신과 통신해야 합니다.
 
 1. 가상 머신에 대한 공용 IP 주소를 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -565,6 +565,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 배포에 문제가 있는 경우 다음 단계는를 [사용 하 여 리소스 그룹 배포 문제 해결](../../resource-manager-troubleshoot-deployments-portal.md) 을 확인 하는 것입니다 Azure Portal
+- 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../../resource-manager-troubleshoot-deployments-portal.md)
 - [Azure Python 라이브러리](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용
 

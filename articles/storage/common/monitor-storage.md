@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684890"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267616"
 ---
 # <a name="monitor-azure-storage"></a>Azure Storage 모니터링
 
@@ -82,7 +82,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 로그를 수집하려는 작업의 범주도 지정해야 합니다. 다음 표에는 Azure Storage의 범주가 나와 있습니다.
 
-| Category | Description |
+| 범주 | Description |
 |:---|:---|
 | StorageRead | BLOB에 대한 읽기 작업입니다. |
 | StorageWrite | BLOB에 대한 쓰기 작업입니다. |
@@ -407,4 +407,3 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 - Azure Storage에서 만든 로그 및 메트릭의 참조는 [Azure Storage 모니터링 데이터 참조](monitor-storage-reference.md)에서 확인할 수 있습니다.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용한 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
 - 메트릭 마이그레이션에 대한 자세한 내용은 [Azure Storage 메트릭 마이그레이션](./storage-metrics-migration.md)을 참조하세요.
-

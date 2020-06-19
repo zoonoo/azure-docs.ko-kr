@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022064"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660975"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 스토리지에서 SQL Database로 데이터 복사
 
@@ -156,11 +156,13 @@ ms.locfileid: "84022064"
     ![열 매핑 페이지](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. **설정** 페이지에서 **다음**을 선택합니다.
-1. **요약** 페이지에서 설정을 검토하고 **다음**을 선택합니다.
-1. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다.
- 
-    ![파이프라인 모니터링](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. **요약** 페이지에서 설정을 검토하고 **다음**을 선택합니다.
+
+1. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다.
+
+    ![파이프라인 모니터링](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. 파이프라인 실행 페이지에서 **새로 고침**을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
     ![파이프라인 실행](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ ms.locfileid: "84022064"
 
     ![작업 실행 모니터링](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. 데이터가 SQL Database의 **dbo.emp** 테이블에 삽입되어 있는지 확인합니다.
-
 
 1. 왼쪽의 **작성** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구를 통해 만든 연결된 서비스, 데이터 세트 및 파이프라인을 업데이트할 수 있습니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
 

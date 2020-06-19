@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662236"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886713"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>자습서: 기술 세트에 대한 변경 내용 진단, 수정 및 적용
 
@@ -173,12 +173,12 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 ## <a name="fix-missing-skill-output-values"></a>누락된 기술 출력 값 수정
 
 > [!div class="mx-imgBorder"]
-> ![오류 및 경고](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![오류 및 경고](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 기술에서 누락된 출력 값이 있습니다. 오류가 있는 기술을 식별하려면 보강된 데이터 구조로 이동하여 값 이름을 찾은 다음, 원래 원본을 살펴봅니다. 누락된 organizations 및 locations 값의 경우 #1 기술의 출력입니다. 각 경로에 대한 </> 식 계산기를 열면 각각 '/document/content/organizations' 및 '/document/content/locations'로 나열된 식이 표시됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![식 계산기 organizations 엔터티](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![식 계산기 organizations 엔터티](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 이러한 엔터티의 출력은 비어 있으며 비워 둘 수 없습니다. 이 결과를 생성하는 입력은 무엇일까요?
 
@@ -187,7 +187,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. INPUT "text"에 대한 **</>** 식 계산기를 엽니다.
 
 > [!div class="mx-imgBorder"]
-> ![텍스트 기술에 대한 입력](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![텍스트 기술에 대한 입력](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 이 입력에 대해 표시된 결과는 텍스트 입력처럼 보이지 않습니다. 마치 새 줄로 둘러싸인 이미지처럼 보입니다. 텍스트가 없으면 엔터티를 식별할 수 없음을 의미합니다. 기술 세트의 계층 구조를 살펴보면 콘텐츠는 먼저 #6(OCR) 기술에서 처리된 다음, #5(병합) 기술에 전달됩니다. 
 
@@ -195,7 +195,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. 오른쪽의 기술 세부 정보 창에서 **실행** 탭을 선택하고, OUTPUTS "mergedText"에 대한 **</>** 식 계산기를 엽니다.
 
 > [!div class="mx-imgBorder"]
-> ![병합 기술에 대한 출력](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![병합 기술에 대한 출력](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 여기서 텍스트는 이미지와 쌍을 이룹니다. '/document/merged_content' 식을 살펴보면 #1 기술에 대한 "organizations" 및 "locations" 경로의 오류가 표시됩니다. '/document/content'를 사용하는 대신 '/document/merged_content'를 "text" 입력에 사용해야 합니다.
 
@@ -216,7 +216,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. "organizations" 엔터티에 대한 **</>** 식 계산기를 엽니다.
 
 > [!div class="mx-imgBorder"]
-> ![organizations 엔터티에 대한 출력](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![organizations 엔터티에 대한 출력](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 식 결과를 평가하면 올바른 결과가 제공됩니다. 기술은 "organizations" 엔터티에 대한 올바른 값을 식별하기 위해 노력하고 있습니다. 그러나 엔터티 경로의 출력 매핑은 여전히 오류를 throw하고 있습니다. 기술의 출력 경로를 오류의 출력 경로와 비교할 때 기술은 /document/content 노드 아래의 outputs, organizations 및 locations의 부모가 됩니다. 한편 출력 필드 매핑에서는 결과가 /document/merged_content 노드 아래의 부모가 될 것이라고 예상합니다. 이전 단계에서 입력이 '/document/content'에서 '/document/merged_content'로 변경되었습니다. 올바른 컨텍스트를 사용하여 출력이 생성되도록 하려면 기술 설정의 컨텍스트를 변경해야 합니다.
 
@@ -228,7 +228,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. 세션 창 메뉴에서 **실행**을 클릭합니다. 그러면 문서를 사용하여 기술 세트의 다른 실행이 시작됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![기술 설정의 컨텍스트 수정](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![기술 설정의 컨텍스트 수정](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 모든 오류가 해결되었습니다.
 

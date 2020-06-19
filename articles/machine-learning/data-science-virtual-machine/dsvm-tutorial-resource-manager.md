@@ -10,14 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 7e3e45d96839be06deec238deccdc9873492d68f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636753"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660255"
 ---
-# <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>자습서: Resource Manager 템플릿을 사용하여 Ubuntu Data Science Virtual Machine 만들기
+# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Ubuntu Data Science Virtual Machine 만들기
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Ubuntu 18.04 Data Science Virtual Machine을 만드는 방법을 보여줍니다. Data Science Virtual Machine은 데이터 과학과 기계 학습 프레임워크 및 도구 제품군이 미리 로드된 클라우드 기반 가상 머신입니다. GPU 기반 컴퓨팅 리소스에 배포되는 경우 모든 도구와 라이브러리는 GPU를 사용하도록 구성됩니다. 

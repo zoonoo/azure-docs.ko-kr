@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e824641f261fc920dd234ba8d4787fbd8ddffe48
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611520"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737277"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>엔드투엔드 솔루션 빌드
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 환경의 라이브 데이터를 기반으로 전체 엔드투엔드 솔루션을 설정하기 위해 디바이스 및 데이터 관리를 위해 다른 Azure 서비스에 Azure Digital Twins 인스턴스를 연결할 수 있습니다.
 

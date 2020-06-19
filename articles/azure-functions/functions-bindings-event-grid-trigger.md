@@ -1,31 +1,31 @@
 ---
-title: Azure Functions에 대 한 Azure Event Grid 트리거
-description: Azure Functions에서 Event Grid 이벤트를 디스패치할 때 코드를 실행 하는 방법을 알아봅니다.
+title: Azure Functions의 Azure Event Grid 트리거
+description: Azure Functions에서 Event Grid 이벤트가 디스패치될 때 코드를 실행하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891288"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648335"
 ---
-# <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 트리거
+# <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
-함수 트리거를 사용 하 여 Event Grid 항목으로 전송 된 이벤트에 응답 합니다.
+함수 트리거를 사용하여 Event Grid 항목으로 전송된 이벤트에 응답합니다.
 
-설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](./functions-bindings-event-grid.md)를 참조 하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-event-grid.md)를 참조하세요.
 
 ## <a name="example"></a>예제
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-HTTP 트리거 예제는 [http 끝점으로 이벤트 수신](../event-grid/receive-events.md)을 참조 하세요.
+HTTP 트리거 예제는 [HTTP 엔드포인트에서 이벤트 수신](../event-grid/receive-events.md)을 참조하세요.
 
-### <a name="c-2x-and-higher"></a>C # (2.x 이상)
+### <a name="c-2x-and-higher"></a>C#(2.x 이상)
 
 다음 예제에서는 `EventGridEvent`에 바인딩되는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
@@ -49,7 +49,7 @@ namespace Company.Function
 }
 ```
 
-자세한 내용은 패키지, [특성](#attributes-and-annotations), [구성](#configuration)및 [사용](#usage)을 참조 하세요.
+자세한 내용은 패키지, [특성](#attributes-and-annotations), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
 ### <a name="version-1x"></a>버전 1.x
 
@@ -76,7 +76,7 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다.
 
@@ -95,9 +95,9 @@ namespace Company.Function
 }
 ```
 
-### <a name="version-2x-and-higher"></a>2.x 이상 버전
+### <a name="version-2x-and-higher"></a>2\.x 이상 버전
 
-에 `EventGridEvent`바인딩하는 예제는 다음과 같습니다.
+`EventGridEvent`에 바인딩되는 예제는 다음과 같습니다.
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -110,7 +110,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-자세한 내용은 패키지, [특성](#attributes-and-annotations), [구성](#configuration)및 [사용](#usage)을 참조 하세요.
+자세한 내용은 패키지, [특성](#attributes-and-annotations), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
 ### <a name="version-1x"></a>버전 1.x
 
@@ -207,7 +207,7 @@ def main(event: func.EventGridEvent):
 * [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter)
 * [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter)
 
-다음 예에서는 바인딩을 사용 하 고 이벤트를 출력 하는 [Java](functions-reference-java.md) 의 트리거 바인딩을 보여 줍니다 .이 바인딩은 먼저 이벤트 `String` 를 pojo로 받고 이벤트를 출력 합니다.
+다음 예제에서는 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이벤트를 `String`으로 수신하고, 두 번째로는 POJO로 수신하는 [Java](functions-reference-java.md) 함수의 트리거 바인딩을 보여 줍니다.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Event Grid 트리거, 문자열 매개 변수
 
@@ -245,7 +245,7 @@ public class EventSchema {
 }
 ```
 
-도착 시, 이벤트의 JSON 페이로드가 함수에서 사용될 수 있게 ```EventSchema``` POJO로 역직렬화됩니다. 이 프로세스를 통해 함수는 개체 지향 방식으로 이벤트의 속성에 액세스할 수 있습니다.
+도착 시, 이벤트의 JSON 페이로드가 함수에서 사용될 수 있게 ```EventSchema``` POJO로 역직렬화됩니다. 이 프로세스에서 함수는 개체 지향 방식으로 이벤트의 속성에 액세스할 수 있습니다.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -285,21 +285,21 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 전체 예제는 C# 예제를 참조하세요.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Eventgridtrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용 하면 구성 값을 제공 하 여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조 하세요.
+[EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) 주석을 사용하면 구성 값을 제공하여 Event Grid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조하세요.
 
 ---
 
@@ -310,33 +310,33 @@ Python에서 특성을 지원 하지 않습니다.
 |function.json 속성 |Description|
 |---------|---------|
 | **type** | 필수 - `eventGridTrigger`으로 설정해야 합니다. |
-| **방향도** | 필수 - `in`으로 설정해야 합니다. |
+| **direction** | 필수 - `in`으로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
 
-## <a name="usage"></a>사용법
+## <a name="usage"></a>사용
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-1.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+Azure Functions 1.x의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `JObject`
 * `string`
 
-Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용 하는 옵션도 있습니다.
+Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용하는 옵션도 있습니다.
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
 > Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-1.x Azure Functions에서는 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+Azure Functions 1.x의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `JObject`
 * `string`
 
-Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용 하는 옵션도 있습니다.
+Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용하는 옵션도 있습니다.
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
@@ -345,15 +345,15 @@ Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 �
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Event Grid 인스턴스는 *함수 json* 파일의 `name` 속성에 구성 된 매개 변수를 통해 사용할 수 있습니다.
+Event Grid 인스턴스는 *function.json* 파일의 `name` 속성에 구성된 매개 변수를 통해 사용할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Event Grid 인스턴스는 *함수. json* 파일의 `name` 속성에 구성 된 매개 변수를 통해 사용할 수 있습니다. `func.EventGridEvent`이 매개 변수는로 형식화 됩니다.
+Event Grid 인스턴스는 `func.EventGridEvent`로 형식화된 *function.json* 파일의 `name` 속성에 구성된 매개 변수를 통해 사용할 수 있습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Event Grid 이벤트 인스턴스는로 형식화 된 `EventGridTrigger` 특성과 연결 된 매개 변수를 통해 사용할 수 있습니다 `EventSchema`. 자세한 내용은 [예제](#example) 를 참조 하세요.
+Event Grid 이벤트 인스턴스는 `EventSchema`로 형식화된 `EventGridTrigger` 특성에 연결된 매개 변수를 통해 사용할 수 있습니다. 자세한 내용은 [예제](#example)를 참조하세요.
 
 ---
 
@@ -401,13 +401,13 @@ Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수에 대해 **Event Grid 구독 추가**를 선택합니다.
+Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수의 경우 **통합**을 선택하고, **Event Grid 트리거**를 차례로 선택한 다음, **Event Grid 구독 만들기**를 선택합니다.
 
-![포털에서 구독 만들기](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="포털에서 새 이벤트 구독을 트리거에 연결합니다.":::
 
-이 링크를 선택하면 포털에서 엔드포인트 URL로 미리 채워진 **이벤트 구독 만들기** 페이지가 열립니다.
+이 링크를 선택하면 포털에서 현재 트리거 엔드포인트가 이미 정의된 **이벤트 구독 만들기** 페이지가 열립니다.
 
-![미리 채워진 엔드포인트 URL](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="함수 엔드포인트가 이미 정의된 이벤트 구독 만들기" :::
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 설명서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
@@ -543,14 +543,14 @@ Event Grid 함수를 로컬로 실행합니다.
 * `Content-Type: application/json` 헤더를 설정합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
 * 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
-* Event Grid 트리거 함수의 URL에 게시 합니다.
-  * 2.x 이상에서는 다음 패턴을 사용 합니다.
+* Event Grid 트리거 함수의 URL에 게시합니다.
+  * 2\.x 이상에서는 다음 패턴을 사용합니다.
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * 1.x의 경우 다음을 사용 합니다.
+  * 1\.x에서는 다음을 사용합니다.
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
