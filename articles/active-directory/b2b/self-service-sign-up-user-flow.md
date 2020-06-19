@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594732"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712352"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83594732"
 | 셀프 서비스 가입은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
-사용자 흐름을 애플리케이션과 연결하면 해당 앱에서 가입을 사용하도록 설정할 수 있습니다. 사용자 흐름과 연결할 애플리케이션을 둘 이상 선택할 수 있습니다. 사용자 흐름을 하나 이상의 애플리케이션과 연결하면 해당 앱을 방문하는 사용자가 사용자 흐름에 구성 된 옵션을 사용하여 가입할 수 있습니다.
+조직에서 빌드한 앱에 대한 사용자 흐름을 만들 수 있습니다. 사용자 흐름을 애플리케이션과 연결하면 해당 앱에서 가입을 사용하도록 설정할 수 있습니다. 사용자 흐름과 연결할 애플리케이션을 둘 이상 선택할 수 있습니다. 사용자 흐름을 하나 이상의 애플리케이션과 연결하면 해당 앱을 방문하는 사용자가 사용자 흐름에 구성된 옵션을 사용하여 가입하고 게스트 계정을 획득할 수 있습니다.
+
+> [!NOTE]
+> 사용자 흐름을 조직에서 빌드한 앱과 연결할 수 있습니다. 사용자 흐름은 SharePoint 또는 팀과 같은 Microsoft 앱에 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,9 +36,12 @@ ms.locfileid: "83594732"
 
 Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용자는 기본적으로 Azure AD 계정을 사용하여 가입할 수 있습니다. 소셜 ID 공급자를 이러한 가입 흐름에 포함하여 Google 및 Facebook 계정을 지원하도록 할 수도 있습니다.
 
-- [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
 - [소셜 ID 공급자 목록에 Facebook 추가](facebook-federation.md)
- 
+- [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
+
+> [!NOTE]
+> 현재 미리 보기에서 셀프 서비스 가입 사용자 흐름이 앱과 연결되어 있고 사용자에게 해당 앱에 대한 초대를 보내는 경우 사용자는 Gmail 계정으로 초대를 사용할 수 없습니다. 이 문제를 해결하기 위해 사용자는 셀프 서비스 가입 프로세스를 진행할 수 있습니다. 또는 다른 앱에 액세스하거나 https://myapps.microsoft.com 에서 내 앱 포털을 통해 초대를 사용할 수 있습니다.
+
 ### <a name="define-custom-attributes-optional"></a>사용자 지정 특성 정의(선택 사항)
 
 사용자 특성은 셀프 서비스 가입 중에 사용자로부터 수집된 값입니다. Azure AD에는 기본 제공 특성 세트가 함께 제공되지만 사용자 흐름에 사용할 사용자 지정 특성을 직접 만들 수 있습니다. 또한 Microsoft Graph API를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. [사용자 흐름의 사용자 지정 특성 정의](user-flow-add-custom-attributes.md)를 참조하세요.

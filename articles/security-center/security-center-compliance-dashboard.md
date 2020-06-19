@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604445"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782860"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
@@ -103,4 +103,4 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
 -   [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) - Azure 리소스 보호에 도움이 되도록 Azure Security Center에서 권장 사항을 사용하는 방법을 알아봅니다.
 
--   [Azure Security Center에서 보안 점수 향상](security-center-secure-score.md) - 보안 상태를 최대한 향상시키기 위해 취약성 및 보안 추천 사항의 우선 순위를 지정하는 방법을 알아봅니다.
+-   [Azure Security Center에서 보안 점수 향상](secure-score-security-controls.md) - 보안 상태를 최대한 향상시키기 위해 취약성 및 보안 추천 사항의 우선 순위를 지정하는 방법을 알아봅니다.

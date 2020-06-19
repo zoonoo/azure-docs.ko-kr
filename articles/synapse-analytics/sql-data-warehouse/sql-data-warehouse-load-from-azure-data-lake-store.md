@@ -11,12 +11,12 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 193b1d5ff37eace127c8d5473b102842f4fa2a8c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5935efca138d156507e2e3fefa65d045f618a57b
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654514"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020832"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Synapse SQL용 Azure Data Lake Storage에서 데이터 로드
 
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
 
-이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과를 사용하여 인증하는 경우 CREDENTIAL 매개 변수가 필요하지 않습니다. 서비스 엔드포인트에 대해 관리 ID를 사용하여 인증하는 경우 이 [설명서](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-synapse-analytics-polybase)에 따라 외부 데이터 원본을 설정합니다.
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과를 사용하여 인증하는 경우 CREDENTIAL 매개 변수가 필요하지 않습니다. 서비스 엔드포인트에 대해 관리 ID를 사용하여 인증하는 경우 이 [설명서](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-synapse-polybase)에 따라 외부 데이터 원본을 설정합니다.
 
 ```sql
 -- C (for Gen1): Create an external data source

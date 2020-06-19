@@ -1,21 +1,21 @@
 ---
-title: 엔터프라이즈 보안 & Apache Oozie 워크플로-Azure HDInsight
+title: Apache Oozie 워크플로 및 Enterprise Security - Azure HDInsight
 description: Azure HDInsight Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안을 유지합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/09/2019
-ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194906"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647565"
 ---
-# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
+# <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 Azure HDInsight 클러스터에서 Apache Oozie 실행
 
 Apache Oozie는 Apache Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 
@@ -31,7 +31,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 ESP(Enterprise Security Package)가 포함된 Azure HDInsight Hadoop 클러스터입니다. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
 > [!NOTE]  
-> 비 ESP 클러스터에서 Oozie를 사용 하는 방법에 대 한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Apache Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조 하세요.
+> ESP가 아닌 클러스터에서 Oozie를 사용하는 방법에 관한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Apache Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="connect-to-an-esp-cluster"></a>ESP 클러스터에 연결
 
@@ -69,7 +69,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
 
    `DomainUser`를 도메인 사용자 이름으로 바꿉니다.
    `DomainUserPath`를 도메인 사용자의 홈 디렉터리 경로로 바꿉니다.
-   을 `ClusterVersion` 클러스터 데이터 플랫폼 버전으로 바꿉니다.
+   `ClusterVersion`을 클러스터 데이터 플랫폼 버전으로 바꿉니다.
 
 2. 다음 문을 사용하여 새 파일을 만들고 편집합니다.
 
@@ -178,17 +178,17 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
 
 4. `clustername`을 클러스터의 이름으로 바꿉니다.
 
-5. 파일을 저장 하려면 **Ctrl + X**를 선택 합니다. **Y**를 입력 합니다. 그런 다음 **Enter 키**를 선택 합니다.
+5. 파일을 저장하려면 **Ctrl+X**를 선택합니다. **Y**를 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
 
-   - **증명서.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.
+   - **자격 증명.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.
 
      이 예제에서는 Hive 작업에 대한 인증이 사용됩니다. 자세한 내용은 [작업 인증](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)을 참조하세요.
 
      자격 증명 서비스를 사용하면 Oozie 작업이 Hadoop 서비스에 액세스하기 위해 사용자를 가장할 수 있습니다.
 
-   - **조치.** 이 섹션에서는 map-reduce, Hive 서버 2 및 Hive 서버 1의 세 가지 작업이 있습니다.
+   - **작업.** 이 섹션에서는 map-reduce, Hive 서버 2 및 Hive 서버 1의 세 가지 작업이 있습니다.
 
      - map-reduce 작업은 집계된 단어 수를 출력하는 map-reduce에 대한 Oozie 패키지의 예제를 실행합니다.
 
@@ -230,7 +230,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Azure Data Lake Storage Gen1을 기본 클러스터 스토리지로 사용하는 경우 `nameNode` 속성에 대해 `adl://home` URI를 사용합니다. Azure Blob Storage 사용 하는 경우이를로 `wasb://home`변경 합니다. Azure Data Lake Storage Gen2 사용 하는 경우이를로 `abfs://home`변경 합니다.
+   - Azure Data Lake Storage Gen1을 기본 클러스터 스토리지로 사용하는 경우 `nameNode` 속성에 대해 `adl://home` URI를 사용합니다. Azure Blob Storage를 사용하는 경우 이 값을 `wasb://home`으로 변경합니다. Azure Data Lake Storage Gen2를 사용하는 경우에는 `abfs://home`으로 변경합니다.
    - `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  
    - `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
    - `jdbcurlvalue`를 Hive 구성의 JDBC URL로 바꿉니다. 예를 들어 jdbc:hive2://headnodehost:10001/;transportMode=http입니다.
@@ -347,5 +347,5 @@ Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Apache Hadoop와 함께 Apache Oozie를 사용 하 여 Linux 기반 Azure HDInsight에서 워크플로를 정의 하 고 실행](../hdinsight-use-oozie-linux-mac.md)합니다.
-- [SSH를 사용 하 여 HDInsight에 연결 (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight)합니다.
+- [Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로를 정의 및 실행합니다](../hdinsight-use-oozie-linux-mac.md).
+- [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결합니다](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

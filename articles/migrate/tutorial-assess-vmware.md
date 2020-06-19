@@ -4,12 +4,12 @@ description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그�
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331885"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771311"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>서버 평가를 사용하여 VMware VM 평가
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
     - Azure Migrate를 사용할 수 있도록 [Azure를 준비](tutorial-prepare-vmware.md#prepare-azure)합니다.
-    - [평가할 VMware를 준비](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment)합니다. 여기에는 VMware 설정 확인, Azure Migrate에서 vCenter Server에 액세스하는 데 사용할 수 있는 계정 설정이 포함됩니다.
+    - [평가할 VMware를 준비](tutorial-prepare-vmware.md#prepare-for-assessment)합니다. 여기에는 VMware 설정 확인, Azure Migrate에서 vCenter Server에 액세스하는 데 사용할 수 있는 계정 설정이 포함됩니다.
     - VMware를 평가할 Azure Migrate 어플라이언스를 배포하는 데 필요한 항목을 [확인](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment)합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
@@ -99,7 +99,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
         --- | --- | ---
         VMware(10.9GB) | [최신 버전](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - Azure Goverment의 경우:
+    - Azure Government의 경우:
     
         **알고리즘** | **다운로드** | **SHA256**
         --- | --- | ---
@@ -170,7 +170,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server 인스턴스의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신 대기하는 사용자 지정 포트를 지정할 수 있습니다.
 2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server 인스턴스에서 VM을 검색하는 데 사용할 vCenter Server 계정 자격 증명을 지정합니다. 
 
-    - [이전 자습서](tutorial-prepare-vmware.md#set-up-an-account-for-assessment)에서 필요한 권한이 있는 계정을 설정했어야 합니다.
+    - [이전 자습서](tutorial-prepare-vmware.md#set-up-permissions-for-assessment)에서 필요한 권한이 있는 계정을 설정했어야 합니다.
     - 검색 범위를 특정 VMware 개체(vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM)로 지정하려면 [이 문서](set-discovery-scope.md)의 지침을 검토하여 Azure Migrate에서 사용하는 계정을 제한합니다.
 
 3. **연결 유효성 검사**를 선택하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
@@ -178,7 +178,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 
     - [애플리케이션 검색 기능](how-to-discover-applications.md) 또는 [에이전트 없는 종속성 분석 기능](how-to-create-group-machine-dependencies-agentless.md)에 사용할 계정을 만든 경우 필요에 따라 자격 증명을 여기에 추가해야 합니다.
     - 이러한 기능을 사용하지 않는 경우 이 설정을 건너뛸 수 있습니다.
-    - [앱 검색](migrate-support-matrix-vmware.md#application-discovery) 또는 [에이전트 없는 분석](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements)에 필요한 자격 증명을 검토합니다.
+    - [앱 검색](migrate-support-matrix-vmware.md#application-discovery-requirements) 또는 [에이전트 없는 분석](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)에 필요한 자격 증명을 검토합니다.
 
 5. **저장 및 검색 시작**을 선택하여 VM 검색을 시작합니다.
 

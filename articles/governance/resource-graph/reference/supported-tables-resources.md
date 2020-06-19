@@ -1,489 +1,496 @@
 ---
-title: 지원 되는 리소스 관리자 리소스 유형
-description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 04/29/2020
+title: 지원되는 Resource Manager 리소스 종류
+description: Azure Resource Graph 및 변경 내용에서 지원되는 Resource Manager 리소스 종류 목록을 제공합니다.
+ms.date: 05/21/2020
 ms.topic: reference
-ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594256"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770587"
 ---
-# <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
+# <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
-Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)의 다음과 같은 **리소스 유형을** 지원 합니다. 각 **리소스 유형은** 리소스 그래프에 있는 **테이블** 의 일부입니다.
+Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)의 다음 **리소스 종류**를 지원합니다. 각 **리소스 종류**는 Resource Graph에 있는 **테이블**의 일부입니다.
 
 ## <a name="advisorresources"></a>advisorresources
 
-- microsoft advisor/구성
-- microsoft advisor/권장 사항
-- microsoft advisor/비 표시 오류
+- microsoft.advisor/configurations
+- microsoft.advisor/recommendations
+- microsoft.advisor/suppressions
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources
 
-- alertsmanagement/경고
+- microsoft.alertsmanagement/alerts
+
+## <a name="healthresources"></a>healthresources
+
+- microsoft.resourcehealth/events
 
 ## <a name="maintenanceresources"></a>maintenanceresources
 
-- microsoft. 유지 관리/configurationassignments
-- microsoft. 유지 관리/업데이트
+- microsoft.maintenance/configurationassignments
+- microsoft.maintenance/updates
 
 ## <a name="resourcecontainers"></a>resourcecontainers
 
-- microsoft .resources/subscription
-- microsoft .resources/subscription/resourcegroups
+- microsoft.resources/subscriptions
+- microsoft.resources/subscriptions/resourcegroups
 
 ## <a name="resources"></a>리소스
 
-- cloudamqp/서버
-- citrix. services/xenappessentials
-- citrix. services/xendesktopessentials
-- mycloudit/accounts
-- crypteron datasecurity/앱
-- gridpro. evops/계정
-- gridpro. evops/accounts/eventrules
-- gridpro. evops/accounts/requesttemplates
-- gridpro. evops/accounts/views
-- hive. 스트리밍/서비스
-- incapsula
-- livearena/서비스
-- mailjet. 전자 메일/서비스
-- microsoft aad/domainservices
-- aadiam/privatelinkforazuread
+- 84codes.cloudamqp/servers
+- citrix.services/xenappessentials
+- citrix.services/xendesktopessentials
+- conexlink.mycloudit/accounts
+- crypteron.datasecurity/apps
+- gridpro.evops/accounts
+- gridpro.evops/accounts/eventrules
+- gridpro.evops/accounts/requesttemplates
+- gridpro.evops/accounts/views
+- hive.streaming/services
+- incapsula.waf/accounts
+- livearena.broadcast/services
+- mailjet.email/services
+- microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
-- aisupercomputer/계정
-- aisupercomputer/계정/jobgroups
-- aisupercomputer/계정/작업 그룹/작업
-- alertsmanagement/actionrules
-- alertsmanagement/smartdetectoralertrules
-- microsoft.analysisservices.sharepoint.integration.dll/서버
-- microsoft.apimanagement/서비스
-- microsoft appconfiguration/configurationstores
-- microsoft appplatform/스프링
-- microsoft archive/collections
-- microsoft. 증명/attestationproviders
-- microsoft. automation/automationaccounts
-- microsoft. automation/automationaccounts/구성
-- microsoft. automation/automationaccounts/runbook
-- autonomoussystems/작업 영역
-- azconfig/configurationstores
-- azureactivedirectory/b2cdirectories
-- microsoft azuredata/datacontrollers
-- microsoft azuredata/hybriddatamanagers
-- microsoft azuredata/postgresinstances
-- microsoft azuredata/sqlbigdataclusters
-- microsoft azuredata/sqlinstances
-- microsoft azuredata/sqlserverregistrations
-- microsoft azurestack/등록
-- azurestackhci/클러스터
-- baremetal/consoleconnections
-- baremetal/crayservers
-- baremetal/monitoringservers
-- microsoft. batch/batchaccounts
-- microsoft batchai/클러스터
-- microsoft batchai/파일 서버
-- microsoft batchai/jobs
-- microsoft batchai/workspace
-- microsoft. bingmaps/mapapis
-- biztalkservices/biztalk
-- microsoft blockchain/blockchainmembers
-- microsoft blockchain/cordamembers
-- microsoft blockchain/감시자
-- botservice/botservices
-- redis/
-- microsoft cdn/cdnwebapplicationfirewallpolicies
-- microsoft cdn/프로필
-- microsoft. cdn/프로필/끝점
-- certificateregistration/certificateorders
+- microsoft.aisupercomputer/accounts
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobgroups/jobs
+- microsoft.alertsmanagement/actionrules
+- microsoft.alertsmanagement/smartdetectoralertrules
+- microsoft.analysisservices/servers
+- microsoft.apimanagement/service
+- microsoft.appconfiguration/configurationstores
+- microsoft.appplatform/spring
+- microsoft.archive/collections
+- microsoft.attestation/attestationproviders
+- microsoft.automation/automationaccounts
+- microsoft.automation/automationaccounts/configurations
+- microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomoussystems/workspaces
+- microsoft.avs/privateclouds
+- microsoft.azconfig/configurationstores
+- microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
+- microsoft.azuredata/hybriddatamanagers
+- microsoft.azuredata/postgresinstances
+- microsoft.azuredata/sqlbigdataclusters
+- microsoft.azuredata/sqlinstances
+- microsoft.azuredata/sqlmanagedinstances
+- microsoft.azuredata/sqlserverinstances
+- microsoft.azuredata/sqlserverregistrations
+- microsoft.azurestack/registrations
+- microsoft.azurestackhci/clusters
+- microsoft.baremetal/consoleconnections
+- microsoft.baremetal/crayservers
+- microsoft.baremetal/monitoringservers
+- microsoft.batch/batchaccounts
+- microsoft.batchai/clusters
+- microsoft.batchai/fileservers
+- microsoft.batchai/jobs
+- microsoft.batchai/workspaces
+- microsoft.bingmaps/mapapis
+- microsoft.biztalkservices/biztalk
+- microsoft.blockchain/blockchainmembers
+- microsoft.blockchain/cordamembers
+- microsoft.blockchain/watchers
+- microsoft.botservice/botservices
+- microsoft.cache/redis
+- microsoft.cache/redisenterprise
+- microsoft.cdn/cdnwebapplicationfirewallpolicies
+- microsoft.cdn/profiles
+- microsoft.cdn/profiles/endpoints
+- microsoft.certificateregistration/certificateorders
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
 - microsoft.classicnetwork/reservedips
 - microsoft.classicnetwork/virtualnetworks
-- classicstorage/storageaccounts
-- cloudes/계정
-- microsoft cloudsearch/인덱스
-- cognition/syntheticsaccounts
-- cognitiveservices account/계정
-- availabilitysets/
-- microsoft. compute/diskaccesses
-- microsoft. compute/disk를 설정 합니다.
-- microsoft. compute/disks
-- microsoft. compute/갤러리
-- microsoft. compute/갤러리/응용 프로그램
-- microsoft. compute/갤러리/응용 프로그램/버전
-- microsoft. compute/갤러리/이미지
-- microsoft. compute/갤러리/이미지/버전
-- microsoft. compute/hostgroups
-- microsoft. compute/hostgroups/hosts
-- microsoft. compute/images
-- proximityplacementgroups/
-- restorepointcollections/
-- microsoft. compute/sharedvmextensions
-- microsoft. compute/sharedvmextensions/버전
-- microsoft. compute/sharedvmimages
-- microsoft. compute/sharedvmimages/버전
-- microsoft. compute/스냅숏
-- sshpublickeys/
-- virtualmachines/
-- microsoft. compute/virtualmachines/extensions
-- virtualmachinescalesets/
-- containerinstance/containergroups
-- microsoft.containerregistry/레지스트리
-- microsoft.containerregistry/registry/agentpools
-- microsoft.containerregistry/레지스트리/buildtasks
-- microsoft.containerregistry/레지스트리/복제
-- microsoft.containerregistry/레지스트리/taskruns
-- microsoft.containerregistry/레지스트리/작업
-- microsoft.containerregistry/레지스트리/웹 후크
-- containerservice/containerservices
-- containerservice/managedclusters
-- containerservice/openshiftmanagedclusters
-- microsoft. contoso/employees
-- costmanagement/커넥터
-- microsoft customproviders/resourceproviders
-- databox/작업
-- databoxedge/databoxedgedevices
-- databricks/작업 영역
-- microsoft.datacatalog/카탈로그
+- microsoft.classicstorage/storageaccounts
+- microsoft.cloudes/accounts
+- microsoft.cloudsearch/indexes
+- microsoft.cognition/syntheticsaccounts
+- microsoft.cognitiveservices/accounts
+- microsoft.compute/availabilitysets
+- microsoft.compute/diskaccesses
+- microsoft.compute/diskencryptionsets
+- microsoft.compute/disks
+- microsoft.compute/galleries
+- microsoft.compute/galleries/applications
+- microsoft.compute/galleries/applications/versions
+- microsoft.compute/galleries/images
+- microsoft.compute/galleries/images/versions
+- microsoft.compute/hostgroups
+- microsoft.compute/hostgroups/hosts
+- microsoft.compute/images
+- microsoft.compute/proximityplacementgroups
+- microsoft.compute/restorepointcollections
+- microsoft.compute/sharedvmextensions
+- microsoft.compute/sharedvmextensions/versions
+- microsoft.compute/sharedvmimages
+- microsoft.compute/sharedvmimages/versions
+- microsoft.compute/snapshots
+- microsoft.compute/sshpublickeys
+- microsoft.compute/swiftlets
+- microsoft.compute/virtualmachines
+- microsoft.compute/virtualmachines/extensions
+- microsoft.compute/virtualmachines/runcommands
+- microsoft.compute/virtualmachinescalesets
+- microsoft.containerinstance/containergroups
+- microsoft.containerregistry/registries
+- microsoft.containerregistry/registries/agentpools
+- microsoft.containerregistry/registries/buildtasks
+- microsoft.containerregistry/registries/replications
+- microsoft.containerregistry/registries/taskruns
+- microsoft.containerregistry/registries/tasks
+- microsoft.containerregistry/registries/webhooks
+- microsoft.containerservice/containerservices
+- microsoft.containerservice/managedclusters
+- microsoft.containerservice/openshiftmanagedclusters
+- microsoft.contoso/employees
+- microsoft.costmanagement/connectors
+- microsoft.customproviders/resourceproviders
+- microsoft.databox/jobs
+- microsoft.databoxedge/databoxedgedevices
+- microsoft.databricks/workspaces
+- microsoft.datacatalog/catalogs
 - microsoft.datacatalog/datacatalogs
-- datadog/모니터
-- datafactory/datafactories
-- datafactory/팩터리
-- datalakeanalytics/계정
-- datalakestore/계정
-- microsoft.datamigration/서비스
-- microsoft.datamigration/서비스/프로젝트
-- microsoft.datamigration/슬롯
-- microsoft dataprotection/backupvaults
-- datashare/계정
-- dbformariadb/서버
-- microsoft dbformysql/servers
-- dbforpostgresql/servergroups
-- dbforpostgresql/서버
-- dbforpostgresql/serversv2
-- dbforpostgresql/singleservers
-- microsoft deploymentmanager/artifactsources
-- microsoft deploymentmanager/롤아웃
-- microsoft deploymentmanager/servicetopologies
-- microsoft deploymentmanager/servicetopologies/서비스
-- microsoft deploymentmanager/servicetopologies/services/serviceunits
-- microsoft deploymentmanager/단계
-- microsoft desktopvirtualization/applicationgroups
-- microsoft desktopvirtualization/hostpools
-- microsoft desktopvirtualization/작업 영역
-- detonationservice/detonationinstances
-- microsoft. devices/elasticpools
-- microsoft. devices/elasticpools/iothubtenants
-- microsoft. devices/iothubs
-- microsoft. devices/provisioningservices
-- microsoft devops/파이프라인
-- microsoft devspaces/controller
-- microsoft devtestlab/연구원 센터
-- microsoft devtestlab/랩
-- microsoft devtestlab/labs/servicerunners
-- microsoft devtestlab/labs/virtualmachines
-- microsoft. devtestlab/일정
-- digitaltwins/digitaltwinsinstances
-- microsoft documentdb/databaseaccounts
-- microsoft 도메인 등록/도메인
-- enterpriseknowledgegraph/서비스
-- microsoft eventgrid/도메인
-- microsoft eventgrid/함께 네임 스페이스
-- microsoft eventgrid/함께 등록
-- microsoft eventgrid/항목 항목
-- microsoft eventgrid/systemtopics
-- microsoft eventgrid/토픽
-- microsoft eventhub/클러스터
-- microsoft eventhub/네임 스페이스
-- microsoft. 실험/experimentworkspaces
-- microsoft. false/네임 스페이스
-- microsoft 게임/제목
-- genomics/계정
-- guestconfiguration/automanagedaccounts
-- hanaonazure/hanainstances
-- hanaonazure/sapmonitors
-- hardwaresecuritymodules/dedicatedhsms
-- microsoft hdinsight/클러스터
-- healthcareapis/서비스
-- hybridcompute/컴퓨터
-- hybridcompute/컴퓨터/확장
-- hybriddata/datamanagers
-- microsoft node.js/구성 요소
-- microsoft. 히드라/networkscopes
-- microsoft importexport/작업
-- microsoft insights/actiongroups
-- microsoft insights/activitylogalerts
-- microsoft insights/alertrules
-- microsoft insights/autoscalesettings
-- microsoft 인 사이트/구성 요소
-- microsoft insights/datacollectionrules
-- microsoft insights/종류
-- microsoft insights/metricalerts
-- microsoft insights/notificationgroups
-- microsoft insights/notificationrules
-- microsoft insights/privatelinkscopes
-- microsoft insights/scheduledqueryrules
-- microsoft insights/webtests
-- microsoft insights/통합 문서
-- microsoft insights/통합 문서의 템플릿
-- microsoft 응용 프로그램
-- microsoft. .exe 공간/그래프
-- microsoft. keyvault/hsmpools
-- microsoft. keyvault/자격 증명 모음
-- kubernetes/connectedclusters
-- microsoft. kusto/클러스터
-- microsoft. kusto/클러스터/데이터베이스
-- microsoft. 서비스/랩 계정
-- integrationaccounts/
-- integrationserviceenvironments/
-- microsoft 논리/integrationserviceenvironments/managedapis
-- microsoft 논리/워크플로
-- machinelearning/commitmentplans
-- machinelearning/webservices
-- machinelearning/작업 영역
-- machinelearningcompute/operationalizationclusters
-- machinelearningservices/작업 영역
-- microsoft. maintenance/maintenanceconfigurations
-- microsoft. maintenance/maintenancepolicies
-- microsoft.managedidentity/그룹
+- microsoft.datadog/monitors
+- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
+- microsoft.datalakeanalytics/accounts
+- microsoft.datalakestore/accounts
+- microsoft.datamigration/services
+- microsoft.datamigration/services/projects
+- microsoft.datamigration/slots
+- microsoft.dataprotection/backupvaults
+- microsoft.datashare/accounts
+- microsoft.dbformariadb/servers
+- microsoft.dbformysql/servers
+- microsoft.dbforpostgresql/servergroups
+- microsoft.dbforpostgresql/servers
+- microsoft.dbforpostgresql/serversv2
+- microsoft.dbforpostgresql/singleservers
+- microsoft.deploymentmanager/artifactsources
+- microsoft.deploymentmanager/rollouts
+- microsoft.deploymentmanager/servicetopologies
+- microsoft.deploymentmanager/servicetopologies/services
+- microsoft.deploymentmanager/servicetopologies/services/serviceunits
+- microsoft.deploymentmanager/steps
+- microsoft.desktopvirtualization/applicationgroups
+- microsoft.desktopvirtualization/hostpools
+- microsoft.desktopvirtualization/workspaces
+- microsoft.detonationservice/detonationinstances
+- microsoft.devices/elasticpools
+- microsoft.devices/elasticpools/iothubtenants
+- microsoft.devices/iothubs
+- microsoft.devices/provisioningservices
+- microsoft.devops/pipelines
+- microsoft.devspaces/controllers
+- microsoft.devtestlab/labcenters
+- microsoft.devtestlab/labs
+- microsoft.devtestlab/labs/servicerunners
+- microsoft.devtestlab/labs/virtualmachines
+- microsoft.devtestlab/schedules
+- microsoft.digitaltwins/digitaltwinsinstances
+- microsoft.documentdb/databaseaccounts
+- microsoft.domainregistration/domains
+- microsoft.enterpriseknowledgegraph/services
+- microsoft.eventgrid/domains
+- microsoft.eventgrid/partnernamespaces
+- microsoft.eventgrid/partnerregistrations
+- microsoft.eventgrid/partnertopics
+- microsoft.eventgrid/systemtopics
+- microsoft.eventgrid/topics
+- microsoft.eventhub/clusters
+- microsoft.eventhub/namespaces
+- microsoft.experimentation/experimentworkspaces
+- microsoft.falcon/namespaces
+- microsoft.gaming/titles
+- microsoft.genomics/accounts
+- microsoft.guestconfiguration/automanagedaccounts
+- microsoft.hanaonazure/hanainstances
+- microsoft.hanaonazure/sapmonitors
+- microsoft.hardwaresecuritymodules/dedicatedhsms
+- microsoft.hdinsight/clusters
+- microsoft.healthcareapis/services
+- microsoft.healthcareapis/services/privateendpointconnections
+- microsoft.hybridcompute/machines
+- microsoft.hybridcompute/machines/extensions
+- microsoft.hybriddata/datamanagers
+- microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/derivedmodels
+- microsoft.insights/actiongroups
+- microsoft.insights/activitylogalerts
+- microsoft.insights/alertrules
+- microsoft.insights/autoscalesettings
+- microsoft.insights/components
+- microsoft.insights/datacollectionrules
+- microsoft.insights/guestdiagnosticsettings
+- microsoft.insights/metricalerts
+- microsoft.insights/notificationgroups
+- microsoft.insights/notificationrules
+- microsoft.insights/privatelinkscopes
+- microsoft.insights/scheduledqueryrules
+- microsoft.insights/webtests
+- microsoft.insights/workbooks
+- microsoft.insights/workbooktemplates
+- microsoft.iotcentral/iotapps
+- microsoft.iotspaces/graph
+- microsoft.keyvault/hsmpools
+- microsoft.keyvault/vaults
+- microsoft.kubernetes/connectedclusters
+- microsoft.kusto/clusters
+- microsoft.kusto/clusters/databases
+- microsoft.labservices/labaccounts
+- microsoft.logic/integrationaccounts
+- microsoft.logic/integrationserviceenvironments
+- microsoft.logic/integrationserviceenvironments/managedapis
+- microsoft.logic/workflows
+- microsoft.machinelearning/commitmentplans
+- microsoft.machinelearning/webservices
+- microsoft.machinelearning/workspaces
+- microsoft.machinelearningcompute/operationalizationclusters
+- microsoft.machinelearningservices/workspaces
+- microsoft.maintenance/maintenanceconfigurations
+- microsoft.maintenance/maintenancepolicies
+- microsoft.managedidentity/groups
 - microsoft.managedidentity/userassignedidentities
-- microsoft managednetwork/managednetworkgroups
-- microsoft managednetwork/managednetworkpeering정책만
-- microsoft managednetwork/managednetwork
-- microsoft managednetwork/managednetwork/managednetworkgroups
-- microsoft managednetwork/managednetwork/managednetworkpeering정책만
-- microsoft maps/계정
-- microsoft. maps/accounts/privateatlases
-- marketplaceapps/classicdevservices
-- microsoft. media/windowsazure.mediaservices
-- microsoft. media/windowsazure.mediaservices/liveevents
-- microsoft. media/windowsazure.mediaservices/streamingendpoints
-- microsoft. media/windowsazure.mediaservices/변환
-- microservices4spring/appclusters
-- microsoft. 마이그레이션/assessmentprojects
-- microsoft. 마이그레이션/migrateprojects
-- microsoft. 마이그레이션/movecollections
-- microsoft. 마이그레이션/프로젝트
-- mixedreality/holographicsbroadcastaccounts
-- mixedreality/objectunderstandingaccounts
-- mixedreality/remoterenderingaccounts
-- mixedreality/spatialanchorsaccounts
-- mixedreality/surfacereconstructionaccounts
-- microsoft netapp/netappaccounts
-- microsoft netapp/netappaccounts/backuppolicies
-- microsoft netapp/netappaccounts/capacitypools
-- microsoft netapp/netappaccounts/capacitypools/볼륨
-- microsoft netapp/netappaccounts/capacitypools/볼륨/mounttargets
-- microsoft netapp/netappaccounts/capacitypools/볼륨/스냅숏
-- microsoft. network/applicationgateways
-- microsoft. network/applicationgatewaywebapplicationfirewallpolicies
-- microsoft. network/applicationsecuritygroups
-- microsoft. 네트워크/azurefirewalls
-- microsoft. network/bastionhosts
-- microsoft. 네트워크/연결
-- microsoft. network/ddoscustompolicies
-- microsoft. network/ddosprotectionplans
-- microsoft. network/dnszones
-- microsoft. network/expressroutecircuits
-- microsoft. network/expressroutecrossconnections
-- microsoft. network/expressroutegateways
-- microsoft. network/expressrouteports
-- microsoft. network/firewallpolicies
-- microsoft. network/frontdoors
-- microsoft. network/frontdoorwebapplicationfirewallpolicies
-- microsoft. network/ipallocations
-- microsoft. network/ipgroups
-- microsoft. 네트워크/loadbalancers 장치
-- microsoft. network/localnetworkgateways
-- microsoft. network/natgateways
-- microsoft. network/networkexperimentprofiles
-- microsoft. network/networkintentpolicies
-- microsoft. network/networkinterfaces
-- microsoft 네트워크/networkmanagers
-- microsoft 네트워크/networkprofiles
-- microsoft. network/networksecuritygroups
-- microsoft. network/networkvirtualappliances
-- microsoft. network/networkwatchers
-- microsoft. network/networkwatchers/connectionmonitors
-- microsoft. network/networkwatchers/flowlogs
-- microsoft. network/networkwatchers/lenses
-- microsoft. network/networkwatchers/. 메시
-- microsoft. network/p2svpngateways
-- microsoft. network/privatednszones
-- microsoft. network/privatednszones/virtualnetworklinks
-- microsoft. network/privateendpointredirectmaps
-- microsoft. network/privateendpoints
-- microsoft. network/privatelinkservices
-- microsoft. network/publicipaddresses
-- microsoft. network/publicipprefixes
-- microsoft. network/routefilters
-- microsoft. network/routetables
-- microsoft. network/sampleresources
-- microsoft. network/securitypartnerproviders
-- microsoft. network/serviceendpointpolicies
-- microsoft. network/trafficmanagerprofiles
-- microsoft. network/virtualhubs
-- microsoft. network/virtualnetworkgateways
-- microsoft. network/virtualnetworks
-- microsoft. network/virtualnetworktaps
-- microsoft. network/virtualrouters
-- microsoft. network/virtualwans
-- microsoft. network/vpngateways
-- microsoft. network/vpnserverconfigurations
-- microsoft. network/vpnsites
-- microsoft notificationhubs/네임 스페이스
-- microsoft. notificationhubs/네임 스페이스/notificationhubs
-- microsoft objectstore/osnamespaces 스페이스
-- microsoft. offazure/hypervsites
-- microsoft. offazure/importsites
-- microsoft. offazure/serversites
-- microsoft. offazure/vmwaresites
-- operationalinsights/클러스터
-- operationalinsights/작업 영역
-- microsoft.operationsmanagement/솔루션
-- microsoft.operationsmanagement/뷰
-- microsoft 피어 링/피어 링
-- microsoft 피어 링/peeringservices
-- microsoft. 포털/대시보드
-- portalsdk/rootresources
-- microsoft powerbi/workspacecollections
-- microsoft. powerbidedicated/용량
-- projectarcadia/작업 영역
-- projectarcadia/작업 영역/sparkcomputes
-- projectarcadia/workspaces/sqlcomputes
-- projectbabylon/계정
-- microsoft 양자/작업 영역
-- microsoft recoveryservices/자격 증명 모음
-- microsoft. redhatopenshift/openshiftclusters
-- microsoft relay/네임 스페이스
-- microsoft remoteapp/컬렉션
-- microsoft resourcegraph/쿼리
-- microsoft .resources/deploymentscripts
-- templatespecs/
-- microsoft saas/응용 프로그램
-- microsoft scheduler/jobcollections
-- microsoft. 검색/searchservices
-- microsoft. security/자동화
-- microsoft. security/iotsecuritysolutions
-- securitydetonation/침실
-- servicebus/네임 스페이스
-- servicefabric/클러스터
-- servicefabric/containergroupsets
-- servicefabric/managedclusters
-- servicefabricmesh/응용 프로그램
-- servicefabricmesh/게이트웨이
-- servicefabricmesh/네트워크
-- servicefabricmesh/비밀
-- servicefabricmesh/볼륨
-- signalrservice/signalr
-- microsoft solutions/appliancedefinitions
-- microsoft. 솔루션/어플라이언스
-- microsoft solutions/applicationdefinitions
-- microsoft. 솔루션/응용 프로그램
-- microsoft solutions/jitrequests
-- spoolservice/스풀
-- microsoft .sql/instancepools
-- microsoft .sql/managedinstances
-- microsoft .sql/managedinstances/databases
-- microsoft .sql/servers
-- microsoft .sql/servers/databases
-- microsoft .sql/servers/elasticpools
-- microsoft .sql/servers/jobaccounts
-- microsoft .sql/servers/jobagents
-- microsoft .sql/virtualclusters
-- sqlvirtualmachine/sqlvirtualmachinegroups
-- sqlvirtualmachine/sqlvirtualmachines
-- microsoft. sqlvm/dwvm
-- microsoft. storage/storageaccounts
-- storagecache/캐시
+- microsoft.managednetwork/managednetworkgroups
+- microsoft.managednetwork/managednetworkpeeringpolicies
+- microsoft.managednetwork/managednetworks
+- microsoft.managednetwork/managednetworks/managednetworkgroups
+- microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
+- microsoft.maps/accounts
+- microsoft.maps/accounts/privateatlases
+- microsoft.marketplaceapps/classicdevservices
+- microsoft.media/mediaservices
+- microsoft.media/mediaservices/liveevents
+- microsoft.media/mediaservices/streamingendpoints
+- microsoft.media/mediaservices/transforms
+- microsoft.microservices4spring/appclusters
+- microsoft.migrate/assessmentprojects
+- microsoft.migrate/migrateprojects
+- microsoft.migrate/movecollections
+- microsoft.migrate/projects
+- microsoft.mixedreality/holographicsbroadcastaccounts
+- microsoft.mixedreality/objectunderstandingaccounts
+- microsoft.mixedreality/remoterenderingaccounts
+- microsoft.mixedreality/spatialanchorsaccounts
+- microsoft.mixedreality/surfacereconstructionaccounts
+- microsoft.netapp/netappaccounts
+- microsoft.netapp/netappaccounts/backuppolicies
+- microsoft.netapp/netappaccounts/capacitypools
+- microsoft.netapp/netappaccounts/capacitypools/volumes
+- microsoft.netapp/netappaccounts/capacitypools/volumes/mounttargets
+- microsoft.netapp/netappaccounts/capacitypools/volumes/snapshots
+- microsoft.network/applicationgateways
+- microsoft.network/applicationgatewaywebapplicationfirewallpolicies
+- microsoft.network/applicationsecuritygroups
+- microsoft.network/azurefirewalls
+- microsoft.network/bastionhosts
+- microsoft.network/connections
+- microsoft.network/ddoscustompolicies
+- microsoft.network/ddosprotectionplans
+- microsoft.network/dnszones
+- microsoft.network/expressroutecircuits
+- microsoft.network/expressroutecrossconnections
+- microsoft.network/expressroutegateways
+- microsoft.network/expressrouteports
+- microsoft.network/firewallpolicies
+- microsoft.network/frontdoors
+- microsoft.network/frontdoorwebapplicationfirewallpolicies
+- microsoft.network/ipallocations
+- microsoft.network/ipgroups
+- microsoft.network/loadbalancers
+- microsoft.network/localnetworkgateways
+- microsoft.network/natgateways
+- microsoft.network/networkexperimentprofiles
+- microsoft.network/networkintentpolicies
+- microsoft.network/networkinterfaces
+- microsoft.network/networkmanagers
+- microsoft.network/networkprofiles
+- microsoft.network/networksecuritygroups
+- microsoft.network/networkvirtualappliances
+- microsoft.network/networkwatchers
+- microsoft.network/networkwatchers/connectionmonitors
+- microsoft.network/networkwatchers/flowlogs
+- microsoft.network/networkwatchers/lenses
+- microsoft.network/networkwatchers/pingmeshes
+- microsoft.network/p2svpngateways
+- microsoft.network/privatednszones
+- microsoft.network/privatednszones/virtualnetworklinks
+- microsoft.network/privateendpointredirectmaps
+- microsoft.network/privateendpoints
+- microsoft.network/privatelinkservices
+- microsoft.network/publicipaddresses
+- microsoft.network/publicipprefixes
+- microsoft.network/routefilters
+- microsoft.network/routetables
+- microsoft.network/sampleresources
+- microsoft.network/securitypartnerproviders
+- microsoft.network/serviceendpointpolicies
+- microsoft.network/trafficmanagerprofiles
+- microsoft.network/virtualhubs
+- microsoft.network/virtualnetworkgateways
+- microsoft.network/virtualnetworks
+- microsoft.network/virtualnetworktaps
+- microsoft.network/virtualrouters
+- microsoft.network/virtualwans
+- microsoft.network/vpngateways
+- microsoft.network/vpnserverconfigurations
+- microsoft.network/vpnsites
+- microsoft.notificationhubs/namespaces
+- microsoft.notificationhubs/namespaces/notificationhubs
+- microsoft.objectstore/osnamespaces
+- microsoft.offazure/hypervsites
+- microsoft.offazure/importsites
+- microsoft.offazure/serversites
+- microsoft.offazure/vmwaresites
+- microsoft.operationalinsights/clusters
+- microsoft.operationalinsights/workspaces
+- microsoft.operationsmanagement/solutions
+- microsoft.operationsmanagement/views
+- microsoft.peering/peerings
+- microsoft.peering/peeringservices
+- microsoft.portal/dashboards
+- microsoft.portalsdk/rootresources
+- microsoft.powerbi/workspacecollections
+- microsoft.powerbidedicated/capacities
+- microsoft.projectbabylon/accounts
+- microsoft.quantum/workspaces
+- microsoft.recoveryservices/vaults
+- microsoft.redhatopenshift/openshiftclusters
+- microsoft.relay/namespaces
+- microsoft.remoteapp/collections
+- microsoft.resourcegraph/queries
+- microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
+- microsoft.resources/templatespecs/versions
+- microsoft.saas/applications
+- microsoft.scheduler/jobcollections
+- microsoft.search/searchservices
+- microsoft.security/automations
+- microsoft.security/iotsecuritysolutions
+- microsoft.securitydetonation/chambers
+- microsoft.servicebus/namespaces
+- microsoft.servicefabric/clusters
+- microsoft.servicefabric/containergroupsets
+- microsoft.servicefabric/managedclusters
+- microsoft.servicefabricmesh/applications
+- microsoft.servicefabricmesh/gateways
+- microsoft.servicefabricmesh/networks
+- microsoft.servicefabricmesh/secrets
+- microsoft.servicefabricmesh/volumes
+- microsoft.serviceshub/connectors
+- microsoft.signalrservice/signalr
+- microsoft.solutions/appliancedefinitions
+- microsoft.solutions/appliances
+- microsoft.solutions/applicationdefinitions
+- microsoft.solutions/applications
+- microsoft.solutions/jitrequests
+- microsoft.spoolservice/spools
+- microsoft.sql/instancepools
+- microsoft.sql/managedinstances
+- microsoft.sql/managedinstances/databases
+- microsoft.sql/servers
+- microsoft.sql/servers/databases
+- microsoft.sql/servers/elasticpools
+- microsoft.sql/servers/jobaccounts
+- microsoft.sql/servers/jobagents
+- microsoft.sql/virtualclusters
+- microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
+- microsoft.sqlvirtualmachine/sqlvirtualmachines
+- microsoft.sqlvm/dwvm
+- microsoft.storage/storageaccounts
+- microsoft.storagecache/caches
 - microsoft.storagesync/storagesyncservices
-- microsoft. storagesyncdev/storagesyncdev
-- microsoft storagesyncint/storagescecservices
-- microsoft storsimple/관리자
-- microsoft. streamanalytics/streamingjobs
-- synapse/작업 영역
-- synapse/작업 영역/bigdatapools
-- synapse/workspaces/sqlpools
-- microsoft terraformoss/providerregistrations
-- microsoft. timeseriesinsights/환경
-- microsoft. timeseriesinsights/environment/eventsources
-- microsoft. timeseriesinsights/environment/referencedatasets
-- microsoft. k e r/매장
-- tokenvault/자격 증명 모음
-- microsoft virtualmachineimages/imagetemplates
-- visualstudio/계정
-- visualstudio/계정/확장
-- visualstudio/계정/프로젝트
-- microsoft. vmware/arczones
-- microsoft. vmware/resourcepools
-- microsoft. vmware/vcenters
-- microsoft. vmware/virtualmachines
-- microsoft. vmware/virtualmachinetemplates
-- microsoft. vmware/virtualnetworks
-- vmwarecloudsimple/dedicatedcloudnodes
-- vmwarecloudsimple/dedicatedcloudservices
-- vmwarecloudsimple/virtualmachines
-- vmwareonazure/privateclouds
-- vmwarevirtustream/privateclouds
-- microsoft vnfmanager/장치
-- microsoft vnfmanager/vnfs
-- microsoft vsonline/accounts
-- microsoft vsonline/요금제
-- microsoft 웹/apimanagementaccount/api
-- microsoft 웹/인증서
-- microsoft 웹/connectiongateways
+- microsoft.storagesyncdev/storagesyncservices
+- microsoft.storagesyncint/storagesyncservices
+- microsoft.storsimple/managers
+- microsoft.streamanalytics/streamingjobs
+- microsoft.synapse/workspaces
+- microsoft.synapse/workspaces/bigdatapools
+- microsoft.synapse/workspaces/sqlpools
+- microsoft.terraformoss/providerregistrations
+- microsoft.timeseriesinsights/environments
+- microsoft.timeseriesinsights/environments/eventsources
+- microsoft.timeseriesinsights/environments/referencedatasets
+- microsoft.token/stores
+- microsoft.tokenvault/vaults
+- microsoft.virtualmachineimages/imagetemplates
+- microsoft.visualstudio/account
+- microsoft.visualstudio/account/extension
+- microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
+- microsoft.vmware/resourcepools
+- microsoft.vmware/vcenters
+- microsoft.vmware/virtualmachines
+- microsoft.vmware/virtualmachinetemplates
+- microsoft.vmware/virtualnetworks
+- microsoft.vmwarecloudsimple/dedicatedcloudnodes
+- microsoft.vmwarecloudsimple/dedicatedcloudservices
+- microsoft.vmwarecloudsimple/virtualmachines
+- microsoft.vmwareonazure/privateclouds
+- microsoft.vmwarevirtustream/privateclouds
+- microsoft.vsonline/accounts
+- microsoft.vsonline/plans
+- microsoft.web/apimanagementaccounts/apis
+- microsoft.web/certificates
+- microsoft.web/connectiongateways
 - microsoft.web/connections
-- microsoft 웹/customapis
-- microsoft 웹/hostingenvironments
-- microsoft 웹/kubeenvironments
-- microsoft 웹/serverfarms
+- microsoft.web/customapis
+- microsoft.web/hostingenvironments
+- microsoft.web/kubeenvironments
+- microsoft.web/serverfarms
 - microsoft.web/sites
-- microsoft 웹 사이트/사이트/premieraddons
+- microsoft.web/sites/premieraddons
 - microsoft.web/sites/slots
-- microsoft 웹/정적 사이트
-- microsoft windowsesu/multipleactivationkeys
-- microsoft windowsiot/deviceservices
-- myget/서비스
-- cloudmonix/서비스 paraleap
-- pokitdok/서비스
-- 공급자. test/statefulibizaengines
-- 공급자. test/statefulresources
-- 공급자. test/statefulresources/nestedresources
-- 공급자. 테스트/statelessresources
-- ravenhq/데이터베이스
-- crashreporting/앱
-- sendgrid/계정
-- sparkpost/서비스
-- stackify/서비스
-- shoebox/testresources
-- shoebox/testresources2
-- trendmicro. deepsecurity/계정
-- theidentityhub/서비스 u2uconsult
-- wandisco/fusiongroups
-- wandisco/fusiongroups/azurezones
-- wandisco/fusiongroups/azurezones/플러그 인
-- wandisco/fusiongroups/hivereplicationrules
-- wandisco/fusiongroups/managedonpremzones
-- wandisco/fusiongroups/onpremzones
-- wandisco/fusiongroups/replicationrules
+- microsoft.web/staticsites
+- microsoft.windowsesu/multipleactivationkeys
+- microsoft.windowsiot/deviceservices
+- myget.packagemanagement/services
+- paraleap.cloudmonix/services
+- pokitdok.platform/services
+- providers.test/statefulibizaengines
+- providers.test/statefulresources
+- providers.test/statefulresources/nestedresources
+- providers.test/statelessresources
+- ravenhq.db/databases
+- raygun.crashreporting/apps
+- sendgrid.email/accounts
+- sparkpost.basic/services
+- stackify.retrace/services
+- test.shoebox/testresources
+- test.shoebox/testresources2
+- trendmicro.deepsecurity/accounts
+- u2uconsult.theidentityhub/services
+- wandisco.fusion/fusiongroups
+- wandisco.fusion/fusiongroups/azurezones
+- wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/hivereplicationrules
+- wandisco.fusion/fusiongroups/managedonpremzones
+- wandisco.fusion/fusiongroups/onpremzones
+- wandisco.fusion/fusiongroups/replicationrules
 
 ## <a name="securityresources"></a>securityresources
 
-- microsoft. 보안/평가
-- microsoft. 보안/평가/하위 평가
-- microsoft. security/pricings
-- microsoft. security/regulatorycompliancestandards
-- microsoft. security/regulatorycompliancestandards/regulatorycompliancecontrols
-- microsoft. security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft. security/securitystatuses
-- microsoft. security/securitystatuses/containerhosts
-- microsoft. security/securitystatuses/onpremisemachines
-- microsoft. 보안/보안 상태/서버
-- microsoft. 보안/보안 상태/서브넷
-- microsoft. security/securitystatuses/virtualmachines
-- microsoft. security/securitystatusessumc
+- microsoft.security/assessments
+- microsoft.security/assessments/subassessments
+- microsoft.security/pricings
+- microsoft.security/regulatorycompliancestandards
+- microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
+- microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
+- microsoft.security/securitystatuses
+- microsoft.security/securitystatuses/containerhosts
+- microsoft.security/securitystatuses/onpremisemachines
+- microsoft.security/securitystatuses/servers
+- microsoft.security/securitystatuses/subnets
+- microsoft.security/securitystatuses/virtualmachines
+- microsoft.security/securitystatusessummaries
 
 ## <a name="next-steps"></a>다음 단계
 

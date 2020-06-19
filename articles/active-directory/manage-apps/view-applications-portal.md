@@ -3,8 +3,8 @@ title: 빠른 시작 - Azure Active Directory를 사용하여 테넌트 애플�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트의 애플리케이션을 봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ce3a1a55683b0882984a4986cf59853933954274
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74421810"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763009"
 ---
 # <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>빠른 시작: Azure Active Directory 테넌트 애플리케이션 보기
 

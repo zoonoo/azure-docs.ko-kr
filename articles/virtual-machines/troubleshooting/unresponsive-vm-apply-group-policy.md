@@ -1,0 +1,155 @@
+---
+title: 정책을 적용하는 동안 Azure 가상 머신이 응답하지 않음
+description: 이 문서에서는 Azure VM에서 부팅하는 동안 정책을 적용할 때 로드 화면이 멈추는 문제를 해결하는 단계를 제공합니다.
+services: virtual-machines-windows
+documentationcenter: ''
+author: TobyTu
+manager: dcscontentpm
+editor: ''
+tags: azure-resource-manager
+ms.assetid: a97393c3-351d-4324-867d-9329e31b5628
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.topic: troubleshooting
+ms.date: 05/07/2020
+ms.author: v-mibufo
+ms.openlocfilehash: 30f833bc49f92dcabfc75f0a1507c6f540bdea24
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83748732"
+---
+# <a name="vm-becomes-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>‘그룹 정책 로컬 사용자 및 그룹’ 정책을 적용하는 동안 VM이 응답하지 않음
+
+이 문서에서는 Azure VM에서 부팅하는 동안 정책을 적용할 때 로드 화면이 멈추는 문제를 해결하는 단계를 제공합니다.
+
+## <a name="symptoms"></a>증상
+
+[부팅 진단](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)을 사용하여 VM의 스크린샷을 볼 때 화면 로드가 멈추고 다음 메시지가 표시됩니다. ‘그룹 정책 로컬 사용자 및 그룹 정책 적용’.
+
+:::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012 R2).":::
+
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="그룹 정책 로컬 사용자 및 그룹 정책 적용 로드의 스크린샷(Windows Server 2012).":::
+
+## <a name="cause"></a>원인
+
+정책이 이전 사용자 프로필을 정리하려고 할 때 충돌하는 잠금이 있습니다.
+
+> [!NOTE]
+> 이는 Windows Server 2012 및 Windows Server 2012 R2에만 적용됩니다.
+
+다음은 문제가 있는 정책입니다.
+
+`Computer Configuration\Policies\Administrative Templates\System/User Profiles\Delete user profiles older than a specified number of days on system restart`
+
+## <a name="resolution"></a>해결 방법
+
+### <a name="process-overview"></a>프로세스 개요
+
+1. [복구 VM 만들기 및 액세스](#step-1-create-and-access-a-repair-vm)
+2. [정책 사용 안 함](#step-2-disable-the-policy)
+3. [직렬 콘솔 및 메모리 덤프 수집 사용](#step-3-enable-serial-console-and-memory-dump-collection)
+4. [VM 다시 빌드](#step-4-rebuild-the-vm)
+
+> [!NOTE]
+> 이 부팅 오류가 발생하면 게스트 OS가 작동하지 않습니다. 오프라인 모드에서 문제를 해결해야 합니다.
+
+### <a name="step-1-create-and-access-a-repair-vm"></a>1단계: 복구 VM 만들기 및 액세스
+
+1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 복구 VM을 준비합니다.
+2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
+
+### <a name="step-2-disable-the-policy"></a>2단계: 정책 사용 안 함
+
+1. 복구 VM에서 레지스트리 편집기를 엽니다.
+2. **HKEY_LOCAL_MACHINE** 키를 찾고 메뉴에서 **파일** > **Hive 로드...** 를 선택합니다.
+
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="강조 표시된 HKEY_LOCAL_MACHINE 및 Hive 로드가 포함된 메뉴를 보여 주는 스크린샷.":::
+
+    - Hive 로드를 사용하여 오프라인 시스템에서 레지스트리 키를 로드할 수 있습니다. 이 경우 손상된 디스크가 복구 VM에 연결되었습니다.
+    - 시스템 수준 설정은 `HKEY_LOCAL_MACHINE`에 저장되며 “HKLM”으로 약어로 표시될 수 있습니다.
+3. 연결된 디스크에서 `\windows\system32\config\SOFTWARE` 파일로 이동하고 파일을 엽니다.
+
+    1. 이름을 입력하라는 메시지가 표시됩니다. BROKENSOFTWARE를 입력합니다.<br/>
+    2. BROKENSOFTWARE가 로드되었는지 확인하려면 **HKEY_LOCAL_MACHINE**을 확장하고 추가된 BROKENSOFTWARE 키를 검색합니다.
+4. BROKENSOFTWARE로 이동하여 CleanupProfile 키가 로드된 하이브에 있는지 확인합니다.
+
+    1. 키가 있는 경우 CleanupProfile 정책이 설정되며, 해당 값은 보존 정책(일)을 나타냅니다. 키를 계속 삭제합니다.<br/>
+    2. 키가 없는 경우 CleanupProfile 정책이 설정되지 않습니다. 연결된 OS 디스크의 Windows 디렉터리에 있는 memory.dmp 파일을 포함하여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
+
+5. 다음 명령을 사용하여 CleanupProfiles 키를 삭제합니다.
+
+    ```
+    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    ```
+6.  다음 명령을 사용하여 BROKENSOFTWARE hive를 언로드합니다.
+
+    ```
+    reg unload HKLM\BROKENSOFTWARE
+    ```
+
+### <a name="step-3-enable-serial-console-and-memory-dump-collection"></a>3단계: 직렬 콘솔 및 메모리 덤프 수집 사용
+
+메모리 덤프 수집 및 직렬 콘솔을 사용하려면 다음 스크립트를 실행합니다.
+
+1. 관리자 권한 명령 프롬프트 세션을 엽니다(관리자 권한으로 실행).
+2. 다음 명령을 실행합니다.
+
+    **직렬 콘솔 사용**: 
+    
+    ```
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    ```
+
+    ```
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200 
+    ```
+3. OS 디스크의 사용 가능한 공간이 VM의 메모리 크기(RAM)보다 크거나 같은지 확인합니다.
+
+    OS 디스크에 충분한 공간이 없는 경우 메모리 덤프 위치를 변경하고 사용 가능한 공간이 충분한 연결된 데이터 디스크를 참조하도록 합니다. 위치를 변경하려면 아래 명령에서 데이터 디스크의 드라이브 문자(예: “F:”)로 “% SystemRoot%”를 바꿉니다.
+
+    **OS 덤프를 사용하도록 설정하기 위한 권장 구성**:
+
+    손상된 OS 디스크 로드:
+
+    ```
+    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
+    ```
+
+    ControlSet001에서 사용:
+    
+    ```
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
+    ```
+
+    ControlSet002에서 사용:
+    
+    ```
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
+    ```
+    
+    손상된 OS 디스크 언로드:
+    
+    ```
+    REG UNLOAD HKLM\BROKENSYSTEM
+    ```
+
+### <a name="step-4-rebuild-the-vm"></a>4단계: VM 다시 빌드
+
+[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.
+
+문제가 해결되면 정책이 로컬로 사용하지 않도록 설정된 것입니다. 영구 솔루션의 경우 VM에서 CleanupProfiles 정책을 사용하지 마세요. 다른 방법을 사용하여 프로필 정리를 수행합니다.
+
+다음 정책을 사용하지 마세요.
+
+`Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart`
+
+## <a name="next-steps"></a>다음 단계
+
+Windows 업데이트 적용하는 동안 문제가 발생하면 [Windows 업데이트를 적용할 때 “C01A001D” 오류와 함께 VM이 응답하지 않음](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update)을 참조하세요.

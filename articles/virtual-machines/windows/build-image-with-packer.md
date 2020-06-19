@@ -1,5 +1,5 @@
 ---
-title: 팩을 사용 하 여 Windows VM 이미지를 만드는 방법
+title: Packer를 사용하여 Windows VM 이미지를 만드는 방법
 description: Azure에서 Packer를 사용하여 Windows 가상 머신의 이미지를 만드는 방법에 대해 알아보기
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,20 +8,20 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084484"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773324"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
-이 문서는 [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 And 1.3.4 [er](https://www.packer.io/docs/install/index.html) version를 사용 하 여 2/21/2019에서 마지막으로 테스트 되었습니다.
+이 문서는 2019년 2월 21일에 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps) 버전 1.3.0 및 [Packer](https://www.packer.io/docs/install/index.html) 버전 1.3.4를 사용하여 마지막으로 테스트되었습니다.
 
 > [!NOTE]
-> 이제 azure에는 고유한 사용자 지정 이미지를 정의 하 고 만드는 데 필요한 Azure Image Builder (미리 보기) 서비스가 있습니다. Azure 이미지 작성기는 패키지를 사용 하 여 구축 되므로 기존 패키지 provisioner 스크립트를 사용할 수도 있습니다. Azure 이미지 작성기를 시작 하려면 [Azure 이미지 작성기를 사용 하 여 WINDOWS VM 만들기](image-builder.md)를 참조 하세요.
+> 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Windows VM 만들기](image-builder.md)를 참조하세요.
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
 Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
-[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 서비스 사용자를 만들고 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)를 사용하여 리소스를 만들고 관리하는 권한을 서비스 사용자에게 할당합니다. 의 `-DisplayName` 값은 고유 해야 합니다. 필요에 따라을 사용자의 값으로 바꿉니다.  
+[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 서비스 사용자를 만들고 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)를 사용하여 리소스를 만들고 관리하는 권한을 서비스 사용자에게 할당합니다. `-DisplayName` 값은 고유해야 합니다. 필요에 따라 사용자의 값으로 바꿉니다.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -46,7 +46,7 @@ $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-그런 다음 암호와 응용 프로그램 ID를 출력 합니다.
+그런 다음 암호와 애플리케이션 ID를 출력합니다.
 
 ```powershell
 $plainPassword
@@ -69,7 +69,7 @@ Get-AzSubscription
 | 매개 변수                           | 얻을 수 있는 위치 |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | `$sp.applicationId`를 사용하여 서비스 사용자 ID 보기 |
-| *client_secret*                     | 다음을 사용 하 여 자동 생성 된 암호 보기`$plainPassword` |
+| *client_secret*                     | `$plainPassword`를 사용하여 자동 생성된 암호 보기 |
 | *tenant_id*                         | `$sub.TenantId` 명령의 출력 |
 | *subscription_id*                   | `$sub.SubscriptionId` 명령의 출력 |
 | *managed_image_resource_group_name* | 첫 번째 단계에서 만든 리소스 그룹의 이름 |
@@ -105,7 +105,7 @@ Get-AzSubscription
     },
 
     "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",
@@ -124,7 +124,7 @@ Get-AzSubscription
 ## <a name="build-packer-image"></a>Packer 이미지 작성
 로컬 컴퓨터에 Packer를 아직 설치하지 않은 경우 [Packer 설치 지침을 따릅니다](https://www.packer.io/docs/install/index.html).
 
-Cmd 프롬프트를 열고 다음과 같이 패키지 된 템플릿 파일을 지정 하 여 이미지를 빌드합니다.
+명령 프롬프트를 열고 다음과 같이 Packer 템플릿 파일을 지정하여 이미지를 빌드합니다.
 
 ```
 ./packer build windows.json
@@ -208,7 +208,7 @@ Packer가 VM을 빌드하고 프로비저너를 실행하고 배포를 정리하
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Packer 이미지에서 VM 만들기
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage*에서 *myvm* 이라는 vm을 만듭니다.
+이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage*에서 *myVM*이라는 VM을 만듭니다.
 
 ```powershell
 New-AzVm `
@@ -243,4 +243,4 @@ Get-AzPublicIPAddress `
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기](image-builder.md)에서 기존 패키지를 사용 하 여 provisioner 스크립트를 사용할 수도 있습니다.
+[Azure Image Builder](image-builder.md)에서 기존 Packer 프로비저닝 프로그램 스크립트를 사용할 수도 있습니다.

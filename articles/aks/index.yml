@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 03/25/2020
-  ms.openlocfilehash: 4829b95fb62a33406248f503e646238e116cb413
-  ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+  ms.openlocfilehash: 44ef4686cd2213230479711060e3f0558981bc18
+  ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/07/2020
-  ms.locfileid: "80803282"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84976475"
 landingContent:
 - title: AKS(Azure Kubernetes Service) 정보
   linkLists:
@@ -48,18 +48,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Resource Manager 템플릿
       url: kubernetes-walkthrough-rm-template.md
-- title: AKS 및 Dev Spaces를 사용하여 애플리케이션 개발 및 디버그
+- title: Kubernetes를 사용하는 로컬 프로세스로 애플리케이션 개발 및 디버그
   linkLists:
-  - linkListType: quickstart
+  - linkListType: how-to-guide
     links:
-    - text: Java
-      url: ../dev-spaces/quickstart-java.md
-    - text: .NET 및 VS Code
-      url: ../dev-spaces/quickstart-netcore.md
-    - text: .NET 및 Visual Studio
-      url: ../dev-spaces/quickstart-netcore-visualstudio.md
-    - text: Node.js
-      url: ../dev-spaces/quickstart-nodejs.md
+    - text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
+      url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
+      url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
 - title: 애플리케이션 배포, 관리 및 업데이트
   linkLists:
   - linkListType: tutorial
