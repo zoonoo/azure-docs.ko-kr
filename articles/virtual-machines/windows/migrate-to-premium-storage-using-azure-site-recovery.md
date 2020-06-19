@@ -62,7 +62,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
 * 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 스토리지 계정일 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이전 섹션의 관련 마이그레이션 시나리오 구성 요소 이해
 * [Site Recovery에서 장애 조치(Failover)](../../site-recovery/site-recovery-failover.md)에 대해 학습하여 작동 중단 시간 계획
