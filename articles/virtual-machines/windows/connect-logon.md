@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 92f7ba30e2a3c66218974ab65502c35139ab1f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086218"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235536"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법
 Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 머신에 연결한 다음 로그온합니다.
@@ -20,11 +20,11 @@ Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP
 Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://aka.ms/rdmac)과 같이 Mac용 RDP 클라이언트를 설치해야 합니다.
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
-1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 VM에 연결 합니다. **가상 머신**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 VM에 연결합니다. **가상 머신**을 검색하여 선택합니다.
 2. 목록에서 가상 머신을 선택합니다.
-3. 가상 컴퓨터 페이지의 시작 부분에서 **연결**을 선택 합니다.
-4. **가상 컴퓨터에 연결** 페이지에서 **RDP**를 선택 하 고 적절 한 **IP 주소** 및 **포트 번호**를 선택 합니다. 대부분의 경우에는 기본 IP 주소 및 포트를 사용해야 합니다. **RDP 파일 다운로드**를 선택합니다. VM에 Just-In-Time 정책이 설정되어 있으면 먼저 **액세스 요청** 단추를 선택하여 액세스 권한을 요청해야 RDP 파일을 다운로드할 수 있습니다. Just-In-Time 정책과 관련된 자세한 내용은 [Just-In-Time 정책을 사용하여 가상 머신 액세스 관리](../../security-center/security-center-just-in-time.md)를 참조하세요.
-5. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 선택합니다. `.rdp` 파일은 알 수 없는 게시자가 제공한 파일이라는 경고가 표시됩니다. 이는 예상된 결과입니다. **원격 데스크톱 연결** 창에서 **연결**을 선택하여 계속합니다.
+3. 가상 머신 페이지의 시작 부분에서 **연결**을 선택합니다.
+4. **가상 머신에 연결** 페이지에서 **RDP**를 선택한 다음, 적절한 **IP 주소** 및 **포트 번호**를 선택합니다. 대부분의 경우에는 기본 IP 주소 및 포트를 사용해야 합니다. **RDP 파일 다운로드**를 선택합니다. VM에 Just-In-Time 정책이 설정되어 있으면 먼저 **액세스 요청** 단추를 선택하여 액세스 권한을 요청해야 RDP 파일을 다운로드할 수 있습니다. Just-In-Time 정책과 관련된 자세한 내용은 [Just-In-Time 정책을 사용하여 가상 머신 액세스 관리](../../security-center/security-center-just-in-time.md)를 참조하세요.
+5. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 선택합니다. `.rdp` 파일은 알 수 없는 게시자가 제공한 파일이라는 경고가 표시됩니다. 예상된 동작입니다. **원격 데스크톱 연결** 창에서 **연결**을 선택하여 계속합니다.
    
     ![알 수 없는 게시자에 대한 경고의 스크린샷입니다.](./media/connect-logon/rdp-warn.png)
 3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 가상 머신의 계정에 대한 자격 증명을 입력한 다음, **확인**을 선택합니다.
@@ -40,7 +40,7 @@ Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://
 
 
    > [!TIP]
-   > 포털의 **연결** 단추가 회색으로 표시되고 [Express 경로](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)를 참조하세요.
+   > 포털의 **연결** 단추가 회색으로 표시되고 [Express 경로](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
    > 
    > 
 
@@ -48,7 +48,7 @@ Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://
 
  
 
-PowerShell을 사용 하 고 Azure PowerShell 모듈이 설치 되어 있는 경우 아래와 같이 `Get-AzRemoteDesktopFile` cmdlet을 사용 하 여 연결할 수도 있습니다.
+PowerShell을 사용 중이고 AzureRM 모듈이 설치되어 있는 경우 아래와 같이 `Get-AzRemoteDesktopFile` cmdlet을 사용하여 연결할 수도 있습니다.
 
 이 예제에서는 위와 비슷한 프롬프트를 통해 RDP 연결을 즉시 시작합니다.
 

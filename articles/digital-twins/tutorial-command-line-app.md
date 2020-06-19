@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 070a65207bc1aa2cf754f3a0dca59f1a2950a339
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 2534b2ef2eec0ca993ee2506dcc285d750ba38ce
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611817"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737203"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 이 자습서에서는 Azure Digital Twins 인스턴스와 상호 작용을 위해 명령줄 클라이언트 애플리케이션을 구현하는 샘플 애플리케이션을 소개합니다. 클라이언트 앱은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 작성한 앱과 비슷합니다.
 

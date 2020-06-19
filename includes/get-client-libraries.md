@@ -4,12 +4,12 @@ ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e3c4622131528fc2c40a1510aeea3092018d182
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9e9057073c8a661e2f3382333abc7ac2778c4ee3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77474260"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680281"
 ---
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 1. 프로젝트 루트에 **composer.json** 이라는 파일을 만들고 다음 코드를 추가합니다.
@@ -27,8 +27,6 @@ ms.locfileid: "77474260"
     ```
     php composer.phar install
     ```
-
-또는 GitHub에서 [Azure Storage PHP 클라이언트 라이브러리][php-sdk-github]로 이동하여 소스 코드를 복제합니다.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

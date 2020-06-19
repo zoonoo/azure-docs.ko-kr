@@ -1,34 +1,33 @@
 ---
-title: 비용 효율적이 고 우선 순위가 낮은 Vm에서 워크 로드 실행
+title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ec75dac7e5615cddf942ff7939ea7e95315f8699
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116046"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780191"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
 Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워크로드의 비용을 줄입니다. 우선 순위가 낮은 VM은 비용 절감을 위해 대량의 컴퓨팅 능력을 사용할 수 있도록 하여 새로운 유형의 Batch 워크로드를 가능하게 합니다.
- 
+
 우선 순위가 낮은 VM은 Azure에서 남는 용량을 활용합니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Azure Batch는 가능한 경우 이러한 남는 용량을 사용할 수 있습니다.
- 
+
 우선 순위가 낮은 VM은 할당이 가능하지 않거나, 사용 가능한 용량에 따라, 언제든지 선점될 수 있다는 단점이 있습니다. 이러한 이유로 우선 순위가 낮은 VM이 특정 유형의 워크로드에 가장 적절합니다. 작업 완료 시간이 유연하고 작업이 여러 VM 간에 분산되는 Batch 및 비동기 처리 워크로드에 우선 순위가 낮은 BM을 사용합니다.
- 
+
 우선 순위가 낮은 VM은 전용 VM에 비해 상당히 저렴한 가격으로 제공됩니다. 가격 책정 세부 정보에 대해서는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
 
 > [!NOTE]
-> 이제 [단일 인스턴스 vm](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) 및 [VM 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)에 대 한 [스폿 vm](https://azure.microsoft.com/pricing/spot/) 을 사용할 수 있습니다. 지점 Vm은 우선 순위가 낮은 Vm의 진화 이지만, 해당 가격은 다를 수 있으며, 스폿 Vm을 할당할 때 선택적 최대 가격을 설정할 수 있습니다.
+> 이제 [스폿 VM](https://azure.microsoft.com/pricing/spot/)은 [단일 인스턴스 VM](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) 및 [VM 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)에 사용 가능합니다. 스폿 VM은 우선 순위가 낮은 VM이 개선된 것으로, 스폿 VM을 할당하는 경우 가격 책정이 다를 수 있고 선택적인 최대 가격을 설정할 수 있다는 점에서 다릅니다.
 >
-> Azure Batch 풀은 새로운 버전의 [Batch api 및 도구](https://docs.microsoft.com/azure/batch/batch-apis-tools)를 사용 하 여 일반 공급 되는 몇 개월 이내에 별색 vm을 지원 하기 시작 합니다. 지점 VM 지원을 사용할 수 있게 되 면 우선 순위가 낮은 Vm은 더 이상 사용 되지 않습니다. 현재 Api 및 도구 버전을 12 개월 이상 사용 하 여 해당 Vm으로의 마이그레이션에 충분 한 시간을 허용 하도록 계속 지원 됩니다. 
+> Azure Batch 풀은 새 버전의 [Batch API 및 도구](https://docs.microsoft.com/azure/batch/batch-apis-tools)를 사용하여 출시 후 몇 개월 이내에 스폿 VM을 지원합니다. 스폿 VM 지원이 제공되면 우선 순위가 낮은 VM은 더 이상 사용되지 않습니다. 스폿 VM으로 마이그레이션하기에 충분한 시간을 허용하기 위해 최소 12개월 동안 현재 API 및 도구 버전을 사용하여 계속 지원합니다. 
 >
-> 지점 Vm은 [클라우드 서비스 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀에 대해 지원 되지 않습니다. 지점 Vm을 사용 하려면 클라우드 서비스 풀을 [가상 컴퓨터 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀로 마이그레이션해야 합니다.
-
+> 스폿 VM은 [클라우드 서비스 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀에 지원되지 않습니다. 스폿 VM을 사용하려면 클라우드 서비스 풀을 [가상 머신 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀로 마이그레이션해야 합니다.
 
 ## <a name="use-cases-for-low-priority-vms"></a>우선 순위가 낮은 VM에 대한 사용 사례
 
@@ -46,7 +45,7 @@ Batch 처리 사용 사례의 일부 예제에는 우선 순위가 낮은 VM을 
 
 -   **개발 및 테스트**: 특히 대규모 솔루션을 개발 중인 경우 상당한 비용 절감을 실현할 수 있습니다. 모든 유형의 테스트가 혜택을 볼 수 있지만 대규모 부하 테스트 및 회귀 테스트에 사용하면 아주 좋습니다.
 
--   **요청 시 용량 보완**: 우선 순위가 낮은 VM은 일반적인 전용 VM을 보완하는 데 사용될 수 있습니다. 사용 가능한 경우 작업을 확장하여 더 낮은 비용으로 더 빠르게 완료할 수 있고, 사용 가능하지 않은 경우 전용 VM 수준만 사용할 수 있게 유지됩니다.
+-   **요청 시 용량 보완**: 우선 순위가 낮은 VM은 일반적인 전용 VM을 보완하는 데 사용될 수 있습니다. 사용 가능한 경우 작업을 확장하여 더 낮은 비용으로 더 빠르게 완료할 수 있고, 사용 가능하지 않은 경우 전용 VM의 기준만 사용할 수 있게 유지됩니다.
 
 -   **유연한 작업 실행 시간**: 작업이 완료되어야 하는 시간이 유연한 경우 잠재적인 용량 감소가 허용될 수 있지만 우선 순위가 낮은 VM을 추가하면 작업이 더 낮은 비용으로 더 빠르게 실행됩니다.
 
@@ -72,8 +71,7 @@ Azure Batch는 우선 순위가 낮은 VM을 쉽게 활용하고 혜택을 얻�
     우선 순위가 낮은 VM은 비용이 저렴하므로 할당량이 전용 VM보다 높습니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md#resource-quotas)을 참조하세요.    
 
 > [!NOTE]
-> 우선 순위가 낮은 VM은 [사용자 구독 모드](batch-api-basics.md#account)에서 만든 배치 계정에서 지원되지 않습니다.
->
+> 우선 순위가 낮은 VM은 [사용자 구독 모드](accounts.md)에서 만든 배치 계정에서 지원되지 않습니다.
 
 ## <a name="create-and-update-pools"></a>풀 만들기 및 업데이트
 
@@ -162,7 +160,7 @@ VM은 경우에 따라 선점될 수 있습니다. 선점될 경우 Batch는 다
 -   선점된 VM의 상태는 **선점됨**으로 업데이트됩니다.
 -   작업이 선점된 노드 VM에서 실행되면 해당 작업이 요청되고 다시 실행됩니다.
 -   VM은 효과적으로 삭제되므로 VM에 로컬로 저장된 모든 데이터는 손실됩니다.
--   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견 되 면 노드는 해당 Id를 유지 하지만 다시 초기화 되며, 작업 예약에 사용 하기 전에 **만들기** 및 **시작** 상태를 진행 합니다.
+-   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견되면 노드는 해당 ID를 유지하지만 다시 초기화되며, 작업 예약에 사용되기 전에 먼저 **만드는 중** 및 **시작 중** 상태를 거치게 됩니다.
 -   선점 수는 Azure Portal에서 메트릭으로 사용할 수 있습니다.
 
 ## <a name="metrics"></a>메트릭
@@ -183,6 +181,6 @@ Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 애플리케이션을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
+* 풀, 노드 및 작업과 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* 우선 순위가 낮은 Vm에서 Vm으로의 이동 계획을 시작 합니다. **클라우드 서비스 구성** 풀에서 우선 순위가 낮은 vm을 사용 하는 경우 **가상 머신 구성** 풀로 이동 하도록 계획 합니다.
+* 우선 순위가 낮은 VM에서 스폿 VM으로 이동하도록 계획합니다. **클라우드 서비스 구성** 풀에서 우선 순위가 낮은 VM을 사용하는 경우 **가상 머신 구성** 풀로 이동합니다.

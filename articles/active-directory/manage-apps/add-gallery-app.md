@@ -2,22 +2,22 @@
 title: 갤러리 앱 추가 - Azure Active Directory | Microsoft Docs
 description: Azure AD 갤러리의 앱을 Azure 엔터프라이즈 애플리케이션에 추가하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f2002414836dcb77a09f633f30ec0fcbb7981de
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73062643"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760527"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Azure AD 조직에 갤러리 앱 추가
 

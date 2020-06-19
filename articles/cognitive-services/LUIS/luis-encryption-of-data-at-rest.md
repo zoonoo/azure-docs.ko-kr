@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372435"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052699"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 서비스 암호화 Language Understanding
 
@@ -32,19 +32,17 @@ Language Understanding 서비스는 데이터가 클라우드에 유지 될 때 
 
 사용자 고유의 키를 사용 하 여 구독을 관리 하는 옵션도 있습니다. BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.
 
-Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
+Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Language Understanding에 대 한 고객 관리 키
 
 고객 관리 키를 사용 하는 기능을 요청 하려면 [LUIS Service 고객이 관리 하는 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS와 함께 CMK를 사용 하도록 승인 되 면 Azure Portal에서 새 Language Understanding 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. 새 SKU는 CMK를 제외 하 고 이미 사용할 수 있는 F0 SKU와 동일 하 게 작동 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 
-E0 리소스는 작성 서비스에만 사용할 수 있으며, E0 계층은 처음에는 미국 서 부 지역 에서만 지원 됩니다.
-
 ![LUIS subscription 이미지](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>국가별 가용성
 
-고객 관리 키는 현재 **미국 서 부** 지역에서 사용할 수 있습니다.
+고객 관리 키는 모든 [제작 지역](luis-reference-regions.md)에서 사용할 수 있습니다. 
 
 ### <a name="limitations"></a>제한 사항
 
@@ -57,7 +55,7 @@ E0 리소스는 작성 서비스에만 사용할 수 있으며, E0 계층은 처
 * Azure Bot service의 Speech 준비 기능은 E0 계층의 응용 프로그램에 대해 지원 되지 않습니다. 이 기능은 CMK를 지원 하지 않는 Azure Bot Service를 통해 사용할 수 있습니다.
 * 포털의 speech 준비 기능을 사용 하려면 Azure Blob Storage 필요 합니다. 자세한 내용은 [고유한 저장소 가져오기](../Speech-Service/speech-encryption-of-data-at-rest.md#bring-your-own-storage-byos-for-customization-and-logging)를 참조 하세요.
 
-### <a name="enable-customer-managed-keys"></a>고객이 관리 하는 키 사용
+### <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 
 새 Cognitive Services 리소스는 항상 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 리소스를 만들 때 고객 관리 키를 사용 하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장 되며, 키 자격 증명 모음은 Cognitive Services 리소스와 연결 된 관리 되는 id에 대 한 키 사용 권한을 부여 하는 액세스 정책을 사용 하 여 프로 비전 되어야 합니다. 관리 id는 CMK에 대 한 가격 책정 계층을 사용 하 여 리소스를 만든 후에만 사용할 수 있습니다.
 
@@ -81,13 +79,13 @@ Cognitive Services 암호화를 위해 Azure Key Vault에서 고객이 관리 �
 
 ### <a name="rotate-customer-managed-keys"></a>고객 관리 키 회전
 
-규정 준수 정책에 따라 Azure Key Vault에서 고객이 관리 하는 키를 회전할 수 있습니다. 키를 회전 하는 경우 새 키 URI를 사용 하도록 Cognitive Services 리소스를 업데이트 해야 합니다. Azure Portal에서 새 버전의 키를 사용 하도록 리소스를 업데이트 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 Cognitive Services에 대 한 고객 관리 키 구성](../Encryption/cognitive-services-encryption-keys-portal.md)의 **키 버전 업데이트** 섹션을 참조 하세요.
+규정 준수 정책에 따라 Azure Key Vault에서 고객 관리형 키를 순환할 수 있습니다. 키를 회전 하는 경우 새 키 URI를 사용 하도록 Cognitive Services 리소스를 업데이트 해야 합니다. Azure Portal에서 새 버전의 키를 사용 하도록 리소스를 업데이트 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 Cognitive Services에 대 한 고객 관리 키 구성](../Encryption/cognitive-services-encryption-keys-portal.md)의 **키 버전 업데이트** 섹션을 참조 하세요.
 
 키를 회전 해도 리소스의 데이터를 다시 암호화 하는 것은 트리거되지 않습니다. 사용자에 게 필요한 추가 작업은 없습니다.
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조 하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -188,6 +188,8 @@
       items:
         - name: 디바이스 쓰기 저장 사용
           href: how-to-connect-device-writeback.md
+        - name: 그룹 쓰기 저장 사용
+          href: how-to-connect-group-writeback.md
         - name: 디바이스 옵션
           href: how-to-connect-device-options.md
         - name: Azure AD Connect에서 추가 기능

@@ -12,14 +12,14 @@ ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 717a9e9d3cc1dec350d0b4ace54687590f741768
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340983"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737294"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -43,6 +43,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
   az group create \
     --name myResourceGroupNAT \
     --location eastus2
+    
 ```
 
 ## <a name="create-the-nat-gateway"></a>NAT Gateway 만들기
@@ -56,6 +57,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
   --resource-group myResourceGroupNAT \
   --name myPublicIPsource \
   --sku standard
+  
 ```
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
@@ -67,6 +69,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
   --resource-group myResourceGroupNAT \
   --name myPublicIPprefixsource \
   --length 31
+  
 ```
 
 ### <a name="create-a-nat-gateway-resource"></a>NAT 게이트웨이 리소스 만들기
@@ -84,6 +87,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
     --public-ip-addresses myPublicIPsource \
     --public-ip-prefixes myPublicIPprefixsource \
     --idle-timeout 10       
+    
   ```
 
 이 시점에서 NAT 게이트웨이가 작동하며, 이제 가상 네트워크의 서브넷을 사용해야 하는 서브넷만 구성하면 됩니다.
@@ -101,11 +105,11 @@ VM을 배포하기 전에 NAT 게이트웨이를 테스트하려면 먼저 가�
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus2 \
     --name myVnetsource \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetsource \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### <a name="configure-nat-service-for-source-subnet"></a>원본 서브넷에 대한 NAT 서비스 구성
@@ -118,6 +122,7 @@ VM을 배포하기 전에 NAT 게이트웨이를 테스트하려면 먼저 가�
     --vnet-name myVnetsource \
     --name mySubnetsource \
     --nat-gateway myNATgateway
+    
 ```
 
 이제 인터넷 대상으로의 모든 아웃바운드 트래픽에서 NAT 서비스를 사용합니다.  UDR을 구성할 필요가 없습니다.
@@ -135,6 +140,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
     --resource-group myResourceGroupNAT \
     --name myPublicIPsourceVM \
     --sku standard
+    
 ```
 
 ### <a name="create-an-nsg-for-source-vm"></a>원본 VM에 대한 NSG 만들기
@@ -145,6 +151,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
   az network nsg create \
     --resource-group myResourceGroupNAT \
     --name myNSGsource 
+    
 ```
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>원본 VM에서 SSH 엔드포인트 공개
@@ -162,6 +169,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### <a name="create-nic-for-source-vm"></a>원본 VM에 대한 NIC 만들기
@@ -176,6 +184,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
     --subnet mySubnetsource \
     --public-ip-address myPublicIPSourceVM \
     --network-security-group myNSGsource
+    
 ```
 
 ### <a name="create-a-source-vm"></a>원본 VM 만들기
@@ -190,6 +199,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
     --image UbuntuLTS \
     --generate-ssh-keys \
     --no-wait
+    
 ```
 
 명령이 즉시 반환되지만 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -207,11 +217,11 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location westus \
     --name myVnetdestination \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetdestination \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### <a name="create-public-ip-for-destination-vm"></a>대상 VM에 대한 공용 IP 만들기
@@ -222,8 +232,8 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
   az network public-ip create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPdestinationVM \
-  --sku standard \
-  --location westus
+  --sku standard
+  
 ```
 
 ### <a name="create-an-nsg-for-destination-vm"></a>대상 VM에 대한 NSG 만들기
@@ -233,8 +243,8 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
-    --name myNSGdestination \
-    --location westus
+    --name myNSGdestination
+    
 ```
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>대상 VM에서 SSH 엔드포인트 공개
@@ -252,6 +262,7 @@ NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>대상 VM에서 HTTP 엔드포인트 공개
@@ -269,6 +280,7 @@ NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 80
+    
 ```
 
 ### <a name="create-nic-for-destination-vm"></a>대상 VM에 대한 NIC 만들기
@@ -282,8 +294,8 @@ NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network
     --vnet-name myVnetdestination \
     --subnet mySubnetdestination \
     --public-ip-address myPublicIPdestinationVM \
-    --network-security-group myNSGdestination \
-    --location westus
+    --network-security-group myNSGdestination
+    
 ```
 
 ### <a name="create-a-destination-vm"></a>대상 VM 만들기
@@ -297,8 +309,8 @@ NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network
     --nics myNicdestination \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait \
-    --location westus
+    --no-wait
+    
 ```
 명령이 즉시 반환되지만 VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -312,6 +324,7 @@ NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network
     --name myPublicIPdestinationVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -328,16 +341,14 @@ ssh <ip-address-destination>
 로그인하면 다음 명령을 복사하여 붙여넣습니다.  
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get -y install nginx && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt -y install nginx && \
 sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
+
 ```
 
 이러한 명령은 가상 머신을 업데이트하고, nginx를 설치하며, 100KB 파일을 만듭니다. 이 파일은 NAT 서비스를 사용하여 원본 VM에서 검색됩니다.
@@ -354,6 +365,7 @@ sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
     --name myPublicIPsourceVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -370,12 +382,9 @@ ssh <ip-address-source>
 다음 명령을 복사하고 붙여넣어 NAT 서비스 테스트를 준비합니다.
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get install -y nload golang && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
 . ~/.bashrc &&
@@ -411,6 +420,7 @@ hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupNAT
+  
 ```
 
 ## <a name="next-steps"></a>다음 단계

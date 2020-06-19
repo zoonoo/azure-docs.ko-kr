@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: bd070300427716634d786e685cfe1cf8e45a246c
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a4db7c59bd43a541a350d78511c6749a914bec79
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140739"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735566"
 ---
 <a name="HOLTop"></a>
 
-[참조 설명서](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[참조 설명서](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,14 +32,14 @@ ms.locfileid: "84140739"
 
 ### <a name="add-the-client-library"></a>클라이언트 라이브러리 추가
 
-선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) 구현 구문을 찾을 수 있습니다.
+선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) 구현 구문을 찾을 수 있습니다.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.5</version>
+        <version>1.0.0</version>
     </dependency>
 </dependencies>
 ```
