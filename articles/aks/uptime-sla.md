@@ -4,12 +4,13 @@ description: AKS(Azure Kubernetes Service) API Server에 대한 선택적 작동
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683211"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299556"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -25,18 +26,6 @@ ms.locfileid: "83683211"
 ## <a name="sla-terms-and-conditions"></a>SLA 사용 약관
 
 작동 시간 SLA는 유료 기능이며 클러스터별로 사용하도록 설정됩니다. 작동 시간 SLA 가격은 개별 클러스터의 크기가 아니라 개별 클러스터의 수에 따라 결정됩니다. 자세한 내용은 [작동 시간 SLA 가격 정보](https://azure.microsoft.com/pricing/details/kubernetes-service/)에서 확인할 수 있습니다.
-
-## <a name="region-availability"></a>지역 가용성
-
-작동 시간 SLA는 다음 지역에서 제공됩니다.
-
-* 오스트레일리아 동부
-* 캐나다 중부
-* 미국 동부
-* 미국 동부 2
-* 미국 중남부
-* 동남아시아
-* 미국 서부 2
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
