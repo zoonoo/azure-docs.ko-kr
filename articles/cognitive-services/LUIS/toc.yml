@@ -30,9 +30,9 @@
     - name: REST API 사용
       items:
         - name: 의도 알기
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: 모델 변경
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: 자습서
   items:
     - name: 분해 가능한 앱 빌드
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: V2 API로 마이그레이션
           href: luis-migration-api-v1-to-v2.md
+    - name: REST API 사용
+      items:
+        - name: 의도 알기
+          href: luis-get-started-get-intent-from-rest.md
+        - name: 모델 변경
+          href: get-started-get-model-rest-apis.md
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행

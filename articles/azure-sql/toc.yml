@@ -953,6 +953,9 @@
                 - name: 버전
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: 버전
+                  displayName: 'change, modify, update'
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: 백업 및 복원용 Azure Storage
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
             - name: 마이그레이션
