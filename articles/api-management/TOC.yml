@@ -38,9 +38,11 @@
 - name: 샘플
   items:
     - name: 정책
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Azure Policy 기본 제공 기능
+      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 용어
