@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758846"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021299"
 ---
 # <a name="spatial-queries"></a>공간 쿼리
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 다음과 같은 세 가지 적중 수집 모드가 있습니다.
 
-* **가장 가까운 거리:** 이 모드에서는 가장 가까운 적중만 보고됩니다.
-* **임의:** 광선이 어떤 것을 적중하지 ‘여부’만 알려고 하지만 정확히 무엇을 적중하는지 중요하지 않는 경우 이 모드를 사용하는 것이 좋습니다. 이 쿼리는 평가 비용이 매우 저렴하지만 몇 개의 애플리케이션만 포함할 수 있습니다.
-* **모두:** 이 모드에서는 광선에 따른 적중이 보고되고 거리별로 정렬됩니다. 실제로 첫 번째 적중보다 많이 필요한 경우가 아니면 이 모드를 사용하지 마세요. `MaxHits` 옵션을 사용하여 보고된 적중 횟수를 제한합니다.
+* **`Closest`:** 이 모드에서는 가장 가까운 적중만 보고됩니다.
+* **`Any`:** 광선이 어떤 것을 적중하지 ‘여부’만 알려고 하지만 정확히 무엇을 적중하는지 중요하지 않는 경우 이 모드를 사용하는 것이 좋습니다. 이 쿼리는 평가 비용이 매우 저렴하지만 몇 개의 애플리케이션만 포함할 수 있습니다.
+* **`All`:** 이 모드에서는 광선에 따른 적중이 보고되고 거리별로 정렬됩니다. 실제로 첫 번째 적중보다 많이 필요한 경우가 아니면 이 모드를 사용하지 마세요. `MaxHits` 옵션을 사용하여 보고된 적중 횟수를 제한합니다.
 
 필요한 경우 광선 캐스트에 고려되지 않도록 개체를 제외하기 위해 [HierarchicalStateOverrideComponent](override-hierarchical-state.md) 구성 요소를 사용할 수 있습니다.
 
@@ -106,11 +106,11 @@ TODO : Add an API to make that possible.
 
 적중의 속성은 다음과 같습니다.
 
-* **HitEntity:** 적중된 [엔터티](../../concepts/entities.md)입니다.
-* **SubPartId:** [MeshComponent](../../concepts/meshes.md)에서 적중된 ‘하위 메시’입니다. `MeshComponent.UsedMaterials`로 인덱싱하고 해당 시점에 [재질](../../concepts/materials.md)을 조회하는 데 사용될 수 있습니다.
-* **HitPosition:** 광선이 개체와 교차한 월드 공간 위치입니다.
-* **HitNormal:** 교차 위치에 있는 메시에 일반적인 월드 공간 표면입니다.
-* **DistanceToHit:** 광선 시작 위치에서 적중까지 거리입니다.
+* **`HitEntity`:** 적중된 [엔터티](../../concepts/entities.md)입니다.
+* **`SubPartId`:** [MeshComponent](../../concepts/meshes.md)에서 적중된 ‘하위 메시’입니다 *.* `MeshComponent.UsedMaterials`로 인덱싱하고 해당 시점에 [재질](../../concepts/materials.md)을 조회하는 데 사용될 수 있습니다.
+* **`HitPosition`:** 광선이 개체와 교차한 월드 공간 위치입니다.
+* **`HitNormal`:** 교차 위치에 있는 메시에 일반적인 월드 공간 표면입니다.
+* **`DistanceToHit`:** 광선 시작 위치에서 적중까지 거리입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
