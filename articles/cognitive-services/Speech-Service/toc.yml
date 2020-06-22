@@ -71,16 +71,18 @@
           href: how-to-custom-speech-train-model.md
         - name: 사용자 지정 모델 배포
           href: how-to-custom-speech-deploy-model.md
+        - name: Custom Speech용 CI/CD
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: 휴먼 레이블 전사 만들기
           href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: 참조
       items:
-        - name: Speech SDK API
+        - name: 음성 SDK API
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
+            - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
@@ -105,9 +107,9 @@
     - name: 리소스
       items:
         - name: 언어 지원
-          href: 'language-support.md#speech-to-text'
+          href: language-support.md#speech-to-text
         - name: 지역 지원
-          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: 음성 텍스트 변환 FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.md
@@ -172,12 +174,12 @@
               href: how-to-audio-content-creation.md
     - name: 참조
       items:
-        - name: Speech SDK
+        - name: 음성 SDK
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
+            - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
@@ -202,11 +204,11 @@
     - name: 리소스
       items:
         - name: 표준 음성 지원
-          href: 'language-support.md#standard-voices'
+          href: language-support.md#standard-voices
         - name: 인공 신경망 음성 지원
-          href: 'language-support.md#neural-voices'
+          href: language-support.md#neural-voices
         - name: 지역 지원
-          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: SSML 음성 집합
           href: speech-ssml-phonetic-sets.md
         - name: 텍스트 음성 변환 FAQ
@@ -236,12 +238,12 @@
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: 참조
       items:
-        - name: Speech SDK
+        - name: 음성 SDK
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
+            - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
@@ -262,9 +264,9 @@
     - name: 리소스
       items:
         - name: 언어 지원
-          href: 'language-support.md#speech-translation'
+          href: language-support.md#speech-translation
         - name: 지역 지원
-          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: 음성 번역 FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: 의도 인식
@@ -282,12 +284,12 @@
           href: how-to-recognize-intents-from-speech-csharp.md
     - name: 참조
       items:
-        - name: Speech SDK
+        - name: 음성 SDK
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
+            - name: C#
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
@@ -314,7 +316,7 @@
         - name: 언어 지원
           href: ../luis/luis-language-support.md
         - name: 지역 지원
-          href: 'regions.md#intent-recognition'
+          href: regions.md#intent-recognition
 - name: 대화 시나리오
   items:
     - name: 대화 시나리오 설명서
@@ -337,12 +339,12 @@
               href: how-to-async-conversation-transcription.md
         - name: 참조
           items:
-            - name: Speech SDK
+            - name: 음성 SDK
               items:
                 - name: C++
                   displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
                   href: 'https://aka.ms/csspeech/cppref'
-                - name: 'C#'
+                - name: C#
                   displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
                   href: 'https://aka.ms/csspeech/csharpref'
                 - name: Java
@@ -376,11 +378,11 @@
               href: quickstarts/multi-device-conversation.md
         - name: 참조
           items:
-            - name: Speech SDK
+            - name: 음성 SDK
               items:
                 - name: C++
                   href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
-                - name: 'C#'
+                - name: C#
                   href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
                 - name: Java
                   href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
@@ -426,7 +428,7 @@
               href: quickstarts/voice-assistants.md
         - name: 자습서
           items:
-            - name: Speech SDK를 사용하여 봇에서 음성을 사용하도록 설정
+            - name: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
               href: tutorial-voice-enable-your-bot-speech-sdk.md
         - name: 리소스
           items:
@@ -494,7 +496,7 @@
       items:
         - name: 컨테이너 FAQ
           href: speech-container-faq.md
-- name: Speech SDK
+- name: 음성 SDK
   items:
     - name: 개요
       items:
@@ -531,7 +533,7 @@
       items:
         - name: C++
           href: 'https://aka.ms/csspeech/cppref'
-        - name: 'C#'
+        - name: C#
           href: 'https://aka.ms/csspeech/csharpref'
         - name: Java
           href: 'https://aka.ms/csspeech/javaref'
@@ -541,7 +543,7 @@
           href: 'https://aka.ms/csspeech/objectivecref'
         - name: Python
           href: 'https://aka.ms/csspeech/pythonref'
-        - name: Speech SDK 릴리스 정보
+        - name: 음성 SDK 릴리스 정보
           href: releasenotes.md
 - name: 디바이스
   items:

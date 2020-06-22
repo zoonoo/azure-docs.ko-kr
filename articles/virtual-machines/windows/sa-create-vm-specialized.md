@@ -1,5 +1,5 @@
 ---
-title: Azure의 특수 한 디스크에서 VM 만들기
+title: Azure의 특수한 디스크에서 VM 만들기
 description: Resource Manager 배포 모델에서 특수한 비관리 디스크를 연결하여 새 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,12 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099651"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232819"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
@@ -27,14 +27,14 @@ Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연�
  
 
 
-## <a name="option-1-upload-a-specialized-vhd"></a>옵션 1: 특수한 VHD 업로드
+## <a name="option-1-upload-a-specialized-vhd"></a>옵션 1: 특수 VHD 업로드
 
 Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특수한 VM 또는 다른 클라우드에서 내보낸 VM에서 VHD를 업로드할 수 있습니다.
 
 ### <a name="prepare-the-vm"></a>VM 준비
 온-프레미스 VM을 사용하여 만든 특수한 VHD 또는 다른 클라우드에서 내보낸 VHD를 업로드할 수 있습니다. 특수한 VHD는 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 새 VM을 만드는데 VHD를 그대로 사용하려는 경우 다음 단계가 완료되었는지 확인합니다. 
   
-  * [Azure에 업로드할 WINDOWS VHD를 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다. Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
+  * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
   * 모든 게스트 가상화 도구 및 VM에 설치된 에이전트를 제거합니다(예: VMware 도구).
   * VM이 DHCP를 통해 해당 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 VNet 내의 IP 주소를 가져옵니다. 
 
@@ -113,7 +113,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 VM 할당을 취소하여 복사할 VHD를 해제합니다. 
 
 * **포털**: **가상 머신** > **myVM** > 중지를 클릭합니다.
-* **Powershell**: [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 를 사용 하 여 **Myvm**리소스 그룹에서 **myvm** 이라는 vm을 중지 (할당 취소) 합니다.
+* **Powershell**: [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM을 중지(할당 취소)합니다.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -126,8 +126,8 @@ Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할�
 
 Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 
-* **포털**: **>****모든 서비스** > **스토리지 계정** > *스토리지 계정* > **Blob**을 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
-* **Powershell**: [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 를 사용 하 여 **Myvm**리소스 그룹에서 **myvm** 이라는 vm에 대 한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
+* **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **Blob**에 대한 **>** 를 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
+* **Powershell**: [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -137,7 +137,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 원본 및 대상 스토리지 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 * **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **액세스 키**를 클릭합니다. **key1**로 레이블이 지정된 키를 복사합니다.
-* **Powershell**: [AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 를 사용 하 여 **myresourcegroup**리소스 그룹의 **mystorageaccount** 저장소 계정에 대 한 저장소 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
+* **Powershell**: [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 스토리지 계정에 대한 스토리지 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -225,7 +225,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
-가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/public-ip-addresses.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP를 만듭니다. 이 예제에서는 공용 IP 주소 이름을 **myIP**로 설정합니다.
    
@@ -264,14 +264,14 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. OS 디스크를 추가합니다. 이 예에서 OS 디스크를 만들 때 "osDisk" 라는 용어는 OS 디스크 이름을 만들기 위해 VM 이름에 추가 됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
+2. OS 디스크를 추가합니다. 이 예제에서는 OS 디스크를 만들 때 VM 이름에 "osDisk"라는 용어가 추가되어 OS 디스크 이름이 생성됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
     $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-선택 사항: VM에 연결해야 하는 데이터 디스크가 있는 경우 데이터 VHD의 URL과 적절한 LUN(논리 단위 번호)을 사용하여 데이터 디스크를 추가합니다.
+선택 사항: VM에 연결해야 하는 데이터 디스크가 있는 경우 데이터 VHD의 URL과 적절한 Lun(논리 단위 번호)을 사용하여 데이터 디스크를 추가합니다.
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"

@@ -860,14 +860,14 @@
             - name: 모델 유추 예제
               href: /azure/databricks/applications/deep-learning/inference/model-inference-examples
               maintainContext: true
-            - name: Keras를 사용하여 모델 유추
+            - name: TensorFlow를 사용하여 모델 유추
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-keras
               maintainContext: true
             - name: PyTorch를 사용하여 모델 유추
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-pytorch
               maintainContext: true
-            - name: TensorFlow를 사용하여 모델 유추
-              href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
+            - name: TensorFlow 및 TensorRT를 사용하여 모델 유추
+              href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorrt
               maintainContext: true
             - name: 모델 유추 성능 튜닝
               href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
@@ -1072,14 +1072,22 @@
               maintainContext: true
         - name: GDPR 모범 사례
           href: /azure/databricks/security/privacy/gdpr-delta
+          maintainContext: true
+        - name: 데이터 거버넌스 모범 사례
+          href: /azure/databricks/security/data-governance
+          maintainContext: true
         - name: IP 액세스 목록
           href: /azure/databricks/security/network/ip-access-list
+          maintainContext: true
         - name: 클러스터 작업자 노드 간의 트래픽 암호화
           href: /azure/databricks/security/encryption/encrypt-otw
+          maintainContext: true
         - name: Notebooks에 고객 관리 키 사용
           href: /azure/databricks/security/keys/customer-managed-key-notebook
+          maintainContext: true
         - name: DBFS에 고객 관리 키 사용
           href: /azure/databricks/security/keys/customer-managed-keys-dbfs
+          maintainContext: true
     - name: 관리
       items:
         - name: 관리 개요
@@ -1196,6 +1204,8 @@
             - name: 사용자 정의 경로 설정
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
+            - name: MySQL IP 주소
+              href: mysql-ip-address.md
     - name: 문제 해결
       items:
         - name: 일반적인 질문
@@ -1886,13 +1896,13 @@
                 - name: 런타임 릴리스
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
-                - name: Databricks Runtime 7.0(베타)
+                - name: Databricks Runtime 7.0
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
                 - name: Databricks Runtime 7.0 ML(베타)
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
-                - name: Databricks Runtime 7.0 Genomics(베타)
+                - name: Databricks Runtime 7.0 Genomics
                   href: /azure/databricks/release-notes/runtime/7.0genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.6

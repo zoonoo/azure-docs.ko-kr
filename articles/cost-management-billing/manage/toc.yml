@@ -75,7 +75,7 @@
           href: pay-by-invoice.md
         - name: 추가 구독 만들기
           href: create-subscription.md
-        - name: CSP 구독 전송
+        - name: CSP와 구독자 간의 구독 전송
           href: transfer-subscriptions-subscribers-csp.md
         - name: 구독 정보 내보내기
           href: export-subscriptions.md
@@ -115,7 +115,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: 거부된 카드
       href: troubleshoot-declined-card.md
-    - name: Azure 계정 가입 문제
+    - name: Azure 계정 등록 문제
       href: troubleshoot-azure-sign-up.md
     - name: 구독 로그인 문제
       href: troubleshoot-sign-in-issue.md

@@ -34,6 +34,8 @@
       href: create-certificate-scenarios.md
     - name: 인증서 생성 방법
       href: create-certificate.md
+    - name: 인증서 서명 요청 만들기
+      href: create-certificate-signing-request.md
 - name: 방법 가이드
   items:
     - name: DigiCert CA와 Key Vault 통합

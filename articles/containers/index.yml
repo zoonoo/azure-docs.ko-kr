@@ -6,12 +6,12 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: f4d76c0f2ddbecd386a3e3b9d3de370f19b86fee
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.openlocfilehash: 8cfbe066a0e52615b6312ff49d0af268d1acf610
+  ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81259020"
+  ms.lasthandoff: 06/18/2020
+  ms.locfileid: "84981594"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -41,18 +41,15 @@ conceptualContent:
       text: 자세히 보기
   - title: AKS 애플리케이션 테스트 및 개발
     links:
-    - url: /azure/dev-spaces/about
-      itemType: overview
-      text: Azure Dev Spaces란?
-    - url: /azure/dev-spaces/quickstart-netcore
-      itemType: quickstart
-      text: 마이크로서비스 실행 및 디버그
-    - url: /azure/dev-spaces/quickstart-team-development
-      itemType: quickstart
-      text: 팀과 함께 마이크로서비스 세트에 대해 협업
-    footerLink:
-      url: /azure/dev-spaces/
-      text: 자세히 보기
+    - url: /azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes
+      itemType: concept
+      text: Kubernetes를 사용하는 로컬 프로세스의 작동 방식
+    - url: /azure/dev-spaces/how-to/local-process-kubernetes-vs-code
+      itemType: how-to-guide
+      text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
+    - url: /azure/dev-spaces/how-to/local-process-kubernetes-visual-studio
+      itemType: how-to-guide
+      text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
   - title: 웹 및 모바일용 클라우드 앱 만들기
     links:
     - url: /azure/app-service/overview

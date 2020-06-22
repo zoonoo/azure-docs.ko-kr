@@ -10,7 +10,7 @@
       href: advisor-get-started.md
 - name: 방법 가이드
   items:
-    - name: Azure 애플리케이션의 가용성 향상
+    - name: Azure 애플리케이션의 안정성 향상
       href: advisor-high-availability-recommendations.md
     - name: 리소스 보안 강화
       href: advisor-security-recommendations.md

@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Lab Services 정보
+    - name: About Lab Services
       href: lab-services-overview.md
 - name: 자습서
   items:
@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: 시나리오
       items:
-        - name: 클래스를 수행하기 위해 랩 사용
+        - name: 클래스를 수행하기 위해 랩 서비스 사용
           href: classroom-labs-scenarios.md
+        - name: 해커톤용 Lab Services 사용
+          href: hackathon-labs.md
         - name: 클래스룸 랩 - 클래스 형식
           items:
             - name: 클래스 형식 개요

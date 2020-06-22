@@ -60,6 +60,12 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: iOS 디바이스에 지역화된 푸시 알림
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: 플랫폼 간
+      items:
+        - name: 백 엔드 서비스를 통해 푸시 알림 보내기
+          items:
+            - name: Xamarin.Forms
+              href: notification-hubs-backend-service-xamarin-forms.md
     - name: Windows Phone
       items:
         - name: 앱에 대한 푸시 알림

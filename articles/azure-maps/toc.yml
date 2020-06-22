@@ -91,6 +91,17 @@
           href: how-to-manage-account-keys.md
         - name: 인증 관리
           href: how-to-manage-authentication.md
+          items:
+            - name: 디먼 애플리케이션을 보호하는 방법
+              href: how-to-secure-daemon-app.md
+            - name: 대화형 로그인 단일 페이지 애플리케이션을 보호하는 방법
+              href: how-to-secure-spa-users.md
+            - name: 웹 애플리케이션을 보호하는 방법
+              href: how-to-secure-webapp-users.md
+            - name: 비 대화형 로그인 단일 페이지 애플리케이션을 보호하는 방법
+              href: how-to-secure-spa-app.md
+            - name: 입력 제한 애플리케이션을 보호하는 방법
+              href: how-to-secure-device-code.md
         - name: 가격 책정 계층 관리
           href: how-to-manage-pricing-tier.md
         - name: Creator 관리
@@ -318,9 +329,9 @@
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT 디바이스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Azure Maps 사용 약관
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps 가격 책정

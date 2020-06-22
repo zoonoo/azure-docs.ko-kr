@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645847"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022545"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645847"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -320,12 +320,12 @@ Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 지원 필수 구성 요소 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [2191498] |Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
-| [2039619] |Oracle 데이터베이스를 사용 하는 Microsoft Azure의 SAP 응용 프로그램: 지원 되는 제품 및 버전 |
+| [2191498] |Azure 포함 Linux의 SAP: 고급 모니터링 |
+| [2039619] |Oracle Database를 사용하는 Microsoft Azure의 SAP 애플리케이션: 지원되는 제품 및 버전 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [2069760] |Oracle Linux 7.x SAP 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
@@ -374,10 +374,10 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | 없음 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
 | \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch | Standard | 없음 | 필요하지 않음 |
+| \oracle\<SID>\oraarch | Standard | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 
@@ -387,18 +387,18 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | 없음 | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | Premium | 없음 | 사용할 수 있음 |
+| \oracle\<SID>\origlogaA | Premium | None | 사용할 수 있음  |
+| \oracle\<SID>\origlogaB | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogAB | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\mirrlogBA | Premium | None | 사용할 수 있음 |
 | \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | Premium | 없음 | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | Premium | 없음 | 필요하지 않음 |
+| \oracle\SID\sapdata(n+1)* | Premium | None | 사용할 수 있음 |
+| \oracle\<SID>\oraarch* | Premium | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
-* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다. 더 많은 공간을 확보하는 데 사용할 수 있습니다.
+\* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다. 더 많은 공간을 확보하는 데 사용할 수 있습니다.
 
 더 많은 IOPS가 필요한 경우 Window 스토리지 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크를 하나의 큰 논리적 디바이스로 만드는 것이 좋습니다. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 수동으로 파일을 배포하는 수고를 덜 수 있습니다.
 
@@ -464,10 +464,10 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/Origlogaa & mirrlogB | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID>/Origlogab & mirrlogA | Premium | 없음 | 필요하지 않음 |
-| /oracle/\<SID>/sapdata1... 개의 | Premium | 읽기 전용 | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch | Standard | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch | Standard | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
@@ -478,20 +478,20 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaa | Premium | 없음 | 사용할 수 있음  |
-| /oracle/\<SID>/origlogab | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogab | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogba | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/sapdata1... 개의 | Premium | 읽기 전용 | 권장  |
-| /oracle/\<SID> 형식이 며/sapdata (n + 1) * | Premium | 없음 | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch * | Premium | 없음 | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA | Premium | None | 사용할 수 있음  |
+| /oracle/\<SID>/origlogaB | Premium | None | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogAB | Premium | None | 사용할 수 있음 |
+| /oracle/\<SID>/mirrlogBA | Premium | None | 사용할 수 있음 |
+| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | 사용할 수 있음 |
+| /oracle/\<SID>/oraarch* | Premium | None | 필요하지 않음 |
 | Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
-* (n + 1): 호스팅 시스템, 임시 및 실행 취소 테이블: 시스템의 i/o 패턴 및 실행 테이블은 다른 테이블 스페이스 호스팅 응용 프로그램 데이터와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
+*(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
-* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
+\* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
 
 
 더 많은 IOPS가 필요한 경우 LVM(논리 볼륨 관리자) 또는 MDADM을 사용하여 탑재된 여러 디스크에 대해 하나의 큰 논리 볼륨을 만드는 것이 좋습니다. 자세한 내용은 LVM 또는 MDADM을 활용하는 방법에 대한 지침과 조언을 제공하는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.

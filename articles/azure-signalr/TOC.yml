@@ -35,7 +35,7 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Azure CLI
       href: signalr-reference-cli.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       href: ./policy-samples.md
 - name: 개념
   items:
@@ -51,6 +51,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Azure Functions의 SignalR Service 바인딩 참조
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: 업스트림 설정
+          href: concept-upstream.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
@@ -81,6 +83,8 @@
           href: howto-private-endpoints.md
         - name: 네트워크 액세스 제어 관리
           href: howto-network-access-control.md
+        - name: 관리 ID 사용
+          href: howto-use-managed-identity.md
     - name: 통합
       items:
         - name: Azure Functions 바인딩

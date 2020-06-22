@@ -19,6 +19,10 @@
       items:
         - name: Azure Key Vault와 Kubernetes 통합
           href: key-vault-integrate-kubernetes.md
+    - name: Azure Databricks
+      items:
+        - name: Azure Databricks와 Azure Key Vault를 사용하여 Azure Blob Storage에 액세스
+          href: integrate-databricks-blob-storage.md
     - name: 관리 ID 및 .NET을 사용하여 Key Vault를 웹앱에 연결
       href: tutorial-net-create-vault-azure-web-app.md
 - name: 샘플
@@ -129,13 +133,13 @@
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
+      href: /python/api/overview/azure/keyvault/management?view=azure-python
     - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
