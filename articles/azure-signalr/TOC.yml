@@ -25,17 +25,13 @@
   items:
     - name: 인증을 사용하는 서버리스 실시간 앱 빌드
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: 모니터
-      items:
-        - name: 진단 로그를 사용하여 SignalR Service 모니터링
-          href: signalr-tutorial-diagnostic-logs.md
 - name: 샘플
   items:
     - name: 코드 샘플
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Azure CLI
       href: signalr-reference-cli.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       href: ./policy-samples.md
 - name: 개념
   items:
@@ -91,6 +87,12 @@
           href: signalr-concept-azure-functions.md
         - name: Event Grid 통합
           href: signalr-howto-event-grid-integration.md
+    - name: 모니터
+      items:
+        - name: 진단 로그를 사용하여 SignalR Service 모니터링
+          href: signalr-howto-diagnostic-logs.md
+        - name: Azure Policy를 사용하여 규정 준수 감사
+          href: signalr-howto-azure-policy.md
 - name: 참조
   items:
     - name: Azure CLI

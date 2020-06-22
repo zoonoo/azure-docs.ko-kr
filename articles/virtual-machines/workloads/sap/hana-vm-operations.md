@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606139"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230130"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
 
-- [SAP 관리 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
-- [SAP 설치 가이드](https://service.sap.com/instguides)
+- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)(SAP 관리 가이드)
+- [SAP installation guides](https://service.sap.com/instguides)(SAP 설치 가이드)
 - [SAP notes](https://service.sap.com/notes)(SAP 참고)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 가이드를 사용하려면 다음 Azure 구성 요소에 대한 기본 지식이 필요합니다.
 
-- [Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Azure 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure 네트워킹 및 가상 네트워크](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
@@ -67,12 +67,12 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 또는 [여기](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명되어 있습니다.
 
 >[!IMPORTANT]
-> M208xx_v2 Vm을 사용 하려면 Azure VM 이미지 갤러리에서 Linux 이미지를 신중 하 게 선택 해야 합니다. 세부 정보를 확인 하려면 메모리 액세스에 최적화 된 [가상 머신 크기](../../mv2-series.md)문서를 참조 하세요.
+> M208xx_v2 VM을 사용하려면 Azure VM 이미지 갤러리에서 Linux 이미지를 신중하게 선택해야 합니다. 세부 정보를 확인하려면 [메모리 최적화 가상 머신 크기](../../mv2-series.md)문서를 참조하세요.
 > 
 
 
-### <a name="storage-configuration-for-sap-hana"></a>SAP HANA에 대 한 저장소 구성
-Azure에서 SAP HANA와 함께 사용할 저장소 구성 및 저장소 유형은 [azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 문서를 참조 하세요.
+### <a name="storage-configuration-for-sap-hana"></a>SAP HANA의 스토리지 구성
+Azure에서 SAP HANA와 함께 사용할 스토리지 구성과 스토리지 유형은 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서를 참조하세요.
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure 가상 네트워크 설정
@@ -95,16 +95,16 @@ SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 >
 >
 
-그러나 지속되고 있는 배포의 경우 Azure에서 가상 데이터 센터 네트워크 아키텍처를 만들어야 합니다. 이 아키텍처는 온-프레미스에 연결 하는 Azure VNet 게이트웨이를 별도의 Azure VNet에 분리 하는 것을 권장 합니다. 이 별도의 VNet은 온-프레미스 또는 인터넷으로 나가는 모든 트래픽을 호스팅해야 합니다. 이 방법을 사용하면 이 별도의 허브 VNet에서 Azure의 가상 데이터 센터로 들어가는 감사 및 로깅 트래픽을 위한 소프트웨어를 배포할 수 있습니다. 따라서 Azure 배포로 들어오고 나가는 트래픽과 관련된 모든 소프트웨어 및 구성을 하나의 VNet이 호스트하도록 해야 합니다.
+그러나 지속되고 있는 배포의 경우 Azure에서 가상 데이터 센터 네트워크 아키텍처를 만들어야 합니다. 이 아키텍처는 온-프레미스에 연결되어 있는 Azure VNet 게이트웨이를 별도의 Azure VNet으로 분리할 것을 권장합니다. 이 별도의 VNet은 온-프레미스 또는 인터넷 중 하나에 유지되는 모든 트래픽을 호스트해야 합니다. 이 방법을 사용하면 이 별도의 허브 VNet에서 Azure의 가상 데이터 센터로 들어가는 감사 및 로깅 트래픽을 위한 소프트웨어를 배포할 수 있습니다. 따라서 Azure 배포로 들어오고 나가는 트래픽과 관련된 모든 소프트웨어 및 구성을 하나의 VNet이 호스트하도록 해야 합니다.
 
-문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 더 자세한 정보가 나와 있습니다.
+문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 자세한 정보가 있습니다.
 
 
 >[!NOTE]
 >[Azure VNet 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 사용하여 허브 VNet과 스포크 VNet 간에 전달되는 트래픽은 추가적인 [비용](https://azure.microsoft.com/pricing/details/virtual-network/)의 문제입니다. 해당 가격을 기준으로 strict 허브와 스포크 네트워크 설계를 실행하는 것과 바이패스 VNet 피어링을 위하여 ‘스포크’에 연결하는 여러 [Azure ExpressRoute 게이트웨이](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways)를 실행하는 것 사이에서 절충안을 내는 것을 고려해야 할 수도 있습니다. 단, Azure ExpressRoute 게이트웨이에서도 추가 [비용](https://azure.microsoft.com/pricing/details/vpn-gateway/)이 발생합니다. 또한 네트워크 트래픽 로깅, 감사 및 모니터링에 사용하는 타사 소프트웨어에 대한 추가 비용이 발생할 수 있습니다. VNet 피어링을 통한 데이터 교환에 대한 비용 및 추가 Azure ExpressRoute 게이트웨이와 추가 소프트웨어 라이선스로 발생하는 비용에 따라 VNet 대신 격리 단위로 서브넷을 사용하여 하나의 VNet 내에서 마이크로 구분을 결정할 수 있습니다.
 
 
-IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 및 Azure에서 할당 방법](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)을 참조하세요. 
+IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 및 Azure에서 할당 방법](../../../virtual-network/public-ip-addresses.md)을 참조하세요. 
 
 SAP HANA를 실행하는 VM의 경우 할당된 고정 IP 주소를 사용해야 합니다. HANA에 대한 일부 구성 특성은 IP 주소를 참조하기 때문입니다.
 
@@ -123,34 +123,34 @@ Azure NVA를 사용하여 허브 및 스포크 VNet 아키텍처 없이 인터�
 
 
 ## <a name="configuring-azure-infrastructure-for-sap-hana-scale-out"></a>SAP HANA 스케일 아웃을 위한 Azure 인프라 구성
-OLAP 스케일 아웃 또는 S/4HANA 확장 중 하나에 대해 인증 된 Azure VM 유형을 확인 하려면 [SAP HANA 하드웨어 디렉터리](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)를 확인 합니다. ' 클러스터링 ' 열에서 확인 표시가 있으면 스케일 아웃 지원이 표시 됩니다. 응용 프로그램 유형 OLAP 확장 또는 S/4HANA 스케일 아웃이 지원 되는지 여부를 나타냅니다. 각 Vm에 대해 스케일 아웃으로 인증 된 노드에 대 한 자세한 내용은 SAP HANA 하드웨어 디렉터리에 나열 된 특정 VM SKU 항목의 세부 정보를 확인 하세요.
+OLAP 스케일 아웃이나 S/4HANA 스케일 아웃에 대해 인증된 Azure VM 유형을 확인하려면 [SAP HANA 하드웨어 디렉터리](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)를 확인합니다. '클러스터링' 열의 확인 표시는 스케일 아웃 지원을 나타냅니다. 애플리케이션 유형은 OLAP 스케일 아웃 또는 S/4HANA 스케일 아웃이 지원되는지 여부를 나타냅니다. 각 VM에 대해 스케일 아웃으로 인증된 노드에 대한 자세한 내용은 SAP HANA 하드웨어 디렉터리에 나열된 특정 VM SKU 항목의 세부 정보를 확인하세요.
 
-Azure Vm에서 스케일 아웃 구성을 배포 하는 데 필요한 최소 OS 릴리스는 SAP HANA 하드웨어 디렉터리에 나열 된 특정 VM SKU의 항목에 대 한 세부 정보를 확인 합니다. N 노드 OLAP 스케일 아웃 구성의 경우 하나의 노드가 마스터 노드로 작동 합니다. 다른 노드는 인증 act를 작업자 노드로 제한 합니다. 추가 대기 노드는 인증 된 노드 수로 계산 되지 않습니다.
+Azure VM에서 스케일 아웃 구성 배포를 위한 최소 OS 릴리스는 SAP HANA 하드웨어 디렉터리에 나열된 특정 VM SKU 항목의 세부 정보를 확인하세요. n-노드 OLAP 스케일 아웃 구성에서 한 노드는 마스터 노드 기능을 합니다. 인증 한도까지 다른 노드는 작업자 노드 역할을 합니다. 추가 대기 노드는 인증된 노드 수에 포함되지 않습니다.
 
 >[!NOTE]
-> 대기 노드와 SAP HANA의 Azure VM 스케일 아웃 배포는 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 저장소를 사용 하는 경우에만 가능 합니다. 다른 SAP HANA 인증 된 Azure storage는 SAP HANA 대기 노드 구성을 허용 하지 않습니다.
+> 대기 노드와 SAP HANA의 Azure VM 스케일 아웃 배포는 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 스토리지를 사용하는 경우에만 가능합니다. 다른 SAP HANA 인증 Azure 스토리지는 SAP HANA 대기 노드 구성을 허용하지 않습니다.
 >
 
-/Hana/shared의 경우에도 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)을 사용 하는 것이 좋습니다. 
+/hana/shared의 경우 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)도 사용하는 것이 좋습니다. 
 
-스케일 아웃 구성의 단일 노드에 대 한 일반적인 기본 설계는 다음과 같습니다.
+스케일 아웃 구성의 단일 노드에 대한 일반적인 기본 설계는 다음과 같습니다.
 
 ![단일 노드의 스케일 아웃 기본 사항](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같습니다.
 
-- **/Hana/shared**의 경우 Azure NetApp Files를 통해 제공 되는 네이티브 NFS 서비스를 사용 합니다. 
-- 다른 모든 디스크 볼륨은 다른 노드 간에 공유 되지 않으며 NFS를 기반으로 하지 않습니다. 공유 되지 않는 **/hana/data** 및 **/hana/log** 를 사용 하 여 확장 HANA 설치를 위한 설치 구성 및 단계는이 문서의 뒷부분에서 제공 됩니다. 사용할 수 있는 HANA 인증 된 저장소의 경우 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)문서를 확인 하세요.
+- **/hana/shared**의 경우 Azure NetApp Files를 통해 제공되는 네이티브 NFS 서비스를 사용합니다. 
+- 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 않으며 NFS를 기반으로 하지 않습니다. 공유되지 않는 **hana/data** 및 **/hana/log**를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다. 사용할 수 있는 HANA 인증 스토리지는 [SAP HANA Azure 가상 머신 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 문서를 확인하세요.
 
 
-볼륨 또는 디스크의 크기를 조정 하려면 작업자 노드 수에 따라 필요한 크기에 따라 문서 [SAP HANA TDI 저장소 요구 사항을](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)확인 해야 합니다. 문서는 볼륨의 필요한 용량을 얻기 위해 적용 해야 하는 수식을 해제 합니다.
+볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.
 
-스케일 아웃 SAP HANA VM에 대 한 단일 노드 구성의 그래픽에 표시 되는 다른 디자인 기준은 VNet 이거나 더 나은 서브넷 구성입니다. SAP는 HANA 노드 간 통신으로부터 트래픽 발생 클라이언트/애플리케이션을 분리할 것을 권장합니다. 그래픽에서와 같이 이는 두 개의 다른 vNIC를 VM에 연결하여 달성됩니다. 두 vNIC는 서로 다른 서브넷에 있고, 서로 다른 두 IP 주소를 가집니다. 그런 다음, NSG 또는 사용자 정의 경로를 사용하여 라우팅 규칙을 통해 트래픽 흐름을 제어합니다.
+스케일 아웃 SAP HANA VM에 대한 단일 노드 구성의 그래픽에 표시되는 다른 설계 기준은 VNet 또는 그 이상의 서브넷 구성입니다. SAP는 HANA 노드 간 통신으로부터 트래픽 발생 클라이언트/애플리케이션을 분리할 것을 권장합니다. 그래픽에서와 같이 이는 두 개의 다른 vNIC를 VM에 연결하여 달성됩니다. 두 vNIC는 서로 다른 서브넷에 있고, 서로 다른 두 IP 주소를 가집니다. 그런 다음, NSG 또는 사용자 정의 경로를 사용하여 라우팅 규칙을 통해 트래픽 흐름을 제어합니다.
 
 특히 Azure에서는 특정 vNIC에 서비스 품질 및 할당량을 적용할 방법이나 메서드가 없습니다. 결과적으로, 클라이언트/애플리케이션 연결 및 노드 내 통신의 분리는 하나의 트래픽 스트림을 다른 것에 대해 우선시하는 기회를 제공하지 않습니다. 대신 분리로 인해 스케일 아웃 구성의 노드 내 통신을 보호할 때 보안 척도가 유지됩니다.  
 
 >[!NOTE]
->이 문서에 설명 된 대로 SAP는 클라이언트/응용 프로그램 쪽 및 노드 내 트래픽에 대 한 네트워크 트래픽을 분리 하는 것이 좋습니다. 따라서 마지막 그래픽과 같이 아키텍처를 배치 하는 것이 좋습니다. 권장 사항을 준수 하는 요구 사항은 보안 및 규정 준수 팀에 문의 하세요. 
+>SAP는 이 문서에 설명된 대로 클라이언트/애플리케이션 측에 대한 트래픽 및 노드 내 트래픽을 분리할 것을 권장합니다. 따라서 마지막 그래픽에 표시된 대로 아키텍처를 적절한 위치에 배치하는 것이 좋습니다. 권장 사항에서 벗어난 요구 사항에 대해서도 보안 및 규정 준수 팀에 문의하세요. 
 >
 
 네트워킹 관점에서 필요한 최소 네트워크 아키텍처는 다음과 같습니다.
@@ -162,8 +162,8 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>SAP HANA 스케일 아웃을 Azure에 설치
 스케일 아웃 SAP 구성을 설치하려면 다음과 같은 대략적인 단계를 수행해야 합니다.
 
-- 신규 배포 또는 기존 Azure VNet 인프라 적용
-- ANF 기반 Azure 관리 Premium Storage, 울트라 디스크 볼륨 및/또는 NFS 볼륨을 사용 하 여 새 Vm 배포
+- 기존 Azure VNet 인프라 조정 또는 새로 배포
+- ANF 기반의 Azure Managed Premium Storage, Ultra Disk 볼륨 및/또는 NFS 볼륨을 사용하여 새 VM 배포
 - - 예를 들어 VM 간의 노드 내 통신이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)를 통해 라우팅되지 않도록 네트워크 라우팅을 조정합니다. 
 - SAP HANA 마스터 노드를 설치합니다.
 - SAP HANA 마스터 노드의 구성 매개 변수 조정
@@ -173,16 +173,16 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 Azure VM 인프라가 배포되고 다른 모든 준비 작업이 완료되면 다음과 같은 단계로 SAP HANA 스케일 아웃 구성을 설치해야 합니다.
 
 - SAP의 설명서에 따라 SAP HANA 마스터 노드 설치
-- /Hana/data 및/hana/log의 공유 디스크가 아닌 Azure Premium Storage 또는 Ultra disk Storage를 사용 하는 경우 global.asax 파일을 변경 하 고 global.asax 파일에 ' basepath_shared = no ' 매개 변수를 추가 해야 합니다. 이 매개 변수를 사용 하면 노드 간에 ' shared ' **/hana/data** 및 **/hana/log** 볼륨을 사용 하지 않고 SAP HANA 스케일 아웃으로 실행할 수 있습니다. 자세한 내용은 [SAP 정보 #2080991](https://launchpad.support.sap.com/#/notes/2080991)에 설명되어 있습니다. /Hana/data 및/hana/log에 대해 ANF에 기반 하 여 NFS 볼륨을 사용 하는 경우이 변경 작업을 수행할 필요가 없습니다.
-- Global.asax 매개 변수의 최종 변경 후 SAP HANA 인스턴스를 다시 시작 합니다.
+- 공유되지 않는 /hana/data 및 /hana/log 디스크와 함께 Azure Premium Storage 또는 Ultra Disk Storage를 사용하는 경우 global.ini 파일을 변경하고 'basepath_shared = no' 매개 변수를 global.ini 파일에 추가해야 합니다. 이 매개 변수는 노드 간 '공유' **/hana/data** 및 **/hana/log** 볼륨 없이 스케일 아웃에서 실행할 수 있게 SAP HANA를 설정합니다. 자세한 내용은 [SAP 정보 #2080991](https://launchpad.support.sap.com/#/notes/2080991)에 설명되어 있습니다. /hana/data 및 /hana/log에 ANF 기반의 NFS 볼륨을 사용하는 경우 이 변경 작업을 수행할 필요가 없습니다.
+- global.ini 매개 변수를 변경한 후 SAP HANA 인스턴스 다시 시작
 - 추가 작업자 노드를 추가합니다. <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>도 참조하세요. 예를 들어 설치 중 또는 나중에 로컬 hdblcm을 사용하여 SAP HANA 노드 간 통신을 위한 내부 네트워크를 지정합니다. 자세한 내용은 [SAP 정보 #2183363](https://launchpad.support.sap.com/#/notes/2183363)을 참조하세요. 
 
-SUSE Linux에서 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시스템을 설정 하는 방법에 대 한 자세한 내용은 [SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure vm에서 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)에 자세히 설명 되어 있습니다. Red Hat에 해당 하는 설명서는 [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용 하 여 Azure vm에서 대기 노드를 사용 하 여 SAP HANA 확장 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)문서에서 찾을 수 있습니다. 
+SUSE Linux에서 대기 노드가 있는 SAP HANA 스케일 아웃 시스템을 설정하는 방법은 [SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)에 자세히 설명되어 있습니다. Red Hat에 해당하는 설명서는 [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)문서에서 찾을 수 있습니다. 
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 SAP HANA Dynamic Tiering 2.0
 
-Microsoft Azure에서는 Azure M 시리즈 VM에 대한 SAP HANA 인증 외에도 SAP HANA Dynamic Tiering 2.0을 지원합니다(아래의 SAP HANA Dynamic Tiering 설명서 링크 참조). 예를 들어 Azure Virtual Machine 내에서 SAP HANA Cockpit을 통해 제품을 설치하거나 운영하는 데에는 차이가 없지만 공식적인 Azure 지원에 필수적인 몇 가지 중요한 항목이 있습니다. 이러한 중요 사항은 아래에 설명되어 있습니다. 이 문서 전체에서는 전체 이름 동적 계층화 2.0 대신 약어 "DT 2.0"이 사용 됩니다.
+Microsoft Azure에서는 Azure M 시리즈 VM에 대한 SAP HANA 인증 외에도 SAP HANA Dynamic Tiering 2.0을 지원합니다(아래의 SAP HANA Dynamic Tiering 설명서 링크 참조). 예를 들어 Azure Virtual Machine 내에서 SAP HANA Cockpit을 통해 제품을 설치하거나 운영하는 데에는 차이가 없지만 공식적인 Azure 지원에 필수적인 몇 가지 중요한 항목이 있습니다. 이러한 중요 사항은 아래에 설명되어 있습니다. 이 문서에서는 전체 이름 Dynamic Tiering 2.0 대신 약어 "DT 2.0"이 사용됩니다.
 
 SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습니다. 주요 사용 사례는 현재 원시 HANA 애플리케이션입니다.
 
@@ -198,7 +198,7 @@ SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습�
 - DT 2.0 VM에 여러 Azure 디스크를 연결해야 합니다.
 - Azure 디스크에서 스트라이핑을 사용하여 소프트웨어 RAID/스트라이프 볼륨을 만들어야 합니다(lvm 또는 mdadm을 통해).
 
-자세한 내용은 다음 섹션에서 설명 하겠습니다.
+자세한 내용은 다음 섹션에서 설명합니다.
 
 ![SAP HANA DT 2.0 아키텍처 개요](media/hana-vm-operations/hana-data-tiering.png)
 
@@ -236,10 +236,10 @@ Azure 가속 네트워킹에 대한 자세한 내용은 [여기](https://docs.mi
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>SAP HANA DT 2.0용 VM 스토리지
 
-DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어당 50MB/초 이상이어야 합니다. DT 2.0에 대해 지원 되는 두 개의 Azure VM 형식에 대 한 사양을 살펴보면 VM에 대 한 최대 디스크 IO 처리량 한도는 다음과 같습니다.
+DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어당 50MB/초 이상이어야 합니다. DT 2.0에 지원되는 두 가지 Azure VM 유형에 대한 사양을 보면 VM에 대한 최대 디스크 IO 처리량 제한은 다음과 같습니다.
 
-- E32sv3: 물리적 코어당 48MB/초의 속도를 의미하는 768MB/초(캐시되지 않음)
-- M64-32ms: 물리적 코어당 62.5MB/초의 속도를 의미하는 1,000MB/초(캐시되지 않음)
+- E32sv3    :   물리적 코어당 48MB/초의 속도를 의미하는 768MB/초(캐시되지 않음)
+- M64-32ms  :  물리적 코어당 62.5MB/초의 속도를 의미하는 1,000MB/초(캐시되지 않음)
 
 DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
 
@@ -259,7 +259,7 @@ M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 �
 
 특히 워크로드가 읽기 집약적인 경우 데이터베이스 소프트웨어의 데이터 볼륨에 대한 권장 사항에 따라 IO 성능을 높여 Azure 호스트 캐시를 "read-only(읽기 전용)"로 설정할 수 있습니다. 반면에 트랜잭션 로그의 경우 Azure 호스트 디스크 캐시는 "none"이어야 합니다. 
 
-로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 i/o 처리량이 필요 합니다.  VM 유형 M64을 사용 하는 경우 [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)를 사용 하도록 설정 해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. Write Accelerator에 대한 자세한 정보는 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)를 참조할 수 있습니다.
+로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 I/O 처리량이 필요합니다.  VM 형식 M64-32ms를 사용하는 경우 [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)를 사용하도록 설정해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. Write Accelerator에 대한 자세한 정보는 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)를 참조할 수 있습니다.
 
 
 로그 볼륨의 크기 조정에 대한 몇 가지 예는 다음과 같습니다.
@@ -292,7 +292,7 @@ SAP HANA 스케일 아웃과 마찬가지로, /hana/shared 디렉터리는 SAP H
 
 - [SAP HANA 백업 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [SAP HANA 파일 수준 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA 저장소 스냅숏 벤치 마크](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [SAP HANA 스토리지 스냅샷 벤치마크](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>SAP HANA를 포함하는 VM 시작 및 다시 시작
@@ -309,18 +309,18 @@ Azure 퍼블릭 클라우드의 두드러진 기능으로 사용한 컴퓨팅 �
 
 ![사이트 간 연결 및 SAProuter 없는 SAP HANA의 대략적인 배포 스키마](media/hana-vm-operations/hana-simple-networking-saprouter.png)
 
-SAPRouter는 Jumpbox VM이 아니라 별도의 VM에 설치해야 합니다. 별도의 VM에는 고정 IP 주소가 있어야 합니다. SAProuter를 SAP에서 호스트하는 SAProuter에 연결하려면 SAP에 IP 주소를 문의하세요. (SAP에서 호스트 되는 SAProuter는 VM에 설치 하는 SAProuter 인스턴스에 해당 하는 것입니다.) SAP의 IP 주소를 사용 하 여 SAProuter 인스턴스를 구성 합니다. 구성 설정에서 필수 포트는 TCP 포트 3299뿐입니다.
+SAPRouter는 Jumpbox VM이 아니라 별도의 VM에 설치해야 합니다. 별도의 VM에는 고정 IP 주소가 있어야 합니다. SAProuter를 SAP에서 호스트하는 SAProuter에 연결하려면 SAP에 IP 주소를 문의하세요. (SAP에서 호스트하는 SAProuter는 VM에 설치하는 SAProuter 인스턴스에 해당합니다.) SAP의 IP 주소를 사용하여 SAProuter 인스턴스를 구성합니다. 구성 설정에서 필수 포트는 TCP 포트 3299뿐입니다.
 
 SAProuter를 통해 원격 지원 연결을 설정하고 유지 관리하는 방법에 대한 자세한 내용은 [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html)(SAP 설명서)을 참조하세요.
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Azure 네이티브 VM의 SAP HANA 고가용성
-SUSE Linux Enterprise Server 또는 Red Hat를 실행 하는 경우 STONITH 장치를 사용 하 여 Pacemaker 클러스터를 설정할 수 있습니다. 이 디바이스를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 자세한 내용은 ' 다음 단계 ' 섹션에 나와 있습니다.
+SUSE Linux Enterprise Server 또는 Red Hat을 실행하는 경우 STONITH 디바이스를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 디바이스를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 자세한 내용은 '다음 단계' 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-나열 된 문서에 대해 알아보기
+나열된 문서를 익히세요.
 - [SAP HANA Azure 가상 머신 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-- [SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+- [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 - [SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
 - [Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
 
