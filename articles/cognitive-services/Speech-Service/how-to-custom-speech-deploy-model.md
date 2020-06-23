@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402189"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130418"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
@@ -39,12 +39,14 @@ ms.locfileid: "81402189"
 ## <a name="view-logging-data"></a>로깅 데이터 보기
 
 로깅 데이터는 **끝점 > 세부 정보**에서 다운로드할 수 있습니다.
+> [!NOTE]
+>로깅 데이터는 Microsoft 소유의 저장소에서 30 일 동안 사용할 수 있으며 나중에 제거 될 예정입니다. 고객 소유의 저장소 계정이 인식 서비스 구독에 연결 된 경우 로깅 데이터가 자동으로 삭제 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [여기](how-to-specify-source-language.md)에서 사용자 지정 모델을 사용 하는 방법을 알아보세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
