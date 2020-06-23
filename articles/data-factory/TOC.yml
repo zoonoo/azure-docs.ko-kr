@@ -194,30 +194,6 @@
               href: wrangling-data-flow-overview.md
             - name: 지원되는 함수
               href: wrangling-data-flow-functions.md
-    - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
-      items:
-        - name: Azure Data Factory를 사용해야 하는 이유
-          href: data-migration-guidance-overview.md
-        - name: AWS S3에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-s3-azure-storage.md
-        - name: 온-프레미스 Hadoop 클러스터에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-hdfs-azure-storage.md
-        - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
-          href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: 데이터 흐름 매핑을 사용한 변환
-      items:
-        - name: 고정 너비 텍스트 파일 처리
-          href: how-to-fixed-width.md
-        - name: 오류 행 처리
-          href: how-to-data-flow-error-rows.md
-        - name: Azure SQL DB에서 CosmosDB로
-          href: how-to-sqldb-to-cosmosdb.md
-    - name: 온-프레미스에서 SSIS 마이그레이션
-      items:
-        - name: SSIS 마이그레이션 개요
-          href: scenario-ssis-migration-overview.md
-        - name: Azure SQL Managed Instance로 SSISDB 마이그레이션
-          href: scenario-ssis-migration-ssisdb-mi.md
     - name: 역할 및 권한
       href: concepts-roles-permissions.md
     - name: 이름 지정 규칙
@@ -501,7 +477,7 @@
           href: transform-data-using-stored-procedure.md
         - name: 컴퓨팅 연결 서비스
           href: compute-linked-services.md
-    - name: 제어 흐름
+    - name: 흐름 제어
       items:
         - name: 변수 작업 추가
           href: control-flow-append-variable-activity.md
@@ -612,7 +588,7 @@
         - name: 통합 런타임 모니터링
           href: monitor-integration-runtime.md
         - name: Azure-SSIS 통합 런타임 모니터링
-          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+          href: monitor-integration-runtime.md#azure-ssis-integration-runtime
         - name: Azure-SSIS 통합 런타임 다시 구성
           href: manage-azure-ssis-integration-runtime.md
         - name: 데이터 팩터리 복사 또는 복제
@@ -683,6 +659,32 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: 연속 창 트리거 종속성 만들기
           href: tumbling-window-trigger-dependency.md
+    - name: 시나리오
+      items:
+        - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
+          items:
+            - name: Azure Data Factory를 사용해야 하는 이유
+              href: data-migration-guidance-overview.md
+            - name: AWS S3에서 Azure로 데이터 마이그레이션
+              href: data-migration-guidance-s3-azure-storage.md
+            - name: 온-프레미스 Hadoop 클러스터에서 Azure로 데이터 마이그레이션
+              href: data-migration-guidance-hdfs-azure-storage.md
+            - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
+              href: data-migration-guidance-netezza-azure-sqldw.md
+        - name: 데이터 흐름 매핑을 사용한 변환
+          items:
+            - name: 고정 너비 텍스트 파일 처리
+              href: how-to-fixed-width.md
+            - name: 오류 행 처리
+              href: how-to-data-flow-error-rows.md
+            - name: Azure SQL DB에서 CosmosDB로
+              href: how-to-sqldb-to-cosmosdb.md
+        - name: 온-프레미스에서 SSIS 마이그레이션
+          items:
+            - name: SSIS 마이그레이션 개요
+              href: scenario-ssis-migration-overview.md
+            - name: Azure SQL Managed Instance로 SSISDB 마이그레이션
+              href: scenario-ssis-migration-ssisdb-mi.md
     - name: 템플릿
       items:
         - name: 템플릿 개요

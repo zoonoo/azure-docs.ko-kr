@@ -67,7 +67,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -193,6 +193,8 @@
           items:
             - name: 구성 옵션
               href: concepts-hyperscale-configuration-options.md
+            - name: 예약된 용량 선불
+              href: concepts-hyperscale-reserved-pricing.md
 - name: 방법 가이드
   items:
     - name: 단일 서버

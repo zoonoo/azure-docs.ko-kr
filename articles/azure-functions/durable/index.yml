@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 10/04/2019
-  ms.openlocfilehash: f0f47c8d997a3d02ad3bae1bc4634f4c7ad2155c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1feb34dd87f61dc04365afeeca0eec7b8b511480
+  ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "72529689"
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85193246"
 landingContent:
 - title: 지속성 함수 정보
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
       url: durable-functions-create-first-csharp.md
     - text: 첫 번째 함수 만들기(JavaScript)
       url: quickstart-js-vscode.md
+    - text: 첫 번째 함수 만들기(Python)
+      url: quickstart-python-vscode.md
   - linkListType: learn
     links:
     - text: 장기 실행 서버리스 워크플로 만들기
