@@ -240,6 +240,8 @@
       items:
         - name: 그리기 패키지 요구 사항
           href: drawing-requirements.md
+        - name: 동적 맵 StylesObject
+          href: schema-stateset-stylesobject.md
         - name: 차량 소비 모델
           href: consumption-model.md
         - name: GeoJSON 형식 확장
