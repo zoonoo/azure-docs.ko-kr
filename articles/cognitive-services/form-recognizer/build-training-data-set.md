@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ffa09293ad2ff02e104ce285b6b0aaca7d4744a2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873303"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212669"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
@@ -26,7 +26,7 @@ ms.locfileid: "83873303"
 
 ## <a name="training-data-tips"></a>학습 데이터 팁
 
-학습에 최적화 된 데이터 집합을 사용 하는 것이 중요 합니다. 다음 팁을 사용 하 여 [사용자 지정 모델 학습](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) 작업에서 최상의 결과를 얻을 수 있도록 합니다.
+학습에 최적화 된 데이터 집합을 사용 하는 것이 중요 합니다. 다음 팁을 사용 하 여 [사용자 지정 모델 학습](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) 작업에서 최상의 결과를 얻을 수 있도록 합니다.
 
 * 가능 하면 이미지 기반 문서 대신 텍스트 기반 PDF 문서를 사용 합니다. 스캔 한 Pdf는 이미지로 처리 됩니다.
 * 채워진 폼의 경우 모든 필드가 채워진 예제를 사용 합니다.
@@ -44,11 +44,11 @@ ms.locfileid: "83873303"
 
 학습에 사용할 양식 문서 집합을 함께 배치한 경우 Azure blob storage 컨테이너에 업로드 해야 합니다. 컨테이너를 사용 하 여 Azure storage 계정을 만드는 방법을 모를 경우 [에는 Azure Portal에 대 한 Azure Storage 빠른](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)시작을 수행 합니다.
 
-수동으로 레이블이 지정 된 데이터를 사용 하려는 경우 학습 문서에 해당 하는 *. labels* 및 *.* i n i 파일을 업로드 해야 합니다. [샘플 레이블 도구](./quickstarts/label-tool.md) (또는 사용자 고유의 UI)를 사용 하 여 이러한 파일을 생성할 수 있습니다.
+수동으로 레이블이 지정 된 데이터를 사용 하려는 경우 학습 문서에 해당 하는 파일에 *대 한.labels.js* 및 *.ocr.js* 를 업로드 해야 합니다. [샘플 레이블 도구](./quickstarts/label-tool.md) (또는 사용자 고유의 UI)를 사용 하 여 이러한 파일을 생성할 수 있습니다.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>하위 폴더의 데이터 구성 (선택 사항)
 
-기본적으로 [학습 사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) API는 저장소 컨테이너의 루트에 있는 양식 문서만 사용 합니다. 그러나 API 호출에서 지정 하는 경우 하위 폴더의 데이터로 학습을 수행할 수 있습니다. 일반적으로 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) 호출의 본문에는 다음과 같은 형식이 있습니다. 여기서 `<SAS URL>` 은 컨테이너의 공유 액세스 서명 URL입니다.
+기본적으로 [학습 사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) API는 저장소 컨테이너의 루트에 있는 양식 문서만 사용 합니다. 그러나 API 호출에서 지정 하는 경우 하위 폴더의 데이터로 학습을 수행할 수 있습니다. 일반적으로 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) 호출의 본문에는 다음과 같은 형식이 있습니다. 여기서 `<SAS URL>` 은 컨테이너의 공유 액세스 서명 URL입니다.
 
 ```json
 {

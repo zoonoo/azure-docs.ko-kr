@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 명령 (미리 보기)-음성 서비스
+title: 사용자 지정 명령-Speech service
 titleSuffix: Azure Cognitive Services
-description: 음성 응용 프로그램을 만들기 위한 솔루션인 사용자 지정 명령 (미리 보기)의 기능, 기능 및 제한 사항에 대 한 개요입니다.
+description: 음성 응용 프로그램을 만들기 위한 솔루션인 사용자 지정 명령의 기능, 기능 및 제한 사항에 대 한 개요입니다.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,46 +10,49 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 3c02e823202aa848a4de94885276835899562e4b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9954e4fe739c055a00c2e3bc52b73200a7824a43
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266018"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299112"
 ---
-# <a name="what-is-custom-commands-preview"></a>사용자 지정 명령 (미리 보기) 이란?
+# <a name="what-is-custom-commands"></a>사용자 지정 명령이란?
 
 [음성 도우미](voice-assistants.md) 와 같은 음성 응용 프로그램은 사용자를 수신 대기 하 고 응답으로 작업을 수행 하는 경우가 많습니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 음성 SDK 개체를 사용 하 여 도우미에 연결 `DialogServiceConnector` 합니다.
 
-**사용자 지정 명령 (미리 보기)** 은 음성 응용 프로그램을 만들기 위한 간소화 된 솔루션입니다. 통합 된 작성 환경을 제공 하 고, 자동 호스팅 모델을 제공 하며, 비교적 낮은 복잡성과 [직접 줄 음성](direct-line-speech.md)같은 기타 옵션을 제공 합니다. 그러나이 단순화는 유연성이 줄어듭니다. 따라서 사용자 지정 명령 (미리 보기)은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합 합니다. 사물 인터넷 (IoT) 및 헤드리스 장치에 대해 특히 잘 일치 합니다.
+**사용자 지정 명령을** 사용 하면 음성 우선 상호 작용 환경에 최적화 된 풍부한 음성 명령 앱을 쉽게 빌드할 수 있습니다. 통합 된 제작 환경, 자동 호스팅 모델 및 비교적 낮은 복잡성을 제공 하므로 음성 명령 시나리오에 가장 적합 한 솔루션을 구축 하는 데 집중할 수 있습니다.
 
-[가상 길잡이 솔루션 및 엔터프라이즈 템플릿과](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) 같은 다른 솔루션과의 상호 작용 및 복잡 한 대화형 상호 작용을 위해 직접 줄 음성을 사용 하는 것이 좋습니다.
+사용자 지정 명령은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합 합니다. 특히 IoT (사물 인터넷) 장치, 주변 및 헤드리스 장치에 대해 잘 일치 합니다. 예를 들면, 의료, 소매 및 자동차 산업을 위한 솔루션을 포함 하 여 게스트에 가장 적합 한 회의실 음성 제어 환경을 구축 하 고, 스토어에서 인벤토리를 관리 하 고, 이동 중에 자동차 기능을 제어할 수 있습니다.
 
-사용자 지정 명령에 적합 한 후보 (미리 보기)에는 잘 정의 된 변수 집합이 있는 고정 된 어휘가 있습니다. 예를 들어 자동 온도 조절기 제어와 같은 홈 자동화 작업은 이상적입니다.
+> [!TIP]
+> 의 방문 페이지에서 샘플 데모를 봅니다 [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
+
+복잡 한 대화형 앱을 빌드하는 데 관심이 있는 경우 [가상 길잡이 솔루션](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)을 사용 하 여 봇 프레임 워크를 사용해 보는 것이 좋습니다. 직접 줄 음성을 사용 하 여 모든 봇 프레임 워크 봇에 음성을 추가할 수 있습니다.
+
+사용자 지정 명령에 적합 한 후보에는 잘 정의 된 변수 집합이 있는 고정 된 어휘가 있습니다. 예를 들어 자동 온도 조절기 제어와 같은 홈 자동화 작업은 이상적입니다.
 
    ![작업 완료 시나리오의 예](media/voice-assistants/task-completion-examples.png "작업 완료 예")
 
-## <a name="getting-started-with-custom-commands-preview"></a>사용자 지정 명령 시작 (미리 보기)
+## <a name="getting-started-with-custom-commands"></a>사용자 지정 명령 시작
 
-사용자 지정 명령 (미리 보기)을 사용 하 여 음성 응용 프로그램을 만드는 첫 번째 단계는 음성 [구독 키를 가져오고](get-started.md) [Speech Studio](https://speech.microsoft.com)에서 사용자 지정 명령 (미리 보기) 작성기에 액세스 하는 것입니다. 여기에서 새 사용자 지정 명령 (미리 보기) 응용 프로그램을 작성 하 고 게시할 수 있습니다. 그 후에는 장치 응용 프로그램이 음성 SDK를 사용 하 여 통신할 수 있습니다.
+사용자 지정 명령의 목표는 다양 한 기술을 배우고 음성 명령 앱을 개발 하는 데 집중 하는 인지 부하를 줄이는 것입니다. 사용자 지정 명령을 사용 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span> 를 만드는 </a>첫 번째 단계입니다. Speech Studio에서 사용자 지정 명령 앱을 작성 하 여 게시할 수 있습니다. 그 후에는 장치 응용 프로그램이 음성 SDK를 사용 하 여 통신할 수 있습니다.
 
-   ![사용자 지정 명령의 제작 흐름 (미리 보기)](media/voice-assistants/custom-commands-flow.png "사용자 지정 명령 (미리 보기) 제작 흐름")
+#### <a name="authoring-flow-for-custom-commands"></a>사용자 지정 명령의 제작 흐름
+   ![사용자 지정 명령의 제작 흐름](media/voice-assistants/custom-commands-flow.png "사용자 지정 명령 작성 흐름")
 
-10 분 이내에 코드를 실행 하도록 설계 된 빠른 시작을 제공 합니다.
+첫 번째 사용자 지정 명령 앱에서 코드를 10 분 이내에 실행 하도록 하려면 빠른 시작을 따르세요.
 
-* [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-new.md)
-* [매개 변수를 사용 하 여 사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-parameters.md)
-* [음성 SDK, C를 사용 하 여 사용자 지정 명령 (미리 보기) 응용 프로그램에 연결 #](quickstart-custom-speech-commands-speech-sdk.md)
+* [사용자 지정 명령을 사용하여 음성 도우미 만들기](quickstart-custom-commands-application.md)
 
-빠른 시작을 완료 한 후에는 방법을 살펴보세요.
+빠른 시작을 완료 한 후에는 사용자 지정 명령 응용 프로그램의 디자인, 개발, 디버깅, 배포 및 통합에 대 한 자세한 단계에 대 한 방법 가이드를 살펴보세요.
 
-- [사용자 지정 명령 매개 변수에 유효성 검사 추가](./how-to-custom-speech-commands-validations.md)
-- [음성 SDK를 사용 하 여 클라이언트에서 명령 수행](./how-to-custom-speech-commands-fulfill-sdk.md)
-- [사용자 지정 명령에 확인 추가](./how-to-custom-speech-commands-confirmations.md)
-- [사용자 지정 명령에 1단계 수정 추가](./how-to-custom-speech-commands-one-step-correction.md)
+## <a name="building-voice-assistants-with-custom-commands"></a>사용자 지정 명령을 사용 하 여 음성 도우미 빌드
+> [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
 ## <a name="next-steps"></a>다음 단계
 
 * [평가판 Speech Service 구독 키 받기](get-started.md)
-* [Speech Studio로 이동 하 여 사용자 지정 명령 사용해 보기](https://speech.microsoft.com)
+* [샘플에 대 한 GitHub의 음성 도우미 리포지토리 보기](https://aka.ms/speech/cc-samples)
+* [Speech Studio로 이동 하 여 사용자 지정 명령 사용해 보기](https://speech.microsoft.com/customcommands)
 * [Speech SDK 가져오기](speech-sdk.md)
