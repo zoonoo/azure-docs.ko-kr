@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902734"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292151"
 ---
 > [!NOTE]
 > 검색 하려면 `PHI` `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "84902734"
  
 끝점에 요청을 보낼 때 다음 엔터티 범주가 반환 됩니다 `/v3.1-preview.1/entities/recognition/pii` .
 
-| 범주   | 하위 범주 | Description                          | 시작 모델 버전 | 메모 |
+| Category   | 하위 범주 | Description                          | 시작 모델 버전 | 참고 |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | 해당 없음         | 사람의 이름입니다.  | `2019-10-01`  | 또한로 반환 `domain=phi` 됩니다. |
 | PersonType | 해당 없음         | 사용자가 보유 한 작업 유형 또는 역할 | `2020-02-01` | |
@@ -33,7 +33,7 @@ ms.locfileid: "84902734"
 | 조직 | 스포츠 | 스포츠 관련 조직. | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
 | 주소 | 해당 없음 | 전체 우편 주소  | `2020-04-01` | 또한로 반환 `domain=phi` 됩니다. |
 | EU GPS 좌표 | 해당 없음 | 유럽 연합 내의 위치에 대 한 GPS 좌표입니다.  | `2019-10-01` |  |
-| Email | 해당 없음 | 전자 메일 주소. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다.   |
+| 메일 | 해당 없음 | 전자 메일 주소. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다.   |
 | URL | 해당 없음 | 웹 사이트에 대 한 Url입니다. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | IP | 해당 없음 | 네트워크 IP 주소. | `2019-10-01` | |
 | DateTime | 해당 없음 | 날짜 및 시간입니다. | `2019-10-01` |  | 
@@ -51,7 +51,7 @@ ms.locfileid: "84902734"
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB 인증 키             | Azure DocumentDB 서버용 인증 키입니다.                           |
 | Azure IAAS 데이터베이스 연결 문자열 및 Azure SQL 연결 문자열 | Azure IaaS (Infrastructure as a service) 데이터베이스에 대 한 연결 문자열 및 SQL 연결 문자열입니다. |
-| Azure SQL 연결 문자열           | Azure SQL database에 대 한 연결 문자열입니다.                                |
+| Azure SQL 연결 문자열           | Azure SQL Database 데이터베이스에 대 한 연결 문자열입니다.                                |
 | Azure IoT 연결 문자열           | Azure IoT (사물 인터넷)에 대 한 연결 문자열입니다.                        |
 | Azure 게시 설정 암호        | Azure 게시 설정에 대 한 암호입니다.                                        |
 | Azure Redis Cache 연결 문자열   | Redis 용 Azure 캐시에 대 한 연결 문자열입니다.                             |
