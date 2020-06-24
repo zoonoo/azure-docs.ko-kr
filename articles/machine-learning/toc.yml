@@ -150,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: 엔터프라이즈 준비 및 보안
       items:
-        - name: 엔터프라이즈 보안
+        - name: 엔터프라이즈 보안 및 거버넌스
           items:
             - name: 엔터프라이즈 보안 개요
               displayName: authorization authentication encryption aad azure active directory
@@ -164,8 +164,8 @@
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: TLS로 웹 서비스 보호
-              href: how-to-secure-web-service.md
               displayName: ssl
+              href: how-to-secure-web-service.md
             - name: AKS 배포에서 Azure AD ID 사용
               href: how-to-use-azure-ad-identity.md
             - name: 스토리지 액세스 키 다시 생성
@@ -274,19 +274,16 @@
               href: how-to-differential-privacy.md
     - name: 모델 학습
       items:
+        - name: 학습 환경 설정
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
         - name: ML용 추정기 사용
           items:
             - name: 학습에서 추정 만들기
               href: how-to-train-ml-models.md
-            - name: 학습 환경 설정
-              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-              href: how-to-set-up-training-targets.md
             - name: hyperparameters 조정
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: 학습 시 Key Vault 사용
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -295,17 +292,33 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: 교육 추적 및 모니터링
+          items:
+            - name: '시작, 모니터링 또는 실행 취소'
+              displayName: 'cancel, fail, status, child run'
+              href: how-to-manage-runs.md
+            - name: 학습 실행에 대한 메트릭 로그
+              href: how-to-track-experiments.md
+            - name: MLflow로 실험 추적
+              displayName: 'log, monitor, metrics, Databricks'
+              href: how-to-use-mlflow.md
+            - name: TensorBoard로 시각화 실행
+              displayName: 'log, monitor, metrics'
+              href: how-to-monitor-tensorboard.md
+        - name: 모델 해석 및 설명
+          displayName: interpretability
+          items:
+            - name: ML 모델 해석
+              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: 자동화된 ML 모델 설명
+              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: 학습 시 Key Vault 사용
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
         - name: 보충 학습
           href: how-to-use-reinforcement-learning.md
-    - name: 모델 해석 및 설명
-      displayName: interpretability
-      items:
-        - name: ML 모델 해석
-          displayName: 'SDK, interpret, explain, explanability, interpretability'
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: 자동화된 ML 모델 설명
-          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
-          href: how-to-machine-learning-interpretability-automl.md
     - name: 기계 학습 자동화
       displayName: 'automl, auto ml'
       items:
@@ -334,19 +347,6 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: 차트 및 메트릭 이해
           href: how-to-understand-automated-ml.md
-    - name: 실험 추적 및 모니터링
-      items:
-        - name: '시작, 모니터링 또는 실행 취소'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: 학습 실행에 대한 메트릭 로그
-          href: how-to-track-experiments.md
-        - name: MLflow로 실험 추적
-          displayName: 'log, monitor, metrics, Databricks'
-          href: how-to-use-mlflow.md
-        - name: TensorBoard로 시각화 실행
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법
@@ -413,7 +413,6 @@
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Application Insights에서 파이프라인 디버깅
-          displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
         - name: 디자이너 변환 데이터
           displayName: pipeline
@@ -483,7 +482,7 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: 사용자 포럼
-      href: 'https://aka.ms/aml-forum-service'
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: ML 제품 비교

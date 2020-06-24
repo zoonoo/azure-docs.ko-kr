@@ -58,6 +58,10 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
+    - name: 현수 DNS 및 하위 도메인 인수
+      href: subdomain-takeover.md
+    - name: DDoS Protection 보안 기준
+      href: ddos-protection-security-baseline.md
     - name: 하이브리드 네트워크 아키텍처 보안
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
 - name: IaaS 보안
@@ -94,6 +98,8 @@
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 고객 Lockbox
       href: customer-lockbox-overview.md
+    - name: 고객 Lockbox에 대한 보안 기준
+      href: customer-lockbox-security-baseline.md
 - name: 애플리케이션
   items:
     - name: PaaS
@@ -103,7 +109,7 @@
           href: paas-applications-using-app-services.md
         - name: PaaS용 Azure Storage
           href: paas-applications-using-storage.md
-        - name: PaaS에 대한 DB 모범 사례
+        - name: PaaS용 DB 모범 사례
           href: paas-applications-using-sql.md
     - name: Azure Service Fabric 보안
       href: service-fabric-best-practices.md
@@ -139,3 +145,5 @@
       href: event-support-ticket.md
     - name: 펜 테스트
       href: pen-testing.md
+    - name: Azure 도메인
+      href: azure-domains.md

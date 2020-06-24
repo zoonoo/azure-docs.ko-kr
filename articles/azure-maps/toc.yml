@@ -244,7 +244,7 @@
           href: schema-stateset-stylesobject.md
         - name: 차량 소비 모델
           href: consumption-model.md
-        - name: GeoJSON 형식 확장
+        - name: 확장된 GeoJSON 형식
           href: extend-geojson.md
         - name: Geofence GeoJSON 형식
           href: geofence-geojson.md

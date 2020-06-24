@@ -35,6 +35,8 @@
 - name: 방법 가이드
   expanded: false
   items:
+    - Name: Azure AD 디바이스 배포 계획
+      href: plan-device-deployment.md
     - name: Azure AD 조인 구현 계획
       href: azureadjoin-plan.md
     - name: Azure AD 조인 디바이스에 로컬 관리자 할당

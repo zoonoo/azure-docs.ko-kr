@@ -41,7 +41,7 @@
       href: security-center-compliance-dashboard.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -102,7 +102,7 @@
       href: monitor-container-security.md
     - name: Microsoft Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
-    - name: Azure VM의 SQL에 대한 Advanced Data Security 사용
+    - name: SQL 머신에 고급 데이터 보안 사용
       href: security-center-iaas-advanced-data.md
     - name: App Service를 사용하여 애플리케이션 보호
       href: security-center-app-services.md

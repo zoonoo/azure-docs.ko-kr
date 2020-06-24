@@ -123,6 +123,8 @@
     - name: Azure에서 SAP NetWeaver 계획 및 구현
       href: planning-guide.md
       items:
+        - name: SAP 워크로드에 대한 Azure Storage 형식
+          href: planning-guide-storage.md
         - name: Azure 가상 머신의 SAP 워크로드 지원 시나리오
           href: sap-planning-supported-configurations.md
         - name: Azure 배포를 지원하는 SAP 소프트웨어
@@ -230,7 +232,7 @@
             - name: A(SCS) 인스턴스에 Pacemaker 다중 SID를 사용하는 RHEL
               href: high-availability-guide-rhel-multi-sid.md
     - name: SAP 재해 복구를 위한 Azure Site Recovery
-      href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
+      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
       href: sap-proximity-placement-scenarios.md
 - name: AAD SAP ID 통합 및 Single-Sign-On

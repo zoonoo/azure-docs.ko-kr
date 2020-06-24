@@ -69,6 +69,8 @@
         - name: 수정할 수 있는 정책 배포
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Sentinel 통합
+      href: ./how-to/manage-sentinel-workspaces.md
     - name: 고객 작업
       items:
         - name: 서비스 공급자 보기 및 관리

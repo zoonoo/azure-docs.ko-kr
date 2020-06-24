@@ -16,6 +16,8 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - 프라이빗 클라우드 스케일링
       href: tutorial-scale-private-cloud.md
+    - name: 6 - VM을 배포할 콘텐츠 라이브러리 만들기
+      href: tutorial-deploy-vm-content-library.md
 - name: 개념
   items:
     - name: 프라이빗 클라우드 및 클러스터
@@ -28,6 +30,8 @@
       href: concepts-identity.md
     - name: 프라이빗 클라우드 업그레이드
       href: concepts-upgrades.md
+    - name: AVS VM에 대한 API 관리
+      href: concepts-api-management.md
 - name: 방법 가이드
   items:
     - name: HCX 설정

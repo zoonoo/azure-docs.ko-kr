@@ -12,7 +12,7 @@
     - name: ServiceNow
       href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: AWS(Amazon Web Services) - 역할 프로비저닝
-      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Workday
       href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: SAP SuccessFactors
@@ -45,6 +45,8 @@
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: 범위를 벗어난 사용자에 대해 삭제 건너뛰기
           href: skip-out-of-scope-deletions.md
+    - name: 주문형 프로비저닝
+      href: provision-on-demand.md
     - name: 프로비저닝 모니터링 및 보고
       items:
         - name: 프로비저닝 상태 및 성능 모니터링

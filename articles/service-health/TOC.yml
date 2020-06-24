@@ -30,7 +30,9 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: OpsGenie에 경고 보내기
       href: service-health-alert-webhook-opsgenie.md
-    - name: 리소스 상태 이벤트에 대한 경고 구성
+    - name: Azure Portal을 사용하여 리소스 상태 경고 구성
+      href: resource-health-alert-monitor-guide.md
+    - name: Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
       href: resource-health-alert-arm-template-guide.md
 - name: 참조
   items:

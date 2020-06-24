@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
-  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+  ms.openlocfilehash: 3d06144a9b0a39e7fe0dfbaf7fbdd789ef439336
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "83871798"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85297837"
 landingContent:
 - title: Azure Lighthouse
   linkLists:
@@ -71,15 +71,17 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: 서비스 공급자 보기 및 관리
       url: ./how-to/view-manage-service-providers.md
-- title: Azure 서비스 작업
+- title: 대규모 Azure 서비스 작업
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 대규모로 Azure Monitor 로그 사용
+    - text: Azure Sentinel 작업 영역 관리
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Azure Monitor 로그 사용
       url: ./how-to/monitor-at-scale.md
     - text: 위임 변경 모니터링
       url: ./how-to/monitor-at-scale.md
-    - text: 대규모로 Azure Policy 배포
+    - text: Azure Policy 배포
       url: ./how-to/policy-at-scale.md
     - text: 수정할 수 있는 정책 배포
       url: ./how-to/deploy-policy-remediation.md
