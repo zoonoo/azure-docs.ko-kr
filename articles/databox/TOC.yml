@@ -46,8 +46,12 @@
                   href: data-box-system-requirements-rest.md
             - name: 제한 이해
               href: data-box-limits.md
-            - name: 보안 검토
-              href: data-box-security.md
+            - name: 보안
+              items:
+                - name: 보안 기준
+                  href: security-baseline.md
+                - name: 보안 검토
+                  href: data-box-security.md
             - name: FAQ
               href: data-box-faq.md
         - name: 방법

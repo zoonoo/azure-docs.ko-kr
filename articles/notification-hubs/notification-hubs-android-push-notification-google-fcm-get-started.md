@@ -6,24 +6,22 @@ documentationcenter: android
 keywords: 푸시 알림, 푸시알림, Android 푸시 알림, FCM, Firebase Cloud Messaging
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/11/2019
+ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 244e9d9136705eeef27680d2fa590d283abb6467
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170446"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255469"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>자습서: Firebase SDK 버전 0.6을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -556,11 +554,13 @@ ms.locfileid: "84170446"
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>에뮬레이터에서 모바일 앱 실행
+
 에뮬레이터 내부에서 푸시 알림을 테스트하기 전에 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생할 수 있습니다.
 
 또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 Firebase Cloud Messaging을 사용하여 서비스에 등록된 모든 Android 디바이스로 알림을 브로드캐스트했습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]

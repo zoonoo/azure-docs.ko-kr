@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e46f9dabe2b6f38a08b8e14bae845e0fee22457
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673414"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081023"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -43,6 +43,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |지원되는 서비스  |사용 가능한 지역 | 상태  |
 |:-------------------|:-----------------|:--------|
 |표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Automation  | 모든 공용 지역 | 미리 보기 | |
 | Azure Storage        |  모든 공용 지역       | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  모든 공용 지역      | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | 모든 공용 지역      |   GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |

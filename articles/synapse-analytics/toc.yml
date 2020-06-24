@@ -106,6 +106,8 @@
               href: ./spark/apache-spark-history-server.md
     - name: 보안
       items:
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 네트워크 보안
           items:
             - name: Synapse 작업 영역 IP 방화벽 규칙
