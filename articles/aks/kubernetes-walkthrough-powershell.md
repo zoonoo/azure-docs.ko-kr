@@ -4,12 +4,12 @@ description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a89f76344e48d5af8c71c5a674a94767795b41a9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 74a71bdc4c9aef9a6964f0c9120a902262a50526
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871482"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207144"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -47,7 +47,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 다음 예제 출력에서는 성공적으로 만들어진 리소스 그룹이 나와 있습니다.
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -92,7 +92,7 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 
 다음 예제 출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 **준비**인지 확인합니다.
 
-```Output
+```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ```
@@ -200,7 +200,7 @@ spec:
 
 다음 예제 출력에는 성공적으로 만들어진 배포 및 서비스가 나와 있습니다.
 
-```Output
+```plaintext
 deployment.apps/azure-vote-back created
 service/azure-vote-back created
 deployment.apps/azure-vote-front created
@@ -220,14 +220,14 @@ service/azure-vote-front created
 
 처음에는 **azure-vote-front** 서비스에 대한 **EXTERNAL-IP**가 **보류 중**으로 표시됩니다.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 **EXTERNAL-IP** 주소가 **보류 중**에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
-```Output
+```plaintext
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

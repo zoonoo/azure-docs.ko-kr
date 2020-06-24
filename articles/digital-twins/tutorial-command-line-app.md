@@ -8,12 +8,12 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 2534b2ef2eec0ca993ee2506dcc285d750ba38ce
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737203"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262350"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -81,7 +81,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 > 모델을 직접 만들려는 경우 *AdtSampleApp\SampleClientApp\Models* 폴더에 *.json* 확장자로 저장하는 새 파일에 *Room* 모델 코드를 붙여 넣을 수 있습니다. 그런 다음, 속성과 관계를 추가하여 원하는 대로 구성합니다. 이 폴더의 다른 샘플 모델을 보고 아이디어를 얻을 수도 있습니다.
 
 > [!TIP] 
-> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://github.com/Azure-Samples/DTDL-Validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)를 참조하세요.
+> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)를 참조하세요.
 
 ### <a name="get-started-with-the-command-line-app"></a>명령줄 앱 시작
 

@@ -3,16 +3,16 @@ title: Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 CI/CD 파�
 description: Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 빌드 및 릴리스 워크플로를 설정하는 방법에 대한 자습서
 author: deborahc
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 521d5d8d587b39cf573dedc37ea9f6fd53646e66
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410961"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262126"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 

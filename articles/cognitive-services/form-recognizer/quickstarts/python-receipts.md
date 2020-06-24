@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 8fe179cb3bc965112ece9e2be4b98d758c4db28f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d798b3b35bbe051700c44ee362f8f517adb4a7a3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606261"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209133"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="analyze-a-receipt"></a>영수증 분석
 
-영수증 분석을 시작하기 위해, 아래 Python 스크립트를 사용하여 **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
+영수증 분석을 시작하기 위해, 아래 Python 스크립트를 사용하여 **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `<your receipt URL>`을 영수증 이미지의 URL 주소로 바꿉니다.
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/prebuilt/receipt/analyze"
+    post_url = endpoint + "/formrecognizer/v2.0/prebuilt/receipt/analyze"
     source = r"<path to your receipt>"
     
     headers = {
@@ -89,12 +89,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **Operation-Location** 헤더가 포함된 `202 (Success)` 응답을 받게 되며, 스크립트가 콘솔에 인쇄됩니다. 이 헤더에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 작업 ID가 포함됩니다. 다음 예제 값에서 `operations/` 다음 문자열은 작업 ID입니다.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-receipt-results"></a>영수증 결과 가져오기
 
-**Analyze Receipt** API를 호출한 후 **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 새 API 호출에서 작업 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
+**Analyze Receipt** API를 호출한 후 **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeReceiptResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 새 API 호출에서 작업 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
 
 ```python
 n_tries = 10
@@ -466,4 +466,4 @@ while n_try < n_tries:
 이 빠른 시작에서는 Python과 Form Recognizer REST API를 사용하여 판매 영수증의 콘텐츠를 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)

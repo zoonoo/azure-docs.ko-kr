@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780524"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262211"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 여러 데이터 원본에서 인덱스
 
@@ -21,7 +21,7 @@ Azure Cognitive Search는 데이터를 여러 데이터 원본에서 단일 통�
 
 이 자습서에서는 Azure Cosmos DB 데이터 원본의 호텔 데이터를 인덱싱하고, 이를 Azure Blob Storage 문서에서 가져온 호텔 객실 세부 정보와 병합하는 방법에 대해 설명합니다. 결과는 복잡한 데이터 형식이 포함된 결합형 호텔 검색 인덱스가 됩니다.
 
-이 자습서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용합니다. 이 자습서에서 수행하는 작업은 다음과 같습니다.
+이 자습서에서는 C# 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용합니다. 이 자습서에서 수행하는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 샘플 데이터 업로드 및 데이터 원본 만들기

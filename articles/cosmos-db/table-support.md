@@ -3,17 +3,17 @@ title: Azure Cosmos DB에서 Azure Table Storage 지원
 description: 동일한 테이블 데이터 모델 작업을 공유하여 Azure Cosmos DB Table API와 Azure Storage Tables를 함께 작동하는 방법 알아보기
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: overview
+ms.topic: how-to
 ms.date: 05/21/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 6f10763f6906f67a3378d54df0574060294ef87d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 28c58251d9a30b3bae9d958c32c4d6a71f86aaae
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800383"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263214"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 

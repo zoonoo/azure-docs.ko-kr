@@ -54,8 +54,12 @@
       href: expressroute-global-reach.md
     - name: ExpressRoute 암호화 정보
       href: expressroute-about-encryption.md
-    - name: 보안 컨트롤
-      href: expressroute-security-controls.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
+        - name: 보안 특성
+          href: expressroute-security-controls.md
     - name: 가상 네트워크 게이트웨이 정보
       href: expressroute-about-virtual-network-gateways.md
     - name: 퍼블릭 클라우드에 Azure 연결
@@ -210,7 +214,7 @@
 - name: 참조
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#expressroute'
+      href: /powershell/module/az.network#expressroute
     - name: Azure CLI
       href: /cli/azure/network/express-route
     - name: REST (영문)

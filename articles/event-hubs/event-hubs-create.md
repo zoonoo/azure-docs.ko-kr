@@ -7,14 +7,15 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/04/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 7562dc9a70fc462cb9d623a5184fb672a7f7ca39
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.reviewer: shvija
+ms.openlocfilehash: 53663bf1dc763e43b82a89a394aab18595d1a7f6
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860259"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296648"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
