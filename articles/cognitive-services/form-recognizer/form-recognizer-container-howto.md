@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 761cf5831bb2332ae8c3f7a9a8edee707e6810ee
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816338"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213196"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>양식 인식기 컨테이너 설치 및 실행 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure 양식 인식기는 기계 학습 기술을 적용 하 여 양식에서 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 양식 인식기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |----------|---------|
 | Docker 엔진 | [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br> |
 | Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념을 기본적으로 이해 하 고 기본 명령에 대 한 지식이 있어야 합니다 `docker` . |
-| Azure CLI | 호스트에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 설치 합니다. |
+| Azure CLI | 호스트에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 합니다. |
 | Computer Vision API 리소스 | 스캔 한 문서와 이미지를 처리 하려면 Computer Vision 리소스가 필요 합니다. 텍스트 인식 기능에 Azure 리소스 (REST API 또는 SDK) 또는 인식 *서비스 인식-텍스트* [컨테이너](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)중 하나로 액세스할 수 있습니다. 일반 청구 요금이 적용됩니다. <br><br>Computer Vision 리소스 (Azure 클라우드 또는 Cognitive Services 컨테이너)에 대 한 API 키와 끝점을 모두 전달 합니다. 이 API 키와 끝점을 **{COMPUTER_VISION_API_KEY}** 및 **{COMPUTER_VISION_ENDPOINT_URI}** 로 사용 합니다.<br><br> 인식 *서비스-인식-텍스트* 컨테이너를 사용 하는 경우 다음을 확인 합니다.<br><br>양식 인식기 컨테이너의 Computer Vision 키는 인식 `docker run` *서비스 인식-텍스트* 컨테이너의 Computer Vision 명령에 지정 된 키입니다.<br>청구 끝점은 컨테이너의 끝점 (예: `http://localhost:5000` )입니다. 동일한 호스트에서 Computer Vision 컨테이너와 폼 인식기 컨테이너를 함께 사용 하는 경우 기본 포트인 *5000*를 사용 하 여 시작할 수 없습니다. |
 | Form Recognizer 리소스 | 이러한 컨테이너를 사용 하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure **양식 인식기** 리소스입니다. 두 값은 모두 Azure Portal **폼 인식기** 개요 및 키 페이지에서 사용할 수 있으며 두 값 모두 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{FORM_RECOGNIZER_API_KEY}**: 키 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: 개요 페이지에 제공 된 끝점입니다. |
 

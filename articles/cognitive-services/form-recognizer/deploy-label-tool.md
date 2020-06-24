@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117270"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212448"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -82,14 +82,14 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    > [!div class="mx-imgBorder"]
    > ![Docker 구성](./media/quickstarts/formre-configure-docker.png)
 
-7. 이것으로 끝입니다. 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
+7. 이제 끝났습니다! 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 만들 수 있습니다. 계속 하기 전에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치 해야 합니다. 이미 Azure CLI 작업 하 고 있는 경우이 단계를 건너뛸 수 있습니다. 
+Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 만들 수 있습니다. 계속 하기 전에 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)을 설치 해야 합니다. 이미 Azure CLI 작업 하 고 있는 경우이 단계를 건너뛸 수 있습니다. 
 
 이 명령에 대해 알아야 할 몇 가지 사항이 있습니다.
 
