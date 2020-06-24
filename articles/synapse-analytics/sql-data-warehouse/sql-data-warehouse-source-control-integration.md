@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415094"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205121"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
 
@@ -81,4 +81,4 @@ ms.locfileid: "81415094"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 풀 개발을 위한 개발](sql-data-warehouse-overview-develop.md)
+- [SQL 풀 개발](sql-data-warehouse-overview-develop.md)

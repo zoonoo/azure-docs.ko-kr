@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/23/2020
+ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780762"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261021"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure SQL 데이터 인덱싱
 
 Azure SQL 데이터베이스에서 검색 가능한 데이터를 추출하여 Azure Cognitive Search의 검색 인덱스로 보내는 [인덱서](search-indexer-overview.md)를 구성합니다. 
 
-이 자습서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 C# 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure SQL Database에 연결하는 데이터 원본 만들기
