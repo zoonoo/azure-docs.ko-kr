@@ -3,12 +3,12 @@ title: QnA Maker 서비스 설정-QnA Maker
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235528"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214131"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -51,7 +51,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
     * Application Insights 리소스를 배포할 **앱 정보 위치** 를 선택 합니다.
     * 비용 절감 측정값의 경우, QnA Maker용으로 생성된 일부(전체는 아님) Azure 리소스를 [공유](#configure-qna-maker-to-use-different-cognitive-search-resource)할 수 있습니다.
 
-1. 모든 필드의 유효성을 검사 한 후 **만들기**를 선택 합니다. 프로세스를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. 모든 필드의 유효성을 검사 한 후 **만들기**를 선택 합니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
 1. 배포가 완료 되 면 구독에 다음과 같은 리소스가 생성 됩니다.
 
@@ -60,9 +60,9 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
     _Cognitive Services_ 형식의 리소스에는 _구독_ 키가 있습니다.
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Azure Portal에서 구독 키 찾기
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
 
-QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 확인 하 고 다시 설정할 수 있습니다.
+QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다. 
 
 1. Azure Portal의 QnA Maker 리소스로 이동 하 고 _Cognitive Services_ 형식의 리소스를 선택 합니다.
 
@@ -72,7 +72,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 확인 하 고 �
 
     ![구독 키](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>QnA Maker 포털에서 끝점 키 찾기
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>QnA Maker 포털에서 쿼리 끝점 키 찾기
 
 끝점은 기술 자료에 대 한 호출을 수행 하는 데 사용 되므로 끝점은 리소스와 동일한 영역에 있습니다.
 
@@ -206,7 +206,7 @@ App Service [응용 프로그램 설정을](../../../app-service/configure-commo
     > [!div class="mx-imgBorder"]
     > ![구성 창에서 * * 일반 설정 * *을 선택 하 고 * * Always on * *을 찾은 다음 값으로 * *를 선택 합니다.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
 
-1. **저장** 을 선택하여 구성을 저장합니다.
+1. **저장** 을 선택 하 여 구성을 저장 합니다.
 1. 새 설정을 사용 하도록 앱을 다시 시작할지 묻는 메시지가 표시 됩니다. **계속**을 선택합니다.
 
 App Service [일반 설정을](../../../app-service/configure-common.md#configure-general-settings)구성 하는 방법에 대해 자세히 알아보세요.

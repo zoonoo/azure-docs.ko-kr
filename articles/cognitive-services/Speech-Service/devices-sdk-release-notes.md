@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780915"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212499"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
@@ -39,10 +39,10 @@ ms.locfileid: "82780915"
 
 - 이제 Linux ARM이 지원 됩니다.
 - [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2) 의 초기 이진 파일이 제공 됩니다 (Linux ARM64).
-- Windows 사용자는 또는 `AudioConfig.fromDefaultMicrophoneInput()` `AudioConfig.fromMicrophoneInput(deviceName)` 을 사용 하 여 사용할 마이크를 지정할 수 있습니다.
+- Windows 사용자 `AudioConfig.fromDefaultMicrophoneInput()` 는 또는을 사용 하 여 `AudioConfig.fromMicrophoneInput(deviceName)` 사용할 마이크를 지정할 수 있습니다.
 - 라이브러리 크기가 최적화 되었습니다.
 - 동일한 음성/의도 인식기 개체를 사용 하 여 다중 전환 인식 지원.
-- 인식을 중지 하는 동안 발생 하는 때때로 중단을 해결 합니다.
+- 인식을 중지 하는 동안 프로세스가 응답을 중지 하는 간헐적 문제를 해결 합니다.
 - 이제 샘플 앱에는 파일 형식을 보여 주는 샘플 참가자. 속성 파일이 포함 되어 있습니다.
 - [SPEECH SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.7.0 버전으로 업데이트 되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 

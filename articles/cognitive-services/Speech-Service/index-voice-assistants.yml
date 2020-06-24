@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82106205"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85299384"
 landingContent:
 - title: 음성 도우미 정보
   linkLists:
@@ -42,24 +42,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 사용자 지정 명령 앱 만들기
-      url: quickstart-custom-speech-commands-create-new.md
-    - text: 매개 변수를 사용하여 사용자 지정 명령 만들기
-      url: quickstart-custom-speech-commands-create-parameters.md
-    - text: 사용자 지정 음성과 함께 사용자 지정 명령 사용
-      url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Speech SDK를 통해 사용자 지정 명령 사용
-      url: quickstart-custom-speech-commands-speech-sdk.md
+    - text: 사용자 지정 명령을 사용하여 음성 도우미 만들기
+      url: quickstart-custom-commands-application.md
   - linkListType: how-to-guide
     links:
-    - text: 클라이언트에서 명령 수행
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: 매개 변수 유효성 검사 추가
-      url: how-to-custom-speech-commands-validations.md
-    - text: 확인 추가
-      url: how-to-custom-speech-commands-confirmations.md
-    - text: 1단계 수정 추가
-      url: how-to-custom-speech-commands-one-step-correction.md
+    - text: 간단한 명령을 사용 하 여 응용 프로그램 만들기
+      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: 명령에 매개 변수 추가
+      url: how-to-custom-commands-add-parameters-to-commands.md
+    - text: 매개 변수 및 수정 프롬프트에 유효성 검사 추가
+      url: how-to-custom-commands-add-parameter-configuration.md
+    - text: Speech SDK를 사용 하 여 통합
+      url: how-to-custom-commands-setup-speech-sdk.md
+    - text: Azure DevOps를 사용 하 여 사용자 지정 명령 앱에 대 한 연속 배포 설정
+      url: how-to-custom-commands-deploy-cicd.md
 - title: 직접 라인 음성으로 개발
   linkLists:
   - linkListType: quickstart
