@@ -7,20 +7,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 02/27/2020
-ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/18/2020
+ms.openlocfilehash: 56af098050315e1b2cb0bdde531cc38452db4738
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343798"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079378"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
-> 제공된 자습서는 **공개 미리 보기**에 있습니다. 
->
 > 이 자습서에서는 RHEL 7.6에서 SQL Server 2017을 사용하지만, RHEL 7 또는 RHEL 8에서 SQL Server 2019를 사용하여 고가용성을 구성할 수 있습니다. 가용성 그룹 리소스를 구성하는 명령은 RHEL 8에서 변경되었습니다. 올바른 명령에 대한 자세한 내용은 [가용성 그룹 리소스](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) 및 RHEL 8 리소스 만들기 문서를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.

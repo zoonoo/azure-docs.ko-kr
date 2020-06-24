@@ -8,18 +8,18 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747774"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212907"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽
 
 Azure Application Gateway의 Azure WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. 그 중에서 SQL 삽입 및 사이트 간 스크립팅은 가장 흔한 공격 방식입니다.
 
-Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [CRS(핵심 규칙 세트)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 또는 2.2.9를 기반으로 합니다. WAF는 새로운 취약점에 대한 방어 기능을 포함하도록 자동으로 업데이트되며, 추가 구성이 필요 없습니다. 
+Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [CRS(핵심 규칙 세트)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 또는 2.2.9를 기반으로 합니다. WAF는 새로운 취약점에 대한 방어 기능을 포함하도록 자동으로 업데이트되며, 추가 구성이 필요 없습니다. 
 
 아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 여러 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
 

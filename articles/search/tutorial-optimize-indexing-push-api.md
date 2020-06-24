@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 85ac56eb20eabf308d6686a047d8c5ede914fed9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82941760"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079217"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>자습서: 푸시 API를 사용하여 인덱싱 최적화
 
@@ -21,7 +21,7 @@ Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [
 
 이 자습서에서는 요청을 일괄 처리하고 지수 백오프 다시 시도 전략을 사용하여 [푸시 모델](search-what-is-data-import.md#pushing-data-to-an-index)을 통해 데이터를 효율적으로 인덱싱하는 방법에 대해 설명합니다. [애플리케이션을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing)할 수 있습니다. 이 문서에서는 애플리케이션의 주요 측면과 데이터를 인덱싱할 때 고려해야 하는 요소에 대해 설명합니다.
 
-이 자습서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 C# 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 인덱스 만들기

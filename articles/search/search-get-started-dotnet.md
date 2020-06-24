@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634936"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079390"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>빠른 시작: .NET에서 검색 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "84634936"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Visual Studio와 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 C#의 .NET Core 콘솔 애플리케이션을 만듭니다. 
+Visual Studio와 [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 C#의 .NET Core 콘솔 애플리케이션을 만듭니다. 
 
 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 설명합니다. 또한 코드를 미리 이동하려는 경우 [전체 응용 프로그램을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart)할 수도 있습니다.
 
@@ -64,7 +64,7 @@ Visual Studio와 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-[Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)는 NuGet 패키지로 배포되는 몇 가지 클라이언트 라이브러리로 구성됩니다.
+[Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)는 NuGet 패키지로 배포되는 몇 가지 클라이언트 라이브러리로 구성됩니다.
 
 이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 9와 최신 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 사용합니다.
 

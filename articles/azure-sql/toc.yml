@@ -664,12 +664,15 @@
     - name: 빠른 시작
       href: managed-instance/quickstart-content-reference-guide.md
       items:
-        - name: 생성
+        - name: SQL Managed Instance 만들기
           items:
-            - name: Azure Portal 사용
+            - name: Azure portal
               href: managed-instance/instance-create-quickstart.md
-            - name: PowerShell 사용
+            - name: PowerShell
               href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+            - name: ARM 템플릿
+              displayName: Resource Manager
+              href: managed-instance/create-template-quickstart.md
             - name: 인스턴스 풀 만들기
               href: managed-instance/instance-pools-configure.md
         - name: 구성

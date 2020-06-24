@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 3075ece58b44caa2077855c7ba8fcd9d949c336b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 12af4c57fd906d687eedfe7c865d36abaa0da18e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610885"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209150"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -65,8 +65,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 서비스에서 레이블 지정 학습에 해당 입력 파일을 고려하려면 OCR 결과 파일이 필요합니다. 지정된 원본 양식에 대한 OCR 결과를 얻으려면 다음 단계를 수행합니다.
 
-1. 요청 본문의 일부로 입력 파일을 사용하여 읽기 레이아웃 컨테이너에서 **[분석 레이아웃](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** API를 호출합니다. 응답의 **작업 위치** 헤더에서 찾은 ID를 저장합니다.
-1. 이전 단계의 작업 ID를 사용하여 **[분석 레이아웃 결과 가져오기](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API를 호출합니다.
+1. 요청 본문의 일부로 입력 파일을 사용하여 읽기 레이아웃 컨테이너에서 **[분석 레이아웃](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeLayoutAsync)** API를 호출합니다. 응답의 **작업 위치** 헤더에서 찾은 ID를 저장합니다.
+1. 이전 단계의 작업 ID를 사용하여 **[분석 레이아웃 결과 가져오기](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeLayoutResult)** API를 호출합니다.
 1. 응답을 가져오고 파일에 콘텐츠를 씁니다. 각 원본 양식과 관련하여, 해당 OCR 파일의 원래 파일 이름에 `.ocr.json`을 추가해야 합니다. OCR JSON 출력 형식은 다음과 같습니다. 전체 예제는 [샘플 OCR 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json)을 참조하세요. 
 
     ```json
@@ -197,7 +197,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="train-a-model-using-labeled-data"></a>레이블 지정 데이터를 사용하여 모델 학습
 
-레이블 지정 데이터로 모델을 학습시키려면 다음 python 코드를 실행하여 **[사용자 지정 모델 학습](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API를 호출합니다. 코드를 실행하기 전에 다음과 같이 변경합니다.
+레이블 지정 데이터로 모델을 학습시키려면 다음 python 코드를 실행하여 **[사용자 지정 모델 학습](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** API를 호출합니다. 코드를 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 리소스의 엔드포인트 URL로 대체합니다.
 1. `<SAS URL>`을 Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL로 바꿉니다. SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
@@ -211,7 +211,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -561,4 +561,4 @@ print("Train operation did not complete within the allocated time.")
 이 빠른 시작에서는 Python과 함께 Form Recognizer REST API를 사용하여 수동 레이블 지정 데이터로 모델을 학습시키는 방법을 알아보았습니다. 다음으로, API 참조 설명서를 통해 Form Recognizer API에 대해 자세히 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)
