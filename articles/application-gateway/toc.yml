@@ -70,8 +70,6 @@
           href: redirect-overview.md
         - name: HTTP 헤더 다시 쓰기
           href: rewrite-http-headers.md
-        - name: 사용자 지정 오류 페이지
-          href: custom-error.md
     - name: SSL
       items:
         - name: SSL 종료 및 엔드투엔드 SSL
@@ -240,6 +238,8 @@
           href: log-analytics.md
         - name: 백 엔드 상태 이슈
           href: application-gateway-backend-health-troubleshooting.md
+    - name: 사용자 지정 오류 페이지
+      href: custom-error.md
     - name: v1에서 v2로 마이그레이션
       href: migrate-v1-v2.md
 - name: 참조
