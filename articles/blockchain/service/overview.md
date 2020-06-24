@@ -4,12 +4,12 @@ description: Azure Blockchain Service 개요
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 8a73ed45279ce224441ea9c021b565e63bc4fc63
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: d7aedbc837a58a65fe4c29dbdeed8662d94fc534
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432232"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214080"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -59,7 +59,7 @@ Azure Log Analytics를 통해 사용자는 Quorum 원장과 관련된 로그 또
 
 ## <a name="develop-using-familiar-development-tools"></a>친숙한 개발 도구를 사용하여 개발
 
-오픈 소스 Quorum Ethereum 원장을 기준으로, 기존 Ethereum 애플리케이션에 대해 수행하는 것과 동일한 방식으로 Azure Blockchain Service용 애플리케이션을 개발할 수 있습니다. 선두적인 업계 파트너와 협력하면서 Azure Blockchain Development Kit Visual Studio Code 확장을 사용하여 개발자들은 Truffle Suite와 같은 친숙한 도구를 통해 스마트 계약을 빌드할 수 있습니다. 개발자는 Azure Blockchain Development Kit 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 사용자는 Azure Blockchain Visual Studio Code 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 자세한 내용은 [VS Code 마켓플레이스의 Azure Blockchain Development Kit](https://aka.ms/vscodebcextension) 및 [Azure Blockchain Development Kit 사용자 가이드](https://aka.ms/vscodebcextensionwiki)를 참조하세요.
+오픈 소스 Quorum Ethereum 원장을 기준으로, 기존 Ethereum 애플리케이션에 대해 수행하는 것과 동일한 방식으로 Azure Blockchain Service용 애플리케이션을 개발할 수 있습니다. 선두적인 업계 파트너와 협력하면서 Azure Blockchain Development Kit Visual Studio Code 확장을 사용하여 개발자들은 Truffle Suite와 같은 친숙한 도구를 통해 스마트 계약을 빌드할 수 있습니다. 사용자는 Azure Blockchain Visual Studio Code 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 자세한 내용은 [VS Code 마켓플레이스의 Azure Blockchain Development Kit](https://aka.ms/vscodebcextension) 및 [Azure Blockchain Development Kit 사용자 가이드](https://aka.ms/vscodebcextensionwiki)를 참조하세요.
 
 ## <a name="publish-blockchain-data"></a>블록체인 데이터 게시
 

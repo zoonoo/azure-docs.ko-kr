@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79499635"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130758"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -25,7 +25,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 ## <a name="sign-up-for-video-indexer"></a>Video Indexer에 가입
 
-Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://www.videoindexer.com) 웹 사이트로 이동하고 가입합니다.
+Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 가입합니다.
 
 > [!NOTE]
 > Video Indexer를 사용하기 시작하면 저장된 모든 데이터와 업로드된 콘텐츠가 Microsoft 관리 키를 사용하여 미사용으로 암호화됩니다.

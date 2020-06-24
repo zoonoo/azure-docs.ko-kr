@@ -27,7 +27,7 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-logic-apps'
     - name: Resource Manager 빠른 시작 템플릿
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -44,6 +44,10 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: 비즈니스 연속성 및 재해 복구
       href: business-continuity-disaster-recovery-guidance.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 개발
