@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc1d0687c0d2d48a64e38fd5a57fe32c13063890
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: e365503ba975f8cc93302bd3f1084c2cdd4f254f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760306"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114030"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -50,7 +50,9 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 > Windows Server 2019에 커넥터를 설치하는 경우 WinHttp 구성 요소에서 HTTP2 프로토콜 지원을 사용하지 않도록 설정해야 합니다. 이는 지원되는 운영 체제의 이전 버전에서는 기본적으로 사용되지 않습니다. 다음 레지스트리 키를 추가하고 서버를 다시 시작하면 Windows Server 2019에서 서버를 사용할 수 없게 됩니다. 이는 머신 전체 레지스트리 키입니다.
 >
 > ```
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> Windows Registry Editor Version 5.00
+> 
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
 > ```
 >
 
