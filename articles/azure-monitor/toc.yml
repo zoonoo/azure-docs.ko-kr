@@ -60,7 +60,7 @@
           href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: 개요
           href: samples/resource-manager-samples.md
@@ -615,6 +615,8 @@
               href: app/remove-application-insights.md
         - name: 코드 없는 모니터링
           items:
+            - name: 개요
+              href: app/codeless-overview.md
             - name: Azure VM 및 확장 집합
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service
@@ -1231,7 +1233,7 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       items:
         - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions

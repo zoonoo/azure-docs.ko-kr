@@ -30,9 +30,9 @@
     - name: 서비스 사용자를 사용한 자동화
       href: analysis-services-service-principal.md
     - name: 클라이언트 라이브러리
-      href: analysis-services-data-providers.md
+      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
     - name: 호환성 수준
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
     - name: 온-프레미스 데이터 원본에 연결
       href: analysis-services-gateway.md
     - name: 서버에 연결
