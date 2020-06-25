@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 23ecfc96c8f75dbae4cfb02cc16f5e5de359c4f6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210731"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362179"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -274,8 +274,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 일본어                | `ja`          |
 | 칸나다어                 | `kn`          |
 | 스와힐리어               | `sw`          |
-| 클링곤어                 | `tlh`         |
-| 클링곤어(plqaD)         | `tlh-Qaak`    |
+| 클링곤어                 | `tlh-Latn`    |
+| 클링곤어(plqaD)         | `tlh-Piqd`    |
 | 한국어                  | `ko`          |
 | 라트비아어                 | `lv`          |
 | 리투아니아어              | `lt`          |

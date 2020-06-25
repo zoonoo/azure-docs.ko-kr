@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 데이터 보안
       items:
         - name: 보안 자산 암호화
@@ -63,6 +67,8 @@
           href: how-to/automation-region-dns-records.md
         - name: Automation 실행 계정 관리
           href: manage-runas-account.md
+        - name: 자동화 계정에 비공개로 연결
+          href: how-to/private-link-security.md
         - name: 역할 권한 및 보안 관리
           href: automation-role-based-access-control.md
         - name: Automation 계정을 다른 구독으로 이동

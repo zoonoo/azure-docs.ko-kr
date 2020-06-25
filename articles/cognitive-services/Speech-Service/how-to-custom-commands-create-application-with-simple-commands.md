@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308046"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362410"
 ---
-# <a name="create-application-with-simple-commands"></a>간단한 명령을 사용 하 여 응용 프로그램 만들기
+# <a name="create-application-with-simple-commands"></a>간단한 명령으로 애플리케이션 만들기
 
 이 문서에서는 다음 방법을 설명합니다.
  - 빈 응용 프로그램 만들기
@@ -26,6 +26,10 @@ ms.locfileid: "85308046"
 
 ## <a name="create-empty-application"></a>빈 응용 프로그램 만들기
 빈 사용자 지정 명령 응용 프로그램을 만듭니다. 자세한 내용은 [빠른](quickstart-custom-commands-application.md)시작을 참조 하세요. 이번에는 프로젝트를 가져오는 대신 빈 프로젝트를 만듭니다.
+
+1. **이름** 상자에 프로젝트 이름 `Smart-Room-Lite` (또는 원하는 다른 항목)을 입력 합니다.
+1. **언어** 목록에서 **영어 (미국)** 를 선택 합니다.
+1. 선택한 LUIS 리소스를 선택 하거나 만듭니다.
 
    > [!div class="mx-imgBorder"]
    > ![프로젝트 만들기](media/custom-commands/create-new-project.png)
@@ -36,7 +40,7 @@ ms.locfileid: "85308046"
 
 ## <a name="add-turnon-command"></a>TurnOn 명령 추가
 
-**스마트 방-lite** 사용자 지정 명령 응용 프로그램에서 utterance를 처리 하 고 메시지를 사용 하 여 응답 하는 간단한 명령을 추가 `turn on the tv` `Ok, turning the tv on` 합니다.
+방금 만든 빈 **스마트 공간-Lite** 사용자 지정 명령 응용 프로그램에서 utterance를 처리 하 고 메시지에 응답 하는 간단한 명령을 추가 합니다 `turn on the tv` `Ok, turning the tv on` .
 
 1. 왼쪽 창의 맨 위에 있는 **새 명령** 을 선택 하 여 새 명령을 만듭니다. **새 명령** 창이 열립니다.
 1. **이름** 필드의 값을 **TurnOn**로 지정 합니다.
@@ -74,7 +78,7 @@ ms.locfileid: "85308046"
 
 다음에는 명령에 완료 규칙이 있어야 합니다. 이 규칙은 사용자에 게 처리 작업을 수행 하 고 있음을 알려 줍니다. 규칙 및 완료 규칙에 대 한 자세한 내용을 보려면 [참조](./custom-commands-references.md)로 이동 하세요.
 
-1. 기본 완료 규칙 **완료** 를 선택 하 고 다음과 같이 편집 합니다. 
+1. 기본 완료 규칙 **완료** 를 선택 하 고 다음과 같이 편집 합니다.
 
     
     | 설정    | 제안 값                          | 설명                                        |
@@ -84,13 +88,7 @@ ms.locfileid: "85308046"
     | **actions**    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, turning the tv on` | 규칙 조건이 참인 경우 수행할 동작입니다. |
     
 
-1. 또는 중간 창의 맨 위에 있는 **추가** 를 선택 하 여 기존 기본 완료 규칙을 삭제 하 고 새 규칙을 만들 수 있습니다.
-1. **이름** 섹션에 값을 제공 합니다.
-1. 작업을 추가 합니다.
-   1. **작업 섹션에서** **작업 추가** 를 선택 하 여 작업을 만듭니다.
-   1. **새 작업** 창의 **유형** 목록에서 **음성 응답 보내기**를 선택 합니다.
-   1. **응답**아래에서 **단순 편집기**를 선택 합니다.
-   1. **첫 번째 변형** 필드에서 응답 값을로 지정 `Ok, turning the tv on` 합니다.
+
 
    > [!div class="mx-imgBorder"]
    > ![음성 응답 만들기](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ ms.locfileid: "85308046"
 1. **저장** 을 선택 하 여 작업을 저장 합니다.
 1. **완료 규칙** 섹션으로 돌아가서 **저장** 을 선택 하 여 모든 변경 내용을 저장 합니다. 
 
+
+ > [!NOTE]
+    > 명령과 함께 제공 되는 기본 완료 규칙을 사용할 필요는 없습니다. 필요한 경우 기존 기본 완료 규칙을 삭제 하 고 사용자 고유의 규칙을 추가할 수 있습니다.
 
 ### <a name="try-it-out"></a>기능 직접 사용해 보기
 
@@ -124,9 +125,9 @@ ms.locfileid: "85308046"
 
 | 설정    | 제안 값                          |
 | ---------- | ---------------------------------------- |
-| Name  | ConfirmationResponse                  |
+| 이름  | ConfirmationResponse                  |
 | 조건 | 없음                                     |
-| 동작    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting temperature to 40 degrees` |
+| 작업    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting temperature to 40 degrees` |
 
 **저장** 을 선택 하 여 명령에 대 한 모든 변경 내용을 저장 합니다.
 
@@ -137,7 +138,7 @@ ms.locfileid: "85308046"
 | ---------- | ---------------------------------------- |
 | 규칙 이름  | ConfirmationResponse                  |
 | 조건 | 없음                                     |
-| 동작    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting an alarm for 9 am tomorrow` |
+| 작업    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting an alarm for 9 am tomorrow` |
 
 **저장** 을 선택 하 여 명령에 대 한 모든 변경 내용을 저장 합니다.
 
