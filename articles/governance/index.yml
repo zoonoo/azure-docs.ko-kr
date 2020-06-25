@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/22/2020
-  ms.openlocfilehash: 0b9a78c6632d93a9aabaffeca400250c1adfb6d3
-  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+  ms.date: 06/16/2020
+  ms.openlocfilehash: b76bde8d10ecfdd54531030ff5a006e4c46cb1a9
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84609185"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321540"
 highlightedContent:
   items:
   - title: 거버넌스 개요
@@ -113,7 +113,7 @@ additionalContent:
         url: /powershell/module/az.resources/#resources
       - text: Azure SDK for .NET
         url: /dotnet/api/overview/azure/managementgroups
-      - text: Node용 Azure SDK
+      - text: JavaScript용 Azure SDK
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
       - text: REST (영문)
         url: /rest/api/resources/managementgroups
@@ -157,10 +157,10 @@ additionalContent:
       - text: Azure SDK for .NET
         url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
         note: (정책 정의)
-      - text: Node용 Azure SDK
+      - text: JavaScript용 Azure SDK
         url: /javascript/api/@azure/arm-policy
         note: (정책)
-      - text: Node용 Azure SDK
+      - text: JavaScript용 Azure SDK
         url: /javascript/api/@azure/arm-policyinsights
         note: (Policy Insights)
       - text: Python용 Azure SDK
@@ -198,7 +198,7 @@ additionalContent:
       - text: Java용 Azure SDK
         url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
         note: (Maven)
-      - text: Node용 Azure SDK
+      - text: JavaScript용 Azure SDK
         url: /javascript/api/@azure/arm-resourcegraph
       - text: Python용 Azure SDK
         url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
