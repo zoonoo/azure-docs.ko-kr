@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
@@ -10,14 +10,14 @@ ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 012800806aeff81939baa2cee88e78191e4fb6c5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82195267"
 ---
 ### <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 
-[Az identity create][az-identity-create] 명령을 사용 하 여 구독에 *Myacrtasksid* 라는 id를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용 하 여 컨테이너 레지스트리를 만들 수 있습니다.
+[az identity create][az-identity-create] 명령을 사용하여 구독에서 *myACRTasksId*라는 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리 또는 다른 리소스 그룹을 만들 수 있습니다.
 
 ```azurecli
 az identity create \
@@ -25,7 +25,7 @@ az identity create \
   --name myACRTasksId
 ```
 
-다음 단계에서 사용자 할당 id를 구성 하려면 [az identity show][az-identity-show] 명령을 사용 하 여 id의 리소스 id, 보안 주체 ID 및 클라이언트 id를 변수에 저장 합니다.
+다음 단계에서 사용자 할당 ID를 구성하려면 [az identity show][az-identity-show] 명령을 사용하여 ID의 리소스 ID, 보안 주체 ID 및 클라이언트 ID를 변수에 저장합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

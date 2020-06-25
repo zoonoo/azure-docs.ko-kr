@@ -14,6 +14,10 @@
       items:
         - name: AI+Machine Learning
           items:
+            - name: Cognitive Search
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Cognitive Services
+              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 데이터 과학 Virtual Machine
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -40,6 +44,8 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 블록체인
           items:
             - name: 블록체인
@@ -130,8 +136,6 @@
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 웹
           items:
-            - name: Cognitive Search
-              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: 자습서
@@ -293,6 +297,14 @@
           href: export-template-portal.md
         - name: 리소스 검색
           href: view-resources.md
+    - name: 템플릿 유효성 검사
+      items:
+        - name: 가상 배포
+          href: template-deploy-what-if.md
+        - name: 테스트 도구 키트
+          href: test-toolkit.md
+        - name: 테스트 사례
+          href: test-cases.md
     - name: 템플릿 배포
       items:
         - name: 배포 - 포털
@@ -309,8 +321,6 @@
           href: deploy-rest.md
         - name: GitHub에서 배포
           href: deploy-to-azure-button.md
-        - name: 가상 배포
-          href: template-deploy-what-if.md
         - name: 오류 발생 시 다시 배포
           displayName: rollback
           href: rollback-on-error.md
@@ -359,9 +369,9 @@
           href: error-not-found.md
         - name: ParentResourceNotFound
           href: error-parent-resource.md
-        - name: Linux의 프로비저닝 및 할당 문제
+        - name: Linux의 프로비전 및 할당 문제
           href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md
-        - name: Windows의 프로비저닝 및 할당 문제
+        - name: Windows의 프로비전 및 할당 문제
           href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md
         - name: RequestDisallowedByPolicy
           href: error-policy-requestdisallowedbypolicy.md
