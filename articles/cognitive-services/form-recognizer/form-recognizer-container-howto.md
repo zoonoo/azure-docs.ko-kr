@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213196"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355610"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>양식 인식기 컨테이너 설치 및 실행 (미리 보기)
 
@@ -25,7 +25,7 @@ Azure 양식 인식기는 기계 학습 기술을 적용 하 여 양식에서 �
 > [!IMPORTANT]
 > 양식 인식기 컨테이너는 현재 양식 인식기 API의 버전 1.0을 사용 합니다. 대신 관리 되는 서비스를 사용 하 여 최신 버전의 API에 액세스할 수 있습니다.
 
-| 함수 | 기능 |
+| 기능 | 기능 |
 |----------|----------|
 | Form Recognizer | <li>PDF, PNG 및 JPG 파일을 처리 합니다.<li>최소 5 가지 형식의 동일한 레이아웃을 사용 하 여 사용자 지정 모델 학습 <li>키-값 쌍 및 테이블 정보를 추출 합니다. <li>Azure Cognitive Services Computer Vision API 텍스트 인식 기능을 사용 하 여 양식 내 이미지에서 인쇄 된 텍스트를 검색 하 고 추출 합니다.<li>주석이 나 레이블 지정이 필요 하지 않습니다. |
 
@@ -138,6 +138,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 `docker run`명령의 [예](form-recognizer-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 
 ### <a name="form-recognizer"></a>Form Recognizer
+
+> [!NOTE]
+> `--mount`이러한 예제에서 사용 되는 디렉터리는 Windows 디렉터리 경로입니다. Linux 또는 macOS를 사용 하는 경우 사용자 환경에 대 한 매개 변수를 변경 합니다. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \

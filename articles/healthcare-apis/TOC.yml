@@ -37,6 +37,11 @@
       href: access-fhir-postman-tutorial.md
     - name: FHIR 프록시에 SMART 사용
       href: use-smart-on-fhir-proxy.md
+- name: 샘플
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: 방법 가이드
   expanded: false
   items:
