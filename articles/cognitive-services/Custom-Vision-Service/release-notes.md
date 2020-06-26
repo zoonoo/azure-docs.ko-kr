@@ -3,19 +3,19 @@ title: 릴리스 정보 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: Custom Vision 팀에서 새 릴리스에 대 한 최신 정보를 확인 하세요.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: anroth
-ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647569"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391709"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "73647569"
 
 - 버그 수정 및 백 엔드 기능 향상
 
-## <a name="may-23-2019"></a>5 월 23 일, 2019
+## <a name="may-23-2019"></a>2019년 5월 23일
 
 - Azure 구독과 관련 된 포털 UX 환경을 개선 하 여 Azure 디렉터리를 쉽게 선택할 수 있습니다.
 

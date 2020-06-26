@@ -3,19 +3,19 @@ title: 예측 엔드포인트를 사용하여 Custom Vision 분류자를 통해 
 titleSuffix: Azure Cognitive Services
 description: API를 사용하여 Custom Vision Service 분류자를 통해 프로그래밍 방식으로 이미지를 테스트하는 방법을 알아봅니다.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.author: anroth
-ms.openlocfilehash: 88aaa3d54ea44a15f7900aba093bf28c70c19695
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: 0766ad38265368a00272eb8abbe974ce94f5dd72
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82129867"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391692"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
 
@@ -109,9 +109,9 @@ ms.locfileid: "82129867"
     ```
 
 1. 다음 정보를 변경합니다.
-   * `namespace` 필드를 프로젝트의 이름으로 설정 합니다.
-   * 자리 표시자 `<Your prediction key>` 를 이전에 검색 한 키 값으로 바꿉니다.
-   * 자리 표시자 `<Your prediction URL>` 를 앞에서 검색 한 URL로 바꿉니다.
+   * 필드를 `namespace` 프로젝트의 이름으로 설정 합니다.
+   * 자리 표시자를 `<Your prediction key>` 이전에 검색 한 키 값으로 바꿉니다.
+   * 자리 표시자를 `<Your prediction URL>` 앞에서 검색 한 URL로 바꿉니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

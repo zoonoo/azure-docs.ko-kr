@@ -3,19 +3,19 @@ title: 한도 및 할당량 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 다양 한 유형의 라이선스 키와 Custom Vision Service에 대 한 제한 및 할당량에 대해 설명 합니다.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: anroth
-ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79081780"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391743"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -40,7 +40,7 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 |허용 되는 이미지 형식|jpg, png, bmp, gif|jpg, png, bmp, gif|
 |최소 이미지 높이/너비 (픽셀)|256 (참고 참조)|256 (참고 참조)|
 |최대 이미지 높이/너비 (픽셀)|무제한|무제한|
-|최대 이미지 크기(학습 이미지 업로드) |6MB|6MB|
+|최대 이미지 크기(학습 이미지 업로드) |6 MB|6 MB|
 |최대 이미지 크기(예측)|4MB|4MB|
 |개체 검색 학습 이미지 당 최대 지역 수|300|300|
 |분류 이미지 당 최대 태그 수|100|100|
