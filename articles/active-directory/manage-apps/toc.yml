@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: 애플리케이션 페이지에서 링크가 작동하지 않음
               href: application-proxy-page-links-broken-problem.md
-            - name: 내 앱에 대해 열 포트
-              href: application-proxy-connectivity-ports-how-to.md
             - name: 내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터
               href: application-proxy-connectivity-no-working-connector.md
             - name: 관리자 포털에서 구성
