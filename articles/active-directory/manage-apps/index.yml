@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: 애플리케이션 관리 설명서
-summary: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
+summary: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Microsoft 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
 metadata:
   title: 애플리케이션 관리 설명서
-  description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
+  description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Microsoft 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063475"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339203"
 landingContent:
 - title: 애플리케이션 관리 정보
   linkLists:

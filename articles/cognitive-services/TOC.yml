@@ -17,11 +17,11 @@
       href: cognitive-services-apis-create-account.md
     - name: Azure CLI를 사용하여 새 리소스 만들기
       href: cognitive-services-apis-create-account-cli.md
-    - name: 진단 로깅
-      href: diagnostic-logging.md
-    - name: ARM 템플릿
+    - name: ARM 템플릿을 사용하여 새 리소스 만들기
       displayName: Resource Manager
       href: resource-manager-template.md
+    - name: 진단 로깅
+      href: diagnostic-logging.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능

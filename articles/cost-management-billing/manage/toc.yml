@@ -121,6 +121,8 @@
       href: troubleshoot-sign-in-issue.md
     - name: Enterprise 비용 보기 사용 안 함
       href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: 청구 계정을 찾을 수 없음
+      href: troubleshoot-account-not-found.md
     - name: 지원에 문의
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: 샘플

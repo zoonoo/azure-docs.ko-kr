@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: 규칙 엔진 설정
       href: front-door-tutorial-rules-engine.md
+    - name: 규칙 엔진을 사용하여 보안 헤더 추가
+      href: front-door-security-headers.md
     - name: 웹 애플리케이션 방화벽 및 Front Door
       href: front-door-waf.md
 - name: 샘플
