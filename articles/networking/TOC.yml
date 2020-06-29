@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Architecture
       items:
+        - name: 네트워크 엔지니어를 위한 Azure
+          href: azure-for-network-engineers.md
         - name: 가상 데이터 센터
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: 여러 네트워크 경로를 포함한 비대칭 라우팅

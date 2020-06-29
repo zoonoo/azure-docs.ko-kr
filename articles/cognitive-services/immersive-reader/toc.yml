@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: 인증 토큰 캐시
       href: how-to-cache-token.md
+    - name: 소리 내어 읽기 구성
+      href: how-to-configure-read-aloud.md
+    - name: 번역 구성
+      href: how-to-configure-translation.md
+    - name: 사용자 기본 설정 저장
+      href: how-to-store-user-preferences.md
 - name: 참조
   items:
-    - name: SDK 참조
+    - name: JavaScript SDK
       href: reference.md
 - name: 리소스
   items:

@@ -54,7 +54,7 @@
           href: identity-providers.md
         - name: 셀프 서비스 가입 사용자 흐름(미리 보기)
           href: self-service-sign-up-overview.md
-        - name: 셀프 서비스 가입 API 커넥터(미리 보기)
+        - name: 셀프 서비스 등록 API 커넥터(미리 보기)
           href: api-connectors-overview.md
         - name: Azure AD 권한 관리
           href: self-service-portal.md
@@ -133,8 +133,8 @@
       items:
         - name: FAQ
           href: faq.md
-        - name: B2B에 대한 지원 받기
-          href: get-support.md
+        - name: 지원 받기
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
         - name: Azure 피드백 포럼
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Azure 로드맵

@@ -30,7 +30,9 @@
       href: concepts-identity.md
     - name: 프라이빗 클라우드 업그레이드
       href: concepts-upgrades.md
-    - name: AVS VM에 대한 API 관리
+    - name: 허브 및 스포크 통합
+      href: concepts-avs-hub-and-spoke-integration.md
+    - name: API Management
       href: concepts-api-management.md
 - name: 방법 가이드
   items:
@@ -40,8 +42,6 @@
       href: manage-dhcp.md
     - name: 재해 복구
       href: disaster-recovery.md
-    - name: AVS 배포 또는 프로비저닝 실패에 대한 도움 받기
-      href: fix-deployment-provisioning-failures.md
     - name: AVS용 Azure Backup Server
       items:
         - name: AVS용 Azure Backup Server 설정
@@ -52,5 +52,9 @@
   items: null
 - name: 리소스
   items:
+    - name: 문제 해결
+      items:
+        - name: AVS 배포 또는 프로비저닝 실패에 대한 도움 받기
+          href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md

@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: 지원되는 브라우저 및 디바이스
       href: azure-portal-supported-browsers-devices.md
+- name: 빠른 시작
+  items:
+    - name: 포털에서 VM 만들기
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: 대시보드 만들기 - ARM 템플릿
+      href: quick-create-template.md
 - name: 개념
   items:
     - name: 역할 기반 액세스 제어로 대시보드 공유

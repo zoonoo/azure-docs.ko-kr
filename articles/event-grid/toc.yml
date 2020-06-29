@@ -242,10 +242,14 @@
           href: enable-diagnostic-logs-topic.md
         - name: 오류 문제 해결
           href: troubleshoot-errors.md
+        - name: 네트워크 연결 이슈 문제 해결
+          href: troubleshoot-network-connectivity.md
         - name: 구독 유효성 검사 문제 해결
           href: troubleshoot-subscription-validation.md
-        - name: 메트릭 보기 및 경고 만들기
+        - name: 메트릭 보기
           href: monitor-event-delivery.md
+        - name: 경고 만들기
+          href: set-alerts.md
 - name: 참조
   items:
     - name: Azure CLI

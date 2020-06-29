@@ -121,7 +121,7 @@
               href: user-flow-language-customization.md
             - name: 암호 복잡성
               href: user-flow-password-complexity.md
-            - name: 메일 검증을 사용하지 않도록 설정
+            - name: 메일 확인을 사용하지 않도록 설정
               href: user-flow-disable-email-verification.md
             - name: MFA 사용
               href: custom-policy-multi-factor-authentication.md
@@ -191,10 +191,14 @@
               displayName: 'ux, input, cors, html, css'
             - name: 언어 사용자 지정
               href: custom-policy-localization.md
-            - name: 사용자 지정 이메일
-              href: custom-email.md
+            - name: 사용자 지정 이메일 확인
+              items:
+                - name: Mailjet
+                  href: custom-email-mailjet.md
+                - name: SendGrid
+                  href: custom-email-sendgrid.md
               displayName: verification
-            - name: 메일 검증을 사용하지 않도록 설정
+            - name: 메일 확인을 사용하지 않도록 설정
               href: custom-policy-disable-email-verification.md
             - name: JavaScript 사용
               href: javascript-samples.md
@@ -373,6 +377,8 @@
           href: partner-trusona.md
         - name: Twilio
           href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
     - name: b2clogin.com 사용
       items:
         - name: b2clogin.com 개요
