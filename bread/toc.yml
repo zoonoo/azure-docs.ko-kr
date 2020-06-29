@@ -441,9 +441,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Data Box 제품군
-      tocHref: /azure/databox-family/
-      topicHref: /azure/databox-family/
+    - name: 스토리지
+      tocHref: /azure/storage/
+      topicHref: /azure/storage/
       items:
         - name: Data Box 오프라인 전송
           tocHref: /azure/databox/

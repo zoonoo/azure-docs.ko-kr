@@ -12,6 +12,12 @@
   items:
     - name: Azure 리소스 모니터링
       href: learn/quick-monitor-azure-resource.md
+    - name: 작업 영역에 활동 로그 보내기
+      items:
+        - name: Azure portal
+          href: learn/quick-collect-activity-log-portal.md
+        - name: ARM 템플릿
+          href: learn/quick-collect-activity-log-arm.md
     - name: 가상 머신 모니터링
       items:
         - name: Azure VM
@@ -455,7 +461,7 @@
             - name: 웹후크 작업
               href: platform/alerts-log-webhook.md
             - name: 로그 경고 문제 해결
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: 활동 로그 경고 규칙
           items:
             - name: 활동 로그 이벤트에 대한 경고
@@ -506,6 +512,8 @@
           href: platform/api-alerts.md
         - name: 경고 문제 해결
           href: platform/alerts-troubleshoot.md
+        - name: 경고 및 지역 이동
+          href: platform/alerts-resource-move.md
         - name: IT 서비스 관리
           items:
             - name: IT Service Management Connector
@@ -555,12 +563,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
+            - name: ASP.NET 콘솔
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: HTTP가 아닌 앱/백그라운드 앱
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET 콘솔
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: Java
               items:
                 - name: 웹 앱

@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: 라이브 채팅 토글
               href: howto-show-hide-chat.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
