@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344206"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736087"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="feature-announcements"></a>기능 공지
+
+### <a name="june-2020"></a>2020년 6월
+
+Azure Machine Learning 기술은 Azure Machine Learning의 추론 엔드포인트를 통합하는 새로운 기술 유형입니다. 포털 환경에서는 Cognitive Search 기술 세트 내에서 Azure Machine Learning 엔드포인트의 검색 및 통합을 지원합니다. 검색을 수행하려면 Cognitive Search 및 Azure ML 서비스가 동일한 구독에 배포되어야 합니다. AML 기술 미리 보기에 등록하려면 [양식을 입력하세요](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). [이 자습서](cognitive-search-tutorial-aml-custom-skill.md)를 시작합니다.
 
 ### <a name="may-2020-microsoft-build"></a>2020년 5월(Microsoft Build)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 88ca971986119b3612c79d0bee381d3a0fc9a977
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561098"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906839"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
@@ -236,23 +236,33 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 ## <a name="change-web-app-and-redeploy"></a>웹앱 변경 및 다시 배포
 
-로컬 Git 리포지토리에서 app/templates/app/index.html을 엽니다. 첫 번째 HTML 요소를 찾아서 변경합니다.
+로컬 Git 리포지토리에서 *app/templates/app/index.html*을 엽니다. 첫 번째 HTML 요소를 다음 코드와 일치하도록 변경합니다.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Python 파일을 수정하고 저장하면 새 Docker 이미지를 다시 빌드하고 푸시해야 합니다. 그런 다음 변경 내용을 적용하려면 웹앱을 다시 시작합니다. 이 자습서에서는 이전에 사용한 동일한 명령을 사용합니다. [Docker 파일에서 이미지 빌드](#build-the-image-from-the-docker-file) 및 [Azure Container Registry에 이미지 푸시](#push-image-to-azure-container-registry) 섹션을 참조할 수 있습니다. [웹앱 테스트](#test-the-web-app)의 지침에 따라 웹앱을 테스트합니다.
+변경 내용을 저장한 후에는 이 자습서의 앞부분에서 사용한 것과 동일한 명령을 사용하여 새 Docker 이미지를 다시 빌드하고 푸시합니다. [Docker 파일에서 이미지 빌드](#build-the-image-from-the-docker-file) 및 [Azure Container Registry에 이미지 푸시](#push-image-to-azure-container-registry) 섹션을 참조할 수 있습니다.
+
+새 이미지를 푸시한 후 다음 명령을 사용하여 웹앱을 다시 시작하여 변경 내용을 적용합니다.
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+`<app_name>`을 이전에 사용한 특정 이름으로 바꿉니다.
+
+앱이 다시 시작되면 [웹앱 테스트](#test-the-web-app)의 지침에 따라 테스트합니다.
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="enable-ssh-connections"></a>SSH 연결 사용
 

@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417296"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770733"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -29,7 +29,9 @@ ms.locfileid: "84417296"
 
 백업을 구성하기 전에 다음을 수행해야 합니다.
 
+* SAP HANA를 실행하는 VM과 동일한 지역 및 구독에서 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)을 식별하거나 만듭니다.
 * 아래 [네트워크 연결 설정](#set-up-network-connectivity) 절차에 설명된 대로 VM에서 인터넷에 연결하도록 허용합니다. 그래야 Azure에 연결할 수 있습니다.
+* SAP HANA Server VM 이름 및 리소스 그룹 이름의 결합된 길이가 Azure Resoure Manager(ARM_ VM(및 클래식 VM의 경우 77자))의 경우 84자를 초과하지 않는지 확인합니다. 이 제한은 서비스에서 일부 문자를 예약했기 때문에 발생합니다.
 * **hdbuserstore**에 다음 조건을 충족하는 키가 있어야 합니다.
   * 기본 **hdbuserstore**에 있어야 합니다. 기본값은 SAP HANA가 설치된 `<sid>adm` 계정입니다.
   * MDC의 경우 키가 **NAMESERVER**의 SQL 포트를 가리켜야 합니다. SDC의 경우 **INDEXSERVER**의 SQL 포트를 가리켜야 합니다.

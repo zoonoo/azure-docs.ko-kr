@@ -9,7 +9,7 @@ ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82734827"
@@ -42,7 +42,7 @@ ms.locfileid: "82734827"
 
 ## <a name="set-up-vamp"></a>Vamp 설치
 
-이제 DC/OS 클러스터를 실행 하는 중 이므로 DC/OS UI에서 Vamp를 설치할 수 있습니다 (http:\//sgt: 80). 
+DC/OS 클러스터가 실행 중이니, DC/OS UI(http:\//localhost:80)에서 Vamp를 설치할 수 있습니다. 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -91,7 +91,7 @@ Vamp는 메트릭 수집 및 집계에 사용할 Elasticsearch가 필요합니�
    ```
   
 
-3. **배포**를 클릭합니다.
+3. **배포**을 참조하십시오.
 
    DC/OS가 Elasticsearch 컨테이너를 배포합니다. **서비스** 페이지에서 진행률을 추적할 수 있습니다.  
 
@@ -197,7 +197,7 @@ Azure Portal을 사용하여 이러한 작업을 완료하는 자세한 단계�
 
 1. Vamp UI에서 **청사진**을 클릭합니다.
 
-2. **추가**를 클릭하고 다음 청사진 YAML에 붙여 넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
+2. **추가**를 클릭하여 다음 청사진 YAML에 붙여넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
 
    ```YAML
    name: sava:1.1.0      # blueprint name

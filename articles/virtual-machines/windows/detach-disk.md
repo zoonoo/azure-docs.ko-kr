@@ -1,5 +1,5 @@
 ---
-title: Windows VM에서 데이터 디스크 분리-Azure
+title: Windows VM에서 데이터 디스크 분리 - Azure
 description: Resource Manager 배포 모델을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리합니다.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -10,7 +10,7 @@ ms.date: 01/08/2020
 ms.author: cynthn
 ms.openlocfilehash: c93bb5fd3e92c6a947fe997b58207b87b2717fd5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082767"
@@ -48,14 +48,14 @@ Update-AzVM `
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
-데이터 디스크를 *핫* 제거할 수 있지만 VM에서 디스크를 분리 하기 전에 디스크를 적극적으로 사용 하 고 있지 않은지 확인 합니다.
+데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
 
 1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
-1. 분리 하려는 데이터 디스크가 있는 가상 컴퓨터를 선택 합니다.
-1. **설정**에서 **디스크**를 선택합니다.
+1. 분리할 데이터 디스크가 있는 가상 머신을 선택합니다.
+1. **설정** 아래에서 **디스크**를 선택합니다.
 1. **디스크** 창 상단에서 **편집**을 선택합니다.
-1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **분리**를 선택 합니다.
-1. 페이지 맨 위에 있는 **저장** 을 선택 하 여 변경 내용을 저장 합니다.
+1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **분리**를 선택합니다.
+1. 페이지 맨 위에 있는 **저장**을 선택하여 변경 내용을 저장합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
 

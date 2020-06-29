@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830313"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686412"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
@@ -21,7 +21,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Resource Manager 템플릿은 EA(기업계약)용 Azure 구독만 지원합니다. 다른 구독 유형은 템플릿에서 지원되지 않습니다.
 
@@ -74,7 +74,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
     * **임계값**: 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
     * **연락처 이메일** 임계값을 초과하면 예산 알림을 보낼 이메일 주소 목록을 입력합니다. 필요한 형식은 `["user1@domain.com","user2@domain.com"]`입니다.
     * **연락처 역할** 임계값을 초과하면 예산 알림을 보낼 연락처 역할 목록을 입력합니다. 기본값은 소유자, 기여자 및 읽기 권한자입니다. 필요한 형식은 `["Owner","Contributor","Reader"]`입니다.
-    * **연락처 그룹** 임계값을 초과하면 예산 알림을 보낼 작업 그룹 목록을 입력합니다. 문자열 배열을 허용합니다. 필요한 형식은 `["Action Group Name1","Action Group Name2"]`입니다. 작업 그룹을 사용하지 않으려면 `[]`를 입력합니다.
+    * **연락처 그룹**은 작업 그룹 리소스 ID 목록을 전체 리소스 URI로 입력하여 임계값 초과 시 예산 알림을 보냅니다. 문자열 배열을 허용합니다. 필요한 형식은 `["action group resource ID1","action group resource ID2"]`입니다. 작업 그룹을 사용하지 않으려면 `[]`를 입력합니다.
     * **리소스 필터** 리소스의 필터 목록을 입력합니다. 필요한 형식은 `["Resource Filter Name1","Resource Filter Name2"]`입니다. 필터를 적용하지 않으려면 `[]`를 입력합니다. 리소스 필터를 입력하는 경우에는 **미터 필터** 값도 입력해야 합니다.
     * **미터 필터** 미터 필터 목록을 입력합니다. 예산 범주로 **사용량**을 사용하는 예산에는 필수입니다. 필요한 형식은 `["Meter Filter Name1","Meter Filter Name2"]`입니다. **리소스 필터**를 입력하지 않았으면 `[]`를 입력합니다.
     * **위에 명시된 사용 약관에 동의함**: 선택합니다.

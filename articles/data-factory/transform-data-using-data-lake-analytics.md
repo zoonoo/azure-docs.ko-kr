@@ -1,5 +1,5 @@
 ---
-title: U-SQL 스크립트를 사용 하 여 데이터 변환
+title: U-SQL 스크립트를 사용하여 데이터 변환
 description: Azure Data Lake Analytics 컴퓨팅 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418969"
@@ -38,11 +38,11 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 | 속성                 | Description                              | 필수                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
+| **type**                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
 | **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
-| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
-| **구독**       | Azure 구독 ID                    | 아니요                                       |
-| **resourceGroupName**    | Azure 리소스 그룹 이름                | 아니요                                       |
+| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 예                                       |
+| **subscriptionId**       | Azure 구독 ID입니다.                    | 예                                       |
+| **resourceGroupName**    | Azure 리소스 그룹 이름                | 예                                       |
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics 서비스에 연결하기 위해 서비스 사용자 인증이 필요합니다. 서비스 사용자 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록하고 해당 엔터티에서 사용하는 Data Lake Analytics 및 Data Lake Store에 대한 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
@@ -59,9 +59,9 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
-| **넌**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예      |
+| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예      |
 
-**예제: 서비스 주체 인증**
+**예: 서비스 주체 인증**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -122,16 +122,16 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | 속성            | Description                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 파이프라인의 작업 이름입니다.     | 예      |
-| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
-| priority            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
-| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니요       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니요       |
-| compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니요 |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 예       |
+| priority            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 예       |
+| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 예       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 예       |
+| compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다. **의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다. **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 예 |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt](#sample-u-sql-script)를 참조하세요. 
 
@@ -164,7 +164,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-위의 스크립트 예제에서 스크립트에 대 한 입력 및 출력은 ** \@in** 및 ** \@out** 매개 변수에 정의 되어 있습니다. U-SQL 스크립트의 ** \@in** 및 ** \@out** 매개 변수에 대 한 값은 ' parameters ' 섹션을 사용 하 여 Data Factory에 의해 동적으로 전달 됩니다. 
+위의 스크립트 예제에서 스크립트에 대한 입력 및 출력은 **\@in** 및 **\@out** 매개 변수에 정의됩니다. U-SQL 스크립트의 **\@in** 및 **\@out** 매개 변수 값은 'parameters' 섹션을 사용하여 Data Factory를 통해 동적으로 전달됩니다. 
 
 Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 degreeOfParallelism나 우선 순위와 같은 다른 속성을 지정할 수 있습니다.
 
@@ -178,7 +178,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 }
 ```
 
-동적 매개 변수를 대신 사용할 수 있습니다. 다음은 그 예입니다. 
+동적 매개 변수를 대신 사용할 수 있습니다. 예를 들면 다음과 같습니다. 
 
 ```json
 "parameters": {
@@ -193,10 +193,10 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
 
 * [Hive 작업](transform-data-using-hadoop-hive.md)
-* [Pig 활동](transform-data-using-hadoop-pig.md)
+* [Pig 작업](transform-data-using-hadoop-pig.md)
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [일괄 처리 실행 작업 Machine Learning](transform-data-using-machine-learning.md)
+* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

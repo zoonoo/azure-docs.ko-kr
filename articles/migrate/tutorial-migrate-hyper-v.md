@@ -2,62 +2,52 @@
 title: Azure Migrate 서버 마이그레이션을 사용하여 Hyper-V VM을 Azure로 마이그레이션
 description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b50c11f43d29de354f04e1a4296818c5bd8cbab
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 820b9b7e67e873d23bed5a1f9c6aa1a0a2128015
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773529"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770920"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
-이 문서에서는 Azure Migrate를 통한 에이전트 없는 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다. Server Migration 도구와 통신할 수 없을 때 발생합니다.
+이 문서에서는 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법을 보여줍니다.
 
-[Azure Migrate](migrate-services-overview.md)는 온-프레미스 앱과 워크로드 및 프라이빗/퍼블릭 클라우드 VM의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
+이 자습서는 머신을 평가하고 Azure로 마이그레이션하는 방법을 보여주는 시리즈의 세 번째 자습서입니다. 
 
-이 자습서는 Azure Migrate Server Assessment 및 Server Migration을 사용하여 Hyper-V를 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+> [!NOTE]
+> 자습서에서는 개념 증명을 빠르게 설정할 수 있도록 시나리오에 대한 가장 간단한 배포 경로를 보여 줍니다. 자습서는 가능한 경우 기본 옵션을 사용하며, 가능한 모든 설정과 경로는 보여 주지 않습니다. 
 
+ 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure 및 온-프레미스 Hyper-V 환경을 준비합니다.
-> * 원본 환경을 설정합니다.
-> * 대상 환경을 설정합니다.
-> * 복제를 활성화합니다.
+> * Azure Migrate:Server Migration 도구를 추가합니다.
+> * 마이그레이션하려는 VM을 검색합니다.
+> * VM 복제를 시작합니다.
 > * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다.
-> * 전체 마이그레이션을 Azure로 실행합니다.
+> * 전체 VM 마이그레이션을 실행합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
+
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
 1. Hyper-V 마이그레이션 아키텍처를 [검토](hyper-v-migration-architecture.md)합니다.
-2. Hyper-V 호스트 요구 사항 및 Hyper-V 호스트에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts)합니다.
-3. 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms)합니다. Hyper-V VM은 [Azure VM 요구 사항](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)을 준수해야 합니다.
-2. 이 시리즈의 이전 자습서를 완료하는 것이 좋습니다. [첫 번째 자습서](tutorial-prepare-hyper-v.md)에서는 마이그레이션을 위해 Azure 및 Hyper-V를 설정하는 방법을 보여줍니다. 두 번째 자습서에서는 Azure Migrate:Server Assessment를 사용하여 마이그레이션 전에 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)하는 방법을 보여줍니다. 
-    > [!NOTE]
-    > 평가를 시도하는 것이 좋지만 VM을 마이그레이션하기 전에는 평가를 실행할 필요가 없습니다.
-    > Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 Hyper-V 호스트 또는 클러스터 노드에서 소프트웨어 에이전트(Microsoft Azure Site Recovery 공급자 및 Microsoft Azure Recovery Service 에이전트)를 실행하여 데이터를 오케스트레이션하고 Azure Migrate에 복제합니다. [Azure Migrate 어플라이언스](migrate-appliance.md)는 Hyper-V 마이그레이션에 사용되지 않습니다.
+2. 마이그레이션을 위한 Hyper-V 호스트 요구 사항 및 VM 마이그레이션을 위해 Hyper-V 호스트 및 클러스터에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements)합니다.
+3. Azure로 마이그레이션하려는 Hyper-V VM에 대한 요구 사항을 [검토](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms)합니다.
+4. Azure로 마이그레이션하기 전에 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)하는 것이 좋지만, 반드시 그럴 필요는 없습니다.
 
-3. Azure 계정에 다음과 같은 권한이 있는 Virtual Machine 기여자 역할이 할당되어 있는지 확인합니다.
-
-    - 선택한 리소스 그룹에 VM 만들기
-    - 선택한 가상 네트워크에 VM 만들기
-    - Azure 관리 디스크에 씁니다.
-4. [Azure 네트워크를 설정합니다](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Azure로 마이그레이션할 때 생성된 Azure VM은 마이그레이션을 설정할 때 지정하는 Azure 네트워크에 연결됩니다.
-
+   
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Azure Migrate:Server Migration 도구 추가
 
-Azure Migrate:Server Migration 도구를 추가합니다.
-
-- 두 번째 자습서에 따라 [Hyper-V VM을 평가](tutorial-assess-hyper-v.md)한 경우 이미 Azure Migrate 프로젝트를 설정했으므로 계속해서 도구를 추가할 수 있습니다.
-- 두 번째 자습서를 따르지 않은 경우 [이러한 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정합니다. 프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
+Azure Migrate:Server Migration 도구를 추가합니다. Azure Migrate 프로젝트가 아직 없는 경우 [먼저 생성](how-to-add-tool-first-time.md)하여 Azure Migrate 프로젝트를 설정합니다. 프로젝트를 만들 때 Azure Migrate:Server Migration 도구를 추가합니다.
 
 프로젝트를 설정한 경우 다음과 같이 도구를 추가합니다.
 
@@ -71,8 +61,9 @@ Azure Migrate:Server Migration 도구를 추가합니다.
 
     ![서버 마이그레이션 도구](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-## <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
+## <a name="download-and-install-the-provider"></a>공급자 다운로드 및 설치
 
+Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 Hyper-V 호스트 또는 클러스터 노드에 소프트웨어 공급자(Microsoft Azure Site Recovery 공급자 및 Microsoft Azure Recovery Service 에이전트)를 설치합니다. [Azure Migrate 어플라이언스](migrate-appliance.md)는 Hyper-V 마이그레이션에 사용되지 않습니다.
 
 1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **검색**을 클릭합니다.
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
@@ -149,7 +140,7 @@ Azure Migrate:Server Migration 도구를 추가합니다.
 > [!NOTE]
 > 복제가 시작되기 전에 언제든지 **관리** > **머신 복제 중**에서 복제 설정을 업데이트할 수 있습니다. 복제가 시작된 후에는 설정을 변경할 수 없습니다.
 
-## <a name="provisioning-for-the-first-time"></a>처음으로 프로비저닝
+## <a name="provision-for-the-first-time"></a>처음으로 프로비전
 
 Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migrate: 서버 마이그레이션에서 프로젝트와 동일한 리소스 그룹에서 이러한 리소스를 자동으로 프로비저닝합니다.
 

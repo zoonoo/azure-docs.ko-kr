@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 74d8d05ba3c7a061bc78dc4c24a24d6a6275525d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827238"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659626"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션
 
@@ -29,35 +29,43 @@ Azure IoT 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대�
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
+## <a name="post-a-question-on-microsoft-qa"></a>Microsoft Q&A에 질문 게시
+
+Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](https://aka.ms/azureqa)에 참여하세요. 
+
+검색을 사용하여 문제에 대한 답변을 찾을 수 없으면 Microsoft Q&A에 새 질문을 제출합니다. 질문을 할 때 다음 태그 중 하나를 사용합니다.
+
+- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
+- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Azure IoT Hub DPS(Device Provisioning Service)](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
+- [Azure IoT SDK](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
+- [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
+- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
+- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
+- [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+
 ## <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문 게시
 
 <div class='icon is-large'>
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-커뮤니티의 즉각적인 답변을 보려면 Stack Overflow를 참조하세요. Stack Overflow는 **개발 관련 질문**에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
+가장 큰 커뮤니티 개발자 에코시스템의 개발자 질문에 대한 답변을 보려면 Stack Overflow에서 질문하세요.
 
-검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
+Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 태그 중 하나 이상을 사용하세요.
 
- - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
  - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [Azure IoT SDK](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
+ - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
+ - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
-
-## <a name="start-a-conversation-on-the-msdn-forums"></a>MSDN 포럼에서 대화 시작
-
-IoT 솔루션을 만들기 위한 Azure 기술 및 서비스에 대해 설명합니다. MSDN은 **솔루션 관련 질문**에 대한 기본 채널입니다. 커뮤니티 구성원과 Microsoft 팀 구성원이 프로젝트에 적합한 솔루션을 선택할 수 있도록 직접 참여하는 곳입니다.
-
-검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 서비스 관련 포럼의 MSDN에 제출합니다.
-
-- [Azure Digital Twins에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Azure IoT Hub에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Azure IoT Edge에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Azure Maps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-maps.html)
-- [Azure Time Series Insights에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
+ - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Azure 피드백에 대한 사용자 의견 제출
 
@@ -77,6 +85,7 @@ IoT 솔루션을 만들기 위한 Azure 기술 및 서비스에 대해 설명합
 | Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
 | Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
 | Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
+| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
 

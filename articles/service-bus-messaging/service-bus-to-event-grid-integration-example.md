@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610496"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670432"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>자습서: Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -28,11 +28,11 @@ ms.locfileid: "84610496"
 > [!div class="checklist"]
 > * Service Bus 네임스페이스 만들기
 > * 메시지를 전송하도록 예제 애플리케이션 준비
+> * Service Bus 항목으로 메시지 보내기
+> * Logic Apps를 사용하여 메시지 받기
 > * Azure에서 테스트 함수 설정
 > * Event Grid를 통해 함수와 네임스페이스 연결
-> * Service Bus 항목으로 메시지 보내기
 > * Azure Functions를 사용하여 메시지 받기
-> * Logic Apps를 사용하여 메시지 받기
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -61,7 +61,62 @@ ms.locfileid: "84610496"
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
+5. `numberOfMessages` 값을 **5**로 업데이트합니다. 
 5. 프로그램을 빌드한 후 실행하여 Service Bus 항목에 테스트 메시지를 보냅니다. 
+
+## <a name="receive-messages-by-using-logic-apps"></a>Logic Apps를 사용하여 메시지 받기
+다음 단계에 따라 Azure Service Bus 및 Azure Event Grid와 논리 앱을 연결합니다.
+
+1. Azure Portal에서 논리 앱을 만듭니다.
+    1. **+ 리소스 만들기**를 선택하고 **통합**을 선택한 후 **논리 앱**을 선택합니다. 
+    2. **논리 앱 - 만들기** 페이지에서 논리 앱의 **이름**을 입력합니다.
+    3. Azure **구독**을 선택합니다. 
+    4. **리소스 그룹**에 대해 **기존 항목 사용**을 선택하고 다른 리소스(예: Azure 함수, Service Bus 네임스페이스)에 사용한 리소스 그룹을 선택합니다. 
+    5. 논리 앱의 **위치**를 선택합니다. 
+    6. **만들기**를 선택하여 논리 앱을 만듭니다. 
+2. **Logic Apps 디자이너** 페이지에서 **템플릿** 아래에 있는 **비어 있는 논리 앱**을 선택합니다. 
+3. 디자이너에서 다음 단계를 수행합니다.
+    1. **Event Grid**를 검색합니다. 
+    2. **리소스 이벤트가 발생하는 경우 - Azure Event Grid**를 선택합니다. 
+
+        ![Logic Apps 디자이너 - Event Grid 트리거 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. **로그인**을 선택하고 Azure 자격 증명을 입력한 후 **액세스 허용**을 선택합니다. 
+5. **리소스 이벤트가 발생하는 경우** 페이지에서 다음 단계를 수행합니다.
+    1. Azure 구독을 선택합니다. 
+    2. **리소스 종류**로 **Microsoft.ServiceBus.Namespaces**를 선택합니다. 
+    3. **리소스 이름**에 대해 Service Bus 네임스페이스를 선택합니다. 
+    4. **새 매개 변수 추가**를 선택하고 **접미사 필터**를 선택합니다. 
+    5. **접미사 필터**에 대해 두 번째 Service Bus 항목 구독의 이름을 입력합니다. 
+        ![Logic Apps 디자이너 - 이벤트 구성](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+6. 디자이너에서 **+ 새 단계**를 선택하고 다음 단계를 수행합니다.
+    1. **Service Bus**를 검색합니다.
+    2. 목록에서 **Service Bus**를 선택합니다. 
+    3. **작업** 목록에서 **메시지 가져오기**를 선택합니다. 
+    4. **항목 구독에서 메시지 가져오기(보기 잠금)** 를 선택합니다. 
+
+        ![Logic Apps 디자이너 - 메시지 가져오기 작업](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
+    5. **연결의 이름**을 입력합니다. 예를 들면 다음과 같습니다. **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
+
+        ![Logic Apps 디자이너 - Service Bus 네임스페이스 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
+    6. **RootManageSharedAccessKey**를 선택한 다음, **만들기**를 선택합니다.
+
+        ![Logic Apps 디자이너 - 공유 액세스 키 선택](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
+    8. **항목** 및 **구독**을 선택합니다. 
+    
+        ![Logic Apps 디자이너 - Service Bus 항목 및 구독 선택](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+7. **+ 새 단계**를 선택하고 다음 단계를 수행합니다. 
+    1. **Service Bus**를 선택합니다.
+    2. 작업 목록에서 **항목 구독의 메시지 완료**를 선택합니다. 
+    3. Service Bus **항목**을 선택합니다.
+    4. 항목에 대한 두 번째 **구독**을 선택합니다.
+    5. **메시지의 잠금 토큰**에 대해 **동적 콘텐츠**의 **잠금 토큰**을 선택합니다. 
+
+        ![Logic Apps 디자이너 - Service Bus 항목 및 구독 선택](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+8. Logic Apps 디자이너 도구 모음에서 **저장**을 선택하여 논리 앱을 저장합니다. 
+9. [Service Bus 항목으로 메시지 보내기](#send-messages-to-the-service-bus-topic) 섹션의 지침에 따라 항목에 항목으로 메시지를 보냅니다. 
+10. 논리 앱의 **개요** 페이지로 전환합니다. 전송한 메시지의 **실행 기록**에서 논리 앱이 실행되는 것을 확인합니다.
+
+    ![Logic Apps 디자이너 - 논리 앱 실행](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="set-up-a-test-function-on-azure"></a>Azure에서 테스트 함수 설정 
 시나리오 전체를 수행하려면 적어도 현재 진행 중인 이벤트를 디버그하고 살펴볼 수 있는 작은 테스트 함수가 필요합니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md) 문서의 지침에 따라 다음 작업을 수행합니다. 
@@ -99,9 +154,10 @@ ms.locfileid: "84610496"
             var validationHeaderValue = headerValues.FirstOrDefault();
             if(validationHeaderValue == "SubscriptionValidation")
             {
+                log.LogInformation("Validating the subscription");            
                 var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
                 var code = events[0].Data["validationCode"];
-                log.LogInformation("Validation code: {code}");
+                log.LogInformation($"Validation code: {code}");
                 return (ActionResult) new OkObjectResult(new { validationResponse = code });
             }
         }
@@ -119,18 +175,36 @@ ms.locfileid: "84610496"
         public DateTime EventTime { get; set; }
         public Dictionary<string, string> Data { get; set; }
         public string Topic { get; set; }
-    }
-    
+    }    
     ```
 2. 도구 모음에서 **저장**을 선택하여 함수에 대한 코드를 저장합니다.
 
     ![함수 코드 저장](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
-3. 도구 모음에서 **테스트/실행**을 선택하여 본문에 이름을 입력하고 **실행**을 선택합니다. 
+3. 도구 모음에서 **테스트/실행**을 선택하고 다음 단계를 수행합니다. 
+    1. **본문**에 다음 JSON을 입력합니다.
 
-    ![테스트 실행](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
-4. 다음 이미지에 표시된 것처럼 출력과 로그가 표시되는지 확인합니다. 
+        ```json
+        [{
+          "id": "64ba80ae-9f8e-425f-8bd7-d88d2c0ba3e3",
+          "topic": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/spegridsbusrg/providers/Microsoft.ServiceBus/namespaces/spegridsbusns",
+          "subject": "",
+          "data": {
+            "validationCode": "D7D825D4-BD04-4F73-BDE3-70666B149857",
+            "validationUrl": "https://rp-eastus.eventgrid.azure.net:553/eventsubscriptions/spsbusegridsubscription/validate?id=D7D825D4-BD04-4F73-BDE3-70666B149857&t=2020-06-09T18:28:51.5724615Z&apiVersion=2020-04-01-preview&[Hidden Credential]"
+          },
+          "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+          "eventTime": "2020-06-09T18:28:51.5724615Z",
+          "metadataVersion": "1",
+          "dataVersion": "2"
+        }]
+        ```    
+    2. **헤더 추가**를 클릭하고 이름이 `aeg-event-type`이고 값이 `SubscriptionValidation`인 헤더를 추가합니다. 
+    3. **실행**을 선택합니다. 
 
-    ![테스트 실행 - 출력](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
+        ![테스트 실행](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+    4. 응답 본문에 **OK**의 반환 상태 코드와 유효성 검사 코드가 표시되는지 확인합니다. 또한 함수에서 기록한 정보를 참조하세요. 
+
+        ![테스트 실행 - 응답](./media/service-bus-to-event-grid-integration-example/test-function-response.png)        
 3. **함수 URL 가져오기**를 선택하고 URL을 기록해 둡니다. 
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -230,9 +304,11 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 1. Service Bus 항목으로 메시지를 보내는 .NET C# 애플리케이션을 실행합니다. 
 
     ![콘솔 앱 출력](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. Azure 함수 앱의 페이지에서 **함수**, 사용자 **함수**를 차례로 확장하고 **모니터링**를 선택합니다. 
+1. Azure 함수 앱에 대한 페이지의 **코드 + 테스트** 탭에서 **모니터** 탭으로 전환합니다. Service Bus 항목에 게시된 각 메시지에 대한 항목이 표시됩니다. 표시되지 않는 않으면 몇 분 정도 기다린 후 페이지를 새로 고칩니다. 
 
     ![함수 모니터링](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
+
+    **모니터** 페이지의 **로그** 탭을 사용하여 메시지가 전송될 때 로깅 정보를 볼 수도 있습니다. 약간의 지연이 있을 수 있으므로 기록된 메시지를 확인하는 데 몇 분이 걸립니다. 
 
 ## <a name="receive-messages-by-using-azure-functions"></a>Azure Functions를 사용하여 메시지 받기
 이전 섹션에서 간단한 테스트 및 디버깅 시나리오를 살펴보고 이벤트가 흐르는지 확인했습니다. 
@@ -275,65 +351,15 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 
 1. 다음과 같이 기존 Event Grid 구독을 삭제합니다.
     1. **Service Bus 네임스페이스** 페이지의 왼쪽 메뉴에서 **이벤트**를 선택합니다. 
+    2. **이벤트 구독** 탭으로 전환합니다. 
     2. 기존 이벤트 구독을 선택합니다. 
-    3. **이벤트 구독** 페이지에서 **삭제**를 선택합니다.
+
+        ![이벤트 구독 선택](./media/service-bus-to-event-grid-integration-example/select-event-subscription.png)
+    3. **이벤트 구독** 페이지에서 **삭제**를 선택합니다. **예**를 선택하여 삭제를 확인합니다. 
+        ![이벤트 구독 삭제 단추](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
 2. [Event Grid를 통해 함수 및 네임스페이스 연결](#connect-the-function-and-namespace-via-event-grid) 섹션의 지침에 따라 새 함수 URL을 사용하여 Event Grid 구독을 만듭니다.
 3. [Service Bus 항목으로 메시지 보내기](#send-messages-to-the-service-bus-topic) 섹션의 지침에 따라 항목에 항목으로 메시지를 보내고 함수를 모니터링합니다. 
 
-## <a name="receive-messages-by-using-logic-apps"></a>Logic Apps를 사용하여 메시지 받기
-다음 단계에 따라 Azure Service Bus 및 Azure Event Grid와 논리 앱을 연결합니다.
-
-1. Azure Portal에서 논리 앱을 만듭니다.
-    1. **+ 리소스 만들기**를 선택하고 **통합**을 선택한 후 **논리 앱**을 선택합니다. 
-    2. **논리 앱 - 만들기** 페이지에서 논리 앱의 **이름**을 입력합니다.
-    3. Azure **구독**을 선택합니다. 
-    4. **리소스 그룹**에 대해 **기존 항목 사용**을 선택하고 다른 리소스(예: Azure 함수, Service Bus 네임스페이스)에 사용한 리소스 그룹을 선택합니다. 
-    5. 논리 앱의 **위치**를 선택합니다. 
-    6. **만들기**를 선택하여 논리 앱을 만듭니다. 
-2. **Logic Apps 디자이너** 페이지에서 **템플릿** 아래에 있는 **비어 있는 논리 앱**을 선택합니다. 
-3. 디자이너에서 다음 단계를 수행합니다.
-    1. **Event Grid**를 검색합니다. 
-    2. **리소스 이벤트가 발생하는 경우(미리 보기) - Azure Event Grid**를 선택합니다. 
-
-        ![Logic Apps 디자이너 - Event Grid 트리거 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
-4. **로그인**을 선택하고 Azure 자격 증명을 입력한 후 **액세스 허용**을 선택합니다. 
-5. **리소스 이벤트가 발생하는 경우** 페이지에서 다음 단계를 수행합니다.
-    1. Azure 구독을 선택합니다. 
-    2. **리소스 종류**로 **Microsoft.ServiceBus.Namespaces**를 선택합니다. 
-    3. **리소스 이름**에 대해 Service Bus 네임스페이스를 선택합니다. 
-    4. **새 매개 변수 추가**를 선택하고 **접미사 필터**를 선택합니다. 
-    5. **접미사 필터**에 대해 두 번째 Service Bus 항목 구독의 이름을 입력합니다. 
-        ![Logic Apps 디자이너 - 이벤트 구성](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. 디자이너에서 **+ 새 단계**를 선택하고 다음 단계를 수행합니다.
-    1. **Service Bus**를 검색합니다.
-    2. 목록에서 **Service Bus**를 선택합니다. 
-    3. **작업** 목록에서 **메시지 가져오기**를 선택합니다. 
-    4. **항목 구독에서 메시지 가져오기(보기 잠금)** 를 선택합니다. 
-
-        ![Logic Apps 디자이너 - 메시지 가져오기 작업](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. **연결의 이름**을 입력합니다. 예를 들면 다음과 같습니다. **항목 구독에서 메시지를 가져오고**, Service Bus 네임스페이스를 선택합니다. 
-
-        ![Logic Apps 디자이너 - Service Bus 네임스페이스 선택](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
-    6. **RootManageSharedAccessKey**를 선택합니다.
-
-        ![Logic Apps 디자이너 - 공유 액세스 키 선택](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. **만들기**를 선택합니다. 
-    8. 항목 및 구독을 선택합니다. 
-    
-        ![Logic Apps 디자이너 - Service Bus 항목 및 구독 선택](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. **+ 새 단계**를 선택하고 다음 단계를 수행합니다. 
-    1. **Service Bus**를 선택합니다.
-    2. 작업 목록에서 **항목 구독의 메시지 완료**를 선택합니다. 
-    3. Service Bus **항목**을 선택합니다.
-    4. 항목에 대한 두 번째 **구독**을 선택합니다.
-    5. **메시지의 잠금 토큰**에 대해 **동적 콘텐츠**의 **잠금 토큰**을 선택합니다. 
-
-        ![Logic Apps 디자이너 - Service Bus 항목 및 구독 선택](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
-8. Logic Apps 디자이너 도구 모음에서 **저장**을 선택하여 논리 앱을 저장합니다. 
-9. [Service Bus 항목으로 메시지 보내기](#send-messages-to-the-service-bus-topic) 섹션의 지침에 따라 항목에 항목으로 메시지를 보냅니다. 
-10. 논리 앱의 **개요** 페이지로 전환합니다. 전송한 메시지의 **실행 기록**에서 논리 앱이 실행되는 것을 확인합니다.
-
-    ![Logic Apps 디자이너 - 논리 앱 실행](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119029"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790537"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
     사용 가능한 컴퓨팅 대상이 이미 있는 경우 파이프라인을 실행하도록 선택할 수 있습니다.
 
     > [!NOTE]
-    > 디자이너는 Azure Machine Learning 컴퓨팅 및 Azure Machine Learning 컴퓨팅 인스턴스 대상에 대해서만 학습 실험을 실행할 수 있습니다. 다른 컴퓨팅 대상은 표시되지 않습니다.
+    > 디자이너는 Azure Machine Learning 컴퓨팅 및 Azure Machine Learning 컴퓨팅 인스턴스에 대해서만 학습 실험을 실행할 수 있지만 다른 컴퓨팅 대상은 표시되지 않습니다.
 
 1. 컴퓨팅 리소스의 이름을 입력합니다.
 

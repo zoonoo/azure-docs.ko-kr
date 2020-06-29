@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298961"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750691"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -54,7 +54,7 @@ Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure Pow
    또한 게이트웨이에 연결된 가상 네트워크 또는 온-프레미스 네트워크에 대한 경로는 게이트웨이 전송을 사용하여 피어링된 가상 네트워크에 대한 라우팅 테이블에 자동으로 전파됩니다. 자세한 내용은 [가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)을 참조하세요.
 
 - VNet-Spoke를 VNet-Hub에 피어링할 때 **UseRemoteGateways**를 설정합니다. **UseRemoteGateways**가 설정되고 원격 피어링의 **AllowGatewayTransit**도 설정된 경우, 스포크 가상 네트워크는 전송을 위해 원격 가상 네트워크의 게이트웨이를 사용합니다.
-- 허브 방화벽을 통해 스포크 서브넷 트래픽을 라우팅하려면 **가상 네트워크 게이트웨이 경로 전파** 옵션을 사용하지 않도록 설정된 방화벽을 가리키는 UDR(사용자 정의 경로)이 필요합니다. **가상 네트워크 게이트웨이 경로 전파** 사용 안 함 옵션은 스포크 서브넷에 대한 경로 배포를 방지합니다. 이렇게 하면 학습된 경로가 UDR과 충돌하지 않습니다.
+- 허브 방화벽을 통해 스포크 서브넷 트래픽을 라우팅하려면 **가상 네트워크 게이트웨이 경로 전파** 옵션을 사용하지 않도록 설정된 방화벽을 가리키는 UDR(사용자 정의 경로)을 사용하면 됩니다. **가상 네트워크 게이트웨이 경로 전파** 사용 안 함 옵션은 스포크 서브넷에 대한 경로 배포를 방지합니다. 이렇게 하면 학습된 경로가 UDR과 충돌하지 않습니다. **가상 네트워크 게이트웨이 경로 전파**를 사용하도록 설정하려면 BGP를 통해 온-프레미스에서 게시된 경로를 재정의하도록 방화벽에 대한 특정 경로를 정의해야 합니다.
 - 스포크 네트워크에 대한 다음 홉으로 방화벽 IP 주소를 가리키는 허브 게이트웨이 서브넷에서 UDR을 구성합니다. Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
 
 이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.

@@ -14,7 +14,7 @@ ms.custom:
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683820"
@@ -25,7 +25,7 @@ ms.locfileid: "81683820"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 수행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
@@ -59,7 +59,7 @@ JSON 디바이스 정의 파일과 JavaScript 파일 집합을 사용하여 디�
 각 디바이스 정의 파일에는 다음 정보를 비롯하여 시뮬레이션된 디바이스 모델에 대한 세부 정보가 들어 있습니다.
 
 * 디바이스 모델 이름: string
-* 프로토콜: AMQP | MQTT | HTTP
+* 프로토콜: AMQP | MQTT | HTTP.
 * 초기 디바이스 상태
 * 디바이스 상태 새로 고침 빈도
 * 디바이스 상태를 새로 고치는 데 사용할 JavaScript 파일
@@ -126,7 +126,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 해당 상태를 생성하는 함수는 다음을 입력으로도 받습니다.
 
 * 디바이스 ID
-* 디바이스 모델입니다.
+* 디바이스 모델
 * 현재 시간입니다. 이 값을 사용하면 디바이스 및 시간별로 다양한 데이터를 생성할 수 있습니다.
 
 ### <a name="generating-telemetry-messages"></a>원격 분석 메시지 생성
@@ -164,7 +164,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 
 * 개체 - JSON을 사용하여 직렬화됨
 * 이진 - base64를 사용하여 직렬화됨
-* Text
+* 텍스트
 * 부울
 * 정수
 * Double
@@ -172,7 +172,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 
 ### <a name="supported-methods"></a>지원되는 방식
 
-시뮬레이션된 디바이스는 메서드 호출에도 반응할 수 있습니다. 이 경우 메서드는 일부 논리를 실행하고 응답을 제공합니다. 시뮬레이션과 마찬가지로 메서드 논리는 JavaScript 파일에 저장되며 디바이스 상태와 상호 작용할 수 있습니다. 다음은 그 예입니다.
+시뮬레이션된 디바이스는 메서드 호출에도 반응할 수 있습니다. 이 경우 메서드는 일부 논리를 실행하고 응답을 제공합니다. 시뮬레이션과 마찬가지로 메서드 논리는 JavaScript 파일에 저장되며 디바이스 상태와 상호 작용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "CloudToDeviceMethods": {
@@ -262,7 +262,7 @@ JavaScript 파일에는 두 개의 매개 변수를 받아들이는 **main** 함
     * **deviceModel**. 예를 들어 **Elevator**입니다.
 * 이전 호출에서 함수에 의해 반환된 값인 **state** 개체. 이 디바이스 상태는 시뮬레이션 서비스에 의해 유지 관리되며 원격 분석 메시지를 생성하는 데 사용됩니다.
 
-**main** 함수는 새 디바이스 상태를 반환합니다. 다음은 그 예입니다.
+**main** 함수는 새 디바이스 상태를 반환합니다. 예를 들면 다음과 같습니다.
 
 ```JavaScript
 function main(context, state) {

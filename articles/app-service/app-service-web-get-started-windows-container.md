@@ -4,12 +4,12 @@ description: 첫 번째 사용자 지정 Windows 컨테이너를 Azure App Servi
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047114"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764080"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
@@ -17,7 +17,7 @@ ms.locfileid: "80047114"
 
 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker Hub](https://hub.docker.com/)에 배포합니다. Azure App Service의 사용자 지정 컨테이너에서 앱을 실행합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "80047114"
 
 1. **새 프로젝트 만들기**에서 C#용 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 찾아서 선택하고, **다음**을 선택합니다.
 
-1. **새 프로젝트 구성**에서 애플리케이션 이름을 _myFirstAzureWebApp_으로 지정한 다음, **만들기**를 선택합니다.
+1. **새 프로젝트 구성**에서 애플리케이션 이름을 _myfirstazurewebapp_으로 지정한 다음, **만들기**를 선택합니다.
 
    ![웹앱 프로젝트 구성](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "80047114"
 
 ## <a name="publish-to-docker-hub"></a>Docker 허브에 게시
 
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myFirstAzureWebApp** 프로젝트를 클릭하고, **게시**를 선택합니다.
+1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myfirstazurewebapp** 프로젝트를 클릭하고 **게시**를 선택합니다.
 
 1. **App Service**를 선택한 다음, **게시**를 선택합니다.
 
@@ -121,7 +121,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 
-Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app_name >* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
+Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app_name>* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
@@ -149,7 +149,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
    </div>
    ```
 
-1. Azure에 다시 배포하려면 **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myFirstAzureWebApp** 프로젝트를 클릭하고, **게시**를 선택합니다.
+1. Azure에 다시 배포하려면 **솔루션 탐색기**에서 마우스 오른쪽 단추로 **myfirstazurewebapp** 프로젝트를 클릭하고 **게시**를 선택합니다.
 
 1. 게시 페이지에서 **게시**를 선택하고 게시가 완료될 때까지 기다립니다.
 

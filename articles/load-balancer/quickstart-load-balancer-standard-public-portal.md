@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898824"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052744"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
-    | 속성                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준** 또는 **기본**을 선택합니다. Microsoft는 프로덕션 워크로드에 대한 표준을 권장합니다. |
@@ -80,7 +80,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *myHealthProbe*를 입력합니다. |
+    | Name | *myHealthProbe*를 입력합니다. |
     | 프로토콜 | **HTTP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 *15*를 입력합니다. |
@@ -97,7 +97,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *myHTTPRule*을 입력합니다. |
+    | Name | *myHTTPRule*을 입력합니다. |
     | 프로토콜 | **TCP**를 선택합니다. |
     | 포트 | *80*을 입력합니다.|
     | 백 엔드 포트 | *80*을 입력합니다. |
@@ -158,11 +158,11 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
     | 설정 | VM 2| VM 3|
     | ------- | ----- |---|
-    | 속성 |  *myVM2* |*myVM3*|
+    | Name |  *myVM2* |*myVM3*|
     | 가용성 영역 | 2 |3|
     |공용 IP| **표준** SKU|**표준** SKU|
     | 공용 IP - 가용성 영역| **영역 중복** |**영역 중복**|
-    | 네트워크 보안 그룹 | 기존 *myNetworkSecurity 그룹* 선택| 기존 *myNetworkSecurity 그룹* 선택|
+    | 네트워크 보안 그룹 | 기존 *myNetworkSecurityGroup* 선택| 기존 *myNetworkSecurityGroup* 선택|
 
  ### <a name="create-nsg-rule"></a>NSG 규칙 만들기
 

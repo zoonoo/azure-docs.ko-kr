@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1d771d1e13d1ffd92a18658d08bb948d97e55999
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209012"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699722"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [가용성 영역을 지원하는 지역](https://docs.microsoft.com/azure/availability-zones/az-region)에 언급된 대로 선택된 지역에서 지원됩니다.
@@ -23,7 +23,7 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 - 가용성 집합의 VM을 대상 Azure 지역의 가용성 영역으로 이동
 
 > [!IMPORTANT]
-> 현재 Azure Site Recovery는 한 지역에서 다른 지역으로 VM 이동은 지원하지만, 같은 Azure 지역 내 이동은 지원하지 않습니다.
+> 현재 Azure Site Recovery는 한 지역에서 다른 지역으로 VM 이동을 지원합니다. 일부 지역에서는 지역 내의 영역 간 이동만 지원합니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 ## <a name="check-prerequisites"></a>필수 구성 요소 확인
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82612948"
@@ -26,22 +26,22 @@ ms.locfileid: "82612948"
 
 **관리자** 역할의 모든 사용자는 아래의 다음 권한을 포함하여 솔루션에 대한 전체 액세스 권한이 있습니다. **읽기 전용** 역할의 사용자는 솔루션을 보는 액세스만을 갖습니다.
 
-| 사용 권한            | 관리자 | 읽기 전용 |
+| 사용 권한            | Admin | 읽기 전용 |
 |----------------       |-------|-----------|
 | 솔루션 보기         | 예   | 예       |
-| 알람 업데이트         | 예   | 아니요        |
-| 알람 삭제         | 예   | 아니요        |
-| 디바이스 만들기        | 예   | 아니요        |
-| 디바이스 업데이트        | 예   | 아니요        |
-| 디바이스 삭제        | 예   | 아니요        |
-| 디바이스 그룹 만들기  | 예   | 아니요        |
-| 디바이스 그룹 업데이트  | 예   | 아니요        |
-| 디바이스 그룹 삭제  | 예   | 아니요        |
-| 규칙 만들기          | 예   | 아니요        |
-| 규칙 업데이트          | 예   | 아니요        |
-| 규칙 삭제          | 예   | 아니요        |
-| 작업 만들기           | 예   | 아니요        |
-| SIM 관리 업데이트 | 예   | 아니요        |
+| 알람 업데이트         | 예   | 예        |
+| 알람 삭제         | 예   | 예        |
+| 디바이스 만들기        | 예   | 예        |
+| 디바이스 업데이트        | 예   | 예        |
+| 디바이스 삭제        | 예   | 예        |
+| 디바이스 그룹 만들기  | 예   | 예        |
+| 디바이스 그룹 업데이트  | 예   | 예        |
+| 디바이스 그룹 삭제  | 예   | 예        |
+| 규칙 만들기          | 예   | 예        |
+| 규칙 업데이트          | 예   | 예        |
+| 규칙 삭제          | 예   | 예        |
+| 작업 만들기           | 예   | 예        |
+| SIM 관리 업데이트 | 예   | 예        |
 
 기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 애플리케이션 소유자로 설정해야 합니다.
 
@@ -248,7 +248,7 @@ public async Task DeleteAsync(string id)
 
 원격 모니터링 솔루션 액셀러레이터에서 Time Series Insights 탐색기에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Time Series Insights Explorer에 대한 액세스 제어 구성](iot-accelerators-remote-monitoring-rbac-tsi.md)을 참조하세요.
 
-원격 모니터링 솔루션 가속기에 대 한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md) 를 참조 하세요.
+원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
 
 원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
 <!-- Next tutorials in the sequence -->

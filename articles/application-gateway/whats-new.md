@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81311771"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669735"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway의 새로운 소식
 
@@ -27,6 +27,7 @@ Azure Application Gateway는 지속적으로 업데이트됩니다. 최신 개�
 
 |기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
+| AGIC(Application Gateway Ingress Controller) AKS 추가 기능(미리 보기) |이제 Azure CLI를 통해 Application Gateway Ingress Controller를 한 줄에 네이티브 AKS 추가 기능으로 배포할 수 있습니다. AKS 추가 기능이기 때문에 AGIC는 고객의 AKS 클러스터에서 계속 실행되는 동안 완전 관리형 서비스가 될 수 있습니다. 자세한 내용은 [AGIC 추가 기능 차이점](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)을 참조하세요. |2020년 6월 |
 | v2의 UDR(사용자 정의 경로)(미리 보기) |이제 Application Gateway v2 SKU의 일부 시나리오에서 사용자 정의 경로가 지원됩니다. 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요. |2020년 3월 |
 |선호도 쿠키 변경 내용 |쿠키 기반 선호도를 사용하도록 설정하면 Application Gateway는 기존 ApplicationGatewayAffinity 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 다른 동일한 쿠키를 삽입합니다. *ApplicationGatewayAffinityCORS*에 추가된 두 개의 특성이 있으므로(*SameSite=None; Secure*) 원본 간 요청에 대해서도 고정 세션이 유지됩니다. 자세한 내용은 [Application Gateway 쿠키 기반 선호도](configuration-overview.md#cookie-based-affinity)를 참조하세요. |2020년 2월 |
 |프로브 향상 |Application Gateway v2 SKU의 사용자 지정 프로브 향상을 통해 [프로브 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)을 간소화하고, [주문형 백 엔드 상태 테스트](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe)를 용이하게 하고, 백 엔드 상태 문제를 해결하는 데 도움이 되도록 [추가 진단 정보](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages)를 추가했습니다.  |2019년 10월 |

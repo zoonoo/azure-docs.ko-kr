@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996995"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051890"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 
@@ -22,7 +22,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
 
 이 자습서에서는 관리 ID를 사용하여 Azure Key Vault에서 Azure Web App을 인증합니다. 이 단계에서는 [.NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)용 Azure Key Vault v4 클라이언트 라이브러리를 사용하지만, 선택한 개발 언어 Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -147,7 +147,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 `myAppServicePlan` App Service 계획에서 [Azure 웹앱](../../app-service/containers/app-service-linux-intro.md)을 만듭니다. 
 
 > [!Important]
-> Key Vault와 마찬가지로 Azure Web App의 이름도 고유해야 합니다. 다음 예제에서 \<your-webapp-name\>을 웹앱의 이름으로 바꿉니다.
+> Key Vault와 마찬가지로 Azure Web App의 이름도 고유해야 합니다. 다음 예제에서 \<your-webapp-name\>을 웹앱 이름으로 바꿉니다.
 
 
 ```azurecli-interactive
@@ -186,7 +186,7 @@ https://<your-webapp-name>.azurewebsites.net
 
 ### <a name="deploy-your-local-app"></a>로컬 앱 배포
 
-로컬 터미널 창으로 돌아가서 Azure 원격을 로컬 Git 리포지토리에 추가합니다. 여기서 *\<deploymentLocalGitUrl-from-create-step>* 을 [원격 웹앱 만들기](#create-a-remote-web-app) 단계에서 저장한 Git 원격의 URL로 바꿉니다.
+로컬 터미널 창으로 돌아가서 Azure 원격을 로컬 Git 리포지토리에 추가합니다. 여기서 *\<deploymentLocalGitUrl-from-create-step>* 를 [원격 웹앱 만들기](#create-a-remote-web-app) 단계에서 저장한 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -279,6 +279,7 @@ akvwebapp 프로젝트에서 Startup.cs 파일을 찾아서 엽니다.
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 이러한 줄을 `app.UseEndpoints` 호출 앞에 추가하고, 키 자격 증명 모음의 `vaultUri`를 반영하도록 URI를 업데이트합니다. 아래 코드에서는 키 자격 증명 모음에 대한 인증을 위해 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)을 사용하며, 이는 애플리케이션 관리 ID의 토큰을 사용하여 인증합니다. 또한 키 자격 증명 모음이 제한되는 경우 지수 백오프를 다시 시도에 사용합니다.

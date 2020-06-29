@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레�
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331766"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052426"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-hyper-v.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
     - Azure Migrate를 사용할 수 있게 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
-    - [Hyper-V 준비](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) 호스트 및 VM 평가.
+    - [Hyper-V 준비](tutorial-prepare-hyper-v.md#prepare-for-assessment) 호스트 및 VM 평가.
     - [Hyper-V 평가용 Azure Migrate 어플라이언스를 배포하기 위해 필요한 내용을 ](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment)확인합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
@@ -102,7 +102,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 
         **시나리오** | **다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(8.93MB) | [최신 버전](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V(8.93GB) | [최신 버전](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - Azure Government의 경우:
 
@@ -174,10 +174,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 
-SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 이 작업을 수행하려면 다음이 필요합니다.
-
-- 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다. 자습서를 순서대로 따랐다면 평가 및 마이그레이션을 위해 Hyper-V를 준비할 때 이전 자습서에서 이 작업을 수행했습니다. 호스트에 대한 CredSSP를 [수동으로](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) 설정하거나, 이를 수행하는 [스크립트를 실행](tutorial-prepare-hyper-v.md#prepare-with-a-script)하여 설정해야 합니다.
-- Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
+SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 이렇게 하려면 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다. 자습서를 순서대로 따랐다면 평가 및 마이그레이션을 위해 Hyper-V를 준비할 때 이전 자습서에서 이 작업을 수행했습니다. 호스트에 대한 CredSSP를 [수동으로](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials) 설정하거나, 이를 수행하는 [스크립트를 실행](tutorial-prepare-hyper-v.md#run-the-script)하여 설정해야 합니다.
 
 다음과 같이 어플라이언스에서 사용하도록 설정합니다.
 
@@ -186,7 +183,7 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 예: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

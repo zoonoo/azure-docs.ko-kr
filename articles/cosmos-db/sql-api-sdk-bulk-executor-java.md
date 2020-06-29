@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c826b9f813c30a50d8b88b2cca1b188c328465b0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660447"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171653"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 정보 다운로드
 
@@ -29,7 +29,7 @@ ms.locfileid: "83660447"
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
@@ -43,23 +43,23 @@ ms.locfileid: "83660447"
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="2100"></a><a name="2.10.0"/>2.10.0
+### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
 * DocumentAnalyzer.java가 json에서 중첩 파티션 키 값을 정확하게 추출하는 데 필요한 픽스
 
-### <a name="294"></a><a name="2.9.4"/>2.9.4
+### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
 * BulkDelete 작업에 특정 오류를 다시 시도할 수 있는 기능을 추가하고, 다시 시도할 수 있는 사용자에게 오류 목록을 반환합니다.
 
-### <a name="293"></a><a name="2.9.3"/>2.9.3
+### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
 * Cosmos SDK 버전 2.4.7에 대한 업데이트입니다.
 
-### <a name="292"></a><a name="2.9.2"/>2.9.2
+### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
 * 'id' 및 파티션 키 값이 업데이트된 항목 목록에 추가된 후 패치가 적용된 문서 속성이 배치되도록 'id' 및 파티션 키 값에 대한 'mergeAll'을 수행하는 데 필요한 픽스입니다.
 
-### <a name="291"></a><a name="2.9.1"/>2.9.1
+### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * 동시성의 시작 수준을 1로 업데이트하고 minibatch의 디버그 로그를 추가했습니다.
 

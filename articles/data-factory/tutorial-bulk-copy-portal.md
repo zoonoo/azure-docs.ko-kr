@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561163"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661059"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -108,13 +108,16 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 
 
-1. 창 아래쪽에서 **연결**을 클릭하고, 도구 모음에서 **+ 새로 만들기**를 클릭합니다(**연결** 단추가 **팩터리 리소스** 아래의 왼쪽 열 아래에 있음). 
+1. 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 엽니다.
 
+1. 연결된 서비스 페이지에서 **+새로 만들기**를 선택하여 새로 연결된 서비스를 만듭니다.
+
+   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
 1. **새 연결된 서비스** 창에서 **Azure SQL Database**를 선택하고 **계속**을 클릭합니다. 
 1. **새로 연결된 서비스(Azure SQL Database)** 창에서 다음 단계를 수행합니다. 
 
     a. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다.
-    
+
     b. **서버 이름**에 대해 서버를 선택합니다.
     
     다. **데이터베이스 이름**에 대해 Azure SQL 데이터베이스를 선택합니다. 
@@ -159,7 +162,6 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
     b. **스토리지 계정 이름**에 대해 **Azure Storage 계정**을 선택합니다.
     
     다. **만들기**를 클릭합니다.
-
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 세트를 만듭니다. 
@@ -321,7 +323,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 
-1. **GetTableListAndTriggerCopyData** 파이프라인으로 이동하고, 위쪽의 파이프라인 도구 모음에서 **트리거 추가**를 클릭한 다음, **지금 트리거**를 클릭합니다. 
+1. **GetTableListAndTriggerCopyData** 파이프라인으로 이동하여 위쪽의 파이프라인 도구 모음에서 **트리거 추가**를 클릭한 다음, **지금 트리거**를 클릭합니다. 
 
 1. **파이프라인 실행** 페이지에서 실행을 확인한 다음, **마침**을 선택합니다.
 

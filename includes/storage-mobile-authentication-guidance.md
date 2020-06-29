@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "67673431"
@@ -15,7 +15,7 @@ ms.locfileid: "67673431"
 Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 가지 방법이 있습니다.
 
 * 공유 키: 테스트 목적으로만 공유 키 사용
-* SAS(공유 액세스 서명): 프로덕션 애플리케이션에 대해 SAS 사용
+* SAS(공유 액세스 서명): 프로덕션 애플리케이션에 SAS 사용
 
 ### <a name="shared-key"></a>공유 키
 공유 키 인증은 애플리케이션이 계정 이름과 계정 키를 사용하여 Storage 서비스에 액세스하는 것을 의미합니다. 이 시작 설명서에서는 이 라이브러리를 사용하는 방법을 신속하게 표시하는 용도로 공유 키 인증을 사용합니다.

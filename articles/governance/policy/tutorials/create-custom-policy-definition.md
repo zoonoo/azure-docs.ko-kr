@@ -1,14 +1,14 @@
 ---
 title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
-ms.date: 05/20/2020
+ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683249"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888149"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "83683249"
 > - 사용할 효과 결정
 > - 정책 정의 작성
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -171,6 +171,9 @@ Azure 리소스의 별칭을 확인하는 몇 가지 방법이 있습니다. 이
 ### <a name="get-aliases-in-vs-code-extension"></a>VS Code 확장에서 별칭 가져오기
 
 VS Code 확장용 Azure Policy 확장을 사용하면 리소스를 쉽게 찾아보고 [별칭을 검색](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties)할 수 있습니다.
+
+> [!NOTE]
+> VS Code 확장은 Resource Manager 모드 속성만 노출하고 [리소스 공급자 모드](../concepts/definition-structure.md#mode) 속성은 표시하지 않습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 

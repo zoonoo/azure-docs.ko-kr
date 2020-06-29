@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a01d8568c50cca181ec10f91b316715d64d2c37e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234340"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737838"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -111,7 +111,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
     - **갤러리**를 선택하는 경우 드롭다운 메뉴에서 다음과 같은 추천 이미지 중 하나를 선택합니다.
 
-      - Windows 10 Enterprise 다중 세션 버전 1909 + Office 365 ProPlus – 1세대
+      - Windows 10 Enterprise 다중 세션 버전 1909 + Microsoft 365 Apps for Enterprise – 1세대
       - Windows 10 Enterprise 다중 세션 버전 1909 – 1세대
       - Windows Server 2019 Datacenter – 1세대
 

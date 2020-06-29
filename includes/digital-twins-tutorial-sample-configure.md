@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f7b3bf347b15ebad2403f3aa64c0f3fd6c4be052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611795"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737202"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "84611795"
 
 Visual Studio에서 *솔루션 탐색기* 창을 사용하여 _SampleClientApp > **serviceConfig.json.TEMPLATE**_ 파일의 복사본을 만듭니다(마우스 오른쪽 단추 선택 메뉴를 사용하여 복사 및 붙여넣기 가능). 복사본의 이름을 *serviceConfig.json*으로 바꿉니다. 이 파일은 프로젝트를 실행하는 데 필요한 구성 변수와 함께 미리 설정된 JSON 파일 역할을 합니다.
 
-새 파일을 선택하여 편집 창에서 엽니다. `tenantId`를 *디렉터리 ID*로, `clientId`를 *애플리케이션 ID*로, `instanceUrl`을 Azure Digital Twins 인스턴스 *hostName* URL로 바꿉니다(아래에서 볼 수 있듯이 앞에 *https://* 를 붙임).
+*serviceConfig.json* 파일을 선택하여 편집 창에서 엽니다. `tenantId`를 *디렉터리 ID*로, `clientId`를 *애플리케이션 ID*로, `instanceUrl`을 Azure Digital Twins 인스턴스 *hostName* URL로 바꿉니다(아래에서 볼 수 있듯이 앞에 *https://* 를 붙임).
 
 ```json
 {

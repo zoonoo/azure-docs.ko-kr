@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295306"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678021"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
 
@@ -27,6 +27,10 @@ ms.locfileid: "84295306"
 <sup>1</sup> EA 계약의 청구 담당자가 이 역할을 수행합니다.
 
 <sup>2</sup> 청구 대상 연락처는 Azure EA Portal에서 추가 또는 변경할 수 없으며, 계약 수준에서 청구 대상 연락처로 설정된 사용자를 기반으로 하여 EA 등록에 추가됩니다. 청구 대상 연락처를 변경하려면 파트너/소프트웨어 관리자를 통해 ROC(지역 운영 센터)에 요청해야 합니다.
+
+등록 프로비저닝 중에 설정된 첫 번째 등록 관리자는 청구 대상 담당자 계정의 인증 유형을 결정합니다. 청구 대상 담당자가 읽기 전용 관리자로 EA 포털에 추가되면 Microsoft 계정 인증이 제공됩니다. 
+
+예를 들어 초기 인증 유형이 혼합으로 설정된 경우 EA가 Microsoft 계정으로 추가되고 청구 대상 담당자에게 읽기 전용 EA 관리자 권한이 부여됩니다. EA 관리자가 기존 청구 대상 담당자에 대한 Microsoft 계정 권한 부여에 동의하지 않는 경우, EA 관리자는 해당 사용자를 삭제하고 EA 포털의 등록 수준에서만 설정된 회사 또는 학교 계정을 사용하여 사용자를 읽기 전용 관리자로 추가하도록 고객에게 요청할 수 있습니다.
 
 이러한 역할은 Azure 기업계약 관리에만 적용되며, 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 

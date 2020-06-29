@@ -3,16 +3,16 @@ title: Power BI 앱을 사용하여 Azure 비용 분석
 description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461602"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888199"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
@@ -22,7 +22,7 @@ ms.locfileid: "81461602"
 
 Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 체결한 고객만 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 앱을 설치하고 사용하기 위한 [Power BI Pro 라이선스](/power-bi/service-self-service-signup-for-power-bi)
 - 데이터에 연결하려면 [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 사용해야 합니다.
@@ -127,6 +127,27 @@ _정규화된 크기_ 및 _추천되는 정규화된 수량_ 값은 인스턴스
 ## <a name="troubleshoot-problems"></a>문제 해결
 
 Power BI 앱에 문제가 있는 경우 다음과 같은 문제 해결 정보가 도움이 될 수 있습니다.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>데이터 세트에서 데이터를 처리하는 동안 오류 발생
+
+다음을 나타내는 오류가 발생할 수 있습니다.
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+`<TableName>` 대신 테이블 이름이 표시됩니다.
+
+#### <a name="cause"></a>원인
+
+Cost Management 연결에서 `Enrollment Number`의 기본 **범위** 값이 변경되었습니다.
+
+#### <a name="solution"></a>해결 방법
+
+Cost Management에 다시 연결하고 **범위** 값을 `Enrollment Number`로 설정합니다. 조직의 등록 번호를 입력하지 말고 다음 이미지에 표시된 대로 정확하게 `Enrollment Number`를 입력합니다.
+
+![EA 등록 정보 입력](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>BudgetAmount 오류
 

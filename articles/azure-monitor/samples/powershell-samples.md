@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 6c00556bfbcd2108b3cb5bd2cfdf88a741f85a99
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837247"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945259"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-activity-log-for-a-subscription"></a>구독에 대한 활동 로그 검색
+## <a name="retrieve-activity-log"></a>활동 로그 검색
 [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet을 사용합니다.  다음은 몇 가지 일반적인 예입니다. 활동 로그는 최근 90일 동안의 작업을 저장합니다. 이 시간 이전에 날짜를 사용하면 오류 메시지가 나타납니다.  
 
 현재 날짜/시간을 확인하여 아래 명령에 사용할 시간을 확인합니다.
@@ -150,7 +150,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 | 매개 변수(parameter) | 값 |
 | --- | --- |
-| 속성 |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | 이 경고 규칙의 위치 |미국 동부 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

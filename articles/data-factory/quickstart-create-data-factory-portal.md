@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248535"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655853"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 
@@ -42,8 +42,6 @@ ms.locfileid: "84248535"
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
 1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
-   
-   ![Azure Portal 메뉴에서 리소스 만들기 선택](./media/doc-common-process/create-a-resource.png)
 1. **Analytics**를 선택한 다음, **Data Factory**를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ ms.locfileid: "84248535"
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
 이 절차에서는 Azure Storage 계정을 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
-1. **연결**을 선택한 다음, 도구 모음에서 **새로 만들기** 단추를 선택합니다(**연결** 단추는 **팩터리 리소스** 아래의 왼쪽 열 하단에 있음). 
+1. 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 엽니다.
 
+1. 연결된 서비스 페이지에서 **+새로 만들기**를 선택하여 새로 연결된 서비스를 만듭니다.
+
+   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
+   
 1. **새 연결된 서비스** 페이지에서 **Azure Blob Storage**를 선택한 다음 **계속**을 선택합니다. 
 
 1. 새로 연결된 서비스(Azure Blob Storage) 페이지에서 다음 단계를 수행합니다. 

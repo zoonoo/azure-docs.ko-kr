@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585833"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905139"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -98,9 +98,12 @@ Azure AD는 Facebook, Microsoft 계정, Google 또는 엔터프라이즈 ID 공�
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>셀프 서비스 등록 사용자 흐름 만들기(미리 보기)
 
-셀프 서비스 등록 사용자 흐름을 통해 앱에 액세스하려는 외부 사용자를 위한 등록 환경을 만들 수 있습니다. 등록 흐름의 일부로서, 다른 소셜 또는 엔터프라이즈 ID 공급자에 대한 옵션을 제공하고 사용자에 대한 정보를 수집할 수 있습니다. 셀프 서비스 등록 및 설정 방법에 대해 알아봅니다.
+셀프 서비스 등록 사용자 흐름을 통해 앱에 액세스하려는 외부 사용자를 위한 등록 환경을 만들 수 있습니다. 등록 흐름의 일부로서, 다른 소셜 또는 엔터프라이즈 ID 공급자에 대한 옵션을 제공하고 사용자에 대한 정보를 수집할 수 있습니다. [셀프 서비스 등록 및 설정 방법](self-service-sign-up-overview.md)에 대해 알아봅니다.
+
+[API 커넥터](api-connectors-overview.md)를 사용하여 셀프 서비스 등록 사용자 흐름을 외부 클라우드 시스템과 통합할 수도 있습니다. 사용자 지정 승인 워크플로와 연결하고, ID 확인을 수행하고, 사용자 제공 정보의 유효성을 검사할 수 있습니다.
 
 ![사용자 흐름 페이지를 보여주는 스크린샷](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>다음 단계
 

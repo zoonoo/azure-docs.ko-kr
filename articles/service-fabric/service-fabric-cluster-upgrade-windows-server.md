@@ -7,7 +7,7 @@ ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
 ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/05/2020
 ms.locfileid: "82793145"
@@ -29,7 +29,7 @@ ms.locfileid: "82793145"
 Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다운로드하도록 클러스터를 설정하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *true*로 설정합니다. 클러스터를 사용할 지원되는 Service Fabric 버전을 수동으로 선택하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *false*로 설정합니다.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>최신 코드와 구성을 다운로드하도록 연결된 클러스터 업그레이드
-클러스터 노드가 [Microsoft 다운로드 센터](https://download.microsoft.com)에 인터넷으로 연결 되어 있는 경우 다음 단계를 사용 하 여 클러스터를 지원 되는 버전으로 업그레이드 합니다.
+클러스터 노드가 인터넷을 통해 [Microsoft 다운로드 센터](https://download.microsoft.com)에 연결되어 있으면 이러한 단계를 사용하여 클러스터를 지원되는 버전으로 업그레이드합니다.
 
 [Microsoft 다운로드 센터](https://download.microsoft.com)에 연결되는 클러스터의 경우 새 Service Fabric 버전이 있는지 주기적으로 확인합니다.
 
@@ -98,7 +98,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 수동 프로세스의 경우 다음 지침을 따릅니다.
 
-구성 업그레이드를 시작 하기 전에 클러스터 구성을 수정 하 여 다음 속성을 *false* 로 설정 합니다.
+구성 업그레이드를 시작하기 전에 클러스터 구성을 수정하여 다음 속성을 *false*로 설정합니다.
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,
@@ -112,7 +112,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 ### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로
 
-1. 클러스터의 노드 중 하나에서 [start-servicefabricclusterupgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) 를 실행 하 고 *targetcodeversion*을 확인 합니다.
+1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion*을 적어둡니다.
 
 2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고, 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
 

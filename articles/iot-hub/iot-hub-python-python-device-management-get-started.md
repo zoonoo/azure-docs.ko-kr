@@ -11,7 +11,7 @@ ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: f376831175840284fdfd15f367542d33ad9f7177
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759763"
@@ -20,7 +20,7 @@ ms.locfileid: "81759763"
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "81759763"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -60,13 +60,13 @@ ms.locfileid: "81759763"
 
 * reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-장치** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-2. 텍스트 편집기를 사용 하 여 작업 디렉터리에 **py dmpatterns_getstarted_device** 라는 파일을 만듭니다.
+2. 텍스트 편집기를 사용하여 작업 디렉터리에 **dmpatterns_getstarted_device**라는 파일을 만듭니다.
 
 3. 다음 `import` 문을 **dmpatterns_getstarted_device.py** 파일의 시작 부분에 추가합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "81759763"
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. **CONNECTION_STRING** 변수를 추가 합니다. 자리 표시자 `{deviceConnectionString}` 값을 장치 연결 문자열로 바꿉니다. 이전에 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에이 연결 문자열을 복사 했습니다.  
+4. **CONNECTION_STRING** 변수를 추가합니다. `{deviceConnectionString}` 자리 표시자 값을 디바이스 연결 문자열로 바꿉니다. 이전에 [IoT Hub에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 이 연결 문자열을 복사했을 것입니다.  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -143,7 +143,7 @@ ms.locfileid: "81759763"
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -153,13 +153,13 @@ ms.locfileid: "81759763"
 
 이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-허브** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-2. 텍스트 편집기를 사용 하 여 작업 디렉터리에 **py dmpatterns_getstarted_service** 라는 파일을 만듭니다.
+2. 작업 디렉터리에서 텍스트 편집기를 사용하여 **dmpatterns_getstarted_service.py** 파일을 만듭니다.
 
 3. 다음 `import` 문을 **dmpatterns_getstarted_service.py** 파일의 시작 부분에 추가합니다.
 
@@ -170,7 +170,7 @@ ms.locfileid: "81759763"
     from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
-4. 다음 변수 선언을 추가합니다. 자리 표시자 `{IoTHubConnectionString}` 값을 이전에 [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. 자리 표시자 `{deviceId}` 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
+4. 다음 변수 선언을 추가합니다. `{IoTHubConnectionString}` 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다. `{deviceId}` 자리 표시자 값을 [IoT Hub에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 등록한 디바이스 ID로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -255,12 +255,12 @@ ms.locfileid: "81759763"
 
 3. 콘솔에서 직접 메서드에 대한 디바이스 응답을 확인합니다.
 
-   다음은 다시 부팅 직접 메서드에 대 한 장치 응답을 보여 줍니다.
+   다음은 재부팅 직접 방법에 대한 디바이스 응답을 보여 줍니다.
 
-   ![시뮬레이션 된 장치 앱 출력](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![시뮬레이트한 디바이스 앱 출력](./media/iot-hub-python-python-device-management-get-started/device.png)
 
-   다음은 다시 부팅 직접 메서드를 호출 하 고 상태에 대 한 장치 쌍을 폴링하는 서비스를 보여 줍니다.
+   다음은 재부팅 직접 방법을 호출하고 상태에 대해 디바이스 쌍을 폴링하는 서비스를 보여 줍니다.
 
-   ![다시 부팅 서비스 출력 트리거](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![재부팅 서비스 트리거 출력](./media/iot-hub-python-python-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

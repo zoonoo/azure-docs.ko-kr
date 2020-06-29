@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7270d05fa7668278db285336c45b5d5c1fb39c77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b4cc6e046b3d6442526df40cad574dbdb9159d5f
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148431"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073387"
 ---
 Python용 Face 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -29,18 +29,16 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ## <a name="setting-up"></a>설치
-
-### <a name="create-a-face-azure-resource"></a>Face Azure 리소스 만들기
-
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Face용 리소스를 만듭니다. 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져올 수도 있습니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
-
-평가판 구독 또는 리소스에서 키를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
  
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
@@ -67,7 +65,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|속성|Description|
+|Name|Description|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | 이 클래스는 Face 서비스를 사용할 수 있는 권한의 부여를 나타내며 모든 Face 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|이 클래스는 사람 얼굴을 사용하여 수행할 수 있는 기본 감지 및 인식 작업을 처리합니다. |
@@ -211,7 +209,7 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 
 ## <a name="take-a-snapshot-for-data-migration"></a>데이터 마이그레이션용 스냅샷 만들기
 
-스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 평가판 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
+스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 체험 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
 
 다음 예제에서는 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 만든 **PersonGroup**을 마이그레이션합니다. 해당 섹션을 먼저 완료하거나 사용자 고유의 Face 데이터 구문을 사용할 수 있습니다.
 

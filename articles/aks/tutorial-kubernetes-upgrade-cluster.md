@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 22aad0e601c600e582cbea0cea82dd67a20a2c06
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392686"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887992"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
@@ -34,15 +34,30 @@ ms.locfileid: "81392686"
 클러스터를 업그레이드하려면 먼저 [az aks get-upgrades][] 명령을 사용하여 업그레이드할 수 있는 Kubernetes 릴리스를 확인합니다.
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음 예제에서는 현재 버전이 *1.14.8*이고, 사용 가능한 버전이 *업그레이드* 열 아래에 표시됩니다.
+다음 예제에서는 현재 버전이 *1.15.11*이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## <a name="upgrade-a-cluster"></a>클러스터 업그레이드
@@ -55,16 +70,19 @@ default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
 1. 새 노드가 준비되고 클러스터에 조인될 때 Kubernetes 스케줄러에서 Pod를 실행하기 시작합니다.
 1. 이전 노드가 삭제되고, 클러스터의 다음 노드가 차단 및 드레이닝 프로세스를 시작합니다.
 
-[az aks upgrade][] 명령을 사용하여 AKS 클러스터를 업그레이드합니다. 다음 예제에서는 클러스터를 Kubernetes 버전 *1.14.6*으로 업데이트합니다.
+[az aks upgrade][] 명령을 사용하여 AKS 클러스터를 업그레이드합니다.
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
+```
 
 > [!NOTE]
 > 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x*에서 *1.15.x*로 업그레이드할 수 있지만, *1.14.x*에서 *1.16.x*로 직접 업그레이드할 수는 없습니다. *1.14.x*에서 *1.16.x*로 업그레이드하려면 먼저 *1.14.x*에서 *1.15.x*로 업그레이드한 다음, *1.15.x*에서 *1.16.x*로 업그레이드합니다.
 
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
-```
-
-축소된 다음 예제 출력에서는 이제 *kubernetesVersion*에서 *1.15.5*를 보고하는 것을 보여 줍니다.
+압축된 다음 예제 출력에서는 *1.16.8*로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion*에서 *1.16.8*을 보고합니다.
 
 ```json
 {
@@ -82,7 +100,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.15.5",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -97,12 +115,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.15.5*를 실행하는 것을 보여 줍니다.
+다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8*을 실행하는 것을 보여줍니다.
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제

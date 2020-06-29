@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 248bae81db1bc8cb69bac4618bd7593658336636
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76169907"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986709"
 ---
 # <a name="example-identify-faces-in-images"></a>예제: 이미지에서 얼굴 식별
 
@@ -42,7 +42,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 대안으로 구독 키를 **ocp-apim-subscription-key: &lt;구독 키&gt;** HTTP 요청 헤더에 지정합니다.
-클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceClient 클래스의 생성자를 통해 전달됩니다. 다음은 그 예입니다.
+클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceClient 클래스의 생성자를 통해 전달됩니다. 예를 들면 다음과 같습니다.
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
@@ -50,7 +50,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-구독 키를 가져오려면 Azure Portal에서 Azure Marketplace로 이동합니다. 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
+다음 지침에 따라 키를 가져옵니다.
+
+1. [Azure 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 이미 있는 경우 다음 단계로 건너뛸 수 있습니다.
+2. Azure Portal에서 [Face 리소스](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace)를 만들어 키를 가져옵니다. 설치 중에 체험 계층(F0)을 선택했는지 확인합니다. 
+3. 리소스를 배포한 후 **리소스로 이동**을 클릭하여 키를 수집합니다. 
 
 ## <a name="step-2-create-the-persongroup"></a>2단계: PersonGroup 만들기
 

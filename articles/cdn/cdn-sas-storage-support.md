@@ -16,7 +16,7 @@ ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: c2580aa4ee22996c1bf0fe5c86064a6543450071
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260176"
@@ -32,14 +32,14 @@ SAS를 사용하여 Blob의 액세스 권한에 대해 시작 및 만료 시간,
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>스토리지 SAS를 사용하도록 Azure CDN 설정
 Azure CDN에서 SAS를 사용하는 경우 다음 세 가지 옵션을 사용하는 것이 좋습니다. 모든 옵션에서는 작동하는 SAS를 이미 만들었다고 가정합니다(필수 조건 참조). 
  
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 시작하려면 스토리지 계정을 만든 다음, 자산에 대한 SAS를 생성합니다. 서비스 SAS, 계정 SAS 등 두 가지 유형의 저장된 액세스 서명을 생성할 수 있습니다. 자세한 내용은 [공유 액세스 서명 유형](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures)을 참조하세요.
 
 SAS 토큰을 생성한 후 URL에 `?sv=<SAS token>`을 추가하여 Blob Storage 파일에 액세스할 수 있습니다. 이 URL의 형식은 다음과 같습니다. 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    
    결과 CDN 엔드포인트 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   다음은 그 예입니다.   
+   예를 들면 다음과 같습니다.   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   다음은 그 예입니다.   
+   예를 들면 다음과 같습니다.   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
    보안 토큰 엔드포인트 URL의 형식은 다음과 같습니다.   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   다음은 그 예입니다.   
+   예를 들면 다음과 같습니다.   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -135,15 +135,15 @@ SAS 매개 변수는 Azure CDN에 표시되지 않으므로 Azure CDN은 이 매
 
 | SAS 매개 변수 이름 | Description |
 | --- | --- |
-| Start | Azure CDN이 Blob 파일에 액세스하기 시작할 수 있는 시간입니다. 클록 스큐(clock skew)(신호가 구성 요소에 따라 다른 시간에 도착하는 경우)로 인해 자산을 즉시 사용할 수 있게 하려면 15분 이른 시간을 선택합니다. |
+| 시작 | Azure CDN이 Blob 파일에 액세스하기 시작할 수 있는 시간입니다. 클록 스큐(clock skew)(신호가 구성 요소에 따라 다른 시간에 도착하는 경우)로 인해 자산을 즉시 사용할 수 있게 하려면 15분 이른 시간을 선택합니다. |
 | 끝 | Azure CDN이 Blob 파일에 더 이상 액세스할 수 없는 시간입니다. Azure CDN에서 이전에 캐시된 파일은 계속 액세스할 수 있습니다. 파일 만료 시간을 제어하려면 Azure CDN 보안 토큰에 적절한 만료 시간을 설정하거나 자산을 제거합니다. |
-| 허용된 IP 주소 | 선택 사항입니다. **Verizon의 Azure CDN**을 사용하는 경우 이 매개 변수를 you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api)(Verizon의 Azure CDN 에지 서버 IP 범위)에 정의된 범위로 설정할 수 있습니다. **Akamai의 Azure CDN**을 사용하는 경우에는 IP 주소가 고정 주소가 아니므로 IP 범위 매개 변수를 설정할 수 없습니다.|
+| 허용된 IP 주소 | (선택 사항) **Verizon의 Azure CDN**을 사용하는 경우 이 매개 변수를 you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api)(Verizon의 Azure CDN 에지 서버 IP 범위)에 정의된 범위로 설정할 수 있습니다. **Akamai의 Azure CDN**을 사용하는 경우에는 IP 주소가 고정 주소가 아니므로 IP 범위 매개 변수를 설정할 수 없습니다.|
 | 허용되는 프로토콜 | 계정 SAS를 사용하여 요청하는 경우 허용되는 프로토콜입니다. HTTPS 설정을 사용하는 것이 좋습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 SAS에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [SAS (공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [공유 액세스 서명, 2부: Blob Storage를 사용하여 SAS 만들기 및 사용](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [SAS(공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [공유 액세스 서명 2부: Blob Storage를 통해 SAS 만들기 및 사용](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 토큰 인증을 설정하는 방법에 대한 자세한 내용은 [토큰 인증을 사용하여 Azure Content Delivery Network 자산 보안 유지](https://docs.microsoft.com/azure/cdn/cdn-token-auth)를 참조하세요.

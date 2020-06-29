@@ -1,5 +1,5 @@
 ---
-title: MXChip IoT DevKit를 Azure IoT Hub 원격 모니터링에 연결
+title: Azure IoT Hub 원격 모니터링에 MXChip IoT DevKit 연결
 description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
 author: liydu
 manager: jeffya
@@ -11,7 +11,7 @@ ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258459"
@@ -31,7 +31,7 @@ ms.locfileid: "81258459"
 
 활성화된 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30 일 무료 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "81258459"
 
    ![대시보드](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![콘솔](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. **디바이스 추가**를 클릭합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "81258459"
 4. 왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **RemoteMonitoring**을 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
    > [!NOTE]
-   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-required-azure-services"></a>필요한 Azure 서비스 프로비전
 

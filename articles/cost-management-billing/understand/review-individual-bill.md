@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194131"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888316"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>자습서: 개별 Azure 청구서 검토
 
@@ -100,7 +100,7 @@ Azure Portal에서 검색 상자에 *구독*을 입력한 다음, [구독](https
 
 ![청구서 사용 요금](./media/review-individual-bill/invoice-usage-charges.png)
 
-CSV 사용 현황 파일에서 청구서에 표시된 해당 리소스에 대한 *MeterName*을 필터링합니다. 그런 다음, 열의 항목에 대한 *Cost* 값의 합계를 계산합니다. 예를 들면 다음과 같습니다.
+CSV 사용 현황 파일에서 청구서에 표시된 해당 리소스에 대한 *MeterName*을 필터링합니다. 그런 다음, 열의 항목에 대한 *Cost* 값의 합계를 계산합니다. 다음은 송장의 동일한 품목에 해당하는 미터 이름(P10 디스크)에 중점을 둔 예제입니다.
 
 ![MeterName에 대한 사용 현황 파일 합계 값](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

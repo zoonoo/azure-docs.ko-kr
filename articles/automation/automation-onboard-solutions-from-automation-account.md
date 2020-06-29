@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743999"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204942"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "83743999"
 > [!NOTE]
 > 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
@@ -33,19 +33,15 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
 
-2. Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 업데이트 관리를 사용하도록 설정합니다. 설정을 완료하는 데는 최대 15분이 걸립니다.
+2. Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 클릭하여 업데이트 관리를 사용하도록 설정합니다. 설정을 완료하는 데 최대 15분이 걸립니다.
 
     ![업데이트 관리 사용](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
-
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>범위 구성 확인
-
-업데이트 관리는 작업 영역 내의 범위 구성을 사용하고 컴퓨터를 대상으로 하여 이 기능을 사용할 수 있도록 설정합니다. 범위 구성은 기능 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 자세한 내용은 [업데이트 관리의 범위 구성 작업](automation-scope-configurations-update-management.md)을 참조하세요.
 
 ## <a name="enable-azure-vms"></a>Azure VM을 사용하도록 설정
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
 
-2. **+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure VM은 Automation 계정의 위치와 상관없이 모든 지역에 있을 수 있습니다. 
+2. **+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure VM은 Automation 계정 위치와 상관없이 모든 지역에 있을 수 있습니다. 
 
 3. **사용**을 클릭하여 컴퓨터 그룹의 저장된 기능 검색에 선택한 VM을 추가합니다.
 
@@ -65,24 +61,21 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다.
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다.
 
-2. **컴퓨터 관리**를 선택합니다. 이전에 **사용 가능한 모든 컴퓨터 및 향후 컴퓨터에서 사용** 옵션을 선택한 경우 **컴퓨터 관리** 단추가 회색으로 표시될 수 있습니다.
+2. **컴퓨터 관리**를 선택합니다. 이전에 **사용 가능한 모든 향후 머신에서 사용** 옵션을 선택한 경우 **머신 관리** 단추가 회색으로 표시될 수 있습니다.
 
     ![저장된 검색](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 4. 사용 가능한 모든 컴퓨터에 업데이트 관리를 사용하려면 컴퓨터 관리 페이지에서 **사용 가능한 모든 컴퓨터에서 사용**을 선택합니다. 이 작업은 머신을 개별적으로 추가할 수 있는 컨트롤을 비활성화합니다. 이 작업은 작업 영역에 보고하는 컴퓨터의 모든 이름을 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다. 이 작업을 선택하면 **컴퓨터 관리** 단추를 사용할 수 없게 됩니다.
 
-5. 사용 가능한 모든 컴퓨터 및 앞으로의 컴퓨터에서 기능을 사용하려면 **사용 가능한 컴퓨터 및 향후 컴퓨터에서 사용**을 선택합니다. 이 옵션은 저장된 검색과 범위 구성을 작업 영역에서 삭제하고, 해당 작업 영역에 보고하는 모든 Azure 및 비 Azure 컴퓨터에 대한 기능을 엽니다. 이 작업을 선택하면 남아 있는 범위 구성이 없으므로 **컴퓨터 관리** 단추가 영구적으로 비활성화됩니다.
+5. 사용 가능한 모든 향후 머신에서 기능을 사용하려면 **사용 가능한 모든 향후 머신에서 사용**을 선택합니다. 이 옵션은 저장된 검색과 범위 구성을 작업 영역에서 삭제하고, 해당 작업 영역에 보고하는 모든 Azure 및 비 Azure 머신에 대한 기능을 엽니다. 이 작업을 선택하면 남아 있는 범위 구성이 없으므로 **머신 관리** 단추가 영구적으로 비활성화됩니다.
 
-6. 필요한 경우 최초 저장된 검색을 다시 추가하여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [업데이트 관리의 범위 구성 작업](automation-scope-configurations-update-management.md)을 참조하세요.
+6. 필요한 경우 최초 저장된 검색을 다시 추가하여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [업데이트 관리 배포 범위 제한](automation-scope-configurations-update-management.md)을 참조하세요.
 
-7. 하나 이상의 컴퓨터에서 기능을 사용하려면 **선택한 컴퓨터에서 사용**을 선택하고 해당 기능에 대해 사용하려는 각 컴퓨터 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 컴퓨터의 이름을 컴퓨터 그룹에서 저장된 기능 검색 쿼리에 추가합니다.
+7. 하나 이상의 머신에서 기능을 사용하려면 **선택한 머신에서 사용**을 선택하고 해당 기능에 대해 사용하려는 각 머신 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 머신 이름을 컴퓨터 그룹에서 저장된 기능 검색 쿼리에 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * VM에 업데이트 관리를 사용하려면 [Azure VM의 업데이트 및 패치 관리](automation-tutorial-update-management.md)를 참조하세요.
-* 범위 구성은 [업데이트 관리의 범위 구성으로 작업](automation-scope-configurations-update-management.md)을 참조하세요.
-* Log Analytics 작업 영역이 더 이상 필요하지 않은 경우 [업데이트 관리 대상 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)의 지침을 참조하세요.
-* 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
 * 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.
 * Windows 업데이트 에이전트 문제를 해결하려면 [Windows 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues.md)을 참조하세요.
-* Linux 업데이트 에이전트 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.
+* Linux 업데이트 에이전트 관련 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.

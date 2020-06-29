@@ -1,5 +1,5 @@
 ---
-title: 데이터 복사 도구 Azure Data Factory
+title: Azure Data Factory의 데이터 복사 도구
 description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414095"
@@ -80,7 +80,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 ![데이터베이스의 데이터 필터링](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
+폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다. 
 

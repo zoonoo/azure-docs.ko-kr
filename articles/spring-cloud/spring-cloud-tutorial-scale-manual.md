@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277485"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792067"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Azure Spring Cloud의 애플리케이션 크기 조정
 
@@ -21,7 +21,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 작업이 완료되면 서비스에서 각 애플리케이션에 대해 빠르게 수동 조정을 수행하는 방법을 알게 됩니다. 크기 조정은 몇 초 안에 적용되며 코드를 변경하거나 다시 배포할 필요가 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -58,6 +58,9 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 ![Azure Portal의 크기 조정 서비스](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 몇 초 후 변경한 내용이 **개요** 페이지에 표시되며, 자세한 내용은 **애플리케이션 인스턴스** 탭에서 확인할 수 있습니다. 크기 조정에는 코드를 변경하거나 배포를 다시 수행할 필요가 없습니다.
+
+## <a name="upgrade-to-the-standard-tier"></a>표준 계층으로 업그레이드
+기본 계층에 있고 이러한 [제한](spring-cloud-quotas.md) 중 하나 이상에 의해 제한되는 경우 표준 계층으로 업그레이드할 수 있습니다. 이렇게 하려면 먼저 표준 계층 열을 선택하고 **업그레이드** 단추를 클릭하여 가격 책정 계층 메뉴로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Windows Server에서 AD FS를 사용 하는 Azure MFA 서버-Azure Active Directory
+title: Windows Server에서 AD FS를 설치한 Azure MFA 서버 - Azure Active Directory
 description: 이 문서에서는 Windows Server 2012 R2 및 2016에서 Azure Multi-Factor Authentication 및 AD FS로 시작하는 방법을 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653363"
@@ -25,7 +25,7 @@ AD FS(Active Directory Federation Services)를 사용하고 클라우드 또는 
 이 문서에서는 Windows Server 2012 R2 또는 Windows Server 2016에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 설명합니다. 자세한 내용은 [AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안을 유지](howto-mfaserver-adfs-2.md)하는 방법에 대해 읽어보세요.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 Windows Server AD FS 보안 유지
 
@@ -61,9 +61,9 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
 
-12. 새로 등록된 어댑터를 사용하려면 AD FS에서 전역 인증 정책을 편집합니다. AD FS 관리 콘솔에서 **인증 정책** 노드로 이동합니다. **Multi-factor Authentication** 섹션에서 **전역 설정** 섹션 옆에 있는 **편집** 링크를 클릭합니다. **Edit Global Authentication Policy(전역 인증 정책 편집)** 창에서 **Multi-Factor Authentication(다단계 인증)** 을 추가 인증 방법으로 선택하고 **OK(확인)** 를 클릭합니다. 어댑터는 WindowsAzureMultiFactorAuthentication으로 등록됩니다. 등록이 적용되려면 AD FS 서비스를 다시 시작합니다.
+12. 새로 등록된 어댑터를 사용하려면 AD FS에서 전역 인증 정책을 편집합니다. AD FS 관리 콘솔에서 **인증 정책** 노드로 이동합니다. **Multi-factor Authentication** 섹션에서 **전역 설정** 섹션 옆에 있는 **편집** 링크를 클릭합니다. **전역 인증 정책 편집** 창에서 추가 인증 방법으로 **Multi-Factor Authentication**을 선택하고 **확인**을 클릭합니다. 어댑터는 WindowsAzureMultiFactorAuthentication으로 등록됩니다. 등록이 적용되려면 AD FS 서비스를 다시 시작합니다.
 
-![전역 인증 정책 편집](./media/howto-mfaserver-adfs-2012/global.png)
+![글로벌 인증 정책 편집](./media/howto-mfaserver-adfs-2012/global.png)
 
 이제 Multi-Factor Authentication 서버가 AD FS와 함께 사용할 수 있도록 추가 인증 공급자로 설정됩니다.
 
@@ -84,8 +84,8 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 다음 단계를 따라 MultiFactorAuthenticationAdfsAdapter.config 파일을 편집합니다.
 
 1. **UseWebServiceSdk** 노드를 **true**로 설정합니다.  
-2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예: *https:\/\/contoso.com/\<certificatename>/multifactorauthwebservicesdk/pfwssdk.asmx가 있으며*(여기서 * \<certificatename>* 는 인증서의 이름입니다.  
-3. 명령의 끝에를 추가 `-ConfigurationFilePath &lt;path&gt;` 하 여 register-multifactorauthenticationadfsadapter.ps1 스크립트를 편집 합니다. 여기서 * &lt;path&gt; * 는 multifactorauthenticationadfsadapter.config 파일의 전체 경로입니다. `Register-AdfsAuthenticationProvider`
+2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예를 들어 *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*가 있으며, 여기서 *\<certificatename>* 은 인증서의 이름입니다.  
+3. Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집하고 `Register-AdfsAuthenticationProvider` 명령 끝에 `-ConfigurationFilePath &lt;path&gt;`를 추가합니다. 여기서 *&lt;path&gt;* 는 MultiFactorAuthenticationAdfsAdapter.config 파일의 전체 경로입니다.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>사용자 이름 및 암호를 사용하여 Web Service SDK 구성
 
@@ -108,7 +108,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 8. 사용을 **true**로 설정합니다.  
 9. oneToOneCertificateMappingsEnabled를 **true**로 설정합니다.  
 10. oneToOneMappings 옆에 있는 **...** 단추를 클릭한 다음 **추가** 링크를 클릭합니다.  
-11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
+11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
 12. 인증서를 이전 단계에서 복사한 문자열로 설정합니다.  
 13. 사용을 **true**로 설정합니다.  
 14. userName을 PhoneFactor Admins 보안 그룹의 구성원인 계정으로 설정합니다. &lt;도메인&gt;&#92;&lt;사용자 이름&gt; 형식을 사용합니다.  
@@ -131,7 +131,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 클라우드 리소스를 보호하려면 사용자가 두 단계 인증을 성공적으로 수행했을 때 Active Directory Federation Services가 multipleauthn 클레임을 내보내도록 클레임 규칙을 설정합니다. 이 클레임은 Azure AD에 전달됩니다. 다음 단계를 수행하려면 이 절차를 따르세요.
 
 1. AD FS 관리를 엽니다.
-2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택 합니다.
+2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
 3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...** 을 선택합니다.
 
    ![ADFS 콘솔에서 클레임 규칙 편집](./media/howto-mfaserver-adfs-2012/trustedip1.png)
@@ -146,11 +146,11 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 
 6. 규칙의 이름을 지정합니다.
 7. 들어오는 클레임 유형으로 **인증 방법 참조**를 선택합니다.
-8. **모든 클레임 값 통과**를 선택 합니다.
+8. **모든 클레임 값 통과**를 선택합니다.
 
     ![변환 클레임 규칙 추가 마법사](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 
-9. **마침**을 클릭합니다. AD FS 관리 콘솔을 닫습니다.
+9. **Finish**를 클릭합니다. AD FS 관리 콘솔을 닫습니다.
 
 ## <a name="troubleshooting-logs"></a>문제 해결 로그
 

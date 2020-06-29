@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194602"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660933"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -146,18 +146,15 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **원본 데이터 저장소** 페이지에서 **새 연결 만들기**를 클릭합니다.
 
-
 1. **새로 연결된 서비스**에서 **SQL Server**를 검색한 다음, **계속**을 선택합니다.
 
 1. **새로 연결된 서비스(SQL Server)** 대화 상자의 **이름**에 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
 
+1. **Integration Runtime 설정** 대화 상자에서 **자체 호스팅**을 선택합니다. 그런 다음, **계속**을 선택합니다.
 
-1. **Integration Runtime 설정** 대화 상자에서 **자체 호스팅**을 선택합니다. 그런 후 **다음**을 선택합니다.
+   ![통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. **Integration Runtime 설정** 대화 상자의 **이름**에 **TutorialIntegrationRuntime**을 입력합니다. 그런 후 **다음**을 선택합니다.
-
+1. **Integration Runtime 설정** 대화 상자의 **이름**에 **TutorialIntegrationRuntime**을 입력합니다. 그런 다음 **만들기**를 선택합니다.
 
 1. **Integration Runtime 설정** 대화 상자에서 **이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하십시오**를 선택합니다. 이 작업은 통합 런타임을 컴퓨터에 설치하고 Data Factory에 등록합니다. 또는 수동 설치 옵션을 사용하여 설치 파일을 다운로드하고, 실행하고, 키를 사용하여 통합 런타임을 등록할 수 있습니다.
 
@@ -216,20 +213,17 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **요약** 대화 상자에서 모든 설정 값을 검토하고 **다음**을 선택합니다.
 
-1. **배포** 페이지에서 **모니터**를 선택하여 만든 파이프라인 또는 작업을 모니터링합니다.
+1. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다. 
 
-   ![배포 페이지](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. 파이프라인 실행이 완료되면 만든 파이프라인의 상태를 볼 수 있습니다. 
 
-1. **모니터** 탭에서 만든 파이프라인의 상태를 볼 수 있습니다. **작업** 열의 링크를 사용하여 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다.
+1. 파이프라인 실행 페이지에서 **새로 고침**을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
 
-1. **작업** 열에서 **활동 실행 보기** 링크를 선택하여 파이프라인 실행과 연결된 활동 실행을 확인합니다. 복사 활동에 대한 세부 정보를 보려면 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. **파이프라인 실행** 보기로 다시 전환하려면 위쪽의 **파이프라인 실행**을 선택합니다.
+1. 복사 작업에 대한 자세한 내용은 활동 실행 페이지의 **작업 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 이동 경로 탐색 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
 1. **adftutorial** 컨테이너의 **fromonprem** 폴더에 있는 출력 파일이 표시되는지 확인합니다.
 
-
 1. 왼쪽의 **편집** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구에서 만든 연결된 서비스, 데이터 세트 및 파이프라인을 업데이트할 수 있습니다. **코드**를 선택하여 편집기에서 열려 있는 엔터티와 연결된 JSON 코드를 살펴봅니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
-
-   ![편집 탭](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>다음 단계

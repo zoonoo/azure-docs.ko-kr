@@ -21,7 +21,7 @@ ms.locfileid: "84789211"
 * [Preview 3.0 제작](luis-migration-authoring-entities.md) SDK
     * 버전 3.2.0-preview. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * 버전 4.0.0- [NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
-* LUIS를 사용 하 여 DevOps 사례 적용
+* LUIS를 사용하여 DevOps 사례 적용
     * 개념
         * [LUIS에 대 한 DevOps 방법](luis-concept-devops-sourcecontrol.md)
         * [LUIS DevOps에 대 한 지속적인 통합 및 지속적인 업데이트 워크플로](luis-concept-devops-automation.md)

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76168874"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983607"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -28,12 +28,15 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 > * 샘플 앱 실행 및 다양한 시나리오 수행을 위한 상호 작용
 > * 샘플 앱에 포함된 다양한 시나리오 탐색
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 앱을 탐색하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
 * [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 이상이 있어야 합니다.
-* Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 서비스 엔드포인트 URL도 기록해 둡니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
@@ -80,7 +83,6 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    ![구독 키 관리 페이지](../Images/Vision_UI_Subscription.PNG)  
 1. **구독 키**에 구독 키를 입력합니다.
 1. **엔드포인트**에 엔드포인트 URL을 입력합니다.  
-   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 `https://westcentralus.api.cognitive.microsoft.com` 엔드포인트 URL을 입력합니다.  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. 다음에 샘플 앱을 실행할 때 구독 키 및 엔드포인트 URL을 입력하지 않도록 하려면 **설정 저장**을 선택하여 구독 키 및 엔드포인트 URL을 사용자 컴퓨터에 저장합니다. 이전에 저장된 구독 키 및 엔드포인트 URL을 삭제하려면 **설정 삭제**를 선택합니다.
 

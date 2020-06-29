@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654408"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733673"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기(미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "80654408"
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -42,10 +42,10 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * 리소스 포리스트를 사용하여 만들고 Azure AD 테넌트에 구성한 Azure Active Directory Domain Services 관리형 도메인
-    * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance-advanced].
+    * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성][create-azure-ad-ds-instance-advanced]합니다.
     
     > [!IMPORTANT]
-    > *리소스* 포리스트를 사용하여 Azure AD DS 관리형 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대한 트러스트를 만들 수 있습니다. 또한 관리되는 도메인에 대해 적어도 *Enterprise* SKU를 사용해야 합니다. 필요한 경우 [Azure AD DS 관리형 도메인의 SKU를 변경][howto-change-sku]하세요.
+    > *리소스* 포리스트를 사용하여 관리되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대한 트러스트를 만들 수 있습니다. 또한 관리되는 도메인에 대해 적어도 *Enterprise* SKU를 사용해야 합니다. 필요한 경우 [관리되는 도메인의 SKU를 변경][howto-change-sku]하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -69,16 +69,16 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>온-프레미스 도메인에서 DNS 구성
 
-온-프레미스 환경에서 Azure AD DS 관리형 도메인을 올바르게 확인하려면 전달자를 기존 DNS 서버에 추가해야 할 수 있습니다. Azure AD DS 관리형 도메인과 통신하도록 온-프레미스 환경을 구성하지 않은 경우 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
+온-프레미스 환경에서 관리되는 도메인을 올바르게 확인하려면 전달자를 기존 DNS 서버에 추가해야 할 수 있습니다. 관리되는 도메인과 통신하도록 온-프레미스 환경을 구성하지 않은 경우 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
 1. **시작 | 관리 도구 | DNS**를 차례로 선택합니다.
 1. 마우스 오른쪽 단추로 DNS 서버(예: *myAD01*)를 선택하고, **속성**을 선택합니다.
 1. **전달자**를 선택한 다음, **편집**을 선택하여 추가 전달자를 추가합니다.
-1. Azure AD DS 관리형 도메인의 IP 주소(예: *10.0.2.4* 및 *10.0.2.5*)를 추가합니다.
+1. 관리되는 도메인의 IP 주소(예: *10.0.2.4* 및 *10.0.2.5*)를 추가합니다.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>온-프레미스 도메인에서 인바운드 포리스트 트러스트 만들기
 
-온-프레미스 AD DS 도메인에는 Azure AD DS 관리형 도메인에 대한 들어오는 포리스트 트러스트가 필요합니다. 이 트러스트는 온-프레미스 AD DS 도메인에서 수동으로 만들어야 하며, Azure Portal에서는 만들 수 없습니다.
+온-프레미스 AD DS 도메인에는 관리되는 도메인에 대해 들어오는 포리스트 트러스트가 필요합니다. 이 트러스트는 온-프레미스 AD DS 도메인에서 수동으로 만들어야 하며, Azure Portal에서는 만들 수 없습니다.
 
 온-프레미스 AD DS 도메인에서 인바운드 트러스트를 구성하려면 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
@@ -87,22 +87,22 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 1. **트러스트** 탭, **새 트러스트**를 차례로 선택합니다.
 1. Azure AD DS 도메인 이름에서 이름(예: *aaddscontoso.com*)을 입력하고, **다음**을 선택합니다.
 1. **포리스트 트러스트**를 만드는 옵션, **단방향: 들어오는 트러스트**를 만드는 옵션을 차례로 선택합니다.
-1. **이 도메인만**에 대한 트러스트를 만들도록 선택합니다. 다음 단계에서는 Azure Portal에서 Azure AD DS 관리형 도메인에 대한 트러스트를 만듭니다.
+1. **이 도메인만**에 대한 트러스트를 만들도록 선택합니다. 다음 단계에서는 Azure Portal에서 관리되는 도메인에 대한 트러스트를 만듭니다.
 1. **전체 포리스트 인증**을 사용하도록 선택한 다음, 트러스트 암호를 입력하고 확인합니다. 다음 섹션의 Azure Portal에서도 동일한 암호가 입력됩니다.
 1. 기본 옵션을 사용하여 다음 몇 개의 창을 단계별로 실행한 다음, **아니요, 보내는 트러스트를 확인하지 않습니다.** 옵션을 선택합니다.
 1. **마침**을 선택합니다.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Azure AD DS에서 아웃바운드 포리스트 트러스트 만들기
 
-Azure AD DS 관리형 도메인을 확인하도록 온-프레미스 AD DS 도메인이 구성되고 인바운드 포리스트 트러스트가 만들어지면 이제 아웃바운드 포리스트 트러스트를 만듭니다. 이 아웃바운드 포리스트 트러스트는 온-프레미스 AD DS 도메인과 Azure AD DS 관리형 도메인 간의 트러스트 관계를 완료합니다.
+관리되는 도메인을 확인하도록 온-프레미스 AD DS 도메인이 구성되고 인바운드 포리스트 트러스트가 만들어지면 이제 아웃바운드 포리스트 트러스트를 만듭니다. 이 아웃바운드 포리스트 트러스트는 온-프레미스 AD DS 도메인과 관리되는 도메인 간의 트러스트 관계를 완료합니다.
 
-Azure Portal에서 Azure AD DS 관리형 도메인에 대한 아웃바운드 트러스트를 만들려면 다음 단계를 완료합니다.
+Azure Portal에서 관리되는 도메인에 대한 아웃바운드 트러스트를 만들려면 다음 단계를 완료합니다.
 
 1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택한 다음, 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
-1. Azure AD DS 관리형 도메인의 왼쪽 메뉴에서 **트러스트**를 선택한 다음, **+ 트러스트 추가**를 선택합니다.
+1. 관리되는 도메인의 왼쪽 메뉴에서 **트러스트**를 선택한 다음, 트러스트 **+ 추가**를 선택합니다.
 
    > [!NOTE]
-   > **트러스트** 메뉴 옵션이 표시되지 않으면 **속성** 아래에서 *포리스트 유형*을 확인합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 유형이 *사용자*인 경우 트러스트를 만들 수 없습니다. 현재 Azure AD DS 관리형 도메인의 포리스트 유형을 변경할 수 있는 방법이 없습니다. 관리되는 도메인을 삭제하고 리소스 포리스트로 다시 만들어야 합니다.
+   > **트러스트** 메뉴 옵션이 표시되지 않으면 **속성** 아래에서 *포리스트 유형*을 확인합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 유형이 *사용자*인 경우 트러스트를 만들 수 없습니다. 현재 관리되는 도메인의 포리스트 유형을 변경할 수 있는 방법이 없습니다. 관리되는 도메인을 삭제하고 리소스 포리스트로 다시 만들어야 합니다.
 
 1. 트러스트를 식별할 수 있는 표시 이름을 입력한 다음, 트러스트된 온-프레미스 포리스트 DNS 이름(예: *onprem.contoso.com*)을 입력합니다.
 1. 이전 섹션에서 온-프레미스 AD DS 도메인에 대한 인바운드 포리스트 트러스트를 구성할 때 사용한 것과 동일한 트러스트 암호를 제공합니다.

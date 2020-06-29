@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 01/14/2020
 ms.author: iainfou
-ms.openlocfilehash: b44547998b7ed7159e43bcbbfb4b4456d2a232e9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d826a40073d243193f87d90ab80333b491a203b2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654544"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734218"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기
 
@@ -23,22 +23,22 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure AD DS를 사용하도록 설정하는 방법을 보여줍니다. 지원 리소스는 Azure PowerShell을 사용하여 생성됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 
 * Azure PowerShell을 설치하고 구성합니다.
-    * 필요한 경우, 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](/powershell/azure/install-az-ps)합니다.
-    * [Connect-AzAccount][Connect-AzAccount] cmdlet을 사용하여 Azure 구독에 로그인해야 합니다.
+    * 필요한 경우 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](/powershell/azure/install-az-ps)합니다.
+    * [Connect-AzAccount][Connect-AzAccount] cmdlet을 사용하여 Azure 구독에 로그인합니다.
 * Azure AD PowerShell을 설치하고 구성합니다.
-    * 필요한 경우, 지침에 따라 [Azure AD PowerShell 모듈을 설치하고 Azure AD에 연결](/powershell/azure/active-directory/install-adv2)합니다.
-    * [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 로그인해야 합니다.
+    * 필요한 경우 지침에 따라 [Azure AD PowerShell 모듈을 설치하고 Azure AD에 연결](/powershell/azure/active-directory/install-adv2)합니다.
+    * [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 로그인합니다.
 * Azure AD DS를 사용하도록 설정하려면 Azure AD 테넌트에 *글로벌 관리자* 권한이 필요합니다.
 * 필요한 Azure AD DS 리소스를 만들려면 Azure 구독에 *기여자* 권한이 필요합니다.
 
 ## <a name="dns-naming-requirements"></a>DNS 명명 요구 사항
 
-Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니다. 이 DNS 이름을 선택할 때 고려해야 할 몇 가지 사항이 있습니다.
+Azure AD DS 관리형 도메인을 만들 때 DNS 이름을 지정합니다. 이 DNS 이름을 선택할 때 고려해야 할 몇 가지 사항이 있습니다.
 
 * **기본 제공 도메인 이름:** 디렉터리의 기본 제공 도메인 이름( *.onmicrosoft.com* 접미사)이 기본적으로 사용됩니다. 관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하려면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 CA(인증 기관)는 인증서를 발급하지 않습니다.
 * **사용자 지정 도메인 이름:** 가장 일반적인 방법은 일반적으로 이미 소유하고 있고 라우팅할 수 있는 사용자 지정 도메인 이름을 지정하는 것입니다. 라우팅할 수 있는 사용자 지정 도메인을 사용하면 애플리케이션을 지원하는 데 필요한 트래픽이 올바르게 전달될 수 있습니다.
@@ -47,7 +47,7 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 > [!TIP]
 > 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 네임스페이스와 별도의 도메인 이름을 사용하는 것이 좋습니다.
 >
-> 예를 들어 기존 DNS 네임스페이스가 *contoso.com*인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com*인 Azure AD DS 관리형 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
+> 예를 들어 기존 DNS 네임스페이스가 *contoso.com*인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com*인 관리되는 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
 >
 > 환경의 다른 서비스에 대한 일부 추가 DNS 레코드를 만들거나 환경의 기존 DNS 네임스페이스 사이에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
@@ -63,7 +63,7 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 
 ## <a name="create-required-azure-ad-resources"></a>필수 Azure AD 리소스 만들기
 
-Azure AD DS에는 서비스 주체와 Azure AD 그룹이 필요합니다. 이러한 리소스를 통해 Azure AD DS 관리형 도메인이 데이터를 동기화하고, 관리되는 도메인에서 관리 권한이 있는 사용자를 정의할 수 있습니다.
+Azure AD DS에는 서비스 주체와 Azure AD 그룹이 필요합니다. 이러한 리소스를 통해 관리되는 도메인이 데이터를 동기화하고 관리되는 도메인에서 관리 권한이 있는 사용자를 정의할 수 있습니다.
 
 먼저 [Register-AzResourceProvider][Register-AzResourceProvider] cmdlet을 사용하여 Azure AD Domain Services 리소스 공급자를 등록합니다.
 
@@ -77,7 +77,7 @@ Azure AD DS가 통신하고 자체 인증할 수 있도록 [New-AzureADServicePr
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-이제 [New-AzureADGroup][New-AzureADGroup] cmdlet을 사용하여 *AAD DC Administrators*라는 Azure AD 그룹을 만듭니다. 이 그룹에 추가된 사용자에게는 Azure AD DS 관리형 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
+이제 [New-AzureADGroup][New-AzureADGroup] cmdlet을 사용하여 *AAD DC Administrators*라는 Azure AD 그룹을 만듭니다. 그러면 이 그룹에 추가된 사용자에게는 관리되는 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
 
 ```powershell
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -125,10 +125,10 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 |-------------------------|---------|
 | domainName              | 이름 지정 접두사 및 충돌과 관련된 이전 사항을 고려한 관리되는 도메인의 DNS 도메인 이름입니다. |
 | filteredSync            | Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다. 사용자와 그룹을 모두 동기화하도록 선택하면 나중에 범위가 지정된 동기화만 수행하도록 선택할 수 없습니다.<br /> 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.|
-| notificationSettings    | Azure AD DS 관리형 도메인에서 생성된 경고가 있으면, 이메일 알림을 보낼 수 있습니다. <br />Azure 테넌트의 전역 관리자와 *AAD DC Administrators* 그룹의 멤버에게는 이 알림을 *Enabled*로 설정할 수 있습니다. <br /> 필요하면, 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 추가할 수 있습니다.|
-| domainConfigurationType | 기본적으로 Azure AD DS 관리형 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
+| notificationSettings    | 관리되는 도메인에서 생성된 경고가 있으면 이메일 알림을 보낼 수 있습니다. <br />Azure 테넌트의 전역 관리자와 *AAD DC Administrators* 그룹의 멤버에게는 이 알림을 *Enabled*로 설정할 수 있습니다.<br /> 필요하면, 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 추가할 수 있습니다.|
+| domainConfigurationType | 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
 
-다음 압축 매개 변수 정의는 이러한 값이 선언되는 방법을 보여줍니다. *aaddscontoso.com*이라는 사용자 포리스트가 생성되고 Azure AD의 모든 사용자가 Azure AD DS 관리형 도메인에 동기화됩니다.
+다음 압축 매개 변수 정의는 이러한 값이 선언되는 방법을 보여줍니다. *aaddscontoso.com*이라는 사용자 포리스트가 생성되어 Azure AD의 모든 사용자가 관리되는 도메인에 동기화됩니다.
 
 ```json
 "parameters": {
@@ -149,7 +149,7 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 }
 ```
 
-그러면, Azure AD DS 관리형 도메인을 정의하고 만드는 데 다음의 압축 Resource Manager 템플릿 리소스 종류가 사용됩니다. Azure 가상 네트워크와 서브넷은 이미 존재하거나 Resource Manager 템플릿의 일부로 만들어져야 합니다. Azure AD DS 관리형 도메인이 이 서브넷에 연결되어 있습니다.
+그러면 관리되는 도메인을 정의하고 만드는 데 다음의 압축 Resource Manager 템플릿 리소스 종류가 사용됩니다. Azure 가상 네트워크와 서브넷은 이미 존재하거나 Resource Manager 템플릿의 일부로 만들어져야 합니다. 관리되는 도메인이 이 서브넷에 연결되어 있습니다.
 
 ```json
 "resources": [
@@ -176,7 +176,7 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>샘플 템플릿을 사용하여 관리되는 도메인 만들기
 
-다음의 전체 Resource Manager 샘플 템플릿은 Azure AD DS 관리형 도메인 및 지원 가상 네트워크, 서브넷 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙은 관리되는 도메인을 보호하고 트래픽이 제대로 흐를 수 있도록 하는 데 필요합니다. DNS 이름이 *aaddscontoso.com*인 사용자 포리스트가 생성되고 모든 사용자가 Azure AD에서 동기화됩니다.
+다음의 전체 Resource Manager 샘플 템플릿은 관리되는 도메인 및 지원 가상 네트워크, 서브넷 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙은 관리되는 도메인을 보호하고 트래픽이 제대로 흐를 수 있도록 하는 데 필요합니다. DNS 이름이 *aaddscontoso.com*인 사용자 포리스트가 생성되고 모든 사용자가 Azure AD에서 동기화됩니다.
 
 ```json
 {
@@ -325,17 +325,17 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
 ```
 
-리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. Azure AD DS 관리형 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 Azure AD DS 관리형 도메인 **개요** 페이지에 이 배포 단계 전체에서 현재 상태가 표시됩니다.
+리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. 관리되는 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 관리되는 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
 
-Azure AD DS 관리형 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
+관리되는 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
-    * DNS를 구성하려면 포털에서 Azure AD DS 관리형 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
+    * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
 * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD DS 관리형 도메인이 작동하는 것을 보려면 [Windows VM을 도메인에 가입하고][windows-join], [보안 LDAP를 구성하고][tutorial-ldaps], [암호 해시 동기화를 구성][tutorial-phs]하면 됩니다.
+관리되는 도메인이 작동하는 것을 보려면 [Windows VM을 도메인에 조인하고][windows-join], [보안 LDAP를 구성하고][tutorial-ldaps], [암호 해시 동기화를 구성][tutorial-phs]하면 됩니다.
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

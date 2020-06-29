@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72177057"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983457"
 ---
 # <a name="call-the-computer-vision-api"></a>Computer Vision API 호출
 
@@ -25,14 +25,6 @@ ms.locfileid: "72177057"
 - 태그, 설명 및 범주 가져오기
 - 도메인 관련 정보 또는 "유명인" 가져오기
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-- 로컬에 저장된 이미지의 이미지 URL 또는 경로.
-- 지원되는 입력 방법: application/octet-stream 또는 이미지 URL 형식의 원시 이미지 이진
-- 지원되는 이미지 파일 형식: JPEG, PNG, GIF, BMP
-- 이미지 파일 크기: 4MB 이하
-- 이미지 크기: 50 &times; 50 픽셀 이상
-  
 이 문서의 예제에서는 다음 기능을 보여줍니다.
 
 * 이미지를 분석하여 태그 배열 및 설명 반환
@@ -42,14 +34,22 @@ ms.locfileid: "72177057"
 
 - **옵션 1**: 범위 분석 - 지정된 모델만 분석
 - **옵션 2**: 고급 분석 - [86개 범주 분류](../Category-Taxonomy.md)를 통해 분석하여 추가 정보 제공
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* 로컬에 저장된 이미지의 이미지 URL 또는 경로.
+* 지원되는 입력 방법: application/octet-stream 또는 이미지 URL 형식의 원시 이미지 이진
+* 지원되는 이미지 파일 형식: JPEG, PNG, GIF, BMP
+* 이미지 파일 크기: 4MB 이하
+* 이미지 크기: 50 &times; 50 픽셀 이상
   
 ## <a name="authorize-the-api-call"></a>API 호출 권한 부여
 
 Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달하거나 요청 헤더에서 지정해야 합니다.
-
-평가판 키를 가져오려면 다음 중 하나를 수행합니다.
-* [Cognitive Services 체험해 보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) 페이지로 이동합니다. 
-* [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 페이지로 이동하여 Computer Vision을 구독합니다.
 
 다음 방법 중 하나로 구독 키를 전달할 수 있습니다.
 
@@ -180,12 +180,12 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=cele
 필드 | Type | 콘텐츠
 ------|------|------|
 태그들  | `object` | 태그 배열의 최상위 개체입니다.
-tags[].Name | `string`  | 태그 분류자의 키워드입니다.
-tags[].Score    | `number`  | 0에서 1 사이의 신뢰도 점수입니다.
-description  | `object` | 설명의 최상위 개체입니다.
+tags[].Name | `string`    | 태그 분류자의 키워드입니다.
+tags[].Score    | `number`    | 0에서 1 사이의 신뢰도 점수입니다.
+description     | `object`    | 설명의 최상위 개체입니다.
 description.tags[] |    `string`    | 태그 목록입니다.  캡션을 생성하는 기능에 대한 신뢰도가 부족한 경우 태그는 호출자에게 제공되는 유일한 정보일 수 있습니다.
-description.captions[].text | `string`  | 이미지를 설명하는 구.
-description.captions[].confidence   | `number`  | 구의 신뢰도 점수입니다.
+description.captions[].text    | `string`    | 이미지를 설명하는 구.
+description.captions[].confidence    | `number`    | 구의 신뢰도 점수입니다.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인 특정 모델의 JSON 출력 검색 및 이해
 
@@ -239,12 +239,12 @@ description.captions[].confidence   | `number`  | 구의 신뢰도 점수입니�
 
 범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 "people_" 또는 "people_group").
 
-필드   | Type  | 콘텐츠
+필드    | Type    | 콘텐츠
 ------|------|------|
-범주 | `object`   | 최상위 개체입니다.
-categories[].name    | `string` | 86개 범주 분류 목록의 이름입니다.
-categories[].score  | `number`  | 0에서 1 사이의 신뢰도 점수입니다.
-categories[].detail  | `object?`      | (선택 사항) 세부 정보 개체입니다.
+범주 | `object`    | 최상위 개체입니다.
+categories[].name     | `string`    | 86개 범주 분류 목록의 이름입니다.
+categories[].score    | `number`    | 0에서 1 사이의 신뢰도 점수입니다.
+categories[].detail     | `object?`      | (선택 사항) 세부 정보 개체입니다.
 
 여러 범주가 일치하는 경우(예: model=celebrities인 경우 86개 범주 분류자가 "people_" 및 "people_young"의 점수를 둘 다 반환하는 경우) 세부 정보는 가장 일반적인 수준 일치(이 예제에서는 "people_")에 연결됩니다.
 

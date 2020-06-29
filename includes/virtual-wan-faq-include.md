@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006404"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977933"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -212,9 +212,14 @@ Azure Virtual WAN 허브는 동시에 최대 1,000개의 S2S 연결, 10,000개�
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Virtual WAN의 가상 허브가 여러 허브의 경로에 가장 적합한 경로를 선택하는 방법
 
 Virtual Hub가 여러 원격 허브에서 동일한 경로를 학습하는 경우 이를 결정하는 순서는 다음과 같습니다.
-1) 경로 원본 a) 네트워크 경로 – Virtual Hub 게이트웨이에서 직접 학습한 VNET 접두사 b) Hub RouteTable(정적으로 구성된 경로) c) BGP d) InterHub 경로
-2)  경로 메트릭 : 가상 WAN은 ExpressRoute over VPN을 선호합니다. ExpressRoute 피어는 VPN 피어에 비해 가중치가 높습니다.
-3)  AS 경로 길이
+1. 가장 긴 접두사 일치
+2. interhub를 통한 로컬 경로
+3. BGP를 통한 고정 경로
+4. VPN을 통한 ExpressRoute(ER)
+5. AS 경로 길이
+
+ER 간의 전송은 항상 글로벌 연결을 통해 전달됩니다. 요청이 한 허브에서 ER을 통해 들어오고 원격 허브에 VPN과 ER이 있는 경우, 원격 허브에서 VPN 또는 ER을 통해 연결된 엔드포인트에 도달하는 데는 VPN이 ER보다 선호됩니다.
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 

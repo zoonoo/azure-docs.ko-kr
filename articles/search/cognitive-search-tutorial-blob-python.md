@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 06/12/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 350bc92193a27b595158f65b6ae54edc1c934e35
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2f650681742b2d91396ad41aeb69505c703cd3ac
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608794"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753031"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -32,7 +32,7 @@ Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 엽니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
@@ -92,7 +92,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
    연결 문자열은 다음 예제와 비슷한 URL입니다.
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. 연결 문자열을 메모장에 저장합니다. 이는 나중에 데이터 원본 연결을 설정할 때 필요합니다.
@@ -101,7 +101,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer Vision을 포함한 Cognitive Services를 통해 지원됩니다. 실제 프로토타입 또는 프로젝트를 완료하는 것이 목표라면 이 시점에서 Cognitive Services를 인덱싱 작업에 연결할 수 있도록 Azure Cognitive Search와 동일한 지역에 프로비저닝합니다.
 
-그러나 Azure Cognitive Search는 백그라운드에서 Cognitive Services에 연결하여 인덱서 실행당 20개의 체험 트랜잭션을 제공할 수 있으므로 이 연습에서는 리소스 프로비저닝을 건너뛸 수 있습니다. 이 자습서에서는 7개의 트랜잭션을 사용하므로 체험 할당이 충분합니다. 대규모 프로젝트의 경우 종량제 S0 계층에서 Cognitive Services를 프로비저닝할 계획입니다. 자세한 내용은 [Cognitive Services 연결](cognitive-search-attach-cognitive-services.md)을 참조하세요.
+이 자습서는 7개의 트랜잭션만 사용하므로 Azure Cognitive Search는 인덱서 실행당 20개의 체험 트랜잭션을 Cognitive Services에 연결할 수 있기 때문에 리소스 프로비저닝을 건너뛸 수 있습니다. 체험 할당으로 충분합니다. 대규모 프로젝트의 경우 종량제 S0 계층에서 Cognitive Services를 프로비저닝할 계획입니다. 자세한 내용은 [Cognitive Services 연결](cognitive-search-attach-cognitive-services.md)을 참조하세요.
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
@@ -220,12 +220,14 @@ skillset_payload = {
             "defaultLanguageCode": "en",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
                 {
-                    "name": "organizations", "targetName": "organizations"
+                    "name": "organizations", 
+                    "targetName": "organizations"
                 }
             ]
         },
@@ -233,7 +235,8 @@ skillset_payload = {
             "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/content"
+                    "name": "text", 
+                    "source": "/document/content"
                 }
             ],
             "outputs": [
@@ -269,10 +272,12 @@ skillset_payload = {
             "context": "/document/pages/*",
             "inputs": [
                 {
-                    "name": "text", "source": "/document/pages/*"
+                    "name": "text", 
+                    "source": "/document/pages/*"
                 },
                 {
-                    "name": "languageCode", "source": "/document/languageCode"
+                    "name": "languageCode", 
+                    "source": "/document/languageCode"
                 }
             ],
             "outputs": [
@@ -378,9 +383,9 @@ print(r.status_code)
 
 이러한 객체를 인덱서에 서로 연결하려면 필드 매핑을 정의해야 합니다.
 
-+ fieldMappings은 기술 세트보다 먼저 처리되며, 데이터 원본의 원본 필드를 인덱스의 대상 필드로 매핑합니다. 필드 이름과 유형이 양쪽 끝에서 동일하면 매핑이 필요 없습니다.
++ `"fieldMappings"`는 기술 세트보다 먼저 처리되며, 데이터 원본의 원본 필드를 인덱스의 대상 필드로 매핑합니다. 필드 이름과 유형이 양쪽 끝에서 동일하면 매핑이 필요 없습니다.
 
-+ outputFieldMappings는 기술 세트 후에 처리되며, 문서 크래킹 또는 보강을 통해 만들기 전에는 존재하지 않는 sourceFieldNames를 참조합니다. targetFieldName은 인덱스의 필드입니다.
++ `"outputFieldMappings"`는 기술 세트 이후에 처리되며, 문서 크래킹 또는 보강을 통해 만들기 전에는 존재하지 않는 `"sourceFieldNames"`를 참조합니다. `"targetFieldName"`은 인덱스의 필드입니다.
 
 입력을 출력에 연결하는 것 외에도, 필드 매핑을 사용하여 데이터 구조를 평면화할 수 있습니다. 자세한 내용은 [검색 가능한 인덱스에 보강된 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)을 참조하세요.
 
@@ -465,7 +470,7 @@ r = requests.get(endpoint + "/indexers/" + indexer_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-응답에서 "lastResult"의 "status" 및 "endTime" 값을 모니터링합니다. 정기적으로 스크립트를 실행하여 상태를 확인합니다. 인덱서가 완료된 경우 status가 "success"로 설정되고, "endTime"이 지정되며, 응답에 보강 과정에서 발생한 오류와 경고가 포함됩니다.
+응답에서 `"lastResult"`의 `"status"` 및 `"endTime"` 값을 모니터링합니다. 정기적으로 스크립트를 실행하여 상태를 확인합니다. 인덱서가 완료된 경우 status가 "success"로 설정되고, "endTime"이 지정되며, 응답에 보강 과정에서 발생한 오류와 경고가 포함됩니다.
 
 ![인덱서가 생성됩니다.](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "인덱서가 생성됩니다.")
 
@@ -505,7 +510,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 ![조직 콘텐츠의 쿼리 인덱스](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "인덱스를 쿼리하여 조직의 콘텐츠 반환")
 
-추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 `$select`를 통해 여러 필드를 반환할 수 있습니다.
+이 연습에서는 `content`, `languageCode`, `keyPhrases` 및 `organizations` 등의 추가 필드에 대해 이 작업을 반복합니다. 쉼표로 구분된 목록을 사용하여 `$select`를 통해 여러 필드를 반환할 수 있습니다.
 
 쿼리 문자열의 복잡성 및 길이에 따라 GET 또는 POST를 사용할 수 있습니다. 자세한 내용은 [REST API를 사용한 쿼리](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
 

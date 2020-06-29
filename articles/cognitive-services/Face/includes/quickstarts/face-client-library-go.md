@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587841"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073308"
 ---
 Go용 Face 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 라이브러리를 설치하고 기본 작업에 대한 예제를 사용해보십시오. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -28,68 +28,16 @@ Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 �
 
 [참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK 다운로드](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [Go](https://golang.org/dl/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* 키와 엔드포인트를 가져온 후에는 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
-## <a name="set-up"></a>설정
-
-### <a name="create-a-face-azure-resource"></a>Face Azure 리소스 만들기 
-
-Azure 리소스를 만들어 Face 서비스 사용을 시작하세요. 아래에서 적합한 리소스 종류를 선택하세요.
-
-* [평가판 리소스](https://azure.microsoft.com/try/cognitive-services/#decision)(Azure 구독이 필요하지 않음): 
-    * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다. 
-    * 이 옵션은 Face 서비스를 사용해 보고 싶지만 Azure 구독이 없는 경우에 유용합니다.
-* [Face 서비스 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
-    * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드합니다.
-* [다중 서비스 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.  
-    * 여러 Cognitive Services에서 애플리케이션에 동일한 키와 엔드포인트를 사용합니다.
-
-### <a name="create-an-environment-variable"></a>환경 변수 만들기
-
->[!NOTE]
-> 2019년 7월 1일 이후에 생성된 비평가판 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)을 참조하세요. 
-
-만든 리소스의 키 및 엔드포인트를 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
-* `FACE_SUBSCRIPTION_KEY` - 요청을 인증하기 위한 리소스 키입니다.
-* `FACE_ENDPOINT` - API 요청을 보내기 위한 리소스 엔드포인트입니다. 다음과 같이 표시됩니다. 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-운영 체제에 대한 지침을 사용합니다.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
-***
+## <a name="setting-up"></a>설치
 
 ### <a name="create-a-go-project-directory"></a>Go 프로젝트 디렉터리 만들기
 
@@ -142,7 +90,7 @@ touch sample-app.go
 
 Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|속성|Description|
+|Name|Description|
 |---|---|
 |[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | 이 클래스는 Face 서비스를 사용할 수 있는 권한의 부여를 나타내며 모든 Face 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. |
 |[클라이언트](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|이 클래스는 사람 얼굴을 사용하여 수행할 수 있는 기본 감지 및 인식 작업을 처리합니다. |
@@ -301,13 +249,13 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 ## <a name="take-a-snapshot-for-data-migration"></a>데이터 마이그레이션용 스냅샷 만들기
 
-스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 평가판 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
+스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 체험 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
 
 다음 예제에서는 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 만든 **PersonGroup**을 마이그레이션합니다. 해당 섹션을 먼저 완료하거나 사용자 고유의 Face 데이터 구문을 사용할 수 있습니다.
 
 ### <a name="set-up-target-subscription"></a>대상 구독 설정
 
-먼저, Face 리소스가 포함된 두 번째 Azure 구독이 있어야 합니다. 이 작업은 [설정](#set-up) 섹션의 단계를 반복하여 수행할 수 있습니다. 
+먼저, Face 리소스가 포함된 두 번째 Azure 구독이 있어야 합니다. 이 작업은 [설정](#setting-up) 섹션의 단계를 반복하여 수행할 수 있습니다. 
 
 그런 다음, **main** 메서드의 위쪽 근처에 다음 변수를 만듭니다. 또한 Azure 계정의 구독 ID와 새(대상) 계정의 키, 엔드포인트 및 구독 ID에 대한 새 환경 변수를 만들어야 합니다.
 

@@ -2,23 +2,22 @@
 title: Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 앱 게시
 description: 온-프레미스 웹 애플리케이션을 외부에 원격 사용자에게 게시할 때 애플리케이션 프록시를 사용하는 이유를 이해합니다. 애플리케이션 프록시 아키텍처, 커넥터, 인증 방법 및 보안 이점에 대해 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196461"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976509"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -89,7 +88,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 * 웹 애플리케이션
 * 여러 디바이스에서 다양한 애플리케이션을 표시하려는 웹 API
 * 원격 데스크톱 게이트웨이 뒤에서 호스트되는 애플리케이션
-* ADAL(Active Directory 인증 라이브러리)과 통합되는 리치 클라이언트 앱
+* [MSAL(Microsoft Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)과 통합되는 리치 클라이언트 앱
 
 앱 프록시는 다음 네이티브 인증 프로토콜을 사용하는 앱에서 작동합니다.
 

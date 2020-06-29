@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi를 원격 모니터링 솔루션에 연결-node.js-Azure | Microsoft Docs
+title: Raspberry Pi를 원격 모니터링 솔루션에 연결 - Node.js - Azure | Microsoft Docs
 description: Node.js에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -11,7 +11,7 @@ ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683955"

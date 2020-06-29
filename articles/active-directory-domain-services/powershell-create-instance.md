@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: e99ad2d53bc26b4e13a34097baaec929058a61a0
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9dbb8a6011b4f2aebc73df7d37e6f43e7f27b747
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654812"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734523"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -26,7 +26,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 
@@ -51,7 +51,7 @@ Azure AD DS에는 서비스 주체와 Azure AD 그룹이 필요합니다. 이러
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-이제 *AAD DC Administrators*라는 Azure AD 그룹을 만듭니다. 이 그룹에 추가된 사용자에게는 Azure AD DS 관리형 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
+이제 *AAD DC Administrators*라는 Azure AD 그룹을 만듭니다. 그러면 이 그룹에 추가된 사용자에게는 관리되는 도메인에서 관리 작업을 수행할 수 있는 권한이 부여됩니다.
 
 다음과 같이 [New-AzureADGroup][New-AzureADGroup] cmdlet을 사용하여 *AAD DC Administrators* 그룹을 만듭니다.
 
@@ -126,9 +126,9 @@ $Vnet= New-AzVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 ```
 
-## <a name="create-an-azure-ad-ds-managed-domain"></a>Azure AD DS 관리형 도메인 만들기
+## <a name="create-a-managed-domain"></a>관리형 도메인 만들기
 
-이번에는 Azure AD DS 관리형 도메인을 만들겠습니다. Azure 구독 ID를 설정한 다음, 관리되는 도메인의 이름(예: *aaddscontoso.com*)을 입력합니다. [Get-AzSubscription][Get-AzSubscription] cmdlet을 사용하여 구독 ID를 가져올 수 있습니다.
+이제 관리되는 도메인을 만들어 보겠습니다. Azure 구독 ID를 설정한 다음, 관리되는 도메인의 이름(예: *aaddscontoso.com*)을 입력합니다. [Get-AzSubscription][Get-AzSubscription] cmdlet을 사용하여 구독 ID를 가져올 수 있습니다.
 
 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 배포됩니다.
 
@@ -148,14 +148,14 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. Azure AD DS 관리형 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 Azure AD DS 관리형 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
+리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. 관리되는 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 관리되는 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
 
-Azure AD DS 관리형 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
+관리되는 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
-    * DNS를 구성하려면 포털에서 Azure AD DS 관리형 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
-* 가용성 영역을 지원하는 지역에 Azure AD DS 관리형 도메인을 만든 경우 가상 네트워크의 트래픽을 Azure AD DS 관리형 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
-    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 Azure AD DS 관리형 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
+    * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
+* 가용성 영역을 지원하는 지역에 관리형 도메인을 만든 경우 가상 네트워크의 트래픽을 관리되는 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
+    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
 * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="complete-powershell-script"></a>전체 PowerShell 스크립트
@@ -235,19 +235,19 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. Azure AD DS 관리형 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 Azure AD DS 관리형 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
+리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. 관리되는 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 관리되는 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
 
-Azure AD DS 관리형 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
+관리되는 도메인이 프로비저닝을 마쳤다고 Azure Portal에 표시되면 다음 작업을 완료해야 합니다.
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
-    * DNS를 구성하려면 포털에서 Azure AD DS 관리형 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
-* 가용성 영역을 지원하는 지역에 Azure AD DS 관리형 도메인을 만든 경우 가상 네트워크의 트래픽을 Azure AD DS 관리형 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
-    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 Azure AD DS 관리형 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
+    * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
+* 가용성 영역을 지원하는 지역에 관리되는 도메인을 만든 경우 가상 네트워크의 트래픽을 관리되는 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
+    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
 * 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD DS 관리형 도메인이 작동하는 것을 보려면 [Windows VM을 도메인에 가입하고][windows-join], [보안 LDAP를 구성하고][tutorial-ldaps], [암호 해시 동기화를 구성][tutorial-phs]하면 됩니다.
+관리되는 도메인이 작동하는 것을 보려면 [Windows VM을 도메인에 조인하고][windows-join], [보안 LDAP를 구성하고][tutorial-ldaps], [암호 해시 동기화를 구성][tutorial-phs]하면 됩니다.
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

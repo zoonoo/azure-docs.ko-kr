@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 공유 자체 호스팅 통합 런타임 만들기
+title: PowerShell을 사용하여 자체 호스팅 Integration Runtime 공유 만들기
 description: Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만들어 여러 데이터 팩터리가 통합 런타임에 액세스할 수 있도록 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.custom: seo-lt-2019
 ms.date: 10/31/2018
 ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106630"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 공유 자체 호스팅 통합 런타임 만들기
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 가이드에서는 Azure Data Factory에서 공유 자체 호스팅 통합 런타임을 만드는 방법을 보여 줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다.
+이 가이드에서는 Azure Data Factory에서 공유되는 자체 호스팅 Integration Runtime을 만드는 방법을 보여 줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR 만들기
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR 만들기
 
-Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR을 만들려면 다음 단계를 수행 하면 됩니다.
+Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다.
 
 1. 공유할 자체 호스팅 IR에서 연결된 IR을 만들려면 데이터 팩터리에 대한 권한을 부여합니다.
       
@@ -44,16 +44,16 @@ Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR을 만들
       
     ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR 만들기
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR 만들기
 
-Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다. 
+Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다. 
 1. 데이터 팩터리를 만듭니다. 
 1. 자체 호스팅 통합 런타임을 만듭니다.
 1. 다른 데이터 팩터리와 자체 호스팅 통합 런타임을 공유합니다.
 1. 연결된 통합 런타임을 만듭니다.
 1. 공유를 취소합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항 
+### <a name="prerequisites"></a>필수 구성 요소 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

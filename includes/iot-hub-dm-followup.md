@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: iot-hub
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "69558735"
@@ -27,6 +27,6 @@ IoT 솔루션에서 정의된 디바이스 관리 패턴 집합을 확장하거�
 
 이 자습서에서는 디바이스에서 원격 다시 시작을 트리거하는 데 직접 메서드를 사용했습니다. 보고된 속성을 사용하여 디바이스에서 마지막으로 다시 시작한 시간을 보고하고, 디바이스 쌍을 쿼리하여 디바이스가 클라우드에서 마지막으로 다시 시작한 시간을 확인했습니다.
 
-무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 [펌웨어 업데이트를 수행 하는 방법](../articles/iot-hub/tutorial-firmware-update.md)을 참조 하세요.
+IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](../articles/iot-hub/tutorial-firmware-update.md)을 참조하세요.
 
-IoT 솔루션을 확장 하 고 여러 장치에서 메서드 호출을 예약 하는 방법을 알아보려면 [작업 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)를 참조 하세요.
+IoT 솔루션을 확장하고 여러 디바이스에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)를 참조하세요.

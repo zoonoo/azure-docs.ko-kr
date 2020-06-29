@@ -10,7 +10,7 @@ ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383053"
@@ -24,7 +24,7 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 > [!NOTE]  
 > 이 문서에서는 Azure Kubernetes Services가 HDInsight의 Kafka와 통신하도록 설정하는 데 필요한 단계에 중점을 두고 있습니다. 예제 자체는 구성이 작동하는 것을 보여주는 기본적인 Kafka 클라이언트입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Azure 구독
@@ -35,7 +35,7 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-또한 이 문서에서는 [Azure Kubernetes Services 자습서](../../aks/tutorial-kubernetes-prepare-app.md)를 살펴보았다고 가정합니다. 이 문서에서는 컨테이너 서비스를 만들고, Kubernetes 클러스터와 container registry를 만들고, `kubectl` 유틸리티를 구성 합니다.
+또한 이 문서에서는 [Azure Kubernetes Services 자습서](../../aks/tutorial-kubernetes-prepare-app.md)를 살펴보았다고 가정합니다. 이 문서에서는 컨테이너 서비스를 만들고, Kubernetes 클러스터와 컨테이너 레지스트리를 생성하고, `kubectl` 유틸리티를 구성합니다.
 
 ## <a name="architecture"></a>Architecture
 
@@ -45,7 +45,7 @@ HDInsight와 AKS 모두 Azure Virtual Network를 컴퓨팅 리소스의 컨테�
 
 다음 다이어그램은 이 문서에서 사용한 네트워크 토폴로지를 보여줍니다.
 
-![한 가상 네트워크의 HDInsight, 다른 가상 네트워크에 AKS, 피어 링 사용](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![한 가상 네트워크의 HDInsight, 다른 가상 네트워크의 AKS, 피어링 사용](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]  
 > 피어링된 네트워크 간에 이름 확인을 사용할 수 없으므로 IP 주소 지정이 사용됩니다. 기본적으로 HDInsight의 Kafka는 클라이언트 연결 시 IP 주소 대신 호스트 이름을 반환하도록 구성됩니다. 이 문서의 단계에서는 IP 보급을 대신 사용하도록 Kafka를 수정합니다.
@@ -58,28 +58,28 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 * [AKS(Azure Kubernetes Service) 클러스터 배포-CLI](../../aks/kubernetes-walkthrough.md)
 
 > [!IMPORTANT]  
-> AKS **추가** 리소스 그룹에 설치 하는 동안 가상 네트워크를 만듭니다. 추가 리소스 그룹은 **MC_resourceGroup_AKSclusterName_location**의 명명 규칙을 따릅니다.  
+> AKS는 **추가** 리소스 그룹에 설치하는 동안 가상 네트워크를 만듭니다. 추가 리소스 그룹은 **MC_resourceGroup_AKSclusterName_location**의 명명 규칙을 따릅니다.  
 > 이 네트워크는 다음 섹션에서 HDInsight용으로 생성되는 네트워크와 피어링됩니다.
 
 ## <a name="configure-virtual-network-peering"></a>가상 네트워크 피어링 구성
 
 ### <a name="identify-preliminary-information"></a>예비 정보 식별
 
-1. [Azure Portal](https://portal.azure.com)에서 AKS 클러스터에 대 한 가상 네트워크를 포함 하는 추가 **리소스 그룹** 을 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 AKS 클러스터에 대한 가상 네트워크가 포함된 추가 **리소스 그룹**을 찾습니다.
 
-2. 리소스 그룹에서 __가상 네트워크__ 리소스를 선택 합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
+2. 리소스 그룹에서 __가상 네트워크__ 리소스를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
 
-3. **설정**아래에서 __주소 공간__을 선택 합니다. 나열된 주소 공간에 유의합니다.
+3. __설정__에서 **주소 공간**을 선택합니다. 나열된 주소 공간에 유의합니다.
 
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-1. HDInsight에 대 한 가상 네트워크를 만들려면 __+ 리소스__ > 만들기__네트워킹__ > __가상 네트워크__로 이동 합니다.
+1. HDInsight용 가상 네트워크를 만들려면 __+ 리소스 만들기__ > __네트워킹__ > __가상 네트워크__로 이동합니다.
 
-1. 특정 속성에 대 한 다음 지침을 사용 하 여 네트워크를 만듭니다.
+1. 특정 속성에 대한 다음 지침을 사용하여 네트워크를 만듭니다.
 
     |속성 | 값 |
     |---|---|
-    |주소 공간|AKS 클러스터 네트워크에서 사용 하는 것과 겹치지 않는 주소 공간을 사용 해야 합니다.|
+    |주소 공간|AKS 클러스터 네트워크에 사용되는 값과 겹치지 않는 주소 공간을 사용해야 합니다.|
     |위치|AKS 클러스터에 사용한 가상 네트워크와 동일한 __위치__를 사용합니다.|
 
 1. 다음 단계로 이동하기 전에 가상 네트워크가 생성될 때까지 기다립니다.
@@ -92,9 +92,9 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
     |속성 |값 |
     |---|---|
-    |이 VN>에서 \<원격 가상 네트워크로의 피어 링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
-    |가상 네트워크|**AKS 클러스터**에 대 한 가상 네트워크를 선택 합니다.|
-    |AKS VN>에서 \<이 VN로 \<의 피어 링 이름>|고유한 이름을 입력합니다.|
+    |\<이 VN>에서 원격 가상 네트워크로의 피어링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
+    |가상 네트워크|**AKS 클러스터**의 가상 네트워크를 선택합니다.|
+    |\<AKS VN>에서 \<이 VN>으로의 피어링 이름|고유한 이름을 입력합니다.|
 
     다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 
@@ -116,7 +116,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
 
-    ![Apache Ambari services 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    ![Apache Ambari Services 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
@@ -156,7 +156,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 1. 테스트 애플리케이션에서 사용되는 Kafka 항목을 만듭니다. Kafka 토픽 만들기에 대한 내용은 [Apache Kafka 클러스터 만들기](apache-kafka-get-started.md) 문서를 참조하세요.
 
-2. 에서 [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test)예제 응용 프로그램을 다운로드 합니다.
+2. [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test)에서 예제 애플리케이션을 다운로드합니다.
 
 3. `index.js` 파일을 편집하고 다음 줄을 변경합니다.
 
@@ -233,6 +233,6 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 * [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)
 
-* [HDInsight에서 Apache Kafka와 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
 
 * [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)

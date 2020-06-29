@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 2c9287e6f4bda429309dd0041215b271678d03d3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: e71cd5f3989a175f883f3a08b4f55d36a154dcee
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860701"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753483"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Azure Monitor에 대한 Resource Manager 템플릿 샘플
 
@@ -25,7 +25,7 @@ ms.locfileid: "83860701"
 2. 사용자 환경에 대한 매개 변수를 수정하고 JSON 파일로 저장합니다.
 4. [Resource Manager 템플릿에 대한 배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다. 
 
-예를 들어 PowerShell 또는 Azure CLI를 사용하여 템플릿 및 매개 변수 파일을 구독에 배포하려면 다음 명령을 사용합니다.
+예를 들어 다음 명령을 통해 PowerShell 또는 Azure CLI를 사용하여 리소스 그룹에 템플릿 및 매개 변수 파일을 배포합니다.
 
 
 ```powershell
@@ -36,7 +36,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ```azurecli
 az login
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \

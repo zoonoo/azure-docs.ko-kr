@@ -1,23 +1,23 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: 이 문서는 Azure Front Door의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
+title: 규칙 엔진 구성 - Azure Front Door
+description: 이 문서에서는 Azure Front Door에 대한 규칙 엔진을 구성하는 방법을 설명합니다.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4574597c0b93f2985953bfbc815cca220ecc4f28
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ed54f26f37617d420fae1aaf3f51853b0439a349
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515868"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743561"
 ---
 # <a name="configure-your-rules-engine"></a>규칙 엔진 구성 
 

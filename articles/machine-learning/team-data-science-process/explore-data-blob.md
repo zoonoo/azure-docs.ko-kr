@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e429dce497411305964cb1ec5298228dc4093b1f
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685947"
@@ -24,7 +24,7 @@ ms.locfileid: "81685947"
 
 이 작업은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
@@ -33,7 +33,7 @@ ms.locfileid: "81685947"
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드
 데이터 세트를 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음, pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
 
-1. Blob service를 사용 하 여 다음 Python 코드 샘플로 Azure blob에서 데이터를 다운로드 합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다.
+1. Blob 서비스를 사용하여 다음 Python 코드 샘플로 Azure Blob에서 데이터를 다운로드합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다.
 
     ```python
     from azure.storage.blob import BlockBlobService
@@ -63,7 +63,7 @@ ms.locfileid: "81685947"
 
 이제 데이터를 탐색하고 이 데이터 세트에 기능을 생성할 준비가 완료되었습니다.
 
-## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Pandas를 사용 하 여 데이터 탐색의 예
+## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>pandas를 사용 하 여 데이터 탐색의 예
 다음은 pandas를 사용하여 데이터를 탐색하는 방식의 예입니다.
 
 1. **행** 및 열 수

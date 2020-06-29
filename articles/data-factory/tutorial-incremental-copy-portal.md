@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249096"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736517"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -277,7 +277,7 @@ END
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. 파이프라인 설정에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 창을 닫으려면 >>를 클릭합니다.   
 
 28. **모두 게시** 단추를 선택하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다. 게시 성공 메시지가 표시될 때까지 기다립니다.
@@ -290,9 +290,9 @@ END
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-1. 왼쪽의 **모니터** 탭으로 전환합니다. 수동 트리거로 트리거된 파이프라인 실행 상태를 볼 수 있습니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다.
+1. 왼쪽의 **모니터** 탭으로 전환합니다. 수동 트리거로 트리거된 파이프라인 실행 상태가 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 실행 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-2. 이 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 첫 번째 링크(**활동 실행 보기**)를 클릭합니다. 위쪽의 **파이프라인**을 클릭하여 이전 보기로 돌아갈 수 있습니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다.
+2. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 활동 실행에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행**을 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
 
 ## <a name="review-the-results"></a>결과 검토
@@ -355,9 +355,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>두 번째 파이프라인 실행 모니터링
 
-1. 왼쪽의 **모니터** 탭으로 전환합니다. 수동 트리거로 트리거된 파이프라인 실행 상태를 볼 수 있습니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다.
+1. 왼쪽의 **모니터** 탭으로 전환합니다. 수동 트리거로 트리거된 파이프라인 실행 상태가 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-2. 이 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 첫 번째 링크(**활동 실행 보기**)를 클릭합니다. 위쪽의 **파이프라인**을 클릭하여 이전 보기로 돌아갈 수 있습니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다.
+2. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 활동 실행에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행**을 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
 
 ## <a name="verify-the-second-output"></a>두 번째 출력 확인

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 680f8518e5d005aebeffd54fe6d05ae1124c595a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559709"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730104"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 
@@ -260,9 +260,13 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기
 프라이빗 네트워크(온-프레미스)의 데이터 저장소에서 Azure 데이터 저장소로 데이터를 이동할 때 온-프레미스 환경에 자체 호스팅 IR(통합 런타임)을 설치합니다. 자체 호스팅 IR은 프라이빗 네트워크와 Azure 간에 데이터를 이동합니다. 
 
-1. 왼쪽 창의 아래에서 **연결**을 클릭하고 **연결** 창의 **통합 런타임**으로 전환합니다. 
+1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 선택합니다.
 
-1. **통합 런타임** 탭에서 **+ 새로 만들기**를 클릭합니다. 
+   ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
+
+1. 왼쪽 창에서 **통합 런타임**을 선택한 다음, **+새로 만들기**를 선택합니다.
+
+   ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. **Integration Runtime 설정** 창에서 **데이터 이동을 수행하고 활동을 외부 계산으로 디스패치합니다**를 선택하고, **계속**을 클릭합니다. 
 
@@ -288,6 +292,7 @@ END
 
 1. **연결** 창의 **통합 런타임** 탭에서 **연결된 서비스** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
 
+   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
 1. **새 연결된 서비스** 창에서 **SQL Server**를 선택하고 **계속**을 클릭합니다. 
 
 1. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
@@ -349,7 +354,7 @@ END
     1. **Create/update 매개 변수** 섹션에서 **새로 만들기**를 클릭합니다. 
     1. **이름**에 대해 **SinkTableName**을 입력하고 **형식**에 대해 **문자열**을 입력합니다. 이 데이터 세트는 매개 변수로 **SinkTableName**을 사용합니다. SinkTableName 매개 변수는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다.
    
-    ![싱크 데이터 세트 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        ![싱크 데이터 세트 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. **테이블** 속성에서 **동적 콘텐츠 추가**를 클릭합니다.   
     
 1. **동적 콘텐츠 추가** 창의 **매개 변수** 섹션에서 **SinkTableName**를 선택 합니다. 
@@ -371,7 +376,7 @@ END
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
     1. **테이블**에 대해 **[dbo].[watermarktable]** 을 선택합니다.
 
-    ![워터마크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        ![워터마크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
@@ -455,7 +460,7 @@ END
     1. **테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
     1. **테이블 형식 매개 변수 이름**에 `@{item().TABLE_NAME}`을 입력합니다.
 
-    ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 
 
 1. 파이프라인에서 **저장 프로시저** 활동을 선택하고 **속성** 창의 **일반** 탭에서 **이름**에 대해 **StoredProceduretoWriteWatermarkActivity**를 입력합니다. 
@@ -507,10 +512,12 @@ END
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
-1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-    ![파이프라인 실행](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-1. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
+1. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 활동 실행에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 
+
+1. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행**을 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
+
 
 ## <a name="review-the-results"></a>결과 검토
 SQL Server Management Studio에서 대상 SQL 데이터베이스에 대해 다음 쿼리를 실행하여 데이터가 원본 테이블에서 대상 테이블로 복사되었는지 확인합니다. 
@@ -605,9 +612,11 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>파이프라인 다시 모니터링
 
-1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-1. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 선택한 파이프라인 실행과 연결된 활동 실행이 표시됩니다. 
+1. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 활동 실행에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 
+
+1. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행**을 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
 ## <a name="review-the-final-results"></a>최종 결과 검토
 SQL Server Management Studio에서 대상 SQL 데이터베이스에 대해 다음 쿼리를 실행하여 업데이트된/새로운 데이터가 원본 테이블에서 대상 테이블로 복사되었는지 확인합니다. 

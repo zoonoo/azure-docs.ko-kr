@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676601"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733707"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경을 위해 Azure Active Directory Domain Services에서 암호 동기화 활성화
 
@@ -32,7 +32,7 @@ ms.locfileid: "80676601"
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스는 다음과 같습니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
     * 필요한 경우 [암호 해시 동기화를 위해 Azure AD Connect를 사용하도록 설정][enable-azure-ad-connect]합니다.
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
+    * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 암호 해시 동기화
 
@@ -97,7 +97,7 @@ Azure AD Connect를 설치하고 Azure AD와 동기화하도록 구성된 상태
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    계정 및 그룹 수에 따른 디렉터리 크기에 따라 레거시 암호 해시를 Azure AD에 동기화하는 데 시간이 걸릴 수 있습니다. 그런 다음, 암호가 Azure AD에 동기화된 후 Azure AD DS 관리형 도메인에 동기화됩니다.
+    계정 및 그룹 수에 따른 디렉터리 크기에 따라 레거시 암호 해시를 Azure AD에 동기화하는 데 시간이 걸릴 수 있습니다. 그런 다음, 암호가 Azure AD에 동기화된 후 관리되는 도메인에 동기화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

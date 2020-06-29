@@ -7,16 +7,16 @@ ms.date: 04/24/2020
 ms.custom: mvc
 ms.openlocfilehash: 5ae282750580ed5b4e53e78c52ca285e40365fd3
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83122024"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
-Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비스 데이터를 사용하기 위한 선언적 방식을 제공합니다. 이 빠른 시작에서는 출력 바인딩을 사용하여 HTTP 요청에서 함수가 트리거될 때 큐에 메시지를 만듭니다. Azure storage 컨테이너를 사용 하 여 함수에서 만드는 큐 메시지를 확인 합니다.
+Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비스 데이터를 사용하기 위한 선언적 방식을 제공합니다. 이 빠른 시작에서는 출력 바인딩을 사용하여 HTTP 요청에서 함수가 트리거될 때 큐에 메시지를 만듭니다. Azure Storage 컨테이너를 사용하여 함수가 만드는 큐 메시지를 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -26,35 +26,35 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ## <a name="add-an-output-binding"></a><a name="add-binding"></a>출력 바인딩 추가
 
-이 섹션에서는 포털 UI를 사용하여, 앞서 만든 함수에 Queue Storage 출력 바인딩을 추가합니다. 이 바인딩을 사용 하면 최소한의 코드만 작성 하 여 큐에 메시지를 만들 수 있습니다. 스토리지 연결 시작, 큐 만들기, 큐에 대한 참조 가져오기 등의 작업을 위해 코드를 작성하지 않아도 됩니다. Azure Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 대신하게 됩니다.
+이 섹션에서는 포털 UI를 사용하여, 앞서 만든 함수에 Queue Storage 출력 바인딩을 추가합니다. 이 바인딩을 통해 최소한의 코드로 큐에 메시지를 만들 수 있습니다. 스토리지 연결 시작, 큐 만들기, 큐에 대한 참조 가져오기 등의 작업을 위해 코드를 작성하지 않아도 됩니다. Azure Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 대신하게 됩니다.
 
-1. Azure Portal에서 [Azure Portal에서 첫 번째 함수 만들기](functions-create-first-azure-function.md)에서 만든 함수 앱에 대한 함수 앱 페이지를 엽니다. 페이지를 열려면를 검색 하 고 **함수 앱**를 선택 합니다. 그런 다음 함수 앱을 선택 합니다.
+1. Azure Portal에서 [Azure Portal에서 첫 번째 함수 만들기](functions-create-first-azure-function.md)에서 만든 함수 앱에 대한 함수 앱 페이지를 엽니다. 페이지를 열려면 **함수 앱**을 검색한 후 선택합니다. 그런 후, 함수 앱을 선택합니다.
 
-1. 함수 앱을 선택한 다음 이전 빠른 시작에서 만든 함수를 선택 합니다.
+1. 함수 앱을 선택한 다음, 이전 빠른 시작에서 만든 함수를 선택합니다.
 
-1. **통합**을 선택 하 고 **+ 출력 추가**를 선택 합니다.
+1. **통합**을 선택하고 **+ 출력 추가**를 선택합니다.
 
-   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="함수에 대 한 출력 바인딩을 만듭니다." border="true":::
+   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="함수에 대한 출력 바인딩을 만듭니다." border="true":::
 
-1. **Azure Queue Storage** 바인딩 유형을 선택 하 고 다음 스크린샷에서 이어지는 표에 지정 된 대로 설정을 추가 합니다. 
+1. **Azure Queue Storage** 바인딩 유형을 선택하고 이 스크린샷의 다음에 나오는 표에 지정된 대로 설정을 사용합니다. 
 
     :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다." border="true":::
     
-    | 설정      |  제안 값   | 설명                              |
+    | 설정      |  제안 값   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **메시지 매개 변수 이름** | outputQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
     | **큐 이름**   | outqueue  | Storage 계정에서 연결할 큐의 이름입니다. |
     | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 스토리지 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
 
-1. **확인** 을 선택 하 여 바인딩을 추가 합니다.
+1. **확인**을 선택하여 바인딩을 추가합니다.
 
 이제 출력 바인딩이 정의되었고 큐에 메시지를 추가할 바인딩을 사용하도록 코드를 업데이트해야 합니다.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어, 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 *함수에 전달된 이름: Azure*가 됩니다.
+이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 ‘함수에 전달된 이름: Azure’가 됩니다.
 
-1. 함수에서 **코드 + 테스트** 를 선택 하 여 편집기에 함수 코드를 표시 합니다.
+1. 함수에서 **코드 + 테스트**를 선택하여 편집기에서 함수 코드를 표시합니다.
 
 1. 함수 언어에 따라 함수 코드를 업데이트합니다.
 
@@ -91,10 +91,10 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 코드 변경 내용을 저장 한 후 **테스트**를 선택 합니다.
-1. 테스트가 아래 이미지와 일치 하는지 확인 하 고 **실행**을 선택 합니다. 
+1. 코드 변경 내용이 저장된 후 **테스트**를 선택합니다.
+1. 테스트가 아래 이미지와 일치하는지 확인하고 **실행**을 선택합니다. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Azure Portal에서 큐 저장소 바인딩을 테스트 합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Azure Portal에서 Queue Storage 바인딩을 테스트합니다." border="true":::
 
     **요청 본문**에 `name` 값 *Azure*가 들어 있습니다. 이 값은 함수가 호출될 때 만들어지는 큐 메시지에 표시됩니다.
     
@@ -102,28 +102,28 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. 로그에서 함수가 성공했는지 확인합니다. 
 
-출력 바인딩이 처음 사용 될 때 함수 런타임에 의해 **outqueue** 라는 새 큐가 저장소 계정에 만들어집니다. 저장소 계정을 사용 하 여 큐와 큐의 메시지가 생성 되었는지 확인 합니다.
+**outqueue**라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 Storage 계정에 만들어집니다. 스토리지 계정을 사용하여 그 안에 큐와 메시지가 만들어졌는지 확인합니다.
 
-### <a name="find-the-storage-account-connected-to-azurewebjobsstorage"></a>AzureWebJobsStorage에 연결 된 저장소 계정 찾기
+### <a name="find-the-storage-account-connected-to-azurewebjobsstorage"></a>AzureWebJobsStorage에 연결된 스토리지 계정 찾기
 
 
-1. 함수 앱으로 이동 하 여 **구성**을 선택 합니다.
+1. 함수 앱으로 이동하고 **구성**을 선택합니다.
 
-1. **응용 프로그램 설정**에서 **Azurewebjobsstorage**를 선택 합니다.
+1. **애플리케이션 설정**에서 **AzureWebJobsStorage**를 선택합니다.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="AzureWebJobsStorage에 연결 된 저장소 계정을 찾습니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="AzureWebJobsStorage에 연결된 스토리지 계정을 찾습니다." border="true":::
 
 1. 계정 이름을 찾아서 적어 둡니다.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="AzureWebJobsStorage에 연결 된 저장소 계정을 찾습니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="AzureWebJobsStorage에 연결된 스토리지 계정을 찾습니다." border="true":::
 
 ### <a name="examine-the-output-queue"></a>출력 큐 검토
 
-1. 함수 앱에 대 한 리소스 그룹에서이 빠른 시작에 사용 중인 저장소 계정을 선택 합니다.
+1. 함수 앱에 대한 리소스 그룹에서 이 빠른 시작에 사용하는 스토리지 계정을 선택합니다.
 
-1. **큐 서비스**에서 **큐** 를 선택 하 고 **outqueue**라는 큐를 선택 합니다. 
+1. **큐 서비스**에서 **큐**를 선택하고 **outqueue**라는 큐를 선택합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:   Azure’입니다.
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름:  Azure’입니다.
 
 1. 함수를 다시 실행하면 큐에 새 메시지가 표시되는 것을 알 수 있습니다.  
 

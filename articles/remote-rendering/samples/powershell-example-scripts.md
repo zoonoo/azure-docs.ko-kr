@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891495"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052292"
 ---
 # <a name="example-powershell-scripts"></a>예제 PowerShell 스크립트
 
@@ -21,7 +21,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 
 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 *Scripts* 폴더에 서비스의 REST API와 상호 작용하기 위한 샘플 스크립트가 포함되어 있습니다. 이 문서에서는 사용 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 스크립트를 실행하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)의 기능을 설정해야 합니다.
 
@@ -75,6 +75,9 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 
 > [!CAUTION]
 > 이중 백슬래시 "\\\\"를 사용하여 LocalAssetDirectoryPath 경로에서 백슬래시를 올바르게 이스케이프하고 inputFolderPath 및 inputAssetPath와 같은 다른 모든 경로에는 슬래시 "/"를 사용해야 합니다.
+
+> [!CAUTION]
+> 선택적 값을 작성하거나 키와 값을 모두 제거해야 합니다. 예를 들어 `"outputAssetFileName"` 매개 변수를 사용하지 않는 경우 `arrconfig.json` 내부의 전체 줄을 삭제해야 합니다.
 
 ### <a name="accountsettings"></a>accountSettings
 
@@ -139,7 +142,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다. 
+세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다.**
 
 ### <a name="list-active-sessions"></a>활성 세션 나열
 

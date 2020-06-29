@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929828"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737022"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop은 클라우드에서 실행되는 데스크톱 및 앱 
 Azure에서 Windows Virtual Desktop을 실행하면 다음과 같은 작업이 가능합니다.
 
 * 확장 가능한 완전한 Windows 10을 제공하는 다중 세션 Windows 10 배포 설정
-* Office 365 ProPlus를 가상화하고 다중 사용자 가상 시나리오에서 실행되도록 최적화
+* 엔터프라이즈용 Office 365 앱을 가상화하고 다중 사용자 가상 시나리오에서 실행되도록 최적화
 * Windows 7 가상 데스크톱에 무료 기간 연장 보안 업데이트 제공
 * 기존 RDS(원격 데스크톱 서비스)와 Windows Server 데스크톱 및 앱을 컴퓨터로 가져오기
 * 데스크톱 및 앱 가상화
@@ -109,11 +109,11 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 
 |주소|아웃바운드 TCP 포트|목적|서비스 태그|
 |---|---|---|---|
-|*.microsoftonline.com|443|MS Online Services에 대한 인증|None|
+|*.microsoftonline.com|443|Microsoft Online Services에 대한 인증|None|
 |*.events.data.microsoft.com|443|원격 분석 서비스|None|
 |www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|None|
-|login.windows.net|443|MS Online Services, Office 365에 로그인|None|
+|login.windows.net|443|Microsoft Online Services, Office 365에 로그인|None|
 |*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|None|
 |*.digicert.com|443|인증서 해지 확인|None|
 
@@ -161,7 +161,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 |\*.servicebus.windows.net|443|데이터 문제 해결|모두|
 |go.microsoft.com|443|Microsoft FWLinks|모두|
 |aka.ms|443|Microsoft URL 단축기|모두|
-|docs.microsoft.com|443|문서화|모두|
+|docs.microsoft.com|443|설명서|모두|
 |privacy.microsoft.com|443|개인정보처리방침|모두|
 |query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|
 

@@ -1,5 +1,5 @@
 ---
-title: 클라우드 초기화에 사용할 Azure VM 이미지 준비
+title: cloud-init와 함께 사용하기 위해 Azure VM 준비
 description: cloud-init를 사용하여 배포를 위해 기존 Azure VM 이미지를 준비하는 방법
 author: danis
 ms.service: virtual-machines-linux
@@ -9,18 +9,18 @@ ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
 ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/05/2020
 ms.locfileid: "82792312"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>cloud-init와 함께 사용하기 위해 기존 Linux Azure VM 이미지 준비
-이 문서는 기존 Azure 가상 머신을 사용하고 다시 배포하고 cloud-init를 사용할 수 있도록 준비하는 방법을 보여 줍니다. 결과 이미지는 새 가상 머신이나 가상 머신 확장 집합을 배포하는 데 사용할 수 있습니다. 그런 다음 가상 머신 또는 가상 머신 확장 집합은 배포 시 cloud-init에 의해 더 사용자 지정될 수 있습니다.  Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 클라우드 초기화가 Azure에서 기본적으로 작동 하는 방법 및 지원 되는 Linux 배포판에 대 한 자세한 내용은 [클라우드-초기화 개요](using-cloud-init.md) 를 참조 하세요.
+이 문서는 기존 Azure 가상 머신을 사용하고 다시 배포하고 cloud-init를 사용할 수 있도록 준비하는 방법을 보여 줍니다. 결과 이미지는 새 가상 머신이나 가상 머신 확장 집합을 배포하는 데 사용할 수 있습니다. 그런 다음 가상 머신 또는 가상 머신 확장 집합은 배포 시 cloud-init에 의해 더 사용자 지정될 수 있습니다.  Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 지원되는 버전의 Linux 운영 체제를 실행하는 실행 중인 Azure 가상 머신이 이미 있다고 가정합니다. 필요에 맞도록 컴퓨터를 이미 구성했고, 모든 필수 모듈을 설치했고, 모든 필수 업데이트를 처리했으며 요구 사항을 충족하는지 테스트했습니다. 
 
-## <a name="preparing-rhel-76--centos-76"></a>RHEL 7.6/CentOS 7.6 준비
+## <a name="preparing-rhel-76--centos-76"></a>RHEL 7.6 / CentOS 7.6 준비
 Linux VM으로 SSH하고 cloud-init를 설치하기 위해 다음 명령을 실행해야 합니다.
 
 ```bash
@@ -65,7 +65,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-다음 줄을 사용 하 여 선택한 편집기를 사용 하 여 새 파일 `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` 을 만들어 Azure Linux 에이전트에 대 한 데이터 원본으로 azure만 허용 합니다.
+다음 줄로 선택한 편집기를 사용하여 새 파일 `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg`를 만들어 Azure Linux 에이전트에 대한 데이터 원본으로 Azure만을 허용합니다.
 
 ```bash
 # Azure Data Source config

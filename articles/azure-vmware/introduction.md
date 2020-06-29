@@ -3,16 +3,16 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 AVS(Azure VMware 솔루션)의 기능과 이점에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740994"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749686"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware 솔루션) 미리 보기란?
 
-AVS(Azure VMware 솔루션)는 Azure에서 프라이빗 클라우드를 제공합니다. 프라이빗 클라우드에는 전용 운영 체제 미설치 Azure 인프라에서 구축된 vSphere 클러스터가 포함됩니다. 여러 클러스터를 단일 프라이빗 클라우드에 포함하는 기능을 사용하여 프라이빗 클라우드 클러스터를 3개에서 16개의 호스트로 확장할 수 있습니다. 모든 프라이빗 클라우드는 vCenter Server, VSAN, vSphere 및 NSX-T를 통해 프로비저닝됩니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 가상 머신을 만들거나 배포하며, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.
+AVS(Azure VMware 솔루션)는 Azure에서 프라이빗 클라우드를 제공합니다. 프라이빗 클라우드에는 전용 운영 체제 미설치 Azure 인프라에서 구축된 vSphere 클러스터가 포함됩니다. 여러 클러스터를 단일 프라이빗 클라우드에 포함하는 기능을 사용하여 프라이빗 클라우드 클러스터를 3개에서 16개의 호스트로 확장할 수 있습니다. 모든 프라이빗 클라우드는 vCenter Server, vSAN, vSphere 및 NSX-T를 통해 프로비저닝됩니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 가상 머신을 만들거나 배포하며, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.
 
 AVS는 향상된 기능과 업그레이드에 대해 지속적으로 유효성을 검사하고 테스트하는 VMware 유효성이 검사된 솔루션입니다. 프라이빗 클라우드 인프라 및 소프트웨어는 Microsoft에서 관리 및 유지 관리하므로 프라이빗 클라우드에서 워크로드를 개발하고 실행하는 데 집중할 수 있습니다.
 

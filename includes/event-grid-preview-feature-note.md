@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: event-grid
 author: tfitzmac
@@ -10,7 +10,7 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
 ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/26/2020
 ms.locfileid: "66814737"
@@ -28,9 +28,9 @@ Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이
 
 로컬 설치의 경우:
 
-1. [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다. 로 확인 하 여 최신 버전을 사용 `az --version`하는지 확인 합니다.
+1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). `az --version`으로 확인하여 최신 버전이 있는지 알아봅니다.
 1. 이전 버전의 확장 `az extension remove -n eventgrid`를 제거합니다.
-1. 다음을 `eventgrid` 사용 하 여 확장 설치`az extension add -n eventgrid`
+1. `az extension add -n eventgrid`를 사용하여 `eventgrid` 확장을 설치합니다.
 
 ### <a name="install-module-for-powershell"></a>PowerShell 모듈 설치
 

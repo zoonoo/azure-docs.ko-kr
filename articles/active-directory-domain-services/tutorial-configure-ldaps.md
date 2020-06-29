@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475904"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733945"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -28,11 +28,11 @@ LDAP(Lightweight Directory Access Protocol)는 Azure AD DS(Azure Active Director
 > * Azure AD DS에 사용할 디지털 인증서 만들기
 > * Azure AD DS에서 보안 LDAP를 사용하도록 설정
 > * 퍼블릭 인터넷을 통해 사용할 보안 LDAP 구성
-> * Azure AD DS 관리되는 도메인에 대한 보안 LDAP 바인딩 및 테스트
+> * 관리되는 도메인에 대한 보안 LDAP 바인딩 및 테스트
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -41,21 +41,21 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
+    * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 * 컴퓨터에 설치된 *LDP.exe* 도구
     * 필요한 경우 *Active Directory Domain Services 및 LDAP*에 대한 [RSAT(원격 서버 관리 도구)를 설치합니다][rsat].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-이 자습서에서는 Azure Portal을 사용하여 Azure AD DS 관리되는 도메인에 대한 보안 LDAP를 구성합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+이 자습서에서는 Azure Portal을 사용하여 관리되는 도메인에 대한 보안 LDAP를 구성합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-certificate-for-secure-ldap"></a>보안 LDAP에 대한 인증서 만들기
 
-보안 LDAP를 사용하려면 디지털 인증서를 사용하여 통신을 암호화합니다. 이 디지털 인증서는 Azure AD DS 관리되는 도메인에 적용되며, *LDP.exe*와 같은 도구에서 데이터를 쿼리할 때 암호화된 보안 통신을 사용할 수 있습니다. 관리되는 도메인에 대한 보안 LDAP 액세스용 인증서를 만드는 두 가지 방법이 있습니다.
+보안 LDAP를 사용하려면 디지털 인증서를 사용하여 통신을 암호화합니다. 이 디지털 인증서는 관리되는 도메인에 적용되며, *LDP.exe*와 같은 도구에서 데이터를 쿼리할 때 암호화된 보안 통신을 사용할 수 있습니다. 관리되는 도메인에 대한 보안 LDAP 액세스용 인증서를 만드는 두 가지 방법이 있습니다.
 
 * 퍼블릭 CA(인증 기관) 또는 엔터프라이즈 CA의 인증서
     * 조직에서 퍼블릭 CA의 인증서를 가져오는 경우 해당 퍼블릭 CA에서 보안 LDAP 인증서를 가져옵니다. 조직에서 엔터프라이즈 CA를 사용하는 경우 엔터프라이즈 CA에서 보안 LDAP 인증서를 가져옵니다.
-    * 퍼블릭 CA는 Azure AD DS 관리되는 도메인에서 사용자 지정 DNS 이름을 사용하는 경우에만 작동합니다. 관리되는 도메인의 DNS 도메인 이름이 *.onmicrosoft.com*으로 끝나면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다. 이 시나리오에서는 자체 서명된 인증서를 만들고 이를 사용하여 보안 LDAP를 구성합니다.
+    * 퍼블릭 CA는 관리되는 도메인에서 사용자 지정 DNS 이름을 사용하는 경우에만 작동합니다. 관리되는 도메인의 DNS 도메인 이름이 *.onmicrosoft.com*으로 끝나면 이 기본 도메인과의 연결을 보호하기 위해 디지털 인증서를 만들 수 없습니다. Microsoft에서 *.onmicrosoft.com* 도메인을 소유하고 있으므로 퍼블릭 CA는 인증서를 발급하지 않습니다. 이 시나리오에서는 자체 서명된 인증서를 만들고 이를 사용하여 보안 LDAP를 구성합니다.
 * 사용자가 직접 만든 자체 서명된 인증서
     * 이 방법은 테스트 용도에 적합하며 이 자습서에서 설명하는 내용입니다.
 
@@ -71,7 +71,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet 등 자체 서명된 인증서를 만드는 데 사용할 수 있는 여러 도구가 있습니다. 이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *aaddscontoso.com*)으로 바꿉니다.
 
 ```powershell
-# Define your own DNS name used by your Azure AD DS managed domain
+# Define your own DNS name used by your managed domain
 $dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
@@ -101,18 +101,18 @@ Thumbprint                                Subject
 
 보안 LDAP를 사용하기 위해 네트워크 트래픽이 PKI(퍼블릭 키 인프라)를 사용하여 암호화됩니다.
 
-* **프라이빗** 키는 Azure AD DS 관리형 도메인에 적용됩니다.
-    * 이 프라이빗 키는 보안 LDAP 트래픽의 *암호를 해독*하는 데 사용됩니다. 프라이빗 키는 Azure AD DS 관리형 도메인에만 적용되고 클라이언트 컴퓨터에 광범위하게 배포되지 않아야 합니다.
+* **프라이빗** 키는 관리되는 도메인에 적용됩니다.
+    * 이 프라이빗 키는 보안 LDAP 트래픽의 *암호를 해독*하는 데 사용됩니다. 프라이빗 키는 관리되는 도메인에만 적용되고 클라이언트 컴퓨터에 광범위하게 배포되지 않아야 합니다.
     * 프라이빗 키가 포함된 인증서는 *.PFX* 파일 형식을 사용합니다.
 * **퍼블릭** 키는 클라이언트 컴퓨터에 적용됩니다.
     * 이 퍼블릭 키는 보안 LDAP 트래픽을 *암호화*하는 데 사용됩니다. 퍼블릭 키는 클라이언트 컴퓨터에 배포할 수 있습니다.
     * 프라이빗 키가 없는 인증서는 *.CER* 파일 형식을 사용합니다.
 
-이러한 두 키(*프라이빗* 키 및 *퍼블릭* 키)는 적절한 컴퓨터만 성공적으로 상호 통신할 수 있도록 합니다. 퍼블릭 CA 또는 엔터프라이즈 CA를 사용하는 경우 프라이빗 키가 포함된 인증서가 발급되고 Azure AD DS 관리형 도메인에 적용할 수 있습니다. 퍼블릭 키는 클라이언트 컴퓨터에서 이미 알고 있고 신뢰할 수 있어야 합니다. 이 자습서에서는 프라이빗 키를 사용하여 자체 서명된 인증서를 만들었으므로 적절한 프라이빗 및 퍼블릭 구성 요소를 내보내야 합니다.
+이러한 두 키(*프라이빗* 키 및 *퍼블릭* 키)는 적절한 컴퓨터만 성공적으로 상호 통신할 수 있도록 합니다. 퍼블릭 CA 또는 엔터프라이즈 CA를 사용하는 경우 프라이빗 키가 포함된 인증서가 발급되고 관리되는 도메인에 적용할 수 있습니다. 퍼블릭 키는 클라이언트 컴퓨터에서 이미 알고 있고 신뢰할 수 있어야 합니다. 이 자습서에서는 프라이빗 키를 사용하여 자체 서명된 인증서를 만들었으므로 적절한 프라이빗 및 퍼블릭 구성 요소를 내보내야 합니다.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Azure AD DS에 대한 인증서 내보내기
 
-이전 단계에서 만든 디지털 인증서를 Azure AD DS 관리형 도메인에서 사용하려면 먼저 인증서를 프라이빗 키가 포함된 *.PFX* 인증서 파일로 내보냅니다.
+이전 단계에서 만든 디지털 인증서를 관리되는 도메인에서 사용하려면 먼저 인증서를 프라이빗 키가 포함된 *.PFX* 인증서 파일로 내보냅니다.
 
 1. *실행* 대화 상자를 열려면 **Windows** + **R** 키를 선택합니다.
 1. *실행* 대화 상자에서 **mmc**를 입력하여 MMC(Microsoft Management Console)를 열고, **확인**을 선택합니다.
@@ -133,7 +133,7 @@ Thumbprint                                Subject
 1. 인증서의 프라이빗 키를 내보내야 합니다. 내보내는 인증서에 프라이빗 키가 포함되지 않으면 관리되는 도메인에서 보안 LDAP를 사용하도록 설정하는 작업이 실패합니다.
 
     **프라이빗 키 내보내기** 페이지에서 **예, 프라이빗 키를 내보냅니다.** , **다음**을 차례로 선택합니다.
-1. Azure AD DS 관리형 도메인은 프라이빗 키가 포함된 *.PFX* 인증서 파일 형식만 지원합니다. 인증서를 프라이빗 키가 포함되지 않은 *.CER* 인증서 파일 형식으로 내보내지 마세요.
+1. 관리되는 도메인은 프라이빗 키가 포함된 *.PFX* 인증서 파일 형식만 지원합니다. 인증서를 프라이빗 키가 포함되지 않은 *.CER* 인증서 파일 형식으로 내보내지 마세요.
 
     **파일 형식 내보내기** 페이지에서 내보낸 인증서에 대한 파일 형식으로 **개인 정보 교환 – PKCS #12(.PFX)** 를 선택합니다. *가능하면 인증 경로에 있는 인증서 모두 포함* 확인란을 선택합니다.
 
@@ -141,7 +141,7 @@ Thumbprint                                Subject
 
 1. 이 인증서는 데이터의 암호를 해독하는 데 사용되므로 액세스를 신중하게 제어해야 합니다. 암호는 인증서의 사용을 보호하는 데 사용할 수 있습니다. 올바른 암호가 없으면 인증서를 서비스에 적용할 수 없습니다.
 
-    *.PFX* 인증서 파일을 보호하려면 **보안** 페이지에서 **암호** 옵션을 선택합니다. 암호를 입력하여 확인하고, **다음**을 선택합니다. 이 암호는 다음 섹션에서 Azure AD DS 관리형 도메인에 보안 LDAP를 사용하도록 설정하는 데 사용됩니다.
+    *.PFX* 인증서 파일을 보호하려면 **보안** 페이지에서 **암호** 옵션을 선택합니다. 암호를 입력하여 확인하고, **다음**을 선택합니다. 이 암호는 다음 섹션에서 관리되는 도메인에 보안 LDAP를 사용하도록 설정하는 데 사용됩니다.
 1. **내보낼 파일** 페이지에서 인증서를 내보낼 파일 이름과 위치(예: *C:\Users\accountname\azure-ad-ds.pfx*)를 지정합니다. 이 정보는 다음 단계에서 필요하므로 *.PFX* 파일의 암호와 위치를 기록해 둡니다.
 1. 검토 페이지에서 **마침**을 선택하여 인증서를 *.PFX* 인증서 파일로 내보냅니다. 인증서를 성공적으로 내보내면 확인 대화 상자가 표시됩니다.
 1. 다음 섹션에서 사용할 수 있도록 MMC를 열어 둡니다.
@@ -160,7 +160,7 @@ Thumbprint                                Subject
 1. **내보낼 파일** 페이지에서 인증서를 내보낼 파일 이름과 위치(예: *C:\Users\accountname\azure-ad-ds-client.cer*)를 지정합니다.
 1. 검토 페이지에서 **마침**을 선택하여 인증서를 *.CER* 인증서 파일로 내보냅니다. 인증서를 성공적으로 내보내면 확인 대화 상자가 표시됩니다.
 
-이제 *.CER* 인증서 파일을 Azure AD DS 관리형 도메인에 대한 보안 LDAP 연결을 신뢰해야 하는 클라이언트 컴퓨터에 배포할 수 있습니다. 인증서를 로컬 컴퓨터에 설치해 보겠습니다.
+이제 *.CER* 인증서 파일을 관리되는 도메인에 대한 보안 LDAP 연결을 신뢰해야 하는 클라이언트 컴퓨터에 배포할 수 있습니다. 인증서를 로컬 컴퓨터에 설치해 보겠습니다.
 
 1. 파일 탐색기를 열고, *CER* 인증서 파일을 저장한 위치(예: *C:\Users\accountname\azure-ad-ds-client.cer*)를 찾습니다.
 1. 마우스 오른쪽 단추로 *.CER* 인증서 파일을 선택한 다음, **인증서 설치**를 선택합니다.
@@ -174,7 +174,7 @@ Thumbprint                                Subject
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Azure AD DS에서 보안 LDAP를 사용하도록 설정
 
-프라이빗 키가 포함된 디지털 인증서를 만들어 내보내고 클라이언트 컴퓨터에서 연결을 신뢰하도록 설정했으면 이제 Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정합니다. Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
+프라이빗 키가 포함된 디지털 인증서를 만들어 내보내고 클라이언트 컴퓨터에서 연결을 신뢰하도록 설정했으면 이제 관리되는 도메인에서 보안 LDAP를 사용하도록 설정합니다. 관리되는 도메인에서 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 검색** 상자에 *도메인 서비스*를 입력합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다.
 1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
@@ -191,7 +191,7 @@ Thumbprint                                Subject
 1. 인증서를 *.PFX* 파일로 내보낸 이전 단계에서 설정한 **.PFX 파일을 해독하기 위한 암호**를 입력합니다.
 1. **저장**을 선택하여 보안 LDAP를 사용하도록 설정합니다.
 
-    ![Azure Portal을 통해 Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Azure Portal을 통해 관리되는 도메인에서 보안 LDAP를 사용하도록 설정](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 관리되는 도메인에 보안 LDAP를 구성하고 있다는 알림이 표시됩니다. 이 작업이 완료될 때까지 관리되는 도메인에 대한 다른 설정은 수정할 수 없습니다.
 
@@ -199,9 +199,9 @@ Thumbprint                                Subject
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>인터넷을 통한 보안 LDAP 액세스 잠금
 
-Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하면 보안 위협이 만들어집니다. 관리되는 도메인은 636 TCP 포트의 인터넷에서 연결할 수 있습니다. 관리되는 도메인에 대한 액세스를 사용자 환경의 알려진 특정 IP 주소로 제한하는 것이 좋습니다. Azure 네트워크 보안 그룹 규칙을 사용하여 보안 LDAP에 대한 액세스를 제한할 수 있습니다.
+관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하면 보안 위협이 만들어집니다. 관리되는 도메인은 636 TCP 포트의 인터넷에서 연결할 수 있습니다. 관리되는 도메인에 대한 액세스를 사용자 환경의 알려진 특정 IP 주소로 제한하는 것이 좋습니다. Azure 네트워크 보안 그룹 규칙을 사용하여 보안 LDAP에 대한 액세스를 제한할 수 있습니다.
 
-지정된 IP 주소 세트에서 636 TCP 포트를 통한 인바운드 보안 LDAP 액세스를 허용하는 규칙을 만들어 보겠습니다. 우선 순위가 낮은 기본 *DenyAll* 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용되므로 지정된 주소만 보안 LDAP를 사용하여 Azure AD DS 관리형 도메인에 연결할 수 있습니다.
+지정된 IP 주소 세트에서 636 TCP 포트를 통한 인바운드 보안 LDAP 액세스를 허용하는 규칙을 만들어 보겠습니다. 우선 순위가 낮은 기본 *DenyAll* 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용되므로 지정된 주소만 보안 LDAP를 사용하여 관리되는 도메인에 연결할 수 있습니다.
 
 1. Azure Portal의 왼쪽 탐색 영역에서 *리소스 그룹*을 선택합니다.
 1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, 네트워크 보안 그룹(*aaads-nsg*)을 선택합니다.
@@ -218,7 +218,7 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
     | 프로토콜                          | TCP          |
     | 작업                            | Allow        |
     | 우선 순위                          | 401          |
-    | 속성                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. 준비가 되면 **추가**를 선택하여 규칙을 저장하고 적용합니다.
 
@@ -226,9 +226,9 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
 
 ## <a name="configure-dns-zone-for-external-access"></a>외부 액세스를 위한 DNS 영역 구성
 
-인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하면 클라이언트 컴퓨터에서 이 관리되는 도메인을 찾을 수 있도록 DNS 영역을 업데이트합니다. *보안 LDAP 외부 IP 주소*가 Azure AD DS 관리형 도메인의 **속성** 탭에 나열됩니다.
+인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하면 클라이언트 컴퓨터에서 이 관리되는 도메인을 찾을 수 있도록 DNS 영역을 업데이트합니다. *보안 LDAP 외부 IP 주소*가 관리되는 도메인의 **속성** 탭에 나열됩니다.
 
-![Azure Portal에서 Azure AD DS 관리형 도메인의 보안 LDAP 외부 IP 주소 보기](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![Azure Portal에서 관리되는 도메인의 보안 LDAP 외부 IP 주소 보기](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
 이 외부 IP 주소로 확인할 호스트 레코드(예: *ldaps*)를 만들도록 외부 DNS 공급자를 구성합니다. 먼저 머신에서 로컬로 테스트하기 위해 항목을 Windows 호스트 파일에 만들 수 있습니다. 로컬 머신의 호스트 파일을 성공적으로 편집하려면 *메모장*을 관리자 권한으로 연 다음, *C:\Windows\System32\drivers\etc* 파일을 엽니다.
 
@@ -240,27 +240,27 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
 
 ## <a name="test-queries-to-the-managed-domain"></a>관리되는 도메인에 대한 쿼리 테스트
 
-Azure AD DS 관리형 도메인에 연결하여 바인딩하고 LDAP를 검색하려면 *LDP.exe* 도구를 사용합니다. 이 도구는 RSAT(원격 서버 관리 도구) 패키지에 포함되어 있습니다. 자세한 내용은 [원격 서버 관리 도구 설치][rsat]를 참조하세요.
+관리되는 도메인에 연결하여 바인딩하고 LDAP를 검색하려면 *LDP.exe* 도구를 사용합니다. 이 도구는 RSAT(원격 서버 관리 도구) 패키지에 포함되어 있습니다. 자세한 내용은 [원격 서버 관리 도구 설치][rsat]를 참조하세요.
 
 1. *LDP.exe*를 열고 관리되는 도메인에 연결합니다. **연결**, **연결...** 을 차례로 선택합니다.
 1. 이전 단계에서 만든 관리되는 도메인의 보안 LDAP DNS 도메인 이름(예: *ldaps.aaddscontoso.com*)을 입력합니다. 보안 LDAP를 사용하려면 **포트**를 *636*으로 설정한 다음, **SSL** 확인란을 선택합니다.
 1. **확인**을 선택하여 관리되는 도메인에 연결합니다.
 
-다음으로 Azure AD DS 관리형 도메인에 바인딩합니다. Azure AD DS 인스턴스에서 NTLM 암호 해시 동기화를 사용하지 않도록 설정한 경우 사용자(및 서비스 계정)는 LDAP 단순 바인딩을 수행할 수 없습니다. NTLM 암호 해시 동기화를 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [Azure AD DS 관리형 도메인 보호][secure-domain]를 참조하세요.
+다음으로 관리되는 도메인에 바인딩합니다. 관리되는 도메인에서 NTLM 암호 해시 동기화를 사용하지 않도록 설정한 경우 사용자(및 서비스 계정)는 LDAP 단순 바인딩을 수행할 수 없습니다. NTLM 암호 해시 동기화를 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [관리되는 도메인 보호][secure-domain]를 참조하세요.
 
 1. **연결** 메뉴 옵션, **바인딩...** 을 차례로 선택합니다.
 1. *AAD DC Administrators* 그룹에 속한 사용자 계정의 자격 증명(예: *contosoadmin*)을 제공합니다. 사용자 계정의 암호를 입력한 다음, 도메인(예: *aaddscontoso.com*)을 입력합니다.
 1. **바인드 종류**에 대해 *자격 증명으로 바인딩* 옵션을 선택합니다.
-1. **확인**을 선택하여 Azure AD DS 관리형 도메인에 바인딩합니다.
+1. **확인**을 선택하여 관리되는 도메인에 바인딩합니다.
 
-Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을 수행합니다.
+관리되는 도메인에 저장된 개체를 확인하려면 다음을 수행합니다.
 
 1. **보기** 메뉴 옵션, **트리**를 차례로 선택합니다.
 1. *BaseDN* 필드를 비워 둔 다음, **확인**을 선택합니다.
 1. 컨테이너(예: *AADDC Users*)를 선택한 다음, 마우스 오른쪽 단추로 컨테이너를 선택하고, **검색**을 선택합니다.
 1. 미리 채워진 필드를 설정한 상태로 둔 다음, **실행**을 선택합니다. 다음 예제 출력에 표시된 것처럼 쿼리 결과가 오른쪽 창에 표시됩니다.
 
-    ![LDP.exe를 사용하여 Azure AD DS 관리형 도메인에서 개체 검색](./media/tutorial-configure-ldaps/ldp-query.png)
+    ![LDP.exe를 사용하여 관리되는 도메인에서 개체 검색](./media/tutorial-configure-ldaps/ldp-query.png)
 
 특정 컨테이너를 직접 쿼리하려면 **보기 > 트리** 메뉴에서 **BaseDN**(예: *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* 또는 *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*)을 지정할 수 있습니다. 쿼리를 형식 지정하고 만드는 방법에 대한 자세한 내용은 [LDAP 쿼리 기본 사항][ldap-query-basics]을 참조하세요.
 
@@ -280,7 +280,7 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 > * Azure AD DS에 사용할 디지털 인증서 만들기
 > * Azure AD DS에서 보안 LDAP를 사용하도록 설정
 > * 퍼블릭 인터넷을 통해 사용할 보안 LDAP 구성
-> * Azure AD DS 관리되는 도메인에 대한 보안 LDAP 바인딩 및 테스트
+> * 관리되는 도메인에 대한 보안 LDAP 바인딩 및 테스트
 
 > [!div class="nextstepaction"]
 > [하이브리드 Azure AD 환경에 대한 암호 해시 동기화 구성](tutorial-configure-password-hash-sync.md)

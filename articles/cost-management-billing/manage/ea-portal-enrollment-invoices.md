@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298128"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807790"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -131,7 +131,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 1. **사용 요약**을 선택합니다.
 1. 오른쪽 위 모서리에서 **M**을 **C** 보기로 변경합니다.
 1. Azure 서비스 약정 테이블에서 조정 필드를 확장합니다.
-1. 등록에 적용되는 크레딧과 간단한 설명이 표시됩니다. 다음은 그 예입니다.  서비스 수준 계약 크레딧이라는 설명이 표시될 수 있습니다.
+1. 등록에 적용되는 크레딧과 간단한 설명이 표시됩니다. 예를 들면 다음과 같습니다. 서비스 수준 계약 크레딧이라는 설명이 표시될 수 있습니다.
 
 ## <a name="pay-your-overage-with-your-monetary-commitment"></a>금액 약정을 통해 초과분 지불
 
@@ -180,7 +180,7 @@ Azure Enterprise Portal은 IEEE 표준 뱅커 반올림(Banker Rounding) 또는 
 
 사용량 데이터 보고서 다운로드에서 원시 리소스 사용량을 소수점 이하 최대 6 자릿수까지 확인할 수 있습니다. 그러나 Azure Enterprise Portal에 표시된 사용량 데이터는 약정 단위에 대해 소수점 이하 4 자릿수로 반올림되고 초과분 단위에 대해 소수점 이하 0 자릿수로 잘립니다. 원시 사용량 데이터는 Azure Enterprise Portal에서 사용되는 단위로 변환하기 전에 먼저 소수점 이하 4 자릿수로 반올림됩니다. 그런 다음, 변환된 엔터프라이즈 단위가 소수점 이하 4 자릿수로 다시 반올림됩니다. Azure Enterprise Portal 내에서가 아니라 사용량 보고서 다운로드에서 변환 이전의 실제 사용한 시간만 확인할 수 있습니다.
 
-다음은 그 예입니다.  694.533404 실제 SQL Server 시간이 사용량 세부 정보 보고서에 보고되는 경우가 있습니다. 이러한 단위는 100 컴퓨팅 시간의 6.94533404로 변환된 다음, 6.9453으로 반올림되어 Azure Enterprise Portal에 표시됩니다.
+예를 들면 다음과 같습니다. 694.533404 실제 SQL Server 시간이 사용량 세부 정보 보고서에 보고되는 경우가 있습니다. 이러한 단위는 100 컴퓨팅 시간의 6.94533404로 변환된 다음, 6.9453으로 반올림되어 Azure Enterprise Portal에 표시됩니다.
 
 - 확장 청구 금액을 결정하기 위해 표시된 단위에 약정 단가를 곱하고 결과를 소수점 이하 2 자릿수로 자릅니다. 일본 엔(JPY) 및 한국 원(KRW)의 경우 확장된 금액은 소수 0번째 자리로 반올림됩니다.
 - 초과분의 경우 청구 단위를 소수점 이하 6 자릿수로 자른 다음, 초과분 단가를 곱하여 확장 청구 금액을 결정합니다.
@@ -224,7 +224,7 @@ Azure Enterprise Portal은 IEEE 표준 뱅커 반올림(Banker Rounding) 또는 
 | 영역 2 | 아시아 태평양 동부 <br> 아시아 태평양 남동부 <br> 일본 동부 <br> 일본 서부 <br> 오스트레일리아 동부 <br> 오스트레일리아 남동부 | 아시아 태평양 <br> 일본 <br> 라틴 아메리카 <br> 중동/아프리카 <br> 오스트레일리아 동부 <br> 오스트레일리아 남동부 |
 | 영역 3 | 브라질 남부 |   |
 
-동일한 데이터 센터 내에 있는 서비스 간의 데이터 송신에 대한 요금은 없습니다. 예를 들어 Office 365 및 Azure가 있습니다.
+동일한 데이터 센터 내에 있는 서비스 간의 데이터 송신에 대한 요금은 없습니다. 예를 들어 Microsoft 365 및 Azure입니다.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>현금 약정 금액 및 청구되지 않은 사용량
 

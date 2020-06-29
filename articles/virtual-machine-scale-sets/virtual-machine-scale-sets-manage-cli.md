@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 Virtual Machine Scale Sets 관리
+title: Azure CLI를 사용하여 가상 머신 확장 집합 관리
 description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 명령입니다.
 author: ju-shim
 ms.author: jushiman
@@ -11,7 +11,7 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124332"

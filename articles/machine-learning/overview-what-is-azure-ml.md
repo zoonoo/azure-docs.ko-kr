@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556828"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738297"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -124,16 +124,11 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Basic Edition 및 Enterprise Edition
 
 Azure Machine Learning은 고객의 기계 학습 요구 사항에 맞게 조정된 두 가지 버전을 제공합니다.
-+ Basic(일반 공급)
-+ Enterprise(미리 보기)
++ **기본**: 코드 우선 환경을 갖춘 클라우드 규모의 오픈 소스 개발에 적합합니다.
 
-버전에 따라 개발자 및 데이터 과학자가 작업 영역에서 사용할 수 있는 기계 학습 도구가 달라집니다.   
++ **Enterprise**: 모든 기본과 웹 인터페이스(스튜디오) + 모든 기술 수준을 위한 안전하고 포괄적인 ML 수명 주기 관리.
 
-Basic 작업 영역에서는 Azure Machine Learning을 계속 사용할 수 있으며 기계 학습 프로세스 중에 사용된 Azure 리소스에 대한 요금만 지불하면 됩니다. Enterprise Edition은 아직 미리 보기 상태이기 때문에 해당 작업 영역에는 Azure 사용량에 대한 요금만 청구됩니다. Azure Machine Learning [Edition 개요 및 가격 책정 페이지](https://azure.microsoft.com/pricing/details/machine-learning/)에서 사용할 수 있는 기능에 대해 자세히 알아보세요. 
-
-Edition은 작업 영역을 만들 때마다 할당합니다. 또한 기존 작업 영역은 자동으로 Basic Edition으로 변환되었습니다. Basic Edition에는 2019년 10월 기준으로 이미 일반 공급된 모든 기능이 포함됩니다. Enterprise Edition 기능을 사용하여 빌드된 작업 영역의 모든 실험은 Enterprise Edition으로 업그레이드할 때까지 읽기 전용 상태로 계속 공급됩니다. [Basic 작업 영역을 Enterprise Edition으로 업그레이드](how-to-manage-workspace.md#upgrade)하는 방법에 대해 알아보세요. 
-
-고객은 이 기간 동안 컴퓨팅 및 기타 Azure 리소스에서 발생하는 비용을 지불해야 합니다.
+이러한 버전과 해당 버전의 잠금 기능에 대한 자세한 내용은 ["Azure Machine Learning 버전" 문서](concept-editions.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

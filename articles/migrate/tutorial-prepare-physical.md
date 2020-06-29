@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 물리적 서버의 평가/마이그�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901422"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771277"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -138,7 +138,7 @@ Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가�
 
 Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 필요합니다.
 
-- **Windows:** 검색에 포함하려는 모든 Windows 서버에 로컬 사용자 계정을 설정합니다. 사용자 계정을 - 원격 관리 사용자 - 성능 모니터 사용자 - 성능 로그 사용자 그룹에 추가해야 합니다.
+- **Windows:** 검색하려는 모든 Windows 서버의 도메인 관리자 또는 로컬 관리자여야 합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
 - **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다.
 
 ## <a name="prepare-for-physical-server-migration"></a>물리적 서버 마이그레이션 준비
@@ -148,12 +148,14 @@ Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 �
 > [!NOTE]
 > 물리적 서버를 마이그레이션할 때 Azure Migrate:Server Migration은 Azure Site Recovery 서비스의 에이전트 기반 재해 복구와 동일한 복제 아키텍처를 사용하며, 일부 구성 요소는 동일한 코드 베이스를 공유합니다. 일부 콘텐츠는 Site Recovery 설명서에 연결될 수 있습니다.
 
-- 마이그레이션을 위한 물리적 서버 요구 사항을 [검토](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
-- Azure Migrate:Server Migration은 물리적 서버 마이그레이션에 복제 서버를 사용합니다.
+1. 마이그레이션을 위한 물리적 서버 요구 사항을 [검토](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
+2. Azure Migrate:Server Migration은 물리적 서버 마이그레이션에 복제 서버를 사용합니다.
     - 복제 어플라이언스에 대한 배포 요구 사항 및 어플라이언스에 MySQL을 설치하기 위한 [옵션](migrate-replication-appliance.md#mysql-installation)을 [검토](migrate-replication-appliance.md#appliance-requirements)합니다.
     - 복제 어플라이언스가 퍼블릭 및 정부 클라우드에 액세스하는 데 필요한 [Azure URL](migrate-appliance.md#url-access)을 검토합니다.
     - 복제 어플라이언스에 대한 [포트](migrate-replication-appliance.md#port-access) 액세스 요구 사항을 검토합니다.
-
+3. VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변경해야 합니다.
+    - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다.
+    - 필요한 [Windows](prepare-for-migration.md#windows-machines) 및 [Linux](prepare-for-migration.md#linux-machines) 변경 사항을 검토해야 합니다.
 
 
 

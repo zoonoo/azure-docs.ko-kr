@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403661"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987869"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -28,9 +28,9 @@ ms.locfileid: "81403661"
 > - Azure Computer Vision 및 Custom Vision에 앱 연결
 > - 앱에서 Azure 서비스를 배포하는 Azure 서비스 주체 계정 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)
 - Visual Studio용 Xamarin 워크로드([Xamarin 설치](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows) 참조)
@@ -175,7 +175,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
 이 시나리오의 모든 단계를 수행하고 앱을 사용하여 계정에 Azure 서비스를 배포한 경우 [Azure Portal](https://ms.portal.azure.com/)로 이동합니다. 여기서 사용하지 않을 서비스를 취소합니다.
 
-Custom Vision을 사용하여 자체적인 개체 검색 프로젝트를 만들 계획인 경우 이 자습서에서 만든 로고 감지 프로젝트를 삭제해도 됩니다. Custom Vision 평가판은 프로젝트를 두 개만 허용합니다. 로고 감지 프로젝트를 삭제하려면 [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트**를 연 다음, **내 새 프로젝트** 아래 휴지통 아이콘을 선택합니다.
+Custom Vision을 사용하여 자체적인 개체 검색 프로젝트를 만들 계획인 경우 이 자습서에서 만든 로고 감지 프로젝트를 삭제해도 됩니다. Custom Vision 체험 구독은 두 개의 프로젝트만 허용합니다. 로고 감지 프로젝트를 삭제하려면 [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트**를 연 다음, **내 새 프로젝트** 아래 휴지통 아이콘을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

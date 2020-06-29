@@ -1,6 +1,6 @@
 ---
-title: Azure DevOps 스타터를 사용 하 여 Azure Kubernetes Service에 ASP.NET Core apps 배포
-description: Azure DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. DevOps 스타터를 사용 하면 몇 가지 빠른 단계를 통해 Azure Kubernetes 서비스 (AKS)를 사용 하 여 ASP.NET Core 앱을 배포할 수 있습니다.
+title: Azure DevOps Starter를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포
+description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Starter를 사용하면 AKS(Azure Kubernetes Service)를 사용하여 ASP.NET Core 앱을 몇 가지 빠른 단계로 배포할 수 있습니다.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -10,16 +10,16 @@ ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82233332"
 ---
-# <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 Azure Kubernetes Service에 ASP.NET Core apps 배포
+# <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포
 
-Azure DevOps 스타터는 기존 코드 및 Git 리포지토리를 가져오거나 Azure에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 만들 수 있는 샘플 응용 프로그램을 선택할 수 있는 간소화 된 환경을 제공 합니다. 
+Azure DevOps Starter는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
 
-DevOps 스타터도:
+DevOps Starter는 다음 작업도 수행합니다.
 
 * AKS(Azure Kubernetes Service)와 같은 Azure 리소스를 자동으로 만듭니다.
 * Azure DevOps에서 CI/CD용 빌드 및 릴리스 파이프라인을 설정하는 릴리스 파이프라인을 만들고 구성합니다.
@@ -29,7 +29,7 @@ DevOps 스타터도:
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * DevOps 스타터를 사용 하 여 AKS에 ASP.NET Core 앱 배포
+> * DevOps Starter를 사용하여 AKS에 ASP.NET Core 앱 배포
 > * Azure DevOps 및 Azure 구독 구성 
 > * AKS 클러스터 검사
 > * CI 파이프라인 검토
@@ -37,23 +37,23 @@ DevOps 스타터도:
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
-## <a name="use-devops-starter-to-deploy-an-aspnet-core-app-to-aks"></a>DevOps 스타터를 사용 하 여 AKS에 ASP.NET Core 앱 배포
+## <a name="use-devops-starter-to-deploy-an-aspnet-core-app-to-aks"></a>DevOps Starter를 사용하여 AKS에 ASP.NET Core 앱 배포
 
-DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps 스타터는 선택한 Azure 구독에 AKS 클러스터와 같은 Azure 리소스를 만듭니다.
+DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Starter를 선택한 Azure 구독에서 AKS 클러스터 같은 Azure 리소스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다.
+1. 검색 상자에 **DevOps Starter**를 입력한 다음, 선택합니다. **추가**를 클릭하여 새 항목을 만듭니다.
 
-    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![DevOps Starter 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. **.NET**을 선택하고 **다음**을 선택합니다.
 
-1. **응용 프로그램 프레임 워크 선택**에서 **ASP.NET Core** 을 선택 하 고 **다음**을 선택 합니다.
+1. **애플리케이션 프레임워크 선택**의 경우 **ASP.NET Core** 및 **다음**을 차례로 선택합니다.
 
 1. **Kubernetes 서비스**를 선택한 후 **다음**을 선택합니다. 
 
@@ -69,15 +69,15 @@ DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다.
  
 1. Azure 구성 영역을 종료하고 **완료**를 선택합니다. 몇 분 후 프로세스가 완료됩니다. 샘플 ASP.NET Core 앱이 Azure DevOps Services 조직의 Git 리포지토리에서 설정되고 AKS 클러스터가 만들어지고, CI/CD 파이프라인이 실행되고, 앱이 Azure에 배포됩니다. 
 
-    이 작업이 완료 되 면 Azure DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. Azure Portal의 **모든 리소스** 에서 직접 Devops 스타터 대시보드로 이동할 수도 있습니다. 
+    모든 작업이 완료된 후 Azure DevOps Starter 대시보드가 Azure Portal에 표시됩니다. Azure Portal의 **모든 리소스**에서 직접 DevOps Starter 대시보드로 이동할 수도 있습니다. 
 
     이 대시보드에서는 Azure DevOps 코드 리포지토리, CI/CD 파이프라인 및 AKS 클러스터에 가시성을 제공합니다. Azure DevOps 파이프라인에서 추가 CI/CD 옵션을 구성할 수 있습니다. 오른쪽에서 **찾아보기**를 선택하여 실행 중인 앱을 확인합니다.
 
 ## <a name="examine-the-aks-cluster"></a>AKS 클러스터 검사
 
-DevOps 스타터는 탐색 하 고 사용자 지정할 수 있는 AKS 클러스터를 자동으로 구성 합니다. AKS 클러스에 익숙해지려면 다음을 수행합니다.
+DevOps Starter는 AKS 클러스터를 자동으로 구성합니다. 그러면 사용자는 이 클러스터를 살펴보고 사용자 지정할 수 있습니다. AKS 클러스에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드로 이동 합니다.
+1. DevOps Starter 대시보드로 이동합니다.
 
 1. 오른쪽에서 AKS 서비스를 선택합니다. AKS 클러스터에 대한 창이 열립니다. 이 보기에서 컨테이너 상태 모니터링 및 로그 검색과 같은 다양한 작업을 수행하고 Kubernetes 대시보드를 열 수 있습니다.
 
@@ -85,13 +85,13 @@ DevOps 스타터는 탐색 하 고 사용자 지정할 수 있는 AKS 클러스�
 
 ## <a name="examine-the-ci-pipeline"></a>CI 파이프라인 검토
 
-DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성 합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
+DevOps Starter는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으로 구성합니다. 파이프라인을 탐색하고 사용자 지정할 수 있습니다. 이 작업에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드로 이동 합니다.
+1. DevOps Starter 대시보드로 이동합니다.
 
-1. DevOps 스타터 대시보드 맨 위에서 **파이프라인 빌드**를 선택 합니다.  브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
+1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다.  브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
 
-1. **상태** 필드를 가리킨 다음 줄임표 (...)를 선택 합니다.  새 빌드를 큐에 대기 하 고, 빌드를 일시 중지 하 고, 빌드 파이프라인을 편집 하는 등의 몇 가지 옵션이 메뉴에 표시 됩니다.
+1. **상태** 필드를 가리킨 후 줄임표(...)를 선택합니다.  메뉴에 새 빌드 쿼리, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 몇 가지 옵션이 표시됩니다.
 
 1. **편집**을 선택합니다.
 
@@ -99,19 +99,19 @@ DevOps 스타터는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으
 
 1. 빌드 파이프라인의 맨 위에서 빌드 파이프라인 이름을 선택합니다.
 
-1. 빌드 파이프라인의 이름을 보다 설명적인 이름으로 변경 하 고, **큐 & 저장**을 선택한 다음, **저장**을 선택 합니다.
+1. 빌드 파이프라인의 이름을 좀 더 구체적인 것으로 변경하고 **저장 및 큐에 넣기**, **저장**을 차례로 선택합니다.
 
 1. 빌드 파이프라인 이름에서 **기록**을 선택합니다. 이 창에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
-1. **트리거**를 선택합니다. DevOps 스타터는 CI 트리거를 자동으로 만들며 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps Starter는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
 ## <a name="examine-the-cd-release-pipeline"></a>CD 릴리스 파이프라인 검토
 
-DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 데 필요한 단계를 자동으로 만들고 구성 합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
+DevOps Starter는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 필요한 단계를 자동으로 만들고 구성합니다. 이러한 단계에는 Azure 구독에 Azure DevOps를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다. 또한 자동화 기능은 Azure에 CD를 제공하는 릴리스 파이프라인도 만듭니다. 릴리스 파이프라인에 대한 자세한 내용을 보려면 다음을 수행하세요.
 
-1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  DevOps 스타터는 Azure에 대 한 배포를 관리 하는 릴리스 파이프라인을 만듭니다.
+1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  DevOps Starter는 Azure에 대한 배포를 관리하는 릴리스 파이프라인을 만듭니다.
 
 1. 릴리스 파이프라인 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다. 릴리스 파이프라인에는 릴리스 프로세스를 정의하는 *파이프라인*이 포함됩니다.
 
@@ -125,7 +125,7 @@ DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 �
 
 1. **커밋**을 선택합니다. 이 보기에는 이 배포와 연결된 코드 커밋이 표시됩니다. 배포 간 커밋 차이를 보기 위해 릴리스를 비교합니다.
 
-1. **로그**를 선택 합니다. 로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
+1. **로그**를 선택합니다. 로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Azure Repos에 변경 내용 커밋 및 자동으로 Azure에 배포 
 
@@ -134,24 +134,24 @@ DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 �
 
 이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 앱에서 팀과 협업할 준비가 되었습니다. Git 리포지토리에 대한 각 변경은 Azure DevOps에서 빌드를 시작하고, CD 파이프라인은 Azure에 배포를 실행합니다. 이 섹션의 절차를 수행하거나 다른 기술을 사용하여 리포지토리에 변경 내용을 커밋합니다. 예를 들어 즐겨찾는 도구 또는 IDE에서 Git 리포지토리를 복제한 다음, 이 리포지토리에 변경 내용을 푸시할 수 있습니다.
 
-1. Azure devops 메뉴에서 **코드** > **파일**을 선택 하 고 리포지토리로 이동 합니다.
+1. Azure DevOps 메뉴에서 **코드** > **파일**을 선택한 후 리포지토리로 이동합니다.
 
 1. *Views\Home*으로 이동한 다음, *Index.cshtml* 파일 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다.
 
 1. 한 div 태그 내부에 텍스트를 추가하는 경우처럼 파일을 변경합니다. 
 
-1. 오른쪽 위에 있는 **커밋**을 선택한 후 **커밋**을 다시 선택하여 변경 내용을 적용합니다. 곧 Azure DevOps에서 빌드가 시작된 다음, 변경 내용을 배포하기 위해 릴리스가 실행됩니다. DevOps 스타터 대시보드 또는 브라우저에서 Azure DevOps 조직의 빌드 상태를 모니터링 합니다.
+1. 오른쪽 위에 있는 **커밋**을 선택한 후 **커밋**을 다시 선택하여 변경 내용을 적용합니다. 곧 Azure DevOps에서 빌드가 시작된 다음, 변경 내용을 배포하기 위해 릴리스가 실행됩니다. Azure DevOps 조직이 있는 브라우저에서 또는 DevOps Starter 대시보드를 사용하여 빌드 상태를 모니터링합니다.
 
 1. 릴리스가 완료된 후 앱을 새로 고쳐 변경 내용을 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-테스트하는 경우 리소스를 정리하여 요금이 청구되지 않도록 할 수 있습니다. 더 이상 필요하지 않은 경우 이 자습서에서 만든 AKS 클러스터와 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
+테스트하는 경우 리소스를 정리하여 요금이 청구되지 않도록 할 수 있습니다. 더 이상 필요하지 않은 경우 이 자습서에서 만든 AKS 클러스터와 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 DevOps Starter 대시보드의 **삭제** 기능을 사용합니다.
 
 > [!IMPORTANT]
-> 다음 절차에서는 리소스를 영구적으로 삭제합니다. *삭제* 기능은 Azure 및 Azure devops 모두에서 Devops 스타터의 프로젝트에 의해 생성 된 데이터를 소멸 시킵니다 .이 데이터를 검색할 수 없습니다. 표시되는 메시지를 신중하게 읽은 후 이 절차를 따릅니다.
+> 다음 절차에서는 리소스를 영구적으로 삭제합니다. *삭제* 기능은 Azure 및 Azure DevOps에서 DevOps Starter의 프로젝트에서 만든 데이터를 제거하므로 이 데이터를 검색할 수 없게 됩니다. 표시되는 메시지를 신중하게 읽은 후 이 절차를 따릅니다.
 
-1. Azure Portal에서 DevOps 스타터 대시보드로 이동 합니다.
+1. Azure Portal에서 DevOps Starter 대시보드로 이동합니다.
 1. 오른쪽 위에서 **삭제**를 선택합니다.합니다. 
 1. 메시지에 따라 **예**를 선택하여 리소스를 *영구적으로 삭제*합니다.
 
@@ -160,7 +160,7 @@ DevOps 스타터는 Azure DevOps 조직에서 Azure 구독으로 배포 하는 �
 팀의 요구를 충족하려면 필요에 따라 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 또한 다른 파이프라인에 대한 템플릿으로 이 CI/CD 패턴을 사용할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * DevOps 스타터를 사용 하 여 AKS에 ASP.NET Core 앱 배포
+> * DevOps Starter를 사용하여 AKS에 ASP.NET Core 앱 배포
 > * Azure DevOps 및 Azure 구독 구성 
 > * AKS 클러스터 검사
 > * CI 파이프라인 검토

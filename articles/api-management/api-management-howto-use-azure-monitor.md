@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128835"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982053"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -33,7 +33,7 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
@@ -43,14 +43,13 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
-API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 다음은 몇 가지 사용 가능한 메트릭에 대한 요약입니다.
+API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으로 API의 상태를 확인할 수 있도록 합니다. 가장 자주 사용되는 두 메트릭은 다음과 같습니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice)을 참조하세요.
 
 * 용량: APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
-* 총 게이트웨이 요청: 기간 동안의 API 요청 수입니다. 
-* 성공적인 게이트웨이 요청: 304, 307 및 301보다 작은(예: 200) 모든 항목을 포함하여 성공적인 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
-* 실패한 게이트웨이 요청: 400 및 500보다 큰 모든 항목을 포함하여 잘못된 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
-* 허가되지 않은 게이트웨이 요청: 401, 403 및 429를 포함하는 HTTP 응답 코드를 수신하는 API 요청의 수입니다.
-* 기타 게이트웨이 요청: 앞의 범주 중 하나에 속하지 않는(예: 418) HTTP 응답 코드를 수신하는 API 요청의 수입니다.
+* 요청: APIM 서비스를 통과하는 API 트래픽을 분석하는 데 도움이 됩니다. 메트릭은 분당 내보내고 응답 코드, 위치, 호스트 이름 및 오류를 포함한 차원으로 게이트웨이 요청 수를 보고합니다. 
+
+> [!IMPORTANT]
+> 다음 메트릭은 2019년 5월부터 사용되지 않으며 2023년 8월에 사용 중지됩니다. 총 게이트웨이 요청, 성공적인 게이트웨이 요청, 권한이 없는 게이트웨이 요청, 실패한 게이트웨이 요청, 기타 게이트웨이 요청. 동일한 기능을 제공하는 요청 메트릭으로 마이그레이션하세요.
 
 ![메트릭 차트](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
     ![메트릭](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
-1. 차트에는 총 API 호출 수가 표시됩니다.
-1. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가**를 클릭하고 **백 엔드 응답 코드**를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
+2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
+3. 차트에는 총 API 호출 수가 표시됩니다.
+4. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가**를 클릭하고 **백 엔드 응답 코드**를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>권한 없는 요청에 대한 경고 규칙 설정
 
@@ -188,7 +187,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
 | 위치 | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
 | httpStatusCodeCategory | 문자열 | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
-| resourceId | 문자열 | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| resourceId | 문자열 | API Management 리소스 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name>의 ID |
 | properties | object | 현재 요청의 속성 |
 | method | 문자열 | 들어오는 요청의 HTTP 메서드 |
 | url | 문자열 | 들어오는 요청의 URL |

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746997"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687177"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,10 @@ ms.locfileid: "83746997"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2111"></a>2.11.1
+
+- 이 릴리스는 에뮬레이터 데이터 탐색기와 관련된 몇 가지 버그를 수정합니다. 웹 브라우저를 통해 에뮬레이터 데이터 탐색기를 사용할 때 Cosmos 에뮬레이터 엔드포인트에 연결하지 못하고 데이터베이스 또는 컨테이너 생성과 같은 모든 관련 작업에 오류가 발생하는 경우가 있습니다. 수정된 두 번째 문제는 데이터 탐색기 업로드 동작을 사용하여 JSON 파일에서 항목을 만드는 것과 관련이 있습니다.
 
 ### <a name="2110"></a>2.11.0
 

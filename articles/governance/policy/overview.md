@@ -1,14 +1,14 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097373"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944664"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -102,11 +102,11 @@ Azure Policy는 Azure의 모든 리소스를 평가합니다. [게스트 구성]
 
 ## <a name="azure-policy-objects"></a>Azure Policy 개체
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만들기로 시작합니다. 모든 정책 정의에는 정책이 적용되는 조건이 있습니다. 또한 조건이 충족되면 발생하는 정의된 효과가 있습니다.
 
-Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 다음은 그 예입니다. 
+Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예를 들면 다음과 같습니다.
 
 - **허용되는 스토리지 계정 SKU**(거부): 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
 - **허용되는 리소스 종류**(거부): 배포할 수 있는 리소스 유형을 정의합니다. 이 정의된 목록에 속하지 않는 모든 리소스를 거부하게 됩니다.
@@ -145,7 +145,7 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 
 예를 들어 각각 다른 형식의 매개 변수가 필요한 **policyA** 및 **policyB** 정책 정의를 사용하여 이니셔티브 정의 **initiativeC**가 있는 시나리오를 살펴보겠습니다.
 
-| 정책 | 매개 변수의 이름 |매개 변수 형식   |참고 |
+| 정책 | 매개 변수의 이름 |매개 변수 형식  |참고 |
 |---|---|---|---|
 | policyA | allowedLocations | array  |매개 변수 형식이 배열로 정의되었으므로 이 매개 변수는 값으로 문자열 목록을 예상합니다. |
 | policyB | allowedSingleLocation |문자열 |매개 변수 형식이 문자열로 정의되었으므로 이 매개 변수는 값으로 한 단어를 예상합니다. |
@@ -158,6 +158,8 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 
 이니셔티브 정의에 값 옵션을 만드는 경우 이니셔티브 할당 중에 목록에 속하지 않는 다른 값을 입력할 수 없습니다.
 
+이니셔티브 정의 구조에 대해 자세히 알아보려면 [이니셔티브 정의 구조](./concepts/initiative-definition-structure.md)를 검토하세요.
+
 ### <a name="assignments"></a>할당
 
 할당은 특정 범위 내에서 수행하도록 할당된 정책 정의 또는 이니셔티브입니다. 이 범위는 [관리 그룹](../management-groups/overview.md)에서 개별 리소스에 이르기까지 다양할 수 있습니다. _범위_라는 용어는 정의가 할당된 모든 리소스, 리소스 그룹, 구독 또는 관리 그룹을 나타냅니다. 할당은 모든 자식 리소스에 상속됩니다. 이 설계는 리소스 그룹에 적용된 정의가 해당 리소스 그룹의 리소스에도 적용된다는 것을 의미합니다. 그러나 할당에서 하위 범위를 제외할 수 있습니다.
@@ -166,7 +168,7 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 
 또 다른 예로, 관리 그룹 수준에서 리소스 종류 허용 목록 정의를 할당할 수 있습니다. 그런 다음, 더 많은 허용 정책(더 많은 리소스 종류 허용)을 자식 관리 그룹에 할당하거나 구독에 직접 할당합니다. 그러나 Azure Policy는 명시적 거부 시스템이므로 이 예는 작동하지 않습니다. 대신 관리 그룹 수준 할당에서 자식 관리 그룹 또는 구독을 제외해야 합니다. 그런 다음, 더 많은 허용 정의를 자식 관리 그룹 또는 구독 수준에 할당합니다. 할당으로 인해 리소스가 거부되는 경우 리소스를 허용하는 유일한 방법은 거부하는 할당을 수정하는 것입니다.
 
-포털을 통해 할당을 설정하는 방법에 대한 자세한 내용은 [Azure 환경에서 비준수 리소스를 식별하는 정책 할당 만들기](assign-policy-portal.md)를 참조하세요. [PowerShell](assign-policy-powershell.md) 및 [Azure CLI](assign-policy-azurecli.md)용 단계도 제공됩니다.
+포털을 통해 할당을 설정하는 방법에 대한 자세한 내용은 [Azure 환경에서 비준수 리소스를 식별하는 정책 할당 만들기](./assign-policy-portal.md)를 참조하세요. [PowerShell](./assign-policy-powershell.md) 및 [Azure CLI](./assign-policy-azurecli.md)용 단계도 제공됩니다. 할당 구조에 대한 정보는 [할당 구조](./concepts/assignment-structure.md)를 참조하세요.
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Azure Policy 개체의 최대 수
 

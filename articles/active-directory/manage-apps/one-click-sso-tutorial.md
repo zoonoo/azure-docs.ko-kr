@@ -3,25 +3,25 @@ title: Azure Marketplace 애플리케이션의 한 번 클릭 SSO(Single Sign-On
 description: Azure Marketplace의 애플리케이션에 대한 SSO 한 번 클릭 구성을 위한 단계입니다.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67872437"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763128"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Single Sign-On의 한 번 클릭 앱 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "67872437"
 - 더 효율적이고 정확한 SSO 구성
 - 설치를 위한 파트너 통신 또는 지원 불필요. 이 애플리케이션은 SAML 구성을 위한 UI를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - SSO를 사용하여 구성할 애플리케이션의 활성 구독. 관리자 자격 증명도 필요합니다.
 - 브라우저에 설치된 Microsoft의 **내 앱 보안 로그인 확장**. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)을 참조하세요.
@@ -59,7 +59,7 @@ ms.locfileid: "67872437"
 
    ![내 앱 보안 로그인 브라우저 확장 설치](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. 브라우저에 확장을 추가한 후 **\<애플리케이션 이름\> 설치**를 선택합니다. 애플리케이션 관리 포털로 리디렉션된 후에 관리자로 로그인합니다.
+6. 확장이 브라우저에 추가되면 **설정 \<Application Name\>** 을 선택합니다. 애플리케이션 관리 포털로 리디렉션된 후에 관리자로 로그인합니다.
 
    ![애플리케이션 이름 설정](./media/one-click-sso-tutorial/setup-sso.png)
 

@@ -6,17 +6,17 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837269"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945293"
 ---
 # <a name="azure-monitor-cli-samples"></a>Azure Monitor CLI 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli) 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. [Azure Monitor CLI 참조](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)에서 사용 가능한 모든 명령의 전체 참조를 확인하세요. 
 
@@ -29,51 +29,51 @@ az login
 
 이 명령을 실행한 후 화면의 지시에 따라 로그인해야 합니다. 모든 명령은 기본 구독의 컨텍스트에서 작동합니다.
 
-현재 구독에 대한 세부 정보를 나열하려면 다음 명령을 사용합니다.
+현재 구독에 대한 세부 정보를 나열합니다.
 
 ```azurecli
 az account show
 ```
 
-작업 중인 컨텍스트를 다른 구독으로 변경하려면 다음 명령을 사용합니다.
+작업 컨텍스트를 다른 구독으로 변경합니다.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-지원되는 모든 Azure Monitor 명령 목록을 보려면 다음 명령을 수행합니다.
+지원되는 모든 Azure Monitor 명령 목록을 봅니다.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>구독에 대한 활동 로그 보기
+## <a name="view-activity-log"></a>활동 로그 보기
 
-활동 로그 이벤트 목록을 보려면 다음 명령을 수행합니다.
+활동 로그 이벤트 목록을 봅니다.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-사용 가능한 모든 옵션을 보려면 다음을 수행합니다.
+사용 가능한 모든 옵션을 봅니다.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-다음은 resourceGroup별 로그를 나열하는 예제입니다.
+resourceGroup별 로그를 나열합니다.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-호출자별 로그를 나열하는 예제
+호출자별 로그를 나열합니다.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-날짜 범위 내 리소스 유형에 대한 호출자별 로그를 나열하는 예제
+날짜 범위 내 리소스 종류에 대한 호출자별 로그를 나열합니다.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

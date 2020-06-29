@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558374"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667103"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -32,7 +32,7 @@ ms.locfileid: "84558374"
 > * 스튜디오에서 학습 결과 보기
 > * 최적 모델 검색
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 유일한 필수 조건은 이 자습서 중 하나인 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 실행하는 것입니다.
 
@@ -134,11 +134,11 @@ for alpha in alphas:
 experiment
 ```
 
-<table style="width:100%"><tr><th>속성</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure Machine Learning Studio에 연결</td><td>설명서 링크</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure Machine Learning Studio에 연결</td><td>설명서 링크</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>스튜디오에서 학습 결과 보기
 
-**Azure Machine Learning Studio에 연결**에 따라 기본 실험 페이지로 이동합니다. 여기에는 실험의 개별 실행이 모두 표시됩니다. 사용자 지정 로그 값(이 경우 `alpha_value` 및 `rmse`)은 각 실행에 대한 필드가 되며, 실험 페이지 위쪽의 차트 및 타일에서도 사용할 수 있습니다. 로그 메트릭을 차트 또는 타일에 추가하려면 마우스로 해당 차트 또는 타일 위를 가리키고 편집 단추를 클릭하고 사용자 지정 로그 메트릭을 찾습니다.
+**Azure Machine Learning Studio에 연결**에 따라 기본 실험 페이지로 이동합니다. 여기에는 실험의 개별 실행이 모두 표시됩니다. 사용자 지정 로그 값(이 경우 `alpha_value` 및 `rmse`)은 각 실행에 대한 필드가 되며 차트에서도 사용할 수 있게 됩니다. 기록된 메트릭을 사용하여 새 차트를 그리려면 '차트 추가'를 클릭하고 그리려는 메트릭을 선택합니다.
 
 모델이 수백 수천 개의 개별 실행을 통해 대규모로 학습되는 경우 이 페이지에서 학습시킨 모든 모델, 특히 학습시킨 방법 및 시간이 지남에 따라 고유 메트릭이 변경되는 상황을 쉽게 확인할 수 있습니다.
 

@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061320"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945650"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
@@ -31,7 +31,7 @@ ms.locfileid: "80061320"
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 스토리지 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 이전 스토리지 자습서: [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]를 완료해야 합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "80061320"
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -135,11 +135,13 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 |[UriBuilder](/dotnet/api/system.uribuilder) | [쿼리](/dotnet/api/system.uribuilder.query) |  |
 |[목록](/dotnet/api/system.collections.generic.list-1) | | [추가](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>서버 쪽 암호화
+## <a name="azure-storage-encryption"></a>Azure Storage 암호화
 
-[Azure SSE(Storage 서비스 암호화)](../common/storage-service-encryption.md)는 데이터를 보호하고 안전하게 유지하는 데 도움이 됩니다. SSE는 미사용 데이터를 암호화하고 암호화, 암호 해독 및 키 관리를 처리합니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
+[Azure Storage 암호화](../common/storage-service-encryption.md)를 사용하면 미사용 데이터를 암호화하고 암호화 및 암호 해독을 처리하여 데이터를 보호할 수 있습니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
 
-SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. 
+Microsoft에서 암호화 키를 관리하도록 선택하거나 Azure Key Vault를 통해 고객 관리 키를 사용하여 사용자 고유의 키를 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault를 통해 고객 관리 키를 사용하여 Azure Storage 암호화 관리](../common/encryption-customer-managed-keys.md)를 참조하세요.
+
+Azure Storage 암호화는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다.
 
 ## <a name="enable-https-only"></a>HTTPS만 사용
 

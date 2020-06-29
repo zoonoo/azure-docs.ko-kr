@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79503194"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805110"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM용 Azure Monitor](../insights/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
@@ -83,7 +83,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
 ## <a name="view-data-collected"></a>수집되는 데이터 보기
 
-7. 가상 머신을 클릭한 다음, **성능** 탭을 선택합니다. 그러면 VM의 게스트 운영 체제에서 수집된 일부 성능 카운터 그룹이 표시됩니다. 아래로 스크롤하여 더 많은 카운터를 살펴보고, 그래프 위로 마우스를 이동하여 여러 시간의 평균 및 백분위 수를 확인합니다.
+7. 가상 머신을 클릭한 다음, **모니터링** 메뉴 **Insights** 타일 아래에 있는 **성능** 탭을 선택합니다. 그러면 VM의 게스트 운영 체제에서 수집된 일부 성능 카운터 그룹이 표시됩니다. 아래로 스크롤하여 더 많은 카운터를 살펴보고, 그래프 위로 마우스를 이동하여 여러 시간의 평균 및 백분위 수를 확인합니다.
 
     ![성능](media/quick-monitor-azure-vm/performance.png)
 

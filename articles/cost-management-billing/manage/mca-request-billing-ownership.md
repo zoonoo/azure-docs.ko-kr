@@ -5,18 +5,18 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: banders
-ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: bbc4ed254d0b193d7cf328b95fc9dffbfcced380
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692317"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753454"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
 
-기존 청구 소유자가 조직을 떠나는 경우 또는 청구 계정을 통해 구독 요금을 지불하려는 경우 Azure 구독의 소유권을 가져올 수 있습니다. 소유권을 획득하면 구독에 대한 청구 책임이 사용자 계정에 전송됩니다.
+기존 청구 소유자가 조직을 떠나거나 청구 계정을 통해 구독 요금을 지불하려는 경우 Azure 구독의 소유권을 가져올 수 있습니다. 소유권을 획득하면 구독 청구 책임이 사용자 계정에 전송됩니다.
 
 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
 
@@ -25,77 +25,48 @@ ms.locfileid: "82692317"
 ## <a name="request-billing-ownership"></a>청구 소유권 요청
 
 1. Microsoft 고객 계약의 청구 계정에 대해 청구서 섹션 소유자 또는 기여자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. **Cost Management + 청구**를 검색합니다.
-
-    ![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-
-3. 청구 범위 페이지에서 구독 사용에 대한 비용을 지불하는 데 사용되는 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.
-
-    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/list-of-scopes.png)
-
+1. **Cost Management + 청구**를 검색합니다.  
+    ![비용 관리 + 청구에 대한 Azure Portal 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
+1. 청구 범위 페이지에서 구독 사용에 대한 비용을 지불하는 데 사용되는 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.  
+    [![비용 관리 + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
-    >
     > Azure Portal은 사용자가 액세스한 마지막 청구 범위를 기억했다가 다음에 Cost Management + 청구 페이지로 이동하면 해당 범위를 표시합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-for-access)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
-
-4. 왼쪽에서 **청구 프로필**을 선택합니다.
-
-    ![청구 프로필 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)     
-
+1. 왼쪽에서 **청구 프로필**을 선택합니다.  
+    [![청구 프로필 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
     > [!Note]
-    >
     > 청구 프로필이 표시되지 않으면 올바른 청구 범위에 있지 않은 것입니다. Microsoft 고객 계약에 대한 청구 계정을 선택한 다음, 청구 프로필을 선택해야 합니다. 범위를 변경하는 방법을 알아보려면 [Azure Portal에서 청구 범위 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)을 참조하세요.
-
-5. 목록에서 **청구 프로필**을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 이 청구 프로필로 청구됩니다.
-
-6. 왼쪽에서 **청구서 섹션**을 선택합니다.
-
-    ![청구서 섹션 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
-
-7. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 청구 프로필 청구서의 이 섹션에 할당됩니다.
-
-8. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.
-
-    ![전송 요청 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)
-
-9. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 해당 사용자는 Microsoft Online Service Program 청구 계정의 계정 관리자이거나 기업계약의 계정 소유자여야 합니다. 자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.  **요청 보내기**를 선택합니다.
-
-    ![전송 요청 전송을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)
-
-10. 사용자는 전송 요청을 검토하는 지침이 포함된 이메일을 받습니다.
-
+1. 목록에서 **청구 프로필**을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 이 청구 프로필로 청구됩니다.
+1. 왼쪽에서 **청구서 섹션**을 선택합니다.  
+    [![청구서 섹션 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
+1. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 청구 프로필 청구서의 이 섹션에 할당됩니다.
+1. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.  
+    [![전송 요청 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
+1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 해당 사용자는 Microsoft Online Service Program 청구 계정의 계정 관리자이거나 기업계약의 계정 소유자여야 합니다. 자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요. **요청 보내기**를 선택합니다.  
+    [![전송 요청 전송을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
+1. 사용자는 전송 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
-
-11. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.
-
-    ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-review-transfer-request.png)
+1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.
+    [![검토 전송 요청을 보여주는 스크린샷](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox): 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사**를 선택합니다.
+1. **전송 유효성 검사 결과** 영역에서는 전송할 Azure 제품의 영향을 보여 줍니다. 가능한 상태는 다음과 같습니다.
+    * **통과** - 이 Azure 제품에 대한 유효성 검사가 통과되었으며 전송될 수 있습니다.
+    * **경고** - 선택한 Azure 제품에 대한 경고가 있습니다. 제품을 계속 전송할 수 있지만 이렇게 하면 사용자가 완화 작업을 수행하려는 경우 사용자가 알고 있어야 하는 영향을 받을 수 있습니다. 예를 들어 전송되는 Azure 구독은 RI에서 혜택을 받고 있습니다. 전송 후에는 구독이 더 이상 해당 혜택을 받지 않습니다. 절감액을 최대화하려면 RI를 해당 혜택을 사용할 수 있는 다른 구독과 연결해야 합니다. 대신 사용자는 선택 페이지로 돌아가서 이 Azure 구독을 선택 취소하도록 선택할 수도 있습니다.
+    * **실패** - 오류가 발생하여 선택한 Azure 제품을 전송할 수 없습니다. 사용자가 선택한 다른 Azure 제품을 전송하려면 선택 페이지로 돌아가서 이 제품을 선택 취소해야 합니다.  
+    ![유효성 검사 환경을 보여주는 스크린샷](./media/mca-request-billing-ownership/validate-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>전송 요청 상태 확인
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. **Cost Management + 청구**를 검색합니다.
-
-    ![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-
-3. 청구 범위 페이지에서 전송 요청을 보낸 청구 계정을 선택합니다.
-
-4. 왼쪽에서 **청구 프로필**을 선택합니다.
-
-    ![청구 프로필 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)     
-
-5. 전송 요청을 보낸 **청구 프로필**을 선택합니다.
-
-6. 왼쪽에서 **청구서 섹션**을 선택합니다.
-
-    ![청구서 섹션 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
-
-7. 목록에서 전송 요청을 보낸 청구서 섹션을 선택합니다.
-
-8. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다.
-
-    ![전송 요청 목록을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
-
+1. **Cost Management + 청구**를 검색합니다.  
+    ![비용 관리 + 청구에 대한 Azure Portal 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
+1. 청구 범위 페이지에서 전송 요청을 보낸 청구 계정을 선택합니다.
+1. 왼쪽에서 **청구 프로필**을 선택합니다.  
+    [![청구 프로필 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
+1. 전송 요청을 보낸 **청구 프로필**을 선택합니다.
+1. 왼쪽에서 **청구서 섹션**을 선택합니다.  
+    [![청구서 섹션 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
+1. 목록에서 전송 요청을 보낸 청구서 섹션을 선택합니다.
+1. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다.  
+    [![전송 요청 목록을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
    |열|정의|
    |---------|---------|
    |요청 날짜|전송 요청이 전송된 날짜입니다.|
@@ -115,13 +86,12 @@ ms.locfileid: "82692317"
    |취소됨|전송 요청에 대한 액세스 권한이 있는 다른 사용자가 요청을 취소했습니다.|
    |거부함|사용자가 전송 요청을 거부했습니다.|
 
-9. 세부 정보를 볼 전송 요청을 선택합니다. 전송 세부 정보 페이지에는 다음 정보가 표시됩니다.
-
-    ![이전된 구독 목록을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-transfer-completed.png)
+1. 세부 정보를 볼 전송 요청을 선택합니다. 전송 세부 정보 페이지에는 다음 정보가 표시됩니다.  
+    [![전송된 구독 목록을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-transfer-completed.png)](./media/mca-request-billing-ownership/mca-transfer-completed.png#lightbox)
 
    |열  |정의|
    |---------|---------|
-   |전송 요청 ID|전송 요청에 대한 고유 ID입니다. 지원 요청을 신속하게 처리할 수 있도록 지원 요청을 제출할 때 Azure 지원에 ID를 알려주세요.|
+   |전송 요청 ID|전송 요청에 대한 고유 ID입니다. 지원 요청을 제출하는 경우 지원 요청을 신속하게 처리할 수 있도록 Azure 지원과 ID를 공유합니다.|
    |전송 요청한 날짜|전송 요청이 전송된 날짜입니다.|
    |전송 요청한 사람|전송 요청을 보낸 사용자의 이메일 주소입니다.|
    |전송 요청 만료 날짜| 전송 요청이 만료되는 날짜입니다.|
@@ -142,6 +112,7 @@ ms.locfileid: "82692317"
 - [Microsoft Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Microsoft Azure 스폰서 제안](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft 기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Microsoft 고객 계약](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
 - [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
 - [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
@@ -153,7 +124,6 @@ ms.locfileid: "82692317"
 \* 구독에서 사용할 수 있는 모든 크레딧은 이전 후 새 계정에서 사용할 수 없습니다.
 
 \*\* Azure 웹 사이트에서 가입하는 동안 생성된 계정에만 구독이 지원됩니다.
-
 
 ## <a name="additional-information"></a>추가 정보
 
@@ -177,7 +147,7 @@ Azure Marketplace 제품이 각 구독과 함께 이전됩니다.
 
 ### <a name="azure-reservations-transfer"></a>Azure Reservations 이전
 
-EA(기업계약) 구독을 전송하는 경우 Azure Reservations는 구독과 함께 자동으로 이동하지 않습니다. Reservations를 이동하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+EA(기업계약) 구독 또는 Microsoft 고객 계약을 전송하는 경우 Azure Reservations는 구독과 함께 자동으로 이동하지 않습니다. Reservations를 이동하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 

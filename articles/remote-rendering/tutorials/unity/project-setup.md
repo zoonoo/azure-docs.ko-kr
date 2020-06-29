@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c05daa998829c4ac0687f75ae5678695127a50b0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300592"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659906"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>자습서: Unity 프로젝트를 처음부터 설정
 
@@ -105,6 +105,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 1. *Edit(편집) >Project Settings...(프로젝트 설정...)* 를 차례로 엽니다.
 1. 왼쪽의 목록에서 [Quality(품질)]를 선택합니다.
+1. **활성 품질 수준**을 선택하여 *낮음*으로 변경합니다.
 1. **Default Quality Level(기본 품질 수준)** 을 *Low(낮음)* 로 변경합니다.
 
     ![프로젝트 품질 설정 변경](media/settings-quality.png)

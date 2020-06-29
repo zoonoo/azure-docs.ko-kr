@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73488862"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977911"
 ---
 1. 생성한 Virtual WAN을 찾습니다. Virtual WAN 페이지의 **연결** 섹션에서 **허브**를 선택합니다.
 2. 허브 페이지에서 **+새 허브**를 선택하여 **가상 허브 만들기** 페이지를 엽니다.
@@ -24,8 +24,8 @@ ms.locfileid: "73488862"
     **프로젝트 세부 정보**
 
    * 지역(이전에는 위치라고 했음)
-   * 속성
-   * 허브 프라이빗 주소 공간. 허브를 만들기 위한 최소 주소 공간은 /24이며 이것은 /25부터 /32까지의 모든 범위가 생성 중에 오류가 발생함을 의미합니다.
+   * Name
+   * 허브 프라이빗 주소 공간. 허브를 만들기 위한 최소 주소 공간은 /24이며 이것은 /25부터 /32까지의 모든 범위가 생성 중에 오류가 발생함을 의미합니다. Microsoft에서 관리되는 서비스에 해당하는 Azure Virtual WAN은 다양한 게이트웨이/서비스(예: VPN 게이트웨이, ExpressRoute 게이트웨이, 사용자 VPN/지점 및 사이트 간 게이트웨이, 방화벽, 라우팅 등)에 대한 가상 허브에 적절한 서브넷을 만듭니다. Microsoft가 서비스의 일부로 이 작업을 수행하므로 사용자가 Virtual Hub의 서비스에 대한 서브넷 주소 공간을 명시적으로 계획할 필요가 없습니다.
 4. 완료되면 **다음: 사이트 간**
 
     ![사이트 간](./media/virtual-wan-tutorial-hub-include/site-to-site.png "사이트 간")

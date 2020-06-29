@@ -9,18 +9,18 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235088"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887451"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>자습서를 위한 소프트웨어 설치 및 리소스 설정
 
 세 부분으로 구성된 이 자습서에서는 실리카의 비율로 철광석 불순물을 예측하는 기계 학습 모델을 만든 다음, Azure SQL Edge에 모델을 배포합니다. 1부에서는 필요한 소프트웨어를 설치하고 Azure 리소스를 배포합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 2. [Python 3.6.8](https://www.python.org/downloads/release/python-368/)을 설치합니다.
@@ -30,6 +30,7 @@ ms.locfileid: "84235088"
 4. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)를 설치합니다.
 5. Azure Data Studio를 열고 Notebook에 대해 Python을 구성합니다. 자세한 내용은 [Notebook용 Python 구성](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks)을 참조하세요. 이 단계는 몇 분 정도 걸릴 수 있습니다.
 6. 최신 버전의 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)를 설치합니다. 다음 스크립트는 최신 버전(3.5.0, 2020년 2월)의 AZ PowerShell이 필요합니다.
+7. 자습서에 사용할 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 및 [AMD/ARM Docker 이미지 파일](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files)을 다운로드합니다.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>PowerShell 스크립트를 사용하여 Azure 리소스 배포
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: NAT 게이트웨이 만들기 - Azure Portal'
+title: '자습서: NAT 게이트웨이 만들기 - Azure Portal'
 titlesuffix: Azure Virtual Network NAT
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 NAT 게이트웨이를 만드는 방법을 보여줍니다.
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341238"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711411"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 NAT 게이트웨이 만들기
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 NAT 게이트웨이 만들기
 
-이 빠른 시작에서는 Azure Virtual Network NAT 서비스를 사용하는 방법을 보여줍니다. Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. 
+이 자습서에서는 Azure Virtual Network NAT 서비스를 사용하는 방법을 보여줍니다. Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. 
 
 원하는 경우 [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md)을 사용하여 이러한 단계를 수행하거나 포털 대신 [ARM 템플릿](quickstart-create-nat-gateway-powershell.md)을 배포할 수 있습니다.
 

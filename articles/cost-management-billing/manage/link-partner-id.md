@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 77abfcf300decb3a19da4268d7feb7de1f41f3b5
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778824"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743918"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -160,4 +160,17 @@ C:\ az managementpartner delete --partner-id 12345
 **회사에서 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
 
 [관리형 서비스 제품을 Azure Marketplace에 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다. [Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer)하는 경우 MPN(Microsoft 파트너 네트워크) ID를 각 온보딩된 각 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 이 작업은 서비스 공급자 테넌트에서 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 이 예제에서는 RBAC 판독기 역할이 사용되며 파트너 획득 크레딧을 사용할 수 없는 역할 중 하나입니다. 역할에 대한 자세한 내용 [파트너 획득 크레딧에 대한 역할 및 권한](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2)을 참조하세요.
+
+
+**고객에게 PAL(파트너 관리자 링크)을 어떻게 설명하나요?**
+
+PAL(파트너 관리자 링크)을 통해 Microsoft는 고객이 비즈니스 목표를 달성하고 클라우드에서 가치를 실현할 수 있도록 돕는 파트너를 식별하고 인식할 수 있습니다. 고객은 먼저 Azure 리소스에 대한 파트너 액세스를 제공해야 합니다. 액세스 권한이 부여되면 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)가 연결됩니다. 이 연결을 통해 Microsoft는 IT 서비스 공급자의 에코시스템을 이해하고 일반적인 고객을 가장 잘 지원하는 데 필요한 도구와 프로그램을 구체화할 수 있습니다.
+
+**PAL은 어떤 데이터를 수집하나요?**
+
+기존 자격 증명에 대한 PAL 연결은 새로운 고객 데이터를 Microsoft에 제공하지 않습니다. 파트너는 고객의 Azure 환경에 적극적으로 참여하는 Microsoft에 원격 분석을 제공하기만 하면 됩니다. Microsoft는 고객이 파트너에게 제공하는 계정 권한(RBAC 역할) 및 범위(관리 그룹, 구독, 리소스 그룹, 리소스)를 기반으로 고객 환경에서 영향과 Azure 사용 수익을 파트너 조직에 귀속시킬 수 있습니다. 
+
+**이는 고객의 Azure 환경 보안에 영향을 주나요?**
+
+PAL 연결은 이미 프로비저닝된 자격 증명에 파트너의 MPN ID만 추가하고, 권한(RBAC 역할)을 변경하거나 파트너 또는 Microsoft에 추가 Azure 서비스 데이터를 제공하지 않습니다. 
 

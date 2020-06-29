@@ -1,14 +1,14 @@
 ---
 title: '자습서: 규정 준수를 적용하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190829"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781130"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "82190829"
 
 기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -78,7 +78,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 ## <a name="implement-a-new-custom-policy"></a>새 사용자 지정 정책 구현
 
-기본 제공 정책 정의를 할당했으니, 이제 Azure Policy로 더 많은 일을 할 수 있습니다. 다음으로, 환경 내에서 만든 VM을 G 시리즈에 사용할 수 없는지 유효성을 검사하여 비용을 절감하는 새로운 사용자 지정 정책을 만듭니다. 이렇게 하면 조직 내 사용자가 G 시리즈에서 VM을 만들려고 시도할 때마다 요청이 거부됩니다.
+기본 제공 정책 정의를 할당했으니, 이제 Azure Policy로 더 많은 일을 할 수 있습니다. 다음으로, 환경에서 만든 가상 머신을 G 시리즈에 사용할 수 없는지 유효성을 검사하여 비용을 절감하는 새로운 사용자 지정 정책을 만듭니다. 이렇게 하면 조직 내 사용자가 G 시리즈에서 가상 머신을 만들려고 시도할 때마다 요청이 거부됩니다.
 
 1. Azure Policy 페이지의 왼쪽에 있는 **작성**에서 **정의**를 선택합니다.
 
@@ -93,8 +93,8 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
      > [!NOTE]
      > 이 정책 정의를 여러 구독에 적용하려는 경우 위치는 정책을 할당할 구독이 포함된 관리 그룹이어야 합니다. 이니셔티브 정의도 마찬가지입니다.
 
-   - 정책 정의 이름 - _*_G 시리즈보다 작은 VM SKU 필요_
-   - 정책 정의의 용도에 대한 설명 - _여기서는 이 범위에서 만든 모든 VM에서 G 시리즈보다 작은 SKU를 사용하여 비용을 줄인다는 것을 정책 정의에 적용하고 있습니다._
+   - 정책 정의 이름 - _G 시리즈에 없는 VM SKU 필요_
+   - 정책 정의의 용도에 대한 설명 - _이 정책 정의는 비용을 줄이기 위해 이 범위에서 만든 모든 가상 머신에서 G 시리즈 이외의 SKU를 사용하도록 강제합니다._
    - 기존 옵션(예: _Compute_) 중에서 선택하거나 이 정책 정의에 대한 새 범주를 만듭니다.
    - 다음 JSON 코드를 복사한 다음, 필요에 맞게 업데이트합니다.
       - 정책 매개 변수
@@ -454,7 +454,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Azure Policy 페이지의 왼쪽에서 **규정 준수**를 선택합니다.
 
-1. **보안 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다. 
+1. **보안 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다.__
    이니셔티브를 선택하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
 
    :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="이니셔티브 규정 준수 페이지 - 평가가 시작되지 않음" border="false":::

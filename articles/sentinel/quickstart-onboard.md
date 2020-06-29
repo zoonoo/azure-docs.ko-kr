@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488123"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771175"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -58,7 +58,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
    > - Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 모든 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. Azure Sentinel에서 생성된 데이터(예: 이러한 작업 영역이 원본으로 사용되는 일부 고객 데이터를 포함할 수 있는 인시던트, 책갈피 및 경고 규칙)는 유럽(유럽에 있는 작업 영역용), 오스트레일리아(오스트레일리아에 있는 작업 영역용) 또는 미국 동부(다른 지역에 있는 작업 영역용)에 저장됩니다.
 
    >[!IMPORTANT]
-   > - 작업 영역에서 Azure Sentinel을 사용하도록 설정한 후에는 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원 되지 않습니다. 작업 영역을 이동해야 하는 경우 고객 지원팀에게 문의하세요.
+   > - 작업 영역에서 Azure Sentinel을 사용하도록 설정한 후에는 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원 되지 않습니다. 작업 영역을 이동해야 하는 경우 [Azure Sentinel](mailto:AzureSentinel@microsoft.com)에 문의하세요.
 
 1. **Azure Sentinel 추가**를 선택합니다.
   

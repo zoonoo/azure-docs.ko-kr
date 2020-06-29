@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310260"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765083"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 
@@ -169,14 +169,7 @@ ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 > *db_owner* 권한을 원치 않는 경우 *db_datareader* 및 *db_datawriter*로 읽기/쓰기 권한을 수행할 수 있습니다.
 > Spark 사용자가 SQL 풀에서/풀로 바로 데이터를 읽고 쓰려면 *db_owner* 권한이 필요합니다.
 
-사용자를 만든 후에는 다음과 같이 SQL 주문형에서 스토리지 계정을 쿼리할 수 있는지 확인합니다.
-
-- SQL 주문형의 **master** 데이터베이스를 대상으로 다음 명령을 실행합니다.
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+사용자를 만든 후 SQL 주문형에서 스토리지 계정을 쿼리할 수 있는지 확인합니다.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>작업 영역 파이프라인 실행에 대한 액세스 제어
 

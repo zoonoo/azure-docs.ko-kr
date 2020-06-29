@@ -2,20 +2,20 @@
 title: 자습서 - Azure Toolkit for IntelliJ(Spark 애플리케이션)
 description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성되는 Spark 애플리케이션을 개발한 후 Apache Spark 풀(미리 보기)에 제출합니다.
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608760"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976798"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>자습서: Synapse Analytics를 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기(작업 영역 미리 보기)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
 이 자습서에서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성되는 Apache Spark 애플리케이션을 개발한 다음, IntelliJ IDE(통합 개발 환경)에서 직접 Spark 풀(미리 보기)에 제출하는 방법을 보여줍니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
@@ -146,7 +146,7 @@ Scala 애플리케이션을 만든 후에는 원격으로 실행할 수 있습�
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
     |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 및 [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
-    |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
+    |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드** 또는 **클러스터 기본 스토리지 계정을 사용하여 업로드**를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|
     |스토리지 키|스토리지 키를 입력합니다.|
     |스토리지 컨테이너|**스토리지 계정** 및 **스토리지 키**를 입력했으면 드롭다운 목록에서 스토리지 컨테이너를 선택합니다.|
@@ -250,6 +250,7 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 
     |속성 |값 |
     |----|----|
+    |주 클래스 이름| 주 클래스 이름을 선택합니다.| 
     |Spark 풀|애플리케이션을 실행하려는 Spark 풀을 선택합니다.|
     ||
 

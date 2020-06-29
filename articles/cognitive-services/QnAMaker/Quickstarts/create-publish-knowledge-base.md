@@ -150,7 +150,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 > [!div class="nextstepaction"]
 > [메타데이터를 사용하여 질문 추가](add-question-metadata-portal.md)
 
-추가 정보는 다음 항목을 참조하세요.
+자세한 내용은 다음을 참조하세요.
 
 * [답변의 Markdown 형식](../reference-markdown-format.md)
 * QnA Maker [ 데이터 원본](../concepts/knowledge-base.md).

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bcf656b1fa0a73021a92113eb5879312d100823
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75426288"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974503"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>자습서: Azure Stream Analytics 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
@@ -26,13 +26,13 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 > * 로컬에서 Stream Analytics 작업 테스트
 > * Azure에 작업 게시
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 필수 조건을 모두 갖추었는지 확인합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Visual Studio용 Stream Analytics 도구](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 스토리지 및 처리** 워크로드를 설치합니다.
-* IoT Edge 작업을 빌드하는 경우 기존 [Stream Analytics Edge 개발 가이드]를 확인합니다(stream-analytics-tools-for-visual-studio-edge-jobs.md).
+* IoT Edge 작업을 빌드하는 경우 기존 [Stream Analytics Edge 개발 가이드](stream-analytics-tools-for-visual-studio-edge-jobs.md)를 살펴보세요.
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Azure Storage 계정에 컨테이너 만들기
 

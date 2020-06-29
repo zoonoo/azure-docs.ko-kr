@@ -6,15 +6,15 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4e717de82c289aacfba2372e77dc932becaf9a5c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835838"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764182"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
 
@@ -29,7 +29,18 @@ SQL 주문형 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure
 SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공개적으로 사용할 수 없는 경우 해당 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
 
 > [!NOTE]
-> [Azure AD 통과](#force-azure-ad-pass-through)는 작업 영역을 만들 때의 기본 동작입니다. 이를 사용하는 경우 Azure AD 로그인을 사용하여 액세스하는 각 스토리지 계정에 대한 자격 증명을 만들 필요가 없습니다. [이 동작을 사용하지 않도록 설정](#disable-forcing-azure-ad-pass-through)할 수 있습니다.
+> **Azure AD 통과**는 작업 영역을 만들 때의 기본 동작입니다.
+
+### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
+
+**사용자 ID**("Azure AD 통과"라고도 함)는 주문형 SQL에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
+
+> [!IMPORTANT]
+> 이 ID를 사용하여 데이터에 액세스하려면 Storage Blob 데이터 소유자/기여자/읽기 권한자 역할이 있어야 합니다.
+> 스토리지 계정의 소유자인 경우에도 Storage Blob 데이터 역할 중 하나에 자신을 추가해야 합니다.
+>
+> Azure Data Lake Store Gen2의 액세스 제어에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](../../storage/blobs/data-lake-storage-access-control.md) 문서를 검토하세요.
+>
 
 ### <a name="shared-access-signature"></a>[공유 액세스 서명](#tab/shared-access-signature)
 
@@ -43,49 +54,6 @@ SQL 주문형 리소스에 로그인한 사용자는 Azure Storage 파일을 공
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 SAS 토큰을 사용한 액세스가 가능하려면 데이터베이스 범위 또는 서버 범위 자격 증명을 만들어야 합니다.
-
-### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
-
-**사용자 ID**("통과"라고도 함)는 주문형 SQL에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 위의 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
-
-> [!IMPORTANT]
-> 이 ID를 사용하여 데이터에 액세스하려면 Storage Blob 데이터 소유자/기여자/읽기 권한자 역할이 있어야 합니다.
-> 스토리지 계정의 소유자인 경우에도 Storage Blob 데이터 역할 중 하나에 자신을 추가해야 합니다.
->
-> Azure Data Lake Store Gen2의 액세스 제어에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](../../storage/blobs/data-lake-storage-access-control.md) 문서를 검토하세요.
->
-
-Azure AD 사용자가 자신의 ID를 사용하여 스토리지에 액세스할 수 있도록 Azure AD 통과 인증을 명시적으로 활성화해야 합니다.
-
-#### <a name="force-azure-ad-pass-through"></a>Azure AD 통과 강제 적용
-
-Azure AD 통과를 강제 적용하는 것은 Azure Synapse 작업 영역을 프로비저닝하는 중에 자동으로 만들어지는 특수 CREDENTIAL NAME인 `UserIdentity`를 통해 수행되는 기본 동작입니다. 다른 자격 증명이 있음에도 불구하고 모든 Azure AD 로그인의 각 쿼리에 Azure AD 통과를 사용하도록 강제합니다.
-
-> [!NOTE]
-> Azure AD 통과는 기본 동작입니다. 따라서 AD 로그인을 통해 액세스하는 각 스토리지 계정에 대한 자격 증명을 만들 필요가 없습니다.
-
-[Azure AD 통과 강제 적용을 각 쿼리에 사용하지 않도록 설정](#disable-forcing-azure-ad-pass-through)한 후에 이를 사용하도록 다시 설정하려면 다음을 실행합니다.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
-Azure AD 통과를 특정 사용자에 강제 적용하도록 설정하려면 해당 특정 사용자에게 `UserIdentity` 자격 증명에 대한 REFERENCE 권한을 부여할 수 있습니다. 다음 예제에서는 Azure AD 통과를 user_name에 강제 적용하도록 설정합니다.
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
-```
-
-#### <a name="disable-forcing-azure-ad-pass-through"></a>Azure AD 통과 강제 적용 사용 안 함
-
-[Azure AD 통과를 각 쿼리에 강제 적용](#force-azure-ad-pass-through)하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정하려면 다음을 사용하여 `Userdentity` 자격 증명을 삭제합니다.
-
-```sql
-DROP CREDENTIAL [UserIdentity];
-```
-
-사용하도록 다시 설정하려면 [Azure AD 통과 강제 적용](#force-azure-ad-pass-through) 섹션을 참조하세요.
 
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
@@ -152,7 +120,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 서버 범위 자격 증명은 SQL 로그인이 `DATA_SOURCE` 없이 `OPENROWSET` 함수를 호출하여 일부 스토리지 계정의 파일을 읽을 때 사용됩니다. 서버 범위 자격 증명의 이름은 Azure 스토리지의 URL과 **반드시** 일치해야 합니다. 자격 증명은 [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행하여 추가됩니다. CREDENTIAL NAME 인수를 제공해야 합니다. Storage의 데이터에 대한 경로의 일부 또는 전체 경로와 일치해야 합니다(아래 참조).
 
 > [!NOTE]
-> FOR CRYPTOGRAPHIC PROVIDER 인수는 지원되지 않습니다.
+> `FOR CRYPTOGRAPHIC PROVIDER` 인수는 지원되지 않습니다.
 
 서버 수준의 자격 증명 이름은 스토리지 계정의 전체 경로(및 선택적으로 컨테이너)와 일치해야 하며, 다음과 같은 형식이어야 합니다. `<prefix>://<storage_account_path>/<storage_path>`. 스토리지 계정 경로는 다음 표에 설명되어 있습니다.
 
@@ -162,10 +130,13 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-> [!NOTE]
-> [Azure AD 통과를 강제 적용](?tabs=user-identity#force-azure-ad-pass-through)하는 특별한 서버 수준 CREDENTIAL `UserIdentity`가 있습니다.
-
 서버 범위 자격 증명을 사용하면 다음 인증 유형을 사용하여 Azure 스토리지에 액세스할 수 있습니다.
+
+### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
+
+Azure AD 사용자는 `Storage Blob Data Owner`, `Storage Blob Data Contributor` 또는 `Storage Blob Data Reader` 역할이 있는 경우 Azure 스토리지의 모든 파일에 액세스할 수 있습니다. Azure AD 사용자는 스토리지에 액세스하는 데 자격 증명이 필요하지 않습니다. 
+
+SQL 사용자는 Azure AD 인증을 사용하여 스토리지에 액세스할 수 없습니다.
 
 ### <a name="shared-access-signature"></a>[공유 액세스 서명](#tab/shared-access-signature)
 
@@ -180,15 +151,6 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
-
-다음 스크립트는 사용자가 Azure AD ID를 사용하여 가장할 수 있는 서버 수준 자격 증명을 만듭니다.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
 다음 스크립트는 `OPENROWSET` 함수가 작업 영역 관리 ID를 사용하여 Azure 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다.
@@ -200,16 +162,8 @@ WITH IDENTITY='Managed Identity'
 
 ### <a name="public-access"></a>[공용 액세스](#tab/public-access)
 
-다음 스크립트는 `OPENROWSET` 함수가 공개적으로 사용 가능한 Azure 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다. 이 자격 증명을 만들면 `OPENROWSET` 함수를 실행하는 SQL 보안 주체가 자격 증명 이름의 URL과 일치하는 Azure 스토리지에서 공개적으로 사용 가능한 파일을 읽을 수 있습니다.
+데이터베이스 범위 자격 증명은 공개적으로 사용 가능한 파일에 대한 액세스를 허용하는 데 필요하지 않습니다. Azure Storage에서 공개적으로 사용 가능한 파일에 액세스하려면 [데이터베이스 범위 자격 증명 없이 데이터 원본](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source)을 만듭니다.
 
-<*mystorageaccountname*>을 실제 스토리지 계정 이름으로 교환하고, <*mystorageaccountcontainername*>을 실제 컨테이너 이름으로 교환해야 합니다.
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = '';
-GO
-```
 ---
 
 ## <a name="database-scoped-credential"></a>데이터베이스 범위 자격 증명
@@ -218,23 +172,20 @@ GO
 
 데이터베이스 범위 자격 증명을 사용하면 다음 인증 유형을 사용하여 Azure 스토리지에 액세스할 수 있습니다.
 
+### <a name="azure-ad-identity"></a>[Azure AD ID](#tab/user-identity)
+
+Azure AD 사용자는 최소한 `Storage Blob Data Owner`, `Storage Blob Data Contributor` 또는 `Storage Blob Data Reader` 역할이 있는 경우 Azure 스토리지의 모든 파일에 액세스할 수 있습니다. Azure AD 사용자는 스토리지에 액세스하는 데 자격 증명이 필요하지 않습니다.
+
+SQL 사용자는 Azure AD 인증을 사용하여 스토리지에 액세스할 수 없습니다.
+
 ### <a name="shared-access-signature"></a>[공유 액세스 서명](#tab/shared-access-signature)
 
 다음 스크립트는 자격 증명에 지정된 SAS 토큰을 사용하여 스토리지의 파일에 액세스하는 데 사용되는 자격 증명을 만듭니다.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-### <a name="azure-ad-identity"></a>[Azure AD ID](#tab/user-identity)
-
-다음 스크립트는 [외부 테이블](develop-tables-external-tables.md)에 사용되는 데이터베이스 범위 자격 증명 및 자체 Azure AD ID를 사용하여 스토리지 파일에 액세스하도록 자격 증명과 데이터 소스를 사용하는 `OPENROWSET` 함수를 만듭니다.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
-WITH IDENTITY = 'User Identity';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -272,14 +223,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 다음 스크립트를 사용하여 공개적으로 사용 가능한 데이터 원본에 액세스하는 테이블을 만듭니다.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 데이터베이스 사용자는 데이터 원본을 참조하는 [OPENROWSET](develop-openrowset.md) 함수나 외부 테이블을 사용하여 데이터 원본에서 파일의 콘텐츠를 읽을 수 있습니다.
@@ -287,7 +241,9 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FIL
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -300,13 +256,13 @@ GO
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
-GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -316,13 +272,14 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
---,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 

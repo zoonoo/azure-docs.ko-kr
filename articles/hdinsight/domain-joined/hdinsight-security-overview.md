@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996315"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771124"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
-Azure HDInsight는 엔터프라이즈 보안 요구 사항을 처리할 수 있는 여러 가지 방법을 제공합니다. 이러한 솔루션의 대부분은 기본적으로 활성화되지 않습니다. 이러한 유연성을 통해 가장 중요한 보안 기능을 선택할 수 있습니다. 그리고 원하지 않는 기능에 대한 비용을 지불하지 않도록 도와줍니다. 또한 이 유연성은 사용자의 설정 및 환경에 올바른 솔루션이 사용되도록 하는 것을 의미합니다.
+Azure HDInsight는 엔터프라이즈 보안 요구 사항을 처리할 수 있는 여러 가지 방법을 제공합니다. 이러한 솔루션의 대부분은 기본적으로 활성화되지 않습니다. 이러한 유연성을 통해 가장 중요한 보안 기능을 선택할 수 있으며 원하지 않는 기능의 비용을 지불하지 않도록 방지할 수 있습니다. 또한 이 유연성은 사용자의 설정 및 환경에 올바른 솔루션이 사용되도록 하는 것을 의미합니다.
 
 이 문서에서는 보안 솔루션을 경계 보안, 인증, 권한 부여 및 암호화의 4가지 기존 보안 핵심 요소로 구분하여 보안 솔루션을 살펴봅니다.
 
@@ -53,7 +53,7 @@ Hadoop 관리자는 RBAC(역할 기반 액세스 제어)를 구성할 수 있습
 
 관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 액세스 제어 정책 변경 내용을 확인하고 보고할 수 있습니다.
 
-Apache Ranger, Ambari 감사 로그 및 ssh 액세스 로그에 액세스하려면 [Azure Monitor를 사용하도록 설정](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)합니다. 감사 레코드를 제공하는 테이블을 확인합니다.
+Apache Ranger 및 Ambari 감사 로그와 ssh 액세스 로그에 액세스하려면 [Azure Monitor를 사용하도록 설정](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)하고 감사 레코드를 제공하는 테이블을 살펴봅니다.
 
 ### <a name="encryption"></a>암호화
 

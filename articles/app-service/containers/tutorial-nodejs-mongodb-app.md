@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085337"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906405"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 앱 작성
 
@@ -179,7 +179,7 @@ Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다.
 
-다음 코드를 이 파일에 복사합니다. 2개의 *\<cosmosdb-name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꾸고 *\<primary-master-key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
+다음 코드를 이 파일에 복사합니다. 두 개의 *\<cosmosdb-name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꾸고 *\<primary-master-key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
 
 ```javascript
 module.exports = {
@@ -444,7 +444,7 @@ git push azure master
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 

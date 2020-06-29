@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: NAT 게이트웨이 만들기 - Azure PowerShell'
+title: '자습서: NAT 게이트웨이 만들기 - Azure PowerShell'
 titlesuffix: Azure Virtual Network NAT
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 NAT 게이트웨이를 만드는 방법을 보여 줍니다.
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 4878707524c7c7083035163ae2709334cc83e039
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 1c6a9fff7b3bafc927b0d032dc7345c262f6037c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342208"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707483"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기
+# <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기
 
-이 빠른 시작에서는 Azure Virtual Network NAT 서비스를 사용하는 방법을 보여 줍니다. Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. 
+이 자습서에서는 Azure Virtual Network NAT 서비스를 사용하는 방법을 보여줍니다. Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

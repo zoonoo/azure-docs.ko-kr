@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745844"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052154"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -100,7 +100,7 @@ Azure 구독의 청구 소유권을 수락한 경우 다음 단계를 검토하�
 
 ## <a name="supported-subscription-types"></a>지원되는 구독 유형
 
-Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에서 사용할 수 있습니다. 현재 [평가판](https://azure.microsoft.com/offers/ms-azr-0044p/) 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독은 양도할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 양도하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에서 사용할 수 있습니다. 현재 [평가판](https://azure.microsoft.com/offers/ms-azr-0044p/) 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독은 양도할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요. 지원 플랜과 같은 다른 구독을 양도하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 - [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p/)  

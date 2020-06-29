@@ -3,12 +3,12 @@ title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
 description: Azure Container Registry를 사용하여 클라우드에 주문형 Docker 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680647"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753700"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
@@ -37,20 +37,21 @@ az group create --name myResourceGroup --location eastus
 [az acr create][az-acr-create] 명령을 사용하여 컨테이너 레지스트리를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry008*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
 이 예제에서는 Azure Container Registry에 대해 학습하고 있는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
-## <a name="build-an-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드
+## <a name="build-and-push-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드 및 푸시
 
-이제 Azure Container Registry를 사용하여 이미지를 빌드합니다. 먼저 작업 디렉터리를 만든 후, 다음 콘텐츠를 사용하여 *Dockerfile*이라는 Dockerfile을 만듭니다. 이 예제는 Linux 컨테이너 이미지를 빌드하는 간단한 예제이지만, 여러분만의 표준 Dockerfile을 만들고 다른 플랫폼에 대한 이미지를 빌드할 수도 있습니다. 이 문서의 예제 명령은 bash 셸용으로 서식이 지정되어 있습니다.
+이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 작업 디렉터리를 만든 다음, `FROM hello-world` 단일 줄로 *Dockerfile*이라는 Dockerfile을 만듭니다. Docker Hub의 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-[az acr build][az-acr-build] 명령을 실행하여 이미지를 빌드합니다. 성공적으로 빌드된 이미지는 레지스트리로 푸시됩니다. 다음 예제는 `sample/hello-world:v1` 이미지를 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
+이미지를 빌드하는 [az acr build][az-acr-build] 명령을 실행합니다. 이미지가 성공적으로 빌드된 후 레지스트리에 푸시합니다. 다음 예제는 `sample/hello-world:v1` 이미지를 빌드하고 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \

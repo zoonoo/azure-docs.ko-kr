@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 사용자 지정 Linux VM 업로드 또는 복사
+title: Azure CLI를 사용하여 사용자 지정 Linux VM 업로드 또는 복사
 description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 사용자 지정 가상 머신을 업로드하거나 복사합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460429"
@@ -50,7 +50,7 @@ ms.locfileid: "81460429"
 
 - 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
-다음 예제에서 예제 매개 변수 이름을 사용자 고유의 값으로 바꿉니다 (예: `myResourceGroup`, `mystorageaccount`및 `mydisks`).
+다음 예제에서 매개 변수 이름을 `myResourceGroup`, `mystorageaccount` 및 `mydisks`와 같은 고유한 값으로 바꿉니다.
 
 <a id="prepimage"> </a>
 
@@ -64,7 +64,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES 및 openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [기타: 비보증 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [기타: 보증되지 않는 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
@@ -75,15 +75,15 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 
 ## <a name="option-1-upload-a-vhd"></a>옵션 1: VHD 업로드
 
-이제 VHD를 관리 디스크로 직접 업로드할 수 있습니다. 지침은 [Azure CLI를 사용 하 여 Azure에 VHD 업로드](disks-upload-vhd-to-managed-disk-cli.md)를 참조 하세요.
+이제 VHD를 관리 디스크에 바로 업로드할 수 있습니다. 자세한 내용은 [Azure CLI를 사용하여 VHD를 Azure에 업로드](disks-upload-vhd-to-managed-disk-cli.md)를 참조하세요.
 
 ## <a name="option-2-copy-an-existing-vm"></a>옵션 2: 기존 VM 복사
 
 Azure에서 사용자 지정 VM을 만든 다음, OS 디스크를 복사하고 새 VM에 연결하여 다른 복사본을 만들 수도 있습니다. 테스트에는 적합하지만, 기존 Azure VM을 여러 개의 새 VM에 대한 모델로 사용하려는 경우 *이미지*를 대신 만듭니다. 기존 Azure VM에서 이미지를 만드는 방법에 대한 자세한 내용은 [CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)를 참조하세요.
 
-기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)을 만들어야 할 수 있습니다. 
+기존 VM을 다른 지역에 복사하려는 경우 azcopy를 사용하여 [다른 지역에 디스크 복사본을 생성](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)할 수 있습니다. 
 
-그렇지 않으면 VM의 스냅숏을 만든 다음 스냅숏에서 새 OS VHD를 만들어야 합니다.
+그렇지 않으면 VM의 스냅샷을 만든 다음, 스냅샷에서 새 OS VHD를 만들어야 합니다.
 
 ### <a name="create-a-snapshot"></a>스냅샷 만들기
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Service Bus Messaging에 대한 기본 제공 정책 정의
 description: Azure Service Bus Messaging에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7d81625fef2836160d71f8f97cf7ed37456c621e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c67d78a668118b8e8db00b7680956214042150e6
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234222"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888177"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-service-bus-messaging"></a>Azure Service Bus Messaging에 대한 Azure Policy 기본 제공 정책 정의
+# <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Service Bus Messaging에 대한 Azure Policy 기본 제공 정의
 
 이 페이지는 Azure Service Bus Messaging에 대한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
-Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **GitHub** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
+Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **Version** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
 
 ## <a name="azure-service-bus-messaging"></a>Azure Service Bus Messaging
 

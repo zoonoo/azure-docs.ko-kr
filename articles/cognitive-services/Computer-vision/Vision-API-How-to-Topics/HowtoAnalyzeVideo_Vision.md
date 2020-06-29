@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 700c53c8fee61ce6e3c9a65bc3815fabfc5b2baa
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76166823"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983512"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>거의 실시간으로 비디오 분석
 
@@ -230,12 +230,12 @@ namespace BasicConsoleSample
 
 이 샘플을 시작하려면 다음 단계를 수행합니다.
 
-1. [구독](https://azure.microsoft.com/try/cognitive-services/)에서 Vision API에 대한 API 키를 가져옵니다. 비디오 프레임 분석에 적용할 수 있는 서비스는 다음과 같습니다.
-    - [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리를 복제합니다.
-
-3. Visual Studio 2015 이상에서 샘플을 열고, 샘플 애플리케이션을 빌드 및 실행합니다.
+1. [Azure 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 이미 있는 경우 다음 단계로 건너뛸 수 있습니다.
+2. Azure Portal에서 Computer Vision 및 Face용 리소스를 만들어 키와 엔드포인트를 가져옵니다. 설치 중에 체험 계층(F0)을 선택했는지 확인합니다.
+   - [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace): 리소스를 배포한 후 **리소스로 이동**을 클릭하여 각 리소스에 대한 키와 엔드포인트를 수집합니다. 
+3. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리를 복제합니다.
+4. Visual Studio 2015 이상에서 샘플을 열고, 샘플 애플리케이션을 빌드 및 실행합니다.
     - BasicConsoleSample의 경우 Face 키가 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
     - LiveCameraSample의 경우 앱의 **설정** 창에 키를 입력합니다. 키는 사용자 데이터로 세션 간에 지속됩니다.
 
@@ -245,7 +245,7 @@ VideoFrameAnalyzer의 이미지, 음성, 비디오 및 텍스트 해석 기능�
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Face 및 Computer Vision 서비스를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법을 알아보았습니다. 샘플 코드를 사용하여 시작하는 방법도 배웠습니다. 무료 API 키를 사용하여 앱 빌드를 시작하려면 [Azure Cognitive Services 가입 페이지](https://azure.microsoft.com/try/cognitive-services/)로 이동하세요.
+이 문서에서는 Face 및 Computer Vision 서비스를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법을 알아보았습니다. 샘플 코드를 사용하여 시작하는 방법도 배웠습니다.
 
 [GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 의견을 남겨주세요. 보다 광범위한 API 피드백을 제공하려면 [UserVoice 사이트](https://cognitive.uservoice.com/)로 이동하세요.
 
