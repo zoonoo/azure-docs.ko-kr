@@ -61,7 +61,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [https://editor.swagger.io](`http://localhost:3000`) 로 이동합니다.
+   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. `http://localhost:3000` 로 이동합니다.
 
 > [!NOTE]
 > Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
