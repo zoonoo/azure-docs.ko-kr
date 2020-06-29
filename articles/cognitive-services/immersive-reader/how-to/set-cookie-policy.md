@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: 876379a211038933cf665bd1a4a4daae9c9b2787
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ae4812a69a1e6833224dc4dedf36566167ae4796
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267072"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483417"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>몰입 형 판독기에 대 한 쿠키 정책을 설정 하는 방법
 
 몰입 형 판독기는 기본적으로 쿠키 사용을 사용 하지 않도록 설정 합니다. 쿠키 사용을 사용 하도록 설정 하면 몰입 형 판독기는 쿠키를 사용 하 여 사용자 기본 설정을 유지 하 고 기능 사용을 추적할 수 있습니다. 몰입 형 판독기에서 쿠키 사용을 사용 하도록 설정 하는 경우 EU 쿠키 준수 정책의 요구 사항을 고려 하세요. EU 쿠키 준수 정책에 따라 필요한 사용자 동의를 얻으려면 호스트 응용 프로그램의 책임입니다.
 
-쿠키 정책은 몰입 형 판독기 [옵션](../reference.md#options)을 통해 설정할 수 있습니다. 자세한 내용은 [CookiePolicy 열거형](../reference.md#cookiepolicy-enum) 을 참조 하세요.
+쿠키 정책은 몰입 형 판독기 [옵션](../reference.md#options)을 통해 설정할 수 있습니다.
 
 ## <a name="enable-cookie-usage"></a>쿠키 사용 사용
 
