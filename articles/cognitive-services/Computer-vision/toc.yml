@@ -29,13 +29,13 @@
               href: QuickStarts/python-analyze.md
         - name: 로컬 이미지 분석
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-analyze.md
             - name: Python
               href: QuickStarts/python-disk.md
         - name: 썸네일 생성
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-thumb.md
             - name: cURL
               href: QuickStarts/curl-thumb.md
@@ -51,7 +51,7 @@
               href: QuickStarts/python-thumb.md
         - name: 텍스트 추출(Computer Vision - API 읽기)
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-hand-text.md
             - name: Java
               href: QuickStarts/java-hand-text.md
@@ -61,7 +61,7 @@
               href: QuickStarts/python-hand-text.md
         - name: 인쇄된 텍스트 추출(OCR)
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-print-text.md
             - name: cURL
               href: QuickStarts/curl-print-text.md
@@ -105,7 +105,7 @@
       href: concept-detecting-color-schemes.md
     - name: 스마트하게 자른 썸네일
       href: concept-generating-thumbnails.md
-    - name: 인쇄 및 필기 텍스트 인식
+    - name: 텍스트 인식
       href: concept-recognizing-text.md
     - name: 성인 콘텐츠 검색
       href: concept-detecting-adult-content.md

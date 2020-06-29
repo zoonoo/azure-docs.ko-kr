@@ -7,13 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
+ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: a40099c06946830808a235fce2915d28b7647fa5
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735834"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194487"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 

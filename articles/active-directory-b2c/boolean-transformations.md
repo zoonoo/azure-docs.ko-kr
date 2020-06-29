@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 정책에 대 한 부울 클레임 변환 예제
+title: 사용자 지정 정책의 부울 클레임 변환 예제
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 부울 클레임 변환 예입니다.
+description: Azure Active Directory B2C의 IEF(ID 경험 프레임워크) 스키마용 부울 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529194"
@@ -22,13 +22,13 @@ ms.locfileid: "80529194"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 부울 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure AD B2C(Active Directory B2C) 내 ID 경험 프레임워크 스키마의 부울 클레임 변환 사용을 위한 예제를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
 ## <a name="andclaims"></a>AndClaims
 
 두 부울 inputClaim의 And 연산을 수행하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목  | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목  | TransformationClaimType  | 데이터 형식  | 메모 |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | 평가할 첫 번째 ClaimType입니다. |
 | InputClaim | inputClaim2  | boolean | 평가할 두 번째 ClaimType입니다. |
@@ -61,12 +61,12 @@ ms.locfileid: "80529194"
 
 두 클레임의 부울 값이 같은지 확인하고 같지 않으면 예외를 throw합니다.
 
-| 항목 | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목 | TransformationClaimType  | 데이터 형식  | 메모 |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | 어설션할 ClaimType입니다. |
 | InputParameter |valueToCompareTo | boolean | 비교할 값(true 또는 false)입니다. |
 
-**AssertBooleanClaimIsEqualToValue** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** 자체 어설션된 기술 프로필 메타데이터는 기술 프로필이 사용자에게 표시하는 오류 메시지를 제어합니다. 오류 메시지를 [지역화할](localization-string-ids.md#claims-transformations-error-messages)수 있습니다.
+**AssertBooleanClaimIsEqualToValue** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** 자체 어설션된 기술 프로필 메타데이터는 기술 프로필이 사용자에게 표시하는 오류 메시지를 제어합니다. 오류 메시지는 [지역화](localization-string-ids.md#claims-transformations-error-messages)될 수 있습니다.
 
 ![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
 
@@ -116,16 +116,16 @@ ms.locfileid: "80529194"
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-클레임의 부울 값이 `true` 또는 `false`와 같은지 확인 하 고 압축 결과를 반환 합니다.
+클레임의 부울 값이 `true` 또는 `false`와 같은지 확인하고 압축 결과를 반환합니다.
 
-| 항목 | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목 | TransformationClaimType  | 데이터 형식  | 메모 |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim | boolean | 어설션할 ClaimType입니다. |
 | InputParameter |valueToCompareTo | boolean | 비교할 값(true 또는 false)입니다. |
 | OutputClaim | compareResult | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 
-다음 클레임 변환은 `true` 값을 사용하여 부울 ClaimType의 값을 확인하는 방법을 보여 줍니다. `IsAgeOver21Years` ClaimType의 값이와 같으면 `true`클레임 변환에서이 반환 되 고, `true`그렇지 않으면 `false`이 반환 됩니다.
+다음 클레임 변환은 `true` 값을 사용하여 부울 ClaimType의 값을 확인하는 방법을 보여 줍니다. `IsAgeOver21Years` ClaimType의 값이 `true`와 같으면 클레임 변환에서 `true`를 반환하고 다르면 `false`로 반환합니다.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
@@ -156,7 +156,7 @@ ms.locfileid: "80529194"
 
 부울 inputClaim의 Not 연산을 수행하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | 연산을 수행할 클레임입니다. |
 | OutputClaim | outputClaim | boolean | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType(true 또는 false)입니다. |
@@ -185,7 +185,7 @@ ms.locfileid: "80529194"
 
 두 부울 inputClaim의 or을 계산하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | 평가할 첫 번째 ClaimType입니다. |
 | InputClaim | inputClaim2 | boolean | 평가할 두 번째 ClaimType입니다. |

@@ -8,9 +8,13 @@
       href: lab-services-overview.md
 - name: 자습서
   items:
-    - name: 1. 랩 설정
-      href: tutorial-create-custom-lab.md
-    - name: 2. 랩 액세스
+    - name: 랩 설정
+      items:
+        - name: Azure Portal 사용
+          href: tutorial-create-custom-lab.md
+        - name: Resource Manager 템플릿 사용
+          href: create-lab-windows-vm-template.md
+    - name: 랩 액세스
       href: tutorial-use-custom-lab.md
 - name: 샘플
   items:

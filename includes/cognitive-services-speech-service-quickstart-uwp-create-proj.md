@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 5ab0b9abd32ef2e5eb7ea02d6118e387ef753348
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609310"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414364"
 ---
 UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 대상 아키텍처를 선택하고, 오디오 캡처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -70,7 +70,7 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 ### <a name="set-up-audio-capture"></a>오디오 캡처 설정
 
-그런 다음, 프로젝트에서 오디오 입력을 캡처할 수 있도록 허용합니다.
+프로젝트에서 오디오 입력을 캡처할 수 있도록 허용:
 
 1. **솔루션 탐색기**에서 **Package.appxmanifest**를 두 번 클릭하여 패키지 애플리케이션 매니페스트를 엽니다.
 

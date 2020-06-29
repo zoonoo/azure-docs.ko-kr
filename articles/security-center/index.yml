@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: f564113f9a2bb92d1591ac0d3512ae460aa8f58d
-  ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+  ms.openlocfilehash: 13a7ca317630a5a1b0606fa0d2e2022f065fbd4d
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84783200"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85317175"
 landingContent:
 - title: Security Center 정보
   linkLists:
@@ -30,18 +30,16 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: 컨테이너 보호
-      url: container-security.md
-    - text: VM에 대한 통합 취약성 평가
-      url: built-in-vulnerability-assessment.md
-    - text: 보안 경고에 대한 스키마 검토
-      url: alerts-schemas.md
-    - text: 경고 및 권장 사항에 대한 응답 자동화
-      url: workflow-automation.md
-    - text: 보안 경고 및 권장 사항 내보내기
-      url: continuous-export.md
-    - text: Azure Key Vault에 대한 위협 방지 설정
-      url: advanced-threat-protection-key-vault.md
+    - text: Security Center에 대한 릴리스 정보
+      url: release-notes.md
+    - text: SQL 머신에 대한 Advanced Data Security
+      url: security-center-iaas-advanced-data.md
+    - text: 경고 비표시 규칙
+      url: alerts-suppression-rules.md
+    - text: 새 보안 컨트롤에 대한 전체 설명
+      url: secure-score-security-controls.md#security-controls-and-their-recommendations
+    - text: 새 보안 점수 API
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: 시작하기
   linkLists:
   - linkListType: get-started
@@ -64,6 +62,8 @@ landingContent:
       url: tutorial-security-policy.md
     - text: 권장 사항을 사용하여 보안 강화
       url: security-center-using-recommendations.md
+    - text: 보안 점수 API를 사용하여 추적
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: 위협 완화
   linkLists:
   - linkListType: how-to-guide

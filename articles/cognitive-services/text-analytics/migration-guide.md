@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143322"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412586"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
 
@@ -44,7 +44,7 @@ ms.locfileid: "84143322"
 ## <a name="feature-changes"></a>기능 변경
 
 > [!NOTE] 
-> 현재 [v3 엔터티 범주](named-entity-types.md) 는 영어 텍스트 에서만 반환 됩니다. API는 버전 2.1에서 지원 되는 경우 다른 언어로 된 요청에 대 한 버전 2.1 결과를 반환 합니다.
+> 현재 [v3 엔터티 범주](named-entity-types.md) 는 영어와 스페인어 텍스트 에서만 반환 됩니다. API는 버전 2.1에서 지원 되는 경우 다른 언어로 된 요청에 대 한 버전 2.1 결과를 반환 합니다.
 
 버전 2.1에서 텍스트 분석 API는 NER (명명 된 엔터티 인식) 및 엔터티 연결에 대해 하나의 끝점을 사용 합니다. 버전 3은 확장 된 명명 된 엔터티 검색을 제공 하 고 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. V 3.1-preview. 1부터 NER는 개인 `pii` 정보 및 상태 정보를 추가로 검색할 수 있습니다. `phi` 
 
@@ -103,9 +103,9 @@ NER
 ---
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [텍스트 분석 API v2 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
-* [텍스트 분석 API 정의](overview.md)
+* [Text Analytics API란?](overview.md)
 * [언어 지원](language-support.md)
 * [모델 버전 관리](concepts/model-versioning.md)

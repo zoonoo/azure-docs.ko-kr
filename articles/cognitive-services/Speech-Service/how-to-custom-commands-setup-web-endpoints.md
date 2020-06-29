@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308067"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414286"
 ---
-# <a name="set-up-web-endpoints"></a>웹 끝점 설정
+# <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
-이 문서에서는 클라이언트 응용 프로그램에서 HTTP 요청을 수행할 수 있도록 하는 사용자 지정 명령 응용 프로그램에서 웹 끝점을 설정 하는 방법에 대해 알아봅니다. 다음 작업을 완료 합니다.
+이 문서에서는 클라이언트 응용 프로그램에서 HTTP 요청을 수행할 수 있도록 하는 사용자 지정 명령 응용 프로그램에서 웹 끝점을 설정 하는 방법을 설명 합니다. 다음 작업을 완료 합니다.
 
 - 사용자 지정 명령 응용 프로그램에서 웹 끝점 설정
 - 사용자 지정 명령 응용 프로그램에서 웹 끝점 호출
@@ -41,9 +41,9 @@ ms.locfileid: "85308067"
    > [!div class="mx-imgBorder"]
    > ![새 웹 끝점](media/custom-commands/setup-web-endpoint-new-endpoint.png)
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
-   | Name | UpdateDeviceState | 웹 끝점의 이름입니다. |
+   | 이름 | UpdateDeviceState | 웹 끝점의 이름입니다. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | 사용자 지정 명령 앱에서 통신할 끝점의 URL입니다. |
    | 메서드 | POST | 끝점과 함께 허용 되는 상호 작용 (예: GET, POST)입니다.|
    | 헤더 | 키: 앱, 값: 앱의 고유한 이름 | 요청 헤더에 포함할 헤더 매개 변수입니다.|
@@ -64,7 +64,7 @@ ms.locfileid: "85308067"
    > [!div class="mx-imgBorder"]
    > ![웹 끝점 동작 매개 변수 호출](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
    | 엔드포인트 | UpdateDeviceState | 이 작업에서 호출 하려는 웹 끝점입니다. |
    | 쿼리 매개 변수 | 항목 = {#, 장치} &&값 = {OnOff} | 웹 끝점 URL에 추가할 쿼리 매개 변수입니다.  |
@@ -78,18 +78,18 @@ ms.locfileid: "85308067"
    > [!div class="mx-imgBorder"]
    > ![성공 시 웹 끝점 호출 동작](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
    | 실행할 작업 | 음성 응답 보내기 | 웹 끝점에 대 한 요청이 성공 하는 경우 실행할 작업입니다. |
    
    > [!NOTE]
-   > - 을 사용 하 여 http 응답의 필드에 직접 액세스할 수도 있습니다 `{YourWebEndpointName.FieldName}` . 예: `{UpdateDeviceState.TV}`
+   > - 을 사용 하 여 http 응답의 필드에 직접 액세스할 수도 있습니다 `{YourWebEndpointName.FieldName}` . `{UpdateDeviceState.TV}`
 
 1. **실패 시-실행 작업**에서 **음성 응답 보내기** 를 선택 합니다.
    > [!div class="mx-imgBorder"]
    > ![Fail에서 웹 끝점 호출 동작](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
-   | 설정 | 제안 값 | Description |
+   | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
    | 실행할 작업 | 음성 응답 보내기 | 웹 끝점에 대 한 요청이 실패 하는 경우 실행할 작업입니다. |
 

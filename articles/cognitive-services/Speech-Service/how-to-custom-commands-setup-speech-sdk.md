@@ -1,5 +1,5 @@
 ---
-title: Speech SDK를 사용 하 여 클라이언트 앱과 통합
+title: 음성 SDK를 사용하여 클라이언트 앱과 통합
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 대 한 요청을 수행 하는 방법에 대해 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308056"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414365"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
 
@@ -24,7 +24,7 @@ ms.locfileid: "85308056"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -38,7 +38,7 @@ ms.locfileid: "85308056"
 
 ## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시
 
-1. 이전에 만든 사용자 지정 명령 응용 프로그램 (미리 보기)을 열고 **게시** 를 선택 합니다.
+1. 이전에 만든 사용자 지정 명령 응용 프로그램을 열고 **게시** 를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![애플리케이션 게시](media/custom-commands/setup-speech-sdk-publish-application.png)

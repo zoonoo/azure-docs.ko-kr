@@ -7,13 +7,14 @@ ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976798"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194948"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 

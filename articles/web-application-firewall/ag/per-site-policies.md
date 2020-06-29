@@ -1,7 +1,7 @@
 ---
-title: PowerShell을 사용 하 여 사이트당 WAF 정책 구성
+title: PowerShell을 사용 하 여 사이트별 WAF 정책 구성
 titleSuffix: Azure Web Application Firewall
-description: Azure PowerShell를 사용 하 여 응용 프로그램 게이트웨이에서 사이트별 웹 응용 프로그램 방화벽 정책을 구성 하는 방법에 대해 알아봅니다.
+description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이에 대해 사이트별 웹 애플리케이션 방화벽 정책을 구성하는 방법을 알아봅니다.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -10,18 +10,18 @@ ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682493"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사이트당 WAF 정책 구성
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사이트별 WAF 정책 구성
 
-Waf (웹 응용 프로그램 방화벽) 설정은 WAF 정책에 포함 되어 있으며 WAF 구성을 변경 하려면 WAF 정책을 수정 합니다.
+WAF(웹 애플리케이션 방화벽) 설정은 WAF 정책에 포함되어 있으며 WAF 구성을 변경하려면 WAF 정책을 수정합니다.
 
-Application Gateway와 연결 된 경우 정책과 모든 설정은 전역적으로 반영 됩니다. 따라서 WAF 뒤에 5 개의 사이트가 있는 경우 5 개 사이트는 모두 동일한 WAF 정책으로 보호 됩니다. 이는 모든 사이트에 대해 동일한 보안 설정이 필요한 경우에 유용 합니다. 그러나 사이트별 WAF 구성을 허용 하기 위해 개별 수신기에 WAF 정책을 적용할 수도 있습니다.
+Application Gateway와 연결된 경우 정책과 모든 설정은 전역적으로 반영됩니다. 따라서 WAF 뒤에 5개의 사이트가 있는 경우 5개 사이트는 모두 동일한 WAF 정책으로 보호됩니다. 모든 사이트에 대해 동일한 보안 설정이 필요한 경우에 유용합니다. 그러나 사이트별 WAF 구성을 허용하기 위해 개별 수신기에 WAF 정책을 적용할 수도 있습니다.
 
-수신기에 WAF 정책을 적용 하 여 각 사이트에 영향을 주는 변경 내용 없이 개별 사이트에 대해 WAF 설정을 구성할 수 있습니다. 가장 구체적인 정책은 우선 합니다. 전역 정책 및 사이트별 정책 (수신기와 연결 된 WAF 정책)이 있는 경우 사이트별 정책은 해당 수신기에 대 한 전역 WAF 정책을 재정의 합니다. 자체 정책이 없는 다른 수신기는 전역 WAF 정책의 영향을 받습니다.
+수신기에 WAF 정책을 적용하여 각 사이트에 영향을 주는 변경 내용 없이 개별 사이트에 대해 WAF 설정을 구성할 수 있습니다. 가장 구체적인 정책이 우선적으로 적용됩니다. 전역 정책 및 사이트별 정책(수신기와 연결된 WAF 정책)이 있는 경우 사이트별 정책은 해당 수신기에 대한 전역 WAF 정책을 재정의합니다. 자체 정책이 없는 다른 수신기만 전역 WAF 정책의 영향을 받습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,7 +29,7 @@ Application Gateway와 연결 된 경우 정책과 모든 설정은 전역적으
 > * 네트워크 설정
 > * WAF 정책 만들기
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
-> * WAF 정책을 전역적, 사이트별 및 URI 별로 적용
+> * WAF 정책을 전역적, 사이트별 및 URI별로 적용
 > * 가상 머신 확장 집합 만들기
 > * 스토리지 계정 만들기 및 진단 구성
 > * 애플리케이션 게이트웨이 테스트
@@ -134,9 +134,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-two-waf-policies"></a>두 WAF 정책 만들기
 
-글로벌 및 사이트별로 두 개의 WAF 정책을 만들고 사용자 지정 규칙을 추가 합니다. 
+글로벌 및 사이트별로 두 개의 WAF 정책을 만들고 사용자 지정 규칙을 추가합니다. 
 
-사이트별 정책은 파일 업로드 한도를 5mb로 제한 합니다. 다른 모든 항목은 동일 합니다.
+사이트별 정책은 파일 업로드 한도를 5MB로 제한합니다. 다른 모든 항목은 동일합니다.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -250,9 +250,9 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>URI 별 정책 적용
+### <a name="apply-a-per-uri-policy"></a>URI별 정책 적용
 
-URI 별 정책을 적용 하려면 새 정책을 만들어 경로 규칙 구성에 적용 하기만 하면 됩니다. 
+URI별 정책을 적용하려면 새 정책을 만들어 경로 규칙 구성에 적용하기만 하면 됩니다. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 그런 다음이 IP 주소를 사용 하 여 (아래에 표시 된 1.1.1.1 대체)이 IP 주소를 사용 합니다. 
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 그런 다음, 이 IP 주소를 사용하여 curl을 수행합니다(아래에 표시된 1.1.1.1 바꾸기). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레�
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052426"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106493"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -96,7 +96,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  최신 어플라이언스 버전을 확인하고 다음 값을 포함합니다.
+3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
 
     - Azure 퍼블릭 클라우드의 경우:
 

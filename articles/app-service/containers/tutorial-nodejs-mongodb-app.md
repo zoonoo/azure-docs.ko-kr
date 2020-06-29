@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 3729e0e0831319b42615c11db1ea9ba20f0a0e74
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906405"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207263"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 앱 작성
 
@@ -367,7 +367,7 @@ _modules/articles/client/views/view-article.client.view.html_을 엽니다.
 
 닫는 `</section>` 태그 바로 위에 다음 줄을 추가하여 `comment`를 나머지 문서 데이터와 함께 표시합니다.
 
-```HTML
+```html
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
@@ -375,7 +375,7 @@ _modules/articles/client/views/list-articles.client.view.html_을 엽니다.
 
 닫는 `</a>` 태그 바로 위에 다음 줄을 추가하여 `comment`를 나머지 문서 데이터와 함께 표시합니다.
 
-```HTML
+```html
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
@@ -383,7 +383,7 @@ _modules/articles/client/views/admin/list-articles.client.view.html_을 엽니�
 
 `<div class="list-group">` 요소 안과 닫는 `</a>` 태그 바로 위에 다음 줄을 추가하여 나머지 문서 데이터와 함께 `comment`를 표시합니다.
 
-```HTML
+```html
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
@@ -391,7 +391,7 @@ _modules/articles/client/views/admin/form-article.client.view.html_을 엽니다
 
 다음과 같이 제출 단추가 포함된 `<div class="form-group">` 요소를 찾습니다.
 
-```HTML
+```html
 <div class="form-group">
   <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
 </div>
@@ -399,7 +399,7 @@ _modules/articles/client/views/admin/form-article.client.view.html_을 엽니다
 
 이 태그 바로 위에 사람들이 `comment` 필드를 편집할 수 있게 하는 또 다른 `<div class="form-group">` 요소를 추가합니다. 새 요소는 다음과 같습니다.
 
-```HTML
+```html
 <div class="form-group">
   <label class="control-label" for="comment">Comment</label>
   <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
