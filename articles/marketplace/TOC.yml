@@ -128,7 +128,7 @@
               href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
         - name: Seller Insights
           items:
-            - name: 시작
+            - name: 시작하기
               href: ./cloud-partner-portal-orig/si-getting-started.md
             - name: 웹 분석
               href: ./cloud-partner-portal-orig/web-analytics.md
@@ -258,36 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: 가상 머신 제안
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-    - name: API 참조
-      items:
-        - name: 개요
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: 필수 구성 요소
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-        - name: 고려 사항
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-        - name: 동시성 제어
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-        - name: 제품 검색
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-        - name: 특정 제품 검색
-          href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: 제품 추가 또는 수정
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-        - name: 제안 상태 검색
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-        - name: 제안 게시
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-        - name: 작업 검색
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-        - name: 작업 취소
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-        - name: 실시간 전송
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-        - name: 가상 머신 제품 가격 책정
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-        - name: 인증 오류 문제 해결
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: 지원 받기
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: 파트너 센터의 상용 마켓플레이스
@@ -433,8 +403,6 @@
       href: ./partner-center-portal/update-existing-offer.md
     - name: 활성화 혜택
       href: ./partner-center-portal/marketplace-rewards.md
-    - name: 지원 옵션
-      href: ./partner-center-portal/support.md
     - name: 파트너 센터 분석
       items:
         - name: 상용 마켓플레이스 분석
@@ -471,3 +439,35 @@
           href: ./partner-center-portal/payout-policy-details.md
         - name: 세금 세부 정보
           href: ./partner-center-portal/tax-details-paid-transactions.md
+    - name: CPP API 참조
+      items:
+        - name: 개요
+          href: ./cloud-partner-portal-api-overview.md
+        - name: 필수 구성 요소
+          href: ./cloud-partner-portal-api-prerequisites.md
+        - name: 고려 사항
+          href: ./cloud-partner-portal-api-considerations.md
+        - name: 동시성 제어
+          href: ./cloud-partner-portal-api-concurrency-control.md
+        - name: 제품 검색
+          href: ./cloud-partner-portal-api-retrieve-offers.md
+        - name: 특정 제품 검색
+          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+        - name: 제품 추가 또는 수정
+          href: ./cloud-partner-portal-api-creating-offer.md
+        - name: 제안 상태 검색
+          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+        - name: 제안 게시
+          href: ./cloud-partner-portal-api-publish-offer.md
+        - name: 작업 검색
+          href: ./cloud-partner-portal-api-retrieve-operations.md
+        - name: 작업 취소
+          href: ./cloud-partner-portal-api-cancel-operations.md
+        - name: 실시간 전송
+          href: ./cloud-partner-portal-api-go-live.md
+        - name: 가상 머신 제품 가격 책정
+          href: ./cloud-partner-portal-api-setting-price.md
+        - name: 인증 오류 문제 해결
+          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - name: 지원 옵션
+      href: ./partner-center-portal/support.md
