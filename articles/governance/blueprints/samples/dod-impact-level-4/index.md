@@ -3,12 +3,12 @@ title: DoD 영향 수준 4 청사진 샘플 개요
 description: DoD 영향 수준 4 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 DoD 영향 수준 4 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/12/2020
 ms.topic: sample
-ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3b032e1a26c4fb5e97b1c7ab4fff65bc1b046f21
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "79415379"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517255"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 개요
 
