@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693178"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118919"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -25,7 +25,7 @@ Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우�
 
 이 자습서에서는 Azure Cosmos DB Table API 및 Azure Table Storage 시나리오를 사용하여 [.NET용 Microsoft Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)를 사용하는 방법을 보여주는 샘플을 설명합니다. Azure 서비스에 특정된 연결을 사용해야 합니다. 테이블을 만들고, 데이터를 삽입/업데이트하고, 데이터를 쿼리하고, 테이블을 삭제하는 방법을 설명하는 C# 예제를 사용하여 이러한 시나리오를 살펴보겠습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
@@ -67,7 +67,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 1. **연결 문자열** 또는 **액세스 키** 창을 엽니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 
-   ![연결 문자열 창에서 기본 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="연결 문자열 창에서 기본 연결 문자열 보기 및 복사":::
    
 1. 연결 문자열을 구성하려면 Visual Studio에서 마우스 오른쪽 단추로 **CosmosTableSamples** 프로젝트를 클릭합니다.
 
@@ -422,7 +422,7 @@ namespace CosmosTableSamples
 
 이제 솔루션을 빌드하고 F5 키를 눌러 프로젝트를 실행합니다. 프로젝트를 실행하는 경우 명령 프롬프트에 다음 출력이 표시됩니다.
 
-![명령 프롬프트의 출력](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="명령 프롬프트의 출력":::
 
 프로젝트 실행 시 Settings.json 파일을 찾을 수 없다는 오류가 표시되는 경우 다음 XML 항목을 프로젝트 설정에 추가하여 오류를 해결할 수 있습니다. CosmosTableSamples를 마우스 오른쪽 단추로 클릭하고 CosmosTableSamples.csproj 편집을 선택한 후 다음 itemGroup을 추가합니다. 
 
@@ -435,7 +435,7 @@ namespace CosmosTableSamples
 ```
 이제 Azure Portal에 로그인하고 데이터가 테이블에 있는지 확인할 수 있습니다. 
 
-![포털의 결과](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="포털의 결과":::
 
 ## <a name="next-steps"></a>다음 단계
 

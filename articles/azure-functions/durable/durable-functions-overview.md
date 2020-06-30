@@ -3,15 +3,15 @@ title: 지속성 함수 개요 - Azure
 description: Azure Functions의 지속성 함수 확장을 소개합니다.
 author: cgillum
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697881"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193433"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -23,6 +23,7 @@ Durable Functions는 현재 다음 언어를 지원합니다.
 
 * **C#** : [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
+* **Python**: Durable Functions 확장 버전 1.8.5 이상이 필요합니다. 
 * **F#** : 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
 
 Durable Functions는 모든 [Azure Functions 언어](../supported-languages.md)를 지원하는 것을 목표로 합니다. 추가 언어를 지원하기 위한 최신 작업 상태는 [Durable Functions 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)를 참조하세요.
@@ -95,6 +96,29 @@ module.exports = df.orchestrator(function*(context) {
 > [!NOTE]
 > JavaScript의 `context` 개체는 [함수 컨텍스트](../functions-reference-node.md#context-object) 전체를 나타냅니다. 기본 컨텍스트의 `df` 속성을 사용하여 Durable Functions 컨텍스트에 액세스하세요.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+`context` 개체를 사용하여 이름을 기준으로 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환할 수 있습니다. 코드에서 `yield`를 호출할 때마다 Durable Functions 프레임워크는 현재 함수 인스턴스의 진행률 검사점을 설정합니다. 프로세스 또는 가상 머신이 실행 중간에 재생되면 함수 인스턴스가 이전 `yield` 호출에서 다시 시작됩니다. 자세한 내용은 다음 섹션인 '패턴 #2: 팬아웃/팬인'을 참조하세요.
+
+> [!NOTE]
+> Python의 `context` 개체는 오케스트레이션 컨텍스트를 나타냅니다. 오케스트레이션 컨텍스트의 `function_context` 속성을 사용하여 주 Azure Functions 컨텍스트에 액세스하세요.
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>패턴 #2: 팬아웃/팬인
@@ -161,6 +185,36 @@ module.exports = df.orchestrator(function*(context) {
 팬아웃 작업은 `F2` 함수의 여러 인스턴스에 배포됩니다. 작업은 동적 작업 목록을 사용하여 추적됩니다. 호출된 모든 함수가 완료될 때까지 기다리기 위해 `context.df.Task.all` API가 호출됩니다. 그런 다음, `F2` 함수 출력이 동적 작업 목록에서 집계되어 `F3` 함수에 전달됩니다.
 
 `context.df.Task.all`의 `yield` 호출에서 검사점이 자동으로 설정되어 잠재적인 중간 충돌 또는 다시 부팅에서 이미 완료된 작업을 다시 시작할 필요가 없습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    parallel_tasks = []
+
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    for i in range(0, len(work_batch)):
+        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+팬아웃 작업은 `F2` 함수의 여러 인스턴스에 배포됩니다. 작업은 동적 작업 목록을 사용하여 추적됩니다. 호출된 모든 함수가 완료될 때까지 기다리기 위해 `context.task_all` API가 호출됩니다. 그런 다음, `F2` 함수 출력이 동적 작업 목록에서 집계되어 `F3` 함수에 전달됩니다.
+
+`context.task_all`의 `yield` 호출에서 검사점이 자동으로 설정되어 잠재적인 중간 충돌 또는 다시 부팅에서 이미 완료된 작업을 다시 시작할 필요가 없습니다.
 
 ---
 
@@ -276,6 +330,38 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 요청을 받으면 해당 작업 ID에 대해 새 오케스트레이션 인스턴스가 만들어집니다. 조건이 충족되고 루프가 종료될 때까지 인스턴스는 상태를 폴링합니다. 지속성 타이머는 폴링 간격을 제어합니다. 그런 다음, 더 많은 작업을 수행하거나 오케스트레이션을 종료할 수 있습니다. `nextCheck`가 `expiryTime`을 초과하면 모니터가 종료됩니다.
@@ -345,6 +431,36 @@ module.exports = df.orchestrator(function*(context) {
 
 지속성 타이머를 만들려면 `context.df.createTimer`를 호출합니다. `context.df.waitForExternalEvent`에서 알림을 받습니다. 그런 다음, `context.df.Task.any`를 호출하여 에스컬레이션할지(시간 제한이 먼저 발생함) 또는 승인을 처리할지(시간 제한 전에 승인이 수신됨)를 결정합니다.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+지속성 타이머를 만들려면 `context.create_timer`를 호출합니다. `context.wait_for_external_event`에서 알림을 받습니다. 그런 다음, `context.task_any`를 호출하여 에스컬레이션할지(시간 제한이 먼저 발생함) 또는 승인을 처리할지(시간 제한 전에 승인이 수신됨)를 결정합니다.
+
 ---
 
 외부 클라이언트는 [기본 제공 HTTP API](durable-functions-http-api.md#raise-event)를 사용하여 이벤트 알림을 대기 중인 오케스트레이터 함수에 전달할 수 있습니다.
@@ -378,6 +494,18 @@ module.exports = async function (context) {
     const isApproved = true;
     await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
+    is_approved = True
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 ---
@@ -457,6 +585,10 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+지속성 엔터티는 현재 Python에서 지원되지 않습니다.
+
 ---
 
 클라이언트는 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하여 엔터티 함수에 대한 *작업*("신호 보내기"라고도 함)을 큐에 넣을 수 있습니다.
@@ -493,9 +625,13 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+지속성 엔터티는 현재 Python에서 지원되지 않습니다.
+
 ---
 
-엔터티 함수는 [Durable Functions 2.0](durable-functions-versions.md) 이상에서 사용할 수 있습니다.
+엔터티 함수는 C# 및 JavaScript에 대해 [Durable Functions 2.0](durable-functions-versions.md) 이상에서 사용할 수 있습니다.
 
 ## <a name="the-technology"></a>기술
 
@@ -515,6 +651,7 @@ Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자
 
 * [Visual Studio 2019를 사용하는 C#](durable-functions-create-first-csharp.md)
 * [Visual Studio Code를 사용하는 JavaScript](quickstart-js-vscode.md)
+* [Visual Studio Code를 사용하는 Python](quickstart-python-vscode.md)
 
 두 빠른 시작에서는 “hello world” 지속성 함수를 로컬에서 만들고 테스트합니다. 그런 후 함수 코드를 Azure에 게시합니다. 생성한 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다.
 

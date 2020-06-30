@@ -8,12 +8,12 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737277"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296987"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>엔드투엔드 솔루션 빌드
 
@@ -136,6 +136,8 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 > [!NOTE]
 > 다음과 같은 팝업이 표시될 수 있습니다. :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Visual Studio에서 Azure 함수 게시: 자격 증명 게시" border="false":::
 > 그러면 **Azure에서 자격 증명 검색 시도**와 **저장**을 선택합니다.
+>
+> *함수 런타임 버전이 Azure에서 실행되는 버전과 일치하지 않음* 경고가 표시되면 프롬프트에 따라 최신 Azure Functions 런타임 버전으로 업그레이드합니다. 이 문제는 이 자습서의 시작 부분에 있는 *필수 구성 요소* 섹션에서 권장하는 것보다 이전 버전의 Visual Studio를 사용하는 경우 발생할 수 있습니다.
 
 ### <a name="assign-permissions-to-the-function-app"></a>함수 앱에 사용 권한 할당
 

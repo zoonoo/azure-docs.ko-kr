@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889667"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194470"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "82889667"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -58,25 +58,6 @@ ms.locfileid: "82889667"
 필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 폴더에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-run-local.md#local-settings-file) 구성 파일이 포함되어 있습니다.
 
 package.json 파일도 루트 폴더에 생성됩니다.
-
-### <a name="enable-compatibility-mode"></a>호환 모드 사용
-
-현재 JavaScript Durable Functions를 사용하려면 Azure Functions V2 호환 모드를 사용하도록 설정해야 합니다.
-
-1. *local.settings.json* 파일을 열고 앱을 로컬로 실행할 때 사용되는 설정을 편집합니다.
-
-1. `FUNCTIONS_V2_COMPATIBILITY_MODE` 설정을 `true` 값으로 추가합니다.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
 
 ## <a name="install-the-durable-functions-npm-package"></a>Durable Functions npm 패키지 설치
 
@@ -169,7 +150,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
     ![Azure 로컬 출력](media/quickstart-js-vscode/functions-f5.png)
 
-1. [Postman](https://www.getpostman.com/) 또는 [cURL](https://curl.haxx.se/)과 같은 도구를 사용하여 HTTP POST 요청을 URL 엔드포인트로 보냅니다. 마지막 세그먼트를 오케스트레이터 함수의 이름(`HelloOrchestrator`)으로 바꿉니다. URL은 `http://localhost:7071/api/orchestrators/HelloOrchestrator` 형식입니다.
+1. 브라우저 또는 [Postman](https://www.getpostman.com/), [cURL](https://curl.haxx.se/)과 같은 도구를 사용하여 HTTP POST 요청을 URL 엔드포인트로 보냅니다. 마지막 세그먼트를 오케스트레이터 함수의 이름(`HelloOrchestrator`)으로 바꿉니다. URL은 `http://localhost:7071/api/orchestrators/HelloOrchestrator` 형식입니다.
 
    응답은 지속성 오케스트레이션이 성공적으로 시작되었음을 알리는 HTTP 함수의 초기 결과입니다. 아직 오케스트레이션의 최종 결과는 아닙니다. 응답에는 몇 가지 유용한 URL이 포함되어 있습니다. 현재로는 오케스트레이션의 상태를 쿼리해보겠습니다.
 
@@ -201,20 +182,6 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
-
-### <a name="enable-compatibility-mode"></a>호환 모드 사용
-
-로컬로 사용하도록 설정한 것과 동일한 Azure Functions V2 호환성을 Azure의 앱에서 사용하도록 설정해야 합니다.
-
-1. 명령 팔레트에서 `Azure Functions: Edit Setting...`을 검색하여 선택합니다.
-
-1. 프롬프트에 따라 Azure 구독에서 함수 앱을 찾습니다.
-
-1. `Create new App Setting...`를 선택합니다.
-
-1. `FUNCTIONS_V2_COMPATIBILITY_MODE`의 새 설정 키를 입력합니다.
-
-1. `true`의 설정 값을 입력합니다.
 
 ## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
 

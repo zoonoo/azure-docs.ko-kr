@@ -1,6 +1,6 @@
 ---
-title: '자습서: 첫 번째 ML 실험 만들기'
-titleSuffix: Azure Machine Learning
+title: '자습서: Jupyter Notebook 실험(Python)'
+titleSuffix: Machine Learning - Azure
 description: 이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작합니다.  1부에서는 실험 및 ML 모델을 관리할 작업 영역을 만듭니다.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 564358bf7d689abf93f6a9549fab0c2932e99f5b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c0df2459b09eca472c833be2865232c0247210dd
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558384"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106597"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

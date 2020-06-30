@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: abab57a84a7c630bcce71056b49d73024ae75e9f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310804"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118426"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -120,31 +120,31 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다.
 
-    화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-dotnet/copy.png) 단추를 사용하여 USERNAME 값을 복사합니다.
+1. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-dotnet/copy.png) 단추를 사용하여 USERNAME 값을 복사합니다.
 
-    ![Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Azure Portal, 연결 문자열 페이지에서 액세스 키 보기 및 복사":::
 
-2. Visual Studio에서 Program.cs 파일을 엽니다. 
+1. Visual Studio에서 Program.cs 파일을 엽니다. 
 
-3. 포털의 USERNAME 값을 줄 13의 `<FILLME>`에 붙여넣습니다.
+1. 포털의 USERNAME 값을 줄 13의 `<FILLME>`에 붙여넣습니다.
 
     이제 Program.cs의 줄 13은 다음과 같습니다. 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. 포털로 돌아가서 PASSWORD 값을 복사합니다. 포털의 PASSWORD 값을 줄 14의 `<FILLME>`에 붙여넣습니다.
+1. 포털로 돌아가서 PASSWORD 값을 복사합니다. 포털의 PASSWORD 값을 줄 14의 `<FILLME>`에 붙여넣습니다.
 
     이제 Program.cs의 줄 14는 다음과 같습니다. 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. 포털로 돌아가서 CONTACT POINT 값을 복사합니다. 포털의 CONTACT POINT 값을 줄 15의 `<FILLME>`에 붙여넣습니다.
+1. 포털로 돌아가서 CONTACT POINT 값을 복사합니다. 포털의 CONTACT POINT 값을 줄 15의 `<FILLME>`에 붙여넣습니다.
 
     이제 Program.cs의 줄 15는 다음과 같습니다. 
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-5. Program.cs 파일을 저장합니다.
+1. Program.cs 파일을 저장합니다.
     
 ## <a name="run-the-net-app"></a>.NET 앱 실행
 
@@ -157,13 +157,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ```
 3. Ctrl+F5를 눌러 애플리케이션을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
 
-    ![출력 보기 및 확인](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="출력 보기 및 확인":::
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
     
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다.
 
-    ![데이터 탐색기에서 데이터 보기](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

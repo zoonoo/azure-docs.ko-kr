@@ -180,9 +180,11 @@
           href: geo-disaster-recovery.md
     - name: 보안
       items:
-        - name: 인증
+        - name: 이벤트 처리기에 대한 이벤트 전달 인증
           href: security-authentication.md
-        - name: 권한 부여
+        - name: 클라이언트 게시 인증
+          href: security-authenticate-publishing-clients.md
+        - name: Event Grid 리소스에 대한 액세스 권한 부여
           href: security-authorization.md
         - name: 네트워크 보안
           href: network-security.md
@@ -202,6 +204,8 @@
           href: create-view-manage-system-topics-cli.md
         - name: Azure Resource Manager 템플릿
           href: create-view-manage-system-topics-arm.md
+    - name: 토픽 또는 도메인에 대한 액세스 키 가져오기
+      href: get-access-keys.md
     - name: 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
     - name: Auth0 이벤트 구독

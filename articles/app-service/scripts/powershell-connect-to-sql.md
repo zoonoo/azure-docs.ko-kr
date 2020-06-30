@@ -6,16 +6,16 @@ ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: e050675282d8a7784d31aaf45a564da991ff6e63
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9086e00e4b6caf89ab249bbf25ca03a6f068ba49
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020033"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248300"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database"></a>SQL Database에 App Service 앱 연결
+# <a name="connect-an-app-service-app-to-sql-database"></a>SQL Database에 App Service 앱 연결
 
-이 시나리오에서는 Azure SQL 데이터베이스 및 App Service 앱을 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
+이 시나리오에서는 Azure SQL Database 및 App Service 앱에서 데이터베이스를 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 데이터베이스를 앱에 연결합니다.
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "84020033"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to SQL Database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

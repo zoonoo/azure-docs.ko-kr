@@ -1,6 +1,6 @@
 ---
-title: 'CLI: SQL 데이터베이스에 앱 연결'
-description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 SQL 데이터베이스에 연결하는 방법을 보여줍니다.
+title: 'CLI: SQL Database에 앱 연결'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 SQL Database에 연결하는 방법을 보여줍니다.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015491"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250743"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>CLI를 사용하여 SQL Database에 App Service 앱 연결
+# <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>CLI를 사용하여 SQL Database에 App Service 앱 연결
 
-이 샘플 스크립트는 Azure SQL 데이터베이스 및 App Service 앱을 만듭니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
+이 샘플 스크립트는 Azure SQL Database의 데이터베이스 및 App Service 앱을 만듭니다. 그런 다음, 앱 설정을 사용하여 데이터베이스를 앱에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3890b2c2c9434c7970bd969f6f4620e5d235d96
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3553515e2cbae007883ad75960aa1c6991926df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017701"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254551"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종량제 요금을 사용하는 개별 구독에 대한 Azure 예약 사용량 이해
 
@@ -71,7 +71,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 ### <a name="statement-section-of-csv-file"></a>CSV 파일의 명령문 섹션
 
-**예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL 데이터베이스 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
+**예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
 ![SQL Database 예약된 용량에 대한 CSV 파일](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

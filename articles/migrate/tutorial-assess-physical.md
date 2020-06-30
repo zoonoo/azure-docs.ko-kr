@@ -3,12 +3,12 @@ title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션�
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052211"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080766"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Azure Migrate:Server Assessment를 사용하여 물리적 서버 평가
 
@@ -80,7 +80,7 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
     - 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
     - PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
     - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
-- 단일 Azure Migrate 프로젝트에 대해 여러 어플라이언스를 설정할 수 있습니다. 모든 어플라이언스에서 원하는 수의 물리적 서버를 검색할 수 있습니다. 어플라이언스당 최대 250개의 서버를 검색할 수 있습니다.
+- 단일 Azure Migrate 프로젝트에 대해 여러 어플라이언스를 설정할 수 있습니다. 모든 어플라이언스에서 원하는 수의 물리적 서버를 검색할 수 있습니다. 어플라이언스당 최대 1000개의 서버를 검색할 수 있습니다.
 
 ### <a name="download-the-installer-script"></a>설치 프로그램 스크립트 다운로드
 

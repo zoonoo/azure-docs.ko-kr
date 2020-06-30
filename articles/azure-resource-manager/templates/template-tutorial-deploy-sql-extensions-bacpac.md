@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018398"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250335"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-bacpac-file"></a>BACPAC 파일 준비
 
-BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../../azure-sql/database/database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
+BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 데이터베이스를 만들려면 [Azure SQL Database에서 BACPAC 파일로 데이터베이스 내보내기](../../azure-sql/database/database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
 
 ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다. 다음 PowerShell 스크립트는 다음 단계를 수행하여 BACPAC 파일을 준비합니다.
 
@@ -196,7 +196,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
         리소스 정의를 이해하려면 [SQL Database 확장 참조](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions)를 확인하세요. 다음은 중요한 요소입니다.
 
-        * **dependsOn**: SQL 데이터베이스가 만들어지면 확장 리소스를 만들어야 합니다.
+        * **dependsOn**: 데이터베이스가 생성된 후 확장 리소스를 만들어야 합니다.
         * **storageKeyType**: 사용할 스토리지 키 형식을 지정합니다. 값은 `StorageAccessKey` 또는 `SharedAccessKey`일 수 있습니다. 이 자습서에서는 `StorageAccessKey`를 사용합니다.
         * **storageKey**: BACPAC 파일이 저장된 스토리지 계정의 키를 지정합니다. 스토리지 키 형식이 `SharedAccessKey`이면 앞에 “?”가 있어야 합니다.
         * **storageUri**: 스토리지 계정에 저장된 BACPAC 파일의 URL을 지정합니다.
@@ -241,7 +241,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 클라이언트 컴퓨터에서 서버에 액세스하려면 방화벽 규칙을 추가해야 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)를 참조하세요.
 
-Azure Portal에서 새로 배포된 리소스 그룹의 SQL 데이터베이스를 선택합니다. **쿼리 편집기(미리 보기)** 를 선택한 다음, 관리자 자격 증명을 입력합니다. 두 테이블을 데이터베이스로 가져온 것을 볼 수 있습니다.
+Azure Portal에서 새로 배포된 리소스 그룹의 데이터베이스를 선택합니다. **쿼리 편집기(미리 보기)** 를 선택한 다음, 관리자 자격 증명을 입력합니다. 두 테이블을 데이터베이스로 가져온 것을 볼 수 있습니다.
 
 ![쿼리 편집기(미리 보기)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983027"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118579"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -24,7 +24,7 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)
 
-![Azure Cosmos DB는 탄력적 규모 확장, 낮은 대기 시간 보증, 일관성 모델 5개, 포괄적 보장 SLA를 갖춘 글로벌하게 배포된 데이터베이스 서비스입니다.](./media/introduction/azure-cosmos-db.png)
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB는 탄력적 규모 확장, 낮은 대기 시간 보증, 5개의 일관성 모델, 포괄적 보장 SLA를 갖춘 Microsoft의 글로벌 배포 데이터베이스 서비스입니다." border="false":::
 
 ## <a name="key-benefits"></a>주요 이점
 

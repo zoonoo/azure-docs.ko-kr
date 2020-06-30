@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
 ms.custom: tracking-python
-ms.openlocfilehash: fd266dd4e75915c0710acce1a2a49f24049c4e9d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0f96cbd86921428a85aa69f3561252aeb7fd67b5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559860"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118222"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>빠른 시작: Python 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "84559860"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Python 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치 관리자를 포함한 [Python 3.5 이상](https://www.python.org/downloads/).
 - [Gremlin용 Python 드라이버](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
@@ -98,7 +98,7 @@ ms.locfileid: "84559860"
 
     URI 값의 첫 번째 부분을 복사합니다.
 
-    ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-python/keys.png)
+    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Azure Portal의 키 페이지에서 액세스 키 보기 및 복사":::
 
 2. *connect.py* 파일을 열고 줄 104에서 URI 값을 `<YOUR_ENDPOINT>`에 붙여넣습니다.
 
@@ -172,15 +172,15 @@ ms.locfileid: "84559860"
 
 1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기**를 선택하고, **sample-graph**를 확장하고, **그래프**를 선택한 다음, **필터 적용**을 선택합니다. 
 
-   ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Azure Portal의 데이터 탐색기에서 새 문서 만들기":::
 
 2. **결과** 목록에서 그래프에 추가된 세 명의 새로운 사용자를 확인합니다. 끌어 놓아서 꼭짓점을 이동하고, 마우스 휠을 스크롤하여 확대 및 축소하고, 이중 화살표를 사용하여 그래프의 크기를 확장할 수 있습니다. 
 
-   ![Azure Portal의 데이터 탐색기에서 그래프의 새 꼭짓점](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Azure Portal의 데이터 탐색기에 있는 그래프의 새 꼭짓점":::
 
 3. 몇몇 새로운 사용자를 추가해 보겠습니다. **새 꼭짓점** 단추를 선택하여 그래프에 데이터를 추가합니다.
 
-   ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Azure Portal의 데이터 탐색기에서 새 문서 만들기":::
 
 4. *사람*이라는 레이블을 입력합니다.
 
@@ -219,15 +219,15 @@ ms.locfileid: "84559860"
 
 12. 이제 rakesh 및 ashley를 연결할 수 있습니다. **결과** 목록에서 **ashley**가 선택되어 있는지 확인한 다음, 하단 오른쪽의 **대상** 옆의 편집 단추를 선택합니다. **속성** 영역을 표시하려면 창을 확장해야 할 수도 있습니다.
 
-    ![그래프에서 한 꼭짓점의 대상 변경](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="그래프에서 한 꼭짓점의 대상 변경":::
 
 13. **대상** 상자에 *rakesh*를 입력하고 **Edge 레이블** 상자에 *knows*를 입력한 다음, 확인을 선택합니다.
 
-    ![데이터 탐색기에서 ashley와 rakesh 사이의 연결을 추가합니다.](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="데이터 탐색기에서 ashley와 rakesh 간의 연결 추가":::
 
 14. 이제 결과 목록에서 **rakesh**를 선택하고 ashley와 rakesh가 연결되어 있는지 확인합니다. 
 
-    ![데이터 탐색기에서 연결된 두 꼭짓점](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="데이터 탐색기에서 연결된 두 꼭짓점":::
 
 이것으로 이 자습서의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
 

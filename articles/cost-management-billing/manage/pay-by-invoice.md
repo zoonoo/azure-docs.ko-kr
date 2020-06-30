@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199605"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298007"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -84,7 +84,7 @@ Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 계정 관리자 권한으로 로그인합니다. **Cost Management + 청구**를 검색하고 선택합니다.
 
-    ![Cost Management 및 청구, Microsoft Azure Portal 검색](./media/pay-by-invoice/search.png)
+    ![Cost Management 및 청구 검색, Microsoft Azure Portal](./media/pay-by-invoice/search.png)
 
 1. 청구서 지불로 전환하려는 구독을 선택합니다.
 1. **결제 방법**을 선택합니다.
@@ -113,10 +113,19 @@ Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+*법률 문서의 요청을 받은 이유는 무엇인가요?*
+
+제공한 정보가 불완전하거나 확인할 수 없는 경우 Microsoft에서 법적 설명서를 필요로 하는 경우가 있습니다. 다음과 같은 예가 있습니다.
+
+* 계정 이름과 회사 이름 간의 이름 차이
+* 이름 변경
+
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 
-- 필요한 경우 [Azure 계정 센터](https://account.azure.com/Profile)에서 청구 연락처 정보를 업데이트합니다.
+* 필요한 경우 [Azure 계정 센터](https://account.azure.com/Profile)에서 청구 연락처 정보를 업데이트합니다.

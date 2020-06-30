@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535624"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254500"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
@@ -35,7 +35,7 @@ ms.locfileid: "81535624"
 |**앱 보호**||
 | [Azure Application Gateway와 통합](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 서비스 엔드포인트 및 액세스 제한을 사용하여 Application Gateway와 통합합니다. |
 |**리소스에 앱 연결**||
-| [SQL Database에 앱 연결](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 SQL Database를 만든 다음, 앱 설정에 데이터베이스 연결 문자열을 추가합니다. |
+| [SQL Database에 앱 연결](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 Azure SQL Database의 데이터베이스를 만든 다음, 앱 설정에 데이터베이스 연결 문자열을 추가합니다. |
 | [스토리지 계정에 앱 연결](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 스토리지 계정을 만든 다음, 앱 설정에 스토리지 연결 문자열을 추가합니다. |
 | [Azure Cache for Redis에 앱 연결](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱 및 Azure Cache for Redis를 만든 다음, Redis 연결 세부 정보를 앱 설정에 추가합니다.) |
 | [Cosmos DB에 앱 연결](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱 및 Cosmos DB를 만든 다음, 앱 설정에 Cosmos DB 연결 세부 정보를 추가합니다. |

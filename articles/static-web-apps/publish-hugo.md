@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669905"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297944"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
-이 문서에서는 [Azure Static Web Apps](overview.md)에 [Hugo](https://gohugo.io/) 웹 애플리케이션을 만들고 배포하는 방법을 보여줍니다. 최종 결과는 앱이 빌드되고 게시되는 방식을 제어하는 관련 GitHub Actions를 포함하는 새로운 Azure Static Web Apps입니다.
+이 문서에서는 [Azure Static Web Apps](overview.md)에 [Hugo](https://gohugo.io/) 웹 애플리케이션을 만들고 배포하는 방법을 보여줍니다. 최종 결과는 앱이 빌드되고 게시되는 방식을 제어하는 관련 GitHub Actions를 포함하는 새로운 Azure Static Web App입니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -144,42 +144,6 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
 
 1. **만들기**를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
-
-1. 배포가 완료되면 터미널로 이동하여 GitHub Action을 통해 커밋을 머신으로 가져옵니다.
-
-   ```bash
-   git pull
-   ```
-
-1. 텍스트 편집기에서 Hugo 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
-
-1. Hugo 애플리케이션을 빌드하려면 줄 `- uses: actions/checkout@v2`(18줄)을 다음으로 바꿉니다. Hugo Extended가 필요한 경우 `extended: true`의 주석 처리를 제거합니다.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   GitHub Actions 실행기에 Hugo를 설치하는 방법에 대한 자세한 내용은 [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo)를 참조하세요.
-
-1. 업데이트된 워크플로를 커밋하고 GitHub로 푸시합니다.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. GitHub Action이 완료될 때까지 기다립니다.
 

@@ -2,19 +2,19 @@
 title: '빠른 시작: SDK를 사용하여 기술 자료 만들기 및 관리 - QnA Maker'
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/18/2020
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: f80e791435d4bf9093b07842430e678b93843311
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f158fd0f9bfa6b2580e36b6588626afa05d1c19f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765144"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114546"
 ---
-# <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
+# <a name="quickstart-qna-maker-client-library"></a>빠른 시작: QnA Maker 클라이언트 라이브러리
 
-.NET용 QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
+QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]

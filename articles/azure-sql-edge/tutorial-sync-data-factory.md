@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235040"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255435"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 SQL Edge에서 Azure Blob 스토리지로 데이터 동기화
 
@@ -25,7 +25,7 @@ ms.locfileid: "84235040"
 Azure SQL Edge 배포에서 데이터베이스 또는 테이블을 아직 만들지 않은 경우 다음 방법 중 하나를 사용하여 만듭니다.
 
 * [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) 또는 [Azure Data Studio](/sql/azure-data-studio/download/)를 사용하여 SQL Edge에 연결합니다. SQL 스크립트를 실행하여 데이터베이스 및 테이블을 만듭니다.
-* SQL Edge 모듈에 직접 연결하여 [SQLCMD](/sql/tools/sqlcmd-utility/)를 통해 SQL 데이터베이스 및 테이블을 만듭니다. 자세한 내용은 [sqlcmd를 사용하여 데이터베이스 엔진에 연결](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/)을 참조하세요.
+* SQL Edge 모듈에 직접 연결하여 [SQLCMD](/sql/tools/sqlcmd-utility/)를 통해 데이터베이스 및 테이블을 만듭니다. 자세한 내용은 [sqlcmd를 사용하여 데이터베이스 엔진에 연결](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/)을 참조하세요.
 * SQLPackage.exe를 사용하여 DAC 패키지 파일을 SQL Edge 컨테이너에 배포합니다. 이 프로세스는 SqlPackage 파일 URI를 모듈의 desired 속성 구성의 일부로 지정하여 자동화할 수 있습니다. SqlPackage.exe 클라이언트 도구를 직접 사용하여 DAC 패키지를 SQL Edge에 배포할 수도 있습니다.
 
     SqlPackage.exe를 다운로드하는 방법에 대한 자세한 내용은 [sqlpackage 다운로드 및 설치](/sql/tools/sqlpackage-download/)를 참조하세요. SqlPackage.exe에 대한 몇 가지 샘플 명령은 다음과 같습니다. 자세한 내용은 SqlPackage.exe 설명서를 참조하세요.
@@ -195,7 +195,7 @@ SQL Edge 인스턴스에서 다음 명령을 실행합니다.
 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면 **가져오기 매개 변수**를 선택하고, 다음 매개 변수 값을 입력합니다.
 
-    |속성|Type|값|
+    |Name|Type|값|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
     |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|

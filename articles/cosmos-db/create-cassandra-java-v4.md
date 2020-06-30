@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b87c4c0beec2b3b10c81355fc51ded870d7d1d9e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 59ea78fed27b41199699d5413f605288bbf1a608
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310921"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118392"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>빠른 시작: Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v4 드라이버)
 
@@ -153,7 +153,7 @@ ms.locfileid: "84310921"
 
 1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
 
-    ![Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
+    :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사":::
 
 2. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-java/copy-button-azure-portal.png) 단추를 사용하여 CONTACT POINT 값을 복사합니다.
 
@@ -215,7 +215,7 @@ ms.locfileid: "84310921"
 
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    ![데이터 탐색기에서 데이터 보기 - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="데이터 탐색기에서 데이터 보기 - Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

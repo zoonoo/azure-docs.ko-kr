@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94dcd06e1b3c201a10e656b6752cfa60c0c7d39c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765250"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099663"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>자습서: IBM Digital Business Automation on Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -81,7 +81,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+    
+    a. **메타데이터 파일 업로드**를 클릭합니다.
+
+    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+
+    다. 메타데이터 파일이 정상적으로 업로드되면 IBM Digital Business Automation on Cloud 섹션 텍스트 상자에 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
+
+    > [!Note]
+    > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
+
+    > [!Note]
+    > 고객은 [DBAoC DevOps 팀](mailto:supportbpmoncloud@us.ibm.com)에서 클라우드 구독에 대한 메타데이터 파일을 얻을 수 있습니다.
+
+1. **서비스 공급자 메타데이터 파일**이 없는 경우 **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
     a. **식별자** 텍스트 상자에서 `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20` 패턴을 사용하여 URL을 입력합니다.
 

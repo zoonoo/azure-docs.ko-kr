@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743586"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115281"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
 
 이 문서에서는 기본 제공 Jupyter Notebook을 사용하여 소매 데이터 샘플을 Azure Cosmos DB에 가져오는 방법에 대해 설명합니다. SQL 및 Azure Cosmos DB 매직 명령을 사용하여 쿼리를 실행하고, 데이터를 분석하고, 결과를 시각화하는 방법을 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Cosmos 계정을 만드는 동안 Notebook 지원 사용](enable-notebooks.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "83743586"
 
 1. **Notebook** 탭으로 이동하여 **내 Notebook** 옆에 있는 `…`를 선택하고, **새 Notebook**을 만듭니다. 기본 커널로 **Python 3**을 선택합니다.
 
-   ![새 Notebook 만들기](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="새 Notebook 만들기":::
 
 1. 새 Notebook이 만들어지면 **VisualizeRetailData.ipynb**와 같은 이름으로 바꿀 수 있습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "83743586"
 
    셀을 실행하려면 `Shift + Enter`를 선택하거나 셀을 선택하고, 데이터 탐색기 탐색 모음에서 **활성 셀 실행** 옵션을 선택합니다.
 
-   ![활성 셀 실행](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="활성 셀 실행":::
 
    데이터베이스와 컨테이너는 현재 Azure Cosmos 계정에 만들어집니다. 컨테이너는 400개 RU/초로 프로비저닝됩니다. 데이터베이스와 컨테이너가 만들어지면 다음과 같은 출력이 표시됩니다. 
 
@@ -60,7 +60,7 @@ ms.locfileid: "83743586"
 
    또한 **데이터** 탭을 새로 고쳐 새로 만든 리소스를 볼 수도 있습니다.
 
-   ![데이터 탭을 새로 고쳐 새 컨테이너 보기](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="데이터 탭을 새로 고쳐 새 컨테이너 보기":::
 
 1. 다음으로, 소매 데이터 샘플을 Azure Cosmos 컨테이너로 가져옵니다. 소매 데이터의 항목 형식은 다음과 같습니다.
 
@@ -135,7 +135,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 df_cosmos.head(10)
 ```
 
-![쿼리를 실행하여 상위 10개 항목 가져오기](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="쿼리를 실행하여 상위 10개 항목 가져오기":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>쿼리 실행 및 데이터 분석
 
@@ -148,7 +148,7 @@ df_cosmos.head(10)
    display(df_revenue.head(5))
    ```
 
-   ![총 매출 수익 출력](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="총 매출 수익 출력":::
 
 * **쿼리 2:** 구매한 상위 5개 항목의 목록을 가져오려면 새 Notebook 셀을 열고 다음 코드를 실행합니다.
 
@@ -159,7 +159,7 @@ df_cosmos.head(10)
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![상위 5개 구매 항목](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="상위 5개 구매 항목":::
 
 ## <a name="visualize-your-data"></a>데이터 시각화  
 
@@ -286,7 +286,7 @@ df_cosmos.head(10)
    show(p)
    ```
 
-   ![구매 전환율 가시화](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="구매 전환율 시각화":::
 
 ## <a name="next-steps"></a>다음 단계
 

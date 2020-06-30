@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637915"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254432"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>App Service에 대한 Azure Resource Manager 템플릿
 
@@ -29,7 +29,6 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 | [사용자 지정 배포 슬롯이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| 사용자 지정 배포 슬롯/환경이 있는 App Service 앱을 배포합니다. |
 |**앱 구성**||
 | [Key Vault의 앱 인증서](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Azure Key Vault 비밀의 App Service 앱 인증서를 배포하여 TLS/SSL 바인딩에 사용합니다. |
-| [사용자 지정 도메인이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| 사용자 지정 호스트 이름이 있는 App Service 앱을 배포합니다. |
 | [사용자 지정 도메인 및 SSL이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| 사용자 지정 호스트 이름이 있는 App Service 앱을 배포하고 TLS/SSL 바인딩을 위해 Key Vault에서 앱 인증서를 가져옵니다. |
 | [GoLang 확장이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Golang 사이트 확장을 사용하여 App Service 앱을 배포합니다. 그런 다음, Azure의 Golang에서 개발된 웹 애플리케이션을 실행할 수 있습니다. |
 | [Java 8 및 Tomcat 8이 있는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Java 8 및 Tomcat 8을 사용하여 App Service 앱을 배포합니다. 그런 다음, Azure에서 Java 애플리케이션을 실행할 수 있습니다. |
@@ -42,7 +41,7 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 |**연결된 리소스를 사용하는 앱**||
 | [MySQL을 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Azure Database for MySQL로 Windows에 App Service 앱을 배포합니다. |
 | [PostgreSQL을 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Azure Database for PostgreSQL로 Windows에 App Service 앱을 배포합니다. |
-| [SQL 데이터베이스를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| App Service 앱과 SQL 데이터베이스를 기본 서비스 수준에서 배포합니다. |
+| [Azure SQL Database의 데이터베이스가 포함된 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| 기본 서비스 수준에서 Azure SQL Database에 App Service 앱과 데이터베이스를 배포합니다. |
 | [Blob 스토리지 연결을 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Azure Blob 스토리지 연결 문자열을 사용하여 App Service 앱을 배포합니다. 그런 다음, 앱에서 Blob 스토리지를 사용할 수 있습니다. |
 | [Azure Cache for Redis를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Azure Cache for Redis를 사용하여 App Service 앱을 배포합니다. |
 |**App Service Environment**||

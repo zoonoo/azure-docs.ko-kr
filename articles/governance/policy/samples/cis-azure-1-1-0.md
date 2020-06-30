@@ -1,23 +1,25 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 규정 준수 세부 정보
 description: CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1e3c2baec1186e29da45c6395123e2f5aab9165a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 214d50c790f9976b96bf29906d4db64a111e859f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736835"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299027"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
-다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 CIS Microsoft Azure Foundations 벤치마크에 대한 **규정 준수 도메인** 및 **컨트롤**에 매핑되는 방법을 자세히 설명합니다.
+다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 CIS Microsoft Azure Foundations Benchmark의 **규정 준수 도메인** 및 **컨트롤**에 매핑되는 방법을 자세히 설명합니다.
 이러한 규정 준수 표준에 대한 자세한 내용은 [CIS Microsoft Azure Foundations 벤치마크](https://www.cisecurity.org/benchmark/azure/)를 참조하세요. _소유권_을 이해하려면 [Azure Policy 정책 정의](../concepts/definition-structure.md#type) 및 [클라우드의 공동 책임](../../../security/fundamentals/shared-responsibility.md)을 참조하세요.
 
 다음은 **CIS Microsoft Azure Foundations 벤치마크** 컨트롤에 대한 매핑입니다. 특정 **규정 준수 도메인**으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 여러 컨트롤이 [Azure Policy](../overview.md) 이니셔티브 정의를 사용하여 구현됩니다. 전체 이니셔티브 정의를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다.
 그런 다음, **CIS Microsoft Azure Foundations 벤치마크 1.1.0** 규정 준수 기본 제공 이니셔티브 정의를 찾아 선택합니다.
+
+기본 제공 이니셔티브는 [CIS Microsoft Azure Foundations Benchmark 청사진 샘플](../../blueprints/samples/cis-azure-1-1-0.md)의 일부로 배포됩니다.
 
 > [!IMPORTANT]
 > 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../overview.md) 정의와 연결되어 있습니다.
@@ -606,7 +608,6 @@ ms.locfileid: "84736835"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Security Center 표준 가격 책정 계층을 선택해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |표준 가격 책정 계층은 Azure Security Center에서 네트워크 및 가상 머신에 대한 위협을 탐지하고 위협 인텔리전스, 변칙 검색 및 동작 분석을 제공합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ## <a name="storage-accounts"></a>Storage 계정
 

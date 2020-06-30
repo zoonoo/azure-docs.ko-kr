@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 6abfeb1601c85f9202611b914f9dfd47ac50ea1a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: de1d548be7f426f42b369ae7607bd6f798b42317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560969"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296171"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -40,28 +40,30 @@ ms.locfileid: "84560969"
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역 또는 Notebook 가상 머신이 아직 없는 경우 [설정 자습서의 1부](tutorial-1st-experiment-sdk-setup.md)를 완료합니다.
 * 설정 자습서가 완료되면 동일한 Notebook 서버를 사용하여 *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb* Notebook을 엽니다.
 
-사용자 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 설정 자습서를 실행하려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서 해당 자습서에 액세스할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps pandas requests`을 실행하여 필요한 패키지를 가져옵니다.
+사용자 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 설정 자습서를 실행하려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서 해당 자습서에 액세스할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests`을 실행하여 필요한 패키지를 가져옵니다.
 
 ## <a name="configure-workspace-and-create-a-datastore"></a>작업 영역 구성 및 데이터 저장소 만들기
 
 기존 Azure Machine Learning 작업 영역에서 작업 영역 개체를 만듭니다.
-
-- [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)은 Azure 구독 및 리소스 정보를 수락하는 클래스입니다. 또한 작업 영역은 모델 실행을 모니터링하고 추적하는 데 사용할 수 있는 클라우드 리소스를 만듭니다. 
-- `Workspace.from_config()`는 `config.json` 파일을 읽은 다음, 인증 세부 정보를 `ws`라는 개체에 로드합니다. `ws` 개체는 이 자습서 전체의 코드에서 사용됩니다.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
+> [!IMPORTANT]
+> 이 코드 조각은 작업 영역 구성이 현재 디렉터리 또는 부모 디렉터리에 저장될 것으로 예상합니다. 작업 영역 만들기에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조하세요. 파일에 구성 저장에 대한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
+
 ## <a name="create-a-datastore-for-sample-images"></a>샘플 이미지용 데이터 저장소 만들기
 
 `pipelinedata` 계정의 `sampledata` 퍼블릭 Blob 컨테이너에서 ImageNet 평가 퍼블릭 데이터 샘플을 가져옵니다. `images_datastore`라는 이름의 작업 영역에서 데이터를 사용할 수 있도록 `register_azure_blob_container()`를 호출합니다. 그런 다음, 작업 영역 기본 데이터 저장소를 출력 데이터 저장소로 설정합니다. 출력 데이터 저장소를 사용하여 파이프라인의 출력을 채점합니다.
+
+데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 액세스하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk)을 참조하세요.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -93,7 +95,7 @@ from azureml.core.dataset import Dataset
 from azureml.pipeline.core import PipelineData
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
-label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/*.txt"))
+label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
 output_dir = PipelineData(name="scores", 
                           datastore=def_data_store, 
                           output_path_on_compute="batchscoring/results")
@@ -168,7 +170,7 @@ except ComputeTargetException:
 `batch_scoring.py` 스크립트는 나중에 만든 `ParallelRunStep`에서 전달되는 다음 매개 변수를 사용합니다.
 
 - `--model_name`: 사용되는 모델의 이름입니다.
-- `--labels_name`: `labels.txt` 파일을 보유하는 `Dataset`의 이름입니다.
+- `--labels_dir`: `labels.txt` 파일의 위치입니다.
 
 파이프라인 인프라는 `ArgumentParser` 클래스를 사용하여 매개 변수를 파이프라인 단계에 전달합니다. 예를 들어 다음 코드에서 첫 번째 인수인 `--model_name`에는 `model_name` 속성 식별자가 지정됩니다. `init()` 함수에서 `Model.get_model_path(args.model_name)`는 이 속성에 액세스하는 데 사용됩니다.
 
@@ -196,9 +198,10 @@ image_size = 299
 num_channel = 3
 
 
-def get_class_label_dict():
+def get_class_label_dict(labels_dir):
     label = []
-    proto_as_ascii_lines = tf.gfile.GFile("labels.txt").readlines()
+    labels_path = os.path.join(labels_dir, 'labels.txt')
+    proto_as_ascii_lines = tf.gfile.GFile(labels_path).readlines()
     for l in proto_as_ascii_lines:
         label.append(l.rstrip())
     return label
@@ -209,14 +212,10 @@ def init():
 
     parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
     parser.add_argument('--model_name', dest="model_name", required=True)
-    parser.add_argument('--labels_name', dest="labels_name", required=True)
+    parser.add_argument('--labels_dir', dest="labels_dir", required=True)
     args, _ = parser.parse_known_args()
 
-    workspace = Run.get_context(allow_offline=False).experiment.workspace
-    label_ds = Dataset.get_by_name(workspace=workspace, name=args.labels_name)
-    label_ds.download(target_path='.', overwrite=True)
-
-    label_dict = get_class_label_dict()
+    label_dict = get_class_label_dict(args.labels_dir)
     classes_num = len(label_dict)
 
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
@@ -263,14 +262,15 @@ def run(mini_batch):
 
 ## <a name="build-the-pipeline"></a>파이프라인 빌드
 
-파이프라인을 실행하기 전에 Python 환경을 정의하고 `batch_scoring.py` 스크립트에 필요한 종속성을 만드는 개체를 만듭니다. 필요한 기본 종속성은 Tensorflow이지만 백그라운드 프로세스를 위해 `azureml-defaults`도 설치합니다. 종속성을 사용하여 `RunConfiguration` 개체를 만듭니다. 또한 Docker 및 Docker-GPU 지원도 지정합니다.
+파이프라인을 실행하기 전에 Python 환경을 정의하고 `batch_scoring.py` 스크립트에 필요한 종속성을 만드는 개체를 만듭니다. 필요한 주요 종속성은 Tensorflow이지만 ParallelRunStep에 필요한 `azureml-core` 및 `azureml-dataprep[fuse]`도 설치합니다. 또한 Docker 및 Docker-GPU 지원도 지정합니다.
 
 ```python
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
+cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.15.2",
+                                            "azureml-core", "azureml-dataprep[fuse]"])
 env = Environment(name="parallelenv")
 env.python.conda_dependencies = cd
 env.docker.base_image = DEFAULT_GPU_IMAGE
@@ -281,12 +281,12 @@ env.docker.base_image = DEFAULT_GPU_IMAGE
 스크립트, 환경 구성 및 매개 변수를 사용하여 파이프라인 단계를 만듭니다. 작업 영역에 이미 연결된 컴퓨팅 대상을 지정합니다.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunConfig
+from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
     environment=env,
     entry_script="batch_scoring.py",
-    source_directory=".",
+    source_directory="scripts",
     output_action="append_row",
     mini_batch_size="20",
     error_threshold=1,
@@ -310,15 +310,20 @@ parallel_run_config = ParallelRunConfig(
 둘 이상의 단계가 있는 시나리오에서는 `outputs` 배열의 개체 참조는 이후 파이프라인 단계에 대한 *입력*으로 사용할 수 있게 됩니다.
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunStep
+from azureml.pipeline.steps import ParallelRunStep
+from datetime import datetime
+
+parallel_step_name = "batchscoring-" + datetime.now().strftime("%Y%m%d%H%M")
+
+label_config = label_ds.as_named_input("labels_input")
 
 batch_score_step = ParallelRunStep(
-    name="parallel-step-test",
+    name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],
     output=output_dir,
-    models=[model],
     arguments=["--model_name", "inception",
-               "--labels_name", "label_ds"],
+               "--labels_dir", label_config],
+    side_inputs=[label_config],
     parallel_run_config=parallel_run_config,
     allow_reuse=False
 )
@@ -330,7 +335,7 @@ batch_score_step = ParallelRunStep(
 
 이제 파이프라인을 실행합니다. 먼저, 만든 작업 영역 참조와 파이프라인 단계를 사용하여 `Pipeline` 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 하나의 일괄 처리 채점 단계만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
 
-다음으로, `Experiment.submit()` 함수를 사용하여 실행할 파이프라인을 제출합니다. 또한 `param_batch_size` 사용자 지정 매개 변수도 지정합니다. `wait_for_completion` 함수는 파이프라인 빌드 프로세스 중에 로그를 출력합니다. 로그를 사용하여 현재 진행 상황을 파악할 수 있습니다.
+다음으로, `Experiment.submit()` 함수를 사용하여 실행할 파이프라인을 제출합니다. `wait_for_completion` 함수는 파이프라인 빌드 프로세스 중에 로그를 출력합니다. 로그를 사용하여 현재 진행 상황을 파악할 수 있습니다.
 
 > [!IMPORTANT]
 > 첫 번째 파이프라인 실행에는 약 *15분*이 걸립니다. 모든 종속성을 다운로드해야 하고, Docker 이미지를 만들고, Python 환경을 프로비저닝하고 만듭니다. 파이프라인을 다시 실행하면 해당 리소스를 만드는 대신 다시 사용하므로 이 실행에 걸리는 시간이 크게 줄어듭니다. 그러나 파이프라인의 총 실행 시간은 스크립트의 워크로드 및 각 파이프라인 단계에서 실행되는 프로세스에 따라 달라집니다.
@@ -394,7 +399,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 REST URL은 게시된 파이프라인 개체의 `endpoint` 속성에서 가져옵니다. 또한 이 REST URL은 Azure Machine Learning Studio의 작업 영역에서도 찾을 수 있습니다. 
 
-엔드포인트에 대한 HTTP POST 요청을 빌드합니다. 인증 헤더를 요청에 지정합니다. 실험 이름과 일괄 처리 크기 매개 변수가 있는 JSON 페이로드 개체를 추가합니다. 자습서의 앞부분에서 설명한 대로 `param_batch_size`는 단계 구성에서 `PipelineParameter` 개체로 정의했으므로 `batch_scoring.py` 스크립트에 전달됩니다.
+엔드포인트에 대한 HTTP POST 요청을 빌드합니다. 인증 헤더를 요청에 지정합니다. 실험 이름이 있는 JSON 페이로드 개체를 추가합니다.
 
 실행을 트리거하도록 요청합니다. 실행 ID의 값을 가져오기 위해 응답 사전에서 `Id` 키에 액세스하는 코드를 포함시킵니다.
 
@@ -405,7 +410,7 @@ rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
                          json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"param_batch_size": 50}})
+                               "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
 

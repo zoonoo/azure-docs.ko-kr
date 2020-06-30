@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629626"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212015"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -176,7 +176,10 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 ## <a name="initialize-the-labeling-project"></a>레이블 지정 프로젝트 초기화
 
-레이블 지정 프로젝트가 초기화되면 프로젝트의 일부 측면을 변경할 수 없습니다. 작업 유형 또는 데이터 세트는 변경할 수 없습니다. 작업 설명에 대한 레이블과 URL은 *수정할 수 있습니다*. 먼저 설정을 신중하게 검토한 후에 프로젝트를 만들어야 합니다. 프로젝트가 제출되면 **데이터 레이블 지정** 홈 페이지로 돌아갑니다. 이 페이지에는 프로젝트가 **초기화 중**으로 표시됩니다. 이 페이지는 자동으로 새로 고쳐지지 않습니다. 따라서 일시 중지한 후에 페이지를 수동으로 새로 고쳐 프로젝트의 상태가 **만들어짐**인지 확인합니다.
+레이블 지정 프로젝트가 초기화되면 프로젝트의 일부 측면을 변경할 수 없습니다. 작업 유형 또는 데이터 세트는 변경할 수 없습니다. 작업 설명에 대한 레이블과 URL은 *수정할 수 있습니다*. 먼저 설정을 신중하게 검토한 후에 프로젝트를 만들어야 합니다. 프로젝트가 제출되면 **데이터 레이블 지정** 홈 페이지로 돌아갑니다. 이 페이지에는 프로젝트가 **초기화 중**으로 표시됩니다.
+
+> [!NOTE]
+> 이 페이지는 자동으로 새로 고쳐지지 않습니다. 따라서 일시 중지한 후에 페이지를 수동으로 새로 고쳐 프로젝트의 상태가 **만들어짐**인지 확인합니다.
 
 ## <a name="run-and-monitor-the-project"></a>프로젝트 실행 및 모니터링
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325228"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249486"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -55,7 +55,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * **Azure SQL Database Managed Instance** 데이터베이스를 **원본** 데이터 저장소로 사용합니다. Azure SQL Database Managed Instance가 없는 경우 [Azure SQL Database Managed Instance 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **원시**라는 컨테이너를 만들려면: 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 원본 테이블 만들기
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Azure SQL Database에 데이터 원본 테이블 만들기
+
 1. **SQL Server Management Studio**를 시작하고 Azure SQL Managed Instances 서버에 연결합니다.
 2. **서버 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 3. Azure SQL Managed Instances 데이터베이스에 대해 다음 SQL 명령을 실행하여 데이터 원본 저장소로 `customers`이라는 테이블을 만듭니다.  

@@ -4,12 +4,12 @@ description: 사용자 지정 Windows 컨테이너를 Azure App Service로 마�
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046612"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205625"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 
@@ -17,7 +17,7 @@ ms.locfileid: "80046612"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -69,13 +69,13 @@ Visual Studio에서 *custom-font-win-container/CustomFontSample.sln* 파일을 �
 
 [지원되는 부모 이미지](app-service-web-get-started-windows-container.md#use-a-different-parent-image)를 사용해야 합니다. `FROM` 줄을 다음 코드로 바꿔서 부모 이미지를 변경합니다.
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 파일 끝에 다음 줄을 추가하고 파일을 저장합니다.
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -124,7 +124,7 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
@@ -185,7 +185,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 
-Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app_name>* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
+Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app-name>* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
@@ -201,4 +201,3 @@ https://<app-name>.scm.azurewebsites.net/api/logstream
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

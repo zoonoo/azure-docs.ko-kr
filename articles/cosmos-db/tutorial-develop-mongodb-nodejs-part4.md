@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: d5ed706a0577423f0a95b8eb5f7a563da74a0e7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ec6165ba8ab33beba0b50d6b589b3d31269d7b1e
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441161"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114438"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "75441161"
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서의 이 부분을 시작하기 전에 자습서 [3부](tutorial-develop-mongodb-nodejs-part3.md)의 단계를 완료했는지 확인합니다. 
 
@@ -64,11 +64,11 @@ Cosmos DB Azure 계정을 만들면:
 1. Azure Cosmos DB 로고를 클릭합니다. ![Azure Portal의 Azure Cosmos DB 아이콘](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) 왼쪽 모음에서 모든 Azure Cosmos DB를 표시합니다.
 1. 방금 만든 Azure Cosmos DB 계정을 클릭하고, **개요** 탭을 선택하고, 아래로 스크롤하여 데이터베이스가 위치한 맵을 봅니다. 
 
-    ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
 4. 왼쪽 탐색 창에서 아래로 스크롤하고 **데이터를 전역적으로 복제** 탭을 클릭하면 복제 가능한 다른 영역을 볼 수 있는 맵을 표시합니다. 예를 들어, 오스트레일리아 동남부 또는 오스트레일리아 동부를 클릭하고 오스트레일리아에 데이터를 복제할 수 있습니다. [Azure Cosmos DB를 사용하여 전역적으로 데이터를 배포하는 방법](distribute-data-globally.md)에서 전역 복제에 대해 자세히 알아볼 수 있습니다. 지금은 이전 인스턴스 및 복제할 시기를 유지하겠습니다.
 
-    ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
 ## <a name="next-steps"></a>다음 단계
 

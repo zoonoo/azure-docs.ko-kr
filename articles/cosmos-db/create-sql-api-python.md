@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - tracking-python
-ms.openlocfilehash: b140371c42fffd55b271fa0215db89ea9d07da0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559826"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116573"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -32,7 +32,7 @@ ms.locfileid: "84559826"
 
 이 빠른 시작에서는 Azure Portal 및 GitHub에서 복제된 Python 앱을 사용하여 Visual Studio Code에서 Azure Cosmos DB SQL API 계정을 만들고 관리합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. URI가 `https://localhost:8081`이고 키가 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`인 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
 - `PATH`의 `python` 실행 파일이 있는 [Python 3.6 이상](https://www.python.org/downloads/).
@@ -52,7 +52,7 @@ ms.locfileid: "84559826"
     
     맨 오른쪽에 **컨테이너 추가** 영역이 표시되는데, 안 보이면 오른쪽으로 스크롤해야 합니다.
 
-    ![Azure Portal Data Explorer, 컨테이너 추가 창](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
 
 2. **컨테이너 추가** 페이지에서 새 컨테이너의 설정을 입력합니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "84559826"
 
 1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **키**를 선택합니다. 다음 단계에서는 화면 오른쪽의 복사 단추를 사용하여 **URI** 및 **기본 키**를 *cosmos_get_started.py* 파일에 복사합니다.
 
-    ![Azure Portal의 키 설정에서 액세스 키 및 URI 가져오기](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Azure Portal의 키 설정에서 액세스 키 및 URI 가져오기":::
 
 2. Visual Studio Code의 *\git-samples\azure-cosmos-db-python-getting-started*에서 *cosmos_get_started.py* 파일을 엽니다.
 

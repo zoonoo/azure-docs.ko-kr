@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200505"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121417"
 ---
 이제 Azure Portal에서 Data Explorer 도구를 사용하여 Azure Cosmos DB의 API for MongoDB 데이터베이스 및 컨테이너를 만들 수 있습니다. 
 
@@ -21,7 +21,7 @@ ms.locfileid: "84200505"
     
     맨 오른쪽에 **컨테이너 추가** 영역이 표시되는데, 안 보이면 오른쪽으로 스크롤해야 합니다.
 
-    ![Azure Portal Data Explorer, 컨테이너 추가 창](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
 
 2. **컨테이너 추가** 페이지에서 새 컨테이너의 설정을 입력합니다.
 

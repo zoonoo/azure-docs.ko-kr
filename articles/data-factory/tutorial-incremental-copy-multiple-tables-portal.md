@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 여러 테이블 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 델타 데이터를 증분 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730104"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251153"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 델타 데이터를 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
+이 자습서에서는 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. 
+* **Azure SQL Database**. Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 만드는 단계를 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
@@ -111,12 +111,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 대상 테이블 만들기
-1. SQL Server Management Studio를 열고 Azure SQL 데이터베이스에 연결합니다.
+### <a name="create-destination-tables-in-your-database"></a>데이터베이스에 대상 테이블 만들기
+
+1. SQL Server Management Studio를 열고 Azure SQL Database의 데이터베이스에 연결합니다.
 
 1. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-1. Azure SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`이라는 테이블을 만듭니다.  
+1. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
     
     ```sql
     create table customer_table
@@ -134,8 +135,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 Azure SQL 데이터베이스에 또 다른 테이블 만들기
-1. Azure SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장하는 `watermarktable` 테이블을 만듭니다. 
+### <a name="create-another-table-in-your-database-to-store-the-high-watermark-value"></a>데이터베이스에 상위 워터마크 값을 저장할 또 다른 테이블 만들기
+
+1. 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다. 
     
     ```sql
     create table watermarktable
@@ -156,9 +158,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 저장 프로시저 만들기 
+### <a name="create-a-stored-procedure-in-your-database"></a>데이터베이스에 저장 프로시저 만들기
 
-다음 명령을 실행하여 Azure SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
+다음 명령을 실행하여 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -174,8 +176,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
-다음 쿼리를 실행하여 Azure SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
+### <a name="create-data-types-and-additional-stored-procedures-in-your-database"></a>데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
+
+다음 쿼리를 실행하여 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
 
 여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "많은" 수(100개 초과)의 델타 행이 저장될 수 없으니 주의하세요.  
 
@@ -285,7 +288,7 @@ END
 1. 통합 런타임 목록에 **MySelfHostedIR**이 표시되는지 확인합니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스와 Azure SQL 데이터베이스에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스 및 Azure SQL Database의 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
 이 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
@@ -308,7 +311,7 @@ END
     1. 연결된 서비스를 저장하려면 **마침**을 클릭합니다.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
-마지막 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 이 단계에서는 대상/싱크 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 
+마지막 단계에서는 SQL Server 데이터베이스를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 이 단계에서는 대상/싱크 데이터베이스를 데이터 팩터리에 연결합니다. 
 
 1. **연결** 창의 **통합 런타임** 탭에서 **연결된 서비스** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
 1. **새 연결된 서비스** 창에서 **Azure SQL Database**를 선택하고 **계속**을 클릭합니다. 
@@ -316,8 +319,8 @@ END
 
     1. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다. 
     1. **서버 이름**의 경우 드롭다운 목록에서 서버의 이름을 선택합니다. 
-    1. **데이터베이스 이름**의 경우 필수 구성 요소의 일부로 customer_table 및 project_table을 만든 Azure SQL 데이터베이스를 선택합니다. 
-    1. **사용자 이름**의 경우 Azure SQL 데이터베이스에 대한 액세스가 있는 사용자의 이름을 입력합니다. 
+    1. **데이터베이스 이름**의 경우 필수 구성 요소의 일부로 customer_table 및 project_table을 만든 데이터베이스를 선택합니다. 
+    1. **사용자 이름**의 경우 데이터베이스에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다. 
     1. **암호**의 경우 사용자에 대한 **암호**를 입력합니다. 
     1. 데이터 팩터리가 SQL Server 데이터베이스에 연결할 수 있는지를 테스트하려면 **연결 테스트**를 클릭합니다. 연결이 성공할 때까지 모든 오류를 수정합니다. 
     1. 연결된 서비스를 저장하려면 **마침**을 클릭합니다.

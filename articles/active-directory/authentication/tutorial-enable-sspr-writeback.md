@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e56040f5e17ee33da6b21ab42d2deddf5dd7064
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447801"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099130"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -30,11 +30,11 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD Premium P2 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트
+* Azure AD Premium P1 또는 P2 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * 자세한 내용은 [Azure AD SSPR에 대한 라이선스 요구 사항](concept-sspr-licensing.md)을 참조하세요.
 * *글로벌 관리자* 권한이 있는 계정

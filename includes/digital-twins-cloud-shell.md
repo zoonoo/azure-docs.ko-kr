@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 76480959d94b9e2a2e04857c85b7359105e73e4f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 4aa016294f0ef3bd26f7f3ef6fa374e9367b672d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611476"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296970"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
 ### <a name="set-up-cloud-shell-session"></a>Cloud Shell 세션 설정
 
-Cloud Shell 창을 연 후 가장 먼저 해야 할 일은 로그인하고 셸 컨텍스트를 이 세션의 구독으로 설정하는 것입니다. 
+Cloud Shell 창을 연 후 가장 먼저 해야 할 일은 로그인하고 셸 컨텍스트를 이 세션의 구독으로 설정하는 것입니다. Cloud Shell에서 다음 명령을 실행합니다.
 
 ```azurecli
 az login
@@ -29,16 +29,18 @@ Azure Digital Twins에서 이 구독을 처음 사용하는 경우 이 명령을
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-그런 다음, Cloud Shell 인스턴스에서 다음 명령을 실행하여 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
+다음으로, [**Azure CLI용 Microsoft Azure IoT 확장**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest)을 Cloud Shell에 추가하여 Azure Digital Twins 및 기타 IoT 서비스와 상호 작용하는 명령을 사용하도록 설정합니다. 다음 명령을 사용하여 확장을 추가합니다.
 
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
 
-> [!NOTE]
-> 이 문서에서는 `azure-iot`라는 최신 버전의 Azure IoT 확장이 사용됩니다. 레거시 버전은 `azure-iot-cli-ext`라고 합니다. 한 번에 하나의 버전만 설치해야 합니다. `az extension list` 명령을 사용하여 현재 설치된 확장의 유효성을 검사할 수 있습니다.
-> `az extension remove --name azure-cli-iot-ext`를 사용하여 레거시 버전의 확장을 제거합니다.
-> `az extension add --name azure-iot`를 사용하여 새 버전의 확장을 추가합니다. 설치한 확장을 확인하려면 `az extension list`를 사용합니다.
+이전에 확장을 설치한 경우 출력에 "확장명 'azure-iot'이 이미 설치되어 있습니다."라고 표시될 수 있습니다. 이 경우 다음을 실행하여 최신 업데이트가 있는지 확인합니다. 
 
-> [!TIP]
-> `az dt -h`를 실행하여 최상위 수준의 Azure Digital Twins 명령을 볼 수 있습니다.
+   ```azurecli-interactive
+   az extension update --name azure-iot
+   ```
+
+이제 Cloud Shell에서 Azure Digital Twins를 사용할 준비가 되었습니다.
+
+사용 가능한 최상위 Azure Digital Twins 명령 목록을 보려면 언제든지 `az dt -h`를 실행하여 이를 확인할 수 있습니다.

@@ -4,20 +4,19 @@ description: PNS(플랫폼 알림 시스템) 설정을 사용하여 Azure Portal
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: dbradish-microsoft
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 06/22/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 78afb124ee1d1ab9b212197fb7a7140f88de9940
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: af792ccfe8e00c26abc6aab2e4a96d7ef9ff5122
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349524"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252052"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -49,7 +48,7 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
 
      ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
-자세한 내용은 [Azure Notification Hubs를 사용하여 iOS에 푸시 알림](notification-hubs-ios-apple-push-notification-apns-get-started.md)을 참조하세요.
+자세한 내용은 [Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md)를 참조하세요.
 
 ## <a name="google-firebase-cloud-messaging-fcm"></a>Google FCM(Firebase Cloud Messaging)
 
@@ -67,7 +66,7 @@ Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음이 있어야 합니다.
 
@@ -150,7 +149,7 @@ Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 �
 Baidu용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Baidu(Android China)** 를 선택합니다.
-2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **Api 키**를 입력합니다.
+2. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **API 키**를 입력합니다.
 3. Baidu 클라우드 푸시 프로젝트의 Baidu 콘솔에서 가져온 **비밀 키**를 입력합니다.
 4. **저장**을 선택합니다.
 
@@ -166,8 +165,8 @@ Baidu용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 알림을 다양한 플랫폼으로 푸시하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
 
--[Notification Hubs 및 APNS를 사용하여 iOS 디바이스에 알림 푸시](notification-hubs-ios-apple-push-notification-apns-get-started.md)
--[Notification Hubs 및 Google FCM을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)
--[Windows 디바이스에서 실행되는 UWP 앱에 알림 푸시](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
--[MPNS를 사용하여 Windows Phone 8 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)
--[Notification Hubs 및 Baidu 클라우드 푸시를 사용하여 알림 푸시](notification-hubs-baidu-china-android-notifications-get-started.md)
+* [Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md)
+* [Notification Hubs 및 Google FCM을 사용하여 Android 디바이스에 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)
+* [Windows 디바이스에서 실행 중인 UWP 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+* [MPNS를 사용하여 Windows Phone 8 앱에 알림 보내기](notification-hubs-windows-mobile-push-notifications-mpns.md)
+* [Notification Hubs 및 Baidu 클라우드 푸시를 사용하여 알림 보내기](notification-hubs-baidu-china-android-notifications-get-started.md)

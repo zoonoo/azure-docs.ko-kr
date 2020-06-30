@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736517"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249176"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
+이 자습서에서는 Azure SQL Database의 테이블에서 Azure Blob 스토리지로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "84736517"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 만드는 단계를 참조하세요.
 * **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우, 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
@@ -103,6 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 SQL 데이터베이스에 다른 테이블 만들기
+
 1. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다.  
 
     ```sql
@@ -169,7 +170,7 @@ END
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 6. **버전**에 대해 **V2**를 선택합니다.
-7. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+7. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database, Azure SQL Managed Instance 등) 및 컴퓨팅(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 8. **만들기**를 클릭합니다.      
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
@@ -199,7 +200,7 @@ END
     2. **서버 이름**에 대해 서버를 선택합니다.
     3. 드롭다운 목록에서 **데이터베이스 이름**을 선택합니다.
     4. **사용자 이름** & **암호**를 입력합니다.
-    5. Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    5. SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
     6. **Finish**를 클릭합니다.
     7. **연결된 서비스**에서 **AzureSqlDatabaseLinkedService**가 선택되어 있는지 확인합니다.
 
@@ -322,7 +323,7 @@ END
 
 ## <a name="add-more-data-to-source"></a>원본에 더 많은 데이터 추가
 
-SQL 데이터베이스(데이터 원본 저장소)에 새 데이터를 삽입합니다.
+데이터베이스(데이터 원본 저장소)에 새 데이터를 삽입합니다.
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-SQL 데이터베이스에서 업데이트된 데이터는 다음과 같습니다.
+데이터베이스에서 업데이트된 데이터는 다음과 같습니다.
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>다른 파이프라인 실행 트리거
+
 1. **편집** 탭으로 전환합니다. 디자이너에서 열려 있지 않은 경우 트리 뷰에서 파이프라인을 클릭합니다.
 
 2. 도구 모음에서 **트리거 추가**를 클릭한 다음, **지금 트리거**를 클릭합니다.
@@ -398,7 +399,7 @@ PersonID | Name | LastModifytime
 > * 두 번째 파이프라인 실행 모니터링
 > * 두 번째 실행 결과 검토
 
-이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. SQL Server 데이터베이스의 여러 테이블에서 SQL Database로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
+이 자습서에서는 파이프라인이 SQL Database의 단일 테이블에서 Blob 스토리지로 데이터를 복사했습니다. SQL Server 데이터베이스의 여러 테이블에서 SQL Database로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
 >[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-portal.md)

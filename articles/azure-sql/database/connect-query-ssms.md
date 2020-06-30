@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267310"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253616"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: SSMS를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "84267310"
   > [!IMPORTANT]
   > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
 
-SSMS를 설치하지 않고 일부 임시 쿼리를 실행하려는 경우 [빠른 시작: Azure Portal의 쿼리 편집기를 사용하여 SQL 데이터베이스 쿼리](connect-query-portal.md)를 참조하세요.
+SSMS를 설치하지 않고 일부 임시 쿼리를 실행하려는 경우 [빠른 시작: Azure Portal의 쿼리 편집기를 사용하여 Azure SQL Database의 데이터베이스 쿼리](connect-query-portal.md)를 참조하세요.
 
 ## <a name="get-server-connection-information"></a>서버 연결 정보 가져오기
 

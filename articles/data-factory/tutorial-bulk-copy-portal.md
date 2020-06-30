@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/22/2020
+ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661059"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251756"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **원본 Azure SQL Database 준비**:
 
-[Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
+[Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
 
 **싱크 Azure Synapse Analytics(이전의 SQL DW) 준비**:
 
@@ -106,7 +106,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 이 자습서에서는 Azure SQL Database, Azure Synapse Analytics(이전의 SQL DW) 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure Synapse Analytics(이전의 SQL DW)는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 Azure Synapse Analytics(이전의 SQL DW)에 로드하기 전에 데이터를 스테이징하는 스토리지입니다. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
-이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 
+이 단계에서는 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. 
 
 1. 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 엽니다.
 
@@ -120,13 +120,13 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 
     b. **서버 이름**에 대해 서버를 선택합니다.
     
-    다. **데이터베이스 이름**에 대해 Azure SQL 데이터베이스를 선택합니다. 
+    다. **데이터베이스 이름**에 대해 데이터베이스를 선택합니다. 
     
-    d. Azure SQL 데이터베이스에 연결할 **사용자의 이름**을 입력합니다. 
+    d. 데이터베이스에 연결할 **사용자의 이름**을 입력합니다. 
     
     e. 사용자에 대한 **암호**를 입력합니다. 
 
-    f. 지정된 정보를 사용하여 Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    f. 지정된 정보를 사용하여 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
   
     g. **만들기**를 클릭하여 연결된 서비스를 저장합니다.
 
@@ -141,13 +141,13 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
      
     b. **서버 이름**에 대해 서버를 선택합니다.
      
-    다. **데이터베이스 이름**에 대해 Azure SQL 데이터베이스를 선택합니다. 
+    다. **데이터베이스 이름**에 대해 데이터베이스를 선택합니다. 
      
-    d. Azure SQL 데이터베이스에 연결할 **사용자 이름**을 입력합니다. 
+    d. 데이터베이스에 연결할 **사용자 이름**을 입력합니다. 
      
     e. 사용자에 대한 **암호**를 입력합니다. 
      
-    f. 지정된 정보를 사용하여 Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    f. 지정된 정보를 사용하여 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
      
     g. **만들기**를 클릭합니다.
 
@@ -181,7 +181,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
     
 1. **속성 설정** 창의 **이름** 아래에 **AzureSqlDatabaseDataset**를 입력합니다. **연결된 서비스** 아래에서 **AzureSqlDatabaseLinkedService**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
-1. **연결** 탭으로 전환하여 **테이블**로 아무 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 Azure SQL 데이터베이스에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고, 테이블 이름으로 **dbo.dummyName**을 입력할 수 있습니다. 
+1. **연결** 탭으로 전환하여 **테이블**로 아무 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 데이터베이스에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고, 테이블 이름으로 **dbo.dummyName**을 입력할 수 있습니다. 
  
 
 ### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>싱크 Azure Synapse Analytics(이전의 SQL DW)에 대한 데이터 세트 만들기
@@ -189,17 +189,18 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. 왼쪽 창에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다. 
 1. **새 데이터 세트** 창에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 선택한 다음, **계속**을 클릭합니다.
 1. **속성 설정** 창의 **이름** 아래에 **AzureSqlDWDataset**를 입력합니다. **연결된 서비스** 아래에서 **AzureSqlDWLinkedService**를 선택합니다. 그런 후 **OK**를 클릭합니다.
-1. **매개 변수** 탭으로 전환하고, **+ 새로 만들기**를 클릭하고, 매개 변수 이름에 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다.
+1. **매개 변수** 탭으로 전환하고, **+ 새로 만들기**를 클릭하고, 매개 변수 이름에 **DWTableName**을 입력합니다. **+ 새로 만들기**를 다시 클릭하고 매개 변수 이름에 **DWSchema**를 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 *DWTableName*과 *DWSchema* 끝에 **후행 공백 문자**가 없는지 확인합니다. 
 1. **연결** 탭으로 전환합니다. 
 
-    a. **테이블**에 대한 **편집** 옵션을 선택합니다. 첫 번째 테이블 이름 입력 상자에서 **dbo**를 입력합니다. 그런 다음, 두 번째 입력 상자를 선택하고, 아래의 **동적 콘텐츠 추가** 링크를 클릭합니다. 
+    1. **테이블**에 대한 **편집** 옵션을 선택합니다. 첫 번째 입력 상자를 선택하고, 아래의 **동적 콘텐츠 추가** 링크를 클릭합니다. **동적 콘텐츠 추가** 페이지의 **매개 변수** 아래에서 **DWSchema**를 클릭합니다. 위쪽 식 텍스트 상자에 `@dataset().DWSchema`가 자동으로 채워지면 **마침**을 클릭합니다.  
+    
+        ![데이터 세트 연결 테이블 이름](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    ![데이터 세트 연결 테이블 이름](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    1. 두 번째 입력 상자를 선택하고, 아래의 **동적 콘텐츠 추가** 링크를 클릭합니다. **동적 콘텐츠 추가** 페이지의 **매개 변수** 아래에서 **DWTAbleName**을 클릭합니다. 위쪽 식 텍스트 상자에 `@dataset().DWTableName`이 자동으로 채워지면 **마침**을 클릭합니다. 
+    
+    1. 데이터 세트의 **tableName** 속성은 **DWSchema**와 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
+    
 
-    b. **동적 콘텐츠 추가** 페이지의 **매개 변수**에서 **DWTAbleName**을 클릭합니다. 그러면 위쪽 식 텍스트 상자가 자동으로 `@dataset().DWTableName`으로 채워집니다. 그리고 **마침**을 클릭합니다. 데이터 세트의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
-
-    ![데이터 세트 매개 변수 작성기](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
- 
 ## <a name="create-pipelines"></a>파이프라인 만들기
 이 자습서에서는 두 개의 파이프라인을 만듭니다. **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**. 
 
@@ -257,7 +258,8 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. **싱크** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **싱크 데이터 세트**에 대해 **AzureSqlDWDataset**를 선택합니다.
-    1. DWTableName 매개 변수 값의 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 식을 스크립트로 입력하고, **마침**을 선택합니다.
+    1. DWTableName 매개 변수 값의 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `@item().TABLE_NAME` 식을 스크립트로 입력하고, **마침**을 선택합니다.
+    1. DWSchema 매개 변수의 VALUE 입력란을 클릭하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `@item().TABLE_SCHEMA` 식을 스크립트로 입력하고, **마침**을 선택합니다.
     1. 복사 방법에 대해 **PolyBase**를 선택합니다. 
     1. **유형 기본 옵션 사용**의 선택을 취소합니다. 
     1. **사전 복사 스크립트** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, 다음 식을 스크립트로 입력하고, **마침**을 선택합니다. 
@@ -282,12 +284,12 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 * "IterateAndCopySQLTables" 파이프라인을 트리거하여 실제 데이터 복사를 수행합니다.
 
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
-1. **일반** 탭에서 파이프라인 이름을 **GetTableListAndTriggerCopyData**로 변경합니다. 
+1. 일반 패널의 **속성**에서 파이프라인 이름을 **GetTableListAndTriggerCopyData**로 변경합니다. 
 
 1. **활동** 도구 상자에서 **일반**을 확장하고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 다음 단계를 수행합니다.
 
     1. **이름**에 대해 **LookupTableList**를 입력합니다. 
-    1. **설명**에 대해 **Azure SQL 데이터베이스에서 테이블 목록을 검색합니다.** 를 입력합니다.
+    1. **설명**에 **내 데이터베이스에서 테이블 목록 검색**을 입력합니다.
 
 1. **설정** 탭으로 전환하고 다음 단계를 수행합니다.
 
@@ -310,10 +312,8 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. **파이프라인 실행** 활동의 **설정** 탭으로 전환하고, 다음 단계를 수행합니다. 
 
     1. **호출된 파이프라인**에 대해 **IterateAndCopySQLTables**를 선택합니다. 
-    1. **고급** 섹션을 펼치고, **대기 중 완료** 확인란의 선택을 취소합니다.
-    1. **매개 변수** 섹션에서 **+ 새로 만들기**를 클릭합니다. 
-    1. **이름** 매개 변수에 대해 **tableList**를 입력합니다.
-    1. 값 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `@activity('LookupTableList').output.value`를 테이블 이름 값으로 입력하고, **마침**을 선택합니다. 조회 활동의 결과 목록을 두 번째 파이프라인의 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
+    1. **Wait on completion**(완료 대기) 확인란의 선택을 취소합니다.
+    1. **매개 변수** 섹션에서 VALUE 아래 입력란을 클릭하고 아래에서 **동적 콘텐츠 추가**를 선택하고 테이블 이름 값으로 `@activity('LookupTableList').output.value`를 입력하고 **마침**을 선택합니다. 조회 활동의 결과 목록을 두 번째 파이프라인의 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
 
         ![파이프라인 실행 활동 -설정 페이지](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 

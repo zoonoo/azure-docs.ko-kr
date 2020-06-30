@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791156"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106440"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
 이 문서에서는 CSP(클라우드 솔루션 공급자) 파트너와 고객 간에 Azure 구독을 전송하는 데 사용되는 고급 단계를 제공합니다.
 
-## <a name="transfer-ea-subscriptions"></a>EA 구독 전송
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>CSP 파트너에게 EA 구독 전송
 
 [Azure Expert MSP(관리형 서비스 공급자)](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너는 직접 EA(기업계약)가 있는 고객에 대한 Azure 구독 전송을 요청할 수 있습니다. MCA(Microsoft 고객 계약)를 수락하고 Azure 요금제를 구매한 고객에게만 구독 전송이 허용됩니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "82791156"
     > [!IMPORTANT]
     >  - 구독 간에 Azure 리소스를 이동하면 구독의 리소스에 따라 서비스 가동 중지 시간이 발생할 수 있습니다.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>CSP 파트너의 모든 구독 전송
+## <a name="transfer-csp-subscription-to-other-offer"></a>CSP 구독을 다른 제품으로 전송
 
 다른 구독을 CSP 파트너에서 다른 Azure 제품으로 전송하려면 구독자가 원본 CSP 구독과 대상 구독 간에 리소스를 이동해야 합니다.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737022"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125807"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -113,7 +113,7 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |*.events.data.microsoft.com|443|원격 분석 서비스|None|
 |www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|None|
-|login.windows.net|443|Microsoft Online Services, Office 365에 로그인|None|
+|login.windows.net|443|Microsoft Online Services, Microsoft 365에 로그인|None|
 |*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|None|
 |*.digicert.com|443|인증서 해지 확인|None|
 

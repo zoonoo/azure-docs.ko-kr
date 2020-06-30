@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371833"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210374"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning 및 Machine Learning Studio(클래식)
 
@@ -29,7 +29,7 @@ Azure Machine Learning은 Python, R SDK **및** "끌어서 놓기" 디자이너�
 
 | | Machine Learning Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
-| 끌어서 놓기 인터페이스 | 지원됨 | 지원됨 - [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md) | 
+| 끌어서 놓기 인터페이스 | 지원됨 | 지원됨 - [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md) <br/>(엔터프라이즈 작업 영역 필요) | 
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 
 | 컴퓨팅 대상 배포 | 전용 웹 서비스 형식, 사용자 지정 불가능 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 배포](concept-compute-target.md#deploy). GPU 및 CPU 지원 포함 |

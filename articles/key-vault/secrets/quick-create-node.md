@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 21add865818d73937aec241f8f60e20158202348
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983145"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125296"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>빠른 시작: Node.js용 Azure Key Vault 클라이언트 라이브러리(v4)
 
@@ -28,7 +28,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 
 [API 참조 설명서](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [패키지(npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
@@ -69,12 +69,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 클라우드 기반 애플리케이션을 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [App Service 관리 ID를 사용하여 Azure Key Vault에 액세스](../general/managed-identity.md)를 참조하세요.
 
-그러나 간략한 설명을 위해 이 빠른 시작에서는 서비스 주체 및 액세스 제어 정책을 사용해야 하는 데스크톱 애플리케이션을 만듭니다. 서비스 원칙에는 "http://&lt;my-unique-service-principle-name&gt;" 형식의 고유한 이름이 필요합니다.
+그러나 간략한 설명을 위해 이 빠른 시작에서는 서비스 주체 및 액세스 제어 정책을 사용해야 하는 데스크톱 애플리케이션을 만듭니다. 서비스 주체에는 "http://&lt;my-unique-service-principal-name&gt;" 형식의 고유한 이름이 필요합니다.
 
-서비스 주체는 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) Azure CLI 명령을 사용하여 만듭니다.
+Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다.
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다. 

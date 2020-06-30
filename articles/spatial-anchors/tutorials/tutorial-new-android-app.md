@@ -5,21 +5,21 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 04/03/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e1773ef81a5b727187a9a69ccc7ce7ad0421fb2c
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80246775"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296205"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 
 이 자습서에서는 ARCore 기능을 Azure Spatial Anchors와 통합하는 새 Android 앱을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
@@ -117,7 +117,7 @@ dependencies {
 
 마지막으로, 모든 것을 하나로 묶을 수 있는 다음 `handleTap()` 메서드를 추가합니다. 그러면 구가 만들어져 탭된 위치에 배치됩니다. 지금 `this.recommendedSessionProgress`가 0으로 설정되어 있으므로 구가 처음에는 검은색입니다. 이 값은 나중에 조정됩니다.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-172,175-183,199-200)]
 
 앱을 디바이스에 [다시 배포](#trying-it-out)하여 유효성을 한 번 더 검사합니다. 이번에는 디바이스 주위를 이동하여 ARCore에서 환경 인식을 시작하도록 할 수 있습니다. 그러면 화면을 탭하여 원하는 표면에 검은색 구를 만들고 배치합니다.
 
@@ -169,7 +169,7 @@ import com.microsoft.CloudServices;
 
 다음으로, 다음 `initializeSession()` 메서드를 `mainActivity` 클래스 내에 추가해 보겠습니다. 호출되면 앱을 시작하는 동안 Azure Spatial Anchors 세션이 만들어지고 제대로 초기화됩니다.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,147)]
 
 이제 `initializeSession()` 메서드를 `onCreate()` 메서드에 후크하겠습니다. 또한 처리를 위해 카메라 피드의 프레임을 Azure Spatial Anchors SDK로 보내도록 합니다.
 
@@ -177,17 +177,17 @@ import com.microsoft.CloudServices;
 
 마지막으로, 다음 코드를 `handleTap()` 메서드에 추가합니다. 이렇게 하면 로컬 Azure Spatial Anchor가 실제 환경에 배치하는 검은색 구에 연결됩니다.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-183,199-200&highlight=12-13)]
 
 앱을 한 번 더 [다시 배포](#trying-it-out)합니다. 디바이스 주위를 이동하고, 화면을 탭한 다음, 검은색 구를 배치합니다. 하지만 이번에는 코드에서 로컬 Azure Spatial Anchor를 만들고 구에 연결합니다.
 
-계속 진행하기 전에 Azure Spatial Anchors 계정 식별자와 키가 아직 없는 경우 이를 만들어야 합니다. 다음 섹션에 따라 이러한 항목을 얻습니다.
+계속 진행하기 전에 Azure Spatial Anchors 계정을 만들어 계정 식별자, 키 및 도메인을 가져와야 합니다(아직 없는 경우). 다음 섹션에 따라 이러한 항목을 얻습니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>클라우드에 로컬 앵커 업로드
 
-Azure Spatial Anchors 계정 식별자와 키가 있으면 `app\java\<PackageName>\MainActivity`로 돌아가서 다음 가져오기를 추가할 수 있습니다.
+Azure Spatial Anchors 계정 식별자, 키 및 도메인이 있으면 `app\java\<PackageName>\MainActivity`로 돌아가서 다음 가져오기를 추가할 수 있습니다.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
@@ -195,9 +195,9 @@ Azure Spatial Anchors 계정 식별자와 키가 있으면 `app\java\<PackageNam
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-이제 다음 코드를 `initializeSession()` 메서드에 추가합니다. 첫째, 이 코드를 사용하면 앱이 카메라 피드에서 프레임을 수집할 때 Azure Spatial Anchors SDK에서 수행하는 진행 상황을 모니터링할 수 있습니다. 마찬가지로, 구의 색이 원래의 검은색에서 회색으로 변하기 시작합니다. 그런 다음, 앵커를 클라우드에 제출할 수 있을 만큼 충분한 프레임이 수집되면 흰색으로 변합니다. 둘째, 이 코드에서는 클라우드 백 엔드와 통신하는 데 필요한 자격 증명을 제공합니다. 여기서는 계정 식별자와 키를 사용하도록 앱을 구성할 수 있습니다. [Spatial Anchors 리소스 설정](#create-a-spatial-anchors-resource) 시 텍스트 편집기에 복사했습니다.
+이제 다음 코드를 `initializeSession()` 메서드에 추가합니다. 첫째, 이 코드를 사용하면 앱이 카메라 피드에서 프레임을 수집할 때 Azure Spatial Anchors SDK에서 수행하는 진행 상황을 모니터링할 수 있습니다. 마찬가지로, 구의 색이 원래의 검은색에서 회색으로 변하기 시작합니다. 그런 다음, 앵커를 클라우드에 제출할 수 있을 만큼 충분한 프레임이 수집되면 흰색으로 변합니다. 둘째, 이 코드에서는 클라우드 백 엔드와 통신하는 데 필요한 자격 증명을 제공합니다. 여기서 계정 식별자, 키 및 도메인을 사용하도록 앱을 구성합니다. [Spatial Anchors 리소스 설정](#create-a-spatial-anchors-resource) 시 텍스트 편집기에 복사했습니다.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-148&highlight=11-37)]
 
 다음으로, 다음 `uploadCloudAnchorAsync()` 메서드를 `mainActivity` 클래스에 추가합니다. 호출되면 이 메서드는 디바이스에서 충분한 프레임이 수집될 때까지 비동기적으로 기다립니다. 이렇게 되는 즉시 구의 색이 노란색으로 변한 다음, 로컬 Azure Spatial Anchor를 클라우드에 업로드하기 시작합니다. 업로드가 완료되면 코드에서 앵커 식별자를 반환합니다.
 
@@ -205,7 +205,7 @@ Azure Spatial Anchors 계정 식별자와 키가 있으면 `app\java\<PackageNam
 
 마지막으로, 모든 것을 함께 후크해 보겠습니다. `handleTap()` 메서드에서 다음 코드를 추가합니다. 구가 만들어지는 즉시 `uploadCloudAnchorAsync()` 메서드를 호출합니다. 메서드가 반환되면 아래 코드에서 구에 대한 최종 업데이트를 수행하며 구의 색이 파란색으로 변합니다.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-200&highlight=24-37)]
 
 앱을 한 번 더 [다시 배포](#trying-it-out)합니다. 디바이스 주위를 이동하고, 화면을 탭한 다음, 구를 배치합니다. 하지만 이번에는 카메라 프레임이 수집됨에 따라 구의 색이 검은색에서 흰색으로 변합니다. 프레임이 충분히 수집되면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 Android Studio 내에서 `Logcat` 창을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. 예를 들어 프레임 캡처 중의 세션 진행 상황과 업로드가 완료되면 클라우드에서 반환하는 앵커 식별자가 있습니다.
 

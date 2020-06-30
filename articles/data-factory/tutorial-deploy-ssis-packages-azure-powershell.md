@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2c3f2ccd80f2f329a7495beda1a002d84d769802
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194640"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253922"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Azure Data Factory에서 PowerShell을 사용하여 Azure-SSIS IR 설정
 
@@ -55,7 +55,7 @@ Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-
     - 선택한 데이터베이스 서버에 따라 사용자 측에서 SQL Database 또는 SQL Managed Instance 탄력적 풀의 일부 또는 단일 데이터베이스로 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 및 SQL Managed Instance 비교](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)를 참조하세요.
     
       IP 방화벽 또는 가상 네트워크 서비스 엔드포인트가 있는 SQL Database 또는 프라이빗 엔드포인트가 있는 SQL Managed Instance를 사용하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
-    - SQL Database에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. IP 방화벽 규칙 또는 가상 네트워크 서비스 엔드포인트가 있는 SQL Database 또는 프라이빗 엔드포인트가 있는 SQL Managed Instance를 사용하여 SSISDB를 호스팅하는 경우에는 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
+    - SQL Database에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. IP 방화벽 규칙 또는 가상 네트워크 서비스 엔드포인트가 있는 SQL Database 또는 프라이빗 엔드포인트가 있는 SQL Managed Instance를 사용하여 SSISDB를 호스팅하는 경우에는 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL Database 보호](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
     - 클라이언트 머신의 IP 주소 또는 이러한 주소가 포함된 IP 주소의 범위를 SQL Database에 대한 방화벽 설정의 클라이언트 IP 주소 목록에 추가합니다. 자세한 정보는 [서버 수준 및 데이터베이스 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 참조하세요.
     - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 SQL Database 또는 SQL Managed Instance에 연결하거나 데이터 팩터리에 대한 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. Azure AD 인증을 위해 데이터 팩터리의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가하려면 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
     - SQL Database 또는 SQL Managed Instance에 SSISDB가 아직 없는지 확인합니다. Azure-SSIS IR을 설정할 때 기존 SSISDB 사용은 지원되지 않습니다.

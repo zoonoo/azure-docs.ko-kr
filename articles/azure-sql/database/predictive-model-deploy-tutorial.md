@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023979"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253820"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 배포
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-세 부분으로 이루어진 이 자습서의 3부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 개발한 예측 모델을 SQL 데이터베이스에 배포합니다.
+세 부분으로 이루어진 이 자습서의 3부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 개발한 예측 모델을 Azure SQL Database의 데이터베이스에 배포합니다.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-포함된 R 스크립트를 사용하여 이 모델로 예측하는 저장 프로시저를 만듭니다. 모델은 Azure SQL Database에서 실행되므로 데이터베이스에 저장된 데이터를 통해 쉽게 학습할 수 있습니다.
+포함된 R 스크립트를 사용하여 이 모델로 예측하는 저장 프로시저를 만듭니다. 모델이 데이터베이스에서 실행되기 때문에 데이터베이스에 저장된 데이터에 대해 쉽게 학습시킬 수 있습니다.
 
 이 문서에서는 1부 및 2부에서 개발한 R 스크립트를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Azure SQL Database에서 모델을 만들고, 학습하고, 배포했습니다. 그런 다음, 저장 프로시저에서 해당 모델을 사용하여 새 데이터를 기반으로 값을 예측합니다.
+Azure SQL Database의 데이터베이스에서 성공적으로 모델을 만들고, 학습하고, 배포했습니다. 그런 다음, 저장 프로시저에서 해당 모델을 사용하여 새 데이터를 기반으로 값을 예측합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

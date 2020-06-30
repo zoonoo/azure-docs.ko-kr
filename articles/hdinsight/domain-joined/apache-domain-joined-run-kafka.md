@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677545"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105942"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -48,7 +48,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 1. **Ranger 관리 UI**를 엽니다.
 
-2. **Kafka** 아래의 **\<ClusterName>_kafka**를 선택합니다. 미리 구성된 정책 하나가 나열될 수 있습니다.
+2. **Kafka**에서 **\<ClusterName>_kafka**를 선택합니다. 미리 구성된 정책 하나가 나열될 수 있습니다.
 
 3. **새 정책 추가**를 선택하고 다음 값을 입력합니다.
 
@@ -117,8 +117,8 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 1. 다음 명령을 실행합니다.
 
    ```bash
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
 ## <a name="test-the-ranger-policies"></a>Ranger 정책 테스트
@@ -131,13 +131,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. 다음 명령을 실행하십시오.
-
-   ```bash
-   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
-   ```
-
-3. 이전 섹션의 broker 이름을 사용하여 다음 환경 변수를 설정합니다.
+2. 이전 섹션의 broker 이름을 사용하여 다음 환경 변수를 설정합니다.
 
    ```bash
    export KAFKABROKERS=<brokerlist>:9092
@@ -145,48 +139,80 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    예: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
+3. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 
-> [!NOTE]  
-> 이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).
+   > [!NOTE]  
+   > 이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).
 
-5. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
+4. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-6. 다음 명령을 실행하여 `salesevents` 토픽을 사용해 봅니다.
+5. 다음 명령을 실행하여 `salesevents` 토픽을 사용해 봅니다.
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    메시지를 읽을 수 있는지 확인합니다.
 
-7. **sales_user1**이 동일한 ssh 창에서 다음을 실행하여 `marketingspend` 항목을 생성할 수 없는지 확인합니다.
+6. **sales_user1**이 동일한 ssh 창에서 다음을 실행하여 `marketingspend` 항목을 생성할 수 없는지 확인합니다.
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
    권한 부여 오류가 발생하지만 무시해도 됩니다.
 
-8. **marketing_user1**은 `salesevents` 토픽을 사용할 수 없습니다.
+7. **marketing_user1**은 `salesevents` 토픽을 사용할 수 없습니다.
 
-   이번에는 **marketing_user1**로 위의 1-4단계를 반복합니다.
+   이번에는 **marketing_user1**로 위의 1-3단계를 반복합니다.
 
    다음 명령을 실행하여 `salesevents` 토픽을 사용해 봅니다.
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    이전 메시지를 볼 수 없습니다.
 
-9. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
+8. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
 
    ![Ranger UI 정책 감사 액세스 이벤트 ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   
+## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>콘솔을 사용하여 ESP Kafka에서 항목 생성 및 사용
+
+> [!NOTE]
+> 콘솔 명령을 사용하여 항목을 만들 수 없습니다. 대신, 이전 섹션에서 설명한 Java 코드를 사용해야 합니다. 자세한 내용은 [ESP를 사용하여 Kafka 클러스터에서 항목 만들기](#create-topics-in-a-kafka-cluster-with-esp)를 참조하세요.
+
+콘솔을 사용하여 ESP Kafka에서 항목을 생성하고 사용하려면 다음을 수행합니다.
+
+1. 사용자의 사용자 이름과 함께 `kinit`를 사용합니다. 프롬프트가 표시되면 암호를 입력합니다.
+
+   ```bash
+   kinit sales_user1
+   ```
+
+2. 환경 변수 설정:
+
+   ```bash
+   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
+   export KAFKABROKERS=<brokerlist>:9092
+   ```
+
+3. 항목 `salesevents`에 메시지를 생성합니다.
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
+
+4. 항목 `salesevents`의 메시지를 사용합니다.
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

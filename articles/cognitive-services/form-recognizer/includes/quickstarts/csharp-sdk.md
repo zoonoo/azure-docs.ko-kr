@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: efb07605d692b4980c108d60cc8f57babae68082
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fc5eb33c511b7312aca4e9a4678acbe65718f3a7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997564"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242128"
 ---
-[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -85,7 +85,7 @@ static void Main(string[] args)
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Form Recognizer 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
+dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
 ```
 
 Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
@@ -101,7 +101,7 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 * [클라이언트 인증](#authenticate-the-client)
 * [양식 콘텐츠 인식](#recognize-form-content)
-* [영수증 인식](#recognize-receipts)
+* [영수증 확인](#recognize-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
@@ -134,7 +134,7 @@ static async Task RunFormRecognizerClient()
 * 위의 방법을 사용하여 영수증 이미지의 URL을 가져오거나 제공된 샘플 이미지 URL을 사용할 수 있습니다.
 
 > [!NOTE]
-> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)의 관련 메서드를 참조하세요.
+> 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)의 관련 메서드를 참조하세요.
 
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -206,7 +206,7 @@ private static async Task<Guid> GetContent(
 }
 ```
 
-## <a name="recognize-receipts"></a>영수증 인식
+## <a name="recognize-receipts"></a>영수증 확인
 
 이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 인식 및 추출하는 방법을 보여 줍니다.
 
@@ -216,48 +216,89 @@ URI를 통해 영수증을 인식하려면 **StartRecognizeReceiptsFromUri** 메
 private static async Task<Guid> AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient
-        .StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-    foreach (var receipt in receipts.Value)
+    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
+    .WaitForCompletionAsync();
+
+    foreach (RecognizedReceipt receipt in receipts)
     {
-        USReceipt usReceipt = receipt.AsUSReceipt();
-    
-        string merchantName = usReceipt.MerchantName?.Value ?? default;
-        DateTime transactionDate = usReceipt.TransactionDate?.Value ?? default;
-        IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
-    
-        Console.WriteLine($"Recognized USReceipt fields:");
-        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence " +
-            $"{usReceipt.MerchantName.Confidence}");
-        Console.WriteLine($"    Transaction Date: '{transactionDate}', with" +
-            $" confidence {usReceipt.TransactionDate.Confidence}");
-```
-
-다음 코드 블록은 영수증에서 검색된 개별 항목에서 반복되고 콘솔에 세부 정보를 출력합니다.
-
-```csharp
-        for (int i = 0; i < items.Count; i++)
+    FormField merchantNameField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
+    {
+        if (merchantNameField.Value.Type == FieldValueType.String)
         {
-            USReceiptItem item = usReceipt.Items[i];
-            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}'," +
-                $" Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
-            Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
+            string merchantName = merchantNameField.Value.AsString();
+
+            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
         }
+    }
+
+    FormField transactionDateField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
+    {
+        if (transactionDateField.Value.Type == FieldValueType.Date)
+        {
+            DateTime transactionDate = transactionDateField.Value.AsDate();
+
+            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
+        }
+    }
 ```
 
-마지막으로, 마지막 코드 블록은 주요 영수증 세부 정보의 나머지 부분을 출력합니다.
+코드의 다음 블록은 영수증에서 검색된 개별 항목에서 반복되고 콘솔에 세부 정보를 출력합니다.
 
 ```csharp
-        float subtotal = usReceipt.Subtotal?.Value ?? default;
-        float tax = usReceipt.Tax?.Value ?? default;
-        float tip = usReceipt.Tip?.Value ?? default;
-        float total = usReceipt.Total?.Value ?? default;
-    
-        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence" +
-            $" '{usReceipt.Subtotal.Confidence}'");
-        Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
-        Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
-        Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
+    FormField itemsField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
+    {
+        if (itemsField.Value.Type == FieldValueType.List)
+        {
+            foreach (FormField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.Value.Type == FieldValueType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+
+                    FormField itemNameField;
+                    if (itemFields.TryGetValue("Name", out itemNameField))
+                    {
+                        if (itemNameField.Value.Type == FieldValueType.String)
+                        {
+                            string itemName = itemNameField.Value.AsString();
+
+                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
+                        }
+                    }
+
+                    FormField itemTotalPriceField;
+                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
+                    {
+                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
+                        {
+                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
+
+                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+```
+
+마지막으로, 마지막 코드 블록은 영수증에 총 값을 출력합니다.
+
+```csharp
+    FormField totalField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
+    {
+        if (totalField.Value.Type == FieldValueType.Float)
+        {
+            float total = totalField.Value.AsFloat();
+
+            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
+        }
     }
 }
 ```
@@ -280,22 +321,22 @@ private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
+        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 반환되는 **CustomFormModel** 개체는 모델에서 인식할 수 있는 양식 유형과 각 양식 유형에서 추출할 수 있는 필드에 대한 정보를 포함합니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Label != null)
@@ -316,29 +357,29 @@ private static async Task<Guid> TrainModel(
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>* )이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 이러한 레이블 파일이 있으면 `true`로 설정된 *uselabels* 매개 변수를 사용하여 **StartTrainingAsync** 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 이러한 레이블 파일이 있으면 `true`로 설정된 *uselabels* 매개 변수를 사용하여 **StartTrainingAsync** 메서드를 호출할 수 있습니다.
 
 ```csharp
 private static async Task<Guid> TrainModelWithLabelsAsync(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient
+    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 반환되는 **CustomFormModel**은 모델에서 추출할 수 있는 필드와 각 필드의 예상 정확도를 나타냅니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Accuracy != null)
@@ -498,9 +539,8 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ```csharp Snippet:FormRecognizerBadRequest
 try
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client
-    .StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri"))
-    .WaitForCompletionAsync();
+    RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+
 }
 catch (RequestFailedException e)
 {

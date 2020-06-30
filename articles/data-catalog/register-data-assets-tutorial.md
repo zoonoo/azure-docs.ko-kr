@@ -6,16 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021605"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255197"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>자습서: Azure Data Catalog에서 데이터 자산 등록
 
-이 자습서에서는 등록 도구를 사용하여 Azure SQL 데이터베이스 샘플의 데이터 자산을 카탈로그에 등록합니다. 등록은 데이터 원본 및 포함된 자산에서 이름, 유형 및 위치와 같은 주요 구조적 메타데이터를 추출하고 카탈로그에 메타데이터를 복사하는 과정입니다. 데이터 원본 및 데이터 자산은 있는 위치에 유지되지만 메타데이터는 보다 쉽게 검색 및 이해할 수 있도록 카탈로그를 통해 사용됩니다.
+이 자습서에서는 등록 도구를 사용하여 데이터베이스 샘플의 데이터 자산을 카탈로그에 등록합니다. 등록은 데이터 원본 및 포함된 자산에서 이름, 유형 및 위치와 같은 주요 구조적 메타데이터를 추출하고 카탈로그에 메타데이터를 복사하는 과정입니다. 데이터 원본 및 데이터 자산은 있는 위치에 유지되지만 메타데이터는 보다 쉽게 검색 및 이해할 수 있도록 카탈로그를 통해 사용됩니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -26,7 +26,7 @@ ms.locfileid: "84021605"
 > * 데이터 자산 관리
 > * 데이터 자산 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 [빠른 시작](register-data-assets-tutorial.md)을 완료해야 합니다.
 
@@ -39,11 +39,11 @@ ms.locfileid: "84021605"
 
 ### <a name="register-a-data-source"></a>데이터 원본 등록
 
-이 자습서에서는 [Azure SQL 데이터베이스 샘플](../azure-sql/database/single-database-create-quickstart.md)의 데이터 자산(테이블)을 등록하지만 사용자의 역할과 관련된 친숙한 데이터로 작업하는 것을 선호하는 경우 지원되는 모든 데이터 원본을 사용할 수 있습니다. 지원되는 데이터 원본 목록은 [지원되는 데이터 원본](data-catalog-dsr.md)을 참조하세요.
+Azure SQL Database용 [데이터베이스 샘플](../azure-sql/database/single-database-create-quickstart.md)에서 데이터 자산(테이블)을 등록하지만 사용자의 역할과 관련된 친숙한 데이터로 작업하는 것을 선호하는 경우 지원되는 모든 데이터 원본을 사용할 수 있습니다. 지원되는 데이터 원본 목록은 [지원되는 데이터 원본](data-catalog-dsr.md)을 참조하세요.
 
-이 자습서에서 사용하는 Azure SQL 데이터베이스 이름은 *RLSTest*입니다.
+이 자습서에서 사용하는 데이터베이스 이름은 *RLSTest*입니다.
 
-이제 Azure Data Catalog를 사용하여 Azure SQL 데이터베이스 샘플의 데이터 자산을 등록할 수 있습니다.
+이제 Azure Data Catalog를 사용하여 데이터베이스 샘플의 데이터 자산을 등록할 수 있습니다.
 
 1. [Azure Data Catalog 홈 페이지](http://azuredatacatalog.com) 로 이동하고 **데이터 게시**를 선택합니다.
 
@@ -61,13 +61,13 @@ ms.locfileid: "84021605"
 
     ![Azure Data Catalog - 데이터 원본](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Azure SQL 데이터베이스 샘플에 대 한 SQL Server 연결 속성을 입력하고 **연결**을 선택합니다.
+5. Azure SQL Database의 데이터베이스 샘플에 대한 SQL Server 연결 속성을 입력하고 **연결**을 선택합니다.
 
    ![Azure Data Catalog - SQL Server 연결 설정](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. 데이터 자산의 메타데이터를 등록합니다. 이 예제에서는 Azure SQL 데이터베이스 샘플 네임스페이스에서 **제품** 개체를 등록합니다.
+6. 데이터 자산의 메타데이터를 등록합니다. 이 예제에서는 샘플 네임스페이스에서 **제품** 개체를 등록합니다.
 
-    1. **서버 계층** 트리에서 Azure SQL 데이터베이스 샘플을 확장하고 **SalesLT**를 선택합니다.
+    1. **서버 계층** 트리에서 데이터베이스 샘플을 확장하고 **SalesLT**를 선택합니다.
 
     2. Ctrl 키를 누른 채 **Product**, **ProductCategory**, **ProductDescription** 및 **ProductPhoto**를 선택합니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "84021605"
 
           ![Azure Data Catalog 자습서- 등록할 개체](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. **등록**을 선택합니다. Azure 데이터 카탈로그는 선택한 개체를 등록합니다. 이 연습에서는 Azure SQL 데이터베이스 샘플에서 선택한 개체가 등록됩니다. 등록 도구는 데이터 자산에서 메타데이터를 추출하고 데이터를 Azure Data Catalog 서비스로 복사합니다. 데이터는 현재 있는 위치에 유지됩니다. 데이터에 대한 관리자의 제어와 원래 시스템의 정책 적용은 유지됩니다.
+    8. **등록**을 선택합니다. Azure 데이터 카탈로그는 선택한 개체를 등록합니다. 이 연습에서는 데이터베이스 샘플에서 선택한 개체가 등록됩니다. 등록 도구는 데이터 자산에서 메타데이터를 추출하고 데이터를 Azure Data Catalog 서비스로 복사합니다. 데이터는 현재 있는 위치에 유지됩니다. 데이터에 대한 관리자의 제어와 원래 시스템의 정책 적용은 유지됩니다.
 
           ![Azure Data Catalog - 등록된 개체](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "84021605"
 
         ![Azure Data Catalog 포털에 있는 개체](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-이 연습에서는 Azure SQL 데이터베이스 샘플에서 개체를 등록했으므로 조직 전체의 사용자가 쉽게 검색할 수 있습니다.
+이 연습에서는 조직 전체의 사용자가 쉽게 찾을 수 있도록 Azure SQL Database에 대한 데이터베이스 샘플에서 개체를 등록했습니다.
 
 다음 연습에서는 등록된 데이터 자산을 검색하는 방법을 배웁니다.
 
@@ -178,7 +178,7 @@ Azure Data Catalog에서 검색은 검색 및 필터링이라는 두 가지 기�
 
 3. **Enter**키를 누릅니다.
 
-4. **Product**, **ProductCategory** 및 **ProductDescription** 테이블 및 검색 결과에 등록된 Azure SQL 데이터베이스가 표시되는지 확인합니다.
+4. **Product**, **ProductCategory** 및 **ProductDescription** 테이블 및 검색 결과에 등록된 SQL 데이터베이스가 표시되는지 확인합니다.
 
     ![Azure Data Catalog - 비교 검색 결과](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ Azure Data Catalog는 주석에 대한 크라우드 소싱 접근 방식을 지�
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-이 연습에서는 Azure Data Catalog를 사용하여 검색된 데이터 자산에 연결했습니다. Azure Data Catalog 포털에서 **열기** 메뉴에 통합된 클라이언트 애플리케이션을 사용하여 직접 연결할 수 있습니다. 자산 메타데이터에 포함된 연결 위치 정보를 사용하여 선택한 애플리케이션과 연결할 수도 있습니다. 예를 들어 SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스에 연결하고 이 자습서에 등록된 데이터 자산의 데이터에 액세스할 수 있습니다.
+이 연습에서는 Azure Data Catalog를 사용하여 검색된 데이터 자산에 연결했습니다. Azure Data Catalog 포털에서 **열기** 메뉴에 통합된 클라이언트 애플리케이션을 사용하여 직접 연결할 수 있습니다. 자산 메타데이터에 포함된 연결 위치 정보를 사용하여 선택한 애플리케이션과 연결할 수도 있습니다. 예를 들어 SQL Server Management Studio를 사용하여 Azure SQL Database에 연결하고 이 자습서에 등록된 데이터 자산의 데이터에 액세스할 수 있습니다.
 
 1. **SQL Server Management Studio**를 엽니다.
 

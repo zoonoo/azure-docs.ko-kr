@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441139"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119174"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Node.js Express 앱 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "75441139"
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서의 이 부분을 시작하기 전에 [소개 비디오](tutorial-develop-mongodb-nodejs.md)를 시청했는지 확인합니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "75441139"
 
     이 응답에서는 앱을 로컬로 실행된다고 표시합니다. 
 
-    ![요청 및 응답을 보여주는 Postman](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="요청 및 응답을 보여주는 Postman":::
 
 
 ## <a name="next-steps"></a>다음 단계

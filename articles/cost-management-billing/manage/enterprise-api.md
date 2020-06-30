@@ -5,16 +5,20 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: bf1acd8bce53801c7c241121db2079e9b8a01851
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383177"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253709"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
+
+> [!Note]
+> Microsoft는 더 이상 Azure Billing - Enterprise Reporting API를 업데이트하지 않습니다. 대신 [Azure Consumption](/rest/api/consumption) API를 사용해야 합니다.
+
 Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 기업 고객은 Azure와 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)를 체결하여 현금 약정 금액을 협상하고 Azure 리소스에 대한 사용자 지정 가격에 액세스할 수 있습니다.
 
 API에 필요한 모든 날짜 및 시간 매개 변수는 결합된 UTC(Unified 협정 세계시) 값으로 표시되어야 합니다. API에서 반환된 값은 UTC 형식으로 표시됩니다.
@@ -27,7 +31,7 @@ API에 필요한 모든 날짜 및 시간 매개 변수는 결합된 UTC(Unified
 |-|-|
 |권한 부여| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09|
 
-## <a name="consumption-apis"></a>사용량 API
+## <a name="consumption-based-apis"></a>사용량 기반 API
 Swagger 엔드포인트는 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](https://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/swagger/ui/index)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다.
 
 * **잔액 및 요약** - [잔액 및 요약 API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 제공합니다.

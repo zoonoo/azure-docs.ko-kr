@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730028"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118256"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 
@@ -30,7 +30,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [Gremlin API](graph-introduction.md) 계정, 데이터베이스 및 그래프(컨테이너)를 만드는 방법을 보여줍니다. 그런 후 오픈 소스 드라이버 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)을 사용하여 콘솔 앱을 빌드하고 실행합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
@@ -109,7 +109,7 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 
    **Gremlin 엔드포인트** - Gremlin.Net 라이브러리를 사용하여 그래프 계정에 연결하는 경우 이 값이 사용됩니다.
 
-    ![엔드포인트 복사](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="엔드포인트 복사":::
 
    이 샘플을 실행하려면 **Gremlin 엔드포인트** 값을 복사하고, 끝 부분에 있는 포트 번호를 삭제합니다. 즉, URI가 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`이 됩니다. 엔드포인트 값이 `testgraphacct.gremlin.cosmosdb.azure.com`과 같습니다.
 
@@ -146,7 +146,7 @@ Ctrl+F5를 눌러 애플리케이션을 실행합니다. 애플리케이션이 G
 
     그래프를 확대/축소하고, 그래프 표시 공간을 확장하고, 꼭짓점을 추가하고, 표시 표면에서 꼭짓점을 이동할 수 있습니다.
 
-    ![Azure Portal의 데이터 탐색기에서 그래프 보기](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Azure Portal의 데이터 탐색기에서 그래프 보기":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

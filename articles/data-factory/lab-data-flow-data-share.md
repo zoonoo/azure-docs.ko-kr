@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415917"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252664"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -22,11 +22,11 @@ ms.locfileid: "81415917"
 
 코드 없는 ETL/ELT 사용부터 데이터에 대한 포괄적인 뷰 만들기까지, 데이터 엔지니어들은 Azure Data Factory의 향상된 기능을 사용하여 안심하고 더 많은 데이터를 가져올 수 있으며, 따라서 기업에 더 많은 가치를 제공할 수 있습니다. Azure Data Share를 사용하면 관리되는 방식으로 B2B 공유를 수행할 수 있습니다.
 
-이 워크샵에서는 ADF(Azure Data Factory)를 사용하여 Azure SQL DB(SQL 데이터베이스)에서 ADLS gen2(Azure Data Lake Storage gen2)로 데이터를 수집합니다. 데이터를 레이크로 가져온 후에는 데이터 팩터리의 네이티브 변환 서비스인 매핑 데이터 흐름을 통해 데이터를 변환하고 Azure Synapse Analytics(이전의 SQL DW)로 싱크합니다. 그런 다음, Azure Data Share를 사용하여 일부 추가 데이터와 함께 테이블을 변환된 데이터와 공유합니다. 
+이 워크샵에서는 ADF(Azure Data Factory)를 사용하여 Azure SQL Database에서 ADLS gen2(Azure Data Lake Storage gen2)로 데이터를 수집합니다. 데이터를 레이크로 가져온 후에는 데이터 팩터리의 네이티브 변환 서비스인 매핑 데이터 흐름을 통해 데이터를 변환하고 Azure Synapse Analytics(이전의 SQL DW)로 싱크합니다. 그런 다음, Azure Data Share를 사용하여 일부 추가 데이터와 함께 테이블을 변환된 데이터와 공유합니다. 
 
-이 랩에 사용되는 데이터는 뉴욕시 택시 데이터입니다. 이 데이터를 Azure SQL 데이터베이스로 가져오려면 [taxi-data bacpac 파일](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac)을 다운로드합니다.
+이 랩에 사용되는 데이터는 뉴욕시 택시 데이터입니다. 이 데이터를 SQL Database의 데이터베이스로 가져오려면 [taxi-data bacpac 파일](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac)을 다운로드합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -62,7 +62,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
     ![포털](media/lab-data-flow-data-share/configure1.png)
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL 데이터베이스 연결된 서비스 만들기
+### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 
 1. 작성 페이지에서는 파이프라인, 데이터 세트, 데이터 흐름, 트리거 및 연결된 서비스와 같은 데이터 팩터리 리소스를 만들 수 있습니다. 연결된 서비스를 만들려면 오른쪽 아래 모서리에 있는 **연결** 단추를 클릭합니다.
 

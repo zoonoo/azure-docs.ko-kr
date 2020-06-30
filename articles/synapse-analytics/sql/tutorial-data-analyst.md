@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299539"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213145"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>주문형 SQL(미리 보기)을 사용하여 Azure Open Datasets를 분석하고 그 결과를 Azure Synapse Studio(미리 보기)에서 시각화
 
@@ -23,7 +23,7 @@ ms.locfileid: "84299539"
 특히 다음을 포함하는 [뉴욕시(NYC) 택시 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 분석합니다.
 
 - 승하차 날짜와 시간
-- 승하차 위치 
+- 승하차 위치. 
 - 이동 거리
 - 항목별 요금
 - 요율 유형
@@ -32,7 +32,7 @@ ms.locfileid: "84299539"
 
 ## <a name="automatic-schema-inference"></a>자동 스키마 유추
 
-데이터는 Parquet 파일 형식으로 저장되므로 자동 스키마 유추를 사용할 수 있습니다. 파일의 모든 열에 대한 데이터 형식을 나열할 필요 없이 데이터를 쉽게 쿼리할 수 있습니다. 또한 가상 열 메커니즘과 filepath 함수를 활용하여 파일의 특정 하위 집합을 필터링할 수 있습니다.
+데이터는 Parquet 파일 형식으로 저장되므로 자동 스키마 유추를 사용할 수 있습니다. 파일에 있는 모든 열의 데이터 형식을 나열할 필요 없이 데이터를 쉽게 쿼리할 수 있습니다. 또한 가상 열 메커니즘과 filepath 함수를 활용하여 파일의 특정 하위 집합을 필터링할 수 있습니다.
 
 먼저 다음 쿼리를 실행하여 NYC 택시 데이터를 살펴보도록 하겠습니다.
 

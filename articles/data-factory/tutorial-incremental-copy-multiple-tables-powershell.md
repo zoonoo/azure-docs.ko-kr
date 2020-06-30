@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 여러 테이블 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 18f004b88a2b79f057ce3bf2fcc4cbe73e2b46da
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736625"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250964"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **SQL Server**. 이 자습서에서는 SQL Server 데이터베이스를 원본 데이터 저장소로 사용합니다. 
-* **Azure SQL Database**. SQL 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요. 
+* **Azure SQL Database**. Azure SQL Database의 데이터베이스를 싱크 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>SQL Server 데이터베이스에 원본 테이블 만들기
 
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **서버 탐색기(SSMS)** 또는 **연결 창(Azure Data Studio)** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**을 선택합니다.
 
-3. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
+3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 Azure SQL Database에 또 다른 테이블 만들기
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>상위 워터마크 값을 저장하기 위해 다른 테이블을 Azure SQL Database에 만들기
 
-1. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다. 
+1. 데이터베이스에 대해 다음 SQL 명령을 실행하여 워터마크 값을 저장할 `watermarktable` 테이블을 만듭니다. 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL Database에 저장 프로시저 만들기 
 
-다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
+다음 명령을 실행하여 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Azure SQL Database에 데이터 형식 및 추가 저장 프로시저 만들기
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL Database에 데이터 형식 및 추가 저장 프로시저 만들기
 
-다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다. 
+다음 쿼리를 실행하여 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다. 
 
 여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "많은" 수(100개 초과)의 델타 행이 저장될 수 없으니 주의하세요.  
 
@@ -283,13 +283,13 @@ END
 
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
 
-* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database, SQL Managed Instance 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스와 Azure SQL Database에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 SQL Server 데이터베이스 및 Azure SQL Database의 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
 
@@ -372,7 +372,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>SQL 데이터베이스에 연결된 서비스 만들기
+### <a name="create-the-sql-database-linked-service"></a>SQL Database에 연결된 서비스 만들기
 
 1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt; 및 &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 이름 및 암호로 바꿉니다. 
 

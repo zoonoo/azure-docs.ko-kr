@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75500012"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118120"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB 소개: Gremlin API
 
 [Azure Cosmos DB](introduction.md) 는 중요 업무용 애플리케이션에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. 문서, 키-값, 그래프 및 열 패밀리 데이터 모델을 지원하는 다중 모델 데이터베이스입니다. Azure Cosmos DB Gremlin API는 규모에 상관없이 사용할 수 있도록 설계된 완전 관리형 데이터베이스 서비스에서 그래프 데이터를 저장하고 운영하는 데 사용됩니다.  
 
-![Azure Cosmos DB 그래프 아키텍처](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB 그래프 아키텍처" border="false":::
 
 이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB의 Gremlin API는 [Apache TinkerPop](https://tinkerpop.apache.org)  그래프 데이터베이스 표준을 기반으로 하며 Gremlin 쿼리 언어를 사용합니다. 
 
@@ -101,7 +101,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 ### <a name="gremlin-by-example"></a>Gremlin 예제
 샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 애플리케이션을 보여줍니다.  
 
-![사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스" border="false"::: 
 
 이 그래프에는 다음과 같은 *꼭짓점* 유형(Gremlin의 "레이블")이 있습니다.
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: fb0e08c9d85f4472a2fa13001e71edd12149d430
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858726"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114285"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "82858726"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 자습서를 시작하기 전에 [4부](tutorial-develop-mongodb-nodejs-part4.md)의 단계를 완료해야 합니다.
 
@@ -234,7 +234,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 1. 이제 브라우저로 전환합니다. **개발자 도구**를 열고 **네트워크 탭**을 엽니다. `http://localhost:3000`으로 이동하면 애플리케이션을 볼 수 있습니다.
 
-    ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::
 
 아직 앱에 저장된 Heroes가 없습니다. 이 자습서의 다음 파트에서는 배치, 푸시 및 삭제 기능을 추가하겠습니다. 그런 다음, Mongoose를 Azure Cosmos 데이터베이스에 연결하여 UI에서 Heroes를 추가, 업데이트 및 삭제할 수 있습니다. 
 

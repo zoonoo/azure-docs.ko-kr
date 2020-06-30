@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1bff1e22df1583491bf8d249cdb8752e9a1e4f57
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e06d7d73230b17710d8c667ab89d5ead522e6de1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485393"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254262"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "84485393"
 Cloud Shell 프롬프트에서 다음 Maven 명령을 실행하여 `helloworld`라는 새 앱을 만듭니다.
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 그런 다음, 작업 디렉터리를 프로젝트 폴더로 변경합니다.
 
@@ -140,7 +140,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Java를 사용하여 Azure SQL 데이터베이스에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Java를 사용하여 Azure SQL Database에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Java를 사용하여 Azure DB for MySQL에 연결](/azure/mysql/connect-java)

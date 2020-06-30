@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ed46859184dd17141892373943ac43e407b21eb6
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817678"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249468"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "84817678"
 Cloud Shell 프롬프트에서 다음 Maven 명령을 실행하여 `helloworld`라는 새 앱을 만듭니다.
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 그런 다음, 작업 디렉터리를 프로젝트 폴더로 변경합니다.
@@ -59,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 샘플 프로세스는 다음과 같습니다.
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -179,7 +179,7 @@ mvn package azure-webapp:deploy
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Java를 사용하여 Azure SQL 데이터베이스에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Java를 사용하여 Azure SQL Database에 연결](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Java를 사용하여 Azure DB for MySQL에 연결](/azure/mysql/connect-java)

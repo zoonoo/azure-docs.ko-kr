@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a5936501f45694febe284d9747bdefdfeae6aeb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca0af9a34587f8d3a3c0502c77556975b1d8df4e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023990"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253837"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-세 부분으로 이루어진 이 자습서 시리즈의 2부에서는 R에서 두 가지 예측 모델을 만든 후 가장 정확한 모델을 선택합니다. 이 시리즈의 다음 부분에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 이 모델을 SQL 데이터베이스에 배포합니다.
+세 부분으로 이루어진 이 자습서 시리즈의 2부에서는 R에서 두 가지 예측 모델을 만든 후 가장 정확한 모델을 선택합니다. 이 시리즈의 다음 부분에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 이 모델을 Azure SQL Database의 데이터베이스에 배포합니다.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "84023990"
 
 [1부](predictive-model-prepare-data-tutorial.md)에서는 샘플 데이터베이스를 가져온 다음, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
 
-[3부](predictive-model-deploy-tutorial.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 SQL 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
+[3부](predictive-model-deploy-tutorial.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

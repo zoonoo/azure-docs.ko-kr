@@ -9,15 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7aa7c33a94980081efa3bc54422389aef7defa61
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254053"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>자습서: SQL 데이터 동기화를 사용하여 SQL Edge에서 Azure SQL Database로 데이터 동기화
-
 
 이 자습서에서는 Azure SQL 데이터 동기화 *동기화 그룹*을 사용하여 Azure SQL Edge에서 Azure SQL Database로 데이터를 증분 방식으로 동기화하는 방법에 대해 설명합니다. SQL 데이터 동기화는 Azure SQL Database의 여러 데이터베이스 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다. SQL 데이터 동기화에 대한 자세한 내용은 [Azure SQL 데이터 동기화](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
@@ -29,7 +28,7 @@ SQL Edge는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-ser
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure SQL 데이터베이스를 만듭니다. Azure Portal을 사용하여 Azure SQL 데이터베이스를 만드는 방법에 대한 자세한 내용은 [Azure SQL Database의 단일 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)를 참조하세요.
+* Azure SQL Database에서 데이터베이스를 만듭니다. Azure Portal을 사용하여 데이터베이스를 만드는 방법에 대한 자세한 내용은 [Azure SQL Database의 단일 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)를 참조하세요.
 
 * Azure SQL Database 배포에 테이블 및 기타 필요한 개체를 만듭니다.
 
@@ -37,9 +36,9 @@ SQL Edge는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-ser
 
 * Azure SQL Edge 인스턴스를 Azure SQL 데이터 동기화용 데이터 동기화 에이전트에 등록합니다. 자세한 내용은 [SQL Server 데이터베이스 추가](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem)를 참조하세요.
 
-## <a name="sync-data-between-an-azure-sql-database-and-sql-edge"></a>Azure SQL 데이터베이스와 SQL Edge 간에 데이터 동기화
+## <a name="sync-data-between-a-database-in-azure-sql-database-and-sql-edge"></a>Azure SQL Database의 데이터베이스와 SQL Edge 간에 데이터 동기화
 
-SQL 데이터 동기화를 사용하여 Azure SQL 데이터베이스와 SQL Edge 인스턴스 간에 동기화를 설정하려면 다음과 같은 세 가지 주요 단계가 필요합니다.  
+SQL 데이터 동기화를 사용하여 Azure SQL Database의 데이터베이스와 SQL Edge 인스턴스 간에 동기화를 설정하려면 다음과 같은 세 가지 주요 단계가 필요합니다.  
 
 
 1. Azure Portal을 사용하여 동기화 그룹을 만듭니다. 자세한 내용은 [동기화 그룹 만들기](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group)를 참조하세요. 단일 *허브* 데이터베이스를 사용하여 다양한 SQL Edge 인스턴스의 데이터를 Azure SQL Database에 있는 하나 이상의 데이터베이스와 동기화하는 여러 동기화 그룹을 만들 수 있습니다. 
@@ -48,7 +47,7 @@ SQL 데이터 동기화를 사용하여 Azure SQL 데이터베이스와 SQL Edge
 
 3. 동기화 그룹을 설정하여 동기화에 포함될 테이블을 선택합니다. 자세한 내용은 [동기화 그룹 구성](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-sync-members)을 참조하세요.
 
-위의 단계를 완료하면 Azure SQL 데이터베이스와 SQL Edge 인스턴스를 포함하는 동기화 그룹이 만들어집니다.
+위의 단계를 완료하면 Azure SQL Database의 데이터베이스와 SQL Edge 인스턴스를 포함하는 동기화 그룹이 만들어집니다.
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음 문서를 참조하세요.
 

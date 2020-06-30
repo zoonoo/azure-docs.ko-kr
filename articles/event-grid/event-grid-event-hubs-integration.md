@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610820"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212210"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
@@ -173,7 +173,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 2. SQL 데이터 웨어하우스 페이지의 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. 
 
     ![SQL 데이터 웨어하우스 페이지](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. SQL 서버의 **사용자** 이름 및 **암호**를 입력하고, **확인**을 선택합니다. SQL server에 성공적으로 로그인 하려면 방화벽에 대한 클라이언트 IP 주소가 필요할 수 있습니다. 
+2. SQL 서버의 **사용자** 이름 및 **암호**를 입력하고, **확인**을 선택합니다. SQL 서버에 성공적으로 로그인하려면 방화벽에 클라이언트 IP 주소를 추가해야 할 수도 있습니다. 
 
     ![SQL 서버 인증](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. 쿼리 창에서 다음 SQL 스크립트를 복사하여 실행합니다. 

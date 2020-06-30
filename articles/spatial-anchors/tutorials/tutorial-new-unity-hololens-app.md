@@ -5,21 +5,21 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/05/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a3a81cdfa9e3c6659c870b184cda4ebe6f7f805a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429678"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297990"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
 이 자습서에서는 Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "84429678"
 
 다음 멤버 변수를 `AzureSpatialAnchorsScript` 클래스에 추가합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
 
 계속하기 전에, spherePrefab 멤버 변수에서 만든 구체 prefab을 설정해야 합니다. **Unity**로 돌아갑니다.
 1. **Unity**의 **계층** 창에서 **MixedRealityCloud** 개체를 선택합니다.
@@ -111,15 +111,15 @@ ms.locfileid: "84429678"
 
 **Visual Studio**에서 `AzureSpatialAnchorsScript.cs` 파일을 다시 엽니다. 다음 코드를 `Start()` 메서드에 추가합니다. 이 코드는 `GestureRecognizer`를 후크하여 에어 탭이 있는지 감지하고 `HandleTap`을 호출합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
 이제 `Update()` 아래에 다음 `HandleTap()` 메서드를 추가해야 합니다. 광선 캐스트를 수행하고 구를 배치할 적중 지점을 가져옵니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-283,305-306,310-318)]
 
 이제는 구를 만들어야 합니다. 구는 처음에는 흰색이지만 나중에 이 값이 조정됩니다. 다음 `CreateAndSaveSphere()` 메서드를 추가합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-331,396)]
 
 **Visual Studio**에서 앱을 실행하여 유효성을 한 번 더 검사합니다. 이번에는 화면을 탭하여 원하는 표면에 흰색 구를 만들고 배치합니다.
 
@@ -129,15 +129,15 @@ Unity로 작업할 때 모든 Unity API(예: UI 업데이트를 수행하는 데
 
 작업 큐에 해당하는 멤버 변수 dispatchQueue를 추가합니다. 작업을 큐에 밀어넣은 후 큐에서 제거하고 주 스레드에서 실행합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-56&highlight=6-9)]
 
 다음으로, 큐에 작업을 추가하는 방법을 추가해 보겠습니다. `Update()` 바로 뒤에 `QueueOnUpdate()`를 추가합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=112-122)]
 
 이제 Update() 루프를 사용하여 큐에 대기된 작업이 있는지 확인하겠습니다. 작업이 있으므로 큐에서 제거한 후 실행합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=95-105&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Azure Spatial Anchors SDK 다운로드
 
@@ -165,37 +165,37 @@ NuGetForUnity가 설치되면 **NuGet** > **NuGet 패키지 관리**를 선택�
 
 다음으로, 다음 멤버 변수를 `AzureSpatialAnchorsScript` 클래스에 추가합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=48-63&highlight=6-11)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=53-68&highlight=6-11)]
 
 ## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>로컬 Azure Spatial Anchor를 로컬 앵커에 연결
 
 Azure Spatial Anchor의 CloudSpatialAnchorSession을 설정해보겠습니다. 먼저 `AzureSpatialAnchorsScript` 클래스 내에 다음 `InitializeSession()` 메서드를 추가합니다. 호출되면 앱을 시작하는 동안 Azure Spatial Anchors 세션이 만들어지고 제대로 초기화됩니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=179-208,211-215)]
 
 이제 대리자 호출을 처리하는 코드를 작성해야 합니다. 계속 진행하면서 코드를 더 추가하게 됩니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=217-232)]
 
 이제 `initializeSession()` 메서드를 `Start()` 메서드에 후크하겠습니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-98&highlight=12)]
 
 마지막으로, 다음 코드를 `CreateAndSaveSphere()` 메서드에 추가합니다. 이렇게 하면 로컬 Azure Spatial Anchor가 실제 환경에 배치하는 구에 연결됩니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-344,396&highlight=14-25)]
 
-계속 진행하기 전에 Azure Spatial Anchors 계정 식별자와 키가 아직 없는 경우 이를 만들어야 합니다. 다음 섹션에 따라 이러한 항목을 얻습니다.
+계속 진행하기 전에 Azure Spatial Anchors 계정을 만들어 계정 식별자, 키 및 도메인을 가져와야 합니다(아직 없는 경우). 다음 섹션에 따라 이러한 항목을 얻습니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>클라우드에 로컬 앵커 업로드
 
-Azure Spatial Anchors 계정 식별자 및 키가 있으면 `Account Id`를 `SpatialAnchorsAccountId`에, `Account Key`를 `SpatialAnchorsAccountKey`에 붙여넣습니다.
+Azure Spatial Anchors 계정 식별자, 키 및 도메인이 있으면 `Account Id`를 `SpatialAnchorsAccountId`에, `Account Key`를 `SpatialAnchorsAccountKey`에, `Account Domain`을 `SpatialAnchorsAccountDomain`에 붙여넣습니다.
 
 마지막으로, 모든 것을 함께 후크해 보겠습니다. `SpawnNewAnchoredObject()` 메서드에서 다음 코드를 추가합니다. 구가 만들어지는 즉시 `CreateAnchorAsync()` 메서드를 호출합니다. 메서드가 반환되면 아래 코드에서 구에 대한 최종 업데이트를 수행하며 구의 색이 파란색으로 변합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
 **Visual Studio**에서 앱을 한 번 더 실행합니다. 머리를 움직여본 후 에어 탭을 움직여 구를 배치합니다. 프레임이 충분히 수집되면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 **Visual Studio** 내에서 출력 창을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. 만들기에 대해 권장되는 진행률 뿐만 아니라 업로드가 완료될 때 클라우드가 반환하는 앵커 식별자를 볼 수 있습니다.
 
@@ -210,20 +210,20 @@ Azure Spatial Anchors 계정 식별자 및 키가 있으면 `Account Id`를 `Spa
 * `CloudSpatialAnchorSession`을 다시 초기화합니다. 이를 통해 만든 로컬 앵커가 아닌 클라우드에서 제공되는 앵커를 찾아 사용할 수 있습니다.
 * Azure Spatial Anchors에 업로드한 앵커를 찾는 **Watcher**를 만듭니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
 이제 `ResetSession()` 및 `CleanupObjects()` 메서드를 추가해 보겠습니다. 이러한 메서드를 `QueueOnUpdate()` 아래에 배치할 수 있습니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
 이제 쿼리하는 앵커를 찾을 때 호출될 코드를 후크해야 합니다. `InitializeSession()` 내부에 다음 콜백을 추가합니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=4-5)]
 
 
 이제 CloudSpatialAnchor를 찾으면 녹색 구를 만들고 배치하는 코드를 추가합니다. 또한 화면 태핑을 다시 활성화할 수 있으므로 전체 시나리오를 다시 한 번 반복할 수 있습니다. 즉, 다른 로컬 앵커를 만들고, 업로드하고, 다시 찾을 수 있습니다.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
 이것으로 끝입니다. 앱을 마지막으로 **Visual Studio**에서 실행하여 엔드투엔드 시나리오 전체를 진행합니다. 디바이스 주위를 이동하고 흰색 구를 배치합니다. 그런 다음, 구가 노란색으로 변할 때까지 머리를 계속 움직이면서 환경 데이터를 캡처합니다. 로컬 앵커가 업로드되고 구가 파란색으로 변합니다. 마지막으로, 화면을 한 번 더 탭하면 로컬 앵커가 제거된 다음, 해당 클라우드에 대한 쿼리가 수행됩니다. 클라우드 공간 앵커를 찾을 때까지 디바이스 주위를 계속 이동합니다. 녹색 구가 올바른 위치에 나타나야 하며 전체 시나리오를 다시 초기화하고 반복할 수 있습니다.
 

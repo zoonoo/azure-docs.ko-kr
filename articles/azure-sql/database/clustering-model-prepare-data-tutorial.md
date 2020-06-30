@@ -1,7 +1,7 @@
 ---
 title: '자습서: R에서 클러스터링을 수행할 데이터 준비'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 3부작 자습서 시리즈의 1부인 이 자습서에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스의 데이터를 준비하겠습니다.
+description: 세 부분으로 구성된 이 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행할 수 있도록 Azure SQL Database의 데이터베이스에서 데이터를 준비합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c06e1b13f87972cbcd50e888edf55158b77881d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a23dbd150dbe8ab05e0d4cf1f3decd67a856cbf4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024100"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251253"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링을 수행하기 위한 데이터 준비
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL 데이터베이스의 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)를 통해 R의 클러스터링 모델을 학습하고 배포합니다.
+세 부분으로 구성된 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL Database의 데이터베이스에서 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)를 통해 R의 클러스터링 모델을 학습하고 배포합니다.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "84024100"
 **K-평균** 알고리즘을 사용하여 제품 구매 및 반품 데이터 세트에서 고객에 대한 클러스터링을 수행합니다. 고객을 클러스터링하면 특정 그룹을 대상으로 보다 효과적으로 마케팅 노력을 집중할 수 있습니다.
 K-평균 클러스터링은 유사성을 기준으로 데이터의 패턴을 찾는 *자율 학습* 알고리즘입니다.
 
-이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
+이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -40,11 +40,11 @@ K-평균 클러스터링은 유사성을 기준으로 데이터의 패턴을 찾
 >
 > * 샘플 데이터베이스를 Azure SQL Database로 가져오기
 > * R을 사용하여 다양한 기준에 따라 고객 분류
-> * Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+> * 데이터베이스의 데이터를 R 데이터 프레임에 로드
 
 [2부](clustering-model-build-tutorial.md)에서는 R에서 K-평균 클러스터링 모델을 만들고 학습하는 방법을 알아봅니다.
 
-[3부](clustering-model-deploy-tutorial.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 Azure SQL 데이터베이스에 저장 프로시저를 만드는 방법을 알아봅니다.
+[3부](clustering-model-deploy-tutorial.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 저장 프로시저를 만드는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -68,7 +68,7 @@ K-평균 클러스터링은 유사성을 기준으로 데이터의 패턴을 찾
 
 1. [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac) 파일을 다운로드합니다.
 
-1. 다음 세부 정보를 사용하여 [BACPAC 파일을 가져와 Azure SQL Database 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-import)의 지침을 따르세요.
+1. 다음 세부 정보를 사용하여 [Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일 가져오기](../../azure-sql/database/database-import.md)의 지침을 따르세요.
 
    * 다운로드한 **tpcxbb_1gb.bacpac** 파일에서 가져오기
    * 공개 미리 보기 동안 새 데이터베이스에 대해 **Gen5/vCore** 구성 선택
@@ -211,9 +211,9 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 이 자습서 시리즈의 1부에서 다음 단계를 완료했습니다.
 
-* 샘플 데이터베이스를 Azure SQL Database로 가져오기
+* Azure SQL Database의 데이터베이스로 샘플 데이터베이스 가져오기
 * R을 사용하여 다양한 기준에 따라 고객 분류
-* Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+* 데이터베이스의 데이터를 R 데이터 프레임에 로드
 
 이 고객 데이터를 사용하는 기계 학습 모델을 만들려면 이 자습서 시리즈의 2부를 진행하세요.
 

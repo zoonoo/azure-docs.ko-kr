@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 데이터 팩터리 파이프라인 만들기
-description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248620"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253969"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 > [!NOTE]
 > - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -41,7 +41,7 @@ ms.locfileid: "84248620"
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
-* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)에서 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -61,7 +61,7 @@ ms.locfileid: "84248620"
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 
-1. 다음 SQL 스크립트를 사용하여 SQL 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
+1. 다음 SQL 스크립트를 사용하여 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -154,7 +154,7 @@ ms.locfileid: "84248620"
 
 1. **새 데이터 세트** 대화 상자에서 검색 상자에 “SQL”을 입력하여 커넥터를 필터링하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다.
 
-1. **속성 설정** 대화 상자에서 이름에 **OutputSqlDataset**를 입력합니다. **연결된 서비스** 드롭다운 목록에서 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다.
+1. **속성 설정** 대화 상자에서 이름에 **OutputSqlDataset**를 입력합니다. **연결된 서비스** 드롭다운 목록에서 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL Database에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다.
 
 1. **새로 연결된 서비스(Azure SQL Database)** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -162,7 +162,7 @@ ms.locfileid: "84248620"
 
     b. **서버 이름** 아래에서 SQL Server 인스턴스를 선택합니다.
 
-    다. **데이터베이스 이름** 아래에서 SQL 데이터베이스를 선택합니다.
+    다. **데이터베이스 이름** 아래에서 데이터베이스를 선택합니다.
 
     d. **사용자 이름** 아래에서 사용자의 이름을 입력합니다.
 
@@ -209,7 +209,7 @@ ms.locfileid: "84248620"
 
     [![활동 실행 모니터링](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. SQL 데이터베이스의 **emp** 테이블에 둘 이상의 행이 추가되어 있는지 확인합니다.
+1. 데이터베이스의 **emp** 테이블에 둘 이상의 행이 추가되어 있는지 확인합니다.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>일정에 따라 파이프라인 트리거
 이 일정에서 파이프라인에 대한 스케줄러 트리거를 만듭니다. 트리거는 지정된 일정(예: 매시간, 매일)에 따라 파이프라인을 실행합니다. 여기에서는 지정된 종료 날짜/시간까지 매분마다 실행되도록 트리거를 설정합니다.

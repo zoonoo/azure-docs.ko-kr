@@ -1,6 +1,6 @@
 ---
 title: '자습서: REST API를 사용하여 Azure Data Factory 파이프라인 만들기 '
-description: 이 자습서에서는 REST API를 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 REST API를 사용하여 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119242"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248584"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "84119242"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-rest-api.md)를 참조하세요. 
 
-이 문서에서는 REST API를 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
+이 문서에서는 REST API를 사용하여 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
 이 자습서에는 다음 한 가지 작업이 포함된 파이프라인을 만듭니다. 복사 작업 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
 
@@ -222,7 +222,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 
 | 속성 | Description |
 |:--- |:--- |
-| type | Azure SQL 데이터베이스의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
+| type | Azure SQL Database의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
 | linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
 | tableName | 데이터가 복사되는 **테이블**을 지정했습니다. | 
 | frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**입니다. 즉 출력 조각이 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 사이에서 **매시간** 생성됩니다.  |
@@ -241,7 +241,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
-        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL Database",
         "type": "Copy",
         "inputs": [
           {
@@ -381,7 +381,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 스토리지 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
-AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
+AzureSqlLinkedService는 Azure SQL Database를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 섹션의 Azure Storage 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
@@ -403,7 +403,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Azure SQL 연결된 서비스 만들기
-이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.
+이 단계에서는 Azure SQL Database를 데이터 팩터리에 연결합니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다. 
    
@@ -422,11 +422,11 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ```
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이전 단계에서는 Azure Storage 계정과 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만들었습니다. 이 단계에서는 AzureStorageLinkedService 및 AzureSqlLinkedService에서 각각 참조하는 데이터 저장소에 저장된 입력 및 출력 데이터를 나타내는 AzureBlobInput 및 AzureSqlOutput이라는 두 개의 데이터 세트를 정의합니다.
+이전 단계에서는 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리에 연결하는 연결된 서비스를 만들었습니다. 이 단계에서는 AzureStorageLinkedService 및 AzureSqlLinkedService에서 각각 참조하는 데이터 저장소에 저장된 입력 및 출력 데이터를 나타내는 AzureBlobInput 및 AzureSqlOutput이라는 두 개의 데이터 세트를 정의합니다.
 
 Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure Storage 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(AzureBlobInput)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
-마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure File Storage 정보를 수동으로 입력하는 방법: 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다. 
+마찬가지로 Azure SQL Database 연결 서비스는 런타임에 Data Factory 서비스에서 Azure SQL Database에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure File Storage 정보를 수동으로 입력하는 방법: 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다. 
 
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 이 단계에서는 AzureStorageLinkedService 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 AzureBlobInput이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다. 
@@ -448,7 +448,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
     ```
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
-Azure SQL Database 연결 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 이 단계에서 만든 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob Storage의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
+Azure SQL Database 연결 서비스는 런타임 시 Data Factory 서비스에서 Azure SQL Database에 연결하는 데 사용하는 연결 문자열을 지정합니다. 이 단계에서 만든 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob Storage의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
 
@@ -487,7 +487,7 @@ Azure SQL Database 연결 서비스는 런타임에 Data Factory 서비스에서
     Write-Host $results
     ```
 
-**축하합니다.** Azure Blob Storage에서 Azure SQL 데이터베이스에 데이터를 복사하는 파이프라인으로 Azure Data Factory를 성공적으로 만들었습니다.
+**축하합니다.** Azure Blob Storage에서 Azure SQL Database에 데이터를 복사하는 파이프라인으로 Azure 데이터 팩터리를 성공적으로 만들었습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 이 단계에서는 데이터 팩터리 REST API를 사용하여 파이프라인에 의해 생성되는 조각을 모니터링합니다.
@@ -515,22 +515,22 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-조각이 **준비** 상태 또는 **실패** 상태로 표시될 때까지 Invoke-Command 및 다음 명령을 실행합니다. 조각이 준비 상태일 때 출력 데이터에 대한 Azure SQL 데이터베이스에서 **emp** 테이블을 확인합니다. 
+조각이 **준비** 상태 또는 **실패** 상태로 표시될 때까지 Invoke-Command 및 다음 명령을 실행합니다. 조각이 준비 상태일 때 출력 데이터에 대한 Azure SQL Database에서 **emp** 테이블을 확인합니다. 
 
-각 조각에 대해 원본 파일의 데이터 두 개의 행을 Azure SQL 데이터베이스의 emp 테이블에 복사합니다. 따라서 모든 조각이 준비 상태로 성공적으로 처리되면 emp 테이블에 24개의 새 레코드가 표시됩니다. 
+각 조각에 대해 원본 파일의 데이터 두 개의 행을 Azure SQL Database의 emp 테이블에 복사합니다. 따라서 모든 조각이 준비 상태로 성공적으로 처리되면 emp 테이블에 24개의 새 레코드가 표시됩니다. 
 
 ## <a name="summary"></a>요약
-이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만드는 데 REST API를 사용했습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
+이 자습서에서는 Azure Blob에서 Azure SQL Database로 데이터를 복사하는 Azure 데이터 팩터리를 만드는 데 REST API를 사용했습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
 
 1. Azure **데이터 팩터리**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
    1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 Azure Storage 연결된 서비스입니다.     
-   2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 Azure SQL 연결된 서비스입니다. 
+   2. 출력 데이터를 보유하는 데이터베이스를 연결하는 Azure SQL 연결 서비스입니다. 
 3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 세트**를 만들었습니다.
 4. 원본인 BlobSource와 싱크인 SqlSink를 사용하여 복사 작업으로 **파이프라인** 을 만들었습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Blob 스토리지를 원본 데이터 저장소로 사용하고 Azure SQL 데이터베이스를 복사 작업의 대상 데이터 저장소로 사용했습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 목록을 제공합니다. 
+이 자습서에서는 Azure Blob 스토리지를 원본 데이터 저장소로 사용하고 Azure SQL Database를 복사 작업의 대상 데이터 저장소로 사용했습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 목록을 제공합니다. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

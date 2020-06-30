@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Azure의 확장 가능한 프리미엄 �
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3587e5b5e46867ff3abe97b3593c9732be3afa22
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74534590"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117253"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>프리미엄 플랜에서 함수 앱 만들기 - Azure CLI
 
@@ -37,7 +37,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서 
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | 프리미엄 플랜을 만듭니다. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | [특정 SKU](../functions-premium-plan.md#available-instance-skus)에서 프리미엄 계획을 만듭니다. |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

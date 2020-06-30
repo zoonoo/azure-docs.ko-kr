@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560495"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253667"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 
@@ -44,7 +44,7 @@ ms.locfileid: "84560495"
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 * **Azure Storage 계정**. Blob Storage를 **원본** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요.
-* **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기
 
@@ -206,6 +206,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 13. **파이프라인** 탭으로 전환하거나 트리 뷰에서 파이프라인을 클릭합니다. **Source Dataset**에 대해 **SourceBlobDataset**가 선택되어 있는지 확인합니다.
 
     ![원본 데이터 세트](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다.
 
     ![새 싱크 데이터 세트 단추](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

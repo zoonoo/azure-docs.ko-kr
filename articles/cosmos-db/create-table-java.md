@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 979f93ef19a2c2aec96c51f81f412468070f7b1d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 88a98c05b09d8e76159199fd5035a15d62bc293b
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218005"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115118"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>빠른 시작: Azure Cosmos DB Table API 데이터를 관리하는 Java 앱 빌드
 
@@ -159,7 +159,7 @@ ms.locfileid: "84218005"
 
 1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
 
-   ![연결 문자열 창에서 연결 문자열 정보 보기](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="연결 문자열 창에서 연결 문자열 정보 보기":::
 
 2. 오른쪽의 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 

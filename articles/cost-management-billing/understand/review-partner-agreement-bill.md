@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 61d47c2f308555265ccabad4d7456026ee9a639c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf3f454296acafcff6fe775b07abeb7a253749b5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78299315"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253531"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>자습서: Microsoft 파트너 계약 청구서 검토
 
@@ -30,7 +30,7 @@ ms.locfileid: "78299315"
 > * 보류 중인 요금을 검토하여 다음 달 청구서 예상
 > * Azure 사용 요금 분석
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Microsoft 파트너 계약에 대한 청구 계정에 액세스할 수 있어야 합니다.
 
@@ -69,7 +69,7 @@ Cost Management + 청구의 페이지 왼쪽에서 **모든 트랜잭션**을 �
 |Date     | 트랜잭션 날짜  |
 |청구서 ID     | 트랜잭션 요금이 청구된 청구서의 식별자입니다. 지원 요청을 신속하게 처리할 수 있도록 지원 요청을 제출할 때 Azure 지원에 ID를 알려주세요. |
 |트랜잭션 유형     |  구매, 취소, 사용 요금 등의 트랜잭션 유형  |
-|제품군     | 가상 머신용 컴퓨팅 또는 Azure SQL용 데이터베이스 같은 제품 범주|
+|제품군     | 가상 머신용 컴퓨팅 또는 Azure SQL Database용 데이터베이스와 같은 제품 범주|
 |제품 SDKU     | 제품 인스턴스를 식별하는 고유 코드 |
 |Amount     |  트랜잭션 양      |
 |청구 프로필     | 청구 프로필의 청구서에 트랜잭션이 표시됩니다. |

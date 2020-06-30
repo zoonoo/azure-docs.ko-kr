@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310107"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209575"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
 Azure Dedicated HSM 서비스에는 고유한 두 가지 측면이 있습니다. 먼저, Azure에서 기본 네트워크 구성 요소를 사용하여 HSM 디바이스를 등록하고 배포합니다. 다음으로, 지정된 워크로드 또는 애플리케이션을 사용하고 통합하도록 준비하는 데 필요한 HSM 디바이스를 구성합니다. Thales Luna Network HSM 디바이스는 Thales에서 직접 구입하는 것처럼 Azure에서 동일하지만, Azure의 리소스라는 사실로 인해 몇 가지 고유한 고려 사항이 있습니다. 중요한 정보에 대한 높은 가시성과 액세스를 보장하기 위해 이러한 고려 사항과 이에 따른 문제 해결 인사이트 또는 모범 사례를 여기서 문서화하고 있습니다. 서비스를 사용하고 있으면 Microsoft 또는 Thales에 대한 지원 요청을 통해 최종 정보를 직접 사용할 수 있습니다. 
 
 > [!NOTE]
-> 새로 배포된 HSM 디바이스에서 구성을 수행하기 전에 관련 패치로 업데이트해야 합니다. 다시 부팅 중단 문제를 해결하는 데 필요한 특정 패치는 Thales 지원 포털의 [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789)입니다.
+> 새로 배포된 HSM 디바이스에서 구성을 수행하기 전에 관련 패치로 업데이트해야 합니다. 특정 필수 패지는 재부팅 중에 시스템이 응답하지 않는 문제를 해결하는 Thales 지원 포털의 [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789)입니다.
 
 ## <a name="hsm-registration"></a>HSM 등록
 
@@ -120,7 +120,7 @@ HSM 내에서 네트워킹을 구성하는 경우에는 주의해야 합니다. 
 
 ### <a name="hsm-device-reboot"></a>HSM 디바이스 다시 부팅
 
-일부 구성을 변경하려면 HSM의 전원을 껐다 켜거나 다시 부팅해야 합니다. Microsoft에서 Azure의 HSM을 테스트한 결과 경우에 따라 다시 부팅이 응답하지 않을 수 있는 것으로 확인되었습니다. 즉, Azure Portal에서 하드 다시 부팅을 요청하는 지원 요청을 만들어야 하며, Azure 데이터 센터의 수동 프로세스임을 고려하여 이를 완료하는 데 최대 48시간이 걸릴 수 있습니다.  이러한 상황을 방지하려면 Thales에서 제공하는 다시 부팅 패치를 직접 배포해야 합니다. 다시 부팅 중단 문제에 대한 추천 패치는 Thales Luna Network HSM 7.2 다운로드의 [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789)를 참조하세요(참고: 다운로드하려면 Thales 지원 포털에 등록되어 있어야 함).
+일부 구성을 변경하려면 HSM의 전원을 껐다 켜거나 다시 부팅해야 합니다. Microsoft에서 Azure의 HSM을 테스트한 결과 경우에 따라 다시 부팅이 응답하지 않을 수 있는 것으로 확인되었습니다. 즉, Azure Portal에서 하드 다시 부팅을 요청하는 지원 요청을 만들어야 하며, Azure 데이터 센터의 수동 프로세스임을 고려하여 이를 완료하는 데 최대 48시간이 걸릴 수 있습니다.  이러한 상황을 방지하려면 Thales에서 제공하는 다시 부팅 패치를 직접 배포해야 합니다. 재부팅 중에 시스템이 응답하지 않는 문제에 대한 권장 패치는 Thales Luna Network HSM 7.2 다운로드의 [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789)를 참조하세요(참고: 다운로드하려면 Thales 지원 포털에 등록되어 있어야 함).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS 인증서 동기화되지 않음
 인증서가 만료되거나 구성 업데이트를 통해 덮어쓴 경우 클라이언트에서 HSM에 대한 연결이 끊어질 수 있습니다. 인증서 교환 클라이언트 구성을 각 HSM에 다시 적용해야 합니다.

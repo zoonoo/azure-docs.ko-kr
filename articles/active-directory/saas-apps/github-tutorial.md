@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456864"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253745"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>자습서: GitHub와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -58,7 +58,6 @@ Azure AD에 GitHub 통합을 구성하려면 갤러리의 GitHub를 관리되는
 1. **갤러리에서 추가** 섹션의 검색 상자에 **GitHub**를 입력합니다.
 1. 결과 패널에서 **GitHub**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>GitHub용 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 GitHub에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 GitHub의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -84,14 +83,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-   a. **로그온 URL** 텍스트 상자에서 `https://github.com/orgs/<entity-id>/sso` 패턴을 사용하는 URL을 입력합니다.
+   a. **로그온 URL** 텍스트 상자에서 `https://github.com/orgs/<Organization ID>/sso` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://github.com/orgs/<entity-id>` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://github.com/orgs/<Organization ID>` 패턴을 사용하는 URL을 입력합니다.
+
+    다. **회신 URL** 텍스트 상자에서 `https://github.com/orgs/<Organization ID>/saml/consume` 패턴을 사용하여 URL을 입력합니다.
+
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. GitHub 관리자 섹션으로 이동하여 이러한 값을 검색합니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 이러한 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. GitHub 관리자 섹션으로 이동하여 이러한 값을 검색합니다.
 
-5. GitHub 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 GitHub 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. GitHub 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되므로 특성 매핑을 변경하기 위해 **편집** 아이콘을 클릭하여 특성 매핑을 편집해야 합니다.
+5. GitHub 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 GitHub 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **고유 사용자 식별자(이름 ID)** 가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. GitHub 애플리케이션에서는 **고유 사용자 식별자(이름 ID)** 가 **user.mail**과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -141,15 +143,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-github-sso"></a>GitHub SSO 구성
 
-1. 다른 웹 브라우저 창에서 GitHub 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 GitHub 조직 사이트에 관리자로 로그인합니다.
 
 2. **설정**으로 이동하고 **보안**을 클릭합니다.
 
     ![설정](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. **SAML 인증 사용** 상자를 확인하여 Single Sign-On 구성 필드를 표시합니다. 그런 다음 Single Sign-On URL 값을 사용하여 Azure AD 구성에서 Single Sign-On URL을 업데이트합니다.
+3. **SAML 인증 사용** 상자를 확인하여 Single Sign-On 구성 필드를 표시합니다. 다음 단계를 수행합니다.
 
     ![설정](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. **Single Sign-On URL** 값을 복사하고 이 값을 Azure Portal의 **기본 SAML 구성**에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    
+    b. **Assertion Consumer Service URL** 값을 복사하고 이 값을 Azure Portal의 **기본 SAML 구성**에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
 4. 다음 필드를 구성합니다.
 

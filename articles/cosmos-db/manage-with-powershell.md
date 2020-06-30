@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 Azure Cosmos DB 만들기 및 관리
-description: Azure Powershell을 사용하여 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 관리합니다.
+description: Azure PowerShell을 사용하여 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 관리합니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 494c5f0c3d7d0a4c8a388ce06143795fe5f12f20
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656292"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262279"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -21,13 +21,13 @@ ms.locfileid: "83656292"
 > [!NOTE]
 > 이 문서의 샘플에서는 [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) 관리 cmdlet을 사용합니다. 최신 변경 내용은 [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) API 참조 페이지를 참조하세요.
 
-Azure Cosmos DB의 플랫폼 간 관리를 위해 [플랫폼 간 Powershell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) 외에도 [Azure CLI](manage-with-cli.md), [REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 통해 `Az` 및 `Az.CosmosDB` cmdlet을 사용할 수 있습니다.
+Azure Cosmos DB의 플랫폼 간 관리를 위해 [플랫폼 간 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) 외에도 [Azure CLI](manage-with-cli.md), [REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 통해 `Az` 및 `Az.CosmosDB` cmdlet을 사용할 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>시작하기
 
-[Azure PowerShell을 설치하고 구성하는 방법][powershell-install-configure]의 지침에 따라 Powershell에서 Azure 계정을 설치하고 로그인합니다.
+[Azure PowerShell을 설치하고 구성하는 방법][powershell-install-configure]의 지침에 따라 PowerShell에서 Azure 계정을 설치하고 로그인합니다.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 
@@ -44,6 +44,7 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [플랫폼 간 Powershell](htt
 * [Azure Cosmos 계정에 대한 연결 문자열 나열](#list-connection-strings)
 * [Azure Cosmos 계정에 대한 장애 조치 우선 순위 수정](#modify-failover-priority)
 * [Azure Cosmos 계정에 대한 수동 장애 조치 트리거](#trigger-manual-failover)
+* [Azure Cosmos DB 계정에 대한 리소스 잠금 나열](#list-account-locks)
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Azure Cosmos 계정 만들기
 
@@ -327,6 +328,21 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a> Azure Cosmos DB 계정에 대한 리소스 잠금 나열
+
+데이터베이스 및 컬렉션을 비롯한 Azure Cosmos DB 리소스에 리소스 잠금을 배치할 수 있습니다. 아래 예제에서는 Azure Cosmos DB 계정에서 모든 Azure 리소스 잠금을 나열하는 방법을 보여줍니다.
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceTypeAccount = "Microsoft.DocumentDB/databaseAccounts"
+$accountName = "mycosmosaccount"
+
+Get-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceTypeAccount `
+    -ResourceName $accountName
+```
+
 ## <a name="azure-cosmos-db-database"></a>Azure Cosmos DB 데이터베이스
 
 다음 섹션에서는 Azure Cosmos DB 데이터베이스를 관리하는 방법을 보여 줍니다.
@@ -337,6 +353,8 @@ Update-AzCosmosDBAccountFailoverPriority `
 * [계정의 모든 Azure Cosmos DB 데이터베이스 나열](#list-db)
 * [단일 Azure Cosmos DB 데이터베이스 가져오기](#get-db)
 * [Azure Cosmos DB 데이터베이스 삭제](#delete-db)
+* [삭제를 방지하기 위해 Azure Cosmos DB 데이터베이스에서 리소스 잠금 만들기](#create-db-lock)
+* [Azure Cosmos DB 데이터베이스에서 리소스 잠금 제거](#remove-db-lock)
 
 ### <a name="create-an-azure-cosmos-db-database"></a><a id="create-db"></a>Azure Cosmos DB 데이터베이스 만들기
 
@@ -416,6 +434,42 @@ Remove-AzCosmosDBSqlDatabase `
     -Name $databaseName
 ```
 
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-database-to-prevent-delete"></a><a id="create-db-lock"></a>삭제를 방지하기 위해 Azure Cosmos DB 데이터베이스에서 리소스 잠금 만들기
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-database"></a><a id="remove-db-lock"></a>Azure Cosmos DB 데이터베이스에서 리소스 잠금 제거
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
+```
+
 ## <a name="azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너
 
 다음 섹션에서는 Azure Cosmos DB 컨테이너를 관리하는 방법을 보여 줍니다.
@@ -430,6 +484,8 @@ Remove-AzCosmosDBSqlDatabase `
 * [데이터베이스의 모든 Azure Cosmos DB 컨테이너 나열](#list-containers)
 * [데이터베이스의 단일 Azure Cosmos DB 컨테이너 가져오기](#get-container)
 * [Azure Cosmos DB 컨테이너 삭제](#delete-container)
+* [삭제를 방지하기 위해 Azure Cosmos DB 컨테이너에서 리소스 잠금 만들기](#create-container-lock)
+* [Azure Cosmos DB 컨테이너에서 리소스 잠금 제거](#remove-container-lock)
 
 ### <a name="create-an-azure-cosmos-db-container"></a><a id="create-container"></a>Azure Cosmos DB 컨테이너 만들기
 
@@ -667,6 +723,43 @@ Remove-AzCosmosDBSqlContainer `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-container-to-prevent-delete"></a><a id="create-container-lock"></a>삭제를 방지하기 위해 Azure Cosmos DB 컨테이너에서 리소스 잠금 만들기
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-container"></a><a id="remove-container-lock"></a>Azure Cosmos DB 컨테이너에서 리소스 잠금 제거
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
 ```
 
 ## <a name="next-steps"></a>다음 단계

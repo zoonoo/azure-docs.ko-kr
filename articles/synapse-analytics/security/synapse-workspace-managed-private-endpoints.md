@@ -4,15 +4,16 @@ description: Azure Synapse Analytics의 관리형 프라이빗 엔드포인트�
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83645315"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193654"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 
@@ -48,7 +49,7 @@ SQL 풀 및 SQL 주문형은 Azure Synapse 작업 영역의 분석 기능입니�
 
 이러한 두 개의 관리형 프라이빗 엔드포인트는 Azure Synapse Studio에 나열됩니다. 왼쪽 탐색 영역에서 **관리**를 선택한 다음, **관리형 가상 네트워크**를 선택하여 Studio에서 확인합니다.
 
-SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sql--\<workspacename\>* 이라고 하고, SQL 주문형을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sqlOnDemand--\<workspacename\>* 이라고 합니다.
+SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sql--\<workspacename\>* 이라고 하고, SQL 주문형을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sqlOnDemand--\<workspacename\>* 라고 합니다.
 ![SQL 풀 및 SQL 주문형의 관리형 프라이빗 엔드포인트](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 이러한 두 개의 관리형 프라이빗 엔드포인트는 Azure Synapse 작업 영역을 만들 때 자동으로 만들어집니다. 두 관리형 프라이빗 엔드포인트에 대한 요금은 청구되지 않습니다.

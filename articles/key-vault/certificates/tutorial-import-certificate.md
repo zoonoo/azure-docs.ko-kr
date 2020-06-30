@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82105576"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100925"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>자습서: Azure Key Vault에서 인증서 가져오기
 
@@ -28,6 +28,7 @@ Azure Key Vault는 보안 비밀 저장소를 제공하는 클라우드 서비�
 > * 키 자격 증명 모음을 만듭니다.
 > * 포털을 사용하여 Key Vault에서 인증서를 가져옵니다.
 > * CLI를 사용하여 Key Vault에서 인증서를 가져옵니다.
+> * PowerShell을 사용하여 Key Vault에서 인증서를 가져옵니다.
 
 
 시작하기 전에 [Key Vault 기본 개념](../general/basic-concepts.md)을 읽어보세요. 
@@ -36,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -102,7 +103,8 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-[여기](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)에서 매개 변수에 대해 자세히 알아보기
+
+[매개 변수](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)에 대해 자세히 알아봅니다.
 
 인증서를 가져온 후 [인증서 표시](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)를 사용하여 인증서를 볼 수 있습니다.
 
@@ -116,9 +118,25 @@ az keyvault certificate show [--id]
                              [--version]
 ```
 
-
-
 이제 Key Vault를 만들고, 인증서를 가져오고 인증서의 속성을 확인했습니다.
+
+## <a name="import-a-certificate-using-azure-powershell"></a>Azure PowerShell을 사용하여 인증서 가져오기
+
+```
+Import-AzureKeyVaultCertificate
+      [-VaultName] <String>
+      [-Name] <String>
+      -FilePath <String>
+      [-Password <SecureString>]
+      [-Tag <Hashtable>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+[매개 변수](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)에 대해 자세히 알아봅니다.
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

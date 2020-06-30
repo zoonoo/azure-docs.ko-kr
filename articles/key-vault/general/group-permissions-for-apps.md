@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652211"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126232"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>액세스 제어 정책을 사용하여 Key Vault 인증 제공
 
@@ -33,7 +33,7 @@ Key Vault 액세스 제어에 대한 자세한 내용은 [Azure Key Vault 보안
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 키 자격 증명 모음. 다음 빠른 시작 중 하나의 단계에 따라 기존 키 자격 증명 모음을 사용하거나 새로 만들 수 있습니다.
    - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-cli.md)
@@ -60,10 +60,10 @@ Key Vault 액세스 제어에 대한 자세한 내용은 [Azure Key Vault 보안
 
 애플리케이션의 objectId를 가져오는 방법에는 두 가지가 있습니다.  첫 번째 방법은 애플리케이션을 Azure Active Directory에 등록하는 것입니다. 이렇게 하려면 빠른 시작의 [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md)의 단계를 수행합니다. 등록이 완료되면 objectId가 "애플리케이션(클라이언트) ID"로 나열됩니다.
 
-두 번째 방법은 터미널 창에서 서비스 주체를 만드는 것입니다. Azure CLI를 통해 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하고 "http://&lt;my-unique-service-principle-name&gt;" 형식으로 -n 플래그에 고유한 서비스 사용자 이름을 제공합니다.
+두 번째 방법은 터미널 창에서 서비스 주체를 만드는 것입니다. Azure CLI를 통해 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하고 "http://&lt;my-unique-service-principal-name&gt;" 형식으로 -n 플래그에 고유한 서비스 사용자 이름을 제공합니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 출력에서 objectId가 `clientID`로 나열됩니다.
@@ -72,7 +72,7 @@ Azure PowerShell을 사용하는 경우 [New-AzADServicePrincipal](/powershell/m
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 출력에서 objectId가 `Id`(`ApplicationId`가 아님)로 나열됩니다.

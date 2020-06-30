@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532428"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254483"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Azure App Service에 대한 PowerShell 샘플
 
@@ -32,7 +32,7 @@ ms.locfileid: "81532428"
 | [수동으로 앱 크기 조정](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | App Service 앱을 만들고 2개의 인스턴스로 확장합니다. |
 | [전 세계에 고가용성 아키텍처를 가진 앱 확장](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 두 개의 지역에 두 개의 App Service 앱을 만들고 Azure Traffic Manager를 사용하여 단일 엔드포인트를 통해 사용할 수 있습니다. |
 |**리소스에 앱 연결**||
-| [SQL Database에 앱 연결](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| App Service 앱 및 SQL Database를 만든 다음, 앱 설정에 데이터베이스 연결 문자열을 추가합니다. |
+| [SQL Database에 앱 연결](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| App Service 앱 및 Azure SQL Database의 데이터베이스를 만든 다음, 앱 설정에 데이터베이스 연결 문자열을 추가합니다. |
 | [스토리지 계정에 앱 연결](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| App Service 앱 및 스토리지 계정을 만든 다음, 앱 설정에 스토리지 연결 문자열을 추가합니다. |
 |**백업 및 복원 앱**||
 | [앱 백업](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | App Service 앱을 만들고 이에 대한 일회성 백업을 만듭니다. |

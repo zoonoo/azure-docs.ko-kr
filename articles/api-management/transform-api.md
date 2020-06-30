@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258748"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100359"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "81258748"
 
 ![정책](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 -   [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 -   [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
@@ -112,11 +112,8 @@ ms.locfileid: "81258748"
 2.  **모든 작업**을 선택합니다.
 3.  화면 맨 위에서 **디자인** 탭을 선택합니다.
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **정책 삽입** 단추를 클릭합니다.
-6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
-7.  **find-and-replace** 코드( **\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 다음은 그 예입니다.
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시** 단추를 클릭합니다.
+6.  오른쪽 창의 **변환 정책** 아래에서 **콘텐츠의 URL 마스킹**을 클릭합니다.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>속도 제한 정책(제한)을 추가하여 API 보호
 
@@ -130,7 +127,7 @@ ms.locfileid: "81258748"
 4.  **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-7.  **rate-limit-by-key** 코드( **\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
+7.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

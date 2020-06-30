@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: 6f571d323a06b64f79c3f97ae8717be7eb8968d3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 75529d03435e92dfff26dac81f4f7e59585b6fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434531"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255248"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure Portal의 청구 계정 및 범위
 
@@ -22,7 +22,7 @@ Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니�
 
 - **Microsoft Online Services 프로그램**: Microsoft Online Services 프로그램의 청구 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입하는 경우 [종량제 요금을 사용하는 계정](https://azure.microsoft.com/offers/ms-azr-0003p/) 또는 [Visual studio 구독자](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) 자격입니다.
 
-- **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)에 서명할 때 생성됩니다. 기업계약에는 최대 500개의 구독을 가질 수 있습니다.
+- **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)에 서명할 때 생성됩니다. 기업계약에는 최대 2000개의 구독을 가질 수 있습니다.
 
 - **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 [종량제 요금을 사용한 계정](https://azure.microsoft.com/offers/ms-azr-0003p/)이나 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 있을 수도 있습니다. Microsoft 고객 계약에는 최대 20개의 구독을 가질 수 있습니다. 자세한 내용은 [Microsoft 고객 계약의 청구 계정 시작](../understand/mca-overview.md)을 참조하세요.
 

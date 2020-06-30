@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bfea79fe232fbb6f1b39c03a5cc8e9fe06bee867
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258371"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204942"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
 
@@ -36,7 +36,7 @@ SQL 주문형은 Azure Storage 파일에 있는 데이터를 적절히 쿼리할
 - [여러 파일 또는 폴더 쿼리](#query-multiple-files-or-folders)
 - [PARQUET 파일 형식](#parquet-file-format)
 - [분리된 텍스트 작업에 대한 추가 옵션(필드 종결자, 행 종결자, 이스케이프 문자)](#additional-options-for-working-with-delimited-text)
-- [선택한 열 하위 세트 읽기](#read-a-chosen-subset-of-columns)
+- [선택한 열 하위 집합 읽기](#read-a-chosen-subset-of-columns)
 - [스키마 유추](#schema-inference)
 - [filename 함수](#filename-function)
 - [filepath 함수](#filepath-function)
@@ -90,7 +90,7 @@ CSV(분리된 텍스트) 파일 작업에 도입된 추가 매개 변수는 다�
 ```
 
 - ESCAPE_CHAR = 'char' - 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다.
-ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표로 묶은 문자는 Excel CSV 동작에 따라 큰따옴표를 사용하여 이스케이프됩니다.
+ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 - FIELDTERMINATOR ='field_terminator' - 사용할 필드 종결자를 지정합니다. 기본 필드 종결자는 쉼표(" **,** ")입니다.
 - ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n**)입니다.
 

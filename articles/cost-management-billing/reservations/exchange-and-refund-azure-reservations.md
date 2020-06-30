@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: banders
-ms.openlocfilehash: e924c46632e37c6d196fae2db729c17a99bbae3b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765117"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101028"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -20,9 +20,6 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종량제와 CSP(클라우드 솔루션 공급자)를 비롯한 다른 US Government 구독 유형은 지원됩니다.
 
 기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
-
-> [!NOTE]
-> Microsoft는 현재 예약 환불의 조기 종료 수수료를 청구하지 않습니다. 향후에 환불에 대한 요금이 부과될 수 있습니다. 현재 이 요금을 사용하는 데 필요한 날짜가 없습니다.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>기존 예약을 교환하거나 환불하는 방법
 
@@ -75,7 +72,7 @@ Azure에는 취소, 교환 및 환불에 대해 다음과 같은 정책이 있�
 
 **환불 정책**
 
-- 현재는 조기 종료 요금을 청구하지 않지만 나중에 취소하는 데 12% 요금이 있을 수 있습니다.
+- 취소 시 12%의 조기 해지 수수료가 부과될 수 있습니다.
 - 취소한 총 약정은 12개월 롤링 기간 동안 50,000USD를 초과할 수 없습니다. 예제: 매월 100USD이고 18개월 내 환불된 3년 예약의 경우 취소된 약정은 1,800USD입니다. 환불 후 환불에 대한 사용 가능한 새 한도는 48,200USD가 됩니다. 이 환불에서 365일 내에 48,200USD 한도가 1,800USD로 증가하고 새 풀이 50,000USD가 됩니다. 다른 모든 예약 취소는 동일한 풀을 소진하고, 동일한 보급 논리가 적용됩니다.
 - 환불은 예약의 구매 가격 또는 현재 가격 중 가장 낮은 가격을 기준으로 계산됩니다.
 - 예약 주문 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658172"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251525"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 Azure CLI 샘플 
  
@@ -39,15 +39,15 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 |---|---|
 |**Azure SQL Database에서 데이터베이스 만들기**||
 | [단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/create-and-configure-database-cli.md) | SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. |
-| [탄력적 풀 만들기 및 풀링된 데이터베이스 이동](scripts/move-database-between-elastic-pools-cli.md) | 탄력적 풀을 만들고, 풀링된 SQL 데이터베이스를 이동하고, 컴퓨팅 크기를 변경합니다. |
+| [탄력적 풀 만들기 및 풀링된 데이터베이스 이동](scripts/move-database-between-elastic-pools-cli.md) | 탄력적 풀을 만들고, 풀링된 데이터베이스를 이동하고, 컴퓨팅 크기를 변경합니다. |
 |**Azure SQL Database에서 데이터베이스 크기 조정**||
 | [단일 데이터베이스 크기 조정](scripts/monitor-and-scale-database-cli.md) | 데이터베이스의 크기 정보를 쿼리한 후 SQL Database의 데이터베이스를 다른 컴퓨팅 크기로 조정합니다. |
 | [탄력적 풀 크기 조정](scripts/scale-pool-cli.md) | SQL 탄력적 풀을 다른 컴퓨팅 크기로 조정합니다. |
 |**지역에서 복제 및 장애 조치(failover) 구성**||
 | [장애 조치(failover) 그룹에 단일 데이터베이스 추가](scripts/add-database-to-failover-group-cli.md)| 데이터베이스 및 장애 조치(failover) 그룹을 만들고, 장애 조치(failover) 그룹에 데이터베이스를 추가한 다음, 보조 서버에 장애 조치(failover)를 테스트합니다. |
 | [탄력적 풀에 대한 장애 조치(failover) 그룹 구성](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | 데이터베이스를 만들어서 탄력적 풀에 추가하고, 탄력적 풀을 장애 조치(failover) 그룹에 추가한 다음, 보조 서버에 장애 조치(failover)를 테스트합니다. |
-| [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Azure SQL 데이터베이스에 대해 활성 지역 복제를 구성하고 보조 복제본에 장애 조치합니다. |
-| [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| SQL 탄력적 풀에서 Azure SQL 데이터베이스에 대해 활성 지역 복제를 구성한 다음, 보조 복제본에 장애 조치합니다. |
+| [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Azure SQL Database의 데이터베이스에 대해 활성 지역 복제를 구성하고 보조 복제본으로 장애 조치(failover)합니다. |
+| [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| 탄력적 풀의 데이터베이스에 대해 활성 지역 복제를 구성한 다음, 보조 복제본으로 장애 조치(failover)합니다. |
 | **감사 및 위협 감지** |
 | [감사 및 위협 감지 구성](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Azure SQL Database의 데이터베이스에 대한 감사 및 위협 감지 정책을 구성합니다. |
 | **데이터베이스 백업, 복원, 복사 및 가져오기**||

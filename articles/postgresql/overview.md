@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74481664"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213604"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
 Azure Database for PostgreSQL은 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 오픈 소스 [PostgreSQL](https://www.postgresql.org/) 데이터베이스 엔진의 커뮤니티 버전을 기반으로 하며, 단일 서버 및 하이퍼스케일(Citus)의 두 가지 배포 옵션으로 사용할 수 있습니다.
@@ -52,6 +52,6 @@ Azure Database for PostgreSQL 작업에 대한 질문이나 제안 사항이 있
 - 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
-- 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
+- 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요. 단일 서버 및 Hyperscale(Citus) 배포 옵션은 모두 선불 예약 인스턴스 할인이 제공됩니다. 자세한 내용은 [단일 서버 RI 가격 책정](concept-reserved-pricing.md) 및 [Hyperscale RI 가격 책정](concepts-hyperscale-reserved-pricing.md) 페이지를 참조하세요.
 - 첫 번째 Azure Database for PostgreSQL [단일 서버](./quickstart-create-server-database-portal.md) 또는 [하이퍼스케일(Citus)](./quickstart-create-hyperscale-portal.md)을 만들어 시작합니다.
 - Python, PHP, Ruby, C\#, Java, Node.js에서 첫 번째 앱을 빌드합니다([연결 라이브러리](./concepts-connection-libraries.md)).

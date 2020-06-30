@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4122e575fc7823fd2e79a26f210f06e5c1b0a835
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e114bf3a87f3018cc51c5752d57ce5911053542f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857976"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118409"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "82857976"
 > * 데이터베이스 및 테이블 추가
 > * 앱 실행
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다. 
 
@@ -54,7 +54,7 @@ ms.locfileid: "82857976"
    |리소스 그룹   | 이름 입력    |  **새로 만들기**를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
    |위치    |  사용자와 가장 가까운 지역 선택    |  Azure Cosmos 계정을 호스팅할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.    |
 
-   ![포털을 사용하여 계정 만들기](./media/create-cassandra-api-account-java/create-account.png)
+   :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="포털을 사용하여 계정 만들기":::
 
 4. **만들기**를 선택합니다. <br/>계정 생성에는 몇 분 정도가 소요됩니다. 리소스가 만들어지면 포털의 오른쪽에 **배포 성공** 알림이 표시됩니다.
 

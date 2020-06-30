@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 통해 변경 내용 추적을 사용하여 데이터 증분 복사
-description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
+description: 이 자습서에서는 델타 데이터를 증분 방식으로 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 51d8d1c7405622ea8fd3bb847937abcb0e748523
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: cb8d03b853e4e0f4f5f60a144e7a05ef19de1071
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559803"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251848"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Azure Portal을 통해 변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
+이 자습서에서는 Azure SQL Database의 원본 데이터베이스에 있는 **변경 내용 추적** 정보를 기반으로 Azure Blob 스토리지에 델타 데이터를 로드하는 파이프라인을 사용하여 Azure 데이터 팩터리를 만듭니다.  
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -45,9 +45,9 @@ ms.locfileid: "84559803"
 > Azure SQL Database와 SQL Server 모두 변경 내용 추적 기술을 지원합니다. 이 자습서는 Azure SQL Database를 원본 데이터 저장소로 사용합니다. SQL Server 인스턴스를 사용할 수도 있습니다.
 
 1. **과거 데이터의 초기 로드**(한 번 실행):
-    1. 원본 Azure SQL 데이터베이스에서 변경 내용 추적 기술을 사용하도록 설정합니다.
-    2. Azure SQL 데이터베이스의 SYS_CHANGE_VERSION 초기 값을 변경된 데이터를 캡처하는 기준선으로 가져옵니다.
-    3. Azure SQL 데이터베이스의 전체 데이터를 Azure Blob Storage로 로드합니다.
+    1. Azure SQL Database의 원본 데이터베이스에서 변경 내용 추적 기술을 사용하도록 설정합니다.
+    2. 데이터베이스의 SYS_CHANGE_VERSION 초기 값을 변경된 데이터를 캡처하는 기준선으로 가져옵니다.
+    3. 데이터베이스의 전체 데이터를 Azure Blob 스토리지로 로드합니다.
 2. **일정에 따라 델타 데이터 증분 로드**(데이터의 초기 로드 후 주기적으로 실행):
     1. SYS_CHANGE_VERSION의 이전 값과 새 값을 가져옵니다.
     3. **sys.change_tracking_tables**의 변경된 행(두 SYS_CHANGE_VERSION 값 사이)의 기본 키를 **원본 테이블**의 데이터와 조인하여 델타 데이터를 로드한 다음 델타 데이터를 대상으로 이동합니다.
@@ -70,13 +70,14 @@ ms.locfileid: "84559803"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
 * **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 원본 테이블 만들기
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Azure SQL Database에 데이터 원본 테이블 만들기
+
 1. **SQL Server Management Studio**를 시작하고 SQL Database에 연결합니다.
 2. **서버 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
-3. Azure SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 데이터 원본 저장소로 `data_source_table`이라는 테이블을 만듭니다.  
+3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 데이터 원본 저장소로 `data_source_table`이라는 테이블을 만듭니다.  
 
     ```sql
     create table data_source_table
@@ -97,10 +98,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         (5, 'eeee', 22);
 
     ```
+
 4. 다음 SQL 쿼리를 실행하여 데이터베이스 및 원본 테이블(data_source_table)에서 **변경 내용 추적** 메커니즘을 사용하도록 설정합니다.
 
     > [!NOTE]
-    > - &lt;데이터베이스 이름&gt;을 data_source_table이 있는 Azure SQL 데이터베이스 이름으로 바꿉니다.
+    > - &lt;데이터베이스 이름&gt;을 data_source_table이 있는 Azure SQL Database의 데이터베이스 이름으로 바꿉니다.
     > - 현재 예제에서 변경된 데이터는 2일간 유지됩니다. 3일(또는 그 이상)마다 변경된 데이터를 로드하는 경우 일부 변경된 데이터가 포함되지 않습니다.  CHANGE_RETENTION 값을 더 큰 숫자로 변경해야 합니다. 또는 변경된 데이터를 로드하는 기간이 2일 이내가 되도록 해야 합니다. 자세한 내용은 [데이터베이스에 대한 변경 내용 추적 사용](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)을 참조하세요.
 
     ```sql
@@ -130,7 +132,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     > [!NOTE]
     > SQL Database에 대한 변경 내용 추적을 사용하도록 설정한 후 데이터가 변경되지 않으면 변경 내용 추적 버전의 값은 0입니다.
-6. 다음 쿼리를 실행하여 Azure SQL 데이터베이스에 저장 프로시저를 만듭니다. 파이프라인이 이전 단계에서 만든 테이블에서 변경 내용 추적 버전을 업데이트하도록 저장 프로시저를 호출합니다.
+6. 다음 쿼리를 실행하여 데이터베이스에 저장 프로시저를 만듭니다. 파이프라인이 이전 단계에서 만든 테이블에서 변경 내용 추적 버전을 업데이트하도록 저장 프로시저를 호출합니다.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -188,7 +190,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![파이프라인 만들기 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 Azure Storage 계정과 Azure SQL 데이터베이스에 연결된 서비스를 만듭니다.
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 Azure Storage 계정과 Azure SQL Database의 데이터베이스에 연결된 서비스를 만듭니다.
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스를 만듭니다.
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
@@ -209,7 +211,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Database 연결 서비스를 만듭니다.
-이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다.
+이 단계에서는 데이터베이스를 데이터 팩터리에 연결합니다.
 
 1. **연결**, **+ 새로 만들기**를 차례로 클릭합니다.
 2. **새 연결된 서비스** 창에서 **Azure SQL Database**를 선택하고 **계속**을 클릭합니다.
@@ -217,11 +219,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     1. **이름** 필드에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다.
     2. **서버 이름** 필드에 대한 서버를 선택합니다.
-    4. **데이터베이스 이름** 필드에 대한 데이터베이스를 선택합니다.
-    5. **사용자 이름** 필드에 대해 사용자의 이름을 입력합니다.
-    6. **암호** 필드에 대해 사용자의 암호를 입력합니다.
-    7. **연결 테스트**를 클릭하여 연결을 테스트합니다.
-    8. **저장**을 클릭하여 연결된 서비스를 저장합니다.
+    3. **데이터베이스 이름** 필드에 대한 데이터베이스를 선택합니다.
+    4. **사용자 이름** 필드에 대해 사용자의 이름을 입력합니다.
+    5. **암호** 필드에 대해 사용자의 암호를 입력합니다.
+    6. **연결 테스트**를 클릭하여 연결을 테스트합니다.
+    7. **저장**을 클릭하여 연결된 서비스를 저장합니다.
 
        ![Azure SQL Database 연결된 서비스 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
@@ -329,7 +331,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![전체 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
-파일에는 Azure SQL 데이터베이스의 데이터가 포함됩니다.
+파일에는 데이터베이스의 데이터가 있어야 합니다.
 
 ```
 1,aaaa,21
@@ -341,7 +343,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="add-more-data-to-the-source-table"></a>원본 테이블에 데이터 추가
 
-Azure SQL 데이터베이스에 다음 쿼리를 실행하여 행을 추가하고 행을 업데이트합니다.
+데이터베이스에 다음 쿼리를 실행하여 행을 추가하고 행을 업데이트합니다.
 
 ```sql
 INSERT INTO data_source_table
@@ -452,7 +454,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 
 ![증분 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
-파일에는 Azure SQL 데이터베이스의 델타 데이터만 포함됩니다. `U`가 포함된 레코드가 데이터베이스에서 업데이트된 행이고 `I`가 추가된 행입니다.
+파일에는 데이터베이스의 델타 데이터만 포함되어야 합니다. `U`가 포함된 레코드가 데이터베이스에서 업데이트된 행이고 `I`가 추가된 행입니다.
 
 ```
 1,update,10,2,U

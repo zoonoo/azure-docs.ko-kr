@@ -1,7 +1,7 @@
 ---
 title: '자습서: R에서 예측 모델을 학습하기 위한 데이터 준비'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 이 세 부분으로 이루어진 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위해 Azure SQL Database의 데이터를 준비합니다.
+description: 이 세 부분으로 이루어진 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위해 Azure SQL Database의 데이터베이스에서 데이터를 준비합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,35 +14,36 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a82467a097c50314e8f26f4a5cc4507f867ad504
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 698cc089f770d60b6399864c9832fbc8d104c16f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024793"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253803"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위한 데이터 준비
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL 데이터베이스의 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)에서 R로 예측 기계 학습 모델을 학습시키고 배포합니다.
+세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL Database의 데이터베이스에서 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)에서 R로 예측 기계 학습 모델을 학습시키고 배포합니다.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 이 자습서 시리즈에서는 스키 대여 사업을 소유하고 있으며 향후 유지할 대여 수를 예측하려고 한다고 가정해 보겠습니다. 이 정보는 재고, 직원 및 시설을 준비하는 데 도움이 됩니다.
 
-이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
+이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
-> * R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
-> * Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+> * R을 사용하여 Azure SQL Database의 데이터베이스로 샘플 데이터베이스 가져오기
+> * 데이터베이스의 데이터를 R 데이터 프레임에 로드
 > * 일부 열을 범주로 식별하여 R에서 데이터 준비
 
 [2부](predictive-model-build-compare-tutorial.md)에서는 R에서 여러 기계 학습 모델을 만들고 학습시킨 후 가장 정확한 모델을 선택하는 방법을 알아봅니다.
 
-[3부](predictive-model-deploy-tutorial.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 SQL 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
+[3부](predictive-model-deploy-tutorial.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -66,7 +67,7 @@ ms.locfileid: "84024793"
 
 1. 파일 [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac)를 다운로드합니다.
 
-1. 다음 세부 정보를 사용하여 [BACPAC 파일을 가져와 Azure SQL Database 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-import)의 지침을 따르세요.
+1. 다음 세부 정보를 사용하여 [Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일 가져오기](../../azure-sql/database/database-import.md)의 지침을 따르세요.
 
    * 다운로드한 **TutorialDB.bacpac** 파일에서 가져오기
    * 공개 미리 보기 동안 새 데이터베이스에 대해 **Gen5/vCore** 구성 선택
@@ -74,7 +75,7 @@ ms.locfileid: "84024793"
 
 ## <a name="load-the-data-into-a-data-frame"></a>데이터 프레임에 데이터 로드
 
-R에서 데이터를 사용하려면 Azure SQL Database의 데이터를 데이터 프레임(`rentaldata`)으로 로드합니다.
+R에서 데이터를 사용하려면 데이터베이스의 데이터를 데이터 프레임(`rentaldata`)에 로드합니다.
 
 RStudio에서 새 RScript 파일을 만든 후 다음 스크립트를 실행합니다. **Server**, **UID** 및 **PWD**를 고유한 연결 정보를 바꿉니다.
 
@@ -163,8 +164,8 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 이 자습서 시리즈의 1부에서 다음 단계를 완료했습니다.
 
-* R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
-* Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+* R을 사용하여 Azure SQL Database의 데이터베이스로 샘플 데이터베이스 가져오기
+* 데이터베이스의 데이터를 R 데이터 프레임에 로드
 * 일부 열을 범주로 식별하여 R에서 데이터 준비
 
 TutorialDB 데이터베이스의 데이터를 사용하는 Machine Learning 모델을 만들려면 이 자습서 시리즈의 2부를 따르세요.

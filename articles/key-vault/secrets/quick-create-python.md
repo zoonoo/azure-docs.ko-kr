@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 783e89d3e1802ae8788a933f493e2a865c03a3ef
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8546d159d920fc728f0bf6413d84d7b19bbe09c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561554"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125245"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 클라이언트 라이브러리
 
@@ -27,9 +27,9 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
-[API 참조 설명서](/python/api/overview/azure/key-vault?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault/)
+[API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 이상
@@ -70,12 +70,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 클라우드 기반 Python 애플리케이션을 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [App Service 관리 ID를 사용하여 Azure Key Vault에 액세스](../general/managed-identity.md)를 참조하세요. 
 
-그러나 간략한 설명을 위해 이 빠른 시작에서는 서비스 주체 및 액세스 제어 정책을 사용해야 하는 데스크톱 애플리케이션을 만듭니다. 서비스 원칙에는 "http://&lt;my-unique-service-principle-name&gt;" 형식의 고유한 이름이 필요합니다.
+그러나 간략한 설명을 위해 이 빠른 시작에서는 서비스 주체 및 액세스 제어 정책을 사용해야 하는 데스크톱 애플리케이션을 만듭니다. 서비스 주체에는 "http://&lt;my-unique-service-principal-name&gt;" 형식의 고유한 이름이 필요합니다.
 
-서비스 주체는 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) Azure CLI 명령을 사용하여 만듭니다.
+Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 만듭니다.
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다. 

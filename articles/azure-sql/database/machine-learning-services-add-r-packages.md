@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324235"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250726"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>R 패키지를 Azure SQL Database Machine Learning Services(미리 보기)에 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "84324235"
 
 ## <a name="list-r-packages"></a>R 패키지 나열
 
-Microsoft는 Azure SQL 데이터베이스에 Machine Learning Services가 미리 설치된 다양한 R 패키지를 제공합니다.
+Microsoft는 Azure SQL Database에 Machine Learning Services가 미리 설치된 다양한 R 패키지를 제공합니다.
 Azure Data Studio 또는 SSMS에서 다음 명령을 실행하면 설치된 R 패키지 목록을 볼 수 있습니다.
 
 1. Azure Data Studio 또는 SSMS를 열고 Azure SQL Database에 연결합니다.
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Azure SQL 데이터베이스에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) 참조하세요.
+> Azure SQL Database에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

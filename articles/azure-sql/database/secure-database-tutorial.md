@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323929"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252919"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
     ![감사 레코드](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> PowerShell 또는 REST API를 사용하여 감사 이벤트를 추가로 사용자 지정하는 방법은 [SQL 데이터베이스 감사](../../azure-sql/database/auditing-overview.md)를 참조하세요.
+> PowerShell 또는 REST API를 사용하여 감사 이벤트를 추가로 사용자 지정하는 방법은 [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 참조하세요.
 
 ### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
 

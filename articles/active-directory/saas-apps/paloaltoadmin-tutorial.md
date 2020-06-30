@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fbfa16223484928dda1004011d2e92295edd8b89
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682954"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합
 
@@ -34,7 +34,7 @@ Azure AD에 Palo Alto Networks - Admin UI를 통합하면 다음과 같은 이�
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Palo Alto Networks - Admin UI와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -106,16 +106,16 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하려면 �
 
     > **식별자**와 **회신 URL**에 포트 443이 필요합니다. Palo Alto Firewall에 이러한 값이 하드 코딩되어 있기 때문입니다. 포트 번호를 제거하면 로그인하는 동안 오류가 발생합니다.
 
-1. PureCloud by Genesys 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+1. Palo Alto Networks - Admin UI 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/default-attributes.png)
 
    > [!NOTE]
    > 특성 값은 예시일 뿐이므로 *username* 및 *adminrole*에 적절한 값을 매핑하세요. 또한 선택적 특성인 *accessdomain*이 있으며, 이 특성은 방화벽에서 특정 가상 시스템에 대한 관리자 액세스를 제한하는 데 사용됩니다.
 
-1. 위에서 언급한 특성 외에도, 다음과 같이 PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+1. 위에서 언급한 특성 외에도 Palo Alto Networks - Admin UI 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 |  원본 특성|
+    | Name |  원본 특성|
     | --- | --- |
     | 사용자 이름 | user.userprincipalname |
     | adminrole | customadmin |
@@ -148,7 +148,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하려면 �
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

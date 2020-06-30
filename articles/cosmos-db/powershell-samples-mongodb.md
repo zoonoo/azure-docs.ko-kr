@@ -3,15 +3,15 @@ title: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 description: Azure PowerShell 샘플을 가져와 Azure Cosmos DB의 API for MongoDB에서 다양한 일반 작업 수행
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: c8e0a7a60a3512d19a1dfdfdb07b20e523ce7b92
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 368883a7eded17180a4a4259d452be09ebd221d9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649722"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262449"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 
@@ -33,4 +33,5 @@ ms.locfileid: "83649722"
 |[장애 조치(failover) 우선순위 변경 또는 장애 조치(failover) 트리거](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정의 장애 조치(failover) 우선순위를 변경하거나 수동 장애 조치(failover)를 트리거합니다. |
 |[계정 키 또는 연결 문자열](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 기본 및 보조 키, 연결 문자열을 가져오거나 Azure Cosmos 계정의 계정 키를 다시 생성합니다. |
 |[IP 방화벽을 사용하여 Cosmos 계정 만들기](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 활성화된 IP 방화벽을 사용하여 Azure Cosmos 계정을 만듭니다. |
+|[삭제에서 리소스 잠그기](scripts/powershell/mongodb/powershell-mongodb-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
