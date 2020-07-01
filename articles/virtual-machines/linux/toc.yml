@@ -947,6 +947,8 @@
           items:
             - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
               href: migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: 서버 쪽 암호화로 변환
+              href: disks-ade-sse-conversion-cli.md
             - name: Managed Disks로 변환
               href: convert-unmanaged-to-managed-disks.md
             - name: 디스크를 표준 또는 프리미엄으로 변환

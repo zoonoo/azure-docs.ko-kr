@@ -36,6 +36,10 @@
       href: create-certificate.md
     - name: 인증서 서명 요청 만들기
       href: create-certificate-signing-request.md
+- name: 샘플
+  items:
+    - name: Key Vault 코드 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: 방법 가이드
   items:
     - name: DigiCert CA와 Key Vault 통합

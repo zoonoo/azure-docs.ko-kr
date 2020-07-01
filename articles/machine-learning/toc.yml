@@ -172,6 +172,9 @@
               href: how-to-change-storage-access-key.md
             - name: Azure Firewall 사용
               href: how-to-access-azureml-behind-firewall.md
+            - name: 보안 코딩
+              href: concept-secure-code-best-practice.md
+              displayName: security threat
         - name: 인증 설정
           displayName: 'authentication, auth, oauth'
           href: how-to-setup-authentication.md
@@ -314,6 +317,8 @@
             - name: 자동화된 ML 모델 설명
               displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
               href: how-to-machine-learning-interpretability-automl.md
+        - name: 모델 공정성 평가 및 완화
+          href: how-to-machine-learning-fairness-aml.md
         - name: 학습 시 Key Vault 사용
           displayName: secrets keyvault
           href: how-to-use-secrets-in-runs.md

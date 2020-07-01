@@ -855,6 +855,8 @@
           href: incremental-snapshots.md
         - name: 마이그레이션 및 변환
           items:
+            - name: 서버 쪽 암호화로 변환
+              href: disks-ade-sse-conversion-powershell.md
             - name: 디스크를 표준 또는 프리미엄으로 변환
               href: convert-disk-storage.md
             - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션

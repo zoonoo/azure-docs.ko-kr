@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: 보안 정책을 적용하는 동안 VM이 응답하지 않음
           href: unresponsive-vm-apply-security-policy.md
+        - name: Windows 중지 오류 - 메모리 없음 상태
+          href: troubleshoot-windows-stop-error.md
 - name: VM에 연결할 수 없습니다.
   items:
     - name: RDP

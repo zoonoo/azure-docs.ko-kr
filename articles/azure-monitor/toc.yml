@@ -17,6 +17,7 @@
         - name: Azure portal
           href: learn/quick-collect-activity-log-portal.md
         - name: ARM 템플릿
+          displayName: Resource Manager
           href: learn/quick-collect-activity-log-arm.md
     - name: 가상 머신 모니터링
       items:
