@@ -24,7 +24,7 @@ ms.locfileid: "83701618"
 > [!NOTE]
 > 이 빠른 시작은 Text Analytics 버전 2.1에만 적용됩니다. 현재 Go용 v3 클라이언트 라이브러리를 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [Go](https://golang.org/dl/)

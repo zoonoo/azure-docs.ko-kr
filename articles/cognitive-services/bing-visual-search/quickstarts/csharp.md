@@ -21,7 +21,7 @@ ms.locfileid: "83872770"
 
 이 빠른 시작에서는 Bing Visual Search API에 이미지를 업로드하고 반환되는 인사이트를 보는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET 프레임워크](https://www.newtonsoft.com/json).

@@ -27,7 +27,7 @@ ms.locfileid: "83118727"
 
 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb)에 제공됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [최신 버전의 Ruby](https://www.ruby-lang.org/en/downloads/).
 
