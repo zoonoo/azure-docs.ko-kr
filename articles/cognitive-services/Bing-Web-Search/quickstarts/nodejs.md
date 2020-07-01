@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 872a90a0b4f5b348e45b04998067f9e97a3ae987
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873953"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611325"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>빠른 시작: Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 
@@ -43,7 +43,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>구독 키 설정
 
-이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다. 구독 키를 조회하려면 [사용자의 API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)를 참조하세요.
+이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다.
 
 환경 변수 사용에 익숙하지 않거나 이 앱을 가능한 빨리 실행하려는 경우 `process.env['AZURE_SUBSCRIPTION_KEY']`를 문자열로 설정한 구독 키로 바꿉니다.
 

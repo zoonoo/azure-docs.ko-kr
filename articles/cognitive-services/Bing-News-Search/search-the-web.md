@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75448440"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602757"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 
@@ -40,10 +40,8 @@ Bing News Search API에서는 주로 관련 뉴스 문서를 찾고 반환하는
 
 Bing News Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. REST API 또는 SDK를 사용하여 서비스를 사용할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 Cognitive Services API 계정을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api) 수 있습니다.
-
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
-
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계

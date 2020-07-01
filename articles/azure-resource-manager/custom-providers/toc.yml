@@ -23,7 +23,7 @@
       href: tutorial-resource-onboarding.md
 - name: 샘플
   items:
-    - name: Azure Policy 기본 제공 기능
+    - name: Azure Policy 기본 제공
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -48,6 +48,8 @@
       href: reference-custom-providers-csharp-endpoint.md
     - name: REST (영문)
       href: /rest/api/customproviders/
+    - name: Azure CLI
+      href: /cli/azure/ext/custom-providers/custom-providers/
 - name: 리소스
   items:
     - name: Azure 로드맵

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882761"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609472"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Bing Search API에 분석 추가
 
 Bing Statistics는 Bing Search API에 대 한 분석을 제공 합니다. 이러한 분석에는 통화 볼륨, 상위 쿼리 문자열, 지리적 분포 등이 포함 됩니다. Azure 리소스로 이동 하 고 **Bing Statistics 사용**을 클릭 하 여 [Azure Portal](https://ms.portal.azure.com) 에서 bing 통계를 사용 하도록 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> * Bing Statistics는 무료 평가판 구독 또는 무료 `F0` 가격 책정 계층의 리소스에서 사용할 수 없습니다.
+> * 무료 가격 책정 계층의 리소스에는 Bing 통계를 사용할 수 없습니다 `F0` .
 > * 제3자에게 배포할 애플리케이션을 만들 때는 Bing Statistics 대시보드를 통해 사용 가능한 어떤 데이터도 사용할 수 없습니다.
 > * Bing 통계를 사용 하도록 설정 하면 구독 요금이 약간 늘어납니다. 자세한 내용은 [가격 책정](https://aka.ms/bingstatisticspricing) 을 참조 하세요.
 
@@ -46,7 +46,7 @@ Bing 업데이트는 24 시간 마다 분석 데이터를 분석 하 고 [분석
 
 - **리소스 ID**: Azure 구독을 식별하는 고유한 리소스 ID입니다. 둘 이상의 Bing Search API 계층을 구독하는 경우 이 목록에는 여러 ID가 포함됩니다. 기본적으로 모든 리소스가 선택됩니다.  
   
-- **지역/국가**: 결과가 나오는 지역/국가입니다. 예를 들면 en-us(영어, 미국)와 같습니다. 기본적으로 모든 지역/국가가 선택됩니다. `en-WW` 시장 출시는 콜에서 시장을 지정 하지 않고 bing에서 사용자의 시장을 확인할 수 없는 경우 bing에서 사용 하는 시장입니다.  
+- **지역/국가**: 결과가 나오는 지역/국가입니다. 예를 들면 en-us(영어, 미국)와 같습니다. 기본적으로 모든 지역/국가가 선택됩니다. 시장 출시는 `en-WW` 콜에서 시장을 지정 하지 않고 bing에서 사용자의 시장을 확인할 수 없는 경우 bing에서 사용 하는 시장입니다.  
   
 - **엔드포인트**: Bing Search API 엔드포인트입니다. 목록에는 유료 구독이 있는 모든 엔드포인트가 포함됩니다. 기본적으로 모든 엔드포인트가 선택됩니다.  
 
@@ -86,7 +86,7 @@ For example, if you don't include the User-Agent header in your calls, the dashb
   > [!NOTE]  
   > 일부 쿼리 용어는 전자 메일, 전화 번호, SSN 등의 기밀 정보를 제거하도록 표시되지 않을 수 있습니다.
 
-- **지리적 배포**: 검색 결과가 발생 하는 시장입니다. 예를 `en-us` 들면 (영어, 미국)입니다. Bing에서는 `mkt` 쿼리 매개 변수를 사용하여 지역/국가(지정된 경우)를 결정합니다. 그렇지 않은 경우, Bing은 호출자의 IP 주소와 같은 신호를 사용하여 지역/국가를 결정합니다.
+- **지리적 배포**: 검색 결과가 발생 하는 시장입니다. 예를 들면 `en-us` (영어, 미국)입니다. Bing에서는 `mkt` 쿼리 매개 변수를 사용하여 지역/국가(지정된 경우)를 결정합니다. 그렇지 않은 경우, Bing은 호출자의 IP 주소와 같은 신호를 사용하여 지역/국가를 결정합니다.
 
 - **응답 코드 배포**: 보고 기간 동안 수행된 모든 호출에 대한 HTTP 상태 코드입니다.
 
@@ -94,7 +94,7 @@ For example, if you don't include the User-Agent header in your calls, the dashb
 
 - **안전 검색 배포**: 안전 검색 값의 배포입니다. 예를 들면 off, moderate 또는 strict입니다. `safeSearch` 쿼리 매개 변수는 값(지정된 경우)을 포함합니다. 이렇게 하지 않으면 Bing은 기본적으로 moderate 값을 사용합니다.  
 
-- **요청 된 배포 응답**: `responseFilter` 쿼리 매개 변수에 요청한 Web Search API 응답입니다.  
+- **요청 된 배포 응답**: 쿼리 매개 변수에 요청한 Web Search API 응답 `responseFilter` 입니다.  
 
 - **반환된 답변 배포**: Web Search API가 응답에 반환한 답변입니다.
 

@@ -2,14 +2,14 @@
 title: V3 API의 예측 끝점 변경 내용
 description: 쿼리 예측 끝점 V3 Api가 변경 되었습니다. 이 가이드를 사용 하 여 버전 3 끝점 Api로 마이그레이션하는 방법을 이해할 수 있습니다.
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338195"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610883"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -55,7 +55,7 @@ Bot Framework를 사용 하거나 V7를 Bing Spell Check 하거나 LUIS 앱 제�
 클라이언트 응용 프로그램 또는 통합 (Bot Framework 및 Bing Spell Check V7)이 영향을 받지 않고 LUIS 앱 작성과 예측 끝점을 동시에 마이그레이션하는 것을 알고 있는 경우 V3 예측 끝점 사용을 시작 합니다. V2 예측 끝점은 계속 사용할 수 있으며 좋은 복구 전략입니다.
 
 
-## <a name="not-supported"></a>지원 안 함
+## <a name="not-supported"></a>지원되지 않음
 
 ### <a name="bing-spell-check"></a>Bing 맞춤법 검사
 
@@ -86,17 +86,7 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 
 ### <a name="query-string-changes"></a>문자열 변경 내용 쿼리
 
-V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
-
-|매개 변수 이름|Type|버전|기본값|용도|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 False입니다.|
-|`query`|문자열|V3만|기본값 없음-GET 요청에 필요 합니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
-|`show-all-intents`|boolean|V3만|false|**예측과** 개체의 해당 점수를 사용 하 여 모든 의도를 반환 합니다. 의도는 부모 개체에서 개체로 반환 됩니다 `intents` . 이렇게 하면 배열에서 의도를 찾을 필요 없이 프로그래밍 방식으로 액세스할 수 `prediction.intents.give` 있습니다. V 2에서는 배열에이 반환 되었습니다. |
-|`verbose`|boolean|V2 & V3|false|V 2 **에서**true로 설정 하면 예측 된 모든 것이 반환 됩니다. 모든 예측 의도를 필요로 하는 경우의 V3 매개 변수를 사용 `show-all-intents` 합니다.<br><br>**V3에서**이 매개 변수는 엔터티 예측의 엔터티 메타 데이터 정보만 제공 합니다.  |
-|`timezoneOffset`|문자열|V2|-|DatetimeV2 엔터티에 적용 되는 표준 시간대입니다.|
-|`datetimeReference`|문자열|V3|-|DatetimeV2 엔터티에 적용 되는 [표준 시간대](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) 입니다. `timezoneOffset`V2에서 대체 합니다.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>V3 POST 본문
 
@@ -112,13 +102,13 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 }
 ```
 
-|속성|Type|버전|기본값|용도|
+|속성|Type|Version|기본값|목적|
 |--|--|--|--|--|
-|`dynamicLists`|array|V3만|필요하지 않음.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
-|`externalEntities`|array|V3만|필요하지 않음.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
+|`dynamicLists`|array|V3만|필수 아님.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
+|`externalEntities`|array|V3만|필수 아님.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
 |`options.datetimeReference`|문자열|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
 |`options.preferExternalEntities`|boolean|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](schema-change-prediction-runtime.md#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
-|`query`|문자열|V3만|필수 요소.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
+|`query`|문자열|V3만|필수 사항입니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
 
 ## <a name="response-changes"></a>응답 변경
 

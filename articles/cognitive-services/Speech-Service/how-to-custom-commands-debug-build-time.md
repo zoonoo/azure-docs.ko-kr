@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308066"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604695"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 제작할 때 디버그 오류
 
@@ -26,7 +26,7 @@ ms.locfileid: "85308066"
 
 [LUIS는 제작 리소스 당 500 응용 프로그램을 제한](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits)합니다. 500 응용 프로그램이 이미 있는 제작 리소스를 사용 하는 경우 LUIS 응용 프로그램 만들기가 실패할 수 있습니다. 
 
-선택한 LUIS authoring 리소스가 500 미만인 지 확인 합니다. 그렇지 않은 경우 새 LUIS authoring 리소스를 전환 하거나 다른 것으로 전환 하거나 LUIS 응용 프로그램을 정리할 수 있습니다.  
+선택한 LUIS authoring 리소스의 응용 프로그램이 500 개 미만인 지 확인 합니다. 그렇지 않은 경우 새 LUIS authoring 리소스를 만들거나 다른 리소스를 전환 하거나 LUIS 응용 프로그램을 정리할 수 있습니다.  
 
 ## <a name="errors-when-deleting-an-application"></a>응용 프로그램을 삭제할 때 발생 하는 오류
 ### <a name="cant-delete-luis-application"></a>LUIS 응용 프로그램을 삭제할 수 없습니다.
@@ -48,13 +48,13 @@ LUIS 응용 프로그램을 삭제 하지 못한 경우 [LUIS](https://www.luis.
 사용 중인 웹 끝점은 삭제할 수 없습니다. 웹 끝점을 제거 하기 전에이 웹 끝점을 사용 하는 **호출 웹 끝점** 작업을 제거 하십시오.
 
 ## <a name="errors-when-training-an-application"></a>응용 프로그램을 학습할 때 발생 하는 오류
-### <a name="build-in-intents"></a>의도 대로 빌드
-LUIS에는 빌드 (예/아니요)가 있습니다. "예", "아니요"만 포함 하는 샘플 문장이 있으면 학습에 실패 합니다. 
+### <a name="built-in-intents"></a>기본 제공 의도
+LUIS에는 기본 제공 예/아니요가 있습니다. "예", "아니요"만 포함 하는 샘플 문장이 있으면 학습에 실패 합니다. 
 
 | 키워드 | 변형 | 
 | ------- | --------- | 
-| Yes | 확인 합니다. |
-| No | 맞습니다 | 
+| 예 | 확인 합니다. |
+| 예 | 맞습니다 | 
 
 ### <a name="common-sample-sentences"></a>일반적인 샘플 문장
 사용자 지정 명령은 여러 명령 간에 공유 되는 일반적인 샘플 문장을 허용 하지 않습니다. 한 명령의 일부 샘플 문장이 다른 명령에 이미 정의 되어 있으면 응용 프로그램의 교육이 실패할 수 있습니다. 
@@ -72,11 +72,11 @@ LUIS에는 빌드 (예/아니요)가 있습니다. "예", "아니요"만 포함 
 ### <a name="training-takes-too-long"></a>학습 시간이 너무 오래 걸립니다.
 LUIS 교육은 더 작은 예제로 신속 하 게 학습할 수 있습니다. 너무 많은 예제 문장을 추가 하지 마세요. 
 
-많은 예제 문장이 비슷한 경우에는 매개 변수를 정의 하 고 패턴으로 추상화 한 다음 예제 문장에 추가 합니다.
+비슷한 많은 예제 문장이 있는 경우 매개 변수를 정의 하 고 패턴으로 추상화 한 다음 예제 문장에 추가 합니다.
 
 예를 들어 아래 예제 문장에 대 한 매개 변수 {차량}을 정의 하 고 예제 문장에 "책 a {차량}"만 추가할 수 있습니다.
 
-| 예제 문장 | 패턴 | 
+| 예제 문장 | 무늬 | 
 | ------- | ------- | 
 | 차량 책 | 책 a {차량} | 
 | 항공권 예약 | 책 a {차량} |
