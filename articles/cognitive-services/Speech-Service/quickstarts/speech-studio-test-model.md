@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d696c0f6d1cdab8175af77c265435c48824f3e15
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346108"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391539"
 ---
 # <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>빠른 시작: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
 

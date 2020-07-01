@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77469020"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391216"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>자습서: 테넌트 모델 만들기(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "77469020"
 > [!IMPORTANT]
 > 조직에서 테넌트 모델 서비스를 사용하여 등록하는 경우 Speech Service가 조직의 언어 모델에 액세스할 수 있습니다. 이 모델은 조직의 모든 사용자가 볼 수 있는 Office 365 공용 그룹 이메일 및 문서에서 생성됩니다. 조직의 Office 365 관리자는 Office 365 관리 포털에서 조직 전체의 언어 모델 사용을 설정하거나 해제할 수 있습니다.
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Microsoft 365 관리 센터를 사용하여 테넌트 모델 등록
@@ -295,7 +295,7 @@ namespace PrincetonSROnly.FrontEnd.Samples
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
-1. 다음 명령 실행:
+1. 다음 명령을 실행합니다.
 
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>

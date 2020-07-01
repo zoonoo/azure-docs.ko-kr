@@ -3,13 +3,13 @@ title: '자습서: 엔드포인트 발화 검토 - LUIS'
 description: 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTP 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 06/22/2020
+ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592579"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445930"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.

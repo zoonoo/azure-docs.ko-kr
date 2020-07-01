@@ -222,7 +222,7 @@ async function AnalyzeReceipt( client, receiptUri)
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습 시킬 수도 있습니다.
+> [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -440,4 +440,4 @@ export DEBUG=azure*
 > [학습 데이터 세트 빌드](../../build-training-data-set.md)
 
 * [Form Recognizer란?](../../overview.md)
-* 이 가이드의 샘플 코드 등은 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)에서 확인할 수 있습니다.
+* [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)에서 이 가이드의 샘플 코드 등을 확인할 수 있습니다.

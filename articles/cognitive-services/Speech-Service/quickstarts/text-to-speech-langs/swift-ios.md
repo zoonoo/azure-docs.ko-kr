@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 5fd7f125037777c55b748b45df49f8f5cd2d0409
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 8ce7d963e1d4a3514a0e60435634ba4f4a9cb009
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74975893"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391284"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Swift로 음성 합성
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Swift에서 iOS 앱을 생성하여 텍스트에서 음성을 합성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 필수 구성 요소 목록은 다음과 같습니다.
 

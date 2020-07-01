@@ -26,7 +26,7 @@
     - name: 데이터 팩터리 만들기 - Resource Manager 템플릿
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: 보안 - 고객 관리형 키 암호화 사용
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: 데이터 흐름 만들기
       href: data-flow-create.md
 - name: 자습서
@@ -576,7 +576,7 @@
         - name: Data Factory에 대한 관리 ID
           href: data-factory-service-identity.md
         - name: 고객 관리형 키 암호화
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: 모니터링 및 관리
       items:
         - name: 시각적으로 모니터링
