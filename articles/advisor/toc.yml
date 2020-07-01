@@ -4,6 +4,14 @@
   items:
     - name: Azure Advisor란?
       href: advisor-overview.md
+- name: 빠른 시작
+  items:
+    - name: 새 권장 사항에 대한 경고 구성
+      items:
+        - name: Azure portal
+          href: advisor-alerts-portal.md
+        - name: ARM 템플릿
+          href: advisor-alerts-arm.md
 - name: 자습서
   items:
     - name: Advisor 시작
@@ -25,7 +33,7 @@
     - name: 권한 및 차단된 작업
       href: permissions.md
     - name: 권장 사항에 대한 경고 구성
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: 권장 사항에 대한 대량 수정
       href: advisor-quick-fix.md
     - name: Azure Resource Graph의 Advisor 데이터

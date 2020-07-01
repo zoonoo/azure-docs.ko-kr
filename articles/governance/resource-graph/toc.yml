@@ -8,7 +8,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 첫 번째 쿼리 실행 - Azure Portal
+    - name: 첫 번째 쿼리 실행 - 포털
       displayName: 'portal, resource, graph, explorer'
       href: ./first-query-portal.md
     - name: 첫 번째 쿼리 실행 - Azure CLI
@@ -26,6 +26,9 @@
     - name: 첫 번째 쿼리 실행 - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 공유 쿼리 만들기 - Azure CLI
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: 공유 쿼리 배포 - ARM 템플릿
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md
@@ -90,7 +93,7 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
-    - name: Resource Manager 템플릿
+    - name: 리소스 관리자 템플릿
       href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Resource Graph 테이블 및 리소스 종류
       href: ./reference/supported-tables-resources.md

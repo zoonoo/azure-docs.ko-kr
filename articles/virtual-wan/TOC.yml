@@ -36,6 +36,30 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
+    - name: 가격 책정 개념
+      href: pricing-concepts.md
+    - name: 라우팅
+      items:
+        - name: 가상 허브 라우팅 정보
+          href: about-virtual-hub-routing.md
+        - name: 시나리오
+          items:
+            - name: 보편적 연결(Any-to-Any)
+              href: scenario-any-to-any.md
+            - name: VNet 격리
+              href: scenario-isolate-vnets.md
+            - name: VNet 격리 - 사용자 지정
+              href: scenario-isolate-vnets-custom.md
+            - name: 공유 서비스 VNet
+              href: scenario-shared-services-vnet.md
+            - name: NVA를 통한 라우팅
+              href: scenario-route-through-nva.md
+            - name: NVA를 통한 라우팅 - 사용자 지정(미리 보기)
+              href: scenario-route-through-nvas-custom.md
+            - name: Azure Firewall - Interhub(미리 보기)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Azure Firewall - 사용자 지정
+              href: scenario-route-between-vnets-firewall.md
     - name: 사이트 간
       items:
         - name: IPsec 정책 정보
@@ -44,8 +68,6 @@
           href: path-selection-multiple-links.md
 - name: 방법 가이드
   items:
-    - name: 글로벌 VNet 피어링 구성
-      href: global-peering-vnet.md
     - name: 가상 WAN SKU 업그레이드
       href: upgrade-virtual-wan.md
     - name: ExpressRoute
@@ -90,13 +112,9 @@
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: 라우팅
       items:
-        - name: 가상 허브에서 NVA로 트래픽 라우팅
-          items:
-            - name: Azure portal
-              href: virtual-wan-route-table-portal.md
-            - name: Azure PowerShell
-              href: virtual-wan-route-table.md
-        - name: 가상 허브 유효 경로 보기
+        - name: 가상 허브 라우팅을 구성하는 방법
+          href: how-to-virtual-hub-routing.md
+        - name: 가상 허브 유효 경로를 보는 방법
           href: effective-routes-virtual-hub.md
     - name: 보안
       items:

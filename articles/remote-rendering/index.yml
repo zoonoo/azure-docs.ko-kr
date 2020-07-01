@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808941"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565434"
 landingContent:
 - title: Azure Remote Rendering 정보
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: 처음부터 프로젝트 설정'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: 원격 엔터티로 작업'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: 환경 및 재질 변경'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: 개요
+      url: tutorials/unity/tutorial-landing.md
+    - text: 원격으로 렌더링된 모델 보기
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: 사용자 지정 모델 로드
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: 모델 조작
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: 재질, 조명 및 효과 구체화
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Azure Remote Rendering 및 모델 스토리지 보안
+      url: tutorials/unity/security/security.md
+    - text: 상용 준비된 Azure Remote Rendering 애플리케이션 만들기
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: '네이티브 C++: Hololens Holographic 앱에 Remote Rendering 통합'
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

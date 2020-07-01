@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 5f9dbc120b301100364da61f7d8c19fa58beb5c9
-  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+  ms.openlocfilehash: 525d39eb4170927ebbf2fdee9298921093ee2aef
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/27/2020
-  ms.locfileid: "85482924"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565595"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -68,7 +68,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     - analytics
-    url: /azure/databricks/index.yml
+    url: /azure/databricks/
   - title: Azure Machine Learning
     summary: 실험 및 모델 관리를 갖춘 엔드투엔드 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -682,7 +682,7 @@ productDirectory:
     azureCategories:
     - developer-tools
     url: https://code.visualstudio.com/docs
-  - title: Visual Studio Online(미리 보기)
+  - title: Visual Studio Codespaces(미리 보기)
     summary: 어디서나 액세스 가능한 클라우드 기반 개발 환경
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
@@ -1202,7 +1202,7 @@ productDirectory:
     - storage
     url: azure-netapp-files/index.yml
   - title: Blob Storage
-    summary: 비정형 데이터용 REST 기반 개체 스토리지
+    summary: 구조화되지 않은 데이터용 REST 기반 개체 스토리지
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
     - storage

@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: e181f5cb94dc33765b6fceb81cc98832a3b800ce
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79479776"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85554315"
 landingContent:
 - title: Azure CDN 정보
   linkLists:
@@ -68,3 +68,13 @@ landingContent:
       url: cdn-verizon-custom-reports.md
     - text: Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
       url: cdn-advanced-http-reports.md
+- title: Verizon 프리미엄
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Verizon 프리미엄 규칙 엔진
+      url: cdn-verizon-premium-rules-engine-reference.md
+    - text: 규칙 엔진 조건식
+      url: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
+    - text: 규칙 엔진 기능
+      url: cdn-verizon-premium-rules-engine-reference-features.md

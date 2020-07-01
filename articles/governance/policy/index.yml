@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
-  ms.openlocfilehash: d3a25af9f7d8e16fbb008fd84aff6e29c57680da
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.date: 06/29/2020
+  ms.openlocfilehash: c066c3a7cc5b8208a61962ce4f51f7eef4be192b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85321958"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549936"
 landingContent:
 - title: Azure Policy 정보
   linkLists:
@@ -39,11 +39,11 @@ landingContent:
     links:
     - text: 정책 할당(포털)
       url: ./assign-policy-portal.md
-    - text: 정책 할당(PowerShell)
-      url: ./assign-policy-powershell.md
     - text: 정책 할당(Azure CLI)
       url: ./assign-policy-azurecli.md
-    - text: 정책 할당(템플릿)
+    - text: 정책 할당(Azure PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: 정책 할당(ARM 템플릿)
       url: ./assign-policy-template.md
   - linkListType: tutorial
     links:
@@ -119,7 +119,7 @@ landingContent:
       url: /rest/api/resources/policydefinitions
     - text: REST(이니셔티브)
       url: /rest/api/resources/policysetdefinitions
-    - text: Resource Manager 템플릿
+    - text: 리소스 관리자 템플릿
       url: /azure/templates/microsoft.authorization/allversions
 - title: 참조(추가)
   linkLists:

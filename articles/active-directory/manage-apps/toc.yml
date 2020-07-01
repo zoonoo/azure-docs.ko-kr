@@ -3,20 +3,14 @@
 - name: 개요
   expanded: true
   items:
-    - name: 애플리케이션 관리 및 Single Sign-On이란?
+    - name: 애플리케이션 관리란?
       href: what-is-application-management.md
-    - name: 온-프레미스 앱에 대한 애플리케이션 프록시란?
-      href: what-is-application-proxy.md
-    - name: 일반적인 앱 관리 시나리오
-      href: common-scenarios.md
-    - name: 애플리케이션 프로비저닝이란?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: 빠른 시작
   items:
-    - name: 갤러리에서 클라우드 앱 추가
-      href: add-application-portal.md
     - name: 엔터프라이즈 애플리케이션 보기
       href: view-applications-portal.md
+    - name: 갤러리에서 클라우드 앱 추가
+      href: add-application-portal.md
 - name: 자습서
   items:
     - name: '통합 갤러리 앱(예: ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +26,8 @@
   items:
     - name: 앱 관리 모범 사례
       href: application-management-fundamentals.md
+    - name: 앱 관리 공통 시나리오
+      href: common-scenarios.md
     - name: 클라우드 앱 및 Single Sign-On
       items:
         - name: 클라우드 앱 통합 계획
@@ -80,6 +76,8 @@
       items:
         - name: 애플리케이션 프록시
           href: application-proxy.md
+        - name: 온-프레미스 앱에 대한 애플리케이션 프록시란?
+          href: what-is-application-proxy.md
         - name: 애플리케이션 프록시 배포 계획
           href: application-proxy-deployment-plan.md
         - name: 커넥터

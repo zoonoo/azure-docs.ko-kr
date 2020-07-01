@@ -30,7 +30,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Azure Pipelines에서 CI/CD를 사용하여 배포
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 - C# UDF 실행'
+    - name: 4 - C# UDF 실행
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 - 사용자 지정 .NET 역직렬 변환기 만들기
       href: custom-deserializer.md
@@ -82,10 +82,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: JavaScript UDA
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'C# UDF'
+        - name: C# UDF
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: 기계 학습 UDF
           href: machine-learning-udf.md
+        - name: UDF 및 업데이트 디버그
+          href: debug-user-defined-functions.md
     - name: Stream Analytics 작업 최적화
       items:
         - name: 스트리밍 단위 이해 및 조정
@@ -228,6 +230,8 @@
           href: visual-studio-code-local-run.md
         - name: 라이브 데이터를 사용하여 로컬로 테스트
           href: visual-studio-code-local-run-live-input.md
+        - name: 작업 다이어그램을 사용하여 쿼리 디버그
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: CI/CD 파이프라인 설정
           href: setup-cicd-vs-code.md
         - name: 작업 탐색

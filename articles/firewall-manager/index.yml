@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 10/10/2019
-  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bf7474f1519fbd94be3de8daa15a43775a6a6a0a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73508672"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85561440"
 landingContent:
 - title: Azure Firewall Manager에 대해 알아보기
   linkLists:
@@ -31,15 +31,15 @@ landingContent:
     links:
     - text: 보안 가상 허브란?
       url: secured-virtual-hub.md
-- title: 신뢰할 수 있는 보안 파트너
+- title: 보안 파트너 공급자
   linkLists:
   - linkListType: concept
     links:
-    - text: 신뢰할 수 있는 보안 파트너(미리 보기)란?
+    - text: 보안 파트너 공급자란?
       url: trusted-security-partners.md
   - linkListType: how-to-guide
     links:
-    - text: 신뢰할 수 있는 보안 파트너 배포(미리 보기)
+    - text: 보안 파트너 공급자 배포
       url: deploy-trusted-security-partner.md
 - title: Azure 클라우드 네트워크 보안
   linkLists:

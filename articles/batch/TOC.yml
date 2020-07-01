@@ -135,6 +135,8 @@
           href: batch-virtual-network.md
         - name: 공용 IP 주소를 사용하여 풀 만들기
           href: create-pool-public-ip.md
+        - name: 공용 IP 주소가 없는 풀 만들기
+          href: batch-pool-no-public-ip-address.md
         - name: 가상 파일 시스템 탑재
           href: virtual-file-mount.md
         - name: Azure 파일 공유 탑재

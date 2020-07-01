@@ -18,6 +18,8 @@
           href: microfocus/get-started.md
         - name: Enterprise Server 설치
           href: microfocus/set-up-micro-focus-azure.md
+        - name: AKS에 Enterprise Server 배포
+          href: microfocus/deploy-micro-focus-enterprise-server.md
         - name: CICS BankDemo 실행
           href: microfocus/demo.md
         - name: 컨테이너의 Enterprise Server

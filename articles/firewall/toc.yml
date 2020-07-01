@@ -58,6 +58,8 @@
       href: central-management.md
     - name: 원격 작업 지원
       href: remote-work-support.md
+    - name: 네트워크 규칙의 FQDN
+      href: fqdn-filtering-network-rules.md
 - name: 방법 가이드
   items:
     - name: Azure PowerShell을 사용하여 배포
@@ -80,6 +82,10 @@
       href: create-ip-group.md
     - name: Windows Virtual Desktop 보호
       href: protect-windows-virtual-desktop.md
+    - name: AKS(Azure Kubernetes Service) 보호
+      href: protect-azure-kubernetes-service.md
+    - name: DNS 설정
+      href: dns-settings.md
 - name: 참조
   items:
     - name: Azure CLI

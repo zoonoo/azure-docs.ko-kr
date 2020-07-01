@@ -1,13 +1,13 @@
 - name: Azure Cognitive Search 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure Cognitive Search란?
       href: search-what-is-azure-search.md
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: 포털
       items:
@@ -85,7 +85,7 @@
     - name: Python 샘플
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: REST 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
@@ -388,10 +388,10 @@
           href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: REST (영문)
       items:
-        - name: 검색 2019-05-06
+        - name: 검색 2020-06-30
           href: /rest/api/searchservice
-        - name: 검색 2019-05-06-미리 보기
-          href: /rest/api/searchservice/index-2019-05-06-preview
+        - name: 검색 2020-06-30-Preview
+          href: /rest/api/searchservice/index-preview
         - name: 관리 2020-03-13
           href: /rest/api/searchmanagement
         - name: 관리 2019-10-01-미리 보기

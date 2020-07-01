@@ -12,7 +12,7 @@
       href: quick-secure-virtual-hub.md
 - name: 자습서
   items:
-    - name: 가상 WAN 보안 - 포털
+    - name: 가상 허브 보안 - 포털
       href: secure-cloud-network.md
     - name: 허브 가상 네트워크 보안 - 포털
       href: secure-hybrid-network.md
@@ -26,16 +26,24 @@
       href: deployment-overview.md
     - name: 보안 파트너 공급자
       href: trusted-security-partners.md
+    - name: IP 그룹
+      href: ip-groups.md
     - name: 규칙 처리 논리
       href: rule-processing.md
     - name: 아키텍처 옵션
       href: vhubs-and-vnets.md
+    - name: 위협 인텔리전스 설정
+      href: threat-intelligence-settings.md
+    - name: 네트워크 규칙의 FQDN
+      href: fqdn-filtering-network-rules.md
 - name: 방법 가이드
   items:
     - name: 보안 파트너 공급자 배포
       href: deploy-trusted-security-partner.md
     - name: 방화벽 정책으로 마이그레이션 - PowerShell
       href: migrate-to-policy.md
+    - name: DNS 설정
+      href: dns-settings.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -52,7 +60,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
       href: /rest/api/firewall
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
