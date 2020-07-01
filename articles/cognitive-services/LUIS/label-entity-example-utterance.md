@@ -3,12 +3,12 @@ title: 예제 발화의 엔터티에 레이블 지정
 description: LUIS 포털의 의도 세부 정보 페이지에서 utterance 예제에 있는 하위 엔터티를 사용 하 여 기계 학습 엔터티에 레이블을 만드는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722646"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610492"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>예 utterance에서 기계 학습 엔터티 레이블
 
@@ -16,7 +16,7 @@ ms.locfileid: "83722646"
 
 컴퓨터에서 학습 한 엔터티 및 하위 엔터티에 레이블을 지정할 수 있습니다.
 
-정규식, 목록 또는 미리 작성 된 엔터티의 레이블을 지정할 수 없고 엔터티 또는 하위 엔터티를 만든 다음 이러한 엔터티를 엔터티 또는 하위 엔터티에 추가할 수 있습니다.
+정규식, 목록 또는 미리 작성 된 엔터티의 레이블을 지정할 수 없으므로 엔터티 또는 하위 엔터티를 만든 다음 엔터티 또는 하위 엔터티에 이러한 엔터티를 기능 (해당 하는 경우)으로 추가 합니다.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>의도 세부 정보 페이지의 레이블 예 길이 발언
 

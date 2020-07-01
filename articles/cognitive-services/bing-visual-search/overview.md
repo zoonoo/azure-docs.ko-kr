@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446666"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611512"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -48,7 +48,7 @@ Bing Visual Search 결과에는 이미지의 관심 영역에 대한 경계 상�
 
 Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 서비스에 REST API 또는 SDK를 사용할 수 있습니다.
 
-1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다. 구독 키는 계정을 만든 후 또는 [Azure Portal](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)에서 또는 평가판을 활성화한 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis)에서 구할 수 있습니다.
+1. Bing Search API에 액세스하기 위한 [Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 

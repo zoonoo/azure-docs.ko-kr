@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382721"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601941"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 
@@ -35,7 +35,7 @@ Bing Video Search API를 통해 쉽게 서비스 및 애플리케이션에 비�
 
 Bing Video Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. [REST API](csharp.md) 또는 [SDK](video-search-sdk-quickstart.md)를 사용하여 서비스를 사용할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
 2. 유효한 검색 쿼리를 사용하여 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
@@ -43,8 +43,6 @@ Bing Video Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 ## <a name="next-steps"></a>다음 단계
 
 Bing Video Search API [대화형 데모](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)는 검색 쿼리를 사용자 지정하고 비디오에 대해 웹을 검색하는 방법을 보여줍니다.
-
-API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
 
 첫 번째 API 요청을 빠르게 시작하려면 [빠른 시작](csharp.md)을 사용합니다.
 

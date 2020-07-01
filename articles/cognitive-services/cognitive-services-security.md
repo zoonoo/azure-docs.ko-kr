@@ -3,19 +3,19 @@ title: 보안
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services 사용에 대 한 다양 한 보안 고려 사항에 대해 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608454"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611410"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -201,11 +201,11 @@ NSString* value =
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* 변환기
+* Translator
 
 Language Understanding의 경우 Microsoft 엔지니어가 E0 SKU의 고객 데이터에 액세스 하지 않습니다. E0 SKU를 사용 하는 기능을 요청 하려면 [LUIS 서비스 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS와 함께 E0 SKU를 사용 하도록 승인 되 면 Azure Portal에서 새 Language Understanding 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 
-음성 서비스는 현재 고객 Lockbox을 지원 하지 않습니다. 그러나 BYOS를 사용 하 여 고객 데이터를 저장 하 여 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)하는 비슷한 데이터 제어를 달성할 수 있습니다. 음성 서비스 데이터는 음성 리소스가 생성 된 지역에서 유지 되 고 처리 됩니다. 이는 미사용 데이터 및 전송 중인 데이터에 적용 됩니다. 사용자 지정 기능을 사용 하는 경우 (예: Custom Speech 및 사용자 지정 음성) 모든 고객 데이터는 BYOS (사용 되는 경우) 및 음성 서비스 리소스가 있는 동일한 지역에서 전송, 저장 및 처리 됩니다.
+음성 서비스는 현재 고객 Lockbox을 지원 하지 않습니다. 그러나 BYOS ("사용자 고유의 저장소 가져오기")를 사용 하 여 고객 데이터를 저장할 수 있으므로 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)하는 비슷한 데이터 제어를 달성할 수 있습니다. 음성 서비스 데이터는 음성 리소스가 생성 된 지역에서 유지 되 고 처리 됩니다. 이는 미사용 데이터 및 전송 중인 데이터에 적용 됩니다. 사용자 지정 기능을 사용 하는 경우 (예: Custom Speech 및 사용자 지정 음성) 모든 고객 데이터는 BYOS (사용 되는 경우) 및 음성 서비스 리소스가 있는 동일한 지역에서 전송, 저장 및 처리 됩니다.
 
 > [!IMPORTANT]
 > Microsoft **는** 고객 데이터를 사용 하 여 음성 모델을 개선 하지 않습니다. 또한 끝점 로깅을 사용 하지 않도록 설정 하 고 사용자 지정을 사용 하지 않은 경우에는 고객 데이터가 저장 되지 않습니다. 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6bd8c472aa659bec31440292e20328865b1cb531
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: eb657c16f6f3ff67f4379134f3aa478f10d8ef94
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79134530"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603539"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
@@ -39,7 +39,7 @@ Bing Image Search API에서 이미지 전용 검색 결과를 제공하지만, �
 
 Bing Image Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. [REST API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?) 또는 [SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 사용하여 서비스를 사용할 수 있습니다.
 
-1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/cognitive-services/)을 만들 수 있습니다.
 2. 유효한 [검색 쿼리](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)를 사용하여 API에 요청을 보냅니다.
 3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
@@ -47,8 +47,6 @@ Bing Image Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 
 먼저 Bing Image Search API [대화형 데모](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)를 사용해 보세요.
 이 데모에서는 검색 쿼리를 빠르게 사용자 지정하고 웹에서 이미지를 샅샅이 검색하는 방법을 보여 줍니다.
-
-API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
 
 첫 번째 API 요청을 빠르게 시작하려면 다음을 알아볼 수 있습니다.
 

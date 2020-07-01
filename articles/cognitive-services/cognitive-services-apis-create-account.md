@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 33200f8807ad28ac160bb377b1107548f4e42d51
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590811"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611393"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -23,34 +23,34 @@ ms.locfileid: "83590811"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 유효한 Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/).
+* 유효한 Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>새 Azure Cognitive Services 리소스 만들기
 
 1. 리소스를 만듭니다.
 
     #### <a name="multi-service-resource"></a>[다중 서비스 리소스](#tab/multiservice)
-    
+
     다중 서비스 리소스는 포털에서 **Cognitive Services** 이름이 지정 됩니다. [Cognitive Services 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
-    
+
     이번에는 다중 서비스 리소스를 사용 하 여 다음 Cognitive Services에 액세스할 수 있습니다.
-    
+
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Computer Vision  | Content Moderator                                    | Face               | 언어 이해(LUIS) | 텍스트 분석   |
     | 변환기  | Bing Search v7 <br>(웹, 이미지, 뉴스, 비디오, 시각적 개체) | Bing 사용자 지정 검색 | Bing Entity Search            | Bing Autosuggest |
     | Bing 맞춤법 검사 |                                                      |                    |                               |                  |
-    
+
     #### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 
     아래 링크를 사용 하 여 사용 가능한 Cognitive Services에 대 한 리소스를 만듭니다.
 
     | 시각                      | 음성                  | 언어                          | 의사 결정             | 검색                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
-    | [컴퓨터 비전](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입 형 독자](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
-    | [사용자 지정 비전 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Speaker Recognition](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입 형 독자](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [사용자 지정 비전 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [화자 인식](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
@@ -103,15 +103,15 @@ ms.locfileid: "83590811"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제 하면 해당 그룹에 포함 된 다른 리소스도 모두 삭제 됩니다.
+Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 그룹에 포함된 모든 리소스가 함께 삭제됩니다.
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 열고 **리소스 그룹**을 선택하여 리소스 그룹 목록을 표시합니다.
-2. 삭제할 리소스를 포함 하는 리소스 그룹을 찾습니다.
-3. 리소스 그룹 목록을 마우스 오른쪽 단추로 클릭 합니다. **리소스 그룹 삭제**를 선택하고 확인합니다.
+2. 삭제할 리소스가 포함된 리소스 그룹을 찾습니다.
+3. 리소스 그룹 목록을 마우스 오른쪽 단추로 클릭합니다. **리소스 그룹 삭제**를 선택하고 확인합니다.
 
 ## <a name="see-also"></a>참고 항목
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
-* [Azure Cognitive Services 이란?](Welcome.md)
+* [Azure Cognitive Services란?](Welcome.md)
 * [자연어 지원](language-support.md)
 * [Docker 컨테이너 지원](cognitive-services-container-support.md)

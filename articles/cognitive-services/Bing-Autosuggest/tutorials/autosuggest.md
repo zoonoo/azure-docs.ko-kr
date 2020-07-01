@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 04f4c91ece77f7476cbe3bb27236ecdc2b5c60e7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78943157"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603165"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 
@@ -27,9 +27,9 @@ ms.locfileid: "78943157"
 > - Bing Autosuggest API에 단순 쿼리 만들기
 > - 쿼리 결과 표시
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-자습서를 따르려면 Bing Autosuggest API에 대한 구독 키가 필요합니다. 없는 경우 Azure Portal에서 [Bing Autosuggest 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7). [평가판 키](https://azure.microsoft.com/try/cognitive-services/)를 사용할 수도 있습니다.
+자습서를 따르려면 Bing Autosuggest API에 대한 구독 키가 필요합니다. 없는 경우 Azure Portal에서 [Bing Autosuggest 리소스를 만듭니다](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7).
 
 ## <a name="create-a-new-web-page"></a>새 웹 페이지 만들기
 

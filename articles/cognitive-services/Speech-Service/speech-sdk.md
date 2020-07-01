@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399994"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610764"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -37,7 +37,7 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-개발자는 음성 SDK를 사용 하 여 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다. 음성 도우미 서비스는 장치와 비서 간에 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 작업을 완료 하는 데 봇 프레임 워크의 Direct Line Speech channel 또는 통합 사용자 지정 명령 (미리 보기) 서비스를 사용 합니다. 또한 [사용자 지정 음성 포털](https://aka.ms/customvoice) 을 사용 하 여 음성 도우미를 만들어 고유한 음성 환경을 만들 수 있습니다.
+개발자 [는 음성 SDK를 사용 하](voice-assistants.md) 여 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다. 음성 도우미 서비스는 장치와 비서 간에 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 작업을 완료 하는 데 봇 프레임 워크의 Direct Line Speech channel 또는 통합 사용자 지정 명령 (미리 보기) 서비스를 사용 합니다. 또한 음성 도우미는 [사용자 지정 음성 포털](https://aka.ms/customvoice) 에서 만든 사용자 지정 음성을 사용 하 여 고유한 음성 출력 환경을 추가할 수 있습니다.
 
 #### <a name="keyword-spotting"></a>키워드 발견
 
@@ -65,7 +65,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 ### <a name="codec-compressed-audio-input"></a>코덱 압축 오디오 입력
 
-몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 <span class="docon docon-navigate-external x-hidden-focus"> </span>사용 </a>을 참조 하세요.
+몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 <span class="docon docon-navigate-external x-hidden-focus"></span> 사용 </a>을 참조 하세요.
 
 ## <a name="rest-api"></a>REST API
 
@@ -105,7 +105,7 @@ Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나�
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-macos.md)]
 
-# <a name="android"></a>[OWA(Outlook Web Access)](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
 
