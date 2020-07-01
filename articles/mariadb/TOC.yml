@@ -112,6 +112,10 @@
           href: concepts-data-in-replication.md
         - name: 읽기 복제본
           href: concepts-read-replicas.md
+    - name: 영역 간 이동
+      items:
+        - name: Azure portal
+          href: howto-move-regions-portal.md
 - name: 방법 가이드
   items:
     - name: 서버 관리

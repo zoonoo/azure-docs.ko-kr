@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589196"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560182"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
 Computer Vision의 일부 기능은 여러 언어를 지원 합니다. 여기서 언급 하지 않은 기능은 영어만 지원 합니다.
 
-## <a name="text-recognition"></a>텍스트 인식
+## <a name="text-detection-ocr"></a>텍스트 검색 (OCR)
 
-Computer Vision는 여러 언어로 텍스트를 인식할 수 있습니다. OCR 및 Read Api는 언어 코드를 지정 하지 않아도 됩니다. 이 기능과 각 API의 이점에 대 한 자세한 내용은 [인쇄 및 필기 텍스트 인식](concept-recognizing-text.md) 을 참조 하세요.
+Computer Vision는 여러 언어로 텍스트를 검색할 수 있습니다. 읽기 및 OCR Api는 언어 코드를 지정 하지 않아도 됩니다. 이 기능과 각 API의 이점에 대 한 자세한 내용은 [이미지 및 문서에서 텍스트 읽기](concept-recognizing-text.md) 를 참조 하세요.
 
 |언어| 언어 코드 | OCR API | 읽기 API |
 |:-----|:----:|:-----:|:---:|
@@ -58,7 +58,7 @@ Computer Vision는 여러 언어로 텍스트를 인식할 수 있습니다. OCR
 
 [분석-이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 작업은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 및 쿼리 매개 변수를 사용 하 여 지정 됩니다 `visualFeatures` `details` . 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](home.md) 를 참조 하세요.
 
-|언어 | 언어 코드 | 범주 | 태그 | 설명 | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
+|언어 | 언어 코드 | 범주 | 태그들 | Description | 성인 | 브랜드 | 색상 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |중국어 | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |영어 | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/29/2020
 ms.author: swmachan
-ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995788"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561461"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -66,14 +66,13 @@ ms.locfileid: "83995788"
 
 | 언어 | 코드 | 문자 제한 |
 |----------|------|-----------------|
-| 중국어 | zh | 132 |
-| 독일어 | de | 290 |
-| 이탈리아어 | it | 280 |
-| 일본어 | ja | 150 |
-| 포르투갈어 | pt | 290 |
-| 스페인어 | es | 280 |
-| 이탈리아어 | it | 280 |
-| 태국어 | th | 258 |
+| 중국어 | zh | 166 |
+| 독일어 | de | 800 |
+| 이탈리아어 | it | 800 |
+| 일본어 | ja | 166 |
+| 포르투갈어 | pt | 800 |
+| 스페인어 | es | 800 |
+| 태국어 | th | 180 |
 
 > [!NOTE]
 > 이 제한은 번역에 적용되지 않습니다.

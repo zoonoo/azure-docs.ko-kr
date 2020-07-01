@@ -7,7 +7,11 @@
 - name: 빠른 시작
   items:
     - name: 서비스 상태 이벤트에 대한 경고 구성
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Azure portal
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: ARM 템플릿
+          href: alerts-activity-log-service-notifications-arm.md
 - name: 개념
   items:
     - name: Azure 상태 페이지

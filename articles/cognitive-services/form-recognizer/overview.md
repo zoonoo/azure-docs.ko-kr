@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 241d91a8c8670c32461684ed964b6fc0fd7c1672
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206413"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563250"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -81,7 +81,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 | **영수증 분석** |단일 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
 | **레이아웃 분석** |양식의 레이아웃을 분석하여 텍스트 및 테이블 구조를 추출합니다.|
 
-자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
+자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
 
 ## <a name="input-requirements"></a>입력 요구 사항
 ### <a name="custom-model"></a>사용자 지정 모델
@@ -104,4 +104,4 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작](quickstarts/curl-train-extract.md)을 수행하여 [Form Recognizer API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)를 시작합니다.
+[빠른 시작](quickstarts/curl-train-extract.md)을 수행하여 [Form Recognizer API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)를 시작합니다.

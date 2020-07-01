@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414043"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560800"
 ---
 # <a name="read-text-from-images-and-documents"></a>이미지 및 문서에서 텍스트 읽기
 
@@ -24,12 +24,11 @@ Computer Vision는 이미지 및 PDF 문서에서 인쇄 되거나 필기 된 �
 
 ## <a name="read-api"></a>읽기 API 
 
-Computer Vision의 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 PDF 문서에서 인쇄 된 텍스트, 필기 텍스트 (영어 전용), 숫자 및 통화 기호를 추출 하는 Microsoft의 최신 OCR 기술입니다. 와일드 카드는 이미지에서 텍스트를 추출 하는 데 최적화 되어 있습니다. 이미지는 시각적 노이즈가 있는 이미지, 디지털 또는 스캔 된 PDF 문서, 텍스트를 많이 사용 하는 이미지입니다. 인쇄 및 필기 텍스트 (영어)와 동일한 이미지나 문서에서 혼합 된 언어를 지원 합니다. 지원 되는 언어의 전체 목록은 [Computer Vision에 대 한 언어 지원](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) 페이지에서 찾을 수 있습니다.
-
+Computer Vision의 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 다중 페이지 PDF 문서에서 인쇄 된 텍스트 (7 개의 언어), 필기 텍스트 (영어 전용), 숫자 및 통화 기호를 추출 하는 Microsoft의 최신 OCR 기술입니다. 이는 혼합 된 언어를 사용 하 여 텍스트 집약적 이미지 및 다중 페이지 PDF 문서에서 텍스트를 추출 하는 데 최적화 되어 있습니다. 동일한 이미지나 문서에서 인쇄 및 필기 텍스트 (영어만) 검색을 지원 합니다. 지원 되는 언어의 전체 목록은 [Computer Vision에 대 한 언어 지원](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) 페이지에서 찾을 수 있습니다.
 
 ### <a name="how-it-works"></a>작동 방법
 
-[읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 비동기입니다. 첫 번째 단계는 읽기 작업을 호출 하는 것입니다. 읽기 작업은 이미지나 PDF 문서를 입력으로 사용 하 여 작업 ID를 반환 합니다. 
+[읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 최대 2000 페이지까지 텍스트를 많이 차지 하는 문서를 지원 하므로 비동기적으로 실행 됩니다. 첫 번째 단계는 읽기 작업을 호출 하는 것입니다. 읽기 작업은 이미지나 PDF 문서를 입력으로 사용 하 여 작업 ID를 반환 합니다. 
 
 두 번째 단계는 [결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 사용 합니다. 그런 다음 이미지 또는 문서에서 추출 된 텍스트 콘텐츠를 JSON 형식으로 반환 합니다. JSON 응답은 인식 된 단어의 원래 줄 그룹을 유지 관리 합니다. 추출 된 텍스트 줄과 해당 경계 상자 좌표가 포함 됩니다. 각 텍스트 줄에는 추출 된 모든 단어의 좌표와 신뢰도 점수가 포함 됩니다.
 
@@ -90,7 +89,7 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 
 ## <a name="ocr-api"></a>OCR API
 
-[OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 는 이전 인식 모델을 사용 합니다. 단일 이미지만 지원 하 고 Pdf는 지원 하지 않으며 즉각적인 응답을 반환 합니다. API 읽기 보다 [많은 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) 를 지원 합니다.
+[OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 는 이전 인식 모델을 사용 하 고 이미지만 지원 하며 동기적으로 실행 되어 검색 된 텍스트로 즉시 반환 됩니다. API 읽기 보다 [많은 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) 를 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

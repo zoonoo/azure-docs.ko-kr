@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: c150d60b05ccd306f055c60d180ee9421b356feb
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 811daf9b1bf5bf26419385517a67cd22cb8346e6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242168"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85570168"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -58,7 +58,7 @@ key = os.environ["FORM_RECOGNIZER_KEY"]
 Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
 
 ```console
-pip install azure_ai_formrecognizer
+pip install azure-ai-formrecognizer
 ```
 
 <!-- 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168456"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561561"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -100,7 +100,7 @@ ms.locfileid: "77168456"
   - 로그인 (필요한 경우)
   - 프로젝트 및 배포를 선택 합니다.
   - 에 대해 동시성이 증가 해야 하는 끝점을 선택 합니다.
-  - 를 `Endpoint ID`복사 합니다.
+  - 를 복사 `Endpoint ID` 합니다.
 
 ***기본 모델***의 동시성을 늘리려면 다음 정보가 필요 합니다.
 
@@ -110,14 +110,17 @@ ms.locfileid: "77168456"
 
 - 구독에 대 한 액세스 토큰 ( [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)참조)
 
-또는
+를 실행하거나
 
 - 구독에 대 한 리소스 ID:
   - [Azure Portal](https://portal.azure.com)로 이동 합니다.
-  - 검색 `Cognitive Services` 상자에서를 선택 합니다.
+  - `Cognitive Services`검색 상자에서를 선택 합니다.
   - 표시 된 서비스에서 동시성을 증가 시킬 음성 서비스를 선택 합니다.
-  - 이 서비스 `Properties` 에 대 한를 표시 합니다.
-  - 전체 `Resource ID`를 복사 합니다.
+  - `Properties`이 서비스에 대 한를 표시 합니다.
+  - 전체를 복사 `Resource ID` 합니다.
+  
+>[!NOTE]
+>컨테이너가 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [컨테이너](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) 는 동시성 제한에 대 한 증가가 필요 하지 않습니다.
 
 ## <a name="importing-data"></a>데이터 가져오기
 

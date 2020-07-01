@@ -161,6 +161,10 @@
               href: concepts-read-replicas.md
             - name: 논리 디코딩
               href: concepts-logical.md
+        - name: 영역 간 이동
+          items:
+            - name: Azure portal
+              href: howto-move-regions-portal.md
     - name: 하이퍼스케일(Citus)
       items:
         - name: 노드

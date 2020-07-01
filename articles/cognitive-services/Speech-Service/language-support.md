@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 23ecfc96c8f75dbae4cfb02cc16f5e5de359c4f6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 88c116121452fb00397b8d99c21e9f02b1796f00
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362179"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559818"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -101,27 +101,27 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 |로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
-| `de-DE` | 독일어(독일)                | Female | "de-DE-KatjaNeural"      | 일반 |
-| `en-AU` | 영어(오스트레일리아)             | Female | "en-AU-NatashaNeural"    | 일반 |
-| `en-CA` | 영어(캐나다)                | Female | "en-CA-ClaraNeural"      | 일반 |
-| `en-GB` | 영어(영국)                    | Female | "en-GB-LibbyNeural"      | 일반 |
-|         |                                 | Female | "en-GB-MiaNeural"        | 일반 |
-| `en-US` | 영어(미국)                    | Female | "en-US-AriaNeural"       | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | Male   | "en-US-GuyNeural"        | 일반 |
-| `es-ES` | 스페인어(스페인)                 | Female | "es-ES-ElviraNeural"     | 일반 |
-| `es-MX` | 스페인어(멕시코)                | Female | "es-MX-DaliaNeural"      | 일반 |
-| `fr-CA` | 프랑스어(캐나다)                 | Female | "fr-CA-SylvieNeural"     | 일반 |
-| `fr-FR` | 프랑스어(프랑스)                 | Female | "fr-FR-DeniseNeural"     | 일반 |
-| `it-IT` | 이탈리아어(이탈리아)                 | Female | "it-IT-ElsaNeural"       | 일반 |
-| `ja-JP` | 일본어                        | Female | "ja-JP-NanamiNeural"     | 일반 |
-| `ko-KR` | 한국어                          | Female | "ko-KR-SunHiNeural"      | 일반 |
-| `nb-NO` | 노르웨이어                       | Female | "nb-NO-IselinNeural"     | 일반 |
-| `pt-BR` | 포르투갈어(브라질)             | Female | "pt-BR-FranciscaNeural"  | 일반 |
-| `tr-TR` | 터키어                         | Female | "tr-TR-EmelNeural"       | 일반 |
-| `zh-CN` | 중국어(북경어, 간체)  | Female | "zh-CN-XiaoxiaoNeural"   | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | Female | "zh-CN-XiaoyouNeural"    | 어린이 음성, 이야기 내레이션에 최적화 |
-|         |                                 | Male   | "zh-CN-YunyangNeural"    | 뉴스 읽기에 최적화, 다양한 음성 스타일 사용 가능 |
-|         |                                 | Male   | "zh-CN-YunyeNeural"      | 이야기 내레이션에 최적화 |
+| `de-DE` | 독일어(독일)                | Female | `de-DE-KatjaNeural`      | 일반 |
+| `en-AU` | 영어(오스트레일리아)             | Female | `en-AU-NatashaNeural`    | 일반 |
+| `en-CA` | 영어(캐나다)                | Female | `en-CA-ClaraNeural`      | 일반 |
+| `en-GB` | 영어(영국)                    | Female | `en-GB-LibbyNeural`      | 일반 |
+|         |                                 | Female | `en-GB-MiaNeural`        | 일반 |
+| `en-US` | 영어(미국)                    | Female | `en-US-AriaNeural`       | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Male   | `en-US-GuyNeural`        | 일반 |
+| `es-ES` | 스페인어(스페인)                 | Female | `es-ES-ElviraNeural`     | 일반 |
+| `es-MX` | 스페인어(멕시코)                | Female | `es-MX-DaliaNeural`      | 일반 |
+| `fr-CA` | 프랑스어(캐나다)                 | Female | `fr-CA-SylvieNeural`     | 일반 |
+| `fr-FR` | 프랑스어(프랑스)                 | Female | `fr-FR-DeniseNeural`     | 일반 |
+| `it-IT` | 이탈리아어(이탈리아)                 | Female | `it-IT-ElsaNeural`       | 일반 |
+| `ja-JP` | 일본어                        | Female | `ja-JP-NanamiNeural`     | 일반 |
+| `ko-KR` | 한국어                          | Female | `ko-KR-SunHiNeural`      | 일반 |
+| `nb-NO` | 노르웨이어                       | Female | `nb-NO-IselinNeural`     | 일반 |
+| `pt-BR` | 포르투갈어(브라질)             | Female | `pt-BR-FranciscaNeural`  | 일반 |
+| `tr-TR` | 터키어                         | Female | `tr-TR-EmelNeural`       | 일반 |
+| `zh-CN` | 중국어(북경어, 간체)  | Female | `zh-CN-XiaoxiaoNeural`   | 일반, 여러 음성 스타일 사용 가능 |
+|         |                                 | Female | `zh-CN-XiaoyouNeural`    | 어린이 음성, 이야기 내레이션에 최적화 |
+|         |                                 | Male   | `zh-CN-YunyangNeural`    | 뉴스 읽기에 최적화, 다양한 음성 스타일 사용 가능 |
+|         |                                 | Male   | `zh-CN-YunyeNeural`      | 이야기 내레이션에 최적화 |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural` 음성이 `en-US-AriaNeural`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.

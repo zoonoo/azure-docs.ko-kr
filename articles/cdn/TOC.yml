@@ -13,6 +13,7 @@
     - name: 프로필 및 엔드포인트 만들기
       href: cdn-create-new-endpoint.md
     - name: 프로필 및 엔드포인트 만들기 - ARM 템플릿
+      displayName: Resource Manager
       href: create-profile-endpoint-template.md
 - name: 자습서
   items:
