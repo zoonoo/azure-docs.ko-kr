@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274773"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)

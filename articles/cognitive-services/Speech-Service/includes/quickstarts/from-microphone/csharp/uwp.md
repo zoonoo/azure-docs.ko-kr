@@ -18,7 +18,7 @@ ms.locfileid: "81274794"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에:
+시작하기 전에 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)

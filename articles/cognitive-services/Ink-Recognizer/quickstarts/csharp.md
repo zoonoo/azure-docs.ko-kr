@@ -29,7 +29,7 @@ ms.locfileid: "80371371"
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)

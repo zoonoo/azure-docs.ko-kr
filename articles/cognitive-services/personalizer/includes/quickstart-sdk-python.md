@@ -19,7 +19,7 @@ ms.locfileid: "82188877"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [패키지(pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [샘플](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -116,9 +116,9 @@ Personalizer 학습 루프는 [순위](#request-the-best-action) 및 [보상](#s
 ## <a name="request-the-best-action"></a>최상의 작업 요청
 
 
-프로그램에서는 순위 요청을 수행하기 위해 사용자의 기본 설정에서 `currentContent` 콘텐츠 선택 항목을 만들도록 요청합니다. 이 프로세스는 작업에서 제외할 콘텐츠(`excludeActions`로 표시됨)를 만들 수 있습니다. 순위 요청에는 응답을 받을 수 있는 작업과 해당 기능, currentContext 기능, excludeActions 및 고유한 순위 이벤트 ID가 필요합니다.
+프로그램에서는 순위 요청을 수행하기 위해 사용자의 기본 설정에서 `currentContent` 콘텐츠 선택 항목을 만들도록 요청합니다. 이 프로세스에서는 작업에서 제외할 콘텐츠(`excludeActions`로 표시됨)를 만들 수 있습니다. 순위 요청에는 응답을 받을 수 있는 작업과 해당 기능, currentContext 기능, excludeActions 및 고유한 순위 이벤트 ID가 필요합니다.
 
-이 빠른 시작에는 시간 및 사용자 음식 기본 설정에 대한 간단한 컨텍스트 기능이 있습니다. 프로덕션 시스템에서 [작업 및 기능](../concept-feature-evaluation.md)을 결정하고 [평가](../concepts-features.md)하는 것은 간단한 문제가 아닐 수 있습니다.
+이 빠른 시작에는 시간 및 사용자 음식 기본 설정에 대한 간단한 컨텍스트 기능이 있습니다. 프로덕션 시스템에서 [작업 및 기능](../concepts-features.md)을 결정하고 [평가](../concept-feature-evaluation.md)하는 것은 간단한 문제가 아닐 수 있습니다.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=rank)]
 
