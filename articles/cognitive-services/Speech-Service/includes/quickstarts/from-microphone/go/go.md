@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/09/2020
 ms.locfileid: "84609637"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에:
 

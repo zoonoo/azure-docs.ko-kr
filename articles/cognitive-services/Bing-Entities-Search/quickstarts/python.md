@@ -24,7 +24,7 @@ ms.locfileid: "84604136"
 
 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Python](https://www.python.org/downloads/) 2.x 또는 3.x
 
