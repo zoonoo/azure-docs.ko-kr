@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75382126"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800043"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 용어 목록을 사용하여 조정
 
@@ -77,19 +77,21 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
 5. 키-값 쌍 자리 표시자를 사용하여 목록에 보다 설명적인 메타데이터를 지정합니다.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
-             "Category": "Competitors",
-             "Type": "Exclude"
-          }
-       }
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
+            "Category": "Competitors",
+            "Type": "Exclude"
+        }
+    }
+    ```
 
    키-값 쌍으로 실제 용어가 아닌 목록 메타데이터를 추가합니다.
  
-6. **보내기**를 선택 합니다. 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 용어 목록 관리 기능에 이 ID가 필요합니다.
+6. **보내기**를 선택합니다. 목록이 생성됩니다. 새 목록과 연결된 **ID**입니다. 다른 용어 목록 관리 기능에 이 ID가 필요합니다.
 
    ![용어 목록 - 만들기 콘솔 응답 콘텐츠 상자는 목록 ID를 표시합니다.](images/try-terms-list-create-2.png)
  
@@ -111,7 +113,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
     **용어 - 모든 용어 가져오기** API 콘솔이 열립니다.
 
-11. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **보내기**를 선택 합니다.
+11. **listId** 상자에 목록 ID를 입력한 다음, 등록 키를 입력합니다. **보내기**를 선택합니다.
 
 12. **응답 콘텐츠** 상자에서 입력한 용어를 확인합니다.
 

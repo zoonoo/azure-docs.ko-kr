@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561038"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800094"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -36,13 +36,15 @@ ms.locfileid: "84561038"
 
 API가 [지원되는 언어](Text-Moderation-API-Languages.md)의 욕설을 감지하면 해당 용어가 응답에 포함됩니다. 응답에는 원래 텍스트에서 해당 위치(`Index`)도 포함됩니다. 다음 샘플 JSON의 `ListId`는 [사용자 지정 용어 목록](try-terms-list-api.md)(사용 가능한 경우)에 있는 용어를 가리킵니다.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
@@ -55,18 +57,20 @@ Content Moderator의 기계 지원 **텍스트 분류 기능은** **영어만**�
 
 JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>설명
 
@@ -127,11 +131,11 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 입력 텍스트가 인 경우 (' lzay ' 및 ' f0x '는 의도적인 것으로 가정):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> Qu! 헤드 갈색 f0x은 lzay 강아지를 통해 이동 합니다.
 
 자동 고침을 요청하면 응답에 다음과 같은 수정된 텍스트 버전이 포함됩니다.
 
-    The quick brown fox jumps over the lazy dog.
+> 빠른 갈색 fox는 lazy 강아지를 이동 합니다.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>사용자 지정 용어 목록 만들기 및 관리
 
@@ -143,13 +147,15 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 다음 예제에서는 일치하는 목록 ID를 보여 줍니다.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [용어 목록 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 제공합니다. [용어 목록 API 콘솔](try-terms-list-api.md)에서 시작하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [용어 목록 .NET 빠른 시작](term-lists-quickstart-dotnet.md)도 확인합니다.
 

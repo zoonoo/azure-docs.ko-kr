@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881692"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800026"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -39,15 +39,18 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 [자습서 앱](tutorial-bing-image-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Image Search API 엔드포인트를 다음으로 변경합니다.
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로 HTML 파일의 Bing Image Search API 끝점을: \로 변경 합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 

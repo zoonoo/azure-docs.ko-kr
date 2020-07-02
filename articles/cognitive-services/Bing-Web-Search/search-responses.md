@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74110623"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800531"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
-Bing Web Search 검색 요청을 보내면 응답 본문에 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
+Bing Web Search 검색 요청을 보내면 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 
 ```json
 {
@@ -38,7 +38,7 @@ Bing Web Search 검색 요청을 보내면 응답 본문에 [`SearchResponse`](h
 }, ...
 ```
 
-일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies*인 경우 응답에는, `webPages` `images`및 `rankingResponse`이 포함 될 수 있습니다. [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies*인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -290,13 +290,13 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 기호를 포함할 수 있습니다.
 
-|기호|Description|
+|기호|설명|
 |------------|-----------------|
 |+|더하기|
 |-|빼기|
-|/|나누기|
+|/|사업부|
 |*|곱하기|
-|^|전원|
+|^|고급|
 |!|계승값|
 |.|Decimal|
 |()|우선 순위 그룹화|
@@ -304,7 +304,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
-|기호|Description|
+|기호|설명|
 |------------|-----------------|
 |Pi|3.14159...|
 |도|도|
@@ -314,7 +314,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 함수를 포함할 수 있습니다.
 
-|기호|Description|
+|기호|설명|
 |------------|-----------------|
 |정렬|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
@@ -332,7 +332,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 응답은 위치 이름, 지정된 위치의 현재 UTC 날짜 및 시간, UTC 오프셋을 제공합니다. 위치의 경계가 여러 표준 시간대 내에 있으면 응답은 경계 내 모든 표준 시간대의 현재 UTC 날짜 및 시간을 포함합니다. 예를 들어, 플로리다 주는 두 표준 시간대에 속하기 때문에 응답은 두 표준 시간대의 현지 날짜 및 시간을 포함합니다.  
 
-쿼리가 상태 또는 국가/지역의 시간을 요청 하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 결정 하 고 `primaryCityTime` 필드에 반환 합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
+쿼리가 상태 또는 국가/지역의 시간을 요청 하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 결정 하 고 필드에 반환 `primaryCityTime` 합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
 
 다음은 `timeZone` 응답을 반환하는 예제 쿼리입니다.
 
@@ -449,15 +449,18 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 [자습서 앱](tutorial-bing-web-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-다음으로, HTML 파일에서 Bing Web Search API 엔드포인트를 다음으로 변경합니다.
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+다음으로 HTML 파일의 Bing Web Search API 끝점을: \로 변경 합니다.
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
 
