@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6032478dfc45d3d4ca1488913356718ab188e057
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a41a448a344325c2e3820a891017a078ae1532c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872030"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603420"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>빠른 시작: Bing Image Search API 및 Java를 사용하여 이미지 검색 
 
@@ -25,7 +25,7 @@ ms.locfileid: "83872030"
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK(Java Development Kit)](https://aka.ms/azure-jdks)
 
@@ -162,8 +162,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모를 사용해보세요](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [무료 Cognitive Services 액세스 키를 가져옵니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

@@ -3,12 +3,12 @@ title: '자습서: 기계 학습 엔터티를 사용하여 정형 데이터 추�
 description: 기계 학습 엔터티를 사용하여 발화에서 정형 데이터를 추출합니다. 추출 정확도를 높이려면 기능을 포함하는 하위 엔터티를 추가합니다.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676182"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611019"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -98,7 +98,7 @@ ms.locfileid: "83676182"
 
 1. 드롭다운 메뉴에서 **새 구 목록 만들기**를 선택합니다.
 
-1. **새 구 목록 만들기** 상자에서 이름으로 `SizePhraselist`를 입력한 다음, `small`, `medium` 및 `large`의 값을 입력합니다. **제안** 상자가 채워지면 `extra large` 및 `xl`을 선택합니다. **저장**을 선택하여 새 구 목록을 만듭니다.
+1. **새 구 목록 만들기** 상자에서 이름으로 `SizePhraselist`를 입력한 다음, `small`, `medium` 및 `large`의 값을 입력합니다. **제안** 상자가 채워지면 `extra large` 및 `xl`을 선택합니다. **만들기**를 선택하여 새로운 구 목록을 만듭니다.
 
     이 구 목록 기능은 예제 단어를 제공하여 `Size` 하위 엔터티에서 크기와 관련된 단어를 찾는 데 도움이 됩니다. 이 구 목록에 모든 크기 단어가 꼭 있어야 하는 것은 아니지만 크기를 나타내는 데 필요한 단어는 꼭 있어야 합니다.
 
@@ -131,7 +131,7 @@ ms.locfileid: "83676182"
 
 1. **스키마 및 기능** 탭에서 **Size** 엔터티를 선택한 다음, **+ 기능 추가**를 선택합니다.
 
-1. 드롭다운 목록에서 **@ SizeList**를 선택합니다.
+1. 드롭다운 목록에서 **@ SizeListentity**를 선택합니다.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

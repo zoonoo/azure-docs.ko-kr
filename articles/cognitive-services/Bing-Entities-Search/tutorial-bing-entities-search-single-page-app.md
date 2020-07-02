@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78943130"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608571"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -56,9 +56,14 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 > [!NOTE]
 > 이 자습서는 [단일 페이지 Bing Web Search 앱 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 대체로 비슷하지만, 엔터티 검색 결과만 처리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-자습서를 따르려면 Bing Search API 및 Bing Maps API에 대한 구독 키가 필요합니다. 이러한 키가 없는 경우 [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing Maps 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
+자습서를 따르려면 Bing Search API 및 Bing Maps API에 대한 구독 키가 필요합니다. 
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 다음을 수행합니다.
+  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 
@@ -86,7 +91,7 @@ HTML에는 사용자가 쿼리를 입력하고 검색 옵션을 선택하는 검
 ## <a name="managing-subscription-keys"></a>구독 키 관리
 
 > [!NOTE]
-> 이 앱을 사용하려면 Bing Search API와 Bing Maps API 둘 다의 구독 키가 필요합니다. [평가판 Bing Search 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing 지도 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
+> 이 앱을 사용하려면 Bing Search API와 Bing Maps API 둘 다의 구독 키가 필요합니다.
 
 Bing Search 및 Bing 지도 API 구독 키를 코드에 포함할 필요가 없도록, 여기서는 브라우저의 영구적 스토리지를 사용하여 키를 저장합니다. 키가 저장되지 않은 경우 확인 메시지를 표시하고, 나중에 사용할 수 있도록 저장합니다. 키가 나중에 API에서 거부될 경우 저장된 키를 무효화하므로, 사용자가 다음에 검색할 때 키가 요청됩니다.
 
@@ -251,7 +256,7 @@ function bingMapsCallback(response) {
 }
 ```
 
-Bing Entity Search 쿼리에는 위도 및 경도와 함께, 위치 정보의 정밀도를 나타내는 반경  가 필요합니다. Bing 지도 응답에 제공된 경계 상자  를 사용하여 반경을 계산합니다. 경계 상자는 전체 위치를 둘러싸는 사각형입니다. 예를 들어 사용자가 `NYC`를 입력하는 경우 결과에는 뉴욕시의 대략적인 중심 좌표와 도시를 둘러싸는 경계 상자가 포함됩니다. 
+Bing Entity Search 쿼리에는 위도 및 경도와 함께, 위치 정보의 정밀도를 나타내는 반경가 필요합니다. Bing 지도 응답에 제공된 경계 상자를 사용하여 반경을 계산합니다. 경계 상자는 전체 위치를 둘러싸는 사각형입니다. 예를 들어 사용자가 `NYC`를 입력하는 경우 결과에는 뉴욕시의 대략적인 중심 좌표와 도시를 둘러싸는 경계 상자가 포함됩니다. 
 
 먼저 `haversineDistance()` 함수(표시되지 않음)를 사용하여 기본 좌표에서 경계 상자의 네 모서리까지의 거리를 각각 계산합니다. 이 네 개의 거리 중 가장 큰 값을 반경으로 사용합니다. 최소 반경은 1킬로미터입니다. 이 값은 응답에 경계 상자가 제공되지 않은 경우 기본값으로도 사용됩니다.
 
@@ -531,7 +536,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 > [!NOTE]
 > 그래도 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
-개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 나열하고 JavaScript에 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 자습서 앱이 클라이언트 ID 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 창에서 다음 명령을 실행합니다.
 

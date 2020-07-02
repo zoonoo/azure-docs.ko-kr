@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/28/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: bed9424fd7e7dfcb03610fb9d7796cefc5b016be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589094"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560126"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 유형의 정보를 릴리스할 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
 
 ## <a name="may-2020"></a>2020년 5월
 Computer Vision API v3.0에서 [읽기 API](concept-recognizing-text.md)에 대한 업데이트와 함께 일반 공급으로 전환되었습니다.

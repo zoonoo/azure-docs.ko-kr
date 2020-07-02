@@ -2,13 +2,13 @@
 title: '자습서: Language Understanding 봇 C# v4'
 description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 봇은 Bot Framework 버전 4 및 Azure 웹앱 봇 서비스를 사용하여 빌드되었습니다.
 ms.topic: tutorial
-ms.date: 02/03/2020
-ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 06/22/2020
+ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76988002"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445902"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>자습서: C#에서 Language Understanding으로 구현된 웹앱 봇 사용
 
@@ -22,11 +22,10 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 > * 컴퓨터에서 로컬로 봇 및 에뮬레이터 시작
 > * 봇에서 발화 결과 보기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [봇 에뮬레이터](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-
 
 ## <a name="create-a-web-app-bot-resource"></a>웹앱 봇 리소스 만들기
 
@@ -38,7 +37,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
     |설정|목적|권장되는 설정|
     |--|--|--|
-    |봇 이름|리소스 이름|`luis-csharp-bot-` + `<your-name>`, 예: `luis-csharp-bot-johnsmith`|
+    |봇 핸들|리소스 이름|`luis-csharp-bot-` + `<your-name>`, 예: `luis-csharp-bot-johnsmith`|
     |Subscription|봇을 만들 수 있는 구독|사용자의 기본 구독
     |Resource group|Azure 리소스의 논리 그룹|이 봇에 사용되는 모든 리소스를 저장할 새 그룹을 만들고, 그룹 이름으로 `luis-csharp-bot-resource-group`을 지정합니다.|
     |위치|Azure 지역 - LUIS를 작성하거나 게시하는 지역과 같을 필요는 없습니다.|`westus`|
@@ -54,7 +53,6 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
     |설정|목적|선택|
     |--|--|--|
-    |SDK 버전|봇 프레임워크 버전|**SDK v4**|
     |SDK 언어|봇의 프로그래밍 언어|**C#**|
     |봇|봇의 유형|**기본 봇**|
 
@@ -64,6 +62,8 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
     > [![웹앱 봇 만들기](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
     봇 서비스가 만들어질 때까지 기다렸다가 계속 진행합니다.
+
+1. 알림에서 `Go to resource`를 선택하여 웹앱 봇 페이지로 이동합니다.
 
 ## <a name="the-bot-has-a-language-understanding-model"></a>봇에 Language Understanding 모델이 있는 경우
 
@@ -86,6 +86,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
     테스트 기능을 사용하여 봇을 빠르게 테스트할 수 있습니다. 디버깅을 포함한 자세한 테스트를 위해 봇 코드를 다운로드하고 Visual Studio를 사용합니다.
 
 ## <a name="download-the-web-app-bot-source-code"></a>웹앱 봇 소스 코드 다운로드
+
 웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다.
 
 1. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다.
@@ -105,6 +106,9 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 1. 사용자 발화를 LUIS 예측 엔드포인트로 보내려면 **FlightBookingRecognizer.cs** 파일을 엽니다. 이는 봇에 입력된 사용자 발화를 LUIS로 보내는 위치입니다. LUIS의 응답이 **RecognizeAsync** 메서드에서 반환됩니다.
 
     ```csharp
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Bot.Builder;
@@ -142,7 +146,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
                 => await _recognizer.RecognizeAsync<T>(turnContext, cancellationToken);
         }
     }
-    ````
+    ```
 
 1. **대화 상자 -> MainDialog.cs**는 발화를 캡처하여 actStep 메서드의 executeLuisQuery로 보냅니다.
 
@@ -311,21 +315,18 @@ Visual Studio 2019에서 봇을 시작합니다. `http://localhost:3978/`에 있
 
 1. 봇 에뮬레이터를 시작하고 **봇 열기**를 선택합니다.
 1. **봇 열기** 팝업 대화 상자에서 봇 URL(예: `http://localhost:3978/api/messages`)을 입력합니다. `/api/messages` 경로는 봇의 웹 주소입니다.
-1. 다운로드한 봇 코드의 루트에 있는 **appsettings.json** 파일에서 확인할 수 있는 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 입력합니다.
-
+1. 다운로드한 봇 코드의 루트에 있는 **appsettings.json** 파일에서 확인할 수 있는 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 입력한 다음, **연결**을 선택합니다.
 
 1. 봇 에뮬레이터에 `Book a flight from Seattle to Berlin tomorrow`를 입력하고 이전 섹션의 **웹 채팅에서 테스트**에서 받은 것과 동일한 기본 봇에 대한 응답을 받습니다.
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. **예**를 선택합니다. 봇이 해당 작업의 요약으로 응답합니다.
-1. 봇 에뮬레이터 로그에서 `Luis Trace`가 포함된 줄을 선택합니다. 여기에는 발화의 의도 및 엔터티에 대한 LUIS의 JSON 응답이 표시됩니다.
+1. 봇 에뮬레이터 로그에서 `<- trace LuisV3 Trace`가 포함된 줄을 선택합니다. 여기에는 발화의 의도 및 엔터티에 대한 LUIS의 JSON 응답이 표시됩니다.
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 

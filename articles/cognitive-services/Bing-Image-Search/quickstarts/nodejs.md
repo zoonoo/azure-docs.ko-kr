@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 597a12353fa573c628162b110f4e08e6d3a69b86
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2c411a0c8ba838bdac8c0e487e5dcc54db522311
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118906"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603403"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 이미지 검색
 
@@ -161,8 +161,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모를 사용해보세요](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [무료 Cognitive Services 액세스 키를 가져옵니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

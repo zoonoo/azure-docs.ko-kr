@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604618"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611472"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>음성 합성의 기본 사항 알아보기
 
@@ -29,8 +29,8 @@ ms.locfileid: "84604618"
 * 인공신경망 음성 사용
 
 > [!TIP]
-> 아직 빠른 시작 중 하나를 완료하지 않은 분들은 음성 인식을 살펴보고 직접 경험해 보실 것을 권장합니다.
-> * [마이크의 음성 인식](quickstarts/text-to-speech.md)
+> 아직 빠른 시작 중 하나를 완료하지 않은 분들은 텍스트 음성 변환을 살펴보고 직접 경험해 보실 것을 권장합니다.
+> * [스피커로 음성 합성](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]

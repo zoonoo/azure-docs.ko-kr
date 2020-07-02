@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78943110"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602791"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -41,10 +41,12 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 자습서 페이지는 완전히 독립적입니다. 즉, 모든 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-자습서를 따르려면 Bing Search API에 대한 구독 키가 필요합니다. 이러한 키가 없는 경우 [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 및 [기본 Bing Maps 키](https://www.microsoft.com/maps/create-a-bing-maps-key)를 사용할 수 있습니다.
+자습서를 따르려면 Bing Search API에 대한 구독 키가 필요합니다. 아직 없는 경우 만들어야 합니다.
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.
@@ -352,7 +354,7 @@ searchItemRenderers = {
 
 `index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 사용하지 않아도 됩니다.
 
-`news` 렌더러는 다음 javascript 발췌 내용이 나와 있습니다.
+`news` 렌더러는 다음 JavaScript 발췌 내용에 나와 있습니다.
 ```javascript
     // render news story
     news: function (item) {

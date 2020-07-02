@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: 음성을 여러 언어로 번역 - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Speech SDK를 사용하여 한 언어에서 다른 언어로 음성을 대화형으로 번역합니다.
+description: 이 빠른 시작에서는 Speech SDK를 사용하여 대화형 방식으로 한 언어의 음성을 다른 언어의 음성으로 번역합니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 666b8ba42a7b97b25b4ecf1fcae9983685e94bed
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f5ea31d4f4e974004e1fc8d62034a4ef0c6d4a3d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715110"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391318"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>빠른 시작: 음성을 여러 언어로 번역
 

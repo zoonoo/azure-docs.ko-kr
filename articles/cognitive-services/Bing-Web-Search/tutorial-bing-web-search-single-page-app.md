@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78943886"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603590"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -30,15 +30,16 @@ ms.locfileid: "78943886"
 > * 구독 키 관리
 > * 오류 처리
 
-이 앱을 사용하려면 Bing Search API와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 사용하여 구독 키를 가져올 수 있습니다.
+이 앱을 사용하려면 Bing Search API와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 앱을 실행하는 데 필요한 몇 가지 사항은 다음과 같습니다.
 
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+
 * Node.js 8 이상
-* Bing Search API에 대한 구독 키입니다. 없는 경우 [Bing Search v7 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 사용할 수도 있습니다.
-## <a name="get-the-source-code-and-install-dependencies"></a>소스 코드 가져오기 및 종속성 설치
 
 첫 번째 단계는 샘플 앱의 소스 코드를 사용하여 리포지토리를 복제하는 것입니다.
 

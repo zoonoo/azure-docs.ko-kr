@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299486"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513529"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
-이 문서의 설명에 따라 ARM(Azure Resource Manager) 템플릿을 사용하여 Cognitive Services 리소스를 만들고 배포할 수 있습니다. 이 다중 서비스 리소스를 사용하여 다음을 수행할 수 있습니다.
+이 문서의 설명에 따라 ARM(Azure Resource Manager) 템플릿을 사용하여 Cognitive Services 리소스를 만들고 배포합니다. 이 다중 서비스 리소스를 사용하여 다음을 수행할 수 있습니다.
 * 단일 키와 엔드포인트로 여러 Azure Cognitive Services에 액세스합니다.
 * 사용하는 여러 서비스의 대금 청구를 통합합니다.
 

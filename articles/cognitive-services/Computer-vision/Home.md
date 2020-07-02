@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117524"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554391"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -48,11 +48,9 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 |**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다. 그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
 |**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다. 이미지를 자르고 썸네일을 생성하는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
 
-## <a name="extract-text-from-images"></a>이미지에서 텍스트 추출
+## <a name="detect-text-from-images"></a>이미지에서 텍스트 감지
 
-Computer Vision [Read](concept-recognizing-text.md#read-api) API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재는 7가지 언어에 대해 작동합니다([언어 지원](./language-support.md)참조).
-
-[OCR(광학 문자 인식)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API를 사용하여 여러 언어로 인쇄된 텍스트를 추출할 수도 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
+Computer Vision [텍스트 감지 API](concept-recognizing-text.md)를 사용하여 이미지의 인쇄 텍스트 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 두 텍스트 검색 API는 인쇄된 텍스트를 [여러 언어로](./language-support.md) 추출하는 기능을 지원합니다.
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 

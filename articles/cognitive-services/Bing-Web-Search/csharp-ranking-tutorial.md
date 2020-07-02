@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75382330"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609438"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
 
@@ -27,12 +27,13 @@ ms.locfileid: "75382330"
 - Bing Web Search API에 단순 쿼리 만들기
 - 순위대로 쿼리 결과 표시
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서를 따르려면 다음을 수행해야 합니다.
 
-- Visual Studio. 없는 경우 [무료 Visual Studio 2017 Community 버전을 다운로드하여 설치](https://www.visualstudio.com/downloads/)합니다.
-- Bing Web Search API에 대한 구독 키입니다. 없는 경우 [평가판에 등록하세요](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* [Visual Studio IDE](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-new-console-app-project"></a>새 콘솔 앱 프로젝트 만들기
 
@@ -42,7 +43,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니
 
 애플리케이션 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
 
-## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>JSON.net Nuget 패키지를 프로젝트에 추가
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>JSON.net NuGet 패키지를 프로젝트에 추가
 
 JSON.net을 사용하면 API에서 반환한 JSON 응답으로 작업할 수 있습니다. NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -223,9 +224,9 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 `rankingResponse` JSON 개체([설명서](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse))는 검색 결과에 대한 적절한 표시 순서를 설명합니다. 다음과 같이 우선 순위가 지정된 그룹 중 하나 이상을 포함합니다.
 
-- `pole`: 가장 가시적인 처리를 얻기 위한 검색 결과(예를 들어 메인라인 및 사이드바 위에 표시됨).
-- `mainline`: 메인라인에 표시할 검색 결과
-- `sidebar`: 사이드바에 표시할 검색 결과 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
+- `pole`: 가장 가시적인 처리를 얻을 수 있는 검색 결과입니다(예를 들어 메인라인 및 사이드바 위에 표시됨).
+- `mainline`: mainline에 표시할 검색 결과입니다.
+- `sidebar`: 사이드바에 표시할 검색 결과입니다. 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
 
 순위 응답 JSON은 그룹 중 하나 이상을 포함할 수 있습니다.
 

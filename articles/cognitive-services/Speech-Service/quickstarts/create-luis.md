@@ -1,25 +1,25 @@
 ---
 title: '빠른 시작: LUIS 키 만들기'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 LUIS 애플리케이션을 만들고 키를 가져오는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 LUIS 애플리케이션을 만들고 키를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: df12b51020083489d431d0ebcd7eb506ef97caa2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400840"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391607"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>빠른 시작: LUIS 엔드포인트 키 가져오기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에, 다음 항목을 갖추고 있는지 확인합니다.
 

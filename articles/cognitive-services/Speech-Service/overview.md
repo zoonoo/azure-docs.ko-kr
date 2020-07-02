@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417228"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391641"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -55,7 +55,7 @@ Speech Service를 구성하는 기능은 다음과 같습니다. 이 표의 링�
 > [!NOTE]
 > 음성 텍스트 변환 및 텍스트 음성 변환은 REST 엔드포인트와 연결된 빠른 시작일 수도 있습니다.
 
-Speech Service를 사용할 기회가 있으면 Speech SDK 및 LUIS를 사용하여 음성에서 의도를 인식하는 방법을 설명하는 자습서를 사용해 보세요.
+Speech Service를 사용해 본 후에는 다양한 시나리오를 해결하는 방법을 설명하는 자습서를 진행해 보세요.
 
 - [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
 - [자습서: 음성 SDK, C#으로 음성을 지원하도록 봇 설정](tutorial-voice-enable-your-bot-speech-sdk.md)

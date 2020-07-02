@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78943921"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603352"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -32,9 +32,9 @@ Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검�
 > - 고정된 항목 추가
 > - 웹 페이지에 사용자 지정 검색 통합
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 가져오려면 Azure Portal에서 [Bing Custom Search 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch). [평가판 키](https://azure.microsoft.com/try/cognitive-services)를 사용할 수도 있습니다.
+- 자습서를 따르려면 Bing Custom Search API에 대한 구독 키가 필요합니다.  키를 가져오려면 Azure Portal에서 [Bing Custom Search 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch).
 - Visual Studio 2017 이상이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다.
 
 ## <a name="create-a-custom-search-instance"></a>사용자 지정 검색 인스턴스 만들기
@@ -116,7 +116,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 
    ![호스트된 UI 고급 구성 단계 스크린샷](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다. 키를 가져오는 방법에 대한 정보는 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)를 참조하세요.  
+5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다.
   
    ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 - 옵션 1: 제공된 JavaScript 코드 조각을 애플리케이션에 통합합니다.
 - 옵션 2: 제공된 HTML 엔드포인트를 사용합니다.
 
-이 자습서의 나머지 부분에서는 **옵션 1: Javascript 코드 조각**을 설명합니다.  
+이 자습서의 나머지 부분에서는 **옵션 1: JavaScript 코드 조각**을 설명합니다.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Visual Studio 솔루션 설정
 
