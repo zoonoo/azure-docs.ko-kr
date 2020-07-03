@@ -7,12 +7,13 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
-ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: references_regions
+ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194324"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -55,7 +56,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 | Canada |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| Europe |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
+| 유럽 |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
@@ -66,15 +67,15 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 |
-| 노르웨이 | 노르웨이 동부 | 노르웨이 서 부 |
-| 남아프리카 | 남아프리카 북부 |남아프리카 공화국 서 부 |
+| 노르웨이 | 노르웨이 동부 | 노르웨이 서부 |
+| 남아프리카 | 남아프리카 북부 |남아프리카 공화국 서부 |
 | 스위스 | 스위스 북부 |스위스 서부 |
 | 영국 |영국 서부 |영국 남부 |
-| 아랍에미리트 | 아랍에미리트 북부 | 아랍에미리트 중부
+| 아랍에미리트연합국 | 아랍에미리트 북부 | 아랍에미리트 중부
 | 미국 국방부 |US DoD 동부 |US DoD 중부 |
-| US Government |US Gov 애리조나 |US Gov 텍사스 |
-| US Government |US Gov 아이오와 |US Gov 버지니아 |
-| US Government |US Gov 버지니아 |US Gov 텍사스 |
+| 미국 정부 |US Gov 애리조나 |US Gov 텍사스 |
+| 미국 정부 |US Gov 아이오와 |US Gov 버지니아 |
+| 미국 정부 |US Gov 버지니아 |US Gov 텍사스 |
 
 > [!Important]
 > - 인도 서 부는 한 방향 으로만 쌍을 이룹니다. 인도 서부의 보조 지역은 인도 남부이지만 인도 남부의 보조 지역은 인도 중부입니다.
