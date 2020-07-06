@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634077"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833420"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -25,7 +25,7 @@ Azure Blob 스토리지는 대량의 비정형 데이터를 저장하도록 최�
 > [!NOTE]
 > 이전 SDK 버전을 시작하려면 [빠른 시작: Node.js에서 JavaScript v10 SDK를 사용하여 Blob 관리](storage-quickstart-blobs-nodejs-legacy.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [활성 구독이 있는 Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Azure Storage 계정](../common/storage-account-create.md)
@@ -285,7 +285,7 @@ Visual Studio Code 디버거가 연결된 브라우저에서 *index.html*을 열
 #### <a name="step-4---delete-the-container"></a>4단계 - 컨테이너 삭제
 
 1. 웹앱에서 **컨테이너 삭제**를 선택합니다. 컨테이너가 삭제되었다는 상태가 표시됩니다.
-2. Azure Portal에 있는 포털 창의 왼쪽 위에서 **\<계정 이름\> | 컨테이너** 링크를 선택합니다.
+2. Azure Portal에 있는 포털 창의 왼쪽 위에서 **\<account-name\> | 컨테이너** 링크를 선택합니다.
 3. **새로 고침**을 선택합니다. 새 컨테이너가 사라집니다.
 4. 웹앱을 닫습니다.
 
@@ -302,7 +302,7 @@ Visual Studio Code에서 **터미널** 콘솔을 클릭하고, Ctrl+C를 눌러 
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [JavaScript용 Azure 설명서](/azure/javascript/)
+> [JavaScript용 Azure 설명서](/azure/developer/javascript/)
 
 * 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
 * Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.
