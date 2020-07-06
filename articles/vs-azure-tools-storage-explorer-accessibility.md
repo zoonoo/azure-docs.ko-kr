@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457269"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
@@ -35,7 +35,7 @@ Linux    | (화면 판독기는 Linux에서 지원 되지 않음)
 
 Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
-## <a name="zoom"></a>Zoom
+## <a name="zoom"></a>확대/축소
 
 확대/축소를 통해 Storage Explorer에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소**를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
 
@@ -55,7 +55,7 @@ Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고�
 
 ### <a name="window-commands"></a>Window 명령
 
-명령       | 키보드 바로 가기 키
+명령       | 바로 가기 키
 --------------|--------------------
 새 창    | **Control+Shift+N**
 편집기 닫기  | **Control+F4**
@@ -63,10 +63,10 @@ Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고�
 
 ### <a name="navigation-commands"></a>탐색 명령
 
-명령                | 키보드 바로 가기 키
+명령                | 바로 가기 키
 -----------------------|----------------------
 다음 패널에 포커스       | **F6**
-이전 패널에 포커스   | **Shift + F6**
+이전 패널에 포커스   | **Shift+F6**
 Explorer               | **Control+Shift+E**
 계정 관리     | **Control+Shift+A**
 사이드바 설정/해제        | **Control+B**
@@ -78,22 +78,22 @@ Explorer               | **Control+Shift+E**
 
 ### <a name="zoom-commands"></a>확대/축소 명령
 
-명령  | 키보드 바로 가기 키
+명령  | 바로 가기 키
 ---------|------------------
 확대  | **컨트롤 + =**
 축소 | **컨트롤 +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Blob 및 파일 공유 편집기 명령
 
-명령 | 키보드 바로 가기 키
+명령 | 바로 가기 키
 --------|--------------------
-뒤로    | **Alt + 왼쪽 화살표**
-앞으로 | **Alt + 오른쪽 화살표**
+뒤로    | **Alt+왼쪽 화살표**
+앞으로 | **Alt+오른쪽 화살표**
 위로      | **Alt+위쪽 화살표**
 
 ### <a name="editor-commands"></a>편집기 명령
 
-명령 | 키보드 바로 가기 키
+명령 | 바로 가기 키
 --------|------------------
 복사    | **Control+C**
 잘라내기     | **Control+X**
@@ -102,7 +102,7 @@ Explorer               | **Control+Shift+E**
 
 ### <a name="other-commands"></a>기타 명령
 
-명령                | 키보드 바로 가기 키
+명령                | 바로 가기 키
 -----------------------|------------------
 개발자 도구 설정/해제 | **F12**
 다시 로드                 | **Alt + Ctrl + R**

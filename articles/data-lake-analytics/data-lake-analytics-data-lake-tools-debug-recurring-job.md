@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60629760"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>비정상적인 되풀이 작업 문제 해결
@@ -33,7 +33,7 @@ Azure Data Lake Tools for Visual Studio의 **관련 작업 보기**는 두 사�
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>사례 1: 되풀이 작업의 URL을 갖고 있는 경우
 
-**도구** > **Data Lake**Data Lake > **작업 보기**를 통해 작업 URL을 붙여 넣어 Visual Studio에서 작업 보기를 열 수 있습니다. **관련 작업 보기**를 선택하여 관련 작업 보기를 엽니다.
+**도구**  >  **Data Lake**  >  **작업 보기**를 통해 작업 URL을 붙여 넣어 Visual Studio에서 작업 보기를 열 수 있습니다. **관련 작업 보기**를 선택하여 관련 작업 보기를 엽니다.
 
 ![Data Lake Analytics 도구의 관련 작업 보기 링크](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  

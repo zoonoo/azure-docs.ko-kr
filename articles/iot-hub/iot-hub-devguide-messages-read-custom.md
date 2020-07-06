@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61244347"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용
@@ -21,10 +21,10 @@ ms.locfileid: "61244347"
 
 IoT Hub [메시지 라우팅](iot-hub-devguide-routing-query-syntax.md)을 사용하면 사용자가 디바이스-클라우드 메시지를 서비스 연결 엔드포인트로 라우팅할 수 있습니다. 라우팅은 엔드포인트에 라우팅하기 전에 데이터를 필터링하는 쿼리 기능도 제공합니다. 구성하는 각 라우팅 쿼리에는 다음과 같은 속성이 있습니다.
 
-| 속성      | 설명 |
+| 속성      | Description |
 | ------------- | ----------- |
 | **이름**      | 쿼리를 식별하는 고유한 이름입니다. |
-| **소스**    | 처리할 데이터 스트림의 원본입니다. 예를 들어 디바이스 원격 분석이 있습니다. |
+| **원본**    | 처리할 데이터 스트림의 원본입니다. 예를 들어 디바이스 원격 분석이 있습니다. |
 | **조건** | 엔드포인트의 일치 항목인지 확인하기 위해 메시지 애플리케이션 속성, 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해 실행되는 라우팅 쿼리의 쿼리 식입니다. 쿼리 생성에 대한 자세한 내용은 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. |
 | **엔드포인트**  | IoT Hub에서 쿼리와 일치하는 메시지를 보내는 엔드포인트의 이름입니다. IoT Hub와 동일한 지역에서 엔드포인트를 선택하는 것이 좋습니다. |
 

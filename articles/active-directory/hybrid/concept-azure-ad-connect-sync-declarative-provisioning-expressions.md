@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245513"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
@@ -53,7 +53,7 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 
 Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매개 변수를 제공합니다.
 
-| 매개 변수 이름 | 주석 |
+| 매개 변수 이름 | 의견 |
 | --- | --- |
 | Domain.Netbios |현재 가져오는 도메인의 Netbios 형식(예: FABRIKAMSALES) |
 | Domain.FQDN |현재 가져오는 도메인의 FQDN 형식(예: sales.fabrikam.com) |
@@ -82,7 +82,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 ## <a name="multi-valued-attributes"></a>다중값 특성
 함수는 단일 값 및 다중값 특성에서 작동할 수 있습니다. 다중값 특성의 경우 함수는 모든 값에 대해 작동하고 각 값에 동일한 함수를 적용합니다.
 
-예를 들면 다음과 같습니다.  
+예:  
 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"`@-sign이 있는 모든 값의 경우 도메인을 @contoso.com으로 바꿉니다.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.

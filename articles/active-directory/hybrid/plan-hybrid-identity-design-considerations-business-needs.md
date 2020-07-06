@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65950904"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
@@ -29,7 +29,7 @@ ms.locfileid: "65950904"
 
 현재의 요구 사항 및 미래 회사 계획이 무엇인지 이해하려면 비즈니스의 이러한 주요 측면을 검토해야 합니다. 하이브리드 ID 설계에 대한 장기적인 전략을 표시하지 않는다면 비즈니스가 성장하고 변화해야 할 때 솔루션은 확장이 불가능합니다. 아래 다이어그램은 사용자를 위해 잠금이 해제 되는 하이브리드 id 아키텍처 및 워크 로드의 예를 보여 줍니다. 잠금을 해제하고 견고한 하이브리드 ID 전략을 제공할 수 있는 새로운 가능성의 예입니다. 
 
-하이브리드 id 아키텍처 ![하이브리드 id 아키텍처의 일부인 일부 구성 요소](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+하이브리드 id 아키텍처 ![ 하이브리드 id 아키텍처의 일부인 일부 구성 요소](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>비즈니스 요구 사항 결정
 이러한 회사가 같은 업계의 일부이더라도 실제 비즈니스 요구 사항이 다르기 때문에 각 회사는 서로 다른 요구 사항을 갖습니다. 업계에서 모범 사례를 활용할 수 있지만 궁극적으로 하이브리드 ID 설계에 대한 요구 사항을 정의하도록 하는 것은 회사의 비즈니스 요구 사항입니다. 

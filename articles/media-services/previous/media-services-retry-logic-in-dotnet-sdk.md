@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61094660"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리  
@@ -64,7 +64,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | UnknownError |예 |예 |예 |아니요 |
 | ReceiveFailure |예 |예 |예 |아니요 |
 | RequestCanceled |예 |예 |예 |아니요 |
-| 시간 제한 |예 |예 |예 |아니요 |
+| 제한 시간 |예 |예 |예 |아니요 |
 | ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |예 |예 |예 |
 
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a> HTTP 오류 상태 코드

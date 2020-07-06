@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66156413"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -21,7 +21,7 @@ ms.locfileid: "66156413"
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -243,8 +243,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 `-Result` 매개 변수를 사용하여 종료된 작업이 성공적으로 완료되었는지 여부를 검색합니다. 다음 값을 포함합니다.
 
 * Cancelled
-* Failed
-* 없음
+* 실패
+* None
 * 성공
 
 ``` powershell
@@ -557,5 +557,5 @@ foreach ($sub in $subs)
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md)Azure PowerShell | 를 사용 하 여 Data Lake Analytics 시작 하기[Azure CLI](data-lake-analytics-get-started-cli.md)
-* [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)Azure PowerShell | [CLI](data-lake-analytics-manage-use-cli.md) 를 사용 하 여 Azure Data Lake Analytics 관리 
+* [Azure Portal](data-lake-analytics-get-started-portal.md)Azure PowerShell를 사용 하 여 Data Lake Analytics 시작 하기  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
+* [Azure Portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 를 사용 하 여 Azure Data Lake Analytics 관리 

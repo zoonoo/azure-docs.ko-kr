@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64685318"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 애플리케이션 게시
@@ -25,7 +25,7 @@ HDInsight 애플리케이션은 *BYOL(사용자 라이선스 필요)* 모델을 
 * [HDInsight 응용 프로그램을 설치](hdinsight-apps-install-applications.md)합니다. 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
 * [사용자 지정 HDInsight 응용 프로그램을 설치](hdinsight-apps-install-custom-applications.md)합니다. 사용자 지정 HDInsight 애플리케이션을 설치하고 테스트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Marketplace에 사용자 지정 애플리케이션을 제출하려면 먼저 [사용자 지정 애플리케이션을 만들고 테스트해야 합니다](hdinsight-apps-install-custom-applications.md).
 
 또한 개발자 계정도 등록해야 합니다. 자세한 내용은 [Azure Marketplace에 제품 게시](../marketplace/marketplace-publishers-guide.md) 및 [Microsoft 개발자 계정 만들기](../marketplace/marketplace-publishers-guide.md)를 참조하세요.

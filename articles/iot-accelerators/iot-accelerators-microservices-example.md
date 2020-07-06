@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447627"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
@@ -29,7 +29,7 @@ ms.locfileid: "61447627"
 > * 새로운 도커 이미지 가져오기
 > * 변경 사항 시각화 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음이 필요합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "61447627"
 
 ![New Edits Made Here postman 메시지](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>문제 해결
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>문제점
 
 문제가 발생하는 경우 로컬 컴퓨터에서 도커 이미지 및 컨테이너 제거를 시도합니다.
 

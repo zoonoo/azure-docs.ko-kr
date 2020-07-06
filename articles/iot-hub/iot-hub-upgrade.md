@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61440236"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
@@ -51,7 +51,7 @@ IoT hub를 다운 그레이드 하려면 단위를 제거 하 고 IoT hub의 크
 
 이제 IoT Hub가 조정되었으며 구성은 변경되지 않았습니다.
 
-기본 계층 IoT Hub 및 표준 계층 IoT Hub의 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션 제한은 IoT Hub가 만들어질 때 선택되며 디바이스-클라우드 메시지를 이러한 메시지의 동시 독자 수와 연결합니다. 기본 계층에서 표준 계층으로 마이그레이션할 때 이 값은 변경되지 않습니다.
+기본 계층 IoT Hub 및 표준 계층 IoT Hub에 대한 최대 파티션 제한은 32개입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션 제한은 IoT Hub가 만들어질 때 선택되며 디바이스-클라우드 메시지를 이러한 메시지의 동시 독자 수와 연결합니다. 기본 계층에서 표준 계층으로 마이그레이션할 때 이 값은 변경되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

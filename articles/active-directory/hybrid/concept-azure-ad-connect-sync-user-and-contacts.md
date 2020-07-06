@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245487"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
@@ -51,9 +51,9 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
     
       * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 없습니다.
       
-      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "SMTP: johndoe\@contoso.com"}* 인 ACTIVE DIRECTORY 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
+      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "SMTP: johndoe \@ contoso.com"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
       
-      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "smtp: johndoe\@contoso.com"}* 인 ACTIVE DIRECTORY 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
+      * ProxyAddress 특성의 값이 *{"X500:/0 = contoso.com/ou = users/cn = testgroup", "smtp: johndoe \@ contoso.com"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
 
 ## <a name="contacts"></a>연락처
 연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이는 **In from AD –  Contact Join**(AD에서 가져오기 - 연락처 조인) 규칙에서 구성됩니다. 또한 **Contact**(연락처) 상수를 사용하는 메타버스 특성 **sourceObjectType**으로의 특성 흐름을 포함하는 **In from AD – Contact Common**(AD에서 가져오기 - 연락처 공통)이라는 규칙도 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 사용자 개체가 동일한 메타버스 개체에 조인된 경우 **In from AD – User Common**(AD에서 가져오기 - 사용자 공통) 규칙이 이 특성에 User 값을 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.

@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761803"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환을 사용 하 여 인코딩하는 방법-REST
@@ -39,7 +39,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 다음 예제에서는 새 변환의 요청 본문을 정의 합니다. 이 변환이 사용 될 때 생성 하려는 출력 집합을 정의 합니다. 
 
-이 예제에서는 먼저 오디오 인코딩에 대해 AacAudio 계층을 추가 하 고, 비디오 인코딩에는 두 개의 경우 h264video 계층을 추가 합니다. 비디오 레이어에서 출력 파일 이름에 사용할 수 있도록 레이블을 할당 합니다. 다음에는 출력에 미리 보기도 포함 하려고 합니다. 아래 예제에서는 입력 비디오의 해상도는 50%로 생성 되 고 입력 비디오의 길이는 {25%, 50%, 75} 인 3 개의 타임 스탬프에 생성 된 이미지를 PNG 형식으로 지정 합니다. 마지막으로, 출력 파일에 대 한 형식을 지정 합니다. 즉, 비디오 + 오디오의 경우, 다른 하나는 미리 보기로 지정 합니다. 여러 H264Layers 있으므로 계층 당 고유한 이름을 생성 하는 매크로를 사용 해야 합니다. `{Label}` 또는 `{Bitrate}` 매크로를 사용할 수 있습니다 .이 예제에서는 이전을 보여 줍니다.
+이 예제에서는 먼저 오디오 인코딩에 대해 AacAudio 계층을 추가 하 고, 비디오 인코딩에는 두 개의 경우 h264video 계층을 추가 합니다. 비디오 레이어에서 출력 파일 이름에 사용할 수 있도록 레이블을 할당 합니다. 다음에는 출력에 미리 보기도 포함 하려고 합니다. 아래 예제에서는 입력 비디오의 해상도는 50%로 생성 되 고 입력 비디오의 길이는 {25%, 50%, 75} 인 3 개의 타임 스탬프에 생성 된 이미지를 PNG 형식으로 지정 합니다. 마지막으로, 출력 파일에 대 한 형식을 지정 합니다. 즉, 비디오 + 오디오의 경우, 다른 하나는 미리 보기로 지정 합니다. 여러 H264Layers 있으므로 계층 당 고유한 이름을 생성 하는 매크로를 사용 해야 합니다. `{Label}`또는 매크로를 사용할 수 있습니다 `{Bitrate}` .이 예제에서는 이전을 보여 줍니다.
 
 ```json
 {
@@ -135,7 +135,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 이 예제에서는 앞에서 정의한 사용자 지정 미리 설정을 기반으로 하는 **변환을** 만듭니다. 변환을 만들 때 먼저 [Get](https://docs.microsoft.com/rest/api/media/transforms/get) 을 사용 하 여 이미 존재 하는지 확인 해야 합니다. 변환이 있는 경우 다시 사용 합니다. 
 
-다운로드 한 postman의 컬렉션에서 **변환 및 작업**->**변환 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 postman의 컬렉션에서 **변환 및 작업** -> **변환 만들기 또는 업데이트**를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -145,7 +145,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 **본문** 탭을 선택 하 고 본문을 [앞에서 정의한](#define-a-custom-preset)json 코드로 바꿉니다. 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다.
 
-**보내기**를 선택 합니다. 
+**보내기**를 선택합니다. 
 
 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다. 변환에서 작업을 제출 하는 방법을 보여 주는 전체 예제는 [자습서: 비디오 파일 스트리밍-REST](stream-files-tutorial-with-rest.md)를 참조 하세요.
 

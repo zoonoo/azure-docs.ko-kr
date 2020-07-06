@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60931720"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
@@ -36,7 +36,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은을 참조 [https://sendgrid.com](https://sendgrid.com)하십시오.
+자세한 내용은 [https://sendgrid.com](https://sendgrid.com)를 참조하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
+또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예:
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예를 들면 다음과 같습니다.  
+> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예:  
 > 
 > ```javascript
 > sendgrid.send({

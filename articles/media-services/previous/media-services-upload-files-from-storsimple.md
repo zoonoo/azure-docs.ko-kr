@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64868308"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 >
 > 
 > 현재 Azure StorSimple 데이터 관리자는 프라이빗 미리 보기 상태입니다. 
@@ -36,7 +36,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산은
 
 [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/)은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 스토리지에서 데이터를 계층화합니다. StorSimple 디바이스는 데이터를 클라우드로 보내기 전에 중복을 제거하고 압축하여 큰 파일을 클라우드에 효율적으로 전송하게 됩니다. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 서비스는 StorSimple에서 데이터를 추출하고 AMS 자산으로 제공할 수 있는 API를 제공합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. 자산을 전송하려는 곳에 [Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 2. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 문서에 설명된 대로 데이터 관리자 미리 보기에 등록합니다.

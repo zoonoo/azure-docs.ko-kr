@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60518449"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>지역 간 Azure Data Lake Storage Gen1 마이그레이션
 
 Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 일회성 마이그레이션을 수행하여 새 지역을 이용할 수 있습니다. 마이그레이션을 계획하고 완료할 때 고려해야 할 사항에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 자세한 내용은 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 * **서로 다른 두 지역의 Data Lake Storage Gen1 계정** 자세한 내용은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.

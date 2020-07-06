@@ -9,10 +9,10 @@ ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60326006"
 ---
 # <a name="encrypt-table-data"></a>테이블 데이터 암호화
@@ -24,7 +24,7 @@ ms.locfileid: "60326006"
 
 병합은 현재 지원 되지 않습니다. 속성의 하위 집합은 이전에 다른 키를 사용하여 암호화되었을 수 있기 때문에 단순히 새로운 속성을 병합하는 작업과 메타데이터를 업데이트하는 작업은 데이터 손실을 일으킬 수 있습니다. 서비스에서 기존 엔터티를 읽을 수 있는 추가 서비스 호출을 수행 하거나 속성 당 새 키를 사용하는 것 모두에 성능상의 이유로 적합하지 않습니다.     
 
-테이블 데이터를 암호화에 대한 정보는 [클라이언트측 암호화 및 Microsoft Azure Storage에 대한 Azure Key Vault](../common/storage-client-side-encryption.md)를 참조하십시오.  
+테이블 데이터를 암호화 하는 방법에 대 한 자세한 내용은 [클라이언트 쪽 암호화 및 Microsoft Azure Storage에 대 한 Azure Key Vault](../common/storage-client-side-encryption.md)를 참조 하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 
