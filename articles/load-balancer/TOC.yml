@@ -103,6 +103,8 @@
           displayName: ARM
     - name: 내부 부하 분산 장치 구성
       items:
+        - name: Azure portal
+          href: tutorial-load-balancer-standard-internal-portal.md
         - name: Azure CLI
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
@@ -121,8 +123,6 @@
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: 내부 부하 분산 장치에 대해 고가용성 포트 구성
-      href: load-balancer-configure-ha-ports.md
     - name: 지역 간 이동
       items:
         - name: 외부 부하 분산 장치 - 포털

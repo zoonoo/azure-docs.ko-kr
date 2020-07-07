@@ -20,6 +20,8 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    - name: Key Vault 코드 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: 자습서
   items:
     - name: 인증서 가져오기
@@ -36,10 +38,6 @@
       href: create-certificate.md
     - name: 인증서 서명 요청 만들기
       href: create-certificate-signing-request.md
-- name: 샘플
-  items:
-    - name: Key Vault 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: 방법 가이드
   items:
     - name: DigiCert CA와 Key Vault 통합

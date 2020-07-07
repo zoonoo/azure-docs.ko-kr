@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921938"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -60,11 +60,11 @@ Bing Custom Search 인스턴스를 만들려면
 
 특정 웹 사이트 또는 URL의 결과를 포함하려면 **활성** 탭에 추가합니다.
 
-1.       **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
+1. **구성** 페이지에서 **활성** 탭을 클릭하고 검색에 포함할 웹 사이트 하나 이상의 URL을 입력합니다.
 
     ![정의 편집기 활성 탭 스크린샷](../media/customSrchEditor.png)
 
-2.       인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
+2. 인스턴스가 결과를 반환하는지 확인하려면 오른쪽 미리 보기 창에 쿼리를 입력합니다. Bing은 인덱싱된 공용 웹 사이트에 대해서만 결과를 반환합니다.
 
 ## <a name="add-blocked-entries"></a>차단된 항목 추가
 

@@ -3,12 +3,12 @@ title: Azure CLI 스크립트 예제 - Batch 작업 실행
 description: 이 스크립트는 Batch 작업을 만들고 일련의 태스크를 작업에 추가합니다. 또한 작업 및 태스크를 모니터링하는 방법도 보여 줍니다.
 ms.topic: sample
 ms.date: 12/12/2019
-ms.openlocfilehash: ce3c06b4631095df54371ca2417dc45d493a437d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: eefc6cfdc01ddf4b8fe05b3b52360994e5763013
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681834"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957266"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 예제: Azure Batch로 작업 및 태스크 실행
 
@@ -39,12 +39,12 @@ az group delete --name myResourceGroup
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-create) | Batch 작업을 만듭니다.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-create) | 지정된 Batch 작업에 태스크를 추가합니다.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-set) | Batch 작업의 속성을 업데이트합니다.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-show) | 지정된 Batch 작업의 세부 정보를 검색합니다.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-show) | 지정된 Batch 작업에서 태스크의 세부 정보를 검색합니다.  |
+| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
+| [az batch job create](/cli/azure/batch/job#az-batch-job-create) | Batch 작업을 만듭니다.  |
+| [az batch task create](/cli/azure/batch/task#az-batch-task-create) | 지정된 Batch 작업에 태스크를 추가합니다.  |
+| [az batch job set](/cli/azure/batch/job#az-batch-job-set) | Batch 작업의 속성을 업데이트합니다.  |
+| [az batch job show](/cli/azure/batch/job#az-batch-job-show) | 지정된 Batch 작업의 세부 정보를 검색합니다.  |
+| [az batch task show](/cli/azure/batch/task#az-batch-task-show) | 지정된 Batch 작업에서 태스크의 세부 정보를 검색합니다.  |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

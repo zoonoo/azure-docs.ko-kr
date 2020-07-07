@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
-ms.date: 10/23/2019
+ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6422ad0445b40e61fcc6028e0859995abd65ee8c
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857050"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -39,7 +39,7 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
     | ---| ---|
     | Subscription  | 구독을 선택합니다.    |    
     | Resource group | **새로 만들기**를 선택하고 텍스트 상자에 *myVMSSResourceGroup*을 입력합니다.|
-    | 속성           | *myLoadBalancer*         |
+    | Name           | *myLoadBalancer*         |
     | 지역         | **미국 동부**를 선택합니다.       |
     | Type          | **공용**을 선택합니다.       |
     | SKU           | **표준**을 선택합니다.       |
