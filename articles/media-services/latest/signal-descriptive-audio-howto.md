@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392190"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
@@ -48,7 +48,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-만든 입력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 `Name` `CreateInputAssetAsync`반환 된 자산 개체의 속성을 사용 해야 합니다 (예: inputAsset.Name). 
+만든 입력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 반환 된 자산 개체의 속성을 사용 해야 `Name` `CreateInputAssetAsync` 합니다 (예: inputAsset.Name). 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>인코딩 작업의 결과를 저장할 출력 자산 만들기
 
@@ -56,9 +56,9 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-만든 출력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 `Name` `CreateIOutputAssetAsync`반환 된 자산 개체의 속성을 사용 해야 합니다 (예: outputAsset.Name). 
+만든 출력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 반환 된 자산 개체의 속성을 사용 해야 `Name` `CreateIOutputAssetAsync` 합니다 (예: outputAsset.Name). 
 
-이 문서의 경우 `outputAsset.Name` 값을 `SubmitJobAsync` 및 `UploadAudioIntoOutputAsset` 함수에 전달 합니다.
+이 문서의 경우 `outputAsset.Name` 값을 `SubmitJobAsync` 및 함수에 전달 `UploadAudioIntoOutputAsset` 합니다.
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>업로드 된 파일을 인코딩하는 변환 및 작업 만들기
 
@@ -127,7 +127,7 @@ private static async Task UpoadAudioIntoOutputAsset(
 }
 ```
 
-다음은 `UpoadAudioIntoOutputAsset` 함수 호출의 예입니다.
+다음은 함수 호출의 예입니다 `UpoadAudioIntoOutputAsset` .
 
 ```csharp
 await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
@@ -142,7 +142,7 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 1. 컨테이너에서 ism 파일을 찾고 오른쪽 창에서 **Blob 편집** 을 클릭 합니다. 
 1. 설명 오디오를 포함 하는 업로드 된 오디오 전용 MP4 파일 (AAC 코덱)에 대 한 정보를 추가 하 여 ism 파일을 편집 하 고 완료 되 면 **저장** 을 누릅니다.
 
-    설명 오디오 트랙에 신호를 보내려면 "accessibility" 및 "role" 매개 변수를 ism 파일에 추가 해야 합니다. 오디오 트랙을 오디오 설명으로 알리기 위해 이러한 매개 변수를 올바르게 설정하는 것은 사용자의 책임입니다. 예를 들어 다음 `<param name="accessibility" value="description" />` 예제 `<param name="role" value="alternate" />` 와 같이 특정 오디오 트랙에 대 한 및을. a .의 ism 파일에 추가 합니다.
+    설명 오디오 트랙에 신호를 보내려면 "accessibility" 및 "role" 매개 변수를 ism 파일에 추가 해야 합니다. 오디오 트랙을 오디오 설명으로 알리기 위해 이러한 매개 변수를 올바르게 설정하는 것은 사용자의 책임입니다. 예를 들어 `<param name="accessibility" value="description" />` `<param name="role" value="alternate" />` 다음 예제와 같이 특정 오디오 트랙에 대 한 및을. a .의 ism 파일에 추가 합니다.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

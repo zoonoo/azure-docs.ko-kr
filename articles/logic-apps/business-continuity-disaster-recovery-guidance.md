@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437711"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 비즈니스 연속성 및 재해 복구
@@ -234,7 +234,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 * 서버, 서비스 또는 시스템 측 상태에서 작동 하는 논리 앱은 서버, 서비스 또는 시스템 측에 있는 속성 값 또는 설정을 사용 합니다.
 
-  예를 들어 데이터베이스에서 행을 읽는 쿼리 기반 트리거를 사용 하려면 행에가로 `isRead` `FALSE`설정 된 열이 있어야 합니다. 트리거가 행을 읽을 때마다 논리 앱은에서 `isRead` `FALSE` 로 `TRUE`열을 변경 하 여 해당 행을 업데이트 합니다.
+  예를 들어 데이터베이스에서 행을 읽는 쿼리 기반 트리거를 사용 하려면 행에가로 설정 된 열이 있어야 합니다 `isRead` `FALSE` . 트리거가 행을 읽을 때마다 논리 앱은에서로 열을 변경 하 여 해당 행을 업데이트 합니다 `isRead` `FALSE` `TRUE` .
 
   이 서버 쪽 접근 방식은 논리 앱이 메시지를 처리 하는 동안 트리거를 통해 메시지를 읽고 잠글 수 있는 큐 의미 체계를 포함 하는 Service Bus 큐 또는 항목과 유사 하 게 작동 합니다. 논리 앱의 처리가 완료 되 면 트리거는 큐 또는 토픽에서 메시지를 삭제 합니다.
 

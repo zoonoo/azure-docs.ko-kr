@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431034"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
@@ -80,8 +80,8 @@ trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_r
 한 개의 행 그룹을 압축하는 데 필요한 최대 메모리는 대략적으로 다음과 같습니다.
 
 - 72MB +
-- \#행 \* \#열 \* 8 바이트 +
-- \#행 \* \#의 짧은 문자열-열 \* 32 바이트 +
+- \#행 \* \# 열 \* 8 바이트 +
+- \#행 \* \# 의 짧은 문자열-열 \* 32 바이트 +
 - 압축 사전인 경우 \#long-string-columns \* 16MB
 
 여기서 short-string-columns는 32바이트 이하의 문자열 데이터 형식을 사용하고 long-string-columns는 32바이트를 초과하는 문자열 데이터 형식을 사용합니다.

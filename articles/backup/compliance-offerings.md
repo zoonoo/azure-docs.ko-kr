@@ -4,15 +4,15 @@ description: Azure Backup에 대 한 준수 제공 요약
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: da25c6b9b8206ebd2e7ca1a3d90ec88a6efe04b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80423120"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Azure Backup 준수 제공
 
-조직에서 개인의 데이터 수집 및 사용을 제어 하는 국가, 지역 및 산업별 요구 사항을 준수 하는 데 도움이 되는 Microsoft Azure & Azure Backup는 포괄적인 인증 및 증명 집합을 제공 합니다.
+Microsoft Azure 및 Azure Backup은 조직이 개인 데이터의 수집 및 사용을 규정하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 포괄적인 인증 및 증명 모음을 제공합니다.
 
 Azure Backup 서비스를 사용 하는 경우 서비스를 규제 하는 Azure Backup에 대 한 아래 준수 제품을 찾을 수 있습니다.
 
@@ -29,13 +29,13 @@ Azure Backup 서비스를 사용 하는 경우 서비스를 규제 하는 Azure 
 * [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
 * [SOC 1, 2, 3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
 
-## <a name="us-government"></a>US Government
+## <a name="us-government"></a>미국 정부
 
 * [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
 * [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)
 * [FIPS 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)
 
-## <a name="industry"></a>산업
+## <a name="industry"></a>업종
 
 * [HIPAA](https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech)
 * [HITRUST](https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust)

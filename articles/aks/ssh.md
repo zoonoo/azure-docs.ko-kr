@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207159"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
@@ -19,13 +19,13 @@ AKS(Azure Kubernetes Service) 클러스터의 수명 주기 내내 AKS 노드에
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 기본적으로 SSH 키는 AKS 클러스터를 만들 때 가져오거나 생성 된 다음 노드에 추가 됩니다. 이 문서에서는 AKS 클러스터를 만들 때 사용 된 SSH 키와 다른 SSH 키를 지정 하는 방법을 보여 줍니다. 또한이 문서에서는 노드의 개인 IP 주소를 확인 하 고 SSH를 사용 하 여 연결 하는 방법을 보여 줍니다. 다른 SSH 키를 지정할 필요가 없는 경우 노드에 SSH 공개 키를 추가 하는 단계를 건너뛸 수 있습니다.
 
 또한이 문서에서는 SSH 키가 있다고 가정 합니다. [Macos 또는 Linux][ssh-nix] 또는 [Windows][ssh-windows]를 사용 하 여 SSH 키를 만들 수 있습니다. PuTTY Gen을 사용 하 여 키 쌍을 만드는 경우 기본 PuTTy 개인 키 형식 (.ppk 파일) 대신 OpenSSH 형식으로 키 쌍을 저장 합니다.
 
-또한 Azure CLI 버전 2.0.64 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.64 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>SSH 액세스를 위한 가상 머신 확장 집합 기반 AKS 클러스터 구성
 
@@ -149,7 +149,7 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. 터미널 세션이 컨테이너에 연결 되 면 다음을 사용 하 여 `apt-get`SSH 클라이언트를 설치 합니다.
+1. 터미널 세션이 컨테이너에 연결 되 면 다음을 사용 하 여 SSH 클라이언트를 설치 합니다 `apt-get` .
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -163,7 +163,7 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
     kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
-1. 컨테이너에 대 한 터미널 세션으로 돌아가서 복사 `id_rsa` 된 개인 SSH 키에 대 한 사용 권한을 사용자 읽기 전용으로 업데이트 합니다.
+1. 컨테이너에 대 한 터미널 세션으로 돌아가서 복사 된 개인 SSH 키에 대 한 사용 권한을 `id_rsa` 사용자 읽기 전용으로 업데이트 합니다.
 
     ```console
     chmod 0600 id_rsa

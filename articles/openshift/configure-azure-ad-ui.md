@@ -9,22 +9,22 @@ ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205314"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (포털)
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에서는 Azure CLI 버전 2.0.75 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.75 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 클러스터의 **OAuth 콜백 URL** 을 생성 하 고 적어 둡니다. 사용자의 클러스터 이름으로 **aro-rg** 를 리소스 그룹의 이름 및 **aro-cluster** 로 바꾸어야 합니다.
 
 > [!NOTE]
-> OAuth `AAD` 콜백 URL의 섹션은 나중에 설정할 oauth id 공급자 이름과 일치 해야 합니다.
+> `AAD`Oauth 콜백 URL의 섹션은 나중에 설정할 oauth id 공급자 이름과 일치 해야 합니다.
 
 ```azurecli-interactive
 domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
@@ -58,7 +58,7 @@ Azure Portal에 로그인 하 여 [앱 등록 블레이드](https://ms.portal.az
 * Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
 * 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
-Azure Active Directory에서 반환 하는 ID 토큰의 `email` 일부로를 추가 `upn` 하 여 `upn` 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
+`email` `upn` `upn` Azure Active Directory에서 반환 하는 ID 토큰의 일부로를 추가 하 여 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
 
 **토큰 구성 (미리 보기)** 으로 이동 하 고 **선택적 클레임 추가**를 클릭 합니다. **ID** 를 선택 하 고 **전자 메일** 및 **upn** 클레임을 확인 합니다.
 
@@ -72,7 +72,7 @@ Azure Active Directory 설명서의 지침에 따라 [사용자 및 그룹을 �
 
 ## <a name="configure-openshift-openid-authentication"></a>OpenShift Openid connect 인증 구성
 
-자격 증명 `kubeadmin` 을 검색 합니다. 다음 명령을 실행 하 여 `kubeadmin` 사용자에 대 한 암호를 찾습니다.
+`kubeadmin`자격 증명을 검색 합니다. 다음 명령을 실행하여 `kubeadmin` 사용자의 암호를 찾습니다.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -80,7 +80,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-다음 예제 출력에서는 암호를에 `kubeadminPassword`표시 하는 방법을 보여 줍니다.
+다음 예제 출력에서는 암호가 `kubeadminPassword`에 있는 것을 보여줍니다.
 
 ```json
 {
@@ -89,7 +89,7 @@ az aro list-credentials \
 }
 ```
 
-다음 명령을 실행 하 여 클러스터 콘솔 URL을 찾을 수 있습니다 .이는 다음과 같습니다.`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+다음 명령을 실행하여 `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` 형식의 클러스터 콘솔 URL을 찾을 수 있습니다.
 
 ```azurecli-interactive
  az aro show \
@@ -98,14 +98,14 @@ az aro list-credentials \
     --query "consoleProfile.url" -o tsv
 ```
 
-브라우저에서 콘솔 URL을 시작 하 고 자격 증명을 `kubeadmin` 사용 하 여 로그인 합니다.
+브라우저에서 콘솔 URL을 시작하고 `kubeadmin` 자격 증명을 사용하여 로그인합니다.
 
 **관리**로 이동 하 여 **클러스터 설정**을 클릭 한 다음 **전역 구성** 탭을 선택 합니다. 스크롤하여 **OAuth**를 선택 합니다.
 
 아래로 스크롤하여 **Id 공급자** 아래에서 **추가** 를 선택 하 고 **openid connect 연결**을 선택 합니다.
 ![Id 공급자 드롭다운에서 Openid connect Connect를 선택 합니다.](media/aro4-oauth-idpdrop.png)
 
-이름을 **AAD**로, **클라이언트 Id** 를 **응용 프로그램 id** 로, **클라이언트 암호**를 입력 합니다. **발급자 URL** 의 형식은 다음과 `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`같습니다. 자리 표시자를 이전에 검색 한 테 넌 트 ID로 바꿉니다.
+이름을 **AAD**로, **클라이언트 Id** 를 **응용 프로그램 id** 로, **클라이언트 암호**를 입력 합니다. **발급자 URL** 의 `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 형식은 다음과 같습니다. 자리 표시자를 이전에 검색 한 테 넌 트 ID로 바꿉니다.
 
 ![OAuth 정보 입력](media/aro4-oauth-idp-1.png)
 

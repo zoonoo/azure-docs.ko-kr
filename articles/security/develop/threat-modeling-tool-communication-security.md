@@ -17,25 +17,25 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203746"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **Azure Event Hub** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
+| **Azure 이벤트 허브** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다.](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버에 대 한 모든 트래픽이 HTTPS 연결을 초과 하는지 확인 합니다.](#identity-https)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대 한 TLS/SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
-| **Database** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
+| **데이터베이스** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용 하도록 설정할 수 없는 경우 blob을 다운로드 한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용 하 여 Azure 파일 공유에 대 한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
-| **Web API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
+| **앱 API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
 | **Azure Cache for Redis** | <ul><li>[Azure Cache for Redis가 TLS를 통해 통신 하는지 확인 합니다.](#redis-ssl)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[장치-필드 게이트웨이 통신 보안](#device-field)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[SSL/TLS를 사용하여 디바이스-클라우드 게이트웨이 통신 보안](#device-cloud)</li></ul> |
@@ -214,7 +214,7 @@ ms.locfileid: "82203746"
 | **적용 가능한 기술** | 일반, Windows Phone |
 | **특성**              | 해당 없음  |
 | **참조**              | [인증서 및 공개 키 고정](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)(영문) |
-| **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 TLS MITM 공격을 시도 하면 TLS 핸드셰이크 중에 공격자의 서버에서 키가 고정 된 인증서의 키와 다르므로 요청이 삭제 되므로 ServicePointManager의 `ServerCertificateValidationCallback` 대리자를 구현 하 여 MITM 인증서를 고정할 수 없습니다.</p>|
+| **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 TLS MITM 공격을 시도 하면 TLS 핸드셰이크 중에 공격자의 서버에서 키가 고정 된 인증서의 키와 다르므로 요청이 삭제 되므로 ServicePointManager의 대리자를 구현 하 여 MITM 인증서를 고정할 수 없습니다 `ServerCertificateValidationCallback` .</p>|
 
 ### <a name="example"></a>예제
 ```csharp
@@ -383,7 +383,7 @@ public class ValuesController : ApiController
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Redis TLS 지원](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **단계** | Redis 서버는 기본적으로 TLS를 지원 하지 않지만 Redis 용 Azure Cache는 지원 합니다. Redis 용 Azure 캐시에 연결 하 고 클라이언트에서 Redis와 같은 TLS를 지 원하는 경우 TLS를 사용 해야 합니다. 기본적으로 Redis 인스턴스에 대 한 새 Azure Cache에는 TLS 이외의 포트를 사용할 수 없습니다. Redis client에 대 한 TLS 지원에 대 한 종속성이 없으면 보안 기본값이 변경 되지 않도록 합니다. |
+| **단계** | Redis 서버는 기본적으로 TLS를 지원 하지 않지만 Redis 용 Azure Cache는 지원 합니다. Azure Cache for Redis에 연결하고 클라이언트에서 StackExchange.Redis와 같은 TLS를 지원하는 경우 TLS를 사용해야 합니다. 기본적으로 Redis 인스턴스에 대 한 새 Azure Cache에는 TLS 이외의 포트를 사용할 수 없습니다. Redis client에 대 한 TLS 지원에 대 한 종속성이 없으면 보안 기본값이 변경 되지 않도록 합니다. |
 
 Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언트가 액세스할 수 있도록 설계되었습니다. 즉 일반적으로 Redis 인스턴스를 인터넷에 직접 노출하거나 일반적으로 신뢰할 수 없는 클라이언트를 Redis TCP 포트 또는 UNIX 소켓에 직접 액세스할 수 있는 환경에 직접 노출하지 않는 것이 좋습니다. 
 

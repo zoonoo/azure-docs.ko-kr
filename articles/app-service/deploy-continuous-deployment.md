@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 847de2c2c8916558d542473d9b7c80fd5552dbf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437197"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
@@ -69,14 +69,14 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
    - GitHub의 경우 계속 배포 하려는 **조직**, **리포지토리**및 **분기** 를 드롭다운 하 고 선택 합니다.
      
      > [!NOTE]
-     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정** > **응용 프로그램** > **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여 하려면 조직의 소유자 여야 합니다.
+     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여 하려면 조직의 소유자 여야 합니다.
      
    - Bitbucket의 경우 지속적으로 배포 하려는 Bitbucket **팀**, **리포지토리**및 **분기** 를 선택 합니다.
      
    - Azure Repos의 경우 지속적으로 배포 하려는 **Azure DevOps 조직**, **프로젝트**, **리포지토리**및 **분기** 를 선택 합니다.
      
      > [!NOTE]
-     > Azure DevOps 조직이 나열 되지 않은 경우 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)을 참조 하세요.
+     > Azure DevOps 조직이 나열되지 않은 경우 Azure 구독에 연결되어 있는지 확인하세요. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)을 참조 하세요.
      
 1. **계속**을 선택합니다.
    
@@ -92,7 +92,7 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 
 계정에 필요한 권한이 있는 경우 GitHub 또는 Azure Repos에서 지속적으로 배포 하도록 Azure Pipelines를 설정할 수 있습니다. Azure Pipelines를 통해 배포 하는 방법에 대 한 자세한 내용은 [Azure 앱 서비스에 웹 앱 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)를 참조 하세요.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azure DevOps 조직에 다음 권한이 있어야 합니다. Azure App Service 
 
@@ -119,7 +119,7 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리**및 **분기** 를 선택 하 고 **계속**을 선택 합니다.
      
      > [!NOTE]
-     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정** > **응용 프로그램** > **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여 하려면 조직의 소유자 여야 합니다.
+     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여 하려면 조직의 소유자 여야 합니다.
        
     **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
 
@@ -179,7 +179,7 @@ Windows 앱의 경우 포털이 직접 지원 하지 않는 클라우드 Git 또
 * [연속 배포에 대 한 일반적인 문제 조사](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Azure PowerShell 사용](/powershell/azureps-cmdlets-docs)
 * [Git 설명서](https://git-scm.com/documentation)
-* [Project Kudu](https://github.com/projectkudu/kudu/wiki)
+* [프로젝트 Kudu](https://github.com/projectkudu/kudu/wiki)
 
 [리포지토리 만들기(GitHub)]: https://help.github.com/articles/create-a-repo
 [리포지토리 만들기(BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html

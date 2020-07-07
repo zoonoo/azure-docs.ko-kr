@@ -4,10 +4,10 @@ description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 �
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82196440"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Azure 및 Red Hat OpenShift v4 클러스터의 모니터링을 중지 하는 방법
@@ -39,13 +39,13 @@ Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x 클러스터의 모니�
 
     `helm delete azmon-containers-release-1`
 
-    그러면 클러스터에서 릴리스가 제거 됩니다. 다음 `helm list` 명령을 실행 하 여 확인할 수 있습니다.
+    그러면 클러스터에서 릴리스가 제거 됩니다. 다음 명령을 실행 하 여 확인할 수 있습니다 `helm list` .
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
     ```
 
-구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 투구는 삭제 한 후에도 릴리스를 추적 하므로, 클러스터의 기록을 감사 하 고를 사용 하 여 `helm rollback`릴리스를 삭제 취소할 수 있습니다.
+구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 투구는 삭제 한 후에도 릴리스를 추적 하므로, 클러스터의 기록을 감사 하 고를 사용 하 여 릴리스를 삭제 취소할 수 있습니다 `helm rollback` .
 
 ## <a name="next-steps"></a>다음 단계
 

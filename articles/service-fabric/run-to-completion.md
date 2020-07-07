@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431294"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
@@ -22,7 +22,7 @@ ms.locfileid: "81431294"
 > RunToCompletion 의미 체계는 현재 [Reliable Services][reliable-services-link] 프로그래밍 모델을 사용 하 여 작성 된 서비스에 대해 지원 되지 않습니다.
  
 ## <a name="runtocompletion-semantics-and-specification"></a>RunToCompletion 의미 체계 및 사양
-RunToCompletion 의미 체계 [는 servicemanifest.xml를 가져올][application-and-service-manifests-link]때 **set-executionpolicy** 으로 지정할 수 있습니다. 지정 된 정책은 Servicemanifest.xml를 구성 하는 모든 CodePackages 상속 됩니다. 다음 ApplicationManifest .xml 코드 조각은 예제를 제공 합니다.
+RunToCompletion 의미 체계 [는 servicemanifest.xml를 가져올][application-and-service-manifests-link]때 **set-executionpolicy** 으로 지정할 수 있습니다. 지정 된 정책은 Servicemanifest.xml를 구성 하는 모든 CodePackages 상속 됩니다. 다음 ApplicationManifest.xml 코드 조각에서 예제를 제공 합니다.
 
 ```xml
 <ServiceManifestImport>
@@ -47,7 +47,7 @@ RunToCompletion 의미 체계를 사용 하는 전체 예제를 살펴보겠습�
 >
 > 이 예제에서는 mcr.microsoft.com/windows/nanoserver:1809를 참조 합니다. Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-다음 Servicemanifest.xml는 컨테이너를 나타내는 두 CodePackages로 구성 된 ServicePackage을 설명 합니다. *RunToCompletionCodePackage1* 는 **stdout** 에 메시지를 기록 하 고 종료 합니다. *RunToCompletionCodePackage2* 는 잠시 동안 루프백 주소를 ping 한 후 종료 코드 **0**, **1** 또는 **2**를 사용 하 여 종료 합니다.
+다음 ServiceManifest.xml는 컨테이너를 나타내는 두 CodePackages로 구성 된 ServicePackage에 대해 설명 합니다. *RunToCompletionCodePackage1* 는 **stdout** 에 메시지를 기록 하 고 종료 합니다. *RunToCompletionCodePackage2* 는 잠시 동안 루프백 주소를 ping 한 후 종료 코드 **0**, **1** 또는 **2**를 사용 하 여 종료 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ RunToCompletion 의미 체계를 사용 하는 전체 예제를 살펴보겠습�
 </ServiceManifest>
 ```
 
-다음 ApplicationManifest은 위에서 설명한 Servicemanifest.xml을 기반으로 하는 응용 프로그램을 설명 합니다. **Onfailure**의 다시 시작 정책으로 *WindowsRunToCompletionServicePackage* 에 대해 **runtocompletion** **set-executionpolicy** 를 지정 합니다. *WindowsRunToCompletionServicePackage*가 활성화 되 면 해당 구성 CodePackages 시작 됩니다. *RunToCompletionCodePackage1* 는 첫 번째 활성화에서 성공적으로 종료 됩니다. 그러나 *RunToCompletionCodePackage2* 가 실패할 수 있습니다 **(0이 아닌 종료 코드)**.이 경우 다시 시작 정책이 **onfailure**이므로 다시 시작 됩니다.
+다음 ApplicationManifest.xml 위에서 설명한 ServiceManifest.xml 기반으로 하는 응용 프로그램을 설명 합니다. **Onfailure**의 다시 시작 정책으로 *WindowsRunToCompletionServicePackage* 에 대해 **runtocompletion** **set-executionpolicy** 를 지정 합니다. *WindowsRunToCompletionServicePackage*가 활성화 되 면 해당 구성 CodePackages 시작 됩니다. *RunToCompletionCodePackage1* 는 첫 번째 활성화에서 성공적으로 종료 됩니다. 그러나 *RunToCompletionCodePackage2* 가 실패할 수 있습니다 **(0이 아닌 종료 코드)**.이 경우 다시 시작 정책이 **onfailure**이므로 다시 시작 됩니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

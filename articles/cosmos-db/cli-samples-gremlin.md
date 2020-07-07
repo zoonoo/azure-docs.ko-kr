@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1f927823fd7984014e2b8dd4d2ab90d83f144605
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 01e46d144c287569687bb79e7e9cb67b4923b78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552892"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 Azure CLI 샘플
 
 다음 표에는 Azure Cosmos DB Gremlin API용 Azure CLI 샘플 스크립트에 대한 링크가 포함되어 있습니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 모든 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서 확인할 수 있습니다.
 
-| |  |
+|작업 | Description |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 그래프 만들기](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Gremlin API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
 | [처리량 변경](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 그래프에서 RU/s를 업데이트합니다.|

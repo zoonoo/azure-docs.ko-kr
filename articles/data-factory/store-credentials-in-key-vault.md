@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451689"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
@@ -25,7 +25,7 @@ ms.locfileid: "81451689"
 
 현재, 사용자 지정 활동을 제외한 모든 활동 유형에서 이 기능이 지원됩니다. 구체적인 커넥터 구성에 대해서는 [각 커넥터 항목](copy-activity-overview.md#supported-data-stores-and-formats)의 "연결된 서비스 속성" 섹션을 확인하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다. [데이터 팩터리에 대 한 관리 id](data-factory-service-identity.md) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리에 연결 된 id가 있는지 확인 합니다.
 
@@ -49,7 +49,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 **제작 UI 사용:**
 
-**연결 된 연결** -> **서비스** -> **새로 만들기**를 선택 합니다. 새 연결 된 서비스에서 "Azure Key Vault"을 검색 하 고 선택 합니다.
+**연결**  ->  **된 연결 서비스**  ->  **새로 만들기**를 선택 합니다. 새 연결 된 서비스에서 "Azure Key Vault"을 검색 하 고 선택 합니다.
 
 ![검색 Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
 

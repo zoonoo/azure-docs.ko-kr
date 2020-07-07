@@ -7,10 +7,10 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72750417"
 ---
 # <a name="legal-notices"></a>법적 고지 사항
@@ -19,7 +19,7 @@ Microsoft 및 모든 참가자는 사용자에게 [Creative Commons Attribution 
 
 설명서에서 참조되는 Microsoft, Windows, Microsoft Azure 및/또는 기타 Microsoft 제품 및 서비스는 미국 및/또는 다른 국가에서 Microsoft의 상표 또는 등록된 상표일 수 있습니다.
 이 프로젝트에 대한 라이선스는 사용자가 Microsoft 이름, 로고 또는 상표를 사용할 권한을 부여하지 않습니다.
-Microsoft의 일반적인 상표 지침은에서 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)찾을 수 있습니다.
+Microsoft의 일반적인 상표 지침은에서 찾을 수 있습니다 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
 개인 정보는 다음 위치에서 찾을 수 있습니다.[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

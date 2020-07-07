@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80385081"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
@@ -39,7 +39,7 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>적응 네트워크 강화 경고 및 규칙 보기
 
-1. Security Center에서 **네트워킹** -> **적응 네트워크 강화**를 선택 합니다. 네트워크 Vm은 3 개의 별도 탭에 나열 됩니다.
+1. Security Center에서 **네트워킹**  ->  **적응 네트워크 강화**를 선택 합니다. 네트워크 Vm은 3 개의 별도 탭에 나열 됩니다.
    * **비정상 리소스**: 적응 네트워크 강화 알고리즘을 실행 하 여 현재 권장 사항 및 경고가 트리거된 vm입니다. 
    * **정상 리소스**: 경고 및 권장 사항이 없는 vm입니다.
    * **검색 되지 않은 리소스**: 적응 네트워크 강화 알고리즘을 실행할 수 없는 vm은 다음 이유 중 하나로 인해 실행할 수 없습니다.
