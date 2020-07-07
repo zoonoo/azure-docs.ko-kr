@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45903bfc54f2c685abea0a8e2924274a21e07b3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32bccdf538b637b7706824b4cf5499bed63af9dc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157964"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>자습서: ISM(Ivanti Service Manager)과 Azure Active Directory 통합
 
@@ -109,11 +109,11 @@ ISM(Ivanti Service Manager)에서 Azure AD Single Sign-On을 구성하려면 다
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<customer>.saasit.com/` |
-    | `https://<customer>.saasiteu.com/` |
-    | `https://<customer>.saasitau.com/` |
+    ```http
+    https://<customer>.saasit.com/
+    https://<customer>.saasiteu.com/
+    https://<customer>.saasitau.com/
+    ```
 
     b. **회신 URL** 텍스트 상자에서 `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx` 패턴을 사용하여 URL을 입력합니다.
 

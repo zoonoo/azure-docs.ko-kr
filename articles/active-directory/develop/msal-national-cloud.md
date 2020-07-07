@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533992"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
@@ -29,12 +29,12 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 글로벌 클라우드를 포함 하 여 Azure AD (Azure Active Directory)는 다음 국가 클라우드에 배포 됩니다.  
 
 - Azure Government
-- Azure China 21Vianet
-- Azure Germany
+- Azure 중국 21Vianet
+- Azure 독일
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -66,7 +66,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-소 버린 클라우드에 대해 MSAL .js 응용 프로그램을 사용 하도록 설정 하려면:
+소 버린 클라우드에 대해 MSAL.js 응용 프로그램을 사용 하도록 설정 하려면:
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
@@ -77,7 +77,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 사용자의 계정을 선택 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
 1. 개발자를 위한 Microsoft id 플랫폼의 [앱 등록](https://aka.ms/ra/ff) 페이지로 이동 합니다.
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
-1. **지원 되는 계정 유형**아래에서 **조직 디렉터리의 계정**을 선택 합니다.
+1. **지원되는 계정 유형**에서 **모든 조직 디렉터리의 계정**을 선택합니다.
 1. **리디렉션 URI** 섹션에서 **웹** 플랫폼을 선택 하 고 웹 서버에 따라 응용 프로그램의 URL로 값을 설정 합니다. Visual Studio 및 노드에서 리디렉션 URL을 설정 하 고 가져오는 방법에 대 한 지침은 다음 섹션을 참조 하세요.
 1. **등록**을 선택합니다.
 1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
@@ -123,9 +123,9 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 해당 코드에서 다음을 수행 합니다.
 
 - `Enter_the_Application_Id_here`등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
-- `Enter_the_Tenant_Info_Here`는 다음 옵션 중 하나로 설정 됩니다.
+- `Enter_the_Tenant_Info_Here` 는 다음 옵션 중 하나로 설정됩니다.
     - 응용 프로그램이 **이 조직 디렉터리에서 계정을**지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
-    - 응용 프로그램에서 **조직 디렉터리의 계정을**지 원하는 경우이 값을로 `organizations`바꿉니다.
+    - 응용 프로그램에서 **조직 디렉터리의 계정을**지 원하는 경우이 값을로 바꿉니다 `organizations` .
 
     모든 국가별 클라우드의 인증 끝점을 찾으려면 [AZURE AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)을 참조 하세요.
 
@@ -184,7 +184,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 ## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-IOS 및 macOS 용 MSAL을 사용 하 여 국가별 클라우드에서 토큰을 가져올 수 있지만 만들 `MSALPublicClientApplication`때 추가 구성이 필요 합니다.
+IOS 및 macOS 용 MSAL을 사용 하 여 국가별 클라우드에서 토큰을 가져올 수 있지만 만들 때 추가 구성이 필요 `MSALPublicClientApplication` 합니다.
 
 예를 들어 응용 프로그램을 국가 클라우드의 다중 테 넌 트 응용 프로그램 (미국 정부 기관)으로 만들려면 다음을 작성할 수 있습니다.
 
@@ -207,7 +207,7 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-IOS 및 macOS 용 MSAL을 사용 하 여 국가별 클라우드에서 토큰을 가져올 수 있지만 만들 `MSALPublicClientApplication`때 추가 구성이 필요 합니다.
+IOS 및 macOS 용 MSAL을 사용 하 여 국가별 클라우드에서 토큰을 가져올 수 있지만 만들 때 추가 구성이 필요 `MSALPublicClientApplication` 합니다.
 
 예를 들어 응용 프로그램을 국가 클라우드의 다중 테 넌 트 응용 프로그램 (미국 정부 기관)으로 만들려면 다음을 작성할 수 있습니다.
 

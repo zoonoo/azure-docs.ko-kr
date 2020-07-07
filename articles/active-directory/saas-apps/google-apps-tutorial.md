@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b025d98c230bc82b86a736785fb8e6581ec4519c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 091129d1fbca4141e9841af6a9991d44a6663801
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864456"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799193"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -129,20 +129,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
 
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
-
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
 1. **기본 SAML 구성** 섹션에서 **Google Cloud Platform**에 대해 구성하려는 경우 다음 단계를 수행합니다.
 
@@ -150,19 +149,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
     
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
     
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. Google Cloud (G Suite) Connector는 Single Sign-On 구성에서 엔터티 ID/식별자 값을 제공하지 않으므로 **도메인 특정 발급자** 옵션의 선택을 취소하면 식별자 값은 `google.com`이 됩니다. **도메인 특정 발급자** 옵션을 선택하면 `google.com/a/<yourdomainname.com>`이 됩니다. **도메인 특정 발급자** 옵션을 선택/선택 취소하려면 자습서의 뒷부분에서 설명하는 **Google Cloud (G Suite) Connector SSO 구성** 섹션으로 이동해야 합니다. 자세한 내용은 [Google Cloud (G Suite) Connector 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요.

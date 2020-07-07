@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478295"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
@@ -26,7 +26,7 @@ ms.locfileid: "80478295"
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 IIS(인터넷 정보 서비스)를 기반으로 하는 웹 애플리케이션을 보호하는 방법에 대해 설명합니다. 그리고 3계층 IIS 기반 웹 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -69,7 +69,7 @@ Azure|해당 없음|예
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. Ip 주소를 설정 하려면 **계산 및 네트워크 설정** > **대상 IP**로 이동 합니다.
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. Ip 주소를 설정 하려면 **계산 및 네트워크 설정**  >  **대상 IP**로 이동 합니다.
 
 ![Site Recovery 컴퓨팅 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335756"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
@@ -45,7 +45,7 @@ ms.locfileid: "80335756"
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 속성은 `CurrentUtcDateTime` 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 `Task.WhenAny`대해 반복 되는 모든 호출 `winner` 에서 동일한 결과를 갖도록 하는 데 중요 합니다.
+> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 `CurrentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,7 @@ ms.locfileid: "80335756"
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 속성은 `currentUtcDateTime` 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 `context.df.Task.any`대해 반복 되는 모든 호출 `winner` 에서 동일한 결과를 갖도록 하는 데 중요 합니다.
+> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이 `currentUtcDateTime` 속성은 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, orchestrator 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은에 대해 반복 되는 `winner` 모든 호출에서 동일한 결과를 갖도록 하는 데 중요 합니다 `context.df.Task.any` .
 
 ---
 
@@ -83,7 +83,7 @@ ms.locfileid: "80335756"
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> 예제 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치 해야 합니다.
+> `Microsoft.Azure.WebJobs.Extensions.Twilio`예제 코드를 실행 하려면 Nuget 패키지를 설치 해야 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -120,7 +120,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 오케스트레이터 함수는 제공된 전화 번호를 받는 즉시 임의로 생성된 4자리 확인 코드&mdash;(예: *2168*)가 있는 SMS 메시지를 보냅니다. 그런 다음 이 함수는 90초 동안 응답을 기다립니다.
 
-코드를 사용 하 여 회신 하려면 다른 함수 내에서 [ `RaiseEventAsync` (.net `raiseEvent` ) 또는 (JavaScript)](durable-functions-instance-management.md) 를 사용 하거나 위의 202 응답에서 참조 되는 **sendEventUrl** HTTP POST 웹 후크를 `{eventName}` 호출 하 여을 이벤트 이름으로 `SmsChallengeResponse`바꿉니다.
+코드를 사용 하 여 회신 하려면 다른 함수 내에서 [ `RaiseEventAsync` (.net) 또는 `raiseEvent` (JavaScript)](durable-functions-instance-management.md) 를 사용 하거나 위의 202 응답에서 참조 되는 **sendEventUrl** HTTP POST 웹 후크를 호출 하 여을 `{eventName}` 이벤트 이름으로 바꿉니다 `SmsChallengeResponse` .
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -156,7 +156,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>다음 단계
 
-이 샘플에서는 Durable Functions, 특히 `WaitForExternalEvent` `CreateTimer` api에 대 한 몇 가지 고급 기능을 보여 주었습니다. 이러한 기능을 `Task.WaitAny`와 결합하여 신뢰할 수 있는 시간 제한 시스템을 구현하는 방법을 살펴보았습니다. 이 시스템은 종종 실제 사람들과 상호 작용하는 데 유용합니다. 특정 항목을 자세히 다루는 일련의 문서를 읽고 지속성 함수를 사용하는 방법에 대해 자세히 배울 수 있습니다.
+이 샘플에서는 Durable Functions, 특히 api에 대 한 몇 가지 고급 기능을 보여 주었습니다 `WaitForExternalEvent` `CreateTimer` . 이러한 기능을 `Task.WaitAny`와 결합하여 신뢰할 수 있는 시간 제한 시스템을 구현하는 방법을 살펴보았습니다. 이 시스템은 종종 실제 사람들과 상호 작용하는 데 유용합니다. 특정 항목을 자세히 다루는 일련의 문서를 읽고 지속성 함수를 사용하는 방법에 대해 자세히 배울 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [시리즈의 첫 번째 문서로 이동](durable-functions-bindings.md)

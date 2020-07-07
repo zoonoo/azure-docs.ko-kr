@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67099542"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>자습서: itslearning과 Azure Active Directory 통합
 
@@ -107,11 +107,10 @@ Itslearning에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://www.itslearning.com/index.aspx`|
-    | `https://us1.itslearning.com/index.aspx`|
-    | |
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 `urn:mace:saml2v2.no:services:com.itslearning` URL을 입력합니다.
 

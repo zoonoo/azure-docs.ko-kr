@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545961"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
@@ -31,7 +31,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 
 이 아티클에서는 새 리소스 그룹에 새 Azure Storage 계정을 만드는 방법을 보여주며, 이 경우에 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 Storage 계정을 사용하려는 경우 해당 스토리지 계정을 대신 사용할 수 있습니다.
 
-이 예에는 Az PowerShell `Az.Storage (1.1.0 or greater)` modules `Az.Resources (1.2.0 or greater)`및가 필요 합니다. PowerShell 창에서 `Get-Module -ListAvailable Az*`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+이 예에는 Az PowerShell modules 및가 필요 합니다 `Az.Storage (1.1.0 or greater)` `Az.Resources (1.2.0 or greater)` . PowerShell 창에서 `Get-Module -ListAvailable Az*`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!IMPORTANT]
 > PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. 최신 버전의 `AzTable` 가 이전 AzureRM 모듈과 호환 되지 않습니다.
@@ -40,7 +40,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 Azure PowerShell를 설치 하거나 업데이트 한 후에는 엔터티를 관리 하기 위한 명령이 있는 모듈 **AzTable**를 설치 해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 
 > [!IMPORTANT]
-> 모듈 이름 호환성을 위해 PowerShell 갤러리의 이전 이름 `AzureRmStorageTables` 에 동일한 모듈을 계속 게시 하 고 있습니다. 이 문서에서는 새 이름만 참조 합니다.
+> 모듈 이름 호환성을 위해 PowerShell 갤러리의 이전 이름에 동일한 모듈을 계속 게시 하 고 있습니다 `AzureRmStorageTables` . 이 문서에서는 새 이름만 참조 합니다.
 
 ```powershell
 Install-Module AzTable

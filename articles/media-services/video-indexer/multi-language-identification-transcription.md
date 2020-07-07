@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72968732"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>자동으로 다국어 콘텐츠 식별 및 높여줄 (미리 보기)
@@ -39,7 +39,7 @@ Video Indexer은 다중 언어 콘텐츠에서 자동 언어 식별 및 기록�
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>API를 사용 하 여 인덱싱에서 다국어 id 선택
 
-API를 사용 하 여 [비디오를 인덱싱하거나 인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 인덱싱할 때 `multi-language detection` `sourceLanguage` 매개 변수에서 옵션을 선택 합니다.
+API를 사용 하 여 [비디오를 인덱싱하거나 인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 인덱싱할 때 `multi-language detection` 매개 변수에서 옵션을 선택 합니다 `sourceLanguage` .
 
 ### <a name="model-output"></a>모델 출력
 

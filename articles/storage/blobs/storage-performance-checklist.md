@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473941"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 스토리지에 대한 성능 및 확장성 검사 목록
@@ -236,13 +236,13 @@ Azure Storage는 저장소 계정, 저장소 계정 간, 온-프레미스 시스
 
 ### <a name="blob-copy-apis"></a>Blob 복사 Api
 
-저장소 계정 간에 blob을 복사 하려면 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url) 작업을 사용 합니다. 이 작업을 수행 하면 모든 URL 원본에서 블록 blob으로 데이터를 동기적으로 복사 합니다. 작업을 `Put Block from URL` 사용 하면 저장소 계정 간에 데이터를 마이그레이션할 때 필요한 대역폭이 크게 줄어들 수 있습니다. 복사 작업은 서비스 쪽에서 수행 되기 때문에 데이터를 다운로드 하 고 다시 업로드할 필요가 없습니다.
+저장소 계정 간에 blob을 복사 하려면 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url) 작업을 사용 합니다. 이 작업을 수행 하면 모든 URL 원본에서 블록 blob으로 데이터를 동기적으로 복사 합니다. 작업을 사용 하면 `Put Block from URL` 저장소 계정 간에 데이터를 마이그레이션할 때 필요한 대역폭이 크게 줄어들 수 있습니다. 복사 작업은 서비스 쪽에서 수행 되기 때문에 데이터를 다운로드 하 고 다시 업로드할 필요가 없습니다.
 
 동일한 저장소 계정 내에서 데이터를 복사 하려면 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 사용 합니다. 일반적으로 동일한 저장소 계정 내에서 데이터를 복사 하는 것이 신속 하 게 완료 됩니다.  
 
 ### <a name="use-azcopy"></a>AzCopy 사용
 
-AzCopy 명령줄 유틸리티는 저장소 계정 간에 blob을 대량으로 대량 전송할 수 있는 간단 하 고 효율적인 옵션입니다. AzCopy는이 시나리오에 맞게 최적화 되었으며 높은 전송 속도를 달성할 수 있습니다. AzCopy 버전 10은 `Put Block From URL` 작업을 사용 하 여 저장소 계정 간에 blob 데이터를 복사 합니다. 자세한 내용은 [AzCopy v10를 사용 하 여 Azure Storage에 데이터 복사 또는 이동](/azure/storage/common/storage-use-azcopy-v10)을 참조 하세요.  
+AzCopy 명령줄 유틸리티는 저장소 계정 간에 blob을 대량으로 대량 전송할 수 있는 간단 하 고 효율적인 옵션입니다. AzCopy는이 시나리오에 맞게 최적화 되었으며 높은 전송 속도를 달성할 수 있습니다. AzCopy 버전 10은 작업을 사용 하 여 `Put Block From URL` 저장소 계정 간에 blob 데이터를 복사 합니다. 자세한 내용은 [AzCopy v10를 사용 하 여 Azure Storage에 데이터 복사 또는 이동](/azure/storage/common/storage-use-azcopy-v10)을 참조 하세요.  
 
 ### <a name="use-azure-data-box"></a>Azure Data Box 사용
 

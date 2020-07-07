@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80518182"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT 플러그 앤 플레이 미리 보기 제한, 할당량 및 제한
@@ -22,14 +22,14 @@ ms.locfileid: "80518182"
 
 공개 미리 보기의 경우 다음과 같은 제한과 할당량이 IoT hub에 적용 됩니다.
 
-| 제한, 제한 사항 및 제한 | 값 | 메모 |
+| 제한, 제한 사항 및 제한 | 값 | 참고 |
 |-----|-----|-----|
 | 허브 당 등록할 수 있는 DCMs (장치 기능 모델) 또는 인터페이스 수 | 1500 ||
 | 장치당 등록할 수 있는 최대 인터페이스 수 | 40 ||
 | 장치당 등록할 수 있는 최대 DCMs 수 | 1 ||
 | 인터페이스/DCM 파일의 최대 크기 | 512KB ||
 | 인터페이스 이름의 최대 크기 | 256 문자 ||
-| 속성 이름의 최대 크기  | 64 바이트, 심층 7 수준 (및 첫 번째 수준 예약 됨 `$iotin`) | 허용 되는 문자: a-z, a-z, 0-9 (첫 번째 문자 아님) 및 밑줄 |
+| 속성 이름의 최대 크기  | 64 바이트, 심층 7 수준 (및 첫 번째 수준 예약 됨 `$iotin` ) | 허용 되는 문자: a-z, a-z, 0-9 (첫 번째 문자 아님) 및 밑줄 |
 | 속성 값의 최대 크기 | 512바이트 ||
 | 명령 이름의 최대 크기 | 100 바이트 ||
 | 디바이스 쌍 크기 | [IoT Hub 제한과](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) 동일 ||

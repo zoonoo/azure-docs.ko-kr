@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192419"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
@@ -94,9 +94,9 @@ Azure HANA Large Instances (유형 I)의 SAP는 업그레이드 후 부팅할 �
 #### <a name="execution-steps"></a>실행 단계
 
 
-*   명령을 `multipath -ll` 실행 합니다.
+*   `multipath -ll`명령을 실행 합니다.
 *   크기가 약 50G 인 LUN ID를 가져오거나 명령을 사용 합니다.`fdisk -l | grep mapper`
-*   줄 `/etc/default/grub_installdevice` `/dev/mapper/<LUN ID>`을 사용 하 여 파일을 업데이트 합니다. 예:/dev/mapper/3600a09803830372f483f495242534a56
+*   `/etc/default/grub_installdevice`줄을 사용 하 여 파일을 업데이트 `/dev/mapper/<LUN ID>` 합니다. 예:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >LUN ID는 서버 마다 다릅니다.
 
@@ -115,11 +115,11 @@ lsmod | grep -i edac
 blacklist sb_edac
 blacklist edac_core
 ```
-변경 내용을 적용 하려면 다시 부팅 해야 합니다. 명령을 `lsmod` 실행 하 고 모듈이 출력에 표시 되지 않는지 확인 합니다.
+변경 내용을 적용 하려면 다시 부팅 해야 합니다. `lsmod`명령을 실행 하 고 모듈이 출력에 표시 되지 않는지 확인 합니다.
 
 
 ### <a name="kernel-parameters"></a>커널 매개 변수
-   , `transparent_hugepage` `numa_balancing` `ignore_ce` , 및 `intel_idle.max_cstate` 에 대 한 올바른 설정이 적용 되었는지 확인 `processor.max_cstate`합니다.
+   ,, 및에 대 한 올바른 설정이 적용 되었는지 확인 `transparent_hugepage` `numa_balancing` `processor.max_cstate` `ignore_ce` `intel_idle.max_cstate` 합니다.
 
 * intel_idle max_cstate = 1
 * 프로세서. max_cstate = 1
@@ -130,7 +130,7 @@ blacklist edac_core
 
 #### <a name="execution-steps"></a>실행 단계
 
-* 파일의 줄에 이러한 `GRB_CMDLINE_LINUX` 매개 변수를 추가 합니다.`/etc/default/grub`
+* 파일의 줄에 이러한 매개 변수를 추가 합니다. `GRB_CMDLINE_LINUX``/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

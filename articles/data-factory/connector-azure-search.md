@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418238"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 복사
@@ -46,8 +46,8 @@ Azure Cognitive Search 연결 된 서비스에 대해 지원 되는 속성은 �
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
 | url | 검색 서비스에 대 한 URL입니다. | 예 |
-| key | 검색 서비스에 대 한 관리 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| key | 검색 서비스에 대 한 관리 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 > [!IMPORTANT]
 > 클라우드 데이터 저장소에서 검색 인덱스로 데이터를 복사 하는 경우 Azure Cognitive Search 연결 된 서비스에서에 명시적 지역이 있는 Azure Integration Runtime을 참조 해야 합니다. 검색 서비스가 있는 영역으로 영역을 설정 합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
@@ -76,7 +76,7 @@ Azure Cognitive Search 연결 된 서비스에 대해 지원 되는 속성은 �
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 Azure Cognitive Search 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Cognitive Search 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
 Azure Cognitive Search에 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
@@ -85,7 +85,7 @@ Azure Cognitive Search에 데이터를 복사 하기 위해 지원 되는 속성
 | type | 데이터 세트의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | 예 |
 | indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -110,12 +110,12 @@ Azure Cognitive Search에 데이터를 복사 하기 위해 지원 되는 속성
 
 ### <a name="azure-cognitive-search-as-sink"></a>싱크로 Azure Cognitive Search
 
-Azure Cognitive Search에 데이터를 복사 하려면 복사 작업의 원본 형식을 **Azuresearchindexsink**로 설정 합니다. 복사 작업 **싱크** 섹션에서 지원 되는 속성은 다음과 같습니다.
+Azure Cognitive Search에 데이터를 복사 하려면 복사 작업의 원본 형식을 **Azuresearchindexsink**로 설정 합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | 예 |
-| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload**입니다. | 아니요 |
+| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload**입니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
@@ -171,7 +171,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 | Azure Cognitive Search 데이터 형식 | Azure Cognitive Search 싱크에서 지원 됨 |
 | ---------------------- | ------------------------------ |
-| 문자열 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |

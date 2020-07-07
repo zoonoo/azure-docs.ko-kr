@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195097"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
@@ -22,7 +22,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* 클러스터 기본 스토리지에 대한 URI 체계입니다. 이 `wasb://` `abfs://` 체계는 Azure Blob Storage Azure Data Lake Storage Gen2 또는 `adl://` Azure Data Lake Storage Gen1에 대 한 것입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://`입니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
+* 클러스터 기본 스토리지에 대한 URI 체계입니다. 이 체계는 `wasb://` Azure Blob Storage `abfs://` Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한 것입니다 `adl://` . Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://` 입니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Apache Zeppelin Notebook 시작
 
@@ -33,7 +33,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. 새 Notebook을 만듭니다. 머리글 창에서 **노트북** > **새 노트 만들기**로 이동 합니다.
+2. 새 Notebook을 만듭니다. 머리글 창에서 **노트북**  >  **새 노트 만들기**로 이동 합니다.
 
     ![새 Zeppelin 노트북 만들기](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "새 Zeppelin 노트북 만들기")
 
@@ -43,7 +43,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
     ![Zeppelin 노트북 상태](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin 노트북 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들 때 샘플 데이터 파일 `hvac.csv`는의 연결 된 저장소 계정에 복사 됩니다. `\HdiSamples\SensorSampleData\hvac`
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들 때 샘플 데이터 파일는의 `hvac.csv` 연결 된 저장소 계정에 복사 됩니다 `\HdiSamples\SensorSampleData\hvac` .
 
     새 노트북에 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣습니다.
 
@@ -80,7 +80,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
     > [!NOTE]  
     > %spark2 인터프리터는 모든 HDInsight 버전의 Zeppelin 노트북에서 지원되지 않으며 %sh 인터프리터는 HDInsight 4.0 이상에서는 지원되지 않습니다.
 
-5. 이제 `hvac` 테이블에서 Spark SQL 문을 실행할 수 있습니다. 새 단락에 다음 쿼리를 붙여넣습니다. 쿼리가 건물 ID를 검색 합니다. 또한 지정 된 날짜에 각 건물에 대 한 대상 온도와 실제 온도 간의 차이입니다. **Shift + Enter**를 누릅니다.
+5. 이제 테이블에서 Spark SQL 문을 실행할 수 있습니다 `hvac` . 새 단락에 다음 쿼리를 붙여넣습니다. 쿼리가 건물 ID를 검색 합니다. 또한 지정 된 날짜에 각 건물에 대 한 대상 온도와 실제 온도 간의 차이입니다. **Shift + Enter**를 누릅니다.
 
     ```sql
     %sql
@@ -93,7 +93,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
     ![Notebook1를 사용 하 여 Spark SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Notebook1를 사용 하 여 Spark SQL 문 실행")
 
-7. 또한 쿼리에 변수를 사용하여 Spark SQL 문을 실행할 수도 있습니다. 다음 코드 조각에서는 쿼리할 수 있는 값을 사용 `Temp`하 여 쿼리에서 변수를 정의 하는 방법을 보여 줍니다. 쿼리를 처음 실행하면 드롭다운이 변수에 지정한 값으로 자동으로 채워집니다.
+7. 또한 쿼리에 변수를 사용하여 Spark SQL 문을 실행할 수도 있습니다. 다음 코드 조각에서는 쿼리할 `Temp` 수 있는 값을 사용 하 여 쿼리에서 변수를 정의 하는 방법을 보여 줍니다. 쿼리를 처음 실행하면 드롭다운이 변수에 지정한 값으로 자동으로 채워집니다.
 
     ```sql
     %sql  
@@ -125,7 +125,7 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
     ![변경 인터프리터 run settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "변경 인터프리터 run settings1")
 
-3. 키 `livy.spark.jars.packages`로 이동 하 여 해당 값을 형식 `group:id:version`으로 설정 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
+3. 키로 이동 하 여 `livy.spark.jars.packages` 해당 값을 형식으로 설정 `group:id:version` 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
 
     ![변경 인터프리터 settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "변경 인터프리터 settings2")
 
@@ -139,7 +139,7 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
     ![Jupyter 노트북에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter 노트북에서 외부 패키지 사용")
 
-    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
         com.databricks:spark-csv_2.10:1.4.0
 
@@ -151,20 +151,20 @@ Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 �
 
 이 작업을 수행 하면 전자 필기장이 다운로드 위치에 JSON 파일로 저장 됩니다.
 
-## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Enterprise Security Package `Shiro` (ESP) 클러스터에서 Zeppelin 인터프리터에 대 한 액세스를 구성 하는 데 사용 합니다.
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>`Shiro`Enterprise Security Package (ESP) 클러스터에서 Zeppelin 인터프리터에 대 한 액세스를 구성 하는 데 사용 합니다.
 
-위에서 설명한 것 처럼 인터프리터 `%sh` 는 HDInsight 4.0 이상에서 지원 되지 않습니다. 또한 인터프리터는 `%sh` 셸 명령을 사용 하는 액세스 keytabs 같은 잠재적인 보안 문제를 도입 하기 때문에 HDINSIGHT 3.6 ESP 클러스터 에서도 제거 되었습니다. 이는 `%sh` 기본적으로 **새 메모 만들기** 또는 인터프리터 UI에서 인터프리터를 클릭할 때 인터프리터를 사용할 수 없음을 의미 합니다.
+위에서 설명한 것 처럼 `%sh` 인터프리터는 HDInsight 4.0 이상에서 지원 되지 않습니다. 또한 인터프리터는 `%sh` 셸 명령을 사용 하는 액세스 keytabs 같은 잠재적인 보안 문제를 도입 하기 때문에 HDInsight 3.6 ESP 클러스터 에서도 제거 되었습니다. 이 `%sh` 는 기본적으로 **새 메모 만들기** 또는 인터프리터 UI에서 인터프리터를 클릭할 때 인터프리터를 사용할 수 없음을 의미 합니다.
 
-권한 있는 도메인 사용자는 `Shiro.ini` 파일을 사용 하 여 인터프리터 UI에 대 한 액세스를 제어할 수 있습니다. 이러한 사용자만 새 인터프리터를 `%sh` 만들고 각 새 `%sh` 인터프리터에 대 한 사용 권한을 설정할 수 있습니다. `shiro.ini` 파일을 사용 하 여 액세스를 제어 하려면 다음 단계를 사용 합니다.
+권한 있는 도메인 사용자는 파일을 사용 `Shiro.ini` 하 여 인터프리터 UI에 대 한 액세스를 제어할 수 있습니다. 이러한 사용자만 새 인터프리터 `%sh` 를 만들고 각 새 인터프리터에 대 한 사용 권한을 설정할 수 있습니다 `%sh` . 파일을 사용 하 여 액세스를 제어 하려면 `shiro.ini` 다음 단계를 사용 합니다.
 
-1. 기존 도메인 그룹 이름을 사용 하 여 새 역할을 정의 합니다. 다음 예제에서 `adminGroupName` 는 AAD의 권한 있는 사용자 그룹입니다. 그룹 이름에 특수 문자나 공백을 사용 하지 마십시오. 뒤 `=` 의 문자는이 역할에 대 한 사용 권한을 부여 합니다. `*`그룹에 모든 권한이 있음을 의미 합니다.
+1. 기존 도메인 그룹 이름을 사용 하 여 새 역할을 정의 합니다. 다음 예제에서 `adminGroupName` 는 AAD의 권한 있는 사용자 그룹입니다. 그룹 이름에 특수 문자나 공백을 사용 하지 마십시오. 뒤의 문자는 `=` 이 역할에 대 한 사용 권한을 부여 합니다. `*`그룹에 모든 권한이 있음을 의미 합니다.
 
     ```
     [roles]
     adminGroupName = *
     ```
 
-2. Zeppelin 인터프리터에 대 한 액세스에 대 한 새 역할을 추가 합니다. 다음 예에서는의 `adminGroupName` 모든 사용자에 게 Zeppelin 인터프리터에 대 한 액세스 권한이 부여 되 고 새 인터프리터를 만들 수 있습니다. 쉼표로 구분 된의 `roles[]`대괄호 사이에 여러 역할을 넣을 수 있습니다. 그런 다음 필요한 권한이 있는 사용자는 Zeppelin 인터프리터에 액세스할 수 있습니다.
+2. Zeppelin 인터프리터에 대 한 액세스에 대 한 새 역할을 추가 합니다. 다음 예에서는의 모든 사용자에 `adminGroupName` 게 Zeppelin 인터프리터에 대 한 액세스 권한이 부여 되 고 새 인터프리터를 만들 수 있습니다. 쉼표로 구분 된의 대괄호 사이에 여러 역할을 넣을 수 있습니다 `roles[]` . 그런 다음 필요한 권한이 있는 사용자는 Zeppelin 인터프리터에 액세스할 수 있습니다.
 
     ```
     [urls]
@@ -191,9 +191,9 @@ Zeppelin 노트북의 첫 번째 코드 단락은 클러스터에 새 Livy 세�
 
 ### <a name="validate-service"></a>서비스 유효성 검사
 
-Ambari에서 서비스의 유효성을 검사 하려면로 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+Ambari에서 서비스의 유효성을 검사 하려면로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
-명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. Command `sudo su zeppelin`를 사용 하 여 사용자를 zeppelin로 전환 합니다. 상태 명령:
+명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. Command를 사용 하 여 사용자를 zeppelin로 전환 `sudo su zeppelin` 합니다. 상태 명령:
 
 |명령 |Description |
 |---|---|
@@ -207,16 +207,16 @@ Ambari에서 서비스의 유효성을 검사 하려면로 `https://CLUSTERNAME.
 |---|---|
 |zeppelin-서버|/usr/hdp/current/zeppelin-server/|
 |서버 로그|/var/log/zeppelin|
-|구성 인터프리터, `Shiro`, site .xml, log4j|/usr/hdp/current/zeppelin-server/conf 또는/etc/zeppelin/conf|
+|구성 인터프리터, `Shiro` , site.xml, log4j|/usr/hdp/current/zeppelin-server/conf 또는/etc/zeppelin/conf|
 |PID 디렉터리|/var/run/zeppelin|
 
 ### <a name="enable-debug-logging"></a>디버그 로깅 활성화
 
-1. 로 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
-1. **CONFIGS** > **Advanced zeppelin-log4j** > **log4j_properties_content**로 이동 합니다.
+1. **CONFIGS**  >  **Advanced zeppelin-log4j**  >  **log4j_properties_content**로 이동 합니다.
 
-1. 을 `log4j.appender.dailyfile.Threshold = INFO` 로 `log4j.appender.dailyfile.Threshold = DEBUG`수정 합니다.
+1. `log4j.appender.dailyfile.Threshold = INFO`을로 수정 `log4j.appender.dailyfile.Threshold = DEBUG` 합니다.
 
 1. `log4j.logger.org.apache.zeppelin.realm=DEBUG`를 추가합니다.
 
@@ -224,6 +224,6 @@ Ambari에서 서비스의 유효성을 검사 하려면로 `https://CLUSTERNAME.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)

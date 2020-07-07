@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100150"
 ---
 # <a name="common-issues"></a>일반적인 문제
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * 모듈 간 통신의 경우 포트 **4438** 에 대 한 호출을 수행 하 고 모듈의 이름이 배포 된 항목과 일치 하는지 확인 합니다. 
 
-  예를 들어, 이름이 **eventgridmodule** 인 Event Grid 모듈이 배포 된 경우 URL은 이어야 **https://eventgridmodule:4438**합니다. 대/소문자 및 포트 번호가 올바른지 확인 합니다.
+  예를 들어, 이름이 **eventgridmodule** 인 Event Grid 모듈이 배포 된 경우 URL은 이어야 합니다 **https://eventgridmodule:4438** . 대/소문자 및 포트 번호가 올바른지 확인 합니다.
     
 * 비 IoT 모듈의 경우 배포 중에 Event Grid 포트가 호스트 컴퓨터에 매핑되는지 확인 합니다. 예를 들어
 
@@ -64,7 +64,7 @@ sudo docker logs eventgridmodule
 
 * 모듈 간 통신의 경우 포트 **5888** 에 대 한 호출을 수행 하 고 모듈의 이름이 배포 된 항목과 일치 하는지 확인 합니다. 
 
-  예를 들어, 이름이 **eventgridmodule** 인 Event Grid 모듈이 배포 된 경우 URL은 이어야 **http://eventgridmodule:5888**합니다. 대/소문자 및 포트 번호가 올바른지 확인 합니다.
+  예를 들어, 이름이 **eventgridmodule** 인 Event Grid 모듈이 배포 된 경우 URL은 이어야 합니다 **http://eventgridmodule:5888** . 대/소문자 및 포트 번호가 올바른지 확인 합니다.
     
 * 비 IoT 모듈의 경우 배포 중에 Event Grid 포트가 호스트 컴퓨터에 매핑되는지 확인 합니다. 예를 들어
 
@@ -84,7 +84,7 @@ sudo docker logs eventgridmodule
 
 기본적으로 Event Grid 모듈은 IoT Edge 보안 데몬에 의해 발급 된 인증서를 사용 하 여 클라이언트를 인증 하도록 구성 됩니다. 클라이언트에서이 체인을 기반으로 하는 인증서를 제공 하는지 확인 합니다.
 
-의 [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) **iotsecurity** 클래스는 IoT Edge 보안 디먼에서 인증서를 검색 하 고이를 사용 하 여 나가는 호출을 구성 하는 방법을 보여 줍니다.
+의 **Iotsecurity** 클래스 [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) 는 IoT Edge 보안 디먼에서 인증서를 검색 하 고이를 사용 하 여 나가는 호출을 구성 하는 방법을 보여 줍니다.
 
 비프로덕션 환경인 경우 클라이언트 인증을 해제할 수 있는 옵션이 있습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [보안 및 인증](security-authentication.md) 을 참조 하세요.
 
@@ -108,4 +108,4 @@ sudo docker logs eventgridmodule
 
 ## <a name="next-steps"></a>다음 단계
 
-의 IoT Edge에서 Event Grid를 사용 하 여 모든 문제를 [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)보고 합니다.
+의 IoT Edge에서 Event Grid를 사용 하 여 모든 문제를 보고 [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) 합니다.

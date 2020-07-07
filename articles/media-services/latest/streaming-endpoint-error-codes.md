@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582693"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>스트리밍 끝점 (원본) 오류 
@@ -68,7 +68,7 @@ ms.locfileid: "80582693"
 
 ## <a name="409-conflict"></a>409 충돌
 
-`PUT` 또는 `POST` 작업에서 리소스에 대해 제공 된 ID가 기존 리소스에서 사용 되었습니다. 리소스에 다른 ID를 사용 하 여이 문제를 해결 하십시오.
+또는 작업에서 리소스에 대해 제공 된 ID가 `PUT` `POST` 기존 리소스에서 사용 되었습니다. 리소스에 다른 ID를 사용 하 여이 문제를 해결 하십시오.
 
 |오류 코드|16 진수 값 |오류 설명|
 |---|---|---|

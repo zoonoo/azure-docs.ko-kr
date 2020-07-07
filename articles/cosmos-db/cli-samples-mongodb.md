@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 88b795b52955a6bd323e7a900c0cd62dab1dd2d4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7536a2e3fc32aeb330aad52625a5946e856d6646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556042"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API에 대한 Azure CLI 샘플
 
@@ -21,7 +21,7 @@ ms.locfileid: "85262942"
 > [!NOTE]
 > 현재 PowerShell, CLI 및 Resource Manager 템플릿을 사용하여 Azure Cosmos DB의 API for MongoDB 3.2 버전 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)만 만들 수 있습니다. 3\.6 버전의 계정을 만들려면 Azure Portal을 대신 사용하세요.
 
-| |  |
+|작업 | Description |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컬렉션 만들기](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| MongoDB API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 | [처리량 변경](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컬렉션에서 RU/s를 업데이트합니다.|
@@ -30,5 +30,5 @@ ms.locfileid: "85262942"
 | [IP 방화벽으로 보안](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| IP 방화벽이 구성된 Cosmos 계정을 만듭니다.|
 | [서비스 엔드포인트로 새 계정 보호](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Cosmos 계정을 만들고 서비스 엔드포인트로 보호합니다.|
 | [서비스 엔드포인트로 기존 계정 보호](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| 서브넷이 최종적으로 구성될 때 서비스 엔드포인트로 보호할 Cosmos 계정을 업데이트합니다.|
-| [삭제에서 리소스 잠그기](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스가 삭제되지 않도록 합니다.|
+| [삭제에서 리소스 잠그기](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||

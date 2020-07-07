@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582723"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure Media Services의 스트리밍 끝점 (원본)
@@ -34,16 +34,16 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 ## <a name="naming-convention"></a>명명 규칙
 
-스트리밍 URL의 호스트 이름 형식은입니다. 여기서 `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` `servicename` 는 스트리밍 끝점 이름 또는 라이브 이벤트 이름입니다.
+스트리밍 URL의 호스트 이름 형식은입니다. 여기서는 `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` `servicename` 스트리밍 끝점 이름 또는 라이브 이벤트 이름입니다.
 
-기본 스트리밍 끝점을 `servicename` 사용 하는 경우이 생략 되므로 URL은 `{accountname}-{regionname}.streaming.azure.net`입니다.
+기본 스트리밍 끝점을 사용 하는 경우 `servicename` 이 생략 되므로 URL은 `{accountname}-{regionname}.streaming.azure.net` 입니다.
 
 ### <a name="limitations"></a>제한 사항
 
 * 스트리밍 끝점 이름의 최대 값은 24 자입니다.
-* 이름은이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`합니다.
+* 이름은이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다. `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
 **표준** (미리 보기) 및 **프리미엄**의 두 가지 **스트리밍 끝점** 유형이 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다.
 
@@ -51,8 +51,8 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 |Type|배율 단위|Description|
 |--------|--------|--------|  
-|**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며를 조정 `scaleUnits`하 여 프리미엄 유형으로 변경할 수 있습니다.|
-|**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위) **Premium** 를 조정 `scaleUnits` 하 여 프리미엄 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |
+|**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다 `scaleUnits` .|
+|**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위)를 조정 하 여 **프리미엄** 유형으로 이동 `scaleUnits` 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |
 
 > [!NOTE]
 > 대량 인터넷 사용자에 게 콘텐츠를 배달 하려는 고객의 경우 스트리밍 끝점에서 CDN을 사용 하도록 설정 하는 것이 좋습니다.
@@ -79,23 +79,23 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
 
 이 섹션에서는 일부 스트리밍 끝점 속성에 대해 자세히 설명 합니다. 새 스트리밍 엔드포인트를 만드는 방법의 예제와 모든 속성에 대한 설명을 보려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)를 참조하세요.
 
-- `accessControl`:이 스트리밍 끝점에 대 한 다음 보안 설정을 구성 하는 데 사용 됩니다. Akamai 서명 헤더 인증 키와이 끝점에 연결할 수 있는 IP 주소입니다. 이 속성은가 false로 설정 `cdnEnabled` 된 경우에만 설정할 수 있습니다.
+- `accessControl`:이 스트리밍 끝점에 대 한 다음 보안 설정을 구성 하는 데 사용 됩니다. Akamai 서명 헤더 인증 키와이 끝점에 연결할 수 있는 IP 주소입니다. 이 속성 `cdnEnabled` 은가 false로 설정 된 경우에만 설정할 수 있습니다.
 
 - `cdnEnabled`:이 스트리밍 끝점에 대 한 Azure CDN 통합을 사용할 수 있는지 여부를 나타냅니다 (기본적으로 사용 안 함). `cdnEnabled`를 true로 설정하면 `customHostNames` 및 `accessControl` 구성이 사용되지 않도록 설정됩니다.
 
     모든 데이터 센터에서 Azure CDN 통합을 지원하는 것은 아닙니다. 데이터 센터에서 Azure CDN 통합을 사용할 수 있는지 확인 하려면 다음 단계를 수행 합니다.
 
   - `cdnEnabled`를 true로 설정합니다.
-  - 현재 지역에서 CDN 기능을 `HTTP Error Code 412` 사용할 수 없으므로 "스트리밍 끝점 CdnEnabled 속성을 true로 설정할 수 없습니다." 라는 메시지와 함께 (preconditionfailed)에 대해 반환 된 결과를 확인 합니다.
+  - `HTTP Error Code 412`현재 지역에서 CDN 기능을 사용할 수 없으므로 "스트리밍 끝점 CdnEnabled 속성을 true로 설정할 수 없습니다." 라는 메시지와 함께 (preconditionfailed)에 대해 반환 된 결과를 확인 합니다.
 
     이 오류가 발생 하면 데이터 센터에서이를 지원 하지 않습니다. 다른 데이터 센터를 사용해 보세요.
 
-- `cdnProfile`:이 `cdnEnabled` true로 설정 된 경우 값을 전달할 `cdnProfile` 수도 있습니다. `cdnProfile`은 CDN 엔드포인트이 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필이 자동으로 만들어집니다.
-- `cdnProvider`: CDN을 사용 하는 경우 값을 전달할 `cdnProvider` 수도 있습니다. `cdnProvider`는 사용할 공급자를 제어합니다. 현재, "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 가지 값이 지원됩니다. 값을 제공 `cdnEnabled` 하지 않고 true 이면 "standardverizon"이 사용 됩니다 (기본값).
+- `cdnProfile`: `cdnEnabled` 이 true로 설정 된 경우 값을 전달할 수도 있습니다 `cdnProfile` . `cdnProfile`은 CDN 엔드포인트이 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필이 자동으로 만들어집니다.
+- `cdnProvider`: CDN을 사용 하는 경우 값을 전달할 수도 있습니다 `cdnProvider` . `cdnProvider`는 사용할 공급자를 제어합니다. 현재, "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 가지 값이 지원됩니다. 값을 제공 하지 않고 `cdnEnabled` true 이면 "StandardVerizon"이 사용 됩니다 (기본값).
 - `crossSiteAccessPolicies`: 다양 한 클라이언트에 대해 사이트 간 액세스 정책을 지정 하는 데 사용 됩니다. 자세한 내용은 [도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) 및 [여러 도메인 간에 서비스를 사용하도록 지정](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)을 참조하세요. 설정은 부드러운 스트리밍에만 적용 됩니다.
-- `customHostNames`: 사용자 지정 호스트 이름으로 전송 된 트래픽을 허용 하도록 스트리밍 끝점을 구성 하는 데 사용 됩니다. 이 속성은 표준 및 프리미엄 스트리밍 끝점에 유효 하며: false 인 경우 `cdnEnabled`설정할 수 있습니다.
+- `customHostNames`: 사용자 지정 호스트 이름으로 전송 된 트래픽을 허용 하도록 스트리밍 끝점을 구성 하는 데 사용 됩니다. 이 속성은 표준 및 프리미엄 스트리밍 끝점에 유효 하며 `cdnEnabled` : false 인 경우 설정할 수 있습니다.
 
-    Media Services에서 도메인 이름의 소유권을 확인 해야 합니다. Media Services는 사용 중인 도메인에 추가할 구성 요소로 `CName` MEDIA SERVICES 계정 ID를 포함 하는 레코드를 요구 하 여 도메인 이름 소유권을 확인 합니다. 예를 들어 “sports.contoso.com”을 스트리밍 엔드포인트에 대한 사용자 지정 호스트 이름으로 사용하려면 Media Services 확인 호스트 이름 중 하나를 가리키도록 `<accountId>.contoso.com`에 대한 레코드를 구성해야 합니다. 확인 호스트 이름은 verifydns.\<mediaservices-dns-zone>으로 구성됩니다.
+    Media Services에서 도메인 이름의 소유권을 확인 해야 합니다. Media Services `CName` 는 사용 중인 도메인에 추가할 구성 요소로 Media Services 계정 ID를 포함 하는 레코드를 요구 하 여 도메인 이름 소유권을 확인 합니다. 예를 들어 “sports.contoso.com”을 스트리밍 엔드포인트에 대한 사용자 지정 호스트 이름으로 사용하려면 Media Services 확인 호스트 이름 중 하나를 가리키도록 `<accountId>.contoso.com`에 대한 레코드를 구성해야 합니다. 확인 호스트 이름은 verifydns .로 구성 되어 \<mediaservices-dns-zone> 있습니다.
 
     다음은 다양 한 Azure 지역에 대 한 확인 레코드에서 사용 되는 예상 DNS 영역입니다.
   
@@ -109,16 +109,16 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
 
-    예를 들어 " `CName` 945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com"를 "verifydns.media.azure.net"로 매핑하는 레코드는 Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad에 contoso.com 도메인의 소유권이 있음을 증명 하므로 contoso.com의 모든 이름을 해당 계정 아래에 있는 스트리밍 끝점의 사용자 지정 호스트 이름으로 사용할 수 있습니다. 미디어 서비스 ID 값을 찾으려면 [Azure Portal](https://portal.azure.com/)로 이동한 후 미디어 서비스 계정을 선택합니다. **계정 ID** 는 페이지의 오른쪽 위에 표시 됩니다.
+    예를 들어 `CName` "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com"를 "verifydns.media.azure.net"로 매핑하는 레코드는 MEDIA SERVICES ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad에 contoso.com 도메인의 소유권이 있음을 증명 하므로 contoso.com의 모든 이름을 해당 계정 아래에 있는 스트리밍 끝점의 사용자 지정 호스트 이름으로 사용할 수 있습니다. 미디어 서비스 ID 값을 찾으려면 [Azure Portal](https://portal.azure.com/)로 이동한 후 미디어 서비스 계정을 선택합니다. **계정 ID** 는 페이지의 오른쪽 위에 표시 됩니다.
 
-    `CName` 레코드를 적절히 확인 하지 않고 사용자 지정 호스트 이름을 설정 하려고 하면 DNS 응답이 실패 하 여 일정 시간 동안 캐시 됩니다. 적절한 레코드가 준비되고 나면, 캐시된 응답의 유효성이 다시 확인될 때까지 잠시 시간이 소요될 수 있습니다. 사용자 지정 도메인에 대 한 DNS 공급자에 따라 레코드의 유효성을 다시 검사 하는 데 몇 분에서 1 시간까지 소요 됩니다.
+    레코드를 적절히 확인 하지 않고 사용자 지정 호스트 이름을 설정 하려고 하면 `CName` DNS 응답이 실패 하 여 일정 시간 동안 캐시 됩니다. 적절한 레코드가 준비되고 나면, 캐시된 응답의 유효성이 다시 확인될 때까지 잠시 시간이 소요될 수 있습니다. 사용자 지정 도메인에 대 한 DNS 공급자에 따라 레코드의 유효성을 다시 검사 하는 데 몇 분에서 1 시간까지 소요 됩니다.
 
-    `CName` 에 매핑되 `<accountId>.<parent domain>` `verifydns.<mediaservices-dns-zone>`는 외에도 사용자 지정 호스트 이름 (예 `CName` : `sports.contoso.com`)을 Media Services 스트리밍 끝점의 호스트 이름 (예: `amstest-usea.streaming.media.azure.net`)에 매핑하는 다른를 만들어야 합니다.
+    에 매핑되는 외에도 `CName` `<accountId>.<parent domain>` `verifydns.<mediaservices-dns-zone>` `CName` 사용자 지정 호스트 이름 (예: `sports.contoso.com` )을 Media Services 스트리밍 끝점의 호스트 이름 (예:)에 매핑하는 다른를 만들어야 합니다 `amstest-usea.streaming.media.azure.net` .
 
     > [!NOTE]
     > 동일한 데이터 센터에 있는 스트리밍 끝점은 동일한 사용자 지정 호스트 이름을 공유할 수 없습니다.
 
-    현재 Media Services에서는 사용자 지정 도메인에 대 한 TLS를 지원 하지 않습니다.
+    현재 Media Services는 사용자 지정 도메인을 사용하는 TLS를 지원하지 않습니다.
 
 - `maxCacheAge`-미디어 조각과 주문형 매니페스트의 스트리밍 끝점에서 설정한 기본 최대 기간 HTTP 캐시 제어 헤더를 재정의 합니다. 이 값은 초 단위로 설정됩니다.
 - `resourceState` -

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80436932"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
@@ -25,7 +25,7 @@ Azure Storage 또는 Azure Data Lake Storage에 온-프레미스 HDFS(Apache Had
 
 ### <a name="azure-storage"></a>Azure Storage
 
-HDInsight 클러스터는 기본 파일 시스템 또는 추가 파일 시스템으로 Azure Storage에서 Blob 컨테이너를 사용할 수 있습니다.표준 계층 스토리지 계정은 HDInsight 클러스터와 함께 사용하도록 지원됩니다. 프리미어 계층은 지원 되지 않습니다. 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다.여러 클러스터의 기본 파일 시스템으로 하나의 blob 컨테이너를 공유 하는 것은 지원 되지 않습니다.
+HDInsight 클러스터는 기본 파일 시스템 또는 추가 파일 시스템으로 Azure Storage에서 Blob 컨테이너를 사용할 수 있습니다.표준 계층 스토리지 계정은 HDInsight 클러스터와 함께 사용하도록 지원됩니다. 프리미어 계층은 지원 되지 않습니다. 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다.여러 클러스터에서 하나의 Blob 컨테이너를 기본 파일 시스템으로 공유하는 것은 지원되지 않습니다.
 
 만들기 프로세스에서 정의된 스토리지 계정과 해당 키는 클러스터 노드의 `%HADOOP_HOME%/conf/core-site.xml`에 저장됩니다. 또한 Ambari UI에서 HDFS 구성의 "사용자 지정 핵심 사이트" 섹션 아래에서 액세스할 수 있습니다. 스토리지 계정 키는 기본적으로 암호화되며 Hadoop 디먼에 전달되기 전에 키를 암호 해독하는 데 사용자 지정 암호 해독 스크립트가 사용됩니다. Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 작업은 스토리지 계정 및 메타데이터 설명을 전달합니다.
 
@@ -41,7 +41,7 @@ Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 �
 
 [Standard storage 계정에 대 한 확장성 목표](../../storage/common/scalability-targets-standard-account.md) 는 Azure Storage 계정에 대 한 현재 제한을 나열 합니다. 애플리케이션의 요구가 단일 스토리지 계정의 확장성 목표를 초과하는 경우 여러 스토리지 계정을 사용하도록 애플리케이션을 빌드한 다음, 데이터 개체를 이러한 스토리지 계정에 분할할 수 있습니다.
 
-[Azure 스토리지 분석](../../storage/storage-analytics.md) 는 모든 저장소 서비스에 대 한 메트릭을 제공 하 고, Azure Portal 구성 하 여 차트를 통해 시각화할 메트릭을 수집 합니다. 스토리지 리소스 메트릭의 임계값에 도달하면 사용자에게 알리도록 경고를 만들 수 있습니다.
+[Azure 스토리지 분석](../../storage/storage-analytics.md)   모든 저장소 서비스에 대 한 메트릭과 Azure Portal 구성 하 여 차트를 통해 시각화할 메트릭을 수집 합니다. 스토리지 리소스 메트릭의 임계값에 도달하면 사용자에게 알리도록 경고를 만들 수 있습니다.
 
 Azure Storage는 응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 수정 하거나 삭제 하는 경우 데이터를 복구 하는 데 도움이 되는 [blob 개체에 대 한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md) 를 제공 합니다.
 
@@ -77,7 +77,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 - [Blob 스토리지의 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
 - [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Azure 포털에서 스토리지 계정 모니터링](../../storage/common/storage-monitor-storage-account.md)
+- [Azure Portal에서 스토리지 계정 모니터링](../../storage/common/storage-monitor-storage-account.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
@@ -94,11 +94,11 @@ Azure Data Lake Storage Gen2은 최신 저장소 제품입니다. Azure Data Lak
 
 ADLS Gen 2는  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
 
-Data Lake Storage Gen2의 기본 기능은 Blob Storage 서비스에 대 한 [계층적 네임 스페이스](../../storage/data-lake-storage/namespace.md) 를 추가 하는 것입니다 .이를 통해 개체/파일을 성능 데이터 액세스용 디렉터리 계층 구조로 구성할 수 있습니다.계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
+Data Lake Storage Gen2의 기본 기능은 Blob Storage 서비스에 대 한 [계층적 네임 스페이스](../../storage/data-lake-storage/namespace.md)를 추가 하는 것입니다   .이를 통해 개체/파일을 성능 데이터 액세스용 디렉터리 계층 구조로 구성할 수 있습니다.계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
 
 과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. ADLS(Azure Data Lake Storage) Gen2의 주요 기능은 아래와 같습니다.
 
-- **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용하면  [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [abfs 드라이버](../../storage/data-lake-storage/abfs-driver.md) 는 [Azure HDInsight](../index.yml)에 포함 된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
+- **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용하면  [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [Abfs 드라이버](../../storage/data-lake-storage/abfs-driver.md)는    [Azure HDInsight](../index.yml)에 포함 된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
 
 - **POSIX 권한 상위 집합**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
@@ -185,7 +185,7 @@ Azure에서 SAS 토큰 사용에 대해 기억해 야 하는 세 가지 중요 �
 
 1. "읽기 + 나열" 권한이 있는 SAS 토큰이 생성되면 해당 SAS 토큰을 사용하여 Blob 컨테이너에 액세스하는 사용자는 데이터를 "쓰고 삭제"할 수 없습니다. 해당 SAS 토큰을 사용하여 Blob 컨테이너에 액세스하고 쓰기 또는 삭제 작업을 시도하는 사용자는 `"This request is not authorized to perform this operation"`과 같은 메시지를 받습니다.
 
-2. SAS 토큰이 `READ + LIST + WRITE` 권한을 사용하여 생성되면(`DELETE`만 제한하도록) `hadoop fs -put`과 같은 명령은 먼저 `\_COPYING\_` 파일에 작성한 다음, 파일 이름을 변경하려고 합니다. 이 HDFS 작업은 WASB에 대한 `copy+delete`에 매핑합니다. `DELETE` 권한이 제공 되지 않았기 때문에 "put"이 실패 합니다. `\_COPYING\_` 작업은 일부 동시성 제어를 제공하기 위한 Hadoop 기능입니다. 현재 "쓰기" 작업에 영향을 주지 않고 "삭제" 작업만 제한할 수 있는 방법은 없습니다.
+2. SAS 토큰이 `READ + LIST + WRITE` 권한을 사용하여 생성되면(`DELETE`만 제한하도록) `hadoop fs -put`과 같은 명령은 먼저 `\_COPYING\_` 파일에 작성한 다음, 파일 이름을 변경하려고 합니다. 이 HDFS 작업은 WASB에 대한 `copy+delete`에 매핑합니다. `DELETE`권한이 제공 되지 않았기 때문에 "put"이 실패 합니다. `\_COPYING\_` 작업은 일부 동시성 제어를 제공하기 위한 Hadoop 기능입니다. 현재 "쓰기" 작업에 영향을 주지 않고 "삭제" 작업만 제한할 수 있는 방법은 없습니다.
 
 3. 아쉽게도 hadoop 자격 증명 공급자 및 ShellDecryptionKeyProvider (암호 해독 키 공급자)는 현재 SAS 토큰에서 작동 하지 않으므로 현재 표시 되지 않도록 보호할 수 없습니다.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80548598"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>보안 이벤트 지원 티켓을 로그하는 방법
@@ -32,7 +32,7 @@ ms.locfileid: "80548598"
 
     i. 문제 및/또는 취약성은 무엇인가요?
 
-    ii. 취약성에 대해 CVE (mitre.org) 또는 CVSS3 v3 계산기 ()https://www.first.org/cvss/calculator/3.0)를 입력 하세요.
+    ii. 취약성에 대해 CVE (mitre.org) 또는 CVSS3 v3 계산기 ()를 입력 하세요 https://www.first.org/cvss/calculator/3.0) .
 
     iii. 해결 방법 또는 위험 완화가 있나요? 있다면 수정 단계를 제공해 주세요.
 
