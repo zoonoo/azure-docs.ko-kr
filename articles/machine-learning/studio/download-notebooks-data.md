@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
 ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208468"
 ---
 # <a name="download-notebookspreview-data"></a>노트북 (미리 보기) 데이터 다운로드
@@ -25,9 +25,9 @@ ms.locfileid: "82208468"
     ![[노트북] 탭으로 이동 합니다.](./media/download-notebooks/notebooks-list.png)
 
 1. 다운로드 하려는 노트북을 선택 합니다. Jupyter에서 열립니다.
-    ![한 번에](./media/download-notebooks/select-notebook.png) 여러 노트북을 다운로드 하는 노트북을 선택 하는 것은 지원 되지 않습니다.
+    ![한 번에 여러 노트북을 다운로드 하는 노트북을 선택 하 ](./media/download-notebooks/select-notebook.png) 는 것은 지원 되지 않습니다.
 
-1. **파일로** -> **다운로드로**이동 하 여 서식 옵션을 선택 합니다.
+1. **파일로**  ->  **다운로드로**이동 하 여 서식 옵션을 선택 합니다.
     ![노트북 다운로드 옵션](./media/download-notebooks/download-options.PNG)
 
 1. 옵션을 선택한 후에는 전자 필기장 파일이 다운로드 되기 시작 합니다. 표시 되는 500 또는 502 오류는 무시 합니다. 다운로드에는 영향을 주지 않습니다.

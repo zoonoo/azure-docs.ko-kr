@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144076"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
@@ -73,7 +73,7 @@ Azure AD에서 클라이언트 인증서를 해지 하려면 ADFS 토큰에 다�
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Office 앱에서 최신 인증 사용
 
-최신 인증을 사용 하도록 설정 된 일부 `prompt=login` Office 앱은 요청 시 Azure AD로 전송 됩니다. 기본적으로 Azure AD는 adfs `prompt=login` 에 대 한 요청에서 `wauth=usernamepassworduri` (U/P 인증을 수행 하도록 adfs에 요청) `wfresh=0` 을 변환 하 고 (adfs는 SSO 상태를 무시 하 고 새 인증을 수행 하도록 요청 함). 이러한 앱에 대해 인증서 기반 인증을 사용 하도록 설정 하려면 기본 Azure AD 동작을 수정 합니다.
+최신 인증을 사용 하도록 설정 된 일부 Office 앱 `prompt=login` 은 요청 시 AZURE AD로 전송 됩니다. 기본적으로 Azure AD는 adfs `prompt=login` 에 대 한 요청에서 `wauth=usernamepassworduri` (U/P 인증을 수행 하도록 adfs에 요청)을 변환 하 고 `wfresh=0` (adfs는 SSO 상태를 무시 하 고 새 인증을 수행 하도록 요청 함). 이러한 앱에 대해 인증서 기반 인증을 사용 하도록 설정 하려면 기본 Azure AD 동작을 수정 합니다.
 
 기본 동작을 업데이트 하려면 페더레이션된 도메인 설정의 '*PromptLoginBehavior*'을 *사용 안 함*으로 설정 합니다. 다음 예제와 같이 [get-msoldomainfederationsettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet을 사용 하 여이 작업을 수행할 수 있습니다.
 

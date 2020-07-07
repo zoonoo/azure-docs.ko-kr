@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161511"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
@@ -91,7 +91,7 @@ availabilityResults
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/scheduled-digest.png)
 
-6. **함수 앱** > **플랫폼 기능** > **구성을**선택 합니다.
+6. **함수 앱**  >  **플랫폼 기능**  >  **구성을**선택 합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/config.png)
 
@@ -136,7 +136,7 @@ availabilityResults
 
      ![API 키 설정 스크린샷](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. SendGrid의 사이트가 시작됩니다. **설정** > **API 키**를 선택 합니다.
+3. SendGrid의 사이트가 시작됩니다. **설정**  >  **API 키**를 선택 합니다.
 
      ![API 키 앱 만들기 및 보기 스크린샷](./media/automate-custom-reports/function-app-15.png)
 

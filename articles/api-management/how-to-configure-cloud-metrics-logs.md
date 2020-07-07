@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205132"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 클라우드 메트릭 및 로그 구성
@@ -28,11 +28,11 @@ ms.locfileid: "82205132"
 ## <a name="metrics"></a>메트릭
 기본적으로 자체 호스팅 게이트웨이는 [클라우드에서](api-management-howto-use-azure-monitor.md)관리 되는 게이트웨이와 동일한 [Azure Monitor](https://azure.microsoft.com/services/monitor/)를 통해 여러 메트릭을 내보냅니다. 
 
-게이트웨이 배포의 ConfigMap에서 키를 `telemetry.metrics.cloud` 사용 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 구성에 대 한 분석입니다.
+`telemetry.metrics.cloud`게이트웨이 배포의 ConfigMap에서 키를 사용 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 사용 가능한 구성에 대 한 분석입니다.
 
 | 필드  | 기본값 | Description |
 | ------------- | ------------- | ------------- |
-| 원격 분석. 메트릭 클라우드  | `true` | Azure Monitor를 통해 로깅을 사용 하도록 설정 합니다. 값은, `true` `false`일 수 있습니다. |
+| 원격 분석. 메트릭 클라우드  | `true` | Azure Monitor를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `true` `false` . |
 
 
 다음은 샘플 구성입니다.

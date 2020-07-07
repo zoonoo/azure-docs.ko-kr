@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186189"
 ---
 # <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Office 365, Dynamics 365, Power Apps 및 Power BI에 대 한 제품 게시 가이드
@@ -24,7 +24,7 @@ AppSource는 유료, 목록 및 평가판 제품을 포함 하 고, 작업에 �
 
 각 제품 유형에 대 한 게시 프로세스 및 지침에 대 한 링크는 다음 표를 참조 하세요.
 
-| Product    | 게시 지침  |
+| 제품    | 게시 지침  |
 | :------------------- | :-------------------|
 | Office 365 | [게시 프로세스 및 지침](/office/dev/store/submit-to-appsource-via-partner-center)을 검토합니다. |
 | Dynamics 365 Business Central | 파트너 센터에 제품을 게시 하려면 [새 Dynamics 365 비즈니스 센터 제품 만들기](./partner-center-portal/create-new-business-central-offer.md)를 참조 하세요. |
@@ -37,6 +37,6 @@ AppSource는 유료, 목록 및 평가판 제품을 포함 하 고, 작업에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 Azure Marketplace를 사용 하 여 [클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
+아직 수행하지 않은 경우 [Azure Marketplace로 클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
 
 새 제품을 만들거나 기존 제품을 완료 하려면 [파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)로 이동 합니다.

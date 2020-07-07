@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202879"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
@@ -31,7 +31,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 
 심층 방어를 위해 EasyAuth를 사용 하 여 백 엔드 API 내에서 토큰의 유효성을 다시 검사 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 * 프런트 엔드 JS 단일 페이지 앱을 호스트 하는 Azure (StorageV2) 범용 V2 저장소 계정
 * Azure API Management 인스턴스 
@@ -68,7 +68,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
    * 필드 API Management 개발자 포털 (소비 계층에서 Azure API Management를 실행 하는 경우가 아니면 나중에이 시나리오에 대 한 자세한 정보).
 1. 3 개 응용 프로그램 모두에 대해 WebApp/Web API를 설정 하 고 프런트 엔드 클라이언트만 ' 암시적 흐름 허용 '을 예로 설정 합니다.
 1. 이제 앱 ID URI를 설정 하 고, 생성 되는 서비스와 관련 된 고유한 항목을 선택 합니다.
-1. 지금은 회신 url에 대 한 자리 표시자 https://localhost를 사용 하 여 나중에 해당 url을 업데이트 합니다.
+1. 지금은 회신 url에 대 한 자리 표시자를 사용 하 여 https://localhost 나중에 해당 url을 업데이트 합니다.
 1. ' 만들기 '를 클릭 한 다음 위의 세 앱 각각에 대해 2-5 단계를 반복 하 여 세 앱 모두에 대해 나중에 사용할 AppID URI, 이름 및 응용 프로그램 ID를 기록 합니다.
 1. 응용 프로그램 목록에서 API Management 개발자 포털 응용 프로그램을 열고 일반에서 *키* 탭을 선택한 후 ' 키 생성 '을 클릭 하 여 인증 키를 생성 합니다.
 1. 저장을 클릭 하면 나중에 사용 하기 위해 안전 하 게 키를 기록 합니다 .이 위치는이 키를 보고 복사 하는 유일한 기회입니다.
@@ -148,12 +148,12 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 5. HttpTrigger1 탭으로 다시 전환 하 고 ' 함수 URL 가져오기 '를 클릭 한 다음 표시 되는 URL을 복사 합니다.
 
    > [!NOTE]
-   > 방금 만든 바인딩은 방금 복사한 URL에 대 한 익명 http GET 요청에 응답 하도록 함수에 지시 합니다. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) 이제 매우 간단한 페이로드를 반환할 수 있는 확장 되지 않은 서버를 사용 하는 https API가 있습니다.
+   > 방금 만든 바인딩은 방금 복사한 URL에 대 한 익명 http GET 요청에 응답 하도록 함수에 지시 합니다. ( `https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey` ) 이제 매우 간단한 페이로드를 반환할 수 있는 확장 되지 않은 서버를 사용 하는 HTTPS API가 있습니다.
    > 이제 위의 URL을 사용 하 여 웹 브라우저에서이 API 호출을 테스트할 수 있습니다. 또한 URL의? code = secret 부분을 제거 하 고 Azure Functions에서 401 오류를 반환 한다는 것을 입증할 수 있습니다.
 
 ## <a name="configure-and-secure-the-function-api"></a>함수 API 구성 및 보안
 1. 함수 앱의 두 추가 영역을 구성 해야 합니다 (인증 및 네트워크 제한).
-1. 먼저 인증/권한 부여를 구성 하 여 개요 페이지를 표시 하는 함수 앱의 이름 ( &lt;Z&gt; 함수 아이콘 옆에 있는)을 클릭 합니다.
+1. 먼저 인증/권한 부여를 구성 하 여 개요 페이지를 표시 하는 함수 앱의 이름 ( &lt; Z 함수 아이콘 옆에 있는)을 클릭 합니다 &gt; .
 1. 그런 다음 ' 플랫폼 기능 ' 탭을 선택 하 고 ' 인증/권한 부여 '를 선택 합니다.
 1. App Service 인증 기능을 설정 합니다.
 1. ' 인증 공급자 '에서 ' Azure Active Directory '를 선택 하 고 관리 모드 스위치에서 ' 고급 '을 선택 합니다.
@@ -257,12 +257,12 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 1. Azure AD B2C 블레이드를 열고 개발자 포털에 대 한 응용 프로그램 등록으로 이동 합니다.
 1. 이전 API Management에서 인증 코드 권한 부여의 redirect_uri를 구성할 때 기록한 항목에 ' 회신 URL ' 항목을 설정 합니다.
 
-   이제에서 `Echo API`OAuth 2.0 사용자 권한 부여를 사용 하도록 설정 했으므로 개발자 콘솔은 API를 호출 하기 전에 사용자에 대 한 액세스 토큰을 가져옵니다.
+   이제에서 OAuth 2.0 사용자 권한 부여를 사용 하도록 설정 했으므로 `Echo API` 개발자 콘솔은 API를 호출 하기 전에 사용자에 대 한 액세스 토큰을 가져옵니다.
 
-1. 개발자 포털 `Echo API` 의에서 작업을 찾은 다음 **체험** 을 선택 하 여 개발자 콘솔로 이동 합니다.
+1. 개발자 포털의에서 작업을 찾은 `Echo API` 다음 **체험** 을 선택 하 여 개발자 콘솔로 이동 합니다.
 1. 방금 추가한 권한 부여 서버에 해당하는 **권한 부여** 섹션의 새 항목을 참고합니다.
 1. 권한 부여 드롭다운 목록에서 **권한 부여 코드** 를 선택 하면 Azure AD 테 넌 트에 로그인 하 라는 메시지가 표시 됩니다. 계정을 사용 하 여 이미 로그인 한 경우에는 메시지가 표시 되지 않을 수 있습니다.
-1. 성공적으로 로그인 한 후에는 `Authorization: Bearer` b a s e 64로 인코딩된 Azure AD B2C의 액세스 토큰과 함께 헤더가 요청에 추가 됩니다. 
+1. 성공적으로 로그인 한 후에는 b a s e `Authorization: Bearer` 64로 인코딩된 Azure AD B2C의 액세스 토큰과 함께 헤더가 요청에 추가 됩니다. 
 1. **보내기** 를 선택 하면 API를 성공적으로 호출할 수 있습니다.
 
    > [!NOTE]
@@ -283,7 +283,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 ## <a name="build-the-javascript-spa-to-consume-the-api"></a>JavaScript SPA를 빌드하여 API를 사용 합니다.
 1. Azure Portal에서 storage 계정 블레이드를 엽니다. 
 1. 만든 계정을 선택 하 고 설정 섹션에서 ' 정적 웹 사이트 ' 블레이드를 선택 합니다. ' 정적 웹 사이트 ' 옵션이 표시 되지 않으면 V2 계정을 만들었는지 확인 합니다.
-1. 정적 웹 호스팅 기능을 ' 사용 '으로 설정 하 고 인덱스 문서 이름을 ' c l o s t '로 설정한 후 ' 저장 '을 클릭 합니다.
+1. 정적 웹 호스팅 기능을 ' 사용 '으로 설정 하 고 인덱스 문서 이름을 ' index.html '로 설정한 후 ' 저장 '을 클릭 합니다.
 1. 기본 끝점의 콘텐츠를 적어 둡니다 .이 위치는 프런트 엔드 사이트가 호스트 되는 위치입니다. 
 
    > [!NOTE]
@@ -291,7 +291,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 
 ## <a name="upload-the-js-spa-sample"></a>JS SPA 샘플 업로드
 1. 저장소 계정 블레이드의 Blob Service 섹션에서 ' Blob ' 블레이드를 선택 하 고 오른쪽 창에 표시 되는 $web 컨테이너를 클릭 합니다.
-1. 아래 코드를 파일의 로컬에 있는 파일에 인덱스 html로 저장 한 다음 파일 색인과 $web 컨테이너에 업로드 합니다.
+1. 아래 코드를 컴퓨터에서 로컬로 파일에 index.html로 저장 한 다음, index.html 파일을 $web 컨테이너에 업로드 합니다.
 
    ```html
    <!doctype html>
@@ -415,7 +415,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Azure AD B2C에 대 한 JS SPA 구성
 1. 이제 모든 것이 무엇 인지 알 수 있습니다. 적절 한 API Management API 주소 및 올바른 Azure AD B2C 응용 프로그램/클라이언트 Id를 사용 하 여 SPA를 구성할 수 있습니다.
-1. Azure Portal 저장소 블레이드로 돌아가서 html.actionlink를 클릭 한 다음 ' Blob 편집 '을 선택 합니다. 
+1. Azure Portal 저장소 블레이드로 돌아가서 index.html을 클릭 한 다음 ' Blob 편집 '을 선택 합니다. 
 1. 이전에 B2C에 등록 한 프런트 엔드 응용 프로그램과 일치 하도록 인증 세부 정보를 업데이트 합니다 .이는 ' b2cScopes ' 값이 API 백 엔드에 대 한 것입니다.
 1. API 작업에 대 한 API Management 테스트 창에서 webApi 키 및 api url을 찾을 수 있습니다.
 1. ' 구독 '을 선택 하 고 ' 구독 추가 '를 클릭 한 다음 레코드를 저장 하 여 API Management에 대 한 API Management 블레이드에 APIM 구독 키를 만듭니다. 만든 행 옆의 줄임표 (...)를 클릭 하면 기본 키를 복사할 수 있도록 키를 표시할 수 있습니다.

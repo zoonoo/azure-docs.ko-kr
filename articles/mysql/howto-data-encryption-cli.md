@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185832"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
@@ -84,7 +84,7 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>복원 또는 복제 서버에 데이터 암호화 사용
 
-Key Vault에 저장 된 고객의 관리 키를 사용 하 여 Azure Database for MySQL 암호화 된 후에는 새로 만든 서버 복사본도 암호화 됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 MySQL 서버의 경우 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
+Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for MySQL을 암호화한 후에는 새로 만든 서버 복사본도 암호화됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 MySQL 서버의 경우 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
 
 ### <a name="creating-a-restoredreplica-server"></a>복원/복제 서버 만들기
 
@@ -132,7 +132,7 @@ Azure Portal 외에도 새 서버 및 기존 서버에 대해 Azure Resource Man
 ### <a name="for-an-existing-server"></a>기존 서버의 경우
 또한 Azure Resource Manager 템플릿을 사용 하 여 기존 Azure Database for MySQL 서버에서 데이터 암호화를 사용 하도록 설정할 수 있습니다.
 
-* 속성 개체의 `Uri` 속성 아래에서 이전에 복사한 Azure Key Vault 키의 리소스 ID를 전달 합니다.
+* 속성 개체의 속성 아래에서 이전에 복사한 Azure Key Vault 키의 리소스 ID를 전달 `Uri` 합니다.
 
 * API 버전으로 *2020-01-01-preview* 를 사용 합니다.
 

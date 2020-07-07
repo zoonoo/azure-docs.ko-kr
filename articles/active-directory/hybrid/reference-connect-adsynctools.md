@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184013"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
@@ -553,7 +553,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "파일 이름이 "#"\< Source_Path \>인 로그 파일의 경로를 입력합니다." $outputPath = Read-Host -Prompt "파일 이름이 "#"\< Out_Path \>인 출력 파일의 경로를 입력합니다."
+$sourcePath = 읽기-호스트 프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = 읽기-호스트-프롬프트 "파일 이름" # "을 (를) 사용 하 여 출력 파일 경로 입력 \<Out_Path\>
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 

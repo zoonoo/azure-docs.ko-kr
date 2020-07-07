@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
 ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146940"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Azure Edge 영역 미리 보기 정보
@@ -30,13 +30,13 @@ Edge 영역에 대 한 일반적인 사용 사례 시나리오는 다음과 같�
 
 Azure Edge 영역에는 다음 세 가지 유형이 있습니다.
 
-- Azure Edge 영역
+- Azure Edge Zone
 - 통신 사업자를 사용 하는 Azure Edge 영역
 - Azure 개인에 지 영역
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge 영역
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zone
 
-![Azure Edge 영역](./media/edge-zones-overview/edge-zones.png "Azure Edge 영역")
+![Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zone")
 
 Azure Edge 영역은 azure 지역에서 멀리 떨어진 모집단 센터에 배치 되는 Azure의 작은 공간 확장입니다. Azure Edge 영역은 최종 사용자에 게 가까운 대기 시간 및 처리량 집약적 응용 프로그램을 실행할 수 있도록 하는 Vm, 컨테이너 및 선택한 Azure 서비스 집합을 지원 합니다. Azure Edge 영역은 Microsoft 글로벌 네트워크의 일부입니다. 사용자에 게 가까운 가장자리 영역에서 실행 되는 응용 프로그램 간에 안전 하 고 안정적인 고대역폭 연결을 제공 합니다. Azure 지역 내에서 실행 되는 Azure 서비스의 전체 집합을 제공 합니다. Azure Edge 영역은 Microsoft에서 소유 하 고 운영 합니다. 동일한 Azure 도구 집합과 동일한 포털을 사용 하 여 서비스를 관리 하 고 Edge 영역에 배포할 수 있습니다.
 

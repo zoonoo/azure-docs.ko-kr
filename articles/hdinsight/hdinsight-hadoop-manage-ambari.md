@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232856"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
@@ -29,7 +29,7 @@ Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소
 
 ## <a name="connectivity"></a>연결
 
-Ambari 웹 UI는의 HDInsight 클러스터 `https://CLUSTERNAME.azurehdinsight.net`에서 사용할 수 있습니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
+Ambari 웹 UI는의 HDInsight 클러스터에서 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
 
 > [!IMPORTANT]  
 > HTTPS를 요구하는 HDInsight에서 Ambari로 연결 인증에 대한 대화 상자가 나타나면 클러스터를 만들 때 제공한 관리자 계정 이름 및 암호를 사용합니다. 자격 증명을 입력 하 라는 메시지가 표시 되지 않으면 네트워크 설정에서 클라이언트와 Azure HDInsight 클러스터 간에 연결 문제가 없는지 확인 합니다.
@@ -49,13 +49,13 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 ![Apache Ambari 대시보드 개요](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|항목 |설명 |
+|항목 |Description |
 |---|---|
 |Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
 |경고 개수|클러스터에 대 한 경고 또는 중요 한 알림 (있는 경우)을 표시 합니다.|
 |대시보드|대시보드를 표시 합니다.|
-|Services|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
+|서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
 |경고|정보, 경고 및 중요 한 알림 로그입니다.|
 |관리자|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
@@ -68,9 +68,9 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 다음 목록은 Ambari에서 사용하는 일반적인 경고 상태를 포함합니다.
 
 * **확인**
-* **내용의**
+* **경고**
 * **업무용**
-* **없습니다**
+* **UNKNOWN**
 
 **확인**이 아닌 다른 경고는 페이지 위쪽의 **# alerts** 항목에 경고 수를 표시합니다. 이 항목을 선택하면 경고 및 해당 상태가 표시됩니다.
 
@@ -104,7 +104,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 ![Apache Ambari 호스트 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 다양한 아이콘은 수행해야 하는 상태 또는 작업을 나타내는 데 사용됩니다. 예를 들어 서비스가 재활용되어야 하는 경우 노란색 재활용 기호가 표시됩니다.
 
@@ -153,7 +153,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 2. **작업** 메뉴를 사용 하 여 수행 하려는 작업을 선택 합니다.
 
-    |항목 |설명 |
+    |항목 |Description |
     |---|---|
     |모든 구성 요소 시작|호스트에서 모든 구성 요소를 시작 합니다.|
     |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지 합니다.|
@@ -161,12 +161,12 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성 하는 작업을 수행 하는 경우이 모드를 사용 하도록 설정 해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
     |중지|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
-    |Start|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
-    |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
+    |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
+    |재시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
     |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
 
-### <a name="services"></a><a id="service"></a>Services
+### <a name="services"></a><a id="service"></a>서비스
 
 **대시보드** 또는 **서비스** 페이지에서 서비스 목록 아래쪽의 **작업** 단추를 사용하여 모든 서비스를 중지하고 시작합니다.
 

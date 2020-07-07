@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208077"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Linux 노드에 보안 및 커널 업데이트 적용
@@ -25,9 +25,9 @@ Windows Server 노드를 최신 상태로 유지 하는 프로세스는 약간 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="understand-the-aks-node-update-experience"></a>AKS 노드 업데이트 환경 이해
 
@@ -52,7 +52,7 @@ AKS에 클러스터를 *업그레이드*할 수 있는 추가 프로세스가 �
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>AKS 클러스터에서 kured 배포
 
-`kured` DaemonSet를 배포 하려면 다음 공식 Kured 투구 차트를 설치 합니다. 이는 역할 및 클러스터 역할, 바인딩 및 서비스 계정을 만든 다음를 사용 하 여 `kured`DaemonSet를 배포 합니다.
+`kured`DaemonSet를 배포 하려면 다음 공식 Kured 투구 차트를 설치 합니다. 이는 역할 및 클러스터 역할, 바인딩 및 서비스 계정을 만든 다음를 사용 하 여 DaemonSet를 배포 합니다 `kured` .
 
 ```console
 # Add the stable Helm repository
@@ -101,7 +101,7 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 보안 업데이트 프로세스 `kured` 의 일부로를 사용 하 여 Linux 노드를 자동으로 다시 부팅 하는 방법에 대해 자세히 설명 합니다. Kubernetes의 최신 버전으로 업그레이드하려면 [AKS 클러스터를 업그레이드][aks-upgrade]할 수 있습니다.
+이 문서에서는 `kured` 보안 업데이트 프로세스의 일부로를 사용 하 여 Linux 노드를 자동으로 다시 부팅 하는 방법에 대해 자세히 설명 합니다. Kubernetes의 최신 버전으로 업그레이드하려면 [AKS 클러스터를 업그레이드][aks-upgrade]할 수 있습니다.
 
 Windows Server 노드를 사용 하는 AKS 클러스터는 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 

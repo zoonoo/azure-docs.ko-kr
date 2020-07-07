@@ -7,13 +7,13 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7022c4587b425168fc5bd2182ed65c281633aabf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82177082"
 ---
-# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Azure 부하 분산 솔루션과 Azure 스프링 클라우드 통합
+# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
 
 Azure 스프링 클라우드는 Azure에서 마이크로 서비스를 지원 합니다.  비즈니스를 높이면 Azure 스프링 클라우드의 여러 인스턴스를 관리 하는 여러 데이터 센터가 필요할 수 있습니다.
 
@@ -23,7 +23,7 @@ Azure는 이미 다른 부하 분산 솔루션을 제공 합니다. Azure 스프
 2.  Azure 앱 Gateway와 Azure 스프링 클라우드 통합
 3.  Azure 프런트 도어를 사용 하 여 Azure 스프링 클라우드 통합
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
 * Azure Traffic Manager: [Traffic Manager를 만드는 방법](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
@@ -40,7 +40,7 @@ Traffic manager에서 끝점 추가:
 1.  각 Azure 스프링 클라우드 공용 끝점의 FQDN (정규화 된 도메인 이름)을 입력 합니다.
 1. **확인**을 클릭합니다.
 
-    ![Traffic Manager 1](media/spring-cloud-load-balancers/traffic-manager-1.png) ![Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
+    ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 
 ### <a name="configure-custom-domain"></a>사용자 지정 도메인 구성
 구성을 완료 하려면:

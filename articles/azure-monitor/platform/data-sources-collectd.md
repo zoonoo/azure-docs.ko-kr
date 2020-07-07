@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186427"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
@@ -70,7 +70,7 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
 - CollectD 메트릭 수집에 Linux용 Log Analytics 에이전트 v1.1.0-217 이상이 필요합니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단계는 다음과 같습니다.
 
 1. write_http 플러그 인을 사용하여 Linux용 Log Analytics 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  
@@ -109,12 +109,12 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | CollectD 메트릭 필드 | Azure Monitor 필드 |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | 없음 |
+| `plugin` | None |
 | `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | `dsnames[]` | CounterName |
-| `dstypes` | 없음 |
+| `dstypes` | None |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185594"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md)
-> * [Pig 활동](data-factory-pig-activity.md)
+> * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [일괄 처리 실행 작업 Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL 활동](data-factory-usql-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 * Storage 연결된 서비스를 참조하는 데이터 세트를 만듭니다. 현재 생성 중인 출력이 없더라도 작업의 출력 데이터 세트를 지정해야 합니다.
 * 만든 HDInsight 연결된 서비스를 참조하는 Spark 작업이 있는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 세트로 만든 데이터 세트를 통해 구성됩니다. 출력 데이터 세트는 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 1. [스토리지 계정 만들기](../../storage/common/storage-account-create.md)의 지침에 따라 범용 스토리지 계정을 만듭니다.
 
 1. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 스토리지 계정을 이 클러스터와 연결합니다.
@@ -65,7 +65,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **새** > **Data + Analytics**데이터 + 분석 > **Data Factory**를 선택 합니다.
+1. **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
 
 1. **새 데이터 팩터리** 블레이드의 **이름** 아래에서 **SparkDF**를 입력합니다.
 
@@ -81,7 +81,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 1. **만들기**를 선택합니다.
 
    > [!IMPORTANT]
-   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참여자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 멤버 여야 합니다.
+   > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
 
 1. Azure Portal의 대시보드에서 만들어질 때 데이터 팩터리가 표시됩니다.
 
@@ -112,7 +112,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 #### <a name="create-an-hdinsight-linked-service"></a>HDInsight 연결된 서비스 만들기
 이 단계에서는 HDInsight 연결된 서비스를 만들어 HDInsight Spark 클러스터를 데이터 팩터리에 연결합니다. HDInsight 클러스터는 이 샘플에서 파이프라인의 Spark 활동에 지정된 Spark 프로그램을 실행하는 데 사용됩니다.
 
-1. Data Factory 편집기에서 **추가** > **새 계산** > **HDInsight 클러스터**를 선택 합니다.
+1. Data Factory 편집기에서 **추가**  >  **새 계산**  >  **HDInsight 클러스터**를 선택 합니다.
 
     ![HDInsight 연결된 서비스 만들기](media/data-factory-spark/new-hdinsight-linked-service.png)
 
@@ -122,7 +122,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     b. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
 
-    c. 사용자의 암호를 지정합니다.
+    다. 사용자의 암호를 지정합니다.
 
     d. HDInsight Spark 클러스터와 연결되는 Storage 연결된 서비스를 지정합니다. 이 예제에서는 AzureStorageLinkedService입니다.
 
@@ -152,7 +152,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 ### <a name="create-the-output-dataset"></a>출력 데이터 세트 만들기
 출력 데이터 세트는 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 출력을 생성하지 않더라도 파이프라인의 Spark 작업에 대한 출력 데이터 세트를 지정해야 합니다. 활동에 대한 입력 데이터 세트를 지정하는 것은 선택 사항입니다.
 
-1. Data Factory 편집기에서 **추가** > **새 데이터 집합** > **Azure Blob storage**를 선택 합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 세트** > **Azure Blob Storage**를 차례로 선택합니다.
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 조각은 **OutputDataset**이라는 데이터 세트를 정의합니다. 또한 결과를 **adfspark**라는 Blob 컨테이너와 **pyFiles/output**이라는 폴더에 저장하도록 지정합니다. 앞에서 언급한 대로 이 데이터 세트는 더미 데이터 세트입니다. 이 예제의 Spark 프로그램은 출력을 생성하지 않습니다. **availability** 섹션에서는 출력 데이터 세트를 매일 생성하도록 지정하고 있습니다.
 
@@ -183,7 +183,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 ### <a name="create-a-pipeline"></a>파이프라인 만들기
 이 단계에서는 HDInsightSpark 작업이 있는 파이프라인을 만듭니다. 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우에도 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 따라서 이 예제에서는 입력 데이터 세트를 지정하지 않습니다.
 
-1. Data Factory 편집기에서 **추가** > **새 파이프라인**을 선택 합니다.
+1. 데이터 팩터리 편집기에서 **자세히** > **새 파이프라인**을 차례로 선택합니다.
 
 1. Draft-1 창의 스크립트를 다음 스크립트로 바꿉니다.
 
@@ -219,7 +219,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     b. **rootPath** 속성은 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob Storage는 Spark 클러스터와 연결된 스토리지입니다. 파일은 다른 스토리지 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 스토리지 계정을 데이터 팩터리에 연결합니다. 그런 다음 **sparkJobLinkedService** 속성에 대 한 값으로 연결 된 서비스의 이름을 지정 합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 
-    c. **entryFilePath** 속성은 Python 파일인 **test.py**로 설정됩니다.
+    다. **entryFilePath** 속성은 Python 파일인 **test.py**로 설정됩니다.
 
     d. **GetDebugInfo** 속성은 **항상**로 설정 됩니다. 즉, 로그 파일이 항상 생성 됩니다 (성공 또는 실패).
 
@@ -247,9 +247,9 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 ### <a name="verify-the-results"></a>결과 확인
 
-1. 으로 `https://CLUSTERNAME.azurehdinsight.net/jupyter`이동 하 여 HDInsight Spark 클러스터에 대 한 Jupyter Notebook를 시작 합니다. 또한 HDInsight Spark 클러스터에 대한 클러스터 대시보드를 연 다음, Jupyter Notebook을 시작할 수도 있습니다.
+1. 으로 이동 하 여 HDInsight Spark 클러스터에 대 한 Jupyter Notebook를 시작 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 합니다. 또한 HDInsight Spark 클러스터에 대한 클러스터 대시보드를 연 다음, Jupyter Notebook을 시작할 수도 있습니다.
 
-1. 새 PySpark **를 선택 하**여 새 노트북을 시작 합니다.**PySpark**  > 
+1. 새 **New**  >  **PySpark** 를 선택 하 여 새 노트북을 시작 합니다.
 
     ![새 Jupyter 노트북](media/data-factory-spark/jupyter-new-book.png)
 
@@ -273,7 +273,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 문제를 추가로 해결하려면 다음 단계를 수행합니다.
 
 
-1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster` 으로 이동합니다.
+1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster` 로 이동합니다.
 
     ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
@@ -333,7 +333,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 | rootPath | Spark 파일이 포함된 Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | 예 |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | 예 |
 | className | 애플리케이션의 Java/Spark main 클래스입니다. | 아니요 |
-| 인수 | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요 |
+| 인수 | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 예 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니요 |
 | sparkConfig | [Spark 구성: 애플리케이션 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니요 |
 | getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 스토리지에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
@@ -348,11 +348,11 @@ HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 �
 | ---- | ----------- | -------- | ---- |
 | . | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |
-| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니요 | 폴더 |
-| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
-| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니요 | 폴더 |
-| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니요 | 폴더 |
-| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니요 | 폴더 |
+| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 예 | 폴더 |
+| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 예 | 폴더 |
+| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 예 | 폴더 |
+| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 예 | 폴더 |
+| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 예 | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 있는 두 개의 Spark 작업 파일이 포함된 스토리지에 대한 예제는 다음과 같습니다.
 

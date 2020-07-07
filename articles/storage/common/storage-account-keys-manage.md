@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176630"
 ---
 # <a name="manage-storage-account-access-keys"></a>저장소 계정 액세스 키 관리
@@ -42,7 +42,7 @@ Azure Portal에서 저장소 계정 액세스 키 또는 연결 문자열을 보
 
 PowerShell을 사용 하 여 계정 액세스 키를 검색 하려면 [AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) 명령을 호출 합니다.
 
-다음 예에서는 첫 번째 키를 검색 합니다. 두 번째 키를 검색 하려면 대신 `Value[1]` 을 사용 `Value[0]`합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+다음 예에서는 첫 번째 키를 검색 합니다. 두 번째 키를 검색 하려면 `Value[1]` 대신을 사용 `Value[0]` 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```powershell
 $storageAccountKey = `
@@ -108,7 +108,7 @@ PowerShell을 사용 하 여 저장소 계정 액세스 키를 회전 하려면:
     ```
 
 1. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
-1. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성 하려면 대신 `key2` 키 이름으로를 사용 `key1`합니다.
+1. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성 하려면 `key2` 대신 키 이름으로를 사용 `key1` 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Azure CLI를 사용 하 여 저장소 계정 액세스 키를 회전 하려면:
     ```
 
 1. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
-1. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성 하려면 대신 `key2` 키 이름으로를 사용 `key1`합니다.
+1. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성 하려면 `key2` 대신 키 이름으로를 사용 `key1` 합니다.
 
 ---
 
@@ -137,4 +137,4 @@ Azure CLI를 사용 하 여 저장소 계정 액세스 키를 회전 하려면:
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 계정 개요](storage-account-overview.md)
-- [스토리지 계정 만들기](storage-account-create.md)
+- [스토리지 계정을 만드는](storage-account-create.md)

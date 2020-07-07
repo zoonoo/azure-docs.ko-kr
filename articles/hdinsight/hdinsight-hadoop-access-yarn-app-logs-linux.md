@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192504"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
@@ -54,11 +54,11 @@ YARN Timeline Server는 다음과 같은 형식의 데이터를 포함합니다.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>ESP 클러스터의 Yarn 로그
 
-Ambari의 사용자 지정 `mapred-site` 에 두 가지 구성을 추가 해야 합니다.
+Ambari의 사용자 지정에 두 가지 구성을 추가 해야 합니다 `mapred-site` .
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. Ambari UI에서 **MapReduce2** > **Configs** > **Advanced** > **Custom mapred-site**로 이동 합니다.
+1. Ambari UI에서 **MapReduce2**  >  **Configs**  >  **Advanced**  >  **Custom mapred-site**로 이동 합니다.
 
 1. 다음 속성 집합 *중 하나* 를 추가 합니다.
 
@@ -79,7 +79,7 @@ Ambari의 사용자 지정 `mapred-site` 에 두 가지 구성을 추가 해야 
 
 ## <a name="yarn-cli-tools"></a>YARN CLI 도구
 
-1. [Ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -91,7 +91,7 @@ Ambari의 사용자 지정 `mapred-site` 에 두 가지 구성을 추가 해야 
     yarn top
     ```
 
-    로그를 다운로드할 `APPLICATIONID` 열의 응용 프로그램 ID를 확인 합니다.
+    로그를 다운로드할 열의 응용 프로그램 ID를 확인 `APPLICATIONID` 합니다.
 
     ```output
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -117,7 +117,7 @@ Ambari의 사용자 지정 `mapred-site` 에 두 가지 구성을 추가 해야 
 
 ### <a name="other-sample-commands"></a>기타 샘플 명령
 
-1. 다음 명령을 사용 하 여 모든 응용 프로그램 마스터에 대 한 Yarn 컨테이너 로그를 다운로드 합니다. 이 단계에서는 라는 `amlogs.txt` 로그 파일을 텍스트 형식으로 만듭니다.
+1. 다음 명령을 사용 하 여 모든 응용 프로그램 마스터에 대 한 Yarn 컨테이너 로그를 다운로드 합니다. 이 단계에서는 라는 로그 파일을 `amlogs.txt` 텍스트 형식으로 만듭니다.
 
     ```bash
     yarn logs -applicationId <application_id> -am ALL > amlogs.txt

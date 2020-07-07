@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
 ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203171"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
@@ -39,7 +39,7 @@ ms.locfileid: "82203171"
 | [TLS 설정](api-management-howto-manage-protocols-ciphers.md)                             | 예         | 예       | 예   | 예      | 예     |
 | [외부 캐시](https://aka.ms/apimbyoc)                                                    | 예         | 예       | 예   | 예      | 예     |
 | [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) | 예         | 예       | 예   | 예      | 예     |
-| [백업 및 복원](api-management-howto-disaster-recovery-backup-restore.md)               | 예          | 예       | 예   | 예      | 예     |
+| [Backup and Restore (백업 및 복원)](api-management-howto-disaster-recovery-backup-restore.md)               | 예          | 예       | 예   | 예      | 예     |
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 예          | 예       | 예   | 예      | 예     |
 | 직접 관리 API                                                                        | 예          | 예       | 예   | 예      | 예     |
 | Azure Monitor 로그 및 메트릭                                                               | 아니요          | 예       | 예   | 예      | 예     |

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
 ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160156"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>전자 디자인 자동화에 Azure NetApp Files 사용의 이점
@@ -31,7 +31,7 @@ TTM (출시 시점)은 반도체 및 칩 설계 업계에 대 한 중요 한 고
 
 |    시나리오    |    볼륨    |    클라이언트<br> SLES15 D16s_v3  |
 |----------------|---------------|--------------------------------|
-|    1         |    1          |    1                           |
+|    하나         |    1          |    1                           |
 |    2         |    6          |    24                          |
 |    3       |    12         |    24                          |
 

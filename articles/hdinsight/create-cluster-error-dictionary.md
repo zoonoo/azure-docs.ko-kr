@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186637"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
@@ -26,7 +26,7 @@ ms.locfileid: "82186637"
 
 ### <a name="error"></a>오류
 
-"스크립트 작업 위치에 액세스할 수 없습니다.\<URI: 스크립트\>동작 URL"
+"스크립트 작업 위치에 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
 
 #### <a name="error-message"></a>오류 메시지
 
@@ -48,11 +48,11 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ### <a name="error"></a>오류
 
-"스크립트 동작 위치에 액세스할 수 없습니다. \<URI\>: SCRIPT_ACTION_URL"
+"스크립트 작업 위치에 액세스할 수 없습니다. \<SCRIPT_ACTION_URL\> "
 
 #### <a name="error-message"></a>오류 메시지
 
-"지정 된 스크립트 URI \<SCRIPT_URI\> ADLS에 있지만이 클러스터에 data lake storage 보안 주체가 없습니다."
+"지정 된 스크립트 URI는 \<SCRIPT_URI\> ADLS에 있지만이 클러스터에 data lake storage 보안 주체가 없습니다."
 
 ### <a name="cause"></a>원인
 
@@ -68,7 +68,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ### <a name="error"></a>오류
 
-"요청에 제공\<된\>VM 크기 ' CUSTOMER_SPECIFIED_VM_SIZE '이 (가) 잘못 되었거나 '\<role\>' 역할에 대해 지원 되지 않습니다. 유효한 값은 \<VALID_VM_SIZE_FOR_ROLE\>입니다. "
+요청에 제공 된 "VM 크기 ' \<CUSTOMER_SPECIFIED_VM_SIZE\> '이 (가) 잘못 되었거나 ' ' 역할에 대해 지원 되지 않습니다 \<ROLE\> . 유효한 값은 \<VALID_VM_SIZE_FOR_ROLE\> 입니다. "
 
 ### <a name="cause"></a>원인
 
@@ -84,7 +84,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ### <a name="error"></a>오류
 
-"VirtualNetworkId이 잘못 되었습니다. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>' * "
+"VirtualNetworkId이 잘못 되었습니다. VirtualNetworkId ' \<USER_VIRTUALNETWORKID\> ' * "
 
 ### <a name="cause"></a>원인
 
@@ -95,7 +95,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 **VirtualNetworkId** 및 서브넷 값이 올바른 형식 인지 확인 합니다. **VirtualNetworkId** 값을 가져오려면 다음을 수행 합니다.
 
 1. Azure Portal로 이동합니다.
-1. 가상 네트워크를 선택 합니다.
+1. 가상 네트워크를 선택합니다.
 1. **속성** 메뉴 항목을 선택 합니다. **ResourceID** 속성 값은 **VirtualNetworkId** 값입니다.
 
 가상 네트워크 ID의 예는 다음과 같습니다.
@@ -108,11 +108,11 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ### <a name="error"></a>오류
 
-"사용자 지정 스크립트 작업의 오류로 인해 클러스터를 배포 하지 못했습니다. 실패 한 작업 \<:\>SCRIPT_NAME Ambari UI로 이동 하 여 오류를 추가로 디버그 하세요. "
+"사용자 지정 스크립트 작업의 오류로 인해 클러스터를 배포 하지 못했습니다. 실패 한 작업:. \<SCRIPT_NAME\> AMBARI UI로 이동 하 여 오류를 추가로 디버그 하세요. "
 
 ### <a name="cause"></a>원인
 
-클러스터를 성공적으로 배포한 후 클러스터 만들기 요청 중에 제공한 사용자 지정 스크립트를 실행 합니다. 이 오류 코드는 SCRIPT_NAME \<\>이라는 사용자 지정 스크립트를 실행 하는 동안 오류가 발생 했음을 나타냅니다.
+클러스터를 성공적으로 배포한 후 클러스터 만들기 요청 중에 제공한 사용자 지정 스크립트를 실행 합니다. 이 오류 코드는 이름이 인 사용자 지정 스크립트를 실행 하는 동안 오류가 발생 했음을 나타냅니다 \<SCRIPT_NAME\> .
 
 ### <a name="resolution"></a>해결 방법
 
@@ -124,7 +124,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ### <a name="error"></a>오류
 
-"데이터베이스 \<\> \<DATABASE_NAME\> 의 META_STORE_TYPE Metastore \<스키마\> 버전 METASTORE_MAJOR_VERSION은 (는) 클러스터 버전 \<CLUSTER_VERSION\>와 호환 되지 않습니다."
+" \<META_STORE_TYPE\> 데이터베이스의 Metastore 스키마 버전이 \<METASTORE_MAJOR_VERSION\> \<DATABASE_NAME\> 클러스터 버전과 호환 되지 않습니다. \<CLUSTER_VERSION\> "
 
 ### <a name="cause"></a>원인
 
@@ -152,7 +152,7 @@ NSG (네트워크 보안 그룹)의 방화벽 규칙이 중요 한 Azure 상태 
 
 - HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 - HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조하세요.
-  - HDInsight를 설치 하려는 서브넷의 네트워크 보안 그룹을 만들거나 수정 합니다.
+  - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
   - 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
 ---
@@ -161,7 +161,7 @@ NSG (네트워크 보안 그룹)의 방화벽 규칙이 중요 한 Azure 상태 
 
 ### <a name="error"></a>오류
 
-"관리 Id에 저장소 계정에 대 한 권한이 없습니다. 저장소 계정에 대 한 관리 Id에 ' 저장소 Blob 데이터 소유자 ' 역할이 할당 되어 있는지 확인 하세요. 저장소:/subscriptions/ \<subscription id\> \< /Resourcegg/리소스 그룹\> 이름 \</PROVIDERS/MICROSOFT.STORAGE/STORAGEACCOUNTS/Storage 계정\>이름, 관리 Id: \</Subscriptions/Subscription\> ID/resourcegs\< //리소스\> 그룹 \<이름/providers/Microsoft.ManagedIdentity/userAssignedIdentities/User 관리\>id name "
+"관리 Id에 저장소 계정에 대 한 권한이 없습니다. 저장소 계정에 대 한 관리 Id에 ' 저장소 Blob 데이터 소유자 ' 역할이 할당 되어 있는지 확인 하세요. 저장소:/subscriptions/ \<Subscription ID\> /Stgg/ \< Resource Group Name\> /Providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\> , 관리 id:/subscriptions/ \<Subscription ID\> /Sggg// \< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
 ### <a name="cause"></a>원인
 
@@ -182,7 +182,7 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 ### <a name="error"></a>오류
 
-"네트워크 보안\<그룹/Subscriptions/subscriptionid\>/cgg/<리소스 그룹 이름에는\> 기본/공급자/networkSecurityGroups/\<네트워크 보안 그룹 이름으로\> 구성 됩니다. 서브넷/Subscriptions/\<SubscriptionID\>/resourcegs/\<리소스 그룹 이름\> RG-westeurope-vnet-tomtom-default/providers\<Virtual Network//\>/subnets/\<서브넷 이름\> 에는 필수 인바운드 및/또는 아웃 바운드 연결이 허용 되지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
+"네트워크 보안 그룹/subscriptions/ \<SubscriptionID\> /stggg/<리소스 그룹 이름에는 \> default/Providers/networkSecurityGroups//Subscriptions//RG-westeurope-vnet-tomtom-default//subnets// \<Network Security Group Name\> 를 사용 하 여 구성 하 고, \<SubscriptionID\> \<Resource Group name\> \<Virtual Network Name\> \<Subnet Name\> 필수 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
 
 ### <a name="cause"></a>원인
 
@@ -194,7 +194,7 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 - HDInsight에 사용할 Azure 지역을 식별 하 고 해당 지역의 IP 주소에 대 한 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)을 참조 하세요.
 - HDInsight에 필요한 IP 주소를 식별 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
-- HDInsight를 설치 하려는 서브넷의 네트워크 보안 그룹을 만들거나 수정 합니다. 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
+- HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다. 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
 ---
 
@@ -230,7 +230,7 @@ HDInsight 서비스에서 클러스터를 만드는 동안 클러스터에 연�
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>오류 코드: 정책 위반으로 인해 배포 하지 못했습니다. ' Resource<Resource URI>' '은 (는) 정책에 의해 허용 되지 않습니다. 정책 식별자: ' [{"Policyassignment": {"name": "<Policy Name> ", "id": "/providers/Microsoft.Management/managementGroups/<Management Group Name> Providers/Microsoft. Authorization/policyassignment/<Policy Name>"}, "policyassignment":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>오류 코드: 정책 위반으로 인해 배포 하지 못했습니다. ' Resource ' <Resource URI> '은 (는) 정책에 의해 허용 되지 않습니다. 정책 식별자: ' [{"Policyassignment": {"name": " <Policy Name> ", "id": "/providers/Microsoft.Management/managementGroups/ <Management Group Name> Providers/Microsoft. Authorization/policyassignment/ <Policy Name> "}, "policyassignment":<Policy Definition>
 
 ### <a name="cause"></a>원인
 

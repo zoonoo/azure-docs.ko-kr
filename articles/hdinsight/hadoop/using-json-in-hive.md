@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 5abc3395152e03520eaff14b02d150892abf0e22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184217"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
@@ -146,7 +146,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 
 ![Apache Hive json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-UDF `json_tuple` 는 Hive에서 [측면 보기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용 합니다 .이를 통해\_json 튜플은 원래 테이블의 각 행에 UDT 함수를 적용 하 여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 json를 처리할 수 없습니다.
+`json_tuple`UDF는 Hive에서 [측면 보기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용 합니다 .이를 통해 json \_ 튜플은 원래 테이블의 각 행에 UDT 함수를 적용 하 여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 json를 처리할 수 없습니다.
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82165691"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
@@ -45,16 +45,16 @@ Log Analytics 작업 영역이 제공하는 정보:
 * **분산**: 각 팀은 자신이 소유 하 고 관리 하는 리소스 그룹에서 만들어진 자체 작업 영역을 포함 하며, 로그 데이터는 리소스에 따라 분리 됩니다. 이 시나리오에서는 작업 영역을 안전 하 게 유지할 수 있으며 액세스 제어는 리소스 액세스와 일치 하지만 로그를 상호 연결 하는 것은 어렵습니다. 많은 리소스를 광범위 하 게 확인 해야 하는 사용자는 의미 있는 방식으로 데이터를 분석할 수 없습니다.
 * **하이브리드**: 많은 조직에서 두 배포 모델을 동시에 구현 하므로 보안 감사 규정 준수 요구 사항은이 시나리오를 더 복잡 하 게 합니다. 이로 인해 일반적으로 로그 범위에서 간격이 있는 복잡 하 고, 비용이 많이 들고, 유지 관리가 어렵습니다.
 
-Log Analytics 에이전트를 사용 하 여 데이터를 수집 하는 경우 에이전트 배포를 계획 하려면 다음 사항을 이해 해야 합니다.
+Log Analytics 에이전트를 사용하여 데이터를 수집할 때 에이전트 배포를 계획하려면 다음 사항을 잘 알고 있어야 합니다.
 
-* Windows 에이전트에서 데이터를 수집 하려면 System Center Operations Manager 관리 그룹에 보고 하는 동안에도 [각 에이전트가 하나 이상의 작업 영역에 보고 하도록 구성할](../../azure-monitor/platform/agent-windows.md)수 있습니다. Windows 에이전트는 최대 4 개의 작업 영역을 보고할 수 있습니다.
-* Linux 에이전트는 멀티 호 밍을 지원 하지 않으며 단일 작업 영역에만 보고할 수 있습니다.
+* Windows 에이전트에서 데이터를 수집하기 위해 System Center Operations Manager 관리 그룹에 보고하는 동안에도 [하나 이상의 작업 영역에 보고하도록 각 에이전트를 구성](../../azure-monitor/platform/agent-windows.md)할 수 있습니다. Windows 에이전트는 최대 4개의 작업 영역에 보고할 수 있습니다.
+* Linux 에이전트는 멀티호밍을 지원하지 않으며 단일 작업 영역에만 보고할 수 있습니다.
 
-System Center Operations Manager 2012 R2 이상을 사용 하는 경우:
+System Center Operations Manager 2012 R2 이상을 사용하는 경우
 
-* 각 Operations Manager 관리 그룹은 [하나의 작업 영역에만 연결할](../platform/om-agents.md)수 있습니다. 
-* 관리 그룹에 보고 하는 Linux 컴퓨터는 Log Analytics 작업 영역에 직접 보고 하도록 구성 되어야 합니다. Linux 컴퓨터가 이미 작업 영역에 직접 보고 하 고 Operations Manager를 사용 하 여 모니터링 하려는 경우 다음 단계에 따라 [Operations Manager 관리 그룹에 보고](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)합니다. 
-* Windows 컴퓨터에 Log Analytics Windows 에이전트를 설치 하 고 작업 영역과 함께 통합 된 Operations Manager와 다른 작업 영역에 보고 하도록 할 수 있습니다.
+* 각 Operations Manager 관리 그룹을 [하나의 작업 영역에만 연결](../platform/om-agents.md)할 수 있습니다. 
+* 관리 그룹에 보고하는 Linux 컴퓨터는 Log Analytics 작업 영역에 직접 보고하도록 구성해야 합니다. Linux 컴퓨터가 이미 작업 영역에 직접 보고하고 있으며 Operations Manager로 모니터링하려는 경우 다음 단계에 따라 [Operations Manager 관리 그룹에 보고](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)하세요. 
+* Windows 컴퓨터에 Log Analytics Windows 에이전트를 설치하고 작업 영역과 통합된 Operations Manager 및 다른 작업 영역 모두에 보고하도록 할 수 있습니다.
 
 ## <a name="access-control-overview"></a>액세스 제어 개요
 
@@ -62,7 +62,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -114,7 +114,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
     3 월 2019 일 이전에 만든 모든 작업 영역에 대 한 기본 설정입니다.
 
-* **리소스 또는 작업 영역 권한 사용**:이 제어 모드를 사용 하면 세분화 된 RBAC를 사용할 수 있습니다. 사용자는 Azure `read` 사용 권한을 할당 하 여 볼 수 있는 리소스와 연결 된 데이터에만 액세스 권한을 부여할 수 있습니다. 
+* **리소스 또는 작업 영역 권한 사용**:이 제어 모드를 사용 하면 세분화 된 RBAC를 사용할 수 있습니다. 사용자는 Azure 사용 권한을 할당 하 여 볼 수 있는 리소스와 연결 된 데이터에만 액세스 권한을 부여할 수 있습니다 `read` . 
 
     사용자가 작업 영역 컨텍스트 모드에서 작업 영역에 액세스 하는 경우 작업 영역 권한이 적용 됩니다. 사용자가 리소스 컨텍스트 모드에서 작업 영역에 액세스 하면 리소스 권한만 확인 되 고 작업 영역 권한은 무시 됩니다. 작업 영역 권한에서 제거 하 고 해당 리소스 권한을 인식할 수 있도록 허용 하 여 사용자에 대해 RBAC를 사용 하도록 설정 합니다.
 
@@ -129,7 +129,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 기본 수집 율 임계값은 작업 영역 당 **6gb/분** 으로 설정 됩니다. 실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있으므로이 값은 근사치입니다. 이 제한은 에이전트 또는 [데이터 수집기 API](data-collector-api.md)에서 전송 된 데이터에는 적용 되지 않습니다.
 
-데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우에는 전자 메일을 LAIngestionRate@microsoft.com 보내거나 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다.
+데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우에는 전자 메일을 보내거나 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다 LAIngestionRate@microsoft.com .
  
 작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 많은 결과 클 경고 논리 기반을 사용 하는 다음 쿼리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
 

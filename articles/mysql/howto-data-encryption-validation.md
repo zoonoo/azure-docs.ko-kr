@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515405"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 데이터 암호화 유효성 검사
@@ -23,7 +23,7 @@ ms.locfileid: "82515405"
 
 1. 고객의 키가 암호화에 사용 되는지 확인 하려면 다음 단계를 수행 합니다.
 
-    * Azure Portal에서 **Azure Key Vault** -> **키** 로 이동 합니다.
+    * Azure Portal에서 **Azure Key Vault**  ->  **키** 로 이동 합니다.
     * 서버 암호화에 사용 되는 키를 선택 합니다.
     * 키 **사용** 의 상태를 **아니요**로 설정 합니다.
   

@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 713afb7b277fba65dc4c860e8bdd6b62b4e0147d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204950"
 ---
-# <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용 하 여 보안 id에 신속 하 게 대응
+# <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
 특히 신속 하 게 응답 하 고 많은 서비스에 빠르게 액세스 해야 하는 경우 오늘날 전 세계에서 작업자를 보호 하는 것이 어려울 수 있습니다. 이 문서에서는 사용자가 소유 하는 라이선스 유형에 따라 Azure AD 기능을 배포 하는 순서를 식별 하 고 우선 순위를 지정 하는 데 사용할 수 있는 모든 작업을 간결 하 게 나열 하는 방법을 설명 합니다. Azure AD는 다양 한 기능을 제공 하 고 Id에 대 한 다양 한 보안 계층을 제공 하며 관련 된 기능을 탐색 하는 경우도 있습니다. 많은 조직이 이미 클라우드에 있거나 신속 하 게 클라우드로 이동 하 고 있습니다 .이 문서는 서비스를 신속 하 게 배포 하 여 기본 고려 사항으로 id를 보호할 수 있도록 하기 위한 것입니다. 
 
@@ -31,10 +31,10 @@ ms.locfileid: "82204950"
 - 자격 증명을 강화합니다.
 - 공격 노출 영역을 줄입니다.
 - 위협 응답을 자동화합니다.
-- 클라우드 인텔리전스를 활용 합니다.
-- 최종 사용자 셀프 서비스를 사용 하도록 설정 합니다.
+- 클라우드 인텔리전스를 활용합니다.
+- 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "82204950"
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
 | [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
-| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 향후 사용자 동의 작업을 사용 하지 않도록 설정 하는 것이 좋습니다. |
+| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [지원 되는 SaaS 응용 프로그램을 갤러리에서 Azure AD로 통합 하 고 Single sign-on을 사용 하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상 된 사용자 환경 (SSO)을 통해 원격 및 안전 하 게 회사 SaaS 응용 프로그램에 대 한 액세스 제공 |
 | [SaaS 응용 프로그램에서 사용자 프로비저닝 자동화 및 프로](../app-provisioning/user-provisioning.md) 비전 해제 (해당 하는 경우) | 사용자가 액세스 해야 하는 클라우드 (SaaS) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만듭니다. 사용자 id를 만드는 것 외에도 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id를 유지 관리 및 제거 하 여 조직의 보안을 강화 하는 작업이 포함 됩니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용 하 여 레거시 앱 보호 (해당 하는](../manage-apps/secure-hybrid-access.md) 경우) | 기존 응용 프로그램 제공 컨트롤러나 네트워크를 사용 하 여 Azure AD에 연결 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 게시 하 고 보호 합니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "82204950"
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
 | [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
-| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 향후 사용자 동의 작업을 사용 하지 않도록 설정 하는 것이 좋습니다. |
+| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [응용 프로그램 프록시를 사용 하 여 온-프레미스 레거시 응용 프로그램에 대 한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | Azure AD 응용 프로그램 프록시을 사용 하도록 설정 하 고 사용자가 Azure AD 계정으로 로그인 하 여 온-프레미스 응용 프로그램에 안전 하 게 액세스할 수 있도록 레거시 앱과 통합 합니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용 하 여 레거시 앱을 보호](../manage-apps/secure-hybrid-access.md) 합니다 (해당 하는 경우). | 기존 응용 프로그램 제공 컨트롤러나 네트워크를 사용 하 여 Azure AD에 연결 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 게시 하 고 보호 합니다. |
 | [지원 되는 SaaS 응용 프로그램을 갤러리에서 Azure AD로 통합 하 고 Single sign-on을 사용 하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상 된 사용자 환경 (SSO)을 통해 회사 SaaS 응용 프로그램에 원격으로 안전 하 게 액세스를 제공 합니다. |
@@ -116,7 +116,7 @@ ms.locfileid: "82204950"
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
 | [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
-| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 향후 사용자 동의 작업을 사용 하지 않도록 설정 하는 것이 좋습니다. |
+| [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [응용 프로그램 프록시를 사용 하 여 온-프레미스 레거시 응용 프로그램에 대 한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | Azure AD 응용 프로그램 프록시을 사용 하도록 설정 하 고 사용자가 Azure AD 계정으로 로그인 하 여 온-프레미스 응용 프로그램에 안전 하 게 액세스할 수 있도록 레거시 앱과 통합 합니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용 하 여 레거시 앱을 보호](../manage-apps/secure-hybrid-access.md) 합니다 (해당 하는 경우). | 기존 응용 프로그램 제공 컨트롤러나 네트워크를 사용 하 여 Azure AD에 연결 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 게시 하 고 보호 합니다. |
 | [지원 되는 SaaS 응용 프로그램을 갤러리에서 Azure AD로 통합 하 고 Single sign-on을 사용 하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상 된 사용자 환경 (SSO)을 통해 회사 SaaS 응용 프로그램에 원격으로 안전 하 게 액세스를 제공 합니다. |

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515444"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 백업 및 복원
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL에서 Citus (Hyperscale) 클러스터를 복원 �
 > [!IMPORTANT]
 > Citus (Hyperscale) 클러스터의 지정 시간 복원을 수행 하려면 지원 요청을 열어야 합니다.
 
-### <a name="post-restore-tasks"></a>Post-restore tasks
+### <a name="post-restore-tasks"></a>복원 후 작업
 
 복구 메커니즘에서 복원한 후에는 다음을 수행 하 여 사용자 및 응용 프로그램을 백업 하 고 실행 해야 합니다.
 

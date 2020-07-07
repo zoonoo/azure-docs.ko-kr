@@ -1,6 +1,6 @@
 ---
 title: SLES에서 Azure NetApp Files로 standby를 사용 하 여 SAP HANA 확장 Microsoft Docs
-description: Sap 응용 프로그램용 Azure NetApp Files를 사용 하는 SUSE Linux Enterprise Server의 SAP NetWeaver에 대 한 고가용성 가이드
+description: SAP 애플리케이션용 Azure NetApp Files를 사용한 SUSE Linux Enterprise Server의 SAP NetWeaver 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 15cdd4c53105998488d2ae1f544e34c1e07a157a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82147137"
 ---
-# <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포 
+# <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -82,7 +82,7 @@ ms.locfileid: "82147137"
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE SAP HA 모범 사례 가이드][suse-ha-guide]: 온-프레미스에서 NetWeaver 고가용성 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보를 포함 합니다 (일반 기준선으로 사용 됨, 보다 자세한 정보 제공).
 * [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
-* [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
+* [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 
 
 ## <a name="overview"></a>개요
@@ -90,7 +90,7 @@ ms.locfileid: "82147137"
 HANA 고가용성을 달성 하는 한 가지 방법은 호스트 자동 장애 조치 (failover)를 구성 하는 것입니다. 호스트 자동 장애 조치 (failover)를 구성 하려면 하나 이상의 가상 컴퓨터를 HANA 시스템에 추가 하 고이를 대기 노드로 구성 합니다. 활성 노드가 실패 하면 대기 노드가 자동으로 수행 됩니다. Azure virtual machines와 함께 제공 되는 구성에서는 [Azure NetApp Files에서 NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)를 사용 하 여 자동 장애 조치 (failover)를 수행 합니다.  
 
 > [!NOTE]
-> 대기 노드는 모든 데이터베이스 볼륨에 액세스할 수 있어야 합니다. HANA 볼륨은 NFSv4 볼륨으로 탑재 되어야 합니다. NFSv4 프로토콜의 향상 된 파일 임대 기반 잠금 메커니즘은 펜스에 `I/O` 사용 됩니다. 
+> 대기 노드는 모든 데이터베이스 볼륨에 액세스할 수 있어야 합니다. HANA 볼륨은 NFSv4 볼륨으로 탑재 되어야 합니다. NFSv4 프로토콜의 향상 된 파일 임대 기반 잠금 메커니즘은 펜스에 사용 됩니다 `I/O` . 
 
 > [!IMPORTANT]
 > 지원 되는 구성을 작성 하려면 HANA 데이터 및 로그 볼륨을 NFSv 4.1 볼륨으로 배포 하 고 NFSv 4.1 프로토콜을 사용 하 여 탑재 해야 합니다. 대기 노드를 사용한 HANA 호스트 자동 장애 조치 (failover) 구성은 NFSv3에서 지원 되지 않습니다.
@@ -137,7 +137,7 @@ Azure NetApp Files를 배포 하기 전에 [Azure NetApp Files 지침에 등록]
 
 5. [Azure NetApp Files에 대 한 NFS 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)의 지침에 따라 Azure NetApp Files 볼륨을 배포 합니다.  
 
-   볼륨을 배포할 때 **nfsv 4.1** 버전을 선택 해야 합니다. 현재 NFSv 4.1에 대 한 액세스에는 추가 허용 목록 필요 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당 됩니다. 
+   볼륨을 배포할 때 **nfsv 4.1** 버전을 선택 해야 합니다. 현재 NFSv 4.1에 대 한 액세스에는 추가 허용 목록 필요 합니다. 지정된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
    
    Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual network에 있어야 합니다. 예를 들어 **h n 1**-Mnt00001, **h n 1**-mnt00001 등은 볼륨 이름**및 nfs://10.23.1.5/h n 1**, mnt00001**nfs://10.23.1.4/**-h n 1, mnt00001 등은 Azure NetApp Files 볼륨에 대 한 파일 경로입니다.  
 
@@ -163,9 +163,9 @@ SUSE 고가용성 아키텍처에서 SAP NetWeaver에 대 한 Azure NetApp Files
 -  
 
 > [!IMPORTANT]
-> SAP HANA 워크 로드의 경우 짧은 대기 시간이 중요 합니다. Microsoft 담당자와 협력 하 여 가상 머신과 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다.  
+> SAP HANA 워크로드의 경우 짧은 대기 시간이 매우 중요합니다. Microsoft 담당자와 협력하여 가상 머신과 Azure NetApp Files 볼륨이 근접하게 배포되도록 해야 합니다.  
 
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files HANA 데이터베이스 크기 조정
+### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files에서 HANA 데이터베이스 크기 조정
 
 Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명 된 대로 볼륨 크기 및 서비스 수준의 기능입니다. 
 
@@ -175,30 +175,30 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 - 16mb 및 64 MB i/o 크기에 대해 최소 400 m b/s의 읽기 작업을 사용 하도록 설정 합니다.  
 - 16mb 및 64 MB i/o 크기를 사용 하는/hana/data에 대해 최소 250 m b/s의 쓰기 작업을 사용 하도록 설정 합니다. 
 
-볼륨 할당량의 1 TiB [처리량 제한은](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) 다음과 같습니다. Azure NetApp Files
+볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)는 다음과 같습니다.
 - Premium Storage 계층-64 MiB/s  
 - Ultra Storage 계층-128 MiB/s  
 
 데이터 및 로그에 대 한 SAP 최소 처리량 요구 사항과/hana/shared에 대 한 지침을 충족 하기 위해 권장 되는 크기는 다음과 같습니다.
 
-| 볼륨 | 크기<br>Premium Storage 계층 | 크기<br>Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
+| 볼륨 | 크기<br>Premium Storage 계층 | 크기<br>Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
 | --- | --- | --- | --- |
-| /hana/log | 4TiB | 2TiB | v 4.1 |
-| /hana/data | 6.3 TiB | 3.2 TiB | v 4.1 |
-| /hana/shared | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | v3 또는 v 4.1 |
+| /hana/log/ | 4TiB | 2TiB | v4.1 |
+| /hana/data | 6.3TiB | 3.2TiB | v4.1 |
+| /hana/shared | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | 최대 4 개의 작업자 노드당 최대 (512 g b, 1xRAM) | v3 또는 v4.1 |
 
 이 문서에서 제공 하는 레이아웃에 대 한 SAP HANA 구성은 Azure NetApp Files Ultra Storage 계층을 사용 합니다.
 
-| 볼륨 | 크기<br>Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
+| 볼륨 | 크기<br>Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
 | --- | --- | --- |
-| /hana/log/mnt00001 | 2TiB | v 4.1 |
-| /hana/log/mnt00002 | 2TiB | v 4.1 |
-| /hana/data/mnt00001 | 3.2 TiB | v 4.1 |
-| /hana/data/mnt00002 | 3.2 TiB | v 4.1 |
-| /hana/shared | 2TiB | v3 또는 v 4.1 |
+| /hana/log/mnt00001 | 2TiB | v4.1 |
+| /hana/log/mnt00002 | 2TiB | v4.1 |
+| /hana/data/mnt00001 | 3.2TiB | v4.1 |
+| /hana/data/mnt00002 | 3.2TiB | v4.1 |
+| /hana/shared | 2TiB | v3 또는 v4.1 |
 
 > [!NOTE]
-> 여기에 명시 된 Azure NetApp Files 크기 조정 권장 사항은 SAP에서 인프라 공급자에 대해 권장 하는 최소 요구 사항을 충족 하는 것입니다. 실제 고객 배포 및 워크 로드 시나리오에서는 이러한 크기가 충분 하지 않을 수 있습니다. 이러한 권장 사항을 시작 점으로 사용 하 고 특정 워크 로드의 요구 사항에 따라 조정 합니다.  
+> 여기에 명시 된 Azure NetApp Files 크기 조정 권장 사항은 SAP에서 인프라 공급자에 대해 권장 하는 최소 요구 사항을 충족 하는 것입니다. 실제 고객 배포 및 워크 로드 시나리오에서는 이러한 크기가 충분 하지 않을 수 있습니다. 이러한 권장 사항을 시작점으로 삼아 워크로드의 요구 사항에 따라 조정합니다.  
 
 > [!TIP]
 > 볼륨을 *분리* 하거나 가상 컴퓨터를 중지 하거나 SAP HANA를 중지 하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 이 방법을 사용 하면 응용 프로그램의 예상 처리량과 예기치 않은 처리량 요구를 유연 하 게 충족할 수 있습니다.
@@ -207,17 +207,17 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 먼저 Azure NetApp Files 볼륨을 만들어야 합니다. 그런 후에 다음 단계를 수행 합니다.
 1. [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 [azure 가상 네트워크 서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) 을 만듭니다. 
-1. Vm을 배포 합니다. 
+1. VM을 배포합니다. 
 1. 추가 네트워크 인터페이스를 만들고 네트워크 인터페이스를 해당 Vm에 연결 합니다.  
 
-   각 가상 머신에는 세 개의 Azure virtual network 서브넷 (`client` `storage` 및 `hana`)에 해당 하는 세 개의 네트워크 인터페이스가 있습니다. 
+   각 가상 머신에는 세 개의 Azure virtual network 서브넷 (및)에 해당 하는 세 개의 네트워크 인터페이스가 있습니다 `client` `storage` `hana` . 
 
    자세한 내용은 [여러 네트워크 인터페이스 카드를 사용 하 여 Azure에서 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)를 참조 하세요.  
 
 > [!IMPORTANT]
-> SAP HANA 워크 로드의 경우 짧은 대기 시간이 중요 합니다. 짧은 대기 시간을 얻으려면 Microsoft 담당자와 협력 하 여 가상 머신 및 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다. SAP HANA Azure NetApp Files를 사용 하는 [새 SAP HANA 시스템을 온 보 딩](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) 하는 경우 필요한 정보를 제출 합니다. 
+> SAP HANA 워크로드의 경우 짧은 대기 시간이 매우 중요합니다. 짧은 대기 시간을 얻으려면 Microsoft 담당자와 협력 하 여 가상 머신 및 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다. SAP HANA Azure NetApp Files를 사용 하는 [새 SAP HANA 시스템을 온 보 딩](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) 하는 경우 필요한 정보를 제출 합니다. 
  
-다음 지침에서는 리소스 그룹, azure 가상 네트워크 및 세 개의 azure virtual network 서브넷 ( `client` `storage` 및 `hana`)을 이미 만들었다고 가정 합니다. Vm을 배포할 때 클라이언트 네트워크 인터페이스가 Vm의 기본 인터페이스를 갖도록 클라이언트 서브넷을 선택 합니다. 또한 저장소 서브넷 게이트웨이를 통해 위임 Azure NetApp Files 된 서브넷에 대 한 명시적 경로를 구성 해야 합니다. 
+다음 지침에서는 리소스 그룹, Azure 가상 네트워크 및 세 개의 Azure virtual network 서브넷 (및)을 이미 만들었다고 가정 합니다. `client` `storage` `hana` Vm을 배포할 때 클라이언트 네트워크 인터페이스가 Vm의 기본 인터페이스를 갖도록 클라이언트 서브넷을 선택 합니다. 또한 저장소 서브넷 게이트웨이를 통해 위임 Azure NetApp Files 된 서브넷에 대 한 명시적 경로를 구성 해야 합니다. 
 
 > [!IMPORTANT]
 > 선택한 OS가 사용 중인 특정 VM 형식에 대 한 SAP HANA에 대해 SAP 인증 되는지 확인 합니다. 이러한 유형에 대 한 SAP HANA 인증 VM 유형 및 OS 릴리스 목록은 [SAP HANA 인증 된 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 사이트로 이동 합니다. 나열 된 VM 형식에 대 한 세부 정보를 클릭 하 여 해당 형식에 대해 지원 되는 SAP HANA OS 릴리스의 전체 목록을 가져옵니다.  
@@ -234,9 +234,9 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
    가상 컴퓨터를 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 이 지침에서는 **hanadb1**, **hanadb2**및 **Hanadb3**클라이언트와 같이 클라이언트 Azure 가상 네트워크 서브넷에 연결 된 자동으로 생성 된 네트워크 인터페이스를 참조 합니다. 
 
-3. `storage` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**및 **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
+3. `storage`가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**및 **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
 
-4. `hana` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**, **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
+4. `hana`가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**, **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
 
 5. 다음 단계를 수행 하 여 새로 만든 가상 네트워크 인터페이스를 해당 가상 컴퓨터에 연결 합니다.  
 
@@ -246,19 +246,19 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
-    d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `storage` 및 `hana` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
+    d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `storage` `hana` .  
     
     e. **저장**을 선택합니다. 
  
     f. 나머지 가상 컴퓨터 (이 예제에서는 **hanadb2** 및 **hanadb3**)에 대해 b ~ e 단계를 반복 합니다.
  
-    g. 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하도록 설정 합니다.  
+    예: 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하도록 설정 합니다.  
 
-6. 다음 단계를 수행 하 여 `storage` 및 `hana` 서브넷에 대 한 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
+6. `storage`다음 단계를 수행 하 여 및 서브넷에 대 한 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다 `hana` .  
 
     a. [Azure Portal](https://portal.azure.com/#home)에서 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 를 엽니다.  
 
-    b. 다음 명령을 실행 하 여 `storage` 및 `hana` 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
+    b. 다음 명령을 실행 하 여 및 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 `storage` `hana` 합니다.  
 
     <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
@@ -287,7 +287,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 다음 단계를 수행 하 여 OS를 구성 하 고 준비 합니다.
 
-1. **[A]** 가상 컴퓨터에서 호스트 파일을 유지 관리 합니다. 모든 서브넷에 대 한 항목을 포함 합니다. 이 예제의에 추가 `/etc/hosts` 된 항목은 다음과 같습니다.  
+1. **[A]** 가상 컴퓨터에서 호스트 파일을 유지 관리 합니다. 모든 서브넷에 대 한 항목을 포함 합니다. 이 예제의에 추가 된 항목은 다음과 같습니다 `/etc/hosts` .  
 
     <pre><code>
     # Storage
@@ -306,7 +306,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 2. **[A]** 의도 하지 않은 호스트 이름 변경을 방지 하기 위해 저장소의 네트워크 인터페이스에 대 한 DHCP 및 클라우드 구성 설정을 변경 합니다.  
 
-    다음 지침에서는 저장소 네트워크 인터페이스가 인 `eth1`것으로 가정 합니다. 
+    다음 지침에서는 저장소 네트워크 인터페이스가 인 것으로 가정 합니다 `eth1` . 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
@@ -320,7 +320,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 2. **[A]** Azure NetApp Files에 대 한 통신이 저장소 네트워크 인터페이스를 통해 이동 하도록 네트워크 경로를 추가 합니다.  
 
-    다음 지침에서는 저장소 네트워크 인터페이스가 인 `eth1`것으로 가정 합니다.  
+    다음 지침에서는 저장소 네트워크 인터페이스가 인 것으로 가정 합니다 `eth1` .  
 
     <pre><code>
     vi /etc/sysconfig/network/ifroute-<b>eth1</b>
@@ -404,10 +404,10 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. **`defaultv4iddomain.com`** 즉, 매핑이 없음으로 설정 되어 있는지 확인 합니다 **.**  
+3. **[A]** NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인(예: **`defaultv4iddomain.com`** )으로 구성되어 있고 매핑이 **nobody**로 설정되어 있는지 확인합니다.  
 
     > [!IMPORTANT]
-    > VM의에서 `/etc/idmapd.conf` NFS 도메인을 Azure NetApp Files의 기본 도메인 구성과 일치 하도록 설정 해야 **`defaultv4iddomain.com`** 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 사용 권한이로 `nobody`표시 됩니다.  
+    > VM의 `/etc/idmapd.conf`에서 NFS 도메인을 Azure NetApp Files의 기본 도메인 구성( **`defaultv4iddomain.com`** )과 일치하도록 설정해야 합니다. NFS 클라이언트(예: VM)의 도메인 구성과 NFS 서버(예: Azure NetApp 구성)가 일치하지 않는 경우 VM에 탑재된 Azure NetApp 볼륨의 파일에 대한 사용 권한이 `nobody`로 표시됩니다.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -421,7 +421,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** 확인 `nfs4_disable_idmapping`. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 가 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
+4. **[A]** `nfs4_disable_idmapping`을 확인합니다. **Y**로 설정되어야 합니다. `nfs4_disable_idmapping`이 있는 디렉터리 구조를 만들려면 mount 명령을 실행합니다. 커널/드라이버용으로 액세스가 예약되어 있기 때문에 /sys/modules 아래에 디렉터리를 수동으로 만들 수 없습니다.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -518,7 +518,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 ### <a name="prepare-for-hana-installation"></a>HANA 설치 준비
 
-1. **[A]** HANA 설치 전에 루트 암호를 설정 합니다. 설치가 완료 된 후 루트 암호를 사용 하지 않도록 설정할 수 있습니다. Execute as `root` 명령 `passwd`입니다.  
+1. **[A]** HANA 설치 전에 루트 암호를 설정 합니다. 설치가 완료 된 후 루트 암호를 사용 하지 않도록 설정할 수 있습니다. Execute as `root` 명령 `passwd` 입니다.  
 
 2. **[1]** 암호를 입력 하 라는 메시지가 표시 되지 않고 SSH를 통해 **hanadb2** 및 **hanadb3**에 로그인 할 수 있는지 확인 합니다.  
 
@@ -533,7 +533,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** SAP HANA `data` 및 `log` 디렉터리의 소유권을 **h n 1**adm으로 변경 합니다.   
+4. **[2], [3]** SAP HANA `data` 및 디렉터리의 소유권 `log` 을 **h n 1**adm으로 변경 합니다.   
 
     <pre><code>
     # Execute as root
@@ -545,7 +545,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 1. **[1]** [SAP HANA 2.0 설치 및 업데이트 가이드](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html)의 지침에 따라 SAP HANA를 설치 합니다. 이 예제에서는 master, one worker 및 1 개의 대기 노드를 사용 하 여 확장 SAP HANA를 설치 합니다.  
 
-   a. HANA 설치 소프트웨어 디렉터리에서 **hdblcm** 프로그램을 시작 합니다. `internal_network` 매개 변수를 사용 하 고 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
+   a. HANA 설치 소프트웨어 디렉터리에서 **hdblcm** 프로그램을 시작 합니다. `internal_network`매개 변수를 사용 하 고 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
 
     <pre><code>
     ./hdblcm --internal_network=10.23.3.0/24
@@ -563,7 +563,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
      * **루트 사용자 암호**: 루트 사용자의 암호를 입력 합니다.
      * 호스트 hanadb2 역할의 경우: **1** (작업자의 경우)을 입력 합니다.
      * Host hanadb2의 **호스트 장애 조치 (Failover) 그룹** [기본값]: enter 키를 눌러 기본값을 적용 합니다.
-     * 호스트 hanadb2의 **저장소 파티션 번호** [<<assign automatically>>]: enter 키를 눌러 기본값을 적용 합니다.
+     * 호스트 hanadb2의 **저장소 파티션 번호** [<<assign automatically>>]: Enter 키를 눌러 기본값을 적용 합니다.
      * Host hanadb2의 **작업자 그룹** [기본값]: enter 키를 눌러 기본값을 적용 합니다.
      * 호스트 hanadb3에 대 한 **역할 선택** : **2** (대기)를 입력 합니다.
      * Host hanadb3의 **호스트 장애 조치 (Failover) 그룹** [기본값]: enter 키를 눌러 기본값을 적용 합니다.
@@ -585,9 +585,9 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
      * **계속 하 시겠습니까 (y/n)**: 요약의 유효성을 검사 하 고 모든 항목이 양호 하면 **y** 를 입력 합니다.
 
 
-2. **[1]** global.asax 확인  
+2. **[1]** 확인 global.ini  
 
-   Global.asax를 표시 하 고 내부 SAP HANA 노드 간 통신에 대 한 구성이 준비 되어 있는지 확인 합니다. **통신** 섹션을 확인 합니다. `hana` 서브넷에 대 한 주소 공간이 있어야 하 고 `listeninterface` 로 `.internal`설정 되어야 합니다. **Internal_hostname_resolution** 섹션을 확인 합니다. `hana` 서브넷에 속하는 HANA 가상 컴퓨터의 IP 주소가 있어야 합니다.  
+   global.ini를 표시 하 고 내부 SAP HANA 노드 간 통신에 대 한 구성이 준비 되었는지 확인 합니다. **통신** 섹션을 확인 합니다. 서브넷에 대 한 주소 공간이 있어야 하 `hana` 고 `listeninterface` 로 설정 되어야 합니다 `.internal` . **Internal_hostname_resolution** 섹션을 확인 합니다. 서브넷에 속하는 HANA 가상 컴퓨터의 IP 주소가 있어야 합니다 `hana` .  
 
    <pre><code>
     sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
@@ -602,7 +602,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     <b>10.23.3.6</b> = <b>hanadb3</b>
    </code></pre>
 
-3. **[1]** 클라이언트 통신에 클라이언트 IP 주소가 사용 되도록 호스트 매핑을 추가 합니다. 섹션 `public_host_resolution`을 추가 하 고 클라이언트 서브넷에서 해당 IP 주소를 추가 합니다.  
+3. **[1]** 클라이언트 통신에 클라이언트 IP 주소가 사용 되도록 호스트 매핑을 추가 합니다. 섹션 `public_host_resolution` 을 추가 하 고 클라이언트 서브넷에서 해당 IP 주소를 추가 합니다.  
 
    <pre><code>
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -620,7 +620,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
    </code></pre>
 
-5. **[1]** 클라이언트 인터페이스가 통신을 위해 `client` 서브넷의 IP 주소를 사용 하 게 되는지 확인 합니다.  
+5. **[1]** 클라이언트 인터페이스가 통신을 위해 서브넷의 IP 주소를 사용 하 게 되는지 확인 `client` 합니다.  
 
    <pre><code>
     sudo -u hn1adm /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "<b>password</b>" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
@@ -641,14 +641,14 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
    자세한 내용은 [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 Netapp SAP 응용 프로그램][anf-sap-applications-azure]을 참조 하세요. 
 
-   SAP HANA 2.0 시스템부터에서 `global.ini`매개 변수를 설정할 수 있습니다. 자세한 내용은 SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930)을 참조 하세요.  
+   SAP HANA 2.0 시스템부터에서 매개 변수를 설정할 수 있습니다 `global.ini` . 자세한 내용은 SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930)을 참조 하세요.  
    
    1.0 시스템 버전 SPS12 및 이전 버전의 SAP HANA 경우 SAP Note [2267798](https://launchpad.support.sap.com/#/notes/2267798)에 설명 된 대로 설치 중에 이러한 매개 변수를 설정할 수 있습니다.  
 
 7. Azure NetApp Files에서 사용 하는 저장소의 파일 크기 제한은 16tb입니다. SAP HANA는 저장소 제한을 암시적으로 인식 하지 못하므로 파일 크기 제한인 16TB에 도달 하면 자동으로 새 데이터 파일을 만들지 않습니다. SAP HANA는 16TB를 초과 하 여 파일을 확장 하려고 시도 하면 오류가 발생 하 고 결과적으로 인덱스 서버 작동이 중단 됩니다. 
 
    > [!IMPORTANT]
-   > 저장소 하위 시스템의 [16gb 제한을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) 초과 하 여 데이터 파일의 증가를 SAP HANA 방지 하려면에서 `global.ini`다음 매개 변수를 설정 합니다.  
+   > 저장소 하위 시스템의 [16gb 제한을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) 초과 하 여 데이터 파일의 증가를 SAP HANA 방지 하려면에서 다음 매개 변수를 설정 `global.ini` 합니다.  
    > - datavolume_striping = true
    > - datavolume_striping_size_gb = 15000 자세한 내용은 SAP Note [2400005](https://launchpad.support.sap.com/#/notes/2400005)를 참조 하세요.
    > SAP Note [2631285](https://launchpad.support.sap.com/#/notes/2631285)에 주의 하세요. 
@@ -708,7 +708,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
    </code></pre>
 
    > [!IMPORTANT]
-   > 노드가 커널에 영향을 주는 경우 *모든* HANA 가상 머신에서를 20 초로 `kernel.panic` 설정 하 여 SAP HANA 장애 조치 (failover)의 지연을 방지 합니다. 구성은에서 `/etc/sysctl`수행 됩니다. 가상 컴퓨터를 다시 부팅 하 여 변경 내용을 활성화 합니다. 이러한 변경이 수행 되지 않는 경우 노드에 커널에 문제가 발생 하는 경우 장애 조치 (failover)가 10 분 이상 걸릴 수 있습니다.  
+   > 노드가 커널에 영향을 주는 경우 `kernel.panic` *모든* HANA 가상 머신에서를 20 초로 설정 하 여 SAP HANA 장애 조치 (failover)의 지연을 방지 합니다. 구성은에서 수행 됩니다 `/etc/sysctl` . 가상 컴퓨터를 다시 부팅 하 여 변경 내용을 활성화 합니다. 이러한 변경이 수행 되지 않는 경우 노드에 커널에 문제가 발생 하는 경우 장애 조치 (failover)가 10 분 이상 걸릴 수 있습니다.  
 
 2. 다음을 수행 하 여 이름 서버를 중지 합니다.
 

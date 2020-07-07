@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka에서 자동 토픽 생성 사용 - Azure HDInsight
-description: 자동으로 토픽을 만들도록 HDInsight에서 Apache Kafka를 구성하는 방법에 대해 알아봅니다. Ambari를 통해를 true로 설정 `auto.create.topics.enable` 하 여 Kafka을 구성할 수 있습니다. 또는 PowerShell 또는 리소스 관리자 템플릿을 통해 클러스터를 만드는 동안.
+description: 자동으로 토픽을 만들도록 HDInsight에서 Apache Kafka를 구성하는 방법에 대해 알아봅니다. `auto.create.topics.enable`Ambari를 통해를 true로 설정 하 여 Kafka을 구성할 수 있습니다. 또는 PowerShell 또는 리소스 관리자 템플릿을 통해 클러스터를 만드는 동안.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82231274"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
@@ -29,7 +29,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
     ![클러스터 대시 보드로 선택한 포털 이미지](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-    메시지가 표시되면 클러스터에 대한 로그인(관리자) 자격 증명을 사용하여 인증을 받습니다. 대신 Amabri에 직접 연결할 수 있습니다. `https://CLUSTERNAME.azurehdinsight.net/` 여기서 `CLUSTERNAME` 은 kafka 클러스터의 이름입니다.
+    메시지가 표시되면 클러스터에 대한 로그인(관리자) 자격 증명을 사용하여 인증을 받습니다. 대신 Amabri에 직접 연결할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net/` `CLUSTERNAME` . 여기서은 Kafka 클러스터의 이름입니다.
 
 1. 페이지 왼쪽 목록에서 Kafka 서비스를 선택합니다.
 
@@ -43,9 +43,9 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
     ![Apache Ambari 검색 필터 필드](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
-    이 설정은 속성 목록을 필터링 하 고 `auto.create.topics.enable` 설정을 표시 합니다.
+    이 설정은 속성 목록을 필터링 하 고 설정을 표시 합니다 `auto.create.topics.enable` .
 
-1. 의 `auto.create.topics.enable` 값을로 `true`변경 하 고 **저장**을 선택 합니다. 메모를 추가 하 고 **저장** 을 다시 선택 합니다.
+1. 의 값을로 변경 하 `auto.create.topics.enable` `true` 고 **저장**을 선택 합니다. 메모를 추가 하 고 **저장** 을 다시 선택 합니다.
 
     ![auto.create.topics.enable 항목의 이미지](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 

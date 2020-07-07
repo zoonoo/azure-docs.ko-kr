@@ -4,10 +4,10 @@ description: 백업에서 제공 하는 기본 제공 Azure 정책에 대해 지
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183622"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Azure Policy에 지원되는 VM SKU
@@ -82,7 +82,7 @@ Canonical | UbuntuServer | 14.04.5-LTS
 Canonical | UbuntuServer | 16.04-DAILY-LTS
 Canonical | UbuntuServer | 16.04-LTS
 Canonical | UbuntuServer | 16.04.0-LTS
-Canonical | UbuntuServer | 18.04-매일-LTS
+Canonical | UbuntuServer | 18.04-DAILY-LTS
 Canonical | UbuntuServer | 18.04-LTS
 Oracle | Oracle-Linux | 6.8, 6.9, 6.10, 7.3, 7.4, 7.5, 7.6
 OpenLogic | CentOS | 6.X, 7.X

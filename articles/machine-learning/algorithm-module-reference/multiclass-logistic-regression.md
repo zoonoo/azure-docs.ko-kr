@@ -10,15 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137776"
 ---
 # <a name="multiclass-logistic-regression-module"></a>다중 클래스 로지스틱 회귀 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 여러 값을 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만듭니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "82137776"
 
     정규화는 극단적인 계수 값을 사용 하 여 과잉 맞춤 by 페널티 모델을 방지 하는 방법입니다. 정규화는 계수 값과 연결 된 페널티를 가설의 오류에 추가 하 여 작동 합니다. 극단적인 계수 값을 포함 하는 정확한 모델은 더 페널티가 수 있지만 보다 보수적인 값을 가진 보다 정확한 모델은 페널티가 줄어듭니다.
 
-     L1 및 L2 정규화가 미치는 영향과 사용 방법은 여러 가지가 있습니다. L1은 스파스 모델에 적용할 수 있으며 이는 고차원 데이터로 작업할 때 유용합니다. 한편, L2 정규화는 스파스가 아닌 데이터에 사용하는 것이 좋습니다.  이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, 및 `x = L1` `y = L2`인 경우 `ax + by = c` 정규화 용어의 선형 범위를 정의 합니다.
+     L1 및 L2 정규화가 미치는 영향과 사용 방법은 여러 가지가 있습니다. L1은 스파스 모델에 적용할 수 있으며 이는 고차원 데이터로 작업할 때 유용합니다. 한편, L2 정규화는 스파스가 아닌 데이터에 사용하는 것이 좋습니다.  이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, `x = L1` 및 인 `y = L2` 경우 `ax + by = c` 정규화 용어의 선형 범위를 정의 합니다.
 
      [탄력적 네트워크 정규화](https://wikipedia.org/wiki/Elastic_net_regularization)와 같은 로지스틱 회귀 모델에 대해 L1 및 L2 용어의 여러 선형 조합이 고안 되었습니다.
 
@@ -68,10 +68,10 @@ ms.locfileid: "82137776"
     > 
     > **매개 변수 범위** 옵션을 선택 하 고 매개 변수에 대해 단일 값을 입력 하는 경우 다른 매개 변수가 값 범위에서 변경 되더라도 지정한 단일 값은 스윕 전체에서 사용 됩니다.
 
-9. 파이프라인을 제출 합니다.
+9. 파이프라인을 제출합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

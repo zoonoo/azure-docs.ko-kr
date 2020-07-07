@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82143214"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
@@ -88,7 +88,7 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
     * 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
 
-    |**엔드포인트**|**목적**|
+    |**엔드포인트**|**용도**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
@@ -140,8 +140,8 @@ Microsoft Azure AD Connect Agent 업데이트 서비스는 Azure AD 암호 보�
 
 온-프레미스 Azure AD 암호 보호 배포에는 다음과 같은 두 가지 필수 설치 관리자가 있습니다.
 
-* Azure AD 암호 보호 DC 에이전트 (*AzureADPasswordProtectionDCAgentSetup*)
-* Azure AD 암호 보호 프록시 (*AzureADPasswordProtectionProxySetup*)
+* Azure AD 암호 보호 DC 에이전트 (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Azure AD 암호 보호 프록시 (*AzureADPasswordProtectionProxySetup.exe*)
 
 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 두 설치 관리자를 다운로드 합니다.
 
@@ -169,13 +169,13 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
     ```
     
     > [!NOTE]
-    > 설치 오류를 방지 하려면 패키지를 `AzureADPasswordProtectionProxySetup.exe` 설치 하기 전에 Windows 방화벽 서비스가 실행 중 이어야 합니다.
+    > `AzureADPasswordProtectionProxySetup.exe`설치 오류를 방지 하려면 패키지를 설치 하기 전에 Windows 방화벽 서비스가 실행 중 이어야 합니다.
     >
     > Windows 방화벽을 실행 하지 않도록 구성 된 경우 설치 하는 동안 일시적으로 방화벽 서비스를 사용 하도록 설정 하 고 실행 하는 것이 해결 방법입니다. 프록시 소프트웨어는 설치 후 Windows 방화벽에 대 한 특정 종속성이 없습니다.
     >
     > 타사 방화벽을 사용 하는 경우 배포 요구 사항을 충족 하도록 구성 해야 합니다. 여기에는 포트 135 및 프록시 RPC 서버 포트에 대 한 인바운드 액세스를 허용 하는 작업이 포함 됩니다. 자세한 내용은 [배포 요구 사항](#deployment-requirements)에 대 한 이전 섹션을 참조 하세요.
 
-1. Azure AD 암호 보호 프록시 소프트웨어에는 새 PowerShell 모듈인가 포함 `AzureADPasswordProtection`되어 있습니다. 다음 단계는이 PowerShell 모듈에서 다양 한 cmdlet을 실행 합니다.
+1. Azure AD 암호 보호 프록시 소프트웨어에는 새 PowerShell 모듈인가 포함 되어 있습니다 `AzureADPasswordProtection` . 다음 단계는이 PowerShell 모듈에서 다양 한 cmdlet을 실행 합니다.
 
     이 모듈을 사용 하려면 관리자 권한으로 PowerShell 창을 열고 다음과 같이 새 모듈을 가져옵니다.
     
@@ -191,7 +191,7 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
 
     결과에는 *실행*중 **상태가** 표시 됩니다.
 
-1. 프록시 서비스가 컴퓨터에서 실행 되 고 있지만 Azure AD와 통신할 자격 증명이 없습니다. Cmdlet을 `Register-AzureADPasswordProtectionProxy` 사용 하 여 azure Ad에 Azure Ad 암호 보호 프록시 서버를 등록 합니다.
+1. 프록시 서비스가 컴퓨터에서 실행 되 고 있지만 Azure AD와 통신할 자격 증명이 없습니다. Cmdlet을 사용 하 여 azure ad에 Azure AD 암호 보호 프록시 서버를 등록 합니다 `Register-AzureADPasswordProtectionProxy` .
 
     이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다.
 
@@ -239,7 +239,7 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
 
     Azure AD 암호 보호 프록시 서비스의 등록은 서비스의 수명 동안 한 번만 필요 합니다. 그 후에는 Azure AD 암호 보호 프록시 서비스가 다른 필요한 유지 관리 작업을 자동으로 수행 합니다.
 
-1. 이제 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 등록 합니다.
+1. 이제 PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 등록 합니다 `Register-AzureADPasswordProtectionForest` .
 
     > [!NOTE]
     > 여러 Azure AD 암호 보호 프록시 서버가 사용자 환경에 설치 되어 있는 경우 포리스트를 등록 하는 데 사용 하는 프록시 서버에 상관 없습니다.
@@ -286,15 +286,15 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
 
        이러한 예제는 현재 로그인 한 사용자가 루트 도메인의 Active Directory 도메인 관리자 이기도 한 경우에만 성공 합니다. 그렇지 않은 경우 *-ForestCredential* 매개 변수를 통해 대체 도메인 자격 증명을 제공할 수 있습니다.
 
-    Active Directory 포리스트 등록은 포리스트의 수명 동안 한 번만 필요 합니다. 그 후에는 포리스트의 Azure AD 암호 보호 DC 에이전트가 다른 필요한 유지 관리 작업을 자동으로 수행 합니다. 에서 `Register-AzureADPasswordProtectionForest` 포리스트를 성공적으로 실행 한 후에는 cmdlet의 추가 호출이 성공 하지만 필요 하지 않습니다.
+    Active Directory 포리스트 등록은 포리스트의 수명 동안 한 번만 필요 합니다. 그 후에는 포리스트의 Azure AD 암호 보호 DC 에이전트가 다른 필요한 유지 관리 작업을 자동으로 수행 합니다. 에서 포리스트를 성공적으로 실행 한 후에는 `Register-AzureADPasswordProtectionForest` cmdlet의 추가 호출이 성공 하지만 필요 하지 않습니다.
     
-    이 `Register-AzureADPasswordProtectionForest` 성공 하려면 Azure AD 암호 보호 프록시 서버의 도메인에서 Windows Server 2012 이상을 실행 하는 DC를 하나 이상 사용할 수 있어야 합니다. 이 단계를 수행 하기 전에는 Azure AD 암호 보호 DC 에이전트 소프트웨어를 도메인 컨트롤러에 설치할 필요가 없습니다.
+    `Register-AzureADPasswordProtectionForest`이 성공 하려면 AZURE AD 암호 보호 프록시 서버의 도메인에서 Windows Server 2012 이상을 실행 하는 DC를 하나 이상 사용할 수 있어야 합니다. 이 단계를 수행 하기 전에는 Azure AD 암호 보호 DC 에이전트 소프트웨어를 도메인 컨트롤러에 설치할 필요가 없습니다.
 
 ### <a name="configure-the-proxy-service-to-communicate-through-an-http-proxy"></a>HTTP 프록시를 통해 통신 하도록 프록시 서비스 구성
 
 사용자 환경에서 특정 HTTP 프록시를 사용 하 여 Azure와 통신 해야 하는 경우 다음 단계를 사용 하 여 Azure AD 암호 보호 서비스를 구성 합니다.
 
-`%ProgramFiles%\Azure AD Password Protection Proxy\Service` 폴더에 *AzureADPasswordProtectionProxy* 파일을 만듭니다. 다음 내용을 포함 합니다.
+폴더에 *AzureADPasswordProtectionProxy.exe.config* 파일을 만듭니다 `%ProgramFiles%\Azure AD Password Protection Proxy\Service` . 다음 내용을 포함 합니다.
 
    ```xml
    <configuration>
@@ -320,11 +320,11 @@ HTTP 프록시에 인증이 필요한 경우 *useDefaultCredentials* 태그를 �
    </configuration>
    ```
 
-두 경우 모두를 특정 `http://yourhttpproxy.com:8080` HTTP 프록시 서버의 주소 및 포트로 바꿉니다.
+두 경우 모두를 `http://yourhttpproxy.com:8080` 특정 HTTP 프록시 서버의 주소 및 포트로 바꿉니다.
 
 HTTP 프록시가 권한 부여 정책을 사용 하도록 구성 된 경우에는 암호 보호를 위해 프록시 서비스를 호스팅하는 컴퓨터의 Active Directory 컴퓨터 계정에 액세스 권한을 부여 해야 합니다.
 
-*AzureADPasswordProtectionProxy* 파일을 만들거나 업데이트 한 후에는 Azure AD 암호 보호 프록시 서비스를 중지 하 고 다시 시작 하는 것이 좋습니다.
+*AzureADPasswordProtectionProxy.exe.config* 파일을 만들거나 업데이트 한 후에는 Azure AD 암호 보호 프록시 서비스를 중지 하 고 다시 시작 하는 것이 좋습니다.
 
 프록시 서비스는 HTTP 프록시에 연결 하는 데 특정 자격 증명을 사용 하는 것을 지원 하지 않습니다.
 
@@ -332,7 +332,7 @@ HTTP 프록시가 권한 부여 정책을 사용 하도록 구성 된 경우에�
 
 Azure AD 암호 보호 DC 에이전트 소프트웨어는 RPC over TCP를 사용 하 여 프록시 서비스와 통신 합니다. 기본적으로 Azure AD 암호 보호 프록시 서비스는 사용 가능한 동적 RPC 끝점에서 수신 합니다. 사용자 환경에서 네트워킹 토폴로지 또는 방화벽 요구 사항으로 인해 필요한 경우 특정 TCP 포트에서 수신 하도록 서비스를 구성할 수 있습니다.
 
-<a id="static" /></a>정적 포트에서 실행 되도록 서비스를 구성 하려면 다음과 같이 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 합니다.
+<a id="static" /></a>정적 포트에서 실행 되도록 서비스를 구성 하려면 다음과 같이 cmdlet을 사용 합니다 `Set-AzureADPasswordProtectionProxyConfiguration` .
 
 ```powershell
 Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -352,7 +352,7 @@ Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
 
 Azure AD 암호 보호 프록시 서비스는 포트 구성 변경 후 수동으로 다시 시작 해야 합니다. 이러한 구성을 변경한 후에는 도메인 컨트롤러에서 Azure AD 암호 보호 DC 에이전트 서비스를 다시 시작할 필요가 없습니다.
 
-서비스의 현재 구성을 쿼리하려면 다음 예제와 같이 `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 합니다.
+서비스의 현재 구성을 쿼리하려면 `Get-AzureADPasswordProtectionProxyConfiguration` 다음 예제와 같이 cmdlet을 사용 합니다.
 
 ```powershell
 Get-AzureADPasswordProtectionProxyConfiguration | fl
@@ -368,7 +368,7 @@ StaticPort  : 0
 
 ## <a name="install-the-dc-agent-service"></a>DC 에이전트 서비스 설치
 
-Azure AD 암호 보호 DC 에이전트 서비스를 설치 하려면 `AzureADPasswordProtectionDCAgentSetup.msi` 패키지를 실행 합니다.
+Azure AD 암호 보호 DC 에이전트 서비스를 설치 하려면 패키지를 실행 `AzureADPasswordProtectionDCAgentSetup.msi` 합니다.
 
 다음 예제와 같이 표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다.
 
@@ -376,7 +376,7 @@ Azure AD 암호 보호 DC 에이전트 서비스를 설치 하려면 `AzureADPas
 msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart
 ```
 
-설치 `/norestart` 관리자가 컴퓨터를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
+`/norestart`설치 관리자가 컴퓨터를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
 
 소프트웨어 설치 또는 제거를 다시 시작 해야 합니다. 이 요구 사항은 암호 필터 Dll은 다시 시작 하는 경우에만 로드 되거나 언로드되는 것 이기 때문입니다.
 
@@ -389,29 +389,29 @@ Azure Portal에서 온-프레미스 Azure AD 암호 보호를 사용 하도록 �
 
 ## <a name="upgrading-the-proxy-service"></a>프록시 서비스 업그레이드
 
-Azure AD 암호 보호 프록시 서비스는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 나란히 설치 되는 Microsoft Azure AD Connect Agent 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+Azure AD 암호 보호 프록시 서비스는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 나란히 설치 되는 Microsoft Azure AD Connect Agent 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다 `Set-AzureADPasswordProtectionProxyConfiguration` .
 
-Cmdlet을 `Get-AzureADPasswordProtectionProxyConfiguration` 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드 설정은 항상 사용 하도록 설정 하는 것이 좋습니다.
+Cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다 `Get-AzureADPasswordProtectionProxyConfiguration` . 자동 업그레이드 설정은 항상 사용 하도록 설정 하는 것이 좋습니다.
 
-`Get-AzureADPasswordProtectionProxy` Cmdlet을 사용 하 여 포리스트에 현재 설치 되어 있는 모든 Azure AD 암호 보호 프록시 서버의 소프트웨어 버전을 쿼리할 수 있습니다.
+`Get-AzureADPasswordProtectionProxy`Cmdlet을 사용 하 여 포리스트에 현재 설치 되어 있는 모든 AZURE AD 암호 보호 프록시 서버의 소프트웨어 버전을 쿼리할 수 있습니다.
 
 ### <a name="manual-upgrade-process"></a>수동 업그레이드 프로세스
 
-수동 업그레이드는 최신 버전의 `AzureADPasswordProtectionProxySetup.exe` 소프트웨어 설치 관리자를 실행 하 여 수행 됩니다. 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
+수동 업그레이드는 최신 버전의 소프트웨어 설치 관리자를 실행 하 여 수행 됩니다 `AzureADPasswordProtectionProxySetup.exe` . 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
 
-최신 버전의 Azure AD 암호 보호 프록시 서비스를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 서비스를 업그레이드할 때는 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는와 `AzureADPasswordProtectionProxySetup.exe /quiet`같은 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다.
+최신 버전의 Azure AD 암호 보호 프록시 서비스를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 서비스를 업그레이드할 때는 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는와 같은 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다 `AzureADPasswordProtectionProxySetup.exe /quiet` .
 
 ## <a name="upgrading-the-dc-agent"></a>DC 에이전트 업그레이드
 
-최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전의 `AzureADPasswordProtectionDCAgentSetup.msi` 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
+최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전의 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다 `AzureADPasswordProtectionDCAgentSetup.msi` . 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
 
 현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이 요구 사항은 핵심 Windows 동작으로 인해 발생 합니다.
 
-소프트웨어 업그레이드는와 `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`같은 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다.
+소프트웨어 업그레이드는와 같은 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다 `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart` .
 
-설치 관리자가 컴퓨터 `/norestart` 를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
+`/norestart`설치 관리자가 컴퓨터를 자동으로 다시 부팅 하도록 하려면 플래그를 생략할 수 있습니다.
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet을 사용 하 여 현재 설치 된 모든 Azure AD 암호 보호 DC 에이전트의 소프트웨어 버전을 포리스트에 쿼리할 수 있습니다.
+`Get-AzureADPasswordProtectionDCAgent`Cmdlet을 사용 하 여 현재 설치 된 모든 AZURE AD 암호 보호 DC 에이전트의 소프트웨어 버전을 포리스트에 쿼리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

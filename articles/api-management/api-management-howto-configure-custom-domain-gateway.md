@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203186"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
 [자체 호스팅 Azure API Management gateway](self-hosted-gateway-overview.md) 를 프로 비전 할 때 호스트 이름이 할당 되지 않으며 해당 IP 주소에서 참조 해야 합니다. 이 문서에서는 자체 호스팅 게이트웨이의 기존 사용자 지정 DNS 이름 (호스트 이름이 라고도 함)을 매핑하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82203186"
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>API Management 서비스에 사용자 지정 도메인 인증서 추가
 
 1. **보안**에서 **인증서** 를 선택 합니다.
-2. **+ 추가**를 선택합니다.
+2. **+추가**를 선택합니다.
 3. 인증서의 리소스 이름을 **ID** 필드에 입력 합니다.
 4. 인증서를 포함 하는 파일을 선택 합니다. PFX)를 선택 하 여 **인증서** 필드 또는 옆에 있는 폴더 아이콘을 선택 합니다.
 5. **암호** 필드에 인증서의 암호를 입력 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "82203186"
 1. **설정**에서 **게이트웨이** 를 선택 합니다.
 2. 도메인 이름을 구성 하려는 자체 호스팅 게이트웨이를 선택 합니다.
 3. **설정**에서 **호스트 이름** 을 선택 합니다.
-4. **+ 추가** 를 선택 합니다.
+4. **+ 추가**를 선택합니다.
 5. **이름** 필드에 호스트 이름에 대 한 리소스 이름을 입력 합니다.
 6. **호스트** 이름 필드에 도메인 이름을 입력 합니다.
 7. **인증서** 드롭다운에서 인증서를 선택 합니다.

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181786"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
@@ -51,7 +51,7 @@ MSAL은 다음을 비롯한 여러 가지 애플리케이션 시나리오에 사
 | 라이브러리 | 지원되는 플랫폼 및 프레임워크|
 | --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, 유니버설 Windows 플랫폼|
-| [MSAL .js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| AngularJS, Ember.js 또는 Durandal.js와 같은 JavaScript/TypeScript 프레임워크|
+| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| AngularJS, Ember.js 또는 Durandal.js와 같은 JavaScript/TypeScript 프레임워크|
 | [Android용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [iOS 및 macOS용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS 및 macOS|
 | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|

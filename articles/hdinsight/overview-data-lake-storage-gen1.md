@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187248"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>HDInsight의 Azure Data Lake Storage Gen1 개요
@@ -73,7 +73,7 @@ Data Lake Storage Gen1는 Hadoop 환경에서 대부분의 오픈 소스 구성 
 
 ## <a name="data-lake-storage-gen1-file-system-adl"></a>Data Lake Storage Gen1 파일 시스템(adl://)
 
-Hadoop 환경에서 AzureDataLakeFilesystem (adl://) 새 파일 시스템을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다. 를 사용 `adl://` 하는 응용 프로그램 및 서비스의 성능은 webhdfs에서 현재 사용할 수 없는 방식으로 최적화할 수 있습니다. 따라서 권장 adl://를 사용 하 여 최상의 성능을 제공 하는 유연성을 얻을 수 있습니다. 또는 WebHDFS API를 직접 계속 사용 하 여 기존 코드를 유지 관리 합니다. Azure HDInsight는 Data Lake Storage Gen1에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
+Hadoop 환경에서 AzureDataLakeFilesystem (adl://) 새 파일 시스템을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다. 를 사용 하는 응용 프로그램 및 서비스의 성능은 `adl://` WebHDFS에서 현재 사용할 수 없는 방식으로 최적화할 수 있습니다. 따라서 권장 adl://를 사용 하 여 최상의 성능을 제공 하는 유연성을 얻을 수 있습니다. 또는 WebHDFS API를 직접 계속 사용 하 여 기존 코드를 유지 관리 합니다. Azure HDInsight는 Data Lake Storage Gen1에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
 
 다음 URI를 사용 하 여 Data Lake Storage Gen1의 데이터에 액세스 합니다.
 

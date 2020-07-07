@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188929"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
 ## <a name="updated-profiler-agent"></a>업데이트 된 프로파일러 에이전트
-트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 그 끝에 \DiagnosticServices을 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다 `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
+트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 그 끝에 \DiagnosticServices을 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다 `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
 
 VM 또는 클라우드 서비스에서 프로파일러를 실행 하는 경우 Windows Azure 진단 (WAD) 확장 버전 16.0.4 이상이 설치 되어 있어야 합니다. VM에 로그온 하 여 WAD의 버전을 확인 하 고이 디렉터리를 찾을 수 있습니다. C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 디렉터리 이름은 설치 된 WAD의 버전입니다. 새 버전을 사용할 수 있게 되 면 Azure VM 에이전트가 자동으로 WAD를 업데이트 합니다.
 
@@ -52,7 +52,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
-Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+기간 | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
 Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
 
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
@@ -78,7 +78,7 @@ Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입�
 
 웹앱에 들어오는 트래픽을 이미 있거나 수동으로 트래픽을 생성하려는 경우 이 섹션을 건너뛰고 2단계를 계속 진행합니다.
 
-1. Application Insights 포털에서**성능 테스트** **구성** > 을 선택 합니다. 
+1. Application Insights 포털에서 **Configure**  >  **성능 테스트**구성을 선택 합니다. 
 
 1. 새 성능 테스트를 시작하려면 **새로 만들기** 단추를 선택합니다.
 

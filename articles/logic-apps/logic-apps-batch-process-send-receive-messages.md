@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144348"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
@@ -29,7 +29,7 @@ ms.locfileid: "82144348"
 
 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 구독 *및* Azure 지역을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [무료 Azure 계정으로 시작할](https://azure.microsoft.com/free/)수 있습니다.
 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
@@ -37,9 +37,9 @@ ms.locfileid: "82144348"
 * [Azure Logic Apps에서 지원하는 전자 메일 공급자](../connectors/apis-list.md)를 사용하는 메일 계정
 
   > [!IMPORTANT]
-  > Gmail 커넥터를 사용 하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우이 커넥터를 특정 Google 승인 서비스만 사용할 수 있습니다. 또는 [gmail 커넥터를 사용 하 여 인증 하는 데 사용할 google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
+  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Azure Portal 대신 Visual Studio를 사용하려면 [Logic Apps를 사용하도록 Visual Studio를 설정](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)해야 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "82144348"
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |  
    | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에 의해 수집 된 메시지 수에 따라 일괄 처리를 해제 합니다. <br>- **크기 기반**: 해당 일괄 처리에 의해 수집 된 모든 메시지의 총 크기 (바이트)를 기준으로 일괄 처리를 해제 합니다. <br>- **일정**: 간격 및 빈도를 지정 하는 되풀이 일정을 기반으로 일괄 처리를 해제 합니다. 고급 옵션에서는 표준 시간대를 선택하고 시작 날짜와 시간을 선택할 수도 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
    | **메시지 수** | 일괄 처리에서 수집할 메시지 수입니다(예: 10개 메시지). 일괄 처리당 메시지는 8,000개로 제한됩니다. | 
-   | **Batch 크기** | 일괄 처리에서 수집할 총 바이트 크기입니다(예: 10MB). 일괄 처리 크기는 80MB로 제한됩니다. | 
+   | **일괄 처리 크기** | 일괄 처리에서 수집할 총 바이트 크기입니다(예: 10MB). 일괄 처리 크기는 80MB로 제한됩니다. | 
    | **일정** | 일괄 처리 해제 간의 간격 및 빈도입니다(예: 10분). 되풀이는 최소 60초 또는 1분입니다. 분의 소수 자릿수 부분은 1분으로 반올림됩니다. 표준 시간대나 시작 시간 및 날짜를 지정하려면 **고급 옵션 표시**를 선택합니다. | 
    ||| 
 
@@ -89,7 +89,7 @@ ms.locfileid: "82144348"
 
    3. **이메일 보내기 - <*이메일 공급자*>** 작업을 선택합니다.
 
-      다음은 그 예입니다.
+      예:
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -171,7 +171,7 @@ ms.locfileid: "82144348"
    | 속성 | Description | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
-   | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. | 
+   | **메시지 내용** | 보내려는 메시지에 대한 콘텐츠입니다. | 
    ||| 
 
    이 예의 경우 현재 날짜 및 시간을 일괄 처리로 보내는 메시지 콘텐츠에 삽입하는 식을 추가합니다.

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 4936f765052d6993e5a372bde6336e00b19a24f6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509264"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
@@ -27,7 +27,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for MySQL이 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
-1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure Portal를 시작 합니다.
+1. 에서 Azure Portal를 시작 [https://portal.azure.com](https://portal.azure.com) 합니다.
 2. 보호할 Azure Database for MySQL 서버의 구성 페이지로 이동합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
 3. **Advanced Threat Protectio(미리 보기)** 구성 페이지에서 다음을 수행합니다.
 
@@ -63,5 +63,5 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
+* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
 * 가격 책정에 대한 자세한 내용은 [Azure Database for MySQL 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요.  

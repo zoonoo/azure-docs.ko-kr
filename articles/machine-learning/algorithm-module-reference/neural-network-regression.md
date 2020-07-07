@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137691"
 ---
 # <a name="neural-network-regression-module"></a>신경망 회귀 모듈
@@ -24,7 +24,7 @@ ms.locfileid: "82137691"
   
 ## <a name="module-overview"></a>모듈 개요  
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 사용자 지정 가능한 신경망 알고리즘을 사용 하 여 회귀 모델을 만듭니다.
   
@@ -96,7 +96,7 @@ ms.locfileid: "82137691"
     > **매개 변수 범위** 옵션을 선택 하 고 매개 변수에 대해 단일 값을 입력 하는 경우 다른 매개 변수가 값 범위에서 변경 되더라도 지정한 단일 값은 스윕 전체에서 사용 됩니다.  
   
    
-14. 파이프라인을 제출 합니다.  
+14. 파이프라인을 제출합니다.  
 
 ## <a name="results"></a>결과
 
@@ -106,4 +106,4 @@ ms.locfileid: "82137691"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

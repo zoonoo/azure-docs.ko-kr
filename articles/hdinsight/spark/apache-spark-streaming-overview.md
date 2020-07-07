@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0ccb87017f962650f099d506e1d200ab408316d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195148"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
-[Apache Spark](https://spark.apache.org/) 스트리밍은 HDInsight Spark 클러스터에서 데이터 스트림 처리를 제공 합니다. 노드 오류가 발생할 경우에도 입력 이벤트가 정확히 한 번만 처리 되도록 보장 합니다. Spark 스트림은 Azure Event Hubs를 포함 하 여 다양 한 원본에서 입력 데이터를 수신 하는 장기 실행 작업입니다. 또한 Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`, 원시 TCP 소켓 또는 모니터링 Apache Hadoop YARN 파일 시스템 합니다. 전적으로 이벤트 구동 프로세스와 달리 Spark 스트림은 입력 데이터를 시간 창으로 일괄 처리 합니다. 그런 다음 2 초 조각과 같이 map, 줄임, join 및 extract 작업을 사용 하 여 각 데이터 일괄 처리를 변환 합니다. 그런 다음 Spark Stream은 변환된 데이터를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 기록합니다.
+[Apache Spark](https://spark.apache.org/) 스트리밍은 HDInsight Spark 클러스터에서 데이터 스트림 처리를 제공 합니다. 노드 오류가 발생할 경우에도 입력 이벤트가 정확히 한 번만 처리 되도록 보장 합니다. Spark 스트림은 Azure Event Hubs를 포함 하 여 다양 한 원본에서 입력 데이터를 수신 하는 장기 실행 작업입니다. 또한 Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` , 원시 TCP 소켓 또는 모니터링 APACHE HADOOP YARN 파일 시스템 합니다. 전적으로 이벤트 구동 프로세스와 달리 Spark 스트림은 입력 데이터를 시간 창으로 일괄 처리 합니다. 그런 다음 2 초 조각과 같이 map, 줄임, join 및 extract 작업을 사용 하 여 각 데이터 일괄 처리를 변환 합니다. 그런 다음 Spark Stream은 변환된 데이터를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 기록합니다.
 
 ![HDInsight 및 Spark 스트리밍을 사용하여 스트림 처리](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Spark 스트리밍 응용 프로그램은 처리를 위해 해당 일괄 처리를 보내기 `micro-batch` 전에 각 이벤트를 수집할 때까지 몇 초 정도 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
+Spark 스트리밍 응용 프로그램은 `micro-batch` 처리를 위해 해당 일괄 처리를 보내기 전에 각 이벤트를 수집할 때까지 몇 초 정도 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
 
 ## <a name="introducing-the-dstream"></a>DStream 소개
 
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 결과 출력은 다음과 같습니다.
 
-| value | time |
+| 값 | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -167,7 +167,7 @@ DummySource는 5초마다 하나의 값을 만들고 애플리케이션이 30초
 
 ## <a name="sliding-windows"></a>슬라이딩 윈도우
 
-일정 기간 동안 (예: 지난 2 초 동안 평균 온도를 얻기 위해) 시간에 대 한 집계 계산을 수행 하려면 Spark 스트리밍에 `sliding window` 포함 된 작업을 사용 합니다. 슬라이딩 윈도우는 윈도우의 콘텐츠가 계산되는 기간(윈도우 길이) 및 간격(슬라이드 간격)이 있습니다.
+일정 기간 동안 (예: 지난 2 초 동안 평균 온도를 얻기 위해) 시간에 대 한 집계 계산을 수행 하려면 `sliding window` Spark 스트리밍에 포함 된 작업을 사용 합니다. 슬라이딩 윈도우는 윈도우의 콘텐츠가 계산되는 기간(윈도우 길이) 및 간격(슬라이드 간격)이 있습니다.
 
 이러한 슬라이딩 윈도우는 겹칠 수 있습니다. 예를 들어 1초마다 슬라이드하는 2초 길이로 윈도우를 정의할 수 있습니다. 이 작업은 집계 계산을 수행할 때마다 이전 창의 마지막 1 초에서 가져온 데이터가 창에 포함 됨을 의미 합니다. 그리고 다음 1 초 동안 모든 새 데이터
 
@@ -222,7 +222,7 @@ ssc.start()
 
 처음 1분 후 12개 항목(윈도우에서 수집한 두 개의 각 일괄 처리에서 6개 항목)이 생성됩니다.
 
-| value | time |
+| 값 | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

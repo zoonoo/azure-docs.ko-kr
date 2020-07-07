@@ -4,10 +4,10 @@ description: Azure CLI를 사용 하 여 Azure Backup에서 백업 된 Azure 파
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184115"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure 파일 공유 백업 관리
@@ -18,7 +18,7 @@ Azure CLI은 Azure 리소스를 관리 하기 위한 명령줄 환경을 제공 
 
 CLI를 로컬로 설치 하 고 사용 하려면 Azure CLI 버전 2.0.18 이상을 이상을 실행 해야 합니다. CLI 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)으로 백업 된 Azure 파일 공유가 이미 있다고 가정 합니다. 없으면 [CLI를 사용 하 여 Azure 파일 공유](backup-afs-cli.md) 백업을 참조 하 여 파일 공유에 대 한 백업을 구성 합니다. 이 문서에서는 다음 리소스를 사용 합니다.
 

@@ -12,10 +12,10 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: e138b3513b42dda47b0a114d866d657e18e3e393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181650"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>웹 Api를 호출 하는 웹 앱: 전역 로그 아웃 시 토큰 캐시에서 계정 제거
@@ -26,7 +26,7 @@ ms.locfileid: "82181650"
 
 ## <a name="intercept-the-callback-after-single-sign-out"></a>단일 로그 아웃 후 콜백을 가로챕니다.
 
-로그 아웃 한 계정에 연결 된 토큰 캐시 엔트리를 지우기 위해 응용 프로그램은 after `logout` 이벤트를 가로챌 수 있습니다. Web apps는 토큰 캐시에 있는 각 사용자에 대 한 액세스 토큰을 저장 합니다. 웹 응용 프로그램은 `logout` after 콜백을 가로채 면 캐시에서 사용자를 제거할 수 있습니다.
+로그 아웃 한 계정에 연결 된 토큰 캐시 엔트리를 지우기 위해 응용 프로그램은 after 이벤트를 가로챌 수 있습니다 `logout` . Web apps는 토큰 캐시에 있는 각 사용자에 대 한 액세스 토큰을 저장 합니다. `logout`웹 응용 프로그램은 after 콜백을 가로채 면 캐시에서 사용자를 제거할 수 있습니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

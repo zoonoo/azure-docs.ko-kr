@@ -8,10 +8,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82182755"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>충돌 유형 및 해결 정책
@@ -35,7 +35,7 @@ Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커
   두 개 이상 항목이 삽입 또는 대체 작업에서 충돌하는 경우 충돌 해결 경로에 대한 가장 높은 값이 포함된 항목이 선정됩니다. 여러 항목에 충돌 해결 경로에 대한 동일한 숫자 값이 있는 경우 시스템에서 선정 항목이 결정됩니다. 모든 지역은 단일 선정 항목으로 수렴되고 결국 동일한 버전의 커밋된 항목으로 끝나게 됩니다. 삭제 충돌이 포함되어 있으면 삭제된 버전이 항상 삽입 또는 대체 충돌에 비해 우선적으로 선정됩니다. 이 결과는 충돌 해결 경로의 값에 관계 없이 발생 합니다.
 
   > [!NOTE]
-  > 마지막 쓰기 Wins는 기본 충돌 해결 정책 이며, SQL, `_ts` MongoDB, Cassandra, Gremlin 및 Table api에 대 한 타임 스탬프를 사용 합니다. 사용자 지정 숫자 속성은 SQL API에 대해서만 사용할 수 있습니다.
+  > 마지막 쓰기 Wins는 기본 충돌 해결 정책 이며, `_ts` SQL, MongoDB, Cassandra, Gremlin 및 Table api에 대 한 타임 스탬프를 사용 합니다. 사용자 지정 숫자 속성은 SQL API에 대해서만 사용할 수 있습니다.
 
   자세한 내용은 [LWW 충돌 해결 정책을 사용하는 예제](how-to-manage-conflicts.md)를 참조하세요.
 

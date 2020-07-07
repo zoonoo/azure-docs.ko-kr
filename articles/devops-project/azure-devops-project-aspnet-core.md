@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure DevOps 스타터를 사용 하 여 .NET 용 CI/CD 파이프라인 만들기'
-description: Azure DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
+description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -16,10 +16,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233308"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 .NET 용 CI/CD 파이프라인 만들기
@@ -30,13 +30,13 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-DevOps 스타터는 Azure DevOps에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps 스타터는 선택한 Azure 구독에 Azure 리소스를 만듭니다.
+DevOps 스타터는 Azure DevOps에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Starter는 선택한 Azure 구독에서 Azure 리소스를 만듭니다.
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다. 
+1. 검색 상자에 **DevOps Starter**를 입력한 다음, 선택합니다. **추가**를 클릭하여 새 항목을 만듭니다. 
 
-    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![DevOps Starter 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
@@ -84,7 +84,7 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 
 이전 단계에서 Azure DevOps 스타터는 전체 CI/CD 파이프라인을 자동으로 구성 합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
 
-1. DevOps 스타터 대시보드 맨 위에서 **파이프라인 빌드**를 선택 합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
+1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 
 1. 줄임표(...)를 선택합니다.  이 작업은 새 빌드 큐, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
 
@@ -106,7 +106,7 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
 1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  
-DevOps 스타터는 Azure에 대 한 배포를 관리 하는 릴리스 파이프라인을 만듭니다.
+DevOps Starter는 Azure에 대한 배포를 관리하는 릴리스 파이프라인을 만듭니다.
 
 1.  왼쪽에서 릴리스 파이프라인 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다. 릴리스 파이프라인에는 릴리스 프로세스를 정의하는 파이프라인이 포함됩니다.  
 
@@ -126,7 +126,7 @@ DevOps 스타터는 Azure에 대 한 배포를 관리 하는 릴리스 파이프
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 경우 만든 Azure App Service 및 기타 관련 리소스를 삭제할 수 있습니다. DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
+더 이상 필요하지 않을 경우 만든 Azure App Service 및 기타 관련 리소스를 삭제할 수 있습니다. DevOps Starter 대시보드의 **삭제** 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

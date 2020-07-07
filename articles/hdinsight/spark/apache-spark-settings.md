@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188160"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
@@ -85,7 +85,7 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택
 
 Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업자 노드 실행기에 대한 Spark 구성 값을 조정하는 것이 일반적입니다.
 
-애플리케이션 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 애플리케이션을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션에 대한 작업을 담당합니다. 작업자 노드 및 작업자 노드 크기의 수에 따라 실행 기 수와 실행자 크기가 결정 됩니다. 이러한 값은 클러스터 헤드 `spark-defaults.conf` 노드의에 저장 됩니다.  Ambari 웹 UI에서 **사용자 지정 spark-기본값** 을 선택 하 여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작**하라는 메시지가 표시됩니다.
+애플리케이션 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 애플리케이션을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션에 대한 작업을 담당합니다. 작업자 노드 및 작업자 노드 크기의 수에 따라 실행 기 수와 실행자 크기가 결정 됩니다. 이러한 값은 `spark-defaults.conf` 클러스터 헤드 노드의에 저장 됩니다.  Ambari 웹 UI에서 **사용자 지정 spark-기본값** 을 선택 하 여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작**하라는 메시지가 표시됩니다.
 
 > [!NOTE]  
 > 이러한 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 애플리케이션의 경우) 클러스터 수준에서 구성될 수도 있고, 각 개별 애플리케이션에 대해 지정될 수도 있습니다.
@@ -96,13 +96,13 @@ Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본�
 
 또는 Ambari REST API를 사용 하 여 HDInsight 및 Spark 클러스터 구성 설정을 프로그래밍 방식으로 확인할 수 있습니다.  자세한 내용은 [GitHub의 Apache Ambari API 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 참조하세요.
 
-Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보다 최적화된 Spark 작업 실행이 제공되는지 확인할 수 있습니다.  기본이 아닌 클러스터 구성의 유효성을 검사 하는 샘플 워크 로드로 벤치 마크 테스트를 수행 합니다.  조정을 고려할 수 있는 몇 가지 일반적인 매개 변수는 다음과 같습니다.
+Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보다 최적화된 Spark 작업 실행이 제공되는지 확인할 수 있습니다.  샘플 워크로드로 벤치마크 테스트를 수행하여 기본이 아닌 클러스터 구성의 유효성을 검사합니다.  조정을 고려할 수 있는 몇 가지 일반적인 매개 변수는 다음과 같습니다.
 
 |매개 변수 |Description|
 |---|---|
-|--num-실행자|실행자 수를 설정 합니다.|
-|--executor-코어|각 실행자에 대 한 코어 수를 설정 합니다. 다른 프로세스도 사용 가능한 메모리 중 일부를 소비하기 때문에 중간 규모의 실행기를 사용하는 것이 좋습니다.|
-|--executor-메모리|Apache Hadoop YARN에서 각 실행 기의 메모리 크기 (힙 크기)를 제어 하며, 실행 오버 헤드를 위해 일부 메모리를 남겨 두어야 합니다.|
+|--num-executors|실행자 수를 설정 합니다.|
+|--executor-cores|각 실행기의 코어 수를 설정합니다. 다른 프로세스도 사용 가능한 메모리 중 일부를 소비하기 때문에 중간 규모의 실행기를 사용하는 것이 좋습니다.|
+|--executor-memory|Apache Hadoop YARN에서 각 실행 기의 메모리 크기 (힙 크기)를 제어 하며, 실행 오버 헤드를 위해 일부 메모리를 남겨 두어야 합니다.|
 
 다음은 다른 구성 값을 갖는 두 개의 작업자 노드 예제입니다.
 

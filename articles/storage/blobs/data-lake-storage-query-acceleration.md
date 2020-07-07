@@ -9,10 +9,10 @@ ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176705"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage 쿼리 가속 (미리 보기)
@@ -32,7 +32,7 @@ SQL을 사용 하 여 쿼리 가속 요청에서 행 필터 조건자 및 열 �
 
 클라이언트 응용 프로그램에서 쿼리 가속을 사용 하는 방법에 대 한 예제는 [Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)을 참조 하세요.
 
-## <a name="data-flow"></a>디자이너의
+## <a name="data-flow"></a>데이터 흐름
 
 다음 다이어그램에서는 일반적인 응용 프로그램에서 쿼리 가속을 사용 하 여 데이터를 처리 하는 방법을 보여 줍니다.
 

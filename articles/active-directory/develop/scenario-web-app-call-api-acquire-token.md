@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181735"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 웹 앱: 앱에 대 한 토큰을 가져옵니다.
@@ -27,7 +27,7 @@ ms.locfileid: "82181735"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-컨트롤러 메서드는 웹 앱을 사용 `[Authorize]` 하도록 사용자를 인증 하도록 하는 특성으로 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
+컨트롤러 메서드는 `[Authorize]` 웹 앱을 사용 하도록 사용자를 인증 하도록 하는 특성으로 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
 
 ```csharp
 [Authorize]
@@ -45,9 +45,9 @@ public class HomeController : Controller
 }
 ```
 
-서비스 `ITokenAcquisition` 는 종속성 주입을 사용 하 여 ASP.NET에 의해 삽입 됩니다.
+`ITokenAcquisition`서비스는 종속성 주입을 사용 하 여 ASP.NET에 의해 삽입 됩니다.
 
-다음은 `HomeController`Microsoft Graph 호출할 토큰을 가져오는의 동작에 대 한 간소화 된 코드입니다.
+다음은 Microsoft Graph 호출할 토큰을 가져오는의 동작에 대 한 간소화 된 코드입니다 `HomeController` .
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -76,15 +76,15 @@ public async Task<IActionResult> Profile()
 
 ASP.NET에 대 한 코드는 ASP.NET Core에 대해 표시 되는 코드와 비슷합니다.
 
-- [권한 부여] 특성으로 보호 되는 컨트롤러 작업은 컨트롤러 `ClaimsPrincipal` 구성원의 테 넌 트 id 및 사용자 id를 추출 합니다. (ASP.NET는 `HttpContext.User`를 사용 합니다.)
-- 여기에서 MSAL.NET `IConfidentialClientApplication` 개체를 빌드합니다.
-- 마지막으로 기밀 클라이언트 응용 `AcquireTokenSilent` 프로그램의 메서드를 호출 합니다.
+- [권한 부여] 특성으로 보호 되는 컨트롤러 작업은 컨트롤러 구성원의 테 넌 트 ID 및 사용자 ID를 추출 합니다 `ClaimsPrincipal` . (ASP.NET는 `HttpContext.User` 를 사용 합니다.)
+- 여기에서 MSAL.NET 개체를 빌드합니다 `IConfidentialClientApplication` .
+- 마지막으로 `AcquireTokenSilent` 기밀 클라이언트 응용 프로그램의 메서드를 호출 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
 Java 샘플에서 API를 호출 하는 코드는 [AuthPageController # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62)의 Getusers fromgraph 메서드에 있습니다.
 
-메서드는를 호출 `getAuthResultBySilentFlow`하려고 합니다. 사용자가 더 많은 범위에 동의 해야 하는 경우 코드에서 `MsalInteractionRequiredException` 개체를 처리 하 여 사용자를 시도 합니다.
+메서드는를 호출 하려고 `getAuthResultBySilentFlow` 합니다. 사용자가 더 많은 범위에 동의 해야 하는 경우 코드에서 개체를 처리 `MsalInteractionRequiredException` 하 여 사용자를 시도 합니다.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")

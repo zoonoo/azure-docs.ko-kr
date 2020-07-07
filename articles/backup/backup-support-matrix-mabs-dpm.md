@@ -4,15 +4,15 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 Sys
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193278"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
-[Azure Backup 서비스](backup-overview.md) 를 사용 하 여 온-프레미스 컴퓨터 및 워크 로드와 Azure vm (가상 머신)을 백업할 수 있습니다. 이 문서에는 Microsoft Azure Backup 서버 (MABS) 또는 System Center Data Protection Manager (DPM) 및 Azure Backup를 사용 하 여 컴퓨터를 백업 하는 데 필요한 설정 및 제한 사항이 요약 되어 있습니다.
+[Azure Backup 서비스](backup-overview.md)를 사용하여 온-프레미스 머신 및 워크로드, Azure VM(가상 머신)을 백업할 수 있습니다. 이 문서에는 Microsoft Azure Backup 서버 (MABS) 또는 System Center Data Protection Manager (DPM) 및 Azure Backup를 사용 하 여 컴퓨터를 백업 하는 데 필요한 설정 및 제한 사항이 요약 되어 있습니다.
 
 ## <a name="about-dpmmabs"></a>DPM/MABS 정보
 
@@ -43,7 +43,7 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 1. MARS(Microsoft Azure Recovery Services) 에이전트가 DPM 서버/MABS에 설치됩니다.
 1. MARS 에이전트는 Azure Backup를 사용 하 여 DPM/MABS 디스크를 Azure의 백업 Recovery Services 자격 증명 모음에 백업 합니다.
 
-추가 정보는 다음 항목을 참조하세요.
+자세한 내용은 다음을 참조하세요.
 
 - MABS 아키텍처에 대해 [자세히 알아봅니다](backup-architecture.md#architecture-back-up-to-dpmmabs).
 - MARS 에이전트에 대해 [지원 되는 기능을 검토](backup-support-matrix-mars-agent.md) 합니다.
@@ -76,16 +76,16 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **DPM 온-프레미스** | 물리적 서버/Hyper-v VM: System Center 2012 SP1 이상<br/><br/> VMware VM: System Center 2012 R2 업데이트 5 이상
 
 >[!NOTE]
->Azure Backup Server 설치는 Windows Server Core 또는 Microsoft Hyper-V Server에서 지원 되지 않습니다.
+>Windows Server Core 또는 Microsoft Hyper-V Server에서는 Azure Backup Server 설치가 지원되지 않습니다.
 
 ## <a name="management-support"></a>관리 지원
 
-**문제** | **세부 정보**
+**문제점** | **세부 정보**
 --- | ---
 **설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
-**저장소** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
-**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
+**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아봅니다](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> MABS 데이터베이스를 복원해야 하므로 백업이 필요합니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원
@@ -133,7 +133,7 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
 Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
 
-- Azure Active Directory (12076:5060)
+- Azure Active Directory(12076:5060)
 - Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
@@ -146,7 +146,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 백업이 제대로 작동하고 Azure 구독이 활성화되려면 Azure Backup 서비스에 연결되어야 합니다. 다음 표에서는 이러한 두 가지 조건이 충족되지 않을 경우에 발생하는 동작을 보여 줍니다.
 
-**MABS-Azure 연결** | **구독** | **백업/복원**
+**MABS-Azure 연결** | **구독** | **Backup/복원**
 --- | --- | ---
 연결됨 | Active | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원<br/><br/> Azure에서 복원.
 연결됨 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 된 경우 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
@@ -157,7 +157,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 DPM/MABS에 백업 되는 데이터는 로컬 디스크 저장소에 저장 됩니다.
 
-**저장소** | **세부 정보**
+**스토리지** | **세부 정보**
 --- | ---
 **MBS** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **Azure VM의 MABS 스토리지** | 데이터는 DPM/MABS VM에 연결 되 고 DPM/MABS에서 관리 되는 Azure 디스크에 저장 됩니다. DPM/MABS 저장소 풀에 사용할 수 있는 디스크 수는 VM의 크기로 제한 됩니다.<br/><br/> A2 VM: 4 개 디스크 A3 VM: 8 개 디스크 A4 VM: 각 디스크에 대해 최대 크기가 1tb 인 16 개의 디스크 이는 사용 가능한 총 백업 저장소 풀을 결정 합니다.<br/><br/> 백업할 수 있는 데이터 양은 연결된 디스크의 수와 크기에 따라 달라집니다.

@@ -7,19 +7,19 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82169571"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: 투구를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
-[Helm][helm]은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
+[투구][helm] 는 Kubernetes 응용 프로그램의 수명 주기를 설치 하 고 관리 하는 데 도움이 되는 오픈 소스 패키징 도구입니다. *APT* , *Yum*등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
 이 문서에서는 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 데 투구를 사용 하는 방법을 보여 줍니다. 투구를 사용 하 여 기존 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 [AKS에서 투구로 기존 응용 프로그램 설치][helm-existing]를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 [시작에서는 Azure Dev Spaces 샘플 리포지토리에서 예제 node.js 응용 프로그램][example-nodejs]을 사용 합니다. GitHub에서 응용 프로그램을 복제 하 고 `dev-spaces/samples/nodejs/getting-started/webfrontend` 디렉터리로 이동 합니다.
+이 빠른 [시작에서는 Azure Dev Spaces 샘플 리포지토리의 예제 Node.js 응용 프로그램][example-nodejs]을 사용 합니다. GitHub에서 응용 프로그램을 복제 하 고 `dev-spaces/samples/nodejs/getting-started/webfrontend` 디렉터리로 이동 합니다.
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -138,7 +138,7 @@ docker push <acrLoginServer>/webfrontend:v1
 
 ## <a name="create-your-helm-chart"></a>투구 차트 만들기
 
-`helm create` 명령을 사용 하 여 투구 차트를 생성 합니다.
+명령을 사용 하 여 투구 차트를 생성 `helm create` 합니다.
 
 ```console
 helm create webfrontend
@@ -149,7 +149,7 @@ helm create webfrontend
 * `image.repository`를 `<acrLoginServer>/webfrontend`로 변경
 * `service.type`를 `LoadBalancer`로 변경
 
-다음은 그 예입니다.
+예:
 
 ```yml
 # Default values for webfrontend.
@@ -168,7 +168,7 @@ service:
 ...
 ```
 
-`appVersion` `v1` *Webfrontend 엔드/차트에서로 업데이트 합니다. yaml*. 예를 들면 다음과 같습니다.
+`appVersion` `v1` *Webfrontend 엔드/차트에서로 업데이트 합니다. yaml*. 예
 
 ```yml
 apiVersion: v2
@@ -181,7 +181,7 @@ appVersion: v1
 
 ## <a name="run-your-helm-chart"></a>투구 차트 실행
 
-이 `helm install` 명령을 사용 하 여 투구 차트를 사용 하 여 응용 프로그램을 설치 합니다.
+이 명령을 사용 하 여 `helm install` 투구 차트를 사용 하 여 응용 프로그램을 설치 합니다.
 
 ```console
 helm install webfrontend webfrontend/
@@ -198,7 +198,7 @@ webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
 ```
 
-을 사용 하 여 `<EXTERNAL-IP>` 브라우저에서 응용 프로그램의 부하 분산 장치로 이동 하 여 샘플 응용 프로그램을 확인 합니다.
+을 사용 하 여 브라우저에서 응용 프로그램의 부하 분산 장치로 이동 하 여 `<EXTERNAL-IP>` 샘플 응용 프로그램을 확인 합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

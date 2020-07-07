@@ -4,10 +4,10 @@ description: REST API를 사용 하 여 Azure Backup에서 백업 된 Azure 파�
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184914"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 백업 관리
@@ -54,9 +54,9 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>응답
 
-속성  | 유형  |  Description
+Name  | Type  |  Description
 --- | --- | ----
-200 정상 |  JobResource  | 확인
+200 정상 |  JobResource  | 정상
 
 #### <a name="response-example"></a>응답 예제
 

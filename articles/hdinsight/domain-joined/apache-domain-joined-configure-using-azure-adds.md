@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 2b4756990162817087b0904a764b97526c3545d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186654"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
@@ -70,7 +70,7 @@ ESP 클러스터를 설정 하려면 사용자 할당 관리 id가 아직 없는
 
 ![Azure Active Directory Domain Services 액세스 제어](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-**HDInsight Domain Services 참가자** 역할을 할당 하면이 Id가 Azure AD DS 도메인`on behalf of`에서 도메인 서비스 작업을 수행할 수 있는 적절 한 () 액세스 권한이 보장 됩니다. 이러한 작업에는 Ou 만들기 및 삭제가 포함 됩니다.
+**HDInsight Domain Services 참가자** 역할을 할당 하면이 Id가 `on behalf of` Azure AD DS 도메인에서 도메인 서비스 작업을 수행할 수 있는 적절 한 () 액세스 권한이 보장 됩니다. 이러한 작업에는 Ou 만들기 및 삭제가 포함 됩니다.
 
 관리 id에 역할이 지정 된 후 Azure AD DS 관리자는 해당 id를 사용 하는 사용자를 관리 합니다. 먼저 관리자가 포털에서 관리 id를 선택 합니다. 그런 다음 **개요**에서 **Access Control (IAM)** 을 선택 합니다. 관리자는 ESP 클러스터를 만들려는 사용자 또는 그룹에 **관리 Id 운영자** 역할을 할당 합니다.
 
@@ -93,13 +93,13 @@ Azure AD DS 가상 네트워크에서 DNS 서버의 구성을 변경 합니다. 
 
 Azure AD DS 인스턴스와 HDInsight 클러스터를 동일한 Azure 가상 네트워크에 배치하는 것이 더 쉽습니다. 다른 가상 네트워크를 사용 하려는 경우 해당 가상 네트워크를 피어 링 하 여 도메인 컨트롤러가 HDInsight Vm에 표시 되도록 해야 합니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-가상 네트워크를 피어 링 한 후 사용자 지정 DNS 서버를 사용 하도록 HDInsight 가상 네트워크를 구성 합니다. DNS 서버 주소를 입력 하 여 Azure AD DS 개인 Ip를 입력 합니다. 두 가상 네트워크에서 동일한 DNS 서버를 사용 하는 경우 사용자 지정 도메인 이름은 올바른 IP로 확인 되 고 HDInsight에서 연결할 수 있습니다. 예를 들어 도메인 이름이 인 `contoso.com`경우이 단계를 완료 하면 올바른 AZURE `ping contoso.com` AD DS IP로 확인 되어야 합니다.
+가상 네트워크를 피어 링 한 후 사용자 지정 DNS 서버를 사용 하도록 HDInsight 가상 네트워크를 구성 합니다. DNS 서버 주소를 입력 하 여 Azure AD DS 개인 Ip를 입력 합니다. 두 가상 네트워크에서 동일한 DNS 서버를 사용 하는 경우 사용자 지정 도메인 이름은 올바른 IP로 확인 되 고 HDInsight에서 연결할 수 있습니다. 예를 들어 도메인 이름이 인 경우 `contoso.com` 이 단계를 완료 하면 `ping contoso.com` 올바른 AZURE AD DS IP로 확인 되어야 합니다.
 
 ![피어 링 가상 네트워크에 대 한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
 HDInsight 서브넷에 NSG (네트워크 보안 그룹) 규칙을 사용 하는 경우 인바운드 및 아웃 바운드 트래픽 모두에 대해 [필요한 ip](../hdinsight-management-ip-addresses.md) 를 허용 해야 합니다.
 
-네트워크 설정을 테스트 하려면 Windows VM을 HDInsight 가상 네트워크/서브넷에 연결 하 고 도메인 이름을 ping 합니다. (IP로 확인 되어야 합니다.) **Ldp.exe** 를 실행 하 여 Azure AD DS 도메인에 액세스 합니다. 그런 다음이 Windows VM을 도메인에 가입 하 여 클라이언트와 서버 간에 필요한 모든 RPC 호출이 성공 했는지 확인 합니다.
+네트워크 설정을 테스트 하려면 Windows VM을 HDInsight 가상 네트워크/서브넷에 연결 하 고 도메인 이름을 ping 합니다. (IP로 확인 되어야 합니다.) **ldp.exe** 를 실행 하 여 Azure AD DS 도메인에 액세스 합니다. 그런 다음이 Windows VM을 도메인에 가입 하 여 클라이언트와 서버 간에 필요한 모든 RPC 호출이 성공 했는지 확인 합니다.
 
 **Nslookup** 을 사용 하 여 저장소 계정에 대 한 네트워크 액세스를 확인 합니다. 또는 사용할 수 있는 외부 데이터베이스 (예: 외부 Hive metastore 또는 레인저 DB). NSG가 Azure AD DS를 보호 하는 경우 Azure AD DS 서브넷의 NSG 규칙에서 [필요한 포트가](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) 허용 되는지 확인 합니다. 이 Windows VM의 도메인 가입에 성공 하면 다음 단계를 계속 하 여 ESP 클러스터를 만들 수 있습니다.
 
@@ -124,7 +124,7 @@ ESP를 사용 하 여 HDInsight 클러스터를 만들 때 다음 매개 변수�
 
 * **클러스터 액세스 그룹**: 동기화 하려는 사용자와 클러스터에 대 한 액세스 권한이 있는 보안 그룹은 Azure AD DS에서 사용할 수 있어야 합니다. 예를 들면 HiveUsers 그룹이 있습니다. 자세한 내용은 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-* **LDAPS URL**: 예를 `ldaps://contoso.com:636`들면입니다.
+* **LDAPS URL**: 예를 들면 `ldaps://contoso.com:636` 입니다.
 
 사용자가 만든 관리 되는 id는 새 클러스터를 만들 때 **사용자 할당 관리 id** 드롭다운 목록에서 선택할 수 있습니다.
 

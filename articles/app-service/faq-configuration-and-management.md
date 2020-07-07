@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160003"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
@@ -125,7 +125,7 @@ PCI DSS 버전 3.1 인증을 적용하려면 TLS(전송 계층 보안) 1.0을 �
 
 WebJob 로그를 검토하려면:
 
-1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
 2. WebJob을 선택합니다.
 3. **출력 설정/해제** 단추를 선택합니다.
 4. 출력 파일을 다운로드하려면 **다운로드** 링크를 선택합니다.
