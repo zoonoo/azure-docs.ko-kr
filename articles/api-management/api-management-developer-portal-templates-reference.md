@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176797"
 ---
 # <a name="developer-portal-templates"></a>개발자 포털 템플릿
@@ -46,7 +46,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [제품](api-management-product-templates.md)  
     -   [제품 목록](api-management-product-templates.md#ProductList)  
-    -   [제품은](api-management-product-templates.md#Product)  
+    -   [Product](api-management-product-templates.md#Product)  
 -   [애플리케이션](api-management-application-templates.md)  
     -   [애플리케이션 목록](api-management-application-templates.md#ProductList)  
     -   [애플리케이션](api-management-application-templates.md#Application)  
@@ -57,9 +57,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
     -   [구독](api-management-user-profile-templates.md#Subscriptions)  
     -   [애플리케이션](api-management-user-profile-templates.md#Applications)  
     -   [계정 정보 업데이트](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [마주보](api-management-page-templates.md)  
+-   [페이지](api-management-page-templates.md)  
     -   [로그인](api-management-page-templates.md#SignIn)  
-    -   [등록](api-management-page-templates.md#SignUp)  
+    -   [등록하세요](api-management-page-templates.md#SignUp)  
     -   [페이지를 찾을 수 없음](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>다음 단계  

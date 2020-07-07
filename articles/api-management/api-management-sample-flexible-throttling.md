@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71066761"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Azure API Management로 고급 요청 제한
@@ -30,7 +30,7 @@ ms.locfileid: "71066761"
 ## <a name="custom-key-based-throttling"></a>사용자 지정 키 기반 제한
 
 > [!NOTE]
-> Azure `rate-limit-by-key` API Management `quota-by-key` 의 소비 계층에서는 및 정책을 사용할 수 없습니다. 
+> `rate-limit-by-key` `quota-by-key` Azure API Management의 소비 계층에서는 및 정책을 사용할 수 없습니다. 
 
 새로운 [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) 및 [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) 정책은 트래픽 제어에 유연한 솔루션을 제공합니다. 이 새로운 정책을 통해 트래픽 사용량을 추적하는 데 사용할 키를 식별하는 식을 정의할 수 있습니다. 이러한 작동 방식은 예제를 통해 가장 쉽게 이해할 수 있습니다. 
 

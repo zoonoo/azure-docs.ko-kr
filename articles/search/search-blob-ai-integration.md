@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73496437"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>AI를 사용 하 여 Blob 저장소 데이터 이해
@@ -34,7 +34,7 @@ AI 보강는 필드로 캡처된 새 정보를 필드에 저장 합니다. 보�
 
 *Ai 보강* 는 사용자가 제공 하는 Microsoft 또는 사용자 지정 ai의 기본 제공 ai를 통합 하는 Azure Cognitive Search 인덱싱 아키텍처의 일부입니다. Blob을 처리 해야 하는 종단 간 시나리오를 구현 하는 데 도움이 됩니다 .이 시나리오에서는 blob (기존 항목과 새 항목 모두)을 처리 하 고, 이미지 및 텍스트를 추출 하 고, 다양 한 AI 기능을 사용 하 여 원하는 정보를 추출 하 고, 빠른 검색, 검색 및 탐색을 위해 검색 인덱스에서 인덱스를 인덱싱합니다. 
 
-입력은 Azure Blob storage의 단일 컨테이너에 있는 blob입니다. Blob은 거의 모든 종류의 텍스트 또는 이미지 데이터 일 수 있습니다. 
+입력은 Azure Blob Storage의 단일 컨테이너에 있는 Blob입니다. Blob은 거의 모든 종류의 텍스트 또는 이미지 데이터 일 수 있습니다. 
 
 출력은 항상 클라이언트 응용 프로그램에서 빠른 텍스트 검색, 검색 및 탐색에 사용 되는 검색 인덱스입니다. 또한 출력은 Power BI 또는 데이터 과학 워크 로드와 같은 도구에서 다운스트림 분석용으로 문서를 Azure blob 또는 Azure 테이블에 보강 하는 *정보 저장소* 일 수도 있습니다.
 
@@ -42,9 +42,9 @@ Between은 파이프라인 아키텍처 자체입니다. 파이프라인은 *인
 
 ## <a name="start-with-services"></a>서비스 시작
 
-Azure Cognitive Search 및 Azure Blob storage가 필요 합니다. Blob storage 내에서 원본 콘텐츠를 제공 하는 컨테이너가 필요 합니다.
+Azure Cognitive Search 및 Azure Blob Storage가 필요합니다. Blob Storage 내에서 원본 콘텐츠를 제공하는 컨테이너가 필요합니다.
 
-저장소 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service** 에서 **Azure Cognitive Search 추가** 를 클릭 하 여 새 서비스를 만들거나 기존 서비스를 선택 합니다. 
+스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service**에서 **Azure Cognitive Search 추가**를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
 
 Azure Cognitive Search를 저장소 계정에 추가한 후에는 표준 프로세스에 따라 Azure 데이터 원본의 데이터를 보강 할 수 있습니다. AI 보강을 쉽게 초기 소개 하기 위해 Azure Cognitive Search에서 **데이터 가져오기** 마법사를 권장 합니다. 이 빠른 시작에서는 [포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)의 단계를 안내 합니다. 
 
@@ -52,15 +52,15 @@ Azure Cognitive Search를 저장소 계정에 추가한 후에는 표준 프로�
 
 ## <a name="use-a-blob-indexer"></a>Blob 인덱서 사용
 
-AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Cognitive Search에서 이러한 파이프라인은 *인덱서*위에 빌드됩니다. 인덱서는 데이터를 샘플링 하 고, 메타 데이터 데이터를 읽고, 데이터를 검색 하 고, 후속 가져오기에 대 한 네이티브 형식에서 JSON 문서로 데이터를 직렬화 하는 내부 논리를 포함 하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서가 강조 표시 되어 있습니다. 다음 섹션에서는 기술력과에 대해 중점적으로 설명 합니다.
+AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Cognitive Search에서 이러한 파이프라인은 *인덱서*위에 빌드됩니다. ‘인덱서’는 데이터를 샘플링하고, 메타데이터를 읽고, 데이터를 검색하며, 후속 가져오기를 위해 네이티브 형식의 데이터를 JSON 문서로 직렬화하기 위한 내부 논리를 포함하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서가 강조 표시 되어 있습니다. 다음 섹션에서는 기술력과에 대해 중점적으로 설명 합니다.
 
-Azure Storage blob은 [Azure Cognitive Search blob 저장소 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용 하 여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 .net SDK를 사용 하 여이 인덱서를 호출할 수 있습니다. 코드에서는 형식을 설정 하 고 blob 컨테이너와 함께 Azure Storage 계정을 포함 하는 연결 정보를 제공 하 여이 인덱서를 사용 합니다. 가상 디렉터리를 만들어 매개 변수로 전달 하거나 파일 형식 확장을 필터링 하 여 blob의 하위 집합을 지정할 수 있습니다.
+Azure Storage의 Blob은 [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용하여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 .NET SDK를 사용하여 이 인덱서를 호출할 수 있습니다. 코드에서는 형식을 설정하고 Blob 컨테이너와 함께 Azure Storage 계정을 포함하는 연결 정보를 제공하여 이 인덱서를 사용합니다. 만든 후에 매개 변수로 전달할 수 있는 가상 디렉터리를 만들거나 파일 형식 확장에서 필터링하여 Blob의 하위 집합을 지정할 수 있습니다.
 
-인덱서는 "문서 크랙"를 수행 하 여 콘텐츠를 검사 하는 blob을 엽니다. 데이터 원본에 연결한 후 파이프라인의 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, office 문서, 이미지 및 기타 콘텐츠 형식이 검색 됩니다. 텍스트 추출을 사용한 문서 크랙는 무료로 제공 됩니다. 이미지 추출을 사용한 문서 크랙 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있는 요금으로 청구 됩니다.
+인덱서는 “문서 크래킹”을 수행하여 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, office 문서, 이미지 및 기타 콘텐츠 형식이 검색 됩니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. 이미지 추출을 사용한 문서 크랙 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있는 요금으로 청구 됩니다.
 
 모든 문서가 보강에 대 한 기술을 명시적으로 제공 하는 경우에만 발생 합니다. 예를 들어 파이프라인이 이미지 분석 으로만 구성 된 경우 컨테이너의 텍스트 또는 문서는 무시 됩니다.
 
-Blob 인덱서는 구성 매개 변수와 함께 제공 되며 기본 데이터가 충분 한 정보를 제공 하는 경우 변경 내용 추적을 지원 합니다. [Azure Cognitive Search Blob storage 인덱서의](search-howto-indexing-azure-blob-storage.md)핵심 기능에 대해 자세히 알아볼 수 있습니다.
+Blob 인덱서는 구성 매개 변수와 함께 제공되며 기본 데이터가 충분한 정보를 제공하는 경우 변경 내용 추적을 지원합니다. [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)의 핵심 기능에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="add-ai-components"></a>AI 구성 요소 추가
 
@@ -112,8 +112,8 @@ Azure Storage에서 기술 자료 저장소에는 두 가지 징후 (blob 컨테
 
 다양 한 방식으로 Cognitive Services을 결합 하 고 시나리오에 대 한 기존 인지 서비스가 없는 경우에 대 한 사용자 지정 기술을 제작 하 여 Azure Storage에서 데이터를 최대한 활용 하기 위해 AI 보강로 더 많은 작업을 수행할 수 있습니다. 아래 링크를 따라 자세히 알아볼 수 있습니다.
 
-+ [Azure Portal를 사용 하 여 blob 업로드, 다운로드 및 나열 (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Blob 인덱서 설정 (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열(Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Blob 인덱서 설정(Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
 + [AI 보강 개요 (Azure Cognitive Search)](cognitive-search-concept-intro.md) 
 + [기술 만들기 (Azure Cognitive Search)](cognitive-search-defining-skillset.md)
 + [주석 트리의 지도 노드 (Azure Cognitive Search)](cognitive-search-output-field-mapping.md)

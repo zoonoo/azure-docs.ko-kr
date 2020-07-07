@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71203660"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>OPC 자격 증명 모음 인증서 서비스 관리
@@ -25,17 +25,17 @@ OPC 자격 증명 모음을 배포한 후 루트 CA 인증서를 만들어야 �
 > [!IMPORTANT]
 > 관리자 역할은 발급자 CA 인증서를 만들거나 갱신 하는 데 필요 합니다.
 
-1. 에서 인증서 서비스 `https://myResourceGroup-app.azurewebsites.net`를 열고 로그인 합니다.
+1. 에서 인증서 서비스를 열고 `https://myResourceGroup-app.azurewebsites.net` 로그인 합니다.
 2. **인증서 그룹**으로 이동 합니다.
 3. 나열 된 기본 인증서 그룹이 하나 있습니다. **편집**을 선택합니다.
 4. **인증서 그룹 세부 정보 편집**에서 CA 및 응용 프로그램 인증서의 주체 이름 및 수명을 수정할 수 있습니다. 첫 번째 CA 인증서가 발급 되기 전에는 주체와 수명을 한 번만 설정 해야 합니다. 작업 중의 수명 변경으로 인해 발급 된 인증서와 Crl의 수명이 일치 하지 않을 수 있습니다.
-5. 올바른 제목을 입력 합니다 (예: `CN=My CA Root, O=MyCompany, OU=MyDepartment`).<br>
+5. 올바른 제목을 입력 합니다 (예: `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > 주체를 변경 하는 경우 발급자 인증서를 갱신 해야 합니다. 그렇지 않으면 서비스에서 응용 프로그램 인증서에 서명 하지 못합니다. 활성 발급자 인증서의 주체에 대해 구성의 주체를 확인 합니다. 주체가 일치 하지 않으면 인증서 서명이 거부 됩니다.
 6. **저장**을 선택합니다.
 7. 이 시점에서 "사용할 수 없음" 오류가 발생 하는 경우 사용자 자격 증명에 새 루트 인증서를 수정 하거나 만들 수 있는 관리자 권한이 없습니다. 기본적으로 서비스를 배포한 사용자에 게는 서비스를 사용 하 여 관리자 및 서명 역할이 있습니다. 다른 사용자는 Azure Active Directory (Azure AD) 응용 프로그램 등록에 적절 한 승인자, 기록기 또는 관리자 역할에 추가 해야 합니다.
-8. **세부 정보**를 선택 합니다. 업데이트 된 정보가 표시 됩니다.
-9. **Ca 인증서 갱신** 을 선택 하 여 첫 번째 발급자 ca 인증서를 발급 하거나 발급자 인증서를 갱신 합니다. 그런 다음 **확인**을 선택합니다.
+8. **세부 정보**를 선택합니다. 업데이트 된 정보가 표시 됩니다.
+9. **Ca 인증서 갱신** 을 선택 하 여 첫 번째 발급자 ca 인증서를 발급 하거나 발급자 인증서를 갱신 합니다. 그런 다음, **확인**을 선택합니다.
 10. 몇 초 후에 **인증서 세부 정보**를 볼 수 있습니다. OPC UA 응용 프로그램에 배포할 최신 CA 인증서 및 CRL을 다운로드 하려면 **발급자** 또는 **crl**을 선택 합니다.
 
 이제 opc UA 인증서 관리 서비스가 OPC UA 응용 프로그램에 대 한 인증서를 발급할 준비가 되었습니다.
@@ -51,9 +51,9 @@ CRL 갱신은 업데이트 이며, 정기적으로 응용 프로그램에 배포
 > [!IMPORTANT]
 > 관리자 역할은 발급자 CRL을 갱신 하는 데 필요 합니다.
 
-1. 에서 인증서 서비스 `https://myResourceGroup.azurewebsites.net`를 열고 로그인 합니다.
+1. 에서 인증서 서비스를 열고 `https://myResourceGroup.azurewebsites.net` 로그인 합니다.
 2. **인증서 그룹** 페이지로 이동 합니다.
-3. **세부 정보**를 선택 합니다. 현재 인증서 및 CRL 정보를 표시 해야 합니다.
+3. **세부 정보**를 선택합니다. 현재 인증서 및 CRL 정보를 표시 해야 합니다.
 4. OPC 자격 증명 모음 저장소의 모든 활성 발급자 인증서에 대해 업데이트 된 CRL을 발급 하려면 crl **(Crl 해지 목록) 업데이트** 를 선택 합니다.
 5. 몇 초 후에 **인증서 세부 정보**를 볼 수 있습니다. OPC UA 응용 프로그램에 배포할 최신 CA 인증서 및 CRL을 다운로드 하려면 **발급자** 또는 **crl**을 선택 합니다.
 
@@ -66,8 +66,8 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 ### <a name="add-user"></a>사용자 추가
 
 1. Azure Portal을 엽니다.
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램**으로 이동 합니다.
-3. OPC 자격 증명 모음 마이크로 서비스 (기본적으로 `resourceGroupName-service`) 등록을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다.
+3. OPC 자격 증명 모음 마이크로 서비스 (기본적으로) 등록을 선택 합니다 `resourceGroupName-service` .
 4. **사용자 및 그룹**으로 이동 합니다.
 5. **사용자 추가**를 선택 합니다.
 6. 특정 역할에 대 한 할당을 위해 사용자를 선택 하거나 초대 합니다.
@@ -78,8 +78,8 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 ### <a name="remove-user"></a>사용자 제거
 
 1. Azure Portal을 엽니다.
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램**으로 이동 합니다.
-3. OPC 자격 증명 모음 마이크로 서비스 (기본적으로 `resourceGroupName-service`) 등록을 선택 합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다.
+3. OPC 자격 증명 모음 마이크로 서비스 (기본적으로) 등록을 선택 합니다 `resourceGroupName-service` .
 4. **사용자 및 그룹**으로 이동 합니다.
 5. 제거할 역할이 있는 사용자를 선택 하 고 **제거**를 선택 합니다.
 6. 관리자 또는 승인자 역할에서 제거 된 사용자의 경우 Azure Key Vault 정책 에서도 제거 합니다.
@@ -93,8 +93,8 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>승인자 역할의 경우 다음 사용 권한을에 추가 해야 합니다 Key Vault
 
 1. Azure Portal을 엽니다.
-2. 배포 중에 사용 되 `resourceGroupName`는 OPC 자격 증명 모음으로 이동 합니다.
-3. Key Vault `resourceGroupName-xxxxx`로 이동 합니다.
+2. 배포 중에 사용 되는 OPC 자격 증명 모음으로 이동 `resourceGroupName` 합니다.
+3. Key Vault로 이동 `resourceGroupName-xxxxx` 합니다.
 4. **액세스 정책**으로 이동 합니다.
 5. **새로 추가**를 선택 합니다.
 6. 템플릿을 건너뜁니다. 요구 사항과 일치 하는 템플릿이 없습니다.
@@ -107,8 +107,8 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>관리자 역할의 경우 다음 사용 권한을에 추가 해야 합니다 Key Vault
 
 1. Azure Portal을 엽니다.
-2. 배포 중에 사용 되 `resourceGroupName`는 OPC 자격 증명 모음으로 이동 합니다.
-3. Key Vault `resourceGroupName-xxxxx`로 이동 합니다.
+2. 배포 중에 사용 되는 OPC 자격 증명 모음으로 이동 `resourceGroupName` 합니다.
+3. Key Vault로 이동 `resourceGroupName-xxxxx` 합니다.
 4. **액세스 정책**으로 이동 합니다.
 5. **새로 추가**를 선택 합니다.
 6. 템플릿을 건너뜁니다. 요구 사항과 일치 하는 템플릿이 없습니다.
@@ -121,8 +121,8 @@ Azure AD Enterprise 응용 프로그램에서 OPC 자격 증명 모음 마이크
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Azure Key Vault에서 사용자 액세스 정책 제거
 
 1. Azure Portal을 엽니다.
-2. 배포 중에 사용 되 `resourceGroupName`는 OPC 자격 증명 모음으로 이동 합니다.
-3. Key Vault `resourceGroupName-xxxxx`로 이동 합니다.
+2. 배포 중에 사용 되는 OPC 자격 증명 모음으로 이동 `resourceGroupName` 합니다.
+3. Key Vault로 이동 `resourceGroupName-xxxxx` 합니다.
 4. **액세스 정책**으로 이동 합니다.
 5. 제거할 사용자를 찾고 **삭제**를 선택 합니다.
 

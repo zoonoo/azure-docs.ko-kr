@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72794029"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
@@ -26,7 +26,7 @@ ms.locfileid: "72794029"
 
 > [!NOTE]
 > - 이 문서에서 명령을 실행 하기 전에 저장소에서 저장소 계정 및 blob 컨테이너를 만듭니다.
-> - Event Grid 서비스는이 컨테이너에 blob을 만듭니다. Blob 이름에는 모든 문자를 대문자로 포함 하는 Event Grid 구독의 이름이 포함 됩니다. 예를 들어 구독의 이름이 My Blob Subscription 인 경우 배달 못 한 편지 blob의 이름에는 MY BLOB-SUBSCRIPTION (myblobcontainer/111111111/2019/8/8/5/ -111111111111)이 포함 됩니다. 이 동작은 Azure 서비스 간 처리의 차이점을 방지 하는 것입니다.
+> - Event Grid 서비스는이 컨테이너에 blob을 만듭니다. Blob 이름에는 모든 문자를 대문자로 포함 하는 Event Grid 구독의 이름이 포함 됩니다. 예를 들어 구독의 이름이 My Blob Subscription 인 경우 배달 못한 편지 blob의 이름에는 MY BLOB-SUBSCRIPTION (myblobcontainer/MY BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json)이 포함 됩니다. 이 동작은 Azure 서비스 간 처리의 차이점을 방지 하는 것입니다.
 
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -133,5 +133,5 @@ New-AzEventGridSubscription `
 
 * 배달 못한 편지 이벤트를 처리하기 위해 Azure 함수 앱을 사용하는 샘플 애플리케이션은 [.NET용 Azure Event Grid 배달 못한 편지 샘플](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/)을 참조하세요.
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
-* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
+* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

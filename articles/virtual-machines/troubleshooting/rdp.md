@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057280"
 ---
 # <a name="troubleshoot-rdp-issues"></a>RDP 문제 해결
@@ -44,6 +44,6 @@ ms.locfileid: "71057280"
 - [Azure VM에서 게스트 OS 방화벽 사용 안 함](disable-guest-os-firewall-windows.md)
 - [게스트 OS의 방화벽 규칙 사용 또는 사용 안 함](enable-disable-firewall-rule-guest-os.md)
 - [게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.](guest-os-firewall-blocking-inbound-traffic.md)
-- [게스트 OS 방화벽이 잘못 구성되었습니다.](guest-os-firewall-misconfigured.md) 
+- [게스트 OS 방화벽이 잘못 구성됨](guest-os-firewall-misconfigured.md) 
 - [netvsc.sys에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-driver-netvsc.md)
 

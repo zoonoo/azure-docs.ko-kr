@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212390"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>대량으로 Azure Notification Hubs 등록 내보내기 및 가져오기
@@ -31,7 +31,7 @@ ms.locfileid: "71212390"
 
 ## <a name="import"></a>가져오기
 
-### <a name="set-up"></a>설정
+### <a name="set-up"></a>설치
 이 섹션에서는 다음과 같은 엔터티가 있다고 가정 합니다.
 
 - 프로비전된 알림 허브
@@ -115,7 +115,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-이 예제에서는 입력 및 출력 Url 외에 다음 형식 중 하나일 `NotificationHubJob` 수 있는 `JobType` 개체를 포함 하는 개체를 만듭니다.
+이 예제에서는 입력 및 출력 Url 외에 `NotificationHubJob` 다음 형식 중 하나일 수 있는 개체를 포함 하는 개체를 만듭니다 `JobType` .
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
@@ -128,7 +128,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-이러한 파일에는 일괄 처리에서 성공한 작업과 실패한 작업 목록이 포함됩니다. 파일 형식은 이며 각 `.cvs`행에는 원래 입력 파일의 줄 번호와 작업의 출력 (일반적으로 만들어지거나 업데이트 된 등록 설명)이 있습니다.
+이러한 파일에는 일괄 처리에서 성공한 작업과 실패한 작업 목록이 포함됩니다. 파일 형식은 이며 `.cvs` 각 행에는 원래 입력 파일의 줄 번호와 작업의 출력 (일반적으로 만들어지거나 업데이트 된 등록 설명)이 있습니다.
 
 ### <a name="full-sample-code"></a>전체 샘플 코드
 다음 샘플 코드는 등록을 알림 허브로 가져옵니다.

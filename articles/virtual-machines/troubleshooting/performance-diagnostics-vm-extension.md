@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057538"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
@@ -27,7 +27,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
 
@@ -69,8 +69,8 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 |   **이름**   |**값/예제**|       **설명**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API 버전입니다.
-|게시자|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
-|type|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
+|publisher|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
+|형식|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
 |typeHandlerVersion|1.0|확장 처리기 버전입니다.
 |performanceScenario|basic|데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
 |traceDurationInSeconds|300|추적 옵션을 선택한 경우 추적 기간입니다.
@@ -233,7 +233,7 @@ PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성
 
 ## <a name="view-and-share-the-results"></a>결과 확인 및 공유
 
-확장의 출력은 설치 중 지정된 스토리지 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대한 SAS 링크는 폴더 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** 아래의 *zipfilename*_saslink.txt라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
+확장의 출력은 설치 중 지정된 스토리지 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대 한 SAS 링크는 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **폴더에 있는 *zipfilename*_saslink.txt 이라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
 
 Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지원하기 위해 이 SAS 링크를 사용하여 진단 데이터를 다운로드할 수 있습니다.
 
@@ -255,4 +255,4 @@ Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지�
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.

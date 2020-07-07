@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992146"
 ---
 # <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
@@ -21,13 +21,13 @@ ms.locfileid: "72992146"
 IoT Edge Event Grid는 IoT Edge 에코 시스템과 통합 되며 모듈 쌍을 통해 토픽 및 구독 만들기를 지원 합니다. 또한 모듈 쌍의 보고 된 속성에 대 한 모든 토픽 및 이벤트 구독의 현재 상태를 보고 합니다.
 
 > [!WARNING]
-> IoT Edge 에코 시스템의 제한 사항 때문에 다음 json 예제의 모든 배열 요소가 json 문자열로 인코딩되어 있습니다. 다음 `EventSubscription.Filter.EventTypes` 예제 `EventSubscription.Filter.AdvancedFilters` 에서는 및 키를 참조 하세요.
+> IoT Edge 에코 시스템의 제한 사항 때문에 다음 json 예제의 모든 배열 요소가 json 문자열로 인코딩되어 있습니다. `EventSubscription.Filter.EventTypes`다음 예제에서는 및 키를 참조 `EventSubscription.Filter.AdvancedFilters` 하세요.
 
 ## <a name="desired-properties-json"></a>Desired 속성 JSON
 
-* 토픽 섹션에서 각 키-값 쌍의 값에는 항목을 만들 때 API에서에 `Topic.Properties` 사용 되는 것과 동일한 JSON 스키마가 있습니다.
-* **Eventsubscriptions** 섹션에서 각 키-값 쌍의 값에는 항목을 만들 때 API에서에 `EventSubscription.Properties` 사용 되는 것과 동일한 json 스키마가 있습니다.
-* 토픽을 삭제 하려면 desired 속성에서 해당 값 `null` 을로 설정 합니다.
+* 토픽 섹션에서 각 키-값 쌍의 값에는 `Topic.Properties` 항목을 만들 때 API에서에 사용 되는 것과 동일한 JSON 스키마가 있습니다.
+* **Eventsubscriptions** 섹션에서 각 키-값 쌍의 값에는 `EventSubscription.Properties` 항목을 만들 때 API에서에 사용 되는 것과 동일한 json 스키마가 있습니다.
+* 토픽을 삭제 하려면 desired 속성에서 해당 값을로 설정 `null` 합니다.
 * Desired 속성을 통해 이벤트 구독을 삭제할 수 없습니다.
 
 ```json

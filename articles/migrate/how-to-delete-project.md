@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
 ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73512731"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 삭제
@@ -24,9 +24,9 @@ ms.locfileid: "73512731"
 
 - 프로젝트를 삭제 하면 프로젝트와 검색 된 컴퓨터 메타 데이터가 삭제 됩니다.
 - 종속성 분석을 위해 서버 평가 도구에 Log Analytics 작업 영역을 연결한 경우 작업 영역을 삭제할지 여부를 결정 합니다. 
-    - 작업 영역이 자동으로 삭제 되지 않습니다. 수동으로 삭제 합니다.
+    - 작업 영역이 자동으로 삭제 되지 않습니다. 수동으로 삭제합니다.
     - 작업 영역을 삭제 하기 전에 사용 되는 작업 영역을 확인 합니다. 여러 시나리오에 동일한 Log Analytics 작업 영역을 사용할 수 있습니다.
-    - 프로젝트를 삭제 하기 전에 **OMS 작업 영역**아래의 **Azure Migrate 서버** > **Azure Migrate-서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
+    - 프로젝트를 삭제 하기 전에 **Azure Migrate - Servers**  >  **OMS 작업 영역**아래의 Azure Migrate 서버**Azure Migrate-서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
     - 프로젝트를 삭제 한 후 작업 영역을 삭제 하려면 관련 리소스 그룹에서 작업 영역을 찾고 [다음 지침](../azure-monitor/platform/delete-workspace.md)을 따릅니다.
 
 

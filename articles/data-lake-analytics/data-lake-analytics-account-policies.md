@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72966438"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>계정 정책을 사용 하 여 Azure Data Lake Analytics 관리
@@ -96,7 +96,7 @@ Data Lake Analytics에는 작업 수준에서 설정할 수 있는 두 가지 �
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
 2. **제한 및 정책**을 클릭 합니다.
 3. **작업 제출 한도** 아래에서 편집할 정책을 찾습니다.
-4.  **삭제** 및 **편집** 옵션을 보려면 테이블의 맨 오른쪽 열에서을 클릭 `...`합니다.
+4.  **삭제** 및 **편집** 옵션을 보려면 테이블의 맨 오른쪽 열에서을 클릭 `...` 합니다.
 
 ## <a name="additional-resources-for-job-policies"></a>정책 작업에 대한 추가 리소스
 * [Policy overview blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)(정책 개요 블로그 게시물)

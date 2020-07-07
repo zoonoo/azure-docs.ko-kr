@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992549"
 ---
 # <a name="event-grid-concepts"></a>Event Grid 개념
@@ -50,7 +50,7 @@ Event Grid에서 구독을 관리 하는 방법에 대 한 [REST API 설명서](
 
 ## <a name="event-handlers"></a>이벤트 처리기
 
-Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리 하기 위해 추가 작업을 수행 합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원 되는 Azure 서비스 또는 고유한 웹 후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. 대상 이벤트 처리기가 HTTP 웹 후크가 면 처리기가 상태 코드를 반환할 때 이벤트를 다시 시도 합니다 `200 – OK`. Edge 허브의 경우 예외가 발생 하지 않고 이벤트가 전달 되 면 성공으로 간주 됩니다.
+Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리 하기 위해 추가 작업을 수행 합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원 되는 Azure 서비스 또는 고유한 웹 후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. 대상 이벤트 처리기가 HTTP 웹 후크가 면 처리기가 상태 코드를 반환할 때 이벤트를 다시 시도 합니다 `200 – OK` . Edge 허브의 경우 예외가 발생 하지 않고 이벤트가 전달 되 면 성공으로 간주 됩니다.
 
 ## <a name="security"></a>보안
 
