@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109306"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
@@ -74,7 +74,7 @@ Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹�
 
 ## <a name="integration-with-other-3rd-party-providers"></a>다른 타사 공급 업체와 통합
 
-Azure Active Directory는 수천 개의 SaaS 애플리케이션 및 온-프레미스 웹 애플리케이션에 single-sign on를 제공하고 애플리케이션 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
+Azure Active Directory는 수천 개의 SaaS 애플리케이션 및 온-프레미스 웹 애플리케이션에 single-sign on를 제공하고 애플리케이션 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md) 을 참조 하세요.
 
 ## <a name="define-synchronization-management"></a>동기화 관리 정의
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 이러한 통합을 통해 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.

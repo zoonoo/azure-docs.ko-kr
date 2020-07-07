@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68297779"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
@@ -127,7 +127,7 @@ Azure의 경우 TCP MSS 고정을 1350 바이트 및 터널 인터페이스 MTU�
 
 | | | | |
 |-|-|-|-|
-|**Route**|**Distance**|**단방향 시간**|**RTT**|
+|**Route**|**거리**|**단방향 시간**|**RTT**|
 |뉴욕 ~ 샌프란시스코|4148 km|21ms|42 밀리초|
 |뉴욕 ~ 런던|5585 km|28 밀리초|56 밀리초|
 |뉴욕 ~ 시드니|15993 km|80ms|160 밀리초|
@@ -201,33 +201,33 @@ TCP 창 크기 조정은 승인이 필요 하기 전에 더 많은 데이터를 
 
 #### <a name="support-for-tcp-window-scaling"></a>TCP 창 크기 조정 지원
 
-Windows는 서로 다른 연결 형식에 대해 서로 다른 배율 인수를 설정할 수 있습니다. (연결의 클래스에는 데이터 센터, 인터넷 등이 있습니다.) `Get-NetTCPConnection` PowerShell 명령을 사용 하 여 창 크기 조정 연결 유형을 볼 수 있습니다.
+Windows는 서로 다른 연결 형식에 대해 서로 다른 배율 인수를 설정할 수 있습니다. (연결의 클래스에는 데이터 센터, 인터넷 등이 있습니다.) PowerShell 명령을 사용 하 여 `Get-NetTCPConnection` 창 크기 조정 연결 유형을 볼 수 있습니다.
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-`Get-NetTCPSetting` PowerShell 명령을 사용 하 여 각 클래스의 값을 볼 수 있습니다.
+`Get-NetTCPSetting`PowerShell 명령을 사용 하 여 각 클래스의 값을 볼 수 있습니다.
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-`Set-NetTCPSetting` PowerShell 명령을 사용 하 여 Windows에서 초기 tcp 창 크기와 tcp 크기 조정 인수를 설정할 수 있습니다. 자세한 내용은 [NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
+PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은 [NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-다음은에 대 한 유효한 TCP `AutoTuningLevel`설정입니다.
+다음은에 대 한 유효한 TCP 설정입니다 `AutoTuningLevel` .
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**배율 인수**|**승수 크기 조정**|**최대 창<br/>크기를 계산 하는 수식**|
+|**AutoTuningLevel**|**배율 인수**|**승수 크기 조정**|**<br/>최대 창 크기를 계산 하는 수식**|
 |사용 안 함|None|None|창 크기|
 |제한|4|2 ^ 4|창 크기 * (2 ^ 4)|
 |매우 제한|2|2 ^ 2|창 크기 * (2 ^ 2)|
-|정상|8|2 ^ 8|창 크기 * (2 ^ 8)|
+|보통|8|2 ^ 8|창 크기 * (2 ^ 8)|
 |실험적|14|2 ^ 14|창 크기 * (2 ^ 14)|
 
 이러한 설정은 TCP 성능에 영향을 미칠 가능성이 가장 높습니다. 하지만 인터넷을 통해 Azure의 제어 외부에 있는 다른 많은 요소가 TCP 성능에 영향을 줄 수도 있습니다.

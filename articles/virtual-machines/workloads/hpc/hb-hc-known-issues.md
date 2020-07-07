@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707788"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>HB 시리즈 및 HC 시리즈 VM의 알려진 문제
@@ -53,7 +53,7 @@ HPC 시스템에서는 다음 사용자에 게 동일한 노드가 할당 되기
 
 ![명령 프롬프트의 스크린샷](./media/known-issues/cache-cleaning-1.png)
 
-를 `numactl -H` 사용 하면 메모리가 버퍼링 되는 NUMAnode 표시 됩니다. Linux에서 사용자는 세 가지 방법으로 캐시를 정리 하 여 버퍼링 된 메모리 또는 캐시 된 메모리를 ' 무료 '로 되돌릴 수 있습니다. 루트 이거나 sudo 권한이 있어야 합니다.
+`numactl -H`를 사용 하면 메모리가 버퍼링 되는 NUMAnode 표시 됩니다. Linux에서 사용자는 세 가지 방법으로 캐시를 정리 하 여 버퍼링 된 메모리 또는 캐시 된 메모리를 ' 무료 '로 되돌릴 수 있습니다. 루트 이거나 sudo 권한이 있어야 합니다.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]

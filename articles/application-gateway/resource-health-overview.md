@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67659503"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Azure 애플리케이션 Gateway Resource Health 개요
 
-Azure 서비스 문제가 리소스에 영향을 미칠 때 [Azure Resource Health](../service-health/resource-health-overview.md)를 사용하여 문제를 진단하고 지원을 받을 수 있습니다. 리소스의 현재 및 과거 상태를 알려줍니다. 또한 문제를 완화하는 데 도움이 되는 기술 지원을 제공합니다.
+Azure 서비스 문제가 리소스에 영향을 미칠 때 [Azure Resource Health](../service-health/resource-health-overview.md) 를 사용하여 문제를 진단하고 지원을 받을 수 있습니다. 리소스의 현재 및 과거 상태를 알려줍니다. 또한 문제를 완화하는 데 도움이 되는 기술 지원을 제공합니다.
 
 Application Gateway에 대 한 Resource Health는 게이트웨이에서 내보내는 신호에 의존 하 여 정상 인지 여부를 평가 합니다. 게이트웨이가 비정상 인 경우 Resource Health는 추가 정보를 분석 하 여 문제의 원인을 확인 합니다. 또한 Microsoft에서 수행 하는 작업 또는 문제를 해결 하기 위해 수행할 수 있는 작업을 식별 합니다.
 
@@ -43,7 +43,7 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ![사용할 수 없음 상태](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Unknown
+## <a name="unknown"></a>알 수 없음
 
 **알 수 없음** 상태는 Resource Health 게이트웨이 정보를 10 분 넘게 수신 하지 못했음을 나타냅니다. 이 상태는 게이트웨이의 상태를 명확 하 게 표시 하지 않습니다. 하지만 문제 해결 프로세스의 중요 한 데이터 요소입니다.
 

@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68561627"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Azure Active Directory를 사용하기 위해 조직 등록
@@ -25,7 +25,7 @@ ms.locfileid: "68561627"
 
 - **Microsoft 계정.** 개인, Microsoft 계정을 사용하여 Azure 및 Outlook(Hotmail), Messenger, OneDrive, MSN, Xbox LIVE 또는 Office 365와 같은 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스할 수 있습니다. Outlook.com 사서함에 등록하면 Microsoft 계정이 자동으로 만들어집니다. 자세한 내용은 [Microsoft 계정 개요](https://account.microsoft.com/account)를 참조하세요.
 
-- **회사 또는 학교 계정.** 회사 또는 학교 관련 계정을 사용하여 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft의 모든 중소 규모 및 엔터프라이즈 클라우드 서비스에 액세스할 수 있습니다. 이러한 서비스 중 하나에 조직으로 등록하면 조직을 나타내는 클라우드 기반 디렉터리가 Azure Active Directory에서 자동으로 프로비전됩니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
+- **회사 또는 학교 계정** 회사 또는 학교 관련 계정을 사용하여 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft의 모든 중소 규모 및 엔터프라이즈 클라우드 서비스에 액세스할 수 있습니다. 이러한 서비스 중 하나에 조직으로 등록하면 조직을 나타내는 클라우드 기반 디렉터리가 Azure Active Directory에서 자동으로 프로비전됩니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
 
   > [!Note]
   >   Azure AD에 대한 액세스 권한이 이미 있는 경우 회사 또는 학교 계정을 사용하는 것이 좋습니다. 단, Azure 구독과 연결된 계정 유형을 사용해야 합니다.

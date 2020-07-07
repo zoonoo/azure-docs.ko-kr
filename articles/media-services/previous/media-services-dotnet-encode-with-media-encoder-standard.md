@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69016581"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩  
@@ -70,7 +70,7 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
 #### <a name="example"></a>예제 
 
@@ -210,6 +210,6 @@ namespace MediaEncoderStandardSample
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-[.Net Media Services 인코딩 개요를 사용 하 여 Media Encoder Standard를 사용 하 여 미리 보기를 생성 하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services Encoding Overview](media-services-encode-asset.md)
+[.Net과 함께 Media Encoder Standard를 사용 하 여 미리 보기를 생성 하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) 
+ [Media Services 인코딩 개요](media-services-encode-asset.md)
 

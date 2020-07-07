@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707691"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
 
 여러 성능 테스트가 HC 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
-| 워크로드                                        | HB                    |
+| 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | ~ 190 g b/초 (Intel MLC AVX-512)  |
 | HPL (고성능 Linpack)                  | ~ 3520 GigaFLOPS (Rpeak), ~ 2970 GigaFLOPS (Rpeak) |

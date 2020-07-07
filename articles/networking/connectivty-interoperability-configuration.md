@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68335933"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -25,11 +25,11 @@ ms.locfileid: "68335933"
 
 다음 그림은 스포크 VNet(가상 네트워크)의 Azure Virtual Network 피어링 세부 정보를 보여줍니다. 두 개의 VNet 간에 피어링을 설정하는 방법을 알아보려면 [VNet 피어링 관리][VNet-Config]를 참조하세요. 스포크 VNet이 허브 VNet에 연결된 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용**을 선택합니다.
 
-[![1(sp1)]][1]
+[![1]][1]
 
 다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 허브 게이트웨이를 사용 하도록 스포크 VNet을 허용 하려면 **게이트웨이 전송 허용**을 선택 합니다.
 
-[![sr-2]][2]
+[![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 분기 VNet 연결
 
@@ -45,7 +45,7 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 다음 그림은 온-프레미스 위치 1 CE(고객 에지) 라우터를 지향하는 Azure 지역 1 ExpressRoute 회로 구성을 보여줍니다.
 
-[![4]][4]
+[![3-4]][4]
 
 다음 그림은 ExpressRoute 1 회로와 허브 VNet 간의 연결 구성을 보여줍니다.
 
@@ -156,7 +156,7 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 다음 그림은 두 번째 ExpressRoute 회로와 허브 VNet 간의 연결 구성을 보여줍니다.
 
-[![7]][7]
+[![일]][7]
 
 ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다른 Azure 지역의 원격 VNet에 연결합니다.
 

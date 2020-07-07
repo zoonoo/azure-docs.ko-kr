@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66420605"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple 가상 배열 업데이트 1.2 릴리스 정보
@@ -46,7 +46,7 @@ KB4502035를 다운로드 하 고 다음 지침에 따라 [로컬 웹 UI를 통�
 
 다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제 |
+| 아니요. | 기능 | 문제점 |
 | --- | --- | --- |
 | 1 |삭제| 이전 버전의 소프트웨어에서는 파일이 삭제 된 경우에도 장치의 사용이 변경 되지 않은 경우 문제가 발생 했습니다. 이 문제는이 버전에서 해결 되었습니다. 삭제 된 파일을 처리 하는 경우 계층화 된 코드 경로를 더 탄력적으로 만들었습니다.|
 | 2 |예외 처리| 이전 버전의 소프트웨어에서는 시스템을 다시 부팅 한 후 백업, 복원, 클라우드에서 읽기 및 자동화 된 공간 재사용으로 인해 발생할 수 있는 문제가 발생 했습니다. 이 릴리스에는 시작 경로에서 예외가 처리 된 방법에 대 한 변경 내용이 포함 되어 있습니다.|

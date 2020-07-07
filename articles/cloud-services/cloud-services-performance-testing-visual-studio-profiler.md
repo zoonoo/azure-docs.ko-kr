@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70094114"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
@@ -153,7 +153,7 @@ public static string Concatenate(int number)
 
 ![비교 보고서][16]
 
-지금까지 프로파일러를 시작했습니다.
+축하합니다! 프로파일러를 시작했습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 * 릴리스 빌드를 프로파일링하고 있는지 확인하고 디버깅 없이 시작합니다.

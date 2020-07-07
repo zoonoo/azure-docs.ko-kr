@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 18e93ce18ed746612996399dc1aeb258abd26165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69637217"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -28,7 +28,7 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 애플리�
 **Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 애플리케이션에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트**를 사용하면 애플리케이션에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
-Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 [https://ahoy.twilio.com/azure][special_offer]하세요.
+Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 하세요 [https://ahoy.twilio.com/azure][special_offer] .
 
 ## <a name="concepts"></a><a id="Concepts"></a>개념
 Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
@@ -36,21 +36,21 @@ Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio 동사
-API는 Twilio 동사를 사용 합니다. 예를 들어, ** &lt;&gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다.
+API는 Twilio 동사를 사용 합니다. 예를 들어, ** &lt; &gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다.
 
 다음은 Twilio 동사의 목록입니다.
 
-* **전화 걸기&gt;: 호출자를 다른 휴대폰에 연결 &lt;** 합니다.
-* 수집: 전화 키패드에서 입력 한 숫자를 수집 합니다. ** &lt;&gt;**
-* 끊기: 호출을 종료 합니다. ** &lt;&gt;**
-* 재생: 오디오 파일을 재생 합니다. ** &lt;&gt;**
-* Queue: 호출자의 큐에를 추가 합니다. ** &lt;&gt;**
-* **일시 중지&gt;: 지정 된 시간 (초) 동안 자동으로 대기 &lt;** 합니다.
-* Record: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다. ** &lt;&gt;**
-* 리디렉션: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다. ** &lt;&gt;**
-* 거부: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다. ** &lt;&gt;**
-* 예:를 호출 하는 경우 텍스트를 음성으로 변환 합니다. ** &lt;&gt;**
-* Sms: sms 메시지를 보냅니다. ** &lt;&gt;**
+* ** &lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
+* ** &lt; 수집 &gt; **: 전화 키패드에서 입력 한 숫자를 수집 합니다.
+* ** &lt; 끊기 &gt; **: 호출을 종료 합니다.
+* ** &lt; 재생 &gt; **: 오디오 파일을 재생 합니다.
+* ** &lt; Queue &gt; **: 호출자의 큐에를 추가 합니다.
+* ** &lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
+* ** &lt; Record &gt; **: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
+* ** &lt; 리디렉션 &gt; **: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
+* ** &lt; 거부 &gt; **: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
+* ** &lt; 예 &gt; **:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
+* ** &lt; SMS &gt; **: sms 메시지를 보냅니다.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -74,8 +74,8 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 콘솔][twilio_console]의 **ACCOUNT SID** 및 **AUTH TOKEN** 필드에서 각각 확인할 수 있습니다.
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Java 애플리케이션 만들기
-1. Twilio JAR을 다운로드하여 Java 빌드 경로 및 WAR 배포 어셈블리에 추가합니다. 에서 [https://github.com/twilio/twilio-java][twilio_java]GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
-2. JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 Twilio Api를 사용할 때 호출 되는 [https://api.twilio.com][twilio_api_service] 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
+1. Twilio JAR을 다운로드하여 Java 빌드 경로 및 WAR 배포 어셈블리에 추가합니다. 에서 [https://github.com/twilio/twilio-java][twilio_java] GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
+2. JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 [https://api.twilio.com][twilio_api_service] Twilio api를 사용할 때 호출 되는 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
 
 Java용 Twilio 클라이언트 라이브러리 사용에 대한 자세한 지침은 [Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_java]을 참조하세요.
 
@@ -156,7 +156,7 @@ JSP(Java Server Page) 원본 파일의 경우
 **Message.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]를 참조하세요.
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-애플리케이션에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용 합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [https://twimlets.com/message][twimlet_message_url] 를 클릭 하 여 ** &lt;빈&gt; Response** 요소를 확인 합니다. 또 다른 예로,를 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] 클릭 하 여 ** &lt;말하는&gt; ** 요소를 포함 하는 ** &lt;응답&gt; ** 요소를 확인 합니다.
+애플리케이션에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL을 사용 합니다 [https://twimlets.com/message][twimlet_message_url] . TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어,를 클릭 [https://twimlets.com/message][twimlet_message_url] 하 여 빈 ** &lt; &gt; 응답** 요소를 표시 합니다. 또 다른 예로는를 클릭 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] 하 여 ** &lt; 말하는 &gt; ** 요소를 포함 하는 ** &lt; 응답 &gt; ** 요소를 표시 합니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 JSP 페이지에서 URL을 호스팅한다고 가정합니다.
 

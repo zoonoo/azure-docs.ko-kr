@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67870903"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
@@ -37,7 +37,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은을 참조 [https://sendgrid.com][https://sendgrid.com]하십시오.
+자세한 내용은 [https://sendgrid.com][https://sendgrid.com]를 참조하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 

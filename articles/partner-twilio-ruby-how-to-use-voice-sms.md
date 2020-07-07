@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69637193"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -28,7 +28,7 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 애플리�
 **Twilio 음성**을 통해 애플리케이션에서 전화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 애플리케이션에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트**를 사용하면 애플리케이션에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
-Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 [https://ahoy.twilio.com/azure][special_offer]하세요.  
+Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제품에 등록 하거나 자세한 내용을 보려면을 (를) 방문 하세요 [https://ahoy.twilio.com/azure][special_offer] .  
 
 ## <a name="concepts"></a><a id="Concepts"></a>개념
 Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
@@ -46,20 +46,20 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 XML 기반 �
 모든 TwiML 문서는 `<Response>` 를 루트 요소로 포함하고 있습니다. 거기서 Twilio 동사를 사용하여 애플리케이션의 동작을 정의합니다.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>TwiML 동사
-Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입니다. 예를 들어, ** &lt;&gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다. 
+Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입니다. 예를 들어, ** &lt; &gt; ** Twilio는 호출 시 통화에 게 메시지를 배달 하도록 지시 합니다. 
 
 다음은 Twilio 동사의 목록입니다.
 
-* **전화 걸기&gt;: 호출자를 다른 휴대폰에 연결 &lt;** 합니다.
-* 수집: 전화 키패드에서 입력 한 숫자를 수집 합니다. ** &lt;&gt;**
-* 끊기: 호출을 종료 합니다. ** &lt;&gt;**
-* 재생: 오디오 파일을 재생 합니다. ** &lt;&gt;**
-* **일시 중지&gt;: 지정 된 시간 (초) 동안 자동으로 대기 &lt;** 합니다.
-* Record: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다. ** &lt;&gt;**
-* 리디렉션: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다. ** &lt;&gt;**
-* 거부: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다. ** &lt;&gt;**
-* 예:를 호출 하는 경우 텍스트를 음성으로 변환 합니다. ** &lt;&gt;**
-* Sms: sms 메시지를 보냅니다. ** &lt;&gt;**
+* ** &lt; 전화 &gt; 걸기**: 호출자를 다른 휴대폰에 연결 합니다.
+* ** &lt; 수집 &gt; **: 전화 키패드에서 입력 한 숫자를 수집 합니다.
+* ** &lt; 끊기 &gt; **: 호출을 종료 합니다.
+* ** &lt; 재생 &gt; **: 오디오 파일을 재생 합니다.
+* ** &lt; 일시 &gt; 중지**: 지정 된 시간 (초) 동안 자동으로 대기 합니다.
+* ** &lt; Record &gt; **: 호출자의 음성을 기록 하 고 기록을 포함 하는 파일의 URL을 반환 합니다.
+* ** &lt; 리디렉션 &gt; **: 호출 또는 SMS의 제어를 다른 URL의 TwiML으로 전송 합니다.
+* ** &lt; 거부 &gt; **: 청구 하지 않고 Twilio 번호에 대 한 들어오는 호출을 거부 합니다.
+* ** &lt; 예 &gt; **:를 호출 하는 경우 텍스트를 음성으로 변환 합니다.
+* ** &lt; SMS &gt; **: sms 메시지를 보냅니다.
 
 Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml](영문)을 참조하십시오. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api](영문)를 참조하십시오.
 

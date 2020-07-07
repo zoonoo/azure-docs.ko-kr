@@ -16,10 +16,10 @@ ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70099809"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
@@ -81,7 +81,7 @@ HANA Large Instance 단위 목록에서 단일 단위를 클릭 하 고 단일 H
 - [HLI에 사용 가능한 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [SAP HANA(대규모 인스턴스) 스토리지 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
-오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은 다음과 같습니다.
+오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은
 
 - 수정 버전 3
 - 수정 버전 4

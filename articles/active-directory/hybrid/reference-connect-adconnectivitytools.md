@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66473793"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell 참조
@@ -310,7 +310,8 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 사용자가 AD 사이트/로그온 DC에서 제공 하는 DNS 서비스를 사용 하지 않는 경우 포트 53 확인을 건너뛰는 것이 좋습니다.
-사용자가 계속 해 서 _tcp를 확인할 수 있어야 합니다. \<Active Directory\> 커넥터 구성이 성공 하기 위해 forestfqdn.
+사용자가 계속 해 서 _tcp를 확인할 수 있어야 합니다.\<forestfqdn\>
+Active Directory 커넥터 구성이 성공 하도록 하려면입니다.
 
 ```yml
 Type: SwitchParameter

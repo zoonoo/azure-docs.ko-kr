@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67080494"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
@@ -71,7 +71,7 @@ ms.locfileid: "67080494"
 
 ## <a name="deploy-the-changes"></a>변경 내용 배포
 
-**Contosotopologydescription.json** 파일을 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
+파일 **의ContosoTopologyDescription.js** 를 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
 
 **azure-iot-connected-factory** 리포지토리에는 솔루션을 다시 빌드하고 배포하는 데 사용할 수 있는 **build.ps1** PowerShell 스크립트가 포함되어 있습니다.
 

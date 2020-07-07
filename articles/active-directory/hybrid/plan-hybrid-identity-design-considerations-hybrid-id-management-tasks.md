@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109379"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>하이브리드 ID 수명 주기에 대한 계획
@@ -61,7 +61,7 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
 ## <a name="synchronization-management"></a>동기화 관리
 ID 관리자의 목표 중 하나는 모든 ID 공급자를 가져오고 동기화 상태를 유지할 수 있는 것입니다. 권한이 있는 마스터 ID 공급자에 기반하여 데이터 동기화를 유지합니다. 동기화된 관리 모델을 사용하는 하이브리드 ID 시나리오에서 온-프레미스 서버에 있는 모든 사용자 및 디바이스 ID를 관리하고 계정 및 필요에 따라 암호를 클라우드로 동기화합니다. 로그인에서 사용자는 클라우드에서 입력한 동일한 온-프레미스 암호를 입력하고 암호는 ID 솔루션에서 확인합니다. 이 모델은 디렉터리 동기화 도구를 사용합니다.
 
-![디렉터리 동기화](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 해야 합니다.
+![디렉터리 동기화 ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 해야 합니다.
 *    하이브리드 id 솔루션에 사용할 수 있는 동기화 솔루션은 무엇 인가요?
 *    사용할 수 있는 single sign on 기능은 무엇입니까?
 *    B2B 및 B2C 간의 id 페더레이션에 대 한 옵션은 무엇 인가요?
