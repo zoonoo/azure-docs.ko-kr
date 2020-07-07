@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612268"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
@@ -39,7 +39,7 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
     ![Visual Studio Code에서이 작업 내보내기](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
-3. 다른 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 하려면 쿼리 편집기 (\*. script.asaql)에서 **게시할 구독에서 선택을** 선택 하 고 지침을 따릅니다.
+3. 다른 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 하려면 쿼리 편집기 (. script.asaql)에서 **게시할 구독에서 선택을** 선택 하 \* 고 지침을 따릅니다.
 
     ![Visual Studio Code에서 Azure에 게시](./media/quick-create-vs-code/submit-job.png)
 

@@ -9,16 +9,16 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 74f2e22bcc9d75070e4f7af304f92d9c5640ca7a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82615280"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
@@ -46,7 +46,7 @@ Windows 가상 데스크톱이 원격 데스크톱 사용자 그룹에서 사용
 1. Azure Portal을 엽니다.
 2. 오류 메시지가 표시 된 가상 컴퓨터를 선택 합니다.
 3. **명령 실행을**선택 합니다.
-4. 다음 명령을 추가 하려는 사용자 `<username>` 의 이름으로 대체 하 여 실행 합니다.
+4. 다음 명령을 `<username>` 추가 하려는 사용자의 이름으로 대체 하 여 실행 합니다.
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

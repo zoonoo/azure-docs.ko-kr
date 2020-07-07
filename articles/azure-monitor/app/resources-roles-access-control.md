@@ -4,10 +4,10 @@ description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니�
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628240"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
@@ -15,7 +15,7 @@ ms.locfileid: "82628240"
 [Microsoft Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세한 정보를 알아보세요](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -77,7 +77,7 @@ ms.locfileid: "82628240"
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
 | [데이터 제거자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)을 참조하세요.   |
 | ExpressRoute 관리자 | 기본 경로를 삭제하고 관리할 수 있습니다.|
-| [Log Analytics 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
+| [Log Analytics 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
 | [Log Analytics 독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
 | masterreader | 사용자가 모든 것을 볼 수 있지만 변경은 할 수 없도록 허용합니다. |
 | [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|

@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613288"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
@@ -39,15 +39,15 @@ FarmBeats를 연결 하려면 드 론 파트너 소프트웨어에서 다음 자
 
 ## <a name="api-development"></a>API 개발
 
-Api에는 Swagger 기술 설명서가 포함 되어 있습니다. Api 및 해당 요청 또는 응답에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
+API에는 Swagger 기술 문서가 포함되어 있습니다. Api 및 해당 요청 또는 응답에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
 
 ## <a name="authentication"></a>인증
 
-FarmBeats는 Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD)를 사용 합니다. Azure App Service는 기본 제공 인증 및 권한 부여를 지원 합니다. 
+FarmBeats는 Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD)를 사용 합니다.  Azure App Service는 기본 제공 인증 및 권한 부여를 지원합니다. 
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조하세요.   
 
-FarmBeats Datahub는 다음 자격 증명이 필요한 전달자 인증을 사용 합니다.
+FarmBeats Datahub는 전달자 인증을 사용하며 다음 자격 증명이 필요합니다.
 
 - 클라이언트 ID
 - 클라이언트 암호
@@ -87,13 +87,13 @@ access_token = token_response.get('access_token')
 
 ## <a name="http-request-headers"></a>HTTP 요청 헤더
 
-FarmBeats Datahub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
+FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
-**머리글이** | **설명 및 예**
+**머리글** | **설명 및 예**
 --- | ---
-콘텐츠 형식  | 요청 형식 (Content-type: application/<format>)입니다. FarmBeats Datahub Api의 경우 형식은 JSON입니다. Content-Type: application/json
-권한 부여 | API 호출을 수행 하는 데 필요한 액세스 토큰을 지정 합니다. 권한 부여: 전달자 <액세스-토큰>
-수락  | 응답 형식입니다. FarmBeats Datahub Api의 경우 형식은 JSON입니다. 수락: application/json
+콘텐츠 형식  | 요청 형식입니다(Content-Type: application/<format>). FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
+권한 부여 | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer <Access-Token>
+수락  | 응답 형식입니다. FarmBeats Datahub API의 경우 형식은 JSON입니다. Accept: application/json
 
 
 ## <a name="api-requests"></a>API 요청
@@ -105,7 +105,7 @@ REST API 요청을 만들려면 다음을 결합 합니다.
 - 쿼리, 데이터 전송, 업데이트 또는 삭제에 대 한 리소스 URI입니다.
 - 하나 이상의 HTTP 요청 헤더입니다.
 
-필요에 따라 필터에 대 한 GET 호출에 쿼리 매개 변수를 포함 하 고, 크기를 제한 하 고, 응답의 데이터를 정렬할 수 있습니다.
+필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 
 다음 샘플 요청은 장치 목록을 가져오는 것입니다.
 
@@ -115,9 +115,9 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Authorization: Bearer <Access-Token>”
 ```
 
-대부분 GET, POST 및 PUT 호출에는 JSON 요청 본문이 필요 합니다.
+대부분의 GET, POST 및 PUT 호출에는 JSON 요청 본문이 필요합니다.
 
-다음 샘플 요청은 장치를 만드는 것입니다. 이 샘플에는 요청 본문을 포함 하는 입력 JSON이 있습니다.
+다음 샘플 요청은 디바이스를 만들기 위한 것입니다. 이 샘플에는 요청 본문을 포함 하는 입력 JSON이 있습니다.
 
 
 ```bash
@@ -130,7 +130,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 ## <a name="data-format"></a>데이터 형식
 
-JSON은 임의의 데이터 구조에 대 한 간단한 텍스트 표현을 제공 하는 공용 언어 독립적 데이터 형식입니다. 자세한 내용은 [JSON org](https://JSON.org)를 참조 하세요.
+JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 공용 언어 독립적 데이터 형식입니다. 자세한 내용은 [JSON org](https://JSON.org)를 참조 하세요.
 
 ## <a name="ingest-imagery-into-farmbeats"></a>FarmBeats에 이미지 수집
 

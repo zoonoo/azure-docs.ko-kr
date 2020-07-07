@@ -2,7 +2,7 @@
 title: Azure PowerShell 스크립트 예제
 description: Azure PowerShell 스크립트 예제를 사용하면 Azure SQL Database 및 Azure SQL Managed Instance 리소스를 만들고 관리할 수 있습니다.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718574"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987323"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 Azure PowerShell 샘플
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 다음 표에는 Azure SQL Database의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다.
 
-| |  |
+|링크|Description|
 |---|---|
 |**단일 데이터베이스 및 탄력적 풀 만들기 및 구성**||
 | [단일 데이터베이스를 만들고 서버 수준 방화벽 규칙을 구성](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 단일 데이터베이스를 만들고 서버 수준 IP 방화벽 규칙을 구성합니다. |
@@ -64,7 +64,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 다음 표에는 Azure SQL - Managed Instance의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다.
 
-| |  |
+|링크|Description|
 |---|---|
 |**관리되는 인스턴스 만들기 및 구성**||
 | [관리되는 인스턴스 만들기 및 구성](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | 이 PowerShell 스크립트는 Azure PowerShell을 사용하여 관리형 인스턴스를 만들고 관리하는 방법을 보여줍니다. |

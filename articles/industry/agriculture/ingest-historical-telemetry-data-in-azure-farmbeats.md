@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613271"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
@@ -27,13 +27,13 @@ ms.locfileid: "82613271"
 
 Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해야 합니다. 이 단계에서는 Azure FarmBeats 인스턴스에 대 한 액세스 권한이 있는 장치 파트너로 클라이언트를 만들고 이후 단계에서 필요한 다음 값을 제공 합니다.
 
-- API 끝점: Datahub URL입니다 (예: https://\<Datahub> azurewebsites.net).
+- API 끝점: Datahub URL입니다 (예: https:// \<datahub> . azurewebsites.net).
 - 테넌트 ID
 - 클라이언트 ID
 - 클라이언트 암호
 - EventHub 연결 문자열
 
-아래 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 > [!NOTE]
 > 다음 단계를 수행 하려면 관리자 여야 합니다.
@@ -42,11 +42,11 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
 2. **FarmBeats 버전 1.2.7 이상에서는 a, b 및 c 단계를 건너뛰고 3 단계로 이동 합니다.** FarmBeats UI의 오른쪽 위 모퉁이에 있는 **설정** 아이콘을 선택 하 여 FarmBeats 버전을 확인할 수 있습니다.
 
-      a.  **Azure Active Directory** > **앱 등록** 으로 이동
+      a.  **Azure Active Directory**  >  **앱 등록** 으로 이동
 
       b. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats datahub와 동일한 이름을 갖게 됩니다.
 
-      c. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
@@ -70,7 +70,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
     ```
 
-7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
+7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory**  >  **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
 
     ```azurepowershell-interactive 
 
@@ -91,56 +91,56 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
  > 파트너는 메타 데이터에 대 한 읽기, 만들기 및 업데이트에만 액세스할 수 있습니다. **삭제 옵션은 파트너 에게만 제한 됩니다.**
 
 - /**DeviceModel**: DeviceModel는 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
-- /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다.
+- /**Device**: Device는 팜에 있는 물리적 디바이스에 해당합니다.
 - /**SensorModel**: SensorModel 센서의 메타 데이터에 해당 합니다. 예를 들어 센서의 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 일치 합니다.
-- /**센서**: 센서는 값을 기록 하는 실제 센서에 해당 합니다. 센서는 일반적으로 장치 ID를 사용 하 여 장치에 연결 됩니다.
+- /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
 
 |        DeviceModel   |  제안   |
 | ------- | -------             |
-|     유형 (노드, 게이트웨이)        |          장치 노드 또는 게이트웨이의 유형입니다.      |
+|     Type(node, gateway)        |          장치 노드 또는 게이트웨이의 유형입니다.      |
 |          제조업체            |         제조업체의 이름입니다.    |
-|  ProductCode                    |  장치 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor # 6800.  |
-|            포트          |     포트 이름 및 유형이 며 디지털 또는 아날로그 유형입니다.
-|     Name                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-      설명     | 모델에 대 한 의미 있는 설명을 제공 합니다.
-|    속성          |    제조업체의 추가 속성입니다.   |
+|  ProductCode                    |  디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800.  |
+|            포트          |     포트 이름 및 유형(디지털 또는 아날로그)입니다.
+|     속성                 |  리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+      Description     | 모델에 대한 의미 있는 설명을 제공합니다.
+|    속성          |    제조업체로부터의 추가 속성입니다.   |
 |    **디바이스**             |                      |
-|   DeviceModelId     |     연결 된 장치 모델의 ID입니다.  |
+|   DeviceModelId     |     연결된 디바이스 모델의 ID입니다.  |
 |  HardwareId          | MAC 주소와 같은 장치에 대 한 고유 ID입니다.
-|  ReportingInterval        |   보고 간격 (초)입니다.
-|  위치            |  장치 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).
-|ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
+|  ReportingInterval        |   보고 간격(초)입니다.
+|  위치            |  디바이스 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다.
+|ParentDeviceId       |    이 디바이스가 연결된 부모 디바이스의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
 |    Name            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
-|     설명       |      의미 있는 설명을 제공 합니다. |
-|     속성    |  제조업체의 추가 속성입니다.
+|     Description       |      의미 있는 설명을 제공합니다. |
+|     속성    |  제조업체로부터의 추가 속성입니다.
 |     **SensorModel**        |          |
-|       유형 (아날로그, 디지털)          |      센서 유형 (아날로그 또는 디지털)입니다.       |
+|       Type(analog, digital)          |      센서 유형 (아날로그 또는 디지털)입니다.       |
 |          제조업체            |       센서의 제조업체입니다.     |
-|     ProductCode| 제품 코드 또는 모델 이름 또는 번호입니다. 예를 들어 RS-CO2-N01입니다. |
-|       SensorMeasures > 이름       | 센서 측정값의 이름입니다. 소문자만 지원 됩니다. 다른 깊이에서 측정 하려면 깊이를 지정 합니다. 예를 들어 soil_moisture_15cm 합니다. 이 이름은 원격 분석 데이터와 일치 해야 합니다.  |
-|          SensorMeasures > 데이터 형식       |원격 분석 데이터 형식입니다. 현재는 double이 지원 됩니다.|
-|    SensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 형식은 AmbientTemperature입니다. CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
+|     ProductCode| 제품 코드 또는 모델 이름 또는 번호입니다. 예: RS-CO2-N01. |
+|       SensorMeasures > Name       | 센서 측정값의 이름입니다. 소문자만 지원됩니다. 다른 깊이에서 측정하려면 깊이를 지정합니다. 예: soil_moisture_15cm. 이 이름은 원격 분석 데이터와 일치 해야 합니다.  |
+|          SensorMeasures > DataType       |원격 분석 데이터 형식입니다. 현재 double이 지원됩니다.|
+|    SensorMeasures > Type    |센서 원격 분석 데이터의 측정값 형식입니다. 시스템 정의 형식은 AmbientTemperature입니다. CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 유형을 추가하려면 /ExtendedType API를 참조하세요.|
 |        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 온도, Rankine, 파스칼, 수, 수, 프, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion,, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, MilliLiter, MicroMolPerMeterSquaredPerSecond, Seconds, InchesPerHour,,.|
 |    SensorMeasures > AggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
 |          Name            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
-|    설명        | 모델에 대 한 의미 있는 설명을 제공 합니다.|
-|   속성       |  제조업체의 추가 속성입니다.|
-|    **센서**      |          |
+|    Description        | 모델에 대한 의미 있는 설명을 제공합니다.|
+|   속성       |  제조업체로부터의 추가 속성입니다.|
+|    **Sensor**      |          |
 | HardwareId          |   제조업체에서 설정한 센서의 고유 ID입니다.|
-|  SensorModelId     |    연결 된 센서 모델의 ID입니다.|
-| 위치          |  센서 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).|
-|   포트 > 이름        |  장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다.|
-|    DeviceID  |    센서가 연결 된 장치의 ID입니다. |
-| Name            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.|
-|    설명      | 의미 있는 설명을 제공 합니다.|
-|    속성        |제조업체의 추가 속성입니다.|
+|  SensorModelId     |    연결된 센서 모델의 ID입니다.|
+| 위치          |  센서 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다.|
+|   Port > Name        |  디바이스에서 센서가 연결된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다.|
+|    DeviceID  |    센서가 연결된 디바이스의 ID입니다. |
+| 속성            |   리소스를 식별하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.|
+|    Description      | 의미 있는 설명을 제공합니다.|
+|    속성        |제조업체로부터의 추가 속성입니다.|
 
 개체에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
 
 ### <a name="api-request-to-create-metadata"></a>메타 데이터를 만들기 위한 API 요청
 
-API 요청을 만들려면 HTTP (POST) 메서드와 API 서비스에 대 한 URL을 결합 하 고 요청에 대 한 쿼리, 데이터 전송, 생성 또는 삭제를 위해 리소스에 대 한 URI를 결합 합니다. 그런 다음 하나 이상의 HTTP 요청 헤더를 추가 합니다. API 서비스에 대 한 URL은 API 끝점, 즉 Datahub URL (> https://\<azurewebsites.net)입니다.
+API 요청을 만들려면 HTTP (POST) 메서드와 API 서비스에 대 한 URL을 결합 하 고 요청에 대 한 쿼리, 데이터 전송, 생성 또는 삭제를 위해 리소스에 대 한 URI를 결합 합니다. 그런 다음 하나 이상의 HTTP 요청 헤더를 추가 합니다. API 서비스에 대 한 URL은 API 끝점, 즉 Datahub URL (https:// \<yourdatahub> . azurewebsites.net)입니다.
 
 ### <a name="authentication"></a>인증
 
@@ -322,7 +322,7 @@ response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=header
 ```
 
 > [!NOTE]
-> Api는 생성 된 각 인스턴스에 대 한 고유 Id를 반환 합니다. 해당 하는 원격 분석 메시지를 보내려면 Id를 유지 해야 합니다.
+> API는 생성된 각 인스턴스의 고유 ID를 반환합니다. 해당 하는 원격 분석 메시지를 보내려면 Id를 유지 해야 합니다.
 
 ### <a name="send-telemetry"></a>원격 분석 전송
 
@@ -330,7 +330,7 @@ response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=header
 
 ### <a name="create-a-telemetry-client"></a>원격 분석 클라이언트 만들기
 
-처리를 위해 Azure Event Hubs에 원격 분석을 보내야 합니다. Azure Event Hubs는 연결 된 장치 및 응용 프로그램에서 실시간 데이터 (원격 분석) 수집을 가능 하 게 하는 서비스입니다. FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)를 참조 하세요.
+처리를 위해 Azure Event Hubs에 원격 분석을 보내야 합니다. Azure Event Hubs는 연결된 디바이스 및 애플리케이션으로부터 실시간 데이터(원격 분석) 수집을 가능하게 하는 서비스입니다. FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)를 참조 하세요.
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>원격 분석 메시지를 클라이언트로 보내기
 
@@ -423,11 +423,11 @@ write_client.stop()
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집 후 원격 분석 데이터를 볼 수 없음
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집한 후 원격 분석 데이터를 볼 수 없음
 
-**증상**: 장치 또는 센서가 배포 되 고 FarmBeats 및 수집 원격 분석에서 장치/센서를 EventHub에 만들었지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+**증상**: 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
-**수정 동작**:
+**정정 작업**:
 
 1. 적절 한 파트너 등록을 완료 했는지 확인 합니다 .이를 확인 하려면 datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하면 됩니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
 

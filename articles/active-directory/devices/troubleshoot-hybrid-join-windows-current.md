@@ -1,5 +1,5 @@
 ---
-title: 하이브리드 Azure Active Directory 연결 된 장치 문제 해결
+title: 하이브리드 Azure Active Directory 조인 디바이스 문제 해결
 description: Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611316"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 조인 디바이스 문제 해결
 
 이 문서의 내용은 Windows 10 또는 Windows Server 2016를 실행 하는 장치에 적용 됩니다.
 
@@ -132,7 +132,7 @@ WamDefaultAuthority: organizations
 
 이벤트 뷰어 로그를 사용 하 여 조인 실패에 대 한 단계 및 오류 코드를 찾습니다.
 
-1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **사용자 장치 등록** 아래에 있음
+1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 304, 305, 307를 사용 하 여 이벤트를 찾습니다.
 
 ![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -156,10 +156,10 @@ WamDefaultAuthority: organizations
    - 유효한 SCP 개체는 Azure AD에서 확인 된 도메인 이름을 가리키는 AD 포리스트에 있어야 합니다.
    - 자세한 내용은 [서비스 연결 지점 구성](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)섹션에서 찾을 수 있습니다.
 - 검색 끝점에서 연결 및 검색 메타 데이터를 가져오지 못했습니다.
-   - 장치는 등록 및 권한 부여 끝점 `https://enterpriseregistration.windows.net`을 검색 하기 위해 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
+   - 장치는 `https://enterpriseregistration.windows.net` 등록 및 권한 부여 끝점을 검색 하기 위해 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
    - 온-프레미스 환경에 아웃 바운드 프록시가 필요한 경우 IT 관리자는 장치의 컴퓨터 계정이 아웃 바운드 프록시를 검색 하 고 자동으로 인증할 수 있는지 확인 해야 합니다.
 - 사용자 영역 끝점에 연결 하는 데 실패 하 고 영역 검색을 수행 합니다. (Windows 10 버전 1809 이상에만 해당)
-   - 장치는 확인 된 도메인에 대해 `https://login.microsoftonline.com`영역 검색을 수행 하 고 도메인 유형 (관리/페더레이션)을 결정할 수 있도록 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
+   - 장치는 `https://login.microsoftonline.com` 확인 된 도메인에 대해 영역 검색을 수행 하 고 도메인 유형 (관리/페더레이션)을 결정할 수 있도록 시스템 컨텍스트에서 액세스할 수 있어야 합니다.
    - 온-프레미스 환경에 아웃 바운드 프록시가 필요한 경우 IT 관리자는 장치의 시스템 컨텍스트가 아웃 바운드 프록시를 검색 하 고 자동으로 인증할 수 있는지 확인 해야 합니다.
 
 **일반적인 오류 코드:**
@@ -172,7 +172,7 @@ WamDefaultAuthority: organizations
    - 해결 방법: 아래에서 하위 오류를 찾아 자세히 조사 합니다.
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
    - 이유: 검색을 수행 하는 동안 작업 시간이 초과 되었습니다.
-   - 해결 방법: 시스템 `https://enterpriseregistration.windows.net` 컨텍스트에서에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites)섹션을 참조 하세요.
+   - 해결 방법: `https://enterpriseregistration.windows.net` 시스템 컨텍스트에서에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites)섹션을 참조 하세요.
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
    - 원인: 일반 영역 검색에 실패 했습니다. STS에서 도메인 유형 (관리/페더레이션)을 확인 하지 못했습니다.
    - 해결 방법: 아래에서 하위 오류를 찾아 자세히 조사 합니다.
@@ -207,7 +207,7 @@ WamDefaultAuthority: organizations
 
 이벤트 뷰어 로그를 사용 하 여 단계를 찾고 조인 오류에 대 한 오류 코드를 찾습니다.
 
-1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **사용자 장치 등록** 아래에 있음
+1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 201를 사용 하 여 이벤트를 찾습니다.
 
 ![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -252,7 +252,7 @@ WamDefaultAuthority: organizations
 
 이벤트 뷰어 로그를 사용 하 여 오류 코드, 하위 오류 코드, 서버 오류 코드 및 서버 오류 메시지를 찾을 수 있습니다.
 
-1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **사용자 장치 등록** 아래에 있음
+1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 eventID 305를 사용 하 여 이벤트를 찾습니다.
 
 ![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -273,7 +273,7 @@ WamDefaultAuthority: organizations
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - 이유: 일반 네트워크 시간 제한입니다.
-   - 해결 방법: 시스템 `https://login.microsoftonline.com` 컨텍스트에서에 액세스할 수 있는지 확인 합니다. 시스템 컨텍스트에서 온-프레미스 id 공급자에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites)을 참조 하세요.
+   - 해결 방법: `https://login.microsoftonline.com` 시스템 컨텍스트에서에 액세스할 수 있는지 확인 합니다. 시스템 컨텍스트에서 온-프레미스 id 공급자에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites)을 참조 하세요.
 - **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
    - 이유: 인증 끝점에 대 한 연결이 중단 되었습니다.
    - 해결 방법: 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요.
@@ -281,8 +281,8 @@ WamDefaultAuthority: organizations
    - 이유: 이전에 SSL (SSL(Secure Sockets Layer))으로 알려진 TLS (전송 계층 보안)를 서버에서 보낸 인증서의 유효성을 검사할 수 없습니다.
    - 해결 방법: 클라이언트 시간 오차를 확인 합니다. 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/894947587)
-   - 이유:에 `https://login.microsoftonline.com` 연결 하지 못했습니다.
-   - 해결 방법:에 대 한 `https://login.microsoftonline.com`네트워크 연결을 확인 합니다.
+   - 이유:에 연결 `https://login.microsoftonline.com` 하지 못했습니다.
+   - 해결 방법:에 대 한 네트워크 연결을 확인 `https://login.microsoftonline.com` 합니다.
 
 ##### <a name="other-errors"></a>기타 오류
 
@@ -327,7 +327,7 @@ WamDefaultAuthority: organizations
 
 이벤트 뷰어 로그를 사용 하 여 단계를 찾고 조인 오류에 대 한 오류 코드를 찾습니다.
 
-1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **사용자 장치 등록** 아래에 있음
+1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 204를 사용 하 여 이벤트를 찾습니다.
 
 ![실패 로그 이벤트](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -363,10 +363,10 @@ WamDefaultAuthority: organizations
 
 - **WININET_E_TIMEOUT** (0x80072ee2/2147012894)
    - 이유: DRS에서 장치를 등록 하려고 시도 하는 일반 네트워크 시간 초과
-   - 해결 방법:에 대 한 `https://enterpriseregistration.windows.net`네트워크 연결을 확인 합니다.
+   - 해결 방법:에 대 한 네트워크 연결을 확인 `https://enterpriseregistration.windows.net` 합니다.
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/2147012889)
    - 이유: 서버 이름이 나 주소를 확인할 수 없습니다.
-   - 해결 방법:에 대 한 `https://enterpriseregistration.windows.net`네트워크 연결을 확인 합니다. 호스트 이름에 대 한 DNS 확인이 장치에서 n/w와 정확한 지 확인 합니다.
+   - 해결 방법:에 대 한 네트워크 연결을 확인 `https://enterpriseregistration.windows.net` 합니다. 호스트 이름에 대 한 DNS 확인이 장치에서 n/w와 정확한 지 확인 합니다.
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/2147012866)
    - 이유: 서버와의 연결이 비정상적으로 종료 되었습니다.
    - 해결 방법: 잠시 후 다시 시도 하거나 안정적인 다른 네트워크 위치에서 조인 해 보세요.
@@ -381,18 +381,18 @@ WamDefaultAuthority: organizations
 
 | 서버 오류 코드 | 서버 오류 메시지 | 가능한 원인 | 해결 방법 |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: 테 <UUID> 넌 트가 없습니다. 이 오류는 테 넌 트에 대 한 활성 구독이 없는 경우에 발생할 수 있습니다. 구독 관리자에 게 문의 하세요. | SCP 개체의 테 넌 트 ID가 잘못 되었습니다. | SCP 개체가 올바른 Azure AD 테 넌 트 ID 및 활성 구독으로 구성 되 고 테 넌 트에 표시 되는지 확인 합니다. |
+| DirectoryError | AADSTS90002: 테 넌 트가 <UUID> 없습니다. 이 오류는 테 넌 트에 대 한 활성 구독이 없는 경우에 발생할 수 있습니다. 구독 관리자에 게 문의 하세요. | SCP 개체의 테 넌 트 ID가 잘못 되었습니다. | SCP 개체가 올바른 Azure AD 테 넌 트 ID 및 활성 구독으로 구성 되 고 테 넌 트에 표시 되는지 확인 합니다. |
 | DirectoryError | 지정 된 ID의 장치 개체를 찾을 수 없습니다. | 동기화 조인에 필요한 오류입니다. 장치 개체가 AD에서 Azure AD로 동기화 되지 않았습니다. | Azure AD Connect 동기화가 완료 될 때까지 기다렸다가 동기화 완료 후 다음 조인 시도가 문제를 해결 합니다. |
 | AuthenticationError | 대상 컴퓨터의 SID를 확인 하는 중입니다. | Azure AD 장치의 인증서가 동기화 조인 중 blob에 서명 하는 데 사용 된 인증서와 일치 하지 않습니다. 이 오류는 일반적으로 동기화가 아직 완료 되지 않았음을 의미 합니다. |  Azure AD Connect 동기화가 완료 될 때까지 기다렸다가 동기화 완료 후 다음 조인 시도가 문제를 해결 합니다. |
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>5 단계: 로그 및 연락처 Microsoft 지원 수집
 
-다음에서 파일 Auth를 다운로드 합니다.[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+에서 Auth.zip 파일을 다운로드 합니다.[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. 파일의 압축을 풀고 포함 된 파일 **start-auth** 및 **stop-auth** 를 **start-auth** 및 **stop-auth**로 이름을 바꿉니다.
+1. 파일의 압축을 풀고 포함 된 파일의 이름을 **start-auth.txt** 하 **고 start-auth** 및 **stop-auth**에 **stop-auth.txt** 합니다.
 1. 관리자 권한 명령 프롬프트에서 **start-auth**를 실행 합니다.
 1. 스위치 계정을 사용 하 여 문제 사용자의 다른 세션으로 전환 합니다.
-1. 문제를 재현합니다.
+1. 이슈를 재현합니다.
 1. 스위치 계정을 사용 하 여 추적을 실행 하는 관리자 세션으로 다시 전환 합니다.
 1. 관리자 권한 명령 프롬프트에서 **stop-auth**를 실행 합니다.
 1. Zip을 열고 스크립트가 실행 된 폴더에서 **Authlogs** 폴더를 보냅니다.

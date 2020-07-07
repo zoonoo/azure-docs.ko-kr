@@ -4,10 +4,10 @@ description: 인증서 일반 이름으로 식별 되는 Service Fabric 클러�
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611911"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 수동으로 롤오버

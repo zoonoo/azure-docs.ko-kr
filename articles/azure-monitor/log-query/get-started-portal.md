@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80055612"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798258"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>자습서: Log Analytics 쿼리 시작
 
@@ -37,6 +37,7 @@ Log Analytics를 사용하려면 Azure 계정에 로그인해야 합니다. Azur
 또한 Azure Monitor를 사용하여 하나 이상의 Azure 리소스에 대한 로그 데이터를 수집하는 경우 사용자 고유의 환경을 사용할 수도 있습니다. Log Analytics 작업 영역을 열려면 Azure Monitor의 왼쪽 탐색 영역에서 **로그**를 선택합니다. 
 
 ## <a name="understand-the-schema"></a>스키마 이해
+ 
 *스키마*는 논리 범주에 따라 그룹화된 테이블의 컬렉션입니다. Demo 스키마에는 모니터링 솔루션의 몇 가지 범주가 있습니다. 예를 들어 **LogManagement** 범주에는 Windows 및 Syslog 이벤트, 성능 데이터 및 에이전트 하트비트가 포함됩니다.
 
 스키마 테이블은 Log Analytics 작업 영역의 **테이블** 탭에 표시됩니다. 테이블에는 각각 열 이름 옆에 아이콘으로 표시된 데이터 형식이 있는 열이 포함되어 있습니다. 예를 들어 **Event** 테이블에는 **Computer**와 같은 텍스트 열과 **EventCategory**와 같은 숫자 열이 포함되어 있습니다.
@@ -50,6 +51,7 @@ Log Analytics는 **쿼리 편집기**에서 비어 있는 새 쿼리로 열립�
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>쿼리 작성
+
 Azure Monitor 로그 쿼리는 Kusto 쿼리 언어의 버전을 사용합니다. 쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 
 
 다음 쿼리는 **Event** 테이블에서 모든 레코드를 검색합니다.
@@ -156,6 +158,7 @@ Event
 [render](/azure/kusto/query/renderoperator) 연산자를 사용하여 쿼리 자체에서 기본 보기를 설정할 수도 있습니다.
 
 ## <a name="pin-results-to-a-dashboard"></a>대시보드에 결과 고정
+
 Log Analytics에서 결과 테이블 또는 차트를 공유 Azure 대시보드에 고정하려면 위쪽 표시줄에서 **대시보드에 고정**을 선택합니다. 
 
 ![대시보드에 고정](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ Log Analytics에서 결과 테이블 또는 차트를 공유 Azure 대시보드�
 - 불연속 범주가 많은 차트는 덜 채워진 범주를 단일 **기타** bin으로 자동으로 그룹화합니다.
 
 ## <a name="save-load-or-export-queries"></a>쿼리 저장, 로드 또는 내보내기
+
 쿼리가 만들어지면 쿼리 또는 결과를 저장하거나 다른 사용자와 공유할 수 있습니다. 
 
 ### <a name="save-queries"></a>쿼리 저장
+
 쿼리를 저장하려면 다음을 수행합니다.
 
 1. 위쪽 표시줄에서**저장**을 선택합니다.

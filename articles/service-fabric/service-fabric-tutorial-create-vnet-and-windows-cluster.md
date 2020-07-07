@@ -4,12 +4,12 @@ description: 이 자습서에서는 PowerShell을 사용하여 Windows Service F
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756042"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611665"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "80756042"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
 * [Azure 클러스터](service-fabric-azure-clusters-overview.md)에 대한 주요 개념을 검토합니다.
 * 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
@@ -73,8 +73,8 @@ ms.locfileid: "80756042"
 * 인증서 보안(템플릿 매개 변수에서 구성 가능)
 * [역방향 프록시](service-fabric-reverseproxy.md) 사용
 * [DNS 서비스](service-fabric-dnsservice.md) 사용
-* Bronze의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
-* Silver의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+* Bronze의 [내구성 수준](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+* Silver의 [안정성 수준](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
 * HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 

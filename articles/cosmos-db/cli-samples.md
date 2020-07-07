@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509426"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560530"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 
 다음 표는 Azure Cosmos DB SQL(Core) API의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 다른 Azure Cosmos DB API에 대한 Azure CLI 샘플은 [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) 및 [Table API](cli-samples-table.md)를 참조하세요. 모든 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서 확인할 수 있습니다.
 
-| |  |
+|Task | Description |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| SQL(Core) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [처리량 변경](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컨테이너에서 RU/s를 업데이트합니다.|

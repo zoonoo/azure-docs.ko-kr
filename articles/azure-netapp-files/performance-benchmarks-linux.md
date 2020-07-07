@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614591"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Linux에 대 한 Azure NetApp Files 성능 벤치 마크
@@ -47,31 +47,31 @@ ms.locfileid: "82614591"
 
 ## <a name="linux-scale-up"></a>Linux 확장  
 
-Linux 5.3 커널은 NFS 용 단일 클라이언트 확장 네트워킹을`nconnect`사용 하도록 설정 합니다. 이 단원의 그래프는 NFSv3을 사용 하 여 클라이언트 쪽 탑재 옵션에 대 한 유효성 검사 테스트 결과를 보여줍니다. 이 기능은 SUSE (SLES12SP4부터 시작) 및 Ubuntu (19.10 릴리스부터)에서 사용할 수 있습니다. SMB 다중 채널과 Oracle Direct NFS를 모두 개념적으로 유사 합니다.
+Linux 5.3 커널은 NFS 용 단일 클라이언트 확장 네트워킹을 사용 하도록 설정 `nconnect` 합니다. 이 단원의 그래프는 NFSv3을 사용 하 여 클라이언트 쪽 탑재 옵션에 대 한 유효성 검사 테스트 결과를 보여줍니다. 이 기능은 SUSE (SLES12SP4부터 시작) 및 Ubuntu (19.10 릴리스부터)에서 사용할 수 있습니다. SMB 다중 채널과 Oracle Direct NFS를 모두 개념적으로 유사 합니다.
 
-그래프는의 `nconnect` 장점과 연결 되지 않은 탑재 된 볼륨을 비교 합니다. 그래프에서 FIO는 미국 west2 Azure 지역의 단일 D32s_v3 인스턴스에서 작업을 생성 했습니다.
+그래프는의 장점과 `nconnect` 연결 되지 않은 탑재 된 볼륨을 비교 합니다. 그래프에서 FIO는 미국 west2 Azure 지역의 단일 D32s_v3 인스턴스에서 작업을 생성 했습니다.
 
 ### <a name="linux-read-throughput"></a>Linux 읽기 처리량  
 
-다음 그래프는 약 2.3 X가 아닌를 사용 하 여 `nconnect`~ 3500 MiB/s 읽기의 순차적`nconnect`읽기를 보여 줍니다.
+다음 그래프는 `nconnect` 약 2.3 x가 아닌를 사용 하 여 ~ 3500 MiB/s 읽기의 순차적 읽기를 보여 줍니다 `nconnect` .
 
 ![Linux 읽기 처리량](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### <a name="linux-write-throughput"></a>Linux 쓰기 처리량  
 
-다음 그래프에서는 순차적 쓰기를 보여 줍니다. 이는가 `nconnect` 순차적 쓰기에 대 한 눈에 띄는 이점을 갖지 않는다는 것을 의미 합니다. 1500 MiB/s는 거의 순차적 쓰기 볼륨 상한 및 D32s_v3 인스턴스 송신 한도입니다.
+다음 그래프에서는 순차적 쓰기를 보여 줍니다. `nconnect`이는가 순차적 쓰기에 대 한 눈에 띄는 이점을 갖지 않는다는 것을 의미 합니다. 1500 MiB/s는 거의 순차적 쓰기 볼륨 상한 및 D32s_v3 인스턴스 송신 한도입니다.
 
 ![Linux 쓰기 처리량](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### <a name="linux-read-iops"></a>Linux 읽기 IOPS  
 
-다음 그래프는 ~ 20만 읽기 IOPS의 임의 읽기와 `nconnect`약 3, 0003을`nconnect`보여 줍니다.
+다음 그래프는 ~ 20만 읽기 IOPS의 임의 읽기와 약 3, 0003을 보여 줍니다 `nconnect` `nconnect` .
 
 ![Linux 읽기 IOPS](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>Linux 쓰기 IOPS  
 
-다음 그래프는 ~ 135000 write IOPS의 임의 쓰기 `nconnect`를 보여 줍니다 (약 3,`nconnect`0003).
+다음 그래프는 ~ 135000 write IOPS의 임의 쓰기를 보여 줍니다 `nconnect` (약 3, 0003) `nconnect` .
 
 ![Linux 쓰기 IOPS](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

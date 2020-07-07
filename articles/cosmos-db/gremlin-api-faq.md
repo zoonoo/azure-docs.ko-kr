@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614500"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API에 대 한 질문과 대답
@@ -21,7 +21,7 @@ ms.locfileid: "82614500"
 
 **executionProfile()** 미리 보기 단계를 사용하여 쿼리 실행 계획에 대한 분석을 제공할 수 있습니다. 이 단계는 다음 예와 같이 Gremlin 쿼리 끝에 추가해야 합니다.
 
-**쿼리 예**
+**쿼리 예제**
 
 ```
 g.V('mary').out('knows').executionProfile()
@@ -89,7 +89,7 @@ g.V('mary').out('knows').executionProfile()
 
 위의 프로필 출력에는 꼭 짓 점 개체,에 지 개체 및 작업 데이터 집합의 크기를 가져오는 데 소요 된 시간이 표시 됩니다. 이는 Azure Cosmos DB 쿼리에 대한 표준 비용 측정과 관련이 있습니다.
 
-## <a name="other-frequently-asked-questions"></a>기타 자주 묻는 질문
+## <a name="other-frequently-asked-questions"></a>기타 질문과 대답
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>그래프 데이터베이스에서 쿼리 실행 시 RU/s는 어떻게 청구되나요?
 

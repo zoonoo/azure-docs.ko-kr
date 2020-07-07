@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98458f8be162d0903f5ea0d1f7d4651d46f78e8e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7092ea68f2b7f35e372013a94108e43a83c8777
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048444"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>자습서: iProva와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -78,11 +78,10 @@ iProva에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 1. 웹 브라우저를 열고 다음 URL 패턴을 사용하여 iProva의 **SAML2 정보 페이지**로 이동합니다.
 
-    | | |
-    |-|-|
-    | `https://SUBDOMAIN.iprova.nl/saml2info`|
-    | `https://SUBDOMAIN.iprova.be/saml2info`|
-    | | |
+    ```https
+    https://SUBDOMAIN.iprova.nl/saml2info
+    https://SUBDOMAIN.iprova.be/saml2info
+    ```
 
     ![iProva SAML2 정보 페이지 보기](media/iprova-tutorial/iprova-saml2-info.png)
 

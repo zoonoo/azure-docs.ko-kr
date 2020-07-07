@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c2f74b8f8ed19fd73b67fdd0465cce81f89321
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c9ed9dd75f7119268c2d5971e05704e5a4eca4a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735918"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798241"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>자습서: My IBISWorld와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -96,14 +96,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 My IBISWorld 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 |   |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | department |  | user.department |
-    | 언어 |  | user.preferredlanguage |
-    | phone |  | user.telephonenumber |
-    | title |  | user.jobtitle |
-    | userId |  | user.employeeid |
-    | country |  | user.country |
+    | 속성 | 원본 특성|
+    | --------------- | --------- |
+    | department | user.department |
+    | 언어 | user.preferredlanguage |
+    | phone | user.telephonenumber |
+    | title | user.jobtitle |
+    | userId | user.employeeid |
+    | country | user.country |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 효과
 description: 이 Azure Policy 패턴은 정책 정의의 다른 효과를 사용하는 방법에 대한 예제를 제공합니다.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372632"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565738"
 ---
 # <a name="azure-policy-pattern-effects"></a>Azure Policy 패턴: 효과
 

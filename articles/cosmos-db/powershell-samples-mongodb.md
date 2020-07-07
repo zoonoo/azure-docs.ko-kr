@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 368883a7eded17180a4a4259d452be09ebd221d9
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 697dc68018ced08e22efdc179f84a2c968f953a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563864"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 
@@ -23,7 +23,7 @@ ms.locfileid: "85262449"
 > [!NOTE]
 > 이 샘플에서는 [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) 관리 cmdlet을 사용합니다. `Az.CosmosDB`에 대한 업데이트를 정기적으로 확인하세요.
 
-| | |
+|작업 | Description |
 |---|---|
 |[계정, 데이터베이스 및 컬렉션 만들기](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 |[데이터베이스 또는 컬렉션 나열 또는 가져오기](scripts/powershell/mongodb/ps-mongodb-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션을 나열하거나 가져옵니다. |

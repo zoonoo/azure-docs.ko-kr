@@ -9,16 +9,16 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7fff21ec4fdb53483eea1a6c37ce9269081fe77e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82615449"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다. 스프링 2020 업데이트에 도입 된 Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-set-up-overview.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-set-up-overview.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 환경을 설정할 때 발생할 수 있는 문제에 대 한 개요를 제공 하 고 문제를 해결 하는 방법을 제공 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "82615449"
 >[!NOTE]
 > 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여 토론을 시작 합니다.
 
-| **문제**                                                            | **제안 된 솔루션**  |
+| **문제점**                                                            | **제안 된 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Windows 가상 데스크톱 테 넌 트 만들기                                                    | Azure 가동 중단이 발생 하면 [azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/). 그렇지 않은 경우 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대해 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형에 대해 **배포** 를 선택한 다음, 문제 하위 유형에 대 한 **Windows 가상 데스크톱 테 넌 트 만들기 문제** 를 선택 합니다.|
 | Azure Portal에서 Marketplace 템플릿 액세스       | Azure 가동 중단이 발생 하면 [azure 지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/). <br> <br> Azure Marketplace Windows 가상 데스크톱 템플릿을 무료로 사용할 수 있습니다.|
@@ -53,12 +53,12 @@ ms.locfileid: "82615449"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조 하세요.
-- Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration-2019.md)을 참조 하세요.
+- Windows Virtual Desktop 환경에서 테넌트 및 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [테넌트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조하세요.
+- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection-2019.md)을 참조 하세요.
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](../troubleshoot-client.md) 을 참조 하세요.
-- Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell-2019.md)을 참조 하세요.
+- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md)을 참조하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup-2019.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.
+- 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 - 배포 하는 동안 오류를 확인 하는 작업에 대해 알아보려면 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 참조 하세요.

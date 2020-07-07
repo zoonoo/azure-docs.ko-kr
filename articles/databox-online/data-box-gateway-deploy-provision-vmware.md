@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561645"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564200"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -33,7 +33,7 @@ ms.locfileid: "82561645"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
@@ -145,7 +145,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
     같은 페이지에서 **하드 디스크 추가**를 클릭한 다음, **기존 하드 디스크**를 선택합니다. 데이터 저장소에 VMDK 파일을 선택합니다. 그러면 OS 디스크가 추가됩니다. 
 
-     !설정 사용자 지정 페이지[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![설정 사용자 지정 페이지](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     **새 하드 디스크**가 표시될 때까지 아래로 스크롤하고 확장하여 설정을 봅니다. **가상 디바이스 노드**를 **IDE 컨트롤러 0**으로 설정합니다.
 
