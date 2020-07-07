@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418017"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
@@ -82,7 +82,7 @@ defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 
 > [!NOTE]
 > 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Switch 활동을 포함 하는 파이프라인 (Adfv2quickstartpipeline.json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>전환 작업을 사용 하는 파이프라인 (Adfv2QuickStartPipeline.js)
 
 ```json
 {

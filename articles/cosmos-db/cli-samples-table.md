@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560617"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API에 대한 Azure CLI 샘플
 
 다음 표에는 Azure Cosmos DB Table API용 Azure CLI 샘플 스크립트에 대한 링크가 포함되어 있습니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 모든 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI GitHub 리포지토리](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)에서 확인할 수 있습니다.
 
-| |  |
+|작업 | Description |
 |---|---|
 | [Azure Cosmos 계정 및 테이블 만들기](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Table API에 대한 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
 | [처리량 변경](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 테이블에서 RU/s를 업데이트합니다.|
@@ -27,5 +27,5 @@ ms.locfileid: "85262925"
 | [IP 방화벽으로 보안](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| IP 방화벽이 구성된 Cosmos 계정을 만듭니다.|
 | [서비스 엔드포인트로 새 계정 보호](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Cosmos 계정을 만들고 서비스 엔드포인트로 보호합니다.|
 | [서비스 엔드포인트로 기존 계정 보호](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| 서브넷이 최종적으로 구성될 때 서비스 엔드포인트로 보호할 Cosmos 계정을 업데이트합니다.|
-| [삭제에서 리소스 잠그기](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스가 삭제되지 않도록 합니다.|
+| [삭제에서 리소스 잠그기](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||

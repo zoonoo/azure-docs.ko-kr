@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254889"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962138"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -45,7 +45,9 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 2. 새 폴더에서 다음 명령을 실행하여 프로젝트를 만듭니다.
 
-        dotnet new mvc
+    ```dotnetcli
+    dotnet new mvc
+    ```
 
 
 ## <a name="add-secret-manager-to-the-project"></a>프로젝트에 암호 관리자 추가
@@ -74,11 +76,15 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.SignalR` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Azure.SignalR
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.SignalR
+    ```
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
+    ```
 
 3. *Azure:SignalR:ConnectionString*이라는 암호를 암호 관리자에 추가합니다. 
 
@@ -86,7 +92,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
     이 명령은 *.csproj* 파일과 동일한 디렉터리에서 실행해야 합니다.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
@@ -224,19 +230,25 @@ connection.start()
 
 1. .NET Core CLI를 사용하여 앱을 빌드하려면 명령 셸에서 다음 명령을 실행합니다.
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 2. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     앱은 개발 런타임 프로필에 구성된 대로 5000 포트에서 로컬로 호스팅됩니다.
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Development
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Development
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.    
+    ```
 
 3. 두 개의 브라우저 창을 엽니다. 각 브라우저에서 `http://localhost:5000`으로 이동합니다. 이름을 입력하라는 메시지가 표시됩니다. 두 클라이언트에 대한 클라이언트 이름을 입력하고, **보내기** 단추를 사용하여 두 클라이언트 간의 메시지 콘텐츠 푸시를 테스트합니다.
 

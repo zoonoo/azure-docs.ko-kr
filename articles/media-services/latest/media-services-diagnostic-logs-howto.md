@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382922"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-다음은 그 예입니다.
+예:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -96,7 +96,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
  이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다.
 
-### <a name="examples-of-pt1hjson"></a>PT1H.JSON의 예
+### <a name="examples-of-pt1hjson"></a>PT1H.js의 예
 
 #### <a name="clear-key-delivery-log"></a>키 배달 로그 지우기
 
@@ -174,7 +174,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 }
 ```
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72255989"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Azure FXT Edge 필터에 대 한 지원 티켓을 엽니다.
@@ -26,7 +26,7 @@ Azure Portal를 사용 하 여 Microsoft 고객 서비스 및 지원을 통해 �
    ![빈 지원 요청 양식 스크린샷](media/fxt-support-blank.png)
 
 1. 요청 양식을 작성 합니다.  
-    1. **기본 사항** 탭에서 **문제 유형** ``Technical``을 선택 합니다. 
+    1. **기본 사항** 탭에서 **문제 유형** 을 선택 ``Technical`` 합니다. 
     1. 구독을 선택합니다. 
     1. **서비스**에서 **Azure Fxt Edge 필터**를 선택 합니다. **모든 서비스** 필터 컨트롤을 클릭 하 여이를 찾아야 할 수도 있습니다. 
     1. **요약** 을 입력 하 고 **문제 유형을**선택 합니다. 

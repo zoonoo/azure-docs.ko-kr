@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335818"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러에 대 한 주석 
@@ -22,7 +22,7 @@ Kubernetes 수신 리소스는 임의의 키/값 쌍으로 주석을 달 수 있
 
 ## <a name="list-of-supported-annotations"></a>지원 되는 주석 목록
 
-수신 리소스를 AGIC에서 관찰 하려면로 `kubernetes.io/ingress.class: azure/application-gateway` **주석을 추가 해야** 합니다. 그런 다음 AGIC는 해당 수신 리소스를 사용 하 여 작업 합니다.
+수신 리소스를 AGIC에서 관찰 하려면로 **주석을 추가 해야** 합니다 `kubernetes.io/ingress.class: azure/application-gateway` . 그런 다음 AGIC는 해당 수신 리소스를 사용 하 여 작업 합니다.
 
 | 주석 키 | 값 형식 | 기본값 | 허용되는 값
 | -- | -- | -- | -- |
@@ -39,13 +39,13 @@ Kubernetes 수신 리소스는 임의의 키/값 쌍으로 주석을 달 수 있
 
 이 주석을 사용 하면 수신 리소스에 지정 된 백 엔드 경로를이 주석에 지정 된 접두사를 사용 하 여 다시 작성할 수 있습니다. 이를 통해 사용자는 끝점이 수신 리소스에서 서비스를 노출 하는 데 사용 되는 끝점 이름과 다른 서비스를 노출할 수 있습니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 
 ```yaml
 appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -65,22 +65,22 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-위의 예제에서 주석 `go-server-ingress-bkprefix` `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` 으로 명명 된 수신 리소스를 정의 했습니다. 주석은 application gateway에 경로에 대 한 `/hello` 경로 접두사를 재정의 하는 HTTP 설정을 만들도록 지시 합니다. `/test/`
+위의 예제에서 주석으로 명명 된 수신 리소스를 정의 했습니다 `go-server-ingress-bkprefix` `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . 주석은 application gateway에 경로에 대 한 경로 접두사를 재정의 하는 HTTP 설정을 만들도록 지시 합니다 `/hello` `/test/` .
 
 > [!NOTE] 
 > 위의 예에는 하나의 규칙만 정의 되어 있습니다. 그러나 주석은 전체 수신 리소스에 적용 되므로 사용자가 여러 규칙을 정의한 경우 지정 된 각 경로에 대해 백 엔드 경로 접두사가 설정 됩니다. 따라서 사용자가 다른 경로 접두사 (동일한 서비스의 경우에도)를 사용 하는 다른 규칙을 원하는 경우 다른 수신 리소스를 정의 해야 합니다.
 
 ## <a name="tls-redirect"></a>TLS 리디렉션
 
-HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP `301 Moved Permanently`가 됩니다.
+HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP가 됩니다 `301 Moved Permanently` .
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 
 ```yaml
 appgw.ingress.kubernetes.io/ssl-redirect: "true"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -110,14 +110,14 @@ spec:
 `connection-draining`:이 주석을 사용 하면 사용자가 연결 드레이닝을 사용할지 여부를 지정할 수 있습니다.
 `connection-draining-timeout`:이 주석을 사용 하면 사용자가 제한 시간을 지정 하 여 종료 백 엔드 끝점에 대 한 요청을 종료할 Application Gateway 있습니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 
 ```yaml
 appgw.ingress.kubernetes.io/connection-draining: "true"
 appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -143,13 +143,13 @@ spec:
 
 이 주석을 사용 하 여 쿠키 기반 선호도를 사용 하도록 설정할지 여부를 지정할 수 있습니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 
 ```yaml
 appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -174,13 +174,13 @@ spec:
 
 이 주석을 사용 하면 요청 시간 제한 (초)을 지정 하 여 응답을 받지 못한 경우 요청이 실패 하는 경우이를 Application Gateway 수 있습니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 
 ```yaml
 appgw.ingress.kubernetes.io/request-timeout: "20"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -206,16 +206,16 @@ spec:
 이 주석을 사용 하면 Application Gateway의 개인 IP에서이 끝점을 노출할 지 여부를 지정할 수 있습니다.
 
 > [!NOTE]
-> * Application Gateway는 동일한 포트에서 여러 Ip를 지원 하지 않습니다 (예: 80/443). 주석과 `appgw.ingress.kubernetes.io/use-private-ip: "false"` 함께 `appgw.ingress.kubernetes.io/use-private-ip: "true"` 를 수신 `HTTP` 하면 AGIC가 Application Gateway를 업데이트할 수 없게 됩니다.
-> * 개인 IP가 없는 Application Gateway의 경우 조절기 `appgw.ingress.kubernetes.io/use-private-ip: "true"` 은 무시 됩니다. 이는 경고와 함께 `NoPrivateIP` 해당 조절기의 컨트롤러 로그 및 수신 이벤트에 반영 됩니다.
+> * Application Gateway는 동일한 포트에서 여러 Ip를 지원 하지 않습니다 (예: 80/443). 주석과 함께를 수신 `appgw.ingress.kubernetes.io/use-private-ip: "false"` `appgw.ingress.kubernetes.io/use-private-ip: "true"` `HTTP` 하면 AGIC가 Application Gateway를 업데이트할 수 없게 됩니다.
+> * 개인 IP가 없는 Application Gateway의 경우 조절기 `appgw.ingress.kubernetes.io/use-private-ip: "true"` 은 무시 됩니다. 이는 경고와 함께 해당 조절기의 컨트롤러 로그 및 수신 이벤트에 반영 됩니다 `NoPrivateIP` .
 
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -237,13 +237,13 @@ spec:
 
 ## <a name="backend-protocol"></a>백 엔드 프로토콜
 
-이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 `http`프로토콜:,`https`
+이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 프로토콜: `http` ,`https`
 
 > [!NOTE]
-> * Application Gateway에서 자체 서명 된 인증서가 지원 되지만, 현재 AGIC는 잘 알려진 `https` CA에서 서명 된 인증서를 사용 하는 경우에만 지원 합니다.
+> * Application Gateway에서 자체 서명 된 인증서가 지원 되지만, 현재 AGIC `https` 는 잘 알려진 CA에서 서명 된 인증서를 사용 하는 경우에만 지원 합니다.
 > * Pod에서 HTTP와 함께 포트 80을 사용 하지 않도록 하 고 포트 443을 사용 하지 않도록 설정 합니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용법
 ```yaml
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```

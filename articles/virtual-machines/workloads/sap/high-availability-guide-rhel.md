@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351097"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
@@ -84,7 +84,7 @@ SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니�
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -93,12 +93,12 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -110,10 +110,10 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -150,11 +150,11 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    1. 관리자 사용자 이름, 관리자 암호 또는 SSH 키  
       컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자가 만들어집니다.
    1. 서브넷 ID  
-   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt;subscription&gt;ID**/resourcegroups//**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt; ** 처럼 보입니다.
+   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/** &lt; subscription &gt; ID**/Resourcegroups//** &lt; 리소스 그룹 이름 &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; 가상 네트워크 이름 &gt; **/subnets/** &lt; 서브넷 이름 &gt; ** 처럼 보입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용 합니다.
+먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
 1. Virtual Network 만들기
@@ -168,7 +168,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신 모두에 하나 이상의 데이터 디스크 추가  
    데이터 디스크는 /usr/sap/`<SAPSID`> 디렉터리에 사용됩니다
-1. 부하 분산 장치 만들기 (내부, 표준):  
+1. 부하 분산 장치(내부, 표준)를 만듭니다.  
    1. 프런트 엔드 IP 주소 만들기
       1. IP 주소: 10.0.0.7(ASCS용)
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -181,8 +181,8 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
       1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
       1. 새 백 엔드 풀의 이름 입력(예: **nw1-backend**)
       1. 가상 머신 추가 클릭
-      1. 가상 머신을 선택합니다.
-      1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
+      1. 가상 컴퓨터를 선택 합니다.
+      1. (A)SCS 클러스터의 가상 머신 및 해당 IP 주소 선택
       1. 추가를 클릭합니다.
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
@@ -202,7 +202,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
-1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
+1. 또는 시나리오에 기본 부하 분산 장치(내부)가 필요한 경우 다음 단계를 수행합니다.  
    1. 프런트 엔드 IP 주소 만들기
       1. IP 주소: 10.0.0.7(ASCS용)
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -241,10 +241,10 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          * ASCS ERS의 경우 33**02**, 5**02**13, 5**02**14, 5**02**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
 
 > [!Note]
-> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -252,7 +252,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver 설치 준비
 
-다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
+다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -518,7 +518,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 1. **[1]** SAP 클러스터 리소스 만들기
 
-  ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 같이 리소스를 정의 합니다.
+  큐에 넣기 서버 1 아키텍처(ENSA1)를 사용하는 경우 다음과 같이 리소스를 정의합니다.
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -544,7 +544,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
+   SAP는 SAP NW 7.52부터 복제를 비롯하여 큐에 넣기 서버 2에 대한 지원을 도입했습니다. ABAP Platform 1809부터 큐에 넣기 서버 2가 기본적으로 설치됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416)을 참조하세요.
    [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 리소스 에이전트 resource-agents-sap-4.1.1 x86_64 -12를 설치 하 고 다음과 같이 리소스를 정의 합니다.
 
 <pre><code>sudo pcs property set maintenance-mode=true
@@ -708,7 +708,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA을 설치 하는 방법에 대 한 자세한 내용은. For a list of supported databases, see [SAP Note 1928533][1928533] [Red Hat Enterprise Linux에서 azure Vm의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA을 설치 하는 방법에 대 한 자세한 내용은 [Red Hat Enterprise Linux에서 Azure vm의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요 . For a list of supported databases, see [SAP Note 1928533][1928533] .
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -742,7 +742,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
    설치한 SAP HANA System Replication의 가상 이름을 가리키도록 SAP HANA 보안 저장소를 업데이트합니다.
 
-   다음 명령을 실행하여 항목을 \<sapsid>adm으로 나열합니다.
+   다음 명령을 실행 하 여 adm으로 항목을 나열 합니다. \<sapsid>
 
    <pre><code>hdbuserstore List
    </code></pre>
@@ -895,7 +895,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   메시지 서버를 한 번만 종료 하면에서 `sapstart`다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   메시지 서버를 한 번만 종료하면 `sapstart`에 의해 다시 시작됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
@@ -981,7 +981,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   명령을 한 번만 실행 하는 경우 `sapstart` 에서 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에서 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   이 명령을 한 번만 실행하는 경우 `sapstart`가 프로세스를 다시 시작합니다. 충분히 자주 실행하면 `sapstart`가 해당 프로세스를 다시 시작하지 않으며 리소스는 중지된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
@@ -1043,7 +1043,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [RHEL for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [SAP 애플리케이션 다중 SID에 대한 RHEL의 Azure VM에서 HA 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]

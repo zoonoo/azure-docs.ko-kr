@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80346311"
 ---
 # <a name="download-the-results-of-a-job"></a>작업 결과 다운로드
@@ -24,7 +24,7 @@ Azure Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또
 
 이 문서에서는 Java 및 .NET Sdk를 사용 하 여 결과를 다운로드 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 [자산 관리](manage-asset-concept.md)를 검토합니다.
 

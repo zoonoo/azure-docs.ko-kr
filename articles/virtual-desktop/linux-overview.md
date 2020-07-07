@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422426"
 ---
 # <a name="linux-support"></a>Linux 지원
@@ -34,7 +34,7 @@ SDK Api를 사용 하 여 리소스 피드를 검색 하 고, 데스크톱 또�
 > [!NOTE]
 > SDK는 현재 개발 중입니다. 이 문서는 일반적으로 사용할 수 있는 SDK에 대 한 액세스 지침으로 업데이트 합니다.
 
-### <a name="supported-linux-distributions"></a>지원 되는 Linux 배포판
+### <a name="supported-linux-distributions"></a>지원되는 Linux 배포
 
 SDK는 Ubuntu 18.04 이상을 기반으로 하는 대부분의 운영 체제와 호환 됩니다. 다른 Linux 배포를 사용 하는 경우 사용자와 협력 하 여 요구 사항을 가장 잘 지 원하는 방법을 알아낼 수 있습니다.
 
@@ -44,7 +44,7 @@ SDK는 데스크톱 및 원격 응용 프로그램 세션에 대 한 여러 연�
 
 | 리디렉션       | 지원됨 |
 | :---------------- | :-------: |
-| Keyboard          | &#10004;  |
+| 키보드          | &#10004;  |
 | 마우스             | &#10004;  |
 | 오디오의          | &#10004;  |
 | 오디오 출력         | &#10004;  |

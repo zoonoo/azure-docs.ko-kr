@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 필드 속성
 description: 이 Azure Policy 패턴은 정책 정의에서 필드 속성을 사용하는 방법에 대한 예를 제공합니다.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: e65767dd9cbe7b2192c21f779643289e5a7fc45e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170261"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565711"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Azure Policy 패턴: 필드 속성
 

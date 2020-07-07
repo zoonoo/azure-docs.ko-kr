@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72025946"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
@@ -39,7 +39,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 이 문서에서는 Azure에서 Z 개발 및 테스트 환경 (zD&T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 zD&T Enterprise Edition 웹 서버를 사용 하 여 Azure에서 Z 기반 환경을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > IBM에서는 zD&T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수*없습니다* .
@@ -62,11 +62,11 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 3. **연결** 단추를 통해 VM의 **개요** 블레이드에 표시 된 SSH 자격 증명을 가져옵니다. **Ssh** 탭을 선택 하 고 ssh logon 명령을 클립보드에 복사 합니다.
 
-4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. 이 파일은 **ssh\<사용자 id\>\@\<IP\>주소**형식입니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
+4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. ** \<user id\> Ssh \@ 형식이 \<IP Address\> **됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>서버에 설치 파일을 복사 합니다.
 
-웹 서버의 설치 파일은 **Zdt\_Install\_EE\_v 12.0.0.1. tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
+웹 서버의 설치 파일은 **Zdt \_ Install \_ EE \_ v 12.0.0.1. tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
 
 1. 명령줄에서 다음 명령을 입력 하 여 새로 만든 이미지에서 모든 항목이 최신 상태 인지 확인 합니다.
 
@@ -91,7 +91,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 ## <a name="install-the-enterprise-edition"></a>Enterprise Edition 설치
 
-1. 다음 명령을 사용 하 여 ZDT 디렉터리로 이동 하 고\_\_zdt\_Install EE 12.0.0.1. tgz 파일의 압축을 해제 합니다.
+1. 다음 명령을 사용 하 여 ZDT 디렉터리로 이동 하 고 ZDT \_ Install \_ EE \_ 12.0.0.1. tgz 파일의 압축을 해제 합니다.
 
     ```
     cd ZDT

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80396620"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마에 새 필드가 있는 샘플 쿼리 (8 월 2019 스키마 업데이트)
@@ -107,7 +107,7 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 NSG를 통해 데이터를 클럽 하지 않으므로 **FlowCount_d** 는 간단 합니다.
 
-**AllowedInFlows_d** + **DeniedInFlows_d**DeniedInFlows_d + **AllowedOutFlows_d**AllowedOutFlows_d + **DeniedOutFlows_d**
+**AllowedInFlows_d**  +  **DeniedInFlows_d**  +  **AllowedOutFlows_d**  +  **DeniedOutFlows_d**
 
 4 개 필드 중 하나만 0이 아닙니다. 다른 세 필드는 0이 됩니다. 필드는 흐름이 캡처된 NIC의 상태와 카운트를 표시 하도록 채워집니다.
 
@@ -122,5 +122,5 @@ NSG를 통해 데이터를 클럽 하지 않으므로 **FlowCount_d** 는 간단
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
+- 질문과 대답을 보려면 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조 하십시오.
 - 기능에 대 한 자세한 내용은 [트래픽 분석 설명서](traffic-analytics.md)를 참조 하세요.

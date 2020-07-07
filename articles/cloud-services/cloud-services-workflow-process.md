@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71162155"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Microsoft Azure 클래식 VM 아키텍처 워크플로 
@@ -39,7 +39,7 @@ ms.locfileid: "71162155"
 
 **C**3. 호스트 에이전트는 호스트 OS에 있고 게스트 OS를 설정 하 고 게스트 에이전트와의 통신 (WindowsAzureGuestAgent) 하 여 역할을 의도 된 목표 상태로 업데이트 하 고 게스트 에이전트를 사용 하 여 하트 비트를 확인 해야 합니다. 호스트 에이전트가 10 분 동안 하트 비트 응답을 받지 못하면 호스트 에이전트가 게스트 OS를 다시 시작 합니다.
 
-**C2**. Waappagent.exe는 WindowsAzureGuestAgent를 설치, 구성 및 업데이트 하는 일을 담당 합니다.
+**C2**. Waappagent.exe는 WindowsAzureGuestAgent.exe의 설치, 구성 및 업데이트를 담당 합니다.
 
 **4**.  WindowsAzureGuestAgent은 다음을 담당 합니다.
 
@@ -69,11 +69,11 @@ ms.locfileid: "71162155"
 
 **I**. Wa작업 호스트는 일반 작업자 역할에 대 한 표준 호스트 프로세스입니다. 이 호스트 프로세스는 모든 역할의 Dll 및 진입점 코드 (예: OnStart 및 Run)를 호스팅합니다.
 
-**J**. Wawebhost.exe는 SDK 1.2 호환 호스팅 가능 웹 코어 (HWC)를 사용 하도록 구성 된 웹 역할에 대 한 표준 호스트 프로세스입니다. 역할은 서비스 정의 (.csdef)에서 요소를 제거 하 여 HWC 모드를 사용 하도록 설정할 수 있습니다. 이 모드에서는 모든 서비스의 코드와 Dll이 Wawebhost.exe 프로세스에서 실행 됩니다. Iis (w3wp.exe)는 사용 되지 않으며 iis는 Wawebhost.exe 내에서 호스트 되기 때문에 IIS 관리자에 구성 된 AppPools 없습니다.
+**J**. Wawebhost.exe는 SDK 1.2 호환 호스팅 가능 웹 코어 (HWC)를 사용 하도록 구성 된 웹 역할에 대 한 표준 호스트 프로세스입니다. 역할은 서비스 정의 (.csdef)에서 요소를 제거 하 여 HWC 모드를 사용 하도록 설정할 수 있습니다. 이 모드에서는 모든 서비스의 코드와 Dll이 Wawebhost.exe 프로세스에서 실행 됩니다. Iis (w3wp.exe)는 사용 되지 않으며 iis는 WaWebHost.exe 내에서 호스트 되기 때문에 IIS 관리자에 구성 된 AppPools 없습니다.
 
 **K**. Waiishost.exe는 전체 IIS를 사용 하는 웹 역할에 대 한 역할 진입점 코드의 호스트 프로세스입니다. 이 프로세스는 **Roleentrypoint** 클래스를 사용 하는 첫 번째 DLL을 로드 하 고이 클래스 (OnStart, Run, OnStop)에서 코드를 실행 합니다. Roleenvironment 클래스에서 만든 **Roleenvironment** 이벤트 (예: statuscheck 및 Changed)는이 프로세스에서 발생 합니다.
 
-**L**. W3wp.exe는 역할이 전체 IIS를 사용 하도록 구성 된 경우에 사용 되는 표준 IIS 작업자 프로세스입니다. 그러면 IISConfigurator에서 구성 된 AppPool이 실행 됩니다. 여기에서 만든 RoleEnvironment 이벤트 (예: StatusCheck 및 Changed)는이 프로세스에서 발생 합니다. 두 프로세스 모두에서 이벤트를 구독 하는 경우 RoleEnvironment 이벤트는 두 위치 (Waiishost.exe 및 w3wp.exe)에서 발생 합니다.
+**L**. W3wp.exe는 역할이 전체 IIS를 사용 하도록 구성 된 경우에 사용 되는 표준 IIS 작업자 프로세스입니다. 그러면 IISConfigurator에서 구성 된 AppPool이 실행 됩니다. 여기에서 만든 RoleEnvironment 이벤트 (예: StatusCheck 및 Changed)는이 프로세스에서 발생 합니다. 두 프로세스 모두에서 이벤트를 구독 하는 경우 RoleEnvironment 이벤트는 두 위치 (Waiishost.exe 및 w3wp.exe) 모두에서 발생 합니다.
 
 ## <a name="workflow-processes"></a>워크플로 프로세스
 
@@ -83,11 +83,11 @@ ms.locfileid: "71162155"
 4. 호스트 에이전트는 게스트 OS를 시작 하 고 게스트 에이전트 (WindowsAzureGuestAgent)와 통신 합니다. 호스트는 해당 역할이 목표 상태로 작동 하는지 확인 하기 위해 하트 비트를 게스트에 보냅니다.
 5. WindowsAzureGuestAgent는 게스트 OS (방화벽, Acl, LocalStorage 등)를 설정 하 고 새 XML 구성 파일을 c:\Config에 복사한 다음 WaHostBootstrapper 프로세스를 시작 합니다.
 6. 전체 IIS 웹 역할의 경우 WaHostBootstrapper IISConfigurator를 시작 하 고 IIS에서 웹 역할에 대 한 기존 AppPools을 삭제 하도록 지시 합니다.
-7. WaHostBootstrapper E:\RoleModel.xml에서 **시작** 작업을 읽고 시작 작업 실행을 시작 합니다. WaHostBootstrapper는 모든 간단한 시작 작업이 완료 되 고 "성공" 메시지가 반환 될 때까지 대기 합니다.
-8. 전체 IIS 웹 역할의 경우 WaHostBootstrapper는 IIS AppPool을 구성 하 고 사이트 `E:\Sitesroot\<index>`를 가리키도록 합니다. 여기서 `<index>` 은 서비스에 대해 정의 된 `<Sites>` 요소 수에 대 한 0 기반 인덱스입니다.
+7. WaHostBootstrapper는 E:\RoleModel.xml에서 **시작** 작업을 읽고 시작 작업 실행을 시작 합니다. WaHostBootstrapper는 모든 간단한 시작 작업이 완료 되 고 "성공" 메시지가 반환 될 때까지 대기 합니다.
+8. 전체 IIS 웹 역할의 경우 WaHostBootstrapper는 IIS AppPool을 구성 하 고 사이트를 가리키도록 합니다 `E:\Sitesroot\<index>` `<index>` . 여기서은 `<Sites>` 서비스에 대해 정의 된 요소 수에 대 한 0 기반 인덱스입니다.
 9. WaHostBootstrapper는 역할 유형에 따라 호스트 프로세스를 시작 합니다.
-    1. **작업자 역할**: wa이상 호스트나 .exe가 시작 됩니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper는 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고이를 부하 분산 장치 순환에 배치 합니다 (InputEndpoints가 정의 된 경우). 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
-    1. **SDK 1.2 HWC 웹 역할**: wawebhost.exe가 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. Wawebhost.exe는 워밍업 요청 (GET rd_runtime_init/)을 발급 합니다. 모든 웹 요청은 Wawebhost.exe으로 전송 됩니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
+    1. **작업자 역할**: WaWorkerHost.exe 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper는 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고이를 부하 분산 장치 순환에 배치 합니다 (InputEndpoints가 정의 된 경우). 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
+    1. **SDK 1.2 HWC 웹 역할**: wawebhost.exe가 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. Wawebhost.exe는 워밍업 요청 (GET rd_runtime_init/)을 발급 합니다. 모든 웹 요청은 WaWebHost.exe 전송 됩니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
     1. **전체 IIS 웹 역할**: aIISHost이 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후에 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
 10. 전체 IIS 웹 역할에 대 한 들어오는 웹 요청은 IIS를 트리거하여 w3wp.exe 프로세스를 시작 하 고 요청을 처리 합니다 .이는 온-프레미스 IIS 환경에서와 동일 합니다.
 

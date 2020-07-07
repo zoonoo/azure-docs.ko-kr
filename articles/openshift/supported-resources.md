@@ -1,5 +1,5 @@
 ---
-title: Azure Red Hat OpenShift 3.11에 대해 지원 되는 리소스
+title: Azure Red Hat OpenShift 3.11을 지원하는 리소스
 description: Red Hat OpenShift Microsoft Azure에서 지 원하는 Azure 지역 및 가상 머신 크기를 이해 합니다.
 author: jimzim
 ms.author: jzim
@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203678"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure Red Hat OpenShift 리소스
@@ -34,7 +34,7 @@ Azure Red Hat OpenShift 클러스터에서 계산 노드에 대해 지정할 수
 
 Azure Red Hat OpenShift REST API에서 지 원하는 계산 노드 크기는 다음과 같습니다.
 
-|Size|vCPU|RAM|
+|크기|vCPU|RAM|
 |-|-|-|
 |표준 D4s v3|4|16GB|
 |표준 D8s v3|8|32GB|
@@ -54,7 +54,7 @@ Azure Red Hat OpenShift REST API에서 지 원하는 계산 노드 크기는 다
 
 Azure Red Hat OpenShift REST API에서 지 원하는 마스터/인프라 노드 크기는 다음과 같습니다.
 
-|Size|vCPU|RAM|
+|크기|vCPU|RAM|
 |-|-|-|
 |표준 D4s v3|4|16GB|
 |표준 D8s v3|8|32GB|

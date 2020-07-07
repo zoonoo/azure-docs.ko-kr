@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 832caaed0816e3dd7d177f634209dea42e5312c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192683"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
@@ -21,15 +21,15 @@ ms.locfileid: "82192683"
 
 Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 선택 합니다.  자세한 지침은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 를 참조 하세요. 클러스터가 새 포털 보기에서 열립니다.
+1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  자세한 지침은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 를 참조 하세요. 클러스터가 새 포털 보기에서 열립니다.
 
-1. **클러스터 대시보드에서** **Ambari views**를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서로 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` 이동할 수도 있습니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
+1. **클러스터 대시보드에서** **Ambari views**를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 브라우저에서로 이동할 수도 있습니다 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` . 여기서은 클러스터의 이름입니다.
 
 1. 보기 목록에서 __Hive 보기__를 선택합니다.
 
@@ -146,7 +146,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-그런 다음 쿼리에서 UDF를 사용할 수 있습니다. `SELECT myawesomeudf(name) FROM people;`)을 입력합니다.
+그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예들 들어 `SELECT myawesomeudf(name) FROM people;`입니다.
 
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

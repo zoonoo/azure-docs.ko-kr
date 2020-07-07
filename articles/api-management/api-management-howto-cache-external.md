@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203236"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
@@ -39,7 +39,7 @@ Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외�
 > [!div class="checklist"]
 > * API Management에서 외부 캐시 추가
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398230"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
@@ -42,15 +42,15 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 > [!NOTE]
 > FarmBeats가 배포 된 Azure 구독에 액세스 하려면 Azure에서 이러한 단계를 완료 해야 합니다.
 
-1. [https://manage.visualstudio.com](https://portal.azure.com/) 에 로그인합니다.
+1. [https://manage.visualstudio.com](https://portal.azure.com/ ) 에 로그인합니다.
 
 2. **FarmBeats 버전 1.2.7 이상에서는 a, b 및 c 단계를 건너뛰고 3 단계로 이동 합니다.** FarmBeats UI의 오른쪽 위 모퉁이에 있는 **설정** 아이콘을 선택 하 여 FarmBeats 버전을 확인할 수 있습니다.
 
-      a.  **Azure Active Directory** > **앱 등록** 으로 이동
+      a.  **Azure Active Directory**  >  **앱 등록** 으로 이동
 
       b. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats datahub와 동일한 이름을 갖게 됩니다.
 
-      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+      c. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
     ```
 
-7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
+7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory**  >  **개요** 페이지에서 가져올 수 있는 테 넌 트 ID를 요청 합니다.
 
     ```azurepowershell-interactive 
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189286"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
@@ -35,7 +35,7 @@ ms.locfileid: "82189286"
 이러한 Notebook은 Jupyter Notebook 서버의 pySpark 커널에서 실행됩니다.
 
 - [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): 몇 가지 알고리즘으로 데이터 탐색, 모델링, 그리고 점수 매기기 등을 수행하는 방법에 대한 정보를 제공합니다.
-- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 노트북 #1의 토픽과 하이퍼 매개 변수 조정 및 교차 유효성 검사를 사용하는 모델 개발을 포함합니다.
+- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 노트북 #1의 항목 및 하이퍼 매개 변수 튜닝 및 교차 유효성 검사를 사용한 모델 개발이 포함됩니다.
 - [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운용하는 방법을 보여줍니다.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 노트북
@@ -65,7 +65,7 @@ ms.locfileid: "82189286"
 
 점수 매기기를 위한 Spark 2.0 모델 및 모델 사용량의 운용에 대한 지침은 [사용량에 관한 Spark 1.6 문서](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)에서 해당 단계를 설명하는 예제를 참조하세요. Spark 2.0에서이 예제를 사용 하려면 Python 코드 파일을 [이 파일로](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)바꿉니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 절차는 Spark 1.6에 대한 내용입니다. Spark 2.0 버전의 경우 이전에 설명 및 링크된 Notebook을 사용합니다.
 
@@ -141,11 +141,11 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 | tip_class |팁 클래스(0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Spark 클러스터의 Jupyter Notebook에서 코드 실행
-Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드에서 Spark 클러스터를 찾아 클릭하여 클러스터에 대한 관리 페이지로 들어갑니다. Spark 클러스터와 연결 된 노트북을 열려면 **클러스터 대시보드** -> **Jupyter Notebook**를 클릭 합니다.
+Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드에서 Spark 클러스터를 찾아 클릭하여 클러스터에 대한 관리 페이지로 들어갑니다. Spark 클러스터와 연결 된 노트북을 열려면 **클러스터 대시보드**  ->  **Jupyter Notebook**를 클릭 합니다.
 
 ![클러스터 대시보드](./media/spark-overview/spark-jupyter-on-portal.png)
 
-로 ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** 이동 하 여 Jupyter 노트북에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+로 이동 하 여 ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** Jupyter 노트북에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![Jupyter 노트북 찾아보기](./media/spark-overview/spark-jupyter-notebook.png)
 
@@ -164,7 +164,7 @@ PySpark API를 사용 하는 미리 패키지 된 노트북의 몇 가지 예를
 
 * Notebook을 클릭하여 코드를 확인합니다.
 * **Shift+Enter**를 눌러 각 셀을 실행합니다.
-* **셀** -> **실행**을 클릭 하 여 전체 노트북을 실행 합니다.
+* **셀**실행을 클릭 하 여 전체 노트북을 실행  ->  **Run**합니다.
 * 쿼리의 자동 시각화를 사용합니다.
 
 > [!TIP]
@@ -174,12 +174,12 @@ PySpark API를 사용 하는 미리 패키지 된 노트북의 몇 가지 예를
 
 ![일반적인 접근 방식에 대한 로지스틱 회귀 분석 ROC 곡선](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="whats-next"></a>새로운 기능
+## <a name="whats-next"></a>다음 단계
 이제 HDInsight Spark 클러스터를 설치하고 Jupyter Notebook을 업로드했으므로 이 세 PySpark Notebook에 해당하는 항목을 진행할 준비가 되었습니다. 이들 항목은 데이터 탐색 방법을 보여 준 후 모델을 만들고 사용하는 방법을 보여 줍니다. 고급 데이터 탐색 및 모델링 Notebook은 교차 유효성 검사, 하이퍼 매개 변수 비우기 및 모델 평가를 포함하는 방법을 보여 줍니다.
 
 **Spark로 데이터 탐색 및 모델링:**[Spark MLlib 도구 키트를 사용하여 데이터에 대한 이진 분류 및 회귀 모델 만들기](spark-data-exploration-modeling.md) 항목을 수행하여 데이터 세트를 탐색하고 기계 학습 모델 만들기, 점수 매기기 및 평가를 수행합니다.
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
 
-**교차 유효성 검사 및 하이퍼 매개 변수**비우기: 교차 유효성 검사 및 하이퍼 매개 변수 스윕을 사용 하 여 모델을 학습 하는 방법에 대 한 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조 하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md)을 참조하세요.
 

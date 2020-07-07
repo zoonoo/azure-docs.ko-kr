@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203134"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로 비전
 
 Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비전 하는 것은 자체 호스팅 게이트웨이를 배포 하기 위한 필수 구성 요소입니다. 이 문서에서는 API Management에서 게이트웨이 리소스를 프로 비전 하는 단계를 안내 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-다음 빠른 시작: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 를 완료 합니다.
+다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

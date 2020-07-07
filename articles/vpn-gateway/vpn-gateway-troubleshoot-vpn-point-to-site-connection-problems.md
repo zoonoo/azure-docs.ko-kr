@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188296"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
@@ -44,7 +44,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot    | Local Computer\Trusted Root Certification Authorities|
 
-3. C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고, 인증서(*.cer file)를 사용자 및 컴퓨터의 저장소에 수동으로 설치합니다.
+3. C:\Users \AppData\Roaming\Microsoft\Network\Connections\Cm로 이동 하 여 \<UserName> \<GUID> 사용자 및 컴퓨터의 저장소에 인증서 (* .cer 파일)를 수동으로 설치 합니다.
 
 클라이언트 인증서를 설치하는 방법에 대한 자세한 내용은 [지점 및 사이트 간 연결에 대한 인증서를 생성 및 내보내기](vpn-gateway-certificates-point-to-site.md)를 참조하세요.
 
@@ -78,7 +78,7 @@ IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
    | Windows 10 버전 1709 | 2018년 3월 22일 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. 레지스트리 키 값을 설정합니다. 레지스트리의 REG_DWORD 키 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` 를 만들거나 1로 설정 합니다.
+2. 레지스트리 키 값을 설정합니다. `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload`레지스트리의 REG_DWORD 키를 만들거나 1로 설정 합니다.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 클라이언트 오류: 예기치 않거나 형식이 잘못된 메시지를 수신했습니다.
 
@@ -168,7 +168,7 @@ VPN 클라이언트 구성 패키지를 추출하고 .cer 파일을 찾습니다
 1. mmc.exe를 엽니다.
 2. **인증서** 스냅인을 추가합니다.
 3. 로컬 컴퓨터의 **컴퓨터** 계정을 선택합니다.
-4. **신뢰할 수 있는 루트 인증 기관** 노드를 마우스 오른쪽 단추로 클릭합니다. **모든 작업** > **가져오기**를 클릭 하 고 VPN 클라이언트 구성 패키지에서 추출한 .cer 파일을 찾습니다.
+4. **신뢰할 수 있는 루트 인증 기관** 노드를 마우스 오른쪽 단추로 클릭합니다. **모든 작업**  >  **가져오기**를 클릭 하 고 VPN 클라이언트 구성 패키지에서 추출한 .cer 파일을 찾습니다.
 5. 컴퓨터를 다시 시작합니다. 
 6. VPN 클라이언트를 설치해봅니다.
 
@@ -178,7 +178,7 @@ VPN 클라이언트 구성 패키지를 추출하고 .cer 파일을 찾습니다
 
 Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**가상 네트워크 게이트웨이 &lt; *게이트웨이 이름을*&gt;저장 하지 못했습니다. 인증서 &lt; *인증서 ID* &gt; 에 대 한 데이터가 잘못 되었습니다.**
+**가상 네트워크 게이트웨이 &lt; *게이트웨이 이름을*저장 하지 못했습니다 &gt; . 인증서 &lt; *인증서 ID* 에 대 한 데이터가 &gt; 잘못 되었습니다.**
 
 ### <a name="cause"></a>원인 
 
@@ -213,7 +213,7 @@ Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다�
 
 Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다음과 같은 오류 메시지가 나타납니다. 
 
-**가상 네트워크 게이트웨이 &lt; *게이트웨이 이름을*&gt;저장 하지 못했습니다. 리소스 이름 &lt; *업로드* &gt; 하려는 인증서 이름이 잘못**되었습니다.
+**가상 네트워크 게이트웨이 &lt; *게이트웨이 이름을*저장 하지 못했습니다 &gt; . 리소스 이름 &lt; *업로드 하려는 인증서 이름이* &gt; 잘못**되었습니다.
 
 ### <a name="cause"></a>원인
 
@@ -272,7 +272,7 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>솔루션
 
-이 문제를 해결하려면 **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제한 다음, VPN 클라이언트 설치 관리자를 다시 실행합니다.
+이 문제를 해결 하려면 **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **에서 이전 vpn 클라이언트 구성 파일을 삭제 한 후 vpn 클라이언트 설치 관리자를 다시 실행 합니다.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>지점 및 사이트 간 VPN 클라이언트는 로컬 도메인에 있는 리소스의 FQDN을 확인할 수 없습니다.
 
@@ -339,9 +339,9 @@ NIC 드라이버를 업데이트합니다.
 4. Windows에서 새 드라이버를 찾지 못하는 경우 디바이스 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
 5. 컴퓨터를 다시 시작하고 연결을 다시 시도합니다.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN 클라이언트 오류: 전화 접속 VPN <VPN Connection Name>연결, 상태 = vpn 플랫폼에서 연결을 트리거하지 않음
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN 클라이언트 오류: 전화 접속 VPN 연결 <VPN Connection Name> , 상태 = Vpn 플랫폼에서 연결을 트리거하지 않음
 
-이벤트 뷰어에서 다음 오류가 표시 될 수도 있습니다. "사용자가 <User> 연결 <VPN Connection Name> 을 실패 한 것으로 전화를 겁니다. 오류 시 반환 되는 오류 코드는 1460입니다. "
+이벤트 뷰어에서 다음 오류가 표시 될 수도 있습니다. "사용자가 <User> 연결을 실패 한 것으로 전화를 겁니다. <VPN Connection Name> 오류 시 반환 되는 오류 코드는 1460입니다. "
 
 ### <a name="cause"></a>원인
 
@@ -370,7 +370,7 @@ Azure VPN 게이트웨이 형식은 VPN이어야 하고 VPN 형식은 **경로 �
 
 ### <a name="solution"></a>솔루션
 
-**C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고, VPN 클라이언트 설치 관리자를 다시 실행합니다. 
+**C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** 에서 이전 vpn 클라이언트 구성 파일을 삭제 하 고 vpn 클라이언트 설치 관리자를 다시 실행 합니다. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 클라이언트가 일정 시간 후에 최대 절전 모드 또는 절전 모드로 전환됨
 

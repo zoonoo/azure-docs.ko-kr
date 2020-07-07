@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2020
 ms.author: scottnap
 ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80337103"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>원격 작업: 원격 작업에 대 한 NVA (네트워크 가상 어플라이언스) 고려 사항
@@ -45,7 +45,7 @@ Azure Marketplace의 모든 주요 NVA 공급 업체에는 솔루션을 배포�
 - 네트워크 인
 - 네트워크 아웃
 - 인바운드 흐름
-- 아웃 바운드 흐름
+- 아웃바운드 흐름
 
 ## <a name="next-steps"></a>다음 단계
 

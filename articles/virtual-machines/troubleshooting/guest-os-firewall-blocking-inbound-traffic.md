@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422550"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
@@ -53,7 +53,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 #### <a name="mitigation-1"></a>해결 방법 1
 
-1.  Azure 에이전트가 vm에 설치 되어 있고 제대로 작동 하는 경우 vm 메뉴의 **지원 + 문제 해결** > **암호 재설정** 에서 "구성만 다시 설정" 옵션을 사용할 수 있습니다.
+1.  Azure 에이전트가 vm에 설치 되어 있고 제대로 작동 하는 경우 vm 메뉴의 **지원 + 문제 해결**  >  **암호 재설정** 에서 "구성만 다시 설정" 옵션을 사용할 수 있습니다.
 
 2.  이 복구 옵션을 실행하면 다음 작업이 수행됩니다.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348781"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
@@ -103,11 +103,11 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 무료 계층의 구성 저장소는 하루에 1000 요청으로 제한 됩니다. 표준 계층의 구성 저장소는 요청 비율이 시간당 2만 요청을 초과 하는 경우 임시 조정이 발생할 수 있습니다.
 
-저장소가 해당 한도에 도달 하면 기간이 만료 될 때까지 생성 된 모든 요청에 대해 HTTP 상태 코드 429이 반환 됩니다. 응답 `retry-after-ms` 의 헤더는 요청을 다시 시도 하기 전에 제안 된 대기 시간 (밀리초)을 제공 합니다.
+저장소가 해당 한도에 도달 하면 기간이 만료 될 때까지 생성 된 모든 요청에 대해 HTTP 상태 코드 429이 반환 됩니다. `retry-after-ms`응답의 헤더는 요청을 다시 시도 하기 전에 제안 된 대기 시간 (밀리초)을 제공 합니다.
 
 응용 프로그램에서 HTTP 상태 코드 429 응답을 정기적으로 실행 하는 경우이를 다시 디자인 하 여 요청 수를 줄이는 것이 좋습니다. 자세한 내용은 [앱 구성에 대 한 요청 축소](./howto-best-practices.md#reduce-requests-made-to-app-configuration) 를 참조 하세요.
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 그 이유는
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 이유
 
 다음과 같은 상황에서 HTTP 상태 코드 429 응답을 받게 됩니다.
 

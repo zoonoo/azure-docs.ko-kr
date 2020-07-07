@@ -1,24 +1,21 @@
 ---
-title: Azure Portal에서 지식 저장소(미리 보기) 만들기
+title: Azure Portal에서 지식 저장소 만들기
 titleSuffix: Azure Cognitive Search
-description: 데이터 가져오기 마법사를 사용하여 보강 콘텐츠를 유지하는 데 사용되는 지식 저장소를 만듭니다. 분석을 목적으로 다른 앱에서 지식 저장소에 연결하거나, 보강 콘텐츠를 다운스트림 프로세스에 보냅니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
+description: 데이터 가져오기 마법사를 사용하여 보강 콘텐츠를 유지하는 데 사용되는 지식 저장소를 만듭니다. 분석을 목적으로 다른 앱에서 지식 저장소에 연결하거나, 보강 콘텐츠를 다운스트림 프로세스에 보냅니다.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 06ddb50173299bbb99518921d1589d2f15b0aa88
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/30/2020
+ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488684"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565306"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 지식 저장소 만들기
-
-> [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
 
 지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 콘텐츠 처리 파이프라인의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261446"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559026"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용하여 Azure Storage에서 JSON Blob 인덱싱
 
@@ -112,13 +112,13 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
   ![Postman 요청 URL 및 헤더](media/search-get-started-postman/postman-url.png "Postman 요청 URL 및 헤더")
 
-URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2019-05-06`입니다.
+URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2020-06-30`입니다.
 
 ## <a name="3---create-a-data-source"></a>3 - 데이터 원본 만들기
 
 [데이터 원본 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)는 인덱싱할 데이터를 지정하는 Azure Cognitive Search 개체를 만듭니다.
 
-1. 이 호출의 엔드포인트를 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 
+1. 이 호출의 엔드포인트를 `https://[service name].search.windows.net/datasources?api-version=2020-06-30`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 
 
 1. 다음 JSON을 요청 본문에 복사합니다.
 
@@ -161,7 +161,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
     
 두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)이며 검색 가능한 모든 데이터를 저장하는 Azure Cognitive Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
-1. 이 호출의 엔드포인트를 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+1. 이 호출의 엔드포인트를 `https://[service name].search.windows.net/indexes?api-version=2020-06-30`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 1. 다음 JSON을 요청 본문에 복사합니다.
 
@@ -236,7 +236,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 인덱서는 데이터 원본에 연결하고, 데이터를 대상 검색 인덱스로 가져오고, 필요에 따라 데이터 새로 고침을 자동화하는 일정을 제공합니다. REST API는 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)입니다.
 
-1. 이 호출에 대한 URI를 `https://[service name].search.windows.net/indexers?api-version=2019-05-06`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+1. 이 호출에 대한 URI를 `https://[service name].search.windows.net/indexers?api-version=2020-06-30`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 1. 다음 JSON을 요청 본문에 복사합니다.
 
@@ -281,7 +281,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 
 1. 동사를 **GET**으로 변경합니다.
 
-1. 이 호출에 대한 URI를 `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+1. 이 호출에 대한 URI를 `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true`로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 1. 요청을 보냅니다. 이것은 인덱스에 검색 가능으로 표시된 모든 필드를 문서 수와 함께 반환하는 지정되지 않은 전체 텍스트 검색 쿼리입니다. 응답은 다음과 같아야 합니다.
 
@@ -313,7 +313,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
             . . . 
     ```
 
-1. `$select` 쿼리 매개 변수를 추가하여 결과를 더 적은 수의 필드로 제한합니다. `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  이 쿼리의 경우 문서 100개가 일치하지만 기본적으로 Azure Cognitive Search는 결과에 50개만 반환합니다.
+1. `$select` 쿼리 매개 변수를 추가하여 결과를 더 적은 수의 필드로 제한합니다. `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  이 쿼리의 경우 문서 100개가 일치하지만 기본적으로 Azure Cognitive Search는 결과에 50개만 반환합니다.
 
    ![매개 변수가 있는 쿼리](media/search-semi-structured-data/lastquery.png "매개 변수가 있는 쿼리")
 
@@ -333,7 +333,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨**을 �
 포털을 사용하여 인덱스, 인덱서 및 데이터 원본을 삭제할 수 있습니다. 또는 **DELETE**를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 삭제 성공 시 상태 코드 204가 반환됩니다.

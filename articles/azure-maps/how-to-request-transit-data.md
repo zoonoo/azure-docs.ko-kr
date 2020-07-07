@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f60b66790342874620971c8f15a1e8ace9a3c7cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335465"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청 
@@ -28,7 +28,7 @@ ms.locfileid: "80335465"
 * [전송 여행 일정 가져오기 API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)를 사용 하 여 경로에 대 한 전송 경로 기 하 도형 및 자세한 일정을 요청 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure Maps 계정 및 구독 키가 있어야 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정을 만드세요. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
@@ -38,17 +38,17 @@ Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure 
 
 ## <a name="get-a-metro-area-id"></a>Metro 영역 ID 가져오기
 
-특정 대도시 영역에 대 한 전송 정보를 요청 하려면 해당 영역의가 `metroId` 필요 합니다. [Metro 영역 가져오기 API](https://aka.ms/AzureMapsMobilityMetro) 를 사용 하면 Azure Maps 모바일 서비스를 사용할 수 있는 metro 영역을 요청할 수 있습니다. 응답에는 GeoJSON 형식의 metro 영역 `metroId`기 `metroName`하 도형에 대 한,, 및 표현과 같은 세부 정보가 포함 됩니다.
+특정 대도시 영역에 대 한 전송 정보를 요청 하려면 해당 영역의가 필요 `metroId` 합니다. [Metro 영역 가져오기 API](https://aka.ms/AzureMapsMobilityMetro) 를 사용 하면 Azure Maps 모바일 서비스를 사용할 수 있는 metro 영역을 요청할 수 있습니다. 응답에는 `metroId` `metroName` GeoJSON 형식의 metro 영역 기 하 도형에 대 한,, 및 표현과 같은 세부 정보가 포함 됩니다.
 
 시애틀-Tacoma metro 영역 ID에 대 한 Metro 영역을 가져오도록 요청 하겠습니다. Metro 영역에 대 한 ID를 요청 하려면 다음 단계를 완료 합니다.
 
-1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 맨 위 근처에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택 합니다.  컬렉션 이름을로 하 고 **만들기** 단추를 선택 합니다.
+1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **컬렉션**을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택 합니다. **새로 만들기** 창에서 **요청**을 선택 합니다. 요청에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음, **저장**을 선택 합니다.
+2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 요청에 대한 **요청 이름**을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장**을 선택합니다.
     
     ![Postman에서 요청 만들기](./media/how-to-request-transit-data/postman-new.png)
 
-3. 작성기 탭에서 **get** HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 get 요청을 만듭니다. 을 `{subscription-key}`Azure Maps 기본 키로 바꿉니다.
+3. 작성기 탭에서 **get** HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 get 요청을 만듭니다. `{subscription-key}`을 Azure Maps 기본 키로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
@@ -111,15 +111,15 @@ Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure 
     }
     ```
 
-5. `metroId`를 복사 하 고 나중에 사용 해야 합니다.
+5. 를 복사 하 고 `metroId` 나중에 사용 해야 합니다.
 
 ## <a name="request-nearby-transit-stops"></a>가까운 전송 중지 요청
 
-[주변 전송](https://aka.ms/AzureMapsMobilityNearbyTransit) 서비스를 Azure Maps 하 여 전송 개체를 검색할 수 있습니다.  API는 지정 된 위치에 대 한 공개 전송 정지 및 공유 bikes와 같은 전송 개체 세부 정보를 반환 합니다. 다음으로 서비스에 대 한 요청을 수행 하 여 지정 된 위치 주위의 300-미터 반경 내에서 가까운 공용 전송 중지를 검색 합니다. 요청에서 앞서 검색 된 `metroId` 을 포함 해야 합니다.
+[주변 전송](https://aka.ms/AzureMapsMobilityNearbyTransit) 서비스를 Azure Maps 하 여 전송 개체를 검색할 수 있습니다.  API는 지정 된 위치에 대 한 공개 전송 정지 및 공유 bikes와 같은 전송 개체 세부 정보를 반환 합니다. 다음으로 서비스에 대 한 요청을 수행 하 여 지정 된 위치 주위의 300-미터 반경 내에서 가까운 공용 전송 중지를 검색 합니다. 요청에서 앞서 검색 된을 포함 해야 합니다 `metroId` .
 
 [주변 전송](https://aka.ms/AzureMapsMobilityNearbyTransit)에 대 한 요청을 수행 하려면 다음 단계를 수행 합니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름이 **근처에서 중지**되도록 합니다.
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름이 **근처에서 중지**되도록 합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기**를 클릭 합니다.
 
@@ -214,9 +214,9 @@ Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure 
     }   
     ```
 
-응답 구조를 신중 하 게 관찰 하면 각 전송 개체에 대 한 매개 변수가 포함 된 것을 알 수 있습니다. 각 전송 개체 `id`에는, `type`, `stopName`, `mainTransitType`, `mainAgencyName`, 개체의 위치 (좌표)와 같은 매개 변수가 있습니다.
+응답 구조를 신중 하 게 관찰 하면 각 전송 개체에 대 한 매개 변수가 포함 된 것을 알 수 있습니다. 각 전송 개체에는,, `id` `type` ,, `stopName` `mainTransitType` `mainAgencyName` , 개체의 위치 (좌표)와 같은 매개 변수가 있습니다.
 
-학습을 위해 다음 섹션의 경로에 대 한 `id` 버스 중지를 원본으로 사용 합니다.  
+학습을 위해 `id` 다음 섹션의 경로에 대 한 버스 중지를 원본으로 사용 합니다.  
 
 
 ## <a name="request-a-transit-route"></a>전송 경로 요청
@@ -229,7 +229,7 @@ Azure Maps [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTran
 
 유사 항목 검색 서비스에 대 한 요청을 만들려면 다음 단계를 수행 합니다.
 
-1. Postman에서 **새 요청** | **get 요청** 을 클릭 하 고 이름을 **location 좌표**로 이름을 가져옵니다.
+1. Postman에서 **새 요청**  |  **get 요청** 을 클릭 하 고 이름을 **location 좌표**로 이름을 가져옵니다.
 
 2.  작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 다음 요청 URL을 입력 한 후 **보내기**를 클릭 합니다.
  
@@ -237,7 +237,7 @@ Azure Maps [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTran
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
     
-3. 응답을 신중 하 게 살펴보면 공간 니 들 검색 결과에 여러 위치가 포함 되어 있습니다. 각 결과 **는 위치 아래의**위치 좌표를 포함 합니다. 첫 번째 `lat` 결과 `lon` 의 **위치** 에서 및를 복사 합니다.
+3. 응답을 신중 하 게 살펴보면 공간 니 들 검색 결과에 여러 위치가 포함 되어 있습니다. 각 결과 **는 위치 아래의**위치 좌표를 포함 합니다. `lat` `lon` 첫 번째 결과의 **위치** 에서 및를 복사 합니다.
     
    ```JSON
    {
@@ -337,11 +337,11 @@ Azure Maps [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTran
 
 경로 요청을 만들려면 다음 단계를 완료 합니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름으로 **경로 정보를 가져옵니다**.
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **경로 정보를 가져옵니다**.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택 하 고 API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기**를 클릭 합니다.
 
-    및 `modeType` `transitType` 매개 변수를 지정 하 여 버스에 대 한 공용 전송 경로를 요청 합니다. 요청 URL에는 이전 섹션에서 검색 된 위치가 포함 되어 있습니다. 에는 `originType`이제 **stopid**가 있습니다. `destionationType`의 경우 **위치가**있습니다.
+    및 매개 변수를 지정 하 여 버스에 대 한 공용 전송 경로를 요청 `modeType` `transitType` 합니다. 요청 URL에는 이전 섹션에서 검색 된 위치가 포함 되어 있습니다. 에는 `originType` 이제 **stopid**가 있습니다. 의 경우 `destionationType` **위치가**있습니다.
 
     [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTransitRoute)에 대 한 요청에서 사용할 수 있는 [URI 매개 변수 목록을](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) 참조 하세요. 
   
@@ -494,17 +494,17 @@ Azure Maps [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTran
     }
     ```
 
-4. 신중 하 게 관찰 하면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 일정 **ID** 와 경로의 각 다리를 설명 하는 요약이 있습니다. 경로 레그는 두 중지 waypoints 간의 경로 부분입니다. 그런 다음 응답에서를 `itineraryId` 사용 하 여 가장 빠른 경로에 대 한 세부 정보를 요청 합니다.
+4. 신중 하 게 관찰 하면 응답에 여러 개의 **버스** 경로가 있습니다. 각 경로에는 고유한 일정 **ID** 와 경로의 각 다리를 설명 하는 요약이 있습니다. 경로 레그는 두 중지 waypoints 간의 경로 부분입니다. 그런 다음 응답에서를 사용 하 여 가장 빠른 경로에 대 한 세부 정보를 요청 `itineraryId` 합니다.
 
 ## <a name="request-fastest-route-itinerary"></a>가장 빠른 경로 요청 일정표
 
 Azure Maps [전송 여행 서비스 가져오기](https://aka.ms/AzureMapsMobilityTransitItinerary) 서비스를 사용 하면 [전송 경로 가져오기 API](https://aka.ms/AzureMapsMobilityTransitRoute) 서비스에서 반환 된 경로의 일정 **ID** 를 사용 하 여 특정 경로에 대 한 데이터를 요청할 수 있습니다. 요청을 수행 하려면 다음 단계를 완료 합니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름으로 **전송 정보를 가져옵니다**.
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **전송 정보를 가져옵니다**.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택 합니다. API 끝점에 대 한 다음 요청 URL을 입력 하 고 **보내기**를 클릭 합니다.
 
-    이 `detailType` 매개 변수를 **geometry** 로 설정 하 여 응답에 공용 전송에 대 한 중지 정보를 포함 하 고 경로를 탐색 하 고 자전거를 탐색할 수 있습니다.
+    `detailType`이 매개 변수를 **geometry** 로 설정 하 여 응답에 공용 전송에 대 한 중지 정보를 포함 하 고 경로를 탐색 하 고 자전거를 탐색할 수 있습니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry

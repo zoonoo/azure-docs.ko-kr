@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418068"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
@@ -28,13 +28,13 @@ ms.locfileid: "81418068"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 자세한 소개, 비교 및 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 이 SAP Business Warehouse 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -45,7 +45,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 - MDX 쿼리를 사용하여 **InfoCubes 및 QueryCubes**(BEx 쿼리 포함)에서 데이터를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP Business Warehouse 커넥터를 사용 하려면 다음을 수행해야 합니다.
 
@@ -74,10 +74,10 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
-| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결 하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md) 입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -104,7 +104,7 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 SAP BW 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **SapBwCube**로 설정 합니다. 반면에 RelationalTable 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
@@ -125,7 +125,7 @@ SAP BW에서 데이터를 복사 하려면 데이터 집합의 type 속성을 **
 }
 ```
 
-형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+`RelationalTable` 형식의 데이터 세트를 사용하고 있는 경우 현재까지 지원되지만 앞으로는 새 형식을 사용하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -140,7 +140,7 @@ SAP BW에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서
 | type | 복사 작업 원본의 type 속성은 **SapBwSource** 로 설정 해야 합니다. | 예 |
 | Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -172,7 +172,7 @@ SAP BW에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서
 ]
 ```
 
-형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+`RelationalSource` 형식의 원본을 사용하고 있는 경우 현재까지 지원되지만 앞으로는 새 형식을 사용하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW에 대한 데이터 형식 매핑
 
@@ -182,31 +182,31 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 |:--- |:--- |
 | ACCP | Int |
 | CHAR | String |
-| CLNT | 문자열 |
+| CLNT | String |
 | CURR | Decimal |
-| CUKY | 문자열 |
+| CUKY | String |
 | DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | 문자열 |
-| LCHR | 문자열 |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | 문자열 |
-| 단위 | 문자열 |
-| DATS | 문자열 |
-| NUMC | 문자열 |
-| TIMS | 문자열 |
+| STRING | String |
+| 단위 | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

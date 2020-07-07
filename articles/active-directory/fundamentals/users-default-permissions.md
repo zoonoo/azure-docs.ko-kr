@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366254"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 디바이스 | 모든 디바이스 속성 읽기<br>소유한 디바이스의 모든 속성 읽기<br> | 사용 권한 없음<br>소유 디바이스 삭제<br>
 디렉터리 | 모든 회사 정보 읽기<br>모든 도메인 읽기<br>모든 파트너 계약 읽기 | 표시 이름 및 확인된 도메인 읽기
 역할 및 범위 | 모든 관리 역할 및 멤버 자격 읽기<br>관리 단위의 모든 속성 및 멤버 자격 읽기 | 사용 권한 없음 
-Subscriptions | 모든 구독 읽기<br>서비스 계획 멤버를 사용하도록 설정 | 사용 권한 없음
+구독 | 모든 구독 읽기<br>서비스 계획 멤버를 사용하도록 설정 | 사용 권한 없음
 정책 | 모든 정책 속성 읽기<br>소유한 정책의 모든 속성 읽기 | 사용 권한 없음
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>멤버 사용자에 대한 기본 권한을 제한하려면
@@ -73,60 +73,60 @@ Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 �
 #### <a name="owned-application-registrations"></a>소유 응용 프로그램 등록
 사용자는 소유 응용 프로그램 등록에 대해 다음 작업을 수행할 수 있습니다.
 
-| **작업** | **설명** |
+| **actions** | **설명** |
 | --- | --- |
-| microsoft. 디렉터리/응용 프로그램/대상/업데이트 | Azure Active Directory에서 applications.audience 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/인증/업데이트 | Azure Active Directory에서 applications.authentication 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/기본/업데이트 | Azure Active Directory에서 애플리케이션의 기본 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/자격 증명/업데이트 | Azure Active Directory에서 applications.credentials 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/삭제 | Azure Active Directory에서 애플리케이션을 삭제합니다. |
-| microsoft. 디렉터리/응용 프로그램/소유자/업데이트 | Azure Active Directory에서 applications.owners 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/사용 권한/업데이트 | Azure Active Directory에서 applications.permissions 속성을 업데이트합니다. |
-| microsoft. 디렉터리/응용 프로그램/정책/업데이트 | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
+| microsoft.directory/applications/audience/update | Azure Active Directory에서 applications.audience 속성을 업데이트합니다. |
+| microsoft.directory/applications/authentication/update | Azure Active Directory에서 applications.authentication 속성을 업데이트합니다. |
+| microsoft.directory/applications/basic/update | Azure Active Directory에서 애플리케이션의 기본 속성을 업데이트합니다. |
+| microsoft.directory/applications/credentials/update | Azure Active Directory에서 applications.credentials 속성을 업데이트합니다. |
+| microsoft.directory/applications/delete | Azure Active Directory에서 애플리케이션을 삭제합니다. |
+| microsoft.directory/applications/owners/update | Azure Active Directory에서 applications.owners 속성을 업데이트합니다. |
+| microsoft.directory/applications/permissions/update | Azure Active Directory에서 applications.permissions 속성을 업데이트합니다. |
+| microsoft.directory/applications/policies/update | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
 | microsoft. 디렉터리/응용 프로그램/복원 | Azure Active Directory에서 애플리케이션을 복원합니다. |
 
 #### <a name="owned-enterprise-applications"></a>소유 엔터프라이즈 응용 프로그램
 사용자는 소유 된 엔터프라이즈 응용 프로그램에 대해 다음 작업을 수행할 수 있습니다. 엔터프라이즈 응용 프로그램은 서비스 주체, 하나 이상의 응용 프로그램 정책 및 경우에 따라 서비스 사용자와 동일한 테 넌 트에 응용 프로그램 개체를 구성 합니다.
 
-| **작업** | **설명** |
+| **actions** | **설명** |
 | --- | --- |
-| microsoft. directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
-| microsoft. directory/정책/기본/업데이트 | Azure Active Directory에서 정책의 기본 속성을 업데이트합니다. |
-| microsoft. 디렉터리/정책/삭제 | Azure Active Directory에서 정책을 삭제합니다. |
-| microsoft. 디렉터리/정책/소유자/업데이트 | Azure Active Directory에서 policies.owners 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/사용자/업데이트 | Azure Active Directory에서 servicePrincipals.audience 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/authentication/update | Azure Active Directory에서 servicePrincipals.authentication 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/basic/update | Azure Active Directory에서 servicePrincipals의 기본 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/credentials/update | Azure Active Directory에서 servicePrincipals.credentials 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/delete | Azure Active Directory에서 servicePrincipals를 삭제합니다. |
-| microsoft. directory/servicePrincipals/소유자/업데이트 | Azure Active Directory에서 servicePrincipals.owners 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/permissions/update | Azure Active Directory에서 servicePrincipals.permissions 속성을 업데이트합니다. |
-| microsoft. directory/servicePrincipals/정책/업데이트 | Azure Active Directory에서 servicePrincipals.policies 속성을 업데이트합니다. |
-| microsoft. directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
+| microsoft.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
+| microsoft.directory/policies/basic/update | Azure Active Directory에서 정책의 기본 속성을 업데이트합니다. |
+| microsoft.directory/policies/delete | Azure Active Directory에서 정책을 삭제합니다. |
+| microsoft.directory/policies/owners/update | Azure Active Directory에서 policies.owners 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/audience/update | Azure Active Directory에서 servicePrincipals.audience 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/authentication/update | Azure Active Directory에서 servicePrincipals.authentication 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/basic/update | Azure Active Directory에서 servicePrincipals의 기본 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/credentials/update | Azure Active Directory에서 servicePrincipals.credentials 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/delete | Azure Active Directory에서 servicePrincipals를 삭제합니다. |
+| microsoft.directory/servicePrincipals/owners/update | Azure Active Directory에서 servicePrincipals.owners 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/permissions/update | Azure Active Directory에서 servicePrincipals.permissions 속성을 업데이트합니다. |
+| microsoft.directory/servicePrincipals/policies/update | Azure Active Directory에서 servicePrincipals.policies 속성을 업데이트합니다. |
+| microsoft.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 
 #### <a name="owned-devices"></a>소유 장치
 사용자는 소유 된 장치에서 다음 작업을 수행할 수 있습니다.
 
-| **작업** | **설명** |
+| **actions** | **설명** |
 | --- | --- |
-| microsoft. directory/devices/bitLockerRecoveryKeys/read | Azure Active Directory에서 devices.bitLockerRecoveryKeys 속성을 읽습니다. |
-| microsoft. 디렉터리/장치/사용 안 함 | Azure Active Directory에서 디바이스를 사용하지 않도록 설정합니다. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Azure Active Directory에서 devices.bitLockerRecoveryKeys 속성을 읽습니다. |
+| microsoft.directory/devices/disable | Azure Active Directory에서 디바이스를 사용하지 않도록 설정합니다. |
 
 #### <a name="owned-groups"></a>소유 그룹
 사용자는 소유 된 그룹에 대해 다음 작업을 수행할 수 있습니다.
 
-| **작업** | **설명** |
+| **actions** | **설명** |
 | --- | --- |
-| microsoft. directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
-| microsoft. directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
-| microsoft. 디렉터리/그룹/삭제 | Azure Active Directory에서 그룹을 삭제합니다. |
+| microsoft.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
+| microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
+| microsoft.directory/groups/delete | Azure Active Directory에서 그룹을 삭제합니다. |
 | microsoft. directory/groups/dynamicMembershipRule/update | Azure Active Directory에서 groups.dynamicMembershipRule 속성을 업데이트합니다. |
-| microsoft. 디렉터리/그룹/멤버/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
-| microsoft. 디렉터리/그룹/소유자/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
-| microsoft. 디렉터리/그룹/복원 | Azure Active Directory에서 그룹을 복원합니다. |
-| microsoft. 디렉터리/그룹/설정/업데이트 | Azure Active Directory에서 groups.settings 속성을 업데이트합니다. |
+| microsoft.directory/groups/members/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft.directory/groups/owners/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft.directory/groups/restore | Azure Active Directory에서 그룹을 복원합니다. |
+| microsoft.directory/groups/settings/update | Azure Active Directory에서 groups.settings 속성을 업데이트합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

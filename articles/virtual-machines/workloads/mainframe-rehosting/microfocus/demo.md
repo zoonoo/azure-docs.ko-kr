@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80411080"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
@@ -22,7 +22,7 @@ CICs는 여러 온라인 메인프레임 응용 프로그램에서 사용 하는
 > [!NOTE]
 > 출시 예정: Azure Vm에서 [마이크로 포커스 엔터프라이즈 서버 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 을 설정 하는 방법에 대 한 지침입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [엔터프라이즈 개발자](set-up-micro-focus-azure.md)를 사용 하는 VM. 엔터프라이즈 개발자는 개발 및 테스트 목적으로 엔터프라이즈 서버의 전체 인스턴스를 보유 하 고 있습니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스입니다.
 
@@ -98,7 +98,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 2. 왼쪽에서 **보안** 폴더를 확장 하 고 **로그인**을 선택 합니다.
 
-3. **NT AUTHORITY\\SYSTEM** 을 선택 하 고 **속성**을 선택 합니다.
+3. **NT AUTHORITY \\ SYSTEM** 을 선택 하 고 **속성**을 선택 합니다.
 
 4. **서버 역할** 을 선택 하 고 **sysadmin**을 확인 합니다.
 
@@ -106,7 +106,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>BankDemo 데이터베이스 및 모든 해당 개체 만들기
 
-1. **Windows 탐색기** 를 열고 **\\C:\\Users Public\\Documents\\마이크로 포커스\\엔터프라이즈 개발자\\샘플\\메인프레임\\cics\\DotNet\\BankDemo\\SQL**로 이동 합니다.
+1. **Windows 탐색기** 를 열고 **C: \\ Users \\ Public \\ Documents \\ 마이크로 포커스 \\ 엔터프라이즈 개발자 \\ 샘플 \\ 메인프레임 \\ cics \\ DotNet \\ BankDemo \\ SQL**로 이동 합니다.
 
 2. **BankDemoCreateAll** 파일의 내용을 클립보드에 복사 합니다.
 
@@ -132,7 +132,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 1. Visual Studio를 열고 로그인합니다.
 
-2. **파일** 메뉴 옵션에서 **프로젝트/솔루션 열기**를 선택 하 고 **\\C:\\Users Public\\Documents\\마이크로 포커스\\엔터프라이즈 개발자\\샘플\\메인프레임\\cics\\DotNet\\BankDemo**로 이동한 다음, **sln** 파일을 선택 합니다.
+2. **파일** 메뉴 옵션에서 **프로젝트/솔루션 열기**를 선택 하 고 **C: \\ Users \\ Public \\ Documents \\ 마이크로 포커스 \\ 엔터프라이즈 개발자 \\ 샘플 \\ 메인프레임 \\ cics \\ DotNet \\ BankDemo**로 이동한 다음, **sln** 파일을 선택 합니다.
 
 3. 잠시 시간을 사용 하 여 개체를 검사 합니다. COBOL 프로그램은 CopyBooks (CPY) 및 JCL과 함께 CBL 확장과 함께 솔루션 탐색기에 표시 됩니다.
 
@@ -154,7 +154,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 1. 관리자 권한으로 Enterprise Developer 명령 프롬프트 (64 비트)를 엽니다.
 
-2. **%\\PUBLIC% Documents\\마이크로 Focus\\Enterprise Developer\\samples\\메인프레임\\cics\\DotNet\\BankDemo**로 이동 합니다.
+2. **% PUBLIC% \\ Documents \\ 마이크로 Focus \\ Enterprise Developer \\ samples \\ 메인프레임 \\ cics \\ DotNet \\ BankDemo**로 이동 합니다.
 
 3. 명령 프롬프트에서 **bankdemodbdeploy** 를 실행 하 고 배포할 데이터베이스에 대 한 매개 변수를 포함 합니다. 예를 들면 다음과 같습니다.
 
@@ -163,7 +163,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
     ```
 
 > [!NOTE]
-> 슬래시 (/)가 백슬래시 (\\)를 사용 하지 않는지 확인 합니다. 이 스크립트는 잠시 동안 실행 됩니다.
+> 슬래시 (/)가 백슬래시 ()를 사용 하지 않는지 확인 \\ 합니다. 이 스크립트는 잠시 동안 실행 됩니다.
 
 ![관리: Enterprise 개발자 명령 프롬프트 창](media/06-demo-cmd.png)
 
@@ -171,7 +171,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 1. **.Net 관리 UI에 대 한 엔터프라이즈 서버** 를 엽니다.
 
-2. MMC 스냅인을 시작 하려면 Windows **시작** 메뉴에서 **마이크로 포커스 엔터프라이즈 개발자 \> 구성 \> enterprise Server for .net Admin**을 선택 합니다. Windows Server의 경우 **.Net 관리자에 대 한 마이크로 \> 포커스 엔터프라이즈 개발자 엔터프라이즈 서버**를 선택 합니다.
+2. MMC 스냅인을 시작 하려면 Windows **시작** 메뉴에서 **마이크로 포커스 엔터프라이즈 개발자 \> 구성 \> enterprise Server for .net Admin**을 선택 합니다. Windows Server의 경우 ** \> .net 관리자에 대 한 마이크로 포커스 엔터프라이즈 개발자 엔터프라이즈 서버**를 선택 합니다.
 
 3. 왼쪽 창에서 **지역** 컨테이너를 확장 한 다음 **cics**를 마우스 오른쪽 단추로 클릭 합니다.
 
@@ -181,7 +181,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
      ![지역 정의 대화 상자](media/07-demo-cics.png)
 
-6. 지역 간 데이터베이스의 지역 정의 파일을 선택 하려면 **C\\:\\Users Public\\Documents\\마이크로 Focus\\Enterprise Developer\\Samples\\메인프레임\\cics\\DotNet\\bankdemo**지역 **\_에서 bankdemo\_** 를 찾습니다.
+6. 지역 간 데이터베이스의 지역 정의 파일을 선택 하려면 **region \_ bankdemo \_db.config** in **C: \\ Users \\ Public \\ Documents \\ 마이크로 Focus \\ Enterprise Developer \\ Samples \\ 메인프레임 \\ cics \\ DotNet \\ bankdemo**을 찾습니다.
 
      ![지역 영역 이름 정의: BANKDEMO](media/08-demo-cics.png)
 
@@ -195,13 +195,13 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 3. 드롭다운 상자에서 **데이터베이스 서비스 인스턴스**를 선택 합니다. 로컬 컴퓨터 SQLEXPRESS가 됩니다.
 
-4. **XA 리소스 정의 (machinename\\sqlexpress)** 컨테이너에서 인스턴스를 선택 하 고 **추가**를 클릭 합니다.
+4. **XA 리소스 정의 (machinename \\ sqlexpress)** 컨테이너에서 인스턴스를 선택 하 고 **추가**를 클릭 합니다.
 
 5. **데이터베이스 XA 리소스 정의** 를 선택한 다음 **이름** 및 **지역**에 **BANKDEMO** 를 입력 합니다.
 
      ![새 데이터베이스 XA 리소스 정의 화면](media/09-demo-xa.png)
 
-6. 줄임표 (**...**)를 클릭 하 여 연결 문자열 마법사를 엽니다. **서버 이름**에 **(\\local) SQLEXPRESS**를 입력 합니다. **로그온**에 대해 **Windows 인증**을 선택 합니다. 데이터베이스 이름에 **BANKDEMO** 을 입력 합니다.
+6. 줄임표 (**...**)를 클릭 하 여 연결 문자열 마법사를 엽니다. **서버 이름**에 **(local) \\ SQLEXPRESS**를 입력 합니다. **로그온**에 대해 **Windows 인증**을 선택 합니다. 데이터베이스 이름에 **BANKDEMO** 을 입력 합니다.
 
      ![연결 문자열 편집 화면](media/10-demo-string.png)
 
@@ -230,7 +230,7 @@ BankDemo 응용 프로그램에 액세스 하는 TN3270 세션에 대 한 수신
 
 1. 왼쪽 창에서 **구성 편집기** 를 확장 하 고 **수신기**를 선택 합니다.
 
-2. **파일 열기** 아이콘을 클릭 하 고 **seelistener** 파일을 선택 합니다. 이 파일은 편집 되며 Enterprise Server가 시작 될 때마다 로드 됩니다.
+2. **파일 열기** 아이콘을 클릭 하 고 **seelistener.exe.config** 파일을 선택 합니다. 이 파일은 편집 되며 Enterprise Server가 시작 될 때마다 로드 됩니다.
 
 3. 이전에 정의 된 두 지역 (ESDEMO 및 JCLDEMO)을 확인 합니다.
 
@@ -265,10 +265,10 @@ Rumba, 3270 에뮬레이터를 사용 하 여 3270 세션을 구성 해야 합�
 
 6. 사용자 ID에 **B0001** 를 입력 하 고 암호에 대해 모두를 입력 합니다. 첫 번째 화면 BANK20 열립니다.
 
-![메인프레임 디스플레이 시작 화면](media/14-demo.png)
-![메인프레임 Rumba-하위 시스템 데모 화면](media/15-demo.png)
+![메인프레임 디스플레이 시작 화면 ](media/14-demo.png)
+ ![ 메인프레임 Rumba-하위 시스템 데모 화면](media/15-demo.png)
 
-지금까지 이제 마이크로 포커스 엔터프라이즈 서버를 사용 하 여 Azure에서 CICS 응용 프로그램을 실행 하 고 있습니다.
+축하합니다! 이제 마이크로 포커스 엔터프라이즈 서버를 사용 하 여 Azure에서 CICS 응용 프로그램을 실행 하 고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
