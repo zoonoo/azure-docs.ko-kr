@@ -15,10 +15,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82128015"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
@@ -43,13 +43,13 @@ Java 용 MSAL은 Microsoft id 플랫폼에서 사용 하는 것이 좋습니다.
 
 ADAL4J는 리소스에 대 한 토큰을 획득 하는 반면, Java 용 MSAL은 범위 토큰을 획득 합니다. Java 클래스에 대 한 다양 한 MSAL에는 범위 매개 변수가 필요 합니다. 이 매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft Graph의 범위](https://docs.microsoft.com/graph/permissions-reference) 를 참조 하세요.
 
-리소스에 `/.default` 범위 접미사를 추가 하 여 v2.0 끝점 (ADAL)에서 Microsoft msal (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 `https://graph.microsoft.com`리소스 값에 대해 해당 하는 범위 값은 `https://graph.microsoft.com/.default`입니다.  리소스가 URL 형식이 아닌 폼 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`의 리소스 ID 인 경우 범위 값을으로 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`계속 사용할 수 있습니다.
+리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) 문서를 참조 하세요.
 
 ## <a name="core-classes"></a>핵심 클래스
 
-ADAL4J에서 클래스는 `AuthenticationContext` 권한을 통해 STS (보안 토큰 서비스) 또는 권한 부여 서버에 대 한 연결을 나타냅니다. 그러나 Java 용 MSAL은 클라이언트 응용 프로그램을 중심으로 설계 되었습니다. 이 클래스는 클라이언트 응용 프로그램 `PublicClientApplication` 을 `ConfidentialClientApplication` 나타내는 및의 두 가지 별도 클래스를 제공 합니다.  후자 `ConfidentialClientApplication`는 디먼 앱에 대 한 응용 프로그램 식별자와 같은 비밀을 안전 하 게 유지 하기 위해 디자인 된 응용 프로그램을 나타냅니다.
+ADAL4J에서 클래스는 `AuthenticationContext` 권한을 통해 STS (보안 토큰 서비스) 또는 권한 부여 서버에 대 한 연결을 나타냅니다. 그러나 Java 용 MSAL은 클라이언트 응용 프로그램을 중심으로 설계 되었습니다. 이 클래스는 `PublicClientApplication` `ConfidentialClientApplication` 클라이언트 응용 프로그램을 나타내는 및의 두 가지 별도 클래스를 제공 합니다.  후자는 `ConfidentialClientApplication` 디먼 앱에 대 한 응용 프로그램 식별자와 같은 비밀을 안전 하 게 유지 하기 위해 디자인 된 응용 프로그램을 나타냅니다.
 
 다음 표에서는 ADAL4J 함수가 Java 함수의 새 MSAL에 매핑되는 방법을 보여 줍니다.
 
@@ -69,7 +69,7 @@ ADAL4J에서 클래스는 `AuthenticationContext` 권한을 통해 STS (보안 �
 
 조작한 사용자를 ADAL4J 합니다. 사용자는 단일 사람이 나 소프트웨어 에이전트를 나타내므로 Microsoft id 시스템에 하나 이상의 계정을 포함할 수 있습니다. 예를 들어 사용자에 게 여러 Azure AD, Azure AD B2C 또는 Microsoft 개인 계정이 있을 수 있습니다.
 
-Java 용 MSAL은 인터페이스를 `IAccount` 통해 계정의 개념을 정의 합니다. 이는 ADAL4J의 주요 변경 내용 이지만 동일한 사용자가 여러 계정을 가질 수 있다는 사실과 다른 Azure AD 디렉터리에 있을 수 있으므로이는 좋은 방법입니다. Java 용 MSAL은 홈 계정 정보를 제공 하기 때문에 게스트 시나리오에서 더 나은 정보를 제공 합니다.
+Java 용 MSAL은 인터페이스를 통해 계정의 개념을 정의 합니다 `IAccount` . 이는 ADAL4J의 주요 변경 내용 이지만 동일한 사용자가 여러 계정을 가질 수 있다는 사실과 다른 Azure AD 디렉터리에 있을 수 있으므로이는 좋은 방법입니다. Java 용 MSAL은 홈 계정 정보를 제공 하기 때문에 게스트 시나리오에서 더 나은 정보를 제공 합니다.
 
 ## <a name="cache-persistence"></a>캐시 지속성
 
@@ -78,9 +78,9 @@ Java 용 MSAL은 가능 하면 만료 된 토큰을 자동으로 새로 고쳐 �
 
 ## <a name="common-authority"></a>Common Authority
 
-V1.0을 사용 하는 `https://login.microsoftonline.com/common` 경우 사용자는 모든 조직에 대해 AAD (Azure Active Directory) 계정으로 로그인 할 수 있습니다.
+V1.0을 사용 하는 경우 사용자는 모든 `https://login.microsoftonline.com/common` 조직에 대해 AAD (Azure Active Directory) 계정으로 로그인 할 수 있습니다.
 
-V2.0에서 인증 기관을 `https://login.microsoftonline.com/common` 사용 하는 경우 사용자는 AAD 조직 또는 Microsoft MSA (개인 계정)를 사용 하 여 로그인 할 수 있습니다. Java 용 MSAL에서 AAD 계정에 로그인을 제한 하려는 경우 ADAL4J와 동일한 동작을 사용 `https://login.microsoftonline.com/organizations` 해야 합니다. 권한을 지정 하려면 `PublicClientApplication` 클래스를 만들 때 `authority` [publicclientapplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 매개 변수를 설정 합니다.
+V2.0에서 인증 기관을 사용 하는 경우 `https://login.microsoftonline.com/common` 사용자는 AAD 조직 또는 MICROSOFT MSA (개인 계정)를 사용 하 여 로그인 할 수 있습니다. Java 용 MSAL에서 AAD 계정에 로그인을 제한 하려는 경우 `https://login.microsoftonline.com/organizations` ADAL4J와 동일한 동작을 사용 해야 합니다. 권한을 지정 하려면 `authority` 클래스를 만들 때 [Publicclientapplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 매개 변수를 설정 합니다. `PublicClientApplication`
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 및 v2.0 토큰
 

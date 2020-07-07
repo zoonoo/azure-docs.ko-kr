@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133761"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대 한 가상 네트워크 서비스 끝점 정책
@@ -58,7 +58,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 ]
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 -   특정 Azure Storage 계정에 대 한 가상 네트워크 트래픽을 제한 하도록 끝점 정책을 구성할 수 있습니다.
 -   엔드포인트 정책은 가상 네트워크의 서브넷에 구성됩니다. 정책을 적용 하려면 서브넷에서 Azure Storage에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.

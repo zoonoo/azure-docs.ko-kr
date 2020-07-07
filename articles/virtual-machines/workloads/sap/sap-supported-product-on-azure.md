@@ -17,13 +17,13 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086133"
 ---
-# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포에 대해 지원 되는 SAP 소프트웨어
+# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포를 지원하는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 대해 지원 되는 SAP 소프트웨어 및 필요한 운영 체제 릴리스 또는 DBMS 릴리스가 무엇 인지 확인 하는 방법을 설명 합니다.
 
 현재 SAP 소프트웨어가 지원 되는지 여부와 Azure의 SAP 소프트웨어에서 지원 되는 OS 및 DBMS 릴리스를 평가 하는 데에는 다음에 대 한 액세스 권한이 필요 합니다.

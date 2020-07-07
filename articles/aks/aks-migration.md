@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 9a5e2c1e36a742115ed2f5c690c81a186a86dee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129096"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
@@ -53,7 +53,7 @@ AKS는 관리 오버 헤드가 낮은 고유한 기능을 제공 하는 관리 �
 
 [가상 컴퓨터 가용성 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) 으로 지원 되는 AKS 클러스터는 이러한 기능 중 상당수를 지원 하지 않습니다.
 
-다음 예제에서는 가상 머신 확장 집합에 의해 지원 되는 단일 노드 풀로 AKS 클러스터를 만듭니다. 표준 부하 분산 장치를 사용 합니다. 또한 클러스터의 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하 고 최소 *1 개* 에서 최대 *3* 개의 노드를 설정 합니다.
+다음 예제에서는 가상 머신 확장 집합에 의해 지원 되는 단일 노드 풀로 AKS 클러스터를 만듭니다. 표준 부하 분산 장치를 사용 합니다. 또한 클러스터의 노드 풀에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 최소 *1*개 및 최대 *3*개 노드를 설정합니다.
 
 ```azurecli-interactive
 # First create a resource group
@@ -94,7 +94,7 @@ az aks create \
 
 응용 프로그램에서 가동 중지 시간을 처리할 수 없는 경우 고가용성 마이그레이션 시나리오에 대 한 모범 사례를 따라야 합니다.  복잡 한 비즈니스 연속성 계획, 재해 복구 및 가동 시간 최대화에 대 한 모범 사례는이 문서의 범위를 벗어나는 것입니다.  자세한 내용은 [Azure Kubernetes 서비스 (AKS)에서 비즈니스 연속성 및 재해 복구에 대 한 모범 사례](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) 를 참조 하세요.
 
-복잡한 애플리케이션의 경우 일반적으로 한 번에 마이그레이션되는 것이 아니라 시간이 지남에 따라 마이그레이션됩니다. 즉, 이전 환경과 새 환경이 네트워크를 통해 통신 해야 할 수 있습니다. 이전에 서비스를 `ClusterIP` 사용 하 여 통신 하는 응용 프로그램을 형식 `LoadBalancer` 으로 노출 하 고 적절 하 게 보호 해야 할 수 있습니다.
+복잡한 애플리케이션의 경우 일반적으로 한 번에 마이그레이션되는 것이 아니라 시간이 지남에 따라 마이그레이션됩니다. 즉, 이전 환경과 새 환경이 네트워크를 통해 통신 해야 할 수 있습니다. 이전에 서비스를 사용 하 여 통신 하는 응용 프로그램을 `ClusterIP` 형식으로 노출 하 `LoadBalancer` 고 적절 하 게 보호 해야 할 수 있습니다.
 
 마이그레이션을 완료 하기 위해 클라이언트가 AKS에서 실행 되는 새 서비스를 가리키도록 할 수 있습니다. AKS 클러스터 앞에 있는 Load Balancer를 가리키도록 DNS를 업데이트 하 여 트래픽을 리디렉션하는 것이 좋습니다.
 

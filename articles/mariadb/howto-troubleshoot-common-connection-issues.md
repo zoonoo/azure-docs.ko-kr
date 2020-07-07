@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101453"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
@@ -47,7 +47,7 @@ ms.locfileid: "82101453"
 
 * 방화벽 구성: Azure Database for MariaDB 서버 또는 클라이언트 쪽 방화벽에서 연결을 차단하고 있습니다.
 * 클라이언트 쪽 네트워크 재구성: 새 IP 주소 또는 프록시 서버가 추가되었습니다.
-* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락 * \@된 servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
+* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 * \@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

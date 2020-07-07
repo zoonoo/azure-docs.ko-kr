@@ -1,5 +1,5 @@
 ---
-title: Blob 저장소에 대 한 보안 권장 사항
+title: Blob Storage에 대한 보안 권장 사항
 titleSuffix: Azure Storage
 description: Blob 저장소에 대 한 보안 권장 사항에 대해 알아봅니다. 이 지침을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 됩니다.
 services: storage
@@ -11,19 +11,19 @@ ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086116"
 ---
-# <a name="security-recommendations-for-blob-storage"></a>Blob 저장소에 대 한 보안 권장 사항
+# <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
-이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)을 참조 하세요.
+이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 책임을 충족하기 위해 수행하는 작업에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)을 참조하세요.
 
-이 문서에 포함 된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호 하는 첫 번째 방어선입니다. Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 무엇입니까?](../../security-center/security-center-intro.md)를 참조 하세요.
+이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 무엇입니까?](../../security-center/security-center-intro.md)를 참조 하세요.
 
-Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음이를 해결 하는 방법에 대 한 권장 사항을 제공 합니다. Azure Security Center 권장 사항에 대 한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../../security-center/security-center-recommendations.md)을 참조 하세요.
+Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다. Azure Security Center 권장 사항에 대한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../../security-center/security-center-recommendations.md)을 참조하세요.
 
 ## <a name="data-protection"></a>데이터 보호
 
@@ -55,9 +55,9 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 권장 | 주석 | Security Center |
 |-|----|--|
 | 방화벽 규칙 사용 | 저장소 계정에 대 한 액세스를 지정 된 IP 주소 또는 범위에서 시작 되는 요청 또는 Azure Virtual Network (VNet)의 서브넷 목록에서 제한 하도록 방화벽 규칙을 구성 합니다. 방화벽 규칙을 구성 하는 방법에 대 한 자세한 내용은 [프록시 및 방화벽 설정 Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md)을 참조 하세요. | - |
-| 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 | 저장소 계정에 대 한 방화벽 규칙을 켜면 요청이 Azure Virtual Network (VNet) 내에서 또는 허용 되는 공용 IP 주소에서 시작 하는 서비스에서 시작 되는 경우를 제외 하 고 기본적으로 들어오는 데이터에 대 한 요청이 차단 됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 예외를 추가 하 여 다른 Azure 서비스의 요청을 허용할 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 추가 하는 방법에 대 한 자세한 내용은 [프록시 및 방화벽 설정 Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md)을 참조 하세요.| - |
+| 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 | 스토리지 계정에 대해 방화벽 규칙을 켜면 기본적으로 Azure VNet(Virtual Network) 내에서 작동하는 서비스 또는 허용되는 퍼블릭 IP 주소에서 요청하지 않는 한, 들어오는 데이터 요청이 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 예외를 추가 하 여 다른 Azure 서비스의 요청을 허용할 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 추가 하는 방법에 대 한 자세한 내용은 [프록시 및 방화벽 설정 Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md)을 참조 하세요.| - |
 | 프라이빗 엔드포인트 사용 | 개인 끝점은 Azure Virtual Network (VNet)에서 저장소 계정으로 개인 IP 주소를 할당 합니다. 개인 링크를 통해 VNet과 저장소 계정 간의 모든 트래픽을 보호 합니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점을 사용 하 여 전용으로 저장소 계정에 연결](../../private-link/create-private-endpoint-storage-portal.md)을 참조 하세요. | - |
-| VNet 서비스 태그 사용 | 서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다. Azure Storage에서 지 원하는 서비스 태그에 대 한 자세한 내용은 [Azure 서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 참조 하세요. 서비스 태그를 사용 하 여 아웃 바운드 네트워크 규칙을 만드는 방법을 보여 주는 자습서는 [PaaS 리소스에 대 한 액세스 제한](../../virtual-network/tutorial-restrict-network-access-to-resources.md)을 참조 하세요. | - |
+| VNet 서비스 태그 사용 | 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다. Azure Storage에서 지 원하는 서비스 태그에 대 한 자세한 내용은 [Azure 서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 참조 하세요. 서비스 태그를 사용 하 여 아웃 바운드 네트워크 규칙을 만드는 방법을 보여 주는 자습서는 [PaaS 리소스에 대 한 액세스 제한](../../virtual-network/tutorial-restrict-network-access-to-resources.md)을 참조 하세요. | - |
 | 특정 네트워크에 대 한 네트워크 액세스 제한 | 액세스를 요구 하는 클라이언트를 호스팅하는 네트워크에 대 한 네트워크 액세스를 제한 하면 네트워크 공격에 대 한 리소스 노출을 줄일 수 있습니다. | [예](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>로깅/모니터링

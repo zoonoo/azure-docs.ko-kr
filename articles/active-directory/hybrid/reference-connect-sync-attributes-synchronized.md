@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082121"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -39,7 +39,7 @@ ms.locfileid: "82082121"
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| 특성 이름 | 사용자 | 주석 |
+| 특성 이름 | 사용자 | 의견 |
 | --- |:---:| --- |
 | accountEnabled |X |활성화된 계정을 정의합니다. |
 | cn |X | |
@@ -52,7 +52,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | 도우미 |X |X | | |
@@ -93,7 +93,7 @@ ms.locfileid: "82082121"
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | manager |X |X | | |
-| member | | |X | |
+| 멤버 | | |X | |
 | mobile |X |X | | |
 | maDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
@@ -175,7 +175,7 @@ ms.locfileid: "82082121"
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | authOrig |X |X |X | |
@@ -216,7 +216,7 @@ ms.locfileid: "82082121"
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | manager |X |X | | |
-| member | | |X | |
+| 멤버 | | |X | |
 | middleName |X |X | | |
 | mobile |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
@@ -257,7 +257,7 @@ ms.locfileid: "82082121"
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>팀 및 비즈니스용 Skype Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -276,7 +276,7 @@ ms.locfileid: "82082121"
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | manager |X |X | | |
-| member | | |X | |
+| 멤버 | | |X | |
 | mobile |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
 | msRTCSIP-ApplicationOptions |X | | | |
@@ -305,13 +305,13 @@ ms.locfileid: "82082121"
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X |일반 이름 또는 별칭입니다. 대부분 [mail] 값의 접두사입니다. |
 | displayName |X |X |X |이름을 나타내는 문자열로 보통 친숙한 이름(성명)으로 표시됩니다. |
 | mail |X |X |X |메일 주소 전체입니다. |
-| member | | |X | |
+| 멤버 | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | proxyAddresses |X |X |X |기계적 속성입니다. Azure AD에서 사용됩니다. 사용자에 대한 모든 보조 메일 주소를 포함합니다. |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. |
@@ -320,7 +320,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X | | |이 UPN은 사용자용 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="intune"></a>Intune
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -329,7 +329,7 @@ ms.locfileid: "82082121"
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
-| member | | |X | |
+| 멤버 | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
@@ -338,7 +338,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -353,7 +353,7 @@ ms.locfileid: "82082121"
 | l |X |X | | |
 | managedBy | | |X | |
 | manager |X |X | | |
-| member | | |X | |
+| 멤버 | | |X | |
 | mobile |X |X | | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | physicalDeliveryOfficeName |X |X | | |
@@ -377,7 +377,7 @@ ms.locfileid: "82082121"
 
 이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램을 Single Sign-On 또는 프로 비전 하려면 여기에 설명 된 특성과 함께 특성 동기화를 구성 해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대 한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md) 에 설명 되어 있습니다.
 
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X | |
@@ -387,7 +387,7 @@ ms.locfileid: "82082121"
 | mail |X | |X | |
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
-| member | | |X | |
+| 멤버 | | |X | |
 | objectSID |X | | |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
@@ -399,7 +399,7 @@ ms.locfileid: "82082121"
 ## <a name="windows-10"></a>Windows 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
-| 특성 이름 | 디바이스 | 주석 |
+| 특성 이름 | 디바이스 | 의견 |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |도메인에 가입된 컴퓨터에 대해 하드 코딩된 값입니다. |
@@ -413,7 +413,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 
 이 특성은 선택한 다른 앱 외에 **사용자** 에 대해서도 있습니다.  
 
-| 특성 이름 | 사용자 | 주석 |
+| 특성 이름 | 사용자 | 의견 |
 | --- |:---:| --- |
 | domainFQDN |X |dnsDomainName이라고도 합니다. 예를 들어 contoso.com입니다. |
 | domainNetBios |X |netBiosName이라고도 합니다. 예를 들어 CONTOSO입니다. |
@@ -422,7 +422,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 ## <a name="exchange-hybrid-writeback"></a>Exchange 하이브리드 쓰기 저장
 이 특성들은 **Exchange 하이브리드**를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
 
-| 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD의 cloudAnchor에서 파생됩니다. 이 특성은 Exchange 2016 및 Windows Server 2016 AD의 새로운 기능입니다. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |온라인 보관: 고객의 메일을 보관합니다. |
@@ -437,7 +437,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 ## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
 이러한 특성은 **Exchange 메일 공용 폴더**를 사용하도록 설정할 때 온-프레미스 Active Directory에서 Azure AD에서 동기화됩니다.
 
-| 특성 이름 | PublicFolder | 주석 |
+| 특성 이름 | PublicFolder | 의견 |
 | --- | :---:| --- |
 | displayName | X |  |
 | mail | X |  |
@@ -449,7 +449,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 ## <a name="device-writeback"></a>디바이스 쓰기 저장
 Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azure AD에 조인된 디바이스이거나 도메인에 조인된 Windows 10 컴퓨터일 수 있습니다.
 
-| 특성 이름 | 디바이스 | 주석 |
+| 특성 이름 | 디바이스 | 의견 |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
@@ -466,7 +466,7 @@ Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azu
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 

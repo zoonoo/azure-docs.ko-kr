@@ -4,10 +4,10 @@ description: Visual Studio에서 Azure 리소스 그룹 배포 프로젝트를 �
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084654"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>ARM 템플릿을 Azure Pipelines와 통합
@@ -16,7 +16,7 @@ Visual Studio는 ARM (Azure Resource Manager) 템플릿을 만들고 Azure 구�
 
 Azure Pipelines를 사용 하 여 템플릿을 배포 하는 방법에는 두 가지가 있습니다.
 
-* **Azure PowerShell 스크립트를 실행 하는 작업을 추가**합니다. 이 옵션은 Visual Studio 프로젝트에 포함 된 것과 동일한 스크립트 (Deploy-azureresourcegroup.ps1)를 사용 하기 때문에 개발 수명 주기 동안 일관성을 제공 하는 이점이 있습니다. 스크립트는 리소스 관리자에서 액세스할 수 있는 저장소 계정에 대 한 프로젝트의 아티팩트를 준비 합니다. 아티팩트는 연결 된 템플릿, 스크립트, 응용 프로그램 이진 파일 등 프로젝트의 항목입니다. 그런 다음 스크립트에서 템플릿을 배포 합니다.
+* **Azure PowerShell 스크립트를 실행 하는 작업을 추가**합니다. 이 옵션은 Visual Studio 프로젝트에 포함 된 것과 동일한 스크립트 (Deploy-AzureResourceGroup.ps1)를 사용 하기 때문에 개발 수명 주기 동안 일관성을 제공 하는 장점이 있습니다. 스크립트는 리소스 관리자에서 액세스할 수 있는 저장소 계정에 대 한 프로젝트의 아티팩트를 준비 합니다. 아티팩트는 연결 된 템플릿, 스크립트, 응용 프로그램 이진 파일 등 프로젝트의 항목입니다. 그런 다음 스크립트에서 템플릿을 배포 합니다.
 
 * 작업 **을 추가 하 여 작업을 복사 하 고 배포**합니다. 이 옵션은 프로젝트 스크립트에 대 한 편리한 대안을 제공 합니다. 파이프라인에서 두 작업을 구성 합니다. 한 작업은 아티팩트와 다른 작업에서 템플릿을 배포 합니다.
 
@@ -54,7 +54,7 @@ Azure Pipelines를 사용 하 여 템플릿을 배포 하는 방법에는 두 �
 
 Azure PowerShell 작업 또는 파일 복사를 추가 하 고 작업을 배포할 준비가 되었습니다.
 
-## <a name="azure-powershell-task"></a>작업 Azure PowerShell
+## <a name="azure-powershell-task"></a>Azure PowerShell 작업
 
 이 섹션에서는 프로젝트에서 PowerShell 스크립트를 실행 하는 단일 작업을 사용 하 여 연속 배포를 구성 하는 방법을 보여 줍니다. 다음 YAML 파일은 [Azure PowerShell 작업](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops)을 만듭니다.
 
@@ -72,7 +72,7 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-작업을로 `AzurePowerShell@3`설정 하면 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을로 `AzurePowerShell@4`설정 합니다.
+작업을로 설정 하면 `AzurePowerShell@3` 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을로 설정 `AzurePowerShell@4` 합니다.
 
 ```yaml
 steps:
@@ -86,7 +86,7 @@ inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-의 `scriptPath`경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
+의 `scriptPath` 경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -154,7 +154,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
     sasTokenTimeOutInMinutes: '240'
 ```
 
-이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. 는 `SourcePath` 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 라는 `AzureResourceGroup1` 폴더에 있습니다.
+이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. 는 `SourcePath` 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 라는 폴더에 있습니다 `AzureResourceGroup1` .
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -194,7 +194,7 @@ ContainerName: '<container-name>'
 
 이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다.
 
-- `deploymentScope`: `Management Group`, `Subscription` 및 `Resource Group`옵션에서 배포 범위를 선택 합니다. 이 연습에서는를 통해 **리소스 그룹** 을 사용 합니다. 범위에 대해 자세히 알아보려면 [배포 범위](deploy-rest.md#deployment-scope)를 참조하세요.
+- `deploymentScope`: `Management Group` , 및 옵션에서 배포 범위를 선택 합니다. `Subscription` `Resource Group` 이 연습에서는를 통해 **리소스 그룹** 을 사용 합니다. 범위에 대해 자세히 알아보려면 [배포 범위](deploy-rest.md#deployment-scope)를 참조하세요.
 
 - `ConnectedServiceName`: 만든 서비스 연결의 이름을 제공 합니다.
 
@@ -204,14 +204,14 @@ ContainerName: '<container-name>'
 
 - `subscriptionName`: 대상 구독 ID를 제공 합니다. 이 속성은 리소스 그룹 배포 범위 및 구독 배포 범위에만 적용 됩니다.
 
-- `resourceGroupName`및 `location`: 배포 하려는 리소스 그룹의 이름과 위치를 제공 합니다. 리소스가 없는 경우 태스크에서 리소스 그룹을 만듭니다.
+- `resourceGroupName`및 `location` : 배포 하려는 리소스 그룹의 이름과 위치를 제공 합니다. 리소스가 없는 경우 태스크에서 리소스 그룹을 만듭니다.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-배포 작업은 이름이 인 `WebSite.json` 템플릿 및 매개 변수 파일 (. parameters. json)에 연결 됩니다. 템플릿 및 매개 변수 파일의 이름을 사용 합니다.
+배포 작업은 이름이 인 템플릿 `WebSite.json` 및 매개 변수 파일 (WebSite.parameters.json)에 연결 됩니다. 템플릿 및 매개 변수 파일의 이름을 사용 합니다.
 
 이제 작업을 만드는 방법을 이해 하 고 파이프라인을 편집 하는 단계를 살펴보겠습니다.
 

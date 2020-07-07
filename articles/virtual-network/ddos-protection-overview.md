@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130963"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
@@ -39,7 +39,7 @@ DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클�
 |완화 정책 사용자 지정                 |아니요                                    |DDoS 전문가 참여                           |
 |Support(지원)                                         |최상의 노력                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
 |SLA                                             |Azure 지역                          |응용 프로그램 보장 & 비용 보호       |
-|가격 책정                                         |무료                                  |매월 & 사용량 기반                         |
+|가격 책정                                         |Free                                  |매월 & 사용량 기반                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS Protection 표준으로 완화되는 DDoS 공격의 유형
 

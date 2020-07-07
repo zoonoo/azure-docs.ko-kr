@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134417"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal를 사용 하 여 규모에 IoT Edge 모듈 배포
 
-Azure Portal에서 **IoT Edge 자동 배포** 를 만들어 한 번에 여러 장치에 대 한 지속적인 배포를 관리 합니다. IoT Edge에 대 한 자동 배포는 IoT Hub [자동 장치 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 장치에 여러 모듈을 배포 하 고, 모듈의 상태와 상태를 추적 하 고, 필요한 경우 변경할 수 있도록 하는 동적 프로세스입니다.
+Azure Portal에서 **IoT Edge 자동 배포** 를 만들어 한 번에 여러 장치에 대 한 지속적인 배포를 관리 합니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
 
-자세한 내용은 [단일 장치에 대 한 자동 배포의 이해 또는 규모에 IoT Edge](module-deployment-monitoring.md)을 참조 하세요.
+자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
 ## <a name="identify-devices-using-tags"></a>태그를 사용하여 디바이스 식별
 
-배포를 만들려면 먼저 적용할 디바이스를 지정할 수 있어야 합니다. Azure IoT Edge는 디바이스 쌍의 **태그**를 사용하여 디바이스를 식별합니다. 각 장치에는 솔루션에 적합 한 방식으로 정의 하는 여러 태그가 있을 수 있습니다.
+배포를 만들려면 먼저 적용할 디바이스를 지정할 수 있어야 합니다. Azure IoT Edge는 디바이스 쌍의 **태그**를 사용하여 디바이스를 식별합니다. 각 디바이스는 솔루션에 적합한 방식으로 정의하는 여러 개의 태그를 포함할 수 있습니다.
 
 예를 들어, 스마트 빌딩의 캠퍼스를 관리 하는 경우 장치에 위치, 방 유형 및 환경 태그를 추가할 수 있습니다.
 
@@ -80,12 +80,12 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 1. 드롭다운 메뉴에서 **IoT Edge 모듈** 을 선택 합니다.
 1. 모듈에 **IoT Edge 모듈 이름을**지정 합니다.
 1. **이미지 URI** 필드에 대해 모듈의 컨테이너 이미지를 입력합니다.
-1. 드롭다운 메뉴를 사용하여 **다시 시작 정책**을 선택합니다. 다음 옵션 중에서 선택합니다.
+1. 드롭다운 메뉴를 사용하여 **다시 시작 정책**을 선택합니다. 다음 옵션 중에서 선택 합니다.
    * **always** -어떤 이유로 든 종료 되 면 모듈이 항상 다시 시작 됩니다.
    * **안 함** -어떤 이유로 든 종료 되 면 모듈이 다시 시작 되지 않습니다.
    * **오류가 발생** 한 경우 모듈이 중단 되는 경우 다시 시작 되지만 완전히 종료 되는 경우에는 다시 시작 되지 않습니다.
    * **비정상** 상태-작동이 중단 되거나 비정상 상태를 반환 하는 경우 모듈이 다시 시작 됩니다. 상태 기능을 구현하는 것은 각 모듈에 달려 있습니다.
-1. 드롭다운 메뉴를 사용하여 모듈에 대한 **원하는 상태**를 선택합니다. 다음 옵션 중에서 선택합니다.
+1. 드롭다운 메뉴를 사용하여 모듈에 대한 **원하는 상태**를 선택합니다. 다음 옵션 중에서 선택 합니다.
    * **실행** 중은 기본 옵션입니다. 모듈이 배포된 직후에 실행됩니다.
    * **중지 됨** -배포 후에는 사용자 또는 다른 모듈에서 시작할 때 호출 될 때까지 모듈이 유휴 상태로 유지 됩니다.
 1. 컨테이너에 전달되어야 하는 **컨테이너 만들기 옵션**을 지정합니다. 자세한 내용은 [docker create](https://docs.docker.com/engine/reference/commandline/create/)를 참조하세요.
@@ -115,7 +115,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 배포에 모듈을 추가한 후에는 해당 이름을 선택 하 여 **IoT Edge 모듈 업데이트** 페이지를 열 수 있습니다. 이 페이지에서 모듈 설정, 환경 변수, 만들기 옵션 및 모듈 쌍을 편집할 수 있습니다. Marketplace에서 모듈을 추가한 경우 이러한 매개 변수 중 일부가 이미 채워져 있을 수 있습니다.
 
-계층화 된 배포를 만드는 경우 동일한 장치를 대상으로 하는 다른 배포에 존재 하는 모듈을 구성 하 고 있을 수 있습니다. 다른 버전을 덮어쓰지 않고 모듈 쌍을 업데이트 하려면 모듈 쌍 **설정** 탭을 엽니다. 모듈 쌍의 desired 속성 내에서 하위 섹션에 대 한 고유한 이름으로 새 **모듈 쌍 속성** 을 만듭니다 (예 `properties.desired.settings`:). `properties.desired` 필드 내에서 속성을 정의 하는 경우 우선 순위가 낮은 배포에 정의 된 모듈의 desired 속성을 덮어씁니다.
+계층화 된 배포를 만드는 경우 동일한 장치를 대상으로 하는 다른 배포에 존재 하는 모듈을 구성 하 고 있을 수 있습니다. 다른 버전을 덮어쓰지 않고 모듈 쌍을 업데이트 하려면 모듈 쌍 **설정** 탭을 엽니다. 모듈 쌍의 desired 속성 내에서 하위 섹션에 대 한 고유한 이름으로 새 **모듈 쌍 속성** 을 만듭니다 (예 `properties.desired.settings` :). 필드 내에서 속성을 정의 하는 경우 `properties.desired` 우선 순위가 낮은 배포에 정의 된 모듈의 desired 속성을 덮어씁니다.
 
 ![계층화 된 배포에 대 한 모듈 쌍 속성 설정](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -125,7 +125,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ### <a name="step-3-routes"></a>3 단계: 경로
 
-경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사는 **업스트림** 이라는 경로를 제공 하 고 **\* /messages/에서 $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
+경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사는 **업스트림** 이라는 경로를 제공 하 고 **/messages/에서 \* $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
 
 [경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
 
@@ -135,11 +135,11 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 메트릭은 디바이스가 구성 콘텐츠를 적용한 결과로 다시 보고할 수 있는 다양한 상태의 요약 수를 제공합니다.
 
-1. **메트릭 이름**에 이름을 입력 합니다.
+1. **메트릭 이름**에 대한 이름을 입력합니다.
 
 1. **메트릭 조건**에 대한 쿼리를 입력합니다. 쿼리는 IoT Edge 허브 모듈 쌍의 [보고된 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 기반으로 합니다. 메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ```sql
    SELECT deviceId FROM devices
@@ -159,7 +159,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 장치를 대상으로 하는 계층화 된 배포는 적용 하기 위해 기본 배포 보다 높은 우선 순위를 갖고 있어야 합니다.
 
 1. 배포 **우선 순위**에 대해 양의 정수를 입력합니다.
-1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다.조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들어 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`입니다.
+1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들어 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`입니다.
 
 **다음: 검토 + 만들기** 를 선택 하 여 마지막 단계로 이동 합니다.
 
@@ -176,7 +176,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 * 대상 조건
 * 사용자 지정 메트릭
 * 레이블
-* 태그들
+* 태그
 * Desired 속성
 
 ### <a name="modify-target-conditions-custom-metrics-and-labels"></a>대상 조건, 사용자 지정 메트릭 및 레이블 수정
@@ -201,7 +201,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 배포를 삭제 하는 경우 배포 된 모든 장치는 우선 순위가 가장 높은 다음 배포를 수행 합니다. 디바이스에서 다른 배포의 대상 조건을 충족하지 않으면 배포를 삭제해도 모듈이 제거되지 않습니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 IoT Hub으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 1. **IoT Edge**를 선택합니다.
 1. **IoT Edge 배포** 탭을 선택 합니다.
 
@@ -213,4 +213,4 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-[IoT Edge 장치에 모듈을 배포 하](module-deployment-monitoring.md)는 방법에 대해 자세히 알아보세요.
+[IoT Edge 디바이스에 모듈 배포](module-deployment-monitoring.md)에 대해 자세히 알아봅니다.

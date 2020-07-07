@@ -10,15 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137623"
 ---
 # <a name="two-class-logistic-regression-module"></a>2 클래스 로지스틱 회귀 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만듭니다. 
 
@@ -55,7 +55,7 @@ ms.locfileid: "82137623"
   
     -   한편, L2 정규화는 스파스가 아닌 데이터에 사용하는 것이 좋습니다.  
   
-     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, 및 <code>x = L1</code> <code>y = L2</code>인 경우는 <code>ax + by = c</code> 정규화 용어의 선형 범위를 정의 합니다.  
+     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, 및 인 경우는 <code>x = L1</code> <code>y = L2</code> <code>ax + by = c</code> 정규화 용어의 선형 범위를 정의 합니다.  
   
     > [!NOTE]
     >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅에 어떻게 영향을 주는지에 대해 설명 합니다. [l1 및 L2 정규화 for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
@@ -85,7 +85,7 @@ ms.locfileid: "82137623"
     > 
     > **매개 변수 범위** 옵션을 선택 하 고 매개 변수에 대해 단일 값을 입력 하는 경우 다른 매개 변수가 값 범위에서 변경 되더라도 지정한 단일 값은 스윕 전체에서 사용 됩니다.  
   
-9. 파이프라인을 제출 합니다.  
+9. 파이프라인을 제출합니다.  
   
 ## <a name="results"></a>결과
 
@@ -97,4 +97,4 @@ ms.locfileid: "82137623"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

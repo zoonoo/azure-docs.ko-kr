@@ -9,32 +9,32 @@ ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: b90189c6ba5e51a24d0c248b5aa08e9a5e4bbd9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082852"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
 
-이 문서에서는 Vm (가상 머신)을 호스트 하는 Azure [전용 호스트](dedicated-hosts.md) 를 만드는 방법을 안내 합니다. 
+이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](dedicated-hosts.md)를 만드는 방법을 안내합니다. 
 
-Azure PowerShell 버전 2.8.0 이상을 설치 했는지 확인 하 고를 사용 하 여 `Connect-AzAccount`의 Azure 계정에 로그인 합니다. 
+Azure PowerShell 버전 2.8.0 이상을 설치 했는지 확인 하 고를 사용 하 여의 Azure 계정에 로그인 `Connect-AzAccount` 합니다. 
 
 ## <a name="limitations"></a>제한 사항
 
-- 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-- 전용 호스트에 사용할 수 있는 크기 및 하드웨어 유형은 지역에 따라 다릅니다. 자세한 내용은 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing) 를 참조 하세요.
+- 가상 머신 확장 집합은 현재 전용 호스트에서 지원되지 않습니다.
+- 전용 호스트에 사용할 수 있는 크기 및 하드웨어 유형은 지역에 따라 다릅니다. 자세히 알아보려면 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing)를 참조하세요.
 
 ## <a name="create-a-host-group"></a>호스트 그룹 만들기
 
-**호스트 그룹** 은 전용 호스트의 컬렉션을 나타내는 리소스입니다. 지역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가 합니다. 고가용성을 계획할 때 추가 옵션을 사용할 수 있습니다. 전용 호스트에서 다음 옵션 중 하나 또는 둘 다를 사용할 수 있습니다. 
-- 여러 가용성 영역에 걸쳐 있습니다. 이 경우에는 사용 하려는 각 영역에 호스트 그룹이 있어야 합니다.
-- 실제 랙에 매핑되는 여러 장애 도메인에 걸쳐 있습니다. 
+**호스트 그룹**은 전용 호스트의 모음을 나타내는 리소스입니다. 영역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가합니다. 고가용성을 계획할 때 추가 옵션을 사용할 수 있습니다. 전용 호스트에서 다음 옵션 중 하나 또는 둘 다를 사용할 수 있습니다. 
+- 여러 가용성 영역으로 확장. 이 경우에는 사용하려는 각 영역에 호스트 그룹이 있어야 합니다.
+- 실제 랙에 매핑된 여러 장애 도메인으로 확장. 
  
-두 경우 모두 호스트 그룹의 장애 도메인 수를 제공 해야 합니다. 그룹의 장애 도메인을 확장 하지 않으려면 장애 도메인 수 1을 사용 합니다. 
+두 경우 모두 호스트 그룹의 장애 도메인 수를 제공해야 합니다. 그룹의 장애 도메인을 확장하지 않으려면 장애 도메인 수 1을 사용합니다. 
 
-가용성 영역 및 장애 도메인을 모두 사용 하도록 결정할 수도 있습니다. 이 예제에서는 2 개 장애 도메인을 사용 하 여 영역 1에 호스트 그룹을 만듭니다. 
+가용성 영역 및 장애 도메인을 모두 사용하도록 결정할 수도 있습니다. 이 예제에서는 2 개 장애 도메인을 사용 하 여 영역 1에 호스트 그룹을 만듭니다. 
 
 
 ```azurepowershell-interactive
@@ -52,11 +52,11 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>호스트 만들기
 
-이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.
+이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트 이름 외에 호스트의 SKU도 제공해야 합니다. 호스트 SKU는 지원되는 VM 시리즈뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.
 
-호스트 Sku 및 가격 책정에 대 한 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
+호스트 SKU 및 가격 책정에 대한 자세한 내용은 [Azure Dedicated Host 가격 책정](https://aka.ms/ADHPricing)을 참조하세요.
 
-호스트 그룹에 대 한 장애 도메인 수를 설정 하는 경우 호스트에 대 한 장애 도메인을 지정 하 라는 메시지가 표시 됩니다. 이 예에서는 호스트의 장애 도메인을 1로 설정 합니다.
+호스트 그룹의 장애 도메인 수를 설정하면 호스트의 장애 도메인을 지정하라는 메시지가 표시됩니다. 이 예에서는 호스트의 장애 도메인을 1로 설정 합니다.
 
 
 ```azurepowershell-interactive
@@ -73,7 +73,7 @@ $dHost = New-AzHost `
 
 전용 호스트에서 가상 컴퓨터를 만듭니다. 
 
-호스트 그룹을 만들 때 가용성 영역을 지정한 경우 가상 머신을 만들 때 동일한 영역을 사용 해야 합니다. 이 예에서는 호스트 그룹이 영역 1에 있기 때문에 영역 1에서 VM을 만들어야 합니다.  
+호스트 그룹을 만들 때 가용성 영역을 지정한 경우 가상 머신을 만들 때 동일한 영역을 사용해야 합니다. 이 예에서는 호스트 그룹이 영역 1에 있기 때문에 영역 1에서 VM을 만들어야 합니다.  
 
 
 ```azurepowershell-interactive
@@ -90,11 +90,11 @@ New-AzVM `
 ```
 
 > [!WARNING]
-> 리소스가 부족 한 호스트에서 가상 컴퓨터를 만드는 경우 가상 컴퓨터는 실패 상태로 생성 됩니다. 
+> 리소스가 부족한 호스트에 가상 머신을 만드는 경우 가상 머신이 FAILED 상태로 생성됩니다. 
 
-## <a name="check-the-status-of-the-host"></a>호스트의 상태를 확인 합니다.
+## <a name="check-the-status-of-the-host"></a>호스트의 상태 확인
 
-매개 변수와 함께 GetAzHost를 사용 하 여 호스트에 배포할 수 있는 가상 컴퓨터의 수 및 호스트 상태를 확인할 수 있습니다. [GetAzHost](/powershell/module/az.compute/get-azhost) `-InstanceView`
+매개 변수와 함께 [GetAzHost](/powershell/module/az.compute/get-azhost) 를 사용 하 여 호스트에 배포할 수 있는 가상 컴퓨터의 수 및 호스트 상태를 확인할 수 있습니다 `-InstanceView` .
 
 ```azurepowershell-interactive
 Get-AzHost `
@@ -213,9 +213,9 @@ Start-AzVM `
 
 ## <a name="clean-up"></a>정리
 
-가상 컴퓨터가 배포 되지 않은 경우에도 전용 호스트에 대 한 요금이 청구 됩니다. 비용을 절약 하기 위해 현재 사용 하지 않는 호스트를 모두 삭제 해야 합니다.  
+가상 머신이 배포되지 않은 경우에도 전용 호스트에 대한 요금이 청구됩니다. 비용 절약을 위해 현재 사용하지 않는 호스트를 모두 삭제해야 합니다.  
 
-호스트를 사용 하는 가상 컴퓨터가 더 이상 없는 경우에만 호스트를 삭제할 수 있습니다. [New-azvm](/powershell/module/az.compute/remove-azvm)를 사용 하 여 vm을 삭제 합니다.
+호스트를 사용하는 가상 머신이 더 이상 없는 경우에만 호스트를 삭제할 수 있습니다. [New-azvm](/powershell/module/az.compute/remove-azvm)를 사용 하 여 vm을 삭제 합니다.
 
 ```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
@@ -233,7 +233,7 @@ Remove-AzHost -ResourceGroupName $rgName -Name myHost
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-[AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)를 사용 하 여 단일 명령에서 전체 리소스 그룹을 삭제할 수도 있습니다. 그러면 모든 Vm, 호스트 및 호스트 그룹을 포함 하 여 그룹에 생성 된 모든 리소스가 삭제 됩니다.
+[AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)를 사용 하 여 단일 명령에서 전체 리소스 그룹을 삭제할 수도 있습니다. 그러면 모든 VM, 호스트 및 호스트 그룹을 포함하여 그룹에 생성된 모든 리소스가 삭제됩니다.
  
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
@@ -242,6 +242,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>다음 단계
 
-- 영역에서 최대 복원 력을 위해 영역 및 장애 도메인을 모두 사용 하는 샘플 템플릿은 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에 있습니다.
+- 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
 
 - [Azure Portal](dedicated-hosts-portal.md)를 사용 하 여 전용 호스트를 배포할 수도 있습니다.

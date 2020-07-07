@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137589"
 ---
 # <a name="liveness-probe"></a>선거의 프로브
@@ -40,15 +40,15 @@ ms.locfileid: "82137589"
 
 * `OK`: **SuccessThreshold**에 설정 된 값에 대해 프로브가 성공 합니다.
 
-* `Error`: 컨테이너를 다시 시작 하기 전에 프로브 **failureCount** ==  **카운터가 failurethreshold**입니다.
+* `Error`: 컨테이너를 **failureCount**  ==   다시 시작 하기 전에 프로브 failureCount**카운터가 failurethreshold**입니다.
 
 * `Warning`: 
-    * 프로브에 실패 하 고 **failureCount** < **카운터가 failurethreshold**입니다. 이 상태 보고서는 **failureCount** 가 **카운터가 failurethreshold** 또는 **successThreshold**에 설정 된 값에 도달할 때까지 유지 됩니다.
+    * 프로브에 실패 하 고 **failureCount**  <  **카운터가 failurethreshold**입니다. 이 상태 보고서는 **failureCount** 가 **카운터가 failurethreshold** 또는 **successThreshold**에 설정 된 값에 도달할 때까지 유지 됩니다.
     * 오류가 발생 한 후에도 경고는 연속 해 서 연속 해 서 업데이트 된 상태로 유지 됩니다.
 
 ## <a name="specifying-a-liveness-probe"></a>선거의 프로브 지정
 
-**ServiceManifestImport**아래의 applicationmanifest .xml 파일에서 프로브를 지정할 수 있습니다.
+**ServiceManifestImport**의 ApplicationManifest.xml 파일에서 프로브를 지정할 수 있습니다.
 
 프로브는 다음 중 하나일 수 있습니다.
 

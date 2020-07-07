@@ -10,14 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137459"
 ---
 # <a name="linear-regression-module"></a>선형 회귀 모듈
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 파이프라인에서 사용할 선형 회귀 모델을 만들 수 있습니다.  선형 회귀는 하나 이상의 독립적인 변수와 숫자 결과 또는 종속 변수 간의 선형 관계를 설정 하려고 시도 합니다. 
 
@@ -82,7 +82,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 7. [모델 학습](./train-model.md) 모듈을 파이프라인에 추가 하 고 레이블이 지정 된 데이터 집합을 연결 합니다.
 
-8. 파이프라인을 제출 합니다.
+8. 파이프라인을 제출합니다.
 
 ### <a name="results-for-ordinary-least-squares-model"></a>일반적으로 최소 제곱 모델에 대 한 결과
 
@@ -141,7 +141,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
     > 
     > **매개 변수 범위** 옵션을 선택 하 고 매개 변수에 대해 단일 값을 입력 하는 경우 다른 매개 변수가 값 범위에서 변경 되더라도 지정한 단일 값은 스윕 전체에서 사용 됩니다.
 
-13. 파이프라인을 제출 합니다.
+13. 파이프라인을 제출합니다.
 
 ### <a name="results-for-online-gradient-descent"></a>온라인 그라데이션 하강 결과
 
@@ -152,4 +152,4 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131023"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
@@ -28,7 +28,7 @@ Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 
 
 대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [x.509 인증서](../iot-dps/concepts-security.md#x509-certificates) 를 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 IoT Hub
 * 실제 또는 가상 장치
@@ -43,7 +43,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 각 디바이스를 식별하기 위한 고유한 등록 ID가 정의되어야 합니다. 디바이스에서 MAC 주소, 일련 번호 또는 고유 정보를 사용할 수 있습니다.
 
-이 예제에서는 등록 ID에 대해 다음 문자열을 형성 하는 MAC 주소와 일련 번호를 조합 하 여 사용 `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`합니다.
+이 예제에서는 등록 ID에 대해 다음 문자열을 형성 하는 MAC 주소와 일련 번호를 조합 하 여 사용 `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6` 합니다.
 
 디바이스에 대한 고유한 등록 ID를 만듭니다. 유효한 문자는 소문자 영숫자 및 대시('-')입니다.
 
@@ -81,7 +81,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. 장치를 처음으로 프로 비전을 요청할 때 **다시 프로 비전 할 때 장치 데이터를 처리 하는 방법을** 선택 합니다.
 
-   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 다음은 그 예입니다.
+   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예:
 
       ```json
       {
@@ -185,7 +185,7 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-, `<REGISTRATION_ID>`및 `<SYMMETRIC_KEY>` 에 대 한 `<SCOPE_ID>`자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다. **프로 비전:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
+, 및에 대 한 자리 표시자 값을 `<SCOPE_ID>` `<REGISTRATION_ID>` 앞에서 `<SYMMETRIC_KEY>` 수집한 데이터로 바꿉니다. **프로 비전:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
 
 ### <a name="windows-device"></a>Windows 디바이스
 
@@ -204,9 +204,9 @@ Windows에 IoT Edge를 설치 하는 방법에 대 한 자세한 내용은 컨�
 
 1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 플래그를 `-Dps` 사용 하 여 자동 프로비저닝을 사용 하지 않는 한이 명령은 Windows 컨테이너를 사용 하 여 수동으로 프로 비전 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 플래그를 사용 하 여 자동 프로비저닝을 사용 하지 않는 한이 명령은 Windows 컨테이너를 사용 하 여 수동으로 프로 비전 `-Dps` 합니다.
 
-   , `{registration_id}`및 `{symmetric_key}` 에 대 한 `{scope_id}`자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
+   , 및에 대 한 자리 표시자 값을 `{scope_id}` `{registration_id}` 앞에서 `{symmetric_key}` 수집한 데이터로 바꿉니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

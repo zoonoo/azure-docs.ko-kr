@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133788"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
@@ -23,7 +23,7 @@ Azure Storage 플랫폼은 최신 데이터 저장소 시나리오를 위한 Mic
 - **보안.** Azure 저장소 계정에 기록 된 모든 데이터는 서비스에 의해 암호화 됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
 - **크기.** Azure Storage는 오늘날의 애플리케이션의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다.
 - **Managed.** Azure는 하드웨어 유지 관리, 업데이트 및 중요 한 문제를 처리 합니다.
-- **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 .NET, Java, node.js, Python, PHP, Ruby, Go 등을 비롯 한 다양 한 언어로 Azure Storage 용 클라이언트 라이브러리를 제공 하 고 완성 된 REST API를 제공 합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
+- **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 .NET, Java, Node.js, Python, PHP, Ruby, Go 등을 비롯 한 다양 한 언어로 Azure Storage 용 클라이언트 라이브러리를 제공 하 REST API 고 있습니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
 ## <a name="core-storage-services"></a>핵심 저장소 서비스
 
@@ -123,15 +123,15 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-Azure Storage 암호화는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Azure Storage는 저장소 계정에 유지 하기 전에 모든 데이터를 자동으로 암호화 하 고 검색 하기 전에 암호를 해독 합니다. 암호화, 암호 해독 및 키 관리 프로세스는 사용자에 게 투명 합니다. 또한 고객은 Azure Key Vault를 사용 하 여 자신의 키를 관리 하도록 선택할 수 있습니다. 자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md)를 참조 하세요.
+Azure Storage 암호화는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Azure Storage는 저장소 계정에 유지 하기 전에 모든 데이터를 자동으로 암호화 하 고 검색 하기 전에 암호를 해독 합니다. 암호화, 암호 해독 및 키 관리 프로세스는 사용자에 게 투명 합니다. 또한 고객은 Azure Key Vault를 사용 하 여 자신의 키를 관리 하도록 선택할 수 있습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)를 참조하세요.
 
 ### <a name="client-side-encryption"></a>클라이언트 쪽 암호화
 
 Azure Storage 클라이언트 라이브러리는 네트워크를 통해 전송 하기 전에 클라이언트 라이브러리에서 데이터를 암호화 하 고 응답을 해독 하는 메서드를 제공 합니다. 클라이언트 쪽 암호화를 통해 암호화 된 데이터는 Azure Storage 하 여 미사용 에서도 암호화 됩니다. 클라이언트 쪽 암호화에 대 한 자세한 내용은 [Azure Storage 용 .net을 사용 하는 클라이언트 쪽 암호화](storage-client-side-encryption.md)를 참조 하세요.
 
-## <a name="redundancy"></a>중복
+## <a name="redundancy"></a>중복성
 
-데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)을 참조하세요.
+데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복 옵션](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)을 참조하세요.
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Azure Storage 간 데이터 전송
 
@@ -150,7 +150,7 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [.NET 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Java/Android 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Node.js 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Node.js용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Python 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
 - [PHP 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php)
 - [Ruby 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-ruby)

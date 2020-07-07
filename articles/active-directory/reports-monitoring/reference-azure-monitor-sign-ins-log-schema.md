@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129192"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
@@ -145,7 +145,7 @@ ms.locfileid: "82129192"
 
 | 필드 이름 | Description |
 |------------|-------------|
-| 시간 | UTC 형식의 날짜 및 시간입니다. |
+| Time | UTC 형식의 날짜 및 시간입니다. |
 | ResourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
 | OperationName | 로그인의 경우 이 값은 항상 *로그인 활동*입니다. |
 | OperationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
@@ -154,11 +154,11 @@ ms.locfileid: "82129192"
 | ResultType | 로그인 작업의 결과는 *성공* 또는 *실패*일 수 있습니다. | 
 | ResultSignature | 로그인 작업에 대한 오류 코드(있는 경우)를 포함합니다. |
 | ResultDescription | 로그인 작업에 대한 오류 설명을 제공합니다. |
-| riskDetail | riskDetail | 위험한 사용자, 로그인 또는 위험 검색의 특정 상태 뒤에 ' reason '을 제공 합니다. 가능한 값은 `none` `adminGeneratedTemporaryPassword`,, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `unknownFutureValue`,,,,,입니다. `adminConfirmedSigninCompromised` 값 `none` 은 사용자에 대 한 작업이 수행 되지 않았거나 지금까지 로그인 하지 않았음을 의미 합니다. <br>**참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 라이선스가 필요 합니다. 다른 라이선스는 값 `hidden`을 반환 합니다. |
-| riskEventTypes | riskEventTypes | 로그인과 관련 된 위험 검색 유형입니다. 가능한 값은 `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `unknownFutureValue`,,,,, 및입니다. `investigationsThreatIntelligence` `generic` |
-| riskLevelAggregated | riskLevel | 집계 된 위험 수준. 가능한 `none`값은, `low`, `medium`, `high` `hidden`, 및 `unknownFutureValue`입니다. 값 `hidden` 은 사용자 또는 로그인이 Azure AD ID 보호에 대해 사용 하도록 설정 되지 않았음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 반환 `hidden`됩니다. |
-| riskLevelDuringSignIn | riskLevel | 로그인 중의 위험 수준 가능한 `none`값은, `low`, `medium`, `high` `hidden`, 및 `unknownFutureValue`입니다. 값 `hidden` 은 사용자 또는 로그인이 Azure AD ID 보호에 대해 사용 하도록 설정 되지 않았음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 반환 `hidden`됩니다. |
-| riskState | riskState | 위험한 사용자, 로그인 또는 위험 검색의 상태를 보고 합니다. 가능한 `none`값은, `confirmedSafe`, `remediated`, `dismissed` `atRisk`,, `confirmedCompromised`, `unknownFutureValue`입니다. |
+| riskDetail | riskDetail | 위험한 사용자, 로그인 또는 위험 검색의 특정 상태 뒤에 ' reason '을 제공 합니다. 가능한 값은 `none` , `adminGeneratedTemporaryPassword` , `userPerformedSecuredPasswordChange` ,,, `userPerformedSecuredPasswordReset` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `adminConfirmedSigninCompromised` ,, `unknownFutureValue` ,,입니다. 값은 `none` 사용자에 대 한 작업이 수행 되지 않았거나 지금까지 로그인 하지 않았음을 의미 합니다. <br>**참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 라이선스가 필요 합니다. 다른 라이선스는 값을 반환 `hidden` 합니다. |
+| riskEventTypes | riskEventTypes | 로그인과 관련 된 위험 검색 유형입니다. 가능한 값은,,,,,,,, `unlikelyTravel` `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `investigationsThreatIntelligence` `generic` 및 `unknownFutureValue` 입니다. |
+| riskLevelAggregated | riskLevel | 집계 된 위험 수준. 가능한 값은 `none` , `low` ,,, `medium` `high` `hidden` 및 `unknownFutureValue` 입니다. 값은 `hidden` 사용자 또는 로그인이 Azure AD ID 보호에 대해 사용 하도록 설정 되지 않았음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 반환 됩니다 `hidden` . |
+| riskLevelDuringSignIn | riskLevel | 로그인 중의 위험 수준 가능한 값은 `none` , `low` ,,, `medium` `high` `hidden` 및 `unknownFutureValue` 입니다. 값은 `hidden` 사용자 또는 로그인이 Azure AD ID 보호에 대해 사용 하도록 설정 되지 않았음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 반환 됩니다 `hidden` . |
+| riskState | riskState | 위험한 사용자, 로그인 또는 위험 검색의 상태를 보고 합니다. 가능한 값은 `none` , `confirmedSafe` ,,, `remediated` , `dismissed` `atRisk` `confirmedCompromised` , `unknownFutureValue` 입니다. |
 | DurationMs |  이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다. |
 | callerIpAddress | 요청한 클라이언트의 IP 주소입니다. | 
 | CorrelationId | 클라이언트에서 전달한 선택적 GUID입니다. 이 값은 클라이언트 쪽 작업을 서버 쪽 작업과 상관 관계를 지정하는 데 도움이 될 수 있으며, 서비스에 걸쳐 있는 로그를 추적하는 경우에 유용합니다. |

@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
 ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086439"
 ---
-# <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포
+# <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포
 
 논리 앱에 대 한 Azure Resource Manager 템플릿을 만든 후에 다음과 같은 방법으로 템플릿을 배포할 수 있습니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "82086439"
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure 리소스 관리자 REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>

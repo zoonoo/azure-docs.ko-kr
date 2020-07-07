@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82117572"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 가져오기 및 인덱싱을 위한 관계형 SQL 데이터를 모델링 하는 방법
@@ -84,7 +84,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
     GO
     ```
 
-2. 중첩 쿼리의 출력을 포함 하는 새 *방* 필드를 추가`SELECT * from dbo.Hotels$`하 여 부모 테이블 ()의 모든 필드로 구성 된 뷰를 만듭니다. 출력을 JSON으로 하는 `SELECT * from dbo.Rooms$` 구조체에 **대 한 FOR json AUTO** 절입니다. 
+2. `SELECT * from dbo.Hotels$`중첩 쿼리의 출력을 포함 하는 새 *방* 필드를 추가 하 여 부모 테이블 ()의 모든 필드로 구성 된 뷰를 만듭니다. 출력을 JSON으로 하는 구조체에 **대 한 FOR JSON AUTO** 절입니다 `SELECT * from dbo.Rooms$` . 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -100,7 +100,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
    ![HotelRooms 보기](media/index-sql-relational-data/hotelsrooms-view.png "HoteRooms 뷰")
 
-1. 을 `SELECT * FROM dbo.HotelRooms` 실행 하 여 행 집합을 검색 합니다. 이 쿼리는 관련 된 대화방 정보를 JSON 컬렉션으로 사용 하 여 호텔 마다 하나씩 50 행을 반환 합니다. 
+1. `SELECT * FROM dbo.HotelRooms`을 실행 하 여 행 집합을 검색 합니다. 이 쿼리는 관련 된 대화방 정보를 JSON 컬렉션으로 사용 하 여 호텔 마다 하나씩 50 행을 반환 합니다. 
 
    ![HotelRooms 보기의 행 집합](media/index-sql-relational-data/hotelrooms-rowset.png "HotelRooms 보기의 행 집합")
 

@@ -9,10 +9,10 @@ ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82098529"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>PowerShell을 사용 하 여 근접 배치 그룹에 Vm 배포
@@ -20,11 +20,11 @@ ms.locfileid: "82098529"
 
 가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 [근접 배치 그룹](co-location.md#proximity-placement-groups)내에 배포 해야 합니다.
 
-근접 배치 그룹은 Azure 계산 리소스가 물리적으로 서로 가까운 위치에 있는지 확인 하는 데 사용 되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구 하는 작업에 유용 합니다.
+근접 배치 그룹은 Azure 컴퓨팅 리소스가 물리적으로 서로 가까운 위치에 있도록 하는 데 사용되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구하는 작업에 유용합니다.
 
 
 ## <a name="create-a-proximity-placement-group"></a>근접 배치 그룹 만들기
-[AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet을 사용 하 여 근접 배치 그룹을 만듭니다. 
+[New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet을 사용하여 근접 배치 그룹을 만듭니다. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -40,7 +40,7 @@ $ppg = New-AzProximityPlacementGroup `
 
 ## <a name="list-proximity-placement-groups"></a>근접 배치 그룹 나열
 
-[AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet을 사용 하 여 모든 근접 배치 그룹을 나열할 수 있습니다.
+[Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet을 사용하여 모든 근접 배치 그룹을 나열할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzProximityPlacementGroup
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-New-azvm를 사용 하 여 VM을 만들 때 `-ProximityPlacementGroup $ppg.Id` 근접 배치 그룹 ID를 참조 하려면를 사용 하 여 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 근접 배치 그룹에 vm을 만듭니다.
+`-ProximityPlacementGroup $ppg.Id` [New-azvm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 를 사용 하 여 vm을 만들 때 근접 배치 그룹 ID를 참조 하려면를 사용 하 여 근접 배치 그룹에 vm을 만듭니다.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -96,7 +96,7 @@ Start-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 
 
 ## <a name="availability-sets"></a>가용성 집합
-또한 근접 배치 그룹에 가용성 집합을 만들 수 있습니다. AzAvailabilitySet cmdlet과 `-ProximityPlacementGroup` 동일한 매개 변수 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) 를 사용 하 여 가용성 집합을 만들고 가용성 집합에서 만든 모든 vm이 동일한 근접 배치 그룹에도 만들어집니다.
+또한 근접 배치 그룹에 가용성 집합을 만들 수 있습니다. `-ProximityPlacementGroup` [AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) cmdlet과 동일한 매개 변수를 사용 하 여 가용성 집합을 만들고 가용성 집합에서 만든 모든 vm이 동일한 근접 배치 그룹에도 만들어집니다.
 
 근접 배치 그룹에 기존 가용성 집합을 추가 하거나 제거 하려면 먼저 가용성 집합의 모든 Vm을 중지 해야 합니다. 
 
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>확장 집합
 
-또한 근접 배치 그룹에 확장 집합을 만들 수 있습니다. AzVmss와 동일한 `-ProximityPlacementGroup` 매개 변수 [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 를 사용 하 여 확장 집합을 만들고 모든 인스턴스가 동일한 근접 배치 그룹에 생성 됩니다.
+또한 근접 배치 그룹에 확장 집합을 만들 수 있습니다. `-ProximityPlacementGroup` [AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 와 동일한 매개 변수를 사용 하 여 확장 집합을 만들고 모든 인스턴스가 동일한 근접 배치 그룹에 생성 됩니다.
 
 
 근접 배치 그룹에 기존 확장 집합을 추가 하거나 제거 하려면 먼저 확장 집합을 중지 해야 합니다. 
@@ -173,4 +173,4 @@ Start-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupNa
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](../linux/proximity-placement-groups.md) 를 사용 하 여 근접 배치 그룹을 만들 수도 있습니다.
+또한 [Azure CLI](../linux/proximity-placement-groups.md)를 사용하여 근접 배치 그룹을 만들 수도 있습니다.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084518"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
@@ -31,7 +31,7 @@ ms.locfileid: "82084518"
 
  
 - **특수한 VHD** - 특수한 VHD는 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 새 VM을 만드는데 VHD를 그대로 사용하려는 경우 다음 단계가 완료되었는지 확인합니다.  
-    * [Azure에 업로드할 WINDOWS VHD를 준비](prepare-for-upload-vhd-image.md)합니다. Sysprep을 사용하여 VM을 일반화하지 **마십시오**. 
+    * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md). Sysprep을 사용하여 VM을 일반화하지 **마십시오**. 
     * 모든 게스트 가상화 도구 및 VM에 설치된 에이전트를 제거합니다(예: VMware 도구). 
     * VM이 DHCP를 통해 해당 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 VNet 내의 IP 주소를 가져옵니다.  
 
@@ -40,7 +40,7 @@ ms.locfileid: "82084518"
 
 EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서 [VM Import/Export를 사용하여 인스턴스를 VM으로 내보내기](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 항목의 단계를 수행하고, [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
 
-내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내는 기본 구문은 다음과 같습니다.> 괄호 안의 \<자리 표시자 텍스트를 사용자 정보로 바꾸면 됩니다.
+내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내기 위한 기본 구문은 다음과 같으며, 여기서 \<brackets>의 자리 표시자 텍스트를 사용자의 정보로 바꿉니다.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
