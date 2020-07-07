@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562069"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
@@ -76,8 +76,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 경로 템플릿 매개 변수 외에도 구성 값에 다음 값을 사용할 수 있습니다.
 
 * **{request.method}** : 원래 요청에 사용된 HTTP 메서드입니다.
-* **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. * \<헤드 ername\> * 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
-* **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName\> * 을 읽으려는 매개 변수 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{headers. \<HeaderName\> }**: 원래 요청에서 읽을 수 있는 헤더입니다. *\<HeaderName\>* 읽으려는 헤더의 이름으로 대체 합니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{request. querystring. \<ParameterName\> }**: 원래 요청에서 읽을 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 읽으려는 매개 변수 이름으로 대체 합니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>백 엔드 응답 매개 변수 참조
 
@@ -85,13 +85,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 * **{backend.response.statusCode}**: 백 엔드 응답에 반환할 HTTP 상태 코드입니다.
 * **{backend.response.statusReason}**: 백 엔드 응답에 반환할 HTTP 이유 구문입니다.
-* **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. * \<헤드 ername\> * 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
+* **{백엔드. 헤더. \<HeaderName\> }**: 백 엔드 응답에서 읽을 수 있는 헤더입니다. *\<HeaderName\>* 읽으려는 헤더의 이름으로 대체 합니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>애플리케이션 설정 참조
 
 또한 설정 이름을 백분율 기호 (%)로 묶어 [함수 앱에 대해 정의 된 응용 프로그램 설정을](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) 참조할 수 있습니다.
 
-예를 들어의 *https://%ORDER_PROCESSING_HOST%/api/orders* 백 엔드 URL은 "% ORDER_PROCESSING_HOST%"을 (를) ORDER_PROCESSING_HOST 설정 값으로 바꿉니다.
+예를 들어의 백 엔드 URL은 *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST%"을 (를) ORDER_PROCESSING_HOST 설정 값으로 바꿉니다.
 
 > [!TIP] 
 > 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 애플리케이션 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
@@ -173,7 +173,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 프록시는 \를 이스케이프 기호로 사용하여 JSON 파일에서 모든 문자열을 읽습니다. 프록시는 또한 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
-|문자|이스케이프된 문자|예|
+|문자|이스케이프된 문자|예제|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
@@ -184,8 +184,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대한 변경 내용을 정의합니다. 개체는 다음 속성으로 정의됩니다.
 
 * **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
-* **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. * \<ParameterName\> * 을 설정 하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
-* **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
+* **백 엔드. querystring \<ParameterName\> **.: 백 엔드에 대 한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 설정 하려는 매개 변수의 이름으로 대체 합니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
+* **백 엔드. headers.: \<HeaderName\> **백 엔드에 대 한 호출에 설정할 수 있는 헤더입니다. *\<HeaderName\>* 설정 하려는 헤더의 이름으로 대체 합니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
 
 값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
 
@@ -217,7 +217,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 * **response.statusCode**: 클라이언트에 반환할 HTTP 상태 코드입니다.
 * **response.statusReason**: 클라이언트에 반환할 HTTP 이유 구문입니다.
 * **response.body**: 클라이언트에 반환할 본문의 문자열 표현입니다.
-* **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. * \<헤드 ername\> * 을 설정 하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
+* **response. 헤더 \<HeaderName\> **: 클라이언트에 대 한 응답에 설정할 수 있는 헤더입니다. *\<HeaderName\>* 설정 하려는 헤더의 이름으로 대체 합니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
 
 값은 애플리케이션 설정, 원래 클라이언트 요청의 매개 변수 및 백 엔드 응답의 매개 변수를 참조할 수 있습니다.
 

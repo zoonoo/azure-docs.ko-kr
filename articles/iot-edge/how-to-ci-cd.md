@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561036"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
@@ -25,10 +25,10 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
 * **Azure IoT Edge 빌드 모듈 이미지** 는 IoT Edge 솔루션 코드를 사용 하 고 컨테이너 이미지를 빌드합니다.
 * **Azure IoT Edge Push module 이미지** 는 모듈 이미지를 지정한 컨테이너 레지스트리에 푸시합니다.
-* **Azure IoT Edge-배포 매니페스트 생성** 은 배포 템플릿. json 파일 및 변수를 사용 하 여 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다.
+* **Azure IoT Edge-배포 매니페스트 생성** 은 파일 및 변수에 대 한 deployment.template.js를 가져온 다음 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다.
 * **Azure IoT Edge-IoT Edge 장치에 배포** 하면 단일/다중 IoT Edge 장치에 대 한 IoT Edge 배포를 만들 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) 수 있습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](how-to-visual-studio-develop-csharp-module.md)의 단계를 따릅니다.
@@ -54,7 +54,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 >
 >자세한 내용은 [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline)(빌드 파이프라인 만들기)을 참조하세요.
 
-1. Azure DevOps 조직 (**https:\//dev.azure.com/{your 조직**)에 로그인 하 고 IoT Edge 솔루션 리포지토리가 포함 된 프로젝트를 엽니다.
+1. Azure DevOps 조직 (**https: \/ /dev.azure.com/{your 조직**)에 로그인 하 고 IoT Edge 솔루션 리포지토리가 포함 된 프로젝트를 엽니다.
 
    이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다. 해당 리포지토리에는 **filtermodule** 모듈의 코드가 있는 **IoTEdgeSolution**이 포함됩니다.
 
@@ -84,7 +84,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
      ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
-5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기**+** 기호 ()를 선택 하 여 작업에 세 개의 작업을 추가 합니다. **Azure IoT Edge** 두 번, 파일을 한 번 **복사** 하 고 **빌드 아티팩트** 를 한 번 게시 합니다. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
+5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호 ()를 선택 **+** 하 여 작업에 세 개의 작업을 추가 합니다. **Azure IoT Edge** 두 번, 파일을 한 번 **복사** 하 고 **빌드 아티팩트** 를 한 번 게시 합니다. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
 
    ![Azure IoT Edge 작업 추가](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -96,23 +96,23 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
    * **표시 이름**: 기본 **Azure IoT Edge 빌드 모듈 이미지**를 적용 합니다.
    * **작업**: 기본 **빌드 모듈 이미지**를 적용 합니다.
-   * **. template. json 파일**: 줄임표 (**...**)를 선택 하 고 IoT Edge 솔루션을 포함 하는 리포지토리의 **배포 템플릿인 json** 파일로 이동 합니다.
+   * **파일에.template.js**: 줄임표 (**...**)를 선택 하 고 IoT Edge 솔루션을 포함 하는 리포지토리의 파일 **에서deployment.template.js** 로 이동 합니다.
    * **기본 플랫폼**: 대상 IoT Edge 장치에 따라 모듈에 적절 한 플랫폼을 선택 합니다.
-   * **출력 변수**: 출력 변수는 배포. json 파일이 생성 될 파일 경로를 구성 하는 데 사용할 수 있는 참조 이름을 포함 합니다. 참조 이름을 **edge**와 같이 기억하기 쉬운 이름을 설정합니다.
+   * **출력 변수**: 출력 변수에는 파일의 deployment.js생성 될 파일 경로를 구성 하는 데 사용할 수 있는 참조 이름이 포함 됩니다. 참조 이름을 **edge**와 같이 기억하기 쉬운 이름을 설정합니다.
 
 
-   이러한 구성은 `module.json` 파일에 정의 된 이미지 리포지토리 및 태그를 사용 하 여 모듈 이미지의 이름을 지정 하 고 태그를 지정 합니다. 또한 **빌드 모듈 이미지** 를 사용 하면 변수를 `module.json` 파일에서 정의한 정확한 값으로 바꿀 수 있습니다. Visual Studio 또는 Visual Studio Code에서 `.env` 파일의 실제 값을 지정 합니다. Azure Pipelines **파이프라인 변수** 탭에서 값을 설정 합니다. **변수** 탭을 선택 하 고 이름 및 값을 다음과 같이 구성 합니다.
+   이러한 구성은 파일에 정의 된 이미지 리포지토리 및 태그를 사용 `module.json` 하 여 모듈 이미지의 이름을 지정 하 고 태그를 지정 합니다. 또한 **빌드 모듈 이미지** 를 사용 하면 변수를 파일에서 정의한 정확한 값으로 바꿀 수 있습니다 `module.json` . Visual Studio 또는 Visual Studio Code에서 파일의 실제 값을 지정 합니다 `.env` . Azure Pipelines **파이프라인 변수** 탭에서 값을 설정 합니다. **변수** 탭을 선택 하 고 이름 및 값을 다음과 같이 구성 합니다.
 
     * **ACR_ADDRESS**: Azure Container Registry 주소입니다. 
 
-    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **빌드 모듈 이미지** 는 `${VARIABLE}` 형식의 변수만 인식 합니다. `**/module.json` 파일에서이 형식을 사용 하는지 확인 합니다.
+    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **빌드 모듈 이미지** 는 형식의 변수만 인식 `${VARIABLE}` 합니다. 파일에서이 형식을 사용 하는지 확인 `**/module.json` 합니다.
     
 7. 두 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 모든 모듈 이미지를 선택된 컨테이너 레지스트리로 푸시합니다.
 
    * **표시 이름**: 작업 필드가 변경 될 때 표시 이름이 자동으로 업데이트 됩니다.
    * **작업**: 드롭다운 목록을 사용 하 여 **모듈 푸시 이미지**를 선택 합니다.
    * **컨테이너 레지스트리 유형**: 모듈 이미지를 저장 하는 데 사용 하는 컨테이너 레지스트리 유형을 선택 합니다. 선택한 레지스트리 유형에 따라 양식이 변경됩니다. **Azure Container Registry**를 선택하는 경우에는 드롭다운 목록을 사용하여 Azure 구독 및 컨테이너 레지스트리 이름을 선택합니다. **일반 컨테이너 레지스트리**를 선택하는 경우에는 **새로 만들기**를 선택하여 레지스트리 서비스 연결을 만듭니다.
-   * **. template. json 파일**: 줄임표 (**...**)를 선택 하 고 IoT Edge 솔루션을 포함 하는 리포지토리의 **배포 템플릿인 json** 파일로 이동 합니다.
+   * **파일에.template.js**: 줄임표 (**...**)를 선택 하 고 IoT Edge 솔루션을 포함 하는 리포지토리의 파일 **에서deployment.template.js** 로 이동 합니다.
    * **기본 플랫폼**: 빌드된 모듈 이미지와 동일한 플랫폼을 선택 합니다.
 
    모듈 이미지를 호스트하는 컨테이너 레지스트리가 여러 개 있는 경우 이 작업을 복제하고 다른 컨테이너 레지스트리를 선택한 다음, 고급 설정의 **모듈 무시**를 사용하여 이 특정 레지스트리에 해당되지 않는 이미지를 무시해야 합니다.
@@ -120,13 +120,13 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 8. **파일 복사** 작업을 선택 하 여 편집 합니다. 이 작업을 사용 하 여 아티팩트 준비 디렉터리에 파일을 복사 합니다.
 
    * **표시 이름**: 저장 폴더에 파일을 복사 합니다.
-   * **내용**:이 섹션에는 및 `deployment.template.json` `**/module.json`의 두 줄을 입력 합니다. 이러한 두 가지 유형의 파일은 IoT Edge 배포 매니페스트를 생성 하는 입력입니다. 아티팩트 준비 폴더에 복사 하 고 릴리스 파이프라인에 대해 게시 해야 합니다.
-   * **대상 폴더**: 변수 `$(Build.ArtifactStagingDirectory)`를 저장 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
+   * **내용**:이 섹션에는 및의 두 줄을 입력 `deployment.template.json` `**/module.json` 합니다. 이러한 두 가지 유형의 파일은 IoT Edge 배포 매니페스트를 생성 하는 입력입니다. 아티팩트 준비 폴더에 복사 하 고 릴리스 파이프라인에 대해 게시 해야 합니다.
+   * **대상 폴더**: 변수를 저장 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
 
 9. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 경로를 릴리스 파이프라인에 게시할 수 있도록 작업에 아티팩트 준비 디렉터리 경로를 제공 합니다.
 
    * **표시 이름**: 게시 아티팩트: drop.
-   * **게시할 경로**: 변수 `$(Build.ArtifactStagingDirectory)`를 배치 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
+   * **게시할 경로**: 변수를 배치 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요.
    * **아티팩트 이름**: drop.
    * **아티팩트 게시 위치**: Azure Pipelines.
 
@@ -172,7 +172,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
 8. **개발** 단계에서 기본 **에이전트 작업이**표시 됩니다. 에이전트 작업(job)의 세부 정보를 구성할 수 있지만, 배포 작업(task)은 플랫폼을 구분하지 않으므로 **에이전트 풀**(또는 직접 관리하는 다른 에이전트)에서 **Hosted VS2017** 또는 **Hosted Ubuntu 1604**를 사용할 수 있습니다.
 
-9. 더하기 기호 (**+**)를 선택 하 여 두 개의 작업을 추가 합니다. **Azure IoT Edge** 를 검색 하 고 두 번 추가 합니다.
+9. 더하기 기호 ()를 선택 **+** 하 여 두 개의 작업을 추가 합니다. **Azure IoT Edge** 를 검색 하 고 두 번 추가 합니다.
 
     ![개발에 대 한 작업 추가](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -180,17 +180,17 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
     * **표시 이름**: 작업 필드가 변경 될 때 표시 이름이 자동으로 업데이트 됩니다.
     * **작업**: 드롭다운 목록을 사용 하 여 **배포 매니페스트 생성**을 선택 합니다. 작업(action) 값을 변경하면 일치하도록 작업(task) 표시 이름도 업데이트됩니다.
-    * **. template. json 파일**: 경로 `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`를 저장 합니다. 경로는 빌드 파이프라인에서 게시 됩니다.
+    * **파일에.template.js**: 경로를 저장 `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json` 합니다. 경로는 빌드 파이프라인에서 게시 됩니다.
     * **기본 플랫폼**: 모듈 이미지를 빌드할 때 동일한 값을 선택 합니다.
-    * **출력 경로**: 경로 `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`를 저장 합니다. 이 경로는 최종 IoT Edge 배포 매니페스트 파일입니다.
+    * **출력 경로**: 경로를 저장 `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` 합니다. 이 경로는 최종 IoT Edge 배포 매니페스트 파일입니다.
 
-    이러한 구성은 `deployment.template.json` 파일의 모듈 이미지 url을 대체 하는 데 도움이 됩니다. 또한 **생성 된 배포 매니페스트** 를 사용 하면 변수를 `deployment.template.json` 파일에서 정의한 정확한 값으로 바꿀 수 있습니다. VS/VS Code에서 `.env` 파일의 실제 값을 지정 합니다. Azure Pipelines의 릴리스 파이프라인 변수 탭에서 값을 설정 합니다. [변수] 탭으로 이동 하 고 이름 및 값을 다음과 같이 구성 합니다.
+    이러한 구성은 파일의 모듈 이미지 Url을 대체 하는 데 도움이 됩니다 `deployment.template.json` . 또한 **생성 된 배포 매니페스트** 를 사용 하면 변수를 파일에서 정의한 정확한 값으로 바꿀 수 있습니다 `deployment.template.json` . VS/VS Code에서 파일의 실제 값을 지정 합니다 `.env` . Azure Pipelines의 릴리스 파이프라인 변수 탭에서 값을 설정 합니다. [변수] 탭으로 이동 하 고 이름 및 값을 다음과 같이 구성 합니다.
 
     * **ACR_ADDRESS**: Azure Container Registry 주소입니다.
     * **ACR_PASSWORD**: Azure Container Registry 암호입니다.
     * **ACR_USER**: Azure Container Registry 사용자 이름입니다.
 
-    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **배포 매니페스트 생성** 은 변수를 `${VARIABLE}` 버전 으로만 인식할 수 있으며, `*.template.json` 파일에서이를 사용 하 고 있는지 확인 합니다.
+    프로젝트에 다른 변수가 있는 경우이 탭에서 이름 및 값을 지정할 수 있습니다. **배포 매니페스트 생성** 은 변수를 버전 으로만 인식할 수 있으며 `${VARIABLE}` , 파일에서이를 사용 하 고 있는지 확인 합니다 `*.template.json` .
 
     ![릴리스 파이프라인에 대 한 변수 구성](./media/how-to-ci-cd/configure-variables.png)
 
@@ -203,7 +203,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
     * **단일/다중 장치 선택**: 릴리스 파이프라인을 하나 이상의 장치에 배포할지 아니면 여러 장치에 배포할지를 선택 합니다.
       * 단일 디바이스에 배포하는 경우 **IoT Edge 디바이스 ID**를 입력합니다.
       * 여러 디바이스에 배포하는 경우 디바이스 **대상 조건**을 지정합니다. 대상 조건은 IoT Hub의 IoT Edge 장치 집합과 일치 하는 필터입니다. 디바이스 태그를 조건으로 사용하려는 경우 IoT Hub 디바이스 쌍으로 해당 디바이스 태그를 업데이트해야 합니다. 고급 설정에서 **IoT Edge 배포 ID** 및 **IoT Edge 배포 우선 순위**를 업데이트합니다. 여러 디바이스용 배포를 만드는 방법에 대한 자세한 내용은 [IoT Edge 자동 배포 이해](module-deployment-monitoring.md)를 참조하세요.
-    * 고급 설정을 확장 하 고, **IoT Edge 배포 ID**를 선택 `$(System.TeamProject)-$(Release.EnvironmentName)`하 고, 변수를 입력 합니다. 그러면 프로젝트와 릴리스 이름이 IoT Edge 배포 ID에 매핑됩니다.
+    * 고급 설정을 확장 하 고, **IoT Edge 배포 ID**를 선택 하 고, 변수를 입력 `$(System.TeamProject)-$(Release.EnvironmentName)` 합니다. 그러면 프로젝트와 릴리스 이름이 IoT Edge 배포 ID에 매핑됩니다.
 
 12. **저장**을 선택하여 새 릴리스 파이프라인의 변경 사항을 저장합니다. 메뉴에서 **파이프라인**을 선택하여 파이프라인 보기로 돌아갑니다.
 

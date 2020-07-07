@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780439"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-"Virtual Network 구성이 HDInsight 요구 `InvalidNetworkConfigurationErrorCode` 사항과 호환 되지 않습니다."와 같은 오류 코드가 표시 되는 경우 일반적으로 클러스터의 [가상 네트워크 구성](../hdinsight-plan-virtual-network-deployment.md) 에 문제가 있음을 나타냅니다. 나머지 오류 설명에 따라 아래 섹션을 따라 문제를 해결 합니다.
+`InvalidNetworkConfigurationErrorCode`"Virtual Network 구성이 HDInsight 요구 사항과 호환 되지 않습니다."와 같은 오류 코드가 표시 되는 경우 일반적으로 클러스터의 [가상 네트워크 구성](../hdinsight-plan-virtual-network-deployment.md) 에 문제가 있음을 나타냅니다. 나머지 오류 설명에 따라 아래 섹션을 따라 문제를 해결 합니다.
 
 ## <a name="hostname-resolution-failed"></a>"호스트 이름을 확인 하지 못했습니다."
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 오류 설명에 "호스트 이름 확인에 실패 했습니다."가 포함 되어 있습니다.
 
@@ -32,11 +32,11 @@ ms.locfileid: "82780439"
 
 ### <a name="resolution"></a>해결 방법
 
-1. 클러스터의 일부인 VM으로 Ssh를 실행 하 고 명령을 `hostname -f`실행 합니다. 그러면 호스트의 정규화 된 도메인 이름이 반환 됩니다 (아래 지침 `<host_fqdn>` 에서 참조).
+1. 클러스터의 일부인 VM으로 Ssh를 실행 하 고 명령을 실행 `hostname -f` 합니다. 그러면 호스트의 정규화 된 도메인 이름이 반환 됩니다 ( `<host_fqdn>` 아래 지침에서 참조).
 
-1. 그런 다음 명령을 `nslookup <host_fqdn>` 실행 합니다 (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). 이 명령은 이름을 IP 주소로 확인 하는 경우 DNS 서버가 제대로 작동 하 고 있음을 의미 합니다. 이 경우 HDInsight를 사용 하 여 지원 사례를 제기 하 고 문제를 조사 합니다. 지원 사례에는 실행 한 문제 해결 단계를 포함 합니다. 이렇게 하면 문제를 더 빠르게 해결 하는 데 도움이 됩니다.
+1. 그런 다음 명령을 실행 `nslookup <host_fqdn>` 합니다 (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net` ). 이 명령은 이름을 IP 주소로 확인 하는 경우 DNS 서버가 제대로 작동 하 고 있음을 의미 합니다. 이 경우 HDInsight를 사용 하 여 지원 사례를 제기 하 고 문제를 조사 합니다. 지원 사례에는 실행 한 문제 해결 단계를 포함 합니다. 이렇게 하면 문제를 더 빠르게 해결 하는 데 도움이 됩니다.
 
-1. 위의 명령에서 IP 주소를 반환 하지 않는 경우 (예 `nslookup <host_fqdn> 168.63.129.16` :)를 `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`실행 합니다. 이 명령을 사용 하 여 IP를 확인할 수 있는 경우 DNS 서버에서 Azure의 DNS로 쿼리를 전달 하지 않거나 클러스터와 동일한 가상 네트워크의 일부인 VM이 아닌 것을 의미 합니다.
+1. 위의 명령에서 IP 주소를 반환 하지 않는 경우 `nslookup <host_fqdn> 168.63.129.16` (예:)를 실행 `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16` 합니다. 이 명령을 사용 하 여 IP를 확인할 수 있는 경우 DNS 서버에서 Azure의 DNS로 쿼리를 전달 하지 않거나 클러스터와 동일한 가상 네트워크의 일부인 VM이 아닌 것을 의미 합니다.
 
 1. 클러스터의 가상 네트워크에서 사용자 지정 DNS 서버 역할을 할 수 있는 Azure VM이 없으면이를 먼저 추가 해야 합니다. DNS 전달자로 구성 될 가상 네트워크에 VM을 만듭니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "82780439"
 
 ## <a name="failed-to-connect-to-azure-storage-account"></a>"Azure Storage 계정에 연결 하지 못했습니다."
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 오류 설명에 "Azure Storage 계정에 연결 하지 못했습니다." 또는 "Azure SQL에 연결 하지 못했습니다."가 포함 되어 있습니다.
 
@@ -72,7 +72,7 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"가상 네트워크 구성이 HDInsight 요구 사항과 호환 되지 않습니다."
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 오류 설명에는 다음과 비슷한 메시지가 포함 됩니다.
 
@@ -89,13 +89,13 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 168.63.129.16이 사용자 지정 DNS 체인에 있는지 확인 합니다. 가상 네트워크 내에서 DNS 서버는 해당 가상 네트워크 내에서 호스트 이름을 확인하기 위해 Azure의 재귀 확인자에게 DNS 쿼리를 전달할 수 있습니다. 자세한 내용은 [가상 네트워크에서 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 다음 명령을 실행하십시오.
+1. 다음 명령을 실행합니다.
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*
@@ -141,8 +141,8 @@ dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-* 연결 방법 [@AzureSupport](https://twitter.com/azuresupport) -Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
+* [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

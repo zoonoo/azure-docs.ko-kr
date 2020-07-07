@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562341"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark 지침
@@ -22,7 +22,7 @@ ms.locfileid: "82562341"
 
 | 옵션 | 문서 |
 |---|---|
-| VSCode | [Visual Studio Code Spark & Hive 도구 사용](../hdinsight-for-vscode.md) |
+| VSCode | [Visual Studio Code용 Spark & Hive Tools 사용](../hdinsight-for-vscode.md) |
 | Jupyter Notebook | [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [자습서: Azure Toolkit for IntelliJ을 사용 하 여 HDInsight 클러스터용 Apache Spark 응용 프로그램 만들기](./apache-spark-intellij-tool-plugin.md) |
 | IntelliJ | [자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기](./apache-spark-create-standalone-application.md) |

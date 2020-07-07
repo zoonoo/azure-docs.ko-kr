@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419377"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504868"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -47,9 +47,9 @@ ms.locfileid: "81419377"
 
 *방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기*의 섹션에서 다음 작업을 수행하기 위한 지침을 따릅니다.
 
-1. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에서 이 자습서에서 만드는 .NET 애플리케이션을 나타내는 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
-2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID**를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
-3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)에서 **인증 키**를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
+1. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 이 자습서에서 만드는 .NET 애플리케이션을 나타내는 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
+2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID**를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
+3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in)에서 **인증 키**를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
 4. [역할에 애플리케이션 할당](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)에서 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기

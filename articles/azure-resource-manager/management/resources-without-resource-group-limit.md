@@ -6,10 +6,10 @@ author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 05/04/2020
 ms.openlocfilehash: 892b59b3d3e980abfcdb9cd692c2598ceb1284ad
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780932"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
@@ -76,7 +76,7 @@ ms.locfileid: "82780932"
 
 * 일정-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
 
-## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 * services
 
@@ -85,7 +85,7 @@ ms.locfileid: "82780932"
 * clusters
 * 네임스페이스
 
-## <a name="microsoftexperimentation"></a>Microsoft. 실험
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 * experimentWorkspaces
 

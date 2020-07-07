@@ -1,18 +1,18 @@
 ---
-title: Azure Data Lake Storage Gen1 이란? | Microsoft Docs
+title: Azure Data Lake Storage Gen1 이란? | Microsoft 문서
 description: Data Lake Storage Gen1 개요 (이전에는 Azure Data Lake Store 이라고 함) 및 다른 데이터 저장소에 제공 하는 값
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
-ms.openlocfilehash: 99384374226fd89cfd672c6b4f851a1743db0764
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 2ca6ceb326a1fd6f7aaf5a9871d043377e60de83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67118795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508557"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 이란?
 
@@ -22,7 +22,7 @@ Azure Data Lake Storage Gen1은 빅 데이터 분석 작업을 위한 엔터프�
 
 Data Lake Storage Gen1은 WebHDFS 호환 REST API를 사용하여 Hadoop(HDInsight 클러스터에서 사용 가능)에서 액세스할 수 있습니다. 이는 저장 된 데이터에 대 한 분석을 사용 하도록 설계 되었으며 데이터 분석 시나리오에 대 한 성능을 위해 조정 됩니다. Data Lake Storage Gen1는 보안, 관리 효율성, 확장성, 안정성 및 가용성의 모든 엔터프라이즈급 기능을 포함 합니다.
 
-![Azure Data Lake](./media/data-lake-store-overview/data-lake-store-concept.png)
+![Azure 데이터 레이크](./media/data-lake-store-overview/data-lake-store-concept.png)
 
 ## <a name="key-capabilities"></a>주요 기능
 

@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 (AVS)의 id 및 액세스 개념에 대해 �
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82740955"
 ---
 # <a name="azure-vmware-solution-avs-identity-concepts"></a>Azure VMware 솔루션 (AVS) id 개념
@@ -22,21 +22,21 @@ VCenter의 권한은 CloudAdmin 그룹을 통해 제공 됩니다. 이 그룹은
 
 CloudAdmin 및 CloudGlobalAdmin 권한은 아래 표에 나와 있습니다.
 
-|  권한 집합           | CloudAdmin | CloudGlobalAdmin | 설명 |
+|  권한 집합           | CloudAdmin | CloudGlobalAdmin | 의견 |
 | :---                     |    :---:   |       :---:      |   :--:  |
 |  알람                  | CloudAdmin 사용자에 게는 ResourcePool 및 Vm에서 알람에 대 한 모든 경보 권한이 있습니다.     |          --        |  -- |
 |  자동 배포             |  --  |        --        |  Microsoft는 호스트 관리를 수행 합니다.  |
 |  인증서            |  --  |        --       |  Microsoft는 인증서 관리를 수행 합니다.  |
 |  콘텐츠 라이브러리         | CloudAdmin 사용자에 게는 콘텐츠 라이브러리에서 파일을 만들고 사용할 수 있는 권한이 있습니다.    |         SSO를 사용 하도록 설정 합니다.         |  Microsoft는 콘텐츠 라이브러리의 파일을 ESXi 호스트에 배포 합니다.  |
 |  데이터 센터              |  --  |        --          |  Microsoft는 모든 데이터 센터 작업을 수행 합니다.  |
-|  데이터 저장소               | AllocateSpace, 데이터 저장소. 찾아보기, 데이터 DeleteFile, 데이터 FileManagement, 데이터 저장소. UpdateVirtualMachineMetadata     |    --    |   -- |
+|  데이터 저장소               | AllocateSpace, 데이터 저장소. 찾아보기, Datastore.Config, DeleteFile, FileManagement, 데이터 저장소. UpdateVirtualMachineMetadata     |    --    |   -- |
 |  ESX 에이전트 관리자       |  --  |         --       |  Microsoft에서 모든 작업을 수행 합니다.  |
 |  폴더                  |  CloudAdmin 사용자에 게는 모든 폴더 권한이 있습니다.     |  --  |  --  |
-|  전역                  |  전역 CancelTask, Global.asax 태그, Global.asax, Global. LogEvent, ManageCustomFields, ServiceManagers, global. SetCustomField, Global.asax 태그         |                  |    |
+|  전역                  |  전역 CancelTask, Global.asax 태그, Global.asax, Global. LogEvent, ManageCustomFields, ServiceManagers, 전역 SetCustomField, Global.SystemTag         |                  |    |
 |  호스트                    |  호스트. Hbr. HbrManagement      |        --          |  Microsoft는 다른 모든 호스트 작업을 수행 합니다.  |
 |  InventoryService        |  InventoryService      |        --          |  --  |
 |  네트워크                 |  Network.Assign    |                  |  Microsoft는 다른 모든 네트워크 작업을 수행 합니다.  |
-|  사용 권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
+|  권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
 |  프로필 기반 저장소  |  --  |        --       |  Microsoft는 모든 프로필 작업을 수행 합니다.  |
 |  리소스                |  CloudAdmin 사용자에 게 모든 리소스 권한이 있습니다.        |      --       | --   |
 |  예약된 태스크          |  CloudAdmin 사용자는 모든 ScheduleTask 권한을 가집니다.   |   --   | -- |

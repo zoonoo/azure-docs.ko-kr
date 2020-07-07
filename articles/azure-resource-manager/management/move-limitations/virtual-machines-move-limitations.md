@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 �
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744631"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
@@ -37,9 +37,9 @@ Azure Backup를 사용 하 여 구성 된 가상 컴퓨터를 이동 하려면 �
 2. Azure Backup로 구성 된 가상 컴퓨터를 이동 하려면 다음 단계를 수행 합니다.
 
    1. 가상 컴퓨터의 위치를 찾습니다.
-   2. 다음 명명 패턴 `AzureBackupRG_<location of your VM>_1`을 사용 하 여 리소스 그룹을 찾습니다. 예를 들어 *AzureBackupRG_westus2_1*
+   2. 다음 명명 패턴을 사용 하 여 리소스 그룹을 `AzureBackupRG_<location of your VM>_1` 찾습니다. 예를 들어 *AzureBackupRG_westus2_1*
    3. Azure Portal에서 **숨겨진 형식 표시**를 선택 합니다.
-   4. 이름 지정 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`있는 **restorePointCollections/** 형식의 리소스를 찾습니다.
+   4. 이름 지정 패턴이 있는 **restorePointCollections/** 형식의 리소스를 찾습니다 `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
    6. 삭제 작업을 완료 한 후 가상 컴퓨터를 이동할 수 있습니다.
 

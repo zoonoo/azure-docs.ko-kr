@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 �
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262687"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959826"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 배치 계정 만들기
 
@@ -33,8 +33,8 @@ ms.locfileid: "85262687"
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): 스토리지 계정을 만듭니다.
-- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): Batch 계정을 만듭니다.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): 스토리지 계정을 만듭니다.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): Batch 계정을 만듭니다.
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 

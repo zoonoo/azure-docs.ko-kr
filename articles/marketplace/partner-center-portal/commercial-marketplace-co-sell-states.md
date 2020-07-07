@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744698"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
@@ -73,9 +73,9 @@ ms.locfileid: "82744698"
 | Wisconsin                           | US-WI-FI     |
 | 와이오밍                             | US-WY     |
 | District of Columbia                | US-DC     |
-| 미국령 사모아                      | 미국-     |
+| 아메리칸 사모아                      | 미국-     |
 | 괌                                | US-GU     |
-| 북마리아나 제도            | US-MP     |
+| 북마리아나제도            | US-MP     |
 | 푸에르토리코                         | US-PR     |
 | 미국령 해외 제도 | US-UM    |
 | 미국령 버진 아일랜드                 | 미국-VI    |

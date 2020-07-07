@@ -4,10 +4,10 @@ description: 가상 컴퓨터에 대 한 일시 삭제로 백업을 더 안전 �
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82765774"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>가상 컴퓨터에 대 한 일시 삭제
@@ -61,7 +61,7 @@ Vm에 대 한 일시 삭제는 의도 하지 않은 삭제 로부터 Vm의 백�
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Azure PowerShell를 사용 하는 Vm에 대 한 일시 삭제
 
 > [!IMPORTANT]
-> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. 를 ```Install-Module -Name Az.RecoveryServices -Force``` 사용 하 여 최신 버전을 가져옵니다.
+> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
 
 Azure Portal에 대해 위에서 설명한 것 처럼 Azure PowerShell를 사용 하는 동안 단계 순서가 동일 합니다.
 

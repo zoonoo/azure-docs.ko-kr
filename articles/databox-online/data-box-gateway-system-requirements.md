@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562443"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway 시스템 요구 사항
@@ -34,7 +34,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 | 가상 프로세서(코어)   | 최소 4개 |
 | 메모리  | 최소 8GB|
 | 가용성|단일 노드|
-| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB(씬 프로비저닝), SSD를 통해 지원해야 함|
+| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
 | 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
 
 
@@ -48,7 +48,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 ## <a name="supported-virtualization-platforms-for-device"></a>디바이스에 지원되는 가상화 플랫폼
 
-| **운영 체제/플랫폼**  |**버전**   |**참고 사항**  |
+| **운영 체제/플랫폼**  |**버전**   |**참고**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware 도구는 지원되지 않습니다.         |

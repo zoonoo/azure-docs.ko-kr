@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790482"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
@@ -102,8 +102,8 @@ API Management는 [가장 짧은 대기 시간](../traffic-manager/traffic-manag
 
 1. 사용자 고유의 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 만듭니다.
 1. 사용자 지정 도메인을 사용 하는 경우 API Management 서비스 대신 [Traffic Manager와 함께 사용](../traffic-manager/traffic-manager-point-internet-domain.md) 합니다.
-1. [Traffic Manager에서 API Management 국가별 끝점을 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역 끝점은의 `https://<service-name>-<region>-01.regional.azure-api.net`URL 패턴 (예: `https://contoso-westus2-01.regional.azure-api.net`)을 따릅니다.
-1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은의 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL 패턴 (예: `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`)을 따릅니다.
+1. [Traffic Manager에서 API Management 국가별 끝점을 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역 끝점은의 URL 패턴 `https://<service-name>-<region>-01.regional.azure-api.net` (예:)을 따릅니다 `https://contoso-westus2-01.regional.azure-api.net` .
+1. [Traffic Manager에서 API Management 지역별 상태 끝점을 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역별 상태 끝점은의 URL 패턴 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` (예:)을 따릅니다 `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
 1. Traffic Manager의 [라우팅 메서드를](../traffic-manager/traffic-manager-routing-methods.md) 지정 합니다.
 
 [create an api management service instance]: get-started-create-service-instance.md

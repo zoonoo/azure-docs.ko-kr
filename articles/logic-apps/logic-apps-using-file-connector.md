@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580641"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
@@ -25,7 +25,7 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
 이 문서에서는 [Dropbox에 업로드된 파일을 파일 공유에 복사한 후 이메일 보내기] 예제 시나리오에서 설명한 것처럼, 온-프레미스 파일 시스템에 연결하는 방법을 보여줍니다. 온-프레미스 시스템에 안전하게 연결하고 액세스할 수 있도록 논리 앱은 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. 커넥터 관련 기술 정보는 [파일 시스템 커넥터 참조](/connectors/filesystem/)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -38,7 +38,7 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 * Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다.
 
   > [!IMPORTANT]
-  > Gmail 커넥터를 사용 하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우이 커넥터를 특정 Google 승인 서비스만 사용할 수 있습니다. 또는 [gmail 커넥터를 사용 하 여 인증 하는 데 사용할 google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
+  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 이 예에서는 빈 논리 앱이 필요합니다.
 
@@ -68,12 +68,12 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    | -------- | -------- | ----- | ----------- |
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 사용하려는 이름 |
-   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
+   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>`\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
    | **인증 유형** | 아니요 | <*인증 유형*> | 파일 시스템에서 사용 하는 인증 유형: **Windows** |
-   | **사용자 이름** | 예 | <*domain*>도메인\\*username* 사용자<이름> <p>또는 <p><*로컬*>\\컴퓨터<*사용자 이름*> | 파일 시스템 폴더가 있는 컴퓨터의 사용자 이름입니다. <p>파일 시스템 폴더가 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 있는 경우 <*로컬 컴퓨터*>\\<*사용자 이름*>를 사용할 수 있습니다. |
+   | **사용자 이름** | 예 | <*domain* > \\ 도메인 < *사용자 이름*> <p>또는 <p><*로컬* > \\ 컴퓨터 < *사용자 이름*> | 파일 시스템 폴더가 있는 컴퓨터의 사용자 이름입니다. <p>파일 시스템 폴더가 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 있는 경우 <*로컬 컴퓨터* > \\ < *사용자 이름*>를 사용할 수 있습니다. |
    | **암호** | 예 | <*암호*> | 파일 시스템이 있는 컴퓨터의 암호 |
    | **관문** | 예 | <*설치 된 게이트웨이-이름*> | 이전에 설치된 게이트웨이의 이름 |
    |||||

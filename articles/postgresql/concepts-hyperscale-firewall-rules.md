@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580918"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙-Hyperscale (Citus)
@@ -32,7 +32,7 @@ Citus (Hyperscale) 서버 그룹 방화벽은 그룹의 코디네이터 노드�
 
 방화벽이 연결을 차단 하면 응용 프로그램 오류가 발생할 수 있습니다. 예를 들어 PostgreSQL JDBC 드라이버를 사용 하면 다음과 같은 오류가 발생 합니다.
 
-> postgresql: Org.postgresql.util.psqlexception: 치명적인: 호스트 "123.45.67.890", 사용자 "citus", 데이터베이스 "citus", SSL에 대 한 pg:\_no pg 항목입니다.
+> java.util.concurrent.Exepostgresql: Org.postgresql.util.psqlexception: 오류: \_ 호스트 "123.45.67.890", 사용자 "citus", 데이터베이스 "citus", SSL에 대 한 Pg 항목 없음
 
 규칙 정의 방법에 대 한 자세한 내용은 [방화벽 규칙 만들기 및 관리](howto-hyperscale-manage-firewall-using-portal.md) 를 참조 하세요.
 

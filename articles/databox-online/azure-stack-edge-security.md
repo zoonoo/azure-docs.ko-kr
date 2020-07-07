@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 3d567ec4d760be24fdbb79ff85bd6db0eb4a66c8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82570071"
 ---
 # <a name="azure-stack-edge-security-and-data-protection"></a>Azure Stack Edge 보안 및 데이터 보호
@@ -56,7 +56,7 @@ Azure Stack Edge 장치는 데이터를 로컬로 처리 한 다음 Azure에 전
 
 암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 합니다. Azure Stack Edge 장치가 잠긴 상태에서 부팅 됩니다.
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 브라우저를 통해 장치의 로컬 웹 UI에 연결 하 고 장치에 로그인 하는 데 암호를 제공 합니다.
 - HTTP를 통해 장치 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리는 기본적으로 설정 되어 있습니다. 그런 다음 장치 암호를 제공 하 여 장치에 로그인 할 수 있습니다. 자세한 내용은 [Azure Stack Edge 장치에 원격으로 연결](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)을 참조 하세요.

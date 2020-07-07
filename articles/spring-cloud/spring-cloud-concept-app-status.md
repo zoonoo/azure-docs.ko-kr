@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569005"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 상태 이해
@@ -41,7 +41,7 @@ Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태�
 | 만드는 중 | 리소스를 만드는 중입니다. |
 | 업데이트 | 리소스를 업데이트 하는 중입니다. |
 | 성공 | 리소스를 제공 하 고 이진 파일을 배포 했습니다. |
-| Failed | *성공* 목표를 달성 하지 못했습니다. |
+| 실패 | *성공* 목표를 달성 하지 못했습니다. |
 | 삭제 중 | 리소스를 삭제 하 고 있습니다. 이렇게 하면 작업이 수행 되지 않으며 리소스를이 상태에서 사용할 수 없습니다. |
 
 ## <a name="app-instances-status"></a>앱 인스턴스 상태
@@ -58,7 +58,7 @@ Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태�
 |:--:|:----------------:|
 | 시작 중 | 지정 된 인스턴스에 이진 파일이 성공적으로 배포 되었습니다. Jar 파일을 제대로 실행할 수 없기 때문에 jar 파일을 부팅 하는 인스턴스가 실패할 수 있습니다. |
 | 실행 중 | 인스턴스가 작동 합니다. |
-| Failed | 여러 번 다시 시도한 후에 앱 인스턴스가 사용자의 이진을 시작 하지 못했습니다. |
+| 실패 | 여러 번 다시 시도한 후에 앱 인스턴스가 사용자의 이진을 시작 하지 못했습니다. |
 | 종결 | 앱 인스턴스를 종료 하는 중입니다. |
 
 **인스턴스의 검색 상태는 다음 값 중 하나로 보고 됩니다.**

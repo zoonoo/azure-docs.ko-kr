@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559585"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
@@ -132,15 +132,15 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---configuration"></a>입력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `MobileTable` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type**| 해당 없음 | "mobileTable"로 설정해야 합니다.|
-| **방향도**| 해당 없음 |"in"으로 설정해야 합니다.|
+| **direction**| 해당 없음 |"in"으로 설정해야 합니다.|
 | **name**| 해당 없음 | 함수 시그니처의 입력 매개 변수 이름입니다.|
 |**tableName** |**TableName**|모바일 앱 데이터 테이블의 이름입니다.|
-| **id**| **Id** | 검색할 레코드의 식별자입니다. 정적이거나 함수를 호출하는 트리거를 기반으로 할 수 있습니다. 예를 들어, 함수에 대해 큐 트리거를 사용하는 경우 `"id": "{queueTrigger}"`는 검색할 레코드 ID로 큐 메시지의 문자열 값을 사용합니다.|
+| **id**| **ID** | 검색할 레코드의 식별자입니다. 정적이거나 함수를 호출하는 트리거를 기반으로 할 수 있습니다. 예를 들어, 함수에 대해 큐 트리거를 사용하는 경우 `"id": "{queueTrigger}"`는 검색할 레코드 ID로 큐 메시지의 문자열 값을 사용합니다.|
 |**connection**|**연결**|모바일 앱의 URL이 있는 앱 설정의 이름입니다. 함수는 이 URL을 사용하여 모바일 앱에 대해 필요한 나머지 작업을 구성합니다. 모바일 앱의 URL이 포함된 함수 앱에 앱 설정을 만든 다음 입력 바인딩의 `connection` 속성에 앱 설정의 이름을 지정합니다. URL은 다음과 같습니다. `http://<appname>.azurewebsites.net`
 |**apiKey**|**ApiKey**|모바일 앱의 API 키가 있는 앱 설정의 이름입니다. [Node.js 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)하거나 [.NET 모바일 앱에 API 키를 구현](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)하는 경우 API 키를 제공합니다. 키를 제공하려면 API 키가 포함된 함수 앱의 앱 설정을 만단 다음 `apiKey` 속성을 앱 설정의 이름과 함께 입력 바인딩에 추가합니다. |
 
@@ -290,12 +290,12 @@ public static object Run(
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `MobileTable` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `MobileTable` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type**| 해당 없음 | "mobileTable"로 설정해야 합니다.|
-| **방향도**| 해당 없음 |"out"으로 설정해야 합니다.|
+| **direction**| 해당 없음 |"out"으로 설정해야 합니다.|
 | **name**| 해당 없음 | 함수 시그니처의 출력 매개 변수 이름입니다.|
 |**tableName** |**TableName**|모바일 앱 데이터 테이블의 이름입니다.|
 |**connection**|**MobileAppUriSetting**|모바일 앱의 URL이 있는 앱 설정의 이름입니다. 함수는 이 URL을 사용하여 모바일 앱에 대해 필요한 나머지 작업을 구성합니다. 모바일 앱의 URL이 포함된 함수 앱에 앱 설정을 만든 다음 입력 바인딩의 `connection` 속성에 앱 설정의 이름을 지정합니다. URL은 다음과 같습니다. `http://<appname>.azurewebsites.net`

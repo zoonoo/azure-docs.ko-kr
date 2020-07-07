@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790612"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
@@ -17,15 +17,15 @@ ms.locfileid: "82790612"
 AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 제한하기 위해 내부 부하 분산 장치를 만들고 사용할 수 있습니다. 내부 부하 분산 장치는 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 애플리케이션에만 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치를 만들고 사용하는 방법을 보여줍니다.
 
 > [!NOTE]
-> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다.**** 기본적으로 표준 SKU는 AKS 클러스터를 만들 때 사용 됩니다.  유형이 LoadBalancer 인 서비스를 만들 때 클러스터를 프로 비전 할 때와 동일한 LB 유형을 얻게 됩니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요.
+> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다.  기본적으로 ‘표준’ SKU는 AKS 클러스터를 만들 때 사용됩니다.  유형이 LoadBalancer 인 서비스를 만들 때 클러스터를 프로 비전 할 때와 동일한 LB 유형을 얻게 됩니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임 된 리소스의 서비스 사용자에 게 *네트워크 참가자* 역할을 할당 합니다. 서비스 주체 대신 시스템 할당 관리 id를 사용 하 여 권한을 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 사용 권한에 대 한 자세한 내용은 [DELEGATE AKS access to Other Azure resources를][aks-sp]참조 하세요.
+기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임된 리소스의 서비스 주체에게 ‘네트워크 기여자’ 역할을 할당합니다. 서비스 주체 대신 시스템 할당 관리 id를 사용 하 여 권한을 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 권한 위임][aks-sp]을 참조하세요.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -54,7 +54,7 @@ kubectl apply -f internal-lb.yaml
 
 Azure 부하 분산 장치는 노드 리소스 그룹에 만들어지고 AKS 클러스터와 동일한 가상 네트워크에 연결 됩니다.
 
-서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *external* 은 부하 분산 장치의 외부 인터페이스와 관련 되어 있으며 공용 외부 IP 주소를 수신 하지는 않습니다. 다음 예제와 같이 IP 주소를 * \<보류 중\> * 에서 실제 내부 IP 주소로 변경 하는 데 1 ~ 2 분 정도 걸릴 수 있습니다.
+서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *external* 은 부하 분산 장치의 외부 인터페이스와 관련 되어 있으며 공용 외부 IP 주소를 수신 하지는 않습니다. 다음 예와 같이 IP 주소를에서 *\<pending\>* 실제 내부 IP 주소로 변경 하는 데 1 ~ 2 분 정도 걸릴 수 있습니다.
 
 ```
 $ kubectl get service internal-app
@@ -136,7 +136,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-[Kubernetes 서비스 설명서][kubernetes-services]에서 Kubernetes 서비스를 알아봅니다.
+[Kubernetes 서비스 설명서][kubernetes-services]에서 Kubernetes 서비스에 대해 자세히 알아봅니다.
 
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

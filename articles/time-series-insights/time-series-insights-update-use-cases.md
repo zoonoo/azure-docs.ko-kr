@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580671"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
@@ -60,7 +60,7 @@ Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 �
 
   * [Azure Time Series Insights Preview 탐색기에서 데이터 시각화](time-series-insights-update-explorer.md)를 검토 하 여 url 및 새 UI를 공유 하는 방법에 대해 자세히 알아보세요.
 
-* 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights `from`에는, `to` `first`, 및 `last`와 같은 임시 연산자가 있습니다. 여기에는 `average`, `min` `max` `split by` `order by`,,, 및 `DateHistogram`와 같은 집계 및 변환이 있습니다. 또한 `has`,,,, 및 `in` `and` `or` `greater than` `REGEX`와 같은 필터링 연산자가 있습니다. 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 항목을 사용 하 여 기업 시각화를 사용 하 여 변칙을 발견할 수 있습니다.
+* 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights에는,, 및와 같은 임시 연산자가 있습니다 `from` `to` `first` `last` . 여기에는,,,, 및와 같은 집계 및 변환이 있습니다 `average` `min` `max` `split by` `order by` `DateHistogram` . 또한,,,, 및와 같은 필터링 연산자가 있습니다 `has` `in` `and` `or` `greater than` `REGEX` . 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 항목을 사용 하 여 기업 시각화를 사용 하 여 변칙을 발견할 수 있습니다.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>운영 분석 및 프로세스 효율성 확보
 

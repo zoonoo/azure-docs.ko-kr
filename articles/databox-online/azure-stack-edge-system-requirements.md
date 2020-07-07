@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569083"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Azure Stack Edge 시스템 요구 사항
@@ -82,7 +82,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | URL 패턴                      | 구성 요소 또는 기능                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |
+| https: \/ /mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
 
@@ -94,9 +94,9 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*. cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
-| https://\*. azure-devices.us              | IoT Hub 액세스(필수)           |
-| https://\*. azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
+| https: \/ /mcr.microsoft.com<br></br>https:// \* . cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
+| https:// \* . azure-devices.us              | IoT Hub 액세스(필수)           |
+| https:// \* . azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559535"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure Monitor를 통해 Media Services 메트릭 및 진단 로그를 모니터링 합니다.
@@ -46,13 +46,13 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
-|AssetQuotaUsedPercentage|사용 되는 자산 할당량 백분율|이미 사용 된 자산 할당량의 백분율입니다.|
+|AssetQuotaUsedPercentage|사용된 자산 할당량 백분율|이미 사용 된 자산 할당량의 백분율입니다.|
 |ContentKeyPolicyCount|콘텐츠 키 정책 수|계정의 콘텐츠 키 정책입니다.|
 |ContentKeyPolicyQuota|콘텐츠 키 정책 할당량|계정의 콘텐츠 키 정책 할당량입니다.|
-|ContentKeyPolicyQuotaUsedPercentage|콘텐츠 키 정책 할당량 사용 백분율|이미 사용 된 콘텐츠 키 정책 할당량의 백분율입니다.|
+|ContentKeyPolicyQuotaUsedPercentage|사용된 콘텐츠 키 정책 할당량 백분율|이미 사용 된 콘텐츠 키 정책 할당량의 백분율입니다.|
 |StreamingPolicyCount|스트리밍 정책 수|계정의 스트리밍 정책.|
 |StreamingPolicyQuota|스트리밍 정책 할당량|계정의 스트리밍 정책 할당량입니다.|
-|StreamingPolicyQuotaUsedPercentage|스트리밍 정책 할당량 사용 백분율|이미 사용 된 스트리밍 정책 할당량의 백분율입니다.|
+|StreamingPolicyQuotaUsedPercentage|사용된 스트리밍 정책 할당량 백분율|이미 사용 된 스트리밍 정책 할당량의 백분율입니다.|
 
 [계정 할당량 및 제한](limits-quotas-constraints.md)도 검토 해야 합니다.
 
@@ -64,7 +64,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
-|SuccessE2ELatency|성공 종단 간 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
+|SuccessE2ELatency|성공 엔드투엔드 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>메트릭을 사용 하는 이유는 무엇 인가요?
 
@@ -78,7 +78,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 * 패키지에서 얼마나 많은 HLS 또는 대시 요청을 가져올 수 있나요?
 * 실패 한 요청 수의 임계값이 적중 된 경우를 알 수 있도록 경고를 설정 어떻게 할까요??
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 [Media Services 메트릭을 모니터링 하는 방법을](media-services-metrics-howto.md)참조 하세요.
 
@@ -105,7 +105,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 * DRM 또는 정책 유형별 오류를 참조 하세요.
 * 클라이언트에서 승인 되지 않은 라이선스 요청 수를 확인 합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 [Media Service 진단 로그를 모니터링 하는 방법을](media-services-diagnostic-logs-howto.md)참조 하세요.
 

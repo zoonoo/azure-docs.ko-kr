@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f3660956a3e66fc9a632eace378feb8873bceaf8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093047"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>자습서: Azure Active Directory와 RedVector 통합
 
@@ -107,7 +107,7 @@ RedVector에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **로그온 URL** 텍스트 상자에서 `https://sso2.redvector.com/adfs/<Companyname>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<Companyname>.redvector.com/saml2` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://sso2.redvector.com/saml2` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [RedVector 클라이언트 지원 팀](mailto:sso@redvector.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

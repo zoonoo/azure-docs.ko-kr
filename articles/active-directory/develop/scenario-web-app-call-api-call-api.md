@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 12802ab6dcfbbe5a1c5576ab672ead864dd0b4ae
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559866"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
@@ -28,7 +28,7 @@ ms.locfileid: "82559866"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-의 동작에 대 한 단순화 된 `HomeController`코드는 다음과 같습니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. REST API Microsoft Graph를 호출 하는 방법을 보여 주는 코드가 추가 되었습니다. Microsoft Graph API에 대 한 URL은 appsettings 파일에 제공 되며 라는 `webOptions`변수에서 읽습니다.
+의 동작에 대 한 단순화 된 코드는 다음과 같습니다 `HomeController` . 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. REST API Microsoft Graph를 호출 하는 방법을 보여 주는 코드가 추가 되었습니다. Microsoft Graph API에 대 한 URL은 파일 appsettings.js에 제공 되며 라는 변수에서 읽습니다 `webOptions` .
 
 ```json
 {
@@ -117,4 +117,4 @@ def graphcall():
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션 환경으로 이동](scenario-web-app-call-api-production.md)
+> [프로덕션으로 이동](scenario-web-app-call-api-production.md)
