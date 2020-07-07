@@ -3,5 +3,7 @@
 - name: 질문과 대답
   expanded: true
   items:
+    - name: SRE 및 코딩
+      href: code.md
     - name: SRE 및 DevOps
       href: devops.md

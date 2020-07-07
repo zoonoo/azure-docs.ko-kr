@@ -133,6 +133,8 @@
               href: howto-use-app-templates.md
             - name: 애플리케이션 상태 모니터링
               href: howto-monitor-application-health.md
+            - name: 애플리케이션 정보
+              href: howto-get-app-info.md
         - name: 다른 장소에서 관리
           items:
             - name: Azure Portal에서 관리

@@ -58,6 +58,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 사용자 대량 복원
           href: users-bulk-restore.md
+        - name: 사용자의 액세스 권한 취소
+          href: users-revoke-access.md
         - name: 비관리형 디렉터리의 계정 닫기
           href: users-close-account.md
         - name: B2B 사용자 추가

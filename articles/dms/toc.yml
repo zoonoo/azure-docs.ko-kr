@@ -7,10 +7,14 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 서비스 만들기 - 포털
-      href: quickstart-create-data-migration-service-portal.md
-    - name: 하이브리드 모드에서 서비스 만들기 – 포털
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    - name: 서비스 만들기
+      items:
+        - name: 포털
+          href: quickstart-create-data-migration-service-portal.md
+        - name: ARM 템플릿
+          href: create-dms-resource-manager-template.md
+        - name: 하이브리드 모드(포털)
+          href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: 개념
   items:
     - name: 필수 구성 요소

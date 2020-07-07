@@ -146,6 +146,10 @@
       href: preprocess-text.md
     - name: 잠재적 Dirichlet 할당
       href: latent-dirichlet-allocation.md
+    - name: Vowpal Wabbit 모델 점수 매기기
+      href: score-vowpal-wabbit-model.md
+    - name: Vowpal Wabbit 모델 학습
+      href: train-vowpal-wabbit-model.md
 - name: Computer Vision
   items:
     - name: 이미지 변환 적용

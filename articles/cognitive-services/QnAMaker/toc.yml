@@ -28,6 +28,8 @@
       href: Quickstarts/batch-testing.md
 - name: 개념
   items:
+    - name: 기술 자료 계획
+      href: Concepts/plan.md
     - name: Azure 리소스
       href: Concepts/azure-resources.md
     - name: 다른 사람과 공동 작업

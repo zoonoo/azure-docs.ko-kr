@@ -16,6 +16,8 @@
       href: quickstart-migrate-local-jupyter-notebook.md
     - name: 사용자 지정 환경 사용
       href: quickstart-create-jupyter-notebook-project-environment.md
+    - name: 프로젝트 내보내기
+      href: quickstart-export-jupyter-notebook-project.md
 - name: 자습서
   items:
     - name: Notebook 만들기 및 실행

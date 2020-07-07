@@ -1005,7 +1005,7 @@
               href: performance-tips-async-java.md
             - name: 동기 Java SDK v2
               href: performance-tips-java.md
-            - name: 비동기 Java SDK v2
+            - name: 문제 해결 - Async Java SDK v2
               href: troubleshoot-java-async-sdk.md
         - name: 성능 테스트 - 샘플 앱
           href: performance-testing.md

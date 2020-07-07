@@ -25,6 +25,8 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
+        - name: Xamarin.Forms
+          href: quickstart-send-telemetry-xamarinforms.md
     - name: 디바이스 제어
       items:
         - name: Node.js
@@ -324,6 +326,8 @@
           href: iot-hub-distributed-tracing.md
         - name: IP 필터링 구성
           href: iot-hub-ip-filtering.md
+        - name: 공용 네트워크 액세스 관리
+          href: iot-hub-public-network-access.md
         - name: 규모에 따른 자동 디바이스 관리
           items:
             - name: Azure Portal 사용

@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Blueprints 설명서
-summary: Resource Manager 템플릿, 역할 기반 액세스 제어, 정책 등의 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
+summary: Azure Resource Manager 템플릿, 역할 기반 액세스 제어, 정책과 같은 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
 metadata:
   title: Azure Blueprints 설명서
-  description: Resource Manager 템플릿, 역할 기반 액세스 제어, 정책 등의 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
+  description: Azure Resource Manager 템플릿, 역할 기반 액세스 제어, 정책과 같은 아티팩트를 하나의 청사진 정의로 패키징하여 배포를 간소화하세요.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-  ms.translationtype: HT
+  ms.openlocfilehash: 04c99d2428bd3c92187ce9383f51d38a9729d22a
+  ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+  ms.translationtype: 
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85550214"
+  ms.lasthandoff: 07/06/2020
+  ms.locfileid: "85969382"
 landingContent:
 - title: Azure Blueprints 정보
   linkLists:

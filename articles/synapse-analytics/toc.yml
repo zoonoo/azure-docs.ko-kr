@@ -230,6 +230,8 @@
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
+            - name: 데이터 로드 개요
+              href: sql/load-data-overview.md
         - name: 개발
           items:
             - name: 개요
@@ -362,8 +364,10 @@
       items:
         - name: 파이프라인 실행
           href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Spark 애플리케이션
+        - name: Apache Spark 애플리케이션
           href: monitoring/how-to-monitor-spark-applications.md
+        - name: Apache Spark 애플리케이션 세부 정보
+          href: monitoring/apache-spark-applications.md
         - name: Synapse SQL
           items:
             - name: Gen2 캐시 모니터링

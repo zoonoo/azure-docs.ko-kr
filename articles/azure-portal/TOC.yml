@@ -43,8 +43,8 @@
       items:
         - name: Azure 지원 요청 만들기
           href: supportability/how-to-create-azure-support-request.md
-        - name: 지원 요청을 위한 파일 업로드
-          href: supportability/how-to-use-file-uploader.md
+        - name: Azure 지원 요청 관리
+          href: supportability/how-to-manage-azure-support-request.md
         - name: 할당량 증가 요청
           items:
             - name: 컴퓨팅 vCPU 제한 증가

@@ -49,7 +49,7 @@
               href: QuickStarts/node-thumb.md
             - name: Python
               href: QuickStarts/python-thumb.md
-        - name: 텍스트 추출(Computer Vision - API 읽기)
+        - name: 텍스트 추출(API 읽기)
           items:
             - name: C#
               href: QuickStarts/CSharp-hand-text.md
@@ -59,7 +59,7 @@
               href: QuickStarts/javascript-hand-text.md
             - name: Python
               href: QuickStarts/python-hand-text.md
-        - name: 인쇄된 텍스트 추출(OCR)
+        - name: 텍스트 추출(OCR API)
           items:
             - name: C#
               href: QuickStarts/CSharp-print-text.md
@@ -105,7 +105,7 @@
       href: concept-detecting-color-schemes.md
     - name: 스마트하게 자른 썸네일
       href: concept-generating-thumbnails.md
-    - name: 텍스트 인식
+    - name: OCR(광학 문자 인식)
       href: concept-recognizing-text.md
     - name: 성인 콘텐츠 검색
       href: concept-detecting-adult-content.md

@@ -1,14 +1,13 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 06/02/2020
+ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 0ed5af98644f116622aa44a2503161ce2fd6225b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730002"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832324"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -23,6 +22,7 @@ ms.locfileid: "84730002"
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1-1-0.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [DoD 영향 수준 4](./dod-impact-level-4/index.md) | DoD 영향 수준 4를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
+| [DoD 영향 수준 5](./dod-impact-level-5/index.md) | DoD 영향 수준 5를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | FedRAMP Moderate를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [FedRAMP High](./fedramp-h/index.md) | FedRAMP High를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | HIPAA HITRUST를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
@@ -32,6 +32,7 @@ ms.locfileid: "84730002"
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
 | [미디어](./media/index.md) | Media MPAA를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
+| [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | NIST SP 800-171 R2 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | SWIFT CSP-CSCF v2020 규정 준수를 지원합니다. |
 | [영국 공식 및 영국 NHS 거버넌스](./ukofficial/index.md) | 영국 공식 및 영국 NHS 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |

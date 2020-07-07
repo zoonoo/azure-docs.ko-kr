@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
+        - name: 설치 컨테이너 실행(init)
+          href: container-instances-init-container.md
         - name: 관리 ID 사용(미리 보기)
           href: container-instances-managed-identity.md
         - name: GPU 리소스 사용(미리 보기)

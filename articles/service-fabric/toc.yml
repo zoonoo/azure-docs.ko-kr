@@ -165,7 +165,7 @@
               href: service-fabric-concepts-partitioning.md
             - name: 상태 저장 서비스 다시 구성
               href: service-fabric-concepts-reconfiguration.md
-            - name: 'Reliable Services 수명 주기 - C#'
+            - name: Reliable Services 수명 주기 - C#
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services 수명 주기 - Java
               href: service-fabric-reliable-services-lifecycle-java.md
@@ -222,6 +222,8 @@
               href: service-fabric-manifest-example-container-app.md
         - name: 호스팅 모델
           href: service-fabric-hosting-model.md
+        - name: 호스팅 활성화 및 비활성화 수명 주기 고급 항목
+          href: service-fabric-hosting-lifecycle.md
         - name: 애플리케이션 보안
           href: service-fabric-application-and-service-security.md
         - name: 서비스 상태
@@ -404,13 +406,13 @@
           href: service-fabric-get-started-containers.md
         - name: Linux 컨테이너 애플리케이션
           href: service-fabric-get-started-containers-linux.md
-        - name: 'Windows의 C# Reliable Services 애플리케이션'
+        - name: Windows의 C# Reliable Services 애플리케이션
           href: service-fabric-reliable-services-quick-start.md
         - name: Linux의 Java Reliable Services 애플리케이션
           href: service-fabric-reliable-services-quick-start-java.md
-        - name: 'Linux의 C# Reliable Services 애플리케이션'
+        - name: Linux의 C# Reliable Services 애플리케이션
           href: service-fabric-create-your-first-linux-application-with-csharp.md
-        - name: 'Windows의 C# Reliable Actors 애플리케이션'
+        - name: Windows의 C# Reliable Actors 애플리케이션
           href: service-fabric-reliable-actors-get-started.md
         - name: Linux의 Java Reliable Actors 애플리케이션
           href: service-fabric-create-your-first-linux-application-with-java.md
@@ -448,13 +450,13 @@
               items:
                 - name: Reliable Services와 통신
                   href: service-fabric-reliable-services-communication.md
-                - name: '원격 서비스 - C#'
+                - name: 원격 서비스 - C#
                   href: service-fabric-reliable-services-communication-remoting.md
                 - name: 원격 서비스 - Java
                   href: service-fabric-reliable-services-communication-remoting-java.md
                 - name: WCF
                   href: service-fabric-reliable-services-communication-wcf.md
-                - name: '보안 통신 - C#'
+                - name: 보안 통신 - C#
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: 보안 통신 - Java
                   href: service-fabric-reliable-services-secure-communication-java.md
@@ -561,7 +563,7 @@
           items:
             - name: VS Code 시작
               href: service-fabric-get-started-vs-code.md
-            - name: 'VS Code를 통해 C# Service Fabric 애플리케이션 개발'
+            - name: VS Code를 통해 C# Service Fabric 애플리케이션 개발
               href: service-fabric-develop-csharp-applications-with-vs-code.md
             - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
               href: service-fabric-develop-java-applications-with-vs-code.md

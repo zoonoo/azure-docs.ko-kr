@@ -17,6 +17,9 @@
     - name: 첫 번째 쿼리 실행 - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: 첫 번째 쿼리 실행 - .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: 첫 번째 쿼리 실행 - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: 첫 번째 쿼리 실행 - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 첫 번째 쿼리 실행 - REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: 공유 쿼리 만들기 - Azure CLI
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

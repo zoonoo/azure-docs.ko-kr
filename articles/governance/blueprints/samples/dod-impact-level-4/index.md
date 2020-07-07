@@ -1,18 +1,20 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플 개요
 description: DoD 영향 수준 4 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 DoD 영향 수준 4 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 3b032e1a26c4fb5e97b1c7ab4fff65bc1b046f21
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517255"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800395"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 개요
 
 DoD IL4(Department of Defense Impact Level 4) 청사진 샘플은 특정 DoD 영향 수준 4 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 DoD 영향 수준 4 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다. DoD 영향 수준 4 권한 부여를 충족하는 Azure Clouds 및 Services에 대한 최신 정보는 [FedRAMP 및 DoD CC SRG 감사 범위별 Azure 서비스](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md)를 참조하세요.
+
+> [!NOTE]
+> 이 청사진 샘플은 Azure Government에서 사용할 수 있습니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 

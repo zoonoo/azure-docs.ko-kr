@@ -583,6 +583,8 @@
           href: monitor-visually.md
         - name: Azure Monitor로 모니터링
           href: monitor-using-azure-monitor.md
+        - name: Azure Monitor로 SSIS 모니터링
+          href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
         - name: SDK로 모니터링
           href: monitor-programmatically.md
         - name: 통합 런타임 모니터링

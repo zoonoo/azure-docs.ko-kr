@@ -6,15 +6,15 @@ metadata:
   description: 호스티드 Azure Notebooks 미리 보기 서비스를 통해 Jupyter Notebook을 만들고, 실행하고, 공유하는 방법에 대해 알아봅니다.
   ms.service: azure-notebooks
   ms.topic: landing-page
-  author: jasonwhowell
-  ms.author: jasonh
-  ms.date: 12/26/2019
-  ms.openlocfilehash: 5044e3d679827982af7259511777f7119188b00b
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-  ms.translationtype: HT
+  author: JoshuaPartlow
+  ms.author: joshuapa
+  ms.date: 06/17/2020
+  ms.openlocfilehash: 96fd38e081105b6fc43cc2fc00d52bcf17b20074
+  ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+  ms.translationtype: 
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75659120"
+  ms.lasthandoff: 07/01/2020
+  ms.locfileid: "85799414"
 landingContent:
 - title: Azure Notebooks 정보
   linkLists:
@@ -52,6 +52,8 @@ landingContent:
       url: quickstart-migrate-local-jupyter-notebook.md
     - text: 사용자 지정 환경을 사용하여 프로젝트 만들기
       url: quickstart-create-jupyter-notebook-project-environment.md
+    - text: 프로젝트 내보내기
+      url: quickstart-export-jupyter-notebook-project.md
 - title: Azure Notebooks 상위 작업
   linkLists:
   - linkListType: how-to-guide

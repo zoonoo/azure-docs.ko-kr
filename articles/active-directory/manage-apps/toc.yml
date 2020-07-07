@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: 빠른 시작
   items:
-    - name: 엔터프라이즈 애플리케이션 보기
+    - name: 앱 보기
       href: view-applications-portal.md
-    - name: 갤러리에서 클라우드 앱 추가
+    - name: 앱 추가
       href: add-application-portal.md
+    - name: 앱 구성
+      href: add-application-portal-configure.md
+    - name: Single Sign-On 설정
+      href: add-application-portal-setup-sso.md
+    - name: 앱 삭제
+      href: delete-application-portal.md
 - name: 자습서
   items:
     - name: '통합 갤러리 앱(예: ServiceNow, Salesforce, Dropbox)'

@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: 클래식 스토리지 리소스 삭제 시 오류
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Azure에서 VM을 만들 때 VHD가 지원되지 않습니다.
+      href: vhd-not-supported-vm-azure.md
     - name: 중첩된 가상화 사용
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: VM 성능 문제
