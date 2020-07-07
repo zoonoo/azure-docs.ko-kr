@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70279450"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 Hyper-v Vm 평가
@@ -47,9 +46,9 @@ ms.locfileid: "70279450"
 **계획** | **제한**
 --- | --- 
 **Azure Migrate 프로젝트** | 프로젝트에서 최대 35000 개의 Vm을 평가 합니다.
-**Azure Migrate 어플라이언스** | 어플라이언스는 최대 5000 개의 Vm을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.<br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 Azure Migrate 프로젝트에 연결할 수 있습니다. <br/><br/> 
+**Azure Migrate 어플라이언스** | 어플라이언스는 최대 5000 개의 Vm을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.<br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 Azure Migrate 프로젝트에 연결할 수 있습니다. <br/><br/> 
 **그룹** | 단일 그룹에서 최대 35000 개의 Vm을 추가할 수 있습니다.
-**Azure Migrate 평가** | 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
+**Azure Migrate 평가** | 단일 평가에서 최대 35,000개의 VM을 평가할 수 있습니다.
 
 
 
