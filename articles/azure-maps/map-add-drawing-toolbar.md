@@ -1,5 +1,5 @@
 ---
-title: 지도에 드로잉 도구 모음 추가 | Microsoft Azure 맵
+title: 맵에 그리기 도구 모음 추가 | Microsoft Azure Maps
 description: Azure Maps 웹 SDK를 사용 하 여 지도에 드로잉 도구 모음을 추가 하는 방법
 author: philmea
 ms.author: philmea
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334494"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>지도에 드로잉 도구 모음 추가
@@ -38,7 +38,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="그리기 도구 모음 추가" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 기준으로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>그리기 추가 도구 모음</a> 을 참조 하세요.
+CodePen에서 Azure Maps ()를 기준으로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>그리기 추가 도구 모음</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 
@@ -62,13 +62,13 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="다각형 그리기 도구 추가" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 통해 펜 <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>polygon 그리기 도구 추가</a> 를 참조 하세요.
+CodePen에서 Azure Maps ()를 통해 펜 <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>polygon 그리기 도구 추가</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 
 ## <a name="change-drawing-rendering-style"></a>그리기 렌더링 스타일 변경
 
-그리는 도형의 스타일은 함수를 `drawingManager.getLayers()` 사용 하 여 드로잉 관리자의 기본 레이어를 검색 한 다음 개별 계층에 대 한 옵션을 설정 하 여 사용자 지정할 수 있습니다. 셰이프를 편집할 때 좌표에 대해 나타나는 끌기 핸들은 HTML 표식입니다. 그리기 관리자의 `dragHandleStyle` 및 `secondaryDragHandleStyle` 옵션에 HTML 표식 옵션을 전달 하 여 끌기 핸들의 스타일을 사용자 지정할 수 있습니다.  
+그리는 도형의 스타일은 함수를 사용 하 여 드로잉 관리자의 기본 레이어를 검색 `drawingManager.getLayers()` 한 다음 개별 계층에 대 한 옵션을 설정 하 여 사용자 지정할 수 있습니다. 셰이프를 편집할 때 좌표에 대해 나타나는 끌기 핸들은 HTML 표식입니다. `dragHandleStyle`그리기 관리자의 및 옵션에 HTML 표식 옵션을 전달 하 여 끌기 핸들의 스타일을 사용자 지정할 수 있습니다 `secondaryDragHandleStyle` .  
 
 다음 코드는 그리기 관리자에서 렌더링 계층을 가져오고 드로잉의 렌더링 스타일을 변경 하는 옵션을 수정 합니다. 이 경우 점은 파란색 표식 아이콘을 사용 하 여 렌더링 됩니다. 줄은 빨강 및 4 픽셀 너비입니다. 다각형에는 녹색 채우기 색과 주황색 윤곽선이 있습니다. 그런 다음 끌기 핸들의 스타일을 사각형 아이콘으로 변경 합니다. 
 
@@ -122,16 +122,16 @@ drawingManager.setOptions({
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="그리기 렌더링 스타일 변경" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 펜으로 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그리기 렌더링 스타일 변경</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조 하세요.
+CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그리기 렌더링 스타일 변경</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> )를 <a href='https://codepen.io'>CodePen</a>참조 하세요.
 </iframe>
 
 
 ## <a name="next-steps"></a>다음 단계
 
-그리기 도구 모듈의 추가 기능을 사용 하는 방법에 대해 알아봅니다.
+그리기 도구 모듈의 추가 기능을 사용하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [도형 데이터 가져오기](map-get-shape-data.md)
+> [셰이프 데이터 가져오기](map-get-shape-data.md)
 
 > [!div class="nextstepaction"]
 > [그리기 이벤트에 반응](drawing-tools-events.md)
@@ -142,7 +142,7 @@ drawingManager.setOptions({
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [매핑할](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

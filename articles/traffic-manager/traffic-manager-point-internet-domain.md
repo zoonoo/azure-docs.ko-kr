@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
 ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294853"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>회사 인터넷 도메인이 Azure Traffic Manager 도메인을 가리키도록 설정
@@ -25,7 +25,7 @@ Traffic Manager 프로필을 만들 때에는 Azure에서 해당 프로필에 DN
 
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
-*\.Www contoso.com* 에 대 한 모든 트래픽 요청이 *contoso.trafficmanager.net*으로 전달 됩니다.
+*Www \. contoso.com* 에 대 한 모든 트래픽 요청이 *contoso.trafficmanager.net*으로 전달 됩니다.
 
 > [!IMPORTANT]
 > *contoso.com*과 같은 두 번째 수준의 도메인이 Traffic Manager 도메인을 가리킬 수 없습니다. DNS 프로토콜 표준에서는 두 번째 수준 도메인 이름에 대한 CNAME 레코드를 허용하지 않습니다.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298816"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
@@ -36,7 +36,7 @@ ms.locfileid: "80298816"
 소프트웨어 요구 사항에는 지원되는 웹 브라우저, SMB 버전, 가상화 플랫폼, 최소 가상 디바이스 요구 사항에 대한 정보가 포함됩니다.
 
 ### <a name="supported-virtualization-platforms"></a>지원되는 가상화 플랫폼
-| **하이퍼바이저** | **버전** |
+| **하이퍼바이저** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 이상 |
 | VMware ESXi |5.0, 5.5, 6.0 및 6.5 |
@@ -58,7 +58,7 @@ ms.locfileid: "80298816"
 <sup>2</sup> - 네트워크 요구 사항은 일일 데이터 변경률에 따라 달라질 수 있습니다. 예를 들어, 디바이스에서 하루 동안 10GB 이상을 백업해야 한다면, 5Mbps 연결을 통한 매일 백업에는 최대 4.25 시간이 소요될 수 있습니다(데이터를 압축하거나 중복 제거할 수 없는 경우).
 
 ### <a name="supported-web-browsers"></a>지원되는 웹 브라우저
-| **구성 요소** | **버전** | **추가 요구 사항/메모** |
+| **구성 요소** | **Version** | **추가 요구 사항/메모** |
 | --- | --- | --- |
 | Microsoft Edge |최신 버전 | |
 | Internet Explorer |최신 버전 |Internet Explorer 11로 테스트함 |
@@ -95,9 +95,9 @@ Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않
 | TCP 443(HTTPS) |아웃 |WAN |예 |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> 파일 서버를 배포하는 경우 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
-| TCP 80(HTTP) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
-| TCP 443(HTTPS) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. |
-| TCP 3260(iSCSI) |그런 다음 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
+| TCP 80(HTTP) |In(다음 안에) |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
+| TCP 443(HTTPS) |In(다음 안에) |LAN |예 |로컬 관리용 StorSimple 디바이스의 로컬 UI에 대한 인바운드 포트입니다. |
+| TCP 3260(iSCSI) |In(다음 안에) |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 

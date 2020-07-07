@@ -13,17 +13,17 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585986"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
-Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
+Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
-스트림에서 암호화 옵션을 지정 하려면 [스트리밍 정책을](streaming-policy-concept.md) 만들고 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 해야 합니다. 콘텐츠 키 [정책을](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 만들어 [자산](assets-concept.md)에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성 합니다. 지정 된 구성을 사용 하는 키를 클라이언트에 배달 하기 위해 충족 해야 하는 콘텐츠 키 정책에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 콘텐츠 키 정책은 투명 한 스트리밍 또는 다운로드에 필요 하지 않습니다. 
+스트림에서 암호화 옵션을 지정 하려면 [스트리밍 정책을](streaming-policy-concept.md) 만들고 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 해야 합니다. 콘텐츠 키 [정책을](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 만들어 [자산](assets-concept.md)에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성 합니다. 지정 된 구성을 사용 하는 키를 클라이언트에 배달 하기 위해 충족 해야 하는 콘텐츠 키 정책에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 콘텐츠 키 정책은 투명한 스트리밍 또는 다운로드에 필요하지 않습니다. 
 
 일반적으로 콘텐츠 키 정책을 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 합니다. 또는 고급 시나리오에 대 한 사용자 지정 스트리밍 정책을 만들 때 [스트리밍 정책](streaming-policy-concept.md) 내에서 콘텐츠 키 정책을 지정할 수 있습니다. 
 
@@ -53,9 +53,9 @@ Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES
 
 [Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
-* `Datetime` 형식에 해당 하는 콘텐츠 키 정책의 속성은 항상 UTC 형식입니다.
+* 형식에 해당 하는 콘텐츠 키 정책의 속성 `Datetime` 은 항상 UTC 형식입니다.
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계

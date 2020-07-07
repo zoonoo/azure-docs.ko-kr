@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529359"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
@@ -46,16 +46,16 @@ HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방�
 
 만든 시간 동안 HDInsight 클러스터에 추가 구성 요소를 설치 하는 방법에 대 한 자세한 내용은 [스크립트 작업을 사용 하 여 hdinsight 클러스터 사용자 지정 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* PowerShell을 사용 하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
+* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 > [!IMPORTANT]  
-> 매개 변수 `Spark2Defaults` 는 [AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용 해야 할 수 있습니다. 아래 코드 예제에 표시 된 것 처럼 매개 변수에 빈 값을 전달할 수 있습니다.
+> 매개 변수는 `Spark2Defaults` [AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용 해야 할 수 있습니다. 아래 코드 예제에 표시 된 것 처럼 매개 변수에 빈 값을 전달할 수 있습니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -85,8 +85,8 @@ New-AzHDInsightCluster `
 
 **변경을 확인하려면:**
 
-1. 로 `https://CLUSTERNAME.azurehdinsight.net/` 이동 합니다 `CLUSTERNAME` . 여기서은 클러스터의 이름입니다.
-1. 왼쪽 메뉴에서 **Hive** > **Configs** > **Advanced**로 이동 합니다.
+1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/` `CLUSTERNAME` 합니다. 여기서은 클러스터의 이름입니다.
+1. 왼쪽 메뉴에서 **Hive**  >  **Configs**  >  **Advanced**로 이동 합니다.
 1. **고급 hive-사이트**를 확장 합니다.
 1. **Metastore** 를 찾고 값이 **90 년대**인지 확인 합니다.
 
@@ -141,13 +141,13 @@ Spark2에서 구성을 전환 하는 샘플 리소스 관리자 템플릿 코드
 ## <a name="see-also"></a>참고 항목
 
 * [HDInsight의 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
-* [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [HDInsight 클러스터에서 Apache Spark 설치 및 사용](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 * [HDInsight 클러스터에서 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="appendix-powershell-sample"></a>부록: PowerShell 샘플
 
-이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. , `$nameToken` `$httpPassword`및 `$sshPassword`에 대 한 값을 입력 해야 합니다.
+이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. , 및에 대 한 값을 입력 해야 `$nameToken` `$httpPassword` `$sshPassword` 합니다.
 
 ```powershell
 ####################################

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520733"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
@@ -23,7 +23,7 @@ ms.locfileid: "80520733"
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
 * [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 버그를 검토 하거나 새 파일을 작성 합니다.  
+* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
@@ -153,7 +153,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 * Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터에서 허용 목록 되지 않습니다. 
 
 ### <a name="resolution"></a>해결 방법
-1. 다음 명령을 사용 `-v` 하도록 설정 하 고 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트와 Azure Monitor 다시 등록 합니다. 프록시를 통해 연결 되는 에이전트의 자세한 출력을 Azure Monitor 수 있습니다. 
+1. 다음 명령을 사용 하도록 설정 하 고 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트와 Azure Monitor 다시 등록 `-v` 합니다. 프록시를 통해 연결 되는 에이전트의 자세한 출력을 Azure Monitor 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
@@ -302,7 +302,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 
 ### <a name="resolution"></a>해결 방법
 1. auditd 패키지 같은 모든 종속성을 설치합니다.
-2. 다음 파일이 있는지 확인 하 여 Azure Monitor에 대 한 온 보 딩이 성공 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`했는지 확인 합니다.  성공하지 못했으면 omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
+2. 다음 파일이 있는지 확인 하 여 Azure Monitor에 대 한 온 보 딩이 성공 했는지 확인 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 합니다.  성공하지 못했으면 omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
 4. 프록시를 사용하는 경우 위의 프록시 문제 해결 단계를 확인합니다.
 5. 일부 Azure 배포 시스템에서는 가상 머신이 다시 부팅된 후 omid OMI 서버 디먼이 시작되지 않습니다. 따라서 감사, ChangeTracking 또는 UpdateManagement 솔루션과 관련된 데이터가 표시되지 않습니다. 해결책은 `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 omi 서버를 수동으로 시작하는 것입니다.
 6. OMI 패키지를 더 높은 버전으로 수동 업그레이드한 후에는 수동으로 다시 시작해야만 Log Analytics 에이전트가 계속 작동합니다. OMI 서버가 업그레이드 후 자동으로 시작되지 않는 일부 배포판에서는 이 단계가 필수입니다. `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 OMI를 다시 시작합니다.
@@ -371,7 +371,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Linux용 Log Analytics 에이전트 구성 에이전트가 포털 구성 서비스와 통신할 수 없어 최신 구성이 적용되지 않는 경우가 있습니다.
   1. `dpkg --list omsconfig` 또는 `rpm -qi omsconfig` 명령을 실행하여 `omsconfig` 에이전트가 설치되어 있는지 확인합니다.  설치되지 않은 경우 Linux용 Log Analytics 에이전트 최신 버전을 다시 설치합니다.
 
-  2. 다음 명령을 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`실행 `omsconfig` 하 여 에이전트가 Azure Monitor와 통신할 수 있는지 확인 합니다. 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
+  2. `omsconfig`다음 명령을 실행 하 여 에이전트가 Azure Monitor와 통신할 수 있는지 확인 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` 합니다. 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
 
 ## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>문제: 사용자 지정 로그 데이터가 보이지 않음 
 
@@ -385,12 +385,12 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Linux용 Log Analytics 에이전트 버전 1.1.0-217에서 수정된 경합 조건 문제입니다.
 
 ### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 Azure Monitor에 대 한 온 보 딩이 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`성공 했는지 확인 합니다. 실패한 경우 둘 중 하나를 수행합니다.  
+1. 다음 파일이 있는지 확인 하 여 Azure Monitor에 대 한 온 보 딩이 성공 했는지 확인 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 합니다. 실패한 경우 둘 중 하나를 수행합니다.  
 
   1. omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
   2. Azure Portal의 **고급 설정** 아래에서 **다음 구성을 Linux 서버에 적용** 설정을 사용합니다.  
 
-2. 다음 명령을 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`실행 `omsconfig` 하 여 에이전트가 Azure Monitor와 통신할 수 있는지 확인 합니다.  이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
+2. `omsconfig`다음 명령을 실행 하 여 에이전트가 Azure Monitor와 통신할 수 있는지 확인 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` 합니다.  이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
 
 **백그라운드:** Linux용 Log Analytics 에이전트가 권한 있는 사용자 `root`로 실행되지 않고 `omsagent` 사용자로 실행됩니다. 대부분의 경우 이 사용자가 특정 파일을 읽으려면 명시적 권한을 부여해야 합니다. `omsagent` 사용자에게 권한을 부여하려면 다음 명령을 실행합니다.
 

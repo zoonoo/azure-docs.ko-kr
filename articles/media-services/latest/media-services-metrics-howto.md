@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382939"
 ---
 # <a name="monitor-media-services-metrics"></a>Media Services 메트릭 모니터링
@@ -26,21 +26,21 @@ ms.locfileid: "80382939"
 
 Azure Monitor는 포털에서 차트를 작성 하거나 REST API를 통해 액세스 하거나 Azure CLI를 사용 하 여 쿼리 하는 등 메트릭과 상호 작용 하는 여러 가지 방법을 제공 합니다. 이 문서에서는 Azure Portal 차트 및 Azure CLI를 사용 하 여 메트릭을 모니터링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md)
 - [모니터 Media Services 메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md) 검토
 
 ## <a name="view-metrics-in-azure-portal"></a>Azure Portal에서 메트릭 보기
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. Azure Media Services 계정으로 이동 하 여 **메트릭**을 선택 합니다.
 1. **리소스** 상자를 클릭 하 고 메트릭을 모니터링 하려는 리소스를 선택 합니다.
 
     **리소스 선택** 창이 오른쪽에 표시 되 고 사용 가능한 리소스 목록이 표시 됩니다. 이 경우 다음을 참조 하세요.
 
     * &lt;Media Services 계정 이름&gt;
-    * &lt;Media Services 계정 이름&gt;/&lt;스트리밍 끝점 이름&gt;
+    * &lt;Media Services 계정 이름 &gt; / &lt; 스트리밍 끝점 이름&gt;
     * &lt;저장소 계정 이름&gt;
 
     리소스를 선택 하 고 **적용**을 누릅니다. 지원 되는 리소스 및 메트릭에 대 한 자세한 내용은 [Media Services 메트릭 모니터링](media-services-metrics-diagnostic-logs.md)을 참조 하세요.
@@ -57,7 +57,7 @@ Azure Monitor는 포털에서 차트를 작성 하거나 REST API를 통해 액�
 
 ## <a name="view-metrics-with-azure-cli"></a>Azure CLI를 사용 하 여 메트릭 보기
 
-Azure CLI를 사용 하 여 "송신" 메트릭을 가져오려면 다음 `az monitor metrics` 명령을 실행 합니다.
+Azure CLI를 사용 하 여 "송신" 메트릭을 가져오려면 다음 명령을 실행 합니다 `az monitor metrics` .
 
 ```azurecli-interactive
 az monitor metrics list --resource \

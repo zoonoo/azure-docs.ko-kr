@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331070"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
@@ -107,7 +107,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 에이전트를 등록하는 동안 프록시를 구성해야 하는 경우 Internet Explorer 프록시 설정을 미리 수정해야 할 수도 있습니다.
 
-1. Internet Explorer > **설정** > **인터넷 옵션** > **연결** > **LAN 설정**을 엽니다.
+1. Internet Explorer > **설정**  >  **인터넷 옵션**  >  **연결**  >  **LAN 설정**을 엽니다.
 2. **사용자 LAN에 프록시 서버 사용**을 선택 합니다.
 3. HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 **고급**을 선택합니다.
 
@@ -139,7 +139,7 @@ Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니�
 
 **Q: "상태 관리 서비스 데이터가 최신 상태가 아닙니다." 라는 경고 메시지가 표시 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까?**
 
-Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히](how-to-connect-health-data-freshness.md)알아보세요.
+Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히 알아보기](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>작업 관련 질문
 **Q: 웹 애플리케이션 프록시 서버에 대한 감사를 사용하도록 설정해야 하나요?**

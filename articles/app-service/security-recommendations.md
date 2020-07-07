@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546695"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대 한 보안 권장 사항
@@ -41,7 +41,7 @@ ms.locfileid: "80546695"
 | Azure 리소스에 대 한 통신 암호화 | 앱이 [SQL Database](https://azure.microsoft.com/services/sql-database/) 또는 [Azure Storage](/azure/storage/)와 같은 azure 리소스에 연결 하는 경우 연결은 azure에 유지 됩니다. Azure의 공유 네트워킹을 통해 연결이 이동 하므로 항상 모든 통신을 암호화 해야 합니다. |
 | 최신 TLS 버전을 사용할 수 있어야 합니다. | 2018 새로운 Azure App Service 앱은 TLS 1.2를 사용 합니다. 최신 버전의 TLS에는 이전 프로토콜 버전 보다 향상 된 보안 기능이 포함 되어 있습니다. |
 | FTPS 사용 | App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니다. 가능 하면 FTP 대신 FTPS를 사용 합니다. 이러한 프로토콜 중 하나 또는 둘 다 사용하지 않는 경우 [해당 프로토콜을 사용하지 않도록 설정](deploy-ftp.md#enforce-ftps)해야 합니다. |
-| 애플리케이션 데이터 보호 | 코드 또는 구성 파일에 데이터베이스 자격 증명, API 토큰 또는 개인 키와 같은 응용 프로그램 암호를 저장 하지 마세요. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. Azure App Service에서 [앱 설정](web-sites-configure.md) 및 [연결 문자열](web-sites-configure.md)을 통해 환경 변수를 정의할 수 있습니다. 앱 설정 및 연결 문자열은 Azure에서 암호화 된 상태로 저장 됩니다. 앱 설정은 앱이 시작 될 때 앱 프로세스 메모리에 삽입 되기 전에만 해독 됩니다. 암호화 키는 정기적으로 회전합니다. 또는 고급 암호 관리를 위해 Azure App Service 앱을 [Azure Key Vault](/azure/key-vault/) 와 통합할 수 있습니다. [관리 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다. |
+| 애플리케이션 데이터 보호 | 코드 또는 구성 파일에 데이터베이스 자격 증명, API 토큰 또는 개인 키와 같은 응용 프로그램 암호를 저장 하지 마세요. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. Azure App Service에서 [앱 설정](web-sites-configure.md) 및 [연결 문자열](web-sites-configure.md)을 통해 환경 변수를 정의할 수 있습니다. 앱 설정 및 연결 문자열은 Azure에 암호화되어 저장됩니다. 앱 설정은 앱이 시작 될 때 앱 프로세스 메모리에 삽입 되기 전에만 해독 됩니다. 암호화 키는 정기적으로 회전합니다. 또는 고급 암호 관리를 위해 Azure App Service 앱을 [Azure Key Vault](/azure/key-vault/) 와 통합할 수 있습니다. [관리 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다. |
 
 ## <a name="networking"></a>네트워킹
 
@@ -60,4 +60,4 @@ ms.locfileid: "80546695"
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 공급자를 확인 하 여 추가 보안 요구 사항이 있는지 확인 합니다. 보안 응용 프로그램 개발에 대 한 자세한 내용은 [보안 개발 설명서](../security/fundamentals/abstract-develop-secure-apps.md)를 참조 하세요.
+애플리케이션 공급자에게 추가 보안 요구 사항이 있는지 확인합니다. 보안 애플리케이션 개발에 대한 자세한 내용은 [보안 개발 설명서](../security/fundamentals/abstract-develop-secure-apps.md)를 참조하세요.

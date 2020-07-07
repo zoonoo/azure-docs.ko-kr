@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: 23094ec71dac5780def10e16b90de0b818ef3c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80284894"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 쿼리
@@ -38,7 +38,7 @@ Time Series Insights은 계산을 표현 하는 데 사용 되는 다양 한 문
 ## <a name="environment-apis"></a>Environment API
 
 * [환경 가져오기 API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): 호출자에 게 액세스 권한이 부여 된 환경 목록을 반환 합니다.
-* [환경 가용성 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): 이벤트 타임 스탬프 `$ts`에 대 한 이벤트 수의 분포를 반환 합니다. 이 API는 시간 간격으로 분할 된 이벤트 수 (있는 경우)를 반환 하 여 환경에 이벤트가 있는지 확인 하는 데 도움이 됩니다.
+* [환경 가용성 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): 이벤트 타임 스탬프에 대 한 이벤트 수의 분포를 반환 합니다 `$ts` . 이 API는 시간 간격으로 분할 된 이벤트 수 (있는 경우)를 반환 하 여 환경에 이벤트가 있는지 확인 하는 데 도움이 됩니다.
 * [이벤트 스키마 가져오기 API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): 지정 된 검색 범위에 대 한 이벤트 스키마 메타 데이터를 반환 합니다. 이 API는 지정된 검색 범위의 스키마에서 사용 가능한 모든 메타데이터 및 속성을 검색할 수 있습니다.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>TSM-Q(Time Series Model-Query) API

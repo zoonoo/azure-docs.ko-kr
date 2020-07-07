@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300980"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>부팅 오류 – 부팅 가능한 디스크가 아닙니다.
@@ -37,39 +37,39 @@ ms.locfileid: "80300980"
 
 이 오류 메시지는 OS 부팅 프로세스에서 활성 시스템 파티션을 찾을 수 없음을 의미 합니다. 이 오류는 부팅 구성 데이터 (BCD) 저장소에 누락 된 참조가 있어 Windows 파티션을 찾을 수 없음을 의미할 수도 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요
 
-1. 복구 VM 만들기 및 액세스
+1. 복구 VM을 만들고 액세스합니다.
 2. 파티션 상태를 활성으로 설정 합니다.
 3. 디스크 파티션을 수정 합니다.
-4. **권장**: VM을 다시 빌드하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용 하도록 설정 합니다.
+4. **권장**: VM을 다시 빌드하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
 5. 원본 VM을 다시 빌드합니다.
 
    > [!NOTE]
-   > 이 부팅 오류가 발생할 경우 게스트 OS가 작동 하지 않습니다. 이 문제를 해결 하려면 오프 라인 모드에서 문제를 해결 합니다.
+   > 이 부팅 오류가 발생할 경우 게스트 OS가 작동 하지 않습니다. 문제를 해결하기 위해 오프라인 모드에서 문제 해결을 진행하세요.
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [Vm 복구 명령의](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 1-3 단계를 사용 하 여 복구 vm을 준비 합니다.
-2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
+1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1~3단계를 사용하여 복구 VM을 준비합니다.
+2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="set-partition-status-to-active"></a>파티션 상태를 활성으로 설정
 
 1 세대 Vm은 먼저 BCD 저장소를 포함 하는 OS 파티션이 *활성*으로 표시 되는지 확인 해야 합니다. 2 세대 VM이 있는 경우 나중에 생성에서 *상태* 플래그가 더 이상 사용 되지 않으므로 [디스크 파티션 수정](#fix-the-disk-partition)으로 건너뜁니다.
 
 1. 관리자 권한 명령 프롬프트 *(cmd.exe)* 를 엽니다.
-2. Diskpart 도구를 시작 하려면 *diskpart* 를 입력 합니다.
+2. *diskpart*를 입력하고 DISKPART 도구를 시작합니다.
 3. *목록 디스크* 를 입력 하 여 시스템의 디스크를 나열 하 고 연결 된 OS VHD를 확인 합니다.
-4. 연결 된 OS VHD가 있으면 *sel disk #* 를 입력 하 여 디스크를 선택 합니다.  그림 2를 참조 하세요. 여기서 Disk 1은 연결 된 OS VHD입니다.
+4. 연결된 OS VHD를 찾으면 *sel disk #* 을 입력하여 해당 디스크를 선택합니다.  그림 2를 참조 하세요. 여기서 Disk 1은 연결 된 OS VHD입니다.
 
    그림 2
 
    ![그림 2에는 테이블에 표시 되는 디스크 목록 명령, 디스크 0 및 디스크 1의 출력을 보여 주는 * DISKPART * 창이 표시 됩니다.  또한 sel disk 1 명령의 출력을 표시 하 고 디스크 1은 선택한 디스크를 표시 합니다.](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. 디스크를 선택 했으면 *목록 파티션을* 입력 하 여 선택한 디스크의 파티션을 나열 합니다.
-6. 부팅 파티션이 식별 되 면 *sel 파티션 #* 을 입력 하 여 파티션을 선택 합니다.  일반적으로 부팅 파티션은 350 크기가 약입니다.  그림 3을 참조 하십시오. 여기서 파티션 1은 부팅 파티션입니다.
+5. 디스크가 선택되면 *list partition*을 입력하여 선택한 디스크의 파티션을 나열합니다.
+6. 부팅 파티션이 식별되면 *sel partition #* 을 입력하여 파티션을 선택합니다.  일반적으로 부팅 파티션은 350 크기가 약입니다.  그림 3을 참조 하십시오. 여기서 파티션 1은 부팅 파티션입니다.
 
    그림 3
 
@@ -92,22 +92,22 @@ ms.locfileid: "80300980"
 
    ![그림 6에는 파티션 1이 * 활성: 예 *로 설정 된 경우 * detail partition * 명령을 출력 하는 diskpart 창이 표시 됩니다.](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. *끝내기* 를 입력 하 여 DISKPART 도구를 닫고 구성 변경 내용을 저장 합니다.
+10. *exit*를 입력하여 DISKPART 도구를 닫고 구성 변경 내용을 저장합니다.
 
 ### <a name="fix-the-disk-partition"></a>디스크 파티션 수정
 
-1. 관리자 권한 명령 프롬프트 (cmd.exe)를 엽니다.
+1. 관리자 권한 명령 프롬프트(cmd.exe)를 엽니다.
 2. 다음 명령을 사용 하 여 디스크에서 *CHKDSK* 를 실행 하 고 오류를 수정 합니다.
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   '/F ' 명령 옵션을 추가 하면 디스크의 모든 오류가 수정 됩니다. 을 연결 된 OS <DRIVE LETTER> VHD의 문자로 바꾸어야 합니다.
+   '/F ' 명령 옵션을 추가 하면 디스크의 모든 오류가 수정 됩니다. 을 <DRIVE LETTER> 연결 된 OS VHD의 문자로 바꾸어야 합니다.
 
 ### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>권장: VM을 다시 빌드하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용 하도록 설정 합니다.
 
 메모리 덤프 수집 및 직렬 콘솔을 사용 하도록 설정 하려면 다음 스크립트를 실행 합니다.
 
-1. 관리자 권한 명령 프롬프트 세션 (관리자 권한으로 실행)을 엽니다.
+1. 관리자 권한 명령 프롬프트 세션을 엽니다(관리자 권한으로 실행).
 2. 다음 명령을 실행합니다.
 
    직렬 콘솔 사용
@@ -122,11 +122,11 @@ ms.locfileid: "80300980"
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>OS 덤프를 사용 하도록 설정 하기 위한 권장 구성
 
-**손상 된 OS 디스크 로드**:
+**손상된 OS 디스크를 로드합니다.**
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**ControlSet001에서 사용:**
+**ControlSet001에서 사용하도록 설정합니다.**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -134,7 +134,7 @@ ms.locfileid: "80300980"
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**ControlSet002에서 사용:**
+**ControlSet002에서 사용하도록 설정합니다.**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -142,10 +142,10 @@ ms.locfileid: "80300980"
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**손상 된 OS 디스크 언로드:**
+**손상된 OS 디스크를 언로드합니다.**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>원본 VM 다시 빌드
 
-Vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.
+[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.

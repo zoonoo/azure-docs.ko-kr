@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334032"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
@@ -34,12 +34,12 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **비어** 있는 지도와 **blank_accessible** 지도 스타일은 데이터를 시각화할 빈 캔버스를 제공 합니다. 기본 지도가 표시 되지 않더라도 **blank_accessible** 스타일은 지도 위치 세부 정보를 사용 하 여 화면 판독기 업데이트를 계속 제공 합니다.
 
 > [!Note]
-> 웹 SDK에서 지도 DIV 요소의 CSS `background-color` 스타일을 설정 하 여 지도의 배경색을 변경할 수 있습니다.
+> 웹 SDK에서 지도 DIV 요소의 CSS 스타일을 설정 하 여 지도의 배경색을 변경할 수 있습니다 `background-color` .
 
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
 
-## <a name="satellite"></a>위성 
+## <a name="satellite"></a>satellite 
 **위성** 스타일은 위성 및 항공 이미지의 조합입니다.
 
 ![위성 타일 지도 스타일](./media/supported-map-styles/satellite.png)
@@ -113,4 +113,4 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 Azure Maps에서 지도 스타일을 설정 하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [맵 스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+> [지도 스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

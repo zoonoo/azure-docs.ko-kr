@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293463"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Azure 전면 도어의 백 엔드 및 백 엔드 풀
@@ -43,7 +43,7 @@ ms.locfileid: "80293463"
 
 프런트 도어로 백 엔드에 전달 된 요청에는 백 엔드가 대상 리소스를 검색 하는 데 사용 하는 호스트 헤더 필드가 포함 됩니다. 이 필드의 값은 일반적으로 백 엔드 URI에서 제공되며 호스트 및 포트를 포함합니다.
 
-예를 들어에 대해 `www.contoso.com` 수행 된 요청에는 호스트 헤더 www.contoso.com가 있습니다. Azure Portal를 사용 하 여 백 엔드를 구성 하는 경우이 필드의 기본값은 백 엔드의 호스트 이름입니다. 백 엔드가 contoso-westus.azurewebsites.net 인 경우 Azure Portal에 백 엔드 호스트 헤더에 대 한 채워집니다 값이 contoso-westus.azurewebsites.net 됩니다. 그러나이 필드를 명시적으로 설정 하지 않고 Azure Resource Manager 템플릿 또는 다른 방법을 사용 하는 경우 전면 도어는 들어오는 호스트 이름을 호스트 헤더에 대 한 값으로 보냅니다. Www\.contoso.com에 대 한 요청이 수행 되 고 백 엔드가 contoso-westus.azurewebsites.net 빈 헤더 필드가 있는 경우, 프런트 도어는 호스트 헤더를 www\.contoso.com로 설정 합니다.
+예를 들어에 대해 수행 된 요청에는 `www.contoso.com` 호스트 헤더 www.contoso.com가 있습니다. Azure Portal를 사용 하 여 백 엔드를 구성 하는 경우이 필드의 기본값은 백 엔드의 호스트 이름입니다. 백 엔드가 contoso-westus.azurewebsites.net 인 경우 Azure Portal에 백 엔드 호스트 헤더에 대 한 채워집니다 값이 contoso-westus.azurewebsites.net 됩니다. 그러나이 필드를 명시적으로 설정 하지 않고 Azure Resource Manager 템플릿 또는 다른 방법을 사용 하는 경우 전면 도어는 들어오는 호스트 이름을 호스트 헤더에 대 한 값으로 보냅니다. Www contoso.com에 대 한 요청이 수행 \. 되 고 백 엔드가 contoso-westus.azurewebsites.net 빈 헤더 필드가 있는 경우, 프런트 도어는 호스트 헤더를 www contoso.com로 설정 합니다 \. .
 
 대부분의 앱 백 엔드 (Azure Web Apps, Blob storage 및 Cloud Services)에서는 호스트 헤더가 백 엔드의 도메인과 일치 해야 합니다. 그러나 백엔드로 라우팅하는 프런트 엔드 호스트는 www.contoso.net와 같은 다른 호스트 이름을 사용 합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "80293463"
 ### <a name="health-probes"></a>상태 프로브
 프런트 도어는 구성 된 각 백 엔드에 주기적으로 HTTP/HTTPS 프로브 요청을 보냅니다. 프로브 요청은 최종 사용자 요청의 부하를 분산 하기 위해 각 백 엔드의 근접성과 상태를 결정 합니다. 백 엔드 풀에 대 한 상태 프로브 설정은 앱 백 엔드의 상태를 폴링하는 방법을 정의 합니다. 다음 설정은 부하 분산 구성에 사용할 수 있습니다.
 
-- **경로**: 백 엔드 풀의 모든 백 엔드에 대 한 프로브 요청에 사용 되는 URL입니다. 예를 들어 백 엔드 중 하나가 contoso-westus.azurewebsites.net이 고 경로가/probe/test.aspx로 설정 된 경우 프로토콜이 HTTP로 설정 된 것으로 가정 하는 프런트 도어 환경에서는 http\://contoso-westus.azurewebsites.net/probe/test.aspx에 상태 프로브 요청을 보냅니다.
+- **경로**: 백 엔드 풀의 모든 백 엔드에 대 한 프로브 요청에 사용 되는 URL입니다. 예를 들어 백 엔드 중 하나가 contoso-westus.azurewebsites.net이 고 경로가/probe/test.aspx로 설정 된 경우 프로토콜이 HTTP로 설정 된 것으로 가정 하는 프런트 도어 환경에서는 http//contoso-westus.azurewebsites.net/probe/test.aspx에 상태 프로브 요청을 보냅니다 \: .
 
 - **프로토콜**: HTTP 또는 HTTPS 프로토콜을 사용 하 여 프런트 도어에서 백 엔드에 대 한 상태 프로브 요청을 보낼지 여부를 정의 합니다.
 

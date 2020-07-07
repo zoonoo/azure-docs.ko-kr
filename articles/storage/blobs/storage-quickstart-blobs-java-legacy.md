@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473995"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>빠른 시작: Java v8 SDK를 사용 하 여 blob 관리
 
 이 빠른 시작에서는 Java를 사용하여 Blob을 관리하는 방법을 알아봅니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. Blob을 업로드, 다운로드 및 나열 합니다. 컨테이너를 만들고, 사용 권한을 설정 하 고, 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Azure Storage 계정. [스토리지 계정 만들기](../common/storage-account-create.md)
@@ -36,7 +36,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. 프로젝트를 열려면 Eclipse를 시작하고 시작 화면을 닫습니다. **파일** 을 선택 하 고 **파일 시스템에서 프로젝트를 엽니다**. **Detect and configure project natures**를 선택합니다. **Directory**를 선택한 다음, 복제한 리포지토리를 저장한 위치로 이동합니다. 복제한 리포지토리 내에서 **blobAzureApp** 폴더를 선택합니다. **blobAzureApp** 프로젝트가 Eclipse 프로젝트로 표시되는지 확인한 다음, **Finish**를 선택합니다.
 
-프로젝트가 가져오기를 완료 한 후에는 **Azureapp. java** ( **src/main/java**내부에 있는 **blobazureapp** 에 있음)를 열고 `accountname` `accountkey` `storageConnectionString` 문자열의 및를 바꿉니다. 그런 다음, 애플리케이션을 실행합니다. 이러한 작업을 완료하는 것에 대한 구체적인 지침은 다음 섹션에 설명되어 있습니다.
+프로젝트가 가져오기를 완료 한 후에는 **Azureapp. java** ( **src/main/java**내부에 있는 **blobazureapp** 에 있음)를 열고 `accountname` 문자열의 및를 바꿉니다 `accountkey` `storageConnectionString` . 그런 다음, 애플리케이션을 실행합니다. 이러한 작업을 완료하는 것에 대한 구체적인 지침은 다음 섹션에 설명되어 있습니다.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-이 애플리케이션 예제는 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user&gt;\AppData\Local\Temp*)에 테스트 파일을 만들고, Blob Storage에 업로드하고, 컨테이너의 Blob을 나열한 다음, 해당 파일을 새 이름으로 다운로드하여 이전 파일과 새 파일을 비교할 수 있도록 합니다.
+이 샘플 응용 프로그램은 기본 디렉터리 (Windows 사용자의 경우*C:\Users \<user> \AppData\Local\Temp*)에 테스트 파일을 만들고, blob 저장소에 업로드 하 고, 컨테이너의 blob을 나열 하 고, 이전 파일 및 새 파일을 비교할 수 있도록 새 이름으로 파일을 다운로드 합니다.
 
 명령줄에서 Maven을 사용하여 샘플을 실행합니다. 셸을 열고 복제한 디렉터리 내부의 **blobAzureApp**으로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다.
 
@@ -72,7 +72,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-계속하기 전에 샘플 파일에 대한 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user>\AppData\Local\Temp*)를 확인합니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. 디렉터리의 샘플 파일을 Blob Storage에 저장된 콘텐츠와 비교하는 경우 동일하게 표시됩니다.
+계속 하기 전에 샘플 파일의 기본 디렉터리 (Windows 사용자의 경우*C:\Users \<user> \AppData\Local\Temp*)를 확인 합니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. 디렉터리의 샘플 파일을 Blob Storage에 저장된 콘텐츠와 비교하는 경우 동일하게 표시됩니다.
 
   >[!NOTE]
   >[Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 이 문서에서는 Java를 사용하여 로컬 디스크와 Azure Blob 스토리지 간에 파일을 전송하는 방법을 알아보았습니다. Java를 사용하는 방법에 대해 자세히 알려면 GitHub 소스 코드 리포지토리를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [Java 용 java API 참조](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [코드 샘플](../common/storage-samples-java.md)
+> [JAVA API 참조](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy) 
+>  [Java 용 코드 샘플](../common/storage-samples-java.md)

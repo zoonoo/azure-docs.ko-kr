@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582212"
 ---
 # <a name="media-services-job-error-codes"></a>Media Services 작업 오류 코드
@@ -34,7 +34,7 @@ ms.locfileid: "80582212"
 
 ## <a name="see-also"></a>참고 항목
 
-- [스트리밍 엔드포인트 오류 코드](streaming-endpoint-error-codes.md)
+- [스트리밍 끝점 오류 코드](streaming-endpoint-error-codes.md)
 - [Azure Media Services 개념](concepts-overview.md)
 - [할당량 및 제한](limits-quotas-constraints.md)
 

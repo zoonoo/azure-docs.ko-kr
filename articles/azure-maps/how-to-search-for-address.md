@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335423"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
@@ -27,7 +27,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 는
 * [역 주소 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 을 통해 좌표 위치를 주소로 변환 합니다.
 * [검색 주소 역방향 교차 주소 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet) 를 사용 하 여 교차 주소 검색
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료 하려면 먼저 Azure Maps 계정을 만들고이 계정 구독 키로 매핑 하세요. 계정 [만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
@@ -39,7 +39,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 는
 
 Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 처리 api](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) 를 사용 하 여 단일 API 호출로 쿼리 일괄 처리를 보낼 수 있습니다.
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 이름으로 **주소 검색**을 클릭 합니다.
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 이름으로 **주소 검색**을 클릭 합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력한 다음 권한 부여 프로토콜이 있는 경우 해당 프로토콜을 선택합니다.
 
@@ -55,10 +55,10 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 ![주소 검색](./media/how-to-search-for-address/address_search_params.png) 
 
-| 키 | 값 | 
+| Key | 값 | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| 구독 키 | \<사용자의 Azure 맵 키\> | 
+| 구독 키 | \<your Azure Maps key\> | 
 | Query | 400 한 광범위 한 St, 시애틀, WA 98109 | 
 
 4. **보내기**를 클릭하고 응답 본문을 검토합니다. 
@@ -73,7 +73,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다. 
 
-| 키 | 값 | 
+| Key | 값 | 
 |-----|------------| 
 | typeahead | true | 
 
@@ -105,10 +105,10 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | \<사용자의 Azure 맵 키\> |
+    | 구독 키 | \<your Azure Maps key\> |
     | Query | 피자 |
 
 4. **보내기**를 클릭하고 응답 본문을 검토합니다.
@@ -119,7 +119,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -131,7 +131,7 @@ Geocode에 대 한 주소 집합이 있는 경우 [사후 검색 주소 일괄 �
 
     ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -143,7 +143,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
 역방향 geocode를 위한 좌표 위치 집합이 있는 경우 [사후 검색 주소 역방향 BATCH API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) 를 사용 하 여 단일 API 호출로 쿼리 일괄 처리를 보낼 수 있습니다.
 
 
-1. Postman에서 **새 요청** | **GET 요청** 을 클릭 하 고 **역 주소 검색**으로 이름을 바꿉니다.
+1. Postman에서 **새 요청**  |  **GET 요청** 을 클릭 하 고 **역 주소 검색**으로 이름을 바꿉니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
   
@@ -159,10 +159,10 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
     ![역 주소 검색 매개 변수](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | \<사용자의 Azure 맵 키\> |
+    | 구독 키 | \<your Azure Maps key\> |
     | Query | 47.591180,-122.332700 |
   
 4. **보내기**를 클릭하고 응답 본문을 검토합니다.
@@ -171,7 +171,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | number | true |
 
@@ -179,7 +179,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -187,7 +187,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
 
 7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -195,7 +195,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
 
 8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     |-----|------------|
     | roadUse | true |
 
@@ -203,7 +203,7 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 ## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>역 주소 교차 번 검색을 사용 하 여 교차 주소 검색
 
-1. Postman에서 **새 요청** | **가져오기 요청** 을 클릭 하 고 **역 주소 간 검색**으로 이름을 바꿉니다.
+1. Postman에서 **새 요청**  |  **가져오기 요청** 을 클릭 하 고 **역 주소 간 검색**으로 이름을 바꿉니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
   
@@ -217,10 +217,10 @@ Azure Maps [검색 주소 역방향 API]( https://docs.microsoft.com/rest/api/ma
   
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
-    | 키 | 값 |
+    | Key | 값 |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | 구독 키 | \<사용자의 Azure 맵 키\> |
+    | 구독 키 | \<your Azure Maps key\> |
     | Query | 47.591180,-122.332700 |
   
 4. **보내기**를 클릭하고 응답 본문을 검토합니다.

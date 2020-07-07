@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331263"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
@@ -28,9 +28,9 @@ Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 
 
 이미 Azure AD 신원 모델에 익숙하고 특정 방법에 대해 자세히 알고 싶다면 해당 링크를 참조하십시오.
 
-* [Seamless SSO(Single Sign-on)](how-to-connect-sso.md)를 사용한 [암호 해시 동기화](#password-hash-synchronization)
-* [Seamless SSO(Single Sign-on)](how-to-connect-sso.md)를 사용한 [통과 인증](how-to-connect-pta.md)
-* [Federated SSO(Active Directory Federation Services(AD FS) 지원)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Seamless SSO(Single Sign-On)](how-to-connect-sso.md)를 사용하는 [암호 해시 동기화](#password-hash-synchronization)
+* [Seamless SSO(Single Sign-On)](how-to-connect-sso.md)를 사용하는 [통과 인증](how-to-connect-pta.md)
+* [페더레이션 SSO(AD FS(Active Directory Federation Services) 사용)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 * [PingFederate을 사용한 페더레이션](#federation-with-pingfederate)
 
 > [!NOTE] 
@@ -126,7 +126,7 @@ Azure AD 로그인 환경은 Azure AD를 Azure AD 디렉터리에서 확인된 �
 Azure AD Connect는 도메인에 대해 정의된 UPN 접미사를 나열하며 Azure AD의 사용자 지정 도메인과 매칭하려고 합니다. 그러면 적절한 조치를 취하는 데 도움이 됩니다.
 Azure AD 로그인 페이지는 온-프레미스 Active Directory에 대해 정의된 UPN 접미사를 나열하고 각 접미사에 해당하는 상태를 표시합니다. 상태 값은 다음 중 하나가 될 수 있습니다.
 
-| 시스템 상태 | 설명 | 작업 필요 |
+| 시스템 상태 | Description | 작업 필요 |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |어떤 조치가 필요하지 않습니다. |
 | 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |

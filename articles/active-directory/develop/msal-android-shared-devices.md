@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550267"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
@@ -35,8 +35,8 @@ ms.locfileid: "80550267"
 
 공유 장치 모드 앱을 만들기 위해 개발자와 클라우드 장치 관리자는 함께 작동 합니다.
 
-- 개발자는 단일 계정 앱 (여러 계정 앱은 공유 장치 모드에서 지원 되지 않음)을 작성 하 고 `"shared_device_mode_supported": true` , 앱의 구성에 추가 하 고, 공유 장치 로그 아웃 등의 작업을 처리 하는 코드를 작성 합니다.
-- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) 역할에 속한 사용자만 [인증자 앱](../user-help/user-help-auth-app-overview.md)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. **Azure Active Directory** > **역할 및 관리자** > **클라우드 장치 관리자**를 통해 Azure Portal에서 조직 역할의 멤버 자격을 구성할 수 있습니다.
+- 개발자는 단일 계정 앱 (여러 계정 앱은 공유 장치 모드에서 지원 되지 않음)을 작성 하 `"shared_device_mode_supported": true` 고, 앱의 구성에 추가 하 고, 공유 장치 로그 아웃 등의 작업을 처리 하는 코드를 작성 합니다.
+- 장치 관리자는 인증자 앱을 설치 하 고 인증자 앱을 사용 하 여 장치를 공유 모드로 설정 하 여 공유할 장치를 준비 합니다. [클라우드 장치 관리자](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) 역할에 속한 사용자만 [인증자 앱](../user-help/user-help-auth-app-overview.md)을 사용 하 여 장치를 공유 모드로 전환할 수 있습니다. **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자**를 통해 Azure Portal에서 조직 역할의 멤버 자격을 구성할 수 있습니다.
 
  이 문서에서는 개발자가 주로 고려해 야 할 사항에 대해 중점적으로 설명 합니다.
 
@@ -55,7 +55,7 @@ MSAL (Microsoft Authentication Library SDK)을 사용 하 여 작성 된 응용 
 
 앱은 개인 장치와 공유 장치에서 실행을 지원 하도록 빌드할 수 있습니다. 앱에서 현재 여러 계정을 지원 하 고 공유 장치 모드를 지원 하려면 단일 계정 모드에 대 한 지원을 추가 합니다.
 
-앱이 실행 중인 장치 유형에 따라 동작을 변경 하도록 할 수도 있습니다. 단일 `ISingleAccountPublicClientApplication.isSharedDevice()` 계정 모드에서 실행 하는 경우를 결정 하는 데 사용 합니다.
+앱이 실행 중인 장치 유형에 따라 동작을 변경 하도록 할 수도 있습니다. `ISingleAccountPublicClientApplication.isSharedDevice()`단일 계정 모드에서 실행 하는 경우를 결정 하는 데 사용 합니다.
 
 응용 프로그램이 있는 장치 유형을 나타내는 두 가지 인터페이스가 있습니다. MSAL의 응용 프로그램 팩터리에서 응용 프로그램 인스턴스를 요청 하면 올바른 응용 프로그램 개체가 자동으로 제공 됩니다.
 
@@ -63,7 +63,7 @@ MSAL (Microsoft Authentication Library SDK)을 사용 하 여 작성 된 응용 
 
 ![공용 클라이언트 응용 프로그램 상속 모델](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-`PublicClientApplication` 개체를 가져올 때 형식 검사를 수행 하 고 적절 한 인터페이스로 캐스팅 해야 합니다. 다음 코드는 여러 계정 모드 또는 단일 계정 모드를 확인 하 고 응용 프로그램 개체를 적절 하 게 캐스팅 합니다.
+개체를 가져올 때 형식 검사를 수행 하 고 적절 한 인터페이스로 캐스팅 해야 `PublicClientApplication` 합니다. 다음 코드는 여러 계정 모드 또는 단일 계정 모드를 확인 하 고 응용 프로그램 개체를 적절 하 게 캐스팅 합니다.
 
 ```java
 private IPublicClientApplication mApplication;
@@ -84,8 +84,8 @@ private IPublicClientApplication mApplication;
 |  | 공유 모드 장치  | 개인 디바이스 |
 |---------|---------|---------|
 | **계정**     | 단일 계정 | 여러 계정 |
-| **로그인** | Global | Global |
-| **로그아웃** | Global | 각 응용 프로그램은 로그 아웃이 앱 또는 응용 프로그램 제품군에 대해 로컬 인지 여부를 제어할 수 있습니다. |
+| **로그인** | 전역 | 전역 |
+| **로그아웃** | 전역 | 각 응용 프로그램은 로그 아웃이 앱 또는 응용 프로그램 제품군에 대해 로컬 인지 여부를 제어할 수 있습니다. |
 | **지원 되는 계정 유형** | 회사 계정만 | 개인 및 회사 계정 지원  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>단일 계정 모드만 지원 해야 하는 이유

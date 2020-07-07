@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422597"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* 명령은 동일한 가상 네트워크에 있는 컴퓨터에서 실행 해야 합니다.
->* DIP 또는 HostName은 컴퓨터>를 대체 \<하는 데 사용할 수 있습니다.
+>* DIP 또는 호스트 이름을 사용하여 \<computer>를 바꿀 수 있습니다.
 >* -s 매개 변수는 시스템 계정(관리자 권한)을 사용하여 명령이 호출되도록 만듭니다.
 >* PsExec는 TCP 포트 135 및 445를 사용합니다. 따라서 두 포트가 방화벽에서 열려 있어야 합니다.
 
@@ -214,7 +214,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 동일한 가상 네트워크의 다른 VM에서 레지스트리 편집기 (regedit.exe)를 엽니다.
 
-2. **파일** > **연결 네트워크 레지스트리**를 선택 합니다.
+2. **파일**  >  **연결 네트워크 레지스트리**를 선택 합니다.
 
    ![레지스트리 편집기](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 

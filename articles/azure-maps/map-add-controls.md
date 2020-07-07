@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 094dc9fd01ec71f378a173a2b4fa64cc672d7c97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334556"
 ---
 # <a name="add-controls-to-a-map"></a>지도에 컨트롤 추가
@@ -30,7 +30,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -48,7 +48,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -104,10 +104,10 @@ map.controls.add([
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="탐색 제어 옵션" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>탐색 제어 옵션</a> 을 참조 하세요.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>탐색 제어 옵션</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-사용자 지정 된 탐색 컨트롤을 만들려면 `atlas.Control` 클래스에서 확장 하거나 HTML 요소를 만들고 지도 div 위에 배치 하는 클래스를 만듭니다. 이 UI 컨트롤이 map `setCamera` 함수를 호출 하 여 맵을 이동 하도록 합니다. 
+사용자 지정 된 탐색 컨트롤을 만들려면 클래스에서 확장 `atlas.Control` 하거나 HTML 요소를 만들고 지도 div 위에 배치 하는 클래스를 만듭니다. 이 UI 컨트롤이 map 함수를 호출 `setCamera` 하 여 맵을 이동 하도록 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

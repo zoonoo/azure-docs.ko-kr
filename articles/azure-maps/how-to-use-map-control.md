@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 6becb504671c1fa380207fda9d7d553fca8ceddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335243"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
@@ -27,7 +27,7 @@ ms.locfileid: "80335243"
 
 2. Azure Maps 웹 SDK에서 로드합니다. 두 가지 옵션 중 하나를 선택할 수 있습니다.
 
-    * HTML 파일의 `<head>` 요소에서 JavaScript 및 스타일 시트에 대 한 참조를 추가 하 여 AZURE MAPS 웹 SDK의 전역적으로 호스팅된 CDN 버전을 사용 합니다.
+    * HTML 파일의 요소에서 JavaScript 및 스타일 시트에 대 한 참조를 추가 하 여 Azure Maps 웹 SDK의 전역적으로 호스팅된 CDN 버전을 사용 합니다 `<head>` .
 
         ```HTML
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
@@ -75,7 +75,7 @@ ms.locfileid: "80335243"
     </body>
    ```
 
-5. 지도 컨트롤을 초기화 하려면 html 본문에 새 스크립트 태그를 정의 합니다. `id` `<div>` `HTMLElement` 클래스의 인스턴스를 만들 때 맵의 또는 (예: `document.getElementById('myMap')`)를 첫 번째 매개 변수로 전달 합니다. `Map` 자신의 Azure Maps 계정 키나 AAD(Azure Active Directory) 자격 증명으로 [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용하여 맵을 인증합니다. 
+5. 지도 컨트롤을 초기화 하려면 html 본문에 새 스크립트 태그를 정의 합니다. `id` `<div>` `HTMLElement` `document.getElementById('myMap')` 클래스의 인스턴스를 만들 때 맵의 또는 (예:)를 첫 번째 매개 변수로 전달 합니다 `Map` . 자신의 Azure Maps 계정 키나 AAD(Azure Active Directory) 자격 증명으로 [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용하여 맵을 인증합니다. 
 
    계정을 만들거나 키를 찾아야 하는 경우 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 지침을 따르세요. 
 
@@ -183,7 +183,7 @@ ms.locfileid: "80335243"
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps는 렌더링 된 맵의 언어 및 지역 뷰를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 `atlas` 네임 스페이스에 추가 하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어 ("fr-fr")로 설정 하 고 국가별 보기를 "Auto"로 설정 합니다.
+Azure Maps는 렌더링 된 맵의 언어 및 지역 뷰를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 네임 스페이스에 추가 하는 것입니다 `atlas` . 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어 ("fr-fr")로 설정 하 고 국가별 보기를 "Auto"로 설정 합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -207,7 +207,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> 웹 SDK를 사용 하면 다른 언어 및 지역 설정을 사용 하 여 동일한 페이지에 여러 개의 맵 인스턴스를 로드할 수 있습니다. 또한 지도의 `setStyle` 함수를 사용 하 여 맵이 로드 된 후 이러한 설정을 업데이트할 수 있습니다. 
+> 웹 SDK를 사용 하면 다른 언어 및 지역 설정을 사용 하 여 동일한 페이지에 여러 개의 맵 인스턴스를 로드할 수 있습니다. 또한 지도의 함수를 사용 하 여 맵이 로드 된 후 이러한 설정을 업데이트할 수 있습니다 `setStyle` . 
 
 언어가 "fr-fr"로 설정 되 고 지역 보기가 "Auto"로 설정 된 Azure Maps의 예는 다음과 같습니다.
 
@@ -219,7 +219,7 @@ map = new atlas.Map('myMap', {
 
 Azure Maps 웹 SDK는 Azure Government 클라우드를 지원 합니다. Azure Maps 웹 SDK에 액세스 하는 데 사용 되는 모든 JavaScript 및 CSS Url은 동일 하 게 유지 됩니다. Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결 하려면 다음 작업을 수행 해야 합니다.
 
-대화형 맵 컨트롤을 사용 하는 경우 `Map` 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가 합니다. 
+대화형 맵 컨트롤을 사용 하는 경우 클래스의 인스턴스를 만들기 전에 다음 코드 줄을 추가 `Map` 합니다. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
@@ -227,13 +227,13 @@ atlas.setDomain('atlas.azure.us');
 
 지도와 서비스를 인증 하는 경우 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용 해야 합니다.
 
-서비스 모듈을 사용 하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대 한 도메인을 설정 해야 합니다. 예를 들어 다음 코드는 `SearchURL` 클래스의 인스턴스를 만들고 도메인을 Azure Government 클라우드로 가리킵니다.
+서비스 모듈을 사용 하는 경우 API URL 끝점의 인스턴스를 만들 때 서비스에 대 한 도메인을 설정 해야 합니다. 예를 들어 다음 코드는 클래스의 인스턴스를 만들고 `SearchURL` 도메인을 Azure Government 클라우드로 가리킵니다.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 `atlas.azure.us`변경 합니다. 예를 들어 검색 API 서비스를 사용 하는 경우 URL 도메인을에서 `https://atlas.microsoft.com/search/` 로 `https://atlas.azure.us/search/`변경 합니다.
+Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 변경 `atlas.azure.us` 합니다. 예를 들어 검색 API 서비스를 사용 하는 경우 URL 도메인을에서 `https://atlas.microsoft.com/search/` 로 변경 `https://atlas.azure.us/search/` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -245,7 +245,7 @@ Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 
 맵 스타일을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [맵 스타일 선택](choose-map-style.md)
+> [지도 스타일 선택](choose-map-style.md)
 
 지도에 데이터를 더 추가 하려면:
 

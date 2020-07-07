@@ -4,10 +4,10 @@ description: Service Fabric 클러스터에 배포할 수 있도록 기존 애�
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520480"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
@@ -22,7 +22,7 @@ ms.locfileid: "80520480"
 
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
-1. **파일** > **새로 만들기 프로젝트**를 선택 하 고 Service Fabric 응용 프로그램을 만듭니다.
+1. **파일**  >  **새로 만들기 프로젝트**를 선택 하 고 Service Fabric 응용 프로그램을 만듭니다.
 2. **게스트 실행 파일**을 서비스 템플릿으로 선택합니다.
 3. **찾아보기** 를 클릭 하 여 실행 파일이 포함 된 폴더를 선택 하 고 나머지 매개 변수를 입력 하 여 서비스를 만듭니다.
    * *코드 패키지 동작*입니다. 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 애플리케이션 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 이는 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있습니다. 이 업데이트는 빌드의 애플리케이션 패키지의 일부가 됩니다.
@@ -178,7 +178,7 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 
 서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
 
-`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. `<ExeHost IsExternalExecutable="true">`)을 입력합니다.
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예를 들어 `<ExeHost IsExternalExecutable="true">`.
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.

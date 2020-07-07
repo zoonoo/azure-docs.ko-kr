@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298342"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
@@ -68,8 +68,8 @@ Log Analytics 게이트웨이를 실행 하도록 지정 된 컴퓨터에는 다
 
 Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 
-- 중국어 (간체)
-- 중국어 (번체)
+- 중국어(간체)
+- 중국어(번체)
 - 체코어
 - 네덜란드어
 - 영어
@@ -97,8 +97,8 @@ Log Analytics 게이트웨이는 TLS (전송 계층 보안) 1.0, 1.1 및 1.2만 
 
 |게이트웨이 |지원 되는 에이전트 (근사치)|  
 |--------|----------------------------------|  
-|CPU: Intel Xeon Processor E5-2660 v3 \@ 2.6 g h z 2 코어<br> 메모리: 4gb<br> 네트워크 대역폭: 1Gbps| 600|  
-|CPU: Intel Xeon Processor E5-2660 v3 \@ 2.6 g h z 4 코어<br> 메모리: 8gb<br> 네트워크 대역폭: 1Gbps| 1000|  
+|CPU: Intel Xeon Processor E5-2660 v3 2.6 g h z \@ 2 코어<br> 메모리: 4gb<br> 네트워크 대역폭: 1Gbps| 600|  
+|CPU: Intel Xeon Processor E5-2660 v3 2.6 g h z \@ 4 코어<br> 메모리: 8gb<br> 네트워크 대역폭: 1Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 다운로드
 
@@ -117,7 +117,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
 또는 
 
 1. **설정** 아래 작업 영역 블레이드에서 **고급 설정**을 선택합니다.
-1. **연결 된 원본** > **Windows 서버** 로 이동 하 고 **다운로드 Log Analytics 게이트웨이**를 선택 합니다.
+1. **연결 된 원본**  >  **Windows 서버** 로 이동 하 고 **다운로드 Log Analytics 게이트웨이**를 선택 합니다.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>설치 마법사를 사용 하 여 Log Analytics 게이트웨이 설치
 
@@ -136,7 +136,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
 
    b. 게이트웨이가 설치 되어 있는 서버에서 프록시를 통해 통신 해야 하는 경우 게이트웨이를 연결 해야 하는 프록시 주소를 입력 합니다. 예를 들어 다음과 같이 입력합니다. `http://myorgname.corp.contoso.com:80`  이 필드를 비워 두면 게이트웨이가 인터넷에 직접 연결을 시도 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
 
-   다. **다음**을 선택합니다.
+   c. **다음**을 선택합니다.
 
    ![게이트웨이 프록시에 대 한 구성 스크린샷](./media/gateway/gateway-wizard02.png)
 
@@ -153,7 +153,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|매개 변수| 메모|
+|매개 변수| 참고|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
@@ -260,13 +260,13 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-Log Analytics와의 통합을 완료 한 후에는를 실행 `netsh winhttp reset proxy`하 여 변경 내용을 제거 합니다. 그런 다음 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 Log Analytics 게이트웨이 서버를 지정 합니다. 
+Log Analytics와의 통합을 완료 한 후에는를 실행 하 여 변경 내용을 제거 합니다 `netsh winhttp reset proxy` . 그런 다음 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 Log Analytics 게이트웨이 서버를 지정 합니다. 
 
 1. Operations Manager 콘솔의 **Operations Management Suite**에서 **연결**을 선택한 다음 **프록시 서버 구성**을 선택 합니다.
 
    ![선택 항목을 보여 주는 Operations Manager의 스크린샷 구성 프록시 서버](./media/gateway/scom01.png)
 
-1. **프록시 서버를 사용 하 여 Operations Management Suite에 액세스를** 선택한 다음 Log Analytics 게이트웨이 서버의 IP 주소 또는 부하 분산 장치의 가상 ip 주소를 입력 합니다. 접두사 `http://`를 사용 하 여 시작 해야 합니다.
+1. **프록시 서버를 사용 하 여 Operations Management Suite에 액세스를** 선택한 다음 Log Analytics 게이트웨이 서버의 IP 주소 또는 부하 분산 장치의 가상 ip 주소를 입력 합니다. 접두사를 사용 하 여 시작 해야 `http://` 합니다.
 
    ![프록시 서버 주소를 표시 하는 Operations Manager의 스크린샷](./media/gateway/scom02.png)
 
@@ -288,7 +288,7 @@ Log Analytics 게이트웨이 서버를 사용 하도록 특정 서버 또는 �
 1. **찾을 대상** 필드에 **상태 관리 서비스** 를 입력 하 고 목록에서 선택 합니다. **확인**을 선택합니다.  
 1. **Advisor 프록시 설정 규칙**을 검색 합니다. 
 1. Operations Manager 도구 모음에서 **재정의** 를 선택 하 고 다음 **클래스의 특정 개체에 대 한 rule\for: 상태 관리 서비스** 를 가리킨 다음 목록에서 개체를 선택 합니다.  또는이 재정의를 적용 하려는 서버의 상태 관리 서비스 개체를 포함 하는 사용자 지정 그룹을 만듭니다. 그런 다음 사용자 지정 그룹에 재정의를 적용 합니다.
-1. **재정의 속성** 대화 상자의 **재정의** 열에서 **webproxyaddress** 매개 변수 옆에 있는 확인 표시를 추가 합니다.  **재정의 값** 필드에 Log Analytics 게이트웨이 서버의 URL을 입력 합니다. 접두사 `http://`를 사용 하 여 시작 해야 합니다.  
+1. **재정의 속성** 대화 상자의 **재정의** 열에서 **webproxyaddress** 매개 변수 옆에 있는 확인 표시를 추가 합니다.  **재정의 값** 필드에 Log Analytics 게이트웨이 서버의 URL을 입력 합니다. 접두사를 사용 하 여 시작 해야 `http://` 합니다.  
 
     >[!NOTE]
     > 규칙을 사용하도록 설정하지 않아도 됩니다. Microsoft System center advisor 모니터링 서버 그룹을 대상으로 하는 Microsoft System Center Advisor 보안 참조 재정의 관리 팩의 재정의를 사용 하 여 이미 자동으로 관리 됩니다.
@@ -327,9 +327,9 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 3 단계의 오류는 모듈을 가져오지 못했음을 의미 합니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. OMS 게이트웨이 설치 경로: *C:\Program FILES\MICROSOFT oms Gateway\PowerShell\OmsGateway*에서 모듈을 찾을 수 있습니다.
 
-| **#A0** | **매개 변수** | **설명** | **예제** |
+| **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Key |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다.`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  

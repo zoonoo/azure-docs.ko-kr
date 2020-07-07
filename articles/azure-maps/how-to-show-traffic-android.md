@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335385"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
 흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-account-with-azure-maps)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
 
 ## <a name="incidents-traffic-data"></a>인시던트 트래픽 데이터 
 
-및 `setTraffic` `incidents`를 호출 하려면 다음 라이브러리를 가져와야 합니다.
+및를 호출 하려면 다음 라이브러리를 가져와야 합니다 `setTraffic` `incidents` .
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- 다음 코드 조각에서는 지도에 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 부울 값을 `incidents` 메서드에 전달 하 고이를 `setTraffic` 메서드에 전달 합니다. 
+ 다음 코드 조각에서는 지도에 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 부울 값을 메서드에 전달 하 `incidents` 고이를 `setTraffic` 메서드에 전달 합니다. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>흐름 트래픽 데이터
 
-및 `setTraffic` `flow`를 호출 하려면 먼저 다음 라이브러리를 가져와야 합니다.
+및를 호출 하려면 먼저 다음 라이브러리를 가져와야 합니다 `setTraffic` `flow` .
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-다음 코드 조각을 사용 하 여 트래픽 흐름 데이터를 설정 합니다. 이전 섹션의 코드와 마찬가지로 메서드의 반환 값 `flow` 을 `setTraffic` 메서드에 전달 합니다. 에 `flow`전달할 수 있는 4 개의 값이 있고 각 값은 해당 값을 `flow` 반환 하도록 트리거합니다. 그런 다음의 `flow` 반환 값은에 대 `setTraffic`한 인수로 전달 됩니다. 이러한 4 가지 값에 대해서는 아래 표를 참조 하세요.
+다음 코드 조각을 사용 하 여 트래픽 흐름 데이터를 설정 합니다. 이전 섹션의 코드와 마찬가지로 메서드의 반환 값을 메서드에 전달 합니다 `flow` `setTraffic` . 에 전달할 수 있는 4 개의 값이 `flow` 있고 각 값은 `flow` 해당 값을 반환 하도록 트리거합니다. 그런 다음의 반환 값은 `flow` 에 대 한 인수로 전달 됩니다 `setTraffic` . 이러한 4 가지 값에 대해서는 아래 표를 참조 하세요.
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 특정 기능에 대 한 인시던트를 얻으려면 아래 코드를 사용할 수 있습니다. 기능을 클릭 하면 코드 논리에서 인시던트를 확인 하 고 인시던트에 대 한 메시지를 작성 합니다. 화면 맨 아래에 세부 정보를 표시 하는 메시지가 표시 됩니다.
 
-1. 먼저 **activity_main .xml > res > 레이아웃**을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng`및 `mapcontrol_zoom` 를 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
+1. 먼저 **activity_main.xml> res > 레이아웃 **을 편집 해야 합니다. 그러면 아래와 같이 표시 됩니다. `mapcontrol_centerLat`, `mapcontrol_centerLng` 및를 `mapcontrol_zoom` 원하는 값으로 바꿀 수 있습니다. 회수, 확대/축소 수준은 0에서 22 사이의 값입니다. 확대/축소 수준 0에서 전체 세계는 단일 타일에 맞게 조정 됩니다.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ protected void onCreate(Bundle savedInstanceState) {
    }
    ```
 
-3. 응용 프로그램에 위의 코드를 통합 하면 기능을 클릭 하 고 트래픽 인시던트의 세부 정보를 볼 수 있습니다. **Activity_main** 파일에 사용 된 위도, 경도 및 확대/축소 수준 값에 따라 다음 이미지와 유사한 결과가 표시 됩니다.
+3. 응용 프로그램에 위의 코드를 통합 하면 기능을 클릭 하 고 트래픽 인시던트의 세부 정보를 볼 수 있습니다. **activity_main.xml** 파일에 사용 된 위도, 경도 및 확대/축소 수준 값에 따라 다음 이미지와 유사한 결과가 표시 됩니다.
 
    <center>
 

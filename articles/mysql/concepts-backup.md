@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 3a6162bb381f4e54114e3cabbf138f5b1c6aaae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373026"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
@@ -19,7 +19,7 @@ Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가
 
 ## <a name="backups"></a>Backup
 
-Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4 TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16TB의 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 [따라](howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원되는 최대 스토리지 크기에 따라 전체 및 차등 백업(최대 4TB 스토리지 서버) 또는 스냅샷 백업(최대 16TB 스토리지 서버)을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 [따라](howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 이러한 백업 파일은 사용자에 게 노출 되지 않으므로 내보낼 수 없습니다. 이러한 백업은 Azure Database for MySQL 복원 작업에만 사용할 수 있습니다. [Mysqldump](concepts-migrate-dump-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 

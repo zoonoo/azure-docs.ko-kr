@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80291997"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
@@ -55,7 +55,7 @@ echo $response
  
 Stream Analytics 작업을 만들려면 Stream Analytics API를 사용하여 PUT 메서드를 호출합니다.
 
-|방법|요청 URL|
+|메서드|요청 URL|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
@@ -142,7 +142,7 @@ JSON에서 요청 본문의 예제입니다.
  
 IoT Edge에서 Stream Analytics 작업을 게시하려면 Edge Package Publish API를 사용하여 POST 메서드를 호출합니다.
 
-|방법|요청 URL|
+|메서드|요청 URL|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420810"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 DC와 VM 간의 통신이 양호하지만 DC가 RDP 세션을 열 수 있을 만큼 정상 상태가 아닌 경우 DC를 다시 시작해 볼 수 있습니다.
 
-위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
+위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. 다음 내용을 사용하여 Unjoin.ps1이라는 스크립트를 만든 다음, 이 스크립트를 사용자 지정 스크립트 확장으로 Azure Portal에 배포합니다.
 

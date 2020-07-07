@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335578"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 기호 계층 추가
 
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 데이터 소스의 요소 데이터를 맵의 기호 계층으로 렌더링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완전히 따르려면 지도를 로드 하는 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "80335578"
 
 기호 계층을 사용 하 여 지도에 표식을 추가 하려면 다음 단계를 수행 합니다.
 
-1. **Res** > **layout**layout > **activity_main xml** 을 편집 하 여 다음 xml과 같이 표시 됩니다.
+1. **res**  >  **layout**  >  다음 XML 처럼 표시 되도록 res 레이아웃**activity_main.xml** 를 편집 합니다.
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ ms.locfileid: "80335578"
     </FrameLayout>
     ```
 
-2. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다.
+2. 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 `MainActivity.java` 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -178,7 +178,7 @@ ms.locfileid: "80335578"
 맵에 추가 정보를 추가 하려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Android 맵에 셰이프 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
 > [기능 정보 표시](display-feature-information-android.md)

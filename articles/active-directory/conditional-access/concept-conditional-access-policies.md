@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295317"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
@@ -115,7 +115,7 @@ Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 
 조건부 액세스 정책에 적용 하려면 최소한 다음을 포함 해야 합니다.
 
 - 정책의 **이름** 입니다.
-- **할당**
+- **과제**
    - 정책을 적용할 **사용자 및/또는 그룹**
    - 정책을 적용할 **클라우드 앱 또는 작업** 입니다.
 - **액세스 제어**
@@ -127,7 +127,7 @@ Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 
 
 ## <a name="next-steps"></a>다음 단계
 
-[조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
+[조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
 [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
 

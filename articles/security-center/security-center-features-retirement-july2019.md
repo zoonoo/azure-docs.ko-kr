@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80583230"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Security Center 기능 사용 중지 (7 월 2019)
@@ -53,7 +53,7 @@ Security Center Log Analytics 에이전트를 사용 하 여 컴퓨터에서 다
 
 Azure Log Analytics의 기본 기능을 사용 하 여 작업 영역에서 주목할 만한 이벤트를 확인 하는 것이 좋습니다.
 
-Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역** > **저장 된 검색**을 선택 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
+Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역**  >  **저장 된 검색**을 선택 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
 
 ![작업 영역 저장 된 검색][3]
 

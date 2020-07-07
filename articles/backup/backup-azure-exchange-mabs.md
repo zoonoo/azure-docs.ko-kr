@@ -5,17 +5,17 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80421344"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 Azure Backup Server가 [설치 및 준비](backup-azure-microsoft-azure-backup.md)되어 있는지 확인합니다.
 
@@ -53,7 +53,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
     이 옵션을 선택 하면 Exchange 서버에서 **eseutil** 명령을 실행 하 여 생성 되는 i/o 트래픽을 방지 하기 위해 백업 일관성 확인이 mabs에서 실행 됩니다.
 
    > [!NOTE]
-   > 이 옵션을 사용 하려면 Files\Microsoft 및 Eseutil.exe 파일을 MABS 서버의 C:\Program Azure Backup\DPM\DPM\bin 디렉터리에 복사 해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다.  
+   > 이 옵션을 사용 하려면 Ese.dll 및 Eseutil.exe 파일을 MABS 서버의 C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin 디렉터리에 복사 해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다.  
    > ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -68,10 +68,10 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. MABS 서버에서 초기 복제를 만들 시간을 선택 하 고 **다음**을 클릭 합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 다음은 그 예입니다.
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 다음은 그 예입니다.
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

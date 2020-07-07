@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519939"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Google 로그인을 사용 하도록 App Service 또는 Azure Functions 앱 구성
@@ -25,8 +25,8 @@ ms.locfileid: "80519939"
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Google을 사용하여 애플리케이션 등록
 
 1. [서버 쪽 앱에 대 한 Google 로그인](https://developers.google.com/identity/sign-in/web/server-side-flow) 의 google 설명서에 따라 클라이언트 ID 및 클라이언트 암호를 만듭니다. 코드를 변경할 필요가 없습니다. 다음 정보를 사용 하면 됩니다.
-    - **권한 있는 JavaScript 원본**에 대해 `https://<app-name>.azurewebsites.net` * \<앱 이름>* 에서 앱 이름으로를 사용 합니다.
-    - **권한 있는 리디렉션 URI**의 경우 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`를 사용 합니다.
+    - **권한 있는 JavaScript 원본**에 대해 `https://<app-name>.azurewebsites.net` 에서 앱의 이름과 함께를 사용 *\<app-name>* 합니다.
+    - **권한 있는 리디렉션 URI**의 경우를 사용 `https://<app-name>.azurewebsites.net/.auth/login/google/callback` 합니다.
 1. 앱 ID 및 앱 암호 값을 복사 합니다.
 
     > [!IMPORTANT]
@@ -35,7 +35,7 @@ ms.locfileid: "80519939"
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>애플리케이션에 Google 정보 추가
 
 1. [Azure Portal]에서 App Service 앱으로 이동 합니다.
-1. **설정** > **인증/권한 부여** **를 선택**하 고 **App Service 인증이** 설정 되어 있는지 확인 합니다.
+1. **설정** > **인증 / 권한 부여**를 선택하고 **App Service 인증**이 **켜기**인지 확인합니다.
 1. **Google**을 선택한 다음 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 응용 프로그램에 필요한 모든 범위를 사용 하도록 설정 합니다.
 1. **확인**을 선택합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "80519939"
 1. 필드 Google에서 인증 된 사용자만 사이트에 액세스 하도록 제한 하려면 **google**에 **요청이 인증 되지 않은 경우 수행할 작업** 을 설정 합니다. 이 기능을 설정 하면 앱에서 모든 요청을 인증 해야 합니다. 또한 인증을 위해 인증 되지 않은 모든 요청을 Google으로 리디렉션합니다.
 
     > [!CAUTION]
-    > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지가 있는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 앱이 수동으로 인증을 시작 하도록 **익명 요청 허용 (작업 없음)을 사용** 하는 것이 좋습니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조 하세요.
+    > 이러한 방식으로 액세스를 제한하면 모든 앱 호출에 제한이 적용되며, 여러 단일 페이지 애플리케이션이 그렇듯이 공개적으로 사용 가능한 홈페이지가 있는 앱에는 이 방법이 바람직하지 않을 수 있습니다. 이러한 애플리케이션에서는 **익명 요청 허용(작업 없음)** 으로 설정하고, 앱에서 수동으로 인증을 시작하는 것이 더 좋은 방법일 수 있습니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조하세요.
 
 1. **저장**을 선택합니다.
 

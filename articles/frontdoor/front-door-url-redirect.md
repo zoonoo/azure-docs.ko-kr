@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295470"
 ---
 # <a name="url-redirect"></a>URL 리디렉션
@@ -40,13 +40,13 @@ Azure Front 도어를 사용 하 여 트래픽을 리디렉션할 수 있습니�
 - **일치 요청**:이 옵션은 들어오는 요청에서 사용 하는 프로토콜을 유지 합니다. 따라서 HTTP 요청은 HTTP로 유지 되 고 HTTPS 요청은 HTTPS 사후 리디렉션으로 유지 됩니다.
 
 ## <a name="destination-host"></a>대상 호스트
-리디렉션 라우팅을 구성 하는 과정에서 리디렉션 요청에 대 한 호스트 이름 또는 도메인을 변경할 수도 있습니다. 이 필드를 설정 하 여 리디렉션의 URL의 호스트 이름을 변경 하거나, 들어오는 요청에서 호스트 이름을 유지할 수 있습니다. 따라서이 필드를 사용 하 여에 전송 되는 모든 `https://www.contoso.com/*` 요청 `https://www.fabrikam.com/*`을로 리디렉션할 수 있습니다.
+리디렉션 라우팅을 구성 하는 과정에서 리디렉션 요청에 대 한 호스트 이름 또는 도메인을 변경할 수도 있습니다. 이 필드를 설정 하 여 리디렉션의 URL의 호스트 이름을 변경 하거나, 들어오는 요청에서 호스트 이름을 유지할 수 있습니다. 따라서이 필드를 사용 하 여에 전송 되는 모든 요청을로 리디렉션할 수 있습니다 `https://www.contoso.com/*` `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>대상 경로
-URL의 경로 세그먼트를 리디렉션의 일부로 바꾸려는 경우이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 경로의 일부로 경로 값을 유지 하도록 선택할 수 있습니다. 따라서이 필드를 사용 하 여로 `https://www.contoso.com/\*` 전송 되는 모든 요청을 `https://www.contoso.com/redirected-site`로 리디렉션할 수 있습니다.
+URL의 경로 세그먼트를 리디렉션의 일부로 바꾸려는 경우이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 경로의 일부로 경로 값을 유지 하도록 선택할 수 있습니다. 따라서이 필드를 사용 하 여로 전송 되는 모든 요청을로 리디렉션할 수 있습니다 `https://www.contoso.com/\*` `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>쿼리 문자열 매개 변수
-리디렉션된 URL의 쿼리 문자열 매개 변수를 대체할 수도 있습니다. 들어오는 요청 URL에서 기존 쿼리 문자열을 바꾸려면이 필드를 ' Replace '로 설정한 다음 적절 한 값을 설정 합니다. 그렇지 않으면 필드를 ' 유지 '로 설정 하 여 원래 쿼리 문자열 집합을 유지할 수 있습니다. 예를 들어이 필드를 사용 하 여로 `https://www.contoso.com/foo/bar` 전송 된 모든 트래픽을로 `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`리디렉션할 수 있습니다. 
+리디렉션된 URL의 쿼리 문자열 매개 변수를 대체할 수도 있습니다. 들어오는 요청 URL에서 기존 쿼리 문자열을 바꾸려면이 필드를 ' Replace '로 설정한 다음 적절 한 값을 설정 합니다. 그렇지 않으면 필드를 ' 유지 '로 설정 하 여 원래 쿼리 문자열 집합을 유지할 수 있습니다. 예를 들어이 필드를 사용 하 여로 전송 된 모든 트래픽을로 리디렉션할 수 있습니다 `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 
 
 ## <a name="destination-fragment"></a>대상 조각
 대상 조각은 일반적으로 브라우저에서 페이지의 특정 섹션에 배치 하는 데 사용 되는 URL의 일부입니다. 이 필드를 설정 하 여 리디렉션 URL에 조각을 추가할 수 있습니다.

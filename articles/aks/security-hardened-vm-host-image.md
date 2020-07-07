@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420894"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>AKS 에이전트 노드 호스트 OS에 대 한 보안 강화
@@ -75,7 +75,7 @@ AKS 클러스터는 AKS에서 실행 되는 컨테이너에 활용 되는 보안
 |5.4.4 |기본 사용자 umask 027 이상 인지 확인 |
 |5.6 |Su 명령에 대 한 액세스가 제한 되어 있는지 확인|
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
  
 * 공격 노출 영역을 더 줄이기 위해 일부 불필요 한 커널 모듈 드라이버는 OS에서 사용 하지 않도록 설정 되었습니다.
 

@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550254"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
@@ -45,7 +45,7 @@ ms.locfileid: "80550254"
 
 1. [**공개 미리 보기 중에만 필요**] [클라우드 장치 관리자](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 시작 하 고 조직에 장치를 연결 해야 합니다.
 
-    Azure Portal에서 조직 역할의 멤버 자격을 구성 하려면: **Azure Active Directory** > **역할 및 관리자** > **클라우드 장치 관리자**
+    Azure Portal에서 조직 역할의 멤버 자격을 구성 하려면: **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자**
 
 다음 섹션에서는 공유 장치 모드를 지원 하도록 응용 프로그램을 업데이트 하는 방법을 설명 합니다.
 
@@ -90,9 +90,9 @@ ms.locfileid: "80550254"
 
 응용 프로그램에는 공유 장치 모드를 검색 하는 것이 중요 합니다. 응용 프로그램을 공유 장치에서 사용 하는 경우 많은 응용 프로그램에서 사용자 환경 (UX)을 변경 해야 합니다. 예를 들어 응용 프로그램에 이미 계정이 있을 가능성이 있으므로 Firstline 작업자에 게 적합 하지 않은 "등록" 기능이 있을 수 있습니다. 또한 공유 장치 모드에 있는 경우 응용 프로그램의 데이터 처리에 추가 보안을 추가할 수 있습니다.
 
-에서 API `getDeviceInformationWithParameters:completionBlock:` 를 사용 `MSALPublicClientApplication` 하 여 공유 장치 모드의 장치에서 앱이 실행 되 고 있는지 확인 합니다.
+`getDeviceInformationWithParameters:completionBlock:`에서 API를 사용 `MSALPublicClientApplication` 하 여 공유 장치 모드의 장치에서 앱이 실행 되 고 있는지 확인 합니다.
 
-다음 코드 조각에서는 API를 `getDeviceInformationWithParameters:completionBlock:` 사용 하는 예제를 보여 줍니다.
+다음 코드 조각에서는 API를 사용 하는 예제를 보여 줍니다 `getDeviceInformationWithParameters:completionBlock:` .
 
 #### <a name="swift"></a>Swift
 
@@ -128,7 +128,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 
 공유 장치 모드를 지 원하는 또 다른 중요 한 부분은 장치의 사용자 상태를 확인 하 고 사용자가 변경 되었거나 장치에 사용자가 없는 경우 응용 프로그램 데이터를 지우는 것입니다. 다른 사용자가 데이터를 유출 하지 않도록 할 책임이 있습니다.
 
-API를 사용 `getCurrentAccountWithParameters:completionBlock:` 하 여 장치에서 현재 로그인 된 계정을 쿼리할 수 있습니다.
+`getCurrentAccountWithParameters:completionBlock:`API를 사용 하 여 장치에서 현재 로그인 된 계정을 쿼리할 수 있습니다.
 
 #### <a name="swift"></a>Swift
 
@@ -159,7 +159,7 @@ parameters.completionBlockQueue = dispatch_get_main_queue();
 
 ### <a name="globally-sign-in-a-user"></a>전역적으로 사용자 로그인
 
-장치가 공유 장치로 구성 된 경우 응용 프로그램은 `acquireTokenWithParameters:completionBlock:` API를 호출 하 여 계정에 로그인 할 수 있습니다. 계정에서 첫 번째 앱 로그인 후 장치에서 모든 적격 앱에 대해 전역적으로 계정을 사용할 수 있습니다.
+장치가 공유 장치로 구성 된 경우 응용 프로그램은 API를 호출 `acquireTokenWithParameters:completionBlock:` 하 여 계정에 로그인 할 수 있습니다. 계정에서 첫 번째 앱 로그인 후 장치에서 모든 적격 앱에 대해 전역적으로 계정을 사용할 수 있습니다.
 
 #### <a name="objective-c"></a>Objective-C
 
@@ -180,7 +180,7 @@ parameters.loginHint = self.loginHintTextField.text;
 > [!NOTE]
 > 다음 단계는 공개 미리 보기로 제공 되는 경우에만 필요 합니다.
 
-이 공개 미리 보기 버전에서 [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그](apple-sso-plugin.md) 인은 응용 프로그램에 대해서만 상태를 지웁니다. Safari 브라우저에서 상태를 지우지 않습니다. 사용자 상태에 대 한 추적을 유지 하지 않으려면 브라우저 세션을 수동으로 삭제 하는 것이 좋습니다. 아래 표시 된 선택적 `signoutFromBrowser` 속성을 사용 하 여 쿠키를 지울 수 있습니다. 이렇게 하면 브라우저를 장치에서 잠깐 시작 합니다.
+이 공개 미리 보기 버전에서 [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그](apple-sso-plugin.md) 인은 응용 프로그램에 대해서만 상태를 지웁니다. Safari 브라우저에서 상태를 지우지 않습니다. 사용자 상태에 대 한 추적을 유지 하지 않으려면 브라우저 세션을 수동으로 삭제 하는 것이 좋습니다. 아래 표시 된 선택적 속성을 사용 `signoutFromBrowser` 하 여 쿠키를 지울 수 있습니다. 이렇게 하면 브라우저를 장치에서 잠깐 시작 합니다.
 
 #### <a name="swift"></a>Swift
 

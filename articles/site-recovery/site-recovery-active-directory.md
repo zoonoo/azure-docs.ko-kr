@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546512"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
@@ -22,7 +22,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-azure.md) 검토 합니다.
@@ -108,7 +108,7 @@ Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세
 
 Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 도메인 컨트롤러 가상 머신에 로그인 할 수 있는 시간이 길어질 수 있습니다.
 
-이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 컴퓨터에 대 한 **VM-vm-generationid** 값이 변경 되지 않도록 하려면 온-프레미스 도메인 컨트롤러에서 다음 `DWORD` 값을 **4** 로 변경 하면 됩니다.
+이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 컴퓨터에 대 한 **VM-vm-generationid** 값이 변경 되지 않도록 하려면 `DWORD` 온-프레미스 도메인 컨트롤러에서 다음 값을 **4** 로 변경 하면 됩니다.
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
@@ -139,7 +139,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 > [!IMPORTANT]
 > 이 섹션에 설명된 구성의 일부는 표준 또는 기본 도메인 컨트롤러 구성이 아닙니다. 프로덕션 도메인 컨트롤러를 이렇게 변경하지 않으려면 Site Recovery 테스트 장애 조치(failover) 전용 도메인 컨트롤러를 만들 수 있습니다. 해당 전용 도메인 컨트롤러만 이렇게 변경하면 됩니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 폴더와 `SYSVOL` `NETLOGON` 폴더가 공유 되어 있는지 확인 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행 하 여 `SYSVOL` 폴더와 `NETLOGON` 폴더가 공유 되어 있는지 확인 합니다.
 
     `NET SHARE`
 
@@ -165,13 +165,13 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
       Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](/archive/blogs/thbouche/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.
 
-1. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0**으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. 가 존재 `DWORD` 하지 않는 경우 **매개 변수** 노드에서 만들 수 있습니다.
+1. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0**으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. `DWORD`가 존재 하지 않는 경우 **매개 변수** 노드에서 만들 수 있습니다.
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
    자세한 내용은 [DNS 이벤트 ID 4013 문제 해결: DNS 서버가 AD 통합 DNS 영역을 로드할 수 없습니다](https://support.microsoft.com/kb/2001093)를 참조하세요.
 
-1. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1**로 설정합니다. 가 존재 `DWORD` 하지 않는 경우 **Lsa** 노드 아래에서 만들 수 있습니다.
+1. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1**로 설정합니다. `DWORD`가 존재 하지 않는 경우 **Lsa** 노드 아래에서 만들 수 있습니다.
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
@@ -181,7 +181,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
 동일한 VM에서 도메인 컨트롤러 및 DNS를 실행 중인 경우 이 프로시저를 건너뛰어도 됩니다.
 
-DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 장애 조치(failover)를 위한 DNS VM을 만들어야 합니다. 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어 Active Directory 도메인이 인 `contoso.com`경우 이름을 `contoso.com`사용 하 여 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
+DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 장애 조치(failover)를 위한 DNS VM을 만들어야 합니다. 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어 Active Directory 도메인이 인 경우 `contoso.com` 이름을 사용 하 여 DNS 영역을 만들 수 있습니다 `contoso.com` . 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
 
 1. 복구 계획의 다른 가상 머신을 시작하기 전에 이러한 설정이 준비되었는지 확인합니다.
 

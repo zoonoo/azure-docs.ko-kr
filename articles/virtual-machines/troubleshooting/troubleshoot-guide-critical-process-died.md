@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373363"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows 중지 오류-"심각한 프로세스를 #0x000000EF."
@@ -35,13 +35,13 @@ ms.locfileid: "80373363"
 
 일반적으로 부팅 하는 동안 심각한 시스템 프로세스가 실패 하기 때문입니다. 중요 프로세스 문제에 대 한 자세한 내용은 "[버그 확인 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)"에서 확인할 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="process-overview"></a>프로세스 개요:
 
-1. 복구 VM 만들기 및 액세스
+1. 복구 VM을 만들고 액세스합니다.
 2. 모든 OS 손상을 수정 합니다.
-3. **권장**: VM을 다시 빌드하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용 하도록 설정 합니다.
+3. **권장**: VM을 다시 빌드하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용하도록 설정합니다.
 4. VM을 다시 빌드합니다.
 
 > [!NOTE]
@@ -49,8 +49,8 @@ ms.locfileid: "80373363"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [Vm 복구 명령의 1-3 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 를 사용 하 여 복구 vm을 준비 합니다.
-2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
+1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)를 사용하여 복구 VM을 준비합니다.
+2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="fix-any-os-corruption"></a>모든 OS 손상 수정
 
@@ -71,7 +71,7 @@ SFC를 실행 한 후에도 문제가 지속 되 면 메모리 덤프 파일을 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>새 복구 VM에 OS 디스크를 연결 합니다.
 
 1. [Vm 복구 명령의 1-3 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 를 사용 하 여 새 복구 vm을 준비 합니다.
-2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
+2. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾고 지원 티켓을 제출 합니다.
 
@@ -85,7 +85,7 @@ SFC를 실행 한 후에도 문제가 지속 되 면 메모리 덤프 파일을 
 
 메모리 덤프 수집 및 직렬 콘솔을 사용 하도록 설정 하려면 다음 스크립트를 실행 합니다.
 
-1. 관리자 권한 명령 프롬프트 세션 (관리자 권한으로 실행)을 엽니다.
+1. 관리자 권한 명령 프롬프트 세션을 엽니다(관리자 권한으로 실행).
 2. 다음 명령을 실행합니다.
 
    직렬 콘솔 사용
@@ -102,11 +102,11 @@ OS 디스크에 공간이 부족 한 경우 메모리 덤프 파일이 생성 �
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>OS 덤프를 사용 하도록 설정 하기 위한 권장 구성
 
-**손상 된 OS 디스크 로드**:
+**손상된 OS 디스크를 로드합니다.**
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**ControlSet001에서 사용:**
+**ControlSet001에서 사용하도록 설정합니다.**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -114,7 +114,7 @@ OS 디스크에 공간이 부족 한 경우 메모리 덤프 파일이 생성 �
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**ControlSet002에서 사용:**
+**ControlSet002에서 사용하도록 설정합니다.**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -122,10 +122,10 @@ OS 디스크에 공간이 부족 한 경우 메모리 덤프 파일이 생성 �
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**손상 된 OS 디스크 언로드:**
+**손상된 OS 디스크를 언로드합니다.**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>원본 VM 다시 빌드
 
-Vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.
+[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.

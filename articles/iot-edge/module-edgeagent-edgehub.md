@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546200"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 에이전트 및 IoT Edge 허브 모듈 쌍의 속성
@@ -23,7 +23,7 @@ IoT Edge 에이전트 및 IoT Edge 허브는 IoT Edge 런타임을 구성하는 
 
 모듈 쌍은 다음을 포함 합니다.
 
-* **Desired 속성**. 솔루션 백 엔드는 desired 속성을 설정할 수 있으며 모듈은이를 읽을 수 있습니다. 또한 모듈은 desired 속성의 변경 내용에 대 한 알림을 받을 수 있습니다. Desired 속성은 보고 된 속성과 함께 모듈 구성 또는 조건을 동기화 하는 데 사용 됩니다.
+* **desired 속성**. 솔루션 백 엔드는 desired 속성을 설정할 수 있으며 모듈은이를 읽을 수 있습니다. 또한 모듈은 desired 속성의 변경 내용에 대 한 알림을 받을 수 있습니다. 원하는 속성은 reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다.
 
 * **reported 속성**. 모듈은 보고 된 속성을 설정할 수 있으며, 솔루션 백 엔드는이를 읽고 쿼리할 수 있습니다. 보고 된 속성은 desired 속성과 함께 모듈 구성 또는 조건을 동기화 하는 데 사용 됩니다.
 
@@ -53,8 +53,8 @@ IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바�
 | modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 예 |
 | modules.{moduleId}.type | "docker"여야 합니다. | 예 |
 | modules.{moduleId}.status | {“running” \| “stopped”} | 예 |
-| modules.{moduleId}.restartPolicy | {"" 오류 \| 발생 "안 함" \| "오류 발생 \| " "항상"} | 예 |
-| 모듈로. {moduleId} .Imagepullpolicy | {"온-생성" \| "never"} | 아니요 |
+| modules.{moduleId}.restartPolicy | {"never" \| "오류 발생 시" \| "비정상" \| "always"} | 예 |
+| 모듈로. {moduleId} .Imagepullpolicy | {"만들기" \| "never"} | 아니요 |
 | 모듈로. {moduleId} env | 모듈에 전달할 환경 변수의 목록입니다. 형식을 사용 합니다.`"<name>": {"value": "<value>"}` | 아니요 |
 | modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 예 |
 | modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 아니요 |

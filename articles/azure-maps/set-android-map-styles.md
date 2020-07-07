@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334363"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도 스타일 설정
@@ -20,14 +20,14 @@ ms.locfileid: "80334363"
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 지도 스타일을 설정 하는 두 가지 방법을 보여 줍니다. Azure Maps에는 6 가지 맵 스타일을 선택할 수 있습니다. 지원 되는 지도 스타일에 대 한 자세한 내용은 [Azure Maps에서 지원 되는 맵 스타일](./supported-map-styles.md)을 참조 하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
 
 ## <a name="set-map-style-in-the-layout"></a>레이아웃에서 지도 스타일 설정
 
-활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. **Res > 레이아웃 > activity_main xml**을 편집 하 여 아래와 같이 표시 됩니다.
+활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. **Res > 레이아웃 > activity_main.xml**를 편집 합니다. 그러면 아래와 같이 표시 됩니다.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ ms.locfileid: "80334363"
 </FrameLayout>
 ```
 
-위의 `mapcontrol_style` 특성은 지도 스타일을 **grayscale_dark**설정 합니다. 
+`mapcontrol_style`위의 특성은 지도 스타일을 **grayscale_dark**설정 합니다. 
 
 <center>
 
@@ -59,7 +59,7 @@ ms.locfileid: "80334363"
 
 ## <a name="set-map-style-in-the-activity-class"></a>활동 클래스에서 지도 스타일 설정
 
-작업 클래스에서 지도 스타일을 설정할 수 있습니다. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다. 이 코드는 지도 스타일을 **satellite_road_labels**설정 합니다.
+작업 클래스에서 지도 스타일을 설정할 수 있습니다. 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 `MainActivity.java` 합니다. 이 코드는 지도 스타일을 **satellite_road_labels**설정 합니다.
 
 ```Java
 mapControl.onReady(map -> {

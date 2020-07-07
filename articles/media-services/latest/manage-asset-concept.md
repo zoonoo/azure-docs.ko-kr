@@ -14,10 +14,10 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582208"
 ---
 # <a name="manage-assets"></a>자산 관리
@@ -32,7 +32,7 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
 
 이 항목에서는 파일을 자산에 업로드 하 고 다른 일반적인 작업을 수행 하는 방법에 대 한 개요를 제공 합니다. 또한 코드 샘플 및 관련 항목에 대 한 링크도 제공 합니다.
 
-## <a name="prerequisite"></a>필수 요소 
+## <a name="prerequisite"></a>필수 조건 
 
 개발을 시작하기 전에 다음 사항을 검토합니다.
 
@@ -45,7 +45,7 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
 
 1. Media Services v3 API를 사용하여 새 "입력" 자산을 만듭니다. 이 작업은 Media Services 계정과 연결된 스토리지 계정에 컨테이너를 만듭니다. API는 컨테이너 이름을 반환합니다(예: `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    자산과 연결 하려는 blob 컨테이너가 이미 있는 경우 자산을 만들 때 컨테이너 이름을 지정할 수 있습니다. Media Services는 현재 컨테이너 루트의 Blob만 지원하고 파일 이름의 경로는 지원하지 않습니다. 따라서 파일 이름이 "input.mp4"인 컨테이너는 작동합니다. 그러나 "비디오/입력/입력. mp4" 파일 이름이 있는 컨테이너는 작동 하지 않습니다.
+    자산과 연결 하려는 blob 컨테이너가 이미 있는 경우 자산을 만들 때 컨테이너 이름을 지정할 수 있습니다. Media Services는 현재 컨테이너 루트의 Blob만 지원하고 파일 이름의 경로는 지원하지 않습니다. 따라서 파일 이름이 "input.mp4"인 컨테이너는 작동합니다. 그러나 "비디오/입력/input.mp4" 파일 이름이 있는 컨테이너는 작동 하지 않습니다.
 
     Azure CLI를 사용하여 구독에서 권한이 있는 스토리지 계정 및 컨테이너에 직접 업로드할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
 
     Media Services API를 사용하여 [자산 컨테이너 URL을 나열](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)할 수 있습니다.
 
-    **AssetContainerSas listContainerSas** 는를 설정 [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) `expiryTime`하는 ListContainerSasInput 매개 변수를 사용 합니다. 시간은 24 시간 < 설정 해야 합니다.
+    **AssetContainerSas listContainerSas** 는를 설정 하는 [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 매개 변수를 사용 `expiryTime` 합니다. 시간은 24 시간 < 설정 해야 합니다.
 
     [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 는 각 저장소 계정에 대해 두 개의 저장소 계정 키가 있으므로 여러 SAS url을 반환 합니다. 저장소 계정에는 저장소 계정 키의 장애 조치 (failover)와 원활한 회전이 지원 되기 때문에 두 가지 키가 있습니다. 첫 번째 SAS URL은 첫 번째 저장소 계정 키를 나타내며 두 번째 SAS URL은 두 번째 키를 나타냅니다.
 3. Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 하 여 자산 컨테이너에 파일을 업로드 합니다.
@@ -129,7 +129,7 @@ Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또는 �
 
 자세한 내용은 다음을 참조하세요.
 
-[자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+[자습서: Media Services v3로 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>출력 자산에서 작업 결과 다운로드
 

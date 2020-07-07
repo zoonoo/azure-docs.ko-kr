@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582684"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>암호화 
+### <a name="encrypted"></a>암호화됨 
 
 CENC 암호화를 사용 하 여 콘텐츠를 암호화 해야 하는 경우 정책을 ' Predefined_MultiDrmCencStreaming '로 설정 합니다. Widevine 암호화가 대시 스트림에 적용 되 고 PlayReady가 자연스럽 게 적용 됩니다. 구성 된 DRM 라이선스에 따라 키가 재생 클라이언트에 전달 됩니다.
 

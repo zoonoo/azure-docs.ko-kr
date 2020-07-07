@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334213"
 ---
-# <a name="connect-to-a-wfs-service"></a>워크플로 서비스에 연결
+# <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
 
-워크플로 (웹 기능 서비스)는 Open Geospatial Consortium (OGC)에 정의 된 표준화 된 API를 포함 하는 공간 데이터를 쿼리 하는 웹 서비스입니다. 공간 `WfsClient` IO 모듈의 클래스를 통해 개발자는 워크플로 서비스에 연결 하 고 서비스에서 데이터를 쿼리할 수 있습니다.
+워크플로 (웹 기능 서비스)는 Open Geospatial Consortium (OGC)에 정의 된 표준화 된 API를 포함 하는 공간 데이터를 쿼리 하는 웹 서비스입니다. `WfsClient`공간 IO 모듈의 클래스를 통해 개발자는 워크플로 서비스에 연결 하 고 서비스에서 데이터를 쿼리할 수 있습니다.
 
-`WfsClient` 클래스에서 지원 되는 기능은 다음과 같습니다.
+클래스에서 지원 되는 기능은 다음과 `WfsClient` 같습니다.
 
-- 지원 되는 `1.0.0`버전 `1.1.0`:, 및`2.0.0`
-- 지원 되는 필터 연산자: 이진 비교, 논리, 수학, 값 `bbox`및입니다.
-- 는를 사용 하 `HTTP GET` 여 요청을 수행 합니다.
+- 지원 되는 버전: `1.0.0` , `1.1.0` 및`2.0.0`
+- 지원 되는 필터 연산자: 이진 비교, 논리, 수학, 값 및 `bbox` 입니다.
+- 는를 사용 하 여 요청을 수행 `HTTP GET` 합니다.
 - 지원 되는 작업:
 
     | | |
@@ -34,18 +34,18 @@ ms.locfileid: "80334213"
 
 ## <a name="using-the-wfs-client"></a>워크플로 클라이언트 사용
 
-공간 `atlas.io.ogc.WfsClient` IO 모듈의 클래스를 사용 하면 쉽게 워크플로 서비스를 쿼리하고 응답을 GeoJSON 개체로 변환할 수 있습니다. 그런 다음이 GeoJSON 개체를 다른 매핑 용도로 사용할 수 있습니다.
+`atlas.io.ogc.WfsClient`공간 IO 모듈의 클래스를 사용 하면 쉽게 워크플로 서비스를 쿼리하고 응답을 GeoJSON 개체로 변환할 수 있습니다. 그런 다음이 GeoJSON 개체를 다른 매핑 용도로 사용할 수 있습니다.
 
 다음 코드는 워크플로 서비스를 쿼리하고 반환 된 기능을 맵에 렌더링 합니다.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Simple 워크플로 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Simple 워크플로 예제</a> 를 참조 하세요.
+<iframe height='700' scrolling='no' title='Simple 워크플로 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>SIMPLE 워크플로 예제</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>지원되는 필터
 
-워크플로 표준에 대 한 사양에서는 OGC 필터를 사용 합니다. 아래 필터는 호출 되는 서비스에서 이러한 필터도 지원 한다고 가정 하 여 워크플로 클라이언트에서 지원 됩니다. 사용자 지정 필터 문자열을 `CustomFilter` 클래스에 전달할 수 있습니다.
+워크플로 표준에 대 한 사양에서는 OGC 필터를 사용 합니다. 아래 필터는 호출 되는 서비스에서 이러한 필터도 지원 한다고 가정 하 여 워크플로 클라이언트에서 지원 됩니다. 사용자 지정 필터 문자열을 클래스에 전달할 수 있습니다 `CustomFilter` .
 
 **논리 연산자**
 
@@ -82,7 +82,7 @@ ms.locfileid: "80334213"
 
 <br/>
 
-<iframe height='500' scrolling='no' title= '워크플로 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>워크플로 필터 예</a> 를 참조 하세요.
+<iframe height='500' scrolling='no' title= '워크플로 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>워크플로 필터 예</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>워크플로 서비스 탐색기
@@ -91,10 +91,10 @@ ms.locfileid: "80334213"
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요.
+<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-CORS를 사용 하지 않는 끝점에서 호스트 되는 워크플로 서비스에 액세스 하기 위해 다음과 같이 CORS 사용 프록시 서비스 `proxyService` 를 워크플로 클라이언트의 옵션에 전달할 수 있습니다. 
+CORS를 사용 하지 않는 끝점에서 호스트 되는 워크플로 서비스에 액세스 하기 위해 다음과 같이 CORS 사용 프록시 서비스를 `proxyService` 워크플로 클라이언트의 옵션에 전달할 수 있습니다. 
 
 ```JavaScript
 //Create the WFS client to access the service and use the proxy service settings
@@ -120,4 +120,4 @@ client = new atlas.io.ogc.WfsClient({
 > [핵심 작업 활용](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [지원 되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+> [지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)

@@ -13,10 +13,10 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294381"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
@@ -47,7 +47,7 @@ Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 게시 �
    > [!Note]
    > 원격 데스크톱 연결에 필요한 인증서는 다른 Azure 작업에 사용하는 인증서와 다릅니다. 원격 액세스 인증서에는 프라이빗 키가 있어야 합니다.
 
-5. 목록에서 인증서를 선택 하거나 만들기 ...를 선택 ** &lt;합니다. &gt;**. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인**을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
+5. 목록에서 인증서를 선택 하거나 ** &lt; 만들기 &gt; **...를 선택 합니다. 새 인증서를 만들 때 메시지가 표시되면 새 인증서에 대한 이름을 입력하고 **확인**을 선택합니다. 새 인증서가 드롭다운 목록 상자에 표시됩니다.
 
 6. 사용자 이름과 암호를 제공합니다. 기존 계정을 사용할 수 없습니다. "관리자"는 새 계정에 대한 사용자 이름으로 사용하지 않습니다.
 
@@ -86,7 +86,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 다음은 그 예입니다.
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

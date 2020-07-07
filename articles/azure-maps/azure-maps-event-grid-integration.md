@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335726"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응 
@@ -30,7 +30,7 @@ Azure Event Grid는 게시-구독 모델을 사용 하는 완전히 관리 되�
 
 Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다. 
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 받은 좌표가 지정 된 지 오의 외부에서 내부로 이동 했을 때 발생 합니다. |
 | Microsoft.Maps.GeofenceExited | 받은 좌표가 지정 된 지 오의 내에서 바깥쪽으로 이동 했을 때 발생 합니다. |
@@ -81,8 +81,8 @@ Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/con
 Azure Maps 지오펜스 이벤트를 처리하는 애플리케이션은 다음과 같은 몇 가지 권장 지침을 따라야 합니다.
 
 * 여러 구독을 구성 하 여 이벤트를 동일한 이벤트 처리기로 라우팅합니다. 이벤트가 특정 원본에서 제공되었다고 가정하지 않는 것이 중요합니다. 항상 메시지 항목을 확인 하 여 메시지가 원하는 원본에서 온 것인지 확인 합니다.
-* 응답 헤더 `X-Correlation-id` 의 필드를 사용 하 여 개체에 대 한 정보가 최신 상태 인지를 파악 합니다. 메시지는 지연 후 또는 잘못된 순서로 도착할 수 있습니다.
-* 로 `EnterAndExit`설정 된 mode 매개 변수를 사용 하 여 지 오 지 오 API의 GET 또는 POST 요청을 호출 하면 이전에 지 오 라 api 호출에서 상태가 변경 된 지 오 라의 각 기 하 도형에 대해 Enter 또는 Exit 이벤트가 생성 됩니다.
+* `X-Correlation-id`응답 헤더의 필드를 사용 하 여 개체에 대 한 정보가 최신 상태 인지를 파악 합니다. 메시지는 지연 후 또는 잘못된 순서로 도착할 수 있습니다.
+* 로 설정 된 mode 매개 변수를 사용 하 여 지 오 지 오 API의 GET 또는 POST 요청을 호출 하면 이전에 지 `EnterAndExit` 오 라 api 호출에서 상태가 변경 된 지 오 라의 각 기 하 도형에 대해 Enter 또는 Exit 이벤트가 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

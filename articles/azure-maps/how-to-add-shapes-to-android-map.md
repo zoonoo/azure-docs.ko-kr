@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7a793ff35675c876dc429976ebee96887b12735a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335603"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 셰이프 추가
 
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 맵에 셰이프를 렌더링 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "80335603"
 
 **선 계층**을 사용 하 여 지도에 선을 추가 하 고 아래 단계에 따라 지도에 선을 추가할 수 있습니다.
 
-1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
+1. **> 레이아웃 > activity_main.xml** 아래와 같이 표시 되도록 res를 편집 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ ms.locfileid: "80335603"
     </FrameLayout>
     ```
 
-2. 아래의 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
+2. 아래의 다음 코드 조각을 클래스의 **onCreate ()** 메서드에 복사 `MainActivity.java` 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -185,7 +185,7 @@ ms.locfileid: "80335603"
 
 **다각형 계층** 을 사용 하 여 다각형 영역을 지도에 렌더링할 수 있습니다. 지도에 다각형을 추가 하려면 다음 단계를 수행 합니다.
 
-1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
+1. **> 레이아웃 > activity_main.xml** 아래와 같이 표시 되도록 res를 편집 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -208,7 +208,7 @@ ms.locfileid: "80335603"
     </FrameLayout>
     ```
 
-2. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다.
+2. 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 `MainActivity.java` 합니다.
 
     ```Java
     mapControl.onReady(map -> {

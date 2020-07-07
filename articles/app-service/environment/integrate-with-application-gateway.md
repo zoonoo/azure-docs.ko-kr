@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476898"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
@@ -33,14 +33,14 @@ Azure 애플리케이션 게이트웨이는 계층 7 부하 분산, TLS/SSL 오�
 * 사용자 지정 도메인 이름을 적용하도록 앱을 구성합니다.
 * 애플리케이션 게이트웨이를 가리키는 공용 DNS 호스트 이름을 편집합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Application Gateway를 ILB App Service Environment와 통합하려면 다음이 필요합니다.
 
 * ILB App Service Environment
 * ILB App Service Environment에서 실행되는 앱
 * ILB App Service Environment의 앱에서 사용할 인터넷 라우팅 가능 도메인 이름
-* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정** > **IP 주소**아래에 있습니다.
+* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정**  >  **IP 주소**아래에 있습니다.
 
     ![ILB App Service Environment에서 사용하는 IP 주소의 예제 목록][9]
     
@@ -56,7 +56,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
 ## <a name="configuration-steps"></a>구성 단계 ##
 
-1. Azure Portal에서 **새** > **네트워크** > **Application Gateway**로 이동 합니다.
+1. Azure Portal에서 **새**  >  **네트워크**  >  **Application Gateway**로 이동 합니다.
 
 2. **기본 사항** 영역에서 다음을 수행합니다.
 
@@ -64,7 +64,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    b. **계층**에 대해 **WAF**를 선택합니다.
 
-   다. **구독**에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
+   c. **구독**에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
 
    d. **리소스 그룹**에 대해 리소스 그룹을 만들거나 선택합니다.
 
@@ -78,7 +78,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    b. **서브넷**에 대해 Application Gateway를 배포해야 하는 서브넷을 선택합니다. VPN Gateway를 만들 수 없게 하므로 GatewaySubnet은 사용하지 마세요.
 
-   다. **IP 주소 유형**으로 **공용**을 선택합니다.
+   c. **IP 주소 유형**으로 **공용**을 선택합니다.
 
    d. **공용 IP 주소**에 대해 공용 IP 주소를 선택합니다. 공용 IP 주소가 없으면 하나 만듭니다.
 

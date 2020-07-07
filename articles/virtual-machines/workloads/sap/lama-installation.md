@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293940"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
@@ -81,7 +81,7 @@ Azure 커넥터는 Azure Resource Manager API를 사용 하 여 Azure 리소스�
 
 Azure 커넥터는 서비스 주체를 사용 하 여 Microsoft Azure에 대 한 권한을 부여할 수 있습니다. 다음 단계에 따라 SAP LaMa(Landscape Management)에 대한 서비스 주체를 생성합니다.
 
-1. [https://editor.swagger.io](https://portal.azure.com ) 으로 이동합니다.
+1. [https://editor.swagger.io](https://portal.azure.com) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 새 등록을 클릭 합니다.
@@ -153,7 +153,7 @@ SAP LaMa로 관리하려는 모든 가상 머신에 대해 별도의 서브넷�
 > [!NOTE]
 > 가능하면 모든 가상 머신 확장을 제거합니다. 가상 머신에서 디스크를 분리하는 데 긴 런타임이 발생할 수 있기 때문입니다.
 
-사용자 \<hanasid>adm, \<sapsid>adm 및 그룹 sapsys가 동일한 ID 및 GID를 사용하는 대상 머신에 존재하거나 LDAP를 사용해야 합니다. SAP NetWeaver (A)SCS를 실행하는 데 사용해야 하는 가상 머신에서 NFS 서버를 사용하도록 설정하고 시작합니다.
+사용자 \<hanasid> adm, \<sapsid> adm 및 그룹 sapsys이 동일한 ID 및 gid를 사용 하는 대상 컴퓨터에 존재 하는지 확인 하거나 LDAP를 사용 합니다. SAP NetWeaver (A)SCS를 실행하는 데 사용해야 하는 가상 머신에서 NFS 서버를 사용하도록 설정하고 시작합니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -163,7 +163,7 @@ SAP LaMa는 SAP Host Agent를 사용하여 가상 머신과 통신합니다. 가
 
 SAP Note [2343511]에 나열된 지원되는 운영 체제 중 하나를 사용하여 새 가상 머신을 만듭니다. SAP 인스턴스에 대한 추가 IP 구성을 추가합니다. 각 인스턴스에는 IP 주소가 하나 이상 필요하며 가상 호스트 이름을 사용하여 설치해야 합니다.
 
-SAP NetWeaver ASCS 인스턴스에는 /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans 및 /usr/sap/\<sapsid>adm에 대한 디스크가 필요합니다. SAP NetWeaver Application Server에는 추가 디스크가 필요하지 않습니다. SAP 인스턴스와 관련된 모든 사항은 ASCS에 저장하고 NFS를 통해 내보내야 합니다. 그렇지 않으면, 현재는 SAP LaMa를 사용하여 추가 애플리케이션 서버를 추가할 수 없습니다.
+SAP NetWeaver ASCS 인스턴스에는/sapmnt/ \<SAPSID> ,/usr/sap/ \<SAPSID> ,/usr/sap/trans 및/usr/sap/adm 용 디스크가 필요 합니다 \<sapsid> . SAP NetWeaver Application Server에는 추가 디스크가 필요하지 않습니다. SAP 인스턴스와 관련된 모든 사항은 ASCS에 저장하고 NFS를 통해 내보내야 합니다. 그렇지 않으면, 현재는 SAP LaMa를 사용하여 추가 애플리케이션 서버를 추가할 수 없습니다.
 
 ![Linux의 SAP NetWeaver ASCS](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -212,7 +212,7 @@ SAP LaMa는 SQL Server 자체를 재배치할 수 없습니다. 따라서 데이
 
 템플릿에는 다음과 같은 매개 변수가 있습니다.
 
-* sapSystemId: SAP 시스템 ID입니다. 디스크 레이아웃(예: /usr/sap/\<sapsid>)을 만드는 데 사용됩니다.
+* sapSystemId: SAP 시스템 ID입니다. 디스크 레이아웃 (예:/usr/sap/)을 만드는 데 사용 됩니다 \<sapsid> .
 
 * computerName: 새 가상 머신의 컴퓨터 이름입니다. 이 매개 변수는 SAP LaMa에도 사용됩니다. 이 템플릿을 사용하여 시스템 복사본의 일부로 새 가상 머신을 프로비전하면, SAP LaMa는 이 컴퓨터 이름을 가진 호스트에 연결할 수 있을 때까지 대기합니다.
 
@@ -319,7 +319,7 @@ NetApp 계정 내에서 용량 풀은 각 풀의 디스크 크기와 유형을 �
 
 ![SAP LaMa NetApp 용량 풀이 만들어짐 ](media/lama/sap-lama-capacitypool-list.png)
 
-이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의 경우 */sapmnt/\<\>sid*, */usr/sap/\<sid\>* 및 */home/\<sid\>adm*과 같은 탑재를 수행 해야 합니다. 필요에 따라 중앙 전송 디렉터리에 대해 */usr/sap/trans* 가 필요 합니다 .이 디렉터리는 최소한 한 곳의 모든 시스템에서 사용 됩니다.
+이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의 경우 */sapmnt/ \<SID\> *, */usr/sap/ \<SID\> *및 */home/ \<sid\> adm*이 필요 합니다. 필요에 따라 중앙 전송 디렉터리에 대해 */usr/sap/trans* 가 필요 합니다 .이 디렉터리는 최소한 한 곳의 모든 시스템에서 사용 됩니다.
 
 > [!NOTE]
 > 베타 단계에서 볼륨 이름은 구독 내에서 고유 해야 합니다.
@@ -366,7 +366,7 @@ Df-h 명령을 사용 하 여 확인 합니다.
 
 탑재 지점은 ASCS 및 AS 인스턴스에 대해 다음과 같이 표시 됩니다.
 
-![LaMa ](media/lama/sap-lama-ascs.png) 의 SAP LaMa 탑재 위치 (예: IP 주소와 내보내기 경로가 이전에 사용한 것과 다릅니다.
+![LaMa의 SAP LaMa 탑재 위치 ](media/lama/sap-lama-ascs.png) (예: IP 주소와 내보내기 경로가 이전에 사용한 것과 다릅니다.
 
 
 #### <a name="install-sap-hana"></a>SAP HANA 설치
@@ -545,12 +545,12 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
     이 문제를 해결하려면 SAP 시스템의 기본 프로필에서 프로필 매개 변수 OS_UNICODE=uc를 설정합니다.
 
 * SAPinst 단계: dCheckGivenServer 실행 중 오류 발생
-  * SAPinst 단계: dCheckGivenServer 실행 중 오류 발생" version="1.0" ERROR: (단계에서 보고한 마지막 오류: \<p> 사용자가 설치를 취소했습니다. \</p>
+  * SAPinst 단계를 실행 하는 동안 오류 발생: dCheckGivenServer "version =" 1.0 "오류: (단계에서 보고 한 마지막 오류: \<p> 사용자가 설치를 취소 했습니다. \</p>
   * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: checkClient 실행 중 오류 발생
-  * SAPinst 단계: checkClient 실행 중 오류 발생" version="1.0" ERROR: (단계에서 보고한 마지막 오류: \<p> 사용자가 설치를 취소했습니다. \</p>)
+  * SAPinst 단계를 실행 하는 동안 오류가 발생 했습니다. checkClient "version =" 1.0 "오류: (단계에서 보고 한 마지막 오류: \<p> 사용자가 설치를 취소 했습니다. \</p>)
   * 솔루션  
     애플리케이션 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
 

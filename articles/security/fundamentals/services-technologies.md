@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80549198"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
@@ -49,7 +49,7 @@ ms.locfileid: "80549198"
 | [Azure Storage 공유 액세스 서명](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
 |[Azure Storage 계정 키](/azure/storage/common/storage-create-storage-account)| 스토리지 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
 |[SMB 3.0 암호화를 사용 하는 Azure 파일 공유](/azure/storage/files/storage-files-introduction)|SMB(서버 메시지 블록) 파일 공유 프로토콜에 자동 네트워크 암호화를 사용하는 네트워크 보안 기술입니다. |
-|[Azure Storage 분석](/rest/api/storageservices/Storage-Analytics)| 스토리지 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
+|[Azure 스토리지 분석](/rest/api/storageservices/Storage-Analytics)| 스토리지 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
 
 <!------>
 
@@ -76,16 +76,16 @@ ms.locfileid: "80549198"
 ## <a name="backup-and-disaster-recovery"></a>백업 및 재해 복구
 |서비스|Description|
 |------|--------|
-| [Azure&nbsp;Backup](/azure/backup/backup-introduction-to-azure-backup)| Azure Cloud에서 데이터를 백업 및 복원하는 데 사용되는 Azure 기반 서비스입니다. |
-| [Azure&nbsp;사이트&nbsp;복구](/azure/site-recovery/site-recovery-overview)|물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제하여 오류 후 서비스 복구가 가능하도록 하는 온라인 서비스입니다. |
+| [Azure &nbsp; 백업](/azure/backup/backup-introduction-to-azure-backup)| Azure Cloud에서 데이터를 백업 및 복원하는 데 사용되는 Azure 기반 서비스입니다. |
+| [Azure &nbsp; 사이트 &nbsp; 복구](/azure/site-recovery/site-recovery-overview)|물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제하여 오류 후 서비스 복구가 가능하도록 하는 온라인 서비스입니다. |
 
 ## <a name="networking"></a>네트워킹
 |서비스|Description|
 |------|--------|
-| [네트워크&nbsp;보안&nbsp;그룹](/azure/virtual-network/virtual-networks-nsg)| 5튜플을 사용하여 의사 결정을 허용하거나 거부하는 네트워크 기반 액세스 제어 기능입니다.  |
+| [네트워크 &nbsp; 보안 &nbsp; 그룹](/azure/virtual-network/virtual-networks-nsg)| 5튜플을 사용하여 의사 결정을 허용하거나 거부하는 네트워크 기반 액세스 제어 기능입니다.  |
 | [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Azure 가상 네트워크에 대한 크로스-프레미스 액세스를 허용하기 위해 VPN 엔드포인트로 사용되는 네트워크 디바이스입니다.  |
-| [Azure 애플리케이션 게이트웨이](/azure/application-gateway/application-gateway-introduction)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 애플리케이션 부하 분산 장치입니다. |
-|[WAF](/azure/frontdoor/waf-overview)(웹 애플리케이션 방화벽)|일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway의 기능입니다.|
+| [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 애플리케이션 부하 분산 장치입니다. |
+|Waf ( [웹 응용 프로그램 방화벽](/azure/frontdoor/waf-overview) )|일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway의 기능입니다.|
 | [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)|TCP/UDP 애플리케이션 네트워크 부하 분산 장치입니다. |
 | [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| 온-프레미스 네트워크와 Azure 가상 네트워크 간의 전용 WAN 링크입니다. |
 | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)| 전역 DNS 부하 분산 장치입니다.|

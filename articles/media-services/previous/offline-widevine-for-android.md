@@ -16,10 +16,10 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294328"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android용 오프라인 Widevine 스트리밍  
@@ -29,7 +29,7 @@ ms.locfileid: "80294328"
 > * [버전 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
@@ -163,13 +163,13 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
     - 인증서는 신뢰할 수 있는 CA에서 발급한 것이어야 하고, 자체 서명된 인증서가 작동하지 않습니다.
     - 인증서는 웹 서버 또는 게이트웨이의 DNS 이름과 일치하는 CN이 있어야 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="question"></a>질문
 
 일부 클라이언트/사용자에게는 영구 라이선스(오프라인 사용 가능)를 제공하고 일부에게는 비영구 라이선스(오프라인 사용 불가)를 제공하려면 어떻게 해야 하나요? 콘텐츠를 복제하고 별도 콘텐츠 키를 사용해야 하나요?
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>답변
 콘텐츠를 복제할 필요는 없습니다. 콘텐츠 및 단일 ContentKeyAuthorizationPolicy의 단일 복사본을 사용할 수 있지만 두 개의 별도의 ContentKeyAuthorizationPolicyOption을 사용할 수 있습니다.
 
 1. IContentKeyAuthorizationPolicyOption 1: 영구 라이선스를 사용 하 고, ContentKeyAuthorizationPolicyRestriction 1을 사용 하 여 license_type = "Persistent"와 같은 클레임을 포함 합니다.
@@ -183,7 +183,7 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 
 Widevine 보안 수준에 대해 Google의 [WIDEVINE DRM 아키텍처 개요 문서](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) 에서는 세 가지 보안 수준을 정의 합니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)에는 5개의 보안 수준이 설명되어 있습니다. 두 가지 다른 보안 수준 집합 간에는 어떤 관계 또는 매핑이 있나요?
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>답변
 
 Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf)에서 다음 세 가지 보안 수준을 정의 합니다.
 
@@ -211,7 +211,7 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
 
 콘텐츠 다운로드 시간이 너무 오래 걸리는 이유는 무엇인가요?
 
-### <a name="answer"></a>Answer
+### <a name="answer"></a>답변
 
 다운로드 속도를 개선하는 방법으로는 다음 두 가지가 있습니다.
 
@@ -220,7 +220,7 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
     1.  클라이언트 제어: 비디오 화질 계층 및 다운로드할 오디오 트랙을 플레이어 앱이 자동으로 선택하도록 하거나 사용자가 선택하도록 합니다.
     2.  서비스 제어: Azure Media Services의 동적 매니페스트 기능으로 (전역) 필터를 만들어, HLS 재생 목록 또는 DASH MPD를 단일 비디오 화질 계층 및 선택한 오디오 트랙으로 제한할 수 있습니다. 그러면 최종 사용자에게 표시되는 다운로드 URL에 이 필터가 포함됩니다.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

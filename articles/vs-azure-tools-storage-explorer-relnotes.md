@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351068"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Explorer 릴리스 정보
@@ -129,7 +129,7 @@ ms.locfileid: "80351068"
 * [버전 1.3.0](#version-130)
 * [버전 1.2.0](#version-120)
 * [버전 1.1.0](#version-110)
-* [버전 1.0.0](#version-100)
+* [Version 1.0.0](#version-100)
 * [버전 0.9.6](#version-096)
 * [버전 0.9.5](#version-095)
 * [버전 0.9.4 및 0.9.3](#version-094-and-093)
@@ -162,13 +162,13 @@ ms.locfileid: "80351068"
 ### <a name="new"></a>새로 만들기
 * 이제 Storage 탐색기에 전용 설정 UI가 있습니다. 편집 → 설정에서 액세스 하거나 왼쪽 세로 도구 모음에서 설정 아이콘 (기어)을 클릭 하 여 액세스할 수 있습니다. 이 기능은 다양 한 [사용자 요청 설정을](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate)제공 하는 첫 번째 단계입니다. 이 릴리스에서는 다음 설정이 지원 됩니다.
   * 테마
-  * 프록시
+  * Proxy
   * 종료 시 로그 아웃 #6
   * 장치 코드 흐름 로그인 사용
   * 자동 새로 고침 #1526
   * AzCopy 사용
   * AzCopy SAS 기간 추가 하려는 다른 설정이 있는 경우 확인할 설정을 설명 하는 [GitHub에서 문제를 여세요](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) .
-* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음을 할 수 있습니다.
   * 온-프레미스 VHD를 새 디스크에 업로드 합니다.
   * 디스크 다운로드
   * 리소스 그룹 및 지역에서 디스크 복사 및 붙여넣기
@@ -234,7 +234,7 @@ ms.locfileid: "80351068"
 
 * 이제 Storage 탐색기에 전용 설정 UI가 있습니다. 편집 → 설정에서 액세스 하거나 왼쪽 세로 도구 모음에서 설정 아이콘 (기어)을 클릭 하 여 액세스할 수 있습니다. 이 기능은 다양 한 [사용자 요청 설정을](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate)제공 하는 첫 번째 단계입니다. 이 릴리스에서는 다음 설정이 지원 됩니다.
     * 테마
-    * 프록시
+    * Proxy
     * 종료 시 로그 아웃 [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6)
     * 장치 코드 흐름 로그인 사용
     * 자동 새로 고침 [#1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526)
@@ -242,7 +242,7 @@ ms.locfileid: "80351068"
     * AzCopy SAS 기간
 
     추가 하려는 다른 설정이 있는 경우 [GitHub에서 보려는 설정을 설명](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=)하는 문제를 여세요.
-* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage 탐색기 Managed Disks를 지원 합니다. 다음을 할 수 있습니다.
     * 온-프레미스 VHD를 새 디스크에 업로드 합니다.
     * 디스크 다운로드
     * 리소스 그룹 및 지역에서 디스크 복사 및 붙여넣기
@@ -810,7 +810,7 @@ ms.locfileid: "80351068"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -866,7 +866,7 @@ ms.locfileid: "80351068"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -921,7 +921,7 @@ ms.locfileid: "80351068"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -981,7 +981,7 @@ ms.locfileid: "80351068"
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음과 같은 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -1201,8 +1201,8 @@ ms.locfileid: "80351068"
 * Storage Explorer에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
 * AAD에서 지원하는 Azure Stack 계정의 경우 이제 '대상 Azure Stack'을 사용하도록 설정하면 Storage Explorer가 Azure Stack 등록을 검색합니다. 더 이상 사용자 지정 로그인 환경을 만들 필요가 없습니다.
 * 보다 빠른 탐색이 가능하도록 여러 바로 가기가 추가되었습니다. 그 중에는 다양한 패널을 전환하고 편집기 간에 이동하는 바로 가기도 포함됩니다. 자세한 내용은 보기 메뉴를 참조하세요.
-* 이제 Storage Explorer 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 피드백 단추를 클릭 하거나로 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)이동 하 여 문제 페이지에 도달할 수 있습니다. 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
-* TLS/SSL 인증서 문제를 실행 중이 고 잘못 된 인증서를 찾을 수 없는 경우 이제 명령줄에서 `--ignore-certificate-errors` 플래그를 사용 하 여 Storage 탐색기를 시작할 수 있습니다. 이 플래그를 사용 하 여 시작 하면 Storage 탐색기 TLS/SSL 인증서 오류가 무시 됩니다.
+* 이제 Storage Explorer 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 피드백 단추를 클릭 하거나로 이동 하 여 문제 페이지에 도달할 수 있습니다 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
+* TLS/SSL 인증서 문제를 실행 중이 고 잘못 된 인증서를 찾을 수 없는 경우 이제 명령줄에서 플래그를 사용 하 여 Storage 탐색기를 시작할 수 있습니다 `--ignore-certificate-errors` . 이 플래그를 사용 하 여 시작 하면 Storage 탐색기 TLS/SSL 인증서 오류가 무시 됩니다.
 * 이제 BLOB 및 파일 항목의 상황에 맞는 메뉴에 '다운로드' 옵션이 있습니다.
 * 향상된 내게 필요한 옵션 및 화면 판독기가 지원됩니다. 내게 필요한 옵션 기능을 사용하는 경우 [내게 필요한 옵션 설명서](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility)에서 자세한 내용을 참조하세요.
 * 이제 Storage Explorer가 Electron 1.8.3 사용
@@ -1627,7 +1627,7 @@ ms.locfileid: "80351068"
 * 이제 Azure Stack 계정을 기준으로 AAD(Azure Active Directory)에 로그인할 수 있습니다.
 * 이제 Premium Storage 계정에 32MB가 넘는 보관 파일을 업로드할 수 있습니다.
 * 손쉬운 사용 옵션 지원이 개선되었습니다.
-* 이제 편집-&gt; SSL 인증서-&gt; 인증서 가져오기로 이동 하 여 신뢰할 수 있는 64로 인코딩된 x.509 TLS/SSL 인증서를 추가할 수 있습니다.
+* 이제 편집- &gt; SSL 인증서-인증서 가져오기로 이동 하 여 신뢰할 수 있는 64로 인코딩된 X.509 TLS/SSL 인증서를 추가할 수 있습니다. &gt;
 
 #### <a name="fixes"></a>수정 프로그램
 
@@ -1756,7 +1756,7 @@ ms.locfileid: "80351068"
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 검색 기능이 약 50,000개 노드에서 검색을 처리하지만 이러한 검색 후에 성능이 저하되거나 처리되지 않은 예외가 발생할 수 있습니다.
 
-10/03/2016
+2016/10/03
 ### <a name="version-085"></a>버전 0.8.5
 
 #### <a name="new"></a>새로 만들기

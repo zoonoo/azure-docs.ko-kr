@@ -14,10 +14,10 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584526"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
@@ -26,7 +26,7 @@ ms.locfileid: "80584526"
 
 ## <a name="considerations"></a>고려 사항
 
-* `Datetime` 형식이 인 엔터티의 속성은 항상 UTC 형식입니다.
+* 형식이 인 엔터티의 속성 `Datetime` 은 항상 UTC 형식입니다.
 * 쿼리 문자열의 공백은 요청을 보내기 전에 URL로 인코딩해야 합니다.
 
 ## <a name="comparison-operators"></a>비교 연산자
@@ -45,11 +45,11 @@ ms.locfileid: "80584526"
 - `ge`: 필드가 상수 값 *보다 크거나 같은지* 여부를 테스트 합니다.
 - `le`: 필드가 상수 값 *보다 작거나 같은지* 여부를 테스트 합니다.
 
-## <a name="filter"></a>Assert
+## <a name="filter"></a>필터
 
-를 `$filter` 사용 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
+를 사용 `$filter` 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
 
-다음 REST 예제는 자산의 `alternateId` 값을 필터링 합니다.
+다음 REST 예제는 자산의 값을 필터링 합니다 `alternateId` .
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -64,28 +64,28 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>정렬 기준
 
-지정 `$orderby` 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 다음은 그 예입니다.  
+`$orderby`지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 예:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc` 을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`
+결과를 오름차순 또는 내림차순으로 정렬 하려면 `asc` `desc` 필드 이름에 또는을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`
 
 ## <a name="skip-token"></a>토큰 건너뛰기
 
-쿼리 응답에 많은 항목이 포함 된 경우 서비스는 결과의 `$skiptoken` 다음`@odata.nextLink`페이지를 가져오는 데 사용 하는 () 값을 반환 합니다. 전체 결과 집합을 페이징 하는 데 사용 합니다.
+쿼리 응답에 많은 항목이 포함 된 경우 서비스는 `$skiptoken` `@odata.nextLink` 결과의 다음 페이지를 가져오는 데 사용 하는 () 값을 반환 합니다. 전체 결과 집합을 페이징 하는 데 사용 합니다.
 
 Media Services v3에서는 페이지 크기를 구성할 수 없습니다. 페이지 크기는 엔터티의 유형에 따라 달라 집니다. 자세한 내용은 다음에 나오는 개별 섹션을 참조 하세요.
 
 컬렉션을 페이징 하는 동안 엔터티를 만들거나 삭제 하는 경우 변경 내용은 반환 된 결과에 반영 됩니다 (해당 변경 내용이 다운로드 되지 않은 컬렉션 부분에 있는 경우).
 
 > [!TIP]
-> 항상를 `nextLink` 사용 하 여 컬렉션을 열거 하 고 특정 페이지 크기에 의존 하지 않습니다.
+> 항상 `nextLink` 를 사용 하 여 컬렉션을 열거 하 고 특정 페이지 크기에 의존 하지 않습니다.
 >
-> 값 `nextLink` 은 두 개 이상의 엔터티 페이지가 있는 경우에만 표시 됩니다.
+> 값은 두 개 이상의 `nextLink` 엔터티 페이지가 있는 경우에만 표시 됩니다.
 
-`$skiptoken` 를 사용 하는 다음 예제를 살펴보십시오. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
+를 사용 하는 다음 예제를 살펴보십시오 `$skiptoken` . *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
 
 다음과 같은 자산 목록을 요청 하는 경우
 
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 다음 표에서는 필터링 및 순서 지정 옵션을 다른 엔터티에 적용할 수 있는 방법을 보여 줍니다.
 
-|엔터티 이름|속성 이름|Assert|주문|
+|엔터티 이름|속성 이름|필터|순서|
 |---|---|---|---|
 |[자산](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
 ||properties.alternateId |`eq`||
