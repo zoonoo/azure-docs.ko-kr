@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
 ms.openlocfilehash: 347f8a4cf1fb95849bcf1008e91d17878f3d01f8
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598524"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
@@ -40,7 +40,7 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 설정 되어 있습니다. [Azure CLI](soft-delete-cli.md) 또는 [Azure PowerShell](soft-delete-powershell.md)를 통해 소프트 삭제 없이 키 자격 증명 모음을 만들 수 있습니다. 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.
 
-기본 보존 기간은 90 일 이지만 key vault를 만드는 동안 보존 정책 간격을 7 일에서 90 일 Azure Portal 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용 합니다. 설정 되 면 보존 정책 간격을 변경할 수 없습니다.
+기본 보존 기간은 90 일 이지만 key vault를 만드는 동안 보존 정책 간격을 7 일에서 90 일 Azure Portal 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용합니다. 설정되면 보존 정책 간격을 변경할 수 없습니다.
 
 보존 기간이 경과 될 때까지 일시 삭제 된 key vault의 이름을 다시 사용할 수 없습니다.
 
@@ -58,7 +58,7 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 예외는 다음과 같습니다.
 - Azure 구독이 *불가능*로 표시 된 경우 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
-- 자격 증명 `--enable-purge-protection flag` 모음 자체에서를 사용 하는 경우 이 경우 Key Vault는 원래 비밀 개체가 삭제 대상으로 표시된 시점으로부터 90일 동안 기다렸다가 개체를 영구적으로 삭제합니다.
+- `--enable-purge-protection flag`자격 증명 모음 자체에서를 사용 하는 경우 이 경우 Key Vault는 원래 비밀 개체가 삭제 대상으로 표시된 시점으로부터 90일 동안 기다렸다가 개체를 영구적으로 삭제합니다.
 
 ### <a name="key-vault-recovery"></a>주요 자격 증명 모음 복구
 

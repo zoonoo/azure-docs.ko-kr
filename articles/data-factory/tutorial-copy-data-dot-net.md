@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253939"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513272"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 * *Azure SQL Database*. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 * *Visual Studio* 이 문서의 연습에서는 Visual Studio 2019를 사용합니다.
 * *[.NET용 Azure SDK](/dotnet/azure/dotnet-tools)* .
-* *Azure Active Directory 애플리케이션*. Azure Active Directory 애플리케이션이 없는 경우 [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 섹션을 참조하세요. [방법: 포털을 사용하여 Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)에서 찾을 수 있습니다. 이후 단계에서 사용할 수 있도록 다음 값을 복사합니다. **애플리케이션(클라이언트) ID**, **인증 키** 및 **디렉터리(테넌트) ID** 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
+* *Azure Active Directory 애플리케이션*. Azure Active Directory 애플리케이션이 없는 경우 [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 섹션을 참조하세요. [방법: 포털을 사용하여 Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)에서 찾을 수 있습니다. 이후 단계에서 사용할 수 있도록 다음 값을 복사합니다. **애플리케이션(클라이언트) ID**, **인증 키** 및 **디렉터리(테넌트) ID** 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 

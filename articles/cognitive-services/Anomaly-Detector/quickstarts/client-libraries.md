@@ -9,15 +9,15 @@ zone_pivot_groups: programming-languages-set-seventeen
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: 523bfea7dd09f4d7ba2eeb3ef93578ddf6b3f1ea
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5a8e1d99aee7035cddabce8069d55a038261872a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611123"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986125"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>빠른 시작: Anomaly Detector 클라이언트 라이브러리 사용
 

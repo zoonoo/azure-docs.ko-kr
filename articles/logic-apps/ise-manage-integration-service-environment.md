@@ -7,13 +7,13 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598422"
 ---
-# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경) 관리
+# <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE(통합 서비스 환경) 관리
 
 이 문서에서는 [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에 대 한 관리 작업을 수행 하는 방법을 보여 줍니다. 예를 들면 다음과 같습니다.
 
@@ -166,7 +166,7 @@ ISE에 배포한 사용자 지정 커넥터를 보고 관리할 수 있습니다
 
 ## <a name="restart-ise"></a>ISE 다시 시작
 
-DNS 서버 또는 DNS 서버 설정을 변경 하는 경우 ISE에서 해당 변경 내용을 선택할 수 있도록 ISE를 다시 시작 해야 합니다. 프리미엄 SKU ISE를 다시 시작 하면 중복성 및 구성 요소를 재활용 하는 동안 한 번에 다시 시작 하는 경우 가동 중지 시간이 발생 하지 않습니다. 그러나 중복성이 없기 때문에 개발자 SKU ISE에는 가동 중지 시간이 발생 합니다. 자세한 내용은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요.
+DNS 서버나 DNS 서버 설정을 변경하면 ISE에 변경 내용이 적용될 수 있도록 ISE를 다시 시작해야 합니다. 프리미엄 SKU ISE를 다시 시작 하면 중복성 및 구성 요소를 재활용 하는 동안 한 번에 다시 시작 하는 경우 가동 중지 시간이 발생 하지 않습니다. 그러나 중복성이 없기 때문에 개발자 SKU ISE에는 가동 중지 시간이 발생 합니다. 자세한 내용은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 ISE로 이동 합니다.
 

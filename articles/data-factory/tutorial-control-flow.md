@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253463"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513323"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 현재 Data Factory를 사용할 수 있는 Azure 지역의 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. 데이터 저장소와 컴퓨팅은 다른 지역에 있을 수 있습니다. 저장소에는 Azure Storage 및 Azure SQL Database가 포함됩니다. 컴퓨팅에는 Data Factory에서 사용하는 HDInsight가 포함됩니다.
 
-[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 "**기여자**" 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID**와 같은 몇 가지 값이 필요합니다.
+[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 "**기여자**" 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID**와 같은 몇 가지 값이 필요합니다.
 
 ### <a name="create-a-blob-table"></a>Blob 테이블 만들기
 

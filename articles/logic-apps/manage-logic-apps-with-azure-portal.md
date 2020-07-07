@@ -10,17 +10,17 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598167"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Azure Portal에서 논리 앱 관리
 
 [Azure Portal](https://portal.azure.com) 또는 [Visual Studio](manage-logic-apps-with-visual-studio.md)를 사용 하 여 논리 앱을 관리할 수 있습니다. 이 문서에서는 Azure Portal에서 논리 앱을 편집, 사용 안 함, 사용 또는 삭제 하는 방법을 보여 줍니다. Azure Logic Apps를 처음 접하는 경우 [Azure Logic Apps](logic-apps-overview.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "82598167"
 
 1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
 
-1. Azure search 표시줄에서를 입력 `logic apps`하 고 **Logic Apps**를 선택 합니다.
+1. Azure search 표시줄에서 `logic apps` 를 입력 하 고 **Logic Apps**를 선택 합니다.
 
    !["Logic Apps" 찾기 및 선택](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
@@ -54,11 +54,11 @@ ms.locfileid: "82598167"
 
 1. **속성** 창에서 논리 앱에 대 한 다음 정보를 보고 복사할 수 있습니다.
 
-   * **Name**
+   * **이름**
    * **리소스 ID**
    * **리소스 그룹**
    * **위치**
-   * **형식** 
+   * **Type** 
    * **구독 이름**
    * **구독 ID**
    * **액세스 끝점**
@@ -176,7 +176,7 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app) 하�
 
    ![여러 논리 앱 삭제](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. 확인 상자가 표시 되 면를 입력 `yes`하 고 **삭제**를 선택 합니다.
+1. 확인 상자가 표시 되 면를 입력 하 `yes` 고 **삭제**를 선택 합니다.
 
    ![논리 앱 삭제 확인](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 

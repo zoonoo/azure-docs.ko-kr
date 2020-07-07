@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594851"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
@@ -29,20 +29,20 @@ ms.locfileid: "82594851"
 
 인지 인사이트 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인식 통찰력 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|설명|
+|Name|정의|Description|
 |---|---|---|
 |`widgets` | 쉼표로 구분된 문자열 | 렌더링 하려는 정보를 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` 사용자 및 키워드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: 사람, animatedCharacters, 키워드, 레이블, 정서, 감정을, 토픽, 키 프레임, 성적 증명서, ocr, 스피커, 장면 및 namedEntities.|
 |`controls`|쉼표로 구분된 문자열|렌더링 하려는 컨트롤을 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` 검색 옵션 및 다운로드 단추만 렌더링 합니다.<br/>사용 가능한 옵션: 검색, 다운로드, 사전 설정, 언어|
 |`language`|짧은 언어 코드 (언어 이름)|Insights 언어를 제어 합니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>또는 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | 짧은 언어 코드 | UI의 언어를 제어 합니다. 기본값은 `en`입니다. <br/>예: `locale=de`.|
 |`tab` | 기본 선택 된 탭 | 기본적으로 렌더링 되는 **Insights** 탭을 제어 합니다. <br/>예: `tab=timeline` **타임 라인** 탭이 선택 된 상태에서 정보를 렌더링 합니다.|
-|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` 매개 변수의 기본값입니다.| 
+|`location` ||`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다.| 
 
 ### <a name="player-widget"></a>플레이어 위젯
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|설명|
+|Name|정의|Description|
 |---|---|---|
 |`t` | 시작부터 초 | 지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`. |
 |`captions` | 언어 코드 | **캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`. |
@@ -50,26 +50,26 @@ ms.locfileid: "82594851"
 |`type`| | 오디오 플레이어 스킨을 활성화 합니다 (비디오 부분이 제거 됨).<br/> 예: `type=audio`. |
 |`autoplay` | 부울 값 | 플레이어가 로드 될 때 비디오 재생을 시작 해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.<br/> 예: `autoplay=false`. |
 |`language`/`locale` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`.|
-|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` 매개 변수의 기본값입니다.| 
+|`location` ||`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다.| 
 
 ### <a name="editor-widget"></a>편집기 위젯
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|설명|
+|Name|정의|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | 위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다. |
 |`language` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`. |
 |`locale` | 짧은 언어 코드 | Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예: `language=de`. |
-|`location` ||매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` paramete에 대 한 기본값입니다.| 
+|`location` ||`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial`paramete에 대 한 기본값입니다 `location` .| 
 
-<sup>*</sup>소유자는 신중 하 `accessToken` 게 제공 해야 합니다.
+<sup>*</sup>소유자는 신중 하 게 제공 해야 합니다 `accessToken` .
 
 ## <a name="embedding-videos"></a>비디오 포함
 
 이 섹션에서는 공용 및 개인 콘텐츠를 앱에 포함 하는 방법을 설명 합니다.
 
-매개 `location` 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 위치 값에 `trial` 대해를 사용 해야 합니다. `trial``location` paramete에 대 한 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
+`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial`paramete에 대 한 기본값입니다 `location` . 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
 
 > [!IMPORTANT]
 > **플레이어** 또는 **Insights** 위젯에 대 한 링크를 공유 하면 액세스 토큰이 포함 되며 계정에 읽기 전용 권한을 부여 합니다.
@@ -85,16 +85,16 @@ ms.locfileid: "82594851"
 
 ### <a name="private-content"></a>개인 콘텐츠
 
-개인 비디오를 포함 하려면 iframe의 `src` 특성에 액세스 토큰을 전달 해야 합니다.
+개인 비디오를 포함 하려면 iframe의 특성에 액세스 토큰을 전달 해야 합니다 `src` .
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 인지 Insights 위젯 콘텐츠를 가져오려면 다음 방법 중 하나를 사용 합니다.
 
 - [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API입니다.<br/>
-- [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. 앞에서 설명한 것 처럼 `src` iframe의 값으로이 URL을 지정 합니다.
+- [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. `src`앞에서 설명한 것 처럼 iframe의 값으로이 URL을 지정 합니다.
 
-포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. 에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) 를 `&allowEdit=true`사용 합니다.
+포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. 에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) 를 사용 `&allowEdit=true` 합니다.
 
 ## <a name="widgets-interaction"></a>위젯 상호 작용
 
@@ -106,7 +106,7 @@ ms.locfileid: "82594851"
 
 다른 구성 요소와 통신 하기 위해 Video Indexer 위젯을 얻으려면 Video Indexer 서비스:
 
-- 원본 간 통신 HTML5 메서드 `postMessage`를 사용 합니다.
+- 원본 간 통신 HTML5 메서드를 사용 `postMessage` 합니다.
 - VideoIndexer.ai 원본을 통해 메시지의 유효성을 검사합니다.
 
 사용자 고유의 플레이어 코드를 구현 하 고 인식 Insights 위젯에 통합 하는 경우 VideoIndexer.ai에서 제공 하는 메시지 원본의 유효성을 검사 해야 합니다.
@@ -193,7 +193,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예:
 
         <script>
     
@@ -228,21 +228,21 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
 
 ## <a name="adding-subtitles"></a>자막 추가
 
-사용자 고유의 [Azure Media Player](https://aka.ms/azuremediaplayer)를 사용 하 여 Video Indexer 정보를 포함 하는 경우 `GetVttUrl` 메서드를 사용 하 여 자막 (자막)을 가져올 수 있습니다. 이전 처럼 Video Indexer AMP 플러그 `getSubtitlesUrl` 인에서 JavaScript 메서드를 호출할 수도 있습니다.
+사용자 고유의 [Azure Media Player](https://aka.ms/azuremediaplayer)를 사용 하 여 Video Indexer 정보를 포함 하는 경우 메서드를 사용 하 여 `GetVttUrl` 자막 (자막)을 가져올 수 있습니다. 이전 처럼 Video Indexer AMP 플러그 인에서 JavaScript 메서드를 호출할 수도 있습니다 `getSubtitlesUrl` .
 
 ## <a name="customizing-embeddable-widgets"></a>포함 가능한 위젯 사용자 지정
 
 ### <a name="cognitive-insights-widget"></a>인지 인사이트 위젯
 
-원하는 유형의 정보를 선택할 수 있습니다. 이렇게 하려면 API 또는 웹 앱에서 가져온 embed 코드에 추가 되는 다음 URL 매개 변수에 값으로 지정 `&widgets=<list of wanted widgets>`합니다.
+원하는 유형의 정보를 선택할 수 있습니다. 이렇게 하려면 API 또는 웹 앱에서 가져온 embed 코드에 추가 되는 다음 URL 매개 변수에 값으로 지정 `&widgets=<list of wanted widgets>` 합니다.
 
-가능한 값은 `people`, `animatedCharacters` , `keywords`, `labels`, `sentiments` `emotions` `topics` `keyframes` `namedEntities`,,,,,,, 및입니다. `transcript` `ocr` `speakers` `scenes`
+가능한 값은 `people` ,,,,,,,,,,, `animatedCharacters` `keywords` `labels` `sentiments` `emotions` `topics` `keyframes` `transcript` `ocr` `speakers` `scenes` 및 `namedEntities` 입니다.
 
 예를 들어 사람 및 키워드 insights만 포함 된 위젯을 포함 하려는 경우 iframe embed URL은 다음과 같습니다.
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (HTML `<title>` 값을 사용자 지정 합니다).
+iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (HTML 값을 사용자 지정 `<title>` 합니다).
    
 예를 들어 iframe 창에 "MyInsights"라는 제목을 지정하려는 경우 URL은 다음과 같습니다.
 
@@ -254,13 +254,13 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 기본적으로 Video Indexer 플레이어는 비디오의 내용에 따라 자동으로 닫힌 캡션을 생성 합니다. 비디오에서 비디오를 업로드할 때 선택한 원본 언어로 인 증명서가 추출 됩니다.
 
-다른 언어로 포함 하려는 경우 포함 플레이어 URL에를 추가할 `&captions=<Language Code>` 수 있습니다. 기본적으로 캡션을 표시 하려면 &showCaptions = true를 전달 하면 됩니다.
+다른 언어로 포함 하려는 경우 `&captions=<Language Code>` 포함 플레이어 URL에를 추가할 수 있습니다. 기본적으로 캡션을 표시 하려면 &showCaptions = true를 전달 하면 됩니다.
 
 그러면 포함 URL이 다음과 같습니다.
 
@@ -268,13 +268,13 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 #### <a name="autoplay"></a>자동 실행
 
-기본적으로 플레이어는 비디오 재생을 시작 합니다. 이전 embed URL에 전달 `&autoplay=false` 하 여 하지 않도록 선택할 수 있습니다.
+기본적으로 플레이어는 비디오 재생을 시작 합니다. 이전 embed URL에 전달 하 여 하지 않도록 선택할 수 있습니다 `&autoplay=false` .
 
 ## <a name="code-samples"></a>코드 샘플
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | 설명                                |
+| 파일/폴더                       | Description                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |

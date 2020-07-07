@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598501"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
@@ -21,11 +21,11 @@ ms.locfileid: "82598501"
 
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
@@ -43,7 +43,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 **상단 메뉴:**  
 
-| 항목| 설명 |
+| 항목| Description |
 |---|---|
 |이동|클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.|
 |삭제|클러스터를 삭제합니다. |
@@ -53,19 +53,19 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **왼쪽 상단 메뉴**
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |개요|클러스터에 대한 일반 정보를 제공합니다.|
     |활동 로그|활동 로그를 표시하고 쿼리합니다.|
     |액세스 제어(IAM)|역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.|
-    |태그들|태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.|
+    |태그|태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.|
     |문제 진단 및 해결|문제 해결 정보를 표시합니다.|
     |빠른 시작|HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.|
     |도구|HDInsight 관련 도구에 대한 도움말 정보입니다.|
 
   - **설정 메뉴**  
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |클러스터 크기|클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)을 참조하세요.|
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
@@ -82,7 +82,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **모니터링 메뉴**
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |경고|경고와 작업을 관리합니다.|
     |메트릭|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
@@ -91,7 +91,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **지원 + 문제 해결 메뉴**
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |리소스 상태|[Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.|
     |새 지원 요청|Microsoft 지원에 지원 티켓을 만들 수 있습니다.|
@@ -100,7 +100,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **속성**을 선택합니다.
 
-|항목 | 설명 |
+|항목 | Description |
 |---|---|
 |N|클러스터 이름입니다.|
 |클러스터 URL|Ambari 웹 인터페이스에 대한 URL입니다.|

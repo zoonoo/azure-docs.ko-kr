@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598439"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
@@ -25,7 +25,7 @@ ms.locfileid: "82598439"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -65,7 +65,7 @@ Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연�
 
 1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기**를 선택합니다.
 
-1. 클라우드 탐색기에서 **계정 관리**를 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 클라우드 탐색기에서 **계정 관리**를 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다. 예:
 
    !["계정 관리"를 선택 합니다.](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -92,7 +92,7 @@ Visual Studio에서는 Visual Studio를 사용 하 여 Azure Portal 또는 Azure
 
    ![Azure Portal에서 배포된 논리 앱 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   논리 앱이 Logic Apps Designer에서 열리면 디자이너의 맨 아래에서 **코드 보기** 를 선택 하 여 기본 논리 앱 정의 구조를 검토할 수 있습니다. 논리 앱에 대한 배포 템플릿을 만들려면 해당 논리 앱에 대한 [Azure Resource Manager 템플릿을 다운로드하는 방법](#download-logic-app)을 살펴보세요. [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)에 대해 자세히 알아보세요.
+   논리 앱이 Logic Apps Designer에서 열리면 디자이너의 맨 아래에서 **코드 보기** 를 선택 하 여 기본 논리 앱 정의 구조를 검토할 수 있습니다. 논리 앱에 대한 배포 템플릿을 만들려면 해당 논리 앱에 대한 [Azure Resource Manager 템플릿을 다운로드하는 방법](#download-logic-app)을 살펴보세요. [리소스 관리자 템플릿에](../azure-resource-manager/templates/overview.md)대해 자세히 알아보세요.
 
 <a name="download-logic-app"></a>
 
@@ -125,7 +125,7 @@ B2B (기업 간) 엔터프라이즈 통합 시나리오에 대 한 논리 앱을
 
 1. Visual Studio에서 논리 앱을 포함 하는 Azure 리소스 그룹 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 **<논리-앱-이름> json** 파일의 바로 가기 메뉴를 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기에서 파일의 바로 가기 메뉴 **에서<논리-앱-이름 # C1.js** 을 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
 
    ![논리 앱 디자이너를 사용 하 여 논리 앱의 json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -228,7 +228,7 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
    ![논리 앱에 대 한 실행 기록 열기](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예를 들면 다음과 같습니다.
+1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예:
 
    ![특정 실행에 대 한 정보 보기](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

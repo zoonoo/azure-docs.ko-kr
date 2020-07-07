@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610521"
 ---
-# <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>조건부 액세스의 로그인 문제 해결
+# <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>조건부 액세스 관련 로그인 문제 해결
 
 이 문서의 정보는 오류 메시지 및 Azure AD 로그인 로그를 사용 하 여 조건부 액세스와 관련 된 예기치 않은 로그인 결과의 문제를 해결 하는 데 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82610521"
 적용 되는 조건부 액세스 정책 또는 정책을 확인 하 고 다음을 수행 하는 이유를 확인 합니다.
 
 1. 전역 관리자, 보안 관리자 또는 전역 읽기 권한자로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **로그인**으로 이동 합니다.
+1. **Azure Active Directory**  >  **로그인**으로 이동 합니다.
 1. 검토할 로그인에 대 한 이벤트를 찾습니다. 필터 및 열을 추가 하거나 제거 하 여 불필요 한 정보를 필터링 합니다.
    1. 필터를 추가 하 여 범위 좁히기:
       1. 조사할 특정 이벤트가 있는 경우의 **상관 관계 ID** 입니다.
@@ -80,5 +80,5 @@ ms.locfileid: "82610521"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory 포털의 로그인 활동 보고서](../reports-monitoring/concept-sign-ins.md)
-- [What If 도구를 사용 하 여 조건부 액세스 문제 해결](troubleshoot-conditional-access-what-if.md)
+- [What If 도구를 사용하여 조건부 액세스 문제 해결](troubleshoot-conditional-access-what-if.md)
 - [Azure Active Directory의 조건부 액세스](best-practices.md) 에 대 한 모범 사례

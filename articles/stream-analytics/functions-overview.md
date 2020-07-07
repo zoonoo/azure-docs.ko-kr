@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598371"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics의 사용자 정의 함수
 
-Azure Stream Analytics의 SQL 유사 쿼리 언어를 사용 하면 스트리밍 데이터에 대 한 실시간 분석 논리를 쉽게 구현할 수 있습니다. Stream Analytics은 쿼리에서 호출 되는 사용자 지정 함수를 통해 추가 유연성을 제공 합니다. 다음 코드 예제는 하나의 매개 변수를 `sampleFunction` 허용 하는 UDF 이며, 작업에서 수신 하는 각 입력 레코드를 허용 하 고, 결과는 `sampleResult`출력에로 기록 됩니다.
+Azure Stream Analytics의 SQL 유사 쿼리 언어를 사용 하면 스트리밍 데이터에 대 한 실시간 분석 논리를 쉽게 구현할 수 있습니다. Stream Analytics은 쿼리에서 호출 되는 사용자 지정 함수를 통해 추가 유연성을 제공 합니다. 다음 코드 예제는 `sampleFunction` 하나의 매개 변수를 허용 하는 UDF 이며, 작업에서 수신 하는 각 입력 레코드를 허용 하 고, 결과는 출력에로 기록 됩니다 `sampleResult` .
 
 ```sql
 SELECT 
@@ -41,7 +41,7 @@ Azure Stream Analytics는 다음 네 가지 함수 형식을 지원 합니다.
 
 사용자 정의 함수는 상태 비저장 이며 반환 값은 스칼라 값일 수만 있습니다. 이러한 사용자 정의 함수에서 외부 REST 끝점을 호출할 수 없습니다. 작업의 성능에 영향을 미칠 수 있기 때문입니다. 
 
-Azure Stream Analytics는 모든 함수 호출 및 반환 된 결과에 대 한 레코드를 유지 하지 않습니다. 반복성를 보장 하기 위해 예를 들어 이전 타임 스탬프에서 작업을 다시 실행 하면 동일한 결과가 다시 생성 됩니다. 이러한 함수는 각 호출 `Date.GetData()` 에 `Math.random()`대해 동일한 결과를 반환 하지 않으므로 또는과 같은 함수를 사용 하지 마세요.  
+Azure Stream Analytics는 모든 함수 호출 및 반환 된 결과에 대 한 레코드를 유지 하지 않습니다. 반복성를 보장 하기 위해 예를 들어 이전 타임 스탬프에서 작업을 다시 실행 하면 동일한 결과가 다시 생성 `Date.GetData()` `Math.random()` 됩니다. 이러한 함수는 각 호출에 대해 동일한 결과를 반환 하지 않으므로 또는과 같은 함수를 사용 하지 마세요.  
 
 ## <a name="resource-logs"></a>리소스 로그
 
@@ -54,6 +54,6 @@ Azure Stream Analytics는 모든 함수 호출 및 반환 된 결과에 대 한 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics에서 JavaScript 사용자 정의 함수](stream-analytics-javascript-user-defined-functions.md)
-* [JavaScript 사용자 정의 집계 Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
+* [Azure Stream Analytics JavaScript 사용자 정의 집계](stream-analytics-javascript-user-defined-aggregates.md)
 * [Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발](stream-analytics-edge-csharp-udf-methods.md)
-* [Azure Machine Learning와 Azure Stream Analytics 통합](machine-learning-udf.md)
+* [Azure Machine Learning과 Azure Stream Analytics 통합](machine-learning-udf.md)

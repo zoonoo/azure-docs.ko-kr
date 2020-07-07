@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190725"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984014"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -140,7 +140,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. **POST** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
 1. 요청 **본문**에서 다음 JSON 정의를 복사하여 `connectionString`을 스토리지 계정의 실제 연결로 바꿉니다. 
@@ -161,7 +161,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
     ```
 1. 요청을 보냅니다. 성공 여부를 확인하는 201 상태 코드가 표시됩니다. 
 
-403 또는 404 오류가 있다면 요청 구조를 확인합니다. `api-version=2019-05-06`는 엔드포인트에 있어야 하고, `api-key`는 `Content-Type` 뒤에 나오는 헤더에 있어야 하고, 그 값이 검색 서비스에 대해 유효해야 합니다. 온라인 JSON 유효성 검사기를 통해 JSON 문서를 실행하여 구문이 올바른지 확인하는 것이 좋습니다. 
+403 또는 404 오류가 있다면 요청 구조를 확인합니다. `api-version=2020-06-30`는 엔드포인트에 있어야 하고, `api-key`는 `Content-Type` 뒤에 나오는 헤더에 있어야 하고, 그 값이 검색 서비스에 대해 유효해야 합니다. 온라인 JSON 유효성 검사기를 통해 JSON 문서를 실행하여 구문이 올바른지 확인하는 것이 좋습니다. 
 
 ### <a name="step-2-create-a-skillset"></a>2단계: 기술 집합 만들기
 
@@ -170,7 +170,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. **PUT** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2019-05-06
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. 요청 **본문**에서 아래 JSON 정의를 복사합니다. 이 기술 세트를 구성하는 기본 제공 기술은 다음과 같습니다.
@@ -255,7 +255,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 인덱스 이름을 지정하려면 **PUT** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
 1. 요청 **본문**에서 다음 JSON 정의를 복사합니다. `content` 필드는 문서 자체를 저장합니다. `languageCode`, `keyPhrases` 및 `organizations`에 대한 추가 필드는 기술 세트에서 만든 새 정보(필드 및 값)를 나타냅니다.
@@ -339,7 +339,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 인덱서 이름을 지정하려면 **PUT** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
    ```http
-   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
 1. 요청 **본문**에서 아래 JSON 정의를 복사합니다. 필드 매핑 요소를 확인합니다. 이러한 매핑은 데이터 흐름을 정의하므로 중요합니다. 
@@ -432,7 +432,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 인덱서 이름을 지정하려면 **GET** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2020-06-30
    ```
 
 1. 응답을 검토하여 인덱서가 실행되고 있는지 알아보거나 오류 및 경고 정보를 확인합니다.  
@@ -451,7 +451,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. **GET** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꾸고, 용어 또는 구의 인스턴스를 검색하고, `content` 필드 및 일치하는 문서의 수를 반환합니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
    ```
    
    이 쿼리의 결과는 문서 콘텐츠를 반환하며, 인지 검색 파이프라인 없이 Blob 인덱서를 사용한 경우에 반환하는 결과와 동일합니다. 이 필드는 검색 가능하지만 패싯, 필터 또는 자동 완성을 사용하려는 경우에는 작동하지 않습니다.
@@ -461,7 +461,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 두 번째 쿼리의 경우 파이프라인에서 만든 새 필드(persons, organizations, locations, languageCode) 중 일부를 반환합니다. 간단히 하기 위해 keyPhrases는 생략하고 있지만, 해당 값을 확인하려면 이를 포함시켜야 합니다.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2019-05-06
+   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    $Select 문의 필드에는 Cognitive Services의 자연어 처리 기능에서 만든 새 정보가 포함됩니다. 예상할 수 있듯이 문서 전체의 결과 및 변형에 약간의 노이즈가 있지만, 대부분의 경우 분석 모델에서 정확한 결과를 생성합니다.
 
@@ -472,7 +472,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 이러한 필드를 활용할 수 있는 방법을 확인하려면 패싯 매개 변수를 추가하여 위치에 따라 일치하는 문서의 집계를 반환합니다.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2020-06-30
    ``` 
 
    다음 예제에서는 각 위치에 대해 2~3개의 일치 항목이 있습니다.
@@ -483,7 +483,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 1. 다음 마지막 예제에서는 필터를 organizations 컬렉션에 적용하고, NASDAQ에 기반한 필터 조건에 대해 두 개의 일치 항목을 반환합니다.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
+   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 이러한 쿼리는 인식 검색을 통해 생성되는 새 필드에 대해 쿼리 구문과 필터를 사용할 수 있는 몇 가지 방법을 보여 줍니다. 자세한 쿼리 예제는 [문서 검색 REST API 예제](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [단순 구문 쿼리 예제](search-query-simple-examples.md) 및 [전체 Lucene 쿼리 예제](search-query-lucene-examples.md)를 참조하세요.
@@ -501,7 +501,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 또는 **DELETE**를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
 ```
 
 삭제 성공 시 상태 코드 204가 반환됩니다.

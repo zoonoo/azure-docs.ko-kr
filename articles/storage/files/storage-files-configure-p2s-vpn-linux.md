@@ -3,16 +3,16 @@ title: Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 �
 description: Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 간) VPN을 구성하는 방법
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515301"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 간) VPN 구성
 P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
@@ -117,7 +117,9 @@ Azure 가상 네트워크 게이트웨이는 온-프레미스 Linux 머신에서
 `<desired-vpn-name-here>`를 이러한 리소스에 사용할 이름으로 바꿔야 합니다.
 
 > [!Note]  
-> Azure 가상 네트워크 게이트웨이를 배포하는 데 최대 45분이 걸릴 수 있습니다. 이 리소스가 배포되는 동안 이 bash 스크립트는 배포가 완료 될 때까지 차단됩니다. 예상된 동작입니다.
+> Azure 가상 네트워크 게이트웨이를 배포하는 데 최대 45분이 걸릴 수 있습니다. 이 리소스가 배포되는 동안 이 bash 스크립트는 배포가 완료 될 때까지 차단됩니다.
+>
+> P2S IKEv2/OpenVPN 연결은 **기본** SKU에서 지원 되지 않습니다. 이 스크립트는 가상 네트워크 게이트웨이에 대 한 **VpnGw1** SKU를 적절 하 게 사용 합니다.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -210,5 +212,5 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 
 ## <a name="see-also"></a>참고 항목
 - [Azure Files 네트워킹 개요](storage-files-networking-overview.md)
-- [Azure Files에서 사용할 P2S(지점 및 사이트 간) VPN을 Windows에 구성](storage-files-configure-p2s-vpn-windows.md)
+- [Azure Files에서 사용하기 위한 Windows의 P2S(지점 및 사이트 간) VPN 구성](storage-files-configure-p2s-vpn-windows.md)
 - [Azure Files에서 사용할 S2S(사이트 간) VPN 구성](storage-files-configure-s2s-vpn.md)

@@ -3,12 +3,12 @@ title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 개요
 description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 ISM PROTECTED 제어를 평가하는 데 도움이 됩니다.
 ms.date: 03/10/2020
 ms.topic: sample
-ms.openlocfilehash: e2f64943e9db207feb3f59a905cad994553a6cd6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595358"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517102"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 제어 매핑
 
