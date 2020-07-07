@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: cd775c5a3bf367600a4537a9409a9bb8f902f588
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628983"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화
@@ -50,7 +50,7 @@ ms.locfileid: "82628983"
 ```
 
 ## <a name="encrypt-credentials"></a>자격 증명 암호화
-온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요 한 데이터를 암호화 하려면 **AzDataFactoryV2LinkedServiceEncryptedCredential**을 실행 하 고 json 페이로드를 전달 합니다. 이 cmdlet을 사용하면 자격 증명이 DPAPI를 사용하여 암호화되고 자체 호스팅 통합 런타임 노드에 로컬로 저장됩니다. 자격 증명에 대 한 암호화 된 참조를 포함 하는 출력 페이로드는 다른 JSON 파일 (이 경우 ' Encryptedlinkedservice.json ')로 리디렉션될 수 있습니다.
+온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요 한 데이터를 암호화 하려면 **AzDataFactoryV2LinkedServiceEncryptedCredential**을 실행 하 고 json 페이로드를 전달 합니다. 이 cmdlet을 사용하면 자격 증명이 DPAPI를 사용하여 암호화되고 자체 호스팅 통합 런타임 노드에 로컬로 저장됩니다. 자격 증명에 대 한 암호화 된 참조를 포함 하는 출력 페이로드를 다른 JSON 파일 (이 경우 ' encryptedLinkedService.js')로 리디렉션할 수 있습니다.
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

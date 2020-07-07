@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629034"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
@@ -40,7 +40,7 @@ ms.locfileid: "82629034"
 - 원본 데이터베이스에서 대상 저장소로의 변경 **내용만 복사 합니다** . 원본 데이터베이스의 변경 내용을 식별 하는 쿼리는 ' SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > "last high 워터 마크" 및 TIMESTAMP_Column <= "current high 워터 마크" '와 비슷합니다.
 - **SqlServerStoredProcedure** 다음에 델타 복사를 위해 현재 높은 워터 마크 값을 외부 컨트롤 테이블에 씁니다.
 
-템플릿은 다음 매개 변수를 정의 합니다.
+템플릿은 다음 매개 변수를 정의합니다.
 - *Data_Source_Table_Name* 은 데이터를 로드 하려는 원본 데이터베이스의 테이블입니다.
 - *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT*또는 유사 합니다.
 - *Data_Destination_Container* 은 대상 저장소에서 데이터가 복사 되는 위치의 루트 경로입니다.
@@ -104,7 +104,7 @@ ms.locfileid: "82629034"
 
     ![제어 테이블 데이터 저장소에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. **이 템플릿 사용**을 선택 합니다.
+7. **이 템플릿 사용**을 선택합니다.
     
 8. 다음 예제와 같이 사용 가능한 파이프라인이 표시 됩니다.
   
@@ -114,11 +114,11 @@ ms.locfileid: "82629034"
 
     ![저장 프로시저 작업 설정](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. 콘텐츠 ** \@{activity (' lookupcurrentwatermark 마크 '). firstRow. NewWatermarkValue}** 를 쓴 다음 **마침**을 선택 합니다.  
+10. 콘텐츠 ** \@ {activity (' LookupCurrentWaterMark 마크 '). FirstRow. NewWatermarkValue}** 를 쓴 다음 **마침**을 선택 합니다.  
 
     ![저장 프로시저의 매개 변수에 대 한 내용 작성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
+11. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
 
     ![* * 디버그 * *를 선택 합니다.](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 

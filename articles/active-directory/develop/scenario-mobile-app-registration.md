@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652636"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
@@ -50,7 +50,7 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 앱 등록 포털은 iOS 및 Android 응용 프로그램에 대 한 조정 된 회신 URI를 계산 하는 데 도움이 되는 미리 보기 환경을 제공 합니다.
 
-1. 앱 등록 포털에서 **인증** > 을 선택 하**여 새 환경을 사용해 보세요**.
+1. 앱 등록 포털에서 **인증**을 선택 하  >  **여 새 환경을 사용해 보세요**.
 
    ![새 환경을 선택 하는 인증 블레이드](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -73,7 +73,7 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 리디렉션 URI를 수동으로 구성 하려는 경우 응용 프로그램 매니페스트를 통해 수행할 수 있습니다. 다음은 매니페스트에 대해 권장 되는 형식입니다.
 
 - **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - 예를 들어 `msauth.com.yourcompany.appName://auth`를 입력합니다.
+  - 예를 들어 다음과 같이 입력합니다. `msauth.com.yourcompany.appName://auth`
 - **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - KeyTool 명령을 통해 릴리스 키 또는 디버그 키를 사용 하 여 Android 서명 해시를 생성할 수 있습니다.
 

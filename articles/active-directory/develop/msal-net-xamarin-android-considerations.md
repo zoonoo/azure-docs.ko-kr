@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652681"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>MSAL.NET와 함께 Xamarin Android 사용에 대 한 고려 사항
@@ -33,7 +33,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-MSAL 4.2 이상에서는의 `PublicClientApplication`수준에서이 기능을 설정할 수도 있습니다. 이렇게 하려면 콜백을 사용 합니다.
+MSAL 4.2 이상에서는의 수준에서이 기능을 설정할 수도 있습니다 `PublicClientApplication` . 이렇게 하려면 콜백을 사용 합니다.
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -43,7 +43,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-[Currentactivityplugin](https://github.com/jamesmontemagno/CurrentActivityPlugin)를 사용 하는 경우 `PublicClientApplication` 작성기 코드는 다음 예제와 같습니다.
+[Currentactivityplugin](https://github.com/jamesmontemagno/CurrentActivityPlugin)를 사용 하 `PublicClientApplication` 는 경우 작성기 코드는 다음 예제와 같습니다.
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -54,7 +54,7 @@ var pca = PublicClientApplicationBuilder
 ```
 
 ## <a name="ensure-that-control-returns-to-msal"></a>컨트롤이 MSAL로 반환 되는지 확인 합니다. 
-인증 흐름의 대화형 부분이 종료 되 면 컨트롤이 MSAL로 돌아갑니다. Android에서의 `OnActivityResult` `Activity`메서드를 재정의 합니다. 그런 다음 `SetAuthenticationContinuationEventArgs` `AuthenticationContinuationHelper` msal 클래스의 메서드를 호출 합니다. 
+인증 흐름의 대화형 부분이 종료 되 면 컨트롤이 MSAL로 돌아갑니다. Android에서 `OnActivityResult` 의 메서드를 재정의 `Activity` 합니다. 그런 다음 `SetAuthenticationContinuationEventArgs` msal 클래스의 메서드를 호출 `AuthenticationContinuationHelper` 합니다. 
 
 예를 들면 다음과 같습니다.
 
@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 이 줄은 인증 흐름의 대화형 부분 끝에서 컨트롤이 MSAL으로 반환 되도록 합니다.
 
 ## <a name="update-the-android-manifest"></a>Android 매니페스트 업데이트
-*Androidmanifest .xml* 파일에는 다음 값이 포함 되어야 합니다.
+*AndroidManifest.xml* 파일에는 다음 값이 포함 되어야 합니다.
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
 ```
@@ -90,9 +90,9 @@ protected override void OnActivityResult(int requestCode,
  </activity>
 ```
 
-Azure Portal에서 등록 한 패키지 이름을 `android:host=` 값으로 대체 합니다. Azure Portal에서 등록 한 키 해시를 `android:path=` 값으로 대체 합니다. 서명 *해시는 URL 인코딩되지 않아야 합니다* . 선행 슬래시 (`/`)가 서명 해시의 시작 부분에 표시 되는지 확인 합니다.
+Azure Portal에서 등록 한 패키지 이름을 값으로 대체 합니다 `android:host=` . Azure Portal에서 등록 한 키 해시를 값으로 대체 합니다 `android:path=` . 서명 *해시는 URL 인코딩되지 않아야 합니다* . 선행 슬래시 ( `/` )가 서명 해시의 시작 부분에 표시 되는지 확인 합니다.
 
-또는 수동으로 *Androidmanifest*을 편집 하 [는 대신 코드에서 활동을 만듭니다](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) . 코드에서 활동을 만들려면 먼저 `Activity` 특성 및 `IntentFilter` 특성을 포함 하는 클래스를 만듭니다. 
+또는 *AndroidManifest.xml*를 수동으로 편집 하 [는 대신 코드에서 작업을 만듭니다](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) . 코드에서 활동을 만들려면 먼저 특성 및 특성을 포함 하는 클래스를 만듭니다 `Activity` `IntentFilter` . 
 
 XML 파일의 값을 나타내는 클래스의 예는 다음과 같습니다.
 
@@ -109,7 +109,7 @@ XML 파일의 값을 나타내는 클래스의 예는 다음과 같습니다.
 
 ### <a name="xamarinforms-43x-manifest"></a>Xamarin.ios 4.3. X 매니페스트
 
-Xamarin.ios 4.3. x는 `package` *Androidmanifest*에서 특성을로 `com.companyname.{appName}` 설정 하는 코드를 생성 합니다. As `DataScheme` `msal{client_id}`를 사용 하는 경우 `MainActivity.cs` 네임 스페이스의 값과 일치 하도록 값을 변경 하는 것이 좋습니다.
+Xamarin.ios 4.3. x는 `package` `com.companyname.{appName}` *AndroidManifest.xml*에서 특성을로 설정 하는 코드를 생성 합니다. As를 사용 하는 경우 `DataScheme` `msal{client_id}` 네임 스페이스의 값과 일치 하도록 값을 변경 하는 것이 좋습니다 `MainActivity.cs` .
 
 ## <a name="use-the-embedded-web-view-optional"></a>포함 된 웹 보기 사용 (선택 사항)
 
@@ -140,12 +140,12 @@ var authResult = AcquireTokenInteractive(scopes)
 - 25.4.0.2 버전이 자동으로 업데이트 되는지 확인 합니다. 필요한 경우 25.4.0.2 버전으로 업데이트 합니다.
 - 모든 Xamarin.ios 지원 패키지가 25.4.0.2 버전을 대상으로 하는지 확인 합니다.
 - 응용 프로그램을 정리 하거나 다시 빌드합니다.
-- Visual Studio에서 최대 병렬 프로젝트 빌드 수를 1로 설정 해 봅니다. 이렇게 하려면 **옵션** > **프로젝트 및 솔루션** > 을 선택 하 고**최대 병렬 프로젝트 수**빌드**를 실행** > 합니다.
-- 명령줄에서 빌드하는 경우 명령에서를 사용 `/m`하는 경우 명령에서이 요소를 제거 합니다.
+- Visual Studio에서 최대 병렬 프로젝트 빌드 수를 1로 설정 해 봅니다. 이렇게 하려면 **옵션**  >  **프로젝트 및 솔루션**을 선택 하  >  **고**  >  **최대 병렬 프로젝트 수**빌드를 실행 합니다.
+- 명령줄에서 빌드하는 경우 명령에서를 사용 하는 경우 `/m` 명령에서이 요소를 제거 합니다.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>오류: AuthenticationContinuationHelper 이름이 현재 컨텍스트에 없습니다.
 
-오류가 현재 컨텍스트에 존재 하지 `AuthenticationContinuationHelper` 않는 것으로 표시 되는 경우 Visual Studio는 Android .csproj * 파일을 잘못 업데이트 했을 수 있습니다. 경우에 따라 * \<hintpath>* 파일 경로에 *monoandroid90*대신 *netstandard13* 이 잘못 포함 됩니다.
+오류가 현재 컨텍스트에 존재 하지 않는 것으로 표시 되는 경우 `AuthenticationContinuationHelper` Visual Studio는 Android .csproj * 파일을 잘못 업데이트 했을 수 있습니다. 경우에 따라 *\<HintPath>* 파일 경로에 *monoandroid90*대신 *netstandard13* 이 잘못 포함 됩니다.
 
 이 예제에는 올바른 파일 경로가 포함 되어 있습니다.
 
@@ -160,6 +160,6 @@ var authResult = AcquireTokenInteractive(scopes)
 
 자세한 내용은 [Microsoft id 플랫폼을 사용 하는 Xamarin mobile 응용 프로그램](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)샘플을 참조 하세요. 다음 표에서는 추가 정보 파일의 관련 정보를 요약 하 여 보여 줍니다.
 
-| 샘플 | 플랫폼 | Description |
+| 예제 | 플랫폼 | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.ios, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

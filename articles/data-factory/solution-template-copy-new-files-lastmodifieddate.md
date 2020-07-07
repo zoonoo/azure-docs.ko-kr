@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629068"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
@@ -49,7 +49,7 @@ ms.locfileid: "82629068"
 
     ![대상에 대한 새 연결 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-3. **이 템플릿 사용**을 선택 합니다.
+3. **이 템플릿 사용**을 선택합니다.
 
     ![이 템플릿 사용](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
@@ -84,12 +84,12 @@ ms.locfileid: "82629068"
     ![트리거 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 10. **트리거 실행 매개 변수의** 값을 다음과 같이 설정 하 고 **마침**을 선택 합니다.
-    - **FolderPath_Source** = **Sourcefolder**를 FolderPath_Source 합니다.  를 원본 데이터 저장소의 폴더로 바꿀 수 있습니다.
-    - **Directory_Source** = **하위 폴더**를 Directory_Source 합니다.  를 원본 데이터 저장소의 하위 폴더로 바꿀 수 있습니다.
-    - **FolderPath_Destination** = **Destinationfolder**를 FolderPath_Destination 합니다.  를 대상 데이터 저장소의 폴더로 바꿀 수 있습니다.
-    - **Directory_Destination** = **하위 폴더**를 Directory_Destination 합니다.  를 대상 데이터 저장소의 하위 폴더로 바꿀 수 있습니다.
-    - **LastModified_From** =  **\@트리거 (). 출력 windowstarttime**을 LastModified_From 합니다.  이 변수는 파이프라인이 마지막으로 트리거된 시간을 확인 하는 트리거의 시스템 변수입니다.
-    - **LastModified_To** = **\@트리거 (). 출력 windowendtime**을 LastModified_To 합니다.  이 시간 동안 파이프라인이 트리거되는 시간을 결정 하는 트리거의 시스템 변수입니다.
+    - **FolderPath_Source**  =  **sourcefolder**.  를 원본 데이터 저장소의 폴더로 바꿀 수 있습니다.
+    - **Directory_Source**  =  **하위 폴더**.  를 원본 데이터 저장소의 하위 폴더로 바꿀 수 있습니다.
+    - **FolderPath_Destination**  =  **destinationfolder**.  를 대상 데이터 저장소의 폴더로 바꿀 수 있습니다.
+    - **Directory_Destination**  =  **하위 폴더**.  를 대상 데이터 저장소의 하위 폴더로 바꿀 수 있습니다.
+    - **LastModified_From**  =   ** \@ trigger (). outputs starttime**.  이 변수는 파이프라인이 마지막으로 트리거된 시간을 확인 하는 트리거의 시스템 변수입니다.
+    - **LastModified_To**  =  ** \@ trigger (). 출력 windowendtime**.  이 시간 동안 파이프라인이 트리거되는 시간을 결정 하는 트리거의 시스템 변수입니다.
     
     ![입력 매개 변수](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

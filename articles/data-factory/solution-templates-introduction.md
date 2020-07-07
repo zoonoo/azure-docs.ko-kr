@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628949"
 ---
 # <a name="templates"></a>템플릿
@@ -32,7 +32,7 @@ ms.locfileid: "82628949"
 
     ![개요 페이지에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  리소스 탐색기의 작성자 탭에서을 선택 하 **+** 고 **템플릿에서 파이프라인** 을 선택 하 여 템플릿 갤러리를 엽니다.
+1.  리소스 탐색기의 작성자 탭에서 **+** 을 선택 하 고 **템플릿에서 파이프라인** 을 선택 하 여 템플릿 갤러리를 엽니다.
 
     ![작성자 탭에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -56,7 +56,7 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
     -   [데이터베이스에서 델타 복사](solution-template-delta-copy-with-control-table.md)
 
-    -   \<원본\>에서 \<대상\>으로 복사
+    -   에서 \<source\> 로 복사\<destination\>
 
         -   [Amazon S3에서 Azure Data Lake Store Gen 2로 복사](solution-template-migration-s3-azure.md)
 
