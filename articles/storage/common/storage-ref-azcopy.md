@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74038082"
 ---
 # <a name="azcopy"></a>azcopy
@@ -21,9 +20,9 @@ AzCopy는 Azure Storage 데이터를 이동 하거나 외부로 이동 하는 �
 
 ## <a name="synopsis"></a>개요
 
-명령의 일반적인 형식은 `azcopy [command] [arguments] --[flag-name]=[flag-value]`입니다.
+명령의 일반적인 형식은 `azcopy [command] [arguments] --[flag-name]=[flag-value]` 입니다.
 
-문제를 보고 하거나 도구에 대해 자세히 알아보려면를 참조 [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)하십시오.
+문제를 보고 하거나 도구에 대해 자세히 알아보려면를 참조 하십시오 [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
@@ -40,7 +39,7 @@ AzCopy는 Azure Storage 데이터를 이동 하거나 외부로 이동 하는 �
       
 **--output-형식**  명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

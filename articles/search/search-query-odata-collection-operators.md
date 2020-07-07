@@ -20,19 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113241"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure Cognitive Search의 OData 컬렉션 연산자- `any` 및`all`
 
-Azure Cognitive Search와 함께 사용할 [OData 필터 식을](query-odata-filter-orderby-syntax.md) 작성할 때 컬렉션 필드에 대해 필터링 하는 것이 유용한 경우가 많습니다. 및 `any` `all` 연산자를 사용 하 여이를 달성할 수 있습니다.
+Azure Cognitive Search와 함께 사용할 [OData 필터 식을](query-odata-filter-orderby-syntax.md) 작성할 때 컬렉션 필드에 대해 필터링 하는 것이 유용한 경우가 많습니다. 및 연산자를 사용 하 여이를 달성할 수 있습니다 `any` `all` .
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 또는 `any` `all`을 사용 하는 OData 식의 문법을 정의 합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 또는을 사용 하는 OData 식의 문법을 정의 합니다 `any` `all` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,31 +55,31 @@ lambda_expression ::= identifier ':' boolean_expression
 컬렉션을 필터링 하는 식에는 세 가지 형식이 있습니다.
 
 - 처음 두 개는 컬렉션 필드를 반복 하 여 람다 식의 형식으로 제공 된 조건자를 컬렉션의 각 요소에 적용 합니다.
-  - 를 사용 하 `all` 는 `true` 식은 컬렉션의 모든 요소에 대해 조건자가 true 인 경우를 반환 합니다.
-  - 를 사용 하 `any` 는 `true` 식은 컬렉션의 요소 중 하나 이상에 대해 조건자가 true 인 경우를 반환 합니다.
-- 컬렉션 필터의 세 번째 형태는 `any` 컬렉션 필드가 비어 있는지 여부를 테스트 하기 위해 람다 식 없이를 사용 합니다. 컬렉션에 요소가 있으면를 반환 `true`합니다. 컬렉션이 비어 있으면를 반환 `false`합니다.
+  - 를 사용 하는 식은 `all` `true` 컬렉션의 모든 요소에 대해 조건자가 true 인 경우를 반환 합니다.
+  - 를 사용 하는 식은 `any` `true` 컬렉션의 요소 중 하나 이상에 대해 조건자가 true 인 경우를 반환 합니다.
+- 컬렉션 필터의 세 번째 형태는 `any` 컬렉션 필드가 비어 있는지 여부를 테스트 하기 위해 람다 식 없이를 사용 합니다. 컬렉션에 요소가 있으면를 반환 `true` 합니다. 컬렉션이 비어 있으면를 반환 `false` 합니다.
 
 컬렉션 필터의 **람다 식은** 프로그래밍 언어의 루프 본문과 같습니다. 반복 하는 동안 컬렉션의 현재 요소를 보유 하는 **범위 변수**라고 하는 변수를 정의 합니다. 또한 컬렉션의 각 요소에 대 한 범위 변수에 적용할 필터 기준이 되는 또 다른 부울 식을 정의 합니다.
 
 ## <a name="examples"></a>예
 
-해당 `tags` 필드에 "wifi" 문자열이 정확히 포함 된 문서를 찾습니다.
+해당 필드에 `tags` "wifi" 문자열이 정확히 포함 된 문서를 찾습니다.
 
     tags/any(t: t eq 'wifi')
 
-`ratings` 필드의 모든 요소가 3 ~ 5 (포함) 사이인 문서를 찾습니다.
+필드의 모든 요소가 `ratings` 3 ~ 5 (포함) 사이인 문서를 찾습니다.
 
     ratings/all(r: r ge 3 and r le 5)
 
-`locations` 필드의 모든 지역 좌표가 지정 된 다각형 내에 있는 문서를 찾습니다.
+필드의 모든 지역 좌표가 지정 된 다각형 내에 있는 문서를 찾습니다 `locations` .
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-`rooms` 필드가 비어 있는 문서를 찾습니다.
+필드가 비어 있는 문서를 찾습니다 `rooms` .
 
     not rooms/any()
 
-모든 대화방의 문서를 찾습니다 .이 `rooms/amenities` 필드에는 "tv" `rooms/baseRate` 가 포함 되어 있고 100 미만 이어야 합니다.
+모든 대화방의 문서를 찾습니다 `rooms/amenities` .이 필드에는 "tv"가 포함 되어 있고 `rooms/baseRate` 100 미만 이어야 합니다.
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 

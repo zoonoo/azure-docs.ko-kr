@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
 ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70883934"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스
@@ -53,8 +52,8 @@ VM을 부팅할 수 없는 경우 배포는 종종 사용자를 단일 사용자
 
 ### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>단일 사용자 모드를 사용 하 여 암호 재설정 또는 추가
 단일 사용자 모드에 있는 경우 다음을 수행 하 여 sudo 권한이 있는 새 사용자를 추가 합니다.
-1. 을 `useradd <username>` 실행 하 여 사용자를 추가 합니다.
-1. 을 `sudo usermod -a -G sudo <username>` 실행 하 여 새 사용자 루트 권한을 부여 합니다.
+1. `useradd <username>`을 실행 하 여 사용자를 추가 합니다.
+1. `sudo usermod -a -G sudo <username>`을 실행 하 여 새 사용자 루트 권한을 부여 합니다.
 1. `passwd <username>`을 사용하여 새 사용자의 암호를 설정합니다. 그런 다음 새 사용자로 로그인 할 수 있습니다.
 
 
@@ -62,7 +61,7 @@ VM을 부팅할 수 없는 경우 배포는 종종 사용자를 단일 사용자
 RHEL는 정상적으로 부팅할 수 없는 경우 사용자를 단일 사용자 모드로 자동으로 삭제 합니다. 그러나 단일 사용자 모드에 대 한 루트 액세스를 설정 하지 않은 경우에는 루트 암호가 없으며 로그인 할 수 없습니다. 해결 방법이 있습니다 ("RHEL에서 단일 사용자 모드를 수동으로 입력" 섹션 참조). 하지만 처음에 루트 액세스를 설정 하는 것이 좋습니다.
 
 ### <a name="grub-access-in-rhel"></a>RHEL에서 GRUB 액세스
-RHEL에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 실행 `sudo reboot`하 여 VM을 다시 부팅 한 다음 아무 키나 누릅니다. GRUB 창이 표시 됩니다. 그렇지 않은 경우에는 다음 줄이 GRUB 파일 (`/etc/default/grub`)에 표시 되는지 확인 합니다.
+RHEL에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 실행 하 여 VM을 다시 부팅 한 `sudo reboot` 다음 아무 키나 누릅니다. GRUB 창이 표시 됩니다. 그렇지 않은 경우에는 다음 줄이 GRUB 파일 ()에 표시 되는지 확인 합니다 `/etc/default/grub` .
 
 **RHEL 8의 경우**
 
@@ -89,10 +88,10 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 1. SSH를 통해 Red Hat 시스템에 로그인 합니다.
 1. Root로 전환 합니다.
 1. 다음을 수행 하 여 루트 사용자에 대 한 암호를 사용 하도록 설정 합니다.
-    * ( `passwd root` 강력한 루트 암호 설정)를 실행 합니다.
+    * `passwd root`(강력한 루트 암호 설정)를 실행 합니다.
 1. 루트 사용자가 다음을 수행 하 여 ttyS0를 통해서만 로그인 할 수 있는지 확인 합니다.  
-    a. 을 `edit /etc/ssh/sshd_config`실행 하 고 PermitRootLogIn이로 `no`설정 되었는지 확인 합니다.  
-    b. TtyS0 `edit /etc/securetty file` 를 통한 로그인만 허용 하려면를 실행 합니다.
+    a. 을 실행 하 `edit /etc/ssh/sshd_config` 고 PermitRootLogIn이로 설정 되었는지 확인 `no` 합니다.  
+    b. `edit /etc/securetty file`TtyS0를 통한 로그인만 허용 하려면를 실행 합니다.
 
 이제 시스템이 단일 사용자 모드로 부팅 되 면 루트 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -127,26 +126,26 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 1. 커널 줄을 찾습니다. Azure에서 *linux16*로 시작 합니다.
 1. 줄의 끝에서 줄의 끝에 *를 추가 합니다.* 커널 줄과 *rd. break*사이에 공백을 둡니다.
 
-    이 작업을 수행 하면 [Red Hat 설명서](https://aka.ms/rhel7rootpassword)에 설명 된 `initramfs` 대로 `systemd`컨트롤이에서로 전달 되기 전에 부팅 프로세스가 중단 됩니다.
+    이 작업을 수행 하면 `initramfs` `systemd` [Red Hat 설명서](https://aka.ms/rhel7rootpassword)에 설명 된 대로 컨트롤이에서로 전달 되기 전에 부팅 프로세스가 중단 됩니다.
 1. Ctrl + X를 눌러 종료 하 고 적용 된 설정으로 다시 부팅 합니다.
 
    를 다시 부팅 한 후에는 읽기 전용 파일 시스템을 사용 하 여 응급 모드로 전환 됩니다. 
    
-1. 셸에서 읽기/쓰기 권한을 `mount -o remount,rw /sysroot` 사용 하 여 루트 파일 시스템을 다시 탑재 하려면를 입력 합니다.
-1. 단일 사용자 모드로 부팅 한 후를 입력 `chroot /sysroot` 하 여 `sysroot` 감옥으로 전환 합니다.
-1. 이제 루트에 있습니다. 를 입력 `passwd` 하 고 위의 지침에 따라 단일 사용자 모드로 전환 하 여 루트 암호를 다시 설정할 수 있습니다. 
-1. 완료 되 면를 입력 `reboot -f` 하 여 다시 부팅 합니다.
+1. 셸에서 `mount -o remount,rw /sysroot` 읽기/쓰기 권한을 사용 하 여 루트 파일 시스템을 다시 탑재 하려면를 입력 합니다.
+1. 단일 사용자 모드로 부팅 한 후를 입력 하 여 `chroot /sysroot` 감옥으로 전환 `sysroot` 합니다.
+1. 이제 루트에 있습니다. 를 입력 하 `passwd` 고 위의 지침에 따라 단일 사용자 모드로 전환 하 여 루트 암호를 다시 설정할 수 있습니다. 
+1. 완료 되 면 `reboot -f` 를 입력 하 여 다시 부팅 합니다.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
-> 이전 지침을 통해를 실행 하면 응급 셸로 이동 하 여 편집과 `fstab`같은 작업을 수행할 수도 있습니다. 그러나 일반적으로 루트 암호를 다시 설정 하 고이를 사용 하 여 단일 사용자 모드로 전환 하는 것이 좋습니다.
+> 이전 지침을 통해를 실행 하면 응급 셸로 이동 하 여 편집과 같은 작업을 수행할 수도 있습니다 `fstab` . 그러나 일반적으로 루트 암호를 다시 설정 하 고이를 사용 하 여 단일 사용자 모드로 전환 하는 것이 좋습니다.
 
 ## <a name="access-for-centos"></a>CentOS에 대한 액세스
 Red Hat Enterprise Linux, CentOS의 단일 사용자 모드와 마찬가지로 GRUB 및 루트 사용자를 사용 하도록 설정 해야 합니다.
 
 ### <a name="grub-access-in-centos"></a>CentOS에서 GRUB 액세스
-CentOS에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 입력 `sudo reboot`하 여 VM을 다시 부팅 한 다음 아무 키나 누릅니다. 그러면 GRUB 창이 표시 됩니다.
+CentOS에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 입력 하 여 VM을 다시 부팅 한 `sudo reboot` 다음 아무 키나 누릅니다. 그러면 GRUB 창이 표시 됩니다.
 
 ### <a name="single-user-mode-in-centos"></a>CentOS의 단일 사용자 모드
 CentOS에서 단일 사용자 모드를 사용 하도록 설정 하려면 RHEL에 대 한 이전 지침을 따릅니다.
@@ -160,10 +159,10 @@ GRUB에 액세스 하려면 VM이 부팅 되는 동안 Esc 키를 누릅니다.
 기본적으로 Ubuntu 이미지는 GRUB 창을 자동으로 표시 하지 않을 수 있습니다. 다음을 수행 하 여 설정을 변경할 수 있습니다.
 1. 텍스트 편집기에서 */etc/default/grub.d/50-cloudimg-settings.cfg* 파일을 엽니다.
 
-1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경 합니다.
+1. 값을 `GRUB_TIMEOUT` 0이 아닌 값으로 변경 합니다.
 1. 텍스트 편집기에서 */etc/default/grub*을 엽니다.
-1. 줄을 주석 `GRUB_HIDDEN_TIMEOUT=1` 으로 처리 합니다.
-1. `GRUB_TIMEOUT_STYLE=menu` 줄이 있는지 확인 합니다.
+1. 줄을 주석으로 처리 `GRUB_HIDDEN_TIMEOUT=1` 합니다.
+1. 줄이 있는지 확인 `GRUB_TIMEOUT_STYLE=menu` 합니다.
 1. `sudo update-grub`을 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
@@ -175,14 +174,14 @@ Ubuntu를 정상적으로 부팅할 수 없는 경우 사용자를 단일 사용
 1. 이러한 설정으로 다시 부팅 하려면 Ctrl + X를 누르고 단일 사용자 모드로 전환 합니다.
 
 ### <a name="use-grub-to-invoke-bash-in-ubuntu"></a>GRUB를 사용 하 여 Ubuntu에서 bash 호출
-위의 지침을 시도한 후에도 Ubuntu VM에서 단일 사용자 모드에 액세스할 수 없는 상황 (예: 잊어버린 루트 암호)이 있을 수 있습니다. 시스템 init 대신 init로 실행 `/bin/bash` 되도록 커널을 지시할 수도 있습니다. 이 작업은 bash 셸을 제공 하 고 시스템 유지 관리를 허용 합니다. 다음 지침을 따르세요.
+위의 지침을 시도한 후에도 Ubuntu VM에서 단일 사용자 모드에 액세스할 수 없는 상황 (예: 잊어버린 루트 암호)이 있을 수 있습니다. 시스템 init 대신 init로 실행 되도록 커널을 지시할 수도 있습니다 `/bin/bash` . 이 작업은 bash 셸을 제공 하 고 시스템 유지 관리를 허용 합니다. 다음 지침을 따르세요.
 
 1. GRUB에서 E 키를 눌러 부팅 항목 (Ubuntu 항목)을 편집 합니다.
 
 1. *Linux*로 시작 하는 줄을 찾은 다음 *ro*을 찾습니다.
 1. *Ro* 을 *rw init =/bin/bash*으로 바꿉니다.
 
-    이 작업은 파일 시스템을 읽기/쓰기로 탑재 하 고 `/bin/bash` 를 초기화 프로세스로 사용 합니다.
+    이 작업은 파일 시스템을 읽기/쓰기로 탑재 하 고를 `/bin/bash` 초기화 프로세스로 사용 합니다.
 1. 이러한 설정으로 다시 부팅 하려면 Ctrl + X를 누릅니다.
 
 ## <a name="access-for-coreos"></a>CoreOS에 대한 액세스
@@ -206,10 +205,10 @@ CoreOS는 정상적으로 부팅할 수 없는 경우 사용자를 단일 사용
 ### <a name="grub-access-in-suse-sles"></a>SUSE SLES에서 GRUB 액세스
 SLES의 GRUB 액세스에는 YaST를 통한 부팅 로더 구성이 필요 합니다. 구성을 만들려면 다음을 수행 합니다.
 
-1. SSH를 사용 하 여 SLES VM에 로그인 한 다음를 실행 `sudo yast bootloader`합니다. Tab 키를 누르고 enter 키를 누른 다음 화살표 키를 사용 하 여 메뉴를 탐색 합니다.
+1. SSH를 사용 하 여 SLES VM에 로그인 한 다음를 실행 `sudo yast bootloader` 합니다. Tab 키를 누르고 enter 키를 누른 다음 화살표 키를 사용 하 여 메뉴를 탐색 합니다.
 
 1. **커널 매개 변수**로 이동한 다음 **직렬 콘솔 사용** 확인란을 선택 합니다.
-1. 콘솔 `serial --unit=0 --speed=9600 --parity=no` 인수에 **Console** 를 추가 합니다.
+1. `serial --unit=0 --speed=9600 --parity=no` **콘솔** 인수에를 추가 합니다.
 1. F10 키를 눌러 설정을 저장 하 고 종료 합니다.
 1. GRUB를 시작 하려면 VM을 다시 부팅 하 고 부팅 순서 중 아무 키나 눌러 GRUB 창을 표시 합니다.
 
@@ -233,7 +232,7 @@ SLES가 정상적으로 부팅할 수 없는 경우 응급 셸에 자동으로 �
 Red Hat Enterprise Linux, Oracle Linux의 단일 사용자 모드와 마찬가지로 GRUB 및 루트 사용자를 사용 하도록 설정 해야 합니다.
 
 ### <a name="grub-access-in-oracle-linux"></a>Oracle Linux에서 GRUB 액세스
-Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 실행 `sudo reboot`하 여 VM을 다시 부팅 한 다음 esc 키를 누릅니다. 그러면 GRUB 창이 표시 됩니다. GRUB 창이 표시 되지 않으면 `GRUB_TERMINAL` 줄의 값에 *직렬 콘솔* ( `GRUB_TERMINAL="serial console"`)이 포함 되어 있는지 확인 합니다. 을 사용 하 `grub2-mkconfig -o /boot/grub/grub.cfg`여 GRUB를 다시 빌드합니다.
+Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 하려면를 실행 하 여 VM을 다시 부팅 한 `sudo reboot` 다음 esc 키를 누릅니다. 그러면 GRUB 창이 표시 됩니다. GRUB 창이 표시 되지 않으면 줄의 값에 `GRUB_TERMINAL` *직렬 콘솔* ()이 포함 되어 있는지 확인 `GRUB_TERMINAL="serial console"` 합니다. 을 사용 하 여 GRUB를 다시 빌드합니다 `grub2-mkconfig -o /boot/grub/grub.cfg` .
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Oracle Linux의 단일 사용자 모드
 Oracle Linux에서 단일 사용자 모드를 사용 하도록 설정 하려면 이전 RHEL에 대 한 지침을 따르세요.

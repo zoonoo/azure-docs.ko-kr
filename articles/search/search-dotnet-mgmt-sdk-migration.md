@@ -10,10 +10,9 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73847532"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Azure Search .NET Management SDK 버전 업그레이드
@@ -29,7 +28,7 @@ Azure Search .NET Management SDK 버전 2에는 이전 버전에서 변경된 �
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2"></a>버전 2의 새로운 기능
-Azure Search .NET Management SDK 버전 2는 이전 SDK 버전(특히 2015-08-19)과 동일한 일반 공급 Azure Search Management REST API 버전을 대상으로 합니다. SDK 변경 내용은 SDK 자체의 유용성을 개선하기 위한 엄격한 클라이언트 쪽 변경 내용입니다. 이러한 변경 내용에는 다음이 포함됩니다.
+Azure Search .NET Management SDK 버전 2는 이전 SDK 버전(특히 2015-08-19)과 동일한 일반 공급 Azure Search Management REST API 버전을 대상으로 합니다. SDK 변경 내용은 SDK 자체의 유용성을 개선하기 위한 엄격한 클라이언트 쪽 변경 내용입니다. 변경 내용은 다음과 같습니다.
 
 * 이제 `Services.CreateOrUpdate` 및 해당 비동기 버전은 프로비저닝 `SearchService`를 자동으로 폴링하며, 서비스 프로비저닝이 완료될 때까지 반환되지 않습니다. 따라서 이러한 폴링 코드를 직접 작성하지 않아도 됩니다.
 * 서비스 프로비저닝을 여전히 수동으로 폴링하려는 경우 새로운 `Services.BeginCreateOrUpdate` 메서드 또는 비동기 버전 중 하나를 사용할 수 있습니다.

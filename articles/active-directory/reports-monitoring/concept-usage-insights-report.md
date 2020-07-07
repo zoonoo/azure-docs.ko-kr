@@ -17,10 +17,9 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74008257"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용 현황 및 정보 보고서
@@ -31,7 +30,7 @@ ms.locfileid: "74008257"
 *   실패 한 로그인이 가장 많은 응용 프로그램은 무엇 인가요? 
 *   각 응용 프로그램에 대 한 상위 로그인 오류는 무엇 인가요?
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 사용량 및 통찰력 보고서의 데이터에 액세스 하려면 다음이 필요 합니다.
 
@@ -41,7 +40,7 @@ ms.locfileid: "74008257"
 
 ## <a name="access-the-usage-and-insights-report"></a>사용량 및 통찰력 보고서 액세스
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 올바른 디렉터리를 선택한 다음 **Azure Active Directory** 를 선택 하 고 **엔터프라이즈 응용 프로그램**을 선택 합니다.
 3. **활동** 섹션에서 **사용 현황 & 정보** 를 선택 하 여 보고서를 엽니다. 
 

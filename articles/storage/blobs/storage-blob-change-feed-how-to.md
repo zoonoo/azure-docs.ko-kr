@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74111861"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 변경 피드 처리 (미리 보기)
@@ -26,13 +25,13 @@ ms.locfileid: "74111861"
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Blob 변경 피드 프로세서 라이브러리 가져오기
 
-1. Visual Studio에서 NuGet 패키지 소스에 `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` URL을 추가 합니다. 
+1. Visual Studio에서 NuGet 패키지 원본에 `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` URL을 추가합니다. 
 
-   방법을 알아보려면 [패키지 원본](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)을 참조 하세요.
+   자세한 내용은 [패키지 원본](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)을 참조하세요.
 
 2. NuGet 패키지 관리자에서 **Microsoft Azure. Changefeed** 패키지를 찾아 프로젝트에 설치 합니다. 
 
-   방법에 대 한 자세한 내용은 [패키지 찾기 및 설치](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조 하세요.
+   방법에 대한 자세한 내용은 [패키지 찾기 및 설치](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
 
 ## <a name="connect-to-the-storage-account"></a>스토리지 계정에 연결
 
@@ -60,7 +59,7 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 
 ## <a name="initialize-the-change-feed"></a>변경 피드 초기화
 
-다음 using 문을 코드 파일의 맨 위에 추가 합니다. 
+코드 파일 맨 위에 다음 using 문을 추가합니다. 
 
 ```csharp
 using Avro.Generic;

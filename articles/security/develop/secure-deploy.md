@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934879"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 배포
@@ -25,10 +24,10 @@ ms.locfileid: "68934879"
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
-- 해제
+- Release
 - 응답
 
-## <a name="release"></a>해제
+## <a name="release"></a>Release
 릴리스 단계의 초점은 공용 릴리스에 대 한 프로젝트를 패키징하여는 것입니다.
 여기에는 릴리스 후 서비스 작업을 효과적으로 수행 하 고 나중에 발생할 수 있는 보안 취약점을 해결 하는 계획 방법이 포함 됩니다.
 
@@ -88,5 +87,5 @@ Security Center 표준은 다음을 지원 합니다.
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 보안 응용 프로그램을 디자인 하 고 개발 하는 데 사용할 수 있는 보안 제어 및 작업을 권장 합니다.
 
-- [보안 응용 프로그램 디자인](secure-design.md)
+- [보안 애플리케이션 디자인](secure-design.md)
 - [보안 애플리케이션 개발](secure-develop.md)

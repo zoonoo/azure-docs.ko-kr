@@ -9,17 +9,16 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73693176"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Azure로 VMware VM 또는 물리적 서버를 재해 복구하기 위한 대상 환경 준비
 
 이 문서에서는 VMware 가상 머신 또는 실제 서버를 Azure로 복제하는 작업을 시작하기 위해 대상 Azure 환경을 준비하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 문서에서는 다음을 가정합니다.
 - 원본 컴퓨터를 보호 하기 위해 [Azure Portal](https://portal.azure.com "Azure portal") 에서 Recovery Services 자격 증명 모음을 만들었습니다.

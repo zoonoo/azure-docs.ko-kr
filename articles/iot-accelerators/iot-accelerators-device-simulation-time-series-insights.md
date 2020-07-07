@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889341"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
@@ -57,16 +56,16 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **리소스** > 만들기**사물 인터넷** > **Time Series Insights**를 선택 합니다.
+1. **리소스 만들기**  >  **사물 인터넷**  >  **Time Series Insights**를 선택 합니다.
 
     ![새로운 Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
 1. 솔루션 가속기와 동일한 리소스 그룹에 Time Series Insights 환경을 만들려면 다음 표의 값을 사용합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **Contoso-TSI**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
-    | 구독 | 드롭다운에서 Azure 구독을 선택합니다. |
+    | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
     | Resource group | **contoso-simulation** 솔루션 가속기의 이름을 사용합니다. |
     | 위치 | 이 예제에서는 **미국 동부**를 사용합니다. 디바이스 시뮬레이션 가속기와 동일한 지역에 환경을 만듭니다. |
     | SKU |**S1** |
@@ -95,7 +94,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 1. IoT Hub를 새 이벤트 원본으로 구성하려면 다음 표에 있는 값을 사용합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 이벤트 원본 이름 | 다음 스크린샷에서는 **contoso-iot-hub**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 사용합니다. |
     | 원본 | **IoT Hub** |
@@ -151,7 +150,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
     ![Time Series Insights 탐색기 큐브 뷰](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. 큐브 **+** 뷰에 새 쿼리를 추가 하려면 클릭 합니다.
+1. **+** 큐브 뷰에 새 쿼리를 추가 하려면 클릭 합니다.
 
     ![Time Series Insights 탐색기 쿼리 추가](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 

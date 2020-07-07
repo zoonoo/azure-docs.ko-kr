@@ -13,10 +13,9 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881011"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure Dedicated HSM 지원 가능성
@@ -45,7 +44,7 @@ HSM 디바이스의 구성에 사용되는 다양한 소프트웨어 구성 요�
 
 Gemalto는 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 관리 및 구성 지침을 제공합니다. 유효한 고객 ID를 사용하여 로그인하면 이러한 문서를 다운로드할 수 있습니다. 또한 Gemalto는 고객에게 다양한 시나리오와 소프트웨어 통합을 지원하는 일련의 통합 가이드를 제공합니다. 자세한 내용은 [Microsoft에 대한 Gemalto 파트너 사이트](https://safenet.gemalto.com/partners/microsoft/)를 참조하세요.
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
 Dedicated HSM 서비스의 일부로 HSM을 사용하는 것과 관련된 모든 소프트웨어 수준 문제 또는 질문은 Gemalto 지원에서 직접 처리해야 합니다. 위에 나열된 모든 소프트웨어 구성 요소와 프로비전 이후의 모든 사용자 지정 HSM 구성은 Gemalto에서 처리됩니다. 자세한 내용은 [Gemalto 고객 지원 포털](https://supportportal.gemalto.com/csm/)을 참조하세요.
 

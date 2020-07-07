@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: debc5d91478d0a5c3cc16c7b09f5713ba09b467e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74080092"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
@@ -28,8 +27,8 @@ ms.locfileid: "74080092"
 
 | **트래픽 클래스** | **처리(DSCP 표시)** | **Microsoft 팀 및 비즈니스용 Skype 워크 로드** |
 | --- | --- | --- |
-| **보냈습니다** |EF (46) |Skype/Microsoft 팀/Lync 음성 |
-| **Interactive (대화형)** |AF41 (34) |비디오, VBSS |
+| **음성** |EF (46) |Skype/Microsoft 팀/Lync 음성 |
+| **대화형** |AF41 (34) |비디오, VBSS |
 | |AF21 (18) |앱 공유 | 
 | **기본값** |AF11 (10) |파일 전송 |
 | |CS0 (0) |다른 항목 |

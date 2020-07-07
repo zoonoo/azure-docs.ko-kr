@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890463"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
@@ -82,7 +81,7 @@ SDK를 사용하여 디바이스 스트림을 프로그래밍 방식으로 만�
 
 !["장치 스트림 끝점"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-또는 허브의 속성 섹션, 특히 및 `property.hostname` `property.deviceStreams` 키에서 Azure CLI를 사용 하 여 끝점 정보를 검색할 수 있습니다.
+또는 허브의 속성 섹션, 특히 및 키에서 Azure CLI를 사용 하 여 끝점 정보를 검색할 수 있습니다 `property.hostname` `property.deviceStreams` .
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>
@@ -106,7 +105,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 이 문서의 시작 부분에서 설명한 대로 장치는 장치 스트림 시작 프로세스 중에 스트리밍 끝점을 IoT Hub에 대 한 아웃 바운드 연결을 만듭니다. 디바이스 또는 해당 네트워크의 방화벽에서 443 포트를 통해 스트리밍 게이트웨이에 대한 아웃바운드 연결을 허용해야 합니다(통신은 TLS를 사용하여 암호화된 WebSocket 연결을 통해 수행됨).
 
-장치 스트리밍 끝점의 호스트 이름은 개요 탭의 Azure IoT Hub 포털에서 찾을 수 있습니다. !["장치 스트림 끝점"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+장치 스트리밍 끝점의 호스트 이름은 개요 탭의 Azure IoT Hub 포털에서 찾을 수 있습니다. ![ " 장치 스트림 끝점 "](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 또는 Azure CLI를 사용하여 이 정보를 확인할 수 있습니다.
 

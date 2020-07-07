@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113808"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
@@ -33,7 +32,7 @@ ms.locfileid: "74113808"
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-1. Visual Studio의 파일 메뉴에서 **새** > **프로젝트** 를 선택 합니다.
+1. Visual Studio의 **New**  >  파일 메뉴에서 새**프로젝트** 를 선택 합니다.
 
 1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#** > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 c # 네임 스페이스로 유효 해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 문자를 사용 하지 마세요.
 
@@ -311,11 +310,11 @@ namespace SampleSkills
 }
 ```
 
-Bing entity search API에 등록할 *key* 때 가져온 키를 `key` 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
+*key* `key` BING entity search API에 등록할 때 가져온 키를 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
 
 이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
 
-물론 파일의 이름을에서 `Function1.cs` 로 `BingEntitySearch.cs`바꿀 수도 있습니다.
+물론 파일의 이름을에서로 바꿀 수도 있습니다 `Function1.cs` `BingEntitySearch.cs` .
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio에서 함수 테스트
 
@@ -375,7 +374,7 @@ POST https://localhost:7071/api/EntitySearch
 
 함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **새로** > 만들기**게시**를 선택 합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **새로 만들기**  >  **게시**를 선택 합니다.
 
 1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
 
@@ -383,7 +382,7 @@ POST https://localhost:7071/api/EntitySearch
 
 1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 `EntitySearch` 함수를 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.**  
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 함수를 찾습니다 `EntitySearch` . **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.**  
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 

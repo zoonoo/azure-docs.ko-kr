@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73824114"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC 쌍을 기존 프로젝트에 배포
@@ -52,7 +51,7 @@ cd azure-iiot-components
 
    출력에는 공용 끝점의 URL이 포함 됩니다. 
 
-3. 스크립트가 성공적으로 완료 되 면 `.env` 파일을 저장할지 여부를 선택 합니다.  콘솔, 개발 `.env` 및 디버깅을 위한 모듈 배포 등의 도구를 사용 하 여 클라우드 끝점에 연결 하려면 환경 파일이 필요 합니다.
+3. 스크립트가 성공적으로 완료 되 면 파일을 저장할지 여부를 선택 `.env` 합니다.  `.env`콘솔, 개발 및 디버깅을 위한 모듈 배포 등의 도구를 사용 하 여 클라우드 끝점에 연결 하려면 환경 파일이 필요 합니다.
 
 ## <a name="troubleshooting-deployment-failures"></a>배포 오류 문제 해결
 

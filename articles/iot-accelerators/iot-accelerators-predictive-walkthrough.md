@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827424"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>예측 유지 관리 솔루션 가속기 개요
@@ -33,7 +32,7 @@ ms.locfileid: "73827424"
 
 회색 항목은 *디바이스 관리* 기능을 구현하는 구성 요소입니다. 예측 유지 관리 솔루션 가속기의 현재 릴리스에서는 이러한 리소스를 프로비전하지 않습니다. 디바이스 관리에 대한 자세한 내용은 [솔루션 가속기 원격 모니터링][lnk-remote-monitoring]을 참조합니다.
 
-## <a name="azure-resources"></a>: Azure 리소스
+## <a name="azure-resources"></a>Azure 리소스
 
 Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 이동하여 프로비전된 리소스를 볼 수 있습니다.
 
@@ -53,7 +52,7 @@ Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 �
 
 또한 시뮬레이션된 디바이스는 솔루션의 IoT Hub에서 보낸 다음 명령을 처리할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | StartTelemetry |시뮬레이션의 상태를 제어합니다.<br/>디바이스의 원격 분석 발신을 시작합니다. |
 | StopTelemetry |시뮬레이션의 상태를 제어합니다.<br/>원격 분석을 보내는 디바이스를 중지합니다. |
@@ -77,7 +76,7 @@ Machine Learning 모델은 IoT 솔루션 가속기 서비스를 통해 수집된
 
 Azure IoT 예측 유지 관리 솔루션 가속기는 이 템플릿에서 만든 회귀 모델을 사용합니다. 모델은 Azure 구독에 배포되고 자동으로 생성된 API를 통해 제공됩니다. 이 솔루션은 4개(총 100개 중)의 엔진에 대한 테스트 데이터의 하위 집합과 4개(총 21개 중)의 센서 데이터 스트림을 포함합니다. 이 데이터는 학습된 모델을 통해 정확한 결과를 제공하는 데 충분합니다.
 
-*\[1\] A. Saxena 및 Goebel (2008). "Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합", NASA Ames Prognostics data repository Data Repositoryhttps://c3.nasa.gov/dashlink/resources/139/)(, NASA Ames Research Center, Moffett Field, CA*
+*\[1 \] A. Saxena 및 Goebel (2008). "Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합", NASA Ames Prognostics data repository Data Repository ( https://c3.nasa.gov/dashlink/resources/139/) , NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>다음 단계
 지금까지 예측 유지 관리 솔루션 가속기의 주요 구성 요소를 살펴보았으며 이를 사용자 지정할 수 있습니다.

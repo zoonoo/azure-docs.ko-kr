@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934859"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure의 보안 개발 모범 사례
@@ -46,7 +45,7 @@ SDL 단계는 다음과 같습니다.
   - 디자인
   - 구현
   - 확인
-  - 해제
+  - Release
   - 응답
 
 ![보안 개발 수명 주기](./media/secure-dev-overview/01-sdl-phase.png)
@@ -78,6 +77,6 @@ Azure [솔루션에 대 한 보안 모범 사례](https://azure.microsoft.com/re
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 보안 응용 프로그램을 디자인, 개발 및 배포 하는 데 도움이 되는 보안 제어 및 작업을 권장 합니다.
 
-- [보안 응용 프로그램 디자인](secure-design.md)
+- [보안 애플리케이션 디자인](secure-design.md)
 - [보안 애플리케이션 개발](secure-develop.md)
-- [보안 응용 프로그램 배포](secure-deploy.md)
+- [보안 애플리케이션 배포](secure-deploy.md)

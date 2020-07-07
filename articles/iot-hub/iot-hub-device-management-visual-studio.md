@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953190"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Azure IoT Hub 디바이스 관리를 위해 Visual Studio용 클라우드 탐색기 사용
@@ -22,7 +21,7 @@ ms.locfileid: "73953190"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | 작업                    |
+| 관리 옵션          | Task                    |
 |----------------------------|--------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -31,7 +30,7 @@ ms.locfileid: "73953190"
 
 이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [디바이스-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
-디바이스 쌍은 메타데이터, 구성, 조건을 비롯한 디바이스 상태 정보를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
+디바이스 쌍은 메타데이터, 상태 및 조건을 포함하는 디바이스의 상태 정보를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -59,7 +58,7 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 ## <a name="sign-in-to-access-your-hub"></a>허브에 액세스 하려면 로그인 하세요.
 
-1. Visual Studio에서**클라우드 탐색기** **보기** > 를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서 **View**  >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 
@@ -89,9 +88,9 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집**을 선택합니다.
 
-   장치 쌍의 콘텐츠와 함께 **azure-iot-장치** 쌍의 json 파일이 열립니다.
+   장치 쌍의 내용과 함께 파일 **에azure-iot-device-twin.js** 열립니다.
 
-1. **태그** 또는 속성을 편집 **합니다. 원하는** 필드를 **azure-iot-장치-쌍 json** 파일에 만듭니다.
+1. **태그** 또는 속성을 편집 **합니다.** 파일 **의azure-iot-device-twin.js** 에 대 한 원하는 필드를 만듭니다.
 
 1. **Ctrl+S** 키를 눌러 디바이스 쌍을 업데이트합니다.
 

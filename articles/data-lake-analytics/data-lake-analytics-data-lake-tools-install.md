@@ -10,10 +10,9 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70914064"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치
@@ -48,7 +47,7 @@ Azure Data Lake Tools for Visual Studio Visual Studio 2017 15.3 이상에서 지
 
 [Visual Studio 용 Microsoft Azure Data Lake 및 Stream Analytics 도구 ](https://aka.ms/adltoolsvs)를 다운로드 하 여 설치 합니다. 설치 후 Visual Studio에는 다음과 같은 변경 내용이 있습니다.
 
-* **서버 탐색기** > **Azure** 노드에는 **Data Lake Analytics** 노드가 포함 되어 있습니다.
+* **서버 탐색기**  >  **Azure** 노드에는 **Data Lake Analytics** 노드가 포함 되어 있습니다.
 * **도구** 메뉴에 **Data Lake** 항목이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

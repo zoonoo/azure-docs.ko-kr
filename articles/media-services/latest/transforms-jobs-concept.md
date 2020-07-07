@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73571231"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
@@ -52,7 +51,7 @@ ms.locfileid: "73571231"
 > [!NOTE]
 > Datetime 형식의 **변환** 및 **작업** 속성은 항상 UTC 형식입니다.
 
-## <a name="transforms"></a>변환
+## <a name="transforms"></a>변형
 
 **Transforms**는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 

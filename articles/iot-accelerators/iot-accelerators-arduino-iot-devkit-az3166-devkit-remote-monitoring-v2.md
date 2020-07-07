@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888859"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
@@ -36,7 +35,7 @@ VS Code에서 원격 모니터링 샘플을 열려면
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 않은지 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. 클릭 `F1` 하 여 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 예제 열기**...를 입력 하 고 선택 합니다. 그런 다음 **IoT DevKit** as board를 선택 합니다.
+1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 예제 열기...** 를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
 
 1. **원격 모니터링**을 찾아 **예제 열기**를 클릭합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다.
 
@@ -63,7 +62,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 
 디바이스 코드를 빌드하고 업로드하려면
 
-1. Enter `F1` 키를 눌러 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 장치 코드 업로드**를 입력 하 고 선택 합니다.
+1. Enter 키를 눌러 `F1` 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 장치 코드 업로드**를 입력 하 고 선택 합니다.
 
 1. VS Code가 코드를 컴파일하고 DevKit 디바이스로 업로드합니다.
 

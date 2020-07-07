@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73648442"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>U-SQL 및 Spark 데이터 형식 간의 차이점 이해
@@ -43,7 +42,7 @@ U-SQL 테이블은 Spark에서 인식 되지 않습니다. SQL 테이블에 저�
 - 데이터 의미 체계 파일을 복사할 때 복사본은 바이트 수준에서 수행 됩니다. 따라서 동일한 데이터가 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 계정에 표시 되어야 합니다. 그러나 Spark는 일부 문자를 다르게 해석할 수 있습니다. 예를 들어 CSV 파일의 행 구분 기호에 대해 다른 기본값을 사용할 수 있습니다.
     또한 테이블에서 형식화 된 데이터를 복사 하는 경우 Parquet 및 Spark는 형식화 된 값 (예: float) 중 일부에 대해 다른 전체 자릿수와 소수 자릿수를 가질 수 있으며 null 값을 다르게 처리할 수 있습니다. 예를 들어, U-SQL에는 null 값에 대 한 c # 의미 체계가 있지만 Spark에는 null 값에 대 한 3 값 논리가 있습니다.
 
-- 데이터 구성 (분할)-SQL 테이블은 두 가지 수준 분할을 제공 합니다. 외부 수준 (`PARTITIONED BY`)은 값을 기준으로 하며 대부분은 폴더 계층 구조를 사용 하 여 Hive/Spark 파티션 체계로 매핑됩니다. Null 값이 올바른 폴더에 매핑되는지 확인 해야 합니다. U-SQL의`DISTRIBUTED BY`내부 수준 ()은 라운드 로빈, 범위, 해시 및 직접 해시의 4 가지 배포 스키마를 제공 합니다.
+- 데이터 구성 (분할)-SQL 테이블은 두 가지 수준 분할을 제공 합니다. 외부 수준 ( `PARTITIONED BY` )은 값을 기준으로 하며 대부분은 폴더 계층 구조를 사용 하 여 Hive/Spark 파티션 체계로 매핑됩니다. Null 값이 올바른 폴더에 매핑되는지 확인 해야 합니다. `DISTRIBUTED BY`U-SQL의 내부 수준 ()은 라운드 로빈, 범위, 해시 및 직접 해시의 4 가지 배포 스키마를 제공 합니다.
     Hive/Spark 테이블은 U-SQL과 다른 해시 함수를 사용 하 여 값 분할 또는 해시 분할만 지원 합니다. U-SQL 테이블 데이터를 출력 하는 경우 Spark의 값 분할에만 매핑할 수 있으며 최종 Spark 쿼리에 따라 데이터 레이아웃을 추가로 조정 해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

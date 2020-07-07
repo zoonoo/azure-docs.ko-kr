@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight 클러스터에 적합 한 VM 크기를 선택 하는 방법
 description: HDInsight 클러스터에 적합 한 VM 크기를 선택 하는 방법을 알아봅니다.
-keywords: vm 크기, 클러스터 크기, 클러스터 구성
+keywords: VM 크기, 클러스터 크기, 클러스터 구성
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,10 +10,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73682200"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
@@ -38,7 +37,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화 됩니다. 아래 표에서 가장 인기 있는 사용 사례와 일치 하는 VM 제품군 중 일부를 찾을 수 있습니다.
 
-| 유형                     | 크기           |    설명       |
+| Type                     | 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [항목 수준](../virtual-machines/linux/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 경제적 이며 Azure를 시작 하기 위한 저렴 한 옵션을 제공 합니다. |
 | [범용](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
@@ -53,15 +52,15 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 다음 표에서는 Fsv2 시리즈 Vm을 사용 하 여 만들 수 있는 클러스터 유형 및 노드 유형을 설명 합니다.
 
-| 클러스터 유형 | Version | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
+| 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
 |---|---|---|---|---|
-| Spark | 모두 | F4 이상 | 아니요 | 아니요 |
-| Hadoop은 | 모두 | F4 이상 | 아니요 | 아니요 |
-| Kafka | 모두 | F4 이상 | 아니요 | 아니요 |
-| HBase | 모두 | F4 이상 | 아니요 | 아니요 |
-| LLAP | disabled | 아니요 | 아니요 | 아니요 |
-| Storm | disabled | 아니요 | 아니요 | 아니요 |
-| ML 서비스 | HDI 3.6만 해당 | F4 이상 | 아니요 | 아니요 |
+| Spark | 모두 | F4 이상 | no | no |
+| Hadoop은 | 모두 | F4 이상 | no | no |
+| Kafka | 모두 | F4 이상 | no | no |
+| HBase | 모두 | F4 이상 | no | no |
+| LLAP | disabled | no | no | no |
+| Storm | disabled | no | no | no |
+| ML 서비스 | HDI 3.6만 해당 | F4 이상 | no | no |
 
 각 F 시리즈 SKU의 사양을 보려면 [f 시리즈 VM 크기](https://azure.microsoft.com/blog/f-series-vm-size/)를 참조 하세요.
 

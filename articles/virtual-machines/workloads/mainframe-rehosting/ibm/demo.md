@@ -13,10 +13,9 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68841380"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.
@@ -83,7 +82,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 6. 만든 Azure VM 디렉터리에 대 한 업로드를 시작 합니다 .이 디렉터리는 zD&T의 이미지 저장소가 됩니다.
 
     > [!NOTE]
-    > **Adcdtools를 확인 합니다. XML** 은 **Home/myuserid/zdt/adcd/nov2017** 디렉터리에 업로드 하는 데 포함 됩니다. 이 시간은 나중에 필요합니다.
+    > **Home/MyUserID/ZDT/adcd/nov2017** 디렉터리에 업로드에 **ADCDTOOLS.XML** 이 포함 되어 있는지 확인 합니다. 이 시간은 나중에 필요합니다.
 
 7. 파일이 업로드 될 때까지 기다렸다가 Azure에 대 한 연결에 따라 다소 시간이 걸릴 수 있습니다.
 
@@ -105,7 +104,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
         /opt/ibm/zDT/bin/startServer
     ```
 2. 명령에의 한 URL 출력을 확인 하 고이 URL을 사용 하 여 웹 서버에 액세스 합니다. 다음과 유사 하 게 표시 됩니다.
-     > https://(사용자의 VM 이름 또는 IP 주소): 9443/ZDTMC/index .html
+     > https://(사용자의 VM 이름 또는 IP 주소): 9443/ZDTMC/index.html
      >
      > 웹 액세스에서는 포트 9443을 사용 합니다. 이를 사용 하 여 웹 서버에 로그온 합니다. ZD&T의 사용자 ID는 **zdtadmin** 이 고 암호는 **password**입니다.
 

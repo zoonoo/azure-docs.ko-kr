@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889849"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
@@ -31,7 +30,7 @@ ms.locfileid: "73889849"
 * [Azure 경계 보안 모범 사례](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Azure 데이터베이스 보안 모범 사례](database-best-practices.md)
 * [Azure 데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)
-* [Azure id 관리 및 액세스 제어 보안 모범 사례](identity-management-best-practices.md)
+* [Azure ID 관리 및 액세스 제어 보안 모범 사례](identity-management-best-practices.md)
 * [Azure 네트워크 보안 모범 사례](network-best-practices.md)
 * [Azure 운영 보안 모범 사례](operational-best-practices.md)
 * [Azure PaaS 모범 사례](paas-deployments.md)
@@ -42,7 +41,7 @@ ms.locfileid: "73889849"
 * [Azure에서 PaaS 데이터베이스 보안 유지](paas-applications-using-sql.md)
 * [Azure App Service를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](paas-applications-using-app-services.md)
 * [Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](paas-applications-using-storage.md)
-* [Azure의 IaaS 워크로드의 보안 모범 사례](iaas.md)
+* [Azure의 IaaS 작업에 대한 보안 모범 사례](iaas.md)
 
 [Azure 솔루션에 대한 보안 모범 사례](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) 백서는 위에 나열된 문서에 있는 보안 모범 사례의 모음입니다.
 

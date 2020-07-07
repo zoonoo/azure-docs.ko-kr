@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: ca3d825fb2f4184448cc279d9408f47ad4ad004a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73838368"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer에서 브랜드 모델 사용자 지정

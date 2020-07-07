@@ -16,10 +16,9 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74073861"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
@@ -31,7 +30,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 > 
 > 
 
-* **이미지 프로비전**
+* **이미지 프로 비전**
   
   * 사용자 계정 만들기
   * SSH 인증 유형 구성
@@ -131,7 +130,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 * start: waagent를 백그라운드 프로세스로 실행
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
 
     ```

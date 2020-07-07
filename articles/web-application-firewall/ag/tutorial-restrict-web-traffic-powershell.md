@@ -9,15 +9,14 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74046286"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
 
-Waf ( [웹 응용 프로그램 방화벽](ag-overview.md) )를 사용 하 여 응용 프로그램 게이트웨이에서 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
+애플리케이션 게이트웨이에서 [WAF(웹 애플리케이션 방화벽)](ag-overview.md)으로 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 

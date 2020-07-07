@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74186445"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>모바일 에이전트의 강제 설치를 위한 원본 컴퓨터 준비
@@ -53,7 +52,7 @@ ms.locfileid: "74186445"
 
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
-8. **Sshd** 서비스를 다시 시작 합니다.
+8. **sshd** 서비스를 다시 시작합니다.
 9. CSPSConfigtool에서 만든 계정을 추가합니다. 이 작업을 수행하려면 구성 서버에 로그인합니다.
 10. **cspsconfigtool.exe**를 엽니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, %ProgramData%\home\svsystems\bin 폴더에 있습니다.
 11. **계정 관리** 탭에서 **계정 추가**를 선택합니다.

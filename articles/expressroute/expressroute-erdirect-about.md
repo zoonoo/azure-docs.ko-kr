@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083595"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
@@ -35,7 +34,7 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>서비스 공급자 및 ExpressRoute Direct를 사용하는 ExpressRoute
 
-| **서비스 공급자를 사용하는 ExpressRoute** | **ExpressRoute Direct** | 
+| **서비스 공급자를 사용하는 ExpressRoute** | **Express 경로 직접** | 
 | --- | --- |
 | 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 모든 계층의 100 Gbps/10 Gbps 인프라 및 전체 관리 필요
 | 이더넷 및 MPLS를 포함하는 수백 개의 공급자와 통합 | 규제 산업 및 대규모 데이터 수집에 대한 직접/전용 용량 |

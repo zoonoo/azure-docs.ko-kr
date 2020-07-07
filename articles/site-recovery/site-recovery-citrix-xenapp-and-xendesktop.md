@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74084547"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
@@ -26,7 +25,7 @@ Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 애플
 이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 빌드하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 

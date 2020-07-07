@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74159119"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 

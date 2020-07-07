@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890855"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
@@ -156,7 +155,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-GitHub에서 전체 [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) 를 볼 수 있습니다.
+GitHub에서 [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) 전체를 볼 수 있습니다.
 
 ## <a name="method-behavior"></a>메서드 동작
 

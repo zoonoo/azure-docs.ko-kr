@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082659"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
@@ -69,7 +68,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png) ![보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
+4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 목록 ](media/hyper-v-azure-architecture/image1.png) ![ 보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제

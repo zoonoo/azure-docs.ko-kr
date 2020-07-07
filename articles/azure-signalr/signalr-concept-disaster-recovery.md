@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73747654"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
@@ -51,7 +50,7 @@ SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적�
 
 ### <a name="through-config"></a>구성을 통해
 
-환경 변수/앱 설정/웹. cofig을 통해 이름이 인 `Azure:SignalR:ConnectionString`구성 항목에서 SignalR 서비스 연결 문자열을 설정 하는 방법을 이미 알고 있어야 합니다.
+환경 변수/앱 설정/웹. cofig을 통해 이름이 인 구성 항목에서 SignalR 서비스 연결 문자열을 설정 하는 방법을 이미 알고 있어야 합니다 `Azure:SignalR:ConnectionString` .
 여러 엔드포인트가 있는 경우 여러 구성 항목에서 각각 다음 형식으로 설정할 수 있습니다.
 
 ```
@@ -63,7 +62,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 
 ### <a name="through-code"></a>코드를 통해
 
-연결 문자열을 다른 위치에 저장 하려는 경우 코드에서이를 읽고 (ASP.NET Core) 또는 `AddAzureSignalR()` `MapAzureSignalR()` (ASP.NET)를 호출할 때 매개 변수로 사용할 수도 있습니다.
+연결 문자열을 다른 위치에 저장 하려는 경우 코드에서이를 읽고 `AddAzureSignalR()` (ASP.NET Core) 또는 `MapAzureSignalR()` (ASP.NET)를 호출할 때 매개 변수로 사용할 수도 있습니다.
 
 다음은 예제 코드입니다.
 

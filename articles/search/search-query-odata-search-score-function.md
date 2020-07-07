@@ -20,23 +20,22 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113128"
 ---
-# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Azure `search.score` Cognitive Search의 OData 함수
+# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>`search.score`Azure Cognitive Search의 OData 함수
 
-[ **$Orderby** 매개 변수](search-query-odata-orderby.md)없이 Azure Cognitive Search로 쿼리를 보내면 반환 되는 결과는 관련성 점수를 기준으로 내림차순으로 정렬 됩니다. **$Orderby**사용 하는 경우에도 관련성 점수를 사용 하 여 기본적으로 동률을 나눕니다. 그러나 경우에 따라 관련성 점수를 초기 정렬 조건으로 사용 하 고 일부 다른 기준은 연결 차단기로 사용 하는 것이 유용 합니다. `search.score` 함수를 사용 하면이 작업을 수행할 수 있습니다.
+[ **$Orderby** 매개 변수](search-query-odata-orderby.md)없이 Azure Cognitive Search로 쿼리를 보내면 반환 되는 결과는 관련성 점수를 기준으로 내림차순으로 정렬 됩니다. **$Orderby**사용 하는 경우에도 관련성 점수를 사용 하 여 기본적으로 동률을 나눕니다. 그러나 경우에 따라 관련성 점수를 초기 정렬 조건으로 사용 하 고 일부 다른 기준은 연결 차단기로 사용 하는 것이 유용 합니다. `search.score`함수를 사용 하면이 작업을 수행할 수 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
-**$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. 함수 `search.score`는 매개 변수를 사용하지 않습니다. **$Orderby** 매개 변수의 다른 절과 `asc` 마찬가지로 `desc` 또는 정렬 순서 지정자와 함께 사용할 수 있습니다. 정렬 기준 목록에서 아무 곳에 나 나타날 수 있습니다.
+**$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. 함수 `search.score`는 매개 변수를 사용하지 않습니다. `asc` `desc` **$Orderby** 매개 변수의 다른 절과 마찬가지로 또는 정렬 순서 지정자와 함께 사용할 수 있습니다. 정렬 기준 목록에서 아무 곳에 나 나타날 수 있습니다.
 
 ## <a name="example"></a>예제
 
-및를 기준 `search.score` 으로 내림차순으로 호텔 `rating`을 정렬 한 다음, 동일한 등급이 지정 된 두 호텔 사이에서 가장 근접 한 항목을 가장 먼저 나열 합니다.
+및를 기준으로 내림차순으로 호텔을 정렬 한 `search.score` `rating` 다음, 동일한 등급이 지정 된 두 호텔 사이에서 가장 근접 한 항목을 가장 먼저 나열 합니다.
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 

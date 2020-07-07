@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082567"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
@@ -60,7 +59,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
  | | VMNetwork2-시카고 | 매핑되지 않음
 
-이 예제에 대한 설명:
+이 예제에서:
 
 - VMNetwork1-뉴욕에 연결된 모든 VM에 대한 복제 VM을 만들면 VMNetwork1-시카고에 연결됩니다.
 - VMNetwork2-뉴욕 또는 VMNetwork2-시카고에 대한 복제 VM을 만들면 어떤 네트워크에도 연결되지 않습니다.
@@ -88,7 +87,7 @@ SilverCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>Log
 
 이러한 설정에 따라 대상 VM 네트워크를 선택하면 다음 표에 사용 가능한 선택 항목이 보입니다.
 
-**선택** | **보호된 클라우드** | **클라우드 보호** | **사용 가능한 대상 네트워크**
+**Select** | **보호된 클라우드** | **클라우드 보호** | **사용 가능한 대상 네트워크**
 ---|---|---|---
 VMNetwork1-시카고 | SilverCloud1 | SilverCloud2 | 사용 가능
  | GoldCloud1 | GoldCloud2 | 사용 가능

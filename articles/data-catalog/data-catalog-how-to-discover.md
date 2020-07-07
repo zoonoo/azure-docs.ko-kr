@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68736368"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 검색하는 방법
@@ -33,7 +32,7 @@ Azure Data Catalog는 기업 데이터 원본의 등록 시스템 및 검색 역
 
 기본 무료 텍스트 검색은 단순하고 직관적이지만 사용자는 데이터 카탈로그의 검색 구문을 사용하여 검색 결과를 더 잘 제어할 수도 있습니다. 데이터 카탈로그는 다음과 같은 기법을 지원합니다.
 
-| 방법 | 사용 | 예제 |
+| 방법 | Windows Server Update Services와 함께 | 예제 |
 | --- | --- | --- |
 | 기본 검색 |기본 검색은 하나 이상의 검색 용어를 사용합니다. 결과는 지정된 하나 이상의 용어와 속성에 대해 일치하는 모든 자산입니다. |`sales data` |
 | 속성 범위 |지정된 속성에서 일치하는 검색 용어가 있는 데이터 원본만 반환합니다. |`name:finance` |

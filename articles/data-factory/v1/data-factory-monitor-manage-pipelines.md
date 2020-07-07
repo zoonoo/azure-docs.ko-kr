@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73666976"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
@@ -105,7 +104,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>재시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -121,7 +120,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>조각이 처리되고 있습니다.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>취소됨</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
@@ -132,7 +131,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <tr>
 <td>-</td><td>조각 생성 및 유효성 검사가 실패했습니다.</td>
 </tr>
-<td>준비</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
+<td>Ready</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
 <td>건너뜀</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
@@ -178,7 +177,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +188,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +221,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +235,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74157613"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR 서비스를 사용 하 여 실시간 앱 빌드
@@ -29,7 +28,7 @@ Azure Functions를 통해 JavaScript, Python, c # 및 Java를 비롯 한 [여러
 * 다음과 같은 Azure 서비스의 이벤트:
     - Event Grid
     - Event Hubs
-    - 서비스 버스
+    - Service Bus
     - Cosmos DB 변경 피드
     - Storage - Blob 및 큐
     - Salesforce 및 SQL Server와 같은 Logic Apps 커넥터

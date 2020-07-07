@@ -15,10 +15,9 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74033965"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)

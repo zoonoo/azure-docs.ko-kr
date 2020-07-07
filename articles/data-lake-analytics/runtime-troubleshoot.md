@@ -10,10 +10,9 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 1e3fb218e6cda5619bfa1a0936e07d6731a9cc93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73648455"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>런타임 변경으로 인 한 U-SQL 런타임 오류 문제를 해결 하는 방법 알아보기
@@ -62,7 +61,7 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 2. 기본이 아닌 런타임을 사용 하 여 계정에 고정 된 경우 명시적으로 또는 암시적으로 사용 하 고, 런타임이 일정 시간 후에 제거 되었습니다. 누락 된 런타임이 발생 한 경우 현재 기본 런타임으로 실행 되도록 스크립트를 업그레이드 하세요. 추가 시간이 필요한 경우에 문의 하세요 Microsoft 지원
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)

@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73838548"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
@@ -26,12 +25,12 @@ ms.locfileid: "73838548"
 
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
-1. Twilio 계정 및 인증 토큰을 받습니다. Twilio을 시작 하려면 가격 책정을 평가 [https://www.twilio.com/pricing][twilio_pricing]하세요. 에서 [https://www.twilio.com/try-twilio][try_twilio]등록할 수 있습니다. Twilio에서 제공 하는 API에 대 한 자세한 [https://www.twilio.com/api][twilio_api]내용은을 참조 하십시오.
-2. Twilio JAR를 가져옵니다. 에서 [https://github.com/twilio/twilio-java][twilio_java_github]GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
+1. Twilio 계정 및 인증 토큰을 받습니다. Twilio을 시작 하려면 가격 책정을 평가 [https://www.twilio.com/pricing][twilio_pricing] 하세요. 에서 등록할 수 있습니다 [https://www.twilio.com/try-twilio][try_twilio] . Twilio에서 제공 하는 API에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/api][twilio_api] .
+2. Twilio JAR를 가져옵니다. 에서 [https://github.com/twilio/twilio-java][twilio_java_github] GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
    이 항목의 코드는 미리 빌드된 TwilioJava-3.3.8-with-dependencies JAR을 사용하여 작성되었습니다.
 3. Java 빌드 경로에 JAR을 추가합니다.
 4. Eclipse를 사용하여 이 Java 애플리케이션을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 애플리케이션 배포 파일(WAR)에 Twilio JAR을 포함시킵니다. Eclipse를 사용하지 않고 이 Java 애플리케이션을 만드는 경우, 같은 Azure 역할 내에 Twilio JAR이 Java 애플리케이션으로 포함되어 있으며 애플리케이션의 클래스 경로에 추가되어 있는지 확인합니다.
-5. cacerts keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 Twilio Api를 사용할 때 호출 되는 [https://api.twilio.com][twilio_api_service] 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 cacert 저장소에 이 CA 인증서 추가에 대한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
+5. cacerts keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 [https://api.twilio.com][twilio_api_service] Twilio api를 사용할 때 호출 되는 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 cacert 저장소에 이 CA 인증서 추가에 대한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
 
 또한 [Azure Toolkit for Eclipse를 사용하여 Hello World 애플리케이션 만들기][azure_java_eclipse_hello_world]에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 애플리케이션을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
@@ -177,14 +176,14 @@ ms.locfileid: "73838548"
 Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴파일하고 Azure에 배포한 다음 브라우저에서 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp를 실행합니다(*your_hosted_name*의 값 대체).
 
 ## <a name="next-steps"></a>다음 단계
-이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+이 코드는 Azure의 Java에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들어:
 
 * 웹 양식을 사용하는 대신, Azure Storage Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
 * makecall.jsp에서 값을 하드 코딩하는 대신, **RoleEnvironment.getConfigurationSettings** 를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. **Roleenvironment** 클래스에 대 한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용][azure_runtime_jsp]을 참조 하세요.
-* Makecall.php 코드는 [https://twimlets.com/message][twimlet_message_url] **url** 변수에 Twilio 제공 url을 할당 합니다. 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환 되는 TwiML에는 통화 수신자에 게 텍스트를 표시 하는 ** &lt;단어&gt; ** 동사가 포함 될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대 한 자세한 내용은에서 확인할 [https://www.twilio.com/docs/api/twiml][twiml]수 있습니다 [https://www.twilio.com/docs/api/twiml/say][twilio_say]. 및 기타 Twilio 동사 ** &lt;에 대 한&gt; ** 자세한 내용은을 참조 하십시오.
-* 에서 [https://www.twilio.com/docs/security][twilio_docs_security]Twilio 보안 지침을 읽습니다.
+* makecall.jsp 코드는 Url 변수에 Twilio 제공 URL을 할당 합니다 [https://twimlets.com/message][twimlet_message_url] . **Url** 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환 되는 TwiML에는 통화 수신자에 게 텍스트를 표시 하는 ** &lt; 단어 &gt; ** 동사가 포함 될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대 한 자세한 내용은에서 확인할 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] . 및 기타 ** &lt; &gt; ** Twilio 동사에 대 한 자세한 내용은을 참조 [https://www.twilio.com/docs/api/twiml/say][twilio_say] 하십시오.
+* 에서 Twilio 보안 지침을 읽습니다 [https://www.twilio.com/docs/security][twilio_docs_security] .
 
-Twilio에 대 한 자세한 내용은을 [https://www.twilio.com/docs][twilio_docs]참조 하십시오.
+Twilio에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/docs][twilio_docs] .
 
 ## <a name="see-also"></a>참고 항목
 * [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820125"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
@@ -29,7 +28,7 @@ ms.locfileid: "73820125"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 여기에는 다음 항목이 포함됩니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -264,12 +263,12 @@ ms.locfileid: "73820125"
 
 이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
 
-* Name
-* Description
+* 이름
+* 설명
 * 이미지
 * 위치
 * 단위
-* Visible
+* 표시
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
 
@@ -282,7 +281,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결 된 팩터리는 [http://www.oeefoundation.org](http://www.oeefoundation.org)에서 게시 된 oee 수식을 사용 합니다.
+연결 된 팩터리는에서 게시 된 OEE 수식을 사용 합니다 [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 
@@ -291,7 +290,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 연결된 팩터리는 간단한 최소/최대 임계값 기반 경고 생성 메커니즘을 지원합니다. 해당 경고에 대한 응답으로 구성할 수 있는 미리 정의된 작업에는 여러 가지가 있습니다. 다음 속성은 이 메커니즘을 제어합니다.
 
 * 최대
-* 최소
+* 최소값
 * MaximumAlertActions
 * MinimumAlertActions
 

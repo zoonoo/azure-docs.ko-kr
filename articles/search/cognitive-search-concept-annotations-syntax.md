@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113859"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술에서 주석을 참조 하는 방법
@@ -95,7 +94,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 
-의 `"/document/people/*/lastname"` 카디널리티는 문서 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
+의 카디널리티는 `"/document/people/*/lastname"` 문서 보다 큽니다. 이 문서에 대한 문서 노드가 하나만 있는 반면 성 노드는 10개가 있을 수 있습니다. 이 경우 시스템은 문서의 모든 요소를 포함하는 `"/document/people/*/lastname"`의 배열을 자동으로 만듭니다.
 
 ```json
   {
@@ -120,7 +119,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

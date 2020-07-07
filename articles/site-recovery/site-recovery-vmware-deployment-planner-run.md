@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953289"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 Deployment Planner 실행
@@ -65,7 +64,7 @@ ms.locfileid: "73953289"
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 매개 변수 이름 | 설명 |
+| 매개 변수 이름 | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | VM을 프로파일링할 vCenter 서버/vSphere ESXi 호스트의 정규화된 도메인 이름 또는 IP 주소입니다.|
@@ -95,7 +94,7 @@ VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변�
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-예를 들어 기본 설정을 사용하여 1,500개 VM을 프로파일링하려면 두 개의 VMList.txt 파일을 만듭니다. 하나는 1,000개 VM이 포함된 목록이고, 다른 하나는 500개 VM이 포함된 목록입니다. Azure Site Recovery Deployment Planner의 두 인스턴스를 실행 합니다. 하나는 Vmlist1.txt이 고 다른 하나는 VMList2입니다. 동일한 디렉터리 경로를 사용하여 두 VMList VM의 프로파일링된 데이터를 저장할 수 있습니다.
+예를 들어 기본 설정을 사용하여 1,500개 VM을 프로파일링하려면 두 개의 VMList.txt 파일을 만듭니다. 하나는 1,000개 VM이 포함된 목록이고, 다른 하나는 500개 VM이 포함된 목록입니다. Azure Site Recovery Deployment Planner의 두 인스턴스를 실행 합니다. 하나는 VMList1.txt이 고 다른 하나는 VMList2.txt입니다. 동일한 디렉터리 경로를 사용하여 두 VMList VM의 프로파일링된 데이터를 저장할 수 있습니다.
 
 보고서를 생성하기 위해 도구를 실행하는 서버의 하드웨어 구성, 특히 RAM 크기를 기반으로 하면 메모리가 부족하여 작업이 실패할 수 있음을 확인했습니다. 하드웨어가 좋은 경우 MaxVMsSupported를 더 높은 값으로 변경할 수 있습니다.  
 
@@ -145,7 +144,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|매개 변수 이름 | 설명 |
+|매개 변수 이름 | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  보고서가 생성될 프로파일링된 VM이 있는 vCenter/vSphere 서버 정규화된 도메인 이름 또는 IP 주소(프로파일링할 때 사용한 것과 동일한 이름 또는 IP 주소 사용)입니다. 프로파일링할 때 vCenter 서버를 사용한 경우 보고서 생성에 vSphere 서버를 사용할 수 없으며, 그 반대의 경우도 마찬가지입니다.|
@@ -257,7 +256,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|매개 변수 이름 | 설명 |
+|매개 변수 이름 | Description |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)을 지정합니다.|

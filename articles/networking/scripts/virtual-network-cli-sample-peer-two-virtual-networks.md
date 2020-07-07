@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890237"
 ---
 # <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링
@@ -49,7 +48,7 @@ az group delete --name myResourceGroup --yes
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Azure Virtual Network 및 서브넷을 만듭니다. |
 | [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering) | 두 가상 네트워크 간에 피어링을 만듭니다.  |
-| [az 그룹 삭제](https://docs.microsoft.com/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

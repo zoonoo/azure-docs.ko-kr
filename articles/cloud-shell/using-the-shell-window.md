@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70860313"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
@@ -47,8 +46,8 @@ Azure Cloud Shell 도구 모음에서 환경 선택기를 사용하여 Bash 및 
 ## <a name="upload-and-download-files"></a>파일 업로드 및 다운로드
 창의 왼쪽 위에 있는 파일 업로드/다운로드 아이콘을 클릭 한 다음 업로드 또는 다운로드를 선택 합니다.  
 ![파일 업로드/다운로드](media/using-the-shell-window/uploaddownload.png)
-* 파일을 업로드 하려면 팝업을 사용 하 여 로컬 컴퓨터의 파일을 찾아 원하는 파일을 선택 하 고 "열기" 단추를 클릭 합니다.  파일이 `/home/user` 디렉터리에 업로드 됩니다.
-* 파일을 다운로드 하려면 팝업 창에 정규화 된 파일 경로를 입력 하 고 (기본적으로 표시 되는 `/home/user` 디렉터리 아래의 경로) "다운로드" 단추를 선택 합니다.  
+* 파일을 업로드 하려면 팝업을 사용 하 여 로컬 컴퓨터의 파일을 찾아 원하는 파일을 선택 하 고 "열기" 단추를 클릭 합니다.  파일이 디렉터리에 업로드 됩니다 `/home/user` .
+* 파일을 다운로드 하려면 팝업 창에 정규화 된 파일 경로를 입력 하 고 (기본적 `/home/user` 으로 표시 되는 디렉터리 아래의 경로) "다운로드" 단추를 선택 합니다.  
 > [!NOTE] 
 > Cloud Shell에서 파일 및 파일 경로는 대/소문자를 구분 합니다. 파일 경로에서 대/소문자를 다시 확인 합니다.
 

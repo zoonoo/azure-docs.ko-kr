@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888826"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
@@ -27,7 +26,7 @@ ms.locfileid: "73888826"
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ### <a name="machine-setup"></a>머신 설치
 
@@ -89,7 +88,7 @@ docker rmi <list_of_images>
 
 다음 단계에 따라 Stream Analytics 작업을 시작합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
 1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.

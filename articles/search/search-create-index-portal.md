@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74112854"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>포털에서 Azure Cognitive Search 인덱스 만들기
@@ -65,7 +64,7 @@ Azure Cognitive Search에는 Azure Cognitive Search 서비스에서 호스트 �
 
 필드 특성에 따라 필드가 사용되는 방식(즉, 전체 텍스트 검색, 패싯 탐색, 정렬 작업 등)이 결정됩니다. 아래 표에서 각 특성에 대해 설명합니다.
 
-|특성|Description|  
+|특성|설명|  
 |---------------|-----------------|  
 |**가능한**|전체 텍스트 검색 가능하며, 인덱싱 중에 단어 분리 등의 어휘 분석이 적용됩니다. 검색 가능 필드를 “sunny day” 등의 값으로 설정하면 내부적으로 해당 필드가 개별 토큰 “sunny”와 “day”로 분할됩니다. 자세한 내용은 [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)을 참조하세요.|  
 |**가능**|**$filter** 쿼리에서 참조됩니다. 형식이 `Edm.String` 또는 `Collection(Edm.String)`인 필터링 가능 필드의 경우 단어 분리가 수행되지 않으므로 정확하게 일치하는 항목만 비교합니다. 예를 들어 이러한 필드 f를 “sunny day”로 설정하면 `$filter=f eq 'sunny'`에서는 일치하는 항목이 발견되지 않지만 `$filter=f eq 'sunny day'`에서는 일치하는 항목이 발견됩니다. |  
@@ -80,7 +79,7 @@ Azure Cognitive Search 인덱스를 만든 후 다음 단계로 이동할 수 �
 
 또는 [인덱스를 보다 자세히 살펴볼 수도 있습니다](search-what-is-an-index.md). 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
  [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  
  [Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

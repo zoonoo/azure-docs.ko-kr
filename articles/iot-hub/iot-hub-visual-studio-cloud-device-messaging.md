@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74079486"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Visual Studio용 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
@@ -54,7 +53,7 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 허브에 액세스 하려면 다음 단계를 수행 합니다.
 
-1. Visual Studio에서**클라우드 탐색기** **보기** > 를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서 **View**  >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 

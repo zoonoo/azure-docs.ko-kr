@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888592"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드  
@@ -27,7 +26,7 @@ ms.locfileid: "73888592"
 > * [포털](media-services-portal-upload-files.md)
 > 
 
-Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 자산에 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다. 
+Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 
 
 이 자습서에서는 파일을 업로드하는 방법 및 파일과 관련된 기타 작업에 대해 알아보겠습니다.
 
@@ -53,7 +52,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
  
 * Media Services REST API를 사용하여 엔터티에 액세스하는 경우 HTTP 요청에 특정 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요. <br/>이 자습서에서 사용된 Postman 컬렉션은 필요한 모든 헤더 설정을 처리합니다.
-* Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 IAssetFile.Name 속성의 값을 사용 합니다 (예: http://{AMSAccount}. windowsazure.mediaservices/{GUID}/{IAssetFile}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용 되지 않습니다. **Name** 속성 값에는! * ' ();: @ &= + $,/?% # [] "와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+* Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 IAssetFile.Name 속성의 값을 사용 합니다 (예: http://{AMSAccount}. windowsazure.mediaservices/{GUID}/{IAssetFile}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용 되지 않습니다. **Name** 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 * 이름 길이는 260자보다 클 수 없습니다.
 * Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 문서를 참조하세요.
 
@@ -87,7 +86,7 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
         ]
     }
     ```
-4. **Postman** 창의 왼쪽에서 1을 클릭 **합니다. AAD Auth 토큰** -> **서비스 사용자에 대 한 Azure AD 토큰 가져오기를**가져옵니다.
+4. **Postman** 창의 왼쪽에서 1을 클릭 **합니다. AAD Auth 토큰**  ->  **서비스 사용자에 대 한 Azure AD 토큰 가져오기를**가져옵니다.
 
     URL 부분은 **AzureADSTSEndpoint** 환경 변수로 채워집니다. 자습서의 앞부분에서 컬렉션을 지 원하는 환경 변수의 값을 설정 합니다.
 
@@ -104,13 +103,13 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 ### <a name="overview"></a>개요 
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조 하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
 년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)를 참조하세요.
 
 ### <a name="create-an-access-policy"></a>액세스 정책 만들기
 
-1. Accesspolicy 업로드할 때 **accesspolicy** -> **만들기를**선택 합니다.
+1. Accesspolicy 업로드할 때 **accesspolicy**  ->  **만들기를**선택 합니다.
 2. **보내기**를 누릅니다.
 
     ![파일 업로드](./media/media-services-rest-upload-files/postman-access-policy.png)
@@ -131,7 +130,7 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 ### <a name="create-an-asset"></a>자산 만들기
 
-1.  -> 자산**자산 만들기** **를 선택 합니다**.
+1. 자산 **Assets**  ->  **자산 만들기**를 선택 합니다.
 2. **보내기**를 누릅니다.
 
     ![파일 업로드](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -157,12 +156,12 @@ SAS URL의 형식은 다음과 같습니다.
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 지정된 자산과 연관된 고유 로케이터는 한 번에 5개 이상 가질 수 없습니다. 자세한 내용은 로케이터를 참조하세요.
-* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 DateTime 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
+* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
 * 로케이터를 만든 후 사용할 수 있을 때까지 30-40초의 지연이 있을 수 있습니다.
 
 ### <a name="create-a-sas-locator"></a>SAS 로케이터 만들기
 
-1. **로케이터** -> **SAS 로케이터 만들기**를 선택 합니다.
+1. **로케이터**  ->  **SAS 로케이터 만들기**를 선택 합니다.
 2. **보내기**를 누릅니다.
 
     “test” 스크립트는 지정한 미디어 파일 이름 및 SAS 로케이터 정보에 따라 “업로드 URL”을 만들고 적절한 환경 변수를 설정합니다.
@@ -186,7 +185,7 @@ SAS URL의 형식은 다음과 같습니다.
 업로드 요청은 **AzureMedia** 컬렉션의 일부가 아닙니다. 
 
 새 요청을 만들고 설정합니다.
-1. 를 **+** 눌러 새 요청 탭을 만듭니다.
+1. **+** 를 눌러 새 요청 탭을 만듭니다.
 2. **PUT** 작업을 선택하고 URL에 **{{UploadURL}}** 을 붙여넣습니다.
 2. **권한 부여** 탭을 그대로 유지합니다(**전달자 토큰**으로 설정 안 함).
 3. **헤더** 탭에서 **키**를 “x-ms-blob-type”으로, **값**을 “BlockBlob”으로 지정합니다.
@@ -200,7 +199,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 파일이 업로드되면 자산과 연관된 Blob Storage에 업로드한 미디어 파일에 대한 메타데이터를 자산에 만들어야 합니다.
 
-1. **Assetfiles** -> **CreateFileInfos**를 선택 합니다.
+1. **Assetfiles**  ->  **CreateFileInfos**를 선택 합니다.
 2. **보내기**를 누릅니다.
 
     ![파일 업로드](./media/media-services-rest-upload-files/postman-create-file-info.png)

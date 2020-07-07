@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083369"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
@@ -49,7 +48,7 @@ ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 3
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>다음 단계
-* Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.
+* ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 * ExpressRoute 연결 공급자를 찾습니다. [ExpressRoute 파트너 및 피어링 위치](expressroute-locations.md)를 확인하세요.
 * [라우팅](expressroute-routing.md), [NAT](expressroute-nat.md)및 [QoS](expressroute-qos.md)에 대 한 요구 사항을 참조 하세요.
 * ExpressRoute 연결을 구성합니다.

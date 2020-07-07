@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74048525"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용 하 여 웹 응용 프로그램 방화벽 규칙 사용자 지정
@@ -137,7 +136,7 @@ CR 3.x 특정:
 
 ## <a name="next-steps"></a>다음 단계
 
-사용하지 않는 규칙을 구성한 후에 WAF 로그를 보는 방법을 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조 하세요.
+사용하지 않는 규칙을 구성한 후에 WAF 로그를 보는 방법을 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조하세요.
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

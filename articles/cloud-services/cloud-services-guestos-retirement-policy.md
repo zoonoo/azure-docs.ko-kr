@@ -14,10 +14,9 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68945445"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
@@ -64,7 +63,7 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 * **제품군 사용 중지** <br>Microsoft는 블로그 게시물 및 포털 알림을 사용합니다. 할당된 서비스 관리자와의 직접적인 통신(전자 메일, 포털 메시지, 전화 통화)를 통해 사용 중지된 게스트 OS 제품군을 여전히 사용 중인 고객에게 알립니다. 모든 변경 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)에 게시됩니다.
 * **버전 사용 중지** <br>모든 변경 내용 및 발생 날짜는 릴리스, 사용 안 함 및 만료를 포함하여 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)에 게시됩니다. 서비스 관리자는 비활성화된 게스트 OS 버전 또는 제품군에서 실행 되는 배포가 있는 경우 전자 메일을 받게 됩니다. 이 전자 메일의 타이밍은 달라질 수 있습니다. 일반적으로 비활성화되기 최소 1개월 전이지만 이 시기는 공식 SLA는 없습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 **마이그레이션의 영향을 줄일 수 있는 방법**
 
 Cloud Services를 디자인하기 위한 최신 게스트 OS 제품군을 사용하는 것이 좋습니다.

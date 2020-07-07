@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74132951"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
@@ -106,7 +105,7 @@ RDM | 해당 없음
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
-**마지막** | **업데이트**
+**최신** | **업데이트**
 --- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 

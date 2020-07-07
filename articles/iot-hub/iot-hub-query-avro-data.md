@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73605612"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리
@@ -173,6 +172,6 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
 IoT Hub를 사용하는 완벽한 엔드투엔드 솔루션의 예는 [Azure IoT 솔루션 가속기 설명서](/azure/iot-accelerators)를 참조하세요.
 
-IoT Hub를 사용 하 여 솔루션을 개발 하는 방법에 대 한 자세한 내용은 [개발자 가이드 IoT Hub](iot-hub-devguide.md)를 참조 하세요.
+IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.
 
 IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.

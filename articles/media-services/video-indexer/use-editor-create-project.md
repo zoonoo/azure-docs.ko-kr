@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73839159"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer 편집기를 사용 하 여 프로젝트 만들기
@@ -57,7 +56,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 
     ![Assert](./media/video-indexer-view-edit/visual-text.png)
 
-    여러 필터를 쿼리에 계층화 할 수 있습니다. **+** 사용 하 여 필터를 추가/제거 / **-** 합니다. 필터 **지우기** 를 사용 하 여 모든 필터를 제거 합니다.
+    여러 필터를 쿼리에 계층화 할 수 있습니다. 단추를 사용 **+** / **-** 하 여 필터를 추가/제거 합니다. 필터 **지우기** 를 사용 하 여 모든 필터를 제거 합니다.
 1. 비디오를 추가 하려면 해당 비디오를 선택 하 고 **추가**를 선택 합니다.
 1. 이제 선택한 비디오가 모두 표시 됩니다. 이러한 비디오는 프로젝트에 대 한 클립을 선택할 비디오입니다.
 

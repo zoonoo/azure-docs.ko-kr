@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74157676"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Azure SignalR Service를 위한 성능 가이드
@@ -54,7 +53,7 @@ Azure SignalR 서비스는 다양 한 성능 용량에 대해 7 개의 표준 �
 
 이 섹션에서는 성능 평가 방법론에 대해 설명 하 고 성능에 영향을 주는 모든 요인을 나열 합니다. 결과적으로 성능 요구 사항을 평가 하는 데 도움이 되는 메서드를 제공 합니다.
 
-### <a name="methodology"></a>방법론
+### <a name="methodology"></a>방법
 
 *처리량* 과 *대기 시간은* 성능 확인의 두 가지 일반적인 측면입니다. Azure SignalR 서비스의 경우 각 SKU 계층에는 고유한 처리량 제한 정책이 있습니다. 이 정책은 메시지의 99%에 대기 시간이 1 초 미만인 경우 최대 *허용 처리량 (인바운드 및 아웃 바운드 대역폭)* 을 정의 합니다.
 
@@ -131,7 +130,7 @@ WebSocket은 단일 TCP 연결에 대 한 양방향 및 전이중 통신 프로�
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Connections               | 1,000 | 2,000 | 5,000  | 10000 | 20,000 | 50,000  | 100,000 |
 | 인바운드 대역폭  | 4Kbps   | 4Kbps   | 4Kbps    | 4Kbps    | 4Kbps    | 4Kbps     | 4Kbps    |
-| **아웃 바운드 대역폭** | **4MBps**    | **8MBps**    | **20mbps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
+| **아웃 바운드 대역폭** | **4MBps**    | **8MBps**    | **20mbps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400MBps**   |
 
 *인바운드 대역폭* 및 *아웃 바운드 대역폭* 은 초당 총 메시지 크기입니다.  다음은이에 대 한 수식입니다.
 ```
@@ -160,7 +159,7 @@ WebSocket은 단일 TCP 연결에 대 한 양방향 및 전이중 통신 프로�
 | 브로드캐스트  | 메시지 크기 | 초당 인바운드 메시지 수 | Connections | 전송 간격 |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20KB                | 1                        | 100,000     | 5초                      |
-| 2 | 256KB               | 1                        | 8,000       | 5초                      |
+| 2 | 256 KB               | 1                        | 8,000       | 5초                      |
 
 이전 수식을 기반으로 다음 수식을 쉽게 유추할 수 있습니다.
 
@@ -168,7 +167,7 @@ WebSocket은 단일 TCP 연결에 대 한 양방향 및 전이중 통신 프로�
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-Unit100의 경우 최대 아웃 바운드 대역폭은 이전 테이블에서 400 MB입니다. 20KB 메시지 크기의 경우 최대 아웃 바운드 연결은 실제 값과 일치 하는 \* 400 5/20 KB = 10만 이어야 합니다.
+Unit100의 경우 최대 아웃 바운드 대역폭은 이전 테이블에서 400 MB입니다. 20KB 메시지 크기의 경우 최대 아웃 바운드 연결은 \* 실제 값과 일치 하는 400 5/20 KB = 10만 이어야 합니다.
 
 ##### <a name="mixed-use-cases"></a>혼합 사용 사례
 
@@ -253,7 +252,7 @@ Unit100의 경우 최대 아웃 바운드 대역폭은 이전 테이블에서 40
 | 초당 인바운드 메시지 수  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | 초당 아웃 바운드 메시지 수 | 2,000 | 4,000 | 10000 | 20,000 | 40,000 | 100,000 | 200,000 |
 | 인바운드 대역폭  | 4Kbps   | 4Kbps   | 4Kbps    | 4Kbps    | 4Kbps    | 4Kbps     | 4Kbps     |
-| 아웃 바운드 대역폭 | 4MBps   | 8MBps   | 20mbps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   |
+| 아웃 바운드 대역폭 | 4MBps   | 8MBps   | 20mbps   | 40 MBps   | 80 MBps   | 200 MBps   | 400MBps   |
 
 메시지를 게시 하는 브로드캐스팅 클라이언트는 4 개이 하입니다. 인바운드 메시지 양이 적기 때문에 **에코** 와 비교할 때 더 적은 수의 앱 서버가 필요 합니다. 두 개의 앱 서버는 SLA 및 성능 고려 사항에 충분 합니다. 그러나 Unit50 및 Unit100의 경우에는 불균형을 방지 하기 위해 기본 서버 연결을 늘려야 합니다.
 
@@ -317,7 +316,7 @@ Unit100의 경우 최대 아웃 바운드 대역폭은 이전 테이블에서 40
 | 초당 인바운드 메시지 수  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | 인바운드 대역폭  | 80 KBps   | 40 KBps   | 40 KBps    | 20kbps    | 40 KBps    | 40 KBps     | 40 KBps     |
 | 초당 아웃 바운드 메시지 수 | 2,000 | 4,000 | 10000 | 20,000 | 40,000 | 100,000 | 200,000 |
-| 아웃 바운드 대역폭 | 8MBps    | 8MBps    | 20mbps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
+| 아웃 바운드 대역폭 | 8MBps    | 8MBps    | 20mbps    | 40 MBps    | 80 MBps    | 200 MBps    | 400MBps    |
 
 전송 연결 수가 40을 초과 하지 않습니다. 앱 서버의 부담은 작으므로 제안 된 수의 웹 앱은 작습니다.
 
@@ -401,7 +400,7 @@ REST API를 통해 고밀도 메시지를 보내는 것은 WebSocket을 사용 �
 | 초당 인바운드 메시지 수  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | 초당 아웃 바운드 메시지 수 | 2,000 | 4,000 | 10000 | 20,000 | 40,000 | 100,000 | 200,000 |
 | 인바운드 대역폭  | 4Kbps    | 4Kbps    | 4Kbps     | 4Kbps     | 4Kbps     | 4Kbps      | 4Kbps      |
-| 아웃 바운드 대역폭 | 4MBps    | 8MBps    | 20mbps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
+| 아웃 바운드 대역폭 | 4MBps    | 8MBps    | 20mbps    | 40 MBps    | 80 MBps    | 200 MBps    | 400MBps    |
 
 #### <a name="send-to-user-through-rest-api"></a>REST API를 통해 사용자에 게 보내기
 벤치 마크는 Azure SignalR Service에 대 한 연결을 시작 하기 전에 모든 클라이언트에 사용자 이름을 할당 합니다. 클라이언트가 Azure SignalR Service를 사용 하 여 WebSocket 연결을 설정 하면 HTTP Post를 통해 다른 사용자에 게 메시지를 보내기 시작 합니다.

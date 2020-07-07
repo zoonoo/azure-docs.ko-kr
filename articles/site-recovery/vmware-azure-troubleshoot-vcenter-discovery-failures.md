@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74091247"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>vCenter Server 검색 오류 문제 해결
@@ -20,7 +19,7 @@ ms.locfileid: "74091247"
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>MaxSnapShots 속성의 숫자가 아닌 값
 
-9.20 이전 버전에서는 VM의 property `snapshot.maxSnapShots` 속성에 대해 숫자가 아닌 값을 검색할 때 vCenter의 연결이 끊깁니다.
+9.20 이전 버전에서는 VM의 property 속성에 대해 숫자가 아닌 값을 검색할 때 vCenter의 연결이 끊깁니다 `snapshot.maxSnapShots` .
 
 이 문제는 오류 ID 95126으로 식별 됩니다.
 
@@ -46,13 +45,13 @@ vCenter 검색은 시스템 사용자가 구성한 시스템 기본 프록시 �
 
 이 문제가 발생 하는 경우 다음 상황이 발생 합니다.
 
-- 오류가 발생 하 \<여 vcenter server vcenter>에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. (503) 서버를 사용할 수 없습니다.
-- 오류로 인해 vCenter \<server vcenter>에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. 원격 서버에 연결할 수 없습니다.
+- 오류가 발생 하 여 vCenter 서버에 \<vCenter> 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. (503) 서버를 사용할 수 없습니다.
+- 오류가 발생 하 여 vCenter 서버에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. \<vCenter> 원격 서버에 연결할 수 없습니다.
 - VCenter/ESXi 서버에 연결할 수 없습니다.
 
 이 문제를 해결하려면
 
-[PsExec 도구](https://aka.ms/PsExec)를 다운로드 합니다. 
+[PsExec 도구](https://aka.ms/PsExec)를 다운로드합니다. 
 
 PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 하 고 프록시 주소가 구성 되었는지 여부를 확인 합니다. 다음 절차를 사용 하 여 바이패스 목록에 vCenter를 추가할 수 있습니다.
 
@@ -60,7 +59,7 @@ PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 �
 
 1. PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에서 IE를 엽니다.
     
-    psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 
 2. Internet Explorer에서 프록시 설정을 수정 하 여 vCenter IP 주소를 무시 합니다.
 3. Tmanssvc 서비스를 다시 시작 합니다.
@@ -73,7 +72,7 @@ DRA 프록시 구성의 경우:
 
 3. 명령 프롬프트에서 다음 명령을 실행 합니다.
    
-   **DRCONFIGURATOR.EXE. EXE/configure/AddBypassUrls [IP 주소/m a s a s e 추가 시 제공 된 vCenter Server의 FQDN]**
+   **DRCONFIGURATOR.EXE/configure/AddBypassUrls [vCenter 추가 시 제공 된 vCenter Server의 FQDN]**
 
 4. DRA 공급자 서비스를 다시 시작 합니다.
 

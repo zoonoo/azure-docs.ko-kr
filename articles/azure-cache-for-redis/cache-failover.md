@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
 ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122196"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 장애 조치 (Failover) 및 패치
@@ -59,13 +58,13 @@ Redis 용 Azure Cache 서비스는 최신 플랫폼 기능 및 픽스를 사용 
 
 ## <a name="additional-cache-load"></a>추가 캐시 로드
 
-장애 조치 (failover)가 발생할 때마다 표준 및 프리미엄 캐시는 한 노드에서 다른 노드로 데이터를 복제 해야 합니다. 이 복제로 인해 서버 메모리와 CPU 모두에서 몇 가지 부하가 증가 합니다. 캐시 인스턴스가 이미 과도 하 게 로드 된 경우 클라이언트 응용 프로그램에서 대기 시간이 길어질 수 있습니다. 극단적인 경우에는 클라이언트 응용 프로그램이 시간 초과 예외를 받을 수 있습니다. 이 추가 로드의 영향을 완화 하기 위해 캐시 [configure](cache-configure.md#memory-policies) 의 `maxmemory-reserved` 설정을 구성 합니다.
+장애 조치 (failover)가 발생할 때마다 표준 및 프리미엄 캐시는 한 노드에서 다른 노드로 데이터를 복제 해야 합니다. 이 복제로 인해 서버 메모리와 CPU 모두에서 몇 가지 부하가 증가 합니다. 캐시 인스턴스가 이미 과도 하 게 로드 된 경우 클라이언트 응용 프로그램에서 대기 시간이 길어질 수 있습니다. 극단적인 경우에는 클라이언트 응용 프로그램이 시간 초과 예외를 받을 수 있습니다. 이 추가 로드의 영향을 완화 하기 위해 캐시의 설정을 [구성](cache-configure.md#memory-policies) `maxmemory-reserved` 합니다.
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>장애 조치 (failover)는 클라이언트 응용 프로그램에 어떤 영향을 미칩니까?
 
 클라이언트 응용 프로그램에서 표시 되는 오류 수는 장애 조치 (failover) 시 해당 연결에서 보류 중인 작업의 수에 따라 달라 집니다. 연결을 닫은 노드를 통해 라우팅되는 모든 연결에는 오류가 표시 됩니다. 제한 시간 예외, 연결 예외 또는 소켓 예외를 포함 하 여 연결이 끊어질 때 많은 클라이언트 라이브러리에서 다양 한 유형의 오류를 throw 할 수 있습니다. 예외의 수와 형식은 캐시에서 해당 연결을 닫을 때 코드 경로에서 요청 하는 위치에 따라 달라 집니다. 예를 들어 요청을 전송 하지만 장애 조치 (failover)가 발생할 때 응답을 받지 못한 작업은 시간 초과 예외가 발생할 수 있습니다. 닫힌 연결 개체에 대 한 새 요청은 다시 연결이 성공적으로 발생할 때까지 연결 예외를 수신 합니다.
 
-이러한 작업을 수행 하도록 구성 된 경우 대부분의 클라이언트 라이브러리는 캐시에 다시 연결 하려고 합니다. 그러나 예측할 수 없는 버그는 때때로 라이브러리 개체를 복구할 수 없는 상태로 저장할 수 있습니다. 오류가 미리 구성 된 시간 보다 오래 지속 되는 경우 연결 개체를 다시 만들어야 합니다. Microsoft.NET 및 기타 개체 지향 언어에서는 [Lazy\<\> T 패턴을](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern)사용 하 여 응용 프로그램을 다시 시작 하지 않고 연결을 다시 만들 수 있습니다.
+이러한 작업을 수행 하도록 구성 된 경우 대부분의 클라이언트 라이브러리는 캐시에 다시 연결 하려고 합니다. 그러나 예측할 수 없는 버그는 때때로 라이브러리 개체를 복구할 수 없는 상태로 저장할 수 있습니다. 오류가 미리 구성 된 시간 보다 오래 지속 되는 경우 연결 개체를 다시 만들어야 합니다. Microsoft.NET 및 기타 개체 지향 언어에서 [지연 \<T\> 패턴을](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern)사용 하 여 응용 프로그램을 다시 시작 하지 않고 연결을 다시 만들 수 있습니다.
 
 ### <a name="how-do-i-make-my-application-resilient"></a>응용 프로그램을 복원 력을 어떻게 할까요? 하 고 있습니까?
 

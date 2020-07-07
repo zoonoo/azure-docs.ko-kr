@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 08/30/2019
 ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70913954"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드 테스트
@@ -41,7 +40,7 @@ U-SQL 스크립트를 테스트하는 경우 입력 파일을 테스트해야 �
 
 ![Data Lake Tools for Visual Studio -- 프로젝트 테스트 데이터 원본 구성](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
-U-SQL 테스트 `Initialize()` SDK에서 인터페이스를 호출 하면 테스트 프로젝트의 작업 디렉터리에 임시 로컬 데이터 루트 폴더가 만들어집니다. 테스트 데이터 원본 폴더의 모든 파일 및 폴더는 U-SQL 스크립트 테스트 사례를 실행 하기 전에 임시 로컬 데이터 루트 폴더에 복사 됩니다. 세미콜론으로 테스트 데이터 폴더 경로를 분리하여 더 많은 테스트 데이터 원본 폴더를 추가할 수 있습니다.
+`Initialize()`U-SQL 테스트 SDK에서 인터페이스를 호출 하면 테스트 프로젝트의 작업 디렉터리에 임시 로컬 데이터 루트 폴더가 만들어집니다. 테스트 데이터 원본 폴더의 모든 파일 및 폴더는 U-SQL 스크립트 테스트 사례를 실행 하기 전에 임시 로컬 데이터 루트 폴더에 복사 됩니다. 세미콜론으로 테스트 데이터 폴더 경로를 분리하여 더 많은 테스트 데이터 원본 폴더를 추가할 수 있습니다.
 
 ### <a name="manage-the-database-environment-for-testing"></a>테스트를 위한 데이터베이스 환경 관리
 
@@ -55,7 +54,7 @@ T-sql 프로젝트에 대 한 U-SQL 데이터베이스 프로젝트 참조를 �
 
 ### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
-U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후 **테스트** > **Windows** > **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
+U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
 
 ## <a name="test-c-udos"></a>C# UDO 테스트
 
@@ -108,7 +107,7 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 ### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
-프로젝트를 빌드한 후 **테스트** > **Windows** > **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
+프로젝트를 빌드한 후 **테스트**  >  **Windows**  >  **테스트 탐색기**를 선택 합니다. 테스트 **탐색기**에서 테스트 사례를 실행할 수 있습니다. 또는 단위 테스트에서 .cs 파일을 마우스 오른쪽 단추로 클릭 하 고 **테스트 실행**을 선택 합니다.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Azure Pipelines에서 테스트 사례 실행<a name="run-test-cases-in-azure-devops"></a>
 
@@ -116,7 +115,7 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>Azure Pipelines에서 U-SQL 테스트 사례 실행
 
-T-SQL 테스트의 경우 빌드 컴퓨터에서 로드 `CPPSDK` 한 다음에 `CPPSDK` `USqlScriptTestRunner(cppSdkFolderFullPath: @"")`대 한 경로를 전달 해야 합니다.
+T-SQL 테스트의 경우 `CPPSDK` 빌드 컴퓨터에서 로드 한 다음에 대 한 경로를 전달 해야 `CPPSDK` `USqlScriptTestRunner(cppSdkFolderFullPath: @"")` 합니다.
 
 #### <a name="what-is-cppsdk"></a>CPPSDK란?
 
@@ -132,11 +131,11 @@ Azure Pipelines에서 CPPSDK 종속성을 준비 하는 가장 일반적인 방�
 
 1. Zip CPPSDK 라이브러리를 포함 하는 폴더입니다.
 
-1. zip 파일을 원본 제어 시스템으로 체크 인합니다. .Zip 파일을 사용 하면 `.gitignore` 파일 때문에 파일이 무시 되지 않도록 CPPSDK 폴더 아래의 모든 라이브러리를 체크 인할 수 있습니다.
+1. zip 파일을 원본 제어 시스템으로 체크 인합니다. .Zip 파일을 사용 하면 파일 때문에 파일이 무시 되지 않도록 CPPSDK 폴더 아래의 모든 라이브러리를 체크 인할 수 있습니다. `.gitignore`
 
 1. 빌드 파이프라인에서 .zip 파일의 압축을 풉니다.
 
-1. 빌드 `USqlScriptTestRunner` 컴퓨터에서이 압축을 푼 폴더를 가리킵니다.
+1. `USqlScriptTestRunner`빌드 컴퓨터에서이 압축을 푼 폴더를 가리킵니다.
 
 ### <a name="run-c-udo-test-cases-in-azure-pipelines"></a>Azure Pipelines에서 c # UDO 테스트 사례 실행
 

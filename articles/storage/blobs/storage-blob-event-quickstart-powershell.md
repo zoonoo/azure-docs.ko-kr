@@ -9,10 +9,9 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68847164"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅
@@ -172,5 +171,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 이제 토픽 및 이벤트 구독을 만드는 방법을 알아보았으므로 Blob Storage 이벤트 및 Event Grid에서 수행할 수 있는 작업에 대해 자세히 알아봅니다.
 
-- [Blob Storage 이벤트에 대응](storage-blob-event-overview.md)
+- [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)
 - [Event Grid 정보](../../event-grid/overview.md)

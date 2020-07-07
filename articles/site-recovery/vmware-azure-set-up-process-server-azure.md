@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083963"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
@@ -28,7 +27,7 @@ ms.locfileid: "74083963"
 
 ## <a name="deploy-a-process-server-in-azure"></a>Azure에서 프로세스 서버 배포
 
-1. 자격 증명 모음 > **Site Recovery 인프라**> **관리** > **구성 서버**에서 구성 서버를 선택 합니다.
+1. 자격 증명 모음 > **Site Recovery 인프라** >  **관리**  >  **구성 서버**에서 구성 서버를 선택 합니다.
 2. 서버 페이지에서 **+프로세스 서버**를 클릭합니다.
 3. **프로세스 서버 추가** 페이지에서 Azure의 프로세스 서버를 배포하도록 선택합니다.
 4. 장애 조치에 사용되는 구독, 리소스 그룹, 장애 조치에 사용되는 Azure 지역 및 Azure VM이 위치한 가상 네트워크를 비롯한 Azure 설정을 지정합니다. 여러 Azure 네트워크를 사용하는 경우 각각에 프로세스 서버가 필요합니다.

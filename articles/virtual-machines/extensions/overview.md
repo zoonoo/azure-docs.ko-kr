@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74072970"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
@@ -63,7 +62,7 @@ VM에 직접 연결하여 확장을 설치하거나 삭제할 필요가 없습�
 | microsoft. customscriptextension | [Windows 용 사용자 지정 스크립트](custom-script-windows.md#troubleshoot-and-support) |
 | microsoft ostcextensions. customscriptforlinux | [Linux 용 필요한 상태 구성](dsc-linux.md#troubleshoot-and-support) |
 | microsoft. powershell dsc | [Windows에 필요한 상태 구성](dsc-windows.md#troubleshoot-and-support) |
-| microsoft. hpccompute | [Linux 용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft. hpccompute | [Linux용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-linux.md#troubleshoot-and-support) |
 | microsoft. hpccompute | [Windows 용 NVIDIA GPU 드라이버 확장](hpccompute-gpu-windows.md#troubleshoot-and-support) |
 | iaasantimalware. | [Windows 용 맬웨어 방지 확장](iaas-antimalware-windows.md#troubleshoot-and-support) |
 | enterprisecloud를 모니터링 합니다. | [Linux에 대 한 Azure Monitor](oms-linux.md#troubleshoot-and-support)

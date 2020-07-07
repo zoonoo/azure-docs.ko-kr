@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74168372"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
@@ -96,7 +95,7 @@ ms.locfileid: "74168372"
 
 다음 단계에서는 이메일 작업을 수동으로 설정하고 확인하는 방법을 보여 줍니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. 솔루션 가속기에 대한 리소스 그룹으로 이동합니다.
 
