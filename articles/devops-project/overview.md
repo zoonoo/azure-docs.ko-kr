@@ -15,15 +15,15 @@ ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233689"
 ---
 # <a name="overview-of-azure-devops-starter"></a>Azure DevOps 스타터 개요
 
- Azure DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. 이 기능을 사용하면 Azure Portal에서 단 몇 단계로 원하는 Azure 서비스에 좋아하는 앱을 빠르게 시작할 수 있습니다. 
+ Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 이 기능을 사용하면 Azure Portal에서 단 몇 단계로 원하는 Azure 서비스에 좋아하는 앱을 빠르게 시작할 수 있습니다. 
 
  DevOps 스타터는 응용 프로그램을 개발, 배포 및 모니터링 하는 데 필요한 모든 항목을 설정 합니다. DevOps 스타터 대시보드를 사용 하 여 Azure Portal의 단일 뷰에서 모든 코드 커밋, 빌드 및 배포를 모니터링할 수 있습니다.
 

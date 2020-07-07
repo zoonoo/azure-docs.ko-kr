@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208995"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
@@ -28,7 +28,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 클릭 합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다. 
 
@@ -40,7 +40,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![VM 크기 선택](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. **설정** > **고가용성**에서 **사용 가능 영역** 드롭다운 목록에서 번호가 매겨진 영역 중 하나를 선택 하 고 나머지 기본값을 유지 하 고 **확인**을 클릭 합니다.
+5. **설정**  >  **고가용성**에서 **사용 가능 영역** 드롭다운 목록에서 번호가 매겨진 영역 중 하나를 선택 하 고 나머지 기본값을 유지 하 고 **확인**을 클릭 합니다.
 
     ![가용성 영역 선택](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

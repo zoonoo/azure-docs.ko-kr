@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535709"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
@@ -18,7 +18,7 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -140,7 +140,7 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 > 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 TLS/SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. TLS 바인딩을 구성 하려면 [Azure App Service에서 tls/SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조 하세요.
 >
 
-호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_로 이동 합니다.
+호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www \. kontoso.net_로 이동 합니다.
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
@@ -168,10 +168,10 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 다음은 그 예입니다.
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
 
 - kontoso.net
-- www\.kontoso.net
+- www \. kontoso.net
 - abc.kontoso.net
 
 완료되면 **유효성 검사**를 선택합니다. 호스트 이름 레코드 형식이 자동으로 선택됩니다.
@@ -235,7 +235,7 @@ Azure에서 App Service 도메인에 대한 DNS 레코드는 [Azure DNS](https:/
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택 합니다.
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도메인**을 선택 합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ App Service 도메인을 구매한 후 5일 이내에 구매를 취소하고 전
 
 ### <a name="open-app-service-domain"></a>App Service 도메인 열기
 
-Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메인**을 선택 합니다.
+Azure Portal의 왼쪽 메뉴에서 **모든 서비스**  >  **App Service 도메인**을 선택 합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -269,7 +269,7 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메�
 
 모든 호스트 이름 바인딩이 삭제되어야 App Service 도메인을 삭제할 수 있습니다.
 
-**...를 선택 하** 여 각 호스트 이름 바인딩을 삭제 합니다.  >  **삭제**. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
+**...를 선택**  >  하 여 각 호스트 이름 바인딩을 삭제 합니다. **삭제**. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

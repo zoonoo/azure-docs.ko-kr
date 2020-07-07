@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6aaaa24535c95e0a0d3f2b67709374c083ab738
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725217"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608894"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>자습서: AlertMedia와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -96,12 +96,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![이미지](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 AlertMedia 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
-    
-    | 속성 |   |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | 이메일 |  | user.userprincipalname |
-    | firstname |  | user.givenname |
-    | lastname |  | user.surname |
+
+| 속성 | 원본 특성|
+| ---- | --------------- |
+| 이메일 | user.userprincipalname |
+| firstname | user.givenname |
+| lastname | user.surname |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 

@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205002"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (CLI)
@@ -24,7 +24,7 @@ Azure Active Directory 응용 프로그램을 구성 하는 데 사용할 클러
 클러스터의 OAuth 콜백 URL을 생성 하 고 **Oauthcallbackurl**변수에 저장 합니다. 사용자의 클러스터 이름으로 **aro-rg** 를 리소스 그룹의 이름 및 **aro-cluster** 로 바꾸어야 합니다.
 
 > [!NOTE]
-> OAuth `AAD` 콜백 URL의 섹션은 나중에 설정할 oauth id 공급자 이름과 일치 해야 합니다.
+> `AAD`Oauth 콜백 URL의 섹션은 나중에 설정할 oauth id 공급자 이름과 일치 해야 합니다.
 
 ```azurecli-interactive
 domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
@@ -36,7 +36,7 @@ oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>인증을 위한 Azure Active Directory 응용 프로그램 만들기
 
-Azure Active Directory 응용 프로그램을 만들고 만든 응용 프로그램 식별자를 검색 합니다. ** \<ClientSecret>** 를 보안 암호로 바꿉니다.
+Azure Active Directory 응용 프로그램을 만들고 만든 응용 프로그램 식별자를 검색 합니다. **\<ClientSecret>** 보안 암호로 대체 합니다.
 
 ```azurecli-interactive
 az ad app create \
@@ -74,9 +74,9 @@ az account show --query tenantId -o tsv
 - Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
 - 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
-Azure Active Directory에서 반환 하는 ID 토큰의 `email` 일부로를 추가 `upn` 하 여 `upn` 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
+`email` `upn` `upn` Azure Active Directory에서 반환 하는 ID 토큰의 일부로를 추가 하 여 클레임을 사용 하 고로 대체 하도록 openshift를 구성 합니다.
 
-Azure Active Directory 응용 프로그램을 구성 하는 **매니페스트 json** 파일을 만듭니다.
+파일 **에manifest.js** 를 만들어 Azure Active Directory 응용 프로그램을 구성 합니다.
 
 ```bash
 cat > manifest.json<< EOF
@@ -97,7 +97,7 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>매니페스트를 사용 하 여 Azure Active Directory 응용 프로그램의 optionalClaims 업데이트
 
-** \<AppID>** 을 이전에 받은 ID로 바꿉니다.
+**\<AppID>** 을 이전에 가져온 ID로 바꿉니다.
 
 ```azurecli-interactive
 az ad app update \
@@ -109,7 +109,7 @@ az ad app update \
 
 Azure Active Directory에서 사용자 정보를 읽을 수 있으려면 적절 한 범위를 정의 해야 합니다.
 
-** \<AppID>** 을 이전에 받은 ID로 바꿉니다.
+**\<AppID>** 을 이전에 가져온 ID로 바꿉니다.
 
 Azure Active Directory에 대 한 권한을 추가 합니다 **. user. 사용자.** 범위를 사용 하 여 로그인을 사용 하도록 설정 하 고 사용자 프로필을 읽습니다.
 
@@ -131,7 +131,7 @@ Azure Active Directory 설명서의 지침에 따라 [사용자 및 그룹을 �
 
 ## <a name="configure-openshift-openid-authentication"></a>OpenShift Openid connect 인증 구성
 
-자격 증명 `kubeadmin` 을 검색 합니다. 다음 명령을 실행 하 여 `kubeadmin` 사용자에 대 한 암호를 찾습니다.
+`kubeadmin`자격 증명을 검색 합니다. 다음 명령을 실행하여 `kubeadmin` 사용자의 암호를 찾습니다.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -139,7 +139,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-다음 예제 출력에서는 암호를에 `kubeadminPassword`표시 하는 방법을 보여 줍니다.
+다음 예제 출력에서는 암호가 `kubeadminPassword`에 있는 것을 보여줍니다.
 
 ```json
 {
@@ -148,13 +148,13 @@ az aro list-credentials \
 }
 ```
 
-다음 명령을 사용 하 여 OpenShift 클러스터의 API 서버에 로그인 합니다. `$apiServer` 변수가 [이전]()에 설정 되었습니다. ** \<Kubeadmin password>** 를 검색 한 암호로 바꿉니다.
+다음 명령을 사용 하 여 OpenShift 클러스터의 API 서버에 로그인 합니다. `$apiServer`변수가 [이전]()에 설정 되었습니다. 를 **\<kubeadmin password>** 검색 한 암호로 바꿉니다.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-Openshift 암호를 만들어 Azure Active Directory 응용 프로그램 암호를 저장 하 고, ** \<ClientSecret>** 을 이전에 검색 한 암호로 바꿉니다.
+OpenShift 암호를 만들어 Azure Active Directory 응용 프로그램 암호를 저장 하 고를 **\<ClientSecret>** 이전에 검색 한 암호로 바꿉니다.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
@@ -162,7 +162,7 @@ oc create secret generic openid-client-secret-azuread \
   --from-literal=clientSecret=<ClientSecret>
 ```    
 
-Azure Active Directory에 대해 OpenShift Openid connect 인증을 구성 하는 **oidc** 파일을 만듭니다. ** \<AppID>** 및 ** \<TenantId>** 을 이전에 검색 한 값으로 바꿉니다.
+Azure Active Directory에 대해 OpenShift Openid connect 인증을 구성 하는 **oidc** 파일을 만듭니다. **\<AppID>** 및를 **\<TenantId>** 이전에 검색 한 값으로 바꿉니다.
 
 ```bash
 cat > oidc.yaml<< EOF

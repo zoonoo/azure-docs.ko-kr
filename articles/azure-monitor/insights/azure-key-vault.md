@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455464"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
@@ -50,7 +50,7 @@ Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 
 8. *저장* 을 클릭 하 여 Log Analytics 작업 영역에 대 한 진단 로깅을 사용 하도록 설정 합니다.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>PowerShell을 사용하여 Key Vault 진단 사용 설정
-다음 PowerShell 스크립트는를 사용 `Set-AzDiagnosticSetting` 하 여 Key Vault에 대 한 리소스 로깅을 사용 하는 방법의 예를 제공 합니다.
+다음 PowerShell 스크립트는를 사용 하 여 `Set-AzDiagnosticSetting` Key Vault에 대 한 리소스 로깅을 사용 하는 방법의 예를 제공 합니다.
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -114,7 +114,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 | `ResourceGroup` |Key Vault의 리소스 그룹입니다. |
 | `ResourceId` |Azure 리소스 관리자 리소스 ID. Key Vault 로그의 경우 이는 Key Vault 리소스 ID입니다. |
 | `ResourceProvider` |*MICROSOFT. KEYVAULT* |
-| `ResourceType` | *VAULTS* |
+| `ResourceType` | *볼트* |
 | `ResultSignature` |HTTP 상태(예: *확인*) |
 | `ResultType` |REST API 요청의 결과(예: *성공*) |
 | `SubscriptionId` |Key Vault를 포함하는 구독의 Azure 구독 ID입니다. |

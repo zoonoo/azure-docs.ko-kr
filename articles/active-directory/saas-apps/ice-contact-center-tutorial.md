@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f53b3f8dd2a324e4eb3e4b6c073de478bff97a3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9eadaf21705944a5d6aa8ea6d5ca190a21624ee8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662137"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798669"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>자습서: ice Contact Center와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -86,19 +86,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     다. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
-    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값을 얻으려면 [ice Contact Center 클라이언트 지원 팀](mailto:support@computer-talk.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

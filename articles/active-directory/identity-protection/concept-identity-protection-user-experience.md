@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72887001"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호 사용자 환경
@@ -67,7 +67,7 @@ IT 담당자는 사용자가 다시 로그인 할 수 있도록 [차단](howto-i
 
 1. 사용자는 해당 계정 보안이 의심스러운 작업 또는 유출된 자격 증명으로 인해 위험에 노출되었다는 알림을 받습니다.
    
-    ![재구성](./media/concept-identity-protection-user-experience/101.png)
+    ![수정](./media/concept-identity-protection-user-experience/101.png)
 
 1. 사용자는 이전에 등록 된 메서드 중 하나를 사용 하 여 Azure MFA를 완료 하 여 id를 증명 해야 합니다. 
 1. 마지막으로 사용자는 자신의 계정에 대 한 액세스 권한이 있을 수 있으므로 셀프 서비스 암호 재설정을 사용 하 여 자신의 암호를 변경 해야 합니다.

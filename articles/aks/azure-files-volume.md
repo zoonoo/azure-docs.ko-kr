@@ -6,23 +6,23 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 144d93cbb3b66f260dbd9d92863ca5fb13ed00a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207669"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
 컨테이너 기반 애플리케이션은 종종 외부 데이터 볼륨의 데이터를 액세스하고 유지해야 합니다. 여러 Pod에서 동일한 스토리지 볼륨에 동시에 액세스해야 하는 경우 Azure Files에서 [SMB(서버 메시지 블록) 프로토콜][smb-overview]을 사용하여 연결할 수 있습니다. 이 문서에서는 Azure Files 공유를 수동으로 만들고 AKS의 Pod에 첨부하는 방법을 보여 줍니다.
 
-Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][concepts-storage]을 참조 하세요.
+Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>파일 공유를 볼륨으로 마운트
 
-Azure Files 공유를 pod에 탑재 하려면 컨테이너 사양에서 볼륨을 구성 합니다. 다음 내용이 포함 된 라는 `azure-files-pod.yaml` 새 파일을 만듭니다. 파일 공유 이름 또는 비밀 이름을 변경한 경우 *shareName* 및 *secretName*을 업데이트하세요. 원하는 경우, 파일 공유가 Pod에 마운트되는 경로인 `mountPath`를 업데이트하세요. Windows Server 컨테이너의 경우 *' d: '* 와 같은 windows 경로 규칙을 사용 하 여 *mountPath* 를 지정 합니다.
+Azure Files 공유를 pod에 탑재 하려면 컨테이너 사양에서 볼륨을 구성 합니다. `azure-files-pod.yaml` 다음 내용이 포함 된 라는 새 파일을 만듭니다. 파일 공유 이름 또는 비밀 이름을 변경한 경우 *shareName* 및 *secretName*을 업데이트하세요. 원하는 경우, 파일 공유가 Pod에 마운트되는 경로인 `mountPath`를 업데이트하세요. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath*를 지정합니다.
 
 ```yaml
 apiVersion: v1
@@ -161,7 +161,7 @@ spec:
 
 버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
 
-탑재 옵션을 업데이트 하려면 *PersistentVolume*를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 다음은 그 예입니다.
+탑재 옵션을 업데이트 하려면 *PersistentVolume*를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 예:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-*PersistentVolume*를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 다음은 그 예입니다.
+*PersistentVolume*를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 예:
 
 ```yaml
 apiVersion: v1
@@ -203,7 +203,7 @@ spec:
       storage: 5Gi
 ```
 
-명령을 사용 하 여 *PersistentVolume* 및 PersistentVolumeClaim을 만듭니다. *PersistentVolumeClaim* `kubectl`
+명령을 사용 `kubectl` 하 여 *PersistentVolume* 및 *PersistentVolumeClaim*을 만듭니다.
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml
@@ -219,7 +219,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-*PersistentVolumeClaim* 를 참조 하 고 pod를 업데이트 하도록 컨테이너 사양을 업데이트 합니다. 다음은 그 예입니다.
+*PersistentVolumeClaim* 를 참조 하 고 pod를 업데이트 하도록 컨테이너 사양을 업데이트 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 ...
@@ -231,7 +231,7 @@ azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
+관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure Files와 상호 작용하는 AKS 클러스터에 대한 자세한 내용은 [Azure Files에 대한 Kubernetes 플러그 인][kubernetes-files]을 참조하세요.
 

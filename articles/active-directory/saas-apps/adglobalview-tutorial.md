@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dddb07d394dfd3ec15b6377d283420112233a5e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72264117"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608911"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>자습서: ADP Globalview와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -85,11 +85,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+    ```https
+    https://<subdomain>.globalview.adp.com/federate
+    https://<subdomain>.globalview.adp.com/federate2
+    ```
+
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 값을 가져오려면 [ADP Globalview 클라이언트 지원 팀](https://www.adp.com/contact-us/overview.aspx)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

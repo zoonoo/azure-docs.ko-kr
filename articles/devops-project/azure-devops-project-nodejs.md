@@ -1,6 +1,6 @@
 ---
 title: GatsbyJS 및 Azure DevOps 스타터를 사용 하 여 PWA에 대 한 CI/CD 파이프라인 만들기
-description: DevOps 스타터를 사용 하면 Azure에서 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
+description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -14,13 +14,13 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
 ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233860"
 ---
-# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 node.js 용 Azure Pipelines에서 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 Node.js Azure Pipelines에서 CI/CD 파이프라인 만들기
 
 이 빠른 시작에서는 [GatsbyJS](https://www.gatsbyjs.org/) 및 간소화 된 Azure Devops 스타터 생성 환경을 사용 하 여 nodejs 프로그레시브 웹 앱 (PWA)을 만듭니다. 완료되면 Azure Pipelines에 PWA용 CI(지속적인 통합) 및 CD(지속적인 배포) 파이프라인이 있습니다. Azure DevOps 스타터는 개발, 배포 및 모니터링에 필요한 항목을 설정 합니다.
 
@@ -31,25 +31,25 @@ ms.locfileid: "82233860"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-DevOps 스타터는 Azure Pipelines에서 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps 스타터는 선택한 Azure 구독에 Azure 리소스를 만듭니다.
+DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Starter는 선택한 Azure 구독에서 Azure 리소스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽 창에서 **리소스 만들기**를 선택합니다. 
 
    ![Azure Portal에서 Azure 리소스 만들기](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. 검색 상자에 **Devops 스타터**를 입력 한 다음를 선택 합니다. 새 항목을 만들려면 **추가** 를 클릭 합니다.
+1. 검색 상자에 **DevOps Starter**를 입력한 다음, 선택합니다. **추가**를 클릭하여 새 항목을 만듭니다.
 
-    ![DevOps 스타터 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![DevOps Starter 대시보드](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
 1. Node.js 샘플 애플리케이션을 선택합니다.   
 
-    ![Node.js 샘플을 선택 합니다.](_img/azure-devops-project-nodejs/select-nodejs.png) 
+    ![Node.js 샘플 선택](_img/azure-devops-project-nodejs/select-nodejs.png) 
 
-1. 기본 샘플 프레임 워크는 **Express .js**입니다. 선택 항목을 **간단한 Node.js 앱** 으로 변경한 후 **다음**을 선택 합니다. 
+1. 기본 샘플 프레임 워크는 **Express.js**됩니다. 선택 항목을 **단순 Node.js 앱** 으로 변경 하 고 **다음**을 선택 합니다. 
 
-    ![간단한 node.js 앱을 선택 합니다.](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
+    ![단순 Node.js 앱을 선택 합니다.](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
 
 1. 이 단계에서 사용할 수 있는 배포 대상은 2 단계에서 선택한 응용 프로그램 프레임 워크에 따라 결정 됩니다. 이 예제에서 **Windows 웹 앱** 은 기본 배포 대상입니다. **Web App for Containers** 집합을 그대로 두고 **다음**을 선택 합니다.
 
@@ -108,7 +108,7 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 git 리포지토리를 만�
     rmdir Application
     ```
 
-1. Gatsby CLI를 사용 하 여 샘플 PWA를 생성 합니다. 터미널 `gatsby new` 에서를 실행 하 여 PWA 마법사를 시작 하 `gatsby-starter-blog` 고 시작 템플릿을 선택 합니다. 이 샘플은 다음과 유사 합니다.
+1. Gatsby CLI를 사용 하 여 샘플 PWA를 생성 합니다. `gatsby new`터미널에서를 실행 하 여 PWA 마법사를 시작 하 고 `gatsby-starter-blog` 시작 템플릿을 선택 합니다. 이 샘플은 다음과 유사 합니다.
 
     ```powershell
     c:\myproject> gatsby new
@@ -120,16 +120,16 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 git 리포지토리를 만�
         (Use a different starter)
     ```
     
-1. 이제 라는 `my-gatsby-project`폴더가 있습니다. 이름을로 `Application` 바꾸고를 복사 `Dockerfile` 합니다.
+1. 이제 라는 폴더가 있습니다 `my-gatsby-project` . 이름을로 바꾸고를 `Application` 복사 `Dockerfile` 합니다.
     
     ```powershell
     mv my-gatsby-project Application
     mv Dockerfile Application
     ```
     
-1. 자주 사용 하는 편집기에서 Dockerfile을 열고 첫 번째 줄을에서 `FROM node:8` 로 `FROM node:12`변경 합니다. 이렇게 변경 하면 컨테이너에서 버전 8.x 대신 node.js 버전 12. x를 사용 하 게 됩니다. GatsbyJS에는 더 최신 버전의 node.js가 필요 합니다.
+1. 자주 사용 하는 편집기에서 Dockerfile을 열고 첫 번째 줄을에서 `FROM node:8` 로 변경 합니다 `FROM node:12` . 이렇게 변경 하면 컨테이너가 버전 8.x 대신 버전 4.x를 사용 하 고 Node.js. GatsbyJS에는 최신 버전의 Node.js 필요 합니다.
 
-1. 그런 다음 응용 프로그램 폴더에서 package. json 파일을 열고 [스크립트 필드](https://docs.npmjs.com/files/package.json#scripts) 를 편집 하 여 사용 가능한 모든 네트워크 인터페이스 (예: 0.0.0.0) 및 포트 80에서 수신 대기 하는 개발 및 프로덕션 서버를 확인 합니다. 이러한 설정이 없으면 컨테이너 app service는 컨테이너 내에서 실행 되는 node.js 앱에 트래픽을 라우팅할 수 없습니다. 필드 `scripts` 는 아래와 유사 합니다. 특히, 및 `develop` `serve` `start` 대상을 기본값에서 변경 하려고 합니다.
+1. 그런 다음 응용 프로그램 폴더에서 파일에 package.js를 열고 [스크립트 필드](https://docs.npmjs.com/files/package.json#scripts) 를 편집 하 여 개발 및 프로덕션 서버가 사용 가능한 모든 네트워크 인터페이스 (예: 0.0.0.0) 및 포트 80를 수신 하는지 확인 합니다. 이러한 설정이 없으면 컨테이너 app service는 컨테이너 내에서 실행 되는 Node.js 앱으로 트래픽을 라우팅할 수 없습니다. `scripts`필드는 아래와 유사 합니다. 특히, `develop` `serve` 및 `start` 대상을 기본값에서 변경 하려고 합니다.
 
     ```json
       "scripts": {
@@ -145,9 +145,9 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 git 리포지토리를 만�
     
 ## <a name="edit-your-cicd-pipelines"></a>CI/CD 파이프라인 편집
 
-1. 이전 섹션에서 코드를 커밋하기 전에 빌드 및 릴리스 파이프라인을 변경 합니다. ' 빌드 파이프라인 '을 편집 하 고 node.js 버전 2.x를 사용 하도록 노드 작업을 업데이트 합니다. **작업 버전** 필드를 1. x로 설정 하 고 **버전** 필드를 12. x로 설정 합니다.
+1. 이전 섹션에서 코드를 커밋하기 전에 빌드 및 릴리스 파이프라인을 변경 합니다. ' 빌드 파이프라인 '을 편집 하 고 Node.js 버전 12. x를 사용 하도록 노드 작업을 업데이트 합니다. **작업 버전** 필드를 1. x로 설정 하 고 **버전** 필드를 12. x로 설정 합니다.
 
-    ![Node.js를 12. x로 업데이트 합니다.](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+    ![업데이트 Node.js 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 1. 이 빠른 시작에서는 단위 테스트를 만들지 않으며 빌드 파이프라인에서 해당 단계를 사용 하지 않도록 설정 하 고 있습니다. 테스트를 작성 하는 경우 이러한 단계를 다시 활성화할 수 있습니다. **테스트 종속성 설치** 및 **단위 테스트 실행** 이라는 레이블이 지정 된 작업을 마우스 오른쪽 단추로 클릭 하 여 선택 합니다.
 
@@ -167,7 +167,7 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 git 리포지토리를 만�
 
 1. **커밋**을 선택하고 변경 내용을 저장합니다.
 
-1. 브라우저에서 DevOps 스타터 대시보드로 이동 합니다.   
+1. 브라우저에서 DevOps Starter 대시보드로 이동합니다.   
 이제 빌드가 진행되고 있다고 표시됩니다. 변경 내용은 자동으로 빌드 및 CI/CD 파이프라인을 통해 배포 됩니다.
 
 ## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>변경 내용 커밋 및 Azure CI/CD 파이프라인 검사
@@ -182,13 +182,13 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 git 리포지토리를 만�
     git push
     ```
     
-1. 빌드는 `git push` 완료 되는 즉시 시작 됩니다. **Azure DevOps 대시보드의**진행 상황을 따를 수 있습니다.
+1. 빌드는 완료 되는 즉시 시작 됩니다 `git push` . **Azure DevOps 대시보드의**진행 상황을 따를 수 있습니다.
 
 3. 몇 분 후에 빌드 및 릴리스 파이프라인이 완료되고 PWA가 컨테이너에 배포됩니다. 위의 대시보드에서 **애플리케이션 엔드포인트** 링크를 클릭하면 블로그의 Gatsby 스타터 프로젝트가 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스가 더 이상 필요하지 않을 경우 만든 Azure App Service 및 기타 관련 리소스를 삭제할 수 있습니다. DevOps 스타터 대시보드에서 **삭제** 기능을 사용 합니다.
+리소스가 더 이상 필요하지 않을 경우 만든 Azure App Service 및 기타 관련 리소스를 삭제할 수 있습니다. DevOps Starter 대시보드의 **삭제** 기능을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

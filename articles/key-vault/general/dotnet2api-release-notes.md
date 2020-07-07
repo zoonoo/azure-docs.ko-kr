@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431918"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
@@ -49,12 +49,12 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 * *비밀*을 *SecretBundle*로 변경
 * *사전*을 *IDictionary*로 변경
-* *List\<t>, string []이* *IList\<t* 로 변경 되었습니다>
+* *목록\<T>, string []* 을 *IList\<T>* 로 변경
 * *NextList*를 *NextPageLink*로 변경
 
 ## <a name="return-types"></a>반환 형식
 
-* 이제 **Keylist** 및 **SecretList** 는 *ipage* 대신 *ipage\<T>* 반환 합니다.
+* 이제 **KeyList** 및 **SecretList**는 *ListKeysResponseMessage* 대신 *IPage\<T>* 를 반환합니다.
 * 생성된 **BackupKeyAsync**는 *값*(백업 blob)을 포함하는 *BackupKeyResult*를 반환합니다. 이전에는 메서드가 래핑되고 해당 값만 반환되었습니다.
 
 ## <a name="exceptions"></a>예외

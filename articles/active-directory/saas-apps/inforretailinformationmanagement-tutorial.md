@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6572560833e6336495b3bec782a096b584be1ec0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 91c48772ae50fd34e822c947687c0366e1d179cc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100279"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>자습서: Infor Retail – Information Management과 Azure Active Directory 통합
 
@@ -108,10 +108,10 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<company name>.mingle.infor.com` |
-    | `http://<company name>.mingledev.infor.com` |
+    ```http
+    https://<company name>.mingle.infor.com
+    http://<company name>.mingledev.infor.com
+    ```
 
     b. **회신 URL** 텍스트 상자에서 `https://<company name>.mingle.infor.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
 

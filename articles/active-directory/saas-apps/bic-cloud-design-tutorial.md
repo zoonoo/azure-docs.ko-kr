@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f6de35400280d68227af1dd7e3a981494d9e61
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de3ebba84a56a0dd997a2d0309bbc203cd606fa1
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088287"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607959"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>자습서: BIC Cloud Design과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -97,10 +97,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    |||
-    |-|-|
-    | `https://<customer-specific-name/tenant>.biccloud.com`|
-    | `https://<customer-specific-name/tenant>.biccloud.de` |
+    ```https
+    https://<customer-specific-name/tenant>.biccloud.com
+    https://<customer-specific-name/tenant>.biccloud.de
+    ```
 
     > [!Note]
     > **식별자** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다. 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [BIC Cloud Design 클라이언트 지원팀](mailto:bicsupport@gbtec.de)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

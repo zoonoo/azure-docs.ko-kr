@@ -4,10 +4,10 @@ description: Azure Migrate 서비스에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81530320"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
@@ -19,7 +19,7 @@ ms.locfileid: "81530320"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아보기](migrate-services-overview.md).
+Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아봅니다](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure Migrate로 무엇을 할 수 있나요?
 
@@ -53,9 +53,9 @@ Azure Migrate: 서버 마이그레이션 도구는 일부 온-프레미스 컴�
 
 ## <a name="which-geographies-are-supported"></a>지원 되는 지역
 
-[공용](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드의](migrate-support-matrix.md#supported-geographies-azure-government)지원 되는 지역을 검토 합니다.
+[퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
-## <a name="how-do-i-get-started"></a>시작하는 방법
+## <a name="how-do-i-get-started"></a>시작하려면 어떻게 해야 하나요?
 
 필요한 도구를 확인 한 다음 도구를 Azure Migrate 프로젝트에 추가 합니다. 
 

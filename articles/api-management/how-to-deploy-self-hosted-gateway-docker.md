@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205093"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Azure API Management 자체 호스팅 게이트웨이를 Docker에 배포
@@ -24,9 +24,9 @@ ms.locfileid: "82205093"
 > [!NOTE]
 > Docker에서 자체 호스팅 게이트웨이를 호스트 하는 것은 평가 및 개발 사용 사례에 가장 적합 합니다. Kubernetes는 프로덕션에 사용 하는 것이 좋습니다. Kubernetes에 자체 호스팅 게이트웨이를 배포 하는 방법을 알아보려면 [이](how-to-deploy-self-hosted-gateway-kubernetes.md) 문서를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 다음 빠른 시작: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 를 완료 합니다.
+- 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Docker 환경을 만듭니다. [데스크톱에 대 한 Docker](https://www.docker.com/products/docker-desktop) 는 개발 및 평가를 위해 좋은 옵션입니다. Docker 자체에 대 한 모든 Docker 버전, 해당 기능 및 포괄적인 설명서에 대 한 자세한 내용은 [docker 설명서](https://docs.docker.com) 를 참조 하세요.
 - [API Management 인스턴스에서 게이트웨이 리소스 프로 비전](api-management-howto-provision-self-hosted-gateway.md)
 
@@ -58,9 +58,9 @@ CONTAINER ID        IMAGE                                                 COMMAN
 ![게이트웨이 상태](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
-> 명령을 <code>console docker container logs <gateway-name></code> 사용 하 여 자체 호스팅 게이트웨이 로그의 스냅숏을 봅니다.
+> <code>console docker container logs <gateway-name></code>명령을 사용 하 여 자체 호스팅 게이트웨이 로그의 스냅숏을 봅니다.
 >
-> 명령을 <code>docker container logs --help</code> 사용 하 여 모든 로그 보기 옵션을 표시 합니다.
+> <code>docker container logs --help</code>명령을 사용 하 여 모든 로그 보기 옵션을 표시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

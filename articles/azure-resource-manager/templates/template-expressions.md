@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에 대 한 선언적 JSON 구문�
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203831"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구문 및 식
@@ -47,13 +47,13 @@ Azure Resource Manager에서는 템플릿에서 사용할 수 있는 [함수](te
 
 ## <a name="escape-characters"></a>이스케이프 문자
 
-리터럴 문자열을 왼쪽 대괄호 `[` 로 시작 하 고 오른쪽 괄호 `]`를 사용 하 여 종료 하지만 식으로 해석 되지 않도록 하려면 추가 대괄호를 추가 하 여 문자열을 시작 `[[`합니다. 예를 들어 변수는 다음과 같습니다.
+리터럴 문자열을 왼쪽 대괄호로 시작 하 `[` 고 오른쪽 괄호를 사용 하 여 종료 `]` 하지만 식으로 해석 되지 않도록 하려면 추가 대괄호를 추가 하 여 문자열을 시작 `[[` 합니다. 예를 들어 변수는 다음과 같습니다.
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-는로 `[test value]`확인 됩니다.
+는로 확인 `[test value]` 됩니다.
 
 그러나 리터럴 문자열이 대괄호로 끝나지 않는 경우에는 첫 번째 대괄호가 이스케이프 되지 않습니다. 예를 들어 변수는 다음과 같습니다.
 
@@ -61,7 +61,7 @@ Azure Resource Manager에서는 템플릿에서 사용할 수 있는 [함수](te
 "demoVar2": "[test] value"
 ```
 
-는로 `[test] value`확인 됩니다.
+는로 확인 `[test] value` 됩니다.
 
 템플릿에서 JSON 개체를 추가 하는 것과 같이 식에서 큰따옴표를 이스케이프 하려면 백슬래시를 사용 합니다.
 
@@ -93,7 +93,7 @@ Azure Resource Manager에서는 템플릿에서 사용할 수 있는 [함수](te
 }
 ```
 
-기본값을 사용 하는 경우 템플릿은를 반환 `[test value]`합니다.
+기본값을 사용 하는 경우 템플릿은를 반환 `[test value]` 합니다.
 
 그러나 명령줄을 통해 매개 변수 값을 전달 하는 경우 문자는 문자 그대로 해석 됩니다. 다음을 사용 하 여 이전 템플릿 배포:
 
@@ -107,7 +107,7 @@ New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azurede
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-매개 변수 파일에서 값을 전달할 때 동일한 형식이 적용 됩니다. 문자는 문자 그대로 해석 됩니다. 위의 템플릿과 함께 사용 하는 경우 다음 매개 변수 파일은 `[test value]`을 반환 합니다.
+매개 변수 파일에서 값을 전달할 때 동일한 형식이 적용 됩니다. 문자는 문자 그대로 해석 됩니다. 위의 템플릿과 함께 사용 하는 경우 다음 매개 변수 파일은을 반환 합니다 `[test value]` .
 
 ```json
 {
@@ -123,7 +123,7 @@ New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azurede
 
 ## <a name="null-values"></a>Null 값
 
-속성을 null로 설정 하려면 **null** 또는 **[json (' null ')]** 을 사용할 수 있습니다. [Json 함수](template-functions-object.md#json) 는를 매개 변수로 제공할 `null` 때 빈 개체를 반환 합니다. 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
+속성을 null로 설정 하려면 **null** 또는 **[json (' null ')]** 을 사용할 수 있습니다. [Json 함수](template-functions-object.md#json) 는를 매개 변수로 제공할 때 빈 개체를 반환 합니다 `null` . 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
 
 ```json
 "stringValue": null,

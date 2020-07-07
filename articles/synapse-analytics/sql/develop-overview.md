@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429019"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 기능을 위한 디자인 결정 및 코딩 기술
@@ -31,11 +31,11 @@ ms.locfileid: "81429019"
 | [리소스 클래스 및 동시성](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예    | 아니요 |
 | [트랜잭션](develop-transactions.md)              | 예 | 아니요 |
 | [사용자 정의 스키마](develop-user-defined-schemas.md) | 예 | 예 |
-| [테이블 배포](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | 예 | 아니요 |
+| [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | 예 | 아니요 |
 | [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | 예 | 아니요 |
 | [테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | 예 | 아니요 |
 | [통계](develop-tables-statistics.md)            | 예 | 예 |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | 예 | 아니요 |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | 예 | 예 |
 | [외부 테이블](develop-tables-external-tables.md) | 예 | 예 |
 | [CETAS](develop-tables-cetas.md)                     | 예 | 예 |
 
@@ -48,10 +48,10 @@ ms.locfileid: "81429019"
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [저장 프로시저](develop-stored-procedures.md)  | 예                | 아니요                      |
 | [레이블](develop-label.md)                           | 예                | 아니요                      |
-| [보기](develop-views.md)                             | 예                | 예                     |
+| [뷰](develop-views.md)                             | 예                | 예                     |
 | [임시 테이블](develop-tables-temporary.md)       | 예                | 예                     |
 | [동적 SQL](develop-dynamic-sql.md)                 | 예                | 예                     |
-| [루프로](develop-loops.md)                         | 예                | 예                     |
+| [반복](develop-loops.md)                         | 예                | 예                     |
 | [옵션으로 그룹화](develop-group-by-options.md)       | 예                | 아니요                      |
 | [변수 할당](develop-variable-assignment.md) | 예                | 예                     |
 

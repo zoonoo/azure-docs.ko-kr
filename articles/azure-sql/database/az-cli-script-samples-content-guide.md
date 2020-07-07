@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 예제
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Azure SQL Database 및 Azure SQL Managed Instance를 만들고 관리하는 Azure CLI 스크립트 예제
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples, mvc, sqldbrb=2
 ms.devlang: azurecli
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251525"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982804"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 Azure CLI 샘플 
  
@@ -35,7 +35,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 다음 표에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스를 관리하는 Azure CLI 스크립트 예제에 대한 링크를 포함합니다. 
 
-| | |
+|영역|Description|
 |---|---|
 |**Azure SQL Database에서 데이터베이스 만들기**||
 | [단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/create-and-configure-database-cli.md) | SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. |
@@ -63,7 +63,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 다음 표에서는 Azure SQL Managed Instance의 Azure CLI 스크립트 예제에 대한 링크를 포함합니다.
 
-| | |
+|영역|Description|
 |---|---|
 | **SQL Managed Instance 만들기**||
 | [SQL Managed Instance 만들기](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| SQL Managed Instance를 만듭니다. |

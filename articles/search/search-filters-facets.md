@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792889"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 필터를 작성 하는 방법 
@@ -36,24 +36,24 @@ ms.locfileid: "72792889"
 
 패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 패싯 탐색에서 가장 잘 작동 하는 필드의 카디널리티: 검색 모음의 문서 전체에서 반복 되는 소수의 고유 값 (예: 색, 국가/지역 또는 브랜드 이름 목록)이 있습니다. 
 
-패싯은 `facetable` 특성을로 `true`설정 하 여 인덱스를 만들 때 필드 별로 사용 하도록 설정 됩니다. 또한 최종 사용자가 선택 하 `filterable` 는 패싯을 `true` 기반으로 검색 응용 프로그램에서 이러한 필드를 필터링 할 수 있도록 이러한 필드에 대해 특성을로 설정 해야 합니다. 
+패싯은 특성을로 설정 하 여 인덱스를 만들 때 필드 별로 사용 하도록 설정 됩니다 `facetable` `true` . 또한 `filterable` `true` 최종 사용자가 선택 하는 패싯을 기반으로 검색 응용 프로그램에서 이러한 필드를 필터링 할 수 있도록 이러한 필드에 대해 특성을로 설정 해야 합니다. 
 
-REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 수 있는 모든 [필드 형식이](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 기본적으로로 `facetable` 표시 됩니다.
+REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 수 있는 모든 [필드 형식이](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 기본적으로로 표시 됩니다 `facetable` .
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ 숫자 필드 형식: `Edm.Int32`, `Edm.Int64`,`Edm.Double`
-+ 위의 형식 (예: `Collection(Edm.String)` 또는 `Collection(Edm.Double)`)의 컬렉션
++ 숫자 필드 형식: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ 위의 형식 (예: `Collection(Edm.String)` 또는)의 컬렉션 `Collection(Edm.Double)`
 
-패싯 탐색에서 `Edm.GeographyPoint` 또는 `Collection(Edm.GeographyPoint)` 필드를 사용할 수 없습니다. 패싯은 카디널리티가 낮은 필드에 가장 잘 작동 합니다. 지리적 좌표를 확인 하기 때문에 지정 된 데이터 집합에서 두 개의 좌표 집합은 동일 하지 않습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
+`Edm.GeographyPoint`패싯 탐색에서 또는 필드를 사용할 수 없습니다 `Collection(Edm.GeographyPoint)` . 패싯은 카디널리티가 낮은 필드에 가장 잘 작동 합니다. 지리적 좌표를 확인 하기 때문에 지정 된 데이터 집합에서 두 개의 좌표 집합은 동일 하지 않습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
 
 ## <a name="set-attributes"></a>특성 설정
 
-필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예제에서 카디널리티가 낮은 필드는 패싯에 유용 하며 `category` (호텔, motel, hostel), `tags`및 `rating`로 구성 됩니다. 이러한 필드에는 `filterable` 설명을 `facetable` 위해 다음 예제에서 명시적으로 설정 된 및 특성이 있습니다. 
+필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예제에서 카디널리티가 낮은 필드는 패싯에 유용 `category` 하며 (호텔, motel, hostel), 및로 구성 됩니다. `tags` `rating` 이러한 필드에는 `filterable` `facetable` 설명을 위해 다음 예제에서 명시적으로 설정 된 및 특성이 있습니다. 
 
 > [!Tip]
-> 성능 및 스토리지 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. 특히 ID 또는 제품 이름과 같은 고유 값에 대 한 문자열 필드는 패싯 탐색에서 실수로 (그리고 비효율적인 `"facetable": false` ) 사용을 방지 하기 위해로 설정 되어야 합니다.
+> 성능 및 스토리지 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. 특히 ID 또는 제품 이름과 같은 고유 값에 대 한 문자열 필드는 `"facetable": false` 패싯 탐색에서 실수로 (그리고 비효율적인) 사용을 방지 하기 위해로 설정 되어야 합니다.
 
 
 ```json
@@ -77,7 +77,7 @@ REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 �
 ```
 
 > [!Note]
-> 이 인덱스 정의는 REST API를 [사용 하 여 Azure Cognitive Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사 됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. 및 `filterable` `facetable` `category`특성은, `tags` `parkingIncluded`,, `smokingAllowed`및 `rating` 필드에 명시적으로 추가 됩니다. 실제로 `filterable` 및 `facetable` 는 REST API를 사용 하는 경우 이러한 필드에 대해 기본적으로 사용 하도록 설정 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 사용 하도록 설정 해야 합니다.
+> 이 인덱스 정의는 REST API를 [사용 하 여 Azure Cognitive Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사 됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. `filterable`및 `facetable` 특성은,, `category` `tags` `parkingIncluded` , `smokingAllowed` 및 `rating` 필드에 명시적으로 추가 됩니다. 실제로 `filterable` 및 `facetable` 는 REST API를 사용 하는 경우 이러한 필드에 대해 기본적으로 사용 하도록 설정 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 사용 하도록 설정 해야 합니다.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
@@ -98,7 +98,7 @@ var sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>클릭 이벤트로 필터링된 결과 반환하기
 
-최종 사용자가 패싯 값을 클릭할 때 click 이벤트에 대 한 처리기는 필터 식을 사용 하 여 사용자의 의도를 인식 해야 합니다. `category` 패싯이 지정 된 경우 "motel" 범주를 클릭 하면 해당 형식의 적절 `$filter` 를 선택 하는 식으로 구현 됩니다. 사용자가 "motel"를 클릭 하 여 모텔만 표시 하도록 지정 하는 경우 응용 프로그램에서 전송 하는 `$filter=category eq 'motel'`다음 쿼리는를 포함 합니다.
+최종 사용자가 패싯 값을 클릭할 때 click 이벤트에 대 한 처리기는 필터 식을 사용 하 여 사용자의 의도를 인식 해야 합니다. 패싯이 지정 된 경우 `category` "motel" 범주를 클릭 하면 `$filter` 해당 형식의 적절를 선택 하는 식으로 구현 됩니다. 사용자가 "motel"를 클릭 하 여 모텔만 표시 하도록 지정 하는 경우 응용 프로그램에서 전송 하는 다음 쿼리는를 포함 `$filter=category eq 'motel'` 합니다.
 
 다음 코드 조각은 사용자가 범주 패싯에서 값을 선택하는 경우 범주를 필터에 추가합니다.
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-사용자가 예를 들어 "pool" 값과 같은 `tags`컬렉션 필드의 패싯 값을 클릭 하면 응용 프로그램에서 다음 필터 구문을 사용 해야 합니다.`$filter=tags/any(t: t eq 'pool')`
+사용자가 예를 들어 "pool" 값과 같은 컬렉션 필드의 패싯 값을 클릭 하면 `tags` 응용 프로그램에서 다음 필터 구문을 사용 해야 합니다.`$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>팁 및 해결 방법
 

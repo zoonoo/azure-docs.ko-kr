@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 6784c69c049945f3bd4977ecd647d57ec59bf9f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232635"
 ---
 # <a name="configure-dns-forwarding-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 DNS 전달 구성
@@ -23,7 +23,7 @@ Azure Red Hat OpenShift 클러스터에서 DNS 전달을 구성 하려면 DNS �
 oc edit dns.operator/default
 ```
  
-그러면 편집기가 시작 되 고를으로 바꿀 `spec: {}` 수 있습니다.
+그러면 편집기가 시작 되 고를으로 바꿀 수 있습니다 `spec: {}` .
  
  ```yaml
 spec:

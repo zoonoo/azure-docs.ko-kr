@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460123"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>격리 된 네트워크에서 Azure Disk Encryption
@@ -47,7 +47,7 @@ Red Hat에서 프록시가 필요한 경우 subscription-manager와 yum이 올�
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 
-가상 머신은 VM 내 에서만 액세스할 수 있는 잘 알려진 라우팅할 수 없는 IP 주소 (`169.254.169.254`)를 사용 하는 [Azure 인스턴스 메타 데이터 서비스](instance-metadata-service.md) 끝점에 액세스할 수 있어야 합니다.  이 주소에 대 한 로컬 HTTP 트래픽 (예: X 전달 된 헤더 추가)을 변경 하는 프록시 구성은 지원 되지 않습니다.
+가상 머신은 VM 내 에서만 액세스할 수 있는 잘 알려진 라우팅할 수 없는 IP 주소 ()를 사용 하는 [Azure 인스턴스 메타 데이터 서비스](instance-metadata-service.md) 끝점에 액세스할 수 있어야 합니다 `169.254.169.254` .  이 주소에 대한 로컬 HTTP 트래픽(예: X-Forwarded-For 헤더)을 변경하는 프록시 구성은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

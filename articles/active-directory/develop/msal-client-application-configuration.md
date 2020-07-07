@@ -14,15 +14,15 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81534468"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
-코드에서 토큰을 인증 하 고 획득 하기 위해 새 공용 또는 비밀 클라이언트 응용 프로그램 (또는 MSAL의 사용자 에이전트)을 초기화 합니다. MSAL (Microsoft Authentication Library)에서 클라이언트 앱을 초기화할 때 다양 한 구성 옵션을 설정할 수 있습니다. 이러한 옵션은 다음 두 그룹으로 분류 됩니다.
+코드에서 새 공용 또는 비밀 클라이언트 응용 프로그램 (또는 MSAL.js 용 사용자 에이전트)을 초기화 하 여 토큰을 인증 하 고 획득 합니다. MSAL (Microsoft Authentication Library)에서 클라이언트 앱을 초기화할 때 다양 한 구성 옵션을 설정할 수 있습니다. 이러한 옵션은 다음 두 그룹으로 분류 됩니다.
 
 - 등록 옵션 (다음 포함)
     - [인증 기관](#authority) (id 공급자 [인스턴스와](#cloud-instance) 앱에 대 한 로그인 [대상 그룹](#application-audience) 및 테 넌 트 ID로 구성).
@@ -35,10 +35,10 @@ ms.locfileid: "81534468"
 
 Authority는 MSAL에서 토큰을 요청할 수 있는 디렉터리를 나타내는 URL입니다. 일반적인 기관은 다음과 같습니다.
 
-- https\://login.microsoftonline.com/\<테\>넌 트/ &lt;(&gt; 여기서 테 넌 트는 azure ad (azure AD) 테 넌 트 Azure Active Directory의 테 넌 트 ID 이거나이 azure ad 테 넌 트와 연결 된 도메인입니다. 특정 조직의 사용자를 로그인 하는 데만 사용 됩니다.
-- https\://login.microsoftonline.com/common/. 회사 및 학교 계정이 나 개인 Microsoft 계정으로 사용자를 로그인 하는 데 사용 됩니다.
-- https\://login.microsoftonline.com/organizations/. 회사 및 학교 계정으로 사용자를 로그인 하는 데 사용 됩니다.
-- https\://login.microsoftonline.com/consumers/. 개인 Microsoft 계정 (이전의 Windows Live ID 계정)만 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
+- https \: //login.microsoftonline.com/ \<tenant\> /, 여기서 &lt; 테 넌 트는 Azure &gt; ad (azure ad) 테 넌 트 Azure Active Directory의 테 넌 트 ID 또는이 azure ad 테 넌 트와 연결 된 도메인입니다. 특정 조직의 사용자를 로그인 하는 데만 사용 됩니다.
+- https \: //login.microsoftonline.com/common/. 회사 및 학교 계정이 나 개인 Microsoft 계정으로 사용자를 로그인 하는 데 사용 됩니다.
+- https \: //login.microsoftonline.com/organizations/. 회사 및 학교 계정으로 사용자를 로그인 하는 데 사용 됩니다.
+- https \: //login.microsoftonline.com/consumers/. 개인 Microsoft 계정 (이전의 Windows Live ID 계정)만 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
 
 인증 기관 설정은 응용 프로그램 등록 포털에 선언 된 것과 일치 해야 합니다.
 
@@ -59,11 +59,11 @@ Azure AD 클라우드 기관에는 두 가지 부분이 있습니다.
 
 ## <a name="cloud-instance"></a>클라우드 인스턴스
 
-*인스턴스* 는 앱이 Azure 공용 클라우드 또는 국가별 클라우드에서 사용자를 서명 하 고 있는지 여부를 지정 하는 데 사용 됩니다. 코드에서 MSAL을 사용 하 여 열거형을 사용 하거나 URL을 [국가 클라우드 인스턴스에](authentication-national-cloud.md#azure-ad-authentication-endpoints) `Instance` 멤버로 전달 하 여 (알고 있는 경우) Azure 클라우드 인스턴스를 설정할 수 있습니다.
+*인스턴스* 는 앱이 Azure 공용 클라우드 또는 국가별 클라우드에서 사용자를 서명 하 고 있는지 여부를 지정 하는 데 사용 됩니다. 코드에서 MSAL을 사용 하 여 열거형을 사용 하거나 URL을 [국가 클라우드 인스턴스에](authentication-national-cloud.md#azure-ad-authentication-endpoints) 멤버로 전달 하 여 `Instance` (알고 있는 경우) Azure 클라우드 인스턴스를 설정할 수 있습니다.
 
-및 `Instance` `AzureCloudInstance` 가 모두 지정 된 경우 MSAL.NET에서 명시적 예외를 throw 합니다.
+및가 모두 지정 된 경우 MSAL.NET에서 명시적 예외를 throw `Instance` `AzureCloudInstance` 합니다.
 
-인스턴스를 지정 하지 않으면 앱은 Azure 공용 클라우드 인스턴스 (URL `https://login.onmicrosoftonline.com`인스턴스)를 대상으로 합니다.
+인스턴스를 지정 하지 않으면 앱은 Azure 공용 클라우드 인스턴스 (URL 인스턴스)를 대상으로 `https://login.onmicrosoftonline.com` 합니다.
 
 ## <a name="application-audience"></a>응용 프로그램 대상
 
@@ -85,15 +85,15 @@ Azure AD 클라우드 기관에는 두 가지 부분이 있습니다.
 
 Azure AD 기관 대상과 테 넌 트 ID를 모두 지정 하면 MSAL에서 의미 있는 예외를 throw 합니다.
 
-대상 그룹을 지정 하지 않으면 앱은 Azure AD 및 개인 Microsoft 계정을 대상으로 지정 합니다. 즉,가 지정 된 것 처럼 `common` 동작 합니다.
+대상 그룹을 지정 하지 않으면 앱은 Azure AD 및 개인 Microsoft 계정을 대상으로 지정 합니다. 즉,가 지정 된 것 처럼 동작 `common` 합니다.
 
 ### <a name="effective-audience"></a>유효한 대상
 
 응용 프로그램에 대 한 효과적인 대상은 앱에서 설정 하는 대상 그룹과 앱 등록에 지정 된 대상에 대 한 최소 (교집합)가 됩니다. 실제로 [앱 등록](https://aka.ms/appregistrations) 환경에서는 앱에 대 한 대상 (지원 되는 계정 유형)을 지정할 수 있습니다. 자세한 내용은 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](quickstart-register-app.md)을 참조 하세요.
 
 현재 개인 Microsoft 계정으로 사용자를 로그인 하는 앱을 가져오는 유일한 방법은 다음 설정을 모두 구성 하는 것입니다.
-- 앱 등록 대상을로 `Work and school accounts and personal accounts`설정 합니다.
-- 코드/구성의 대상 그룹을 (또는 `AadAuthorityAudience.PersonalMicrosoftAccount` `TenantID` = "소비자")로 설정 합니다.
+- 앱 등록 대상을로 설정 `Work and school accounts and personal accounts` 합니다.
+- 코드/구성의 대상 그룹을 `AadAuthorityAudience.PersonalMicrosoftAccount` (또는 `TenantID` = "소비자")로 설정 합니다.
 
 ## <a name="client-id"></a>클라이언트 ID
 
@@ -106,21 +106,21 @@ Azure AD 기관 대상과 테 넌 트 ID를 모두 지정 하면 MSAL에서 의�
 ### <a name="redirect-uri-for-public-client-apps"></a>공용 클라이언트 앱에 대 한 리디렉션 URI
 
 MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
-- 데스크톱 또는 UWP 응용 프로그램 `.WithDefaultRedirectUri()` 에서를 사용 하려고 합니다 (MSAL.NET 4.1 이상). 이 메서드는 공용 클라이언트 응용 프로그램의 리디렉션 uri 속성을 공용 클라이언트 응용 프로그램에 대 한 기본 권장 리디렉션 uri로 설정 합니다.
+- `.WithDefaultRedirectUri()`데스크톱 또는 UWP 응용 프로그램에서를 사용 하려고 합니다 (MSAL.NET 4.1 이상). 이 메서드는 공용 클라이언트 응용 프로그램의 리디렉션 uri 속성을 공용 클라이언트 응용 프로그램에 대 한 기본 권장 리디렉션 uri로 설정 합니다.
 
   플랫폼  | 리디렉션 URI
   ---------  | --------------
   데스크톱 앱 (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  UWP | 의 `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`값입니다. 이렇게 하면 등록 해야 하는 WebAuthenticationBroker. GetCurrentApplicationCallbackUri ()의 결과로 값을 설정 하 여 브라우저에서 SSO를 사용할 수 있습니다.
+  UWP | 의 값 `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` 입니다. 이렇게 하면 등록 해야 하는 WebAuthenticationBroker. GetCurrentApplicationCallbackUri ()의 결과로 값을 설정 하 여 브라우저에서 SSO를 사용할 수 있습니다.
   .NET Core | `https://localhost`. 이를 통해 .NET Core는 현재 포함 된 웹 보기에 대 한 UI를 포함 하지 않으므로 대화형 인증에 시스템 브라우저를 사용할 수 있습니다.
 
-- Broker를 지원 하지 않는 Xamarin Android 및 iOS 응용 프로그램을 빌드하는 경우 리디렉션 URI를 추가할 필요가 없습니다. (Xamarin Android 및 iOS에 대 한 `msal{ClientId}://auth` 리디렉션 uri는로 자동 설정 됨)
+- Broker를 지원 하지 않는 Xamarin Android 및 iOS 응용 프로그램을 빌드하는 경우 리디렉션 URI를 추가할 필요가 없습니다. ( `msal{ClientId}://auth` Xamarin android 및 iOS에 대 한 리디렉션 uri는로 자동 설정 됨)
 
 - [앱 등록](https://aka.ms/appregistrations)에서 리디렉션 URI를 구성 해야 합니다.
 
    ![앱 등록의 리디렉션 URI](media/msal-client-application-configuration/redirect-uri.png)
 
-Broker를 사용 하는 경우와 같이 `RedirectUri` 속성을 사용 하 여 리디렉션 URI를 재정의할 수 있습니다. 다음은 해당 시나리오에 대 한 리디렉션 Uri의 몇 가지 예입니다.
+Broker를 사용 하는 경우와 같이 속성을 사용 하 여 리디렉션 URI를 재정의할 수 있습니다 `RedirectUri` . 다음은 해당 시나리오에 대 한 리디렉션 Uri의 몇 가지 예입니다.
 
 - `RedirectUriOnAndroid`= "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos`= $ "msauth. {번들 ID}:/인증 ";
@@ -145,4 +145,4 @@ Android에 대 한 추가 정보는 [android에서](brokered-auth.md)조정 된 
 ## <a name="next-steps"></a>다음 단계
 
 MSAL.NET를 [사용 하 여 클라이언트 응용 프로그램을 인스턴스화하는](msal-net-initializing-client-applications.md)방법에 대해 알아봅니다.
-[MSAL를 사용 하 여 클라이언트 응용 프로그램을 인스턴스화하는](msal-js-initializing-client-applications.md)방법에 대해 알아봅니다.
+MSAL.js를 [사용 하 여 클라이언트 응용 프로그램을 인스턴스화하는 ](msal-js-initializing-client-applications.md)방법에 대해 알아봅니다.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478810"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
@@ -22,7 +22,7 @@ ms.locfileid: "80478810"
 
 ## <a name="resetting-and-restarting"></a>다시 설정 및 다시 시작
 
-무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` `continueAsNew` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.net) 또는 (JavaScript) 메서드를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
+무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` `continueAsNew` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.Net) 또는 (JavaScript) 메서드를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
 
 `ContinueAsNew`가 호출되면 인스턴스에서 종료되기 전에 자체의 큐에 메시지를 넣습니다. 이 메시지는 새 입력 값으로 인스턴스를 다시 시작합니다. 동일한 인스턴스 ID를 유지하지만 오케스트레이터 함수의 기록이 효과적으로 잘립니다.
 
@@ -51,7 +51,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -76,10 +76,10 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="starting-an-eternal-orchestration"></a>영구 오케스트레이션 시작
 
-`StartNewAsync` (.Net) 또는 `startNew` (JavaScript) 메서드를 사용 하 여 다른 오케스트레이션 함수와 마찬가지로 영구 오케스트레이션을 시작 합니다.  
+`StartNewAsync`(.Net) 또는 `startNew` (JavaScript) 메서드를 사용 하 여 다른 오케스트레이션 함수와 마찬가지로 영구 오케스트레이션을 시작 합니다.  
 
 > [!NOTE]
-> Singleton 영구 오케스트레이션을 실행 하 고 있는지 확인 해야 하는 경우 오케스트레이션을 시작할 때 동일한 인스턴스 `id` 를 유지 관리 하는 것이 중요 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+> Singleton 영구 오케스트레이션을 실행 하 고 있는지 확인 해야 하는 경우 오케스트레이션을 시작할 때 동일한 인스턴스를 유지 관리 하는 것이 중요 `id` 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -97,7 +97,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x `OrchestrationClient` Durable Functions의 경우 `DurableClient` 특성 대신 특성을 사용 해야 하며 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. `IDurableOrchestrationClient` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 `OrchestrationClient` 특성 대신 특성을 사용 해야 `DurableClient` 하며 `DurableOrchestrationClient` 대신 매개 변수 형식을 사용 해야 합니다 `IDurableOrchestrationClient` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -122,7 +122,7 @@ module.exports = async function (context, req) {
 
 오케스트레이터 함수가 결국 완료되어야 하는 경우에는 `ContinueAsNew`를 *호출하지 않고* 함수가 종료되도록 해야 합니다.
 
-오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `TerminateAsync` (.Net) 또는 `terminate` (JavaScript) 메서드를 사용 하 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 `TerminateAsync` `terminate` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.Net) 또는 (JavaScript) 메서드를 사용 하 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

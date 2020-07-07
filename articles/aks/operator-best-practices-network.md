@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208060"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
@@ -43,7 +43,7 @@ Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클�
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체 대신 사용 권한에 대해 시스템 할당 관리 id를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
+AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체를 대신하여 사용 권한에 대한 시스템이 할당한 관리 ID를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다. 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
@@ -126,7 +126,7 @@ WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추
 
 네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책을 통해 트래픽 흐름을 제어하는 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다. Pod 간 트래픽을 제어하는 데 Azure 네트워크 보안 그룹을 사용하지 말고, 네트워크 정책을 사용합니다.
 
-네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다. 네트워크 정책은 Linux 기반 노드 및 AKS의 pod에만 사용 해야 합니다.
+네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다. 네트워크 정책은 Linux 기반 노드와 Azure Kubernetes Service의 pod에만 사용해야 합니다.
 
 네트워크 정책은 YAML 매니페스트를 사용하여 Kubernetes 리소스로 생성됩니다. 정책이 정의된 pod에 적용된 다음, 수신 또는 송신 규칙이 트래픽 흐름 방식을 정의합니다. 다음 예제에서는 적용된 *app: backend* 레이블을 통해 네트워크 정책을 pod에 적용합니다. 그런 다음, 수신 규칙은 *app: frontend* 레이블을 통한 포드의 트래픽만 허용합니다.
 

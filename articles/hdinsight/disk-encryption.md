@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536304"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>고객 관리형 키 디스크 암호화
@@ -62,7 +62,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 ## <a name="create-key"></a>키 만들기
 
-1. 새 키 자격 증명 모음에서 **설정** > **키** > **+ 생성/가져오기**로 이동 합니다.
+1. 새 키 자격 증명 모음에서 **설정**  >  **키**  >  **+ 생성/가져오기**로 이동 합니다.
 
     ![Azure Key Vault에 새 키 생성](./media/disk-encryption/create-new-key.png "Azure Key Vault에 새 키 생성")
 
@@ -80,7 +80,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 ## <a name="create-access-policy"></a>액세스 정책 만들기
 
-1. 새 키 자격 증명 모음에서 **설정** > **액세스 정책** > **+ 액세스 정책 추가**로 이동 합니다.
+1. 새 키 자격 증명 모음에서 **설정**  >  **액세스 정책**  >  **+ 액세스 정책 추가**로 이동 합니다.
 
     ![새 Azure Key Vault 액세스 정책 만들기](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -106,7 +106,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`)을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예를 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
@@ -153,7 +153,7 @@ New-AzResourceGroupDeployment `
   -managedIdentityName $managedIdentityName
 ```
 
-리소스 관리 템플릿의 내용은 `azuredeploy.json`다음과 같습니다.
+리소스 관리 템플릿의 내용은 `azuredeploy.json` 다음과 같습니다.
 
 ```json
 {

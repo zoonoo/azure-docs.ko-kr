@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d9feb7f3cd369fcd13986ebd5f48a63905252e
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 69b04914bcdaac394b38c25e6d4f843155d481bc
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80295592"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipoint-service-provider"></a>자습서: iPoint Service Provider와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -86,11 +86,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    |||
-    |-|-|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin`|
+    ```https
+    https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/
+    https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/
+    https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin
+    ```
 
 1. **저장**을 클릭합니다.
 

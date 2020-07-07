@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792040"
 ---
 # <a name="conditional-cognitive-skill"></a>조건부 인식 기술
@@ -72,7 +72,7 @@ Microsoft.Skills.Util.ConditionalSkill
         "= !true"
     ```
 
--   숫자 연산자 (+,-, \*,/,%)를 사용 하는 식 <br/>
+-   숫자 연산자 (+,-, \* ,/,%)를 사용 하는 식 <br/>
     예: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -87,9 +87,9 @@ Microsoft.Skills.Util.ConditionalSkill
 
 | 입력   | Description |
 |-------------|-------------|
-| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/\*/language) = = $ (/document/expectedLanguage)" <br/> |
-| whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/\*)" <br/> |
-| = False   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/\*)" <br/>
+| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/ \* /language) = = $ (/document/expectedLanguage)" <br/> |
+| whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/> |
+| = False   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>기술 출력
 단순히 "output" 이라고 하는 단일 출력이 있습니다. 조건이 false 이면 *false* 값을 반환 하 고 조건이 True 이면 *whenTrue* 을 반환 합니다.

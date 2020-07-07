@@ -4,10 +4,10 @@ description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461568"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
@@ -46,14 +46,14 @@ Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure A
 ```http
 GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
-여기서
+다음은 각 문자에 대한 설명입니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | IDENTITY_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 id 끝점입니다. |
-| `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되 `2019-07-01-preview`는 값은 이며 변경 될 수 있습니다. |
-| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 발급 된 토큰의 `aud` (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:\//vault.azure.net/인 Azure Key Vault에 액세스 하는 토큰을 요청 합니다. |
+| `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되는 값은 이며 `2019-07-01-preview` 변경 될 수 있습니다. |
+| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. `aud`발급 된 토큰의 (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:/vault.azure.net/인 Azure Key Vault에 액세스 하는 토큰을 요청 \/ 합니다. |
 | `Secret` | Service Fabric 서비스가 호출자를 인증 하기 위해 관리 되는 Service Fabric Id 토큰 서비스에서 요구 하는 HTTP 요청 헤더 필드입니다. 이 값은 IDENTITY_HEADER 환경 변수를 통해 SF 런타임에서 제공 됩니다. |
 
 
@@ -68,14 +68,14 @@ Content-Type: application/json
     "resource":  "https://vault.azure.net/"
 }
 ```
-여기서
+다음은 각 문자에 대한 설명입니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | `token_type` | 토큰 형식입니다. 이 경우이 토큰의 프레 젠 터 (' 전달자 ')가 토큰의 의도 한 주체 임을 의미 하는 "전달자" 액세스 토큰입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
-| `expires_on` | 액세스 토큰이 만료 되는 타임 스탬프입니다. "1970-01-01T0:0: 0Z UTC"의 초 수로 표시 되 고 토큰의 `exp` 클레임에 해당 합니다. 이 경우, 토큰은 2019-08-08T06:10:11 + 00:00 (RFC 3339)에 만료 됩니다.|
-| `resource` | 요청에 대 한 `resource` 쿼리 문자열 매개 변수를 통해 지정 된 액세스 토큰을 발급 한 리소스입니다. 토큰의 ' aud ' 클레임에 해당 합니다. |
+| `expires_on` | 액세스 토큰이 만료 되는 타임 스탬프입니다. "1970-01-01T0:0: 0Z UTC"의 초 수로 표시 되 고 토큰의 클레임에 해당 `exp` 합니다. 이 경우, 토큰은 2019-08-08T06:10:11 + 00:00 (RFC 3339)에 만료 됩니다.|
+| `resource` | 요청에 대 한 쿼리 문자열 매개 변수를 통해 지정 된 액세스 토큰을 발급 한 리소스 이며, `resource` 토큰의 ' aud ' 클레임에 해당 합니다. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>C를 사용 하 여 액세스 토큰 가져오기 #

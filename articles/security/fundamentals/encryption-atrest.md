@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454682"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
@@ -117,7 +117,7 @@ Azure에서 지원 되는 암호화 모델은 앞에서 설명한 대로 "클라
 
 서버 쪽 암호화 모델은 Azure 서비스에서 수행되는 암호화를 참조합니다. 이 모델에서는 리소스 공급자에서 암호화 및 암호 해독 작업을 수행합니다. 예를 들어 Azure Storage는 일반 텍스트 작업으로 데이터를 받을 수 있으며, 암호화 및 암호 해독을 내부적으로 수행합니다. 리소스 공급자는 제공된 구성에 따라 Microsoft 또는 고객이 관리하는 암호화 키를 사용할 수도 있습니다.
 
-![Server (서버)](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![서버](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>서버 쪽 암호화 키 관리 모델
 
@@ -241,7 +241,7 @@ Microsoft Azure 서비스마다 하나 이상의 미사용 데이터 암호화 �
 
 Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 Azure Disk Encryption을 통해 IaaS VM 및 디스크에 대한 미사용 데이터 암호화를 달성할 수 있습니다. Azure Disk encryption에 대 한 자세한 내용은 [Azure Disk Encryption 설명서](../azure-security-disk-encryption-overview.md)를 참조 하세요.
 
-#### <a name="azure-storage"></a>Azure 스토리지
+#### <a name="azure-storage"></a>Azure Storage
 
 모든 Azure Storage 서비스 (Blob 저장소, 큐 저장소, 테이블 저장소 및 Azure Files)는 미사용 서버 쪽 암호화를 지원 합니다. 일부 서비스는 고객 관리 키 및 클라이언트 쪽 암호화를 추가로 지원 합니다. 
 
@@ -261,14 +261,14 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |                                  |                    | **암호화 모델 및 키 관리** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객이 관리 하는 키를 사용 하는 서버 쪽**             | **클라이언트 쪽에서 클라이언트 관리 키를 사용 하는 경우**      |
-| **AI 및 Machine Learning**      |                    |                    |                    |
+| **AI 및 기계 학습**      |                    |                    |                    |
 | Azure Cognitive Search           | 예                | 예                | -                  |
 | Azure Cognitive Services         | 예                | 예                | -                  |
 | Azure Machine Learning           | 예                | 예                | -                  |
 | Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
 | Content Moderator                | 예                | 예                | -                  |
 | Face                             | 예                | 예                | -                  |
-| 언어 이해           | 예                | 예                | -                  |
+| Language Understanding           | 예                | 예                | -                  |
 | Personalizer                     | 예                | 예                | -                  |
 | QnA Maker                        | 예                | 예                | -                  |
 | Speech Services                  | 예                | 예                | -                  |
@@ -291,7 +291,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Container Instances              | 예                | 예                | -                  |
 | Container Registry               | 예                | 예                | -                  |
 | **Compute**                      |                    |                    |                    |
-| 가상 머신                 | 예                | 예, RSA 2048비트  | -                  |
+| Virtual Machines                 | 예                | 예, RSA 2048비트  | -                  |
 | 가상 머신 확장 집합        | 예                | 예, RSA 2048비트  | -                  |
 | SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
 | App Service                      | 예                | 예\*\*            | -                  |
@@ -300,7 +300,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Portal                     | 예                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
 | Azure 관리되는 애플리케이션       | 예                | 예\*\*            | -                  |
-| 서비스 버스                      | 예                | 예                | -                  |
+| Service Bus                      | 예                | 예                | -                  |
 | Site Recovery                    | 예                | 예                | -                  |
 | **데이터베이스**                    |                    |                    |                    |
 | Virtual Machines의 SQL Server   | 예                | 예, RSA 2048비트  | 예                |
@@ -321,7 +321,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Active Directory           | 예                | -                  | -                  |
 | Azure Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
 | **통합**                  |                    |                    |                    |
-| 서비스 버스                      | 예                | 예                | 예                |
+| Service Bus                      | 예                | 예                | 예                |
 | Event Grid                       | 예                | -                  | -                  |
 | API Management                   | 예                | -                  | -                  |
 | **IoT 서비스**                 |                    |                    |                    |
@@ -335,16 +335,16 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | **보안**                     |                    |                    |                    |
 | IoT용 Azure Security Center    | 예                | 예                | -                  |
 | Azure Sentinel                   | 예                | 예                | -                  |
-| **저장소**                      |                    |                    |                    |
+| **스토리지**                      |                    |                    |                    |
 | Blob Storage                     | 예                | 예, RSA 2048비트  | 예                |
 | 프리미엄 Blob Storage             | 예                | 예, RSA 2048비트  | 예                |
-| 디스크 스토리지                     | 예                | 예                | -                  |
+| Disk Storage                     | 예                | 예                | -                  |
 | 울트라 디스크 저장소               | 예                | 예                | -                  |
 | 관리 되는 디스크 저장소             | 예                | 예                | -                  |
 | File Storage                     | 예                | 예, RSA 2048비트  | -                  |
 | 파일 Premium Storage             | 예                | 예, RSA 2048비트  | -                  |
 | 파일 동기화                        | 예                | 예, RSA 2048비트  | -                  |
-| Queue Storage                    | 예                | 예                | 예                |
+| Queue storage                    | 예                | 예                | 예                |
 | Avere vFXT                       | 예                | -                  | -                  |
 | Azure Cache for Redis            | 예                | 해당 없음\*              | -                  |
 | Azure NetApp Files               | 예                | 예                | -                  |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450941"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>결합 된 보안 정보 등록 문제 해결
@@ -30,7 +30,7 @@ ms.locfileid: "81450941"
 
 다음 표에서는 결합 된 등록에 의해 생성 된 모든 감사 이벤트를 보여 줍니다.
 
-| 작업 | 상태 | 이유 | Description |
+| 활동 | 상태 | 이유 | Description |
 | --- | --- | --- | --- |
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 성공 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 이 이벤트는 사용자가 성공적으로 등록을 완료 했을 때 발생 합니다.|
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 실패 | 사용자가 보안 정보 등록을 취소 했습니다. | 이 이벤트는 사용자가 인터럽트 모드에서 등록을 취소할 때 발생 합니다.|
@@ -60,7 +60,7 @@ ms.locfileid: "81450941"
 
 관리자가 미리 보기를 사용 하도록 설정 하면 사용자가 새 환경을 등록 한 다음 관리자가 미리 보기를 사용 하지 않도록 설정 합니다. 사용자는 Multi-Factor Authentication에 대해 모르고 등록할 수도 있습니다.
 
-결합 된 등록을 완료 한 사용자가에서 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)현재 SSPR (셀프 서비스 암호 재설정) 등록 페이지로 이동 하는 경우 해당 페이지에 액세스 하기 전에 Multi-Factor Authentication을 수행 하 라는 메시지가 사용자에 게 표시 됩니다. 이 단계는 기술적인 관점에서 예상 되지만 이전에 SSPR에 등록 한 사용자에 게는 새로운 기능입니다. 이 추가 단계는 다른 수준의 보안을 제공 하 여 사용자의 보안 상태를 개선 하지만, 관리자가 더 이상 Multi-Factor Authentication를 수행할 수 없도록 사용자를 롤백하는 것이 좋습니다.  
+결합 된 등록을 완료 한 사용자가에서 현재 SSPR (셀프 서비스 암호 재설정) 등록 페이지로 이동 하는 경우 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 해당 페이지에 액세스 하기 전에 Multi-Factor Authentication을 수행 하 라는 메시지가 사용자에 게 표시 됩니다. 이 단계는 기술적인 관점에서 예상 되지만 이전에 SSPR에 등록 한 사용자에 게는 새로운 기능입니다. 이 추가 단계는 다른 수준의 보안을 제공 하 여 사용자의 보안 상태를 개선 하지만, 관리자가 더 이상 Multi-Factor Authentication를 수행할 수 없도록 사용자를 롤백하는 것이 좋습니다.  
 
 ### <a name="how-to-roll-back-users"></a>사용자를 롤백하는 방법
 
@@ -68,7 +68,7 @@ ms.locfileid: "81450941"
 
 다음 단계는 사용자 또는 사용자 그룹을 롤백하는 데 도움이 됩니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 1. 적절 한 Azure AD PowerShell 모듈을 설치 합니다. PowerShell 창에서 다음 명령을 실행하여 모듈을 설치합니다.
 
@@ -150,7 +150,7 @@ PowerShell 창에서 다음 명령을 실행 하 여 스크립트 및 사용자 
 사용자를 위해 업데이트 된 환경을 사용 하지 않도록 설정 하려면 다음 단계를 완료 합니다.
 
 1. 사용자 관리자 권한으로 Azure Portal에 로그인 합니다.
-2. **Azure Active Directory** > **사용자 설정** > **액세스 패널 미리 보기 기능에 대 한 설정 관리**로 이동 합니다.
+2. **Azure Active Directory**  >  **사용자 설정**  >  **액세스 패널 미리 보기 기능에 대 한 설정 관리**로 이동 합니다.
 3. **사용자는 미리 보기 기능을 사용 하 여 보안 정보를 등록 하 고 관리할 수 있으며**선택기를 **없음**으로 설정한 다음 **저장**을 선택 합니다.
 
 업데이트 된 환경을 사용 하 여 사용자에 게 더 이상 등록 하 라는 메시지가 표시 되지 않습니다.

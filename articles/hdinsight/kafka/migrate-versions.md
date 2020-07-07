@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437007"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Apache Kafka 워크 로드를 Azure HDInsight 4.0로 마이그레이션
@@ -54,7 +54,7 @@ Kafka 2.1로 마이그레이션하면 다음과 같은 기능을 활용할 수 �
 
 ## <a name="kafka-client-compatibility"></a>Kafka 클라이언트 호환성
 
-새 Kafka broker는 이전 클라이언트를 지원 합니다. [건너뛰기-35-프로토콜 버전을 검색](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) 하면 kafverbroker 및 건너뛰기-97의 기능을 동적으로 결정 하는 메커니즘이 도입 되었습니다 [. 향상 된 Kafverclient RPC 호환성 정책은](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) 새로운 호환성 정책을 도입 하 고 Java 클라이언트를 보장 합니다. 이전에는 Kafka 클라이언트는 동일한 버전이 나 최신 버전의 broker와 상호 작용 해야 했습니다. 이제 최신 버전의 Java 클라이언트와 건너뛰기-35을 지 원하는 다른 클라이언트 (예: `librdkafka` )가 이전 요청 형식으로 대체 되거나 기능을 사용할 수 없는 경우 적절 한 오류를 throw 할 수 있습니다.
+새 Kafka broker는 이전 클라이언트를 지원 합니다. [건너뛰기-35-프로토콜 버전을 검색](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) 하면 kafverbroker 및 건너뛰기-97의 기능을 동적으로 결정 하는 메커니즘이 도입 되었습니다 [. 향상 된 Kafverclient RPC 호환성 정책은](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) 새로운 호환성 정책을 도입 하 고 Java 클라이언트를 보장 합니다. 이전에는 Kafka 클라이언트는 동일한 버전이 나 최신 버전의 broker와 상호 작용 해야 했습니다. 이제 최신 버전의 Java 클라이언트와 건너뛰기-35을 지 원하는 다른 클라이언트 (예:)가 `librdkafka` 이전 요청 형식으로 대체 되거나 기능을 사용할 수 없는 경우 적절 한 오류를 throw 할 수 있습니다.
 
 ![Kafka 클라이언트 호환성 업그레이드](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
 
@@ -85,4 +85,4 @@ Kafka 2.1로 마이그레이션하면 다음과 같은 기능을 활용할 수 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Kafka HDInsight 클러스터의 성능 최적화](apache-kafka-performance-tuning.md)
-* [빠른 시작: Azure Portal를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](apache-kafka-get-started.md)
+* [빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](apache-kafka-get-started.md)

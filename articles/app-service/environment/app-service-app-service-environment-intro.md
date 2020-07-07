@@ -1,6 +1,6 @@
 ---
 title: ASE v1 소개
-description: App Service Environment v1 기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: App Service Environment v1 기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478734"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
