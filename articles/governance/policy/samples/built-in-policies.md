@@ -1,21 +1,25 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709631"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313774"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 
 이 페이지는 Azure Policy 기본 제공 정책 정의의 인덱스입니다.
 
 Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니다. **원본** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다. 기본 제공 기능은 **메타데이터**의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주**로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
+
+## <a name="api-for-fhir"></a>API for FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
 ## <a name="api-management"></a>API Management
 
