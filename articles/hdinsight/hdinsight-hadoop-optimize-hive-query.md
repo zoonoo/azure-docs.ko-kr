@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791496"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
 Azure HDInsight에는 Apache Hive 쿼리를 실행할 수 있는 여러 클러스터 유형과 기술이 있습니다. 적절 한 클러스터 유형을 선택 하 여 워크 로드 요구 사항에 대 한 성능을 최적화 합니다.
 
-예를 들어 대화형 쿼리를 위해 `ad hoc`최적화할 **대화형 쿼리** 클러스터 유형을 선택 합니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
+예를 들어 대화형 쿼리를 위해 최적화할 **대화형 쿼리** 클러스터 유형을 선택 `ad hoc` 합니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
 
 Hadoop 클러스터 유형의 HDInsight 클러스터는 기본적으로 성능에 맞게 최적화 되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법을 설명합니다.
 
@@ -122,7 +122,7 @@ STORED AS TEXTFILE;
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
 
-Hive는 다양한 파일 형식을 지원합니다. 예를 들면 다음과 같습니다.
+Hive는 다양한 파일 형식을 지원합니다. 예:
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들면 다음과 같습니다.
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

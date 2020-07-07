@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
 ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82581508"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor 사용
@@ -170,7 +170,7 @@ provisioningState       : Succeeded
 
 ## <a name="enable-with-powershell"></a>PowerShell을 통해 사용하도록 설정
 
-여러 Vm 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하려면 PowerShell 스크립트 [Install-VMInsights.](https://www.powershellgallery.com/packages/Install-VMInsights)p s 1을 사용 합니다. Azure PowerShell 갤러리에서 사용할 수 있습니다. 이 스크립트는 다음을 반복 합니다.
+여러 Vm 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하려면 PowerShell 스크립트 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)를 사용 합니다. Azure PowerShell 갤러리에서 사용할 수 있습니다. 이 스크립트는 다음을 반복 합니다.
 
 - 구독에서 모든 가상 머신 및 가상 머신 확장 집합입니다.
 - *ResourceGroup*으로 지정 된 범위 지정 리소스 그룹입니다.
@@ -178,7 +178,7 @@ provisioningState       : Succeeded
 
 각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장이 설치 된 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 되지 않은 경우 스크립트는 Log Analytics 및 종속성 에이전트 VM 확장을 설치 합니다.
 
-호환성 별칭을 `Enable-AzureRM` 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+호환성 별칭을 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 `Enable-AzureRM` 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 

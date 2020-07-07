@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: b3216277c2d6d341f9123957e3fc1a3210376213
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3a40ff7fbf021833ff382ad2288eb263378c96c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559537"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512600"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -44,7 +44,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 * [Azure Storage Explorer](https://storageexplorer.com/)(선택 사항).
 
-* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). 이후 단계에서 사용하는 다음 값(**애플리케이션 ID**, **인증 키** 및 **테넌트 ID**)을 기록해 둡니다. 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
+* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이후 단계에서 사용하는 다음 값(**애플리케이션 ID**, **인증 키** 및 **테넌트 ID**)을 기록해 둡니다. 동일한 문서의 지침에 따라 애플리케이션을 **기여자** 역할에 할당합니다.
 
 ## <a name="create-and-upload-an-input-file"></a>입력 파일 만들기 및 업로드
 

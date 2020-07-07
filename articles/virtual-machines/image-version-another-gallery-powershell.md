@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796929"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>다른 갤러리에서 이미지 복사
@@ -39,7 +39,7 @@ ms.locfileid: "82796929"
 
 [AzResource](/powershell/module/az.resources/get-azresource) cmdlet을 사용 하 여 기존 갤러리, 이미지 정의 및 이미지 버전에 대 한 정보를 나열 합니다.
 
-결과는 형식 `gallery\image definition\image version`입니다.
+결과는 형식 `gallery\image definition\image version` 입니다.
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-필요한 정보가 모두 있으면 [AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion)을 사용 하 여 원본 이미지 버전의 ID를 가져올 수 있습니다. 이 `1.0.0` 예제에서는 `myImageDefinition` `myGallery` `myResourceGroup` 리소스 그룹의 원본 갤러리에서 정의의 이미지 버전을 가져옵니다.
+필요한 정보가 모두 있으면 [AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion)을 사용 하 여 원본 이미지 버전의 ID를 가져올 수 있습니다. 이 예제에서는 `1.0.0` `myImageDefinition` `myGallery` 리소스 그룹의 원본 갤러리에서 정의의 이미지 버전을 가져옵니다 `myResourceGroup` .
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -123,9 +123,9 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. 대상 갤러리에서 이미지 버전을 만들기 위해 `--managed-image` 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
+[AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. `--managed-image`대상 갤러리에서 이미지 버전을 만들기 위해 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*. *MinorVersion*. *패치*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
 이 예에서는 *Mydestinationgallery* 리소스 그룹 *West US* 의 *mydestinationgallery*로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
 
@@ -154,9 +154,9 @@ $job.State
 ```
 
 > [!NOTE]
-> 동일한 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 먼저 이미지 버전이 빌드되고 복제 될 때까지 기다려야 합니다.
+> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 이미지 버전을 만들 때를 추가 `-StorageAccountType Premium_LRS` `-StorageAccountType Standard_ZRS` 하 여 추가 또는 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 로 Premiun 저장소에 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 

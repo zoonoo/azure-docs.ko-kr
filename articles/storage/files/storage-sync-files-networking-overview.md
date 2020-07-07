@@ -3,16 +3,16 @@ title: Azure 파일 동기화 네트워킹 고려 사항 | Microsoft Docs
 description: Azure 파일 동기화의 네트워킹 옵션에 대한 개요.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95fb967fa33a581096df65c3ed77e575aa3f6268
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: HT
+ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512564"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure 파일 동기화 네트워킹 고려 사항
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.

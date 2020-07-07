@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592063"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
@@ -30,7 +30,7 @@ HDInsight는 클러스터의 작업자 노드 수를 확장 및 축소 하는 �
 
 Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티를 제공 합니다.
 
-|유틸리티 | 설명|
+|유틸리티 | Description|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
@@ -80,7 +80,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
     Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
 
-    1. 웹 `https://CLUSTERNAME.azurehdinsight.net/stormui` 브라우저에서를 엽니다. 여기서 `CLUSTERNAME` 는 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+    1. `https://CLUSTERNAME.azurehdinsight.net/stormui`웹 브라우저에서를 엽니다. 여기서 `CLUSTERNAME` 는 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
 
     1. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 리 밸런스 작업이 완료 되기 전에 지연 시간을 입력 합니다.
 
@@ -94,7 +94,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
      storm rebalance TOPOLOGYNAME
     ```
 
-    매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 아래 코드는 `mytopology` 토폴로지를 5 작업자 프로세스, 파란색 spout 구성 요소에 대 한 3 개의 실행자 및 노란색 볼트 구성 요소에 대 한 10 개의 실행자로 재구성 합니다.
+    매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 아래 코드는 토폴로지를 `mytopology` 5 작업자 프로세스, 파란색 spout 구성 요소에 대 한 3 개의 실행자 및 노란색 볼트 구성 요소에 대 한 10 개의 실행자로 재구성 합니다.
 
     ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -119,14 +119,14 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
 보류 중인 작업 및 실행 중인 작업 목록을 보려면 다음 단계를 수행 하 여 YARN **리소스 관리자 UI**를 사용할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 선택 합니다.  클러스터가 새 포털 페이지에서 열립니다.
-2. 주 보기에서 **클러스터 대시보드** > **Ambari 홈**으로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  클러스터가 새 포털 페이지에서 열립니다.
+2. 주 보기에서 **클러스터 대시보드**  >  **Ambari 홈**으로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
 3. Ambari UI의 왼쪽 메뉴에 있는 서비스 목록에서 **YARN** 를 선택 합니다.  
 4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **리소스 관리자 UI**를 선택 합니다.
 
     ![Apache Ambari 빠른 링크 리소스 관리자 UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-를 사용 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`하 여 리소스 관리자 UI에 직접 액세스할 수 있습니다.
+를 사용 하 여 리소스 관리자 UI에 직접 액세스할 수 있습니다 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 현재 상태와 함께 작업 목록이 표시됩니다. 스크린샷에는 현재 실행 중인 작업이 하나 있습니다.
 
@@ -138,7 +138,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -148,7 +148,7 @@ yarn application -kill "application_1499348398273_0003"
 
 클러스터를 축소 하는 경우 HDInsight는 Apache Ambari 관리 인터페이스를 사용 하 여 먼저 추가 작업자 노드의 서비스를 해제 합니다. 노드가 HDFS 블록을 다른 온라인 작업자 노드에 복제 합니다. 그 후에 HDInsight는 클러스터를 안전 하 게 확장 합니다. HDFS는 크기 조정 작업을 수행 하는 동안 안전 모드로 전환 됩니다. 크기 조정이 완료 되 면 HDFS가 제공 되어야 합니다. 그러나 일부 경우에는 복제 중인 파일 블록 때문에 크기 조정 작업을 수행 하는 동안 HDFS가 안전 모드에서 중단 됩니다.
 
-기본적으로 HDFS는 사용할 수 있는 각 `dfs.replication` 파일 블록의 복사본 수를 제어 하는 1의 설정으로 구성 됩니다. 파일 블록의 각 복사본은 클러스터의 다른 노드에 저장 됩니다.
+기본적으로 HDFS는 `dfs.replication` 사용할 수 있는 각 파일 블록의 복사본 수를 제어 하는 1의 설정으로 구성 됩니다. 파일 블록의 각 복사본은 클러스터의 다른 노드에 저장 됩니다.
 
 예상 블록 복사본 수를 사용할 수 없는 경우 HDFS는 safe 모드로 전환 되 고 Ambari에서 경고를 생성 합니다. HDFS는 크기 조정 작업을 위해 안전 모드로 전환 될 수 있습니다. 필요한 수의 노드가 복제에 대해 검색 되지 않는 경우 클러스터가 안전 모드에서 중단 될 수 있습니다.
 
@@ -187,7 +187,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.s
 
 Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 전에 해당 파일을 수동으로 정리할 수 있습니다.
 
-1. `hive.exec.scratchdir` 구성 속성을 살펴보면 Hive 임시 파일에 사용 되는 위치를 확인 합니다. 이 매개 변수는 다음 `/etc/hive/conf/hive-site.xml`에 설정 됩니다.
+1. 구성 속성을 살펴보면 Hive 임시 파일에 사용 되는 위치를 확인 `hive.exec.scratchdir` 합니다. 이 매개 변수는 다음에 설정 됩니다 `/etc/hive/conf/hive-site.xml` .
 
     ```xml
     <property>

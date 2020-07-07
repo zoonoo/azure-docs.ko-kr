@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
 ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82581369"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
@@ -44,17 +44,17 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>VMInsights 솔루션을 설치 하는 경우 내 작업 영역에서 성능 카운터는 어떻게 해야 하나요?
 
-작업 영역에서 VM용 Azure Monitor 사용 되는 성능 카운터를 사용 하도록 설정 하는 이전 메서드입니다. 현재 버전은이 데이터를 라는 `InsightsMetrics`테이블에 저장 합니다. 더 이상 사용 하지 않아도 되는 경우 작업 영역에서 이러한 성능 카운터를 사용 하지 않도록 선택할 수 있습니다. 
+작업 영역에서 VM용 Azure Monitor 사용 되는 성능 카운터를 사용 하도록 설정 하는 이전 메서드입니다. 현재 버전은이 데이터를 라는 테이블에 저장 합니다 `InsightsMetrics` . 더 이상 사용 하지 않아도 되는 경우 작업 영역에서 이러한 성능 카운터를 사용 하지 않도록 선택할 수 있습니다. 
 
 >[!NOTE]
->`Perf` 테이블에서 이러한 카운터를 참조 하는 경고 규칙이 있는 경우 `InsightsMetrics` 테이블에 저장 된 새 데이터를 참조 하도록 업데이트 해야 합니다. 이 테이블을 참조 하는 데 사용할 수 있는 예제 로그 쿼리는 설명서를 참조 하세요.
+>테이블에서 이러한 카운터를 참조 하는 경고 규칙이 있는 경우 `Perf` 테이블에 저장 된 새 데이터를 참조 하도록 업데이트 해야 `InsightsMetrics` 합니다. 이 테이블을 참조 하는 데 사용할 수 있는 예제 로그 쿼리는 설명서를 참조 하세요.
 >
 
-성능 카운터를 사용 하도록 설정 하는 경우 데이터 수집에 대 한 요금이 청구 되 고 [Log Analytics 가격 책정 `Perf` [()https://azure.microsoft.com/pricing/details/monitor/)을 기준으로 테이블에 저장 됩니다.
+성능 카운터를 사용 하도록 설정 하는 경우 데이터 수집에 대 한 요금이 청구 되 고 `Perf` [Log Analytics 가격 책정 [()을 기준으로 테이블에 저장 됩니다 https://azure.microsoft.com/pricing/details/monitor/) .
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>이 변경 내용은 내 경고 규칙에 어떤 영향을 미칩니까?
 
-작업 영역에서 사용 하도록 설정 된 성능 카운터 `Perf` 를 대상으로 하는 테이블을 쿼리 하는 `InsightsMetrics` [로그 경고](../platform/alerts-unified-log.md) 를 만든 경우 대신 테이블을 참조 하도록 이러한 규칙을 업데이트 해야 합니다. 이 `ServiceMapComputer_CL` 지침은 및 `ServiceMapProcess_CL`를 사용 하는 모든 로그 검색 규칙에도 적용 됩니다. 이러한 데이터 집합 `VMComputer` 은 `VMProcess` 및 테이블로 이동 하기 때문입니다.
+작업 영역에서 사용 하도록 설정 된 성능 카운터를 대상으로 하는 테이블을 쿼리 하는 [로그 경고](../platform/alerts-unified-log.md) 를 만든 경우 `Perf` 대신 테이블을 참조 하도록 이러한 규칙을 업데이트 해야 합니다 `InsightsMetrics` . 이 지침은 및를 사용 하는 모든 로그 검색 규칙에도 적용 됩니다 `ServiceMapComputer_CL` `ServiceMapProcess_CL` . 이러한 데이터 집합은 및 테이블로 이동 하기 때문 `VMComputer` `VMProcess` 입니다.
 
 수집 하는 데이터 집합에 대 한 예제 로그 검색 경고 규칙을 포함 하도록이 질문과 설명서를 업데이트할 예정입니다.
 
@@ -62,31 +62,31 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 청구는 여전히 데이터 수집을 기반으로 하며 Log Analytics 작업 영역에 보존 됩니다.
 
-수집 하는 컴퓨터 수준 성능 데이터는 동일 하 고, `Perf` 테이블에 저장 된 데이터의 크기와 비슷하며, 거의 같은 비용을 발생 시킬 수 있습니다.
+수집 하는 컴퓨터 수준 성능 데이터는 동일 하 고, 테이블에 저장 된 데이터의 크기와 비슷하며, 거의 같은 비용을 발생 시킬 수 `Perf` 있습니다.
 
 ## <a name="what-if-i-only-want-to-use-service-map"></a>서비스 맵만 사용 하려면 어떻게 해야 하나요?
 
 괜찮습니다. 예정 된 업데이트에 대 한 VM용 Azure Monitor를 볼 때 Azure Portal에 프롬프트가 표시 됩니다. 릴리스된 후 새 버전으로 업데이트 하 라는 메시지가 표시 됩니다. [지도](vminsights-maps.md) 기능만 사용 하려는 경우 업그레이드 하지 않고 작업 영역 또는 대시보드 타일에서 액세스 하는 서비스 맵 솔루션 및 VM용 Azure Monitor의 맵 기능을 계속 사용 하도록 선택할 수 있습니다.
 
-작업 영역에서 성능 카운터를 수동으로 사용 하도록 선택한 경우 Azure Monitor에서 볼 수 있는 일부 성능 차트에서 데이터를 볼 수 있습니다. 새 솔루션이 릴리스되면 성능 차트를 업데이트 하 여 `InsightsMetrics` 테이블에 저장 된 데이터를 쿼리 합니다. 이러한 차트에서 해당 테이블의 데이터를 보려면 VM용 Azure Monitor 새 버전으로 업그레이드 해야 합니다.
+작업 영역에서 성능 카운터를 수동으로 사용 하도록 선택한 경우 Azure Monitor에서 볼 수 있는 일부 성능 차트에서 데이터를 볼 수 있습니다. 새 솔루션이 릴리스되면 성능 차트를 업데이트 하 여 테이블에 저장 된 데이터를 쿼리 합니다 `InsightsMetrics` . 이러한 차트에서 해당 테이블의 데이터를 보려면 VM용 Azure Monitor 새 버전으로 업그레이드 해야 합니다.
 
-및 `ServiceMapComputer_CL` `ServiceMapProcess_CL` 에서 데이터를 이동 하는 변경 내용은 서비스 맵 및 VM용 Azure Monitor 모두에 영향을 주므로이 업데이트를 계획 해야 합니다.
+및에서 데이터를 이동 하는 변경 내용은 `ServiceMapComputer_CL` `ServiceMapProcess_CL` 서비스 맵 및 VM용 Azure Monitor 모두에 영향을 주므로이 업데이트를 계획 해야 합니다.
 
-**VMInsights** 솔루션으로 업그레이드 하지 않기로 선택한 경우 `Perf` 테이블의 데이터를 참조 하는 레거시 버전의 성능 통합 문서를 계속 제공 합니다.  
+**VMInsights** 솔루션으로 업그레이드 하지 않기로 선택한 경우 테이블의 데이터를 참조 하는 레거시 버전의 성능 통합 문서를 계속 제공 `Perf` 합니다.  
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>서비스 맵 데이터 집합이 InsightsMetrics에도 저장 됩니까?
 
-두 솔루션을 모두 사용 하는 경우 데이터 집합이 중복 되지 않습니다. 두 제품은 모두 (이전의 `VMComputer` ServiceMapComputer_CL), `VMProcess` (이전의 ServiceMapProcess_CL) `VMConnection`, 및 `VMBoundPort` 테이블에 저장 되는 데이터 집합을 공유 하 여 수집 하는 맵 데이터 집합을 저장 합니다.  
+두 솔루션을 모두 사용 하는 경우 데이터 집합이 중복 되지 않습니다. 두 제품은 모두 `VMComputer` (이전의 ServiceMapComputer_CL), (이전의 ServiceMapProcess_CL), 및 테이블에 저장 되는 데이터 집합을 공유 `VMProcess` 하 여 `VMConnection` `VMBoundPort` 수집 하는 맵 데이터 집합을 저장 합니다.  
 
-이 `InsightsMetrics` 테이블은 수집 하는 vm, 프로세스 및 서비스 데이터 집합을 저장 하 고 VM용 AZURE MONITOR 및 vm Insights 솔루션을 사용 하는 경우에만 채워집니다. 서비스 맵 솔루션은 `InsightsMetrics` 테이블에서 데이터를 수집 하거나 저장 하지 않습니다.
+이 `InsightsMetrics` 테이블은 수집 하는 vm, 프로세스 및 서비스 데이터 집합을 저장 하 고 VM용 Azure Monitor 및 Vm Insights 솔루션을 사용 하는 경우에만 채워집니다. 서비스 맵 솔루션은 테이블에서 데이터를 수집 하거나 저장 하지 않습니다 `InsightsMetrics` .
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>내 작업 영역에 서비스 맵 및 VMInsights 솔루션이 있는 경우 두 배가 청구 되나요?
 
-아니요, 두 솔루션은 ( `VMComputer` 이전의 ServiceMapComputer_CL ServiceMapProcess_CL `VMProcess` `VMConnection`),, 및 `VMBoundPort`에 저장 하는 맵 데이터 집합을 공유 합니다. 작업 영역에 두 솔루션이 모두 있는 경우에는이 데이터에 대 한 요금이 청구 되지 않습니다.
+아니요, 두 솔루션은 `VMComputer` (이전의 ServiceMapComputer_CL ServiceMapProcess_CL),, 및에 저장 하는 맵 데이터 집합을 공유 합니다 `VMProcess` `VMConnection` `VMBoundPort` . 작업 영역에 두 솔루션이 모두 있는 경우에는이 데이터에 대 한 요금이 청구 되지 않습니다.
 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>서비스 맵 또는 VMInsights 솔루션을 제거 하면 데이터가 제거 되나요?
 
-아니요, 두 솔루션은 ( `VMComputer` 이전의 ServiceMapComputer_CL ServiceMapProcess_CL `VMProcess` `VMConnection`),, 및 `VMBoundPort`에 저장 하는 맵 데이터 집합을 공유 합니다. 솔루션 중 하나를 제거 하는 경우 이러한 데이터 집합은 데이터를 사용 하는 솔루션이 여전히 있으며 Log Analytics 작업 영역에 남아 있음을 확인 합니다. 데이터를 제거 하려면 작업 영역에서 두 솔루션을 모두 제거 해야 합니다.
+아니요, 두 솔루션은 `VMComputer` (이전의 ServiceMapComputer_CL ServiceMapProcess_CL),, 및에 저장 하는 맵 데이터 집합을 공유 합니다 `VMProcess` `VMConnection` `VMBoundPort` . 솔루션 중 하나를 제거 하는 경우 이러한 데이터 집합은 데이터를 사용 하는 솔루션이 여전히 있으며 Log Analytics 작업 영역에 남아 있음을 확인 합니다. 데이터를 제거 하려면 작업 영역에서 두 솔루션을 모두 제거 해야 합니다.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>상태 기능이 제한 된 공개 미리 보기 상태입니다.
 
@@ -100,9 +100,9 @@ VM용 Azure Monitor GA에 있는 후 2020에서이 상태 기능을 다시 시�
 
 상태 기능을 사용 하는 기존 고객은 계속 액세스할 수 있지만 새 고객에 게는 제공 되지 않습니다.  
 
-기능에 액세스 하려면 Azure Portal URL `feature.vmhealth=true` [https://portal.azure.com](https://portal.azure.com)에 다음 기능 플래그를 추가 하면 됩니다. 예 `https://portal.azure.com/?feature.vmhealth=true`:
+기능에 액세스 하려면 Azure Portal URL에 다음 기능 플래그를 추가 하면 `feature.vmhealth=true` [https://portal.azure.com](https://portal.azure.com) 됩니다. 예 `https://portal.azure.com/?feature.vmhealth=true` :
 
-자동으로 [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview)기능 플래그를 설정 하는이 짧은 url을 사용할 수도 있습니다.
+자동으로 기능 플래그를 설정 하는이 짧은 url을 사용할 수도 있습니다 [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview) .
 
 기존 고객으로 서 상태 기능을 사용 하 여 기존 작업 영역 설정에 연결 된 Vm에서 상태 기능을 계속 사용할 수 있습니다.  
 

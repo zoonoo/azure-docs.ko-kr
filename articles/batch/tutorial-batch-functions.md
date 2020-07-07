@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117168"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963855"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>자습서: Azure Functions를 사용한 Batch 작업 트리거
 
@@ -55,7 +55,7 @@ ms.locfileid: "82117168"
 여기에서는 OCR Batch 작업에 대한 입력 및 출력 파일을 저장하는 Blob 컨테이너를 만듭니다.
 
 1. Azure 자격 증명을 사용하여 Storage Explorer에 로그인합니다.
-1. Batch 계정에 연결된 스토리지 계정을 사용하여 [Blob 컨테이너 만들기](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container)의 단계에 따라 두 개의 Blob 컨테이너(입력 파일용 1개, 출력 파일용 1개)를 만듭니다.
+1. Batch 계정에 연결된 스토리지 계정을 사용하여 [Blob 컨테이너 만들기](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container)의 단계에 따라 두 개의 Blob 컨테이너(입력 파일용 1개, 출력 파일용 1개)를 만듭니다.
 
 이 예제에서 입력 컨테이너 이름은 `input`이며 OCR이 없는 모든 문서가 처리되기 위해 처음 업로드되는 위치입니다. 출력 컨테이너 이름은 `output`이며 Batch 작업이 OCR로 처리된 문서를 기록하는 위치입니다.  
     * 이 예제에서는 입력 컨테이너 `input`과 출력 컨테이너 `output`을 호출합니다.  
@@ -68,7 +68,7 @@ Storage Explorer의 출력 컨테이너에 대한 공유 액세스 서명을 만
 
 이 섹션에서는 파일이 입력 컨테이너에 업로드될 때마다 OCR Batch 작업을 트리거하는 Azure Function을 만듭니다.
 
-1. [Azure Blob Storage가 트리거하는 함수 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function)의 단계에 따라 함수를 만듭니다.
+1. [Azure Blob Storage가 트리거하는 함수 만들기](../azure-functions/functions-create-storage-blob-triggered-function.md)의 단계에 따라 함수를 만듭니다.
     1. 스토리지 계정을 입력하라는 메시지가 표시되면 Batch 계정에 연결한 것과 같은 스토리지 계정을 사용합니다.
     1. **런타임 스택**에 .NET을 선택합니다. Batch.NET SDK를 활용하기 위해 함수를 C#으로 작성합니다.
 1. Blob 트리거 함수가 만들어진 다음에는 Function에서 GitHub의 [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) 및 [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj)를 사용합니다.
@@ -111,4 +111,4 @@ Storage Explorer에서 로컬 머신으로 출력 파일을 다운로드하려�
 
 * .NET API를 사용하여 Batch 워크로드를 예약하고 처리하는 방법에 대한 예를 더 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)을 참조하세요. 
 
-* Batch 워크로드를 실행하는 데 사용할 수 있는 추가 Azure Functions 트리거를 보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)를 참조하세요.
+* Batch 워크로드를 실행하는 데 사용할 수 있는 추가 Azure Functions 트리거를 보려면 [Azure Functions 설명서](../azure-functions/functions-triggers-bindings.md)를 참조하세요.

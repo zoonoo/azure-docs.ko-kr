@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594800"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 응용 프로그램 크기 조정
@@ -33,11 +33,11 @@ AMD 최적화 C/c + + 컴파일러 (AOCC) 컴파일러 시스템은 전역 최�
 
 ### <a name="clang"></a>Clang
 
-Clang는 C, c + + 및 목표-C 컴파일러 처리 전처리, 구문 분석, 최적화, 코드 생성, 어셈블리 및 연결입니다. Clang는 AMD `-march=znver1` 의 Zen 기반 x86 아키텍처에 대해 최상의 코드 생성 및 조정을 사용할 수 있도록 플래그를 지원 합니다.
+Clang는 C, c + + 및 목표-C 컴파일러 처리 전처리, 구문 분석, 최적화, 코드 생성, 어셈블리 및 연결입니다. Clang는 `-march=znver1` AMD의 Zen 기반 x86 아키텍처에 대해 최상의 코드 생성 및 조정을 사용할 수 있도록 플래그를 지원 합니다.
 
 ### <a name="flang"></a>FLANG
 
-FLANG 컴파일러는 AOCC 제품군 (4 월 2018 추가)에 대 한 최근 추가 기능으로, 현재 개발자가 다운로드 하 고 테스트할 수 있도록 시험판에 있습니다. 포트란 2008을 기반으로 하는 AMD는 GitHub 버전의 FLANGhttps://github.com/flang-compiler/flang)()를 확장 합니다. FLANG 컴파일러는 모든 Clang 컴파일러 옵션 및 추가 개수의 FLANG 관련 컴파일러 옵션을 지원 합니다.
+FLANG 컴파일러는 AOCC 제품군 (4 월 2018 추가)에 대 한 최근 추가 기능으로, 현재 개발자가 다운로드 하 고 테스트할 수 있도록 시험판에 있습니다. 포트란 2008을 기반으로 하는 AMD는 GitHub 버전의 FLANG ()를 확장 합니다 https://github.com/flang-compiler/flang) . FLANG 컴파일러는 모든 Clang 컴파일러 옵션 및 추가 개수의 FLANG 관련 컴파일러 옵션을 지원 합니다.
 
 ### <a name="dragonegg"></a>DragonEgg
 

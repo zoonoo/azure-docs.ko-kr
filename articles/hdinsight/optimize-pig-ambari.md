@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 469019eb1e90654d1953156337593d5de99b46c0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796682"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache Pig 최적화
@@ -43,7 +43,7 @@ Pig 스크립트를 실행하기 위해 두 개의 실행 엔진 즉, MapReduce 
 
 Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 작업 속도를 높이는 데 사용됩니다.
 
-1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 false입니다.
+1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 False입니다.
 
 1. 입력 데이터 크기가 `pig.auto.local.input.maxbytes` 속성 값보다 작은 작업은 작은 작업으로 간주됩니다. 기본값은 1GB입니다.
 
@@ -67,13 +67,13 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 압축하면 디스크에 파일을 쓰거나 읽을 때 성능이 향상됩니다. 다음 설정을 사용하여 임시 파일을 압축할 수 있습니다.
 
-* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 false입니다.
+* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 False입니다.
 
 * `pig.tmpfilecompression.codec`: 임시 파일을 압축하는 데 사용하는 압축 코덱입니다. 권장 되는 압축 코덱은 낮은 CPU 사용을 위한 LZO 및 Snappy입니다.
 
 ## <a name="enable-split-combining"></a>분할 결합 사용
 
-사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이 설정은 작은 파일이 많은 작업의 효율성을 향상 시킵니다. 사용하도록 설정하려면 `pig.noSplitCombination`을 true로 설정합니다. 기본값은 false입니다.
+사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이 설정은 작은 파일이 많은 작업의 효율성을 향상 시킵니다. 사용하도록 설정하려면 `pig.noSplitCombination`을 true로 설정합니다. 기본값은 False입니다.
 
 ## <a name="tune-mappers"></a>매퍼 조정
 

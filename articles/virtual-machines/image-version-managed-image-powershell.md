@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796591"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>관리 되는 이미지에서 공유 이미지 갤러리 이미지로 마이그레이션
@@ -33,7 +33,7 @@ ms.locfileid: "82796591"
 
 ## <a name="get-the-gallery"></a>갤러리 가져오기
 
-모든 갤러리 및 이미지 정의를 이름으로 나열할 수 있습니다. 결과는 형식 `gallery\image definition\image version`입니다.
+모든 갤러리 및 이미지 정의를 이름으로 나열할 수 있습니다. 결과는 형식 `gallery\image definition\image version` 입니다.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -50,13 +50,13 @@ $gallery = Get-AzGallery `
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-이미지 정의 이미지에 대 한 논리적 그룹화를 만듭니다. 이미지에 대 한 정보를 관리 하는 데 사용 됩니다. 이미지 정의 이름은 대문자, 숫자, 점, 대시 및 마침표로 구성 될 수 있습니다. 
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 이미지에 대 한 정보를 관리 하는 데 사용 됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 관리 이미지는 항상 일반화 되므로를 설정 `-OsState generalized`해야 합니다. 
+이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 관리 이미지는 항상 일반화 되므로를 설정 해야 `-OsState generalized` 합니다. 
 
-이미지 정의에 대해 지정할 수 있는 값에 대 한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조 하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조하세요.
 
-[AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 일반화 된 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 `-OsType Linux`만들려면를 사용 합니다. 
+[New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 일반화 된 Windows OS를 위한 것입니다. Linux OS를 사용 하 여 이미지에 대 한 정의를 만들려면를 사용 `-OsType Linux` 합니다. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -86,7 +86,7 @@ $managedImage = Get-AzImage `
 
 [AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 관리 되는 이미지에서 이미지 버전을 만듭니다. 
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*. *MinorVersion*. *패치*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다. 
 
@@ -107,7 +107,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-이미지를 모든 대상 지역에 복제하는 데는 다소 시간이 소요되므로 진행 상태를 추적할 수 있게 작업을 만들었습니다. 진행률을 보려면를 입력 `$job.State`합니다.
+이미지를 모든 대상 지역에 복제하는 데는 다소 시간이 소요되므로 진행 상태를 추적할 수 있게 작업을 만들었습니다. 진행률을 보려면를 입력 `$job.State` 합니다.
 
 ```azurepowershell-interactive
 $job.State
@@ -115,9 +115,9 @@ $job.State
 
 
 > [!NOTE]
-> 동일한 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 먼저 이미지 버전이 빌드되고 복제 될 때까지 기다려야 합니다. 
+> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다. 
 >
-> 이미지 버전을 만들 때를 추가 `-StorageAccountType Premium_LRS` `-StorageAccountType Standard_ZRS` 하 여 추가 또는 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 로 Premiun 저장소에 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 ## <a name="delete-the-managed-image"></a>관리 되는 이미지 삭제

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583662"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "82583662"
 
 ## <a name="versioning-rules"></a>버전 관리 규칙
 
-이 섹션에서는 장치 템플릿에 적용 되는 버전 관리 규칙을 요약 합니다. DCMs와 인터페이스는 모두 버전 번호를 포함 합니다. 다음 코드 조각은 환경 센서 장치에 대 한 DCM을 보여 줍니다. DCM에는 **Deviceinformation** 및 환경 **al센서**의 두 가지 인터페이스가 있습니다. `@id` 필드의 끝에서 버전 번호를 볼 수 있습니다. IoT Central UI에서이 정보를 보려면 장치 템플릿 편집기에서 **Id 보기** 를 선택 합니다.
+이 섹션에서는 장치 템플릿에 적용 되는 버전 관리 규칙을 요약 합니다. DCMs와 인터페이스는 모두 버전 번호를 포함 합니다. 다음 코드 조각은 환경 센서 장치에 대 한 DCM을 보여 줍니다. DCM에는 **Deviceinformation** 및 환경 **al센서**의 두 가지 인터페이스가 있습니다. 필드의 끝에서 버전 번호를 볼 수 있습니다 `@id` . IoT Central UI에서이 정보를 보려면 장치 템플릿 편집기에서 **Id 보기** 를 선택 합니다.
 
 ```json
 {

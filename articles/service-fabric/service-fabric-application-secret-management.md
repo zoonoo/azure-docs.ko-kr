@@ -4,10 +4,10 @@ description: Service Fabric 애플리케이션에서 비밀 값을 보호하는 
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583242"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
@@ -45,7 +45,7 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
 </CodePackage>
 ```
 
-응용 프로그램 매니페스트에서 인증서를 지정 하 여 Service Fabric 응용 프로그램에도 암호를 포함 해야 합니다. **SecretsCertificate** 요소를 **applicationmanifest .xml** 에 추가 하 고 원하는 인증서의 지문을 포함 합니다.
+응용 프로그램 매니페스트에서 인증서를 지정 하 여 Service Fabric 응용 프로그램에도 암호를 포함 해야 합니다. **ApplicationManifest.xml** 에 **SecretsCertificate** 요소를 추가 하 고 원하는 인증서의 지문을 포함 합니다.
 
 ```xml
 <ApplicationManifest … >
@@ -142,7 +142,7 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 
 ## <a name="next-steps"></a>다음 단계
 * [비밀 저장소](service-fabric-application-secret-store.md) Service Fabric 
-* [애플리케이션 및 서비스 보안](service-fabric-application-and-service-security.md)에 대한 자세한 정보
+* [응용 프로그램 및 서비스 보안](service-fabric-application-and-service-security.md) 에 대 한 자세한 정보
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

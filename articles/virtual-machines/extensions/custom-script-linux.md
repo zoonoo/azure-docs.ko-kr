@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594732"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
@@ -45,7 +45,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 확장은 Azure Blob Storage 자격 증명을 사용하여 Azure Blob Storage에 액세스하는 데 사용할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
-외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
+외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽/네트워크 보안 그룹 포트도 열어야 합니다.
 
@@ -106,24 +106,24 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 ```
 
 >[!NOTE]
-> Microsoft.managedidentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용할 수 **없습니다** .
+> managedIdentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용하지 **않아야 합니다**.
 
 ### <a name="property-values"></a>속성 값
 
 | Name | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| 게시자 | Microsoft.Compute.Extensions | 문자열 |
+| publisher | Microsoft.Compute.Extensions | 문자열 |
 | type | CustomScript | 문자열 |
 | typeHandlerVersion | 2.1 | int |
 | fileUris(예) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute(예) | python MyPythonScript.py \<> | 문자열 |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
+| commandToExecute(예) | python MyPythonScript.py\<my-param1> | 문자열 |
+| 스크립트 | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
 | skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
 | storageAccountName(예) | examplestorageacct | 문자열 |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
-| Microsoft.managedidentity (예:) | {} 또는 {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 또는 {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 개체 |
+| managedIdentity(예) | { } 또는 { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } 또는 { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 개체 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 * `apiVersion`: 다음 명령을 사용 하 여 Azure CLI [리소스 탐색기](https://resources.azure.com/) 또는에서 가장 최신 apiVersion를 찾을 수 있습니다.`az provider list -o json`
@@ -134,9 +134,9 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
 * `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
-* `managedIdentity`: (선택 사항, json 개체) 파일 다운로드를 위한 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-  * `clientId`: (옵션, 문자열) 관리 id의 클라이언트 ID
-  * `objectId`: (옵션, 문자열) 관리 id의 개체 ID
+* `managedIdentity`: (선택 사항, json 개체) 파일을 다운로드하기 위한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  * `clientId`: (선택 사항, 문자열) 관리 ID의 클라이언트 ID
+  * `objectId`: (선택 사항, 문자열) 관리 ID의 개체 ID
 
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.
@@ -208,17 +208,17 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
  1. 디스크에 디코딩된(및 선택적으로 압축된) 값을 기록(/var/lib/waagent/custom-script/#/script.sh)
  1. _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh를 사용하여 스크립트 실행
 
-####  <a name="property-managedidentity"></a>속성: Microsoft.managedidentity
+####  <a name="property-managedidentity"></a>속성: managedIdentity
 > [!NOTE]
-> 이 속성은 보호 된 설정 에서만 지정 **해야** 합니다.
+> 이 속성은 보호 설정에서만 지정**해야 합니다**.
 
-CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 지원 합니다. 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 암호를 전달 하지 않고도 CustomScript가 Azure Storage 개인 blob 또는 컨테이너에 액세스할 수 있습니다.
+CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 지원 합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
-이 기능을 사용 하려면 사용자는 CustomScript가 실행 될 것으로 예상 되는 VM 또는 VMSS에 [시스템 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 또는 [사용자 할당](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) id를 추가 하 고 [Azure Storage 컨테이너 또는 blob에 대 한 관리 id 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
+이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
 
-대상 VM/VMSS에서 시스템이 할당 한 id를 사용 하려면 "microsoft.managedidentity" 필드를 빈 json 개체로 설정 합니다. 
+대상 VM/VMSS에서 시스템 할당 ID를 사용하려면 “managedidentity” 필드를 빈 json 개체로 설정합니다. 
 
-> 예:
+> 예제:
 >
 > ```json
 > {
@@ -228,7 +228,7 @@ CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 �
 > }
 > ```
 
-대상 VM/VMSS에서 사용자 할당 id를 사용 하려면 관리 id의 클라이언트 ID 또는 개체 ID를 사용 하 여 "microsoft.managedidentity" 필드를 구성 합니다.
+대상 VM/VMSS에서 사용자 할당 ID를 사용하려면 관리 ID의 클라이언트 ID 또는 개체 ID를 사용하여 “managedidentity” 필드를 구성합니다.
 
 > 예제:
 >
@@ -248,7 +248,7 @@ CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 �
 > ```
 
 > [!NOTE]
-> Microsoft.managedidentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용할 수 **없습니다** .
+> managedIdentity 속성은 storageAccountName 또는 storageAccountKey 속성과 함께 사용하지 **않아야 합니다**.
 
 ## <a name="template-deployment"></a>템플릿 배포
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 사용자 지정 스크립트 확장을 실행할 수 있습니다. 사용자 지정 스크립트 확장이 포함된 샘플 템플릿은 여기 [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)에서 확인할 수 있습니다.
@@ -448,7 +448,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 * 파일 및 해당 결과를 다운로드하는 확장.
 * 실행되는 명령 및 결과.
 
-Azure CLI를 사용 하 `commandToExecute` 여로 전달 된 실제 인수를 포함 하 여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다.
+Azure CLI를 사용 하 여로 전달 된 실제 인수를 포함 하 여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다 `commandToExecute` .
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM

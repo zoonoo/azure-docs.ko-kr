@@ -3,16 +3,16 @@ title: Azure Files에 대한 DNS 전달 구성 | Microsoft Docs
 description: Azure Files의 네트워킹 옵션에 대한 개요입니다.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35dfbcb274721049f2160719222ca89038c93356
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80069556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509968"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Azure Files에 대한 DNS 전달 구성
 Azure Files를 사용하면 파일 공유를 포함하는 스토리지 계정의 프라이빗 엔드포인트를 만들 수 있습니다. 프라이빗 엔드포인트는 다양한 애플리케이션에 유용하지만, 온-프레미스 네트워크에서 프라이빗 피어링을 사용하는 VPN 또는 ExpressRoute 연결을 통해 Azure 파일 공유에 연결할 때 특히 유용합니다. 

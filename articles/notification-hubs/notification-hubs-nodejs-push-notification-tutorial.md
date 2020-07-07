@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592012"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
@@ -33,13 +33,13 @@ ms.locfileid: "82592012"
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs)을 통해 몇 분 이내에 평가판 계정을 만들 수 있습니다.
 
-이 가이드에서는 [node.js](https://nodejs.org) 응용 프로그램에서 직접 Azure Notification Hubs 도움말을 사용 하 여 푸시 알림을 보내는 방법을 보여 줍니다.
+이 가이드에서는 [Node.js](https://nodejs.org) 응용 프로그램에서 직접 Azure Notification Hubs의 도움을 통해 푸시 알림을 보내는 방법을 보여 줍니다.
 
 시나리오는 다음 플랫폼에서 애플리케이션에 푸시 알림을 보내기를 포함합니다.
 
 - Android
 - iOS
-- 범용 Windows 플랫폼
+- UWP
 - Windows Phone
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -154,7 +154,7 @@ notificationHubService.apns.send(null, payload, function(error){
 
 - **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 - **Payload** - 메시지의 XML 페이로드
-- **TargetName** -  `toast` 알림 메시지에 대 한 TargetName `token` - 타일 알림 메시지인 경우.
+- **TargetName**  -  TargetName `toast` 알림 메시지의 경우 `token` - 타일 알림 메시지인 경우.
 - **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](https://msdn.microsoft.com/library/hh221551.aspx) 섹션을 참조하세요.
 - **Options** - 선택적 요청 헤더
 - **Callback** - 콜백 함수.
@@ -232,4 +232,4 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 [webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

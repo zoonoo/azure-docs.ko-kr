@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82591655"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리 개요
@@ -76,7 +76,7 @@ KQL에 익숙하지 않은 경우에도 이러한 쿼리에서 사용 되는 기
 
 
 ## <a name="what-is-log-analytics"></a>Log Analytics란?
-Log Analytics는 로그 쿼리를 작성 하 고 대화형으로 결과를 분석 하기 위한 Azure Portal 기본 도구입니다. 로그 쿼리는 Azure Monitor의 다른 위치에서도 사용되지만, 일반적으로 Log Analytics를 사용하여 쿼리를 작성하고 테스트합니다.
+Log Analytics는 로그 쿼리를 작성하고 대화형으로 결과를 분석하기 위한 Azure Portal의 기본 도구입니다. 로그 쿼리는 Azure Monitor의 다른 위치에서도 사용되지만, 일반적으로 Log Analytics를 사용하여 쿼리를 작성하고 테스트합니다.
 
 Azure Portal의 여러 위치에서 Log Analytics를 시작할 수 있습니다. Log Analytics에서 사용할 수 있는 데이터의 범위는 시작 방법에 따라 결정 됩니다. 자세한 내용은 [쿼리 범위](scope.md) 를 참조 하세요.
 

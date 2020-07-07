@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584312"
 ---
 # <a name="application-model"></a>애플리케이션 모델
@@ -76,11 +76,11 @@ Microsoft id 플랫폼에서 응용 프로그램 [개체](developer-glossary.md#
 
 ## <a name="next-steps"></a>다음 단계
 
-인증 및 권한 부여 기본 사항에 대해 설명 하는 다른 항목:
+인증 및 권한 부여 기본 사항을 설명하는 기타 항목:
 
-* Microsoft id 플랫폼의 인증 및 권한 부여에 대 한 기본 개념에 대해 알아보려면 [인증 및 권한 부여](authentication-vs-authorization.md) 를 참조 하세요.
-* 인증 및 권한 부여에서 액세스 토큰, 새로 고침 토큰 및 ID 토큰을 사용 하는 방법을 알아보려면 [보안 토큰](security-tokens.md) 을 참조 하세요.
-* Microsoft id 플랫폼에서 웹, 데스크톱 및 모바일 앱의 로그인 흐름에 대해 알아보려면 [앱 로그인 흐름](app-sign-in-flow.md) 을 참조 하세요.
+* Microsoft ID 플랫폼의 인증 및 권한 부여의 기본 사항에 대해서는 [인증과 권한 부여의 차이점](authentication-vs-authorization.md)을 참조하세요.
+* 인증 및 권한 부여에 액세스 토큰, 새로 고침 토큰 및 ID 토큰을 사용하는 방법에 대한 자세한 내용은 [보안 토큰](security-tokens.md)을 참조하세요.
+* Microsoft ID 플랫폼에서 웹, 데스크톱 및 모바일 앱의 로그인 흐름에 대해 알아보려면 [앱 로그인 흐름](app-sign-in-flow.md)을 참조하세요.
 
 응용 프로그램 모델에 대 한 자세한 내용은 다음과 같습니다.
 

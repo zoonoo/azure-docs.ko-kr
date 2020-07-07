@@ -4,10 +4,10 @@ description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 �
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791853"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
@@ -17,15 +17,15 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 [Service Fabric 용어](service-fabric-technical-overview.md), [애플리케이션 모델](service-fabric-application-model.md) 및 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)은 기초 수준에서 자세한 개념과 설명을 제공합니다.
 
 ### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>디자인 타임: 서비스 형식, 서비스 패키지 및 매니페스트, 응용 프로그램 종류, 응용 프로그램 패키지 및 매니페스트
-서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 이 파일은 Servicemanifest.xml 파일에 정의 되어 있습니다. 서비스 유형은 런타임에 로드 되는 실행 코드와 서비스 구성 설정 및 서비스에서 사용 하는 정적 데이터로 구성 됩니다.
+서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 이는 ServiceManifest.xml 파일에 정의 되어 있습니다. 서비스 유형은 런타임에 로드 되는 실행 코드와 서비스 구성 설정 및 서비스에서 사용 하는 정적 데이터로 구성 됩니다.
 
 서비스 패키지는 서비스 형식의 ServiceManifest.xml 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
-애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. 이는 ApplicationManifest .xml 파일에 정의 되어 있습니다.
+애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. 이는 ApplicationManifest.xml 파일에 정의 되어 있습니다.
 
 ![Service Fabric 애플리케이션 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
-응용 프로그램 패키지는 응용 프로그램 종류를 구성 하는 각 서비스 유형에 대 한 서비스 패키지를 참조 하는 응용 프로그램 유형의 ApplicationManifest .xml 파일을 포함 하는 디스크 디렉터리입니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.  
+응용 프로그램 패키지는 응용 프로그램 유형을 구성 하는 각 서비스 유형에 대 한 서비스 패키지를 참조 하는 응용 프로그램 유형의 ApplicationManifest.xml 파일을 포함 하는 디스크 디렉터리입니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.  
 
 애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 명명 된 응용 프로그램을 만든 후에는 응용 프로그램 형식의 서비스 유형 중 하나에서 명명 된 서비스를 만들 수 있습니다. 
 
@@ -143,7 +143,7 @@ Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 
 Service Fabric 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. Microsoft는 기본 OS를 패치하고 클러스터에서 패브릭 업그레이드를 수행합니다. Microsoft에서 새로운 버전을 릴리스하거나 원하는 패브릭 버전을 선택하도록 한 경우 클러스터가 자동 패브릭 업그레이드를 수신하도록 설정할 수 있습니다. 패브릭 및 구성 업그레이드는 Azure Portal이나 Resource Manager를 통해 설정할 수 있습니다. 자세한 내용은 [Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요. 
 
-독립 실행형 클러스터는 사용자가 전적으로 소유하는 리소스입니다. 기본 OS에 패치를 적용하고 패브릭 업그레이드를 시작하는 작업은 사용자가 수행해야 합니다. 클러스터에서에 [https://www.microsoft.com/download](https://www.microsoft.com/download)연결할 수 있는 경우 새 Service Fabric 런타임 패키지를 자동으로 다운로드 하 고 프로 비전 하도록 클러스터를 설정할 수 있습니다. 그런 다음 업그레이드를 시작합니다. 클러스터에서 액세스할 [https://www.microsoft.com/download](https://www.microsoft.com/download)수 없는 경우 인터넷에 연결 된 컴퓨터에서 새 런타임 패키지를 수동으로 다운로드 한 다음 업그레이드를 시작할 수 있습니다. 자세한 내용은 [독립 실행형 Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
+독립 실행형 클러스터는 사용자가 전적으로 소유하는 리소스입니다. 기본 OS에 패치를 적용하고 패브릭 업그레이드를 시작하는 작업은 사용자가 수행해야 합니다. 클러스터에서에 연결할 수 있는 경우 [https://www.microsoft.com/download](https://www.microsoft.com/download) 새 Service Fabric 런타임 패키지를 자동으로 다운로드 하 고 프로 비전 하도록 클러스터를 설정할 수 있습니다. 그런 다음 업그레이드를 시작합니다. 클러스터에서 액세스할 수 없는 경우 [https://www.microsoft.com/download](https://www.microsoft.com/download) 인터넷에 연결 된 컴퓨터에서 새 런타임 패키지를 수동으로 다운로드 한 다음 업그레이드를 시작할 수 있습니다. 자세한 내용은 [독립 실행형 Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
 
 ## <a name="health-monitoring"></a>상태 모니터링
 Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제본)의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 Health 보고서(시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태 및 [상태 보고 설계](service-fabric-report-health.md#design-health-reporting) 방법을 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 서비스가 프로덕션에서 대규모로 실행되면 상태 정보를 통해 디버깅과 조사에 들어가는 시간과 노력을 줄일 수 있습니다.

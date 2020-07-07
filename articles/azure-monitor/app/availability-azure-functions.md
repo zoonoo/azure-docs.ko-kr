@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
 ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791115"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
@@ -37,7 +37,7 @@ ms.locfileid: "82791115"
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) 방법에 대 한 지침을 따르세요 (정리 전 중지).
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 아래 코드를 실행. csx 파일에 복사 합니다. 이렇게 하면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 응용 프로그램으로 이동 하 여 왼쪽에서 타이머 트리거 함수를 선택 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "82791115"
 >![Azure Portal에서 Azure 함수의 실행. csx](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> 끝점 주소에 대해를 사용 `EndpointAddress= https://dc.services.visualstudio.com/v2/track`합니다. 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
+> 끝점 주소에 대해를 사용 합니다. `EndpointAddress= https://dc.services.visualstudio.com/v2/track` 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -160,7 +160,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 모든 것이 작동 하는지 확인 하기 위해 Application Insights 리소스의 가용성 탭에서 그래프를 살펴볼 수 있습니다.
 
 > [!NOTE]
-> RunAvailabilityTest에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷 처럼 성공적인 결과가 표시 됩니다. 그렇지 않은 경우에는 실패 한 결과가 표시 됩니다. 로 `TrackAvailability()` 만든 테스트는 테스트 이름 옆에 **사용자 지정** 이 표시 됩니다.
+> RunAvailabilityTest에 고유한 비즈니스 논리를 구현한 경우 아래 스크린샷 처럼 성공적인 결과가 표시 됩니다. 그렇지 않은 경우에는 실패 한 결과가 표시 됩니다. 로 만든 테스트 `TrackAvailability()` 는 테스트 이름 옆에 **사용자 지정** 이 표시 됩니다.
 
 >[!div class="mx-imgBorder"]
 >![성공적인 결과가 포함 된 가용성 탭](media/availability-azure-functions/availability-custom.png)

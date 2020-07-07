@@ -4,10 +4,10 @@ description: 배포에서 값을 반환할 때 Azure Resource Manager 템플릿�
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583418"
 ---
 # <a name="output-iteration-in-arm-templates"></a>ARM 템플릿의 출력 반복
@@ -16,7 +16,7 @@ ms.locfileid: "82583418"
 
 [리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [변수와](copy-variables.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 

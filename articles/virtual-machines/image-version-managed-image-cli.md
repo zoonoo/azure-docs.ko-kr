@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796604"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 관리 되는 이미지에서 이미지 버전으로 마이그레이션
@@ -36,15 +36,15 @@ ms.locfileid: "82796604"
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기
 
-관리 이미지는 항상 일반화 된 이미지 이므로 일반화 된 이미지에 대해를 사용 하 `--os-state generalized` 여 이미지 정의를 만듭니다.
+관리 이미지는 항상 일반화 된 이미지 이므로 `--os-state generalized` 일반화 된 이미지에 대해를 사용 하 여 이미지 정의를 만듭니다.
 
-이미지 정의 이름은 대문자, 숫자, 점, 대시 및 마침표로 구성 될 수 있습니다. 
+이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의에 대해 지정할 수 있는 값에 대 한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조 하세요.
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
 
-[Az sig image definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용 하 여 갤러리에서 이미지 정의를 만듭니다.
+[az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
-이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 [일반화](./linux/shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용 하 여 이미지에 대 한 정의를 `--os-type Windows`만들려면를 사용 합니다. 
+이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 [일반화](./linux/shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -70,11 +70,11 @@ az sig image-definition create \
 az image list --query "[].[name, id]" -o tsv
 ```
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*. *MinorVersion*. *패치*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
 이 예제에서 이미지의 버전은 *1.0.0* 이며, 미국 동부 2 *지역에서* 영역 중복 저장소를 사용 하 여 1 개의 복제본과 *미국 동부 2* 지역에 1 개의 복제본을 만듭니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 
-`--managed-image` 매개 변수에서 관리 되는 이미지의 ID를 전달 합니다.
+매개 변수에서 관리 되는 이미지의 ID를 전달 `--managed-image` 합니다.
 
 
 ```azurecli-interactive 
@@ -90,9 +90,9 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> 동일한 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 먼저 이미지 버전이 빌드되고 복제 될 때까지 기다려야 합니다.
+> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 이미지 버전을 만들 때를 추가 `--storage-account-type standard_zrs` 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 에 저장할 수도 있습니다.
+> 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
 >
 
 ## <a name="next-steps"></a>다음 단계

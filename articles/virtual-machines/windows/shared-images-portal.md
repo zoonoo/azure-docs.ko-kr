@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.openlocfilehash: e484cccb2dc15266fb7889c335a0acc981053e5c
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792142"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>포털을 사용 하 여 Azure 공유 이미지 갤러리 만들기
@@ -46,7 +46,7 @@ ms.locfileid: "82792142"
 1. **가상 컴퓨터 이름**에 *myvm*을 입력 합니다.
 1. **지역**에 대해 *미국 동부*를 선택합니다.
 1. **가용성 옵션**의 경우에는 기본 *인프라 중복성 필요 없음*을 그대로 둡니다.
-1. 이미지 **에 대 한 값** 은 이미지 정의에 `latest` 대해 페이지에서 시작한 경우 이미지 버전으로 자동으로 채워집니다.
+1. 이미지 **에 대 한 값** 은 이미지 `latest` 정의에 대해 페이지에서 시작한 경우 이미지 버전으로 자동으로 채워집니다.
 1. **크기**의 경우 사용 가능한 크기 목록에서 VM 크기를 선택한 다음 **선택**을 선택 합니다.
 1. **관리자 계정**에서 이미지가 일반화 된 경우 *azureuser* 및 password와 같은 사용자 이름을 제공 해야 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 이미지가 특수 한 경우에는 원본 VM의 사용자 이름 및 암호를 사용 하므로 사용자 이름 및 암호 필드는 회색으로 표시 됩니다.
 1. VM에 대 한 원격 액세스를 허용 하려면 **공용 인바운드 포트**에서 **선택한 포트 허용** 을 선택한 다음 드롭다운에서 **RDP (3389)** 를 선택 합니다. VM에 대 한 원격 액세스를 허용 하지 않으려면 **공용 인바운드 포트**에 대해 선택 **안 함** 을 선택 하지 않습니다.
@@ -64,7 +64,7 @@ ms.locfileid: "82792142"
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [Shared Image Gallery 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)

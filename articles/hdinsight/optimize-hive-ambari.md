@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796370"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 Apache Hive 최적화
@@ -80,9 +80,9 @@ Apache ORC 및 Snappy는 모두 고성능을 제공합니다. 하지만 Hive는 
 
 Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단계를 병렬로 실행할 수 있으면 쿼리 성능이 향상됩니다.
 
-1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
+1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 False입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
 
-1. 동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
+1. 동시에 실행 되는 작업 수를 제한 하려면 속성을 수정 `hive.exec.parallel.thread.number` 합니다. 기본값은 8입니다.
 
     ![Apache Hive exec 병렬 표시](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
 
@@ -92,7 +92,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 1. 벡터화된 쿼리 실행을 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `hive.vectorized.execution.enabled` 매개 변수를 검색합니다. Hive 0.13.0 이상에서는 기본값이 true입니다.
 
-1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![Apache Hive 벡터화 실행](./media/optimize-hive-ambari/hive-vectorized-execution.png)
 
@@ -100,7 +100,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 기본적으로 Hive는 일련의 규칙에 따라 하나의 최적 쿼리 실행 계획을 찾습니다. CBO (비용 기반 최적화)는 여러 계획을 평가 하 여 쿼리를 실행 합니다. 및는 각 계획에 비용을 할당 한 다음 쿼리를 실행 하기에 가장 저렴 한 계획을 결정 합니다.
 
-CBO를 사용 하도록 설정 하려면 **Hive** > **Configs** > **설정** 으로 이동 하 여 **비용 기반 최적화 프로그램 사용**을 찾은 다음 설정/해제 단추를 **켜기**로 전환 합니다.
+CBO를 사용 하도록 설정 하려면 **Hive**Configs 설정으로 이동 하 여  >  **Configs**  >  **Settings** **비용 기반 최적화 프로그램 사용**을 찾은 다음 설정/해제 단추를 **켜기**로 전환 합니다.
 
 ![HDInsight 비용 기반 최적화 프로그램](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -132,7 +132,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 사용 가능한 압축 유형은 다음과 같습니다.
 
-| 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
+| 서식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | --- | --- | --- | --- | --- |
 | Gzip | Gzip | DEFLATE | `.gz` | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | 예 |
@@ -141,7 +141,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 일반적으로 압축 방법 분할 가능이 중요 합니다. 그렇지 않으면 일부 매퍼를 만듭니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
-1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![' Hive exec 압축 중간 '](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
 
@@ -152,11 +152,11 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 사용자 지정 설정을 추가하려면:
 
-    a. **Hive** > **Configs**Configs > **Advanced**고급 > **사용자 지정 hive 사이트로**이동 합니다.
+    a. **Hive**  >  **Configs**  >  **고급**  >  **사용자 지정 hive 사이트로**이동 합니다.
 
     b. 사용자 지정 hive 사이트 창의 맨 아래에 있는 **속성 추가** ...를 선택 합니다.
 
-    c. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
+    다. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
     d. **추가**를 선택합니다.
 
@@ -171,7 +171,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 최종 Hive 출력도 압축될 수 있습니다.
 
-1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
 1. 출력 압축 코덱을 선택하려면 이전 섹션 3단계의 설명에 따라 사용자 지정 hive-site 창에 `mapred.output.compression.codec` 사용자 지정 속성을 추가합니다.
 
@@ -183,7 +183,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 입력 양이 많고 오래 실행되는 MapReduce 작업에는 투기적 실행을 사용하지 말아야 합니다.
 
-* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![' Hive mapred.max.split.size 태스크의 추측 실행 '](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -223,7 +223,7 @@ Hive를 사용 하면 테이블에 레코드를 삽입할 때 모든 파티션�
 
 Hive의 기본 조인 유형은 *순서 섞기 조인*입니다. Hive에서는 특수 매퍼가 입력을 읽어서 조인 키/값 쌍을 중간 파일로 내보냅니다. Hadoop은 이러한 쌍을 순서 섞기 단계에서 정렬하고 병합합니다. 순서 섞기 단계는 비용이 높습니다. 데이터를 기반으로 올바른 조인을 선택하면 성능이 상당히 향상될 수 있습니다.
 
-| 조인 유형 | 디렉터리 계층 구조에 | 방법 | Hive 설정 | 주석 |
+| 조인 유형 | When | 방법 | Hive 설정 | 주석 |
 | --- | --- | --- | --- | --- |
 | 순서 섞기 조인 | <ul><li>기본적 선택</li><li>항상 작동</li></ul> | <ul><li>테이블 중 하나의 부분 읽기</li><li>조인 키 버킷 및 정렬</li><li>각 리듀스에 하나의 버킷 보내기</li><li>리듀스 측에서 조인 수행</li></ul> | 특정 Hive 설정 필요 없음 | 매번 작동 |
 | 맵 조인 | <ul><li>하나의 테이블이 메모리에 들어가는 경우</li></ul> | <ul><li>작은 테이블을 메모리 해시 테이블로 읽기</li><li>큰 파일의 일부를 통해 스트리밍</li><li>해시 테이블에서 각 레코드 조인</li><li>매퍼 단독으로 조인</li></ul> | `hive.auto.confvert.join=true` | 빠르지만 제한 됨 |

@@ -4,10 +4,10 @@ description: Azure VM의 SQL server에 대 한 일시 삭제 및 Azure VM 워크
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: f1e3ecae5d643b8e32f8f4f07808d56cdc421163
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791377"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA
@@ -93,7 +93,7 @@ ms.locfileid: "82791377"
 ## <a name="soft-delete-for-sql-server-in-vm-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 VM의 SQL server에 대 한 일시 삭제
 
 >[!NOTE]
->Azure PowerShell를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Services 버전은 최소 2.2.0입니다. 를 `Install-Module -Name Az.RecoveryServices -Force` 사용 하 여 최신 버전을 가져옵니다.
+>Azure PowerShell를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Services 버전은 최소 2.2.0입니다. `Install-Module -Name Az.RecoveryServices -Force`를 사용 하 여 최신 버전을 가져옵니다.
 
 Azure PowerShell 사용에 대 한 단계 순서는 위에 설명 된 Azure Portal와 동일 합니다.
 

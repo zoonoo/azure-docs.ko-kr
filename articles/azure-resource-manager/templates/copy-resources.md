@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583389"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
@@ -18,7 +18,7 @@ ms.locfileid: "82583389"
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -189,7 +189,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
 
-`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. 전체 가상 머신 정의는 표시 되지 않습니다. Copy 요소의 이름이로 `storagecopy` 설정 되어 있고 가상 컴퓨터에 대 한 dependsOn 요소도로 `storagecopy`설정 되어 있는지 확인 합니다.
+`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. 전체 가상 머신 정의는 표시 되지 않습니다. Copy 요소의 이름이로 설정 되어 `storagecopy` 있고 가상 컴퓨터에 대 한 dependsOn 요소도로 설정 되어 있는지 확인 합니다 `storagecopy` .
 
 ```json
 {

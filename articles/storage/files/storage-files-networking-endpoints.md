@@ -3,16 +3,16 @@ title: Azure Files 네트워크 엔드포인트 구성 | Microsoft Docs
 description: Azure Files의 네트워킹 옵션에 대한 개요입니다.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e58a84d8c001ad273cfa14ffb871aaea71bc468b
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: HT
+ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510328"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 

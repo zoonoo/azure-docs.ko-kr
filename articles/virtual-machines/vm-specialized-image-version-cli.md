@@ -10,10 +10,10 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 1ccf03deee2a2f72c1eb2008e1acc5bf67d16447
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796773"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI와 함께 특수 한 이미지 버전을 사용 하 여 VM 만들기
@@ -34,11 +34,11 @@ az sig image-definition list \
    --output tsv
 ```
 
-이미지가 특수 이미지 임을 나타내는--특수 매개 변수를 사용 하 여 [az vm create](/cli/azure/vm#az-vm-create) 를 사용 하 여 vm을 만듭니다. 
+이미지가 특수 이미지임을 나타내는 --specialized 매개 변수를 사용하는 [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 VM을 만듭니다. 
 
-의 `--image` 이미지 정의 ID를 사용 하 여 사용 가능한 최신 버전의 이미지에서 VM을 만듭니다. 의 `--image`이미지 버전 ID를 제공 하 여 특정 버전에서 VM을 만들 수도 있습니다. 
+이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 VM을 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 VM을 만들 수 있습니다. 
 
-이 예제에서는 최신 버전의 *Myimagedefinition* 이미지에서 VM을 만듭니다.
+다음 예제에서는 최신 버전의 *myImageDefinition* 이미지에서 VM을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ az vm create --resource-group myResourceGroup \
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [Shared Image Gallery 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)

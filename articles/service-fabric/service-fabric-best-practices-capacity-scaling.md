@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791870"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
@@ -38,7 +38,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) 하려면 여러 단계와 고려 사항이 필요 합니다. 예를 들면 다음과 같습니다.
+Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) 하려면 여러 단계와 고려 사항이 필요 합니다. 예:
 
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않으면 클러스터를 추가로 불안정 하 게 됩니다.
 * 상태 저장 서비스를 호스트 하는 모든 Service Fabric 클러스터 노드 형식에는 실버 내구성 수준 이상이 필요 합니다.
@@ -48,7 +48,7 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microso
 
 가상 머신 확장 집합의 수직 확장은 파괴적인 작업입니다. 대신 원하는 SKU를 사용 하 여 새 확장 집합을 추가 하 여 클러스터를 수평으로 확장 합니다. 그런 다음 서비스를 원하는 SKU로 마이그레이션하여 안전한 수직 크기 조정 작업을 완료 합니다. 가상 머신 확장 집합 리소스 SKU를 변경 하는 작업은 호스트를 다시 이미지 하 여 모든 로컬에서 지속 되는 상태를 제거 하기 때문에 파괴적인 작업입니다.
 
-클러스터는 Service Fabric [노드 속성 및 배치 제약 조건을](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) 사용 하 여 응용 프로그램의 서비스를 호스트할 위치를 결정 합니다. 주 노드 형식의 크기를 세로로 조정 하는 경우에 대해 `"nodeTypeRef"`동일한 속성 값을 선언 합니다. 이러한 값은 가상 머신 확장 집합에 대 한 Service Fabric 확장에서 찾을 수 있습니다. 
+클러스터는 Service Fabric [노드 속성 및 배치 제약 조건을](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) 사용 하 여 응용 프로그램의 서비스를 호스트할 위치를 결정 합니다. 주 노드 형식의 크기를 세로로 조정 하는 경우에 대해 동일한 속성 값을 선언 `"nodeTypeRef"` 합니다. 이러한 값은 가상 머신 확장 집합에 대 한 Service Fabric 확장에서 찾을 수 있습니다. 
 
 리소스 관리자 템플릿의 다음 코드 조각은 선언할 속성을 보여 줍니다. 크기를 조정 하는 새로 프로 비전 된 확장 집합에 대해 동일한 값을 가지 며, 클러스터에 대 한 임시 상태 저장 서비스로만 지원 됩니다.
 
@@ -59,18 +59,18 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microso
 ```
 
 > [!NOTE]
-> 성공적인 수직 크기 조정 작업을 완료 하는 데 필요한 것 보다 `nodeTypeRef` 더 긴 동일한 속성 값을 사용 하는 여러 확장 집합을 사용 하 여 클러스터를 실행 하지 마세요.
+> `nodeTypeRef`성공적인 수직 크기 조정 작업을 완료 하는 데 필요한 것 보다 더 긴 동일한 속성 값을 사용 하는 여러 확장 집합을 사용 하 여 클러스터를 실행 하지 마세요.
 >
 > 프로덕션 환경에 대 한 변경을 시도 하기 전에 항상 테스트 환경에서 작업의 유효성을 검사 합니다. 기본적으로 Service Fabric 클러스터 시스템 서비스에는 대상 주 노드 형식에 대 한 배치 제약 조건만 있습니다.
 
 노드 속성 및 배치 제약 조건을 선언한 후 다음 단계를 한 번에 한 VM 인스턴스씩 수행합니다. 이렇게 하면 새 복제본이 생성 될 때 제거 하려는 VM 인스턴스에서 시스템 서비스 (및 상태 저장 서비스)를 정상적으로 종료할 수 있습니다.
 
-1. PowerShell에서 의도 `RemoveNode` 한 `Disable-ServiceFabricNode` 대로를 실행 하 여 제거 하려는 노드를 사용 하지 않도록 설정 합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 6 개 노드 클러스터가 있는 경우 "MyNodeType_5" 가상 머신 인스턴스를 제거 합니다.
+1. PowerShell에서 의도 한 대로를 실행 `Disable-ServiceFabricNode` `RemoveNode` 하 여 제거 하려는 노드를 사용 하지 않도록 설정 합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 6 개 노드 클러스터가 있는 경우 "MyNodeType_5" 가상 머신 인스턴스를 제거 합니다.
 2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드에 대해 몇 시간이 걸릴 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식에서 Vm 수를 하나씩 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 필요에 따라 1 ~ 3 단계를 반복 하 되, 주 노드 형식의 인스턴스 수를 안정성 계층에서 지 원하는 것 보다 작은 값으로 조정 하지 않습니다. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
 5. 모든 Vm이 사라진 후 ("Down"으로 표시 됨) fabric:/System/InfrastructureService/[node name]에 오류 상태가 표시 됩니다. 그런 다음 클러스터 리소스를 업데이트 하 여 노드 유형을 제거할 수 있습니다. ARM 템플릿 배포를 사용 하거나 [Azure resource manager](https://resources.azure.com)를 통해 클러스터 리소스를 편집할 수 있습니다. 그러면 오류 상태인 fabric:/System/InfrastructureService/[node type] 서비스가 제거 되는 클러스터 업그레이드가 시작 됩니다.
- 6. 그런 다음 필요에 따라 VMScaleSet를 삭제할 수 있습니다. 그러나이 경우에도 노드는 Service Fabric Explorer 보기에서 "다운"으로 표시 됩니다. 마지막 단계는 명령으로 `Remove-ServiceFabricNodeState` 정리 하는 것입니다.
+ 6. 그런 다음 필요에 따라 VMScaleSet를 삭제할 수 있습니다. 그러나이 경우에도 노드는 Service Fabric Explorer 보기에서 "다운"으로 표시 됩니다. 마지막 단계는 명령으로 정리 하는 것입니다 `Remove-ServiceFabricNodeState` .
 
 ## <a name="horizontal-scaling"></a>수평적 크기 조정
 
@@ -81,7 +81,7 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microso
 
 ### <a name="scaling-out"></a>확장
 
-특정 가상 머신 확장 집합에 대 한 인스턴스 수를 늘려서 Service Fabric 클러스터를 확장 합니다. 및 원하는 확장 집합의 ID를 `AzureClient` 사용 하 여 프로그래밍 방식으로 규모를 확장 하 여 용량을 늘릴 수 있습니다.
+특정 가상 머신 확장 집합에 대 한 인스턴스 수를 늘려서 Service Fabric 클러스터를 확장 합니다. 및 원하는 확장 집합의 ID를 사용 하 여 프로그래밍 방식으로 규모를 확장 하 여 용량을 늘릴 수 있습니다 `AzureClient` .
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -108,7 +108,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 수동으로 규모를 감축하려면 다음 단계를 수행합니다.
 
-1. PowerShell에서 의도 `RemoveNode` 한 `Disable-ServiceFabricNode` 대로를 실행 하 여 제거 하려는 노드를 사용 하지 않도록 설정 합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 6 개 노드 클러스터가 있는 경우 "MyNodeType_5" 가상 머신 인스턴스를 제거 합니다.
+1. PowerShell에서 의도 한 대로를 실행 `Disable-ServiceFabricNode` `RemoveNode` 하 여 제거 하려는 노드를 사용 하지 않도록 설정 합니다. 번호가 가장 큰 노드 형식을 제거합니다. 예를 들어 6 개 노드 클러스터가 있는 경우 "MyNodeType_5" 가상 머신 인스턴스를 제거 합니다.
 2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드에 대해 몇 시간이 걸릴 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식에서 Vm 수를 하나씩 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 원하는 용량을 프로 비전 할 때까지 필요에 따라 1 ~ 3 단계를 반복 합니다. 주 노드 형식의 인스턴스 수를 안정성 계층에서 지 원하는 것 보다 작게 조정 하지 마십시오. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
@@ -123,7 +123,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들면 다음과 같습니다.
+프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예:
 
 ```csharp
 using (var client = new FabricClient())
@@ -140,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-이전 코드에서 사용한 것과 동일한 `FabricClient` 인스턴스 (`client` 이 경우) 및 노드 인스턴스 (`instanceIdString` 이 경우)를 사용 하 여 노드를 비활성화 하 고 제거 합니다.
+`FabricClient` `client` 이전 코드에서 사용한 것과 동일한 인스턴스 (이 경우) 및 노드 인스턴스 ( `instanceIdString` 이 경우)를 사용 하 여 노드를 비활성화 하 고 제거 합니다.
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음과 같습니다.
+> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음을 할 수 있습니다.
 > * 해당 노드 이름을 사용 하 여 [remove-servicefabricnodestate 명령을](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) 호출 합니다.
 > * 클러스터에 [Service Fabric 자동 크기 조정 도우미 응용 프로그램](https://github.com/Azure/service-fabric-autoscale-helper/) 을 배포 합니다. 이 응용 프로그램은 축소 된 노드가 Service Fabric Explorer에서 지워지는 지 확인 합니다.
 
