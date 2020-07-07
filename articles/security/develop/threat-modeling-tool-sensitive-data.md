@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79502237"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
@@ -27,8 +27,8 @@ ms.locfileid: "79502237"
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[중요 한 정보가 포함 된 경우 이진 파일이 난독 처리 되었는지 확인](#binaries-info)</li><li>[EFS(암호화 파일 시스템)를 사용하여 비밀 사용자 지정 데이터를 보호함](#efs-user)</li><li>[파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지 확인](#filesystem)</li></ul> | 
 | **웹 애플리케이션** | <ul><li>[브라우저에서 중요한 콘텐츠가 캐시되지 않았는지 확인](#cache-browser)</li><li>[중요한 데이터가 포함된 Web App의 구성 파일의 섹션 암호화](#encrypt-data)</li><li>[중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지](#autocomplete-input)</li><li>[사용자 화면에 표시되는 중요한 데이터가 마스킹되었는지 확인](#data-mask)</li></ul> | 
-| **Database** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요 한 데이터가 암호화 되어 있는지 확인](#db-encrypted)</li><li>[TDE (데이터베이스 수준 암호화)가 설정 되어 있는지 확인 합니다.](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
-| **Web API** | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 스토리지에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
+| **데이터베이스** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요 한 데이터가 암호화 되어 있는지 확인](#db-encrypted)</li><li>[TDE (데이터베이스 수준 암호화)가 설정 되어 있는지 확인 합니다.](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
+| **앱 API** | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 스토리지에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Azure Cosmos DB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 신뢰 경계** | <ul><li>[Azure Disk Encryption를 사용 하 여 Virtual Machines에서 사용 하는 디스크 암호화](#disk-vm)</li></ul> | 
 | **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 응용 프로그램에서 암호 암호화](#fabric-apps)</li></ul> | 
@@ -131,7 +131,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 애플리케이션 암호 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **참조**              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 애플리케이션 비밀 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **단계** | Web.config, appsettings.json과 같은 구성 파일은 사용자 이름, 암호, 데이터베이스 연결 문자열 및 암호화 키를 포함하여 중요한 정보를 저장하는 데 자주 사용됩니다. 이러한 정보를 보호하지 않으면 애플리케이션은 계정 사용자 이름과 암호, 데이터베이스 이름과 서버 이름 등과 같은 중요한 정보를 얻는 공격자 또는 악의적인 사용자에 대해 취약해집니다. 배포 유형(azure/on-prem)에 따라 DPAPI 또는 Azure Key Vault와 같은 서비스를 사용하여 구성 파일의 중요한 섹션을 암호화합니다. |
 
 ## <a name="explicitly-disable-the-autocomplete-html-attribute-in-sensitive-forms-and-inputs"></a><a id="autocomplete-input"></a>중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지

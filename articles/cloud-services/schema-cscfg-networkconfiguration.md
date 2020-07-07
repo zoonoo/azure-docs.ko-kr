@@ -10,10 +10,10 @@ caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529291"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services 구성 NetworkConfiguration 스키마
@@ -65,7 +65,7 @@ Virtual Network와 연결된 스키마에 대한 자세한 내용을 보려면 �
 | 요소       | Description |
 | ------------- | ----------- |
 | AccessControl | 선택 사항입니다. 클라우드 서비스에서 엔드포인트에 대한 액세스 규칙을 지정합니다. 액세스 제어 이름은 `name` 특성에 대한 문자열로 정의됩니다. `AccessControl` 요소는 하나 이상의 `Rule` 요소를 포함합니다. 둘 이상의 `AccessControl` 요소를 정의할 수 있습니다.|
-| 규칙 | 선택 사항입니다. IP 주소의 지정된 서브넷 범위에 대해 수행해야 하는 동작을 지정합니다. 규칙의 순서는 `order` 특성에 대한 문자열 값으로 정의됩니다. 규칙 번호가 낮을수록 우선 순위가 높습니다. 예를 들어 규칙을 순서 번호 100, 200 및 300으로 지정할 수 있습니다. 순서 번호가 100인 규칙은 순서가 200인 규칙보다 우선합니다.<br /><br /> 규칙에 대한 동작은 `action` 특성에 대한 문자열로 정의됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -   `permit` - 지정된 서브넷 범위의 패킷만 엔드포인트와 통신할 수 있음을 지정합니다.<br />-   `deny` - 지정된 서브넷 범위의 엔드포인트에 대한 액세스가 거부되었음을 지정합니다.<br /><br /> 규칙의 영향을 받는 IP 주소의 서브넷 범위는 `remoteSubnet` 특성에 대한 문자열로 정의됩니다. 규칙에 대한 설명은 `description` 특성에 대한 문자열로 정의됩니다.|
+| 규칙 | 선택 사항입니다. IP 주소의 지정된 서브넷 범위에 대해 수행해야 하는 동작을 지정합니다. 규칙의 순서는 `order` 특성에 대한 문자열 값으로 정의됩니다. 규칙 번호가 낮을수록 우선 순위가 높습니다. 예를 들어 규칙을 순서 번호 100, 200 및 300으로 지정할 수 있습니다. 순서 번호가 100인 규칙은 순서가 200인 규칙보다 우선합니다.<br /><br /> 규칙에 대한 동작은 `action` 특성에 대한 문자열로 정의됩니다. 가능한 값은<br /><br /> -   `permit` - 지정된 서브넷 범위의 패킷만 엔드포인트와 통신할 수 있음을 지정합니다.<br />-   `deny` - 지정된 서브넷 범위의 엔드포인트에 대한 액세스가 거부되었음을 지정합니다.<br /><br /> 규칙의 영향을 받는 IP 주소의 서브넷 범위는 `remoteSubnet` 특성에 대한 문자열로 정의됩니다. 규칙에 대한 설명은 `description` 특성에 대한 문자열로 정의됩니다.|
 | EndpointAcl | 선택 사항입니다. 엔드포인트에 대한 액세스 제어 규칙의 할당을 지정합니다. 엔드포인트를 포함하는 역할의 이름은 `role` 특성에 대한 문자열로 정의됩니다. 엔드포인트의 이름은 `endpoint` 특성에 대한 문자열로 정의됩니다. 엔드포인트에 적용되어야 하는 `AccessControl` 규칙 집합의 이름은 `accessControl` 특성에 대한 문자열로 정의됩니다. 둘 이상의 `EndpointAcl` 요소를 정의할 수 있습니다.|
 | DnsServer | 선택 사항입니다. DNS 서버에 대한 설정을 지정합니다. Virtual Network 없이 DNS 서버에 대한 설정을 지정할 수 있습니다. DNS 서버의 이름은 `name` 특성에 대한 문자열로 정의됩니다. DNS 서버의 IP 주소는 `IPAddress` 특성에 대한 문자열로 정의됩니다. IP 주소는 유효한 IPv4 주소여야 합니다.|
 | VirtualNetworkSite | 선택 사항입니다. 클라우드 서비스를 배포하려는 Virtual Network 사이트의 이름을 지정합니다. 이 설정은 Virtual Network 사이트를 만들지 않습니다. Virtual Network에 대한 네트워크 파일에 이전에 정의되어 있는 사이트를 참조합니다. 클라우드 서비스는 하나의 Virtual Network의 멤버일 수 있습니다. 이 설정을 지정하지 않으면 클라우드 서비스가 Virtual Network에 배포되지 않습니다. Virtual Network 사이트의 이름은 `name` 특성에 대한 문자열로 정의됩니다.|

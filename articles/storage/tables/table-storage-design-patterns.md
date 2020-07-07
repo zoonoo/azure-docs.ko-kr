@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529342"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
@@ -71,7 +71,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern)
+* [파티션 내 보조 인덱스 패턴](#inter-partition-secondary-index-pattern)
 * [복합 키 패턴](#compound-key-pattern)
 * EGT(엔터티 그룹 트랜잭션)
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)
@@ -101,7 +101,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 직원 엔터티 범위를 쿼리하는 경우 **RowKey**의 해당 접두사로 엔터티를 쿼리하여 직원 ID 순으로 정렬된 범위 또는 이메일 주소 순으로 정렬된 범위를 지정할 수 있습니다.  
 
-* 영업 부서에서 직원 ID 순으로 정렬하여 직원 ID 범위가 **000100**~**000199**인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'empid_Sales') 및 (RowKey ge '000100') 및 (RowKey le '000199')  
+* 직원 id를 사용 하 여 판매 부서에서 직원 id가 **000100** ~ **000199** 범위 내에 있는 모든 직원을 찾으려면 다음을 사용 합니다. $filter = (PartitionKey eq ' empid_Sales ') and (rowkey ge ' 000100 ') and (rowkey le ' 000199 ')  
 * Sales 부서에서 직원 이메일 주소순으로 정렬하여 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
 위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
@@ -142,7 +142,7 @@ EGT는 동일한 파티션 키를 공유하는 여러 엔터티 간의 원자성
 * Table service에 저장된 엔터티와 파일 서비스에 저장된 파일  
 * Azure Cognitive Search 서비스를 사용 하 여 아직 인덱싱되는 Table service에 저장 된 엔터티입니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 간에 결과적 일관성을 유지하는 솔루션을 구현할 수 있습니다.
 이 접근 방식을 설명하기 위해 이전 직원 엔터티를 보관할 수 있어야 하는 요구 사항이 있는 것으로 가정합니다. 이전 직원 엔터티는 거의 쿼리되지 않으므로 현재 직원을 다루는 활동에서 제외해야 합니다. 이 요구 사항을 구현 하기 위해 **현재** 테이블에 활성 직원을 저장 하 고 **보관** 테이블에 이전 직원을 저장 합니다. 직원을 보관하려면 **현재** 테이블에서 해당 엔터티를 삭제하고 **보관** 테이블에 엔터티를 추가해야 하지만 EGT를 사용하여 이 두 작업을 수행할 수는 없습니다. 오류로 인해 하나의 엔터티가 두 테이블 모두에 표시되거나 아무 테이블에도 표시되지 않는 위험을 방지하려면 보관 작업이 결과적으로 일관성이 있어야 합니다. 다음 시퀀스 다이어그램에 이 작업의 단계가 요약되어 있습니다. 다음 텍스트에 예외 경로에 대한 자세한 정보가 나와 있습니다.  
 
@@ -155,7 +155,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 
 ### <a name="recovering-from-failures"></a>오류 복구
 작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 **4**단계 및 **5**단계의 작업은 *멱등원*이어야 하는 것이 중요합니다. Table service를 사용하는 경우 **4**단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, **5**단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 idempotent 작업을 사용해야 합니다.  
 
-작업자 역할이 **6**단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지 읽기 및 큐에서 제거한 횟수 확인에 대한 자세한 내용은 [메시지 가져오기](https://msdn.microsoft.com/library/azure/dd179474.aspx)를 참조하세요.  
+작업자 역할이 **6**단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지를 읽고 큐에서 제거 횟수를 확인 하는 방법에 대 한 자세한 내용은 [메시지 가져오기](https://msdn.microsoft.com/library/azure/dd179474.aspx)를 참조 하세요.  
 
 테이블 및 큐 서비스의 일부 오류는 일시적 오류이므로 클라이언트 애플리케이션에 이를 처리할 수 있는 적절한 재시도 논리가 있어야 합니다.  
 
@@ -191,13 +191,13 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 이름과 같은 고유하지 않은 다른 속성 값을 기반으로 직원 엔터티 목록을 검색할 수 있도록 하려는 경우에는 인덱스를 사용하여 직접 조회하지 말고 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다.  
 
 ### <a name="solution"></a>솔루션
-위에 표시 된 엔터티 구조를 사용 하 여 성을 기준으로 조회를 사용 하도록 설정 하려면 직원 Id의 목록을 유지 관리 해야 합니다. Jones와 같이 특정 성을 사용 하 여 직원 엔터티를 검색 하려면 먼저 Jones가 있는 직원의 직원 Id 목록을 찾은 다음 해당 직원 엔터티를 검색 해야 합니다. 직원 Id 목록을 저장 하는 세 가지 주요 옵션은 다음과 같습니다.  
+위에 표시 된 엔터티 구조를 사용 하 여 성을 기준으로 조회를 사용 하도록 설정 하려면 직원 Id의 목록을 유지 관리 해야 합니다. 특정 성(예: Jones)을 가진 직원 엔터티를 검색하려면 먼저 직원 ID 목록에서 성이 Jones인 직원을 찾은 다음 해당 직원 엔터티를 검색해야 합니다. 직원 ID 목록을 저장하는 기본 옵션에는 다음 세 가지가 있습니다.  
 
 * Blob Storage 사용  
 * 직원 엔터티와 동일한 파티션에 인덱스 엔터티 만들기  
 * 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
 
-<u>옵션 #1: Blob Storage 사용</u>  
+<u>옵션 #1: blob 저장소 사용</u>  
 
 첫 번째 옵션의 경우 모든 고유한 성에 대한 Blob을 만들고, 각 Blob에 해당 성을 가진 직원의 **PartitionKey**(부서) 및 **RowKey**(직원 ID) 값 목록을 저장합니다. 직원을 추가하거나 삭제할 때는 관련 Blob의 내용이 직원 엔터티와 결과적으로 일관성이 있어야 합니다.  
 
@@ -223,7 +223,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 2. EmployeeIDs 필드에서 직원 ID 목록을 구문 분석합니다.  
 3. 이러한 각 직원에 대한 추가 정보(예: 전자 메일 주소)가 필요한 경우 2단계에서 가져온 직원 목록에서 **PartitionKey** 값 "Sales" 및 **RowKey** 값을 사용하여 각 직원 엔터티를 검색합니다.  
 
-<u>옵션 3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
+<u>옵션 #3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
 
 세 번째 옵션의 경우 다음 데이터를 저장하는 인덱스 엔터티를 사용합니다.  
 
@@ -232,7 +232,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 **EmployeeIDs** 속성에는 **rowkey**에 저장 된 성을 가진 직원의 직원 id 목록이 포함 됩니다.  
 
-세 번째 옵션을 사용하는 경우에는 인덱스 엔터티가 직원 엔터티와 별도의 파티션에 있기 때문에 EGT를 사용하여 일관성을 유지할 수 없습니다. 인덱스 엔터티가 궁극적으로 직원 엔터티와 일치 하는지 확인 합니다.  
+세 번째 옵션을 사용하는 경우에는 인덱스 엔터티가 직원 엔터티와 별도의 파티션에 있기 때문에 EGT를 사용하여 일관성을 유지할 수 없습니다. 인덱스 엔터티와 직원 엔터티가 결과적으로 일관성이 있도록 해야 합니다.  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -244,7 +244,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * 결과적 일관성을 제공하는 큐 기반 솔루션을 구현할 수 있습니다. 자세한 내용은 [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)을 참조하세요.  
 
 ### <a name="when-to-use-this-pattern"></a>이 패턴을 사용해야 하는 경우
-성이 Jones 인 모든 직원과 같이 공통 속성 값을 공유 하는 엔터티 집합을 조회 하려는 경우이 패턴을 사용 합니다.  
+모두 공통된 속성 값(예: 성이 Jones인 모든 직원)을 공유하는 엔터티 세트를 조회하려는 경우에 이 패턴을 사용합니다.  
 
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
@@ -262,7 +262,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 ![부서 엔터티 및 직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 다음은 그 예입니다.  
 
 ![부서 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
@@ -407,7 +407,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 디자인을 사용하면 애플리케이션이 메시지 수 값을 업데이트해야 할 때마다 각 직원에 대한 엔터티를 쉽게 찾아서 업데이트할 수 있습니다. 그러나 이전 24시간 동안의 활동에 대한 차트를 그리기 위해 정보를 검색하려면 24개의 엔터티를 검색해야 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 개별 속성과 함께 다음 디자인을 사용하여 각 시간에 대한 메시지 수를 저장합니다.  
 
 ![메시지 통계 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE23.png)
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-Employeetable&lt는 TableQuery\<itableentity>를 반환 하는\<createquery itableentity> () 메서드를 구현 하는 cloudtable 개체입니다. 이 형식의 개체는 IQueryable을 구현 하 고 LINQ 쿼리 식과 점 표기법 구문을 모두 사용할 수 있습니다.
+Employeetable&lt는 TableQuery를 반환 하는 CreateQuery () 메서드를 구현 하는 CloudTable 개체입니다 \<ITableEntity> \<ITableEntity> . 이 형식의 개체는 IQueryable을 구현 하 고 LINQ 쿼리 식과 점 표기법 구문을 모두 사용할 수 있습니다.
 
 **Where** 절이 있는 쿼리를 지정 하 여 여러 엔터티를 검색 하 고 달성할 수 있습니다. 테이블 스캔을 방지하려면 항상 where 절에 **PartitionKey** 값을 포함해야 하며, 가능한 경우 **RowKey** 값을 포함하여 테이블 및 파티션 스캔을 방지해야 합니다. 테이블 서비스에서는 where 절에 사용할 수 있는 비교 연산자 집합(보다 큼, 보다 크거나 같음, 보다 작음, 보다 작거나 같음, 같음 및 같지 않음)이 제한되어 있습니다. 
 
@@ -633,7 +633,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 이러한 시나리오에서는 항상 애플리케이션의 성능을 철저히 테스트해야 합니다.  
 
-테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table 서비스는 클라이언트 애플리케이션이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대한 자세한 내용은 [쿼리 제한 시간 및 페이지 번호 매김](https://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조하세요.  
+테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table 서비스는 클라이언트 애플리케이션이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대 한 자세한 내용은 [쿼리 제한 시간 및 페이지 매김](https://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조 하세요.  
 
 Storage 클라이언트 라이브러리를 사용하는 경우 Table service에서 엔터티를 반환할 때 연속 토큰을 자동으로 처리할 수 있습니다. Storage 클라이언트 라이브러리를 사용하는 다음 C# 코드 예제는 테이블 서비스가 응답으로 반환하는 연속 토큰을 자동으로 처리합니다.  
 
@@ -742,7 +742,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -762,7 +762,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -799,7 +799,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -835,7 +835,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -857,7 +857,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -898,7 +898,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>메일</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>

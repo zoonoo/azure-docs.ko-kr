@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 2f6d1e20db64cb0c2a64771ea26b971b22031fd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529993"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database for MariaDB 관리 저장 프로시저
@@ -39,9 +39,9 @@ Azure Database for MariaDB에서 마스터와 복제본 사이에 입력 데이�
 
 |**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
 |-----|-----|-----|-----|
-|*mysql. az_kill*|processlist_id|해당 없음|[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command와 동일 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
-|*mysql. az_kill_query*|processlist_id|해당 없음|[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command와 동일 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
-|*mysql. az_load_timezone*|해당 없음|해당 없음|`time_zone` 매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 합니다 (예: "US/태평양").|
+|*mysql. az_kill*|processlist_id|해당 없음|Command와 동일 [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
+|*mysql. az_kill_query*|processlist_id|해당 없음|Command와 동일 [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
+|*mysql. az_load_timezone*|해당 없음|해당 없음|매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 `time_zone` 합니다 (예: "US/태평양").|
 
 ## <a name="next-steps"></a>다음 단계
 - [입력 데이터 복제](howto-data-in-replication.md) 를 설정 하는 방법을 알아봅니다.

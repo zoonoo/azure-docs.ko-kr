@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 898b65f07140bca04bd97ff7314b01920b783914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530634"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
@@ -19,7 +19,7 @@ ms.locfileid: "79530634"
 
 VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-cli.md)방법에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
@@ -42,7 +42,7 @@ VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 �
    ```
    이 명령은 다음 단계에서 사용할 코드를 출력합니다.
 
-2. 웹 브라우저를 사용 하 여 페이지 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)를 연 다음 코드를 입력 합니다.
+2. 웹 브라우저를 사용 하 여 페이지를 연 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 다음 코드를 입력 합니다.
 
 3. 프롬프트에서 Azure 자격 증명을 사용 하 여 로그인 합니다.
 

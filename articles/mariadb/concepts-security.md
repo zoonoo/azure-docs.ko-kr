@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79527829"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 보안
@@ -23,7 +23,7 @@ Azure Database for MariaDB 서버에서 데이터를 보호 하는 데 사용할
 Azure Database for MariaDB 전송 계층 보안을 사용 하 여 전송 중인 데이터를 암호화 하 여 데이터를 보호 합니다. 암호화 (SSL/TLS)는 기본적으로 적용 됩니다.
 
 ### <a name="at-rest"></a>휴지 상태의
-Azure Database for MariaDB 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업을 비롯 한 데이터는 디스크에서 암호화 되며 쿼리를 실행 하는 동안 생성 된 임시 파일은 제외 됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
+Azure Database for MariaDB 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터는 디스크에서 암호화되며, 쿼리를 실행하는 동안 만든 임시 파일은 제외됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
 
 ## <a name="network-security"></a>네트워크 보안

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79503128"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Azure에 대 한 azure 재해 복구에 대 한 모바일 서비스 프록시 설정 구성
@@ -51,8 +51,8 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 이 경우, 고객은 모바일 서비스 구성 파일 ProxyInfo. 이 방법을 사용 하면 고객이 컴퓨터의 나머지 응용 프로그램에 대 한 프록시 (또는 프록시 없음) 보다 모바일 서비스에 대 한 프록시 또는 Azure Site Recovery 모바일 서비스에 대 한 다른 프록시를 제공할 수 있습니다.
 
 ## <a name="proxy-template"></a>프록시 템플릿
-ProxyInfo는 다음 템플릿 [proxy] Address =http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. windowsazure.servicebus, microsoftonline,,를 포함 합니다. BypassList는 ' *. windows.net '와 같은 와일드 카드를 지원 하지 않지만 windows.net는 무시 해도 좋습니다. 
+ProxyInfo는 다음 템플릿 [proxy] Address = http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. windowsazure.servicebus, microsoftonline,,를 포함 합니다. BypassList는 ' *. windows.net '와 같은 와일드 카드를 지원 하지 않지만 windows.net는 무시 해도 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계:
-- Azure Vm 복제에 대 한 [네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md) 을 읽습니다.
+- Azure VM 복제를 위한 [네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 알아봅니다.
 - [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 재해 복구를 배포합니다.
