@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
 ms.openlocfilehash: 75fa2071f2ad54292e1cff6856de2091b74d3187
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101538"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
@@ -76,7 +76,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 자격 증명 모음 내에 포함된 암호에 대한 URL이 필요합니다. 이룰 통해 Microsoft.Compute 리소스 공급자는 암호를 다운로드하고 VM에서 해당 인증서를 만들 수 있습니다.
 
 > [!NOTE]
-> 암호의 URL에는 버전도 포함되어야 합니다. URL 예제는 https:/contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve 아래\/와 같습니다.
+> 암호의 URL에는 버전도 포함되어야 합니다. URL 예제는 https:/contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve 아래와 같습니다. \/
 
 #### <a name="templates"></a>템플릿
 아래 코드를 사용하여 템플릿의 URL에 대한 링크를 가져올 수 있습니다.

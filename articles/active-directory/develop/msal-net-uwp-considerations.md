@@ -14,20 +14,20 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652685"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>MSAL.NET와 함께 유니버설 Windows 플랫폼 사용 시 고려 사항
 MSAL.NET에서 UWP (유니버설 Windows 플랫폼)를 사용 하는 응용 프로그램 개발자는이 문서에서 제공 하는 개념을 고려해 야 합니다.
 
 ## <a name="the-usecorporatenetwork-property"></a>UseCorporateNetwork 속성
-WinRT (Windows 런타임) 플랫폼 `PublicClientApplication` 에서에는 부울 속성이 `UseCorporateNetwork`있습니다. 사용자가 페더레이션된 Azure Active Directory (Azure AD) 테 넌 트를 포함 하는 계정에 로그인 한 경우이 속성을 사용 하 여 Windows 8.1 응용 프로그램 및 UWP 응용 프로그램에서 IWA (Windows 통합 인증)의 이점을 누릴 수 있습니다. 운영 체제에 로그인 한 사용자는 SSO (Single Sign-On)를 사용할 수도 있습니다. `UseCorporateNetwork` 속성을 설정 하면 MSAL.NET는 WAB (web authentication broker)를 사용 합니다.
+WinRT (Windows 런타임) 플랫폼에서에는 `PublicClientApplication` 부울 속성이 `UseCorporateNetwork` 있습니다. 사용자가 페더레이션된 Azure Active Directory (Azure AD) 테 넌 트를 포함 하는 계정에 로그인 한 경우이 속성을 사용 하 여 Windows 8.1 응용 프로그램 및 UWP 응용 프로그램에서 IWA (Windows 통합 인증)의 이점을 누릴 수 있습니다. 운영 체제에 로그인 한 사용자는 SSO (Single Sign-On)를 사용할 수도 있습니다. 속성을 설정 하면 `UseCorporateNetwork` MSAL.NET는 WAB (web authentication broker)를 사용 합니다.
 
 > [!IMPORTANT]
-> `UseCorporateNetwork` 속성을 true로 설정 하면 응용 프로그램 개발자가 응용 프로그램에서 IWA를 사용 하도록 설정 했다고 가정 합니다. IWA를 사용 하도록 설정 하려면
+> 속성을 `UseCorporateNetwork` true로 설정 하면 응용 프로그램 개발자가 응용 프로그램에서 IWA를 사용 하도록 설정 했다고 가정 합니다. IWA를 사용 하도록 설정 하려면
 > - UWP 응용 프로그램의 `Package.appxmanifest` **기능** 탭에서 다음 기능을 사용 하도록 설정 합니다.
 >   - **엔터프라이즈 인증**
 >   - **개인 네트워크(클라이언트 및 서버)**
@@ -61,7 +61,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 ## <a name="next-steps"></a>다음 단계
 다음 샘플에서는 자세한 정보를 제공 합니다.
 
-샘플 | 플랫폼 | Description 
+예제 | 플랫폼 | Description 
 |------ | -------- | -----------|
 |[활성-디렉터리-dotnet-v2-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | MSAL.NET를 사용 하는 UWP 클라이언트 응용 프로그램입니다. Azure AD 2.0 끝점을 사용 하 여 인증 하는 사용자에 대 한 Microsoft Graph 액세스 합니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[활성-디렉터리-xamarin-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

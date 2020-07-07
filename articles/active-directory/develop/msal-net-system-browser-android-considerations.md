@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652710"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>MSAL.NET 사용에 대 한 Xamarin Android 시스템 브라우저 고려 사항
@@ -45,7 +45,7 @@ MSAL.NET 2.4.0 Preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 | 디바이스 | 브라우저     |  결과  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/One + | Chrome\* | 합격|
-| Huawei/One + | Edge\* | 합격|
+| Huawei/One + | Microsoft Edge\* | 합격|
 | Huawei/One + | Firefox\* | 합격|
 | Huawei/One + | 감\* | 합격|
 | 1 + | Ecosia\* | 합격|
@@ -64,10 +64,10 @@ MSAL.NET 2.4.0 Preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 
 ## <a name="known-issues"></a>알려진 문제
 
-사용자가 장치에서 브라우저를 사용 하도록 설정 하지 않은 경우 MSAL.NET는 `AndroidActivityNotFound` 예외를 throw 합니다.  
+사용자가 장치에서 브라우저를 사용 하도록 설정 하지 않은 경우 MSAL.NET는 예외를 throw `AndroidActivityNotFound` 합니다.  
   - **완화**방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
 
-인증이 실패 하는 경우 (예: DuckDuckGo를 사용 하 여 인증을 시작 하 `AuthenticationCanceled MsalClientException`는 경우) MSAL.NET가를 반환 합니다. 
+인증이 실패 하는 경우 (예: DuckDuckGo를 사용 하 여 인증을 시작 하는 경우) MSAL.NET가를 반환 `AuthenticationCanceled MsalClientException` 합니다. 
   - **근본 문제**: 장치에서 사용자 지정 탭을 지 원하는 브라우저를 사용할 수 없습니다. 인증을 완료할 수 없는 브라우저를 사용 하 여 인증을 시작 했습니다. 
   - **완화**방법: 장치에서 브라우저를 사용 하도록 설정 하도록 사용자에 게 요청 합니다. 사용자 지정 탭을 지 원하는 브라우저를 권장 합니다.
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494522"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
@@ -32,7 +32,7 @@ ms.locfileid: "73494522"
 
         yarn application –list
 
-    작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. [Jupyter Notebook](https://jupyter.org/)에서 시작 된 Livy 세션의 경우 작업 이름은로 `remotesparkmagics_*`시작 합니다.
+    작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. [Jupyter Notebook](https://jupyter.org/)에서 시작 된 Livy 세션의 경우 작업 이름은로 시작 `remotesparkmagics_*` 합니다.
 
 3. 다음 명령을 실행하여 해당 작업을 중지합니다.
 
@@ -81,7 +81,7 @@ Jupyter 노트북 파일 이름에는 비 ASCII 문자를 사용하지 마세요
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>더 큰 Notebook을 로드하는 중 오류
 
-크기가 더 큰 노트북을 **`Error loading notebook`** 로드 하면 오류가 표시 될 수 있습니다.  
+크기가 더 큰 노트북을 로드 하면 오류가 표시 될 수 있습니다 **`Error loading notebook`** .  
 
 **조치**
 
@@ -91,7 +91,7 @@ SSH를 사용하여 클러스터에 연결한 경우 Notebook을 사용자의 �
 
 나중에 이 오류가 발생하지 않도록 하려면 몇 가지 모범 사례를 따라야 합니다.
 
-* 노트북 크기를 작게 유지하는 것이 중요합니다. Jupyter에 다시 전송된 Spark 작업의 출력은 노트북에 보관됩니다.  일반적으로는 Jupyter를 사용 하 여 대량 RDD 또는 `.collect()` 데이터 프레임에서 실행 하지 않도록 하는 것이 좋습니다. 대신 RDD의 내용을 피킹 하려면 출력이 너무 커지지 않도록 또는 `.take()` `.sample()` 를 실행 하는 것이 좋습니다.
+* 노트북 크기를 작게 유지하는 것이 중요합니다. Jupyter에 다시 전송된 Spark 작업의 출력은 노트북에 보관됩니다.  일반적으로는 Jupyter를 사용 하 여 대량 RDD 또는 데이터 프레임에서 실행 하지 않도록 하는 것이 가장 좋습니다 `.collect()` . 대신 RDD의 내용을 피킹 (peeking) 하려는 경우 `.take()` 출력이 너무 커지지 않도록 또는를 실행 하는 것이 좋습니다 `.sample()` .
 * 또한 노트북을 저장할 때 모든 출력을 지워서 크기를 줄입니다.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>노트북 초기 시작이 예상보다 오래 걸리는 경우
@@ -117,7 +117,7 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 ## <a name="see-also"></a>참고 항목
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 

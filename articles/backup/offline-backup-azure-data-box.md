@@ -4,13 +4,13 @@ description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery S
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160958"
 ---
-# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용 하 여 오프 라인 백업 Azure Backup
+# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
 [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) 를 사용 하 여 네트워크를 사용 하지 않고 Recovery Services 자격 증명 모음에 대 한 MARS (large 초기 Microsoft Azure Recovery Services) 백업을 오프 라인으로 초기값으로 지정할 수 있습니다. 이 프로세스는 대기 시간이 긴 네트워크를 통해 많은 양의 백업 데이터를 온라인으로 이동 하는 시간 및 네트워크 대역폭을 절약 합니다. 이 기능은 현재 미리 보기 상태입니다. Azure Data Box을 기반으로 하는 오프 라인 백업은 [Azure Import/Export 서비스를 기반으로 하는 오프 라인 백업에](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export)비해 두 가지 이점을 제공 합니다.
 
@@ -51,12 +51,12 @@ Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하
 | >7.2 TB 및 <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
 * 일반적인 압축 요금은 10%에서 20% 사이입니다. <br>
-* * 단일 MARS 서버에 대해 80 TB 이상의 초기 백업 데이터를 필요로 하는 경우에는에 문의 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)하세요.
+* * 단일 MARS 서버에 대해 80 TB 이상의 초기 백업 데이터를 필요로 하는 경우에는에 문의 하세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 >[!IMPORTANT]
 >단일 서버에서 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함 되어야 하며, 동일한 또는 다른 Sku의 여러 장치 간에 공유할 수 없습니다. 그러나 Azure Data Box 장치는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 
@@ -124,7 +124,7 @@ Mars 및 Azure Data Box를 사용 하는 오프 라인 백업 프로세스를 �
 
 1. MARS 에이전트의 이전 설치를 모두 제거 해야 합니다.
 1. [이 웹 사이트](https://aka.ms/azurebackup_agent)에서 최신 MARS 에이전트를 다운로드 합니다.
-1. 을 *실행 하*고, 백업을 저장 하려는 Recovery Services 자격 증명 모음에 [에이전트를 설치 하 고 등록](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) *하는 단계만 수행* 합니다.
+1. *MARSAgentInstaller.exe*를 실행 하 고 백업을 저장 하려는 Recovery Services 자격 증명 모음에 [에이전트를 설치 하 고 등록](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) *하는 단계만 수행 합니다* .
 
    > [!NOTE]
    > Recovery Services 자격 증명 모음은 Azure Data Box 작업과 동일한 구독에 있어야 합니다.
@@ -153,8 +153,8 @@ MARS 에이전트는 로컬 시스템 컨텍스트에서 작동 하므로 Azure 
 NFS 프로토콜을 사용 하 여 Data Box 장치를 로컬 시스템으로 탑재할 수 있도록 하려면 다음을 수행 합니다.
 
 1. MARS 에이전트가 설치 된 Windows server에서 NFS 기능에 클라이언트를 사용 하도록 설정 합니다. 대체 원본 *WIM: D: \Source\install\install.wim: 4*를 지정 합니다.
-1. MARS 에이전트가 설치 <https://download.sysinternals.com/files/PSTools.zip> 된 서버에서 PSExec를 다운로드 합니다.
-1. 관리자 권한 명령 프롬프트를 열고 *PSExec* 를 현재 디렉터리로 포함 하는 디렉터리를 사용 하 여 다음 명령을 실행 합니다.
+1. MARS 에이전트가 설치 된 서버에서 PSExec를 다운로드 <https://download.sysinternals.com/files/PSTools.zip> 합니다.
+1. 관리자 권한 명령 프롬프트를 열고 *PSExec.exe* 를 현재 디렉터리로 포함 하는 디렉터리를 사용 하 여 다음 명령을 실행 합니다.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
@@ -195,7 +195,7 @@ NFS 프로토콜을 사용 하 여 Data Box 장치를 로컬 시스템으로 탑
 
     ![구독 ID에 대 한 Data Box 작업 페치](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Data Box 디스크의 압축을 풀고 연결 하 고 잠금을 해제 한 올바른 Data Box 순서를 선택 합니다. **새로 만들기**를 선택합니다.
+1. Data Box 디스크의 압축을 풀고 연결 하 고 잠금을 해제 한 올바른 Data Box 순서를 선택 합니다. **다음**을 선택합니다.
 
     ![Data Box 주문 선택](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -212,9 +212,9 @@ NFS 프로토콜을 사용 하 여 Data Box 장치를 로컬 시스템으로 탑
     >
     >![Azure Data Box 디스크의 루트 디렉터리](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >예를 들어 디스크의 `\\mydomain\myserver\disk1\` 경로가이 고 *Disk1* 에 *pageblob*이라는 디렉터리가 포함 되어 있는 경우 MARS 에이전트 마법사 페이지에서 입력 하는 경로는 `\\mydomain\myserver\disk1\`입니다.
+    >예를 들어 디스크의 경로가이 `\\mydomain\myserver\disk1\` 고 *Disk1* 에 *pageblob*이라는 디렉터리가 포함 되어 있는 경우 MARS 에이전트 마법사 페이지에서 입력 하는 경로는 `\\mydomain\myserver\disk1\` 입니다.
     >
-    >[Azure Data Box 100-TB 장치를 설정한](#set-up-azure-data-box-devices)경우 장치에 대 한 `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` 네트워크 경로로를 입력 합니다.
+    >[Azure Data Box 100-TB 장치를 설정한](#set-up-azure-data-box-devices)경우 `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` 장치에 대 한 네트워크 경로로를 입력 합니다.
 
 1. **다음**을 선택 하 고 다음 페이지에서 **마침** 을 선택 하 Azure Data Box를 사용 하 여 오프 라인 백업 구성으로 백업 및 보존 정책을 저장 합니다.
 
@@ -269,7 +269,7 @@ Microsoft Azure Backup (MAB) 에이전트는 테 넌 트에서 사용자를 위�
 
 1. 설치 경로에서 **임시** 폴더를 엽니다. 기본 임시 폴더 경로는 *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*입니다. *Cbuicurr* 파일을 찾고 파일을 엽니다.
 
-1. *Cis Icurr* 파일에서 마지막 줄로 스크롤하고 문제가이 오류 메시지와 동일한 지 확인 `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`합니다.
+1. *Cis Icurr* 파일에서 마지막 줄로 스크롤하고 문제가이 오류 메시지와 동일한 지 확인 `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed` 합니다.
 
 ### <a name="workaround"></a>해결 방법
 
@@ -281,10 +281,10 @@ Microsoft Azure Backup (MAB) 에이전트는 테 넌 트에서 사용자를 위�
 
 #### <a name="step-2"></a>2단계
 
-다른 서버에 오프 라인 시드가 구성 되어 있지 않고 다른 서버가 `AzureOfflineBackup_<Azure User Id>` 응용 프로그램에 종속 되어 있지 않은 경우이 응용 프로그램을 삭제 합니다. **Azure Portal** > **Azure Active Directory**Azure Active Directory > **앱 등록**를 선택 합니다.
+다른 서버에 오프 라인 시드가 구성 되어 있지 않고 다른 서버가 응용 프로그램에 종속 되어 있지 않은 경우 `AzureOfflineBackup_<Azure User Id>` 이 응용 프로그램을 삭제 합니다. **Azure Portal**  >  **Azure Active Directory**  >  **앱 등록**를 선택 합니다.
 
 >[!NOTE]
-> 응용 프로그램에 `AzureOfflineBackup_<Azure User Id>` 다른 오프 라인 시드가 구성 되어 있지 않은지 확인 하 고 다른 서버가이 응용 프로그램에 종속 되어 있지 않은지 확인 하십시오. **공개 키** 섹션 아래의 **설정** > **키** 로 이동 합니다. 다른 공개 키를 추가 하지 않아야 합니다. 참조는 다음 스크린샷을 참조 하세요.
+> `AzureOfflineBackup_<Azure User Id>`응용 프로그램에 다른 오프 라인 시드가 구성 되어 있지 않은지 확인 하 고 다른 서버가이 응용 프로그램에 종속 되어 있지 않은지 확인 하십시오. **Settings**  >  **공개 키** 섹션 아래의 설정**키** 로 이동 합니다. 다른 공개 키를 추가 하지 않아야 합니다. 참조는 다음 스크린샷을 참조 하세요.
 >
 >![공개 키](./media/offline-backup-azure-data-box/public-keys.png)
 
@@ -292,23 +292,23 @@ Microsoft Azure Backup (MAB) 에이전트는 테 넌 트에서 사용자를 위�
 
 오프 라인 백업에 대해 구성 하려는 서버에서 다음 작업을 수행 합니다.
 
-1. **컴퓨터 인증서 응용 프로그램** > 관리**개인** 탭으로 이동 하 여 이름이 `CB_AzureADCertforOfflineSeeding_<ResourceId>`인 인증서를 찾습니다.
+1. **컴퓨터 인증서 응용 프로그램 관리**  >  **개인** 탭으로 이동 하 여 이름이 인 인증서를 찾습니다 `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
 2. 인증서를 선택 하 고, **모든 작업**을 마우스 오른쪽 단추로 클릭 하 고, 개인 키 없이 .cer 형식으로 **내보내기** 를 선택 합니다.
 
-3. 2 단계에서 언급 한 Azure offline backup 응용 프로그램으로 이동 합니다. **설정** > **Keys**키 > **공개 키 업로드**를 선택 합니다. 이전 단계에서 내보낸 인증서를 업로드 합니다.
+3. 2 단계에서 언급 한 Azure offline backup 응용 프로그램으로 이동 합니다. **설정**  >  **키**  >  **공개 키 업로드**를 선택 합니다. 이전 단계에서 내보낸 인증서를 업로드 합니다.
 
     ![공개 키 업로드](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. 서버에서 실행 창에 **regedit** 를 입력 하 여 레지스트리를 엽니다.
 
-5. 레지스트리 *컴퓨터 \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.로 이동 합니다.* **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 `AzureADAppCertThumbprint_<Azure User Id>`인 새 문자열 값을 추가 합니다.
+5. 레지스트리 *컴퓨터 \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.로 이동 합니다.* **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
 
     >[!NOTE]
     > Azure 사용자 ID를 가져오려면 다음 작업 중 하나를 수행 합니다.
     >
     >- Azure에 연결 된 PowerShell에서 `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` 명령을 실행 합니다.
-    > - 이름이 *Currentuserid*인 레지스트리 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` 경로로 이동 합니다.
+    > - `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup`이름이 *currentuserid*인 레지스트리 경로로 이동 합니다.
 
 6. 이전 단계에서 추가 된 문자열을 마우스 오른쪽 단추로 클릭 하 고 **수정**을 선택 합니다. 값에서 2 단계에서 내보낸 인증서의 지문을 제공 합니다. **확인**을 선택합니다.
 
@@ -318,4 +318,4 @@ Microsoft Azure Backup (MAB) 에이전트는 테 넌 트에서 사용자를 위�
 
 ## <a name="questions"></a>질문
 
-직면 한 문제에 대 한 질문이 나 설명은를 문의 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)하세요.
+직면 한 문제에 대 한 질문이 나 설명은를 문의 하세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .

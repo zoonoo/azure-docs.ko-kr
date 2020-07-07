@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: allensu
 ms.openlocfilehash: 0f71f845ef3209146ead79cafae2f3aa5c8c6d7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144515"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
@@ -35,7 +35,7 @@ ms.locfileid: "82144515"
 
 공용 IP 주소 리소스를 만들 때 Azure는 지역에서 사용 되는 모든 범위에서 사용 가능한 공용 IP 주소를 할당 합니다. Azure에서 주소가 할당되면 주소가 무엇인지 알 수 있지만 Azure에서 주소가 할당될 때까지 어떤 주소가 할당될지 알 수 없습니다. 이렇게 되면 예를 들어 내가 또는 나의 비즈니스 파트너가 특정 IP 주소를 허용하는 방화벽 규칙을 설정하는 경우 문제가 될 수 있습니다. 리소스에 공용 IP 주소를 새로 할당할 때마다, 방화벽 규칙에 주소가 추가되어야 합니다. 공용 IP 주소 접두사를 통해 리소스에 주소를 할당하면 전체 범위가 규칙에 추가될 수 있기 때문에 주소 중 하나를 할당할 때마다 방화벽 규칙을 업데이트할 필요가 없습니다.
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>장점
 
 - 알려진 범위에서 공용 IP 주소 리소스를 만들 수 있습니다.
 - 내가 또는 나의 비즈니스 파트너가 현재 할당된 공용 IP 주소뿐만 아니라 아직 할당되지 않은 주소가 포함된 범위로 방화벽 규칙을 생성할 수 있습니다. 이렇게 하면 새 리소스에 IP 주소를 할당할 때 방화벽 규칙을 변경할 필요가 없습니다.

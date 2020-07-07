@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82120783"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Python 3 사용 Linux Azure Virtual Machines 시스템에서 VM 확장을 사용 하는 문제
@@ -28,12 +28,12 @@ ms.locfileid: "82120783"
 >
 > 프로덕션 환경에 **python** 2.x를 설치 하기 전에 python 2.x의 장기 지원, 특히 보안 업데이트를 받을 수 있는 기능을 고려 합니다. 언급 된 확장 중 일부를 비롯 한 제품 ( **python 3.8** 지원으로 업데이트)은 python 2.x 사용을 중단 해야 합니다.
 
-일부 Linux 배포판은 Python 3.8로 전환 되 고 Python 용 `/usr/bin/python` 레거시 entrypoint를 모두 제거 했습니다. 이러한 전환은 다음 조건에 따라 특정 VM (가상 머신) 확장의 자동화 된 자동 배포에 영향을 줍니다.
+일부 Linux 배포판은 Python 3.8로 전환 되 고 `/usr/bin/python` python 용 레거시 entrypoint를 모두 제거 했습니다. 이러한 전환은 다음 조건에 따라 특정 VM (가상 머신) 확장의 자동화 된 자동 배포에 영향을 줍니다.
 
 - Python 3.x 지원으로 전환 중인 확장
-- 레거시 `/usr/bin/python` entrypoint를 사용 하는 확장
+- 레거시 entrypoint를 사용 하는 확장 `/usr/bin/python`
 
-**Python** 3.x로 전환 된 Linux 배포 사용자는 해당 vm에 확장을 배포 `/usr/bin/python` 하기 전에 레거시 entrypoint가 존재 하는지 확인 해야 합니다. 그렇지 않으면 확장 배포가 실패할 수 있습니다. 
+**Python** 3.x로 전환 된 Linux 배포 사용자는 `/usr/bin/python` 해당 vm에 확장을 배포 하기 전에 레거시 entrypoint가 존재 하는지 확인 해야 합니다. 그렇지 않으면 확장 배포가 실패할 수 있습니다. 
 
 - 영향을 받는 보증 Linux 배포판에는 **Ubuntu Server 20.04 lts** 및 **ubuntu Pro 20.04 lts**가 포함 됩니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "82120783"
 
 앞의 요약에서 설명한 알려진 영향을 받는 시나리오에 확장을 배포 하기 전에 다음과 같은 일반적인 권장 사항을 고려 합니다.
 
-1.  확장을 배포 하기 전에 Linux 배포 `/usr/bin/python` 공급 업체에서 제공 하는 방법을 사용 하 여 symlink를 복원 합니다.
+1.  확장을 배포 하기 전에 `/usr/bin/python` Linux 배포 공급 업체에서 제공 하는 방법을 사용 하 여 symlink를 복원 합니다.
 
     - 예를 들어 **Python 2.7**의 경우 다음을 사용 합니다.`sudo apt update && sudo apt install python-is-python2`
 

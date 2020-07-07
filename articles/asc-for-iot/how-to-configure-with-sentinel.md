@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: fe8e4c1b08f96e5f6b2fc7649f7a4361616b7c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311311"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>IoT 용 Azure Security Center의 데이터를 Azure 센티널 (미리 보기)에 연결
@@ -30,13 +30,13 @@ ms.locfileid: "81311311"
 이 가이드에서는 IoT 데이터에 대 한 Azure Security Center를 Azure 센티널에 연결 하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * 연결 설정
 > * Log Analytics 경고 보기
 
 IoT에 대 한 Azure Security Center에서 경고를 연결 하 고 Azure 센티널로 직접 스트리밍합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 작업 영역 **읽기** 및 **쓰기** 권한이 있어야 합니다.
 - **IoT에 대 한 Azure Security Center** 를 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.
@@ -52,7 +52,7 @@ IoT에 대 한 Azure Security Center에서 경고를 연결 하 고 Azure 센티
 1. 오른쪽 창의 맨 아래에서 **커넥터 페이지 열기**를 클릭 합니다.
 1. 연결을 클릭 하 고, 경고 및 장치 경고가 Azure 센티널로 스트리밍할 각 IoT Hub 구독 옆에 있는 **연결**을 클릭 합니다.
     - IoT에 대 한 Azure Security Center 해당 허브에서 사용 하도록 설정 되지 않은 경우 활성화 경고 메시지가 표시 됩니다. **사용** 링크를 클릭 하 여 서비스를 시작 하 고 사용 하도록 설정 합니다.
-1. IoT에 대 한 경고를 Azure Security Center 하 여 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 결정할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 생성 된 경고에서 인시던트를 자동으로 생성 하는 규칙을 사용 하도록 설정 합니다.  이 규칙은 **분석** > **활성** 규칙에서 변경 하거나 편집할 수 있습니다.
+1. IoT에 대 한 경고를 Azure Security Center 하 여 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 결정할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 생성 된 경고에서 인시던트를 자동으로 생성 하는 규칙을 사용 하도록 설정 합니다.  이 규칙은 **분석**  >  **활성** 규칙에서 변경 하거나 편집할 수 있습니다.
 
 > [!NOTE]
 >연결 변경 후 허브 목록을 새로 고치는 데 10 초 이상 걸릴 수 있습니다.
@@ -61,7 +61,7 @@ IoT에 대 한 Azure Security Center에서 경고를 연결 하 고 Azure 센티
 
 Log Analytics에서 관련 스키마를 사용 하 여 IoT 경고에 대 한 Azure Security Center를 표시 하려면 다음을 수행 합니다.
 
-1. **Logs** > **securityinsights** > **securityinsights**를 열거나 **securityinsights**를 검색 합니다.
+1. **Logs**  >  **securityinsights**  >  **securityinsights**를 열거나 **securityinsights**를 검색 합니다.
 1. 다음 kql 필터를 사용 하 여 IoT 생성 된 경고에 대 한 Azure Security Center만 표시 하도록 필터링 합니다.
 
 ```kusto

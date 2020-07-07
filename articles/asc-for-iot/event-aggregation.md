@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311409"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>IoT 이벤트 집계를 위한 Azure Security Center
@@ -69,7 +69,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 
 **Azureiotsecurity** 모듈의 모듈 쌍 id의 [에이전트 구성 개체](how-to-agent-configuration.md) 내에서 IoT 이벤트 집계에 대 한 Azure Security Center 구성을 변경 합니다.
 
-| 구성 이름 | 가능한 값 | 세부 정보 | 설명 |
+| 구성 이름 | 가능한 값 | 설명 | 설명 |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | 프로세스 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |

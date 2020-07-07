@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062210"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 질문 전달
 * 수신 메일 처리
 
-자세한 내용은 또는 SendGrid의 [https://sendgrid.com](https://sendgrid.com) [c # 라이브러리][sendgrid-csharp] GitHub 리포지토리를 참조 하세요.
+자세한 내용은 [https://sendgrid.com](https://sendgrid.com) 또는 SendGrid의 [c # 라이브러리][sendgrid-csharp] GitHub 리포지토리를 참조 하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 [SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 애플리케이션에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
 
 > [!NOTE]
-> Visual Studio 2015 이전 버전의 Visual Studio를 실행 하는 경우 NuGet을 설치 하려면를 방문 [https://www.nuget.org](https://www.nuget.org)하 여 **nuget 설치** 단추를 클릭 합니다.
+> Visual Studio 2015 이전 버전의 Visual Studio를 실행 하는 경우 NuGet을 설치 하려면를 방문 하 [https://www.nuget.org](https://www.nuget.org) 여 **nuget 설치** 단추를 클릭 합니다.
 >
 >
 

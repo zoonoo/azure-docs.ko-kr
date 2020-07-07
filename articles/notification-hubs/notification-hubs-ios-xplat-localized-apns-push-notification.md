@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72385650"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 지역화 된 푸시 알림을 iOS로 보내기
@@ -73,7 +73,7 @@ ms.locfileid: "72385650"
 
 템플릿에 대한 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [특정 iOS 디바이스에 푸시 알림](notification-hubs-ios-xplat-segmented-apns-push-notification.md) 자습서를 완료하고 이 자습서는 해당 코드에서 직접 빌드하므로 코드를 사용할 수 있도록 합니다.
 * Visual Studio 2019은 선택 사항입니다.
@@ -82,7 +82,7 @@ ms.locfileid: "72385650"
 
 이 섹션에서는 템플릿을 사용하여 지역화된 속보를 보내도록 [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정합니다.
 
-`MainStoryboard_iPhone.storyboard`에서 영어, 프랑스어 및 북경어의 세 가지 언어로 분할 된 컨트롤을 추가 합니다.
+에서 `MainStoryboard_iPhone.storyboard` 영어, 프랑스어 및 북경어의 세 가지 언어로 분할 된 컨트롤을 추가 합니다.
 
 ![iOS UI 스토리보드 만들기][13]
 
@@ -92,7 +92,7 @@ ms.locfileid: "72385650"
 
 ## <a name="build-the-ios-app"></a>iOS 앱 빌드
 
-1. `Notification.h`에서 `retrieveLocale` 메서드를 추가 하 고 다음 코드와 같이 저장소 및 구독 메서드를 수정 합니다.
+1. 에서 `Notification.h` 메서드를 추가 `retrieveLocale` 하 고 다음 코드와 같이 저장소 및 구독 메서드를 수정 합니다.
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

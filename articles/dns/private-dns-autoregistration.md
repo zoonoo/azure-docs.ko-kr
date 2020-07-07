@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71961231"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Azure DNS 개인 영역의 이라고 기능
@@ -25,7 +25,7 @@ Azure DNS 개인 영역 자동 등록 기능을 사용 하면 가상 네트워�
 
 ![자동 등록 사용](./media/privatedns-concepts/enable-autoregistration.png)
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 * 이라고는 가상 컴퓨터에 대해서만 작동 합니다. 내부 부하 분산 장치와 같은 다른 모든 리소스의 경우 가상 네트워크에 연결 된 개인 DNS 영역에서 DNS 레코드를 수동으로 만들 수 있습니다.
 * DNS 레코드는 주 가상 컴퓨터 NIC에 대해서만 자동으로 생성 됩니다. 가상 컴퓨터에 NIC가 둘 이상 있는 경우 다른 네트워크 인터페이스에 대 한 DNS 레코드를 수동으로 만들 수 있습니다.

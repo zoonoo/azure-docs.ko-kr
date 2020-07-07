@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf2ccd93a94036c6ab5b6224456cd1f5a13239c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77619295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855015"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>빠른 시작: .NET Framework 앱에 기능 플래그 추가
 
@@ -105,11 +105,15 @@ ms.locfileid: "77619295"
 
 1. **ConnectionString**이라는 환경 변수를 App Configuration 저장소의 연결 문자열로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행합니다.
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. 
 

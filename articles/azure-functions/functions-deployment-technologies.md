@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
 ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82735303"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
@@ -21,7 +21,7 @@ ms.locfileid: "82735303"
 
 Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호스팅을 지원 합니다. 현재 세 가지 호스팅 요금제를 사용할 수 있습니다.
 
-+ [소비율](functions-scale.md#consumption-plan)
++ [Consumption](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [전용 (App Service)](functions-scale.md#app-service-plan)
 
@@ -51,8 +51,8 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 트리거를 변경 하는 경우 함수 인프라에서 변경 사항을 알고 있어야 합니다. 여러 배포 기술에 대 한 동기화가 자동으로 수행 됩니다. 그러나 일부 경우에는 트리거를 수동으로 동기화 해야 합니다. 외부 패키지 URL, 로컬 Git, 클라우드 동기화 또는 FTP를 참조 하 여 업데이트를 배포할 때 수동으로 트리거를 동기화 해야 합니다. 다음 세 가지 방법 중 하나로 트리거를 동기화 할 수 있습니다.
 
 * Azure Portal에서 함수 앱을 다시 시작 합니다.
-* [마스터 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 사용 하 여 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` HTTP POST 요청을 보냅니다.
-* 에 HTTP POST 요청을 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`보냅니다. 자리 표시자를 구독 ID, 리소스 그룹 이름 및 함수 앱의 이름으로 바꿉니다.
+* `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` [마스터 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 사용 하 여 HTTP POST 요청을 보냅니다.
+* 에 HTTP POST 요청을 보냅니다 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01` . 자리 표시자를 구독 ID, 리소스 그룹 이름 및 함수 앱의 이름으로 바꿉니다.
 
 ### <a name="remote-build"></a>원격 빌드
 
@@ -65,7 +65,7 @@ Zip 배포 후에 수신 하는 코드에서 자동으로 빌드를 수행할 �
 
 Windows에서 실행 되는 모든 함수 앱에는 작은 관리 앱 인 SCM (또는 [Kudu](https://github.com/projectkudu/kudu)) 사이트가 있습니다. 이 사이트는 Azure Functions에 대 한 대부분의 배포 및 빌드 논리를 처리 합니다.
 
-앱을 Windows에 배포할 때 (c #) 또는 `dotnet restore` `npm install` (JavaScript)와 같은 언어별 명령이 실행 됩니다.
+앱을 Windows에 배포할 때 `dotnet restore` (c #) 또는 (JavaScript)와 같은 언어별 명령이 `npm install` 실행 됩니다.
 
 #### <a name="remote-build-on-linux"></a>Linux에서 원격 빌드
 
@@ -94,7 +94,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 
 외부 패키지 URL을 사용 하 여 함수 앱이 포함 된 원격 패키지 (.zip) 파일을 참조할 수 있습니다. 파일이 제공 된 URL에서 다운로드 되 고 앱이 [패키지 모드에서 실행](run-functions-from-deployment-package.md) 될 때 실행 됩니다.
 
->__사용 방법:__ 응용 `WEBSITE_RUN_FROM_PACKAGE` 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다. 
+>__사용 방법:__ `WEBSITE_RUN_FROM_PACKAGE`응용 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다. 
 >
 >Azure Blob storage를 사용 하는 경우 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 이 포함 된 개인 컨테이너를 사용 하 여 패키지에 대 한 액세스 기능을 제공 합니다. 응용 프로그램이 다시 시작 될 때마다 콘텐츠의 복사본을 페치합니다. 참조는 응용 프로그램의 수명 동안 유효 해야 합니다.
 
@@ -106,7 +106,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 >__사용 방법:__ 즐겨 사용 하는 클라이언트 도구를 사용 하 여 배포 합니다. [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure Functions Core Tools](functions-run-local.md#project-file-deployment)를 사용 하 여 명령줄에서 배포 합니다. 기본적으로 이러한 도구는 zip 배포를 사용 하 고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. 핵심 도구와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build) 를 사용 하도록 설정 합니다. .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
->Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 `1`설정 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다. 
+>Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 설정 `1` 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다. 
 
 >__사용 시기:__ Zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
 
@@ -129,7 +129,7 @@ Azure의 Windows에서 실행 되는 함수 앱을 포함 하 여 패키지를 �
 
 >__사용 방법:__ [Azure Functions Visual Studio tools를](functions-create-your-first-function-visual-studio.md)사용 합니다. **패키지 파일에서 실행 (권장)** 확인란의 선택을 취소 합니다.
 >
->[웹 배포 3.6](https://www.iis.net/downloads/microsoft/web-deploy) 를 다운로드 하 고 직접 호출할 `MSDeploy.exe` 수도 있습니다.
+>[웹 배포 3.6](https://www.iis.net/downloads/microsoft/web-deploy) 를 다운로드 하 고 직접 호출할 수도 있습니다 `MSDeploy.exe` .
 
 >__사용 시기:__ 웹 배포 지원 되며 문제가 없지만 기본 메커니즘은 [패키지에서 실행이 활성화 된 zip 배포](#zip-deploy)입니다. 자세히 알아보려면 [Visual Studio 개발 가이드](functions-develop-vs.md#publish-to-azure)를 참조 하세요.
 
@@ -169,7 +169,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 포털 기반 편집기에서 함수 앱에 있는 파일 (기본적으로 변경 내용을 저장할 때마다 배포)을 직접 편집할 수 있습니다.
 
->__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](functions-create-first-azure-function.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예 `WEBSITE_RUN_FROM_PACKAGE`:)을 제거 하면 됩니다. 
+>__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](functions-create-first-azure-function.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예:)을 제거 하면 `WEBSITE_RUN_FROM_PACKAGE` 됩니다. 
 
 >__사용 시기:__ 포털은 Azure Functions를 시작 하는 좋은 방법입니다. 보다 강력한 개발 작업을 수행 하려면 다음 클라이언트 도구 중 하나를 사용 하는 것이 좋습니다.
 >
@@ -188,7 +188,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 | JavaScript(Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python(미리 보기) | | | | | | |
 | PowerShell(미리 보기) |✔|✔|✔| | | |
-| TypeScript (node.js) | | | | | | |
+| TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup>포털 편집은 프리미엄 및 전용 요금제를 사용 하는 Linux의 함수에 대 한 HTTP 및 타이머 트리거에 대해서만 사용할 수 있습니다.
 

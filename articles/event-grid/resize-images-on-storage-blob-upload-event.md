@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e46aa28d770cf561df40a0f4b40ef39a70e35687
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560507"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367940"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -62,7 +62,11 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 
 이전에 사용자의 구독에서 Event Grid 리소스 공급자를 등록한 적이 없는 경우, 등록되었는지 확인합니다.
 
-```azurecli-interactive
+```bash
+az provider register --namespace Microsoft.EventGrid
+```
+
+```powershell
 az provider register --namespace Microsoft.EventGrid
 ```
 
@@ -72,22 +76,43 @@ Azure Functions에는 일반 스토리지 계정이 필요합니다. 이전 자�
 
 1. 이전 자습서에서 만든 리소스 그룹 이름을 보관하는 변수를 설정합니다.
 
-    ```azurecli-interactive
+    ```bash
     resourceGroupName="myResourceGroup"
     ```
-2. 만들 리소스의 위치에 보유할 변수를 설정합니다. 
 
-    ```azurecli-interactive
+    ```powershell
+    $resourceGroupName="myResourceGroup"
+    ```
+
+1. 만들 리소스의 위치에 보유할 변수를 설정합니다. 
+
+    ```bash
     location="eastus"
-    ```    
-3. Azure Functions에 필요한 새 스토리지 계정 이름에 대한 변수를 설정합니다.
-    ```azurecli-interactive
+    ```
+
+    ```powershell
+    $location="eastus"
+    ```
+
+1. Azure Functions에 필요한 새 스토리지 계정 이름에 대한 변수를 설정합니다.
+
+    ```bash
     functionstorage="<name of the storage account to be used by the function>"
     ```
-4. Azure 함수에 대한 스토리지 계정을 만듭니다.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionstorage="<name of the storage account to be used by the function>"
+    ```
+
+1. Azure 함수에 대한 스토리지 계정을 만듭니다.
+
+    ```bash
     az storage account create --name $functionstorage --location $location \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
+    ```
+
+    ```powershell
+    az storage account create --name $functionstorage --location $location `
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -99,14 +124,25 @@ Azure Functions에는 일반 스토리지 계정이 필요합니다. 이전 자�
 
 1. 만들려는 함수 앱의 이름을 지정합니다.
 
-    ```azurecli-interactive
+    ```bash
     functionapp="<name of the function app>"
     ```
-2. Azure 함수를 만듭니다.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionapp="<name of the function app>"
+    ```
+
+1. Azure 함수를 만듭니다.
+
+    ```bash
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location $location \
+      --functions-version 2
+    ```
+
+    ```powershell
+    az functionapp create --name $functionapp --storage-account $functionstorage `
+      --resource-group $resourceGroupName --consumption-plan-location $location `
       --functions-version 2
     ```
 
@@ -118,7 +154,7 @@ Azure Functions에는 일반 스토리지 계정이 필요합니다. 이전 자�
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-```azurecli-interactive
+```bash
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -127,9 +163,18 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
+```powershell
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails `
+  THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-```azurecli-interactive
+```bash
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -140,6 +185,20 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
   AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
   AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+  AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+```powershell
+$blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName `
+  -n $blobStorageAccount --query [0].value --output tsv)
+
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails `
+  AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
+  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey `
   AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
@@ -155,9 +214,15 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 
 샘플 C# 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize)에서 사용할 수 있습니다. 이 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다.
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
   --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+```
+
+```powershell
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
+  --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
@@ -165,11 +230,18 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다.
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
+
+```powershell
+az functionapp deployment source config --name $functionapp `
+  --resource-group $resourceGroupName --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+```
+
 ---
 
 이미지 크기 조정 함수는 Event Grid 서비스에서 전송된 HTTP 요청에 의해 트리거됩니다. 이벤트 구독을 만들어 Event Grid가 함수의 URL에서 이러한 알림을 가져오도록 지시합니다. 이 자습서에서 Blob 생성 이벤트를 구독합니다.
@@ -220,7 +292,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 1. **필터** 탭으로 전환하고 다음 작업을 수행합니다.
     1. **제목 필터링 사용** 옵션을 선택합니다.
-    2. **제목 시작 문자**에 **/blobServices/default/containers/images/blobs/** 값을 입력합니다.
+    1. **제목 시작 문자**에 **/blobServices/default/containers/images/blobs/** 값을 입력합니다.
 
         ![이벤트 구독의 필터 지정](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738119"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
@@ -63,7 +63,7 @@ Windows 운영 체제를 실행 하는 VM의 경우 모든 신뢰할 수 있는 
 - 연결이 끊어진 환경에 있는 경우 인증서를 받는 조직에서 표준 Windows 업데이트 프로세스를 따릅니다.
 - 필요한 인증서가 VM에 없는 경우 보안상의 이유로 Site Recovery 서비스에 대한 호출이 실패합니다.
 
-문제가 해결 되었는지 확인 하려면 VM의 브라우저에서로 `login.microsoftonline.com` 이동 합니다.
+문제가 해결 되었는지 확인 하려면 `login.microsoftonline.com` VM의 브라우저에서로 이동 합니다.
 
 자세한 내용은 [신뢰할 수 있는 루트 및 허용 되지 않는 인증서 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265983(v=ws.11))을 참조 하세요.
 
@@ -73,7 +73,7 @@ Linux 운영 체제 버전의 배포자가 제공한 지침에 따라 신뢰할 
 
 SUSE Linux는 기호화 된 링크 또는 symlink를 사용 하 여 인증서 목록을 유지 하기 때문에 다음 단계를 수행 합니다.
 
-1. **루트** 사용자로 로그인 합니다. 해시 기호 (`#`)는 기본 명령 프롬프트입니다.
+1. **루트** 사용자로 로그인 합니다. 해시 기호 ( `#` )는 기본 명령 프롬프트입니다.
 
 1. 디렉터리를 변경 하려면 다음 명령을 실행 합니다.
 
@@ -222,7 +222,7 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 
 #### <a name="fix-the-problem"></a>문제 해결
 
-1. 모바일 서비스 에이전트는 Windows 및 `/etc/environment` LINUX에서 IE의 프록시 설정을 검색 합니다.
+1. 모바일 서비스 에이전트는 Windows 및 Linux에서 IE의 프록시 설정을 검색 합니다 `/etc/environment` .
 1. 모바일 서비스에 대해서만 프록시를 설정 하는 것을 선호 하는 경우에는 다음 위치에 있는 _Proxyinfo._ 에 프록시 세부 정보를 제공할 수 있습니다.
 
    - **Linux**:`/usr/local/InMage/config/`
@@ -278,14 +278,14 @@ VM의 복제 상태를 다시 정상으로 설정 하려면 디스크를 보호 
 
 #### <a name="to-protect-the-disks"></a>디스크를 보호 하려면
 
-1. 복제 된 **항목** > _VM 이름_ > **디스크**로 이동 합니다.
+1. 복제 된 **항목**  >  _VM 이름_  >  **디스크**로 이동 합니다.
 1. 보호 되지 않은 디스크를 선택한 다음 **복제 사용**을 선택 합니다.
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="VM 디스크에서 복제를 사용 하도록 설정 합니다.":::
 
 #### <a name="to-dismiss-the-warning"></a>경고를 해제 하려면
 
-1. 복제 된 **항목** > _VM 이름_으로 이동 합니다.
+1. 복제 된 **항목**  >  _VM 이름_으로 이동 합니다.
 1. **개요** 섹션에서 경고를 선택 하 고 **확인**을 선택 합니다.
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="새 디스크 경고를 해제 합니다.":::
@@ -300,19 +300,19 @@ Site Recovery에서 가상 컴퓨터를 보호 하는 경우 원본 가상 컴�
 > 정리 하지 않은 경우:
 >
 > - Recovery Services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하면 가상 컴퓨터가 나열 되지 않습니다.
-> - **가상 컴퓨터** > **설정** > **재해 복구**를 사용 하 여 vm을 보호 하려고 하면 **vm의 기존 부실 리소스 링크로 인해 메시지 복제를 사용 하도록 설정할**수 없으므로 작업이 실패 합니다.
+> - **가상 컴퓨터**설정 재해 복구를 사용 하 여 vm을 보호 하려고 하면  >  **Settings**  >  **Disaster Recovery** **vm의 기존 부실 리소스 링크로 인해 메시지 복제를 사용 하도록 설정할**수 없으므로 작업이 실패 합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
 > [!NOTE]
 > 이러한 단계를 수행 하는 동안 원본 가상 컴퓨터를 삭제 하거나 다른 방식으로 영향을 Site Recovery 않습니다.
 
-1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 `MoveDemo` VM에 대 한 리소스 잠금을 삭제 해야 합니다.
+1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>부실 리소스를 사용 하는 VM에서 복제를 사용 하도록 설정 하지 않음 (오류 코드 150226)
@@ -332,12 +332,12 @@ Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 �
 > [!NOTE]
 > 이러한 단계를 수행 하는 동안 원본 가상 컴퓨터를 삭제 하거나 다른 방식으로 영향을 Site Recovery 않습니다.
 
-1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 `MoveDemo` VM에 대 한 리소스 잠금을 삭제 해야 합니다.
+1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다. 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>복제 사용 작업에서 VM 또는 리소스 그룹을 선택할 수 없습니다.
@@ -346,7 +346,7 @@ Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 �
 
 Site Recovery 현재 원본 영역 리소스 그룹 및 가상 컴퓨터가 동일한 위치에 있어야 합니다. 그렇지 않으면 보호를 적용 하려고 할 때 가상 머신 또는 리소스 그룹을 찾을 수 없습니다.
 
-이 문제를 해결 하려면 Recovery Services 자격 증명 모음 대신 VM에서 복제를 사용 하도록 설정할 수 있습니다. **원본 VM** > **속성** > **재해 복구** 로 이동 하 여 복제를 사용 하도록 설정 합니다.
+이 문제를 해결 하려면 Recovery Services 자격 증명 모음 대신 VM에서 복제를 사용 하도록 설정할 수 있습니다. **원본 VM**  >  **속성**  >  **재해 복구** 로 이동 하 여 복제를 사용 하도록 설정 합니다.
 
 ### <a name="issue-2-the-resource-group-isnt-part-of-the-selected-subscription"></a>문제 2: 리소스 그룹이 선택한 구독의 일부가 아닙니다.
 
@@ -363,14 +363,14 @@ Azure VM에 오래 된 Site Recovery 구성이 있는 경우 복제에 사용할
 ### <a name="fix-the-problem"></a>문제 해결
 
 > [!NOTE]
-> 이 섹션에 언급 된 `AzureRM.Resources` 스크립트를 사용 하기 전에 모듈을 업데이트 해야 합니다. 이러한 단계를 수행 하는 동안 원본 가상 컴퓨터를 삭제 하거나 다른 방식으로 영향을 Site Recovery 않습니다.
+> `AzureRM.Resources`이 섹션에 언급 된 스크립트를 사용 하기 전에 모듈을 업데이트 해야 합니다. 이러한 단계를 수행 하는 동안 원본 가상 컴퓨터를 삭제 하거나 다른 방식으로 영향을 Site Recovery 않습니다.
 
-1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다 (있는 경우). 예를 들어, 다음 이미지에서 이라는 `MoveDemo` VM에 대 한 리소스 잠금을 삭제 해야 합니다.
+1. VM 또는 VM 리소스 그룹에서 잠금을 제거 합니다 (있는 경우). 예를 들어, 다음 이미지에서 이라는 VM에 대 한 리소스 잠금을 `MoveDemo` 삭제 해야 합니다.
 
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="VM에서 잠금을 제거 합니다.":::
 
 1. 스크립트를 다운로드 하 여 [오래 된 Site Recovery 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
-1. _Cleanup-stale-asr-config-Azure-VM_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
+1. _Cleanup-stale-asr-config-Azure-VM.ps1_스크립트를 실행 합니다. **구독 ID**, **vm 리소스 그룹**및 **vm 이름을** 매개 변수로 제공 합니다.
 1. Azure 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 제공 합니다. 그런 다음 스크립트가 오류 없이 실행 되는지 확인 합니다.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>보호할 VM을 선택할 수 없습니다.
@@ -381,7 +381,7 @@ Azure VM에 오래 된 Site Recovery 구성이 있는 경우 복제에 사용할
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-**Virtual machines** > **설정** > **확장** 으로 이동 하 여 실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
+**Virtual machines**설정 확장으로 이동 하 여  >  **Settings**  >  **Extensions** 실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
 
 ## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>VM 프로 비전 상태가 잘못 되었습니다 (오류 코드 150019).
 
@@ -408,7 +408,7 @@ VM에서 복제를 사용 하도록 설정 하려면 해당 프로 비전 상태
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>문제 2: 이전에 VM을 보호 한 후 복제를 사용 하지 않도록 설정 했습니다.
 
-VM의 복제를 사용 하지 않도록 설정 해도 네트워크 매핑이 삭제 되지 않습니다. 이 매핑은 VM이 보호 된 Recovery Services 자격 증명 모음에서 삭제 해야 합니다. **Recovery Services 자격 증명 모음** 을 선택 하 **Manage** > 고 >  > **Azure virtual machines에 대 한****Site Recovery 인프라**관리**네트워크 매핑을**이동 합니다.
+VM의 복제를 사용 하지 않도록 설정 해도 네트워크 매핑이 삭제 되지 않습니다. 이 매핑은 VM이 보호 된 Recovery Services 자격 증명 모음에서 삭제 해야 합니다. **Recovery Services 자격 증명 모음** 을 선택 하 **Manage**고  >  **Site Recovery Infrastructure**  >  **Azure virtual machines에 대 한**Site Recovery 인프라 관리  >  **네트워크 매핑을**이동 합니다.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="네트워크 매핑을 삭제 합니다.":::
 
@@ -459,7 +459,7 @@ Protection couldn't be enabled for the virtual machine as it has <DiskName> with
 
 ### <a name="possible-causes"></a>가능한 원인
 
-Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)은 `root` 및 `resume` 매개 변수에 대 한 UUID (범용 고유 식별자) 값 대신 실제 장치 이름을 지정할 수 있습니다. 장치 이름이 변경 될 수 있으므로 Site Recovery에는 Uuid가 필요 합니다. 다시 시작 시 VM이 장애 조치 (failover) 시 동일한 이름으로 나타나지 않을 수 있으므로 문제가 발생 합니다.
+Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)은 `root` 및 매개 변수에 대 한 UUID (범용 고유 식별자) 값 대신 실제 장치 이름을 지정할 수 있습니다 `resume` . 장치 이름이 변경 될 수 있으므로 Site Recovery에는 Uuid가 필요 합니다. 다시 시작 시 VM이 장애 조치 (failover) 시 동일한 이름으로 나타나지 않을 수 있으므로 문제가 발생 합니다.
 
 다음 예는 필요한 Uuid 대신 장치 이름이 표시 되는 GRUB 파일의 줄입니다.
 
@@ -475,7 +475,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. 명령을 `blkid <device name>`실행 하 여 장치의 UUID를 찾습니다. 예를 들면 다음과 같습니다.
+1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예:
 
    ```shell
    blkid /dev/sda1
@@ -484,7 +484,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. 장치 이름을 및 `root=UUID=<UUID>` `resume=UUID=<UUID>`형식의 UUID로 바꿉니다. 예를 들어, 바꾼 후 _/boot/grub/menu.lst_ 의 줄은 다음 줄과 같습니다.
+1. 장치 이름을 및 형식의 UUID로 바꿉니다 `root=UUID=<UUID>` `resume=UUID=<UUID>` . 예를 들어, 바꾼 후 _/boot/grub/menu.lst_ 의 줄은 다음 줄과 같습니다.
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -494,7 +494,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 ### <a name="possible-cause"></a>가능한 원인
 
-GRUB 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)에는 또는 `rd.lvm.lv` `rd_LVM_LV`매개 변수가 포함 될 수 있습니다. 이러한 매개 변수는 부팅 시 검색 되는 LVM (논리 볼륨 관리자) 장치를 식별 합니다. 이러한 LVM 장치가 존재 하지 않는 경우 보호 된 시스템 자체는 부팅 되지 않으므로 부팅 프로세스에서 중단 됩니다. 동일한 문제가 장애 조치 (failover) VM에도 표시 됩니다. 다음은 몇 가지 예입니다.
+GRUB 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_또는 _/etc/default/grub_)에는 또는 매개 변수가 포함 될 수 있습니다 `rd.lvm.lv` `rd_LVM_LV` . 이러한 매개 변수는 부팅 시 검색 되는 LVM (논리 볼륨 관리자) 장치를 식별 합니다. 이러한 LVM 장치가 존재 하지 않는 경우 보호 된 시스템 자체는 부팅 되지 않으므로 부팅 프로세스에서 중단 됩니다. 동일한 문제가 장애 조치 (failover) VM에도 표시 됩니다. 다음은 몇 가지 예입니다.
 
 - File: _/boot/grub2/grub.cfg_ on RHEL7:
 
@@ -508,7 +508,7 @@ GRUB 구성 파일 (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/g
 
   `kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet`
 
-각 예제에서 GRUB는 이름 `root` 및 `swap` 볼륨 그룹 `rootvg`의 두 lvm 장치를 검색 해야 합니다.
+각 예제에서 GRUB는 이름 및 볼륨 그룹의 두 LVM 장치를 검색 해야 `root` `swap` `rootvg` 합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 

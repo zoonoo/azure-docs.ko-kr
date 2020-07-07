@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
 ms.openlocfilehash: 4b26128b794a6a667edc578f56ad0bc9fb8303a7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691146"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
@@ -23,7 +23,7 @@ HDInsight 클러스터에는 상태 정보를 한눈에 볼 때 미리 정의 �
 
 ## <a name="dashboard"></a>대시보드
 
-아래와 같이 Azure Portal HDInsight 개요의 **클러스터 대시보드** 섹션에서 **Ambari home** 링크를 선택 하 여 Ambari 대시보드에 액세스할 수 있습니다. 또는 브라우저에서로 `https://CLUSTERNAME.azurehdinsight.net` 이동 하 여 액세스할 수 있습니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+아래와 같이 Azure Portal HDInsight 개요의 **클러스터 대시보드** 섹션에서 **Ambari home** 링크를 선택 하 여 Ambari 대시보드에 액세스할 수 있습니다. 또는 브라우저에서로 이동 하 여 액세스할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
 ![HDInsight 리소스 포털 보기](media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png)
 
@@ -80,7 +80,7 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 
 ![Ambari 알림 관리 작업](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-경고 알림을 관리 하는 대화 상자가 열립니다. 대화 상자의 **+** 맨 아래에서를 선택 하 고 필수 필드를 입력 하 여 전자 메일을 보낼 전자 메일 서버 세부 정보를 Ambari에 제공 합니다.
+경고 알림을 관리 하는 대화 상자가 열립니다. **+** 대화 상자의 맨 아래에서를 선택 하 고 필수 필드를 입력 하 여 전자 메일을 보낼 전자 메일 서버 세부 정보를 Ambari에 제공 합니다.
 
 > [!TIP]
 > Ambari 전자 메일 알림을 설정 하는 것은 많은 HDInsight 클러스터를 관리할 때 한 곳에서 경고를 수신 하는 좋은 방법일 수 있습니다.

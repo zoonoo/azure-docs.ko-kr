@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242474"
 ---
 # <a name="event-schemas"></a>이벤트 스키마
@@ -54,16 +54,16 @@ EventGrid 스키마는 게시 엔터티가 준수 해야 하는 필수 속성 �
 
 모든 이벤트에는 다음과 같은 최상위 수준 데이터가 있습니다.
 
-| 속성 | 유형 | 필수 | Description |
+| 속성 | 형식 | 필수 | Description |
 | -------- | ---- | ----------- |-----------
-| 토픽 | string | 아니요 | 는 게시 된 항목과 일치 해야 합니다. Event Grid는 지정 되지 않은 경우 게시 된 항목의 이름으로 채웁니다. |
-| subject | string | 예 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | string | 예 | 이 이벤트 원본에 대 한 이벤트 유형입니다 (예: BlobCreated). |
-| eventTime | string | 예 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| ID | string | 아니요 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | 아니요 | 게시 엔터티와 관련 된 이벤트 데이터를 캡처하는 데 사용 됩니다. |
-| dataVersion | string | 예 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 아니요 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | 문자열 | No | 는 게시 된 항목과 일치 해야 합니다. Event Grid는 지정 되지 않은 경우 게시 된 항목의 이름으로 채웁니다. |
+| subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | 예 | 이 이벤트 원본에 대 한 이벤트 유형입니다 (예: BlobCreated). |
+| eventTime | 문자열 | 예 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| ID | 문자열 | No | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | 아니요 | 게시 엔터티와 관련 된 이벤트 데이터를 캡처하는 데 사용 됩니다. |
+| dataVersion | 문자열 | 예 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | 문자열 | No | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 ### <a name="example--eventgrid-schema-event"></a>예-EventGrid 스키마 이벤트
 

@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159406"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인 
@@ -93,7 +93,7 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 ## <a name="scenarios-and-samples"></a>시나리오 및 샘플
 
-이전 섹션의 설명에 따라 다음과 같은 5 가지 하이브리드 시나리오에서는 각 **콘텐츠 키**-**자산 배달 정책** 구성 조합을 사용 합니다 (마지막 열에 언급 된 샘플은 테이블을 따름).
+이전 섹션의 설명에 따라 다음과 같은 5 가지 하이브리드 시나리오에서는 각 **콘텐츠 키** - **자산 배달 정책** 구성 조합을 사용 합니다 (마지막 열에 언급 된 샘플은 테이블을 따름).
 
 |**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**예제**|
 |---|---|---|---|---|---|
@@ -127,7 +127,7 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 * 원본 URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL(DASH 및 부드러운 스트리밍): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

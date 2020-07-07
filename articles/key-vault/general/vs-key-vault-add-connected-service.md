@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82116845"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
@@ -22,7 +22,7 @@ ms.locfileid: "82116845"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **웹 개발** 워크 로드가 설치 된 **visual studio 2019 버전 16.3** 이상 또는 **visual studio 2017 버전 15.7** 입니다. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -33,7 +33,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 시작 하기 전에 Visual Studio에 로그인 했는지 확인 합니다. Azure 구독에 사용 하는 것과 동일한 계정으로 로그인 합니다. ASP.NET 4.7.1 이상 또는 ASP.NET Core 2.0 웹 프로젝트를 열고 다음 단계를 수행 합니다.
 
-1. **솔루션 탐색기**에서 Key Vault 지원을 추가 하려는 프로젝트를 마우스 오른쪽 단추로 클릭 하 고**연결 된 서비스** **추가** > 를 선택 합니다.
+1. **솔루션 탐색기**에서 Key Vault 지원을 추가 하려는 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **연결 된 서비스**추가를 선택 합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 1. 사용 가능한 서비스 메뉴에서 **Azure Key Vault로 비밀 보호**를 선택합니다.
 
@@ -41,7 +41,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 1. 사용할 구독을 선택 하 고 새 또는 기존 Key Vault를 선택 합니다. 새 Key Vault을 선택 하면 **편집** 링크가 표시 됩니다. 새 Key Vault를 구성 하려면이를 선택 합니다.
 
-   ![구독 선택](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
+   ![구독을 선택합니다.](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
 1. **Azure Key Vault 편집**에서 Key Vault에 사용할 이름을 입력 합니다.
 
@@ -67,7 +67,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다. **찾아보기** 탭에서 이러한 두 NuGet 패키지를 찾아서 설치 합니다. 즉, .net core 2의 경우 microsoft [. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) 를 추가 [하 고,](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) .net core 3의 경우[Microsoft. azure. keyvault. Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)를 추가 합니다.
 
-1. .NET Core 2의 경우 `Program.cs` 탭을 선택 하 고 Program `BuildWebHost` 클래스의 정의를 다음과 같이 변경 합니다.
+1. .NET Core 2의 경우 탭을 선택 `Program.cs` 하 고 `BuildWebHost` Program 클래스의 정의를 다음과 같이 변경 합니다.
 
    ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -116,7 +116,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
     ```
 
 1. 그런 다음 *Index.cshtml.cs* 와 같은 페이지 파일 중 하나를 열고 다음 코드를 작성 합니다.
-   1. 이 using 지시문을 `Microsoft.Extensions.Configuration` 사용 하 여에 대 한 참조를 포함 합니다.
+   1. 이 using 지시문을 사용 하 여에 대 한 참조를 포함 합니다 `Microsoft.Extensions.Configuration` .
 
        ```csharp
        using Microsoft.Extensions.Configuration;
@@ -146,7 +146,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
        }
        ```
 
-   1. 런타임에 값을 확인 하려면 메시지에 암호를 표시 하기 `ViewData["Message"]` 위해 *cshtml* 파일에 표시 되는 코드를 추가 합니다.
+   1. 런타임에 값을 확인 하려면 `ViewData["Message"]` 메시지에 암호를 표시 하기 위해 *cshtml* 파일에 표시 되는 코드를 추가 합니다.
 
       ```cshtml
           <p>@ViewData["Message"]</p>
@@ -156,15 +156,15 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ## <a name="access-your-secrets-aspnet"></a>비밀에 액세스 (ASP.NET)
 
-런타임에 true 값으로 대체 되는 `appSettings` 요소의 더미 값을 web.config 파일에 포함 하도록 구성을 설정할 수 있습니다. 그런 다음 데이터 구조를 통해이 `ConfigurationManager.AppSettings` 에 액세스할 수 있습니다.
+`appSettings`런타임에 true 값으로 대체 되는 요소의 더미 값을 web.config 파일에 포함 하도록 구성을 설정할 수 있습니다. 그런 다음 데이터 구조를 통해이에 액세스할 수 있습니다 `ConfigurationManager.AppSettings` .
 
-1. Web.config 파일을 편집 합니다.  AppSettings 태그를 찾고 특성 `configBuilders="AzureKeyVault"`을 추가 하 고 줄을 추가 합니다.
+1. web.config 파일을 편집 합니다.  AppSettings 태그를 찾고 특성을 추가 하 `configBuilders="AzureKeyVault"` 고 줄을 추가 합니다.
 
    ```xml
       <add key="mysecret" value="dummy"/>
    ```
 
-1. HomeController.cs에서 `About` 메서드를 *HomeController.cs*편집 하 여 확인 값을 표시 합니다.
+1. `About` *HomeController.cs*에서 메서드를 편집 하 여 확인 값을 표시 합니다.
 
    ```csharp
    public ActionResult About()
@@ -190,10 +190,10 @@ Key Vault Visual studio에 로그인 하는 것과 다른 Microsoft 계정에서
 
 1. **액세스 정책**, **액세스 정책 추가**를 차례로 선택 하 고 보안 주체로 로그인 한 계정을 선택 합니다.
 
-1. Visual Studio에서 **파일** > **계정 설정**을 선택 합니다.
+1. Visual Studio에서 **파일**  >  **계정 설정**을 선택 합니다.
 **모든 계정** 섹션에서 **계정 추가** 를 선택 합니다. 액세스 정책의 보안 주체로 선택한 계정으로 로그인 합니다.
 
-1. **도구** > **옵션**을 선택 하 고 **Azure 서비스 인증**을 찾습니다. 그런 다음 Visual Studio에 방금 추가한 계정을 선택 합니다.
+1. **도구**  >  **옵션**을 선택 하 고 **Azure 서비스 인증**을 찾습니다. 그런 다음 Visual Studio에 방금 추가한 계정을 선택 합니다.
 
 이제 응용 프로그램을 디버그할 때 Visual Studio는 Key Vault 있는 계정에 연결 합니다.
 
@@ -215,9 +215,9 @@ Key Vault Visual studio에 로그인 하는 것과 다른 Microsoft 계정에서
 
 ### <a name="project-file-changes-for-aspnet-core"></a>ASP.NET Core에 대 한 프로젝트 파일 변경
 
-- 연결된 서비스 ItemGroup 및 `ConnectedServices.json` file을 추가 했습니다.
+- 연결된 서비스 ItemGroup 및 file을 추가 했습니다 `ConnectedServices.json` .
 
-### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings의 ASP.NET Core에 대 한 json 변경 내용
+### <a name="launchsettingsjson-changes-for-aspnet-core"></a>ASP.NET Core에 대 한 변경 내용 launchsettings.js
 
 - IIS Express 프로필 및 웹 프로젝트 이름과 일치하는 프로필에 다음 환경 변수 항목이 추가됩니다.
 

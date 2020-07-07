@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75433671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856494"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>자습서: .NET Core 앱에서 동적 구성 사용
 
@@ -100,23 +100,33 @@ class Program
 
 1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     macOS 또는 Linux를 사용하는 경우 다음 명령을 실행합니다.
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 1. 다음 명령을 실행하여 콘솔 앱을 빌드합니다.
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 1. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 앱을 로컬로 실행합니다.
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/dotnet-core-app-run.png)
 

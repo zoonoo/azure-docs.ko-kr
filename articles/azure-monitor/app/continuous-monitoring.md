@@ -4,10 +4,10 @@ description: Application Insights를 사용 하 여 연속 모니터링을 신�
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652762"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
@@ -20,7 +20,7 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
 
 1. [Azure DevOps](https://dev.azure.com)에서 조직 및 프로젝트를 선택 합니다.
    
-1. 프로젝트 페이지의 왼쪽 메뉴에서 **파이프라인** > **릴리스**를 선택 합니다. 
+1. 프로젝트 페이지의 왼쪽 메뉴에서 **파이프라인**  >  **릴리스**를 선택 합니다. 
    
 1. **새로 만들기** 옆에 있는 화살표를 드롭다운 하 고 **새 릴리스 파이프라인**을 선택 합니다. 또는 파이프라인이 아직 없는 경우 표시 되는 페이지에서 **새 파이프라인** 을 선택 합니다.
    
@@ -38,7 +38,7 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
    | ------------- |:-----|
    | **스테이지 이름**      | 스테이지 이름을 제공 하거나 **1 단계**에 그대로 둡니다. |
    | **Azure 구독** | 드롭다운 및 사용 하려는 연결 된 Azure 구독을 선택 합니다.|
-   | **앱 유형** | 드롭다운 하 고 앱 유형을 선택 합니다. |
+   | **앱 형식** | 드롭다운 하 고 앱 유형을 선택 합니다. |
    | **App Service 이름** | Azure App Service 이름을 입력 합니다. |
    | **Application Insights에 대 한 리소스 그룹 이름**    | 드롭다운 및 사용 하려는 리소스 그룹을 선택 합니다. |
    | **Application Insights 리소스 이름** | 드롭다운에서 선택한 리소스 그룹에 대 한 Application Insights 리소스를 선택 합니다.

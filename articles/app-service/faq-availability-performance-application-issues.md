@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159986"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
@@ -46,8 +46,8 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 웹앱의 이벤트 로그를 보려면:
 
-1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
-2. 메뉴에서 **디버그 콘솔** > **CMD**를 선택 합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
+2. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 3. **LogFiles** 폴더를 선택합니다.
 4. 이벤트 로그를 보려면 **eventlog.xml** 옆에 있는 연필 아이콘을 선택합니다.
 5. 로그를 다운로드하려면 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`을 실행합니다.
@@ -56,10 +56,10 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 웹앱의 사용자 모드 메모리 덤프를 캡처하려면:
 
-1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
 2. **프로세스 탐색기** 메뉴를 선택합니다.
 3. **w3wp.exe** 프로세스 또는 WebJob 프로세스를 마우스 오른쪽 단추로 클릭합니다.
-4. **메모리 덤프** > **전체 덤프**다운로드를 선택 합니다.
+4. **메모리 덤프**  >  **전체 덤프**다운로드를 선택 합니다.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>내 웹앱의 프로세스 수준 정보는 어떻게 볼 수 있나요?
 
@@ -69,7 +69,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     1. 웹앱에 대한 **프로세스 탐색기**를 선택합니다.
     2. 세부 정보를 확인하려면 **w3wp.exe** 프로세스를 선택합니다.
 *   Kudu 콘솔에서:
-    1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
+    1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
     2. **프로세스 탐색기** 메뉴를 선택합니다.
     3. **w3wp.exe** 프로세스에 대한 **속성**을 선택합니다.
 
@@ -101,7 +101,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 실패한 요청 추적을 켜려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-3. **모든 설정** > **진단 로그**를 선택 합니다.
+3. **모든 설정**  >  **진단 로그**를 선택 합니다.
 4. **실패한 요청 추적**에 대해 **켜기**를 선택합니다.
 5. **저장**을 선택합니다.
 6. 웹앱 블레이드에서 **도구**를 선택합니다.
@@ -142,8 +142,8 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     </tracing>
     ```
 13. 실패한 요청 추적을 다운로드하려면 [Portal](https://portal.azure.com)에서 웹 사이트로 이동합니다.
-15. **Tools** > **Kudu**Kudu > **Go**를 선택 합니다.
-18. 메뉴에서 **디버그 콘솔** > **CMD**를 선택 합니다.
+15. **Tools**  >  **Kudu**  >  **Go**를 선택 합니다.
+18. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 19. **LogFiles** 폴더를 선택하고 이름이 **W3SVC**로 시작하는 폴더를 선택합니다.
 20. XML 파일을 확인하려면 연필 아이콘을 선택합니다.
 
@@ -174,7 +174,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 스토리지 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 하 고 있는지 확인 하려면 App Service **응용 프로그램 설정** 탭을 확인 합니다. 로컬 캐시를 사용 하는 경우 앱 설정은 `WEBSITE_LOCAL_CACHE_OPTION` 로 `Always`설정 됩니다.
+로컬 캐시를 사용 하 고 있는지 확인 하려면 App Service **응용 프로그램 설정** 탭을 확인 합니다. 로컬 캐시를 사용 하는 경우 앱 설정은 `WEBSITE_LOCAL_CACHE_OPTION` 로 설정 됩니다 `Always` .
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 

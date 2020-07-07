@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71122740"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
@@ -66,10 +66,10 @@ ms.locfileid: "71122740"
 3. Microsoft Azure Portal에서 인스턴스 상태가 **준비**로 표시되면 해당 인스턴스에 원격 연결합니다. Cloud Services에서 원격 데스크톱 사용에 대한 자세한 내용은 [역할 인스턴스에 원격 연결](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)을 참조하세요.
 5. 원격 데스크톱을 구성하는 동안 지정한 자격 증명을 사용하여 가상 머신에 로그인합니다.
 6. 명령 창을 엽니다.
-7. `IPconfig`을(를) 입력합니다.
+7. `IPconfig`.
 8. IPV4 주소 값을 적습니다.
 9. Internet Explorer를 엽니다.
-10. 웹 애플리케이션의 주소 및 이름을 입력합니다. `http://<IPV4 Address>/default.aspx`)을 입력합니다.
+10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예를 들어 `http://<IPV4 Address>/default.aspx`.
 
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "71122740"
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 !['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
