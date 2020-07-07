@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062307"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
@@ -37,9 +37,9 @@ ms.locfileid: "80062307"
 2. **태그**: 지정된 태그를 포함하는 모든 등록이 알림을 수신합니다.
 3. **태그 식**: 등록의 태그 집합이 지정된 식과 일치하는 모든 등록이 알림을 수신합니다.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>태그
 
-태그는 영숫자`_`및 영숫자가 아닌 문자 (' ', '`@`', '`#`', '`.`', '`:`',`-`' ')를 포함 하는 모든 문자열을 최대 120 자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 다음 그림과 같이 다양 한 밴드를 나타내는 태그를 사용 하 여 등록을 레이블 처리 하는 것입니다.
+태그는 영숫자 및 영숫자가 아닌 문자 (' `_` ', ' `@` ', ' `#` ', ' ', ' `.` `:` ', `-` ' ')를 포함 하는 모든 문자열을 최대 120 자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 다음 그림과 같이 다양 한 밴드를 나타내는 태그를 사용 하 여 등록을 레이블 처리 하는 것입니다.
 
 ![태그 개요](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -69,7 +69,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 이 예제에서 Alice는 Beatles에 대 한 업데이트에 관심이 있으며 Bob은 Wers에 대 한 업데이트에 관심이 있습니다. Bob은 charlie 의견에도 관심이 있으며, charlie에 관심이 있습니다. Beatles에서 Charlie 메모에 대 한 알림이 전송 되는 경우 Notification Hubs Alice와 Bob 모두에 게 보냅니다.
 
-태그에서 여러 문제를 인코딩할 수 있지만 (예: `band_Beatles` 또는 `follows_Charlie`) 태그는 값이 포함 된 속성이 아닌 간단한 문자열입니다. 등록은 특정 태그의 존재 또는 부재 시에만 일치 합니다.
+태그에서 여러 문제를 인코딩할 수 있지만 (예: `band_Beatles` 또는 `follows_Charlie` ) 태그는 값이 포함 된 속성이 아닌 간단한 문자열입니다. 등록은 특정 태그의 존재 또는 부재 시에만 일치 합니다.
 
 태그를 사용하여 흥미가 있는 그룹에 알림을 보내는 방법에 대한 단계별 전체 자습서는 [속보](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)를 참조하세요.
 
@@ -82,7 +82,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 ![사용자 태그](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-그림에서 태그가 지정 `user_Alice` 된 메시지는로 `user_Alice`태그가 지정 된 모든 장치에 도달 합니다.
+그림에서 태그가 지정 된 메시지는 `user_Alice` 로 태그가 지정 된 모든 장치에 도달 `user_Alice` 합니다.
 
 ## <a name="tag-expressions"></a>태그 식
 
@@ -96,7 +96,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 ![태그 식](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-태그 식은 ( `AND` `&&`), `OR` (`||`) 및 `NOT` (`!`)와 같은 일반적인 부울 연산자를 지원 합니다. 괄호를 포함할 수도 있습니다. 연산자만 `OR` 사용 하는 태그 식에서는 20 개의 태그를 참조할 수 있습니다. 연산자가 `AND` 있지만 연산자가 `OR` 없는 식은 10 개의 태그를 참조할 수 있습니다. 그렇지 않으면 태그 식의 태그가 6 개로 제한 됩니다.
+태그 식은 `AND` ( `&&` ), () 및 ()와 같은 일반적인 부울 연산자를 지원 하며 `OR` `||` 괄호를 `NOT` `!` 포함할 수도 있습니다. 연산자만 사용 하는 태그 식 `OR` 에서 20 개의 태그를 참조할 수 있지만 연산자가 있는 식에는 `AND` `OR` 10 개의 태그를 참조할 수 없습니다. 그렇지 않으면 태그 식의 태그가 6 개로 제한 됩니다.
 
 SDK를 사용 하 여 태그 식으로 알림을 보내는 예제는 다음과 같습니다.
 

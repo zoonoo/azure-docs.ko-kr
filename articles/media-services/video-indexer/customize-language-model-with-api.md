@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127974"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Video Indexer API를 사용 하 여 언어 모델 사용자 지정
@@ -105,7 +105,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-`id` 반환 되는는 언어 모델을 구별 하는 데 사용 되는 `languageModelId` 고유 ID 이며,는 [비디오 api를 인덱싱하고](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) [인덱스를 재 인덱싱하](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 는 데 사용 됩니다 Video Indexer `linguisticModelId` (api 업로드/인덱스 재 인덱싱).
+반환 되는는 `id` 언어 모델을 구별 하는 데 사용 되는 고유 ID 이며,는 비디오 api를 인덱싱하고 `languageModelId` [인덱스를 재 인덱싱하](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 는 데 사용 됩니다 Video Indexer ( [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) `linguisticModelId` api 업로드/인덱스 재 인덱싱).
 
 ## <a name="delete-a-language-model"></a>언어 모델 삭제
 
@@ -157,11 +157,11 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-응답에 `id` 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
+`id`응답에 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
 
 ## <a name="update-a-file-from-a-language-model"></a>언어 모델에서 파일 업데이트
 
-[파일 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) 를 사용 하면 지정 된 계정의 사용자 지정 언어 `enable` 모델에 있는 파일의 이름 및 상태를 업데이트할 수 있습니다.
+[파일 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) 를 사용 하면 `enable` 지정 된 계정의 사용자 지정 언어 모델에 있는 파일의 이름 및 상태를 업데이트할 수 있습니다.
 
 ### <a name="response"></a>응답
 
@@ -177,7 +177,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-응답에서 `id` 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
+`id`응답에서 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
 
 ## <a name="get-a-specific-language-model"></a>특정 언어 모델 가져오기
 
@@ -213,7 +213,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-응답에서 `id` 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
+`id`응답에서 반환 된 파일의를 사용 하 여 파일의 내용을 다운로드 합니다.
 
 ## <a name="get-all-the-language-models"></a>모든 언어 모델 가져오기
 

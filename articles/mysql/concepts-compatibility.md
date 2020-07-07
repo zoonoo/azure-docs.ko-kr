@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537213"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
@@ -26,7 +26,7 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7.0, 8.0 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하 | |
 | Node.js | 노드-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Go | Go MySQL 드라이버 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 1.3 `allowNativePasswords=true` 버전에 대 한 연결 문자열에서를 사용 합니다. 버전 1.4에는 수정 프로그램이 `allowNativePasswords=true` 포함 되어 있으므로 더 이상 필요 하지 않습니다. |
+| 이동 | Go MySQL 드라이버 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | `allowNativePasswords=true`1.3 버전에 대 한 연결 문자열에서를 사용 합니다. 버전 1.4에는 수정 프로그램이 포함 되어 있으므로 `allowNativePasswords=true` 더 이상 필요 하지 않습니다. |
 | Python | MySQL 커넥터/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, MySQL 8.0에서 8.0.16 + 사용  | 1.2.2 이하 | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0부터, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (web2py의 회귀) | |
 | Java | MariaDB 커넥터/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 | | 

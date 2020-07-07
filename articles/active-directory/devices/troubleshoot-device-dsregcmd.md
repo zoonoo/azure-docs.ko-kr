@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128754"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
@@ -29,7 +29,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 | AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
 | YES | 아니요 | 아니요 | Azure AD 조인 됨 |
-| 아니요 | 아니요 | YES | 도메인 가입 |
+| 아니요 | 아니요 | YES | 도메인 조인 |
 | YES | 아니요 | YES | 하이브리드 AD 조인 됨 |
 | 아니요 | YES | YES | 온-프레미스 DRS 조인 됨 |
 
@@ -136,7 +136,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 - **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
 - **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. 관리자 권한 명령 프롬프트에서 dsreg/status를 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
 - **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
-- **WamDefaultId:** -Azure ADhttps://login.microsoft.com의 경우-항상 ""입니다.
+- **WamDefaultId:** -Azure AD의 경우-항상 " https://login.microsoft.com "입니다.
 - **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
 
 ### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력

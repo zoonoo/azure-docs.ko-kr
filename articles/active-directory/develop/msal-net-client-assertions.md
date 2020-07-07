@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050285"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
@@ -35,7 +35,7 @@ MSAL.NET에는 기밀 클라이언트 앱에 자격 증명 또는 어설션을 �
 - `.WithClientClaims()`
 
 > [!NOTE]
-> `WithClientAssertion()` API를 사용 하 여 기밀 클라이언트에 대 한 토큰을 가져올 수 있지만이는 더 고급 이며 일반적이 지 않은 매우 구체적인 시나리오를 처리 하도록 설계 되었으므로 기본적으로 사용 하지 않는 것이 좋습니다. `.WithCertificate()` API를 사용 하면 MSAL.NET이이를 처리할 수 있습니다. 이 api는 필요한 경우 인증 요청을 사용자 지정 하는 기능을 제공 하지만에서 `.WithCertificate()` 만든 기본 어설션은 대부분의 인증 시나리오에서 충분 합니다. MSAL.NET가 내부적으로 서명 작업을 수행 하지 못하는 일부 시나리오에서는이 API를 해결 방법으로 사용할 수도 있습니다.
+> API를 사용 하 여 `WithClientAssertion()` 기밀 클라이언트에 대 한 토큰을 가져올 수 있지만이는 더 고급 이며 일반적이 지 않은 매우 구체적인 시나리오를 처리 하도록 설계 되었으므로 기본적으로 사용 하지 않는 것이 좋습니다. API를 사용 하면 `.WithCertificate()` MSAL.NET이이를 처리할 수 있습니다. 이 api는 필요한 경우 인증 요청을 사용자 지정 하는 기능을 제공 하지만에서 만든 기본 어설션은 `.WithCertificate()` 대부분의 인증 시나리오에서 충분 합니다. MSAL.NET가 내부적으로 서명 작업을 수행 하지 못하는 일부 시나리오에서는이 API를 해결 방법으로 사용할 수도 있습니다.
 
 ### <a name="signed-assertions"></a>서명 된 어설션
 
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD에서 필요한 클레임은 다음과 같습니다.
 
-클레임 유형 | 값 | 설명
+클레임 유형 | 값 | Description
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
 exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>대체 방법
 
-Jsonwebtoken은를 사용 하 여 어설션을 만들 수도 있습니다. [system.identitymodel.](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) 코드는 아래 예제에 표시 된 것 처럼 더 세련 됩니다.
+[Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) 를 사용 하 여 어설션을 만들 수도 있습니다. 코드는 아래 예제에 표시 된 것 처럼 더 세련 됩니다.
 
 ```csharp
         string GetSignedClientAssertion()
@@ -196,4 +196,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 사전에 전달 하는 클레임 중 하나가 필수 클레임 중 하 나와 동일한 경우 추가 클레임 값이 고려 됩니다. MSAL.NET에서 계산 된 클레임을 재정의 합니다.
 
-Azure AD에서 요구 하는 필수 클레임을 포함 하 여 고유한 클레임을 제공 하려는 경우 `false` `mergeWithDefaultClaims` 매개 변수에 대해를 전달 합니다.
+Azure AD에서 요구 하는 필수 클레임을 포함 하 여 고유한 클레임을 제공 하려는 경우 `false` 매개 변수에 대해를 전달 `mergeWithDefaultClaims` 합니다.

@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/10/2019
 ms.openlocfilehash: 2f2ca4b56445b3f399477e396de579d8a8c539e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127032"
 ---
 # <a name="azure-notification-hubs-and-google-firebase-cloud-messaging-migration"></a>Azure Notification Hubs 및 Google Firebase 클라우드 메시징 마이그레이션
@@ -39,7 +39,7 @@ Google의 FCM FAQ는 아무것도 수행할 필요가 없다는 것을 의미 �
 
 앱에서 GCM 라이브러리를 사용 하는 경우 계속 해 서 Google 지침에 따라 앱의 FCM 라이브러리로 업그레이드 합니다. 이 SDK는와 호환 되므로 앱에서 앱의 모든 항목을 업데이트할 필요가 없습니다 (SDK 버전을 최신 상태로 유지 하는 경우).
 
-## <a name="questions-and-answers"></a>질문과 대답
+## <a name="questions-and-answers"></a>질문 및 답변
 
 다음은 고객 으로부터 몇 가지 일반적인 질문에 대 한 답변입니다.
 

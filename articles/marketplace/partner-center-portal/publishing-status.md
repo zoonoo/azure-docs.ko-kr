@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80275682"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상업적 Marketplace 제안의 게시 상태를 확인 합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "80275682"
 
 각 제품에 대해 다음 상태 표시기 중 하나가 표시되어야 합니다.
 
-| **상태**    | **설명**  |
+| **Status**    | **설명**  |
 | :---------- | :-------------------|
 | **초안** | 제안이 만들어졌지만 게시 되 고 있지 않습니다. |
 | **게시 진행 중** | 제안/계획은 게시 프로세스의 단계를 통해 작동 합니다. |
@@ -59,14 +59,14 @@ ms.locfileid: "80275682"
 제출 된 각 제품에 대 한 인증 프로세스에는 세 가지 수준의 유효성 검사가 포함 됩니다.
 
 - 게시자 비즈니스 자격
-- 내용 유효성 검사
+- 콘텐츠 유효성 검사
 - 기술 유효성 검사
 
 #### <a name="publisher-business-eligibility"></a>게시자 비즈니스 자격
 
 각 제품 유형은 게시자가 충족 해야 하는 기본 자격 조건 집합을 검사 합니다. 자격 조건에는 게시자의 MPN 상태, 역량 보유, 역량 수준 등이 포함 될 수 있습니다.
 
-#### <a name="content-validation"></a>내용 유효성 검사
+#### <a name="content-validation"></a>콘텐츠 유효성 검사
 
 콘텐츠 유효성을 검사 하는 동안 제품을 만들 때 입력 한 정보를 품질 및 관련성이 있는지 확인 합니다. 이러한 검사는 세부 정보, 가격 책정, 가용성, 관련 계획 등을 나열 하는 marketplace의 항목을 검토 합니다. Azure Marketplace 및/또는 AppSource 목록 기준을 충족 하기 위해 제품에 다음과 같은 내용이 포함 되어 있는지 확인 합니다.
 

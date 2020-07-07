@@ -8,15 +8,15 @@ ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80257413"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
-여러 사이트 호스팅을 사용 하면 응용 프로그램 게이트웨이의 동일한 포트에 둘 이상의 웹 응용 프로그램을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 다음 예제에서는 application gateway가 ContosoServerPool 및 FabrikamServerPool 라는 `contoso.com` 두 `fabrikam.com` 개의 백 엔드 서버 풀에 대 한 트래픽을 제공 합니다.
+여러 사이트 호스팅을 사용 하면 응용 프로그램 게이트웨이의 동일한 포트에 둘 이상의 웹 응용 프로그램을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 다음 예제에서는 application gateway가 `contoso.com` `fabrikam.com` ContosoServerPool 및 FabrikamServerPool 라는 두 개의 백 엔드 서버 풀에 대 한 트래픽을 제공 합니다.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -25,7 +25,7 @@ ms.locfileid: "80257413"
 
 `http://contoso.com`에 대한 요청은 ContosoServerPool로 라우팅되고, `http://fabrikam.com`에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
-마찬가지로 동일한 응용 프로그램 게이트웨이 배포에서 동일한 부모 도메인의 여러 하위 도메인을 호스트할 수 있습니다. 예를 들어 단일 application gateway `http://blog.contoso.com` 배포 `http://app.contoso.com` 에서 및를 호스트할 수 있습니다.
+마찬가지로 동일한 응용 프로그램 게이트웨이 배포에서 동일한 부모 도메인의 여러 하위 도메인을 호스트할 수 있습니다. 예를 들어 `http://blog.contoso.com` `http://app.contoso.com` 단일 application gateway 배포에서 및를 호스트할 수 있습니다.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>호스트 헤더 및 SNI(서버 이름 표시)
 

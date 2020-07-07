@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 5f83f937b8d9ec50ec7dc6ec781bff1f435eb45a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537196"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 연결 라이브러리
@@ -35,5 +35,5 @@ MySQL은 산업 표준 ODBC 및 JDBC와 호환되는 애플리케이션 및 도�
 ## <a name="next-steps"></a>다음 단계
 선택한 언어를 사용하여 MySQL용 Azure Database에 연결하고 쿼리하는 방법에 대한 빠른 시작을 읽어보세요.
 
-[PHP](./connect-php.md) | [Java](./connect-java.md) | [Node.JS](./connect-nodejs.md) | [Ruby](./connect-ruby.md) | [Go](./connect-go.md) [Python](./connect-python.md) | [.NET (C#)](./connect-csharp.md) | [C++](connect-cpp.md).net (c #) Python node.js Ruby c + + Go |  
+[PHP](./connect-php.md)  |  [Java](./connect-java.md)  |   [.NET (C #)](./connect-csharp.md)  |  [Python](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Ruby](./connect-ruby.md)  |  [C + +](connect-cpp.md)  |  [Go](./connect-go.md)
 

@@ -4,10 +4,10 @@ description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159254"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
@@ -50,7 +50,7 @@ Resource Health는 이벤트 및 복구 프로세스에 대 한 추가 정보를
 
 ![비-플랫폼 이벤트로 인 한 가상 머신의 "사용할 수 없음" 상태](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>알 수 없음
 
 *Unknown* 은 Resource Health에서 리소스에 대 한 정보를 10 분 넘게 수신 하지 못했음을 의미 합니다. 이 상태는 리소스의 상태를 명확 하 게 표시 하지는 않지만 문제 해결을 위한 중요 한 데이터 요소입니다.
 
@@ -80,7 +80,7 @@ Resource Health의 **상태 기록** 섹션에서 최대 30 일 동안의 기록
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 하나의 리소스에 대한 Resource Health를 열려면:
 

@@ -4,17 +4,17 @@ description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서�
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80054122"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 System Center DPM(Data Protection Manager)을 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. DPM은 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
 
-DPM을 사용 하 여 SharePoint를 Azure에 백업 하는 작업은 SharePoint를 로컬로 DPM에 백업 하는 것과 매우 유사 합니다. Azure에 대 한 특정 고려 사항은이 문서에 나와 있습니다.
+DPM을 사용 하 여 SharePoint를 Azure에 백업 하는 작업은 SharePoint를 로컬로 DPM에 백업 하는 것과 매우 유사 합니다. Azure에 대한 특정 고려 사항은 이 문서에 나와 있습니다.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
 
@@ -24,7 +24,7 @@ DPM을 사용 하 여 SharePoint를 Azure에 백업 하는 작업은 SharePoint�
 
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 

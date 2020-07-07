@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 394edc24cfeefb96cb2f412985cb990a2306bb09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80064340"
 ---
 # <a name="iot-plug-and-play-libraries-and-sdks"></a>IoT 플러그 앤 플레이 라이브러리 및 Sdk
@@ -21,7 +21,7 @@ IoT 플러그 앤 플레이 라이브러리 및 Sdk를 통해 개발자는 여�
 
 ## <a name="microsoft-supported-libraries-and-sdks"></a>Microsoft 지원 라이브러리 및 Sdk
 
-| 플랫폼 | 라이브러리/패키지 | 소스 코드 | 예제 | 빠른 시작 | 참조 |
+| 플랫폼 | 라이브러리/패키지 | 소스 코드 | 예제 | 빠른 시작 | 참고 |
 | -------- | ------- | ----------- | ------ | ---------- | --------- |
 | C/Linux  | [Apt의 장치 SDK-get](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#aptgetpackage) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-c-linux.md) | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
 | C/Windows  | [Vcpkg의 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/doc/setting_up_vcpkg.md#setup-c-sdk-vcpkg-for-windows-development-environment) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-c-windows.md) | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |

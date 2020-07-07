@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066848"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
@@ -42,7 +42,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](custom-script-windows.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -54,12 +54,12 @@ Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작
 
 #### <a name="supported-agent-versions"></a>지원되는 에이전트 버전
 
-가능한 최상의 환경을 제공하기 위해 에이전트의 최소 버전이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)를 참조 하세요.
+가능한 최상의 환경을 제공하기 위해 에이전트의 최소 버전이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)를 참조하세요.
 
 #### <a name="supported-oses"></a>지원되는 OS
 
 Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
-)를 참조 하세요.
+)를 참조하세요.
 
 일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, ‘지원되지 않는 OS’* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
 
@@ -355,7 +355,7 @@ AutoUpgradeMinorVersion     : True
 
 1. Windows 게스트 에이전트 로그를 확인 하려면 확장이 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 프로 비전 되는 경우 활동을 확인 합니다.
 
-2. *C:\WindowsAzure\Logs\Plugins\<extensionName>* 에서 실제 확장 로그에 대한 자세한 내용을 확인합니다.
+2. *C:\WindowsAzure\Logs\Plugins \<extensionName> * 에 대 한 자세한 내용은 실제 확장 로그를 참조 하세요.
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 특정 설명서 문제 해결 섹션을 확인합니다.
 

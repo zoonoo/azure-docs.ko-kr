@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: cherylmc
 ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282854"
 ---
 # <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
@@ -20,7 +20,7 @@ Express 경로 가상 네트워크 게이트웨이는 네트워크 경로를 교
 
 ## <a name="requirements"></a>요구 사항
 
-### <a name="circuits"></a>배선
+### <a name="circuits"></a>회로
 
 FastPath는 모든 Express 경로 회로에서 사용할 수 있습니다.
 

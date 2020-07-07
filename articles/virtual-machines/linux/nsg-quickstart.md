@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066621"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용 하 여 VM에 대 한 포트 및 끝점 열기
@@ -46,7 +46,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-[az network nsg rule create](/cli/azure/network/nsg/rule)을 사용하여 웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 포트 80의 TCP 트래픽을 허용하도록 *myNetworkSecurityGroupRule*이라는 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule)을 사용하여 웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 *myNetworkSecurityGroupRule* 이라는 규칙을 만들어 포트 80에서 TCP 트래픽을 허용 합니다.
 
 ```azurecli
 az network nsg rule create \

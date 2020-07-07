@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 7b77ea9e0e1f322cb5ef0bc63885c3ccce1b76f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158687"
 ---
 # <a name="change-iot-central-application-settings"></a>IoT Central 응용 프로그램 설정 변경
@@ -45,7 +45,7 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java 및 Go에 사용할 수 있습니다. 이러한 패키지를 사용 하 여 IoT Central 응용 프로그램을 생성, 나열, 업데이트 또는 삭제할 수 있습니다. 패키지에는 인증 및 오류 처리를 관리 하는 도우미가 포함 되어 있습니다.
 
-에서 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples)Azure Resource Manager sdk를 사용 하는 방법에 대 한 예제를 찾을 수 있습니다.
+에서 Azure Resource Manager Sdk를 사용 하는 방법에 대 한 예제를 찾을 수 있습니다 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples) .
 
 자세히 알아보려면 다음 GitHub 리포지토리 및 패키지를 참조 하세요.
 

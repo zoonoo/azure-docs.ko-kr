@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80060656"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
@@ -69,7 +69,7 @@ SSH 구성을 다시 설정하려면 이전 스크린샷과 같이 **모드** �
 
 ### <a name="check-security-rules"></a><a id="security-rules" />보안 규칙 확인
 
-[IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 머신으로 들어가고 나가는 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 SSH 포트(기본값: 22)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조하세요.
+[IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) 을 사용 하 여 네트워크 보안 그룹의 규칙이 가상 머신에서 들어오고 나가는 트래픽을 차단 하는지 확인 합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 SSH 포트(기본값: 22)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용 하 여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조 하세요.
 
 ### <a name="check-routing"></a>라우팅 확인
 
@@ -277,7 +277,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
   * 새 *sudo* 사용자 계정을 만듭니다.
   * SSH 구성을 재설정합니다.
 * VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br>
-     VM을 선택 하 고 **설정** > **상태 확인**을 아래로 스크롤합니다.
+     VM을 선택 하 고 **설정**  >  **상태 확인**을 아래로 스크롤합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.

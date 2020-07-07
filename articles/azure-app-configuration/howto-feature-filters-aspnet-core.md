@@ -8,10 +8,10 @@ ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80057010"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>기능 필터를 사용 하 여 사용자의 하위 집합에 대 한 기능 사용
@@ -20,7 +20,7 @@ ms.locfileid: "80057010"
 
 반면 _조건부 기능 플래그_ 를 사용 하면 기능 플래그를 동적으로 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 응용 프로그램은 기능 플래그 조건에 따라 다르게 작동할 수 있습니다. 처음에 작은 사용자 하위 집합에 새 기능을 표시 하려는 경우를 가정해 보겠습니다. 조건부 기능 플래그를 사용 하면 일부 사용자에 대해 기능 플래그를 사용 하지 않도록 설정할 수 있습니다. _기능 필터_ 는 평가할 때마다 기능 플래그의 상태를 결정 합니다.
 
-라이브러리 `Microsoft.FeatureManagement` 에는 다음과 같은 두 가지 기능 필터가 포함 됩니다.
+라이브러리에는 `Microsoft.FeatureManagement` 다음과 같은 두 가지 기능 필터가 포함 됩니다.
 
 - `PercentageFilter`백분율을 기준으로 기능 플래그를 사용 하도록 설정 합니다.
 - `TimeWindowFilter`지정 된 시간 동안 기능 플래그를 사용 하도록 설정 합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "80057010"
 
 ## <a name="registering-a-feature-filter"></a>기능 필터 등록
 
-기능 필터의 이름을 지정 하 여 `AddFeatureFilter` 메서드를 호출 하 여 기능 필터를 등록 합니다. 예를 들어, 다음 코드는 `PercentageFilter`를 등록 합니다.
+기능 필터의 이름을 지정 하 여 메서드를 호출 하 여 기능 필터를 등록 `AddFeatureFilter` 합니다. 예를 들어, 다음 코드는를 등록 합니다 `PercentageFilter` .
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -41,9 +41,9 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="configuring-a-feature-filter-in-azure-app-configuration"></a>Azure 앱 구성에서 기능 필터 구성
 
-일부 기능 필터에는 추가 설정이 있습니다. 예를 들어 `PercentageFilter` 은 백분율을 기반으로 기능을 활성화 합니다. 사용할 백분율을 정의 하는 설정이 있습니다.
+일부 기능 필터에는 추가 설정이 있습니다. 예를 들어은 `PercentageFilter` 백분율을 기반으로 기능을 활성화 합니다. 사용할 백분율을 정의 하는 설정이 있습니다.
 
-Azure 앱 구성에 정의 된 기능 플래그에 대해 이러한 설정을 구성할 수 있습니다. 예를 들어를 사용 `PercentageFilter` 하 여 웹 앱에 대 한 요청의 50%에 대 한 기능 플래그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+Azure 앱 구성에 정의 된 기능 플래그에 대해 이러한 설정을 구성할 수 있습니다. 예를 들어를 사용 하 여 `PercentageFilter` 웹 앱에 대 한 요청의 50%에 대 한 기능 플래그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. [빠른 시작: ASP.NET Core 앱에 기능 플래그 추가](./quickstart-feature-flag-aspnet-core.md) 의 지침에 따라 기능 플래그를 사용 하 여 웹 앱을 만듭니다.
 

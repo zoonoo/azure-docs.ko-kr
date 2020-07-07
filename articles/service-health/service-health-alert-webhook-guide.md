@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062849"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Webhook를 사용 하 여 문제 관리 시스템에 대 한 상태 알림 구성
@@ -33,7 +33,7 @@ Azure 서비스 인시던트가 영향을 받는 경우 텍스트 메시지나 �
 
 [예제](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook 페이로드를 참조 하세요.
 
-를 살펴보면 서비스 상태 경고 인지 확인할 수 있습니다 `context.eventSource == "ServiceHealth"`. 가장 관련성이 높은 속성은 다음과 같습니다.
+를 살펴보면 서비스 상태 경고 인지 확인할 수 있습니다 `context.eventSource == "ServiceHealth"` . 가장 관련성이 높은 속성은 다음과 같습니다.
 - **데이터. 컨텍스트-activityLog. 상태**
 - **data. activityLog. 수준**
 - **data. activityLog. subscriptionId**
@@ -46,19 +46,19 @@ Azure 서비스 인시던트가 영향을 받는 경우 텍스트 메시지나 �
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>인시던트의 Service Health 대시보드에 대 한 링크 만들기
 특수 URL을 생성 하 여 데스크톱 또는 모바일 장치에서 Service Health 대시보드에 대 한 직접 링크를 만들 수 있습니다. *TrackingId* 및 *subscriptionId* 의 처음 3 자리 및 마지막 3 자리를이 형식으로 사용 합니다.
 
-https<i></i>:///app.azure.com/h/*&lt;&gt;trackingId*/*&lt;first 3 및 last 3 digits&gt; of subscriptionId*
+https <i></i> :///app.azure.com/h/* &lt; trackingId &gt; * / * &lt; first 3 및 last 3 digits &gt; of subscriptionId*
 
 예를 들어 *subscriptionId* 가 bba14129-e895-429b-8809-278e836ecdb3이 고 *trackingId* 가 0DET-URB 인 경우 Service Health URL은 다음과 같습니다.
 
-https<i></i>://app.azure.com/h/0DET-URB/bbadb3
+https <i></i> ://app.azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>수준을 사용 하 여 문제의 심각도를 검색 합니다.
 가장 낮은 심각도에서 가장 높은 심각도부터 페이로드의 **수준** 속성은 *정보*, *경고*, *오류*또는 *중요*일 수 있습니다.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>영향을 받는 서비스를 구문 분석 하 여 인시던트 범위 결정
-Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 알려 줍니다. 전체 세부 정보를 얻으려면의 `impactedServices`값을 구문 분석 해야 합니다.
+Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 알려 줍니다. 전체 세부 정보를 얻으려면의 값을 구문 분석 해야 `impactedServices` 합니다.
 
-내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 다음은 그 예입니다.
+내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 예:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
@@ -115,5 +115,5 @@ Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 
 
 ## <a name="next-steps"></a>다음 단계
 - [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
-- [서비스 상태 알림에](../azure-monitor/platform/service-notifications.md)대해 알아봅니다.
+- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
 - [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

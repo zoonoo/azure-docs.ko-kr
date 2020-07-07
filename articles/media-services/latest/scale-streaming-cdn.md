@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128063"
 ---
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
@@ -58,7 +58,7 @@ Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 �
 
 ## <a name="determine-if-a-dns-change-was-made"></a>DNS 변경을 수행 했는지 확인 합니다.
 
-을 사용 <https://www.digwebinterface.com>하 여 스트리밍 끝점에서 DNS 변경이 수행 되었는지 (트래픽이 Azure CDN로 전달 되 고 있는지) 확인할 수 있습니다. Azureedge.net 도메인 이름이 결과에 표시 되는 경우에는 이제 트래픽을 CDN 이라고 합니다.
+을 사용 하 여 스트리밍 끝점에서 DNS 변경이 수행 되었는지 (트래픽이 Azure CDN로 전달 되 고 있는지) 확인할 수 있습니다 <https://www.digwebinterface.com> . Azureedge.net 도메인 이름이 결과에 표시 되는 경우에는 이제 트래픽을 CDN 이라고 합니다.
 
 ## <a name="origin-assist-cdn-prefetch"></a>원본-CDN 지원-프리페치
 
@@ -71,7 +71,7 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 - CDN에서 프리페치 할 다음 개체를 CDN에 알리기 위해 Media Services 원본에는 "인텔리전스" (원본 지원)가 있어야 합니다.
 - CDN은 프리페치 및 캐싱 (CDN 프리페치 파트)을 수행 합니다. CDN에는 프리페치 또는 일반 인출 인지 여부, 404 응답 처리, 무한 프리페치 루프를 방지 하는 방법 등을 원본에 알리기 위한 "인텔리전스"도 있어야 합니다.
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>장점
 
 *원본 지원 CDN 프리페치* 기능의 이점에는 다음이 포함 됩니다.
 
@@ -82,20 +82,20 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 > [!NOTE]
 > 이 기능은 Media Services 스트리밍 끝점과 통합 된 Akamai CDN에 아직 적용 되지 않습니다. 그러나 기존 Akamai 계약이 있고 Akamai CDN과 Media Services 원본 간에 사용자 지정 통합이 필요한 Media Services 고객에 게 제공 됩니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
-`Origin-Assist CDN-Prefetch` 헤더에 대 한 CDN 지원 (라이브 및 비디오 주문형 스트리밍 모두)은 Akamai cdn을 사용 하 여 직접 계약을 체결 한 고객에 게 제공 됩니다. 이 기능에는 Akamai CDN과 Media Services 원본 간의 다음 HTTP 헤더 교환이 포함 됩니다.
+헤더에 대 한 CDN 지원 `Origin-Assist CDN-Prefetch` (라이브 및 비디오 주문형 스트리밍 모두)은 AKAMAI cdn을 사용 하 여 직접 계약을 체결 한 고객에 게 제공 됩니다. 이 기능에는 Akamai CDN과 Media Services 원본 간의 다음 HTTP 헤더 교환이 포함 됩니다.
 
 |HTTP 헤더|값|보낸 사람|받는 사람|목적|
 | ---- | ---- | ---- | ---- | ----- |
-|`CDN-Origin-Assist-Prefetch-Enabled` | 1 (기본값) 또는 0 |CDN|원본|CDN에서 프리페치를 사용 하도록 지정 합니다.|
-|`CDN-Origin-Assist-Prefetch-Path`| 예제: <br/>조각 (video = 1400000000, format = mpd-cmaf)|원본|CDN|CDN에 대 한 프리페치 경로를 제공 합니다.|
-|`CDN-Origin-Assist-Prefetch-Request`|1 (프리페치 요청) 또는 0 (일반 요청)|CDN|원본|CDN의 요청이 프리페치 임을 나타내려면입니다.|
+|`CDN-Origin-Assist-Prefetch-Enabled` | 1(기본값) 또는 0 |CDN|원본|CDN에서 프리페치를 사용 하도록 지정 합니다.|
+|`CDN-Origin-Assist-Prefetch-Path`| 예제: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|원본|CDN|CDN에 대 한 프리페치 경로를 제공 합니다.|
+|`CDN-Origin-Assist-Prefetch-Request`|1(프리페치 요청) 또는 0(일반 요청)|CDN|원본|CDN의 요청이 프리페치 임을 나타내려면입니다.|
 
-작업 중인 헤더 exchange의 일부를 확인 하려면 다음 단계를 수행 합니다.
+헤더 교환의 작동 방식을 확인하려면 다음 단계를 수행합니다.
 
-1. Postman 또는 말아를 사용 하 여 오디오 또는 비디오 세그먼트 또는 조각에 대 한 Media Services 원본에 요청을 발급 합니다. 요청에 헤더 `CDN-Origin-Assist-Prefetch-Enabled: 1` 를 추가 해야 합니다.
-2. 응답에서 상대 경로를 해당 값으로 사용 `CDN-Origin-Assist-Prefetch-Path` 하는 헤더가 표시 되어야 합니다.
+1. Postman 또는 말아를 사용 하 여 오디오 또는 비디오 세그먼트 또는 조각에 대 한 Media Services 원본에 요청을 발급 합니다. 요청에 헤더를 추가 해야 `CDN-Origin-Assist-Prefetch-Enabled: 1` 합니다.
+2. 응답에서 `CDN-Origin-Assist-Prefetch-Path` 상대 경로를 해당 값으로 사용 하는 헤더가 표시 되어야 합니다.
 
 ### <a name="supported-streaming-protocols"></a>지원 되는 스트리밍 프로토콜
 
@@ -108,7 +108,7 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 * 대시 (CMAF)
 * 부드러운 스트리밍
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
 * CDN 프리페치에서 404을 가져오기 위해 프리페치 경로 URL이 잘못 된 경우는 어떻게 되나요?
 
@@ -124,9 +124,9 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 
 * 라이브 스트리밍의 경우 출처는 다음 세그먼트 또는 조각을 아직 사용할 수 없는 경우에 도움이 될 것입니다.
 
-    이 경우 Media Services 원본은 헤더를 제공 `CDN-Origin-Assist-Prefetch-Path` 하지 않고 CDN 프리페치는 발생 하지 않습니다.
+    이 경우 Media Services 원본은 헤더를 제공 하지 않고 `CDN-Origin-Assist-Prefetch-Path` CDN 프리페치는 발생 하지 않습니다.
 
-* 는 동적 `Origin-Assist CDN-Prefetch` 매니페스트 필터를 사용 하 여 어떻게 작동 하나요?
+* 는 `Origin-Assist CDN-Prefetch` 동적 매니페스트 필터를 사용 하 여 어떻게 작동 하나요?
 
     이 기능은 매니페스트 필터와 독립적으로 작동 합니다. 다음 조각이 필터 창에서 벗어난 경우 원시 클라이언트 매니페스트를 찾고 CDN 프리페치 응답 헤더로 반환 하 여 해당 URL을 찾을 수 있습니다. 따라서 CDN은 대시/HLS/부드러운 매니페스트에서 필터링 된 조각의 URL을 가져옵니다. 그러나 플레이어는 해당 조각이 플레이어에서 보유 하는 대시/HLS/부드러운 매니페스트에 포함 되지 않기 때문에 CDN에 대 한 GET 요청을 수행 하지 않습니다.
 

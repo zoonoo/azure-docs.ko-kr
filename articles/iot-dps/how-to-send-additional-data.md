@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246690"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>장치와 DPS 간에 페이로드를 전송 하는 방법
 경우에 따라 DPS는 장치에서 더 많은 데이터를 제공 하 여 올바른 IoT Hub에 적절히 프로 비전 하 고 해당 데이터를 장치에서 제공 해야 합니다. 그 반대의 경우 DPS는 클라이언트 쪽 logics를 용이 하 게 하기 위해 장치에 데이터를 반환할 수 있습니다. 
 
-## <a name="when-to-use-it"></a>사용하는 시기
+## <a name="when-to-use-it"></a>사용하는 경우
 이 기능은 [사용자 지정 할당](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies)에 대 한 향상 된 기능으로 사용할 수 있습니다. 예를 들어, 사용자 개입 없이 장치 모델을 기반으로 장치를 할당 하려고 합니다. 이 경우에는 [사용자 지정 할당](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies)을 사용 합니다. 장치를 구성 하 여 [장치 등록 호출](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice)의 일부로 모델 정보를 보고할 수 있습니다. DPS는 사용자 지정 할당 webhook에 장치의 페이로드를 전달 합니다. 그리고 함수는 장치 모델 정보를 받을 때이 장치가 이동 하는 IoT Hub를 결정할 수 있습니다. 마찬가지로 webhook에서 장치에 일부 데이터를 반환 하려는 경우 데이터를 다시 웹 후크 응답에서 문자열로 전달 합니다.  
 
 ## <a name="device-sends-data-payload-to-dps"></a>장치에서 DPS로 데이터 페이로드를 보냅니다.
@@ -54,7 +54,7 @@ ms.locfileid: "80246690"
    ```
 
 ## <a name="sdk-support"></a>SDK 지원
-이 기능은 C, c #, JAVA 및 node.js [클라이언트 sdk](https://docs.microsoft.com/azure/iot-dps/)에서 사용할 수 있습니다.  
+이 기능은 C, c #, JAVA 및 Node.js [클라이언트 sdk](https://docs.microsoft.com/azure/iot-dps/)에서 사용할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 * Azure IoT Hub 및 Azure IoT Hub Device Provisioning Service에서 [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks)를 사용하여 개발

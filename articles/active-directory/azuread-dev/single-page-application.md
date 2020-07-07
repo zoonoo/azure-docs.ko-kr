@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154749"
 ---
 # <a name="single-page-applications"></a>단일 페이지 애플리케이션
@@ -61,7 +61,7 @@ ADAL.js를 사용하면 다음과 같은 이점이 있습니다.
 * 만료된 토큰 새로 고침
 * 웹 API 리소스를 호출하기 위한 액세스 토큰 요청
 
-인증이 성공하면 Azure AD에서 사용자의 브라우저에 쿠키를 작성하여 세션을 설정합니다. 세션은 사용자와 Azure AD 사이에 존재합니다(사용자와 웹 애플리케이션 사이가 아님). 토큰이 만료되면 ADAL.js가 이 세션을 사용하여 자동으로 다른 토큰을 가져옵니다. ADAL.js는 숨겨진 iFrame을 사용하여 OAuth 암시적 허용 프로토콜을 통해 요청을 보내고 받습니다. 또한 ADAL은 이러한 리소스가 CORS (원본 간 리소스 공유)를 지원 하 고, 사용자 디렉터리에 등록 되 고, 로그인 중에 사용자가 필요한 동의를 받은 경우 응용 프로그램이 호출 하는 다른 웹 API 리소스에 대 한 액세스 토큰을 자동으로 얻기 위해이 동일한 메커니즘을 사용할 수 있습니다.
+인증이 성공하면 Azure AD에서 사용자의 브라우저에 쿠키를 작성하여 세션을 설정합니다. 세션은 사용자와 Azure AD 사이에 존재합니다(사용자와 웹 애플리케이션 사이가 아님). 토큰이 만료되면 ADAL.js가 이 세션을 사용하여 자동으로 다른 토큰을 가져옵니다. ADAL.js는 숨겨진 iFrame을 사용하여 OAuth 암시적 허용 프로토콜을 통해 요청을 보내고 받습니다. 또한이 동일한 메커니즘을 사용 하 여 이러한 리소스가 CORS (원본 간 리소스 공유)를 지원 하 고, 사용자의 디렉터리에 등록 되 고, 로그인 중에 사용자가 필요한 동의를 제공 하는 경우 응용 프로그램이 호출 하는 다른 웹 API 리소스에 대 한 액세스 토큰을 자동으로 가져올 수 있습니다. ADAL.js
 
 ## <a name="next-steps"></a>다음 단계
 

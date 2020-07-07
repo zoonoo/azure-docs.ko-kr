@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537349"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services 정의 LoadBalancerProbe 스키마
@@ -57,8 +57,8 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 
 |attribute|Type|Description|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | 필수 사항입니다. 부하 분산 장치 프로브의 이름입니다. 이름은 고유해야 합니다.|
-| `protocol`          | `string` | 필수 사항입니다. 끝점의 프로토콜을 지정합니다. 가능한 값은 `http` 또는 `tcp`입니다. `tcp`가 지정된 경우 프로브가 성공하려면 수신된 ACK가 필요합니다. `http`가 지정된 경우 프로브가 성공하려면 지정한 URI로부터의 200 OK 응답이 필요합니다.|
+| `name`              | `string` | 필수 요소. 부하 분산 장치 프로브의 이름입니다. 이름은 고유해야 합니다.|
+| `protocol`          | `string` | 필수 요소. 끝점의 프로토콜을 지정합니다. 가능한 값은 `http` 또는 `tcp`입니다. `tcp`가 지정된 경우 프로브가 성공하려면 수신된 ACK가 필요합니다. `http`가 지정된 경우 프로브가 성공하려면 지정한 URI로부터의 200 OK 응답이 필요합니다.|
 | `path`              | `string` | VM에서 상태를 요청하는 데 사용되는 URI입니다. `protocol`이 `http`로 설정된 경우 `path`가 필요합니다. 그렇지 않은 경우 허용되지 않습니다.<br /><br /> 기본값은 없습니다.|
 | `port`              | `integer` | 선택 사항입니다. 프로브 통신을 위한 포트입니다. 이는 동일한 포트가 프로브에 사용되므로 모든 엔드포인트에서 선택 사항입니다. 검색을 위해 다른 포트를 구성할 수도 있습니다. 가능한 값 범위는 1에서 65535 사이입니다.<br /><br /> 기본값은 엔드포인트에 의해 설정됩니다.|
 | `intervalInSeconds` | `integer` | 선택 사항입니다. 상태에 대한 엔드포인트를 검색하는 빈도에 대한 간격(초)입니다. 일반적으로 간격은 인스턴스가 순환에서 제거되기 전에 전체 두 프로브를 허용하는 할당된 시간 제한 기간(초)의 절반보다 약간 더 짧습니다.<br /><br /> 기본값은 15이며 최소값은 5입니다.|

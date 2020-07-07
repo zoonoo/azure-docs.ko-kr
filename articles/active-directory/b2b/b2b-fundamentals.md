@@ -13,17 +13,17 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050859"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory B2B 모범 사례
 이 문서에는 Azure Active Directory (Azure AD)에서 B2B (기업 간) 공동 작업을 위한 권장 사항 및 모범 사례가 포함 되어 있습니다.
 
    > [!IMPORTANT]
-   > **2021 년 3 월 31**일부 터 MICROSOFT는 B2B 공동 작업 시나리오에 대해 관리 되지 않는 Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 준비가 되 면 고객이 [일회용 암호 인증을 전자 메일로](one-time-passcode.md)옵트인 하는 것이 좋습니다. 이 공개 미리 보기 기능에 대 한 사용자 의견을 환영 하며 공동 작업을 위해 훨씬 더 많은 방법을 만들어 보세요.
+   > **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 ## <a name="b2b-recommendations"></a>B2B 권장 사항
 | 권장 | 주석 |
@@ -35,7 +35,7 @@ ms.locfileid: "80050859"
 | 대량 초대 (미리 보기) 기능을 사용 하 여 여러 B2B 게스트 사용자를 동시에 초대 | Azure Portal에서 대량 초대 미리 보기 기능을 사용 하 여 동시에 여러 게스트 사용자를 조직에 초대 합니다. 이 기능을 사용 하면 CSV 파일을 업로드 하 여 B2B 게스트 사용자를 만들고 대량 초대를 보낼 수 있습니다. [B2B 사용자를 대량 초대 하는 방법에 대 한 자습서를](tutorial-bulk-invite.md)참조 하세요. |
 | Multi-Factor Authentication에 대 한 조건부 액세스 정책 적용 (MFA) | 파트너 B2B 사용자와 공유 하려는 앱에 MFA 정책을 적용 하는 것이 좋습니다. 이러한 방식으로 MFA는 파트너 조직에서 MFA를 사용 하는지 여부에 관계 없이 테 넌 트의 앱에 일관 되 게 적용 됩니다. [B2B 공동 작업 사용자에 대 한 조건부 액세스를](conditional-access.md)참조 하세요. |
 | 장치 기반 조건부 액세스 정책을 적용 하는 경우에는 제외 목록을 사용 하 여 B2B 사용자에 대 한 액세스를 허용 합니다. | 조직에서 장치 기반 조건부 액세스 정책을 사용 하도록 설정 하는 경우 B2B 게스트 사용자 장치는 조직에서 관리 되지 않으므로 차단 됩니다. 특정 파트너 사용자가 포함 된 제외 목록을 만들어 장치 기반 조건부 액세스 정책에서 제외할 수 있습니다. [B2B 공동 작업 사용자에 대 한 조건부 액세스를](conditional-access.md)참조 하세요. |
-| B2B 게스트 사용자에 게 직접 링크를 제공 하는 경우 테 넌 트 별 URL 사용 | 초대 전자 메일의 대 안으로 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 이 직접 링크는 테 넌 트에 따라 달라 야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 하므로 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. [게스트 사용자를 위한 상환 환경을](redemption-experience.md)참조 하세요. |
+| B2B 게스트 사용자에 게 직접 링크를 제공 하는 경우 테 넌 트 별 URL 사용 | 초대 이메일 대신 게스트에게 앱 또는 포털의 직접 링크를 제공할 수도 있습니다. 이 직접 링크는 테 넌 트에 따라 달라 야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 하므로 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. [게스트 사용자를 위한 상환 환경을](redemption-experience.md)참조 하세요. |
 | 앱을 개발할 때 UserType를 사용 하 여 게스트 사용자 환경을 확인 합니다.  | 응용 프로그램을 개발 중이 고 테 넌 트 사용자와 게스트 사용자에 게 다른 환경을 제공 하려면 UserType 속성을 사용 합니다. UserType 클레임은 현재 토큰에 포함되지 않습니다. 응용 프로그램은 Microsoft Graph API를 사용 하 여 사용자가 자신의 UserType을 얻기 위해 디렉터리를 쿼리해야 합니다. |
 | 조직과의 사용자 관계가 변경 되는 경우에 *만* UserType 속성을 변경 합니다. | PowerShell을 사용 하 여 사용자의 UserType 속성을 Member에서 Guest로 변환 하는 것이 가능 하지만 (그 반대의 경우도 해당) 사용자의 조직에 대 한 사용자의 관계가 변경 되는 경우에만이 속성을 변경 해야 합니다. [B2B 게스트 사용자의 속성](user-properties.md)을 참조 하세요.|
 

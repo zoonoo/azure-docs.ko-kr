@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79534731"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services 정의 NetworkTrafficRules 스키마
@@ -78,8 +78,8 @@ ph x="1" /&gt; 요소는 역할에서 통신을 허용하는 엔드포인트를 
 
 | attribute      | Type     | Description |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | 필수 사항입니다. 트래픽을 허용하는 엔드포인트의 이름입니다.|
-| `roleName`     | `string` | 필수 사항입니다. 통신을 허용하는 웹 역할의 이름입니다.|
+| `endpointName` | `string` | 필수 요소. 트래픽을 허용하는 엔드포인트의 이름입니다.|
+| `roleName`     | `string` | 필수 요소. 통신을 허용하는 웹 역할의 이름입니다.|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic 요소
 ph x="1" /&gt; 요소는 모든 역할이 `Destinations` 노드에 정의된 엔드포인트와 통신하도록 허용하는 규칙입니다.
@@ -89,14 +89,14 @@ ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 �
 
 | attribute | Type     | Description |
 | --------- | -------- | ----------- |
-| `matches` | `string` | 필수 사항입니다. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
+| `matches` | `string` | 필수 요소. 통신을 허용할 때 적용할 규칙을 지정합니다. 현재 유효한 값은 `AnyRule`뿐입니다.|
   
 ##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole 요소
 ph x="1" /&gt; 요소는 `Destinations` 노드에 정의된 엔드포인트와 통신할 수 있는 역할을 지정합니다. 엔드포인트와 통신할 수 있는 역할이 둘 이상인 경우 `FromRole` 요소를 여러 개 지정할 수 있습니다.
 
 | attribute  | Type     | Description |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | 필수 사항입니다. 통신을 허용하는 역할에 대한 이름입니다.|
+| `roleName` | `string` | 필수 요소. 통신을 허용하는 역할에 대한 이름입니다.|
 
 ## <a name="see-also"></a>참고 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)

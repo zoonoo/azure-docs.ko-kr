@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127901"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 개인 모델 사용자 지정
@@ -75,7 +75,7 @@ Person 모델을 성공적으로 삭제 하면 반환 된 콘텐츠가 없습니
 ]
 ```
 
-비디오를 업로드 하 여 비디오를 [인덱싱하고](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) [인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 만들 때 `personModelId` 매개 변수에 대 `id` 한 Person 모델의 값을 사용 하 여 비디오에 사용할 모델을 선택할 수 있습니다.
+비디오를 업로드 하 여 비디오를 `id` `personModelId` [인덱싱하고](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) [인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 만들 때 매개 변수에 대 한 Person 모델의 값을 사용 하 여 비디오에 사용할 모델을 선택할 수 있습니다.
 
 ## <a name="update-a-face"></a>얼굴 업데이트
 
@@ -87,7 +87,7 @@ Video Indexer에서 유명인으로 인식된 얼굴을 새 이름으로 업데�
 
 얼굴을 업데이트 하려면 [video face API 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) 를 사용 합니다.
 
-이름은 개인 모델에 대해 고유 하므로 동일한 사람에 게 동일한 `name` 매개 변수 값을 제공 하는 두 개의 얼굴을 동일한 사람에 게 제공 하는 경우 Video Indexer는 얼굴을 동일한 사람으로 표시 하 고 비디오를 재 인덱싱합니다.
+이름은 개인 모델에 대해 고유 하므로 동일한 사람에 게 동일한 매개 변수 값을 제공 하는 두 개의 얼굴을 동일한 사람에 게 제공 하는 경우 `name` Video Indexer는 얼굴을 동일한 사람으로 표시 하 고 비디오를 재 인덱싱합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

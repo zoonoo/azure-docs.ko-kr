@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158149"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙으로 Azure IoT Central 확장
@@ -30,7 +30,7 @@ ms.locfileid: "80158149"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -40,9 +40,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 요금제 | Standard |
+| 요금제 | 표준 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -62,9 +62,9 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **Detect
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 속성    | 네임 스페이스 이름 선택 |
+| Name    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
@@ -75,9 +75,9 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 
 Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 만듭니다](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) .
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 속성    | 작업 이름 선택 |
+| Name    | 작업 이름 선택 |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
 | 위치 | 미국 동부 |
@@ -88,7 +88,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 
 다음 설정을 사용 하 여 [함수 앱을 만들려면 Azure Portal를](https://portal.azure.com/#create/Microsoft.FunctionApp) 사용 합니다.
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
 | 앱 이름    | 함수 앱 이름 선택 |
 | Subscription | 사용자의 구독 |
@@ -103,9 +103,9 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 
 Azure Portal를 사용 하 여 다음 설정으로 [SendGrid 계정을 만듭니다](https://portal.azure.com/#create/Sendgrid.sendgrid) .
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 속성    | SendGrid 계정 이름 선택 |
+| Name    | SendGrid 계정 이름 선택 |
 | 암호 | 암호 만들기 |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
@@ -144,7 +144,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 이 솔루션은 Stream Analytics 작업에서 중지 된 장치를 검색할 때 Azure Functions 앱을 사용 하 여 전자 메일 알림을 보냅니다. 함수 앱을 만들려면 다음을 수행 합니다.
 
 1. Azure Portal에서 **DetectStoppedDevices** 리소스 그룹의 **App Service** 인스턴스로 이동 합니다.
-1. 새 **+** 함수를 만들려면 선택 합니다.
+1. **+** 새 함수를 만들려면 선택 합니다.
 1. **개발 환경 선택** 페이지에서 **포털 내** 를 선택한 다음 **계속**을 선택 합니다.
 1. **함수 만들기** 페이지에서 **Webhook + API** 를 선택한 다음 **만들기**를 선택 합니다.
 
@@ -244,7 +244,7 @@ test-device-3    2019-05-02T14:24:28.919Z
 1. Azure Portal에서 Stream Analytics 작업으로 이동 하 여 **작업 토폴로지** 에서 **입력**을 선택 하 고 **+ 스트림 입력 추가**를 선택한 다음 **이벤트 허브**를 선택 합니다.
 1. 이전에 만든 이벤트 허브를 사용 하 여 입력을 구성 하려면 다음 표의 정보를 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 입력 별칭 | centraltelemetry |
     | Subscription | 사용자의 구독 |
@@ -254,7 +254,7 @@ test-device-3    2019-05-02T14:24:28.919Z
 1. **작업 토폴로지**에서 **출력**을 선택 하 고 **+ 추가**를 선택한 다음, **Azure 함수**를 선택 합니다.
 1. 다음 표의 정보를 사용 하 여 출력을 구성한 후 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 출력 별칭 | emailnotification |
     | Subscription | 사용자의 구독 |
@@ -314,15 +314,15 @@ test-device-3    2019-05-02T14:24:28.919Z
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
-    | 사용 | 설정 |
+    | 사용 | 켜기 |
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
-    | 측정 | 설정 |
-    | 디바이스 | 꺼짐 |
-    | 디바이스 템플릿 | 꺼짐 |
+    | 측정 | 켜기 |
+    | 디바이스 | 끄기 |
+    | 디바이스 템플릿 | 끄기 |
 
 ![연속 데이터 내보내기 구성](media/howto-create-custom-rules/cde-configuration.png)
 

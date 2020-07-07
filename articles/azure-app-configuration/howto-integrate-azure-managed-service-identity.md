@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056830"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure Managed Identities와 통합
@@ -33,12 +33,12 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 > * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell 구성](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell 구성](https://docs.microsoft.com/azure/cloud-shell/quickstart)되었습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 를 선택 하 고 빠른 시작에서 만든 앱 구성 저장소를 선택 합니다.
 
-1. **액세스 제어 (IAM)** 를 선택 합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
 
 1. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가**를 선택합니다.
 
@@ -84,7 +84,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
 1. 앱 구성 저장소에 대 한 끝점을 찾습니다. 이 URL은 Azure Portal의 저장소에 대 한 **액세스 키** 탭에 나열 됩니다.
 
-1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 * \<service_endpoint>* 를 앱 구성 저장소에 대 한 URL로 바꿉니다. 
+1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 *\<service_endpoint>* 를 앱 구성 저장소에 대 한 URL로 바꿉니다. 
 
     ```json
     "AppConfig": {
@@ -92,13 +92,13 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     }
     ```
 
-1. *Program.cs*을 열고 및 `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` 네임 스페이스에 대 한 참조를 추가 합니다.
+1. *Program.cs*을 열고 `Azure.Identity` 및 네임 스페이스에 대 한 참조를 추가 합니다 `Microsoft.Azure.Services.AppAuthentication` .
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. 앱 구성에 직접 저장 된 값에만 액세스 하려는 경우 `CreateWebHostBuilder` `config.AddAzureAppConfiguration()` 메서드를 대체 하 여 메서드를 업데이트 합니다.
+1. 앱 구성에 직접 저장 된 값에만 액세스 하려는 경우 `CreateWebHostBuilder` 메서드를 대체 하 여 메서드를 업데이트 합니다 `config.AddAzureAppConfiguration()` .
 
     > [!IMPORTANT]
     > .NET Core 3.0에서 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다.  사용자 환경에 따라 올바른 구문을 선택합니다.
@@ -133,7 +133,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ```
     ---
 
-1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program.cs* 를 업데이트 합니다. 이 코드는를 `KeyVaultClient` `AzureServiceTokenProvider` 사용 하 여 새를 만들고이 참조를 `UseAzureKeyVault` 메서드에 대 한 호출에 전달 합니다.
+1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program.cs* 를 업데이트 합니다. 이 코드 `KeyVaultClient` 는를 사용 하 여 새를 만들고 `AzureServiceTokenProvider` 이 참조를 메서드에 대 한 호출에 전달 `UseAzureKeyVault` 합니다.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -181,7 +181,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ```
     ---
 
-    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 Key Vault에 대 `KeyVaultClient` 한 인증을 위해 구성한를 사용 하 고 값을 검색 합니다.
+    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 `KeyVaultClient` Key Vault에 대 한 인증을 위해 구성한를 사용 하 고 값을 검색 합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Kudu 빌드 서버를 사용 하 여 앱에 대 한 로컬 Git 배포를 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) 사용 하도록 설정 하려면 Cloud Shell에서를 실행 합니다.
+Kudu 빌드 서버를 사용 하 여 앱에 대 한 로컬 Git 배포를 사용 하도록 설정 하려면 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) Cloud Shell에서를 실행 합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 ### <a name="deploy-your-project"></a>프로젝트 배포
 
-_로컬 터미널 창_에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. _ \<Url>_ 을 [Kudu를 사용 하 여 로컬 git 사용](#enable-local-git-with-kudu)에서 가져온 Git 원격의 url로 바꿉니다.
+_로컬 터미널 창_에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. _\<url>_ [Kudu를 사용 하 여 로컬 git 사용](#enable-local-git-with-kudu)에서 가져온 GIT 원격의 URL로 대체 합니다.
 
 ```bash
 git remote add azure <url>
@@ -244,7 +244,7 @@ http://<app_name>.azurewebsites.net
 
 .NET Framework 및 Java Spring 용 App Configuration 공급자에는 관리형 ID에 대한 지원 기능이 내장되어 있습니다. 이러한 공급자 중 하나를 구성할 때 전체 연결 문자열 대신 상점의 URL 끝점을 사용할 수 있습니다. 
 
-예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱을 업데이트 하 여 app.config 파일에서 다음 설정을 지정할 수 *있습니다.*
+예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱을 업데이트 하 여 *App.config* 파일에서 다음 설정을 지정할 수 있습니다.
 
 ```xml
     <configSections>

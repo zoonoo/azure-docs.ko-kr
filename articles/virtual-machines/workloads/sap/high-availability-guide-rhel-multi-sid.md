@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4f1bfd58e27f0cd677980ff9351d32d91a68e3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80247438"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
@@ -97,10 +97,10 @@ ms.locfileid: "80247438"
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
   * [RHEL 7.5에서 독립 실행형 리소스를 사용하여 SAP Netweaver용 ASCS/ERS 구성](https://access.redhat.com/articles/3569681)
   * [Pacemaker의 RHEL에서 독립 실행형 큐에 넣기 서버 2 (ENSA2)를 사용 하 여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
-* Azure 관련 RHEL 설명서:
+* Azure 특정 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
-* [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
+* [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
 
@@ -116,7 +116,7 @@ ms.locfileid: "80247438"
 > [!TIP]
 > SAP ASCS/ERS의 다중 SID 클러스터링은 더 복잡 한 솔루션입니다. 구현 하는 것이 더 복잡 합니다. 또한 유지 관리 작업 (예: OS 패치)을 실행할 때 더 높은 관리 노력이 수반 됩니다. 실제 구현을 시작 하기 전에 배포 및 Vm, NFS 탑재, Vip, 부하 분산 장치 구성 등의 관련 된 모든 구성 요소를 신중 하 게 계획 해야 합니다.  
 
-Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다.  
+Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용하는 것이 좋습니다.  
 
 다음 목록에서는 세 가지 SAP 시스템을 사용 하는이 다중 SID 클러스터 예제에 대 한 (A) SCS 및 ERS 부하 분산 장치 구성을 보여 줍니다. 각 Sid에 대 한 각 ASCS 및 ERS 인스턴스에 대해 별도의 프런트 엔드 IP, 상태 프로브 및 부하 분산 규칙이 필요 합니다. ASCS/ASCS 클러스터의 일부인 모든 Vm을 단일 ILB의 백 엔드 풀 하나에 할당 합니다.  
 
@@ -128,14 +128,14 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
   * NW3에 대 한 IP 주소: 10.3.1.54
 
 * 프로브 포트
-  * 포트 620<strong>&lt;nr&gt;</strong>, n w 1, n w 2 및 NW3 프로브 포트 620**00**, 620**10** 및 620**20**
+  * 포트 620<strong> &lt; NR &gt; </strong>, N W 1, n w 2 및 NW3 프로브 포트 620**00**, 620**10** 및 620**20**
 * 부하 분산 규칙-각 인스턴스, 즉 N W 1/ASCS, N W 2/ASCS 및 NW3/ASCS에 대해 하나씩 만듭니다.
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -148,12 +148,12 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
   * NW3 10.3.1.55에 대 한 IP 주소
 
 * 프로브 포트
-  * 포트 621<strong>&lt;nr&gt;</strong>, n w 1, n w 2 및 N3 프로브 포트인 621**02**, 621**12** 및 621**22**
+  * 포트 621<strong> &lt; NR &gt; </strong>, N w 1, n w 2 및 N3 프로브 포트인 621**02**, 621**12** 및 621**22**
 * 부하 분산 규칙-각 인스턴스, 즉 N W 1/ERS, N W 2/ERS 및 NW3/ERS에 대해 하나를 만듭니다.
-  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
-  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
+  * 표준 Load Balancer를 사용하는 경우 **HA 포트**를 선택합니다.
+  * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -162,10 +162,10 @@ Sap NetWeaver ASCS, sap NetWeaver SCS 및 SAP NetWeaver ERS는 가상 호스트 
   * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 
 > [!Note]
-> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
 
 ## <a name="sap-shares"></a>SAP 공유
 
@@ -189,9 +189,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 이 예제에서는 system **n w 1** 가 클러스터에 이미 배포 되어 있다고 가정 합니다. **N w 2** 및 **NW3**클러스터에서 배포 하는 방법을 보여 줍니다. 
 
-다음 항목에는 접두사 **[A]** -모든 노드에 적용, **[1]** -노드 1에만 적용 됩니다. [ **2]** -노드 2에만 적용 됩니다.
+다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>전제 조건 
+### <a name="prerequisites"></a>필수 구성 요소 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  
@@ -206,7 +206,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 1. 새로 배포한 시스템 (즉, **n w 2**, **NW3**)에 대 한 구성을 기존 Azure Load Balancer에 추가 합니다. 지침에 따라 [Azure Portal를 통해 수동으로 배포 Azure Load Balancer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files#deploy-linux-manually-via-azure-portal)합니다. 구성에 대 한 IP 주소, 상태 프로브 포트, 부하 분산 규칙을 조정 합니다.  
 
-2. **[A]** 추가 SAP 시스템에 대 한 이름 확인을 설정 합니다. DNS 서버를 사용 하거나 모든 노드에서를 `/etc/hosts` 수정할 수 있습니다. 이 예제에서는 `/etc/hosts` 파일을 사용 하는 방법을 보여 줍니다.  사용자 환경에 대 한 IP 주소 및 호스트 이름을 조정 합니다. 
+2. **[A]** 추가 SAP 시스템에 대 한 이름 확인을 설정 합니다. DNS 서버를 사용 하거나 모든 노드에서를 수정할 수 있습니다 `/etc/hosts` . 이 예제에서는 파일을 사용 하는 방법을 보여 줍니다 `/etc/hosts` .  사용자 환경에 대 한 IP 주소 및 호스트 이름을 조정 합니다. 
 
     ```
     sudo vi /etc/hosts
@@ -245,7 +245,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 4. **[A]** 클러스터에 배포 하는 추가 sap 시스템에 대 한/Sapmnt/SID 및/usr/sap/SID/SYS 파일 시스템의 탑재 항목을 추가 합니다. 이 예제에서는 **n w 2** 및 **NW3**입니다.  
 
-   클러스터에 `/etc/fstab` 배포 하는 추가 SAP 시스템의 파일 시스템을 사용 하 여 파일을 업데이트 합니다.  
+   `/etc/fstab`클러스터에 배포 하는 추가 SAP 시스템의 파일 시스템을 사용 하 여 파일을 업데이트 합니다.  
 
    * Azure NetApp Files 사용 하는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요.  
    * GlusterFS 클러스터를 사용 하는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요.  
@@ -326,7 +326,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
    클러스터 상태가 양호 이며 모든 리소스가 시작 되었는지 확인 합니다.  
 
-   그런 다음, 새로 만든 ERS 그룹의 리소스가 동일한 SAP 시스템의 ASCS 인스턴스가 설치 된 클러스터 노드와 반대 되는 클러스터 노드에서 실행 되 고 있는지 확인 합니다.  예를 들어 N W 2 ASCS가에 `rhelmsscl1`설치 된 경우 n w 2 ERS 그룹이에서 `rhelmsscl2`실행 중인지 확인 합니다.  그룹의 클러스터 리소스 중 하나에 대해 `rhelmsscl2` 다음 명령을 실행 하 여 n w 2 ERS 그룹을로 마이그레이션할 수 있습니다. 
+   그런 다음, 새로 만든 ERS 그룹의 리소스가 동일한 SAP 시스템의 ASCS 인스턴스가 설치 된 클러스터 노드와 반대 되는 클러스터 노드에서 실행 되 고 있는지 확인 합니다.  예를 들어 N W 2 ASCS가에 설치 된 경우 `rhelmsscl1` N W 2 ERS 그룹이에서 실행 중인지 확인 `rhelmsscl2` 합니다.  `rhelmsscl2`그룹의 클러스터 리소스 중 하나에 대해 다음 명령을 실행 하 여 N W 2 ERS 그룹을로 마이그레이션할 수 있습니다. 
 
     ```
       pcs resource move fs_NW2_AERS rhelmsscl2
@@ -386,7 +386,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 6. **[A]** /usr/sap/sapservices 파일 업데이트
 
-   Sapinit 시작 스크립트를 통해 인스턴스의 시작을 방지 하려면 Pacemaker에서 관리 하는 모든 인스턴스를 파일에서 `/usr/sap/sapservices` 주석 처리 해야 합니다.  아래에 표시 된 예제는 SAP systems **n w 2** 및 **NW3**에 대 한 것입니다.  
+   Sapinit 시작 스크립트를 통해 인스턴스의 시작을 방지 하려면 Pacemaker에서 관리 하는 모든 인스턴스를 파일에서 주석 처리 해야 합니다 `/usr/sap/sapservices` .  아래에 표시 된 예제는 SAP systems **n w 2** 및 **NW3**에 대 한 것입니다.  
 
    ```
     # On the node where ASCS was installed, comment out the line for the ASCS instacnes
@@ -444,7 +444,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo pcs property set maintenance-mode=false
     ```
 
-   Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
+   SAP는 SAP NW 7.52부터 복제를 비롯하여 큐에 넣기 서버 2에 대한 지원을 도입했습니다. ABAP Platform 1809부터 큐에 넣기 서버 2가 기본적으로 설치됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416)을 참조하세요.
    [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 다음과 같이 SAP systems **n w 2** 및 **NW3** 에 대 한 리소스를 정의 합니다.
 
     ```
@@ -489,7 +489,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo pcs property set maintenance-mode=false
     ```
 
-   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)을 참조 하세요. 
+   이전 버전에서 업그레이드하고 큐에 넣기 서버 2로 전환하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)를 참조하세요. 
 
    > [!NOTE]
    > 위의 구성에서 시간 제한은 단지 예 이며 특정 SAP 설정에 맞게 조정 해야 할 수 있습니다. 
@@ -612,7 +612,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 다음 테스트는 Red Hat의 모범 사례 가이드에서 테스트 사례의 하위 집합입니다. 사용자 편의를 위해 포함 되었습니다. 클러스터 테스트의 전체 목록은 다음 설명서를 참조 하세요.
 
 * NFS 볼륨 Azure NetApp Files 사용 하는 경우 sap [응용 프로그램에 대 한 Azure NetApp Files를 사용 하 여 RHEL에서 Sap NetWeaver에 대 한 Azure vm 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) 을 따릅니다.
-* 고가용성 `GlusterFS`을 사용 하는 경우 sap [응용 프로그램에 대해 SAP NetWeaver on RHEL에 대 한 Azure vm 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)을 따릅니다.  
+* 고가용성을 사용 하 `GlusterFS` 는 경우 sap [응용 프로그램에 대해 sap NETWEAVER on RHEL에 대 한 Azure vm 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)을 따릅니다.  
 
 항상 Red Hat 모범 사례 가이드를 읽고 추가 되었을 수 있는 모든 추가 테스트를 수행 합니다.  
 표시 되는 테스트는 3 개의 SAP 시스템이 설치 된 다중 SID 클러스터의 두 노드에 있습니다.  
@@ -752,7 +752,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
    ```
 
-   하나 이상의 ASCS 인스턴스가 실행 되 고 있는 노드의 루트로 다음 명령을 실행 합니다. 이 예제에서는 N W 1, N W 2 및 NW3의 `rhelmsscl1`ascs 인스턴스가 실행 되는에서 명령을 실행 했습니다.  
+   하나 이상의 ASCS 인스턴스가 실행 되 고 있는 노드의 루트로 다음 명령을 실행 합니다. 이 예제에서는 `rhelmsscl1` n w 1, n w 2 및 NW3의 ASCS 인스턴스가 실행 되는에서 명령을 실행 했습니다.  
 
    ```
    echo c > /proc/sysrq-trigger
@@ -796,7 +796,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
    ```
 
-   실패 한 리소스에 대 한 메시지가 있는 경우 실패 한 리소스의 상태를 정리 합니다. 다음은 그 예입니다.
+   실패 한 리소스에 대 한 메시지가 있는 경우 실패 한 리소스의 상태를 정리 합니다. 예를 들면 다음과 같습니다.
 
    ```
    pcs resource cleanup rsc_sap_NW1_ERS02

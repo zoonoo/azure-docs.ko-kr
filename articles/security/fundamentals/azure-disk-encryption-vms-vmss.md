@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062118"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>가상 컴퓨터 및 가상 머신 확장 집합에 대 한 Azure Disk Encryption
@@ -27,7 +27,7 @@ Azure 디스크 암호화는 Linux 및 Windows 가상 머신과 가상 머신 �
 - [Linux 가상 머신용 Azure Disk Encryption 개요](../../virtual-machines/linux/disk-encryption-overview.md)
 - [Linux VM에 대한 Azure Disk Encryption 시나리오](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Azure CLI를 사용하여 Linux VM 만들기 및 암호화](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
-- [Azure PowerShell를 사용 하 여 Linux VM 만들기 및 암호화](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+- [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Azure Portal을 사용하여 Linux VM 만들기 및 암호화](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
 - [Linux 용 Azure Disk Encryption 확장 스키마](../../virtual-machines/extensions/azure-disk-enc-linux.md)
 - [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](../../virtual-machines/linux/disk-encryption-key-vault.md)
@@ -64,7 +64,7 @@ Azure 디스크 암호화는 Linux 및 Windows 가상 머신과 가상 머신 �
 - [Windows Vm에서 Azure AD 시나리오로 Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성](../../virtual-machines/windows/disk-encryption-key-vault-aad.md)
 
-## <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
+## <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
 
 다음 문서에서는 가상 머신 확장 집합을 암호화 하는 방법에 대 한 지침을 제공 합니다.
 
@@ -78,5 +78,5 @@ Azure 디스크 암호화는 Linux 및 Windows 가상 머신과 가상 머신 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 암호화 개요](encryption-overview.md)
-- [휴지 상태의 데이터 암호화](encryption-atrest.md)
+- [저장 데이터 암호화](encryption-atrest.md)
 - [데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)

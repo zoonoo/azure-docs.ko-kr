@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79534204"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
@@ -24,7 +24,7 @@ ms.locfileid: "79534204"
 몇 가지 성능 테스트가 HB 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
 
-| 워크로드                                        | HB                    |
+| 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | ~ 260 g b/초 (CCX 당 32-33 g b/초)  |
 | HPL (고성능 Linpack)                  | ~ 1000 GigaFLOPS (Rpeak), ~ 860 GigaFLOPS (Rpeak) |
@@ -79,7 +79,7 @@ OSU MPI 대기 시간 테스트 v 5.4.3.
 | 256  | 3.53     | 3.65     | 3.73     | 3.57     |
 | 512  | 3.68     | 3.78     | 3.81     | 3.70     |
 | 1024 | 3.86     | 3.97     | 3.95     | 3.93     |
-| 2048 | 4.12     | 4.5.      | 4.24     | 4.22     |
+| 2048 | 4.12     | 4.5      | 4.24     | 4.22     |
 | 4096 | 4.79     | 5.28     | 6.33     | 4.91     |
 
 

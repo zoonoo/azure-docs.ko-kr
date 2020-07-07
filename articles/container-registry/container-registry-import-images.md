@@ -4,10 +4,10 @@ description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 �
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80051914"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
@@ -34,7 +34,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리 (프리미엄 서비스 계층 필요)를 지리적으로 복제 하 여 단일 레지스트리에서 동일한 이미지 및 태그 이름을 가진 여러 지역을 제공할 수 있습니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
@@ -110,7 +110,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>다른 구독의 레지스트리에서 가져오기
 
-다음 예제에서 *mysourceregistry*는 동일한 Active Directory 테넌트의 *myregistry*에서 다른 구독에 있습니다. `--registry` 매개 변수를 사용하여 원본 레지스트리의 리소스 ID를 제공합니다. `--source` 매개 변수는 레지스트리 로그인 서버 이름이 아니라 원본 리포지토리 및 태그만 지정 합니다.
+다음 예제에서 *mysourceregistry*는 동일한 Active Directory 테넌트의 *myregistry*에서 다른 구독에 있습니다. `--registry` 매개 변수를 사용하여 원본 레지스트리의 리소스 ID를 제공합니다. `--source`매개 변수는 레지스트리 로그인 서버 이름이 아니라 원본 리포지토리 및 태그만 지정 합니다.
 
 ```azurecli
 az acr import \

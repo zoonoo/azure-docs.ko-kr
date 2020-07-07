@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80235287"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure Database Migration Service에서 MySQL 용 Azure DB에 대 한 제한 사항을 & 온라인 마이그레이션 문제
@@ -35,7 +35,7 @@ MySQL에서 Azure Database for MySQL로의 온라인 마이그레이션과 관�
 - 동일한 버전 마이그레이션. Azure Database for MySQL 5.7로의 MySQL 5.6 마이그레이션은 지원되지 않습니다.
 - my.ini(Windows) 또는 my.cnf(Unix)로 이진 로깅을 사용
   - Server_id를 1 이상의 숫자로 설정(예: Server_id=1(MySQL 5.6에만 해당))
-  - Set log-bin = \<path> (MySQL 5.6에만 해당)
+  - log-bin = \<path>로 설정(MySQL 5.6에만 해당)
   - binlog_format = row로 설정
   - Expire_logs_days = 5(권장됨 - MySQL 5.6에만 해당)
 - 사용자에게 ReplicationAdmin 역할이 있어야 함.
@@ -93,7 +93,7 @@ LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL의 경�
 
 AWS RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션을 수행 하려고 할 때 다음과 같은 오류가 발생할 수 있습니다.
 
-- **오류:** '{0}' 데이터베이스에 대상의 외래 키가 있습니다. 대상을 수정하고 새로운 데이터 마이그레이션 작업을 시작하세요. 대상에서 아래 스크립트를 실행 하 여 외래 키를 나열 합니다.
+- **오류:** ' {0} ' 데이터베이스에 대상의 외래 키가 있습니다. 대상을 수정하고 새로운 데이터 마이그레이션 작업을 시작하세요. 대상에서 아래 스크립트를 실행 하 여 외래 키를 나열 합니다.
 
   **제한**사항: 스키마에 외래 키가 있는 경우 마이그레이션의 초기 로드 및 연속 동기화가 실패 합니다.
   **해결 방법**: MySQL 워크 벤치에서 다음 스크립트를 실행 하 여 drop foreign key 스크립트를 추출 하 고 외래 키 스크립트를 추가 합니다.
@@ -102,7 +102,7 @@ AWS RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션을 
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **오류:** 데이터베이스 '{0}'이 (가) 서버에 없습니다. 제공된 MySQL 원본 서버는 대/소문자를 구분합니다. 데이터베이스 이름을 확인하세요.
+- **오류:** 데이터베이스 ' {0} '이 (가) 서버에 없습니다. 제공된 MySQL 원본 서버는 대/소문자를 구분합니다. 데이터베이스 이름을 확인하세요.
 
   **제한**사항: CLI (명령줄 인터페이스)를 사용 하 여 MySQL 데이터베이스를 Azure로 마이그레이션하는 경우 사용자에 게이 오류가 발생할 수 있습니다. 서비스가 원본 서버에서 데이터베이스를 찾을 수 없습니다 .이는 잘못 된 데이터베이스 이름을 제공 했을 수도 있고 나열 된 서버에 데이터베이스가 존재 하지 않기 때문일 수 있습니다. 참고 데이터베이스 이름은 대/소문자를 구분 합니다.
 

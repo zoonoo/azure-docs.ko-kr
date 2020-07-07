@@ -10,10 +10,10 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240356"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>기본 제공 직접 메서드를 사용 하 여 edgeAgent와 통신
@@ -28,13 +28,13 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 IoT Edge 
 
 **Ping** 방법은 IoT Edge 장치에서 실행 되 고 있는지 여부 또는 장치에 IoT Hub에 대 한 열린 연결이 있는지 여부를 확인 하는 데 유용 합니다. 이 직접 메서드를 사용 하 여 IoT Edge 에이전트를 ping 하 고 해당 상태를 가져옵니다. 성공적인 ping은 빈 페이로드 및 **"status": 200**을 반환 합니다.
 
-다음은 그 예입니다.
+예:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
 ```
 
-Azure Portal에서 메서드 이름과 `ping` 빈 JSON 페이로드 `{}`를 사용 하 여 메서드를 호출 합니다.
+Azure Portal에서 메서드 이름과 빈 JSON 페이로드를 사용 하 여 메서드를 호출 합니다 `ping` `{}` .
 
 ![Azure Portal에서 직접 메서드 ' ping ' 호출](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
 
@@ -46,7 +46,7 @@ RestartModule 메서드는 IoT Edge 버전 1.0.9 이상에서 사용할 수 있�
 
 EdgeAgent 모듈 자체를 포함 하 여 IoT Edge 장치에서 실행 되는 모든 모듈에서 RestartModule direct 메서드를 사용할 수 있습니다. 그러나이 직접 메서드를 사용 하 여 edgeAgent를 종료 하는 경우 모듈을 다시 시작 하는 동안 연결이 중단 되므로 성공 결과가 수신 되지 않습니다.
 
-다음은 그 예입니다.
+예:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \

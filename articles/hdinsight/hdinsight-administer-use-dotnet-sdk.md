@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240632"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
@@ -21,7 +21,7 @@ ms.locfileid: "80240632"
 
 [HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
-**전제 조건**
+**필수 구성 요소**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 

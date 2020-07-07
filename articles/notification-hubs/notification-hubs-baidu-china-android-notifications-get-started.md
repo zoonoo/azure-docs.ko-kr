@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79536992"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
@@ -29,7 +29,7 @@ Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내�
 
 Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없으므로 다른 앱 스토어 및 푸시 서비스를 사용해야 합니다. Baidu는 그 중 하나이며 현재 알림 허브에서 사용하는 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -37,7 +37,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 * [Baidu 푸시 Android SDK]
 
 > [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조 하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하세요.
 
 시작하려면 다음을 수행합니다.
 
@@ -68,7 +68,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 2. 애플리케이션 이름을 입력하고 Minimum Required SDK 버전이 API 16: Android 4.1인지 확인합니다. **또한 패키지 이름(应用包名)이 Baidu 클라우드 푸시 포털과 동일한지 확인하세요.**
 
-    ![Azure Notification Hubs-Baidu min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![azure Notification Hubs-Baidu min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Azure Notification Hubs-Baidu Min SDK1 ](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![ azure Notification Hubs-BAIDU min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. 다음을 클릭하고 만들기 작업 창이 표시될 때까지 마법사를 계속 진행합니다. 빈 작업이 선택되었는지 확인하고 마침을 선택하여 새로운 Android 애플리케이션을 만듭니다.
 

@@ -9,10 +9,10 @@ description: Azure Dev 공간에서 개인 투구 리포지토리를 사용 합�
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너, 투구
 manager: gwallace
 ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240464"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Azure Dev Spaces에서 개인 투구 리포지토리 사용
@@ -30,7 +30,7 @@ helm repo update
 
 ## <a name="add-the-chart-to-your-application"></a>응용 프로그램에 차트 추가
 
-프로젝트 디렉터리로 이동 하 고를 실행 `azds prep`합니다.
+프로젝트 디렉터리로 이동 하 고를 실행 `azds prep` 합니다.
 
 ```cmd
 azds prep --enable-ingress

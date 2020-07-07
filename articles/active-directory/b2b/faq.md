@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050813"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
@@ -24,7 +24,7 @@ ms.locfileid: "80050813"
 Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
 
    > [!IMPORTANT]
-   > **2021 년 3 월 31**일부 터 MICROSOFT는 B2B 공동 작업 시나리오에 대해 관리 되지 않는 Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 준비가 되 면 고객이 [일회용 암호 인증을 전자 메일로](one-time-passcode.md)옵트인 하는 것이 좋습니다. 이 공개 미리 보기 기능에 대 한 사용자 의견을 환영 하며 공동 작업을 위해 훨씬 더 많은 방법을 만들어 보세요.
+   > **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>B2B 협업 게스트 사용자에게 더 직관적인 환경이 되도록 로그인 페이지를 사용자 지정할 수 있나요?
 그렇습니다. [이 기능에 대한 블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)을 참조하세요. 조직의 로그인 페이지를 사용자 지정하는 방법에 대한 자세한 내용은 [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)를 참조하세요.
@@ -54,23 +54,23 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 예. 게스트 개체는 기본적으로 조직의 GAL (전체 주소 목록)에 표시 되지 않지만 Azure Active Directory PowerShell을 사용 하 여 표시 되도록 할 수 있습니다. [전체 주소 목록에 게스트 개체를 표시할 수 있나요?를 참조 하세요](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list) .
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>게스트 사용자를 제한된 관리자로 지정할 수 있나요?
-그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
+물론 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B 협업을 사용하면 B2B 사용자가 Azure Portal에 액세스할 수 있나요?
 사용자에 게 제한 된 관리자 역할이 할당 되지 않으면 B2B 공동 작업 사용자가 Azure Portal에 액세스할 필요가 없습니다. 그러나 제한 된 관리자의 역할이 할당 된 B2B 공동 작업 사용자는 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
 
-예. 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
+예! 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-2. Azure Portal에서 **Azure Active Directory**를 선택합니다. 
+2. Azure Portal에서 **Azure Active Directory**를 선택 합니다. 
 3. **관리**에서 **보안**을 선택 합니다.
 4. **보호**아래에서 **조건부 액세스**를 선택 합니다. **새 정책**을 선택합니다.
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력 합니다 (예: "게스트가 포털에 액세스 하지 못하도록 차단").
-6. **할당**에서 **사용자 및 그룹**을 선택합니다.
+6. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
 7. **포함** 탭에서 **사용자 및 그룹 선택**을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
-9. **완료**를 선택합니다.
+9. **완료** 를 선택합니다.
 10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업**을 선택 합니다.
 11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택**을 선택한 다음 **선택**을 선택 합니다.
 12. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 선택합니다.
@@ -95,7 +95,7 @@ Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [�
 Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적용되는 고정된 문자 집합, 암호 강도 및 계정 잠금 요구 사항이 있습니다. 클라우드 사용자 계정은 다른 ID 공급자와 페더레이션되지 않은 계정입니다. 예를 들면 다음과 같습니다. 
 * Microsoft 계정
 * Facebook
-* ADFS(Active Directory Federation Services)
+* Active Directory Federation Services
 * 다른 클라우드 테넌트(B2B 협업용)
 
 페더레이션 계정의 경우 암호 정책은 온-프레미스 테넌트 및 사용자의 Microsoft 계정 설정에서 적용되는 정책에 따라 다릅니다.

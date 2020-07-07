@@ -6,17 +6,17 @@ ms.topic: conceptual
 description: 사용자 지정 NGINX 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 ms.openlocfilehash: 0fe9fec263b72ac06839b58fdc5b0142a724718c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80155450"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>사용자 지정 NGINX 수신 컨트롤러 사용 및 HTTPS 구성
 
 이 문서에서는 사용자 지정 NGINX 수신 컨트롤러를 사용 하도록 Azure Dev Spaces를 구성 하는 방법을 보여 줍니다. 또한이 문서에서는 HTTPS를 사용 하도록 사용자 지정 수신 컨트롤러를 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 계정이 없는 경우 [무료 계정][azure-account-create]에 만들 수 있습니다.
 * [Azure CLI 설치][az-cli]
@@ -47,7 +47,7 @@ NGINX 수신 컨트롤러 투구 차트가 포함 된 [안정적인 공식 투�
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
-NGINX 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고를 사용 `helm`하 여 설치 합니다.
+NGINX 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고를 사용 하 여 설치 `helm` 합니다.
 
 ```console
 kubectl create ns nginx
@@ -55,7 +55,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> 위의 예제에서는 수신 컨트롤러에 대 한 공용 끝점을 만듭니다. 수신 컨트롤러에 대 한 개인 끝점을 대신 사용 해야 하는 경우 *--set controller.. "를 추가 합니다. kubernetes\\/azure-load-internal "= true 매개 변수를 투구 install 명령으로 설정 합니다.\\\\* *helm install* 다음은 그 예입니다.
+> 위의 예제에서는 수신 컨트롤러에 대 한 공용 끝점을 만듭니다. 수신 컨트롤러에 대 한 개인 끝점을 대신 사용 해야 하는 경우 *--set controller.. "를 추가 합니다. \\ \\ kubernetes \\ /azure-load-internal "= true* 매개 변수를 *투구 install* 명령으로 설정 합니다. 예:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -100,7 +100,7 @@ cd dev-spaces/samples/BikeSharingApp/charts
 * *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 nginx로 바꿉니다 *. * *MY_CUSTOM_DOMAIN*에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
 * Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Nginx # Custom ingress*. 
 
-업데이트 `values.yaml` 된 파일의 예는 다음과 같습니다.
+업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
 ```yaml
 # This is a YAML-formatted file.
@@ -123,13 +123,13 @@ gateway:
 
 변경 내용을 저장하고 파일을 닫습니다.
 
-을 사용 *dev* 하 여 `azds space select`샘플 응용 프로그램으로 개발 공간을 만듭니다.
+을 사용 하 여 샘플 응용 프로그램으로 *개발* 공간을 만듭니다 `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-을 사용 하 여 `helm install`샘플 응용 프로그램을 배포 합니다.
+을 사용 하 여 샘플 응용 프로그램을 배포 `helm install` 합니다.
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
@@ -137,13 +137,13 @@ helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 
 위의 예제에서는 *dev* 네임 스페이스에 샘플 응용 프로그램을 배포 합니다.
 
-을 사용 하 여 `azds list-uris`샘플 응용 프로그램에 액세스 하는 url을 표시 합니다.
+을 사용 하 여 샘플 응용 프로그램에 액세스 하는 Url을 표시 `azds list-uris` 합니다.
 
 ```console
 azds list-uris
 ```
 
-아래 출력은의 `azds list-uris`예제 url을 보여 줍니다.
+아래 출력은의 예제 Url을 보여 줍니다 `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -157,14 +157,14 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 > [!NOTE]
 > *Bikesharingweb* 서비스 대신 오류 페이지가 표시 되는 경우 kubernetes.io/ingress.class 파일에서 *kubernetes.io/ingress.class* 주석과 호스트를 **모두** 업데이트 했는지 확인 합니다 *.*
 
-`azds space select` 명령을 사용 하 여 *개발* 중인 하위 공간을 만들고 url을 나열 하 여 자식 dev 공간에 액세스 합니다.
+명령을 사용 하 여 `azds space select` *개발* 중인 하위 공간을 만들고 url을 나열 하 여 자식 dev 공간에 액세스 합니다.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-아래 출력은의 `azds list-uris` 예제 url을 표시 하 여 *azureuser1* 자식 개발 공간의 샘플 응용 프로그램에 액세스 합니다.
+아래 출력은의 예제 Url을 표시 `azds list-uris` 하 여 *azureuser1* 자식 개발 공간의 샘플 응용 프로그램에 액세스 합니다.
 
 ```console
 Uri                                                  Status
@@ -173,11 +173,11 @@ http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-명령에서 공용 URL을 열어 *azureuser1* 자식 개발 공간의 bikesharingweb 서비스로 이동 합니다. *bikesharingweb* `azds list-uris` 위의 예제에서 *azureuser1* 자식 개발 공간의 `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` *bikesharingweb* 서비스에 대 한 공용 URL은입니다.
+명령에서 공용 URL을 열어 *azureuser1* 자식 개발 공간의 *bikesharingweb* 서비스로 이동 `azds list-uris` 합니다. 위의 예제에서 *azureuser1* 자식 개발 공간의 *bikesharingweb* 서비스에 대 한 공용 URL은 `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` 입니다.
 
 ## <a name="configure-the-nginx-ingress-controller-to-use-https"></a>HTTPS를 사용 하도록 NGINX 수신 컨트롤러 구성
 
-HTTPS를 사용 하도록 NGINX 수신 컨트롤러를 구성할 때 [cert manager][cert-manager] 를 사용 하 여 TLS 인증서 관리를 자동화 합니다. 를 `helm` 사용 하 여 *certmanager* 차트를 설치 합니다.
+HTTPS를 사용 하도록 NGINX 수신 컨트롤러를 구성할 때 [cert manager][cert-manager] 를 사용 하 여 TLS 인증서 관리를 자동화 합니다. `helm`를 사용 하 여 *certmanager* 차트를 설치 합니다.
 
 ```console
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace nginx
@@ -187,7 +187,7 @@ helm repo update
 helm install cert-manager --namespace nginx --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-파일을 `letsencrypt-clusterissuer.yaml` 만들고 전자 메일 주소를 사용 하 여 전자 메일 필드를 업데이트 합니다.
+파일을 만들고 전자 `letsencrypt-clusterissuer.yaml` 메일 주소를 사용 하 여 전자 메일 필드를 업데이트 합니다.
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -209,13 +209,13 @@ spec:
 > [!NOTE]
 > 테스트를 위해 *Clusterissuer*에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
 
-를 `kubectl` 적용 `letsencrypt-clusterissuer.yaml`하려면를 사용 합니다.
+`kubectl`를 적용 하려면를 사용 `letsencrypt-clusterissuer.yaml` 합니다.
 
 ```console
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace nginx
 ```
 
-값을 업데이트 하 여 *인증서 관리자* 및 HTTPS 사용에 대 한 세부 정보를 포함 [합니다.][values-yaml] 업데이트 `values.yaml` 된 파일의 예는 다음과 같습니다.
+값을 업데이트 하 여 *인증서 관리자* 및 HTTPS 사용에 대 한 세부 정보를 포함 [합니다.][values-yaml] 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
 ```yaml
 # This is a YAML-formatted file.
@@ -246,13 +246,13 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-다음을 사용 하 여 `helm`샘플 응용 프로그램을 업그레이드 합니다.
+다음을 사용 하 여 샘플 응용 프로그램을 업그레이드 합니다 `helm` .
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-*Dev/azureuser1* 자식 공간의 샘플 응용 프로그램으로 이동 하 여 HTTPS를 사용 하도록 리디렉션됩니다. 또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 다음은 그 예입니다.
+*Dev/azureuser1* 자식 공간의 샘플 응용 프로그램으로 이동 하 여 HTTPS를 사용 하도록 리디렉션됩니다. 또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 예:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -276,7 +276,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUS
 ...
 ```
 
-*Url* 패키지에 대 한 종속성으로 [BikeSharingWeb/package][package-json] 를 업데이트 합니다.
+[BikeSharingWeb/package.json][package-json] 을 *url* 패키지에 대 한 종속성으로 업데이트 합니다.
 
 ```json
 {
@@ -288,7 +288,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUS
 ...
 ```
 
-HTTPS를 사용 하도록 [BikeSharingWeb/lib/][helpers-js] *getApiHostAsync* 에서 다음 메서드를 업데이트 합니다.
+HTTPS를 사용 하도록 [BikeSharingWeb/lib/helpers.js][helpers-js] 의 *getApiHostAsync* 메서드를 업데이트 합니다.
 
 ```javascript
 ...
@@ -305,7 +305,7 @@ HTTPS를 사용 하도록 [BikeSharingWeb/lib/][helpers-js] *getApiHostAsync* �
 ...
 ```
 
-`BikeSharingWeb` 디렉터리로 이동 하 고를 사용 `azds up` 하 여 업데이트 된 *BikeSharingWeb* 서비스를 실행 합니다.
+디렉터리로 이동 하 `BikeSharingWeb` 고를 사용 `azds up` 하 여 업데이트 된 *BikeSharingWeb* 서비스를 실행 합니다.
 
 ```console
 cd ../BikeSharingWeb/

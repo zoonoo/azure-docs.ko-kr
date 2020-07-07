@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154477"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
@@ -102,7 +102,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    다음은 그 예입니다.
+    예:
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

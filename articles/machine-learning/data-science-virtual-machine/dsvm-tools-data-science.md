@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282310"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
@@ -48,7 +48,7 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 | 샘플에 대한 링크      | 샘플은 VM의 `h2o` 디렉터리 아래 Jupyter에서 사용할 수 있습니다.      |
 | 관련 도구      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
-Dsvms에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 `scikit-learn` 있는 패키지와 같은 몇 가지 다른 기계 학습 라이브러리가 있습니다. Python, R, 및 Julia에서 사용할 수 있는 패키지 목록을 확인하려면 개별 패키지 관리자를 실행하세요.
+Dsvms에는 `scikit-learn` dsvms에 대 한 Anaconda Python 배포의 일부인 인기 있는 패키지와 같은 몇 가지 다른 기계 학습 라이브러리가 있습니다. Python, R, 및 Julia에서 사용할 수 있는 패키지 목록을 확인하려면 개별 패키지 관리자를 실행하세요.
 
 ## <a name="lightgbm"></a>LightGBM
 
@@ -67,7 +67,7 @@ Dsvms에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 `scikit-
 | 무엇인가요?   |   R을 사용 하 여 데이터 마이닝을 위한 그래픽 사용자 인터페이스입니다.   |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | R에 대 한 일반 UI 데이터 마이닝 도구    |
-| 사용/실행 방법      | UI 도구로 Windows에서 명령 프롬프트를 시작 하 고 R을 실행 한 다음 R 내에서를 `rattle()`실행 합니다. Linux에서 X2Go를 사용 하 여 연결 하 고, 터미널을 시작 하 고, R을 실행 `rattle()`한 후 r, 실행을 실행 합니다. |
+| 사용/실행 방법      | UI 도구로 Windows에서 명령 프롬프트를 시작 하 고 R을 실행 한 다음 R 내에서를 실행 `rattle()` 합니다. Linux에서 X2Go를 사용 하 여 연결 하 고, 터미널을 시작 하 고, R을 실행 한 후 R, 실행을 실행 `rattle()` 합니다. |
 | 샘플에 대한 링크      | [Rattle](https://togaware.com/onepager/) |
 | 관련 도구      |LightGBM, Weka, XGBoost   |
 
@@ -89,7 +89,7 @@ Dsvms에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 `scikit-
 | 무엇인가요?   |  데이터 마이닝 작업에 대 한 기계 학습 알고리즘의 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 도구     |
-| 사용/실행 방법      | Windows의 **시작** 메뉴에서 weka을 검색 합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 **응용 프로그램** > **개발** > **weka**으로 이동 합니다. |
+| 사용/실행 방법      | Windows의 **시작** 메뉴에서 weka을 검색 합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 **응용 프로그램**  >  **개발**  >  **weka**으로 이동 합니다. |
 | 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | 관련 도구      |LightGBM, Rattle, Xgboost   |
 
@@ -100,7 +100,7 @@ Dsvms에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 `scikit-
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 라이브러리      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.5), R 패키지 및 경로 (Windows 및`C:\dsvm\tools\xgboost\bin\xgboost.exe` `/dsvm/tools/xgboost/xgboost` Linux 용) 명령줄 도구    |
+| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.5), R 패키지 및 경로 ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` Windows 및 Linux 용) 명령줄 도구 `/dsvm/tools/xgboost/xgboost`    |
 | 샘플에 대한 링크      | 샘플은 VM에, linux인 경우 `/dsvm/tools/xgboost/demo`, Windows인 경우 `C:\dsvm\tools\xgboost\demo`에 포함됩니다.   |
 | 관련 도구      | LightGBM, MXNet   |
 

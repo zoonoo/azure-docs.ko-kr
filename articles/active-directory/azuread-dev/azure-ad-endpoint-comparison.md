@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154919"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft ID 플랫폼(v2.0)으로 업데이트하는 이유
@@ -33,7 +33,7 @@ ms.locfileid: "80154919"
 
 * v1.0 엔드포인트의 경우 회사 및 학교 계정만 애플리케이션(Azure AD)에 로그인할 수 있습니다.
 * Microsoft id 플랫폼 끝점을 사용 하면 Azure AD의 회사 및 학교 계정과 hotmail.com, outlook.com 및 msn.com와 같은 개인 Microsoft 계정 (MSA)을 사용 하 여 로그인 할 수 있습니다.
-* 두 끝점은 *[단일 테 넌](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* 트로 구성 된 응용 프로그램에 대 한 Azure AD 디렉터리의 *[게스트 사용자](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 에 대 한 로그인 이나 테 넌 트 별 끝점 (`https://login.microsoftonline.com/{TenantId_or_Name}`)을 가리키도록 구성 된 *다중 테 넌 트* 응용 프로그램의 로그인도 허용 합니다.
+* 두 끝점은 *[단일 테 넌](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* 트로 구성 된 응용 프로그램에 대 한 Azure AD 디렉터리의 *[게스트 사용자](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 에 대 한 로그인 이나 테 넌 트 별 끝점 ()을 가리키도록 구성 된 *다중 테 넌 트* 응용 프로그램의 로그인도 허용 `https://login.microsoftonline.com/{TenantId_or_Name}` 합니다.
 
 Microsoft id 플랫폼 끝점을 사용 하 여 개인 Microsoft 계정, 회사 및 학교 계정에서의 로그인을 허용 하는 앱을 작성할 수 있습니다. 따라서 완전히 계정에 제약이 없는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
 
@@ -92,11 +92,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 ### <a name="offline-access"></a>오프라인 액세스
 
-Microsoft id 플랫폼 끝점을 사용 하는 앱은 앱에 대해 잘 알려진 새 권한 ( `offline_access` 범위)을 사용 해야 할 수 있습니다. 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 사용자에게 동의 대화 상자에 **언제든지 데이터에 액세스**로 표시되며 사용자는 여기에 반드시 동의해야 합니다. `offline_access` 권한을 요청 하면 웹 앱이 Microsoft id 플랫폼 끝점에서 OAuth 2.0 refresh_tokens을 수신할 수 있습니다. 새로 고침 토큰은 수명이 길며, 오랜 기간 액세스하기 위해 새로운 OAuth 2.0 액세스 토큰으로 교환할 수 있습니다.
+Microsoft id 플랫폼 끝점을 사용 하는 앱은 앱에 대해 잘 알려진 새 권한 (범위)을 사용 해야 할 수 있습니다 `offline_access` . 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 사용자에게 동의 대화 상자에 **언제든지 데이터에 액세스**로 표시되며 사용자는 여기에 반드시 동의해야 합니다. 권한을 요청 `offline_access` 하면 웹 앱이 Microsoft id 플랫폼 끝점에서 OAuth 2.0 refresh_tokens을 수신할 수 있습니다. 새로 고침 토큰은 수명이 길며, 오랜 기간 액세스하기 위해 새로운 OAuth 2.0 액세스 토큰으로 교환할 수 있습니다.
 
-앱이 `offline_access` 범위를 요청 하지 않으면 새로 고침 토큰이 수신 되지 않습니다. 즉, OAuth 2.0 권한 부여 코드 흐름에서 인증 코드를 사용하면 `/token` 엔드포인트에서 액세스 토큰만 수신하게 됩니다. 이 액세스 토큰은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 인증 코드를 검색해야 합니다. 리디렉션 중에 앱 유형에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+앱이 범위를 요청 하지 않으면 `offline_access` 새로 고침 토큰이 수신 되지 않습니다. 즉, OAuth 2.0 권한 부여 코드 흐름에서 인증 코드를 사용하면 `/token` 엔드포인트에서 액세스 토큰만 수신하게 됩니다. 이 액세스 토큰은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 인증 코드를 검색해야 합니다. 리디렉션 중에 앱 유형에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
 
-OAuth 2.0, `refresh_tokens`및 `access_tokens`에 대 한 자세한 내용은 [Microsoft id 플랫폼 프로토콜 참조를 참조](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)하세요.
+OAuth 2.0, 및에 대 한 자세한 내용은 `refresh_tokens` `access_tokens` [Microsoft id 플랫폼 프로토콜 참조를 참조](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)하세요.
 
 ### <a name="openid-profile-and-email"></a>OpenID, 프로필 및 메일
 
@@ -104,8 +104,8 @@ OAuth 2.0, `refresh_tokens`및 `access_tokens`에 대 한 자세한 내용은 [M
 
 이제 `openid` 범위를 통해 앱의 액세스가 허용되는 정보가 제한됩니다. `openid` 범위는 앱이 사용자를 로그인하고 해당 사용자의 앱 특정 식별자를 수신하는 작업만 허용합니다. 앱에 있는 사용자의 개인 데이터를 가져오려면 앱이 사용자로부터 추가 권한을 요청해야 합니다. 두 개의 새 범위(`email` 및 `profile` 범위)를 통해 추가 권한을 요청할 수 있습니다.
 
-* 범위 `email` 를 사용 하면 사용자가 주소 지정 가능한 메일 주소를가지고 있다고 가정 `email` 하 여 앱이 id_token의 클레임을 통해 사용자의 기본 전자 메일 주소에 액세스할 수 있습니다.
-* 범위 `profile` 는 앱이 사용자에 대 한 다른 모든 기본 정보 (예: 이름, 기본 설정 사용자 이름, 개체 ID 등)에 대 한 액세스를 id_token 합니다.
+* 범위를 사용 하면 사용자가 주소 지정 가능한 `email` `email` 메일 주소를가지고 있다고 가정 하 여 앱이 id_token의 클레임을 통해 사용자의 기본 전자 메일 주소에 액세스할 수 있습니다.
+* `profile`범위는 앱이 사용자에 대 한 다른 모든 기본 정보 (예: 이름, 기본 설정 사용자 이름, 개체 ID 등)에 대 한 액세스를 id_token 합니다.
 
 이러한 범위를 사용하면 최소한의 공개로 앱을 코딩할 수 있으며, 작업 수행에 필요한 정보만 사용자에게 요청할 수 있습니다. 이러한 범위에 대 한 자세한 내용은 [Microsoft id 플랫폼 범위 참조](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)를 참조 하세요.
 
@@ -180,7 +180,7 @@ Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을
 * 데스크톱 또는 모바일 응용 프로그램을 빌드하는 경우 MSAL (Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 일반적으로 사용할 수 있거나 프로덕션 지원 미리 보기에서 사용할 수 있으므로 프로덕션 응용 프로그램에서 사용 하는 것이 안전 합니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)에서 확인할 수 있습니다.
 * Microsoft 라이브러리에서 다루지 않는 플랫폼의 경우 응용 프로그램 코드에서 프로토콜 메시지를 직접 전송 및 수신 하 여 Microsoft id 플랫폼 끝점과 통합할 수 있습니다. Openid connect Connect 및 OAuth 프로토콜은 이러한 통합을 수행 하는 데 도움이 되도록 [명시적으로 문서화 되어](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 있습니다.
 * 마지막으로, 오픈 소스 Openid connect Connect 및 OAuth 라이브러리를 사용 하 여 Microsoft id 플랫폼 끝점과 통합할 수 있습니다. Microsoft id 플랫폼 끝점은 변경 없이 많은 오픈 소스 프로토콜 라이브러리와 호환 되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [OpenID Connect](https://openid.net/connect/) 및 [OAuth 2.0](https://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [microsoft id 플랫폼 및 인증 라이브러리](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)및 microsoft id 플랫폼 끝점으로 테스트 한 오픈 소스 클라이언트 라이브러리 및 샘플 목록을 참조 하세요.
-* 참조를 위해 Microsoft `.well-known` id 플랫폼 공통 끝점의 끝점은 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`입니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.  
+* 참조를 위해 `.well-known` Microsoft id 플랫폼 공통 끝점의 끝점은 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` 입니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.  
 
 ### <a name="protocol-changes"></a>프로토콜 변경 내용
 
