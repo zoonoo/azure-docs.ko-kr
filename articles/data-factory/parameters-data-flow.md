@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780398"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
@@ -64,31 +64,31 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/string-parameter.png "데이터 흐름 매개 변수 설정")
 
-데이터 흐름 매개 변수가 `stringParam` 값 `upper(column1)`이 인 파이프라인 매개 변수를 참조 하는 경우 
+데이터 흐름 매개 변수가 `stringParam` 값이 인 파이프라인 매개 변수를 참조 하는 경우 `upper(column1)` 
 
-- Expression이 선택 된 경우 `$stringParam` 는 column1 all 대문자 값으로 평가 됩니다.
+- Expression이 선택 된 경우는 `$stringParam` column1 all 대문자 값으로 평가 됩니다.
 - 식이 선택 되지 않은 경우 (기본 동작)는 `$stringParam` 로 평가 됩니다.`'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>타임 스탬프 전달
 
-`pipeline().TriggerTime` 파이프라인 식 언어에서 및 함수와 같은 시스템 변수는 타임 스탬프를 `utcNow()` ' yyyy-mm-dd\'T\'HH: MM: ss 형식의 문자열로 반환 합니다. SSSSSSZ '. 이러한 데이터 흐름을 타임 스탬프 형식의 데이터 흐름 매개 변수로 변환 하려면 문자열 보간을 사용 하 여 원하는 타임 스탬프 `toTimestamp()` 를 함수에 포함 합니다. 예를 들어 파이프라인 트리거 시간을 데이터 흐름 매개 변수로 변환 하려면를 사용할 `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`수 있습니다. 
+파이프라인 식 언어에서 및 함수와 같은 시스템 변수는 `pipeline().TriggerTime` `utcNow()` 타임 스탬프를 ' YYYY-mm-dd \' T \' HH: MM: ss 형식의 문자열로 반환 합니다. SSSSSSZ '. 이러한 데이터 흐름을 타임 스탬프 형식의 데이터 흐름 매개 변수로 변환 하려면 문자열 보간을 사용 하 여 원하는 타임 스탬프를 함수에 포함 `toTimestamp()` 합니다. 예를 들어 파이프라인 트리거 시간을 데이터 흐름 매개 변수로 변환 하려면를 사용할 수 있습니다 `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-timestamp.png "데이터 흐름 매개 변수 설정")
 
 > [!NOTE]
-> 데이터 흐름은 최대 3 밀리초 숫자만 지원할 수 있습니다. 함수 `left()` 는 추가 숫자를 잘라내는 데 사용 됩니다.
+> 데이터 흐름은 최대 3 밀리초 숫자만 지원할 수 있습니다. `left()`함수는 추가 숫자를 잘라내는 데 사용 됩니다.
 
 #### <a name="pipeline-parameter-example"></a>파이프라인 매개 변수 예제
 
-문자열 형식의 파이프라인 매개 변수를 `intParam` `@pipeline.parameters.pipelineParam`참조 하는 정수 매개 변수가 있다고 가정 합니다. 
+`intParam`문자열 형식의 파이프라인 매개 변수를 참조 하는 정수 매개 변수가 있다고 가정 `@pipeline.parameters.pipelineParam` 합니다. 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-2.png "데이터 흐름 매개 변수 설정")
 
-`@pipeline.parameters.pipelineParam`런타임에의 `abs(1)` 값이 할당 됩니다.
+`@pipeline.parameters.pipelineParam`런타임에의 값이 할당 됩니다 `abs(1)` .
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-4.png "데이터 흐름 매개 변수 설정")
 
-가 `$intParam` 파생 열과 같은 식에서 참조 되는 경우 반환 `abs(1)` `1`을 평가 합니다. 
+`$intParam`가 파생 열과 같은 식에서 참조 되는 경우 반환을 평가 `abs(1)` `1` 합니다. 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-pipeline-3.png "데이터 흐름 매개 변수 설정")
 
@@ -102,9 +102,9 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>열 이름을 매개 변수로 전달
 
-일반적인 패턴은 열 이름을 매개 변수 값으로 전달 하는 것입니다. 열이 데이터 흐름 스키마에 정의 되어 있는 경우이를 문자열 식으로 직접 참조할 수 있습니다. 열이 스키마에 정의 되어 있지 않은 경우 `byName()` 함수를 사용 합니다. 과 `toString()`같은 캐스팅 함수를 사용 하 여 열을 적절 한 형식으로 캐스팅 해야 합니다.
+일반적인 패턴은 열 이름을 매개 변수 값으로 전달 하는 것입니다. 열이 데이터 흐름 스키마에 정의 되어 있는 경우이를 문자열 식으로 직접 참조할 수 있습니다. 열이 스키마에 정의 되어 있지 않은 경우 함수를 사용 `byName()` 합니다. 과 같은 캐스팅 함수를 사용 하 여 열을 적절 한 형식으로 캐스팅 해야 `toString()` 합니다.
 
-예를 들어 매개 변수 `columnName`를 기반으로 하 여 문자열 열을 매핑하려는 경우 파생 열 변환을와 동일 하 게 `toString(byName($columnName))`추가할 수 있습니다.
+예를 들어 매개 변수를 기반으로 하 여 문자열 열을 매핑하려는 경우 `columnName` 파생 열 변환을와 동일 하 게 추가할 수 있습니다 `toString(byName($columnName))` .
 
 ![열 이름을 매개 변수로 전달](media/data-flow/parameterize-column-name.png "열 이름을 매개 변수로 전달")
 

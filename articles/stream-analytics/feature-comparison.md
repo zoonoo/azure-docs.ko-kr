@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133493"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
@@ -27,7 +27,7 @@ Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal
 |---------|---------|---------|---------|
 |플랫폼 간     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |스크립트 작성     |예         |예         |예         |
-|Intellisense 스크립팅     |구문 강조 표시         |구문 강조 표시</br>코드 완성</br>오류 표식         |구문 강조 표시</br>코드 완성</br>오류 표식         |
+|Intellisense 스크립팅     |구문 강조         |구문 강조</br>코드 완성</br>오류 표식         |구문 강조</br>코드 완성</br>오류 표식         |
 |모든 종류의 입력, 출력 및 작업 구성 정의     |예         |예         |예         |
 |원본 제어     |예         |예         |예         |
 |CI/CD 지원     |Partial         |예         |예         |
@@ -63,8 +63,8 @@ Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal
 |C# UDF     |아니요         |예         |아니요         |
 |작업 제출     |예         |예         |아니요         |
 |작업 나열 및 작업 엔터티 보기     |예         |예         |아니요         |
-|작업 메트릭 및 다이어그램 보기     |예         |부분         |예         |
-|작업 런타임 오류 보기     |예         |부분         |예         |
+|작업 메트릭 및 다이어그램 보기     |예         |부분         |아니요         |
+|작업 런타임 오류 보기     |예         |부분         |아니요         |
 |CI/CD 지원     |아니요         |아니요         |아니요         |
 
 

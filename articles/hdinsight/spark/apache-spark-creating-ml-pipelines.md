@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494664"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
-Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. Spark 패키지 [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) 는 데이터 프레임을 기반으로 하는 상위 수준의 api 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
+Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. Spark 패키지는 [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) 데이터 프레임을 기반으로 하는 상위 수준의 api 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
 
 ML(기계 학습) 파이프라인은 여러 기계 학습 알고리즘을 결합한 완벽한 워크플로입니다. 데이터를 처리하고 학습하는 데 필요한 여러 단계가 있을 수 있으며 일련의 알고리즘이 필요합니다. 파이프라인은 기계 학습 프로세스의 단계와 순서를 정의합니다. MLlib에서 파이프라인의 단계는 변환기와 평가기에서 각각 작업을 수행하는 PipelineStages의 특정 시퀀스로 표시됩니다.
 

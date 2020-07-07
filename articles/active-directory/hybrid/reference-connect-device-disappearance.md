@@ -11,14 +11,14 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176031"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Azure AD Connect 1.4. x x x x. x 및 장치 disappearance 이해
-Azure AD Connect 버전 1.4. x. x를 사용 하는 경우 일부 고객은 Azure AD에서 일부 또는 모든 Windows 장치를 볼 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 이 변경은 하이브리드 Azure AD 조인에 대해 Azure AD에 올바르게 등록 된 Windows 장치를 삭제 하지 않습니다.
+Azure AD Connect 버전 1.4. x. x를 사용 하는 경우 일부 고객은 Azure AD에서 일부 또는 모든 Windows 장치를 볼 수 있습니다. 조건부 액세스 권한 부여 중에는 Azure AD에서 해당 디바이스 ID가 사용되지 않기 때문에 걱정할 필요가 없습니다. 이 변경은 하이브리드 Azure AD 조인에 대해 Azure AD에 올바르게 등록 된 Windows 장치를 삭제 하지 않습니다.
 
 Azure AD의 장치 개체 삭제가 내보내기 삭제 임계값을 초과 하는 것으로 확인 되 면 고객이 삭제를 통과 하도록 허용 하는 것이 좋습니다. [방법: 삭제가 삭제 임계값을 초과할 때 흐름이 전달 되도록 허용](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 

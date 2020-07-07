@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066770"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
@@ -28,7 +28,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES 및 openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 이 문서에서는 Azure에서 Linux 배포판을 실행하기 위한 일반 지침에 대해 중점적으로 설명합니다.
@@ -39,7 +39,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.
-* 2.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
+* 2\.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
 * OS 디스크에 스왑 파티션을 구성하지 않습니다. Linux 에이전트는 다음 단계에서 설명한 대로 임시 리소스 디스크에 스왑 파일을 만들도록 구성할 수 있습니다.
 * Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크에서 VHD로 변환하는 경우 다음 단계에서 설명한 대로 변환하기 전에 먼저 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다.
 
@@ -64,7 +64,7 @@ initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포�
 ### <a name="resizing-vhds"></a>VHD 크기 조정
 Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니다.  일반적으로 Hyper-V를 사용하여 만든 VHD는 올바르게 정렬되어 있습니다.  VHD가 올바르게 정렬되지 않으면 VHD에서 이미지를 만들려고 할 때 다음과 비슷한 오류 메시지가 나타날 수 있습니다.
 
-* VHD http:\//\<mystorageaccount> blob.core.windows.net/vhds/MyLinuxVM.vhd의 가상 크기가 지원 되지 않는 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
+* VHD http: \/ / \<mystorageaccount> . blob.core.windows.net/vhds/MyLinuxVM.vhd의 가상 크기가 지원 되지 않는 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
 
 이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
@@ -142,7 +142,7 @@ Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-
 * [scsi_sysfs: __scsi_remove_device 이중 실행 방지](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Azure Linux 에이전트
-Azure [linux 에이전트](../extensions/agent-linux.md) `waagent` 는 azure에서 linux 가상 머신을 프로 비전 합니다. [Linux 에이전트 GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나, 문제를 제기하거나, 끌어오기 요청을 제출할 수 있습니다.
+Azure [Linux 에이전트](../extensions/agent-linux.md) 는 `waagent` azure에서 linux 가상 머신을 프로 비전 합니다. [Linux 에이전트 GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나, 문제를 제기하거나, 끌어오기 요청을 제출할 수 있습니다.
 
 * Linux 에이전트는 Apache 2.0 라이선스 하에서 릴리스되었습니다. 많은 배포판에는 에이전트에 대 한 RPM 또는. deb 패키지가 이미 제공 되어 있으며 이러한 패키지를 쉽게 설치 하 고 업데이트할 수 있습니다.
 * Azure Linux 에이전트를 사용하려면 Python v2.6 이상이 필요합니다.

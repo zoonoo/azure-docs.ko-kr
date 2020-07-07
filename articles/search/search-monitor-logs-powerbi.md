@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82127880"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Power BI를 사용 하 여 Azure Cognitive Search 로그 및 메트릭 시각화
@@ -100,6 +100,6 @@ Azure Cognitive Search: [Power BI Apps marketplace](https://appsource.microsoft.
 ## <a name="next-steps"></a>다음 단계
 [Azure Cognitive Search에 대 한 자세한 정보](https://docs.microsoft.com/azure/search/)
 
-[Power BI 이란?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[Power BI란?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
 
 [Power BI 서비스의 디자이너를 위한 기본 개념](https://docs.microsoft.com/power-bi/service-basic-concepts)

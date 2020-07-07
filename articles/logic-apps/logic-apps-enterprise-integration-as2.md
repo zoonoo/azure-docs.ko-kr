@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82115502"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
@@ -20,7 +20,7 @@ ms.locfileid: "82115502"
 > [!IMPORTANT]
 > 원래 AS2 커넥터는 더 이상 사용 되지 않으므로 **as2 (v2)** 커넥터를 대신 사용 해야 합니다. 이 버전은 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임으로 기본 사용 되며, 처리량 및 메시지 크기 측면에서 상당한 성능 향상을 제공 합니다. 또한 native v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
 
-Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 하기 위한 트리거와 작업을 제공 하는 AS2 커넥터를 사용할 수 있습니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
+Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2 통신을 관리하는 트리거 및 작업을 제공하는 AS2 커넥터를 사용하면 됩니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
 
 * 비 거부를 지 원하는 MDN (메시지 처리 알림)을 통해 암호화, 디지털 서명 및 승인을 제공 하기 위한 [ **AS2 인코딩** 동작](#encode) 입니다. 예를 들어이 작업은 AS2/HTTP 헤더를 적용 하 고 구성 될 때 이러한 작업을 수행 합니다.
 
@@ -49,13 +49,13 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 이 문서에서는 기존 논리 앱에 AS2 인코딩 및 디코딩 작업을 추가 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* AS2 커넥터를 사용 하려는 논리 앱 및 논리 앱의 워크플로를 시작 하는 트리거 AS2 커넥터는 트리거가 아니라 동작만 제공 합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+* AS2 커넥터를 사용 하려는 논리 앱 및 논리 앱의 워크플로를 시작 하는 트리거 AS2 커넥터는 트리거가 아니라 동작만 제공 합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-* Azure 구독과 연결 되 고 AS2 커넥터를 사용 하려는 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정은 모두 동일한 위치 또는 Azure 지역에 있어야 합니다.
+* Azure 구독과 연결 되 고 AS2 커넥터를 사용 하려는 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
 * AS2 id 한정자를 사용 하 여 통합 계정에 이미 정의 된 두 개 이상의 [거래 업체](../logic-apps/logic-apps-enterprise-integration-partners.md)
 
@@ -88,7 +88,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   다음은 그 예입니다.
+   예:
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -122,7 +122,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/as2/)를 참조 하세요. 
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블이 지정 된 버전은 [ise에 대 한 B2B 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)사용 합니다.
+> 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

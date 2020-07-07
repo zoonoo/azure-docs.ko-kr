@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82786617"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
@@ -207,9 +207,9 @@ HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 가상 네트워크를 만드는 코드 예제 및 예제는 [Azure HDInsight 클러스터용 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 참조 하세요.
+* 코드 샘플 및 Azure 가상 네트워크 만들기 예제는 [Azure HDInsight 클러스터에 대한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 참조하세요.
 * 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 엔드투엔드 예제는 [HDInsight를 온-프레미스 네트워크에 연결](./connect-on-premises-network.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
-* 사용자 정의 경로에 대 한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조 하세요.
+* 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 * 트래픽을 제어 하는 방법에 대 한 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.

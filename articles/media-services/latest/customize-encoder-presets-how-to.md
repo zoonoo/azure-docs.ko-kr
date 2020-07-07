@@ -13,10 +13,10 @@ ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: ebe701032e6416b3e007a28db62f5a8235bb1bb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80068041"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>사용자 지정 변환-.NET을 사용 하 여 인코딩하는 방법
@@ -30,7 +30,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 * AVC 콘텐츠의 높이 및 너비에 대 한 모든 값은 4의 배수 여야 합니다.
 * Azure Media Services v3에서 모든 인코딩 비트 전송률은 초당 비트 단위입니다. 이는 킬로 비트/초를 단위로 사용한 v2 Api와는 다릅니다. 예를 들어 v 2의 비트 전송률이 128 (k b/초)로 지정 된 경우 v3에서 128000 (비트/초)로 설정 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 
@@ -52,7 +52,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 ### <a name="example"></a>예제
 
-다음 예제에서는이 변환을 사용할 때 생성 하려는 출력 집합을 정의 합니다. 먼저 오디오 인코딩에 대해 AacAudio 계층을 추가 하 고 비디오 인코딩에 대해 경우 h264video 계층 두 개를 추가 합니다. 비디오 레이어에서 출력 파일 이름에 사용할 수 있도록 레이블을 할당 합니다. 다음에는 출력에 미리 보기도 포함 하려고 합니다. 아래 예제에서는 입력 비디오의 해상도는 50%로 생성 되 고 입력 비디오의 길이는 {25%, 50%, 75} 인 3 개의 타임 스탬프에 생성 된 이미지를 PNG 형식으로 지정 합니다. 마지막으로, 출력 파일에 대 한 형식을 지정 합니다. 즉, 비디오 + 오디오의 경우, 다른 하나는 미리 보기로 지정 합니다. 여러 H264Layers 있으므로 계층 당 고유한 이름을 생성 하는 매크로를 사용 해야 합니다. `{Label}` 또는 `{Bitrate}` 매크로를 사용할 수 있습니다 .이 예제에서는 이전을 보여 줍니다.
+다음 예제에서는이 변환을 사용할 때 생성 하려는 출력 집합을 정의 합니다. 먼저 오디오 인코딩에 대해 AacAudio 계층을 추가 하 고 비디오 인코딩에 대해 경우 h264video 계층 두 개를 추가 합니다. 비디오 레이어에서 출력 파일 이름에 사용할 수 있도록 레이블을 할당 합니다. 다음에는 출력에 미리 보기도 포함 하려고 합니다. 아래 예제에서는 입력 비디오의 해상도는 50%로 생성 되 고 입력 비디오의 길이는 {25%, 50%, 75} 인 3 개의 타임 스탬프에 생성 된 이미지를 PNG 형식으로 지정 합니다. 마지막으로, 출력 파일에 대 한 형식을 지정 합니다. 즉, 비디오 + 오디오의 경우, 다른 하나는 미리 보기로 지정 합니다. 여러 H264Layers 있으므로 계층 당 고유한 이름을 생성 하는 매크로를 사용 해야 합니다. `{Label}`또는 매크로를 사용할 수 있습니다 `{Bitrate}` .이 예제에서는 이전을 보여 줍니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 

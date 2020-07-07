@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131302"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
@@ -28,7 +28,7 @@ ms.locfileid: "82131302"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -67,7 +67,7 @@ Windows:
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-IoT Edge 장치에는 이러한 인증서가 모두 필요 합니다. DPS에서 개별 등록을 사용 하려는 경우에는. cert. pem 파일을 업로드 합니다. DPS에서 그룹 등록을 사용 하려는 경우 업로드할 신뢰의 동일한 인증서 체인에 중간 또는 루트 CA 인증서도 필요 합니다. 데모 인증서를 사용 하는 `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` 경우 그룹 등록에 인증서를 사용 합니다.
+IoT Edge 장치에는 이러한 인증서가 모두 필요 합니다. DPS에서 개별 등록을 사용 하려는 경우에는. cert. pem 파일을 업로드 합니다. DPS에서 그룹 등록을 사용 하려는 경우 업로드할 신뢰의 동일한 인증서 체인에 중간 또는 루트 CA 인증서도 필요 합니다. 데모 인증서를 사용 하는 경우 `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` 그룹 등록에 인증서를 사용 합니다.
 
 ## <a name="create-a-dps-individual-enrollment"></a>DPS 개별 등록 만들기
 
@@ -100,7 +100,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예:
 
       ```json
       {
@@ -137,7 +137,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 1. 인증서의 이름을 입력 하 고 x.509 인증서의 공개 부분을 나타내는 .cer 또는. X X X 파일로 이동 합니다.
 
-   데모 인증서를 사용 하는 경우 `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` 인증서를 업로드 합니다.
+   데모 인증서를 사용 하는 경우 인증서를 업로드 `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` 합니다.
 
 1. **저장**을 선택합니다.
 
@@ -185,7 +185,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예:
 
       ```json
       {
@@ -221,7 +221,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 
 [Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
 
-X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다.
+X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예:
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
@@ -241,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-, `identity_cert`, `identity_pk` 에 대 한 `scope_id`자리 표시자 값을 DPS 인스턴스의 범위 ID로, uri를 장치의 인증서 체인 및 키 파일 위치로 바꿉니다. 원하는 경우 `registration_id` 장치에 대 한를 제공 하거나,이 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
+,,에 대 한 자리 표시자 값을 `scope_id` `identity_cert` `identity_pk` DPS 인스턴스의 범위 ID로, uri를 장치의 인증서 체인 및 키 파일 위치로 바꿉니다. `registration_id`원하는 경우 장치에 대 한를 제공 하거나,이 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
 
 Config.xml 파일을 업데이트 한 후 항상 보안 디먼을 다시 시작 합니다.
 
@@ -266,9 +266,9 @@ Windows에 IoT Edge를 설치 하는 방법에 대 한 자세한 내용은 컨�
 
 1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 플래그를 `-Dps` 사용 하 여 자동 프로 비전을 사용 하지 않는 한이 명령은 기본적으로 수동 프로 비전을 사용 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 플래그를 사용 하 여 자동 프로 비전을 사용 하지 않는 한이 명령은 기본적으로 수동 프로 비전을 사용 `-Dps` 합니다.
 
-   , `{identity cert chain path}`및 `{identity key path}` 에 대 한 `{scope_id}`자리 표시자 값을 DPS 인스턴스의 적절 한 값 및 장치의 파일 경로로 바꿉니다. 등록 ID를 지정 하려는 경우에도를 포함 `-RegistrationId {registration_id}` 하 여 자리 표시자를 적절히 바꿉니다.
+   , 및에 대 한 자리 표시자 값을 `{scope_id}` `{identity cert chain path}` `{identity key path}` DPS 인스턴스의 적절 한 값 및 장치의 파일 경로로 바꿉니다. 등록 ID를 지정 하려는 경우에도를 포함 하 여 `-RegistrationId {registration_id}` 자리 표시자를 적절히 바꿉니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

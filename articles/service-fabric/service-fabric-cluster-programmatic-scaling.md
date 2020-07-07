@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82787144"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
@@ -24,12 +24,12 @@ Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집
 
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 
-1. 가상 머신 확장 집합에 대`az login`한 액세스 권한이 있는 사용자로 Azure CLI ()에 로그인 합니다.
+1. `az login`가상 머신 확장 집합에 대 한 액세스 권한이 있는 사용자로 Azure CLI ()에 로그인 합니다.
 2. `az ad sp create-for-rbac`을 사용하여 서비스 주체를 만듭니다.
     1. 나중에 사용할 수 있도록 appId(다른 곳에서는 'client ID'라고도 함), 이름, 암호, 테넌트를 기록해 둡니다.
     2. 구독 ID도 필요하며 `az account list`를 사용하여 확인할 수 있습니다.
 
-흐름 compute 라이브러리는 다음과 같이 이러한 자격 증명을 사용 하 여 로그인 할 수 있습니다 (같은 `IAzure` 핵심 흐름 Azure 형식은 [흐름](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 패키지에 있음).
+흐름 compute 라이브러리는 다음과 같이 이러한 자격 증명을 사용 하 여 로그인 할 수 있습니다 (같은 핵심 흐름 Azure 형식은 `IAzure` [흐름](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 패키지에 있음).
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-또는 PowerShell cmdlet을 통해 가상 머신 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)가상 머신 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성을 통해 사용할 수 있습니다. 용량을 원하는 값으로 변경한 후에는 [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 명령을 사용 하 여 Azure의 가상 머신 확장 집합을 업데이트할 수 있습니다.
+또는 PowerShell cmdlet을 통해 가상 머신 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)가상 머신 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성을 통해 사용할 수 있습니다. 용량을 원하는 값으로 변경한 후에는 명령을 사용 하 여 Azure의 가상 머신 확장 집합을 업데이트할 수 있습니다 [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) .
 
 노드를 수동으로 추가하는 경우 확장 집합 인스턴스만 추가하면 새로운 Service Fabric 노드를 시작할 수 있습니다. 확장 집합 템플릿에는 새 인스턴스를 자동으로 Service Fabric 클러스터에 조인하는 확장 기능이 포함되어 있기 때문입니다. 
 

@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100909"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
@@ -81,7 +81,7 @@ msgen 실행 파일과 동일한 경로에 있는 config.txt 파일 및 워크�
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput의 내용을 확인 합니다. 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput.txt의 내용을 검토 합니다. 
 질문의 워크플로에 대한 출력 컨테이너를 찾습니다. MSGEN은 모든 워크플로를 실행한 후 `[workflowfilename].logs.zip` 폴더를 만듭니다. 폴더의 압축을 풀어 해당 콘텐츠를 확인합니다.
 
 * outputFileList.txt - 워크플로 중에 생성된 출력 파일의 목록입니다.

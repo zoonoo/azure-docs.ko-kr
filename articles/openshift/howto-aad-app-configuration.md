@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382908"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
@@ -23,14 +23,14 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
 
 [Azure Portal](https://portal.azure.com)에서 테 넌 트가 포털의 오른쪽 위에 있는 사용자 이름 아래에 표시 되는지 확인 합니다.
 
-![잘못 된 테 넌 트가 표시 되 면 오른쪽](./media/howto-create-tenant/tenant-callout.png) 위에 있는 테 넌 트가 나열 된 포털의 스크린샷, 오른쪽 위에 있는 사용자 이름을 클릭 한 다음 **디렉터리 전환**을 클릭 하 고 **모든 디렉터리** 목록에서 올바른 테 넌 트를 선택 합니다.
+![잘못 된 테 넌 트가 표시 되 면 오른쪽 위에 있는 테 넌 트가 나열 된 포털의 스크린샷 ](./media/howto-create-tenant/tenant-callout.png) , 오른쪽 위에 있는 사용자 이름을 클릭 한 다음 **디렉터리 전환**을 클릭 하 고 **모든 디렉터리** 목록에서 올바른 테 넌 트를 선택 합니다.
 
 새 Azure Active Directory ' Owner ' 사용자를 만들어 Azure Red Hat OpenShift 클러스터에 로그인 합니다.
 
 1. [사용자-모든 사용자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 블레이드로 이동 합니다.
 2. **+ 새 사용자** 를 클릭 하 여 **사용자** 창을 엽니다.
 3. 이 사용자의 **이름을** 입력 합니다.
-4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고 끝에를 `.onmicrosoft.com` 추가 합니다. `yourUserName@yourTenantName.onmicrosoft.com`)을 입력합니다. 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
+4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고 `.onmicrosoft.com` 끝에를 추가 합니다. 예를 들어 `yourUserName@yourTenantName.onmicrosoft.com`. 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
 5. 디렉터리 **역할** 을 클릭 하 여 디렉터리 역할 창을 열고 **소유자** 를 선택한 다음 창 맨 아래에서 **확인** 을 클릭 합니다.
 6. **사용자** 창에서 **암호 표시** 를 클릭 하 고 임시 암호를 기록 합니다. 처음 로그인 하면 다시 설정 하 라는 메시지가 표시 됩니다.
 7. 창 맨 아래에서 **만들기** 를 클릭 하 여 사용자를 만듭니다.
@@ -54,14 +54,14 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
     그룹 ID 값을 기록 합니다.
 
 9. 그룹이 만들어지면 모든 그룹 목록에 표시 됩니다. 새 그룹을 클릭 합니다.
-10. 표시 되는 페이지에서 **개체 ID**를 복사 합니다. `GROUPID` [Azure Red Hat Openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
+10. 표시 되는 페이지에서 **개체 ID**를 복사 합니다. `GROUPID` [Azure Red Hat openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
 
 > [!IMPORTANT]
 > 이 그룹을 osa-고객-관리자 OpenShift 그룹과 동기화 하려면 Azure CLI를 사용 하 여 클러스터를 만듭니다. 현재 Azure Portal에이 그룹을 설정할 필드가 없습니다.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 
-`az openshift create` 명령에 플래그를 `--aad-client-app-id` 생략 하 여 클러스터를 만드는 과정의 일부로 Azure AD (Azure Active Directory) 앱 등록 클라이언트를 자동으로 만들 수 있습니다. 이 자습서에서는 완전성을 위해 Azure AD 앱 등록을 만드는 방법을 보여 줍니다.
+명령에 플래그를 생략 하 여 클러스터를 만드는 과정의 일부로 Azure AD (Azure Active Directory) 앱 등록 클라이언트를 자동으로 만들 수 있습니다 `--aad-client-app-id` `az openshift create` . 이 자습서에서는 완전성을 위해 Azure AD 앱 등록을 만드는 방법을 보여 줍니다.
 
 조직에 서비스 주체로 사용할 Azure AD (Azure Active Directory) 앱 등록이 아직 없는 경우 다음 지침에 따라 계정을 만드세요.
 
@@ -69,7 +69,7 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
 2. 응용 프로그램 **등록** 창에서 응용 프로그램 등록의 이름을 입력 합니다.
 3. **지원 되는 계정 유형** 에서 **이 조직 디렉터리의 계정도** 선택 되어 있는지 확인 합니다. 가장 안전 하 게 선택 합니다.
 4. 클러스터의 URI를 알고 있으면 나중에 리디렉션 URI를 추가 합니다. **등록** 단추를 클릭 하 여 Azure AD 응용 프로그램 등록을 만듭니다.
-5. 표시 되는 페이지에서 **응용 프로그램 (클라이언트) ID**를 복사 합니다. `APPID` [Azure Red Hat Openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
+5. 표시 되는 페이지에서 **응용 프로그램 (클라이언트) ID**를 복사 합니다. `APPID` [Azure Red Hat openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
 
 ![앱 개체 페이지의 스크린샷](./media/howto-create-tenant/get-app-id.png)
 
@@ -82,7 +82,7 @@ Azure Active Directory에 대 한 앱 인증을 위한 클라이언트 암호를
 3. **설명을**입력 합니다.
 4. 설정은 사용자가 원하는 기간 (예: **2 년**)으로 **만료** 됩니다.
 5. **추가** 를 클릭 하면 키 값이 페이지의 **클라이언트 암호** 섹션에 나타납니다.
-6. 키 값을 복사 합니다. `SECRET` [Azure Red Hat Openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
+6. 키 값을 복사 합니다. `SECRET` [Azure Red Hat openshift 클러스터 만들기](tutorial-create-cluster.md) 자습서에서와 같이이 값을 참조 합니다.
 
 ![인증서 및 암호 창의 스크린샷](./media/howto-create-tenant/create-key.png)
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131238"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
@@ -30,14 +30,14 @@ Azure Database for PostgreSQL에서 데이터베이스 활동에 대 한 감사 
 
 pgAudit를 사용하도록 설정하면 서버에서 많은 양의 로깅이 생성되어 성능 및 로그 스토리지에 영향을 줍니다. 장기 저장소 옵션 뿐만 아니라 분석 및 경고 기능을 제공 하는 Azure Monitor 로그를 사용 하는 것이 좋습니다. 추가 로깅의 성능 영향을 줄이려면 표준 로깅을 해제하는 것이 좋습니다.
 
-   1. 매개 변수 `logging_collector` 를 OFF로 설정 합니다. 
+   1. 매개 변수를 `logging_collector` OFF로 설정 합니다. 
    2. 서버를 다시 시작 하 여이 변경 내용을 적용 합니다.
 
 Azure Storage, Event Hubs 또는 Azure Monitor 로그에 대 한 로깅을 설정 하는 방법에 대 한 자세한 내용은 [서버 로그 문서의](concepts-server-logs.md)리소스 로그 섹션을 참조 하세요.
 
 ## <a name="installing-pgaudit"></a>PgAudit 설치
 
-PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를 포함 해야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경 하려면 서버를 다시 시작 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용 하 여 매개 변수를 변경할 수 있습니다.
+PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를 포함 해야 합니다. Postgres의 매개 변수를 변경 하려면 `shared_preload_libraries` 서버를 다시 시작 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용 하 여 매개 변수를 변경할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)사용:
 
@@ -53,7 +53,7 @@ PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를
       ```
 
 > [!TIP]
-> 오류가 표시 되 면 저장 `shared_preload_libraries`후 서버를 다시 시작 했는지 확인 합니다.
+> 오류가 표시 되 면 저장 후 서버를 다시 시작 했는지 확인 `shared_preload_libraries` 합니다.
 
 ## <a name="pgaudit-settings"></a>pgAudit 설정
 
@@ -65,25 +65,25 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 [PgAudit를 설치한](#installing-pgaudit)후에는 해당 매개 변수를 구성 하 여 로깅을 시작할 수 있습니다. [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) 는 각 매개 변수의 정의를 제공 합니다. 먼저 매개 변수를 테스트 하 고 예상 되는 동작을 확인 하 고 있는지 확인 합니다.
 
 > [!NOTE]
-> 을 `pgaudit.log_client` ON으로 설정 하면 로그를 파일에 기록 하는 대신 클라이언트 프로세스 (예: psql)로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>
-> `pgaudit.log_level`는가 on 인 `pgaudit.log_client` 경우에만 사용할 수 있습니다.
+> `pgaudit.log_client`을 ON으로 설정 하면 로그를 파일에 기록 하는 대신 클라이언트 프로세스 (예: psql)로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>
+> `pgaudit.log_level``pgaudit.log_client`는가 on 인 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
-> Azure Database for PostgreSQL에서는 pgAudit 설명서에 설명 `pgaudit.log` 된 `-` 대로 (빼기) 기호 바로 가기를 사용 하 여을 설정할 수 없습니다. 모든 필수 문 클래스(READ, WRITE 등)는 개별적으로 지정해야 합니다.
+> Azure Database for PostgreSQL에서는 `pgaudit.log` `-` pgaudit 설명서에 설명 된 대로 (빼기) 기호 바로 가기를 사용 하 여을 설정할 수 없습니다. 모든 필수 문 클래스(READ, WRITE 등)는 개별적으로 지정해야 합니다.
 
 ### <a name="audit-log-format"></a>감사 로그 형식
-각 감사 항목은 로그 줄 `AUDIT:` 의 시작 부분에 표시 됩니다. 항목의 나머지 형식은 [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)에 자세히 설명 되어 있습니다.
+각 감사 항목은 `AUDIT:` 로그 줄의 시작 부분에 표시 됩니다. 항목의 나머지 형식은 [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)에 자세히 설명 되어 있습니다.
 
-감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수 `log_line_prefix`를 사용 합니다. `log_line_prefix`모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
+감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수를 사용 `log_line_prefix` 합니다. `log_line_prefix`모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-에 `log_line_prefix`대해 자세히 알아보려면 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX)를 참조 하세요.
+에 대해 자세히 알아보려면 `log_line_prefix` [PostgreSQL 설명서](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX)를 참조 하세요.
 
 ### <a name="getting-started"></a>시작
-신속 하 게 시작 하려면를 `pgaudit.log` 로 `WRITE`설정 하 고 로그를 열어 출력을 검토 합니다. 
+신속 하 게 시작 하려면를 `pgaudit.log` 로 설정 하 `WRITE` 고 로그를 열어 출력을 검토 합니다. 
 
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
 .Log 파일을 사용 하는 경우 PostgreSQL 오류 로그와 동일한 파일에 감사 로그가 포함 됩니다. 로그 파일은 Azure [portal](howto-configure-server-logs-in-portal.md) 또는 [CLI](howto-configure-server-logs-using-cli.md)에서 다운로드할 수 있습니다. 

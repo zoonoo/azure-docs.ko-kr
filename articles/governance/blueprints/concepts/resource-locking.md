@@ -4,10 +4,10 @@ description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383602"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
@@ -47,7 +47,7 @@ ms.locfileid: "81383602"
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-로 `{assignmentMG}` 정의 된 관리 그룹은 관리 그룹 계층 구조 내에 있거나 청사진 정의가 저장 된 관리 그룹 이어야 합니다.
+로 정의 된 관리 그룹은 `{assignmentMG}` 관리 그룹 계층 구조 내에 있거나 청사진 정의가 저장 된 관리 그룹 이어야 합니다.
 
 청사진 할당의 요청 본문은 다음과 같습니다.
 
@@ -177,7 +177,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 },
 ```
 
-**ExcludedPrincipals** 는 명시적 이어야 하지만 **EXCLUDEDACTIONS** 항목은 RBAC 작업과 와일드 카드 `*` 일치를 위해를 사용할 수 있습니다.
+**ExcludedPrincipals** 는 명시적 이어야 하지만 **EXCLUDEDACTIONS** 항목은 `*` RBAC 작업과 와일드 카드 일치를 위해를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

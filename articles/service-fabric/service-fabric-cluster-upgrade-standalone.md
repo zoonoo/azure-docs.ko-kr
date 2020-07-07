@@ -4,10 +4,10 @@ description: Azure Service Fabric 독립 실행형 클러스터의 버전 또는
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790646"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Service Fabric 독립 실행형 클러스터 업그레이드 및 업데이트

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: e017e082472e7a4a2fab6a2845e52d3dc7acc460
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80123357"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Azure virtual machines에 SAP HANA 설치
@@ -29,7 +29,7 @@ ms.locfileid: "80123357"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA large instances에 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [Azure에서 SAP HANA (Large instances)를 설치 및 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)을 참조 하세요.
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 또한이 가이드에서는 다음에 대해 잘 알고 있다고 가정 합니다.
 * SAP HANA, SAP NetWeaver 및 온-프레미스에 설치하는 방법
 * Azure에서 SAP HANA 및 SAP 응용 프로그램 인스턴스를 설치 하 고 작동 하는 방법입니다.
@@ -94,7 +94,7 @@ Azure Premium Storage 또는 Ultra disk의 직접 연결 된 디스크를 사용
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>SAP HANA 백업에 대 한 추가 리소스
 Azure Vm에서 SAP HANA 데이터베이스를 백업 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-* [Azure Virtual Machines의 SAP HANA 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+* [Azure Virtual Machines에서 SAP HANA에 대 한 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 * [파일 수준의 SAP HANA Azure Backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 
 ## <a name="next-steps"></a>다음 단계

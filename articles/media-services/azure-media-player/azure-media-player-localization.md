@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82779045"
 ---
 # <a name="localization"></a>지역화 #
@@ -31,7 +31,7 @@ Azure Media Player 현재 해당 언어 코드를 사용 하 여 다음 언어�
 | 영어 {default}   | en   | 크로아티아어                | hr     | 루마니아어                | ro           |
 | 아랍어              | ar   | 헝가리어               | hu     | 슬로바키아어                  | sk           |
 | 불가리아어           | bg   | 인도네시아어              | id     | 슬로베니아어                 | sl           |
-| 카탈로니아어             | 발급   | 아이슬란드어               | 다음인 경우     | 세르비아어 - 키릴 자모      | cyrl-cs   |
+| 카탈로니아어             | ca   | 아이슬란드어               | 다음인 경우     | 세르비아어 - 키릴 자모      | cyrl-cs   |
 | 체코어               | cs   | 이탈리아어                 | it     | 세르비아어 - 라틴 문자         | sr-latn-rs   |
 | 덴마크어              | da   | 일본어                | ja     | 러시아어                 | ru           |
 | 독일어              | de   | 카자흐어                  | kk     | 스웨덴어                 | sv           |

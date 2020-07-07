@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311509"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법
@@ -63,7 +63,7 @@ AzureIoTSecurity 에이전트에서 인증을 수행 하는 두 가지 방법은
 |authentication-method|AuthenticationMethod|온 m|인증 방법|**SymmetricKey** 또는 **new-selfsignedcertificate**|
 |파일 경로|FilePath|f|인증서 또는 대칭 키를 포함 하는 파일의 절대 전체 경로입니다.| |
 |호스트 이름|HostName|hn|IoT Hub의 FQDN|예: ContosoIotHub.azure-devices.net|
-|장치 id|DeviceId|di|디바이스 ID|예: MyDevice1|
+|장치 id|deviceId|di|디바이스 ID|예: MyDevice1|
 |인증서-위치-종류|CertificateLocationKind|cl.exe|인증서 저장소 위치|**Localfile** 또는 **Store**|
 |
 
@@ -77,7 +77,7 @@ AzureIoTSecurity 에이전트에서 인증을 수행 하는 두 가지 방법은
 
 ### <a name="c-based-security-agent"></a>C # 기반 보안 에이전트
 
-다음 매개 변수를 사용 하 여 _인증 .config_ 를 편집 합니다.
+다음 매개 변수를 사용 하 여 _Authentication.config_ 를 편집 합니다.
 
 ```xml
 <Authentication>
@@ -92,7 +92,7 @@ AzureIoTSecurity 에이전트에서 인증을 수행 하는 두 가지 방법은
 
 ### <a name="c-based-security-agent"></a>C 기반 보안 에이전트
 
-다음 매개 변수를 사용 하 여 _Localconfiguration. json_ 을 편집 합니다.
+다음 매개 변수를 사용 하 여 _LocalConfiguration.js를_ 편집 합니다.
 
 ```json
 "Authentication" : {

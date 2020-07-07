@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82778263"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
@@ -70,7 +70,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | \*: 443 | 인바운드 |
 | 한국 | 한국 중부 | 52.231.39.142</br>52.231.36.209 | \*: 443 | 인바운드 |
 | &nbsp; | 한국 남부 | 52.231.203.16</br>52.231.205.214 | \*: 443 | 인바운드
-| United Kingdom | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
+| 영국 | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
 | &nbsp; | 영국 남부 | 51.140.47.39</br>51.140.52.16 | \*: 443 | 인바운드 |
 | 미국 | 미국 중부 | 13.89.171.122</br>13.89.171.124 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 동부 | 13.82.225.233</br>40.71.175.99 | \*: 443 | 인바운드 |

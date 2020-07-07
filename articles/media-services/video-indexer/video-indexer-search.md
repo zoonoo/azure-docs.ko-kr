@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127919"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Video Indexer를 사용 하 여 비디오에서 정확한 순간 검색
@@ -53,8 +53,8 @@ ms.locfileid: "80127919"
 작업 하려는 비디오에서 정확한 순간을 찾았으면 비디오를 계속 처리할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 - [비디오의 심층 통찰력 사용](use-editor-create-project.md)
-- [Video Indexer REST API를 사용하여 콘텐츠 처리](video-indexer-use-apis.md)
-- [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)
+- [Video Indexer REST API를 사용 하 여 콘텐츠 처리](video-indexer-use-apis.md)
+- [응용 프로그램에 시각적 위젯을 포함 합니다.](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>참고 항목
 

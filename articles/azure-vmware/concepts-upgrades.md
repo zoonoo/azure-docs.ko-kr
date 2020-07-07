@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 (AVS)의 키 업그레이드 프로세스 �
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: c5c79625ef661f220a0ba88d6d24ab59e7228195
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82740370"
 ---
 # <a name="azure-vmware-solution-avs-upgrade-concepts"></a>Azure VMware 솔루션 (AVS) 업그레이드 개념

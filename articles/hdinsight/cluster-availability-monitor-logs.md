@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 5527a27ab94c350a345bb916206057069c3d16da
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82723169"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>HDInsight에서 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
@@ -38,7 +38,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 로그는 다음과 같은 다양 한 샘플 쿼리를 나열 합니다.
 
-| 쿼리 이름                      | 설명                                                               |
+| 쿼리 이름                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | 현재 사용 가능한 컴퓨터    | 매 시간 마다 로그를 전송 하는 컴퓨터 수를 차트로 표시 합니다.                     |
 | 하트 비트 나열                 | 지난 1 시간 동안 모든 컴퓨터 하트 비트 나열                           |
