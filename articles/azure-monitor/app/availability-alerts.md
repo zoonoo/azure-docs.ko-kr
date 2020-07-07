@@ -7,10 +7,10 @@ ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382876"
 ---
 # <a name="availability-alerts"></a>가용성 경고
@@ -69,7 +69,7 @@ Azure Resource Manager 템플릿을 사용 하 여이 프로세스를 자동화 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-전용 [문제 해결 문서](troubleshoot-availability.md).
+전용 [문제 해결 문서](troubleshoot-availability.md)
 
 ## <a name="next-steps"></a>다음 단계
 

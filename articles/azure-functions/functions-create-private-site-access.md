@@ -1,17 +1,17 @@
 ---
 title: Azure Functions에 대한 프라이빗 사이트 액세스 사용
 description: Azure Functions에 대한 Azure 가상 네트워크 프라이빗 사이트 액세스를 설정하는 방법을 알아봅니다.
-author: mcollier
-ms.author: mcollier
+author: craigshoemaker
+ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 930b691019d5cb56e487c58e3ca01c4f7ee4ef98
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261153"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390281"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 

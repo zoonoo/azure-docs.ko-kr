@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407450"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
@@ -25,7 +25,7 @@ ms.locfileid: "81407450"
 > [!NOTE]
 > 이 문서에서 설명 하는 단계는 Time Series Insights GA 및 Time Series Insights 미리 보기 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Time Series Insights 환경 만들기](./time-series-insights-update-create-environment.md)에 설명 된 대로 Time Series Insights 환경을 만듭니다.
 - 이벤트 허브를 만듭니다. 읽기 [Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조 하세요.
@@ -62,7 +62,7 @@ ms.locfileid: "81407450"
 
    [![이벤트 원본에서 추가 단추를 선택합니다.](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. 이 Time Series Insights 환경에 고유한 **이벤트 원본 이름** 값 (예:)을 입력 `Contoso-TSI-GA-Event-Hub-ES`합니다.
+1. 이 Time Series Insights 환경에 고유한 **이벤트 원본 이름** 값 (예:)을 입력 `Contoso-TSI-GA-Event-Hub-ES` 합니다.
 
 1. **원본**에서 **이벤트 허브**를 선택합니다.
 

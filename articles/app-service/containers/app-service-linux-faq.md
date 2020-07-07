@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245823"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
@@ -32,8 +32,8 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 | 스택           | 예상 값                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | JAR 앱을 시작 하는 명령 (예: `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | 필요한 구성을 수행할 스크립트의 위치입니다 (예: `/home/site/deployments/tools/startup_script.sh`).          |
+| Java SE         | JAR 앱을 시작 하는 명령 (예: `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
+| Tomcat          | 필요한 구성을 수행할 스크립트의 위치입니다 (예: `/home/site/deployments/tools/startup_script.sh` ).          |
 | Node.js         | PM2 구성 파일 또는 스크립트 파일                                |
 | .NET Core       | 컴파일된 DLL 이름으로,`dotnet <myapp>.dll`                                 |
 | Ruby            | 앱을 초기화 하려는 Ruby 스크립트                     |
@@ -108,9 +108,9 @@ const io = require('socket.io')(server,{
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
-**사용자 지정 컨테이너를 사용 하 고 있습니다. 플랫폼에서 `/home/` 디렉터리에 SMB 공유를 탑재 하려고 합니다.**
+**사용자 지정 컨테이너를 사용 하 고 있습니다. 플랫폼에서 디렉터리에 SMB 공유를 탑재 하려고 합니다 `/home/` .**
 
-설정이 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` **지정** 되지 않았거나 *true*로 설정 된 경우 디렉터리 `/home/` 는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE`설정이 **지정** 되지 않았거나 *true*로 설정 된 경우 `/home/` 디렉터리는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
@@ -122,7 +122,7 @@ const io = require('socket.io')(server,{
 
 **프라이빗 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
-프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). 설정 `docker-custom-image-name`하려면 [ `az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용 합니다.
+프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). 설정 하려면 `docker-custom-image-name` [ `az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용 합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
@@ -153,7 +153,7 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 다음 애플리케이션 설정을 만듭니다.
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (전체 URL, 예: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (전체 URL, 예: `https://<server-name>.azurecr.io` )
 - DOCKER_REGISTRY_SERVER_PASSWORD(ACR 설정에서 관리자 액세스 사용)
 
 구성 파일 내에서 다음 예제와 같이 ACR 이미지를 참조합니다.

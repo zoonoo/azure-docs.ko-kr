@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: f13872352e8b4da89d2dcf955440bc54be0fe000
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921567"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -280,27 +280,27 @@ kubectl apply -f podIdentityAndBinding.yaml
 다음으로, Pod를 배포합니다. 다음 코드는 이전 단계의 Pod ID 바인딩을 사용하는 배포 YAML 파일입니다. 이 파일을 *podBindingDeployment.yaml*로 저장합니다.
 
 ```yml
-kind: Pod
 apiVersion: v1
+kind: Pod
 metadata:
-    name: nginx-secrets-store-inline
-    labels:
+  name: nginx-secrets-store-inline
+  labels:
     aadpodidbinding: azure-pod-identity-binding-selector
 spec:
-    containers:
+  containers:
     - name: nginx
-        image: nginx
-        volumeMounts:
+      image: nginx
+      volumeMounts:
         - name: secrets-store-inline
-        mountPath: "/mnt/secrets-store"
-        readOnly: true
-    volumes:
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+  volumes:
     - name: secrets-store-inline
-        csi:
+      csi:
         driver: secrets-store.csi.k8s.io
         readOnly: true
         volumeAttributes:
-            secretProviderClass: azure-kvname
+          secretProviderClass: azure-kvname
 ```
 
 다음 명령을 실행하여 Pod를 배포합니다.
@@ -343,4 +343,4 @@ kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 키 자격 증명 모음을 복구할 수 있도록 하려면 다음을 참조하세요.
 > [!div class="nextstepaction"]
-> [일시 삭제 설정](https://docs.microsoft.com/azure/key-vault/general/soft-delete-clid)
+> [일시 삭제 설정](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)

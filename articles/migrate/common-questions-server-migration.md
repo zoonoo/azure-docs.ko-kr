@@ -4,10 +4,10 @@ description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744334"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
@@ -21,7 +21,7 @@ ms.locfileid: "82744334"
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Azure Migrate로 마이그레이션에 대해 지원 되는 지역은 무엇 인가요?
 
-[공용](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드의](migrate-support-matrix.md#supported-geographies-azure-government)지원 되는 지역을 검토 합니다.
+[퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>에이전트 없는 VMware 복제는 어떻게 작동 하나요?
 
@@ -81,11 +81,11 @@ VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
-NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예를 들면 다음과 같습니다.
+NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예:
 
-NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService .exe"입니다. Azure Migrate 어플라이언스에서 정책을 만들어 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한할 수 있습니다.
+NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService.exe"입니다. Azure Migrate 어플라이언스에서 정책을 만들어 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한할 수 있습니다.
  
-New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService .exe"-ThrottleRateActionBitsPerSecond 1MB
+New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1MB
 
 ## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>이미 Azure에 복제 중인 Vm을 마이그레이션할 수 있나요? 
 
@@ -106,7 +106,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 이는 좋은 사용 사례가 될 수 있지만 현재 지원 하지 않습니다. 두 개 이상의 어플라이언스를 배포 하 여 동일한 Vm 집합을 검색 하면 VM 소유권이 두 어플라이언스 간을 전환 하는 서비스 문제가 발생 합니다. 이는 Vm이 표시 되 고 사라짐을 표시 하는 이유입니다. 이 경우 문제를 해결 하려면 하나의 어플라이언스를 삭제 하 고 하드 새로 고침을 수행 해야 합니다.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세한 정보를 알아보세요](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>다음 단계
 

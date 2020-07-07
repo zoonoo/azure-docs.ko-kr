@@ -4,12 +4,12 @@ description: MetaMask를 사용하여 Azure Blockchain Service 네트워크에 �
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920584"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>빠른 시작: MetaMask를 사용하여 스마트 계약 연결 및 배포
 
@@ -17,7 +17,7 @@ ms.locfileid: "79205105"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [MetaMask 브라우저 확장](https://metamask.io) 설치
@@ -128,9 +128,9 @@ Remix는 브라우저 기반 Solidity 개발 환경입니다. MetaMask와 Remix�
 
 Remix의 디버그 창에는 블록체인의 트랜잭션에 대한 세부 정보가 표시됩니다.
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![기록 디버깅](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+**simple** 계약 만들기, **simple.add** 트랜잭션, **simple.get** 호출을 확인할 수 있습니다.
 
 MetaMask에서 트랜잭션 기록을 보려면 MetaMask 브라우저 확장을 열고 **History** 섹션에서 배포된 계약 및 트랜잭션에 대한 로그를 확인합니다.
 

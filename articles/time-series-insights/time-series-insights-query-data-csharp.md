@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383878"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>C를 사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리 #
@@ -23,15 +23,15 @@ ms.locfileid: "81383878"
 이 c # 예제에서는 [Ga 쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) 를 사용 하 여 Azure Time Series Insights ga 환경에서 데이터를 쿼리 하는 방법을 보여 줍니다.
 
 > [!TIP]
-> 에서 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)GA c # 코드 샘플을 봅니다.
+> [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)에서 GA C# 코드 샘플을 봅니다.
 
 ## <a name="summary"></a>요약
 
 아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
 
-* System.identitymodel를 사용 하 여 액세스 토큰을 가져오는 방법 Azure Active Directory [ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 사용하여 Azure Active Directory를 통해 액세스 토큰을 획득하는 방법
 
-* 이후 쿼리 API 요청의 `Authorization` 헤더에서 획득 한 액세스 토큰을 전달 하는 방법입니다. 
+* 이후 쿼리 API 요청의 헤더에서 획득 한 액세스 토큰을 전달 하는 방법입니다 `Authorization` . 
 
 * 이 샘플은에 대 한 HTTP 요청을 수행 하는 방법을 보여 주는 각 GA 쿼리 Api를 호출 합니다.
     * 사용자가 액세스할 수 있는 환경을 반환 하는 [환경 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api)
@@ -45,28 +45,28 @@ ms.locfileid: "81383878"
    * [환경 이벤트 스트리밍 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
    * [환경 집계 스트리밍 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
-## <a name="prerequisites-and-setup"></a>필수 구성 요소 및 설치
+## <a name="prerequisites-and-setup"></a>필수 조건 및 설정
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [GA Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) 합니다.
-1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명 된 대로 Azure Active Directory에 대 한 Azure Time Series Insights 환경을 구성 합니다. 
-1. 필요한 프로젝트 종속성을 설치 합니다.
+1. [GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) 환경을 프로비저닝합니다.
+1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다. 
+1. 필요한 프로젝트 종속성을 설치합니다.
 1. 각 **#DUMMY #** 을 적절 한 환경 식별자로 바꿔서 아래 샘플 코드를 편집 합니다.
 1. Visual Studio 내에서 코드를 실행 합니다.
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
-최신 버전의 Visual Studio를 사용 하는 것이 좋습니다.
+최신 버전의 Visual Studio를 사용하는 것이 좋습니다.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -버전 16.4.2 +
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - 버전 16.4.2+
 
-샘플 코드에는 두 가지 필수 종속성이 있습니다.
+샘플 코드에는 다음과 같은 두 가지 필수 종속성이 있습니다.
 
 * [System.identitymodel. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -3.13.9로 package.
-* [Newtonsoft.json](https://www.nuget.org/packages/Newtonsoft.Json) -9.0.1 package.
+* 온-9.0.1 패키지 [를Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json) 합니다.
 
-빌드**솔루션** **빌드** > 옵션을 선택 하 여 Visual Studio 2019에서 패키지를 다운로드 합니다.
+**빌드** > **솔루션 빌드** 옵션을 선택하여 Visual Studio 2019에서 패키지를 다운로드합니다.
 
 또는 [NuGet 2.12 +](https://www.nuget.org/)를 사용 하 여 패키지를 추가 합니다.
 
@@ -79,6 +79,6 @@ ms.locfileid: "81383878"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 쿼리에 대 한 자세한 내용은 [쿼리 API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)하세요.
+- 쿼리에 대해 자세히 알아보려면 [Query API 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)를 참조하세요.
 
-- [클라이언트 SDK를 사용 하 여 JavaScript 앱을 연결 하 여](https://github.com/microsoft/tsiclient) Time Series Insights 하는 방법을 참조 하세요.
+- [클라이언트 SDK를 사용하여 JavaScript 앱을](https://github.com/microsoft/tsiclient) Time Series Insights에 연결하는 방법을 읽어보세요.

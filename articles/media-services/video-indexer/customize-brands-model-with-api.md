@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128001"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
@@ -30,12 +30,12 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 [브랜드 API 만들기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) 는 새 사용자 지정 브랜드를 만들어 지정 된 계정에 대 한 사용자 지정 브랜드 모델에 추가 합니다.
 
 > [!NOTE]
-> ( `enabled` 본문에서)를 true로 설정 하면 검색을 위해 Video Indexer의 *포함* 목록에 해당 브랜드가 배치 됩니다. 을 `enabled` false로 설정 하면 해당 브랜드가 *제외* 목록에 배치 되므로 Video Indexer는 검색 되지 않습니다.
+> `enabled`(본문에서)를 true로 설정 하면 검색을 위해 Video Indexer의 *포함* 목록에 해당 브랜드가 배치 됩니다. `enabled`을 false로 설정 하면 해당 브랜드가 *제외* 목록에 배치 되므로 Video Indexer는 검색 되지 않습니다.
 
 본문에서 설정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-* 이 `referenceUrl` 값은 해당 위키백과 페이지에 대 한 링크와 같은 브랜드의 모든 참조 웹 사이트 일 수 있습니다.
-* `tags` 값은 브랜드에 대 한 태그 목록입니다. 이 태그는 Video Indexer 웹 사이트의 브랜드 *범주* 필드에 표시 됩니다. 예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
+* `referenceUrl`이 값은 해당 위키백과 페이지에 대 한 링크와 같은 브랜드의 모든 참조 웹 사이트 일 수 있습니다.
+* `tags`값은 브랜드에 대 한 태그 목록입니다. 이 태그는 Video Indexer 웹 사이트의 브랜드 *범주* 필드에 표시 됩니다. 예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
 
 ### <a name="response"></a>응답
 
@@ -94,7 +94,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `enabled`로 `true` 설정 하는 것은 Video Indexer 검색할 `enabled` 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
+> `enabled`로 설정 하는 `true` 것은 Video Indexer 검색할 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 `enabled` 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
@@ -178,13 +178,13 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `useBuiltIn`true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. 이 `useBuiltin` False 이면 Bing 브랜드가 사용 되지 않습니다. 이 `state` 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
+> `useBuiltIn`true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다. `state`이 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
 
 ## <a name="update-brands-model-settings"></a>브랜드 모델 설정 업데이트
 
 [업데이트 브랜드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) API는 지정 된 계정의 브랜드 모델 설정을 업데이트 합니다. 브랜드 모델 설정은 Bing 브랜드 데이터베이스에서 검색을 사용할지 여부를 나타냅니다. Bing 브랜드를 사용 하도록 설정 하지 않은 경우 Video Indexer는 지정 된 계정의 사용자 지정 브랜드 모델 에서만 브랜드를 검색 합니다.
 
-True `useBuiltIn` 로 설정 된 플래그는 Bing 브랜드가 사용 됨을 의미 합니다. 이 `useBuiltin` False 이면 Bing 브랜드가 사용 되지 않습니다.
+`useBuiltIn`True로 설정 된 플래그는 Bing 브랜드가 사용 됨을 의미 합니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다.
 
 ### <a name="response"></a>응답
 

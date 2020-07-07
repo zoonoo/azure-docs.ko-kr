@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133930"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
@@ -22,9 +22,9 @@ ms.locfileid: "82133930"
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 공유 태그를 기준으로 여러 장치를 대상으로 하는 배포를 만드는 방법에 대 한 자세한 내용은 [대규모로 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-at-scale.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독의 [IoT hub](../iot-hub/iot-hub-create-through-portal.md)
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-in-the-azure-portal)
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -43,7 +43,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 선택 합니다.
 1. 드롭다운 메뉴에서 모듈의 유형을 확인 합니다.
 
-   * **IoT Edge 모듈** -모듈 이름과 컨테이너 이미지 URI를 제공 합니다. 예를 들어 샘플 SimulatedTemperatureSensor 모듈에 대 한 이미지 URI는 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`입니다. 모듈 이미지가 개인 컨테이너 레지스트리에 저장 되어 있는 경우이 페이지의 자격 증명을 추가 하 여 이미지에 액세스 합니다.
+   * **IoT Edge 모듈** -모듈 이름과 컨테이너 이미지 URI를 제공 합니다. 예를 들어 샘플 SimulatedTemperatureSensor 모듈에 대 한 이미지 URI는 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` 입니다. 모듈 이미지가 개인 컨테이너 레지스트리에 저장 되어 있는 경우이 페이지의 자격 증명을 추가 하 여 이미지에 액세스 합니다.
    * **Marketplace 모듈** -Azure Marketplace에서 호스트 되는 모듈입니다. 일부 마켓플레이스 모듈에는 추가 구성이 필요 하므로 [Azure Marketplace IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) 목록에서 모듈 세부 정보를 검토 하세요.
    * **모듈 Azure Stream Analytics** Azure Stream Analytics 워크 로드에서 생성 된 모듈입니다.
 
@@ -53,7 +53,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="specify-routes"></a>경로 지정
 
-**경로** 탭에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 메시지는 이름/값 쌍을 사용하여 생성됩니다. 기본적으로 경로는 **경로** 라고 하며 **\* /messages/에서 $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
+**경로** 탭에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 메시지는 이름/값 쌍을 사용하여 생성됩니다. 기본적으로 경로는 **경로** 라고 하며 **/messages/에서 \* $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
 
 [선언 경로](module-composition.md#declare-routes)에서 정보를 사용 하 여 경로를 추가 하거나 업데이트 한 후 다음을 선택 합니다. 마법사의 다음 단계로 계속 진행 하려면 **다음** 을 선택 합니다.
 

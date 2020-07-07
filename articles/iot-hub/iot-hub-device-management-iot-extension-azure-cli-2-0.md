@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
 ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239653"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
@@ -51,7 +51,7 @@ ms.locfileid: "80239653"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서 중 하나를 완료 합니다. 예를 들어 [node.js를 사용 하 여 Pi를 Raspberry](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 이러한 항목에는 다음 요구 사항이 포함 됩니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서(예: [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)) 중 하나를 완료합니다. 이러한 항목에는 다음 요구 사항이 포함 됩니다.
 
   - 활성화된 Azure 구독.
   - 구독 중인 Azure IoT Hub
@@ -61,7 +61,7 @@ ms.locfileid: "80239653"
 
 * [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 
-* Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다.
+* Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

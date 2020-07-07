@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80152661"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>미리 보기 환경 진단 및 문제 해결
@@ -92,7 +92,7 @@ ms.locfileid: "80152661"
 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 
 * 타임스탬프 속성 이름은 대/소문자를 구분합니다.
-* 이벤트 소스에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값은 형식 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`입니다. 이러한 문자열의 예는 `“2008-04-12T12:53Z”`입니다.
+* 이벤트 소스에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값은 형식 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` 입니다. 이러한 문자열의 예는 `“2008-04-12T12:53Z”`입니다.
 
 타임스탬프 속성 이름이 캡처되고 제대로 작동하는지 확인하는 가장 쉬운 방법은 Time Series Insights 미리 보기 탐색기를 사용하는 것입니다. Time Series Insights 미리 보기 탐색기 내에서 타임스탬프 속성 이름을 제공한 후 차트를 사용하여 기간을 선택합니다. 선택 영역을 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색** 옵션을 선택합니다. 첫 번째 열 머리글은 타임스탬프 속성 이름입니다. `Timestamp` 단어 옆에 다음 대신 `($ts)`가 있어야 합니다.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394255"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>셀프 서비스 암호 재설정 Azure Active Directory 사용자 환경 사용자 지정
@@ -56,8 +56,8 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 조직에서 관리자에 게 암호 재설정 요청을 알리지 않으려는 경우 다음 구성 옵션을 사용할 수 있습니다.
 
-* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정** > **Customization** > **사용자 지정 기술 지원팀 전자 메일 또는 URL**아래에 있습니다.
-* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정** > **속성**아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
+* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정**  >  **Customization**  >  **사용자 지정 기술 지원팀 전자 메일 또는 URL**아래에 있습니다.
+* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정**  >  **속성**아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>로그인 페이지 및 액세스 패널 사용자 지정
 
@@ -67,12 +67,12 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-   * 다음과 같이 `whr` 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?whr=contoso.com`
-   * 다음과 같이 `username` 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?username=admin@contoso.com`
+   * `whr`다음과 같이 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?whr=contoso.com`
+   * `username`다음과 같이 매개 변수를 암호 재설정 페이지에 전달 합니다.`https://login.microsoftonline.com/?username=admin@contoso.com`
 
 ### <a name="directory-name"></a>디렉터리 이름
 
-사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory** > **속성**으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
+사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory**  >  **속성**으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
 
 * 전자 메일의 이름 (예: "*CONTOSO 데모를 대신*하는 Microsoft")
 * 전자 메일의 제목 줄 (예: "*CONTOSO 데모 계정 전자 메일 확인 코드*")
@@ -81,7 +81,7 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 사용자 로그인 이벤트에 Active Directory Federation Services (AD FS)를 사용 하는 경우 로그인 페이지 [설명 추가](/windows-server/identity/ad-fs/operations/add-sign-in-page-description)에 대 한 문서에 있는 지침을 사용 하 여 로그인 페이지에 대 한 링크를 추가할 수 있습니다.
 
-SSPR 워크플로를 입력할 수 있도록 사용자에 게 페이지에 대 한 링크를 제공 *https://passwordreset.microsoftonline.com*합니다 (예:). AD FS 로그인 페이지에 대 한 링크를 추가 하려면 AD FS 서버에서 다음 명령을 사용 합니다.
+SSPR 워크플로를 입력할 수 있도록 사용자에 게 페이지에 대 한 링크를 제공 합니다 (예:) *https://passwordreset.microsoftonline.com* . AD FS 로그인 페이지에 대 한 링크를 추가 하려면 AD FS 서버에서 다음 명령을 사용 합니다.
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239869"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
@@ -45,7 +45,7 @@ az vm image list --publisher RedHat --all
 
 Azure의 VM 이미지는 게시자, 제품, SKU 및 버전 별로 구성 됩니다. 게시자:제품:SKU:버전의 조합은 이미지 URN이며 사용할 이미지를 고유하게 식별합니다.
 
-예를 들어 `RedHat:RHEL:8-LVM:8.1.20200318` 는 2020 년 3 월 18 일에 빌드된 RHEL 8.1 lvm 분할 이미지를 나타냅니다.
+예를 들어는 `RedHat:RHEL:8-LVM:8.1.20200318` 2020 년 3 월 18 일에 빌드된 RHEL 8.1 LVM 분할 이미지를 나타냅니다.
 
 RHEL 8.1 VM을 만드는 방법에 대 한 샘플은 다음과 같습니다.
 
@@ -57,7 +57,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1
 
 Azure REST API는 특정 버전이 아닌 버전에 대해 "최신" 모니커를 사용할 수 있습니다. "최신"을 사용 하면 지정 된 게시자, 제품 및 SKU에 대해 사용 가능한 최신 이미지를 프로 비전 합니다.
 
-예를 들어 `RedHat:RHEL:8-LVM:latest` 는 사용 가능한 최신 RHEL 8 제품군 lvm 분할 이미지를 나타냅니다.
+예를 들어는 `RedHat:RHEL:8-LVM:latest` 사용 가능한 최신 RHEL 8 제품군 LVM 분할 이미지를 나타냅니다.
 
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
@@ -71,27 +71,27 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 
 RHEL .x 이미지의 경우 이미지 형식은 다음 표에 나와 있습니다.
 
-|게시자 | 제품 | SKU 값 | 버전 | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 설명
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 6.9) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.2018010506) | 모든 표준 RHEL .x 이미지는이 규칙을 따릅니다.
-|RedHat | rhel byos | rhel-raw69 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.20181023) | 이 이미지는 RHEL 6.9 BYOS 이미지입니다.
+|RedHat | rhel-byos | rhel-raw69 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.20181023) | 이 이미지는 RHEL 6.9 BYOS 이미지입니다.
 |RedHat | RHEL | RHEL-SAP-APPS | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.8.2017053118) | 이 이미지는 RHEL 6.8 for SAP Applications 이미지입니다. SAP 응용 프로그램 리포지토리 및 기본 RHEL 리포지토리에 액세스할 수 있습니다.
 |RedHat | RHEL | RHEL-SAP-HANA | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.7.2017053121) | 이 이미지는 SAP HANA 이미지에 대 한 RHEL 6.7입니다. SAP HANA 리포지토리 및 기본 RHEL 리포지토리에 액세스할 수 있습니다.
 
 ## <a name="rhel-7-image-types"></a>RHEL 7 이미지 형식
 
-RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다. 다음 표에서는 제공 하는 다양 한 이미지 집합을 보여 줍니다. 전체 목록을 보려면 Azure CLI 명령을 `az vm image list --publisher redhat --all`사용 합니다.
+RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다. 다음 표에서는 제공 하는 다양 한 이미지 집합을 보여 줍니다. 전체 목록을 보려면 Azure CLI 명령을 사용 `az vm image list --publisher redhat --all` 합니다.
 
 >[!NOTE]
 > 달리 지정 되지 않은 경우 모든 이미지는 LVM으로 분할 되 고 일반 RHEL 리포지토리에 연결 됩니다. 즉, 리포지토리가 EUS (연장 업데이트 지원) 되지 않으며 SAP 용 업데이트 서비스 (E4S)가 아닙니다. 앞으로는 LVM 분할 이미지만 게시로 전환 하지만이 결정에 대 한 피드백을 공개 합니다. SAP 용 확장 업데이트 지원 및 업데이트 서비스에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요.
 
-|게시자 | 제품 | SKU 값 | 버전 | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 설명
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 7.6) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 4 월 2019 일 전에 게시 된 이미지는 표준 RHEL 리포지토리에 연결 됩니다. 4 월 2019 일 이후에 게시 된 이미지는 Red Hat의 EUS 리포지토리에 연결 되어 특정 부 버전의 버전 잠금을 허용 합니다. 일반 리포지토리를 사용 하려는 고객은 SKU 값에 7LVM 또는 7-RAW가 포함 된 이미지를 사용 해야 합니다 (자세한 내용은 참조). RHEL 7.7 이상 이미지는 LVM 분할 된 이미지입니다. 이 범주의 다른 모든 이미지는 원시 분할 됩니다.
 |RedHat | RHEL | 7-RAW | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 이러한 이미지는 원시 분할 됩니다 (예: 논리적 볼륨이 추가 되지 않음).
 |RedHat | RHEL | 7-RAW-CI | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019072418) | 이러한 이미지는 원시 분할 됩니다 (예: 논리적 볼륨이 추가 되지 않음). 프로 비전을 위해 클라우드 초기화를 사용 합니다.
 |RedHat | RHEL | 7-LVM | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019062414) | 이러한 이미지는 LVM 분할 된 이미지입니다.
-|RedHat | rhel byos | rhel-{lvm, raw} | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.7.20190819) | 이러한 이미지는 RHEL 7 BYOS 이미지입니다. 모든 리포지토리에 연결 되지 않으며 RHEL 프리미엄 요금을 청구 하지 않습니다. RHEL BYOS 이미지에 관심이 있는 경우 [액세스를 요청](https://aka.ms/rhel-byos)하세요. SKU 값은 부 버전으로 종료 되며 이미지가 raw 또는 LVM 분할 인지 여부를 나타냅니다. 예를 들어 SKU 값 rhel-lvm77는 LVM 분할 RHEL 7.7 이미지를 나타냅니다.
+|RedHat | rhel-byos | rhel-{lvm, raw} | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.7.20190819) | 이러한 이미지는 RHEL 7 BYOS 이미지입니다. 모든 리포지토리에 연결 되지 않으며 RHEL 프리미엄 요금을 청구 하지 않습니다. RHEL BYOS 이미지에 관심이 있는 경우 [액세스를 요청](https://aka.ms/rhel-byos)하세요. SKU 값은 부 버전으로 종료 되며 이미지가 raw 또는 LVM 분할 인지 여부를 나타냅니다. 예를 들어 SKU 값 rhel-lvm77는 LVM 분할 RHEL 7.7 이미지를 나타냅니다.
 |RedHat | RHEL | RHEL-SAP | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019071300) | 이러한 이미지는 SAP 이미지용으로 RHEL 됩니다. RHEL E4S 리포지토리 뿐만 아니라 SAP HANA 및 응용 프로그램 리포지토리에 액세스할 수 있습니다. 청구에는 기본 계산 요금 위에 RHEL premium 및 SAP premium이 포함 됩니다.
 |RedHat | RHEL | RHEL-HA | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019062320) | 이러한 이미지는 고가용성 및 업데이트 서비스 이미지를 사용 하는 SAP에 RHEL. SAP HANA 및 응용 프로그램 리포지토리와 고가용성 리포지토리 뿐만 아니라 RHEL E4S 리포지토리에 액세스할 수 있습니다. 청구에는 기본 계산 요금 위에 RHEL premium, SAP premium 및 고가용성 프리미엄이 포함 됩니다.
 |RedHat | RHEL | RHEL-HA | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019062019) | 이러한 이미지는 고가용성 추가 기능에도 액세스할 수 있는 RHEL 이미지입니다. 고가용성 추가 기능 프리미엄으로 인해 RHEL 및 기본 계산 요금을 약간 더 많이 청구 합니다.
@@ -102,7 +102,7 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 
 RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 
-|게시자 | 제품 | SKU 값 | 버전 | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 설명
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191023) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 RHEL 8 LVM 분할 이미지입니다.
 |RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)을 참조 하세요.
@@ -129,7 +129,7 @@ RedHat:RHEL:7-LVM:7.6.2019062414
 RedHat:RHEL:7.6:7.6.2019102813
 ```
 
-이 경우 `RedHat:RHEL:7.6:7.6.2019102813` 는 기본적으로 eus 리포지토리에 연결 됩니다. SKU 값은 7.4입니다. 및 `RedHat:RHEL:7-LVM:7.6.2019062414` 는 기본적으로 eus 리포지토리에 연결 됩니다. SKU 값은 7lvm입니다.
+이 경우 `RedHat:RHEL:7.6:7.6.2019102813` 는 기본적으로 EUS 리포지토리에 연결 됩니다. SKU 값은 7.4입니다. 및 `RedHat:RHEL:7-LVM:7.6.2019062414` 는 기본적으로 EUS 리포지토리에 연결 됩니다. SKU 값은 7lvm입니다.
 
 일반 (비 EUS) 리포지토리를 사용 하려면 SKU에 부 버전 번호가 포함 되지 않은 이미지를 사용 합니다.
 

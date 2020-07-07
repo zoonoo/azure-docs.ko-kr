@@ -1,15 +1,15 @@
 ---
-author: sptramer
 ms.topic: include
 ms.date: 01/30/2019
-ms.service: azure-powershell
-ms.author: sttramer
-ms.openlocfilehash: 85a78200fa5c2b90908de6ac0de8723b20ffe56b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+author: mikefrobbins
+ms.author: mirobb
+manager: barbkess
+ms.openlocfilehash: e59fea8b1a615abc9ab00646d5a0b37974348352
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85378402"
 ---
 이 샘플에는 Azure PowerShell Az 1.0 이상이 필요합니다. `Get-Module -ListAvailable Az`를 실행하여 설치된 버전을 확인합니다. 설치해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.openlocfilehash: 877a17327f13e407f86cb3a1a21f051572f74343
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73499716"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>IPsec 연결에 대 한 가상 WAN 기본 정책

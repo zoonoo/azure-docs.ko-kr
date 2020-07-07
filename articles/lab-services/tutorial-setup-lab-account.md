@@ -1,25 +1,14 @@
 ---
 title: Azure Lab Services로 랩 계정 설정 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩 계정을 설정하고, 랩 작성자를 추가하고, 랩 계정의 랩에서 사용할 Marketplace 이미지를 지정하는 방법에 대해 알아봅니다.
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: d344b055659e8efcfa9836c942aacb384bbdec4c
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889446"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445069"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>자습서: Azure Lab Services로 랩 계정 설정
 Azure Lab Services에서 랩 계정은 조직의 랩을 관리하는 중앙 계정 역할을 합니다. 랩 계정에서 랩을 만들고 랩 계정의 모든 랩에 적용되는 정책을 설정할 수 있는 권한을 다른 사람에게 부여하세요. 이 자습서에서는 랩 계정을 만드는 방법을 알아봅니다. 

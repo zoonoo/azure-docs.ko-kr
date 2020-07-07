@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246520"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
@@ -30,14 +30,14 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
-    - **감사 로그** - [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
+    - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](concept-risky-sign-ins.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
     - **위험 플래그가 지정된 사용자** - [위험한 사용자](concept-user-at-risk.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -117,7 +117,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
  
 **상태** -관심 있는 로그인 상태:
 
-- 성공
+- Success
 
 - 실패
 
@@ -146,14 +146,14 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
-|속성|최신 인증|Description|
+|Name|최신 인증|Description|
 |---|:-:|---|
 |인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
 |자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
 |Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.|
 |브라우저|![확인](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
 |Exchange ActiveSync| | Exchange ActiceSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
-|Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.|
+|Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.|
 |Exchange 웹 서비스| |Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.|
 |IMAP4| |전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.|
 |HTTP를 통한 MAPI| |Outlook 2010 이상에서 사용 됩니다.|
@@ -233,12 +233,12 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 사용자 ID
 - 사용자
 - 사용자 이름
-- 애플리케이션 UI
+- 애플리케이션 ID
 - 애플리케이션
 - 클라이언트
 - 위치
 - IP 주소
-- Date
+- 날짜
 - 필요한 MFA
 - 로그인 상태
 

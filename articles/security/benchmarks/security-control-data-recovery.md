@@ -8,17 +8,17 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408582"
 ---
 # <a name="security-control-data-recovery"></a>보안 제어: 데이터 복구
 
 모든 시스템 데이터, 구성 및 비밀이 정기적으로 자동 백업 되는지 확인 합니다.
 
-## <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
+## <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
@@ -28,7 +28,7 @@ Azure Backup를 사용 하도록 설정 하 고 원하는 빈도 및 보존 기�
 
 - [Azure Backup를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/backup/)
 
-## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: 전체 시스템 백업을 수행 하 고 고객 관리 키를 백업 합니다.
+## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: 전체 시스템 백업 수행 및 고객 관리형 키 백업
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
@@ -38,9 +38,9 @@ Azure Backup를 사용 하도록 설정 하 고 원하는 빈도 및 보존 기�
 
 - [Azure Backup를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/backup/)
 
-- [Azure에서 주요 자격 증명 모음 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: 고객 관리 키를 포함 한 모든 백업의 유효성을 검사 합니다.
+## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: 고객 관리형 키를 포함한 모든 백업의 유효성 검사
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
@@ -50,9 +50,9 @@ Azure Backup 내에서 콘텐츠를 정기적으로 복원 하는 기능을 보�
 
 - [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
 
-- [Azure에서 주요 자격 증명 모음 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리 키의 보호 보장
+## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리형 키 보호 보장
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|

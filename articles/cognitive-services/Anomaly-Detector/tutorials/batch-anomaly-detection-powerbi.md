@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 67a17373bb161e54493974ebf01e785bb1329087
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921920"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -143,10 +143,10 @@ Power BI 주 화면에서 위에서 만든 쿼리를 사용하여 데이터 시�
 
 **호출된 함수**의 다음 필드를 차트의 **값** 필드에 추가합니다. 아래 스크린샷을 사용하여 차트를 작성합니다.
 
-    * 값
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* 값
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![새 빠른 측정 화면의 이미지](../media/tutorials/chart-settings.png)
 

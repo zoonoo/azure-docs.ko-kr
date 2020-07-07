@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783748"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
@@ -75,7 +75,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 사용할 DNS 서버를 `daemon.json` 지정 하는 라는 파일을 만듭니다. 예를 들면 다음과 같습니다.
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 예:
 
 ```json
 {
@@ -85,14 +85,14 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 위의 예에서는 DNS 서버를 공개적으로 액세스할 수 있는 DNS 서비스로 설정 합니다. 에 지 장치가 해당 환경에서이 IP에 액세스할 수 없는 경우 액세스할 수 있는 DNS 서버 주소로 대체 합니다.
 
-플랫폼 `daemon.json` 의 올바른 위치에 배치 합니다.
+`daemon.json`플랫폼의 올바른 위치에 배치 합니다.
 
 | 플랫폼 | 위치 |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows 컨테이너를 사용 하는 windows 호스트 | `C:\ProgramData\iotedge-moby\config` |
 
-위치에 이미 파일이 있는 `daemon.json` 경우 **dns** 키를 추가 하 고 파일을 저장 합니다.
+위치에 이미 파일이 있는 경우 `daemon.json` **dns** 키를 추가 하 고 파일을 저장 합니다.
 
 업데이트를 적용 하려면 컨테이너 엔진을 다시 시작 합니다.
 
@@ -103,7 +103,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
+IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예:
 
 ```json
 "createOptions": {
@@ -149,7 +149,7 @@ warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub
 
 IoT Edge 장치가 게이트웨이 장치로 작동 하는 경우 포트 443, 5671 또는 8883을 사용 하는 프로세스를 찾아 중지 해야 합니다. 포트 443에 대 한 오류는 일반적으로 다른 프로세스가 웹 서버 임을 의미 합니다.
 
-IoT Edge 장치를 게이트웨이로 사용할 필요가 없으면 edgeHub의 모듈 만들기 옵션에서 포트 바인딩을 제거할 수 있습니다. Azure Portal에서 또는 배포. json 파일에서 직접 만들기 옵션을 변경할 수 있습니다.
+IoT Edge 장치를 게이트웨이로 사용할 필요가 없으면 edgeHub의 모듈 만들기 옵션에서 포트 바인딩을 제거할 수 있습니다. Azure Portal에서 또는 파일의 deployment.js에서 직접 만들기 옵션을 변경할 수 있습니다.
 
 Azure Portal에서 다음을 수행합니다.
 
@@ -165,11 +165,11 @@ Azure Portal에서 다음을 수행합니다.
 
 6. 변경 내용을 저장 하 고 배포를 만듭니다.
 
-배포. json 파일에서 다음을 수행 합니다.
+파일의 deployment.js에서 다음을 수행 합니다.
 
-1. IoT Edge 장치에 적용 한 배포 json 파일을 엽니다.
+1. IoT Edge 장치에 적용 한 파일에 대 한 deployment.js를 엽니다.
 
-2. EdgeAgent desired `edgeHub` 속성 섹션에서 설정을 찾습니다.
+2. `edgeHub`EdgeAgent desired 속성 섹션에서 설정을 찾습니다.
 
    ```json
    "edgeHub": {
@@ -183,7 +183,7 @@ Azure Portal에서 다음을 수행합니다.
    }
    ```
 
-3. `createOptions` 줄을 제거 하 고 `image` 줄의 끝에 있는 후행 쉼표를 제거 합니다.
+3. `createOptions`줄을 제거 하 고 줄의 끝에 있는 후행 쉼표를 제거 합니다 `image` .
 
    ```json
    "edgeHub": {
@@ -222,7 +222,7 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
    ![가상 머신의 DNS 이름 구성](./media/troubleshoot/configure-dns.png)
 
 3. **DNS 이름 레이블**에 대한 값을 입력하고 **저장**을 선택합니다.
-4. 새 DNS 이름을 복사 합니다 .이 이름은 ** \<DNSnamelabel\>형식 이어야 합니다.\< vmlocation\>. cloudapp.azure.com**.
+4. 새 DNS 이름 (형식 이어야 함)을 복사 합니다. ** \<DNSnamelabel\> \<vmlocation\> cloudapp.azure.com**.
 5. 가상 머신 내에서 다음 명령을 사용하여 DNS 이름으로 IoT Edge 런타임을 설정합니다.
 
    * Linux에서:
@@ -241,7 +241,7 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 
 **관찰된 동작:**
 
-Windows에서을 사용할 `Get-WinEvent` 때 EventLogException를 가져옵니다.
+Windows에서을 사용할 때 EventLogException를 가져옵니다 `Get-WinEvent` .
 
 **근본 원인:**
 
@@ -276,7 +276,7 @@ IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false**
 
 Azure Portal에서 다음을 수행합니다.
 
-IoT Hub에서 IoT Edge 장치를 선택 하 고 장치 세부 정보 페이지에서 **모듈** > **런타임 설정**설정을 선택 합니다. *False*로 설정 된 *OptimizeForPerformance* 이라는 IoT Edge hub 모듈에 대 한 환경 변수를 만듭니다.
+IoT Hub에서 IoT Edge 장치를 선택 하 고 장치 세부 정보 페이지에서 **모듈**  >  **런타임 설정**설정을 선택 합니다. *False*로 설정 된 *OptimizeForPerformance* 이라는 IoT Edge hub 모듈에 대 한 환경 변수를 만듭니다.
 
 ![OptimizeForPerformance를 false로 설정](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -300,7 +300,7 @@ IoT Hub에서 IoT Edge 장치를 선택 하 고 장치 세부 정보 페이지�
 
 **관찰된 동작:**
 
-사용자 지정 IoT Edge 모듈에서 404 `Module not found` 오류가 발생 하 여 IoT Edge 허브로 메시지를 보내지 못합니다. IoT Edge 디먼은 로그에 다음 메시지를 출력합니다.
+사용자 지정 IoT Edge 모듈에서 404 오류가 발생 하 여 IoT Edge 허브로 메시지를 보내지 못합니다 `Module not found` . IoT Edge 디먼은 로그에 다음 메시지를 출력합니다.
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
@@ -314,7 +314,7 @@ IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈�
 
 버전 1.0.7 모든 모듈 프로세스에 연결할 수 있는 권한이 부여 됩니다. 자세한 내용은 [1.0.7 릴리스 변경 로그](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)를 참조 하세요.
 
-1.0.7로 업그레이드할 수 없는 경우 다음 단계를 완료 합니다. 사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. 예를 들어 Docker 파일의 `ENTRYPOINT` `CMD` 명령 대신를 사용 해야 합니다. 이 `CMD` 명령은 모듈에 대해 하나의 프로세스 id와 주 프로그램을 실행 하는 bash 명령의 다른 프로세스 id를 대상으로 하며 `ENTRYPOINT` 단일 프로세스 id로 이어집니다.
+1.0.7로 업그레이드할 수 없는 경우 다음 단계를 완료 합니다. 사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. 예를 들어 `ENTRYPOINT` `CMD` Docker 파일의 명령 대신를 사용 해야 합니다. `CMD`이 명령은 모듈에 대해 하나의 프로세스 id와 주 프로그램을 실행 하는 bash 명령의 다른 프로세스 id를 대상으로 하며 `ENTRYPOINT` 단일 프로세스 id로 이어집니다.
 
 ## <a name="iot-edge-module-deploys-successfully-then-disappears-from-device"></a>IoT Edge 모듈 배포는 장치에서 성공적으로 사라집니다.
 
@@ -330,7 +330,7 @@ IoT Edge 장치에 대 한 모듈을 설정한 후에는 모듈이 성공적으�
 
 장치 마다 한 가지 유형의 배포 메커니즘 (자동 배포 또는 개별 장치 배포)만 사용 합니다. 장치를 대상으로 하는 여러 자동 배포를 사용 하는 경우 지정 된 장치에 올바른 항목을 적용할 수 있도록 우선 순위 또는 대상 설명을 변경할 수 있습니다. 자동 배포의 대상 설명과 더 이상 일치 하지 않도록 장치 쌍을 업데이트할 수도 있습니다.
 
-자세한 내용은 [단일 장치에 대 한 자동 배포의 이해 또는 규모에 IoT Edge](module-deployment-monitoring.md)을 참조 하세요.
+자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

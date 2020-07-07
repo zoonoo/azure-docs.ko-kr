@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277059"
 ---
 # <a name="co-sell-country-and-region-codes"></a>국가 및 지역 코드 공동 판매
@@ -31,10 +31,10 @@ ms.locfileid: "80277059"
 | 올란드 제도                       | AX        |
 | 알바니아                             | AL        |
 | 알제리                             | DZ        |
-| 미국령 사모아                      | AS        |
+| 아메리칸 사모아                      | AS        |
 | 안도라                             | AD        |
 | 앙골라                              | AO        |
-| 남극                          | AQ        |
+| 남극 대륙                          | AQ        |
 | 앤티가 바부다                 | AG        |
 | 아르헨티나                           | AR        |
 | 아르메니아                             | AM        |
@@ -56,10 +56,10 @@ ms.locfileid: "80277059"
 | 보네르                             | BQ        |
 | 보스니아 헤르체고비나              | BA        |
 | 보츠와나                            | BW        |
-| 부베이 섬                       | BV        |
+| 부베섬                       | BV        |
 | 브라질                              | BR        |
 | 영국령 인도양 식민지      | IO        |
-| 영국령 버전 아일랜드              | VG        |
+| 영국령 버진아일랜드              | VG        |
 | 브루나이                              | BN        |
 | 불가리아                            | BG        |
 | 부르키나파소                        | BF        |
@@ -74,18 +74,18 @@ ms.locfileid: "80277059"
 | 체코                             | CZ        |
 | 칠레                               | CL        |
 | 중국                               | CN        |
-| 크리스마스 섬                    | CX        |
+| 크리스마스섬                    | CX        |
 | 코코스 제도             | CC        |
 | 콜롬비아                            | CO        |
 | 코모로                             | KM        |
-| 콩고                               | CG        |
-| 콩고 민주 공화국                         | CD        |
+| 콩고 공화국                               | CG        |
+| 콩고민주공화국                         | CD        |
 | 쿡 제도                        | CK        |
 | 코스타리카                          | CR        |
 | 코트디부아르                       | CI        |
 | 크로아티아                             | HR        |
 | 쿠바                                | CU        |
-| 퀴라소                             | °        |
+| 퀴라소                             | CW        |
 | 키프로스                              | CY        |
 | 덴마크                             | DK        |
 | 지부티                            | DJ        |
@@ -95,7 +95,7 @@ ms.locfileid: "80277059"
 | 이집트                               | EG        |
 | 엘살바도르                         | SV        |
 | 적도 기니                   | GQ        |
-| 에리트레아                             | ER        |
+| 에리트리아                             | ER        |
 | 에스토니아                             | EE        |
 | eSwatini                            | SZ        |
 | 에티오피아                            | ET        |
@@ -143,7 +143,7 @@ ms.locfileid: "80277059"
 | 카자흐스탄                          | KZ        |
 | 케냐                               | KE        |
 | 키리바시                            | KI        |
-| 대한민국 (남부)                       | KR        |
+| 한국(남부)                       | KR        |
 | 쿠웨이트                              | KW        |
 | 키르기스스탄                          | KG        |
 | 라오스                                | LA        |
@@ -187,9 +187,9 @@ ms.locfileid: "80277059"
 | 니제르                               | NE        |
 | 나이지리아                             | NG        |
 | 니우에                                | NU        |
-| 노퍽 섬                      | NF        |
+| 노퍽섬                      | NF        |
 | 북한                         | KP        |
-| 북마리아나 제도            | MP        |
+| 북마리아나제도            | MP        |
 | 북마케도니아                     | MK        |
 | 노르웨이                              | 아니요        |
 | 오만                                | OM        |
@@ -212,10 +212,10 @@ ms.locfileid: "80277059"
 | 르완다                              | RW        |
 | 세인트 바르텔레미                    | BL        |
 | 세인트키츠 네비스               | KN        |
-| 세인트 루시아                         | LC        |
-| 세인트 마틴                        | MF        |
+| 세인트루시아                         | LC        |
+| 생마르탱                        | MF        |
 | 생피에르앤드미클롱           | PM        |
-| 세인트 빈센트 그레나딘    | VC        |
+| 세인트빈센트그레나딘    | VC        |
 | 사모아                               | WS        |
 | 산마리노                          | SM        |
 | 상투메 프린시페               | ST        |
@@ -225,7 +225,7 @@ ms.locfileid: "80277059"
 | 세이셸                          | SC        |
 | 시에라리온                        | SL        |
 | 싱가포르                           | SG        |
-| 신트마르텐                        | SX        |
+| 신트마르턴                        | SX        |
 | 슬로바키아                            | SK        |
 | 슬로베니아                            | SI        |
 | 솔로몬 제도                     | SB        |
@@ -246,7 +246,7 @@ ms.locfileid: "80277059"
 | 타지키스탄                          | TJ        |
 | 탄자니아                            | TZ        |
 | 태국                            | TH        |
-| 동티모르                         | TL        |
+| 동티모르(Timor-Leste)                         | TL        |
 | 토고                                | TG        |
 | 토켈라우                             | TK        |
 | 통가                               | TO        |
@@ -263,7 +263,7 @@ ms.locfileid: "80277059"
 | 미국                       | US        |
 | 우루과이                             | UY        |
 | 미국령 해외 제도               | UM        |
-| 미국령 버진 아일랜드                 | VI        |
+| 미국 버진 아일랜드                 | VI        |
 | 우즈베키스탄                          | UZ        |
 | 바누아투                             | VU        |
 | 바티칸 시국                        | VA        |

@@ -4,10 +4,10 @@ description: Azure 위임 된 리소스 관리를 사용 하는 경우 보안 �
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246911"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
@@ -25,13 +25,13 @@ ms.locfileid: "80246911"
 관리를 용이 하 게 하려면 고객의 리소스를 관리 하는 데 필요한 각 역할에 대해 Azure AD 사용자 그룹을 사용 하는 것이 좋습니다. 이렇게 하면 해당 사용자에게 직접 사용 권한을 할당하는 대신, 필요에 따라 그룹에서 개별 사용자를 추가하거나 제거할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD 그룹에 대 한 사용 권한을 추가 하려면 **그룹 종류가** **Office 365**이 아닌 **보안** 이어야 합니다. 이 옵션은 그룹을 만들 때 선택 됩니다. 자세한 내용은 [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)(Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가)를 참조하세요.
+> Azure AD 그룹에 대한 사용 권한을 추가하려면 **그룹 유형**이 **Office 365**가 아닌 **보안**이어야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 권한 구조를 만들 때 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다.
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |형식  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |판독기         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

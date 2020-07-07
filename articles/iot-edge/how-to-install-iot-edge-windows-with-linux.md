@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80133171"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Windows에서 IoT Edge를 사용 하 여 Linux 컨테이너 실행
@@ -26,7 +26,7 @@ Windows 컴퓨터를 사용 하 여 Linux 장치용 IoT Edge 모듈을 테스트
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다.
 
@@ -53,7 +53,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 디바이스에 IoT Edge 런타임을 처음 설치하는 경우 IoT 허브의 ID를 사용하여 디바이스를 프로비전해야 합니다. IoT hub에서 제공 하는 장치 연결 문자열을 사용 하 여 단일 IoT Edge 장치를 수동으로 프로 비전 할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 디바이스를 프로비전할 수 있습니다. 이 기능은 많은 디바이스를 설정해야 하는 경우에 유용합니다.
 
-[Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)문서에서 다양 한 설치 옵션 및 매개 변수에 대 한 자세한 내용을 확인할 수 있습니다. Docker 데스크톱이 설치 되 고 Linux 컨테이너에 대해 구성 되 면 기본 설치 차이점은 **-ContainerOs** 매개 변수를 사용 하 여 linux를 선언 하는 것입니다. 다음은 그 예입니다.
+[Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)문서에서 다양 한 설치 옵션 및 매개 변수에 대 한 자세한 내용을 확인할 수 있습니다. Docker 데스크톱이 설치 되 고 Linux 컨테이너에 대해 구성 되 면 기본 설치 차이점은 **-ContainerOs** 매개 변수를 사용 하 여 linux를 선언 하는 것입니다. 예:
 
 1. 아직 만들지 않은 경우 새 IoT Edge 장치를 등록 하 고 장치 연결 문자열을 검색 합니다. 이 섹션의 뒷부분에서 사용할 연결 문자열을 복사 합니다. 다음 도구를 사용 하 여이 단계를 완료할 수 있습니다.
 

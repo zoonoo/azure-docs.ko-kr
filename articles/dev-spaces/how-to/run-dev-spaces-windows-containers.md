@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240478"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
@@ -54,14 +54,14 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 AKS 클러스터에서 Windows 서비스를 실행 하 고 *실행 중* 상태 인지 확인 합니다. 이 문서에서는 [샘플 응용 프로그램][sample-application] 을 사용 하 여 클러스터에서 실행 되는 Windows 및 Linux 서비스를 보여 줍니다.
 
-GitHub에서 샘플 응용 프로그램을 복제 하 고 디렉터리로 `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` 이동 합니다.
+GitHub에서 샘플 응용 프로그램을 복제 하 고 디렉터리로 이동 합니다 `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` .
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-예제 응용 프로그램에서는 [투구 3][helm-installed] 을 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. `charts` 디렉터리로 이동 하 여 Windows 서비스를 실행 하는 투구를 사용 합니다.
+예제 응용 프로그램에서는 [투구 3][helm-installed] 을 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. 디렉터리로 이동 하 여 `charts` Windows 서비스를 실행 하는 투구를 사용 합니다.
 
 ```console
 cd charts/
@@ -71,7 +71,7 @@ helm install windows-service . --namespace dev
 
 위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev*라는 이름의 네임 스페이스가 없으면 생성 됩니다.
 
-`kubectl get pods` 명령을 사용 하 여 클러스터에서 Windows 서비스가 실행 되 고 있는지 확인 합니다. 
+명령을 사용 `kubectl get pods` 하 여 클러스터에서 Windows 서비스가 실행 되 고 있는지 확인 합니다. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -91,9 +91,9 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>개발 공간에 대해 Windows 서비스 업데이트
 
-이미 실행 중인 컨테이너를 사용 하 여 기존 네임 스페이스에서 개발 공간을 사용 하도록 설정 하는 경우 기본적으로 Dev 공간은 해당 네임 스페이스에서 실행 되는 모든 새 컨테이너를 시도 하 고 계측 합니다. 또한 Dev Spaces는 네임 스페이스에서 이미 실행 중인 서비스에 대해 생성 된 모든 새 컨테이너를 시도 하 고 계측 합니다. 개발 공간이 네임 스페이스에서 실행 되는 컨테이너를 계측 하지 않도록 하려면 *프록시 없음* 헤더를에 추가 합니다 `deployment.yaml`.
+이미 실행 중인 컨테이너를 사용 하 여 기존 네임 스페이스에서 개발 공간을 사용 하도록 설정 하는 경우 기본적으로 Dev 공간은 해당 네임 스페이스에서 실행 되는 모든 새 컨테이너를 시도 하 고 계측 합니다. 또한 Dev Spaces는 네임 스페이스에서 이미 실행 중인 서비스에 대해 생성 된 모든 새 컨테이너를 시도 하 고 계측 합니다. 개발 공간이 네임 스페이스에서 실행 되는 컨테이너를 계측 하지 않도록 하려면 *프록시 없음* 헤더를에 추가 합니다 `deployment.yaml` .
 
-파일 `azds.io/no-proxy: "true"` 에를 `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` 추가 합니다.
+`azds.io/no-proxy: "true"`파일에를 추가 합니다 `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` .
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-을 `helm list` 사용 하 여 Windows 서비스에 대 한 배포를 나열 합니다.
+`helm list`을 사용 하 여 Windows 서비스에 대 한 배포를 나열 합니다.
 
 ```cmd
 $ helm list --namespace dev
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-위의 예제에서 배포 이름은 *windows 서비스*입니다. 다음을 사용 하 `helm upgrade`여 Windows 서비스를 새 구성으로 업데이트 합니다.
+위의 예제에서 배포 이름은 *windows 서비스*입니다. 다음을 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다 `helm upgrade` .
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-`deployment.yaml`을 (를) 업데이트 한 후에는 Dev 공간에서 서비스를 시도 하지 않고 계측 합니다.
+을 (를) 업데이트 한 후에 `deployment.yaml` 는 Dev 공간에서 서비스를 시도 하지 않고 계측 합니다.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Linux 응용 프로그램 실행
 
-`webfrontend` 디렉터리로 이동 하 여 `azds prep` 및 `azds up` 명령을 사용 하 여 클러스터에서 Linux 응용 프로그램을 실행 합니다.
+디렉터리로 이동 하 여 `webfrontend` `azds prep` 및 명령을 사용 하 여 `azds up` 클러스터에서 Linux 응용 프로그램을 실행 합니다.
 
 ```console
 cd ../../webfrontend-linux/
@@ -161,7 +161,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Azds up 명령의 출력에 표시 되는 공용 URL을 열어 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공용 URL은 `http://dev.webfrontend.abcdef0123.eus.azds.io/` 입니다. 브라우저에서 서비스로 이동 하 여 맨 위에 있는 *About* 을 클릭 합니다. 컨테이너에서 사용 중인 Windows 버전을 포함 하는 *mywebapi* 서비스의 메시지가 표시 되는지 확인 합니다.
+Azds up 명령의 출력에 표시 되는 공용 URL을 열어 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공용 URL은 `http://dev.webfrontend.abcdef0123.eus.azds.io/`입니다. 브라우저에서 서비스로 이동 하 여 맨 위에 있는 *About* 을 클릭 합니다. 컨테이너에서 사용 중인 Windows 버전을 포함 하는 *mywebapi* 서비스의 메시지가 표시 되는지 확인 합니다.
 
 ![Mywebapi의 Windows 버전을 보여 주는 샘플 앱](../media/run-dev-spaces-windows-containers/sample-app.png)
 

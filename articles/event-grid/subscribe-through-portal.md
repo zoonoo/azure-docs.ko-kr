@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393168"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
@@ -67,5 +67,5 @@ ms.locfileid: "81393168"
 ## <a name="next-steps"></a>다음 단계
 
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
-* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
+* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

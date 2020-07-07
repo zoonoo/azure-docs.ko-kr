@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80157690"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>하나 이상의 규칙에서 실행할 여러 작업 그룹화
@@ -21,7 +21,7 @@ ms.locfileid: "80157690"
 
 Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규칙을 만듭니다. 규칙은 장치 원격 분석 또는 이벤트를 기반으로 합니다. 예를 들어 장치의 온도가 임계값을 초과 하는 경우 운영자에 게 알릴 수 있습니다. 이 문서에서는 [Azure Monitor](../../azure-monitor/overview.md) *작업 그룹* 을 사용 하 여 여러 작업을 IoT Central 규칙에 연결 하는 방법을 설명 합니다. 여러 규칙에 작업 그룹을 연결할 수 있습니다. [작업 그룹](../../azure-monitor/platform/action-groups.md) 은 Azure 구독의 소유자가 정의한 알림 기본 설정 모음입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 표준 요금제를 사용 하 여 만든 응용 프로그램
 - Azure Monitor 작업 그룹을 만들고 관리 하기 위한 Azure 계정 및 구독

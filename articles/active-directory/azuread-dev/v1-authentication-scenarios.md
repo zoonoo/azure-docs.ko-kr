@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154732"
 ---
 # <a name="what-is-authentication"></a>인증이란?
@@ -60,18 +60,18 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
 
-클라이언트를 구축 하는 방법에 따라 Azure AD에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다. 이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 인증 코드를 생성 하 고 다른 토큰을 사용 하 여 작동 하도록 할 수 있습니다. 이 차트에서는 다음 개요를 제공 합니다.
+클라이언트를 구축 하는 방법에 따라 Azure AD에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다. 이러한 흐름은 다양한 토큰(id_token, 새로 고침 토큰, 액세스 토큰) 및 인증 코드를 생성하고 작동하는 데 다른 토큰을 요구할 수 있습니다. 이 차트에서는 다음 개요를 제공합니다.
 
-|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
+|흐름 | 필수 사항 | id_token | 액세스 토큰 | 새로 고침 토큰 | 인증 코드 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[인증 코드 흐름](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[암시적 흐름](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[하이브리드 OIDC 흐름](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
-|[토큰 상환 새로 고침](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | 토큰 새로 고침 | x | x | x| |
-|[흐름에 대 한](v1-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
-|[클라이언트 자격 증명](v1-oauth2-client-creds-grant-flow.md) | | | x (앱 전용)| | |
+|[새로 고침 토큰 상환](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | 새로 고침 토큰 | x | x | x| |
+|[On-Behalf-Of 흐름](v1-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
+|[클라이언트 자격 증명](v1-oauth2-client-creds-grant-flow.md) | | | x(앱 전용)| | |
 
-암시적 모드를 통해 발급 된 토큰은 URL을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다 (여기서 `response_mode` 은 `query` 또는 `fragment`).  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰에는 `groups` 또는 `wids` 클레임이 없습니다. 
+암시적 모드를 통해 발급된 토큰은 URL(여기서 `response_mode`는 `query` 또는 `fragment`)을 통해 브라우저에 다시 전달되기 때문에 길이 제한이 있습니다.  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰은 `groups` 또는 `wids` 클레임을 포함하지 않습니다. 
 
 이제 기본 사항을 간략히 살펴보았으므로 ID 앱 모델 및 API 이해, Azure AD에서 프로비전이 작동하는 방법 및 Azure AD에서 지원하는 일반적인 시나리오에 대한 자세한 정보 링크를 살펴보세요.
 
@@ -121,7 +121,7 @@ Azure AD에서 발급하는 보안 토큰(액세스 및 ID 토큰)에는 인증�
 
 | 클레임 | Description |
 | --- | --- |
-| 애플리케이션 UI | 토큰을 사용 중인 애플리케이션을 식별합니다. |
+| 애플리케이션 ID | 토큰을 사용 중인 애플리케이션을 식별합니다. |
 | 사용자 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
 | 애플리케이션 인증 컨텍스트 클래스 참조 | 클라이언트가 인증된 방법을 나타냅니다(공용 클라이언트 또는 기밀 클라이언트). |
 | 인증 인스턴트 | 인증이 발생한 날짜 및 시간을 기록합니다. |
@@ -132,10 +132,10 @@ Azure AD에서 발급하는 보안 토큰(액세스 및 ID 토큰)에는 인증�
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
 | 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
-| 속성 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
+| Name | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID입니다. | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
-| 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
+| Scope | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
 | 제목 | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. |

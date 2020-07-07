@@ -1,25 +1,14 @@
 ---
 title: Azure Lab Services에서 랩 사용량 추적 | Microsoft Docs
 description: 이 자습서에서는 랩 작성자/소유자로서 랩 사용량을 추적합니다.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 02/10/2020
-ms.author: spelluru
-ms.openlocfilehash: e7f260904db3c8aaaa83973b6c8b565134c02616
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a9a9b49b568decc621be1969a8578d61ac7e4861
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889435"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445035"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.

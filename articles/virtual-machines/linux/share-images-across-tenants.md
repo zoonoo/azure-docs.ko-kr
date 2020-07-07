@@ -10,10 +10,10 @@ ms.date: 05/04/2019
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 62f136eb1c2684bfd307a05ccbb4836739da6f3a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82789456"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테 넌 트 간에 갤러리 VM 이미지 공유
@@ -27,7 +27,7 @@ ms.locfileid: "82789456"
 
 ## <a name="create-a-vm-using-azure-cli"></a>Azure CLI를 사용 하 여 VM 만들기
 
-AppID, 앱 키 및 테 넌 트 1의 ID를 사용 하 여 테 넌 트 1에 대 한 서비스 주체를 로그인 합니다. 필요한 경우를 `az account show --query "tenantId"` 사용 하 여 테 넌 트 id를 가져올 수 있습니다.
+AppID, 앱 키 및 테 넌 트 1의 ID를 사용 하 여 테 넌 트 1에 대 한 서비스 주체를 로그인 합니다. `az account show --query "tenantId"`필요한 경우를 사용 하 여 테 넌 트 id를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az account clear

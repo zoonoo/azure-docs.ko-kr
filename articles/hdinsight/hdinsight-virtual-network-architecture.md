@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81390217"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
@@ -36,7 +36,7 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 클러스터의 노드에 주소를 지정 하는 경우 Fqdn (정규화 된 도메인 이름)을 사용 합니다. [AMBARI API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용 하 여 클러스터의 다양 한 노드 형식에 대 한 fqdn을 가져올 수 있습니다.
 
-이러한 Fqdn은 형식 `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`입니다.
+이러한 Fqdn은 형식입니다 `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net` .
 
 는 `<node-type-prefix>` 헤드 노드에 대 한 *hn* , 작업자 노드에 대 한 *w)* 및 아웃 청구 노드에 대 한 *zn* 입니다.
 
@@ -52,7 +52,7 @@ Azure Virtual Network의 기본 리소스에는 위의 표에 언급 된 클러�
 
 다음 표에는 HDInsight가 사용자 지정 Azure Virtual Network에 배포 될 때 생성 된 9 개의 클러스터 노드가 요약 되어 있습니다.
 
-| 리소스 유형 | 표시 번호 | 세부 정보 |
+| 리소스 유형 | 표시 번호 | 설명 |
 | --- | --- | --- |
 |헤드 노드 | two |    |
 |Zookeeper 노드 | three | |
@@ -61,7 +61,7 @@ Azure Virtual Network의 기본 리소스에는 위의 표에 언급 된 클러�
 
 다음 네트워크 리소스는 HDInsight에서 사용 되는 가상 네트워크 내에 자동으로 만들어집니다.
 
-| 네트워킹 리소스 | 표시 번호 | 세부 정보 |
+| 네트워킹 리소스 | 표시 번호 | 설명 |
 | --- | --- | --- |
 |부하 분산 장치 | three | |
 |네트워크 인터페이스 | 커서나 | 이 값은 각 노드에 고유한 네트워크 인터페이스가 있는 일반 클러스터를 기반으로 합니다. 9 개의 인터페이스에는 두 개의 헤드 노드, 3 개의 사육 아웃 노드, 두 개의 작업자 노드 및 위의 표에 설명 된 두 개의 게이트웨이 노드가 있습니다. |
@@ -71,16 +71,16 @@ Azure Virtual Network의 기본 리소스에는 위의 표에 언급 된 클러�
 
 다음 세 가지 방법으로 HDInsight 클러스터에 액세스할 수 있습니다.
 
-- 의 가상 네트워크 외부에 있는 HTTPS 끝점 `CLUSTERNAME.azurehdinsight.net`입니다.
-- 에서 `CLUSTERNAME-ssh.azurehdinsight.net`헤드 노드에 직접 연결 하기 위한 SSH 끝점입니다.
-- 가상 네트워크 `CLUSTERNAME-int.azurehdinsight.net`내의 HTTPS 끝점입니다. 이 URL의`-int`""를 확인 합니다. 이 끝점은 해당 가상 네트워크의 개인 IP로 확인 되 고 공용 인터넷에서 액세스할 수 없습니다.
+- 의 가상 네트워크 외부에 있는 HTTPS 끝점 `CLUSTERNAME.azurehdinsight.net` 입니다.
+- 에서 헤드 노드에 직접 연결 하기 위한 SSH 끝점 `CLUSTERNAME-ssh.azurehdinsight.net` 입니다.
+- 가상 네트워크 내의 HTTPS 끝점 `CLUSTERNAME-int.azurehdinsight.net` 입니다. `-int`이 URL의 ""를 확인 합니다. 이 끝점은 해당 가상 네트워크의 개인 IP로 확인 되 고 공용 인터넷에서 액세스할 수 없습니다.
 
 이러한 세 끝점은 각각 부하 분산 장치에 할당 됩니다.
 
 또한 공용 IP 주소는 가상 네트워크 외부에서 연결할 수 있도록 하는 두 끝점에 제공 됩니다.
 
-1. 인터넷 `CLUSTERNAME.azurehdinsight.net`에서 클러스터에 연결할 때 사용할 FQDN (정규화 된 도메인 이름)에 대해 하나의 공용 IP가 부하 분산 장치에 할당 됩니다.
-1. 두 번째 공용 IP 주소는 SSH 전용 도메인 이름 `CLUSTERNAME-ssh.azurehdinsight.net`에 사용 됩니다.
+1. 인터넷에서 클러스터에 연결할 때 사용할 FQDN (정규화 된 도메인 이름)에 대해 하나의 공용 IP가 부하 분산 장치에 할당 됩니다 `CLUSTERNAME.azurehdinsight.net` .
+1. 두 번째 공용 IP 주소는 SSH 전용 도메인 이름에 사용 됩니다 `CLUSTERNAME-ssh.azurehdinsight.net` .
 
 ## <a name="next-steps"></a>다음 단계
 

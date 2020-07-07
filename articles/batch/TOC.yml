@@ -272,13 +272,13 @@
     - name: Batch 피드백
       href: 'https://feedback.azure.com/forums/269742-batch'
     - name: Batch에 대한 Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-batch.html'
+      href: /answers/topics/azure-batch.html
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: 블로그
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: Azure의 HPC
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      href: /azure/architecture/topics/high-performance-computing/
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: 요금 계산기

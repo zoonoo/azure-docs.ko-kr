@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 8f76f143b6c6a26b88b78e20d8d5d8ae1ae48553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158017"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Azure IoT Central UI 사용자 지정
@@ -49,7 +49,7 @@ ms.locfileid: "80158017"
 
 ### <a name="browser-colors"></a>브라우저 색
 
-페이지 머리글의 색과 accenting 단추 및 기타 강조 표시에 사용 되는 색을 변경할 수 있습니다. 형식의 `##ff6347`6 자 16 진수 색 값을 사용 합니다. **16 진수 값** 색 표기법에 대 한 자세한 내용은 [HTML 색](https://www.w3schools.com/html/html_colors.asp)을 참조 하세요.
+페이지 머리글의 색과 accenting 단추 및 기타 강조 표시에 사용 되는 색을 변경할 수 있습니다. 형식의 6 자 16 진수 색 값을 사용 `##ff6347` 합니다. **16 진수 값** 색 표기법에 대 한 자세한 내용은 [HTML 색](https://www.w3schools.com/html/html_colors.asp)을 참조 하세요.
 
 > [!NOTE]
 > 언제 든 지 **응용 프로그램 사용자 지정** 페이지에서 기본 옵션으로 되돌릴 수 있습니다.
