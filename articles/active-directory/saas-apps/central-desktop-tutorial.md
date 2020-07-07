@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e2fa19c7c2525eadc0eb8008d66cf37b3526d72
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157505"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
 
@@ -110,11 +110,10 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
-    | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
-    | |
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     다. **회신 URL** 텍스트 상자에서 `https://<companyname>.centraldesktop.com/saml2-assertion.php` 패턴을 사용하여 URL을 입력합니다.
 

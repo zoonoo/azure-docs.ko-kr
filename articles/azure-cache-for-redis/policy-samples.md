@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis에 대한 기본 제공 정책 정의
 description: Azure Cache for Redis에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a54dfc87937bdeb438b0a84c6385d3876946c546
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: ee64e2200511118d55f3df152b5adaa574a333d3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84883864"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313239"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 Azure Policy 기본 제공 정의
 

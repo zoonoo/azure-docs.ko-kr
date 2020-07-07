@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3c8062bf40e8c97e93f237237dcd7c6923d59dd
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68879690"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799648"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>자습서: Azure Active Directory와 Carbonite Endpoint Backup 연결
 
@@ -84,36 +84,33 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com`|
-    | `https://red-apac.mysecuredatavault.com`|
-    | `https://red-fr.mysecuredatavault.com`|
-    | `https://red-emea.mysecuredatavault.com`|
-    | `https://kamino.mysecuredatavault.com`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com
+    https://red-apac.mysecuredatavault.com
+    https://red-fr.mysecuredatavault.com
+    https://red-emea.mysecuredatavault.com
+    https://kamino.mysecuredatavault.com
+    ```
 
     b. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+    ```
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/`|
-    | `https://red-apac.mysecuredatavault.com/`|
-    | `https://red-fr.mysecuredatavault.com/`|
-    | `https://red-emea.mysecuredatavault.com/`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com/
+    https://red-apac.mysecuredatavault.com/
+    https://red-fr.mysecuredatavault.com/
+    https://red-emea.mysecuredatavault.com/
+    ```
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 

@@ -1,19 +1,19 @@
 ---
 title: 서버용 Azure Arc에 대한 기본 제공 정책 정의
 description: 서버용 Azure Arc에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d0a8f0c83cd03edd8435015f090573f7fe4f5f29
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d4ae07ad44028d847ff43da955460bd11a6b7a6b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888771"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316195"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>서버용 Azure Arc에 대한 Azure Policy 기본 제공 정의
 

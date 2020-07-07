@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d151deb3b8f7a5784cd9c22bd124145be092489
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aed7c6ece045ab75571c9146c235c69f5c8d19a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158910"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>자습서: Ariba와 Azure Active Directory 통합
 
@@ -108,10 +108,10 @@ Ariba에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<subdomain>.sourcing.ariba.com` |
-    | `https://<subdomain>.supplier.ariba.com` |
+    ```http
+    https://<subdomain>.sourcing.ariba.com
+    https://<subdomain>.supplier.ariba.com
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<subdomain>.procurement-2.ariba.com` 패턴을 사용하는 URL을 입력합니다.
 

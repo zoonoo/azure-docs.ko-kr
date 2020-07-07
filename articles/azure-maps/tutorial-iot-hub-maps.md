@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333972"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318929"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -36,7 +36,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 이 솔루션은 자동차 임대 회사에서 렌터카의 이벤트를 모니터링하고 기록하는 시나리오를 보여줍니다. 자동차 임대 회사는 일반적으로 자동차를 특정 지역에 임대합니다. 자동차를 임대하는 동안 소재 위치를 추적해야 합니다. 선택한 지역을 벗어나는 자동차 인스턴스를 기록해야 합니다. 데이터를 기록하면 정책, 요금 및 기타 비즈니스 사안이 올바르게 처리됩니다.
 
-사용 사례에서 렌터카에는 원격 분석 데이터를 Azure IoT Hub로 정기적으로 보내는 IoT 디바이스가 장착되어 있습니다. 원격 분석에는 현재 위치가 포함되며, 자동차의 엔진이 작동하고 있는지 여부가 표시됩니다. 디바이스 위치 스키마는 [지리 공간 데이터에 대한 IoT 플러그 앤 플레이 스키마](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md)를 준수합니다. 렌터카의 디바이스 원격 분석 스키마는 다음과 같습니다.
+사용 사례에서 렌터카에는 원격 분석 데이터를 Azure IoT Hub로 정기적으로 보내는 IoT 디바이스가 장착되어 있습니다. 원격 분석에는 현재 위치가 포함되며, 자동차의 엔진이 작동하고 있는지 여부가 표시됩니다. 디바이스 위치 스키마는 [지리 공간 데이터에 대한 IoT 플러그 앤 플레이 스키마](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md)를 준수합니다. 렌터카의 디바이스 원격 분석 스키마는 다음과 같습니다.
 
 ```JSON
 {

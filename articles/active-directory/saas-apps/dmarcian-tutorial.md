@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602c885deca429b56417181971ced495831ba5d3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8ad669f092fac0cc2e737d93ccc9d225ef57adf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68823703"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799550"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>자습서: Azure Active Directory와 dmarcian 통합
 
@@ -85,29 +85,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    | -- |
-    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
-    | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
      
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트하게 됩니다.

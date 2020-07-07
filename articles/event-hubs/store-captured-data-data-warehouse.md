@@ -2,19 +2,14 @@
 title: '자습서: 이벤트 데이터를 SQL Data Warehouse로 마이그레이션 - Azure Event Hubs'
 description: '자습서: 이 자습서에서는 이벤트 그리드에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 보여 줍니다.'
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: ''
-ms.author: shvija
-ms.custom: seodec18
-ms.date: 01/15/2020
+ms.date: 06/23/2020
 ms.topic: tutorial
-ms.service: event-hubs
-ms.openlocfilehash: ef24e78ea88bb0922c0affbe47f2591475024601
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016018"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322502"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>자습서: Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 

@@ -1,25 +1,17 @@
 ---
 title: '자습서: Azure Service Bus-Event Grid 통합 예제'
 description: '자습서: 이 아티클에서는 Service Bus 메시지 및 Event Grid 통합 예제를 제공합니다.'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670432"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337053"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>자습서: Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 

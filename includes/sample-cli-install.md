@@ -1,14 +1,15 @@
 ---
-author: sptramer
 ms.topic: include
 ms.date: 05/31/2019
-ms.author: sttramer
-ms.openlocfilehash: c4bc5a6befaf684cd07fb3b6799ba00099627132
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.openlocfilehash: fd3965c42679c8435348a66cc7eeab90d1eeb1b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66814809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374674"
 ---
 이 샘플을 실행하려면 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다. 시작하려면 `az login`을 실행하여 Azure와 연결합니다.
 

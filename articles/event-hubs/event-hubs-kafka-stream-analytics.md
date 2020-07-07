@@ -1,24 +1,14 @@
 ---
 title: Azure Event Hubs - Apache Kafka 이벤트 처리
 description: '자습서: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 04/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 06/23/2020
+ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632793"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313273"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 

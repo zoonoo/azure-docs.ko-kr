@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7d481b757a76ba65e0c78a93bde1bc58ace7cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e3931baa8bab6f21d0edfefd17b95f7ecf3f7be
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72791630"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799822"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>자습서: KnowledgeOwl과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -86,34 +86,34 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | | |
-    |-|-|
-    | `https://app.knowledgeowl.com/sp`|
-    | `https://app.knowledgeowl.com/sp/id/<unique ID>`|
+    ```http
+    https://app.knowledgeowl.com/sp
+    https://app.knowledgeowl.com/sp/id/<unique ID>
+    ```
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 자습서의 뒷부분에 설명된 실제 식별자, 회신 URL 및 로그온 URL에서 이러한 값을 업데이트해야 합니다.

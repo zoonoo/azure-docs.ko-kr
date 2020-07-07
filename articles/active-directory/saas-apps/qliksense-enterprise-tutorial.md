@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec9349d8ed330a00a64922a44f99910f9eeeb0df
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a2d4799966e070f7c50c39c350456b594664c9a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79136451"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800675"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>자습서: Azure Active Directory와 Qlik Sense Enterprise 통합
 
@@ -87,11 +87,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **식별자** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<Fully Qualified Domain Name>.qlikpoc.com`|
-    | `https://<Fully Qualified Domain Name>.qliksense.com`|
-    | |
+    ```http
+    https://<Fully Qualified Domain Name>.qlikpoc.com
+    https://<Fully Qualified Domain Name>.qliksense.com
+    ```
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 

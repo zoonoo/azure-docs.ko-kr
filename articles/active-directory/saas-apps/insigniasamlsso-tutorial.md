@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 47f3885d9bd71abeb2a1bffe27b3ca1b2aa611ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100019"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>자습서: Insignia SAML SSO와 Azure Active Directory 통합
 
@@ -107,12 +107,11 @@ Insignia SAML SSO에서 Azure AD Single Sign-on을 구성하려면 다음 단계
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<customername>.insigniails.com/ils`|
-    | `https://<customername>.insigniails.com/`|
-    | `https://<customername>.insigniailsusa.com/`|
-    | |
+    ```http
+    https://<customername>.insigniails.com/ils
+    https://<customername>.insigniails.com/
+    https://<customername>.insigniailsusa.com/
+    ```
     
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<customername>.insigniailsusa.com/<uniqueid>` 패턴을 사용하는 URL을 입력합니다.
 

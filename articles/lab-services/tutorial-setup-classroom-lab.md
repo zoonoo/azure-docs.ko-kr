@@ -1,25 +1,14 @@
 ---
 title: Azure Lab Services를 사용하여 클래스룸 랩 설정 | Microsoft Docs
 description: 이 자습서에서는 Azure Lab Services를 사용하여 클래스의 학생이 사용하는 가상 머신이 포함된 클래스룸 랩을 설정합니다.
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/19/2020
-ms.author: spelluru
-ms.openlocfilehash: f461f1a48645a60882a91009cef296eeeef1e5dd
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889424"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445137"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b499c8311e3b8acb1a239acc196ae158692b8716
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: db770e513599aa5da43ffa25463994d887536494
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765305"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800137"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-protoio"></a>자습서: Proto.io와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -101,11 +101,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Proto.io 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name |  |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | 이메일 | | user.mail |
-    | fname | | user.givenname |
-    | lname | | user.surname |
+    | Name | 원본 특성|
+    | --------------- | --------- |
+    | 이메일 | user.mail |
+    | fname | user.givenname |
+    | lname | user.surname |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: aa6585b981626d3752f2383db20f8e149a2ed007
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 17dc6ef4b1c86e0ae0301783c2c524062e85fb5a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73156123"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>자습서: Azure Active Directory와 Form.com 통합
 
@@ -111,10 +111,10 @@ Form.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
-    | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
+    ```http
+    https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
+    https://<subdomain>.form.com/Member/UserAccount/SAML2.action
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Form.com 클라이언트 지원 팀](https://form.com/about/company/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

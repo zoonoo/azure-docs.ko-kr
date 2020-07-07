@@ -1,20 +1,14 @@
 ---
 title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 06/23/2020
+ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77163180"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315612"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 

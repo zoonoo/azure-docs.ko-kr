@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6127f149141db275c4b13c25fd6fbd0241b3e404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04d6d79000b38116cbda6de960f078608964b6ca
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67105045"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>자습서: Confirmit Horizons와 Azure Active Directory 통합
 
@@ -109,25 +109,23 @@ Confirmit Horizons에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>` |
-    | `https://sso.us.confirmit.com/<UNIQUEID>` |
-    | |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://sso.us.confirmit.com/<UNIQUEID>/saml/acs` |
-    | |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+    https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+    ```
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
@@ -135,14 +133,13 @@ Confirmit Horizons에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>` |
-    | `https://sso.us.confirmit.com/<UNIQUEID>` |
-    | | 
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Confirmit Horizons 클라이언트 지원 팀](mailto:support@confirmit.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

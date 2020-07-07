@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7c2f9b076d831f4d851a964ababb64930a7c7f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 452f06e1294fad64547e0b04003ae06f80c1d9f4
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68879999"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799805"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>자습서: Azure Active Directory와 Land Gorilla 연결
 
@@ -84,20 +84,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://<customer domain>.landgorilla.com/`|
-    | `https://www.<customer domain>.landgorilla.com`|
-    | | |
+      ```http
+      https://<customer domain>.landgorilla.com/
+      https://www.<customer domain>.landgorilla.com
+      ```
 
     b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    | | |
-    |-|-|
-    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
-    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
-    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
-    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
+      ```http
+      https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+      https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+      https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+      https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+      ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. [Land Gorilla Client 지원 팀](https://www.landgorilla.com/support/)에 이러한 값을 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

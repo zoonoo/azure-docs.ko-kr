@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eba47dede77f6d8dd19bde99a94de3ff5900f99
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 97448bb99af3a451fbb59e446fa47aa7f871b845
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732804"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800240"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -89,14 +89,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 1. **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에서 URL을 다음 형식 중 하나로 입력합니다.
 
-    ||
-    |-|
-    | `https://<Instance ID>.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na1.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na2.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs`|
+    ```https
+    https://<Instance ID>.NetSuite.com/saml2/acs
+    https://<Instance ID>.na1.NetSuite.com/saml2/acs
+    https://<Instance ID>.na2.NetSuite.com/saml2/acs
+    https://<Instance ID>.sandbox.NetSuite.com/saml2/acs
+    https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs
+    https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs
+    ```
 
     * Netsuite 구성 아래의 8 단계 자습서 뒷부분에서 설명하는 Netsuite 구성 섹션에서 **<`Instance ID`>** 값을 가져옵니다. 정확한 도메인(이 경우 system.na0.netsuite.com)을 찾을 수 있습니다.
 

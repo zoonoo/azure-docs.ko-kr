@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/09/2020
-ms.openlocfilehash: 0a71d50945d5be489872e90a5a6d9989295e1fa9
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/23/2020
+ms.openlocfilehash: 540175f02660717793ded667f9c07de8549ec2f5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753523"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320844"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Azure Monitor의 진단 설정에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure 리소스에 대한 진단 설정을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -34,46 +34,66 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
-            "type": "String"
+          "type": "String"
         },
         "workspaceId": {
-            "type": "String"
+          "type": "String"
         },
         "storageAccountId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubAuthorizationRuleId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubName": {
-            "type": "String"
+          "type": "String"
         }
-
     },
     "resources": [
         {
-          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
-          "apiVersion": "2017-05-01-preview",
-          "name": "[(parameters('settingName')]",
-          "dependsOn": [],
-          "properties": {
-            "workspaceId": "[parameters('workspaceId')]",
-            "storageAccountId": "[parameters('storageAccountId')]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
-            "logs": [
-              {
-                "category": "AuditEvent",
-                "enabled": true
-              }
-            ],
-            "metrics": [
-              {
-                "category": "AllMetrics",
-                "enabled": true
-              }
-            ]
-          }
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[parameters('settingName')]",
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "logs": [
+                    {
+                        "category": "Administrative",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Security",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ServiceHealth",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Alert",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Recommendation",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Policy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "Autoscale",
+                        "enabled": true
+                    },
+                    {
+                        "category": "ResourceHealth",
+                        "enabled": true
+                    }
+                ]
+            }
         }
     ]
 }
@@ -87,7 +107,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
-          "value": "Send to all locations"
+        "value": "Send to all locations"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"

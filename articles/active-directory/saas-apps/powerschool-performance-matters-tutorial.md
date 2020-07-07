@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 7ed2f4fa72617aa20ef085d64759119db650b288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5097292ba722567e16c4573d46a70edb326c3ab5
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094183"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>자습서: Powerschool Performance Matters와 Azure Active Directory 통합
 
@@ -107,11 +107,10 @@ Powerschool Performance Matters에서 Azure AD Single Sign-On을 구성하려면
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |-|
-    | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|
-    | `https://unify.performancematters.com/?idp=<IDP>`|
-    | |
+    ```https
+        https://ola.performancematters.com/ola/?clientcode=<Client Code>
+        https://unify.performancematters.com/?idp=<IDP>
+    ```
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. [Powerschool Performance Matters 클라이언트 지원 팀](mailto:pmsupport@powerschoo.com)에 문의하여 해당 값을 받습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

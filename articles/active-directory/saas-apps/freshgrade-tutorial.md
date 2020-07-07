@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 852cd728f17902a83f5efeb3ccfb596f67ba37e5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2bceac127645717947d1da712d1e3699a04bee0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158119"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>자습서: Azure Active Directory와 FreshGrade 통합
 
@@ -107,17 +107,17 @@ FreshGrade에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
      a. **로그온 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 
-      | |
-      |--|
-      | `https://<subdomain>.freshgrade.com/login` |
-      | `https://<subdomain>.onboarding.freshgrade.com/login` |
+    ```http       
+    https://<subdomain>.freshgrade.com/login
+    https://<subdomain>.onboarding.freshgrade.com/login
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-      | |
-      |--|
-      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
-      | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
+    ```http
+    https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+    https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [FreshGrade 클라이언트 지원 팀](mailto:support@freshgrade.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6423920f5583cf811624a62205a433febddec02e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8529e1ea08707d9a60ec43d3fa569bdc7f5b7bf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158776"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>자습서: Brightspace by Desire2Learn와 Azure Active Directory 통합
 
@@ -108,10 +108,10 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하려면 다
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<companyname>.tenants.brightspace.com/samlLogin`|
-    | `https://<companyname>.desire2learn.com/shibboleth-sp`|
+    ```http
+    https://<companyname>.tenants.brightspace.com/samlLogin
+    https://<companyname>.desire2learn.com/shibboleth-sp
+    ```
 
     b. **회신 URL** 텍스트 상자에서 `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l` 패턴을 사용하여 URL을 입력합니다.
 

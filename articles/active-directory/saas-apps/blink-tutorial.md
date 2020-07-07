@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c87fe6dce4fa35eaed4ab43d6dcbffeae32e27f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04002cb62190addac2c3d71e320501846c873c87
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "69626065"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799669"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>자습서: Blink와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -85,11 +85,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
     
-    | | |
-    |-|-|
-    | `https://app.joinblink.com`|
-    | `https://<SUBDOMAIN>.joinblink.com`|
-    | | |
+    ```http
+    https://app.joinblink.com
+    https://<SUBDOMAIN>.joinblink.com
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://api.joinblink.com/saml/o-<TENANTID>` 패턴을 사용하는 URL을 입력합니다.
 

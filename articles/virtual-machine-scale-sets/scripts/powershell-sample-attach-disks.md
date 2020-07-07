@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 03/27/2018
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 39c1c534a930dae2967d982f7c175fadb3222e83
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 05d5d901a6ed908dc4ff766a440d5f3e05cb7db3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700915"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373797"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 데이터 디스크를 연결하고 사용합니다
 이 스크립트는 가상 머신 확장 집합을 만들고, 데이터 디스크를 연결하고 준비합니다.

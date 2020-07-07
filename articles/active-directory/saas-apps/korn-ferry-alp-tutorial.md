@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57801403f2d0e29fb32b6919a7078ae3fb895fdf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83efecea84073020e87b25a83a3a26c6d25ea08c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159643"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>자습서: Korn Ferry ALP와 Azure Active Directory 통합
 
@@ -108,19 +108,19 @@ Korn Ferry ALP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
-    | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Korn Ferry ALP 클라이언트 지원 팀](mailto:noreply@kornferry.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

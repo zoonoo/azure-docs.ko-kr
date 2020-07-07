@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d530ce802b6735ffe0b45abdc97fe99a1a7e619b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4690269775d68b23fd7b7d8c14b94c6188832934
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67105767"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>자습서: Cerner Central과 Azure Active Directory 통합
 
@@ -109,17 +109,17 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
+    ```
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [Cerner Central 클라이언트 지원 팀](mailto:SISupport@cbre.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

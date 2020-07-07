@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b473502f740717fb0426d09261c1f1107144d047
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74227575"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>자습서: Kintone과 Azure Active Directory 통합
 
@@ -109,10 +109,10 @@ Kintone에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://<companyname>.cybozu.com` |
-    | `https://<companyname>.kintone.com` |
+    ```http
+    https://<companyname>.cybozu.com
+    https://<companyname>.kintone.com
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Kintone 클라이언트 지원 팀](https://www.kintone.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0433b7287fc00da09fcf303fbcb8d74bf4e3b196
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897778"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800115"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -87,35 +87,35 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.au/saml` |
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.au/saml
+    ```
 
     b. **회신 URL** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.com.au/saml`|
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.com.au/saml
+    ```
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
 
     **로그온 URL** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
     
-    | |
-    |--|
-    | `https://login.mypurecloud.com` |
-    | `https://login.mypurecloud.de` |
-    | `https://login.mypurecloud.jp` |
-    | `https://login.mypurecloud.ie` |
-    | `https://login.mypurecloud.com.au` |
+    ```http
+    https://login.mypurecloud.com
+    https://login.mypurecloud.de
+    https://login.mypurecloud.jp
+    https://login.mypurecloud.ie
+    https://login.mypurecloud.com.au
+    ```
 
 1. PureCloud by Genesys 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여줍니다.
 

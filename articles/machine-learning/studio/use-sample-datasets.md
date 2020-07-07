@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 0ecce4db01217bc182687818af365dff334e7d10
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84705902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321835"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 샘플 데이터 세트 사용
 
@@ -303,7 +303,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
+여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf">https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 

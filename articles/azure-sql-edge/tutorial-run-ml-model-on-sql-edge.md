@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 02850b8780e70d402cff2b8fd301c2f79cd6c55e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235057"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318644"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>ONNX를 사용하여 Azure SQL Edge에 ML 모델 배포 
 
@@ -32,7 +32,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    |_필드_|_값_|
    |-------|-------|
    |연결 형식| Microsoft SQL Server|
-   |제공|이 데모에 대해 생성된 VM에서 언급된 공용 IP 주소|
+   |서버|이 데모에 대해 생성된 VM에서 언급된 공용 IP 주소|
    |사용자 이름|sa|
    |암호|Azure SQL Edge 인스턴스를 만드는 동안 사용된 강력한 암호입니다.|
    |데이터베이스|기본값|

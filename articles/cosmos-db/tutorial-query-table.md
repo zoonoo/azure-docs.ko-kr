@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484663"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391896"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
 
-Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
+Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
 
 이 문서에서 다루는 작업은 다음과 같습니다.
 
@@ -32,7 +32,7 @@ Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데�
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-테이블 API를 사용하여 쿼리하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)를 참조하세요.
+테이블 API를 사용하여 쿼리하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](/rest/api/storageservices/fileservices/querying-tables-and-entities)를 참조하세요.
 
 Azure Cosmos DB에서 제공하는 프리미엄 기능에 대한 자세한 내용은 [Azure Cosmos DB: Table API](table-introduction.md) 및 [.NET에서 Table API를 통해 개발](tutorial-develop-table-dotnet.md)을 참조하세요.
 
@@ -65,7 +65,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 * OData 프로토콜 사양에 정의된 논리 연산자를 사용하여 속성과 값을 비교합니다. 동적 값과 속성을 비교할 수 없습니다. 식의 한 쪽은 상수여야 합니다.
 * 속성 이름, 연산자 및 상수 값은 URL로 인코딩된 공백으로 구분해야 합니다. URL로 인코딩된 공백은 `%20`입니다.
 * 필터 문자열의 모든 부분은 대/소문자를 구분합니다.
-* 상수 값은 유효한 결과를 반환하는 필터에 대한 속성과 동일한 데이터 형식이어야 합니다. 속성 형식에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model)를 참조하세요.
+* 상수 값은 유효한 결과를 반환하는 필터에 대한 속성과 동일한 데이터 형식이어야 합니다. 속성 형식에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/understanding-the-table-service-data-model)를 참조하세요.
 
 다음은 OData `$filter`를 사용하여 PartitionKey 및 Email 속성으로 필터링하는 방법을 보여 주는 예제 쿼리입니다.
 
@@ -75,7 +75,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-다양한 데이터 형식에 대한 필터 식을 생성하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities)를 참조하세요.
+다양한 데이터 형식에 대한 필터 식을 생성하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](/rest/api/storageservices/querying-tables-and-entities)를 참조하세요.
 
 **결과**
 

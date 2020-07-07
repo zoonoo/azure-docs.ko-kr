@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 마이그레이션하기 위한 온-�
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106366"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341325"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -35,7 +35,7 @@ ms.locfileid: "85106366"
 --- | --- | --- | ---
 **VMware VM** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 VM을 검색하고 평가할 수 있습니다. | VMware용 [Azure Migrate 어플라이언스](common-questions-appliance.md) 하나로 VMware VM을 10,000개까지 검색할 수 있습니다. | **에이전트 없는 마이그레이션**: 최대 300개 VM을 동시에 복제할 수 있습니다. 최상의 성능을 내려면 VM 수가 50개를 초과하는 경우 VM 일괄 처리를 여러 개 만드는 것이 좋습니다.<br/><br/> **에이전트 기반 마이그레이션**: [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](./agent-based-migration-architecture.md#performance-and-scaling)하여 VM을 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
 **Hyper-V VM** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 VM을 검색하고 평가할 수 있습니다. | Azure Migrate 어플라이언스 하나로 Hyper-V VM을 5,000개까지 검색할 수 있습니다. | 어플라이언스는 Hyper-V 마이그레이션에 사용되지 않습니다. 대신 Hyper-V 복제 공급자는 각 Hyper-V 호스트에서 실행됩니다.<br/><br/> 복제 용량은 VM 변동, 복제 데이터의 업로드 대역폭 등의 성능 요인에 의해 영향을 받습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
-**물리적 컴퓨터** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 머신을 검색하고 평가할 수 있습니다. | 물리적 서버용 Azure Migrate 어플라이언스 하나로 최대 250대의 물리적 서버를 검색할 수 있습니다. | [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](/agent-based-migration-architecture.md#performance-and-scaling)하여 서버를 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
+**물리적 컴퓨터** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 머신을 검색하고 평가할 수 있습니다. | 물리적 서버용 Azure Migrate 어플라이언스 하나로 최대 250대의 물리적 서버를 검색할 수 있습니다. | [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](./agent-based-migration-architecture.md#performance-and-scaling)하여 서버를 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
 
 ## <a name="select-a-vmware-migration-method"></a>VMware 마이그레이션 방법 선택
 

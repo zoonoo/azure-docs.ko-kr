@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c850801c153996031378cbf470457264cad3d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3caf67ef436093e63683c270f7121a2861242aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76984464"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800886"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>자습서: Nintex Promapp과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -84,14 +84,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     1. **식별자** 상자에서 URL을 다음 패턴으로 입력합니다.
 
-        | |
-        |--|
-        | `https://go.promapp.com/TENANTNAME/`|
-        | `https://au.promapp.com/TENANTNAME/`|
-        | `https://us.promapp.com/TENANTNAME/`|
-        | `https://eu.promapp.com/TENANTNAME/`|
-        | `https://ca.promapp.com/TENANTNAME/`|
-        |   |
+        ```https
+        https://go.promapp.com/TENANTNAME/
+        https://au.promapp.com/TENANTNAME/
+        https://us.promapp.com/TENANTNAME/
+        https://eu.promapp.com/TENANTNAME/
+        https://ca.promapp.com/TENANTNAME/
+        ```
 
        > [!NOTE]
        > Nintex Promapp과 Azure AD의 통합은 현재 서비스 시작 인증에 대해서만 구성됩니다. (즉, Nintex Promapp URL로 이동하면 인증 프로세스가 시작됩니다.) 그러나 **회신 URL**은 필수 필드입니다.

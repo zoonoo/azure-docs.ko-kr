@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 397fe8c111870f4a1a6489e6502ff4365f80d1e3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70213597"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799584"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>자습서: The Cloud Security Fabric과 Azure Active Directory 통합
 
@@ -85,17 +85,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://platform.cloudlock.com` |
-    | `https://app.cloudlock.com` |
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |--|
-    | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
-    | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
     > [!NOTE]
     > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. [The Cloud Security Fabric 클라이언트 지원 팀](mailto:support@cloudlock.com)에 문의해서 값을 확인합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -60,6 +60,8 @@
           href: luis-nodejs-tutorial-bf-v4.md
 - name: 개념
   items:
+    - name: 인공 지능
+      href: artificial-intelligence.md
     - name: 개발 수명 주기
       href: luis-concept-app-iteration.md
     - name: 앱 계획

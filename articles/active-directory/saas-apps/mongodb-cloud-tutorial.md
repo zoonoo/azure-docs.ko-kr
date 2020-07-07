@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef8094464b428f1f46017b0d4abaac5aeb1fa428
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 7a502a8273aef3df3488764ea7b01c21c512ba43
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024526"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800224"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>자습서: MongoDB Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -101,11 +101,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위의 특성 외에도 MongoDB Cloud 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 | |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | 이메일 | | user.userprincipalname |
-    | firstName | | user.givenname |
-    | lastName | | user.surname |
+    | 속성 | 원본 특성|
+    | ---------------| --------- |
+    | 이메일 | user.userprincipalname |
+    | firstName | user.givenname |
+    | lastName | user.surname |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾습니다. **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -166,7 +166,7 @@ MongoDB Cloud는 기본적으로 사용하도록 설정되는 Just-In-Time 사�
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Azure에서 MongoDB Atlas 등록](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
+- [Azure에서 MongoDB Atlas 등록](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Azure AD로 MongoDB Cloud 사용해보기](https://aad.portal.azure.com/)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67103927"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>자습서: Dossier와 Azure Active Directory 통합
 
@@ -107,11 +107,10 @@ Dossier에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | |
-    |-|-|
-    | `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
-    | |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `Dossier/<CLIENTNAME>` 패턴을 사용하는 URL을 입력합니다.
 
@@ -120,11 +119,10 @@ Dossier에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     
-    | |
-    |-|-|
-    |  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
-    | |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
     > [!NOTE]
