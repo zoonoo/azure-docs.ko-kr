@@ -4,14 +4,16 @@ description: Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 �
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561085"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832103"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 만들기 및 공유
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 이 빠른 시작에서는 Azure Notebooks에서 Jupyter Notebook을 만들어 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다. Jupyter를 사용하면 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 하나의 캔버스인 Notebook에 쉽게 결합할 수 있습니다. Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다.
 
@@ -19,8 +21,6 @@ ms.locfileid: "84561085"
 없음
 
 ## <a name="create-a-new-project-and-notebook"></a>새 프로젝트 및 Notebook 만들기
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. [Azure Notebooks 사이트(https://notebooks.azure.com)](https://notebooks.azure.com)로 이동하여 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 

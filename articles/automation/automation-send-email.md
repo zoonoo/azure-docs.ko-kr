@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a92f65bd88a5aec79a179a6e2d53de15c274add4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1fa270907c96cb341f6ce2cbaeb91dfa323c4431
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855212"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Runbook에서 이메일 보내기
 
@@ -67,8 +67,8 @@ Azure Key Vault를 만들고 비밀을 저장하는 다른 방법은 [Key Vault 
 
 Runbook 내에서 Azure Key Vault를 사용하려면 Automation 계정으로 다음 모듈을 가져와야 합니다.
 
-    * [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
-    * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 자세한 내용은 [Az 모듈 가져오기](shared-resources/modules.md#import-az-modules)를 참조하세요.
 

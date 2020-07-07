@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4da8fd4c2b5d736f0b384db306c62304384b2766
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaee58cf0a1a2e3497b0e09b7c26852f0699af59
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82194026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848432"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -133,42 +133,49 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
 
 18. 기존 샘플 코드를 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽습니다. 여섯 번째 열에 한 자리 수만 있는 행을 검색합니다. 그리고 클러스터의 기본 스토리지 컨테이너 아래에 **/HVACOut**에 출력을 씁니다.
 
-        package com.microsoft.spark.example
-   
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-   
-        /**
-          * Test IO to wasb
-          */
-        object WasbIOTest {
-          def main (arg: Array[String]): Unit = {
+    ```scala
+    package com.microsoft.spark.example
+
+    import org.apache.spark.SparkConf
+    import org.apache.spark.SparkContext
+
+    /**
+      * Test IO to wasb
+      */
+    object WasbIOTest {
+        def main (arg: Array[String]): Unit = {
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
-   
+    
             val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-   
+    
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-   
+    
             rdd1.saveAsTextFile("wasb:///HVACout")
-          }
         }
+    }
+    ```
+
 19. 왼쪽 창에서 **pom.xml**을 두 번 클릭합니다.  
 
 20. `<project>\<properties>`에 다음 세그먼트를 추가합니다.
 
-          <scala.version>2.11.8</scala.version>
-          <scala.compat.version>2.11.8</scala.compat.version>
-          <scala.binary.version>2.11</scala.binary.version>
+    ```xml
+    <scala.version>2.11.8</scala.version>
+    <scala.compat.version>2.11.8</scala.compat.version>
+    <scala.binary.version>2.11</scala.binary.version>
+    ```
 
 21. `<project>\<dependencies>`에 다음 세그먼트를 추가합니다.
 
-           <dependency>
-             <groupId>org.apache.spark</groupId>
-             <artifactId>spark-core_${scala.binary.version}</artifactId>
-             <version>2.3.0</version>
-           </dependency>
+    ```xml
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-core_${scala.binary.version}</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+    ```
 
     pom.xml에 변경 내용을 저장합니다.
 

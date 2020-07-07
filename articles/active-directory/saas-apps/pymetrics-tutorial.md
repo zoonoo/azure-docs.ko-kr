@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f10bf6a0487ea53bf4e05d0d2d389e2a275e83a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ea300148f421577e6f3ace961d06127fc9f2b536
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765217"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801175"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>자습서: pymetrics와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -102,11 +102,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 pymetrics 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name |  |  원본 특성|
-    | ---------------| --------------- | --------- |
-    | UserFirstName | | user.givenname |
-    | UserLastName | | user.surname |
-    | UserEmail | | user.userprincipalname |
+    | Name | 원본 특성|
+    | --------------- | --------- |
+    | UserFirstName | user.givenname |
+    | UserLastName | user.surname |
+    | UserEmail | user.userprincipalname |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 

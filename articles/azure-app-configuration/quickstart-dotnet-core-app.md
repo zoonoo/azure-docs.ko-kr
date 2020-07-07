@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7cabe5b0564ec63335800a999bebec67ec970587
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856785"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
@@ -99,7 +99,9 @@ ms.locfileid: "80245381"
 
     macOS 또는 Linux를 사용하는 경우 다음 명령을 실행합니다.
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
     명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다. 환경 변수의 값을 출력하여 올바르게 설정되었는지 확인합니다.
 

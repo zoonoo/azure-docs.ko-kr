@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80297223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849418"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -92,7 +92,7 @@ Azure Portal을 사용하여 인증서를 다운로드합니다.
 
 1. Azure Portal에 로그인합니다.
 2. 해당 Data Box 주문으로 이동하고 **일반 > 디바이스 세부 정보**로 이동합니다.
-3. **디바이스 자격 증명**에서 **디바이스에 대한 API 액세스**로 이동합니다. **다운로드**를 클릭합니다. 이 작업은 **\<순서 이름>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장**합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
+3. **디바이스 자격 증명**에서 **디바이스에 대한 API 액세스**로 이동합니다. **다운로드**를 클릭합니다. 이 작업은 **\<your order name>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장**합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
 
     ![Azure Portal에서 인증서 다운로드](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
@@ -197,16 +197,19 @@ AzCopy를 사용하여 폴더의 모든 파일을 Windows 또는 Linux의 Blob �
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
-
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 `<key>`를 사용자의 계정 키로 바꿉니다. 계정 키를 가져오려면 Azure Portal에서 스토리지 계정으로 이동합니다. **설정 > 액세스 키**로 이동하고 키를 선택하며 AzCopy 명령에 붙여넣습니다.
 
@@ -221,16 +224,21 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
 대상에 없는 원본 리소스만 복사하려는 경우 AzCopy 명령에 `--exclude-older` 및 `--exclude-newer`(Linux) 또는 `/XO` 및 `/XN`(Windows) 매개 변수를 지정합니다. AzCopy는 해당 타임스탬프에 따라 업데이트된 데이터만 업로드합니다.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 연결 또는 복사 작업 중에 오류가 발생하면 [Data Box Blob 스토리지 문제 해결](data-box-troubleshoot-rest.md)을 참조하세요.
 

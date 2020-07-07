@@ -3,14 +3,16 @@ title: 로컬 Jupyter Notebook을 Azure Notebooks 미리 보기로 마이그레�
 description: 로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks 미리 보기로 Jupyter Notebook을 신속하게 전송한 다음, 협업용으로 공유할 수 있습니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77064328"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832120"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 로컬 Jupyter Notebook 마이그레이션
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 이 빠른 시작에서는 Jupyter Notebook을 로컬 컴퓨터 또는 액세스 가능한 다른 파일 URL에서 Azure Notebooks로 마이그레이션합니다. 
 
@@ -25,8 +27,6 @@ ms.locfileid: "77064328"
 ## <a name="create-a-project-on-azure-notebooks"></a>Azure Notebooks에서 프로젝트 만들기
 
 이 빠른 시작에서는 로컬 컴퓨터 또는 액세스 가능한 다른 파일 URL에서 Notebook을 마이그레이션하는 방법을 보여줍니다. Notebook을 GitHub 리포지토리에서 마이그레이션하려면 [빠른 시작: Notebook 복제](quickstart-clone-jupyter-notebook.md)를 참조하세요.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 

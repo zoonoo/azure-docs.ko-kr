@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80245806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856505"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
@@ -119,11 +119,15 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. 
 

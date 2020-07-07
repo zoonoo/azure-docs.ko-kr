@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccdab373be4bab876ef52ba478076b6a8b6e0845
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87488c05aa5f7503529d2bf24c0af6a12fa92bc8
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76291178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848604"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>자습서: Jive와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -32,7 +32,7 @@ ms.locfileid: "76291178"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -84,13 +84,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-a. **로그온 URL** 텍스트 상자에서 `https://<instance name>.jivecustom.com` 패턴을 사용하는 URL을 입력합니다.
+   a. **로그온 URL** 텍스트 상자에서 `https://<instance name>.jivecustom.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<instance name>.jiveon.com`
+   b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+   ```http
+   https://<instance name>.jiveon.com
+   ```
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Jive 클라이언트 지원 팀](https://www.jivesoftware.com/services-support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -114,7 +116,7 @@ a. **로그온 URL** 텍스트 상자에서 `https://<instance name>.jivecustom.
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

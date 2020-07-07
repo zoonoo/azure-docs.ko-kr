@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856522"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -310,11 +310,16 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 1. .NET Core CLI를 사용하여 앱을 빌드하려면 명령 셸에서 다음 명령을 실행합니다.
 
+```console
         dotnet build
+```
 
 1. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
+```console
         dotnet run
+```
+
 1. 브라우저 창을 열고, `dotnet run` 출력에 표시된 URL로 이동합니다.
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-before.png)

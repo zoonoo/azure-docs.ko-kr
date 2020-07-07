@@ -3,14 +3,16 @@ title: Azure Notebooks 미리 보기를 사용하여 GitHub에서 Jupyter Notebo
 description: GitHub 리포지토리에서 Jupyter 노트를 신속하게 복제하고 Azure Notebooks 계정에서 실행합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77064600"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833089"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 복제
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 이 빠른 시작에서는 GitHub에 저장된 Jupyter Notebook을 Azure Notebooks 계정에 복사합니다. 
 
@@ -22,8 +24,6 @@ Azure Notebooks 클론이 클라우드에 있으므로 로컬 복사본을 만�
 없음
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Azure Cognitive Services 노트 복제
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 

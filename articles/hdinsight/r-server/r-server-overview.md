@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 1dd716a279f7a09e7d9152ee34ff5c7bdac201dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849914"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
@@ -114,7 +114,9 @@ ML Services에 사용 가능한 메모리는 MapReduce 작업을 실행할 때 �
 
 ML Services에 사용 가능한 메모리는 **RxHadoopMR** 호출에서 Hadoop 스위치를 사용하여 변경할 수 있습니다.
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### <a name="scale-your-cluster"></a>클러스터 규모 조정
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2e75e177c1a5af13c1907b3a1abc9218096e8d45
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800679"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801872"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
@@ -70,18 +70,22 @@ spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\spe
 
 인식된 음성 출력은 `--output file` 인수를 사용하여 `speech_output.tsv`에 기록됩니다. 다음은 출력 파일 구조의 예입니다.
 
-    audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
-    sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
-    sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+```output
+audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
+sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
+sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+```
 
 ## <a name="batch-text-to-speech-synthesis"></a>일괄 처리 텍스트 음성 변환 합성
 
 일괄 처리 텍스트 음성 변환을 실행하는 가장 쉬운 방법은 새 `.tsv`(탭으로 구분된 값) 파일을 만들고, Speech CLI에서 `--foreach` 명령을 활용하는 것입니다. 다음 `text_synthesis.tsv` 파일을 고려해 보세요.
 
-    audio.output    text
-    C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-    C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```output
+audio.output    text
+C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```
 
  그런 다음, 명령을 실행하여 `text_synthesis.tsv`를 가리키고, 각 `text` 필드에서 합성을 수행하고, 결과를 해당 `audio.output` 경로에 `.wav` 파일로 작성합니다. 
 
@@ -97,10 +101,12 @@ spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 
 그러나 다음 예제와 같은 `.tsv` 파일이 있고 열 헤더가 명령줄 인수와 **일치하지 않는** 경우:
 
-    wav_path    str_text
-    C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-    C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```output
+wav_path    str_text
+C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```
 
 `--foreach` 호출에서 다음 구문을 사용하여 이러한 필드 이름을 올바른 인수로 재정의할 수 있습니다. 이 호출은 위와 동일한 호출입니다.
 

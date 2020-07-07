@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 49824b324df044ae2883ab6844dd321be27cbcbf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150358"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830471"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure 기밀 컴퓨팅 VM 배포
 
@@ -22,7 +22,7 @@ Azure Portal을 통해 Intel SGX에서 지원하는 VM(가상 머신)을 만들�
 사용자 지정 구성을 사용하여 기밀 컴퓨팅 가상 머신을 배포하는 데 관심이 있는 경우 이 자습서를 사용하는 것이 좋습니다. 그렇지 않으면 [Microsoft 상업용 마켓플레이스를 위한 기밀 컴퓨팅 가상 머신 배포 단계](quick-create-marketplace.md)를 수행하는 것이 좋습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 
@@ -84,7 +84,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
    * **인증 형식**: Linux VM을 만드는 경우 **SSH 공개 키**를 선택합니다. 
 
         > [!NOTE]
-         > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 참조하세요.
+        > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 참조하세요.
 
     * **사용자 이름**: VM에 사용할 관리자 이름을 입력합니다.
 
@@ -127,8 +127,7 @@ ssh azureadmin@40.55.55.555
 
 VM의 공용 IP 주소는 Azure Portal에 있는 가상 머신의 [개요] 섹션 아래에서 확인할 수 있습니다.
 
-[!div class="mx-imgBorder"]
-![Azure Portal의 IP 주소](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="Azure Portal의 IP 주소":::
 
 Windows에서 실행 중이고 BASH 셸이 설치되지 않은 경우 PuTTY와 같은 SSH 클라이언트를 설치합니다.
 

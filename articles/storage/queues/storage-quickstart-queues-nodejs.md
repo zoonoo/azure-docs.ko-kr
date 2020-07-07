@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199787"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833241"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -158,7 +158,7 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 // connection string is stored in an environment variable on the machine
 // running the application called AZURE_STORAGE_CONNECTION_STRING. If the
 // environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be 
+// console or with Visual Studio, the shell or application needs to be
 // closed and reloaded to take the environment variable into account.
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
@@ -348,7 +348,7 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [JavaScript용 Azure 설명서](https://docs.microsoft.com/azure/javascript/)
+> [JavaScript용 Azure 설명서](https://docs.microsoft.com/azure/developer/javascript/)
 
 * 자세한 내용은 [JavaScript용 Azure Storage Queue 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)를 참조하세요.
 * 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)을 계속 진행하세요.

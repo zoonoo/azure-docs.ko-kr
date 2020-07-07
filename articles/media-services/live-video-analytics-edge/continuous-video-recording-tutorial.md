@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 95182478b75d506526cce28c0d5e446d71140eac
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 008927d607ef2a14e30e8e2090692ccd2bb1e7eb
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765066"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85808015"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -162,7 +162,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
 1. Visual Studio Code에서 src/cloud-to-device-console-app/operations.json으로 이동합니다.
 1. **GraphTopologySet** 노드 아래에서 다음을 편집합니다.
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. 그런 다음, **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 **topologyName** 값이 이전 그래프 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
 
     `"topologyName" : "CVRToAMSAsset"`  

@@ -7,12 +7,12 @@ ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 38efc86d1bdc185f39d3ea502a64d0f3cf7edcc0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 1befd0cc85044097a64b5988e6f763ce89ca3ec9
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849704"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Cloudyn에 대한 지원 요청 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "80408260"
 
 Cost Management에 대한 청구 지원 티켓을 만들려면 **문제점 유형** 아래에서 **Azure Cost Management**를 선택합니다.
 
-제출한 인시던트의 상태를 확인하려면 [모든 지원 요청](../../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests)을 참조하세요.
+제출한 인시던트의 상태를 확인하려면 [모든 지원 요청](../../azure-portal/supportability/how-to-manage-azure-support-request.md#view-support-requests)을 참조하세요.
 
 Azure 계정이 없는 레거시 Cloudyn 사용자인 경우 https://support.microsoft.com/oas/default.aspx?prid=16451 에서 지원 요청을 열 수 있습니다.
 

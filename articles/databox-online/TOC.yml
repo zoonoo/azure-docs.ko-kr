@@ -31,6 +31,8 @@
           href: data-box-gateway-use-cases.md
     - name: 방법
       items:
+        - name: 업데이트
+          href: data-box-gateway-apply-updates.md
         - name: 관리
           items:
             - name: 공유
@@ -95,7 +97,7 @@
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: 방법
       items:
-        - name: 'C# 모듈 개발'
+        - name: C# 모듈 개발
           href: azure-stack-edge-create-iot-edge-module.md
         - name: 관리
           items:
@@ -133,7 +135,7 @@
           href: data-box-gateway-release-notes.md
 - name: 리소스
   items:
-    - name: 'Azure Stack Edge C# 모듈 샘플(.NET)'
+    - name: Azure Stack Edge C# 모듈 샘플(.NET)
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
     - name: Azure Stack Edge/Data Box Gateway 제품
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'

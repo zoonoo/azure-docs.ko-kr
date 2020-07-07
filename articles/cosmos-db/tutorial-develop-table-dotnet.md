@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/03/2019
-ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2133b68bf942cee87548783fb40d08c9bfe876ff
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851640"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -255,7 +255,7 @@ namespace CosmosTableSamples.Model
  }
 ```
 
-### <a name="get-an-entity-from-a-partition"></a>파티션에서 엔터티 가져오기
+## <a name="get-an-entity-from-a-partition"></a>파티션에서 엔터티 가져오기
 
 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 클래스에서 검색 메서드를 사용하여 파티션에서 엔터티를 가져올 수 있습니다. 다음 코드 예제에서는 고객 엔터티의 파티션 키 행 키, 이메일 및 전화 번호를 가져옵니다. 또한 이 예제에서는 엔터티에 대한 쿼리에 사용되는 요청 단위를 출력합니다. 엔터티를 쿼리하려면 다음 코드를 **SamplesUtils.cs** 파일에 추가합니다. 
 

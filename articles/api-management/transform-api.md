@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851261"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
@@ -82,8 +82,10 @@ ms.locfileid: "85100359"
 
 7. 다음과 같이 **\<outbound>** 코드를 수정합니다.
 
-       <set-header name="X-Powered-By" exists-action="delete" />
-       <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
+   <set-header name="X-Powered-By" exists-action="delete" />
+   <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
 
    ![정책](./media/transform-api/set-policy.png)
 
@@ -129,31 +131,35 @@ ms.locfileid: "85100359"
 6.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
 7.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
 
-        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
 
 ## <a name="test-the-transformations"></a>변환 테스트
 
 이 시점에서 코드 편집기에서 코드를 살펴보면 정책은 다음과 같습니다.
 
-    <policies>
-        <inbound>
-            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-            <base />
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <set-header name="X-Powered-By" exists-action="delete" />
-            <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-            <base />
-        </outbound>
-        <on-error>
-            <base />
-        </on-error>
-    </policies>
+   ```
+   <policies>
+      <inbound>
+        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+        <base />
+      </inbound>
+      <backend>
+        <base />
+      </backend>
+      <outbound>
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
+        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <base />
+      </outbound>
+      <on-error>
+        <base />
+      </on-error>
+   </policies>
+   ```
 
 이 섹션의 나머지 부분에서는 이 문서에서 설정한 정책 변환을 테스트합니다.
 

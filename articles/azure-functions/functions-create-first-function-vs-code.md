@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 819fdec23d00929db34942434f66a6ffa5d4a1d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559935"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833743"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 함수 만들기
 
@@ -172,7 +172,9 @@ ms.locfileid: "84559935"
 
 1. HTTP 요청에 대한 이 URL을 브라우저의 주소 표시줄에 붙여넣고 `name` 쿼리 문자열을 이 URL의 끝에 `?name=Functions`로 추가한 다음, 요청을 실행합니다. HTTP 트리거 함수를 호출하는 URL은 다음 형식이어야 합니다.
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+    ```http
+    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    ```
         
     다음 예제에서는 함수에서 반환된 원격 GET 요청에 대한 브라우저의 응답을 보여 줍니다. 
 

@@ -4,20 +4,20 @@ description: 데이터 과학의 선형 회귀 프로세스를 보여주는 Azur
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561745"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834134"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 이 자습서에서는 Azure Notebooks를 사용하여 간단한 선형 회귀를 보여주는 완전한 Jupyter Notebook을 만드는 프로세스를 안내합니다. 이 자습서를 진행하면 여러 셀을 만들고, 셀을 실행하고, Notebook을 슬라이드 쇼로 표시하는 방법을 포함하여 Jupyter Notebook UI를 익숙하게 다룰 수 있습니다.
 
 완료된 Notebook은 [GitHub - Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)에서 찾을 수 있습니다. 하지만 이 자습서에서는 새 프로젝트와 빈 Notebook을 사용하므로 만드는 과정을 단계별로 경험할 수 있습니다.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

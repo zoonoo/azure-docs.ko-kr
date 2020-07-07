@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: overview
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: 1291563a39e3cf3acd4b343302be8b150bf794ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80883511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830352"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>iOS 및 macOS용 Microsoft 인증 라이브러리를 통해 리디렉션 URI 사용
 
@@ -40,10 +40,12 @@ Microsoft Identity 플랫폼이 여러 앱 간에 토큰을 공유하려면 각 
 
 Azure Portal에 다음과 같은 애플리케이션 등록이 있는 경우,
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* 클라이언트 ID: `ABCDE-12345` (단일 클라이언트 id)
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
 
-App1은 리디렉션 `msauth.com.contoso.app1://auth`를, App2는 `msauth.com.contoso.app2://auth`를 App3은 `msauth.com.contoso.app1://auth`를 사용합니다.
+App1는 리디렉션을 사용 `msauth.com.contoso.app1://auth` 합니다.
+App2는 `msauth.com.contoso.app2://auth` .\를 사용 합니다.
+App3는 `msauth.com.contoso.app1://auth` 을 사용 합니다.
 
 ### <a name="migrating-from-adal-to-msal"></a>ADAL에서 MSAL로 마이그레이션
 
@@ -70,7 +72,6 @@ ADAL(Azure AD 인증 라이브러리)을 사용하는 코드를 MSAL로 마이�
         </dict>
     </array>
     ```
-    
 
 MSAL은 리디렉션 URI가 올바르게 등록되었는지 확인하고 그렇지 않으면 오류를 반환합니다.
     

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76771073"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833150"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,16 +41,19 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 스토리지 REST 서비
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
 2. 명령 창에 **npm install azure-storage** 를 입력합니다. 명령 출력은 다음 예제와 비슷합니다.
 
-       azure-storage@0.5.0 node_modules\azure-storage
-       +-- extend@1.2.1
-       +-- xmlbuilder@0.4.3
-       +-- mime@1.2.11
-       +-- node-uuid@1.4.3
-       +-- validator@3.22.2
-       +-- underscore@1.4.4
-       +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-       +-- xml2js@0.2.7 (sax@0.5.2)
-       +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```bash
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```
+
 3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 스토리지에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
@@ -72,10 +75,10 @@ Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 �
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+```
 
 ## <a name="create-a-table"></a>테이블 만들기
-다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 
+다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다.
 
 ```javascript
 var tableSvc = azure.createTableService();
@@ -136,8 +139,6 @@ var task = {
 
 > [!NOTE]
 > 각 레코드에는 엔터티가 삽입되거나 업데이트될 경우 Azure에서 설정되는 **Timestamp** 필드도 있습니다.
->
->
 
 **entityGenerator** 를 사용하여 엔터티를 만들 수도 있습니다. 다음 예에서는 **entityGenerator**를 사용하여 같은 작업 엔터티를 만듭니다.
 
@@ -173,8 +174,6 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 > 기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent** 를 사용하도록 설정하면 됩니다.
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
->
->
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
 다음과 같은 여러 메서드를 사용하여 기존 엔터티를 업데이트할 수 있습니다.
@@ -365,7 +364,7 @@ dc.table.queryEntities(tableName,
 
 `continuationToken` 개체를 조사하면, 모든 결과를 반복하는 데 사용할 수 있는 `nextPartitionKey`, `nextRowKey` 및 `targetLocation`과 같은 속성을 찾을 수 있습니다.
 
-`top`을 `continuationToken`과 함께 사용하여 페이지 크기를 설정할 수도 있습니다. 
+`top`을 `continuationToken`과 함께 사용하여 페이지 크기를 설정할 수도 있습니다.
 
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명 작업
 SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
@@ -394,7 +393,7 @@ var host = tableSvc.host;
 
 SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 애플리케이션에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS 형식은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md) 문서를 참조하세요. 
+그러고 나면 클라이언트 애플리케이션에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS 형식은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md) 문서를 참조하세요.
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -459,6 +458,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * GitHub의 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
-* [Node.js 개발자용 Azure](https://docs.microsoft.com/azure/javascript/)
+* [Node.js 개발자용 Azure](https://docs.microsoft.com/azure/developer/javascript/)
 * [Azure에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
 * [Node.js 애플리케이션 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)

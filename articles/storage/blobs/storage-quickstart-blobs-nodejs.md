@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 025b2b66ffd6d9f62de6bf6debf7d4067cd52ab4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 18afd9faf21e5de4831d54d0870b64e79d29cb0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261242"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833302"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
@@ -71,9 +71,9 @@ ms.locfileid: "85261242"
         }
     }
     ```
-    
+
     원할 경우 `author` 필드에 사용자 고유의 이름을 입력할 수 있습니다.
-   
+
 ### <a name="install-the-package"></a>패키지 설치
 
 *blob-quickstart-v12* 디렉터리에 있는 상태에서 `npm install` 명령을 사용하여 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 패키지를 설치합니다. 이 명령은 *package.json* 파일을 읽고 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12 패키지와 이 패키지가 종속되는 모든 라이브러리를 설치합니다.
@@ -95,12 +95,12 @@ npm install
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
     const uuidv1 = require('uuid/v1');
-    
+
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
-    
+
     main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
     ```
 
@@ -309,7 +309,7 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [JavaScript용 Azure 설명서](/azure/javascript/)
+> [JavaScript용 Azure 설명서](/azure/developer/javascript/)
 
 * 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
 * Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.

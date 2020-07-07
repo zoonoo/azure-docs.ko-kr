@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 57f412f93d9dbe2d9967c5cbc7dc50b1ee8bd61f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73177007"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>자습서: Picturepark와 Azure Active Directory 통합
 
@@ -109,12 +109,11 @@ Picturepark에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    |  |
-    |--|
-    | `https://<companyname>.current-picturepark.com`|
-    | `https://<companyname>.picturepark.com`|
-    | `https://<companyname>.next-picturepark.com`|
-    | |
+    ```http
+        https://<companyname>.current-picturepark.com
+        https://<companyname>.picturepark.com
+        https://<companyname>.next-picturepark.com
+    ```
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Picturepark 클라이언트 지원 팀](https://picturepark.com/company/picturepark-customer-support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

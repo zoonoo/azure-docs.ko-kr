@@ -3,18 +3,18 @@ title: Azure Notebooks 미리 보기용 샘플 Jupyter Notebook
 description: 샘플은 체험판 Azure Notebooks 클라우드 서비스에서 실행되는 Jupyter Notebook을 경험할 수 있는 좋은 방법입니다.
 ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75646316"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833998"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Azure Notebooks 미리 보기에서 샘플 Notebooks 검색 및 사용
 
-인터넷에는 쉽게 Azure Notebooks로 가져올 수 있는 흥미롭고 유용한 여러 Jupyter Notebook 컬렉션이 있습니다. 이 문서에서는 주목할 만한 샘플 목록을 제공합니다.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+인터넷에는 쉽게 Azure Notebooks로 가져올 수 있는 흥미롭고 유용한 여러 Jupyter Notebook 컬렉션이 있습니다. 이 문서에서는 주목할 만한 샘플 목록을 제공합니다.
 
 살펴보고 싶은 Notebook을 찾았으면 다음과 같은 몇 가지 세부 정보를 이해해야 합니다.
 

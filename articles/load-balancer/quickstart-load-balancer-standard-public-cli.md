@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1a2d0322436bd91e92a7018552c5827e021ee74e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79477768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851508"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 
@@ -73,7 +73,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다. `--sku basic`을 사용하여 기본 공용 IP를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다. `--sku basic`을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
 
 ```azurecli-interactive
   az network lb create \
