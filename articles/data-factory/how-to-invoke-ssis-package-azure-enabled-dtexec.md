@@ -12,10 +12,10 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414319"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용 하 여 SQL Server Integration Services 패키지 실행
@@ -32,11 +32,11 @@ AzureDTExec는 Data Factory 파이프라인에서 SSIS 패키지 실행 작업�
 
 SSMS를 통해 AzureDTExec를 구성 하 여 데이터 팩터리에 파이프라인을 생성 하는 Azure Active Directory (Azure AD) 응용 프로그램을 사용할 수 있습니다. 또한 패키지를 저장 하는 파일 시스템, 파일 공유 또는 Azure Files에 액세스 하도록 구성할 수 있습니다. 사용자가 호출 옵션에 대해 지정한 값에 따라 AzureDTExec는 SSIS 패키지 실행 작업을 사용 하 여 고유한 Data Factory 파이프라인을 생성 하 고 실행 합니다. 해당 옵션에 대해 동일한 값을 사용 하 여 AzureDTExec를 호출 하면 기존 파이프라인이 다시 실행 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 AzureDTExec를 사용 하려면 최신 버전의 SSMS (버전 18.3 이상)를 다운로드 하 여 설치 합니다. [이 웹 사이트](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)에서 다운로드합니다.
 
 ## <a name="configure-the-azuredtexec-utility"></a>AzureDTExec 유틸리티 구성
-로컬 컴퓨터에 SSMS를 설치 하면 AzureDTExec도 설치 됩니다. 설정을 구성 하려면 **관리자 권한으로 실행** 옵션을 사용 하 여 SSMS를 시작 합니다. 그런 다음 **Tools** >  > **azure로 마이그레이션 도구를 선택 하 여****azure 지원 DTExec를 구성**합니다.
+로컬 컴퓨터에 SSMS를 설치 하면 AzureDTExec도 설치 됩니다. 설정을 구성 하려면 **관리자 권한으로 실행** 옵션을 사용 하 여 SSMS를 시작 합니다. 그런 다음 **Tools**  >  **azure로 마이그레이션 도구를 선택 하 여**  >  **azure 지원 DTExec를 구성**합니다.
 
 ![Azure 사용 dtexec 메뉴 구성](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
@@ -70,7 +70,7 @@ AzureDTExec를 사용 하려면 최신 버전의 SSMS (버전 18.3 이상)를 �
 ## <a name="invoke-the-azuredtexec-utility"></a>AzureDTExec 유틸리티 호출
 명령줄 프롬프트에서 AzureDTExec를 호출 하 고 사용 사례 시나리오에서 특정 옵션에 대 한 관련 값을 제공할 수 있습니다.
 
-유틸리티는에 `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`설치 됩니다. ' PATH ' 환경 변수에 해당 경로를 추가 하 여 어디에서 나 호출할 수 있습니다.
+유틸리티는에 설치 됩니다 `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn` . ' PATH ' 환경 변수에 해당 경로를 추가 하 여 어디에서 나 호출할 수 있습니다.
 
 ```dos
 > cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
@@ -86,9 +86,9 @@ AzureDTExec를 호출 하면 dtexec 호출과 비슷한 옵션이 제공 됩니�
 
 - **/F [파일 이름]**: 파일 시스템, 파일 공유 또는 Azure Files에 저장 된 패키지를 로드 합니다. 이 옵션의 값으로 파일 시스템, 파일 공유 또는 package.dtsx 확장명을 사용 하 여 Azure Files 패키지 파일에 대 한 UNC 경로를 지정할 수 있습니다. 지정 된 UNC 경로에 공백이 있으면 전체 경로 주위에 따옴표를 추가 합니다.
 - **/Arys [igFile]**: 값을 추출할 구성 파일을 지정 합니다. 이 옵션을 사용 하면 디자인 타임에 지정 된 것과 다른 패키지에 대 한 런타임 구성을 설정할 수 있습니다. XML 구성 파일에 다른 설정을 저장 한 다음 패키지를 실행 하기 전에 로드할 수 있습니다. 자세한 내용은 [SSIS 패키지 구성](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017)을 참조 하세요. 이 옵션의 값을 지정 하려면 파일 시스템, 파일 공유 또는 Ssistutorial.dtsconfig 확장을 사용 하 여 Azure Files 구성 파일에 대 한 UNC 경로를 사용 합니다. 지정 된 UNC 경로에 공백이 있으면 전체 경로 주위에 따옴표를 추가 합니다.
-- **/Conn [사용자 이름]**: 패키지의 기존 연결 관리자에 대 한 연결 문자열을 지정 합니다. 이 옵션을 사용 하면 디자인 타임에 지정 된 연결 관리자와 다른 패키지의 기존 연결 관리자에 대 한 런타임 연결 문자열을 설정할 수 있습니다. 이 옵션의 값을 다음과 `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`같이 지정 합니다.
-- **/Set**: 패키지에서 매개 변수, 변수, 속성, 컨테이너, 로그 공급자, Foreach 열거자 또는 연결의 구성을 재정의 합니다. 이 옵션은 여러 번 지정할 수 있습니다. 이 옵션의 값을 다음과 `property_path;value`같이 지정 합니다. 예를 들어 `\package.variables[counter].Value;1` 는 `counter` 변수의 값을 1로 재정의 합니다. **패키지 구성** 마법사를 사용 하 여 값을 재정의 하려는 패키지의 항목 `property_path` 에 대 한 값을 찾아서 복사 하 고 붙여 넣을 수 있습니다. 자세한 내용은 [패키지 구성 마법사](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014)를 참조 하세요.
-- **/De [** **EncryptAllWithPassword**/]:**EncryptSensitiveWithPassword** 보호 수준으로 구성 된 패키지에 대 한 암호 해독 암호를 설정 합니다.
+- **/Conn [사용자 이름]**: 패키지의 기존 연결 관리자에 대 한 연결 문자열을 지정 합니다. 이 옵션을 사용 하면 디자인 타임에 지정 된 연결 관리자와 다른 패키지의 기존 연결 관리자에 대 한 런타임 연결 문자열을 설정할 수 있습니다. 이 옵션의 값을 다음과 같이 지정 `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` 합니다.
+- **/Set**: 패키지에서 매개 변수, 변수, 속성, 컨테이너, 로그 공급자, Foreach 열거자 또는 연결의 구성을 재정의 합니다. 이 옵션은 여러 번 지정할 수 있습니다. 이 옵션의 값을 다음과 같이 지정 `property_path;value` 합니다. 예를 들어는 `\package.variables[counter].Value;1` 변수의 값을 `counter` 1로 재정의 합니다. **패키지 구성** 마법사를 사용 하 여 `property_path` 값을 재정의 하려는 패키지의 항목에 대 한 값을 찾아서 복사 하 고 붙여 넣을 수 있습니다. 자세한 내용은 [패키지 구성 마법사](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014)를 참조 하세요.
+- **/De [** **EncryptAllWithPassword**]: / **EncryptSensitiveWithPassword** 보호 수준으로 구성 된 패키지에 대 한 암호 해독 암호를 설정 합니다.
 
 > [!NOTE]
 > 해당 옵션에 대 한 새 값을 사용 하 여 AzureDTExec를 호출 하면 옵션 **/De [c)]** 를 제외 하 고 새 파이프라인이 생성 됩니다.

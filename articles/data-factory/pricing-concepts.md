@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414935"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
@@ -24,7 +24,7 @@ ms.locfileid: "81414935"
 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
 
 > [!NOTE]
-> 아래 예제에 사용 된 가격은 가상 이며 실제 가격 책정을 의미 하지는 않습니다.
+> 아래 예제에 사용된 가격은 가상이며 실제 가격 책정을 의미하지는 않습니다.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>AWS S3에서 Azure Blob Storage로 매시간 데이터 복사
 
@@ -155,7 +155,7 @@ ms.locfileid: "81414935"
 | 파이프라인 만들기 | 3개의 읽기/쓰기 엔터티(파이프라인 만들기에 대해 1개, 데이터 세트 참조에 대해 2개) |
 | 파이프라인 가져오기 | 1개의 읽기/쓰기 엔터티 |
 | 파이프라인 실행 | 2개의 활동 실행(트리거 실행에 대해 1개, 활동 실행에 대해 1개) |
-| 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | TTL \* 이 10 인 일반 계산의 10 코어 코어 10 개 |
+| 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | \*TTL이 10 인 일반 계산의 10 코어 코어 10 개 |
 | 파이프라인 모니터링 가정: 하나의 실행만 발생했습니다. | 다시 시도되는 2개의 모니터링 실행 기록(파이프라인 실행에 대해 1개, 활동 실행에 대해 1개) |
 
 **총 시나리오 가격: $1.4631**

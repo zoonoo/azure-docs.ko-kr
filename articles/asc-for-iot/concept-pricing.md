@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
 ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311575"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
@@ -54,7 +54,7 @@ IoT에 대 한 Azure Security Center에는 직접 가격 책정의 일부가 아
 
 다음 표에서는 각 옵션의 관련 비용 및 의미에 대 한 요약을 제공 합니다.
 
-|     | 사용 | 주석 |
+|     | 사용 | 의견 |
 | --- | --- | --- |
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 서비스에서 생성 하는 보안 권장 사항 및 경고 | 선택 사항 아님 |

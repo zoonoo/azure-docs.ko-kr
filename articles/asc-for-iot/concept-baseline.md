@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311650"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>IoT 기준 및 사용자 지정 검사에 대 한 Azure Security Center
 
 이 문서에서는 IoT 기준에 대 한 Azure Security Center 설명 하 고 기준 사용자 지정 검사의 모든 관련 속성을 요약 합니다.
 
-## <a name="baseline"></a>기초
+## <a name="baseline"></a>기준
 
 기준은 각 장치에 대 한 표준 동작을 설정 하 고 예상 되는 표준의 비정상적인 동작 또는 편차를 보다 쉽게 설정할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "81311650"
 
 ## <a name="baseline-custom-check-properties"></a>기준 사용자 지정 검사 속성
 
-| 속성| 상태 | 유효한 값| 기본값| Description |
+| Name| 상태 | 유효한 값| 기본값| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|필수: true |유효한 값: **Boolean** |기본값: **false** |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
 |baselineCustomChecksFilePath |필수: true|유효한 값: **String**, **null** |기본값: **null** |기본 xml 구성의 전체 경로입니다.|

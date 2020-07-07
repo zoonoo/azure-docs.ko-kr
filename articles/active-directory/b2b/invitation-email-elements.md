@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407204"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
@@ -36,11 +36,11 @@ ms.locfileid: "81407204"
 
 전자 메일의 제목은 다음 패턴을 따릅니다.
 
-&lt;사용자&gt; 이름 조직 내의 응용 프로그램에 액세스 하도록 초대 했습니다.
+&lt;사용자 이름 &gt; 조직 내의 응용 프로그램에 액세스 하도록 초대 했습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
 
-보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다. 이 패턴은 전자 메일이에서 invites@microsoft.com제공 되더라도 초대는 다른 조직에서 제공 된다는 것을 명확 하 게 확인 해야 합니다. 형식은 &lt;Tenantname&gt; <invites@microsoft.com>대신 microsoft 초대 <invites@microsoft.com> 또는 microsoft 초대입니다. 
+보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다. 이 패턴은 전자 메일이에서 제공 되더라도 invites@microsoft.com 초대는 다른 조직에서 제공 된다는 것을 명확 하 게 확인 해야 합니다. 형식은  <invites@microsoft.com> tenantname 대신 Microsoft 초대 또는 microsoft 초대입니다 &lt; &gt;  <invites@microsoft.com> . 
 
 ### <a name="reply-to"></a>회신
 

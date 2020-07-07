@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311273"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
@@ -34,7 +34,7 @@ ms.locfileid: "81311273"
 
 다음 단계를 사용 하 여 IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center를 배포 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)되어 있는지 확인 합니다.
 
@@ -165,7 +165,7 @@ IoT에 대 한 Azure Security Center에 대 한 IoT Edge 배포를 완료 하려
 
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
 
-   | 속성 | IMAGE |
+   | Name | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
@@ -179,7 +179,7 @@ IoT에 대 한 Azure Security Center에 대 한 IoT Edge 배포를 완료 하려
 
    `sudo docker logs azureiotsecurity`
 
-1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포에 다음 환경 변수를 추가 `logLevel=Debug`합니다.
+1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포에 다음 환경 변수를 추가 `logLevel=Debug` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

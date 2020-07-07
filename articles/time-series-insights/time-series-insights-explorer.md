@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382773"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
@@ -28,7 +28,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 > [!TIP]
 > 데모 환경에서 둘러보기를 보려면 [Azure Time Series Insights 빠른](time-series-quickstart.md)시작을 참조 하세요.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Time Series Insights 탐색기를 사용 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다. </br>
 
@@ -37,7 +37,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니다.
 
@@ -71,14 +71,14 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업(Operation)  |지원되는 형식  |메모  |
+         |작업  |지원되는 형식  |참고  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=**, **!=**,**<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
          |**진행**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  모든 피연산자는 동일한 형식 이거나 **NULL** 상수 여야 합니다.        |
          |**HAS**     | **String**        |  오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 **NULL** 은 허용 되지 않습니다.       |
 
-      - **쿼리 예**
+      - **예제 쿼리**
 
          [![예 GA 쿼리](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 

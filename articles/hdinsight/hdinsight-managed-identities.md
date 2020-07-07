@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408933"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
@@ -27,7 +27,7 @@ ms.locfileid: "81408933"
 
 Azure HDInsight에서 관리 id는 클러스터의 각 노드에 프로 비전 됩니다. 그러나 이러한 id 구성 요소는 HDInsight 서비스 에서만 사용할 수 있습니다. 현재 HDInsight 클러스터 노드에 설치 된 관리 되는 id를 사용 하 여 액세스 토큰을 생성 하는 데 지원 되는 방법은 없습니다. 일부 Azure 서비스의 경우 관리 되는 id는 액세스 토큰을 획득 하는 데 사용할 수 있는 끝점을 사용 하 여 구현 됩니다. 다른 Azure 서비스와 상호 작용 하기 위해 토큰을 사용 합니다.
 
-## <a name="create-a-managed-identity"></a>관리 id 만들기
+## <a name="create-a-managed-identity"></a>관리 ID 만들기
 
 관리 되는 id는 다음 방법 중 하나를 사용 하 여 만들 수 있습니다.
 

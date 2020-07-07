@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409776"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware v m/물리적 서버에 대해 대규모 재해 복구 설정
@@ -64,7 +64,7 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 5. [보고서 권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md) 및 [비용](site-recovery-vmware-deployment-planner-cost-estimation.md)예측을 분석 합니다.
 
 >[!NOTE]
-> 기본적으로이 도구는 프로 파일링 되도록 구성 되며 최대 1000 Vm에 대 한 보고서를 생성 합니다. ASRDeploymentPlanner 파일의 키 값을 늘려서이 제한을 변경할 수 있습니다.
+> 기본적으로이 도구는 프로 파일링 되도록 구성 되며 최대 1000 Vm에 대 한 보고서를 생성 합니다. ASRDeploymentPlanner.exe.config 파일에서 MaxVMsSupported 키 값을 늘려서이 제한을 변경할 수 있습니다.
 
 ## <a name="plan-target-azure-requirements-and-capacity"></a>대상 (Azure) 요구 사항 및 용량 계획
 
@@ -95,7 +95,7 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 의미는 무엇 인가요? Azure VM을 시작 하려면 일부 드라이버가 부팅 시작 상태 여야 하 고 DHCP와 같은 서비스가 자동으로 시작 되도록 설정 되어야 합니다.
 - 를 준수 하는 컴퓨터에는 이러한 설정이 이미 적용 되어 있습니다.
-- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아보기](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아봅니다](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - Linux 컴퓨터는 장애 조치 (failover) 시에만 준수 상태로 전환 됩니다.
 
 **컴퓨터가 Azure를 준수 하나요?** | **Azure VM 제한 (관리 디스크 장애 조치 (failover))**
@@ -155,7 +155,7 @@ vCPU 8대<br> 2 개 소켓 * 4 코어 @ 2.5 g h z | 16GB | 600GB | 최대 550 �
 
 **CPU** | **메모리** | **캐시 디스크** | **변동 율**
  --- | --- | --- | --- 
-vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1 GB | 하루 최대 2tb
+vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1GB | 하루 최대 2tb
 
 다음과 같이 프로세스 서버를 설정 합니다.
 
@@ -212,7 +212,7 @@ Vm의 첫 번째 일괄 처리에 대 한 복제를 시작한 후 다음과 같�
 1. 작업 장애 조치 (failover)에 대 한 복구 계획을 만듭니다.
     - 각 복구 계획은 최대 100 컴퓨터의 장애 조치 (failover)를 트리거할 수 있습니다.
     - [자세히 알아봅니다](recovery-plan-overview.md) .
-2. Azure에서 수동 작업을 자동화 하기 위해 복구 계획에 Azure Automation runbook 스크립트를 추가 합니다. 일반적인 작업에는 부하 분산 장치 구성, DNS 업데이트 등이 포함 됩니다. [자세한 정보](site-recovery-runbook-automation.md)
+2. Azure에서 수동 작업을 자동화 하기 위해 복구 계획에 Azure Automation runbook 스크립트를 추가 합니다. 일반적인 작업에는 부하 분산 장치 구성, DNS 업데이트 등이 포함 됩니다. [자세히 알아보기](site-recovery-runbook-automation.md)
 2. 장애 조치 (failover) 전에 Azure 환경을 준수 하도록 Windows 컴퓨터를 준비 합니다. 를 준수 하는 컴퓨터의 경우 [장애 조치 (Failover) 제한이](#plan-azure-subscriptions-and-quotas) 더 높습니다. Runbook에 대해 [자세히 알아보세요](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) .
 4.  복구 계획과 함께 [AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet을 사용 하 여 장애 조치 (failover)를 트리거합니다.
 

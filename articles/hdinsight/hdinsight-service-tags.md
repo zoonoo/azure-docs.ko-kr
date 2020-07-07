@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410865"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
@@ -30,7 +30,7 @@ HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>단일 글로벌 HDInsight 서비스 태그 사용
 
-HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬운 방법은 NSG 규칙에 전역 `HDInsight` 태그를 추가 하는 것입니다.
+HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬운 방법은 NSG 규칙에 전역 태그를 추가 하는 것입니다 `HDInsight` .
 
 1. [Azure Portal](https://portal.azure.com/)에서 네트워크 보안 그룹을 선택 합니다.
 
@@ -73,7 +73,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 일본 | 일본 서부 | JapanWest |
 | 프랑스 | 프랑스 중부| FranceCentral |
 | 영국 | 영국 남부 | Storage.westcentralus |
-| Azure Government | USDoD Central | USDoDCentral |
+| Azure Government | 미국 국방부 중부 | USDoDCentral |
 | &nbsp; | USGov 텍사스 | HDInsight. USGovTexas |
 | &nbsp; | UsDoD 동부 | HDInsight. USDoDEast |
 | &nbsp; | USGov 애리조나 | USGovArizona |
@@ -86,9 +86,9 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 #### <a name="group-1"></a>그룹 1
 
-다음 표의 지역 중 하나에서 클러스터를 만든 경우 서비스 태그 `HDInsight.WestUS` 및 `HDInsight.EastUS`를 허용 합니다. 또한 나열 된 지역 서비스 태그입니다. 이 섹션의 영역에는 세 가지 서비스 태그가 필요 합니다.
+다음 표의 지역 중 하나에서 클러스터를 만든 경우 서비스 태그 및를 허용 합니다 `HDInsight.WestUS` `HDInsight.EastUS` . 또한 나열 된 지역 서비스 태그입니다. 이 섹션의 영역에는 세 가지 서비스 태그가 필요 합니다.
 
-예를 들어 클러스터를 `East US 2` 지역에서 만든 경우 네트워크 보안 그룹에 다음 서비스 태그를 추가 해야 합니다.
+예를 들어 클러스터를 지역에서 만든 경우 `East US 2` 네트워크 보안 그룹에 다음 서비스 태그를 추가 해야 합니다.
 
 - `HDInsight.EastUS2`
 - `HDInsight.WestUS`
@@ -111,15 +111,15 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 #### <a name="group-2"></a>그룹 2
 
-*중국 북부* 및 *중국 동부* 지역의 클러스터는와 `HDInsight.ChinaEast`라는 두 가지 서비스 태그를 허용 해야 `HDInsight.ChinaNorth` 합니다.
+*중국 북부* 및 *중국 동부* 지역의 클러스터는와 라는 두 가지 서비스 태그를 허용 해야 `HDInsight.ChinaNorth` `HDInsight.ChinaEast` 합니다.
 
 #### <a name="group-3"></a>그룹 3
 
-*US Gov 아이오와* 및 *US Gov 버지니아* 지역의 클러스터는와 `HDInsight.USGovVirginia`라는 두 가지 서비스 태그를 허용 해야 `HDInsight.USGovIowa` 합니다.
+*US Gov 아이오와* 및 *US Gov 버지니아* 지역의 클러스터는와 라는 두 가지 서비스 태그를 허용 해야 `HDInsight.USGovIowa` `HDInsight.USGovVirginia` 합니다.
 
 #### <a name="group-4"></a>그룹 4
 
-*독일 중부* 및 *독일 북동쪽* 지역의 클러스터는 및 `HDInsight.GermanyCentral` `HDInsight.GermanyNortheast`의 두 가지 서비스 태그를 허용 해야 합니다.
+*독일 중부* 및 *독일 북동쪽* 지역의 클러스터는 및의 두 가지 서비스 태그를 허용 해야 `HDInsight.GermanyCentral` `HDInsight.GermanyNortheast` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: 78d77ce176c07aed22433f29365b2d338ea32c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414563"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Microsoft AppSource 및 Azure Marketplace 비교
@@ -28,7 +28,7 @@ Storefront을 선택 하려면 먼저 제품의 대상 사용자를 식별 합�
 
 다음 표에서는 상점 사용의 이점에 대해 설명합니다.
 
-| 이점 | Azure Marketplace | AppSource |
+| 장점 | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
 | **청구 유연성** | Azure Marketplace은 무료, 평가판, BYOL 및 transact-sql 형식을 지원 합니다. Transact-sql 제품은 소비 기반 또는 구독 기반 중 하나입니다. 소비 기반 제품은 시간별 사용량에 따라 청구 되며 초기 무료 기간을 제공할 수 있습니다. 구독 기반 서비스는 사용자 단위 또는 정액 요금으로 매월 또는 매년 청구 됩니다.| AppSource는 무료, 평가판, BYOL 및 transact-sql 형식을 지원 합니다. Transact-sql 제품은 사용자 단위 또는 정액 요금으로 매월 또는 매년 청구 될 수 있는 구독 기반 SaaS 제품입니다. |
 |**다른 파트너와의 연결**  | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. |

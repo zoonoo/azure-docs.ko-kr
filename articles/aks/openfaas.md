@@ -7,17 +7,17 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631465"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
 [Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "80631465"
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS 투구 차트 리포지토리 추가
 
-로 이동 [https://shell.azure.com](https://shell.azure.com) 하 여 브라우저에서 Azure Cloud Shell를 엽니다.
+브라우저에서 [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Azure Cloud Shell을 엽니다.
 
 OpenFaaS는 모든 최신 변경 내용으로 최신 상태를 유지 하기 위해 자체 투구 차트를 유지 관리 합니다.
 
@@ -58,7 +58,7 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-를 사용 `echo $PASSWORD`하 여 암호 값을 가져올 수 있습니다.
+를 사용 하 여 암호 값을 가져올 수 있습니다 `echo $PASSWORD` .
 
 여기에서 만든 암호는 고객 지원 장치를 통해 인터넷에 노출 되는 OpenFaaS 게이트웨이에서 기본 인증을 사용 하도록 설정 하기 위해 투구 차트에서 사용 됩니다.
 
@@ -108,7 +108,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면를 입력 `echo $PASSWORD`합니다.
+OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면를 입력 `echo $PASSWORD` 합니다.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -118,7 +118,7 @@ OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이�
 brew install faas-cli
 ```
 
-을 `$OPENFAAS_URL` 위에서 찾은 공용 IP로 설정 합니다.
+`$OPENFAAS_URL`을 위에서 찾은 공용 IP로 설정 합니다.
 
 Azure CLI를 사용 하 여 로그인 합니다.
 

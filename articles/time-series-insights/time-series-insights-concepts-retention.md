@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81380682"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights의 데이터 보존 이해
 
 이 문서에서는 Azure Time Series Insights 환경의 데이터 보존에 영향을 주는 두 가지 기본 설정을 설명 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>다음 비디오는 Time Series Insights 데이터 보존 및이를 계획 하는 방법을 요약 합니다.</br>
 
@@ -90,7 +90,7 @@ Time Series Insights에서 수신 일시 중지가 발생할 경우 데이터 �
 
 [![이벤트 허브 메시지 보존.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-이벤트 원본에 구성 된 속성이 없는 경우 (`timeStampPropertyName`) Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 하는 타임 스탬프입니다. 가 `timeStampPropertyName` 다른 항목으로 구성 된 경우에는 이벤트가 구문 분석 될 때 `timeStampPropertyName` 환경에서 데이터 패킷에 구성 된를 찾습니다.
+이벤트 원본에 구성 된 속성이 없는 경우 ( `timeStampPropertyName` ) Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 하는 타임 스탬프입니다. `timeStampPropertyName`가 다른 항목으로 구성 된 경우에는 `timeStampPropertyName` 이벤트가 구문 분석 될 때 환경에서 데이터 패킷에 구성 된를 찾습니다.
 
 [Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md) 을 참조 하 여 추가 용량을 수용할 수 있도록 환경을 확장 하거나 보존 기간을 늘립니다.
 

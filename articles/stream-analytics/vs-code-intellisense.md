@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394398"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Visual Studio Code Azure Stream Analytics 도구에서 IntelliSense
@@ -21,9 +21,9 @@ IntelliSense는 [VS Code에 대 한 Azure Stream Analytics 도구](https://marke
 
 ## <a name="intellisense-features"></a>IntelliSense 기능
 
-VS Code에 대 한 Stream Analytics 도구의 IntelliSense 기능은 언어 서비스를 기반으로 합니다. 언어 서비스는 소스 코드를 분석 하 고 언어 의미 체계에 따라 지능형 코드 완성 기능을 제공 합니다. 언어 서비스에서 가능한 완료를 알고 있는 경우 입력 하면 IntelliSense 제안이 팝업 됩니다. 계속 입력 하면 사용자가 입력 한 문자를 포함 하는 멤버만 포함 하도록 변수 및 메서드와 같은 멤버 목록이 필터링 됩니다. `Tab` 또는 `Enter` 키를 누르면 IntelliSense는 사용자가 선택한 멤버를 삽입 합니다.
+VS Code에 대 한 Stream Analytics 도구의 IntelliSense 기능은 언어 서비스를 기반으로 합니다. 언어 서비스는 소스 코드를 분석 하 고 언어 의미 체계에 따라 지능형 코드 완성 기능을 제공 합니다. 언어 서비스에서 가능한 완료를 알고 있는 경우 입력 하면 IntelliSense 제안이 팝업 됩니다. 계속 입력 하면 사용자가 입력 한 문자를 포함 하는 멤버만 포함 하도록 변수 및 메서드와 같은 멤버 목록이 필터링 됩니다. 또는 키를 누르면 `Tab` `Enter` IntelliSense는 사용자가 선택한 멤버를 삽입 합니다.
 
-점 문자와 `.`같은 트리거 문자를 입력 하 여 편집기 창에서 IntelliSense를 트리거할 수 있습니다.
+점 문자와 같은 트리거 문자를 입력 하 여 편집기 창에서 IntelliSense를 트리거할 수 있습니다 `.` .
 
 ![intellisense 자동 완성](./media/vs-code-intellisense/auto-completion.gif)
 
@@ -36,7 +36,7 @@ IntelliSense for VS Code Stream Analytics 도구는 언어 서버 제안, 코드
 
 |       |         |       |
 | ----- | ------- | ----- |
-| 키워드가 | `keyword`
+| 키워드 | `keyword`
 | Functions | `build-in function`, `user defined function`  |
 | 데이터 집합 이름| `input`, `output`, `intermediate result set`|
 | 데이터 집합 열 이름|`input`, `intermediate result set`|

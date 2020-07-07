@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80633958"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Windows 업데이트를 적용 하는 동안 "C01A001D" 오류가 발생 하 여 VM이 응답 하지 않습니다.
@@ -56,11 +56,11 @@ ms.locfileid: "80633958"
 
 디스크가 아직 1Tb가 아니면 크기를 조정 해야 합니다. 디스크가 1tb 이면 디스크 정리 및 드라이브 조각 모음을 수행 합니다.
 
-1. 디스크가 꽉 차지 않았는지 확인 합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다.
+1. 디스크가 꽉 찼는지 확인합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다.
 2. 디스크가 1tb 이면 디스크 정리를 수행 합니다.
     - [손상 된 VM에서 데이터 디스크를 분리](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk)합니다.
     - [작동 하는 VM에 데이터 디스크를 연결](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)합니다.
-    - [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) 를 사용 하 여 공간을 확보 합니다.
+    - [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup)를 사용하여 공간을 확보합니다.
 3. 크기 조정 및 정리 후 드라이브 조각 모음을 수행 합니다.
 
     ```
@@ -70,10 +70,10 @@ ms.locfileid: "80633958"
 
 ### <a name="recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection"></a>권장: VM을 다시 작성 하기 전에 직렬 콘솔과 메모리 덤프 수집을 사용 하도록 설정 합니다.
 
-1. 관리자 권한 명령 프롬프트 세션 (관리자 권한으로 실행)을 엽니다.
+1. 관리자 권한 명령 프롬프트 세션을 엽니다(관리자 권한으로 실행).
 2. 다음 명령을 실행합니다.
 
-    직렬 콘솔을 사용 하도록 설정 합니다.
+    직렬 콘솔 사용:
 
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
@@ -81,11 +81,11 @@ ms.locfileid: "80633958"
     ```
 3. OS 디스크의 사용 가능한 공간이 최소한 VM 메모리 (RAM) 크기와 일치 하는지 확인 합니다.
 
-    OS 디스크에 충분 한 공간이 없는 경우 메모리 덤프 파일이 생성 될 위치를 변경 하 고 VM에 연결 된 데이터 디스크와 사용 가능한 공간이 충분 한 데이터 디스크를 참조 합니다. 위치를 변경 하려면 아래 명령 `%SystemRoot%` 에서 데이터 디스크의 드라이브 문자 (예: "F:")로 대체 합니다.
+    OS 디스크에 충분 한 공간이 없는 경우 메모리 덤프 파일이 생성 될 위치를 변경 하 고 VM에 연결 된 데이터 디스크와 사용 가능한 공간이 충분 한 데이터 디스크를 참조 합니다. 위치를 변경 하려면 `%SystemRoot%` 아래 명령에서 데이터 디스크의 드라이브 문자 (예: "F:")로 대체 합니다.
 
     **OS 덤프 권장 구성 사용:**
 
-    손상 된 OS 디스크 로드:
+    손상된 OS 디스크 로드:
 
     ```
     REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
@@ -107,7 +107,7 @@ ms.locfileid: "80633958"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    손상 된 OS 디스크 언로드:
+    손상된 OS 디스크 언로드:
 
     ```
     REG UNLOAD HKLM\BROKENSYSTEM

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393259"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Event Grid 소스로 서의 Azure 리소스 그룹
@@ -35,7 +35,7 @@ Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니�
 
 VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그룹은 Azure Resource Manager에서 관리 이벤트를 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | 리소스에서 작업이 취소되면 발생합니다. |
 | Microsoft.Resources.ResourceActionFailure | 리소스에서 작업이 실패하면 발생합니다. |
@@ -235,31 +235,31 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | 리소스 그룹 이벤트 데이터입니다. |
-| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | 리소스 그룹 이벤트 데이터입니다. |
+| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 권한 부여 | 개체 | 작업에 대해 요청된 권한입니다. |
 | claims | 개체 | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
-| correlationId | string | 문제 해결을 위한 작업 ID입니다. |
+| correlationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
 | httpRequest | 개체 | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
-| resourceProvider | string | 작업에 대한 리소스 공급자입니다. |
-| resourceUri | string | 작업에서 리소스의 URI입니다. |
-| operationName | string | 수행된 작업입니다. |
-| 상태 | string | 작업의 상태. |
-| subscriptionId | string | 리소스의 구독 ID입니다. |
-| tenantId | string | 리소스의 테넌트 ID입니다. |
+| resourceProvider | 문자열 | 작업에 대한 리소스 공급자입니다. |
+| resourceUri | 문자열 | 작업에서 리소스의 URI입니다. |
+| operationName | 문자열 | 수행된 작업입니다. |
+| 상태 | 문자열 | 작업의 상태. |
+| subscriptionId | 문자열 | 리소스의 구독 ID입니다. |
+| tenantId | 문자열 | 리소스의 테넌트 ID입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |Description  |

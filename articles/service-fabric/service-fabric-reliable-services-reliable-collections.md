@@ -4,10 +4,10 @@ description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81398423"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -35,7 +35,7 @@ ms.locfileid: "81398423"
 신뢰할 수 있는 컬렉션 API는 동시 컬렉션 API( **System.Collections.Concurrent** 네임스페이스에 있음)의 진화입니다.
 
 * 비동기: 동시 컬렉션과 달리 작업이 복제 및 유지되므로 작업을 반환합니다.
-* Out 매개 변수 없음: `ConditionalValue<T>` 를 사용 하 `bool` 여 출력 매개 변수 대신 및 값을 반환 합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
+* Out 매개 변수 없음:를 사용 하 여 `ConditionalValue<T>` `bool` 출력 매개 변수 대신 및 값을 반환 합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
 * 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
 오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.

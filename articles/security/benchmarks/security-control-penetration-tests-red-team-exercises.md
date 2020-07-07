@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: fe9c672e53ea0f46328320daf75f65fd77f5db29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408289"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>보안 제어: 침투 테스트 및 레드 팀 연습
@@ -22,7 +22,7 @@ ms.locfileid: "81408289"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 11.1 | 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7, 20.8 | Shared |
+| 11.1 | 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7, 20.8 | 공유됨 |
 
 Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 

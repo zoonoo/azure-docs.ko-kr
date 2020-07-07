@@ -11,10 +11,10 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631780"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
@@ -123,27 +123,27 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 ## <a name="test-vms-running-windows"></a>Windows를 실행 하는 Vm 테스트
 
-### <a name="load-latteexe-onto-the-vms"></a>Vm에 Latte 로드
+### <a name="load-latteexe-onto-the-vms"></a>Vm에 Latte.exe 로드
 
-최신 버전의 Latte를 다운로드 합니다 [.](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+최신 버전의 [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b) 다운로드
 
-Latte를 별도의 폴더에 배치 하는 것이 좋습니다.`c:\tools`
+Latte.exe와 같이 별도의 폴더에 배치 하는 것이 좋습니다.`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Windows 방화벽을 통해 Latte를 허용 합니다.
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Windows 방화벽을 통해 Latte.exe 허용
 
-수신기에서 Windows 방화벽에 대 한 허용 규칙을 만들어 Latte 트래픽이 도착 하도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 Latte 프로그램을 허용 하는 것이 가장 쉽습니다.
+수신기에서 Windows 방화벽에 대 한 허용 규칙을 만들어 Latte.exe 트래픽이 도착할 수 있도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 Latte.exe 프로그램을 허용 하는 것이 가장 쉽습니다.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>다음과 같이 Windows 방화벽을 통해 Latte를 허용 합니다.
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>다음과 같이 Windows 방화벽을 통해 Latte.exe 허용
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-예를 들어 latte를 "c:\tools" 폴더에 복사한 경우이 명령은
+예를 들어 latte.exe을 "c:\tools" 폴더에 복사한 경우이 명령은
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>대기 시간 테스트 실행
 
-수신기에서 latte를 시작 합니다 (PowerShell이 아닌 CMD에서 실행).
+받는 사람에 대 한 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD에서 실행).
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -155,7 +155,7 @@ VM의 IP 주소가 10.0.0.4 인 경우 다음과 같습니다.
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-보낸 사람에 대해 latte를 시작 합니다 (PowerShell이 아닌 CMD에서 실행).
+보낸 사람에 대 한 latte.exe 시작 (PowerShell이 아닌 CMD에서 실행)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -225,7 +225,7 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
 
 이전 단계 (iPERF/NTTTCP/등)로 평가 되는 전체 처리량이 양호 하더라도 Windows 탐색기를 사용 하거나 RDP 세션을 통해 끌어서 놓는 경우 파일 복사 속도가 느려질 수 있습니다. 일반적으로 이 문제의 원인은 다음 요소 중 하나이거나 둘 다에 해당합니다.
 
-* Windows 탐색기 및 RDP와 같은 파일 복사 애플리케이션은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 애플리케이션을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 대 한 스레드 번호를 변경 하려면 **작업** > **복사 옵션** > **파일 복사**를 클릭 합니다.
+* Windows 탐색기 및 RDP와 같은 파일 복사 애플리케이션은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 애플리케이션을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 대 한 스레드 번호를 변경 하려면 **작업**  >  **복사 옵션**  >  **파일 복사**를 클릭 합니다.
 
    ![느린 파일 복사 문제](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -253,7 +253,7 @@ Azure에서 로컬 네트워크 게이트웨이의 VPN을 통해 연결 하는 �
 
 * WinMTR
 * TCPTraceroute
-* `ping``psping` 이러한 도구는 RTT를 적절 하 게 예상 하지만 모든 경우에 사용할 수는 없습니다.
+* `ping``psping`이러한 도구는 RTT를 적절 하 게 예상 하지만 모든 경우에 사용할 수는 없습니다.
 
 ![대기 시간 확인](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

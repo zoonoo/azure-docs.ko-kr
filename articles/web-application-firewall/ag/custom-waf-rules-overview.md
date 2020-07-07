@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383824"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure 애플리케이션 Gateway의 웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-이전 `$BlockRule` 은 Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
+이전은 `$BlockRule` Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
 
 ```json
 "customRules": [
@@ -161,10 +161,10 @@ MatchVariable 컬렉션의 필드에 대해 설명 합니다. 예를 들어 matc
 - Block – *SecDefaultAction* (검색/방지 모드)를 기반으로 트랜잭션을 차단 합니다. 허용 동작과 마찬가지로 요청이 평가 되 고 차단 목록에 추가 되 면 평가가 중지 되 고 요청이 차단 됩니다. 같은 조건을 충족 하는 모든 요청은 평가 되지 않고 차단 됩니다. 
 - 로그 – 규칙을 로그에 기록할 수 있지만 나머지 규칙은 평가를 위해 실행할 수 있습니다. 다른 사용자 지정 규칙은 우선 순위에 따라 평가 되 고 그 다음에 관리 되는 규칙이 적용 됩니다.
 
-## <a name="geomatch-custom-rules-preview"></a>Geomatch 사용자 지정 규칙 (미리 보기)
+## <a name="geomatch-custom-rules-preview"></a>Geomatch 사용자 지정 규칙(미리 보기)
 
 사용자 지정 규칙을 사용 하면 응용 프로그램 및 보안 정책의 정확한 요구에 맞게 맞춤형 규칙을 만들 수 있습니다. 국가/지역에 따라 웹 응용 프로그램에 대 한 액세스를 제한할 수 있습니다. 자세한 내용은 [Geomatch 사용자 지정 규칙 (미리 보기)](geomatch-custom-rules.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 규칙에 대 한 자세한 내용을 확인 한 후 [사용자 지정 규칙을 만듭니다](create-custom-waf-rules.md).
+사용자 지정 규칙에 대해 학습한 후 [자체 사용자 지정 규칙을 만듭니다](create-custom-waf-rules.md).
