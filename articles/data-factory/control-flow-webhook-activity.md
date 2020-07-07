@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417881"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 Webhook 활동
@@ -59,17 +59,17 @@ ms.locfileid: "81417881"
 **type** | "WebHook"로 설정 해야 합니다. | String | 예 |
 **방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열입니다. 지원 되는 형식은 "POST"입니다. | 예 |
 **url** | 대상 끝점과 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예 |
-**머리글과** | 요청에 전송되는 헤더입니다. 요청에 대 한 언어 및 형식을 설정 하는 예제는 다음과 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`같습니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예. 같은 `Content-Type` `"headers":{ "Content-Type":"application/json"}` 헤더가 필요 합니다. |
+**머리글과** | 요청에 전송되는 헤더입니다. 요청에 대 한 언어 및 형식을 설정 하는 예제는 다음과 같습니다 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예. `Content-Type`같은 헤더가 `"headers":{ "Content-Type":"application/json"}` 필요 합니다. |
 **body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) 를 참조 하세요. | 예 |
 **인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 아니요 |
-**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d*입니다. *hh*:*mm*:*ss*. | 문자열 | 아니요 |
+**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d*입니다. *hh*:*mm*:*ss*. | String | 아니요 |
 **콜백에 대 한 보고서 상태** | 사용자가 webhook 활동의 실패 상태를 보고할 수 있습니다. | 부울 | 아니요 |
 
 ## <a name="authentication"></a>인증
 
 Webhook 활동은 다음 인증 유형을 지원 합니다.
 
-### <a name="none"></a>없음
+### <a name="none"></a>None
 
 인증이 필요 하지 않은 경우에는 **authentication** 속성을 포함 하지 마세요.
 
@@ -111,7 +111,7 @@ PFX 파일의 Base64 인코딩 콘텐츠 및 암호를 지정 합니다.
 > [!NOTE]
 > 데이터 팩터리가 Git 리포지토리로 구성 된 경우 기본 또는 클라이언트 인증서 인증을 사용 하도록 Azure Key Vault에 자격 증명을 저장 해야 합니다. Azure Data Factory는 Git에 암호를 저장 하지 않습니다.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 Data Factory는 URL 끝점으로 전송 된 본문에서 추가 속성 **Callbackuri** 를 전달 합니다. Data Factory 지정 된 시간 제한 값 이전에이 URI를 호출할 것으로 예상 합니다. URI가 호출 되지 않은 경우 작업은 "TimedOut" 상태와 함께 실패 합니다.
 

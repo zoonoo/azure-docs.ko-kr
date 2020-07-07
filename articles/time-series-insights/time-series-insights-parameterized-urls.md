@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416987"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
@@ -29,7 +29,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ## <a name="environment-id"></a>환경 ID
 
-`environmentId=<guid>` 매개 변수는 대상 환경 ID를 지정합니다. 데이터 액세스 FQDN의 구성 요소 이며, Azure Portal 환경 개요의 오른쪽 위 모서리에서 찾을 수 있습니다. 모든 것이 앞에 `env.timeseries.azure.com`나옵니다.
+`environmentId=<guid>` 매개 변수는 대상 환경 ID를 지정합니다. 데이터 액세스 FQDN의 구성 요소 이며, Azure Portal 환경 개요의 오른쪽 위 모서리에서 찾을 수 있습니다. 모든 것이 앞에 나옵니다 `env.timeseries.azure.com` .
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
@@ -49,7 +49,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="relative-time-values"></a>상대 시간 값
 
-상대 시간 값의 경우를 사용 `relativeMillis=<value>`합니다. 여기서 *값* 은 API에서 받은 최신 타임 스탬프에서 JavaScript 밀리초에 있습니다.
+상대 시간 값의 경우를 사용 `relativeMillis=<value>` 합니다. 여기서 *값* 은 API에서 받은 최신 타임 스탬프에서 JavaScript 밀리초에 있습니다.
 
 예를 들어 `&relativeMillis=3600000`은 최근 60분의 데이터를 표시합니다.
 
@@ -66,7 +66,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-매개 `timeSeriesDefinitions=<collection of term objects>` 변수는 Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
+`timeSeriesDefinitions=<collection of term objects>`매개 변수는 Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
 
 | 매개 변수 | URL 항목 | Description |
 | --- | --- | --- |
@@ -77,19 +77,19 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 | **.** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. |
 
 > [!NOTE]
-> 가 `Events` 선택한가 나 **um** 측정값이 면 기본적으로 개수가 선택 됩니다.  
-> 을 `Events` 선택 하지 않으면 기본적으로 평균이 선택 됩니다. |
+> `Events`가 선택한가 나 **um** 측정값이 면 기본적으로 개수가 선택 됩니다.  
+> `Events`을 선택 하지 않으면 기본적으로 평균이 선택 됩니다. |
 
-* 키 `multiChartStack=<true/false>` -값 쌍은 차트에서 누적을 사용 합니다.
-* 키 `multiChartSameScale=<true/false>` -값 쌍은 선택적 매개 변수 내의 여러 용어에서 동일한 Y 축 배율을 사용할 수 있도록 합니다.  
+* `multiChartStack=<true/false>`키-값 쌍은 차트에서 누적을 사용 합니다.
+* `multiChartSameScale=<true/false>`키-값 쌍은 선택적 매개 변수 내의 여러 용어에서 동일한 Y 축 배율을 사용할 수 있도록 합니다.  
 * 를 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 사용 하면 간격 슬라이더를 조정 하 여 차트에 대 한 보다 세분화 되거나 더 정교 하 고 세분화 된 보기를 제공할 수 있습니다.  
-* `timezoneOffset=<integer>` 매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
+* `timezoneOffset=<integer>`매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
 | 쌍 | Description |
 | --- | --- |
-| `multiChartStack=false` | `true`는 기본적으로 사용 하도록 설정 `false` 되므로 스택에 전달 됩니다. |
-| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적 `false` 으로를 전달 `true` 하면이 기능을 사용할 수 있습니다. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  단위는 항상 대문자로 시작합니다. </br> **TimeBucketSize**에 필요한 정수를 전달 하 여 단위 수를 정의 합니다.  |
+| `multiChartStack=false` | `true`는 기본적으로 사용 하도록 설정 되므로 스택에 전달 됩니다 `false` . |
+| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  `false`기본적으로를 전달 하면 `true` 이 기능을 사용할 수 있습니다. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  단위는 항상 대문자로 시작합니다. </br> **TimeBucketSize**에 필요한 정수를 전달 하 여 단위 수를 정의 합니다.  |
 | `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. |
 
 > [!NOTE]

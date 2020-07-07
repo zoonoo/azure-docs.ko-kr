@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418221"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Impala에서 데이터 복사
@@ -28,14 +28,14 @@ ms.locfileid: "81418221"
 
 이 Impala 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
-Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조 하세요.
+Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 데이터 팩터리는 연결을 허용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하기 위해 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -53,18 +53,18 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 |:--- |:--- |:--- |
 | type | Type 속성은 **Impala**로 설정 해야 합니다. | 예 |
 | host | Impala 서버의 IP 주소 또는 호스트 이름입니다(즉, 192.168.222.160).  | 예 |
-| 포트 | Impala 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 21050입니다.  | 아니요 |
+| 포트 | Impala 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 21050입니다.  | 예 |
 | authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Anonymous**, **SASLUsername** 및 **UsernameAndPassword**입니다. | 예 |
-| username | Impala 서버에 액세스하는 데 사용되는 사용자 이름입니다. SASLUsername을 사용하는 경우 기본값은 익명입니다.  | 아니요 |
-| password | UsernameAndPassword를 사용할 때 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| 사용자 이름 | Impala 서버에 액세스하는 데 사용되는 사용자 이름입니다. SASLUsername을 사용하는 경우 기본값은 익명입니다.  | 아니요 |
+| password | UsernameAndPassword를 사용할 때 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본 값은 **false**입니다.  | 아니요 |
 | trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용 되는 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 Integration Runtime에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 통합 런타임과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본 값은 **false**입니다.  | 아니요 |
 | allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급 한 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치 하도록 할지 여부를 지정 합니다. 기본 값은 **false**입니다.  | 아니요 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본 값은 **false**입니다.  | 아니요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -100,7 +100,7 @@ Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **I
 | type | 데이터 집합의 type 속성 **을 다음과 같이** 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 경우 `schema` 및 `table`를 사용합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -132,7 +132,7 @@ Impala에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Im
 | type | 복사 작업 원본의 형식 속성은 **ImpalaSource**로 설정되어야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -166,7 +166,7 @@ Impala에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Im
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

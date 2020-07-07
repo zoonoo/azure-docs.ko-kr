@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415375"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cosmos DB (SQL API)에서 데이터 복사 및 변환
@@ -37,8 +37,8 @@ ms.locfileid: "81415375"
 
 이 Azure Cosmos DB (SQL API) 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
-- [데이터 흐름 매핑](concepts-data-flow-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
+- [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 복사 활동의 경우이 Azure Cosmos DB (SQL API) 커넥터는 다음을 지원 합니다.
@@ -52,7 +52,7 @@ Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위�
 > [!TIP]
 > [데이터 마이그레이션 동영상](https://youtu.be/5-SRNiC_qOU)에서는 Azure Blob Storage에서 Azure Cosmos DB로 데이터를 복사하는 단계를 안내합니다. 이 동영상에서는 또한 일반적으로 Azure Cosmos DB에 데이터를 수집하기 위한 성능 조정 고려 사항도 설명합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,7 +66,7 @@ Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **CosmosDb**로 설정 해야 합니다. | 예 |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다.<br />**참고**: 다음 예제에 표시된 대로 연결 문자열에 데이터베이스 정보를 지정해야 합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 **예제**
 
@@ -152,7 +152,7 @@ Azure Cosmos DB (SQL API) 데이터 집합에 대해 지원 되는 속성은 다
 
 Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **source** 형식을 **DocumentDbCollectionSource**로 설정합니다. 
 
-복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -204,14 +204,14 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 
 Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink** 형식을 **DocumentDbCollectionSink**로 설정합니다. 
 
-복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbSqlApiSink**로 설정 해야 합니다. |예 |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
 | writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **Writebatchsize** 속성은 ADF가 라이브러리에 제공 하는 문서 크기를 제어 합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아니요<br />(기본값: **10,000**) |
-| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Cosmos DB RUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있으면를 지정 `true` 하 여 해제 합니다. | 아니요(기본값: `false`) |
+| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Cosmos DB RUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
 
 >[!TIP]
 >JSON 문서를 있는 그대로 가져오려면 [json 문서 가져오기/내보내기](#import-and-export-json-documents) 섹션을 참조 하세요. 테이블 형식 데이터에서 복사 하려면 [관계형 데이터베이스에서 Cosmos DB로 마이그레이션](#migrate-from-relational-database-to-cosmos-db)을 참조 하세요.
@@ -257,15 +257,15 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
 
 Azure Cosmos DB에서 테이블 형식 싱크로 또는 역방향으로 데이터를 복사 하려면 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 참조 하세요.
 
-## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서 데이터를 변환 하는 경우 Cosmos DB에서 컬렉션에 대 한 읽기 및 쓰기를 수행할 수 있습니다. 자세한 내용은 데이터 흐름 매핑에서 [원본 변환](data-flow-source.md) 및 [싱크 변환을](data-flow-sink.md) 참조 하세요.
+매핑 데이터 흐름에서 데이터를 변환 하는 경우 Cosmos DB에서 컬렉션에 대 한 읽기 및 쓰기를 수행할 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요.
 
 ### <a name="source-transformation"></a>원본 변환
 
 Azure Cosmos DB 관련 된 설정은 원본 변환의 **원본 옵션** 탭에서 사용할 수 있습니다. 
 
-**시스템 열 포함:** True 이면 ```id```, ```_ts```및 기타 시스템 열이 CosmosDB의 데이터 흐름 메타 데이터에 포함 됩니다. 컬렉션을 업데이트할 때 기존 행 id를 가져올 수 있도록이를 포함 하는 것이 중요 합니다.
+**시스템 열 포함:** True 이면 ```id``` , ```_ts``` 및 기타 시스템 열이 CosmosDB의 데이터 흐름 메타 데이터에 포함 됩니다. 컬렉션을 업데이트할 때 기존 행 id를 가져올 수 있도록이를 포함 하는 것이 중요 합니다.
 
 **페이지 크기:** 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 동적 페이지를 1000까지 사용 하는 "-1"입니다.
 
@@ -289,13 +289,13 @@ Azure Cosmos DB 관련 된 설정은 원본 변환의 **원본 옵션** 탭에�
 
 Azure Cosmos DB 관련 된 설정은 싱크 변환의 **설정** 탭에서 사용할 수 있습니다.
 
-**업데이트 방법:** 데이터베이스 대상에서 허용 되는 작업을 결정 합니다. 기본값은 삽입만 허용 하는 것입니다. 행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 행을 변경 해야 합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정 하기 위해 키 열을 설정 해야 합니다.
+**업데이트 메서드:** 데이터베이스 대상에서 허용되는 작업을 결정합니다. 기본값은 삽입만 허용하는 것입니다. 행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 행 변경 변환이 필요합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.
 
 **수집 작업:** 쓰기 전에 대상 컬렉션을 다시 만들지 여부를 결정 합니다.
 * 없음: 컬렉션에 대 한 작업이 수행 되지 않습니다.
 * 다시 만들기: 컬렉션을 삭제 하 고 다시 만듭니다.
 
-**일괄 처리 크기**: 각 버킷에 작성 되는 행 수를 제어 합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상 되지만 데이터를 캐시할 때 메모리 예외가 발생할 위험이 있습니다.
+**일괄 처리 크기**: 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
 
 **파티션 키:** 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예: ```/movies/title```
 
@@ -305,7 +305,7 @@ Azure Cosmos DB 관련 된 설정은 싱크 변환의 **설정** 탭에서 사�
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="import-and-export-json-documents"></a>JSON 문서 가져오기 및 내보내기
 

@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabr
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458303"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
@@ -26,7 +26,7 @@ ms.locfileid: "81458303"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 문서에서는 Service Fabric RM Powershell 또는 Azure CLI 모듈을 사용하여 클러스터를 배포합니다.
 
 * [Azure PowerShell 4.1 이상][azure-powershell]
@@ -63,7 +63,7 @@ az account set --subscription $subscriptionId
 다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. PowerShell/CLI 명령은 지정 된 *Certificateoutputfolder*에도 인증서를 출력 합니다. 그러나 인증서 폴더가 이미 만들어졌는지 확인 합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 > [!NOTE]
-> 다음 PowerShell 명령은 Azure PowerShell `Az` 모듈 에서만 작동 합니다. Azure Resource Manager PowerShell 버전의 현재 버전을 확인 하려면 다음 PowerShell 명령 "Import-module Az"를 실행 합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 
+> 다음 PowerShell 명령은 Azure PowerShell 모듈 에서만 작동 합니다 `Az` . Azure Resource Manager PowerShell 버전의 현재 버전을 확인 하려면 다음 PowerShell 명령 "Import-module Az"를 실행 합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 
 >
 >
 

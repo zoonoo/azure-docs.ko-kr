@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458252"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 Azure Key Vault
@@ -67,13 +67,13 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | Description |
 | ---------- | ----------- |---|
-| id | string | 이 이벤트를 트리거한 개체의 ID입니다. |
-| vaultName | string | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름입니다. |
-| objectType | string | 이 이벤트를 트리거한 개체의 형식입니다. |
-| objectName | string | 이 이벤트를 트리거한 개체의 이름입니다. |
-| 버전 | string | 이 이벤트를 트리거한 개체의 버전입니다. |
+| id | 문자열 | 이 이벤트를 트리거한 개체의 ID입니다. |
+| vaultName | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름입니다. |
+| objectType | 문자열 | 이 이벤트를 트리거한 개체의 형식입니다. |
+| objectName | 문자열 | 이 이벤트를 트리거한 개체의 이름입니다. |
+| 버전 | 문자열 | 이 이벤트를 트리거한 개체의 버전입니다. |
 | nbf | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 경과 되지 않은 날짜 (초)입니다. |
 | exp | number | 1970-01-01T00:00:00Z 이후이 이벤트를 트리거한 개체의 만료 날짜 (초)입니다. |
 

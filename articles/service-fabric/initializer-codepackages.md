@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430631"
 ---
 # <a name="initializer-codepackages"></a>이니셜라이저 CodePackage
@@ -52,7 +52,7 @@ Servicemanifest.xml에서 **이니셜라이저** 특성을 **true** 로 설정 �
 >
 > 이 예제에서는 mcr.microsoft.com/windows/nanoserver:1809를 참조 합니다. Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-다음 Servicemanifest.xml는 앞에서 설명한 Servicemanifest.xml 코드 조각을 기반으로 합니다. *InitCodePackage0*, *InitCodePackage1* 및 *WorkloadCodePackage* 는 컨테이너를 나타내는 CodePackages입니다. 활성화 되 면 *InitCodePackage0* 가 먼저 실행 됩니다. 메시지를 파일에 기록 하 고 종료 합니다. 그런 다음 *InitCodePackage1* 를 실행 하 여 메시지를 파일에 기록 하 고 종료 합니다. 마지막으로 *WorkloadCodePackage* 실행을 시작 합니다. 또한 파일에 메시지를 기록 하 고, 파일의 내용을 **stdout** 으로 출력 한 다음, 영원히 ping 합니다.
+다음 ServiceManifest.xml는 앞에서 설명한 Servicemanifest.xml 코드 조각을 기반으로 합니다. *InitCodePackage0*, *InitCodePackage1* 및 *WorkloadCodePackage* 는 컨테이너를 나타내는 CodePackages입니다. 활성화 되 면 *InitCodePackage0* 가 먼저 실행 됩니다. 메시지를 파일에 기록 하 고 종료 합니다. 그런 다음 *InitCodePackage1* 를 실행 하 여 메시지를 파일에 기록 하 고 종료 합니다. 마지막으로 *WorkloadCodePackage* 실행을 시작 합니다. 또한 파일에 메시지를 기록 하 고, 파일의 내용을 **stdout** 으로 출력 한 다음, 영원히 ping 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ Servicemanifest.xml에서 **이니셜라이저** 특성을 **true** 로 설정 �
 </ServiceManifest>
 ```
 
-다음 ApplicationManifest은 위에서 설명한 Servicemanifest.xml을 기반으로 하는 응용 프로그램을 설명 합니다. 모든 컨테이너에 대해 동일한 **볼륨** 탑재를 지정 합니다. 즉, **C:\WorkspaceOnHost** 는 세 컨테이너 모두에서 **C:\WorkspaceOnContainer** 에 탑재 됩니다. 결과적으로 모든 컨테이너는 활성화 된 순서 대로 동일한 로그 파일에 기록 됩니다.
+다음 ApplicationManifest.xml 위에서 설명한 ServiceManifest.xml 기반으로 하는 응용 프로그램을 설명 합니다. 모든 컨테이너에 대해 동일한 **볼륨** 탑재를 지정 합니다. 즉, **C:\WorkspaceOnHost** 는 세 컨테이너 모두에서 **C:\WorkspaceOnContainer** 에 탑재 됩니다. 결과적으로 모든 컨테이너는 활성화 된 순서 대로 동일한 로그 파일에 기록 됩니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +127,7 @@ Servicemanifest.xml에서 **이니셜라이저** 특성을 **true** 로 설정 �
   </DefaultServices>
 </ApplicationManifest>
 ```
-ServicePackage 성공적으로 활성화 되 면 **C:\WorkspaceOnHost\log.txt** 의 내용은 다음과 같아야 합니다.
+ServicePackage 성공적으로 활성화 되 면 **C:\WorkspaceOnHost\log.txt** 내용은 다음과 같아야 합니다.
 
 ```console
 C:\Users\test>type C:\WorkspaceOnHost\log.txt

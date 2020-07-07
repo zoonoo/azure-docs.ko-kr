@@ -4,10 +4,10 @@ description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복�
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535216"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
@@ -26,7 +26,7 @@ ms.locfileid: "81535216"
 
 ## <a name="appliance-deployment"></a>어플라이언스 배포
 
-**사용 목적** | **세부 정보**
+**용도** | **세부 정보**
 --- |  ---
 **VMware VM 에이전트 기반 마이그레이션** | Azure Migrate 허브에서 OVA 템플릿을 다운로드 하 고 vCenter Server으로 가져와 어플라이언스 VM을 만듭니다.
 **물리적 컴퓨터 에이전트 기반 마이그레이션** | VMware 인프라가 없거나 OVA 템플릿을 사용 하 여 VMware VM을 만들 수 없는 경우 Azure Migrate 허브에서 소프트웨어 설치 관리자를 다운로드 하 고 실행 하 여 어플라이언스 컴퓨터를 설정 합니다.
@@ -51,14 +51,14 @@ RAM | 16GB
 사용 가능한 디스크 공간(보존 디스크) | 600GB
 **소프트웨어 설정** |
 운영 체제 | Windows Server 2016 또는 Windows Server 2012 R2
-License | 어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다.<br/><br/> 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+라이선스 | 어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다.<br/><br/> 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
 운영 체제 로케일 | 미국 영어(en-us)
 TLS | TLS 1.2를 사용 하도록 설정 해야 합니다.
 .NET Framework | .NET Framework 4.6 이상이 컴퓨터에 설치 되어 있어야 합니다 (강력한 암호화를 사용 하도록 설정 됨).
 MySQL | MySQL을 어플라이언스에 설치 해야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치 하거나 어플라이언스를 배포 하는 동안 설치할 수 Site Recovery.
 다른 앱 | 복제 어플라이언스에서 다른 앱을 실행 하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
-그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
 **네트워크 설정** |
 IP 주소 유형 | 정적
@@ -69,7 +69,7 @@ NIC 유형 | VMXNET3
 
 MySQL이 복제 어플라이언스 컴퓨터에 설치 되어 있어야 합니다. 이러한 방법 중 하나를 사용 하 여 설치할 수 있습니다.
 
-**방법** | **세부 정보**
+**메서드** | **세부 정보**
 --- | ---
 수동으로 다운로드 및 설치 | MySQL 응용 프로그램을 다운로드 하 & C:\Temp\ASRSetup 폴더에 배치한 다음 수동으로 설치 합니다.<br/> 기기를 설정 하는 경우 MySQL은 이미 설치 된 것으로 표시 됩니다.
 온라인 다운로드 하지 않음 | C:\Temp\ASRSetup. 폴더에 MySQL 설치 관리자 응용 프로그램을 추가 합니다. 어플라이언스를 설치 하 고를 클릭 하 여 MySQL을 다운로드 하 고 설치 하면 추가 된 설치 관리자가 사용 됩니다.
@@ -88,7 +88,7 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.windows.com | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 
@@ -105,7 +105,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 https:\//management.usgovcloudapi.net | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 ## <a name="port-access"></a>포트 액세스
@@ -129,7 +129,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
     - 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.
 5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크에 저장 됩니다.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![아키텍처](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 

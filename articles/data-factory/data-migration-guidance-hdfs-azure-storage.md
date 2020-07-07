@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417123"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
@@ -32,9 +32,9 @@ Data Factory은 온-프레미스 HDFS에서 Azure로 데이터를 마이그레�
 이 문서에서는 두 가지 방법에 대 한 다음 정보를 제공 합니다.
 > [!div class="checklist"]
 > * 성능 
-> * 복원 력
+> * 복사 복원력
 > * 네트워크 보안
-> * 개략적인 솔루션 아키텍처 
+> * 개괄적인 솔루션 아키텍처 
 > * 구현 모범 사례  
 
 ## <a name="performance"></a>성능
@@ -51,9 +51,9 @@ Data Factory native integration runtime 모드에서는 서로 다른 수준에�
 
 자세한 내용은 [복사 작업 성능 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)를 참조 하세요.
 
-## <a name="resilience"></a>회복
+## <a name="resilience"></a>복원력
 
-Data Factory DistCp 모드에서는 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다. 예 `-i`를 들어 오류를 무시 하거나 `-update`원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 쓸 수 있습니다.
+Data Factory DistCp 모드에서는 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다. 예를 들어 `-i` 오류를 무시 하거나 `-update` 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 쓸 수 있습니다.
 
 Data Factory native integration runtime 모드에서 단일 복사 작업 실행의 Data Factory에는 기본 제공 재시도 메커니즘이 있습니다. 데이터 저장소 또는 기본 네트워크에서 특정 수준의 일시적인 오류를 처리할 수 있습니다. 
 
@@ -61,7 +61,7 @@ Data Factory native integration runtime 모드에서 단일 복사 작업 실행
 
 ## <a name="network-security"></a>네트워크 보안 
 
-기본적으로 Data Factory는 HTTPS 프로토콜을 통한 암호화 된 연결을 사용 하 여 온-프레미스 HDFS에서 Blob storage 또는 Azure Data Lake Storage Gen2로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터 암호화를 제공 하며 도청 및 메시지 가로채기 (man-in-the-middle) 공격을 방지 합니다. 
+기본적으로 Data Factory는 HTTPS 프로토콜을 통한 암호화 된 연결을 사용 하 여 온-프레미스 HDFS에서 Blob storage 또는 Azure Data Lake Storage Gen2로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터의 암호화를 제공하고, 도청 및 메시지 가로채기(man-in-the-middle) 공격을 방지합니다. 
 
 또는 공용 인터넷을 통해 데이터를 전송 하지 않으려는 경우에는 보안을 강화 하기 위해 Express 경로를 통해 개인 피어 링 링크를 통해 데이터를 전송할 수 있습니다. 
 
@@ -98,7 +98,7 @@ Data Factory native integration runtime 모드에서 단일 복사 작업 실행
 - Data Lake Storage Gen2에 연결 하는 경우에도 여러 인증 유형이 지원 됩니다.  [Azure 리소스에 관리 되는 id](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)를 사용 하는 것이 좋지만 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)를 사용할 수도 있습니다. 
 - Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 하 여 Data Factory 연결 된 서비스를 수정 하지 않고 키를 중앙에서 보다 쉽게 관리 하 고 회전할 수 있도록 하는 것이 좋습니다. 이는 [CI/CD에 대 한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)이기도 합니다. 
 
-### <a name="initial-snapshot-data-migration"></a>초기 스냅숏 데이터 마이그레이션 
+### <a name="initial-snapshot-data-migration"></a>초기 스냅샷 데이터 마이그레이션 
 
 Data Factory DistCp 모드에서는 하나의 복사 작업을 만들어 DistCp 명령을 제출 하 고, 다른 매개 변수를 사용 하 여 초기 데이터 마이그레이션 동작을 제어할 수 있습니다. 
 
@@ -108,7 +108,7 @@ Data Factory native integration runtime 모드에서는 데이터 파티션이 �
 
 ### <a name="delta-data-migration"></a>델타 데이터 마이그레이션 
 
-Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수 `-update`를 사용 하 고, 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 기록 하 여 델타 데이터를 마이그레이션할 수 있습니다.
+Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수를 사용 하 고, `-update` 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 기록 하 여 델타 데이터를 마이그레이션할 수 있습니다.
 
 Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv*)의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
 
@@ -136,7 +136,7 @@ HDFS에서 Azure Blob storage로 데이터를 마이그레이션하기 위한 �
 ![가격 책정 계산을 보여 주는 표](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
 
 > [!NOTE]
-> 이는 가상의 가격 책정 예입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라 집니다.
+> 가상의 가격 책정 예제입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라집니다.
 > Azure Windows VM (자체 호스팅 통합 런타임이 설치 된)의 가격은 포함 되지 않습니다.
 
 ### <a name="additional-references"></a>추가 참조
@@ -148,9 +148,9 @@ HDFS에서 Azure Blob storage로 데이터를 마이그레이션하기 위한 �
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [자체 호스팅 통합 런타임 고가용성 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 - [시간이 분할 된 파일 이름에 따라 증분 방식으로 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [LastModifiedDate에 따라 새 파일 및 변경 된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [LastModifiedDate에 따라 새 파일 및 변경된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [가격 책정 페이지 Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>다음 단계

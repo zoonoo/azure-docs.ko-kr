@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
 ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416452"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
@@ -24,13 +24,13 @@ ms.locfileid: "81416452"
 
 Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 대규모로 데이터를 마이그레이션하는 데 성능과 강력 하 고 비용 효율적인 메커니즘을 제공 합니다. 
 
-이 문서에서는 데이터 엔지니어와 개발자에 대 한 다음 정보를 제공 합니다.
+이 문서에서는 데이터 엔지니어 및 개발자를 위한 다음 정보를 제공합니다.
 
 > [!div class="checklist"]
 > * 성능 
-> * 복원 력
+> * 복사 복원력
 > * 네트워크 보안
-> * 개략적인 솔루션 아키텍처 
+> * 개괄적인 솔루션 아키텍처 
 > * 구현 모범 사례  
 
 ## <a name="performance"></a>성능
@@ -49,7 +49,7 @@ Azure Data Factory은 다양 한 수준에서 병렬 처리를 허용 하는 서
 
 자세한 내용은 [복사 작업 성능 및 확장성 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)를 참조 하세요.
 
-## <a name="resilience"></a>회복
+## <a name="resilience"></a>복원력
 
 단일 복사 작업 실행 내에서 Azure Data Factory는 기본 제공 재시도 메커니즘을 사용 하 여 데이터 저장소나 기본 네트워크에서 특정 수준의 일시적인 오류를 처리할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 ## <a name="network-security"></a>네트워크 보안 
 
-기본적으로 Azure Data Factory는 HTTPS (하이퍼텍스트 전송 프로토콜 보안)를 통해 암호화 된 연결을 사용 하 여 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터 암호화를 제공 하며 도청 및 메시지 가로채기 (man-in-the-middle) 공격을 방지 합니다.
+기본적으로 Azure Data Factory는 HTTPS (하이퍼텍스트 전송 프로토콜 보안)를 통해 암호화 된 연결을 사용 하 여 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터의 암호화를 제공하고, 도청 및 메시지 가로채기(man-in-the-middle) 공격을 방지합니다.
 
 또는 공용 인터넷을 통해 데이터를 전송 하지 않으려는 경우 Azure Express 경로를 통해 개인 피어 링 링크를 통해 데이터를 전송 하 여 더 높은 수준의 보안을 달성할 수 있습니다. 
 
@@ -115,7 +115,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
    
    - 또한 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) 또는 [SQL 인증](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication)을 사용할 수 있습니다.
 
-- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장 하는](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 것이 좋습니다. Azure Data Factory 연결 된 서비스를 수정할 필요 없이 중앙에서 키를 중앙에서 관리 하 고 회전할 수 있습니다. [CI/CD에 대 한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)중 하나 이기도 합니다. 
+- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장 하는](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 것이 좋습니다. Azure Data Factory 연결 된 서비스를 수정할 필요 없이 중앙에서 키를 중앙에서 관리 하 고 회전할 수 있습니다. [CI/CD에 대한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) 중 하나이기도 합니다. 
 
 ### <a name="migrate-initial-snapshot-data"></a>초기 스냅숏 데이터 마이그레이션 
 
@@ -123,7 +123,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [ `parallelCopies` 속성 설정을](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
 
-- 효율성을 높이기 위해 데이터 조각에서 시작 하는 것이 좋습니다.  `parallelCopies` 설정의 값이 Netezza 서버에 있는 테이블의 전체 데이터 조각 파티션 수보다 적은지 확인 합니다.  
+- 효율성을 높이기 위해 데이터 조각에서 시작 하는 것이 좋습니다.  설정의 값 `parallelCopies` 이 Netezza 서버에 있는 테이블의 전체 데이터 조각 파티션 수보다 적은지 확인 합니다.  
 
 - 각 데이터 조각 파티션의 볼륨이 여전히 큰 경우 (예: 10gb 이상) 동적 범위 파티션으로 전환 하는 것이 좋습니다. 이 옵션을 사용 하면 파티션 열, 상한 및 하 한을 기준으로 각 파티션의 파티션 수와 볼륨을 보다 유연 하 게 정의할 수 있습니다.
 
@@ -151,13 +151,13 @@ Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서�
 
 모범 사례로, 대표적인 샘플 데이터 집합을 사용 하 여 개념 증명 (POC)을 수행 하 여 각 복사 작업에 적절 한 파티션 크기를 결정할 수 있습니다. 2 시간 내에 각 파티션을 Azure로 로드 하는 것이 좋습니다.  
 
-테이블을 복사 하려면 단일 자체 호스팅 IR 컴퓨터를 사용 하는 단일 복사 작업으로 시작 합니다. 테이블의 데이터 `parallelCopies` 조각 파티션 수에 따라 설정을 점차적으로 늘립니다. 복사 작업에서 발생 하는 처리량에 따라 2 시간 내에 전체 테이블을 Azure에 로드할 수 있는지 여부를 확인 합니다. 
+테이블을 복사 하려면 단일 자체 호스팅 IR 컴퓨터를 사용 하는 단일 복사 작업으로 시작 합니다. `parallelCopies`테이블의 데이터 조각 파티션 수에 따라 설정을 점차적으로 늘립니다. 복사 작업에서 발생 하는 처리량에 따라 2 시간 내에 전체 테이블을 Azure에 로드할 수 있는지 여부를 확인 합니다. 
 
 2 시간 내에 Azure에 로드할 수 없는 경우 자체 호스팅 IR 노드 및 데이터 저장소의 용량이 완전히 사용 되지 않는 경우 네트워크 제한 또는 데이터 저장소의 대역폭 제한에 도달할 때까지 동시 복사 작업 수를 점진적으로 증가 시킵니다. 
 
 자체 호스팅 IR 컴퓨터의 CPU 및 메모리 사용량을 계속 모니터링 하 고, CPU 및 메모리가 모두 사용 되는 것이 확인 되 면 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다. 
 
-Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생 하면 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 낮추거나 네트워크 및 데이터 저장소의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 
+Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생 하면 `parallelCopies` Azure Data Factory에서 동시성 또는 설정을 낮추거나 네트워크 및 데이터 저장소의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 
 
 
 ### <a name="estimate-your-pricing"></a>가격 책정 예측 
@@ -185,7 +185,7 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 ![가격 책정 테이블](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
 
 > [!NOTE]
-> 위의 표에 표시 된 가격은 가상의 경우입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라 집니다. 자체 호스팅 IR이 설치 된 Windows 컴퓨터의 가격은 포함 되지 않습니다. 
+> 위의 표에 표시 된 가격은 가상의 경우입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라집니다. 자체 호스팅 IR이 설치 된 Windows 컴퓨터의 가격은 포함 되지 않습니다. 
 
 ### <a name="additional-references"></a>추가 참조
 
@@ -196,15 +196,15 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 - [ODBC 커넥터](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure SQL Data Warehouse 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Azure SQL 데이터 웨어하우스 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [자체 호스팅 통합 런타임 HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
+- [자체 호스팅 Integration Runtime HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 - [한 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
 - [여러 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
-- [가격 책정 페이지 Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+- [Azure Data Factory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>다음 단계
 

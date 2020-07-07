@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415682"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>기존 Service Fabric 클러스터에서 관리 id 지원 구성
@@ -40,7 +40,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](.
 ]
 ```
 
-변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서는 다시 `forceRestart` 시작을 사용 하도록 설정 하는 것이 중요 합니다. 나머지 매개 변수의 경우 아래에서 설명 하는 값을 사용 하거나 클러스터 리소스에 이미 지정 된 기존 사용자 지정 값을 사용 합니다. 패브릭 업그레이드 정책 (' upgradeDescription ')에 대 한 사용자 지정 설정은 Service Fabric 리소스 또는 resources.azure.com에서 ' 패브릭 업그레이드 ' 옵션을 선택 하 여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책에 대 한 기본 옵션 (' upgradeDescription ')은 powershell 또는 resources.azure.com에서 볼 수 없습니다. 자세한 내용은 [Clusterupgradepolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 를 참조 하세요.  
+변경 내용을 적용 하려면 업그레이드가 클러스터를 진행 하면서 각 노드에서 Service Fabric 런타임의 강제 다시 시작을 지정 하도록 업그레이드 정책을 변경 해야 합니다. 이렇게 다시 시작 하면 새로 활성화 된 시스템 서비스가 각 노드에서 시작 되 고 실행 됩니다. 아래 코드 조각에서는 `forceRestart` 다시 시작을 사용 하도록 설정 하는 것이 중요 합니다. 나머지 매개 변수의 경우 아래에서 설명 하는 값을 사용 하거나 클러스터 리소스에 이미 지정 된 기존 사용자 지정 값을 사용 합니다. 패브릭 업그레이드 정책 (' upgradeDescription ')에 대 한 사용자 지정 설정은 Service Fabric 리소스 또는 resources.azure.com에서 ' 패브릭 업그레이드 ' 옵션을 선택 하 여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책에 대 한 기본 옵션 (' upgradeDescription ')은 powershell 또는 resources.azure.com에서 볼 수 없습니다. 자세한 내용은 [Clusterupgradepolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 를 참조 하세요.  
 
 ```json
 "upgradeDescription": {
@@ -55,7 +55,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](.
 ```
 
 > [!NOTE]
-> 업그레이드가 성공적으로 완료 되 면 이후 업그레이드의 영향을 최소화 하기 위해 `forceRestart` 설정을 롤백하는 것을 잊지 마세요. 
+> 업그레이드가 성공적으로 완료 되 면 `forceRestart` 이후 업그레이드의 영향을 최소화 하기 위해 설정을 롤백하는 것을 잊지 마세요. 
 
 ## <a name="errors-and-troubleshooting"></a>오류 및 문제 해결
 

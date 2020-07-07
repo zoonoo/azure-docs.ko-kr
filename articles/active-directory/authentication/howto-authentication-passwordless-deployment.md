@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451434"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
@@ -28,7 +28,7 @@ ms.locfileid: "81451434"
 - 긴 암호
 - 복잡 한 암호
 - 자주 암호 변경
-- MFA(Multi-Factor authentication)
+- MFA(다단계 인증)
 
 Microsoft research는 이러한 노력으로 사용자를 annoy 하 고 지원 비용을 절감할 수 있다는 것을 [보여 줍니다](https://aka.ms/passwordguidance) . 자세한 내용은 [Pa $ $word 중요 하지 않음](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984)을 참조 하세요.
 
@@ -61,11 +61,11 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-| 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
+| 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
 | [Azure multi-factor authentication에 대 한 결합 된 등록과 SSPR (셀프 서비스 암호 재설정)](howto-registration-mfa-sspr-combined.md) 사용 | √ | √ |
 | [사용자가 Azure Multi-factor authentication을 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
@@ -109,7 +109,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 ### <a name="plan-communications"></a>통신 계획
 
-통신은 모든 새 서비스의 성공에 중요 합니다. 사용자의 경험을 사전에 전달 하 고, 변경 될 때 그리고 문제가 발생 한 경우 지원을 얻는 방법을 사전에 전달 합니다.
+통신은 새 서비스의 성공에 대단히 중요합니다. 사용자의 경험을 사전에 전달 하 고, 변경 될 때 그리고 문제가 발생 한 경우 지원을 얻는 방법을 사전에 전달 합니다.
 
 최종 사용자에 대 한 통신은 다음 정보를 포함 해야 합니다.
 
@@ -118,7 +118,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 - [Microsoft Authenticator 앱에 등록](howto-authentication-passwordless-phone.md)
 - [휴대폰으로 로그인](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft는 Multi-factor authentication [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 하 여 커뮤니케이션을 간단 하 게 작성할 수 있도록 합니다. 해당 페이지에서 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) **보안 정보** 링크를 선택 하 여에 직접 등록할 수 있습니다.
+Microsoft는 Multi-factor authentication [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 하 여 커뮤니케이션을 간단 하 게 작성할 수 있도록 합니다. 사용자를 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/)으로 보내 해당 페이지에서 **보안 정보** 링크를 선택하여 직접 등록하게 할 수 있습니다.
 
 ### <a name="plan-to-pilot"></a>파일럿 계획
 
@@ -172,7 +172,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 보안 키를 사용 하 여 리소스에 액세스 하 고 해당 물리적 장치의 관리를 계획 해야 합니다.
 
 1. **키 배포**: 조직에 키를 프로 비전 하는 방법을 계획 합니다. 중앙 집중식 프로 비전 프로세스가 있거나 최종 사용자가 FIDO 2.0 호환 키를 구매할 수 있습니다.
-1. **키 활성화**: 최종 사용자는 보안 키를 직접 활성화 해야 합니다. 최종 사용자는에 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 보안 키를 등록 하 고 처음 사용할 때 두 번째 요소 (PIN 또는 생체 인식)를 사용 하도록 설정 합니다.
+1. **키 활성화**: 최종 사용자는 보안 키를 직접 활성화 해야 합니다. 최종 사용자는에 보안 키 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 를 등록 하 고 처음 사용할 때 두 번째 요소 (PIN 또는 생체 인식)를 사용 하도록 설정 합니다.
 1. **키 사용 안 함**: 보안 키 기능이 미리 보기 단계에 있는 동안 관리자가 사용자 계정에서 키를 제거할 수 있는 방법이 없습니다. 사용자가 제거 해야 합니다. 키를 분실 하거나 도난당 한 경우:
    1. 암호 없는 인증을 사용 하도록 설정 된 그룹에서 사용자를 제거 합니다.
    1. 인증 방법으로 키를 제거 했는지 확인 합니다.
@@ -228,7 +228,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 **AZURE AD는 대부분의 감사 데이터를 30 일 동안 유지** 하 고 azure 관리 포털 또는 API를 통해 데이터를 사용할 수 있도록 하 여 분석 시스템으로 다운로드 합니다. 더 긴 보존이 필요한 경우 [Azure 센티널](../../sentinel/connect-azure-active-directory.md), Splunk 또는 Sumo 논리와 같은 siem 도구에서 로그를 내보내고 사용 합니다. [액세스 및 사용 보고서를 보는 방법에 대해 자세히 알아보세요](../reports-monitoring/overview-reports.md).
 
-사용자는로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)이동 하 여 자격 증명을 등록 하 고 관리할 수 있습니다. 이 링크는 결합 된 SSPR/Multi-factor authentication 등록 환경을 통해 사용 하도록 설정 된 최종 사용자 자격 증명 관리 환경으로 사용자를 안내 합니다. Azure AD는 FIDO2 보안 장치의 등록과 사용자의 인증 방법에 대 한 변경 내용을 기록 합니다.
+사용자는로 이동 하 여 자격 증명을 등록 하 고 관리할 수 있습니다 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . 이 링크는 결합 된 SSPR/Multi-factor authentication 등록 환경을 통해 사용 하도록 설정 된 최종 사용자 자격 증명 관리 환경으로 사용자를 안내 합니다. Azure AD는 FIDO2 보안 장치의 등록과 사용자의 인증 방법에 대 한 변경 내용을 기록 합니다.
 
 ### <a name="plan-security"></a>보안 계획
 이 롤아웃 계획의 일부로, 모든 권한 있는 관리자 계정에 대해 암호 없는 인증을 사용 하도록 설정 하는 것이 좋습니다.
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | 설명 |
+| Azure AD 역할 | Description |
 | --- | --- |
 | 전역 관리자|결합 된 등록 환경을 구현할 수 있는 최소 권한 있는 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |
@@ -324,7 +324,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 | **오류 메시지**:이 브라우저나 OS에서 FIDO2 보안 키를 지원 하지 않습니다. | Passwordless FIDO2 보안 장치는 Windows 10 버전 1809 이상에서 지원 되는 브라우저 (Microsoft Edge, Firefox 버전 67)에만 등록할 수 있습니다. |
 | **오류 메시지**: 회사 정책에서 다른 방법을 사용 하 여 로그인 해야 합니다. | 테 넌 트에서 확실 하지 않은 보안 키를 사용할 수 있습니다. |
 | 사용자가 Windows 10 버전 1809에서 내 보안 키를 관리할 수 없음 | 버전 1809에서는 FIDO2 key 공급 업체에서 제공 하는 보안 키 관리 소프트웨어를 사용 해야 합니다. 공급 업체에 지원을 문의 하세요. |
-| FIDO2 보안 키에 결함이 있을 수 있습니다. | 으로 [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)이동 하 고, 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 **+** 보안 키를 연결 하 고, 화면 오른쪽 위에 있는 단추를 선택 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
+| FIDO2 보안 키에 결함이 있을 수 있습니다. | 으로 이동 하 고 [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/) , 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 보안 키를 연결 하 고, **+** 화면 오른쪽 위에 있는 단추를 선택 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

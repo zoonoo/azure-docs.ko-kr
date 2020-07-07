@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417728"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory ORC 형식
@@ -31,7 +31,7 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 | 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Orc**로 설정 해야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 `location`속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
 
 다음은 Azure Blob Storage ORC 데이터 집합의 예입니다.
 
@@ -68,35 +68,35 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 
 ### <a name="orc-as-source"></a>원본으로 ORC
 
-복사 작업 *** \*원본\* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 *** \* 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **Orcsource**로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ### <a name="orc-as-sink"></a>ORC
 
-복사 작업 *** \*싱크\* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 *** \* 싱크 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **Orcsink**로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 사용
 
 > [!IMPORTANT]
 > 온-프레미스 및 클라우드 데이터 저장소 간에 자체 호스팅되는 Integration Runtime의 복사 기능을 위해 ORC 파일을 있는 **그대로**복사 하지 않는 경우 IR 컴퓨터에 **64 비트 JRE 8 (Java Runtime Environment) 또는 openjdk** 및 **Microsoft Visual C++ 2010 재배포 가능 패키지** 를 설치 해야 합니다. 자세한 내용은 다음 단락을 참조 하세요.
 
-ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 를 확인 하 여 (찾을 수 없는 경우) openjdk의 시스템 변수 *`JAVA_HOME`* 를 확인 하 여 Java 런타임을 찾습니다.
+ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
 - **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK를 사용 하려면**IR 버전 3.13부터 지원 됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 - **Visual C++ 2010 재배포 가능 패키지를 설치 하려면**Visual C++ 2010 재배포 가능 패키지가 자체 호스팅 IR 설치와 함께 설치 되지 않습니다. [여기](https://www.microsoft.com/download/details.aspx?id=14632)서 찾을 수 있습니다.
 
 > [!TIP]
-> 자체 호스팅 Integration Runtime를 사용 하 여 데이터를 ORC 형식으로 복사 하 고 "java를 호출할 때 오류가 발생 했습니다. **OutOfMemoryError: java 힙 공간**"을 사용 하는 경우 자체 호스팅 IR을 호스트 하는 컴퓨터의 환경 `_JAVA_OPTIONS` 변수를 추가 하 여 JVM의 최소/최대 힙 크기를 조정 하 여 이러한 복사본을 강화 한 후 파이프라인을 다시 실행할 수 있습니다.
+> 자체 호스팅 Integration Runtime를 사용 하 여 데이터를 ORC 형식으로 복사 하 고 "java를 호출할 때 오류가 발생 했습니다. **OutOfMemoryError: java 힙 공간**"을 사용 하 `_JAVA_OPTIONS` 는 경우 자체 호스팅 IR을 호스트 하는 컴퓨터의 환경 변수를 추가 하 여 JVM의 최소/최대 힙 크기를 조정 하 여 이러한 복사본을 강화 한 후 파이프라인을 다시 실행할 수 있습니다.
 
 ![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 

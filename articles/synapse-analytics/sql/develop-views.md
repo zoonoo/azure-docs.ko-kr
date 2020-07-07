@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428655"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Synapse SQL을 사용 하는 t-sql 뷰
@@ -79,7 +79,7 @@ Synapse SQL의 뷰는 메타 데이터로만 저장 됩니다. 따라서 다음 
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 개발 팁은 [SYNAPSE SQL development 개요](develop-overview.md)를 참조 하세요.
+더 많은 개발 팁은 [Synapse SQL 개발 개요](develop-overview.md)를 참조하세요.
 
 
 

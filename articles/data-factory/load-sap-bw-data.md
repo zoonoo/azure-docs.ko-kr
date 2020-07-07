@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415833"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사
@@ -26,7 +26,7 @@ ms.locfileid: "81415833"
 > [!TIP]
 > SAP BW에서 데이터를 복사 하는 방법에 대 한 일반적인 내용은 SAP BW Open Hub 통합 및 델타 추출 흐름을 참조 하세요. [Azure Data Factory를 사용 하 여 개방형 허브를 통해 SAP Business Warehouse에서 데이터 복사](connector-sap-business-warehouse-open-hub.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure Data Factory**: 없는 경우 [데이터 팩터리를 만드는](quickstart-create-data-factory-portal.md#create-a-data-factory)단계를 수행 합니다.
 
@@ -81,7 +81,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
    ![SAP BW 열린 허브 필터 구성](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. **대상 데이터 저장소** 페이지에서 **+ 새 연결** > **만들기 Azure Data Lake Storage Gen2** > **계속**을 선택 합니다.
+7. **대상 데이터 저장소** 페이지에서 **+ 새 연결 만들기**  >  **Azure Data Lake Storage Gen2**  >  **계속**을 선택 합니다.
 
 8. **Azure Data Lake Storage 연결 지정** 페이지에서 다음 단계를 수행 하 여 연결을 만듭니다.
 
@@ -165,7 +165,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
    - **HighWatermarkBlobDirectory**: 컨테이너 아래에 있는 폴더 경로를 지정 하 여 상위 워터 마크 값을 저장 합니다.
 
-   - **HighWatermarkBlobName**:와 `requestIdCache.txt`같은 상위 워터 마크 값을 저장할 blob 이름을 지정 합니다. Blob storage에서 HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName의 해당 경로 (예: *컨테이너/경로/requestIdCache .txt*)로 이동 합니다. 콘텐츠가 0 인 blob을 만듭니다.
+   - **HighWatermarkBlobName**:와 같은 상위 워터 마크 값을 저장할 blob 이름을 지정 `requestIdCache.txt` 합니다. Blob storage에서 HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName의 해당 경로 (예: *컨테이너/경로/requestIdCache.txt*)로 이동 합니다. 콘텐츠가 0 인 blob을 만듭니다.
 
       ![BLOB 콘텐츠](media/load-sap-bw-data/blob.png)
 
@@ -194,7 +194,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
       4. **저장**을 선택합니다. 그런 다음 Data Factory 파이프라인에서 사용할 **HTTP POST URL** 의 값을 복사 합니다.
 
-4. Data Factory 파이프라인 매개 변수를 제공한 후 **디버그** > **마침** 을 선택 하 여 실행을 호출 하 여 구성의 유효성을 검사 합니다. 또는 **게시** 를 선택 하 여 모든 변경 내용을 게시 한 후 **트리거 추가** 를 선택 하 여 실행을 실행 합니다.
+4. Data Factory 파이프라인 매개 변수를 제공한 후 **디버그**마침을 선택 하 여  >  **Finish** 실행을 호출 하 여 구성의 유효성을 검사 합니다. 또는 **게시** 를 선택 하 여 모든 변경 내용을 게시 한 후 **트리거 추가** 를 선택 하 여 실행을 실행 합니다.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW 열린 허브 대상 구성
 

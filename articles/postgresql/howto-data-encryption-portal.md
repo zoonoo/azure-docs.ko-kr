@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81457980"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
@@ -41,7 +41,7 @@ Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 �
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
-1. Key Vault에서 **액세스** > 정책**추가 액세스 정책**을 선택 합니다.
+1. Key Vault에서 액세스 정책 **Access policies**  >  **추가 액세스 정책**을 선택 합니다.
 
    ![액세스 정책을 사용 하는 Key Vault의 스크린샷 강조 표시 된 액세스 정책 추가](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -67,9 +67,9 @@ Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 �
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>복원 또는 복제 서버에 데이터 암호화 사용
 
-Key Vault에 저장 된 고객의 관리 키를 사용 하 여 단일 서버를 암호화 Azure Database for PostgreSQL 한 후에는 새로 만든 서버 복사본도 암호화 됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 PostgreSQL 서버의 경우 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
+Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버를 암호화한 후에는 새로 만든 서버 복사본도 암호화됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 PostgreSQL 서버의 경우 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
 
-1. 서버에서 **개요** > **복원**을 선택 합니다.
+1. 서버에서 **개요**  >  **복원**을 선택 합니다.
 
    ![개요 및 복원이 강조 표시 된 Azure Database for PostgreSQL의 스크린샷](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ Key Vault에 저장 된 고객의 관리 키를 사용 하 여 단일 서버를 
 
    ![액세스할 수 없음 상태가 강조 표시 된 Azure Database for PostgreSQL의 스크린샷](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. 서버에 액세스할 수 있도록 하려면 복원 된 서버에서 키의 유효성을 다시 검사 합니다. **데이터 암호화** > **유효성 검사 키**를 선택 합니다.
+3. 서버에 액세스할 수 있도록 하려면 복원 된 서버에서 키의 유효성을 다시 검사 합니다. **데이터 암호화**  >  **유효성 검사 키**를 선택 합니다.
 
    > [!NOTE]
    > 새 서버의 서비스 주체에 게 키 자격 증명 모음에 대 한 액세스 권한이 있어야 하기 때문에 첫 번째 유효성 재검사 시도는 실패 합니다. 서비스 주체를 생성 하려면 오류를 표시 하 고 서비스 주체를 생성 하는 **키 다시 유효성**검사를 선택 합니다. 이후에는이 문서 앞부분의 [이러한 단계](#set-the-right-permissions-for-key-operations) 를 참조 하세요.

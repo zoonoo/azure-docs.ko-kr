@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455365"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
@@ -155,7 +155,7 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 * 서브넷의 모든 VM에서 포트 80에 대한 인터넷에서 오는 모든 TCP 트래픽을 허용합니다.
 * 인터넷에서 오는 다른 모든 트래픽을 거부합니다.
 
-**발신**
+**나가는 포트**
 
 * 인터넷으로 가는 모든 트래픽을 거부합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81481846"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure의 다중 테넌트 애플리케이션
@@ -46,7 +46,7 @@ ms.locfileid: "81481846"
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
-**구분할**
+**격리**
 
 * TLS 통신을 사용 하거나 사용 하지 않고 호스트 헤더를 사용 하 여 웹 사이트 테 넌 트 분할
 * 쿼리 매개 변수로 웹 사이트 테넌트 분할
@@ -54,7 +54,7 @@ Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문�
   * 일반적으로 응용 프로그램의 백 엔드에서 데이터를 처리 하는 작업자 역할입니다.
   * 웹 역할. 일반적으로 애플리케이션의 프런트 엔드 역할을 합니다.
 
-**저장소**
+**스토리지**
 
 대량으로 구조화 되지 않은 데이터를 저장 하는 서비스를 제공 하는 Table service 같은 Azure SQL Database 또는 Azure Storage 서비스와 같은 데이터 관리 및 비디오, 오디오 및 이미지와 같은 이진 데이터 또는 많은 양의 구조화 되지 않은 텍스트를 저장 하는 서비스를 제공 하는 Blob service.
 
@@ -69,7 +69,7 @@ Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문�
 
 **네트워킹 서비스**
 
-Azure에서는 몇 가지 네트워킹 서비스를 통해 인증을 지원하고 호스트된 애플리케이션의 관리 효율성을 향상합니다. 다음과 같은 서비스가 있습니다.
+Azure에서는 몇 가지 네트워킹 서비스를 통해 인증을 지원하고 호스트된 애플리케이션의 관리 효율성을 향상합니다. 이러한 서비스에는 다음 항목이 포함됩니다.
 
 * Azure Virtual Network를 사용하여 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라와 안전하게 연결할 수 있습니다.
 * Virtual Network Traffic Manager를 사용하면 같은 데이터 센터에서 또는 세계적으로 서로 다른 데이터 센터에서 실행 중인 들어오는 트래픽의 부하를 여러 Azure 호스티드 서비스에 분산할 수 있습니다.

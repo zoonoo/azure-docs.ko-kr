@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416441"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory를 사용 하 여 data lake 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션
@@ -52,7 +52,7 @@ Azure Data Factory는 네트워크 (인터넷, ER 또는 VPN)를 통해 데이�
 
 예를 들어 Azure Data Factory를 사용 하 여 2 주 ( *마이그레이션 창*) 내에서 데이터 마이그레이션을 완료할 계획인 경우를 가정 합니다. 다음 표에서 분홍색/파랑 줄을 확인 합니다. 지정 된 열에 대 한 가장 낮은 분홍색 셀은 마이그레이션 기간이 2 주 미만이 가장 가까운 데이터 크기/네트워크 대역폭 페어링을 표시 합니다. 파랑 셀의 모든 크기/대역폭 페어링에는 2 주 이상의 온라인 마이그레이션 기간이 있습니다. 
 
-![온라인 및 오프 라인](media/data-migration-guidance-overview/online-offline.png) 이 표에서는 데이터 크기 및 사용 가능한 네트워크 대역폭에 따라 온라인 마이그레이션 (Azure Data Factory)을 통해 원하는 마이그레이션 기간을 충족할 수 있는지 여부를 결정 하는 데 도움이 됩니다. 온라인 마이그레이션 기간이 2 주 이상 이면 오프 라인 마이그레이션을 사용 하는 것이 좋습니다.
+![온라인 및 오프 라인 ](media/data-migration-guidance-overview/online-offline.png) 이 표에서는 데이터 크기 및 사용 가능한 네트워크 대역폭에 따라 온라인 마이그레이션 (Azure Data Factory)을 통해 원하는 마이그레이션 기간을 충족할 수 있는지 여부를 결정 하는 데 도움이 됩니다. 온라인 마이그레이션 기간이 2 주 이상 이면 오프 라인 마이그레이션을 사용 하는 것이 좋습니다.
 
 > [!NOTE]
 > 온라인 마이그레이션을 사용 하면 단일 도구를 통해 기록 데이터 로드 및 증분 피드를 모두 달성할 수 있습니다.  이 방법을 통해 전체 마이그레이션 기간 동안 기존 저장소와 새 저장소 간에 데이터를 동기화 된 상태로 유지할 수 있습니다. 즉, 새로 고쳐진 데이터를 사용 하 여 새 저장소에서 ETL 논리를 다시 빌드할 수 있습니다.

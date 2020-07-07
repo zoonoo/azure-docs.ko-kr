@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416952"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
@@ -38,7 +38,7 @@ HTTP 커넥터인 [REST 커넥터](connector-rest.md)와 [웹 테이블 커넥�
 
 이 HTTP 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
@@ -52,7 +52,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 > [!TIP]
 > Data Factory에서 HTTP 커넥터를 구성하기 전에 데이터 검색을 위한 HTTP 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -72,7 +72,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 | url | 웹 서버의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | HTTP 끝점에 연결할 때 서버 TLS/SSL 인증서 유효성 검사를 사용할지 여부를 지정 합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 아니요<br /> 기본값은 **true**입니다. |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
 
@@ -120,8 +120,8 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 인증에 **certThumbprint**를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅 통합 런타임에 읽기 권한을 부여합니다.
 
 1. MMC(Microsoft Management Console)를 엽니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
-2. **인증서** > **개인**을 확장 하 고 **인증서**를 선택 합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭 한 다음 **모든 작업** > **개인 키 관리**를 선택 합니다.
+2. **인증서**  >  **개인**을 확장 하 고 **인증서**를 선택 합니다.
+3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭 한 다음 **모든 작업**  >  **개인 키 관리**를 선택 합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 통합 런타임 호스트 서비스(DIAHostService)를 실행 중인 사용자 계정을 추가합니다.
 
 **예제 1: certThumbprint 사용**
@@ -174,12 +174,12 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-형식 기반 데이터 집합의 설정에서 `location` HTTP에 대해 지원 되는 속성은 다음과 같습니다.
+형식 기반 데이터 집합의 설정에서 HTTP에 대해 지원 되는 속성은 다음과 `location` 같습니다.
 
 | 속성    | Description                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | 데이터 집합의 아래 `location` 에 있는 type 속성은 **httpserverlocation**으로 설정 되어야 합니다. | 예      |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합 된 URL ( `[URL specified in linked service][relative URL specified in dataset]`)에서 데이터를 복사 합니다.   | 아니요       |
+| type        | 데이터 집합의 아래에 있는 type 속성은 `location` **Httpserverlocation**으로 설정 되어야 합니다. | 예      |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service][relative URL specified in dataset]` 합니다.   | 아니요       |
 
 > [!NOTE]
 > 지원되는 HTTP 요청 페이로드 크기는 약 500KB입니다. 웹 엔드포인트에 전달하려는 페이로드 크기가 500KB보다 큰 경우 더 작은 청크로 페이로드를 일괄 처리하는 것이 좋습니다.
@@ -220,18 +220,18 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-형식 기반 복사 원본의 설정에서 `storeSettings` HTTP에 대해 지원 되는 속성은 다음과 같습니다.
+형식 기반 복사 원본의 설정에서 HTTP에 대해 지원 되는 속성은 다음과 `storeSettings` 같습니다.
 
 | 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 `storeSettings` type 속성은 **HttpReadSettings**로 설정 해야 합니다. | 예      |
+| type                     | 아래의 type 속성은 `storeSettings` **HttpReadSettings**로 설정 해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요       |
 | addtionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | 아니요       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 아니요       |
 | httpRequestTimeout           | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다. | 아니요       |
-| maxConcurrentConnections | 저장소 저장소에 동시에 연결 하기 위한 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요       |
+| maxConcurrentConnections | 스토리지 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대한 동시 연결 수를 제한하려는 경우에만 지정합니다. | 예       |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -274,14 +274,14 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="legacy-models"></a>레거시 모델
 
 >[!NOTE]
->다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원 됩니다. 앞의 섹션에서 설명한 새 모델을 사용 하는 것이 좋습니다. 그러면 ADF 제작 UI가 새 모델을 생성 하도록 전환 됩니다.
+>다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞의 섹션에서 설명한 새 모델을 사용하는 것이 좋습니다. 그러면 ADF 작성 UI가 새 모델을 생성하도록 전환됩니다.
 
-### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
+### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -335,12 +335,12 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 원본 모델
+### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **형식** 속성을 **httpsource**로 설정 해야 합니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 예 |
 
 **예제**
 

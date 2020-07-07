@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81532593"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
@@ -29,7 +29,7 @@ ms.locfileid: "81532593"
 
     ![앱을 선택 합니다.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. **Deployment Center** > **FTP** > **대시보드**를 선택 합니다.
+3. **Deployment Center**  >  **FTP**  >  **대시보드**를 선택 합니다.
 
     ![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -42,11 +42,11 @@ FTP 대시보드에서 **복사** 를 선택 하 여 FTPS 끝점 및 앱 자격 
 각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
 
 > [!NOTE]
-> 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점을 인증 하는 경우 사용자 이름은 다음 형식으로 requirers 됩니다. 
+> 사용자 수준 자격 증명을 사용하여 FTP/FTPS 엔드포인트를 인증하려면  형식의 사용자 이름이 필요합니다. 
 >
 >`<app-name>\<user-name>`
 >
-> 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에 게 연결 되기 때문에 로그인 작업을 올바른 앱 끝점으로 보내기 위해 사용자 이름이이 형식 이어야 합니다.
+> 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에게 연결되므로 로그인 작업을 올바른 앱 엔드포인트로 보내려면 사용자 이름이 이 형식이어야 합니다.
 >
 
 ## <a name="deploy-files-to-azure"></a>Azure에 파일 배포
@@ -69,7 +69,7 @@ FTP 대시보드에서 **복사** 를 선택 하 여 FTPS 끝점 및 앱 자격 
 
 보안 강화를 위해 TLS/SSL을 통해 FTP를 허용 해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
 
-[Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 영역에 있는 **구성** > **일반 설정** 을 선택 합니다.
+[Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 영역에 있는 **구성**  >  **일반 설정** 을 선택 합니다.
 
 암호화 되지 않은 FTP를 사용 하지 않도록 설정 하려면 **ftp 상태** **에서만 FTPS** 를 선택 합니다. FTP와 FTPS를 모두 사용 하지 않도록 설정 하려면 **사용 안 함**을 선택 합니다. 완료되면 **저장**을 클릭합니다. **FTPS만**사용 하는 경우에는 웹 앱의 **tls/SSL 설정** 블레이드로 이동 하 여 tls 1.2 이상을 적용 해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
 
@@ -112,6 +112,6 @@ Azure App Service는 활성 및 수동 모드를 통한 연결을 모두 지원�
 
 고급 배포 시나리오에 대해서는 [Git를 사용하여 Azure에 배포](deploy-local-git.md)를 시도하세요. Azure로의 Git 기반 배포를 수행하면 버전 제어, 패키지 복원, MSBuild 등을 수행할 수 있습니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 * [Azure App Service 배포 자격 증명](deploy-configure-credentials.md)

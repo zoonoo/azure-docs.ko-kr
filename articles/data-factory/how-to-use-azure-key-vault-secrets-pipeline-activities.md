@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417086"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
@@ -23,7 +23,7 @@ ms.locfileid: "81417086"
 
 Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프라인 실행 중에 사용 하 여 작업에 전달할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다.  [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리가 연결 된 것이 있는지 확인 합니다.
 
@@ -53,7 +53,7 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
     |---------|---------|
     |보안 출력     |True         |
     |URL     |[사용자의 비밀 URI 값]? api-version = 7.0         |
-    |방법     |GET         |
+    |메서드     |GET         |
     |인증     |MSI         |
     |리소스        |https://vault.azure.net       |
 
@@ -63,9 +63,9 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
     > **? Api-version = 7.0** 을 암호 URI의 끝에 추가 해야 합니다.  
 
     > [!CAUTION]
-    > 보안 출력 옵션을 true로 설정 하 여 비밀 값이 일반 텍스트로 기록 되지 않도록 합니다.  이 값을 사용 하는 추가 활동의 경우 보안 입력 옵션을 true로 설정 해야 합니다.
+    > 보안 출력 옵션을 true로 설정 하 여 비밀 값이 일반 텍스트로 기록 되지 않도록 합니다.  이 값을 사용하는 추가 작업의 경우 보안 입력 옵션을 true로 설정해야 합니다.
 
-5. 다른 작업의 값을 사용 하려면 다음 코드 식 ** @activity(' Web1 ')** 을 사용 합니다.
+5. 다른 작업의 값을 사용 하려면 다음 코드 식 ** @activity (' Web1 ')** 을 사용 합니다.
 
     ![코드 식](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

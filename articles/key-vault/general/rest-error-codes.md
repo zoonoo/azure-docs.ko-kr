@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432061"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 오류 코드
@@ -55,11 +55,11 @@ Content-Length: 31
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>토큰에 연결 된 올바른 리소스가 부족 합니다. 
 
-Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라는 매개 변수는 필수입니다. 토큰 공급자는 토큰의 용도에 맞게 토큰의 범위를 사용 하므로이 값은 중요 합니다. Key Vault에 액세스 하는 **모든** 토큰에 대 한 리소스는 *https\/:/vault.keyvault.net* (후행 슬래시 없음)입니다.
+Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라는 매개 변수는 필수입니다. 토큰 공급자는 토큰의 용도에 맞게 토큰의 범위를 사용 하므로이 값은 중요 합니다. Key Vault에 액세스 하는 **모든** 토큰에 대 한 리소스는 *https: \/ /vault.keyvault.net* (후행 슬래시 없음)입니다.
 
 ### <a name="the-token-is-expired"></a>토큰이 만료 되었습니다.
 
-토큰은 b a s e 64로 인코딩되고 값은와 [http://jwt.calebb.net](http://jwt.calebb.net)같은 웹 사이트에서 디코딩할 수 있습니다. 다음은 디코딩된 토큰입니다.
+토큰은 b a s e 64로 인코딩되고 값은와 같은 웹 사이트에서 디코딩할 수 있습니다 [http://jwt.calebb.net](http://jwt.calebb.net) . 다음은 디코딩된 토큰입니다.
 
 ```
     {
@@ -89,7 +89,7 @@ Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라
 
 이 토큰에서 많은 중요 한 부분을 확인할 수 있습니다.
 
-- aud (대상 그룹): 토큰의 리소스입니다. 이는입니다 <https://vault.azure.net>. 이 토큰은 그래프와 같이 명시적으로이 값과 일치 하지 않는 리소스에 대해서는 작동 하지 않습니다.
+- aud (대상 그룹): 토큰의 리소스입니다. 이는입니다 <https://vault.azure.net> . 이 토큰은 그래프와 같이 명시적으로이 값과 일치 하지 않는 리소스에 대해서는 작동 하지 않습니다.
 - iat (에서 발급 됨): 토큰이 발급 될 때 epoch가 시작 된 이후의 틱 수입니다.
 - nbf (이전 아님):이 토큰이 유효 해지면 epoch 시작 이후 틱 수입니다.
 - exp (만료):이 토큰이 만료 될 때 epoch가 시작 된 이후의 틱 수입니다.
@@ -100,7 +100,7 @@ Azure OAUTH 끝점에서 액세스 토큰을 요청 하는 경우 "resource" 라
 
 ### <a name="troubleshooting-401"></a>401 문제 해결
 
-401s 키 자격 증명 모음에 대 한 요청이 만들어지기 전에 토큰 생성 지점에서 조사 되어야 합니다. 일반적으로 코드는 토큰을 요청 하는 데 사용 됩니다. 토큰이 수신 되 면 Key Vault 요청에 전달 됩니다. 코드를 로컬로 실행 하는 경우 Fiddler를 사용 하 여에 대 `https://login.microsoftonline.com`한 요청/응답을 캡처할 수 있습니다. 요청은 다음과 같습니다.
+401s 키 자격 증명 모음에 대 한 요청이 만들어지기 전에 토큰 생성 지점에서 조사 되어야 합니다. 일반적으로 코드는 토큰을 요청 하는 데 사용 됩니다. 토큰이 수신 되 면 Key Vault 요청에 전달 됩니다. 코드를 로컬로 실행 하는 경우 Fiddler를 사용 하 여에 대 한 요청/응답을 캡처할 수 있습니다 `https://login.microsoftonline.com` . 요청은 다음과 같습니다.
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1

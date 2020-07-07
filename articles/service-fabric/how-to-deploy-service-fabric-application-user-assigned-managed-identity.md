@@ -4,10 +4,10 @@ description: 이 문서에서는 사용자 할당 관리 id를 사용 하 여 Se
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415639"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>사용자 할당 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
@@ -18,7 +18,7 @@ ms.locfileid: "81415639"
 > 
 > Azure 리소스로 배포 되지 않은 응용 프로그램에는 관리 Id가 있을 **수 없습니다** . 
 >
-> 관리 Id를 사용 하는 Service Fabric 응용 프로그램 배포는 `"2019-06-01-preview"`API 버전에서 지원 됩니다. 응용 프로그램 유형, 응용 프로그램 유형 버전 및 서비스 리소스에 대해 동일한 API 버전을 사용할 수도 있습니다.
+> 관리 Id를 사용 하는 Service Fabric 응용 프로그램 배포는 API 버전에서 지원 됩니다 `"2019-06-01-preview"` . 응용 프로그램 유형, 응용 프로그램 유형 버전 및 서비스 리소스에 대해 동일한 API 버전을 사용할 수도 있습니다.
 >
 
 ## <a name="user-assigned-identity"></a>사용자 할당 Id
@@ -62,7 +62,7 @@ ms.locfileid: "81415639"
 
 ### <a name="application-package"></a>애플리케이션 패키지
 
-1. Azure Resource Manager 템플릿의 `managedIdentities` 섹션에 정의 된 각 id에 대해 **보안 주체** 섹션의 `<ManagedIdentity>` 응용 프로그램 매니페스트에 태그를 추가 합니다. 특성 `Name` 은 `managedIdentities` 섹션에 정의 된 `name` 속성과 일치 해야 합니다.
+1. Azure Resource Manager 템플릿의 섹션에 정의 된 각 id에 대해 `managedIdentities` `<ManagedIdentity>` **보안 주체** 섹션의 응용 프로그램 매니페스트에 태그를 추가 합니다. `Name`특성은 `name` 섹션에 정의 된 속성과 일치 해야 합니다 `managedIdentities` .
 
     **ApplicationManifest.xml**
 
@@ -74,7 +74,7 @@ ms.locfileid: "81415639"
       </Principals>
     ```
 
-2. **ServiceManifestImport** 섹션에서 관리 id를 사용 하는 서비스에 대 한 **IdentityBindingPolicy** 를 추가 합니다. 이 정책은 나중에 `AdminUser` 서비스 매니페스트에 추가 해야 하는 서비스 관련 id 이름에 id를 매핑합니다.
+2. **ServiceManifestImport** 섹션에서 관리 id를 사용 하는 서비스에 대 한 **IdentityBindingPolicy** 를 추가 합니다. 이 정책은 `AdminUser` 나중에 서비스 매니페스트에 추가 해야 하는 서비스 관련 id 이름에 id를 매핑합니다.
 
     **ApplicationManifest.xml**
 
@@ -86,7 +86,7 @@ ms.locfileid: "81415639"
       </ServiceManifestImport>
     ```
 
-3. 응용 프로그램 매니페스트의에서와 `ServiceIdentityRef` 일치 `IdentityBindingPolicy` 하는 이름으로 **리소스** 섹션 내부에 **microsoft.managedidentity** 를 추가 하려면 서비스 매니페스트를 업데이트 합니다.
+3. **ManagedIdentity** **Resources** `ServiceIdentityRef` 응용 프로그램 매니페스트의에서와 일치 하는 이름으로 리소스 섹션 내부에 microsoft.managedidentity를 추가 하려면 서비스 매니페스트를 업데이트 합니다 `IdentityBindingPolicy` .
 
     **ServiceManifest.xml**
 

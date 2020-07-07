@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: c93425fe2e5210a3a8cc577b6e74e281c88121c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416799"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사
@@ -30,7 +30,7 @@ ms.locfileid: "81416799"
 
 이 PayPal 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 PayPal에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -52,10 +52,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | type | type 속성은 **PayPal**로 설정해야 합니다. | 예 |
 | host | PayPal 인스턴스의 URL입니다. 즉, api.sandbox.paypal.com입니다.  | 예 |
 | clientId | PayPal 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
-| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예제:**
 
@@ -78,7 +78,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 PayPal 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 PayPal 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 PayPal에서 데이터를 복사하려면 데이터 세트의 type 속성을 **PayPalObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
@@ -110,14 +110,14 @@ PayPal에서 데이터를 복사하려면 데이터 세트의 type 속성을 **P
 
 ### <a name="paypal-as-source"></a>PayPal을 원본으로
 
-PayPal에서 데이터를 복사하려면 복사 작업의 원본 형식을 **PayPalSource**로 설정합니다. 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
+PayPal에서 데이터를 복사하려면 복사 작업의 원본 형식을 **PayPalSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **PayPalSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Payment_Experience"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -151,7 +151,7 @@ PayPal에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pa
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

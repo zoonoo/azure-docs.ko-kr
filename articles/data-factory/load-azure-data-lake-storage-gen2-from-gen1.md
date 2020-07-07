@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415816"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Lake Storage Gen2은 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 기본 제공 되는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 저장소 패러다임을 모두 사용 하 여 데이터와 상호 작용 하는 데 사용할 수 있습니다.
+Azure Data Lake Storage Gen2은 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 기본 제공 되는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작하는 데 이 기능을 이용할 수 있습니다.
 
 현재 Azure Data Lake Storage Gen1를 사용 하는 경우 Azure Data Factory를 사용 하 여 Data Lake Storage Gen1에서 Gen2로 데이터를 복사 하 여 Azure Data Lake Storage Gen2를 평가할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 이 문서에서는 Data Factory 데이터 복사 도구를 사용 하 여 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 데이터를 복사 하는 방법을 보여 줍니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
@@ -41,7 +41,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 메뉴에서 **리소스** > 만들기**데이터 + 분석** > **Data Factory**를 선택 합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기**  >  **데이터 + 분석**  >  **Data Factory**를 선택 합니다.
    
    ![새 창에서 Data Factory 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -49,7 +49,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
       
    ![새 데이터 팩터리 페이지](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리를 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **Name**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리를 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택 합니다. **새로 만들기** 옵션을 선택 하 고 리소스 그룹의 이름을 입력할 수도 있습니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요. 
     * **버전**: **V2**를 선택합니다.
@@ -84,7 +84,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
   
    b. **연결 테스트** 를 선택 하 여 설정의 유효성을 검사 합니다. 그런 다음, **마침**을 선택합니다.
   
-   다. 새 연결이 생성 된 것을 볼 수 있습니다. **다음**을 선택합니다.
+   c. 새 연결이 생성 된 것을 볼 수 있습니다. **다음**을 선택합니다.
    
    > [!IMPORTANT]
    > 이 연습에서는 Azure 리소스에 관리 되는 id를 사용 하 여 Azure Data Lake Storage Gen1을 인증 합니다. Azure Data Lake Storage Gen1에서 관리 되는 id에 적절 한 권한을 부여 하려면 [다음 지침](connector-azure-data-lake-store.md#managed-identity)을 따르세요.
@@ -99,7 +99,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
     ![출력 폴더 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. **대상 데이터 저장소** 페이지에서 **+ 새 연결** > **만들기 Azure Data Lake Storage Gen2** > **계속**을 선택 합니다.
+8. **대상 데이터 저장소** 페이지에서 **+ 새 연결 만들기**  >  **Azure Data Lake Storage Gen2**  >  **계속**을 선택 합니다.
 
     ![대상 데이터 저장소 페이지](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -123,7 +123,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 13. **배포 페이지**에서 **모니터** 를 선택 하 여 파이프라인을 모니터링 합니다.
 
     ![배포 페이지](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
-14. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **작업** 열에는 활동 실행 세부 정보를 보고 파이프라인을 다시 실행하기 위한 링크가 있습니다.
+14. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **작업** 열에는 활동 실행 세부 정보를 보고 파이프라인을 다시 실행 하기 위한 링크가 포함 되어 있습니다.
 
     ![파이프라인 실행 모니터링](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
@@ -159,7 +159,7 @@ Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2 일반으로 업
 
 Data Lake Storage Gen1에서 데이터를 읽고 Data Lake Storage Gen2에 데이터를 쓰는 Data Factory 복사 작업의 동시성을 제어할 수 있습니다. 이러한 방식으로 해당 저장소 i/o에서 사용을 관리 하 여 마이그레이션하는 동안 Data Lake Storage Gen1의 정상적인 비즈니스 작업에 영향을 주지 않도록 할 수 있습니다.
 
-### <a name="permissions"></a>사용 권한 
+### <a name="permissions"></a>권한 
 
 Data Factory에서 [Data Lake Storage Gen1 커넥터](connector-azure-data-lake-store.md) 는 Azure 리소스 인증에 대 한 서비스 주체 및 관리 id를 지원 합니다. [Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md) 는 Azure 리소스 인증에 대 한 계정 키, 서비스 주체 및 관리 id를 지원 합니다. 필요한 모든 파일 또는 Acl (액세스 제어 목록)을 탐색 하 고 복사할 수 Data Factory 있도록 하려면 사용자가 제공 하는 계정에 대 한 충분 한 권한을 부여 하 여 모든 파일을 액세스, 읽기 또는 작성 하 고 원하는 경우 Acl을 설정 합니다. 마이그레이션 기간 중에 슈퍼 사용자 또는 소유자 역할을 부여 합니다. 
 
@@ -180,6 +180,6 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드 하는 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [복사 작업 개요](copy-activity-overview.md)
-> [Azure Data Lake Storage Gen1 커넥터](connector-azure-data-lake-store.md)
-> [Azure Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md)
+> [복사 작업 개요](copy-activity-overview.md) 
+>  [Azure Data Lake Storage Gen1 커넥터](connector-azure-data-lake-store.md) 
+>  [Azure Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md)

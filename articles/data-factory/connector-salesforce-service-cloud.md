@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416667"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Salesforce 서비스 클라우드에서 데이터 복사
@@ -27,7 +27,7 @@ ms.locfileid: "81416667"
 
 이 Salesforce 서비스 클라우드 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원 되는 모든 원본 데이터 저장소에서 Salesforce 서비스 클라우드로 데이터를 복사할 수도 있습니다. 복사 작업의 원본 또는 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조 하세요.
@@ -39,7 +39,7 @@ Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 �
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. 또한 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
 
@@ -52,7 +52,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,10 +66,10 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type |Type 속성은 **SalesforceServiceCloud**로 설정 해야 합니다. |예 |
 | environmentUrl | Salesforce 서비스 클라우드 인스턴스의 URL을 지정 합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
-| username |사용자 계정의 사용자 이름을 지정합니다. |예 |
-| password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. <br/><br/>일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. Salesforce의 신뢰할 수 있는 [ip 주소 목록](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) 에 INTEGRATION RUNTIME의 ip를 추가 하는 경우에만 보안 토큰을 건너뛸 수 있습니다. Azure IR를 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](azure-integration-runtime-ip-addresses.md)를 참조 하세요.<br/><br/>보안 토큰을 가져오고 다시 설정 하는 방법에 대 한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조 하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |아니요 |
-| apiVersion | 사용할 Salesforce REST/Bulk API 버전을 지정 합니다 (예: `48.0`). 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. | 아니요 |
+| 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
+| password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. <br/><br/>일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. Salesforce의 신뢰할 수 있는 [ip 주소 목록](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) 에 INTEGRATION RUNTIME의 ip를 추가 하는 경우에만 보안 토큰을 건너뛸 수 있습니다. Azure IR를 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](azure-integration-runtime-ip-addresses.md)를 참조 하세요.<br/><br/>보안 토큰을 가져오고 다시 설정 하는 방법에 대 한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조 하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| apiVersion | 사용할 Salesforce REST/Bulk API 버전을 지정 합니다 (예:). `48.0` 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 통합 런타임이 없는 경우 원본은 아니요, 싱크는 예입니다. |
 
 >[!IMPORTANT]
@@ -277,17 +277,17 @@ Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 �
 
 ### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Salesforce 서비스 클라우드 보고서에서 데이터 검색
 
-쿼리를로 `{call "<report name>"}`지정 하 여 Salesforce 서비스 클라우드 보고서에서 데이터를 검색할 수 있습니다. 예제는 `"query": "{call \"TestReport\"}"`입니다.
+쿼리를로 지정 하 여 Salesforce 서비스 클라우드 보고서에서 데이터를 검색할 수 있습니다 `{call "<report name>"}` . 예제는 `"query": "{call \"TestReport\"}"`입니다.
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Salesforce 서비스 클라우드 휴지통에서 삭제 된 레코드 검색
 
-Salesforce 서비스 클라우드 휴지통에서 일시 삭제 된 레코드를 쿼리하려면를로 `readBehavior` `queryAll`지정할 수 있습니다. 
+Salesforce 서비스 클라우드 휴지통에서 일시 삭제 된 레코드를 쿼리하려면를로 지정할 수 있습니다 `readBehavior` `queryAll` . 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>SOQL과 SQL 쿼리 구문의 차이점
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL 쿼리 또는 SQL 쿼리를 사용할 수 있습니다. 이 두 가지 쿼리는 서로 다른 구문과 기능을 지원하므로 혼용하지 마세요. Salesforce 서비스 클라우드에서 기본적으로 지원 되는 SOQL 쿼리를 사용 하는 것이 좋습니다. 다음 표에는 주요 차이점이 나와 있습니다.
 
-| 구문 | SOQL 모드 | SQL 모드 |
+| Syntax | SOQL 모드 | SQL 모드 |
 |:--- |:--- |:--- |
 | 열 선택 | 쿼리에서 복사할 필드를 열거 해야 합니다 (예:).`SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
@@ -298,7 +298,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL �
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>DateTime 열에서 Where 문을 사용하여 데이터를 검색합니다.
 
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 다음은 그 예입니다.
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예:
 
 * **SOQL 샘플**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -313,29 +313,29 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 Salesf
 
 | Salesforce 서비스 클라우드 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| 자동 번호 |문자열 |
+| 자동 번호 |String |
 | 확인란 |부울 |
 | Currency |Decimal |
-| Date |DateTime |
+| 날짜 |DateTime |
 | 날짜/시간 |DateTime |
-| 메일 |문자열 |
-| Id |문자열 |
-| 관계 조회 |문자열 |
-| 다중 선택 선택 목록 |문자열 |
-| 숫자 |Decimal |
+| 메일 |String |
+| Id |String |
+| 관계 조회 |String |
+| 다중 선택 선택 목록 |String |
+| number |Decimal |
 | 백분율 |Decimal |
-| Phone |문자열 |
-| 선택 목록 |문자열 |
-| Text |문자열 |
-| 텍스트 영역 |문자열 |
-| 텍스트 영역(Long) |문자열 |
-| 텍스트 영역(Rich) |문자열 |
-| 텍스트(암호화됨) |문자열 |
-| URL |문자열 |
+| Phone |String |
+| 선택 목록 |String |
+| 텍스트 |String |
+| 텍스트 영역 |String |
+| 텍스트 영역(Long) |String |
+| 텍스트 영역(Rich) |String |
+| 텍스트(암호화됨) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

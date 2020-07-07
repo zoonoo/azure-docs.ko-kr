@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
 ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535403"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Azure Migrate 프로젝트 문제 해결
@@ -19,11 +19,11 @@ ms.locfileid: "81535403"
 
 ## <a name="how-to-add-new-project"></a>새 프로젝트를 추가 하는 방법
 
-구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다. 처음으로 프로젝트를 만들거나 추가 프로젝트를 [추가](create-manage-projects.md#create-additional-projects) 하 [는 방법에 대해 알아봅니다](how-to-add-tool-first-time.md) .
+구독에 여러 개의 Azure Migrate 프로젝트가 있을 수 있습니다. 처음으로 프로젝트를 만들거나 추가 프로젝트를 [추가](create-manage-projects.md#create-additional-projects) 하 [는 방법에 대해 알아봅니다](how-to-add-tool-first-time.md) .
 
 ## <a name="what-azure-permissions-are-needed"></a>필요한 Azure 권한은 무엇 인가요?
 
-Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
+Azure Migrate 프로젝트를 만들려면 구독에서 기여자 또는 소유자 권한이 필요합니다.
 
 ## <a name="cant-find-a-project"></a>프로젝트를 찾을 수 없습니다.
 
@@ -36,7 +36,7 @@ Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 �
 
 ## <a name="what-are-vm-limits"></a>VM 제한은 무엇 인가요?
 
-단일 프로젝트에서 최대 35000 VMware Vm 또는 최대 35000 Hyper-v Vm을 평가할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
+단일 프로젝트에서 최대 35000 VMware Vm 또는 최대 35000 Hyper-v Vm을 평가할 수 있습니다. 하나의 프로젝트는 평가 한도까지 VMware VM과 Hyper-V VM을 모두 포함할 수 있습니다.
 
 ## <a name="can-i-upgrade-old-project"></a>이전 프로젝트를 업그레이드할 수 있나요?
 

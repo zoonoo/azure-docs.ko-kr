@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415040"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
@@ -43,7 +43,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 > [!TIP]
 > Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -63,7 +63,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | url | REST 서비스의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 아니요<br /> 기본값은 **true**입니다. |
 | authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
@@ -174,9 +174,9 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ( `[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사 합니다. | 아니요 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service]/[relative URL specified in dataset]` 합니다. | 아니요 |
 
-데이터 집합에서, `requestMethod` `additionalHeaders` `requestBody` 및 `paginationRules` 를 설정 하는 경우 계속 해 서는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
+데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` `additionalHeaders` 는 그대로 지원 되지만 `requestBody` `paginationRules` 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
 **예제:**
 
@@ -205,7 +205,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 ### <a name="rest-as-source"></a>REST를 원본으로
 
-복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -213,12 +213,12 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 아니요 |
-| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 아니요 |
+| paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
 | requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아니요 |
 
 >[!NOTE]
->REST 커넥터는에 지정 된 "Accept" 헤더 `additionalHeaders`를 무시 합니다. REST 커넥터는 JSON의 응답만 지원 하므로의 `Accept: application/json`헤더를 자동으로 생성 합니다.
+>REST 커넥터는에 지정 된 "Accept" 헤더를 무시 `additionalHeaders` 합니다. REST 커넥터는 JSON의 응답만 지원 하므로의 헤더를 자동으로 생성 `Accept: application/json` 합니다.
 
 **예제 1: 페이지 매김을 사용 하 여 Get 메서드 사용**
 
@@ -356,7 +356,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 }
 ```
 
-해당 하 `paginationRules` 는 REST 복사 활동 원본 구성은 특히 다음과 같습니다.
+해당 하는 REST 복사 활동 원본 구성은 특히 다음과 같습니다 `paginationRules` .
 
 ```json
 "typeProperties": {
@@ -400,18 +400,18 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 2. 대상 연결에 대 한 새 연결을 만듭니다.  
     ![새 Gen2 연결](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
 
-3. **이 템플릿 사용**을 선택 합니다.
+3. **이 템플릿 사용**을 선택합니다.
     ![이 템플릿 사용](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. 다음 예제와 같이 생성 된 파이프라인이 표시 됩니다. ![파이프라인](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. 다음 예제와 같이 생성 된 파이프라인이 표시 됩니다. ![ 파이프라인](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. **웹** 활동을 선택 합니다. **설정**에서 데이터를 복사 하려는 서비스의 로그인 API에서 OAuth 전달자 토큰을 검색할 해당 **URL**, **메서드**, **헤더**및 **본문** 을 지정 합니다. 템플릿의 자리 표시자는 AAD (Azure Active Directory) OAuth의 샘플을 보여 줍니다. 참고 AAD 인증은 기본적으로 REST 커넥터에서 지원 됩니다. 여기에는 OAuth flow에 대 한 예제만 있습니다. 
 
     | 속성 | 설명 |
     |:--- |:--- |:--- |
     | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예: 예제에서https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
-    | 방법 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get**입니다. | 
-    | headers | 헤더는 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. | 
+    | 메서드 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get**입니다. | 
+    | 헤더 | 헤더는 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
 
     ![파이프라인](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
@@ -425,10 +425,10 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
    ![원본 인증 복사](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. **디버그**를 선택 하 고 **매개 변수**를 입력 한 다음 **마침**을 선택 합니다.
+7. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
    ![파이프라인 실행](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
-8. 파이프라인 실행이 성공적으로 완료 되 면 다음 예제와 유사한 결과가 표시 됩니다. ![파이프라인 실행 결과](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. 파이프라인 실행이 성공적으로 완료 되 면 다음 예제와 유사한 결과가 표시 됩니다. ![ 파이프라인 실행 결과](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
 
 9. **작업** 열에서 webactivity의 "출력" 아이콘을 클릭 하면 서비스에서 반환 되는 access_token 표시 됩니다.
 

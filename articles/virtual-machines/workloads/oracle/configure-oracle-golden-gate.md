@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683727"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
@@ -416,7 +416,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증**을 선택 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
 
    ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 
@@ -439,7 +439,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
    $ ./runInstaller
    ```
 
-2. 'Oracle GoldenGate for Oracle Database 12c'를 선택합니다. 그리고 **다음**을 선택하여 계속합니다.
+2. 'Oracle GoldenGate for Oracle Database 12c'를 선택합니다. 그런 후 **다음** 을 선택 하 여 계속 합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
@@ -781,7 +781,7 @@ GGSCI> VIEW REPORT INITEXT
 
 ### <a name="view-job-status-and-troubleshooting"></a>작업 상태 보기 및 문제 해결
 
-#### <a name="view-reports"></a>보고서 보기
+#### <a name="view-reports"></a>보고서를 봅니다.
 myVM1에서 보고서를 보려면 다음 명령을 실행합니다.
 
   ```bash
