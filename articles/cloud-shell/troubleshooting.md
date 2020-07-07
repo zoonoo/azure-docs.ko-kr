@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189465"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
@@ -31,8 +31,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>PowerShell에서 AzureAD cmdlet 실행 중 오류 발생
 
-- **세부 정보**: Cloud Shell와 같은 `Get-AzureADUser` AzureAD cmdlet을 실행 하면 다음과 `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`같은 오류가 표시 될 수 있습니다.. 
-- **해결**방법: cmdlet `Connect-AzureAD` 을 실행 합니다. 이전에는 PowerShell을 시작 하는 동안이 cmdlet을 자동으로 실행 Cloud Shell. 시작 시간을 단축 하기 위해 cmdlet이 더 이상 자동으로 실행 되지 않습니다. PowerShell에서 $PROFILE 파일에를 추가 `Connect-AzureAD` 하 여 이전 동작을 복원 하도록 선택할 수 있습니다.
+- **세부 정보**: Cloud Shell와 같은 AzureAD cmdlet `Get-AzureADUser` 을 실행 하면 다음과 같은 오류가 표시 될 수 있습니다. `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
+- **해결**방법: cmdlet을 실행 `Connect-AzureAD` 합니다. 이전에는 PowerShell을 시작 하는 동안이 cmdlet을 자동으로 실행 Cloud Shell. 시작 시간을 단축 하기 위해 cmdlet이 더 이상 자동으로 실행 되지 않습니다. `Connect-AzureAD`PowerShell에서 $PROFILE 파일에를 추가 하 여 이전 동작을 복원 하도록 선택할 수 있습니다.
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox의 조기 시간 초과
 
@@ -41,8 +41,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
-- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 `ux.console.azure.com` 도메인에 대 한 액세스를 활용 하 여 거부 될 수 있으며, portal.azure.com, shell.azure.com, Visual Studio Code azure 계정 확장 및 docs.microsoft.com를 포함 하 여 Cloud Shell 진입점에 대 한 액세스를 중지 합니다. 미국 정부 클라우드에서 entrypoint는 `ux.console.azure.us`입니다. 해당 하는 shell.azure.us 없습니다.
-- **해결**방법: 네트워크 설정을 `ux.console.azure.com` 통해 `ux.console.azure.us` 또는 사용자 환경으로의 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
+- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 도메인에 대 한 액세스를 활용 하 여 `ux.console.azure.com` 거부 될 수 있으며, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 포함 하 여 Cloud Shell 진입점에 대 한 액세스를 중지 합니다. 미국 정부 클라우드에서 entrypoint는 이며 해당 하는 `ux.console.azure.us` shell.azure.us 없습니다.
+- **해결**방법: `ux.console.azure.com` `ux.console.azure.us` 네트워크 설정을 통해 또는 사용자 환경으로의 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 

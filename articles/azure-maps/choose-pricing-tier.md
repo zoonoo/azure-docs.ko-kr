@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: a8bf7ff9bacd4fe84ee5b64d0aed5cb271ce06f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335671"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
@@ -33,7 +33,7 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 | 위성 이미지                       |                     | ✓        |
 | 검색                                  | ✓                    | ✓        |
 | 일괄 검색                            |                     | ✓        |
-| 라우팅                                   | ✓                    |✓        |
+| 경로                                   | ✓                    |✓        |
 | 일괄 처리 라우팅                            |                    | ✓        |
 | 행렬 라우팅                          |                     | ✓        |
 | 경로 범위 (등시성)                |                     | ✓        |

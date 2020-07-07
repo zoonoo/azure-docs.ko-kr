@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188538"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
@@ -36,7 +36,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 
 이 문서에서는 두 가지 시나리오, 즉 Automation 온보딩을 위해 DSC 확장을 사용하는 경우와 Azure SDK를 사용하여 VM에 구성을 할당하기 위한 도구로 DSC 확장을 사용하는 경우에 대한 정보를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **로컬 컴퓨터**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
 - **게스트 에이전트**: DSC 구성을 통해 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 이상을 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](../../automation/automation-dsc-extension-history.md)을 참조하세요.
@@ -49,7 +49,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 - **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 참조 합니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
@@ -82,7 +82,7 @@ DSC 확장을 사용 하 여 상태 구성 서비스에 노드를 등록 하는 
 
 노드 구성 이름에 대해 노드 구성이 Azure 상태 구성에 있는지 확인 합니다.  그렇지 않은 경우 확장 배포는 실패를 반환 합니다.  또한 구성이 아니라 *노드 구성* 의 이름을 사용 하 고 있는지도 확인 해야 합니다.
 구성은 [노드 구성 (MOF 파일)을 컴파일하](https://docs.microsoft.com/azure/automation/automation-dsc-compile)는 데 사용 되는 스크립트에 정의 됩니다.
-이름은 항상 구성 후에 마침표 `.` 와 `localhost` 특정 컴퓨터 이름으로 구성 됩니다.
+이름은 항상 구성 후에 마침표 `.` 와 특정 컴퓨터 이름으로 구성 됩니다 `localhost` .
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장
 
@@ -115,7 +115,7 @@ Resource Manager DSC 확장 cmdlet에 대한 중요 정보:
 
 Azure DSC 확장은 DSC 구성 문서를 사용하여 배포하는 동안 Azure VM을 직접 구성할 수 있습니다. 이 단계에서는 노드가 Automation에 등록되지 않습니다. 노드는 중앙 집중식으로 관리되지 *않습니다*.
 
-다음 예제에서는 구성의 간단한 예제를 보여줍니다. 구성을 로컬에서 iisInstall. p s 1로 저장 합니다.
+다음 예제에서는 구성의 간단한 예제를 보여줍니다. 구성을 iisInstall.ps1로 로컬로 저장 합니다.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-다음 명령은 지정 된 VM에 iisInstall. ps1 스크립트를 추가 합니다. 또한 이 명령은 구성을 실행한 후 상태를 다시 보고합니다.
+다음 명령은 지정 된 VM에 iisInstall.ps1 스크립트를 추가 합니다. 또한 이 명령은 구성을 실행한 후 상태를 다시 보고합니다.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -190,7 +190,7 @@ az vm extension set \
 
 - **구성 데이터 PSD1 파일**: 구성에서 PSD1의 구성 데이터 파일이 필요한 경우이 필드를 사용 하 여 데이터 파일을 선택 하 고 사용자 blob 저장소에 업로드 합니다. 구성 데이터 파일은 Blob Storage의 SAS 토큰에 의해 보호됩니다.
 
-- **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **최신**입니다.
+- **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest**입니다.
 
 - **데이터 컬렉션**: 확장에서 원격 분석을 수집할지를 결정합니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)을 참조하세요.
 

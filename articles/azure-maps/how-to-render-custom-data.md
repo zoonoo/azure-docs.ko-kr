@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335511"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
@@ -37,13 +37,13 @@ ms.locfileid: "80335511"
 > [!Note]
 > 이 섹션의 절차에는 가격 책정 계층 S0 또는 S1의 Azure Maps 계정이 필요 합니다.
 
-Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 지원 합니다. URL 요청에 지정 된 사용자 지정 이미지를 사용 하 여 최대 5 개의 압정을 렌더링할 수 있습니다.
+Azure Maps 계정 S0 계층은 매개 변수의 단일 인스턴스만 지원 합니다 `pins` . URL 요청에 지정 된 사용자 지정 이미지를 사용 하 여 최대 5 개의 압정을 렌더링할 수 있습니다.
 
 레이블 및 사용자 지정 이미지를 사용 하 여 압정를 렌더링 하려면 다음 단계를 완료 합니다.
 
-1. 요청을 저장할 컬렉션을 만듭니다. Postman 앱에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택 합니다. 컬렉션 이름을로 하 고 **만들기** 단추를 선택 합니다. 
+1. 요청을 저장할 컬렉션을 만듭니다. Postman 앱에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택합니다. 컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택 합니다. **새로 만들기** 창에서 **요청**을 선택 합니다. 압정에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음, **저장**을 선택 합니다.
+2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 압정에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장**을 선택합니다.
     
     ![Postman에서 요청 만들기](./media/how-to-render-custom-data/postman-new.png)
 
@@ -156,7 +156,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
    }
    ```
 
-7. 데이터 업로드 `udId` API에서 받은 값을 사용 하 여 맵의 기능을 렌더링 합니다. 이렇게 하려면 이전 섹션에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 {subscription-key} 및 {udId}을 값으로 바꾸고,이 URL을 입력 하 여 GET 요청을 수행 합니다.
+7. `udId`데이터 업로드 API에서 받은 값을 사용 하 여 맵의 기능을 렌더링 합니다. 이렇게 하려면 이전 섹션에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 {subscription-key} 및 {udId}을 값으로 바꾸고,이 URL을 입력 하 여 GET 요청을 수행 합니다.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -207,7 +207,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 
     ![사용자 지정 압정를 사용 하 여 원 렌더링](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. 마지막 단계에서 압정 색을 변경 하려면 "co" 스타일 한정자를 변경 합니다. `pins=default|la15+50|al0.66|lc003C62|co002D62|`를 살펴보면 현재 색이 CSS에서 #002D62로 지정 됩니다. #41d42a로 변경 하려는 경우를 가정해 보겠습니다. 다음과 `pins=default|la15+50|al0.66|lc003C62|co41D42A|`같이 "co" 지정자 뒤에 새 색 값을 씁니다. 새 GET 요청을 만듭니다.
+2. 마지막 단계에서 압정 색을 변경 하려면 "co" 스타일 한정자를 변경 합니다. 를 살펴보면 `pins=default|la15+50|al0.66|lc003C62|co002D62|` 현재 색이 CSS에서 #002D62로 지정 됩니다. #41d42a로 변경 하려는 경우를 가정해 보겠습니다. 다음과 같이 "co" 지정자 뒤에 새 색 값을 씁니다 `pins=default|la15+50|al0.66|lc003C62|co41D42A|` . 새 GET 요청을 만듭니다.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}

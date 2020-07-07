@@ -15,17 +15,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71213014"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure Notification Hubs SDK
 
 Microsoft 및 타사는 Azure Notification Hubs에 대한 SDK를 게시합니다. Android, iOS 및 .NET 용 Microsoft 리포지토리에는 각 대상 플랫폼에 대 한 샘플 앱이 포함 되어 있습니다.
 
-| SDK)            | 게시자      |
+| SDK            | Publisher      |
 | -------------- | -------------- |
 | [.NET 서버](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
 | [OWA(Outlook Web Access)](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |

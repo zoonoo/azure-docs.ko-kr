@@ -1,25 +1,14 @@
 ---
 title: '빠른 시작: 소비자 그룹을 사용하여 이벤트 허브 만들기 - Azure Event Hubs'
 description: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기'
-services: event-hubs
-documentationcenter: .net
-author: spelluru
-editor: ''
-ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
-ms.service: event-hubs
-ms.devlang: tbd
 ms.topic: quickstart
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 02/11/2020
-ms.author: spelluru
-ms.custom: subject-armqs
-ms.openlocfilehash: c2221fe5b5ab38afbdde167e5bcbf6b47ed4f861
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ddf17030da8b0ff50f10938221b9c1dba08084d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79528084"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964297"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 만들기
 
@@ -105,7 +94,7 @@ Write-Host "Press [ENTER] to continue ..."
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C(보내기 전용)](event-hubs-c-getstarted-send.md)
 - [Apache Storm(받기 전용)](event-hubs-storm-getstarted-receive.md)

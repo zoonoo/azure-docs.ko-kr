@@ -3,12 +3,12 @@ title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행
 description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779559"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965079"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -18,7 +18,7 @@ ms.locfileid: "83779559"
 
 Batch 사용에 대한 추가 비용은 없습니다. 가상 머신, 스토리지 및 네트워킹과 같은 기본 사용 리소스에 대해서만 비용을 지불합니다.
 
-Azure에서 Batch 및 다른 HPC 솔루션 옵션 간의 비교는 [Azure의 고성능 컴퓨팅(HPC)](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/)을 참조하세요.
+Azure에서 Batch 및 다른 HPC 솔루션 옵션 간의 비교는 [Azure의 고성능 컴퓨팅(HPC)](/azure/architecture/topics/high-performance-computing/)을 참조하세요.
 
 ## <a name="run-parallel-workloads"></a>병렬 워크로드 실행
 Batch치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 워크로드에서 잘 작동합니다. 기본적으로 병렬 워크로드에서는 애플리케이션이 독립적으로 실행될 수 있으며, 각 인스턴스는 작업의 일부를 완료합니다. 애플리케이션은 실행 중에 몇 가지 공통 데이터에 액세스할 수 있지만 애플리케이션의 다른 인스턴스와 통신하지 않습니다. 따라서 본질적 병렬 워크로드는 애플리케이션을 동시에 실행하는 데 사용할 수 있는 컴퓨팅 리소스의 양에 따라 대규모로 실행될 수 있습니다.
@@ -34,7 +34,7 @@ Batch로 가져올 수 있는 본질적 병렬 워크로드의 예는 다음과 
 * 데이터 수집, 처리 및 ETL 작업
 * 소프트웨어 테스트 실행
 
-Batch를 사용하여 [긴밀하게 결합된 워크로드를 실행](batch-mpi.md)할 수도 있습니다. 이는 실행하는 애플리케이션이 독립적으로 실행되지 않고 서로 통신해야 하는 워크로드입니다. 긴밀하게 결합된 애플리케이션은 일반적으로 Message Passing Interface(MPI) API를 사용합니다. Batch를 통해 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 또는 Intel MPI를 사용하는 긴밀하게 결합된 워크로드를 실행할 수 있습니다. 특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 및 [GPU에 최적화된](../virtual-machines/linux/sizes-gpu.md) VM 크기로 애플리케이션 성능을 개선할 수 있습니다.
+Batch를 사용하여 [긴밀하게 결합된 워크로드를 실행](batch-mpi.md)할 수도 있습니다. 이는 실행하는 애플리케이션이 독립적으로 실행되지 않고 서로 통신해야 하는 워크로드입니다. 긴밀하게 결합된 애플리케이션은 일반적으로 Message Passing Interface(MPI) API를 사용합니다. Batch를 통해 [Microsoft MPI](/message-passing-interface/microsoft-mpi) 또는 Intel MPI를 사용하는 긴밀하게 결합된 워크로드를 실행할 수 있습니다. 특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 및 [GPU에 최적화된](../virtual-machines/linux/sizes-gpu.md) VM 크기로 애플리케이션 성능을 개선할 수 있습니다.
 
 긴밀하게 결합된 워크로드의 몇 가지 예:
 * 유한 요소 분석

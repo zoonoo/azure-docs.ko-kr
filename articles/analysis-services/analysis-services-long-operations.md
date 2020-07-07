@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428109"
 ---
-# <a name="best-practices-for-long-running-operations"></a>장기 실행 작업에 대 한 모범 사례
+# <a name="best-practices-for-long-running-operations"></a>장기 실행 작업에 대한 모범 사례
 
 Azure Analysis Services에서 *노드* 는 서버 리소스가 실행 되는 호스트 가상 컴퓨터를 나타냅니다. 서버 리소스가 다른 노드로 이동 하는 경우 장기 실행 쿼리, 새로 고침 작업 및 쿼리 확장 동기화와 같은 일부 작업은 실패할 수 있습니다. 이 시나리오의 일반적인 오류 메시지는 다음과 같습니다.
 
 - "장기 실행 XMLA 요청을 찾으려고 시도 하는 동안 오류가 발생 했습니다. 서비스를 업그레이드 하거나 서버를 다시 시작 하 여 요청이 중단 되었을 수 있습니다. "
-- '<database>' 모델에 대<guid>한 ID가 ' ' 인 작업은 업데이트 없이 중지 되었으므로 새로 고침 요청을 취소 하는 중 서비스 오류 (비활성)로 인해 취소 되었습니다. 이것은 내부 서비스 문제입니다. 이 문제가 반복적으로 발생 하는 경우 도움을 받으려면 작업을 다시 제출 하거나 티켓을 파일에 제출 하세요. "
+- ' <guid> ' 모델에 대 한 ID가 ' ' 인 작업 <database> 은 업데이트 없이 중지 되었으므로 새로 고침 요청을 취소 하는 중 서비스 오류 (비활성)로 인해 취소 되었습니다. 이것은 내부 서비스 문제입니다. 이 문제가 반복적으로 발생 하는 경우 도움을 받으려면 작업을 다시 제출 하거나 티켓을 파일에 제출 하세요. "
 
 장기 실행 작업이 중단 될 수 있는 많은 이유가 있습니다. 예를 들어 Azure의 업데이트는 다음과 같습니다. 
 - 운영 체제 패치 

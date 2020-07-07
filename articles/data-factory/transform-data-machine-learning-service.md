@@ -11,10 +11,10 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419003"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Azure Data Factory에서 Azure Machine Learning 파이프라인 실행
@@ -67,7 +67,7 @@ continueOnStepFailure | 단계가 실패 하는 경우 Machine Learning 파이�
 * [데이터 흐름 작업 실행](control-flow-execute-data-flow-activity.md)
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
 * [Hive 작업](transform-data-using-hadoop-hive.md)
-* [Pig 활동](transform-data-using-hadoop-pig.md)
+* [Pig 작업](transform-data-using-hadoop-pig.md)
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)

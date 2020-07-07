@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371113"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용하여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
 
 > [!NOTE]
 > 이 커넥터는 [*공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)상태입니다. 
 
-Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 일반적으로 3270 에뮬레이터 화면을 탐색 하 여 구동 하는 IBM 메인프레임 앱에 액세스 하 고 실행할 수 있습니다. 이렇게 하면 Azure Logic Apps를 사용 하 여 자동화 된 워크플로를 만들어 IBM 메인프레임 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 시스템과 통합할 수 있습니다. 커넥터는 TN3270 프로토콜을 사용 하 여 IBM 메인프레임과 통신 하 고 Azure Government 및 Azure 중국 21Vianet을 제외 하 고 모든 Azure Logic Apps 지역에서 사용할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+Azure Logic Apps 및 IBM 3270 커넥터를 사용하여 일반적으로 3270 에뮬레이터 화면을 탐색함으로써 구동하는 IBM 메인프레임 앱에 액세스하고 실행할 수 있습니다. 이렇게 하면 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들어 IBM 메인프레임 앱을 Azure, Microsoft 등의 앱, 서비스 및 시스템과 통합할 수 있습니다. 커넥터는 TN3270 프로토콜을 사용하여 IBM 메인프레임과 통신하고 Azure Government 및 Azure 중국 21Vianet을 제외하고 모든 Azure Logic Apps 지역에서 사용할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 이 문서에서는 3270 커넥터 사용에 대 한 다음과 같은 측면을 설명 합니다. 
 
@@ -39,11 +39,11 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 디자인 도구에서 메타 데이터 파일을 생성 한 후에는 해당 파일을 Azure의 통합 계정에 추가 합니다. 이렇게 하면 논리 앱에서 3270 커넥터 작업을 추가할 때 앱의 메타 데이터에 액세스할 수 있습니다. 커넥터는 통합 계정에서 메타 데이터 파일을 읽고, 3270 화면에서 탐색을 처리 하 고, 3270 커넥터 작업에 대 한 매개 변수를 동적으로 표시 합니다. 그런 다음 호스트 응용 프로그램에 데이터를 제공할 수 있으며 커넥터가 결과를 논리 앱에 반환 합니다. 이렇게 하면 레거시 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 Azure Logic Apps 지원 되는 시스템과 통합할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * 권장: [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 
@@ -81,7 +81,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 * **탐색**:이 모드에서는 특정 작업에 대 한 메인프레임 앱 화면을 탐색 하는 방법에 대 한 계획 또는 경로를 지정 합니다.
 
-* **메서드**:이 모드에서는 화면 탐색 경로를 설명 하는 메서드 ( `GetBalance`예:)를 정의 합니다. 메서드의 입력 및 출력 매개 변수로 사용할 필드를 각 화면에서 선택할 수도 있습니다.
+* **메서드**:이 모드에서는 `GetBalance` 화면 탐색 경로를 설명 하는 메서드 (예:)를 정의 합니다. 메서드의 입력 및 출력 매개 변수로 사용할 필드를 각 화면에서 선택할 수도 있습니다.
 
 ### <a name="unsupported-elements"></a>지원 되지 않는 요소
 
@@ -151,7 +151,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 ## <a name="define-navigation-plans"></a>탐색 계획 정의
 
-이 모드에서는 특정 작업에 대 한 메인프레임 앱 화면을 탐색 하기 위한 흐름 또는 단계를 정의 합니다. 예를 들어, 한 경로가 올바른 결과를 생성 하는 동안 앱에서 사용할 수 있는 경로가 두 개 이상 있을 수 있으며, 다른 경로에 오류가 발생 하는 경우가 있습니다. 각 화면에 대해 다음 화면으로 이동 하는 데 필요한 키 입력을 지정 `CICSPROD <enter>`합니다 (예:).
+이 모드에서는 특정 작업에 대 한 메인프레임 앱 화면을 탐색 하기 위한 흐름 또는 단계를 정의 합니다. 예를 들어, 한 경로가 올바른 결과를 생성 하는 동안 앱에서 사용할 수 있는 경로가 두 개 이상 있을 수 있으며, 다른 경로에 오류가 발생 하는 경우가 있습니다. 각 화면에 대해 다음 화면으로 이동 하는 데 필요한 키 입력을 지정 합니다 (예:) `CICSPROD <enter>` .
 
 > [!TIP]
 > 동일한 연결 및 연결 끊기 화면을 사용 하는 몇 가지 작업을 자동화 하는 경우 디자인 도구는 특별 한 연결 및 연결 끊기 계획 유형을 제공 합니다. 이러한 계획을 정의할 때 탐색 계획의 시작과 끝에 이러한 계획을 추가할 수 있습니다.
@@ -182,9 +182,9 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 1. **새 계획 이름 선택**아래에서 계획의 이름을 입력 합니다. **유형** 목록에서 계획 유형을 선택 합니다.
 
-   | 계획 유형 | Description |
+   | 플랜 유형 | 설명 |
    |-----------|-------------|
-   | **프로세스** | 독립 실행형 또는 결합 된 계획 |
+   | **Process** | 독립 실행형 또는 결합 된 계획 |
    | **연결** | 연결 계획의 경우 |
    | **케이블** | 연결 끊기 계획의 경우 |
    |||
@@ -220,7 +220,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 * 메시지-10
 * CICS 시작
-* 비어 있음
+* Empty
 * WBGB_1 (입력)
 * WBGB_2 (오류)
 * Empty_1
@@ -292,7 +292,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    |---------------|-----------------|
    | **데이터 형식** | Byte, Date Time, Decimal, Int, Long, Short, String |
    | **필드 채우기 기술** | 매개 변수는 다음과 같은 채우기 형식을 지원 합니다. 필요한 경우 공백으로 채웁니다. <p><p>- **형식**: 필드에 순차적으로 문자를 입력 합니다. <p>- **채우기**: 필드의 내용을 문자로 바꾸고 필요한 경우 공백으로 채웁니다. <p>- **EraseEofType**: 필드를 지운 다음 필드에 순차적으로 문자를 입력 합니다. |
-   | **서식 문자열** | 일부 매개 변수 데이터 형식은 텍스트를 화면에서 .NET 데이터 형식으로 변환 하는 방법을 3270 커넥터에 알리는 형식 문자열을 사용 합니다. <p><p>- **Datetime**: datetime 형식 문자열은 [.net 사용자 지정 날짜 및 시간 서식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 따릅니다. 예를 들어 날짜 `06/30/2019` 는 서식 문자열 `MM/dd/yyyy`을 사용 합니다. <p>- **Decimal**: 10 진수 형식 문자열은 [COBOL Picture 절](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html)을 사용 합니다. 예를 들어 숫자 `100.35` 는 형식 문자열 `999V99`을 사용 합니다. |
+   | **서식 문자열** | 일부 매개 변수 데이터 형식은 텍스트를 화면에서 .NET 데이터 형식으로 변환 하는 방법을 3270 커넥터에 알리는 형식 문자열을 사용 합니다. <p><p>- **Datetime**: datetime 형식 문자열은 [.net 사용자 지정 날짜 및 시간 서식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 따릅니다. 예를 들어 날짜는 `06/30/2019` 서식 문자열을 사용 합니다 `MM/dd/yyyy` . <p>- **Decimal**: 10 진수 형식 문자열은 [COBOL Picture 절](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html)을 사용 합니다. 예를 들어 숫자는 `100.35` 형식 문자열을 사용 합니다 `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>메타 데이터 저장 및 보기
@@ -354,7 +354,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    ![3270 작업 선택](./media/connectors-create-api-3270/select-3270-action.png)
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 연결이 아직 없으면 연결에 필요한 정보를 제공 하 고 **만들기**를 선택 합니다.
 
@@ -363,16 +363,16 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    | **연결 이름** | 예 | <*연결-이름*> | 연결의 이름 |
    | **통합 계정 ID** | 예 | <*통합-계정 이름*> | 통합 계정의 이름 |
    | **통합 계정 SAS URL** | 예 | <*통합-계정-SAS URL*> | 통합 계정의 SAS (공유 액세스 서명) URL은 Azure Portal의 통합 계정 설정에서 생성할 수 있습니다. <p>1. 통합 계정 메뉴의 **설정**에서 **콜백 URL**을 선택 합니다. <br>2. 오른쪽 창에서 **생성 된 콜백 URL** 값을 복사 합니다. |
-   | **서버** | 예 | <*TN3270-이름*> | TN3270 서비스에 대 한 서버 이름 |
-   | **포트** | 아니요 | <*TN3270-포트*> | TN3270 서버에서 사용 하는 포트입니다. 이 값을 비워 두면 커넥터에서 `23` 을 기본값으로 사용 합니다. |
+   | **Server** | 예 | <*TN3270-이름*> | TN3270 서비스에 대 한 서버 이름 |
+   | **포트** | 아니요 | <*TN3270-포트*> | TN3270 서버에서 사용 하는 포트입니다. 이 값을 비워 두면 커넥터에서을 `23` 기본값으로 사용 합니다. |
    | **디바이스 유형** | 아니요 | <*IBM-터미널 모델*> | 에뮬레이션할 IBM 터미널의 모델 이름 또는 번호입니다. 이 값을 비워 두면 커넥터에서 기본값을 사용 합니다. |
-   | **코드 페이지** | 아니요 | <*코드 페이지 번호*> | 호스트의 코드 페이지 번호입니다. 이 값을 비워 두면 커넥터에서 `37` 을 기본값으로 사용 합니다. |
+   | **코드 페이지** | 아니요 | <*코드 페이지 번호*> | 호스트의 코드 페이지 번호입니다. 이 값을 비워 두면 커넥터에서을 `37` 기본값으로 사용 합니다. |
    | **논리 단위 이름** | 아니요 | <*논리 단위 이름*> | 호스트에서 요청할 특정 논리 단위 이름입니다. |
    | **SSL을 사용 하도록 설정 하 시겠습니까?** | 아니요 | 설정 또는 해제 | TLS 암호화를 설정 하거나 해제 합니다. |
    | **호스트 ssl 인증서의 유효성을 검사 하 시겠습니까?** | 아니요 | 설정 또는 해제 | 서버 인증서에 대 한 유효성 검사를 설정 하거나 해제 합니다. |
    ||||
 
-   다음은 그 예입니다.
+   예:
 
    ![연결 속성](./media/connectors-create-api-3270/connection-properties.png)
 
@@ -384,7 +384,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    | **메서드 이름** | 예 | <*메서드 이름*> | HIDX 파일에서 사용 하려는 메서드를 선택 합니다. 메서드를 선택한 후에는 **새 매개 변수 추가** 목록이 표시 되므로 해당 메서드와 함께 사용할 매개 변수를 선택할 수 있습니다. |
    ||||
 
-   다음은 그 예입니다.
+   예:
 
    **HIDX 파일 선택**
 

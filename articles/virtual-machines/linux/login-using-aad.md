@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366498"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
@@ -69,10 +69,10 @@ Azure에서 Linux Vm에 대해 Azure AD 인증을 사용 하도록 설정 하려
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//device.login.microsoftonline.com
-* https:\//pas.windows.net
+* https: \/ /device.login.microsoftonline.com
+* https: \/ /pas.windows.net
 * https:\//management.azure.com
-* https:\//packages.microsoft.com
+* https: \/ /packages.microsoft.com
 
 > [!NOTE]
 > 현재 azure AD 인증을 사용 하도록 설정 된 Vm에 대해 Azure 네트워크 보안 그룹을 구성할 수 없습니다.
@@ -154,7 +154,7 @@ Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-에서 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)일회성 사용 코드를 사용 하 여 Azure AD에 로그인 하 라는 메시지가 표시 됩니다. 일회성 사용 코드를 복사 하 여 장치 로그인 페이지에 붙여 넣습니다.
+에서 일회성 사용 코드를 사용 하 여 Azure AD에 로그인 하 라는 메시지가 표시 됩니다 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) . 일회성 사용 코드를 복사 하 여 장치 로그인 페이지에 붙여 넣습니다.
 
 메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 
 
@@ -200,7 +200,7 @@ Access denied
 
 웹 브라우저에서 인증 단계를 성공적으로 완료한 경우 즉시 새 코드를 사용하여 다시 로그인하라는 메시지가 표시될 수 있습니다. 이 오류는 일반적으로 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치로 인해 발생합니다. 이 문제를 수정하려면:
 
-- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *azureuser\@contoso.onmicrosoft.com*대신 *azuresuer\@contoso.onmicrosoft.com* 를 입력 했습니다.
+- SSH 프롬프트에 지정한 로그인 이름이 올바른지 확인합니다. 로그인 이름의 오타로 인해 SSH 프롬프트에서 지정한 로그인 이름과 Azure AD에 로그인한 계정 간의 불일치가 발생할 수 있습니다. 예를 들어 *azureuser \@ contoso.onmicrosoft.com*대신 *azuresuer \@ contoso.onmicrosoft.com* 를 입력 했습니다.
 - 여러 사용자 계정이 있는 경우 Azure AD에 로그인할 때 브라우저 창에서 다른 사용자 계정을 입력하지 않도록 확인합니다.
 - Linux는 대/소문자 구분 운영 체제입니다. 'Azureuser@contoso.onmicrosoft.com'및'azureuser@contoso.onmicrosoft.com' 간의 차이로 인해 불일치가 발생할 수 있습니다. SSH 프롬프트에서 대/소문자 구분이 올바른 UPN을 지정했는지 확인합니다.
 

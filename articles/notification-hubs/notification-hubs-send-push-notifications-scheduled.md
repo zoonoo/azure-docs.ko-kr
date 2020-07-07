@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71213010"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
@@ -51,7 +51,7 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 다음 자습서를 참조하세요.
 
  - [등록된 모든 디바이스에 알림 푸시](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
- - [특정 디바이스에 푸시 알림](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
+ - [특정 디바이스에 알림 푸시](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [지역화된 알림 푸시](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
  - [특정 사용자에게 푸시 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
  - [위치 기반 푸시 알림](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335572"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
@@ -37,7 +37,7 @@ ms.locfileid: "80335572"
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}`-하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "80335572"
 
 아래 단계를 수행 하 여 지도에 타일 계층을 추가할 수 있습니다.
 
-1. **Res > 레이아웃 > activity_main xml** 을 편집 하 여 아래와 같이 표시 합니다.
+1. **> 레이아웃 > activity_main.xml** 아래와 같이 표시 되도록 res를 편집 합니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ ms.locfileid: "80335572"
     </FrameLayout>
     ```
 
-2. 아래의 다음 코드 조각을 `MainActivity.java` 클래스의 **onCreate ()** 메서드에 복사 합니다.
+2. 아래의 다음 코드 조각을 클래스의 **onCreate ()** 메서드에 복사 `MainActivity.java` 합니다.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,7 +84,7 @@ ms.locfileid: "80335572"
     });
     ```
     
-    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 개체를 `TileLayer` 만들고 서식 지정 된 **xyz** 타일 URL을 `tileUrl` 옵션으로 전달 합니다. 계층의 불투명도는로 `0.8` 설정 되 고, 사용 되는 타일 서비스의 타일은 256 픽셀 타일로 설정 되므로이 정보는 `tileSize` 옵션으로 전달 됩니다. 그러면 타일 계층이 지도 계층 관리자로 전달 됩니다.
+    위의 코드 조각은 먼저 **Onready ()** 콜백 메서드를 사용 하 여 Azure Maps map 컨트롤 인스턴스를 가져옵니다. 그런 다음 개체를 만들고 `TileLayer` 서식 지정 된 **XYZ** 타일 URL을 옵션으로 전달 `tileUrl` 합니다. 계층의 불투명도는로 설정 되 `0.8` 고, 사용 되는 타일 서비스의 타일은 256 픽셀 타일로 설정 되므로이 정보는 옵션으로 전달 됩니다 `tileSize` . 그러면 타일 계층이 지도 계층 관리자로 전달 됩니다.
 
     위의 코드 조각을 추가한 후에 `MainActivity.java` 는 아래와 같이 표시 됩니다.
     
@@ -179,4 +179,4 @@ ms.locfileid: "80335572"
 지도 스타일을 설정 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Android maps에서 지도 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

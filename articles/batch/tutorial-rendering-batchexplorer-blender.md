@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117083"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964807"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 
@@ -27,9 +27,9 @@ ms.locfileid: "82117083"
 
 사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
 
-스토리지 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
+스토리지 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](./quick-create-cli.md)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
 
-이 자습서에 지정된 VM 크기 및 VM 수에 대해 우선 순위가 낮은 코어 할당량으로 최소 50개 코어가 필요합니다. 기본 할당량을 사용할 수 있지만 작은 VM 크기를 사용해야 합니다. 그러면 이미지를 렌더링하는 데 더 많은 시간이 걸립니다. 코어 할당량을 증가하도록 요청하는 프로세스는 [이 아티클](https://docs.microsoft.com/azure/batch/batch-quota-limit)에 자세히 설명됩니다.
+이 자습서에 지정된 VM 크기 및 VM 수에 대해 우선 순위가 낮은 코어 할당량으로 최소 50개 코어가 필요합니다. 기본 할당량을 사용할 수 있지만 작은 VM 크기를 사용해야 합니다. 그러면 이미지를 렌더링하는 데 더 많은 시간이 걸립니다. 코어 할당량을 증가하도록 요청하는 프로세스는 [이 아티클](./batch-quota-limit.md)에 자세히 설명됩니다.
 
 마지막으로, [Batch 탐색기](https://azure.github.io/BatchExplorer/)가 설치되어 있어야 합니다. 이 기능은 Windows, OSX 및 Linux에서 사용할 수 있습니다. 선택 사항이지만 [Blender](https://www.blender.org/download/)가 설치된 경우 샘플 모델 파일을 볼 수 있습니다.
 
@@ -139,4 +139,4 @@ Blender에서 생성된 stdout.txt 로그 파일을 확인하여 렌더링 상�
 ## <a name="next-steps"></a>다음 단계
 * '갤러리' 섹션에서 Batch 탐색기를 통해 사용 가능한 렌더링 애플리케이션을 탐색합니다.
 * 각 애플리케이션에는 시간이 지남에 따라 확장되는 사용 가능한 여러 템플릿이 있습니다.  예를 들어 Blender의 경우 이미지의 일부를 병렬적으로 렌더링할 수 있도록 단일 이미지를 타일로 분할하는 템플릿이 있습니다.
-* 렌더링 기능에 대한 포괄적인 설명은 [여기](https://docs.microsoft.com/azure/batch/batch-rendering-service)에 있는 아티클 집합을 참조하세요.
+* 렌더링 기능에 대한 포괄적인 설명은 [여기](./batch-rendering-service.md)에 있는 아티클 집합을 참조하세요.
