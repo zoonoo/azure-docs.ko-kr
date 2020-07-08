@@ -5,11 +5,12 @@ description: AKS(Azure Kubernetes Services)의 클러스터 격리에 대한 클
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668347"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077768"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -29,7 +30,7 @@ Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으�
   * 더 고급 스케줄러 기능에는 taint/toleration, 노드 선택기 및 노드/Pod 선호도 또는 선호도 방지가 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능 모범 사례][aks-best-practices-advanced-scheduler]를 참조하세요.
 * **네트워킹**에는 네트워크 정책을 사용하여 Pod 내/외부 트래픽 흐름을 제어하는 기능이 포함됩니다.
 * **인증 및 권한 부여**에는 Azure Key Vault에서 RBAC(역할 기반 액세스 제어) 및 Azure AD(Active Directory) 통합, Pod ID 및 비밀을 사용하는 기능이 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 인증 및 권한 부여 모범 사례][aks-best-practices-identity]를 참조하세요.
-* **컨테이너**에는 취약성을 위한 Pod 보안 정책, Pod 보안 컨텍스트, 스캔 이미지 및 런타임이 포함됩니다. 또한 컨테이너 액세스를 기본 노드로 제한하는 App Armor 또는 Seccomp(Secure Computing) 사용이 포함됩니다.
+* **컨테이너** 에는 AKS에 대 한 추가 기능을 Azure Policy 포함 하 여 pod 보안을 적용 하 고, pod 보안 컨텍스트를 사용 하 고, 취약점에 대 한 이미지와 런타임을 모두 검색할 수 있습니다. 또한 컨테이너 액세스를 기본 노드로 제한하는 App Armor 또는 Seccomp(Secure Computing) 사용이 포함됩니다.
 
 ## <a name="logically-isolate-clusters"></a>논리적으로 클러스터 격리
 

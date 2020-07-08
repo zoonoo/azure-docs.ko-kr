@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076575"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 비즈니스 연속성 이해
 
@@ -48,11 +48,12 @@ Azure Database for MariaDB에는 자동화된 백업 및 사용자가 지역 복
 > [!IMPORTANT]
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다.
 
+## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
+
+지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 MariaDB의 이진 로그 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
+
 ## <a name="next-steps"></a>다음 단계
 
-- 자동화된 백업에 대해 자세히 알아보려면 [Azure Database for MariaDB의 백업](concepts-backup.md)을 참조하세요.
-- Azure Portal을 사용하여 특정 시점으로 복원하려면  [Azure Portal을 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-portal.md)을 참조하세요.
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- [Azure Database for MariaDB에서 자동화 된 백업](concepts-backup.md)에 대해 자세히 알아보세요.
+- [Azure Portal](howto-restore-server-portal.md) 또는 [Azure CLI](howto-restore-server-cli.md)를 사용하여 복원하는 방법을 알아봅니다.
+- [Azure Database for MariaDB의 복제본 읽기](concepts-read-replicas.md)에 대해 알아봅니다.

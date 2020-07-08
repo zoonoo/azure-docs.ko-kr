@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771675"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076949"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -46,12 +46,12 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 |  | Description |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |
 | IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
-| AssertionConsumerServiceUrl | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
+| AssertionConsumerServiceUrl | 선택 사항 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
 | ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
 | IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
 
@@ -86,6 +86,8 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값을 사용하면 Active Directory에서 클레임 형식을 선택할 수 있습니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하게 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
 
+`SPNameQualifier`을 지정 하면 AZURE AD는 응답에 동일한을 포함 합니다 `SPNameQualifier` .
+
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 제공되는 경우 `ProxyCount` 특성, `IDPListOption` 또는 `RequesterID` 요소는 지원되지 않으므로 포함하지 않습니다.
 
 ### <a name="signature"></a>서명
-`AuthnRequest` 요소에 `Signature` 요소를 포함하지 마세요. Azure AD는 서명된 인증 요청의 유효성을 검사하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
+요소의 `Signature` 요소는 `AuthnRequest` 선택 사항입니다. 서명이 존재 하는 경우 Azure AD는 서명 된 인증 요청의 유효성을 검사 하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
 
 ### <a name="subject"></a>제목
 `Subject` 요소를 포함하지 마세요. Azure AD는 요청 주제 지정을 지원하지 않고, 요청이 제공되면 오류를 반환합니다.
@@ -157,7 +159,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 
 ### <a name="issuer"></a>발급자
 
-Azure AD는 `Issuer` 요소를 `https://sts.windows.net/<TenantIDGUID>/`로 설정합니다. 여기서 \<TenantIDGUID>는 Azure AD 테넌트의 테넌트 ID입니다.
+Azure AD는 `Issuer` 요소를 `https://sts.windows.net/<TenantIDGUID>/`로 설정합니다. 여기서 \<TenantIDGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
 
 예를 들어 발급자 요소가 포함된 응답은 다음 샘플과 같습니다.
 
@@ -192,7 +194,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>발급자
 
-`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 \<TenantIDGUID>는 Azure AD 테넌트의 테넌트 ID입니다.
+`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 \<TenantIDGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

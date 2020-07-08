@@ -2,33 +2,33 @@
 title: ACR 작업에서 외부 인증
 description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽도록 Azure Container Registry 작업 (ACR 작업)을 구성 합니다.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842523"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058132"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure에서 관리 하는 id를 사용 하 여 ACR 작업에서 외부 인증 
 
-[ACR 작업](container-registry-tasks-overview.md)에서 [Azure 리소스에 대해 관리 되는 id를 사용 하도록 설정할](container-registry-tasks-authentication-managed-identity.md)수 있습니다. 작업은 자격 증명을 제공 하거나 관리할 필요 없이 id를 사용 하 여 다른 Azure 리소스에 액세스할 수 있습니다. 
+[ACR 작업](container-registry-tasks-overview.md)에서 [Azure 리소스에 대한 관리 ID를 사용](container-registry-tasks-authentication-managed-identity.md)하도록 설정할 수 있습니다. 이 작업은 ID를 사용하여 자격 증명을 제공하거나 관리할 필요 없이 다른 Azure 리소스에 액세스할 수 있습니다. 
 
 이 문서에서는 Azure key vault에 저장 된 암호에 액세스 하는 작업에서 관리 되는 id를 사용 하도록 설정 하는 방법에 대해 알아봅니다. 
 
-이 문서에서는 Azure 리소스를 만들기 위해 Azure CLI 버전 2.0.68 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
+Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.68 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
 예제 작업은 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽습니다. 자격 증명은 개인 Docker 허브 리포지토리에 대 한 쓰기 (푸시) 권한이 있는 Docker 허브 계정에 대 한 자격 증명입니다. 자격 증명을 읽으려면 관리 되는 id를 사용 하 여 작업을 구성 하 고 적절 한 권한을 할당 합니다. Id와 연결 된 태스크는 이미지를 빌드하고 Docker 허브에 로그인 하 여 이미지를 개인 리포지토리로 푸시합니다. 
 
-이 예에서는 사용자 할당 또는 시스템 할당 관리 id를 사용 하는 단계를 보여 줍니다. 선택한 id는 조직의 요구 사항에 따라 달라 집니다.
+이 예에서는 사용자가 할당한 관리 ID 또는 시스템 할당 관리 ID를 사용하는 단계를 보여줍니다. 선택한 ID는 조직의 요구 사항에 따라 달라집니다.
 
 실제 시나리오에서 회사는 빌드 프로세스의 일부로 Docker 허브의 개인 리포지토리에 이미지를 게시할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서이 레지스트리의 이름은 *myregistry*입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
+작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서 이 레지스트리의 이름은 *myregistry*입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
 Azure container registry가 아직 없는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 아직 레지스트리에 이미지를 푸시할 필요는 없습니다.
 
@@ -66,9 +66,9 @@ az keyvault secret set \
 
 실제 시나리오에서 비밀은 별도의 프로세스로 설정 및 유지 관리 될 수 있습니다.
 
-## <a name="define-task-steps-in-yaml-file"></a>YAML 파일에서 작업 단계를 정의 합니다.
+## <a name="define-task-steps-in-yaml-file"></a>YAML 파일에서 작업 단계 정의
 
-이 예제 작업의 단계는 [Yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. 로컬 작업 디렉터리에 `dockerhubtask.yaml` 이라는 파일을 만들고 다음 내용을 붙여넣습니다. 파일의 키 자격 증명 모음 이름을 키 자격 증명 모음의 이름으로 바꾸어야 합니다.
+이 예제 작업의 단계는 [Yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. `dockerhubtask.yaml`로컬 작업 디렉터리에 이라는 파일을 만들고 다음 내용을 붙여넣습니다. 파일의 키 자격 증명 모음 이름을 키 자격 증명 모음의 이름으로 바꾸어야 합니다.
 
 ```yml
 version: v1.1.0
@@ -91,20 +91,20 @@ steps:
 작업 단계는 다음을 수행 합니다.
 
 * Docker 허브를 사용 하 여 인증 하는 비밀 자격 증명을 관리 합니다.
-* 암호를 `docker login` 명령에 전달 하 여 Docker 허브를 통해 인증 합니다.
+* 암호를 명령에 전달 하 여 Docker 허브를 통해 인증 `docker login` 합니다.
 * [Azure 샘플/acr-작업](https://github.com/Azure-Samples/acr-tasks.git) 리포지토리에서 샘플 Dockerfile을 사용 하 여 이미지를 빌드합니다.
 * 개인 Docker 허브 리포지토리에 이미지를 푸시합니다.
 
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>옵션 1: 사용자 할당 id를 사용 하 여 작업 만들기
+## <a name="option-1-create-task-with-user-assigned-identity"></a>옵션 1: 사용자 할당 ID로 작업 만들기
 
-이 섹션의 단계에서는 작업을 만들고 사용자 할당 id를 사용 하도록 설정 합니다. 시스템 할당 id를 대신 사용 하도록 설정 하려면 [옵션 2: 시스템 할당 id를 사용 하 여 작업 만들기](#option-2-create-task-with-system-assigned-identity)를 참조 하세요. 
+이 섹션의 단계에서는 작업을 만들고 사용자 할당 ID를 사용합니다. 대신 시스템 할당 ID를 사용하도록 설정하려면 [옵션 2: 시스템 할당 ID로 작업 만들기](#option-2-create-task-with-system-assigned-identity)를 참조하세요. 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 소스 코드 컨텍스트 없이 작업이 실행되고 명령이 작업 디렉터리의 `dockerhubtask.yaml` 파일을 참조합니다. `--assign-identity` 매개 변수는 사용자 할당 ID의 리소스 ID를 전달합니다. 
 
 ```azurecli
 az acr task create \
@@ -117,13 +117,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>옵션 2: 시스템 할당 id를 사용 하 여 작업 만들기
 
-이 섹션의 단계에서는 작업을 만들고 시스템 할당 id를 사용 하도록 설정 합니다. 사용자 할당 id를 대신 사용 하려면 [옵션 1: 사용자 할당 id를 사용 하 여 작업 만들기](#option-1-create-task-with-user-assigned-identity)를 참조 하세요. 
+### <a name="grant-identity-access-to-key-vault"></a>Key vault에 id 액세스 권한 부여
+
+다음 [az keyvault set-policy][az-keyvault-set-policy] 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 id가 키 자격 증명 모음에서 암호를 읽을 수 있도록 허용 합니다. 
+
+```azurecli
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
+```
+
+[수동으로 작업 실행](#manually-run-the-task)을 진행 합니다.
+
+## <a name="option-2-create-task-with-system-assigned-identity"></a>옵션 2: 시스템 할당 ID로 작업 만들기
+
+이 섹션의 단계에서는 작업을 만들고 시스템 할당 ID를 사용합니다. 대신 사용자 할당 ID를 사용하도록 설정하려면 [옵션 1: 사용자 할당 ID로 작업 만들기](#option-1-create-task-with-user-assigned-identity)를 참조하세요. 
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `dockerhubtask.yaml` 을 참조 합니다. 값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다.  
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *dockerhubtask* 작업을 만듭니다. 소스 코드 컨텍스트 없이 작업이 실행되고 명령이 작업 디렉터리의 `dockerhubtask.yaml` 파일을 참조합니다. 값이 없는 `--assign-identity` 매개 변수는 작업에서 시스템 할당 ID를 사용합니다.  
 
 ```azurecli
 az acr task create \
@@ -136,7 +150,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Key vault에 id 액세스 권한 부여
+### <a name="grant-identity-access-to-key-vault"></a>Key vault에 id 액세스 권한 부여
 
 다음 [az keyvault set-policy][az-keyvault-set-policy] 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 id가 키 자격 증명 모음에서 암호를 읽을 수 있도록 허용 합니다. 
 
@@ -149,7 +163,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>수동으로 작업 실행
 
-관리 id를 사용 하도록 설정한 태스크가 성공적으로 실행 되는지 확인 하려면 [az acr task run][az-acr-task-run] 명령을 사용 하 여 수동으로 작업을 트리거합니다. `--set` 매개 변수는 개인 리포지토리 이름을 작업에 전달 하는 데 사용 됩니다. 이 예제에서 자리 표시자 리포지토리 이름은 *hubuser/hubrepo*입니다.
+관리 ID를 사용하는 작업이 성공적으로 실행되는지 확인하려면 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다. `--set`매개 변수는 개인 리포지토리 이름을 작업에 전달 하는 데 사용 됩니다. 이 예제에서 자리 표시자 리포지토리 이름은 *hubuser/hubrepo*입니다.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
@@ -202,12 +216,12 @@ Sending build context to Docker daemon    129kB
 Run ID: cf24 was successful after 15s
 ```
 
-이미지가 푸시 되었는지 확인 하려면 개인 Docker 허브 리포지토리에서 태그 (`cf24` 이 예제에서는)를 확인 합니다.
+이미지가 푸시 되었는지 확인 하려면 `cf24` 개인 Docker 허브 리포지토리에서 태그 (이 예제에서는)를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [ACR 작업에서 관리 id를 사용 하도록 설정 하](container-registry-tasks-authentication-managed-identity.md)는 방법에 대해 자세히 알아보세요.
-* [ACR 작업 YAML 참조](container-registry-tasks-reference-yaml.md) 를 참조 하세요.
+* [ACR 작업에서 관리 ID 사용](container-registry-tasks-authentication-managed-identity.md)에 대해 자세히 알아보세요.
+* [ACR 작업 YAML 참조](container-registry-tasks-reference-yaml.md)를 참조하세요.
 
 
 <!-- LINKS - Internal -->

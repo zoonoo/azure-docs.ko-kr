@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Portal, PowerShell 또는 REST Api를 사
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454240"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077510"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
-서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 보안 그룹이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
+서버 관리자는 서버가 상주 하는 테 넌 트에 대 한 유효한 사용자, 서비스 주체 또는 보안 Azure Active Directory 그룹 (Azure AD) 이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
 
-**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid` 합니다.
+**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid` 합니다. 서비스 사용자는 서버 관리자 역할에 추가 된 보안 그룹에서 지원 되지 않습니다.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
 

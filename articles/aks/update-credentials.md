@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에 대 한 서비스 �
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077697"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 대 한 자격 증명 업데이트 또는 순환
 
@@ -30,6 +30,16 @@ AKS 클러스터의 자격 증명을 업데이트하려면 다음을 선택하�
 
 * 클러스터에서 사용하는 기존 서비스 주체의 자격 증명을 업데이트하거나,
 * 서비스 주체를 만들고 이 새 자격 증명을 사용하도록 클러스터를 업데이트합니다.
+
+### <a name="check-the-expiration-date-of-your-service-principal"></a>서비스 사용자의 만료 날짜를 확인 합니다.
+
+서비스 사용자의 만료 날짜를 확인 하려면 [az ad sp credential list][az-ad-sp-credential-list] 명령을 사용 합니다. 다음 예제에서는 [az aks show][az-aks-show] 명령을 사용 하 여 *myresourcegroup* 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 서비스 사용자 ID를 가져옵니다. 서비스 사용자 ID는 [az ad SP credential list][az-ad-sp-credential-list] 명령과 함께 사용할 *SP_ID* 라는 변수로 설정 됩니다.
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
 
 ### <a name="reset-existing-service-principal-credential"></a>기존 서비스 사용자 자격 증명 다시 설정
 
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 서비스 주체 자격 증명이 AKS에서 업데이트되는 데 몇 분 정도 걸립니다.
@@ -120,4 +130,5 @@ az aks update-credentials \
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

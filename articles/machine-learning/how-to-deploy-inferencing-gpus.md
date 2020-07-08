@@ -11,12 +11,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976747"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077000"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,6 +161,9 @@ channels:
 이 예에서는 파일이로 저장 됩니다 `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>배포 구성 정의
+
+> [!IMPORTANT]
+> AKS는 pod에서 Gpu를 공유할 수 있도록 허용 하지 않습니다. GPU 사용 웹 서비스의 복제본은 클러스터에 있는 Gpu 만큼만 사용할 수 있습니다.
 
 배포 구성은 웹 서비스를 실행 하는 데 사용 되는 Azure Kubernetes 서비스 환경을 정의 합니다.
 

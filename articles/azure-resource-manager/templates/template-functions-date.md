@@ -2,13 +2,13 @@
 title: 템플릿 함수-날짜
 description: Azure Resource Manager 템플릿에서 날짜 작업에 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192300"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058047"
 ---
 # <a name="date-functions-for-arm-templates"></a>ARM 템플릿에 대 한 날짜 함수
 
@@ -25,11 +25,11 @@ ms.locfileid: "82192300"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | base | 예 | string | 더하기의 시작 날짜/시간 값입니다. [ISO 8601 타임 스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용 합니다. |
 | duration | 예 | string | 밑에 더할 시간 값입니다. 음수 값일 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용 합니다. |
-| format | 아니요 | string | 날짜/시간 결과의 출력 형식입니다. 지정 하지 않으면 기준 값의 형식이 사용 됩니다. [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| format | 예 | 문자열 | 날짜/시간 결과의 출력 형식입니다. 지정 하지 않으면 기준 값의 형식이 사용 됩니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -72,13 +72,13 @@ ms.locfileid: "82192300"
 }
 ```
 
-위의 템플릿이 기본 시간 `2020-04-07 14:53:14Z`을 사용 하 여 배포 된 경우 출력은 다음과 같습니다.
+위의 템플릿이 기본 시간을 사용 하 여 배포 된 경우 `2020-04-07 14:53:14Z` 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| add3Years | 문자열 | 오후 4/7/2023 2:53:14 |
-| subtract9Days | 문자열 | 오후 3/29/2020 2:53:14 |
-| add1Hour | 문자열 | 오후 4/7/2020 3:53:14 |
+| add3Years | String | 오후 4/7/2023 2:53:14 |
+| subtract9Days | String | 오후 3/29/2020 2:53:14 |
+| add1Hour | String | 오후 4/7/2020 3:53:14 |
 
 다음 예제 템플릿에서는 자동화 일정의 시작 시간을 설정 하는 방법을 보여 줍니다.
 
@@ -142,15 +142,15 @@ ms.locfileid: "82192300"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| format |아니요 |string |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
 ### <a name="remarks"></a>설명
 
 이 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다. 템플릿의 다른 위치에서이 함수를 사용 하면 오류가 반환 됩니다. 함수는 호출 될 때마다 다른 값을 반환 하므로 템플릿의 다른 부분에서는 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하는 것은 안정적으로 동일한 결과를 생성 하지 않습니다.
 
-[이전에 성공한 배포](rollback-on-error.md)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+이전에 성공한 배포에 [대해 오류 발생 시 롤백 옵션](rollback-on-error.md) 을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
 
 기본값에 대해 utcNow 함수를 사용 하는 템플릿을 다시 배포 해야 합니다. 다시 배포 하는 경우 매개 변수에 대 한 값을 제공 하지 않으면 함수가 재평가 됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트 하려면 이전 배포에서 매개 변수 값을 전달 합니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "82192300"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {
@@ -201,7 +201,7 @@ ms.locfileid: "82192300"
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 2019/03/05 |

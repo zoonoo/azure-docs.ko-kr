@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bdca30c82b31bda2e843b3712cfbe772952f3e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016477"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077306"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -37,7 +38,7 @@ Azure IaaS (infrastructure as a service) VM (가상 머신) 또는 온-프레미
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [장애 조치(failover) 클러스터링(Always On FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | 노드 간 장애 조치 (failover)에 소요 된 시간입니다. | Always On FCI는 공유 저장소를 사용 하므로 장애 조치 (failover) 시 저장소 인스턴스의 동일한 뷰를 사용할 수 있습니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [데이터베이스 미러링 (성능 우선 모드)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 미러 서버를 웜 대기 서버로 사용 하는 서비스를 강제 적용 하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 작습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우에는 크기가 커질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
 SQL as Azure의 PaaS (platform as a service)<br/><br/>이 배포 유형에는 단일 데이터베이스 및 탄력적 풀이 포함 됩니다. | 활성 지리적 복제 | 장애 조치 (failover)가 트리거된 후 30 초<br/><br/>보조 데이터베이스 중 하나에 대해 장애 조치 (failover)가 활성화 되 면 다른 모든 보조 데이터베이스는 새 주 데이터베이스에 자동으로 연결 됩니다. | RPO는 5 초입니다.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용 합니다. Snapshot 격리를 사용 하 여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제 합니다.<br/><br/>보조 데이터에는 부분적 트랜잭션이 포함 되지 않을 수 있습니다.
-Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형에는 SQL Database 관리 되는 인스턴스, 탄력적 풀 및 단일 데이터베이스가 포함 됩니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
+Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형에는 관리 되는 인스턴스, 탄력적 풀 및 단일 데이터베이스가 포함 됩니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Recovery 복제 | RTO는 일반적으로 15 분 미만입니다. 자세한 내용은 [Site Recovery에서 제공 하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 응용 프로그램 일관성을 위해 1 시간, 크래시 일관성의 경우 5 분 더 낮은 RPO를 찾고 있는 경우 다른 BCDR 기술을 사용 합니다.
 
 > [!NOTE]
@@ -148,7 +149,7 @@ Azure 지역으로 복제 하는 경우 Site Recovery는 게스트 클러스터 
 
 SQL Server Standard 클러스터의 경우 계획 되지 않은 장애 조치 (failover) 후 장애 복구 (failback)에 SQL Server 백업 및 복원이 필요 미러 서버는 미러 서버를 다시 설정 하 여 미러 인스턴스에서 원래 클러스터로 작업을 수행 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Site Recovery와 함께 사용 하는 경우 SQL Server 어떻게 사용이 허가 됩니까?
 

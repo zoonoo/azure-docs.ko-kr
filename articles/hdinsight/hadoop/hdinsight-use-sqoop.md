@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84018840"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076881"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 
@@ -45,13 +46,13 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
   
   | 필드 | 데이터 형식 |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
+  | clientid |문자열 |
+  | querytime |문자열 |
+  | market |문자열 |
+  | deviceplatform |문자열 |
+  | devicemake |문자열 |
+  | devicemodel |문자열 |
+  | state |문자열 |
   | country |문자열 |
   | querydwelltime |double |
   | sessionid |bigint |

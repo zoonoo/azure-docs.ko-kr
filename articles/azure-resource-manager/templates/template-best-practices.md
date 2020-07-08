@@ -2,25 +2,21 @@
 title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156415"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058064"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
-이 문서에서는 ARM (Azure Resource Manager) 템플릿을 생성 하는 방법에 대 한 권장 사항을 제공 합니다. 이러한 권장 사항은 ARM 템플릿을 사용 하 여 솔루션을 배포할 때 발생 하는 일반적인 문제를 방지 하는 데 도움이 됩니다.
-
-Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterprise 스 캐 폴드: 규범적 구독 거 버 넌 스](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)를 참조 하세요.
-
-모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성에 대한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
+이 문서에서는 ARM 템플릿을 구성할 때 권장 사례를 사용 하는 방법을 보여 줍니다. 이러한 권장 사항은 ARM 템플릿을 사용 하 여 솔루션을 배포할 때 발생 하는 일반적인 문제를 방지 하는 데 도움이 됩니다.
 
 ## <a name="template-limits"></a>템플릿 제한
 
-템플릿의 크기를 4mb로 제한 하 고 각 매개 변수 파일을 64 KB로 제한 합니다. 4mb 제한은 반복 리소스 정의를 사용 하 여 확장 된 템플릿의 최종 상태와 변수 및 매개 변수의 값에 적용 됩니다. 
+템플릿의 크기를 4mb로 제한 하 고 각 매개 변수 파일을 64 KB로 제한 합니다. 4mb 제한은 반복 리소스 정의를 사용 하 여 확장 된 템플릿의 최종 상태와 변수 및 매개 변수의 값에 적용 됩니다.
 
 또한 다음으로 제한됩니다.
 
@@ -93,7 +89,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 리소스 유형의 API 버전에 대해서는 매개 변수를 사용하지 마세요. 리소스 속성 및 값은 버전 번호에 따라 달라질 수 있습니다. API 버전이 매개 변수로 설정되면 코드 편집기의 IntelliSense에서 올바른 스키마를 확인할 수 없습니다. 대신, 템플릿에 API 버전을 하드 코드합니다.
 
-* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. 너무 광범위 하 `allowedValues` 게 사용 하는 경우 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
+* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. 너무 광범위 하 게 사용 하는 경우 `allowedValues` 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
 
 * 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
 
@@ -234,7 +230,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
    * [Azure Resource Manager에서 VM에 대한 WinRM 액세스 설정](../../virtual-machines/windows/winrm.md)
    * [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [PowerShell을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Azure CLI를 사용하여 Linux VM에 대한 외부 액세스 허용](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Azure CLI를 사용하여 Linux VM에 대한 외부 액세스 허용](../../virtual-machines/linux/nsg-quickstart.md)
 
 * 공용 IP 주소에 대한 **domainNameLabel** 속성은 고유해야 합니다. **domainNameLabel** 값은 3~63자 사이여야 하고 `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` 정규식으로 지정된 규칙을 따라야 합니다. **uniqueString** 함수는 13자 길이의 문자열을 생성하고, **dnsPrefixString** 매개 변수는 50자로 제한됩니다.
 
@@ -275,7 +271,12 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
    > [!NOTE]
    > VM 및 확장에 매개 변수로 전달되는 비밀이 암호화되도록 하려면 관련 확장의 **protectedSettings** 속성을 사용합니다.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>테스트 도구 키트 사용
+
+ARM 템플릿 테스트 도구 키트는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 하는 스크립트입니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 통해 템플릿에서 모범 사례를 구현 하는 방법을 배울 수 있습니다.
+
+템플릿을 완료 한 후 테스트 도구 키트를 실행 하 여 it 구현을 개선할 수 있는 방법이 있는지 확인 합니다. 자세한 내용은 [ARM 템플릿 테스트 도구 키트](test-toolkit.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

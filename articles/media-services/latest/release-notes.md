@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983370"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075436"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -42,6 +43,16 @@ ms.locfileid: "84983370"
 IoT Edge에서 라이브 비디오 분석의 미리 보기가 공개 되었습니다. 자세한 내용은 [릴리스 정보](../live-video-analytics-edge/release-notes.md)를 참조 하세요.
 
 IoT Edge의 Live Video Analytics는 미디어 서비스 제품군에 대 한 확장입니다. 사용자의에 지 장치에서 선택한 AI 모델을 사용 하 여 라이브 비디오를 분석 하 고 필요에 따라 해당 비디오를 캡처 및 기록할 수 있습니다. 이제 라이브 비디오 파이프라인을 구축 하 고 작동 하는 복잡성을 걱정 하지 않고에 지에서 실시간 비디오 분석으로 앱을 빌드할 수 있습니다.
+
+### <a name="search-by-topics"></a>항목으로 검색
+
+이제 검색 API를 사용 하 여 특정 토픽으로 비디오를 검색할 수 있습니다 (API에만 해당).
+
+토픽은 `textScope` (선택적 매개 변수)의 일부로 추가 됩니다. 자세한 내용은 [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) 를 참조 하세요.  
+
+### <a name="labels-enhancement"></a>레이블 기능 향상
+
+레이블 태거가 업그레이드 되었으며 이제 식별할 수 있는 더 많은 시각적 레이블이 포함 되어 있습니다.
 
 ## <a name="may-2020"></a>2020년 5월
 

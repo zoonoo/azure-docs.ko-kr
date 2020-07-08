@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1780cb47696813b5d26035f54e0685969482dba6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282563"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058115"
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
 Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 애플리케이션을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 이 채널 9 비디오에서는 확장 가능한 마이크로 서비스 애플리케이션을 구축하는 방법을 설명합니다.
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>크기 조정: 명명된 새 서비스 만들기 또는 제거
 명명된 서비스 인스턴스는 클러스터의 명명된 특정 애플리케이션 인스턴스 내에 있는 서비스 유형의 특정 인스턴스입니다([Service Fabric 애플리케이션 수명 주기](service-fabric-application-lifecycle.md)참조). 
 
-서비스가 더 많거나 적게 사용됨에 따라 명명된 새 서비스 인스턴스가 만들어지거나 제거될 수 있습니다. 이렇게 하면 더 많은 서비스 인스턴스에서 요청을 분산할 수 있으므로 대개 기존 서비스에 대한 로드를 줄일 수 있습니다. 서비스를 만들 때 Service Fabric 클러스터 리소스 관리자에서 클러스터에 서비스를 분산 방식으로 배치합니다. 정확한 결정은 클러스터 및 다른 배치 규칙의 [메트릭](service-fabric-cluster-resource-manager-metrics.md)으로 관리됩니다. 서비스는 여러 가지 방법으로 만들 수 있지만 가장 일반적인 것은를 호출 [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)하는 다른 작업 또는 코드 호출 [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)을 통해 관리 작업을 수행 하는 것입니다. `CreateServiceAsync`는 클러스터에서 실행되는 다른 서비스에서도 호출할 수 있습니다.
+서비스가 더 많거나 적게 사용됨에 따라 명명된 새 서비스 인스턴스가 만들어지거나 제거될 수 있습니다. 이렇게 하면 더 많은 서비스 인스턴스에서 요청을 분산할 수 있으므로 대개 기존 서비스에 대한 로드를 줄일 수 있습니다. 서비스를 만들 때 Service Fabric 클러스터 리소스 관리자에서 클러스터에 서비스를 분산 방식으로 배치합니다. 정확한 결정은 클러스터 및 다른 배치 규칙의 [메트릭](service-fabric-cluster-resource-manager-metrics.md)으로 관리됩니다. 서비스는 여러 가지 방법으로 만들 수 있지만 가장 일반적인 것은를 호출 하는 다른 작업 또는 코드 호출을 통해 관리 작업을 수행 하는 것 [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) 입니다. `CreateServiceAsync`는 클러스터에서 실행되는 다른 서비스에서도 호출할 수 있습니다.
 
 서비스를 동적으로 만들면 모든 종류의 시나리오에서 사용할 수 있으며 일반적인 패턴입니다. 예를 들어 특정 워크플로를 나타내는 상태 저장 서비스를 고려합니다. 작업을 나타내는 호출이 이 서비스에 표시되며, 이 서비스에서는 해당 워크플로에 대한 단계를 실행하고 진행 상황을 기록합니다. 
 
@@ -127,7 +127,7 @@ Service Fabric을 사용하여 크기를 조정하는 또 다른 옵션은 클�
 규모에 맞게 빌드하는 경우 다음 동적 패턴을 고려합니다. 상황에 맞게 조정해야 할 수도 있습니다.
 
 1. 모든 사용자에 대한 파티션 구성표를 선택하지 않고 "관리자 서비스"를 빌드합니다.
-2. 관리자 서비스의 작업은 서비스에 등록할 때 고객 정보를 확인하는 것입니다. 그런 다음 관리자 서비스에서 해당 정보에 따라 _해당 고객에 대해서만__실제_ 연락처 스토리지 서비스의 인스턴스를 만듭니다. 특정 구성, 격리 또는 업그레이드가 필요한 경우 이 고객에 대한 애플리케이션 인스턴스를 회전하도록 결정할 수도 있습니다. 
+2. 관리자 서비스의 작업은 서비스에 등록할 때 고객 정보를 확인하는 것입니다. 그런 다음 해당 정보에 따라 관리자 서비스가 _해당 고객에 대해서만_ _실제_ 연락처 저장소 서비스의 인스턴스를 만듭니다. 특정 구성, 격리 또는 업그레이드가 필요한 경우 이 고객에 대한 애플리케이션 인스턴스를 회전하도록 결정할 수도 있습니다. 
 
 이 동적 만들기 패턴은 다음과 같은 많은 이점을 제공합니다.
 

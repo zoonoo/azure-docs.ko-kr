@@ -5,11 +5,12 @@ description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340844"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077850"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -100,7 +101,7 @@ Taint 및 toleration은 하드 구분을 사용하여 리소스를 논리적으�
 대용량 메모리를 사용하는 노드의 예를 살펴보겠습니다. 이러한 노드는 많은 메모리를 요청하는 Pod에 우선권을 제공할 수 있습니다. 리소스가 유휴 상태가 아닌지 확인하기 위해 다른 Pod의 실행을 허용할 수도 있습니다.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Pod 사양은 `nodeSelector` 속성을 추가하여 노드에 설정된 레이블과 일치하는 노드 선택기를 정의합니다.

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76152480"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058030"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "76152480"
 
 추가 리소스:
 
-* [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/).
 * [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -58,7 +58,7 @@ CreateADMRollout.Parameters.json을 열고 **projectName** 및 **artifactSourceS
 
 ## <a name="create-a-health-check-service-simulator"></a>상태 확인 서비스 시뮬레이터 만들기
 
-프로덕션 환경에서는 일반적으로 하나 이상의 모니터링 공급 기업을 사용합니다. 상태를 최대한 쉽게 통합할 수 있도록, Microsoft에서는 업계 최고 수준의 여러 서비스 상태 모니터링 회사와 협력하여 고객의 시스템에 상태 확인을 통합할 수 있는 간단한 복사/붙여넣기 솔루션을 제공해 왔습니다. 이러한 회사 목록은 [상태 모니터링 공급 기업](./deployment-manager-health-check.md#health-monitoring-providers)을 참조하세요. 이 자습서의 목적을 달성하기 위해, 상태 모니터링 서비스를 시뮬레이션하는 [Azure Function](/azure/azure-functions/)을 만듭니다. 이 함수는 상태 코드를 가져오고, 동일한 코드를 반환합니다. Azure Deployment Manager 템플릿은 상태 코드를 사용하여 배포 진행 방법을 결정합니다.
+프로덕션 환경에서는 일반적으로 하나 이상의 모니터링 공급 기업을 사용합니다. 상태를 최대한 쉽게 통합할 수 있도록, Microsoft에서는 업계 최고 수준의 여러 서비스 상태 모니터링 회사와 협력하여 고객의 시스템에 상태 확인을 통합할 수 있는 간단한 복사/붙여넣기 솔루션을 제공해 왔습니다. 이러한 회사 목록은 [상태 모니터링 공급 기업](./deployment-manager-health-check.md#health-monitoring-providers)을 참조하세요. 이 자습서의 목적을 달성하기 위해, 상태 모니터링 서비스를 시뮬레이션하는 [Azure Function](../../azure-functions/index.yml)을 만듭니다. 이 함수는 상태 코드를 가져오고, 동일한 코드를 반환합니다. Azure Deployment Manager 템플릿은 상태 코드를 사용하여 배포 진행 방법을 결정합니다.
 
 다음 두 파일은 Azure Function 배포에 사용됩니다. 자습서를 진행하기 위해 두 파일을 다운로드할 필요는 없습니다.
 
@@ -369,4 +369,4 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Deployment Manager의 상태 확인 기능을 사용하는 방법을 알아보았습니다. 자세한 내용은 [Azure Resource Manager 설명서](/azure/azure-resource-manager/)를 참조하세요.
+이 자습서에서는 Azure Deployment Manager의 상태 확인 기능을 사용하는 방법을 알아보았습니다. 자세한 내용은 [Azure Resource Manager 설명서](../index.yml)를 참조하세요.
