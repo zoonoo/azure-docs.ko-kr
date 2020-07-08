@@ -1,25 +1,14 @@
 ---
 title: Azure Relay FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 제공 합니다.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ac8967ab036929bf5363a79c9d7c60485bc98841
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317027"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -80,7 +69,7 @@ Azure Relay로 메시지를 보내는 것은 메시지를 받는 릴레이 수�
 **netTCPRelay** WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 이 바인딩을 사용하는 경우, 발신자와 리스너만이 보내고 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. **Nettcprelay** 바인딩을 사용 하는 릴레이의 경우 청구 가능한 메시지를 계산 하기 위해 모든 데이터를 스트림으로 처리 합니다. 이 경우에 Service Bus는 5분 단위로 개별 릴레이를 통해 보내거나 받은 데이터의 총 크기를 계산합니다. 그런 다음 64KB로 총 데이터 양을 나누어서 해당 기간 동안 해당 릴레이에 대한 청구 가능 메시지 수를 결정합니다.
 
 ## <a name="quotas"></a>할당량
-| 할당량 이름 | 범위 |  참고 | Value |
+| 할당량 이름 | 범위 |  메모 | 값 |
 | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
 | 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
@@ -128,7 +117,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 일반적인 예외 및 수행할 수 있는 권장 조치에 대한 설명은 [릴레이 예외][Relay exceptions]를 참조하세요.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어를 사용하여 서명을 생성할 수 있나요?
-공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 c #에서 자신의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하는 Service Bus 인증][Shared Access Signatures]을 참조 하세요.
+공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 c #에서 사용자 고유의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하는 Service Bus 인증][Shared Access Signatures]을 참조 하세요.
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 엔드포인트를 허용 목록에 추가할 수 있나요?
 예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 Azure Relay 서비스에 연결합니다. 고객은 DNS 허용 목록을 지원하는 방화벽에 `*.servicebus.windows.net`에 대한 항목을 추가할 수 있습니다.

@@ -1,25 +1,14 @@
 ---
 title: Azure Relay API 개요 | Microsoft Docs
-description: 이 문서에서는 사용 가능한 Azure Relay Api (.NET Standard, .NET Framework, node.js 등)의 개요를 제공 합니다.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
-ms.service: service-bus-relay
-ms.devlang: na
+description: 이 문서에서는 사용 가능한 Azure Relay Api (.NET Standard, .NET Framework, Node.js 등)의 개요를 제공 합니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316953"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
 
@@ -49,7 +38,7 @@ ms.locfileid: "83210594"
 
 위 테이블에 나열된 하이브리드 연결 모듈은 기존 Node.js 모듈을 로컬 네트워킹 스택 대신 Azure Relay 서비스에서 수신 대기하는 대체 구현으로 바꾸거나 수정합니다.
 
-이 모듈은 핵심 node.js 모듈을 모두 `hyco-https` 재정의 하 고 부분적으로 재정의 하며 `http` `https` 이러한 핵심 모듈을 사용 하는 여러 기존 node.js 모듈 및 응용 프로그램과 호환 되는 HTTPS 수신기 구현을 제공 합니다.
+`hyco-https`이 모듈은 핵심 Node.js 모듈을 부분적으로 재정의 하 고 부분적으로 재정의 하 여 `http` `https` 이러한 핵심 모듈을 사용 하는 여러 기존 Node.js 모듈 및 응용 프로그램과 호환 되는 HTTPS 수신기 구현을 제공 합니다.
 
 `hyco-ws` 및 `hyco-websocket` 모듈은 Node.js에 인기 있는 `ws` 및 `websocket` 모듈을 수정하여 대체 수신기 구현을 제공합니다. 그러면 모듈 및 어느 한 모듈에 의존하는 애플리케이션을 하이브리드 연결 릴레이 뒤에서 실행할 수 있습니다.
 

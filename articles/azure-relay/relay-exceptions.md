@@ -1,25 +1,14 @@
 ---
 title: Azure Relay 예외 및 해결 방법 | Microsoft Docs
 description: Azure Relay 예외 및 해결하기 위해 수행할 수 있는 권장된 동작의 목록입니다.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2017
-ms.author: spelluru
-ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0bc8a399173331525d62b25929f65ad189ed219b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316869"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
 
@@ -46,7 +35,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 
 다음 표에서는 메시지 예외 유형과 원인을 열거합니다. 예외를 해결하기 위해 수행할 수 있는 권장 조치를 설명합니다.
 
-| **예외 유형** | **설명** | **권장 조치** | **자동 또는 즉시 다시 시도 참고** |
+| **예외 형식** | **설명** | **권장 조치** | **자동 또는 즉시 다시 시도 참고** |
 | --- | --- | --- | --- |
 | [Timeout](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)에서 제어하는 지정된 시간 안에 요청된 작업에 응답하지 않았습니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 발생합니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [TimeoutException](#timeoutexception)을 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [유효하지 않은 작업](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |요청한 사용자 작업이 서버 또는 서비스 내에서 허용되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. |코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. |재시도로 해결되지 않습니다. |
@@ -73,7 +62,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 *   [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) 값이 너무 작을 수 있습니다(1초 미만).
 * 온-프레미스 릴레이 수신기는 응답하지 않을 수 있으며(또는 수신기에서 새 클라이언트 연결을 허용하지 못하도록 방지하는 방화벽 규칙 문제가 발생할 수 있음) [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) 값은 20초보다 작습니다.
 
-예제:
+예:
 
 ```
 'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
