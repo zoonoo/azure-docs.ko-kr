@@ -1,26 +1,14 @@
 ---
 title: '빠른 시작: Apache Storm을 사용하여 이벤트 수신 - Azure Event Hubs'
 description: '빠른 시작: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73717616"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315354"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 

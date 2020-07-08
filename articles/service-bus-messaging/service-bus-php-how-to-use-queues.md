@@ -2,24 +2,15 @@
 title: PHP에서 Azure Service Bus 큐를 사용하는 방법
 description: 이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76760694"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341116"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>빠른 시작: PHP에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

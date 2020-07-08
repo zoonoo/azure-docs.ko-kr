@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206396"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480442"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형(미리 보기) 
 
@@ -89,21 +89,21 @@ SQL 주문형에는 로컬 스토리지가 없으며, 메타데이터 개체만 
 
 SQL 주문형은 데이터 레이크의 파일에 상주하는 데이터를 적절히 쿼리할 수 있도록 다음 기능을 추가하여 기존 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 함수를 확장합니다.
 
-[여러 파일 또는 폴더 쿼리](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[여러 파일 또는 폴더 쿼리](query-data-storage.md#query-multiple-files-or-folders)
 
-[PARQUET 파일 형식](develop-storage-files-overview.md#parquet-file-format)
+[PARQUET 파일 형식](query-data-storage.md#query-parquet-files)
 
-[분리된 텍스트 작업에 대한 추가 옵션(필드 종결자, 행 종결자, 이스케이프 문자)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[분리된 텍스트 작업에 대한 추가 옵션(필드 종결자, 행 종결자, 이스케이프 문자)](query-data-storage.md#query-csv-files)
 
-[선택한 열 하위 집합 읽기](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[선택한 열 하위 집합 읽기](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[스키마 유추](develop-storage-files-overview.md#schema-inference)
+[스키마 유추](query-data-storage.md#schema-inference)
 
-[filename 함수](develop-storage-files-overview.md#filename-function)
+[filename 함수](query-data-storage.md#filename-function)
 
-[filepath 함수](develop-storage-files-overview.md#filepath-function)
+[filepath 함수](query-data-storage.md#filepath-function)
 
-[복합 형식 및 중첩되거나 반복되는 데이터 구조 작업](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[복합 형식 및 중첩되거나 반복되는 데이터 구조 작업](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>보안
 

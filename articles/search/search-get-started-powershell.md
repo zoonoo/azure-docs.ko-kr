@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 96ab2b7c8e80375f97df550ed6c83e7bb3e2f3e3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77121597"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562074"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 2. 서비스의 indexes 컬렉션을 지정하는 **$url** 개체를 만듭니다. 서비스 이름(YOUR-SEARCH-SERVICE-NAME)을 유효한 검색 서비스로 바꿉니다.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
 3. **Invoke-RestMethod**를 실행하여 GET 요청을 서비스에 보내고 연결을 확인합니다. 서비스에서 다시 보낸 응답을 볼 수 있도록 **ConvertTo-Json**을 추가합니다.
@@ -123,7 +123,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 2. URI를 서비스의 indexes 컬렉션 및 *hotels-quickstart* 인덱스로 설정합니다.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
 3. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 서비스에 대한 인덱스를 만듭니다. 
@@ -273,7 +273,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. 엔드포인트를 *hotels-quickstart* docs 컬렉션으로 설정하고, 인덱스 작업(indexes/hotels-quickstart/docs/index)을 포함합니다.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
 1. **$url**, **$headers** 및 **$body**가 포함된 명령을 실행하여 문서를 hotels-quickstart 인덱스에 로드합니다.
@@ -326,7 +326,7 @@ $url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열
    이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Cognitive Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true**를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
 1. 다음 명령을 실행하여 **$url**을 서비스에 보냅니다.
@@ -375,21 +375,21 @@ $url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
 

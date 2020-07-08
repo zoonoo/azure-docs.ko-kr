@@ -9,12 +9,12 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 3539349560b159f5c4f39387fe0eed0c5bbf6606
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 6ebf7d35529a9bf0f6d9caca35b7429a803fed2f
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261038"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562209"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         SearchServiceAdminKey=<YOUR-ADMIN-KEY>
         SearchServiceQueryKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
-        ApiVersion=2019-05-06
+        ApiVersion=2020-06-30
     ```
 
 ### <a name="add-the-main-method"></a>기본 메서드 추가

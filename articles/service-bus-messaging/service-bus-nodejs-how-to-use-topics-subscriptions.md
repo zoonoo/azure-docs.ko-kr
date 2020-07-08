@@ -1,25 +1,17 @@
 ---
 title: azure/service-bus Node.js 패키지에서 Azure Service Bus 항목 사용
 description: Node.js 앱에서 azure/service-bus 패키지를 사용하여 Azure에서 Service Bus 항목 및 구독을 사용하는 방법에 대해 알아봅니다.'
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/16/2020
-ms.author: aschhab
-ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: d4b382a0cf857f9cfe1065815e9b07b8260023a8
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976560"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339797"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Node.js와 azure-sb 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 이 자습서에서는 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 애플리케이션을 만드는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성되었으며 내부적으로 `azure-sb` 패키지를 사용하는 Node.js [Azure 모듈](https://www.npmjs.com/package/azure)을 사용합니다.

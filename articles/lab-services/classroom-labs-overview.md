@@ -1,24 +1,14 @@
 ---
 title: Azure Lab Services의 클래스룸 랩 정보 | Microsoft Docs
 description: 클라우드에서 클래스룸 랩 환경을 빠르게 설정하는 방법을 알아봅니다. 클래스에 필요한 소프트웨어로 템플릿 VM을 사용하여 랩을 구성하고 클래스의 각 학생이 VM의 복사본을 사용할 수 있도록 합니다.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899417"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445630"
 ---
 # <a name="introduction-to-classroom-labs"></a>클래스룸 랩 소개
 Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 강사가 클래스룸 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 수업에 필요한 소프트웨어 및 도구 랩을 설치하고, 학생들이 사용할 수 있게 합니다. 학생들은 클래스룸 랩에서 랩의 VM(가상 머신)에 연결하여 프로젝트, 과제, 클래스룸 연습에 사용합니다. 

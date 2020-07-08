@@ -1,19 +1,14 @@
 ---
 title: Java(레거시)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 description: 이 문서에서는 이전 azure-eventhubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 Java 애플리케이션을 만드는 과정을 연습할 수 있습니다.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 379739533e15e60bc47bfc883a67037d4a58d0e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8c44cfa2a3130e714ac95989248aee634996df2a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81417631"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320320"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-eventhubs)
 

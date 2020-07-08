@@ -1,21 +1,17 @@
 ---
 title: Azure PowerShell을 사용하여 Service Bus 큐 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Service Bus큐를 만드는 방법을 배웁니다. 그런 다음, 애플리케이션 샘플을 사용하여 큐에서 메시지를 보내고 받습니다.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1fecfd7ba9f35d06b680d43248bf82aeb54a27b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75426944"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337249"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>빠른 시작: Azure PowerShell을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 PowerShell을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.

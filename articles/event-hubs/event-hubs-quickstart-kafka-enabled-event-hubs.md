@@ -1,19 +1,14 @@
 ---
 title: '빠른 시작: Kafka 프로토콜을 사용하여 Azure Event Hubs로 데이터 스트리밍'
 description: '빠른 시작: 이 문서에서는 Kafka 프로토콜 및 API를 사용하여 Azure Event Hubs에 스트리밍하는 방법을 설명합니다.'
-services: event-hubs
-author: ShubhaVijayasarathy
-ms.author: shvija
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 06/23/2020
+ms.openlocfilehash: 4a63aeec7b282ba9b707a1521c51fd944ca24411
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261825"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314418"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>빠른 시작: Kafka 프로토콜을 사용하여 Event Hubs로 데이터 스트리밍
 이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 애플리케이션 구성을 간단하게 변경하여 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.

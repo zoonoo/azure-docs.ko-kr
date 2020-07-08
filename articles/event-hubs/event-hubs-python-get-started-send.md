@@ -1,21 +1,14 @@
 ---
 title: Python(이전)을 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 description: 이 연습에서는 이전 azure-eventhub 버전 1 패키지를 사용하여 이벤트를 Azure Event Hubs로 보내거나 받는 Python 스크립트를 만들고 실행하는 방법을 보여줍니다.
-services: event-hubs
-author: spelluru
-manager: femila
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 01/15/2020
-ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/23/2020
+ms.openlocfilehash: 4ce53d2d82a00f98dbbd538bd7a61da9ba44e832
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558960"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314474"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>빠른 시작: Python(azure-eventhub 버전 1)을 사용하여 Event Hubs와 이벤트 주고 받기
 이 빠른 시작에서는 **azure-eventhubs 버전 1** Python 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 

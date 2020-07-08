@@ -1,26 +1,16 @@
 ---
 title: Java에서 Azure Service Bus 토픽 및 구독 사용
 description: 이 빠른 시작에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e025adfd3d8a29bc07cf14803f572dcba1097fd6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fb8e5196077e60c20d9354459cafe85302ad0e45
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791071"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341432"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>빠른 시작: Java에서 Service Bus 토픽 및 구독 사용
 

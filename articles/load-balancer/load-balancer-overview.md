@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 1bc18788019c3ec97e06e3b01e823a0ba53541b8
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734759"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341777"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -44,7 +44,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 
 표준 Load Balancer를 사용하여 수행할 수 있는 주요 시나리오는 다음과 같습니다.
 
-- **[내부](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** 및 **[외부](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** 트래픽을 Azure 가상 머신으로 부하를 분산합니다.
+- **[내부](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** 및 **[외부](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** 트래픽을 Azure 가상 머신으로 부하를 분산합니다.
 
 - 영역 **[내](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** 및 **[전반에서](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** 리소스를 배포하여 가용성을 높입니다.
 

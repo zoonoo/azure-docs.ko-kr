@@ -1,19 +1,16 @@
 ---
 title: Azure Portal을 사용하여 Service Bus 큐 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 큐를 만드는 방법에 대해 알아봅니다. 그런 다음, 샘플 클라이언트 애플리케이션을 사용하여 큐에서 메시지를 보내고 받습니다.
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215611"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337327"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>빠른 시작: Azure Portal을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.

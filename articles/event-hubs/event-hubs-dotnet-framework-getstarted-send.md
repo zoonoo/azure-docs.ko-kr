@@ -1,21 +1,14 @@
 ---
 title: Azure Event Hubs - .NET Framework를 사용하여 이벤트 보내기 및 받기
 description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트를 보내는 .NET Framework 애플리케이션을 만드는 방법을 안내합니다.'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
-ms.service: event-hubs
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 0857bbcd292562e199eec4ec8cb07650f1989ec5
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3ecbade69ee730d88bb39e700e20e65c0aa64a8d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299095"
+ms.locfileid: "85322535"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.

@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 14e7f4d09185f76786fd88576eef0b6df02877c4
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253616"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368076"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: SSMS를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -155,7 +155,7 @@ SSMS에서 서버에 연결합니다.
 
 ### <a name="update-data"></a>데이터 업데이트
 
-이 [UPDATE](/sql/t-sql/statements/update-transact-sql) Transact-SQL 코드를 실행하여 새 제품을 수정합니다.
+이 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL 코드를 실행하여 새 제품을 수정합니다.
 
 1. 이전 쿼리를 이전에 만든 새 레코드를 반환하는 쿼리로 바꿉니다.
 

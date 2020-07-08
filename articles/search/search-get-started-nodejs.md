@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 17c64fd1d0e04130867b484ff7eb3fcdb3f0977d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: bd64faf46f91c3b73d58f7c226748cd0ac083701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263282"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562150"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -280,7 +280,7 @@ class AzureSearchClient {
         // The query key is used for read-only requests and so can be distributed with less risk of abuse.
         this.queryKey = queryKey;
         this.indexName = indexName;
-        this.apiVersion = '2019-05-06';
+        this.apiVersion = '2020-06-30';
     }
 
     // All methods go inside class body here!
@@ -289,7 +289,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-클래스가 첫 번째로 해야 할 일은 다양한 요청을 보낼 URL을 작성하는 방법을 아는 것입니다. 클래스 생성자에 전달되는 구성 데이터를 사용하는 인스턴스 메서드를 사용하여 이러한 URL을 빌드합니다. 생성되는 URL은 API 버전별로 다르며, 해당 버전을 지정하는 인수가 있어야 합니다(이 애플리케이션의 경우 `2019-05-06`). 
+클래스가 첫 번째로 해야 할 일은 다양한 요청을 보낼 URL을 작성하는 방법을 아는 것입니다. 클래스 생성자에 전달되는 구성 데이터를 사용하는 인스턴스 메서드를 사용하여 이러한 URL을 빌드합니다. 생성되는 URL은 API 버전별로 다르며, 해당 버전을 지정하는 인수가 있어야 합니다(이 애플리케이션의 경우 `2020-06-30`). 
 
 이러한 메서드 중 첫 번째 메서드는 인덱스 자체의 URL을 반환합니다. 다음 메서드를 클래스 본문 내에 추가합니다.
 
