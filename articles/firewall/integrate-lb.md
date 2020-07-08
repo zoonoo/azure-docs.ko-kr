@@ -4,15 +4,15 @@ description: Azure 표준 Load Balancer(공용 또는 내부)를 사용하여 �
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78196721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610628"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 Azure Firewall 통합
 
@@ -77,4 +77,4 @@ NSGs에 대 한 자세한 내용은 [보안 그룹](../virtual-network/security-
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Azure Firewall을 배포 및 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.
+- [Azure 방화벽을 배포 하 고 구성](tutorial-firewall-deploy-portal.md)하는 방법에 대해 알아봅니다.

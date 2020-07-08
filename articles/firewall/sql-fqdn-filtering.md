@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Firewall 애플리케이션 규칙에서 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 05/18/2020
+ms.topic: how-to
+ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610509"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL FQDN을 사용하여 Azure Firewall 애플리케이션 규칙 구성
 
@@ -24,7 +24,7 @@ SQL FQDN을 사용하여 트래픽을
 - 온-프레미스에서 Azure SQL Managed Instances 또는 VNet에서 실행되는 SQL IaaS로
 - 스포크-스포크에서 Azure SQL Managed Instances 또는 Vnet에서 실행되는 SQL IaaS로
 
-SQL FQDN 필터링은 [프록시 모드](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy)에서만 지원됩니다(포트 1433). 기본 리디렉션 모드에서 SQL을 사용하는 경우 [네트워크 규칙](overview.md#network-traffic-filtering-rules)의 일부로 SQL 서비스 태그를 사용하여 액세스를 필터링할 수 있습니다.
+SQL FQDN 필터링은 [프록시 모드](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy)에서만 지원됩니다(포트 1433). 기본 리디렉션 모드에서 SQL을 사용하는 경우 [네트워크 규칙](features.md#network-traffic-filtering-rules)의 일부로 SQL 서비스 태그를 사용하여 액세스를 필터링할 수 있습니다.
 SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방화벽 애플리케이션 규칙에서 해당 포트를 구성할 수 있습니다.
 
 ## <a name="configure-using-azure-cli"></a>Azure CLI를 사용하여 구성
@@ -63,4 +63,4 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL 데이터베이스 연결 아키텍처](../azure-sql/database/connectivity-architecture.md)를 참조하세요.
+SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL Database 연결 아키텍처](../azure-sql/database/connectivity-architecture.md)를 참조 하세요.

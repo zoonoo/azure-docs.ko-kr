@@ -3,12 +3,12 @@ title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610747"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -52,8 +52,6 @@ Https 끝점을 지정 하는 서비스를 활성화할 때 포트에 대 한 �
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>예: 서비스에 대한 HTTP 엔드포인트 지정
 다음 서비스 매니페스트는 &lt;Resources&gt; 요소에서 한 개의 TCP 엔드포인트 리소스와 두 개의 HTTP 엔드포인트 리소스를 정의합니다.
-
-HTTP 엔드포인트는 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,6 +155,8 @@ HTTPS 끝점에 필요한 구성을 보여 주는 예제 ApplicationManifest는 
 
 Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
 
+## <a name="port-acling-for-http-endpoints"></a>HTTP 끝점에 대 한 포트 ACLing
+Service Fabric는 기본적으로 지정 된 HTTP (S) 끝점을 자동으로 ACL에 지정 합니다. 끝점에 [Securityaccesspolicy](service-fabric-assign-policy-to-endpoint.md) 가 연결 되어 있지 않고 Service Fabric 관리자 권한이 있는 계정을 사용 하 여 실행 되도록 구성 된 경우 자동으로 acling를 수행 **하지** 않습니다.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 엔드포인트 재정의
 
@@ -194,7 +194,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  다음은 그 예입니다.
+애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들어:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -202,7 +202,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 ServiceManifest에서 다음을 지정했습니다.
 

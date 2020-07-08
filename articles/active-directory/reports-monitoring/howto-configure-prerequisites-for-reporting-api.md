@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608265"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -42,7 +42,7 @@ reporting API에 액세스하도록 준비하려면 다음을 수행해야 합�
 
 API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를 할당받아야 합니다.
 
-- 보안 판독기
+- 보안 Reader
 
 - 보안 관리자
 
@@ -85,7 +85,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
 
-    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost`합니다.
+    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost` 합니다.
 
     d. **등록**을 선택합니다. 
 
@@ -224,6 +224,6 @@ Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기](tutorial-access-api-with-certificates.md)
+* [인증서와 함께 Azure Active Directory reporting API를 사용하여 데이터 가져오기](tutorial-access-api-with-certificates.md).
 * [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

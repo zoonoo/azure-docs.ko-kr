@@ -1,60 +1,49 @@
 ---
-title: Azure 방화벽 관리자 신뢰할 수 있는 보안 파트너 배포
-description: Azure Portal를 사용 하 여 Azure 방화벽 관리자의 신뢰할 수 있는 보안을 배포 하는 방법을 알아봅니다.
+title: Azure 방화벽 관리자 보안 파트너 공급자 배포
+description: Azure Portal를 사용 하 여 Azure 방화벽 관리자 보안 파트너 공급자를 배포 하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73931315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611580"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>신뢰할 수 있는 보안 파트너 배포(미리 보기)
+# <a name="deploy-a-security-partner-provider"></a>보안 파트너 공급자 배포
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하 여 사용자에 대 한 인터넷 액세스를 보호 하기 위해 친숙 한 최고의 타사의 secaas (security as a service) 제품을 사용할 수 있습니다.
 
-Azure 방화벽 관리자의 신뢰할 수 있는 *보안 파트너* 를 사용 하 여 친숙 한 최고의 타사 secaas security as a service) 제품을 사용 하 여 사용자에 대 한 인터넷 액세스를 보호할 수 있습니다.
+지원 되는 시나리오 및 모범 사례 지침에 대해 자세히 알아보려면 [보안 파트너 공급자 란?](trusted-security-partners.md) 을 참조 하세요.
 
-지원 되는 시나리오 및 모범 사례 지침에 대해 자세히 알아보려면 [신뢰할 수 있는 보안 파트너 (미리 보기) 란?](trusted-security-partners.md)을 참조 하세요.
 
-지원 되는 보안 파트너는이 미리 보기에 대 한 **ZScaler** 및 **iboss** 입니다. 지원 되는 지역은 WestCentralUS, NorthCentralUS, WestUS, WestUS2 및 EastUS입니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-> [!IMPORTANT]
-> `Register-AzProviderFeature` PowerShell 명령을 사용하여 Azure Firewall Manager Preview를 명시적으로 사용하도록 설정해야 합니다.
-
-PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 명령을 실행하여 등록 상태를 확인합니다.
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+이제 모든 Azure 공용 클라우드 지역에서 통합 된 타사 보안 서비스 (SECaaS) 파트너를 사용할 수 있습니다. **Zscaler** 통합은 일반적으로 2020 년 7 월 3 일에 사용할 수 있습니다. **확인 지점은** 지원 되는 secaas 파트너 이며 2020 년 7 월 3 일에 미리 보기로 제공 됩니다. **iboss** 통합은 2020 년 7 월 31 일에 일반 공급 됩니다.
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>새 허브에 타사 보안 공급자 배포
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+기존 허브에 타사 공급자를 배포 하는 경우이 섹션을 건너뜁니다.
+
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. **검색**에서 **방화벽 관리자** 를 입력 하 고 **서비스**에서 선택 합니다.
-3. **시작**으로 이동 합니다. **보안 가상 허브 만들기를**선택 합니다. 
-4. 구독 및 리소스 그룹을 입력 하 고, 지원 되는 지역을 선택 하 고, 허브 및 가상 WAN 정보를 추가 합니다. 
-5. **VPN Gateway 배포** 는 기본적으로 사용 하도록 설정 되어 있습니다. 허브에 신뢰할 수 있는 보안 파트너를 배포 하려면 VPN Gateway 필요 합니다. 
-6. **다음 선택: Azure 방화벽**
+3. **시작**으로 이동 합니다. **보안 가상 허브 보기**를 선택 합니다.
+4. **새 보안 가상 허브 만들기**를 선택 합니다.
+5. 구독 및 리소스 그룹을 입력 하 고, 지원 되는 지역을 선택 하 고, 허브 및 가상 WAN 정보를 추가 합니다. 
+6. **VPN Gateway 포함을 선택 하 여 보안 파트너 공급자를 사용 하도록 설정**합니다.
+7. 요구 사항에 적합 한 **게이트웨이 배율 단위** 를 선택 합니다.
+8. **다음 선택: Azure 방화벽**
    > [!NOTE]
-   > 신뢰할 수 있는 보안 파트너는 VPN Gateway 터널을 사용 하 여 허브에 연결 합니다. VPN Gateway을 삭제 하면 신뢰할 수 있는 보안 파트너에 대 한 연결이 끊어집니다.
-7. Azure 방화벽을 배포 하 여 타사 서비스 공급자와 함께 개인 트래픽을 필터링 하 여 인터넷 트래픽을 필터링 하려면 Azure 방화벽에 대 한 정책을 선택 합니다. [지원 되는 시나리오](trusted-security-partners.md#key-scenarios)를 참조 하십시오.
-8. 허브에 타사 보안 공급자만 배포 하려는 경우 **Azure 방화벽: 사용/** 사용 안 함을 선택 하 여 **사용 안 함**으로 설정 합니다. 
-9. **다음: 신뢰할 수 있는 보안 파트너**를 선택 합니다.
-10. **트러스트 된 보안 파트너** 를 선택 하 여 **사용**으로 설정 합니다. 파트너를 선택 합니다. 
-11. **다음**을 선택합니다. 
-12. 콘텐츠를 검토 한 다음 **만들기**를 선택 합니다.
+   > 보안 파트너 공급자는 VPN Gateway 터널을 사용 하 여 허브에 연결 합니다. VPN Gateway을 삭제 하면 보안 파트너 공급자에 대 한 연결이 손실 됩니다.
+9. Azure 방화벽을 배포 하 여 타사 서비스 공급자와 함께 개인 트래픽을 필터링 하 여 인터넷 트래픽을 필터링 하려면 Azure 방화벽에 대 한 정책을 선택 합니다. [지원 되는 시나리오](trusted-security-partners.md#key-scenarios)를 참조 하십시오.
+10. 허브에 타사 보안 공급자만 배포 하려는 경우 **Azure 방화벽: 사용/** 사용 안 함을 선택 하 여 **사용 안 함**으로 설정 합니다. 
+11. **다음: 보안 파트너 공급자**를 선택 합니다.
+12. **보안 파트너 공급자** 를 **사용**으로 설정 합니다. 
+13. 파트너를 선택 합니다. 
+14. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다. 
+15. 콘텐츠를 검토 한 다음 **만들기**를 선택 합니다.
 
 VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 
@@ -66,8 +55,9 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 
 가상 WAN에서 기존 허브를 선택 하 고 *보안 가상 허브*로 변환할 수도 있습니다.
 
-1. **시작**에서 **기존 허브 변환**을 선택 합니다.
-2. 구독과 기존 허브를 선택 합니다. 새 허브에 타사 공급자를 배포 하려면 나머지 단계를 수행 합니다.
+1. **시작**에서 **보안 가상 허브 보기**를 선택 합니다.
+2. **기존 허브 변환**을 선택 합니다.
+3. 구독과 기존 허브를 선택 합니다. 새 허브에 타사 공급자를 배포 하려면 나머지 단계를 수행 합니다.
 
 타사 공급자를 사용 하 여 기존 허브를 보안 허브로 변환 하려면 VPN gateway를 배포 해야 합니다.
 
@@ -75,20 +65,26 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 
 가상 허브의 VPN Gateway에 대 한 터널을 설정 하려면 타사 공급자에 게 허브에 대 한 액세스 권한이 있어야 합니다. 이렇게 하려면 서비스 주체를 구독 또는 리소스 그룹에 연결 하 고 액세스 권한을 부여 합니다. 그런 다음 해당 포털을 사용 하 여 타사에 이러한 자격 증명을 제공 해야 합니다.
 
+### <a name="create-and-authorize-a-service-principal"></a>서비스 주체 만들기 및 권한 부여
+
 1. AD (Azure Active Directory) 서비스 주체 만들기: 리디렉션 URL을 건너뛸 수 있습니다. 
 
-   [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. 서비스 사용자에 대 한 액세스 권한 및 범위를 추가 합니다.
-   [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > 더 세부적인 제어를 위해 리소스 그룹에만 액세스를 제한할 수 있습니다.
-3. [ZScaler: Microsoft Azure 가상 WAN 통합 지침 구성](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) 을 수행 합니다.
 
-   - 파트너 포털에 로그인 하 고 자격 증명을 추가 하 여 신뢰할 수 있는 파트너에 게 보안 허브에 대 한 액세스 권한을 부여 합니다.
-   - 파트너 포털에서 가상 허브를 동기화 하 고, 가상 허브에 대 한 터널을 설정 합니다. Azure AD 인증 자격 증명의 유효성을 검사 한 후에이 작업을 수행할 수 있습니다.
+### <a name="visit-partner-portal"></a>파트너 포털 방문
+
+1. 파트너에 게 제공 된 지침에 따라 설치를 완료 합니다. 여기에는 허브를 검색 하 고 연결 하는 AAD 정보를 제출 하 고, 송신 정책을 업데이트 하 고, 연결 상태와 로그를 확인 하는 작업이 포함 됩니다.
+
+   - [Zscaler: Microsoft Azure 가상 WAN 통합을 구성](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)합니다.
+   - [Check Point (미리 보기): 가상 WAN 통합 Microsoft Azure 구성](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm)합니다.
+   - [iboss (미리 보기): 가상 WAN 통합 Microsoft Azure 구성](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security)합니다. 
    
-4. Azure의 Azure 가상 WAN 포털에서 터널 만들기 상태를 확인할 수 있습니다. Azure와 파트너 포털 모두에 **연결 된** 터널이 표시 되 면 다음 단계를 계속 진행 하 여 파트너에 게 인터넷 트래픽을 보내야 하는 분기와 vnet를 선택 하는 경로를 설정 합니다.
+2. Azure의 Azure 가상 WAN 포털에서 터널 만들기 상태를 확인할 수 있습니다. Azure와 파트너 포털 모두에 **연결 된** 터널이 표시 되 면 다음 단계를 계속 진행 하 여 파트너에 게 인터넷 트래픽을 보내야 하는 분기와 vnet를 선택 하는 경로를 설정 합니다.
 
 ## <a name="configure-route-settings"></a>경로 설정 구성
 
@@ -105,7 +101,7 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 5. **보안 연결** 을 선택 하 고 이러한 경로를 설정 해야 하는 연결을 선택 해야 합니다. 이는 Vnet/분기가 타사 공급자에 게 인터넷 트래픽을 전송 하기 시작할 수 있음을 나타냅니다.
 6. **경로 설정**에서 인터넷 트래픽 아래의 **보안 연결** 을 선택 하 고, 보안을 설정할 VNet 또는 분기 (가상 WAN의*사이트* )를 선택 합니다. **인터넷 트래픽 보안**을 선택 합니다.
    ![인터넷 트래픽 보안](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. 허브 페이지로 다시 이동 합니다. 이제 허브의 **신뢰할 수 있는 보안 파트너** 상태를 **보호**해야 합니다.
+7. 허브 페이지로 다시 이동 합니다. 이제 허브의 **보안 파트너 공급자** 상태를 **보호**해야 합니다.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>타사 서비스를 통한 분기 또는 VNet 인터넷 트래픽
 
@@ -115,8 +111,4 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure Portal을 사용 하 여 Azure 방화벽 관리자 미리 보기로 클라우드 네트워크 보호](secure-cloud-network.md)
-
-
-
-
+- [자습서: Azure Portal을 사용 하 여 Azure 방화벽 관리자로 클라우드 네트워크 보호](secure-cloud-network.md)

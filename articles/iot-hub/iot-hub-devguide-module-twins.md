@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub 모듈 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 모듈 쌍을 사용하여 IoT Hub와 디바이스 간의 상태와 구성 데이터를 동기화합니다.
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610152"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
-이 문서에서는 여러분이 [IoT Hub의 디바이스 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 읽은 것으로 가정합니다. IoT Hub에서 각 디바이스 ID 아래에 최대 20개의 모듈 ID를 만들 수 있습니다. 각 모듈 ID는 모듈 쌍을 암시적으로 생성합니다. 디바이스 쌍과 비슷하게, 모듈 쌍은 메타데이터, 구성 및 조건을 포함한 모듈 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 모듈에 대해 하나의 모듈 쌍을 유지합니다. 
+이 문서에서는 여러분이 [IoT Hub의 디바이스 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 읽은 것으로 가정합니다. IoT Hub의 각 장치 id에서 최대 50 개의 모듈 id를 만들 수 있습니다. 각 모듈 ID는 모듈 쌍을 암시적으로 생성합니다. 디바이스 쌍과 비슷하게, 모듈 쌍은 메타데이터, 구성 및 조건을 포함한 모듈 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 모듈에 대해 하나의 모듈 쌍을 유지합니다. 
 
 디바이스 쪽에서 IoT Hub 디바이스 SDK를 사용하면 각각 IoT Hub에 대한 독립적 연결을 여는 모듈을 만들 수 있습니다. 이 함수를 사용하면 디바이스의 여러 구성 요소에 별도의 네임스페이스를 사용할 수 있습니다. 예를 들어 별도의 세 가지 센서가 있는 자동 판매기가 있습니다. 각 센서는 회사의 서로 다른 부서에서 제어합니다. 모듈은 각 센서에 대해 만들 수 있습니다. 이러한 방식으로 각 부서에서 제어하는 센서에 작업 또는 직접 메서드를 보냄으로써 충돌과 사용자 오류를 방지할 수 있습니다.
 
@@ -47,7 +47,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **태그**. 솔루션 백 엔드에서 읽고 쓸 수 있는 JSON 문서의 섹션입니다. 태그는 디바이스의 모듈에 표시되지 않습니다. 쿼리 목적을 위해 설정됩니다.
 
-* **Desired 속성**. reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈 앱에서 이 속성을 읽을 수 있습니다. 모듈 앱에서 desired 속성의 변경 내용 알림도 받을 수 있습니다.
+* **desired 속성**. reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈 앱에서 이 속성을 읽을 수 있습니다. 모듈 앱에서 desired 속성의 변경 내용 알림도 받을 수 있습니다.
 
 * **reported 속성**. desired 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 모듈 앱에서 reported 속성을 설정하고, 솔루션 백 엔드에서 이 속성을 읽고 쿼리할 수 있습니다.
 
@@ -113,7 +113,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 다음은 그 예입니다.
+이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 예를 들어:
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -176,7 +176,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 속성
 
-    | 속성 | 값 |
+    | 이름 | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -193,7 +193,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 본문
         
-    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예제:
 
     ```json
     {
@@ -236,39 +236,49 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 태그, desired 속성 및 reported 속성은 JSON 개체이며 다음과 같은 제한 사항이 있습니다.
 
-* **키**: JSON 개체의 모든 키는 대/소문자를 구분 하는 64 바이트 utf-8 유니코드 문자열입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, SP 및 `$`는 제외됩니다.
+* **키**: JSON 개체의 모든 키는 u t f-8로 인코드 되 고 대/소문자를 구분 하며 길이가 최대 1kb입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
 
 * **값**: json 개체의 모든 값은 부울, 숫자, 문자열, 개체 등의 json 형식일 수 있습니다. 배열은 허용되지 않습니다.
 
     * 정수 값은-4503599627370496이 고 최대값은 4503599627370495이 될 수 있습니다.
 
-    * 문자열 값은 u t f-8로 인코딩되어 최대 512 바이트의 길이를 가질 수 있습니다.
+    * 문자열 값은 u t f-8로 인코딩되어 최대 4gb의 길이를 가질 수 있습니다.
 
-* **수준**: 태그, 원하는 및 보고 된 속성의 모든 JSON 개체에는 최대 깊이가 5가 될 수 있습니다. 예를 들어 다음 개체는 유효합니다.
+* **깊이**: 태그, desired 속성 및 보고 된 속성에서 JSON 개체의 최대 깊이는 10입니다. 예를 들어 다음 개체는 유효 합니다.
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>모듈 쌍 크기
 
-IoT Hub는의 `tags`값에 8kb 크기 제한을 적용 하 고 및 `properties/desired` `properties/reported`의 값에 32 kb 크기 제한을 적용 합니다. 이러한 합계는 `$etag`, `$version`, 등의 읽기 전용 요소를 제외 하 `$metadata/$lastUpdated`고,
+IoT Hub는의 값에 8kb 크기 제한을 적용 `tags` 하 고 및의 값에 32 kb 크기 제한을 적용 `properties/desired` `properties/reported` 합니다. 이러한 합계는,, 등의 읽기 전용 요소를 제외 하 `$etag` `$version` 고, `$metadata/$lastUpdated`
 
 쌍 크기는 다음과 같이 계산 됩니다.
 
@@ -287,7 +297,7 @@ IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든
 ## <a name="module-twin-metadata"></a>모듈 쌍 메타데이터
 
 IoT Hub는 모듈 쌍 desired 또는 reported 속성에서 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
-다음은 그 예입니다.
+예를 들어:
 
 ```json
 {

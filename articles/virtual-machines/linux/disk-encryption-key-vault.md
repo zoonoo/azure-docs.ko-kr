@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2adb158032582dff7449c7c0fc7b13419745f36c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 543e3c5d8148632eaca33935cc15e2d2ab1c0cea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611597"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
@@ -30,7 +30,7 @@ Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은
 이러한 단계는 다음 빠른 시작에 설명되어 있습니다.
 
 - [Azure CLI를 사용하여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
-- [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md)
 
 원할 경우 KEK(키 암호화 키)를 생성하거나 가져올 수도 있습니다.
 

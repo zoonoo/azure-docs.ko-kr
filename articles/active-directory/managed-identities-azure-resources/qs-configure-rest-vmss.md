@@ -1,6 +1,6 @@
 ---
-title: REST를 사용 하 여 Azure VMSS에서 관리 되는 id 구성
-description: CURL을 통해 REST API를 호출하여 Azure VMSS에서 시스템 및 사용자 할당 관리 ID를 구성하기 위한 단계별 지침을 제공합니다.
+title: REST를 사용 하 여 Azure 가상 머신 확장 집합에서 관리 되는 id 구성
+description: REST API 호출을 수행 하기 위해 말아 넘기기를 사용 하 여 Azure 가상 머신 확장 집합에서 시스템 및 사용자 할당 관리 id를 구성 하는 방법에 대 한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06bce15dfbd2ccd3ac97f6a4f1e4efb5a24db85d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609121"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -33,9 +33,9 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 - Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정
 - Azure 가상 머신 확장 집합에서 사용자 할당 관리 ID 추가 및 제거
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
+- Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 Azure 역할 기반 액세스 제어가 할당되어야 합니다.
 
@@ -92,8 +92,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -187,8 +187,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -220,8 +220,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
 
@@ -254,8 +254,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -298,8 +298,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -355,8 +355,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -442,8 +442,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
 
@@ -537,7 +537,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |   
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |   
  
 
 4. 가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 관리 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 관리 ID를 가상 머신 확장 집합에 할당합니다.  가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 관리 ID가 있는 경우, 시스템 할당 관리 ID를 유지하면서 여러 사용자 할당 관리 ID를 가상 머신 확장 집합에 추가하는 방법을 보여주는 5단계로 건너뜁니다.
@@ -558,8 +558,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -590,8 +590,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -626,8 +626,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -665,8 +665,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -704,7 +704,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
    
    VM에 관리 ID가 할당되어 있는 경우, `identity` 값의 응답으로 해당 ID가 나열됩니다. 
     
@@ -726,8 +726,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -758,8 +758,8 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
    |요청 헤더  |Description  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-   |*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
 
@@ -788,8 +788,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |요청 헤더  |Description  |
 |---------|---------|
-|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**
 
@@ -815,8 +815,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |요청 헤더  |Description  |
 |---------|---------|
-|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*인증과*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**
 

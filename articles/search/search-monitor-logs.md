@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611614"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 로그 데이터 수집 및 분석
 
-진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대 한 통찰력을 제공 하 고 서비스 및 작업 프로세스를 모니터링 하는 데 유용 합니다. 내부적으로 로그는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안 백 엔드에 있습니다. 그러나 운영 데이터에 대 한 자체 방향이 필요한 경우 로깅 정보를 수집할 위치를 지정 하는 진단 설정을 구성 해야 합니다.
+진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대 한 통찰력을 제공 하 고 서비스 및 작업 프로세스를 모니터링 하는 데 유용 합니다. 내부적으로는 짧은 기간 동안 백 엔드에 일부 시스템 정보가 있으므로 지원 티켓을 제출 하는 경우 조사 및 분석에 충분 합니다. 그러나 운영 데이터에 대 한 자체 방향이 필요한 경우 로깅 정보를 수집할 위치를 지정 하는 진단 설정을 구성 해야 합니다.
 
-로그 설정은 진단 및 운영 기록을 유지 하는 데 유용 합니다. 로깅을 사용 하도록 설정한 후에는 쿼리를 실행 하거나 구조화 된 분석을 위해 보고서를 작성할 수 있습니다.
+진단 로깅은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)와의 통합을 통해 사용 하도록 설정 됩니다. 
 
-다음 표에서는 데이터를 수집 하 고 유지 하기 위한 옵션을 열거 합니다.
+진단 로깅을 설정 하면 저장소 메커니즘을 지정 하 라는 메시지가 표시 됩니다. 다음 표에서는 데이터를 수집 하 고 유지 하기 위한 옵션을 열거 합니다.
 
 | 리소스 | 사용 목적 |
 |----------|----------|
@@ -29,15 +29,15 @@ ms.locfileid: "82127824"
 | [Blob storage를 사용 하 여 보관](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 이벤트 및 메트릭은 Blob 컨테이너에 보관 되어 JSON 파일에 저장 됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 데이터를 집계 하 고 시각화 하는 원시 로그 파일 또는 Power BI을 볼 수 있습니다.|
 | [이벤트 허브로 스트림](https://docs.microsoft.com/azure/event-hubs/) | 이벤트 및 메트릭은 Azure Event Hubs 서비스로 스트리밍됩니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
-Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Log Analytics 또는 Azure Storage를 사용 하는 경우 리소스를 미리 만들 수 있습니다.
+진단 로깅을 구성할 때 하나 이상의 항목을 선택할 수 있도록 리소스를 미리 만듭니다.
 
-+ [Log analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Log analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [스토리지 계정을 만드는](../storage/common/storage-quickstart-create-account.md)
+
++ [이벤트 허브 만들기](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
 
@@ -91,51 +91,90 @@ Blob storage의 경우 컨테이너를 Blob storage에 표시 하기 전에 1 �
 
    ![AzureDiagnostics 테이블](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics 테이블")
 
+## <a name="kusto-query-examples"></a>Kusto 쿼리 예제
+
+진단 로깅을 사용 하도록 설정한 경우 서비스에서 실행 된 작업 목록 및 시기에 대해 **Azurediagnostics** 를 쿼리할 수 있습니다. 작업을 상호 연결 하 여 성능 변화를 조사할 수도 있습니다.
+
+#### <a name="example-list-operations"></a>예: 작업 나열 
+
+작업 목록과 각 작업의 수를 반환 합니다.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### <a name="example-correlate-operations"></a>예: 작업 상관 관계
+
+쿼리 요청을 인덱싱 작업과 상호 연결 하 고 시간 차트에서 데이터 요소를 렌더링 하 여 작업이 일치 하는지 확인 합니다.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## <a name="logged-operations"></a>기록 작업
+
+Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련 된 이벤트를 포함 합니다. Log Analytics의 **Azurediagnostics** 테이블은 쿼리 및 인덱싱과 관련 된 운영 데이터를 수집 합니다.
+
+| OperationName | 설명 |
+|---------------|-------------|
+| ServiceStats | 이 작업은 로드 되거나 새로 고쳐질 때 포털 개요 페이지를 채우도록 직접 또는 암시적으로 호출 되는 [서비스 통계를 가져오는](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics)루틴 호출입니다. |
+| 쿼리. 검색 |  인덱스에 대 한 쿼리 요청은 쿼리 [모니터링](search-monitor-queries.md) 에서 기록 된 쿼리에 대 한 정보를 확인 합니다.|
+| 인덱싱. 인덱스  | 이 작업은 [문서를 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)하는 호출입니다. |
+| 인덱스만. 프로토타입에서 | 데이터 가져오기 마법사에서 만든 인덱스입니다. |
+| 인덱서. 만들기 | 데이터 가져오기 마법사를 통해 명시적으로 또는 암시적으로 인덱서를 만듭니다. |
+| 인덱서. Get | 인덱서가 실행 될 때마다 인덱서의 이름을 반환 합니다. |
+| 인덱서. 상태 | 인덱서가 실행 될 때마다 인덱서 상태를 반환 합니다. |
+| 데이터 원본. Get | 인덱서가 실행 될 때마다 데이터 원본의 이름을 반환 합니다.|
+| 인덱스. Get | 인덱서가 실행 될 때마다 인덱스 이름을 반환 합니다. |
+
 ## <a name="log-schema"></a>로그 스키마
 
-Azure Cognitive Search 로그 데이터를 포함 하는 데이터 구조는 아래 스키마를 준수 합니다. 
-
-Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는 **레코드** 라는 하나의 루트 개체가 있습니다. 각 Blob에는 동일한 시간 동안 발생한 모든 작업에 대한 레코드가 포함됩니다.
+사용자 지정 보고서를 작성 하는 경우 Azure Cognitive Search 로그 데이터를 포함 하는 데이터 구조가 아래 스키마를 준수 합니다. Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는 **레코드** 라는 하나의 루트 개체가 있습니다. 각 Blob에는 동일한 시간 동안 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| 속성 | Type | 예제 | 메모 |
+| 이름 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |string |"Query.Search" |작업 이름 |
-| operationVersion |string |"2019-05-06" |사용된 api-version |
+| operationVersion |string |"2020-06-30" |사용된 api-version |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |가능한 값: Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
-| properties |개체 |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
+| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 ### <a name="properties-schema"></a>속성 스키마
 
 아래 속성은 Azure Cognitive Search에만 적용 됩니다.
 
-| 속성 | Type | 예제 | 메모 |
+| 이름 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | Description_s |string |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
 | IndexName_s |string |"테스트 인덱스" |작업과 연결된 인덱스의 이름 |
-| Query_s |string |"? search = AzureSearch&$count = true&api-version = 2019-05-06" |쿼리 매개 변수 |
+| Query_s |string |"? search = AzureSearch&$count = true&api-version = 2020-06-30" |쿼리 매개 변수 |
 
 ## <a name="metrics-schema"></a>메트릭 스키마
 
 메트릭은 쿼리 요청에 대해 캡처되고 1 분 간격으로 측정 됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조 하세요.
 
-| 속성 | Type | 예제 | 메모 |
+| 이름 | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
+| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
 | metricName |string |"Latency" |메트릭 이름 |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
 | average |int |64 |메트릭에 따라 메트릭 시간 간격에 있는 원시 샘플의 평균 값 (초 또는 백분율 단위)입니다. |
 | minimum |int |37 |메트릭 시간 간격에서 원시 샘플의 최소값 (초 단위)입니다. |
 | maximum |int |78 |메트릭 시간 간격에서 원시 샘플의 최대값 (초 단위)입니다.  |
 | total |int |258 |메트릭 시간 간격에서 원시 샘플의 합계 값 (초 단위)입니다.  |
-| 개수 |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
+| count |int |4 |1 분 간격 내에 노드에서 로그로 내보낸 메트릭 수입니다.  |
 | timegrain |string |"PT1M" |ISO 8601에 있는 메트릭의 시간 수준입니다. |
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 초 단위로 측정 되는 쿼리만 QPS와 같은 메트릭에 표시 됩니다.

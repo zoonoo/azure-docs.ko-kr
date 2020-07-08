@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610356"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트 
 
@@ -43,7 +43,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
 
-|매개 변수|Description|필수?|
+|매개 변수|설명|필수?|
 |------|------|------|
 |$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
 |$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
@@ -227,7 +227,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
     fi
    ```
 
-2. */etc/crypttab*에서 암호화 구성을 변경합니다. 다음과 같이 표시되어야 합니다.
+2. */etc/crypttab*에서 암호화 구성을 변경합니다. 다음과 같이 표시됩니다.
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -290,7 +290,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   to:
+   다음과 같이 변경합니다.
    ```bash
     if [ 1 ]; then
    ```
@@ -320,7 +320,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
 
 6. 이제 VM을 프로비전 해제하고 VHD를 Azure에 업로드할 수 있습니다.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 및 RHEL 8.1
+### <a name="centos-7-and-rhel-7"></a>CentOS 7 및 RHEL 7
 
 배포 설치 중에 암호화를 구성하려면 다음 단계를 수행합니다.
 1. 디스크를 분할할 때 **내 데이터 암호화**를 선택합니다.
@@ -439,7 +439,7 @@ Azure AD 앱(이전 릴리스)을 사용하여 암호화하는 경우 이전에 
 [KEK를 사용하지 않고 OS 디스크를 연결](#without-using-a-kek)하기 위해 다음 단계에서 `$secretUrl`을 사용합니다.
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>KEK로 암호화된 디스크 암호화 암호
-비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet을 사용 하 여 암호로 업로드할 수 있습니다.
+비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, cmdlet을 사용 하 여 암호로 업로드할 수 있습니다 [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) .
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

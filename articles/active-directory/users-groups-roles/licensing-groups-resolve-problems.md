@@ -8,19 +8,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611291"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 **문제:** 그룹에 지정된 제품 중 하나에 사용 가능한 라이선스가 충분하지 않습니다. 제품에 대한 추가 라이선스를 구매하거나 다른 사용자 또는 그룹에서 사용하지 않는 라이선스를 해제해야 합니다.
 
-사용할 수 있는 라이선스 수를 확인 하려면 **Azure Active Directory** > **라이선스** > **모든 제품**으로 이동 합니다.
+사용할 수 있는 라이선스 수를 확인 하려면 **Azure Active Directory**  >  **라이선스**  >  **모든 제품**으로 이동 합니다.
 
 라이선스를 사용 중인 사용자와 그룹을 확인하려면 제품을 선택합니다. **사용이 허가된 사용자**에는 라이선스가 직접 할당되었거나 하나 이상의 그룹을 통해 할당된 모든 사용자의 목록이 표시됩니다. **사용이 허가된 그룹**에는 제품이 할당된 모든 그룹이 표시됩니다.
 
@@ -87,7 +87,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 ## <a name="usage-location-isnt-allowed"></a>사용 위치가 허용되지 않음
 
-**문제:** 현지법 및 규정으로 인해 지역에 따라 일부 Microsoft 서비스가 제공되지 않을 수 있습니다. 사용자에게 라이선스를 할당하려면 먼저 사용자에 대한 **사용 위치** 속성을 지정해야 합니다. Azure Portal의 **사용자** > **프로필** > **설정** 섹션에서 위치를 지정할 수 있습니다.
+**문제:** 현지법 및 규정으로 인해 지역에 따라 일부 Microsoft 서비스가 제공되지 않을 수 있습니다. 사용자에게 라이선스를 할당하려면 먼저 사용자에 대한 **사용 위치** 속성을 지정해야 합니다. Azure Portal의 **사용자**  >  **프로필**  >  **설정** 섹션에서 위치를 지정할 수 있습니다.
 
 Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이선스를 할당하려고 하면 작업이 실패하고 사용자에 대한 오류를 기록합니다.
 
@@ -120,7 +120,7 @@ Exchange Online을 사용 하는 경우 조직의 일부 사용자가 동일한 
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>감사 로그의 LicenseAssignmentAttributeConcurrencyException
 
 **문제:** 사용자는 감사 로그에 라이선스 할당을 LicenseAssignmentAttributeConcurrencyException 합니다.
-그룹 기반 라이선스가 사용자에 게 동일한 라이선스의 동시 라이선스 할당을 처리 하려고 하면이 예외가 사용자에 게 기록 됩니다. 이는 일반적으로 사용자가 할당 된 라이선스가 같은 두 개 이상의 그룹에 속한 경우에 발생 합니다. AZure AD에서 사용자 라이선스 처리를 다시 시도 하 고 문제를 해결 합니다. 이 문제를 해결 하기 위해 고객에 게 필요한 작업은 없습니다.
+그룹 기반 라이선스가 사용자에 게 동일한 라이선스의 동시 라이선스 할당을 처리 하려고 하면이 예외가 사용자에 게 기록 됩니다. 이는 일반적으로 사용자가 할당 된 라이선스가 같은 두 개 이상의 그룹에 속한 경우에 발생 합니다. Azure AD에서 사용자 라이선스 처리를 다시 시도 하 고 문제를 해결 합니다. 이 문제를 해결 하기 위해 고객에 게 필요한 작업은 없습니다.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>그룹에 할당 된 제품 라이선스가 두 개 이상입니다.
 

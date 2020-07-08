@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 670e2a1fcccf80faaf652f1ce0c749b315c3aaec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c72f8eca9bc054446ceec35448c930098c5f81fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82797267"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610254"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -258,4 +258,4 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster

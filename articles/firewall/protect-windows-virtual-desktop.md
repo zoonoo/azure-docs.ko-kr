@@ -4,21 +4,21 @@ description: Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 배�
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611138"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 배포 보호
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure 방화벽을 사용하여 Windows 가상 데스크톱 배포 보호
 
 Windows 가상 데스크톱은 Azure에서 실행 되는 데스크톱 및 앱 가상화 서비스입니다. 최종 사용자가 Windows 가상 데스크톱 환경에 연결 하는 경우 해당 세션은 호스트 풀에 의해 실행 됩니다. 호스트 풀은 Windows 가상 데스크톱에 세션 호스트로 등록 하는 Azure 가상 컴퓨터의 컬렉션입니다. 이러한 가상 머신은 가상 네트워크에서 실행 되 고 가상 네트워크 보안 제어에 적용 됩니다. Windows 가상 데스크톱 서비스에 대 한 아웃 바운드 인터넷 액세스가 필요 하며, 최종 사용자에 대 한 아웃 바운드 인터넷 액세스가 필요할 수도 있습니다. Azure 방화벽을 통해 사용자 환경을 잠그고 아웃 바운드 트래픽을 필터링 할 수 있습니다.
 
-[![Windows 가상 데스크톱 아키텍처](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png)](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
+[![Windows 가상 데스크톱 아키텍처 ](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png)](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
 이 문서의 지침에 따라 Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대 한 추가 보호를 제공 합니다.
 
@@ -65,7 +65,7 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 제대로
 
 기존 온-프레미스 보안 웹 게이트웨이를 사용 하 여 아웃 바운드 사용자 인터넷 트래픽을 필터링 하려는 경우 명시적 프록시 구성을 사용 하 여 Windows 가상 데스크톱 호스트 풀에서 실행 되는 웹 브라우저 또는 다른 응용 프로그램을 구성할 수 있습니다. 예를 들어 [Microsoft Edge 명령줄 옵션을 사용 하 여 프록시 설정을 구성 하는 방법](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings)을 참조 하세요. 이러한 프록시 설정은 최종 사용자 인터넷 액세스에만 영향을 주므로 Azure 방화벽을 통해 직접 Windows 가상 데스크톱 플랫폼 아웃 바운드 트래픽을 허용 합니다.
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="additional-considerations"></a>추가 고려 사항
 
 요구 사항에 따라 추가 방화벽 규칙을 구성 해야 할 수도 있습니다.
 

@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008205"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608214"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -29,7 +29,7 @@ ms.locfileid: "74008205"
 
 감사 로그 보고서는 애플리케이션 작업의 여러 보고서를 컨텍스트 기반 보고에 대한 단일 보기로 결합합니다. 감사 로그 보고서에 액세스하려면:
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
 3. Azure Active Directory 블레이드의 **활동** 섹션에서 **감사 로그**를 선택합니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "74008205"
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
-- 사용 약관
+- 사용 조건
 
 ## <a name="sign-ins-report"></a>로그인 보고서 
 
@@ -95,7 +95,7 @@ ms.locfileid: "74008205"
 
 로그인 보고서에 액세스하려면:
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
 3. Azure Active Directory 블레이드의 **활동** 섹션에서 **로그인**을 선택합니다. 
 
@@ -147,7 +147,7 @@ ms.locfileid: "74008205"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유 
 
  ![보고](./media/troubleshoot-missing-data-download/01.png)
  
@@ -171,10 +171,10 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 작업이 활동 로그에 즉시 나타나지 않습니다. 아래 표에는 활동 로그의 대기 시간 숫자가 나열되어 있습니다. 
 
-| 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
-|--------|--------|---------------|---------------|
-| 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 보고서 | 대기 시간(P95) | 대기 시간(P99) |
+|--------|---------------|---------------|
+| 디렉터리 감사 | 2분 | 5분 |
+| 로그인 작업 | 2분 | 5분 |
 
 #### <a name="resolution"></a>해결 방법
 
@@ -192,10 +192,10 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 작업이 활동 로그에 즉시 나타나지 않습니다. 아래 표에는 활동 로그의 대기 시간 숫자가 나열되어 있습니다. 
 
-| 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
-|--------|--------|---------------|---------------|
-| 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 작업 | &nbsp; | 2분 | 5분 | 
+| 보고서 | 대기 시간(P95) | 대기 시간(P99) |
+|--------|---------------|---------------|
+| 디렉터리 감사 | 2분 | 5분 |
+| 로그인 작업 | 2분 | 5분 |
 
 #### <a name="resolution"></a>해결 방법
 
@@ -205,7 +205,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -213,10 +213,10 @@ Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 
 
 Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 동안 작업 보고서를 저장합니다.
 
-| 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
-| 로그인 작업 | &nbsp; | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
+| 보고서           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| 디렉터리 감사  | 7 일        | 30일             | 30일             |
+| 로그인 작업 | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
 
 자세한 내용은 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)을 참조하세요.  
 

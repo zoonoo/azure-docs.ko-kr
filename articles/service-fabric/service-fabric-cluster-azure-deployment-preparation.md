@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610594"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -28,7 +28,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 * 클러스터의 안정성 및 지속성 특성
 
 ### <a name="select-the-initial-number-of-node-types"></a>초기 노드 유형 수를 선택 합니다.
-먼저, 만드는 클러스터를 어디에 사용할지 결정해야 합니다. 이 클러스터에 어떤 종류의 애플리케이션을 배포할 계획인가요? 애플리케이션이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요? 서비스(애플리케이션을 구성함)에는 더 유용한 RAM 또는 더 높은 CPU 사용률과 같은 서로 다른 인프라가 필요한가요? Service Fabric 클러스터는 하나 이상의 노드 유형 (주 노드 유형 및 하나 이상의 주 노드가 아닌 노드 유형)으로 구성 될 수 있습니다. 각 노드 유형은 가상 머신 확장 집합에 매핑됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [노드 속성 및 배치 제약 조건을][placementconstraints] 설정 하 여 특정 서비스를 특정 노드 형식으로 제한할 수 있습니다.  자세한 내용은 [클러스터에서 시작 해야 하는 노드 형식의 수](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with)를 참조 하세요.
+먼저, 만드는 클러스터를 어디에 사용할지 결정해야 합니다. 이 클러스터에 어떤 종류의 애플리케이션을 배포할 계획인가요? 애플리케이션이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요? 서비스(애플리케이션을 구성함)에는 더 유용한 RAM 또는 더 높은 CPU 사용률과 같은 서로 다른 인프라가 필요한가요? Service Fabric 클러스터는 하나 이상의 노드 유형 (주 노드 유형 및 하나 이상의 주 노드가 아닌 노드 유형)으로 구성 될 수 있습니다. 각 노드 유형은 가상 머신 확장 집합에 매핑됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [노드 속성 및 배치 제약 조건을][placementconstraints] 설정 하 여 특정 서비스를 특정 노드 형식으로 제한할 수 있습니다.  자세한 내용은 [Service Fabric 클러스터 용량 계획](service-fabric-cluster-capacity.md)을 참조 하세요.
 
 ### <a name="select-node-properties-for-each-node-type"></a>각 노드 유형에 대 한 노드 속성 선택
 노드 유형은 연결 된 확장 집합에 있는 vm의 VM SKU, 번호 및 속성을 정의 합니다.
@@ -37,7 +37,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 
 주 노드 유형에 대한 최소 VM 수는 선택한 [안정성 계층][reliability]에 따라 결정됩니다.
 
-주 [노드 형식에 대 한 최소](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads)을 참조 하세요.
+주 [노드 형식에 대 한 최소](service-fabric-cluster-capacity.md#primary-node-type)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#stateless-workloads)을 참조 하세요.
 
 최소 노드 수는이 노드 유형에 서 실행 하려는 응용 프로그램/서비스의 복제본 수를 기반으로 해야 합니다.  [Service Fabric 응용 프로그램에 대 한 용량 계획](service-fabric-capacity-planning.md) 을 통해 응용 프로그램을 실행 하는 데 필요한 리소스를 예상할 수 있습니다. 나중에 응용 프로그램 워크 로드를 변경 하기 위해 클러스터를 확장 하거나 축소할 수 있습니다. 
 
@@ -62,14 +62,14 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
     > [!NOTE]
     > 캐시 크기가 VM 자체의 OS 디스크 크기 보다 크거나 같은 VM 크기를 선택 해야 합니다. 그렇지 않으면 Azure 배포에 오류가 발생할 수 있습니다 (처음에 허용 되는 경우에도).
 
-2. 이상 버전의 `2018-06-01` 가상 컴퓨터 확장 집합 버전`vmssApiVersion`()을 지정 합니다.
+2. 이상 버전의 가상 컴퓨터 확장 집합 버전 ()을 지정 합니다 `vmssApiVersion` `2018-06-01` .
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. 배포 템플릿의 가상 머신 확장 집합 섹션에서 다음에 대 한 `Local` `diffDiskSettings`옵션을 지정 합니다.
+3. 배포 템플릿의 가상 머신 확장 집합 섹션에서 `Local` 다음에 대 한 옵션을 지정 합니다 `diffDiskSettings` .
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -123,5 +123,5 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 * [Linux를 실행 하는 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

@@ -11,21 +11,22 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 885d30305ba2b186052e17b9b455b2248bca541b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608520"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
-UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "@" 기호를 사용 하 여 접미사를 조인 합니다. someone@example.com)을 입력합니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
-
-> [!NOTE]
-> 개발자의 경우 UPN 대신 변경할 수 없는 식별자로 사용자 objectID를 사용 하는 것이 좋습니다. 응용 프로그램에서 현재 UPN을 사용 하는 경우 사용자의 기본 전자 메일 주소와 일치 하도록 UPN을 설정 하 여 환경을 개선 하는 것이 좋습니다.<br> **하이브리드 환경에서 사용자의 UPN은 온-프레미스 디렉터리와 Azure Active Directory에서 동일 해야**합니다.
+UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "@" 기호를 사용 하 여 접미사를 조인 합니다. 예: someone@example.com. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 **이 문서에서는 사용자가 UPN을 사용 하 고 있다고 가정 합니다. UPN 변경에 대 한 계획을 수립 하 고 UPN 변경으로 인해 발생할 수 있는 문제를 해결 합니다.**
+
+> [!NOTE]
+> 개발자의 경우 값이 변경 될 수 있으므로 UPN 또는 전자 메일 주소가 아닌 변경할 수 없는 식별자로 사용자 objectID를 사용 하는 것이 좋습니다.
+
 
 ## <a name="learn-about-upns-and-upn-changes"></a>Upn 및 UPN 변경에 대 한 자세한 정보
 필수 값이 실제로 UPN 인 경우 로그인 페이지에서 사용자에 게 전자 메일 주소를 입력 하 라는 메시지를 표시 하는 경우가 많습니다. 따라서 기본 전자 메일 주소가 변경 될 때마다 사용자의 UPN을 변경 해야 합니다.
@@ -47,20 +48,20 @@ UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 �
 * **접두사 변경**
 
    *  예를 들어 사용자 이름이 변경 된 경우 계정 이름을 변경할 수 있습니다.  
-BSimon@contoso.com 대상BJohnson@contoso.com
+BSimon@contoso.com대상BJohnson@contoso.com
 
    * 접두사에 대 한 회사 표준도 변경할 수 있습니다.  
-Bsimon@contoso.com 대상Britta.Simon@contoso.com
+Bsimon@contoso.com대상Britta.Simon@contoso.com
 
 * **접미사를 변경**합니다. <br>
 
     예를 들어 사용자가 부서를 변경한 경우 해당 도메인을 변경할 수 있습니다. 
 
-   * Britta.Simon@contosolabs.com에 대한 Britta.Simon@contoso.com <br>
+   * Britta.Simon@contoso.com - Britta.Simon@contosolabs.com <br>
      또는<br>
-    * Britta.Simon@labs.contoso.com에 대한 Britta.Simon@corp.contoso.com 
+    * Britta.Simon@corp.contoso.com - Britta.Simon@labs.contoso.com 
 
-사용자의 기본 전자 메일 주소가 업데이트 될 때마다 사용자의 UPN을 변경 합니다. 전자 메일 변경의 원인에 관계 없이 UPN은 항상 일치 하도록 업데이트 해야 합니다.
+기본 전자 메일 주소가 업데이트 될 때마다 사용자의 UPN을 변경 하는 것이 좋습니다.
 
 Active Directory에서 Azure AD로의 초기 동기화 중에 사용자의 전자 메일이 Upn과 동일한 지 확인 합니다.
 
@@ -77,7 +78,7 @@ username@contoso.com
 username@labs.contoso.com.
 
 >[!IMPORTANT]
-> Active directory의 Upn과 Azure Active Directory가 일치 하지 않으면 문제가 발생 합니다. [Active Directory에서 접미사를 변경](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)하는 경우 [Azure AD에서](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)일치 하는 사용자 지정 도메인 이름이 추가 되 고 확인 되었는지 확인 해야 합니다. 
+> [Active Directory에서 접미사를 변경](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)하는 경우 [Azure AD에서](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)일치 하는 사용자 지정 도메인 이름이 추가 되 고 확인 되었는지 확인 해야 합니다. 
 
 ![확인 된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -131,9 +132,13 @@ UserPrincipalName 특성의 값이 Azure AD의 확인 된 도메인에 해당 �
 사용자는 인증을 위해 Azure AD에 의존 하는 응용 프로그램에 대 한 Single Sign-On 문제를 겪을 수 있습니다.
 
 **해결 방법** <br>
+이 섹션에서 설명 하는 문제는 Windows 10 2020 업데이트 (2004)에서 해결 되었습니다.
+
+**해결 방법** <br>
 UPN 변경 내용이 Azure AD로 동기화 될 때까지 충분 한 시간을 허용 합니다. 새 UPN이 Azure AD 포털에 반영 되는지 확인 한 후 사용자에 게 "기타 사용자" 타일을 선택 하 여 새 UPN으로 로그인 하도록 요청 합니다. [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)을 통해 확인할 수도 있습니다. 새 UPN을 사용 하 여 로그인 한 후에는 이전 UPN에 대 한 참조가 "회사 또는 학교 액세스" 창 설정에 계속 나타날 수 있습니다.
 
 ![확인 된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/other-user.png)
+
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 디바이스
 
@@ -149,6 +154,9 @@ Windows 10 하이브리드 Azure AD 조인 장치에서 예기치 않은 다시 
 
 "1 분 후에 PC가 자동으로 다시 시작 됩니다. Windows에서 문제가 발생 하 여 다시 시작 해야 합니다. 지금이 메시지를 닫고 작업을 저장 해야 합니다. "
 
+**해결 방법** <br>
+이 섹션에서 설명 하는 문제는 Windows 10 2020 업데이트 (2004)에서 해결 되었습니다.
+
 **해결 방법** 
 
 장치가 Azure AD에서 가입 다시 시작 되어야 합니다. 다시 시작한 후에는 장치에서 자동으로 Azure AD에 다시 조인 하 고 사용자는 "기타 사용자" 타일을 선택 하 여 새 UPN을 사용 하 여 로그인 해야 합니다. Azure AD에서 장치를 가입 해제 하려면 명령 프롬프트에서 다음 명령을 실행 합니다.
@@ -156,6 +164,7 @@ Windows 10 하이브리드 Azure AD 조인 장치에서 예기치 않은 다시 
 **dsregcmd.exe/leave**
 
 사용자는 비즈니스용 Windows Hello를 사용 하는 경우 [다시 등록](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) 해야 합니다. UPN이 변경 된 후에도 Windows 7 및 8.1 장치는이 문제의 영향을 받지 않습니다.
+
 
 ## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>알려진 문제 및 해결 방법 Microsoft Authenticator
 

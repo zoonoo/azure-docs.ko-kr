@@ -1,23 +1,23 @@
 ---
 title: 데이터 가져오기
 titleSuffix: Azure Machine Learning
-description: 다양한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법을 알아봅니다.
+description: 다양 한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610951"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너에 데이터 가져오기(미리 보기)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
 
 이 문서에서는 사용자 고유의 데이터를 디자이너에 가져와서 사용자 지정 솔루션을 만드는 방법을 알아봅니다. 데이터를 디자이너로 가져오는 두 가지 방법은 다음과 같습니다. 
 
@@ -89,6 +89,10 @@ ms.locfileid: "83644562"
 ## <a name="data-constraints"></a>데이터 제약 조건
 
 디자이너의 모듈은 컴퓨팅 대상의 크기로 제한됩니다. 큰 데이터 세트의 경우 더 큰 Azure Machine Learning 컴퓨팅 리소스를 사용해야 합니다. Azure Machine Learning 컴퓨팅에 대한 자세한 내용은 [Azure Machine Learning의 컴퓨팅 대상이란?](concept-compute-target.md#azure-machine-learning-compute-managed)을 참조하세요.
+
+## <a name="access-data-in-a-virtual-network"></a>가상 네트워크의 데이터에 액세스
+
+작업 영역이 가상 네트워크에 있는 경우에는 디자이너에서 데이터를 시각화 하기 위해 추가 구성 단계를 수행 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리](how-to-enable-virtual-network.md#machine-learning-studio)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

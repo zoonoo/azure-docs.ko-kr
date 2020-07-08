@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: bf96cea2f64c52714ed6c63b0e973d0d26999856
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610220"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
-온-프레미스에서 Azure로 Windows VM (가상 머신)을 업로드 하기 전에 가상 하드 디스크 (VHD 또는 VHDX)를 준비 해야 합니다. Azure는 VHD 파일 형식 이며 고정 크기 디스크를 포함 하는 1 세대 및 2 세대 Vm을 모두 지원 합니다. VHD에 허용 되는 최대 크기는 2tb입니다.
+온-프레미스에서 Azure로 Windows VM (가상 머신)을 업로드 하기 전에 가상 하드 디스크 (VHD 또는 VHDX)를 준비 해야 합니다. Azure는 VHD 파일 형식 이며 고정 크기 디스크를 포함 하는 1 세대 및 2 세대 Vm을 모두 지원 합니다. 1 세대 VM에서 OS VHD에 허용 되는 최대 크기는 2tb입니다.
 
-1 세대 VM에서 VHDX 파일 시스템을 VHD로 변환할 수 있습니다. 동적 확장 디스크를 고정 크기 디스크로 변환할 수도 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [hyper-v에서 1 세대 또는 2 세대 vm을 만들어야 하나요?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) 및 [Azure의 2 세대 vm에 대 한 지원](generation-2.md)을 참조 하세요.
+VHDX 파일을 VHD로 변환 하 여 동적 확장 디스크를 고정 크기 디스크로 변환할 수 있지만 VM의 생성은 변경할 수 없습니다. 자세한 내용은 [hyper-v에서 1 세대 또는 2 세대 vm을 만들어야 하나요?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) 및 [Azure의 2 세대 vm에 대 한 지원](generation-2.md)을 참조 하세요.
 
 Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 대 한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/help/2721672/)을 참조 하세요.
 
@@ -28,6 +28,73 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 >
 > - 64 비트 버전의 Windows Server 2008 R2 이상 Windows Server 운영 체제 Azure에서 32 비트 운영 체제를 실행 하는 방법에 대 한 자세한 내용은 [Azure vm에서 32 비트 운영 체제 지원](https://support.microsoft.com/help/4021388/)을 참조 하세요.
 > - Azure Site Recovery 또는 Azure Migrate와 같이 작업을 마이그레이션하는 데 재해 복구 도구를 사용 하는 경우 마이그레이션 전에 이미지를 준비 하기 위해 게스트 OS에서이 프로세스가 계속 필요 합니다.
+
+## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>가상 디스크를 고정 크기의 VHD로 변환
+
+이 섹션의 방법 중 하나를 사용 하 여 가상 디스크를 Azure에 필요한 형식으로 변환 하 고 크기를 조정 합니다.
+
+1. 가상 디스크 변환 또는 크기 조정 프로세스를 실행 하기 전에 VM을 백업 합니다.
+
+1. 로컬 서버에서 Windows VHD가 제대로 작동 하는지 확인 합니다. Azure로 변환하거나 업로드하기 전에 VM 자체 내에서 오류를 해결해 보세요.
+
+1. 가상 디스크를 고정 형식으로 변환 합니다.
+
+1. Azure 요구 사항에 맞게 가상 디스크 크기 조정:
+
+   1. Azure의 디스크는 가상 크기를 1 MiB에 맞춰야 합니다. VHD가 1 MiB 인 경우 디스크 크기를 1 MiB의 배수로 조정 해야 합니다. MiB의 분수 인 디스크는 업로드 된 VHD에서 이미지를 만들 때 오류가 발생 합니다. 이를 확인 하려면 PowerShell [GET VHD](/powershell/module/hyper-v/get-vhd) comdlet을 사용 하 여 "크기"를 표시할 수 있습니다 .이는 Azure에서 1 MiB의 배수 여야 하며, "FileSize"는 VHD 바닥글에 대해 512 바이트와 동일 합니다.
+   
+   1. 1 세대 VM에서 OS VHD에 허용 되는 최대 크기는 2048 GiB (2 TiB)입니다. 
+   1. 데이터 디스크의 최대 크기는 32767 GiB (32 TiB)입니다.
+
+> [!NOTE]
+> - 고정 디스크로 변환한 후 Windows OS 디스크를 준비 하 고 필요한 경우 크기를 조정 하는 경우 디스크를 사용 하는 VM을 만듭니다. VM을 시작 하 고 로그인 한 후이 문서의 섹션을 계속 진행 하 여 업로드 준비를 완료 합니다.  
+> - 데이터 디스크를 준비 하는 경우이 섹션으로 중지 하 고 디스크 업로드를 진행할 수 있습니다.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Hyper-v 관리자를 사용 하 여 디스크 변환
+
+1. Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 컴퓨터 목록 위의 메뉴에서 **작업**  >  **디스크 편집**을 선택 합니다.
+1. **가상 하드 디스크 찾기** 페이지에서 가상 디스크를 선택 합니다.
+1. **작업 선택** 페이지에서 **변환**  >  **다음**을 선택 합니다.
+1. VHDX에서 변환 하려면 **VHD**  >  **다음**을 선택 합니다.
+1. 동적 확장 디스크에서 변환 하려면 **고정 크기**  >  **다음**을 선택 합니다.
+1. 새 VHD 파일을 저장할 경로를 찾아 선택 합니다.
+1. **마침**을 선택합니다.
+
+### <a name="use-powershell-to-convert-the-disk"></a>PowerShell을 사용 하 여 디스크 변환
+
+PowerShell의 [변환-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 가상 디스크를 변환할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
+
+다음 예에서는 디스크를 VHDX에서 VHD로 변환 합니다. 또한 디스크를 동적 확장 디스크에서 고정 크기 디스크로 변환 합니다.
+
+```powershell
+Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
+```
+
+이 예에서는 **path** 에 대 한 값을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. **DestinationPath** 의 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
+
+### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK 디스크 형식에서 변환
+
+[.Vmdk 파일 형식](https://en.wikipedia.org/wiki/VMDK)으로 된 Windows VM 이미지가 있는 경우 [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) 를 사용 하 여 VHD 형식으로 변환 합니다. 자세한 내용은 [VMWARE .vmdk를 HYPER-V VHD로 변환 하는 방법](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd)을 참조 하세요.
+
+### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Hyper-v 관리자를 사용 하 여 디스크 크기 조정
+
+1. Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 컴퓨터 목록 위의 메뉴에서 **작업**  >  **디스크 편집**을 선택 합니다.
+1. **가상 하드 디스크 찾기** 페이지에서 가상 디스크를 선택 합니다.
+1. **작업 선택** 페이지에서 **확장**  >  **다음**을 선택 합니다.
+1. **가상 하드 디스크 찾기** 페이지에서 GiB > **다음**에 새 크기를 입력 합니다.
+1. **마침**을 선택합니다.
+
+### <a name="use-powershell-to-resize-the-disk"></a>PowerShell을 사용 하 여 디스크 크기 조정
+
+PowerShell에서 [VHD 크기 조정](/powershell/module/hyper-v/resize-vhd) cmdlet을 사용 하 여 가상 디스크의 크기를 조정할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
+
+다음 예제에서는 Azure 맞춤 요구 사항을 충족 하기 위해 100.5 MiB에서 101 MiB로 디스크 크기를 조정 합니다.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+이 예에서는 **path** 에 대 한 값을 크기를 조정 하려는 가상 하드 디스크의 경로로 바꿉니다. **Sizebytes** 의 값을 디스크의 새 크기 (바이트)로 바꿉니다.
 
 ## <a name="system-file-checker"></a>시스템 파일 검사기
 
@@ -55,49 +122,6 @@ Windows Resource Protection did not find any integrity violations.
 
 SFC 검사가 완료 된 후 Windows 업데이트를 설치 하 고 컴퓨터를 다시 시작 합니다.
 
-## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>가상 디스크를 고정 크기의 VHD로 변환
-
-이 섹션의 방법 중 하나를 사용 하 여 가상 디스크를 Azure에 필요한 형식으로 변환 합니다.
-
-1. 가상 디스크 변환 프로세스를 실행 하기 전에 VM을 백업 합니다.
-
-1. 로컬 서버에서 Windows VHD가 제대로 작동 하는지 확인 합니다. Azure로 변환하거나 업로드하기 전에 VM 자체 내에서 오류를 해결해 보세요.
-
-1. VHD 크기:
-
-   1. Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크를 VHD로 변환 하는 경우 변환 전 원시 디스크 크기가 1mb의 배수 인지 확인 해야 합니다.
-      업로드 된 VHD에서 이미지를 만드는 경우 메가바이트의 분수로 인해 오류가 발생 합니다.
-
-   1. OS VHD에 허용 되는 최대 크기는 2tb입니다.
-
-디스크를 변환한 후 디스크를 사용 하는 VM을 만듭니다. 를 시작 하 고 VM에 로그인 하 여 업로드할 준비를 완료 합니다.
-
-### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Hyper-v 관리자를 사용 하 여 디스크 변환
-
-1. Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 컴퓨터 목록 위의 메뉴에서 **작업** > **디스크 편집**을 선택 합니다.
-1. **가상 하드 디스크 찾기** 페이지에서 가상 디스크를 선택 합니다.
-1. **작업 선택** 페이지에서 **변환** > **다음**을 선택 합니다.
-1. VHDX에서 변환 하려면 **VHD** > **다음**을 선택 합니다.
-1. 동적 확장 디스크에서 변환 하려면 **고정 크기** > **다음**을 선택 합니다.
-1. 새 VHD 파일을 저장할 경로를 찾아 선택 합니다.
-1. **마침**을 선택합니다.
-
-### <a name="use-powershell-to-convert-the-disk"></a>PowerShell을 사용 하 여 디스크 변환
-
-PowerShell의 [변환-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 가상 디스크를 변환할 수 있습니다.
-
-다음 예에서는 디스크를 VHDX에서 VHD로 변환 합니다. 또한 디스크를 동적 확장 디스크에서 고정 크기 디스크로 변환 합니다.
-
-```powershell
-Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
-```
-
-이 예에서는 **path** 에 대 한 값을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. **DestinationPath** 의 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
-
-### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK 디스크 형식에서 변환
-
-[.Vmdk 파일 형식](https://en.wikipedia.org/wiki/VMDK)으로 된 Windows VM 이미지가 있는 경우 [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) 를 사용 하 여 VHD 형식으로 변환 합니다. 자세한 내용은 [VMWARE .vmdk를 HYPER-V VHD로 변환 하는 방법](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd)을 참조 하세요.
-
 ## <a name="set-windows-configurations-for-azure"></a>Azure에 대한 Windows 구성 설정
 
 > [!NOTE]
@@ -105,7 +129,7 @@ Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDTyp
 
 1. 라우팅 테이블에서 정적 영구 경로를 제거 합니다.
 
-   - 라우팅 테이블을 보려면를 실행 `route.exe print`합니다.
+   - 라우팅 테이블을 보려면를 실행 `route.exe print` 합니다.
    - **지 속성 경로** 섹션을 확인 합니다. 영구 경로가 있는 경우 `route.exe delete` 명령을 사용 하 여 제거 합니다.
 
 1. WinHTTP 프록시를 제거합니다.
@@ -128,7 +152,7 @@ Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDTyp
    diskpart.exe
    ```
 
-   디스크 SAN 정책을 [`Onlineall`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/gg252636(v=ws.11))다음과 같이 설정 합니다.
+   디스크 SAN 정책을 [`Onlineall`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/gg252636(v=ws.11)) 다음과 같이 설정 합니다.
 
    ```DiskPart
    DISKPART> san policy=onlineall
@@ -174,7 +198,7 @@ Get-Service -Name Netlogon, Netman, TermService |
 원격 액세스에 대해 다음 설정이 올바르게 구성 되어 있는지 확인 합니다.
 
 > [!NOTE]
-> 를 실행할 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>`때 오류 메시지가 표시 되는 경우 무시 해도 됩니다. 이는 도메인이 그룹 정책 개체를 통해 해당 구성을 설정 하지 않음을 의미 합니다.
+> 를 실행할 때 오류 메시지가 표시 되는 경우 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>` 무시 해도 됩니다. 이는 도메인이 그룹 정책 개체를 통해 해당 구성을 설정 하지 않음을 의미 합니다.
 
 1. RDP(원격 데스크톱 프로토콜)이 활성화되어 있습니다.
 
@@ -240,7 +264,7 @@ Get-Service -Name Netlogon, Netman, TermService |
 
 1. VM이 도메인의 일부인 경우 다음 정책을 확인 하 여 이전 설정이 되돌리지 않았는지 확인 합니다.
 
-    |                 목표                  |                                                                            정책                                                                            |                           값                            |
+    |                 Goal                  |                                                                            정책                                                                            |                           값                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP 사용                        | Computer Configuration\Policies\Windows Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | 사용자가 원격 데스크톱을 사용하여 원격으로 연결하도록 허용    |
     | NLA 그룹 정책                      | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | NLA를 사용 하 여 원격 액세스에 대 한 사용자 인증 필요 |
@@ -284,7 +308,7 @@ Get-Service -Name Netlogon, Netman, TermService |
 
 1. VM이 도메인의 일부인 경우 다음 Azure AD 정책을 확인 하 여 이전 설정이 되돌리지 않았는지 확인 합니다.
 
-    |                 목표                 |                                                                         정책                                                                          |                  값                  |
+    |                 Goal                 |                                                                         정책                                                                          |                  값                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Windows 방화벽 프로필을 사용하도록 설정 | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | 모든 네트워크 연결 보호         |
     | RDP를 사용하도록 설정                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | 인바운드 원격 데스크톱 예외 허용 |
@@ -347,7 +371,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
    리포지토리가 손상 된 경우 [WMI: 리포지토리 손상](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484)여부를 참조 하세요.
 
-1. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 다음을 `netstat.exe -anob`실행 합니다.
+1. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 다음을 실행 합니다 `netstat.exe -anob` .
 
    ```powershell
    netstat.exe -anob
@@ -377,7 +401,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
    정책에 다음 그룹이 나열 됩니다.
 
-   - 관리자
+   - Administrators
 
    - Backup Operators
 
@@ -436,14 +460,14 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 |                         |                | KB4103712                                 | KB4103726                                   | KB4103715                           |                                             |                            |                                             |                                             |
 
 > [!NOTE]
-> VM을 프로 비전 하는 동안 실수로 인 한 재부팅을 방지 하려면 모든 Windows 업데이트 설치를 완료 하 고 보류 중인 업데이트가 없는지 확인 하는 것이 좋습니다. 이 작업을 수행 하는 한 가지 방법은 가능한 모든 Windows 업데이트를 설치 하 고 `sysprep.exe` 명령을 실행 하기 전에 한 번 다시 부팅 하는 것입니다.
+> VM을 프로 비전 하는 동안 실수로 인 한 재부팅을 방지 하려면 모든 Windows 업데이트 설치를 완료 하 고 보류 중인 업데이트가 없는지 확인 하는 것이 좋습니다. 이 작업을 수행 하는 한 가지 방법은 가능한 모든 Windows 업데이트를 설치 하 고 명령을 실행 하기 전에 한 번 다시 부팅 하는 것입니다 `sysprep.exe` .
 
 ### <a name="determine-when-to-use-sysprep"></a>Sysprep 사용 시기 결정
 
-시스템 준비 도구 (`sysprep.exe`)는 Windows 설치를 다시 설정 하기 위해 실행할 수 있는 프로세스입니다.
+시스템 준비 도구 ( `sysprep.exe` )는 Windows 설치를 다시 설정 하기 위해 실행할 수 있는 프로세스입니다.
 Sysprep은 모든 개인 데이터를 제거 하 고 여러 구성 요소를 다시 설정 하 여 "기본 제공" 환경을 제공 합니다.
 
-일반적으로를 `sysprep.exe` 실행 하 여 특정 구성이 있는 다른 여러 vm을 배포할 수 있는 템플릿을 만듭니다. 이 템플릿을 *일반화 된 이미지*라고 합니다.
+일반적으로 `sysprep.exe` 를 실행 하 여 특정 구성이 있는 다른 여러 vm을 배포할 수 있는 템플릿을 만듭니다. 이 템플릿을 *일반화 된 이미지*라고 합니다.
 
 하나의 디스크에서 하나의 VM만 만들려면 Sysprep을 사용할 필요가 없습니다. 대신 *특수 이미지*에서 VM을 만들 수 있습니다. 특수 한 디스크에서 VM을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
@@ -452,27 +476,30 @@ Sysprep은 모든 개인 데이터를 제거 하 고 여러 구성 요소를 다
 
 일반화 된 이미지를 만들려면 Sysprep를 실행 해야 합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10))를 참조 하세요.
 
-Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램은 일반화 된 이미지를 지원 하지 않습니다. 이 절차를 사용 하기 전에 Sysprep에서 컴퓨터의 역할을 지원 하는지 확인 합니다. 자세한 내용은 [Sysprep의 서버 역할 지원](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
+Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램은 일반화 된 이미지를 지원 하지 않습니다. 이 절차를 사용 하기 전에 Sysprep에서 컴퓨터의 역할을 지원 하는지 확인 합니다. 자세한 내용은 [서버 역할에 대 한 Sysprep 지원](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)을 참조 하세요.
+
+특히 Sysprep은 실행 하기 전에 드라이브를 완전히 해독 해야 합니다. VM에서 암호화를 사용 하도록 설정한 경우 Sysprep를 실행 하기 전에 사용 하지 않도록 설정 합니다.
+
 
 ### <a name="generalize-a-vhd"></a>VHD 일반화
 
 >[!NOTE]
-> 다음 단계를 `sysprep.exe` 실행 한 후 VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
+> 다음 단계를 실행 한 후 `sysprep.exe` VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
 
 1. Windows VM에 로그인합니다.
 1. 관리자 권한으로 PowerShell 세션을 실행 합니다.
-1. 디렉터리를로 `%windir%\system32\sysprep`변경 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
+1. 디렉터리를로 변경 `%windir%\system32\sysprep` 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
 1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE (첫 실행 경험) 입력**을 선택 하 고 **일반화** 확인란을 선택 했는지 확인 합니다.
 
     ![시스템 준비 도구](media/prepare-for-upload-vhd-image/syspre.png)
-1. **종료 옵션**에서 **종료**를 선택하고
+1. **종료 옵션**에서 **종료**를 선택합니다.
 1. **확인**을 선택합니다.
 1. Sysprep이 완료 되 면 VM을 종료 합니다. **다시 시작** 을 사용 하 여 VM을 종료 하지 마세요.
 
 이제 VHD를 업로드할 수 있습니다. 일반화 된 디스크에서 VM을 만드는 방법에 대 한 자세한 내용은 [일반화 된 VHD 업로드 및이를 사용 하 여 Azure에서 새 vm 만들기](sa-upload-generalized.md)를 참조 하세요.
 
 >[!NOTE]
-> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. **AdditionalUnattendContent** 속성은 지원 하지만 Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft-windows-shell-설치](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
+> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. **AdditionalUnattendContent** 속성은 지원 하지만 Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft-windows 셸 설치](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
 
 ## <a name="complete-the-recommended-configurations"></a>권장 구성 완료
 

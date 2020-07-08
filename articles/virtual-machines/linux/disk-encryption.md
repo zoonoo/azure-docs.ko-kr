@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a77f40f554e459ad1f28b11969421689cd29b4bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609390"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure Managed Disks의 서버 쪽 암호화
 
@@ -75,63 +75,18 @@ Ultra Disks의 경우 키를 사용하지 않도록 설정하거나 삭제해도
 
 - 디스크에 대해 이 기능을 사용하는 경우에는 사용하지 않도록 설정할 수 없습니다.
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)해야 합니다.
-- 크기가 2048인 ["soft" 및 "hard" RSA 키](../../key-vault/keys/about-keys.md)만 지원되며 다른 키나 크기는 지원되지 않습니다.
+- 크기 2048의 [소프트웨어 및 HSM RSA 키](../../key-vault/keys/about-keys.md) 만 지원 되 고 다른 키 또는 크기는 지원 되지 않습니다.
 - 서버 쪽 암호화 및 고객 관리형 키를 사용하여 암호화된 사용자 지정 이미지에서 만든 디스크는 동일한 고객 관리형 키를 사용하여 암호화해야 하며 동일한 구독에 있어야 합니다.
 - 서버 쪽 암호화 및 고객 관리형 키로 암호화된 디스크에서 만든 스냅샷은 동일한 고객 관리형 키를 사용하여 암호화해야 합니다.
 - 고객 관리형 키와 관련된 모든 리소스(Azure Key Vault, 디스크 암호화 집합, VM, 디스크 및 스냅샷)는 동일한 구독 및 지역에 있어야 합니다.
 - 고객 관리형 키를 사용하여 암호화된 디스크, 스냅샷 및 이미지는 다른 구독으로 이동할 수 없습니다.
-- Azure Portal을 사용하여 디스크 암호화 집합을 만들 경우 현재는 스냅샷을 사용할 수 없습니다.
 - 또한 고객 관리형 키를 사용하여 암호화된 관리 디스크는 Azure Disk Encryption으로 암호화할 수 없습니다.
 - 공유 이미지 갤러리에서 고객 관리형 키를 사용하는 방법에 대한 자세한 정보는 [미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용](../image-version-encryption.md)을 참조하세요.
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 DiskEncryptionSet 설정
 
-1. 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
-
-1. Azure Key Vault 및 암호화 키의 인스턴스를 만듭니다.
-
-    Key Vault 인스턴스를 만드는 경우 일시 삭제 및 제거 보호를 사용하도록 설정해야 합니다. 일시 삭제를 사용하면 지정된 보존 기간(기본적으로 90일) 동안 Key Vault에 삭제된 키를 보관하게 됩니다. 제거 보호를 사용하면 보존 기간이 지날 때까지 삭제된 키를 영구 삭제할 수 없습니다. 이러한 설정은 실수로 삭제하여 데이터가 손실되지 않도록 보호합니다. 이러한 설정은 관리 디스크를 암호화하기 위해 Key Vault를 사용하는 경우 필수입니다.
-
-    > [!IMPORTANT]
-    > 지역을 카멜식 대/소문자로 구분하지 마세요. 그렇게 하면 Azure Portal의 리소스에 추가 디스크를 할당할 때 문제가 발생할 수 있습니다.
-
-    ```azurecli
-    subscriptionId=yourSubscriptionID
-    rgName=yourResourceGroupName
-    location=westcentralus
-    keyVaultName=yourKeyVaultName
-    keyName=yourKeyName
-    diskEncryptionSetName=yourDiskEncryptionSetName
-    diskName=yourDiskName
-
-    az account set --subscription $subscriptionId
-
-    az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
-
-    az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
-    ```
-
-1.    DiskEncryptionSet의 인스턴스를 만듭니다. 
-    
-        ```azurecli
-        keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
-    
-        keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
-    
-        az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
-        ```
-
-1.    Key Vault에 대해 DiskEncryptionSet 리소스 액세스 권한을 부여합니다. 
-
-        > [!NOTE]
-        > Azure가 Azure Active Directory에서 DiskEncryptionSet의 ID를 만드는 데는 몇 분 정도 걸릴 수 있습니다. 다음 명령을 실행할 때 "Active Directory 개체를 찾을 수 없습니다"와 같은 오류가 발생하면 몇 분 정도 기다린 후 다시 시도하세요.
-
-        ```azurecli
-        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-    
-        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-        ```
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 VM을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.
 
@@ -158,7 +113,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskEncryptionSetName=yourDiskEncryptionSetName
  
-az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetName
 ```
 
 #### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 가상 머신 확장 집합을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.
@@ -218,11 +173,7 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 
 #### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>디스크의 서버 쪽 암호화 상태 찾기
 
-```azurecli
-
-az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
-
-```
+[!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
 
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.

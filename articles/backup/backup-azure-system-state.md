@@ -1,17 +1,16 @@
 ---
 title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 및/또는 Windows 컴퓨터의 시스템 상태를 Azure에 백업하는 방법을 알아봅니다.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611444"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
+# <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내 합니다.
 
@@ -19,49 +18,9 @@ Azure Backup에 대해 자세히 알아보려면 이 [개요](backup-overview.md
 
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 지역에 Recovery Services 자격 증명 모음을 만들어야 합니다. 스토리지를 복제할 방식도 결정해야 합니다.
-
-### <a name="to-create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 만들려면
-
-1. 아직 수행 하지 않은 경우 Azure 구독을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-2. 허브 메뉴에서 **모든 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음, **Recovery Services 자격 증명 모음**을 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    구독에 복구 서비스 자격 증명 모음이 있는 경우 자격 증명 모음이 나열됩니다.
-3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    Recovery Services 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 3단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-
-5. **구독** 섹션에서 드롭다운 메뉴를 사용하여 Azure 구독을 선택합니다. 구독을 하나만 사용하면 해당 구독이 나타나고 다음 단계로 건너뛸 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-
-6. **리소스 그룹** 섹션에서:
-
-    * 리소스 그룹을 만들려면 **새로 만들기**를 선택합니다.
-    또는
-    * **기존 그룹 사용**을 선택하고 드롭다운 메뉴를 클릭하여 사용 가능한 리소스 그룹 목록을 봅니다.
-
-   리소스 그룹에 대한 전체 정보는 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.
-
-7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 선택에 따라 백업 데이터가 전송되는 지역이 결정됩니다.
-
-8. Recovery Services 자격 증명 모음 블레이드의 하단에서 **만들기**를 클릭합니다.
-
-    Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
-
-    ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Recovery Services 자격 증명 모음 목록에 사용자의 자격 증명 모음이 보이면 스토리지 중복을 설정할 준비가 된 것입니다.
-
-### <a name="set-storage-redundancy-for-the-vault"></a>자격 증명 모음에 스토리지 중복 설정
+## <a name="set-storage-redundancy-for-the-vault"></a>자격 증명 모음에 스토리지 중복 설정
 
 Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복을 원하는 대로 구성해야 합니다.
 
@@ -222,7 +181,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
   ![IR 완료](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>질문이 있으십니까?
+## <a name="questions"></a>궁금한 점이 더 있나요?
 
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](https://feedback.azure.com/forums/258995-azure-backup).
 

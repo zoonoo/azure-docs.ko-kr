@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610730"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -58,14 +58,14 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
 |Cassandra API|Keyspace|테이블|
-|Gremlin API|데이터베이스 계정|Graph|
+|Gremlin API|데이터베이스 계정|그래프|
 |테이블 API|데이터베이스 계정|테이블|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>요청 속도 제한 최적화
 
-대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버는 미리 (HTTP 상태 코드 429 `RequestRateTooLarge` )를 사용 하 여 요청을 종료 하 `x-ms-retry-after-ms` 고 요청을 다시 시도 하기 전에 사용자가 대기 해야 하는 시간 (밀리초)을 나타내는 헤더를 반환 합니다. 
+대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버는 미리 (HTTP 상태 코드 429)를 사용 하 여 요청을 종료 `RequestRateTooLarge` 하 고 `x-ms-retry-after-ms` 요청을 다시 시도 하기 전에 사용자가 대기 해야 하는 시간 (밀리초)을 나타내는 헤더를 반환 합니다. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 기본 SDK(.NET/.NET Core, Java, Node.js 및 Python)는 이 응답을 암시적으로 모두 catch하고, server-specified retry-after 헤더를 준수하고 요청을 다시 시도합니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
-하나 이상의 클라이언트가 누적 작업을 요청 빈도 이상에서 일관 되 게 작동 하는 경우 현재 9로 설정 된 기본 재시도 횟수는 충분 하지 않을 수 있습니다. 이 경우 클라이언트는 응용 프로그램에 상태 `RequestRateTooLargeException` 코드 429을 포함 하는을 throw 합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적 `RequestRateTooLargeException` 으로 요청이 요청 률을 초과 하 여 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429이 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
+하나 이상의 클라이언트가 누적 작업을 요청 빈도 이상에서 일관 되 게 작동 하는 경우 현재 9로 설정 된 기본 재시도 횟수는 충분 하지 않을 수 있습니다. 이 경우 클라이언트는 `RequestRateTooLargeException` 응용 프로그램에 상태 코드 429을 포함 하는을 throw 합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적으로 요청이 `RequestRateTooLargeException` 요청 률을 초과 하 여 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429이 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 은 3으로 설정 되므로이 경우 요청 작업은 컨테이너에 대 한 예약 된 처리량을 초과 하 여 속도가 제한 되는 경우 요청 작업은 응용 프로그램에 예외를 throw 하기 전에 3 번 다시 시도 합니다. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 가 60로 설정 되어 있으므로이 경우 첫 번째 요청이 60 초를 초과 하 여 누적 된 재시도 대기 시간 (초)이 초를 초과 하면 예외가 throw 됩니다.
 
@@ -117,7 +117,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 Azure Portal에서 사용한 RU의 수 뿐만 아니라 프로비전된 RU의 총 수, 속도가 제한된 요청 수를 모니터링할 수 있습니다. 다음 이미지는 사용 메트릭 예제를 보여 줍니다.
 
-![Azure Portal에서 요청 단위 모니터링](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Azure Portal에서 요청 단위 모니터링":::
 
 속도가 제한된 요청 수가 특정 임계값을 초과하는지 확인하기 위해 경고를 설정할 수도 있습니다. 자세한 내용은 [Azure Cosmos DB를 모니터링하는 방법](use-metrics.md)을 참조하세요. 이러한 경고는 계정 관리자에게 이메일을 보내거나 사용자 지정 HTTP 웹후크 또는 Azure 함수를 호출하여 프로비전된 처리량을 자동으로 늘릴 수 있습니다. 
 
@@ -155,7 +155,7 @@ Azure Cosmos DB를 사용할 경우 다음 단계를 따르면 가용성이 뛰�
 
 1. 컨테이너 및 데이터베이스에서 처리량을 매우 과도하게 프로비전한 경우 프로비전한 RU와 사용한 RU를 검토하고 워크로드를 미세 조정해야 합니다.  
 
-2. 애플리케이션에 필요한 예약된 처리량을 예측하는 한 가지 방법은 애플리케이션에서 사용하는 대표적인 Azure Cosmos 컨테이너 또는 데이터베이스에 대해 실행되는 일반 작업과 연결된 요청 단위 RU 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다. 일반 쿼리 및 해당 사용량도 측정하여 포함해야 합니다. 프로그래밍 방식으로 또는 포털을 사용하여 쿼리의 RU 비용을 추정하는 방법을 알아보려면 [쿼리 비용 최적화](online-backup-and-restore.md)를 참조하세요. 
+2. 애플리케이션에 필요한 예약된 처리량을 예측하는 한 가지 방법은 애플리케이션에서 사용하는 대표적인 Azure Cosmos 컨테이너 또는 데이터베이스에 대해 실행되는 일반 작업과 연결된 요청 단위 RU 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다. 일반 쿼리 및 해당 사용량도 측정하여 포함해야 합니다. 프로그래밍 방식으로 또는 포털을 사용하여 쿼리의 RU 비용을 추정하는 방법을 알아보려면 [쿼리 비용 최적화](optimize-cost-queries.md)를 참조하세요. 
 
 3. RUs에서 작업 및 비용을 가져오는 또 다른 방법은 작업/기간 및 요청 요금에 대 한 분석을 제공 하는 Azure Monitor 로그를 사용 하는 것입니다. Azure Cosmos DB는 모든 작업에 대해 요청 요금을 제공하므로, 모든 작업 요금이 응답에서 다시 저장된 후 분석에 사용될 수 있습니다. 
 

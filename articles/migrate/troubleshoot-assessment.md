@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611376"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "80127671"
 
 평가 준비 문제를 다음과 같이 수정 합니다.
 
-**문제** | **방법을**
+**문제점** | **해결**
 --- | ---
 지원되지 않는 부팅 유형 | Azure는 EFI 부팅 유형을 사용 하는 Vm을 지원 하지 않습니다. 마이그레이션을 실행 하기 전에 부팅 유형을 BIOS로 변환 하는 것이 좋습니다. <br/><br/>Azure Migrate Server Migration을 사용 하 여 이러한 Vm의 마이그레이션을 처리할 수 있습니다. 마이그레이션하는 동안 VM의 부팅 유형을 BIOS로 변환 합니다.
 조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](https://aka.ms/WSosstatement)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다.
@@ -47,18 +47,27 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 내부 오류로 인해 VM 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 디스크에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 네트워크 어댑터에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
+제안 통화 예약 인스턴스에 대 한 VM 크기를 찾을 수 없습니다. | 선택 된 RI, 제안 및 통화 조합에 대 한 VM 크기를 찾을 수 없기 때문에 컴퓨터가 적절 하지 않음으로 표시 되었습니다. 평가 속성을 편집 하 여 유효한 조합을 선택 하 고 평가를 다시 계산 합니다. 
+조건적으로 준비 된 인터넷 프로토콜 | Azure VMware 솔루션 (AVS) 평가에만 적용 됩니다. AVS는 IPv6 인터넷 주소 요인을 지원 하지 않습니다.컴퓨터가 i p v 6을 통해 검색 되는 경우에는 업데이트를 위해 AVS 팀에 문의 하세요.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Linux Vm은 "조건부로 준비" 됩니다.
+## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>가져오기 기반 AVS 평가에서 알 수 없음으로 표시 된 제안 된 마이그레이션 도구
 
-서버 평가는 서버 평가의 알려진 격차 때문에 Linux Vm을 "조건부로 준비"로 표시 합니다.
+CSV 파일을 통해 가져온 컴퓨터의 경우 및 AVS 평가의 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Linux Vm은 Azure VM 평가에서 "조건부로 준비" 됩니다.
+
+VMware 및 Hyper-v Vm의 경우 서버 평가는 서버 평가의 알려진 간격으로 인해 Linux Vm을 "조건적으로 준비 된" 것으로 표시 합니다. 
 
 - 이 차이는 온-프레미스 Vm에 설치 된 Linux OS의 부 버전을 검색 하는 것을 방지 합니다.
-- 예를 들어 RHEL 6.10의 경우 현재 서버 평가는 OS 버전으로 RHEL 6만 검색 합니다.
+- 예를 들어 RHEL 6.10의 경우 현재 서버 평가는 OS 버전으로 RHEL 6만 검색 합니다. 이는 Hyper-v 호스트 vCenter Server ar가 Linux VM 운영 체제의 커널 버전을 제공 하지 않기 때문입니다.
 -  Azure는 특정 버전의 Linux만 보증 때문에 Linux Vm은 현재 서버 평가에서 조건부로 준비 된 것으로 표시 되어 있습니다.
 - [Azure linux 지원](https://aka.ms/migrate/selfhost/azureendorseddistros)을 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 확인할 수 있습니다.
 -  보증 배포를 확인 한 후에는이 경고를 무시 해도 됩니다.
 
-## <a name="azure-skus-bigger-than-on-premises"></a>온-프레미스 보다 큰 Azure Sku
+이 간격은 VMware Vm에서 [응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) 을 사용 하도록 설정 하 여 해결할 수 있습니다. 서버 평가에서는 제공 된 게스트 자격 증명을 사용 하 여 VM에서 검색 된 운영 체제를 사용 합니다. 이 운영 체제 데이터는 Windows 및 Linux Vm의 경우 적절 한 OS 정보를 식별 합니다.
+
+
+## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure VM 평가에서 온-프레미스 보다 큰 azure Sku
 
 Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 할당 보다 더 많은 코어 및 메모리를 사용 하는 Azure VM Sku를 권장할 수 있습니다.
 
@@ -76,7 +85,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 - 평가가 성능 기반 인 경우 유효한 CPU 및 메모리 사용률 (4 개 코어의 50% * 1.3 = 2.6 코어 및 50% 8gb memory * 1.3 = 5.3 GB memory)을 기반으로 하 여 4 개 코어 (지원 되는 가장 가까운 코어 수)와 8GB의 메모리 (지원 되는 가장 가까운 메모리 크기)의 가장 저렴 한 VM SKU를 사용 하는 것이 좋습니다.
 - 평가 크기 조정에 대해 [자세히 알아보세요](concepts-assessment-calculation.md#types-of-assessments) .
 
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>온-프레미스 보다 큰 Azure disk Sku
+## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure VM 평가에서 온-프레미스 보다 큰 azure disk Sku
 
 Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권장할 수 있습니다.
 - 서버 평가의 디스크 크기 조정은 두 가지 평가 속성인 크기 조정 조건 및 저장소 유형에 따라 달라 집니다.
@@ -94,14 +103,37 @@ Azure Migrate 어플라이언스에서 관련 온-프레미스 Vm에 대 한 성
 - 성능 카운터가 없는 경우 Azure Migrate 서버 평가는 할당 된 코어 및 메모리를 대체 하 고 해당 VM 크기를 권장 합니다.
 - 모든 성능 카운터가 누락 된 경우 평가에 대 한 포트 액세스 요구 사항이 충족 되는지 확인 합니다. [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) 및 [물리적](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) 서버 평가를 위한 포트 액세스 요구 사항에 대해 자세히 알아보세요.
 
-## <a name="is-the-operating-system-license-included"></a>운영 체제 라이선스 포함 여부
+## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Azure VM 평가에 운영 체제 라이선스가 포함 되어 있나요?
 
 Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 체제 라이선스 비용을 고려 합니다. Linux 컴퓨터에 대 한 라이선스 비용은 현재 고려 되지 않습니다.
 
-## <a name="how-does-performance-based-sizing-work"></a>성능 기반 크기 조정은 어떻게 작동 하나요?
+## <a name="how-does-performance-based-sizing-work-in-an-azure-vm-assessment"></a>Azure VM 평가에서 성능 기반 크기 조정은 어떻게 작동 하나요?
 
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
+
+물리적 서버에서 Hyper-v 가상화를 사용 하는 경우이 문제가 발생할 수 있습니다. 이러한 서버에서 제품 격차 때문에 현재 Azure Migrate 실제 및 가상 네트워크 어댑터를 모두 검색 합니다. 네트워크 처리량은 검색 된 가상 네트워크 어댑터에만 캡처됩니다.
+
+## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>실제 서버에 권장 되는 Azure VM SKU가 너무 큰 경우
+
+물리적 서버에서 Hyper-v 가상화를 사용 하는 경우이 문제가 발생할 수 있습니다. 이러한 서버에서 현재 Azure Migrate 실제 및 가상 네트워크 어댑터를 모두 검색 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 서버 평가가 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 하는 경우이로 인해 큰 VM이 발생할 수 있습니다. 아니요의 영향에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) . 네트워크 어댑터의 크기를 조정 합니다. 이는 앞으로 처리 될 제품 격차입니다.
+
+## <a name="readiness-category-not-ready-for-my-physical-server"></a>실제 서버에 대 한 준비 범주 "준비 안 됨"
+
+Hyper-v 가상화를 사용 하는 물리적 서버의 경우 준비 범주가 "준비 되지 않음"으로 잘못 표시 될 수 있습니다. 이러한 서버에서 제품 격차 때문에 현재 실제 어댑터와 가상 어댑터를 모두 검색 Azure Migrate 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 온-프레미스 및 성능 기반 평가에서 서버 평가는 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 합니다. 네트워크 어댑터 수가 32 보다 더 높은 것으로 검색 되는 경우 최대값은 아닙니다. Azure Vm에서 지원 되는 Nic의 경우 컴퓨터가 "준비 되지 않음"으로 표시 됩니다.  아니요의 영향에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) . 크기 조정 시의 Nic.
+
+
+## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>실제 서버에 대해 실제 보다 높은 검색 된 Nic 수
+
+물리적 서버에서 Hyper-v 가상화를 사용 하는 경우이 문제가 발생할 수 있습니다. 이러한 서버에서 현재 Azure Migrate 실제 어댑터와 가상 어댑터를 모두 검색 합니다. 따라서 아니요입니다. 검색 된 Nic가 실제 보다 높습니다.
+
+
+## <a name="low-confidence-rating-on-physical-server-assessments"></a>물리적 서버 평가의 낮은 신뢰 등급
+등급은 평가를 계산 하는 데 필요한 데이터 요소의 가용성에 따라 할당 됩니다. Hyper-v 가상화를 사용 하는 물리적 서버의 경우 낮은 신뢰 등급이 물리적 서버 평가에 잘못 할당 될 수 있기 때문에 알려진 제품 차이가 있습니다. 이러한 서버에서 현재 Azure Migrate 실제 어댑터와 가상 어댑터를 모두 검색 합니다. 네트워크 처리량은 검색 된 가상 네트워크 어댑터에 대해 캡처되고 실제 네트워크 어댑터에서는 캡처되지 않습니다. 실제 네트워크 어댑터에 데이터 요소가 없기 때문에 신뢰 등급이 낮은 등급의 영향을 받을 수 있습니다. 이는 앞으로 처리 될 제품 격차입니다.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Azure Government에서 종속성 시각화
 
@@ -113,7 +145,7 @@ Azure Migrate는 종속성 시각화 기능의 서비스 맵에 따라 달라 �
 
 Windows VM의 경우
 1. 제어판에서 MMA를 시작 합니다.
-2. **Microsoft Monitoring Agent 속성** > **Azure Log Analytics (OMS)** 에서 작업 영역의 **상태가** 녹색 인지 확인 합니다.
+2. **Microsoft Monitoring Agent 속성**  >  **Azure Log Analytics (OMS)** 에서 작업 영역의 **상태가** 녹색 인지 확인 합니다.
 3. 상태가 녹색이 아닌 경우 작업 영역을 제거 하 고 다시 MMA에 추가 하십시오.
 
     ![MMA 상태](./media/troubleshoot-assessment/mma-properties.png)
@@ -127,15 +159,14 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
 
-Azure Migrate는 지난 달의 특정 날짜로 다시 이동할 수 있지만, 종속성을 시각화할 수 있는 최대 기간은 1 시간입니다.
+에이전트 없는 종속성 분석을 사용 하면 최대 30 일 동안 종속성을 시각화 하거나 지도에서 내보낼 수 있습니다.
 
-예를 들어, 종속성 맵의 기간 기능을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 볼 수 있습니다.
-
-그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.
+에이전트 기반 종속성 분석을 사용 하면 지난 달의 특정 날짜로 다시 이동할 수 Azure Migrate 있지만 종속성을 시각화할 수 있는 최대 기간은 1 시간입니다. 예를 들어, 종속성 맵의 기간 기능을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>> 10 대의 컴퓨터에 대 한 종속성 시각화
 
-Azure Migrate Server 평가에서는 최대 10 개의 Vm이 있는 [그룹에 대 한 종속성을 시각화할](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 수 있습니다. 규모가 큰 그룹의 경우 종속성을 시각화 하기 위해 Vm을 더 작은 그룹으로 분할 하는 것이 좋습니다.
+에이전트 기반 종속성 분석을 통해 Azure Migrate 서버 평가에서 Vm이 최대 10 개 포함 된 [그룹에 대 한 종속성을 시각화할](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 수 있습니다. 규모가 큰 그룹의 경우 종속성을 시각화 하기 위해 Vm을 더 작은 그룹으로 분할 하는 것이 좋습니다.
+
 
 ## <a name="machines-show-install-agent"></a>컴퓨터에 "에이전트 설치"가 표시 됩니다.
 
@@ -146,6 +177,9 @@ Azure Migrate Server 평가에서는 최대 10 개의 Vm이 있는 [그룹에 �
 - 컴퓨터에는 온-프레미스 IP 주소를 보유 했는지 여부에 따라 다른 IP 주소를 사용할 수도 있습니다.
 - MAC 주소와 IP 주소가 온-프레미스와 다른 경우 Azure Migrate 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결 하지 않습니다. 이 경우 종속성을 보는 대신 에이전트를 설치 하는 옵션이 표시 됩니다.
 - Azure로 테스트를 마이그레이션한 후 온-프레미스 컴퓨터는 정상적으로 켜 집니다. Azure에서 분리 하는 동일한 컴퓨터는 다른 MAC 주소를 획득 하 고 다른 IP 주소를 획득할 수 있습니다. 이러한 컴퓨터에서 나가는 Azure Monitor 로그 트래픽을 차단 하지 않는 한 Azure Migrate 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결 하지 않으므로 종속성을 볼 수 있는 대신 에이전트를 설치 하는 옵션이 표시 됩니다.
+
+## <a name="dependencies-export-csv-shows-unknown-process"></a>종속성 내보내기 CSV는 "알 수 없는 프로세스"를 표시 합니다.
+에이전트 없는 종속성 분석에서 프로세스 이름은 최상의 노력으로 캡처됩니다. 특정 시나리오에서는 원본 및 대상 서버 이름과 대상 포트가 캡처되고 종속성의 양쪽 end에서 프로세스 이름을 결정 하는 것은 불가능 합니다. 이러한 경우 프로세스는 "알 수 없는 프로세스"로 표시 됩니다.
 
 
 ## <a name="capture-network-traffic"></a>네트워크 트래픽 캡처
@@ -165,6 +199,15 @@ Azure Migrate Server 평가에서는 최대 10 개의 Vm이 있는 [그룹에 �
    - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. 다른 **이름으로 저장**을 선택 하 고 로그를 내보내고 압축 합니다.
    - Microsoft Edge 또는 Internet Explorer에서 오류를 마우스 오른쪽 단추로 클릭 하 고 **모두 복사**를 선택 합니다.
 7. 개발자 도구를 닫습니다.
+
+
+## <a name="where-is-the-operating-system-data-in-my-assessment-discovered-from"></a>내 평가에서 운영 체제 데이터는 어디에서 검색 되나요?
+
+- VMware Vm의 경우 기본적으로 vCenter에서 제공 하는 운영 체제 데이터입니다. 
+   - VMware linux Vm의 경우 응용 프로그램 검색을 사용 하는 경우 게스트 VM에서 OS 세부 정보를 인출 합니다. 평가에서 OS 세부 정보를 확인 하려면 검색 된 서버 보기로 이동 하 여 "운영 체제" 열의 값 위에 마우스를 올려 놓으면 됩니다. 표시 되는 텍스트에서 표시 되는 OS 데이터가 vCenter server 또는 VM 자격 증명을 사용 하 여 게스트 VM에서 수집 되었는지 확인할 수 있습니다. 
+   - Windows Vm의 경우 운영 체제 세부 정보는 항상 vCenter Server에서 인출 됩니다.
+- Hyper-v Vm의 경우 운영 체제 데이터가 Hyper-v 호스트에서 수집 됩니다.
+- 물리적 서버의 경우 서버에서 인출 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
