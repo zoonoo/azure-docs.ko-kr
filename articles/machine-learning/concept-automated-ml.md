@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683085"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041730"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
-자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화된 ML은 [Microsoft Research 부문](https://arxiv.org/abs/1705.05355)의 혁신을 기반으로 합니다.
+자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화된 ML은 [Microsoft Research 부문](https://www.microsoft.com/research/project/automl/)의 혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용하므로 수십 개의 모델을 생성하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 사용하면 프로덕션 준비 ML 모델을 매우 쉽고 효율적으로 얻는 데 걸리는 시간을 단축할 수 있습니다.
 
@@ -35,14 +35,15 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 ### <a name="classification"></a>분류
 
-분류는 일반적인 기계 학습 작업입니다. 분류는 모델에서 학습 데이터를 사용하여 학습하고, 이러한 학습을 새로운 데이터에 적용하는 지도 학습의 한 유형입니다. Azure Machine Learning은 특히 이러한 작업에 적합한 기능화를 제공합니다(예: 분류를 위한 심층 신경망 텍스트 피처라이저(featurizer)). [기능화 옵션](how-to-use-automated-ml-for-ml-models.md#featurization)에 대해 자세히 알아보세요. 
+분류는 일반적인 기계 학습 작업입니다. 분류는 모델에서 학습 데이터를 사용하여 학습하고, 이러한 학습을 새로운 데이터에 적용하는 지도 학습의 한 유형입니다. Azure Machine Learning은 특히 이러한 작업에 적합한 기능화를 제공합니다(예: 분류를 위한 심층 신경망 텍스트 피처라이저(featurizer)). [기능화 옵션](how-to-configure-auto-features.md#featurization)에 대해 자세히 알아보세요. 
 
-분류 모델의 주요 목표는 학습 데이터로부터의 학습을 기반으로 하여 새 데이터가 분류될 범주를 예측하는 것입니다. 일반적인 분류 예로 사기 탐지, 필기 인식 및 개체 검색이 있습니다.  [자동화된 Machine Learning을 사용한 분류](tutorial-train-models-with-aml.md)의 예제를 참조하여 자세히 알아보세요.
+분류 모델의 주요 목표는 학습 데이터로부터의 학습을 기반으로 하여 새 데이터가 분류될 범주를 예측하는 것입니다. 일반적인 분류 예로 사기 탐지, 필기 인식 및 개체 검색이 있습니다. [자동화 된 ML을 사용 하 여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)에 대 한 자세한 내용 및 예제를 참조 하세요.
 
 분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) Python Notebook을 참조하세요.
 
 ### <a name="regression"></a>회귀
-분류와 마찬가지로 회귀 작업도 일반적인 지도 학습 작업입니다. Azure Machine Learning은 특히 [이러한 작업에 대한 기능화](how-to-use-automated-ml-for-ml-models.md#featurization)를 제공합니다.
+
+분류와 마찬가지로 회귀 작업도 일반적인 지도 학습 작업입니다. Azure Machine Learning은 특히 [이러한 작업에 대한 기능화](how-to-configure-auto-features.md#featurization)를 제공합니다.
 
 범주별 예측 출력 값인 분류와는 달리 회귀 모델은 독립 예측 변수를 기반으로 하여 숫자 출력 값을 예측합니다. 회귀 분석이 목표는 한 변수가 다른 변수에 미치는 영향을 추정하여 이러한 독립 예측 변수 간의 관계를 설정하는 데 도움을 주는 것입니다. 예를 들어 가스 연비, 안전 등급 등과 같은 기능을 기반으로 하는 자동차 가격이 있습니다. [자동화된 Machine Learning을 사용한 회귀](tutorial-auto-train-models.md)의 예제를 참조하여 자세히 알아보세요.
 
@@ -97,20 +98,25 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 모델 빌드가 자동화되는 동안 [중요하거나 관련된 기능이 생성된 모델에 있는 상태](how-to-configure-auto-train.md#explain)를 알아볼 수도 있습니다.
 
+[원격 계산 대상을](how-to-auto-train-remote.md)사용 하는 방법을 알아봅니다.
+
+
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## <a name="preprocessing"></a>전처리
+## <a name="feature-engineering"></a>기능 엔지니어링
 
-모든 자동화된 Machine Learning 실험에서 데이터는 기본 메서드를 사용하여 전처리됩니다(필요에 따라 고급 전처리를 통해).
+기능 엔지니어링은 데이터에 대 한 도메인 정보를 사용 하 여 ML 알고리즘의 기능을 개선 하는 데 도움이 되는 기능을 만드는 프로세스입니다. Azure Machine Learning 확장 및 표준화 기술이 기능 엔지니어링을 용이 하 게 하는 데 적용 됩니다. 이러한 기술 및 기능 엔지니어링을 통칭 하 여 기능화 라고 합니다.
+
+자동화 된 기계 학습 실험의 경우 기능화이 자동으로 적용 되지만 데이터에 따라 사용자 지정할 수도 있습니다. [포함된 기능화에 대해 자세히 알아보세요](how-to-configure-auto-features.md#featurization).  
 
 > [!NOTE]
-> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
+> 자동화된 Machine Learning 기능화 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 기능화 단계가 입력 데이터에 자동으로 적용됩니다.
 
-### <a name="automatic-preprocessing-standard"></a>자동 전처리(표준)
+### <a name="automatic-featurization-standard"></a>자동 기능화 (표준)
 
-모든 자동화된 Machine Learning 실험에서 알고리즘 성능을 향상시킬 수 있도록 데이터가 자동으로 크기 조정되거나 정규화됩니다.  모델 학습 중에 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용됩니다. autoML을 통해 모델에서 [과잉 맞춤 및 불균형 데이터를 방지](concept-manage-ml-pitfalls.md)하는 방법을 알아봅니다.
+모든 자동화된 Machine Learning 실험에서 알고리즘 성능을 향상시킬 수 있도록 데이터가 자동으로 크기 조정되거나 정규화됩니다. 모델 학습 중에 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용됩니다. AutoML을 사용 하 여 모델에서 [과도 하 게 분산 되 고 불균형 된 데이터를 방지](concept-manage-ml-pitfalls.md) 하는 방법을 알아봅니다.
 
 |크기 조정&nbsp;&&nbsp;정규화| Description |
 | ------------- | ------------- |
@@ -122,15 +128,15 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |이 변환기는 잘린 SVD(특이값)를 통해 선형 차원 축소를 수행합니다. 이 예측 도구는 PCA와 달리 특이값 분해를 계산하기 전에 데이터를 중앙 집중화하지 않습니다. 즉, scipy.sparse 행렬을 효율적으로 사용할 수 있습니다. |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | 0이 아닌 성분이 하나 이상 있는 각 샘플(즉, 데이터 행렬의 각 행)의 크기는 다른 샘플과 독립적으로 다시 조정되어 해당 표준(l1 또는 l2)이 1이 됩니다. |
 
-### <a name="advanced-preprocessing--featurization"></a>고급 전처리 및 기능화
+### <a name="customize-featurization"></a>기능화 사용자 지정
 
-데이터 가드 레일, 인코딩 및 변환과 같은 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [포함된 기능화에 대해 자세히 알아보세요](how-to-use-automated-ml-for-ml-models.md#featurization). 다음을 사용하여 이 설정을 사용하도록 설정합니다.
+인코딩 및 변환과 같은 추가 기능 엔지니어링 기법을 사용할 수도 있습니다. 
 
-+ Azure Machine Learning Studio: [이러한 단계](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)를 사용하여 **추가 구성 보기** 섹션에서 **자동 기능화**를 사용하도록 설정합니다.
+다음을 사용하여 이 설정을 사용하도록 설정합니다.
 
-+ Python SDK: [`AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대해 `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'`를 지정합니다. 
++ Azure Machine Learning Studio: [이러한 단계](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 사용하여 **추가 구성 보기** 섹션에서 **자동 기능화**를 사용하도록 설정합니다.
 
-
++ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에를 지정 합니다. [기능화 사용] ((how to configure-auto-features.md)에 대해 자세히 알아보세요. 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a> 앙상블 모델
 
@@ -265,17 +271,30 @@ Azure Machine Learning을 사용하면 자동화된 ML을 사용하여 Python �
 
 ## <a name="next-steps"></a>다음 단계
 
-예제를 살펴보고, 자동화된 Machine Learning을 사용하여 모델을 빌드하는 방법을 알아봅니다.
+AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있습니다. 
 
-+ 자동 학습 실험 설정을 구성합니다.
-  + Azure Machine Learning Studio의 경우 [이러한 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다.
-  + Python SDK를 사용하는 경우 [이러한 단계를 사용](how-to-configure-auto-train.md)합니다.
+### <a name="tutorials-how-tos"></a>자습서/방법
+자습서는 AutoML 시나리오의 종단 간 소개 예제입니다.
++ **Code first 환경을** [사용 하려면 자습서: Azure Machine Learning Python SDK를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md)을 수행 합니다.
 
-+ [원격 컴퓨팅 대상](how-to-auto-train-remote.md)을 사용하는 방법을 알아봅니다.
+ + **코드를 낮거나 사용 하지 않으려면** [자습서: Azure Machine Learning studio를 사용 하 여 자동화 된 ML 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조 하세요.
 
-+ [자습서: Azure Machine Learning을 사용하여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md)을 따릅니다. 
+방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예제: 
 
-+ [이러한 단계를 사용](how-to-auto-train-forecast.md)하여 시계열 데이터를 사용하여 자동으로 학습하는 방법을 알아봅니다.
++ 자동 학습 실험에 대 한 설정 구성
+    + Azure Machine Learning Studio의 경우 [이러한 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다. 
+    + Python SDK를 사용하는 경우 [이러한 단계를 사용](how-to-configure-auto-train.md)합니다.
 
-+ [자동화된 Machine Learning에 대한 Jupyter Notebook 샘플](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)을 사용해 봅니다.
-* 자동화된 ML은 다른 Microsoft 솔루션(예: [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/))에서도 사용할 수 있습니다.
++  [이러한 단계를 통해](how-to-auto-train-forecast.md)시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 알아봅니다.
+
+### <a name="jupyter-notebook-samples"></a>Jupyter 노트북 샘플 
+
+[자동화 된 기계 학습 샘플에 대 한 Github 노트북 리포지토리에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)자세한 코드 예제 및 사용 사례를 검토 합니다.
+
+### <a name="python-sdk-reference"></a>Python SDK 참조 
+
+[Automl 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)를 사용 하 여 SDK 디자인 패턴 및 클래스 사양의 전문 지식을 활용. 
+
+> [!Note]
+> 자동화 된 기계 학습 기능을 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
+

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267106"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042017"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성
 
@@ -184,8 +184,9 @@ ms.locfileid: "84267106"
 ## <a name="next-steps"></a>다음 단계
 
 * Node.js를 사용하여 몰입형 판독기 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)을 살펴보세요.
+* Android 또는 Kotlin for Android를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [android 자습서](./tutorial-android.md) 를 확인 하세요.
+* Ios에 대 한 Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 보려면 [ios 자습서](./tutorial-ios.md) 를 확인 하세요.
 * Python을 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Python 자습서](./tutorial-python.md)를 살펴보세요.
-* Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [Swift 자습서](./tutorial-ios-picture-immersive-reader.md) 를 확인 하세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
 
 

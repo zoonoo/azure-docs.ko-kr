@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 4372c7da2da67446bced99dd6650313cc6f1b3c5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4f1e8602c55329f88460921446ebaa05ed640e39
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123873"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041764"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -22,13 +22,311 @@ ms.locfileid: "83123873"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2020-07-06"></a>2020-07-06
+
+### <a name="azure-machine-learning-sdk-for-python-v190"></a>Azure Machine Learning SDK for Python v 1.9.0
+
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + Get_model_path ()를 AutoML 자동 생성 된 점수 매기기 스크립트의 AZUREML_MODEL_DIR 환경 변수로 바꿉니다. 또한 init () 중에 오류를 추적 하기 위해 원격 분석을 추가 했습니다.
+    + AutoMLConfig의 일부로 지정 하는 기능을 제거 했습니다. `enable_cache`
+    + 특정 예측 실행 중에 서비스 오류로 인해 실행이 실패할 수 있는 버그를 수정 했습니다.
+    + 에서 특정 모델에 대 한 오류 처리 향상`get_output`
+    + Y 변환기를 사용 하 여 분류를 위한 fitted_model (X, y) 호출을 수정 했습니다.
+    + 사용 하도록 설정 된 사용자 지정 된 전방 채우기 작업을 위한 작업입니다.
+    + Dict 형식의 예측 매개 변수 대신 새 ForecastingParameters 클래스가 사용 됩니다.
+    + 향상 된 대상 지연 인코딩이
+    + BERT를 사용 하 여 멀티-noded 바인딩된 다중 gpu 분산 기능화의 제한 된 가용성 추가
+  + **azureml-automl-runtime**
+    + 이제 Prophet는 곱하기 대신 추가 계절성 모델링을 수행 합니다.
+    + Short 조직 때 문제가 해결 되 고, 긴 조직 주파수와 다른 빈도가 있으면 실행이 실패 합니다.
+  + **azureml-자동 dnn-비전**
+    + 학습 및 평가에 대 한 시스템/gpu 통계 및 로그 평균 수집
+  + **azureml-mir**
+    + ManagedInferencing에서 app insights 플래그 사용에 대 한 지원이 추가 됨
+  + **azureml-core**
+    + 현재 계산에서 데이터 소스에 액세스할 수 없는 경우 유효성 검사를 건너뛰도록 허용 하 여 이러한 API에 대 한 유효성 검사 매개 변수입니다.
+      + TabularDataset time_before (end_time, include_boundary = True, validate = True)
+      + TabularDataset time_after (start_time, include_boundary = True, validate = True)
+      + TabularDataset time_recent (time_delta, include_boundary = True, validate = True)
+      + TabularDataset time_between (start_time, end_time, include_boundary = True, validate = True)
+    + 모델 목록에 대 한 프레임 워크 필터링 지원을 추가 하 고 노트북에서 NCD automl 샘플을 추가 했습니다.
+    + 데이터 저장소의 register_azure_blob_container 및 데이터 저장소. register_azure_file_share (SAS 토큰을 지 원하는 옵션만)에서는 `sas_token` 일반적인 읽기 및 쓰기 시나리오에 대 한 최소 권한 요구 사항을 포함 하도록 필드의 문서 문자열을 업데이트 했습니다.
+    + 사용 중단 ()의 _with_auth 매개 변수를 get_mlflow_tracking_uri 합니다.
+  + **azureml.mlflow**
+    + AzureML-MLflow를 사용 하 여 로컬 file://모델 배포에 대 한 지원 추가
+    + 사용 중단 ()의 _with_auth 매개 변수를 get_mlflow_tracking_uri 합니다.
+  + **azureml-opendatasets**
+    + 최근 게시 된 Covid-19 추적 데이터 집합을 이제 SDK와 함께 사용할 수 있습니다.
+  + **azureml 파이프라인-코어**
+    + "Azureml-기본값"이 pip 종속성의 일부로 포함 되지 않은 경우 로그 아웃 경고
+    + 메모 렌더링을 개선 합니다.
+    + 구분 된 파일을 PipelineOutputFileDataset로 구문 분석할 때 따옴표로 묶인 줄 바꿈에 대 한 지원이 추가 되었습니다.
+    + PipelineDataset 클래스는 더 이상 사용 되지 않습니다. 자세한 내용은 https://aka.ms/dataset-deprecation를 참조하세요. 파이프라인에서 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은을 참조 https://aka.ms/pipeline-with-dataset 하세요.
+  + **azureml 파이프라인-단계**
+    + Azureml-파이프라인 단계로 문서를 업데이트 합니다.
+    +  `load_yaml()`사용자가 구성의 나머지 부분과 별도 파일을 사용 하 여 인라인으로 환경을 정의할 수 있는 ParallelRunConfig의 지원이 추가 되었습니다.
+  + **azureml-자동 ml-클라이언트**.
+    + AutoMLConfig의 일부로 지정 하는 기능을 제거 했습니다. `enable_cache`
+  + **azureml-train-automl-runtime**
+    + BERT를 사용 하 여 멀티-noded 바인딩된 다중 gpu distributed 기능화의 제한 된 가용성을 추가 했습니다.
+    + ADB 기반 자동화 된 machine learning 실행에서 호환 되지 않는 패키지에 대 한 오류 처리를 추가 했습니다.
+  + **azureml-widgets**
+    + Azureml 위젯에 대 한 문서 업데이트입니다.
+
+  
+## <a name="2020-06-22"></a>2020-06-22
+
+### <a name="azure-machine-learning-sdk-for-python-v180"></a>Azure Machine Learning SDK for Python v 1.8.0
+  
+  + **미리 보기 기능**
+    + **azureml-서-공평** `azureml-contrib-fairness`패키지는 오픈 소스 공평 평가 및 unfairness 완화 패키지 [Fairlearn](https://fairlearn.github.io) 와 Azure Machine Learning studio 간의 통합을 제공 합니다. 특히 패키지를 사용 하면 모델 공평 평가 대시보드가 AzureML 실행의 일부로 업로드 되어 Azure Machine Learning studio에 표시 됩니다.
+
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + Init 컨테이너의 로그 가져오기를 지원 합니다.
+    + 새 CLI 명령을 추가 하 여 새 인스턴스를 관리 합니다.
+  + **azureml-automl-core**
+    + 사용자는 이제 과도 하 게 일치 시킬 수 있는 경고를 사용 하 여 시계열 작업에 대해 stack 앙상블 반복을 사용 하도록 설정할 수 있습니다.
+    + `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException`캐시 저장소 콘텐츠가 변조 된 경우 발생 하는 새로운 유형의 사용자 예외를 추가 했습니다.
+  + **azureml-automl-runtime**
+    + 사용자가 기능화를 사용 하지 않도록 설정 하면 클래스 균형 조정이 더 이상 사용 되지 않습니다.  
+  + **azureml-고-itp**
+    + CmAks 계산 형식이 지원 됩니다. 사용자 고유의 AKS 클러스터를 학습 작업을 위한 작업 영역에 연결할 수 있습니다.
+  + **azureml-contrib-notebook**
+    + Azureml의 문서 향상-노트북 패키지.
+  + **azureml-contrib-pipeline-steps**
+    + Azureml의 문서 개선 사항--파이프라인 단계 패키지.
+  + **azureml-core**
+    + 고객이 작업 영역 연결 리소스에서 작업 하는 set_connection, get_connection, list_connections, delete_connection 함수를 추가 합니다.
+    + Azureml-coore/azureml 패키지에 대 한 설명서 업데이트입니다.
+    + Azureml 코어 패키지에 대 한 설명서 업데이트입니다.
+    + 문서를 업데이트 합니다.
+    + Azureml-core/azureml. 계산 패키지의 문서 개선
+    + Azureml의 웹 서비스 관련 클래스에 대 한 향상 된 문서입니다.
+    + 사용자가 선택한 데이터 저장소에서 프로 파일링 데이터를 저장 하도록 지원
+    + 모델 목록 API에 대 한 확장 및 page_count 속성 추가 됨
+    + 덮어쓰기 속성을 제거 하면 제출 된 실행이 deserialization 오류로 인해 실패 하는 버그가 수정 되었습니다.
+    + 단일 파일을 참조 하는 FileDataset을 다운로드 하거나 탑재할 때 일관 되지 않은 폴더 구조를 수정 했습니다.
+    + 이제 parquet 파일 to_spark_dataframe의 데이터 집합을 로드 하는 속도가 빨라지고 모든 parquet 및 Spark SQL 데이터 형식을 지원 합니다.
+    + Init 컨테이너의 로그 가져오기를 지원 합니다.
+    + AutoML 실행은 이제 병렬 실행 단계의 자식 실행으로 표시 되었습니다.
+  + **azureml-datadrift**
+    + Azureml의 문서 향상-노트북 패키지.
+  + **azureml-dataprep**
+    + 이제 parquet 파일 to_spark_dataframe의 데이터 집합을 로드 하는 속도가 빨라지고 모든 parquet 및 Spark SQL 데이터 형식을 지원 합니다.
+    + To_pandas_dataframe에 대 한 OutOfMemory 문제가 발생 하는 경우 메모리 처리가 향상 됩니다.
+  + **azureml-interpret**
+    + 업그레이드 된 azureml-해석 커뮤니티 버전 0.12. *를 사용 하도록 해석 합니다.
+  + **azureml.mlflow**
+    + Azureml-mlflow의 향상 된 문서입니다.
+    + MLFlow를 사용 하 여 AML 모델 레지스트리에 대 한 지원을 추가 합니다.
+  + **azureml-opendatasets**
+    + Python 3.8에 대한 지원이 추가됨
+  + **azureml-pipeline-core**
+    + `PipelineDataset`내부 클래스 인지 명확 하 게 하기 위해 업데이트 된 설명서입니다.
+    + ParallelRunStep는 한 인수에 대해 여러 값을 허용 하도록 업데이트 합니다 (예: "--group_column_names", "Col1", "Col2", "Col3").
+    + 파이프라인에서 AutoMLStep를 사용 하는 중간 데이터 사용에 대 한 passthru_automl_config 요구 사항이 제거 되었습니다.
+  + **azureml 파이프라인-단계**
+    + Azureml-파이프라인 단계 패키지의 문서 개선
+    + 파이프라인에서 AutoMLStep를 사용 하는 중간 데이터 사용에 대 한 passthru_automl_config 요구 사항이 제거 되었습니다.
+  + **azureml-telemetry**
+    + Azureml의 문서 개선-원격 분석.
+  + **azureml-train-automl-client**
+    + `experiment.submit()`개체에 대해를 두 번 호출 하 여 다른 동작을 발생 시킨 버그를 수정 `AutoMLConfig` 했습니다.
+    + 사용자는 이제 과도 하 게 일치 시킬 수 있는 경고를 사용 하 여 시계열 작업에 대해 stack 앙상블 반복을 사용 하도록 설정할 수 있습니다.
+    + 서비스에서 사용자 오류를 throw 하는 경우 UserErrorException을 발생 시키기 위해 AutoML 실행 동작이 변경 되었습니다.
+    + 원격 계산 대상에서 AutoML 실험을 수행할 때 로그가 생성 되지 않거나 로그가 누락 될 azureml_automl 발생 하는 버그를 수정 합니다.
+    + 불균형 클래스를 포함 하는 분류 데이터 집합의 경우, 기능 스위퍼 하위 샘플링 된 데이터에 대해 결정 하는 경우 가중치 분산을 적용 하면 특정 임계값으로 분류 작업의 성능을 향상 시킬 수 있습니다.
+    + AutoML 실행은 이제 병렬 실행 단계의 자식 실행으로 표시 되었습니다.
+  + **azureml-train-automl-runtime**
+    + 서비스에서 사용자 오류를 throw 하는 경우 UserErrorException을 발생 시키기 위해 AutoML 실행 동작이 변경 되었습니다.
+    + AutoML 실행은 이제 병렬 실행 단계의 자식 실행으로 표시 되었습니다.
+
+  
+## <a name="2020-06-08"></a>2020-06-08
+
+### <a name="azure-machine-learning-sdk-for-python-v170"></a>Azure Machine Learning SDK for Python v 1.7.0
+
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + Cli 명령 및 패키지 종속성을 정리 하 여 mir에서 모델 프로 파일링을 제거 했습니다. 모델 프로 파일링은 코어에서 사용할 수 있습니다.
+    + 최소 Azure Cli 버전을 2.3.0로 업그레이드 합니다.
+  + **azureml-automl-core**
+    + 사용자 지정 변환기 매개 변수로 인해 기능화 단계 fit_transform ()에 대 한 더 나은 예외 메시지입니다.
+    + 자동화 된 ML의 BERT와 같은 심층 학습 변환기 모델에 대 한 여러 언어에 대 한 지원을 추가 합니다.
+    + 설명서에서 사용 되지 않는 lag_length 매개 변수를 제거 합니다.
+    + 예측 매개 변수 설명서가 개선 되었습니다. Lag_length 매개 변수는 사용 되지 않습니다.
+  + **azureml-automl-runtime**
+    + 예측/테스트 시간에 범주 열 중 하나가 비어 있을 때 발생 하는 오류를 수정 했습니다.
+    + Lookback 기능을 사용 하도록 설정 하 고 데이터에 짧은 조직 포함 될 때 발생 하는 실행 오류를 수정 합니다.
+    + 지연 또는 롤링 창이 ' 자동 '으로 설정 된 경우 중복 된 시간 인덱스 오류 메시지 문제를 수정 했습니다.
+    + Lookback 기능을 포함 하는 데이터 집합에 대 한 Prophet 및 Arima 모델 문제를 해결 했습니다.
+    + 열에 2262-04-11 1677-09-21 이전 날짜에 대 한 지원이 추가 되 고 그 다음에는 예측 작업의 날짜 시간이 추가 되었습니다. 향상 된 오류 메시지.
+    + 예측 매개 변수 설명서가 개선 되었습니다. Lag_length 매개 변수는 사용 되지 않습니다.
+    + 사용자 지정 변환기 매개 변수로 인해 기능화 단계 fit_transform ()에 대 한 더 나은 예외 메시지입니다.
+    + 자동화 된 ML의 BERT와 같은 심층 학습 변환기 모델에 대 한 여러 언어에 대 한 지원을 추가 합니다.
+    + 일부 OSErrors를 발생 시키는 캐시 작업은 사용자 오류를 발생 시킵니다.
+    + 학습 및 유효성 검사 데이터의 개수와 열 집합이 같은지 확인 하는 검사를 추가 했습니다.
+    + 데이터에 따옴표가 포함 된 경우 자동으로 생성 되는 AutoML 점수 매기기 스크립트 문제 해결
+    + Prophet 모델을 포함 하는 AutoML Prophet 및 ensembled 모델에 대 한 설명을 사용 하도록 설정 합니다.
+    + 최근 고객 문제는 클래스 분산 논리가 제대로 사용 하도록 설정 되지 않은 경우에도 클래스 균형 해제를 따라 메시지를 기록 하는 라이브 사이트 버그로 나타났습니다. 이 PR을 사용 하 여 해당 로그/메시지를 제거 합니다.
+  + **azureml-cli-일반**
+    + Cli 명령 및 패키지 종속성을 정리 하 여 mir에서 모델 프로 파일링을 제거 했습니다. 모델 프로 파일링은 코어에서 사용할 수 있습니다.
+  + **azureml-contrib-reinforcementlearning**
+    + 부하 테스트 도구
+  + **azureml-core**
+    + Py에 대 Script_run_config 한 설명서 변경 내용
+    + 전송 파이프라인 실행 CLI의 출력을 인쇄 하 여 버그를 수정 합니다.
+    + Azureml-core/azureml 데이터에 대 한 설명서 개선 사항
+    + Hdfs getconf 명령을 사용 하 여 저장소 계정을 검색 하는 문제를 수정 합니다.
+    + 향상 된 register_azure_blob_container 및 register_azure_file_share 설명서
+  + **azureml-datadrift**
+    + 데이터 집합 드리프트 모니터 비활성화 및 활성화를 위한 향상 된 구현
+  + **azureml-해석**
+    + 설명 클라이언트에서 아티팩트에서 업로드할 때 json serialization 전에 Nan 또는 Inf를 제거 합니다.
+    + 최신 버전의 해석-커뮤니티로 업데이트 하 여 많은 기능과 클래스를 사용 하는 전역 설명의 메모리 부족 오류를 개선
+    + 설명 업로드에 선택적 매개 변수 true_ys 추가 하 여 studio UI에서 추가 기능을 사용 하도록 설정 합니다.
+    + Download_model_explanations () 및 list_model_explanations () 성능 향상
+    + 디버깅에 도움이 되는 약간의 전자 필기장 조정
+  + **azureml-opendatasets**
+    + azureml-opendatasets은 azureml 1.4.0 rep 버전이 필요 합니다. 낮은 버전이 검색 되 면 경고가 추가 됨
+  + **azureml-pipeline-core**
+    + 이 변경을 통해 사용자는 모듈을 호출할 때 moduleVersion에 선택적 .runconfig를 제공할 수 있습니다. Publish_python_script.
+    + 노드 사용 계정은 ParallelRunStep의 파이프라인 매개 변수가 될 수 있습니다.
+  + **azureml-pipeline-steps**
+    + 이 변경을 통해 사용자는 모듈을 호출할 때 moduleVersion에 선택적 .runconfig를 제공할 수 있습니다. Publish_python_script.
+  + **azureml-train-automl-client**
+    + 자동화 된 ML의 BERT와 같은 심층 학습 변환기 모델에 대 한 여러 언어에 대 한 지원을 추가 합니다.
+    + 설명서에서 사용 되지 않는 lag_length 매개 변수를 제거 합니다.
+    + 예측 매개 변수 설명서가 개선 되었습니다. Lag_length 매개 변수는 사용 되지 않습니다.
+  + **azureml-train-automl-runtime**
+    + Prophet 모델을 포함 하는 AutoML Prophet 및 ensembled 모델에 대 한 설명을 사용 하도록 설정 합니다.
+    + Azureml-자동 ml-* 패키지에 대 한 설명서 업데이트
+  + **azureml-train-core**
+    + PyTorch 평가기에서 TensorFlow 버전 2.1 지원
+    + Azureml 교육-핵심 패키지의 향상 된 기능.
+  
+## <a name="2020-05-26"></a>2020-05-26
+
+### <a name="azure-machine-learning-sdk-for-python-v160"></a>Azure Machine Learning SDK for Python v 1.6.0
+
++ **새 기능**
+  + **azureml-automl-runtime**
+    + AutoML 예측은 이제 모델을 다시 학습 하지 않고 미리 지정 된 최대 수평을 초과 하는 고객의 예측을 지원 합니다. 예측 대상이 지정 된 최대 한도 보다 더 오래 지속 되 면 예측 () 함수는 재귀 작업 모드를 사용 하 여 나중에 지점 예측을 수행 합니다. 새 기능에 대 한 자세한 내용은 [폴더](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)의 "예측-예측-함수" 노트북의 "최대 수평 보다 더 많이 예측" 섹션을 참조 하세요.
+  
+  + **azureml 파이프라인-단계**
+    + ParallelRunStep는 이제 릴리스 되었으며 **azureml-파이프라인 단계** 패키지의 일부입니다. **Azureml** -ParallelRunStep 패키지의 기존는 사용 되지 않습니다. 공개 미리 보기 버전의 변경 내용:
+      + `run_max_try`지정 된 일괄 처리에 대 한 실행 메서드에 대 한 max 호출을 제어 하는 구성 가능한 선택적 매개 변수를 추가 했습니다. 기본값은 3입니다.
+      + 더 이상 생성 되는 PipelineParameters 없습니다. 다음 구성 가능한 값은 명시적으로 PipelineParameter로 설정할 수 있습니다.
+        + mini_batch_size
+        + node_count
+        + process_count_per_node
+        + logging_level
+        + run_invocation_timeout
+        + run_max_try
+      + Process_count_per_node의 기본값은 1로 변경 됩니다. 성능 향상을 위해 사용자가이 값을 조정 해야 합니다. 모범 사례는 GPU 또는 CPU 노드 수로를 설정 하는 것입니다.
+      + ParallelRunStep는 패키지를 주입 하지 않으며, 사용자는 **azureml-코어** 및 **azureml-dataprep [pandas, 퓨즈]** 패키지를 환경 정의에 포함 해야 합니다. User_managed_dependencies와 함께 사용자 지정 docker 이미지를 사용 하는 경우 사용자가 이미지에 conda를 설치 해야 합니다.
+      
++ **주요 변경 내용**
+  + **azureml 파이프라인-단계**
+    + AutoMLConfig에 대 한 유효한 입력 형식으로 azureml를 사용 하지 않습니다.
+  + **azureml-train-automl-client**
+    + AutoMLConfig에 대 한 유효한 입력 형식으로 azureml를 사용 하지 않습니다.
+
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + `get_output`요청 하는 사용자가 클라이언트를 다운 그레이드 하는 동안 경고가 인쇄 될 수 있는 버그를 수정 했습니다.
+    + 아직 버전 10에서 사용할 수 없으므로 cudatoolkit = 9.0을 사용 하도록 Mac을 업데이트 했습니다.
+    + 원격 계산에 대해 학습 된 경우 phrophet 및 xgboost 모델에 대 한 제한을 제거 합니다.
+    + AutoML의 향상 된 로깅
+    + 예측 작업의 사용자 지정 기능화에 대 한 오류 처리가 향상 되었습니다.
+    + 사용자가 예측을 생성 하기 위해 오래 된 상태인 기능을 포함할 수 있도록 하는 기능을 추가 했습니다.
+    + 오류 메시지를 업데이트 하 여 사용자 오류를 올바르게 표시 합니다.
+    + Training_data에서 사용할 cv_split_column_names 지원
+    + 예외 메시지 로깅 및 traceback을 업데이트 합니다.
+  + **azureml-automl-runtime**
+    + Guardrails에 imputations 값을 예측 하도록 설정 합니다.
+    + AutoML의 향상 된 로깅
+    + 데이터 준비 예외에 대 한 세분화 된 오류 처리 추가
+    + 원격 계산에 대해 학습 된 경우 phrophet 및 xgboost 모델에 대 한 제한을 제거 합니다.
+    + `azureml-train-automl-runtime`및 `azureml-automl-runtime` 에는, 및에 대 한 종속성이 업데이트 되었습니다 `pytorch` `scipy` `cudatoolkit` . 이제 `pytorch==1.4.0` , 및를 지원 `scipy>=1.0.0,<=1.3.1` `cudatoolkit==10.1.243` 합니다.
+    + 예측 작업의 사용자 지정 기능화에 대 한 오류 처리가 향상 되었습니다.
+    + 예측 데이터 집합 빈도 검색 메커니즘이 향상 되었습니다.
+    + 일부 데이터 집합에 대 한 Prophet 모델 학습 문제를 해결 했습니다.
+    + 예측 중에 최대 수평의 자동 검색이 향상 되었습니다.
+    + 사용자가 예측을 생성 하기 위해 오래 된 상태인 기능을 포함할 수 있도록 하는 기능을 추가 했습니다.
+    +  예측 모델을 다시 학습 하지 않고 학습 된 수평 이상으로 예측을 제공할 수 있도록 예측 함수의 기능을 추가 합니다.
+    + Training_data에서 사용할 cv_split_column_names 지원
+  + **azureml-dnn-자동 ml-예측**
+    + AutoML의 향상 된 로깅
+  + **azureml-mir**
+    + ManagedInferencing의 Windows 서비스에 대 한 지원이 추가 됨
+    + Attach MIR compute와 같은 이전 MIR 워크플로를 제거 합니다. SingleModelMirWebservice 클래스-MIR 패키지에 배치 된 모델 프로 파일링
+  + **azureml-contrib-pipeline-steps**
+    + YAML 지원에 대 한 사소한 수정
+    + ParallelRunStep는 일반 공급으로 릴리스 되었습니다. 즉, 사용 중단 알림이 있고 azureml. 단계로 이동 합니다.
+  + **azureml-contrib-reinforcementlearning**
+    + RL 부하 테스트 도구
+    + RL 평가기에 스마트 기본값 있음
+  + **azureml-core**
+    + Attach MIR compute와 같은 이전 MIR 워크플로를 제거 합니다. SingleModelMirWebservice 클래스-MIR 패키지에 배치 된 모델 프로 파일링
+    + 프로 파일링 실패 시 사용자에 게 제공 되는 정보를 수정 함: 포함 된 요청 id 및 메시지를 보다 의미 있게 다시 작성 합니다. 프로 파일링 러너에 새 프로 파일링 워크플로 추가
+    + 데이터 집합 실행 실패가 발생 하는 경우 오류 텍스트가 크게 향상 되었습니다.
+    + 작업 영역 개인 링크 CLI 지원이 추가 되었습니다.
+    + 잘못 된 JSON이 `invalid_lines` `Dataset.Tabular.from_json_lines_files` 포함 된 줄을 처리 하는 방법을 지정할 수 있는 선택적 매개 변수를에 추가 했습니다.
+    + 다음 릴리스에서 계산의 실행 기반 생성을 사용 중단 합니다. 실제 Amlcompute 클러스터를 영구 계산 대상으로 만들고, 실행 구성에서 계산 대상으로 클러스터 이름을 사용 하는 것이 좋습니다. 예제 노트북 참조: aka.ms/amlcomputenb
+    + 데이터 집합 실행 실패가 발생 하는 경우 오류 메시지가 크게 향상 되었습니다.
+  + **azureml-dataprep**
+    + Pyarrow 버전을 더 명시적으로 업그레이드 하는 경고가 발생 했습니다.
+    + 데이터 흐름을 실행 하는 데 실패 하는 경우 오류 처리 및 메시지 반환 기능이 향상 되었습니다.
+  + **azureml-해석**
+    + Azureml의 문서 업데이트-패키지 해석
+    + 최신 버전의 최신 버전 업데이트와 호환 되도록 interpretability 패키지 및 노트북 수정
+  + **azureml-opendatasets**
+    + 반환 된 데이터가 없으면 None을 반환 합니다.
+    + To_pandas_dataframe의 성능을 향상 시킵니다.
+  + **azureml-pipeline-core**
+    + YAML에서 로드가 중단 된 ParallelRunStep에 대 한 빠른 수정
+    + ParallelRunStep는 일반 공급으로 릴리스 되었습니다. 즉, 사용 중단 알림이 있고 azureml로 이동 합니다.-새로운 기능은 다음과 같습니다. 1. PipelineParameter 2로 서의 데이터 집합. 새 매개 변수 run_max_retry 3입니다. 구성 가능한 append_row 출력 파일 이름
+  + **azureml-pipeline-steps**
+    + 더 이상 사용 되지 않는 azureml를 입력 데이터의 올바른 형식으로 사용 합니다.
+    + YAML에서 로드가 중단 된 ParallelRunStep에 대 한 빠른 수정
+    + ParallelRunStep는 일반 공급으로 릴리스 되었습니다. 즉, 사용 중단 알림이 있고 azureml로 이동 합니다.-새로운 기능은 다음과 같습니다.
+      + PipelineParameter로 서의 데이터 집합
+      + 새 매개 변수 run_max_retry
+      + 구성 가능한 append_row 출력 파일 이름
+  + **azureml-telemetry**
+    + 예외 메시지 로깅 및 traceback을 업데이트 합니다.
+  + **azureml-train-automl-client**
+    + AutoML의 향상 된 로깅
+    + 오류 메시지를 업데이트 하 여 사용자 오류를 올바르게 표시 합니다.
+    + Training_data에서 사용할 cv_split_column_names 지원
+    + 더 이상 사용 되지 않는 azureml를 입력 데이터의 올바른 형식으로 사용 합니다.
+    + 아직 버전 10에서 사용할 수 없으므로 cudatoolkit = 9.0을 사용 하도록 Mac을 업데이트 했습니다.
+    + 원격 계산에 대해 학습 된 경우 phrophet 및 xgboost 모델에 대 한 제한을 제거 합니다.
+    + `azureml-train-automl-runtime`및 `azureml-automl-runtime` 에는, 및에 대 한 종속성이 업데이트 되었습니다 `pytorch` `scipy` `cudatoolkit` . 이제 `pytorch==1.4.0` , 및를 지원 `scipy>=1.0.0,<=1.3.1` `cudatoolkit==10.1.243` 합니다.
+    + 사용자가 예측을 생성 하기 위해 오래 된 상태인 기능을 포함할 수 있도록 하는 기능을 추가 했습니다.
+  + **azureml-train-automl-runtime**
+    + AutoML의 향상 된 로깅
+    + 데이터 준비 예외에 대 한 세분화 된 오류 처리 추가
+    + 원격 계산에 대해 학습 된 경우 phrophet 및 xgboost 모델에 대 한 제한을 제거 합니다.
+    + `azureml-train-automl-runtime`및 `azureml-automl-runtime` 에는, 및에 대 한 종속성이 업데이트 되었습니다 `pytorch` `scipy` `cudatoolkit` . 이제 `pytorch==1.4.0` , 및를 지원 `scipy>=1.0.0,<=1.3.1` `cudatoolkit==10.1.243` 합니다.
+    + 오류 메시지를 업데이트 하 여 사용자 오류를 올바르게 표시 합니다.
+    + Training_data에서 사용할 cv_split_column_names 지원
+  + **azureml-train-core**
+    + 새 HyperDrive 특정 예외 집합을 추가 했습니다. 이제는 자세한 예외가 throw 됩니다.
+  + **azureml-widgets**
+    + AzureML 위젯은 JupyterLab에 표시 되지 않습니다.
+  
+
 ## <a name="2020-05-11"></a>2020-05-11
 
 ### <a name="azure-machine-learning-sdk-for-python-v150"></a>Azure Machine Learning SDK for Python v 1.5.0
 
 + **새 기능**
   + **미리 보기 기능**
-    + **azureml-reinforcementlearning**
+    + **azureml-contrib-reinforcementlearning**
         + Azure Machine Learning는 [광선](https://ray.io) 프레임 워크를 사용 하 여 보충 Learning에 대 한 미리 보기 지원을 릴리스 합니다. 를 `ReinforcementLearningEstimator` 사용 하면 Azure Machine Learning의 GPU 및 CPU 계산 대상에서 보충 learning 에이전트의 학습을 수행할 수 있습니다.
 
 + **버그 수정 및 향상 된 기능**
@@ -36,14 +334,14 @@ ms.locfileid: "83123873"
     + 이전 PR의 경고 로그를 실수로 남겨진 문제를 수정 합니다. 로그가 디버깅에 사용 되었고 실수로는 남아 있습니다.
     + 버그 수정: 프로 파일링 하는 동안 클라이언트에 부분 오류를 알립니다.
   + **azureml-automl-core**
-    + 데이터 집합에 여러 시계열이 있는 경우 시계열에 대 한 병렬 맞춤을 사용 하도록 설정 하 여 automl 예측에서 Prophet/AutoArima 모델을 가속화 합니다. 이 새로운 기능을 활용 하기 위해 AutoMLConfig에서 "max_cores_per_iteration =-1" (즉, 사용 가능한 모든 cpu 코어 사용)을 설정 하는 것이 좋습니다.
+    + 데이터 집합에 여러 시계열이 있는 경우 시계열에 대 한 병렬 맞춤을 사용 하도록 설정 하 여 AutoML 예측에서 Prophet/AutoArima 모델을 가속화 합니다. 이 새로운 기능을 활용 하기 위해 AutoMLConfig에서 "max_cores_per_iteration =-1" (즉, 사용 가능한 모든 cpu 코어 사용)을 설정 하는 것이 좋습니다.
     + 콘솔 인터페이스에서 인쇄 guardrails의 KeyError 수정
     + Experimentation_timeout_hours에 대 한 오류 메시지 수정
     + AutoML에 사용 되지 않는 Tensorflow 모델입니다.
   + **azureml-automl-runtime**
     + Experimentation_timeout_hours에 대 한 오류 메시지 수정
     + 캐시 저장소에서 deserialize 할 때 미분류 예외가 수정 되었습니다.
-    + 데이터 집합에 여러 시계열이 있는 경우 시계열에 대 한 병렬 맞춤을 사용 하도록 설정 하 여 automl 예측에서 Prophet/AutoArima 모델을 가속화 합니다.
+    + 데이터 집합에 여러 시계열이 있는 경우 시계열에 대 한 병렬 맞춤을 사용 하도록 설정 하 여 AutoML 예측에서 Prophet/AutoArima 모델을 가속화 합니다.
     + 테스트/예측 집합에 학습 집합의 조직 중 하나가 포함 되어 있지 않은 데이터 집합에서 설정 된 롤링 창을 사용 하 여 예측을 수정 했습니다.
     + 누락 된 데이터의 향상 된 처리
     + 시간에 정렬 되지 않은 시계열을 포함 하 여 데이터 집합에 대해 예측 하는 동안 예측 간격이 문제를 해결 했습니다.
@@ -57,7 +355,7 @@ ms.locfileid: "83123873"
   + **azureml-mir**
     + 현재 배포 된 MIR 수정 버전 및 사용자가 지정한 최신 버전에 대 한 정보를 릴레이 하는 mir 클래스를 추가 합니다. 이 클래스는 MirWebservice 개체의 ' deployment_status ' 특성에 포함 되어 있습니다.
     + MirWebservice 및 해당 자식 클래스 SingleModelMirWebservice의 Webservices에 대 한 업데이트를 사용 하도록 설정 합니다.
-  + **azureml-reinforcementlearning**
+  + **azureml-contrib-reinforcementlearning**
     + 광선 0.8.3에 대 한 지원 추가
     + AmlWindowsCompute는 탑재 된 저장소로 Azure Files만 지원 합니다.
     + Health_check_timeout 이름이 health_check_timeout_seconds
@@ -84,7 +382,7 @@ ms.locfileid: "83123873"
     + 선형 서로게이트 모델을 사용 하 여 설명 모방로 생성 된 스파스 설명에 대 한 버그 수정
   + **azureml-opendatasets**
     + MNIST의 열 문제 해결은 int 여야 하는 문자열로 구문 분석 됩니다.
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + ModuleStep에 포함 된 모듈을 사용 하는 경우 옵션을 regenerate_outputs 수 있습니다.
   + **azureml-train-automl-client**
     + AutoML에 사용 되지 않는 Tensorflow 모델입니다.
@@ -93,11 +391,11 @@ ms.locfileid: "83123873"
     + AutoMLConfig의 cv_split_indices 입력에 대해 datatype 검사를 적용 합니다.
     + Show_output에서 자동 Ml 실행 실패가 발생 하는 문제 해결
   + **azureml-train-automl-runtime**
-    + 앙상블 반복에서 버그를 수정 하 여 시작에서 모델 다운로드 시간 제한을 성공적으로 방해 했습니다.
+    + 앙상블 반복에서 버그를 수정 하 여 시작에서 모델 다운로드 제한 시간을 초과 했습니다.
   + **azureml-train-core**
     + Dnn. Nccl 클래스에서 오타를 수정 합니다.
     + PyTorch 평가기에서 PyTorch 버전 1.5 지원
-    + 학습 프레임 워크를 사용 하는 경우 fairfax 지역에서 프레임 워크 이미지를 인출할 수 없는 문제를 해결 합니다. 추정
+    + 학습 프레임 워크를 사용 하는 경우 Fairfax 지역에서 프레임 워크 이미지를 인출할 수 없는 문제를 해결 합니다. 추정
 
   
 ## <a name="2020-05-04"></a>2020-05-04
@@ -131,7 +429,7 @@ ms.locfileid: "83123873"
 ### <a name="azure-machine-learning-sdk-for-python-v140"></a>Azure Machine Learning SDK for Python v 1.4.0
 
 + **새 기능**
-  + 이제 AmlCompute 클러스터가 프로 비전 시 클러스터에서 관리 id를 설정 하도록 지원 합니다. 시스템 할당 id 또는 사용자 할당 id를 사용할지 여부를 지정 하 고 후자의 경우 identityId를 전달 합니다. 그런 다음 permissiosn를 설정 하 여 현재 AmlCompute에서 사용 하는 토큰 기반 접근 방식 대신 계산 id가 데이터에 안전 하 게 액세스 하는 데 사용 되는 것과 같은 다양 한 리소스에 액세스할 수 있습니다. 매개 변수에 대 한 자세한 내용은 SDK 참조를 확인 하세요.
+  + 이제 AmlCompute 클러스터가 프로 비전 시 클러스터에서 관리 id를 설정 하도록 지원 합니다. 시스템 할당 id 또는 사용자 할당 id를 사용할지 여부를 지정 하 고 후자의 경우 identityId를 전달 합니다. 그런 다음 현재 AmlCompute에서 사용 하는 토큰 기반 방법 대신 계산 id를 사용 하 여 데이터에 안전 하 게 액세스 하는 방식으로 저장소나 ACR과 같은 다양 한 리소스에 액세스할 수 있는 권한을 설정할 수 있습니다. 매개 변수에 대 한 자세한 내용은 SDK 참조를 확인 하세요.
   
 
 + **주요 변경 내용**
@@ -162,27 +460,27 @@ ms.locfileid: "83123873"
     + 사후 학습 작업에 대 한 추가 원격 분석을 추가 했습니다.
     + 100 보다 긴 일련의 조건부 CSS (제곱 합계) 학습을 사용 하 여 자동 ARIMA 학습 속도를 향상 시킵니다. 사용 되는 길이는/src/azureml-automl-core/azureml/automl/core/shared/constants.py의 Times Esinternal 클래스에 있는 ARIMA_TRIGGER_CSS_TRAINING_LENGTH의 상수로 저장 됩니다.
     + 예측 실행에 대 한 사용자 로깅이 개선 되었습니다. 이제 현재 실행 중인 단계에 대 한 자세한 정보가 로그에 표시 됩니다.
-    + 허용 되지 않는 값 target_rolling_window_size 2 보다 작은 값으로 설정할 수 없습니다.
+    + 2 보다 작은 값으로 설정 될 target_rolling_window_size 허용 되지 않습니다.
   + **azureml-automl-runtime**
     + 중복 타임 스탬프가 있는 경우 표시 되는 오류 메시지가 개선 되었습니다.
-    + 허용 되지 않는 target_rolling_window_size 2 보다 작은 값으로 설정 됩니다.
+    + 2 보다 작은 값으로 설정 될 target_rolling_window_size 허용 되지 않습니다.
     + 대체 지연 시간을 수정 했습니다. 계절별로를 분리 하는 데 필요한 관측값 수가 부족 하 여이 문제가 발생 했습니다. "Seasonalized" 데이터는 지연 길이를 확인 하기 위해 부분 autocorrelation 관계 함수 (PACF)를 계산 하는 데 사용 됩니다.
     + 기능화 config의 예측 태스크에 대 한 열 용도 기능화 사용자 지정을 사용 합니다. 예측 태스크에 대 한 열 용도가 있는 숫자 및 범주는 이제 지원 됩니다.
     + 기능화 config의 예측 태스크에 대 한 drop column 기능화 사용자 지정을 사용 하도록 설정 했습니다.
-    + 기능화 config의 예측 작업에 대해 대체 사용자 지정을 사용 하도록 설정 했습니다. 대상 열에 대 한 상수 값 대체 및 학습 데이터의 평균, 중앙값, most_frequent 및 상수 값 대체 이제 지원 됩니다.
-  + **azureml-파이프라인-단계**
+    + 기능화 config의 예측 작업에 대해 대체 사용자 지정을 사용 하도록 설정 했습니다. 대상 열에 대 한 상수 값과 학습 데이터의 평균, 중앙값, most_frequent 및 상수 값 대체이 지원 됩니다.
+  + **azureml-contrib-pipeline-steps**
     + ParallelRunConfig에 전달할 문자열 계산 이름을 허용 합니다.
   + **azureml-core**
     +  환경 개체의 복사본을 만들기 위한 new_name API를 추가 했습니다.
-    +  Base_dockerfile는 filepath를 허용 합니다. 파일을 확인할 수 있는 경우 base_dockerfile 환경 속성으로 콘텐츠를 읽습니다.
-    + 사용자가 환경에서 수동으로 값을 설정 하는 경우 base_image 및 base_dockerfile에 대해 상호 배타적인 값을 자동으로 다시 설정 합니다.
+    +  Environment.docker는 filepath를 허용 base_dockerfile. 파일을 확인할 수 있는 경우 base_dockerfile 환경 속성으로 콘텐츠를 읽습니다.
+    + 사용자가 Environment.docker에서 수동으로 값을 설정 하는 경우 base_image 및 base_dockerfile에 대해 상호 배타적인 값을 자동으로 다시 설정
     + 환경이 사용자에 의해 관리 되는지 또는 AzureML에 의해 관리 되는지 여부를 나타내는 RSection에 user_managed 플래그를 추가 했습니다.
     + 데이터 집합: 유니코드 문자를 포함 하는 데이터 경로인 경우 고정 데이터 집합 다운로드에 실패 합니다.
     + 데이터 집합: 데이터 집합 탑재 캐싱 메커니즘을 개선 하 여 노드를 사용할 수 없게 하 고 작업을 취소 하는 것을 방지 하는 Azure Machine Learning 계산의 최소 디스크 공간 요구 사항을 준수 합니다.
-    + 데이터 집합: 시계열 데이터 집합에 대 한 시계열 열에 대 한 인덱스를 추가 합니다. pandas 데이터 프레임는 시계열 기반 데이터 액세스에 대 한 액세스 속도를 높이는 데 사용 됩니다.  이전에는 인덱스에 타임 스탬프 열과 동일한 이름이 지정 되었으며,이는 실제 타임 스탬프 열과 인덱스에 대 한 혼동을 가진 사용자에 대 한 것입니다. 이제는 열로 사용할 수 없으므로 인덱스에 특정 이름을 지정 하지 않습니다. 
+    + 데이터 집합: 시계열 데이터 집합에 액세스할 때 시계열 열에 대 한 인덱스를 추가 합니다. pandas 데이터 프레임는 시계열 기반 데이터 액세스에 대 한 액세스 속도를 높이는 데 사용 됩니다.  이전에는 인덱스에 타임 스탬프 열과 동일한 이름이 지정 되었으며,이는 실제 타임 스탬프 열과 인덱스에 대 한 혼동을 가진 사용자에 대 한 것입니다. 이제는 열로 사용할 수 없으므로 인덱스에 특정 이름을 지정 하지 않습니다. 
     + 데이터 집합: 소 버린 클라우드에서 데이터 집합 인증 문제를 수정 했습니다.
     + 데이터 집합: `Dataset.to_spark_dataframe` Azure PostgreSQL datastores에서 만든 데이터 집합에 대 한 오류를 수정 했습니다.
-  + **azureml-interpret**
+  + **azureml-해석**
     + 로컬 중요도 값이 스파스 인 경우 시각화에 전역 점수를 추가 했습니다.
     + 업데이트 된 azureml-해석 사용-커뮤니티 0.9. *
     + 스파스 평가 데이터가 포함 된 다운로드 설명의 문제를 해결 함
@@ -193,13 +491,13 @@ ms.locfileid: "83123873"
     + 사후 학습 작업에 대 한 추가 원격 분석을 추가 했습니다.
     + 초기 중지에서 회귀 수정
     + 더 이상 사용 되지 않는 azureml를 입력 데이터의 올바른 형식으로 사용 합니다.
-    +  기본 AutoML 실험 제한 시간을 6 일로 변경 합니다.
+    +  기본 AutoML 실험 시간을 6 일로 변경 합니다.
   + **azureml-train-automl-runtime**
     + 사후 학습 작업에 대 한 추가 원격 분석을 추가 했습니다.
-    + 추가 된 스파스 automl e2e 지원
+    + 추가 된 스파스 AutoML e2e 지원
   + **azureml-opendatasets**
     + 서비스 모니터에 대 한 추가 원격 분석을 추가 했습니다.
-    + Blob에 대해 frontdoor를 사용 하 여 안정성 향상 
+    + Blob에 대 한 front 도어를 사용 하 여 안정성 향상 
 
 ## <a name="2020-03-23"></a>2020-03-23
 
@@ -226,7 +524,7 @@ ms.locfileid: "83123873"
     + Azure Machine Learning CLI에 ADLS Gen2를 등록 하는 기능이 추가 됨
     + 매개 변수의 사용을 보다 잘 반영 하기 위해 TabularDataset의 with_timestamp_columns () 메서드에 대해 ' fine_grain_timestamp ' 매개 변수를 ' timestamp ' 및 ' coarse_grain_timestamp ' 매개 변수에 ' partition_timestamp '로 변경 했습니다.
     + 최대 실험 이름 길이를 255로 늘립니다.
-  + **azureml-interpret**
+  + **azureml-해석**
     + 업데이트 된 azureml-해석-커뮤니티 0.7. *
   + **azureml-sdk**
     + 시험판 및 안정적인 릴리스에 대 한 패치 지원에 대해 호환 되는 버전 물결표를 사용 하는 종속성을 변경 합니다.
@@ -242,21 +540,21 @@ ms.locfileid: "83123873"
 
 + **주요 변경 내용**
   + **유의적 버전 2.0.0**
-    + 버전 1.1부터 Azure ML Python SDK는 의미 체계 버전 관리 2.0.0를 도입 합니다. [여기에서 자세히 알아보세요](https://semver.org/). 모든 후속 버전은 새 번호 매기기 체계 및 의미 체계 버전 관리 계약을 따릅니다. 
+    + 버전 1.1부터 Azure ML Python SDK는 의미 체계 버전 관리 2.0.0를 도입 합니다. [자세한 내용은 여기를 참조](https://semver.org/)하세요. 모든 후속 버전은 새 번호 매기기 체계 및 의미 체계 버전 관리 계약을 따릅니다. 
 
 + **버그 수정 및 향상 된 기능**
   + **azure-cli-ml**
-    + 일관성을 위해 끝점 CLI 명령 이름을 ' az ml endpoint aks '에서 ' az ml endpoint p a t e '로 변경 합니다.
+    + 일관성을 위해 끝점 CLI 명령 이름을 ' az ml endpoint aks '에서 ' az ml endpoint real time '으로 변경 합니다.
     + 안정적이 고 실험적 분기 CLI에 대 한 CLI 설치 지침 업데이트
     + 단일 인스턴스 프로 파일링이 권장 사항을 생성 하기 위해 수정 되었으며 핵심 sdk에서 제공 되었습니다.
   + **azureml-automl-core**
-    + Automl ONNX 모델에 대해 일괄 처리 모드 유추를 사용 하도록 설정 합니다 (여러 행을 한 번 사용).
+    + AutoML ONNX 모델에 대해 일괄 처리 모드 유추를 사용 하도록 설정 합니다 (여러 행을 한 번 사용).
     + 데이터를 포함 하지 않거나 불규칙 한 데이터 요소를 포함 하는 데이터 집합의 빈도 검색 향상
     + 기준 빈도를 준수 하지 않는 데이터 요소를 제거 하는 기능이 추가 되었습니다.
     + 생성자의 입력이 해당 열에 대 한 대체 옵션을 적용 하는 옵션 목록을 사용 하도록 변경 되었습니다.
     + 오류 로깅이 개선 되었습니다.
   + **azureml-automl-runtime**
-    + 학습 집합에 없는 그레인이 테스트 집합에 표시 되는 경우 발생 하는 오류와 관련 된 문제를 해결 했습니다.
+    + 테스트 집합에 표시 된 학습 집합에 그레인이 없는 경우 throw 되는 오류와 관련 된 문제를 해결 했습니다.
     + 예측 서비스의 점수를 매기는 동안 y_query 요구 사항이 제거 되었습니다.
     + 데이터 집합에 긴 시간 간격이 있는 short 조직 포함 된 경우 예측 관련 문제를 해결 했습니다.
     + Auto max 구간이 on으로 설정 되 고 date 열에 문자열 형식의 날짜가 포함 된 경우이 문제가 해결 됩니다. 날짜로의 변환이 불가능 한 경우에 대 한 적절 한 변환 및 오류 메시지가 추가 되었습니다.
@@ -295,8 +593,8 @@ ms.locfileid: "83123873"
     + 이제 사용자가 webservices에 대 한 키를 다시 생성할 때 auth 키에 대 한 값을 지정할 수 있습니다.
     + 대문자를 데이터 집합의 입력 이름으로 사용할 수 없는 버그를 수정 했습니다.
   + **azureml-기본값**
-    + `azureml-dataprep`이제의 일부로 설치 됩니다 `azureml-defaults` . 이제 데이터 집합을 탑재 하기 위해 계산 대상에 수동으로 dataprep [퓨즈]를 설치할 필요가 없습니다.
-  + **azureml-interpret**
+    + `azureml-dataprep`이제의 일부로 설치 됩니다 `azureml-defaults` . 데이터 집합을 탑재 하려면 더 이상 계산 대상에 데이터 준비 [퓨즈]를 수동으로 설치 하지 않아도 됩니다.
+  + **azureml-해석**
     + 업데이트 된 azureml-해석-커뮤니티 0.6. *
     + 업데이트 된 azureml-해석-커뮤니티 0.5.0에 종속 된 것으로 해석
     + Azureml-해석에 azureml 스타일 예외를 추가 했습니다.
@@ -307,7 +605,7 @@ ms.locfileid: "83123873"
     + 이제 파이프라인 일괄 처리 점수 매기기 노트북에서 ParallelRunStep 사용
     + 인수 목록을 변경 하는 경우에도 PythonScriptStep 결과가 잘못 재사용 될 수 있는 버그를 수정 했습니다.
     + 에서 parse_ * 메서드를 호출할 때 열 형식을 설정 하는 기능이 추가 되었습니다.`PipelineOutputFileDataset`
-  + **azureml-pipeline-steps**
+  + **azureml 파이프라인-단계**
     + 를 `AutoMLStep` `azureml-pipeline-steps` 패키지로 이동 했습니다. 에서 사용 되지 않습니다 `AutoMLStep` `azureml-train-automl-runtime` .
     + 데이터 집합에 대 한 문서 예제를 PythonScriptStep 입력으로 추가 했습니다.
   + **azureml-tensorboard**
@@ -328,11 +626,11 @@ ms.locfileid: "83123873"
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
-    + Automl ONNX 모델에 대해 일괄 처리 모드 유추를 사용 하도록 설정 합니다 (여러 행을 한 번 사용).
+    + AutoML ONNX 모델에 대해 일괄 처리 모드 유추를 사용 하도록 설정 합니다 (여러 행을 한 번 사용).
     + 데이터를 포함 하지 않거나 불규칙 한 데이터 요소를 포함 하는 데이터 집합의 빈도 검색 향상
-    + 주요 frequrncy 준수 하지 않는 데이터 요소를 제거 하는 기능이 추가 되었습니다.
+    + 기준 빈도를 준수 하지 않는 데이터 요소를 제거 하는 기능이 추가 되었습니다.
   + **azureml-automl-runtime**
-    + 학습 집합에 없는 그레인이 테스트 집합에 표시 되는 경우 발생 하는 오류와 관련 된 문제를 해결 했습니다.
+    + 테스트 집합에 표시 된 학습 집합에 그레인이 없는 경우 throw 되는 오류와 관련 된 문제를 해결 했습니다.
     + 예측 서비스의 점수를 매기는 동안 y_query 요구 사항이 제거 되었습니다.
   + **azureml-mir**
     + MirWebservice 클래스의 기능을 추가 하 여 액세스 토큰을 검색 합니다.
@@ -346,11 +644,11 @@ ms.locfileid: "83123873"
       + 작업 영역 업데이트 메서드를 공개적으로 사용할 수 있게 되었습니다.
       + 사용자가 이미지 빌드에 대 한 계산을 업데이트할 수 있도록 작업 영역 업데이트 메서드에서 image_build_compute 매개 변수를 추가 했습니다.
     +  이전 프로 파일링 워크플로에 사용 중단 메시지를 추가 했습니다. 프로 파일링 cpu 및 메모리 제한 수정
-  + **azureml-interpret**
+  + **azureml-해석**
     + 업데이트 azureml-해석-커뮤니티 0.6. *
   + **azureml.mlflow**
     + 소 버린 클라우드에 대 한 지원을 azureml mlflow에 추가 합니다.
-  + **azureml-pipeline-steps**
+  + **azureml 파이프라인-단계**
     + `AutoMLStep`을로 이동 `azureml-pipeline-steps package` 했습니다. 에서 사용 되지 않습니다 `AutoMLStep` `azureml-train-automl-runtime` .
   + **azureml-train-automl-client**
     + 특정 패키지가 원격 실행 시 잘못 된 버전에 설치 될 수 있는 문제를 해결 했습니다.
@@ -381,10 +679,10 @@ ms.locfileid: "83123873"
     + 단일 인스턴스 프로 파일링이 권장 사항을 생성 하기 위해 수정 되었으며 핵심 sdk에서 제공 되었습니다.
     + Aks.py _deploy에서 문제를 해결 했습니다.
     + 자동 저장소 오류를 방지 하기 위해 업로드할 모델의 무결성을 검사 합니다.
-  + **azureml-interpret**
+  + **azureml-해석**
     + azureml-해석에 azureml 스타일 예외를 추가 했습니다.
     + keras 모델에 대 한 DeepScoringExplainer serialization 수정
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 이제 파이프라인 일괄 처리 점수 매기기 노트북에서 ParallelRunStep 사용
   + **azureml-pipeline-steps**
     + 패키지에서을 (를) 이동 `AutoMLStep` `azureml-pipeline-steps` 했습니다. 에서 사용 되지 않습니다 `AutoMLStep` `azureml-train-automl-runtime` .
@@ -405,7 +703,7 @@ ms.locfileid: "83123873"
 
 + **주요 변경 내용**
   + **유의적 버전 2.0.0**
-    + 버전 1.1부터 Azure ML Python SDK는 의미 체계 버전 관리 2.0.0를 도입 합니다. [여기에서 자세히 알아보세요](https://semver.org/). 모든 후속 버전은 새 번호 매기기 체계 및 의미 체계 버전 관리 계약을 따릅니다. 
+    + 버전 1.1부터 Azure ML Python SDK는 의미 체계 버전 관리 2.0.0를 도입 합니다. [자세한 내용은 여기를 참조](https://semver.org/)하세요. 모든 후속 버전은 새 번호 매기기 체계 및 의미 체계 버전 관리 계약을 따릅니다. 
   
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-runtime**
@@ -413,11 +711,11 @@ ms.locfileid: "83123873"
     + 점수 매기기 중 빈도 확인을 수정 했습니다. 이제 예측 작업에서 학습 및 테스트 집합 간에 엄격한 빈도가 동일 하지 않습니다.
   + **azureml-core**
     + 이제 사용자가 webservices에 대 한 키를 다시 생성할 때 auth 키에 대 한 값을 지정할 수 있습니다.
-  + **azureml-interpret**
+  + **azureml-해석**
     + 업데이트 된 azureml-해석-커뮤니티 0.5.0에 종속 된 것으로 해석
   + **azureml-pipeline-core**
     + 인수 목록을 변경 하는 경우에도 PythonScriptStep 결과가 잘못 재사용 될 수 있는 버그를 수정 했습니다.
-  + **azureml-pipeline-steps**
+  + **azureml 파이프라인-단계**
     + 데이터 집합에 대 한 문서 예제를 PythonScriptStep 입력으로 추가 했습니다.
   + **azureml-contrib-pipeline-steps**
     + ParallelRunConfig에 전달 된 매개 변수는 이제 파이프라인 매개 변수를 전달 하 여 덮어쓸 수 있습니다. 지원 되는 새 파이프라인 매개 변수 aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count 및 aml_process_count_per_node는 이미 이전 릴리스의 일부입니다.)
@@ -439,8 +737,8 @@ ms.locfileid: "83123873"
     + ' Y_query '이 (가) Dominick의 주황색 주스 노트북 서비스 요청 섹션에서 제거 되었습니다.
     + 날짜 시간 열이 포함 된 데이터 집합에서 작동 하는 배포 된 모델에 대 한 예측을 방지 하는 버그를 수정 했습니다.
     + Matthews 상관 계수를 이진 및 다중 클래스 분류에 대 한 분류 메트릭으로 추가 했습니다.
-  + **azureml-인-해석**
-    + Azureml에서 텍스트 explainers 제거 됨-텍스트 설명이 즉시 릴리스되는 해석 텍스트 리포지토리로 이동 되었습니다.
+  + **azureml-contrib-interpret**
+    + Azureml에서 텍스트 explainers 제거 됨-텍스트 설명이 곧 출시 될 해석 텍스트 리포지토리로 이동 되었습니다.
   + **azureml-core**
     + 데이터 집합: 파일 데이터 집합에 대 한 사용은 더 이상 python env에 설치 되는 numpy 및 pandas에 종속 되지 않습니다.
     + 상태 끝점에 대 한 ping을 시도 하기 전에 로컬 Docker 컨테이너의 상태를 확인 하 고 실패 한 배포를 보고 하는 데 걸리는 시간을 크게 줄여 LocalWebservice. wait_for_deployment ()를 변경 했습니다.
@@ -452,7 +750,7 @@ ms.locfileid: "83123873"
     + 고정 get_active_runs
   + **azureml-explain-model**
     + shap를 0.33.0로 업데이트 하 고-community를 0.4으로 해석 합니다. *
-  + **azureml-interpret**
+  + **azureml-해석**
     + shap를 0.33.0로 업데이트 하 고-community를 0.4으로 해석 합니다. *
   + **azureml-train-automl-runtime**
     + Matthews 상관 계수를 이진 및 다중 클래스 분류에 대 한 분류 메트릭으로 추가 했습니다.
@@ -464,7 +762,7 @@ ms.locfileid: "83123873"
 
 + **새 기능**
   + 데이터 집합: 두 옵션을 추가 하 `on_error` 고, `out_of_range_datetime` `to_pandas_dataframe` 데이터에 오류 값이 포함 된 경우 데이터를로 채우지 않고 실패 `None` 합니다.
-  + 작업 영역: `hbi_workspace` 추가 암호화를 사용 하 고 작업 영역에서 고급 진단을 사용 하지 않도록 설정 하는 중요 한 데이터가 포함 된 작업 영역에 대 한 플래그 또한 작업 영역을 만들 때 및 매개 변수를 지정 하 여 연결 된 Cosmos DB 인스턴스에 대 한 사용자 고유의 키를 가져오기 위한 지원을 추가 했습니다. 그러면 작업 `cmk_keyvault` `resource_cmk_uri` 영역을 프로 비전 하는 동안 구독에 Cosmos DB 인스턴스를 만듭니다. [자세한 내용은 여기를 참조 하세요.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
+  + 작업 영역: `hbi_workspace` 추가 암호화를 사용 하 고 작업 영역에서 고급 진단을 사용 하지 않도록 설정 하는 중요 한 데이터가 포함 된 작업 영역에 대 한 플래그 또한 작업 영역을 만들 때 및 매개 변수를 지정 하 여 연결 된 Cosmos DB 인스턴스에 대 한 사용자 고유의 키를 가져오기 위한 지원을 추가 했습니다. 그러면 작업 `cmk_keyvault` `resource_cmk_uri` 영역을 프로 비전 하는 동안 구독에 Cosmos DB 인스턴스를 만듭니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-runtime**
@@ -472,18 +770,18 @@ ms.locfileid: "83123873"
   + **azureml-core**
     + `datastore.upload_files`로 시작 하지 않은 상대 경로를 사용할 수 없는에서 버그가 수정 `./` 되었습니다.
     + 모든 이미지 클래스 codepaths에 대해 사용 되지 않는 메시지 추가
-    + Mooncake region에 대 한 모델 관리 URL 생성을 수정 했습니다.
+    + Azure 중국 21Vianet 지역에 대 한 모델 관리 URL 생성을 수정 했습니다.
     + Source_dir를 사용 하는 모델을 Azure Functions 패키지할 수 없는 문제를 해결 했습니다.    
     + [Build_local ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 에 옵션을 추가 하 여 AzureML 작업 영역 컨테이너 레지스트리에 이미지를 푸시합니다.
-    + 이전 버전과 호환 되는 방식으로 azure synapse에서 새로운 토큰 라이브러리를 사용 하도록 SDK를 업데이트 했습니다.
-  + **azureml-interpret**
+    + 이전 버전과 호환 되는 방식으로 Azure synapse에서 새로운 토큰 라이브러리를 사용 하도록 SDK를 업데이트 했습니다.
+  + **azureml-해석**
     + 다운로드할 수 있는 설명이 없는 경우 아무것도 반환 되지 않는 버그를 수정 했습니다. 는 현재 다른 곳에서 일치 하는 동작을 발생 시킵니다.
   + **azureml-pipeline-steps**
     + 에서를 `DatasetConsumptionConfig` 사용 하 `Estimator` 는 `inputs` 경우의 매개 변수에를 전달할 수 `Estimator` `EstimatorStep` 없습니다.
   + **azureml-sdk**
     + 자동 ml 클라이언트를 azureml sdk 패키지에 추가 하 여 전체 AutoML 패키지를 설치 하지 않고 원격 AutoML 실행을 전송할 수 있도록 합니다.
   + **azureml-train-automl-client**
-    + Automl 실행에 대 한 콘솔 출력의 맞춤을 수정 했습니다.
+    + AutoML 실행에 대 한 콘솔 출력의 맞춤을 수정 했습니다.
     + Pandas의 잘못 된 버전이 원격 amlcompute에 설치 될 수 있는 버그를 수정 했습니다.
 
 ## <a name="2019-12-23"></a>2019-12-23
@@ -491,17 +789,17 @@ ms.locfileid: "83123873"
 ### <a name="azure-machine-learning-sdk-for-python-v1081"></a>Azure Machine Learning SDK for Python v 1.0.81
 
 + **버그 수정 및 향상 된 기능**
-  + **azureml-인-해석**
+  + **azureml-contrib-interpret**
     + shap 종속성을 해석 하 여 azureml의 community-해석
   + **azureml-core**
     + 이제 계산 대상을 해당 배포 구성 개체에 대 한 매개 변수로 지정할 수 있습니다. 특히 SDK 개체가 아닌 배포할 계산 대상의 이름입니다.
     + 모델 및 서비스 개체에 CreatedBy 정보를 추가 했습니다. 는를 통해 액세스할 수 있습니다 <var> created_by
     + Docker 컨테이너의 HTTP 포트를 올바르게 설정 하지 않은 Get-containerimage ()를 수정 했습니다.
-    + `azureml-dataprep`Cli 명령에 대 한 옵션 만들기 `az ml dataset register`
+    + `azureml-dataprep`CLI 명령에 대 한 옵션 만들기 `az ml dataset register`
     + `TabularDataset.to_pandas_dataframe`가 대체 판독기로 잘못 대체 되 고 경고를 출력 하는 버그를 수정 했습니다.
   + **azureml-explain-model**
     + shap 종속성을 해석 하 여 azureml의 community-해석
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + `NotebookRunnerStep`파이프라인의 한 단계로 로컬 노트북을 실행 하는 새 파이프라인 단계가 추가 되었습니다.
     + PublishedPipelines, 일정 및 PipelineEndpoints에 대해 사용 되지 않는 get_all 함수를 제거 했습니다.
   + **azureml-train-automl-client**
@@ -535,7 +833,7 @@ ms.locfileid: "83123873"
 
 + **주요 변경 내용**
   + Azureml-학습-AutoML 업그레이드 문제
-    + Azureml-학습-automl>= 1.0.76<에서 1.0.76로 업그레이드 하면 부분 설치로 인해 일부 automl 가져오기가 실패 하 게 됩니다. 이 문제를 해결 하기 위해에 있는 설치 스크립트를 실행할 수 있습니다 https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . 또는 pip를 직접 사용 하는 경우 다음을 수행할 수 있습니다.
+    + Azureml-학습-automl>= 1.0.76<에서 1.0.76로 업그레이드 하면 부분 설치로 인해 일부 AutoML 가져오기가 실패 하 게 됩니다. 이 문제를 해결 하기 위해에 있는 설치 스크립트를 실행할 수 있습니다 https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . 또는 pip를 직접 사용 하는 경우 다음을 수행할 수 있습니다.
       + "pip 설치--azureml 업그레이드-automl"
       + "pip 설치--무시-설치 된 azureml-클라이언트"
     + 또는 업그레이드 하기 전에 이전 버전을 제거할 수 있습니다.
@@ -548,24 +846,24 @@ ms.locfileid: "83123873"
     + AzureML에서 기계 학습 및 교육 코드를 새 패키지 AzureML-AutoML-런타임으로 이동 했습니다.
   + **azureml-데이터 집합**
     + `to_pandas_dataframe`다운로드 옵션을 사용 하 여 레이블이 지정 된 데이터 집합에서 호출 하는 경우 이제 기존 파일을 덮어쓸지 여부를 지정할 수 있습니다.
-    + 또는를 `keep_columns` 호출 `drop_columns` 하 여 시계열, 레이블 또는 이미지 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
+    + 또는를 호출할 때 시계열 `keep_columns` `drop_columns` , 레이블 또는 이미지 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
     + 개체 검색 태스크에 대 한 pytorch 로더의 문제를 수정 했습니다.
-  + **azureml-인-해석**
+  + **azureml-contrib-interpret**
     + 제거 된 설명 대시보드 위젯이 azureml에서 새 interpret_community 항목을 참조 하도록 변경 됩니다.
     + 업데이트 된 버전의 해석-커뮤니티에서 0.2.0로
   + **azureml-core**
     + 의 성능을 향상 시킵니다 `workspace.datasets` .
     + 사용자 이름 및 암호 인증을 사용 하 여 Azure SQL Database 데이터 저장소를 등록 하는 기능이 추가 됨
     + 상대 경로에서 RunConfigurations 로드를 수정 합니다.
-    + `keep_columns`또는를 호출 `drop_columns` 하 여 시계열 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
-  + **azureml-interpret**
+    + `keep_columns`또는를 호출할 때 `drop_columns` 시계열 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
+  + **azureml-해석**
     + 업데이트 된 버전의 해석-커뮤니티에서 0.2.0로
-  + **azureml-pipeline-steps**
+  + **azureml 파이프라인-단계**
     + `runconfig_pipeline_params`Azure machine learning 파이프라인 단계에 대해 문서화 된 지원 값
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 파이프라인 명령에 대 한 json 형식으로 출력을 다운로드 하는 CLI 옵션이 추가 되었습니다.
   + **azureml-학습-automl**
-    + AzureML-학습-AutoML을 2 개의 패키지로 분할, 클라이언트 패키지 AzureML-자동 Ml-클라이언트 및 ML 학습 패키지 AzureML-자동 Ml-런타임
+    + AzureML-학습-AutoML을 두 개의 패키지로 분할 합니다. 클라이언트 패키지 AzureML-자동 Ml-클라이언트 및 ML 학습 패키지 AzureML-자동 Ml-런타임
   + **azureml-train-automl-client**
     + 로컬에서 machine learning 종속성을 설치할 필요 없이 AutoML 실험을 전송 하기 위한 씬 클라이언트를 추가 했습니다.
     + 원격 실행에서 자동으로 검색 된 지연, 롤링 창 크기 및 최대 horizons의 로깅이 수정 되었습니다.
@@ -638,7 +936,7 @@ ms.locfileid: "83123873"
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | Basic & Enterprise |
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | Enterprise |
-| [Designer](concept-designer.md) (미리 보기) | 이전에 디자이너로 알려진 기계 학습 모델링 도구를 끌어서 놓습니다. | Enterprise |
+| [Designer](concept-designer.md) (미리 보기) | 이전에 디자이너로 알려진 기계 학습 모델링 도구 끌어서 놓기 | Enterprise |
 
 
 ### <a name="azure-machine-learning-designer-enhancements"></a>Azure Machine Learning designer 향상 된 기능
@@ -710,7 +1008,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-automl-core**
     + 반복 교육은 런타임 제약 조건이 설정 된 경우에만 자식 프로세스에서 실행 됩니다.
     + 지정 된 max_horizon가 지정 된 컴퓨터에서 메모리 문제를 발생 시키는 지 여부를 확인 하기 위해 예측 태스크에 대 한 guardrail를 추가 했습니다. 표시 되 면 guardrail 메시지가 표시 됩니다.
-    + 2 년 및 1 개월과 같은 복잡 한 주파수에 대 한 지원이 추가 되었습니다. -Frequency를 확인할 수 없는 경우 이해도 오류 메시지가 추가 되었습니다.
+    + 2 년 및 1 개월과 같은 복잡 한 빈도에 대 한 지원이 추가 되었습니다. -Frequency를 확인할 수 없는 경우 이해도 오류 메시지가 추가 되었습니다.
     + Azureml 추가-모델 배포 오류를 해결 하기 위해 자동 생성 된 conda env에 기본값을 추가 합니다.
     + Azure Machine Learning 파이프라인의 중간 데이터를 테이블 형식 데이터 집합으로 변환 하 고에서 사용할 수 `AutoMLStep` 있습니다.
     + 스트리밍에 대 한 열 용도 업데이트를 구현 했습니다.
@@ -723,7 +1021,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 모델 등록은 샘플 입력 데이터, 샘플 출력 데이터 및 모델에 대 한 리소스 구성을 허용 합니다.
   + **azureml-및 리브-gbdt**
     + 노트북의 릴리스 채널을 수정 했습니다.
-    + 지원 하지 않는 AmlCompute 계산 대상에 대 한 경고를 추가 했습니다.
+    + 지원 하지 않는 AmlCompute 계산 대상에 대 한 경고가 추가 되었습니다.
     + LightGMB 평가기를 azureml에 추가 했습니다.
   + [**azureml-core**](https://docs.microsoft.com/python/api/azureml-core)
     + 이제 CLI에서 모델 패키징을 지원 합니다.
@@ -772,7 +1070,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + SQL 변환 적용
   + 값 자르기
   + 데이터 요약
-  + SQL database에서 가져오기
+  + SQL Database에서 가져오기
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -787,7 +1085,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
       + 예측 실행에서 결정 된 발견적 매개 변수에 대 한 출력을 추가 했습니다.
   + **azureml-datadrift**
     + 첫 번째 섹션에 데이터 집합 수준 드리프트가 없는 경우 출력 메트릭을 만드는 동안 보호 기능이 추가 되었습니다.
-  + **azureml-인-해석**
+  + **azureml-contrib-interpret**
     + azureml-설명-설명-모델 패키지의 이름이 azureml로 바뀌었습니다.
   + **azureml-core**
     + 데이터 집합의 등록을 취소 하는 API가 추가 되었습니다. `dataset.unregister_all_versions()`
@@ -806,7 +1104,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 실험 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예: 실험 = 실험 (작업 영역, "New 실험") experiment_id = experiment.id archive () 및 다시 활성화 ()는 실험에서 실험을 숨기고 복원 하기 위해 호출할 수 있는 함수입니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예: experiment1 = 실험 (작업 영역, "활성 실험") experiment1 () # 보관 된와 동일한 이름을 사용 하 여 새 활성 실험을 만듭니다. experiment2. = 실험 (작업 영역, "활성 실험") experiment1 (new_name = "이전 활성 실험") 실험에서 정적 메서드 목록 ()은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값에는 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL" 예제가 있습니다. archived_experiments = 실험. 목록 (작업 영역, view_type = "ARCHIVED_ONLY") all_first_experiments = 실험. 목록 (작업 영역, 이름 = "First 실험", view_type = "ALL")
     + 모델 배포 및 서비스 업데이트를 위한 환경 사용 지원
   + **azureml-datadrift**
-    + Datadriftbariclass의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
+    + Datadriftbariclass의 show 특성은 선택적 인수 ' with_details '을 (를) 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
     + DataDriftDetector 특성 ' get_output ' 동작 변경 내용:
       + 입력 매개 변수 start_time end_time는 필수 항목이 아닌 선택적 요소입니다.
       + 동일한 호출에서 특정 run_id를 사용 하는 입력 특정 start_time 및/또는 end_time는 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다.
@@ -822,13 +1120,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
         ```py
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
+        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
 
         ```py
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -837,7 +1135,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
@@ -845,7 +1143,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         ```
     + 모델 배포 및 서비스 업데이트를 위한 환경 사용을 지원 합니다.
   + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
-    + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
+    + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 (를) 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
     + DataDriftDetector 함수 [get_output] https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) 동작 변경 내용:
       + 입력 매개 변수 start_time end_time는 필수 항목이 아닌 선택적 요소입니다.
       + 동일한 호출에서 특정 run_id를 사용 하는 입력 특정 start_time 및/또는 end_time는 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다.
@@ -872,7 +1170,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 
 데이터 과학자에서 실험을 보다 효율적으로 모니터링할 수 있도록 [새 작업 영역 포털](https://ml.azure.com) 의 실험 탭이 업데이트 되었습니다. 다음 기능을 탐색할 수 있습니다.
 + 실험 목록을 쉽게 필터링 하 고 정렬 하는 실험 메타 데이터
-+ 실행을 시각화 하 고 비교 하는 데 사용할 수 있는 간소화 된 고성능 실험 세부 정보 페이지
++ 실행을 시각화 하 고 비교할 수 있는 간소화 된 고성능 실험 세부 정보 페이지
 + 학습 실행을 이해 하 고 모니터링 하기 위해 세부 정보 페이지를 실행 하는 새로운 디자인
 
 ## <a name="2019-09-30"></a>2019-09-30
@@ -935,17 +1233,17 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 설명 속성을 MimicWrapper에 추가 하 여 기본 MimicExplainer를 가져올 수 있도록 합니다.
   + **azureml-pipeline-core**
     + 모듈, ModuleVersion 및 ModuleStep를 설명 하는 노트북을 추가 했습니다.
-  + **azureml-pipeline-steps**
+  + **azureml 파이프라인-단계**
     + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 RScriptStep을 추가 했습니다.
-    + "매개 변수 SubscriptionId를 지정 하지 않았습니다." 라는 오류 메시지를 발생 시킨 AzureBatchStep에서 메타 데이터 매개 변수가 구문 분석 되었습니다.
+    + "매개 변수 SubscriptionId에 대 한 할당이 지정 되지 않았습니다." 라는 오류 메시지를 발생 시킨 AzureBatchStep에서 메타 데이터 매개 변수가 구문 분석 되었습니다.
   + **azureml-학습-automl**
     + 데이터 입력 형식으로 지원 되는 training_data, validation_data, label_column_name, weight_column_name
     + Explain_model () 및 retrieve_model_explanations에 대 한 사용 중단 메시지 추가 ()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + [모듈](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.moduleversion) 및 [modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
-  + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
+    + [모듈](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion 및 [modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
+  + **[azureml 파이프라인-단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 [Rscriptstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) 을 추가 했습니다.
-    + "매개 변수 SubscriptionId를 지정 하지 않았습니다." 라는 오류 메시지를 발생 시킨 [Azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) 에서 메타 데이터 매개 변수가 구문 분석 되었습니다.
+    + "매개 변수 SubscriptionId에 대 한 할당이 지정 되지 않았습니다." 라는 오류 메시지를 발생 시킨 [AzureBatchStep]에서 메타 데이터 매개 변수가 구문 분석 되었습니다.
   + **[azureml-학습-automl](/python/api/azureml-train-automl-runtime/)**
     + 지원 되는 training_data, validation_data, label_column_name, weight_column_name 데이터 입력 형식입니다.
     + [Explain_model ()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) 및 [retrieve_model_explanations ()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-)에 대 한 사용 중단 메시지를 추가 했습니다.
@@ -974,7 +1272,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + 실패 한 재시도로 인해 손상 되었거나 비어 있는 모델을 업로드할 수 있는 버그를 수정 합니다.
     + `DataReference` `DataReference` 모드가 변경 될 때 (예: `as_upload` , 또는를 호출할 때 `as_download` `as_mount` ) 이름이 변경 되는 버그를 수정 했습니다.
     + `mount_point` `target_path` 및의 경우 및를 선택 `FileDataset.mount` `FileDataset.download` 합니다.
-    + 할당 된 타임 스탬프 열 없이 시간 serials 관련 API를 호출 하거나 할당 된 타임 스탬프 열을 삭제 한 경우에는 타임 스탬프 열을 찾을 수 없습니다. 예외가 throw 됩니다.
+    + 할당 된 타임 스탬프 열을 할당 하지 않고 시간 serials 관련 API를 호출 하거나 할당 된 타임 스탬프 열을 삭제 한 경우에는 타임 스탬프 열을 찾을 수 없습니다. 예외가 throw 됩니다.
     + Serials 열에는 형식이 Date 인 열이 할당 되어야 합니다. 그렇지 않으면 예외가 예상 됩니다.
     + ' With_timestamp_columns ' API를 할당 하는 시간 serials 열은 이전에 할당 된 타임 스탬프 열을 제거 하는 None 값을 사용할 수 없습니다.
     + 드롭다운 with_time_stamp 목록에서 timestamp 열을 제외 하 고 삭제 하는 사용자에 대 한 표시를 사용 하 여 작업을 삭제 하는 사용자에 대 한 표시를 사용 하 여 예외를 발생 시킬 수 있습니다.
@@ -1018,16 +1316,16 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 + 모델에 대 한 데이터 드리프트 모니터링
 + 대시보드에서 최근 리소스 보기
 
-이 릴리스 시점에는 Chrome, Firefox, Safari 및 Microsoft Edge Preview 브라우저가 지원 됩니다.
+이 릴리스에서는 Chrome, Firefox, Safari 및 Microsoft Edge Preview와 같은 브라우저가 지원 됩니다.
 
 **알려진 문제:**
 
 1. "문제가 발생 했습니다." 라는 메시지가 표시 되 면 브라우저를 새로 고칩니다. 배포가 진행 중일 때 "청크 파일을 로드 하는 동안 오류가 발생 했습니다.
 
-1. 노트북 및 파일에서 파일을 삭제 하거나 이름을 바꿀 수 없습니다. 공개 미리 보기 중에는 노트북 VM에서 Jupyter UI 또는 터미널을 사용 하 여 업데이트 파일 작업을 수행할 수 있습니다. 탑재 된 네트워크 파일 시스템 이므로, 노트북 VM에서 변경한 내용은 모두 노트북 작업 영역에 즉시 반영 됩니다.
+1. 노트북 및 파일에서 파일을 삭제 하거나 이름을 바꿀 수 없습니다. 공개 미리 보기 중에는 노트북 VM에서 Jupyter UI 또는 터미널을 사용 하 여 파일 업데이트 작업을 수행할 수 있습니다. 탑재 된 네트워크 파일 시스템은 모두 변경 되므로 노트북 VM에 대 한 설정은 노트북 작업 영역에 즉시 반영 됩니다.
 
 1. 노트북 VM으로 SSH를 수행 하려면:
-   1. VM을 설치 하는 동안 생성 된 SSH 키를 찾습니다. 또는 Azure Machine Learning 작업 영역에서 키를 찾고, 목록에서 노트북 VM을 찾고, > 목록에서 노트북 VM을 찾고, 해당 속성을 엽니다. 대화 상자에서 키 복사를 > > 합니다.
+   1. VM을 설치 하는 동안 생성 된 SSH 키를 찾습니다. 또는 Azure Machine Learning 작업 영역에서 키를 찾고, 목록에서 노트북 VM을 찾고, > 목록에서 노트북 VM을 찾아 해당 속성을 엽니다. 대화 상자에서 키 복사를 > > 합니다.
    1. 이러한 공개 및 개인 SSH 키를 로컬 컴퓨터로 가져옵니다.
    1. 이를 사용 하 여 노트북 VM에 SSH 합니다.
 
@@ -1055,14 +1353,14 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     mydata = all_datasets['my-data']
     ```
 
-    + `parition_format`및에 인수를 `Dataset.Tabular.from_delimited_files` 도입 `Dataset.Tabular.from_parquet.files` 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/x m l '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열 ' 분할 날짜 '를 만듭니다.
+    + `parition_format`및에 인수를 `Dataset.Tabular.from_delimited_files` 도입 `Dataset.Tabular.from_parquet.files` 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가별로, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/data.csv '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
         ```py
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']
         ```
 
-    + `partition_format`및에 인수를 `Dataset.Tabular.from_delimited_files` 도입 `Dataset.Tabular.from_parquet.files` 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/x m l '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열 ' 분할 날짜 '를 만듭니다.
+    + `partition_format`및에 인수를 `Dataset.Tabular.from_delimited_files` 도입 `Dataset.Tabular.from_parquet.files` 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가별로, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/data.csv '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
     + `to_csv_files`및 `to_parquet_files` 메서드가에 추가 되었습니다 `TabularDataset` . 이러한 메서드는 `TabularDataset` `FileDataset` 데이터를 지정 된 형식의 파일로 변환 하 여와 간의 변환을 가능 하 게 합니다.
     + 모델인 ()에서 생성 된 Dockerfile을 저장할 때 기본 이미지 레지스트리에 자동으로 로그인 합니다.
     + ' gpu_support '은 더 이상 필요 하지 않습니다. AML은 이제 사용할 수 있는 경우 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다. 후속 릴리스에서 제거될 예정입니다.
@@ -1248,8 +1546,8 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-automl-core**
     + NimbusML 종속성을 1.2.0 버전 (현재 최신 버전)으로 업데이트 합니다.
     + AutoML 추정 내에서 사용할 NimbusML 추정 & 파이프라인에 대 한 지원을 추가 합니다.
-    + 앙상블 선택 프로시저에서 점수가 일정 하 게 유지 된 경우에도 결과 앙상블를 불필요 하 게 증가 시키는 버그를 수정 합니다.
-    + 예측 작업에 대해 CV 분할에서 일부 featurizations를 다시 사용 하도록 설정 합니다. 이는 지연 및 롤링 창과 같은 고가의 featurizations에 대 한 n_cross_validations의 대략적인 실행 시간을 단축 합니다.
+    + 점수가 일정 하 게 유지 된 경우에도 결과 앙상블을 불필요 하 게 증가 시킨 앙상블 선택 프로시저의 버그를 수정 합니다.
+    + 예측 작업에 대해 CV 분할에서 일부 featurizations를 다시 사용할 수 있습니다. 이는 지연 및 롤링 창과 같은 고가의 featurizations에 대 한 n_cross_validations의 대략적인 실행 시간을 단축 합니다.
     + 시간이 pandas 지원 되는 시간 범위를 벗어난 경우 문제를 해결 합니다. 이제 시간이 pd 보다 작은 경우 DataException이 발생 합니다. Timestamp. min 또는 pd 보다 큽니다. Timestamp. 최대
     + 이제 예측을 통해 학습 및 테스트 집합에서 서로 다른 빈도로 정렬할 수 있습니다. 예를 들어 "분기별 1 월부터 시작 하 고" 분기별 10 월에 시작 "은 정렬할 수 있습니다.
     + "Parameters" 속성이 TimeSeriesTransformer에 추가 되었습니다.
@@ -1284,7 +1582,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + Machine learning 데이터 집합을 관리 하기 위해 CLI 지원이 추가 되었습니다.
     + `Datastore.register_azure_blob_container`이제는 `blob_cache_timeout` 이 데이터 저장소에 대 한 캐시 만료를 사용 하도록 blobfuse의 탑재 매개 변수를 구성 하는 값 (초)을 선택적으로 사용 합니다. 기본값은 시간 제한이 없습니다. 즉, blob을 읽을 때 작업이 완료 될 때까지 로컬 캐시에 유지 됩니다. 대부분의 작업은이 설정을 선호 하지만, 일부 작업은 해당 노드에 적합 한 것 보다 큰 데이터 집합에서 더 많은 데이터를 읽어야 합니다. 이러한 작업의 경우이 매개 변수를 조정 하면 성공할 수 있습니다. 이 매개 변수를 튜닝할 때 주의 해야 합니다. 값을 너무 낮게 설정 하면 epoch에서 사용 된 데이터가 다시 사용 되기 전에 만료 될 수 있으므로 성능이 저하 될 수 있습니다. 즉, 모든 읽기는 로컬 캐시 대신 blob 저장소 (즉, 네트워크)에서 수행 되므로 학습 시간에 부정적인 영향을 줍니다.
     + 이제 등록 후 모델 설명을 올바르게 업데이트할 수 있습니다.
-    + 이제 모델 및 이미지 삭제는 해당 개체에 종속 된 업스트림 개체에 대 한 자세한 정보를 제공 하 여 삭제를 실패 시킵니다.
+    + 이제 모델 및 이미지 삭제는 해당 개체에 종속 된 업스트림 개체에 대 한 자세한 정보를 제공 하므로 삭제가 실패 합니다.
     + Azureml mlflow를 사용 하 여 원격 실행의 리소스 사용률을 향상 시킵니다.
   + **azureml-explain-model**
     + Azureml의 원시 기능 중요도에 대 한 라임 설명의 수정 된 변환 인수-설명-모델 패키지
@@ -1353,7 +1651,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-학습-automl**
     + 변환 후 열 유형 손실에 대 한 버그를 수정 했습니다.
     + Y_query 시작 부분에 없음 (s)을 포함 하는 개체 형식일 수 있도록 버그를 수정 했습니다.
-    + 앙상블 선택 프로시저에서 점수가 일정 하 게 유지 된 경우에도 결과 앙상블를 불필요 하 게 증가 시키는 문제를 해결 했습니다.
+    + 앙상블 선택 프로시저에서 점수가 일정 하 게 유지 된 경우에도 결과 앙상블를 불필요 하 게 증가 시킨 문제를 해결 했습니다.
     + AutoMLStep의 whitelist_models 및 blacklist_models 설정에 대 한 문제를 해결 했습니다.
     + Azure ML 파이프라인의 컨텍스트에서 AutoML을 사용 하는 경우 전처리 사용을 방해 하는 문제를 해결 했습니다.
   + **azureml-opendatasets**
@@ -1376,10 +1674,10 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + Azureml mlflow를 사용 하는 원격 실행의 리소스 사용률이 향상 되었습니다.
     + Azureml-mlflow 패키지의 설명서가 개선 되었습니다.
     + Mlflow. log_artifacts ("my_dir")가 "아티팩트 경로" 대신 "my_dir/경로"로 아티팩트를 저장 하는 문제를 해결 했습니다.
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 모든 파이프라인 단계에 대 한 매개 변수 hash_paths은 더 이상 사용 되지 않으며 나중에 제거 될 예정입니다. 기본적으로 source_directory의 내용이 해시 됩니다 (amlignore 또는 .gitignore에 나열 된 파일 제외).
-    + 파이프라인에서 계산 형식 특정 모듈 사용을 잠금 해제 하기 위해 RunConfiguration 통합 및 기타 변경 내용을 준비 하기 위해 계산 형식 특정 모듈을 지 원하는 모듈 및 ModuleStep를 지속적으로 개선 합니다.
-  + **azureml-pipeline-steps**
+    + 파이프라인에서 계산 유형별 모듈 사용을 잠금 해제 하기 위해 RunConfiguration 통합 및 기타 변경 내용을 준비 하기 위해 모듈 및 ModuleStep를 지속적으로 개선 하 여 계산 형식 관련 모듈을 지원 합니다.
+  + **azureml 파이프라인-단계**
     + AzureBatchStep: 입력/출력과 관련 된 향상 된 설명서입니다.
     + AzureBatchStep: 기본값 delete_batch_job_after_finish true로 변경 되었습니다.
   + **azureml-train-core**
@@ -1483,7 +1781,7 @@ Azure Databricks를 사용 하는 일부 고객에 게 문제가 발생 하 여 
   + 파이프라인 패키지에서 다양 `get_all` 한 및 `get_all_*` 메서드는 `list` 각각 및를 대신 하 여 더 이상 사용 되지 않습니다 `list_*` .
   + get_run 원래 실행 유형을 반환 하기 전에 더 이상 클래스를 가져올 필요가 없습니다.
   + WebService 업데이트에 대 한 일부 호출이 업데이트를 트리거하지 않은 문제를 해결 했습니다.
-  + AKS webservices에 대 한 점수 매기기 제한은 5ms와 300000ms 사이 여야 합니다. 점수 매기기 요청에 허용 되는 최대 scoring_timeout_ms는 1 분에서 5 분까지 만큼 증가 되었습니다.
+  + AKS webservices에 대 한 점수 매기기 제한은 5 밀리초에서 30만 밀리초 사이 여야 합니다. 점수 매기기 요청에 허용 되는 최대 scoring_timeout_ms는 1 분에서 5 분까지 만큼 증가 되었습니다.
   + 이제 LocalWebservice 개체에 `scoring_uri` 및 `swagger_uri` 속성이 있습니다.
   + 이동 된 출력 디렉터리를 만들고 사용자 프로세스에서 디렉터리 업로드를 출력 합니다. 실행 기록 SDK를 모든 사용자 프로세스에서 실행할 수 있습니다. 이렇게 하면 분산 학습 실행에서 발생 하는 일부 동기화 문제를 해결 해야 합니다.
   + 사용자 프로세스 이름에서 작성 된 azureml 로그의 이름에는 이제 프로세스 이름 (분산 된 교육이 전용) 및 PID가 포함 됩니다.
@@ -1550,7 +1848,7 @@ Azure Portal에서 이제 다음을 수행할 수 있습니다.
 + 보고서 실행 및 실행 세부 정보 페이지에서 라이브 차트 및 메트릭 업데이트
 + 실행 세부 정보 페이지에서 로그, 출력 및 스냅숏에 대 한 파일 뷰어를 업데이트 했습니다.
 + 실험 탭에서 새롭게 향상 된 보고서 생성 환경을 제공 합니다.
-+ Azure Machine Learning 작업 영역의 개요 페이지에서 config.xml 파일을 다운로드 하는 기능이 추가 되었습니다.
++ Azure Machine Learning 작업 영역의 개요 페이지에서 파일에 config.js를 다운로드 하는 기능이 추가 되었습니다.
 + Azure Databricks 작업 영역에서 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -1777,7 +2075,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 + **새 기능**
   + Azure Machine Learning 파이프라인은 AzureBatchStep ([노트북](https://aka.ms/pl-azbatch)), Hyper드라이브 estep (노트북) 및 시간 기반 예약 기능 ([노트북](https://aka.ms/pl-schedule))을 추가 했습니다.
-  +  DataTranferStep이 Azure SQL Server 및 Azure Database for PostgreSQL에서 작동하도록 업데이트되었습니다([Notebook](https://aka.ms/pl-data-trans)).
+  +  DataTranferStep는 Azure SQL Database 및 Azure Database for PostgreSQL ([노트북](https://aka.ms/pl-data-trans))에서 사용할 수 있도록 업데이트 되었습니다.
 
 + **변경**
   + `PublishedPipeline.get_published_pipeline`이 사용되지 않는 대신 `PublishedPipeline.get`이 사용됩니다.
@@ -1786,7 +2084,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 ### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning 데이터 준비 SDK v1.0.12
 
 + **새 기능**
-  + 데이터 준비 SDK는 이제 데이터 저장소를 사용하여 Azure SQL 데이터베이스에서 읽을 수 있도록 지원합니다.
+  + 이제 데이터 준비에서는 데이터 저장소를 사용 하 여 Azure SQL Database에서 읽을 수 있습니다.
 
 + **변경**
   + 대량 데이터에 대 한 특정 작업의 메모리 성능이 향상 되었습니다.
@@ -1799,9 +2097,9 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 + **변경 내용**:
   + Azure ML SDK에는 azure-cli 패키지가 더 이상 종속성으로 포함되지 않습니다. 특히 azure-cli-core 및 azure-cli-profile 종속성이 azureml-core에서 제거되었습니다. 사용자에게 영향을 미치는 변경 내용은 다음과 같습니다.
-      + "Az login"을 수행한 다음 azureml-sdk를 사용 하는 경우 SDK는 브라우저 또는 장치 코드 로그를 한 번 더 수행 합니다. “az login”에서 생성된 자격 증명 상태는 사용되지 않습니다.
+      + “az login”을 수행한 후 azureml-sdk를 사용하는 경우 SDK는 브라우저 또는 디바이스 코드 로그인을 한 번 더 수행합니다. “az login”에서 생성된 자격 증명 상태는 사용되지 않습니다.
     + “az login”을 사용하는 것과 같은 Azure CLI 인증의 경우 _azureml.core.authentication.AzureCliAuthentication_ 클래스를 사용합니다. Azure CLI 인증의 경우 azureml-sdk를 설치한 Python 환경에서 _pip install azure-cli_를 수행합니다.
-    + 자동화를 위해 서비스 주체를 사용하여 “az login”을 수행하는 경우에는 Azure CLI에서 생성된 _azureml.core.authentication.ServicePrincipalAuthentication_ 클래스를 사용하는 것이 좋습니다. azureml-sdk는 azure CLI에서 만든 자격 증명 상태를 사용하지 않기 때문입니다.
+    + 자동화를 위해 서비스 주체를 사용 하 여 "az login"을 수행 하는 경우 _ServicePrincipalAuthentication_ 클래스를 사용 하는 것이 좋습니다. 여기서 azureml sdk는 Azure CLI에서 만든 자격 증명 상태를 사용 하지 않습니다.
 
 + **버그 수정**:이 릴리스에는 주로 사소한 버그 수정이 포함 되어 있습니다.
 
@@ -1896,7 +2194,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
     + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 
 
-+ **업데이트됨**
++ **Updated**
   + 기계 학습 파이프라인:
     + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)이 이제 runconfig를 허용함
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py)이 이제 SQL 데이터 원본 간에 복사됨
@@ -1908,14 +2206,14 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 + **주요 변경 내용**
   * `SummaryFunction.N`의 이름이 `SummaryFunction.Count`로 바뀌었습니다.
 
-+ **버그 수정**
++ **버그 픽스**
   * 원격 실행 시 데이터 저장소에서 읽고 쓸 때 최신 AML 실행 토큰을 사용 합니다. 이전에는 AML 실행 토큰이 Python에서 업데이트되는 경우 Data Prep 런타임이 업데이트된 AML 실행 토큰으로 업데이트되지 않습니다.
   * 추가적인 더 분명한 오류 메시지
   * Spark가 `Kryo` serialization을 사용할 때 to_spark_dataframe()이 더 이상 충돌하지 않음
   * Value Count Inspector가 1000개 이상의 고유 값을 표시할 수 있음
   * 원본 데이터 흐름에 이름이 없는 경우에는 임의 분할이 더 이상 실패 합니다.
 
-+ **추가 정보**
++ **자세한 정보**
   * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>문서 및 Notebook
@@ -1950,7 +2248,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning 데이터 준비 SDK v0.5.1
 
 [참고 문서](https://aka.ms/data-prep-sdk)를 참조하여 데이터 준비 SDK에 대해 자세히 알아봅니다.
-+ **새로운 기능**
++ **새 기능**
    * DataPrep 패키지를 실행하고 데이터 세트 또는 데이터 흐름에 대한 데이터 프로필을 볼 수 있는 새 DataPrep CLI가 만들어졌습니다.
    * 유용성이 향상되도록 SetColumnType API가 다시 설계되었습니다.
    * smart_read_file의 이름이 auto_read_file로 변경되었습니다.
@@ -1961,7 +2259,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
    * `.dtypes`를 호출하여 데이터 흐름 또는 데이터 프로필에서 모든 열 데이터 형식을 가져올 수 있습니다.
    * `.row_count`를 호출하여 데이터 흐름 또는 데이터 프로필에서 행 수를 가져올 수 있습니다.
 
-+ **버그 수정**
++ **버그 픽스**
    * long에서 double로 변환할 수 있도록 수정되었습니다.
    * 열 추가 이후의 어설션이 수정되었습니다.
    * 경우에 따라 그룹을 검색하지 않는 FuzzyGrouping 문제가 해결되었습니다.
@@ -2056,12 +2354,12 @@ Azure Machine Learning에 대 한 Azure Portal에는 다음 업데이트가 포�
   * log_table() 및 log_row()가 [실행] 세부 정보에서 지원됩니다.
   * 1, 2 또는 3개의 숫자 열과 선택적 범주별 열이 있는 테이블과 행에 대한 그래프를 자동으로 만듭니다.
 
-+ **자동화 된 Machine Learning**
++ **자동화된 Machine Learning**
   * 오류 처리 및 설명서가 향상되었습니다.
   * 실행 속성 검색 성능 문제가 해결되었습니다.
   * 계속 실행 문제가 해결되었습니다.
   * :::no-loc text="ensembling":::반복 문제를 수정 했습니다.
-  * MAC OS의 학습 중단 버그가 수정되었습니다.
+  * 시스템이 응답을 중지 하는 macOS의 학습 버그를 수정 했습니다.
   * 사용자 지정 유효성 검사 시나리오에서 매크로 평균 PR/ROC 곡선의 저해상도가 처리되었습니다.
   * 추가 인덱스 논리가 제거되었습니다.
   * get_output API에서 필터가 제거되었습니다.

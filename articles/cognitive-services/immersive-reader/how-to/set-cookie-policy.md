@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: ae4812a69a1e6833224dc4dedf36566167ae4796
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: eb31fa271496b0eeedf4a2b845ab05e5f241e167
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483417"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041985"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>몰입 형 판독기에 대 한 쿠키 정책을 설정 하는 방법
 
@@ -46,6 +46,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>다음 단계
 
 * Node.js를 사용하여 몰입형 판독기 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Node.js 빠른 시작](../quickstarts/client-libraries.md?pivots=programming-language-nodejs)을 살펴보세요.
+* Android 또는 Kotlin for Android를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [android 자습서](../tutorial-android.md) 를 확인 하세요.
+* Ios에 대 한 Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 보려면 [ios 자습서](../tutorial-ios.md) 를 확인 하세요.
 * Python을 사용하여 몰입형 리더 SDK를 통해 수행할 수 있는 다른 작업을 확인하려면 [Python 자습서](../tutorial-python.md)를 살펴보세요.
-* Swift를 사용 하 여 몰입 형 판독기 SDK로 수행할 수 있는 다른 작업을 확인 하려면 [Swift 자습서](../tutorial-ios-picture-immersive-reader.md) 를 확인 하세요.
 * [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../reference.md) 살펴보기
