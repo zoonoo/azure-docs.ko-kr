@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726437"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965283"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
 
@@ -48,7 +48,7 @@ ms.locfileid: "83726437"
 
 가장 일반적인 경우는 PipelineFX Qube, Royal Render, Thinkbox Deadline 같은 렌더링 관리 애플리케이션에서 관리하는 기존 온-프레미스 렌더링 팜이 있는 경우입니다.  Azure VM을 사용하여 온-프레미스 렌더링 팜 용량을 확장하기 위한 요구 사항입니다.
 
-렌더링 관리 소프트웨어는 Azure 지원을 기본으로 포함하거나 Azure 지원을 추가하는 플러그인을 제공합니다. 지원되는 렌더링 관리자 및 사용하는 기능에 대한 자세한 내용은 [렌더링 관리자 사용](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers)을 참조하세요.
+렌더링 관리 소프트웨어는 Azure 지원을 기본으로 포함하거나 Azure 지원을 추가하는 플러그인을 제공합니다. 지원되는 렌더링 관리자 및 사용하는 기능에 대한 자세한 내용은 [렌더링 관리자 사용](./batch-rendering-render-managers.md)을 참조하세요.
 
 ### <a name="custom-rendering-workflow"></a>사용자 지정 렌더링 워크플로
 
@@ -77,9 +77,9 @@ Azure Batch은 많은 워크로드에 사용되지만 다음 기능은 특히 �
 몇 가지 방법으로 Azure Batch를 사용할 수 있으며 모두 Azure Batch 렌더링에도 적용됩니다.
 
 * API:
-  * [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) 또는 다른 지원되는 API를 통해 코드를 작성합니다.  개발자는 클라우드나 온-프레미스 여부에 관계없이 Azure Batch 기능을 기존 애플리케이션이나 워크플로에 통합할 수 있습니다.  예를 들어 [Autodesk Maya 플러그 인](https://github.com/Azure/azure-batch-maya)은 Batch Python API를 사용하여 Batch를 호출하고 풀을 만들어 관리하며 작업과 과제를 제출하고 상태를 모니터합니다.
+  * [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) 또는 다른 지원되는 API를 통해 코드를 작성합니다.  개발자는 클라우드나 온-프레미스 여부에 관계없이 Azure Batch 기능을 기존 애플리케이션이나 워크플로에 통합할 수 있습니다.  예를 들어 [Autodesk Maya 플러그 인](https://github.com/Azure/azure-batch-maya)은 Batch Python API를 사용하여 Batch를 호출하고 풀을 만들어 관리하며 작업과 과제를 제출하고 상태를 모니터합니다.
 * 명령줄 도구
-  * [Azure 명령줄](https://docs.microsoft.com/cli/azure/) 또는 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
+  * [Azure 명령줄](/cli/azure/) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
   * 특히 Batch CLI 템플릿 지원을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
 * UI:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Batch 계정의 관리 및 모니터를 허용하는 플랫폼 교차 지원 클라이언트 도구로, Azure Portal UI에 비해 더 풍부한 몇 가지 기능을 제공합니다.  풀 및 작업 템플릿 집합은 지원되는 각각의 애플리케이션에 맞추어져 제공되며 이를 통해 간편하게 풀을 만들고 작업을 제출할 수 있습니다.
@@ -95,9 +95,9 @@ Azure Batch은 많은 워크로드에 사용되지만 다음 기능은 특히 �
 
 Azure Batch 렌더링을 사용해 보려면 다음 소개 자습서를 참조하세요.
 
-* [Batch 탐색기를 사용하여 Blender 장면 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Batch CLI를 사용하여 Autodesk 3ds Max 장면 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Batch 탐색기를 사용하여 Blender 장면 렌더링](./tutorial-rendering-batchexplorer-blender.md)
+* [Batch CLI를 사용하여 Autodesk 3ds Max 장면 렌더링](./tutorial-rendering-cli.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[이 문서에서](https://docs.microsoft.com/azure/batch/batch-rendering-applications) Azure Marketplace VM 이미지에 포함된 렌더링 애플리케이션 및 버전 목록을 결정합니다.
+[이 문서에서](./batch-rendering-applications.md) Azure Marketplace VM 이미지에 포함된 렌더링 애플리케이션 및 버전 목록을 결정합니다.
