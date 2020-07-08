@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75454202"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
@@ -36,7 +35,7 @@ ms.locfileid: "75454202"
 > [!IMPORTANT]
 > 응용 프로그램을 등록 하려면 기록기 역할이 필요 합니다.
 
-1. 에서 인증서 서비스 `https://myResourceGroup-app.azurewebsites.net`를 열고 로그인 합니다.
+1. 에서 인증서 서비스를 열고 `https://myResourceGroup-app.azurewebsites.net` 로그인 합니다.
 2. **등록 새로 만들기**로 이동 합니다. 응용 프로그램 등록의 경우 사용자에 게 적어도 작성자 역할을 할당 해야 합니다.
 2. 항목 양식은 OPC UA의 명명 규칙을 따릅니다. 예를 들어 다음 스크린샷에서 OPC UA .NET Standard 스택의 [OPC Ua 참조 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) 샘플에 대 한 설정이 표시 됩니다.
 
@@ -71,7 +70,7 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 8. 개인 키를 다운로드 하 여 안전 하 게 저장 한 후 **개인 키 삭제**를 선택할 수 있습니다. 공개 키가 있는 인증서는 나중에 사용할 수 있는 상태로 남아 있습니다.
 9. CA 서명 인증서를 사용 하기 때문에 CA 인증서 및 CRL (인증서 해지 목록)도 여기에서 다운로드 해야 합니다.
 
-이제 OPC UA 장치에 따라 새 키 쌍을 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 `trusted` 폴더에 복사 되 고 응용 프로그램 인증서의 공개 키와 개인 키는 인증서 저장소의 `own` 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
+이제 OPC UA 장치에 따라 새 키 쌍을 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 폴더에 복사 되 고 `trusted` 응용 프로그램 인증서의 공개 키와 개인 키는 `own` 인증서 저장소의 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>CSR을 사용 하 여 새 인증서 요청 
 
@@ -96,7 +95,7 @@ CSR (인증서 서명 요청)을 기반으로 서명 된 인증서를 발급 하
 10. 인증서를 다운로드 하 여 안전 하 게 저장 한 후 **인증서 삭제**를 선택할 수 있습니다.
 11. CA 서명 인증서를 사용 하기 때문에 CA 인증서 및 CRL도 여기에서 다운로드 해야 합니다.
 
-이제 OPC UA 장치에 따라 새 인증서를 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 `trusted` 폴더에 복사 되 고 응용 프로그램 인증서는 인증서 저장소의 `own` 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
+이제 OPC UA 장치에 따라 새 인증서를 적용 하는 방법을 결정 합니다. 일반적으로 CA 인증서 및 CRL은 폴더에 복사 되 고 `trusted` 응용 프로그램 인증서는 `own` 인증서 저장소의 폴더에 적용 됩니다. 일부 장치는 인증서 업데이트를 위해 서버 푸시를 이미 지원할 수 있습니다. OPC UA 장치의 설명서를 참조 하세요.
 
 ### <a name="step-3-device-secured"></a>3 단계: 장치 보안
 

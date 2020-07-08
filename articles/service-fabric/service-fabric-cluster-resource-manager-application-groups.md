@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75452145"
 ---
 # <a name="introduction-to-application-groups"></a>애플리케이션 그룹 소개
@@ -177,7 +176,7 @@ ApplicationLoad 쿼리는 애플리케이션에 대해 지정된 애플리케이
 * 애플리케이션 용량: 애플리케이션 부하의 허용되는 최대값.
 
 ## <a name="removing-application-capacity"></a>애플리케이션 용량 삭제
-애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들면 다음과 같습니다.
+애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들어:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

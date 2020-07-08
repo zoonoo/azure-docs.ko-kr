@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463332"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
@@ -109,7 +108,7 @@ namespace Stateless1
 ## <a name="application-api-and-environment"></a>애플리케이션 API 및 환경
 Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 뿐만 아니라 다른 VM 역할 인스턴스에 대한 정보를 제공합니다. 서비스 패브릭은 해당 런타임과 관련된 정보 및 서비스가 현재 실행 중인 노드에 대한 일부 정보를 제공합니다. 
 
-| **환경 작업** | **클라우드 서비스** | **Service Fabric** |
+| **환경 작업** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 로컬 스토리지 |`RoleEnvironment` |`CodePackageActivationContext` |

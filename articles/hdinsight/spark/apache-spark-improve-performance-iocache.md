@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494995"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
@@ -30,7 +29,7 @@ IO 캐시 사용은 Azure Blob Storage에서 데이터를 읽는 작업에 대�
 
 IO 캐시를 사용하면 성능 향상을 달성하기 위해 Spark 작업을 변경할 필요가 없습니다. IO 캐시가 비활성화된 경우 이 Spark 코드는 Azure Blob Storage에서 원격으로 데이터를 읽을 것입니다. `spark.read.load('wasbs:///myfolder/data.parquet').count()`. IO 캐시가 활성화된 경우 같은 코드 줄은 IO 캐시를 통해 캐시된 읽기를 실행하게 합니다. 읽은 후에는 데이터를 SSD에서 로컬로 읽습니다. HDInsight 클러스터의 작업자 노드에는 로컬로 연결된 전용 SSD 드라이브가 장착되어 있습니다. HDInsight IO 캐시는 이 로컬 SSD를 캐싱에 사용하여 가장 낮은 수준의 대기 시간을 제공하고 대역폭을 최대로 늘립니다.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩니다. IO 캐시는 Apache Spark 2.3을 실행 하는 Azure HDInsight 3.6 이상 Spark 클러스터에서 사용할 수 있습니다.  HDInsight 4.0에서 IO 캐시를 활성화 하려면 다음 단계를 수행 합니다.
 
@@ -67,7 +66,7 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 1. 오른쪽의 **저장**을 선택합니다.
 
-1.  > **모든 영향을** **다시 시작을 선택 합니다**.
+1. **Restart**  >  **모든 영향을**다시 시작을 선택 합니다.
 
     ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "영향을 받는 모든 컴퓨터 다시 시작")
 

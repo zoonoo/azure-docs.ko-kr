@@ -16,17 +16,16 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75641336"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure Portal에서 바로 가기 키
 
 이 문서에는 Azure Portal의 모든 위치에서 작동 하는 바로 가기 키가 나열 되어 있습니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 |수행할 작업 |작업 방법 |
 | --- | --- |

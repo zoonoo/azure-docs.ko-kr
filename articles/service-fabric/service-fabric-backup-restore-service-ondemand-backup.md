@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458426"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric의 주문형 백업
 
 Reliable Stateful 서비스 및 Reliable Actors의 데이터를 백업하여 재해 또는 데이터 손실 시나리오를 해결할 수 있습니다.
 
-Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 및 필요 시 데이터를 백업하는 기능을 포함합니다. 주문형 백업은 기본 서비스 또는 해당 환경에서 계획 된 변경 사항으로 인해 _데이터 손실_/_데이터 손상을_ 방지 하기 때문에 유용 합니다.
+Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 및 필요 시 데이터를 백업하는 기능을 포함합니다. 주문형 백업은 _data loss_ / 기본 서비스 또는 해당 환경에서 계획 된 변경 사항으로 인해 데이터 손실_데이터 손상을_ 방지 하기 때문에 유용 합니다.
 
 주문형 백업 기능은 서비스 또는 서비스 환경 작업을 수동으로 트리거하기 전에 서비스 상태를 캡처하는 데 유용합니다. 예를 들어 서비스를 업그레이드하거나 다운그레이드할 때 서비스 바이너리를 변경하는 경우가 있습니다. 이러한 경우 주문형 백업은 애플리케이션 코드 버그로 인한 손상에 대해 데이터를 보호하는 데 도움이 될 수 있습니다.
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -27,7 +26,7 @@ Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestor
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- ServiceFabric 모듈을 사용 하 여 구성 요청 `Connect-SFCluster` 을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
+- `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
 ```powershell
 

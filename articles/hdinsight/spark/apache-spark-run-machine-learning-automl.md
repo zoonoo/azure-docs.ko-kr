@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75638887"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화 된 Machine Learning을 사용 하 여 Azure Machine Learning 작업 실행
@@ -71,7 +70,7 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>실험 제출
 
-자동화 된 [machine learning 구성](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서는 패키지를 분산 `spark_context` 모드에서 실행 하도록 속성을 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
+자동화 된 [machine learning 구성](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서는 `spark_context` 패키지를 분산 모드에서 실행 하도록 속성을 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

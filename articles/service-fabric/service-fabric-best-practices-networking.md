@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551797"
 ---
 # <a name="networking"></a>네트워킹
@@ -51,7 +50,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 
 * [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)에 요약되어 있는 단계를 수행하면 기존 가상 네트워크에 Service Fabric 클러스터를 배포할 수 있습니다.
 
-* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예: ![Service Fabric Nsg 규칙][NSGSetup]
+* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예: ![ Service Fabric NSG 규칙][NSGSetup]
 
 * Service Fabric 시스템 서비스를 포함하는 주 노드 형식은 외부 부하 분산 장치를 통해 표시하지 않아도 되며 [내부 부하 분산 장치](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)를 통해 표시할 수 있습니다.
 

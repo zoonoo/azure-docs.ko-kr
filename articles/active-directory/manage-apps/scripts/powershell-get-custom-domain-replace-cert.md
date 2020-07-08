@@ -13,10 +13,9 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91aafe00856f37e9d7e6b3babafecd2cbdf5f856
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75481998"
 ---
 # <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>동일한 인증서로 게시 된 모든 응용 프로그램 프록시 응용 프로그램을 가져와 바꿉니다.

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464278"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
@@ -136,9 +135,9 @@ Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또�
 ## <a name="run-a-script-from-the-setup-entry-point"></a>설치 진입점에서 스크립트 실행
 이제 관리자 권한으로 실행할 시작 스크립트를 프로젝트에 추가합니다. 
 
-Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 *mysetup.bat*라는 새 파일을 추가 합니다.
+Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 *MySetup.bat*라는 새 파일을 추가 합니다.
 
-그런 다음 *mysetup.bat* 파일이 서비스 패키지에 포함 되어 있는지 확인 합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
+다음으로 *MySetup.bat* 파일이 서비스 패키지에 포함 되어 있는지 확인 합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
 
 ![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][image1]
 
@@ -154,7 +153,7 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 표시 된 것 처럼 서비스가 시작 된 후에는 mysetup.bat 파일이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
+다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)와 같이 서비스가 시작 된 후에는 MySetup.bat 파일이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
@@ -168,7 +167,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>설치 진입점에서 PowerShell 명령 실행
-**Setupentrypoint** 지점에서 powershell을 실행 하려면 powershell 파일을 가리키는 배치 파일에서 **powershell** 을 실행할 수 있습니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 시작하는 간단한 배치 파일을 보여 주는 예제입니다.
+**Setupentrypoint** 지점에서 powershell을 실행 하려면 powershell 파일을 가리키는 배치 파일에서 **PowerShell.exe** 를 실행할 수 있습니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 시작하는 간단한 배치 파일을 보여 주는 예제입니다.
 
 PowerShell 파일을 시작하기 위한 MySetup.bat입니다.
 
@@ -233,6 +232,6 @@ Echo "Test console redirection which writes to the application log folder on the
 * [애플리케이션 및 서비스 보안에 대한 자세한 정보](service-fabric-application-and-service-security.md)
 * [애플리케이션 모델의 이해](service-fabric-application-model.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+* [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: a9d71c8aebb9cc4a0adbd461aead6e2612bd13bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552494"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
@@ -24,7 +23,7 @@ HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 �
 > [!NOTE]  
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -45,7 +44,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`합니다. 그런 다음 수정 된 코드를 Visual Studio에서 **Program.cs** 의 전체 콘텐츠로 사용 합니다.
+1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` 합니다. 그런 다음 수정 된 코드를 Visual Studio에서 **Program.cs** 의 전체 콘텐츠로 사용 합니다.
 
     ```csharp
     using System.Collections.Generic;

@@ -4,10 +4,9 @@ description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458036"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
@@ -170,7 +169,7 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-위치:
+조건:
 
 - *First-Label-Of-Partitioned-Service-DNSName*은 서비스 DNS 이름의 첫 번째 부분입니다.
 - *PartitionPrefix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.

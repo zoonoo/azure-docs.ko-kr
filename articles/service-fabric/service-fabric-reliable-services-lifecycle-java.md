@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639601"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services 수명 주기
@@ -115,7 +114,7 @@ Service Fabric은 다양한 이유로 상태 저장 서비스의 주 복제본�
 
 서비스가 상태 저장 서비스이기 때문에 또한 서비스에 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)가 사용될 가능성이 높습니다. Service Fabric에서 주 복제본이 강등될 때 처음 발생하는 상황 중 하나는 기본 상태에 대한 쓰기 액세스가 철회되는 것입니다. 그 결과 서비스 수명 주기에 영향을 줄 수 있는 두 번째 문제들이 발생합니다. 컬렉션에서는 타이밍 및 복제본이 이동되거나 종료되는지 여부에 따라 예외를 반환합니다. 이러한 예외를 올바르게 처리하는 것이 중요합니다. 
 
-Service Fabric에서 throw 되는 예외는 [영구`FabricException`()](https://docs.microsoft.com/java/api/system.fabric.exception) 또는 [임시`FabricTransientException`()](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception)중 하나입니다. 영구적 예외는 로깅 및 throw해야 합니다. 일시적인 예외는 재시도 논리에 따라 재시도할 수 있습니다.
+Service Fabric에서 throw 되는 예외는 영구 [( `FabricException` )](https://docs.microsoft.com/java/api/system.fabric.exception) 또는 임시 [( `FabricTransientException` )](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception)중 하나입니다. 영구적 예외는 로깅 및 throw해야 합니다. 일시적인 예외는 재시도 논리에 따라 재시도할 수 있습니다.
 
 Reliable Services 테스트 및 유효성 검사 중 중요한 부분은 서비스 수명 주기 이벤트와 함께 `ReliableCollections`를 사용할 때 발생하는 예외를 처리하는 것입니다. 서비스는 항상 부하 상태에서 실행하는 것이 좋습니다. 또한 프로덕션에 배포하기 전에 업그레이드 및 [Chaos 테스트](service-fabric-controlled-chaos.md)를 수행해야 합니다. 이러한 기본 단계는 서비스가 올바르게 구현되고, 수명 주기 이벤트가 올바르게 처리될 수 있도록 보장합니다.
 

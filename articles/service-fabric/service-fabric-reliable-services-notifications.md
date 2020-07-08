@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639567"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
@@ -28,7 +27,7 @@ ms.locfileid: "75639567"
 * 트랜잭션
   * Commit
 * 상태 관리자
-  * 다시 작성
+  * 다시 빌드
   * 신뢰할 수 있는 상태 추가
   * 신뢰할 수 있는 상태 제거
 

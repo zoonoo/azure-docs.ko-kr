@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453506"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
@@ -24,7 +23,7 @@ ms.locfileid: "75453506"
 * Node.js 버전 8.11.1을 사용 합니다. 자세한 내용은 [표준 기본 제공 개체](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)를 참조 하세요. 
 
   > [!NOTE]
-  > JavaScript `require()` 를 실행 하는 **인라인 코드** 작업에서 함수를 지원 하지 않습니다.
+  > JavaScript를 실행 하는 `require()` **인라인 코드** 작업에서 함수를 지원 하지 않습니다.
 
 이 작업은 코드 조각을 실행 하 고 논리 앱의 후속 작업에서 사용할 수 있는 **Result**라는 토큰으로 해당 코드 조각의 출력을 반환 합니다. 코드에 대 한 함수를 만들려는 다른 시나리오의 경우 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요.
 
@@ -36,7 +35,7 @@ ms.locfileid: "75453506"
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 트리거를 포함 하 여 코드 조각을 추가 하려는 논리 앱입니다. 논리 앱이 없는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
+* 트리거를 포함 하 여 코드 조각을 추가 하려는 논리 앱입니다. 논리 앱이 없는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
    이 항목의 예제 논리 앱에서는 **새 전자 메일이 도착** 하는 경우 Office 365 Outlook 트리거를 사용 합니다.
 
@@ -53,7 +52,7 @@ ms.locfileid: "75453506"
 
    * 워크플로의 끝에 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-   * 기존 단계 사이에 작업을 추가 하려면 해당 단계를 연결 하는 화살표 위로 마우스 포인터를 이동 합니다. 더하기 기호 (**+**)를 선택 하 고 **작업 추가**를 선택 합니다.
+   * 기존 단계 사이에 작업을 추가 하려면 해당 단계를 연결 하는 화살표 위로 마우스 포인터를 이동 합니다. 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
    이 예제에서는 Office 365 Outlook 트리거에서 **인라인 코드** 작업을 추가 합니다.
 
@@ -79,11 +78,11 @@ ms.locfileid: "75453506"
 
    트리거와 이전 작업의 결과를 쉽게 참조할 수 있도록 커서를 **코드** 상자 안에 있는 동안 동적 콘텐츠 목록이 표시 됩니다. 이 예의 경우 목록에는 현재 선택할 수 있는 **본문** 토큰을 비롯 하 여 트리거에서 사용 가능한 결과가 표시 됩니다.
 
-   **본문** 토큰을 선택 하면 인라인 코드 작업에서 토큰을 전자 메일의 `workflowContext` `Body` 속성 값을 참조 하는 개체로 확인 합니다.
+   **본문** 토큰을 선택 하면 인라인 코드 작업에서 토큰을 `workflowContext` 전자 메일의 속성 값을 참조 하는 개체로 확인 합니다 `Body` .
 
    ![결과 선택](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   코드 상자에서 **코드** 조각이 읽기 전용 `workflowContext` 개체를 입력으로 사용할 수 있습니다. 이 개체에는 워크플로의 트리거와 이전 작업의 결과에 대 한 코드 액세스를 제공 하는 하위 속성이 있습니다.
+   코드 상자에서 **코드** 조각이 읽기 전용 개체를 입력으로 사용할 수 있습니다 `workflowContext` . 이 개체에는 워크플로의 트리거와 이전 작업의 결과에 대 한 코드 액세스를 제공 하는 하위 속성이 있습니다.
    자세한 내용은이 항목의 뒷부분에 나오는 [참조 트리거 및 작업 결과에서 코드](#workflowcontext)를 참조 하세요.
 
    > [!NOTE]
@@ -96,8 +95,8 @@ ms.locfileid: "75453506"
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   인라인 코드 작업에는 `return` 문이 필요 하지 않지만 `return` 문의 결과는 이후 작업에서 **결과** 토큰을 통해 참조할 수 있습니다. 
-   예를 들어 코드 조각은 정규식에 대해 전자 메일 본문에서 `match()` 일치 항목을 찾는 함수를 호출 하 여 결과를 반환 합니다. **작성** 작업은 **결과** 토큰을 사용 하 여 인라인 코드 작업의 결과를 참조 하 고 단일 결과를 만듭니다.
+   인라인 코드 작업에는 문이 필요 하지 `return` 않지만 문의 결과는 `return` 이후 작업에서 **결과** 토큰을 통해 참조할 수 있습니다. 
+   예를 들어 코드 조각은 `match()` 정규식에 대해 전자 메일 본문에서 일치 항목을 찾는 함수를 호출 하 여 결과를 반환 합니다. **작성** 작업은 **결과** 토큰을 사용 하 여 인라인 코드 작업의 결과를 참조 하 고 단일 결과를 만듭니다.
 
    ![완료된 논리 앱](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -107,7 +106,7 @@ ms.locfileid: "75453506"
 
 ### <a name="reference-trigger-and-action-results-in-your-code"></a>코드의 참조 트리거 및 작업 결과
 
-개체 `workflowContext` 는 `actions`, `trigger`및 `workflow` 하위 속성을 포함 하는이 구조체를 가집니다.
+`workflowContext`개체는, 및 하위 속성을 포함 하는이 구조체를 가집니다 `actions` `trigger` `workflow` .
 
 ```json
 {
@@ -128,14 +127,14 @@ ms.locfileid: "75453506"
 
 이 테이블에는 다음 하위 속성에 대 한 자세한 내용이 포함 되어 있습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 |----------|------|-------|
-| `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며이 값은를 사용 `@actions('<action-name>')`하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다. 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
+| `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며이 값은를 사용 하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다 `@actions('<action-name>')` . 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
 | `trigger` | Object | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
 | `workflow` | Object | 워크플로 개체 이며 [workflow () 함수](../logic-apps/workflow-definition-language-functions-reference.md#workflow)를 호출 하는 것과 동일 합니다. 이 개체를 사용 하면 현재 워크플로 인스턴스가 실행 되는 워크플로 이름, 실행 ID 등의 워크플로 속성 값에 액세스할 수 있습니다. |
 |||
 
-이 항목의 예제에서 `workflowContext` 개체에는 코드에서 액세스할 수 있는 다음과 같은 속성이 있습니다.
+이 항목의 예제에서 개체에는 `workflowContext` 코드에서 액세스할 수 있는 다음과 같은 속성이 있습니다.
 
 ```json
 {
@@ -212,7 +211,7 @@ ms.locfileid: "75453506"
 > [!TIP]
 > 코드를 다시 사용 하려는 경우 트리거 또는 작업을 명시적 종속성으로 추가 하는 대신 코드에 확인 된 토큰 참조가 포함 되도록 **코드** 상자를 사용 하 여 속성에 대 한 참조를 추가 합니다.
 
-예를 들어 Office 365 Outlook 커넥터에 대 한 **승인 전자 메일 보내기** 작업의 **SelectedOption** 결과를 참조 하는 코드가 있다고 가정 합니다. 만든 시간에 Logic Apps 엔진은 코드를 분석 하 여 트리거 또는 작업 결과를 참조 하 고 해당 결과를 자동으로 포함 하는지 여부를 확인 합니다. 런타임에는 지정 `workflowContext` 된 개체에서 참조 되는 트리거나 작업 결과를 사용할 수 없다는 오류가 표시 됩니다. 해당 트리거나 작업을 명시적 종속성으로 추가할 수 있습니다. 이 예제에서는 **작업** 매개 변수를 추가 하 고 **인라인 코드** 작업에 **승인 전자 메일 보내기** 작업의 결과가 명시적으로 포함 되도록 지정 합니다.
+예를 들어 Office 365 Outlook 커넥터에 대 한 **승인 전자 메일 보내기** 작업의 **SelectedOption** 결과를 참조 하는 코드가 있다고 가정 합니다. 만든 시간에 Logic Apps 엔진은 코드를 분석 하 여 트리거 또는 작업 결과를 참조 하 고 해당 결과를 자동으로 포함 하는지 여부를 확인 합니다. 런타임에는 지정 된 개체에서 참조 되는 트리거나 작업 결과를 사용할 수 없다는 오류가 표시 됩니다 `workflowContext` . 해당 트리거나 작업을 명시적 종속성으로 추가할 수 있습니다. 이 예제에서는 **작업** 매개 변수를 추가 하 고 **인라인 코드** 작업에 **승인 전자 메일 보내기** 작업의 결과가 명시적으로 포함 되도록 지정 합니다.
 
 이러한 매개 변수를 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택 합니다.
 
@@ -220,7 +219,7 @@ ms.locfileid: "75453506"
 
    | 매개 변수 | Description |
    |-----------|-------------|
-   | **작업** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
+   | **actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
    | **트리거** | 트리거의 결과를 포함 합니다. [트리거 결과 포함](#trigger-results)을 참조 하세요. |
    |||
 
@@ -246,7 +245,7 @@ ms.locfileid: "75453506"
 
   `My.Action.Name`
 
-1. 디자이너 도구 모음에서 **코드 보기**를 선택 하 고 작업 이름에 `actions` 대 한 특성 내에서 검색 합니다.
+1. 디자이너 도구 모음에서 **코드 보기**를 선택 하 고 `actions` 작업 이름에 대 한 특성 내에서 검색 합니다.
 
    예를 들어 `Send_approval_email_` 는 **승인 전자 메일 보내기** 작업의 JSON 이름입니다.
 
@@ -260,7 +259,7 @@ ms.locfileid: "75453506"
 
 1. 다른 작업을 추가 하려면 **추가 새 항목**을 선택 합니다.
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 워크플로 정의 언어를 사용 하 여 논리 앱의 기본 워크플로 정의에서 **JavaScript 코드** 작업의 구조 및 구문을 실행 하는 방법에 대 한 자세한 내용은이 작업의 [참조 섹션](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)을 참조 하세요.
 

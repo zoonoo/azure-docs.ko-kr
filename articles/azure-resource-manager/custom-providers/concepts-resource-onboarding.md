@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650410"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure 사용자 지정 공급자 리소스 온 보 딩 개요
@@ -76,7 +75,7 @@ routingType | 예 | 끝점을 사용 하 여 계약 유형을 결정 합니다. 
 }
 ```
 
-속성 | 필수 여부 | Description
+속성 | 필수 여부 | 설명
 ---|---|---
 targetResourceId | 예 | Microsoft. CustomProviders/resourceProviders 또는 Microsoft. Solutions/applications의 리소스 ID입니다.
 

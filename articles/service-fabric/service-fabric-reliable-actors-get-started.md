@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75466259"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
@@ -86,7 +85,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add** > **새 프로젝트**추가 ...를 클릭 합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add**  >  **새 프로젝트**추가 ...를 클릭 합니다.
 
 2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
     
@@ -99,7 +98,7 @@ internal class HelloWorld : Actor, IHelloWorld
     
     ![빌드 속성][8]
 
-4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭 합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
+4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔**을 클릭 합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient

@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552715"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
@@ -46,7 +45,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     from pyspark.sql.types import *
     ```
 
-1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. 에서 `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`클러스터와 연결 된 기본 저장소 계정의 데이터에 액세스할 수 있습니다. 다음 코드를 실행합니다.
+1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. 에서 클러스터와 연결 된 기본 저장소 계정의 데이터에 액세스할 수 있습니다 `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . 다음 코드를 실행합니다.
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -70,9 +69,9 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>사용자 지정 Python 라이브러리를 사용하여 로그 데이터 분석
 
-1. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로이 라이브러리는 HDInsight의 Spark 클러스터에 포함 되어 `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`있습니다.
+1. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로이 라이브러리는 HDInsight의 Spark 클러스터에 포함 되어 `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` 있습니다.
 
-    그러나이 라이브러리는 `PYTHONPATH` 에 있지 않으므로와 같은 `import iislogparser`import 문을 사용 하 여 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
+    그러나이 라이브러리는에 있지 `PYTHONPATH` 않으므로와 같은 import 문을 사용 하 여 사용할 수 없습니다 `import iislogparser` . 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -110,7 +109,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    출력은 상태 `There are 30 errors and 646 log entries`여야 합니다.
+    출력은 상태 여야 `There are 30 errors and 646 log entries` 합니다.
 
 1. **Matplotlib** 를 사용하여 데이터의 시각화를 만들 수도 있습니다. 예를 들어 오랜 시간 동안 실행되는 요청의 원인을 격리하려는 경우 평균적으로 제공하는 데 가장 많은 시간이 걸리는 파일을 찾을 수 있습니다. 다음 코드 조각은 요청을 처리하는 데 가장 많은 시간이 걸리는 상위 25개의 리소스를 검색합니다.
 
@@ -202,6 +201,6 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 다음 문서를 살펴보세요.
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)

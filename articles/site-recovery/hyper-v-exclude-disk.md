@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498124"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
@@ -32,7 +31,7 @@ ms.locfileid: "75498124"
 
 - **복제**: 기본적으로 컴퓨터의 모든 디스크가 복제 됩니다.
 - **디스크 유형**:
-    - 기본 디스크는 복제에서 제외할 수 있습니다.
+    - 기본 디스크를 복제에서 제외할 수 있습니다.
     - 운영 체제 디스크를 제외할 수 없습니다.
     - 동적 디스크는 제외하지 않는 것이 좋습니다. Site Recovery 게스트 VM에서 기본 또는 동적 VHD를 식별할 수 없습니다.  종속 된 동적 볼륨 디스크를 모두 제외 하지 않으면 보호 된 동적 디스크가 장애 조치 (failover) 된 VM에서 디스크에 오류가 발생 하 고 해당 디스크의 데이터에 액세스할 수 없게 됩니다.
 - **디스크 추가/제거/제외**: 복제를 사용 하도록 설정한 후에는 복제를 위해 디스크를 추가/제거/제외할 수 없습니다. 디스크를 추가/제거 하거나 제외 하려는 경우 VM에 대 한 보호를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 해야 합니다.
@@ -41,7 +40,7 @@ ms.locfileid: "75498124"
 
 ## <a name="exclude-disks"></a>디스크 제외
 
-1. Hyper-v vm에 대 한 [복제를 사용 하도록 설정할](site-recovery-hyper-v-site-to-azure.md) 때 디스크를 제외 하려면 복제 하려는 vm을 선택한 후 **복제** > **속성** > 사용**속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
+1. Hyper-v vm에 대 한 [복제를 사용 하도록 설정할](site-recovery-hyper-v-site-to-azure.md) 때 디스크를 제외 하려면 복제 하려는 vm을 선택한 후 **복제**  >  **속성**사용  >  **속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
 2. 특정 디스크를 복제 하지 않으려는 경우 **디스크에서 복제할** 디스크의 선택을 취소 합니다. 
 
     ![복제에서 디스크 제외](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

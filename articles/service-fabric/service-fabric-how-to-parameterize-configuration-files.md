@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75644633"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
@@ -20,7 +19,7 @@ ms.locfileid: "75644633"
 
 이 예제에서는 애플리케이션 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
 
-1. 서비스 프로젝트에서 * \<MyService> \packageroot\config\settings.xml* 파일을 엽니다.
+1. 서비스 프로젝트에서 * \<MyService>\PackageRoot\Config\Settings.xml* 파일을 엽니다.
 1. 다음 XML을 추가하여 구성 매개 변수 이름 및 값(예: 캐시 크기가 25임)을 설정하세요.
 
    ```xml
@@ -30,7 +29,7 @@ ms.locfileid: "75644633"
    ```
 
 1. 파일을 저장하고 닫습니다.
-1. * \<MyApplication> \applicationpackageroot\applicationmanifest.xml* 파일을 엽니다.
+1. * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 엽니다.
 1. ApplicationManifest.xml 파일에서 `Parameters` 요소에 매개 변수와 기본값을 선언하세요.  매개 변수 이름에 서비스 이름(예: “내 서비스”)이 포함되어 있는 것이 좋습니다.
 
    ```xml
@@ -38,7 +37,7 @@ ms.locfileid: "75644633"
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. ApplicationManifest `ServiceManifestImport` .xml 파일의 섹션에서 `ConfigOverrides` 및 `ConfigOverride` 요소를 추가 하 고 구성 패키지, 섹션 및 매개 변수를 참조 합니다.
+1. `ServiceManifestImport`ApplicationManifest.xml 파일의 섹션에서 `ConfigOverrides` 및 요소를 추가 하 고 `ConfigOverride` 구성 패키지, 섹션 및 매개 변수를 참조 합니다.
 
    ```xml
     <ConfigOverrides>

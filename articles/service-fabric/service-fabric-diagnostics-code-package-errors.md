@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463103"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Service Fabric를 사용 하 여 일반적인 코드 패키지 오류 진단
@@ -41,7 +40,7 @@ Service Fabric은 다양 한 이유로 코드 패키지를 종료 해야 할 수
 >[!NOTE]
 > 다음 표의 코드가 아닌 종료 코드를 사용 하 여 프로세스나 컨테이너가 종료 되는 경우 Service Fabric는 종료를 담당 하지 않습니다.
 
-종료 코드 | Description
+종료 코드 | 설명
 --------- | -----------
 7147 | 는 Ctrl + C 신호를 전송 하 여 프로세스나 컨테이너를 정상적으로 종료할 Service Fabric 있음을 나타냅니다.
 7148 | Service Fabric 프로세스 또는 컨테이너를 종료 했음을 나타냅니다. 경우에 따라이 오류 코드는 Ctrl + C 신호를 보낸 후 프로세스나 컨테이너가 적절 한 시간 내에 응답 하지 않았고 종료 되어야 함을 나타냅니다.

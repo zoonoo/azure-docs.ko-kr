@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 78623f738285e781cb561a3844db8fbf37226929
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645024"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
@@ -56,7 +55,7 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
 
     CLUSTERNAME 을 클러스터 이름으로 바꿉니다. 암호를 사용 하 여 SSH 계정을 보호 한 경우 암호를 입력 하 라는 메시지가 표시 됩니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 프라이빗 키를 지정해야 합니다.
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

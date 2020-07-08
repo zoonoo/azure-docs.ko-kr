@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482570"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>토양 습기 열 지도 생성
@@ -51,7 +50,7 @@ ms.locfileid: "75482570"
 Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토양 습기 센서를 할당 해야 합니다.
 
 1.  홈 페이지의 메뉴에서 **팜** 을 선택 합니다. **팜** 목록 페이지가 표시 됩니다.
-2.  **Myfarm** > **장치 추가**를 선택 합니다.
+2.  **Myfarm**  >  **장치 추가**를 선택 합니다.
 3.  **장치 추가** 창이 표시 됩니다. 팜의 토양 습기 센서에 연결 된 장치를 선택 합니다.
 
     ![Farm Beats 프로젝트](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
@@ -81,7 +80,7 @@ Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토
 
 ### <a name="download-the-soil-moisture-heatmap"></a>토양 습기 열 지도 다운로드
 
-다음 단계를 사용합니다.
+다음 단계를 따르십시오.
 
 1. **작업** 페이지에서 마지막 절차에서 만든 작업의 **작업 상태** 를 확인 합니다.
 2. 작업 상태가 **성공**으로 표시 되 면 메뉴에서 **맵** 을 선택 합니다.

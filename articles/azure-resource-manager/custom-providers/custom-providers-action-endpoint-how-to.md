@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650397"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Azure REST API에 사용자 지정 작업 추가
@@ -18,7 +17,7 @@ ms.locfileid: "75650397"
 
 ## <a name="how-to-define-an-action-endpoint"></a>작업 끝점을 정의 하는 방법
 
-**끝점** 은 서비스를 가리키는 URL로, 서비스와 Azure 간의 기본 계약을 구현 합니다. 끝점은 사용자 지정 리소스 공급자에 정의 되며 공개적으로 액세스할 수 있는 URL 일 수 있습니다. 아래 샘플에는에서 **action** 구현 하 `myCustomAction` `endpointURL`는 라는 작업이 있습니다.
+**끝점** 은 서비스를 가리키는 URL로, 서비스와 Azure 간의 기본 계약을 구현 합니다. 끝점은 사용자 지정 리소스 공급자에 정의 되며 공개적으로 액세스할 수 있는 URL 일 수 있습니다. 아래 샘플에는에서 구현 하는 라는 **작업이** 있습니다 `myCustomAction` `endpointURL` .
 
 샘플 **ResourceProvider**:
 
@@ -42,7 +41,7 @@ ms.locfileid: "75650397"
 
 ## <a name="building-an-action-endpoint"></a>작업 끝점 빌드
 
-**작업** 을 구현 하는 **끝점** 은 Azure의 새 API에 대 한 요청 및 응답을 처리 해야 합니다. **작업** 을 포함 하는 사용자 지정 리소스 공급자를 만들면 Azure에서 새로운 api 집합이 생성 됩니다. 이 경우 작업은 호출에 대 한 `POST` 새 AZURE 작업 API를 생성 합니다.
+**작업** 을 구현 하는 **끝점** 은 Azure의 새 API에 대 한 요청 및 응답을 처리 해야 합니다. **작업** 을 포함 하는 사용자 지정 리소스 공급자를 만들면 Azure에서 새로운 api 집합이 생성 됩니다. 이 경우 작업은 호출에 대 한 새 Azure 작업 API를 생성 합니다 `POST` .
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
@@ -81,7 +80,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 마찬가지로, **끝점** 의 응답은 고객에 게 다시 전달 됩니다. 끝점의 응답은 다음을 반환 해야 합니다.
 
 - 유효한 JSON 개체 문서입니다. 모든 배열 및 문자열은 최상위 개체 아래에 중첩 되어야 합니다.
-- `Content-Type` 헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
+- `Content-Type`헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -130,7 +129,7 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 action | *예로* | **ResourceProvider**에 정의 된 동작의 이름입니다.
 ids | *예로* | **ResourceProvider**의 리소스 ID입니다.
@@ -139,7 +138,7 @@ request-body | *아니요* | **끝점**으로 전송 되는 요청 본문입니�
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
 > [!NOTE]
-> 작업은 Azure Resource Manager 템플릿에서 제한적으로 지원 됩니다. 템플릿 내에서 동작을 호출 하려면 해당 이름에 [`list`](../templates/template-functions-resource.md#list) 접두사를 포함 해야 합니다.
+> 작업은 Azure Resource Manager 템플릿에서 제한적으로 지원 됩니다. 템플릿 내에서 동작을 호출 하려면 [`list`](../templates/template-functions-resource.md#list) 해당 이름에 접두사를 포함 해야 합니다.
 
 List 작업을 사용 하는 샘플 **ResourceProvider** :
 
@@ -184,7 +183,7 @@ List 작업을 사용 하는 샘플 **ResourceProvider** :
 }
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 resourceIdentifier | *예로* | **ResourceProvider**의 리소스 ID입니다.
 apiVersion | *예로* | 리소스 런타임의 API 버전입니다. 이는 항상 "2018-09-01-preview" 여야 합니다.

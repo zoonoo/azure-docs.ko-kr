@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650462"
 ---
 # <a name="custom-resource-proxy-reference"></a>사용자 지정 리소스 프록시 참조
@@ -42,10 +41,10 @@ ms.locfileid: "75650462"
 
 ## <a name="building-proxy-resource-endpoint"></a>프록시 리소스 끝점을 빌드하는 중
 
-"프록시" 리소스 **끝점** 을 구현 하는 **끝점** 은 Azure에서 새 API에 대 한 요청 및 응답을 처리 해야 합니다. 이 경우 **resourceType** 은, `PUT` `GET`및에 대 한 새 Azure 리소스 API를 생성 하 고 `DELETE` 모든 기존 리소스를 검색 하는 것 `GET` 뿐만 아니라 단일 리소스에 대해 CRUD를 수행 합니다.
+"프록시" 리소스 **끝점** 을 구현 하는 **끝점** 은 Azure에서 새 API에 대 한 요청 및 응답을 처리 해야 합니다. 이 경우 **resourceType** 은, 및에 대 한 새 AZURE 리소스 API를 생성 하 `PUT` `GET` 고 `DELETE` `GET` 모든 기존 리소스를 검색 하는 것 뿐만 아니라 단일 리소스에 대해 CRUD를 수행 합니다.
 
 > [!NOTE]
-> `id`, `name`및 `type` 필드는 필요 하지 않지만 사용자 지정 리소스를 기존 Azure 에코 시스템에 통합 하는 데 필요 합니다.
+> `id`, `name` 및 필드는 `type` 필요 하지 않지만 사용자 지정 리소스를 기존 Azure 에코 시스템에 통합 하는 데 필요 합니다.
 
 샘플 리소스:
 
@@ -65,10 +64,10 @@ ms.locfileid: "75650462"
 
 매개 변수 참조:
 
-속성 | 예제 | Description
+속성 | 샘플 | Description
 ---|---|---
 name | '{myCustomResourceName}' | 사용자 지정 리소스의 이름입니다.
-type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 종류 네임스페이스입니다.
+형식 | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 종류 네임스페이스입니다.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{Mycustomresources} ' | 리소스 ID입니다.
 
 ### <a name="create-a-custom-resource"></a>사용자 지정 리소스 만들기
@@ -110,7 +109,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 마찬가지로, **끝점** 의 응답은 고객에 게 다시 전달 됩니다. 끝점의 응답은 다음을 반환 해야 합니다.
 
 - 유효한 JSON 개체 문서입니다. 모든 배열 및 문자열은 최상위 개체 아래에 중첩 되어야 합니다.
-- `Content-Type` 헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
+- `Content-Type`헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
 
 **끝점** 응답이
 
@@ -171,7 +170,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 마찬가지로, **끝점** 의 응답은 고객에 게 다시 전달 됩니다. 끝점의 응답은 다음을 반환 해야 합니다.
 
 - 유효한 JSON 개체 문서입니다. 모든 배열 및 문자열은 최상위 개체 아래에 중첩 되어야 합니다.
-- `Content-Type` 헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
+- `Content-Type`헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
 
 **끝점** 응답이
 
@@ -208,7 +207,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 마찬가지로, **끝점** 의 응답은 고객에 게 다시 전달 됩니다. 끝점의 응답은 다음을 반환 해야 합니다.
 
 - 유효한 JSON 개체 문서입니다. 모든 배열 및 문자열은 최상위 개체 아래에 중첩 되어야 합니다.
-- `Content-Type` 헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
+- `Content-Type`헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
 
 **끝점** 응답이
 
@@ -269,8 +268,8 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 마찬가지로, **끝점** 의 응답은 고객에 게 다시 전달 됩니다. 끝점의 응답은 다음을 반환 해야 합니다.
 
 - 유효한 JSON 개체 문서입니다. 모든 배열 및 문자열은 최상위 개체 아래에 중첩 되어야 합니다.
-- `Content-Type` 헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
-- 리소스 목록은 최상위 `value` 속성 아래에 배치 해야 합니다.
+- `Content-Type`헤더를 "application/json;으로 설정 해야 합니다. charset = utf-8 ".
+- 리소스 목록은 최상위 속성 아래에 배치 해야 합니다 `value` .
 
 **끝점** 응답이
 

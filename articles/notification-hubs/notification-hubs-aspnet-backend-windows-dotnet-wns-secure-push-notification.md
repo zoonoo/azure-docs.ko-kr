@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75530734"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs에서 안전하게 알림 푸시
@@ -28,7 +27,7 @@ ms.locfileid: "75530734"
 > [!div class="op_single_selector"]
 > * [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-> * [OWA(Outlook Web Access)](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
+> * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 ## <a name="overview"></a>개요
 

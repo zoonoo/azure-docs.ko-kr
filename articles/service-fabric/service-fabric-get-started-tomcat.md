@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614420"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
@@ -16,7 +15,7 @@ Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 �
 
 Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https://tomcat.apache.org/)를 참조하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 다음을 실행하는 개발 컴퓨터
   * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -101,7 +100,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>컨테이너 레지스트리에 Tomcat 이미지 푸시
 Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확인했으므로 이제 이 이미지를 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry*로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
 
-1. 을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+1. `docker login`을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
    다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 

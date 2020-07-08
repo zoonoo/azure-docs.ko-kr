@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6dccdaa96dadb061b168bbdf6148ed4d759776c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75481985"
 ---
-# <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>커넥터 그룹에 할당 된 모든 앱을 다른 커넥터 그룹으로 이동
+# <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>커넥터 그룹에 할당된 모든 앱을 다른 커넥터 그룹으로 이동
 
 이 PowerShell 스크립트 예제는 현재 커넥터 그룹에 할당 된 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램을 다른 커넥터 그룹으로 이동 합니다.
 

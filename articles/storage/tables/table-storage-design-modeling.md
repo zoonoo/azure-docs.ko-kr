@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457570"
 ---
 # <a name="modeling-relationships"></a>관계 모델링
@@ -100,7 +99,7 @@ ms.locfileid: "75457570"
 
 Table service에서 일대일 관계를 구현하기 위한 구현 고려 사항도 있습니다.  
 
-* 큰 엔터티 처리(자세한 내용은 [큰 엔터티 패턴](table-storage-design-patterns.md#large-entities-pattern)참조)  
+* 대량 엔터티 처리 (자세한 내용은 [Large Entities 패턴](table-storage-design-patterns.md#large-entities-pattern)참조).  
 * 액세스 제어 구현(자세한 내용은 공유 액세스 서명을 사용하여 액세스 제어 참조).  
 
 ## <a name="join-in-the-client"></a>클라이언트에 조인

@@ -4,10 +4,9 @@ description: 상태 저장 서비스에 대 한 Azure Service Fabric의 단위 �
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639839"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>상태 저장 서비스에 대한 단위 테스트 만들기
@@ -22,8 +21,8 @@ Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리�
 ## <a name="the-servicefabricmocks-library"></a>ServiceFabric.Mocks 라이브러리
 버전 3.3.0부터, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 복제본 및 상태 관리의 오케스트레이션을 둘 다 모의하기 위한 API를 제공합니다. 이것은 예제에서 사용됩니다.
 
-[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
+[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric은 Microsoft에서 소유 하거나 유지 관리 되지 않습니다. 그러나 현재는 단위 테스트 상태 저장 서비스에 대 한 Microsoft 권장 라이브러리입니다.*
 

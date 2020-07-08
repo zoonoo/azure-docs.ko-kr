@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40a9f7ce86981d6f03b25237a7a73869fd5fd4ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75483376"
 ---
-# <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>기본 도메인 (. msappproxy.net)을 사용 하 여 모든 응용 프로그램 프록시 앱 가져오기
+# <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>기본 도메인(.msappproxy.net)을 사용하여 모든 애플리케이션 프록시 앱 가져오기
 
 이 PowerShell 스크립트 예제는 기본 도메인 (. msappproxy.net)을 사용 하는 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램을 나열 합니다.
 

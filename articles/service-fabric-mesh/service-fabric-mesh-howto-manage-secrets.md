@@ -4,10 +4,9 @@ description: 애플리케이션 비밀을 안전하게 생성하고 배포할 �
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461922"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
@@ -200,9 +199,9 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-다음은 그 예입니다.
+예를 들어:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az 메시 deployment create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az 메시 deployment create--https: \/ /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>비밀 표시
 비밀(값은 안 됨)의 설명을 반환합니다.

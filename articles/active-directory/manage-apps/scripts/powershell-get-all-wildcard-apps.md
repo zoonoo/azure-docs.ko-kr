@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8149e9230de3e8b6c18d150c81ea67b1d861746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482024"
 ---
-# <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>와일드 카드 게시를 사용 하 여 모든 응용 프로그램 프록시 앱 가져오기
+# <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>와일드카드 게시를 사용하여 모든 애플리케이션 프록시 앱 가져오기
 
 이 PowerShell 스크립트 예제는 와일드 카드 게시를 사용 하는 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램을 나열 합니다.
 

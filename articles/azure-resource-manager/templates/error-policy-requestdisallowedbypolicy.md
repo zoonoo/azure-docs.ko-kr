@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75477669"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
@@ -56,7 +55,7 @@ az policy definition show --name regionPolicyAssignment
 보안 또는 규정 준수를 위해 구독 관리자는 리소스가 배포되는 방식을 제한하는 정책을 할당할 수 있습니다. 예를 들어, 구독에는 공용 IP 주소, 네트워크 보안 그룹, 사용자 정의 경로 또는 경로 테이블을 만들지 못하게 하는 정책이 있을 수 있습니다. **증상** 섹션의 오류 메시지는 정책의 이름을 표시합니다.
 이 문제를 해결하려면 리소스 정책을 검토하고 해당 정책을 준수하는 리소스를 배포하는 방법을 결정합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Policy이란?](../../governance/policy/overview.md)
 - [규정 준수를 적용 하는 정책 만들기 및 관리](../../governance/policy/tutorials/create-and-manage.md)

@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651385"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
 
 관리 되는 응용 프로그램의 소비자는 관리 되는 리소스 그룹에 영구적으로 액세스할 수 있는 권한을 꺼려할 수 있습니다. 관리자 응용 프로그램의 게시자는 관리 되는 리소스에 액세스 해야 하는 경우 소비자에 게 정확 하 게 알리는 것이 좋습니다. 소비자에 게 관리 되는 리소스에 대 한 액세스 권한을 부여 하는 것을 보다 강력 하 게 제어 하기 위해 Azure Managed Applications는 현재 미리 보기로 제공 되는 JIT (just-in-time) 액세스 라는 기능을 제공 합니다.
 
-JIT 액세스를 사용 하면 문제 해결 또는 유지 관리를 위해 관리 되는 응용 프로그램의 리소스에 대 한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대 한 읽기 전용 액세스 권한이 있지만 특정 기간에 대 한 액세스를 더 많이 사용할 수 있습니다.
+JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다.
 
 액세스 권한을 부여 하는 작업 흐름은 다음과 같습니다.
 
@@ -34,9 +33,9 @@ JIT 액세스를 사용 하면 문제 해결 또는 유지 관리를 위해 관�
 
 ## <a name="add-jit-access-step-to-ui"></a>UI에 JIT 액세스 단계 추가
 
-CreateUiDefinition. json 파일은 사용자가 JIT 액세스를 사용할 수 있도록 하는 단계를 포함 하는 것을 제외 하 고 영구 액세스용으로 만든 UI 파일과 정확히 같습니다. Azure Marketplace에서 관리 되는 첫 번째 응용 프로그램 제품을 게시 하는 방법에 대 한 자세한 내용은 [Marketplace의 Azure Managed Applications](publish-marketplace-app.md)를 참조 하세요.
+파일에 대 한 CreateUiDefinition.js은 사용자가 JIT 액세스를 사용할 수 있도록 하는 단계를 포함 하는 것을 제외 하 고 영구적으로 액세스 하기 위해 만든 UI 파일과 똑같습니다. Azure Marketplace에서 관리 되는 첫 번째 응용 프로그램 제품을 게시 하는 방법에 대 한 자세한 내용은 [Marketplace의 Azure Managed Applications](publish-marketplace-app.md)를 참조 하세요.
 
-제품에 대 한 JIT 기능을 지원 하려면 다음 콘텐츠를 CreateUiDefinition. json 파일에 추가 합니다.
+제품에 대 한 JIT 기능을 지원 하려면 파일의 CreateUiDefinition.js에 다음 콘텐츠를 추가 합니다.
 
 "단계":
 

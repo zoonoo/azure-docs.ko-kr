@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497866"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
@@ -95,7 +94,7 @@ Azure로 장애 조치 (failover) 한 후에는 Azure Vm을 온-프레미스 사
 
 이 절차에서는 온-프레미스 VM을 사용할 수 없는 것으로 가정 합니다.
 
-1. 자격 증명 모음 > **설정** > **복제 된 항목**에서 장애 조치 (failover) 된 컴퓨터를 마우스 오른쪽 단추로 클릭 하 > **다시 보호**합니다.
+1. 자격 증명 모음 > **설정**  >  **복제 된 항목**에서 장애 조치 (failover) 된 컴퓨터를 마우스 오른쪽 단추로 클릭 하 > **다시 보호**합니다.
 2. **다시 보호**에서 **Azure - 온-프레미스**를 선택합니다.
 3. 온-프레미스 마스터 대상 서버 및 프로세스 서버를 지정합니다.
 4. **데이터 저장소**에서 온-프레미스에서 디스크를 복구하려는 마스터 대상 데이터 저장소를 선택합니다.

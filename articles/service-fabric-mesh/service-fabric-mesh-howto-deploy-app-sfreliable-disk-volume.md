@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497957"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
@@ -23,7 +22,7 @@ Service Fabric Reliable Disk는 고가용성 Service Fabric 클러스터 내에�
 
 `counterService`는 주기적으로 파일에서 카운터 값을 읽고 이를 증분하여 파일에 다시 씁니다. 파일은 Service Fabric Reliable Disk에서 지원하는 볼륨에 탑재되는 폴더에 저장됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 작업을 완료할 수 있습니다. 이 문서에서 Azure CLI를 사용하려면 `az --version`이 `azure-cli (2.0.43)` 이상을 반환하는지 확인합니다.  다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치 또는 업데이트합니다.
 

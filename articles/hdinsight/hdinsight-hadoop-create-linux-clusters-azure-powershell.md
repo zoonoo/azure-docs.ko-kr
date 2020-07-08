@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 3c93eca493275612ac14a995140b2e91cc40fe98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75644667"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -60,7 +59,7 @@ SSH 사용자에 대해 지정한 값은 클러스터의 SSH 사용자를 만드
 
 ## <a name="create-cluster-configuration-object"></a>클러스터 만들기: 구성 개체
 
-Cmdlet을 사용 하 여 [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) HDInsight 구성 개체를 만들 수도 있습니다. 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로, [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet `-Config` 의 매개 변수를 사용 하 여 구성을 사용 합니다.
+Cmdlet을 사용 하 여 HDInsight 구성 개체를 만들 수도 있습니다 [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) . 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로, `-Config` cmdlet의 매개 변수를 사용 [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 하 여 구성을 사용 합니다.
 
 다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 스토리지 계정을 활성화합니다.
 

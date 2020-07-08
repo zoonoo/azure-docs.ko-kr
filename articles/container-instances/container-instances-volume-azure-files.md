@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
 ms.openlocfilehash: f66890c503de8de9160f11fb28795012ae57daeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75561340"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
@@ -55,7 +54,7 @@ Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면
   echo $ACI_PERS_STORAGE_ACCOUNT_NAME
   ```
 
-* **공유 이름** -이 값은 이미 알려져 있습니다 (이전 `acishare` 스크립트에서로 정의 됨).
+* **공유 이름** -이 값은 이미 알려져 있습니다 ( `acishare` 이전 스크립트에서로 정의 됨).
 
 * **저장소 계정 키** -이 값은 다음 명령을 사용 하 여 찾을 수 있습니다.
 
@@ -98,9 +97,9 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP \
 
 컨테이너 그룹을 배포 하 고 Azure CLI 및 [Yaml 템플릿을](container-instances-multi-container-yaml.md)사용 하 여 컨테이너에서 볼륨을 탑재할 수도 있습니다. YAML 템플릿에서 배포 하는 것은 여러 컨테이너로 구성 된 컨테이너 그룹을 배포할 때 선호 되는 방법입니다.
 
-다음 YAML 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 YAML 템플릿은 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다 `aci-hellofiles` . Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
-CLI 예제에서와 같이이 값 `dnsNameLabel` 은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
+CLI 예제에서와 같이이 `dnsNameLabel` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -150,9 +149,9 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
 
 먼저 템플릿의 `volumes`컨테이너 그룹의 배열`properties` 섹션을 채웁니다. 
 
-그런 다음 볼륨을 탑재 하려는 각 컨테이너에 대해 컨테이너 정의의 `volumeMounts` `properties` 섹션에서 배열을 채웁니다.
+그런 다음 볼륨을 탑재 하려는 각 컨테이너에 대해 `volumeMounts` `properties` 컨테이너 정의의 섹션에서 배열을 채웁니다.
 
-다음 리소스 관리자 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 리소스 관리자 템플릿은 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다 `aci-hellofiles` . Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
 이전 예에서와 같이이 값은 `dnsNameLabel` 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 템플릿의 값을 업데이트 합니다.
 
@@ -233,9 +232,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## <a name="mount-multiple-volumes"></a>여러 볼륨 탑재
 
-컨테이너 인스턴스에서 여러 볼륨을 탑재 하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups), yaml 파일 또는 다른 프로그래밍 방식 메서드를 사용 하 여 배포 해야 합니다. 템플릿 또는 YAML 파일을 사용 하려면 공유 세부 정보를 제공 하 고 파일의 `volumes` `properties` 섹션에서 배열을 채워서 볼륨을 정의 합니다. 
+컨테이너 인스턴스에서 여러 볼륨을 탑재 하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups), yaml 파일 또는 다른 프로그래밍 방식 메서드를 사용 하 여 배포 해야 합니다. 템플릿 또는 YAML 파일을 사용 하려면 공유 세부 정보를 제공 하 고 `volumes` 파일의 섹션에서 배열을 채워서 볼륨을 정의 합니다 `properties` . 
 
-예를 들어 저장소 계정 *Mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 리소스 관리자 `volumes` 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
+예를 들어 저장소 계정 *Mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 `volumes` 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
 
 ```JSON
 "volumes": [{

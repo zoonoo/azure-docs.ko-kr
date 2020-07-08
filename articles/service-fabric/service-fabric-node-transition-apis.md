@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609794"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>시작 노드 및 중지 노드 API를 노드 전환 API로 바꾸기
@@ -31,7 +30,7 @@ ms.locfileid: "75609794"
 
 새로운 API 집합에서 이러한 문제를 살펴보았습니다.  새로운 노드 전환 API(관리: [StartNodeTransitionAsync()][snt])는 Service Fabric 노드를 *중지됨* 상태로 전환하거나 *중지됨* 상태를 정상 작동 상태로 전환하는 데 사용할 수 있습니다.  API의 이름에 "Start"가 있다고 해서 노드 시작을 나타내는 것은 아닙니다.  시스템이 노드를 *중지됨* 또는 시작됨 상태로 전환하기 위해 실행하는 비동기 작업이 시작됨을 나타냅니다.
 
-**사용**
+**사용 현황**
 
 노드 전환 API가 호출 시 예외를 throw하지 않으면 시스템은 해당 비동기 작업을 수락하고 실행합니다.  호출이 성공했다고 해서 작업이 이미 완료된 것을 의미하지는 않습니다.  작업의 현재 상태에 대한 정보를 가져오려면 이 작업에 대해 노드 전환 API(관리: [GetNodeTransitionProgressAsync()][gntp])를 호출할 때 사용되는 GUID를 사용하여 노드 전환 진행률 API를 호출합니다.  노드 전환 진행률 API는 NodeTransitionProgress 개체를 반환합니다.  이 개체의 State 속성은 작업의 현재 상태를 지정합니다.  상태가 “실행 중”이면 작업이 실행되고 있는 것입니다.  상태가 완료됨이면 작업이 오류 없이 완료된 것입니다.  상태가 실패인 경우 작업을 실행하는 동안 문제가 발생한 것입니다.  Result 속성의 Exception 속성은 발생한 문제가 어떤 것인지를 나타냅니다.  State 속성에 대한 자세한 내용은 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate를 참조하고, 코드 예제는 아래의 "샘플 사용" 섹션을 참조하세요.
 

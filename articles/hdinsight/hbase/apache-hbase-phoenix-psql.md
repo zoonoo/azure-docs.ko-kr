@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552613"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
@@ -27,13 +26,13 @@ ms.locfileid: "75552613"
 
 MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 시나리오에서 훨씬 많은 양의 데이터를 대량으로 로드하는 데 사용됩니다.
 
-데이터 로드를 시작하기 전에, Phoenix가 사용되도록 설정되어 있는지와 쿼리 제한 시간 설정이 예상대로 지정되어 있는지 확인합니다.  HDInsight 클러스터 [Apache Ambari](https://ambari.apache.org/) 대시보드에 액세스 하 여 HBase를 선택 하 고 구성 탭을 선택 합니다.  아래로 스크롤하여 Apache Phoenix이 다음과 같이로 `enabled` 설정 되었는지 확인 합니다.
+데이터 로드를 시작하기 전에, Phoenix가 사용되도록 설정되어 있는지와 쿼리 제한 시간 설정이 예상대로 지정되어 있는지 확인합니다.  HDInsight 클러스터 [Apache Ambari](https://ambari.apache.org/) 대시보드에 액세스 하 여 HBase를 선택 하 고 구성 탭을 선택 합니다.  아래로 스크롤하여 Apache Phoenix이 다음과 같이로 설정 되었는지 확인 합니다 `enabled` .
 
 ![Apache Phoenix HDInsight 클러스터 설정](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>`psql`을 사용하여 테이블 대량 로드
 
-1. 이라는 `createCustomersTable.sql`파일을 만들고 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `createCustomersTable.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +43,13 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
         Country varchar);
     ```
 
-1. 이라는 `listCustomers.sql`파일을 만들고 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `listCustomers.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. 이라는 `customers.csv`파일을 만들고 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `customers.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +57,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     3,Anton,550150.0,42,Norway
     ```
 
-1. 이라는 `customers2.csv`파일을 만들고 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `customers2.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -72,7 +71,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -90,7 +89,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
     ```
 
-    `psql` 작업이 완료 되 면 다음과 유사한 메시지가 표시 됩니다.
+    `psql`작업이 완료 되 면 다음과 유사한 메시지가 표시 됩니다.
 
     ```output
     csv columns from database.
@@ -98,7 +97,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     Time: 0.081 sec(s)
     ```
 
-1. 계속 사용 `psql` 하 여 Customers 테이블의 내용을 볼 수 있습니다. 아래 코드를 실행 합니다.
+1. 계속 사용 하 여 `psql` Customers 테이블의 내용을 볼 수 있습니다. 아래 코드를 실행합니다.
 
     ```bash
     python psql.py /tmp/listCustomers.sql
@@ -116,7 +115,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 더 높은 처리량의 부하가 클러스터에 분산되도록 하려면 MapReduce 로드 도구를 사용합니다. 이 로더는 먼저 모든 데이터를 HFiles로 변환하고 만든 HFiles를 HBase에 제공합니다.
 
-1. 이 섹션에서는 ssh 세션과 이전에 만든 개체를 계속 사용 합니다. 위의 단계를 사용 하 여 필요에 따라 **customers** 테이블 및 **customers .csv** 파일을 만듭니다. 필요한 경우 ssh 연결을 다시 설정 합니다.
+1. 이 섹션에서는 ssh 세션과 이전에 만든 개체를 계속 사용 합니다. 위의 단계를 사용 하 여 필요에 따라 **Customers** 테이블 및 **customers.csv** 파일을 만듭니다. 필요한 경우 ssh 연결을 다시 설정 합니다.
 
 1. **Customers** 테이블의 내용을 자릅니다. 열려 있는 ssh 세션에서 아래 명령을 실행 합니다.
 
@@ -126,7 +125,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     exit
     ```
 
-1. 헤드 노드에서 `customers.csv` Azure Storage으로 파일을 복사 합니다.
+1. `customers.csv`헤드 노드에서 Azure Storage으로 파일을 복사 합니다.
 
     ```bash
     hdfs dfs -put /tmp/customers.csv wasbs:///tmp/customers.csv

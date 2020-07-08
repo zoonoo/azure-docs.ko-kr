@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457634"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
@@ -37,12 +36,12 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 | *열 이름* | *데이터 형식* |
 | --- | --- |
-| **PartitionKey** (부서 이름) |문자열 |
-| **RowKey** (직원 Id) |문자열 |
-| **FirstName** |문자열 |
-| **성이** |문자열 |
-| **발전할** |정수 |
-| **EmailAddress** |문자열 |
+| **PartitionKey** (부서 이름) |String |
+| **RowKey** (직원 Id) |String |
+| **FirstName** |String |
+| **LastName** |String |
+| **Age** |정수 |
+| **EmailAddress** |String |
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)참조).  
 

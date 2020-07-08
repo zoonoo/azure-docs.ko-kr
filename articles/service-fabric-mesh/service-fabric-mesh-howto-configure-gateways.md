@@ -7,10 +7,9 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461960"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>요청을 라우팅하도록 게이트웨이 리소스 구성 | Microsoft Docs
@@ -219,8 +218,8 @@ HTTP 라우팅 규칙은 다음 속성으로 구성됩니다.
 ```
 
 이 게이트웨이는 포트 80에서 수신 대기하는 Linux 애플리케이션, 두 개 이상의 서비스로 구성된 "meshAppLinux" , "helloWorldService" 및 "counterService"에 대해 구성됩니다. 들어오는 요청의 URL 구조에 따라 요청을 이러한 서비스 중 하나로 라우팅합니다. 
-* "\<IPAddress>:80/helloWorld/\<request\>"로 인해 요청이 helloWorldService의 "helloWorldListener"으로 전달 됩니다. 
-* "\<IPAddress>:80/counter/\<Request\>"로 인해 counterlistener의 "counterlistener"로 요청이 전달 됩니다. 
+* " \<IPAddress> : 80/helloWorld/ \<request\> "로 인해 요청이 helloWorldService의 "helloWorldListener"로 전달 됩니다. 
+* " \<IPAddress> : 80/counter/ \<request\> "는 counterlistener의 "counterlistener"로 요청을 전달 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [수신 예제](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)를 배포하여 실행 중인 게이트웨이를 참조합니다.

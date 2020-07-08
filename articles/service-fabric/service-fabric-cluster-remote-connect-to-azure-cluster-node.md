@@ -4,10 +4,9 @@ description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 �
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458325"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
@@ -19,7 +18,7 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
     일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 형식에 대한 부하 분산 장치는 *LB-{cluster-name}-{node-type}* 형식으로 이름이 지정됩니다(예: *LB-mycluster-FrontEnd*). 
     
-    Azure Portal에서 부하 분산 장치에 대 한 페이지에서 **설정** > **인바운드 NAT 규칙**을 선택 합니다. 
+    Azure Portal에서 부하 분산 장치에 대 한 페이지에서 **설정**  >  **인바운드 NAT 규칙**을 선택 합니다. 
 
     ![부하 분산 장치 인바운드 NAT 규칙](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

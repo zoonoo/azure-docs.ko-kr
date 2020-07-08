@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651918"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 요소
@@ -80,8 +79,8 @@ ms.locfileid: "75651918"
 }
 ```
 
-- 이 `options.hideNone` **true** `newOrExistingOrNone` 로 지정 되 면은 **new** 또는 **existing**값만 갖습니다.
-- 이 `options.hideDomainNameLabel` **true**로 지정 되 면 `domainNameLabel` 는 선언 되지 않습니다.
+- `options.hideNone`이 **true**로 지정 되 면은 `newOrExistingOrNone` **new** 또는 **existing**값만 갖습니다.
+- `options.hideDomainNameLabel`이 **true**로 지정 되 면 `domainNameLabel` 는 선언 되지 않습니다.
 
 ## <a name="remarks"></a>설명
 

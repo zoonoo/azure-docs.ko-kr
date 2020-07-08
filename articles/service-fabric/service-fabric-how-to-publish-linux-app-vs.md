@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614352"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Visual Studio를 사용 하 여 원격 Linux Service Fabric 클러스터를 대상으로 하는 .NET Core 응용 프로그램 만들기 및 게시
@@ -26,7 +25,7 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
 ![응용 프로그램 만들기]
 4. 응용 프로그램 이름을로 확인 하 고 **확인**을 클릭 합니다.
 5. **새 Service Fabric 서비스** 페이지의 **.NET Core 섹션**에서 만들려는 서비스 유형을 선택 합니다.
-![서비스 만들기]
+![create-service]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>원격 Linux 클러스터에 배포
 1. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **빌드**를 선택 합니다.
@@ -38,7 +37,7 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
 > [!Note]
-> UpdateServiceFabricManifestEnabled를 false로 설정 하면 빌드 중에 Servicemanifest.xml에 대 한 업데이트를 사용 하지 않도록 설정 합니다. 서비스에 대 한 추가, 제거 또는 이름 바꾸기와 같은 변경 내용은 Servicemanifest.xml에 반영 되지 않습니다. 변경을 수행 하는 경우 Servicemanifest.xml을 수동으로 업데이트 하거나 UpdateServiceFabricManifestEnabled를 true로 설정 하 고 Servicemanifest.xml를 업데이트 하는 서비스를 빌드한 다음 다시 false로 되돌려야 합니다.
+> UpdateServiceFabricManifestEnabled를 false로 설정 하면 빌드 중에 ServiceManifest.xml 업데이트를 사용 하지 않도록 설정 됩니다. 서비스에 대 한 추가, 제거 또는 이름 바꾸기와 같은 변경 내용은 ServiceManifest.xml 반영 되지 않습니다. 변경을 수행 하는 경우 Servicemanifest.xml을 수동으로 업데이트 하거나 UpdateServiceFabricManifestEnabled를 true로 설정 하 고 ServiceManifest.xml를 업데이트 하는 서비스를 빌드한 후 다시 false로 되돌려야 합니다.
 >
 
 4. RuntimeIndetifier를 win7-x64에서 서비스 프로젝트의 대상 플랫폼으로 업데이트 합니다.
@@ -59,7 +58,7 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
 
 <!--Image references-->
 [응용 프로그램 만들기]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
-[서비스 만들기]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[create-service]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
 [빌드-응용 프로그램]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [편집-.csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [응용 프로그램 게시]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png

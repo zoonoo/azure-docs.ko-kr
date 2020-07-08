@@ -4,10 +4,9 @@ description: Azure Resource Manager가 테넌트에서 인증 요청을 처리�
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478826"
 ---
 # <a name="authenticate-requests-across-tenants"></a>테넌트에서 요청 인증
@@ -18,10 +17,10 @@ ms.locfileid: "75478826"
 
 요청에는 다음 인증 헤더 값이 있습니다.
 
-| 헤더 이름 | Description | 예제 값 |
+| 헤더 이름 | 설명 | 예제 값 |
 | ----------- | ----------- | ------------ |
 | 권한 부여 | 기본 토큰 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;보조-token1&gt;, encryptedbearer &lt;보조-token2&gt;, 전달자 &lt;보조-token3&gt; |
+| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt; 보조-token1 &gt; , encryptedbearer &lt; 보조-token2 &gt; , 전달자 &lt; 보조-token3&gt; |
 
 보조 헤더는 최대 세 개의 보조 토큰을 유지할 수 있습니다. 
 

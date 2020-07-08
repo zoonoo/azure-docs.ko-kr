@@ -7,10 +7,9 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498153"
 ---
 # <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
@@ -51,7 +50,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 | AllocatedMemory | Azure Resource Manager 템플릿 당 할당 된 메모리 | MB |
 | ActualCpu | CPU 사용량 | Millicores |
 | ActualMemory | 메모리 사용량 | MB |
-| 컨테이너 상태 | 0-유효 하지 않음: 컨테이너 상태를 알 수 없음 <br> 1-보류 중: 컨테이너가 시작 되도록 예약 되었습니다. <br> 2-시작 중: 컨테이너를 시작 하는 중입니다. <br> 3-시작 됨: 컨테이너를 시작 했습니다. <br> 4-중지 중: 컨테이너를 중지 하는 중입니다. <br> 5-중지 됨: 컨테이너를 중지 했습니다. | 해당 없음 |
+| ContainerStatus | 0-유효 하지 않음: 컨테이너 상태를 알 수 없음 <br> 1-보류 중: 컨테이너가 시작 되도록 예약 되었습니다. <br> 2-시작 중: 컨테이너를 시작 하는 중입니다. <br> 3-시작 됨: 컨테이너를 시작 했습니다. <br> 4-중지 중: 컨테이너를 중지 하는 중입니다. <br> 5-중지 됨: 컨테이너를 중지 했습니다. | 해당 없음 |
 | ApplicationStatus | 0-알 수 없음: 상태를 검색할 수 없음 <br> 1-준비 됨: 응용 프로그램이 실행 되 고 있습니다. <br> 2-업그레이드 중: 진행 중인 업그레이드가 있습니다. <br> 3-만들기: 응용 프로그램을 만드는 중입니다. <br> 4-삭제 중: 응용 프로그램을 삭제 하는 중 <br> 5-실패: 응용 프로그램을 배포 하지 못했습니다. | 해당 없음 |
 | ServiceStatus | 0-유효 하지 않음: 서비스에 현재 상태가 없습니다. <br> 1-양호: 서비스가 정상 상태입니다.  <br> 2-경고: 조사가 필요한 문제가 있을 수 있습니다. <br> 3-오류: 조사가 필요한 문제가 있습니다. <br> 4-알 수 없음: 상태를 검색할 수 없음 | 해당 없음 |
 | ServiceReplicaStatus | 0-유효 하지 않음: 복제본에 현재 상태가 없습니다. <br> 1-양호: 서비스가 정상 상태입니다.  <br> 2-경고: 조사가 필요한 문제가 있을 수 있습니다. <br> 3-오류: 조사가 필요한 문제가 있습니다. <br> 4-알 수 없음: 상태를 검색할 수 없음 | 해당 없음 | 

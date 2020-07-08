@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650527"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Azure REST API에 사용자 지정 리소스 추가
@@ -18,7 +17,7 @@ ms.locfileid: "75650527"
 
 ## <a name="how-to-define-a-resource-endpoint"></a>리소스 끝점을 정의 하는 방법
 
-**끝점** 은 서비스를 가리키는 URL로, 서비스와 Azure 간의 기본 계약을 구현 합니다. 끝점은 사용자 지정 리소스 공급자에 정의 되며 공개적으로 액세스할 수 있는 URL 일 수 있습니다. 아래 샘플에는에서 **resourceType** `myCustomResource` `endpointURL`구현 된 resourceType이 있습니다.
+**끝점** 은 서비스를 가리키는 URL로, 서비스와 Azure 간의 기본 계약을 구현 합니다. 끝점은 사용자 지정 리소스 공급자에 정의 되며 공개적으로 액세스할 수 있는 URL 일 수 있습니다. 아래 샘플에는에서 구현 된 **resourceType** 이 있습니다 `myCustomResource` `endpointURL` .
 
 샘플 **ResourceProvider**:
 
@@ -42,39 +41,39 @@ ms.locfileid: "75650527"
 
 ## <a name="building-a-resource-endpoint"></a>리소스 끝점 빌드
 
-**ResourceType** 을 구현 하는 **끝점** 은 Azure에서 새 API에 대 한 요청 및 응답을 처리 해야 합니다. **ResourceType** 을 사용 하 여 사용자 지정 리소스 공급자를 만들면 Azure에서 새로운 api 집합이 생성 됩니다. 이 경우 **resourceType** 은, `PUT` `GET`및에 대 한 새 Azure 리소스 API를 생성 하 고 `DELETE` 모든 기존 리소스를 검색 하는 것 `GET` 뿐만 아니라 단일 리소스에 대해 CRUD를 수행 합니다.
+**ResourceType** 을 구현 하는 **끝점** 은 Azure에서 새 API에 대 한 요청 및 응답을 처리 해야 합니다. **ResourceType** 을 사용 하 여 사용자 지정 리소스 공급자를 만들면 Azure에서 새로운 api 집합이 생성 됩니다. 이 경우 **resourceType** 은, 및에 대 한 새 AZURE 리소스 API를 생성 하 `PUT` `GET` 고 `DELETE` `GET` 모든 기존 리소스를 검색 하는 것 뿐만 아니라 단일 리소스에 대해 CRUD를 수행 합니다.
 
-단일 리소스 (`PUT`, `GET`및 `DELETE`) 조작:
+단일 리소스 ( `PUT` , `GET` 및) 조작 `DELETE` :
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-모든 리소스 검색 (`GET`):
+모든 리소스 검색 ( `GET` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-사용자 지정 리소스의 경우 사용자 지정 리소스 공급자는 "`Proxy`" 및 "`Proxy, Cache`"의 두 가지 **routingtypes**를 제공 합니다.
+사용자 지정 리소스의 경우 사용자 지정 리소스 공급자는 "" 및 ""의 두 가지 **routingtypes**를 제공 `Proxy` `Proxy, Cache` 합니다.
 
 ### <a name="proxy-routing-type"></a>프록시 라우팅 유형
 
-"`Proxy`" **Routingtype** 은 모든 요청 메서드를 사용자 지정 리소스 공급자에 지정 된 **끝점** 으로 프록시 합니다. "`Proxy`"를 사용 하는 경우:
+" `Proxy` " **Routingtype** 은 모든 요청 메서드를 사용자 지정 리소스 공급자에 지정 된 **끝점** 으로 프록시 합니다. ""를 사용 하는 경우 `Proxy` :
 
 - 응답에 대 한 모든 권한이 필요 합니다.
 - 기존 리소스와 시스템 통합
 
-"`Proxy`" 리소스에 대해 자세히 알아보려면 [사용자 지정 리소스 프록시 참조](proxy-resource-endpoint-reference.md) 를 참조 하세요.
+"" 리소스에 대해 자세히 알아보려면 `Proxy` [사용자 지정 리소스 프록시 참조](proxy-resource-endpoint-reference.md) 를 참조 하세요.
 
 ### <a name="proxy-cache-routing-type"></a>프록시 캐시 라우팅 유형
 
-"`Proxy, Cache`" **Routingtype** 프록시 전용 `PUT` 및 사용자 `DELETE` 지정 리소스 공급자에 지정 된 **끝점** 에 대 한 메서드를 요청 합니다. 사용자 지정 리소스 공급자는 캐시에 `GET` 저장 된 내용에 따라 요청을 자동으로 반환 합니다. 사용자 지정 리소스를 캐시로 표시 하는 경우 사용자 지정 리소스 공급자는 Api Azure를 준수 하도록 하기 위해 응답의 필드를 추가/덮어쓰기도 합니다. "`Proxy, Cache`"를 사용 하는 경우:
+" `Proxy, Cache` " **Routingtype** 프록시 전용 `PUT` 및 `DELETE` 사용자 지정 리소스 공급자에 지정 된 **끝점** 에 대 한 메서드를 요청 합니다. 사용자 지정 리소스 공급자는 `GET` 캐시에 저장 된 내용에 따라 요청을 자동으로 반환 합니다. 사용자 지정 리소스를 캐시로 표시 하는 경우 사용자 지정 리소스 공급자는 Api Azure를 준수 하도록 하기 위해 응답의 필드를 추가/덮어쓰기도 합니다. ""를 사용 하는 경우 `Proxy, Cache` :
 
 - 기존 리소스가 없는 새 시스템을 만듭니다.
 - 기존 Azure 에코 시스템을 사용 합니다.
 
-"`Proxy, Cache`" 리소스에 대해 자세히 알아보려면 [사용자 지정 리소스 캐시 참조](proxy-cache-resource-endpoint-reference.md) 를 참조 하세요.
+"" 리소스에 대해 자세히 알아보려면 `Proxy, Cache` [사용자 지정 리소스 캐시 참조](proxy-cache-resource-endpoint-reference.md) 를 참조 하세요.
 
 ## <a name="creating-a-custom-resource"></a>사용자 지정 리소스 만들기
 
@@ -102,7 +101,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 is-full-object | *예로* | 속성 개체에 위치, 태그, SKU 및/또는 계획과 같은 다른 옵션이 포함된다는 것을 나타냅니다.
 id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **ResourceProvider** 에 있어야 합니다.
@@ -131,9 +130,9 @@ id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **Re
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
 > [!NOTE]
-> 리소스의 경우 응답에는 **끝점**에서 `id`적절 `name`한, `type` 및가 포함 되어야 합니다.
+> 리소스의 경우 응답에는 끝점에서 적절 한, 및가 포함 되어야 `id` `name` `type` 합니다. **endpoint**
 
-Azure Resource Manager 템플릿에는 `id`, `name`및 `type` 가 다운스트림 끝점에서 올바르게 반환 되어야 합니다. 반환 된 리소스 응답은 다음과 같은 형식 이어야 합니다.
+Azure Resource Manager 템플릿에는 `id` , `name` 및가 `type` 다운스트림 끝점에서 올바르게 반환 되어야 합니다. 반환 된 리소스 응답은 다음과 같은 형식 이어야 합니다.
 
 샘플 **끝점** 응답:
 
@@ -174,7 +173,7 @@ Azure Resource Manager 템플릿에는 `id`, `name`및 `type` 가 다운스트�
 }
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 resourceTypeName | *예로* | 사용자 지정 공급자에 정의 된 **resourceType** 의 **이름** 입니다.
 resourceProviderName | *예로* | 사용자 지정 리소스 공급자 인스턴스 이름입니다.

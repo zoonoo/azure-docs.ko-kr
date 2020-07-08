@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75486821"
 ---
 # <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>분리 된 디스크로 인 한 가상 컴퓨터 배포 문제 해결
@@ -83,7 +82,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>2 단계: 실패 한 디스크에 대 한 플래그를 "true"로 설정 합니다.
 
-1 단계에서 반환 된 페이로드에서 실패 한 디스크에 대 한 **Tobedetached** 플래그를 true로 설정 합니다. 참고: Get 및 Put 호출에 지정 된 API 버전은 이상 이어야 `2019-03-01` 합니다.
+1 단계에서 반환 된 페이로드에서 실패 한 디스크에 대 한 **Tobedetached** 플래그를 true로 설정 합니다. 참고: Get 및 Put 호출에 지정 된 API 버전은 `2019-03-01` 이상 이어야 합니다.
 
 **샘플 요청 본문**
 

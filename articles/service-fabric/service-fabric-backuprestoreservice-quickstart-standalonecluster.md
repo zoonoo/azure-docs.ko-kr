@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75526246"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>독립 실행형 Service Fabric에서 정기 백업 및 복원
@@ -44,7 +43,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 일시적으로 백업 일시 중단
 - 백업의 보존 관리(예정)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 패브릭 버전 6.4 이상을 사용 하는 클러스터를 Service Fabric 합니다. 필요한 패키지를 다운로드하는 단계는 이 [문서](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
@@ -55,7 +54,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* ServiceFabric 모듈을 사용 하 여 구성 요청 `Connect-SFCluster` 을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
+* `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
 ```powershell
 

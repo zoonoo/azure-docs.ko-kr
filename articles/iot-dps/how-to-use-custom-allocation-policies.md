@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453934"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
@@ -122,7 +121,7 @@ ms.locfileid: "75453934"
 
 4. **요약** 페이지에서 **만들기** 를 선택 하 여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 **리소스로 이동**을 선택 합니다.
 
-5. 함수 앱 **개요** 페이지의 왼쪽 창에서 **함수** 옆에 있는 **+** 를 선택 하 여 새 함수를 추가 합니다.
+5. 함수 앱 **개요** 페이지의 왼쪽 창에서 함수 옆에 있는를 선택 **+** 하 여 새 함수를 추가 합니다. **Functions**
 
     ![함수 앱에 함수를 추가 합니다.](./media/how-to-use-custom-allocation-policies/create-function.png)
 
@@ -436,7 +435,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    에서 `cmake` c + + 컴파일러를 찾지 못한 경우에는 명령을 실행 하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행 해 봅니다.
+    `cmake`에서 c + + 컴파일러를 찾지 못한 경우에는 명령을 실행 하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행 해 봅니다.
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -456,7 +455,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
 ## <a name="simulate-the-devices"></a>디바이스 시뮬레이트
 
-이 섹션에서는 이전에 설정한 Azure IoT C SDK **에\_있는\_prov\_dev client sample** 이라는 프로 비전 샘플을 업데이트 합니다.
+이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov \_ dev \_ client \_ sample** 이라는 프로 비전 샘플을 업데이트 합니다.
 
 이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 토스터 디바이스가 인식되고 사용자 지정 할당 정책을 통해 IoT Hub에 할당됩니다.
 

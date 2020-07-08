@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464711"
 ---
 # <a name="performance-metrics"></a>성능 메트릭
@@ -25,8 +24,8 @@ ms.locfileid: "75464711"
 | 논리 디스크 | 논리적 디스크에서 사용 가능한 공간 |
 | PhysicalDisk(디스크당) | 평균 디스크 읽기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 쓰기 큐 길이 |
-| PhysicalDisk(디스크당) | Avg. Disk sec/Read |
-| PhysicalDisk(디스크당) | Avg. Disk sec/Write |
+| PhysicalDisk(디스크당) | 평균 디스크 초/읽기 |
+| PhysicalDisk(디스크당) | 평균 디스크 초/쓰기 |
 | PhysicalDisk(디스크당) | 디스크 읽기/초 |
 | PhysicalDisk(디스크당) | 디스크 읽기 바이트/초 |
 | PhysicalDisk(디스크당) | 디스크 쓰기/초 |

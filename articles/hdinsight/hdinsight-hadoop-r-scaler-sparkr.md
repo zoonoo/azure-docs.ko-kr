@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75500078"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
@@ -29,7 +28,7 @@ ms.locfileid: "75500078"
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
-항공편 데이터는 [미국 정부 아카이브](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [Airontimecsv.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)의 zip으로도 사용할 수 있습니다.
+항공편 데이터는 [미국 정부 아카이브](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip으로도 사용할 수 있습니다.
 
 날씨 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](https://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제의 경우 2007년 5월 – 2012년 12월에 대한 데이터를 다운로드하세요. 시간별 데이터 파일과 각 zip 내에 포함된 `YYYYMMMstation.txt` 파일을 사용하세요.
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651723"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시
@@ -30,7 +29,7 @@ ms.locfileid: "75651723"
 
 1. **서비스 카탈로그**를 검색합니다.
 
-1. 결과에서 **서비스 카탈로그 관리되는 애플리케이션 정의**를 찾을 때까지 스크롤 합니다. 이를 선택합니다.
+1. 결과에서 **서비스 카탈로그 관리되는 애플리케이션 정의**를 찾을 때까지 스크롤 합니다. 선택합니다.
 
    ![관리되는 애플리케이션 정의 검색](./media/publish-portal/select-managed-apps-definition.png)
 

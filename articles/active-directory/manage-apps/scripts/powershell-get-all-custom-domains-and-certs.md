@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9722178011c3c0411f2e0e888dd9ab5962b933b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482050"
 ---
-# <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>사용자 지정 도메인 및 인증서 정보를 사용 하 여 모든 응용 프로그램 프록시 앱 가져오기
+# <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>사용자 지정 도메인 및 인증서 정보를 사용하여 모든 애플리케이션 프록시 앱 가져오기
 
 이 PowerShell 스크립트 예제는 사용자 지정 도메인을 사용 하는 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램을 나열 하 고 사용자 지정 도메인과 연결 된 인증서 정보를 나열 합니다.
 

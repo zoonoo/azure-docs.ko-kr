@@ -6,19 +6,18 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651463"
 ---
 # <a name="reference-deployment-template-artifact"></a>참조: 배포 템플릿 아티팩트
 
-이 문서는 Azure Managed Applications *maintemplate.json* 아티팩트에 대 한 참조입니다. 배포 템플릿 작성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/template-syntax.md)을 참조 하세요.
+이 문서는 Azure Managed Applications 아티팩트의 *mainTemplate.js* 에 대 한 참조입니다. 배포 템플릿 작성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/template-syntax.md)을 참조 하세요.
 
 ## <a name="deployment-template"></a>배포 템플릿
 
-다음 JSON에서는 Azure Managed Applications에 대 한 *maintemplate.json* 파일의 예를 보여 줍니다.
+다음 JSON은 Azure Managed Applications 파일 *에mainTemplate.js* 의 예를 보여 줍니다.
 
 ```json
 {

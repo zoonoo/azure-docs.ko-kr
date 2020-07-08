@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639805"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
@@ -191,10 +190,10 @@ ms.locfileid: "75639805"
  
 3. Windows 클러스터에만 다음 값을 사용하여 가상 네트워크에 UDP/53 포트를 여는 Azure NSG(네트워크 보안 그룹) 규칙을 설정합니다.
 
-   |설정 |값 | |
+   |Setting |값 | |
    | --- | --- | --- |
    |우선 순위 |2000 | |
-   |속성 |Custom_Dns  | |
+   |이름 |Custom_Dns  | |
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
