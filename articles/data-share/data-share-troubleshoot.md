@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322033"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure 데이터 공유의 일반적인 문제 해결 
 
@@ -62,9 +62,9 @@ SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 내용은 S
 
 ## <a name="troubleshooting-sql-based-sharing"></a>SQL 기반 공유 문제 해결
 
-"사용자 x가 SQL 데이터베이스에 없습니다."
+"사용자 x가 SQL Database"에 없습니다.
 
-SQL 기반 원본에서 데이터 집합을 추가할 때이 오류가 발생 하는 경우 SQL Server에서 Azure 데이터 공유 관리 id에 대 한 사용자를 만들지 않았기 때문일 수 있습니다.  이 문제를 해결 하려면 다음 스크립트를 실행 합니다.
+SQL 기반 원본에서 데이터 집합을 추가할 때이 오류가 발생 하는 경우 SQL Database에서 Azure 데이터 공유 관리 되는 id에 대 한 사용자를 만들지 않았기 때문일 수 있습니다.  이 문제를 해결 하려면 다음 스크립트를 실행 합니다.
 
 ```sql
     create user "<share_acct_name>" from external provider; 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356477"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory와 동기화되지 않는 개체 문제 해결
 
@@ -73,7 +73,7 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 
 **상태** 열은 가장 중요한 정보를 포함하며 실행에 대해 가장 심각한 문제를 표시합니다. 다음은 조사 우선 순위에 따른 가장 일반적인 상태에 대한 간단한 요약입니다(여기서 *는 여러 가능한 오류 문자열을 나타냄).
 
-| 상태 | 주석 |
+| 상태 | 의견 |
 | --- | --- |
 | stopped- * |실행을 완료할 수 없습니다. 예를 들어 원격 시스템이 다운되어 연결할 수 없는 경우 이 상태가 나타날 수 있습니다. |
 | stopped-error-limit |5000개보다 많은 오류가 있습니다. 많은 오류로 인해 실행이 자동으로 중지되었습니다. |

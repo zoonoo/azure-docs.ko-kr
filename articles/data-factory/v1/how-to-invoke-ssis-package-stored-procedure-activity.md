@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322120"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -26,10 +26,10 @@ ms.locfileid: "75438795"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
+이 문서의 연습에서는 Azure SQL Database을 사용 합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
 Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](../tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다. Data Factory 버전 1을 사용하여 Azure-SSIS 통합 런타임을 만들 수 없습니다. 
@@ -82,7 +82,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
-SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
+SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결 하는 연결 된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
 
 1. **C:\ADF\RunSSISPackage** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 
 
@@ -190,7 +190,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
     **준비** 상태 또는 **실패** 상태에 조각이 표시될 때가지 이 cmdlet을 계속 실행합니다. 
 
-    Azure SQL Server의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+    서버에서 SSISDB 데이터베이스에 대해 다음 쿼리를 실행 하 여 패키지가 실행 되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338275"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -156,5 +156,5 @@ AD Domain Services와 ADFS 또는 유사한 ID 공급자를 사용하여 Azure A
 - [Azure AD를 사용하여 사용자를 추가](../fundamentals/add-users-azure-active-directory.md)하고 [새 사용자를 글로벌 관리자 역할에 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - 아직 가입하지 않은 경우 [Azure AD Premium에 가입](../fundamentals/active-directory-get-started-premium.md)
 - [사용자에 대해 2단계 인증을 요구하는 방법](../authentication/howto-mfa-userstates.md)
-- Office 365를 사용하는 경우 [Office 365의 글로벌 관리자에 대한 추가 보호 구성](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)
+- Microsoft 365을 사용 하는 경우 [Microsoft 365에서 전역 관리자에 대 한 추가 보호를 구성](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)합니다.
 - [ 관리자에 대한 액세스 검토를 시작](../privileged-identity-management/pim-how-to-start-security-review.md)하고 [기존 글로벌 관리자를 보다 구체적인 관리자 역할로 전환](directory-assign-admin-roles.md)

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73d4239dd34f2a64aa7b3edbf88bad4348e01291
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356205"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
 이 문서에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 단계를 제공합니다. Azure AD(Active Directory) 연결에서 문제 해결이 작동하는 방식은 [이 짧은 비디오](https://aka.ms/AADCTSVideo)에서 확인하세요.
@@ -43,7 +43,7 @@ ms.locfileid: "81407011"
 다음 입력 매개 변수가 문제 해결 작업에 필요합니다.
 1.  **개체 고유 이름** - 문제 해결이 필요한 개체의 고유 이름입니다.
 2.  **AD 커넥터 이름** - 위의 개체가 있는 AD 포리스트의 이름입니다.
-3.  Azure AD 테 넌 트 전역 ![관리자 자격 증명 전역 관리자 자격 증명](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Azure AD 테 넌 트 전역 관리자 자격 증명 ![ 전역 관리자 자격 증명](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
 문제 해결 작업에서는 다음 검사를 수행합니다.

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/02/2020
+ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 1cd18ae9fd3814765e77dad672909343d651913e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355508"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -56,7 +56,7 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 
 ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType**은 `ClaimsProvider`로 설정하고 **StringId**는 `ClaimsExchange`의 ID로 설정합니다.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -75,7 +75,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 다음 예제에서는 Facebook ID 공급자를 아랍어로 지역화합니다.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
@@ -219,7 +219,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 ### <a name="example"></a>예제
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -229,6 +229,31 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="restful-service-error-messages"></a>Restful service 오류 메시지
+
+[Restful service 기술 프로필](restful-technical-profile.md) 오류 메시지에 대 한 id는 다음과 같습니다.
+
+| ID | 기본값 |
+| -- | ------------- |
+|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL:{0} |
+|UserMessageIfCircuitOpen | {0}Restful 서비스 URL:{1} |
+|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL:{0} |
+|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL:{1} |
+
+
+### <a name="example"></a>예제
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -248,7 +273,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 ### <a name="example"></a>예제
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
@@ -257,6 +282,33 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-ad-sspr"></a>Azure AD SSPR
+
+다음은 [AZURE AD SSPR 기술 프로필](aad-sspr-technical-profile.md) 오류 메시지의 id입니다.
+
+| ID | 기본값 |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | 코드가 만료 되었습니다.|
+|UserMessageIfInternalError | 전자 메일 서비스에서 내부 오류가 발생 했습니다. 나중에 다시 시도 하세요.|
+|UserMessageIfThrottled | 너무 많은 요청을 보냈습니다. 나중에 다시 시도 하세요.|
+|UserMessageIfVerificationFailedNoRetry | 최대 확인 시도 횟수를 초과 했습니다.|
+|UserMessageIfVerificationFailedRetryAllowed | 확인 하지 못했습니다. 다시 시도 하세요.|
+
+
+### <a name="example"></a>예제
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -275,7 +327,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 ### <a name="example"></a>예제
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
@@ -286,7 +338,6 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
   </LocalizedStrings>
 </LocalizedResources>
 ```
-
 
 ## <a name="claims-transformations-error-messages"></a>클레임 변환 오류 메시지
 
@@ -300,7 +351,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 ### <a name="example"></a>예제
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>

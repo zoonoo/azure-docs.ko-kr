@@ -1,18 +1,14 @@
 ---
 title: Azure Relay에 대한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
-services: service-bus-relay
-author: spelluru
-ms.service: service-bus-relay
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: spelluru
-ms.openlocfilehash: d0a0d03680877ae78f5af939f8d47e4e426abadb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322157"
 ---
 # <a name="network-security-for-azure-relay"></a>Azure Relay에 대한 네트워크 보안 
 이 문서에서는 Azure Relay에서 다음 보안 기능을 사용하는 방법을 설명합니다. 

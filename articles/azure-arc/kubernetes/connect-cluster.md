@@ -8,25 +8,49 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341397"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
-Kubernetes 클러스터를 Azure Arc에 연결합니다. 
+Kubernetes 클러스터를 Azure Arc에 연결합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 다음 요구 사항이 준비되었는지 확인합니다.
 
-* 실행 중인 Kubernetes 클러스터
-* Kubeconfig 및 클러스터 관리자 액세스 권한이 필요합니다. 
+* Kubernetes 클러스터가 실행 되 고 있습니다. 기존 Kubernetes 클러스터가 없는 경우 다음 가이드 중 하나를 사용 하 여 테스트 클러스터를 만들 수 있습니다.
+  * [Docker (kind)에서 Kubernetes](https://kind.sigs.k8s.io/) 를 사용 하 여 Kubernetes 클러스터 만들기
+  * [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) 또는 [Windows](https://docs.docker.com/docker-for-windows/#kubernetes) 용 Docker를 사용 하 여 Kubernetes 클러스터 만들기
+* Arc enabled Kubernetes 에이전트를 배포 하기 위해 클러스터의 클러스터 및 클러스터 관리자 역할에 액세스 하려면 kubeconfig 파일이 필요 합니다.
 * `az login` 및 `az connectedk8s connect` 명령에 사용되는 사용자 또는 서비스 주체에는 'Microsoft.Kubernetes/connectedclusters' 리소스 종류에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다. 이러한 권한이 있는 "Kubernetes 온보딩용 Azure Arc" 역할은 온보딩에 대한 Azure CLI에 사용되는 사용자 또는 서비스 주체에 대한 역할 할당에 사용할 수 있습니다.
-* *connectedk8s* 및 *k8sconfiguration* 확장의 최신 버전
+* Connectedk8s 확장을 사용 하 여 클러스터를 등록 하려면 투구 3이 필요 합니다. 이 요구 사항을 충족 하기 위해 [최신 버전의 투구 3을 설치](https://helm.sh/docs/intro/install) 합니다.
+* Azure CLI 버전 2.3 +는 Azure Arc 사용 Kubernetes CLI 확장을 설치 하는 데 필요 합니다. [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 하거나 최신 버전으로 업데이트 하 여 Azure CLI 버전 2.3 +가 설치 되어 있는지 확인 합니다.
+* Arc enabled Kubernetes CLI 확장을 설치 합니다.
+  
+  Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  `k8sconfiguration` 확장 설치
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  이러한 확장을 나중에 업데이트 하려면 다음 명령을 실행 합니다.
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -53,10 +77,8 @@ Azure Arc 에이전트는 다음 프로토콜/포트/아웃바운드 URL이 작�
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 등록은 비동기 프로세스입니다. 등록에 약 10분이 소요될 수 있습니다. 다음 명령을 사용하여 등록 프로세스를 모니터링할 수 있습니다.
@@ -67,27 +89,6 @@ az provider show -n Microsoft.Kubernetes -o table
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
-```
-
-## <a name="install-azure-cli-extensions"></a>Azure CLI 확장 설치
-
-Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.
-
-```console
-az extension add --name connectedk8s
-```
-
-`k8sconfiguration` 확장 설치
-
-```console
-az extension add --name k8sconfiguration
-```
-
-다음 명령을 실행하여 확장을 최신 버전으로 업데이트합니다.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -166,6 +167,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+[Azure Portal](https://portal.azure.com/)에서이 리소스를 볼 수도 있습니다. 브라우저에서 포털을 연 후에는 명령 앞부분에서 사용 된 리소스 이름 및 리소스 그룹 이름 입력을 기반으로 리소스 그룹 및 Azure Arc enabled Kubernetes 리소스로 이동 `az connectedk8s connect` 합니다.
+
 Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 소수의 연산자를 배포합니다. 이러한 배포 및 Pod는 다음에서 확인할 수 있습니다.
 
 ```console
@@ -203,18 +206,25 @@ Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 배포
 * `deployment.apps/metrics-agent`: 다른 Arc 에이전트의 메트릭을 수집하여 이러한 에이전트가 최적의 성능을 발휘하는지 확인합니다.
 * `deployment.apps/cluster-metadata-operator`: 클러스터 메타데이터 - 클러스터 버전, 노드 수 및 Arc 에이전트 버전을 수집합니다.
 * `deployment.apps/resource-sync-agent`: 위에서 언급한 클러스터 메타데이터를 Azure에 동기화합니다.
-* `deployment.apps/clusteridentityoperator`: 다른 에이전트가 Azure와 통신하기 위해 사용하는 MSI(관리 서비스 ID) 인증서를 유지 관리합니다.
+* `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes는 현재 시스템 할당 id를 지원 합니다. clusteridentityoperator는 다른 에이전트가 Azure와 통신 하기 위해 사용 하는 MSI (관리 서비스 id) 인증서를 유지 관리 합니다.
 * `deployment.apps/flux-logs-agent`: 원본 제어 구성의 일부로 배포된 Flux 연산자에서 로그를 수집합니다.
 
 ## <a name="delete-a-connected-cluster"></a>연결된 클러스터 삭제
 
 Azure CLI 또는 Azure Portal을 사용하여 `Microsoft.Kubernetes/connectedcluster` 리소스를 삭제할 수 있습니다.
 
-Azure CLI 명령은 Azure에서 `Microsoft.Kubernetes/connectedCluster` 리소스를 `az connectedk8s delete` 제거합니다. Azure CLI는 Azure에서 연결된 `sourcecontrolconfiguration` 리소스를 삭제합니다. Azure CLI는 helm uninstall을 사용하여 클러스터에서 에이전트를 제거합니다.
 
-Azure Portal은 Azure에서 `Microsoft.Kubernetes/connectedcluster` 리소스를 삭제하고 Azure에서 연결된 모든 `sourcecontrolconfiguration` 리소스를 삭제합니다.
+* **Azure CLI를 사용 하 여 삭제**: 다음 Azure CLI 명령을 사용 하 여 Azure Arc enabled Kubernetes 리소스의 삭제를 시작할 수 있습니다.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  그러면 `Microsoft.Kubernetes/connectedCluster` Azure에서 리소스 및 연결 된 모든 리소스가 제거 됩니다 `sourcecontrolconfiguration` . Azure CLI는 투구 제거를 사용 하 여 클러스터에서 실행 중인 에이전트도 제거 합니다.
 
-클러스터에서 에이전트를 제거하려면 `az connectedk8s delete` 또는 `helm uninstall azurearcfork8s`를 실행해야 합니다.
+* **Azure Portal 삭제**: Azure Portal azure Arc enabled Kubernetes 리소스를 삭제 하면 `Microsoft.Kubernetes/connectedcluster` azure에서 리소스 및 연결 된 모든 `sourcecontrolconfiguration` 리소스가 삭제 되지만 클러스터에서 실행 중인 에이전트는 삭제 되지 않습니다. 클러스터에서 실행 중인 에이전트를 삭제 하려면 다음 명령을 실행 합니다.
+
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 

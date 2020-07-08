@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS (Azure Kubernetes Service)에서 Windows Server 노드 풀 및 응용 프로그램 작업을 실행할 때 알려진 제한 사항에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339886"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -58,13 +58,26 @@ Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네�
 > 업데이트 된 Windows Server 이미지는 노드 풀을 업그레이드 하기 전에 클러스터 업그레이드 (제어 평면 업그레이드)를 수행한 경우에만 사용 됩니다.
 >
 
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>새 Windows 에이전트 풀을 만들려고 할 때 오류가 표시 되는 이유는 무엇 인가요?
+
+2 월 2020 일 전에 클러스터를 만든 후 클러스터 업그레이드 작업을 수행 하지 않은 경우 클러스터는 여전히 이전 Windows 이미지를 사용 합니다. 다음과 유사한 오류가 표시 될 수 있습니다.
+
+"배포 템플릿에서 참조 된 다음 이미지 목록을 찾을 수 없습니다. 게시자: MicrosoftWindowsServer, 제품: WindowsServer, Sku: 2019-smalldisk-2004, Version: 최신. https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage사용 가능한 이미지를 찾는 방법은를 참조 하십시오.
+
+이 문제를 해결하려면
+
+1. [클러스터 제어 평면][upgrade-cluster-cp]을 업그레이드 합니다. 그러면 이미지 제품 및 게시자가 업데이트 됩니다.
+1. 새 Windows 에이전트 풀을 만듭니다.
+1. Windows pod를 기존 Windows 에이전트 풀에서 새 Windows 에이전트 풀로 이동 합니다.
+1. 이전 Windows 에이전트 풀을 삭제 합니다.
+
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Windows 노드 풀에 대 한 서비스 사용자를 회전 어떻게 할까요??
 
 Windows 노드 풀은 서비스 사용자 회전을 지원 하지 않습니다. 서비스 주체를 업데이트 하기 위해 새 Windows 노드 풀을 만들고 이전 풀에서 새 풀로 pod을 마이그레이션합니다. 이 작업이 완료 되 면 이전 노드 풀을 삭제 합니다.
 
 ## <a name="how-many-node-pools-can-i-create"></a>만들 수 있는 노드 풀은 몇 개입니까?
 
-AKS 클러스터에는 최대 10 개의 노드 풀이 있을 수 있습니다. 이러한 노드 풀에서 최대 1000 노드를 사용할 수 있습니다. [노드 풀 제한][nodepool-limitations].
+AKS 클러스터에는 최대 10개의 노드 풀을 포함할 수 있습니다. 이러한 노드 풀에서 최대 1000 노드를 사용할 수 있습니다. [노드 풀 제한][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Windows 노드 풀의 이름을 지정할 수 있는 항목
 
@@ -72,7 +85,7 @@ AKS 클러스터에는 최대 10 개의 노드 풀이 있을 수 있습니다. �
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Windows 노드에서 모든 기능이 지원 되나요?
 
-네트워크 정책 및 kubenet 현재 Windows 노드에서 지원 되지 않습니다. 
+네트워크 정책 및 kubenet 현재 Windows 노드에서 지원 되지 않습니다.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Windows 노드에서 수신 컨트롤러를 실행할 수 있나요?
 
@@ -88,7 +101,7 @@ GMSA (그룹 관리 서비스 계정) 지원은 현재 AKS에서 사용할 수 �
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Windows 노드 및 컨테이너가 있는 컨테이너에 대 한 Azure Monitor를 사용할 수 있나요?
 
-예, Windows 컨테이너에서 로그 (stdout)를 수집 하지 Azure Monitor 수 있습니다. Windows 컨테이너에서 stdout 로그의 라이브 스트림에 계속 연결할 수 있습니다.
+예, Windows 컨테이너에서 로그 (stdout, stderr) 및 메트릭을 수집 하기 위한 공개 미리 보기 상태인 Azure Monitor 있습니다. Windows 컨테이너에서 stdout 로그의 라이브 스트림에 연결할 수도 있습니다.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>지원 되지 않는 기능이 필요한 경우 어떻게 하나요?
 
@@ -112,7 +125,10 @@ AKS에서 Windows Server 컨테이너를 시작 하려면 [AKS에서 Windows ser
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

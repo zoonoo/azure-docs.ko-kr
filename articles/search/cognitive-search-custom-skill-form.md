@@ -6,14 +6,14 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321309"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: 양식 인식기 사용자 지정 기술 만들기
 
@@ -43,9 +43,9 @@ ms.locfileid: "82792006"
 * `FORMS_RECOGNIZER_RETRY_DELAY`값이 1000로 설정 된입니다. 이 값은 프로그램에서 쿼리를 다시 시도 하기 전까지 대기 하는 시간 (밀리초)입니다.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS`값이 100로 설정 된입니다. 이 값은 성공적인 응답을 가져오는 동안 프로그램에서 서비스를 쿼리 하는 횟수입니다.
 
-그런 다음 _AnalyzeForm.cs_ 를 열고 `fieldMappings` *필드 매핑 json* 파일을 참조 하는 변수를 찾습니다. 이 파일 및이 파일을 참조 하는 변수는 양식에서 추출할 키 목록과 각 키에 대 한 사용자 지정 레이블을 정의 합니다. 예 `{ "Address:", "address" }, { "Invoice For:", "recipient" }` 를 들어 값이 이면 스크립트는 검색 `Address:` 된 필드와 `Invoice For:` 필드에 대 한 값만 저장 하 고 각각 및 `"address"` `"recipient"`로 해당 값에 레이블을 만듭니다.
+그런 다음 _AnalyzeForm.cs_ 를 열고 `fieldMappings` 파일 *의field-mappings.js* 를 참조 하는 변수를 찾습니다. 이 파일 및이 파일을 참조 하는 변수는 양식에서 추출할 키 목록과 각 키에 대 한 사용자 지정 레이블을 정의 합니다. 예를 들어 값이 이면 `{ "Address:", "address" }, { "Invoice For:", "recipient" }` 스크립트는 검색 된 필드와 필드에 대 한 값만 저장 하 `Address:` `Invoice For:` 고 각각 및로 해당 값에 레이블을 만듭니다 `"address"` `"recipient"` .
 
-마지막으로 `contentType` 변수를 확인 합니다. 이 스크립트는 URL에서 참조 하는 원격 문서에서 지정 된 폼 인식기 모델을 실행 하므로 콘텐츠 형식은 `application/json`입니다. HTTP 요청에 바이트 스트림을 포함 하 여 로컬 파일을 분석 하려는 경우를 파일의 적절 한 `contentType` [MIME 형식](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) 으로 변경 해야 합니다.
+마지막으로 변수를 확인 `contentType` 합니다. 이 스크립트는 URL에서 참조 하는 원격 문서에서 지정 된 폼 인식기 모델을 실행 하므로 콘텐츠 형식은 `application/json` 입니다. HTTP 요청에 바이트 스트림을 포함 하 여 로컬 파일을 분석 하려는 경우를 `contentType` 파일의 적절 한 [MIME 형식](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) 으로 변경 해야 합니다.
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio에서 함수 테스트
 
@@ -77,12 +77,12 @@ POST https://localhost:7071/api/analyze-form
 }
 ```
 
-여기서는 학습 한 폼과 동일한 형식의 URL을 제공 해야 합니다. 테스트 목적으로 학습 양식 중 하나를 사용할 수 있습니다. 말아 퀵 스타트를 수행 하면 양식이 Azure blob storage 계정에 배치 됩니다. Azure Storage 탐색기 열고 양식 파일을 찾아 마우스 오른쪽 단추로 클릭 하 고 **공유 액세스 서명 가져오기**를 선택 합니다. 다음 대화 상자 창에 URL 및 SAS 토큰이 제공 됩니다. 요청 본문의 `"formUrl"` 및 `"formSasToken"` 필드에 이러한 문자열을 각각 입력 합니다.
+여기서는 학습 한 폼과 동일한 형식의 URL을 제공 해야 합니다. 테스트 목적으로 학습 양식 중 하나를 사용할 수 있습니다. 말아 퀵 스타트를 수행 하면 양식이 Azure blob storage 계정에 배치 됩니다. Azure Storage 탐색기 열고 양식 파일을 찾아 마우스 오른쪽 단추로 클릭 하 고 **공유 액세스 서명 가져오기**를 선택 합니다. 다음 대화 상자 창에 URL 및 SAS 토큰이 제공 됩니다. `"formUrl"` `"formSasToken"` 요청 본문의 및 필드에 이러한 문자열을 각각 입력 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![Azure storage 탐색기 pdf 문서를 선택 합니다.](media/cognitive-search-skill-form/form-sas.png)
 
-Azure blob storage에 없는 원격 문서를 분석 하려면 `"formUrl"` 필드에 해당 URL을 붙여넣고 필드를 `"formSasToken"` 비워 둡니다.
+Azure blob storage에 없는 원격 문서를 분석 하려면 필드에 해당 URL을 붙여넣고 `"formUrl"` `"formSasToken"` 필드를 비워 둡니다.
 
 > [!NOTE]
 > 기술이 기술에 통합 된 경우 URL 및 토큰은 Cognitive Search에서 제공 됩니다.
@@ -111,15 +111,15 @@ Azure blob storage에 없는 원격 문서를 분석 하려면 `"formUrl"` 필�
 
 함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
-1. Visual Studio의 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **새로** > 만들기**게시**를 선택 합니다.
+1. Visual Studio의 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **새로 만들기**  >  **게시**를 선택 합니다.
 1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
-1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 합니다. 새 리소스 그룹, 새 호스팅 계획 및 새 저장소 계정 (아직 없는 경우)을 만들 수 있습니다. 완료 되 면 **만들기**를 선택 합니다.
+1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 합니다. 새 리소스 그룹, 새 호스팅 계획 및 새 저장소 계정 (아직 없는 경우)을 만들 수 있습니다. 작업이 완료되면 **만들기**를 선택합니다.
 1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 함수 앱의 주소입니다. 임시 위치에 저장 합니다.
-1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 `AnalyzeForm` 함수를 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. *기본* 호스트 키를 복사 하 여 임시 위치에 저장 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 함수를 찾습니다 `AnalyzeForm` . **관리** 섹션 아래에 호스트 키가 표시됩니다. *기본* 호스트 키를 복사 하 여 임시 위치에 저장 합니다.
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
 
-Cognitive Search 파이프라인에서이 기술을 사용 하려면 기술 정의를 기술에 추가 해야 합니다. 다음 JSON 블록은 샘플 기술 정의입니다. 특정 시나리오와 기술 환경을 반영 하기 위해 입력 및 출력을 업데이트 해야 합니다. 를 `AzureFunctionEndpointUrl` 함수 URL로 바꾸고을 호스트 키 `AzureFunctionDefaultHostKey` 로 바꿉니다.
+Cognitive Search 파이프라인에서이 기술을 사용 하려면 기술 정의를 기술에 추가 해야 합니다. 다음 JSON 블록은 샘플 기술 정의입니다. 특정 시나리오와 기술 환경을 반영 하기 위해 입력 및 출력을 업데이트 해야 합니다. 를 `AzureFunctionEndpointUrl` 함수 URL로 바꾸고을 `AzureFunctionDefaultHostKey` 호스트 키로 바꿉니다.
 
 ```json
 { 

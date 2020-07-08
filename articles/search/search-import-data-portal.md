@@ -1,19 +1,19 @@
 ---
 title: Azure Portal를 사용 하 여 검색 인덱스로 데이터 가져오기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 스토리지, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
+description: Azure Portal에서 데이터 가져오기 마법사를 사용 하 여 azure Vm의 Cosmos DB, Blob storage, table storage, SQL Database, SQL Managed Instance 및 SQL Server에서 Azure 데이터를 크롤링하는 방법에 대해 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321384"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 데이터 가져오기 마법사
 
@@ -61,12 +61,12 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
 마법사를 실행 하기 전에이 단일 테이블이 나 뷰를 만든 다음 내용을 포함 해야 합니다. 명확한 이유 때문에 빈 데이터 원본에서 **데이터 가져오기** 마법사를 실행 하는 것은 적합 하지 않습니다.
 
-|  선택 | Description |
+|  선택 영역 | 설명 |
 | ---------- | ----------- |
 | **기존 데이터 원본** |검색 서비스에 이미 인덱서가 정의 되어 있는 경우 다시 사용할 수 있는 기존 데이터 원본 정의가 있을 수 있습니다. Azure Cognitive Search에서 데이터 원본 개체는 인덱서 에서만 사용 됩니다. 데이터 원본 개체를 프로그래밍 방식으로 만들거나 **데이터 가져오기** 마법사를 통해 만든 다음 필요에 따라 다시 사용할 수 있습니다.|
 | **샘플**| Azure Cognitive Search는 자습서 및 빠른 시작에서 사용 되는 두 개의 기본 제공 샘플 데이터 원본 (부동산 SQL 데이터베이스 및 Cosmos DB에 호스트 된 호텔 데이터베이스)을 제공 합니다. 호텔 샘플을 기반으로 하는 연습은 Azure Portal 빠른 시작 [에서 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요. |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |읽기 권한이 포함된 데이터베이스 사용자에 대한 서비스 이름, 자격 증명 및 데이터베이스 이름은 페이지에 또는 ADO.NET 연결 문자열을 통해 지정될 수 있습니다. 연결 문자열 옵션을 선택하여 속성을 보거나 사용자 지정합니다. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다.|
-| **Azure VM에서 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 지침은 [Azure Cognitive Search에 대 한 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조 하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
+| [**Azure SQL Database 또는 SQL Managed Instance**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |읽기 권한이 포함된 데이터베이스 사용자에 대한 서비스 이름, 자격 증명 및 데이터베이스 이름은 페이지에 또는 ADO.NET 연결 문자열을 통해 지정될 수 있습니다. 연결 문자열 옵션을 선택하여 속성을 보거나 사용자 지정합니다. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다.|
+| **Azure VM의 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 지침은 [Azure Cognitive Search에 대 한 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조 하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|요구 사항은 계정, 데이터베이스 및 컬렉션을 포함합니다. 컬렉션의 모든 문서는 인덱스에 포함됩니다. 행 집합을 평면화 또는 필터링 하는 쿼리를 정의 하거나 쿼리를 비워 둘 수 있습니다. 이 마법사에서는 쿼리가 필요 하지 않습니다.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |요구 사항은 스토리지 계정 및 컨테이너를 포함합니다. 필요에 따라 그룹화 목적으로 Blob 이름이 가상 명명 규칙을 따르는 경우 이름의 가상 디렉터리 부분을 컨테이너의 폴더로 지정할 수 있습니다. 자세한 내용은 [Blob Storage 인덱싱](search-howto-indexing-azure-blob-storage.md)을 참조하세요. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |요구 사항은 스토리지 계정 및 테이블 이름을 포함합니다. 필요에 따라 쿼리를 지정하여 테이블의 하위 집합을 검색할 수 있습니다. 자세한 내용은 [Table Storage 인덱싱](search-howto-indexing-azure-tables.md)을 참조하세요. |
@@ -78,7 +78,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 | Object | Description | 
 |--------|-------------|
 | [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 자격 증명을 포함 하 여 원본 데이터에 대 한 연결 정보를 유지 합니다. 데이터 원본 개체는 인덱서에 독점적으로 사용 됩니다. | 
-| [인덱스](https://docs.microsoft.com/rest/api/searchservice/create-index) | 전체 텍스트 검색 및 기타 쿼리에 사용 되는 실제 데이터 구조입니다. | 
+| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | 전체 텍스트 검색 및 기타 쿼리에 사용 되는 실제 데이터 구조입니다. | 
 | [기술 집합](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | 이미지 파일의 정보를 분석 하 고 추출 하는 것을 포함 하 여 콘텐츠를 조작, 변형 및 셰이핑 하기 위한 전체 지침을 포함 합니다. 매우 간단 하 고 제한 된 구조체를 제외 하 고 보강를 제공 하는 Cognitive Services 리소스에 대 한 참조를 포함 합니다. 필요에 따라 기술 자료 저장소 정의가 포함 될 수도 있습니다.  | 
 | [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | 오류 처리 및 64 인코딩에 대 한 데이터 원본, 대상 인덱스, 선택적 기술, 선택적 일정 및 선택적 구성 설정을 지정 하는 구성 개체입니다. |
 
@@ -93,7 +93,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
    ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
-Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Cognitive Search 추가** 를 찾습니다.
+Azure Cosmos DB, Azure SQL Database, SQL Managed Instance 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Cognitive Search 추가** 를 찾습니다.
 
 <a name="index-definition"></a>
 
@@ -105,7 +105,7 @@ Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 
 
 1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Cognitive Search는 [EDM (엔터티 데이터 모델) 데이터 형식을](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
 
-1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우이 될 수 있습니다 `metadata-storage-path`. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
+1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우이 될 수 있습니다 `metadata-storage-path` . 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
 
 1. 특성을 설정 하 여 인덱스에서 필드가 사용 되는 방법을 결정 합니다. 
 

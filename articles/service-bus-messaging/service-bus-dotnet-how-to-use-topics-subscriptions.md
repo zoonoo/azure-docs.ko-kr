@@ -1,25 +1,15 @@
 ---
 title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
 description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 애플리케이션을 작성합니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/27/2019
-ms.author: aschhab
-ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74560106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337524"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -75,7 +65,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     static ITopicClient topicClient;
     ``` 
 
-3. 메서드를 `Main()` 다음 단계에서 추가할 SendMessagesAsync 메서드를 사용 하 여 비동기적으로 메시지를 보내는 다음 **비동기** `Main` 메서드로 바꿉니다. 
+3. 메서드를 다음 `Main()` **async** `Main` 단계에서 추가할 SendMessagesAsync 메서드를 사용 하 여 비동기적으로 메시지를 보내는 다음 비동기 메서드로 바꿉니다. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -210,7 +200,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. 메서드를 `Main()` 다음 **비동기** `Main` 메서드로 바꿉니다. 다음 단계에서 `RegisterOnMessageHandlerAndReceiveMessages()` 추가할 메서드를 호출 합니다. 
+3. 메서드를 `Main()` 다음 **비동기** `Main` 메서드로 바꿉니다. `RegisterOnMessageHandlerAndReceiveMessages()`다음 단계에서 추가할 메서드를 호출 합니다. 
 
     ```csharp
     public static async Task Main(string[] args)

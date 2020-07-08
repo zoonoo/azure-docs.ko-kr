@@ -1,26 +1,14 @@
 ---
 title: Azure Service Bus 진단 로그 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
-keywords: ''
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618722"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337534"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
@@ -37,7 +25,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| 속성 | Description |
+| 이름 | Description |
 | ------- | ------- |
 | ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
 | EventName | 작업 이름 |
@@ -74,7 +62,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 다음 관리 작업은 작업 로그에 캡처됩니다. 
 
-| 범위 | 작업(Operation)|
+| Scope | 연산|
 |-------| -------- |
 | 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임 스페이스 SharedAccess 정책 업데이트 </li> </ul> | 
 | 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 삭제 큐 자동 삭제 </li> </ul> | 
@@ -98,9 +86,9 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 1. 다음을 수행 하 여 진단 설정을 구성 합니다.
 
-   a. **이름** 상자에 진단 설정의 이름을 입력 합니다.  
+   a. **이름** 상자에 진단 설정의 이름을 입력합니다.  
 
-   b. 진단 로그에 대해 다음 세 대상 중 하나를 선택 합니다.  
+   b. 진단 로그에 다음 세 가지 대상 중 하나를 선택합니다.  
    - **저장소 계정에 보관**을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
    - **이벤트 허브로 스트림**을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
    - **Log Analytics 보내기를**선택 하는 경우 진단이 전송 될 Log Analytics 인스턴스를 지정 해야 합니다.  
@@ -111,9 +99,9 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 1. **저장**을 선택합니다.
 
-새 설정은 약 10 분 후에 적용 됩니다. 로그는 구성 된 보관 대상의 **진단 로그** 창에 표시 됩니다.
+새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다.
 
-진단 설정을 구성 하는 방법에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조 하세요.
+진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

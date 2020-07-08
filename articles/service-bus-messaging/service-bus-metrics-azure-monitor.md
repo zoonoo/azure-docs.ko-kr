@@ -1,20 +1,14 @@
 ---
 title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-ms.openlocfilehash: f2f3c8113fb89a41b1a22567b4e5ca0085353689
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340280"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 

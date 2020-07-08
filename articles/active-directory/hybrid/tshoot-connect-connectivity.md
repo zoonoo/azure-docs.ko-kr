@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356409"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -44,7 +44,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 이러한 URL 중 다음 표는 Azure AD에 연결하기 위한 절대적인 최소 기본 사항입니다. 이 목록은 비밀번호 쓰기 저장 또는 Azure AD Connect Health와 같은 선택적 기능은 포함하지 않습니다. 여기에 초기 구성 시 발생하는 문제 해결에 도움이 되는 내용이 나와 있습니다.
 
-| URL | 포트 | 설명 |
+| URL | 포트 | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
 | \*.verisign.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
@@ -70,13 +70,13 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 ![Microsoft 계정이 사용됨](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 엔드포인트에 연결할 수 없음
-이 오류는 끝점 **https://secure.aadcdn.microsoftonline-p.com** 에 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
+이 오류는 끝점에 **https://secure.aadcdn.microsoftonline-p.com** 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com**이 프록시에 추가되어 있는지 확인합니다.
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
-설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
+설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![ 잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 `https://login.microsoftonline.com`에 로그인하여 계정이 사용 가능한지 확인합니다.
 
@@ -93,10 +93,10 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| Error | 오류 텍스트 | 설명 |
+| Error | 오류 텍스트 | 의견 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
-| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 machine.config에서이 설정이 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
+| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우이 설정이 machine.config에 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
 
 ### <a name="proxy-idle-timeout-setting"></a>프록시 유휴 시간 제한 설정
 Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 응답을 생성하기 전에 요청을 처리하는 데 최대 5분이 소요될 수 있습니다. 대규모 그룹 구성원이 동일한 내보내기 요청에 포함되어 있는 그룹 개체가 많이 있을 때 특히 이러한 처리 시간이 오래 걸릴 수 있습니다. 프록시 유휴 시간 제한을 5분보다 크게 구성해야 합니다. 그렇지 않은 경우 Azure AD Connect 서버에서 Azure AD와의 간헐적 연결 문제가 확인될 수 있습니다.
@@ -113,7 +113,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 
 **Azure에 연결**
 
-| 시간 | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 
 **구성**
 
-| 시간 | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 
 **초기 동기화**
 
-| 시간 | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

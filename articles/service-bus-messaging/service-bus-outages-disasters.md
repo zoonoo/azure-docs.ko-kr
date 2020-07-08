@@ -1,20 +1,14 @@
 ---
 title: 작동 중단 및 재해 로부터 Azure Service Bus 응용 프로그램 방지
 description: 이 문서에서는 잠재적인 Azure Service Bus 중단 으로부터 응용 프로그램을 보호 하는 기술을 제공 합니다.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 06/23/2020
+ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339656"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 
@@ -95,7 +89,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
-[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure SQL Database Business Continuity]:../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
 
 [1]: ./media/service-bus-outages-disasters/az.png

@@ -1,24 +1,14 @@
 ---
-title: Azure 릴레이란? | Microsoft Docs
+title: Azure 릴레이란? | Microsoft 문서
 description: 이 문서에서는 Azure Relay 서비스에 대한 개요를 제공합니다. 이 서비스를 사용하면 방화벽 연결을 열거나 네트워크 인프라를 강제로 변경하지 않고도 회사 네트워크에서 실행되는 온-프레미스 서비스를 사용하는 클라우드 애플리케이션을 개발할 수 있습니다.
-services: service-bus-relay
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322650"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 

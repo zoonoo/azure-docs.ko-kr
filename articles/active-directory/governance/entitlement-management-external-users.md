@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338221"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 외부 사용자에 대 한 액세스 제어
 
@@ -103,13 +103,13 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 - 사이트 수준 설정에서 게스트 액세스를 사용할 수 있는지 확인 합니다 (이전에 나열 된 것과 동일한 옵션 선택). 자세한 내용은 [사이트의 외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/change-external-sharing-site)를 참조 하세요.
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Office 365 그룹 공유 설정 검토
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Microsoft 365 그룹 공유 설정 검토
 
-- 외부 사용자에 대 한 액세스 패키지에 Office 365 그룹을 포함 하려는 경우 게스트 **액세스를 허용 하도록** **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Office 365 그룹에 대 한 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)를 참조 하세요.
+- 외부 사용자에 대 한 액세스 패키지에 Microsoft 365 그룹을 포함 하려면 게스트 **액세스를 허용** 하도록 **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Microsoft 365 그룹에 대 한 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)를 참조 하세요.
 
-- 외부 사용자가 SharePoint Online 사이트 및 Office 365 그룹에 연결 된 리소스에 액세스할 수 있도록 하려면 SharePoint Online 외부 공유를 설정 해야 합니다. 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
+- 외부 사용자가 SharePoint Online 사이트 및 Microsoft 365 그룹에 연결 된 리소스에 액세스할 수 있게 하려면 SharePoint Online 외부 공유를 설정 해야 합니다. 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
 
-- PowerShell의 디렉터리 수준에서 Office 365 그룹에 대 한 게스트 정책을 설정 하는 방법에 대 한 자세한 내용은 [예제: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level)을 참조 하세요.
+- PowerShell의 디렉터리 수준에서 Microsoft 365 그룹에 대 한 게스트 정책을 설정 하는 방법에 대 한 자세한 내용은 [예제: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level)을 참조 하세요.
 
 ### <a name="review-your-teams-sharing-settings"></a>팀 공유 설정 검토
 

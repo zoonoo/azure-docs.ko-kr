@@ -1,19 +1,14 @@
 ---
 title: Azure Service Bus - 메시징 단위 자동 업데이트
 description: 이 문서에서는 Azure Automation Runbook을 사용하여 Service Bus 네임스페이스의 메시징 단위를 자동으로 업데이트하는 방법을 보여 줍니다.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 5ece7beaea709c9b1e52cf2130484663da0aa4ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341491"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Azure Service Bus 네임스페이스의 메시징 단위 자동 업데이트 
 이 문서에서는 리소스(CPU 또는 메모리) 사용량에 따라 Service Bus 네임스페이스의 [메시징 단위](service-bus-premium-messaging.md)를 자동으로 업데이트하는 방법을 보여 줍니다. 
@@ -75,10 +70,10 @@ ms.locfileid: "83663101"
         if ($schemaId -eq "AzureMonitorMetricAlert") {
 
             # Get the resource group name from the alert context
-            $resourceGroupName = $AlertContext.resourceGroupName
+            $resourceGroupName = $WebhookBody.resourceGroupName
             
             # Get the namespace name from the alert context
-            $namespaceName = $AlertContext.resourceName
+            $namespaceName = $WebhookBody.resourceName
         }
     }
     

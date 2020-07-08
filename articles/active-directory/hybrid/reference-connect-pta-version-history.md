@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81379913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356307"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD 통과 인증 에이전트: 버전 릴리스 기록 
  
@@ -30,7 +30,7 @@ ms.locfileid: "81379913"
 
 ## <a name="1517420"></a>1.5.1742.0
 ### <a name="release-status"></a>릴리스 상태: 
-04/09/2020: 다운로드를 위해 릴리스 됨
+2020년 4월 9일: 다운로드용으로 릴리스됨
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 

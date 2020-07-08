@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322305"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
@@ -29,7 +29,7 @@ Azure Front 도어를 사용 하 여 다음과 같은 방법으로 리소스를 
 
 메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대 한 기능입니다. 다음은 사용 가능한 전방 도어 메트릭입니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | Description |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | 설명 |
 | --- | --- | --- | --- | --- |
 | RequestCount | 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
@@ -73,33 +73,34 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 앞 도어는 현재 진단 로그 (일괄 처리 시간)를 제공 합니다. 진단 로그는 각 항목에 대해 다음 스키마를 갖는 개별 API 요청을 제공 합니다.
 
-| 속성  | Description |
+| 속성  | 설명 |
 | ------------- | ------------- |
 | BackendHostname | 요청을 백 엔드에 전달 하는 경우이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션 되었거나 지역 캐시로 전달 된 경우 (라우팅 규칙에 캐싱이 설정 된 경우)이 필드는 비어 있습니다. |
 | CacheStatus | 캐싱 시나리오의 경우이 필드는 POP에서 캐시 적중/누락을 정의 합니다. |
 | ClientIp | 요청한 클라이언트의 IP 주소입니다. 요청에 X로 전달 된 헤더가 있는 경우 클라이언트 IP는 동일한에서 선택 됩니다. |
 | ClientPort | 요청을 수행한 클라이언트의 IP 포트입니다. |
 | HttpMethod | 요청에서 사용된 HTTP 메서드 |
-| HttpStatusCode | 프록시에서 반환 된 HTTP 상태 코드입니다. |
-| HttpStatusDetails | 요청에 대 한 결과 상태입니다. 이 문자열 값의 의미는 상태 참조 테이블에서 찾을 수 있습니다. |
+| HttpStatusCode | 프록시에서 반환된 HTTP 상태 코드입니다. |
+| HttpStatusDetails | 요청의 결과 상태입니다. 이 문자열 값의 의미는 상태 참조 테이블에서 찾을 수 있습니다. |
 | HttpVersion | 요청 또는 연결의 유형입니다. |
 | POP | 요청이 배치는 가장자리의 짧은 이름입니다. |
-| RequestBytes | 요청 헤더 및 요청 본문을 포함 하 여 HTTP 요청 메시지의 크기 (바이트)입니다. |
+| RequestBytes | 요청 헤더 및 요청 본문을 포함하여 HTTP 요청 메시지의 크기(바이트)입니다. |
 | RequestUri | 받은 요청의 URI |
 | ResponseBytes | 백 엔드 서버에서 응답으로 보낸 바이트 수입니다.  |
 | RoutingRuleName | 요청이 일치 하는 라우팅 규칙의 이름입니다. |
-| SecurityProtocol | 요청에 사용 되는 TLS/SSL 프로토콜 버전 이거나, 암호화가 없는 경우 null입니다. |
+| RulesEngineMatchNames | 요청에서 일치 하는 규칙의 이름입니다. |
+| SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. |
 | SentToOriginShield | 첫 번째 환경에 캐시 누락이 있고 요청이 지역 캐시로 전송 되었는지 여부를 나타내는 부울 필드입니다. 라우팅 규칙이 리디렉션 이거나 캐싱이 설정 되지 않은 경우이 필드를 무시 합니다. |
-| TimeTaken | 작업에 걸린 시간 (밀리초)입니다. |
-| TrackingReference | 프런트 도어에서 제공 하는 요청을 식별 하는 고유한 참조 문자열로, 클라이언트에 대 한 X-y 헤더로도 전송 됩니다. 특정 요청에 대 한 액세스 로그에서 세부 정보를 검색 하는 데 필요 합니다. |
-| UserAgent | 클라이언트에서 사용 하는 브라우저 유형입니다. |
+| TimeTaken | 작업에 걸린 시간(밀리초)입니다. |
+| TrackingReference | Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열로, 클라이언트에 X-Azure-Ref 헤더로 전송됩니다. 특정 요청의 액세스 로그에서 세부 정보를 검색하는 데 필요합니다. |
+| UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
 
 **참고:** 다양 한 라우팅 구성 및 트래픽 동작의 경우 backendHostname, cacheStatus, sentToOriginShield 및 POP 필드와 같은 일부 필드는 다른 값으로 응답할 수 있습니다. 아래 표에서는 다양 한 값을 설명 하 고 이러한 필드는 다양 한 시나리오에 대해 설명 합니다.
 
 | 시나리오 | 로그 항목 수 | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | False | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | 비어 있음 | False | 리 |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | False | 리 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 캐시 POP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
 

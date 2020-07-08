@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322623"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 아티클 |
@@ -288,7 +288,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | N/A, SQL 버전 - V12 |
-| **참조**              | [Azure SQL 데이터베이스 방화벽을 구성하는 방법](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [데이터베이스 엔진 액세스에 대한 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms175043) |
+| **참조**              | [Azure SQL Database 방화벽을 구성 하는 방법](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/) [데이터베이스 엔진 액세스를 위해 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms175043) |
 | **단계** | 방화벽 시스템은 컴퓨터 리소스에 대한 무단 액세스를 방지합니다. 방화벽을 통해 SQL Server 데이터베이스 엔진의 인스턴스에 액세스하려면 SQL Server를 실행하는 컴퓨터의 방화벽에서 액세스를 허용하도록 구성해야 합니다. |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>ASP.NET Web API에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인

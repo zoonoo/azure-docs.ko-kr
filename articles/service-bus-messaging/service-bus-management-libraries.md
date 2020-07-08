@@ -1,25 +1,15 @@
 ---
 title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사용 하 여 Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 하는 방법을 설명 합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e1531d9b70860f498a3e38305f26eb862c9513f3
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.date: 06/23/2020
+ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341708"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 

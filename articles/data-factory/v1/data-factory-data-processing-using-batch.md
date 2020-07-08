@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321408"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -38,8 +38,8 @@ Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실�
 
  Batch에 대해 잘 모르는 경우 다음 문서를 통해 이 문서에 설명된 솔루션의 아키텍처/구현을 이해할 수 있습니다.   
 
-* [Batch의 기본 사항](../../batch/batch-technical-overview.md)
-* [Batch 기능 개요](../../batch/batch-api-basics.md)
+* [Batch의 기본 사항](../../azure-sql/database/sql-database-paas-overview.md)
+* [Batch 기능 개요](../../batch/batch-service-workflow-features.md)
 
 필요에 따라 Batch에 대해 자세히 알아보려면 [Batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조하세요.
 
@@ -578,7 +578,7 @@ test custom activity Microsoft test custom activity Microsoft
    d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
+      > **Batch 계정** 블레이드의 URL 형식은 \<accountname\> 다음과 같습니다.. \<region\> batch.azure.com. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
       >
       >
 
@@ -793,9 +793,9 @@ test custom activity Microsoft test custom activity Microsoft
 
    * 파이프라인에는 **DotNetActivity** 형식인 하나의 작업만이 있습니다.
    * **AssemblyName**은 DLL **MyDotNetActivity.dll** 이름으로 설정합니다.
-   * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
+   * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 \<namespace\> 입니다.\<classname\> 코드에서
    * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 스토리지 계정을 사용한다고 가정합니다.
-   * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
+   * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. 형식 \<containerforthezip\> / \<nameofthezip.zip\> 입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService**를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.
    * **동시성** 설정은 중요합니다. Batch 풀에 2개 이상의 컴퓨팅 노드가 있더라도 기본값(1)을 사용하는 경우 조각은 차례로 처리됩니다. 따라서 Batch의 병렬 처리 기능을 활용하지 못합니다. **동시성**을 더 높은 값, 예를 들어 2로 설정한 경우 2조각(Batch에서 2개의 작업에 해당)은 동시에 처리될 수 있습니다. 이 경우에 Batch 풀의 두 VM이 모두 활용됩니다. 동시성 속성을 적절하게 설정합니다.
@@ -925,7 +925,7 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
    >
 1. 사용자 지정 작업은 패키지에서 **app.config** 파일을 사용하지 않습니다. 따라서 코드가 구성 파일에서 연결 문자열을 읽는 경우 런타임 시 작동하지 않습니다. Batch를 사용하는 경우 모범 사례는 Azure Key Vault에서 암호를 보유하는 것입니다. 그런 다음 인증서 기반 서비스 주체를 사용하여 키 자격 증명 모음을 보호하고 인증서를 Batch 풀에 배포합니다. .NET 사용자 지정 활동은 런타임에 키 자격 증명 모음의 암호에 액세스할 수 있습니다. 이 일반 솔루션은 연결 문자열뿐 아니라 모든 형식의 암호로 확장될 수 있습니다.
 
-    쉬운 해결 방법이 있지만 가장 좋은 방법은 아닙니다. 연결 문자열 설정을 사용하여 SQL 데이터베이스 연결된 서비스를 만들 수 있습니다. 그런 다음, 연결된 서비스를 사용하는 데이터 세트를 만들고 사용자 지정 .NET 작업에 더미 입력 데이터 세트로 데이터 세트를 연결할 수 있습니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 런타임 시 제대로 작동해야 합니다.  
+    쉬운 해결 방법이 있지만 가장 좋은 방법은 아닙니다. 연결 문자열 설정을 사용 하 여 SQL Database 연결 된 서비스를 만들 수 있습니다. 그런 다음, 연결된 서비스를 사용하는 데이터 세트를 만들고 사용자 지정 .NET 작업에 더미 입력 데이터 세트로 데이터 세트를 연결할 수 있습니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 런타임 시 제대로 작동해야 합니다.  
 
 #### <a name="extend-the-sample"></a>샘플 확장
 Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플을 확장할 수 있습니다. 예를 들어 서로 다른 시간 범위에서 조각을 처리하려면 다음 단계를 수행합니다.
@@ -972,8 +972,8 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
   * [Data Factory 파이프라인에서 사용자 지정 작업 사용](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
-  * [Batch 기능 개요](../../batch/batch-api-basics.md)
+  * [Batch의 기본 사항](../../azure-sql/database/sql-database-paas-overview.md)
+  * [일괄 처리 기능 개요](../../batch/batch-service-workflow-features.md)
   * [Azure Portal에서 Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)
   * [.NET용 Batch 클라이언트 라이브러리 시작](../../batch/quick-run-dotnet.md)
 

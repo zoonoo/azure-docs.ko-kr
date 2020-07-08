@@ -7,18 +7,18 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: charwen
-ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4782213b38ad9e265cc66c3073dc5f357c50561
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321647"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
-Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사용할 수 있습니다. 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조 하세요. 
+Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사용할 수 있습니다. 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조 하세요.
 
-![Architecture](./media/bastion-nsg/nsg-architecture.png)
+:::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
 이 다이어그램에서
 

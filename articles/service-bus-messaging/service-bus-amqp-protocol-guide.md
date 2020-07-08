@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337890"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -88,7 +77,7 @@ TCP를 통해 AMQP 연결을 사용 하는 클라이언트에는 로컬 방화�
 
 ![대상 포트 목록][4]
 
-이러한 포트가 방화벽에 의해 차단 되는 경우 .NET 클라이언트는 SocketException ("해당 액세스 권한으로 인해 사용할 수 없는 방식으로 소켓에 액세스 하려고 시도 했습니다.")과 함께 실패 합니다. 연결할 문자열에서을 설정 `EnableAmqpLinkRedirect=false` 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다. 이렇게 하면 클라이언트가 포트 5671을 통해 원격 서비스와 통신 하 게 됩니다.
+이러한 포트가 방화벽에 의해 차단 되는 경우 .NET 클라이언트는 SocketException ("해당 액세스 권한으로 인해 사용할 수 없는 방식으로 소켓에 액세스 하려고 시도 했습니다.")과 함께 실패 합니다. 연결할 문자열에서을 설정 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다 `EnableAmqpLinkRedirect=false` . 이렇게 하면 클라이언트가 포트 5671을 통해 원격 서비스와 통신 하 게 됩니다.
 
 
 ### <a name="links"></a>링크
@@ -217,9 +206,9 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 애플리케이션이 정의해야 하는 모든 속성은 AMQP의 `application-properties` 맵에 매핑되어야 합니다.
 
-#### <a name="header"></a>머리글
+#### <a name="header"></a>header
 
-| 필드 이름 | 사용 | API 이름 |
+| 필드 이름 | 사용량 | API 이름 |
 | --- | --- | --- |
 | 지속성 |- |- |
 | priority |- |- |
@@ -229,11 +218,11 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="properties"></a>properties
 
-| 필드 이름 | 사용 | API 이름 |
+| 필드 이름 | 사용량 | API 이름 |
 | --- | --- | --- |
-| message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[있어](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[받는 사람](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[수행할 작업](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[레이블](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -249,7 +238,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`로 전달되는 다른 서비스 버스 메시지 속성이 몇 개 있습니다.
 
-| 주석 맵 키 | 사용 | API 이름 |
+| 주석 맵 키 | 사용량 | API 이름 |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -298,7 +287,7 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 #### <a name="sending-a-message-in-a-transaction"></a>트랜잭션에서 메시지 전송
 
-모든 트랜잭션 작업은 트랜잭션 배달 상태를 사용 하 `transactional-state` 여 트랜잭션 배달 상태를 전달 합니다. 메시지를 보내는 경우 트랜잭션 상태는 메시지의 전송 프레임에 의해 전달 됩니다. 
+모든 트랜잭션 작업은 트랜잭션 배달 상태를 사용 하 여 트랜잭션 배달 상태를 `transactional-state` 전달 합니다. 메시지를 보내는 경우 트랜잭션 상태는 메시지의 전송 프레임에 의해 전달 됩니다. 
 
 | 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
 | --- | --- | --- |
@@ -337,9 +326,9 @@ AMQP 관리 사양은 이 문서에서 설명하는 초안 확장 중 첫 번째
 | 논리 연산 | 클라이언트 | Service Bus |
 | --- | --- | --- |
 | 요청 응답 경로 만들기 |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |작업 없음 |
-| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name = {*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
 | 요청 응답 경로 만들기 |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
-| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
+| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name = {*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 링크 쌍이 배치되면 요청/응답 구현은 간단합니다. 요청은 이 패턴을 파악하는 메시징 인프라 내부의 엔터티로 전송되는 메시지입니다. 해당 요청 메시지에서 *속성* 섹션의 *회신* 필드가 응답을 전달할 링크의 *대상* 식별자로 설정됩니다. 처리 엔터티에서는 요청을 처리한 다음 해당 *대상* 식별자가 지정된 *회신* 식별자와 일치하는 링크를 통해 회신을 전달합니다.
 
@@ -368,16 +357,16 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
-| 키 | Optional | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| operation(작업) |아니요 |string |**put-token** |
-| type |아니요 |string |배치되는 토큰의 형식입니다. |
-| name |아니요 |string |토큰이 적용되는 "대상"입니다. |
+| operation(작업) |예 |문자열 |**put-token** |
+| 형식 |예 |문자열 |배치되는 토큰의 형식입니다. |
+| name |예 |문자열 |토큰이 적용되는 "대상"입니다. |
 | expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식 | 토큰 설명 | 본문 형식 | 메모 |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
 | amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
@@ -387,10 +376,10 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
-| 키 | Optional | 값 형식 | 값 내용 |
+| Key | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
-| status-description |예 |string |상태에 대한 설명입니다. |
+| status-description |예 |문자열 |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
 

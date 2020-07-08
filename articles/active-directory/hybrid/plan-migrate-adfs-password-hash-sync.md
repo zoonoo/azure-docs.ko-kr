@@ -7,28 +7,32 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fe9fe10b66aa6eb5fcdaafbf8e0132918e9645c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76028401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356682"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
 이 문서에서는 조직 도메인을 AD FS(Active Directory Federation Services)에서 암호 해시 동기화로 전환하는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> 인증 방법을 변경 하려면 계획, 테스트 및 잠재적 가동 중지 시간이 필요 합니다. [스테이징 된 롤아웃](how-to-connect-staged-rollout.md) 은 암호 해시 동기화를 사용 하 여 페더레이션에서 클라우드 인증으로 테스트 하 고 점진적으로 마이그레이션하는 대체 방법을 제공 합니다.
+> 인증 방법을 변경하려면 계획, 테스트, 경우에 따라 가동 중지 시간이 필요합니다. [스테이징 된 롤아웃](how-to-connect-staged-rollout.md) 은 암호 해시 동기화를 사용 하 여 페더레이션에서 클라우드 인증으로 테스트 하 고 점진적으로 마이그레이션하는 대체 방법을 제공 합니다.
+>
+> 단계적 출시를 사용 하려는 경우에는 롤아웃이 완료 되 면 준비 된 롤아웃 기능을 해제 해야 합니다.  자세한 내용은 준비 된 [롤아웃을 사용 하 여 클라우드 인증으로 마이그레이션을](how-to-connect-staged-rollout.md) 참조 하세요.
+
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>암호 해시 동기화로 마이그레이션하기 위한 필수 조건
 
 AD FS 사용에서 암호 해시 동기화 사용으로 마이그레이션하는 데 필요한 필수 조건은 다음과 같습니다.
+
 
 ### <a name="update-azure-ad-connect"></a>Azure AD Connect 업데이트
 
@@ -100,7 +104,7 @@ Azure AD Connect는 기본 설정 또는 사용자 지정 설치를 사용하여
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예제:
+예:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -136,7 +140,7 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
-| 다음과 같은 경우 | 작업 |
+| 조건 | 결과 |
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
@@ -264,7 +268,7 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
 
 디바이스에서 Seamless SSO를 사용하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 하나의 Azure AD URL을 추가해야 합니다.
 
-기본적으로 웹 브라우저는 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 **http:\/\/contoso/** 는 인트라넷 영역에 매핑되고 **\/\/http: intranet.contoso.com** 은 인터넷 영역에 매핑됩니다 (URL에 마침표가 포함 되어 있기 때문). URL을 브라우저의 인트라넷 영역에 명시적으로 추가하는 경우에만 브라우저에서 Kerberos 티켓을 클라우드 엔드포인트(예: Azure AD URL)에 보냅니다.
+기본적으로 웹 브라우저는 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 **http: \/ \/ contoso/** 는 인트라넷 영역에 매핑되고 **http: \/ \/ INTRANET.CONTOSO.COM** 은 인터넷 영역에 매핑됩니다 (URL에 마침표가 포함 되어 있기 때문). URL을 브라우저의 인트라넷 영역에 명시적으로 추가하는 경우에만 브라우저에서 Kerberos 티켓을 클라우드 엔드포인트(예: Azure AD URL)에 보냅니다.
 
 필요한 변경을 디바이스에 [롤아웃](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)하는 단계를 수행합니다.
 
@@ -314,7 +318,7 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
    > [!IMPORTANT]
    > 이 시점에서 모든 페더레이션된 도메인이 관리형 인증으로 변경됩니다. 암호 해시 동기화는 새로운 인증 방법입니다.
 
-7. Azure AD 포털에서 **Azure Active Directory** > **Azure AD Connect**를 선택 합니다.
+7. Azure AD 포털에서 **Azure Active Directory**  >  **Azure AD Connect**를 선택 합니다.
 8. 다음 설정을 확인합니다.
    * **페더레이션**이 **사용 안 함**으로 설정되어 있습니다.
    * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
@@ -336,9 +340,9 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
 3. **Azure AD에 연결** 페이지에서 글로벌 관리자 계정의 사용자 이름과 암호를 입력합니다.
 4. **사용자 로그인** 페이지에서 **암호 해시 동기화** 단추를 선택합니다. **Single Sign-On 인증 사용**을 선택하고, **다음**을 선택합니다.
 
-   암호 해시 동기화를 사용 하도록 설정 ![하기 전에: 사용자 로그인 페이지에서 구성 안 함 옵션을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
+   암호 해시 동기화를 사용 하도록 설정 하기 전에: ![ 사용자 로그인 페이지에서 구성 안 함 옵션을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   암호 해시 동기화를 사용 하도록 설정한 ![후: 사용자 로그인 페이지의 새 옵션을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   암호 해시 동기화를 사용 하도록 설정한 후: ![ 사용자 로그인 페이지의 새 옵션을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Azure AD Connect 버전 1.1.880.0부터는 기본적으로 **Seamless Single Sign-On** 확인란이 선택됩니다.
@@ -383,7 +387,7 @@ Azure AD PowerShell 모듈을 사용하여 변환을 수행합니다.
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
 
-3. Azure AD 포털에서 **Azure Active Directory** > **Azure AD Connect**를 선택 합니다.
+3. Azure AD 포털에서 **Azure Active Directory**  >  **Azure AD Connect**를 선택 합니다.
 4. 다음 명령을 실행하여 도메인이 관리형으로 변환되었는지 확인합니다.
 
    ``` PowerShell
@@ -401,7 +405,7 @@ Azure AD PowerShell 모듈을 사용하여 변환을 수행합니다.
 암호 해시 동기화를 테스트하려면,
 
 1. Seamless SSO가 자동으로 로그인하지 않도록 InPrivate 모드에서 Internet Explorer를 엽니다.
-2. Office 365 로그인 페이지 ([https://portal.office.com](https://portal.office.com/))로 이동 합니다.
+2. Office 365 로그인 페이지 ()로 이동 [https://portal.office.com](https://portal.office.com/) 합니다.
 3. 사용자 UPN을 입력하고, **다음**을 선택합니다. 온-프레미스 Active Directory 인스턴스에서 동기화되고 이전에 페더레이션 인증을 사용한 하이브리드 사용자의 UPN을 입력해야 합니다. 사용자 이름과 암호를 입력하는 페이지가 표시됩니다.
 
    ![사용자 이름을 입력하는 로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
