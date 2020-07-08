@@ -4,15 +4,15 @@ description: 이 문서는 Application Gateway 엔드투엔드 TLS 지원에 대
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648125"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962104"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요
 
@@ -68,7 +68,7 @@ Application Gateway 및 WAF v1 SKU의 경우 TLS 정책은 프런트 엔드 및 
 
 Application Gateway 및 WAF v2 SKU의 경우 TLS 정책은 프런트 엔드 트래픽에만 적용되며, 핸드셰이크 중에 특정 암호 및 TLS 버전을 선택할 수 있는 제어가 있는 백 엔드 서버에 모든 암호가 제공됩니다.
 
-Application Gateway는 Application Gateway를 통해 인증서를 허용 목록에 추가했거나 인증서가 잘 알려진 CA 기관이 서명하고 인증서의 CN이 HTTP 백 엔드 설정의 호스트 이름과 일치하는 백 엔드 서버와만 통신합니다. 여기에는 Azure App Service/Web Apps, Azure API Management와 같은 신뢰할 수 있는 Azure 서비스가 포함됩니다.
+Application Gateway는 인증서가 Application Gateway에 나열 되도록 허용 하거나, 잘 알려진 CA 기관에서 인증서를 서명 하 고, 인증서의 CN이 HTTP 백 엔드 설정의 호스트 이름과 일치 하는 백엔드 서버와만 통신 합니다. 여기에는 Azure App Service/Web Apps, Azure API Management와 같은 신뢰할 수 있는 Azure 서비스가 포함됩니다.
 
 백 엔드 풀에 있는 구성원의 인증서가 잘 알려진 CA 기관에 의해 서명되지 않은 경우에는 보안 통신을 허용하도록 엔드투엔드 TLS를 사용하는 백 엔드 풀의 각 인스턴스가 인증서로 구성되어야 합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 엔드투엔드 통신의 보안이 유지됩니다.
 
@@ -80,9 +80,9 @@ Application Gateway는 Application Gateway를 통해 인증서를 허용 목록�
 
 이 예제에서는 TLS1.2를 사용하는 요청은 엔드투엔드 TLS를 사용하여 Pool1의 백 엔드 서버에 라우팅됩니다.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>엔드투엔드 TLS 및 인증서 허용 목록
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>종단 간 TLS 및 인증서 목록 허용
 
-Application Gateway는 Application Gateway를 통해 인증서가 허용 목록에 추가된 알려진 백 엔드 인스턴스와만 통신합니다. 사용되는 Application Gateway 버전과 관련하여 엔드투엔드 TLS 설치 프로세스에는 몇 가지 차이점이 있습니다. 다음 섹션에서는 이에 대해 개별적으로 설명합니다.
+Application Gateway는 응용 프로그램 게이트웨이와 함께 인증서를 나열할 수 있는 알려진 백 엔드 인스턴스와만 통신 합니다. 사용되는 Application Gateway 버전과 관련하여 엔드투엔드 TLS 설치 프로세스에는 몇 가지 차이점이 있습니다. 다음 섹션에서는 이에 대해 개별적으로 설명합니다.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>v1 SKU를 사용하는 엔드투엔드 TLS
 
@@ -90,7 +90,7 @@ Application Gateway는 Application Gateway를 통해 인증서가 허용 목록�
 
 HTTPS 상태 프로브의 경우 Application Gateway v1 SKU는 HTTP 설정에 업로드할 인증 인증서(루트 인증서가 아닌 백 엔드 서버 인증서의 공개 키)와 정확하게 일치하는 항목을 사용합니다.
 
-그러면 알려진 허용 목록의 백 엔드에 대한 연결만 허용됩니다. 나머지 백 엔드는 상태 프로브에 의해 비정상 상태로 간주됩니다. 자체 서명된 인증서는 테스트 용도이며 프로덕션 워크로드에는 권장하지 않습니다. 마찬가지로 이러한 인증서를 사용하려면 위에서 설명했듯이 애플리케이션 게이트웨이를 통해 허용 목록에 추가해야 합니다.
+그러면 알려진 및 허용 된 백 엔드에 대 한 연결만 허용 됩니다. 나머지 백 엔드는 상태 프로브에 의해 비정상 상태로 간주됩니다. 자체 서명된 인증서는 테스트 용도이며 프로덕션 워크로드에는 권장하지 않습니다. 이러한 인증서는 이전 단계에서 설명한 대로 응용 프로그램 게이트웨이와 함께 나열 되어 있어야 사용할 수 있습니다.
 
 > [!NOTE]
 > Azure App Service와 같은 신뢰할 수 있는 Azure 서비스에는 인증 및 신뢰할 수 있는 루트 인증서 설정이 필요하지 않습니다. 해당 서비스는 기본적으로 신뢰할 수 있는 것으로 간주됩니다.
@@ -111,7 +111,7 @@ HTTPS 상태 프로브의 경우 Application Gateway v1 SKU는 HTTP 설정에 �
 
 - 루트 인증서 일치 외에, Application Gateway v2는 백 엔드 http 설정에 지정된 호스트 설정이 백 엔드 서버의 TLS/SSL 인증서가 제공하는 CN(공통 이름)의 호스트 설정과 일치하는지도 확인합니다. 백 엔드에 대한 TLS 연결을 설정하려고 하면 Application Gateway v2는 SNI(서버 이름 표시) 확장을 백 엔드 http 설정에 지정된 호스트로 설정합니다.
 
-- 백 엔드 http 설정의 호스트 필드 대신 **백 엔드 주소에서 호스트 이름 선택**을 선택하면 SNI 헤더가 항상 백 엔드 풀 FQDN으로 설정되고, 백 엔드 서버 TLS/SSL 인증서의 CN은 해당 FQDN과 일치해야 합니다. IP를 사용하는 백 엔드 풀 멤버는 이 시나리오에서 지원되지 않습니다.
+- 백 엔드 http 설정에서 호스트 필드 대신 **백 엔드 대상에서 호스트 이름 선택** 이 선택 된 경우 SNI 헤더는 항상 백 엔드 풀 FQDN으로 설정 되 고 백 엔드 서버 TLS/SSL 인증서의 CN은 해당 fqdn과 일치 해야 합니다. IP를 사용하는 백 엔드 풀 멤버는 이 시나리오에서 지원되지 않습니다.
 
 - 루트 인증서는 백 엔드 서버 인증서의 base64 인코딩 루트 인증서입니다.
 
@@ -138,10 +138,10 @@ HTTPS 상태 프로브의 경우 Application Gateway v1 SKU는 HTTP 설정에 �
 시나리오 | v1 | v2 |
 | --- | --- | --- |
 | FQDN으로 TLS 핸드셰이크 중 SNI(server_name) 헤더 | 백 엔드 풀에서 FQDN으로 설정합니다. [RFC 6066](https://tools.ietf.org/html/rfc6066)에 따라 리터럴 IPv4 및 IPv6 주소는 SNI 호스트 이름에 허용되지 않습니다. <br> **참고:** 백 엔드 풀의 FQDN은 DNS를 백 엔드 서버의 IP 주소(공용 또는 개인)로 확인해야 합니다. | SNI 헤더(server_name)는 HTTP 설정(구성된 경우)에 연결된 사용자 지정 프로브에서 호스트 이름으로 설정됩니다. 그렇지 않으면 HTTP 설정에 언급된 호스트 이름에서 설정되고, 그렇지 않으면 백 엔드 풀에 언급된 FQDN에서 설정됩니다. 우선 순위는 사용자 지정 프로브 > HTTP 설정 > 백 엔드 풀입니다. <br> **참고:** HTTP 설정 및 사용자 지정 프로브에서 구성된 호스트 이름이 다른 경우에는 우선 순위에 따라 SNI가 사용자 지정 프로브에서 호스트 이름으로 설정됩니다.
-| 백 엔드 풀 주소가 IP 주소(v1)이거나 사용자 지정 프로브 호스트 이름이 IP 주소(v2)로 구성된 경우 | SNI(server_name)를 설정하지 않습니다. <br> **참고:** 이 경우 백 엔드 서버는 기본/대체 인증서를 반환할 수 있어야 하며, 이 인증서가 인증 인증서의 HTTP 설정에서 허용 목록에 추가되어야 합니다. 백 엔드 서버에 구성된 기본/대체 인증서가 없고 SNI가 필요한 경우 서버에서 연결을 다시 설정하여 프로브 오류가 발생할 수 있습니다. | 앞에서 설명한 우선 순위대로 IP 주소를 호스트 이름으로 사용할 경우 SNI는 [RFC 6066](https://tools.ietf.org/html/rfc6066)에 따라 설정되지 않습니다. <br> **참고:** 사용자 지정 프로브를 구성하지 않고 HTTP 설정 또는 백 엔드 풀에 대해 호스트 이름이 설정되어 있지 않은 경우에도 v2 프로브에서 SNI를 설정하지 않습니다. |
+| 백 엔드 풀 주소가 IP 주소(v1)이거나 사용자 지정 프로브 호스트 이름이 IP 주소(v2)로 구성된 경우 | SNI(server_name)를 설정하지 않습니다. <br> **참고:** 이 경우 백 엔드 서버는 기본/대체 인증서를 반환할 수 있어야 하며,이는 인증 인증서의 HTTP 설정에 나열 되어야 합니다. 백 엔드 서버에 구성된 기본/대체 인증서가 없고 SNI가 필요한 경우 서버에서 연결을 다시 설정하여 프로브 오류가 발생할 수 있습니다. | 앞에서 설명한 우선 순위대로 IP 주소를 호스트 이름으로 사용할 경우 SNI는 [RFC 6066](https://tools.ietf.org/html/rfc6066)에 따라 설정되지 않습니다. <br> **참고:** 사용자 지정 프로브를 구성하지 않고 HTTP 설정 또는 백 엔드 풀에 대해 호스트 이름이 설정되어 있지 않은 경우에도 v2 프로브에서 SNI를 설정하지 않습니다. |
 
 > [!NOTE] 
-> 사용자 지정 프로브를 구성하지 않은 경우 Application Gateway는 \<프로토콜\>://127.0.0.1:\<포트\>/ 형식의 기본 프로브를 보냅니다. 예를 들어 기본 HTTPS 프로브의 경우 https://127.0.0.1:443/ 으로 전송됩니다. 여기에 언급된 127.0.0.1은 HTTP 호스트 헤더로만 사용되며 RFC 6066에 따라 SNI 헤더로 사용되지 않습니다. 상태 프로브 오류에 대한 자세한 내용은 [백 엔드 상태 문제 해결 가이드](application-gateway-backend-health-troubleshooting.md)를 참조하세요.
+> 사용자 지정 프로브를 구성 하지 않은 경우에는에서 기본 프로브를 ( \<protocol\> ://127.0.0.1:/) 형식으로 Application Gateway 보냅니다. \<port\> 예를 들어 기본 HTTPS 프로브의 경우 https://127.0.0.1:443/ 으로 전송됩니다. 여기에 언급된 127.0.0.1은 HTTP 호스트 헤더로만 사용되며 RFC 6066에 따라 SNI 헤더로 사용되지 않습니다. 상태 프로브 오류에 대한 자세한 내용은 [백 엔드 상태 문제 해결 가이드](application-gateway-backend-health-troubleshooting.md)를 참조하세요.
 
 #### <a name="for-live-traffic"></a>라이브 트래픽의 경우
 

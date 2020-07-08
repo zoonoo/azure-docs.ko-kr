@@ -3,42 +3,42 @@ title: 템플릿 함수-문자열
 description: Azure Resource Manager 템플릿에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982417"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962070"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿에 대 한 문자열 함수
 
 리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 문자열을 사용 하기 위한 다음 함수를 제공 합니다.
 
-* [인코딩이](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [사용한](#concat)
+* [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [비우려면](#empty)
+* [empty](#empty)
 * [endsWith](#endswith)
-* [기본](#first)
+* [first](#first)
 * [format](#format)
-* [eid](#guid)
+* [guid](#guid)
 * [indexOf](#indexof)
-* [최신](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
-* [킵](#skip)
-* [분리할](#split)
+* [skip](#skip)
+* [split](#split)
 * [startsWith](#startswith)
 * [string](#string)
-* [부분](#substring)
-* [노트](#take)
+* [substring](#substring)
+* [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [trim](#trim)
@@ -55,9 +55,9 @@ ms.locfileid: "80982417"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| inputString |예 |string |base64 표현으로 반환할 값입니다. |
+| inputString |예 |문자열 |base64 표현으로 반환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -69,7 +69,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -108,8 +108,8 @@ Base64 표현을 포함하는 문자열입니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -120,9 +120,9 @@ base64 표현을 JSON 개체로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |예 |string |JSON 개체로 변환할 base64 표현입니다. |
+| base64Value |예 |문자열 |JSON 개체로 변환할 base64 표현입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -134,7 +134,7 @@ JSON 개체입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -173,8 +173,8 @@ JSON 개체입니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -185,9 +185,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |예 |string |문자열로 변환할 base64 표현입니다. |
+| base64Value |예 |문자열 |문자열로 변환할 base64 표현입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -199,7 +199,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -238,8 +238,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="concat"></a>concat
@@ -250,10 +250,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 문자열 또는 배열입니다. |
-| 추가 인수 |아니요 |문자열 또는 배열 |연결에 대 한 순서 대로 추가 문자열 또는 배열 |
+| 추가 인수 |예 |문자열 또는 배열 |연결에 대 한 순서 대로 추가 문자열 또는 배열 |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대 한 배열과 문자열을 둘 다 제공할 수는 없습니다. 문자열은 다른 문자열과만 연결 됩니다.
 
@@ -267,7 +267,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -289,30 +289,30 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -332,7 +332,7 @@ base64 표현을 문자열로 변환합니다.
 | ---- | ---- | ----- |
 | return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>포함
 
 `contains (container, itemToFind)`
 
@@ -340,7 +340,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -355,7 +355,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -421,9 +421,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |예 |string |데이터 URI로 변환할 값입니다. |
+| stringToConvert |예 |문자열 |데이터 URI로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -435,7 +435,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -465,8 +465,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | 문자열 | Hello, World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -476,9 +476,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |예 |string |변환할 데이터 URI 값입니다. |
+| dataUriToConvert |예 |문자열 |변환할 데이터 URI 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -490,7 +490,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -520,10 +520,10 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | 문자열 | Hello, World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
-## <a name="empty"></a>비어 있음
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -531,7 +531,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -545,7 +545,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -596,10 +596,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
-| stringToFind |예 |string |찾을 값입니다. |
+| stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
+| stringToFind |예 |문자열 |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -611,7 +611,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -662,7 +662,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -676,7 +676,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -703,8 +703,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | one |
-| stringOutput | 문자열 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 ## <a name="format"></a>format
 
@@ -714,11 +714,11 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | formatString | 예 | string | 합성 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
-| 추가 인수 | 아니요 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
+| 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -730,7 +730,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "greeting": {
@@ -761,7 +761,7 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| formatTest | 문자열 | Hello, User. 형식이 지정 된 숫자: 8175133 |
+| formatTest | String | Hello, User. 형식이 지정 된 숫자: 8175133 |
 
 ## <a name="guid"></a>guid
 
@@ -771,10 +771,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |string |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
-| 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+| 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -812,7 +812,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -842,10 +842,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
-| stringToFind |예 |string |찾을 값입니다. |
+| stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
+| stringToFind |예 |문자열 |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -857,7 +857,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -903,7 +903,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -917,7 +917,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -944,8 +944,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | three |
-| stringOutput | 문자열 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastindexof
 
@@ -955,10 +955,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
-| stringToFind |예 |string |찾을 값입니다. |
+| stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
+| stringToFind |예 |문자열 |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -970,7 +970,7 @@ base64 표현을 문자열로 변환합니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1016,13 +1016,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-int입니다. 
+int입니다.
 
 ### <a name="examples"></a>예
 
@@ -1030,7 +1030,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -1114,7 +1114,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1135,7 +1135,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1143,7 +1143,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1178,7 +1178,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1191,7 +1191,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
@@ -1205,11 +1205,11 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1231,7 +1231,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | 문자열 | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1241,11 +1241,11 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| originalString |예 |string |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
-| oldString |예 |string |원래 문자열에서 제거할 문자열입니다. |
-| newString |예 |string |제거된 문자열 대신 추가할 문자열입니다. |
+| originalString |예 |문자열 |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
+| oldString |예 |문자열 |원래 문자열에서 제거할 문자열입니다. |
+| newString |예 |문자열 |제거된 문자열 대신 추가할 문자열입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1257,7 +1257,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1283,8 +1283,8 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| firstOutput | 문자열 | 1231231234 |
-| secondOutput | 문자열 | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1294,7 +1294,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열이 나 문자열의 길이 보다 크면 빈 배열 또는 문자열이 반환 됩니다. |
@@ -1309,7 +1309,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1352,7 +1352,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
-| stringOutput | 문자열 | two three |
+| stringOutput | String | two three |
 
 ## <a name="split"></a>split
 
@@ -1362,9 +1362,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| inputString |예 |string |분할할 문자열입니다. |
+| inputString |예 |문자열 |분할할 문자열입니다. |
 | 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -1377,7 +1377,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstString": {
@@ -1421,10 +1421,10 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
-| stringToFind |예 |string |찾을 값입니다. |
+| stringToSearch |예 |문자열 |찾을 값을 포함하는 값입니다. |
+| stringToFind |예 |문자열 |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1436,7 +1436,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1479,7 +1479,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-## <a name="string"></a>문자열
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
@@ -1487,7 +1487,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 | 모두 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
 
@@ -1501,7 +1501,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testObject": {
@@ -1546,9 +1546,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 문자열 | {“valueA”:10,“valueB”:“Example Text”} |
-| arrayOutput | 문자열 | [“a”,“b”,“c”] |
-| intOutput | 문자열 | 5 |
+| objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
+| arrayOutput | String | [“a”,“b”,“c”] |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1558,9 +1558,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToParse |예 |string |부분 문자열을 추출할 원래 문자열입니다. |
+| stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
 | length |아니요 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
 
@@ -1576,7 +1576,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 "parameters": {
     "inputString": { "type": "string", "value": "1234567890" }
 },
-"variables": { 
+"variables": {
     "prefix": "[substring(parameters('inputString'), 0, 11)]"
 }
 ```
@@ -1587,7 +1587,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1609,7 +1609,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| substringOutput | 문자열 | two |
+| substringOutput | String | two |
 
 ## <a name="take"></a>take
 
@@ -1619,7 +1619,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 크면 배열 또는 문자열의 모든 요소가 반환 됩니다. |
@@ -1634,7 +1634,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1677,7 +1677,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
-| stringOutput | 문자열 | On |
+| stringOutput | String | On |
 
 ## <a name="tolower"></a>toLower
 
@@ -1687,9 +1687,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |예 |string |소문자로 변환할 값입니다. |
+| stringToChange |예 |문자열 |소문자로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1701,7 +1701,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1727,8 +1727,8 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | 문자열 | one two three |
-| toUpperOutput | 문자열 | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1738,9 +1738,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |예 |string |대문자로 변환할 값입니다. |
+| stringToChange |예 |문자열 |대문자로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1752,7 +1752,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1778,8 +1778,8 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | 문자열 | one two three |
-| toUpperOutput | 문자열 | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="trim"></a>trim
 
@@ -1789,7 +1789,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |예 |string |자를 값입니다. |
 
@@ -1803,7 +1803,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1825,28 +1825,28 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| return | 문자열 | one two three |
+| return | String | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
 `uniqueString (baseString, ...)`
 
-매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다. 
+매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |string |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
-| 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+| 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다. 
+이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
 반환 된 값은 임의의 문자열이 아니라 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유 하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
 
-    tcvhiyu5h2o5o
+`tcvhiyu5h2o5o`
 
 다음 예제에서는 uniqueString를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -1871,9 +1871,9 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 다음 예제에서는 리소스 그룹에 따라 스토리지 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹 내에서 이름이 동일한 방식으로 생성 된 경우 고유 하지 않습니다.
 
 ```json
-"resources": [{ 
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
-    "type": "Microsoft.Storage/storageAccounts", 
+"resources": [{
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
     ...
 ```
 
@@ -1889,7 +1889,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1913,19 +1913,19 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseUri |예 |string |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
 | relativeUri |예 |string |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
 * **Baseuri** 가 후행 슬래시로 끝나는 경우 결과는 **relativeUri** **이 뒤에 오는 것** 입니다.
 
-* **BaseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생 합니다.  
+* **BaseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생 합니다.
 
    * **Baseuri** 에 슬래시가 전혀 없는 경우 (앞의 "//"를 제외 하 고) 결과는 **relativeUri** **이 뒤에** 오는 것입니다.
 
    * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
-     
+
 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 ```
@@ -1952,11 +1952,11 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -1981,9 +1981,9 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1993,9 +1993,9 @@ URI를 인코딩합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |예 |string |인코딩할 값입니다. |
+| stringToEncode |예 |문자열 |인코딩할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -2007,11 +2007,11 @@ URI로 인코딩된 값의 문자열입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -2036,9 +2036,9 @@ URI로 인코딩된 값의 문자열입니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2048,9 +2048,9 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |예 |string |문자열로 변환할 URI 인코딩 값입니다. |
+| uriEncodedString |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -2062,11 +2062,11 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -2091,13 +2091,13 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조 하세요.
-* 여러 템플릿을 병합 하려면 [Azure Resource Manager 연결 된 템플릿 사용](linked-templates.md)을 참조 하세요.
-* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조 하세요.
+* Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
+* 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

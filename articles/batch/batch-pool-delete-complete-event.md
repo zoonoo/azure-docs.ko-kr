@@ -3,12 +3,12 @@ title: Azure Batch 풀 삭제 완료 이벤트
 description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다. 이 이벤트는 풀 삭제 작업이 완료되면 내보내집니다.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e009b55869b7ba8c81190837086557743d53219
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724057"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962461"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
 
@@ -31,4 +31,4 @@ ms.locfileid: "83724057"
 |`endTime`|DateTime|풀 삭제가 완료된 시간입니다.|
 
 ## <a name="remarks"></a>설명
-풀 크기 조정 작업의 상태 및 오류 코드에 대한 자세한 내용은 [계정에서 풀 삭제](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account)를 참조하세요.
+풀 크기 조정 작업의 상태 및 오류 코드에 대한 자세한 내용은 [계정에서 풀 삭제](/rest/api/batchservice/delete-a-pool-from-an-account)를 참조하세요.

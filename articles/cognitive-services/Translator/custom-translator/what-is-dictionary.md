@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997046"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962265"
 ---
 # <a name="what-is-a-dictionary"></a>사전이란?
 
-사전은 구 또는 문장의 목록과 해당 번역을 지정하는 문서의 정렬된 쌍입니다. 사용자가 항상 Microsoft Translator에서 사용자가 사전에 제공한 번역을 사용하여 원본 구 또는 문장의 인스턴스를 번역하길 원하는 경우 학습의 사전을 사용합니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다. 사전을 사용 하는 모든 약관에 대 한 무차별 암호 대입 "복사 및 바꾸기"로 생각할 수 있습니다. 또한 Microsoft 사용자 지정 변환기 서비스는 자체의 범용 사전을 작성 하 고 사용 하 여 번역의 품질을 향상 시킵니다. 그러나 고객이 제공한 사전은 우선적으로 적용 되며 단어나 문장을 조회 하기 위해 먼저 검색 됩니다.
+사전은 구 또는 문장의 목록과 해당 번역을 지정하는 문서의 정렬된 쌍입니다. 사전에서 제공한 번역을 사용 하 여 변환기에서 항상 원본 구 또는 문장의 모든 인스턴스를 번역 하도록 하려면 학습에서 사전을 사용 합니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다. 사전을 사용 하는 모든 약관에 대 한 무차별 암호 대입 "복사 및 바꾸기"로 생각할 수 있습니다. 또한 사용자 지정 변환기 기능은 자체의 범용 사전을 작성 하 고 사용 하 여 번역의 품질을 향상 시킵니다. 그러나 고객이 제공한 사전은 우선적으로 적용 되며 단어나 문장을 조회 하기 위해 먼저 검색 됩니다.
 
 사전은 완전히 지원 되는 Microsoft 일반 신경망 모델을 포함 하는 언어 쌍의 프로젝트에 대해서만 작동 합니다. [전체 언어 목록을 봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 

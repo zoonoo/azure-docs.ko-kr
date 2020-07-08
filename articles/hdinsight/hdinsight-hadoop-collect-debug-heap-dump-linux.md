@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75658800"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962206"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
@@ -37,7 +37,7 @@ HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용�
 
 힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 [Apache Hadoop](https://hadoop.apache.org/) 서비스에서는 서비스를 시작하는 데 사용하는 셸 스크립트를 수정하여 이러한 옵션을 생략할 수 있습니다.
 
-각 스크립트에는 JVM에 전달 된 옵션을 포함 하는 ** \* \_OPTS**에 대 한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
+각 스크립트에는 JVM에 전달 된 옵션을 포함 하는 ** \* \_ OPTS**에 대 한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
 
 map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로세스이므로 서로 약간 다른 작업입니다. 각 map 또는 reduce 프로세스는 자식 컨테이너에서 실행되며, JVM 옵션이 포함된 두 가지 항목이 있습니다. **mapred-site.xml**에 포함된 두 항목은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 다음 옵션은 OutOfMemoryError가 발생한 경우 힙 덤프를 사용하도록 설정합니다.
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 는 **+** 이 옵션이 사용 하도록 설정 되어 있음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
 
@@ -62,7 +62,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 덤프 파일의 기본 위치는 현재 작업 디렉터리입니다. 다음 옵션을 사용하여 파일이 저장되는 위치를 제어할 수 있습니다.
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
 예를 들어 `-XX:HeapDumpPath=/tmp`를 사용하면 덤프가 /tmp 디렉터리에 저장됩니다.
 
@@ -70,7 +70,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 **OutOfMemoryError** 가 발생한 경우 스크립트를 트리거할 수도 있습니다. 예를 들어 오류가 발생했음을 알 수 있도록 알림을 트리거할 수 있습니다. __OutOfMemoryError__에서 스크립트를 트리거하려면 다음 옵션을 사용합니다.
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Apache Hadoop은 분산 시스템이므로 사용되는 모든 스크립트는 서비스가 실행되는 클러스터의 모든 노드에 배치되어야 합니다.
@@ -91,7 +91,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     ![Apache Ambari 구성 필터링 된 목록](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. 힙 덤프를 사용 하도록 설정 하려는 서비스에 대 한 ** \_OPTS 항목을 찾아서 사용 하도록 설정 하려는 옵션을 추가 합니다. \*** 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
+4. 힙 덤프를 사용 하도록 설정 하려는 서비스에 대 한 ** \* \_ OPTS** 항목을 찾아서 사용 하도록 설정 하려는 옵션을 추가 합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
     ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

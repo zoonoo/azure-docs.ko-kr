@@ -3,12 +3,12 @@ title: Azure Batch 풀 만들기 이벤트
 description: 풀을 만든 후 내보내는 Batch 풀 만들기 이벤트에 대한 참조입니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: fe327b7c369405cb3160c67d79e5dbdf55463f77
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: d8e4537e0074b7af1e65ea5f13a9668483abc45e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724040"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962495"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
@@ -53,7 +53,7 @@ ms.locfileid: "83724040"
 |-------------|----------|-----------|
 |`id`|String|풀의 ID입니다.|
 |`displayName`|String|풀의 표시 이름입니다.|
-|`vmSize`|String|풀에 포함된 가상 머신의 크기입니다. 풀에 포함된 모든 가상 머신의 크기는 같습니다. <br/><br/> Cloud Services 풀(cloudServiceConfiguration을 사용하여 만든 풀)에 사용 가능한 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 적합한 크기](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)를 참조하세요. Batch는 `ExtraSmall`을 제외한 모든 Cloud Services VM 크기를 지원합니다.<br/><br/> Virtual Machines Marketplace(virtualMachineConfiguration을 사용하여 만든 풀)의 이미지를 사용한 풀에 사용 가능한 VM 크기에 대한 자세한 내용은 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)(Linux) 또는 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/)(Windows)를 참조하세요. 배치는 `STANDARD_A0`및 Premium Storage(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.|
+|`vmSize`|String|풀에 포함된 가상 머신의 크기입니다. 풀에 포함된 모든 가상 머신의 크기는 같습니다. <br/><br/> Cloud Services 풀(cloudServiceConfiguration을 사용하여 만든 풀)에 사용 가능한 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 적합한 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요. Batch는 `ExtraSmall`을 제외한 모든 Cloud Services VM 크기를 지원합니다.<br/><br/> Virtual Machines Marketplace(virtualMachineConfiguration을 사용하여 만든 풀)의 이미지를 사용한 풀에 사용 가능한 VM 크기에 대한 자세한 내용은 [Virtual Machines에 적합한 크기](/azure/virtual-machines/linux/sizes?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json)(Linux) 또는 [Virtual Machines에 적합한 크기](/azure/virtual-machines/windows/sizes?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)(Windows)를 참조하세요. 배치는 `STANDARD_A0`및 Premium Storage(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.|
 |`imageType`|String|이미지의 배포 방법입니다. 지원되는 값은 `virtualMachineConfiguration` 또는 `cloudServiceConfiguration`입니다.|
 |[`cloudServiceConfiguration`](#bk_csconf)|복합 형식|풀의 클라우드 서비스 구성입니다.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|복합 형식|풀의 가상 머신 구성입니다.|
@@ -71,8 +71,8 @@ ms.locfileid: "83724040"
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
-|`osFamily`|String|풀의 가상 머신에 설치할 Azure 게스트 OS 제품군입니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **2** – OS 제품군 2이며, Windows Server 2008 R2 SP1에 해당합니다.<br /><br /> **3** – OS 제품군 3이며, Windows Server 2012에 해당합니다.<br /><br /> **4** – OS 제품군 4이며, Windows Server 2012 R2에 해당합니다.<br /><br /> 자세한 내용은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
-|`targetOSVersion`|String|풀의 가상 머신에 설치할 Azure 게스트 OS 버전입니다.<br /><br /> 기본값은 지정된 제품군의 최신 운영 체제 버전을 지정하는 **\*** 입니다.<br /><br /> 기타 허용된 값은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
+|`osFamily`|String|풀의 가상 머신에 설치할 Azure 게스트 OS 제품군입니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **2** – OS 제품군 2이며, Windows Server 2008 R2 SP1에 해당합니다.<br /><br /> **3** – OS 제품군 3이며, Windows Server 2012에 해당합니다.<br /><br /> **4** – OS 제품군 4이며, Windows Server 2012 R2에 해당합니다.<br /><br /> 자세한 내용은 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases)를 참조하세요.|
+|`targetOSVersion`|String|풀의 가상 머신에 설치할 Azure 게스트 OS 버전입니다.<br /><br /> 기본값은 지정된 제품군의 최신 운영 체제 버전을 지정하는 **\*** 입니다.<br /><br /> 기타 허용된 값은 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases)를 참조하세요.|
 
 ###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a> virtualMachineConfiguration
 
