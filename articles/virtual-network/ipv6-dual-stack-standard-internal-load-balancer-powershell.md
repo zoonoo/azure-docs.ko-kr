@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707517"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Azure에서 표준 내부 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -39,14 +38,14 @@ IPv6 지원 내부 Load Balancer를 만드는 절차는 [여기](virtual-network
 
 위에서 내부 부하 분산 장치 프런트 엔드 구성을 수행 하는 변경 내용은 다음과 같습니다.
 - 는 `PrivateIpAddressVersion` "IPv6"로 지정 됩니다.
-- `-PublicIpAddress` 인수가 생략 되었거나로 `-PrivateIpAddress`대체 되었습니다. 개인 주소는 내부 부하 분산 장치가 배포 될 서브넷 IP 공간의 범위 내에 있어야 합니다. 고정 `-PrivateIpAddress` 을 생략 하면 내부 부하 분산 장치가 배포 된 서브넷에서 다음 프리 IPv6 주소가 선택 됩니다.
-- 내부 부하 분산 장치가 배포 되는 이중 스택 서브넷은 `-Subnet` 또는 `-SubnetId` 인수를 사용 하 여 지정 됩니다.
+- `-PublicIpAddress`인수가 생략 되었거나로 대체 되었습니다 `-PrivateIpAddress` . 개인 주소는 내부 부하 분산 장치가 배포 될 서브넷 IP 공간의 범위 내에 있어야 합니다. 고정을 `-PrivateIpAddress` 생략 하면 내부 부하 분산 장치가 배포 된 서브넷에서 다음 프리 IPv6 주소가 선택 됩니다.
+- 내부 부하 분산 장치가 배포 되는 이중 스택 서브넷은 또는 인수를 사용 하 여 지정 `-Subnet` 됩니다 `-SubnetId` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -76,7 +75,7 @@ $rg = New-AzResourceGroup `
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>IPv4 및 IPv6 공용 IP 주소 만들기
-인터넷에서 가상 컴퓨터에 액세스 하려면 Vm에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용 하 여 공용 IP 주소를 만듭니다. 다음 예제에서는 *RdpPublicIP_1* 이라는 IPv4 및 IPV6 공용 IP 주소를 만들고 *dsStd_ILB_RG* 리소스 그룹에 *RdpPublicIP_2* 합니다.
+인터넷에서 가상 컴퓨터에 액세스 하려면 Vm에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *RdpPublicIP_1* 이라는 IPv4 및 IPV6 공용 IP 주소를 만들고 *dsStd_ILB_RG* 리소스 그룹에 *RdpPublicIP_2* 합니다.
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `

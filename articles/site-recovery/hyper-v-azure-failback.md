@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710255"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Hyper-V VM에 대한 장애 복구(failback) 실행
 
@@ -36,7 +35,7 @@ ms.locfileid: "79281783"
 
 Azure의 Hyper-v Vm을 원래 온-프레미스 VM으로 장애 복구 (failback) 하려면 다음과 같이 Azure에서 온-프레미스 사이트로의 계획 된 장애 조치 (failover)를 실행 합니다.
 
-1. 자격 증명 모음 > **복제 된 항목**에서 VM을 선택 합니다. VM > **계획 된 장애 조치 (Failover)** 를 마우스 오른쪽 단추로 클릭 합니다. 복구 계획을 장애 복구 (failback) 하는 경우 계획 이름을 선택 하 고 **장애 조치** > (failover)**계획 된 장애 조치**를 클릭 합니다.
+1. 자격 증명 모음 > **복제 된 항목**에서 VM을 선택 합니다. VM > **계획 된 장애 조치 (Failover)** 를 마우스 오른쪽 단추로 클릭 합니다. 복구 계획을 장애 복구 (failback) 하는 경우 계획 이름을 선택 하 고 **장애 조치**(failover)  >  **계획 된 장애 조치**를 클릭 합니다.
 2. **계획 된 장애 조치 (Failover) 확인**에서 원본 및 대상 위치를 선택 합니다. 장애 조치 방향을 유의하십시오. 기본에서 장애 조치 (failover)가 예상 대로 작동 하 고 모든 가상 머신이 보조 위치에 있는 경우이는 정보를 위한 것입니다.
 3. **데이터 동기화**에서 옵션을 선택 합니다.
     - **장애 조치 (failover) 전 데이터 동기화 (델타 변경 내용만 동기화)**-이 옵션은 vm을 종료 하지 않고 동기화 될 때 vm의 가동 중지 시간을 최소화 합니다.
@@ -64,7 +63,7 @@ Azure의 Hyper-v Vm을 원래 온-프레미스 VM으로 장애 복구 (failback)
 
 1. 새 하드웨어를 설정 하는 경우 [지원 되는 버전의 Windows](hyper-v-azure-support-matrix.md#replicated-vms)를 설치 하 고 hyper-v 역할을 컴퓨터에 설치 합니다.
 2. 원본 서버에 있던 동일한 이름의 가상 네트워크 스위치를 만듭니다.
-3. **보호 된 항목** > **보호 그룹** > \<ProtectionGroupName>-> \<virtualmachinename>에서 장애 복구 (failback) 할 VM을 선택한 다음 계획 된 **장애 조치 (failover)** 를 선택 합니다.
+3. **보호 된 항목**  >  **보호 그룹**에서  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> 장애 복구 (failback) 할 VM을 선택한 다음 계획 된 **장애 조치 (failover)** 를 선택 합니다.
 4. **계획 된 장애 조치 (Failover) 확인**에서 **온-프레미스 가상 머신**(없는 경우) 만들기를 선택 합니다.
 5. **호스트 이름**에서 VM을 추가할 새 hyper-v 호스트 서버를 선택 합니다.
 6. **데이터 동기화**에서 장애 조치 (failover) 전에 데이터를 동기화 하는 옵션을 선택 하는 것이 좋습니다. Vm을 종료 하지 않고 동기화 될 때 Vm의 가동 중지 시간을 최소화 합니다. 메서드는 다음 작업을 수행합니다.
@@ -72,7 +71,7 @@ Azure의 Hyper-v Vm을 원래 온-프레미스 VM으로 장애 복구 (failback)
     - **2 단계**: Azure VM을 종료 하 여 새로운 변경이 발생 하지 않도록 합니다. 최종 변경 집합이 온-프레미스 서버로 전송되면 온-프레미스 가상 머신이 시작됩니다.
     
 7. 확인 표시를 클릭하여 장애 조치(장애 복구)를 시작합니다.
-8. 초기 동기화가 완료 되 고 Azure VM을 종료할 준비가 되 면 **작업** > \<계획 된 장애 조치 (failover) 작업을 클릭 하> > **장애 조치 (failover**)를 완료 합니다. 그러면 Azure 컴퓨터가 종료 되 고, 최신 변경 내용이 온-프레미스 VM으로 전송 되 고, 시작 됩니다.
+8. 초기 동기화가 완료 되 고 Azure VM을 종료할 준비가 되 면 **작업**  >  \<planned failover job>  >  **장애 조치 (Failover) 완료**를 클릭 합니다. 그러면 Azure 컴퓨터가 종료 되 고, 최신 변경 내용이 온-프레미스 VM으로 전송 되 고, 시작 됩니다.
 9. 온-프레미스 VM에 로그인 하 여 모든 것이 예상 대로 작동 하는지 확인할 수 있습니다.
 10. **커밋** 을 클릭 하 여 장애 조치 (failover)를 완료 합니다. Commit은 Azure VM 및 해당 디스크를 삭제 하 고 다시 보호할 온-프레미스 VM을 준비 합니다.
 10. **역방향 복제** 를 클릭 하 여 온-프레미스 VM을 Azure로 복제를 시작 합니다. Azure에서 VM이 꺼진 이후의 델타 변경 내용만 복제 됩니다.

@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711292"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Blob Storage에서 blob 만들기 및 관리
 
@@ -20,7 +19,7 @@ ms.locfileid: "79247359"
 
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
-논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조하세요.
 
 > [!IMPORTANT]
 > 논리 앱은 모두 동일한 지역에 있는 경우 방화벽 뒤에 있는 저장소 계정에 직접 액세스할 수 없습니다. 문제를 해결 하기 위해 논리 앱과 저장소 계정을 서로 다른 지역에 포함할 수 있습니다. Azure Logic Apps에서 방화벽 뒤의 저장소 계정으로의 액세스를 설정 하는 방법에 대 한 자세한 내용은이 항목의 뒷부분에 있는 [방화벽 뒤의 저장소 계정 액세스](#storage-firewalls) 섹션을 참조 하세요.
@@ -67,7 +66,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    1. **컨테이너** 상자에서 폴더 아이콘을 선택합니다.
 
-   2. 폴더 목록에서 오른쪽 꺾쇠 괄호 ( **>** )를 선택 하 고 원하는 폴더를 찾아서 선택할 때까지 찾아봅니다.
+   2. 폴더 목록에서 오른쪽 꺾쇠 괄호 ()를 선택 하 고 **>** 원하는 폴더를 찾아서 선택할 때까지 찾아봅니다.
 
       ![트리거와 함께 사용할 저장소 폴더 선택](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -89,7 +88,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![논리 앱 워크플로에 새 단계 추가](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가**를 선택 합니다.
 
 3. 검색 상자에서 "azure blob"을 필터로 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
@@ -127,7 +126,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | **Storage 계정** | 예 | <*저장소 계정*> | 목록에서 스토리지 계정을 선택합니다. |
    ||||
 
-   다음은 그 예입니다.
+   예를 들어:
 
    ![Azure Blob storage 계정 연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
@@ -194,7 +193,7 @@ Microsoft의 신뢰할 수 있는 서비스에 방화벽을 통해 저장소 계
 1. 논리 앱의 워크플로에서 저장소 계정 또는 엔터티에 액세스 하는 HTTP 작업 또는 트리거를 추가 하 고 설정 합니다.
 
    > [!IMPORTANT]
-   > 나가는 HTTP 작업 또는 Azure Storage 계정에 대 한 트리거 호출의 경우 요청 헤더에 저장소 계정에서 `x-ms-version` 실행 하려는 작업의 속성 및 API 버전이 포함 되어 있는지 확인 합니다. 자세한 내용은 [관리 되는 id를 사용 하 여 액세스 인증](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 및 [Azure Storage services에 대 한 버전](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)관리를 참조 하세요.
+   > 나가는 HTTP 작업 또는 Azure Storage 계정에 대 한 트리거 호출의 경우 요청 헤더에 `x-ms-version` 저장소 계정에서 실행 하려는 작업의 속성 및 API 버전이 포함 되어 있는지 확인 합니다. 자세한 내용은 [관리 되는 id를 사용 하 여 액세스 인증](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 및 [Azure Storage services에 대 한 버전](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)관리를 참조 하세요.
 
 1. 해당 작업에서 인증에 사용할 [관리 되는 id를 선택](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 합니다.
 

@@ -4,15 +4,14 @@ description: 이 학습 경로를 사용 하 여 Azure DNS 하위 도메인을 �
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710884"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Azure DNS 하위 도메인 위임
 

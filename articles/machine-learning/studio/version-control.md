@@ -5,20 +5,17 @@ description: Azure Machine Learning Studio에서 응용 프로그램 수명 주�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2eb5f3acc07f04ba2102ea25fbad89d73514444a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705919"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio의 애플리케이션 수명 주기 관리 (클래식)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 조작 가능한 기계 학습 실험을 개발 하기 위한 도구입니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양 한 자산 버전 관리에서 자동화 된 실행 및 배포에 이르는 표준 ALM (응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning Studio (클래식)에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
 
@@ -46,7 +43,7 @@ Azure Machine Learning Studio (클래식) 학습 실험의 실행 모델에서 �
 JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 세트 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 
 ## <a name="versioning-trained-model"></a>학습된 모델 버전 관리
-Azure Machine Learning Studio (클래식)의 학습 된 모델은 iLearner 파일 (`.iLearner`) 이라고 하는 형식으로 직렬화 되 고 작업 영역과 연결 된 Azure Blob storage 계정에 저장 됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](/azure/machine-learning/studio/retrain-machine-learning-model)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
+Azure Machine Learning Studio (클래식)의 학습 된 모델은 iLearner 파일 () 이라고 하는 형식으로 직렬화 되 `.iLearner` 고 작업 영역과 연결 된 Azure Blob storage 계정에 저장 됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](/azure/machine-learning/studio/retrain-machine-learning-model)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
 
 1. 학습 실험을 설정합니다.
 2. 모델 학습 모듈 또는 [모델 하이퍼 매개 변수 조정] 또는 [R 모델 만들기]와 같은 학습된 모델을 생성하는 모듈에 웹 서비스 출력 포트를 추가합니다.

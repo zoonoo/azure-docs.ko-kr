@@ -15,11 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704593"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
@@ -66,7 +65,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![로그인 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
 3. **홈** 페이지로 이동합니다. 이 페이지는 StorSimple 디바이스 관리자 서비스에 가상 디바이스를 구성하고 등록하는 데 필요한 다양한 설정을 설명합니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 필요한 설정은 **디바이스 설정** 및 **클라우드 설정**입니다.
    
-    ![홈 페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
+    ![홈페이지](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. **네트워크 설정** 페이지의 **네트워크 인터페이스**에서 DATA 0이 자동으로 구성됩니다. 각 네트워크 인터페이스는 IP 주소를 자동으로 가져오도록(DHCP) 기본 설정됩니다. 따라서 IP 주소, 서브넷 및 게이트웨이가 자동으로 할당됩니다(IPv4 및 IPv6 모두에 대해).
    
     디바이스를 iSCSI 서버(블록 스토리지를 프로비전하기 위해)로 배포할 계획이므로, **자동으로 IP 주소 받기** 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
@@ -100,7 +99,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
     **웹 프록시** 페이지에서:
    
-   1. 다음 형식으로 **웹 프록시 URL** 을 제공 합니다. *http\/:/host-ip 주소* 또는 *FQDN: 포트 번호*. HTTPS URL은 지원되지 않습니다.
+   1. 다음 형식으로 **웹 프록시 URL** 을 제공 합니다. *http: \/ /host-ip 주소* 또는 *FQDN: 포트 번호*. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.

@@ -5,19 +5,18 @@ description: 이 문서에서는 Azure Resource Manager VM 템플릿을 사용 �
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 51d43a1cdb24455c12717f4db50955fc7bc738f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707449"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Azure에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-템플릿
 
@@ -182,4 +181,4 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure virtual network에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[공용 IP 주소](https://azure.microsoft.com/pricing/details/ip-addresses/), [네트워크 대역폭](https://azure.microsoft.com/pricing/details/bandwidth/)또는 [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/)에 대 한 가격 책정에 대 한 세부 정보를 찾을 수 있습니다.
+[공용 IP 주소](https://azure.microsoft.com/pricing/details/ip-addresses/), [네트워크 대역폭](https://azure.microsoft.com/pricing/details/bandwidth/) 또는 [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) 가격 책정에 대한 세부 정보를 확인할 수 있습니다.

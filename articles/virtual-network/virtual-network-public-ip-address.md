@@ -11,17 +11,16 @@ ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2f71a1d26543e7436dee039592d120b52d5c9fea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710969"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -51,11 +50,11 @@ ms.locfileid: "82186070"
 3. **공용 IP 주소** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
 
-   |설정|필수 여부|세부 정보|
+   |Setting|필수 여부|설명|
    |---|---|---|
    |IP 버전|예| IPv4 또는 IPv6을 선택 하거나 둘 다 선택 합니다. 둘 다 선택 하면 2 개의 공용 IP 주소가 생성 되 고 1 개의 IPv4 주소와 1 개의 IPv6 주소가 생성 됩니다. [Azure vnet의](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)i p v 6에 대 한 자세한 정보.|
    |SKU|예|Sku 도입 전에 생성 된 모든 공용 IP 주소는 **기본** SKU 공용 ip 주소입니다. 공용 IP 주소를 만든 후에는 SKU를 변경할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 내의 가상 머신 또는 가상 머신 확장 집합은 기본 또는 표준 SKU를 사용할 수 있습니다. 가용성 집합 또는 확장 집합 또는 독립 실행형 Vm 내의 가상 머신 간에 Sku를 혼합 하는 것은 허용 되지 않습니다. **기본** SKU: 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *없음*으로 설정됩니다. 기본 공용 Ip는 가용성 영역을 지원 하지 않습니다. **표준** SKU: 표준 SKU 공용 IP를 가상 머신 또는 부하 분산 장치 프런트 엔드에 연결할 수 있습니다. 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *영역 중복*으로 설정됩니다. 가용성 영역에 대한 자세한 내용은 **가용성 영역** 설정을 참조하세요. 주소를 표준 부하 분산 장치에 연결하는 경우에 표준 SKU가 필요합니다. 표준 부하 분산 장치에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가상 머신의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.|
-   |속성|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |IP 주소 할당|예|**동적:** 동적 주소는 공용 IP 주소가 Azure 리소스에 연결되고 리소스를 처음 시작한 후에만 할당됩니다. 동적 주소는 가상 머신과 같은 리소스에 할당되고 가상 머신이 중지(할당 취소)되었다 다시 시작된 경우 변경될 수 있습니다. 가상 머신을 다시 부팅하거나 중지하는 경우(하지만 할당 취소하지 않은 경우) 주소가 동일하게 유지됩니다. 동적 주소는 공용 IP 주소 리소스가 연결된 리소스에서 분리될 때 해제됩니다. **고정:** 공용 IP 주소가 생성되면 고정 주소가 할당됩니다. 고정 주소는 공용 IP 주소 리소스가 삭제될 때까지 해제되지 않습니다. 주소가 리소스에 연결되지 않은 경우에는 주소가 생성된 후 할당 방법을 변경할 수 있습니다. 주소가 리소스에 연결된 경우에는 할당 방법을 변경할 수 없습니다. **IP 버전으로 i p**v 6을 선택 하는 경우 기본 SKU에 *대 한 할당* 방법이 *동적* 이어야 합니다.  표준 SKU 주소는 IPv4 및 IPv6 둘 다에 대해 *고정* 됩니다. |
    |유휴 제한 시간(분)|아니요|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. **IP 버전**으로 IPv6을 선택하는 경우에는 이 값을 변경할 수 없습니다. |
    |DNS 이름 레이블|아니요|이름을 만드는 Azure 위치 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 두 주소 버전을 모두 만드는 경우 IPv4 및 IPv6 주소 둘 다에 같은 DNS 이름이 할당됩니다. Azure의 기본 DNS는 IPv4 A 및 IPv6 AAAA 이름 레코드를 모두 포함하며, DNS 이름을 조회할 때 응답으로 두 레코드를 모두 전송합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
@@ -100,7 +99,7 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 - [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM(만드는 경우), 또는 [기존 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [인터넷 연결 Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure 애플리케이션 게이트웨이](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure VPN Gateway를 사용하여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
@@ -108,7 +107,7 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 공용 IP 주소에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 작업                                                             | 속성                                                           |
+| 작업                                                             | 이름                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | 공용 IP 주소 읽기                                          |
 | Microsoft.Network/publicIPAddresses/write                          | 공용 IP 주소 만들기 또는 업데이트                           |

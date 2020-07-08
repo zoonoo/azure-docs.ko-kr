@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705205"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>동적 포장기를 사용 하 여 매니페스트 필터링
 
@@ -36,7 +35,7 @@ ms.locfileid: "74186210"
 
 ## <a name="overview-of-manifests"></a>매니페스트 개요
 
-Azure Media Services HLS, MPEG 대시 및 부드러운 스트리밍 프로토콜을 지원 합니다. [동적 패키징을](dynamic-packaging-overview.md)사용 하는 경우 스트리밍 클라이언트 매니페스트 (HLS 마스터 재생 목록, 대시 미디어 프레젠테이션 설명 [MPD] 및 부드러운 스트리밍)는 URL의 형식 선택기에 따라 동적으로 생성 됩니다. 자세한 내용은 [일반적인 주문형 워크플로의](dynamic-packaging-overview.md#delivery-protocols)배달 프로토콜을 참조 하세요.
+Azure Media Services HLS, MPEG 대시 및 부드러운 스트리밍 프로토콜을 지원 합니다. [동적 패키징을](dynamic-packaging-overview.md)사용 하는 경우 스트리밍 클라이언트 매니페스트 (HLS 마스터 재생 목록, 대시 미디어 프레젠테이션 설명 [MPD] 및 부드러운 스트리밍)는 URL의 형식 선택기에 따라 동적으로 생성 됩니다. 자세한 내용은 [일반적인 주문형 워크플로의](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery)배달 프로토콜을 참조 하세요.
 
 ### <a name="get-and-examine-manifest-files"></a>매니페스트 파일 가져오기 및 검사
 
@@ -135,7 +134,7 @@ HLS, MPEG, 부드러운 스트리밍 등의 ABR 스트리밍 프로토콜에 필
 
 필터를 결합 하려면 필터 이름을 세미콜론으로 구분 된 형식으로 매니페스트/재생 목록 URL로 설정 합니다. 품질을 필터링 하는 *필터링* 라는 필터가 있고 특정 시작 시간을 설정 하는 *mystarttime* 이라는 다른를 사용 하 고 있다고 가정 합니다. 최대 3개의 필터를 결합할 수 있습니다.
 
-자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조 하세요.
+자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조하세요.
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
@@ -146,7 +145,7 @@ HLS, MPEG, 부드러운 스트리밍 등의 ABR 스트리밍 프로토콜에 필
 - 고객은 수동으로 매니페스트를 다운로드 하 고 정확한 시작 타임 스탬프 및 시간 단위를 구문 분석 해야 합니다.
 
     - 자산에서 트랙의 속성을 확인 하려면 [매니페스트 파일을 가져오고 검사](#get-and-examine-manifest-files)합니다.
-    - 자산 필터 타임 스탬프 속성을 설정 하는 수식은 다음과 같습니다. <br/>starttimestamp = &lt;매니페스트의&gt; +  &lt;시작 시간 (초)&gt; * 시간 간격으로 예상 된 필터 시작 시간
+    - 자산 필터 타임 스탬프 속성을 설정 하는 수식은 다음과 같습니다. <br/>starttimestamp = &lt; 매니페스트의 시작 시간 &gt;  +   &lt; (초) * 시간 간격으로 예상 된 필터 시작 시간 &gt;
 
 ## <a name="next-steps"></a>다음 단계
 

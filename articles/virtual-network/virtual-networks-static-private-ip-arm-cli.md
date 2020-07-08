@@ -3,24 +3,24 @@ title: Vm에 대 한 개인 IP 주소 구성-Azure CLI
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: kumud
-ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: c34ab73422d8dd41feb9da542ed63fdba060fe3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708164"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -38,38 +38,7 @@ ms.locfileid: "78199481"
 
 1. 아직 설치하지 않은 경우 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치 및 구성하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 
-2. [az network public-ip create](/cli/azure/network/public-ip) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
-
-    > [!NOTE]
-    > 사용자 환경에 따라 이 단계 및 이후 단계에 다른 값을 사용할 수 있습니다.
-
-    ```azurecli
-    az network public-ip create \
-    --name TestPIP \
-    --resource-group TestRG \
-    --location centralus \
-    --allocation-method Static
-    ```
-
-    예상 출력:
-
-   ```json
-   {
-        "publicIp": {
-            "idleTimeoutInMinutes": 4,
-            "ipAddress": "52.176.43.167",
-            "provisioningState": "Succeeded",
-            "publicIPAllocationMethod": "Static",
-            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
-        }
-    }
-    ```
-
-   * `--resource-group`: 공용 IP를 만들 리소스 그룹의 이름입니다.
-   * `--name`: 공용 IP의 이름입니다.
-   * `--location`: 공용 IP를 만들 Azure 지역입니다.
-
-3. [az network nic create](/cli/azure/network/nic) 명령을 실행하여 고정 프라이빗 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
+2. [az network nic create](/cli/azure/network/nic) 명령을 실행하여 고정 프라이빗 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
    
     ```azurecli
     az network nic create \
@@ -121,7 +90,7 @@ ms.locfileid: "78199481"
     * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
     * `--subnet`: NIC가 만들어질 서브넷의 이름입니다.
 
-4. [azure vm create](/cli/azure/vm/nic) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+3. [azure vm create](/cli/azure/vm/nic) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
     ```azurecli
     az vm create \

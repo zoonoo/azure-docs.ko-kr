@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd41c162d44320fc19af904118f202423e68e96a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4a9a3aaecc854ddb710f19bcb3d455c63b3a8bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706174"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -100,7 +99,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
-| 자리 표시자 | Description |
+| 자리 표시자 | 설명 |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
@@ -116,7 +115,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 1. 새 배포 작업에 대 한 새 리소스 그룹을 만듭니다.
 1. 사용자 할당 관리 id를 만듭니다.
 1. Azure CLI에 확장을 추가 하 여 Data Lake Storage Gen2 기능을 사용 합니다.
-1. 플래그를 `--hierarchical-namespace true` 사용 하 여 새 Data Lake Storage Gen2 계정을 만듭니다.
+1. 플래그를 사용 하 여 새 Data Lake Storage Gen2 계정을 만듭니다 `--hierarchical-namespace true` .
 
 ```azurecli
 az login
@@ -169,7 +168,7 @@ HDInsight 클러스터의 Data Lake Storage Gen2 파일에 액세스 하는 기�
 
 Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 사용자 할당이 있습니다. HDInsight는 사용자 할당 관리 id를 사용 하 여 Data Lake Storage Gen2에 액세스 합니다. 는 `user-assigned managed identity` 독립 실행형 Azure 리소스로 생성 됩니다. 만들기 프로세스를 통해 Azure는 사용 중인 구독에서 신뢰하는 Azure AD 테넌트에 ID를 만듭니다. 생성된 ID는 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다.
 
-사용자 할당 ID의 수명 주기는 할당된 Azure 서비스 인스턴스의 수명 주기와 별도로 관리됩니다. 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 id가 작동 하는 방식](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)을 참조 하세요.
+사용자 할당 ID의 수명 주기는 할당된 Azure 서비스 인스턴스의 수명 주기와 별도로 관리됩니다. 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요.
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??
 
@@ -185,7 +184,7 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **줄인 경로 형식 사용**. 이 방법을 사용 하 여 클러스터 루트로 경로를 다음과 같이 바꿉니다.
+* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     abfs:///<file.path>/
@@ -199,17 +198,17 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
 
 ### <a name="data-access-examples"></a>데이터 액세스 예제
 
-예는 클러스터의 헤드 노드에 대 한 [ssh 연결](./hdinsight-hadoop-linux-use-ssh-unix.md) 을 기반으로 합니다. 이 예제에서는 세 가지 URI 스키마를 모두 사용 합니다. 및 `CONTAINERNAME` `STORAGEACCOUNT` 를 관련 값으로 바꿉니다.
+예제는 클러스터의 헤드 노드에 대한 [ssh 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 기반으로 합니다. 이 예제에서는 세 가지 URI 스키마를 모두 사용합니다. `CONTAINERNAME` 및 `STORAGEACCOUNT`를 관련 값으로 바꾸기
 
-#### <a name="a-few-hdfs-commands"></a>몇 개의 hdfs 명령
+#### <a name="a-few-hdfs-commands"></a>몇 가지 hdfs 명령
 
-1. 로컬 저장소에 파일을 만듭니다.
+1. 로컬 스토리지에 파일을 만듭니다.
 
     ```bash
     touch testFile.txt
     ```
 
-1. 클러스터 저장소에 디렉터리를 만듭니다.
+1. 클러스터 스토리지에 디렉터리를 만듭니다.
 
     ```bash
     hdfs dfs -mkdir abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -217,7 +216,7 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. 로컬 저장소에서 클러스터 저장소로 데이터를 복사 합니다.
+1. 로컬 스토리지에서 클러스터 스토리지로 데이터를 복사합니다.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt  abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -225,7 +224,7 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
     hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
     ```
 
-1. 클러스터 저장소에 디렉터리 콘텐츠를 나열 합니다.
+1. 클러스터 스토리지의 디렉터리 콘텐츠를 나열합니다.
 
     ```bash
     hdfs dfs -ls abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -235,7 +234,7 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
 
 #### <a name="creating-a-hive-table"></a>Hive 테이블 만들기
 
-설명을 위해 세 가지 파일 위치가 표시 됩니다. 실제 실행의 경우 `LOCATION` 항목 중 하나만 사용 합니다.
+설명을 위해 세 가지 파일 위치가 표시되었습니다. 실제로 실행할 때는 `LOCATION` 항목 중 하나만 사용합니다.
 
 ```hql
 DROP TABLE myTable;

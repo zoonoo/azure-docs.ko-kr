@@ -5,21 +5,18 @@ description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706089"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio (클래식)에서 machine learning 모델을 다시 학습 하 고 새 웹 서비스로 배포 하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
 
@@ -61,7 +58,7 @@ ms.locfileid: "79217929"
 
 다음 단계에 따라 재학습 API를 호출합니다.
 
-1. Visual Studio에서 c # 콘솔 응용 프로그램을 만듭니다. **새** > **프로젝트** > **visual c #** > **Windows 클래식 데스크톱** > **콘솔 앱 (.NET Framework)**.
+1. Visual Studio에서 c # 콘솔 응용 프로그램을 만듭니다. **새**  >  **프로젝트**  >  **visual c #**  >  **Windows 클래식 데스크톱**  >  **콘솔 앱 (.NET Framework)**.
 1. Machine Learning Web Service 포털에 로그인합니다.
 1. 현재 작업 중인 웹 서비스를 클릭합니다.
 1. **사용**을 클릭합니다.

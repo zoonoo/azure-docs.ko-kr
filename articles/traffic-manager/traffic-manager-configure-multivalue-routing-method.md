@@ -4,20 +4,18 @@ description: 이 문서에서는 A/AAAA 엔드포인트로 트래픽을 라우�
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
-ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706820"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
@@ -38,12 +36,12 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 대기 시간이 가장 짧은 엔드포인트로 사용자 트래픽을 보내서 트래픽을 향하게 하는 Traffic Manager 프로필을 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스** > **만들기 네트워킹** > **Traffic Manager 프로필** > **만들기**를 선택 합니다.
+1. 화면 왼쪽 상단에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기**를 선택 합니다.
 2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
     
-    | 설정                 | 값                                              |
+    | Setting                 | 값                                              |
     | ---                     | ---                                                |
-    | 속성                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **다중값** 라우팅 방법을 선택합니다.                                       |
     | Subscription            | 구독을 선택합니다.                          |
     | Resource group          | *myResourceGroupTM1*을 선택합니다. |
@@ -62,8 +60,8 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Type                    | 외부 엔드포인트                                   |
-    | 속성           | myEndpoint1                                        |
+    | 형식                    | 외부 엔드포인트                                   |
+    | 이름           | myEndpoint1                                        |
     | FQDN(정규화된 도메인 이름) 또는 IP           | 이 Traffic Manager 프로필에 추가하려는 엔드포인트의 공용 IP 주소를 입력합니다.                         |
     |        |           |
 

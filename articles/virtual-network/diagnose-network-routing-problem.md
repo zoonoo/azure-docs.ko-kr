@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705052"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
 
@@ -38,7 +37,7 @@ VM에 연결하려고 하지만 연결에 실패합니다. VM에 액세스할 �
 2. Azure Portal 맨 위에 있는 검색 상자에 실행 중 상태인 VM의 이름을 입력합니다. 검색 결과에 VM의 이름이 나타나면 선택합니다.
 3. 왼쪽의 **설정** 에서 **네트워킹**을 선택 하 고 이름을 선택 하 여 네트워크 인터페이스 리소스로 이동 합니다.
      ![네트워크 인터페이스 보기](./media/diagnose-network-routing-problem/view-nics.png)
-4. 왼쪽에서 **유효 경로**를 선택 합니다. **MyVMNic1** 이라는 네트워크 인터페이스에 대 한 유효 경로는 다음 그림에 표시 됩니다. ![유효 경로 보기](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. 왼쪽에서 **유효 경로**를 선택 합니다. **MyVMNic1** 이라는 네트워크 인터페이스에 대 한 유효 경로는 다음 그림에 표시 됩니다. ![ 유효 경로 보기](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     VM에 연결된 여러 네트워크 인터페이스가 있는 경우 선택하여 모든 네트워크 인터페이스에 대한 유효 경로를 볼 수 있습니다. 각 네트워크 인터페이스가 다른 서브넷에 있을 수 있으므로 각 네트워크 인터페이스의 유효 경로는 다를 수 있습니다.
 

@@ -5,11 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710935"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -17,7 +16,7 @@ ms.locfileid: "79249049"
 
 ## <a name="what-is-the-common-alert-schema"></a>일반적인 경고 스키마는 무엇 인가요?
 
-일반적인 경고 스키마는 현재 Azure에서 경고 알림에 대 한 소비 환경을 표준화 합니다. 지금까지 Azure의 세 가지 경고 유형 (메트릭, 로그 및 활동 로그)에는 자체 전자 메일 템플릿, webhook 스키마 등이 있습니다. 공통 경고 스키마를 사용 하 여 이제 일관 된 스키마로 경고 알림을 받을 수 있습니다.
+일반 경고 스키마는 현재 Azure에서 경고 알림에 대한 소비 환경을 표준화합니다. 지금까지 Azure의 세 가지 경고 유형 (메트릭, 로그 및 활동 로그)에는 자체 전자 메일 템플릿, webhook 스키마 등이 있습니다. 공통 경고 스키마를 사용 하 여 이제 일관 된 스키마로 경고 알림을 받을 수 있습니다.
 
 경고 인스턴스는 **영향을 받은 리소스** 및 **경고의 원인을**설명 하며, 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명 되어 있습니다.
 * **Essentials**: 모든 경고 유형에 공통 된 **표준화 된 필드**집합으로, 경고가 발생 하는 **리소스** 를 설명 하는 추가 공통 경고 메타 데이터 (예: 심각도 또는 설명)를 설명 합니다. 

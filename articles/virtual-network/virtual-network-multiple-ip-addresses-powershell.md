@@ -8,17 +8,16 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708232"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -94,7 +93,7 @@ ms.locfileid: "82147788"
 
 6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True*를 반환합니다. 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환 합니다. 
 
-    다음 명령에서 replace- **name \<>을 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
+    다음 명령에서을 ** \<replace-with-your-unique-name> 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
 
     ```powershell
     
@@ -159,7 +158,7 @@ ms.locfileid: "82147788"
    ```
 
    >[!NOTE]
-   >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 Nic를 사용 하 여 VM을 만드는 방법을 알아보려면 [여러 nic를 사용 하 여 Vm 만들기](../virtual-machines/windows/multiple-nics.md) 문서를 참조 하세요.
+   >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 NIC로 VM을 만드는 방법에 대해 자세히 알아보려면 [여러 NIC를 사용하여 VM 만들기](../virtual-machines/windows/multiple-nics.md) 문서를 참조하세요.
 
 9. 다음 명령을 입력하여 VM을 만듭니다.
 
@@ -311,7 +310,7 @@ ms.locfileid: "82147788"
    -Location $Location -AllocationMethod Static
    ```
 
-   *IpConfig-3*이라는 기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
+   다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IpConfig-3*이라는 기존 ip 구성에 연결 합니다.
 
    ```powershell
    Set-AzNetworkInterfaceIpConfig `

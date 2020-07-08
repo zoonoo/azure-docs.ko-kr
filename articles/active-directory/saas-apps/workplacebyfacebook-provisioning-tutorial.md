@@ -15,47 +15,28 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718609"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Facebook 및 Azure Active Directory (Azure AD)로 작업 공간에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [Facebook에서 작업 공간](https://work.workplace.com/) 으로 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Facebook 응용 프로그램으로 새 작업 공간으로 마이그레이션
-Facebook을 사용 하 여 작업 공간에 기존에 통합 한 경우에는 아래에서 변경 된 내용에 대 한 섹션을 참조 하세요. Facebook에서 작업 공간을 처음 설정 하는 경우이 섹션을 건너뛰고 지원 되는 기능으로 이동할 수 있습니다. 
-
-#### <a name="whats-changing"></a>변경 내용은?
-* Azure AD 측의 변경: 작업 공간에서 사용자를 프로 비전 하는 권한 부여 방법이 오래 지속 된 비밀 토큰입니다. 곧 권한 부여 방법이 OAuth 권한 부여로 변경 된 것을 볼 수 있습니다. 
-* 작업 공간 측 변경: 이전에 Azure AD 앱은 Facebook의 작업 공간에서 사용자 지정 통합 이었습니다. 이제 회사 통합 디렉터리에서 타사 응용 프로그램으로 Azure AD가 표시 됩니다. 
-
-#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>기존 사용자 지정 통합을 새 응용 프로그램으로 마이그레이션하려면 어떻게 해야 하나요?
-유효한 토큰과 함께 기존 작업 공간을 통합 하는 경우에는 아무 조치도 필요 하지 않습니다. **04/28/2020를 통해 잘못 된 자격 증명으로 인해 격리 되지 않은 모든 응용 프로그램을 자동으로 마이그레이션 했습니다.**
- 
-#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>응용 프로그램이 마이그레이션 되었는지 어떻게 알 수 있나요? 
-* Azure Portal에서: 응용 프로그램이 마이그레이션되면 권한 부여 섹션에서 예정 된 변경 내용에 대 한 배너가 제거 되며 비밀 토큰 필드가 파란색 권한 부여 단추로 바뀝니다. 
-* Facebook의 작업 공간 포털: Azure AD 앱을 검토 하 여 승인 되었는지 확인 합니다.  
-
-#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>응용 프로그램에서 관리자 자격 증명 섹션이 회색으로 표시 되 고 저장할 수 없습니다. 그 이유는
-마이그레이션되지 않은 작업 공간 고객에 대 한 관리자 자격 증명 섹션을 잠 궜 습니다. 관리자 자격 증명 섹션이 회색으로 표시 되 고 액세스 권한을 다시 부여 해야 하는 경우 다음 URL을 사용 하세요. **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
-
-
-## <a name="capabilities-supported"></a>지원 되는 기능
+## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
 > * Facebook으로 작업 공간에서 사용자 만들기
 > * 더 이상 액세스 하지 않아도 되는 Facebook의 작업 공간 사용자 제거
 > * 사용자 특성을 Azure AD와 Facebook의 작업 공간 간에 동기화 된 상태로 유지
 > * Facebook 별 작업 공간에 [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) (권장)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [Azure AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * 프로 비전을 구성할 수 있는 [권한이](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 있는 Azure AD의 사용자 계정 (예: 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 소유자 또는 전역 관리자)
 * Workplace by Facebook Single Sign-On이 설정된 구독
 
@@ -67,9 +48,9 @@ Facebook을 사용 하 여 작업 공간에 기존에 통합 한 경우에는 �
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1 개월 평가판을 얻을 수 있습니다.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로 비전 배포 계획
-1. [프로 비전 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
-2. [프로 비전 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정 합니다.
+## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
+1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
+2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
 3. [AZURE AD와 Facebook의 작업 공간 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다.
 
 ## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 Facebook의 작업 공간 구성
@@ -82,17 +63,17 @@ Facebook을 사용 하 여 작업 공간에 기존에 통합 한 경우에는 �
 
 ## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간 추가
 
-Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간을 추가 하 여 Facebook에서 작업 공간으로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Facebook의 작업 공간을 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트할 때 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)에서 갤러리에서 응용 프로그램을 추가 하는 방법에 대해 자세히 알아보세요.
+Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간을 추가 하 여 Facebook에서 작업 공간으로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Facebook의 작업 공간을 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로 비전 범위에 있는 사용자를 정의 합니다. 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
-Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한 할당 또는 사용자/그룹의 특성을 기반으로 프로 비전 되는 사용자의 범위를 지정할 수 있습니다. 할당에 따라 앱에 프로 비전 할 사용자의 범위를 선택 하는 경우 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md) 를 사용 하 여 응용 프로그램에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로 비전 할 사용자의 범위를 선택 하는 경우 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 설명 된 대로 범위 지정 필터를 사용할 수 있습니다. 
+Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Facebook에서 작업 공간에 사용자 및 그룹을 할당 하는 경우 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로 비전에서 제외 되 고 프로 비전 로그에 효과적으로 부여 되지 않은 것으로 표시 됩니다. 응용 프로그램에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [응용 프로그램 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) 하 여 역할을 더 추가할 수 있습니다. 
+* Facebook에서 작업 공간에 사용자 및 그룹을 할당 하는 경우 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
-* 작은 크기를 시작 합니다. 모든 사용자에 게 배포 하기 전에 소수의 사용자 및 그룹 집합을 사용 하 여 테스트 합니다. 프로 비전 범위가 할당 된 사용자 및 그룹으로 설정 된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당 하 여이를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정 된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
+* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -100,13 +81,13 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![애플리케이션 목록의 Workplace by Facebook 링크](common/all-applications.png)
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 **권한 부여**를 클릭 합니다. Facebook의 권한 부여 페이지에서 작업 공간으로 리디렉션됩니다. Facebook 사용자 이름으로 작업 공간을 입력 하 고 **계속** 단추를 클릭 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Facebook의 작업 공간에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Facebook 계정으로 작업 공간에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -114,7 +95,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![권한 부여](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
-6. **알림 전자 메일** 필드에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 하 고 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
@@ -126,28 +107,28 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
    |attribute|Type|
    |---|---|
-   |userName|문자열|
-   |displayName|문자열|
+   |userName|String|
+   |displayName|String|
    |활성|부울|
    |title|부울|
-   |emails[type eq "work"].value|문자열|
-   |name.givenName|문자열|
-   |name.familyName|문자열|
-   |이름 형식|문자열|
-   |addresses [type eq "work"]. 서식 지정|문자열|
-   |addresses[type eq "work"].streetAddress|문자열|
-   |addresses [type eq "work"]. 집약성|문자열|
-   |addresses [type eq "work"]. region|문자열|
-   |addresses [type eq "work"]. country|문자열|
-   |addresses[type eq "work"].postalCode|문자열|
-   |addresses [type eq "other"]. 서식 지정|문자열|
-   |phoneNumbers[type eq "work"].value|문자열|
-   |phoneNumbers[type eq "mobile"].value|문자열|
-   |phoneNumbers[type eq "fax"].value|문자열|
-   |externalId|문자열|
-   |preferredLanguage|문자열|
-   |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager|문자열|
-   |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: 부서|문자열|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].country|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses [type eq "other"]. 서식 지정|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |externalId|String|
+   |preferredLanguage|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -163,21 +144,21 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정** 섹션의 **범위** 에 정의 된 모든 사용자 및 그룹의 초기 동기화 주기를 시작 합니다. Azure AD 프로 비전 서비스가 실행 되는 동안에는 대략 40 분 마다 발생 하는 이후 주기 보다 수행 하는 데 걸리는 시간이 길어집니다. 
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
-프로 비전을 구성한 후에는 다음 리소스를 사용 하 여 배포를 모니터링 합니다.
+프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-1. [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 를 사용 하 여 성공적으로 프로 비전 된 사용자를 확인 합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 을 확인 하 여 프로 비전 주기의 상태와 완료 방법의 상태를 확인 합니다.
-3. 프로 비전 구성이 비정상 상태에 있는 것 같으면 응용 프로그램이 격리 됩니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)에서 격리 상태에 대해 자세히 알아보세요.
+1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 *  사용자가 성공적으로 생성 되지 않은 것을 확인 하 고 코드가 "1789003" 인 감사 로그 이벤트가 있는 경우 사용자가 확인 되지 않은 도메인에서 온 것임을 의미 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

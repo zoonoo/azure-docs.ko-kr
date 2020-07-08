@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84717803"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -28,7 +27,7 @@ ms.locfileid: "79284513"
 
 X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 디바이스 인증을 허용합니다. 이 경우 초기 디바이스 등록 프로세스와 디바이스 제조 동안의 공급망 물류 처리가 간편해집니다. 디바이스 인증에 [X.509 CA 인증서를 사용할 때 얻을 수 있는 가치에 대해서는 이 시나리오 문서를 참조하세요](iot-hub-x509ca-concept.md).  이 시나리오의 문서는 이어지는 단계의 필요성을 잘 설명하므로 먼저 읽는 것이 좋습니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 X.509 CA 기능을 사용하려면 IoT Hub 계정이 필요합니다.  IoT Hub 인스턴스가 아직 없는 경우 [IoT Hub 인스턴스를 만드는 방법을 알아봅니다](quickstart-send-telemetry-dotnet.md).
 
@@ -50,7 +49,7 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-장치 인증서 (리프 인증서 라고도 함)는 Azure IoT Hub에서 IoT 장치를 등록할 때 사용 된 **장치 ID** 로 설정 된 *주체 이름* 이어야 합니다. 이 설정은 인증에 필요 합니다.
+장치 인증서 (리프 인증서 라고도 함)는 Azure IoT Hub에서 IoT 장치를 등록할 때 사용 된 **장치 ID** ()로 설정 된 *주체 이름* 이어야 합니다 `CN=deviceId` . 이 설정은 인증에 필요합니다.
 
 여기에서는 디바이스에 서명할 때 완료되는 [인증서 체인 생성](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아봅니다.
 

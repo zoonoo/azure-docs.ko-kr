@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707313"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,12 +60,12 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Teradata 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesTeradata** |예 |
 | 서버 |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
-| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
+| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
@@ -284,11 +283,11 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 
 | Teradata 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
-| Char |문자열 |
-| Clob |문자열 |
-| Graphic |문자열 |
-| VarChar |문자열 |
-| VarGraphic |문자열 |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -297,11 +296,11 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | Decimal |Decimal |
 | Double |Double |
 | 정수 |Int32 |
-| 숫자 |Double |
+| number |Double |
 | SmallInt |Int16 |
-| Date |DateTime |
-| 시간 |TimeSpan |
-| Time With Time Zone |문자열 |
+| 날짜 |DateTime |
+| Time |TimeSpan |
+| Time With Time Zone |String |
 | 타임스탬프 |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
@@ -314,15 +313,15 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |문자열 |
-| Interval Year To Month |문자열 |
-| Interval Month |문자열 |
-| Period(Date) |문자열 |
-| Period(Time) |문자열 |
-| Period(Time With Time Zone) |문자열 |
-| Period(Timestamp) |문자열 |
-| Period(Timestamp With Time Zone) |문자열 |
-| xml |문자열 |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

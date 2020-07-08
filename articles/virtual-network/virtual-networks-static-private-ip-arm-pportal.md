@@ -8,18 +8,18 @@ manager: twooley
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707857"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Azure Portal를 사용 하 여 VM에 대 한 개인 IP 주소 구성
 
@@ -29,9 +29,9 @@ ms.locfileid: "81461551"
 
 다음 샘플 단계에서는 간단한 환경이 이미 생성 된 것으로 간주 합니다. 이 문서에 표시 된 대로 단계를 실행 하려면 먼저 [가상 네트워크를 만듭니다](quick-create-portal.md#create-a-virtual-network). 그러나 3 단계에서 다음 값을 대신 사용 합니다.
 
-| 설정 | 값 |
+| Setting | Value |
 | ------- | ----- |
-| 속성 | *TestVNet* |
+| Name | *TestVNet* |
 | 주소 공간 | *192.168.0.0/16* |
 | Resource group | **TestRG** (필요한 경우 새로 만들기를 선택 하 여 **새로** 만듭니다.) |
 | 서브넷 - 이름 | *엔드* |
@@ -45,10 +45,10 @@ ms.locfileid: "81461551"
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택 합니다.
 
     ![리소스 만들기, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. **계산** > **가상 머신**를 선택 합니다.
+2. **계산**  >  **가상 머신**를 선택 합니다.
 
     ![VM 만들기, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. **기본 사항**에서 다음 표에 설명 된 대로 항목의 값을 지정 합니다. 그런 후 **다음&nbsp;:&nbsp;디스크** , 다음 **&nbsp;&nbsp;: 네트워킹**을 차례로 선택 합니다.
+3. **기본 사항**에서 다음 표에 설명 된 대로 항목의 값을 지정 합니다. 그런 후 **다음 &nbsp; : &nbsp; 디스크** , 다음 ** &nbsp; : &nbsp; 네트워킹**을 차례로 선택 합니다.
 
     | 항목 | 값 |
     | --- | --- |
@@ -71,7 +71,7 @@ ms.locfileid: "81461551"
     | **서브넷** | **엔드** |
 
     ![네트워킹 탭, 가상 컴퓨터 만들기, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. **관리**의 **진단 저장소 계정**에서 **vnetstorage**를 선택 합니다. 해당 저장소 계정이 목록에 표시 되지 않으면 **새로 만들기**를 선택 하 고, *Vnetstorage*의 **이름을** 지정 하 고, **확인**을 선택 합니다. 마지막으로 **검토&nbsp;+&nbsp;만들기**를 선택 합니다.
+5. **관리**의 **진단 저장소 계정**에서 **vnetstorage**를 선택 합니다. 해당 저장소 계정이 목록에 표시 되지 않으면 **새로 만들기**를 선택 하 고, *Vnetstorage*의 **이름을** 지정 하 고, **확인**을 선택 합니다. 마지막으로 **검토 &nbsp; + &nbsp; 만들기**를 선택 합니다.
 
     ![관리 탭에서 가상 컴퓨터를 만듭니다. Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
 6. **검토 + 만들기**에서 개요 정보를 검토 한 다음 **만들기**를 선택 합니다.

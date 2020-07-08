@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712227"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -41,7 +40,7 @@ Service Fabric은 구입 즉시 포괄적인 이벤트 집합을 제공합니다
 
 ![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
 
-제공되는 진단은 기본적으로 포괄적인 이벤트 세트 형식으로 되어 있습니다. 이러한 [Service Fabric 이벤트](service-fabric-diagnostics-events.md) 는 노드, 응용 프로그램, 서비스, 파티션 등의 여러 엔터티에 대해 플랫폼에서 수행 하는 작업을 보여 줍니다. 위의 마지막 시나리오에서 노드가 다운 된 경우 플랫폼에서 이벤트를 `NodeDown` 내보내고 모니터링 도구에서 즉시 알릴 수 있습니다. 다른 일반적인 예로 장애 조치(failover) 동안의 `ApplicationUpgradeRollbackStarted` 또는 `PartitionReconfigured`가 있습니다. **동일한 이벤트를 Windows 및 Linux 클러스터 둘 다에서 사용할 수 있습니다.**
+제공되는 진단은 기본적으로 포괄적인 이벤트 세트 형식으로 되어 있습니다. 이러한 [Service Fabric 이벤트](service-fabric-diagnostics-events.md) 는 노드, 응용 프로그램, 서비스, 파티션 등의 여러 엔터티에 대해 플랫폼에서 수행 하는 작업을 보여 줍니다. 위의 마지막 시나리오에서 노드가 다운 된 경우 플랫폼에서 이벤트를 내보내고 `NodeDown` 모니터링 도구에서 즉시 알릴 수 있습니다. 다른 일반적인 예로 장애 조치(failover) 동안의 `ApplicationUpgradeRollbackStarted` 또는 `PartitionReconfigured`가 있습니다. **동일한 이벤트를 Windows 및 Linux 클러스터 둘 다에서 사용할 수 있습니다.**
 
 이벤트가 Windows 및 Linux 둘 다의 표준 채널을 통해 전송되며, 이러한 채널을 지원하는 모니터링 도구에서 읽을 수 있습니다. Azure Monitor 솔루션은 Azure Monitor 로그입니다. 클러스터에 대 한 사용자 지정 작동 대시보드 및 경고를 만들 수 있는 몇 가지 샘플 쿼리를 포함 하는 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 대해 자세히 알아보세요. [플랫폼 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-infra.md)에서 더 많은 클러스터 모니터링 개념을 확인할 수 있습니다.
 

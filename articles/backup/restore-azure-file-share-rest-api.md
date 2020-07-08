@@ -4,11 +4,10 @@ description: REST API를 사용 하 여에서 만든 복원 지점에서 Azure �
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710578"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 복원
 
@@ -20,7 +19,7 @@ ms.locfileid: "79252507"
 * 전체 Azure 파일 공유를 복원 합니다.
 * 개별 파일 또는 폴더를 복원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 복원 하려는 백업 된 파일 공유가 이미 있다고 가정 합니다. 그렇지 않은 경우 REST API를 [사용 하 여 Azure 파일 공유 백업](backup-azure-file-share-rest-api.md) 을 선택 하 여 만드는 방법을 알아봅니다.
 
@@ -160,7 +159,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-속성 |  Type   |   Description
+이름 |  Type   |   설명
 --- | ---- | ----
 속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
 
@@ -370,7 +369,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-속성 |  Type   |   Description
+이름 |  Type   |   설명
 --- | ---- | ----
 속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
 
@@ -378,7 +377,7 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 
 ### <a name="restore-to-original-location"></a>원래 위치로 복원
 
-다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 *Restoretest* 파일을 복원 하는 것입니다.
+다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에서 *Restoretest.txt* 파일을 복원 하는 것입니다.
 
 요청 본문 만들기
 
@@ -404,7 +403,7 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 
 ### <a name="restore-to-alternate-location"></a>대체 위치에 복원
 
-다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 있는 *Restoretest* 파일을 *afaccount1* storage 계정에 있는 *azurefiles1* 파일 공유의 *restoredata* 폴더에 복원 하는 것입니다.
+다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 있는 *Restoretest.txt* 파일을 *afaccount1* storage 계정에 있는 *azurefiles1* 파일 공유의 *restoredata* 폴더에 복원 하는 것입니다.
 
 요청 본문 만들기
 

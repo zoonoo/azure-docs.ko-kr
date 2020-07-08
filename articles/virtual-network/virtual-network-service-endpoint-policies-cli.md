@@ -11,18 +11,17 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708215"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
 
@@ -114,7 +113,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. 옵션 `destination-address-prefix "Internet"` 은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](security-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"`옵션은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -263,7 +262,7 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-허용 되는 저장소 계정에 대 한 리소스 URI를 변수에 저장 합니다. 아래 명령을 실행 하기 전에 * \<-subscription id>* 를 구독 id의 실제 값으로 바꿉니다.
+허용 되는 저장소 계정에 대 한 리소스 URI를 변수에 저장 합니다. 아래 명령을 실행 하기 전에을 *\<your-subscription-id>* 구독 ID의 실제 값으로 바꿉니다.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
@@ -313,7 +312,7 @@ VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력�
 
 ### <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. * \<PublicIpAddress>* 를 *myvmprivate* VM의 공용 IP 주소로 바꿉니다.
+*myVmPrivate* VM으로 SSH를 수행합니다. *\<publicIpAddress>* 를 *Myvmprivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,7 +324,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행 하기 전에 *AccountKey* 값으로 * \<저장소-계정 키>* 를 **$saConnectionString 1**의 값으로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 1**에서 *AccountKey* 값으로 대체 합니다.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -343,13 +342,13 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 저장소 계정 *notallowedstorageacc* 에서 만든 디렉터리에 Azure 파일 공유를 탑재 하려고 합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 
 
-아래 명령을 실행 하기 전에 *AccountKey* 값으로 * \<저장소-계정 키>* 를 **$saConnectionString 2**의 값으로 바꿉니다.
+아래 명령을 실행 하기 전에 *\<storage-account-key>* **$saConnectionString 2**의 *AccountKey* 값으로 대체 합니다.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-이 저장소 계정은 서브넷에 적용 한 서비스 `mount error(13): Permission denied` 끝점 정책의 허용 목록에 없기 때문에 액세스가 거부 되 고 오류가 수신 됩니다. 
+`mount error(13): Permission denied`이 저장소 계정은 서브넷에 적용 한 서비스 끝점 정책의 허용 목록에 없기 때문에 액세스가 거부 되 고 오류가 수신 됩니다. 
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 

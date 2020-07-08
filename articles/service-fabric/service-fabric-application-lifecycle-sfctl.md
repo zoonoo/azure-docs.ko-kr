@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711037"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리
 
 Azure Service Fabric 클러스터에서 실행 중인 애플리케이션을 만들고 삭제하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Service Fabric CLI를 설치합니다. 그런 다음, Service Fabric 클러스터를 선택합니다. 자세한 내용은 [Service Fabric CLI 시작](service-fabric-cli.md)을 참조하세요.
 

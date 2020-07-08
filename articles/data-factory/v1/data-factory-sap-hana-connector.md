@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707143"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,10 +60,10 @@ SAP HANA 인스턴스에 대한 연결을 사용하도록 설정하려면 다음
 -------- | ----------- | -------------- | --------
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
 authenticationType | 인증 유형입니다. | 문자열을 생성할 수 있습니다. "Basic" 또는 "Windows" | 예 
-username | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
 password | 사용자에 대한 암호입니다. | string | 예
 gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
-encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -287,14 +286,14 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 bigint | Int64
-real | Single
+실수 | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
 VARCHAR | String
-NVARCHAR | 문자열
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | 문자열
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan

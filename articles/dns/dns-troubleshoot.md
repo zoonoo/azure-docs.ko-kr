@@ -4,15 +4,14 @@ description: 이 학습 경로에서 일반적인 Azure DNS 관련 문제를 해
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: 27d192a50a13437b755e7cc0db8a7dbcc4fee2f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711190"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 

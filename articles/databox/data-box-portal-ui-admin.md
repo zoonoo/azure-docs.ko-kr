@@ -9,11 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707738"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
 
@@ -119,7 +118,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 ## <a name="view-order-status"></a>주문 상태 보기
 
-|주문 상태 |Description |
+|주문 상태 |설명 |
 |---------|---------|
 |주문됨     | 주문을 성공적으로 배치했습니다. <br> 디스크를 사용할 수 없는 경우 알림을 받습니다. <br>디스크를 사용할 수 있으면 Microsoft에서 배송할 디스크를 확인하고 디스크 패키지를 준비합니다.        |
 |처리됨     | 주문 처리가 완료되었습니다. <br> 주문을 처리하는 동안 다음 작업이 발생합니다.<li>디스크는 AES-128 BitLocker 암호화를 사용하여 암호화됩니다. </li> <li>Data Box Disk는 무단 액세스를 방지하기 위해 잠겨 있습니다.</li><li>이 과정에서 디스크 잠금을 해제하는 지원 암호가 생성됩니다.</li>        |
@@ -128,7 +127,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 |선택됨     |반송 배송이 선택되었습니다. <br> Azure 데이터 센터에 배송이 수신되면 데이터는 Azure에 자동으로 업로드됩니다.         |
 |수신됨     | Azure 데이터 센터에서 디스크를 받았습니다. 데이터 복사가 곧 시작됩니다.        |
 |데이터가 복사됨     |데이터 복사가 진행 중입니다.<br> 데이터 복사가 완료될 때까지 기다립니다.         |
-|Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
+|완료       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
 |오류와 함께 완료됨| 데이터 복사가 완료되었지만 오류가 발생했습니다. <br> **개요**에 제공된 경로를 사용하여 업로드에 대한 오류 로그를 검토합니다. 자세한 내용은 [업로드 오류 로그 다운로드](data-box-disk-troubleshoot-upload.md#download-logs)를 참조하세요.   |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다.     |
 

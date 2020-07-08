@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711003"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -52,10 +51,10 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 4. **IP 구성**에서 **+ 추가**를 선택합니다.
 5. 다음을 지정한 다음, **확인**을 선택합니다.
 
-   |설정|필수 여부|세부 정보|
+   |Setting|필수 여부|세부 정보|
    |---|---|---|
-   |속성|예|네트워크 인터페이스에 대해 고유해야 합니다.|
-   |Type|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
+   |이름|예|네트워크 인터페이스에 대해 고유해야 합니다.|
+   |형식|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
    |개인 IP 주소 할당 방법|예|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
    |공용 IP 주소|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
 6. [가상 머신 운영 체제에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 가상 머신 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. 가상 머신 운영 체제에 IP 주소를 수동으로 추가하기 전에 고려해야 하는 특수한 사항은 [프라이빗](#private) IP 주소를 참조하세요. 가상 머신 운영 체제에는 공용 IP 주소를 추가하지 마세요.
@@ -108,7 +107,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 [프라이빗](#private) 및 [공용](#public)(선택 사항) IP 주소는 네트워크 인터페이스에 할당되어 있는 하나 이상의 IP 구성에 할당됩니다. IP 구성에는 다음과 같은 두 종류가 있습니다.
 
-### <a name="primary"></a>주
+### <a name="primary"></a>기본
 
 각 네트워크 인터페이스에는 기본 IP 구성 하나가 할당됩니다. 기본 IP 구성의 특성은 다음과 같습니다.
 
@@ -169,7 +168,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 동적 프라이빗 IPv4 및 IPv6(선택 사항) 주소는 기본적으로 할당됩니다.
 
 - **공용에만 해당**: Azure는 각 Azure 지역에 고유한 범위에서 주소를 할당합니다. 각 지역에 할당되는 범위에 대한 자세한 내용은 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요. 주소는 가상 머신이 중지(할당 취소) 후 다시 시작될 때 변경할 수 있습니다. 공용 IPv6 주소는 어떤 할당 방법으로도 IP 구성에 할당할 수 없습니다.
-- **프라이빗에만 해당**: Azure는 각 서브넷 주소 범위에서 처음 4개 주소를 예약하고 주소를 할당하지 않습니다. Azure는 서브넷 주소 범위에서 리소스에 사용 가능한 다음 주소를 할당합니다. 예를 들어 서브넷의 주소 범위가 10.0.0.0/16이고 주소 10.0.0.0.4-10.0.0.14가 이미 할당된 경우(.0-.3이 예약됨) Azure는 10.0.0.15를 리소스에 할당합니다. 동적이 기본 할당 방법입니다. 할당되면 네트워크 인터페이스가 삭제되거나 동일한 가상 네트워크 내에서 다른 서브넷에 할당되거나 또는 할당 메서드가 고정으로 변경된 경우 동적 IP 주소만 해제되고 다른 IP 주소가 지정됩니다. 기본적으로 할당 메서드를 동적에서 고정으로 변경하는 경우 Azure는 이전에 동적으로 할당된 주소를 고정 주소로 할당합니다. 
+- **프라이빗에만 해당**: Azure는 각 서브넷 주소 범위에서 처음 4개 주소를 예약하고 주소를 할당하지 않습니다. Azure는 서브넷 주소 범위에서 리소스에 사용 가능한 다음 주소를 할당합니다. 예를 들어 서브넷의 주소 범위가 10.0.0.0/16이 고 10.0.0.4-10.0.0.14 주소가 이미 할당 된 경우 (. 0-.3가 예약 됨) Azure는 리소스에 10.0.0.15를 할당 합니다. 동적이 기본 할당 방법입니다. 할당되면 네트워크 인터페이스가 삭제되거나 동일한 가상 네트워크 내에서 다른 서브넷에 할당되거나 또는 할당 메서드가 고정으로 변경된 경우 동적 IP 주소만 해제되고 다른 IP 주소가 지정됩니다. 기본적으로 할당 메서드를 동적에서 고정으로 변경하는 경우 Azure는 이전에 동적으로 할당된 주소를 고정 주소로 할당합니다. 
 
 ### <a name="static"></a>정적
 
@@ -205,7 +204,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 ## <a name="next-steps"></a>다음 단계
 다양한 IP 구성으로 가상 머신을 만들려면 다음 문서를 확인하세요.
 
-|작업|도구|
+|Task|도구|
 |---|---|
 |여러 네트워크 인터페이스를 사용하는 VM 만들기|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

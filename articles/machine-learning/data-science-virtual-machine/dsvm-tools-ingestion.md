@@ -11,11 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708011"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -65,7 +64,7 @@ ms.locfileid: "79270057"
 | 무엇인가요?   | 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB으로 다양 한 소스에서 데이터를 가져오는 도구입니다. 이러한 원본에는 JSON 파일, CSV 파일, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션이 있습니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure table storage에서 CosmosDB로 데이터 가져오기, Microsoft SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기     |
-|  사용/실행 방법    |   명령줄 버전을 사용 하려면 명령 프롬프트를 열고을 입력 `dt`합니다. GUI 도구를 사용 하려면 명령 프롬프트를 열고을 입력 `dtui`합니다.    |
+|  사용/실행 방법    |   명령줄 버전을 사용 하려면 명령 프롬프트를 열고을 입력 `dt` 합니다. GUI 도구를 사용 하려면 명령 프롬프트를 열고을 입력 `dtui` 합니다.    |
 | 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |
 

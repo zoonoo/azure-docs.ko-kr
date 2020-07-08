@@ -9,11 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704525"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -27,7 +26,7 @@ ms.locfileid: "79284032"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| Type | Description |
+| 형식 | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **기하급수적 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -69,19 +68,19 @@ ms.locfileid: "79284032"
 
 *필수*
 
-| 값 | Type | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
-| <*다시 시도 정책-유형*> | 문자열 | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
-| <*다시 시도 간격*> | 문자열 | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
+| <*다시 시도 정책-유형*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
+| <*다시 시도 간격*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
 | <*다시 시도 횟수*> | 정수 | 재시도 횟수이며, 1~90 사이여야 합니다. |
 ||||
 
 *선택 사항*
 
-| 값 | Type | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
-| <*최소 간격*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
-| <*최대 간격*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
+| <*최소 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
+| <*최대 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 ||||
 
 다른 정책 유형에 대한 자세한 내용은 다음과 같습니다.
@@ -162,9 +161,9 @@ ms.locfileid: "79284032"
 
 ## <a name="catch-and-handle-failures-by-changing-run-after-behavior"></a>"다음 이후 실행" 동작을 변경 하 여 오류를 Catch 하 고 처리 합니다.
 
-논리 앱 디자이너에서 작업을 추가 하는 경우 이러한 작업을 실행 하는 데 사용할 순서를 암시적으로 선언 합니다. 작업 실행이 완료 되 면 해당 `Succeeded`작업은, `Failed` `Skipped`, 또는 `TimedOut`와 같은 상태로 표시 됩니다. 각 작업 정의에서 속성은 `runAfter` 먼저 완료 해야 하는 선행 작업과 후속 작업을 실행 하기 전에 해당 선행 작업에 대해 허용 된 상태를 지정 합니다. 기본적으로 디자이너에서 추가 하는 동작은 선행 작업이 `Succeeded` 상태로 완료 된 후에만 실행 됩니다.
+논리 앱 디자이너에서 작업을 추가 하는 경우 이러한 작업을 실행 하는 데 사용할 순서를 암시적으로 선언 합니다. 작업 실행이 완료 되 면 해당 작업은,, 또는와 같은 상태로 표시 됩니다 `Succeeded` `Failed` `Skipped` `TimedOut` . 각 작업 정의에서 속성은 `runAfter` 먼저 완료 해야 하는 선행 작업과 후속 작업을 실행 하기 전에 해당 선행 작업에 대해 허용 된 상태를 지정 합니다. 기본적으로 디자이너에서 추가 하는 동작은 선행 작업이 상태로 완료 된 후에만 실행 됩니다 `Succeeded` .
 
-동작에서 처리 되지 않은 오류 또는 예외가 throw 되 면 작업이 표시 `Failed`되 고 모든 후속 작업이 표시 `Skipped`됩니다. 병렬 분기가 있는 작업에 대해이 동작을 수행 하는 경우 Logic Apps 엔진은 다른 분기를 따라 완료 상태를 확인 합니다. 예를 들어 분기가 `Skipped` 작업으로 끝나는 경우 해당 분기의 완료 상태는 건너뛴 작업의 선행 작업 상태를 기준으로 합니다. 논리 앱 실행이 완료 되 면 엔진은 모든 분기 상태를 평가 하 여 전체 실행의 상태를 확인 합니다. 오류가 발생 하는 분기가 있으면 전체 논리 앱 실행이 표시 `Failed`됩니다.
+동작에서 처리 되지 않은 오류 또는 예외가 throw 되 면 작업이 표시 되 `Failed` 고 모든 후속 작업이 표시 됩니다 `Skipped` . 병렬 분기가 있는 작업에 대해이 동작을 수행 하는 경우 Logic Apps 엔진은 다른 분기를 따라 완료 상태를 확인 합니다. 예를 들어 분기가 작업으로 끝나는 경우 `Skipped` 해당 분기의 완료 상태는 건너뛴 작업의 선행 작업 상태를 기준으로 합니다. 논리 앱 실행이 완료 되 면 엔진은 모든 분기 상태를 평가 하 여 전체 실행의 상태를 확인 합니다. 오류가 발생 하는 분기가 있으면 전체 논리 앱 실행이 표시 됩니다 `Failed` .
 
 ![실행 상태를 평가 하는 방법을 보여 주는 예제](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
@@ -174,7 +173,7 @@ ms.locfileid: "79284032"
 
 ### <a name="customize-run-after-behavior"></a>"실행 후" 동작 사용자 지정
 
-선행 작업의 `Succeeded`상태가, `Failed`, `Skipped`, `TimedOut`또는 이러한 상태 중 하나일 때 동작이 실행 되도록 작업의 "실행 후" 동작을 사용자 지정할 수 있습니다. 예를 들어 Excel Online `Add_a_row_into_a_table` 선행 작업을로 표시 `Failed` `Succeeded`한 후 전자 메일을 보내려면 다음 단계를 수행 하 여 "다음 시간 이후에 실행" 동작을 변경 합니다.
+선행 작업의 상태가 `Succeeded` , `Failed` , `Skipped` , `TimedOut` 또는 이러한 상태 중 하나일 때 동작이 실행 되도록 작업의 "실행 후" 동작을 사용자 지정할 수 있습니다. 예를 들어 Excel Online 선행 작업을로 표시 한 후 전자 메일을 보내려면 `Add_a_row_into_a_table` `Failed` 다음 단계를 수행 `Succeeded` 하 여 "다음 시간 이후에 실행" 동작을 변경 합니다.
 
 * 디자인 뷰에서 줄임표 (**...**) 단추를 선택한 다음 다음 **이후 실행 구성**을 선택 합니다.
 
@@ -188,11 +187,11 @@ ms.locfileid: "79284032"
 
   !["실행 후" 동작을 "실패 함"으로 변경](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
 
-  선행 작업을 `Failed` `Skipped` `TimedOut`로 표시할지 여부를 지정 하려면 작업을 실행 하 고 다른 상태를 선택 합니다.
+  선행 작업을로 표시할지 여부를 지정 하려면 작업을 실행 하 `Failed` 고 `Skipped` `TimedOut` 다른 상태를 선택 합니다.
 
   ![다른 상태를 갖도록 "실행 후" 동작 변경](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
 
-* 코드 보기의 작업 JSON 정의에서 다음 구문을 따르는 `runAfter` 속성을 편집 합니다.
+* 코드 보기의 작업 JSON 정의에서 `runAfter` 다음 구문을 따르는 속성을 편집 합니다.
 
   ```json
   "<action-name>": {
@@ -208,7 +207,7 @@ ms.locfileid: "79284032"
   }
   ```
 
-  이 예에서는 속성을에서 `runAfter` `Succeeded` 로 `Failed`변경 합니다.
+  이 예에서는 `runAfter` 속성을에서로 변경 `Succeeded` 합니다 `Failed` .
 
   ```json
   "Send_an_email_(V2)": {
@@ -235,7 +234,7 @@ ms.locfileid: "79284032"
   }
   ```
 
-  선행 작업을 `Failed` `Skipped` `TimedOut`로 표시할지 여부를 지정 하려면 작업을 실행 하 고 다른 상태를 추가 합니다.
+  선행 작업을로 표시할지 여부를 지정 하려면 작업을 실행 하 `Failed` 고 `Skipped` `TimedOut` 다른 상태를 추가 합니다.
 
   ```json
   "runAfter": {
@@ -249,13 +248,13 @@ ms.locfileid: "79284032"
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>범위 및 해당 결과를 사용하여 작업 평가
 
-`runAfter` 속성을 사용한 개별 작업 후 단계를 실행 하는 것과 마찬가지로 [범위](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)내에서 작업을 함께 그룹화 할 수 있습니다. 작업을 논리적으로 그룹화하고, 범위의 집계 상태를 평가하고, 해당 상태에 따라 작업을 수행하려는 경우 범위를 사용할 수 있습니다. 범위 내 모든 작업의 실행이 완료되면 범위 자체에서 자체의 상태를 가져옵니다.
+속성을 사용한 개별 작업 후 단계를 실행 하는 것과 마찬가지로 `runAfter` [범위](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)내에서 작업을 함께 그룹화 할 수 있습니다. 작업을 논리적으로 그룹화하고, 범위의 집계 상태를 평가하고, 해당 상태에 따라 작업을 수행하려는 경우 범위를 사용할 수 있습니다. 범위 내 모든 작업의 실행이 완료되면 범위 자체에서 자체의 상태를 가져옵니다.
 
-범위의 상태를 확인 하려면 `Succeeded`, `Failed`등의 논리 앱 실행 상태를 확인 하는 데 사용 하는 것과 동일한 기준을 사용할 수 있습니다.
+범위의 상태를 확인 하려면, 등의 논리 앱 실행 상태를 확인 하는 데 사용 하는 것과 동일한 기준을 사용할 수 있습니다 `Succeeded` `Failed` .
 
-기본적으로 범위의 모든 작업이 성공 하면 범위 상태가로 표시 `Succeeded`됩니다. 범위에 있는 최종 동작이 `Failed` 또는 `Aborted`이면 범위 상태가로 표시 `Failed`됩니다.
+기본적으로 범위의 모든 작업이 성공 하면 범위 상태가로 표시 됩니다 `Succeeded` . 범위에 있는 최종 동작이 `Failed` 또는 이면 `Aborted` 범위 상태가로 표시 됩니다 `Failed` .
 
-`Failed` 범위에서 예외를 catch 하 고 해당 오류를 처리 하는 작업을 실행 하려면 해당 `runAfter` `Failed` 범위에 대해 속성을 사용할 수 있습니다. 이렇게 하면 범위의 작업이 실패 하 고 해당 범위에 대 한 `runAfter` 속성을 사용 하는 경우 오류를 catch 하는 단일 작업을 만들 수 있습니다. *any*
+범위에서 예외를 catch 하 `Failed` 고 해당 오류를 처리 하는 작업을 실행 하려면 `runAfter` 해당 범위에 대해 속성을 사용할 수 있습니다 `Failed` . 이렇게 하면 범위의 작업이 *any* 실패 하 고 `runAfter` 해당 범위에 대 한 속성을 사용 하는 경우 오류를 catch 하는 단일 작업을 만들 수 있습니다.
 
 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요.
 
@@ -265,9 +264,9 @@ ms.locfileid: "79284032"
 
 범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다.
 
-함수 [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. 함수 `result()` 는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 `actions()` 개체와 동일한 특성 (예: 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력)이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면 `@result()` `runAfter` 속성을 사용 하 여 식을 쉽게 쌍으로 연결할 수 있습니다.
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)함수는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. `result()`함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 개체와 동일한 특성 `actions()` (예: 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력)이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면 속성을 사용 하 여 식을 쉽게 쌍으로 연결할 수 있습니다 `@result()` `runAfter` .
 
-`Failed` 결과를 포함 하는 범위 내의 각 작업에 대해 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 식 `@result()` 에 [**필터 배열**](logic-apps-perform-data-operations.md#filter-array-action) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프를 쌍으로 연결할 수 있습니다. 필터링 된 결과 배열을 가져와서 루프를 `For_each` 사용 하 여 각 오류에 대 한 작업을 수행할 수 있습니다.
+결과를 포함 하는 범위 내의 각 작업에 대해 작업을 실행 하 `Failed` 고 실패 한 작업까지 결과 배열을 필터링 하려면 `@result()` 식에 [**필터 배열**](logic-apps-perform-data-operations.md#filter-array-action) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프를 쌍으로 연결할 수 있습니다. 필터링 된 결과 배열을 가져와서 루프를 사용 하 여 각 오류에 대 한 작업을 수행할 수 있습니다 `For_each` .
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 
@@ -314,19 +313,19 @@ ms.locfileid: "79284032"
 
 1. “My_Scope” 내의 모든 작업에서 결과를 가져오기 위해 **배열 필터링** 작업은 필터 식 `@result('My_Scope')`를 사용합니다.
 
-1. **필터 배열의** 조건은 상태가와 같은 모든 `@result()` 항목입니다 `Failed`. 이 조건은 “My_Scope”의 모든 작업 결과에 대한 배열을 실패한 작업 결과만 있는 배열로 필터링합니다.
+1. **필터 배열의** 조건은 `@result()` 상태가와 같은 모든 항목입니다 `Failed` . 이 조건은 “My_Scope”의 모든 작업 결과에 대한 배열을 실패한 작업 결과만 있는 배열로 필터링합니다.
 
-1. 필터링 된 `For_each` *배열* 출력에 대해 루프 동작을 수행 합니다. 이 단계는 이전에 필터링된 실패한 작업 결과 각각에 대해 작업을 수행합니다.
+1. `For_each` *필터링 된 배열* 출력에 대해 루프 동작을 수행 합니다. 이 단계는 이전에 필터링된 실패한 작업 결과 각각에 대해 작업을 수행합니다.
 
-   범위에서 단일 작업이 실패 하는 경우 `For_each` 루프의 작업은 한 번만 실행 됩니다. 여러 실패한 작업에서 오류당 하나의 작업이 발생합니다.
+   범위에서 단일 작업이 실패 하는 경우 루프의 작업은 `For_each` 한 번만 실행 됩니다. 여러 실패한 작업에서 오류당 하나의 작업이 발생합니다.
 
-1. `For_each` 항목인 응답 본문에 HTTP POST를 `@item()['outputs']['body']` 보냅니다.
+1. 항목인 응답 본문에 HTTP POST `For_each` 를 보냅니다 `@item()['outputs']['body']` .
 
    `@result()` 항목 모양은 `@actions()` 모양과 같으며 동일한 방식으로 구문 분석할 수 있습니다.
 
 1. 실패한 작업 이름(`@item()['name']`) 및 실패한 실행 클라이언트 추적 ID(`@item()['clientTrackingId']`)가 있는 두 개의 사용자 지정 헤더를 포함됩니다.
 
-참고로 이전 예제에서 구문 분석하는 `name`, `body` 및 `clientTrackingId` 속성을 보여 주는 단일 `@result()` 항목의 예제는 다음과 같습니다. `For_each` 동작 외부에서는 `@result()` 이러한 개체의 배열을 반환 합니다.
+참고로 이전 예제에서 구문 분석하는 `name`, `body` 및 `clientTrackingId` 속성을 보여 주는 단일 `@result()` 항목의 예제는 다음과 같습니다. 동작 외부 `For_each` 에서는 `@result()` 이러한 개체의 배열을 반환 합니다.
 
 ```json
 {
@@ -358,7 +357,7 @@ ms.locfileid: "79284032"
 }
 ```
 
-다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링 된 전체 오류 배열을 허용 하는 범위 외부에서 단일 예외 처리 작업을 실행 하 고 `For_each` 작업을 제거 하도록 선택할 수 있습니다. 앞에서 설명한 대로 `\@result()` 응답에서 기타 유용한 속성을 포함할 수도 있습니다.
+다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링 된 전체 오류 배열을 허용 하는 범위 외부에서 단일 예외 처리 작업을 실행 하 고 작업을 제거 하도록 선택할 수 있습니다 `For_each` . 앞에서 설명한 대로 응답에서 기타 유용한 속성을 포함할 수도 있습니다 `\@result()` .
 
 ## <a name="set-up-azure-monitor-logs"></a>Azure Monitor 로그 설정
 

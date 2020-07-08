@@ -13,11 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706599"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -117,7 +116,7 @@ ms.locfileid: "79250076"
 컴퓨터에 원격 데스크톱을 수행한 후 잠재적인 문제를 방지하기 위해 이전 NIC를 삭제해야 합니다.
 
 1.  디바이스 관리자를 엽니다.
-2.  **보기** > **숨김 장치 표시**를 선택 합니다.
+2.  **보기**  >  **숨김 장치 표시**를 선택 합니다.
 3.  **네트워크 어댑터**를 선택합니다. 
 4.  “Microsoft Hyper-V 네트워크 어댑터”로 명명된 어댑터를 확인합니다.
 5.  사용할 수 없는 어댑터가 회색으로 표시 될 수 있습니다. 어댑터를 마우스 오른쪽 단추로 클릭 한 다음 제거를 선택 합니다.

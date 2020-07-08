@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708300"
 ---
 # <a name="filters"></a>필터
 
@@ -26,7 +25,7 @@ ms.locfileid: "79251467"
 
 필터는 고객이 다음과 같은 작업을 수행할 수 있도록 하는 서버 쪽 규칙입니다. 
 
-- 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생합니다. 다음은 그 예입니다.
+- 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생합니다. 예를 들어:
   - 라이브 이벤트의 하위 클립을 표시하는 매니페스트를 줄입니다("하위 클립 필터링").
   - 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 - 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다(“변환 필터링”). 
@@ -47,7 +46,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 다음 속성을 사용하여 필터를 설명합니다. 
 
-|속성|Description|
+|이름|설명|
 |---|---|
 |firstQuality|필터의 첫 번째 품질 비트 전송률입니다.|
 |presentationTimeRange|프레젠테이션 시간 범위입니다. 이 속성은 매니페스트 시작/종료 지점, 프레젠테이션 창 길이 및 라이브 시작 위치를 필터링하는 데 사용됩니다. <br/>자세한 내용은 [PresentationTimeRange](#presentationtimerange)를 참조하세요.|
@@ -57,7 +56,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 이 속성은 **자산 필터**와 함께 사용합니다. **계정 필터**를 사용하여 이 속성을 설정하지 않는 것이 좋습니다.
 
-|속성|Description|
+|이름|설명|
 |---|---|
 |**endTimestamp**|VoD(주문형 비디오)에 적용됩니다.<br/>라이브 스트리밍 프레젠테이션의 경우 프레젠테이션이 종료 되 고 스트림이 VoD가 되 면 자동으로 무시 되 고 적용 됩니다.<br/>이 값은 프레젠테이션의 절대 끝점을 나타내며, 가장 가까운 다음 GOP 시작으로 반올림 된 long 값입니다. 단위는 시간 간격 이므로 18억의 endTimestamp는 3 분입니다.<br/>StartTimestamp 및 endTimestamp를 사용 하 여 재생 목록 (매니페스트)에 있는 조각을 자릅니다.<br/>예를 들어, 기본 날짜/시간을 사용 하는 startTimestamp = 40000000 및 endTimestamp = 100000000은 VoD 프레젠테이션 4 초에서 10 초 사이의 조각이 포함 된 재생 목록을 생성 합니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 매니페스트에 포함됩니다.|
 |**forceEndTimestamp**|라이브 스트리밍에만 적용 됩니다.<br/>EndTimestamp 속성이 있어야 하는지 여부를 나타냅니다. True 이면 endTimestamp를 지정 해야 합니다. 그렇지 않으면 잘못 된 요청 코드가 반환 됩니다.<br/>허용되는 값: true, false|
@@ -72,7 +71,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 필터 트랙 속성 조건은 트랙 유형, 값(다음 표에 설명) 및 연산(Equal, NotEqual)을 설명합니다. 
 
-|속성|Description|
+|이름|설명|
 |---|---|
 |**Bitrate**|필터링을 위해 트랙의 비트 전송률을 사용합니다.<br/><br/>권장 값은 비트 전송률의 범위(초당 비트 수)입니다. 예를 들어 “0-2427000”입니다.<br/><br/>참고: 특정 비트 전송률 값을 예를 들어 250000(초당 비트 수)과 같이 사용할 수 있지만, 정확한 비트 전송률이 자산별로 변동될 수 있으므로 이 방법은 권장되지 않습니다.|
 |**FourCC**|필터링을 위해 트랙의 FourCC 값을 사용합니다.<br/><br/>값은 [RFC 6381](https://tools.ietf.org/html/rfc6381)에 지정된 코덱 형식의 첫 번째 요소입니다. 현재 지원되는 코덱은 다음과 같습니다. <br/>비디오: “avc1”, “hev1”, “hvc1”<br/>오디오: “mp4a”, “ec-3”<br/><br/>자산의 트랙에 대한 FourCC 값을 확인하려면 매니페스트 파일 가져오기 및 검사를 참조하세요.|

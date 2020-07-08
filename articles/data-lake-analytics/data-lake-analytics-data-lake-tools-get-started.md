@@ -10,11 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707789"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
 
@@ -35,7 +34,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 >    - [Visual Studio 2017 및 2019의 경우](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Visual Studio 2013 및 2015의 경우](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
 
@@ -55,11 +54,11 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 
 1. Visual Studio를 엽니다.
 
-1. **View**보기 > **서버 탐색기**를 선택 하 여 **서버 탐색기** 을 엽니다.
+1. **보기**서버 탐색기를 선택 하 여 **서버 탐색기** 을 엽니다  >  **Server Explorer**.
 
 1. **Azure**를 마우스 오른쪽 단추로 클릭 한 다음 **Microsoft Azure 구독에 연결을**선택 합니다. **계정에 로그인**에서 지침을 따릅니다.
 
-1. **서버 탐색기**에서 **Azure** > **Data Lake Analytics**를 선택 합니다. Data Lake Analytics 계정 목록이 표시됩니다.
+1. **서버 탐색기**에서 **Azure**  >  **Data Lake Analytics**를 선택 합니다. Data Lake Analytics 계정 목록이 표시됩니다.
 
 ## <a name="write-your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트 작성
 
@@ -112,7 +111,7 @@ OUTPUT @a
 
 ## <a name="check-job-status"></a>작업 상태 확인
 
-1. **서버 탐색기**에서 **Azure** > **Data Lake Analytics**를 선택 합니다.
+1. **서버 탐색기**에서 **Azure**  >  **Data Lake Analytics**를 선택 합니다.
 
 1. Data Lake Analytics 계정 이름을 확장합니다.
 

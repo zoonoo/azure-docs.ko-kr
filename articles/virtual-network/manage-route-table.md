@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708266"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -31,9 +30,9 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 
 - **Powershell 사용자**: [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행 하거나 컴퓨터에서 powershell을 실행 합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Cloud Shell 브라우저 탭에서 **환경 선택** 드롭다운 목록을 찾은 다음 **PowerShell** 을 선택 합니다 (아직 선택 하지 않은 경우).
 
-    PowerShell을 로컬로 실행 하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상을 사용 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az.Network`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한를 `Connect-AzAccount` 실행 하 여 Azure에 대 한 연결을 만듭니다.
+    PowerShell을 로컬로 실행 하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상을 사용 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az.Network`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 `Connect-AzAccount` 를 실행 하 여 Azure에 대 한 연결을 만듭니다.
 
-- **AZURE cli (명령줄 인터페이스) 사용자**: [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행 하거나 컴퓨터에서 CLI를 실행 합니다. Azure CLI를 로컬로 실행 하는 경우 Azure CLI 버전 2.0.31 이상을 사용 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한를 `az login` 실행 하 여 Azure에 대 한 연결을 만듭니다.
+- **AZURE cli (명령줄 인터페이스) 사용자**: [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행 하거나 컴퓨터에서 CLI를 실행 합니다. Azure CLI를 로컬로 실행 하는 경우 Azure CLI 버전 2.0.31 이상을 사용 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 `az login` 를 실행 하 여 Azure에 대 한 연결을 만듭니다.
 
 에 로그인 하거나를 사용 하 여 Azure에 연결 하는 계정은 [네트워크 참가자 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 또는 [사용 권한](#permissions)에 나열 된 적절 한 작업이 할당 된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 할당 되어야 합니다.
 
@@ -50,7 +49,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 1. **경로 테이블 만들기** 대화 상자에서 다음을 수행 합니다.
 
     1. 경로 테이블의 **이름을** 입력 합니다.
-    1. **구독**을 선택 합니다.
+    1. **구독**을 선택합니다.
     1. 기존 **리소스 그룹** 을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다.
     1. **위치**를 선택 합니다.
     1. VPN gateway를 통해 온-프레미스 네트워크에 연결 된 가상 네트워크의 서브넷에 경로 테이블을 연결 하 고 온-프레미스 경로를 서브넷의 네트워크 인터페이스로 전파 하지 않으려는 경우 **가상 네트워크 게이트웨이 경로 전파** 를 **사용 안 함으로**설정 합니다.
@@ -88,7 +87,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 - [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
 - [액세스 제어(IAM)](../role-based-access-control/overview.md)
 - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [중지](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [자동화 스크립트](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>경로 테이블의 세부 정보 보기-명령
@@ -186,7 +185,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 1. 경로 테이블 목록에서 경로를 추가 하려는 경로 테이블을 선택 합니다.
 
-1. 경로 테이블 메뉴 모음에서 **경로** > **추가**를 선택 합니다.
+1. 경로 테이블 메뉴 모음에서 **경로**  >  **추가**를 선택 합니다.
 
 1. 경로 테이블 내의 경로에 대 한 고유한 **경로 이름을** 입력 합니다.
 
@@ -333,7 +332,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 경로 테이블 및 경로에 대 한 작업을 수행 하려면 다음 표에 나열 된 적절 한 작업을 할당 받은 [네트워크 기여자 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 또는 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 계정을 할당 해야 합니다.
 
-| 작업                                                          |   속성                                                  |
+| 작업                                                          |   이름                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   경로 테이블 읽기                                    |
 | Microsoft.Network/routeTables/write                             |   경로 테이블 만들기 또는 업데이트                        |

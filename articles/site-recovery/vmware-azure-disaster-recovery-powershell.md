@@ -8,11 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704389"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
@@ -31,9 +30,9 @@ ms.locfileid: "79257200"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-azure.md) 검토 합니다.
@@ -105,7 +104,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
 > [!TIP]
-> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 양식 * \<작업>-**AzRecoveryServicesAsr**\<object>* 를 사용 하 고 * \<>-**ASR**\<개체>양식 작업 *을 사용 하는 것과 동일한 별칭을 사용 합니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
+> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 * \<Operation> - **AzRecoveryServicesAsr** \<Object> * 형식을 사용 하며 * \<Operation> - **ASR** \<Object> *형식을 사용 하는 동등한 별칭을 가집니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
 
 아래 예에서 $vault 변수의 자격 증명 모음 세부 정보가 PowerShell 세션의 자격 증명 모음 컨텍스트를 지정하는 데 사용됩니다.
 
@@ -118,7 +117,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 다음은 그 예입니다.
+Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예를 들어:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"

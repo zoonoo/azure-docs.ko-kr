@@ -10,18 +10,15 @@ ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 1308f658b6ae7c8f46b989f8205568fa195fb4aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705868"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio (클래식) 웹 서비스 매개 변수 사용
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
 
@@ -55,7 +52,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
    * **인증 유형 지정**에서 "계정"을 선택합니다.
    * Blob Storage 내에서, File Storage 내에서 또는 Blob Storage에서 파일 스토리지로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다. 
 
-3. **컨테이너 매개 변수로 시작하는 blob에 대한 경로**의 오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
+3. **컨테이너 매개 변수로 시작하는 blob에 대한 경로**의 오른쪽에 있는 아이콘을 클릭합니다. 예를 들면 다음과 같습니다.
    
    ![웹 서비스 매개 변수 아이콘](./media/web-service-parameters/icon.png)
    
@@ -70,7 +67,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 7. **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]** 를 선택하여 웹 서비스를 배포합니다.
 
 > [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용 하 여 웹 서비스 관리](manage-new-webservice.md)를 참조 하세요. 
 
 이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 

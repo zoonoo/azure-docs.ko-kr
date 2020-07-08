@@ -4,21 +4,18 @@ description: 이 R 프로그래밍 자습서를 사용 하 여 R에서 Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706284"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>R에서 Azure Machine Learning Studio (클래식) 시작
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 이 자습서에서는 ML Studio (클래식)를 사용 하 여 R 코드를 만들고 테스트 하 고 실행 하는 방법에 대해 알아봅니다. 끝에는 완전 한 예측 솔루션이 있습니다.  
@@ -37,7 +34,7 @@ Azure Machine Learning Studio (클래식)에는 많은 강력한 기계 학습 �
 
 이 자습서에서는 캘리포니아 유제품 생산 및 가격 데이터를 사용 합니다. 여기에는 여러 유제품 제품의 생산에 대 한 월간 정보와 우유 fat의 가격 (벤치 마크 상품)이 포함 됩니다.
 
-이 문서에 사용 된 데이터는 R 스크립트와 함께 [MachineLearningSamples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples)에서 다운로드할 수 있습니다. 파일 `cadairydata.csv` 의 데이터는 원래 위스콘신의 대학에서 제공 되는 정보에서 합성 되었습니다 [https://dairymarkets.com](https://dairymarkets.com).
+이 문서에 사용 된 데이터는 R 스크립트와 함께 [MachineLearningSamples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples)에서 다운로드할 수 있습니다. 파일의 데이터는 `cadairydata.csv` 원래 위스콘신의 대학에서 제공 되는 정보에서 합성 되었습니다 [https://dairymarkets.com](https://dairymarkets.com) .
 
 
 
@@ -125,7 +122,7 @@ maml.mapOutputPort("data.set")
 
 RStudio는 R에 널리 사용 되는 IDE입니다. 이 가이드에서 사용 되는 R 코드 중 일부를 편집, 테스트 및 디버깅 하는 데 RStudio를 사용 합니다. R 코드를 테스트 하 고 준비가 되 면 RStudio 편집기에서 Machine Learning Studio (클래식) [R 스크립트 실행][execute-r-script] 모듈을 잘라내어 붙여 넣을 수 있습니다.  
 
-데스크톱 컴퓨터에 R 프로그래밍 언어가 설치되어 있지 않으면 지금 설치하는 것이 좋습니다. 오픈 소스 R 언어의 무료 다운로드는의 포괄적인 R 보관 네트워크 (CRAN)에서 제공 됩니다 [https://www.r-project.org/](https://www.r-project.org/). Windows, Mac OS, Linux/UNIX용 다운로드가 있습니다. 인접한 미러를 선택하고 다운로드 지침을 따르세요. 또한 CRAN에는 유용한 분석 및 데이터 조작 패키지가 풍부하게 들어 있습니다.
+데스크톱 컴퓨터에 R 프로그래밍 언어가 설치되어 있지 않으면 지금 설치하는 것이 좋습니다. 오픈 소스 R 언어의 무료 다운로드는의 포괄적인 R 보관 네트워크 (CRAN)에서 제공 됩니다 [https://www.r-project.org/](https://www.r-project.org/) . Windows, Mac OS, Linux/UNIX용 다운로드가 있습니다. 인접한 미러를 선택하고 다운로드 지침을 따르세요. 또한 CRAN에는 유용한 분석 및 데이터 조작 패키지가 풍부하게 들어 있습니다.
 
 RStudio를 처음 사용하는 경우에는 데스크톱 버전을 다운로드하고 설치해야 합니다. Windows, Mac OS 및 Linux/UNIX용 RStudio 다운로드는 http://www.rstudio.com/products/RStudio/에서 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.  
 
@@ -143,7 +140,7 @@ Rstudio [IDE를 사용 하 여](https://support.rstudio.com/hc/sections/20010758
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>데이터 세트 로드
 
-먼저 **csdairydata .csv** 파일을 Azure Machine Learning Studio (클래식)로 로드 합니다.
+먼저 **csdairydata.csv** 파일을 Azure Machine Learning Studio (클래식)로 로드 합니다.
 
 1. Azure Machine Learning Studio (클래식) 환경을 시작 합니다.
 1. 화면 왼쪽 아래에서 **+ 새로 만들기** 를 선택 하 고 **데이터 집합**을 선택 합니다.
@@ -1057,7 +1054,7 @@ summary(milk.lm)
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-이 출력의 P`Pr(>|t|)`values ()에서 제곱 용어가 중요 하지 않을 수 있습니다. 제곱항을 삭제하고 `update()` 함수를 사용하여 이 모델을 수정합니다.
+`Pr(>|t|)`이 출력의 P values ()에서 제곱 용어가 중요 하지 않을 수 있습니다. 제곱항을 삭제하고 `update()` 함수를 사용하여 이 모델을 수정합니다.
 
 ```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
@@ -1315,7 +1312,7 @@ R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지
 * **Cookbook** 에서 제공 하는 R은 r 사용에 대 한 문제 및 해결 방법을 제공 합니다.  
 * Robert Kabacoff에서 수행 하는 **R** 은 또 다른 유용한 소개 서적입니다. 부록 [빠른 R 웹 사이트](https://www.statmethods.net/) 는 유용한 리소스입니다.
 * Patrick 화상으로 인 한 r의 인 **페** 는 r에서 프로그래밍할 때 발생할 수 있는 다양 한 복잡 한 토픽을 다루는 매우 유머 책입니다. 책은 R의 인 [페](https://www.burns-stat.com/documents/books/the-r-inferno/)에서 무료로 제공 됩니다.
-* R에 대 한 고급 항목을 자세히 알아보려면 Hadley Wickham에 의해 **고급 r** 을 참조 하세요. 이 책의 온라인 버전은에서 [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/)무료로 제공 됩니다.
+* R에 대 한 고급 항목을 자세히 알아보려면 Hadley Wickham에 의해 **고급 r** 을 참조 하세요. 이 책의 온라인 버전은에서 무료로 제공 됩니다 [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/) .
 
 R 시계열 패키지의 카탈로그는 [Cran 작업 보기: 시계열 분석](https://cran.r-project.org/web/views/TimeSeries.html)에서 찾을 수 있습니다. 특정 시계열 개체 패키지에 대한 자세한 내용은 해당 패키지에 대한 설명서를 참조하세요.
 
