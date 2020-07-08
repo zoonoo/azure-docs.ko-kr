@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668290"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 POP IP 목록을 검색 합니다.
 
@@ -39,7 +38,7 @@ Microsoft에서 Azure CDN의 트래픽만 허용 하도록 응용 프로그램�
 * Microsoft의 IPv4 백 엔드 IP 공간에서 Azure CDN: 147.243.0.0/16
 * Microsoft의 IPv6 백 엔드 IP 공간에서 Azure CDN: 2a01:111:::/44
 
-Microsoft 서비스에 대 한 IP 범위 및 서비스 태그는 [여기](https://www.microsoft.com/download/details.aspx?id=56519) 에서 찾을 수 있습니다.
+Microsoft에서 Azure CDN 서비스 태그를 사용 하려면 Azure Front 도어 태그를 사용 하세요. Microsoft 서비스에 대 한 IP 범위 및 서비스 태그는 [여기](https://www.microsoft.com/download/details.aspx?id=56519) 에서 찾을 수 있습니다.
 
 
 ## <a name="typical-use-case"></a>일반적인 사용 사례

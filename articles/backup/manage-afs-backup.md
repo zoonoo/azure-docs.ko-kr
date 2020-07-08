@@ -4,11 +4,10 @@ description: 이 문서에서는 Azure Backup에 의해 백업 되는 Azure 파�
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712091"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
@@ -46,7 +45,7 @@ Recovery Services 자격 증명 모음의 **백업 정책** 섹션에서 Azure �
 
 1. **백업 정책** 창에서 **+ 추가**를 선택 합니다.
 
-   ![새 백업 정책](./media/manage-afs-backup/new-backup-policy.png)
+   ![새로운 백업 정책](./media/manage-afs-backup/new-backup-policy.png)
 
 1. **추가** 창에서 **Azure 파일 공유** 를 **정책 형식**으로 선택 합니다. **Azure 파일 공유** 에 대 한 **백업 정책** 창이 열립니다. 복구 지점의 정책 이름, 백업 빈도 및 보존 범위를 지정 합니다. 정책을 정의한 후 **확인**을 선택 합니다.
 

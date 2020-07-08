@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022797"
 ---
 # <a name="server-side-performance-queries"></a>서버 쪽 성능 쿼리
 
@@ -18,7 +17,7 @@ ms.locfileid: "83757469"
 
 렌더링 성능에 가장 많은 영향을 주는 것은 모델 입력 데이터입니다. 입력 데이터는 [모델 변환 구성](../../how-tos/conversion/configure-model-conversion.md)에 설명된 대로 조정할 수 있습니다.
 
-클라이언트 쪽 애플리케이션 성능도 병목 지점이 될 수 있습니다. 클라이언트 쪽 성능을 자세히 분석하기 위해서는 [성능 추적](../../how-tos/performance-tracing.md)을 수행하는 것이 좋습니다.
+클라이언트 쪽 애플리케이션 성능도 병목 지점이 될 수 있습니다. 클라이언트 쪽 성능에 대 한 심층 분석을 수행 하는 것이 좋습니다 [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
 
 ## <a name="clientserver-timeline"></a>클라이언트/서버 타임라인
 

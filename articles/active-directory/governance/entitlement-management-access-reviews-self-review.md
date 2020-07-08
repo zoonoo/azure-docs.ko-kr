@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/01/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f8037ef1324cb10777511c4c363a62a2edab438
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78967767"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078423"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 자체 검토
 
@@ -37,7 +36,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
 1. **액세스 검토** 링크를 클릭 합니다.
 
-1. 전자 메일을 받지 못한 경우 https://myaccess.microsoft.com 로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수도 있습니다.  (미국 정부의 경우 대신 `https://myaccess.microsoft.us` 를 사용 합니다.)
+1. https://myaccess.microsoft.com전자 메일을 받지 못한 경우로 직접 이동 하 여 보류 중인 액세스 검토를 찾을 수도 있습니다.  (미국 정부의 경우 대신를 사용 `https://myaccess.microsoft.us` 합니다.)
 
 1. 왼쪽 탐색 모음에서 **액세스 검토** 를 클릭 하 여 사용자에 게 할당 된 보류 중인 액세스 검토 목록을 표시 합니다.
 

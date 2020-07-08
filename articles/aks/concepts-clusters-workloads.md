@@ -4,12 +4,11 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336640"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -47,7 +46,7 @@ AKS 클러스터를 만들면 컨트롤 평면이 자동으로 만들어지고 �
 - *kube-scheduler* - 애플리케이션을 만들거나 확장할 때 스케줄러는 워크로드를 실행할 수 있는 노드를 결정하고 시작합니다.
 - *kube-controller-manager* - 컨트롤러 관리자는 Pod 복제 및 노드 작업 처리와 같은 작업을 수행하는 다수의 작은 컨트롤러를 감독합니다.
 
-AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면을 제공 합니다. 노드의 개수 및 크기를 정의 하 고 Azure 플랫폼은 제어 평면과 노드 간에 보안 통신을 구성 합니다. 제어 평면과의 상호 작용은 `kubectl` 또는 Kubernetes 대시보드와 같은 Kubernetes api를 통해 발생 합니다.
+AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면을 제공 합니다. 노드의 개수 및 크기를 정의 하 고 Azure 플랫폼은 제어 평면과 노드 간에 보안 통신을 구성 합니다. 제어 평면과의 상호 작용은 또는 Kubernetes 대시보드와 같은 Kubernetes Api를 통해 발생 합니다 `kubectl` .
 
 이 관리 되는 제어 평면은 항상 사용 가능한 *etcd* 스토어와 같은 구성 요소를 구성할 필요가 없음을 의미 합니다. 또한 제어 평면에 직접 액세스할 수 없습니다. Kubernetes에 대 한 업그레이드는 Azure CLI 또는 Azure Portal를 통해 오케스트레이션 됩니다 .이는 제어 평면과 노드를 업그레이드 합니다. 가능한 문제를 해결 하기 위해 Azure Monitor 로그를 통해 제어 평면 로그를 검토할 수 있습니다.
 
@@ -105,9 +104,9 @@ kubectl describe node [NODE_NAME]
 
 위의 메모리 및 CPU 할당 규칙은 클러스터 상태에 중요 한 일부 호스팅 시스템 pod 포함 하 여 에이전트 노드를 정상 상태로 유지 하는 데 사용 됩니다. 이러한 할당 규칙으로 인해 노드가 Kubernetes 클러스터의 일부가 아닌 경우 보다 할당 되지 않은 메모리와 CPU를 보고 합니다. 위의 리소스 예약은 변경할 수 없습니다.
 
-예를 들어 노드가 7GB를 제공 하는 경우 750Mi 하드 제거 임계값을 기반으로 할당 되지 않은 메모리의 34%를 보고 합니다.
+예를 들어 노드가 7GB를 제공 하는 경우 750Mi 하드 제거 임계값을 포함 하 여 할당할 수 없는 메모리의 34%를 보고 합니다.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Kubernetes 자체를 예약 하는 것 외에도, 기본 노드 OS는 OS 함수를 유지 관리할 수 있는 CPU 및 메모리 리소스의 양을 예약 합니다.
 
@@ -118,7 +117,7 @@ Kubernetes 자체를 예약 하는 것 외에도, 기본 노드 OS는 OS 함수�
 동일한 구성의 노드는 모두 *노드 풀*로 그룹화됩니다. Kubernetes 클러스터에는 하나 이상의 노드 풀이 포함됩니다. 노드의 초기 수와 크기는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의됩니다. AKS의 기본 노드 풀에는 에이전트 노드를 실행하는 기본 VM이 포함됩니다.
 
 > [!NOTE]
-> 클러스터가 안정적으로 작동 하도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
+> 클러스터를 안정적으로 작동하도록 하려면 기본 노드 풀에서 2개 이상의 노드를 실행해야 합니다.
 
 AKS 클러스터를 확장 또는 업그레이드할 때 기본 노드 풀에 대한 작업이 수행됩니다. 특정 노드 풀의 크기를 조정 하거나 업그레이드 하도록 선택할 수도 있습니다. 업그레이드 작업의 경우, 모든 노드가 성공적으로 업그레이드될 때까지 실행 중인 컨테이너는 노드 풀의 다른 노드에 예약됩니다.
 
@@ -204,11 +203,7 @@ YAML 매니페스트 내에 부하 분산 장치와 같은 서비스를 포함�
 
 Kubernetes에서 애플리케이션을 관리하는 일반적인 방법은 [Helm][helm]을 사용하는 것입니다. 패키지 버전의 애플리케이션 코드와 Kubernetes YAML 매니페스트가 포함된 기존 공용 Helm *차트*를 빌드하고 사용하여 리소스를 배포할 수 있습니다. 이러한 Helm 차트는 로컬로 저장하거나 종종 [Azure Container Registry Helm 차트 리포지토리][acr-helm]와 같은 원격 저장소에 저장할 수 있습니다.
 
-Helm을 사용하려면 *Tiller*라는 서버 구성 요소가 Kubernetes 클러스터에 설치되어 있어야 합니다. Tiller는 클러스터 내의 차트 설치를 관리합니다. Helm 클라이언트 자체는 컴퓨터에 로컬로 설치하거나 [Azure Cloud Shell][azure-cloud-shell] 내에서 사용할 수 있습니다. 클라이언트에서 Helm 차트를 검색하거나 만든 다음, Kubernetes 클러스터에 설치할 수 있습니다.
-
-![Helm에는 클라이언트 구성 요소와 Kubernetes 클러스터 내에 리소스를 만드는 서버 쪽 Tiller 구성 요소가 포함됩니다.](media/concepts-clusters-workloads/use-helm.png)
-
-자세한 내용은 [AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치][aks-helm]를 참조하세요.
+투구를 사용 하려면 컴퓨터에 투구 클라이언트를 설치 하거나 [Azure Cloud Shell][azure-cloud-shell]에서 투구 클라이언트를 사용 합니다. 클라이언트에서 Helm 차트를 검색하거나 만든 다음, Kubernetes 클러스터에 설치할 수 있습니다. 자세한 내용은 [AKS에서 투구를 사용 하 여 기존 응용 프로그램 설치][aks-helm]를 참조 하세요.
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets 및 DaemonSets
 

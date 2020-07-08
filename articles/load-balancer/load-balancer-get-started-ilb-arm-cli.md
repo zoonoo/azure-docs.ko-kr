@@ -1,5 +1,5 @@
 ---
-title: 내부 기본 Load Balancer 만들기 - Azure CLI
+title: 내부 Load Balancer 만들기-Azure CLI
 titleSuffix: Azure Load Balancer
 description: 이 문서에서는 Azure CLI를 사용 하 여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
@@ -7,18 +7,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79457014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921719"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -52,7 +51,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>기본 부하 분산 장치 만들기
+## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
 
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
   - 부하 분산 장치에서 들어오는 네트워크 트래픽을 받는 프런트 엔드 IP 구성
@@ -62,12 +61,15 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기에는 개인 IP 주소 * * 10.0.0.7와 연결 된 **myBackEndPool** 라는 백 엔드 풀이 포함 됩니다.
+**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기에는 개인 IP 주소 **10.0.0.7**와 연결 된 **myBackEndPool** 라는 백 엔드 풀이 포함 됩니다. 
+
+`--sku basic`을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -85,7 +87,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
@@ -103,6 +105,12 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+표준 Load Balancer를 사용 하 여 아래 구성을 사용 하 여 [HA 포트](load-balancer-ha-ports-overview.md) 부하 분산 장치 규칙을 만들 수도 있습니다.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>백 엔드 주소 풀용 서버 만들기

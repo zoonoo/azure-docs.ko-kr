@@ -11,27 +11,26 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 04/15/2020
-ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.date: 06/03/2020
+ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84331902"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure-SSIS IR(Azure-SQL Server Integration Services Integration Runtime)에 대한 사용자 지정 설치는 Azure-SSIS IR을 설치하거나 재구성하는 동안 사용자 고유의 단계를 추가할 수 있는 인터페이스를 제공합니다. 
+Azure Data Factory (ADF)에서 Azure SQL Server Integration Services (SSIS) Integration Runtime (IR)의 사용자 지정 설정은 Azure-SSIS IR를 프로 비전 하거나 재구성 하는 동안 고유한 단계를 추가 하기 위한 인터페이스를 제공 합니다. 
 
-예를 들어 사용자 지정 설치를 사용하면 기본 운영 구성 또는 환경을 변경하여 추가 Windows 서비스를 시작하거나, 파일 공유에 대한 액세스 자격 증명을 유지하거나, 강력한 암호화/더 안전한 네트워크 프로토콜(TLS 1.2)을 사용할 수 있습니다. 또는 어셈블리, 드라이버 또는 확장과 같은 추가 구성 요소를 Azure-SSIS IR의 각 노드에 설치할 수 있습니다.
+예를 들어 사용자 지정 설치를 사용하면 기본 운영 구성 또는 환경을 변경하여 추가 Windows 서비스를 시작하거나, 파일 공유에 대한 액세스 자격 증명을 유지하거나, 강력한 암호화/더 안전한 네트워크 프로토콜(TLS 1.2)을 사용할 수 있습니다. 또는 Azure-SSIS IR의 각 노드에 어셈블리, 드라이버 또는 확장과 같은 추가 사용자 지정/타사 구성 요소를 설치할 수 있습니다. 기본 제공/미리 설치된 구성 요소에 대한 자세한 내용은 [Azure-SSIS IR의 기본 제공/미리 설치된 구성 요소](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime)를 참조하세요.
 
 다음 두 가지 방법 중 하나를 사용하여 Azure-SSIS IR에서 사용자 지정 설치를 수행할 수 있습니다. 
-* **스크립트를 사용하지 않는 기본 사용자 지정 설치**: 일부 일반적인 시스템 구성 및 Windows 명령을 실행하거나 스크립트를 사용하지 않고 자주 사용하거나 추천되는 추가 구성 요소를 설치합니다.
 * **스크립트를 사용하는 표준 사용자 지정 설치**: 스크립트 및 관련 파일을 준비하고, Azure 스토리지 계정의 Blob 컨테이너에 모두 업로드합니다. 그런 다음, Azure-SSIS IR을 설치하거나 재구성할 때 컨테이너에 대한 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 제공합니다. 그러면 각 Azure-SSIS IR의 각 노드에서 컨테이너로부터 스크립트 및 관련 파일을 다운로드하고, 관리자 권한으로 사용자 지정 설치를 실행합니다. 사용자 지정 설치가 완료되면 각 노드에서 실행에 대한 표준 출력 및 기타 로그를 컨테이너에 업로드합니다.
+* **스크립트를 사용하지 않는 기본 사용자 지정 설치**: 일부 일반적인 시스템 구성 및 Windows 명령을 실행하거나 스크립트를 사용하지 않고 자주 사용하거나 추천되는 추가 구성 요소를 설치합니다.
 
-사용 허가되지 않은 체험 구성 요소 및 사용 허가된 유료 구성 요소는 모두 기본 및 표준 사용자 지정 설치를 통해 설치할 수 있습니다. ISV(독립 소프트웨어 공급업체)인 경우 [유료 또는 사용 허가된 Azure-SSIS IR용 구성 요소 개발](how-to-develop-azure-ssis-ir-licensed-components.md)을 참조하세요.
+표준 및 express 사용자 지정 설치를 사용 하 여 사용이 허가 되지 않은 무료 구성 요소와 유료 라이선스 구성 요소를 모두 설치할 수 있습니다. ISV (독립 소프트웨어 공급 업체) 인 경우 [Azure-SSIS IR에 대 한 유료 또는 라이선스 구성 요소 개발](how-to-develop-azure-ssis-ir-licensed-components.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > 향후 향상된 기능을 활용하려면 사용자 지정 설치에서 v3 이상 시리즈의 노드를 Azure-SSIS IR에 사용하는 것이 좋습니다.
@@ -62,7 +61,11 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
 ## <a name="instructions"></a>Instructions
 
-1. PowerShell을 사용하여 Azure-SSIS IR을 설치하거나 재구성하려면 [Azure PowerShell](/powershell/azure/install-az-ps)을 다운로드하여 설치합니다. 기본 사용자 지정 설치의 경우 4단계로 건너뜁니다.
+ADF UI에 대 한 사용자 지정 설정으로 Azure-SSIS IR를 프로 비전 하거나 다시 구성할 수 있습니다. PowerShell을 사용 하 여 동일한 작업을 수행 하려는 경우 [Azure PowerShell](/powershell/azure/install-az-ps)를 다운로드 하 여 설치 합니다.
+
+### <a name="standard-custom-setup"></a>표준 사용자 지정 설치
+
+표준 사용자 지정 프로그램을 사용 하 여 Azure-SSIS IR를 프로 비전 하거나 다시 구성 하려면 다음 단계를 완료 합니다.
 
 1. 사용자 지정 설정 스크립트 및 관련 파일(예: .bat, .cmd, .exe, .dll, .msi, 또는 .ps1 파일)을 준비합니다.
 
@@ -70,7 +73,7 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
    * 스크립트가 자동으로 실행될 수 있도록 하려면 먼저 로컬 컴퓨터에서 테스트하는 것이 좋습니다.  
    * 다른 도구(예: *msiexec.exe*)에서 생성한 추가 로그가 컨테이너에 업로드되도록 하려면 미리 정의된 `CUSTOM_SETUP_SCRIPT_LOG_DIR` 환경 변수를 스크립트의 로그 폴더로 지정합니다(예: *msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log*).
 
-1. [Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치하고 엽니다. 이렇게 하려면 다음을 수행합니다.
+1. [Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치하고 엽니다.
 
    a. **(로컬 및 연결됨)** 아래에서 마우스 오른쪽 단추로 **스토리지 계정**을 클릭한 다음, **Azure Storage에 연결**을 선택합니다.
 
@@ -107,11 +110,17 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![공유 액세스 서명 복사 및 저장](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. Data Factory UI를 사용하여 Azure-SSIS IR을 설치하거나 재구성하는 경우 **통합 런타임 설치** 창의 **고급 설정** 섹션에서 **추가 시스템 구성/구성 요소 설치를 사용하여 Azure-SSIS Integration Runtime 사용자 지정** 확인란을 선택하여 사용자 지정 설치를 추가하거나 제거할 수 있습니다. 
+1. ADF UI에서 Azure-SSIS IR를 프로 비전 하거나 다시 구성할 때 **Integration Runtime 설정** 창의 **고급 설정** 페이지에서 **추가 시스템 구성/구성 요소 설치를 사용 하 여 Azure-SSIS Integration Runtime 사용자** 지정 확인란을 선택 하 고 **사용자 지정 설치 컨테이너 SAS uri** 상자에 컨테이너의 SAS uri를 입력 합니다.
 
-   표준 사용자 지정 설치를 추가하려면 **사용자 지정 설치 컨테이너 SAS URI** 상자에서 컨테이너의 SAS URI를 입력합니다. 
-   
-   기본 사용자 지정 설치를 추가하려면 **새로 만들기**를 선택하여 **기본 사용자 지정 설치 추가** 창을 연 다음, **기본 사용자 지정 설치 유형** 드롭다운 목록에서 유형을 선택합니다.
+   ![사용자 지정 설치가 포함된 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+
+### <a name="express-custom-setup"></a>빠른 사용자 지정 설치
+
+Express 사용자 지정을 사용 하 여 Azure-SSIS IR를 프로 비전 하거나 다시 구성 하려면 다음 단계를 완료 합니다.
+
+1. ADF UI에서 Azure-SSIS IR를 프로 비전 하거나 다시 구성할 때 **Integration Runtime 설정** 창의 **고급 설정** 페이지에서 **추가 시스템 구성/구성 요소 설치를 사용 하 여 Azure-SSIS Integration Runtime 사용자 지정** 확인란을 선택 합니다. 
+
+1. **새로 만들기** 를 선택 하 여 **빠른 사용자 지정 설정 추가** 창을 열고 **express 사용자 지정 설치 유형** 드롭다운 목록에서 유형을 선택 합니다.
 
    * **cmdkey 명령 실행** 유형을 선택하는 경우 **/Add**, **/User**, **/Pass** 상자에서 대상 컴퓨터 이름 또는 도메인 이름, 계정 이름 또는 사용자 이름 및 계정 키 또는 암호를 입력하여 Azure-SSIS IR에서 파일 공유 또는 Azure Files 공유에 대한 액세스 자격 증명을 유지할 수 있습니다. 이는 로컬 컴퓨터에서 Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 명령을 실행하는 것과 비슷합니다.
    
@@ -131,12 +140,16 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
      * **Theobald Software의 Xtract IS** 구성 요소를 선택하는 경우 구매한 제품 라이선스 파일을 **라이선스 파일** 상자에 끌어서 놓거나 업로드하여 Theobald Software의 SAP 시스템(ERP, S/4HANA, BW)용 [Xtract IS](https://theobald-software.com/en/xtract-is/) 커넥터 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **6.1.1.3**입니다.
 
-   추가된 기본 사용자 지정 설치가 **고급 설정** 섹션에 표시됩니다. 이를 제거하려면 해당 확인란을 선택한 다음, **삭제**를 선택합니다.
+추가 된 빠른 사용자 지정 설치가 **고급 설정** 페이지에 표시 됩니다. 저장소를 제거하려면 해당 확인란을 선택한 다음, **삭제**를 선택합니다.
 
-   ![사용자 지정 설치가 포함된 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-1. PowerShell을 사용하여 Azure-SSIS IR을 설치하거나 재구성하는 경우 Azure-SSIS IR을 시작하기 전에 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행하여 사용자 지정 설치를 추가하거나 제거할 수 있습니다.
-   
+Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS IR를 프로 비전 하거나 다시 구성 하려면 다음 단계를 완료 합니다.
+
+1. Azure-SSIS IR 이미 시작 되었거나 실행 중인 경우 먼저 중지 합니다.
+
+1. 그런 다음 `Set-AzDataFactoryV2IntegrationRuntime` Azure-SSIS IR를 시작 하기 전에 cmdlet을 실행 하 여 사용자 지정 프로그램을 추가 하거나 제거할 수 있습니다.
+
    ```powershell
    $ResourceGroupName = "[your Azure resource group name]"
    $DataFactoryName = "[your data factory name]"
@@ -214,10 +227,14 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
        -Name $AzureSSISName `
        -Force
    ```
-   
-   표준 사용자 지정 설치가 완료되고 Azure-SSIS IR이 시작되면 스토리지 컨테이너의 *main.cmd.log* 폴더에서 *main.cmd*의 표준 출력 및 기타 실행 로그를 확인할 수 있습니다.
 
-1. 표준 사용자 지정 설치의 일부 샘플을 보려면 Azure Storage Explorer를 사용하여 공개 미리 보기 컨테이너에 연결합니다.
+1. 표준 사용자 지정 설치를 완료 하 고 Azure-SSIS IR를 시작 하면 컨테이너의 *기본 .cmd .log* 폴더에 있는 *기본 .cmd* 및 기타 실행 로그의 표준 출력을 찾을 수 있습니다.
+
+### <a name="standard-custom-setup-samples"></a>표준 사용자 지정 설치 샘플
+
+표준 사용자 지정의 일부 샘플을 보고 다시 사용 하려면 다음 단계를 완료 합니다.
+
+1. Azure Storage 탐색기를 사용 하 여 공개 미리 보기 컨테이너에 연결 합니다.
 
    a. **(로컬 및 연결)** 에서 **스토리지 계정**을 마우스 오른쪽 단추로 클릭하고 **Azure Storage에 연결**을 선택한 다음, **연결 문자열 또는 공유 액세스 서명 URI**를 선택하고 **다음**을 선택합니다.
 
@@ -295,13 +312,15 @@ Azure-SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
         ![사용자 시나리오 폴더의 폴더](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-   f. 이러한 사용자 지정 설치 샘플을 사용해 보려면 선택한 폴더의 콘텐츠를 컨테이너에 복사합니다.
+   f. 이러한 표준 사용자 지정 설치 샘플을 다시 사용 하려면 선택한 폴더의 내용을 컨테이너에 복사 합니다.
+
+1. ADF UI에서 Azure-SSIS IR를 프로 비전 하거나 다시 구성할 때 **Integration Runtime 설정** 창의 **고급 설정** 페이지에서 **추가 시스템 구성/구성 요소 설치를 사용 하 여 Azure-SSIS Integration Runtime 사용자** 지정 확인란을 선택 하 고 **사용자 지정 설치 컨테이너 SAS uri** 상자에 컨테이너의 SAS uri를 입력 합니다.
    
-      Data Factory UI를 사용하여 Azure-SSIS IR을 설치하거나 재구성하는 경우 **고급 설정** 섹션에서 **추가 시스템 구성/구성 요소 설치를 사용하여 Azure-SSIS Integration Runtime 사용자 지정** 확인란을 선택한 다음, **사용자 지정 설치 컨테이너 SAS URI** 상자에서 컨테이너의 SAS URI를 입력합니다.
-   
-      PowerShell을 사용하여 Azure-SSIS IR을 설치하거나 다시 구성하는 경우 컨테이너의 SAS URI를 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다.
+1. Azure PowerShell를 사용 하 여 Azure-SSIS IR를 프로 비전 하거나 다시 구성 하는 경우, 이미 시작/실행 중이면 중지 하 `Set-AzDataFactoryV2IntegrationRuntime` 고, 컨테이너의 SAS URI를 매개 변수 값으로 사용 하 여 cmdlet을 실행 한 `SetupScriptContainerSasUri` 다음 Azure-SSIS IR을 시작 합니다.
+
+1. 표준 사용자 지정 설치를 완료 하 고 Azure-SSIS IR를 시작 하면 컨테이너의 *기본 .cmd .log* 폴더에 있는 *기본 .cmd* 및 기타 실행 로그의 표준 출력을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure-SSIS Integration Runtime Enterprise Edition 설치](how-to-configure-azure-ssis-ir-enterprise-edition.md)
-- [유료 또는 사용 허가된 Azure-SSIS Integration Runtime용 구성 요소 개발](how-to-develop-azure-ssis-ir-licensed-components.md)
+- [Azure-SSIS IR Enterprise Edition 설정](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Azure-SSIS IR에 대 한 유료 또는 라이선스 구성 요소 개발](how-to-develop-azure-ssis-ir-licensed-components.md)

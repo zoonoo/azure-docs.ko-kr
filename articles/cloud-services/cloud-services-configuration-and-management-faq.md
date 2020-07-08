@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921586"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -97,9 +96,11 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 다음 PowerShell 명령을 사용하여 관리 인증서를 갱신할 수 있습니다.
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
 **Get-AzurePublishSettingsFile**은 Azure Portal의 **구독** > **관리 인증서**에 새 관리 인증서를 만듭니다. 새 인증서의 이름은 "구독이름]-[현재날짜]-자격증명" 형식입니다.
 
@@ -111,7 +112,7 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 - [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [일반적인 클라우드 서비스 시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -202,7 +203,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 - [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
-이러한 단계는 시작 작업을 통해 자동화할 수 있으므로 새로운 PaaS 인스턴스가 만들어질 때마다 시스템 레지스트리에 위의 변경 내용을 수행할 수 있습니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](cloud-services-startup-tasks.md)을 참조하세요.
+이러한 단계는 시작 작업을 통해 자동화할 수 있으므로 새로운 PaaS 인스턴스가 만들어질 때마다 시스템 레지스트리에 위의 변경 내용을 수행할 수 있습니다. 자세한 내용은 [클라우드 서비스에 대 한 시작 작업을 구성 및 실행 하는 방법](cloud-services-startup-tasks.md)을 참조 하세요.
 
  
 이 작업이 끝난 후에 다음 방법 중 하나를 사용하여 HTTP/2가 사용하도록 설정되어 있는지 여부를 확인할 수 있습니다.
@@ -282,7 +283,7 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
 이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
 
-% Approot% 드라이브 크기는 .cspkg \<+ 최대 저널 크기 + 여유 공간> 또는 1.5 GB 중 더 큰 값의 크기로 계산 됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
+% Approot% 드라이브 크기는 \<size of .cspkg + max journal size + a margin of free space> 또는 1.5 GB 중 더 큰 값으로 계산 됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 
 %approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 애플리케이션을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음, "이전" 및 "이후" 크기를 비교할 수 있습니다. 
 
@@ -306,9 +307,11 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 **방법 1: PowerShell 사용**
 
 다음과 같이 클라우드 서비스 역할 인스턴스에 대 한 시작 작업에서 PowerShell cmdlet **새 WebBinding** 을 사용 하 여 SNI 바인딩을 구성할 수 있습니다.
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 [여기](https://technet.microsoft.com/library/ee790567.aspx)에 설명된 대로 $sslFlags는 다음과 같은 값 중 하나일 수 있습니다.
 
 |값|의미|
@@ -322,14 +325,15 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 
 이 [블로그 게시물](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)에 설명된 대로 역할 시작의 코드를 통해 SNI 바인딩을 구성할 수 있습니다.
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 위의 방법 중 하나를 사용하여, SNI 바인딩이 적용되기 위해서는 시작 작업을 사용하거나 코드를 통해 특정 호스트 이름에 대한 해당 인증서(*.pfx)를 역할 인스턴스에 먼저 설치해야 합니다.
 
@@ -341,7 +345,9 @@ Cloud Service는 클래식 리소스입니다. Azure Resource Manager를 통해 
 
 Azure Portal에서 이 기능을 사용할 수 있도록 현재 작업을 진행 중입니다. 현재는 PowerShell 명령을 사용하여 SDK 버전을 확인할 수 있습니다.
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>클라우드 서비스를 몇 달 동안 종료하려고 합니다. IP 주소를 잃지 않고 클라우드 서비스 비용을 절감하려면 어떻게 해야 하나요?
 

@@ -4,16 +4,15 @@ description: PowerShell을 사용하여 Windows 가상 데스크톱용 관리 �
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: HT
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513403"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>PowerShell을 사용하여 관리 도구 배포
 
@@ -24,7 +23,7 @@ ms.locfileid: "82983094"
 
 ## <a name="important-considerations"></a>중요 고려 사항
 
-Azure AD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다. 이 도구는 Azure AD B2B(기업 간) 시나리오를 지원하지 않습니다. 
+Azure AD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다. 이 도구는 Azure AD B2B(기업 간) 시나리오를 지원하지 않습니다.
 
 이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 받을 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객 또는 파트너는 모두 이 도구를 사용자 지정하여 비즈니스 요구 사항을 충족하는 것이 좋습니다.
 
@@ -40,7 +39,7 @@ Azure AD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도�
 관리 도구를 배포하기 전에 앱 등록을 만들고 관리 UI를 배포하는 Azure AD(Azure Active Directory) 사용자가 필요합니다. 이 사용자가 다음 조건을 충족해야 합니다.
 
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
-- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
+- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
 관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 
@@ -93,7 +92,7 @@ Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
 ## <a name="deploy-the-management-tool"></a>관리 도구 배포
 
 다음 PowerShell 명령을 실행하여 관리 도구를 배포하고 방금 만든 서비스 사용자와 연결합니다.
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +119,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 이제 리디렉션 URI를 추가했으므로 관리 도구가 API 백 엔드 서비스와 상호 작용할 수 있도록 API URL을 업데이트해야 합니다.
@@ -143,11 +142,11 @@ Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 
 2. Azure Portal 상단에 있는 검색 창에서 **앱 등록**을 검색하고 **서비스** 아래에서 항목을 선택합니다.
 3. **모든 애플리케이션**을 선택하고 [Azure Active Directory 앱 등록 만들기](#create-an-azure-active-directory-app-registration)에서 PowerShell 스크립트에 제공한 고유한 앱 이름을 검색합니다.
 4. 브라우저 왼쪽 패널에서 **인증**을 선택하고 다음 그림에 표시된 것처럼 리디렉션 URI가 관리 도구의 웹앱 URL과 동일한지 확인합니다.
-   
+
    [ ![리디렉션 URI가 입력된 인증 페이지](../media/management-ui-redirect-uri-inline.png) ](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. 왼쪽 패널에서 **API 사용 권한**을 선택하여 사용 권한이 추가되었는지 확인합니다. 전역 관리자인 경우 **`tenantname`에 대한 관리자 동의 부여**를 선택하고 대화 상자 프롬프트에 따라 조직의 관리자 동의를 제공합니다.
-    
+
     [ ![API 사용 권한 페이지](../media/management-ui-permissions-inline.png) ](../media/management-ui-permissions-expanded.png#lightbox)
 
 이제 관리 도구 사용을 시작할 수 있습니다.
@@ -158,13 +157,13 @@ Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 
 
 1. 웹 브라우저에서 웹앱의 URL을 엽니다. URL을 기억할 수 없는 경우 Azure에 로그인하고 관리 도구에 배포한 앱 서비스를 찾은 다음, URL을 선택할 수 있습니다.
 2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
-   
+
    > [!NOTE]
    > 관리 도구를 구성하는 동안 관리자 동의를 부여하지 않은 경우에는 로그인하는 각 사용자가 고유한 사용자 동의를 제공해야 해당 도구를 사용할 수 있습니다.
 
 3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹**을 선택합니다.
 4. **기본 테넌트 그룹**을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
-   
+
    > [!NOTE]
    > 사용자 지정 테넌트 그룹이 있는 경우 드롭다운 목록에서 선택하지 말고 수동으로 이름을 입력합니다.
 

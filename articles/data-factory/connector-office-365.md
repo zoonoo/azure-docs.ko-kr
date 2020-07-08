@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513291"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Office 365에서 Azure로 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,15 +34,15 @@ ADF Office 365 커넥터 및 Microsoft Graph data connect를 사용 하면 주�
 >- 복사 작업에 사용된 Azure Integration Runtime 지역 및 대상이 Office 365 테넌트 사용자의 사서함이 있는 곳과 동일한 지역에 있어야 합니다. Azure IR 위치가 결정되는 방식을 이해하려면 [여기](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요. 지원되는 Office 지역 및 해당되는 Azure 지역 목록은 [여기 표](https://docs.microsoft.com/graph/data-connect-datasets#regions)를 참조하세요.
 >- 서비스 사용자 인증은 Azure Blob Storage, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2 대상 저장소로 지원 되는 유일한 인증 메커니즘입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Office 365에서 Azure로 데이터를 복사하려면 다음 필수 구성 요소 단계를 완료해야 합니다.
 
 - Office 365 테넌트 관리자가 [여기](https://docs.microsoft.com/graph/data-connect-get-started)에 설명된 온보딩 작업을 완료해야 합니다.
-- Azure Active Directory에서 Azure AD 웹 애플리케이션을 만들고 구성합니다.  지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요.
+- Azure Active Directory에서 Azure AD 웹 애플리케이션을 만들고 구성합니다.  지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요.
 - Office 365에 대한 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
-    - 테넌트 ID. 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
-    - 애플리케이션 ID 및 인증 키.  지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+    - 테넌트 ID. 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
+    - 애플리케이션 ID 및 인증 키.  지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 - Azure AD 웹 애플리케이션의 소유자로 데이터 액세스를 요청할 사용자 ID를 추가(Azure AD 웹 애플리케이션 &gt; 설정 &gt; 소유자 &gt; 소유자 추가를 통해)합니다. 
     - 사용자 ID는 데이터를 가져오는 Office 365 조직에 소속되어 있어야 하며 게스트 사용자여서는 안 됩니다.
 
@@ -77,14 +76,14 @@ ADF가 관리되는 앱의 일부로 생성되고 Azure 정책 할당이 관리 
 
 Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Office365**로 설정해야 합니다. | 예 |
 | office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
 | servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 Integration Runtime입니다.  지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 Integration Runtime입니다.  지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 >[!NOTE]
 > **office365TenantId**와 **servicePrincipalTenantId** 사이의 차이점 및 제공할 해당 값:
@@ -113,16 +112,16 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 Office 365 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Office 365 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 **Office365Table**로 설정해야 합니다. | 예 |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](https://docs.microsoft.com/graph/data-connect-datasets#datasets)를 참조하세요. | 예 |
 
-데이터 집합에서, `dateFilterColumn`, `startTime` `endTime`및 `userScopeFilterUri` 를 설정 하는 경우 계속 해 서는 그대로 지원 되지만 활동 원본에서 새 모델을 사용 하는 것이 좋습니다.
+`dateFilterColumn`데이터 집합에서,, 및를 설정 하는 경우 계속 해 서 `startTime` `endTime` 는 그대로 지원 되지만 `userScopeFilterUri` 활동 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
 **예제**
 
@@ -151,17 +150,17 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 
 Office 365에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **Office365Source** 로 설정 해야 합니다. | 예 |
 | allowedGroups | 그룹 선택 조건자입니다.  이 속성을 사용 하 여 데이터를 검색할 사용자 그룹을 최대 10 개까지 선택할 수 있습니다.  그룹이 지정 되지 않은 경우 전체 조직에 대 한 데이터가 반환 됩니다. | 아니요 |
-| userScopeFilterUri | 속성이 `allowedGroups` 지정 되지 않은 경우 전체 테 넌 트에 적용 되는 조건자 식을 사용 하 여 Office 365에서 추출할 특정 행을 필터링 할 수 있습니다. 조건자 형식은 Microsoft Graph Api의 쿼리 형식과 일치 해야 합니다 (예: `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`). | 아니요 |
+| userScopeFilterUri | `allowedGroups`속성이 지정 되지 않은 경우 전체 테 넌 트에 적용 되는 조건자 식을 사용 하 여 Office 365에서 추출할 특정 행을 필터링 할 수 있습니다. 조건자 형식은 Microsoft Graph Api의 쿼리 형식과 일치 해야 합니다 (예:) `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` . | 아니요 |
 | dateFilterColumn | DateTime 필터 열의 이름입니다. 이 속성을 사용 하 여 Office 365 데이터가 추출 되는 시간 범위를 제한할 수 있습니다. | 데이터 집합에 하나 이상의 DateTime 열이 있는 경우 예입니다. 이 날짜/시간 필터를 필요로 하는 데이터 집합 목록을 [보려면 여기](https://docs.microsoft.com/graph/data-connect-filtering#filtering) 를 참조 하세요. |
-| startTime | 필터링 할 시작 날짜/시간 값입니다. | 이 지정 `dateFilterColumn` 된 경우 예 |
-| endTime | 필터링 할 끝 날짜/시간 값입니다. | 이 지정 `dateFilterColumn` 된 경우 예 |
-| outputColumns | 싱크로 복사할 열의 배열입니다. | 아니요 |
+| startTime | 필터링 할 시작 날짜/시간 값입니다. | `dateFilterColumn`이 지정 된 경우 예 |
+| endTime | 필터링 할 끝 날짜/시간 값입니다. | `dateFilterColumn`이 지정 된 경우 예 |
+| outputColumns | 싱크로 복사할 열의 배열입니다. | 예 |
 
-**예제:**
+**예:**
 
 ```json
 "activities": [

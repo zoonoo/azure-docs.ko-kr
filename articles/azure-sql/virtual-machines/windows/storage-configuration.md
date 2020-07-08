@@ -1,10 +1,9 @@
 ---
 title: SQL Server VM에 대한 스토리지 구성 | Microsoft Docs
-description: 이 항목에서는 Azure가 프로비전하는 동안 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다(Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다.
+description: 이 항목에서는 Azure에서 프로 비전 중에 SQL Server Vm에 대 한 저장소를 구성 하는 방법을 설명 합니다 (Azure Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667372"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에서는 스토리지 구성을 자동화할 수 있습니다. 스토리지를 VM에 연결하고 해당 스토리지를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.
+Azure에서 SQL Server VM (가상 머신) 이미지를 구성 하는 경우 Azure Portal은 저장소 구성을 자동화 하는 데 도움이 됩니다. 스토리지를 VM에 연결하고 해당 스토리지를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.
 
 이 항목에서는 Azure에서 프로비전 중 스토리지 SQL Server VM 및 기존 VM에 대한 스토리지를 구성하는 방법을 설명합니다. 이 구성은 SQL Server를 실행하는 Azure VM의 [성능 모범 사례](performance-guidelines-best-practices.md) 에 기반합니다.
 
@@ -57,7 +55,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 
 프리미엄 SSD에 대한 디스크 캐싱은 *ReadOnly*, *ReadWrite* 또는 없음일 수 있습니다. 
 
-- *ReadOnly* 캐싱은 Premium Storage에 저장된 SQL Server 데이터 파일에 매우 유용합니다. *ReadOnly* 캐싱은 낮은 읽기 대기 시간과 높은 읽기 IOPS 및 처리량을 제공합니다. 읽기가 VM 메모리 및 로컬 SSD 내에 있는 캐시에서 수행되기 때문입니다. 이러한 읽기는 Azure Blob Storage에서 데이터 디스크를 읽는 것 보다 훨씬 빠릅니다. Premium Storage는 캐시에서 처리된 읽기를 디스크 IOPS 및 처리량으로 계산하지 않습니다. 따라서 애플리케이션은 더 높은 총 IOPS 및 처리량을 달성할 수 있습니다. 
+- *ReadOnly* 캐싱은 Premium Storage에 저장된 SQL Server 데이터 파일에 매우 유용합니다. *ReadOnly* 캐싱은 낮은 읽기 대기 시간과 높은 읽기 IOPS 및 처리량을 제공합니다. 읽기가 VM 메모리 및 로컬 SSD 내에 있는 캐시에서 수행되기 때문입니다. 이러한 읽기는 Azure Blob storage에서 데이터 디스크를 읽는 것 보다 훨씬 빠릅니다. Premium Storage는 캐시에서 처리된 읽기를 디스크 IOPS 및 처리량으로 계산하지 않습니다. 따라서 애플리케이션은 더 높은 총 IOPS 및 처리량을 달성할 수 있습니다. 
 - SQL Server 로그 파일을 호스트하는 디스크에는 없음 캐시 구성을 사용해야 합니다. 로그 파일은 순차적으로 기록되고 *ReadOnly* 캐싱이 도움이 되지 않기 때문입니다. 
 - *ReadWrite* 캐싱은 SQL Server 파일을 호스트하는 데 사용할 수 없습니다. SQL Server는 *ReadWrite* 캐시와의 데이터 일관성을 지원하지 않기 때문입니다. 쓰기가 *ReadOnly* Blob 캐시 계층을 통과할 경우 읽기가 *ReadOnly* Blob 캐시 용량을 불필요하게 소비하고 대기 시간을 약간 증가시킵니다. 
 
@@ -76,7 +74,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 
 Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내용은 [스토리지 구성 섹션](#storage-configuration)을 참조하세요. Azure Portal에서 SQL Server VM을 만드는 방법의 전체 연습은 [프로비전 자습서](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)를 참조하세요.
 
-### <a name="resource-manage-templates"></a>Resource Manager 템플릿
+### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
 다음 Resource Manager 템플릿을 사용하는 경우 두 개의 프리미엄 데이터 디스크는 스토리지 풀 구성 없이 기본적으로 연결됩니다. 그러나 이러한 템플릿을 사용자 지정하여 가상 머신에 연결된 프리미엄 데이터 디스크의 수를 변경할 수 있습니다.
 
@@ -113,7 +111,7 @@ SQL Server VM 만들기 프로세스 중에 구성된 드라이브의 디스크 
 
 ## <a name="storage-configuration"></a>스토리지 구성
 
-이 섹션에서는 Azure가 SQL VM을 프로비전하거나 Azure Portal에서 구성하는 동안 자동으로 수행하는 스토리지 구성 변경에 대한 참조를 제공합니다.
+이 섹션에서는 Azure Portal에서 SQL Server VM 프로 비전 또는 구성 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용에 대 한 참조를 제공 합니다.
 
 * Azure는 VM에서 선택된 스토리지로부터 스토리지 풀을 구성합니다. 이 항목의 다음 섹션에서는 스토리지 풀 구성에 대해 자세히 설명합니다.
 * 자동 스토리지 구성은 항상 [프리미엄 SSD](../../../virtual-machines/windows/disks-types.md) P30 데이터 디스크를 사용합니다. 따라서 선택한 테라바이트 수와 VM에 연결된 데이터 디스크의 수 간에 1:1 매핑이 됩니다.
@@ -148,7 +146,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 | **데이터 웨어하우징** |분석 및 보고 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 610<br/>추적 플래그 1117 |
 
 > [!NOTE]
-> SQL 가상 컴퓨터를 프로비전할 때 스토리지 구성 단계에서 워크로드 유형을 선택하여 지정할 수 있습니다.
+> 저장소 구성 단계에서 가상 컴퓨터를 선택 하 여 SQL Server 가상 컴퓨터를 프로 비전 할 때에만 작업 유형을 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,7 +4,6 @@ description: SQL Server 인스턴스를 Azure로 마이그레이션하거나 확
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: conceptual
@@ -14,12 +13,11 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62ed33b8344d0d5a79cd956274c5f7ddd62a714a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668749"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용하여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +59,7 @@ SQL Server는 복구를 보장하기 위해 앱 일치 Azure Site Recovery 스�
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-SQL Server를 2012 이상 버전으로 업그레이드하여 온-프레미스에서 Azure VM으로 마이그레이션하는 경우 고객이 사용할 수 있는 옵션은 [Database Migration Service](/azure/dms/dms-overview)입니다.
+[Azure Database Migration Service](/azure/dms/dms-overview) 은 SQL Server를 2012 이상 버전으로 업그레이드 하 여 온-프레미스에서 Azure VM으로 마이그레이션하는 경우 고객을 위한 옵션입니다.
 
 ## <a name="disaster-recovery"></a>재해 복구
 
@@ -74,7 +72,7 @@ Azure VM에서 EOS SQL Server에 대한 재해 복구 솔루션은 다음과 같
 ## <a name="security-patching"></a>보안 패치
 SQL VM [리소스 공급자](sql-vm-resource-provider-register.md)에 SQL Server VM이 등록된 후 SQL Server VM에 대한 확장된 보안 업데이트는 Microsoft 업데이트 채널을 통해 제공됩니다. 패치는 수동 또는 자동으로 다운로드할 수 있습니다.
 
-*Automated patching*이 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. SQL Server IaaS 확장이 설치된 경우 유지 관리 기간을 요일, 시간 및 기간으로 지정할 수 있습니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다.  자세한 내용은 [Azure Virtual Machines에서 SQL Server의 자동화된 패치](automated-patching.md)를 참조하세요.
+*Automated patching*이 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. SQL Server IaaS 확장이 설치된 경우 유지 관리 기간을 요일, 시간 및 기간으로 지정할 수 있습니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server의 자동화된 패치](automated-patching.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

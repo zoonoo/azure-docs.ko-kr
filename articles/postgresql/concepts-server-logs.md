@@ -5,13 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/25/2020
+ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392814"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 
@@ -41,11 +40,11 @@ Azure Database for PostgreSQL의 기본 로그 형식은 .log입니다. 이 로�
 
 Azure Database for PostgreSQL는 .log 파일에 대 한 단기 저장 위치를 제공 합니다. 새 파일은 1 시간 마다 또는 100 MB 중 먼저 도달 하는 것으로 시작 됩니다. 로그는 Postgres에서 내보낼 때 현재 파일에 추가 됩니다.  
 
-매개 변수를 `log_retention_period` 사용 하 여이 단기 로그 저장소에 대 한 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 단기 저장소 위치는 최대 1gb의 로그 파일을 보유할 수 있습니다. 1gb 후에는 새 로그를 위한 공간을 확보 하기 위해 보존 기간에 관계 없이 가장 오래 된 파일이 삭제 됩니다. 
+매개 변수를 사용 하 여이 단기 로그 저장소에 대 한 보존 기간을 설정할 수 있습니다 `log_retention_period` . 기본값은 3일이며 최대값은 7일입니다. 단기 저장소 위치는 최대 1gb의 로그 파일을 보유할 수 있습니다. 1gb 후에는 새 로그를 위한 공간을 확보 하기 위해 보존 기간에 관계 없이 가장 오래 된 파일이 삭제 됩니다. 
 
 로그 및 로그 분석에 대 한 장기 보존을 위해 .log 파일을 다운로드 하 고 타사 서비스로 이동할 수 있습니다. [Azure CLI](howto-configure-server-logs-using-cli.md) [Azure Portal](howto-configure-server-logs-in-portal.md)를 사용 하 여 파일을 다운로드할 수 있습니다. 또는 로그 (JSON 형식)를 장기 위치로 자동으로 내보내는 Azure Monitor 진단 설정을 구성할 수 있습니다. 이 옵션에 대 한 자세한 내용은 아래 섹션을 참조 하세요. 
 
-매개 변수 `logging_collector` 를 OFF로 설정 하 여 .log 파일 생성을 중지할 수 있습니다. Azure Monitor 진단 설정을 사용 하는 경우 로그 파일 생성을 해제 하는 것이 좋습니다. 이 구성을 통해 추가 로깅의 성능 영향을 줄일 수 있습니다.
+매개 변수를 OFF로 설정 하 여 .log 파일 생성을 중지할 수 있습니다. `logging_collector` Azure Monitor 진단 설정을 사용 하는 경우 로그 파일 생성을 해제 하는 것이 좋습니다. 이 구성을 통해 추가 로깅의 성능 영향을 줄일 수 있습니다.
 
 ## <a name="resource-logs"></a>리소스 로그
 
@@ -82,6 +81,7 @@ Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 �
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 
@@ -102,7 +102,7 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics` |
+| 형식 | 로그의 형식 항상 `AzureDiagnostics` |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |

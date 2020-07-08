@@ -3,25 +3,24 @@ title: Azure AD 앱 프록시를 사용 하는 온-프레미스 앱에 대 한 S
 description: SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 대 한 Single Sign-On를 제공 하는 방법을 알아봅니다. 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱에 대 한 원격 액세스를 제공 합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764828"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
 
@@ -74,7 +73,7 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 
 2. SAML을 **사용 하 여 Single Sign-on 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. 응용 프로그램 프록시에서 구성한 **외부 url** 이 **식별자**, **회신 url**및 **로그 아웃 url** 필드에 채워졌는지 확인 합니다. 이러한 Url은 응용 프로그램 프록시가 제대로 작동 하는 데 필요 합니다. 
 
-3. 응용 프로그램 프록시를 통해 인터넷에서 도메인에 연결할 수 있도록 이전에 구성 된 **회신 URL** 을 편집 합니다. 예를 들어 **외부 url** `https://contosotravel-f128.msappproxy.net` 이이 고 원래 **회신 Url** `https://contosotravel.com/acs`이 인 경우 원래 **회신 url** 을로 `https://contosotravel-f128.msappproxy.net/acs`업데이트 해야 합니다.
+3. 응용 프로그램 프록시를 통해 인터넷에서 도메인에 연결할 수 있도록 이전에 구성 된 **회신 URL** 을 편집 합니다. 예를 들어 **외부 url** 이이 `https://contosotravel-f128.msappproxy.net` 고 원래 **회신 url** 이 인 경우 `https://contosotravel.com/acs` 원래 **회신 url** 을로 업데이트 해야 `https://contosotravel-f128.msappproxy.net/acs` 합니다.
 
     ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

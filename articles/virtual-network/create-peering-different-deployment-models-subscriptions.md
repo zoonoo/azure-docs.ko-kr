@@ -7,22 +7,21 @@ documentationcenter: ''
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 6823514e284f75f0580578dcabaa1b1bdcbe2f59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412501"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
-이 자습서에서는 서로 다른 배포 모델을 통해 만들어진 가상 네트워크 간의 가상 네트워크 피어링을 만드는 방법을 알아봅니다. 가상 네트워크가 서로 다른 구독에 있습니다. 두 가상 네트워크를 피어링하면 서로 다른 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. [가상 네트워크 피어 링](virtual-network-peering-overview.md)에 대해 자세히 알아보세요.
+이 자습서에서는 서로 다른 배포 모델을 통해 만들어진 가상 네트워크 간의 가상 네트워크 피어링을 만드는 방법을 알아봅니다. 가상 네트워크가 서로 다른 구독에 있습니다. 두 가상 네트워크를 피어링하면 서로 다른 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md)에 대해 자세히 알아보세요.
 
 가상 네트워크 피어링을 만드는 단계는 가상 네트워크가 동일한 구독에 있는지 아니면 다른 구독에 있는지에 따라, 그리고 가상 네트워크가 어느 [Azure 배포 모델](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 통해 생성되었는지에 따라 다릅니다. 다음 표에 나온 시나리오를 클릭하여 다른 시나리오에서 가상 네트워크 피어링을 만드는 방법을 알아보세요.
 
@@ -30,11 +29,11 @@ ms.locfileid: "80239833"
 |--------- |---------|
 |[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
-|[하나는 Resource Manager, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 이 자습서는 동일한 지역에 있는 가상 네트워크를 사용합니다. 이 자습서는 동일한 지역에 가상 네트워크를 피어링합니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)에 있는 가상 네트워크를 피어링할 수도 있습니다. 가상 네트워크를 피어링하기 전에 [피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다.
 
-서로 다른 구독에 존재하는 가상 네트워크 간의 가상 네트워크 피어링을 만들 때는 구독이 모두 동일한 Azure Active Directory 테넌트에 연결되어 있어야 합니다. 아직 Azure Active Directory 테넌트가 없는 경우 신속히 하나 [만들](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 서로 다른 구독과 Azure Active Directory 테넌트의 가상 네트워크를 연결할 수 있습니다.
+서로 다른 구독에 있는 가상 네트워크 간에 가상 네트워크 피어 링을 만들 때 구독은 동일한 Azure Active Directory 테 넌 트에 연결 될 수 있습니다. 아직 Azure Active Directory 테넌트가 없는 경우 신속히 하나 [만들](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다.
 
 [Azure Portal](#portal), Azure [CLI(Command Line Interface)](#cli) 또는 Azure [PowerShell](#powershell)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 
@@ -49,8 +48,8 @@ ms.locfileid: "80239833"
     - **주소 공간**: *10.0.0.0/16*
     - **서브넷 이름**: *기본값*
     - **서브넷 주소 범위**: *10.0.0.0/24*
-    - **구독**: 구독 A를 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA*를 입력합니다.
+    - **구독**: 구독 A 선택
+    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA* 입력
     - **위치**: *미국 동부*
 4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 클릭합니다. **myVnetA** 가상 네트워크에 대한 블레이드가 표시됩니다.
 5. 나타나는 **myVnetA** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **액세스 제어(IAM)** 를 클릭합니다.
@@ -67,8 +66,8 @@ ms.locfileid: "80239833"
     - **주소 공간**: *10.1.0.0/16*
     - **서브넷 이름**: *기본값*
     - **서브넷 주소 범위**: *10.1.0.0/24*
-    - **구독**: 구독 B를 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupB*를 입력합니다.
+    - **구독**: 구독 B 선택
+    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupB* 입력
     - **위치**: *미국 동부*
 
 14. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB*를 입력합니다. **myVnetB**가 검색 결과에 표시되면 클릭합니다. **myVnetB** 가상 네트워크에 대한 블레이드가 표시됩니다.
@@ -84,14 +83,14 @@ ms.locfileid: "80239833"
      - **가상 네트워크 배포 모델**: **클래식**을 선택합니다.
      - **리소스 ID를 알고 있음**: 이 확인란을 선택합니다.
      - **리소스 ID**: 15단계에서 얻은 myVnetB의 리소스 ID를 입력합니다.
-     - **가상 네트워크 액세스 허용:****사용**이 선택되어 있는지 확인합니다.
+     - **가상 네트워크 액세스 허용**: **사용**이 선택되어 있어야 합니다.
     이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-a-peering)를 읽어보세요.
 23. 이전 단계에서 **확인**을 클릭한 후 **피어링 추가** 블레이드가 닫히고 **myVnetA - 피어링** 블레이드가 다시 표시됩니다. 몇 초 후 만든 피어링이 블레이드에 나타납니다. 만든 **myVnetAToMyVnetB** 피어링에 대해 **PEERING STATUS** 열에 **Connected**가 열거됩니다. 이제 피어링이 설정되었습니다. 가상 네트워크(리소스 관리자)에 가상 네트워크(클래식)를 피어링할 필요는 없습니다.
 
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
 
 24. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-25. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal) 섹션에서 설명하는 단계를 완료합니다.
+25. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal) 섹션에 설명된 단계를 완료합니다.
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>피어링 만들기 - Azure CLI
 
@@ -106,7 +105,7 @@ ms.locfileid: "80239833"
     ```
 
 4. 나머지 단계는 Azure CLI(클래식 CLI가 아님)와 함께 bash 셸을 사용하여 완료해야 합니다.
-5. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-Id>`는 구독 ID로 바꿉니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력의 **id** 값이 구독 id입니다. 수정 된 스크립트를 복사 하 여 CLI 세션에 붙여 넣은 다음를 누릅니다 `Enter`.
+5. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-Id>`는 구독 ID로 바꿉니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력의 **id** 값이 구독 id입니다. 수정 된 스크립트를 복사 하 여 CLI 세션에 붙여 넣은 다음 `Enter` 를 누릅니다.
 
     ```azurecli-interactive
     az role assignment create \
@@ -151,7 +150,7 @@ ms.locfileid: "80239833"
       --scope $vNetAId
     ```
 
-8. 서로 다른 배포 모델을 통해 만들어진 두 가상 네트워크 사이에 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. 를 `<SubscriptionB-id>` 구독 Id로 바꿉니다. 구독 Id를 모르는 경우 `az account show` 명령을 입력 합니다. 출력의 **id** 값은 구독 id입니다. Azure는 *기본-네트워킹*이라는 리소스 그룹에서 4 단계에서 만든 가상 네트워크 (클래식)를 만들었습니다. CLI 세션에 수정된 스크립트를 붙여 넣고 `Enter`를 누릅니다.
+8. 서로 다른 배포 모델을 통해 만들어진 두 가상 네트워크 사이에 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-id>`를 구독 Id로 바꿉니다. 구독 Id를 모르는 경우 `az account show` 명령을 입력 합니다. 출력의 **id** 값은 구독 id입니다. Azure는 *기본-네트워킹*이라는 리소스 그룹에서 4 단계에서 만든 가상 네트워크 (클래식)를 만들었습니다. CLI 세션에 수정된 스크립트를 붙여 넣고 `Enter`를 누릅니다.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -177,7 +176,7 @@ ms.locfileid: "80239833"
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
 
 10. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-11. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에서 설명하는 단계를 완료합니다.
+11. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에 설명된 단계를 완료합니다.
 
 ## <a name="create-peering---powershell"></a><a name="powershell"></a>피어링 만들기 - PowerShell
 
@@ -267,12 +266,12 @@ ms.locfileid: "80239833"
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
 
 12. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-13. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
+13. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에 설명된 단계를 완료합니다.
 
 ## <a name="delete-resources"></a><a name="delete"></a>리소스 삭제
 이 자습서를 마친 경우 사용 요금이 발생하지 않도록 자습서에서 만든 리소스를 삭제하려고 할 것입니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Azure portal
+### <a name="azure-portal"></a><a name="delete-portal"></a>Azure Portal
 
 1. 포털 검색 상자에 **myResourceGroupA**를 입력합니다. 검색 결과에서 **myResourceGroupA**를 클릭합니다.
 2. **myResourceGroupA** 블레이드에서 **삭제** 아이콘을 클릭합니다.
@@ -297,7 +296,7 @@ ms.locfileid: "80239833"
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>슬래시
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. PowerShell 명령 프롬프트에서 다음 명령을 입력하여 가상 네트워크(리소스 관리자)를 삭제합니다.
 

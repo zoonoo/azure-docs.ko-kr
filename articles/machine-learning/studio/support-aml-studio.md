@@ -5,16 +5,15 @@ description: 지원 및 교육을 받고 Azure Machine Learning Studio (클래�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: cd48e97f642402d1c7ff2ff71e7cee67be17f91d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 708f337ebc627f863f632a677a2186a9d7fe99f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213179"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 지원 및 교육 받기
 
@@ -38,7 +37,7 @@ ms.locfileid: "82209437"
 
 + **Azure 고객에 대 한 기술 지원**: Azure Portal을 통해 [지원 요청을 제출 하 고 관리](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 합니다.
 
-+ **사용자 포럼**: [MSDN의 Azure Machine Learning Studio (클래식) 지원 포럼](https://aka.ms/aml-forum-studio)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
++ **사용자 포럼**: [Azure Machine Learning Studio (클래식) 지원 포럼](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
 
 + **Stack Overflow**: "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
 

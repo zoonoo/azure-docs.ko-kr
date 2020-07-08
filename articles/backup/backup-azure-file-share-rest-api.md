@@ -4,11 +4,10 @@ description: REST API를 사용 하 여 Recovery Services 자격 증명 모음�
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710612"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
 
@@ -38,7 +37,7 @@ ms.locfileid: "79248100"
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-POST URI에는 `{subscriptionId}`, `{vaultName}` `{vaultresourceGroupName}`, 및 `{fabricName}` 매개 변수가 있습니다. 이 예제에서 다른 매개 변수에 대 한 값은 다음과 같습니다.
+POST URI에는 `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` 및 `{fabricName}` 매개 변수가 있습니다. 이 예제에서 다른 매개 변수에 대 한 값은 다음과 같습니다.
 
 - `{fabricName}`*Azure*
 
@@ -467,7 +466,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| 속성       | Type                       | Description                       |
+| 이름       | Type                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 

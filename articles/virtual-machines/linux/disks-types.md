@@ -3,16 +3,15 @@ title: Azure IaaS Linux Vm에 대 한 디스크 유형 선택-managed disks
 description: Linux 가상 머신에 대 한 사용 가능한 Azure 디스크 유형 (ultra disks, premium Ssd, standard Ssd 및 Standard Hdd 포함)에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 11/04/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 7990c178f18ac5219fde0882c24d5854001ba63e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dc8bd3877297db1677c4b838132b954fb033fe0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337389"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]

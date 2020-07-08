@@ -4,15 +4,14 @@ description: VPN Gateway 및 포털을 사용하여 클래식 VNet을 Resource M
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987680"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -28,7 +27,7 @@ ms.locfileid: "77152026"
 
 가상 네트워크 게이트웨이가 아직 없으며 만들지 않으려면 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-### <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+### <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 
 
@@ -84,7 +83,7 @@ Location = East US <br>
 
 이 섹션에서는 클래식 VNet, 로컬 네트워크(로컬 사이트) 및 가상 네트워크 게이트웨이를 만듭니다. 스크린샷은 예제로 제공됩니다. 값을 사용자의 값으로 대체하거나 [예제](#values) 값을 사용합니다.
 
-### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"> </a>클래식 VNet 만들기
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> 클래식 VNet 만들기
 
 클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
 
@@ -96,7 +95,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 4. 반환된 목록에서 'Virtual Network'를 찾아서 클릭하여 Virtual Network 페이지를 엽니다. 
 5. 가상 네트워크 페이지에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 여기에서 기본값을 사용하면, 대신 Resource Manager VNet을 사용하게 됩니다.
 
-### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>로컬 사이트 구성
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> 로컬 사이트 구성
 
 1. **모든 리소스**로 이동하여 목록에서 **ClassicVNet**을 찾습니다.
 2. 메뉴의 **설정** 섹션에서 **게이트웨이** 를 클릭 한 다음 배너를 클릭 하 여 게이트웨이를 만듭니다.

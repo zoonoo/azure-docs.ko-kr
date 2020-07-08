@@ -3,12 +3,11 @@ title: 배포 된 Azure Kubernetes 서비스 (AKS) 클러스터 모니터링 | M
 description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터의 모니터링을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337979"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -19,7 +18,7 @@ ms.locfileid: "79275452"
 * Azure CLI
 * Terraform
 * [Azure Monitor에서](#enable-from-azure-monitor-in-the-portal) 또는 AZURE PORTAL의 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal)
-* Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 을 사용 하거나 Azure CLI를 사용 하 여 [제공 된 Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 합니다.
+* Azure PowerShell cmdlet을 사용 하거나 Azure CLI를 사용 하 여 [제공 된 Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 `New-AzResourceGroupDeployment` 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -27,10 +26,10 @@ ms.locfileid: "79275452"
 
 ## <a name="enable-using-azure-cli"></a>Azure CLI 사용
 
-다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예제에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *DefaultWorkspace-\<GUID>-\<Region>* 형식과 비슷합니다.  
+다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예제에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *defaultworkspace \<GUID> - \<Region> *의 형식과 유사 합니다.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 출력은 다음과 유사합니다.
@@ -41,7 +40,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>기존 작업 영역과 통합
 
-기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 `--workspace-resource-id` 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 식별 한 다음 명령을 실행 하 여 지정 된 작업 영역에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다.  
+기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 식별 한 `--workspace-resource-id` 다음 명령을 실행 하 여 지정 된 작업 영역에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다.
 
 1. 다음 명령을 사용 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
 
@@ -73,7 +72,7 @@ provisioningState       : Succeeded
 
     출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
 
-4. 다음 명령을 실행 하 여 모니터링 추가 기능을 사용 하도록 설정 하 고 `--workspace-resource-id` 매개 변수의 값을 바꿉니다. 문자열 값은 큰따옴표로 묶어야 합니다.
+4. 다음 명령을 실행 하 여 모니터링 추가 기능을 사용 하도록 설정 하 고 매개 변수의 값을 바꿉니다 `--workspace-resource-id` . 문자열 값은 큰따옴표로 묶어야 합니다.
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
@@ -104,15 +103,15 @@ provisioningState       : Succeeded
 
 Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **모니터**를 선택 합니다.
+1. Azure Portal에서 **모니터**를 선택합니다.
 
 2. 목록에서 **컨테이너**를 선택합니다.
 
-3. **모니터 - 컨테이너** 페이지에서 **모니터링되지 않는 클러스터**를 선택합니다.
+3. **모니터-컨테이너** 페이지에서 모니터링 되지 않는 **클러스터**를 선택 합니다.
 
-4. 모니터링되지 않는 클러스터 목록에서 이 컨테이너를 찾아 **사용**을 클릭합니다.   
+4. 모니터링 되지 않는 클러스터 목록에서 목록에 있는 컨테이너를 찾고 **사용**을 클릭 합니다.
 
-5. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
+5. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.
     구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다.
 
     ![AKS 컨테이너 정보 모니터링 사용](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -126,19 +125,19 @@ Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용�
 
 Azure Portal에서 AKS 클러스터 중 하나에서 직접 모니터링을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택 합니다.
+1. Azure Portal에서 **모든 서비스**를 선택합니다.
 
 2. 리소스 목록에서 **컨테이너** 입력을 시작합니다.  입력한 내용을 기반으로 목록이 필터링됩니다.
 
-3. **Kubernetes 서비스**를 선택합니다.  
+3. **Kubernetes 서비스**를 선택합니다.
 
     ![Kubernetes 서비스 링크](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. 컨테이너 목록에서 컨테이너를 선택합니다.
 
-5. 컨테이너 개요 페이지에서 **컨테이너 모니터링**을 선택합니다.  
+5. 컨테이너 개요 페이지에서 **컨테이너 모니터링**을 선택합니다.
 
-6. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
+6. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.
     구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다.
 
     ![AKS 컨테이너 상태 모니터링 사용](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -310,7 +309,21 @@ kubectl get ds omsagent --namespace=kube-system
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+클러스터에 Windows Server 노드가 있는 경우 다음 명령을 실행 하 여 에이전트가 성공적으로 배포 되었는지 확인할 수 있습니다.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+출력은 다음과 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 솔루션의 배포를 확인하려면 다음 명령을 실행합니다.
 
@@ -328,23 +341,23 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>06072018 이전 에이전트 버전
 
-*06072018* 이전에 릴리스된 Log Analytics 에이전트 버전이 제대로 배포되었는지 확인하려면 다음 명령을 실행합니다.  
+*06072018* 이전에 릴리스된 Log Analytics 에이전트 버전이 제대로 배포되었는지 확인하려면 다음 명령을 실행합니다.
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-출력은 다음과 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.  
+출력은 다음과 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## <a name="view-configuration-with-cli"></a>CLI로 구성 보기
 
-`aks show` 명령을 사용하면 솔루션을 사용하도록 설정되어 있는지 여부, Log Analytics 작업 영역 resourceID, 클러스터에 대한 요약 정보와 같은 세부 정보를 얻을 수 있습니다.  
+`aks show` 명령을 사용하면 솔루션을 사용하도록 설정되어 있는지 여부, Log Analytics 작업 영역 resourceID, 클러스터에 대한 요약 정보와 같은 세부 정보를 얻을 수 있습니다.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>

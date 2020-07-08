@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022381"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory는 복사, 데이터 흐름, 조회, 메타 데이터 가져오기 및 삭제 작업을 통해 다음과 같은 데이터 저장소와 형식을 지원 합니다. 각 데이터 저장소를 클릭 하 여 지원 되는 기능 및 해당 구성에 대해 자세히 알아보세요.
@@ -25,7 +25,7 @@ Azure Data Factory는 복사, 데이터 흐름, 조회, 메타 데이터 가져�
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
 
-## <a name="supported-file-formats"></a>지원 파일 형식
+## <a name="supported-file-formats"></a>지원되는 파일 형식
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
 

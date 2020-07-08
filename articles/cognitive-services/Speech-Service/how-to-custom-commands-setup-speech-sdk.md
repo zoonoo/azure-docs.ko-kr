@@ -1,7 +1,7 @@
 ---
 title: 음성 SDK를 사용하여 클라이언트 앱과 통합
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 대 한 요청을 수행 하는 방법에 대해 알아봅니다.
+description: UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 요청을 수행 하는 방법입니다.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414365"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027633"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
 
-이 문서에서는 UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 대 한 요청을 수행 하는 방법에 대해 알아봅니다. 사용자 지정 명령 응용 프로그램에 대 한 연결을 설정 하기 위해 다음 작업을 수행 합니다.
+이 문서에서는 UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 대 한 요청을 수행 하는 방법에 대해 알아봅니다. 사용자 지정 명령 응용 프로그램에 대 한 연결을 설정 하려면 다음이 필요 합니다.
 
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -32,13 +31,19 @@ ms.locfileid: "85414365"
 
 다음도 필요 합니다.
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드는 Visual Studio 2019을 기반으로 합니다.
 > * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
 > * [디바이스를 개발에 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시
 
-1. 이전에 만든 사용자 지정 명령 응용 프로그램을 열고 **게시** 를 선택 합니다.
+1. 이전에 만든 사용자 지정 명령 응용 프로그램 열기
+1. **설정**으로 이동 하 고 **LUIS 리소스** 를 선택 합니다.
+1. **예측 리소스가** 할당 되지 않은 경우 쿼리 예측 키를 선택 하거나 새로 만듭니다.
+
+    응용 프로그램을 게시 하기 전에 쿼리 예측 키가 항상 필요 합니다. LUIS 리소스에 대 한 자세한 내용은 [LUIS 리소스 만들기](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription) 를 참조 하세요.
+
+1. 편집 명령으로 돌아가서 **게시** 를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![애플리케이션 게시](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

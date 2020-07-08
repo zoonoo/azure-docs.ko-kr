@@ -6,31 +6,30 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 76442368fe4b3e498f622a8a3cd5b5b973f16bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 26eb3a495fd1c896416265687d92da66dfc3599b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212295"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Synapse SQL 풀의 뷰
 
 뷰를 여러 가지 다양한 방법으로 사용하여 솔루션의 품질을 개선할 수 있습니다.
 
-SQL 풀은 표준 뷰와 구체화 된 뷰를 모두 지원 합니다. 둘 다 SELECT 식을 사용 하 여 생성 되 고 쿼리를 논리 테이블로 표시 하는 가상 테이블입니다.
+SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다. 둘 다 SELECT 식을 사용하여 생성되고 쿼리에 논리 테이블로 표시되는 가상 테이블입니다.
 
-뷰는 일반적인 데이터 계산의 복잡성을 캡슐화 하 고 계산 변경에 추상화 계층을 추가 하므로 쿼리를 다시 작성할 필요가 없습니다.
+뷰는 일반적인 데이터 계산의 복잡성을 캡슐화하고 계산 변경에 추상화 계층을 추가하므로 쿼리를 다시 작성할 필요가 없습니다.
 
 ## <a name="standard-view"></a>표준 뷰
 
-표준 뷰는 뷰가 사용 될 때마다 데이터를 계산 합니다. 디스크에 저장 된 데이터가 없습니다. 일반적으로 사용자는 데이터베이스에서 논리 개체와 쿼리를 구성 하는 데 도움이 되는 도구로 표준 뷰를 사용 합니다.
+표준 뷰는 뷰가 사용될 때마다 데이터를 계산합니다. 디스크에 저장되는 데이터는 없습니다. 일반적으로 사용자는 표준 뷰를 데이터베이스에서 논리 개체와 쿼리를 구성하는 데 도움이 되는 도구로 사용합니다.
 
-표준 뷰를 사용 하려면 쿼리에서 해당 뷰를 직접 참조 해야 합니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+표준 뷰를 사용하려면 쿼리에서 해당 뷰를 직접 참조해야 합니다. 자세한 내용은 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 
 SQL 풀의 뷰는 메타 데이터로만 저장 됩니다. 따라서 다음 옵션을 사용할 수 없습니다.
 
@@ -46,13 +45,13 @@ SQL 풀의 뷰는 메타 데이터로만 저장 됩니다. 따라서 다음 옵�
 
 ## <a name="materialized-view"></a>구체화된 뷰
 
-구체화 된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산 하 고 저장 하 고 유지 관리 합니다. 구체화 된 뷰가 사용 될 때마다 다시 계산 기능 필요 하지 않습니다.
+구체화된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산하고 저장하고 유지 관리합니다. 구체화된 뷰가 사용될 때마다 다시 계산할 필요가 없습니다.
 
 데이터를 기본 테이블로 로드 하면 SQL 풀에서 구체화 된 뷰를 동기적으로 새로 고칩니다.  쿼리에서 뷰가 참조 되지 않는 경우에도 쿼리 최적화 프로그램은 자동으로 배포 된 구체화 된 뷰를 사용 하 여 쿼리 성능을 향상 시킵니다.  
 
 구체화 된 뷰에서 가장 기능과 쿼리는 작은 결과 집합을 생성 하는 큰 테이블에 대 한 복잡 한 쿼리 (일반적으로 조인 및 집계가 포함 된 쿼리)입니다.  
 
-구체화 된 뷰 구문 및 기타 요구 사항에 대 한 자세한 내용은 [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.  
+구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.  
 
 쿼리 튜닝 지침은 [구체화 된 뷰로 성능 조정](performance-tuning-materialized-views.md)을 참조 하세요.
 

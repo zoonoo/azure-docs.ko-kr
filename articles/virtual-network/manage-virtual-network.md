@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 643f326952f72f952aa946079e56f1fb56373c9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710034"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -37,7 +36,7 @@ ms.locfileid: "82182874"
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-1. **+ 리소스** > 만들기**네트워킹** > **가상 네트워크**를 선택 합니다.
+1. **+ 리소스 만들기**  >  **네트워킹**  >  **가상 네트워크**를 선택 합니다.
 2. 다음 설정에 대 한 값을 입력 하거나 선택한 다음, **만들기**를 선택 합니다.
    - **이름**: 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
    - **주소 공간**: 가상 네트워크의 주소 공간은 CIDR 표기법으로 지정된 하나 이상의 겹치지 않는 주소 범위로 구성됩니다. 정의하는 주소 범위는 공용 또는 프라이빗 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 프라이빗으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
@@ -91,7 +90,7 @@ ms.locfileid: "82182874"
      - [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
      - [액세스 제어(IAM)](../role-based-access-control/overview.md)
      - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [중지](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [자동화 스크립트](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **명령**
@@ -139,7 +138,7 @@ ms.locfileid: "82182874"
 3. **설정**아래에서 **DNS 서버**를 선택 합니다.
 4. 다음 옵션 중 하나를 선택합니다.
    - **기본값 (Azure에서 제공)**: 모든 리소스 이름 및 개인 IP 주소는 Azure DNS 서버에 자동으로 등록 됩니다. 동일한 가상 네트워크에 연결된 모든 리소스 간에 이름을 확인할 수 있습니다. 이 옵션을 사용하면 가상 네트워크에서 이름을 확인할 수 없습니다. 가상 네트워크 전체에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
-   - **사용자 지정:** 가상 네트워크에 대한 Azure 제한까지 하나 이상의 서버를 추가할 수 있습니다. DNS 서버 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)을 참조하세요. 다음 옵션이 있습니다.
+   - **사용자 지정:** 가상 네트워크에 대한 Azure 제한까지 하나 이상의 서버를 추가할 수 있습니다. DNS 서버 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)을 참조하세요. 다음과 같은 옵션이 있습니다.
    - **주소 추가:** 가상 네트워크 DNS 서버 목록에 서버를 추가하고, 해당 DNS 서버를 Azure에 등록합니다. Azure에 DNS 서버를 이미 등록한 경우 목록에서 DNS 서버를 선택할 수 있습니다.
    - **주소 제거:** 제거하려는 서버 옆에 있는 **...** 를 선택한 다음 **제거**를 선택합니다. 서버를 삭제하면 이 가상 네트워크 목록에서만 서버가 제거됩니다. DNS 서버는 다른 가상 네트워크에서 사용할 수 있도록 Azure에 등록된 상태로 유지됩니다.
    - **DNS 서버 주소 다시 정렬**: 사용자 환경에 맞게 올바른 순서로 DNS 서버를 나열하는지 확인하는 것이 중요합니다. DNS 서버 목록은 지정된 순서로 사용됩니다. 라운드 로빈 설정으로 작동하지 않습니다. 목록의 첫 번째 DNS 서버에 연결할 수 있으면 DNS 서버가 제대로 작동하는지 여부와 관계없이 클라이언트에서 해당 DNS 서버를 사용합니다. 나열된 모든 DNS 서버를 제거한 다음 원하는 순서로 다시 추가합니다.
@@ -171,7 +170,7 @@ ms.locfileid: "82182874"
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                  |   속성                                |
+| 작업                                  |   이름                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

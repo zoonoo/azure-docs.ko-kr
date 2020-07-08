@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4b61df52df45cb2ee01407390ce3e34d86350ef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b57a7c04db0e601b90bc19059df70e63795784bf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189252"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036953"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 
@@ -41,7 +40,7 @@ Azure Time Series Insights은 종 량 제 비즈니스 모델을 채택 합니�
 Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 개의 Azure 리소스를 만듭니다.
 
 * Azure Time Series Insights 미리 보기 환경
-* Azure Storage 범용 V1 계정
+* Azure Storage 계정
 
 프로 비전 프로세스의 일부로 웜 저장소를 사용 하도록 설정할지 여부를 지정 합니다. 웜 스토어는 계층화 된 쿼리 환경을 제공 합니다. 사용 하도록 설정 하는 경우 7 일에서 30 일 사이의 보존 기간을 지정 해야 합니다. 웜 저장소 보존 기간 내에 실행 되는 쿼리는 일반적으로 더 빠른 응답 시간을 제공 합니다. 쿼리가 웜 저장소 보존 기간을 초과 하는 경우 콜드 스토어에서 제공 됩니다.
 
@@ -52,7 +51,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 
 시작하려면 다음 세 개의 추가 항목이 필요합니다.
 
-* [시계열 모델](./time-series-insights-update-tsm.md)
+* [시계열 모델](./concepts-model-overview.md)
 * [Time Series Insights에 연결된 이벤트 원본](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * 모델에 매핑되고 유효한 JSON 형식인, [이벤트 원본으로 흐르는 이벤트](./time-series-insights-send-events.md)
 
@@ -67,7 +66,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 > [!IMPORTANT]
 > 시계열 Id는 *나중에 변경할 수 없습니다*. 최종 선택하고 처음 사용하기 전에 각 항목을 확인합니다.
 
-최대 3 개의 키를 선택 하 여 리소스를 고유 하 게 구분할 수 있습니다. 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md) 및 [스토리지 및 수신](./time-series-insights-update-storage-ingress.md)을 참조하세요.
+최대 3 개의 키를 선택 하 여 리소스를 고유 하 게 구분할 수 있습니다. 자세한 내용은 시계열 ID 및 수집 [규칙](concepts-json-flattening-escaping-rules.md) [선택에 대 한 모범 사례](./time-series-insights-update-how-to-id.md) 를 참조 하세요.
 
 **Timestamp** 속성도 중요 합니다. 이벤트 원본을 추가할 때 이 속성을 지정할 수 있습니다. 각 이벤트 원본에는 시간 경과에 따라 이벤트 원본을 추적하는 데 사용되는 선택적 타임스탬프 속성이 있습니다. 타임스탬프 값은 대/소문자를 구분하며 각 이벤트 원본의 개별 사양에 맞는 형식이어야 합니다.
 
@@ -78,7 +77,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 
 ## <a name="understand-the-time-series-model"></a>시계열 모델 이해
 
-이제 Time Series Insights 환경의 시계열 모델을 구성할 수 있습니다. 새 모델을 사용하면 IoT 데이터를 쉽게 찾아서 분석할 수 있습니다. 시계열 데이터의 큐레이션, 유지 관리 및 보강을 가능하게 하며, 소비자가 바로 사용할 수 있는 데이터 세트를 준비하는 데 도움이 됩니다. 모델은 고유한 리소스를 변수(형식이라고도 함) 및 계층 구조와 연결하는 인스턴스에 매핑되는 시계열 ID를 사용합니다. 새로운 [시계열 모델](./time-series-insights-update-tsm.md)에 대해 읽어 보세요.
+이제 Time Series Insights 환경의 시계열 모델을 구성할 수 있습니다. 새 모델을 사용하면 IoT 데이터를 쉽게 찾아서 분석할 수 있습니다. 시계열 데이터의 큐레이션, 유지 관리 및 보강을 가능하게 하며, 소비자가 바로 사용할 수 있는 데이터 세트를 준비하는 데 도움이 됩니다. 모델은 고유한 리소스를 변수(형식이라고도 함) 및 계층 구조와 연결하는 인스턴스에 매핑되는 시계열 ID를 사용합니다. 새로운 [시계열 모델](./concepts-model-overview.md)에 대해 읽어 보세요.
 
 모델은 동적이므로 언제든지 빌드할 수 있습니다. 빠르게 시작하려면 데이터를 Time Series Insights에 푸시하기 전에 빌드 및 업로드합니다. 모델을 작성 하려면 [시계열 모델 사용](./time-series-insights-update-how-to-tsm.md)을 참조 하세요.
 
@@ -100,5 +99,6 @@ Time Series Insights에 이벤트를 보내는 방법을 확인할 수 있습니
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Advisor](../advisor/advisor-overview.md) 를 검토 하 여 비즈니스 복구 구성 옵션을 계획 합니다.
-- Time Series Insights 미리 보기에서 [저장소 및 수신](./time-series-insights-update-storage-ingress.md) 에 대해 자세히 알아보세요.
-- Time Series Insights 미리 보기에서 [데이터 모델링](./time-series-insights-update-tsm.md) 에 대해 알아봅니다.
+- 자세한 내용은 [데이터](./concepts-ingestion-overview.md)수집을 참조 하세요.
+- [데이터 저장소](./concepts-storage.md) 에 대 한 문서 검토
+- Time Series Insights 미리 보기에서 [데이터 모델링](./concepts-model-overview.md) 에 대해 알아봅니다.

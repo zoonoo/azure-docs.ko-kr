@@ -1,10 +1,9 @@
 ---
-title: Azure Portal을 사용하여 Azure에서 SQL Server VM 관리 | Microsoft Docs
+title: Azure Portal을 사용 하 여 Azure에서 SQL Server 가상 머신 관리 Microsoft Docs
 description: Azure에서 호스트되는 SQL Server VM에 대해 Azure Portal에서 SQL 가상 머신 리소스에 액세스하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -13,17 +12,16 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6cf6fac84abd1d996c77aae7240c0322c5ec53fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669004"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure에서 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-[Azure Portal](https://portal.azure.com)에서 **SQL 가상 머신** 리소스는 독립된 관리 서비스입니다. 이 도구를 사용하여 모든 SQL Server VM을 동시에 확인하고 SQL Server 전용 설정을 수정할 수 있습니다. 
+[Azure Portal](https://portal.azure.com)에서 SQL vm ( **가상 머신** ) 리소스는 독립 된 관리 서비스입니다. 이 도구를 사용하여 모든 SQL Server VM을 동시에 확인하고 SQL Server 전용 설정을 수정할 수 있습니다. 
 
 ![SQL 가상 머신 리소스](./media/manage-sql-vm-portal/sql-vm-manage.png)
 

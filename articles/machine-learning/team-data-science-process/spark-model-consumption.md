@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718551"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027446"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -32,7 +31,7 @@ HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설
 HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다. 이 코드는 Spark 2.0에서 생성된 모델을 사용하는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
 2. Spark 1.6 클러스터 또는 spark 2.0 노트북에 대 한 [spark 토픽을 사용 하 여 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 을 통해 작업 하 여 여기서 점수를 매길 기계 학습 모델을 만듭니다. 
@@ -57,51 +56,54 @@ Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spar
 
 디렉터리 경로를 설정하는 코드는 다음과 같습니다. 
 
-    # LOCATION OF DATA TO BE SCORED (TEST DATA)
-    taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
+```python
+# LOCATION OF DATA TO BE SCORED (TEST DATA)
+taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
 
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
-    modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
+# SET THE MODEL STORAGE DIRECTORY PATH 
+# NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
+modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
-    # SET SCORDED RESULT DIRECTORY PATH
-    # NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
-    scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
+# SET SCORDED RESULT DIRECTORY PATH
+# NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
+scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
 
-    # FILE LOCATIONS FOR THE MODELS TO BE SCORED
-    logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
-    linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-1817_44_00.993832"
-    randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-1817_42_58.899412"
-    randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-1817_44_27.204734"
-    BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-1817_43_16.354770"
-    BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-1817_44_46.206262"
+# FILE LOCATIONS FOR THE MODELS TO BE SCORED
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-1817_44_00.993832"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-1817_42_58.899412"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-1817_44_27.204734"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-1817_43_16.354770"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-1817_44_46.206262"
 
-    # RECORD START TIME
-    import datetime
-    datetime.datetime.now()
+# RECORD START TIME
+import datetime
+datetime.datetime.now()
+```
 
-**출력**
+**출력:**
 
 datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>라이브러리 가져오기
 Spark 컨텍스트를 설정하고 다음 코드를 사용하여 필요한 라이브러리 가져오기
 
-    #IMPORT LIBRARIES
-    import pyspark
-    from pyspark import SparkConf
-    from pyspark import SparkContext
-    from pyspark.sql import SQLContext
-    import matplotlib
-    import matplotlib.pyplot as plt
-    from pyspark.sql import Row
-    from pyspark.sql.functions import UserDefinedFunction
-    from pyspark.sql.types import *
-    import atexit
-    from numpy import array
-    import numpy as np
-    import datetime
-
+```python
+#IMPORT LIBRARIES
+import pyspark
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.sql import SQLContext
+import matplotlib
+import matplotlib.pyplot as plt
+from pyspark.sql import Row
+from pyspark.sql.functions import UserDefinedFunction
+from pyspark.sql.types import *
+import atexit
+from numpy import array
+import numpy as np
+import datetime
+```
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>미리 설정된 Spark 컨텍스트 및 PySpark 매직
 Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 응용 프로그램으로 작업을 시작 하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다.
@@ -112,7 +114,7 @@ Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨�
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
 
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
-* **%% sql-o \<변수 이름>** 
+* **%%sql -o \<variable name>** 
 * sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
 Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
@@ -122,65 +124,67 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 택시 여정 및 요금 파일은 [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md) 항목에 제공된 절차를 기반으로 연결됩니다.
 
-    # INGEST DATA AND CREATE A CLEANED DATA FRAME
+```python
+# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # IMPORT FILE FROM PUBLIC BLOB
-    taxi_test_file = sc.textFile(taxi_test_file_loc)
+# IMPORT FILE FROM PUBLIC BLOB
+taxi_test_file = sc.textFile(taxi_test_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
-    taxi_header = taxi_test_file.filter(lambda l: "medallion" in l)
+# GET SCHEMA OF THE FILE FROM HEADER
+taxi_header = taxi_test_file.filter(lambda l: "medallion" in l)
 
-    # PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
-    taxi_temp = taxi_test_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
-            .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
-                            float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
-                            float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
+# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+taxi_temp = taxi_test_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
+        .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
+                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
+                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
-    # GET SCHEMA OF THE FILE FROM HEADER
-    schema_string = taxi_test_file.first()
-    fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
-    fields[7].dataType = IntegerType() #Pickup hour
-    fields[8].dataType = IntegerType() # Pickup week
-    fields[9].dataType = IntegerType() # Weekday
-    fields[10].dataType = IntegerType() # Passenger count
-    fields[11].dataType = FloatType() # Trip time in secs
-    fields[12].dataType = FloatType() # Trip distance
-    fields[19].dataType = FloatType() # Fare amount
-    fields[20].dataType = FloatType() # Surcharge
-    fields[21].dataType = FloatType() # Mta_tax
-    fields[22].dataType = FloatType() # Tip amount
-    fields[23].dataType = FloatType() # Tolls amount
-    fields[24].dataType = FloatType() # Total amount
-    fields[25].dataType = IntegerType() # Tipped or not
-    fields[26].dataType = IntegerType() # Tip class
-    taxi_schema = StructType(fields)
+# GET SCHEMA OF THE FILE FROM HEADER
+schema_string = taxi_test_file.first()
+fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
+fields[7].dataType = IntegerType() #Pickup hour
+fields[8].dataType = IntegerType() # Pickup week
+fields[9].dataType = IntegerType() # Weekday
+fields[10].dataType = IntegerType() # Passenger count
+fields[11].dataType = FloatType() # Trip time in secs
+fields[12].dataType = FloatType() # Trip distance
+fields[19].dataType = FloatType() # Fare amount
+fields[20].dataType = FloatType() # Surcharge
+fields[21].dataType = FloatType() # Mta_tax
+fields[22].dataType = FloatType() # Tip amount
+fields[23].dataType = FloatType() # Tolls amount
+fields[24].dataType = FloatType() # Total amount
+fields[25].dataType = IntegerType() # Tipped or not
+fields[26].dataType = IntegerType() # Tip class
+taxi_schema = StructType(fields)
 
-    # CREATE DATA FRAME
-    taxi_df_test = sqlContext.createDataFrame(taxi_temp, taxi_schema)
+# CREATE DATA FRAME
+taxi_df_test = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
-    # CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
-    taxi_df_test_cleaned = taxi_df_test.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
-        .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
-        .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
-        .drop('direct_distance').drop('surcharge')\
-        .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+taxi_df_test_cleaned = taxi_df_test.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
+    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
+    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
+    .drop('direct_distance').drop('surcharge')\
+    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
-    # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    taxi_df_test_cleaned.cache()
-    taxi_df_test_cleaned.count()
+# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+taxi_df_test_cleaned.cache()
+taxi_df_test_cleaned.count()
 
-    # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
-    taxi_df_test_cleaned.registerTempTable("taxi_test")
+# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+taxi_df_test_cleaned.registerTempTable("taxi_test")
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
-**출력**
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 46.37초
 
@@ -194,65 +198,67 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 등과 같은 연속 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
 
-    #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
+```python
+#INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
+# LOAD PYSPARK LIBRARIES
+from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 
-    # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
-    sqlStatement = """
-        SELECT *,
-        CASE
-         WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
-         WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
-         WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
-         WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
-        END as TrafficTimeBins
-        FROM taxi_test 
-    """
-    taxi_df_test_with_newFeatures = sqlContext.sql(sqlStatement)
+# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+sqlStatement = """
+    SELECT *,
+    CASE
+     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
+     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+    END as TrafficTimeBins
+    FROM taxi_test 
+"""
+taxi_df_test_with_newFeatures = sqlContext.sql(sqlStatement)
 
-    # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    taxi_df_test_with_newFeatures.cache()
-    taxi_df_test_with_newFeatures.count()
+# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+taxi_df_test_with_newFeatures.cache()
+taxi_df_test_with_newFeatures.count()
 
-    # INDEX AND ONE-HOT ENCODING
-    stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_test_with_newFeatures) # Input data-frame is the cleaned one from above
-    indexed = model.transform(taxi_df_test_with_newFeatures)
-    encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
-    encoded1 = encoder.transform(indexed)
+# INDEX AND ONE-HOT ENCODING
+stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
+model = stringIndexer.fit(taxi_df_test_with_newFeatures) # Input data-frame is the cleaned one from above
+indexed = model.transform(taxi_df_test_with_newFeatures)
+encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
+encoded1 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE RATE_CODE
-    stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
-    model = stringIndexer.fit(encoded1)
-    indexed = model.transform(encoded1)
-    encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
-    encoded2 = encoder.transform(indexed)
+# INDEX AND ENCODE RATE_CODE
+stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
+model = stringIndexer.fit(encoded1)
+indexed = model.transform(encoded1)
+encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
+encoded2 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE PAYMENT_TYPE
-    stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
-    model = stringIndexer.fit(encoded2)
-    indexed = model.transform(encoded2)
-    encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
-    encoded3 = encoder.transform(indexed)
+# INDEX AND ENCODE PAYMENT_TYPE
+stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
+model = stringIndexer.fit(encoded2)
+indexed = model.transform(encoded2)
+encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
+encoded3 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE TRAFFIC TIME BINS
-    stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
-    model = stringIndexer.fit(encoded3)
-    indexed = model.transform(encoded3)
-    encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
-    encodedFinal = encoder.transform(indexed)
+# INDEX AND ENCODE TRAFFIC TIME BINS
+stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
+model = stringIndexer.fit(encoded3)
+indexed = model.transform(encoded3)
+encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
+encodedFinal = encoder.transform(indexed)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
-**출력**
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 5.37초
 
@@ -261,103 +267,107 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 또한 광범위한 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공하는 `StandardScalar` 를 사용하여 데이터를 규모 조정하는 방법을 보여 주는 코드를 포함하고 있습니다. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 는 기능을 단위 분산으로 규모 조정하기 위해 사용됩니다. 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 
 
-    # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
+```python
+# CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # IMPORT LIBRARIES
-    from pyspark.mllib.linalg import Vectors
-    from pyspark.mllib.feature import StandardScaler, StandardScalerModel
-    from pyspark.mllib.util import MLUtils
-    from numpy import array
+# IMPORT LIBRARIES
+from pyspark.mllib.linalg import Vectors
+from pyspark.mllib.feature import StandardScaler, StandardScalerModel
+from pyspark.mllib.util import MLUtils
+from numpy import array
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingBinary(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
-                             line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
-                             line.trip_distance, line.fare_amount])
-        return  features
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingBinary(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+                         line.trip_distance, line.fare_amount])
+    return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
-    def parseRowOneHotBinary(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                            line.vendorVec.toArray(), line.rateVec.toArray(), 
-                                            line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-        return  features
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
+def parseRowOneHotBinary(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+    return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingRegression(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
-                             line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
-                             line.trip_distance, line.fare_amount])
-        return  features
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingRegression(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+                         line.trip_distance, line.fare_amount])
+    return  features
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
-    def parseRowOneHotRegression(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                            line.vendorVec.toArray(), line.rateVec.toArray(), 
-                                            line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-        return  features
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
+def parseRowOneHotRegression(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+    return  features
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTESTbinary = encodedFinal.map(parseRowIndexingBinary)
-    oneHotTESTbinary = encodedFinal.map(parseRowOneHotBinary)
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTESTbinary = encodedFinal.map(parseRowIndexingBinary)
+oneHotTESTbinary = encodedFinal.map(parseRowOneHotBinary)
 
-    # FOR REGRESSION CLASSIFICATION TRAINING AND TESTING
-    indexedTESTreg = encodedFinal.map(parseRowIndexingRegression)
-    oneHotTESTreg = encodedFinal.map(parseRowOneHotRegression)
+# FOR REGRESSION CLASSIFICATION TRAINING AND TESTING
+indexedTESTreg = encodedFinal.map(parseRowIndexingRegression)
+oneHotTESTreg = encodedFinal.map(parseRowOneHotRegression)
 
-    # SCALING FEATURES FOR LINEARREGRESSIONWITHSGD MODEL
-    scaler = StandardScaler(withMean=False, withStd=True).fit(oneHotTESTreg)
-    oneHotTESTregScaled = scaler.transform(oneHotTESTreg)
+# SCALING FEATURES FOR LINEARREGRESSIONWITHSGD MODEL
+scaler = StandardScaler(withMean=False, withStd=True).fit(oneHotTESTreg)
+oneHotTESTregScaled = scaler.transform(oneHotTESTreg)
 
-    # CACHE RDDS IN MEMORY
-    indexedTESTbinary.cache();
-    oneHotTESTbinary.cache();
-    indexedTESTreg.cache();
-    oneHotTESTreg.cache();
-    oneHotTESTregScaled.cache();
+# CACHE RDDS IN MEMORY
+indexedTESTbinary.cache();
+oneHotTESTbinary.cache();
+indexedTESTreg.cache();
+oneHotTESTreg.cache();
+oneHotTESTregScaled.cache();
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
-**출력**
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 11.72초
 
 ## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>로지스틱 회귀 모델을 사용하여 점수를 매기고 출력을 blob에 저장
 이 섹션의 코드는 Azure Blob Storage에 저장된 로지스틱 회귀 모델을 로드하고 이를 사용하여 택시 여정에 대한 팁을 지불했는지 여부를 예측하고 표준 분류 메트릭을 사용하여 점수를 매긴 다음, 결과를 Blob Storage에 저장 및 표시하는 방법을 보여 줍니다. 점수가 매겨진 결과는 RDD 개체에 저장됩니다. 
 
-    # SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
+```python
+# SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # IMPORT LIBRARIES
-    from pyspark.mllib.classification import LogisticRegressionModel
+# IMPORT LIBRARIES
+from pyspark.mllib.classification import LogisticRegressionModel
 
-    ## LOAD SAVED MODEL
-    savedModel = LogisticRegressionModel.load(sc, logisticRegFileLoc)
-    predictions = oneHotTESTbinary.map(lambda features: (float(savedModel.predict(features))))
+## LOAD SAVED MODEL
+savedModel = LogisticRegressionModel.load(sc, logisticRegFileLoc)
+predictions = oneHotTESTbinary.map(lambda features: (float(savedModel.predict(features))))
 
-    ## SAVE SCORED RESULTS (RDD) TO BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt";
-    dirfilename = scoredResultDir + logisticregressionfilename;
-    predictions.saveAsTextFile(dirfilename)
+## SAVE SCORED RESULTS (RDD) TO BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt";
+dirfilename = scoredResultDir + logisticregressionfilename;
+predictions.saveAsTextFile(dirfilename)
 
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+```
 
-**출력**
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 19.22초
 
@@ -366,31 +376,32 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 이 섹션의 코드는 Azure Blob Storage에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
 
-    #SCORE LINEAR REGRESSION MODEL
+```python
+#SCORE LINEAR REGRESSION MODEL
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    #LOAD LIBRARIES
-    from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
+#LOAD LIBRARIES
+from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 
-    # LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
-    savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
-    predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
+# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
+predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 
-    # SAVE RESULTS
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
-    dirfilename = scoredResultDir + linearregressionfilename;
-    predictions.saveAsTextFile(dirfilename)
+# SAVE RESULTS
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
+dirfilename = scoredResultDir + linearregressionfilename;
+predictions.saveAsTextFile(dirfilename)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
-
-**출력**
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 16.63초
 
@@ -401,42 +412,44 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 [spark.mllib](https://spark.apache.org/mllib/) 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 및 다중 클래스 분류와 회귀에 대해 임의 포리스트를 지원합니다. 
 
-    # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
+```python
+# SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    #IMPORT MLLIB LIBRARIES    
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-
-
-    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
-    savedModel = RandomForestModel.load(sc, randomForestClassificationFileLoc)
-    predictions = savedModel.predict(indexedTESTbinary)
-
-    # SAVE RESULTS
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfclassificationfilename = "RandomForestClassification_" + datestamp + ".txt";
-    dirfilename = scoredResultDir + rfclassificationfilename;
-    predictions.saveAsTextFile(dirfilename)
+#IMPORT MLLIB LIBRARIES    
+from pyspark.mllib.tree import RandomForest, RandomForestModel
 
 
-    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
-    savedModel = RandomForestModel.load(sc, randomForestRegFileLoc)
-    predictions = savedModel.predict(indexedTESTreg)
+# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+savedModel = RandomForestModel.load(sc, randomForestClassificationFileLoc)
+predictions = savedModel.predict(indexedTESTbinary)
 
-    # SAVE RESULTS
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfregressionfilename = "RandomForestRegression_" + datestamp + ".txt";
-    dirfilename = scoredResultDir + rfregressionfilename;
-    predictions.saveAsTextFile(dirfilename)
+# SAVE RESULTS
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfclassificationfilename = "RandomForestClassification_" + datestamp + ".txt";
+dirfilename = scoredResultDir + rfclassificationfilename;
+predictions.saveAsTextFile(dirfilename)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**출력**
+# REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+savedModel = RandomForestModel.load(sc, randomForestRegFileLoc)
+predictions = savedModel.predict(indexedTESTreg)
+
+# SAVE RESULTS
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfregressionfilename = "RandomForestRegression_" + datestamp + ".txt";
+dirfilename = scoredResultDir + rfregressionfilename;
+predictions.saveAsTextFile(dirfilename)
+
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+```
+
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 31.07초
 
@@ -445,71 +458,75 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 **spark mllib** 는 연속 및 범주 기능을 모두 사용 하 여 이진 분류 및 회귀에 대해 gbts를 지원 합니다. 
 
-앙상블 ( [그라데이션 올리기 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. GBTS는 범주 기능을 처리 하 고, 기능 크기 조정을 요구 하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 이 알고리즘은 다중 클래스 분류 설정에도 사용할 수 있습니다.
+앙상블 ( [그라데이션 올리기 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의입니다. GBTS는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBTS는 범주 기능을 처리 하 고, 기능 크기 조정을 요구 하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 이 알고리즘은 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
-    # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
+```python
+# SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    #IMPORT MLLIB LIBRARIES
-    from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+#IMPORT MLLIB LIBRARIES
+from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 
-    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
-    #LOAD AND SCORE THE MODEL
-    savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
-    predictions = savedModel.predict(indexedTESTbinary)
+#LOAD AND SCORE THE MODEL
+savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
+predictions = savedModel.predict(indexedTESTbinary)
 
-    # SAVE RESULTS
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp + ".txt";
-    dirfilename = scoredResultDir + btclassificationfilename;
-    predictions.saveAsTextFile(dirfilename)
-
-
-    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
-
-    # LOAD AND SCORE MODEL 
-    savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeRegressionFileLoc)
-    predictions = savedModel.predict(indexedTESTreg)
-
-    # SAVE RESULTS
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btregressionfilename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
-    dirfilename = scoredResultDir + btregressionfilename;
-    predictions.saveAsTextFile(dirfilename)
+# SAVE RESULTS
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp + ".txt";
+dirfilename = scoredResultDir + btclassificationfilename;
+predictions.saveAsTextFile(dirfilename)
 
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
-**출력**
+# LOAD AND SCORE MODEL 
+savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeRegressionFileLoc)
+predictions = savedModel.predict(indexedTESTreg)
+
+# SAVE RESULTS
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btregressionfilename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
+dirfilename = scoredResultDir + btregressionfilename;
+predictions.saveAsTextFile(dirfilename)
+
+
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
+
+**출력:**
 
 위의 셀을 실행하는 데 걸린 시간: 14.6초
 
 ## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>메모리에서 개체 정리 및 점수가 매겨진 파일 위치 인쇄
-    # UNPERSIST OBJECTS CACHED IN MEMORY
-    taxi_df_test_cleaned.unpersist()
-    indexedTESTbinary.unpersist();
-    oneHotTESTbinary.unpersist();
-    indexedTESTreg.unpersist();
-    oneHotTESTreg.unpersist();
-    oneHotTESTregScaled.unpersist();
+
+```python
+# UNPERSIST OBJECTS CACHED IN MEMORY
+taxi_df_test_cleaned.unpersist()
+indexedTESTbinary.unpersist();
+oneHotTESTbinary.unpersist();
+indexedTESTreg.unpersist();
+oneHotTESTreg.unpersist();
+oneHotTESTregScaled.unpersist();
 
 
-    # PRINT OUT PATH TO SCORED OUTPUT FILES
-    print "logisticRegFileLoc: " + logisticregressionfilename;
-    print "linearRegFileLoc: " + linearregressionfilename;
-    print "randomForestClassificationFileLoc: " + rfclassificationfilename;
-    print "randomForestRegFileLoc: " + rfregressionfilename;
-    print "BoostedTreeClassificationFileLoc: " + btclassificationfilename;
-    print "BoostedTreeRegressionFileLoc: " + btregressionfilename;
+# PRINT OUT PATH TO SCORED OUTPUT FILES
+print "logisticRegFileLoc: " + logisticregressionfilename;
+print "linearRegFileLoc: " + linearregressionfilename;
+print "randomForestClassificationFileLoc: " + rfclassificationfilename;
+print "randomForestRegFileLoc: " + rfregressionfilename;
+print "BoostedTreeClassificationFileLoc: " + btclassificationfilename;
+print "BoostedTreeRegressionFileLoc: " + btregressionfilename;
+```
 
-
-**출력**
+**출력:**
 
 logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
@@ -538,9 +555,11 @@ Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로
 
 Livy에서 간단한 HTTPS/REST 요청을 만들어 이 스크립트를 원격으로 호출할 수 있습니다.  다음은 Python 스크립트를 원격으로 호출하는 HTTP 요청을 생성하는 curl 명령입니다. CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME을 Spark 클러스터에 대한 적절한 값으로 바꿉니다.
 
-    # CURL COMMAND TO INVOKE PYTHON SCRIPT WITH HTTP REQUEST
+```console
+# CURL COMMAND TO INVOKE PYTHON SCRIPT WITH HTTP REQUEST
 
-    curl -k --user "CLUSTERLOGIN:CLUSTERPASSWORD" -X POST --data "{\"file\": \"wasb:///example/python/ConsumeGBNYCReg.py\"}" -H "Content-Type: application/json" https://CLUSTERNAME.azurehdinsight.net/livy/batches
+curl -k --user "CLUSTERLOGIN:CLUSTERPASSWORD" -X POST --data "{\"file\": \"wasb:///example/python/ConsumeGBNYCReg.py\"}" -H "Content-Type: application/json" https://CLUSTERNAME.azurehdinsight.net/livy/batches
+```
 
 원격 시스템에서 임의의 언어를 사용하여 기본 인증을 가진 간단한 HTTPS 호출을 만들어 Livy를 통해 Spark 작업을 호출할 수 있습니다.   
 
@@ -551,41 +570,42 @@ Livy에서 간단한 HTTPS/REST 요청을 만들어 이 스크립트를 원격�
 
 HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
-    #MAKE AN HTTPS CALL ON LIVY. 
+```python
+#MAKE AN HTTPS CALL ON LIVY. 
 
-    import os
+import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
-    import httplib, urllib, base64
+# OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
+import httplib, urllib, base64
 
-    # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
-    host = '<spark cluster name>.azurehdinsight.net:443'
-    username='<username>'
-    password='<password>'
+# REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
+host = '<spark cluster name>.azurehdinsight.net:443'
+username='<username>'
+password='<password>'
 
-    #AUTHORIZATION
-    conn = httplib.HTTPSConnection(host)
-    auth = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Basic %s' % auth}
+#AUTHORIZATION
+conn = httplib.HTTPSConnection(host)
+auth = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+headers = {'Content-Type': 'application/json', 'Authorization': 'Basic %s' % auth}
 
-    # SPECIFY THE PYTHON SCRIPT TO RUN ON THE SPARK CLUSTER
-    # IN THE FILE PARAMETER OF THE JSON POST REQUEST BODY
-    r=conn.request("POST", '/livy/batches', '{"file": "wasb:///example/python/ConsumeGBNYCReg.py"}', headers )
-    response = conn.getresponse().read()
-    print(response)
-    conn.close()
-
+# SPECIFY THE PYTHON SCRIPT TO RUN ON THE SPARK CLUSTER
+# IN THE FILE PARAMETER OF THE JSON POST REQUEST BODY
+r=conn.request("POST", '/livy/batches', '{"file": "wasb:///example/python/ConsumeGBNYCReg.py"}', headers )
+response = conn.getresponse().read()
+print(response)
+conn.close()
+```
 
 또한 이 Python 코드를 [Azure Functions](https://azure.microsoft.com/documentation/services/functions/)에 추가하여 Blob의 타이머, 생성 또는 업데이트 등과 같은 여러 이벤트를 기반으로 Blob의 점수를 매기는 Spark 작업 제출을 트리거할 수 있습니다. 
 
 코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer**에서 HTTP 작업을 정의하고 해당 매개 변수를 설정하여 Spark 배치 점수 매기기를 호출합니다. 
 
-* Azure Portal에서 **+ 새로** -> 만들기**웹 + 모바일** -> **논리 앱**을 선택 하 여 새 논리 앱을 만듭니다. 
+* Azure Portal에서 **+ 새로**만들기  ->  **웹 + 모바일**  ->  **논리 앱**을 선택 하 여 새 논리 앱을 만듭니다. 
 * **Logic Apps Designer**를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>새로운 기능
-**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.
+## <a name="whats-next"></a>다음 단계
+**교차 유효성 검사 및 하이퍼 매개 변수**비우기: 교차 유효성 검사 및 하이퍼 매개 변수 스윕을 사용 하 여 모델을 학습 하는 방법에 대 한 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조 하세요.
 

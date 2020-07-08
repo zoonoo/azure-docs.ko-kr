@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de10534cb00c66ad914b2c64ac2547b0e3fe03b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077936"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
@@ -43,7 +42,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 전자 메일이 없는 경우 다음 단계를 수행 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.
 
-1. 에서 [https://myapps.microsoft.com](https://myapps.microsoft.com)내 앱 포털에 로그인 합니다.
+1. 에서 내 앱 포털에 로그인 [https://myapps.microsoft.com](https://myapps.microsoft.com) 합니다.
 
     ![사용 권한이 있는 앱을 나열 하는 내 앱 포털](./media/review-your-access/myapps-access-panel.png)
 
@@ -88,7 +87,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 ### <a name="my-apps-portal"></a>내 앱 포털
 
-1. 에서 [https://myapps.microsoft.com](https://myapps.microsoft.com)내 앱 포털에 로그인 합니다.
+1. 에서 내 앱 포털에 로그인 [https://myapps.microsoft.com](https://myapps.microsoft.com) 합니다.
 
     ![사용 권한이 있는 앱을 나열 하는 내 앱 포털](./media/review-your-access/myapps-access-panel.png)
 
@@ -165,4 +164,4 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)
+- [그룹 또는 애플리케이션의 액세스 검토 완료](complete-access-review.md)

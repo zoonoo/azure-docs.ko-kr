@@ -7,18 +7,20 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921557"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없이 agile 데이터를 준비 하 고 랭 글 링 수 있습니다. 랭 글 링 데이터 흐름은 [온라인 파워 쿼리](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 와 통합 되며 spark 실행을 통해 데이터 랭 글 링에 파워 쿼리 M 함수를 사용할 수 있습니다. 
+
+> [!NOTE]
+> 랭 글 링 데이터 흐름은 현재 공개 미리 보기로 제공 되는 가능한
 
 현재 모든 파워 쿼리 M 함수는 제작 중에도 사용할 수 있는 데이터 랭 글 링 지원 되지 않습니다. 랭 글 링 데이터 흐름을 작성 하는 동안 함수가 지원 되지 않으면 다음과 같은 오류 메시지가 표시 됩니다.
 
@@ -39,7 +41,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 * 같음 및 같지 않음
 * 숫자, 텍스트 및 날짜 비교 (DateTime은 제외)
-* 숫자 정보 (예: [IsEven](https://docs.microsoft.com/powerquery-m/number-iseven)/[홀수](https://docs.microsoft.com/powerquery-m/number-iseven) )
+* 숫자 정보 (예: [IsEven](https://docs.microsoft.com/powerquery-m/number-iseven) / [홀수](https://docs.microsoft.com/powerquery-m/number-iseven) )
 * Text를 사용 하는 텍스트 포함 [. Contains](https://docs.microsoft.com/powerquery-m/text-contains), [StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)또는 [텍스트. EndsWith](https://docs.microsoft.com/powerquery-m/text-endswith)
 * 모든 ' IsIn' [date 함수](https://docs.microsoft.com/powerquery-m/date-functions)를 포함 하는 날짜 범위 ' 
 * And, or 또는 not 조건을 사용한 조합
@@ -55,7 +57,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 * 대부분의 standard, 과학적 및 삼각 숫자 함수 (숫자. 계승값, 숫자. 순열 및 숫자 조합을 *제외 하* 고 [작업](https://docs.microsoft.com/powerquery-m/number-functions#operations), [반올림](https://docs.microsoft.com/powerquery-m/number-functions#rounding)및 [삼각](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) 의 모든 함수)
 * [Replace](https://docs.microsoft.com/powerquery-m/text-replace)([치환, ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [치환, ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [text. Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * 위치 텍스트 추출 ([텍스트](https://docs.microsoft.com/powerquery-m/text-positionof). 위치, 텍스트. [길이](https://docs.microsoft.com/powerquery-m/text-length), 텍스트 [. 시작](https://docs.microsoft.com/powerquery-m/text-start), [텍스트. 끝](https://docs.microsoft.com/powerquery-m/text-end), 텍스트. [중간](https://docs.microsoft.com/powerquery-m/text-middle), 텍스트. [ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [텍스트. RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
-* 기본 텍스트 서식 ([텍스트. 아래쪽](https://docs.microsoft.com/powerquery-m/text-lower), [텍스트. 위쪽](https://docs.microsoft.com/powerquery-m/text-upper), [텍스트. Trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[end](https://docs.microsoft.com/powerquery-m/text-trimend), [PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[end](https://docs.microsoft.com/powerquery-m/text-padend), [text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
+* 기본 텍스트 서식 ([텍스트. 아래쪽](https://docs.microsoft.com/powerquery-m/text-lower), [텍스트. 위쪽](https://docs.microsoft.com/powerquery-m/text-upper), [텍스트. Trim](https://docs.microsoft.com/powerquery-m/text-trim) / [Start](https://docs.microsoft.com/powerquery-m/text-trimstart) / [end](https://docs.microsoft.com/powerquery-m/text-trimend), [PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [end](https://docs.microsoft.com/powerquery-m/text-padend), [text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
 * 날짜/시간 함수 ([date, Day](https://docs.microsoft.com/powerquery-m/date-day), [date. Month](https://docs.microsoft.com/powerquery-m/date-month), [Date. Year](https://docs.microsoft.com/powerquery-m/date-year) [time. Hour](https://docs.microsoft.com/powerquery-m/time-hour), [time. Minute](https://docs.microsoft.com/powerquery-m/time-minute), [Second](https://docs.microsoft.com/powerquery-m/time-second), [date. DayOfWeek](https://docs.microsoft.com/powerquery-m/date-dayofweek), [DayOfYear](https://docs.microsoft.com/powerquery-m/date-dayofyear), [date. DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth))
 * 식 (그러나 분기에 일치 하는 형식이 있어야 함)
 * 논리적 열로 행 필터
@@ -87,7 +89,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 | 기능 | 상태 |
 | -- | -- |
-| Table.PromoteHeaders | 지원 안 됨 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
+| Table.PromoteHeaders | 지원되지 않습니다. 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
 | Table.CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | 이는 대부분의 경우 지원 됩니다. 다음 시나리오는 지원 되지 않습니다. 문자열을 통화 형식으로 변환, 문자열을 시간 형식으로 변환, 문자열을 백분율 형식으로 변환 |
 | Table.NestedJoin | 조인을 수행 하면 유효성 검사 오류가 발생 합니다. 열이 제대로 작동 하려면 확장 해야 합니다. |

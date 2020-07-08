@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759587"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -33,10 +32,10 @@ ms.locfileid: "81759587"
 다음 오류 메시지 중 하나를 사용 하 여 IoT Hub에 대 한 요청이 실패 합니다.
 
 * 권한 부여 헤더 누락
-* IotHub '\*'에 지정 된 장치 '\*'이 (가) 포함 되어 있지 않습니다.
-* 권한 부여 규칙\*' '에서 '\*'에 대 한 액세스를 허용 하지 않습니다.
+* IotHub ' \* '에 지정 된 장치 ' '이 (가) 포함 되어 있지 않습니다. \*
+* 권한 부여 규칙 ' \* '에서 ' '에 대 한 액세스를 허용 하지 않습니다. \*
 * 이 장치에 대 한 인증에 실패 했습니다. 토큰 또는 인증서를 갱신 하 고 다시 연결 하세요.
-* 지문이 구성과 일치 하지 않습니다. 지문: SHA1Hash =\*, SHA2Hash =\*; 구성: PrimaryThumbprint =\*, secondarythumbprint =\*
+* 지문이 구성과 일치 하지 않습니다. 지문: SHA1Hash = \* , SHA2Hash = \* ; 구성: PrimaryThumbprint = \* , secondarythumbprint =\*
 
 ## <a name="cause"></a>원인
 
