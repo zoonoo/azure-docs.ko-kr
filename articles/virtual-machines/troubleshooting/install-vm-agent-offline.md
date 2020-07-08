@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 07/06/2020
 ms.author: genli
-ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77920861"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983229"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -37,9 +37,9 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1단계: VM의 OS 디스크를 다른 VM에 데이터 디스크로 연결
 
-1. 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 만들고 스냅숏에서 디스크를 만든 다음 문제 해결 VM에 디스크를 연결 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 OS 디스크를 복구 VM에 연결 함으로써 WINDOWS VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조 하세요. 클래식 VM의 경우 VM을 삭제 하 고 OS 디스크를 유지 한 다음 OS 디스크를 문제 해결 VM에 연결 합니다.
+1. 해당 VM의 OS 디스크 스냅샷을 생성하고, 그 스냅샷에서 디스크를 만든 다음, 이를 문제 해결 VM에 연결합니다. 자자세한 내용은 [Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조하세요. 클래식 VM의 경우 VM을 삭제 하 고 OS 디스크를 유지 한 다음 OS 디스크를 문제 해결 VM에 연결 합니다.
 
-2.  문제 해결사 VM에 연결합니다. **컴퓨터 관리** > **디스크 관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
+2.  문제 해결사 VM에 연결합니다. **컴퓨터 관리**  >  **디스크 관리**를 엽니다. OS 디스크가 온라인 상태이고 드라이브 문자가 디스크 파티션에 할당되었는지 확인합니다.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2단계: Azure VM 에이전트를 설치하도록 OS 디스크 수정
 
@@ -49,7 +49,7 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 3.  **레지스트리 편집기**를 시작합니다(regedit.exe).
 
-4.  **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **로드 하이브**를 선택 합니다.
+4.  **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일**  >  **로드 하이브**를 선택 합니다.
 
     ![Hive를 로드합니다.](./media/install-vm-agent-offline/load-hive.png)
 
@@ -63,14 +63,12 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
     2. 다음 레지스트리를 내보냅니다.
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
 8.  문제 해결사 VM에서 기존 파일을 VM 에이전트 설치의 리포지토리로 사용합니다. 다음 단계를 완료합니다.
 
     1. 문제 해결사 VM에서 다음 하위 키를 레지스트리 형식(.reg)으로 내보냅니다. 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
           ![레지스트리 하위 키 내보내기](./media/install-vm-agent-offline/backup-reg.png)
@@ -81,9 +79,8 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
     3. 각 레지스트리 파일을 두 번 클릭하여 레지스트리 파일을 리포지토리로 가져옵니다.
 
-    4. 다음 세 하위 키를 성공적으로 **BROKENSYSTEM** Hive로 가져왔는지 확인합니다.
+    4. 다음 두 하위 키가 성공적으로 **BROKENSYSTEM** hive로 가져왔는지 확인 합니다.
         - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
         - RdAgent
 
     5. 연결된 OS 디스크에 현재 VM 에이전트의 설치 폴더를 복사합니다. 
@@ -94,9 +91,9 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
              ![GuestAgent 폴더 복사](./media/install-vm-agent-offline/copy-files.png)
 
-9.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일** > **언로드 하이브**를 선택 합니다.
+9.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일**  >  **언로드 하이브**를 선택 합니다.
 
-10.  **BROKENSOFTWARE**를 선택합니다. 메뉴에서 **파일** > **언로드 하이브**를 선택 합니다.
+10.  **BROKENSOFTWARE**를 선택합니다. 메뉴에서 **파일**  >  **언로드 하이브**를 선택 합니다.
 
 11.  OS 디스크를 분리 한 다음 [영향을 받는 VM에 대 한 os 디스크를 변경](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)합니다. 클래식 VM의 경우 복구 된 OS 디스크를 사용 하 여 새 VM을 만듭니다.
 

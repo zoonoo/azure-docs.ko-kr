@@ -3,16 +3,16 @@ title: 시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에
 description: Azure Cosmos DB에서 키에 액세스 하는 Azure Active Directory (Azure AD) 시스템 할당 관리 id (관리 서비스 id)를 구성 하는 방법에 대해 알아봅니다.
 author: j-patrick
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 8136ad7a1fe29bc3394e959c10aafc52988c0a23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641203"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970963"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
 
@@ -28,13 +28,13 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 1. [Azure Portal](https://portal.azure.com/)에서 **Azure 함수** 창을 열고 함수 앱으로 이동 합니다. 
 
-1. **플랫폼 기능** > **id** 탭을 엽니다. 
+1. **플랫폼 기능**  >  **id** 탭을 엽니다. 
 
-   ![함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
 1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고 **Status** **저장**을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
 
-   ![시스템 id 상태를 설정으로 보여 주는 스크린샷](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="시스템 id 상태를 설정으로 보여 주는 스크린샷":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 액세스 권한 부여
 
@@ -43,7 +43,7 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 |기본 제공 역할  |Description  |
 |---------|---------|
 |[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다. 읽기/쓰기 키를 검색할 수 있습니다. |
-|[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음. 읽기 키 검색을 허용 합니다. |
+|[Cosmos DB 계정 독자 역할](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음. 읽기 키 검색을 허용 합니다. |
 
 > [!IMPORTANT]
 > Azure Cosmos DB의 역할 기반 액세스 제어에 대 한 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 마스터 키 또는 리소스 토큰을 통해 보안이 유지 됩니다. 자세한 내용은 [데이터에 안전 하 게 액세스](secure-access-to-data.md) 문서를 참조 하세요.
@@ -55,19 +55,19 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 1. Azure Portal에 로그인 하 여 Azure Cosmos DB 계정으로 이동 합니다. **액세스 제어 (IAM)** 창을 열고 **역할 할당** 탭을 클릭 합니다.
 
-   ![액세스 제어 창과 역할 할당 탭을 보여 주는 스크린샷](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="액세스 제어 창과 역할 할당 탭을 보여 주는 스크린샷":::
 
-1. **+ 추가** > **역할 할당**추가를 선택 합니다.
+1. **추가** > **역할 할당 추가**를 선택합니다.
 
 1. **역할 할당 추가** 패널이 오른쪽에 열립니다.
 
-   ![역할 할당 추가 창을 보여 주는 스크린샷](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="역할 할당 추가 창을 보여 주는 스크린샷":::
 
    * **역할**: **DocumentDB 계정 참가자** 선택
    * 다음에 대 한 **액세스 할당**: **시스템 할당 관리 id 선택** 하위 섹션에서 **함수 앱**을 선택 합니다.
    * **선택**: **관리 되는 시스템 id**를 가진 구독의 모든 함수 앱이 창에 채워집니다. 이 경우 **FishTankTemperatureService** 함수 앱을 선택 합니다. 
 
-      ![예제로 채워진 역할 할당 추가 창을 보여 주는 스크린샷](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="예제로 채워진 역할 할당 추가 창을 보여 주는 스크린샷":::
 
 1. 함수 앱을 선택한 후 **저장**을 선택 합니다.
 
@@ -75,12 +75,12 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 이제 Azure Cosmos DB 권한에서 **DocumentDB 계정 참가자** 역할을 사용 하는 시스템 할당 관리 id가 있는 함수 앱이 있습니다. 다음 함수 앱 코드는 Azure Cosmos DB 키를 가져오고, CosmosClient 개체를 만들고, aquarium의 온도를 가져온 다음, Azure Cosmos DB에 저장 합니다.
 
-이 샘플에서는 [목록 키 API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) 를 사용 하 여 Azure Cosmos DB 계정 키에 액세스 합니다.
+이 샘플에서는 [목록 키 API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) 를 사용 하 여 Azure Cosmos DB 계정 키에 액세스 합니다.
 
 > [!IMPORTANT] 
-> [Cosmos DB 계정 읽기 권한자](#grant-access-to-your-azure-cosmos-account) 역할을 할당 하려면 [읽기 전용 키 목록 API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys)를 사용 해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
+> [Cosmos DB 계정 읽기 권한자](#grant-access-to-your-azure-cosmos-account) 역할을 할당 하려면 [읽기 전용 키 목록 API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys)를 사용 해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
 
-목록 키 API는 개체를 `DatabaseAccountListKeysResult` 반환 합니다. 이 형식은 c # 라이브러리에 정의 되어 있지 않습니다. 다음 코드에서는이 클래스의 구현을 보여 줍니다.  
+목록 키 API는 개체를 반환 합니다 `DatabaseAccountListKeysResult` . 이 형식은 c # 라이브러리에 정의 되어 있지 않습니다. 다음 코드에서는이 클래스의 구현을 보여 줍니다.  
 
 ```csharp 
 namespace Monitor 
@@ -112,7 +112,7 @@ namespace Monitor
 }
 ```
 
-시스템이 할당 한 관리 되는 id 토큰을 가져오려면 [Microsoft. Azure. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 라이브러리를 사용 합니다. 토큰을 가져오고 `Microsoft.Azure.Service.AppAuthentication` 라이브러리에 대 한 자세한 정보를 확인 하는 다른 방법을 알아보려면 [서비스 간 인증](../key-vault/general/service-to-service-authentication.md) 문서를 참조 하세요.
+시스템이 할당 한 관리 되는 id 토큰을 가져오려면 [Microsoft. Azure. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 라이브러리를 사용 합니다. 토큰을 가져오고 라이브러리에 대 한 자세한 정보를 확인 하는 다른 방법을 알아보려면 `Microsoft.Azure.Service.AppAuthentication` [서비스 간 인증](../key-vault/general/service-to-service-authentication.md) 문서를 참조 하세요.
 
 
 ```csharp

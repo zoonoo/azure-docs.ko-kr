@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure 파일 공유 백업
 description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files 파일 공유를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199348"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971031"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>PowerShell을 사용 하 여 Azure 파일 공유 백업
 
@@ -60,7 +60,7 @@ PowerShell을 다음과 같이 설정 합니다.
 5. 표시 되는 웹 페이지에 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다.
 
     또는 **-Credential**을 사용 하 여 **AzAccount** cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-   
+
     테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 고객을 테 넌 트로 지정 합니다. 테 넌 트 ID 또는 테 넌 트 주 도메인 이름을 사용 합니다. 예를 들면 **AzAccount-Tenant "fabrikam.com"** 입니다.
 
 6. 계정에 여러 구독이 있을 수 있으므로 사용 하려는 구독을 계정과 연결 합니다.
@@ -95,20 +95,11 @@ Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따르�
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. [AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet을 사용 하 여 자격 증명 모음을 만듭니다. 리소스 그룹에 사용한 자격 증명 모음과 동일한 위치를 지정 합니다.
+1. [AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet을 사용 하 여 자격 증명 모음을 만듭니다. 리소스 그룹에 사용한 자격 증명 모음과 동일한 위치를 지정 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. 자격 증명 모음 저장소에 사용할 중복성 유형을 지정 합니다. [로컬 중복 스토리지](../storage/common/storage-redundancy-lrs.md) 또는 [지역 중복 스토리지](../storage/common/storage-redundancy-grs.md)를 사용할 수 있습니다.
-   
-   다음 예에서는 **testvault 된** 의 [AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmdlet에 대 한 **-BackupStorageRedundancy** 옵션을 **GeoRedundant**로 설정 합니다.
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+저장소 계정에 대 한 파일 공유 목록을 가져오는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0)를 참조 하세요.
+
 ## <a name="important-notice-backup-item-identification"></a>중요 알림: 백업 항목 id
 
 이 섹션에서는 일반 공급을 준비 하기 위해 Azure 파일 공유 백업의 중요 한 변경 사항에 대해 간략하게 설명 합니다.
 
-Azure 파일 공유에 대 한 백업을 사용 하도록 설정 하는 동안 사용자는 고객에 게 엔터티 이름으로 파일 공유 이름을 제공 하 고 백업 항목을 만듭니다. 백업 항목의 이름은 Azure Backup 서비스에서 만드는 고유 식별자입니다. 일반적으로 식별자는 사용자에 게 친숙 한 이름입니다. 하지만 파일 공유를 삭제할 수 있고 같은 이름으로 다른 파일 공유를 만들 수 있는 일시 삭제 시나리오를 처리 하려면 이제 Azure 파일 공유의 고유 id가 ID입니다. 
+Azure 파일 공유에 대 한 백업을 사용 하도록 설정 하는 동안 사용자는 고객에 게 엔터티 이름으로 파일 공유 이름을 제공 하 고 백업 항목을 만듭니다. 백업 항목의 이름은 Azure Backup 서비스에서 만드는 고유 식별자입니다. 일반적으로 식별자는 사용자에 게 친숙 한 이름입니다. 하지만 파일 공유를 삭제할 수 있고 같은 이름으로 다른 파일 공유를 만들 수 있는 일시 삭제 시나리오를 처리 하려면 이제 Azure 파일 공유의 고유 id가 ID입니다.
 
-각 항목의 고유 ID를 확인 하려면 **Backupmanagementtype** 및 **WorkloadType** 에 대 한 관련 필터를 사용 하 여 **AzRecoveryServicesBackupItem** 명령을 실행 하 여 모든 관련 항목을 가져옵니다. 그런 다음 반환 된 PowerShell 개체/응답에서 이름 필드를 확인 합니다. 
+각 항목의 고유 ID를 확인 하려면 **Backupmanagementtype** 및 **WorkloadType** 에 대 한 관련 필터를 사용 하 여 **AzRecoveryServicesBackupItem** 명령을 실행 하 여 모든 관련 항목을 가져옵니다. 그런 다음 반환 된 PowerShell 개체/응답에서 이름 필드를 확인 합니다.
 
 항목을 나열 하 고 응답의 이름 필드에서 고유한 이름을 검색 하는 것이 좋습니다. *Name* 매개 변수를 사용 하 여 항목을 필터링 하려면이 값을 사용 합니다. 그렇지 않으면 *FriendlyName* 매개 변수를 사용 하 여 해당 ID를 가진 항목을 검색 합니다.
 
 > [!IMPORTANT]
-> Azure 파일 공유 백업에 대 한 PowerShell이 최소 버전 (Az. RecoveryServices 2.6.0)으로 업그레이드 되었는지 확인 합니다. 이 버전을 사용 하면 **AzRecoveryServicesBackupItem** 명령에 *FriendlyName* 필터를 사용할 수 있습니다. 
+> Azure 파일 공유 백업에 대 한 PowerShell이 최소 버전 (Az. RecoveryServices 2.6.0)으로 업그레이드 되었는지 확인 합니다. 이 버전을 사용 하면 **AzRecoveryServicesBackupItem** 명령에 *FriendlyName* 필터를 사용할 수 있습니다.
 >
-> Azure 파일 공유의 이름을 *FriendlyName* 매개 변수에 전달 합니다. 파일 공유의 이름을 *name* 매개 변수에 전달 하는 경우이 버전은 경고를 throw 하 여 이름을 *FriendlyName* 매개 변수에 전달 합니다. 
+> Azure 파일 공유의 이름을 *FriendlyName* 매개 변수에 전달 합니다. 파일 공유의 이름을 *name* 매개 변수에 전달 하는 경우이 버전은 경고를 throw 하 여 이름을 *FriendlyName* 매개 변수에 전달 합니다.
 >
 > 최소 버전을 설치 하지 않으면 기존 스크립트에 오류가 발생할 수 있습니다. 다음 명령을 사용 하 여 PowerShell의 최소 버전을 설치 합니다.
 >
@@ -295,5 +288,5 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal에서 Azure Files를 백업 하는](backup-afs.md)방법에 대해 알아봅니다.
-- Azure Automation runbook을 사용 하 여 백업을 예약 하려면 [GitHub의 샘플 스크립트](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) 를 참조 하세요.
+* [Azure Portal에서 Azure Files를 백업 하는](backup-afs.md)방법에 대해 알아봅니다.
+* Azure Automation runbook을 사용 하 여 백업을 예약 하려면 [GitHub의 샘플 스크립트](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) 를 참조 하세요.

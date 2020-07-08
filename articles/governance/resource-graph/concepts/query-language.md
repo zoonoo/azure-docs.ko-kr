@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654461"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970453"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -17,12 +17,13 @@ Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원�
 이 문서에서는 Resource Graph에서 지원하는 언어 구성 요소에 대해 설명합니다.
 
 - [Resource Graph 테이블](#resource-graph-tables)
+- [리소스 그래프 사용자 지정 언어 요소](#resource-graph-custom-language-elements)
 - [지원되는 KQL 언어 요소](#supported-kql-language-elements)
 - [이스케이프 문자](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Resource Graph 테이블
 
-Resource Graph는 Resource Manager 리소스 종류 및 해당 속성에 대해 저장하는 데이터에 대한 여러 테이블을 제공합니다. 이러한 테이블을 `join` 또는 `union` 연산자와 함께 사용하여 관련 리소스 종류에서 속성을 가져올 수 있습니다. 다음은 Resource Graph에서 사용할 수 있는 테이블의 목록입니다.
+리소스 그래프는 Azure Resource Manager 리소스 형식 및 해당 속성에 대해 저장 하는 데이터에 대 한 여러 테이블을 제공 합니다. 이러한 테이블을 `join` 또는 `union` 연산자와 함께 사용하여 관련 리소스 종류에서 속성을 가져올 수 있습니다. 다음은 Resource Graph에서 사용할 수 있는 테이블의 목록입니다.
 
 |Resource Graph 테이블 |Description |
 |---|---|
@@ -61,6 +62,33 @@ Resources
 
 > [!NOTE]
 > `project`를 사용하여 `join` 결과를 제한하는 경우 `join`에서 두 테이블의 관계를 설정하기 위해 사용하는 _subscriptionId_ 속성을 `project`에 포함해야 합니다.
+
+## <a name="resource-graph-custom-language-elements"></a>리소스 그래프 사용자 지정 언어 요소
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>공유 쿼리 구문 (미리 보기)
+
+미리 보기 기능으로 서, [공유 쿼리](../tutorials/create-share-query.md) 는 리소스 그래프 쿼리에서 직접 액세스할 수 있습니다. 이 시나리오에서는 표준 쿼리를 공유 쿼리로 만들고 다시 사용할 수 있습니다. 리소스 그래프 쿼리 내에서 공유 쿼리를 호출 하려면 `{{shared-query-uri}}` 구문을 사용 합니다. 공유 쿼리의 URI는 해당 쿼리의 **설정** 페이지에 있는 공유 쿼리의 _리소스 ID_ 입니다. 이 예제에서 공유 쿼리 URI는 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS` 입니다.
+이 URI는 다른 쿼리에서 참조 하려는 구독, 리소스 그룹 및 공유 쿼리의 전체 이름을 가리킵니다. 이 쿼리는 [자습서: 쿼리 만들기 및 공유](../tutorials/create-share-query.md)에서 만든 쿼리와 같습니다.
+
+> [!NOTE]
+> 공유 쿼리를 참조 하는 쿼리는 공유 쿼리로 저장할 수 없습니다.
+
+예제 1: 공유 쿼리만 사용
+
+이 리소스 그래프 쿼리의 결과는 공유 쿼리에 저장 된 쿼리와 같습니다.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+예제 2: 공유 쿼리를 더 큰 쿼리의 일부로 포함
+
+이 쿼리는 먼저 공유 쿼리를 사용 하 고를 사용 `limit` 하 여 결과를 추가로 제한 합니다.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## <a name="supported-kql-language-elements"></a>지원되는 KQL 언어 요소
 

@@ -1,14 +1,15 @@
 ---
-title: 지원되는 Resource Manager 리소스 종류
-description: Azure Resource Graph 및 변경 내용에서 지원되는 Resource Manager 리소스 종류 목록을 제공합니다.
-ms.date: 05/21/2020
+title: 지원 되는 Azure Resource Manager 리소스 유형
+description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770587"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970572"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -484,13 +485,6 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## <a name="next-steps"></a>다음 단계
 

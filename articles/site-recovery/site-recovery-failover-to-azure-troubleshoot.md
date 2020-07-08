@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834733"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971082"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -73,6 +73,10 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
         This system is now no-hydration compatible. 
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
+
+RDP 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)에서 설명서를 참조 하세요.
+
+SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)에서 설명서를 참조 하세요.
 
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 

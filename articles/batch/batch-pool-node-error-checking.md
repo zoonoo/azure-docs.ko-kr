@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723921"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979920"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -24,9 +24,9 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 ### <a name="resize-timeout-or-failure"></a>크기 조정 시간 제한 또는 오류
 
-새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다.  작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다.  [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) 또는 [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API에서 크기 조정 시간 제한을 지정합니다. 크기 조정 제한 시간 동안 Batch에서 대상 노드 수를 가져올 수 없는 경우 풀이 안정된 상태가 되고 크기 조정 오류가 보고됩니다.
+새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다.  작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다.  [create](/rest/api/batchservice/pool/add) 또는 [resize](/rest/api/batchservice/pool/resize) API에서 크기 조정 시간 제한을 지정합니다. 크기 조정 제한 시간 동안 Batch에서 대상 노드 수를 가져올 수 없는 경우 풀이 안정된 상태가 되고 크기 조정 오류가 보고됩니다.
 
-가장 최근 평가의 [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) 속성은 발생한 오류를 나열합니다.
+가장 최근 평가의 [ResizeError](/rest/api/batchservice/pool/get#resizeerror) 속성은 발생한 오류를 나열합니다.
 
 크기 조정 오류가 발생하는 일반적인 원인은 다음과 같습니다.
 
@@ -34,31 +34,31 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
   - 대부분의 경우 기본 시간 제한인 15분은 풀 노드를 할당하거나 제거할 수 있도록 충분히 깁니다.
   - 많은 수의 노드를 할당하는 경우에는 크기 조정 시간 제한을 30분으로 설정하는 것이 좋습니다. 예를 들어, 1개의 Azure Marketplace 이미지에서 1,000개가 넘는 노드로 크기를 조정하거나 1개의 사용자 지정 VM 이미지에서 300개가 넘는 노드로 크기를 조정할 수 있습니다.
 - 코어 할당량 부족
-  - Batch 계정은 모든 풀에서 할당할 수 있는 코어 수가 제한됩니다. 해당 할당량에 도달하면 Batch의 노드 할당이 중지됩니다. Batch에서 더 많은 노드를 할당할 수 있도록 코어 할당량을 [늘릴 수 있습니다](https://docs.microsoft.com/azure/batch/batch-quota-limit).
-- [풀이 가상 네트워크에 있을 때](https://docs.microsoft.com/azure/batch/batch-virtual-network) 서브넷 IP가 부족함
+  - Batch 계정은 모든 풀에서 할당할 수 있는 코어 수가 제한됩니다. 해당 할당량에 도달하면 Batch의 노드 할당이 중지됩니다. Batch에서 더 많은 노드를 할당할 수 있도록 코어 할당량을 [늘릴 수 있습니다](./batch-quota-limit.md).
+- [풀이 가상 네트워크에 있을 때](./batch-virtual-network.md) 서브넷 IP가 부족함
   - 가상 네트워크 서브넷은 요청한 모든 풀 노드에 할당할 수 있는 충분한 미할당 IP 주소가 있어야 합니다. 그렇지 않으면 노드를 만들 수 없습니다.
-- [풀이 가상 네트워크에 있을 때](https://docs.microsoft.com/azure/batch/batch-virtual-network) 리소스가 부족함
+- [풀이 가상 네트워크에 있을 때](./batch-virtual-network.md) 리소스가 부족함
   - Batch 계정과 동일한 구독에 부하 분산 장치, 공용 IP 및 네트워크 보안 그룹과 같은 리소스를 만들 수 있습니다. 구독 할당량이 이러한 리소스에 대해 충분한지 확인합니다.
 - 사용자 지정 VM 이미지를 사용하는 큰 풀
   - 사용자 지정 VM 이미지를 사용하는 큰 풀은 할당 시간이 더 오래 걸릴 수 있으며 크기 조정 오류가 발생할 수 있습니다.  제한 및 구성에 대한 권장 사항은 [공유 이미지 갤러리를 사용하여 풀 만들기](batch-sig-images.md)를 참조하세요.
 
 ### <a name="automatic-scaling-failures"></a>자동 크기 조정 실패
 
-풀의 노드 수를 자동으로 조정하도록 Azure Batch를 설정할 수도 있습니다. [풀의 자동 크기 조정 수식](https://docs.microsoft.com/azure/batch/batch-automatic-scaling)에 대한 매개 변수를 정의합니다. Batch 서비스는 이 수식을 사용하여 풀의 노드 수를 정기적으로 평가하고 새 목표 개수를 설정합니다. 다음과 같은 유형의 문제가 발생할 수 있습니다.
+풀의 노드 수를 자동으로 조정하도록 Azure Batch를 설정할 수도 있습니다. [풀의 자동 크기 조정 수식](./batch-automatic-scaling.md)에 대한 매개 변수를 정의합니다. Batch 서비스는 이 수식을 사용하여 풀의 노드 수를 정기적으로 평가하고 새 목표 개수를 설정합니다. 다음과 같은 유형의 문제가 발생할 수 있습니다.
 
 - 자동 크기 조정 평가가 실패합니다.
 - 평가 결과에 따른 크기 조정 작업이 실패하고 시간이 초과됩니다.
 - 자동 크기 조정 수식에 문제가 있으면 노드 대상 값이 잘못됩니다. 크기 조정이 작동하거나 시간이 초과됩니다.
 
-[autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) 속성을 사용하여 마지막 자동 크기 조정 평가에 대한 정보를 얻을 수 있습니다. 이 속성은 평가 시간, 값과 결과, 성능 오류를 보고합니다.
+[autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) 속성을 사용하여 마지막 자동 크기 조정 평가에 대한 정보를 얻을 수 있습니다. 이 속성은 평가 시간, 값과 결과, 성능 오류를 보고합니다.
 
-[풀 크기 조정 완료 이벤트](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)는 모든 평가 정보를 캡처합니다.
+[풀 크기 조정 완료 이벤트](./batch-pool-resize-complete-event.md)는 모든 평가 정보를 캡처합니다.
 
 ### <a name="delete"></a>DELETE
 
 노드를 포함하는 풀을 삭제하면 Batch는 먼저 노드를 삭제합니다. 그런 다음, 풀 개체 자체를 삭제합니다. 풀 노드가 삭제되려면 몇 분 정도 걸릴 수 있습니다.
 
-삭제 프로세스 중에 Batch는 [풀 상태](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate)를 **deleting**으로 설정합니다. 호출 애플리케이션은 **state** 및 **stateTransitionTime** 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
+삭제 프로세스 중에 Batch는 [풀 상태](/rest/api/batchservice/pool/get#poolstate)를 **deleting**으로 설정합니다. 호출 애플리케이션은 **state** 및 **stateTransitionTime** 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
 
 ## <a name="pool-compute-node-errors"></a>풀 컴퓨팅 노드 오류
 
@@ -131,7 +131,7 @@ Batch는 풀 노드 VM의 임시 드라이브를 작업 파일, 태스크 파일
 임시 드라이브의 크기는 VM 크기에 따라 달라집니다. VM 크기를 선택할 때는 임시 드라이브에 충분한 공간이 있는지 확인해야 합니다.
 
 - Azure Portal에서 풀을 추가하면 VM 크기의 전체 목록이 표시되는데, 여기에는 '리소스 디스크 크기' 열이 있습니다.
-- 모든 VM 크기를 설명하는 문서에는 '임시 스토리지' 열이 있는 테이블이 있습니다(예: [컴퓨팅 최적화 VM 크기](/azure/virtual-machines/windows/sizes-compute)).
+- 모든 VM 크기를 설명하는 문서에는 '임시 스토리지' 열이 있는 테이블이 있습니다(예: [컴퓨팅 최적화 VM 크기](../virtual-machines/sizes-compute.md)).
 
 각 태스크에 의해 기록된 파일의 경우 태스크 파일이 자동으로 정리되기 전에 유지되는 기간을 결정하는 보존 기간을 각 태스크별로 지정할 수 있습니다. 보존 기간을 축소하면 스토리지 요구량을 줄일 수 있습니다.
 
@@ -140,17 +140,17 @@ Batch는 풀 노드 VM의 임시 드라이브를 작업 파일, 태스크 파일
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>디스크가 가득 찬 경우에 수행할 작업
 
-디스크가 가득 찬 이유를 확인합니다. 노드의 공간이 가득 찬 이유를 모르겠다면 노드에 원격으로 액세스하여 여유 공간이 없는 위치를 수동으로 조사하는 것이 좋습니다. 또한 [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode)를 사용하여 Batch 관리형 폴더의 파일(예: 태스크 출력)을 살펴볼 수도 있습니다. 이 API는 Batch 관리형 디렉터리의 파일만 나열하며, 태스크가 다른 위치에 파일을 만든 경우 해당 파일을 볼 수 없습니다.
+디스크가 가득 찬 이유를 확인합니다. 노드의 공간이 가득 찬 이유를 모르겠다면 노드에 원격으로 액세스하여 여유 공간이 없는 위치를 수동으로 조사하는 것이 좋습니다. 또한 [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode)를 사용하여 Batch 관리형 폴더의 파일(예: 태스크 출력)을 살펴볼 수도 있습니다. 이 API는 Batch 관리형 디렉터리의 파일만 나열하며, 태스크가 다른 위치에 파일을 만든 경우 해당 파일을 볼 수 없습니다.
 
 필요한 모든 데이터가 노드에서 검색되었거나 영구 저장소로 업로드되었는지 확인합니다. 디스크 용량 부족 문제를 완화하려면 항상 데이터를 삭제하여 공간을 확보해야 합니다.
 
 ### <a name="recovering-the-node"></a>노드 복구
 
-1. 풀이 [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀인 경우 [Batch 이미지로 다시 설치 API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage)를 통해 노드를 이미지로 다시 설치할 수 있습니다. 그러면 전체 디스크가 삭제됩니다. [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀은 현재 이미지로 다시 설치할 수 없습니다.
+1. 풀이 [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀인 경우 [Batch 이미지로 다시 설치 API](/rest/api/batchservice/computenode/reimage)를 통해 노드를 이미지로 다시 설치할 수 있습니다. 그러면 전체 디스크가 삭제됩니다. [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀은 현재 이미지로 다시 설치할 수 없습니다.
 
-2. 풀이 [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)인 경우 [노드 제거 API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes)를 사용하여 풀에서 노드를 제거할 수 있습니다. 그런 다음, 풀을 다시 확장하여 잘못된 노드를 새 노드로 바꿀 수 있습니다.
+2. 풀이 [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration)인 경우 [노드 제거 API](/rest/api/batchservice/pool/removenodes)를 사용하여 풀에서 노드를 제거할 수 있습니다. 그런 다음, 풀을 다시 확장하여 잘못된 노드를 새 노드로 바꿀 수 있습니다.
 
-3.  이전에 완료된 작업 또는 이전에 완료된 태스크 중 태스크 데이터가 아직 노드에 남아 있는 항목을 삭제합니다. 노드에 있는 작업/태스크 데이터는 노드의 [RecentTasks 컬렉션](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) 또는 [노드의 파일](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode)에서 확인할 수 있습니다. 작업을 삭제하면 작업의 모든 태스크가 삭제되고, 작업의 태스크를 삭제하면 삭제할 노드의 태스크 디렉터리에 있는 데이터가 트리거되어 공간이 확보됩니다. 충분한 공간을 확보한 후에는 노드를 다시 부팅하세요. 그러면 "Unusable" 상태에서 "Idle" 상태로 다시 전환됩니다.
+3.  이전에 완료된 작업 또는 이전에 완료된 태스크 중 태스크 데이터가 아직 노드에 남아 있는 항목을 삭제합니다. 노드에 있는 작업/태스크 데이터는 노드의 [RecentTasks 컬렉션](/rest/api/batchservice/computenode/get#taskinformation) 또는 [노드의 파일](/rest/api/batchservice/file/listfromcomputenode)에서 확인할 수 있습니다. 작업을 삭제하면 작업의 모든 태스크가 삭제되고, 작업의 태스크를 삭제하면 삭제할 노드의 태스크 디렉터리에 있는 데이터가 트리거되어 공간이 확보됩니다. 충분한 공간을 확보한 후에는 노드를 다시 부팅하세요. 그러면 "Unusable" 상태에서 "Idle" 상태로 다시 전환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

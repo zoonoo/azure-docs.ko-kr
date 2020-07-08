@@ -5,28 +5,28 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 89450e5518d854fbc31b43324ecb05f47e1ab5ac
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133696"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970997"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
-Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1 분 주기로 내보내지고 최대 [93 일의 기록이](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics)있습니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|Description|
+|메트릭|메트릭 표시 이름|단위|설명|
 |---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
-|io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율|
+|io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율 기본 계층 서버에는 적용 되지 않습니다.|
 |storage_percent|스토리지 비율|백분율|서버의 최대값을 초과하여 사용된 스토리지의 비율|
 |storage_used|스토리지 사용됨|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
 |storage_limit|스토리지 제한|바이트|이 서버의 최대 스토리지|
@@ -74,7 +74,7 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 **서비스 상태 경고**를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> 계획 된 유지 관리 알림이 현재 미리 보기 상태입니다.
+> 계획 된 유지 관리 알림은 현재 미국 서 부를 **제외한** 모든 지역에서 미리 보기로 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.

@@ -1,14 +1,14 @@
 ---
-title: Visual Studio Code Azure Policy 확장
-description: Visual Studio Code Azure Policy 확장을 사용 하 여 리소스 관리자 별칭을 조회 하는 방법에 대해 알아봅니다.
-ms.date: 03/07/2020
+title: Visual Studio Code용 Azure Policy 확장
+description: Visual Studio Code Azure Policy 확장을 사용 하 여 Azure Resource Manager 별칭을 조회 하는 방법에 대해 알아봅니다.
+ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182568"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970759"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code Azure Policy 확장 사용
 
@@ -34,7 +34,7 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
 1. Visual Studio Code를 엽니다.
 
-1. 메뉴 모음에서**확장** **보기** > 로 이동 합니다.
+1. 메뉴 모음에서 확장 **보기**로 이동  >  **Extensions**합니다.
 
 1. 검색 상자에 **Azure Policy**을 입력 합니다.
 
@@ -68,7 +68,7 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
    - 명령 팔레트
 
-     메뉴 모음에서 **보기** > **명령 팔레트**로 이동 하 고 **Azure: 로그인**을 입력 합니다.
+     메뉴 모음에서 **보기**  >  **명령 팔레트**로 이동 하 고 **Azure: 로그인**을 입력 합니다.
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="명령 팔레트의 Visual Studio Code에 대 한 Azure cloud 로그인" border="false":::
 
@@ -82,11 +82,11 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
    - 명령 팔레트: 
 
-     메뉴 모음에서 **보기** > **명령 팔레트**로 이동 하 고 **Azure: 구독 선택**을 입력 합니다.
+     메뉴 모음에서 **보기**  >  **명령 팔레트**로 이동 하 고 **Azure: 구독 선택**을 입력 합니다.
 
    - 창 바닥글
 
-     화면 아래쪽의 창 바닥글에서 **Azure: \<계정과\>** 일치 하는 세그먼트를 선택 합니다.
+     화면 아래쪽의 창 바닥글에서 **Azure \<your account\> **와 일치 하는 세그먼트를 선택 합니다.
 
 1. 필터 상자를 사용 하 여 이름을 기준으로 신속 하 게 구독을 찾을 수 있습니다. 그런 다음 각 구독에서 확인을 확인 하거나 제거 하 여 Azure Policy 확장에 표시 된 구독을 설정 합니다. 표시할 구독을 추가 하거나 제거 하는 작업이 완료 되 면 **확인**을 선택 합니다.
 
@@ -99,7 +99,7 @@ Azure Policy 확장에는 리소스 공급자 및 리소스 그룹에서 선택�
 - **리소스 그룹**
   - 속한 리소스 그룹의 모든 리소스
 
-기본적으로 확장은 정책 별칭이 있는 리소스 및 기존 리소스를 기준으로 ' 리소스 공급자 '의 일부를 필터링 합니다. 필터링 하지 않고 모든 리소스 공급자를 보려면**Azure Policy** **설정** > **확장** > 에서이 동작을 변경 합니다.
+기본적으로 확장은 정책 별칭이 있는 리소스 및 기존 리소스를 기준으로 ' 리소스 공급자 '의 일부를 필터링 합니다. **Settings**  >  **Extensions**  >  필터링 하지 않고 모든 리소스 공급자를 보려면**Azure Policy** 설정 확장에서이 동작을 변경 합니다.
 
 단일 구독에서 수백 또는 수천 개의 리소스를 사용 하는 고객은 검색 가능한 방법을 사용 하 여 리소스를 찾을 수 있습니다. Azure Policy 확장을 사용 하면 다음 단계를 통해 특정 리소스를 검색할 수 있습니다.
 
@@ -121,11 +121,14 @@ Azure Policy 확장에는 리소스 공급자 및 리소스 그룹에서 선택�
 
 ## <a name="discover-aliases-for-resource-properties"></a>리소스 속성에 대 한 별칭 검색
 
-검색 인터페이스를 통해 또는 treeview에서 리소스를 선택 하 여 리소스를 선택 하는 경우 Azure Policy 확장은 해당 리소스 및 모든 리소스 관리자 속성 값을 나타내는 JSON 파일을 엽니다.
+검색 인터페이스를 통해 또는 treeview에서 리소스를 선택 하 여 리소스를 선택 하는 경우 Azure Policy 확장은 해당 리소스 및 모든 Azure Resource Manager 속성 값을 나타내는 JSON 파일을 엽니다.
 
 리소스가 열리면 리소스 관리자 속성 이름 또는 값을 마우스로 가리키면 Azure Policy 별칭이 표시 됩니다 (있는 경우). 이 예제에서 리소스는 `Microsoft.Compute/virtualMachines` 리소스 형식이 고 **imageReference** 속성은 가리킴 속성입니다. 가리키기는 일치 하는 별칭을 표시 합니다.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy 확장 가리키기 리소스 관리자 속성 별칭을 표시 합니다." border="false":::
+
+> [!NOTE]
+> VS Code 확장은 Resource Manager 모드 속성만 노출하고 [리소스 공급자 모드](../concepts/definition-structure.md#mode) 속성은 표시하지 않습니다.
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>정책 및 할당 검색 및 보기
 
@@ -151,13 +154,13 @@ Azure Policy 확장 **에는 정책 창에** 표시 하기 위해 선택한 구�
 
 ## <a name="sign-out"></a>로그아웃
 
-메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 **Azure: 로그 아웃**을 입력 합니다.
+메뉴 모음에서 **보기**  >  **명령 팔레트**로 이동한 다음 **Azure: 로그 아웃**을 입력 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토 합니다.
+- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 알아봅니다.
-- [비준수 리소스](remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
-- [Azure 관리 그룹을 사용](../../management-groups/overview.md)하 여 리소스를 구성 하는 관리 그룹을 검토 합니다.
+- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
+- [규정 비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

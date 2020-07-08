@@ -3,16 +3,16 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와이를 사용 하 여 보안 및 동적 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458491"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970640"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
-다양한 아티팩트(예: 리소스 그룹, Resource Manager 템플릿, 정책 또는 역할 할당)를 사용하여 완벽하게 정의된 청사진은 Azure 내에서 개체를 신속하고 일관적으로 만드는 방법을 제공합니다. 이러한 재사용 가능한 디자인 패턴과 컨테이너를 유연하게 사용할 수 있도록, Azure Blueprint는 매개 변수를 지원합니다. 매개 변수는 정의 및 할당 과정에서 청사진을 통해 배포된 아티팩트의 속성을 변경할 수 있는 유연성을 제공합니다.
+리소스 그룹, Azure Resource Manager 템플릿 (ARM 템플릿), 정책 또는 역할 할당과 같이 다양 한 아티팩트가 포함 된 완전히 정의 된 청사진은 Azure 내에서 개체를 신속 하 게 만들고 일관 된 생성을 제공 합니다. 이러한 재사용 가능한 디자인 패턴과 컨테이너를 유연하게 사용할 수 있도록, Azure Blueprint는 매개 변수를 지원합니다. 매개 변수는 정의 및 할당 과정에서 청사진을 통해 배포된 아티팩트의 속성을 변경할 수 있는 유연성을 제공합니다.
 
 간단한 예로 리소스 그룹 아티팩트가 있습니다. 리소스 그룹을 만들 때 반드시 제공해야 하는 두 가지 값이 있는데, 그것은 바로 이름과 위치입니다. 청사진에 리소스 그룹을 추가할 때 매개 변수가 존재 하지 않으면 청사진을 사용할 때마다 해당 이름과 위치를 정의 합니다. 따라서 이 반복에서는 청사진을 사용할 때마다 동일한 리소스 그룹에 아티팩트를 만들게 됩니다. 이로 인해 해당 리소스 그룹 내부의 리소스가 중복되고 충돌을 일으킵니다.
 
@@ -28,7 +28,7 @@ REST API를 통해 청사진 자체에 매개 변수를 만들 수 있습니다.
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>secureString 및 secureObject 매개 변수 사용
 
-Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject** 유형의 매개 변수를 지원하지만, Azure Blueprints는 각 매개 변수를 Azure Key Vault와 연결할 것을 요구합니다. 이 보안 조치를 사용하면 비밀을 청사진과 함께 저장하는 안전하지 않은 사례를 방지하고 안전한 패턴을 사용하도록 장려할 수 있습니다. Azure Blueprints는 Resource Manager 템플릿 _아티팩트_에 보안 매개 변수가 포함되었는지 검색하여 이 보안 조치를 지원합니다. 그런 다음, 서비스에서 할당 중에 검색된 보안 매개 변수를 기준으로 다음 Key Vault 속성을 확인하는 메시지를 표시합니다.
+ARM 템플릿 _아티팩트_ 는 **SecureString** 및 **secureobject** 형식의 매개 변수를 지원 하지만 Azure 청사진을 사용 하려면 각를 Azure Key Vault 연결 해야 합니다. 이 보안 조치를 사용하면 비밀을 청사진과 함께 저장하는 안전하지 않은 사례를 방지하고 안전한 패턴을 사용하도록 장려할 수 있습니다. Azure 청사진은 ARM 템플릿 _아티팩트_에 보안 매개 변수를 포함 하는 것을 감지 하는 이러한 보안 조치를 지원 합니다. 그런 다음, 서비스에서 할당 중에 검색된 보안 매개 변수를 기준으로 다음 Key Vault 속성을 확인하는 메시지를 표시합니다.
 
 - Key Vault 리소스 ID
 - Key Vault 비밀 이름
@@ -180,7 +180,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
-할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. [매개 변수 ()](../reference/blueprint-functions.md#parameters)와 같은 함수를 사용 하는 대신 제공 된 값이 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함된 아티팩트에 대한 그 외의 매개 변수는 **\<이름\>** 및 **값** 키 쌍을 사용하여 **매개 변수** 아래에 정의됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
+할당 과정에서 **동적 매개 변수**를 설정하는 작업은 값을 직접 입력하는 방식으로 수행됩니다. [매개 변수 ()](../reference/blueprint-functions.md#parameters)와 같은 함수를 사용 하는 대신 제공 된 값이 적절 한 문자열입니다. 리소스 그룹에 대한 아티팩트는 “템플릿 이름”, **이름** 및 **위치** 속성으로 정의됩니다. 포함 된 아티팩트에 대 한 다른 모든 매개 **parameters** 변수는 **\<name\>** 및 **값** 키 쌍을 사용 하는 매개 변수 아래에 정의 됩니다. 할당 과정에서 제공하지 않는 동적 매개 변수에 대해 청사진이 구성된 경우 할당이 실패합니다.
 
 - REST API URI
 

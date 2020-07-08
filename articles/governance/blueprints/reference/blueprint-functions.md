@@ -3,16 +3,16 @@ title: Azure Blueprints 함수
 description: Azure Blueprints 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수를 설명합니다.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834784"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970878"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprints와 사용할 수 있는 함수
 
-Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제공합니다. 이러한 함수는 청사진 정의 및 청사진 아티팩트와 함께 사용됩니다. Resource Manager 템플릿 아티팩트는 청사진 매개 변수를 통해 동적 값을 가져오는 것 외에도 Resource Manager 함수를 모두 사용할 수 있도록 지원합니다.
+Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제공합니다. 이러한 함수는 청사진 정의 및 청사진 아티팩트와 함께 사용됩니다. Azure Resource Manager 템플릿 (ARM 템플릿) 아티팩트는 청사진 매개 변수를 통해 동적 값을 가져오는 것 외에도 리소스 관리자 함수를 모두 사용할 수 있도록 지원 합니다.
 
 지원되는 함수는 다음과 같습니다.
 
@@ -30,7 +30,7 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 청사진 아티팩트 출력과 함께 채워진 속성의 개체를 반환합니다.
 
 > [!NOTE]
-> `artifacts()` 함수는 Resource Manager 템플릿 내부에서 사용할 수 없습니다. Azure PowerShell 또는 REST API를 사용하여 청사진을 [코드형 청사진](https://github.com/Azure/azure-blueprints/blob/master/README.md)의 일부로 관리할 때 청사진 정의 JSON 또는 아티팩트 JSON에서만 함수를 사용할 수 있습니다.
+> `artifacts()`함수는 ARM 템플릿 내에서 사용할 수 없습니다. Azure PowerShell 또는 REST API를 사용하여 청사진을 [코드형 청사진](https://github.com/Azure/azure-blueprints/blob/master/README.md)의 일부로 관리할 때 청사진 정의 JSON 또는 아티팩트 JSON에서만 함수를 사용할 수 있습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -60,9 +60,9 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Resource Manager 템플릿 아티팩트
+#### <a name="arm-template-artifact"></a>ARM 템플릿 아티팩트
 
-반환된 개체의 **outputs** 속성은 Resource Manager 템플릿 내부에서 정의되고 배포 시 반환됩니다.
+반환 된 개체의 **출력** 속성은 ARM 템플릿 내에 정의 되 고 배포에서 반환 됩니다.
 
 #### <a name="role-assignment-artifact"></a>역할 할당 아티팩트
 
@@ -78,7 +78,7 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 
 ### <a name="example"></a>예제
 
-다음 샘플 출력 속성이 포함된 ID _myTemplateArtifact_가 있는 Resource Manager 템플릿 아티팩트:
+다음 샘플 출력 속성을 포함 하는 ID _mytemplate 아티팩트가_ 있는 ARM 템플릿 아티팩트:
 
 ```json
 {
@@ -134,7 +134,7 @@ _myTemplateArtifact_ 샘플에서의 데이터 검색 예시 중 일부는 다�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 문자열에서만 작동한다는 점에서 Azure Resource Manager 템플릿 함수와 다릅니다.
+Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 
@@ -158,7 +158,7 @@ Azure Blueprint 함수는 문자열에서만 작동한다는 점에서 Azure Res
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 청사진 매개 변수에서만 작동한다는 점에서 Azure Resource Manager 템플릿 함수와 다릅니다.
+Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 
@@ -218,7 +218,7 @@ Azure Blueprint 함수는 청사진 매개 변수에서만 작동한다는 점�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니다. `resourceGroup()` 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
+Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()` 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
 
 `resourceGroup()` 함수는 일반적으로 리소스 그룹 아티팩트와 동일한 위치에 리소스를 만드는 데 사용됩니다.
 

@@ -1,22 +1,21 @@
 ---
 title: 규정 비준수의 원인 확인
 description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684232"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970776"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
 Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 리소스가 호환되지 않는 규칙의 부분을 이해하는 것이 도움이 됩니다. 또한 이전 준수 리소스를 규정 비준수로 만든 변경 내용을 이해하는 것도 유용합니다. 이 정보를 찾는 방법에는 두 가지가 있습니다.
 
-> [!div class="checklist"]
-> - [준수 세부 정보](#compliance-details)
-> - [변경 기록(미리 보기)](#change-history)
+- [준수 세부 정보](#compliance-details)
+- [변경 기록(미리 보기)](#change-history)
 
 ## <a name="compliance-details"></a>준수 세부 정보
 
@@ -188,9 +187,9 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history-preview"></a><a name="change-history"/>변경 기록(미리 보기)
+## <a name="change-history-preview"></a><a name="change-history"></a>변경 기록(미리 보기)
 
-새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지원하는 모든 Azure 리소스에 대해 지난 14일 간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 검색은 Resource Manager 속성이 추가, 제거 또는 변경될 때 트리거됩니다.
+새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지원하는 모든 Azure 리소스에 대해 지난 14일 간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 Azure Resource Manager 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 

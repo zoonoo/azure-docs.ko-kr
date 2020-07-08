@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 904240e066a83fa1278d663b8614b5b9269ba4d3
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849419"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970674"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -17,7 +17,7 @@ ms.locfileid: "83849419"
 기타 지원 매트릭스:
 
 - Azure Backup에 대한 [일반 지원 매트릭스](backup-support-matrix.md)
-- Azure Backup Server/System Center DPM(Data Protection Manager) 백업에 대한 [지원 매트릭스](backup-support-matrix-mabs-dpm.md)
+- Azure Backup server/System Center Data Protection Manager (DPM) 백업에 대 한 [지원 매트릭스](backup-support-matrix-mabs-dpm.md)
 - MARS(Microsoft Azure Recovery Services) 에이전트를 사용한 백업에 대한 [지원 매트릭스](backup-support-matrix-mars-agent.md)
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
@@ -63,7 +63,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일�
 
 **시나리오** | **OS 지원**
 --- | ---
-Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
+Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> -Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
 MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#supported-operating-systems) 운영 체제
 DPM/MABS를 사용한 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)을 사용하는 백업이 지원되는 운영 체제
 
@@ -92,7 +92,7 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 
 **설정** | **제한**
 --- | ---
-보호된 인스턴스(머신/워크로드)당 최대 복구 지점 수 | 9999
+보호된 인스턴스(머신/워크로드)당 최대 복구 지점 수 | 9999.
 복구 지점에 대한 최대 만료 시간 | 제한 없음
 자격 증명 모음에 대한 최대 백업 빈도(Azure VM 확장) | 하루 한 번
 자격 증명 모음에 대한 최대 백업 빈도(MARS 에이전트) | 매일 3회 백업
@@ -132,67 +132,61 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 Azure SSE(스토리지 서비스 암호화)가 설정된 스토리지 계정을 사용하여 디스크 복원 | 지원되지 않습니다.<br/><br/> SSE를 사용하도록 설정하지 않은 계정으로 복원합니다.
 혼합된 스토리지 계정으로 복원 |지원되지 않습니다.<br/><br/> 스토리지 계정 유형에 따라, 복원된 모든 디스크가 프리미엄 또는 표준 중 하나가 되며 혼합되지 않습니다.
 가용성 집합에 VM 직접 복원 | 관리 디스크의 경우 디스크를 복원하고 템플릿에서 가용성 집합 옵션을 사용할 수 있습니다.<br/><br/> 비관리형 디스크에서는 지원되지 않습니다. 비관리형 디스크의 경우, 디스크를 복원하고 가용성 집합에 VM을 만듭니다.
-관리형 VM으로 업그레이드한 후에 비관리형 VM 백업 복원| 지원됩니다.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
-VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 | 지원됩니다.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
-삭제된 VM을 복원합니다. | 지원됩니다.<br/><br/> 복구 지점에서 VM을 복원할 수 있습니다.
+관리형 VM으로 업그레이드한 후에 비관리형 VM 백업 복원| 지원됨.<br/><br/> 디스크를 복원하고 관리형 VM을 만들 수 있습니다.
+VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로 복원 | 지원됨.<br/><br/> 비관리형 디스크(기본값)로 복원하고, 복원된 디스크를 Managed Disks로 변환한 후 Managed Disks를 사용하여 VM을 만듭니다.
+삭제된 VM을 복원합니다. | 지원됨.<br/><br/> 복구 지점에서 VM을 복원할 수 있습니다.
 포털을 통해 다중 DC 구성의 일부인 DC(도메인 컨트롤러) VM 복원 | PowerShell을 사용하여 디스크를 복원하고 VM을 만드는 경우 지원됩니다.
-다른 가상 네트워크에서 VM 복원 |지원됩니다.<br/><br/> 가상 네트워크는 동일한 구독 및 지역에 있어야 합니다.
+다른 가상 네트워크에서 VM 복원 |지원됨.<br/><br/> 가상 네트워크는 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
 
 **컴퓨팅** | **지원**
 --- | ---
 VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM<br/><br/> [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-[가용성 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)의 VM 백업 | 지원됩니다.<br/><br/> VM을 신속하게 만드는 옵션으로는 가용성 집합에서 VM을 복원할 수 없습니다. 대신, VM을 복원할 때는 디스크를 복원한 후 이 디스크를 사용하여 VM을 배포하거나 디스크를 복원한 후 이 디스크를 기존 디스크 대신 사용합니다.
-[HUB(하이브리드 사용 혜택)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)로 배포한 VM 백업 | 지원됩니다.
+[가용성 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)의 VM 백업 | 지원됨.<br/><br/> VM을 신속하게 만드는 옵션으로는 가용성 집합에서 VM을 복원할 수 없습니다. 대신, VM을 복원할 때는 디스크를 복원한 후 이 디스크를 사용하여 VM을 배포하거나 디스크를 복원한 후 이 디스크를 기존 디스크 대신 사용합니다.
+[HUB(하이브리드 사용 혜택)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)로 배포한 VM 백업 | 지원됨.
 [확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 배포된 VM 백업 |지원되지 않습니다.
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)에서 배포한 VM 백업<br/><br/> (Microsoft, 타사에서 게시) |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다. VM으로 지원되는 Azure Marketplace VM은 복원하지 않습니다. 디스크로서만 구입 정보가 필요하기 때문입니다.
-사용자 지정 이미지(타사)에서 배포한 VM 백업 |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
-Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)에서 배포한 VM 백업<br/><br/> (Microsoft, 타사에서 게시) |지원됨.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다. VM으로 지원되는 Azure Marketplace VM은 복원하지 않습니다. 디스크로서만 구입 정보가 필요하기 때문입니다.
+사용자 지정 이미지(타사)에서 배포한 VM 백업 |지원됨.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
+Azure로 마이그레이션된 VM 백업| 지원됨.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성 백업 | Azure Backup은 여러 VM에서 데이터 및 애플리케이션 일관성을 제공하지 않습니다.
 [진단 설정](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)으로 백업  | 지원되지 않음 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용하여 진단 설정으로 Azure VM 복원이 트리거되면 복원이 실패합니다.
 영역 고정 VM 복원 | 지원됨(2019년 1월 이후 및 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/)을 사용할 수 있는 곳에 백업된 VM의 경우)<br/><br/>현재 VM에 고정된 동일한 영역으로 복원을 지원합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패합니다.
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 VM이 복구 지점에서 복원되는 경우 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원됩니다.
+잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 
 **구성 요소** | **지원**
 --- | ---
-Azure VM 데이터 디스크 수 | 최대 32개의 디스크를 포함하는 Azure VM의 백업은 [이러한 지역](#backup-of-azure-virtual-machines-with-up-to-32-disks)에서 공개 미리 보기 상태로 지원됩니다.<br><br> 비관리 디스크 또는 클래식 VM을 사용하는 Azure VM의 백업은 최대 16개의 디스크에만 지원됩니다.
+Azure VM 데이터 디스크 수 | 최대 32 디스크를 포함 하는 Azure Vm의 백업은 국가 클라우드 (Azure Government, Azure 중국 및 Azure 독일)를 제외한 모든 지역에서 공개 미리 보기로 제공 됩니다.<br><br> 비관리 디스크 또는 클래식 VM을 사용하는 Azure VM의 백업은 최대 16개의 디스크에만 지원됩니다.
 데이터 디스크 크기 | 개별 디스크 크기는 최대 32TB이며 VM의 모든 디스크에 대해 최대 256TB를 결합할 수 있습니다.
 스토리지 유형 | 표준 HDD, 표준 SSD 및 프리미엄 SSD
-관리 디스크 | 지원됩니다.
+관리 디스크 | 지원됨.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption을 사용하도록 설정된 Azure VM을 백업할 수 있습니다(Azure AD 앱 사용 또는 사용 안 함).<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
 Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure Backup은 백업 중에 WA(쓰기 가속기)를 사용하는 디스크를 자동으로 제외합니다. 이러한 디스크는 백업되지 않으므로 VM의 복구 지점에서 복원할 수 없습니다. <br><br> **중요 참고**: WA 디스크를 사용하는 가상 머신은 이 디스크가 백업에서 제외된 경우에도 성공적인 백업을 위해 인터넷 연결이 필요합니다.
 중복 제거된 VM/디스크 백업 및 복원 | Azure Backup은 중복 제거를 지원하지 않습니다. 자세한 내용은 관련 [문서](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support)를 참조하세요. <br/> <br/>  - Azure Backup은 Recovery Services 자격 증명 모음의 VM 간에 중복 제거되지 않습니다. <br/> <br/>  - 복원 중에 중복 제거 상태의 VM이 있는 경우 자격 증명 모음에서 형식을 인식하지 않으므로 파일을 복원할 수 없습니다. 그러나 전체 VM 복원을 성공적으로 수행할 수 있습니다.
-보호된 VM에 디스크 추가 | 지원됩니다.
-보호된 VM에서 디스크 크기 조정 | 지원됩니다.
+보호된 VM에 디스크 추가 | 지원됨.
+보호된 VM에서 디스크 크기 조정 | 지원됨.
 공유 스토리지| CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버를 사용한 VM 백업은 지원되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | 지원되지 않습니다.
-
-### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>최대 32개의 디스크를 포함하는 Azure 가상 머신 백업
-
-Azure Backup은 현재 최대 32개 디스크가 포함된 Azure VM의 백업을 지원합니다.  이 기능은 미국 중서부, 캐나다 중부, 동남아시아, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 인도 중부, 인도 남부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 남아프리카 공화국 북부, 영국 남부, 영국 서부, 오스트레일리아 동부에서 공개 미리 보기 상태입니다.  다른 지역에서 이 기능에 관심이 있는 경우 AskAzureBackupTeam@microsoft.com으로 신청하여 제한된 미리 보기에 등록하세요.  
-
->[!NOTE]
->Azure Backup은 비관리 디스크 또는 클래식 VM을 사용하는 Azure VM에 대해 최대 16개의 디스크만 지원합니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 
 **구성 요소** | **지원**
 --- | ---
 NIC(네트워크 인터페이스) 수 | 특정 Azure VM 크기에서 지원되는 최대 NIC 수입니다.<br/><br/> 복원 프로세스 동안 VM이 만들어지면 NIC가 만들어집니다.<br/><br/> 복원된 VM의 NIC 수는 보호를 사용하도록 설정한 VM의 NIC 수를 미러링합니다. 보호를 사용하도록 설정한 후에는 NIC를 제거해도 이 수에 영향을 미치지 않습니다.
-외부/내부 부하 분산 장치 |지원됩니다. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
-예약된 여러 IP 주소 |지원됩니다. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
-여러 네트워크 어댑터를 사용하는 VM| 지원됩니다. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
-공용 IP 주소가 있는 VM| 지원됩니다.<br/><br/> 기존 공용 IP 주소를 NIC에 연결하거나, 주소를 만든 후 복원이 완료된 후에 NIC에 연결합니다.
-NIC/서브넷의 NSG(네트워크 보안 그룹)입니다. |지원됩니다.
+외부/내부 부하 분산 장치 |지원됨. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
+예약된 여러 IP 주소 |지원됨. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
+여러 네트워크 어댑터를 사용하는 VM| 지원됨. <br/><br/> 특수한 네트워크 설정을 사용하여 VM을 복원하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations).
+공용 IP 주소가 있는 VM| 지원됨.<br/><br/> 기존 공용 IP 주소를 NIC에 연결하거나, 주소를 만든 후 복원이 완료된 후에 NIC에 연결합니다.
+NIC/서브넷의 NSG(네트워크 보안 그룹)입니다. |지원됨.
 고정 IP 주소 | 지원되지 않습니다.<br/><br/> 복원 지점에서 만든 새 VM에는 동적 IP 주소가 할당됩니다.<br/><br/> 클래식 VM에 대해 예약된 IP 주소가 있고 정의된 엔드포인트가 없는 VM은 백업할 수 없습니다.
-동적 IP 주소 |지원됩니다.<br/><br/> 원본 VM의 NIC가 동적 IP 주소를 사용하는 경우 복원된 VM의 NIC도 기본적으로 이 주소를 사용합니다.
-Azure Traffic Manager| 지원됩니다.<br/><br/>백업한 VM이 Traffic Manager에 있는 경우 복원된 VM을 동일한 Traffic Manager 인스턴스에 수동으로 추가합니다.
-Azure DNS |지원됩니다.
-사용자 지정 DNS |지원됩니다.
-HTTP 프록시를 통한 아웃바운드 연결 | 지원됩니다.<br/><br/> 인증된 프록시는 지원되지 않습니다.
+동적 IP 주소 |지원됨.<br/><br/> 원본 VM의 NIC가 동적 IP 주소를 사용하는 경우 복원된 VM의 NIC도 기본적으로 이 주소를 사용합니다.
+Azure Traffic Manager| 지원됨.<br/><br/>백업한 VM이 Traffic Manager에 있는 경우 복원된 VM을 동일한 Traffic Manager 인스턴스에 수동으로 추가합니다.
+Azure DNS |지원됨.
+사용자 지정 DNS |지원됨.
+HTTP 프록시를 통한 아웃바운드 연결 | 지원됨.<br/><br/> 인증된 프록시는 지원되지 않습니다.
 가상 네트워크 서비스 엔드포인트| 지원됩니다.<br/><br/> 방화벽 및 가상 네트워크 스토리지 계정 설정은 모든 네트워크의 액세스를 허용해야 합니다.
 
 ## <a name="vm-security-and-encryption-support"></a>VM 보안 및 암호화 지원

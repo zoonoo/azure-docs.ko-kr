@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845549"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971184"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 이 문서에서는 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
@@ -67,7 +67,11 @@ $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 - [backupfile.sql] 데이터베이스 백업의 파일 이름 
 - [-opt] mysqldump 옵션 
 
-예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. 
+예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. 사용자 이름 ' testuser '에 적어도 덤프 된 테이블에 대 한 SELECT 권한이 있는지 확인 하 고, 덤프 된 뷰에 대 한 뷰를 표시 하 고, 덤프 된 트리거의 트리거를 사용 하 고,--단일 트랜잭션 옵션이 사용 되지 않는 경우 테이블을 잠급니다.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,9 +100,10 @@ MySQL Workbench에 연결 정보를 추가합니다.
 더 빠른 데이터 로드를 위해 대상 Azure Database for MySQL 서버를 준비하려면 다음 서버 매개 변수 및 구성을 변경해야 합니다.
 - max_allowed_packet – 긴 행으로 인한 오버플로 문제를 방지하기 위해 1073741824(예: 1GB)로 설정합니다.
 - slow_query_log – 저속 쿼리 로그를 해제하려면 OFF로 설정합니다. 이렇게 하면 데이터 로드 중 느린 쿼리 로깅으로 인한 오버헤드가 제거됩니다.
-- query_store_capture_mode – 쿼리 저장소를 해제하려면 둘 다 NONE으로 설정합니다. 이렇게 하면 쿼리 저장소의 샘플링 작업으로 인한 오버헤드가 제거됩니다.
+- query_store_capture_mode – 쿼리 저장소 해제 하려면 없음으로 설정 합니다. 이렇게 하면 쿼리 저장소의 샘플링 작업으로 인한 오버헤드가 제거됩니다.
 - innodb_buffer_pool_size – 마이그레이션 중에 포털의 가격 책정 계층에서 서버를 32개의 vCore 메모리 최적화 SKU로 확장하여 innodb_buffer_pool_size를 늘립니다. Innodb_buffer_pool_size는 Azure Database for MySQL 서버에 대한 컴퓨팅을 확장해야만 늘릴 수 있습니다.
-- innodb_write_io_threads & innodb_write_io_threads - 마이그레이션의 속도를 개선하기 위해 Azure Portal의 서버 매개 변수에서 16으로 변경합니다.
+- innodb_io_capacity & innodb_io_capacity_max-Azure Portal의 서버 매개 변수에서 9000로 변경 하 여 마이그레이션 속도를 최적화 하기 위해 IO 사용률을 향상 시킵니다.
+- innodb_write_io_threads & innodb_write_io_threads-마이그레이션의 속도를 개선 하기 위해 Azure Portal의 서버 매개 변수에서 4로 변경 합니다.
 - 스토리지 계층 스케일 업 – 스토리지 계층이 증가함에 따라 Azure Database for MySQL 서버의 IOP가 점진적으로 증가합니다. 더 빠른 로드를 위해 스토리지 계층을 늘려 프로비저닝된 IOP를 늘릴 수 있습니다. 스토리지는 축소할 수 없고 확장만 할 수 있습니다.
 
 마이그레이션이 완료되면 서버 매개 변수 및 컴퓨팅 계층 구성을 이전 값으로 되돌릴 수 있습니다. 

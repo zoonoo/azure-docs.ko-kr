@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201723"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981858"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
 MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 보안 계층이 발생 하지 않는 경우가 많습니다. 암호를 제거 하 고 사용자가 보유 한 항목 및 사용자가 알고 있는 항목으로 대체 하기 때문에 암호 없는 인증 방법이 더 편리 합니다.
 
-|   | 보유 한 항목 | 사용자 또는 알고 있는 항목 |
+| 인증  | 보유 한 항목 | 사용자 또는 알고 있는 항목 |
 | --- | --- | --- |
 | 암호 없음 | Windows 10 장치, 휴대폰 또는 보안 키 | 생체 인식 또는 PIN |
 
@@ -116,7 +116,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | 숨겼습니다 | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
+| TrustKey 솔루션 | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan i n c. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
@@ -125,7 +125,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 > [!NOTE]
 > 를 구매 하 고 NFC 기반 보안 키를 사용 하려는 경우 보안 키에 대해 지원 되는 NFC 판독기가 필요 합니다. NFC 판독기는 Azure 요구 사항이 나 제한 사항이 아닙니다. 지원 되는 NFC 판독기 목록은 NFC 기반 보안 키에 대 한 공급 업체에 문의 하세요.
 
-사용자가이 지원 되는 장치 목록에서 장치를 구입 하려는 경우에는에 문의 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)하세요.
+사용자가이 지원 되는 장치 목록에서 장치를 구입 하려는 경우에는에 문의 하세요 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
 ## <a name="what-scenarios-work-with-the-preview"></a>어떤 시나리오가 미리 보기에서 작동 하나요?
 

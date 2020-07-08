@@ -3,12 +3,12 @@ title: 청사진 배포 단계
 description: 청사진 할당을 만드는 동안 Azure 청사진 서비스가 거치는 보안 및 아티팩트 관련 단계를 알아봅니다.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9efc66baa262e004a8beea5295e8567f4ab119dd
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863997"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970657"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>청사진 배포 단계
 
@@ -27,7 +27,7 @@ ms.locfileid: "82863997"
 
 [시스템 할당 관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 관리 id를 사용 하는 경우 Azure 청사진 서비스 주체에 게 할당 된 구독 또는 구독에 대 한 소유자 권한이 부여 됩니다. 부여 된 역할을 통해 Azure 청사진은 **시스템 할당** 관리 id를 만들고 나중에 해지할 수 있습니다. **사용자 할당** 관리 id를 사용 하는 경우 Azure 청사진 서비스 주체는 구독에 대 한 소유자 권한이 부여 되지 않으며 필요 하지 않습니다.
 
-포털을 통해 할당을 수행 하는 경우에는 권한이 자동으로 부여 됩니다. 그러나 REST API를 통해 할당을 수행 하는 경우 별도의 API 호출을 사용 하 여 권한을 부여 해야 합니다. Azure 청사진 AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`는 이지만 서비스 사용자는 테 넌 트에 따라 다릅니다. [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) 및 REST 끝점 [serviceprincipals](/graph/api/resources/serviceprincipal) 을 사용 하 여 서비스 주체를 가져옵니다. 그런 다음 [포털](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)또는 [리소스 관리자 템플릿을](../../../role-based-access-control/role-assignments-template.md)통해 Azure 청사진에 _소유자_ 역할을 부여 합니다.
+포털을 통해 할당을 수행 하는 경우에는 권한이 자동으로 부여 됩니다. 그러나 REST API를 통해 할당을 수행 하는 경우 별도의 API 호출을 사용 하 여 권한을 부여 해야 합니다. Azure 청사진 AppId는 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` 이지만 서비스 사용자는 테 넌 트에 따라 다릅니다. [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) 및 REST 끝점 [serviceprincipals](/graph/api/resources/serviceprincipal) 을 사용 하 여 서비스 주체를 가져옵니다. 그런 다음 [포털](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)또는 [Azure Resource Manager 템플릿을](../../../role-based-access-control/role-assignments-template.md)통해 Azure 청사진에 _소유자_ 역할을 부여 합니다.
 
 Azure 청사진 서비스는 리소스를 직접 배포 하지 않습니다.
 
@@ -35,7 +35,7 @@ Azure 청사진 서비스는 리소스를 직접 배포 하지 않습니다.
 
 사용자, 그룹 또는 서비스 사용자가 청사진을 구독에 할당 합니다. 할당 개체는 청사진이 할당 된 구독 수준에 있습니다. 배포를 통해 생성 된 리소스는 배포 하는 엔터티의 컨텍스트에서 수행 되지 않습니다.
 
-청사진 할당을 만드는 동안 [관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 유형이 선택 됩니다. 기본값은 **시스템 할당** 관리 id입니다. **사용자 할당** 관리 id를 선택할 수 있습니다. **사용자 할당** 관리 id를 사용 하는 경우 청사진 할당을 만들기 전에 해당 id를 정의 하 고 권한을 부여 해야 합니다. [소유자](../../../role-based-access-control/built-in-roles.md#owner) 및 [청사진 연산자](../../../role-based-access-control/built-in-roles.md#blueprint-operator) 기본 제공 역할에는 **사용자 할당** 관리 id `blueprintAssignment/write` 를 사용 하는 할당을 만드는 데 필요한 권한이 있습니다.
+청사진 할당을 만드는 동안 [관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 유형이 선택 됩니다. 기본값은 **시스템 할당** 관리 id입니다. **사용자 할당** 관리 id를 선택할 수 있습니다. **사용자 할당** 관리 id를 사용 하는 경우 청사진 할당을 만들기 전에 해당 id를 정의 하 고 권한을 부여 해야 합니다. [소유자](../../../role-based-access-control/built-in-roles.md#owner) 및 [청사진 연산자](../../../role-based-access-control/built-in-roles.md#blueprint-operator) 기본 제공 역할에는 `blueprintAssignment/write` **사용자 할당** 관리 id를 사용 하는 할당을 만드는 데 필요한 권한이 있습니다.
 
 ## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>선택 사항-Azure 청사진은 시스템 할당 관리 id를 만듭니다.
 

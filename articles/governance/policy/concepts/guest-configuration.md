@@ -3,16 +3,17 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684284"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971099"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
-Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resources.md)하는 것 외에, 머신 내의 설정도 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 클라이언트를 통한 확장은 다음과 같은 설정의 유효성을 검사합니다.
+Azure Policy는 Azure에서 실행 되는 컴퓨터와 [Arc 연결 된 컴퓨터](../../../azure-arc/servers/overview.md)에 대 한 컴퓨터 내에서 설정을 감사할 수 있습니다.
+게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 클라이언트를 통한 확장은 다음과 같은 설정의 유효성을 검사합니다.
 
 - 운영 체제의 구성
 - 애플리케이션 구성 또는 현재 상태
@@ -21,13 +22,17 @@ Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resou
 현재 대부분의 Azure Policy 게스트 구성 정책은 머신 내의 설정만 감사합니다.
 구성은 적용하지 않습니다. 단, [아래에 참조된](#applying-configurations-using-guest-configuration) 기본 제공 정책은 예외입니다.
 
+## <a name="enable-guest-configuration"></a>게스트 구성 사용
+
+Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 내 컴퓨터의 상태를 감사 하려면 다음 세부 정보를 검토 합니다.
+
 ## <a name="resource-provider"></a>리소스 공급자
 
 게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 포털을 통해 게스트 구성 정책의 할당을 완료하면 리소스 공급자가 자동으로 등록됩니다. [포털](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) 또는 [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)를 통해 수동으로 등록할 수 있습니다.
 
-## <a name="extension-and-client"></a>확장 및 클라이언트
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 요구 사항 배포
 
-머신 내에서 설정을 감사할 수 있도록 [가상 머신 확장](../../../virtual-machines/extensions/overview.md)이 사용하도록 설정됩니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
+컴퓨터 내의 설정을 감사 하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md) 을 사용 하도록 설정 하 고 컴퓨터에 시스템 관리 id가 있어야 합니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다. Id는 게스트 구성 서비스를 읽고 쓸 때 컴퓨터를 인증 하는 데 사용 됩니다. 연결 된 컴퓨터 에이전트에 포함 되어 있으므로 연결 된 컴퓨터에 대 한 확장이 필요 하지 않습니다.
 
 > [!IMPORTANT]
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다. 
@@ -36,18 +41,18 @@ Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resou
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정된 제한
 
-머신 내부에서 실행되는 애플리케이션에 영향을 주지 않도록 확장을 제한하기 위해 게스트 구성은 CPU의 5%를 초과할 수 없습니다. 기본 제공 및 사용자 지정 정의 모두에 대해 이러한 제한이 존재합니다.
+머신 내부에서 실행되는 애플리케이션에 영향을 주지 않도록 확장을 제한하기 위해 게스트 구성은 CPU의 5%를 초과할 수 없습니다. 기본 제공 및 사용자 지정 정의 모두에 대해 이러한 제한이 존재합니다. Arc 연결 된 컴퓨터 에이전트의 게스트 구성 서비스에도 마찬가지입니다.
 
 ### <a name="validation-tools"></a>유효성 검사 도구
 
 머신 내에서 게스트 구성 클라이언트는 로컬 도구를 사용하여 감사를 실행합니다.
 
-다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
+다음 표에서는 지원 되는 각 운영 체제에서 사용 되는 로컬 도구 목록을 보여 줍니다. 기본 제공 콘텐츠의 경우 게스트 구성은 자동으로 이러한 도구 로드를 처리 합니다.
 
 |운영 체제|유효성 검사 도구|메모|
 |-|-|-|
-|Windows|[Windows PowerShell 필요한 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| 머신에 Ruby 및 Python이 없는 경우 게스트 구성 확장을 통해 설치됩니다. |
+|Windows|[PowerShell 필요한 상태 구성](/powershell/scripting/dsc/overview/overview) v2| Azure Policy에서 사용 하는 폴더에 테스트용으로 로드 됩니다. Windows PowerShell DSC와 충돌 하지 않습니다. PowerShell Core가 시스템 경로에 추가 되지 않았습니다.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Chef InSpec version 2.2.61를 기본 위치에 설치 하 고 시스템 경로에 추가 합니다. Ruby 및 Python을 포함 하 여 InSpec 패키지에 대 한 종속성도 설치 됩니다. |
 
 ### <a name="validation-frequency"></a>유효성 검사 빈도
 
@@ -65,14 +70,10 @@ Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resou
 |Microsoft|Windows Server|2012 이상|
 |Microsoft|Windows 클라이언트|윈도우 10|
 |OpenLogic|CentOS|7.3 이상|
-|Red Hat|Red Hat Enterprise Linux|7.4 이상|
+|Red Hat|Red Hat Enterprise Linux|7.4-7.8, 9.0 이상|
 |Suse|SLES|12 SP3 이상|
 
 사용자 지정 가상 머신 이미지는 위의 표에 나오는 운영 체제 중 하나의 이미지인 경우 게스트 구성 정책에서 지원됩니다.
-
-### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
-
-Windows Server Nano Server는 어떤 버전에서도 지원되지 않습니다.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
@@ -87,7 +88,7 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에서 실행하는 각 감사에는 두 가지 정책 정의(**DeployIfNotExists** 정의 및 **AuditIfNotExists** 정의)가 필요합니다.
+게스트 구성에서 실행하는 각 감사에는 두 가지 정책 정의(**DeployIfNotExists** 정의 및 **AuditIfNotExists** 정의)가 필요합니다. **Deployifnotexists** 정책 정의는 각 컴퓨터에서 감사를 수행 하기 위한 종속성을 관리 합니다.
 
 **DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
 
@@ -116,7 +117,7 @@ Azure Policy의 한 이니셔티브는 "기준"에 따라 운영 체제 설정�
 
 일부 매개 변수는 정수 값 범위를 지원합니다. 예를 들어, 최대 암호 사용 기간 설정은 유효 그룹 정책 설정을 감사할 수 있습니다. "1,70" 범위는 사용자에게 1일 이상, 최소 70일마다 암호를 변경하도록 요구합니다.
 
-Azure Resource Manager 배포 템플릿을 사용하여 정책을 할당하는 경우 매개 변수 파일을 사용하여 예외를 관리합니다. Git와 같은 버전 제어 시스템에 파일을 체크 인합니다. 파일 변경 내용에 대한 설명은 할당이 예상 값에 대한 예외가 되는 이유를 나타내는 증명 정보를 제공합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 정책을 할당 하는 경우 매개 변수 파일을 사용 하 여 예외를 관리 합니다. Git와 같은 버전 제어 시스템에 파일을 체크 인합니다. 파일 변경 내용에 대한 설명은 할당이 예상 값에 대한 예외가 되는 이유를 나타내는 증명 정보를 제공합니다.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>게스트 구성을 사용하여 구성 적용
 
@@ -183,7 +184,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성하는](../how-to/programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
-- [비준수 리소스를 수정하는](../how-to/remediate-resources.md) 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

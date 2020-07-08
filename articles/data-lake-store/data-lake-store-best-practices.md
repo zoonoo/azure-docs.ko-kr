@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638938"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981438"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -45,7 +45,7 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure HDInsight와
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen1 방화벽 사용
 
-Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스만으로 제한하는 옵션을 지원합니다. 이 옵션은 외부 침입으로 인한 공격 벡터가 더 작은 경우에 사용하는 것이 좋습니다. **방화벽은** > 방화벽**사용 (설정)** > **Azure 서비스에 대 한 액세스 허용** 옵션을 통해 Azure Portal의 Data Lake Storage Gen1 계정에서 사용 하도록 설정할 수 있습니다.
+Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스만으로 제한하는 옵션을 지원합니다. 이 옵션은 외부 침입으로 인한 공격 벡터가 더 작은 경우에 사용하는 것이 좋습니다. **방화벽은 방화벽**  >  **사용 (설정)**  >  **Azure 서비스에 대 한 액세스 허용** 옵션을 통해 Azure Portal의 Data Lake Storage Gen1 계정에서 사용 하도록 설정할 수 있습니다.
 
 ![Data Lake Storage Gen1 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1 방화벽 설정")
 
@@ -126,7 +126,9 @@ Distcp와 마찬가지로, AdlCopy는 Azure Automation 또는 Windows 작업 스
 
 Data Lake Storage Gen1은 자세한 진단 로그 및 감사 기능을 제공합니다. Data Lake Storage Gen1은 Azure Portal의 Data Lake Storage Gen1 계정 및 Azure Monitor에서 몇 가지 기본 메트릭을 제공합니다. Data Lake Storage Gen1의 가용성은 Azure Portal에 표시됩니다. 그러나 이 메트릭은 7분마다 새로 고쳐지고 공개적으로 노출된 API를 통해 쿼리할 수 없습니다. Data Lake Storage Gen1 계정의 최신 가용성을 확인하려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 스토리지 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 새로 고치는 데 최대 24시간이 걸릴 수 있습니다. 따라서 최신 메트릭은 Hadoop 명령줄 도구 또는 로그 정보 집계를 통해 수동으로 계산해야 합니다. 가장 최근의 스토리지 사용률을 가져오는 가장 빠른 방법은 Hadoop 클러스터 노드(예: 헤드 노드)에서 이 HDFS 명령을 실행하는 것입니다.
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Data Lake Storage Gen1 진단 내보내기
 
@@ -136,9 +138,9 @@ Data Lake Storage Gen1에서 검색 가능한 로그에 액세스하는 가장 �
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>HDInsight에서 디버그 수준 로깅 설정
 
-Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari** > **YARN**YARN > **Config**Config > **Advanced YARN-log4j 구성**에서 다음 속성을 설정 해야 합니다.
+Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari**  >  **YARN**  >  **Config**  >  **Advanced YARN-log4j 구성**에서 다음 속성을 설정 해야 합니다.
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
 속성이 설정되고 노드가 다시 시작되면 Data Lake Storage Gen1 진단이 노드의 YARN 로그(/tmp/\<user\>/yarn.log)에 기록되고 오류 또는 제한(HTTP 429 오류 코드)과 같은 중요한 세부 정보를 모니터링할 수 있습니다. 이 정보는 Azure Monitor 로그 나 로그가 Data Lake Storage Gen1 계정의 [진단](data-lake-store-diagnostic-logs.md) 블레이드에 전달 되는 위치 에서도 모니터링할 수 있습니다. 최소한 클라이언트 쪽 로깅을 설정하거나 Data Lake Storage Gen1을 통해 로그 전달 옵션을 활용하여 운영 가시성을 확보하고 더 쉽게 디버그하는 것이 좋습니다.
 
@@ -154,11 +156,15 @@ Data Lake에 데이터를 연결할 때 보안, 분할 및 처리를 효과적�
 
 IoT 작업에서는 수많은 제품, 디바이스, 조직 및 고객에 걸쳐 있는 데이터 저장소에 많은 양의 데이터가 연결될 수 있습니다. 다운스트림 소비자를 위해 데이터의 조직, 보안 및 효율적인 처리를 수행할 수 있도록 디렉터리 레이아웃을 미리 계획해야 합니다. 고려해야 할 일반적인 템플릿은 다음과 같은 레이아웃일 수 있습니다.
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 예를 들어 비행기 엔진에 대한 영국 내 착륙 원격 분석은 다음 구조와 같이 표시될 수 있습니다.
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 폴더 구조의 끝 부분에 날짜를 배치하는 중요한 이유가 있습니다. 특정 지역이나 주제를 사용자/그룹으로 한정하려면 POSIX 권한으로 쉽게 수행할 수 있습니다. 그렇지 않고, 앞부분에 나오는 날짜 구조를 사용하여 영국 데이터 또는 특정 비행기만 볼 수 있도록 특정 보안 그룹을 제한해야 하는 경우 모든 시간 폴더 아래의 수많은 폴더에 대해 별도의 권한이 필요합니다. 또한 앞부분에 나오는 날짜 구조를 사용하면 시간이 지남에 따라 폴더 수가 기하급수적으로 늘어납니다.
 
@@ -168,14 +174,18 @@ IoT 작업에서는 수많은 제품, 디바이스, 조직 및 고객에 걸쳐 
 
 데이터 손상 또는 예기치 않은 형식으로 인해 파일 처리가 실패하는 경우가 있습니다. 이러한 경우 디렉터리 구조에서 **/bad** 폴더를 지원하여 추가 검사를 위해 파일을 이동할 수 있습니다. 또한 일괄 처리 작업은 이러한 *불량* 파일에 대한 보고 또는 알림을 처리하여 수동으로 개입할 수 있습니다. 다음과 같은 템플릿 구조를 고려합니다.
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 예를 들어 북아메리카 지역의 고객으로부터 고객 업데이트의 일일 데이터 추출 결과를 받는 마케팅 회사는 처리 전과 후에 다음 코드 조각처럼 표시될 수 있습니다.
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 일괄 처리 데이터가 일반적으로 Hive 또는 기존 SQL 데이터베이스와 같은 데이터베이스에 직접 처리되는 경우, 출력이 이미 Hive 테이블 또는 외부 데이터베이스에 대한 별도의 폴더로 이동하기 때문에 **/in** 또는 **/out** 폴더가 필요하지 않습니다. 예를 들어 고객으로부터의 일일 추출 결과가 해당 폴더에 저장되고, Azure Data Factory, Apache Oozie 또는 Apache Airflow 등을 통한 오케스트레이션에서 매일 Hive 또는 Spark 작업을 트리거하여 데이터를 처리하고 Hive 테이블에 씁니다.
 

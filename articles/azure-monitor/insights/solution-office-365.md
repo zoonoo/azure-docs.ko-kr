@@ -1,17 +1,17 @@
 ---
-title: Azure에서 Office 365 관리 솔루션 | Microsoft Docs
+title: Azure의 Office 365 관리 솔루션
 description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Azure Monitor에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023608"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971048"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "82023608"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>솔루션 업데이트
-> 이 솔루션은 [Azure 센티널](../../sentinel/overview.md) 의 [Office 365](../../sentinel/connect-office-365.md) 일반 공급 솔루션 및 [azure AD 보고 및 모니터링 솔루션](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md)으로 대체 되었습니다. 이러한 기능을 함께 사용 하면 향상 된 구성 환경에서 이전 Azure Monitor Office 365 솔루션의 업데이트 된 버전을 제공 합니다. 2020 년 7 월 30 일까 지 기존 솔루션을 계속 사용할 수 있습니다.
+> 이 솔루션은 [Azure 센티널](../../sentinel/overview.md) 의 [Office 365](../../sentinel/connect-office-365.md) 일반 공급 솔루션 및 [azure AD 보고 및 모니터링 솔루션](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md)으로 대체 되었습니다. 이러한 기능을 함께 사용 하면 향상 된 구성 환경에서 이전 Azure Monitor Office 365 솔루션의 업데이트 된 버전을 제공 합니다. 2020 년 10 월 31 일까 지 기존 솔루션을 계속 사용할 수 있습니다.
 > 
 > Azure 센티널은 로그를 수집 하 고, 검색, 조사, 구하기 및 기계 학습 기반 통찰력을 비롯 한 추가 SIEM 기능을 제공 하는 클라우드 네이티브 보안 정보 및 이벤트 관리 솔루션입니다. 이제 Azure 센티널을 사용 하 여 Office 365 SharePoint 활동 및 Exchange 관리 로그 수집을 제공 합니다.
 > 
@@ -33,10 +33,10 @@ ms.locfileid: "82023608"
 > 3. 작업 영역에서 [Azure 센티널 솔루션을 사용 하도록 설정](../../sentinel/quickstart-onboard.md) 합니다.
 > 4. Azure 센티널의 **데이터 커넥터** 페이지로 이동 하 여 **Office 365** 커넥터를 사용 하도록 설정 합니다.
 >
-> ## <a name="frequently-asked-questions"></a>질문과 대답
+> ## <a name="frequently-asked-questions"></a>자주 묻는 질문
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>Q: 현재와 7 월 30 일 사이에 Office 365 Azure Monitor 솔루션을 온-board 할 수 있나요?
-> 아니요, Azure Monitor Office 365 솔루션 등록 스크립트는 더 이상 사용할 수 없습니다. 이 솔루션은 7 월 30 일에 제거 됩니다.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>Q: 현재와 10 월 31 일까 지 Office 365 Azure Monitor 솔루션을 온보드 할 수 있나요?
+> 아니요, Azure Monitor Office 365 솔루션 등록 스크립트는 더 이상 사용할 수 없습니다. 솔루션은 10 월 31 일에 제거 됩니다.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>Q: 테이블 및 스키마를 변경 하 시겠습니까?
 > 솔루션 이름 및 스키마는 현재 솔루션에서와 **동일 하 게** 유지 됩니다. Azure AD 데이터를 참조 하는 쿼리를 제외 하 고 새 솔루션에서 동일한 쿼리를 계속 사용할 수 있습니다.
@@ -102,11 +102,11 @@ ms.locfileid: "82023608"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>Q: Azure 센티널은 솔루션의 일부로 추가 커넥터를 제공 하나요?
 > 예, [Azure 센티널 connect 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
 > 
-> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>Q: 7 월 30 일에 무슨 일이 발생 하나요? 보드를 미리 등록 취소
+> ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>Q: 10 월 31 일에는 어떻게 되나요? 보드를 미리 등록 취소
 > 
 > - **Office365** 솔루션에서 데이터를 받을 수 없습니다. 이 솔루션은 Marketplace에서 더 이상 사용할 수 없습니다.
 > - Azure 센티널 고객의 경우 Log Analytics 작업 영역 솔루션 **Office365** 이 Azure 센티널 **securityinsights** 솔루션에 포함 됩니다.
-> - 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 7 월 30 일에 자동으로 연결 됩니다.
+> - 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 10 월 31 일에 자동으로 연결 됩니다.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q: 데이터를 새 솔루션으로 전송 하 시겠습니까?
 > 예. 작업 영역에서 **Office 365** 솔루션을 제거 하면 스키마가 제거 되어 해당 데이터를 일시적으로 사용할 수 없게 됩니다. 센티널에서 새로운 **Office 365** 커넥터를 사용 하도록 설정 하면 스키마가 작업 영역에 복원 되 고 이미 수집 된 데이터를 사용할 수 있게 됩니다. 
@@ -218,7 +218,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    예제:
+    예:
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -243,7 +243,7 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 경고를 나열합니다. 열 아래쪽의 모두 보기를 클릭하거나 열 머리글을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | Description |
+| Column | 설명 |
 |:--|:--|
 | 작업 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
 | Exchange | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
@@ -261,25 +261,25 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| 형식 | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
+| 연산 | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반<br>Reserved<br>ServicePrincipal<br>System (시스템) |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>Regular<br>예약됨<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -291,7 +291,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -305,7 +305,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -323,7 +323,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -339,7 +339,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -354,7 +354,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -377,7 +377,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -392,7 +392,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -411,7 +411,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -428,7 +428,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -441,7 +441,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -465,7 +465,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | 쿼리 | Description |
 | --- | --- |
 |Office 365 구독의 모든 작업 수 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 사이트 사용량|SiteUrl \| 활동 &#124;,이 경우에는 "sharepoint" &#124;에서 count ()를 요약 합니다.|
+|SharePoint 사이트 사용량|SiteUrl 활동 &#124;,이 경우에는 "sharepoint" &#124;에서 count ()를 요약 합니다. \||
 |사용자 유형별 파일 액세스 작업 | UserType 활동 &#124; 개수 ()로 요약 합니다. |
 |Exchange에서 외부 작업 모니터링|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
 

@@ -1,30 +1,31 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
-ms.date: 04/03/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746992"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971116"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
 Azure Policy는 리소스에 대한 규칙을 설정합니다. 정책 정의는 리소스 규정 준수 조건 및 [조건](#conditions) 충족 시 미치는 영향을 설명합니다. 조건은 리소스 속성 [필드](#fields)를 필요한 값과 비교합니다. 리소스 속성 필드에는 [별칭](#aliases)을 사용하여 액세스합니다. 리소스 속성 필드는 단일 값 필드이거나 여러 값의 [배열](#understanding-the--alias)입니다. 배열에서는 조건 평가가 다릅니다.
 [조건](#conditions)에 대해 자세히 알아보세요.
 
-규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
+규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책 할당은 자식 리소스에 의해 상속 됩니다. 정책 할당이 리소스 그룹에 적용 되는 경우 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
 
-정책 정의 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+정책 정의 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
-- mode
-- 매개 변수
 - 표시 이름
 - description
+- mode
+- metadata
+- 매개 변수
 - 정책 규칙
   - 논리 평가
   - 영향
@@ -34,7 +35,13 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 ```json
 {
     "properties": {
-        "mode": "all",
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "mode": "Indexed",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
+Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
+
+## <a name="display-name-and-description"></a>표시 이름 및 설명
+
+**displayName** 및 **description**을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공합니다. **displayName**은 최대 길이가 _128_자이고 **description**은 최대 길이가 _512_자입니다.
+
+> [!NOTE]
+> 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name**이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
+
+## <a name="type"></a>형식
+
+**Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
+
+- `Builtin`: 이러한 정책 정의는 Microsoft에서 제공 하 고 유지 관리 합니다.
+- `Custom`: 고객에 의해 생성 된 모든 정책 정의에는이 값이 있습니다.
+- `Static`: Microsoft **소유권과**함께 [규정 준수](./regulatory-compliance.md) 정책 정의를 나타냅니다. 이러한 정책 정의에 대 한 준수 결과는 Microsoft 인프라의 타사 감사 결과입니다. Azure Portal에서이 값은 **Microsoft에서 관리**되는 것으로 표시 되기도 합니다. 자세한 내용은 [클라우드의 공유 책임](../../../security/fundamentals/shared-responsibility.md)을 참조 하세요.
 
 ## <a name="mode"></a>Mode
 
@@ -71,7 +91,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="resource-manager-modes"></a>Resource Manager 모드
 
-**mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
+**모드** 는 정책 정의에 대해 평가 되는 리소스 종류를 결정 합니다. 지원되는 모드는 다음과 같습니다.
 
 - `all`: 리소스 그룹, 구독 및 모든 리소스 종류를 평가합니다.
 - `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
@@ -82,16 +102,30 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 `indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹** 및 **구독**입니다. 리소스 그룹 또는 구독에서 위치 또는 태그를 적용하는 정책 정의는 **mode**를 `all`로 설정하고 특히, `Microsoft.Resources/subscriptions/resourceGroups` 또는 `Microsoft.Resources/subscriptions` 유형을 대상으로 지정해야 합니다. 예제는 [패턴: 태그 - 샘플 #1](../samples/pattern-tags.md)을 참조하세요. 태그를 지원하는 리소스 목록은 [Azure 리소스에 대한 태그 지원](../../../azure-resource-manager/management/tag-support.md)을 참조하세요.
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />리소스 공급자 모드(미리 보기)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>리소스 공급자 모드(미리 보기)
 
 다음 리소스 공급자 모드는 현재 미리 보기 중에 지원됩니다.
 
-- `Microsoft.ContainerService.Data`는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리하는 데 사용합니다. 이 리소스 공급자 모드를 사용하는 정책은 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 **반드시** 사용해야 합니다. 이 모드는 더 이상 사용되지 않습니다.
-- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용하는 정책은 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 **반드시** 사용해야 합니다.
+- `Microsoft.ContainerService.Data`는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리하는 데 사용합니다. 이 리소스 공급자 모드를 사용 하는 정의는 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 사용 **해야** 합니다. 이 모드는 더 이상 사용되지 않습니다.
+- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_, _거부_및 사용 _안 함_을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과의 사용은 _더 이상_사용 되지 않습니다.
 - `Microsoft.KeyVault.Data`는 [Azure Key Vault](../../../key-vault/general/overview.md)에서 자격 증명 모음 및 인증서를 관리하는 데 사용됩니다.
 
 > [!NOTE]
 > 리소스 공급자 모드는 기본 제공 정책 정의만 지원하며 미리 보기 중에는 이니셔티브를 지원하지 않습니다.
+
+## <a name="metadata"></a>메타데이터
+
+선택적 `metadata` 속성은 정책 정의에 대 한 정보를 저장 합니다. 고객은에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다 `metadata` . 그러나 Azure Policy 및 기본 제공에서 사용 하는 몇 가지 _공통_ 속성이 있습니다.
+
+### <a name="common-metadata-properties"></a>공통 메타 데이터 속성
+
+- `version`(string): 정책 정의의 콘텐츠 버전에 대 한 세부 정보를 추적 합니다.
+- `category`(string): Azure Portal 정책 정의가 표시 되는 범주를 결정 합니다.
+- `preview`(부울): 정책 정의가 _미리 보기_인 경우 True 또는 false 플래그입니다.
+- `deprecated`(부울): 정책 정의가 _사용 되지 않는_것으로 표시 된 경우에 대 한 True 또는 false 플래그입니다.
+
+> [!NOTE]
+> Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울**로 추가됩니다. 버전 Azure Policy 기본 제공 되는 방법에 대 한 자세한 내용은 [기본 제공 버전 관리](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)를 참조 하세요.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -105,17 +139,11 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
-- **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
+- `name`: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
 - `type`: 매개 변수가 **문자열**, **배열**, **개체**, **부울**, **정수**, **float**, **datetime** 중에 무엇인지 확인합니다.
 - `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
-  - `version`: (선택 사항) 정책 정의 콘텐츠의 버전에 대한 세부 정보를 추적합니다.
-
-    > [!NOTE]
-    > Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울**로 추가됩니다.
-
-  - `category`: (선택 사항) 정책 정의가 표시되는 Azure Portal의 범주를 결정합니다.
   - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
   - `assignPermissions`: (선택 사항) 정책 할당 중에 Azure Portal에서 역할 할당을 만들도록 하려면 _true_로 설정합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당하려는 경우에 유용합니다. 정책에서 역할 정의당(또는 이니셔티브의 모든 정책에서 역할 정의당) 하나의 역할 할당이 있습니다. 매개 변수 값은 유효한 리소스 또는 범위여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
@@ -179,14 +207,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 정의 위치는 다음과 같습니다.
 
 - **구독** - 해당 구독 내의 리소스만 정책에 할당할 수 있습니다.
-- **관리 그룹**  - 하위 관리 그룹과 자식 구독 내의 리소스만 정책에 할당할 수 있습니다. 정책 정의를 여러 구독에 적용하려는 경우 위치는 이러한 구독이 포함된 관리 그룹이어야 합니다.
-
-## <a name="display-name-and-description"></a>표시 이름 및 설명
-
-**displayName** 및 **description**을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공합니다. **displayName**은 최대 길이가 _128_자이고 **description**은 최대 길이가 _512_자입니다.
-
-> [!NOTE]
-> 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name**이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
+- **관리 그룹**  - 하위 관리 그룹과 자식 구독 내의 리소스만 정책에 할당할 수 있습니다. 여러 구독에 정책 정의를 적용 하려는 경우 해당 위치는 구독을 포함 하는 관리 그룹 이어야 합니다.
 
 ## <a name="policy-rule"></a>정책 규칙
 
@@ -262,7 +283,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`을, 문자 하나를 일치시키려면 `?`를, 임의 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. **match** 및 **notMatch**는 대/소문자를 구분하지만 _stringValue_를 평가하는 다른 모든 조건은 대/소문자를 구분하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다.
+**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`을, 문자 하나를 일치시키려면 `?`를, 임의 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. **Match** 및 **notmatch** 는 대/소문자를 구분 하지만 _stringValue_ 을 평가 하는 다른 모든 조건은 대/소문자를 구분 하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다.
 
 **\[\*\] alias** 배열 필드 값에서 배열의 각 요소는 요소 간에 논리적 **and**를 사용하여 개별적으로 평가됩니다. 자세한 내용은 [\[\*\] alias 평가](../how-to/author-policies-for-arrays.md#evaluating-the--alias)를 참조하세요.
 
@@ -284,11 +305,11 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `tags`
 - `tags['<tagName>']`
   - 이 대괄호 구문은 하이픈, 마침표, 공백 등의 문장 부호가 있는 태그 이름을 지원합니다.
-  - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
+  - 여기서 **\<tagName\>** 는 조건의 유효성을 검사할 태그의 이름입니다.
   - 예: `tags['Acct.CostCenter']`. 여기서 **Acct.CostCenter**는 태그 이름입니다.
 - `tags['''<tagName>''']`
   - 이 대괄호 구문은 이중 아포스트로피로 이스케이프 처리하여 아포스트로피가 있는 태그 이름을 지원합니다.
-  - 여기서 **‘\<tagName\>’** 은 조건의 유효성을 검사할 태그 이름입니다.
+  - 여기서 **' \<tagName\> '** 는 조건의 유효성을 검사할 태그의 이름입니다.
   - 예: `tags['''My.Apostrophe.Tag''']`, 여기서 **'My.Apostrophe.Tag'** 는 태그의 이름입니다.
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
@@ -411,7 +432,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="count"></a>개수
 
-리소스 페이로드에서 배열의 멤버 중 조건식을 충족하는 멤버의 수를 세는 조건은 **count** 식을 사용하여 형성할 수 있습니다. 일반적인 시나리오에서는 배열 멤버 '중 하나 이상', ' 중 정확히 하나', '중 모두' 또는 '중 아무도'라는 조건을 충족하는지 여부를 확인합니다. **count**는 조건식에 대해 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 평가하고 _true_ 결과의 합계를 낸 다음, 식 연산자와 비교합니다. **count** 식은 단일 **policyRule** 정의에 대해 3번까지 추가할 수 있습니다.
+리소스 페이로드에서 배열의 멤버 중 조건식을 충족하는 멤버의 수를 세는 조건은 **count** 식을 사용하여 형성할 수 있습니다. 일반적인 시나리오에서는 배열 멤버 '중 하나 이상', ' 중 정확히 하나', '중 모두' 또는 '중 아무도'라는 조건을 충족하는지 여부를 확인합니다. **count**는 조건식에 대해 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 평가하고 _true_ 결과의 합계를 낸 다음, 식 연산자와 비교합니다. **개수** 식은 단일 **policyrule** 정의에 최대 세 번 추가할 수 있습니다.
 
 **count** 식의 구조는 다음과 같습니다.
 
@@ -430,9 +451,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **count**에 사용되는 속성은 다음과 같습니다.
 
 - **count.field** (필수): 배열의 경로를 포함하며 배열 별칭이어야 합니다. 배열이 없으면 조건식을 고려하지 않고 식이 _false_로 평가됩니다.
-- **count.where**(선택 사항): **count.field**의 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 개별적으로 평가하는 조건식입니다. 속성이 제공되지 않으면 'field' 경로가 있는 모든 배열 멤버는 _true_로 평가됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
+- **count.where**(선택 사항): **count.field**의 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 개별적으로 평가하는 조건식입니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
   [논리 연산자](#logical-operators)는 이 속성 내에서 복잡한 평가 요구 사항을 만드는 데 사용할 수 있습니다.
-- **\<condition\>** (필수): 이 값은 **count.where** 조건식을 충족하는 항목 수와 비교됩니다. 숫자 [조건](../concepts/definition-structure.md#conditions)을 사용해야 합니다.
+- **\<condition\>**(필수): 값은 count를 만족 하는 항목의 수와 비교 됩니다 **. where** 조건 식. 숫자 [조건](../concepts/definition-structure.md#conditions)을 사용해야 합니다.
 
 #### <a name="count-examples"></a>Count 예
 
@@ -582,9 +603,9 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 > [!NOTE]
 > 이러한 함수는 **deployIfNotExists** 정책 정의에서 템플릿 배포의 `details.deployment.properties.template` 부분에 계속 사용할 수 있습니다.
 
-다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에서 사용하는 것과는 다릅니다.
+다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용 하는 것과는 다릅니다.
 
-- `utcNow()` - Resource Manager 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
+- `utcNow()`-ARM 템플릿과 달리이 속성은 _defaultValue_외부에서 사용할 수 있습니다.
   - 범용 ISO 8601 DateTime 형식 'yyyy-MM-ddTHH : mm : ss.fffffffZ'의 현재 날짜와 시간으로 설정된 문자열을 반환합니다.
 
 다음 함수는 정책 규칙에서만 사용할 수 있습니다.
@@ -598,7 +619,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
   - `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 - `requestContext().apiVersion`
   - 정책 평가를 트리거한 요청의 API 버전을 반환합니다(예: `2019-09-01`).
-    리소스 생성/업데이트 평가를 위해 PUT/PATCH 요청에 사용된 API 버전입니다. 기존 리소스에 대한 규정 준수 평가 중에는 항상 최신 API 버전이 사용됩니다.
+    이 값은 리소스 생성/업데이트에 대 한 평가를 위해 PUT/PATCH 요청에 사용 된 API 버전입니다. 기존 리소스에 대한 규정 준수 평가 중에는 항상 최신 API 버전이 사용됩니다.
   
 #### <a name="policy-function-example"></a>정책 함수 예제
 
@@ -713,91 +734,12 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 자세한 내용은 [[\*] alias 평가](../how-to/author-policies-for-arrays.md#evaluating-the--alias)를 참조하세요.
 
-## <a name="initiatives"></a>이니셔티브
-
-그룹을 단일 항목으로 작업할 수 있기 때문에 이니셔티브를 사용하면 여러 관련 정책 정의를 그룹화할 수 있어 할당 및 관리를 간소화합니다. 예를 들어 관련 태그 지정 정책 정의를 단일 이니셔티브로 그룹화할 수 있습니다. 각 정책을 개별적으로 할당하는 대신 이니셔티브를 적용합니다.
-
-> [!NOTE]
-> 이니셔티브를 할당한 후에는 이니셔티브 수준 매개 변수를 변경할 수 없습니다. 따라서 매개 변수를 정의할 때 **defaultValue**를 설정하는 것이 좋습니다.
-
-다음 예제에서는 두 태그 `costCenter`과 `productName`를 처리하기 위한 이니셔티브를 만드는 방법을 보여 줍니다. 기본 태그 값을 적용하려면 두 가지 기본 제공 정책을 사용합니다.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
 ## <a name="next-steps"></a>다음 단계
 
+- [이니셔티브 정의 구조](./initiative-definition-structure.md) 를 참조 하세요.
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성하는](../how-to/programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
 - [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -3,12 +3,12 @@ title: 배포 순서 이해
 description: 청사진을 할당 하는 동안 청사진 아티팩트가 배포 되는 기본 순서와 배포 순서를 사용자 지정 하는 방법에 대해 알아봅니다.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864524"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970623"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -28,21 +28,21 @@ JSON 예제에는 사용자 고유의 값으로 바꿔야 하는 변수가 있�
 
 - 아티팩트 이름을 기준으로 정렬된 구독 수준 **역할 할당** 아티팩트
 - 아티팩트 이름을 기준으로 정렬된 구독 수준 **정책 할당** 아티팩트
-- 아티팩트 이름을 기준으로 정렬된 구독 수준 **Azure Resource Manager 템플릿** 아티팩트
+- 아티팩트 이름을 기준으로 정렬 된 구독 수준 **Azure Resource Manager 템플릿** (ARM 템플릿) 아티팩트
 - 자리 표시자 이름을 기준으로 정렬된 **리소스 그룹** 아티팩트(자식 아티팩트 포함)
 
 각 **리소스 그룹** 아티팩트 내에서, 다음 시퀀스 순서를 사용하여 해당 리소스 그룹 내에 아티팩트를 만듭니다.
 
 - 아티팩트 이름을 기준으로 정렬된 리소스 그룹 자식 **역할 할당** 아티팩트
 - 아티팩트 이름을 기준으로 정렬된 리소스 그룹 자식 **정책 할당** 아티팩트
-- 아티팩트 이름을 기준으로 정렬된 리소스 그룹 자식 **Azure Resource Manager 템플릿** 아티팩트
+- 아티팩트 이름을 기준으로 정렬 된 리소스 그룹 자식 **Azure Resource Manager 템플릿** (ARM 템플릿) 아티팩트
 
 > [!NOTE]
 > [아티팩트 ()](../reference/blueprint-functions.md#artifacts) 를 사용 하면 참조 되는 아티팩트에 대 한 암시적 종속성을 만듭니다.
 
 ## <a name="customizing-the-sequencing-order"></a>시퀀싱 순서 사용자 지정
 
-많은 청사진 정의를 작성할 때 특정 순서로 리소스를 만들어야 할 수 있습니다. 이 시나리오의 가장 일반적인 사용 패턴은 청사진 정의에 여러 Azure Resource Manager 템플릿이 포함 되어 있는 경우입니다. Azure 청사진은 시퀀싱 순서를 정의할 수 있도록 허용 하 여이 패턴을 처리 합니다.
+많은 청사진 정의를 작성할 때 특정 순서로 리소스를 만들어야 할 수 있습니다. 이 시나리오에서 가장 일반적으로 사용 되는 패턴은 청사진 정의에 여러 개의 ARM 템플릿이 포함 되어 있는 경우입니다. Azure 청사진은 시퀀싱 순서를 정의할 수 있도록 허용 하 여이 패턴을 처리 합니다.
 
 JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니다. 리소스 그룹 및 아티팩트 개체에 대 한 청사진 정의는이 속성을 지원 합니다. `dependsOn`은 특정 아티팩트가 만들어지기 전에 만들어야 하는 아티팩트 이름의 문자열 배열입니다.
 
@@ -51,7 +51,7 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ### <a name="example---ordered-resource-group"></a>예제-정렬 된 리소스 그룹
 
-이 예제 청사진 정의에는 표준 리소스 그룹과 함께에 대 한 `dependsOn`값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags**라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
+이 예제 청사진 정의에는 `dependsOn` 표준 리소스 그룹과 함께에 대 한 값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags**라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
 **standard-rg**는 기본 시퀀싱 순서대로 처리됩니다.
 
 ```json
@@ -81,7 +81,7 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ### <a name="example---artifact-with-custom-order"></a>예 - 사용자 지정 순서를 사용하는 아티팩트
 
-이 예제는 Azure Resource Manager 템플릿을 사용하는 정책 아티팩트입니다. 기본 순서를 사용하여 정책 아티팩트를 만든 후 Azure Resource Manager 템플릿을 만듭니다. 이 순서 지정을 사용하면 Azure Resource Manager 템플릿이 만들어질 때까지 정책 아티팩트가 대기할 수 있습니다.
+이 예제는 ARM 템플릿에 종속 된 정책 아티팩트입니다. 기본적으로 정렬 된 정책 아티팩트는 ARM 템플릿 앞에 생성 됩니다. 이러한 순서 지정을 통해 정책 아티팩트가 ARM 템플릿이 만들어질 때까지 대기할 수 있습니다.
 
 ```json
 {
@@ -100,7 +100,7 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>예제-리소스 그룹에 따라 구독 수준 템플릿 아티팩트
 
-이 예제는 리소스 그룹에 따라 달라 지는 구독 수준에서 배포 된 리소스 관리자 템플릿에 대 한 것입니다. 기본 순서에서 구독 수준 아티팩트는 해당 리소스 그룹의 모든 리소스 그룹 및 자식 아티팩트 앞에 생성 됩니다. 리소스 그룹은 다음과 같이 청사진 정의에 정의 됩니다.
+이 예제는 리소스 그룹에 따라 달라 지는 구독 수준에서 배포 된 ARM 템플릿에 대 한 것입니다. 기본 순서에서 구독 수준 아티팩트는 해당 리소스 그룹의 모든 리소스 그룹 및 자식 아티팩트 앞에 생성 됩니다. 리소스 그룹은 다음과 같이 청사진 정의에 정의 됩니다.
 
 ```json
 "resourceGroups": {

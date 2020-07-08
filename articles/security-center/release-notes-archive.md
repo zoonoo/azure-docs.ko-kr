@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860905"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970691"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -29,9 +29,37 @@ ms.locfileid: "83860905"
 - 버그 수정
 - 사용되지 않는 기능
 
+
+## <a name="january-2020"></a>2020년 1월
+
+### <a name="enhanced-secure-score-preview"></a>보안 점수 향상(미리 보기)
+
+이제 Azure Security Center의 향상된 버전의 보안 점수 기능이 미리 보기에서 제공됩니다. 이 버전에서 여러 권장 사항은 취약한 공격 노출 영역을 더 잘 반영하는 보안 컨트롤로 그룹화되어 있습니다(예: 관리 포트에 대한 액세스 제한).
+
+미리 보기 단계에서 보안 점수 변경을 숙지하고 환경을 보다 안전하게 보호하는 데 도움이 되는 다른 수정을 결정합니다.
+
+[향상 된 보안 점수 (미리 보기)](secure-score-security-controls.md)에 대해 자세히 알아보세요.
+
+
+
 ## <a name="november-2019"></a>2019년 11월
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>북아메리카 지역에서 공개 미리 보기로 제공되는 Azure Key Vault에 대한 위협 방지
+11 월의 업데이트는 다음과 같습니다.
+ - [북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Azure Storage에 대한 위협 방지에 맬웨어 평판 차단 포함](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Logic Apps로 워크플로 자동화(미리 보기)](#workflow-automation-with-logic-apps-preview)
+ - [대량 리소스에 대한 빠른 수정 일반 공급](#quick-fix-for-bulk-resources-generally-available)
+ - [취약성에 대한 컨테이너 이미지 검사(미리 보기)](#scan-container-images-for-vulnerabilities-preview)
+ - [추가 규정 준수 표준(미리 보기)](#additional-regulatory-compliance-standards-preview)
+ - [Azure Kubernetes Service에 대한 위협 방지(미리 보기)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [가상 머신 취약성 평가(미리 보기)](#virtual-machine-vulnerability-assessment-preview)
+ - [Azure Virtual Machines의 SQL Server에 대한 고급 데이터 보안(미리 보기)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [사용자 지정 정책 지원(미리 보기)](#support-for-custom-policies-preview)
+ - [커뮤니티 및 파트너를 위한 플랫폼으로 Azure Security Center 적용 범위 확장](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [권장 사항 및 경고 내보내기와의 고급 통합(미리 보기)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Windows 관리 센터에서 Security Center에 온-프레미스 서버 온보딩(미리 보기)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)
 
 Azure Key Vault는 클라우드에서 키, 비밀, 암호화 키 및 정책을 중앙에서 관리하는 기능을 제공하여 데이터를 보호하고 클라우드 애플리케이션의 성능을 향상시키는 데 필수적인 서비스입니다. Azure Key Vault는 중요한 데이터와 중요 비즈니스용 데이터를 저장하므로 키 자격 증명 모음 및 여기에 저장된 데이터에 대한 보안을 최대화해야 합니다.
 
@@ -146,6 +174,11 @@ Windows Admin Center는 Azure에 배포되지 않은 Windows 서버용 관리 �
 
 ## <a name="september-2019"></a>2019년 9월
 
+9 월의 업데이트는 다음과 같습니다.
+
+ - [적응형 애플리케이션 제어 향상으로 규칙 관리](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Azure Policy를 사용하여 컨테이너 보안 권장 사항 제어](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>적응형 애플리케이션 제어 향상으로 규칙 관리
 
 적응형 애플리케이션 제어를 사용하여 가상 머신에 대한 규칙을 관리하는 환경이 개선되었습니다. Azure Security Center의 적응형 애플리케이션 제어는 가상 머신에서 실행할 수 있는 애플리케이션을 제어하는 데 도움이 됩니다. 규칙 관리의 일반적인 향상 외에도 새 혜택을 통해 새 규칙을 추가할 때 보호할 파일 형식을 제어할 수 있습니다.
@@ -161,6 +194,12 @@ Windows Admin Center는 Azure에 배포되지 않은 Windows 서버용 관리 �
 
 
 ## <a name="august-2019"></a>2019년 8월
+
+8 월의 업데이트는 다음과 같습니다.
+
+ - [Azure Firewall에 대한 JIT(just-in-time) VM 액세스](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [보안 태세를 높이기 위한 단일 클릭 수정(미리 보기)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [테넌트 간 관리](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Azure Firewall에 대한 JIT(just-in-time) VM 액세스 
 

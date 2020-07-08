@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196277"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970487"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -27,7 +27,7 @@ ms.locfileid: "83196277"
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 데이터 원본/항목은 몇 개인가요?
 
 자격 증명 모음의 모든 워크로드(IaaS VM, SQL, AFS 등)에서 최대 2000개의 데이터 원본/항목을 보호할 수 있습니다.
-예를 들어 자격 증명 모음에서 500개 VM 및 400개 Azure Files 공유를 이미 보호한 경우에는 SQL Database를 최대 1100개만 보호할 수 있습니다.
+예를 들어 자격 증명 모음에서 500 Vm 및 400 Azure Files 공유를 이미 보호 한 경우에는 SQL database를 최대 1100 개만 보호할 수 있습니다.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>자격 증명 모음당 몇 개의 정책을 만들 수 있나요?
 
@@ -47,12 +47,16 @@ ms.locfileid: "83196277"
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>백업 후 GRS에서 LRS로 변경할 수 있나요?
 
-아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 스토리지 옵션을 변경할 수 있습니다.
+기본적으로 저장소 복제 유형은 GRS (지역 중복 저장소)로 설정 됩니다. 백업을 구성한 후에는 수정할 수 있는 옵션이 사용 하지 않도록 설정 되며 변경할 수 없습니다.
+
+![스토리지 복제 유형](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+백업을 이미 구성 했으며 GRS에서 LRS로 이동 해야 하 [는 경우 백업 구성 후 GRS에서 LRS로 변경 하는 방법](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup)을 참조 하세요.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
 
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
-- Azure Backup Server 또는 System Center DPM을 통해 백업한 온-프레미스 VM의 온라인 복구 지점에는 ILR이 지원되지 않습니다.
+- ILR는 Azure backup Server 또는 System Center DPM에서 백업 된 온-프레미스 Vm의 온라인 복구 지점이 지원 되지 않습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 
@@ -116,7 +120,7 @@ Azure VM | [AZURE VM 백업에 대 한 지원 매트릭스](https://docs.microso
 **데이터 소스** | **세부 정보**
 --- | ---
 볼륨 |백업되는 단일 볼륨 VM에서 백업되는 데이터 양
-SQL Server 데이터베이스 |백업되는 단일 SQL Database 크기
+SQL Server 데이터베이스 |백업 중인 단일 데이터베이스 크기의 크기입니다.
 SharePoint | 백업되는 SharePoint 팜 내의 콘텐츠 및 구성 데이터베이스 합계
 Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계
 BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태
@@ -190,7 +194,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 새 정책을 적용하면 새 정책의 일정 및 보존을 따릅니다.
 
-- 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다.
+- 보존이 확장 된 경우 기존 복구 지점이 새 정책에 따라 유지 되도록 표시 됩니다.
 - 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다.
 
 ## <a name="encryption"></a>암호화
@@ -208,7 +212,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않습니다.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>백업 데이터를 암호화하는 데 사용되는 암호화 키의 최소 길이는 어느 정도인가요?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>백업 데이터를 암호화 하는 데 사용 되는 암호화 키의 최소 길이는 어떻게 되나요?
 
 Azure 백업 에이전트를 사용하는 경우 암호화 키는 16자 이상이어야 합니다. Azure VM의 경우 Azure Key Vault에서 사용하는 키의 길이는 제한되지 않습니다.
 
