@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4517a600acaf581ad240d634e89bba3984f835db
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75978189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087336"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 외부 수신기 구성
 > [!div class="op_single_selector"]
@@ -61,22 +62,26 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 5. **Azure PowerShell**을 시작합니다. 새 PowerShell 세션이 Azure 관리 모듈이 로드된 상태로 열립니다.
 6. **Get-AzurePublishSettingsFile**을 실행합니다. 이 cmdlet은 게시 설정 파일을 로컬 디렉터리에 다운로드하도록 브라우저로 안내합니다. Azure 구독에 대한 로그인 자격 증명을 묻는 메시지가 표시될 수 있습니다.
 7. 다운로드한 게시 설정 파일의 경로와 함께 **Import-AzurePublishSettingsFile** 명령을 사용합니다.
-   
-        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
+    ```powershell
+    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```
+
     게시 설정 파일을 가져오면 PowerShell 세션에서 Azure 구독을 관리할 수 있습니다.
     
 1. 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하고 사용자 환경에 맞게 변수 값을 설정합니다(일부 매개 변수에 대한 기본값 제공). 가용성 그룹에 Azure 지역에 걸쳐 있는 경우, 데이터센터에 있는 클라우드 서비스 및 노드에 대해 각각의 데이터센터에서 한 번씩 스크립트를 실행해야 합니다.
+
+    ```powershell
+    # Define variables
+    $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+    $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
    
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-   
-        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-        }
+    # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+    ForEach ($node in $AGNodes)
+    {
+        Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+    }
+    ```
 
 2. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 Azure PowerShell 세션에 복사하여 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 
@@ -97,18 +102,21 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure Portal에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 뷰를 엽니다.
 2. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 적어 둡니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
 3. VM 중 하나에서 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하 고 앞에서 기록한 값으로 변수를 설정합니다.
+
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
    
-        # Define variables
-        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+    Import-Module FailoverClusters
    
-        Import-Module FailoverClusters
+    # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
    
-        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
-   
-        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+    # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    ```
+
 4. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 Azure PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 5. 각 VM에서 이 작업을 반복합니다. 이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로프 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 이 자습서의 앞 부분에서 부하 분산된 엔드포인트로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.
 
@@ -124,7 +132,9 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드�
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>(인터넷을 통해)가용성 그룹 수신기 테스트
 가상 네트워크 외부에서 수신기에 액세스 하려면 동일한 VNet 내 에서만 액세스할 수 있는 ILB가 아닌 외부/공용 부하 분산 (이 항목에서 설명)을 사용 해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
 
-    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```
 
 앞의 예와 달리 호출자가 인터넷을 통해 windows 인증을 사용할 수 없으므로 SQL 인증을 사용해야 합니다. 자세한 내용은 [Azure VM의 Always On 가용성 그룹: 클라이언트 연결 시나리오](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)를 참조하세요. SQL 인증을 사용할 때는 두 복제본에서 동일한 로그인을 만들 수 있는지 확인합니다. 가용성 그룹 로그인 문제 해결에 대한 자세한 내용은 [로그인 매핑 또는 포함된 SQL 데이터베이스 사용자를 통해 다른 복제본에 연결하고 가용성 데이터베이스에 매핑하는 방법](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)을 참조하세요.
 

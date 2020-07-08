@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74927046"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086911"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
@@ -65,10 +66,12 @@ Azure Data Factory Copy Wizard는 일반적으로 엔드투엔드 데이터 통�
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
-    2016/03/01/01
-    2016/03/01/02
-    2016/03/01/03
-    ...
+```text
+2016/03/01/01
+2016/03/01/02
+2016/03/01/03
+...
+```
 
 **파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{Day}** 로, **02** 를 **{hour}** 로 바꾸고 tab 키를 누릅니다. 이러한 네 가지 변수에 대 한 형식을 선택 하는 드롭다운 목록이 표시 됩니다.
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086486"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -62,7 +62,6 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 > 에지 노드에 설치된 사용자 지정 구성 요소는 Microsoft에서 상업적으로 적절한 지원을 받습니다. 이를 통해 발생한 문제가 해결될 수도 있습니다. 또는 추가 지원을 위해 커뮤니티 리소스가 제공될 수 있습니다. 다음은 커뮤니티의 도움을 받을 수 있는 가장 활발한 사이트 중 일부입니다.
 >
 > * [HDInsight에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com))를 참조하세요.
 >
 > Apache 기술을 사용하는 경우 [https://apache.org](https://apache.org)에서 [Apache Hadoop](https://hadoop.apache.org/) 사이트 등의 Apache 프로젝트 사이트를 통해 지원을 찾을 수도 있습니다.
@@ -143,11 +142,15 @@ HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  �
 
 2. SSH를 사용하여 에지 노드를 연결한 후 다음 명령을 사용하여 Hive 콘솔을 엽니다.
 
-        hive
+    ```console
+    hive
+    ```
 
 3. 클러스터의 Hive 테이블을 표시하려면 다음 명령을 실행합니다.
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>에지 노드를 삭제합니다.
 

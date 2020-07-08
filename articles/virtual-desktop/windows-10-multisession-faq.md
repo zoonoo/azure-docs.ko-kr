@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735101"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086928"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -61,7 +61,7 @@ Azure 갤러리에는 Windows 10 Enterprise 다중 세션 버전 1809 및 Window
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>지원 되는 Windows 10 Enterprise 다중 세션 버전은 무엇 인가요?
 
-Windows 10 Enterprise 다중 세션 버전 1809 이상이 지원 되며 Azure 갤러리에서 사용할 수 있습니다. 이러한 릴리스는 Windows 10 Enterprise와 동일한 지원 수명 주기 정책을 따릅니다. 즉, 스프링 릴리스는 18 개월 동안 지원 되 고 30 개월 동안은 릴리스 릴리스를 의미 합니다.
+Windows 10 Enterprise 다중 세션 버전 1809 이상이 지원 되며 Azure 갤러리에서 사용할 수 있습니다. 이러한 릴리스는 Windows 10 Enterprise와 동일한 지원 수명 주기 정책을 따릅니다. 즉, 3 월 릴리스는 18 개월 동안 지원 되 고 9 월 릴리스는 30 개월 동안 지원 됩니다.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션에 사용 해야 하는 프로필 관리 솔루션은 무엇 인가요?
 

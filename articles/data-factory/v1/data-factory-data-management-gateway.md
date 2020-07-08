@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188301"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087081"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -70,7 +71,7 @@ ms.locfileid: "84188301"
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](https://msdn.microsoft.com/library/8z6watww.aspx)을 참조하세요.
 * 게이트웨이 컴퓨터에 권장 되는 **구성은** 최소 2ghz, 4 개 코어, 8gb RAM 및 80 gb 디스크입니다.
@@ -246,7 +247,9 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 타사 방화벽을 사용 중인 경우 포트 8050을 수동으로 열 수 있습니다. 게이트웨이를 설치하는 동안 방화벽 문제가 발생하는 경우 다음 명령을 사용하여 방화벽을 구성하지 않고 게이트웨이를 설치할 수 있습니다.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 게이트웨이 머신에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
 
@@ -363,7 +366,7 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 모니터링 속성 | 설명
 :------------------ | :----------
-이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
+Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요.
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만).
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다.
@@ -387,7 +390,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다.
 
-상태 | 의견
+상태 | 주석
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.

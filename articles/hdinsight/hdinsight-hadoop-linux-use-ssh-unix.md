@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 074b1571cea6c102a00fcefe7934cad0ded8458d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087659"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -61,7 +61,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 * 대부분의 클라이언트는 __기본 키__를 사용하도록 구성될 수 있습니다. 예를 들어 `ssh` 클라이언트는 Linux 및 Unix 환경의 `~/.ssh/id_rsa`에서 프라이빗 키를 찾습니다.
 
-* __프라이빗 키에 대한 경로__를 지정할 수 있습니다. `ssh` 클라이언트에서 `-i` 매개 변수를 사용하여 프라이빗 키에 대한 경로를 지정합니다. `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`)을 입력합니다.
+* __프라이빗 키에 대한 경로__를 지정할 수 있습니다. `ssh` 클라이언트에서 `-i` 매개 변수를 사용하여 프라이빗 키에 대한 경로를 지정합니다. 예: `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
 * 다른 서버에 사용할 수 있는 __여러 프라이빗 키__가 있는 경우 [ssh-agent(https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 같은 유틸리티를 고려해 볼 수 있습니다. `ssh-agent` 유틸리티를 사용하여 SSH 세션을 설정할 때 사용할 키를 자동으로 선택할 수 있습니다.
 
@@ -72,7 +72,9 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 `ssh-keygen` 명령을 사용하여 공용 및 프라이빗 키 파일을 만듭니다. 다음 명령은 HDInsight와 함께 사용할 수 있는 2048비트 RSA 키 쌍을 생성합니다.
 
-    ssh-keygen -t rsa -b 2048
+```azurepowershell-interactive
+ssh-keygen -t rsa -b 2048
+```
 
 키 생성 프로세스 중에 정보를 입력 하 라는 메시지가 표시 됩니다. 예를 들어, 키가 저장되는 위치 또는 암호를 사용할지 여부를 묻습니다. 프로세스가 완료된 후에 공개 키와 프라이빗 키라는 두 개의 파일이 만들어집니다.
 
@@ -88,8 +90,8 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 | 생성 방법 | 공개 키를 사용하는 방법 |
 | ------- | ------- |
 | Azure portal | __Ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 ssh 인증 유형으로 __공개 키__ 를 선택 합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| Azure PowerShell | AzHdinsightCluster cmdlet `-SshPublicKey` 의 매개 변수 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 를 사용 하 여 공개 키의 내용을 문자열로 전달 합니다.|
-| Azure CLI | [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 매개 변수를 `--sshPublicKey` 사용 하 여 공개 키의 내용을 문자열로 전달 합니다. |
+| Azure PowerShell | `-SshPublicKey` [AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 매개 변수를 사용 하 여 공개 키의 내용을 문자열로 전달 합니다.|
+| Azure CLI | `--sshPublicKey`명령의 매개 변수를 사용 [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 하 여 공개 키의 내용을 문자열로 전달 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 파일의 `publicKeys` 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
 
 ## <a name="authentication-password"></a>인증: 암호
@@ -107,8 +109,8 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용 �
 | 생성 방법 | 암호를 지정하는 방법 |
 | --------------- | ---------------- |
 | Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용 하려면 __ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 __ssh 암호__ 필드에 암호를 입력 합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | AzHdinsightCluster cmdlet `--SshCredential` 의 매개 변수 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 를 사용 하 고 SSH 사용자 계정 `PSCredential` 이름 및 암호를 포함 하는 개체를 전달 합니다. |
-| Azure CLI | [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 `--ssh-password` 매개 변수를 사용 하 여 암호 값을 제공 합니다. |
+| Azure PowerShell | `--SshCredential` [AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 매개 변수를 사용 하 고 `PSCredential` SSH 사용자 계정 이름 및 암호를 포함 하는 개체를 전달 합니다. |
+| Azure CLI | `--ssh-password`명령의 매개 변수를 사용 [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 하 여 암호 값을 제공 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
 
 ### <a name="change-the-ssh-password"></a>SSH 암호 변경
@@ -117,7 +119,7 @@ SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsigh
 
 ## <a name="authentication-domain-joined-hdinsight"></a>인증 도메인 가입 HDInsight
 
-__도메인에 가입 된 HDInsight 클러스터__를 사용 하는 경우 SSH 로컬 사용자와 `kinit` 연결한 후 명령을 사용 해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+__도메인에 가입 된 HDInsight 클러스터__를 사용 하는 경우 `kinit` SSH 로컬 사용자와 연결한 후 명령을 사용 해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
 
 도메인 계정을 사용 하 여 각 도메인 가입 노드 (예: 헤드 노드,에 지 노드)에 대해 Kerberos 인증을 사용 하도록 설정할 수도 있습니다. 이렇게 하려면 sshd 구성 파일을 편집합니다.
 
@@ -131,7 +133,7 @@ sudo vi /etc/ssh/sshd_config
 sudo service sshd restart
 ```
 
-명령을 `klist` 사용 하 여 Kerberos 인증의 성공 여부를 확인 합니다.
+`klist`명령을 사용 하 여 Kerberos 인증의 성공 여부를 확인 합니다.
 
 자세한 내용은 [도메인에 조인된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요.
 
@@ -158,7 +160,7 @@ sudo service sshd restart
     ```
 
 > [!IMPORTANT]  
-> 이전 예에서는 암호 인증을 사용하고 있고 인증서 인증이 자동으로 발생하고 있다고 가정합니다. 인증에 SSH 키 쌍을 사용하고 인증서가 자동으로 사용되지 않을 경우 `-i` 매개 변수를 사용하여 프라이빗 키를 지정합니다. `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`)을 입력합니다.
+> 이전 예에서는 암호 인증을 사용하고 있고 인증서 인증이 자동으로 발생하고 있다고 가정합니다. 인증에 SSH 키 쌍을 사용하고 인증서가 자동으로 사용되지 않을 경우 `-i` 매개 변수를 사용하여 프라이빗 키를 지정합니다. 예: `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 연결 되 면 프롬프트가 변경 되어 SSH 사용자 이름 및 연결 된 노드를 표시 합니다. 예를 들어, `sshuser`로 기본 헤드 노드에 연결된 경우 프롬프트는 `sshuser@<active-headnode-name>:~$`입니다.
 
@@ -217,7 +219,7 @@ __SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클�
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    아무 것도 반환 되지 않으면 `ssh-agent` 가 실행 되지 않습니다. 자세한 내용은 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)의 에이전트 시작 스크립트 정보 또는 SSH 클라이언트 설명서를 참조하세요.
+    아무 것도 반환 되지 않으면가 `ssh-agent` 실행 되지 않습니다. 자세한 내용은 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)의 에이전트 시작 스크립트 정보 또는 SSH 클라이언트 설명서를 참조하세요.
 
 4. **Ssh 에이전트가** 실행 되 고 있는지 확인 한 후에는 다음을 사용 하 여 ssh 개인 키를 에이전트에 추가 합니다.
 

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102687"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -67,4 +67,4 @@ ms.locfileid: "85106440"
 
 ## <a name="next-steps"></a>다음 단계
 - [MPA 계정에 대한 Azure 구독의 청구 소유권 얻기](mpa-request-ownership.md)
-- [Azure Billing으로 계정 및 구독을 관리](index.yml)하는 방법을 참조하세요.
+- [Azure Billing으로 계정 및 구독을 관리](../index.yml)하는 방법을 참조하세요.

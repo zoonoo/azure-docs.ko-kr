@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 739439f63c81ef75cdcbe0b9e1d3f367d073d43b
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198834"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102806"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -39,8 +39,8 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 
 다음과 같이 평가를 설정합니다.
 
-1. Azure Migrate를 사용하여 평가하기 위해 AWS VM을 물리적 컴퓨터로 처리하여 평가를 수행할 수 있습니다. 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다. 이 [자습서](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical)에 따라 Azure를 설정하고 평가를 위해 AWS VM을 준비합니다.
-2. 그런 다음, 이 [자습서](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical)에 따라 Azure Migrate 프로젝트 및 어플라이언스를 설정하여 AWS VM을 검색하고 평가합니다.
+1. Azure Migrate를 사용하여 평가하기 위해 AWS VM을 물리적 컴퓨터로 처리하여 평가를 수행할 수 있습니다. 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다. 이 [자습서](./tutorial-prepare-physical.md)에 따라 Azure를 설정하고 평가를 위해 AWS VM을 준비합니다.
+2. 그런 다음, 이 [자습서](./tutorial-assess-physical.md)에 따라 Azure Migrate 프로젝트 및 어플라이언스를 설정하여 AWS VM을 검색하고 평가합니다.
 
 평가를 수행하는 것이 좋지만, 이는 VM을 마이그레이션하기 위한 필수 단계가 아닙니다.
 
@@ -48,9 +48,9 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 
 ## <a name="1-prerequisites-for-migration"></a>1. 마이그레이션을 위한 필수 조건
 
-- 마이그레이션하려는 AWS VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. AWS VM은 마이그레이션을 위해 물리적 컴퓨터로 처리됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)를 검토합니다. 실제 마이그레이션을 진행하기 전에 테스트 마이그레이션(테스트 장애 조치)을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
-- AWS VM에서 Azure로 마이그레이션하는 데 [지원되는 구성](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements)을 준수하는지 확인합니다.
-- Azure에 복제하는 AWS VM에서 [Azure VM 요구 사항](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements)을 준수하는지 확인합니다.
+- 마이그레이션하려는 AWS VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. AWS VM은 마이그레이션을 위해 물리적 컴퓨터로 처리됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토합니다. 실제 마이그레이션을 진행하기 전에 테스트 마이그레이션(테스트 장애 조치)을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
+- AWS VM에서 Azure로 마이그레이션하는 데 [지원되는 구성](./migrate-support-matrix-physical-migration.md#physical-server-requirements)을 준수하는지 확인합니다.
+- Azure에 복제하는 AWS VM에서 [Azure VM 요구 사항](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수하는지 확인합니다.
 - VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변경해야 합니다.
     - 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다.
     - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다.
@@ -98,7 +98,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 다음과 같이 어플라이언스 배포를 준비합니다.
 
-- 복제 어플라이언스를 호스팅하는 별도의 EC2 VM을 설정합니다. 이 인스턴스는 Windows Server 2012 R2 또는 Windows Server 2016을 실행해야 합니다. 어플라이언스에 대한 하드웨어, 소프트웨어 및 네트워킹 요구 사항을 [검토](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements)합니다.
+- 복제 어플라이언스를 호스팅하는 별도의 EC2 VM을 설정합니다. 이 인스턴스는 Windows Server 2012 R2 또는 Windows Server 2016을 실행해야 합니다. 어플라이언스에 대한 하드웨어, 소프트웨어 및 네트워킹 요구 사항을 [검토](./migrate-replication-appliance.md#appliance-requirements)합니다.
 - 복제하려는 원본 VM에 어플라이언스를 설치하지 않아야 합니다. 이는 다른 VM에 배포해야 합니다.
 - 마이그레이션할 원본 AWS VM에는 복제 어플라이언스에 대한 네트워크 가시선이 있어야 합니다. 이를 사용하도록 설정하는 데 필요한 보안 그룹 규칙을 구성합니다. 복제 어플라이언스는 마이그레이션할 원본 VM과 동일한 VPC에 배포하는 것이 좋습니다. 복제 어플라이언스가 다른 VPC에 있어야 하는 경우 VPC 피어링을 통해 VPC를 연결해야 합니다.
 - 원본 AWS VM은 복제 관리 및 복제 데이터 전송을 위해 443 HTTPS(제어 채널 오케스트레이션) 및 9443 TCP(데이터 전송) 인바운드 포트에서 복제 어플라이언스와 통신합니다. 이에 따라 복제 어플라이언스는 복제 데이터를 오케스트레이션하고 443 HTTPS 아웃바운드 포트를 통해 Azure로 보냅니다. 이러한 규칙을 구성하려면 적절한 포트 및 원본 IP 정보를 사용하여 보안 그룹 인바운드/아웃바운드 규칙을 편집합니다.
@@ -183,7 +183,7 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 
 1. 복제 어플라이언스에 로그인합니다.
 2. **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**로 이동합니다.
-3. 원본 AWS VM의 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)를 검토하세요.
+3. 원본 AWS VM의 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토하세요.
 4. 설치 관리자 파일을 마이그레이션하려는 원본 AWS VM에 복사합니다.
 5. 복제 어플라이언스를 설치할 때 만들어지고 저장된 암호 텍스트 파일이 있는지 확인합니다.
     - 암호를 저장하지 않은 경우 이 단계를 사용하여 복제 어플라이언스에서 암호를 확인할 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v**를 실행하여 현재 암호를 확인합니다.
@@ -335,7 +335,7 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
     - AWS VM 복제를 중지합니다.
     - Azure Migrate: 서버 마이그레이션의 **복제 중 서버** 수에서 AWS VM을 제거합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.
-2. [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 에이전트를 마이그레이션된 컴퓨터에 설치합니다. Azure VM Windows 에이전트는 마이그레이션 프로세스 중에 미리 설치됩니다.
+2. [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 컴퓨터에 설치합니다. Azure VM Windows 에이전트는 마이그레이션 프로세스 중에 미리 설치됩니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
 5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
@@ -347,16 +347,16 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
-    - [Azure Security Center - Just-In-Time 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
-    - [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
+    - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 클라우드 채택 프레임워크에서 [클라우드 마이그레이션 과정](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)을 조사합니다.
+Azure 클라우드 채택 프레임워크에서 [클라우드 마이그레이션 과정](/azure/architecture/cloud-adoption/getting-started/migrate)을 조사합니다.
 
 ## <a name="troubleshooting--tips"></a>문제 해결/팁
 

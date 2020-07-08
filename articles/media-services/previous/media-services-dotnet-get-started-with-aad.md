@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8fbe8e0cbf2768af973a0ccc9e237fb770b27a74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9458f6d66dbf95429172a0767b9293efdfa51113
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612302"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086639"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스
 
@@ -28,7 +28,7 @@ ms.locfileid: "82612302"
 
 windowsazure.mediaservices 4.0.0.4부터는 Azure Media Services에서 Azure AD(Azure Active Directory) 기반 인증을 지원합니다. 이 항목에서는 Azure AD 인증을 사용하여 Microsoft .NET으로 Azure Media Services API에 액세스하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
@@ -67,11 +67,15 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
     Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행합니다.
 
-        Install-Package windowsazure.mediaservices -Version 4.0.0.4
+    ```console
+    Install-Package windowsazure.mediaservices -Version 4.0.0.4
+    ```
 
 3. 소스 코드에 **using**을 추가합니다.
 
-        using Microsoft.WindowsAzure.MediaServices.Client;
+    ```csharp
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    ```
 
 ## <a name="use-user-authentication"></a>사용자 인증 사용
 
@@ -88,8 +92,10 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 다음 코드 예제에서는 토큰을 만듭니다.
 
-    var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
-    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+```csharp
+var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
+var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+```
 
 서버 컨텍스트를 나타내는 **CloudMediaContext** 인스턴스를 만드는 데 필요한 Media Services에 대한 프로그래밍을 시작합니다. **CloudMediaContext** 에는 작업, 자산, 파일, 액세스 정책 및 로케이터를 비롯하여 중요한 컬렉션에 대한 참조가 포함됩니다.
 
@@ -97,33 +103,36 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 다음 코드 예제는 **CloudMediaContext** 인스턴스를 만듭니다.
 
-    CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+```csharp
+CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+```
 
 다음 예제에서는 Azure AD 토큰 및 컨텍스트를 만드는 방법을 보여 줍니다.
 
-    namespace AzureADAuthSample
+```csharp
+namespace AzureADAuthSample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
+            var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
+            CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+
+            var assets = context.Assets;
+            foreach (var a in assets)
             {
-                // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
-
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
-                CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-
-                var assets = context.Assets;
-                foreach (var a in assets)
-                {
-                    Console.WriteLine(a.Name);
-                }
+                Console.WriteLine(a.Name);
             }
-
         }
     }
+}
+```
 
 >[!NOTE]
 >“원격 서버에서 (401) 권한 없음 오류를 반환했습니다.”라는 예외가 발생하면 Azure AD 인증으로 Azure Media Services API 액세스 개요의 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control) 섹션을 참조하세요.
@@ -140,55 +149,61 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 다음 코드 예제는 매개 변수로 **AzureAdClientSymmetricKey**를 사용하는 **AzureAdTokenCredentials** 생성자를 사용하여 토큰을 만듭니다.
 
-    var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                                new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
-                                AzureEnvironments.AzureCloudEnvironment);
+```csharp
+var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
+                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
+                            AzureEnvironments.AzureCloudEnvironment);
 
-    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+```
 
 또한 매개 변수로 **AzureAdClientCertificate**를 사용하는 **AzureAdTokenCredentials** 생성자도 지정할 수 있습니다.
 
 Azure AD에서 사용할 수 있는 형식으로 인증서를 만들고 구성하는 방법에 대한 지침은 [인증서로 디먼 앱에서 Azure AD 인증 - 수동 구성 단계](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)를 참조하세요.
 
-    var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                                new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
-                                AzureEnvironments.AzureCloudEnvironment);
+```csharp
+var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
+                            new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
+                            AzureEnvironments.AzureCloudEnvironment);
+```
 
 서버 컨텍스트를 나타내는 **CloudMediaContext** 인스턴스를 만드는 데 필요한 Media Services에 대한 프로그래밍을 시작합니다. 또한 **Media REST Services에 대한 리소스 URI**도 **CloudMediaContext** 생성자에 전달해야 합니다. Azure Portal에서도 **Media REST Services에 대한 리소스 URI**를 가져올 수 있습니다.
 
 다음 코드 예제는 **CloudMediaContext** 인스턴스를 만듭니다.
 
-    CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+```csharp
+CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+```
 
 다음 예제에서는 Azure AD 토큰 및 컨텍스트를 만드는 방법을 보여 줍니다.
 
-    namespace AzureADAuthSample
+```csharp
+namespace AzureADAuthSample
+{
+    class Program
     {
-
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
+                                        new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
+                                        AzureEnvironments.AzureCloudEnvironment);
+
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
+            CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
+
+            var assets = context.Assets;
+            foreach (var a in assets)
             {
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
-                                            AzureEnvironments.AzureCloudEnvironment);
-
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                // Specify your REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
-                CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-
-                var assets = context.Assets;
-                foreach (var a in assets)
-                {
-                    Console.WriteLine(a.Name);
-                }
-
-                Console.ReadLine();
+                Console.WriteLine(a.Name);
             }
 
+            Console.ReadLine();
         }
     }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,11 +4,12 @@ description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807318"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086248"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -17,7 +18,7 @@ ms.locfileid: "85807318"
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 > [!NOTE]
-> [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)라는 새 Application Insights SDK가 있습니다. 이를 사용하여 모든 콘솔 애플리케이션에 대해 Application Insights를 사용하도록 설정할 수 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서 이 패키지 및 관련 지침을 사용하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)를 대상으로 하므로 .NET Core 2.0 이상 및 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+> 콘솔 응용 프로그램에 대해서는 [여기에 나와](../../azure-monitor/app/worker-service.md) 있는 관련 지침과 [Microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 를 사용 하는 것이 *좋습니다* . 이 패키지 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) 는를 대상으로 하므로 .Net Core 2.1 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 

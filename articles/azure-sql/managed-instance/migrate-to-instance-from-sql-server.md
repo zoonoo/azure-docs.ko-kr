@@ -11,16 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708681"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087574"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [AZURE SQL Managed Instance](sql-managed-instance-paas-overview.md)로 마이그레이션하는 방법에 대해 알아봅니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](../database/migrate-to-database-from-sql-server.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [AZURE SQL Managed Instance](sql-managed-instance-paas-overview.md)로 마이그레이션하는 방법에 대해 알아봅니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대 한 자세한 내용은 [SQL Database로 마이그레이션](../database/migrate-to-database-from-sql-server.md)을 참조 하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 > [!NOTE]
 > Azure SQL Managed Instance를 신속 하 게 시작 하 고 시도 하려면이 페이지 대신 [빠른 시작 가이드](quickstart-content-reference-guide.md) 로 이동 하는 것이 좋습니다.

@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708501"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086401"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,8 +29,8 @@ ms.locfileid: "84708501"
 트랜잭션 복제를 사용 하 여 Azure SQL Managed Instance에서 수행한 변경 내용을 다음과 같이 푸시할 수 있습니다.
 
 - 온-프레미스 또는 Azure VM에 SQL Server 데이터베이스
-- Azure SQL Database의 단일 또는 풀링된 데이터베이스
-- Azure SQL의 단일 또는 풀링된 데이터베이스 Managed Instance
+- Azure SQL Database의 데이터베이스
+- Azure SQL Managed Instance의 인스턴스 데이터베이스
 
   > [!NOTE]
   > Azure SQL Managed Instance의 모든 기능을 사용 하려면 최신 버전의 [SSMS (SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ) 및 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용 해야 합니다.
@@ -45,7 +46,7 @@ ms.locfileid: "84708501"
 | **게시자** | 예 | 예 |
 | **총판** | 예 | 예|
 | **끌어오기 구독자** | 예 | 예|
-| **밀어넣기 구독자**| 예 | 예|
+| **밀어넣기 구독자**| 예 | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
 **게시자** 는 배포자로 업데이트를 전송 하 여 일부 테이블 (아티클)에 적용 된 변경 내용을 게시 합니다. 게시자는 Azure SQL Managed Instance 또는 SQL Server 인스턴스일 수 있습니다.
@@ -71,8 +72,8 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
 | 복제 | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 |
-| [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
+| [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | Yes |
+| [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | Yes|
 | [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
 | [**피어-투-피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
 | [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | 예|

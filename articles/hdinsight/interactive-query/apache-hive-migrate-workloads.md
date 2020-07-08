@@ -1,20 +1,20 @@
 ---
-title: HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
+title: Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 description: HDInsight 3.6에서 Apache Hive 작업을 HDInsight 4.0로 마이그레이션하는 방법에 대해 알아봅니다.
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 14849dd1f68f281009808d1bd1dc1cae62927ab4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594239"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087522"
 ---
-# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
+# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
 이 문서에서는 HDInsight 3.6에서 Apache Hive 및 LLAP 워크 로드를 HDInsight 4.0로 마이그레이션하는 방법을 보여 줍니다. HDInsight 4.0은 구체화 된 뷰 및 쿼리 결과 캐싱과 같은 새로운 Hive 및 LLAP 기능을 제공 합니다. 작업을 HDInsight 4.0로 마이그레이션하는 경우 HDInsight 3.6에서 사용할 수 없는 Hive 3의 최신 기능을 많이 사용할 수 있습니다.
 
@@ -34,17 +34,17 @@ Hive의 이점 중 하나는 외부 데이터베이스 (Hive Metastore 이라고
 HDInsight 3.6 및 HDInsight 4.0 ACID 테이블은 ACID 델타를 다르게 인식 합니다. 마이그레이션을 수행 하기 전에 유일 하 게 필요한 작업은 3.6 클러스터의 각 ACID 테이블에 대해 ' MAJOR ' 압축을 실행 하는 것입니다. 압축에 대 한 자세한 내용은 [Hive 언어 설명서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) 를 참조 하세요.
 
 ### <a name="2-copy-sql-database"></a>2. SQL 데이터베이스 복사
-외부 metastore의 새 복사본을 만듭니다. 외부 metastore를 사용 하는 경우 metastore의 복사본을 만드는 안전 하 고 쉬운 방법 중 하나는 SQL Database restore 함수를 사용 하 여 다른 이름으로 [데이터베이스를 복원](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) 하는 것입니다.  외부 metastore를 HDInsight 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Azure hdinsight에서 외부 메타 데이터 저장소 사용](../hdinsight-use-external-metadata-stores.md) 을 참조 하세요.
+외부 metastore의 새 복사본을 만듭니다. 외부 metastore를 사용 하는 경우 metastore의 복사본을 만드는 안전 하 고 쉬운 방법 중 하나는 함수를 사용 하 여 다른 이름으로 [데이터베이스를 복원](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) 하는 것입니다 `RESTORE` .  외부 metastore를 HDInsight 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Azure hdinsight에서 외부 메타 데이터 저장소 사용](../hdinsight-use-external-metadata-stores.md) 을 참조 하세요.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. metastore 스키마 업그레이드
 Metastore **복사가** 완료 되 면 기존 HDInsight 3.6 클러스터의 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 에서 스키마 업그레이드 스크립트를 실행 하 여 새 metastore을 Hive 3 스키마로 업그레이드 합니다. 이 단계에서는 새 metastore를 클러스터에 연결 하지 않아도 됩니다. 이를 통해 데이터베이스를 HDInsight 4.0 metastore에 연결할 수 있습니다.
 
-아래 표에 있는 값을 사용 합니다. 공백으로 `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` 구분 된 Hive metastore **복사본**에 대 한 적절 한 값으로 대체 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
+아래 표에 있는 값을 사용 합니다. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`공백으로 구분 된 Hive metastore **복사본**에 대 한 적절 한 값으로 대체 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
 
 |속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|Name|Hive 업그레이드|
+|속성|Hive 업그레이드|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |노드 유형|Head|
 |매개 변수|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
@@ -103,7 +103,7 @@ HDInsight 3.6 및 4.0 클러스터는 동일한 저장소 계정을 사용 해�
 >
 > * 이 스크립트가 완료 되 면 이전 클러스터가 스크립트에서 참조 되는 테이블 또는 데이터베이스에 액세스 하는 데 더 이상 사용 되지 않는 것으로 간주 됩니다.
 >
-> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예를 들면 다음과 같습니다.
+> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예제:
 >
 >    ```SQL
 >    create table tablename_backup like tablename;
@@ -124,7 +124,7 @@ HDInsight 3.6 및 4.0 클러스터는 동일한 저장소 계정을 사용 해�
     chmod 755 exporthive_hdi_3_6.sh
     ```
 
-    * ESP를 사용 하지 않는 정기적인 HDInsight 클러스터의 경우를 `exporthive_hdi_3_6.sh`실행 하기만 하면 됩니다.
+    * ESP를 사용 하지 않는 정기적인 HDInsight 클러스터의 경우를 실행 하기만 하면 `exporthive_hdi_3_6.sh` 됩니다.
 
     * ESP를 사용 하는 클러스터의 경우 kinit 및 beeline에 대 한 인수를 수정 합니다. 다음을 실행 합니다. 전체 Hive 권한이 있는 Azure AD 사용자의 사용자 및 도메인을 정의 합니다.
 
@@ -217,18 +217,18 @@ HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 A
 |속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|Name|DAS|
+|속성|DAS|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |노드 유형|Head|
 
-10 ~ 15 분 정도 기다린 다음이 URL을 사용 하 여 데이터 분석 스튜디오 `https://CLUSTERNAME.azurehdinsight.net/das/`를 시작 합니다.
+10 ~ 15 분 정도 기다린 다음이 URL을 사용 하 여 데이터 분석 스튜디오를 시작 `https://CLUSTERNAME.azurehdinsight.net/das/` 합니다.
 
 DAS에 액세스 하기 전에 Ambari UI를 새로 고치거 나 모든 Ambari 구성 요소를 다시 시작 해야 할 수 있습니다.
 
 DAS가 설치 되 면 쿼리 뷰어에서 실행 한 쿼리가 표시 되지 않으면 다음 단계를 수행 합니다.
 
 1. [Das 설치 문제 해결에 대 한이 가이드](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)에 설명 된 대로 Hive, TEZ 및 das에 대 한 구성을 설정 합니다.
-2. 다음 Azure storage 디렉터리 configs가 페이지 blob이 고 나열 되는지 확인 합니다 `fs.azure.page.blob.dirs`.
+2. 다음 Azure storage 디렉터리 configs가 페이지 blob이 고 나열 되는지 확인 합니다 `fs.azure.page.blob.dirs` .
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. 두 헤드 노드에서 HDFS, Hive, Tez 및 DAS를 다시 시작 합니다.

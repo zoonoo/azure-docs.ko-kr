@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086554"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 이해
 
@@ -47,6 +47,10 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 
 > [!IMPORTANT]
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 mysqldump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
+
+## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
+
+지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 MySQL의 이진 로그 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

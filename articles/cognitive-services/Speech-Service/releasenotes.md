@@ -11,14 +11,82 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086303"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
+
+### <a name="new-features"></a>새로운 기능
+
+* **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 (이집트), Zariyah (아랍어), Salma (스페인), 카탈로니아어 (스페인), Christel (덴마크), Neerja (영어 (인도)) Swara (인도), 네덜란드어 (네덜란드), Colette의 Zofia (폴란드어), 폴란드어 (포르투갈), 폴란드어 (포르투갈), Dariya in 스웨덴어 (포르투갈), Hillevi in 스웨덴어 (스웨덴), Achara in 태국어 (노르웨이), 노르웨이어 (복말), HiuGaai in 중국어 (홍콩), HsiaoYu in 중국어 (대만). [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
+
+* **사용자 환경을 단순화 하기 위해 학습 흐름을 사용한 사용자 지정 음성, 간소화 된 음성 테스트**: 새로운 테스트 기능을 사용 하면 각 음성이 일반 및 음성 도우미 시나리오를 다루는 각 언어에 대해 최적화 된 미리 정의 된 테스트 집합으로 자동으로 테스트 됩니다. 이러한 테스트 집합은 신중 하 게 선택 하 고 테스트 하 여 일반적인 사용 사례와 언어의 음소을 포함 합니다. 뿐만 아니라 사용자가 모델을 학습할 때 자체 테스트 스크립트를 업로드 하도록 선택할 수 있습니다.
+
+* **오디오 콘텐츠 만들기: 강력한 음성 조정 및 오디오 관리 기능을 지원 하기 위해 새로운 기능 집합이 릴리스 되었습니다.**
+
+    * `Pitch`, `rate` 및 `volume` 는 속도가 느리고 medium 및 fast와 같은 미리 정의 된 값을 사용 하 여 조정을 지원 하도록 향상 되었습니다. 이제 사용자는 오디오 편집을 위해 ' 상수 ' 값을 쉽게 선택할 수 있습니다.
+
+    ![오디오 튜닝](media/release-notes/audio-tuning.png)
+
+    * 이제 사용자는 `Audio history` 작업 파일에 대 한을 검토할 수 있습니다. 이 기능을 사용 하면 사용자가 작업 파일과 관련 하 여 생성 된 모든 오디오를 쉽게 추적할 수 있습니다. 기록 버전을 확인 하 고 동시에 조정 하는 동안 품질을 비교할 수 있습니다. 
+
+    ![오디오 기록](media/release-notes/audio-history.png)
+
+    * `Clear`이제 기능이 더욱 유연 합니다. 사용자는 선택한 콘텐츠에 사용할 수 있는 다른 매개 변수를 유지 하면서 특정 튜닝 매개 변수를 지울 수 있습니다.  
+
+    * 사용자가 TTS 음성 조정 및 오디오 관리를 신속 하 게 시작 하는 데 도움이 되는 자습서 비디오가 [방문 페이지](https://speech.microsoft.com/audiocontentcreation) 에 추가 되었습니다. 
+
+### <a name="general-tts-voice-quality-improvements"></a>일반 TTS 음성 품질 향상
+
+* 더 높은 충실도 및 짧은 대기 시간을 위해에서 TTS vocoder 향상 되었습니다.
+
+    * 이탈리아어로 Elsa 업데이트 된 새로운 vocoder로 업데이트 되었습니다 .이는 + 0.464 CMOS (비교 점수 평균)에 게 음성 품질, 40% 더 빠른 통합 및 30%의 첫 번째 바이트 대기 시간을 얻습니다. 
+    * 일반 도메인에 대해 + 0148 CMOS를 사용 하 고, newscast 스타일의 경우 + 0.348, lyrical 스타일의 경우 + 0.195을 사용 하 여 중국어 Xiaoxiao를 새 vocoder로 업데이트 했습니다. 
+
+* `de-DE` `ja-JP` TTS 출력 보다 자연스럽 게 보이도록 업데이트 된 및 음성 모델
+    
+    * 최신 prosody 모델링 방법으로 독일어의 Katja 업데이트 되었습니다. MOS (평균 평가 점수) 이득은 + 0.13입니다. 
+    * 새 피치 강조 prosody 모델을 사용 하 여 일본어로 Nanami를 업데이트 했습니다. MOS (평균 의견 점수) 이득은 + 0.19입니다.  
+
+* 5 개 언어로 된 단어 수준 음성 정확도 향상
+
+    | 언어 | 음성 오류 감소 |
+    |---|---|
+    | en-GB | 51% |
+    | en-US | 17% |
+    | pt-BR | 39% |
+    | pt-PT | 77% |
+    | id-ID | 46% |
+
+### <a name="bug-fixes"></a>버그 수정
+
+* 통화 판독값
+    * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
+     
+    | 언어 | 입력 | 개선 후의 기능 |
+    |---|---|---|
+    | es-MX | $1.58 | un 페소 cincuenta y ocho centavos |
+    | es-ES | $1.58 | un dólar cincuenta y ocho centavos |
+
+    * ,,,,, 로캘에서 음수 통화 (예: "-€325")를 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` 합니다.
+
+* 에서 주소 읽기가 개선 `pt-PT` 되었습니다.
+* `en-AU` `en-UK` "For" 및 "4" 단어에 대 한 Natasha () 및 수정 ()의 발음 문제를 수정 했습니다.  
+* 오디오 콘텐츠 생성 도구에 대 한 버그 수정 됨
+    * 두 번째 단락 뒤의 추가 및 예기치 않은 일시 중지가 수정 되었습니다.  
+    * 회귀 버그에서 ' 중단 없음 ' 기능이 다시 추가 됩니다. 
+    * Speech Studio의 무작위 새로 고침 문제는 고정 되어 있습니다.  
+
+### <a name="samplessdk"></a>샘플/SDK
+
+* JavaScript: FireFox 및 macOS 및 iOS의 Safari에서 재생 문제를 수정 합니다. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK 1.12.1:2020-6 월 릴리스
 **Speech CLI (즉, SPX)**
 -   CLI 내 도움말 검색 기능이 추가 되었습니다.
@@ -215,7 +283,7 @@ ms.locfileid: "84607876"
 - `Compressed`Android, iOS 및 Linux에서 형식이 alaw, Mulaw, FLAC에 대 한 입력 지원을 추가 했습니다.
 - `SendMessageAsync` `Connection` 서비스에 메시지를 보내기 위해 클래스에 추가 되었습니다.
 - `SetMessageProperty` `Connection` 메시지의 속성을 설정 하기 위해 클래스에 추가 되었습니다.
-- Java (Jre 및 Android), Python, Swift 및 목표에 대 한 TTS 추가 된 바인딩-C
+- Java (JRE 및 Android), Python, Swift 및 목표에 대 한 TTS 추가 된 바인딩-C
 - TTS Os, iOS 및 Android에 대 한 재생 지원을 추가 했습니다.
 - TTS에 대 한 "단어 경계" 정보를 추가 했습니다.
 
@@ -322,7 +390,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - Java, .NET core, c + + 및 목표에 대 한 음성 SDK는 macOS를 지원 합니다. MacOS에 대 한 목표-C 지원은 현재 베타 버전입니다.
 - iOS: iOS 용 Speech SDK (목표-C)도 CocoaPod으로 게시 됩니다.
 - JavaScript: 기본이 아닌 마이크를 입력 장치로 지원 합니다.
-- JavaScript: node.js에 대 한 프록시 지원.
+- JavaScript: Node.js에 대 한 프록시 지원.
 
 **샘플**
 

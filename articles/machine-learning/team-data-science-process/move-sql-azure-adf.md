@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086656"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Database SQL Server 데이터베이스에서 데이터 이동
 
@@ -139,7 +140,9 @@ SQL Server에 대 한 테이블 정의는 다음 JSON 파일에 지정 되어 �
 
 테이블의 JSON 정의를 *onpremtabledef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\onpremtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
-    New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```
 
 
 ### <a name="blob-table"></a><a name="adf-table-blob-store"></a>Blob 테이블 
@@ -172,7 +175,9 @@ SQL Server에 대 한 테이블 정의는 다음 JSON 파일에 지정 되어 �
 
 테이블의 JSON 정의를 *bloboutputtabledef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\bloboutputtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```
 
 ### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>SQL Azure 테이블
 SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키마는 blob에서 가져온 데이터를 매핑).
@@ -204,7 +209,9 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
 테이블의 JSON 정의를 *AzureSqlTable.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\AzureSqlTable.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```
 
 
 ## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>파이프라인 정의 및 만들기
@@ -289,13 +296,17 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
 파이프라인의 이 JSON 정의를 *pipelinedef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\pipelinedef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 파이프라인을 만듭니다.
 
-    New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```azurepowershell
+New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```
 
 
 ## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>파이프라인 시작
 이제 다음 명령을 사용하여 파이프라인을 실행할 수 있습니다.
 
-    Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```azurepowershell
+Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```
 
 *startdate* 및 *enddate* 매개 변수 값을 파이프라인을 실행할 실제 날짜로 바꿔야 합니다.
 

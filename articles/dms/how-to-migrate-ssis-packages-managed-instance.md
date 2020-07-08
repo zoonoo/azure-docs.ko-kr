@@ -1,5 +1,5 @@
 ---
-title: SSIS 패키지를 SQL 관리 되는 인스턴스로 마이그레이션
+title: SSIS 패키지를 SQL Managed Instance로 마이그레이션
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 또는 Data Migration Assistant를 사용 하 여 Azure SQL Managed Instance SQL Server Integration Services (SSIS) 패키지 및 프로젝트를 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196561"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086571"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>SQL Server Integration Services 패키지를 Azure SQL Managed Instance로 마이그레이션
 SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스트 하는 원본 SSISDB의 SSIS 프로젝트/패키지를 Azure SQL Managed Instance에서 호스트 되는 대상 SSISDB로 마이그레이션하려는 경우 Azure Database Migration Service를 사용할 수 있습니다.
@@ -84,7 +85,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 
     Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
 
-    자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL DB 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지](https://aka.ms/dmsnetworkformi) 문서를 참조하세요.
+    자세한 내용은 [Azure Database Migration Service를 사용 하 여 AZURE SQL Managed Instance 마이그레이션의 네트워크 토폴로지](https://aka.ms/dmsnetworkformi)문서를 참조 하세요.
 
 6. 가격 책정 계층을 선택합니다.
 

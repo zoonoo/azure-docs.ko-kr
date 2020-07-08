@@ -9,11 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: e4bff4d1826d9586495207095eccf8f6c66164a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5e4bb1d3f62685c90e95eebf5f8f07720a23b82
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870020"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086996"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
 
@@ -32,36 +33,46 @@ PowerShell을 사용하여 키 자격 증명 모음을 만들려면 [PowerShell�
 
 새 주요 자격 증명의 경우 다음 PowerShell cmdlet을 사용할 수 있습니다.
 
-    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+```azurepowershell
+New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+```
 
 기존 주요 자격 증명의 경우 다음 PowerShell cmdlet을 사용할 수 있습니다.
 
-    Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+```
 
 ## <a name="use-cli-to-set-up-key-vault"></a>CLI를 사용하여 주요 자격 증명 모음 설정
 CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 주요 자격 증명 모음 관리](../../key-vault/general/manage-with-cli2.md#create-a-key-vault)를 참조하세요.
 
 CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책을 할당해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
-    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
-    
+```azurecli
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+```
+
 그런 다음 템플릿 배포에 사용할 Key Vault를 사용 하도록 설정 하려면 다음 명령을 실행 합니다.
 
-    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+```
 
 ## <a name="use-templates-to-set-up-key-vault"></a>템플릿을 사용하여 주요 자격 증명 모음 설정
 템플릿을 사용하는 경우 `enabledForDeployment` 속성을 주요 자격 증명 모음 리소스에 대한 `true`로 설정해야 합니다.
 
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "name": "ContosoKeyVault",
-      "apiVersion": "2015-06-01",
-      "location": "<location-of-key-vault>",
-      "properties": {
-        "enabledForDeployment": "true",
-        ....
-        ....
-      }
-    }
+```config
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "name": "ContosoKeyVault",
+  "apiVersion": "2015-06-01",
+  "location": "<location-of-key-vault>",
+  "properties": {
+    "enabledForDeployment": "true",
+    ....
+    ....
+  }
+}
+```
 
 템플릿을 사용 하 여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션은 [키 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조 하세요.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bf1502589ea0932fd45367c039e6e37135d761
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532776"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086061"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL의 고가용성 개념
 Azure Database for MySQL 서비스는 높은 수준의 가용성을 보장합니다. 재정적으로 지원되는 SLA(서비스 수준 계약)는 일반 공급 시 99.99%입니다. 이 서비스를 사용할 때는 애플리케이션 작동 중단 시간이 거의 없습니다.
@@ -29,7 +29,7 @@ MySQL 데이터베이스 애플리케이션은 끊어진 연결과 실패한 트
 ## <a name="scaling-up-or-down"></a>확장 또는 축소
 HA 모델과 마찬가지로 Azure Database for MySQL의 크기를 늘리거나 줄일 때 지정된 크기의 새 서버 인스턴스가 만들어집니다. 기존 데이터 스토리지는 원래 인스턴스에서 분리되고 새 인스턴스에 연결됩니다.
 
-크기 조정 작업 중 데이터베이스 연결에 대한 중단이 발생합니다. 클라이언트 애플리케이션의 연결이 끊어지고, 열려 있고 커밋되지 않은 트랜잭션은 취소됩니다. 클라이언트 애플리케이션이 연결을 다시 시도하거나 새 연결을 만들면 게이트웨이는 새로 크기가 지정된 인스턴스로 연결을 지정합니다. 
+크기 조정 작업 중 데이터베이스 연결에 대한 중단이 발생합니다. 클라이언트 애플리케이션의 연결이 끊어지고, 열려 있고 커밋되지 않은 트랜잭션은 취소됩니다. 클라이언트 애플리케이션이 연결을 다시 시도하거나 새 연결을 만들면 게이트웨이는 새로 크기가 지정된 인스턴스로 연결을 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [일시적인 연결 오류 처리](concepts-connectivity.md)에 대해 알아보기

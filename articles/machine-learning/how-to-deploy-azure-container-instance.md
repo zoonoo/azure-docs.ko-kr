@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087268"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,10 @@ ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Cont
 ## <a name="deploy-to-aci"></a>ACI에 배포
 
 Azure Container Instances에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+
+> [!NOTE]
+> * ACI는 크기가 1GB <작은 모델에만 적합 합니다. 
+> * 큰 모델의 개발-테스트에는 단일 노드 AKS를 사용 하는 것이 좋습니다.
 
 ### <a name="using-the-sdk"></a>SDK 사용
 

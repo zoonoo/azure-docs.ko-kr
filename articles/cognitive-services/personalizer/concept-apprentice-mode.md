@@ -3,12 +3,12 @@ title: 수련 여 모드-Personalizer
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087200"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>기존 응용 프로그램에 영향을 주지 않고 Personalizer를 학습 하려면 수련 한 모드를 사용 합니다.
 
@@ -30,7 +30,7 @@ Personalizer를 학습 하 고 특정 수준의 이해를 획득 한 후에는 �
 
 수련 생 모드를 사용 하는 두 가지 주요 이유는 다음과 같습니다.
 
-* **콜드 시작**완화: 수련 여가 "새로운" 모델의 학습 시간에 대 한 비용을 관리 하 고 평가 하는 데 도움이 75-85 됩니다.
+* **콜드 시작**완화: 수련 여가 "새로운" 모델의 학습 시간에 대 한 비용을 관리 하 고 평가 하는 데 도움이 60-80 됩니다.
 * **작업 및 컨텍스트 기능 유효성 검사**: 작업 및 컨텍스트에 전송 된 기능이 부적절 하거나 부정확 하거나 너무 많거나, 너무 많거나, 잘못 되었거나, 너무 Personalizer 교육 하 여 이상적인 효율성을 얻을 수 있습니다. 기능 [평가](concept-feature-evaluation.md) 를 사용 하 여 기능 관련 문제를 찾고 해결할 수 있습니다.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>수련 여를 사용 해야 하는 경우
@@ -57,7 +57,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 
 다음과 같은 방법으로, 수련 여가 온라인 모드와 다른 경우를 학습 합니다.
 
-|영역|수련 여 모드|온라인 모드|
+|Area|실습생 모드|온라인 모드|
 |--|--|--|
 |사용자 경험에 미치는 영향|기존 사용자 동작을 사용 하 여 **기본 작업이** 수행 된 것과 획득 한 보상을 관찰 (영향을 주지 않음) 하도록 하 여 Personalizer를 교육할 수 있습니다. 즉, 사용자의 경험과 비즈니스 결과는 영향을 받지 않습니다.|사용자 동작에 영향을 주기 위해 Rank 호출에서 반환 된 상위 작업을 표시 합니다.|
 |학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업**에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|
@@ -68,7 +68,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 수련 생 모드의 효율성에 대 한 참고 사항:
 
 * 수련 Personalizer의 효과는 응용 프로그램 기준선의 100%에 거의 도달 하지 않습니다. 그리고이를 초과 하지 않습니다.
-* 모범 사례는 100% attainment;을 (를) 가져오지 않는 것입니다. 그러나 75 – 85%의 범위는 사용 사례에 따라 대상으로 지정 되어야 합니다.
+* 모범 사례는 100% attainment;을 (를) 가져오지 않는 것입니다. 그러나 60% – 80%의 범위는 사용 사례에 따라 대상으로 지정 해야 합니다.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>기록 데이터를 사용 하 여 학습 하기 위해 수련 생 모드 사용
 

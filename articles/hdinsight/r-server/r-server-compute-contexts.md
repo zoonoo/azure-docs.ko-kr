@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75660259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087608"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션
 
@@ -73,7 +73,9 @@ Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출�
 ## <a name="inline-help-on-rxsetcomputecontext"></a>rxSetComputeContext의 인라인 도움말
 자세한 내용 및 RevoScaleR 컴퓨팅 컨텍스트의 예제는 다음과 같이 rxSetComputeContext 메서드에 대한 R의 인라인 도움말을 참조하세요.
 
-    > ?rxSetComputeContext
+```console
+> ?rxSetComputeContext
+```
 
 [Machine Learning 서버 설명서](https://docs.microsoft.com/machine-learning-server/)에서 [분산 컴퓨팅 개요](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing)를 참조할 수도 있습니다.
 

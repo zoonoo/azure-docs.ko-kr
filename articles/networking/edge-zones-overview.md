@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146940"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086894"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Azure Edge 영역 미리 보기 정보
 
@@ -74,7 +74,9 @@ Azure Edge 영역은 다음 metro 영역에서 제공 됩니다.
 
 Edge 영역은 다음 연산자와 파트너 관계에서 제공 됩니다.
 
-- AT&T (애틀랜타, 달라스 및 로스앤젤레스)
+- AT&T (애틀랜타, 달라스 및 로스앤젤레스) 
+
+자세한 내용은 [Edge 영역 팀에 문의 하세요](https://aka.ms/EdgeZones) .
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azure 개인에 지 영역
 

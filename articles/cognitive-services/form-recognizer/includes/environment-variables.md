@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 8bcce81808530c124b73b3527609a08f869b99c4
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 28362a81461b63440ad752071f11b3603a979995
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997560"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86100293"
 ---
 만든 리소스의 키 및 엔드포인트를 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
 
 * `FORM_RECOGNIZER_KEY` - 요청을 인증하기 위한 리소스 키입니다.
 * `FORM_RECOGNIZER_ENDPOINT` - API 요청을 보내기 위한 리소스 엔드포인트입니다. 다음과 같이 표시됩니다. 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+  * `https://<your-custom-subdomain>.cognitiveservices.azure.com`
 
 >[!NOTE]
 > 2019년 7월 1일 이후에 생성된 비평가판 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)을 참조하세요. 

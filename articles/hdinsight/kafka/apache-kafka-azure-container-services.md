@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383053"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087425"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -92,9 +92,9 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
     |속성 |값 |
     |---|---|
-    |\<이 VN>에서 원격 가상 네트워크로의 피어링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
+    |에서 \<this VN> 원격 가상 네트워크로의 피어 링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
     |가상 네트워크|**AKS 클러스터**의 가상 네트워크를 선택합니다.|
-    |\<AKS VN>에서 \<이 VN>으로의 피어링 이름|고유한 이름을 입력합니다.|
+    |에서로의 피어 링 이름 \<AKS VN>\<this VN>|고유한 이름을 입력합니다.|
 
     다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 

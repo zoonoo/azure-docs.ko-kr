@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database: 장기 백업 보존 관리'
-description: Azure Portal 및 PowerShell을 사용 하 여 Azure storage (최대 10 년)에 Azure SQL Database 단일 또는 풀링된 데이터베이스에 대 한 자동화 된 백업을 저장 하 고 복원 하는 방법에 대해 알아봅니다.
+description: Azure Portal 및 PowerShell을 사용 하 여 Azure storage (최대 10 년)의 Azure SQL Database에 대 한 자동화 된 백업을 저장 하 고 복원 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: e3abe203c32994c63ddd1cecc45cbcc8b566c45a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087353"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -186,7 +187,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 
-이 예제에서는 LTR 백업에서 복원하는 방법을 보여줍니다. 이 인터페이스는 변경되지 않았지만 이제 리소스 ID 매개 변수에 LTR 백업 리소스 ID가 필요합니다.
+이 예제에서는 LTR 백업에서 복원하는 방법을 보여줍니다. 이 인터페이스는 변경 되지 않았지만 이제 리소스 ID 매개 변수에는 LTR 백업 리소스 ID가 필요 합니다.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup

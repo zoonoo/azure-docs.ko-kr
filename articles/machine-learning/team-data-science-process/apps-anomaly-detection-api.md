@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656553"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087166"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 
@@ -62,44 +63,48 @@ API를 호출하려면 엔드포인트 위치 및 API 키를 알고 있어야 �
 ### <a name="sample-request-body"></a>샘플 요청 본문
 요청에는 두 개의 개체, 즉 `Inputs`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 엔드포인트의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
 
-    {
-                "Inputs": {
-                        "input1": {
-                                "ColumnNames": ["Time", "Data"],
-                                "Values": [
-                                        ["5/30/2010 18:07:00", "1"],
-                                        ["5/30/2010 18:08:00", "1.4"],
-                                        ["5/30/2010 18:09:00", "1.1"]
-                                ]
-                        }
-                },
-        "GlobalParameters": {
-            "tspikedetector.sensitivity": "3",
-            "zspikedetector.sensitivity": "3",
-            "bileveldetector.sensitivity": "3.25",
-            "detectors.spikesdips": "Both"
-        }
+```json
+{
+            "Inputs": {
+                    "input1": {
+                            "ColumnNames": ["Time", "Data"],
+                            "Values": [
+                                    ["5/30/2010 18:07:00", "1"],
+                                    ["5/30/2010 18:08:00", "1.4"],
+                                    ["5/30/2010 18:09:00", "1.1"]
+                            ]
+                    }
+            },
+    "GlobalParameters": {
+        "tspikedetector.sensitivity": "3",
+        "zspikedetector.sensitivity": "3",
+        "bileveldetector.sensitivity": "3.25",
+        "detectors.spikesdips": "Both"
     }
+}
+```
 
 ### <a name="sample-response"></a>샘플 응답
 `ColumnNames` 필드를 보려면 `details=true`를 URL 매개 변수로 요청에 포함해야 합니다.  이러한 필드 각각의 의미에 대해서는 아래 표를 참조하세요.
 
-    {
-        "Results": {
-            "output1": {
-                "type": "table",
-                "value": {
-                    "Values": [
-                        ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-                        ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-                        ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-                    ],
-                    "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-                    "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-                }
+```json
+{
+    "Results": {
+        "output1": {
+            "type": "table",
+            "value": {
+                "Values": [
+                    ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+                    ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+                    ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+                ],
+                "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+                "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
             }
         }
     }
+}
+```
 
 
 ## <a name="score-api"></a>Score API

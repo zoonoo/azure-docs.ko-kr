@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918192"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087251"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>정적 IP로 인해 Azure Virtual Machines에 대해 원격 데스크톱을 사용할 수 없음
 
@@ -55,18 +56,27 @@ Windows 내 네트워크 인터페이스에 정의된 고정 IP 주소가 VM에 
 ). VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
 2. 네트워크 인터페이스에서 DHCP를 사용할 수 없는지 확인합니다.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
+
 3. DHCP를 사용할 수 없는 경우 DHCP를 사용하도록 네트워크 인터페이스 구성을 되돌립니다.
 
-        netsh interface ip set address name="<NIC Name>" source=dhc
+    ```console
+    netsh interface ip set address name="<NIC Name>" source=dhc
+    ```
 
     예를 들어, 네트워크 인터페이스 이름이 “이더넷 2”인 경우 다음 명령을 실행합니다.
 
-        netsh interface ip set address name="Ethernet 2" source=dhc
+    ```console
+    netsh interface ip set address name="Ethernet 2" source=dhc
+    ```
 
 4. IP 구성을 다시 쿼리하여 이제 네트워크 인터페이스가 올바르게 설정되었는지 확인합니다. 새 IP 주소는 Azure에서 제공하는 IP 주소와 일치해야 합니다.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
 
     이 시점에서 VM을 다시 시작할 필요는 없습니다. VM에 다시 연결할 수 있게 됩니다.
 

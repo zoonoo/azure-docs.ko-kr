@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835481"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087727"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -72,7 +72,9 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 
     다음과 유사한 이름을 반환합니다.
 
-        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```output
+    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```
 
     Hue 웹 사이트가 위치한 기본 헤드의 호스트 이름입니다.
 
@@ -115,7 +117,7 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 
 1. Hue는 Hive의 현재 기본값인 Apache Tez 작업을 인식하지 못합니다. MapReduce를 Hive 실행 엔진으로 사용하려는 경우 스크립트를 업데이트하여 스크립트에서 다음 명령을 사용합니다.
 
-         set hive.execution.engine=mr;
+   `set hive.execution.engine=mr;`
 
 1. Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면  이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 

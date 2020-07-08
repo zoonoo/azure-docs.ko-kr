@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087642"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
@@ -56,11 +56,13 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 에지 노드에 사용자를 추가하려면 다음 명령을 실행합니다.
 
-    # Add a user 
-    sudo useradd <yournewusername> -m
+```bash
+# Add a user 
+sudo useradd <yournewusername> -m
 
-    # Set password for the new user
-    sudo passwd <yournewusername>
+# Set password for the new user
+sudo passwd <yournewusername>
+```
 
 다음 스크린샷은 출력을 보여 줍니다.
 
@@ -80,27 +82,29 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
 
-    myNameNode <- "default"
-    myPort <- 0
+```r
+myNameNode <- "default"
+myPort <- 0
 
-    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- '<sshuser>'# HDI SSH username
-    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+mySshUsername  <- '<sshuser>'# HDI SSH username
+mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
-    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
 
-    mySparkCluster <- RxSpark(
-      hdfsShareDir = myhdfsShareDir,
-      shareDir     = myShareDir,
-      sshUsername  = mySshUsername,
-      sshHostname  = mySshHostname,
-      sshSwitches  = mySshSwitches,
-      sshProfileScript = '/etc/profile',
-      nameNode     = myNameNode,
-      port         = myPort,
-      consoleOutput= TRUE
-    )
+mySparkCluster <- RxSpark(
+    hdfsShareDir = myhdfsShareDir,
+    shareDir     = myShareDir,
+    sshUsername  = mySshUsername,
+    sshHostname  = mySshHostname,
+    sshSwitches  = mySshSwitches,
+    sshProfileScript = '/etc/profile',
+    nameNode     = myNameNode,
+    port         = myPort,
+    consoleOutput= TRUE
+)
+```
 
 자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
 
@@ -112,25 +116,29 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 HDInsight에서 ML 서비스를 사용하면 기존 R 코드를 가져와 `rxExec`을 통해 클러스터의 여러 노드에서 실행할 수 있습니다. 이 함수는 매개 변수 비우기 또는 시뮬레이션을 수행할 때 유용합니다. 다음 코드는 `rxExec`를 사용하는 방법에 대한 예제입니다.
 
-    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```r
+rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```
 
 Spark 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info()["nodename"])` 코드가 실행되는 작업자 노드의 nodename(노드 이름) 값을 반환합니다. 예를 들어 4개 노드 클러스터에는 다음 코드 조각과 비슷한 출력이 표시됩니다.
 
-    $rxElem1
-        nodename
-    "wn3-mymlser"
+```r
+$rxElem1
+    nodename
+"wn3-mymlser"
 
-    $rxElem2
-        nodename
-    "wn0-mymlser"
+$rxElem2
+    nodename
+"wn0-mymlser"
 
-    $rxElem3
-        nodename
-    "wn3-mymlser"
+$rxElem3
+    nodename
+"wn3-mymlser"
 
-    $rxElem4
-        nodename
-    "wn3-mymlser"
+$rxElem4
+    nodename
+"wn3-mymlser"
+```
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Apache Hive 및 Parquet에서 데이터에 액세스
 
@@ -138,36 +146,37 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
 
 다음 코드는 새 함수를 사용하는 샘플 코드 일부를 제공합니다.
 
-    #Create a Spark compute context:
-    myHadoopCluster <- rxSparkConnect(reset = TRUE)
+```r
+#Create a Spark compute context:
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
-    #Retrieve some sample data from Hive and run a model:
-    hiveData <- RxHiveData("select * from hivesampletable",
-                     colInfo = list(devicemake = list(type = "factor")))
-    rxGetInfo(hiveData, getVarInfo = TRUE)
+#Retrieve some sample data from Hive and run a model:
+hiveData <- RxHiveData("select * from hivesampletable",
+                       colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
 
-    rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 
-    #Retrieve some sample data from Parquet and run a model:
-    rxHadoopMakeDir('/share')
-    rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
-    pqData <- RxParquetData('/share/claimsParquet',
-                     colInfo = list(
-                age    = list(type = "factor"),
-               car.age = list(type = "factor"),
-                  type = list(type = "factor")
-             ) )
-    rxGetInfo(pqData, getVarInfo = TRUE)
+#Retrieve some sample data from Parquet and run a model:
+rxHadoopMakeDir('/share')
+rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
+pqData <- RxParquetData('/share/claimsParquet',
+                        colInfo = list(
+                            age    = list(type = "factor"),
+                            car.age = list(type = "factor"),
+                            type = list(type = "factor")
+                        ) )
+rxGetInfo(pqData, getVarInfo = TRUE)
 
-    rxNaiveBayes(type ~ age + cost, data = pqData)
+rxNaiveBayes(type ~ age + cost, data = pqData)
 
-    #Check on Spark data objects, cleanup, and close the Spark session:
-    lsObj <- rxSparkListData() # two data objs are cached
-    lsObj
-    rxSparkRemoveData(lsObj)
-    rxSparkListData() # it should show empty list
-    rxSparkDisconnect(myHadoopCluster)
-
+#Check on Spark data objects, cleanup, and close the Spark session:
+lsObj <- rxSparkListData() # two data objs are cached
+lsObj
+rxSparkRemoveData(lsObj)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
 
 이러한 새 기능의 사용에 대한 자세한 내용은 `?RxHivedata` 및 `?RxParquetData` 명령을 사용하여 ML 서비스의 온라인 도움말을 참조하세요.  
 
@@ -196,7 +205,7 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지 예를 들어 `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지 예를 들면 `bitops stringr arules`과 같습니다.
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 

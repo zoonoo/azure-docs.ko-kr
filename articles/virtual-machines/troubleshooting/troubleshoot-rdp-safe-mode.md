@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918209"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086775"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
 
@@ -46,7 +47,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
    ). VM에서 직렬 콘솔을 사용하도록 설정되지 않은 경우 [오프라인으로 VM 복구](#repair-the-vm-offline)를 참조하세요.
 2. 부팅 구성 데이터를 확인합니다.
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 보이지 않으면 VM이 현재 안전 모드가 아닙니다. 이 문서는 고객의 시나리오에 적용되지 않습니다.
 
@@ -60,11 +63,15 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 3. VM이 일반 모드로 부팅하도록 **safemoade** 플래그를 삭제합니다.
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. VM을 다시 시작한 다음, 문제가 해결되었는지 확인합니다.
 
@@ -114,7 +121,10 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 1. 관리자 권한 명령 프롬프트 세션 (**관리자 권한으로 실행**)을 엽니다.
 2. 부팅 구성 데이터를 확인합니다. 다음 명령에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     **\windows** 폴더가 있는 파티션의 식별자 이름을 적어 둡니다. 기본적으로 식별자 이름은 “기본값”입니다.
 
     VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 표시되지 않는 경우 이 문서는 시나리오에 적용되지 않습니다.
@@ -123,8 +133,14 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 3. VM이 표준 모드로 부팅되도록 **safeboot** 플래그를 제거합니다.
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.

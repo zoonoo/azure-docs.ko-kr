@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 4b26128b794a6a667edc578f56ad0bc9fb8303a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086418"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -55,7 +55,7 @@ HDInsight 클러스터에는 상태 정보를 한눈에 볼 때 미리 정의 �
 
 Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많은 경고를 제공 합니다.
 
-| 경고 이름                        | Description   |
+| 경고 이름                        | 설명   |
 |---|---|
 | DataNode 상태 요약           | 비정상 DataNodes 있는 경우이 서비스 수준 경고가 트리거됩니다.|
 | NameNode 고가용성 상태 | 활성 NameNode 또는 Standby NameNode가 실행 되 고 있지 않으면이 서비스 수준 경고가 트리거됩니다.|
