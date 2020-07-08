@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 6cda0d79166f355fd7346865f2d42d066a3e3690
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757894"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084378"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -114,9 +115,9 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 ### <a name="restrict-user-consent-operations"></a>사용자 승인 작업 제한
 
-다양한 [Azure AD 애플리케이션 동의 환경](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [권한 및 동의 유형](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 조직의 보안 상태에 미치는 영향을 이해하는 것이 중요합니다. 기본적으로 Azure AD의 모든 사용자는 Microsoft ID 플랫폼을 활용하는 애플리케이션에 조직의 데이터에 액세스할 수 있는 권한을 부여할 수 있습니다. 사용자가 스스로 동의할 수 있도록 하여 사용자는 Microsoft 365, Azure 및 기타 서비스와 통합되는 유용한 애플리케이션을 쉽게 획득할 수 있지만, 신중하게 사용하고 모니터링하지 않으면 위험 요소로 작용할 수 있습니다.
+다양한 [Azure AD 애플리케이션 동의 환경](../../active-directory/develop/application-consent-experience.md), [권한 및 동의 유형](../../active-directory/develop/v2-permissions-and-consent.md) 및 조직의 보안 상태에 미치는 영향을 이해하는 것이 중요합니다. 기본적으로 Azure AD의 모든 사용자는 Microsoft ID 플랫폼을 활용하는 애플리케이션에 조직의 데이터에 액세스할 수 있는 권한을 부여할 수 있습니다. 사용자가 스스로 동의할 수 있도록 하여 사용자는 Microsoft 365, Azure 및 기타 서비스와 통합되는 유용한 애플리케이션을 쉽게 획득할 수 있지만, 신중하게 사용하고 모니터링하지 않으면 위험 요소로 작용할 수 있습니다.
 
-노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 [향후 모든 사용자 동의 작업을 사용하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application)는 것이 좋습니다. 최종 사용자 동의를 사용하지 않도록 설정하면 기존 동의 부여는 계속 적용되지만, 이후부터는 모든 동의 작업을 관리자가 수행해야 합니다. 사용자가 통합 [관리자 동의 요청 워크플로](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)를 통해 또는 고유한 지원 프로세스를 통해 관리자 동의를 요청할 수 있습니다. 최종 사용자 동의를 사용하지 않도록 설정하기 전에 [권장 사항](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests)을 사용하여 조직에서 이러한 변경을 계획합니다. 모든 사용자가 액세스할 수 있도록 허용하려는 애플리케이션의 경우에는 [모든 사용자를 대신하여 동의 부여](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)를 고려하여 아직 개별적으로 동의하지 않은 사용자가 앱에 액세스할 수 있도록 합니다. 모든 시나리오에서 이러한 애플리케이션을 모든 사용자가 사용할 수 있도록 하지 않으려면 [애플리케이션 할당](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) 및 조건부 액세스를 사용하여 [특정 앱](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md)에 대한 사용자 액세스를 제한합니다.
+사용자의 동의를 제한 하 여 노출 영역을 줄이고이 위험을 완화 하는 것이 좋습니다. [앱 동의 정책 (미리 보기)](../../active-directory/manage-apps/configure-user-consent.md) 을 사용 하 여 최종 사용자의 동의를 확인 된 게시자로 제한 하 고 선택한 사용 권한에 대해서만 제한할 수도 있습니다. 최종 사용자 동의가 제한 되는 경우 이전 동의 부여는 여전히 적용 되지만 관리자는 이후의 모든 승인 작업을 수행 해야 합니다. 제한 된 경우에는 사용자가 통합 [관리자 동의 요청 워크플로](../../active-directory/manage-apps/configure-admin-consent-workflow.md) 를 통하거나 사용자의 지원 프로세스를 통해 관리자 동의를 요청할 수 있습니다. 최종 사용자의 동의를 제한 하기 전에 [권장 사항을](../../active-directory/manage-apps/manage-consent-requests.md) 사용 하 여 조직에서 이러한 변경을 계획 합니다. 모든 사용자가 액세스할 수 있도록 허용하려는 애플리케이션의 경우에는 [모든 사용자를 대신하여 동의 부여](../../active-directory/develop/v2-admin-consent.md)를 고려하여 아직 개별적으로 동의하지 않은 사용자가 앱에 액세스할 수 있도록 합니다. 모든 시나리오에서 이러한 애플리케이션을 모든 사용자가 사용할 수 있도록 하지 않으려면 [애플리케이션 할당](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) 및 조건부 액세스를 사용하여 [특정 앱](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md)에 대한 사용자 액세스를 제한합니다.
 
 사용자 마찰을 줄이고, 지원 볼륨을 최소화하고, 사용자가 비 Azure AD 자격 증명을 사용하는 애플리케이션에 등록하지 못하도록 하려면 사용자가 새 애플리케이션에 대해 관리자 승인을 요청할 수 있는지 확인합니다. 동의 작업을 제어하고 나면 관리자는 앱 및 동의한 권한을 정기적으로 감사해야 합니다.
 

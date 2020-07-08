@@ -1,5 +1,5 @@
 ---
-title: '자습서: 온라인으로 SQL Server SQL 관리 되는 인스턴스로 마이그레이션'
+title: '자습서: 온라인으로 SQL Server SQL Managed Instance 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Managed Instance로의 온라인 마이그레이션을 수행 하는 방법에 대해 알아봅니다.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 817e1d740ce34704acb4b20a7c3f71807bfa66bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187946"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084225"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인으로 Azure SQL Managed Instance SQL Server 마이그레이션
 
@@ -77,11 +78,11 @@ Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최�
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 * [Azure Portal에서 sql Managed Instance 만들기](https://aka.ms/sqldbmi)문서의 세부 정보에 따라 sql Managed Instance를 만듭니다.
-* 원본 SQL Server와 대상 관리형 인스턴스를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
+* 원본 SQL Server 연결 하는 데 사용 되는 로그인과 대상 SQL Managed Instance가 sysadmin 서버 역할의 멤버 인지 확인 합니다.
 * Azure Database Migration Service가 데이터베이스 마이그레이션에 사용할 수 있는 모든 데이터베이스 전체 데이터베이스 백업 파일과 후속 트랜잭션 로그 백업 파일이 포함된 SMB 네트워크 공유를 제공합니다.
 * 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 * 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장 하 여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드 합니다.
-* Azure Database Migration Service가 대상 Azure Database 관리형 인스턴스 및 Azure Storage 컨테이너에 연결하는 데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+* Azure Database Migration Service 대상 Azure 데이터베이스 Managed Instance 및 Azure Storage 컨테이너에 연결 하는 데 사용할 수 있는 응용 프로그램 ID 키를 생성 하는 Azure Active Directory 응용 프로그램 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
 
   > [!NOTE]
   > Azure Database Migration Service를 사용하려면 지정된 애플리케이션 ID용 구독에 대한 기여자 권한이 필요합니다. 또는 Azure Database Migration Service에 필요한 특정 권한을 부여하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할을 사용 하는 방법에 대 한 단계별 지침은 [SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance)문서를 참조 하세요.
@@ -265,6 +266,6 @@ SQL Managed Instance 대상 인스턴스에서 전체 데이터베이스 백업�
 
 ## <a name="next-steps"></a>다음 단계
 
-* T-sql RESTORE 명령을 사용 하 여 관리 되는 인스턴스로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [restore 명령을 사용 하 여 관리 되는 인스턴스로 백업 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조 하세요.
-* 관리 되는 인스턴스에 대 한 자세한 내용은 관리 되는 [인스턴스 정의](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)를 참조 하세요.
-* 응용 프로그램을 관리 되는 인스턴스에 연결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조 하세요.
+* T-sql RESTORE 명령을 사용 하 여 SQL Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [restore 명령을 사용 하 여 sql Managed Instance 백업 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조 하세요.
+* SQL Managed Instance에 대 한 자세한 내용은 [sql Managed Instance 정의](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)를 참조 하세요.
+* SQL Managed Instance에 앱을 연결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조 하세요.

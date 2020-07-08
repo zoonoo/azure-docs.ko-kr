@@ -11,11 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d5faa08b0b493ac9b7fc03cd15c4747c3e602f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084344"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,11 +43,11 @@ VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터�
 | | 리소스 유형 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 저장소 크기를 최대 100 TB, 빠른 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원으로 자동 크기 조정 합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
-|  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
-| **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀 * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
+|  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |
+| **컴퓨팅 크기**|SQL Database * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | |SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
 | **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
-| **스토리지 크기** | 단일 데이터베이스/탄력적 풀*| 5GB~4TB | 최대 100TB | 5GB~4TB |
+| **스토리지 크기** | SQL Database *| 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
 | | SQL Managed Instance | 파일 크기에 따라 달라 집니다. | 해당 없음 | 1375 IOPS/vCore |

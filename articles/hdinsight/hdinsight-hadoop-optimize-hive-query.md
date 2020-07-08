@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085296"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
@@ -122,7 +122,7 @@ STORED AS TEXTFILE;
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
 
-Hive는 다양한 파일 형식을 지원합니다. 예:
+Hive는 다양한 파일 형식을 지원합니다. 예를 들어:
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예:
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들어:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

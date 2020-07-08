@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919433"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084021"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
 
@@ -47,14 +48,19 @@ ms.locfileid: "77919433"
 
 4. 관리자 권한 명령 프롬프트 인스턴스를 엽니다(관리자 권한으로 실행). 다음 명령을 실행하여 연결된 OS 디스크에 있는 업데이트 패키지의 목록을 가져옵니다.
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     예를 들어 연결된 OS 디스크가 드라이브 F인 경우 다음 명령을 실행합니다.
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. C:\temp\Patch_level.txt 파일을 연 다음, 아래쪽에서 위쪽으로 읽습니다. **설치 보류 중** 또는 **제거 보류 중** 상태에 있는 업데이트를 찾습니다.  다음은 업데이트 상태의 샘플입니다.
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

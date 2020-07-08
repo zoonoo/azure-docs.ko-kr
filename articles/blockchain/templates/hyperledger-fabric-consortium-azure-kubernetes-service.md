@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209711"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085810"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -19,6 +19,18 @@ AKS (Azure Kubernetes Service) 템플릿에서 HLF (Hyperledger Fabric)를 사�
 
 - 하이퍼 원장 패브릭 및 하이퍼 원장 패브릭 blockchain 네트워크의 빌딩 블록을 구성 하는 다양 한 구성 요소에 대 한 실무 지식을 얻습니다.
 - 프로덕션 시나리오를 위해 Azure Kubernetes Service에서 하이퍼 원장 Fabric 컨소시엄을 배포 하 고 구성 하는 방법에 대해 알아봅니다.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Azure 블록 체인 솔루션 선택
+
+솔루션 템플릿을 사용 하도록 선택 하기 전에 시나리오를 사용 가능한 Azure Blockchain 옵션의 일반적인 사용 사례와 비교 합니다.
+
+옵션 | 서비스 모델 | 일반적인 사용 사례
+-------|---------------|-----------------
+솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
+[Azure Blockchain 서비스](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Hyperledger 패브릭 컨소시엄 아키텍처
 
@@ -429,6 +441,6 @@ Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.mic
 
 Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
 
-- [Microsoft Q&Azure Blockchain 서비스에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
+- [Microsoft Q&질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
 - [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

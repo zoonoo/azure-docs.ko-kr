@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195097"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084531"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
@@ -141,7 +141,9 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
     다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
-        com.databricks:spark-csv_2.10:1.4.0
+    ```
+    com.databricks:spark-csv_2.10:1.4.0
+    ```
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Zeppelin Notebook 저장 위치
 
@@ -195,7 +197,7 @@ Ambari에서 서비스의 유효성을 검사 하려면로 이동 `https://CLUST
 
 명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. Command를 사용 하 여 사용자를 zeppelin로 전환 `sudo su zeppelin` 합니다. 상태 명령:
 
-|명령 |Description |
+|명령 |설명 |
 |---|---|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|서비스 상태.|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|서비스 버전입니다.|

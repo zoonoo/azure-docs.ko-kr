@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: SQL 관리 되는 인스턴스로 SQL Server 마이그레이션'
+title: 'PowerShell: SQL Managed Instance SQL Server 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure PowerShell 및 Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Managed Instance로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: caa936e0d61056336d11f58e59ba512b62cd6108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083664"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Managed Instance로 SQL Server 마이그레이션 Azure Database Migration Service
 
@@ -34,7 +35,7 @@ ms.locfileid: "84248654"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 

@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03bd00ad6d0262aeea31b5d3e2c6dd1733090e32
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75922655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082797"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -51,11 +51,11 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 ### <a name="provision-azure-sql-database"></a>Azure SQL Database 프로비전
 
-1. Azure SQL Database를 만듭니다. [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-single-database-get-started.md)를 참조 하세요.
+1. Azure SQL Database를 만듭니다. [Azure Portal에서 Azure SQL Database 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조 하세요.
 
-1. HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다. **서버 방화벽 설정**을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 **Azure 서비스 및 리소스** **에서** Azure SQL Database 서버 또는 데이터베이스에 대 한이 서버에 액세스할 수 있도록 허용을 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
+1. HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다. **서버 방화벽 설정**을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 Azure 서비스 및 리소스 **에서** Azure SQL Database에 대해 **이 서버에 액세스할 수 있도록 허용** 을 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
 
-1. [쿼리 편집기](../sql-database/sql-database-single-database-get-started.md#query-the-database) 를 사용 하 여 다음 SQL 문을 실행 하 여 `dailyflights` 각 파이프라인 실행에서 요약 된 데이터를 저장할 테이블을 만듭니다.
+1. [쿼리 편집기](../azure-sql/database/single-database-create-quickstart.md#query-the-database) 를 사용 하 여 다음 SQL 문을 실행 하 여 `dailyflights` 각 파이프라인 실행에서 요약 된 데이터를 저장할 테이블을 만듭니다.
 
     ```sql
     CREATE TABLE dailyflights
@@ -97,7 +97,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     `http://headnodehost:8080`
 
-1. Ambari 내에서 **Oozie 웹 콘솔** 에 액세스 하려면 **Oozie** > **빠른 링크** > [Active server] > **Oozie 웹 UI**로 이동 합니다.
+1. Ambari 내에서 **Oozie 웹 콘솔** 에 액세스 하려면 **Oozie**  >  **빠른 링크** > [Active server] > **Oozie 웹 UI**로 이동 합니다.
 
 ## <a name="configure-hive"></a>Hive 구성
 
@@ -113,7 +113,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
         scp ./2017-01-FlightData.csv sshuser@CLUSTERNAME-ssh.azurehdinsight.net:2017-01-FlightData.csv
         ```
 
-    1. [Ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. `CLUSTERNAME`을 클러스터의 이름으로 대체하여 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
+    1. [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. `CLUSTERNAME`을 클러스터의 이름으로 대체하여 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
 
         ```cmd
         ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -169,7 +169,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     ![hdi ambari services hive 쿼리](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
-6. `flights` 테이블을 만들려면 쿼리 텍스트 영역의 텍스트를 다음 문으로 바꿉니다. `flights` 테이블은 연도, 월 및 월의 날짜를 기준으로 로드 된 데이터를 분할 하는 Hive 관리 테이블입니다. 이 테이블에는 모든 기록 비행 데이터가 포함되며, 원본 데이터의 최소 단위가 비행마다 하나의 행에 표시됩니다.
+6. `flights` 테이블을 만들려면 쿼리 텍스트 영역의 텍스트를 다음 문으로 바꿉니다. `flights`테이블은 연도, 월 및 월의 날짜를 기준으로 로드 된 데이터를 분할 하는 Hive 관리 테이블입니다. 이 테이블에는 모든 기록 비행 데이터가 포함되며, 원본 데이터의 최소 단위가 비행마다 하나의 행에 표시됩니다.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -209,7 +209,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 이러한 세 단계가 Oozie 워크플로에 의해 조정됩니다.
 
-1. 로컬 워크스테이션에서 라는 `job.properties`파일을 만듭니다. 아래 텍스트를 파일의 시작 콘텐츠로 사용 합니다.
+1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `job.properties` . 아래 텍스트를 파일의 시작 콘텐츠로 사용 합니다.
 그런 다음 특정 환경에 대 한 값을 업데이트 합니다. 텍스트 아래 표에는 각 속성이 요약 되어 있으며, 사용자 환경에 대 한 값을 찾을 수 있는 위치를 나타냅니다.
 
     ```text
@@ -248,7 +248,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     | month | 항공편 요약이 계산되는 날짜의 월 구성 요소입니다. 있는 그대로 둡니다. |
     | 일 | 항공편 요약이 계산되는 날짜의 일 구성 요소입니다. 있는 그대로 둡니다. |
 
-1. 로컬 워크스테이션에서 라는 `hive-load-flights-partition.hql`파일을 만듭니다. 아래 코드를 파일의 내용으로 사용 합니다.
+1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `hive-load-flights-partition.hql` . 아래 코드를 파일의 내용으로 사용 합니다.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -272,9 +272,9 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Oozie 변수는 구문 `${variableName}`을 사용합니다. 이러한 변수는 `job.properties` 파일에 설정 됩니다. Oozie는 런타임에 실제 값을 대체합니다.
+    Oozie 변수는 구문 `${variableName}`을 사용합니다. 이러한 변수는 파일에 설정 됩니다 `job.properties` . Oozie는 런타임에 실제 값을 대체합니다.
 
-1. 로컬 워크스테이션에서 라는 `hive-create-daily-summary-table.hql`파일을 만듭니다. 아래 코드를 파일의 내용으로 사용 합니다.
+1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `hive-create-daily-summary-table.hql` . 아래 코드를 파일의 내용으로 사용 합니다.
 
     ```sql
     DROP TABLE ${hiveTableName};
@@ -300,7 +300,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     이 쿼리는 하루 동안의 요약된 데이터만 저장하고, 평균 시간 지연 및 항공사가 비행한 거리 합계를 일별로 계산하는 SELECT 문을 작성하는 준비 테이블을 만듭니다. 이 테이블에 삽입된 데이터는 다음 단계에서 Sqoop의 원본으로 사용될 수 있도록, 알려진 위치(hiveDataFolder 변수가 나타내는 경로)에 저장되었습니다.
 
-1. 로컬 워크스테이션에서 라는 `workflow.xml`파일을 만듭니다. 아래 코드를 파일의 내용으로 사용 합니다. 위의 이러한 단계는 Oozie 워크플로 파일에서 별도의 작업으로 표현 됩니다.
+1. 로컬 워크스테이션에서 라는 파일을 만듭니다 `workflow.xml` . 아래 코드를 파일의 내용으로 사용 합니다. 위의 이러한 단계는 Oozie 워크플로 파일에서 별도의 작업으로 표현 됩니다.
 
     ```xml
     <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
@@ -378,11 +378,11 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     </workflow-app>
     ```
 
-두 Hive 쿼리는 Azure Storage의 경로에 의해 액세스 되며 나머지 변수 값은 `job.properties` 파일에 의해 제공 됩니다. 이 파일은 2017 년 1 월 3 일에 실행 되도록 워크플로를 구성 합니다.
+두 Hive 쿼리는 Azure Storage의 경로에 의해 액세스 되며 나머지 변수 값은 파일에 의해 제공 됩니다 `job.properties` . 이 파일은 2017 년 1 월 3 일에 실행 되도록 워크플로를 구성 합니다.
 
 ## <a name="deploy-and-run-the-oozie-workflow"></a>Oozie 워크플로 배포 및 실행
 
-Bash 세션`workflow.xml`에서 SCP를 사용 하 여 Oozie workflow (), Hive 쿼리 (`hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql`) 및 작업 구성 (`job.properties`)을 배포 합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 스토리지에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
+Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 쿼리 ( `hive-load-flights-partition.hql` 및 `hive-create-daily-summary-table.hql` ) 및 작업 구성 ()을 배포 `job.properties` 합니다.  Oozie에서는 `job.properties` 파일만 헤드 노드의 로컬 스토리지에 있을 수 있습니다. 다른 모든 파일은 HDFS(이 경우 Azure Storage)에 저장되어야 합니다. 워크플로에서 사용되는 Sqoop 작업은 SQL Database와 통신하기 위한 JDBC 드라이버에 따라 달라지며, 헤드 노드에서 HDFS로 복사되어야 합니다.
 
 1. 헤드 노드의 로컬 스토리지에 있는 사용자의 경로 아래의 `load_flights_by_day` 하위 폴더를 만듭니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
 
@@ -404,7 +404,7 @@ Bash 세션`workflow.xml`에서 SCP를 사용 하 여 Oozie workflow (), Hive �
     hdfs dfs -put ./* /oozie/load_flights_by_day
     ```
 
-1. 로컬 `mssql-jdbc-7.0.0.jre8.jar` 헤드 노드에서 HDFS의 워크플로 폴더로 복사 합니다. 클러스터에 다른 jar 파일이 포함 되어 있는 경우 필요에 따라 명령을 수정 합니다. 다른 `workflow.xml` jar 파일을 반영 하기 위해 필요에 따라 수정 합니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
+1. `mssql-jdbc-7.0.0.jre8.jar`로컬 헤드 노드에서 HDFS의 워크플로 폴더로 복사 합니다. 클러스터에 다른 jar 파일이 포함 되어 있는 경우 필요에 따라 명령을 수정 합니다. `workflow.xml`다른 jar 파일을 반영 하기 위해 필요에 따라 수정 합니다. 열려 있는 ssh 세션에서 다음 명령을 실행 합니다.
 
     ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /oozie/load_flights_by_day
@@ -422,7 +422,9 @@ Bash 세션`workflow.xml`에서 SCP를 사용 하 여 Oozie workflow (), Hive �
 
 1. 상태가 성공 이면 SQL Database 테이블을 쿼리하여 삽입 된 행을 확인 합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구**를 선택하고 **쿼리 편집기**를 엽니다.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 워크플로가 단일 테스트 일에 대해 실행되므로, 이 워크플로를 매일 실행되도록 예약하는 코디네이터로 래핑할 수 있습니다.
 
@@ -505,7 +507,7 @@ Bash 세션`workflow.xml`에서 SCP를 사용 하 여 Oozie workflow (), Hive �
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서 코디네이터는 2017 년 1 월 1 일에서 2017 년 1 월 5 일로 작업을 실행 하도록 구성 되어 있습니다. 빈도는 [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency 식 `${coord:days(1)}`으로 1 일로 설정 됩니다. 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간*이라고 합니다. 예를 들어 2017 년 1 월 1 일에 대 한 데이터를 처리 하기 위해 코디네이터는 명목상 시간 2017-01-01T00:00:00 GMT로 작업을 예약 합니다.
+    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서 코디네이터는 2017 년 1 월 1 일에서 2017 년 1 월 5 일로 작업을 실행 하도록 구성 되어 있습니다. 빈도는 [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency 식으로 1 일로 설정 됩니다 `${coord:days(1)}` . 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간*이라고 합니다. 예를 들어 2017 년 1 월 1 일에 대 한 데이터를 처리 하기 위해 코디네이터는 명목상 시간 2017-01-01T00:00:00 GMT로 작업을 예약 합니다.
 
 * 핵심 사항 2: 워크플로의 날짜 범위 내에서 `dataset` 요소는 HDFS에서 특정 날짜 범위의 데이터를 조회할 위치를 지정하고, Oozie가 처리를 위해 해당 데이터를 사용할 수 있는지 여부를 확인하는 방법을 구성합니다.
 

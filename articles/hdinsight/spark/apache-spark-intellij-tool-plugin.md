@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314153"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085347"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -98,7 +98,7 @@ Scala 플러그 인을 설치 하는 단계:
 
 9. 다음 단계를 수행 하 여 응용 프로그램 소스 코드를 추가 합니다.
 
-    a. Project에서 **myApp** > **src** > **main** > **scala**로 이동 합니다.  
+    a. Project에서 **myApp**  >  **src**  >  **main**  >  **scala**로 이동 합니다.  
 
     b. 마우스 오른쪽 단추로 **scala**를 클릭하고 **새로 만들기** > **Scala 클래스**로 이동합니다.
 
@@ -262,7 +262,7 @@ Azure Toolkit for IntelliJ를 사용 하 여 다양 한 작업을 수행할 수 
 
 ### <a name="access-the-job-view"></a>작업 보기 액세스
 
-1. Azure 탐색기에서 **HDInsight** > \<클러스터> > **작업**으로 이동 합니다.
+1. Azure 탐색기에서 **HDInsight**작업으로 이동  >  \<Your Cluster>  >  **Jobs**합니다.
 
     ![IntelliJ Azure Explorer 작업 보기 노드](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
@@ -313,7 +313,7 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** > **[HDInsight의 Spark] myApp**으로 이동합니다.
 
-3. 주 창에서 **`Locally Run`** 탭을 선택 합니다.
+3. 주 창에서 탭을 선택 **`Locally Run`** 합니다.
 
 4. 다음 값을 입력하고 **확인**을 선택합니다.
 
@@ -345,7 +345,7 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** > **[HDInsight의 Spark] myApp**으로 이동합니다.
 
-3. 주 창에서 **`Remotely Run in Cluster`** 탭을 선택 합니다.
+3. 주 창에서 탭을 선택 **`Remotely Run in Cluster`** 합니다.
 
 4. 다음 값을 입력하고 **확인**을 선택합니다.
 
@@ -446,19 +446,19 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolkit for IntelliJ와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 애플리케이션을 제출할 수 있습니다.
 
-1. IntelliJ 아이디어를 통해 만든 기존 Spark Scala 응용 프로그램의 경우 연결 `.iml` 된 파일을 엽니다.
+1. IntelliJ 아이디어를 통해 만든 기존 Spark Scala 응용 프로그램의 경우 연결 된 파일을 엽니다 `.iml` .
 
 2. 루트 수준에서는 다음 텍스트와 같은 **module** 요소입니다.
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+    ```
 
    요소를 편집 하 여 `UniqueKey="HDInsightTool"` **module** 요소가 다음 텍스트와 같이 표시 되도록 합니다.
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+    ```
 
 3. 변경 내용을 저장합니다. 이제 애플리케이션이 Azure Toolkit for IntelliJ와 호환됩니다. 프로젝트에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 애플리케이션 제출** 옵션이 표시됩니다.
 

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084331"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -46,7 +47,9 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
     또한 다음 쿼리를 실행하면 이러한 오류에 대해 살펴보는 데 직렬 액세스 콘솔 기능을 사용할 수 있습니다. 
 
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+    ```console
+   wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+    ```
 
 ## <a name="cause"></a>원인
  
@@ -93,7 +96,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    ```
 8. 서비스가 시작에 실패하는 경우 수신한 오류에 따라 솔루션을 수행합니다.
 
-    |  Error |  제안 해결 방법 |
+    |  오류 |  제안 해결 방법 |
     |---|---|
     |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termservice-service-is-stopped-because-of-an-access-denied-problem)을 참조하세요. |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |[TermService 서비스를 사용 하지 않도록 설정을](#termservice-service-is-disabled)참조 하세요.  |  
@@ -178,22 +181,37 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 1. 이 문제는 이 서비스의 시작 계정이 변경된 경우 발생합니다. 이를 다시 기본값으로 변경합니다. 
 
-        sc config TermService obj= 'NT Authority\NetworkService'
+    ```console
+    sc config TermService obj= 'NT Authority\NetworkService'
+    ```
+
 2. 서비스를 시작합니다.
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 3. 원격 데스크톱을 사용하여 VM에 연결을 시도합니다.
 
 #### <a name="termservice-service-crashes-or-hangs"></a>TermService 서비스가 충돌 또는 중단
 1. 서비스 상태가 **시작하는 중** 또는 **중지하는 중**인 경우 서비스 중지를 시도합니다. 
 
-        sc stop TermService
+    ```console
+    sc stop TermService
+    ```
+
 2. 자체 ‘svchost’ 컨테이너에서 서비스를 격리합니다.
 
-        sc config TermService type= own
+    ```console
+    sc config TermService type= own
+    ```
+
 3. 서비스를 시작합니다.
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 4. 서비스를 계속 시작할 수 없는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구

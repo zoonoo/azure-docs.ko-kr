@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market 서비스 - 상업용 Marketplace 혜택 | Azure Marketplace
+title: 시장 출시 서비스-상용 marketplace 혜택, Azure Marketplace
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: article
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800510"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085687"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -26,7 +26,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 
 이 프로그램은 긍정적인 피드백 순환 고리를 만듭니다. 각 성장 단계의 혜택이 다음 단계로 나아가도록 설계되어 상업용 Marketplace를 플랫폼으로 활용하여 Microsoft의 분야 및 Microsoft의 채널을 통해 비즈니스를 Microsoft 고객으로 성장시킬 수 있습니다. 
 
-혜택은 제품이 [목록, 평가판 또는 거래](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)인지에 따라 구별됩니다.
+혜택은 제품이 [목록, 평가판 또는 거래](determine-your-listing-type.md#choose-a-publishing-option)인지에 따라 구별됩니다.
 
 자격 조건에 따라 제품이 게시되면 Rewards 팀의 구성원이 연락을 드릴 것입니다. 
 
@@ -41,7 +41,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 시작하는 단계는 간단합니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시합니다.
-2. 파트너 센터 [대시보드](https://partner.microsoft.com/dashboard/directory)로 이동하여 Marketplace Rewards 페이지에서 **영업 및 마케팅 혜택** 탭을 선택해 혜택 목록을 확인합니다.
+2. 파트너 센터 [대시보드](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)로 이동 하 여 왼쪽 탐색 메뉴에서 **상업적 마켓플레이스** 를 열고 **Marketplace 보상**을 선택한 다음 **영업 및 마케팅 혜택** 탭을 선택 하 여 혜택 목록을 봅니다.
 3. 영업 및 마케팅 혜택을 활성화하려면 먼저 회사 마케팅 담당자를 할당해야 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
 4. 마케팅 담당자 정보를 추가하거나 업데이트하려면 Marketplace Rewards 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경**을 선택합니다.  다음으로, 아래 작업을 수행합니다.
 
@@ -55,7 +55,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 1. 기술 혜택을 사용하면 클라우드 및 하이브리드 솔루션의 예약 판매, 디자인, 배포 및 앱 개발 단계 중에 기술 지원을 요청할 수 있습니다. 지원을 요청하려면 요청 양식을 입력한 다음 **요청 제출**을 선택합니다.
 2. Azure 스폰서쉽 혜택을 활용하는 방법은 이러한 혜택의 누릴 수 있을 때 전자 메일을 통해 공유됩니다.
 
->[!Note]
+>[!NOTE]
 >제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출할 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항과 프로모션 정보를 받게 됩니다.
@@ -74,7 +74,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 
 Azure Marketplace 또는 Microsoft AppSource에서 거래 가능한 제품을 게시하는 경우 상업용 Marketplace를 통해 판매되는 청구된 판매 거래 또는 사용자를 늘리면 추가 혜택을 이용할 수 있습니다. 
 
->[!Note]
+>[!NOTE]
 >판매된 사용자 임계값은 Microsoft 365 앱(Microsoft Teams, Office, Outlook 또는 SharePoint와 통합된 SaaS 애플리케이션)에만 적용되고 혜택은 2020년 6월 30일까지 완료되어야 합니다.
 
 이러한 혜택은 마케팅, 영업 및 기술 활동을 지원하도록 설계되었으므로, 더 많은 방문자를 확보하고 더 많은 잠재 고객을 얻으며 더 많은 비즈니스를 전환하는 데 도움을 받을 수 있습니다.
@@ -101,14 +101,14 @@ Rewards 혜택 외에도, Microsoft AppSource에 게시된 Dynamics 제품을 �
 
 ### <a name="cancellation-policy"></a>취소 정책
 
-[목록 및 평가판](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) 게시자는 제품 게시별 활동을 옵트인하거나 옵트아웃할 수 있습니다. 파트너는 언제든지 참여를 옵트아웃할 수 있습니다. 
+[목록 및 평가판](determine-your-listing-type.md) 게시자는 제품 게시별 활동을 옵트인하거나 옵트아웃할 수 있습니다. 파트너는 언제든지 참여를 옵트아웃할 수 있습니다. 
 
 Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 철회 및 종료할 수 있는 권리를 보유합니다. 
 
-* Marketplace 목록을 사용하여 불법 행위에 가담하는 경우
-* 상업용 Marketplace 목록에서 제외된 경우 
-* 제품을 사용해 저작권법 또는 상표법을 위반하는 마케팅이나 기타 콘텐츠를 표시하는 경우
-* 자체 내부 작업 또는 비트코인 마이닝용으로 Azure 스폰서쉽을 사용하는 등 [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반하는 경우
+* Marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
+* 는 상업적 marketplace에서 나열 되지 않습니다. 
+* 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
+* 자체 내부 작업 또는 Bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다.
 
 ### <a name="offer-availability"></a>제품 가용성
 
@@ -123,5 +123,3 @@ Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 
 [제공되는 셀프 서비스 리소스](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)를 검토합니다.
 
 [Microsoft AppSource 및 Azure Marketplace 커뮤니티 포럼](https://aka.ms/MarketplaceCommunity)에 등록하고 관련 항목에 대해 알아보거나 토론에 참여하세요.
-
----

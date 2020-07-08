@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70c1b35759241c2fdf687e7b7042cf4a18232bf5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945378"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085500"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "84945378"
 [리소스 그룹용 Azure Monitor(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
 | [Storage용 Azure Monitor](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
 | [VM용 Azure Monitor](insights/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
-| [Key Vault용 Azure Monitor(미리 보기)](insights/key-vaults-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다. |
+| [Key Vault용 Azure Monitor(미리 보기)](insights/key-vaults-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다. |
 | [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
 
 
@@ -141,32 +141,32 @@ ms.locfileid: "84945378"
 |Private Link | 예 | 예 | 예 |  |
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
-|Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
+|Redis Cache | Yes | 예 | [예](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | 아니요 | 아니요 | 아니요 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
-|검색 | 예 | 예 | 예 |  |
+|검색 | Yes | Yes | 예 |  |
 |Service Bus | 예 | 예 | 예 |  |
-|Service Fabric | 아니요 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
+|Service Fabric | No | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
 |등록 포털 | 아니요 | 예 | 아니요 |  |
-|Site Recovery | 예 | 예 | 예 |  |
+|Site Recovery | 예 | Yes | 예 |  |
 |Spring Cloud Service | 예 | 아니요 | 예 |  |
-|SQL Data Warehouse | 예 | 예 | 예 |  |
+|SQL Data Warehouse | Yes | Yes | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
 |스택 | 아니요 | 아니요 | 예 |  |
-|스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
+|스토리지 | Yes | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 아니요 | 예 | 아니요 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
-|Stream Analytics | 예 | 예 | 예 |  |
+|Stream Analytics | Yes | Yes | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
 |TINA | 아니요 | 아니요 | 예 |  |
-|Traffic Manager | 예 | 예 | 예 |  |
+|Traffic Manager | Yes | Yes | 예 |  |
 |유니버설 인쇄 | 아니요 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
-|Virtual Network - NSG 흐름 로그 | 아니요 | 예 | 예 |  |
+|Virtual Network - NSG 흐름 로그 | No | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
 |Windows Virtual Desktop | 아니요 | 아니요 | 예 |  |
 
@@ -184,7 +184,7 @@ ms.locfileid: "84945378"
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune에서 스토리지, 이벤트 허브 또는 로그 분석으로 로그 데이터 전송(미리 보기)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)을 참조하세요.  |
 | 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](/azure/network-watcher/traffic-analytics) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
 | [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
-| [SQL Analytics](insights/azure-sql.md) | 여러 구독 간에 대규모로 Azure SQL 데이터베이스, 탄력적 풀 및 관리형 인스턴스의 성능을 모니터링합니다. |
+| [SQL Analytics](insights/azure-sql.md) | 여러 구독에서 규모에 상관 없이 Azure SQL Database 및 SQL 관리 되는 인스턴스의 성능을 모니터링 합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 디바이스의 상태와 사용 현황을 추적합니다. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Operations Manager 에이전트에서 관리 그룹을 Azure Monitor에 연결하여 데이터를 수집합니다. [Azure Monitor에 Operations Manager 연결](platform/om-agents.md)을 참조하세요.<br> [Operations Manager 평가](insights/scom-assessment.md) 솔루션을 사용하여 System Center Operations Manager 관리 그룹의 위험 및 상태를 평가합니다. |
 | [Microsoft Teams 대화방](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Microsoft Teams 대화방 디바이스의 통합된 엔드투엔드 관리입니다. |

@@ -1,6 +1,6 @@
 ---
 title: IP 방화벽 규칙
-description: Azure SQL Database 또는 Azure Synapse Analytics 방화벽에서 데이터베이스에 대 한 서버 수준 IP 방화벽 규칙을 구성 합니다. 단일 또는 풀링된 데이터베이스에 대 한 액세스를 관리 하 고 데이터베이스 수준 IP 방화벽 규칙을 구성 합니다.
+description: Azure SQL Database 또는 Azure Synapse Analytics 방화벽에서 데이터베이스에 대 한 서버 수준 IP 방화벽 규칙을 구성 합니다. SQL Database에 대 한 액세스를 관리 하 고 데이터베이스 수준 IP 방화벽 규칙을 구성 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976815"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085109"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

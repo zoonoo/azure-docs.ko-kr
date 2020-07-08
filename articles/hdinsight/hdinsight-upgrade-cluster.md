@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3bfd430023330d3a399a0a760fd353b6ee60941
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085891"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>HDInsight 클러스터를 최신 버전으로 마이그레이션
 
@@ -51,7 +51,7 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 
 ## <a name="backup-and-restore"></a>백업 및 복원
 
-데이터베이스 백업 및 복원에 대 한 자세한 내용은 [자동화 된 데이터베이스 백업을 사용 하 여 AZURE SQL Database 복구](../sql-database/sql-database-recovery-using-backups.md)를 참조 하세요.
+데이터베이스 백업 및 복원에 대 한 자세한 내용은 [자동화 된 데이터베이스 백업을 사용 하 여 Azure SQL Database에서 데이터베이스 복구](../azure-sql/database/recovery-using-backups.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

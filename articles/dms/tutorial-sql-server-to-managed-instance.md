@@ -1,5 +1,5 @@
 ---
-title: '자습서: SQL 관리 되는 인스턴스로 SQL Server 마이그레이션'
+title: '자습서: SQL Managed Instance SQL Server 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Managed Instance로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247447"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085534"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Managed Instance 오프 라인으로 SQL Server 마이그레이션
 
@@ -60,7 +61,7 @@ Azure Database Migration Service를 사용 하 여 SQL Server 인스턴스에서
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 - [Azure Portal에서 sql Managed Instance 만들기](https://aka.ms/sqldbmi)문서의 세부 정보에 따라 sql Managed Instance를 만듭니다.
-- 원본 SQL Server와 대상 관리되는 인스턴스를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
+- 원본 SQL Server 및 대상 SQL Managed Instance 연결 하는 데 사용 되는 로그인이 sysadmin 서버 역할의 멤버 인지 확인 합니다.
 
     >[!NOTE]
     >기본적으로 Azure Database Migration Service는 SQL 로그인의 마이그레이션만 지원 합니다. 그러나 다음을 수행 하 여 Windows 로그인을 마이그레이션하는 기능을 사용 하도록 설정할 수 있습니다.
@@ -112,7 +113,7 @@ Azure Database Migration Service를 사용 하 여 SQL Server 인스턴스에서
 
     Azure Portal에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 가상 네트워크 만들기](https://aka.ms/DMSVnet)문서를 참조 하세요.
 
-    자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL DB 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지](https://aka.ms/dmsnetworkformi) 문서를 참조하세요.
+    자세한 내용은 [Azure Database Migration Service를 사용 하 여 AZURE SQL Managed Instance 마이그레이션의 네트워크 토폴로지](https://aka.ms/dmsnetworkformi)문서를 참조 하세요.
 
 6. 가격 책정 계층을 선택합니다.
 
@@ -244,6 +245,6 @@ Azure Database Migration Service를 사용 하 여 SQL Server 인스턴스에서
 
 ## <a name="next-steps"></a>다음 단계
 
-- T-sql RESTORE 명령을 사용 하 여 관리 되는 인스턴스로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [restore 명령을 사용 하 여 관리 되는 인스턴스로 백업 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조 하세요.
-- 관리 되는 인스턴스에 대 한 자세한 내용은 관리 되는 [인스턴스 정의](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)를 참조 하세요.
-- 응용 프로그램을 관리 되는 인스턴스에 연결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조 하세요.
+- T-sql RESTORE 명령을 사용 하 여 SQL Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [restore 명령을 사용 하 여 sql Managed Instance 백업 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조 하세요.
+- SQL Managed Instance에 대 한 자세한 내용은 [sql Managed Instance 정의](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)를 참조 하세요.
+- SQL Managed Instance에 앱을 연결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조 하세요.

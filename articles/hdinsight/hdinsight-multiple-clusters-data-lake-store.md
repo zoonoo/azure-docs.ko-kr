@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495753"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083953"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
 
@@ -44,7 +44,7 @@ HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려�
 - **서비스 주체**는 계정과 연결된 AAD(Azure Active Directory) 서비스 주체입니다.
 - **FINGRP**는 재무 부서의 사용자를 포함하는 AAD에서 만든 사용자 그룹입니다.
 
-AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 애플리케이션을 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 애플리케이션을 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 몇 가지 고려할 주요 사항은 다음과 같습니다.
 
@@ -79,7 +79,9 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
 이러한 설정은 [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247)에서 캡처된 하나의 특정 HDInsight 사용 사례에 영향을 줄 것으로 알려졌습니다. 작업 제출은 다음과 유사한 오류 메시지와 함께 실패할 수 있습니다.
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 이전에 연결된 YARN JIRA에 명시된 대로 공용 리소스를 지역화하는 동안 지역화 담당자는 원격 파일 시스템에서 해당 사용 권한을 확인하여 요청된 모든 리소스가 실제로 공용인지 확인합니다. 해당 조건에 맞지 않는 모든 LocalResource는 지역화에 대해 거부 됩니다. 사용 권한에 대한 확인은 "다른 사용자"에 대한 파일에 읽기 액세스를 포함합니다. 이 시나리오는 Azure Data Lake에서 HDInsight 클러스터를 호스트 하는 경우 기본적으로 작동 하지 않습니다. Azure Data Lake는 루트 폴더 수준에서 "다른 사용자"에 대 한 모든 액세스를 거부 하기 때문입니다.
 
@@ -87,7 +89,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
 계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 - [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)

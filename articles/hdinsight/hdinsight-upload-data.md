@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190642"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085874"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
 HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop 분산 파일 시스템)를 제공 합니다. 이 저장소는 Gen1 및 Gen2를 포함 합니다. Azure Storage 및 Data Lake Storage Gen1 및 Gen2는 HDFS 확장으로 설계 되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리 하는 데이터에 대해 직접 작동할 수 있습니다. Azure Storage, Data Lake Storage Gen1 및 Gen2는 별개의 파일 시스템입니다. 시스템은 데이터를 저장 하 고 해당 데이터를 계산 하는 데 최적화 되어 있습니다. Azure Storage 사용의 이점에 대 한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조 하세요. 또한 HDInsight에서 [Data Lake Storage Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)및 [Hdinsight에서 Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 요구 사항을 확인하세요.
 
@@ -40,7 +40,7 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 | [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Hadoop 명령](#hadoop-command-line) |✔ |✔ |✔ |
 
 > [!NOTE]  
@@ -58,15 +58,15 @@ Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-lin
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-예를 들어 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+예를 들면 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`과 같습니다.
 
-HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로 실제로/example/data/data.txt은 Azure Storage입니다. 파일이 다음과 같을 수도 있습니다.
+HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/data/data.txt 실제로는 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
 또는
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 파일에 사용 되는 다른 Hadoop 명령 목록은 다음을 참조 하세요.[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -96,9 +96,9 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 Azure Data Factory 서비스는 데이터를 작성 하기 위한 완전히 관리 되는 서비스로, 저장소, 처리 및 이동 서비스를 간소화 되 고, 조정 가능 하며, 신뢰할 수 있는 데이터 프로덕션 파이프라인으로 만듭니다.
 
-|스토리지 유형|문서화|
+|스토리지 유형|설명서|
 |----|----|
-|Azure Blob 스토리지|[Azure Data Factory를 사용 하 여 Azure Blob storage 간 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
+|Azure Blob 스토리지|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

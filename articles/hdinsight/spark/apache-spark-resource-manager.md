@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 3aab89f86dcd48328771cd0fda03d1c9de4bc2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932102"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085194"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리
 
@@ -34,7 +34,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
     ![YARN UI 시작](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari ui에서 **YARN** > **빠른 링크** > **활성** > **리소스 관리자 UI**로 이동 합니다.
+   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari ui에서 **YARN**  >  **빠른 링크**  >  **활성**  >  **리소스 관리자 UI**로 이동 합니다.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Spark 애플리케이션에 대해 클러스터 최적화
 
@@ -44,7 +44,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari UI를 사용하여 매개 변수 변경
 
-1. Ambari UI에서 **Spark2** > **Configs** > **Custom Spark2-defaults**로 이동 합니다.
+1. Ambari UI에서 **Spark2**  >  **Configs**  >  **Custom Spark2-defaults**로 이동 합니다.
 
     ![Ambari 사용자 지정을 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ambari 사용자 지정을 사용 하 여 매개 변수 설정")
 
@@ -62,8 +62,10 @@ Jupyter notebook에서 실행 중인 애플리케이션의 경우 `%%configure` 
 
 다음 코드 조각에서는 Jupyter에서 실행 중인 애플리케이션에 대한 구성을 변경하는 방법을 보여줍니다.
 
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```scala
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```
 
 구성 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다.
 
@@ -71,25 +73,29 @@ Jupyter notebook에서 실행 중인 애플리케이션의 경우 `%%configure` 
 
 다음 명령은 `spark-submit`을 사용하여 제출된 배치 애플리케이션에 대한 구성 매개 변수를 변경하는 방법의 예제입니다.
 
-    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```scala
+spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>cURL을 사용하여 제출된 애플리케이션에 대한 매개 변수 변경
 
 다음 명령은 cURL을 사용하여 제출된 배치 애플리케이션에 대한 구성 매개 변수를 변경하는 방법의 예제입니다.
 
-    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```bash
+curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Spark Thrift 서버에서 이러한 매개 변수 변경
 
 Spark Thrift 서버에서는 Spark 클러스터에 대한 JDBC/ODBC 액세스를 제공하고 Spark SQL 쿼리를 제공하는 데 사용됩니다. Power BI, Tableau 등과 같은 도구를 사용 하 여 spark SQL 쿼리를 spark 응용 프로그램으로 실행 하기 위해 Spark Thrift 서버와 통신 하는 데 ODBC 프로토콜을 사용 합니다. Spark 클러스터를 만들 경우 Spark Thrift 서버에서 각 헤드 노드에 하나씩 두 개의 인스턴스를 시작합니다. 각 Spark Thrift 서버는 YARN UI에서 Spark 애플리케이션으로 표시됩니다.
 
-Spark Thrift 서버는 Spark 동적 실행자 할당을 사용 하므로 `spark.executor.instances` 이 사용 되지 않습니다. 대신 Spark Thrift 서버는 `spark.dynamicAllocation.maxExecutors` 및 `spark.dynamicAllocation.minExecutors`을 사용하여 실행자 수를 지정합니다. 구성 매개 변수 `spark.executor.cores`및 `spark.executor.memory` 는 실행자 크기를 수정 하는 데 사용 됩니다. 다음 단계와 같이 이러한 매개 변수를 변경할 수 있습니다.
+Spark Thrift 서버는 Spark 동적 실행자 할당을 사용 하므로이 `spark.executor.instances` 사용 되지 않습니다. 대신 Spark Thrift 서버는 `spark.dynamicAllocation.maxExecutors` 및 `spark.dynamicAllocation.minExecutors`을 사용하여 실행자 수를 지정합니다. 구성 매개 변수 `spark.executor.cores` 및는 `spark.executor.memory` 실행자 크기를 수정 하는 데 사용 됩니다. 다음 단계와 같이 이러한 매개 변수를 변경할 수 있습니다.
 
-* **고급 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 변수 `spark.dynamicAllocation.maxExecutors`및 `spark.dynamicAllocation.minExecutors`를 업데이트 합니다.
+* **고급 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 변수 및를 업데이트 합니다 `spark.dynamicAllocation.maxExecutors` `spark.dynamicAllocation.minExecutors` .
 
     ![Spark Thrift 서버 구성](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Spark Thrift 서버 구성")
 
-* **사용자 지정 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 `spark.executor.cores`변수 및 `spark.executor.memory`를 업데이트 합니다.
+* **사용자 지정 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 변수 및를 업데이트 합니다 `spark.executor.cores` `spark.executor.memory` .
 
     ![Spark thrift 서버 매개 변수 구성](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Spark thrift 서버 매개 변수 구성")
 
@@ -97,7 +103,7 @@ Spark Thrift 서버는 Spark 동적 실행자 할당을 사용 하므로 `spark.
 
 Spark Thrift 서버 드라이버 메모리는 헤드 노드 RAM 크기의 25%로 구성되어 제공된 헤드 노드의 총 RAM 크기는 14GB보다 큽니다. 다음 스크린샷에 표시된 대로 Ambari UI를 사용하여 드라이버 메모리 구성을 변경할 수 있습니다.
 
-Ambari UI에서 **Spark2** > **Configs** > **Advanced Spark2**로 이동 합니다. 그런 다음 **spark_thrift_cmd_opts**에 대 한 값을 제공 합니다.
+Ambari UI에서 **Spark2**  >  **Configs**  >  **Advanced Spark2**로 이동 합니다. 그런 다음 **spark_thrift_cmd_opts**에 대 한 값을 제공 합니다.
 
 ## <a name="reclaim-spark-cluster-resources"></a>Spark 클러스터 리소스 확보
 
@@ -140,7 +146,7 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 
     ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 
