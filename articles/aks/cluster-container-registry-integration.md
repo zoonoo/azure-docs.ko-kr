@@ -5,16 +5,16 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 514cc25e1959145c65fe60cd3054cec4ed28f44d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa2b82e70b1a1372076483c7405c32b66da377af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974435"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
-AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 Azure 서비스 간의 인증을 구성 하는 예제를 제공 합니다. 
+AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 작업은 ACR에 필요한 권한을 부여 하 여 CLI 및 포털 환경의 일부로 구현 됩니다. 이 문서에서는 이러한 두 Azure 서비스 간의 인증을 구성 하는 예제를 제공 합니다. 
 
 Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다. 이 통합은 AKS 클러스터에 연결 된 서비스 주체에 AcrPull 역할을 할당 합니다.
 
@@ -23,7 +23,7 @@ Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS�
 이러한 예제에는 다음이 필요합니다.
 
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
-* Azure CLI 버전 2.0.73 이상
+* Azure CLI 버전 합니다 이상
 
 **소유자** 또는 **Azure 계정 관리자** 역할이 필요 하지 않도록 하려면 서비스 주체를 수동으로 구성 하거나 기존 서비스 주체를 사용 하 여 AKS에서 ACR을 인증할 수 있습니다. 자세한 내용은 [서비스 주체를 사용하여 ACR 인증](../container-registry/container-registry-auth-service-principal.md) 또는 [끌어오기 비밀을 사용하여 Kubernetes에서 인증](../container-registry/container-registry-auth-kubernetes.md)을 참조하세요.
 
@@ -33,7 +33,7 @@ AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
-$MYACR=myContainerRegistry
+MYACR=myContainerRegistry
 
 # Run the following line to create an Azure Container Registry if you do not already have one
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
@@ -142,6 +142,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### <a name="troubleshooting"></a>문제 해결
+* [ACR 진단](../container-registry/container-registry-diagnostics-audit-logs.md) 에 대 한 자세한 정보
+* [ACR 상태](../container-registry/container-registry-check-health.md) 에 대 한 자세한 정보
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create

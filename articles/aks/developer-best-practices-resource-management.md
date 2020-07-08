@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976068"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
 
@@ -76,9 +76,7 @@ spec:
 
 **모범 사례 가이드** - 개발 팀은 Dev Spaces를 사용하여 AKS 클러스터에서 배포 및 디버그해야 합니다. 이 개발 모델에서는 앱이 프로덕션 환경에 배포되기 전에 역할 기반 액세스 제어, 네트워크 또는 스토리지 요구 사항이 구현되도록 합니다.
 
-Azure Dev Spaces를 사용하면 AKS 클러스터에서 직접 애플리케이션을 개발, 디버그 및 테스트합니다. 팀 내의 개발자들은 애플리케이션 수명 주기 내내 함께 빌드하고 테스트합니다. Visual Studio 또는 Visual Studio Code와 같은 기존 도구를 계속 사용할 수 있습니다. 확장은 AKS 클러스터에서 애플리케이션을 실행하고 디버그하는 옵션을 제공하는 Dev Spaces용으로 설치됩니다.
-
-![Dev Spaces를 사용하여 AKS 클러스터에서 애플리케이션 디버그](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Azure Dev Spaces를 사용하면 AKS 클러스터에서 직접 애플리케이션을 개발, 디버그 및 테스트합니다. 팀 내의 개발자들은 애플리케이션 수명 주기 내내 함께 빌드하고 테스트합니다. Visual Studio 또는 Visual Studio Code와 같은 기존 도구를 계속 사용할 수 있습니다. AKS 클러스터에서 응용 프로그램을 실행 하 고 디버그 하는 옵션을 제공 하는 개발 공간에 대해 확장이 설치 됩니다.
 
 Dev Spaces를 사용하는 이 통합 개발 및 테스트 프로세스를 적용하면 로컬 테스트 환경(예: [minikube][minikube])의 필요성이 줄어듭니다. 대신 AKS 클러스터에서 개발하고 테스트합니다. 네임스페이스를 사용하여 클러스터를 논리적으로 격리하는 방법에 대한 이전 섹션의 설명대로 이 클러스터를 보호 및 격리할 수 있습니다. 앱을 프로덕션 환경에 배포할 준비가 되면 실제 AKS 클러스터에서 배포가 모두 완료되었으므로 자신 있게 배포할 수 있습니다.
 
@@ -98,7 +96,7 @@ Azure Dev Spaces은 Linux pod 및 노드에서 실행 되는 응용 프로그램
 
 [Kube-advisor][kube-advisor] 도구는 Kubernetes 클러스터를 검색 하 고 발견 된 문제를 보고 하는 연결 된 AKS 오픈 소스 프로젝트입니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
 
-Kube-advisor 도구는 Linux 응용 프로그램 뿐만 아니라 Windows 응용 프로그램에 대해 PodSpecs에 누락 된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube 도구 자체는 Linux pod에서 예약 해야 합니다. Pod 구성에서 [노드 선택기][k8s-node-selector] 를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 pod를 예약할 수 있습니다.
+Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플리케이션용 PodSpecs에서 누락된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube-advisor 도구 자체는 Linux Pod에서 예약해야 합니다. Pod의 구성에서 [노드 선택기][k8s-node-selector]를 사용하여 특정 OS가 있는 노드 풀에서 실행되도록 Pod를 예약할 수 있습니다.
 
 많은 개발 팀과 애플리케이션을 호스트하는 AKS 클러스터에서는 이러한 리소스 요청 및 한도가 설정되지 않은 Pod를 추적하기 어려울 수 있습니다. AKS 클러스터에서 `kube-advisor`를 정기적으로 실행하는 것이 좋습니다.
 
@@ -119,7 +117,7 @@ Kube-advisor 도구는 Linux 응용 프로그램 뿐만 아니라 Windows 응용
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

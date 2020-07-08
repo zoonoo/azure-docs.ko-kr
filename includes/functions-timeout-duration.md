@@ -9,15 +9,15 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77198329"
 ---
 ## <a name="function-app-timeout-duration"></a><a name="timeout"></a>함수 앱 시간 제한 기간 
 
-함수 앱의 제한 시간은 `functionTimeout` [호스트 json](../articles/azure-functions/functions-host-json.md#functiontimeout) 프로젝트 파일의 속성으로 정의 됩니다. 다음 표에서는 계획 및 다양 한 런타임 버전에 대 한 기본 및 최대 값 (분)을 보여 줍니다.
+함수 앱의 제한 시간은 `functionTimeout` 프로젝트 파일 [의host.js](../articles/azure-functions/functions-host-json.md#functiontimeout) 에 있는 속성에 의해 정의 됩니다. 다음 표에서는 계획 및 다양 한 런타임 버전에 대 한 기본 및 최대 값 (분)을 보여 줍니다.
 
 | 계획 | 런타임 버전 | 기본값 | 최대 |
 |------|---------|---------|---------|

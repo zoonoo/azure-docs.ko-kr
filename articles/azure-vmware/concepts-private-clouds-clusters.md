@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Vmware의 Azure vmware 솔루션에 있는 Azure VMware 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906992"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 (AVS) 미리 보기 사설 클라우드 및 클러스터 개념
 
@@ -61,10 +61,10 @@ AVS 플랫폼 소프트웨어에 대 한 일반적인 업그레이드 정책 및
 
 호스트 유지 관리 및 수명 주기 관리는 사설 클라우드 클러스터의 용량 또는 성능에 영향을 주지 않고 수행 됩니다. 자동화 된 호스트 유지 관리의 예로는 펌웨어 업그레이드, 하드웨어 복구 또는 교체 등이 있습니다.
 
-Microsoft는 NSX Manager 및 NSX edge와 같은 NSX T 어플라이언스의 수명 주기 관리를 담당 합니다. Microsoft는 계층 0 게이트웨이를 만들고 북쪽 남부 라우팅을 사용 하도록 설정 하는 등의 네트워크 구성 부트스트래핑도 담당 합니다. AVS 사설 클라우드의 관리자는 네트워크 세그먼트, 분산 방화벽 규칙, 계층 1 게이트웨이 및 부하 분산 장치와 같은 NSX-T SDN 구성을 담당 합니다.
+Microsoft는 NSX Manager 및 NSX Edge와 같은 NSX-T 어플라이언스의 수명 주기 관리를 담당 합니다. Microsoft는 계층 0 게이트웨이를 만들고 북쪽 남부 라우팅을 사용 하도록 설정 하는 등의 네트워크 구성 부트스트래핑도 담당 합니다. AVS 사설 클라우드의 관리자는 네트워크 세그먼트, 분산 방화벽 규칙, 계층 1 게이트웨이 및 부하 분산 장치와 같은 NSX-T SDN 구성을 담당 합니다.
 
 > [!IMPORTANT]
-> AVS 관리자는 NSX-T edge 또는 계층 0 게이트웨이의 구성을 수정 하면 안 됩니다. 이로 인해 서비스가 손실 될 수 있습니다.
+> AVS 관리자는 NSX-T Edge 또는 계층 0 게이트웨이의 구성을 수정 하면 안 됩니다. 이로 인해 서비스가 손실 될 수 있습니다.
 
 ## <a name="backup-and-restoration"></a>백업 및 복원
 

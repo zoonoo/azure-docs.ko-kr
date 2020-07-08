@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541804"
 ---
 1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "75541804"
     
 1. 파이프라인 초안의 목록을 보려면 작업 영역의 디자이너 섹션으로 이동 합니다. 
     
-    변환 된 웹 서비스는 **끝점** > **실시간 끝점**으로 이동 하 여 찾을 수 있습니다.
+    변환 된 웹 서비스는 **끝점**  >  **실시간 끝점**으로 이동 하 여 찾을 수 있습니다.
 
 1. 파이프라인 초안을 선택 하 여 엽니다.
 

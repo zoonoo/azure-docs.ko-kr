@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905734"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service용 Linux Java 앱 구성
 
@@ -44,7 +44,7 @@ Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 �
 
 ### <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 자세한 내용은 [Cloud Shell에서 로그 스트리밍](../troubleshoot-diagnostic-logs.md#in-cloud-shell)을 참조하세요.
 

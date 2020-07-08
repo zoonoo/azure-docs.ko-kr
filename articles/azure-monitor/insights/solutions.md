@@ -6,18 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2627cd540efe644315e303337b7dce95a6e2d126
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 4edcb22ed6bd33b1174354cf0cbb9a590e35c207
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906890"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
-
-모니터링 솔루션은 Azure의 서비스를 활용하여 특정 애플리케이션이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 모니터링 솔루션에 대해 간략하게 설명하고 모니터링 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.
-
-사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 일반적으로 무료로 제공되지만 데이터 수집 시 사용 요금이 발생할 수 있습니다. Microsoft에서 제공한 솔루션 외에도 파트너 및 고객은 자신의 환경에서 사용하거나 커뮤니티를 통해 고객이 이용할 수 있는 [관리 솔루션을 만들 수 있습니다](solutions-creating.md).
+모니터링 솔루션은 Azure의 서비스를 활용 하 여 특정 응용 프로그램 또는 서비스의 작업에 대 한 추가 분석을 제공 합니다. 이 문서에서는 Azure 모니터링 솔루션에 대해 간략하게 설명하고 모니터링 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다. 사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 일반적으로 무료로 제공되지만 데이터 수집 시 사용 요금이 발생할 수 있습니다.
 
 ## <a name="use-monitoring-solutions"></a>모니터링 솔루션 사용
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944324"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -87,7 +87,7 @@ Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하
 > [!NOTE]
 > Service Fabric 클러스터는 호스트의 인증서 저장소에서 찾은 첫 번째 유효한 인증서를 사용합니다. Windows에서는 일반 이름 및 발급자 지문과 일치하는 최신 만료 날짜가 있는 인증서입니다.
 
-*\<YOUR SUBDOMAIN\>.cloudapp.azure.com 또는 \<YOUR SUBDOMAIN\>.trafficmanager.net과 같은 Azure 도메인은 Microsoft에서 소유하고 있습니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
+* \<YOUR SUBDOMAIN\> . Cloudapp.azure.com 또는. trafficmanager.net와 같은 Azure 도메인 \<YOUR SUBDOMAIN\> 은 Microsoft에서 소유 합니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
 
 도메인을 Microsoft IP 주소로 확인하도록 DNS 서비스를 구성하는 방법에 대한 자세한 내용은 [도메인을 호스팅하도록 Azure DNS를 구성하는 방법](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 검토하세요.
 
@@ -157,7 +157,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>MSI(관리 서비스 ID)를 사용하여 Azure 리소스에 Service Fabric 애플리케이션 인증
 
-Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)을 참조하세요.
+Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 Azure Service Fabric 클러스터는 [관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources)를 지원하는 Virtual Machine Scale Sets에서 호스팅됩니다.
 MSI를 인증하는 데 사용할 수 있는 서비스 목록을 가져오려면 [Azure Active Directory 인증을 지원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
@@ -217,7 +217,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 이러한 방화벽 규칙은 가상 네트워크에서 허용 되는 대상으로 ServiceFabric 및 Storage를 포함 하는 허용 되는 아웃 바운드 네트워크 보안 그룹을 보완 합니다.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure](https://azure.microsoft.com/updates/azuretls12/) 는 모든 고객이 tls (transport layer security) 1.2를 지 원하는 솔루션에 대 한 마이그레이션을 완료 하 고 기본적으로 tls 1.2이 사용 되도록 하는 것을 권장 합니다.
+
+[Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493)를 포함 한 Azure 서비스는 tls 1.0/1.1 프로토콜에 대 한 종속성을 제거 하기 위한 엔지니어링 작업을 완료 했으며, tls 1.2 연결만 수락 하 고 시작 하도록 구성 된 고객에 게 완전 한 지원을 제공 합니다.
+
+고객은 기본적으로 TLS 1.2을 사용 하도록 azure 서비스와 상호 작용 하는 Azure 호스팅 워크 로드 및 온-프레미스 응용 프로그램을 구성 해야 합니다. 특정 TLS 버전을 사용 하도록 [Service Fabric 클러스터 노드 및 응용 프로그램을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) 하는 방법은 다음과 같습니다.
 
 ## <a name="windows-defender"></a>Windows Defender 
 

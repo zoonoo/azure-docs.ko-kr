@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a0a4a10797109cb3363027e2445259d06d9aa071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76118103"
 ---
 ## <a name="about-the-user-delegation-sas"></a>사용자 위임 SAS 정보
@@ -24,4 +24,4 @@ ms.locfileid: "76118103"
 > [!CAUTION]
 > 유효한 SAS를 소유한 클라이언트는 해당 SAS에서 허용한 대로 저장소 계정의 데이터에 액세스할 수 있습니다. 악의적 이거나 의도 하지 않은 사용 으로부터 SAS를 보호 하는 것이 중요 합니다. SAS 배포에는 신중 하 게를 사용 하 고 손상 된 SAS를 해지 하는 계획을 세워야 합니다.
 
-공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../articles/storage/common/storage-sas-overview.md)를 참조 하세요.
+공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../articles/storage/common/storage-sas-overview.md)를 참조하세요.

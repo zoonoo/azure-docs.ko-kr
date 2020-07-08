@@ -3,13 +3,13 @@ title: Linux ASP.NET Core 앱 구성
 description: 앱에 대해 미리 작성 된 ASP.NET Core 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/13/2019
-ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: e009f5b1fc656f700b3f0e76dda6e545aed535d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905768"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux ASP.NET Core 앱 구성
 
@@ -41,23 +41,23 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-빌드 자동화가 설정 된 상태에서 Git 또는 zip 패키지를 사용 하 여 앱을 배포 하는 경우 App Service 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+빌드 자동화가 설정된 상태에서 Git 또는 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
 
-1. 로 `PRE_BUILD_SCRIPT_PATH`지정 된 경우 사용자 지정 스크립트를 실행 합니다.
-1. NuGet `dotnet restore` 종속성을 복원 하려면를 실행 합니다.
-1. 를 `dotnet publish` 실행 하 여 프로덕션을 위한 이진 파일을 빌드합니다.
-1. 로 `POST_BUILD_SCRIPT_PATH`지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
+1. `dotnet restore`NuGet 종속성을 복원 하려면를 실행 합니다.
+1. `dotnet publish`를 실행 하 여 프로덕션을 위한 이진 파일을 빌드합니다.
+1. `POST_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 
-`PRE_BUILD_COMMAND`및 `POST_BUILD_COMMAND` 는 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행 하려면를 정의 `PRE_BUILD_COMMAND`합니다. 빌드 후 명령을 실행 하려면를 정의 `POST_BUILD_COMMAND`합니다.
+`PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`는 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행하려면 `PRE_BUILD_COMMAND`를 정의합니다. 빌드 후 명령을 실행하려면 `POST_BUILD_COMMAND`를 정의합니다.
 
-다음 예에서는 일련의 명령에 대 한 두 변수를 쉼표로 구분 하 여 지정 합니다.
+다음 예제에서는 일련의 명령에 대한 두 변수를 쉼표로 구분하여 지정합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-빌드 자동화를 사용자 지정 하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조 하세요.
+빌드 자동화를 사용자 지정하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조하세요.
 
 App Service를 실행 하 고 Linux에서 ASP.NET Core 앱을 빌드하는 방법에 대 한 자세한 내용은 [Oryx 설명서: .Net Core 앱이 검색 되 고 빌드되는 방법](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md)을 참조 하세요.
 
@@ -81,8 +81,8 @@ namespace SomeNamespace
     
         public SomeMethod()
         {
-            // retrieve App Service app setting
-            var myAppSetting = _configuration["MySetting"];
+            // retrieve nested App Service app setting
+            var myHierarchicalConfig = _configuration["My:Hierarchical:Config:Data"];
             // retrieve App Service connection string
             var myConnString = _configuration.GetConnectionString("MyDbConnection");
         }
@@ -90,11 +90,18 @@ namespace SomeNamespace
 }
 ```
 
-예를 들어 App Service 및 *appsettings*에서 같은 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings* 값 보다 우선 합니다. 로컬 *appsettings* 값을 사용 하면 응용 프로그램을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
+예를 들어 App Service 및 *appsettings.js*에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings.js* 값 보다 우선 적용 됩니다. 로컬 *appsettings.json* value를 사용 하면 앱을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
+
+> [!NOTE]
+> 참고 *appsettings.js* 의 [계층적 구성 데이터](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) 는 `:` .net Core에 대 한 표준 구분 기호를 사용 하 여 액세스할 수 있습니다. App Service에서 특정 계층적 구성 설정을 재정의 하려면 앱 설정 이름을 키에서 동일 하 게 분리 된 형식으로 설정 합니다. [Cloud Shell](https://shell.azure.com)에서 다음 예제를 실행할 수 있습니다.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
+```
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 반환됩니다. App Service에서 자세한 예외 페이지를 표시 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 `ASPNETCORE_ENVIRONMENT` 명령을 실행 하 여 앱 설정을 앱에 추가 합니다.
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 반환됩니다. App Service에서 자세한 예외 페이지를 표시 하려면 `ASPNETCORE_ENVIRONMENT` <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱 설정을 앱에 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -106,7 +113,7 @@ App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy
 
 - `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가 합니다.
-- 다른 미들웨어 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 를 호출 하기 `Startup.Configure` 전에에서 UseForwardedHeaders 메서드를 호출 합니다.
+- 다른 미들웨어를 호출 하기 전에에서 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 메서드를 호출 합니다 `Startup.Configure` .
 
 세 요소를 모두 함께 배치 하면 코드는 다음 예제와 같습니다.
 
@@ -154,7 +161,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>앱 설정 사용
 
-<a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>에서 다음 CLI 명령을 실행 하 여 App Service 앱에 앱 설정을 추가 합니다. * \<앱 이름>*, * \<리소스 그룹 이름>* 및 * \<프로젝트 이름>* 을 적절 한 값으로 바꿉니다.
+<a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>에서 다음 CLI 명령을 실행 하 여 App Service 앱에 앱 설정을 추가 합니다. *\<app-name>*, *\<resource-group-name>* 및을 *\<project-name>* 적절 한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -162,7 +169,26 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+ASP.NET Core는 [App Service에 대 한 기본 제공 로깅 공급자](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service)를 제공 합니다. 프로젝트의 *Program.cs* 에서 `ConfigureLogging` 다음 예제와 같이 확장 메서드를 통해 응용 프로그램에 공급자를 추가 합니다.
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureLogging(logging =>
+        {
+            logging.AddAzureWebAppDiagnostics();
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+그런 다음 [표준 .Net Core 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/logging)으로 로그를 구성 하 고 생성할 수 있습니다.
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+App Service에서 ASP.NET Core 앱 문제를 해결 하는 방법에 대 한 자세한 내용은 [Azure App Service 및 IIS의 ASP.NET Core 문제 해결](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis) 을 참조 하세요.
 
 ## <a name="open-ssh-session-in-browser"></a>브라우저에서 SSH 세션 열기
 

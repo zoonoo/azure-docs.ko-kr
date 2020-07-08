@@ -6,43 +6,44 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/16/2020
+ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907553"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 Python 스크립트 실행 모듈을 설명 합니다.
 
-이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [다음 문서](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)를 참조 하세요.
+이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)를 참조 하세요.
 
-Python을 사용 하면 다음과 같은 기존 모듈에서 현재 지원 되지 않는 작업을 수행할 수 있습니다.
+Python을 사용 하면 다음과 같이 기존 모듈이 지원 하지 않는 작업을 수행할 수 있습니다.
 
-+ 를 사용 하 여 데이터 시각화`matplotlib`
-+ Python 라이브러리를 사용 하 여 작업 영역에서 데이터 집합 및 모델 열거
-+ [데이터 가져오기](./import-data.md) 모듈에서 지원 하지 않는 소스에서 데이터 읽기, 로드 및 조작
-+ 사용자 고유의 심층 학습 코드 실행 
++ 를 사용 하 여 데이터 시각화 `matplotlib`
++ Python 라이브러리를 사용 하 여 작업 영역에서 데이터 집합 및 모델을 열거 합니다.
++ [데이터 가져오기](./import-data.md) 모듈이 지원 하지 않는 원본의 데이터를 읽고 로드 하 고 조작 합니다.
++ 심층 학습 코드를 직접 실행 합니다. 
 
 
 Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸리티를 포함 하는 Python의 Anaconda 배포를 사용 합니다. Anaconda 버전이 자동으로 업데이트 됩니다. 현재 버전:
  -  Python 3.6에 대 한 Anaconda 4.5 + 배포 
 
 사전 설치 된 패키지는 다음과 같습니다.
--    adal = = 1.2.2
--    applicationinsights = = 0.11.9
+-    adal==1.2.2
+-    applicationinsights==0.11.9
 -    attrs = = 19.3.0
 -    azure-common = = 1.1.25
 -    azure-core = = 1.3.0
--    azure-graphrbac = = 0.61.1
+-    azure-graphrbac==0.61.1
 -    azure-identity = = 1.3.0
--    azure 관리-권한 부여 = = 0.60.0
--    azure-mgmt-microsoft.containerregistry = = 2.8.0
+-    azure-mgmt-authorization==0.60.0
+-    azure-mgmt-containerregistry==2.8.0
 -    azure-mgmt-keyvault = = 2.2.0
 -    azure-mgmt-resource = = 8.0.1
 -    azure-관리-저장소 = = 8.0.0
@@ -58,28 +59,28 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    azureml-모델-관리-sdk = = 1.0.1 b6. post1
 -    azureml-파이프라인-코어 = = 1.1.5
 -    azureml-원격 분석 = = 1.1.5.3
--    backports. tempfile = = 1.0
--    backports. weakref = = 1.0. post1
+-    backports.tempfile==1.0
+-    backports.weakref==1.0.post1
 -    boto3 = = 1.12.29
 -    botocore = = 1.15.29
 -    cachetools = = 4.0.0
 -    certifi = = 2019.11.28
--    cffi = = 1.12.3
--    chardet = = 3.0.4
+-    cffi==1.12.3
+-    chardet==3.0.4
 -    = = 7.1.1를 클릭 합니다.
 -    cloudpickle = = 1.3.0
 -    configparser = = 3.7.4
 -    contextlib2 = = 0.6.0 post1
 -    암호화 = = 2.8
--    cycler = = 0.10.0
--    잘못 됨 = = 0.3.1.1
--    배포판 = = 1.4.0
+-    cycler==0.10.0
+-    dill==0.3.1.1
+-    distro==1.4.0
 -    docker = = 4.2.0
--    docutils = = 0.15.2
+-    docutils==0.15.2
 -    dotnetcore2 = = 2.1.13
 -    flask = = 1.0.3
--    fusepy = = 3.0.1
--    gensim = = 3.8.1
+-    fusepy==3.0.1
+-    gensim==3.8.1
 -    google-api-core = = 1.16.0
 -    google-auth = = 1.12.0
 -    google-cloud-core = = 1.3.0
@@ -89,7 +90,7 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    gunicorn = = 19.9.0
 -    idna = = 2.9
 -    불균형-배우기 = = 0.4.3
--    isodate = = 0.6.0
+-    isodate==0.6.0
 -    itsdangerous = = 1.1.0
 -    jeepney = = 0.4.3
 -    jinja2 = = 2.11.1
@@ -98,9 +99,9 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    py = = 0.2
 -    jsonpickle = = 1.3
 -    jsonschema = = 3.0.1
--    kiwisolver = = 1.1.0
+-    kiwisolver==1.1.0
 -    liac-arff = = 2.4.0
--    lightgbm = = 2.2.3
+-    lightgbm==2.2.3
 -    markupsafe = = 1.1.1
 -    matplotlib = = 3.1.3
 -    itertools = = 6.0.0
@@ -108,10 +109,10 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    msal = = 1.1.0
 -    msrest = = 0.6.11
 -    msrestazure = = 0.6.3
--    ndg-httpsclient = = 0.5.1
+-    ndg-httpsclient==0.5.1
 -    nimbusml = = 1.6.1
 -    numpy = = 1.18.2
--    oauthlib = = 3.1.0
+-    oauthlib==3.1.0
 -    pandas = = 0.25.3
 -    pathspec = = 0.7.0
 -    pip = = 20.0.2
@@ -127,11 +128,11 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    pyparsing = = 2.4.6
 -    pyrsistent = = 0.16.0
 -    python-dateutil = = 2.8.1
--    pytz = = 2019.3
+-    pytz==2019.3
 -    요청-oauthlib = = 1.3.0
 -    요청 = = 2.23.0
 -    rsa = = 4.0
--    0.15.89 = = =
+-    ruamel.yaml==0.15.89
 -    s3transfer = = 0.3.3
 -    scikit-배우기 = = 0.22.2
 -    scipy = = 1.4.1
@@ -144,26 +145,37 @@ Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸�
 -    werkzeug = = 0.16.1
 -    wheel = = 0.34.2
 
- 사전 설치 된 목록에 없는 다른 패키지 (예: *scikit)* 를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
+ 사전 설치 된 목록에 없는 패키지 (예: *scikit*)를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+특히 유추를 위해 다음 코드를 사용 하 여 더 나은 성능을 위해 패키지를 설치 합니다.
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> 파이프라인이 여러 Python 스크립트 실행 모듈을 포함 하 고 미리 설치 된 목록에 없는 동일한 패키지를 필요로 하는 경우 각각의 모듈에 패키지를 각각 설치 하십시오. 
+> 파이프라인에 사전 설치 된 목록에 없는 패키지를 필요로 하는 여러 개의 Python 스크립트 실행 모듈이 포함 되어 있는 경우 각 모듈에 패키지를 설치 합니다.
 
 ## <a name="upload-files"></a>파일 업로드
-**Python 실행 스크립트** 는 [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
+Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
 
-다음 예제에서는 **Python 스크립트 실행** 모듈에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
+다음 예제에서는 Python 스크립트 실행 모듈에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -185,7 +197,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
@@ -195,62 +207,62 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 파이프라인 실행이 완료 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![업로드 됨-이미지](media/module/upload-image-in-python-script.png)
+> ![업로드 된 이미지 미리 보기](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Python 스크립트 실행을 구성 하는 방법
 
-**Python 스크립트 실행** 모듈에는 시작 지점으로 사용할 수 있는 샘플 python 코드가 포함 되어 있습니다. **Python 스크립트 실행** 모듈을 구성 하려면 **python 스크립트** 텍스트 상자에 실행할 입력 및 python 코드 집합을 제공 합니다.
+Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘플 Python 코드가 포함 되어 있습니다. Python 스크립트 실행 모듈을 구성 하려면 **python 스크립트** 텍스트 상자에서 실행할 입력 및 python 코드 집합을 제공 합니다.
 
 1. 파이프라인에 **Python 스크립트 실행** 모듈을 추가 합니다.
 
 2. **Dataset1** 에서 입력에 사용할 디자이너의 모든 데이터 집합을 추가 하 고 연결 합니다. Python 스크립트에서이 데이터 집합을 **DataFrame1**로 참조 합니다.
 
-    Python을 사용 하 여 데이터를 생성 하려는 경우 또는 Python 코드를 사용 하 여 데이터를 모듈로 직접 가져오는 경우에는 데이터 집합을 사용 하는 것이 선택 사항입니다.
+    데이터 집합 사용은 선택 사항입니다. Python을 사용 하 여 데이터를 생성 하려는 경우 또는 Python 코드를 사용 하 여 데이터를 모듈로 직접 가져오는 경우이를 사용 합니다.
 
-    이 모듈은 **Dataset2**에서 두 번째 데이터 집합 추가를 지원 합니다. Python 스크립트의 두 번째 데이터 집합을 DataFrame2로 참조 합니다.
+    이 모듈은 **Dataset2**에서 두 번째 데이터 집합 추가를 지원 합니다. Python 스크립트의 두 번째 데이터 집합을 **DataFrame2**로 참조 합니다.
 
-    이 모듈을 사용 하 여 로드 하면 Azure Machine Learning에 저장 된 데이터 집합이 자동으로 **pandas** 데이터 프레임으로 변환 됩니다.
+    이 모듈을 사용 하 여 로드 하면 Azure Machine Learning에 저장 된 데이터 집합이 자동으로 pandas 데이터 프레임으로 변환 됩니다.
 
     ![Python 입력 맵 실행](media/module/python-module.png)
 
-4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스를 포함 하는 zip 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. **데이터 집합 자산 페이지** 에서 데이터 집합을 업로드할 수 있으며, 디자이너 제작 페이지에서 왼쪽 모듈 트리의 **내 데이터** 집합 목록에서 데이터 집합 모듈을 끌어서 놓을 수 있습니다. 
+4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스가 포함 된 압축 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. **데이터 집합 자산 페이지** 에서 데이터 집합을 업로드할 수 있습니다. 디자이너 제작 페이지에서 왼쪽 모듈 트리의 **내 데이터** 집합 목록에서 데이터 집합 모듈을 끌 수 있습니다. 
 
     업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 되지만 **src** 라는 디렉터리 앞에 경로를 추가 해야 합니다.
 
 5. **Python 스크립트** 텍스트 상자에 올바른 Python 스크립트를 입력 하거나 붙여 넣습니다.
 
     > [!NOTE]
-    > 스크립트를 작성 하 고 선언 되지 않은 개체 또는 가져온 모듈을 사용 하는 것과 같은 구문 오류가 없는지 확인 하는 것이 매우 주의 하세요. 또한 사전 설치 된 모듈 목록에 주의를 기울여야 합니다. 나열 되지 않은 모듈을 가져오려면 스크립트에 해당 하는 패키지를 설치 합니다 (예:).
+    >  스크립트를 작성할 때 주의 해야 합니다. 선언 되지 않은 변수 또는 가져온 모듈이 나 함수를 사용 하는 것과 같은 구문 오류가 없는지 확인 합니다. 사전 설치 된 모듈 목록에 추가 주의를 기울여야 합니다. 나열 되지 않은 모듈을 가져오려면 다음과 같이 스크립트에 해당 패키지를 설치 합니다.
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    **Python 스크립트** 텍스트 상자는 주석의 일부 지침과 데이터 액세스 및 출력에 대 한 샘플 코드를 사용 하 여 미리 채워져 있습니다. 이 코드를 편집 하거나 바꾸어야 합니다. 들여쓰기 및 대/소문자 구분에 대 한 Python 규칙을 준수 해야 합니다.
+    **Python 스크립트** 텍스트 상자는 주석의 몇 가지 지침과 데이터 액세스 및 출력에 대 한 샘플 코드를 사용 하 여 미리 채워져 있습니다. 이 코드를 편집 하거나 바꾸어야 합니다. 들여쓰기 및 대/소문자 구분에 대 한 Python 규칙을 따릅니다.
 
-    + 스크립트는이 모듈에 대 한 `azureml_main` 진입점으로 이라는 함수를 포함 해야 합니다.
-    + 진입점 함수에는 스크립트에서 이러한 인수가 사용 되지 `Param<dataframe1>` 않는 `Param<dataframe2>`경우에도 두 개의 입력 인수인 및가 있어야 합니다.
-    + 세 번째 입력 포트에 연결 된 압축 파일은 압축을 푼 후 Python `.\Script Bundle` `sys.path`에도 추가 되는 디렉터리에 저장 됩니다. 
+    + 스크립트는 `azureml_main` 이 모듈에 대 한 진입점으로 이라는 함수를 포함 해야 합니다.
+    + 진입점 함수에는 `Param<dataframe1>` `Param<dataframe2>` 스크립트에서 이러한 인수가 사용 되지 않는 경우에도 두 개의 입력 인수 및가 있어야 합니다.
+    + 세 번째 입력 포트에 연결 된 압축 파일의 압축을 푼 다음 디렉터리에 저장 합니다 `.\Script Bundle` .이 파일은 Python에도 추가 됩니다 `sys.path` . 
 
-    따라서 zip 파일에이 포함 되어 `mymodule.py`있으면을 사용 하 `import mymodule`여 가져옵니다.
+    .Zip 파일에이 포함 되어 있으면 `mymodule.py` 를 사용 하 여 가져옵니다 `import mymodule` .
 
-    + 두 데이터 집합은 형식의 `pandas.DataFrame`시퀀스 여야 하는 디자이너로 반환 될 수 있습니다. Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
+    두 데이터 집합은 형식의 시퀀스 여야 하는 디자이너로 반환 될 수 있습니다 `pandas.DataFrame` . Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
 
-6. 파이프라인을 제출 하거나 모듈을 선택 하 고 **선택 된 실행** 을 클릭 하 여 Python 스크립트만 실행 합니다.
+6. 파이프라인을 제출 하거나, 모듈을 선택 하 고, **선택 된 실행** 을 선택 하 여 Python 스크립트만 실행 합니다.
 
     모든 데이터와 코드는 가상 컴퓨터에 로드 되 고 지정 된 Python 환경을 사용 하 여 실행 됩니다.
 
 ## <a name="results"></a>결과
 
-포함 된 Python 코드에 의해 수행 된 모든 계산 결과는 pandas로 제공 되어야 합니다. 데이터 프레임는 자동으로 Azure Machine Learning 데이터 집합 형식으로 변환 되므로 파이프라인의 다른 모듈과 함께 결과를 사용할 수 있습니다.
+포함 된 Python 코드에의 한 계산 결과는 `pandas.DataFrame` 자동으로 Azure Machine Learning 데이터 집합 형식으로 변환 되는로 제공 되어야 합니다. 그런 다음 파이프라인의 다른 모듈과 함께 결과를 사용할 수 있습니다.
 
 이 모듈은 두 개의 데이터 집합을 반환 합니다.  
   
-+ Python 스크립트에서 첫 번째 반환 된 pandas 데이터 프레임에 의해 정의 된 **결과 데이터 집합 1**
++ **결과 데이터 집합 1**은 Python 스크립트에서 첫 번째 반환 된 pandas 데이터 프레임에 의해 정의 됩니다.
 
-+ Python 스크립트에서 두 번째 반환 된 pandas 데이터 프레임으로 정의 된 **결과 데이터 집합 2**
++ **결과 데이터 집합 2**는 Python 스크립트에서 반환 된 두 번째 pandas 데이터 프레임으로 정의 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

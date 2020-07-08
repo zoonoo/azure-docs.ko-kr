@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77530303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974843"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Redis 계산 리소스에 대 한 Azure Cache 선불
 
@@ -30,15 +30,15 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>구매 하기 전에 올바른 캐시 크기 확인
 
-예약 크기는 특정 지역 내에서, 그리고 동일한 서비스 계층을 사용 하 여 기존 또는 곧 배포 되는 캐시에 사용 되는 총 계산 크기를 기준으로 해야 합니다.
+예약 크기는 특정 지역 내에서 그리고 동일한 서비스 계층을 사용 하 여 기존 또는 곧 배포 되는 캐시에 사용 되는 총 메모리 크기를 기준으로 해야 합니다.
 
-예를 들어 Gen5 – 32 vCore 캐시와 두 개의 메모리 최적화 Gen5 – 16 vCore 캐시를 실행 하는 경우를 가정해 보겠습니다. 또한 다음 달에 추가 범용, Gen5 – 32 vCore 데이터베이스 서버 및 메모리 최적화 Gen5 – 16 vCore 데이터베이스 서버 하나를 배포 하려는 경우를 가정해 보겠습니다. 최소 1 년 동안 이러한 리소스가 필요 하다는 것을 알고 있다고 가정해 보겠습니다. 이 경우 64 (2x32) Vcores를 구매 하 고 단일 데이터베이스 일반 용도의 경우 1 년 예약, 단일 데이터베이스 메모리 최적화에 대 한 48 (2x16 + 16) Vcores 1 년 예약을 구매 해야 합니다. Gen5
+예를 들어 두 개의 캐시를 실행 하 고 있다고 가정 합니다. 하나는 13 GB이 고 다른 하나는 248gb입니다. 하나 이상의 연도에 대해 둘 다 필요 합니다. 또한 계절 수요를 충족 하기 위해 한 달 동안 기존 13 GB 캐시를 확장 하 고 나 서 크기를 조정 하려는 경우를 가정해 보겠습니다. 이 경우 1 년 예약에서 1 개의 P1 캐시와 1 개의 P2 캐시 또는 3 개의 P1 캐시를 구매 하 여 절감 액을 최대화할 수 있습니다. 캐시에 할당 되는 방법에 관계 없이 예약 된 총 캐시 메모리 양에 대 한 할인율을 받게 됩니다.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Redis 예약 된 용량에 대 한 Azure 캐시 구입
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스** > **예약**을 선택 합니다.
+2. **모든 서비스** > **예약**을 선택합니다.
 3. **추가** 를 선택한 다음 구매 예약 창에서 **Redis 용 Azure Cache** 를 선택 하 여 캐시에 대 한 새 예약을 구매 합니다.
 4. Fill-필수 필드입니다. 선택한 특성과 일치 하는 기존 또는 새 데이터베이스는 예약 된 용량 할인을 얻기 위해 한정 됩니다. 할인을 받는 Redis 인스턴스에 대 한 Azure Cache의 실제 수는 선택 된 범위와 수량에 따라 다릅니다.
 
@@ -51,7 +51,7 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 | 필드 | Description |
 | :------------ | :------- |
 | Subscription   | Redis 예약 된 용량 예약을 위해 Azure 캐시에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 지불 방법에는 Redis 예약 된 용량 예약을 위해 Azure 캐시에 대 한 사전 비용이 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| 범위 | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**, 예약 할인은이 구독에서 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. </br></br> **단일 리소스 그룹**, 예약 할인은 선택한 구독의 Redis 인스턴스에 대 한 Azure 캐시와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| Scope | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**, 예약 할인은이 구독에서 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. </br></br> **단일 리소스 그룹**, 예약 할인은 선택한 구독의 Redis 인스턴스에 대 한 Azure 캐시와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
 | 지역 | Redis 예약 된 용량 예약을 위해 Azure 캐시에서 적용 되는 Azure 지역입니다.
 | 가격 책정 계층 | Redis 서버용 Azure 캐시에 대 한 서비스 계층입니다.
 | 용어 | 1 년 또는 3 년
@@ -59,7 +59,7 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)를 참조 하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)을 참조하세요.
 
 ## <a name="cache-size-flexibility"></a>캐시 크기 유연성
 
@@ -77,7 +77,7 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 
 * Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-    * [Azure Reservations 이란?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [Azure 예약이란?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
     * [Azure Reservations 관리](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
     * [Azure 예약 할인 이해](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [종량제 구독의 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

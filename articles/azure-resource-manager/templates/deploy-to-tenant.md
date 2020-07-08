@@ -2,13 +2,13 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945446"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테넌트 수준에서 리소스 만들기
 
@@ -72,7 +72,7 @@ Azure CLI의 경우 [az deployment tenant create](/cli/azure/deployment/tenant?v
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Azure PowerShell의 경우 [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment)를 사용합니다.
@@ -81,7 +81,7 @@ Azure PowerShell의 경우 [New-AzTenantDeployment](/powershell/module/az.resour
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이트](/rest/api/resources/deployments/createorupdateattenantscope)를 사용합니다.
@@ -117,7 +117,7 @@ REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이�
 
 ## <a name="create-management-group"></a>관리 그룹 만들기
 
-[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg)은 관리 그룹을 만듭니다.
+[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg)은 관리 그룹을 만듭니다.
 
 ```json
 {
@@ -143,7 +143,7 @@ REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이�
 
 ## <a name="assign-role"></a>역할 할당
 
-[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment)은 테넌트 범위에서 역할을 할당합니다.
+[다음 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment)은 테넌트 범위에서 역할을 할당합니다.
 
 ```json
 {

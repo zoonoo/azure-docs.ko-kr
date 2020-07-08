@@ -9,10 +9,10 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632072"
 ---
 ### <a name="portal"></a>포털
@@ -21,10 +21,10 @@ ms.locfileid: "80632072"
 
 #### <a name="setting-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **키 자격 증명 모음**을 검색 하 고 선택 합니다.
 
-    [![sse-key-vault-portal-search](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
+    [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > 배포에 성공 하려면 Azure 주요 자격 증명 모음, 디스크 암호화 집합, VM, 디스크 및 스냅숏이 모두 동일한 지역 및 구독에 있어야 합니다.

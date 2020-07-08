@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945412"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis용 Azure Monitor(미리 보기) 살펴보기
 
@@ -179,6 +179,10 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 사용자 지정 통합 문서를 저장한 후에는 통합 문서 갤러리로 이동하여 엽니다.
 
 ![갤러리가 강조 표시된 명령 모음](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>문제 해결
+
+문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

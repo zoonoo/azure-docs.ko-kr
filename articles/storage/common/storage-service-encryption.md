@@ -1,22 +1,22 @@
 ---
-title: 휴지 상태의 데이터에 대 한 암호화 Azure Storage
+title: 미사용 데이터에 대한 Azure Storage 암호화
 description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 자동으로 암호화 하 여 데이터를 보호 합니다. Microsoft에서 관리 하는 키를 사용 하 여 저장소 계정에서 데이터를 암호화 하거나 고유한 키를 사용 하 여 암호화를 관리할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945582"
 ---
-# <a name="azure-storage-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 암호화 Azure Storage
+# <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
 Azure Storage은 데이터를 클라우드에 보관할 때 자동으로 암호화 합니다. Azure Storage 암호화를 통해 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족할 수 있습니다.
 
@@ -41,16 +41,18 @@ Azure Storage 암호화는 리소스 관리자 및 클래식 저장소 계정을
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
 
-|                                        |    Microsoft에서 관리 하는 키                             |    고객 관리형 키                                                                                                                        |    고객이 제공한 키                                                          |
+|                                        |    Microsoft 관리형 키                             |    고객 관리형 키                                                                                                                        |    고객이 제공한 키                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    암호화/암호 해독 작업    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    지원 되는 Azure Storage 서비스    |    모두                                                |    Blob storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blob Storage                                                                  |
-|    키 저장소                         |    Microsoft 키 저장소    |    Azure Key Vault                                                                                                                              |    고객의 고유 키 저장소                                                                 |
+|    키 스토리지                         |    Microsoft 키 저장소    |    Azure Key Vault                                                                                                                              |    고객의 고유 키 저장소                                                                 |
 |    키 회전 책임         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    키 컨트롤                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 
 <sup>1</sup> 큐 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [큐에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조 하세요.<br />
 <sup>2</sup> 테이블 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [테이블에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)를 참조 하세요.
+
+Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 Windows Vm에 대 한 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md) 또는 Linux vm에 대 한 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

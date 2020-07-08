@@ -5,18 +5,18 @@ description: Azure Machine Learning에서 모델을 배포할 때 생성 된 웹
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974673"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,8 +41,8 @@ Azure Machine Learning 모델을 웹 서비스로 배포 하면 REST API 끝점�
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
-* `auth_enabled`-키 인증을 사용 하는 `True`경우, 그렇지 않으면 `False`입니다.
-* `token_auth_enabled`-토큰 인증을 사용 하는 `True`경우, 그렇지 않으면 `False`입니다.
+* `auth_enabled`키 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
+* `token_auth_enabled`토큰 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
 * `scoring_uri` - REST API 주소입니다.
 * `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -80,7 +80,7 @@ TLS/SSL 인증서를 사용 하 여 배포 된 웹 서비스를 보호 한 경�
 > [!IMPORTANT]
 > Azure Machine Learning에서 배포 하는 웹 서비스는 TLS 버전 1.2만 지원 합니다. 클라이언트 응용 프로그램을 만들 때이 버전이 지원 되는지 확인 합니다.
 
-자세한 내용은 [TLS를 사용 하 여 Azure Machine Learning 통해 웹 서비스 보안 유지](how-to-secure-web-service.md)를 참조 하세요.
+자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)를 참조하세요.
 
 ### <a name="authentication-for-services"></a>서비스에 대 한 인증
 
@@ -88,10 +88,10 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 
 |인증 방법|ACI|AKS|
 |---|---|---|
-|키|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
-|토큰| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
+|키|기본적으로 사용 안 함| 기본적으로 사용|
+|토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
 
-키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 `Bearer <key-or-token>`형식이 지정 되어야 합니다. `<key-or-token>` 여기서은 키 또는 토큰 값입니다.
+키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은로 형식이 지정 되어야 합니다 `Bearer <key-or-token>` `<key-or-token>` . 여기서은 키 또는 토큰 값입니다.
 
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
@@ -110,7 +110,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우를 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)사용 합니다.
+> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 합니다.
 
 #### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
 
@@ -121,15 +121,23 @@ print(primary)
 
 토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
 
-토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
+토큰 인증을 사용 하는 경우 메서드를 사용 하 여 `get_token` 전달자 토큰을 검색 하 고 해당 토큰 만료 시간을 지정할 수 있습니다.
 
 ```python
 token, refresh_by = service.get_token()
 print(token)
 ```
 
+[Azure CLI 및 machine learning 확장이](reference-azure-machine-learning-cli.md)있는 경우 다음 명령을 사용 하 여 토큰을 가져올 수 있습니다.
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. 
+> 현재 토큰을 검색 하는 유일한 방법은 Azure Machine Learning SDK 또는 Azure CLI Machine Learning 확장을 사용 하는 것입니다.
+
+토큰의 시간 이후에 새 토큰을 요청 해야 합니다 `refresh_by` . 
 
 ## <a name="request-data"></a>요청 데이터
 
@@ -186,7 +194,7 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)
+### <a name="cross-origin-resource-sharing-cors"></a>CORS(원본 간 리소스 공유)
 
 서비스에서 CORS 지원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [크로스-원본 리소스 공유](how-to-deploy-and-where.md#cors)를 참조 하세요.
 

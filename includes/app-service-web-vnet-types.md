@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
 ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81312819"
 ---
 * 격리를 제외한 모든 가격 책정 계획을 지 원하는 다중 테 넌 트 시스템

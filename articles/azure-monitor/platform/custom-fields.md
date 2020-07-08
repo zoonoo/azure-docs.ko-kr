@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906805"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor (미리 보기)에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 
 > [!NOTE]
 > 이 문서에서는 수집 될 때 Log Analytics 작업 영역에서 텍스트 데이터를 구문 분석 하는 방법을 설명 합니다. [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)에 설명 된 지침에 따라 쿼리 필터에서 텍스트 데이터를 구문 분석 하는 것이 좋습니다. 사용자 지정 필드 사용에 비해 여러 가지 이점을 제공 합니다.
+
+> [!IMPORTANT]
+> 사용자 지정 필드는 Log Analytics 작업 영역에 수집 되는 데이터의 양을 늘려 비용을 증가 시킬 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](manage-cost-storage.md#pricing-model)를 참조하세요.
 
 Azure Monitor의 **사용자 지정 필드** 기능을 사용 하면 사용자 고유의 검색 가능한 필드를 추가 하 여 Log Analytics 작업 영역의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
 
@@ -50,7 +53,7 @@ Azure Monitor의 **사용자 지정 필드** 기능을 사용 하면 사용자 �
 ### <a name="step-2---perform-initial-extract"></a>2단계 - 초기 추출을 수행합니다.
 사용자 지정 필드를 갖게 될 레코드를 식별하고 나면, 추출할 데이터를 식별합니다.  Log Analytics는 이 정보를 사용하여 비슷한 레코드에서 유사한 패턴을 식별합니다.  이 단계가 지나면 결과의 유효성을 검사하고 분석에 사용할 Log Analytics에 대한 자세한 정보를 제공할 수 있게 됩니다.
 
-1. 사용자 지정 필드를 채울 샘플 레코드에서 텍스트를 강조 표시합니다.  그러면 필드의 이름과 데이터 형식을 제공 하 고 초기 추출을 수행할 수 있는 대화 상자가 표시 됩니다.  ** \_CF** 문자가 자동으로 추가 됩니다.
+1. 사용자 지정 필드를 채울 샘플 레코드에서 텍스트를 강조 표시합니다.  그러면 필드의 이름과 데이터 형식을 제공 하 고 초기 추출을 수행할 수 있는 대화 상자가 표시 됩니다.  ** \_ CF** 문자가 자동으로 추가 됩니다.
 2. **추출** 을 클릭하여 수집된 레코드에 대한 분석을 수행합니다.  
 3. **요약** 및 **검색 결과** 섹션에서는 정확성을 검사할 수 있도록 추출 결과가 표시됩니다.  **요약** 에 식별된 각각의 데이터 값에 대한 개수 및 레코드를 식별하는 데 사용된 조건이 표시됩니다.  **검색 결과** 에 조건에 맞는 레코드의 자세한 목록이 제공됩니다.
 

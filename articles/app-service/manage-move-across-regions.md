@@ -4,18 +4,18 @@ description: 한 지역에서 다른 지역으로 App Service 리소스를 이�
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77925710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945480"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>App Service 앱을 다른 지역으로 이동
 
 이 문서에서는 App Service 리소스를 다른 Azure 지역으로 이동 하는 방법을 설명 합니다. 여러 가지 이유로 리소스를 다른 지역으로 이동할 수 있습니다. 예를 들어, 새 Azure 지역을 활용 하 여 특정 지역 에서만 사용할 수 있는 기능 또는 서비스를 배포 하거나, 내부 정책 및 거 버 넌 스 요구 사항을 충족 하거나, 용량 계획 요구 사항에 대 한 응답으로 배포할 수 있습니다.
 
-App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할 수 없습니다. 대상 지역에 기존 App Service 리소스의 복사본을 만들고 콘텐츠를 새 앱으로 이동 해야 합니다. 원본 앱에서 사용자 지정 도메인을 사용 하는 경우 완료 되 면 [대상 지역의 새 앱으로 마이그레이션할](manage-custom-dns-migrate-domain.md) 수 있습니다.
+App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할 수 없습니다. 대상 지역에 기존 App Service 리소스의 복사본을 만든 다음 콘텐츠를 새 앱으로 이동 해야 합니다. 원본 앱에서 사용자 지정 도메인을 사용 하는 경우 완료 되 면 [대상 지역의 새 앱으로 마이그레이션할](manage-custom-dns-migrate-domain.md) 수 있습니다.
 
 앱을 더 쉽게 복사 하기 위해 [개별 App Service 앱](app-service-web-app-cloning.md) 을 다른 지역의 App Service 계획에 복제할 수 있지만 특히 Linux 앱을 지원 하지 않는 [제한](app-service-web-app-cloning.md#current-restrictions)사항이 있습니다.
 
@@ -27,7 +27,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 
 ## <a name="prepare"></a>준비
 
-현재 사용 중인 모든 App Service 리소스를 식별 합니다. 다음은 그 예입니다.
+현재 사용 중인 모든 App Service 리소스를 식별 합니다. 예를 들어:
 
 - App Service 앱
 - [App Service 계획](overview-hosting-plans.md)
@@ -46,7 +46,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 1. [원본 앱의 백업을 만듭니다](manage-backup.md).
 1. [새 App Service 계획의 대상 지역에 앱을 만듭니다](app-service-plan-manage.md#create-an-app-service-plan).
 2. [대상 앱에서 백업 복원](web-sites-restore.md)
-2. 사용자 지정 도메인을 사용 하는 경우 미리을 사용 하 여 `awverify.` [대상 앱에 바인딩하고](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) [대상 앱에서 도메인을 사용 하도록 설정](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app)합니다.
+2. 사용자 지정 도메인을 사용 하는 경우 미리을 사용 하 여 [대상 앱에 바인딩하고](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) `awverify.` [대상 앱에서 도메인을 사용 하도록 설정](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app)합니다.
 3. 대상 앱의 다른 모든 항목을 원본 앱과 동일 하 게 구성 하 고 구성을 확인 합니다.
 4. 사용자 지정 도메인이 대상 앱을 가리키도록 준비 되 면 [도메인 이름을 다시 매핑합니다](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 

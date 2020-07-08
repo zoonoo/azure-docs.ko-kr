@@ -4,16 +4,16 @@ description: 직접 업로드를 통해 Azure 관리 디스크에 VHD를 업로�
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945633"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure CLI
 
@@ -22,7 +22,7 @@ ms.locfileid: "82580220"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
-- [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다.
+- [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
 - 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 고정 크기 VHD는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
@@ -38,15 +38,18 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 - ActiveUpload-디스크가 업로드를 받을 준비가 되었으며 SAS가 생성 되었음을 의미 합니다.
 
 > [!NOTE]
-> 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 디스크를 VM `revoke-access` 에 연결 하는 데 필요한 관리 디스크에서가 호출 될 때까지 적용 됩니다.
+> 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 `revoke-access` 디스크를 VM에 연결 하는 데 필요한 관리 디스크에서가 호출 될 때까지 적용 됩니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
 
-업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 이를 얻기 위해 `wc -c <yourFileName>.vhd` 또는 `ls -al <yourFileName>.vhd`를 사용할 수 있습니다. 이 값은 **--upload size 바이트** 매개 변수를 지정할 때 사용 됩니다.
+업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 이를 얻기 위해 또는를 사용할 수 `wc -c <yourFileName>.vhd` 있습니다 `ls -al <yourFileName>.vhd` . 이 값은 **--upload size 바이트** 매개 변수를 지정할 때 사용 됩니다.
 
 [디스크 만들기](/cli/azure/disk#az-disk-create) cmdlet에서-- **upload** 매개 변수와 **--upload-bytes** 매개 변수를 모두 지정 하 여 업로드할 빈 표준 HDD를 만듭니다.
 
-을 `<yourdiskname>` `<yourresourcegroupname>`선택한 값 `<yourregion>` 으로 바꿉니다. `--upload-size-bytes` 매개 변수에는의 `34359738880`예제 값이 포함 되어 있으므로 해당 값을 적절 한 값으로 바꿉니다.
+`<yourdiskname>`을 `<yourresourcegroupname>` `<yourregion>` 선택한 값으로 바꿉니다. `--upload-size-bytes`매개 변수에는의 예제 값이 포함 되어 있으므로 해당 값을 `34359738880` 적절 한 값으로 바꿉니다.
+
+> [!TIP]
+> OS 디스크를 만드는 경우--hyper-v 세대 <yourGeneration> 를에 추가 `az disk create` 합니다.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -56,7 +59,7 @@ az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --fo
 
 업로드 프로세스를 위해 구성 된 빈 관리 디스크를 만들었으므로 이제 VHD를 업로드할 수 있습니다. 디스크에 VHD를 업로드 하려면 업로드할 대상으로 참조할 수 있도록 쓰기 가능한 SAS가 필요 합니다.
 
-빈 관리 디스크의 쓰기 가능한 SAS를 생성 하려면 및 `<yourdiskname>` `<yourresourcegroupname>`를 바꾼 후 다음 명령을 사용 합니다.
+빈 관리 디스크의 쓰기 가능한 SAS를 생성 하려면 `<yourdiskname>` 및를 바꾼 `<yourresourcegroupname>` 후 다음 명령을 사용 합니다.
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -84,7 +87,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 업로드가 완료 되 고 더 이상 디스크에 더 이상 데이터를 쓸 필요가 없으면 SAS를 해지 합니다. SAS를 해지 하면 관리 디스크의 상태가 변경 되 고 해당 디스크를 VM에 연결할 수 있습니다.
 
-및 `<yourdiskname>` `<yourresourcegroupname>`를 바꾼 후 다음 명령을 사용 하 여 디스크를 사용할 수 있도록 합니다.
+`<yourdiskname>`및 `<yourresourcegroupname>` 를 바꾼 후 다음 명령을 사용 하 여 디스크를 사용할 수 있도록 합니다.
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -99,7 +102,10 @@ az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 > [!IMPORTANT]
 > Azure에서 관리 디스크의 디스크 크기 (바이트)를 제공 하는 경우 512의 오프셋을 추가 해야 합니다. 이는 Azure에서 디스크 크기를 반환할 때 바닥글이 생략 되기 때문입니다. 이렇게 하지 않으면 복사가 실패 합니다. 다음 스크립트는 이미이를 위해이를 수행 합니다.
 
-`<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`및 `<yourTargetLocationHere>` (위치 값의 예: uswest2)를 값으로 바꾼 후 관리 디스크를 복사 하기 위해 다음 스크립트를 실행 합니다.
+,, `<sourceResourceGroupHere>` `<sourceDiskNameHere>` `<targetDiskNameHere>` , `<targetResourceGroupHere>` 및 `<yourTargetLocationHere>` (위치 값의 예: uswest2)를 값으로 바꾼 후 관리 디스크를 복사 하기 위해 다음 스크립트를 실행 합니다.
+
+> [!TIP]
+> OS 디스크를 만드는 경우--hyper-v 세대 <yourGeneration> 를에 추가 `az disk create` 합니다.
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974520"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
-Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있도록 하는 독립 실행형 앱입니다. 앱은 Azure, 국가별 클라우드 및 Azure Stack에서 호스트 되는 저장소 계정에 연결할 수 있습니다.
+Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다. 앱은 Azure, National Clouds 및 Azure Stack에서 호스트되는 스토리지 계정에 연결할 수 있습니다.
 
 이 가이드에는 Storage 탐색기에서 일반적으로 발생 하는 문제에 대 한 해결 방법이 요약 되어 있습니다.
 
@@ -48,7 +48,7 @@ RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발생 하�
 
 Azure Storage에는 _관리_ 및 _데이터_의 두 가지 액세스 계층이 있습니다. 구독 및 저장소 계정은 관리 계층을 통해 액세스 됩니다. 컨테이너, blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스 됩니다. 예를 들어 Azure에서 저장소 계정 목록을 가져오려는 경우 관리 끝점에 요청을 보냅니다. 계정에 blob 컨테이너 목록을 원하는 경우 적절 한 서비스 끝점에 요청을 보냅니다.
 
-RBAC 역할에는 관리 또는 데이터 계층 액세스 권한이 포함 될 수 있습니다. 예를 들어 판독기 역할은 관리 계층 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+RBAC 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수 있습니다. 예를 들어 판독기 역할은 관리 계층 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 
 엄격히 말하면 읽기 권한자 역할은 데이터 계층 사용 권한을 제공 하지 않으며 데이터 계층에 액세스 하는 데 필요 하지 않습니다.
 
@@ -58,7 +58,14 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>관리자에 게 필요한 관리 계층 권한을 얻을 수 없는 경우 어떻게 하나요?
 
-현재이 문제에 대 한 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
+Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명을 사용 하 여 해당 리소스에 연결할 수 있습니다.
+
+1. 연결 대화 상자를 엽니다.
+2. "Azure Active Directory via 리소스 추가 (Azure AD)를 선택 합니다. 다음을 클릭합니다.
+3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 클릭합니다.
+4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음을 클릭합니다. 연결을 클릭합니다.
+
+다른 리소스 유형의 경우 현재 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ### <a name="recommended-built-in-rbac-roles"></a>권장 되는 기본 제공 RBAC 역할
 
@@ -75,13 +82,13 @@ Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 
 
 인증서 오류는 일반적으로 다음과 같은 경우에 발생 합니다.
 
-- 앱은 _투명 프록시_를 통해 연결 됩니다. 즉, 서버 (예: 회사 서버)가 HTTPS 트래픽을 가로채 고 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 하는 것을 의미 합니다.
+- 앱이 _투명 프록시_를 통해 연결 됩니다. 즉, 서버 (예: 회사 서버)는 HTTPS 트래픽을 가로채 고, 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 하는 것을 의미 합니다.
 - 받은 HTTPS 메시지에 자체 서명 된 TLS/SSL 인증서를 삽입 하는 응용 프로그램을 실행 하 고 있습니다. 인증서를 삽입 하는 응용 프로그램의 예로는 바이러스 백신 및 네트워크 트래픽 검사 소프트웨어가 있습니다.
 
 Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증서가 표시 되 면 수신 된 HTTPS 메시지의 변경 여부를 더 이상 알 수 없습니다. 자체 서명 된 인증서의 복사본이 있는 경우 다음 단계에 따라 해당 인증서를 신뢰 하도록 Storage 탐색기에 지시할 수 있습니다.
 
 1. Base-64 인코딩된 x.509 (.cer) 인증서 복사본을 가져옵니다.
-2. **Edit** > **SSL**인증서 > 편집**인증서 가져오기**로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
+2. **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
 
 여러 인증서 (루트 및 중간)가 있는 경우에도이 문제가 발생할 수 있습니다. 이 오류를 해결 하려면 두 인증서를 모두 추가 해야 합니다.
 
@@ -91,14 +98,14 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 모든 조명 버전이 면 충분 합니다.
     * Mac 및 Linux: 운영 체제에 포함 되어야 합니다.
 2. OpenSSL를 실행 합니다.
-    * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl**를 두 번 클릭 합니다.
-    * Mac 및 Linux: 터미널 `openssl` 에서를 실행 합니다.
+    * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe**를 두 번 클릭 합니다.
+    * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
 3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
-4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제 `("s:")` 와 발급자 `("i:")` 의 모든 위치를 기록해 둡니다.
-5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 된 모든 항목을 새 .cer 파일에 붙여넣습니다.
-6. Storage 탐색기를 열고**SSL 인증서** >  **편집** > **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
+4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
+5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
+6. Storage 탐색기를 열고 **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
 
-이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. 플래그를 `--ignore-certificate-errors` 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다. 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
+이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. 플래그를 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다 `--ignore-certificate-errors` . 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
@@ -106,7 +113,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램** > **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
+1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램**  >  **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
 4. **로그인**을 선택합니다.
@@ -176,7 +183,7 @@ UI를 통해 연결 된 계정 또는 저장소 리소스를 제거할 수 없�
 > 이러한 폴더를 삭제 하기 전에 Storage 탐색기을 닫습니다.
 
 > [!NOTE]
-> SSL 인증서를 가져온 적이 있는 경우 `certs` 디렉터리의 콘텐츠를 백업 합니다. 다음에는 백업을 사용하여 SSL 인증서를 다시 가져올 수 있습니다.
+> SSL 인증서를 가져온 적이 있는 경우 디렉터리의 콘텐츠를 백업 `certs` 합니다. 다음에는 백업을 사용하여 SSL 인증서를 다시 가져올 수 있습니다.
 
 ## <a name="proxy-issues"></a>프록시 문제
 
@@ -204,7 +211,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 * 프록시를 통해 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
 * 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
-* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 이 작업을 올바르게 수행 하는 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 하기 시작 합니다. 예를 들어 브라우저 `https://cawablobgrs.blob.core.windows.net/` 에서 blob 끝점에 대해를 입력 하면 다음과 유사한 응답이 수신 됩니다.
+* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 이 작업을 올바르게 수행 하는 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 하기 시작 합니다. 예를 들어 `https://cawablobgrs.blob.core.windows.net/` 브라우저에서 blob 끝점에 대해를 입력 하면 다음과 유사한 응답이 수신 됩니다.
 
   ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -231,7 +238,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 사용자 지정 연결을 추가 하려고 할 때이 오류 메시지가 표시 되 면 로컬 자격 증명 관리자에 저장 된 연결 데이터가 손상 될 수 있습니다. 이 문제를 해결 하려면 손상 된 로컬 연결을 삭제 한 다음 다시 추가 하십시오.
 
-1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말** > **설정/해제 개발자 도구**로 이동 합니다.
+1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말**  >  **설정/해제 개발자 도구**로 이동 합니다.
 2. 열린 창의 **응용 프로그램** 탭에서 **로컬 저장소** (왼쪽) > **file://** 로 이동 합니다.
 3. 문제가 발생 하는 연결 유형에 따라 해당 키를 찾은 다음 해당 값을 텍스트 편집기에 복사 합니다. 값은 다음과 같이 사용자 지정 연결 이름으로 이루어진 배열입니다.
     * Storage 계정
@@ -245,7 +252,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
         * `StorageExplorer_CustomConnections_Queues_v1`
     * 테이블
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. 현재 연결 이름을 저장 한 후 개발자 도구의 값을로 `[]`설정 합니다.
+4. 현재 연결 이름을 저장 한 후 개발자 도구의 값을로 설정 `[]` 합니다.
 
 손상 되지 않은 연결을 유지 하려는 경우 다음 단계를 사용 하 여 손상 된 연결을 찾을 수 있습니다. 기존 연결을 모두 잃지 않는 경우 이러한 단계를 건너뛰고 플랫폼별 지침에 따라 연결 데이터를 지울 수 있습니다.
 
@@ -259,13 +266,13 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 1. **시작** 메뉴에서 **자격 증명 관리자** 를 검색 하 여 엽니다.
 2. **Windows 자격 증명**으로 이동 합니다.
-3. **일반 자격 증명**에서 `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. **일반 자격 증명**에서 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. 스포트라이트 (명령 + 스페이스바)를 열고 키 **집합 액세스**를 검색 합니다.
-2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +280,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 로컬 자격 증명 관리는 Linux 배포에 따라 다릅니다. Linux 배포판에서 로컬 자격 증명 관리에 대 한 기본 제공 GUI 도구를 제공 하지 않는 경우 타사 도구를 설치 하 여 로컬 자격 증명을 관리할 수 있습니다. 예를 들어 Linux 로컬 자격 증명을 관리 하기 위한 오픈 소스 GUI 도구인 [Seahorse](https://wiki.gnome.org/Apps/Seahorse/)를 사용할 수 있습니다.
 
 1. 로컬 자격 증명 관리 도구를 열고 저장 된 자격 증명을 찾습니다.
-2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. 키가 있는 항목을 찾습니다 `<connection_type_key>/<corrupted_connection_name>` (예: `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 ---
 
@@ -290,12 +297,14 @@ SAS URL을 통해 서비스에 연결 하 고 오류가 발생 하는 경우:
 잘못 된 SAS URL을 사용 하 여 실수로 연결 하 고 분리할 수 없는 경우 다음 단계를 수행 합니다.
 
 1. Storage 탐색기를 실행 하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
-2. **응용 프로그램** 탭의 왼쪽 트리에서 **Local Storage** > **file://** 를 선택 합니다.
+2. **응용 프로그램** 탭의 왼쪽 트리에서 **Local Storage**  >  **file://** 를 선택 합니다.
 3. 문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 `StorageExplorer_AddStorageServiceSAS_v1_blob`으로 명명된 키를 찾아봅니다.
 4. 키의 값은 JSON 배열이어야 합니다. 잘못 된 URI와 연결 된 개체를 찾은 다음 삭제 합니다.
 5. Storage Explorer를 다시 로드하려면 Ctrl+R 키를 누릅니다.
 
 ## <a name="linux-dependencies"></a>Linux 종속성
+
+### <a name="snap"></a>Snap
 
 Storage 탐색기 1.10.0 이상은 Snap 저장소에서 스냅으로 사용할 수 있습니다. Storage 탐색기 snap는 모든 종속성을 자동으로 설치 하며, 새 버전의 snap를 사용할 수 있게 되 면 업데이트 됩니다. 권장 설치 방법은 Storage 탐색기 snap를 설치 하는 것입니다.
 
@@ -305,67 +314,86 @@ Storage 탐색기를 사용 하려면 암호 관리자를 사용 해야 합니�
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>release.tar.gz 파일
+
 응용 프로그램을 release.tar.gz 파일로 다운로드할 수도 있지만 종속성을 수동으로 설치 해야 합니다.
 
-> [!IMPORTANT]
-> Release.tar.gz 다운로드에 제공 된 Storage 탐색기는 Ubuntu 배포에 대해서만 지원 됩니다. 다른 배포판은 확인 되지 않았으며 대체 또는 추가 패키지가 필요할 수 있습니다.
+Release.tar.gz 다운로드에 제공 된 Storage 탐색기 다음 버전의 Ubuntu에만 지원 됩니다. Storage 탐색기는 다른 Linux 배포판에서 작동할 수 있지만 공식적으로는 지원 되지 않습니다.
 
-이러한 패키지는 Linux에서 Storage 탐색기 하기 위한 가장 일반적인 요구 사항입니다.
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
 
-* [.NET Core 2.2 런타임](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` 또는 `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Storage 탐색기를 사용 하려면 .NET Core가 시스템에 설치 되어 있어야 합니다. .NET Core 2.1를 사용 하는 것이 좋지만 Storage 탐색기 2.2 에서도 작동 합니다.
 
 > [!NOTE]
-> Storage 탐색기 버전 1.7.0 및 이전 버전에서는 .NET Core 2.0이 필요 합니다. 최신 버전의 .NET Core가 설치 되어 있는 경우 [Storage 탐색기 패치](#patching-storage-explorer-for-newer-versions-of-net-core)를 제공 해야 합니다. Storage 탐색기 1.8.0 이상 버전을 실행 하는 경우에는 .NET Core 2.2을 사용할 수 있어야 합니다. 2.2 이외의 버전은 현재 작동 하도록 확인 되지 않았습니다.
+> Storage 탐색기 버전 1.7.0 및 이전 버전에서는 .NET Core 2.0이 필요 합니다. 최신 버전의 .NET Core가 설치 되어 있는 경우 [Storage 탐색기 패치](#patching-storage-explorer-for-newer-versions-of-net-core)를 제공 해야 합니다. Storage 탐색기 1.8.0 이상 버전을 실행 하는 경우 .NET Core 2.1 이상이 필요 합니다.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Storage 탐색기를 다운로드 합니다.
-2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
+2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Storage 탐색기를 다운로드 합니다.
-2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
+2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Storage 탐색기를 다운로드 합니다.
-2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
+2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Storage 탐색기를 다운로드 합니다.
-2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Storage 탐색기에 필요한 많은 라이브러리가 표준 Ubuntu의 표준 설치와 함께 미리 설치 되어 제공 됩니다. 사용자 지정 환경에 이러한 라이브러리 중 일부가 없을 수 있습니다. Storage 탐색기를 시작 하는 데 문제가 있는 경우 다음 패키지가 시스템에 설치 되어 있는지 확인 하는 것이 좋습니다.
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- 기능 비밀-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-유틸리티
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>최신 버전의 .NET Core에 대 한 Storage 탐색기 패치
 
 Storage 탐색기 1.7.0 이전 버전의 경우 Storage 탐색기에서 사용 하는 .NET Core 버전을 패치 해야 할 수 있습니다.
 
 1. [NuGet에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)StreamJsonRpc의 1.5.43 버전을 다운로드 합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾습니다.
-2. 패키지를 다운로드 한 후 파일 확장명을에서 `.nupkg` 으로 `.zip`변경 합니다.
+2. 패키지를 다운로드 한 후 파일 확장명을에서으로 변경 `.nupkg` `.zip` 합니다.
 3. 패키지의 압축을 풉니다.
 4. `streamjsonrpc.1.5.43/lib/netstandard1.1/` 폴더를 엽니다.
-5. Storage 탐색기 `StreamJsonRpc.dll` 폴더의 다음 위치에 복사 합니다.
+5. `StreamJsonRpc.dll`Storage 탐색기 폴더의 다음 위치에 복사 합니다.
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 

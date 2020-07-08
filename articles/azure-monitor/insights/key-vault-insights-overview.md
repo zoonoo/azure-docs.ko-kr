@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945463"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Azure Monitor for Key Vault(미리 보기)를 사용하여 키 자격 증명 모음 서비스 모니터링
 Azure Monitor for Key Vault(미리 보기)는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음을 종합적으로 모니터링합니다.
@@ -158,55 +158,51 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
+일반적인 문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
+
 이 섹션에서는 Azure Monitor for Key Vault(미리 보기)를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 
 ### <a name="resolving-performance-issues-or-failures"></a>성능 문제 또는 오류 해결
 
 Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](https://docs.microsoft.com/azure/key-vault/)를 참조하세요.
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>키 자격 증명 모음을 200개만 볼 수 있는 이유는 무엇인가요?
+### <a name="why-can-i-only-see-200-key-vaults"></a>200 주요 자격 증명 모음만 볼 수 있는 이유는 무엇 인가요?
 
 선택하여 볼 수 있는 키 자격 증명 모음의 수가 200개로 제한되어 있습니다. 선택한 구독 수에 관계없이, 선택 가능한 키 자격 증명 모음의 수는 200개로 제한됩니다.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>고정된 항목을 클릭하면 어떻게 되나요?
-
-대시보드에서 고정된 항목을 클릭하면 다음 두 가지 중 하나가 열립니다.
-* 인사이트가 저장된 경우 - 고정이 저장된 인사이트 인스턴스가 열립니다.
-* 인사이트가 저장되지 않은 경우 - 새로운 기본 인사이트가 열립니다.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>구독 선택기에 내 구독이 전부 표시되지 않는 이유는 무엇인가요?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>구독 선택에서 내 구독이 모두 표시 되지 않는 이유는 무엇 인가요?
 
 선택한 구독 필터에서 선택한 구독이 포함된 구독만 표시됩니다. 구독 필터는 Azure Portal 헤더의 "디렉터리 + 구독"에서 선택합니다.
 
 ![구독 필터의 스크린샷](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>"쿼리가 허용되는 최대 작업 영역/지역 수를 초과했습니다"라는 오류 메시지가 표시됩니다.
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>"쿼리가 허용 되는 최대 작업 영역/영역을 초과 했습니다." 라는 오류 메시지가 표시 됩니다.
 
 현재 25개 지역과 200개 작업 영역으로 제한되어 있으므로, 데이터를 보려면 구독 및/또는 리소스 그룹의 수를 줄여야 합니다.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Key Vault 인사이트를 변경하거나 시각화를 추가하려고 합니다. 어떻게 해야 하나요?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Key Vault 정보를 변경 하거나 시각화를 추가 하려면 어떻게 해야 하나요?
 
 변경하려면 "편집 모드"를 선택하여 통합 문서를 수정합니다. 그런 다음, 지정된 구독 및 리소스 그룹에 연결된 새 통합 문서로 작업을 저장할 수 있습니다.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>통합 문서의 일부분을 고정한 경우 시간 범위는 어떻게 되나요?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>통합 문서의 모든 부분을 고정 한 후의 시간-그레인
 
 "자동" 시간 범위를 활용하므로 선택한 시간 범위에 따라 달라집니다.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>통합 문서의 일부분을 고정한 경우 시간 범위는 어떻게 되나요?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>통합 문서 일부가 고정 된 시간 범위
 
 시간 범위는 대시보드 설정에 따라 달라집니다.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>[작업 및 대기 시간] 섹션에 내 Key Vault에 대한 데이터가 표시되지 않는 이유는 무엇인가요?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>작업 & 대기 시간 섹션에서 내 Key Vault에 대 한 데이터가 표시 되지 않는 이유는 무엇 인가요?
 
 로그 기반 데이터를 보려면 모니터링하려는 키 자격 증명 모음마다 로그를 사용하도록 설정해야 합니다. 이 작업은 각 키 자격 증명 모음의 진단 설정에서 수행할 수 있습니다. 지정된 Log Analytics 작업 영역으로 데이터를 보내야 합니다.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Key Vault에 로그를 사용하도록 이미 설정했지만, 여전히 [작업 및 대기 시간]에 데이터가 표시되지 않는 이유는 무엇인가요?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>내 Key Vault에 대 한 로그를 이미 사용 하도록 설정 했습니다 .이는 여전히 작업 & 대기 시간에 내 데이터를 볼 수 없는 이유입니다.
 
 현재 진단 로그는 소급하여 작동하지 않으므로 키 자격 증명 모음에 대한 작업이 수행된 후에만 데이터가 표시되기 시작합니다. 따라서 키 자격 증명 모음을 활성화하는 방법에 따라 몇 시간에서 하루까지 걸릴 수 있습니다.
 
 또한 선택한 키 자격 증명 모음과 구독의 수가 많은 경우 쿼리 제한 때문에 데이터가 표시되지 않을 수 있습니다. 데이터를 보려면 선택한 구독 또는 자격 증명 모음의 수를 줄여야 할 수도 있습니다. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>다른 데이터를 보거나 나만의 시각화를 만들려면 어떻게 해야 하나요? Key Vault 인사이트를 변경하려면 어떻게 해야 하나요?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>다른 데이터를 보거나 나만의 시각화를 만들려면 어떻게 해야 하나요? Key Vault Insights를 변경 하려면 어떻게 해야 하나요?
 
 편집 모드를 사용하여 기존 통합 문서를 편집한 다음, 새 변경 내용을 모두 포함하는 새 통합 문서로 작업을 저장할 수 있습니다.
 

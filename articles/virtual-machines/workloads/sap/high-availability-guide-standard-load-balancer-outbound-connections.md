@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907468"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -222,7 +222,10 @@ Pacemaker가 Azure 관리 API와 통신할 수 있도록 허용하려면 모든 
 
 ## <a name="other-solutions"></a>기타 솔루션
 
-아웃바운드 트래픽이 타사 방화벽을 통해 라우팅되는 경우 방화벽 구성에서 Azure 관리 API `https://management.azure.com` 및 `https://login.microsoftonline.com`에 대한 아웃바운드 연결을 허용하는지 확인합니다.  
+타사 방화벽을 통해 아웃 바운드 트래픽이 라우팅되는 경우:
+
+- Azure fence 에이전트를 사용 하는 경우 방화벽 구성이 Azure 관리 API에 대 한 아웃 바운드 연결을 허용 하는지 확인 합니다. `https://management.azure.com``https://login.microsoftonline.com`   
+- SUSE의 Azure 공용 클라우드 업데이트 인프라를 사용 하 여 업데이트 및 패치를 적용 하는 경우 [Azure 공용 클라우드 업데이트 인프라 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

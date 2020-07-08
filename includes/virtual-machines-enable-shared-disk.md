@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008352"
 ---
 ## <a name="limitations"></a>제한 사항
@@ -27,12 +27,12 @@ ms.locfileid: "81008352"
 
 ### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>프리미엄 SSD를 공유 디스크로 배포
 
-공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 새 속성 `maxShares` 을 사용 하 고 1 보다 큰 값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
+공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 새 속성을 사용 하 `maxShares` 고 1 보다 큰 값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
 
 > [!IMPORTANT]
-> 모든 Vm에서 `maxShares` 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 `maxShares`허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오.
+> `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
 
-다음 템플릿을 사용 `[parameters('dataDiskName')]`하기 전에, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`, 및 `[parameters('maxShares')]` 를 사용자 고유의 값으로 바꿉니다.
+다음 템플릿을 사용 하기 전에,, `[parameters('dataDiskName')]` `[resourceGroup().location]` 및를 `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` 사용자 고유의 값으로 바꿉니다.
 
 ```json
 { 
@@ -80,7 +80,7 @@ ms.locfileid: "81008352"
 공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 `maxShares` 매개 변수를 1 보다 큰 값으로 변경 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
 
 > [!IMPORTANT]
-> 모든 Vm에서 `maxShares` 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 `maxShares`허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오.
+> `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -93,14 +93,14 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-#### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+#### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 속성 `maxShares` 을 사용 하 고 1 보다 큰 값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
+공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 속성을 사용 하 `maxShares` 고 1 보다 큰 값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
 
 > [!IMPORTANT]
-> 모든 Vm에서 `maxShares` 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 `maxShares`허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오.
+> `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
 
-다음 템플릿을 사용 `[parameters('dataDiskName')]`하기 전에, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]`,,,,, 및 `[parameters('diskMBpsReadOnly')]` 를 사용자 고유의 값으로 바꿉니다.
+다음 템플릿을 사용 하기 전에,,,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` 및를 `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` 사용자 고유의 값으로 바꿉니다.
 
 ```json
 {
@@ -170,7 +170,7 @@ az disk show -g rg1 -n clidisk
 
 ### <a name="using-azure-shared-disks-with-your-vms"></a>Vm에서 Azure 공유 디스크 사용
 
-를 사용 하 여 `maxShares>1`공유 디스크를 배포한 후에는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
+를 사용 하 여 공유 디스크를 배포한 후에 `maxShares>1` 는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
 
 > [!IMPORTANT]
 > 디스크를 공유 하는 모든 Vm은 동일한 [근접 배치 그룹](../articles/virtual-machines/windows/proximity-placement-groups.md)에 배포 되어야 합니다.

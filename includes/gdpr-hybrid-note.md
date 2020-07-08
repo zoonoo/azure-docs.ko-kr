@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 968ebe89de65de5fa49e56a90a1bc92109a16861
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75613767"
 ---
 >[!Note]
->개인 데이터를 보거나 삭제 하는 데 관심이 있는 경우 [GDPR 사이트에 대 한 Windows 데이터 주체 요청](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) 에서 Microsoft의 지침을 검토 하세요. GDPR에 대 한 일반 정보를 찾고 있는 경우 [서비스 신뢰 포털의 gdpr 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조 하세요.
+>개인 데이터를 보기 또는 삭제하는 데 관심이 있는 경우 [GDPR에 대한 Windows 데이터 제목 요청](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) 사이트에서 Microsoft의 지침을 검토하십시오. GDPR에 대한 일반 정보를 보려면 [Service Trust Portal의 GDPR 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조하세요.

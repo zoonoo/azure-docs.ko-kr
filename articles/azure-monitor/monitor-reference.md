@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/17/2020
-ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 06/15/2020
+ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945378"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "83873835"
 | [네트워크용 Azure Monitor(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
 [리소스 그룹용 Azure Monitor(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
 | [Storage용 Azure Monitor](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
-| [VM용 Azure Monitor](insights/container-insights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
+| [VM용 Azure Monitor](insights/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
 | [Key Vault용 Azure Monitor(미리 보기)](insights/key-vaults-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다. |
 | [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
 
@@ -137,39 +137,38 @@ ms.locfileid: "83873835"
 |Notification Hubs | 예 | 예 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
-|Power BI | 예 | 예 | 예 |  |
 |Power BI Embedded | 예 | 예 | 예 |  |
 |Private Link | 예 | 예 | 예 |  |
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 예 | 예 |  |
+|Resource Graph | 아니요 | 아니요 | 아니요 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
 |Service Bus | 예 | 예 | 예 |  |
-|Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|등록 포털 | 예 | 예 | 예 |  |
+|Service Fabric | 아니요 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
+|등록 포털 | 아니요 | 예 | 아니요 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 예 | 예 |  |
+|Spring Cloud Service | 예 | 아니요 | 예 |  |
 |SQL Data Warehouse | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 예 | 예 |  |
+|스택 | 아니요 | 아니요 | 예 |  |
 |스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
-|스토리지 캐시 | 예 | 예 | 예 |  |
+|스토리지 캐시 | 아니요 | 예 | 아니요 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 예 | 예 |  |
+|TINA | 아니요 | 아니요 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 예 | 예 |  |
+|유니버설 인쇄 | 아니요 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
-|Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
+|Virtual Network - NSG 흐름 로그 | 아니요 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 예 | 예 |  |
+|Windows Virtual Desktop | 아니요 | 아니요 | 예 |  |
 
 
 ## <a name="product-integrations"></a>제품 통합
@@ -201,7 +200,7 @@ ms.locfileid: "83873835"
 |:---|:---|
 | [Active Directory 상태 확인](insights/ad-assessment.md) | Active Directory 환경의 위험 및 상태를 평가합니다. |
 | [Active Directory 복제 상태](insights/ad-replication-status.md) | Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다. |
-| [활동 로그 분석](platform/activity-log-view.md#azure-portal) | Azure 로그 항목을 봅니다. |
+| [활동 로그 분석](platform/activity-log.md#activity-log-analytics-monitoring-solution) | Azure 로그 항목을 봅니다. |
 | [DNS 분석(미리 보기)](insights/dns-analytics.md) | DNS 서버에서 Windows DNS 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상관 관계를 파악합니다. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | 여러 배포에서 Cloud Foundry 시스템 상태와 성능 메트릭을 수집, 확인 및 분석합니다. |
 | [컨테이너](insights/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리합니다. |

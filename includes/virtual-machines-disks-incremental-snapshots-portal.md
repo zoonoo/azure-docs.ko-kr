@@ -9,10 +9,10 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80628406"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "80628406"
 ## <a name="regional-availability"></a>국가별 가용성
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
 
-### <a name="restrictions"></a>제한
+### <a name="restrictions"></a>제한 사항
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "80628406"
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="샷에. 스냅숏 블레이드를 만들고 이름을 입력 한 다음 증분을 선택 하 고 스냅숏을 만듭니다.":::
 
-1. **만들기** 선택
+1. **만들기**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="샷에. 스냅숏에 대 한 유효성 검사 페이지에서 선택 사항을 확인 한 다음 스냅숏을 만듭니다.":::
 

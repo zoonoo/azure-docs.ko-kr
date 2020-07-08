@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: e5b3d1c94de8406c12222eea59beafd7277d646d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945548"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -72,7 +72,7 @@ nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는를 사용 `kubectl apply` 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
+작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는 `kubectl apply` 를 사용 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
 
 Aks 파일을 만들고 다음 예제 YAML에 복사 *합니다* .
 
@@ -80,7 +80,7 @@ Aks 파일을 만들고 다음 예제 YAML에 복사 *합니다* .
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
@@ -103,7 +103,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
@@ -118,7 +118,7 @@ Aks 파일을 만들고 다음 예제 YAML에 복사 *합니다* .
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
@@ -141,7 +141,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
@@ -150,7 +150,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-다음을 사용 하 여 `kubectl apply`두 개의 데모 응용 프로그램을 실행 합니다.
+다음을 사용 하 여 두 개의 데모 응용 프로그램을 실행 합니다 `kubectl apply` .
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -161,7 +161,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행됩니다. 트래픽을 각 애플리케이션으로 라우팅하려면 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
 
-다음 예제에서 *EXTERNAL_IP* 에 대 한 트래픽은 이라는 `aks-helloworld-one`서비스로 라우팅됩니다. *EXTERNAL_IP/hello-world-two* 에 대 한 트래픽은 `aks-helloworld-two` 서비스로 라우팅됩니다. *EXTERNAL_IP/정적* 으로의 트래픽은 정적 자산의 이라는 `aks-helloworld-one` 서비스로 라우팅됩니다.
+다음 예제에서 *EXTERNAL_IP* 에 대 한 트래픽은 이라는 서비스로 라우팅됩니다 `aks-helloworld-one` . *EXTERNAL_IP/hello-world-two* 에 대 한 트래픽은 서비스로 라우팅됩니다 `aks-helloworld-two` . *EXTERNAL_IP/정적* 으로의 트래픽은 정적 자산의 이라는 서비스로 라우팅됩니다 `aks-helloworld-one` .
 
 `hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 
@@ -169,8 +169,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
-  namespace: ingress-basic
+  name: hello-world-ingress  
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -232,7 +231,7 @@ ingress.extensions/hello-world-ingress-static created
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임 스페이스 및 모든 리소스 삭제
 
-전체 샘플 네임 스페이스를 삭제 하려면 `kubectl delete` 명령을 사용 하 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
+전체 샘플 네임 스페이스를 삭제 하려면 명령을 사용 하 `kubectl delete` 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -240,7 +239,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제
 
-또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. `helm list` 명령을 사용 하 여 투구 릴리스를 나열 합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
+또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. 명령을 사용 하 여 투구 릴리스를 나열 `helm list` 합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
 
 ```
 $ helm list --namespace ingress-basic
@@ -249,7 +248,7 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-`helm uninstall` 명령을 사용 하 여 릴리스를 제거 합니다. 다음 예제에서는 NGINX 수신 배포를 제거 합니다.
+명령을 사용 하 여 릴리스를 제거 합니다 `helm uninstall` . 다음 예제에서는 NGINX 수신 배포를 제거 합니다.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

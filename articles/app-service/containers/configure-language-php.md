@@ -4,12 +4,12 @@ description: 앱에 대해 미리 빌드된 PHP 컨테이너를 구성하는 방
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905700"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service용 Linux PHP 앱 구성
 
@@ -109,7 +109,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 PHP 설치를 변경해야 할 경우 다음 단계에 따라 모든 [php.ini 지시문](https://www.php.net/manual/ini.list.php)을 변경할 수 있습니다.
 
 > [!NOTE]
-> PHP 버전과 현재의 *php.ini* 구성을 확인하는 가장 좋은 방법은 앱에서 [phpinfo()](https://www.php.net/manual/function.phpinfo.php)를 호출하는 것입니다.
+> PHP 버전과 현재의 *php.ini* 구성을 확인하는 가장 좋은 방법은 앱에서 [phpinfo()](https://php.net/manual/function.phpinfo.php)를 호출하는 것입니다.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>PHP_INI_SYSTEM 외의 지시문 사용자 지정
@@ -187,7 +187,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>브라우저에서 SSH 세션 열기
 
@@ -198,7 +198,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 작동하는 PHP 앱이 App Servce에서 다르게 동작하거나 오류가 발생할 경우 다음의 방법을 시도해보세요.
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
-- 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service가 프로덕션 모드에서 Node.js 앱을 실행하므로 프로젝트가 프로덕션 모드에서 로컬 상태로 예상과 같이 작동하는지 확인해야 합니다. 예를 들면 다음과 같습니다.
+- 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service는 프로덕션 모드에서 응용 프로그램을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬에서 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
     - *composer.json*에 따라, 프로덕션 모드에서 다른 패키지가 설치될 수 있습니다(`require` vs. `require-dev`).
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.

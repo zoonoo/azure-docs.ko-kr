@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: a10f7c3dda4d16a264cf52f9fddcf2bf0ed93348
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907513"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 데이터 복사 도구를 시작하려면 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
-![시작 페이지 - 데이터 복사 도구 링크](./media/copy-data-tool/get-started-page.png)
+![시작 페이지 - 데이터 복사 도구 링크](./media/doc-common-process/get-started-page.png)
 
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Data Lake에 데이터를 로드하기 위한 직관적인 흐름

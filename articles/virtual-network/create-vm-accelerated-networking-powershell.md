@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975795"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows VM 만들기
 
@@ -66,6 +66,10 @@ Azure 갤러리에서 직접 지원 되는 배포는 다음과 같습니다.
 하이퍼스레딩을 지 원하는 인스턴스에서는 4 개 이상의 vCPUs가 있는 VM 인스턴스에서 가속화 된 네트워킹을 지원 합니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
 VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
+
+### <a name="custom-images"></a>사용자 지정 이미지
+
+사용자 지정 이미지를 사용 중이 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3-3 및 Connectx-3-4 Lx Nic와 작동 하는 필수 드라이버가 있는지를 알고 있어야 합니다.
 
 ### <a name="regions"></a>영역
 
@@ -192,7 +196,7 @@ VM을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 여부를
 
 ### <a name="create-a-vm-and-attach-the-network-interface"></a>VM 만들기 및 네트워크 인터페이스 연결
 
-1. 사용자에 게 로그인 하 라는 `$cred` 메시지를 표시 하는 [자격 증명](/powershell/module/microsoft.powershell.security/get-credential)을 사용 하 여 VM 자격 증명을 변수로 설정 합니다.
+1. 사용자에 `$cred` 게 로그인 하 라는 메시지를 표시 하는 [자격 증명](/powershell/module/microsoft.powershell.security/get-credential)을 사용 하 여 VM 자격 증명을 변수로 설정 합니다.
 
     ```azurepowershell
     $cred = Get-Credential
@@ -244,7 +248,7 @@ Azure에서 VM을 만든 후 VM에 연결 하 고 Windows에서 이더넷 컨트
 
 3. Vm 개요 페이지에서 VM의 **상태가** **만들기**로 표시 되는 경우 Azure에서 vm 만들기를 완료할 때까지 기다립니다. VM 생성이 완료 되 면 **상태가** **실행 중** 으로 변경 됩니다.
 
-4. VM 개요 도구 모음에서 **연결** > **rdp** > **파일 다운로드 rdp 파일**을 선택 합니다.
+4. VM 개요 도구 모음에서 **연결**  >  **rdp**  >  **파일 다운로드 rdp 파일**을 선택 합니다.
 
 5. .Rdp 파일을 열고 [Vm 만들기 및 네트워크 인터페이스 연결](#create-a-vm-and-attach-the-network-interface) 섹션에 입력 한 자격 증명을 사용 하 여 vm에 로그인 합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 
@@ -327,7 +331,7 @@ Azure에서 VM을 만든 후 VM에 연결 하 고 Windows에서 이더넷 컨트
 3. 적용 된 업데이트를 자동으로 설정 하 여 변경 내용이 즉시 선택 되도록 합니다.
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

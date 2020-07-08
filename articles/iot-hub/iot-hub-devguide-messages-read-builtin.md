@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: HT
+ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907485"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -66,7 +66,7 @@ IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [빠른 시작](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [빠른 시작](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
+| Python | https://pypi.org/project/azure-eventhub/ | [빠른 시작](quickstart-send-telemetry-python.md) |
 
 IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 사용할 수 있는 제품 통합은 다음과 같습니다.
 

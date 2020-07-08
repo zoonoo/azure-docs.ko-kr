@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67181878"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -27,7 +27,7 @@ ms.locfileid: "67181878"
 
 ### <a name="add-table-entities"></a>테이블 엔터티 추가
 
-**AzTableRow**를 사용 하 여 테이블에 엔터티를 추가 합니다. 이러한 예에서는 값 `partition1` `partition2`이 인 파티션 키와 상태 약어와 동일한 행 키를 사용 합니다. 각 엔터티의 속성은 `username` 및 `userid`입니다. 
+**AzTableRow**를 사용 하 여 테이블에 엔터티를 추가 합니다. 이러한 예에서는 값이 인 파티션 키와 `partition1` `partition2` 상태 약어와 동일한 행 키를 사용 합니다. 각 엔터티의 속성은 `username` 및 `userid` 입니다. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 이 명령은 다음 표와 비슷한 결과를 생성합니다.
 
-| userId | username | partition | rowkey |
+| userId | 사용자 이름 | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 결과는 다음 표와 비슷합니다.
 
-| userId | username | partition | rowkey |
+| userId | 사용자 이름 | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -101,10 +101,10 @@ Get-AzTableRow -table $cloudTable `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드(field)|value|
+|필드(field)|값|
 |----|----|
 | userId | 1 |
-| username | Chris |
+| 사용자 이름 | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -118,10 +118,10 @@ Get-AzTableRow `
 
 이 쿼리는 하나의 레코드를 검색합니다.
 
-|필드(field)|value|
+|필드(field)|값|
 |----|----|
 | userId | 1 |
-| username | Chris |
+| 사용자 이름 | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 결과에서 Jessie2 레코드를 보여 줍니다.
 
-|필드(field)|value|
+|필드(field)|값|
 |----|----|
 | userId | 2 |
-| username | Jessie2 |
+| 사용자 이름 | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

@@ -1,15 +1,15 @@
 ---
-title: 컨테이너 인스턴스의 보안
+title: 컨테이너 인스턴스에 대 한 보안 고려 사항
 description: Azure Container Instances에 대 한 이미지 및 암호를 보호 하기 위한 권장 사항 및 컨테이너 플랫폼에 대 한 일반적인 보안 고려 사항
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907026"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
 
@@ -18,6 +18,9 @@ ms.locfileid: "81457997"
 > [!div class="checklist"]
 > * Azure Container Instances에 대 한 이미지 및 암호 관리에 대 한 **보안 권장 사항**
 > * 컨테이너 플랫폼의 컨테이너 수명 주기 내내 컨테이너 **에코 시스템에 대 한 고려 사항**
+
+배포의 보안 상태를 개선 하는 데 도움이 되는 포괄적인 권장 사항은 [Container Instances의 Azure 보안 기준](security-baseline.md)을 참조 하세요.
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 권장 사항
 
@@ -114,7 +117,7 @@ Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 �
 
 * [컨테이너 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 는 AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
 
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 다음은 그 예입니다.
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예를 들어:
 
   * 컨테이너에 사용 되는 명령을 보여 주는 자세한 감사 정보를 표시 합니다. 
   * Docker 또는 Windows 호스트를 원격으로 보지 않고도 중앙화 된 로그를 보고 검색 하 여 컨테이너 문제를 해결 합니다.  
@@ -140,6 +143,8 @@ Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지
 * [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md) 에 대 한 리소스 로그
 
 ## <a name="next-steps"></a>다음 단계
+
+* 배포의 보안 상태를 개선 하는 데 도움이 되는 포괄적인 권장 사항은 [Container Instances의 Azure 보안 기준](security-baseline.md) 을 참조 하세요.
 
 * 컨테이너 화 된 환경에서 실시간 위협 감지를 위해 [Azure Security Center](../security-center/container-security.md) 를 사용 하는 방법에 대해 자세히 알아보세요.
 

@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945344"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -95,7 +95,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}*/*{resourceType}*/*{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
+**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -239,7 +239,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https\://management.azure.com/subscriptions/*{subscription-id}*/stgg/*{**/providers/*/*{resource-type}*/}*{resource-* name}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan = {*starttime/endtime}*&$filter = {*filter}*&resultType = 메타 데이터&api-version =*{apiVersion}*
+**요청 URI**: https \: //management.azure.com/subscriptions/*{subscription-id}*/stgg/*{*/providers/} {resource-name}*{resource-provider-namespace}* / *{resource-type}* / *{resource-name}*/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan = {*starttime/endtime}*&$filter = {*filter}*&resultType = 메타 데이터&api-version =*{apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -312,7 +312,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https:\//management.azure.com/subscriptions/*{subscription-id}*/stgg/*{/providers/}*{resource-*namespace}*/{resource-*type}*/*{* resource-name}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan =*{starttime/endtime}*&$filter =*{filter}*&interval =*{timeGrain}*&집계 = {*aggreation}*&api-version =*{apiVersion}*
+**요청 URI**: https: \/ /management.azure.com/subscriptions/*{subscription-id}*/stgg/*{/providers/}*{resource-*namespace}*{resource- / *type}*{resource- / *name*}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan =*{starttime/endtime}*&$filter =*{filter}*&interval =*{timeGrain}*&집계 = {*aggreation}*&api-version =*{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -391,7 +391,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}*/*{resourceType}*/*{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
+**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -705,16 +705,30 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
 
-또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 예제에서는 Azure Monitor REST API를 사용하여 Azure 구독에 대해 특정 날짜 범위의 활동 로그 데이터를 쿼리합니다.
+또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용 하 여 활동 로그를 쿼리 합니다.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+필터를 사용하여 활동 로그를 가져옵니다.
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+필터 및 선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+필터 또는 선택을 사용하여 활동 로그를 가져옵니다.
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>다음 단계

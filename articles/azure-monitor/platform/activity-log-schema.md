@@ -4,22 +4,41 @@ description: Azure 활동 로그의 각 범주에 대 한 이벤트 스키마를
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/04/2019
+ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945361"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 각 범주에 대 한 이벤트 스키마를 설명 합니다. 
+Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 범주와 각 항목에 대 한 스키마를 설명 합니다. 
 
-아래 예제는 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 스키마를 보여 줍니다. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](resource-logs-stream-event-hubs.md)때 스키마가 다릅니다. 이 문서의 끝에는 [리소스 로그 스키마](diagnostic-logs-schema.md) 에 대 한 속성 매핑이 제공 됩니다.
+스키마는 로그에 액세스 하는 방법에 따라 달라 집니다.
+ 
+- 이 문서에서 설명 하는 스키마는 [REST API](https://docs.microsoft.com/rest/api/monitor/activitylogs)에서 활동 로그에 액세스 하는 경우입니다. Azure Portal에서 이벤트를 볼 때 **JSON** 옵션을 선택 하는 경우에도 사용 되는 스키마입니다.
+- Azure Storage 또는 Azure Event Hubs에 활동 로그를 보내는 [진단 설정을](diagnostic-settings.md) 사용 하는 경우 [저장소 계정 및](#schema-from-storage-account-and-event-hubs) 스키마에 대 한 event Hubs의 마지막 섹션 스키마를 참조 하세요.
+- 작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을](diagnostic-settings.md) 사용 하는 경우 스키마에 대 한 [Azure Monitor 데이터 참조](https://docs.microsoft.com/azure/azure-monitor/reference/) 를 참조 하세요.
 
-## <a name="administrative"></a>관리
+
+## <a name="categories"></a>범주
+활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](resource-logs-stream-event-hubs.md)때 스키마가 다릅니다. [리소스 로그 스키마](diagnostic-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
+
+| 범주 | 설명 |
+|:---|:---|
+| [관리](#administrative-category) | Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 관리 이벤트의 예로는 가상 머신 만들기 및 네트워크 보안 그룹 삭제가 있습니다.<br><br>Resource Manager를 사용하여 사용자 또는 애플리케이션에서 수행하는 모든 작업은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 이벤트에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다. |
+| [Service Health](#service-health-category) | Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 서비스 상태 이벤트 예제로 미국 동부의 SQL Azure에서 가동 중지 시간 발생이 있습니다. <br><br>서비스 상태 이벤트는 6가지 형태로 제공됩니다. 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안입니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성됩니다.
+| [리소스 상태](#resource-health-category) | Azure 리소스에 발생한 모든 리소스 상태 이벤트의 레코드가 포함됩니다. 리소스 상태 이벤트의 예제로 가상 머신 상태가 사용 불가능으로 변경됨이 있습니다.<br><br>리소스 상태 이벤트는 상태 중 하나를 나타낼 수 있습니다. 사용 가능, 사용 불가능, 저하됨, 알 수 없음입니다. 또한 리소스 상태 이벤트는 플랫폼 시작 또는 사용자 시작으로 분류될 수 있습니다. |
+| [경고](#alert-category) | Azure 경고에 대한 활성화 레코드를 포함합니다. 경고 이벤트의 예로는 지난 5분 동안 myVM의 CPU %가 80 이상이었음이 있습니다.|
+| [Autoscale](#autoscale-category) | 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 자동 크기 조정 이벤트로 예로는 자동 크기 조정 이벤트 실패가 있습니다. |
+| [추천 사항](#recommendation-category) | Azure Advisor의 권장 사항 이벤트가 포함됩니다. |
+| [보안](#security-category) | Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 보안 이벤트의 예로는 의심스러운 이중 확장 파일이 실행됨이 있습니다. |
+| [정책](#policy-category) | Azure Policy에서 수행하는 모든 적용 작업의 레코드가 포함됩니다. 정책 이벤트의 예로는 감사 및 거부가 있습니다. Policy에서 수행하는 모든 작업은 리소스에 대한 작업으로 모델링됩니다. |
+
+## <a name="administrative-category"></a>관리 범주
 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 애플리케이션이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -111,7 +130,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
@@ -123,7 +142,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | eventName | 관리 이벤트의 이름입니다. |
 | category | 항상 "관리" |
 | httpRequest |Http 요청을 설명하는 Blob입니다. 일반적으로 "clientRequestId", "clientIpAddress" 및 "method"(PUT 등의 HTTP 메서드) 포함. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자 이름입니다. |
 | resourceType | 관리 이벤트의 영향을 받은 리소스의 형식입니다. |
@@ -137,7 +156,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 
-## <a name="service-health"></a>서비스 상태
+## <a name="service-health-category"></a>서비스 상태 범주
 이 범주에는 Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "미국 동부의 SQL Azure가 가동 중지 상태입니다." 등이 있습니다. 서비스 상태 이벤트는 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안의 5가지 중 하나이며 구독에 이벤트의 영향을 받는 리소스가 있는 경우에만 표시됩니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -197,7 +216,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 이 속성의 값에 대한 설명서를 보려면 [서비스 상태 알림](./../../azure-monitor/platform/service-notifications.md) 문서를 참조하세요.
 
-## <a name="resource-health"></a>리소스 상태
+## <a name="resource-health-category"></a>리소스 상태 범주
 이 범주에는 Azure 리소스에 발생한 모든 리소스 상태 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예는 “가상 머신 상태가 사용 불가능으로 변경됨”입니다. 리소스 상태 이벤트는 사용 가능, 사용 불가능, 저하됨 및 알 수 없음의 네 가지 상태로 표시될 수 있습니다. 또한 리소스 상태 이벤트는 플랫폼 시작 또는 사용자 시작으로 분류될 수 있습니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -258,7 +277,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 "Admin, Operation"입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -266,7 +285,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
 | category | 항상 “ResourceHealth” |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” 값 중 하나입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | resourceGroupName |리소스를 포함하는 리소스 그룹의 이름 |
@@ -286,8 +305,8 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | properties.cause | 리소스 상태 이벤트의 원인에 대한 설명입니다. "UserInitiated" 및 "PlatformInitiated" 중 하나입니다. |
 
 
-## <a name="alert"></a>경고
-이 범주에는 모든 Azure 경고 활성화의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
+## <a name="alert-category"></a>경고 범주
+이 범주에는 모든 클래식 Azure 경고 활성화의 레코드가 포함 됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
 
@@ -351,7 +370,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | caller | Always Microsoft.Insights/alertRules |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -360,7 +379,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | description |경고 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
 | category | 항상 "경고" |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 다른 경고 유형의 경우 경고 자체가 포함된 리소스 그룹의 이름입니다. |
 | resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 다른 경고 유형의 경우 경고 자체에 대한 리소스 공급자 이름입니다. |
 | resourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 다른 경고 유형의 경우 경고 리소스 자체의 리소스 ID입니다. |
@@ -377,7 +396,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 속성 필드에는 경고 이벤트의 원본에 따라 다른 값이 포함됩니다. 일반적으로 사용되는 두 경고 이벤트 공급자는 활동 로그 경고와 메트릭 경고입니다.
 
 #### <a name="properties-for-activity-log-alerts"></a>활동 로그 경고의 속성
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | properties.subscriptionId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 구독 ID입니다. |
 | properties.eventDataId | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 이벤트 데이터 ID입니다. |
@@ -388,7 +407,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | properties.status | 이 활동 로그 경고 규칙을 활성화한 활동 로그 이벤트의 상태입니다.|
 
 #### <a name="properties-for-metric-alerts"></a>메트릭 경고의 속성
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | properties.RuleUri | 메트릭 경고 규칙 자체의 리소스 ID입니다. |
 | properties.RuleName | 메트릭 경고 규칙의 이름입니다. |
@@ -400,7 +419,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | properties.MetricName | 메트릭 경고 규칙의 평가에 사용되는 메트릭의 이름입니다. |
 | properties.MetricUnit | 메트릭 경고 규칙의 평가에 사용되는 메트릭의 메트릭 단위입니다. |
 
-## <a name="autoscale"></a>자동 크기 조정
+## <a name="autoscale-category"></a>자동 크기 조정 범주
 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -461,7 +480,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | caller | 항상 Microsoft.Insights/autoscaleSettings입니다. |
 | channels | 항상 "Admin, Operation"입니다. |
@@ -469,7 +488,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | correlationId | 문자열 형식의 GUID입니다. |
 | description |자동 크기 조정 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |자동 크기 조정 이벤트의 고유 식별자입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |자동 크기 조정 설정의 리소스 그룹 이름입니다. |
 | resourceProviderName |자동 크기 조정 설정의 리소스 공급자 이름입니다. |
 | resourceId |자동 크기 조정 설정의 리소스 ID입니다. |
@@ -487,7 +506,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 
-## <a name="security"></a>보안
+## <a name="security-category"></a>보안 범주
 이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -551,7 +570,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ```
 
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -560,7 +579,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | eventName |보안 이벤트의 이름입니다. |
 | category | 항상 "보안" |
 | ID |보안 이벤트의 고유 리소스 식별자입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |Azure Security Center의 리소스 공급자 이름입니다. 항상 "Microsoft.Security"입니다. |
 | resourceType |보안 이벤트를 생성한 리소스 유형(예: "Microsoft.Security/locations/alerts")입니다. |
@@ -575,7 +594,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 
-## <a name="recommendation"></a>권장
+## <a name="recommendation-category"></a>권장 사항 범주
 이 범주에는 서비스에 대해 생성되는 새 권장 사항 레코드가 포함됩니다. 권장 사항의 예로 "내결함성을 향상하려면 가용성 집합을 사용하세요"를 들 수 있습니다. 생성할 수 있는 권장 사항 이벤트에는 고가용성, 성능, 보안 및 비용 최적화의 네 가지 유형이 있습니다. 
 
 ### <a name="sample-event"></a>샘플 이벤트
@@ -632,7 +651,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 
 ```
 ### <a name="property-descriptions"></a>속성 설명
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
 | correlationId | 문자열 형식의 GUID입니다. |
@@ -640,7 +659,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | eventDataId | 권장 사항 이벤트의 고유 식별자. |
 | category | 항상 "권장 사항" |
 | ID |권장 사항 이벤트의 고유 리소스 식별자. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
+| 수준 |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | operationName |작업의 이름입니다.  항상 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
@@ -655,7 +674,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | properties.recommendationImpact| 권장 사항의 영향. 가능한 값은 "높음", "보통" 또는 "낮음" |
 | properties.recommendationRisk| 권장 사항의 위험. 가능한 값은 "오류", "경고", "없음" |
 
-## <a name="policy"></a>정책
+## <a name="policy-category"></a>정책 범주
 
 이 범주에는 [Azure Policy](../../governance/policy/overview.md)에서 수행하는 모든 적용 작업의 레코드가 포함됩니다. 이 범주에 표시 되는 이벤트 유형의 예로는 _Audit_ 와 _Deny_가 있습니다. Policy에서 수행하는 모든 작업은 리소스에 대한 작업으로 모델링됩니다.
 
@@ -742,7 +761,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 
 ### <a name="policy-event-property-descriptions"></a>Policy 이벤트 속성 설명
 
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | 권한 부여 | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
 | caller | 새 리소스의 경우 배포를 시작한 ID입니다. 기존 리소스의 경우 Microsoft Azure Policy Insights RP의 GUID입니다. |
@@ -755,7 +774,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | category | 활동 로그 이벤트를 "Policy"에 속하는 것으로 선언합니다. |
 | eventTimestamp | 이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | ID | 특정 리소스에서 이벤트의 고유 식별자입니다. |
-| level | 이벤트의 수준입니다. 감사는 "Warning"을 사용하고 거부는 "Error"를 사용합니다. AuditIfNotExists 또는 deployIfNotExists 오류는 심각도에 따라 "Warning" 또는 "Error"를 생성할 수 있습니다. 다른 모든 Policy 이벤트는 "Informational"을 사용합니다. |
+| 수준 | 이벤트의 수준입니다. 감사는 "Warning"을 사용하고 거부는 "Error"를 사용합니다. AuditIfNotExists 또는 deployIfNotExists 오류는 심각도에 따라 "Warning" 또는 "Error"를 생성할 수 있습니다. 다른 모든 Policy 이벤트는 "Informational"을 사용합니다. |
 | operationId | 단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName | 작업의 이름으로, Policy 적용에 직접적으로 상관 관계가 있습니다. |
 | resourceGroupName | 평가된 리소스의 리소스 그룹 이름입니다. |
@@ -780,7 +799,7 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 > 11 월 1 일에 저장소 계정에 기록 된 활동 로그 데이터의 형식이 JSON 줄로 변경 되었습니다. 1, 2018. 이러한 형식 변경에 대 한 자세한 내용은 [저장소 계정에 보관 된 리소스 로그를 Azure Monitor 형식 변경 준비를](diagnostic-logs-append-blobs.md) 참조 하세요.
 
 
-| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
+| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 참고 |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
@@ -792,7 +811,7 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 | durationMS | 해당 없음 | 항상 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
-| ID | 클레임 및 권한 부여 속성 |  |
+| identity | 클레임 및 권한 부여 속성 |  |
 | Level | Level |  |
 | 위치 | 해당 없음 | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
 | 속성 | properties.eventProperties |  |
@@ -807,7 +826,7 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 {
     "records": [
         {
-            "time": "2015-01-21T22:14:26.9792776Z",
+            "time": "2019-01-21T22:14:26.9792776Z",
             "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
             "operationName": "microsoft.support/supporttickets/write",
             "category": "Write",
@@ -831,7 +850,7 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
                     "nbf": "1421876371",
                     "exp": "1421880271",
                     "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
                     "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
                     "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",

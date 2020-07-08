@@ -9,13 +9,13 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73495735"
 ---
-PowerShell cmdlet을 사용 `Resize-AzVirtualNetworkGateway` 하 여 Generation1.xml 또는 Generation2 SKU를 업그레이드 하거나 다운 그레이드할 수 있습니다. 기본 sku를 제외 하 고 모든 VpnGw sku의 크기를 조정할 수 있습니다. 기본 게이트웨이 SKU를 사용하는 경우 [대신 이러한 지침을 사용하여](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) 게이트웨이의 크기를 조정합니다.
+PowerShell cmdlet을 사용 `Resize-AzVirtualNetworkGateway` 하 여 generation1.xml 또는 GENERATION2 SKU를 업그레이드 하거나 다운 그레이드할 수 있습니다. 기본 sku를 제외 하 고 모든 VpnGw sku의 크기를 조정할 수 있습니다. 기본 게이트웨이 SKU를 사용하는 경우 [대신 이러한 지침을 사용하여](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) 게이트웨이의 크기를 조정합니다.
 
 다음 PowerShell 예제에서는 VpnGw2로 크기가 조정되는 게이트웨이 SKU를 보여 줍니다.
 

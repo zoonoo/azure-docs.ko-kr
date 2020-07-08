@@ -3,17 +3,17 @@ title: Azure에 VHD 업로드 또는 지역 간에 디스크 복사-Azure PowerS
 description: Azure 관리 디스크에 VHD를 업로드 하 고 직접 업로드를 통해 Azure PowerShell를 사용 하 여 여러 지역에 관리 되는 디스크를 복사 하는 방법에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944630"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure PowerShell
 
@@ -38,15 +38,18 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 - ActiveUpload-디스크가 업로드를 받을 준비가 되었으며 SAS가 생성 되었음을 의미 합니다.
 
 > [!NOTE]
-> 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 디스크를 VM `revoke-access` 에 연결 하는 데 필요한 관리 디스크에서가 호출 될 때까지 적용 됩니다.
+> 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 `revoke-access` 디스크를 VM에 연결 하는 데 필요한 관리 디스크에서가 호출 될 때까지 적용 됩니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
 
-업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 예제 코드는 사용자를 위한 것 이지만를 직접 수행 하려면를 사용 하면 `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`됩니다. 이 값은 **-UploadSizeInBytes** 매개 변수를 지정할 때 사용 됩니다.
+업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 예제 코드는 사용자를 위한 것 이지만를 직접 수행 하려면를 사용 하면 `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` 됩니다. 이 값은 **-UploadSizeInBytes** 매개 변수를 지정할 때 사용 됩니다.
 
 이제 로컬 셸에서 **-createoption** 매개 변수의 **업로드** 설정과 [AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet의 **-UploadSizeInBytes** 매개 변수를 지정 하 여 업로드할 빈 표준 HDD를 만듭니다. 그런 다음 [AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) 를 호출 하 여 디스크를 만듭니다.
 
-, `<yourdiskname>` `<yourresourcegroupname>`을 (를 `<yourregion>` ) 바꾼 후 다음 명령을 실행 합니다.
+,을 (를) 바꾼 `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` 후 다음 명령을 실행 합니다.
+
+> [!TIP]
+> OS 디스크를 만드는 경우에는-HyperVGeneration ' '를 추가 <yourGeneration> `New-AzDiskConfig` 합니다.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -60,7 +63,7 @@ New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>
 
 업로드 프로세스를 위해 구성 된 빈 관리 디스크를 만들었으므로 이제 VHD를 업로드할 수 있습니다. 디스크에 VHD를 업로드 하려면 업로드할 대상으로 참조할 수 있도록 쓰기 가능한 SAS가 필요 합니다.
 
-빈 관리 디스크의 쓰기 가능한 SAS를 생성 하려면 및 `<yourdiskname>` `<yourresourcegroupname>`를 바꾼 후 다음 명령을 사용 합니다.
+빈 관리 디스크의 쓰기 가능한 SAS를 생성 하려면 `<yourdiskname>` 및를 바꾼 `<yourresourcegroupname>` 후 다음 명령을 사용 합니다.
 
 ```powershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
@@ -82,7 +85,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlo
 
 업로드가 완료 되 고 더 이상 디스크에 더 이상 데이터를 쓸 필요가 없으면 SAS를 해지 합니다. SAS를 해지 하면 관리 디스크의 상태가 변경 되 고 해당 디스크를 VM에 연결할 수 있습니다.
 
-및 `<yourdiskname>` `<yourresourcegroupname>`를 바꾼 후 다음 명령을 실행 합니다.
+`<yourdiskname>`및 `<yourresourcegroupname>` 를 바꾼 후 다음 명령을 실행 합니다.
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
@@ -97,7 +100,10 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 > [!IMPORTANT]
 > Azure에서 관리 디스크의 디스크 크기 (바이트)를 제공 하는 경우 512의 오프셋을 추가 해야 합니다. 이는 Azure에서 디스크 크기를 반환할 때 바닥글이 생략 되기 때문입니다. 이렇게 하지 않으면 복사가 실패 합니다. 다음 스크립트는 이미이를 위해이를 수행 합니다.
 
-`<sourceResourceGroupHere>` `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` 및 `<yourTargetLocationHere>` (위치 값의 예: uswest2)를 값으로 바꾼 후 관리 디스크를 복사 하기 위해 다음 스크립트를 실행 합니다.
+,, `<sourceResourceGroupHere>` `<sourceDiskNameHere>` `<targetDiskNameHere>` , `<targetResourceGroupHere>` `<yourOSTypeHere>` 및 `<yourTargetLocationHere>` (위치 값의 예: uswest2)를 값으로 바꾼 후 관리 디스크를 복사 하기 위해 다음 스크립트를 실행 합니다.
+
+> [!TIP]
+> OS 디스크를 만드는 경우에는-HyperVGeneration ' '를 추가 <yourGeneration> `New-AzDiskConfig` 합니다.
 
 ```powershell
 

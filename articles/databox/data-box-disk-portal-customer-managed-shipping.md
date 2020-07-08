@@ -5,15 +5,15 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748782"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945021"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box Disk용 자체 관리형 배송 사용
 
@@ -28,6 +28,7 @@ ms.locfileid: "83748782"
 * 일본
 * 싱가포르
 * 대한민국
+* 인도 (미리 보기)
 
 ## <a name="use-self-managed-shipping"></a>자체 관리형 배송 사용
 
@@ -43,7 +44,7 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
    ![자체 관리형 배송](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. 디바이스가 준비되면 픽업을 예약할 수 있습니다. Azure Data Box Disk 주문에서 **개요**로 이동한 후 **픽업 예약**을 선택합니다.
+4. 장치가 준비 되 고 전자 메일 알림을 받으면 픽업을 예약할 수 있습니다. Azure Data Box Disk 주문에서 **개요**로 이동한 후 **픽업 예약**을 선택합니다.
 
    ![Data Box 디바이스 픽업 주문](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -57,11 +58,11 @@ Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 �
 
    **인증 코드**를 적어 둡니다.
 
-   보안 요구 사항에 따라 픽업 및 반납을 예약할 때 픽업 및 반납을 직접 처리하는 사람의 이름을 제공해야 합니다.
+   보안 요구 사항에 따라 선택 일정을 예약 하는 시점에, 선택에 도착할 사용자의 이름을 표시 해야 합니다.
 
    픽업 데이터 센터를 방문할 사용자에 대한 세부 정보도 제공해야 합니다. 본인 또는 연락 담당자에게 데이터 센터에서 유효성을 검사할 정부 승인 사진 ID가 있어야 합니다.
 
-   또한 디바이스를 픽업하는 사람에게도 **인증 코드**가 있어야 합니다. 인증 코드는 픽업 시 데이터 센터에서 유효한지 검사됩니다.
+   또한 디바이스를 픽업하는 사람에게도 **인증 코드**가 있어야 합니다. 권한 부여 코드는 픽업 또는 낙하에 대해 고유 하며 데이터 센터에서 유효성을 검사 합니다.
 
 7. 데이터 센터에서 디바이스를 픽업하면 주문이 자동으로 **픽업됨** 상태로 바뀝니다.
 

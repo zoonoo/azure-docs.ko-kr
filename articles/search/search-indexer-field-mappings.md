@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975336"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -22,7 +22,7 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 
 필드 매핑이 유용한 일부 상황:
 
-* 데이터 원본에 라는 `_id`필드가 있지만 Azure Cognitive Search는 밑줄로 시작 하는 필드 이름을 허용 하지 않습니다. 필드 매핑을 사용 하면 필드를 효과적으로 바꿀 수 있습니다.
+* 데이터 원본에 라는 필드가 `_id` 있지만 Azure Cognitive Search는 밑줄로 시작 하는 필드 이름을 허용 하지 않습니다. 필드 매핑을 사용 하면 필드를 효과적으로 바꿀 수 있습니다.
 * 동일한 데이터 원본 데이터에서 인덱스의 여러 필드를 채워야 합니다. 예를 들어 이러한 필드에 다른 분석기를 적용 하는 것이 좋습니다.
 * 두 개 이상의 데이터 원본에 있는 데이터를 사용 하 여 인덱스 필드를 채우면 서로 다른 필드 이름을 사용 합니다.
 * 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수**를 지원합니다.
@@ -38,7 +38,10 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 2. 선택 사항 `targetFieldName`은(는) 검색 인덱스의 필드를 나타냅니다. 생략된 경우 데이터 원본과 동일한 이름이 사용됩니다.
 3. 선택 사항 `mappingFunction`은(는) 미리 정의된 여러 함수 중 하나를 사용하여 데이터를 변환할 수 있습니다. 이는 입력 및 출력 필드 매핑 모두에 적용 될 수 있습니다. 함수의 전체 목록은 [아래](#mappingFunctions)입니다.
 
-필드 매핑은 인덱서 정의의 `fieldMappings` 배열에 추가 됩니다.
+필드 매핑은 `fieldMappings` 인덱서 정의의 배열에 추가 됩니다.
+
+> [!NOTE]
+> 필드 매핑이 추가 되지 않은 경우 인덱서는 데이터 원본 필드가 동일한 이름의 인덱스 필드에 매핑되어야 한다고 가정 합니다. 필드 매핑을 추가 하면 원본 및 대상 필드에 대 한 기본 필드 매핑이 제거 됩니다. [Blob 저장소 인덱서와](search-howto-indexing-azure-blob-storage.md)같은 일부 인덱서는 인덱스 키 필드에 대 한 기본 필드 매핑을 추가 합니다.
 
 ## <a name="map-fields-using-the-rest-api"></a>REST API를 사용 하 여 필드 매핑
 
@@ -75,9 +78,9 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-the-net-sdk"></a>.NET SDK를 사용 하 여 필드 매핑
 
-속성과 `SourceFieldName` 및 `TargetFieldName`선택적 `MappingFunction` 참조를 포함 하는 [fieldmapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 합니다.
+속성과 및 선택적 참조를 포함 하는 [Fieldmapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 `SourceFieldName` `TargetFieldName` `MappingFunction` 합니다.
 
-인덱서를 생성할 때 또는 나중에 `Indexer.FieldMappings` 속성을 직접 설정 하 여 필드 매핑을 지정할 수 있습니다.
+인덱서를 생성할 때 또는 나중에 속성을 직접 설정 하 여 필드 매핑을 지정할 수 있습니다 `Indexer.FieldMappings` .
 
 다음 c # 예제에서는 인덱서를 생성할 때 필드 매핑을 설정 합니다.
 
@@ -120,9 +123,9 @@ api-key: [admin key]
 
 #### <a name="example---document-key-lookup"></a>예제-문서 키 조회
 
-고객이 [조회 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 를 사용 하 여 문서를 처리할 수 있어야 하기 때문에 URL 안전 문자만 Azure Cognitive Search 문서 키에 나타날 수 있습니다. 키의 원본 필드에 URL-안전 하지 않은 문자가 포함 된 경우 함수를 `base64Encode` 사용 하 여 인덱싱할 때 변환할 수 있습니다. 그러나 문서 키 (변환 전후)는 1024 자를 초과할 수 없습니다.
+고객이 [조회 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 를 사용 하 여 문서를 처리할 수 있어야 하기 때문에 URL 안전 문자만 Azure Cognitive Search 문서 키에 나타날 수 있습니다. 키의 원본 필드에 URL-안전 하지 않은 문자가 포함 된 경우 함수를 사용 하 여 인덱싱할 때 변환할 수 있습니다 `base64Encode` . 그러나 문서 키 (변환 전후)는 1024 자를 초과할 수 없습니다.
 
-검색 시 인코딩된 키를 검색 하는 경우 `base64Decode` 함수를 사용 하 여 원래 키 값을 가져온 다음이를 사용 하 여 소스 문서를 검색할 수 있습니다.
+검색 시 인코딩된 키를 검색 하는 경우 함수를 사용 `base64Decode` 하 여 원래 키 값을 가져온 다음이를 사용 하 여 소스 문서를 검색할 수 있습니다.
 
 ```JSON
 
@@ -137,7 +140,28 @@ api-key: [admin key]
   }]
  ```
 
-매핑 함수에 대 한 매개 변수 속성을 포함 하지 않는 경우 기본값은 value `{"useHttpServerUtilityUrlTokenEncode" : true}`입니다.
+#### <a name="example---preserve-original-values"></a>예-원래 값 유지
+
+[Blob 저장소 인덱서](search-howto-indexing-azure-blob-storage.md) 는 `metadata_storage_path` 필드 매핑이 지정 되지 않은 경우 blob의 URI에 있는 필드 매핑을 인덱스 키 필드에 자동으로 추가 합니다. 이 값은 b a s e 64로 인코딩되어 Azure Cognitive Search 문서 키로 사용 하는 것이 안전 합니다. 다음 예에서는의 *URL 안전* Base64 인코딩된 버전을 필드에 동시에 매핑하고 `metadata_storage_path` `index_key` 원래 값을 필드에 유지 하는 방법을 보여 줍니다 `metadata_storage_path` .
+
+```JSON
+
+"fieldMappings": [
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "metadata_storage_path"
+  },
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "index_key",
+    "mappingFunction": {
+       "name": "base64Encode"
+    }
+  }
+]
+```
+
+매핑 함수에 대 한 매개 변수 속성을 포함 하지 않는 경우 기본값은 value `{"useHttpServerUtilityUrlTokenEncode" : true}` 입니다.
 
 Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다. 동일한 필드를 인코딩 및 디코딩할 때 동일한 매개 변수를 사용 해야 합니다. 자세한 내용은 사용할 매개 변수를 결정 하는 [base64 인코딩 옵션](#base64details) 을 참조 하세요.
 
@@ -149,7 +173,7 @@ Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다
 
 #### <a name="example---decode-blob-metadata-or-urls"></a>예제-blob 메타 데이터 또는 Url 디코딩
 
-원본 데이터에는 일반 텍스트로 검색 하려는 blob 메타 데이터 문자열 또는 웹 Url과 같은 Base64 인코딩 문자열이 포함 될 수 있습니다. 함수를 `base64Decode` 사용 하 여 검색 인덱스를 채울 때 인코딩된 데이터를 일반 문자열로 다시 전환할 수 있습니다.
+원본 데이터에는 일반 텍스트로 검색 하려는 blob 메타 데이터 문자열 또는 웹 Url과 같은 Base64 인코딩 문자열이 포함 될 수 있습니다. 함수를 사용 하 여 `base64Decode` 검색 인덱스를 채울 때 인코딩된 데이터를 일반 문자열로 다시 전환할 수 있습니다.
 
 ```JSON
 
@@ -164,7 +188,7 @@ Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다
   }]
 ```
 
-매개 변수 속성을 포함 하지 않는 경우 기본값은 value `{"useHttpServerUtilityUrlTokenEncode" : true}`입니다.
+매개 변수 속성을 포함 하지 않는 경우 기본값은 value `{"useHttpServerUtilityUrlTokenEncode" : true}` 입니다.
 
 Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다. 동일한 필드를 인코딩 및 디코딩할 때 동일한 매개 변수를 사용 해야 합니다. 자세한 내용은 사용할 매개 변수를 결정 하는 [base64 인코딩 옵션](#base64details) 을 참조 하세요.
 
@@ -174,12 +198,12 @@ Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다
 
 Azure Cognitive Search는 URL 안전 base64 인코딩 및 일반 base64 인코딩을 지원 합니다. 인덱싱을 수행 하는 동안 base64로 인코딩된 문자열은 나중에 동일한 인코딩 옵션을 사용 하 여 디코딩해야 합니다. 그렇지 않으면 결과가 원본과 일치 하지 않습니다.
 
-인코딩 및 `useHttpServerUtilityUrlTokenEncode` 디코딩에 `useHttpServerUtilityUrlTokenDecode` 대 한 또는 매개 `true`변수가 각각로 설정 된 경우는 `base64Encode` [HttpServerUtility](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 와 같은 동작을 수행 하 고 `base64Decode` [HttpServerUtility UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)처럼 동작 합니다.
+`useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` 인코딩 및 디코딩에 대 한 또는 매개 변수가 각각로 설정 된 경우는 HttpServerUtility와 같은 동작을 수행 하 `true` `base64Encode` [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 고 `base64Decode` [HttpServerUtility UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)처럼 동작 합니다.
 
 > [!WARNING]
-> 키 `base64Encode` 값을 생성 하는 데를 `useHttpServerUtilityUrlTokenEncode` 사용 하는 경우에는를 true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합은 [Azure Cognitive Search&#41;&#40;명명 규칙](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 을 참조 하세요.
+> `base64Encode`키 값을 생성 하는 데를 사용 하는 경우에는를 `useHttpServerUtilityUrlTokenEncode` true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합은 [Azure Cognitive Search&#41;&#40;명명 규칙](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 을 참조 하세요.
 
-Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제공 하는 전체 .NET Framework를 가정 합니다. 및 `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` 옵션은이 기본 제공 기능을 활용 합니다. .NET Core 또는 다른 프레임 워크를 사용 하는 경우 해당 옵션을로 설정 `false` 하 고 프레임 워크의 인코딩 및 디코딩 함수를 직접 호출 하는 것이 좋습니다.
+Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제공 하는 전체 .NET Framework를 가정 합니다. `useHttpServerUtilityUrlTokenEncode`및 `useHttpServerUtilityUrlTokenDecode` 옵션은이 기본 제공 기능을 활용 합니다. .NET Core 또는 다른 프레임 워크를 사용 하는 경우 해당 옵션을로 설정 하 `false` 고 프레임 워크의 인코딩 및 디코딩 함수를 직접 호출 하는 것이 좋습니다.
 
 다음 표에서는 문자열 `00>00?00`의 서로 다른 base64 인코딩을 비교합니다. base64 함수에 필요한 추가 처리를 판단하려면(있는 경우) `00>00?00` 문자열에서 라이브러리 인코딩 함수를 적용하고 출력을 `MDA-MDA_MDA` 예상 출력과 비교합니다.
 
@@ -232,7 +256,7 @@ JSON 문자열 배열 형식으로 생성된 문자열을 인덱스의 `Collecti
 
 #### <a name="example---populate-collection-from-relational-data"></a>예-관계형 데이터에서 컬렉션 채우기
 
-Azure SQL Database는 Azure Cognitive Search의 필드에 자연스럽 게 `Collection(Edm.String)` 매핑되는 기본 제공 데이터 형식이 없습니다. 문자열 컬렉션 필드를 채우기 위해 소스 데이터를 JSON 문자열 배열로 미리 처리 한 다음 `jsonArrayToStringCollection` 매핑 함수를 사용할 수 있습니다.
+Azure SQL Database는 `Collection(Edm.String)` Azure Cognitive Search의 필드에 자연스럽 게 매핑되는 기본 제공 데이터 형식이 없습니다. 문자열 컬렉션 필드를 채우기 위해 소스 데이터를 JSON 문자열 배열로 미리 처리 한 다음 매핑 함수를 사용할 수 있습니다 `jsonArrayToStringCollection` .
 
 ```JSON
 
@@ -251,11 +275,11 @@ Azure SQL Database는 Azure Cognitive Search의 필드에 자연스럽 게 `Coll
 
 #### <a name="example---document-key-lookup"></a>예제-문서 키 조회
 
-`urlEncode`URL 안전 하지 않은 문자만 변환 되 고 다른 `base64Encode` 문자는 그대로 유지 하는 경우 함수에 대 한 대 안으로 함수를 사용할 수 있습니다.
+`urlEncode``base64Encode`URL 안전 하지 않은 문자만 변환 되 고 다른 문자는 그대로 유지 하는 경우 함수에 대 한 대 안으로 함수를 사용할 수 있습니다.
 
-즉, 입력 문자열이 이면 형식의 `<hello>` `(Edm.String)` 대상 필드에 값이 채워집니다.`%3chello%3e`
+즉, 입력 문자열이 이면 `<hello>` 형식의 대상 필드에 값이 채워집니다. `(Edm.String)``%3chello%3e`
 
-검색 시 인코딩된 키를 검색 하는 경우 `urlDecode` 함수를 사용 하 여 원래 키 값을 가져온 다음이를 사용 하 여 소스 문서를 검색할 수 있습니다.
+검색 시 인코딩된 키를 검색 하는 경우 함수를 사용 `urlDecode` 하 여 원래 키 값을 가져온 다음이를 사용 하 여 소스 문서를 검색할 수 있습니다.
 
 ```JSON
 
@@ -277,7 +301,7 @@ Azure SQL Database는 Azure Cognitive Search의 필드에 자연스럽 게 `Coll
 
  ### <a name="example---decode-blob-metadata"></a>예제-blob 메타 데이터 디코딩
 
- 일부 Azure storage 클라이언트는 ASCII가 아닌 문자를 포함 하는 경우 blob 메타 데이터를 자동으로 인코딩합니다. 그러나 이러한 메타 데이터를 검색할 수 있게 하려면 (일반 텍스트) 함수를 `urlDecode` 사용 하 여 검색 인덱스를 채울 때 인코딩된 데이터를 일반 문자열로 다시 변환할 수 있습니다.
+ 일부 Azure storage 클라이언트는 ASCII가 아닌 문자를 포함 하는 경우 blob 메타 데이터를 자동으로 인코딩합니다. 그러나 이러한 메타 데이터를 검색할 수 있게 하려면 (일반 텍스트) 함수를 사용 하 여 `urlDecode` 검색 인덱스를 채울 때 인코딩된 데이터를 일반 문자열로 다시 변환할 수 있습니다.
 
  ```JSON
 

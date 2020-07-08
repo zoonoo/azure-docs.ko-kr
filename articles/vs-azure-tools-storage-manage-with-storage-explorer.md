@@ -8,22 +8,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975268"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있도록 하는 독립 실행형 앱입니다. 이 문서에서는 Azure storage 계정에 연결 하 고 관리 하는 몇 가지 방법을 알아봅니다.
+Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다. 이 문서에서는 Azure storage 계정에 연결 하 고 관리 하는 몇 가지 방법을 알아봅니다.
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -33,7 +33,7 @@ Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storag
 * Windows 8
 * Windows 7
 
-모든 버전의 Windows에서는 Storage 탐색기에 .NET Framework 4.6.2 이상이 필요 합니다.
+모든 버전의 Windows에서는 Storage 탐색기에 최소한 .NET Framework 4.7.2 필요 합니다.
 
 # <a name="macos"></a>[macOS](#tab/macos)
 
@@ -55,9 +55,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Storage 탐색기는 *release.tar.gz* 다운로드로도 사용할 수 있습니다. 종속성을 수동으로 설치 해야 합니다. Release.tar.gz 설치는 다음과 같은 Linux의 배포를 지원 *합니다* .
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 *Release.tar.gz* 설치는 다른 배포판에서 작동할 수 있지만 나열 된 배포만 공식적으로 지원 됩니다.
 
@@ -81,7 +81,7 @@ Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니
 > [!NOTE]
 > 로그인 한 후 리소스에 완전히 액세스 하려면 Storage 탐색기 관리 (Azure Resource Manager)와 데이터 계층 권한이 모두 필요 합니다. 즉, 저장소 계정에 대 한 액세스, 계정의 컨테이너 및 컨테이너의 데이터를 제공 하는 Azure Active Directory (Azure AD) 권한이 필요 합니다. 데이터 계층 에서만 사용 권한이 있는 경우 [AZURE AD를 통해 리소스를 추가](#add-a-resource-via-azure-ad)하는 것이 좋습니다. Storage 탐색기 필요한 특정 사용 권한에 대 한 자세한 내용은 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues)를 참조 하세요.
 
-1. Storage 탐색기에서**계정 관리** **보기** > 를 선택 하거나 **계정 관리** 단추를 선택 합니다.
+1. Storage 탐색기에서 **View**  >  **계정 관리** 보기를 선택 하거나 **계정 관리** 단추를 선택 합니다.
 
     ![계정 관리][1]
 
@@ -108,7 +108,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 * [AZURE AD를 통해 리소스를 추가](#add-a-resource-via-azure-ad)합니다. 데이터 계층 에서만 사용 권한이 있는 경우이 옵션을 사용 하 여 blob 컨테이너 또는 Azure Data Lake Storage Gen2 Blob 저장소 컨테이너를 추가 합니다.
 * [연결 문자열을 사용](#use-a-connection-string)합니다. 저장소 계정에 대 한 연결 문자열이 있는 경우이 옵션을 사용 합니다. Storage 탐색기는 키 및 [공유 액세스 서명](storage/common/storage-dotnet-shared-access-signature-part-1.md) 연결 문자열을 모두 지원 합니다.
 * [공유 액세스 서명 URI를 사용](#use-a-shared-access-signature-uri)합니다. Blob 컨테이너, 파일 공유, 큐 또는 테이블에 대 한 [공유 액세스 서명 URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) 가 있는 경우이를 사용 하 여 리소스에 연결 합니다. 공유 액세스 서명 URI를 가져오기 위해 [Storage 탐색기](#generate-a-sas-in-storage-explorer) 또는 [Azure Portal](https://portal.azure.com)를 사용할 수 있습니다.
-* [이름 및 키를 사용](#use-a-name-and-key)합니다. 저장소 계정에 대 한 계정 키 중 하나를 알고 있는 경우이 옵션을 사용 하 여 신속 하 게 연결할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 **설정** > 선택**키** 를 선택 하 여 저장소 계정 페이지에서 키를 찾습니다.
+* [이름 및 키를 사용](#use-a-name-and-key)합니다. 저장소 계정에 대 한 계정 키 중 하나를 알고 있는 경우이 옵션을 사용 하 여 신속 하 게 연결할 수 있습니다. Azure Portal에서 **설정**선택  >  **키** 를 선택 하 여 저장소 계정 페이지에서 키를 [Azure portal](https://portal.azure.com)찾습니다.
 * [로컬 에뮬레이터에 연결](#attach-to-a-local-emulator)합니다. 사용 가능한 Azure Storage 에뮬레이터 중 하나를 사용 하는 경우 에뮬레이터에 쉽게 연결 하려면이 옵션을 사용 합니다.
 * [연결 문자열을 사용 하 여 Azure Cosmos DB 계정에 연결](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)합니다. CosmosDB 인스턴스에 대 한 연결 문자열이 있는 경우이 옵션을 사용 합니다.
 * [URI로 Azure Data Lake Store에 연결](#connect-to-azure-data-lake-store-by-uri)합니다. Azure Data Lake Store URI가 있는 경우이 옵션을 사용 합니다.
@@ -123,7 +123,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **Azure Active Directory (AZURE AD)를 통해 리소스 추가**를 선택 하 고 **다음**을 선택 합니다.
 
-1. Azure 계정 및 테 넌 트를 선택 합니다. 이러한 값에는 연결 하려는 저장소 리소스에 대 한 액세스 권한이 있어야 합니다. **다음**을 선택합니다.
+1. Azure 계정 및 테 넌 트를 선택 합니다. 이러한 값에는 연결 하려는 저장소 리소스에 대 한 액세스 권한이 있어야 합니다. **새로 만들기**를 선택합니다.
 
 1. 연결 하려는 리소스 종류를 선택 합니다. 연결에 필요한 정보를 입력 합니다. 
 
@@ -131,7 +131,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **연결 요약** 을 검토 하 여 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 
-연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결** > 된**저장소 계정** > **(연결 된 컨테이너)** > **Blob 컨테이너**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
+연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결**된  >  **저장소 계정**  >  **(연결 된 컨테이너)**  >  **Blob 컨테이너**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
 
 #### <a name="use-a-connection-string"></a>연결 문자열 사용
 
@@ -145,7 +145,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **연결 요약** 을 검토 하 여 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 
-연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결 된** > **저장소 계정**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
+연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결 된**  >  **저장소 계정**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
 
 #### <a name="use-a-shared-access-signature-uri"></a>공유 액세스 서명 URI 사용
 
@@ -155,11 +155,11 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **SAS (공유 액세스 서명) URI 사용**을 선택 하 고 **다음**을 선택 합니다.
 
-1. 연결에 대 한 표시 이름을 선택 하 고 공유 액세스 서명 URI를 입력 합니다. 연결 중인 리소스의 형식에 대 한 서비스 끝점은 자동으로 자동 채우기 되어야 합니다. 사용자 지정 끝점을 사용 하는 경우에는 그렇지 않을 수 있습니다. **다음**을 선택합니다.
+1. 연결에 대 한 표시 이름을 선택 하 고 공유 액세스 서명 URI를 입력 합니다. 연결 중인 리소스의 형식에 대 한 서비스 끝점은 자동으로 자동 채우기 되어야 합니다. 사용자 지정 끝점을 사용 하는 경우에는 그렇지 않을 수 있습니다. **새로 만들기**를 선택합니다.
 
 1. **연결 요약** 을 검토 하 여 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 
-연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 연결 된*컨테이너 형식에 대 한 서비스 노드인* **로컬 & 연결** > 된**저장소 계정** > **(연결 된 컨테이너)** > 아래에 나타납니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요. 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 문제 해결 가이드를 참조 하세요.
+연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 연결 된 **Local & Attached**  >  **Storage Accounts**  >  컨테이너 형식에 대 한 서비스 노드인 로컬 & 연결 된 저장소 계정 **(연결 된 컨테이너)** 아래  >  *에*나타납니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요. 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 문제 해결 가이드를 참조 하세요.
 
 #### <a name="use-a-name-and-key"></a>이름 및 키 사용
 
@@ -167,7 +167,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
     ![Azure Storage 옵션에 연결][9]
 
-1. **저장소 계정 이름 및 키 사용**을 선택 하 고 **다음**을 선택 합니다.
+1. **스토리지 계정 이름 및 키 사용**, **다음**을 차례로 선택합니다.
 
 1. 연결에 대 한 표시 이름을 선택 합니다.
 
@@ -177,7 +177,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **연결 요약** 을 검토 하 여 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 
-연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결 된** > **저장소 계정**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
+연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결 된**  >  **저장소 계정**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
 
 #### <a name="attach-to-a-local-emulator"></a>로컬 에뮬레이터에 연결
 
@@ -186,11 +186,11 @@ Storage 탐색기는 현재 두 가지 공식 저장소 에뮬레이터를 지�
 * [Azure Storage 에뮬레이터](storage/common/storage-use-emulator.md) (Windows에만 해당)
 * [Azurite](https://github.com/azure/azurite) (Windows, Macos 또는 Linux)
 
-에뮬레이터가 기본 포트에서 수신 대기 하는 경우 에뮬레이터 **-기본 포트** 노드를 사용 하 여 에뮬레이터에 액세스할 수 있습니다. **로컬 & 연결 된** > **저장소 계정**에서 **에뮬레이터-기본 포트** 를 찾습니다.
+에뮬레이터가 기본 포트에서 수신 대기 하는 경우 에뮬레이터 **-기본 포트** 노드를 사용 하 여 에뮬레이터에 액세스할 수 있습니다. **로컬 & 연결 된**저장소 계정에서 **에뮬레이터-기본 포트** 를 찾습니다  >  **Storage Accounts**.
 
 연결에 다른 이름을 사용 하거나 에뮬레이터가 기본 포트에서 실행 되지 않는 경우 다음 단계를 수행 합니다.
 
-1. 에뮬레이터를 시작 합니다. 명령을 `AzureStorageEmulator.exe status` 입력 하 여 각 서비스 유형에 대 한 포트를 표시 합니다.
+1. 에뮬레이터를 시작 합니다. 명령을 입력 `AzureStorageEmulator.exe status` 하 여 각 서비스 유형에 대 한 포트를 표시 합니다.
 
    > [!IMPORTANT]
    > Storage 탐색기 에뮬레이터를 자동으로 시작 하지 않습니다. 수동으로 시작 해야 합니다.
@@ -205,7 +205,7 @@ Storage 탐색기는 현재 두 가지 공식 저장소 에뮬레이터를 지�
 
 1. **연결 요약** 을 검토 하 고 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 
-연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 노드가 **로컬 & 연결 된** > **저장소 계정**아래에 표시 되어야 합니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
+연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 노드가 **로컬 & 연결 된**  >  **저장소 계정**아래에 표시 되어야 합니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결
 

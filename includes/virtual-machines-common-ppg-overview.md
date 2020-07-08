@@ -9,17 +9,17 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81422123"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
 
 가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 근접 배치 그룹 내에 배포 해야 합니다.
 
-근접 배치 그룹은 Azure 계산 리소스가 물리적으로 서로 가까운 위치에 있는지 확인 하는 데 사용 되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구 하는 작업에 유용 합니다.
+근접 배치 그룹은 Azure 컴퓨팅 리소스가 물리적으로 서로 가까운 위치에 있도록 하는 데 사용되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구하는 작업에 유용합니다.
 
 
 - 독립 실행형 Vm 간의 짧은 대기 시간.
@@ -51,6 +51,6 @@ Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 
 ## <a name="best-practices"></a>모범 사례 
 - 대기 시간이 가장 짧은 경우 근접 배치 그룹을 가속 네트워킹과 함께 사용 합니다. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [가속화 된 네트워킹을 사용 하 여 Windows 가상 머신](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)만들기를 참조 하세요.
 - 모든 VM 크기를 단일 템플릿으로 배포 합니다. 필요한 모든 VM Sku 및 크기를 지원 하지 않는 하드웨어를 사용 하지 않도록 하려면 모든 응용 프로그램 계층을 단일 템플릿에 포함 하 여 모든 응용 프로그램을 동시에 배포 해야 합니다.
-- PowerShell, CLI 또는 SDK를 사용 하 여 배포를 스크립팅 하는 경우 할당 오류가 `OverconstrainedAllocationRequest`발생할 수 있습니다. 이 경우 모든 기존 Vm을 중지/할당 취소 하 고 실패 한 VM SKU/크기로 시작 하도록 배포 스크립트의 시퀀스를 변경 해야 합니다. 
+- PowerShell, CLI 또는 SDK를 사용 하 여 배포를 스크립팅 하는 경우 할당 오류가 발생할 수 있습니다 `OverconstrainedAllocationRequest` . 이 경우 모든 기존 Vm을 중지/할당 취소 하 고 실패 한 VM SKU/크기로 시작 하도록 배포 스크립트의 시퀀스를 변경 해야 합니다. 
 - Vm을 삭제 한 기존 배치 그룹을 다시 사용 하는 경우 Vm을 추가 하기 전에 삭제가 완전히 완료 될 때까지 기다립니다.
 - 대기 시간이 첫 번째 우선 순위의 경우 근접 배치 그룹에 Vm을 배치 하 고 전체 솔루션을 가용성 영역에 배치 합니다. 그러나 복원 력이 가장 중요 한 경우에는 여러 가용성 영역에 인스턴스를 분산 시킵니다 (단일 근접 배치 그룹은 영역을 확장할 수 없음).

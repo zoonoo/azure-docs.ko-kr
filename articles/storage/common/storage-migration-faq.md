@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944698"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -215,19 +215,20 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 - 공유에서 스토리지 계정 내의 Blob 컨테이너나 다른 스토리지 계정으로 복사
 
 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)을 참조하세요.
+
 ## <a name="configuration"></a>구성
 
 **스토리지 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
 스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
-**Azure SSE(스토리지 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
+**Azure Storage 암호화에 대 한 자세한 정보는 어디서 얻을 수 있나요?**  
 
 다음 문서를 참조하세요.
 
--  [Azure Storage 보안 가이드](../blobs/security-recommendations.md)
-
--  [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](storage-service-encryption.md)
+- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
+- [Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리](encryption-customer-managed-keys.md)
+- [Blob 저장소에 대 한 요청에 암호화 키 제공 (미리 보기)](encryption-customer-provided-keys.md)
 
 **스토리지 계정의 데이터를 암호화하려면 어떻게 할까요?**
 
@@ -253,19 +254,19 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 다른 사람에게 스토리지 리소스에 대한 액세스 권한을 부여하려면 다음을 수행합니다.
 
--   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다.
+- SAS (공유 액세스 서명) 토큰을 사용 하 여 리소스에 대 한 액세스를 제공 합니다.
 
--   사용자에게 스토리지 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [스토리지 계정 액세스 키 관리](storage-account-keys-manage.md)를 참조하세요.
+- 사용자에게 스토리지 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [스토리지 계정 액세스 키 관리](storage-account-keys-manage.md)를 참조하세요.
 
--   익명 액세스를 허용하도록 액세스 정책을 변경합니다. 자세한 내용은 [컨테이너 및 Blob에 익명의 사용자 권한 부여](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)를 참조하세요.
+- 익명 액세스를 허용하도록 액세스 정책을 변경합니다. 자세한 내용은 [컨테이너 및 Blob에 익명의 사용자 권한 부여](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)를 참조하세요.
 
 **AzCopy는 어디에 설치되나요?**
 
--   Microsoft Azure Storage 명령줄에서 AzCopy에 액세스하는 경우 **AzCopy**를 입력합니다. 명령줄은 AzCopy와 함께 설치됩니다.
+- Microsoft Azure Storage 명령줄에서 AzCopy에 액세스하는 경우 **AzCopy**를 입력합니다. 명령줄은 AzCopy와 함께 설치됩니다.
 
--   32비트 버전을 설치한 경우 **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
+- 32비트 버전을 설치한 경우 **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
 
--   64비트 버전을 설치한 경우 **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
+- 64비트 버전을 설치한 경우 **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**에 있습니다.
 
 **내 스토리지 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시하려면 어떻게 해야 하나요?**
 
@@ -284,15 +285,15 @@ Azure 파일 공유를 사용합니다.
 
 **복제된 스토리지 계정(예: 영역 중복 스토리지, 지역 중복 스토리지 또는 읽기 권한 액세스 지역 중복 스토리지)의 경우 보조 지역에 저장된 데이터에 액세스하려면 어떻게 할까요?**
 
--   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [재해 복구 및 스토리지 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 참조하세요.
+- 영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [재해 복구 및 스토리지 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
--   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
+- 읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
 
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
+  - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-sas-overview.md)을 참조하세요.
+  - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-sas-overview.md)을 참조하세요.
 
 **FTP를 사용하여 스토리지 계정에 있는 데이터에 액세스하려면 어떻게 할까요?**
 

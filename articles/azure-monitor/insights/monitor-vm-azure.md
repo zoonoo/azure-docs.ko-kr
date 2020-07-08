@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945395"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -105,9 +105,9 @@ VM 메뉴의 **진단 설정** 옵션에서 Azure Portal에 단일 Windows 가�
 Linux 가상 머신에서 Telegraf 에이전트를 구성하는 방법에 대한 자세한 내용은 [Telegraf 설치 및 구성](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf)를 참조하세요. **진단 설정** 메뉴 옵션은 Linux에서 사용할 수 있지만 Azure Storage로만 데이터를 보낼 수 있도록 합니다.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>플랫폼 메트릭 및 활동 로그 수집
-Azure Portal에서 각 가상 머신 호스트에 대해 수집된 플랫폼 메트릭 및 활동 로그를 볼 수 있습니다. 이 데이터를 VM용 Azure Monitor와 동일한 Log Analytics 작업 영역으로 수집하여 가상 머신에 대해 수집된 다른 모니터링 데이터와 함께 분석할 수 있습니다. 이 수집은 [진단 설정](../platform/diagnostic-settings.md)를 사용하여 구성됩니다. [구독에 대한 진단 설정](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal)을 사용하여 활동 로그를 수집합니다.
+Azure Portal에서 각 가상 머신 호스트에 대해 수집된 플랫폼 메트릭 및 활동 로그를 볼 수 있습니다. 이 데이터를 VM용 Azure Monitor와 동일한 Log Analytics 작업 영역으로 수집하여 가상 머신에 대해 수집된 다른 모니터링 데이터와 함께 분석할 수 있습니다. 이 수집은 [진단 설정](../platform/diagnostic-settings.md)를 사용하여 구성됩니다. [구독에 대한 진단 설정](../platform/diagnostic-settings.md#create-in-azure-portal)을 사용하여 활동 로그를 수집합니다.
 
-가상 머신에 대한 진단 설정을 사용하여 플랫폼 메트릭을 수집합니다. 다른 Azure 리소스와 달리 Azure Portal에서 가상 머신에 대한 진단 설정을 만들 수 없지만 [다른 방법](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell)을 사용해야 합니다. 다음 예제에서는 PowerShell 및 CLI를 사용하여 가상 머신에 대한 메트릭을 수집하는 방법을 보여 줍니다.
+가상 머신에 대한 진단 설정을 사용하여 플랫폼 메트릭을 수집합니다. 다른 Azure 리소스와 달리 Azure Portal에서 가상 머신에 대한 진단 설정을 만들 수 없지만 [다른 방법](../platform/diagnostic-settings.md#create-using-powershell)을 사용해야 합니다. 다음 예제에서는 PowerShell 및 CLI를 사용하여 가상 머신에 대한 메트릭을 수집하는 방법을 보여 줍니다.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
