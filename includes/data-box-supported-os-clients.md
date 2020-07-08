@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: alkohli
 ms.openlocfilehash: 2c95095147f6984fb67ba3faa476ec42c9e7ec4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67812557"
 ---
 다음은 장치에 연결 된 클라이언트를 통해 데이터 복사 작업에 대해 지원 되는 운영 체제의 목록입니다.

@@ -15,10 +15,10 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773372"
 ---
 ## <a name="register-secrets-or-certificates"></a>비밀 또는 인증서 등록
@@ -42,5 +42,5 @@ ms.locfileid: "76773372"
 
 또는 명령줄 도구를 사용 하 여 Azure AD에 응용 프로그램을 등록할 수 있습니다. [Dotnetcore-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플은 Azure AD 응용 프로그램을 사용 하 여 응용 프로그램 비밀 또는 인증서를 등록 하는 방법을 보여 줍니다.
 
-- 응용 프로그램 암호를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)p s 1을 참조 하세요.
-- 응용 프로그램에 인증서를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts-withCert/Configure.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)p s 1을 참조 하세요.
+- 응용 프로그램 암호를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)를 참조 하세요.
+- 응용 프로그램에 인증서를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)를 참조 하세요.

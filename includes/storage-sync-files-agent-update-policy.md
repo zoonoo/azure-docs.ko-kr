@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77123195"
 ---
 Azure 파일 동기화 에이전트는 새 기능을 추가하고 문제를 해결하기 위해 주기적으로 업데이트됩니다. 사용할 수 있을 때 Microsoft 업데이트에서 Azure 파일 동기화 에이전트에 대한 업데이트를 가져오도록 구성하는 것이 좋습니다.
@@ -43,7 +43,7 @@ cd 'C:\Program Files\Azure\StorageSyncAgent'
 Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
-를 실행 `Get-StorageSyncAgentAutoUpdatePolicy` 하 여 현재 정책 설정을 확인 하 고 변경 하려는 사항을 결정할 수 있습니다.
+`Get-StorageSyncAgentAutoUpdatePolicy`를 실행 하 여 현재 정책 설정을 확인 하 고 변경 하려는 사항을 결정할 수 있습니다.
 
 현재 정책 설정을 지연 업데이트 트랙으로 변경 하려면 다음을 사용할 수 있습니다.
 ```powershell

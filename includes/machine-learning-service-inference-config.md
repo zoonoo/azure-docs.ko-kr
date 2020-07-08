@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159417"
 ---
-`inferenceconfig.json` 문서의 항목은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
+문서의 항목은 `inferenceconfig.json` [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
-| JSON 엔터티 | 메서드 매개 변수 | Description |
+| JSON 엔터티 | 메서드 매개 변수 | 설명 |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | 이미지에 대해 실행할 코드를 포함 하는 로컬 파일의 경로입니다. |
 | `sourceDirectory` | `source_directory` | 선택 사항입니다. 이미지를 만드는 모든 파일이 포함 된 폴더의 경로입니다 .이 폴더 또는 하위 폴더에 있는 모든 파일에 쉽게 액세스할 수 있습니다. 로컬 컴퓨터에서 웹 서비스에 대 한 종속성으로 전체 폴더를 업로드할 수 있습니다. 참고: entry_script, conda_file 및 extra_docker_file_steps 경로는 source_directory 경로에 대 한 상대 경로입니다. |
@@ -74,7 +74,7 @@ ms.locfileid: "80159417"
 }
 ```
 
-다음 명령은 이전 유추 구성 파일 (myInferenceConfig)을 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
+다음 명령은 이전 유추 구성 파일 (의 명명 된 myInferenceConfig.js)을 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
 
 또한 기존 Azure Machine Learning [환경의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 최신 버전 (AzureML-최소)을 사용 합니다.
 

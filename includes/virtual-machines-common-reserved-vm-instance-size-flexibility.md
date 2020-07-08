@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 02-18-2020
 ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471461"
 ---
 예약 VM 인스턴스를 구입할 때 인스턴스 크기의 유연성 또는 용량 우선 순위를 최적화 하도록 선택할 수 있습니다. 예약 VM 인스턴스에 대 한 최적화 설정을 설정 하거나 변경 하는 방법에 대 한 자세한 내용은 [예약 된 vm 인스턴스에 대 한 최적화 설정 변경](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조 하세요.
@@ -24,7 +24,7 @@ ms.locfileid: "77471461"
 
 인스턴스 크기 유연성 그룹 내에서 예약 할인이 적용 되는 Vm의 수는 예약을 구매할 때 선택한 VM 크기에 따라 달라 집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 요율 열은 해당 인스턴스 크기 유연성 그룹의 각 VM 크기에 대 한 상대적 공간을 비교 합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제에서는 DSv2 시리즈 테이블의 크기 및 비율을 사용합니다.
 

@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80132255"
 ---
 사용자에 게 태그를 적용 하는 데 필요한 액세스 권한이 없는 경우 사용자에 게 **태그 참가자** 역할을 할당할 수 있습니다. 자세한 내용은 [자습서: RBAC를 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여 및 Azure Portal](../articles/role-based-access-control/quickstart-assign-role-user-portal.md)을 참조 하세요.
@@ -37,7 +37,7 @@ ms.locfileid: "80132255"
 
 1. 태그를 추가하거나 삭제하려면 **변경**을 선택합니다.
 
-1. 태그를 삭제하려면 휴지통 아이콘을 선택합니다. 그런 다음, **저장**을 선택 합니다.
+1. 태그를 삭제하려면 휴지통 아이콘을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
    ![태그 삭제](./media/resource-manager-tag-resources/delete-tag.png)
 

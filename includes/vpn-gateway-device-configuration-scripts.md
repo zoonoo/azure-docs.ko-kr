@@ -9,13 +9,13 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111247"
 ---
-| **업체인** | **디바이스 제품군** | **펌웨어 버전** |
+| **공급업체** | **디바이스 패밀리** | **펌웨어 버전** |
 | --- | --- | --- |
 |시스코 | ISR| IOS 15.1(미리 보기)|
 |시스코 | ASA | ASA(*) RouteBased(IKEv2- BGP 없음), 9.8 미만 ASA |

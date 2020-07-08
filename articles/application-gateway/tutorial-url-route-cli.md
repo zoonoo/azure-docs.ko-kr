@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure CLI를 사용하여 URL을 기반으로 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68688188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805900"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -98,7 +98,7 @@ az network application-gateway create \
  애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
 
-|기능  |Description  |
+|기능  |설명  |
 |---------|---------|
 |appGatewayBackendPool     |애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
 |appGatewayBackendHttpSettings     |포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.|
@@ -252,7 +252,7 @@ URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-ad
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-URL&lt;을 http://&gt;: 8080/video/test.html로 변경 합니다. ip 주소는 ip 주소를 대체 &lt;&gt;하며 다음 예제와 같이 표시 됩니다.
+URL을 http://: 8080/video/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt; &gt; 대체 &lt; &gt; 하며 다음 예제와 같은 내용이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

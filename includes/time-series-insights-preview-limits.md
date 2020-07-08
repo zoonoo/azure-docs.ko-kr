@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77123166"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>일반 가용성 및 미리 보기 비교
@@ -25,11 +25,11 @@ ms.locfileid: "77123166"
 | 첫 번째 클래스 시민 | 이벤트 중심 | 시계열 중심 |
 | 의미 체계 추론 | 하위 수준 (참조 데이터) | 상위 수준 (모델) |
 | 데이터 contextualization | 비 장치 수준 | 장치 및 비 장치 수준 |
-| Compute 논리 저장소 | 아니요 | 모델의 형식 변수에 저장 됩니다. |
-| 저장소 및 액세스 제어 | 아니요 | 모델을 통해 사용 |
-| 집계/샘플링 | 아니요 | 이벤트 가중치 및 시간 가중치 |
-| 신호 재구성 | 아니요 | 삽입할 |
-| 파생 된 시계열의 프로덕션 | 아니요 | 예, 병합 및 조인 |
+| Compute 논리 저장소 | No | 모델의 형식 변수에 저장 됩니다. |
+| 저장소 및 액세스 제어 | No | 모델을 통해 사용 |
+| 집계/샘플링 | No | 이벤트 가중치 및 시간 가중치 |
+| 신호 재구성 | No | 삽입할 |
+| 파생 된 시계열의 프로덕션 | No | 예, 병합 및 조인 |
 | 언어 유연성 | 구성할 없는 | 가능 |
 | 식 언어 | 조건자 문자열 | 시계열 식 (조건자 문자열, 값, 식 및 함수) |
 

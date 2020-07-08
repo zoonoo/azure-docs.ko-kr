@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77590730"
 ---
 예약 된 용량으로 Azure 디스크 저장소 사용량을 절약 하세요. Azure Reserved Virtual Machine Instances와 결합 된 Azure 디스크 저장소 예약을 사용 하면 총 VM (가상 머신) 비용을 낮출 수 있습니다. 예약 할인은 선택한 예약 범위에서 일치 하는 디스크에 자동으로 적용 됩니다. 이 자동 응용 프로그램 때문에 할인을 얻기 위해 예약을 관리 디스크에 할당할 필요가 없습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "77590730"
 
 1. 다음 표에서 설명 하는 필수 값을 지정 합니다.
 
-   |요소  |Description  |
+   |요소  |설명  |
    |---------|---------|
    |**범위**   |  예약과 관련 된 청구 혜택을 사용할 수 있는 구독 수입니다. 또한이 값은 특정 구독에 예약이 적용 되는 방법을 지정 합니다. <br/><br/> **공유**를 선택 하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용 됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위에는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독이 포함 됩니다.  <br/><br/>  **단일 구독**을 선택 하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용 됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택 된 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약을 구매한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약에 대해 지불 하는 데 사용 하는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다.<br/><ul><li> 기업계약 (제품 번호 MS-AZR-0017P-0017P 및 MS-AZR-0017P-Ms-azr-0148p). Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다.</li><br/><li>종 량 제 요금이 있는 개별 구독 (제품 번호 MS-AZR-0017P-0003P 및 MS-AZR-0017P-0023P). 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.</li></ul>    |
@@ -74,7 +74,7 @@ ms.locfileid: "77590730"
    | **지역** | 예약이 적용 되는 지역입니다. |
    | **청구 빈도** | 예약에 대 한 계정을 청구 하는 빈도입니다. 옵션에는 **월별** 및 **선행**이 포함 됩니다. |
 
-    ![구입할 제품을 선택 하는 창입니다. png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
+    ![purchase.png 하려는 제품을 선택 하는 창](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
 1. 예약에 대 한 값을 지정 하면 Azure Portal에 비용이 표시 됩니다. 또한 포털은 종 량 제 요금 청구에 대 한 할인율을 보여 줍니다. **다음** 을 선택 하 여 **구매 예약** 창으로 이동 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "77590730"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)를 참조 하세요.
+특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
 
 ## <a name="expiration-of-a-reservation"></a>예약 만료
 
@@ -102,5 +102,5 @@ ms.locfileid: "77590730"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Reservations 이란?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Azure 예약이란?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Azure Disk Storage에 예약 할인이 적용되는 방식 이해](../articles/cost-management-billing/reservations/understand-disk-reservations.md)

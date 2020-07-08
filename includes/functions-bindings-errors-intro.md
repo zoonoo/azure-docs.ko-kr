@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77474136"
 ---
 Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
@@ -33,8 +33,8 @@ Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올
 
 다음 트리거에는 기본 제공 재시도 지원이 있습니다.
 
-* [Azure Blob 저장소](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Azure 큐 저장소](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus(큐/토픽)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 기본적으로이 작업은 다시 시도 요청을 최대 5 회까지 트리거합니다. 5 번째 재시도 후에는 Azure Queue storage와 Azure Service Bus 트리거에서 모두 [포이즌 큐](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages)에 메시지를 씁니다.

@@ -4,16 +4,16 @@ description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16ad8d7fd0f46381f2e2e7076015af65bd4bddcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806139"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서 URL은 **https://52.170.203.149**입니다.
+공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서 URL은 **https://52.170.203.149** 입니다.
 
 ![보안 경고](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

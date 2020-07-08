@@ -10,10 +10,10 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 512d05b245f1279a977ba61d5b4c4904fc0f6bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77202126"
 ---
 Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
@@ -24,10 +24,10 @@ Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`<sup>1(sp1)</sup>
-* `CloudBlockBlob`<sup>1(sp1)</sup>
-* `CloudPageBlob`<sup>1(sp1)</sup>
-* `CloudAppendBlob`<sup>1(sp1)</sup>
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup>*function.json*에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 

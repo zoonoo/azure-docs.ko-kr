@@ -9,15 +9,15 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2eda1fc8595962849b6a24cc272f6604d0be9175
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744532"
 ---
 **애플리케이션 템플릿**
 
-| 템플릿                 | Name        | Description |
+| 템플릿                 | Name        | 설명 |
 | ------------------------ | ----------- | ----------- |
 | iotc-pnp-미리 보기         | 사용자 지정 애플리케이션 | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
 | iotc-기본값             | 사용자 지정 응용 프로그램 (레거시) | 사용자 고유의 장치 템플릿 및 장치로 채울 빈 레거시 응용 프로그램을 만듭니다.

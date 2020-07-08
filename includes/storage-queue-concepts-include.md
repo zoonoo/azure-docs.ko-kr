@@ -6,10 +6,10 @@ ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 23b93f507ef6abe19a0202b28afa31d28490b2b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80151046"
 ---
 ## <a name="what-is-queue-storage"></a>Queue storage 란?
@@ -22,7 +22,7 @@ Azure 큐 서비스에는 다음 구성 요소가 포함 되어 있습니다.
 
 ![Azure 큐 서비스 구성 요소](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **URL 형식:** 다음 URL 형식을 사용 하 여 큐에 주소를`<storage account>`지정할 수 있습니다. http://. queue.core.windows.net/`<queue>`
+* **URL 형식:** 다음 URL 형식을 사용 하 여 큐에 주소를 지정할 수 있습니다. http:// `<storage account>` . queue.core.windows.net/`<queue>`
   
     다음 URL은 다이어그램에 있는 큐의 주소를 지정합니다.  
   
