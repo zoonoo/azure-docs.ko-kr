@@ -3,12 +3,12 @@ title: 이동 오류 문제 해결
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75891269"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055092"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결
 
@@ -18,8 +18,8 @@ ms.locfileid: "75891269"
 
 실제로 Azure 구독을 업그레이드하려면(예: 평가판에서 종량제로 업그레이드) 구독을 변환해야 합니다.
 
-* 평가판을 업그레이드하려면 [평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드](../../billing/billing-upgrade-azure-subscription.md)를 참조하세요.
-* 종량제 계정을 변경하려면 [다른 제안으로 Azure 종량제 구독 변경](../../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
+* 무료 평가판을 업그레이드 하려면 [무료 평가판을 업그레이드 Microsoft Imagine 하거나 Azure 구독을 종 량 제로 업그레이드](../../cost-management-billing/manage/upgrade-azure-subscription.md)를 참조 하세요.
+* 종 량 제 계정을 변경 하려면 [Azure 종 량 제 구독을 다른 제품으로 변경](../../cost-management-billing/manage/switch-azure-offer.md)을 참조 하세요.
 
 구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../../azure-portal/supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
 

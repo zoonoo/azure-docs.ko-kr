@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056262"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -200,6 +200,11 @@ Azure Resource Manager 템플릿을 사용하여 활동 로그 경고 규칙을 
 }
 ```
 이전 샘플 JSON은 이 연습의 목적을 위해 예를 들어 sampleActivityLogAlert.json으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/templates/deploy-portal.md)를 사용하여 배포될 수 있습니다.
+
+  > [!NOTE]
+  > 
+  > 가장 높은 수준의 활동 로그 경고를 구독으로 정의할 수 있습니다.
+  > 즉, 두 구독에 대해 경고를 정의 하는 옵션은 없으므로 구독 당 경고를 정의 해야 합니다.
 
 다음 필드는 조건 필드의 Azure Resource Manager 템플릿에서 사용할 수 있는 옵션입니다. “Resource Health”, “Advisor” 및 “Service Health”에는 특수 필드에 대한 추가 속성 필드가 있습니다. 
 1. resourceId:  경고가 생성되어야 하는 활동 로그 이벤트에서 영향을 받는 리소스의 리소스 ID입니다.

@@ -3,14 +3,14 @@ title: 파일 및 폴더 백업-일반적인 질문
 description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 방법에 대 한 일반적인 질문을 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254753"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056177"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대 한 일반적인 질문
+# <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대한 일반적인 질문
 
 이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 파일 및 폴더를 백업 하는 일반적인 질문에 대답 abound.
 
@@ -112,9 +112,9 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 1. 관리자 권한 명령 프롬프트에서이 명령을 실행 하 여 백업 엔진을 중지 합니다.
 
     ```Net stop obengine```
-2. 시스템 상태 백업을 구성한 경우 디스크 관리를 열고 형식의 `"CBSSBVol_<ID>"`이름을 사용 하 여 디스크를 분리 합니다.
+2. 시스템 상태 백업을 구성한 경우 디스크 관리를 열고 형식의 이름을 사용 하 여 디스크를 분리 `"CBSSBVol_<ID>"` 합니다.
 3. 기본적으로 스크래치 폴더는에 있습니다.`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-4. 공간이 충분 한 `\Scratch` 다른 드라이브에 전체 폴더를 복사 합니다. 콘텐츠가 복사 되었는지 확인 하 고 이동 하지 않습니다.
+4. `\Scratch`공간이 충분 한 다른 드라이브에 전체 폴더를 복사 합니다. 콘텐츠가 복사 되었는지 확인 하 고 이동 하지 않습니다.
 5. 새로 이동한 스크래치 폴더의 경로를 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.
 
     | 레지스트리 경로 | 레지스트리 키 | 값 |
@@ -143,7 +143,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 다음과 같은 특성 또는 해당 조합은 캐시 폴더에 지원되지 않습니다.
 
-* 암호화
+* 암호화됨
 * 중복 제거
 * Compressed
 * 스파스
@@ -159,7 +159,8 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="manage"></a>관리
 
-**암호를 잊은 경우 복구할 수 있나요?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>암호를 잊은 경우 복구할 수 있나요?
+
 Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 해독 하는 데 필요한 암호 (등록 중에 사용자가 입력)가 필요 합니다. 다음 시나리오를 검토 하 여 손실 된 암호를 처리 하는 옵션을 이해 합니다.
 
 | 원본 컴퓨터 <br> *(백업이 수행 된 원본 컴퓨터)* | 암호 | 사용 가능한 옵션 |
@@ -177,14 +178,18 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
   * *암호를 다르게*설정 하는 경우 백업 데이터를 복원할 수 없습니다.
 * 원래 컴퓨터가 손상 된 경우 (MARS 콘솔을 통해 암호를 다시 생성 하지 않도록 방지) MARS 에이전트에서 사용 하는 원래 스크래치 폴더를 복원 하거나 액세스할 수 있는 경우에는 (암호를 잊어버린 경우) 복원할 수 있습니다. 추가 지원이 필요한 경우 고객 지원에 문의 하세요.
 
-**원본 컴퓨터가 손실 된 경우 (백업이 수행 된 위치) 복구 어떻게 할까요?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>원본 컴퓨터가 손실 된 경우 (백업이 수행 된 위치) 복구 어떻게 할까요?
 
 원본 컴퓨터의 동일한 암호 (등록 중에 제공한 암호)가 있는 경우 백업 된 데이터를 대체 컴퓨터로 복원할 수 있습니다. 복원 옵션을 이해 하려면 아래 시나리오를 검토 하세요.
 
 | 원본 컴퓨터 | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션** > **을 선택 하 여 복원을** 수행 합니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조 하세요.
+| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션**  >  **Another location** 을 선택 하 여 복원을 수행 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
 | 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>백업 작업이 실패 하거나 오랜 시간 동안 실행 되 고 있지 않습니다. 보존 기간을 초과 했습니다. 그래도 복원할 수 있나요?
+
+보안 조치로, Azure Backup은 보존 기간이 지난 경우에도 마지막 복구 지점을 유지 합니다. 백업이 다시 시작 되 고 새 복구 지점을 사용할 수 있게 되 면 이전 복구 지점은 지정 된 보존에 따라 제거 됩니다.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?
 

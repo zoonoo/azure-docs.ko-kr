@@ -3,14 +3,14 @@ title: AKS(Azure Kubernetes Service)에서 kubenet 네트워킹 구성
 description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배포하도록 AKS(Azure Kubernetes Service)에서 kubenet(기본) 네트워크를 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120915"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055497"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "83120915"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -34,13 +34,13 @@ ms.locfileid: "83120915"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>고유한 서브넷을 사용한 Kubenet 네트워킹 개요
 
 많은 환경에서 할당된 IP 주소 범위를 사용하여 가상 네트워크 및 서브넷을 정의했을 것입니다. 이러한 가상 네트워크 리소스는 여러 서비스 및 애플리케이션을 지원하는 데 사용됩니다. AKS 클러스터 네트워크 연결을 제공하기 위해 AKS 클러스터는 *kubenet*(기본 네트워킹) 또는 Azure CNI(*고급 네트워킹*)을 사용할 수 있습니다.
 
-*kubenet*을 사용하는 경우 해당 노드만 가상 네트워크 서브넷의 IP 주소를 수신합니다. Pod는 서로 직접 통신할 수 없습니다. 대신, 노드에서 Pod 간의 연결에 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 애플리케이션에 대해 할당된 IP 및 부하 분산 트래픽을 수신하는 서비스 뒤에 pod를 배포할 수도 있습니다. 다음 다이어그램은 AKS 노드가 pod가 아닌 가상 네트워크 서브넷의 IP 주소를 수신하는 방법을 보여 줍니다.
+*kubenet*을 사용하는 경우 해당 노드만 가상 네트워크 서브넷의 IP 주소를 수신합니다. Pod는 서로 직접 통신할 수 없습니다. 대신, 노드에서 Pod 간의 연결에 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 기본적으로 UDRs 및 IP 전달 구성은 AKS 서비스에 의해 생성 되 고 유지 관리 되지만 [사용자 지정 경로 관리를 위해 자체 경로 테이블을 가져오는][byo-subnet-route-table]옵션을 사용할 수 있습니다. 애플리케이션에 대해 할당된 IP 및 부하 분산 트래픽을 수신하는 서비스 뒤에 pod를 배포할 수도 있습니다. 다음 다이어그램은 AKS 노드가 pod가 아닌 가상 네트워크 서브넷의 IP 주소를 수신하는 방법을 보여 줍니다.
 
 ![AKS 클러스터를 사용하는 Kubenet 네트워크 모델](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 
 - 사용 가능한 IP 주소 공간이 있습니다.
 - Pod 통신 대부분이 클러스터 외부의 리소스를 대상으로 진행됩니다.
-- UDRs를 관리 하지 않으려고 합니다.
+- Pod 연결에 대 한 사용자 정의 경로를 관리 하지 않으려고 합니다.
 - 가상 노드 또는 Azure 네트워크 정책과 같은 AKS 고급 기능이 필요 합니다.  [Calico 네트워크 정책을][calico-network-policies]사용 합니다.
 
 사용할 네트워크 모델을 결정 하는 데 도움이 되는 자세한 내용은 [네트워크 모델 및 해당 지원 범위 비교][network-comparisons]를 참조 하세요.
@@ -139,15 +139,15 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-이제 [az role assignment create][az-role-assignment-create] 명령을 사용하여 가상 네트워크에 대해 AKS 클러스터 *참가자* 권한을 서비스 주체에 할당합니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 * \< appId>* 제공 하 여 서비스 주체를 만듭니다.
+이제 [az role assign create][az-role-assignment-create] 명령을 사용 하 여 가상 네트워크에 대 한 AKS Cluster *network 참가자* 권한에 대 한 서비스 주체를 할당 합니다. *\<appId>* 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의를 제공 하 여 서비스 주체를 만듭니다.
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>가상 네트워크에서 AKS 클러스터 만들기
 
-지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 * \< appId>* 및 * \< 암호>* 을 정의 하 여 서비스 주체를 만듭니다.
+지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az aks create][az-aks-create] 명령을 사용하여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. *\<appId>* *\<password>* 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 주체를 정의 하 여 서비스 주체를 만듭니다.
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 
@@ -195,7 +195,43 @@ az aks create \
     --client-secret <password>
 ```
 
-AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면에 의해 관리 됩니다. 네트워크 보안 그룹은 노드의 가상 Nic와 자동으로 연결 됩니다. 경로 테이블은 가상 네트워크 서브넷과 자동으로 연결 됩니다. 네트워크 보안 그룹 규칙 및 경로 테이블은 서비스를 만들고 노출할 때 자동으로 업데이트 됩니다.
+AKS 클러스터를 만들 때 네트워크 보안 그룹 및 경로 테이블이 자동으로 만들어집니다. 이러한 네트워크 리소스는 AKS 제어 평면에 의해 관리 됩니다. 네트워크 보안 그룹은 노드의 가상 Nic와 자동으로 연결 됩니다. 경로 테이블은 가상 네트워크 서브넷과 자동으로 연결 됩니다. 네트워크 보안 그룹 규칙 및 경로 테이블은 서비스를 만들고 노출할 때 자동으로 업데이트 됩니다.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Kubenet를 사용 하 여 사용자 고유의 서브넷 및 경로 테이블 가져오기
+
+Kubenet를 사용 하는 경우에는 클러스터 서브넷에 경로 테이블이 있어야 합니다. AKS는 사용자 고유의 기존 서브넷 및 경로 테이블을 가져오는 것을 지원 합니다.
+
+사용자 지정 서브넷에 경로 테이블이 포함 되어 있지 않은 경우 AKS는 사용자를 위해 하나를 만들고 클러스터 수명 주기 동안 규칙을 추가 합니다. 클러스터를 만들 때 사용자 지정 서브넷에 경로 테이블이 포함 되어 있는 경우 AKS는 클러스터 작업 중에 기존 경로 테이블을 승인 하 고 클라우드 공급자 작업에 적절 하 게 규칙을 추가/업데이트 합니다.
+
+> [!WARNING]
+> 사용자 지정 규칙을 사용자 지정 경로 테이블에 추가 하 고 업데이트할 수 있습니다. 그러나 Kubernetes 클라우드 공급자는 업데이트 하거나 제거 하지 않아야 하는 규칙을 추가 합니다. 0.0.0.0/0과 같은 규칙은 항상 지정 된 경로 테이블에 존재 해야 하며 NVA 또는 다른 송신 게이트웨이와 같은 인터넷 게이트웨이의 대상에 매핑됩니다. 사용자 지정 규칙만 수정 되는 규칙을 업데이트할 때는 주의 해야 합니다.
+
+[사용자 지정 경로 테이블][custom-route-table]을 설정 하는 방법에 대해 자세히 알아보세요.
+
+Kubenet 네트워킹에서는 요청을 성공적으로 라우팅하기 위해 구성 된 경로 테이블 규칙이 필요 합니다. 이 설계로 인해 경로 테이블은이를 사용 하는 각 클러스터에 대해 신중 하 게 유지 관리 해야 합니다. 여러 클러스터의 pod CIDRs가 중복 되어 예기치 않은 라우팅이 발생 하는 것으로 인해 여러 클러스터에서 경로 테이블을 공유할 수 없습니다. 동일한 가상 네트워크에 있는 여러 클러스터를 구성 하거나 각 클러스터에 가상 네트워크를 전용으로 구성 하는 경우 다음 제한 사항을 고려 하십시오.
+
+제한 사항:
+
+* 클러스터를 만들기 전에 사용 권한을 할당 해야 합니다. 사용자 지정 서브넷 및 사용자 지정 경로 테이블에 대 한 쓰기 권한이 있는 서비스 주체를 사용 하 고 있는지 확인 하세요.
+* 관리 id는 현재 kubenet의 사용자 지정 경로 테이블에서 지원 되지 않습니다.
+* AKS 클러스터를 만들기 전에 사용자 지정 경로 테이블을 서브넷에 연결 해야 합니다.
+* 클러스터를 만든 후에는 연결 된 경로 테이블 리소스를 업데이트할 수 없습니다. 경로 테이블 리소스는 업데이트할 수 없지만 경로 테이블에서는 사용자 지정 규칙을 수정할 수 있습니다.
+* 각 AKS 클러스터는 클러스터와 연결 된 모든 서브넷에 대해 고유한 하나의 경로 테이블을 사용 해야 합니다. 겹치는 pod CIDRs 및 충돌 하는 라우팅 규칙이 있을 수 있으므로 여러 클러스터에서 경로 테이블을 다시 사용할 수 없습니다.
+
+사용자 지정 경로 테이블을 만들고 가상 네트워크의 서브넷에 연결한 후에는 경로 테이블을 사용 하는 새 AKS 클러스터를 만들 수 있습니다.
+AKS 클러스터를 배포 하려는 경우에는 서브넷 ID를 사용 해야 합니다. 이 서브넷은 사용자 지정 경로 테이블에도 연결 되어야 합니다.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -217,9 +253,11 @@ AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

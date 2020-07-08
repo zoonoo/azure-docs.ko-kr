@@ -3,12 +3,12 @@ title: 제한-LUIS
 description: 이 문서에는 Azure Cognitive Services Language Understanding(LUIS)의 알려진 제한이 포함됩니다. LUIS에는 몇 가지 제한 영역이 있습니다. 모델 제한은 LUIS의 의도, 엔터티 및 기능을 제어 합니다. 할당량은 키 형식에 따라 제한됩니다. 키보드 조합은 LUIS 웹 사이트를 제어합니다.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976985"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055344"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
 LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의도, 엔터티 및 기능을 제어 하는 [모델 제한](#model-limits)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 제한의 세 번째 영역은 LUIS 웹 사이트를 제어 하는 [키보드 조합](#keyboard-controls) 입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다.
@@ -19,7 +19,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 앱이 LUIS 모델 제한을 초과 하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱을 사용 하거나 [LUIS 컨테이너](luis-container-howto.md)를 사용 하는 것이 좋습니다.
 
-|영역|제한|
+|Area|제한|
 |--|:--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
 | 애플리케이션| 500 Azure 제작 리소스 당 응용 프로그램 |
@@ -50,7 +50,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 개체 이름은 같은 수준의 다른 개체와 비교 했을 때 고유 해야 합니다.
 
-|개체|제한|
+|개체|제한 사항|
 |--|--|
 |의도, 엔터티|모든 의도 및 엔터티 이름은 앱 버전에서 고유 해야 합니다.|
 |ML 엔터티 구성 요소|모든 기계 학습 엔터티 구성 요소 (자식 엔터티)는 동일한 수준의 구성 요소에 대 한 해당 엔터티 내에서 고유 해야 합니다.|
@@ -68,7 +68,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 ## <a name="resource-usage-and-limits"></a>리소스 사용 및 제한
 
-언어 이해에는 별도의 리소스, 제작을 위한 한 가지 형식, 예측 끝점을 쿼리 하는 한 가지 형식이 있습니다. 키 유형의 차이에 대해 자세히 알아보려면 [LUIS의 작성 및 쿼리 예측 엔드포인트 키](luis-concept-keys.md)를 참조하세요.
+언어 이해에는 별도의 리소스, 제작을 위한 한 가지 형식, 예측 끝점을 쿼리 하는 한 가지 형식이 있습니다. 키 유형의 차이에 대해 자세히 알아보려면 [LUIS의 작성 및 쿼리 예측 엔드포인트 키](luis-how-to-azure-subscription.md)를 참조하세요.
 
 <a name="key-limits"></a>
 
@@ -106,7 +106,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | Description |
+|키보드 입력 | 설명 |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

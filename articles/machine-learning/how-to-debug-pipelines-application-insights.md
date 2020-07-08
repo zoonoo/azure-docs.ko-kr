@@ -1,5 +1,5 @@
 ---
-title: Application Insights에서 기계 학습 파이프라인 디버그 및 문제 해결
+title: 파이프라인 로그 파일을 모니터링 &수집
 titleSuffix: Azure Machine Learning
 description: 학습 및 일괄 처리 점수 매기기 파이프라인에 로깅을 추가 하 고 Application Insights에서 기록 된 결과를 확인 합니다.
 services: machine-learning
@@ -7,25 +7,24 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
-ms.custom: seodec18
-ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982364"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055718"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Application Insights에서 기계 학습 파이프라인 디버그 및 문제 해결
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 [OpenCensus](https://opencensus.io/quickstart/python/) python 라이브러리를 사용 하 여 로그를 스크립트에서 Application Insights로 라우팅할 수 있습니다. 파이프라인 실행의 로그를 한 곳에서 집계 하면 쿼리를 작성 하 고 문제를 진단할 수 있습니다. Application Insights를 사용 하면 시간에 따른 로그를 추적 하 고 실행 간에 파이프라인 로그를 비교할 수 있습니다.
 
 로그를 한 번에 배치 하면 예외 및 오류 메시지에 대 한 기록이 제공 됩니다. Application Insights는 Azure 경고와 통합 되기 때문에 Application Insights 쿼리를 기반으로 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-your-first-pipeline.md) .
 * [개발 환경을 구성](./how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
@@ -39,7 +38,7 @@ ms.locfileid: "80982364"
 
 이 섹션은 Azure Machine Learning 파이프라인에서 OpenCensus를 사용 하는 것과 관련 된 소개입니다. 자세한 자습서는 [OpenCensus Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) 를 참조 하세요.
 
-Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) 을 구성 합니다. 환경 변수 `APPLICATIONINSIGHTS_CONNECTION_STRING` 를 구성 합니다.
+Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) 을 구성 합니다. `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수를 구성 합니다.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -142,7 +141,7 @@ logger.info("I will be sent to Application Insights with Custom Dimensions", cus
 
 OpenCensus AzureLogHandler는 Python 로그를 Application Insights로 라우팅하는 데 사용 됩니다. 따라서 Python 로깅 미묘한 차이 고려해 야 합니다. 로 거를 만들 때 기본 로그 수준이 있으며 해당 수준 보다 크거나 같은 로그를 표시 합니다. Python 로깅 기능 사용에 대 한 좋은 참조는 [로깅 Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
-OpenCensus `APPLICATIONINSIGHTS_CONNECTION_STRING` 라이브러리에는 환경 변수가 필요 합니다. 이 환경 변수를 파이프라인 매개 변수로 전달 하는 대신이 변수를 설정 하 여 일반 텍스트 연결 문자열이 전달 되지 않도록 하는 것이 좋습니다.
+`APPLICATIONINSIGHTS_CONNECTION_STRING`OpenCensus 라이브러리에는 환경 변수가 필요 합니다. 이 환경 변수를 파이프라인 매개 변수로 전달 하는 대신이 변수를 설정 하 여 일반 텍스트 연결 문자열이 전달 되지 않도록 하는 것이 좋습니다.
 
 ## <a name="querying-logs-in-application-insights"></a>Application Insights에서 로그 쿼리
 

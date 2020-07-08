@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156109"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055242"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
@@ -51,7 +51,7 @@ Azure Resource Manager에 도입된 새 템플릿 함수는 소버린 클라우�
 
 Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 다음 PowerShell 스크립트를 사용하여 새로 도입된 템플릿 함수를 Azure Stack에서도 사용할 수 있는지 여부를 확인할 수 있습니다.
 
-1. GitHub 리포지토리의 복제본을 만듭니다 [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. GitHub 리포지토리의 복제본을 만듭니다 [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions) .
 
 1. 리포지토리의 로컬 복제본이 있으면 PowerShell을 사용하여 대상의 Azure Resource Manager에 연결합니다.
 
@@ -133,7 +133,7 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -301,7 +301,7 @@ Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ API 프로필 버전은 Azure 및 Azure Stack에 공통적인 리소스 종류�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -487,7 +487,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 다음은 그 예입니다.
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -574,7 +574,7 @@ Get-AzureRmVMSize -Location "West Europe"
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Azure Stack에서 VM 확장을 사용할 수 있는지 확인
 
-클라우드 일관성을 위한 또 다른 고려 사항은 [가상 머신 확장](../../virtual-machines/windows/extensions-features.md)을 사용하여 VM 내의 리소스를 구성하는 것입니다. Azure Stack에서 모든 VM 확장을 사용할 수 있는 것은 아닙니다. 템플릿은 VM 확장 전용 리소스를 지정하고, 템플릿 내에서 종속성과 조건을 만들 수 있습니다.
+클라우드 일관성을 위한 또 다른 고려 사항은 [가상 머신 확장](../../virtual-machines/extensions/features-windows.md)을 사용하여 VM 내의 리소스를 구성하는 것입니다. Azure Stack에서 모든 VM 확장을 사용할 수 있는 것은 아닙니다. 템플릿은 VM 확장 전용 리소스를 지정하고, 템플릿 내에서 종속성과 조건을 만들 수 있습니다.
 
 예를 들어, Microsoft SQL Server를 실행하는 VM을 구성하려는 경우, VM 확장에서 템플릿 배포의 일부로 SQL Server를 구성할 수 있습니다. SQL Server를 실행하는 VM에서 데이터베이스를 만들도록 구성된 애플리케이션 서버도 배포 템플릿에 포함되어 있을 경우, 발생하는 사항을 고려합니다. 애플리케이션 서버에 VM 확장을 사용하는 것 외에도 SQL Server VM 확장 리소스의 성공적인 반환에 대한 애플리케이션 서버의 종속성을 구성할 수 있습니다. 이 방법을 사용하면 애플리케이션 서버에 데이터베이스를 만들도록 지시할 때 SQL Server를 실행하는 VM이 구성되어 있고 사용할 수 있습니다.
 
@@ -590,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 다음은 그 예입니다.
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

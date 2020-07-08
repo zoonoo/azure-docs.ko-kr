@@ -6,12 +6,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 695023f4700370cbe5e9b345f513e38d1cf1fc0c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 602aaeb67ca081ebac71ca1d6d24a2de3c020603
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648960"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055990"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>PowerShell을 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다.
 
@@ -32,12 +32,12 @@ ms.locfileid: "75648960"
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/get-azmanagedapplication) | 관리되는 애플리케이션을 나열합니다. 리소스 그룹 이름을 제공하여 결과를 얻습니다. |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | 리소스를 나열합니다. 리소스 그룹 및 리소스 종류를 제공하여 결과를 얻습니다. |
-| [업데이트 AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) | 가상 머신의 크기를 업데이트합니다. |
+| [Get-AzManagedApplication](/powershell/module/az.resources/get-azmanagedapplication) | 관리되는 애플리케이션을 나열합니다. 리소스 그룹 이름을 제공하여 결과를 얻습니다. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 리소스를 나열합니다. 리소스 그룹 및 리소스 종류를 제공하여 결과를 얻습니다. |
+| [업데이트 AzVM](/powershell/module/az.compute/update-azvm) | 가상 머신의 크기를 업데이트합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/get-started-azureps)를 참조하세요.

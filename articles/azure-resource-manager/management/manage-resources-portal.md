@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e3cd30f2ed523584ae827f51d19c6acebf72abf
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248347"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055528"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 리소스 관리
 
@@ -73,7 +73,7 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 ## <a name="move-resources"></a>리소스 이동
 
 1. 포털에서 리소스를 엽니다. 이 단계는 [리소스 열기](#open-resources)를 참조 하세요.
-2. **이동**을 선택 합니다. 다음 스크린샷에서는 저장소 계정에 대 한 관리 옵션을 보여 줍니다.
+2. **이동**을 선택합니다. 다음 스크린샷에서는 저장소 계정에 대 한 관리 옵션을 보여 줍니다.
 
     ![azure 리소스 이동](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. 사용자의 필요에 따라 **다른 리소스 그룹으로 이동** 또는 **다른 구독으로 이동** 을 선택 합니다.
@@ -120,5 +120,5 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 
 - Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
 - 리소스 관리자 템플릿 구문에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/template-syntax.md)를 참조 하세요.
-- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](/azure/azure-resource-manager/)를 참조 하세요.
+- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](../index.yml)를 참조 하세요.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조 하세요.

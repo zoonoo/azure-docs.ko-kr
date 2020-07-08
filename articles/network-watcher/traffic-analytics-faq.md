@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87b4f0573fbcc73573c508a7f8e39acadcfa05af
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189048"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056483"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -264,7 +264,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - "새 경고 규칙"을 클릭 하 여 경고를 만듭니다.
 - 경고를 만들려면 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 참조 하세요.
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>어떻게 할까요? 가장 많은 온-프레미스 트래픽을 수신 하는 Vm 확인
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>가장 많은 온-프레미스 트래픽을 수신 하는 Vm을 확인할 어떻게 할까요? 있나요?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -288,7 +288,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Time의 경우 형식: yyyy-mm-dd 00:00:00을 사용 합니다.
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>온-프레미스 컴퓨터에서 내 Vm이 받은 트래픽의 표준 편차를 확인 어떻게 할까요?
+## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>온-프레미스 컴퓨터에서 내 Vm에서 받은 트래픽의 표준 편차를 확인 어떻게 할까요??
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ Ip의 경우:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>NSG 규칙을 사용 하 여 IP 쌍 간에 연결할 수 있는 포트 (또는 bocked)를 확인 어떻게 할까요?
+## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>NSG 규칙을 사용 하 여 IP 쌍 간에 연결할 수 있거나 차단 된 포트를 확인 어떻게 할까요??
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -347,7 +347,7 @@ Ip의 경우:
 ### <a name="keyboard-navigation-at-any-stage"></a>모든 단계에서 키보드 탐색
     
 - `Esc` 키는 확장된 선택 영역을 축소합니다.
-- `Up arrow` 키는 `Esc` 키와 동일한 작업을 수행합니다. `Down arrow` 키는 `Enter` 키와 동일한 작업을 수행합니다.
+- `Up-arrow` 키는 `Esc` 키와 동일한 작업을 수행합니다. `Down arrow` 키는 `Enter` 키와 동일한 작업을 수행합니다.
 - `Shift+Plus` 키로 확대, `Shift+Minus` 키로 축소할 수 있습니다.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>가상 네트워크 토폴로지 보기에서 키보드를 사용하여 탐색할 수 있나요?

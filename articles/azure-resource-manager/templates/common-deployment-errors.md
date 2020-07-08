@@ -3,19 +3,19 @@ title: 일반 배포 오류 문제 해결
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460384"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055667"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
 이 문서에서는 일반적인 Azure 배포 오류 중 일부에 대해 설명하고 오류를 해결하기 위한 정보를 제공합니다. 배포 오류에 대한 오류 코드를 찾을 수 없는 경우 [오류 코드 찾기](#find-error-code)를 참조하세요.
 
-이 문서에서 오류 코드에 대 한 정보를 찾고 해당 정보를 제공 하지 않는 경우 알려주세요. 이 페이지의 맨 아래에서 피드백을 남길 수 있습니다. 사용자 의견은 GitHub 문제를 통해 추적 됩니다.
+오류 코드에 대한 정보를 찾고 있는데 이 문서에서 해당 정보를 제공하지 않는다면 알려주세요. 이 페이지의 하단에서 사용자 의견을 남길 수 있습니다. 사용자 의견은 GitHub 문제를 통해 추적됩니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "79460384"
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 스토리지 계정에 대한 명명 제한 사항을 따릅니다. | [스토리지 계정 이름 오류 해결](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 스토리지 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Windows의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) 및 [할당 문제 해결](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필요한 리소스 공급자가 등록 되지 않은 경우이 오류가 나타날 수 있습니다. | [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](error-register-resource-provider.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-location.md) |
@@ -40,7 +40,7 @@ ms.locfileid: "79460384"
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 해당 테넌트에 대한 액세스 토큰을 가져옵니다. 계정이 속한 테넌트의 토큰만 가져올 수 있습니다. | |
-| InvalidContentLink | 사용할 수 없는 중첩 된 템플릿에 연결 하려고 시도 했을 수 있습니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. 현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정에 있는 템플릿에 연결할 수 없습니다. 템플릿을 GitHub와 같은 다른 리포지토리로 이동 하는 것이 좋습니다. | [연결 된 템플릿](linked-templates.md) |
+| InvalidContentLink | 사용할 수 없는 중첩 된 템플릿에 연결 하려고 시도 했을 수 있습니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. 현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정에 있는 템플릿에 연결할 수 없습니다. 템플릿을 GitHub와 같은 다른 리포지토리로 이동 하는 것이 좋습니다. | [연결된 템플릿](linked-templates.md) |
 | InvalidDeploymentLocation | 구독 수준에서 배포 하는 경우 이전에 사용한 배포 이름에 대해 다른 위치를 제공 했습니다. | [구독 수준 배포](deploy-to-subscription.md) |
 | InvalidParameter | 리소스에 대해 제공한 값 중 하나가 예상 값과 일치하지 않습니다. 이 오류는 다양한 조건으로 인해 발생할 수 있습니다. 예를 들어 암호가 완전하지 않거나 Blob 이름이 올바르지 않을 수 있습니다. 오류 메시지에는 수정 해야 하는 값이 표시 됩니다. | |
 | InvalidRequestContent | 배포 값에 인식할 수 없는 값이 포함 되어 있거나 필수 값이 누락 되었습니다. 리소스 종류에 대한 값을 확인합니다. | [템플릿 참조](/azure/templates/) |
@@ -62,8 +62,8 @@ ms.locfileid: "79460384"
 | OperationNotAllowed | 배포에서 구독, 리소스 그룹 또는 지역에 대한 할당량을 초과하는 작업을 시도하고 있습니다. 가능하면 배포를 수정하여 할당량 내에서 유지합니다. 그렇지 않은 경우 할당량 변경을 요청하는 것이 좋습니다. | [할당량 오류 해결](error-resource-quota.md) |
 | ParentResourceNotFound | 자식 리소스를 만들기 전에 부모 리소스가 있는지 확인합니다. | [부모 리소스 오류 해결](error-parent-resource.md) |
 | PasswordTooLong | 너무 많은 문자를 포함 하는 암호를 선택 하거나 암호 값을 보안 문자열로 변환한 후 매개 변수로 전달 했을 수 있습니다. 템플릿에 **보안 문자열** 매개 변수가 포함되어 있으면 값을 보안 문자열로 변환할 필요가 없습니다. 암호 값을 텍스트로 제공합니다. |  |
-| PrivateIPAddressInReservedRange | 지정된 IP 주소에는 Azure에 필요한 주소 범위가 포함됩니다. 예약된 범위를 방지하도록 IP 주소를 변경합니다. | [IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | 지정된 IP 주소가 서브넷 범위를 벗어났습니다. 서브넷 범위에 속하는 IP 주소로 변경합니다. | [IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressInReservedRange | 지정된 IP 주소에는 Azure에 필요한 주소 범위가 포함됩니다. 예약된 범위를 방지하도록 IP 주소를 변경합니다. | [IP 주소](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | 지정된 IP 주소가 서브넷 범위를 벗어났습니다. 서브넷 범위에 속하는 IP 주소로 변경합니다. | [IP 주소](../../virtual-network/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | 배포 된 리소스에서 일부 속성을 변경할 수 없습니다. 리소스를 업데이트할 때 변경이 허용되는 속성으로 제한합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | 구독에는 배포 하는 동안 수행 하려는 작업을 방해 하는 리소스 정책이 포함 됩니다. 해당 작업을 차단하는 정책을 찾습니다. 가능 하면 정책의 제한 사항을 충족 하도록 배포를 변경 합니다. | [정책 오류 해결](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | 예약된 이름을 포함하지 않는 리소스 이름을 제공합니다. | [예약된 리소스 이름](error-reserved-resource-name.md) |
@@ -114,7 +114,7 @@ PowerShell을 통해 배포 오류 코드 및 메시지를 보려면 다음을 �
 Azure CLI를 통해 배포 오류 코드 및 메시지를 보려면 다음을 사용합니다.
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 포털에서 알림을 선택합니다.
@@ -172,7 +172,7 @@ New-AzResourceGroupDeployment `
 다음 명령을 사용하여 배포 작업을 검토합니다.
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -180,7 +180,7 @@ az deployment group operation list \
 다음 명령으로 요청 내용을 검사합니다.
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -189,7 +189,7 @@ az deployment group operation list \
 다음 명령으로 응답 내용을 검사합니다.
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response
@@ -223,7 +223,7 @@ az deployment group operation list \
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "storageName": {

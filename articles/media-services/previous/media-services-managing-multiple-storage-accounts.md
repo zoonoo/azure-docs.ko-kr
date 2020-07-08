@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2796a2be5c779124db4dd7f1137ebbff4094705d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69901780"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056704"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 스토리지 계정에서 Media Services 자산 관리  
 
@@ -27,7 +27,7 @@ ms.locfileid: "69901780"
 * 자산을 여러 스토리지 계정에서 부하 분산합니다.
 * 대량의 콘텐츠 처리를 위한 Media Services 크기 조정(현재 단일 스토리지 계정의 최대 제한은 500TB). 
 
-이 문서에서는 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/az.media)을 사용하여 여러 스토리지 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 스토리지 계정을 지정하는 방법을 보여줍니다. 
+이 문서에서는 [Azure Resource Manager api](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [PowerShell](/powershell/module/az.media)을 사용 하 여 여러 저장소 계정을 Media Services 계정에 연결 하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 스토리지 계정을 지정하는 방법을 보여줍니다. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,21 +46,23 @@ Media Services는 스트리밍 콘텐츠의 Url을 빌드할 때 **IAssetFile.Na
 
 ## <a name="to-attach-storage-accounts"></a>스토리지 계정을 연결하려면  
 
-저장소 계정을 AMS 계정에 연결 하려면 다음 예제와 같이 [Azure Resource Manager api](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/az.media)을 사용 합니다.
+저장소 계정을 AMS 계정에 연결 하려면 다음 예제와 같이 [Azure Resource Manager api](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [PowerShell](/powershell/module/az.media)을 사용 합니다.
 
-    $regionName = "West US"
-    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-    $resourceGroupName = "SkyMedia-USWest-App"
-    $mediaAccountName = "sky"
-    $storageAccount1Name = "skystorage1"
-    $storageAccount2Name = "skystorage2"
-    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-    $storageAccounts = @($storageAccount1, $storageAccount2)
+```azurepowershell
+$regionName = "West US"
+$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccount1Name = "skystorage1"
+$storageAccount2Name = "skystorage2"
+$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+$storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+$storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+$storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+```
 
 ### <a name="support-for-cool-storage"></a>쿨 스토리지 지원
 

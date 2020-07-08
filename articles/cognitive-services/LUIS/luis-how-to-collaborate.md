@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344393"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055633"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
@@ -97,6 +97,6 @@ Azure Active Directory 사용자 및 동의에 대해 자세히 알아보세요.
 ## <a name="next-steps"></a>다음 단계
 
 * 버전을 사용 하 여 앱 수명 주기를 제어 하 [는 방법을](luis-how-to-manage-versions.md) 알아봅니다.
-* 해당 리소스에 대 한 [제작 리소스](luis-concept-keys.md#authoring-key) 및 [참가자](luis-concept-keys.md#contributions-from-other-authors) 를 비롯 한 개념을 이해 합니다.
+* 해당 리소스에 대 한 [제작 리소스](luis-how-to-azure-subscription.md#authoring-key) 및 [참가자](luis-how-to-azure-subscription.md#contributions-from-other-authors) 를 비롯 한 개념을 이해 합니다.
 * 제작 및 런타임 리소스 [를 만드는 방법](luis-how-to-azure-subscription.md) 알아보기
 * 새 [제작 리소스로](luis-migration-authoring.md) 마이그레이션

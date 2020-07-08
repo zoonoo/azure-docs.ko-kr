@@ -2,13 +2,13 @@
 title: ACR 작업에서 크로스 레지스트리 인증
 description: Azure 리소스에 대해 관리 ID를 사용하여 다른 프라이빗 Azure 컨테이너 레지스트리에 액세스하도록 ACR 작업(Azure Container Registry Task)을 구성합니다.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842499"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057361"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure 관리 ID를 사용하는 ACR 작업의 레지스트리 간 인증 
 
@@ -44,6 +44,7 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.68 이�
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
+
 현재 디렉터리에서 [az acr build][az-acr-build] 명령을 실행하여 기본 이미지를 빌드하고 기본 레지스트리에 푸시합니다. 실제로 조직의 다른 팀 또는 프로세스가 기본 레지스트리를 유지 관리할 수 있습니다.
     
 ```azurecli
@@ -85,6 +86,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
+
+이 섹션에서는 기본 레지스트리  *mybaseregistry*에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
+
+[az acr show][az-acr-show] 명령을 사용하여 기본 레지스트리의 리소스 ID를 가져와서 이를 변수에 저장합니다.
+
+```azurecli
+baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+[az role assignment create][az-role-assignment-create] 명령을 사용하여 기본 레지스트리에 `acrpull` 역할 ID를 할당합니다. 이 역할에는 레지스트리에서 이미지를 끌어올 수 있는 권한만 있습니다.
+
+```azurecli
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
+```
+
+[작업에 대상 레지스트리 자격 증명 추가](#add-target-registry-credentials-to-task)로 이동 합니다.
+
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>옵션 2: 시스템 할당 ID로 작업 만들기
 
 이 섹션의 단계에서는 작업을 만들고 시스템 할당 ID를 사용합니다. 대신 사용자 할당 ID를 사용하도록 설정하려면 [옵션 1: 사용자 할당 ID로 작업 만들기](#option-1-create-task-with-user-assigned-identity)를 참조하세요. 
@@ -103,7 +125,7 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
 
 이 섹션에서는 기본 레지스트리  *mybaseregistry*에서 끌어올 수 있는 관리 ID 권한을 부여합니다.
 

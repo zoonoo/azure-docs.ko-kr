@@ -4,12 +4,12 @@ description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질�
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343543"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054851"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -43,7 +43,7 @@ Language Understanding의 새로운 기능 (LUIS)에 [대해 자세히 알아보
 [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) 자습서를 참조하세요. LUIS는 Bing Spell Check API v7에 따라 부여되는 제한을 적용합니다.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>프로그래밍 방식으로 LUIS 앱을 편집하려면 어떻게 해야 하나요?
-프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./get-started-get-model-rest-apis.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-concept-keys.md#azure-resources-for-luis)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-concept-keys.md)를 참조하세요.
+프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./get-started-get-model-rest-apis.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-how-to-azure-subscription.md#azure-resources-for-luis)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-how-to-azure-subscription.md)를 참조하세요.
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>정규식 일치를 제공하는 패턴 기능은 어디에 있나요?
 이전 **패턴 기능**이 현재는 더 이상 사용되지 않으며 **[패턴](luis-concept-patterns.md)** 으로 바뀌었습니다.
@@ -123,7 +123,7 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 엔드포인트 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md). **[Azure 리소스](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md) 합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md) 변경해야 합니다.
+Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md). **[Azure 리소스](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md) 합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-how-to-azure-subscription.md) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요?
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 학습 데이터를 더 제공 하면 가장 가능성이 높은 의도의 [점수](luis-concept-prediction-score.md) 를 높일 수 있습니다.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
-다음 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key) 에 따라 LUIS 끝점 키를 만들고 앱에 할당 합니다. 그런 다음 [새 끝점 키를 사용](luis-concept-keys.md)하도록 클라이언트 응용 프로그램의 HTTP 요청을 끝점으로 변경 해야 합니다. 다른 지역에서 새 리소스를 만든 경우 HTTP 클라이언트 요청 영역도 변경 합니다.
+다음 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key) 에 따라 LUIS 끝점 키를 만들고 앱에 할당 합니다. 그런 다음 [새 끝점 키를 사용](luis-how-to-azure-subscription.md)하도록 클라이언트 응용 프로그램의 HTTP 요청을 끝점으로 변경 해야 합니다. 다른 지역에서 새 리소스를 만든 경우 HTTP 클라이언트 요청 영역도 변경 합니다.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>내 LUIS 엔드포인트를 어떻게 보호하나요?
-[엔드포인트 보안](luis-concept-keys.md#securing-the-endpoint)을 참조하세요.
+[엔드포인트 보안](luis-how-to-azure-subscription.md#securing-the-endpoint)을 참조하세요.
 
 ## <a name="working-within-luis-limits"></a>LUIS 제한 내에서 작업
 
@@ -206,7 +206,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>어떤 키가 필요한지, 어디서 얻을 수 있는지, 얻은 키로 무엇을 해야 하는지 알아보려면 어떻게 할까요??
 
-제작 키와 예측 런타임 키의 차이점에 대해 알아보려면 [LUIS에서 예측 끝점 키 작성 및 쿼리](luis-concept-keys.md) 를 참조 하세요.
+제작 키와 예측 런타임 키의 차이점에 대해 알아보려면 [LUIS에서 예측 끝점 키 작성 및 쿼리](luis-how-to-azure-subscription.md) 를 참조 하세요.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>할당량 초과 오류가 발생합니다. 이 문제를 어떻게 해결하나요?
 
@@ -216,7 +216,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 건가요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 무슨 일이 일어났나요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.
 

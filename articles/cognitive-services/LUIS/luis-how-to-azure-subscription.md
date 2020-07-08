@@ -3,18 +3,19 @@ title: 제작 및 런타임 키를 사용 하는 방법-LUIS
 description: Language Understanding (LUIS)를 처음 사용 하는 경우 제작 키를 만들 필요가 없습니다. 앱을 게시 하려는 경우 런타임 끝점을 사용 하 여 앱에 대 한 런타임 키를 만들고 할당 해야 합니다.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560426"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055769"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
 작성 및 쿼리 예측 런타임 리소스는 LUIS 앱 및 예측 끝점에 대 한 인증을 제공 합니다.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -23,7 +24,7 @@ ms.locfileid: "85560426"
 
 LUIS는 세 가지 유형의 Azure 리소스와 Azure가 아닌 리소스 하나를 허용 합니다.
 
-|키|목적|인식 서비스`kind`|인식 서비스`type`|
+|Key|용도|인식 서비스`kind`|인식 서비스`type`|
 |--|--|--|--|
 |작성 키|작성, 학습, 게시 및 테스트를 사용 하 여 응용 프로그램의 데이터에 액세스 하 고 관리 합니다. LUIS apps를 프로그래밍 방식으로 작성 하려는 경우 LUIS authoring key를 만듭니다.<br><br>키의 용도는 `LUIS.Authoring` 다음을 허용 하는 것입니다.<br>* 교육 및 게시를 포함 하 여 프로그래밍 방식으로 Language Understanding 앱 및 모델 관리<br> * [참가자 역할](#contributions-from-other-authors)에 사용자를 할당 하 여 제작 리소스에 대 한 사용 권한을 제어 합니다.|`LUIS.Authoring`|`Cognitive Services`|
 |쿼리 예측 키| 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 키를 만듭니다. |`LUIS`|`Cognitive Services`|
@@ -38,7 +39,7 @@ Azure 리소스 만들기 프로세스가 완료 되 면 LUIS 포털에서 앱�
 
 LUIS와 같은 Azure 리소스는 리소스를 포함 하는 구독이 소유 합니다.
 
-리소스 소유권을 전송 하기 위해 ou는 다음 중 하나를 수행할 수 있습니다.
+리소스 소유권을 이전 하려면 다음 중 하나를 수행 합니다.
 * 구독의 [소유권](../../cost-management-billing/manage/billing-subscription-transfer.md) 이전
 * LUIS 앱을 파일로 내보낸 다음 다른 구독에서 앱을 가져옵니다. 내보내기는 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
@@ -71,6 +72,8 @@ TPS (초당 트랜잭션 수) 할당량을 초과 하는 경우 HTTP 429 오류�
 **키** 페이지의 Azure Portal에서 Azure 키를 다시 생성 합니다.
 
 
+<a name="securing-the-endpoint"></a>
+
 ## <a name="app-ownership-access-and-security"></a>앱 소유권, 액세스 및 보안
 
 앱은 소유자의 구독에 의해 결정 되는 Azure 리소스에 의해 정의 됩니다.
@@ -99,7 +102,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 소유자와 모든 참가자는 앱을 제작할 수 있는 권한이 있습니다.
 
-|작성 액세스에 포함된 작업|메모|
+|작성 액세스에 포함된 작업|참고|
 |--|--|
 |엔드포인트 키 추가 또는 제거||
 |버전 내보내기||
@@ -158,11 +161,10 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 1. 리소스 선택 프로세스를 완료 하면 [새 앱을 만듭니다](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-## <a name="create-azure-resources"></a>Azure 리소스 만들기
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Azure CLI에서 리소스 만들기
 
@@ -226,7 +228,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     ![Azure Resource Manager 토큰 요청 및 Azure Resource Manager 토큰 받기](./media/luis-manage-keys/get-arm-token.png)
 
-1. 토큰을 사용 하 여 사용자 계정이 액세스할 수 있는 [GET LUIS azure ACCOUNTS API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)에서 구독 간에 LUIS 런타임 리소스를 요청 합니다.
+1. 토큰을 사용 하 여 사용자 계정이 액세스할 수 있는 [GET LUIS Azure ACCOUNTS API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)에서 구독 간에 LUIS 런타임 리소스를 요청 합니다.
 
     이 POST API에는 다음 설정이 필요합니다.
 
@@ -237,11 +239,11 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 API는 계정 이름으로 반환된 리소스 이름, 리소스 그룹 및 구독 ID를 포함하여 LUIS 구독의 JSON 개체 배열을 반환합니다. LUIS 앱에 할당할 LUIS 리소스인 배열에서 항목 하나를 찾습니다.
 
-1. [애플리케이션에 LUIS azure 계정 할당](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API를 사용하여 LUIS 리소스에 토큰을 할당합니다.
+1. [응용 프로그램 API에 LUIS Azure 계정 할당](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) 을 사용 하 여 LUIS 리소스에 토큰을 할당 합니다.
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |Type|설정|Value|
+    |형식|Setting|Value|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|

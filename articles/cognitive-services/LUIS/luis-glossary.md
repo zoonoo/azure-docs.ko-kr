@@ -3,12 +3,12 @@ title: 용어집-LUIS
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681607"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056381"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -38,11 +38,11 @@ HR 봇을 작성 하는 경우 단일 응용 프로그램으로 그룹화 하는
 
 ### <a name="authoring-key"></a>제작 키
 
-[제작 키](luis-concept-keys.md) 는 앱을 작성 하는 데 사용 됩니다. 프로덕션 수준 엔드포인트 쿼리에는 사용되지 않습니다. 자세한 내용은 [키 제한](luis-limits.md#key-limits)을 참조하세요.
+[제작 키](luis-how-to-azure-subscription.md) 는 앱을 작성 하는 데 사용 됩니다. 프로덕션 수준 엔드포인트 쿼리에는 사용되지 않습니다. 자세한 내용은 [키 제한](luis-limits.md#key-limits)을 참조하세요.
 
 ### <a name="authoring-resource"></a>제작 리소스
 
-LUIS [authoring resource](luis-concept-keys.md#azure-resources-for-luis) 는 Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스는 Azure 서비스의 연결 된 제작, 학습 및 게시 기능에 액세스할 수 있습니다. 리소스에는 연결 된 Azure 서비스에 액세스 하는 데 필요한 인증, 권한 부여 및 보안 정보가 포함 되어 있습니다.
+LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) 는 Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스는 Azure 서비스의 연결 된 제작, 학습 및 게시 기능에 액세스할 수 있습니다. 리소스에는 연결 된 Azure 서비스에 액세스 하는 데 필요한 인증, 권한 부여 및 보안 정보가 포함 되어 있습니다.
 
 제작 리소스에는의 Azure "종류"가 있습니다 `LUIS-Authoring` .
 
@@ -67,7 +67,7 @@ LUIS [authoring resource](luis-concept-keys.md#azure-resources-for-luis) 는 Azu
 
 일괄 테스트에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
-### <a name="precision"></a>정밀도
+### <a name="precision"></a>전체 자릿수
 일괄 테스트에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
 
 동물 일괄 처리 테스트에 대 한 예는 총 동물 수 (양 및 하 한가)로 나누어 예측 된 양입니다.
@@ -234,7 +234,7 @@ LUIS에서는 의도의 예제 utterance에 있는 단어 또는 구의 레이�
 
 ### <a name="prediction-key"></a>예측 키
 
-[예측 키](luis-concept-keys.md) (이전에는 구독 키)는 예측 끝점 사용에 대 한 권한을 부여 하는 Azure에서 만든 LUIS 서비스와 연결 된 키입니다.
+[예측 키](luis-how-to-azure-subscription.md) (이전에는 구독 키)는 예측 끝점 사용에 대 한 권한을 부여 하는 Azure에서 만든 LUIS 서비스와 연결 된 키입니다.
 
 이 키는 작성 키가 아닙니다. 예측 끝점 키가 있는 경우 제작 키 대신 모든 끝점 요청에 사용 해야 합니다. LUIS 웹 사이트의 Azure 리소스 페이지 맨 아래에 있는 끝점 URL 내에서 현재 예측 키를 볼 수 있습니다. 이 값은 구독 키 이름/값 쌍의 값입니다.
 
@@ -285,7 +285,7 @@ LUIS [list 엔터티](reference-entity-list.md)에서 정규화 된 값을 만�
 |--|--|
 |작음| 작은 1, 8 온스|
 |중간| 일반, 12 온스|
-|큰| 큼, 16 온스|
+|대형| 큼, 16 온스|
 |Xtra 큼| 가장 큰 1, 24 온스|
 
 모델은 입력에 동의어가 표시 될 때 엔터티에 대 한 정규화 된 값을 반환 합니다.

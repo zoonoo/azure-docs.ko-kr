@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374879"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055463"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -25,7 +25,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 ## <a name="what-is-migration"></a>마이그레이션 이란?
 
-마이그레이션은 전자 메일 계정에서 Azure 리소스로의 제작 인증을 변경 하는 프로세스입니다. 마이그레이션한 후 계정이 Azure 구독 및 Azure 제작 리소스에 연결 됩니다. *모든 LUIS 사용자 (소유자 또는 협력자)는 결국 마이그레이션해야 합니다.* 
+마이그레이션은 전자 메일 계정에서 Azure 리소스로의 제작 인증을 변경 하는 프로세스입니다. 마이그레이션한 후 계정이 Azure 구독 및 Azure 제작 리소스에 연결 됩니다. *모든 LUIS 사용자 (소유자 또는 협력자)는 결국 마이그레이션해야 합니다.*
 
 마이그레이션은 LUIS 포털에서 수행 해야 합니다. 예를 들어 LUIS CLI를 사용 하 여 제작 키를 만드는 경우 LUIS 포털에서 마이그레이션 프로세스를 완료 해야 합니다. 마이그레이션 후 응용 프로그램에 계속 작성 수 있지만 응용 프로그램 수준 대신 Azure 리소스 수준에 추가 됩니다.
 
@@ -81,7 +81,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 3. 공동 작업자를 사용 하는 앱이 있는 경우 마이그레이션에 대 한 정보를 알려 주는 전자 메일을 전송 하 라는 메시지가 표시 됩니다. 선택적 단계입니다.
 
    각 협력자 및 앱에 대해 기본 전자 메일 응용 프로그램은 약간의 서식이 지정 된 전자 메일을 사용 하 여 열립니다. 전자 메일을 보내기 전에 편집할 수 있습니다. 전자 메일 템플릿에는 정확한 앱 ID 및 앱 이름이 포함 됩니다.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > 계정을 Azure로 마이그레이션한 후에는 공동 작업자에 게 더 이상 앱을 사용할 수 없습니다.
 
@@ -162,7 +162,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
  > [!div class="mx-imgBorder"]
  > ![구독 및 제작 리소스에 대 한 상자](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-LUIS 포털에서 앱을 계속 편집 하기 위해 제작 리소스의 키를 알 필요가 없습니다. 
+LUIS 포털에서 앱을 계속 편집 하기 위해 제작 리소스의 키를 알 필요가 없습니다.
 
 앱을 프로그래밍 방식으로 편집 하려는 경우 제작 키 값이 필요 합니다. 이러한 값은 **Manage**  >  LUIS 포털의**Azure 리소스** 관리 페이지에 표시 됩니다. 리소스 **키** 페이지의 Azure Portal 에서도 사용할 수 있습니다. 또한 더 많은 제작 리소스를 만들어 동일한 페이지에서 할당할 수 있습니다.
 
@@ -246,5 +246,5 @@ Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [제작 및 런타임 키에 대 한 개념을](luis-concept-keys.md)검토 합니다. 
+* [제작 및 런타임 키에 대 한 개념을](luis-how-to-azure-subscription.md)검토 합니다.
 * [키를 할당](luis-how-to-azure-subscription.md) 하 고 [참가자를 추가](luis-how-to-collaborate.md)하는 방법을 검토 합니다.

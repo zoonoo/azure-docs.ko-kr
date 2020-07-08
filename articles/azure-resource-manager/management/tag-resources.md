@@ -2,13 +2,13 @@
 title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864490"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056925"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -17,7 +17,9 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리�
 태깅 전략을 구현 하는 방법에 대 한 권장 사항은 [리소스 명명 및 태그 지정 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)를 참조 하세요.
 
 > [!IMPORTANT]
-> 태그 이름은 대/소문자를 구분 하지 않습니다. 태그 값은 대/소문자를 구분 합니다.
+> 태그 이름은 작업에서 대/소문자를 구분 하지 않습니다. 대/소문자에 관계 없이 태그 이름을 가진 태그가 업데이트 되거나 검색 됩니다. 그러나 리소스 공급자는 태그 이름에 대해 제공 하는 대/소문자를 유지할 수 있습니다. 비용 보고서에서 대/소문자 구분이 표시 됩니다.
+> 
+> 태그 값은 대/소문자를 구분 합니다.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -31,7 +33,7 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리�
 
 ### <a name="apply-tags"></a>태그 적용
 
-Azure PowerShell은 태그를 적용 하기 위한 두 가지 명령 ( [AzTag](/powershell/module/az.resources/new-aztag) 및 [AzTag](/powershell/module/az.resources/update-aztag))을 제공 합니다. Az. Resources 모듈이 1.12.0 이상 이어야 합니다. 을 사용 `Get-Module Az.Resources`하 여 버전을 확인할 수 있습니다. 해당 모듈을 설치 하거나 Azure PowerShell 3.6.1 이상을 [설치할](/powershell/azure/install-az-ps) 수 있습니다.
+Azure PowerShell은 태그를 적용 하기 위한 두 가지 명령 ( [AzTag](/powershell/module/az.resources/new-aztag) 및 [AzTag](/powershell/module/az.resources/update-aztag))을 제공 합니다. Az. Resources 모듈이 1.12.0 이상 이어야 합니다. 을 사용 하 여 버전을 확인할 수 있습니다 `Get-Module Az.Resources` . 해당 모듈을 설치 하거나 Azure PowerShell 3.6.1 이상을 [설치할](/powershell/azure/install-az-ps) 수 있습니다.
 
 **AzTag** 는 리소스, 리소스 그룹 또는 구독에 대 한 모든 태그를 대체 합니다. 명령을 호출할 때 태그를 추가할 엔터티의 리소스 ID를 전달 합니다.
 
@@ -263,7 +265,7 @@ az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-현재 Azure CLI는 태그를 구독에 적용 하는 것을 지원 하지 않습니다.
+현재 Azure CLI에는 태그를 구독에 적용 하는 명령이 없습니다. 그러나 CLI를 사용 하 여 구독에 태그를 적용 하는 ARM 템플릿을 배포할 수 있습니다. [리소스 그룹 또는 구독에 태그 적용을](#apply-tags-to-resource-groups-or-subscriptions)참조 하세요.
 
 ### <a name="list-tags"></a>태그 나열
 
@@ -326,7 +328,7 @@ IFS=$origIFS
 
 ### <a name="apply-values"></a>값 적용
 
-다음 예제에서는 세 개의 태그를 사용 하 여 저장소 계정을 배포 합니다. 태그 중 두 개 (`Dept` 및 `Environment`)는 리터럴 값으로 설정 됩니다. 한 태그 (`LastDeployed`)는 기본적으로 현재 날짜로 설정 된 매개 변수로 설정 됩니다.
+다음 예제에서는 세 개의 태그를 사용 하 여 저장소 계정을 배포 합니다. 태그 중 두 개 ( `Dept` 및 `Environment` )는 리터럴 값으로 설정 됩니다. 한 태그 ( `LastDeployed` )는 기본적으로 현재 날짜로 설정 된 매개 변수로 설정 됩니다.
 
 ```json
 {
@@ -436,7 +438,7 @@ IFS=$origIFS
 
 ### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
 
-리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 `tags[tag-name]` 점 표기법에서 올바르게 `tags.tag-name` 구문 분석 되지 않으므로 구문 대신 구문을 사용 합니다.
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 `tags[tag-name]` `tags.tag-name` 일부 문자는 점 표기법에서 올바르게 구문 분석 되지 않으므로 구문 대신 구문을 사용 합니다.
 
 ```json
 {
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](../templates/deploy-to-subscription.md)를 참조 하세요.
+
 다음 템플릿은 개체의 태그를 리소스 그룹 또는 구독에 추가 합니다.
 
 ```json
@@ -574,7 +578,7 @@ Azure REST API를 통해 태그 작업을 수행 하려면 다음을 사용 합�
 
 태그를 사용하여 청구 데이터를 그룹화할 수 있습니다. 예를 들어 서로 다른 조직에 여러 VM을 실행하는 경우 태그를 사용하여 비용 센터별로 사용량을 그룹화합니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용량과 같이 런타임 환경별로 비용을 분류하는 데 태그를 사용할 수도 있습니다.
 
-[Azure 리소스 사용 및 RateCard API](../../billing/billing-usage-rate-card-overview.md) 또는 사용 CSV(쉼표로 구분된 값) 파일을 통해 태그에 대한 정보를 검색할 수 있습니다. [Azure 계정 센터](https://account.azure.com/Subscriptions) 또는 Azure Portal에서 사용량 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../billing/billing-download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2**를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
+[Azure 리소스 사용 및 RateCard API](../../cost-management-billing/manage/usage-rate-card-overview.md) 또는 사용 CSV(쉼표로 구분된 값) 파일을 통해 태그에 대한 정보를 검색할 수 있습니다. [Azure 계정 센터](https://account.azure.com/Subscriptions) 또는 Azure Portal에서 사용량 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2**를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
 
 REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/billing/)를 참조하세요.
 
@@ -583,17 +587,15 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 다음 제한 사항이 태그에 적용됩니다.
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](tag-support.md)을 참조하세요.
-* 관리 그룹은 현재 태그를 지원 하지 않습니다.
 * 각 리소스, 리소스 그룹 및 구독에는 최대 50 개의 태그 이름/값 쌍이 있을 수 있습니다. 허용 되는 최대 수보다 많은 태그를 적용 해야 하는 경우 태그 값에 JSON 문자열을 사용 합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹 또는 구독에는 각각 50 개의 태그 이름/값 쌍이 있는 많은 리소스가 포함 될 수 있습니다.
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 스토리지 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
-* 일반화 된 Vm은 태그를 지원 하지 않습니다.
 * Cloud Services와 같은 클래식 리소스에는 태그를 적용할 수 없습니다.
 * 태그 이름에는 다음 문자를 포함할 수 없습니다: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > 현재 Azure DNS 영역 및 Traffic Manager 서비스는 태그에서 공백 사용을 허용 하지 않습니다.
    >
-   > Azure 전면 도어는 태그 이름에서의 `#` 사용을 지원 하지 않습니다.
+   > Azure 전면 도어는 태그 이름에서의 사용을 지원 하지 않습니다 `#` .
 
 ## <a name="next-steps"></a>다음 단계
 

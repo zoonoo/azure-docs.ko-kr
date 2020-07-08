@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273619"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055259"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -63,9 +63,9 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 **백업 유형** | **세부 정보** | **사용 현황**
 --- | --- | ---
-**차지** | 전체 백업은 전체 데이터 원본을 포함 합니다. 차등 또는 증분 백업 보다 더 많은 네트워크 대역폭을 사용 합니다. | 초기 백업에 사용됩니다.
-**큰** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
-**대비** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
+**전체** | 전체 백업은 전체 데이터 원본을 포함 합니다. 차등 또는 증분 백업 보다 더 많은 네트워크 대역폭을 사용 합니다. | 초기 백업에 사용됩니다.
+**차등** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
+**증분** | 증분 백업은 이전 백업 이후에 변경 된 데이터 블록만 저장 합니다. 스토리지 및 네트워크 효율성이 높습니다. <br/><br/> 증분 백업에서는 전체 백업을 보완 하지 않아도 됩니다. | DPM/MABS에서 디스크 백업에 사용되며 Azure에 대한 모든 백업에서 사용됩니다. SQL Server 백업에는 사용 되지 않습니다.
 
 ## <a name="sql-server-backup-types"></a>SQL Server 백업 유형
 
@@ -105,9 +105,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 ## <a name="backup-policy-essentials"></a>백업 정책 기본 정보
 
 - 자격 증명 모음당 백업 정책을 만듭니다.
-- 다음 워크로드의 백업에 대한 백업 정책을 만들 수 있음
-  - Azure VM
-  - Azure VM의 SQL
+- Azure vm, azure vm의 SQL, azure vm 및 Azure 파일 공유의 SAP HANA 작업의 백업에 대 한 백업 정책을 만들 수 있습니다. Mars 에이전트를 사용 하는 파일 및 폴더 백업에 대 한 정책은 MARS 콘솔에 지정 됩니다.
   - Azure 파일 공유
 - 다양한 리소스에 정책을 할당할 수 있습니다. 여러 Azure VM을 보호하는 데 Azure VM 백업 정책을 사용할 수 있습니다.
 - 두 구성 요소로 이루어진 정책
@@ -115,9 +113,12 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
   - 보존: 각 백업을 보존해야 할 기간
 - 특정 시점을 사용하여 "매일" 또는 "매주"로 일정을 정의할 수 있습니다.
 - "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
-- "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
-- "매월", "매년" 백업 지점의 보존은 "LongTermRetention"이라고 합니다.
-- 자격 증명 모음을 만들면 "DefaultPolicy" 라는 Azure VM 백업에 대 한 정책도 만들어지고 Azure Vm을 백업 하는 데 사용할 수 있습니다.
+  - "매주"는 특정 요일에 백업 하는 것을 의미 합니다.
+  - "월간"는 해당 월의 특정 날짜에 백업을 의미 합니다.
+  - "매년"은 특정 연도의 특정 날에 백업 하는 것을 의미 합니다.
+- "월간", "매년" 백업 지점의 보존은 LTR (장기 보존) 이라고 합니다.
+- 자격 증명 모음을 만들면 "DefaultPolicy"도 만들어지고 리소스를 백업 하는 데 사용할 수 있습니다.
+- 백업 정책의 보존 기간에 대 한 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 
@@ -214,7 +215,7 @@ Premium storage를 사용 하 여 Azure Vm을 복원 하는 경우 프리미엄 
 
 - 지원 매트릭스를 검토 하 여 [백업 시나리오에 대해 지원 되는 기능 및 제한 사항에 대해 알아보세요](backup-support-matrix.md).
 - 다음 시나리오 중 하나에 대 한 백업을 설정 합니다.
-  - [Azure vm을 백업](backup-azure-arm-vms-prepare.md)합니다.
+  - [Azure VM 백업](backup-azure-arm-vms-prepare.md):
   - 백업 서버를 사용하지 않고 [Windows 머신을 직접 백업](tutorial-backup-windows-server-to-azure.md)합니다.
   - Azure에 백업하도록 [MABS를 설정](backup-azure-microsoft-azure-backup.md)한 다음, 워크로드를 MABS에 백업합니다.
   - Azure에 백업하도록 [DPM을 설정](backup-azure-dpm-introduction.md)한 다음, 워크로드를 DPM에 백업합니다.

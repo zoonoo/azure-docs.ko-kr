@@ -105,9 +105,6 @@
           href: luis-concept-test.md
         - name: 일괄 테스트
           href: luis-concept-batch-test.md
-    - name: 작성 및 런타임 키
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
     - name: 데이터 관리
       items:
         - name: 데이터 변경
