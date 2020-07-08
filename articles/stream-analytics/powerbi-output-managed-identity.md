@@ -4,14 +4,14 @@ description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Stream
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 647ab275fb7f34ee9721e4f085df0d22048fc04d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261417"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044246"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
 
@@ -19,7 +19,7 @@ Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/manag
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Power BI 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용 하려면 다음이 필요 합니다.
 

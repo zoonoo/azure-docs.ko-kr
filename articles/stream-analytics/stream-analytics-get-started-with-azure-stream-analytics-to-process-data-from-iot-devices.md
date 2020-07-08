@@ -5,20 +5,20 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426237"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043430"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 실시간 IoT 데이터 스트림 처리
 
 이 문서에서는 IoT (사물 인터넷) 장치에서 데이터를 수집 하는 스트림 처리 논리를 만드는 방법에 대해 알아봅니다. IoT (실제 사물 인터넷) 사용 사례를 사용 하 여 신속 하 고 경제적으로 솔루션을 구축 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 무료 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 * [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 샘플 쿼리 및 데이터 파일을 다운로드 합니다.
@@ -57,10 +57,10 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 ## <a name="create-an-azure-stream-analytics-query"></a>Azure Stream Analytics 쿼리 만들기
 작업을 만든 후 다음 단계는 쿼리를 작성 하는 것입니다. 입력 또는 출력을 작업에 연결 하지 않고 샘플 데이터에 대해 쿼리를 테스트할 수 있습니다.
 
-GitHub에서 [helloworldasa-inputstream.json-InputStream](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
-) 를 다운로드 합니다. 그런 다음 Azure Portal에서 Azure Stream Analytics 작업으로 이동 합니다.
+GitHub에서 [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+) 을 다운로드 합니다. 그런 다음 Azure Portal에서 Azure Stream Analytics 작업으로 이동 합니다.
 
-왼쪽 메뉴의 **작업 토폴로지** 아래에서 **쿼리** 를 선택 합니다. 그런 다음 **샘플 입력 업로드**를 선택 합니다. `HelloWorldASA-InputStream.json` 파일을 업로드 하 고 **확인**을 선택 합니다.
+왼쪽 메뉴의 **작업 토폴로지** 아래에서 **쿼리** 를 선택 합니다. 그런 다음 **샘플 입력 업로드**를 선택 합니다. `HelloWorldASA-InputStream.json`파일을 업로드 하 고 **확인**을 선택 합니다.
 
 ![Stream Analytics 대시보드 쿼리 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 

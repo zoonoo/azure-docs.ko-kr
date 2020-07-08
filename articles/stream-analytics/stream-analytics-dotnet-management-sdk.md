@@ -5,15 +5,15 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 52800f52e72e4aabcc8f6ebc733443615607f3a3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835498"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043447"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 다른 Azure 스토리지 서비스와 마찬가지로, File Storage는 공유의 데이터에 액세스하기 위한 REST API를 제공합니다.
@@ -212,7 +212,7 @@ File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니
 ## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 만들기
 출력 대상 만들기는 Stream Analytics 입력 소스 만들기와 유사합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
-다음 코드는 출력 대상(Azure SQL 데이터베이스)를 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
+다음 코드는 출력 대상 (Azure SQL Database)을 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
 
    ```csharp
    // Create an output

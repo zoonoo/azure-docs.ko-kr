@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189806"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043855"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -51,7 +51,10 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 - 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스나 네트워크 성능에 영향을 주지 않습니다.
 - 로그는 JSON 형식으로 작성 되며, NSG 규칙에 따라 아웃 바운드 및 인바운드 흐름을 표시 합니다.
 - 각 로그 레코드에는 흐름이 적용 되는 NIC (네트워크 인터페이스), 5 튜플 정보, 트래픽 결정 & (버전 2에만 해당) 처리량 정보가 포함 됩니다. 전체 세부 정보는 아래 _로그 형식_ 을 참조 하세요.
-- 흐름 로그에는 생성 후 최대 1 년까지 로그를 자동으로 삭제할 수 있는 보존 기능이 있습니다. **참고**: 보존은 [범용 v2 저장소 계정 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts)을 사용 하는 경우에만 사용할 수 있습니다. 
+- 흐름 로그에는 생성 후 최대 1 년까지 로그를 자동으로 삭제할 수 있는 보존 기능이 있습니다. 
+
+> [!NOTE]
+> 보존은 범용 [V2 저장소 계정 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts)을 사용 하는 경우에만 사용할 수 있습니다. 
 
 **핵심 개념**
 
@@ -59,6 +62,9 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 - NSG (네트워크 보안 그룹)에는 연결 된 리소스의 네트워크 트래픽을 허용 하거나 거부 하는 _보안 규칙_ 목록이 포함 되어 있습니다. NSGs는 서브넷, 개별 Vm 또는 Vm에 연결 된 개별 NIC (네트워크 인터페이스)에 연결 될 수 있습니다 (리소스 관리자). 자세한 내용은 [네트워크 보안 그룹 개요](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json)를 참조하세요.
 - 네트워크의 모든 트래픽 흐름은 해당 NSG의 규칙을 사용 하 여 평가 됩니다.
 - 이러한 평가 결과는 NSG 흐름 로그입니다. 흐름 로그는 Azure 플랫폼을 통해 수집 되며 고객 리소스를 변경할 필요가 없습니다.
+- 참고: 규칙은 & 종료 하지 않는 두 가지 유형으로, 각각 서로 다른 로깅 동작 있습니다.
+- - NSG 거부 규칙이 종료 되 고 있습니다. 트래픽을 거부 하는 NSG는 흐름 로그에 로그를 기록 하 고이 경우 처리는 모든 NSG가 트래픽을 거부 한 후 중지 됩니다. 
+- - NSG 허용 규칙은 종료 하지 않습니다. 즉, 하나의 NSG에서 허용 하는 경우에도 다음 NSG로 처리를 계속 합니다. 트래픽을 허용 하는 마지막 NSG는 흐름 로그에 대 한 트래픽을 기록 합니다.
 - NSG 흐름 로그는 액세스할 수 있는 위치에서 저장소 계정에 기록 됩니다.
 - TA, Splunk, Grafana, Stealthwatch 등과 같은 도구를 사용 하 여 흐름 로그를 내보내고, 처리 하 고, 분석 하 고, 시각화할 수 있습니다.
 
@@ -67,7 +73,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 흐름 로그에는 다음 속성이 포함됩니다.
 
 * **시간** - 이벤트가 로그된 시간
-* **Systemid** -네트워크 보안 그룹 리소스 ID입니다.
+* **systemid** -네트워크 보안 그룹 시스템 id입니다.
 * **범주** - 이벤트의 범주입니다. 범주는 항상 **NetworkSecurityGroupFlowEvent**입니다.
 * **resourceid** -nsg의 리소스 ID
 * **operationName** - 항상 NetworkSecurityGroupFlowEvents
@@ -104,7 +110,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 다음 텍스트는 흐름 로그의 예제입니다. 이전 섹션에 설명된 속성 목록을 따르는 여러 레코드를 볼 수 있습니다.
 
 > [!NOTE]
-> **Flowtuples* 속성의 값은 쉼표로 구분 된 목록입니다.
+> *Flowtuples* 속성의 값은 쉼표로 구분 된 목록입니다.
  
 **버전 1 NSG 흐름 로그 형식 샘플**
 ```json
@@ -323,7 +329,7 @@ Azure Portal에서 Network Watcher의 NSG 흐름 로그 섹션으로 이동 합�
 
 *흐름 로그 읽기 및 내보내기*
 
-- [포털 &amp; 에서 보기 흐름 로그 다운로드](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
+- [&amp;포털에서 보기 흐름 로그 다운로드](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
 - [PowerShell 함수를 사용 하 여 흐름 로그 읽기](https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs)
 - [NSG 흐름 로그를 Splunk로 내보내기](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 
@@ -351,9 +357,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용 하는 것은 오랜 시간 동안 별도의 저장소 비용을 발생 시킵니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격](https://azure.microsoft.com/pricing/details/network-watcher/) 책정 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조 하세요.
 
-**인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
+**인바운드 흐름의 바이트 및 패킷 수가 잘못 되었습니다**. [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 플랫폼 제한으로 인해 인바운드 흐름을 제어 하는 규칙은 상태 비저장 방식으로 구현 됩니다. 이러한 흐름에 대해이 바이트와 패킷 수가 기록 되지 않습니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 수와 패킷은 실제 숫자와 다를 수 있습니다. 또한 인바운드 흐름은 이제 종료 되지 않습니다. 이 제한은 12 월 2020에 수정 될 예정입니다. 
 
-**상태 비저장 흐름의 바이트 및 패킷 수가 잘못 되었습니다**. [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 트래픽 흐름을 제어 하는 많은 기본/내부 규칙은 상태 비저장 방식으로 구현 됩니다. 플랫폼 제한으로 인해 바이트 및 패킷 수는 상태 비저장 흐름 (즉, 상태 비저장 규칙을 통과 하는 트래픽 흐름)에 대해 기록 되지 않으며 상태 저장 흐름에 대해서만 기록 됩니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 및 패킷 수가 실제 흐름과 다를 수 있습니다. 이 제한은 6 월 2020 일에 수정 될 예정입니다.
+**인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 
 ## <a name="best-practices"></a>모범 사례
 

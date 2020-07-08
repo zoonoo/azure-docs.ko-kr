@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898396"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043959"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -100,7 +100,7 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.
 
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제](stream-analytics-stream-analytics-query-patterns.md)
 

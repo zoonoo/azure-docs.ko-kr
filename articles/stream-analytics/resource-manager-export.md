@@ -5,14 +5,14 @@ services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 52ea7b45d0dcdb3ae16b8212557ba6ab3344ff15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968925"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043532"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 
@@ -42,13 +42,13 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 1. Stream Analytics 작업 작업 영역에 **배포** 폴더가 표시 됩니다.
 
-1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 *Jobtemplate. json* 파일을 탐색 합니다.
+1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 파일 *의JobTemplate.js* 를 탐색 합니다.
 
 ## <a name="complete-the-parameters-file"></a>매개 변수 파일을 완성 합니다.
 
 다음으로, Azure 리소스 관리 템플릿 매개 변수 파일을 완성 합니다.
 
-1. Visual Studio Code에서 Stream Analytics 작업 작업 영역의 **배포** 폴더에 있는 *jobtemplate. parameters. json* 파일을 엽니다.
+1. Visual Studio Code에서 Stream Analytics 작업 작업 영역의 **배포** 폴더에 있는 파일 *에서JobTemplate.parameters.js* 를 엽니다.
 
 1. 입력 및 출력 키가 null입니다. Null 값을 입력 및 출력 리소스에 대 한 실제 액세스 키로 바꿉니다.
 
@@ -58,7 +58,7 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 이전 섹션에서 생성 한 Azure Resource Manager 템플릿을 사용 하 여 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
 
-PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름과 reaplce 및 *jobtemplate* 에 대 한 전체 파일 경로 *를 사용 하 여* ResourceGroupName, 템플릿 *파일*및 템플릿 *매개 변수* 를 사용 해야 합니다. 작업 영역의 **배포 폴더** 에 있는 *ResourceGroupName*파일을 사용 합니다.
+PowerShell 창에서 다음 명령을 실행 합니다. 실제 리소스 그룹 이름으로 *ResourceGroupName*, reaplce *파일*및 템플릿 *parameterfile* 을 하 고 작업 작업 영역의 **배포 폴더** 에 있는 파일에 대 한 전체 파일 *JobTemplate.js* 경로를 사용 하 여 *JobTemplate.parameters.js* 해야 합니다.
 
 Azure PowerShell 구성 되지 않은 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 단계를 따르세요.
 

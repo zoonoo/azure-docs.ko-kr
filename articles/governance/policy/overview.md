@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944664"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044195"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -82,7 +82,7 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 
 ### <a name="resources-covered-by-azure-policy"></a>Azure Policy에서 처리하는 리소스
 
-Azure Policy는 Azure의 모든 리소스를 평가합니다. [게스트 구성](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), [Azure Key Vault](../../key-vault/key-vault-overview.md)와 같은 특정 리소스 공급자의 경우 설정 및 개체 관리를 위해 더 긴밀하게 통합됩니다. 자세한 내용은 [리소스 공급자 모드](./concepts/definition-structure.md)를 참조하세요.
+Azure Policy는 Azure의 모든 리소스를 평가합니다. [게스트 구성](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), [Azure Key Vault](../../key-vault/general/overview.md)와 같은 특정 리소스 공급자의 경우 설정 및 개체 관리를 위해 더 긴밀하게 통합됩니다. 자세한 내용은 [리소스 공급자 모드](./concepts/definition-structure.md)를 참조하세요.
 
 ### <a name="recommendations-for-managing-policies"></a>정책 관리에 대한 권장 사항
 

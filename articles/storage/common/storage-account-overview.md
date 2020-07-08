@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371559"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043644"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -32,7 +32,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 - Blob(모든 유형: 블록, 추가, 페이지)
 - Data Lake Gen2
-- 파일
+- Files
 - 디스크
 - 큐
 - 테이블
@@ -49,7 +49,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 범용 v1 저장소 계정은 모든 Azure Storage 서비스에 대 한 액세스를 제공 하지만 최신 기능 또는 gb 당 최소 가격 책정을 포함 하지 않을 수 있습니다. 범용 v1 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
 
 - Blob(모든 유형)
-- 파일
+- Files
 - 디스크
 - 큐
 - 테이블
@@ -98,7 +98,7 @@ BlockBlobStorage 저장소 계정은 블록 blob 및 추가 blob을 저장 하�
 
 ### <a name="filestorage-storage-accounts"></a>FileStorage 저장소 계정
 
-FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조 하세요.
+FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다. 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조하세요.
 
 ## <a name="access-tiers-for-block-blob-data"></a>블록 Blob 데이터를 위한 액세스 계층
 
@@ -115,7 +115,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 > [!IMPORTANT]
 > 기존 스토리지 계정 또는 Blob에 대한 액세스 계층을 변경하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [스토리지 계정 청구 섹션](#storage-account-billing)을 참조하세요.
 
-## <a name="redundancy"></a>중복
+## <a name="redundancy"></a>중복성
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
@@ -185,7 +185,9 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정 만들기](storage-account-create.md)
+- [스토리지 계정을 만드는](storage-account-create.md)
 - [블록 Blob 스토리지 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)

@@ -1,17 +1,17 @@
 ---
-title: TLS-Azure Database for PostgreSQL-단일 서버
+title: SSL/TLS-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL-단일 서버에 대 한 TLS 연결을 구성 하는 방법에 대 한 지침 및 정보입니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: d0482e5205b97b5c57c41e0ba98fb9ca819e5d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 6660c5d40ffb8ecb338dd9cdf53f24cfe2911713
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141737"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043838"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 TLS 연결 구성
 
@@ -51,11 +51,11 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>TLS 연결에 대 한 인증서 확인이 필요한 응용 프로그램
 
-경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL 서버에 연결할 인증서는에 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다.
+경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for PostgreSQL 서버에 연결할 인증서는에 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다. 소 버린 클라우드의 서버 인증서에 대 한 다음 링크를 참조 하세요. [Azure Government](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).) 
 
 ### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결
 
-다음 예제에서는 psql 명령줄 유틸리티를 사용 하 여 PostgreSQL 서버에 연결 하는 방법을 보여 줍니다. `sslmode=verify-full` 연결 문자열 설정을 사용 하 여 TLS/SSL 인증서 확인을 적용 합니다. 로컬 인증서 파일 경로를 `sslrootcert` 매개 변수로 전달 합니다.
+다음 예제에서는 psql 명령줄 유틸리티를 사용 하 여 PostgreSQL 서버에 연결 하는 방법을 보여 줍니다. `sslmode=verify-full`연결 문자열 설정을 사용 하 여 TLS/SSL 인증서 확인을 적용 합니다. 로컬 인증서 파일 경로를 `sslrootcert` 매개 변수로 전달 합니다.
 
 다음 명령은 psql 연결 문자열의 예입니다.
 
@@ -64,8 +64,35 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 ```
 
 > [!TIP]
-> 에 `sslrootcert` 전달 된 값이 저장 한 인증서의 파일 경로와 일치 하는지 확인 합니다.
+> 에 전달 된 값이 `sslrootcert` 저장 한 인증서의 파일 경로와 일치 하는지 확인 합니다.
+
+## <a name="tls-enforcement-in-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에서 TLS 적용
+
+Azure Database for PostgreSQL-단일 서버는 TLS (전송 계층 보안)를 사용 하 여 데이터베이스 서버에 연결 하는 클라이언트에 대 한 암호화를 지원 합니다. TLS는 데이터베이스 서버와 클라이언트 응용 프로그램 간에 보안 네트워크 연결을 보장 하 여 규정 준수 요구 사항을 준수할 수 있게 해 주는 업계 표준 프로토콜입니다.
+
+### <a name="tls-settings"></a>TLS 설정
+
+Azure Database for PostgreSQL 단일 서버는 클라이언트 연결에 TLS 버전을 적용할 수 있는 기능을 제공 합니다. TLS 버전을 적용 하려면 **최소 tls 버전** 옵션 설정을 사용 합니다. 이 옵션 설정에 허용 되는 값은 다음과 같습니다.
+
+|  최소 TLS 설정             | 지원 되는 클라이언트 TLS 버전                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (기본값) | TLS 필요 없음                      |
+| TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 이상 |
+| TLS1_1                           | TLS 1.1, TLS 1.2 이상          |
+| TLS1_2                           | TLS 버전 1.2 이상           |
+
+
+예를 들어이 최소 TLS 설정 버전을 TLS 1.0로 설정 하면 서버에서 TLS 1.0, 1.1 및 1.2 +를 사용 하는 클라이언트의 연결을 허용 하는 것입니다. 또는이를 1.2로 설정 하면 TLS 1.2 +를 사용 하는 클라이언트만 연결을 허용 하 고 TLS 1.0 및 TLS 1.1를 사용 하는 모든 연결이 거부 됩니다.
+
+> [!Note] 
+> 기본적으로 Azure Database for PostgreSQL는 최소 TLS 버전 (설정)을 적용 하지 않습니다 `TLSEnforcementDisabled` .
+>
+> 최소 TLS 버전을 적용 한 후에는 나중에 최소 버전 적용을 사용 하지 않도록 설정할 수 없습니다.
+
+Azure Database for PostgreSQL 단일 서버에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Database for PostgreSQL에 대 한 연결 라이브러리](concepts-connection-libraries.md)에서 다양 한 응용 프로그램 연결 옵션을 검토 합니다.
+
+- [TLS를 구성](howto-tls-configurations.md) 하는 방법 알아보기
