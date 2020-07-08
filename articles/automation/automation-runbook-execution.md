@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361628"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -79,7 +79,7 @@ Runbook을 사용하려면 Azure 또는 타사 시스템의 리소스에 액세�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 사용하여 머신 작업을 모니터링합니다. 작업에는 Log Analytics 작업 영역과 [Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)가 필요합니다.
+Azure Automation은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 사용 하 여 컴퓨터 작업을 모니터링 합니다. 작업에는 Log Analytics 작업 영역과 [Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)가 필요합니다.
 
 ### <a name="log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트
 

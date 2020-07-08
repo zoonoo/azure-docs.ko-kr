@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361475"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "81676639"
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
-[최신 클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
+[최신 클라이언트 라이브러리 가져오기](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
 

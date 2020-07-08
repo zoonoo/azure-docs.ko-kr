@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5ca9b1d9fbd18f60de80a80c932f0e27b8dc8583
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361492"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -24,7 +24,7 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-dire
 
 ## <a name="authentication"></a>인증
 
-모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](analysis-services-data-providers.md)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
+모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 애플리케이션에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 

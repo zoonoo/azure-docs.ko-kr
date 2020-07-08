@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7eed3e06ab42671d9674ad3893a88dfe9817e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "64571125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360183"
 ---
 # <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈을 사용 하 여 Azure AD 연결 문제 해결
 
@@ -41,13 +41,13 @@ Azure AD Connect 마법사의 **디렉터리 연결** 페이지에서 네트워�
 이러한 문제가 발견될 때마다 관련 오류 메시지가 AADConnect 마법사에 표시됩니다.
 
 
-![오류](media/how-to-connect-adconnectivitytools/error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 예를 들어 **디렉터리 연결** 화면에 디렉터리를 추가하려고 하면 Azure AD Connect에서 이를 확인하고 389 포트를 통해 도메인 컨트롤러와 통신할 수 있어야 합니다.  그렇지 않으면 위의 스크린샷에서 보여 주는 오류가 표시됩니다.  
 
 실제로 내부적으로는 Azure AD Connect에서 `Start-NetworkConnectivityDiagnosisTools` 함수를 호출하고 있습니다.  이 함수는 네트워크 연결 문제로 인해 자격 증명의 유효성 검사가 실패할 때 호출됩니다.
 
-마지막으로, 마법사에서 도구를 호출할 때마다 자세한 로그 파일이 생성됩니다. 로그는 **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>\<-time>** 에 있습니다.
+마지막으로, 마법사에서 도구를 호출할 때마다 자세한 로그 파일이 생성됩니다. 로그는 C:\ProgramData\AADConnect\ADConnectivityTool-에 있습니다 ** \<date> - \<time> .**
 
 ## <a name="adconnectivitytools-post-installation"></a>설치 후의 ADConnectivityTools 작업
 Azure AD Connect가 설치되면 ADConnectivityTools PowerShell 모듈의 함수를 사용할 수 있습니다.  

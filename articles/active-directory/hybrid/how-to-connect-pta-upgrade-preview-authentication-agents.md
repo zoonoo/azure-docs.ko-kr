@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60386774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358143"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
 
@@ -89,4 +89,4 @@ ms.locfileid: "60386774"
 >위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 서버당 두 개의 인증 에이전트 항목이 표시됩니다. 하나의 항목은 **활성**으로 인증 에이전트를 보여 주고, 다른 하나는 **비활성**으로 보여 줍니다. 이는 _예상_된 것입니다. **비활성** 항목은 몇 일 후 자동으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [**문제 해결**](tshoot-connect-pass-through-authentication.md) -기능과 관련 된 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
+- [**문제 해결**](tshoot-connect-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/09/2018
 ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc768162d98402fe52b52b2826a9dbf2840a581
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1983b5090604516265ea8e041ac68200ca2dc7b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359588"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federation Services (AD FS) 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "80331748"
 >[!NOTE]
 >AD FS에서 사용하는 인증서에 대한 자세한 내용은 [AD FS에서 사용하는 인증서 이해](https://technet.microsoft.com/library/cc730660.aspx)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **AD FS 팜**: AD FS 팜이 Windows Server 2012 R2 이상을 기반으로 하는지 확인합니다.
 * **Azure AD Connect**: Azure AD Connect 버전이 1.1.553.0 이상인지 확인합니다. **AD FS SSL 인증서 업데이트** 작업을 사용할 것입니다.
@@ -83,7 +83,7 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 ![구성 완료](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 * **새 AD FS TLS/SSL 인증서에 대 한 인증서의 주체 이름은 무엇 인가요?**
 

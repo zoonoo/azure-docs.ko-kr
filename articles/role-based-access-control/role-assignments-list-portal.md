@@ -2,24 +2,20 @@
 title: Azure Portal를 사용 하 여 Azure 역할 할당 나열-Azure RBAC
 description: Azure Portal 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 사용자 또는 관리 id가 액세스할 수 있는 리소스를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361858"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
@@ -30,7 +26,7 @@ ms.locfileid: "82996652"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>사용자 또는 그룹에 대 한 역할 할당 나열
 
-구독에서 사용자 또는 그룹에 할당 된 역할을 확인 하는 가장 쉬운 방법은 **Azure 리소스** 창을 사용 하는 것입니다.
+구독에서 사용자 또는 그룹에 할당 된 역할을 확인 하는 가장 쉬운 방법은 **Azure 역할 할당** 창을 사용 하는 것입니다.
 
 1. Azure Portal에서 Azure Portal 메뉴의 **모든 서비스** 를 선택 합니다.
 
@@ -38,11 +34,11 @@ ms.locfileid: "82996652"
 
 1. 원하는 역할 할당을 나열할 사용자 또는 그룹을 클릭 합니다.
 
-1. **Azure 리소스**를 클릭합니다.
+1. **Azure 역할 할당**을 클릭 합니다.
 
     관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 사용자 또는 그룹에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
 
-    ![사용자에 대한 역할 할당](./media/role-assignments-list-portal/azure-resources-user.png)    
+    ![사용자에 대한 역할 할당](./media/role-assignments-list-portal/azure-role-assignments-user.png)    
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
 
@@ -102,35 +98,41 @@ ms.locfileid: "82996652"
 
     이 창에서 선택한 보안 주체 및 범위에 할당된 역할을 볼 수 있습니다. 이 범위에 거부 할당이 있거나 이 범위에 상속된 거부 할당이 있으면 나열됩니다.
 
-## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>시스템 할당 관리 id에 대 한 역할 할당 나열
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
+
+앞에서 설명한 것 처럼 **액세스 제어 (IAM)** 블레이드를 사용 하 여 특정 범위에서 시스템 할당 및 사용자 할당 관리 id에 대 한 역할 할당을 나열할 수 있습니다. 이 섹션에서는 관리 되는 id에 대해서만 역할 할당을 나열 하는 방법을 설명 합니다.
+
+### <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
 1. Azure Portal에서 시스템 할당 관리 id를 엽니다.
 
 1. 왼쪽 메뉴에서 **id**를 클릭 합니다.
 
-    ![시스템 할당 관리 ID](./media/role-assignments-list-portal/identity-system-assigned.png)
+    ![시스템 할당 관리 ID](./media/shared/identity-system-assigned.png)
 
-1. **역할 할당**에서 **이 관리 되는 id에 할당 된 Azure RBAC 역할 표시**를 클릭 합니다.
+1. **사용 권한**아래에서 **Azure 역할 할당**을 클릭 합니다.
 
     관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 시스템 할당 관리 id에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
 
-    ![시스템 할당 관리 id에 대 한 역할 할당](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+    ![시스템 할당 관리 id에 대 한 역할 할당](./media/shared/role-assignments-system-assigned.png)
 
-## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>사용자 할당 관리 id에 대 한 역할 할당 나열
+1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
+
+### <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
 1. Azure Portal에서 사용자 할당 관리 id를 엽니다.
 
-1. **Azure 리소스**를 클릭합니다.
+1. **Azure 역할 할당**을 클릭 합니다.
 
     관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 사용자 할당 관리 id에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
 
-    ![시스템 할당 관리 id에 대 한 역할 할당](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+    ![시스템 할당 관리 id에 대 한 역할 할당](./media/shared/role-assignments-user-assigned.png)
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
 
 ## <a name="list-number-of-role-assignments"></a>역할 할당의 수를 나열 합니다.
 
-각 구독에서 최대 **2000** 개의 역할 할당을 가질 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위에 대 한 역할 할당이 포함 됩니다. 이 제한을 추적 하는 데 도움이 되도록 **역할 할당** 탭에는 현재 구독에 대 한 역할 할당 수를 나열 하는 차트가 포함 됩니다.
+각 구독에서 최대 **2000**개의 역할 할당을 유지할 수 있습니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 이 제한을 추적 하는 데 도움이 되도록 **역할 할당** 탭에는 현재 구독에 대 한 역할 할당 수를 나열 하는 차트가 포함 됩니다.
 
 ![액세스 제어-역할 할당의 수 차트](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
@@ -138,7 +140,52 @@ ms.locfileid: "82996652"
 
 ![액세스 제어-역할 할당 추가 경고](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
+## <a name="download-role-assignments-preview"></a>역할 할당 다운로드 (미리 보기)
+
+CSV 또는 JSON 형식으로 된 범위에서 역할 할당을 다운로드할 수 있습니다. 이는 스프레드시트에서 목록을 검사 하거나 구독을 마이그레이션할 때 인벤토리를 수행 해야 하는 경우에 유용 합니다.
+
+> [!IMPORTANT]
+> 다운로드 역할 할당은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+역할 할당을 다운로드 하는 경우 다음 조건을 염두에 두어야 합니다.
+
+- 디렉터리 판독기 역할과 같은 디렉터리를 읽을 수 있는 권한이 없는 경우 DisplayName, SignInName 및 ObjectType 열이 비어 있게 됩니다.
+- 보안 주체가 삭제 된 역할 할당은 포함 되지 않습니다.
+- 클래식 관리자에 게 부여 된 액세스 권한은 포함 되지 않습니다.
+
+범위에서 역할 할당을 다운로드 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 **모든 서비스** 를 클릭 한 다음 역할 할당을 다운로드 하려는 범위를 선택 합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
+
+1. 특정 리소스를 클릭 합니다.
+
+1. **액세스 제어(IAM)** 를 클릭합니다.
+
+1. **역할 할당 다운로드 (미리 보기)** 를 클릭 하 여 역할 할당 다운로드 창을 엽니다.
+
+    ![액세스 제어-역할 할당 다운로드](./media/role-assignments-list-portal/download-role-assignments.png)
+
+1. 확인란을 사용 하 여 다운로드 한 파일에 포함 하려는 역할 할당을 선택 합니다.
+
+    - **상속** 됨-현재 범위에 대해 상속 된 역할 할당을 포함 합니다.
+    - **현재 범위에서** -현재 범위에 대 한 역할 할당을 포함 합니다.
+    - **자식** -현재 범위 아래 수준에서 역할 할당을 포함 합니다. 이 확인란은 관리 그룹 범위에서 사용할 수 없습니다.
+
+1. 쉼표로 구분 된 값 (CSV) 또는 JavaScript Object Notation (JSON) 일 수 있는 파일 형식을 선택 합니다.
+
+1. 파일 이름을 지정 합니다.
+
+1. **시작** 을 클릭 하 여 다운로드를 시작 합니다.
+
+    다음은 각 파일 형식에 대 한 출력 예를 보여 줍니다.
+
+    ![역할 할당을 CSV로 다운로드](./media/role-assignments-list-portal/download-role-assignments-csv.png)
+
+    ![역할 할당을 CSV로 다운로드](./media/role-assignments-list-portal/download-role-assignments-json.png)
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
 - [Azure RBAC 문제 해결](troubleshooting.md)

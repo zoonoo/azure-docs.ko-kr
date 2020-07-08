@@ -5,32 +5,33 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362427"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 감사 로그
 
 Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니다. 감사 로그는 데이터베이스 수준 작업을 추적 하는 데 사용할 수 있으며 일반적으로 규정 준수에 사용 됩니다.
 
-> [!IMPORTANT]
-> 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
-
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
+
+>[!IMPORTANT]
+> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다.
 
 기본적으로 감사 로그는 비활성화 되어 있습니다. 사용 하도록 설정 하려면을 `audit_log_enabled` ON으로 설정 합니다.
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
 - `audit_log_events`: 로깅할 이벤트를 제어 합니다. 특정 감사 이벤트는 아래 표를 참조 하세요.
-- `audit_log_include_users`: 로깅을 위해 포함 될 Aadb 사용자입니다. 이 매개 변수의 기본값은 비어 있으며, 모든 사용자를 로깅할 수 있습니다. 이는 보다 `audit_log_exclude_users`우선 순위가 높습니다. 매개 변수의 최대 길이는 512 자입니다.
-> [!Note]
-> `audit_log_include_users`보다 `audit_log_exclude_users`우선 순위가 높습니다. 예를 들어 및 `audit_log_include_users`  =  `demouser` `audit_log_exclude_users`  = 의 경우 우선 순위가 더 높기 때문 `audit_log_include_users` 에 사용자는 감사 로그에 포함 됩니다. `demouser`
+- `audit_log_include_users`: 로깅을 위해 포함 될 Aadb 사용자입니다. 이 매개 변수의 기본값은 비어 있으며, 모든 사용자를 로깅할 수 있습니다. 이는 보다 우선 순위가 높습니다 `audit_log_exclude_users` . 매개 변수의 최대 길이는 512 자입니다.
 - `audit_log_exclude_users`: 로깅에서 제외할 Aadb 사용자입니다. 최대 4 명의 사용자를 허용 합니다. 매개 변수의 최대 길이는 256 자입니다.
+
+> [!Note]
+> `audit_log_include_users`보다 우선 순위가 높습니다 `audit_log_exclude_users` . 예를 들어 및의 경우 `audit_log_include_users`  =  `demouser` `audit_log_exclude_users`  =  `demouser` `audit_log_include_users` 우선 순위가 더 높기 때문에 사용자는 감사 로그에 포함 됩니다.
 
 | **이벤트** | **설명** |
 |---|---|
@@ -45,7 +46,7 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
 
-감사 로그는 Azure Monitor 진단 로그와 통합 됩니다. MariaDB 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. Azure Portal에서 진단 로그를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)를 참조 하세요.
+감사 로그는 Azure Monitor 진단 로그와 통합됩니다. MariaDB 서버에서 감사 로그를 사용하도록 설정하면 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 감사 로그를 내보낼 수 있습니다. Azure Portal에서 진단 로그를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)를 참조 하세요.
 
 ## <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -79,6 +80,9 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 ### <a name="general"></a>일반
 
 아래 스키마는 GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 ADMIN 이벤트 유형에 적용 됩니다.
+
+> [!NOTE]
+> 의 경우 `sql_text` 로그는 2048 자를 초과 하는 경우 잘립니다.
 
 | **속성** | **설명** |
 |---|---|

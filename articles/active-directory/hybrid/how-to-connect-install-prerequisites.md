@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358721"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -62,8 +62,8 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 애플리케이션 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
 * Active Directory Federation Services 배포 되는 경우 [TLS/SSL 인증서](#tlsssl-certificate-requirements)가 필요 합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
-* 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com** 은 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
-* IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화 하는 것이 좋습니다.  아래의 권장 사항에 따라 조직의 보안 위험을 줄일 수 있습니다.
+* 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL은 **https://secure.aadcdn.microsoftonline-p.com** 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
+* IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화하는 것이 좋습니다.  아래의 권장 사항을 따르면 조직의 보안 위험을 줄일 수 있습니다.
 
 * 도메인에 가입 된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스를 제한 합니다
 
@@ -73,7 +73,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 * [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [공격 노출 영역을 줄임으로써 보안 향상 및 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [공격 노출 영역을 줄임으로써 보안 향상 및 유지](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
 * [Active Directory 공격 노출 영역 축소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
@@ -110,7 +110,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-* 프록시 서버에 인증이 필요한 경우 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](how-to-connect-install-custom.md#install-required-components)을 지정해야 합니다. Machine.config의 다른 변경도 필요 합니다. Machine.config에서이 변경 내용을 사용 하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답 합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
+* 프록시 서버에 인증이 필요한 경우 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](how-to-connect-install-custom.md#install-required-components)을 지정해야 합니다. machine.config 다른 변경도 필요 합니다. 이러한 변경 내용으로 machine.config 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답 합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
 
 ```
     <system.net>
@@ -151,7 +151,7 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
     ```
 2. For all operating systems, set this registry key and restart the server.
     ```
-    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = dword: 00000001
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319 "SchUseStrongCrypto" = dword: 00000001
     ```
 4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 

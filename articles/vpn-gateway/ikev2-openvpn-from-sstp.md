@@ -9,6 +9,7 @@ ms.date: 03/30/2020
 ms.author: alzam
 ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983341"
@@ -62,7 +63,7 @@ SSTP 및 OpenVPN은 모두 TLS 기반 프로토콜 이므로 동일한 게이트
 Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client) 를 사용할 수도 있습니다.
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 어떻게 되나요?
 
 >[!NOTE]

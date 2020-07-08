@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f228da5afc5998d8fa59ce2d720cec4c9f955b67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67478720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360302"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
 Azure AD Connect Active Directory와 Azure Active Directory 간의 동기화를 오케스트레이션 온-프레미스 서비스를 설치 합니다.  ADSync (Microsoft Azure AD Sync synchronization service)는 온-프레미스 환경의 서버에서 실행 됩니다.  서비스의 자격 증명은 기본적으로 Express 설치에서 설정 되지만 조직의 보안 요구 사항에 맞게 사용자 지정할 수 있습니다.  이러한 자격 증명은 온-프레미스 포리스트 또는 Azure Active Directory 연결 하는 데 사용 되지 않습니다.

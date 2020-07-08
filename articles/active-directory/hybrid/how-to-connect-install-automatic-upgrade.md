@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359010"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -57,6 +57,10 @@ Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음
 
 뭔가 잘못되었다고 생각되면 우선 `Get-ADSyncAutoUpgrade` 를 실행하여 자동 업그레이드가 사용하도록 설정되어 있는지 확인합니다.
 
+상태가 일시 중지 됨 이면를 사용 하 여 이유를 확인할 수 있습니다 `Get-ADSyncAutoUpgrade -Detail` .  일시 중단 이유는 임의의 문자열 값을 포함할 수 있지만 일반적으로 UpgradeResult의 문자열 값 (또는)을 포함 `UpgradeNotSupportedNonLocalDbInstall` 합니다 `UpgradeAbortedAdSyncExeInUse` .  복합 값 (예:)도 반환 될 수 있습니다 `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
+
+UpgradeResult가 아닌 결과 (예: ' AADHealthEndpointNotDefined ' 또는 ' DirSyncInPlaceUpgradeNonLocalDb ')를 가져올 수도 있습니다.
+
 그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 을 테스트합니다.
 
 Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 ID 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다.  
@@ -67,7 +71,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 
 결과 코드의 상태 개요 앞에는 접두사가 붙습니다.
 
-| 결과 코드 접두사 | Description |
+| 결과 코드 접두사 | 설명 |
 | --- | --- |
 | Success |설치가 성공적으로 업그레이드되었습니다. |
 | UpgradeAborted |일시적인 현상으로 업그레이드가 중지되었습니다. 다시 시도하면 나중에 업그레이드됩니다. |
@@ -89,18 +93,11 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeAbortedSyncExeInUse |[Synchronization Service Manager UI](how-to-connect-sync-service-manager-ui.md) 가 서버에 열려 있습니다. |
 | UpgradeAbortedSyncOrConfigurationInProgress |설치 마법사가 실행 중이거나 동기화가 스케줄러 외부에서 예약되었습니다. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. |
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
-| UpgradeNotSupportedDeviceWritebackEnabled |[디바이스 쓰기 저장](how-to-connect-device-writeback.md) 기능을 사용하도록 설정했습니다. |
-| UpgradeNotSupportedGroupWritebackEnabled |그룹 쓰기 저장 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |
-| UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
-| UpgradeNotSupportedNonMsolAccount |[AD DS Connector 계정](reference-connect-accounts-permissions.md#ad-ds-connector-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. |
-| UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](how-to-connect-sync-staging-server.md)로 설정되어 있습니다. |
-| UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](how-to-connect-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |
+|UpgradeNotSupportedLocalDbSizeExceeded|로컬 DB 크기가 8gb 보다 크거나 같습니다.|
+|UpgradeNotSupportedAADHealthUploadDisabled|포털에서 상태 데이터 업로드가 사용 하지 않도록 설정 되었습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

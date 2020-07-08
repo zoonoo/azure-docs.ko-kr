@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71336816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358831"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -34,7 +34,7 @@ Azure AD의 개체는 클라우드(Azure AD) 또는 온-프레미스에서 마�
 Azure AD와 온-프레미스에 있는 사용자를 관리하기 시작했으며 나중에 Connect를 사용하려는 경우 고려해야 할 몇 가지 추가 사항이 있습니다.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Azure AD의 기존 사용자와 동기화
-Azure AD Connect를 설치하고 동기화를 시작할 때 Azure AD 동기화 서비스(Azure AD에서)는 새 개체를 모두 검사하여 일치하는 기존 개체를 찾으려고 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:** 가 있는 값만 평가에 사용됩니다.
+Azure AD Connect를 설치 하 고 동기화를 시작 하면 azure ad의 Azure AD sync 서비스에서 모든 새 개체를 확인 하 고 일치 하는 기존 개체를 찾으려고 시도 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:** 가 있는 값만 평가에 사용됩니다.
 
 일치는 Connect에서 나오는 새 개체에 대해서만 평가됩니다. 이러한 특성 중 하나와 일치하도록 기존 개체를 변경하는 경우 오류가 대신 표시됩니다.
 

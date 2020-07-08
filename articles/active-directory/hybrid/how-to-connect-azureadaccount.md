@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7f6b623cc5f864106dc2f119308370e80014a4c2
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360013"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Connect 계정 암호 변경
 Azure AD Connector 계정은 서비스를 무료로 제공 합니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용 하 여 계정에 대 한 암호를 실수로 재설정 한 경우
@@ -31,7 +31,7 @@ Azure AD Connector 계정은 서비스를 무료로 제공 합니다. 자격 증
 인증 문제로 인해 Azure ad Connector 계정이 Azure AD에 연결할 수 없는 경우 암호를 다시 설정할 수 있습니다.
 
 1. Azure AD Connect 동기화 서버에 로그인하고 PowerShell을 시작합니다.
-2. `Add-ADSyncAADServiceAccount`를 실행합니다.
+2. `Add-ADSyncAADServiceAccount`을 실행합니다.
    ![PowerShell cmdlet addadsyncaadserviceaccount](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
 3. Azure AD 전역 관리자 자격 증명을 제공합니다.
 

@@ -4,15 +4,15 @@ description: Azure Analysis Services 서버 이름 별칭을 만드는 방법에
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361441"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
@@ -37,7 +37,7 @@ ms.locfileid: "83698993"
 
 별칭 엔드포인트를 만들려면 유효한 Azure Analysis Services 서버 이름을 반환하는 메서드를 사용할 수 있습니다. 예를 들어 실제 서버 이름을 포함하는 Azure Blob Storage에서 파일을 참조하거나, ASP.NET Web Forms 애플리케이션을 만들고 게시합니다.
 
-이 예제에서 ASP.NET Web Forms 애플리케이션은 Visual Studio에서 만들어집니다. 마스터 페이지 참조 및 사용자 정의 컨트롤은 Default.aspx 페이지에서 제거됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
+이 예제에서 ASP.NET Web Forms 애플리케이션은 Visual Studio에서 만들어집니다. 페이지 참조 및 사용자 정의 컨트롤은 default.aspx 페이지에서 제거 됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>참고 항목
 
-[클라이언트 라이브러리](analysis-services-data-providers.md)   
+[클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Power BI Desktop에서 연결](analysis-services-connect-pbi.md)

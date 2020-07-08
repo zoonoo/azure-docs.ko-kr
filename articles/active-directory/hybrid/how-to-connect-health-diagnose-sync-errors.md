@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359095"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -34,7 +34,7 @@ Azure AD에 대한 자세한 내용은 [ID 동기화 및 중복 특성 복원력
 
 ## <a name="problems"></a>문제
 ### <a name="a-common-scenario"></a>일반적인 시나리오
-**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 다음 동기화 이후에 동기화 오류가 해결 됩니다. 예를 들어이 이미지는 두 사용자가 **UserPrincipalName**충돌이 있음을 나타냅니다. 둘 다 **Joe. J\@contoso.com**입니다. 충돌하는 개체는 Azure AD에서 격리됩니다.
+**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 다음 동기화 이후에 동기화 오류가 해결 됩니다. 예를 들어이 이미지는 두 사용자가 **UserPrincipalName**충돌이 있음을 나타냅니다. 둘 다 **Joe. J \@ contoso.com**입니다. 충돌하는 개체는 Azure AD에서 격리됩니다.
 
 ![동기화 오류 진단 일반적인 시나리오](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

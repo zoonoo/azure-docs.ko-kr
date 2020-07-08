@@ -1,5 +1,5 @@
 ---
-title: 방화벽 또는 프록시 서버에서 Azure Portal Url Safelist
+title: 방화벽 또는 프록시 서버에서 Azure Portal URL 수신 허용 목록
 description: 이러한 Url을 프록시 서버 바이패스에 추가 하 여 Azure Portal 및 해당 서비스와 통신
 services: azure-portal
 keywords: ''
@@ -9,14 +9,14 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361662"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure Portal Url Safelist
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure Portal URL 수신 허용 목록
 
 온-프레미스 보안 장치를 구성 하 여 Azure Portal Url에 대 한 보안 제한을 우회할 수 있습니다. 이 구성은 로컬 또는 광역 네트워크와 Azure 클라우드 간의 성능 및 연결을 향상 시킬 수 있습니다.
 
@@ -53,6 +53,7 @@ Azure Portal에 대해 safelist URL 끝점은 조직이 배포 되는 Azure 클�
 #### <a name="us-government-cloud"></a>[미국 정부 클라우드](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

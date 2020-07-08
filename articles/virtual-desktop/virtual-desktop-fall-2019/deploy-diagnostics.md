@@ -4,21 +4,21 @@ description: Windows 가상 데스크톱에 대 한 진단 UX 도구를 배포 �
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615176"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362342"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
 
 >[!IMPORTANT]
 >2020 년 3 월 16 일부 터 서비스에 대 한 수요 증가로 인해 사용자 환경에 영향을 주는 진단 쿼리를 일시적으로 사용 하지 않도록 설정 했습니다. 이렇게 하면 해당 쿼리가 작동 하는 데 의존 하므로 도구가 작동을 중지 합니다. 진단 쿼리를 다시 사용할 수 있게 되 면이 문서를 업데이트 합니다.
@@ -68,7 +68,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
    ```powershell
    Connect-AzureAD
    ```
-4. [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateADAppRegistrationforDiagnostics** 스크립트를 실행 합니다.
+4. [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateADAppRegistrationforDiagnostics.ps1** 스크립트를 실행 합니다.
 5.  스크립트에서 앱의 이름을 입력 하 라는 메시지가 표시 되 면 고유한 앱 이름을 입력 합니다.
 
 
@@ -93,7 +93,7 @@ PowerShell 스크립트를 실행 하 여 Log Analytics 작업 영역을 만들�
 PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 
 1.  관리자 권한으로 PowerShell을 엽니다.
-2.  [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateLogAnalyticsWorkspaceforDiagnostics** 스크립트를 실행 합니다.
+2.  [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** 스크립트를 실행 합니다.
 3. 매개 변수에 대해 다음 값을 입력합니다.
 
     - **ResourceGroupName**에 대해 리소스 그룹의 이름을 입력 합니다.
@@ -112,16 +112,16 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 
 권장 되는 성능 카운터를 수동으로 구성 하는 방법은 다음과 같습니다.
 
-1. 인터넷 브라우저를 열고 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. 인터넷 브라우저를 열고 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 다음으로 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
 3. **설정** 섹션에서 **고급 설정**을 선택 합니다.
-4. 그런 후 **데이터** > **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
+4. 그런 후 **데이터**  >  **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
 
-    -   논리 디스크 (\*)\\% 사용 가능한 공간
-    -   논리 디스크 (C:\\Avg. Disk Queue Length)
-    -   Memory (\*)\\사용 가능한 공간 (mb)
-    -   프로세서 정보 (\*)\\프로세서 시간
-    -   세션당 사용자 입력 지연 (\*)\\최대 입력 지연
+    -   논리 디스크 ( \* ) \\ % 사용 가능한 공간
+    -   논리 디스크 (C: \\ Avg. Disk Queue Length)
+    -   Memory ( \* ) \\ 사용 가능한 공간 (mb)
+    -   프로세서 정보 ( \* ) \\ 프로세서 시간
+    -   세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연
 
 [Azure Monitor의 Windows 및 Linux 성능 데이터 원본](/azure/azure-monitor/platform/data-sources-performance-counters)에서 성능 카운터에 대해 자세히 알아보세요.
 
@@ -147,14 +147,14 @@ Log Analytics 작업 영역에 미리 구성 된 Windows 성능 카운터가 있
 
 1. [Azure Portal](https://portal.azure.com/)에서 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
 2. **설정**아래에서 **고급 설정**을 선택 합니다.
-3. 그런 다음 **데이터** > **Windows 성능 카운터**로 이동 합니다.
+3. 그런 다음 **데이터**  >  **Windows 성능 카운터**로 이동 합니다.
 4. 다음 카운터가 미리 구성 되어 있는지 확인 합니다.
 
-   - 논리 디스크 (\*)\\% 사용 가능한 공간: 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
-   - 논리 디스크 (C:\\Avg. Disk Queue Length: c 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
-   - Memory (\*)\\available mb: 시스템에 사용할 수 있는 메모리 (mb)입니다.
-   - 프로세서 정보 (\*)\\프로세서 시간: 프로세서가 비 유휴 스레드를 실행 하는 데 걸린 시간의 백분율입니다.
-   - 세션당 사용자 입력 지연 (\*)\\최대 입력 지연
+   - 논리 디스크 ( \* ) \\ % 사용 가능한 공간: 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
+   - 논리 디스크 (C: \\ Avg. Disk Queue length: c 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
+   - Memory ( \* ) \\ available mb: 시스템에 사용할 수 있는 메모리 (mb)입니다.
+   - 프로세서 정보 ( \* ) \\ 프로세서 시간: 프로세서가 비 유휴 스레드를 실행 하는 데 걸린 시간의 백분율입니다.
+   - 세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Log Analytics 작업 영역에서 Vm에 연결
 
@@ -195,9 +195,10 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
 7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`
 
-   ![URI 리디렉션 페이지](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![URI 리디렉션 페이지](../media/redirect-uri-page.png)
 
-8. 이제 Azure 리소스로 이동 하 여 템플릿에서 제공한 이름으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들어 템플릿에서 `contosoapp45`사용한 앱 이름이 인 경우 연결 된 URL은입니다. <https://contosoapp45.azurewebsites.net>
+8. 이제 Azure 리소스로 이동 하 여 템플릿에서 제공한 이름으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들어 템플릿에서 사용한 앱 이름이 인 경우 `contosoapp45` 연결 된 URL은입니다 <https://contosoapp45.azurewebsites.net> .
 9. 적절한 Azure Active Directory 사용자 계정을 사용하여 로그인합니다.
 10.   **수락**을 선택합니다.
 
@@ -226,7 +227,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 연결 작업에는 두 개 이상의 오류가 있을 수 있습니다. 활동 유형을 확장 하 여 사용자가 제공한 다른 오류를 볼 수 있습니다. 오류 코드의 이름을 선택 하 여 대화 상자를 열고이에 대 한 자세한 정보를 확인 합니다.
 
-### <a name="investigate-the-session-host"></a>세션 호스트 조사 
+### <a name="investigate-the-session-host"></a>세션 호스트 조사
 
 검색 결과에서 정보를 보려는 세션 호스트를 찾아 선택 합니다.
 
@@ -242,26 +243,26 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 ### <a name="windows-performance-counter-thresholds"></a>Windows 성능 카운터 임계값
 
-- 논리 디스크 (\*)\\사용 가능한 공간 (%):
+- 논리 디스크 ( \* ) \\ 사용 가능한 공간 (%):
 
     - 논리 디스크에서 사용 가능한 총 공간의 비율을 표시 합니다.
     - 임계값: 20% 미만은 비정상으로 표시 됩니다.
 
-- 논리 디스크 (C:\\) Avg. Disk Queue Length:
+- 논리 디스크 (C:) \\ Avg. Disk Queue Length:
 
     - 저장소 시스템 조건을 나타냅니다.
     - 임계값: 5 보다 크면 비정상으로 표시 됩니다.
 
-- Memory (\*)\\사용 가능 공간 (mb):
+- Memory ( \* ) \\ 사용 가능 공간 (mb):
 
     - 시스템에 사용할 수 있는 메모리입니다.
     - 임계값: 비정상으로 표시 된 500 메가바이트 미만.
 
-- 프로세서 정보 (\*)\\프로세서 시간:
+- 프로세서 정보 ( \* ) \\ 프로세서 시간:
 
     - 임계값: 80% 이상이 비정상으로 표시 되어 있습니다.
 
-- [세션당 사용자 입력 지연 (\*)\\최대 입력 지연](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
+- [세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - 임계값: 2000 밀리초 이상 비정상으로 표시 되어 있습니다.
 

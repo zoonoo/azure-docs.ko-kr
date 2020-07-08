@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 및 Azure AD Connect Health 설치 로드맵. | Microsoft Docs
+title: Azure AD Connect 및 Azure AD Connect Health 설치 로드맵. | Microsoft 문서
 description: 이 문서에서는 Azure AD Connect 및 Connect Health에 사용할 수 있는 설치 옵션 및 경로를 간단히 살펴봅니다.
 services: active-directory
 author: billmath
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358738"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -42,7 +42,7 @@ ms.locfileid: "80331435"
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect를 설치하기 위한 다음 단계
 |항목 |링크|  
 | --- | --- |
-|Azure AD Connect 다운로드 | [다운로드 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
+|Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./how-to-connect-install-express.md)|
 |사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)|
 |DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./how-to-dirsync-upgrade-get-started.md)|
@@ -132,7 +132,7 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 
 1. [Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) 을 가져오거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
 2. [Azure AD Connect Health 에이전트](#download-and-install-azure-ad-connect-health-agent)를 다운로드하여 ID 서버에 설치합니다.
-3. 에서 [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)Azure AD Connect Health 대시보드를 봅니다.
+3. 에서 Azure AD Connect Health 대시보드를 봅니다 [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth) .
 
 > [!NOTE]
 > Azure AD Connect Health 대시보드에 데이터를 표시하려면 대상 서버에 Azure AD Connect Health 에이전트를 설치해야 합니다.

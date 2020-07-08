@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359231"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>상태 서비스 데이터가 최신 경고가 아닙니다
 
@@ -41,7 +41,7 @@ Azure AD Connect Health 모니터링 하는 온-프레미스 컴퓨터의 에이
  
 다음 표에서는 서비스 유형을 해당 하는 필수 데이터 형식에 매핑합니다.
 
-| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 목적 | 생성 된 데이터 형식  |
+| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 용도 | 생성 된 데이터 형식  |
 | --- | --- | --- | --- |  
 | Azure AD Connect (동기화) | Azure AD Connect Health Sync Insights Service | AAD Connect 관련 정보 (커넥터, 동기화 규칙 등)를 수집 합니다. | - AadSyncService-SynchronizationRules <br />  -AadSyncService-커넥터 <br /> -AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | AAD Connect 관련 성능 카운터, ETW 추적, 파일을 수집 합니다. | 성능 카운터 |

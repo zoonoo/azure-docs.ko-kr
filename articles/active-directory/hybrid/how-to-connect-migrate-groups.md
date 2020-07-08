@@ -5,37 +5,37 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/02/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2328674fd601f2e04684e8a9af1ae242ff6106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358585"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Azure AD Connect 위해 한 포리스트에서 다른 포리스트로 그룹 마이그레이션
 
 이 문서에서는 마이그레이션된 그룹 개체가 클라우드의 기존 개체와 일치 하도록 한 포리스트에서 다른 포리스트로 그룹을 마이그레이션하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Connect 버전 1.5.18.0 이상
 - 원본 앵커 특성이로 설정 됩니다.`mS-DS-ConsistencyGuid`
 
 ## <a name="migrate-groups"></a>그룹 마이그레이션
 
-1.5.18.0 버전부터 Azure AD Connect는 그룹에 대 한 `mS-DS-ConsistencyGuid` 특성 사용을 지원 합니다. 를 원본 앵커 `mS-DS-ConsistencyGuid` 특성으로 선택 하 고 값이 Active Directory 채워진 경우 Azure AD Connect는 `mS-DS-ConsistencyGuid` `immutableId`값을로 사용 합니다. 그렇지 않으면를 사용 `objectGUID`하는 것으로 대체 됩니다. 그러나 Azure AD Connect는 Active Directory의 `mS-DS-ConsistencyGuid` 특성에 값을 다시 쓰지 않습니다.
+1.5.18.0 버전부터 Azure AD Connect는 `mS-DS-ConsistencyGuid` 그룹에 대 한 특성 사용을 지원 합니다. 를 `mS-DS-ConsistencyGuid` 원본 앵커 특성으로 선택 하 고 값이 Active Directory 채워진 경우 Azure AD Connect는 값을로 사용 합니다 `mS-DS-ConsistencyGuid` `immutableId` . 그렇지 않으면를 사용 하는 것으로 대체 `objectGUID` 됩니다. 그러나 Azure AD Connect는 Active Directory의 특성에 값을 다시 쓰지 않습니다 `mS-DS-ConsistencyGuid` .
 
-크로스 포리스트 이동 중에 그룹 개체가 한 포리스트 (예를 들어, F1)에서 다른 포리스트 (F2)로 이동 하는 경우 `mS-DS-ConsistencyGuid` 값 (있는 경우) 또는 포리스트 F1의 개체 `objectGUID` 값을 f2의 개체 `mS-DS-ConsistencyGuid` 특성에 복사 해야 합니다.
+크로스 포리스트 이동 중에 그룹 개체가 한 포리스트 (예를 들어, F1)에서 다른 포리스트 (F2)로 이동 하는 경우 `mS-DS-ConsistencyGuid` 값 (있는 경우) 또는 `objectGUID` 포리스트 F1의 개체 값을 `mS-DS-ConsistencyGuid` f2의 개체 특성에 복사 해야 합니다.
 
 다음 스크립트를 지침으로 사용 하 여 한 포리스트에서 다른 포리스트로 단일 그룹을 마이그레이션하는 방법을 알아봅니다. 이러한 스크립트를 여러 그룹의 마이그레이션에 대 한 지침으로 사용할 수도 있습니다. 스크립트는 원본 포리스트에 대해 포리스트 이름 F1를 사용 하 고 대상 포리스트에는 F2를 사용 합니다.
 
-먼저 포리스트 F1에서 group `objectGUID` 개체 `mS-DS-ConsistencyGuid` 의 및를 가져옵니다. 이러한 특성은 CSV 파일로 내보내집니다.
+먼저 `objectGUID` `mS-DS-ConsistencyGuid` 포리스트 F1에서 group 개체의 및를 가져옵니다. 이러한 특성은 CSV 파일로 내보내집니다.
 ```
 <#
 DESCRIPTION
@@ -83,7 +83,7 @@ $results | Export-Csv "$outputCsv" -NoTypeInformation
 
 ```
 
-그런 다음 생성 된 출력 CSV 파일을 사용 하 여 포리스트 `mS-DS-ConsistencyGuid` F2의 대상 개체에 대 한 특성을 스탬프 합니다.
+그런 다음 생성 된 출력 CSV 파일을 사용 하 여 `mS-DS-ConsistencyGuid` 포리스트 F2의 대상 개체에 대 한 특성을 스탬프 합니다.
 
 
 ```

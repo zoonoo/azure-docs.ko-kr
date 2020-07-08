@@ -3,14 +3,14 @@ title: 웹후크에서 Azure Automation Runbook 시작
 description: 이 문서에서는 웹후크를 사용하여 HTTP 호출을 통해 Azure Automation Runbook을 시작하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361679"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
@@ -21,11 +21,13 @@ ms.locfileid: "83830500"
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
+웹 후크에 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
+
 ## <a name="webhook-properties"></a>웹후크 속성
 
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 속성 |웹후크의 이름입니다. 클라이언트에 노출되지 않으므로 원하는 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |웹후크의 URL입니다. 클라이언트가 웹후크에 연결된 Runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 Runbook을 호출할 수 있는 보안 토큰이 포함됩니다. 따라서 비밀번호와 같은 URL을 처리해야 합니다. 보안상의 이유로 Azure Portal의 URL은 웹후크가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
@@ -42,7 +44,7 @@ ms.locfileid: "83830500"
 
 `WebhookData` 매개 변수에는 다음 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `WebhookName` | 웹후크의 이름입니다. |
 | `RequestHeader` | 들어오는 POST 요청의 헤더를 포함한 해시 테이블입니다. |
@@ -81,9 +83,13 @@ ms.locfileid: "83830500"
 
 웹후크의 보안은 웹후크를 호출할 수 있는 보안 토큰을 포함하는 URL의 개인 정보에 의존합니다. Azure Automation은 올바른 URL로 설정되어 있는 경우에만 요청에 대한 인증을 수행합니다. 따라서 클라이언트는 요청의 유효성을 검사하는 대체 수단을 사용하지 않고 매우 중요한 작업을 수행하는 Runbook에 웹후크를 사용해서는 안 됩니다.
 
-Runbook에 논리를 포함하여 웹후크에서 호출되었는지 여부를 확인할 수 있습니다. Runbook이 `WebhookData` 매개 변수의 `WebhookName` 속성을 확인하도록 합니다. Runbook은 `RequestHeader` 및 `RequestBody` 속성에서 특정 정보를 찾아 추가로 유효성 검사를 수행할 수 있습니다.
+다음 전략을 고려 하십시오.
 
-또 다른 전략은 runbook이 webhook 요청을 받았을 때 외부 조건의 일부 유효성 검사를 수행하도록 하는 것입니다. 예를 들어 GitHub 리포지토리에 대한 새 커밋이 있을 때마다 GitHub에 의해 호출되는 Runbook을 가정해 보겠습니다. 이 Runbook은 계속하기 전에 GitHub에 연결하여 새 커밋이 발생했는지 유효성 검사를 수행할 수 있습니다.
+* Runbook에 논리를 포함하여 웹후크에서 호출되었는지 여부를 확인할 수 있습니다. Runbook이 `WebhookData` 매개 변수의 `WebhookName` 속성을 확인하도록 합니다. Runbook은 `RequestHeader` 및 `RequestBody` 속성에서 특정 정보를 찾아 추가로 유효성 검사를 수행할 수 있습니다.
+
+* Runbook에서 webhook 요청을 수신할 때 외부 조건의 유효성 검사를 수행 하도록 합니다. 예를 들어 GitHub 리포지토리에 대한 새 커밋이 있을 때마다 GitHub에 의해 호출되는 Runbook을 가정해 보겠습니다. 이 Runbook은 계속하기 전에 GitHub에 연결하여 새 커밋이 발생했는지 유효성 검사를 수행할 수 있습니다.
+
+* Azure Automation는 Azure virtual network 서비스 태그, 특히 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)을 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md) 에서 네트워크 액세스 제어를 정의 하 고 가상 네트워크 내에서 웹 후크를 트리거할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement** 을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
 
 ## <a name="create-a-webhook"></a>웹후크 만들기
 
@@ -101,7 +107,8 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. **매개 변수** 를 클릭하여 runbook 매개 변수의 값을 제공합니다. Runbook에 필수 매개 변수가 있는 경우 값을 제공하지 않으면 웹후크를 만들 수 없습니다.
-1. **만들기** 를 클릭하여 webhook를 만듭니다.
+
+2. **만들기** 를 클릭하여 webhook를 만듭니다.
 
 ## <a name="use-a-webhook"></a>웹후크 사용
 

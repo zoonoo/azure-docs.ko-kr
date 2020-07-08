@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b5c46c8b85af59efaf611300e2ab7129b3ef3cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361560"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
@@ -42,7 +42,7 @@ Excel 2016 이상에서 Get Data를 사용하여 Excel에서 서버에 연결합
 
 ## <a name="see-also"></a>참고 항목
 
-[클라이언트 라이브러리](analysis-services-data-providers.md)   
+[클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [서버 관리](analysis-services-manage.md)     
 
 

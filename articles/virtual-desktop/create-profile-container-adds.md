@@ -4,18 +4,18 @@ description: 이 문서에서는 Azure Files 및 Azure Active Directory Domain S
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362444"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Azure Files를 사용 하 여 FSLogix 프로필 컨테이너 만들기
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Azure Files 및 Azure AD DS를 사용 하 여 프로필 컨테이너 만들기
 
 이 문서에서는 Azure Files 및 Azure Active Directory Domain Services (AD DS)를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82607285"
 
 ## <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정 설정
 
-이제 SMB (서버 메시지 블록)를 통해 Azure AD DS 인증을 사용 하도록 설정할 시간입니다. 
+이제 SMB (서버 메시지 블록)를 통해 Azure AD DS 인증을 사용 하도록 설정할 시간입니다.
 
 인증을 사용 하도록 설정 하려면:
 
@@ -63,7 +63,7 @@ ms.locfileid: "82607285"
 
 1. Azure Portal에서 [Azure Storage 계정 설정](#set-up-an-azure-storage-account)에서 만든 파일 공유를 엽니다.
 
-2. **Access Control (IAM)** 을 선택 합니다.
+2. **Access Control(IAM)** 을 선택합니다.
 
 3. **역할 할당 추가를**선택 합니다.
 
@@ -93,23 +93,24 @@ ms.locfileid: "82607285"
 
     그러면 자체 자격 증명을 사용 하 여 VM에 로그인 할 수 있는 RDP 파일이 다운로드 됩니다.
 
-    ![가상 컴퓨터에 연결 창의 RDP 탭 스크린샷](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![가상 컴퓨터에 연결 창의 RDP 탭 스크린샷](media/rdp-tab.png)
 
 6. VM에 로그인 한 경우 관리자 권한으로 명령 프롬프트를 실행 합니다.
 
-7. 다음 명령 실행:
+7. 다음 명령을 실행합니다.
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - 원하는 `<desired-drive-letter>` 드라이브 문자 (예: `y:`)로 대체 합니다.
-    - 의 `<storage-account-name>` 모든 인스턴스를 앞에서 지정한 저장소 계정 이름으로 바꿉니다.
-    - 을 `<share-name>` 이전에 만든 공유의 이름으로 바꿉니다.
-    - 을 `<storage-account-key>` Azure의 저장소 계정 키로 바꿉니다.
+    - `<desired-drive-letter>`원하는 드라이브 문자 (예:)로 대체 `y:` 합니다.
+    - 의 모든 인스턴스를 `<storage-account-name>` 앞에서 지정한 저장소 계정 이름으로 바꿉니다.
+    - `<share-name>`을 이전에 만든 공유의 이름으로 바꿉니다.
+    - `<storage-account-key>`을 Azure의 저장소 계정 키로 바꿉니다.
 
-    예를 들어:  
-  
+    예를 들어:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -120,11 +121,11 @@ ms.locfileid: "82607285"
      icacls <mounted-drive-letter>: /grant <user-email>:(f)
      ```
 
-    - 사용자 `<mounted-drive-letter>` 가 사용 하려는 드라이브의 문자로 대체 합니다.
+    - `<mounted-drive-letter>`사용자가 사용 하려는 드라이브의 문자로 대체 합니다.
     - 를 `<user-email>` 이 프로필을 사용 하 여 세션 호스트 vm에 액세스 하는 사용자의 UPN으로 바꿉니다.
 
     예를 들어:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,30 +138,32 @@ FSLogix 프로필 컨테이너를 구성 하려면:
 
 1. 이 문서의 시작 부분에서 구성한 세션 호스트 VM에 로그인 한 다음 [FSLogix 에이전트를 다운로드 하 여 설치](/fslogix/install-ht/)합니다.
 
-2. 다운로드 한 fslogix 에이전트 파일의 압축을 풀고 **x64** > **릴리스**로 이동한 다음 **FSLogixAppsSetup**를 엽니다.
+2. 다운로드 한 fslogix 에이전트 파일의 압축을 풀고 **x64**  >  **릴리스**로 이동한 다음 **FSLogixAppsSetup.exe**을 엽니다.
 
 3. 설치 관리자가 시작 되 면 **사용 조건에 동의 함을 선택 합니다.** 해당 하는 경우 새 키를 제공 합니다.
 
 4. **설치**를 선택합니다.
 
-5. **C 드라이브**를 연 다음 **Program Files** > **fslogix** > **앱** 으로 이동 하 여 fslogix 에이전트가 제대로 설치 되었는지 확인 합니다.
+5. **C 드라이브**를 연 다음 **Program Files**  >  **fslogix**  >  **앱** 으로 이동 하 여 fslogix 에이전트가 제대로 설치 되었는지 확인 합니다.
 
      >[!NOTE]
      > 호스트 풀에 여러 Vm이 있는 경우 각 VM에 대해 1 ~ 5 단계를 반복 해야 합니다.
 
 6. 관리자 권한으로 **레지스트리 편집기** (RegEdit)를 실행 합니다.
 
-7. **컴퓨터** > **HKEY_LOCAL_MACHINE** >  **Key****software** **New** **FSLogix****FSLogix**software fslogix로 이동 하 여 fslogix를 마우스 오른쪽 단추로 클릭 하 고 새로 만들기를 선택한 다음 키를 선택 합니다. > 
+7. **컴퓨터**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **fslogix**로 이동 하 여 **fslogix**를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**를 선택한 다음 **키**를 선택 합니다.
 
 8. **프로필**이라는 새 키를 만듭니다.
 
 9.  **프로필**을 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**를 선택한 다음 **DWORD (32 비트) 값을 선택 합니다.** 값의 이름을 **Enabled** 로 설정 하 고 **데이터** 값을 **1**로 설정 합니다.
 
-    ![프로필 키의 스크린샷 REG_DWORD 파일은 강조 표시 되 고 데이터 값은 1로 설정 됩니다.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![프로필 키의 스크린샷 REG_DWORD 파일은 강조 표시 되 고 데이터 값은 1로 설정 됩니다.](media/dword-value.png)
 
-10. **프로필**을 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**를 선택한 다음 **다중 문자열 값**을 선택 합니다. **VHDLocations** 값의 이름을로 설정 하 고 Azure Files 공유 `\\fsprofile.file.core.windows.net\share` 에 대 한 URI를 데이터 값으로 설정 합니다.
+10. **프로필**을 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기**를 선택한 다음 **다중 문자열 값**을 선택 합니다. **VHDLocations** 값의 이름을로 설정 하 고 Azure Files 공유에 대 한 URI를 `\\fsprofile.file.core.windows.net\share` 데이터 값으로 설정 합니다.
 
-    ![VHDLocations 파일을 표시 하는 프로필 키의 스크린샷 해당 데이터 값은 Azure Files 공유에 대 한 URI를 표시 합니다.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![VHDLocations 파일을 표시 하는 프로필 키의 스크린샷 해당 데이터 값은 Azure Files 공유에 대 한 URI를 표시 합니다.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>세션 호스트에 사용자 할당
 
@@ -197,19 +200,19 @@ FSLogix 프로필 컨테이너를 구성 하려면:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    이전 cmdlet과 마찬가지로, `<your-wvd-tenant>` `<wvd-pool>`및 `<user-principal>` 를 관련 값으로 바꾸어야 합니다.
+    이전 cmdlet과 마찬가지로 `<your-wvd-tenant>` , `<wvd-pool>` 및를 `<user-principal>` 관련 값으로 바꾸어야 합니다.
 
     예를 들어:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -231,7 +234,7 @@ FSLogix 프로필 컨테이너를 구성 하려면:
 
 6. **파일** 아이콘을 선택 하 고 공유를 확장 합니다.
 
-    모든 항목이 올바르게 설정 되 면 다음과 `<user SID>-<username>`같이 이름이 지정 된 **디렉터리가** 표시 됩니다.
+    모든 항목이 올바르게 설정 되 면 다음과 같이 이름이 지정 된 **디렉터리가** 표시 됩니다 `<user SID>-<username>` .
 
 ## <a name="next-steps"></a>다음 단계
 

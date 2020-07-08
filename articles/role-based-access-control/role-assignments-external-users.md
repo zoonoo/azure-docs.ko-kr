@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361907"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거
 
@@ -49,9 +49,9 @@ Azure [RBAC (역할 기반 액세스 제어)](overview.md) 를 사용 하면 사
 
 Azure Active Directory 페이지를 사용 하 여 디렉터리에 게스트 사용자를 추가 하려면 다음 단계를 수행 합니다.
 
-1. 게스트 초대를 허용 하도록 조직의 외부 공동 작업 설정이 구성 되어 있는지 확인 합니다. 자세한 내용은 [B2B 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../active-directory/b2b/delegate-invitations.md)를 참조 하세요.
+1. 게스트를 초대할 수 있도록 조직의 외부 협업 설정이 구성되어 있는지 확인합니다. 자세한 내용은 [B2B 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../active-directory/b2b/delegate-invitations.md)를 참조 하세요.
 
-1. Azure Portal에서 **Azure Active Directory** > **사용자** > **새 게스트 사용자**를 클릭 합니다.
+1. Azure Portal에서 **Azure Active Directory**  >  **사용자**  >  **새 게스트 사용자**를 클릭 합니다.
 
     ![Azure Portal의 새 게스트 사용자 기능](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -71,13 +71,13 @@ Azure Active Directory 페이지를 사용 하 여 디렉터리에 게스트 사
 
 Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다. 게스트 사용자에 대 한 역할 할당을 추가 하려면 멤버 사용자, 그룹, 서비스 주체 또는 관리 id와 [동일한 단계](role-assignments-portal.md#add-a-role-assignment) 를 수행 합니다. 다른 범위에서 게스트 사용자에 대 한 역할 할당을 추가 하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **모든 서비스**를 클릭 합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다.
 
 1.  액세스가 적용 되는 리소스 집합 (범위 라고도 함)을 선택 합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
 
 1. 특정 리소스를 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
     다음 스크린샷은 리소스 그룹에 대 한 액세스 제어 (IAM) 블레이드의 예를 보여 줍니다. 여기에서 액세스 제어를 변경 하는 경우 리소스 그룹에만 적용 됩니다.
 
@@ -85,11 +85,13 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 1. **역할 할당** 탭을 클릭하여 이 범위의 모든 역할 할당을 봅니다.
 
-1.  > **역할** **할당 추가를 클릭 하**여 역할 할당 추가 창을 엽니다.
+1. **추가** > **역할 할당 추가**를 클릭하여 역할 할당 추가 창을 엽니다.
 
     역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-    ![추가 메뉴](./media/role-assignments-external-users/add-menu.png)
+    ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+
+    역할 할당 추가 창이 열립니다.
 
 1. **역할** 드롭다운 목록에서 **Virtual Machine 기여자** 같은 역할을 선택합니다.
 
@@ -107,19 +109,21 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 게스트 사용자가 디렉터리에 아직 없는 경우 역할 할당 추가 창에서 직접 사용자를 초대할 수 있습니다.
 
-1. Azure Portal에서 **모든 서비스**를 클릭 합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다.
 
 1.  액세스가 적용 되는 리소스 집합 (범위 라고도 함)을 선택 합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
 
 1. 특정 리소스를 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **역할 할당** 탭을 클릭하여 이 범위의 모든 역할 할당을 봅니다.
 
-1.  > **역할** **할당 추가를 클릭 하**여 역할 할당 추가 창을 엽니다.
+1. **추가** > **역할 할당 추가**를 클릭하여 역할 할당 추가 창을 엽니다.
 
-    ![추가 메뉴](./media/role-assignments-external-users/add-menu.png)
+    ![역할 할당 메뉴 추가](./media/shared/add-role-assignment-menu.png)
+
+    역할 할당 추가 창이 열립니다.
 
 1. **역할** 드롭다운 목록에서 **Virtual Machine 기여자** 같은 역할을 선택합니다.
 
@@ -161,7 +165,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 1. 표시되는 역할 할당 제거 메시지에서 **예**를 클릭합니다.
 
-1. 왼쪽 탐색 모음에서 **Azure Active Directory** > **사용자**를 클릭 합니다.
+1. 왼쪽 탐색 모음에서 **Azure Active Directory**  >  **사용자**를 클릭 합니다.
 
 1. 제거 하려는 게스트 사용자를 클릭 합니다.
 
@@ -209,7 +213,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가](../active-directory/b2b/add-users-administrator.md)
+- [Azure Portal에서 Azure Active Directory B2B Collaboration 사용자 추가](../active-directory/b2b/add-users-administrator.md)
 - [Azure Active Directory B2B 협업 사용자 속성](../active-directory/b2b/user-properties.md)
 - [Azure Active Directory B2B 협업 초대 이메일의 요소](../active-directory/b2b/invitation-email-elements.md)
 - [게스트 사용자를 공동 관리자로 추가](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76931015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358126"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -107,4 +107,4 @@ Foreach ($file in $files) {
 
 ## <a name="next-steps"></a>다음 단계
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
-* [**문제 해결**](tshoot-connect-pass-through-authentication.md) -기능과 관련 된 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
+* [**문제 해결**](tshoot-connect-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.

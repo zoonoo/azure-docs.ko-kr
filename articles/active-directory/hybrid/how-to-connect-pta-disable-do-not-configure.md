@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1046dc64fed3edb6c9d04f76a96f488769ff42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358347"
 ---
 # <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Azure AD Connect "구성 안 함"을 사용 하는 경우 PTA를 사용 하지 않도록 설정
 
@@ -50,7 +50,7 @@ PowerShell 세션 내에서 다음을 사용 하 여 PTA를 사용 하지 않도
 에이전트 컴퓨터가 없는 경우 다음 명령을 사용 하 여 에이전트를 설치할 수 있습니다.
 
 1. Portal.azure.com에서 최신 인증 에이전트를 다운로드 합니다.
-2. 기능을 설치 합니다 `.\AADConnectAuthAgentSetup.exe` .`.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
+2. 기능 `.\AADConnectAuthAgentSetup.exe` 을 설치 합니다.`.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
 
 
 ## <a name="next-steps"></a>다음 단계

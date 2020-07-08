@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 8072dec6b5f5dbd35c86573dd43d3925a271bc43
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849674"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361958"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -90,7 +90,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
  Azure Portal의 리소스 메뉴에서 대부분의 Azure 리소스에 대한 모니터링 데이터에 액세스할 수 있습니다. 이를 통해 표준 Azure Monitor 도구를 사용하여 단일 리소스의 데이터에 액세스할 수 있습니다. 일부 Azure 서비스는 다른 옵션을 제공하므로 추가 정보는 해당 서비스에 대한 설명서를 참조해야 합니다. **Azure Monitor** 메뉴를 사용하여 모니터링되는 모든 리소스의 데이터를 분석할 수 있습니다. 
 
 ### <a name="overview"></a>개요
-많은 서비스가 작업을 한눈에 파악할 수 있도록 **개요** 페이지에 모니터링 데이터를 포함할 것입니다. 개요는 일반적으로 Azure Monitor 메트릭에 저장된 플랫폼 메트릭의 하위 세트를 기반으로 합니다. 다른 모니터링 옵션은 일반적으로 서비스의 **모니터링** 섹션에서 사용할 수 있습니다. 메뉴.
+많은 서비스가 작업을 한눈에 파악할 수 있도록 **개요** 페이지에 모니터링 데이터를 포함할 것입니다. 개요는 일반적으로 Azure Monitor 메트릭에 저장된 플랫폼 메트릭의 하위 세트를 기반으로 합니다. 다른 모니터링 옵션은 일반적으로 서비스 메뉴의 **모니터링** 섹션에서 사용할 수 있습니다.
 
 ![개요 페이지](media/monitor-azure-resource/overview-page.png)
 

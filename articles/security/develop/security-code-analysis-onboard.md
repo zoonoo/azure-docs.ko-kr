@@ -12,14 +12,14 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362060"
 ---
-# <a name="onboarding-and-installing"></a>온 보 딩 및 설치
+# <a name="onboarding-and-installing"></a>온보딩 및 설치
 
 Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
@@ -48,8 +48,9 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 >**귀사**
 
-- 영역-연락처 세부 정보:cloudsupport@zones.com
+- 영역 – 연락처 세부 정보:cloudsupport@zones.com
 - Wortell – 연락처 세부 정보:info@wortell.nl
+- Logicalis – 연락처 세부 정보:Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>파트너 되기
 
@@ -57,7 +58,7 @@ Microsoft 보안 코드 분석 팀은 파트너 규약에 대 한 프리미어 �
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장 프로그램 설치
 
-1. 확장이 Azure DevOps 조직과 공유 되 면 Azure DevOps 조직 페이지로 이동 합니다. 이러한 페이지에 대 한 URL의 예 `https://dev.azure.com/contoso`는입니다.
+1. 확장이 Azure DevOps 조직과 공유 되 면 Azure DevOps 조직 페이지로 이동 합니다. 이러한 페이지에 대 한 URL의 예는 `https://dev.azure.com/contoso` 입니다.
 1. 이름 옆의 오른쪽 위 모서리에서 쇼핑 모음 아이콘을 선택 하 고 **확장 관리**를 선택 합니다.
 1. **공유**를 선택 합니다.
 1. Microsoft 보안 코드 분석 확장을 선택 하 고 **설치**를 선택 합니다.
@@ -72,11 +73,11 @@ Microsoft 보안 코드 분석 팀은 파트너 규약에 대 한 프리미어 �
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Azure DevOps 파이프라인에 특정 빌드 작업 추가
 
 1. Azure DevOps 조직에서 팀 프로젝트를 엽니다.
-1. **파이프라인** > **빌드**를 선택 합니다.
+1. **파이프라인**  >  **빌드**를 선택 합니다.
 1. 확장 빌드 작업을 추가 하려는 파이프라인을 선택 합니다.
    - 새 파이프라인 **: 새로 만들기를 선택 하** 고 자세히 설명 된 단계에 따라 새 파이프라인을 만듭니다.
    - 파이프라인 편집: 기존 파이프라인을 선택 하 고 **편집** 을 선택 하 여 파이프라인 편집을 시작 합니다.
-1. 을 **+** 선택 하 고 **작업 추가** 창으로 이동 합니다.
+1. 을 선택 **+** 하 고 **작업 추가** 창으로 이동 합니다.
 1. 목록에서 또는 검색 상자를 사용 하 여 추가 하려는 빌드 작업을 찾습니다. **추가**를 선택합니다.
 1. 작업에 필요한 매개 변수를 지정 합니다.
 1. 새 빌드를 큐에 넣습니다.

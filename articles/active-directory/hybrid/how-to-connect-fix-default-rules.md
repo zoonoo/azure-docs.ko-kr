@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359758"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Azure AD Connect에서 수정 된 기본 규칙 수정
 
@@ -49,7 +49,7 @@ Azure AD Connect 버전 1.3.7.0부터 수정 된 기본 규칙을 쉽게 식별�
 
 규칙을 변경 하기 전에 다음을 수행 합니다.
 
-- 동기화 스케줄러를 사용 하지 않도록 설정 합니다. 스케줄러 는 기본적으로 30분마다 실행됩니다. 변경 하 고 새 규칙의 문제를 해결 하는 동안 아직 시작 되지 않았는지 확인 합니다. 스케줄러를 일시적으로 사용 하지 않도록 설정 하려면 PowerShell을 `Set-ADSyncScheduler -SyncCycleEnabled $false`시작 하 고를 실행 합니다.
+- 동기화 스케줄러를 사용 하지 않도록 설정 합니다. 스케줄러 는 기본적으로 30분마다 실행됩니다. 변경 하 고 새 규칙의 문제를 해결 하는 동안 아직 시작 되지 않았는지 확인 합니다. 스케줄러를 일시적으로 사용 하지 않도록 설정 하려면 PowerShell을 시작 하 고를 실행 `Set-ADSyncScheduler -SyncCycleEnabled $false` 합니다.
  ![동기화 스케줄러를 사용 하지 않도록 설정 하는 PowerShell 명령](media/how-to-connect-fix-default-rules/default3.png)
 
 - 범위 지정 필터의 변경으로 인해 대상 디렉터리에서 개체가 삭제 될 수 있습니다. 개체의 범위를 변경 하기 전에 주의 해야 합니다. 활성 서버를 변경 하기 전에 준비 서버를 변경 하는 것이 좋습니다.
@@ -105,10 +105,10 @@ Azure AD Connect 버전 1.3.7.0부터 수정 된 기본 규칙을 쉽게 식별�
 이제 Active Directory에서 Azure Active Directory으로 사용자 개체 흐름에 대 한 새 특성을 만드는 방법을 알고 있습니다. 이러한 단계를 사용 하 여 모든 개체의 특성을 원본 및 대상에 매핑할 수 있습니다. 자세한 내용은 사용자 [지정 동기화 규칙 만들기](how-to-connect-create-custom-sync-rule.md) 및 [사용자 프로 비전 준비를](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)참조 하세요.
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>기존 특성의 값을 재정의 합니다.
-이미 매핑된 특성의 값을 재정의할 수 있습니다. 예를 들어 항상 Azure AD의 특성에 null 값을 설정 하려면 인바운드 규칙만 만들면 됩니다. 상수 값 `AuthoritativeNull`을 대상 특성으로 이동 합니다. 
+이미 매핑된 특성의 값을 재정의할 수 있습니다. 예를 들어 항상 Azure AD의 특성에 null 값을 설정 하려면 인바운드 규칙만 만들면 됩니다. 상수 값을 `AuthoritativeNull` 대상 특성으로 이동 합니다. 
 
 >[!NOTE] 
-> 이 `AuthoritativeNull` 경우 대신 `Null` 를 사용 합니다. 이는 null이 아닌 값이 더 낮은 우선 순위 (규칙의 더 높은 숫자 값)를 포함 하는 경우에도 null 값을 대체 하기 때문입니다. `AuthoritativeNull`반면, 다른 규칙에서 null이 아닌 값으로 대체 되지 않습니다. 
+> `AuthoritativeNull`이 경우 대신를 사용 `Null` 합니다. 이는 null이 아닌 값이 더 낮은 우선 순위 (규칙의 더 높은 숫자 값)를 포함 하는 경우에도 null 값을 대체 하기 때문입니다. `AuthoritativeNull`반면, 다른 규칙에서 null이 아닌 값으로 대체 되지 않습니다. 
 
 ### <a name="dont-sync-existing-attribute"></a>기존 특성을 동기화 하지 않음
 동기화에서 특성을 제외 하려는 경우 Azure AD Connect에서 제공 하는 특성 필터링 기능을 사용 합니다. 바탕 화면 아이콘에서 **Azure AD Connect** 를 시작 하 고 **동기화 옵션 사용자 지정**을 선택 합니다.
@@ -141,7 +141,7 @@ Active Directory에서는이 특성을 설정할 수 없습니다. 새 인바운
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-먼저 부서를 원본 (Active Directory)에서 소문자로 변환 했습니다. 그런 다음 `Left` 함수를 사용 하 여 처음 세 자만 사용 하 고와 `hrd`비교 했습니다. 일치 하면 값은로 설정 되 고, `True`그렇지 않으면 `NULL`로 설정 됩니다. 값을 null로 설정 하는 경우 우선 순위가 낮은 다른 규칙 (더 높은 숫자 값)은 다른 조건을 사용 하 여 쓸 수 있습니다. [동기화 규칙 유효성 검사](#validate-sync-rule) 섹션에서 설명한 대로 한 개체에 대해 미리 보기를 실행 하 여 동기화 규칙의 유효성을 검사 합니다.
+먼저 부서를 원본 (Active Directory)에서 소문자로 변환 했습니다. 그런 다음 함수를 사용 하 여 `Left` 처음 세 자만 사용 하 고와 비교 했습니다 `hrd` . 일치 하면 값은로 설정 되 고 `True` , 그렇지 않으면로 설정 됩니다 `NULL` . 값을 null로 설정 하는 경우 우선 순위가 낮은 다른 규칙 (더 높은 숫자 값)은 다른 조건을 사용 하 여 쓸 수 있습니다. [동기화 규칙 유효성 검사](#validate-sync-rule) 섹션에서 설명한 대로 한 개체에 대해 미리 보기를 실행 하 여 동기화 규칙의 유효성을 검사 합니다.
 
 ![인바운드 동기화 규칙 옵션 만들기](media/how-to-connect-fix-default-rules/default7a.png)
 
@@ -178,7 +178,7 @@ Azure AD Connect으로 구성 된 기본 조인 조건을 사용 합니다. 기�
 
 ![미리 보기](media/how-to-connect-fix-default-rules/default14.png)
  
-여기서는 새로 추가 된 규칙이 개체에 대해 실행 되 고 `cloudFiltered` 특성을 true로 설정 했는지 확인 합니다.
+여기서는 새로 추가 된 규칙이 개체에 대해 실행 되 고 특성을 true로 설정 했는지 확인 합니다 `cloudFiltered` .
 
 ![미리 보기](media/how-to-connect-fix-default-rules/default15a.png)
  

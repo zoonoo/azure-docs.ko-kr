@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/09/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358296"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -44,7 +44,7 @@ ms.locfileid: "81406874"
 예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
-대체 메일과 같이 UPN이 아닌 값을 사용 하 여 로그인 하는 것은 현재 PTA (통과 인증) 및 PHS (암호 해시 동기화) 모두에 대해 비공개 미리 보기로 테스트 되 고 있습니다.
+예, 대체 전자 메일과 같은 UPN이 아닌 값을 사용 하는 로그인은 PTA (통과 인증)와 PHS (암호 해시 동기화) 모두에 대해 지원 됩니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md)에 대 한 자세한 내용을 보려면
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
@@ -144,7 +144,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect를 실행하는 서버가 아닌 다른 서버에 첫 번째 통과 인증 에이전트를 설치할 수 있나요?
 
-아니요, 이 시나리오는 지원되지 _않습니다_.
+아니요,이 시나리오는 지원 _되지_ 않습니다.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>통과 인증을 사용하도록 설정하기 위해 클라우드 전용 글로벌 관리자 계정이 필요한 이유는 무엇인가요?
 

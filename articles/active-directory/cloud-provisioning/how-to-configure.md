@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f02ea42bb792320da6e2523b733f09afd412a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360965"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Azure AD Connect 클라우드 기반 프로 비전을 위한 새 구성 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "77620981"
 ## <a name="configure-provisioning"></a>프로 비전 구성
 프로 비전을 구성 하려면 다음 단계를 수행 합니다.
 
-1.  Azure Portal에서 **Azure Active Directory**를 선택합니다.
+1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
 1.  **Azure AD Connect**를 선택합니다.
 1.  **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "77620981"
 ## <a name="scope-provisioning-to-specific-users-and-groups"></a>특정 사용자 및 그룹에 프로 비전 범위 지정
 온-프레미스 Active Directory 그룹 또는 조직 구성 단위를 사용 하 여 에이전트의 범위를 지정 하 여 특정 사용자 및 그룹을 동기화 할 수 있습니다. 구성 내에서는 그룹 및 조직 구성 단위를 구성할 수 없습니다. 
 
-1.  Azure Portal에서 **Azure Active Directory**를 선택합니다.
+1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
 1.  **Azure AD Connect**를 선택합니다.
 1.  **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 1.  **구성**아래에서 구성을 선택 합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "77620981"
 
 ## <a name="restart-provisioning"></a>프로 비전 다시 시작 
 다음 예약 된 실행을 기다리지 않으려면 **프로 비전 다시 시작** 단추를 사용 하 여 프로 비전 실행을 트리거합니다. 
-1.  Azure Portal에서 **Azure Active Directory**를 선택합니다.
+1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
 1.  **Azure AD Connect**를 선택합니다.
 1.  **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 1.  **구성**아래에서 구성을 선택 합니다.
@@ -76,7 +76,7 @@ ms.locfileid: "77620981"
 ## <a name="remove-a-configuration"></a>구성 제거
 구성을 삭제 하려면 다음 단계를 수행 합니다.
 
-1.  Azure Portal에서 **Azure Active Directory**를 선택합니다.
+1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
 1.  **Azure AD Connect**를 선택합니다.
 1.  **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 1.  **구성**아래에서 구성을 선택 합니다.

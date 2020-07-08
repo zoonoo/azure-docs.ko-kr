@@ -1,7 +1,7 @@
 ---
 title: Microsoft 보안 코드 분석 설명서 개요
 description: 이 문서는 Microsoft 보안 코드 분석 확장 프로그램에 대 한 개요입니다.
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74851471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361322"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -65,15 +65,11 @@ Microsoft 보안 코드 분석 확장을 통해 최신 버전의 중요 한 분�
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim는 이진 파일의 컴파일러 설정, 링커 설정 및 기타 보안 관련 특성의 유효성을 검사 하는 PE (이식 가능한 실행) 경량 스캐너입니다. 이 빌드 작업은 binskim 콘솔 응용 프로그램에 대 한 명령줄 래퍼를 제공 합니다. BinSkim는 오픈 소스 도구입니다. 자세한 내용은 [GitHub의 BinSkim](https://github.com/Microsoft/binskim)를 참조 하세요.
+BinSkim는 이진 파일의 컴파일러 설정, 링커 설정 및 기타 보안 관련 특성의 유효성을 검사 하는 PE (이식 가능한 실행) 경량 스캐너입니다. 이 빌드 작업은 binskim.exe 콘솔 응용 프로그램에 대 한 명령줄 래퍼를 제공 합니다. BinSkim는 오픈 소스 도구입니다. 자세한 내용은 [GitHub의 BinSkim](https://github.com/Microsoft/binskim)를 참조 하세요.
 
 ### <a name="credential-scanner"></a>자격 증명 스캐너
 
 소스 코드에 저장 된 암호 및 기타 암호는 심각한 문제입니다. 자격 증명 스캐너는이 문제를 해결 하는 데 도움이 되는 독점적인 정적 분석 도구입니다. 이 도구는 소스 코드와 빌드 출력의 자격 증명, 암호, 인증서 및 기타 중요 한 콘텐츠를 검색 합니다.
-
-### <a name="microsoft-security-risk-detection"></a>Microsoft 보안 위험 검색
-
-MSRD (Microsoft 보안 위험 검색)은 퍼징 테스트를 위한 클라우드 기반 서비스입니다. 소프트웨어의 악용 가능한 보안 버그를 식별 합니다. 이 서비스에는 별도의 구독 및 활성화가 필요 합니다. 자세한 내용은 [Msrd 개발자 센터](https://docs.microsoft.com/security-risk-detection/)를 참조 하세요.
 
 ### <a name="roslyn-analyzers"></a>Roslyn 분석기
 

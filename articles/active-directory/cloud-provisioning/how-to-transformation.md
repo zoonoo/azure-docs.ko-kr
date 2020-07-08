@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: davba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ec12927b40096b7ff04fae6b7cbc69a7bc11e8f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a15a25ce4fbe1a43c2a5065bf88f5c40c5865721
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360693"
 ---
 # <a name="transformations"></a>변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "75549298"
 1. 스키마에서 업데이트 하려는 개체를 찾습니다.
 
    ![스키마의 개체](media/how-to-transformation/transform1.png)</br>
-1. 사용자 개체 아래에 `ExtensionAttribute3` 대 한 코드를 찾습니다.
+1. 사용자 개체 아래에 대 한 코드를 찾습니다 `ExtensionAttribute3` .
 
     ```
                             {
@@ -62,7 +62,7 @@ ms.locfileid: "75549298"
                                 }
                             },
     ```
-1. 회사 특성이에 `ExtensionAttribute3`매핑되도록 코드를 편집 합니다.
+1. 회사 특성이에 매핑되도록 코드를 편집 `ExtensionAttribute3` 합니다.
 
    ```
                                     {
@@ -98,7 +98,7 @@ ms.locfileid: "75549298"
 
     ![프로 비전 다시 시작](media/how-to-transformation/transform3.png)
 
- 1. 잠시 후 그래프 탐색기에서 다음 쿼리를 실행 하 여 특성을 채우는 지 확인 `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`합니다.
+ 1. 잠시 후 그래프 탐색기에서 다음 쿼리를 실행 하 여 특성을 채우는 지 확인 `https://graph.microsoft.com/beta/users/{Azure AD user UPN}` 합니다.
  1. 이제 값이 표시 됩니다.
 
     ![값이 표시 됩니다.](media/how-to-transformation/transform4.png)

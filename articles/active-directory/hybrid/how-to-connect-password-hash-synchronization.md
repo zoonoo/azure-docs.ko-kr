@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358565"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -89,14 +89,13 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 온-프레미스 환경에서 만료된 동기화된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다. 클라우드 암호는 온-프레미스 환경에서 다음에 암호를 변경할 때 업데이트됩니다.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>*EnforceCloudPasswordPolicyForPasswordSyncedUsers* 기능의 공개 미리 보기
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 Azure AD 통합 서비스만 상호 작용 하 고 암호 만료 정책을 준수 해야 하는 동기화 된 사용자가 있는 경우 *EnforceCloudPasswordPolicyForPasswordSyncedUsers* 기능을 사용 하도록 설정 하 여 azure ad 암호 만료 정책을 따르도록 강제할 수 있습니다.
 
 *EnforceCloudPasswordPolicyForPasswordSyncedUsers* 사용 하지 않도록 설정 된 경우 (기본 설정) Azure AD Connect 동기화 된 사용자의 passwordpolicies 특성을 "DisablePasswordExpiration"로 설정 합니다. 사용자의 암호가 동기화 될 때마다 수행 되며, 해당 사용자에 대 한 클라우드 암호 만료 정책을 무시 하도록 Azure AD에 지시 합니다. 다음 명령을 사용 하 여 Azure AD PowerShell 모듈을 사용 하 여 특성의 값을 확인할 수 있습니다.
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 EnforceCloudPasswordPolicyForPasswordSyncedUsers 기능을 사용 하도록 설정 하려면 아래와 같이 MSOnline PowerShell 모듈을 사용 하 여 다음 명령을 실행 합니다. 아래와 같이 Enable 매개 변수에 예를 입력 해야 합니다.
 
@@ -110,23 +109,22 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 `DisablePasswordExpiration` 않으므로 passwordpolicies 특성에서 값을 제거 합니다. 대신, 다음에 온-프레미스 `None` AD에서 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이로 설정 됩니다.  
+사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 않으므로 `DisablePasswordExpiration` PasswordPolicies 특성에서 값을 제거 합니다. 대신, 다음 `None` 에 온-프레미스 AD에서 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이로 설정 됩니다.  
 
-암호 해시 동기화를 사용 하도록 설정 하기 전에 EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하 여 암호 해시의 초기 동기화에서 사용자의 PasswordPolicies `DisablePasswordExpiration` 특성에 값을 추가 하지 않도록 하는 것이 좋습니다.
+암호 해시 동기화를 사용 하도록 설정 하기 전에 EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하 여 암호 해시의 초기 동기화에서 `DisablePasswordExpiration` 사용자의 PasswordPolicies 특성에 값을 추가 하지 않도록 하는 것이 좋습니다.
 
 기본 Azure AD 암호 정책에서는 사용자가 90 일 마다 암호를 변경 해야 합니다. AD의 정책도 90 일 이면 두 정책이 일치 해야 합니다. 그러나 AD 정책이 90 일이 아니면 Set-msolpasswordpolicy PowerShell 명령을 사용 하 여 일치 하도록 Azure AD 암호 정책을 업데이트할 수 있습니다.
 
 Azure AD는 등록 된 도메인 마다 별도의 암호 만료 정책을 지원 합니다.
 
-주의: Azure AD에서 만료 되지 않는 암호를 포함 해야 하는 동기화 된 계정이 있는 경우 Azure AD에서 사용자 개체 `DisablePasswordExpiration` 의 passwordpolicies 특성에 값을 명시적으로 추가 해야 합니다.  다음 명령을 실행 하 여이 작업을 수행할 수 있습니다.
+주의: Azure AD에서 만료 되지 않는 암호를 포함 해야 하는 동기화 된 계정이 있는 경우 `DisablePasswordExpiration` AZURE ad에서 사용자 개체의 PasswordPolicies 특성에 값을 명시적으로 추가 해야 합니다.  다음 명령을 실행 하 여이 작업을 수행할 수 있습니다.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> 이 기능은 현재 공개 미리 보기 상태입니다.
 > Set-msolpasswordpolicy PowerShell 명령은 페더레이션된 도메인에서 작동 하지 않습니다. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>임시 암호 동기화 및 "다음 로그온 시 암호 변경 적용"의 공개 미리 보기
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>임시 암호 동기화 및 "다음 로그온 시 암호 변경 적용"
 
 일반적으로 사용자가 처음 로그온 할 때 암호를 변경 하도록 하는 것이 일반적입니다. 특히 관리자 암호 재설정이 발생 한 후에는이 작업을 수행 해야 합니다.  일반적으로 "임시" 암호를 설정 하는 것으로 알려져 있으며, AD (Active Directory)의 사용자 개체에서 "다음 로그온 할 때 반드시 암호를 변경 해야 합니다." 플래그를 선택 하 여 완료 됩니다.
   
@@ -141,9 +139,6 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 
 > [!CAUTION]
 > 테 넌 트에서 SSPR 및 비밀 번호 쓰기 저장을 사용 하도록 설정한 경우에만이 기능을 사용 해야 합니다.  이는 사용자가 SSPR를 통해 암호를 변경 하는 경우 Active Directory에 동기화 됩니다.
-
-> [!NOTE]
-> 이 기능은 현재 공개 미리 보기 상태입니다.
 
 #### <a name="account-expiration"></a>계정 만료
 

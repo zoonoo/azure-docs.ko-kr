@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362512"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -118,7 +118,8 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 
 ### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: RdsSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
 
-![RdsSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![RdsSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **원인:** 에이전트는 자신을 새 버전으로 업데이트할 수 없습니다.
 
@@ -179,7 +180,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Windows 가상 데스크톱 side-by-side 스택과 관련 된 문제 해결
 
-Windows 가상 데스크톱 side-by-side 스택은 Windows Server 2019와 함께 자동으로 설치 됩니다. Microsoft Installer (MSI)를 사용 하 여 Microsoft Windows Server 2016 또는 Windows Server 2012 r 2에 side-by-side 스택을 설치 합니다. Microsoft Windows 10의 경우 **enablesxstackrs**를 사용 하 여 Windows 가상 데스크톱 side-by-side 스택을 사용 하도록 설정 합니다.
+Windows 가상 데스크톱 side-by-side 스택은 Windows Server 2019와 함께 자동으로 설치 됩니다. Microsoft Installer (MSI)를 사용 하 여 Microsoft Windows Server 2016 또는 Windows Server 2012 r 2에 side-by-side 스택을 설치 합니다. Microsoft Windows 10의 경우 Windows 가상 데스크톱 side-by-side 스택은 **enablesxstackrs.ps1**에서 사용 하도록 설정 됩니다.
 
 Side-by-side 스택은 세션 호스트 풀 Vm에서 설치 또는 사용 하도록 설정 하는 세 가지 주요 방법이 있습니다.
 
@@ -191,7 +192,8 @@ Windows 가상 데스크톱 side-by-side 스택에 문제가 있는 경우 명�
 
 Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qwinsta** 의 출력은 출력에 **rdp-sxs** 를 나열 합니다.
 
-![Qwinsta와 함께 설치 되거나 사용 하도록 설정 된 side-by-side 스택에는 출력에 rdp-sxs로 나열 됩니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Qwinsta와 함께 설치 되거나 사용 하도록 설정 된 side-by-side 스택에는 출력에 rdp-sxs로 나열 됩니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 아래에 나열 된 레지스트리 항목을 확인 하 고 해당 값이 일치 하는지 확인 합니다. 레지스트리 키가 없거나 값이 일치 하지 않으면 side-by-side 스택을 다시 설치 하는 방법에 대 한 [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell-2019.md) 의 지침을 따르세요.
 
@@ -205,7 +207,8 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>오류: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE 오류 코드입니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE 오류 코드입니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **원인:** Side-by-side 스택이 세션 호스트 VM에 설치 되어 있지 않습니다.
 
@@ -227,8 +230,8 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 - Side-by-side 스택을 사용 하도록 설정 하는 단계의 올바른 순서를 따르지 않습니다.
 - Windows 10 향상 된 다용도 디스크에 대 한 자동 업데이트 (EVD)
 - RDSH (원격 데스크톱 세션 호스트) 역할이 없습니다.
-- Enablesxsstackrc을 여러 번 실행
-- 로컬 관리자 권한이 없는 계정에서 enablesxsstackrc를 실행 하 고 있습니다.
+- enablesxsstackrc.ps1 여러 번 실행
+- 로컬 관리자 권한이 없는 계정에서 enablesxsstackrc.ps1 실행
 
 이 섹션의 지침을 참조 하 여 Windows 가상 데스크톱 side-by-side 스택을 제거할 수 있습니다. Side-by-side 스택을 제거한 후 PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell-2019.md) 의 "Windows 가상 데스크톱 호스트 풀을 사용 하 여 VM 등록"으로 이동 하 여 side-by-side 스택을 다시 설치 합니다.
 
@@ -247,19 +250,21 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname는 side-by-side 스택에서 작동 하지 않는 VM의 컴퓨터 이름입니다.
 
 7. 동의를 클릭 하 여 PsExec 사용권 계약에 동의 합니다.
 
-    ![소프트웨어 사용권 계약 스크린샷.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![소프트웨어 사용권 계약 스크린샷.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >이 대화 상자는 처음 PsExec가 실행 될 때만 표시 됩니다.
 
 8. 명령 프롬프트 세션이 작동 하지 않는 side-by-side 스택을 사용 하 여 VM에서 열리면 qwinsta을 실행 하 고 rdp-sxs 라는 항목을 사용할 수 있는지 확인 합니다. 그렇지 않은 경우 side-by-side 스택은 VM에 존재 하지 않으므로이는 side-by-side 스택에 연결 되지 않습니다.
 
-    ![관리자 명령 프롬프트](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![관리자 명령 프롬프트](../media/AdministratorCommandPrompt.png)
 
 9. 다음 명령을 실행 합니다 .이 명령을 실행 하면 VM에 설치 된 Microsoft 구성 요소가 함께 작동 하 여 병렬 스택이 작동 하지 않습니다.
 
@@ -281,7 +286,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 운영 체제가 Microsoft Windows 10 인 경우 다음 지침을 계속 진행 합니다.
 
-14. PsExec를 실행 하는 VM에서 파일 탐색기를 열고 disablesxsstackrc을 실행 하지 않는 side-by-side 스택을 사용 하 여 VM의 시스템 드라이브로 복사 합니다.
+14. PsExec를 실행 하는 VM에서 파일 탐색기를 열고 작동 하지 않는 병렬 스택을 사용 하 여 VM의 시스템 드라이브에 disablesxsstackrc.ps1를 복사 합니다.
 
     ```cmd
         \\<VMname>\c$\
@@ -290,7 +295,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
     >[!NOTE]
     >VMname는 side-by-side 스택에서 작동 하지 않는 VM의 컴퓨터 이름입니다.
 
-15. 권장 프로세스: PsExec 도구에서 PowerShell을 시작 하 고 이전 단계에서 폴더로 이동한 후 disablesxsstackrc를 실행 합니다. 또는 다음 cmdlet을 실행할 수 있습니다.
+15. 권장 프로세스: PsExec 도구에서 PowerShell을 시작 하 고 이전 단계에서 폴더로 이동한 후 disablesxsstackrc.ps1를 실행 합니다. 또는 다음 cmdlet을 실행할 수 있습니다.
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -327,7 +332,8 @@ VM에서 그룹 정책 편집기를 열고 **Administrative Templates**  >  **Wi
 3. **PC 정보를**선택 합니다.
 4. "버전" 옆에 있는 숫자를 확인 합니다. 다음 그림에 표시 된 것 처럼 숫자는 "1809" 또는 "1903" 중 하나 여야 합니다.
 
-    ![Windows 사양 창의 스크린샷 버전 번호는 파란색으로 강조 표시 됩니다.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Windows 사양 창의 스크린샷 버전 번호는 파란색으로 강조 표시 됩니다.](../media/windows-specifications.png)
 
 이제 버전 번호를 알고 있으므로 관련 섹션으로 건너뜁니다.
 
@@ -347,13 +353,13 @@ Azure 갤러리에서 최신 버전의 Windows 10 버전 1903 이미지를 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview-2019.md)을 참조 하세요.
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조 하세요.
-- Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration-2019.md)을 참조 하세요.
+- Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview-2019.md)을 참조하세요.
+- Windows Virtual Desktop 환경에서 테넌트 및 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [테넌트 및 호스트 풀 만들기](troubleshoot-set-up-issues-2019.md)를 참조하세요.
+- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection-2019.md)을 참조 하세요.
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](../troubleshoot-client.md) 을 참조 하세요.
-- Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell-2019.md)을 참조 하세요.
+- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md)을 참조하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup-2019.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.
+- 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 참조하세요.
