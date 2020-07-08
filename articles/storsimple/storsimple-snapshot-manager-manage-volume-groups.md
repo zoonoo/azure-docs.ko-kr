@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506262"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리
 ## <a name="overview"></a>개요
@@ -48,11 +48,11 @@ ms.locfileid: "75931486"
 ## <a name="view-volume-groups"></a>볼륨 그룹 보기
 **볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.
 
-| 결과 열 | Description |
+| 결과 열 | 설명 |
 |:--- |:--- |
-| 속성 |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
+| 이름 |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
 | 애플리케이션 |**응용 프로그램** 열에는 현재 Windows 호스트에 설치되어 실행되는 VSS 기록기 수가 표시됩니다. |
-| 선택 |**선택됨** 열에는 볼륨 그룹에 포함된 볼륨의 수가 표시됩니다. 0이면 볼륨 그룹의 볼륨에 연결된 애플리케이션이 없음을 나타냅니다. |
+| 선택함 |**선택됨** 열에는 볼륨 그룹에 포함된 볼륨의 수가 표시됩니다. 0이면 볼륨 그룹의 볼륨에 연결된 애플리케이션이 없음을 나타냅니다. |
 | 가져옴 |**가져옴** 열에는 가져온 볼륨의 수가 표시됩니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Azure Portal에서 가져왔으며 StorSimple 스냅샷 관리자에서 만들지 않았음을 나타냅니다. |
 
 > [!NOTE]

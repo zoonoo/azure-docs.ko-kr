@@ -3,15 +3,15 @@ title: Avere vFXT 클러스터 관리 - Azure
 description: Avere 클러스터를 관리하는 방법 - 노드 추가 또는 제거, vFXT 클러스터 다시 부팅, 중지 또는 삭제
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505497"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -25,14 +25,14 @@ Avere vFXT for Azure cluster의 수명 주기 중 특정 시점에 클러스터 
 
 | 작업 | Avere 제어판 | vfxt.py  | Azure portal |
 | --- | --- | --- | --- |
-| 클러스터 노드 추가 | 아니요 | 예 | 아니요 |
-| 클러스터 노드 제거 | 예 | 아니요 | 아니요 |
-| 클러스터 노드 중지 | 예(서비스를 다시 시작하거나 다시 부팅할 수도 있음) | 아니요 | 포털에서 노드 VM의 작동을 중지하면 노드 실패로 해석됩니다. |
-| 중지된 노드 시작 | 아니요 | 아니요 | 예 |
-| 단일 클러스터 노드 삭제 | 아니요 | 아니요 | 예 |
+| 클러스터 노드 추가 | no | 예 | no |
+| 클러스터 노드 제거 | 예 | 아니요 | no |
+| 클러스터 노드 중지 | 예(서비스를 다시 시작하거나 다시 부팅할 수도 있음) | no | 포털에서 노드 VM의 작동을 중지하면 노드 실패로 해석됩니다. |
+| 중지된 노드 시작 | 아니요 | no | 예 |
+| 단일 클러스터 노드 삭제 | 아니요 | no | 예 |
 | 클러스터 다시 부팅 |  |  |  |
-| 안전하게 클러스터 종료 또는 중지 | 예 | 예 | 아니요 |
-| 클러스터 삭제  | 아니요 | 예 | 예, 하지만 데이터 무결성은 보장되지 않습니다. |
+| 안전하게 클러스터 종료 또는 중지 | 예 | 예 | no |
+| 클러스터 삭제  | no | 예 | 예, 하지만 데이터 무결성은 보장되지 않습니다. |
 
 각 도구에 대한 자세한 지침은 아래에 나와 있습니다.
 
@@ -141,7 +141,7 @@ vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-클러스터 캐시 ``--quick-destroy`` 에서 변경 된 데이터를 저장 하지 않으려는 경우이 옵션을 사용할 수 있습니다.
+``--quick-destroy``클러스터 캐시에서 변경 된 데이터를 저장 하지 않으려는 경우이 옵션을 사용할 수 있습니다.
 
 자세한 내용은 [vfxt.py 사용 가이드](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>)를 참조하세요.
 

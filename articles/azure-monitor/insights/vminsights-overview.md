@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/11/2020
-ms.openlocfilehash: 6f65ba96f768a4b88aa13c073cc66920b8c5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506993"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>VM용 Azure Monitor란?
 
-VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 여기에는 온-프레미스 또는 다른 클라우드 공급자에서 호스트 되는 Vm에 대 한 성능 및 응용 프로그램 종속성 모니터링에 대 한 지원이 포함 됩니다. 다음과 같은 주요 기능에 대 한 자세한 정보를 제공 합니다.
+VM용 Azure Monitor는 가상 머신, 가상 머신 확장 집합 및 Azure Arc 컴퓨터를 대규모로 모니터링 합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다. 다음과 같은 주요 기능에 대 한 자세한 정보를 제공 합니다.
 
 - **미리 정의 된 추세 성능 차트**: 게스트 VM 운영 체제에서 코어 성능 메트릭을 표시 합니다.
 

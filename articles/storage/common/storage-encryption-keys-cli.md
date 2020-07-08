@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506205"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -86,13 +86,13 @@ az keyvault key create \
     --vault-name <key-vault>
 ```
 
-Azure Storage 암호화에서는 2048 비트 RSA 및 RSA-HSM 키만 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
+Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 구성
 
 기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 고객 관리 키에 대 한 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
 
-저장소 계정의 암호화 설정을 업데이트 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. `--encryption-key-source` 매개 변수를 포함 하 고로 `Microsoft.Keyvault` 설정 하 여 저장소 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 또한이 예제에서는 키 자격 증명 모음 URI와 최신 키 버전을 쿼리 합니다 .이 두 값은 모두 저장소 계정에 키를 연결 하는 데 필요 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+저장소 계정의 암호화 설정을 업데이트 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. 매개 변수를 포함 하 `--encryption-key-source` 고로 설정 하 여 `Microsoft.Keyvault` 저장소 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 또한이 예제에서는 키 자격 증명 모음 URI와 최신 키 버전을 쿼리 합니다 .이 두 값은 모두 저장소 계정에 키를 연결 하는 데 필요 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -134,7 +134,7 @@ az keyvault delete-policy \
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
-고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 고 `--encryption-key-source parameter` 를로 `Microsoft.Storage`설정 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객 관리 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 고 `--encryption-key-source parameter` 를로 설정 합니다 `Microsoft.Storage` . 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>다음 단계
 
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md) 
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)이란?
+- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md) 
+- [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

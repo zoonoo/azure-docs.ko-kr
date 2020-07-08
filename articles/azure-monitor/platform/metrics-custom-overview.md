@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506976"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 
@@ -28,11 +28,11 @@ Azure Monitor 사용자 지정 메트릭은 공개 미리 보기로 제공 됩�
 - Azure Application Insights SDK를 사용하여 애플리케이션을 계측하고 사용자 지정 원격 분석을 Azure Monitor로 보냅니다. 
 - [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [가상 머신 확장 집합](collect-custom-metrics-guestos-resource-manager-vmss.md), [클래식 VM](collect-custom-metrics-guestos-vm-classic.md) 또는 [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)에 WAD(Microsoft Azure Diagnostics) 확장을 설치하고 성능 카운터를 Azure Monitor로 보냅니다. 
 - Azure Linux VM에 [InfluxData Telegraf 에이전트](collect-custom-metrics-linux-telegraf.md)를 설치하고 Azure Monitor 출력 플러그 인을 사용하여 메트릭을 보냅니다.
-- 사용자 지정 메트릭을 [Azure Monitor REST API에 직접](../../azure-monitor/platform/metrics-store-custom-rest-api.md)보냅니다 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- 사용자 지정 메트릭을 [Azure Monitor REST API에 직접](../../azure-monitor/platform/metrics-store-custom-rest-api.md)보냅니다 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
-## <a name="pricing-model-and-rentention"></a>가격 책정 모델 및 보존
+## <a name="pricing-model-and-retention"></a>가격 책정 모델 및 보존
 
-사용자 지정 메트릭 및 메트릭 쿼리에 대 한 대금 청구를 사용 하도록 설정 하는 경우에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 를 확인 하세요. 사용자 지정 메트릭 및 메트릭 쿼리를 비롯 한 모든 메트릭에 대 한 특정 가격 정보는이 페이지에서 제공 됩니다. 요약 하자면, 표준 메트릭 (플랫폼 메트릭)을 Azure Monitor 메트릭 저장소에 수집할 비용은 없지만 사용자 지정 메트릭은 일반 공급으로 전환 될 때 비용을 incurr 합니다. 메트릭 API 쿼리는 비용을 incurr 합니다.
+사용자 지정 메트릭 및 메트릭 쿼리에 대 한 대금 청구를 사용 하도록 설정 하는 경우에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/) 를 확인 하세요. 사용자 지정 메트릭 및 메트릭 쿼리를 비롯 한 모든 메트릭에 대 한 특정 가격 정보는이 페이지에서 제공 됩니다. 요약 하자면, 표준 메트릭 (플랫폼 메트릭)을 Azure Monitor 메트릭 저장소에 수집 하는 비용은 없지만 사용자 지정 메트릭은 일반 공급으로 전환 될 때 비용이 발생 합니다. 메트릭 API 쿼리는 비용이 발생 합니다.
 
 사용자 지정 메트릭은 [플랫폼 메트릭과 동일한 시간](data-platform-metrics.md#retention-of-metrics)동안 보존 됩니다. 
 
@@ -47,13 +47,13 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 ### <a name="authentication"></a>인증
 사용자 지정 메트릭을 Azure Monitor로 전송하려면 메트릭을 전송하는 엔터티에 유효한 Azure AD(Azure Active Directory) 토큰이 요청의 **전달자** 헤더에 있어야 합니다. 유효한 전달자 토큰을 획득하기 위한 지원되는 몇 가지 방법이 있습니다.
 1. [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)입니다. Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI(관리 서비스 ID)는 특정 작업을 수행할 수 있는 권한을 리소스에 제공하도록 설계되었습니다. 예를 들어, 리소스가 해당 지표를 내보낼 수 있도록 허용합니다. 리소스 또는 해당 MSI에 다른 리소스에 대한 **모니터링 메트릭 게시자** 권한을 부여할 수 있습니다. 이 권한을 사용하면 MSI가 다른 리소스에 대한 지표도 내보낼 수 있습니다.
-2. [Azure AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 애플리케이션 또는 서비스에 할당할 수 있습니다.
+2. [AZURE AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)입니다. 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 애플리케이션 또는 서비스에 할당할 수 있습니다.
 요청을 인증하기 위해 Azure Monitor는 Azure AD 공개 키를 사용하여 애플리케이션 토큰의 유효성을 검사합니다. 기존 **모니터링 메트릭 게시자** 역할에는 이 사용 권한이 이미 있으며, Azure Portal에서 사용할 수 있습니다. 서비스 주체는 사용자 지정 메트릭을 내보낼 리소스에 따라 필요한 범위에서 **모니터링 메트릭 게시자** 역할을 부여받을 수 있습니다. 범위의 예로 구독, 리소스 그룹 또는 특정 리소스가 있습니다.
 
 > [!TIP]  
 > 사용자 지정 메트릭을 내보내기 위해 Azure AD 토큰을 요청하는 경우 토큰이 요청되는 대상 그룹 또는 리소스가 `https://monitoring.azure.com/`이어야 합니다. 후행 슬래시(‘/’)를 포함해야 합니다.
 
-### <a name="subject"></a>주체
+### <a name="subject"></a>제목
 이 속성은 사용자 지정 메트릭이 보고되는 Azure 리소스 ID를 캡처합니다. 이 정보는 수행되는 API 호출의 URL에 인코딩됩니다. 각 API는 단일 Azure 리소스에 대한 메트릭 값만 전송할 수 있습니다.
 
 > [!NOTE]  
@@ -74,11 +74,11 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어 앱을 프로 파일링 하는 메모리 사용 메트릭을 추적 하는 **contosomemorymetrics** 라는 네임 스페이스가 있을 수 있습니다. **Contosoapptransaction** 라는 다른 네임 스페이스는 응용 프로그램의 사용자 트랜잭션에 대 한 모든 메트릭을 추적할 수 있습니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
-차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스**라는 차원 키가 있을 수 있습니다. 이 키를 사용하여 메트릭을 필터링하면 특정 프로세스에서 사용하는 메모리 양을 확인하거나 메모리 사용량에 따른 상위 5개 프로세스를 식별할 수 있습니다.
+차원은 수집하는 메트릭에 관한 추가적인 특성을 설명하는 데 유용한 키 또는 값 쌍입니다. 추가적인 특성을 사용하면 메트릭에 대한 자세한 정보를 수집하여 더욱 심층적인 인사이트를 얻을 수 있습니다. 예를 들어, **사용 중인 메모리 바이트** 메트릭에는 VM의 각 프로세스에서 사용 중인 메모리 바이트 수를 캡처하는 **프로세스**라는 차원 키가 있을 수 있습니다. 이 키를 사용 하 여 메트릭을 필터링 하 여 메모리 별 프로세스의 크기를 확인 하거나 메모리 사용량에 따라 상위 5 개 프로세스를 식별할 수 있습니다.
 차원은 선택 사항이 며 모든 메트릭에 차원이 포함 되지 않을 수 있습니다. 사용자 지정 메트릭은 차원을 최대 10 개까지 포함할 수 있습니다.
 
 ### <a name="dimension-values"></a>차원 값
@@ -189,31 +189,32 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |Azure 지역 |지역별 엔드포인트 접두사|
 |---|---|
 | **미국과 캐나다** | |
-|미국 중서부 | https:\//westcentralus.monitoring.azure.com/ |
-|미국 서부 2       | https:\//westus2.monitoring.azure.com/ |
-|미국 중북부 | https:\//northcentralus.monitoring.azure.com
-|미국 중남부| https:\//southcentralus.monitoring.azure.com/ |
-|미국 중부      | https:\//centralus.monitoring.azure.com |
-|캐나다 중부 | https:\//canadacentral.monitoring.azure.comc
-|미국 동부| https:\//eastus.monitoring.azure.com/ |
+|미국 중서부 | https: \/ /westcentralus.monitoring.azure.com |
+|미국 서부 2       | https: \/ /westus2.monitoring.azure.com |
+|미국 중북부 | https: \/ /northcentralus.monitoring.azure.com
+|미국 중남부| https: \/ /southcentralus.monitoring.azure.com |
+|미국 중부      | https: \/ /centralus.monitoring.azure.com |
+|캐나다 중부 | https: \/ /canadacentral.monitoring.azure.com |
+|미국 동부| https: \/ /eastus.monitoring.azure.com |
+|미국 동부 2 | https: \/ /eastus2.monitoring.azure.com |
 | **유럽** | |
-|북유럽    | https:\//northeurope.monitoring.azure.com/ |
-|서유럽     | https:\//westeurope.monitoring.azure.com/ |
-|영국 남부 | https:\//uksouth.monitoring.azure.com
-|프랑스 중부 | https:\//francecentral.monitoring.azure.com |
+|북유럽    | https: \/ /northeurope.monitoring.azure.com |
+|서유럽     | https: \/ /westeurope.monitoring.azure.com |
+|영국 남부 | https: \/ /uksouth.monitoring.azure.com
+|프랑스 중부 | https: \/ /francecentral.monitoring.azure.com |
 | **아프리카** | |
-|남아프리카 북부 | https:\//southafricanorth.monitoring.azure.com
+|남아프리카 북부 | https: \/ /southafricanorth.monitoring.azure.com |
 | **아시아** | |
-|인도 중부 | https:\//centralindia.monitoring.azure.com
-|오스트레일리아 동부 | https:\//australiaeast.monitoring.azure.com
-|일본 동부 | https:\//japaneast.monitoring.azure.com
-|동남아시아  | https:\//southeastasia.monitoring.azure.com |
-|동아시아 | https:\//eastasia.monitoring.azure.com
-|한국 중부   | https:\//koreacentral.monitoring.azure.com
+|인도 중부 | https: \/ /centralindia.monitoring.azure.com |
+|오스트레일리아 동부 | https: \/ /australiaeast.monitoring.azure.com |
+|일본 동부 | https: \/ /japaneast.monitoring.azure.com |
+|동남아시아  | https: \/ /southeastasia.monitoring.azure.com |
+|동아시아 | https: \/ /eastasia.monitoring.azure.com |
+|한국 중부   | https: \/ /koreacentral.monitoring.azure.com |
 
 ## <a name="latency-and-storage-retention"></a>대기 시간 및 저장소 보존
 
-새 메트릭 또는 메트릭에 추가 되는 새 차원을 추가 하는 것이 표시 되는 데 최대 2 ~ 3 분이 소요 될 수 있습니다. 시스템에서 데이터는 30 초 99%의 시간 이내에 apear 야 합니다. 
+새 메트릭 또는 메트릭에 추가 되는 새 차원을 추가 하는 것이 표시 되는 데 최대 2 ~ 3 분이 소요 될 수 있습니다. 시스템에서 데이터는 30 초 미만의 99%에 표시 되어야 합니다. 
 
 메트릭을 삭제 하거나 차원을 제거 하는 경우 변경 내용은 시스템에서 삭제 되는 데 1 ~ 1 일 걸릴 수 있습니다.
 

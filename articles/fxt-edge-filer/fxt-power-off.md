@@ -3,15 +3,15 @@ title: Microsoft Azure FXT Edge 필터 unit을 종료 하는 방법
 description: Azure FXT Edge 필터 노드의 시작 및 안전 종료 절차
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72255994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506415"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Azure FXT Edge 필터 하드웨어를 안전 하 게 활용 하는 방법
 
@@ -29,7 +29,7 @@ Azure FXT Edge 필터 노드를 클러스터의 일부로 사용 하는 경우 �
 다음 지침에 따라 Azure FXT Edge 필터 노드의 전원을 안전 하 게 끕니다.
 
 1. 클러스터 제어판에 로그인 합니다. ( [설정 페이지 열기](fxt-cluster-create.md#open-the-settings-pages)가이드)
-1. **설정** 탭을 클릭 한 다음 **클러스터** > **fxt 노드** 페이지를 로드 합니다.
+1. **설정** 탭을 클릭 한 다음 **클러스터**  >  **fxt 노드** 페이지를 로드 합니다.
 1. 클러스터 노드 목록에서 종료 하려는 클러스터 노드를 찾습니다. **작업** 열에서 **전원 아래로** 단추를 클릭 합니다. 
 1. 몇 분 정도 기다립니다. 노드가 종료 되 고 전원이 꺼집니다.
 

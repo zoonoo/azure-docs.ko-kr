@@ -3,15 +3,15 @@ title: Avere vFXT 스토리지 구성 - Azure
 description: Avere vFXT for Azure에 백 엔드 스토리지 시스템을 추가하는 방법입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505752"
 ---
 # <a name="configure-storage"></a>스토리지 구성
 
@@ -47,7 +47,7 @@ NAS core 필터를 추가 하려면 다음 단계를 수행 합니다.
 
 1. Avere 제어판의 위쪽에서 **설정** 탭을 클릭합니다.
 
-1. 왼쪽의 핵심 **필터** > **관리 핵심 필터** 를 클릭 합니다.
+1. 왼쪽의 핵심 **필터**  >  **관리 핵심 필터** 를 클릭 합니다.
 
 1. **만들기**를 클릭합니다.
 
@@ -137,7 +137,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
    ![Avere 제어판에서 완성된 클라우드 자격 증명 양식](media/avere-vfxt-new-credential-submit.png)
 
-1. 다음으로, 코어 파일러를 만듭니다. Avere 컨트롤 패널의 왼쪽에서 **core 필터** >  **core filers 관리**를 클릭 합니다.
+1. 다음으로, 코어 파일러를 만듭니다. Avere 컨트롤 패널의 왼쪽에서 **core 필터**  >   **core filers 관리**를 클릭 합니다.
 
 1. **코어 파일러 관리** 설정 페이지에서 **만들기** 단추를 클릭합니다.
 
@@ -172,7 +172,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
 Avere 제어판 인터페이스에서 다음 단계를 수행 합니다.
 
-* 왼쪽 위에서 **VServer** > **네임 스페이스** 를 클릭 합니다.
+* 왼쪽 위에서 **VServer**  >  **네임 스페이스** 를 클릭 합니다.
 * ``/vfxt/data``와 같이 /(슬래시)로 시작하는 네임스페이스 경로를 제공합니다.
 * 코어 파일러를 선택합니다.
 * 코어 파일러 내보내기를 선택합니다.

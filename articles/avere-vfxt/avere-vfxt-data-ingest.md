@@ -3,15 +3,15 @@ title: Avere vFXT for Azure로 데이터 이동
 description: Avere vFXT for Azure에서 사용할 새 스토리지 볼륨에 데이터를 추가하는 방법입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505599"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>vFXT 클러스터로 데이터 이동 - 병렬 데이터 수집
 
@@ -25,7 +25,7 @@ Azure 클러스터의 Avere vFXT는 확장 가능한 다중 클라이언트 캐�
 
 이 문서에서는 데이터를 Avere vFXT 클러스터로 이동하는 다중 클라이언트, 다중 스레드 파일 복사 시스템을 만드는 전략에 대해 설명합니다. 여러 클라이언트와 단순 복사 명령을 사용하여 효율적인 데이터 복사에 사용할 수 있는 파일 전송 개념 및 결정 사항에 대해 설명합니다.
 
-또한 도움이 되는 몇 가지 유틸리티도 설명합니다. 유틸리티 ``msrsync`` 를 사용 하 여 데이터 집합을 버킷으로 분할 하 고 명령을 사용 하 ``rsync`` 는 프로세스를 부분적으로 자동화할 수 있습니다. ``parallelcp`` 스크립트는 원본 디렉터리를 읽고 복사 명령을 자동으로 실행하는 또 다른 유틸리티입니다. 또한이 ``rsync`` 도구를 사용 하 여 데이터 일관성을 제공 하는 더 빠른 복사를 제공할 수 있습니다.
+또한 도움이 되는 몇 가지 유틸리티도 설명합니다. 유틸리티를 사용 하 여 ``msrsync`` 데이터 집합을 버킷으로 분할 하 고 명령을 사용 하는 프로세스를 부분적으로 자동화할 수 있습니다 ``rsync`` . ``parallelcp`` 스크립트는 원본 디렉터리를 읽고 복사 명령을 자동으로 실행하는 또 다른 유틸리티입니다. 또한이 ``rsync`` 도구를 사용 하 여 데이터 일관성을 제공 하는 더 빠른 복사를 제공할 수 있습니다.
 
 다음 링크를 클릭하여 해당 섹션으로 이동합니다.
 
@@ -146,7 +146,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다.
 
-예제:
+예:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
@@ -260,11 +260,11 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 
 ## <a name="use-a-two-phase-rsync-process"></a>2 단계 rsync 프로세스 사용
 
-표준 ``rsync`` 유틸리티는 데이터 무결성을 보장 하기 위해 많은 수의 파일 만들기 및 이름 바꾸기 작업을 생성 하기 때문에 Azure 시스템의 Avere vFXT을 통해 클라우드 저장소를 채우는 데 잘 작동 하지 않습니다. 그러나 ``--inplace`` 옵션을와 함께 ``rsync`` 사용 하면 파일 무결성을 검사 하는 두 번째 실행을 사용 하 여 더 신중한 복사 절차를 건너뛸 수 있습니다.
+표준 ``rsync`` 유틸리티는 데이터 무결성을 보장 하기 위해 많은 수의 파일 만들기 및 이름 바꾸기 작업을 생성 하기 때문에 Azure 시스템의 Avere vFXT을 통해 클라우드 저장소를 채우는 데 잘 작동 하지 않습니다. 그러나 옵션을와 함께 사용 하면 ``--inplace`` ``rsync`` 파일 무결성을 검사 하는 두 번째 실행을 사용 하 여 더 신중한 복사 절차를 건너뛸 수 있습니다.
 
 표준 ``rsync`` 복사 작업은 임시 파일을 만들어 데이터로 채웁니다. 데이터 전송이 성공적으로 완료 되 면 임시 파일의 이름이 원래 파일 이름으로 바뀝니다. 이 메서드는 복사 중에 파일에 액세스 하는 경우에도 일관성을 보장 합니다. 그러나이 메서드는 더 많은 쓰기 작업을 생성 하므로 캐시를 통해 파일 이동 속도가 느려집니다.
 
-옵션 ``--inplace`` 은 최종 위치에 새 파일을 직접 작성 합니다. 파일은 전송 중에는 일관성이 보장 되지 않지만 나중에 사용 하기 위해 저장소 시스템을 준비 하는 경우에는 중요 하지 않습니다.
+옵션은 ``--inplace`` 최종 위치에 새 파일을 직접 작성 합니다. 파일은 전송 중에는 일관성이 보장 되지 않지만 나중에 사용 하기 위해 저장소 시스템을 준비 하는 경우에는 중요 하지 않습니다.
 
 두 번째 ``rsync`` 작업은 첫 번째 작업에 대 한 일관성 확인의 역할을 합니다. 파일이 이미 복사 되었기 때문에 두 번째 단계는 대상의 파일이 원본의 파일과 일치 하는지 확인 하는 빠른 검색입니다. 일치 하지 않는 파일은 다시 복사입니다.
 
@@ -284,18 +284,18 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 4개 코어 VM을 사용한 예비 테스트에서는 64개의 프로세스를 사용할 때 최고의 효율성을 보였습니다. ``msrsync`` 옵션인 ``-p``를 사용하여 프로세스 수를 64로 설정합니다.
 
-인수를 ``--inplace`` 명령과 함께 ``msrsync`` 사용할 수도 있습니다. 이 옵션을 사용 하는 경우 데이터 무결성을 보장 하기 위해 두 번째 명령 (위에 설명 된 [rsync](#use-a-two-phase-rsync-process)와 같이)을 실행 하는 것이 좋습니다.
+``--inplace``인수를 명령과 함께 사용할 수도 있습니다 ``msrsync`` . 이 옵션을 사용 하는 경우 데이터 무결성을 보장 하기 위해 두 번째 명령 (위에 설명 된 [rsync](#use-a-two-phase-rsync-process)와 같이)을 실행 하는 것이 좋습니다.
 
 ``msrsync``로컬 볼륨에만 쓸 수 있습니다. 원본 및 대상은 클러스터의 가상 네트워크에서 로컬 탑재로 액세스할 수 있어야 합니다.
 
-를 사용 ``msrsync`` 하 여 Azure 클라우드 볼륨을 Avere 클러스터로 채우려면 다음 지침을 따르세요.
+를 사용 하 여 ``msrsync`` Azure 클라우드 볼륨을 Avere 클러스터로 채우려면 다음 지침을 따르세요.
 
-1. 설치 ``msrsync`` 및 필수 구성 요소 (Rsync 및 Python 2.6 이상)
+1. 설치 ``msrsync`` 및 필수 구성 요소 (rsync 및 Python 2.6 이상)
 1. 복사할 파일 및 디렉터리의 총 수를 결정합니다.
 
-   예를 들어 인수 ``prime.py`` ```prime.py --directory /path/to/some/directory``` (url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>다운로드로 사용 가능)와 함께 Avere 유틸리티를 사용 합니다.
+   예를 들어 ``prime.py`` 인수 ```prime.py --directory /path/to/some/directory``` (url 다운로드로 사용 가능)와 함께 Avere 유틸리티를 사용 <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> 합니다.
 
-   를 사용 ``prime.py``하지 않는 경우 다음과 같이 GNU ``find`` 도구를 사용 하 여 항목 수를 계산할 수 있습니다.
+   를 사용 하지 않는 경우 다음과 같이 GNU 도구를 사용 하 여 ``prime.py`` 항목 수를 계산할 수 있습니다 ``find`` .
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 1. 항목 수를 64로 나누어 프로세스당 항목 수를 결정합니다. 명령을 실행할 때 ``-f`` 옵션에 이 숫자를 사용하여 버킷의 크기를 설정합니다.
 
-1. 다음 ``msrsync`` 명령을 실행 하 여 파일을 복사 합니다.
+1. ``msrsync``다음 명령을 실행 하 여 파일을 복사 합니다.
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   를 사용 ``--inplace``하는 경우 데이터가 올바르게 복사 되었는지 확인 하는 옵션 없이 두 번째 실행을 추가 합니다.
+   를 사용 하는 경우 ``--inplace`` 데이터가 올바르게 복사 되었는지 확인 하는 옵션 없이 두 번째 실행을 추가 합니다.
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
@@ -323,7 +323,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ## <a name="use-the-parallel-copy-script"></a>병렬 복사 스크립트 사용
 
-또한 ``parallelcp`` 이 스크립트는 vFXT 클러스터의 백 엔드 저장소로 데이터를 이동 하는 데 유용할 수 있습니다.
+``parallelcp``또한이 스크립트는 vFXT 클러스터의 백 엔드 저장소로 데이터를 이동 하는 데 유용할 수 있습니다.
 
 아래 스크립트는 `parallelcp` 실행 파일을 추가합니다. (이 스크립트는 Ubuntu에서 사용하도록 설계되었으므로, 다른 배포판을 사용하는 경우 ``parallel``을 별도로 설치해야 합니다.)
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506204"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>PowerShell을 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -74,7 +74,7 @@ Set-AzKeyVaultAccessPolicy `
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
 
-Azure Storage 암호화에서는 2048 비트 RSA 및 RSA-HSM 키만 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
+Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 구성
 
@@ -110,7 +110,7 @@ Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
-고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객이 관리 하는 키를 사용 하지 않도록 [설정](/powershell/module/az.storage/set-azstorageaccount) 하려면 다음 예제 `-StorageEncryption` 와 같이 옵션을 사용 하 여 AzStorageAccount를 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+고객 관리 키를 사용 하지 않도록 설정 하면 저장소 계정이 Microsoft 관리 키로 다시 암호화 됩니다. 고객이 관리 하는 키를 사용 하지 않도록 설정 하려면 다음 예제와 같이 옵션을 사용 하 여 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 `-StorageEncryption` 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -120,5 +120,5 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md)
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)이란?
+- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
+- [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

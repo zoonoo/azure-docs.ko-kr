@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507180"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정
 
-이 문서에서는 Azure Policy를 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 완료 되 면 Log Analytics 및 종속성 에이전트를 사용 하도록 설정 하 고 규정을 준수 하지 않는 가상 머신이 식별 됩니다.
+이 문서에서는 Azure Policy를 사용 하 여 Azure virtual machines, Azure 가상 머신 확장 집합 및 Azure Arc 컴퓨터에 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 완료 되 면 Log Analytics 및 종속성 에이전트를 사용 하도록 설정 하 고 규정을 준수 하지 않는 가상 머신이 식별 됩니다.
 
 모든 Azure 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 검색, 관리 및 사용 하도록 설정 하려면 Azure Policy 또는 Azure PowerShell를 사용할 수 있습니다. Azure Policy은 일관 된 준수를 보장 하 고 새로 프로 비전 된 Vm을 자동으로 사용할 수 있도록 구독을 효과적으로 관리 하기 위해 정책 정의를 관리할 수 있기 때문에 권장 되는 방법입니다. 이러한 정책 정의는 다음과 같습니다.
 
@@ -46,10 +46,7 @@ VM용 Azure Monitor 정책 범위는 앞에서 언급 한 정책 정의를 포�
 
 이 정보는 하나의 중앙 위치에서 VM용 Azure Monitor에 대 한 거 버 넌 스 시나리오를 계획 하 고 실행 하는 데 유용 합니다. 정책 또는 이니셔티브를 범위에 할당 하는 경우 Azure Policy 준수 보기를 제공 하는 반면,이 새 페이지를 사용 하 여 정책 또는 이니셔티브 할당 되지 않은 위치를 검색 하 고 해당 위치에 할당할 수 있습니다. 할당, 보기 및 편집 리디렉션과 같은 모든 작업은 직접 Azure Policy 합니다. **VM용 Azure Monitor 정책 적용 범위** 페이지는 이니셔티브 **사용 VM용 Azure Monitor**에 대 한 확장 및 통합 환경입니다.
 
-또한이 페이지에서 다음과 같은 VM용 Azure Monitor에 대 한 Log Analytics 작업 영역을 구성할 수 있습니다.
-
-- 서비스 맵 솔루션을 설치 합니다.
-- 성능 차트, 통합 문서, 사용자 지정 로그 쿼리 및 경고에서 사용 하는 운영 체제 성능 카운터를 사용 하도록 설정 합니다.
+이 페이지에서 *VMInsights* 솔루션을 설치 하는 VM용 Azure Monitor에 대 한 Log Analytics 작업 영역을 구성할 수도 있습니다.
 
 ![작업 영역 구성 VM용 Azure Monitor](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
@@ -59,7 +56,7 @@ VM용 Azure Monitor 정책 범위는 앞에서 언급 한 정책 정의를 포�
 
 다음 표에서는 정책 적용 범위 페이지에 표시 되는 정보와이를 해석 하는 방법에 대 한 분석을 제공 합니다.
 
-| 함수 | Description | 
+| 기능 | 설명 | 
 |----------|-------------| 
 | **범위** | 관리 그룹 계층을 통해 드릴 다운할 수 있는 권한으로 액세스 하거나 상속한 관리 그룹 및 구독입니다.|
 | **역할** | 범위에 대 한 사용자의 역할 (판독기, 소유자 또는 참가자 일 수 있음) 어떤 경우에는 구독에 대 한 액세스 권한은 있지만 자신이 속한 관리 그룹에 대 한 액세스 권한은 없다는 것을 나타내는 것이 빈 상태로 표시 될 수 있습니다. 다른 열의 정보는 사용자의 역할에 따라 달라 집니다. 역할은 정책 또는 이니셔티브 (소유자)를 할당 하거나 편집 하거나 준수를 확인 하는 등 볼 수 있는 데이터와 수행할 수 있는 작업을 결정 하는 데 중요 합니다. |
@@ -85,7 +82,7 @@ VM용 Azure Monitor 정책 범위는 앞에서 언급 한 정책 정의를 포�
 
 Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 
-|속성 |Description |Type |
+|이름 |설명 |형식 |
 |-----|------------|-----|
 |VM용 Azure Monitor 사용 |지정 된 범위 (관리 그룹, 구독 또는 리소스 그룹)에서 가상 컴퓨터에 대 한 Azure Monitor를 사용 하도록 설정 합니다. Log Analytics 작업 영역을 매개 변수로 사용합니다. |이니셔티브 |
 |종속성 에이전트 배포 감사 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |정책 |
@@ -95,13 +92,28 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 |Linux VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |정책 |
 |Windows VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |정책 |
 
+
+### <a name="policies-for-hybrid-azure-arc-machines"></a>하이브리드 Azure Arc 컴퓨터에 대 한 정책
+
+하이브리드 Azure Arc 컴퓨터에 대 한 정책 정의는 다음 표에 나와 있습니다.
+
+|이름 |설명 |형식 |
+|-----|------------|-----|
+| [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치 해야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |정책 |
+| [Preview]: Log Analytics 에이전트가 Windows Azure Arc 컴퓨터에 설치 되어 있어야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |정책 |
+| [Preview]: 하이브리드 Linux Azure Arc 컴퓨터에 종속성 에이전트를 배포 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 하이브리드 Azure Arc 컴퓨터에 대 한 종속성 에이전트를 배포 합니다. |정책 |
+| [Preview]: 하이브리드 Windows Azure Arc 컴퓨터에 종속성 에이전트를 배포 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않으면 Windows 하이브리드 Azure Arc 컴퓨터에 대 한 종속성 에이전트를 배포 합니다. |정책 |
+| [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 하이브리드 Azure Arc 컴퓨터용 Log Analytics 에이전트를 배포 합니다. |정책 |
+| [Preview]: Microsoft Azure Arc 컴퓨터에 Log Analytics 에이전트를 배포 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows 하이브리드 Azure Arc 컴퓨터용 Log Analytics 에이전트를 배포 합니다. |정책 |
+
+
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대 한 정책
 
 다음 표에는 Azure 가상 머신 확장 집합에 대 한 정책 정의가 나열 되어 있습니다.
 
-|속성 |Description |Type |
+|이름 |설명 |형식 |
 |-----|------------|-----|
-|가상 머신 확장 집합에 대 한 Azure Monitor 사용 |지정 된 범위 (관리 그룹, 구독 또는 리소스 그룹)에서 가상 머신 확장 집합에 대 한 Azure Monitor를 사용 하도록 설정 합니다. Log Analytics 작업 영역을 매개 변수로 사용합니다. 참고: 확장 집합 업그레이드 정책을 수동으로 설정한 경우에는 업그레이드를 호출 하 여 집합의 모든 Vm에 확장을 적용 합니다. CLI에서이는 `az vmss update-instances`입니다. |이니셔티브 |
+|가상 머신 확장 집합에 대 한 Azure Monitor 사용 |지정 된 범위 (관리 그룹, 구독 또는 리소스 그룹)에서 가상 머신 확장 집합에 대 한 Azure Monitor를 사용 하도록 설정 합니다. Log Analytics 작업 영역을 매개 변수로 사용합니다. 참고: 확장 집합 업그레이드 정책을 수동으로 설정한 경우에는 업그레이드를 호출 하 여 집합의 모든 Vm에 확장을 적용 합니다. CLI에서이는 `az vmss update-instances` 입니다. |이니셔티브 |
 |가상 머신 확장 집합에서 종속성 에이전트 배포 감사 – VM 이미지 (OS)가 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않으면 가상 머신 확장 집합을 비규격으로 보고 합니다. |정책 |
 |Virtual machine scale sets의 감사 Log Analytics 에이전트 배포 – VM 이미지 (OS)가 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않으면 가상 머신 확장 집합을 비규격으로 보고 합니다. |정책 |
 |Linux 가상 머신 확장 집합용 Dependency Agent 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 가상 머신 확장 집합에 대 한 종속성 에이전트를 배포 합니다. |정책 |
@@ -111,7 +123,7 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 
 다음은 독립 실행형 정책(이니셔티브에 포함되지 않음)에 대한 설명입니다.
 
-|속성 |Description |Type |
+|이름 |설명 |형식 |
 |-----|------------|-----|
 |VM에 대 한 감사 Log Analytics 작업 영역-보고서 불일치 |정책 또는 이니셔티브 할당에 지정 된 Log Analytics 작업 영역에 로깅하지 않는 경우 Vm을 비규격으로 보고 합니다. |정책 |
 
@@ -123,7 +135,7 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모니터**를 선택 합니다. 
+2. Azure Portal에서 **모니터**를 선택합니다. 
 
 3. **Insights** 섹션에서 **Virtual Machines** 을 선택 합니다.
  
@@ -139,7 +151,7 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 8. 지원되는 지역에 대한 **Log Analytics 작업 영역** 드롭다운 목록에서 작업 영역을 선택합니다.
 
    > [!NOTE]
-   > 작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 액세스를 부여 하는 것과 같은 `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` 배포 오류가 발생할 수 있습니다. [관리 되는 id를 수동으로 구성 하는 방법을](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity)검토 하세요.
+   > 작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 액세스를 부여 하는 것과 같은 배포 오류가 발생할 수 있습니다 `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` . [관리 되는 id를 수동으로 구성 하는 방법을](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity)검토 하세요.
    > 
    >  할당 되는 이니셔티브에 *Deployifnotexists* 효과가 적용 된 정책이 포함 되어 있기 때문에 **관리 id** 확인란이 선택 됩니다.
     
@@ -151,24 +163,24 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 
 다음 행렬은 이니셔티브의 가능한 각 준수 상태를 매핑합니다.  
 
-| 규정 준수 상태 | Description | 
+| 규정 준수 상태 | 설명 | 
 |------------------|-------------|
 | **호환이** | 범위에 있는 모든 Vm에는 Log Analytics 및 종속성 에이전트가 배포 되어 있습니다.|
 | **비준수** | 범위에 있는 모든 Vm에는 Log Analytics 및 종속성 에이전트가 배포 되지 않으므로 수정이 필요할 수 있습니다.|
 | **시작 되지 않음** | 새 할당이 추가 되었습니다. |
-| **잠기지** | 관리 그룹에 대 한 충분 한 권한이 없습니다. <sup>1</sup> | 
+| **잠금** | 관리 그룹에 대 한 충분 한 권한이 없습니다. <sup>1</sup> | 
 | **비어 있음** | 정책이 할당 되지 않았습니다. | 
 
 <sup>1</sup> 관리 그룹에 대 한 액세스 권한이 없으면 소유자에 게 액세스를 제공 하도록 요청 합니다. 또는 자식 관리 그룹 또는 구독을 통해 규정 준수를 확인 하 고 할당을 관리 합니다. 
 
 다음 표에서는 이니셔티브의 가능한 각 할당 상태를 매핑합니다.
 
-| 할당 상태 | Description | 
+| 할당 상태 | 설명 | 
 |------------------|-------------|
 | **Success** | 범위에 있는 모든 Vm에는 Log Analytics 및 종속성 에이전트가 배포 되어 있습니다.|
-| **내용의** | 구독이 관리 그룹에 없습니다.|
+| **경고** | 구독이 관리 그룹에 없습니다.|
 | **시작 되지 않음** | 새 할당이 추가 되었습니다. |
-| **잠기지** | 관리 그룹에 대 한 충분 한 권한이 없습니다. <sup>1</sup> | 
+| **잠금** | 관리 그룹에 대 한 충분 한 권한이 없습니다. <sup>1</sup> | 
 | **비어 있음** | Vm이 없거나 정책이 할당 되지 않았습니다. | 
 | **동작** | 정책을 할당 하거나 할당을 편집 합니다. | 
 
@@ -203,7 +215,7 @@ Azure VM에 대 한 정책 정의는 다음 표에 나와 있습니다.
 관리 그룹 또는 구독에 이니셔티브를 할당 한 후 언제 든 지이를 편집 하 여 다음 속성을 수정할 수 있습니다.
 
 - 할당 이름
-- Description
+- 설명
 - 담당자
 - Log Analytics 작업 영역
 - 예외

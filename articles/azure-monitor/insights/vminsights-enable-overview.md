@@ -5,26 +5,32 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507078"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM용 Azure Monitor 개요 사용
 
-이 문서에서는 가상 머신에서 VM용 Azure Monitor 하 여 상태 및 성능을 모니터링할 수 있도록 하는 옵션에 대 한 개요를 제공 합니다. Azure Vm (가상 머신) 및 가상 머신 확장 집합, 온-프레미스 Vm 또는 다른 클라우드 환경에서 호스트 되는 Vm에서 실행 되는 응용 프로그램 종속성을 검색 합니다.  
+이 문서에서는 VM용 Azure Monitor에서 다음의 상태와 성능을 모니터링할 수 있도록 하는 데 사용할 수 있는 옵션의 개요를 제공 합니다.
+
+- Azure 가상 머신 
+- Azure 가상 머신 확장 집합
+- Azure Arc와 연결 된 하이브리드 가상 머신
+- 온-프레미스 가상 머신
+- 다른 클라우드 환경에서 호스트 되는 가상 컴퓨터.  
 
 VM용 Azure Monitor을 설정 하려면:
 
-* VM 또는 가상 머신 확장 집합에서 직접 **정보** 를 선택 하 여 단일 Azure vm 또는 가상 머신 확장 집합을 사용 하도록 설정 합니다.
-* Azure Policy를 사용 하 여 둘 이상의 Azure Vm 및 가상 머신 확장 집합을 사용 하도록 설정 합니다. 이 방법을 사용 하면 기존 및 새 Vm 및 확장 집합에서 필요한 종속성이 설치 되 고 올바르게 구성 됩니다. 비규격 Vm 및 크기 집합을 보고 하므로이를 사용 하도록 설정할지 여부를 결정할 수 있습니다.
-* PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
+* Azure Portal의 메뉴에서 직접 **정보** 를 선택 하 여 단일 azure VM, AZURE vmss 또는 azure Arc 컴퓨터를 사용 하도록 설정 합니다.
+* Azure Policy를 사용 하 여 여러 Azure Vm, Azure VMSS 또는 Azure Arc 컴퓨터를 사용 하도록 설정 합니다. 이 방법을 사용 하면 기존 및 새 Vm 및 확장 집합에서 필요한 종속성이 설치 되 고 올바르게 구성 됩니다. 비규격 Vm 및 크기 집합을 보고 하므로이를 사용 하도록 설정할지 여부를 결정할 수 있습니다.
+* PowerShell을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure Vm, Azure Arc Vm, Azure VMSS 또는 Azure Arc 컴퓨터를 사용 하도록 설정 합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -43,6 +49,8 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 - 미국 동부2
 - 미국 중부
 - 미국 중북부
+- US Gov Az
+- US Gov Va
 - 캐나다 중부
 - 영국 남부
 - 북유럽
@@ -66,15 +74,13 @@ Log Analytics 작업 영역이 없는 경우 리소스 중 하나를 사용 하 
 
 Azure Portal에서 단일 Azure VM 또는 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하는 동안 작업 영역을 만들 수도 있습니다.
 
-Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하는 확장 가능한 시나리오를 설정 하려면 다음을 수행 합니다.
-
-* *Servic\InfrastructureInsights* 솔루션을 *InfrastructureInsights* 설치 합니다. 제공 된 Azure Resource Manager 템플릿을 사용 하 여이 설치를 완료할 수 있습니다. 또는 Azure Portal의 **시작** 탭에서 **작업 영역 구성**을 선택 합니다.
-* 성능 카운터를 수집하도록 Log Analytics 작업 영역을 구성합니다.
-
-크기 조정 시나리오에 대 한 작업 영역을 구성 하려면 다음 방법 중 하나를 사용 합니다.
+Azure Policy, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하는 확장 가능한 시나리오를 설정 하려면 *VMInsights* 솔루션을 설치 해야 합니다. 다음 방법 중 하나를 사용 하 여이 작업을 수행할 수 있습니다.
 
 * [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace)를 사용 합니다.
 * [**정책 적용**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) VM용 Azure Monitor 페이지에서 **작업 영역 구성**을 선택 합니다. 
+
+### <a name="azure-arc-machines"></a>Azure Arc 컴퓨터
+VM용 Azure Monitor는 Arc 확장 서비스를 사용할 수 있는 지역에서 Azure Arc 사용 서버에 사용할 수 있습니다. 사용자는 Arc 사용 서버에서 VM용 Azure Monitor를 사용 하도록 설정 하려면 Arc 에이전트 버전 0.9 이상을 실행 해야 합니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -82,7 +88,7 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 |OS 버전 |성능 |지도 |
 |-----------|------------|-----|
-|시작 | X | X |
+|Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
 |Windows Server 2016 | X | X |
 |Windows Server 2012 R2 | X | X |
@@ -134,7 +140,7 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 18.04 | 5.0 (Azure 조정 커널 포함)<br>4.18*<br>4.15* |
+| 18.04 | 5.3.0-1020<br>5.0 (Azure 조정 커널 포함)<br>4.18* <br> 4.15* |
 | 16.04.3 | 4.15. * |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
@@ -175,8 +181,8 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE995F2F5A4633D8B733F3BE143921  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406AA1BDF1F67925DB9EE00D54AA7F0B |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -188,18 +194,18 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 방법 | Description |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
-| 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **정보** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
-| 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |
-| 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure PowerShell 또는 Azure Resource Manager 템플릿을 통해 사용](vminsights-enable-at-scale-powershell.md) | Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure Vm 또는 가상 머신 확장 집합을 사용 하도록 설정할 수 있습니다. |
-| 하이브리드 클라우드 | [하이브리드 환경에서 사용](vminsights-enable-hybrid-cloud.md) | 데이터 센터 또는 다른 클라우드 환경에서 호스팅되는 Vm 또는 물리적 컴퓨터에 배포할 수 있습니다. |
+| 단일 Azure VM, Azure VMSS 또는 Azure Arc 컴퓨터 | [포털에서 사용](vminsights-enable-single-vm.md) | Azure Portal의 메뉴에서 직접 **정보** 를 선택 합니다. |
+| 여러 Azure VM, Azure VMSS 또는 Azure Arc 컴퓨터 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | VM 또는 VMSS가 만들어질 때 자동으로 사용 하도록 설정 하려면 Azure Policy을 사용 합니다. |
+| | [Azure PowerShell 또는 Azure Resource Manager 템플릿을 통해 사용](vminsights-enable-at-scale-powershell.md) | Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure VM, Azure Arc VM 또는 Azure VMSS를 사용 하도록 설정 합니다. |
+| 하이브리드 클라우드 | [하이브리드 환경에서 사용](vminsights-enable-hybrid-cloud.md) | 데이터 센터 또는 다른 클라우드 환경에서 호스팅되는 Vm 또는 물리적 컴퓨터에 배포 합니다. |
 
 ## <a name="management-packs"></a>관리 팩
 
 VM용 Azure Monitor를 사용 하도록 설정 하 고 Log Analytics 작업 영역을 사용 하 여 구성 하면 관리 팩이 해당 작업 영역에 보고 하는 모든 Windows 컴퓨터에 전달 됩니다. [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) 을 Log Analytics 작업 영역과 통합 한 경우 서비스 맵 관리 팩은 관리 그룹에서 관리 그룹에 보고 하는 Windows 컴퓨터에 배포 됩니다.  
 
-관리 팩의 이름은 *microsoft.intelligencepacks.updateassessment. ApplicationDependencyMonitor*입니다. 폴더에 `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` 기록 됩니다. 관리 팩에서 사용 하는 데이터 원본은입니다 `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
+관리 팩의 이름은 *microsoft.intelligencepacks.updateassessment. ApplicationDependencyMonitor*입니다. 폴더에 기록 `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` 됩니다. 관리 팩에서 사용 하는 데이터 원본은입니다 `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll` .
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용량 현황 데이터
 

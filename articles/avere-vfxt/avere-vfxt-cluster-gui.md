@@ -3,15 +3,15 @@ title: Avere vFXT 제어판에 액세스 - Azure
 description: vFXT 클러스터 및 브라우저 기반 Avere 제어판에 연결하여 Avere vFXT를 구성하는 방법입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75416140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505616"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
@@ -39,7 +39,7 @@ ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_pub
 
 이 명령은 클러스터 컨트롤러의 IP 주소를 통해 클러스터의 관리 IP 주소에 연결합니다.
 
-예제:
+예:
 
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
