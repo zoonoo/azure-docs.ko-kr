@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712499"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
@@ -27,7 +26,7 @@ ms.locfileid: "79251168"
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
@@ -72,7 +71,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 4. **만들기**를 클릭합니다. 
 
-## <a name="files"></a>파일
+## <a name="files"></a>Files
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. Azure Portal을 사용하여 함수를 만들 경우 **function.json** 및 **run.csx**가 자동으로 만들어집니다. **project.json** 파일을 추가하고 업로드해야 합니다. 이 섹션의 나머지 부분에서는 각 파일을 간략하게 설명하고 해당 정의를 표시합니다.
 

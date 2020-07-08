@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724720"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954179"
 ---
 # <a name="common-issues-during-vhd-creation"></a>VHD를 만들 때 발생하는 일반적인 문제
 
@@ -20,7 +19,7 @@ FAQ(질문과 대답)는 Azure Virtual Machine 제품의 VHD(가상 하드 디�
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Premium Storage의 VHD를 사용하여 Azure Portal에서 VM을 만들려면 어떻게 해야 하나요?
 
-현재 Azure Marketplace는 관리형 스토리지 또는 Azure Premium Storage의 이미지에서 VM 제품을 만들도록 지원하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)를 참조하세요.
+현재 Azure Marketplace는 관리형 스토리지 또는 Azure Premium Storage의 이미지에서 VM 제품을 만들도록 지원하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>2세대 VM을 제품에 사용할 수 있나요?
 
@@ -45,9 +44,9 @@ Windows 및 Linux 기반 VM에 대해 RDS를 다시 설정하는 방법을 설�
 
 Azure Resource Manager 배포 모델을 사용하는 경우 세 가지 옵션은 다음과 같습니다.
 
-* [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Azure PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Azure PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Azure 기반 VM에서 Microsoft 서버 소프트웨어를 실행하기 위한 Microsoft 지원 정책은 무엇인가요?
 
@@ -75,4 +74,4 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 
 내 VHD에서 이미지를 만들려고 할 때마다 Azure PowerShell에서 "리소스인 이미지 리포지토리로 VHD를 이미 등록했습니다." 오류가 표시됩니다. 이전에 이미지를 만들지도 않았고, Azure에서 이 이름을 가진 이미지를 찾지도 못했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
-이 문제는 일반적으로 사용자가 잠겨 있는 VHD에서 VM을 만든 경우에 발생합니다. 이 VHD에서 할당된 VM이 없는지 확인한 다음, 작업을 다시 시도하세요. 문제가 계속 발생하면 지원 티켓을 여세요. [파트너 센터 지원](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)을 참조하세요.
+이 문제는 일반적으로 사용자가 잠겨 있는 VHD에서 VM을 만든 경우에 발생합니다. 이 VHD에서 할당된 VM이 없는지 확인한 다음, 작업을 다시 시도하세요. 문제가 계속 발생하면 지원 티켓을 여세요. [파트너 센터 지원](support.md)을 참조하세요.

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758761"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
@@ -30,7 +29,7 @@ ms.locfileid: "81758761"
 
 근본적인 원인은 장치에 대해 큐에 넣은 메시지 수가 [큐 제한 (50)](./iot-hub-devguide-quotas-throttling.md#other-limits)을 초과 하기 때문입니다.
 
-이 한도를 실행 하는 가장 큰 이유는 HTTPS를 사용 하 여 메시지를 수신 하는 것입니다 .이 경우는를 `ReceiveAsync`사용 하 여 연속 폴링이 발생 하므로 요청을 제한 IoT Hub.
+이 한도를 실행 하는 가장 큰 이유는 HTTPS를 사용 하 여 메시지를 수신 하는 것입니다 .이 경우는를 사용 하 여 연속 폴링이 발생 하므로 `ReceiveAsync` 요청을 제한 IoT Hub.
 
 ## <a name="solution"></a>솔루션
 

@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709269"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -34,15 +33,15 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(https:/
 
 1. [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 설치합니다. 설치 중 사용하려는 Visual Studio의 버전을 선택합니다.
 
-2. Visual Studio 2015에서__이식성 분석기 설정__ __분석__ > 을 선택 하 고 __Mono__ 섹션에서 __4.5__ 가 선택 되어 있는지 확인 합니다.
+2. Visual Studio 2015에서 __Analyze__  >  __이식성 분석기 설정__분석을 선택 하 고 __Mono__ 섹션에서 __4.5__ 가 선택 되어 있는지 확인 합니다.
 
     ![분석기 설정의 Mono 섹션에 4.5가 선택되어 있음](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
-    __확인__을 클릭하여 구성을 저장합니다.
+    __확인__을 선택하여 구성을 저장합니다.
 
-3. __분석__ > __어셈블리 이식성__분석을 선택 합니다. 솔루션이 포함된 어셈블리를 선택한 다음 __열기__를 선택하여 분석을 시작합니다.
+3. __분석__  >  __어셈블리 이식성__분석을 선택 합니다. 솔루션이 포함된 어셈블리를 선택한 다음 __열기__를 선택하여 분석을 시작합니다.
 
-4. 분석이 완료 되 면 분석 > __뷰 분석 보고서__ __를 선택 합니다__. __Portability Analysis Results__에서 __Open report__를 선택하여 보고서를 엽니다.
+4. 분석이 완료 되 __면 분석__  >  __뷰 분석 보고서__를 선택 합니다. __Portability Analysis Results__에서 __Open report__를 선택하여 보고서를 엽니다.
 
     ![이식성 분석기 결과 대화 상자](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

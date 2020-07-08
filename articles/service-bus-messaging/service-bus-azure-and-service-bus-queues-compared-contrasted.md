@@ -1,25 +1,13 @@
 ---
-title: Azure Storage 큐 및 Service Bus 큐 비교
+title: Azure Storage 큐와 Service Bus 큐 비교
 description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 09/04/2019
-ms.author: aschhab
-ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337639"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -52,7 +40,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * 애플리케이션이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 애플리케이션의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 애플리케이션 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
 * 애플리케이션은 64KB를 초과하지만 256KB의 한도에 접근할 가능성은 없는 메시지를 처리합니다.
-* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 항목을 참조하세요.
     - [관리되는 ID를 사용하여 인증](service-bus-managed-service-identity.md)
     - [애플리케이션에서 인증](authenticate-application.md)
 * 큐 크기는 80GB보다 크게 증가하지 않습니다.
@@ -135,8 +123,8 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 최대 큐 크기 |**500TB**<br/><br/>( [단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한 됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
 | 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
 | 최대 메시지 TTL |**Infinite**(api-version 2017-07-27부터) |**TimeSpan.Max** |
-| 최대 큐 수 |**없음을** |**1만**<br/><br/>(서비스 네임스페이스당) |
-| 최대 동시 클라이언트 수 |**없음을** |**없음을**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
+| 최대 큐 수 |**제한 없음** |**1만**<br/><br/>(서비스 네임스페이스당) |
+| 최대 동시 클라이언트 수 |**제한 없음** |**제한 없음**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨) |
 
 ### <a name="additional-information"></a>추가 정보
 * Service Bus의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.

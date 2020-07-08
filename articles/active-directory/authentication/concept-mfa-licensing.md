@@ -5,43 +5,42 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165b84ee6b124d3f6a04c8db177ef17e32784ff9
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: a9440e69a668b7f92977c3ed53b30f45bea8de2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789789"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 기능 및 라이선스
 
-조직의 사용자 계정을 보호하려면 다단계 인증을 사용해야 합니다. 이 기능은 리소스에 대한 액세스 권한이 있는 계정에 특히 중요합니다. 기본 다단계 인증 기능은 Office 365 및 Azure AD(Azure Active Directory) 관리자가 추가 비용 없이 사용할 수 있습니다. 관리자를 위한 기능을 업그레이드하거나 다단계 인증을 나머지 사용자에게 확장하려는 경우 여러 가지 방법으로 Azure Multi-Factor Authentication을 구매할 수 있습니다.
+조직의 사용자 계정을 보호하려면 다단계 인증을 사용해야 합니다. 이 기능은 리소스에 대한 액세스 권한이 있는 계정에 특히 중요합니다. 기본 multi-factor authentication 기능은 추가 비용 없이 Azure AD (Microsoft 365 및 Azure Active Directory) 관리자에 게 제공 됩니다. 관리자를 위한 기능을 업그레이드하거나 다단계 인증을 나머지 사용자에게 확장하려는 경우 여러 가지 방법으로 Azure Multi-Factor Authentication을 구매할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서에서는 Azure Multi-Factor Authentication을 사용하고 라이선스를 얻을 수 있는 다양한 방법을 자세히 설명합니다. 가격 책정 및 청구에 대한 자세한 내용은 [Azure Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)를 참조하세요.
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 사용 가능한 버전
 
-Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방법으로 사용하고 라이선스를 얻을 수 있습니다. 현재 보유한 Azure AD, Office 365, EMS 또는 Microsoft 365 라이선스에 따라 Azure Multi-Factor Authentication 사용이 가능한 자격이 이미 있을 수 있습니다. 다음 표에서는 Azure Multi-Factor Authentication을 사용할 수 있는 다양한 방법과 몇 가지 기능 및 각 기능의 사용 사례에 대해 자세히 설명합니다.
+Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방법으로 사용하고 라이선스를 얻을 수 있습니다. 현재 azure AD, EMS 또는 Microsoft 365 라이선스에 따라 Azure Multi-Factor Authentication를 사용 하도록 이미 자격이 있을 수 있습니다. 다음 표에서는 Azure Multi-Factor Authentication을 사용할 수 있는 다양한 방법과 몇 가지 기능 및 각 기능의 사용 사례에 대해 자세히 설명합니다.
 
 | 제품 사용자 | 기능 및 사용 사례 |
 | --- | --- |
-| EMS 또는 Microsoft 365 E3 및 E5 | EMS E3 또는 Microsoft 365 E3(EMS 및 Office 365 포함)에는 Azure AD Premium P1이 포함됩니다. EMS E5 또는 Microsoft 365 E5에는 Azure AD Premium P2가 포함됩니다. 다음 섹션에서 설명한 것과 동일한 조건부 액세스 기능을 사용하여 사용자에게 다단계 인증을 제공할 수 있습니다. |
+| Microsoft 365 Business 프리미엄 및 EMS 또는 Microsoft 365 E3 및 E5 | EMS E3, Microsoft 365 E3 및 Microsoft 365 Business 프리미엄에는 Azure AD Premium P1이 포함 됩니다. EMS E5 또는 Microsoft 365 E5에는 Azure AD Premium P2가 포함됩니다. 다음 섹션에서 설명한 것과 동일한 조건부 액세스 기능을 사용하여 사용자에게 다단계 인증을 제공할 수 있습니다. |
 | Azure AD Premium P1 | [Azure AD 조건부 액세스](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)를 사용하여 비즈니스 요구 사항에 맞게 특정 시나리오 또는 이벤트 중에 사용자에게 다단계 인증을 사용할지 묻는 메시지를 표시할 수 있습니다. |
 | Azure AD Premium P2 | 가장 강력한 보안 위치 및 향상된 사용자 환경을 제공합니다. Azure AD Premium P1 기능에 사용자의 패턴에 맞게 조정되고 Multi-Factor Authentication 프롬프트를 최소화하는 [위험 기반 조건부 액세스](../conditional-access/howto-conditional-access-policy-risk.md)를 추가합니다. |
-| Office 365 Business Premium, E3 또는 E5 | Azure Multi-Factor Authentication은 [사용자별로 사용하도록 설정](howto-mfa-userstates.md)하거나 보안 기본값을 사용하여 모든 사용자, 모든 로그인 이벤트에 대해 사용 또는 사용 안 함으로 설정할 수 있습니다. Azure Multi-Factor Authentication 관리는 Office 365 포털을 통해 수행됩니다. 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 [다단계 인증을 사용하여 Office 365 리소스 보호](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)를 참조하세요. |
+| 모든 Microsoft 365 계획 | Azure Multi-Factor Authentication은 [사용자별로 사용하도록 설정](howto-mfa-userstates.md)하거나 보안 기본값을 사용하여 모든 사용자, 모든 로그인 이벤트에 대해 사용 또는 사용 안 함으로 설정할 수 있습니다. Azure Multi-Factor Authentication 관리는 Office 365 포털을 통해 수행됩니다. 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 [다단계 인증을 사용하여 Office 365 리소스 보호](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)를 참조하세요. |
 | Azure AD Free | [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 모든 사용자에 대해 인증 요청을 수행할 때마다 다단계 인증을 사용하도록 설정할 수 있습니다. 설정된 사용자 또는 시나리오를 세부적으로 제어할 수는 없지만 추가 보안 단계를 제공합니다.<br /> 보안 기본값을 사용하여 모든 사용자에 대해 다단계 인증을 사용하도록 설정하지 않는 경우에도 Azure AD 전역 관리자 역할이 할당된 사용자는 다단계 인증을 사용하도록 구성할 수 있습니다. 무료 계층의 이 기능을 사용하면 중요한 관리자 계정이 다단계 인증에 의해 보호됩니다. |
 
 ## <a name="feature-comparison-of-versions"></a>버전 기능 비교
 
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다. 사용자 인증을 보호하기 위한 요구 사항을 계획하고 해당 요구 사항을 충족하는 방법을 결정합니다. 예를 들어 Azure AD Free는 Azure Multi-Factor Authentication을 제공하는 보안 기본값을 제공하지만 인증 프롬프트에 전화 통화 또는 SMS가 아닌 모바일 인증자 앱만 사용할 수 있습니다. 이 방법은 사용자의 개인 디바이스에 모바일 인증 앱이 설치되어 있는지 확인할 수 없는 경우에 제한이 있을 수 있습니다.
 
-| 기능 | Azure AD Free - 보안 기본값 | Azure AD Free - Azure AD 전역 관리자 | Office 365 Business Premium, E3 또는 E5 | Azure AD Premium P1 또는 P2 |
+| 기능 | Azure AD Free - 보안 기본값 | Azure AD Free - Azure AD 전역 관리자 | Office 365 앱 | Azure AD Premium P1 또는 P2 |
 | --- |:---:|:---:|:---:|:---:|
 | MFA를 사용하여 Azure AD 테넌트 계정 보호 | ● | ● (Azure AD 전역 관리자 계정에만 해당) | ● | ● |
 | 두 번째 단계로 모바일 앱 | ● | ● | ● | ● |
@@ -56,19 +55,13 @@ Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방�
 | 신뢰할 수 있는 디바이스에 대한 MFA 기억 | | ● | ● | ● |
 | 온-프레미스 애플리케이션에 대한 MFA | | | | ● |
 
-> [!IMPORTANT]
-> 2019년 3월을 기준으로 Azure AD Free/평가판 테넌트의 Azure Multi-Factor Authentication 및 Azure 셀프 서비스 암호 재설정 사용자는 전화 통화 옵션을 더 이상 사용할 수 없습니다. SMS 메시지는 이 변경의 영향을 받지 않습니다. Azure AD Premium P1 또는 P2 테넌트의 사용자 또는 Office 365 Business Premium, E3 또는 E5의 사용자는 전화 통화를 계속 사용할 수 있습니다.
-
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구매 및 사용
 
-Azure Multi-Factor Authentication을 사용하려면 적격 Azure AD 계층에 등록하거나 구매합니다. Azure AD는 Free, Office 365 앱 버전(Office 365 Business Premium E3 또는 E5 고객용), Premium P1 및 Premium P2의 네 가지 버전으로 제공됩니다.
+Azure Multi-Factor Authentication을 사용하려면 적격 Azure AD 계층에 등록하거나 구매합니다. Azure AD는 무료, Office 365 앱, 프리미엄 P1 및 Premium P2의 네 가지 버전으로 제공 됩니다.
 
 Free 버전은 Azure 구독에 포함되어 있습니다. 보안 기본값을 사용하는 방법에 대한 자세한 내용 또는 Azure AD 전역 관리자 역할로 계정을 보호하는 방법에 대한 자세한 내용은 [아래 섹션](#azure-ad-free-tier)을 참조하세요.
 
-Azure AD Premium 버전은 Microsoft 담당자, [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자 프로그램](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409)을 통해 사용할 수 있습니다. Azure 및 Office 365 구독자는 온라인으로 Azure Active Directory Premium P1 및 P2를 구매할 수도 있습니다. 구매하려면 [로그인](https://portal.office.com/Commerce/Catalog.aspx)하세요.
-
-> [!IMPORTANT]
-> 2018년 9월 1일을 기준으로 새 고객은 소비 기반 라이선스를 더 이상 사용할 수 없습니다. 소비 기반 모델을 사용하는 기존 고객은 활성화된 사용자당 또는 인증당 청구를 계속 사용할 수 있습니다.
+Azure AD Premium 버전은 Microsoft 담당자, [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자 프로그램](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409)을 통해 사용할 수 있습니다. Azure 및 Microsoft 365 구독자는 Azure Active Directory Premium P1 및 P2를 온라인으로 구매할 수도 있습니다. 구매하려면 [로그인](https://portal.office.com/Commerce/Catalog.aspx)하세요.
 
 필요한 Azure AD 계층을 구매한 후 [Azure Multi-Factor Authentication을 계획 및 배포](howto-mfa-getstarted.md)합니다.
 

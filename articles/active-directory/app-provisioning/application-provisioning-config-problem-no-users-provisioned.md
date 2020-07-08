@@ -2,21 +2,20 @@
 title: 사용자가 내 응용 프로그램에서 프로 비전 되지 않음
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 애플리케이션에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fa47fbba7632077c83dc1d594c7c58c59c869bf7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782282"
 ---
 # <a name="no-users-are-being-provisioned"></a>프로비전된 사용자 없음 
 >[!NOTE]
@@ -31,7 +30,7 @@ ms.locfileid: "82594018"
   
 사용자가 프로 비전 되지 않은 경우 Azure AD의 [프로 비전 로그 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 를 참조 하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
-**작업** 섹션에서 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 
+**Azure Active Directory** &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 
 
 프로 비전 로그는 프로 비전 범위에 있는 할당 된 사용자에 대해 Azure AD 쿼리, 해당 사용자의 존재에 대해 대상 앱 쿼리, 시스템 간의 사용자 개체 비교를 포함 하 여 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
 

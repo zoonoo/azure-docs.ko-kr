@@ -5,15 +5,14 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
 ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.subservice: blobs
+ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: cc82b6578b06323d8cf9a09644d50043dba8e554
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986279"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그(미리 보기)를 활용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기
 
@@ -22,7 +21,7 @@ Blob 인덱스 태그는 키-값 태그 특성을 활용하여 스토리지 계�
 Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 > [!NOTE]
-> Blob 인덱스는 퍼블릭 미리 보기로 제공되며 **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
+> Blob 인덱스는 공개 미리 보기 상태 이며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 # <a name="portal"></a>[포털](#tab/azure-portal)

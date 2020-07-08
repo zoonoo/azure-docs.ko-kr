@@ -3,15 +3,14 @@ title: 성능 조정-Azure Data Lake Storage Gen1를 사용 하 여 스톰
 description: Azure Data Lake Storage Gen1에서 스톰 클러스터에 대 한 성능 조정 지침에 대해 알아봅니다.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513790"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -126,7 +125,7 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한계에 도달한 경우 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari** > **스톰** > **Advanced storm-worker-log4j****Config** ** &lt;&gt;** ** &lt;&gt; ** 구성 고급 스톰-log4j에서 root level = "info"를 root level = "debug"로 변경 합니다. >  구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j**에서 ** &lt; root level = "info" &gt; ** 를 ** &lt; root level = "debug" &gt; **로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Storage Gen1 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
 
 ## <a name="next-steps"></a>다음 단계

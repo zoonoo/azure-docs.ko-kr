@@ -7,12 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921325"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>자격 증명 관리에 ID Broker (미리 보기) 사용
 
@@ -47,7 +46,7 @@ ID Broker 기능은 클러스터에 추가 VM 하나를 추가 합니다. 이 VM
 ![ID Broker를 사용 하도록 설정 하는 옵션](./media/identity-broker/identity-broker-enable.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
-다음 특성을 사용 하 여 라는 `idbrokernode` 새 역할을 템플릿의 계산 프로필에 추가 하면 ID broker 노드가 활성화 된 상태에서 클러스터가 생성 됩니다.
+다음 특성을 사용 하 여 라는 새 역할을 `idbrokernode` 템플릿의 계산 프로필에 추가 하면 ID broker 노드가 활성화 된 상태에서 클러스터가 생성 됩니다.
 
 ```json
 .
@@ -90,9 +89,11 @@ ID Broker 기능은 클러스터에 추가 VM 하나를 추가 합니다. 이 VM
 
 HDInsight [IntelliJ 플러그](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) 인이 OAuth를 지원 하도록 업데이트 되었습니다. 이 플러그 인을 사용 하 여 클러스터에 연결 하 고 작업을 제출할 수 있습니다.
 
+[VS Code Spark & Hive 도구](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) 를 사용 하 여 노트북을 활용 하 고 작업을 제출할 수도 있습니다.
+
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Azure AD DS에서 암호 해시가 없는 SSH 액세스
 
-ID Broker를 사용 하도록 설정한 후에는 도메인 계정을 사용 하 여 SSH 시나리오에 대해 Azure AD DS에 저장 된 암호 해시가 여전히 필요 합니다. 도메인에 가입 된 VM으로 SSH 하거나 `kinit` 명령을 실행 하려면 암호를 제공 해야 합니다. 
+ID Broker를 사용 하도록 설정한 후에는 도메인 계정을 사용 하 여 SSH 시나리오에 대해 Azure AD DS에 저장 된 암호 해시가 여전히 필요 합니다. 도메인에 가입 된 VM으로 SSH 하거나 명령을 실행 하려면 암호를 `kinit` 제공 해야 합니다. 
 
 SSH 인증을 사용 하려면 Azure AD DS에서 해시를 사용할 수 있어야 합니다. 관리 시나리오에만 SSH를 사용 하려는 경우 클라우드 전용 계정을 하나 만들어 클러스터에 대 한 SSH로 사용할 수 있습니다. 다른 사용자는 Azure AD DS에서 암호 해시를 사용할 수 없는 경우에도 Ambari 또는 HDInsight 도구 (예: IntelliJ 플러그 인)를 사용할 수 있습니다.
 
@@ -100,7 +101,7 @@ SSH 인증을 사용 하려면 Azure AD DS에서 해시를 사용할 수 있어�
 
 ID broker 설정에서 게이트웨이에 연결 하는 사용자 지정 앱 및 클라이언트를 업데이트 하 여 필요한 OAuth 토큰을 먼저 획득할 수 있습니다. 이 [문서의](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) 단계에 따라 다음 정보를 포함 하는 토큰을 가져올 수 있습니다.
 
-*   OAuth 리소스 uri:https://hib.azurehdinsight.net 
+*   OAuth 리소스 uri:`https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   권한: (이름: Cluster. ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 

@@ -9,12 +9,11 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919990"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -47,19 +46,24 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 2. [PowerShell을 연결] 합니다.
 3. 프로젝트를 만들려면 다음 PowerShell cmdlet을 입력합니다.
 
-        New-AzureServiceProject helloworld
+   ```powershell
+   New-AzureServiceProject helloworld
+   ```
 
-    ![New-AzureService helloworld 명령의 결과][The result of the New-AzureService helloworld command]
+   ![New-AzureService helloworld 명령의 결과][The result of the New-AzureService helloworld command]
 
-    **New-AzureServiceProject** cmdlet은 클라우드 서비스에 Node.js 애플리케이션을 게시하기 위한 기본 구조를 생성합니다. 여기에는 Azure에 게시하는 데 필요한 구성 파일이 포함됩니다. 또한 이 cmdlet은 작업 디렉터리를 서비스에 대한 디렉터리로 변경합니다.
+   **New-AzureServiceProject** cmdlet은 클라우드 서비스에 Node.js 애플리케이션을 게시하기 위한 기본 구조를 생성합니다. 여기에는 Azure에 게시하는 데 필요한 구성 파일이 포함됩니다. 또한 이 cmdlet은 작업 디렉터리를 서비스에 대한 디렉터리로 변경합니다.
 
-    Cmdlet은 다음 파일을 만듭니다.
+   Cmdlet은 다음 파일을 만듭니다.
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**는 애플리케이션을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
    * **deploymentSettings.json**: Azure PowerShell 배포 cmdlet에 사용되는 로컬 설정이 저장됩니다.
+
 4. 다음 명령을 사용하여 새 웹 역할을 추가하려면
 
-       Add-AzureNodeWebRole
+   ```powershell
+   Add-AzureNodeWebRole
+   ```
 
    ![Add-AzureNodeWebRole 명령의 출력][The output of the Add-AzureNodeWebRole command]
 
@@ -70,12 +74,14 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일에 정의됩니다(기본값은 **WebRole1**). 코드는 다음과 같습니다.
 
-    var http = require('http');
-    var port = process.env.port || 1337;
-    http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Hello World\n');
-    }).listen(port);
+```js
+var http = require('http');
+var port = process.env.port || 1337;
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello World\n');
+}).listen(port);
+```
 
 이 코드는 클라우드 환경에서 지정된 포트 번호를 사용한다는 점을 제외하고 기본적으로 [nodejs.org] 웹사이트의 "Hello World" 예제와 동일합니다.
 
@@ -89,14 +95,18 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 1. 다음 Azure PowerShell cmdlet를 실행합니다.
 
-       Get-AzurePublishSettingsFile
+    ```powershell
+    Get-AzurePublishSettingsFile
+    ```
 
    그러면 브라우저를 사용하여 게시 설정 다운로드 페이지로 이동합니다. Microsoft 계정으로 로그인하라는 메시지가 표시될 수 있습니다. 그럴 경우 Azure 구독과 연결된 계정을 사용합니다.
 
    다운로드한 프로필을 쉽게 액세스할 수 있는 파일 위치에 저장합니다.
 2. 다음 Cmdlet를 실행하여 다운로드한 게시 프로필을 가져옵니다.
 
-       Import-AzurePublishSettingsFile [path to file]
+    ```powershell
+    Import-AzurePublishSettingsFile [path to file]
+    ```
 
     > [!NOTE]
     > 게시 설정을 가져온 후, 다른 사용자가 계정에 액세스할 수 있는 정보가 포함되어 있으므로 다운로드한 .publishSettings 파일 삭제를 고려합니다.
@@ -104,8 +114,10 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 ### <a name="publish-the-application"></a>애플리케이션 게시
 게시하려면 다음 명령을 실행합니다.
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
-    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```powershell
+$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
+Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```
 
 * **-ServiceName**은 배포에 대한 이름을 지정합니다. 이 이름은 고유해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. **Get-Date** 명령은 이름을 고유하게 만들어야 하는 날짜/시간 문자열을 추적합니다.
 * **-위치** 애플리케이션이 호스팅될 데이터센터를 지정합니다. 사용 가능한 데이터센터 목록을 보려면 **Get-AzureLocation** cmdlet을 사용하세요.
@@ -136,14 +148,18 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 1. Windows PowerShell 창에서, 이전 섹션에서 만든 서비스 배포를 다음 cmdlet을 사용하여 중지합니다.
 
-       Stop-AzureService
+    ```powershell
+    Stop-AzureService
+    ```
 
    서비스를 중지하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 중지되면 서비스가 중지되었다는 메시지가 표시됩니다.
 
    ![Stop-AzureService 명령의 상태][The status of the Stop-AzureService command]
 2. 서비스를 삭제하려면 다음 cmdlet을 호출합니다.
 
-       Remove-AzureService
+    ```powershell
+    Remove-AzureService
+    ```
 
    메시지가 표시되면 **Y** 를 입력하여 서비스를 삭제합니다.
 
@@ -161,7 +177,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 [Azure Websites, Cloud Services 및 Virtual Machines 비교]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure Powershell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell을 연결]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

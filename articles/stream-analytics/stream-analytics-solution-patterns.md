@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79535785"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037514"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 
@@ -30,13 +29,13 @@ Azure Portal에서 몇 분만에이 솔루션을 빌드할 수 있습니다. 포
 
 ## <a name="use-sql-for-dashboard"></a>대시보드에 SQL 사용
 
-Power BI 대시보드는 짧은 대기 시간을 제공 하지만 완전 한 Power BI 보고서를 생성 하는 데 사용할 수 없습니다. 일반적인 보고 패턴은 데이터를 SQL database로 먼저 출력 하는 것입니다. 그런 다음 Power BI의 SQL connector를 사용 하 여 SQL에서 최신 데이터를 쿼리 합니다.
+Power BI 대시보드는 짧은 대기 시간을 제공 하지만 완전 한 Power BI 보고서를 생성 하는 데 사용할 수 없습니다. 일반적인 보고 패턴은 데이터를 먼저 SQL Database 출력 하는 것입니다. 그런 다음 Power BI의 SQL connector를 사용 하 여 SQL에서 최신 데이터를 쿼리 합니다.
 
 ![GLOBAL.ASA SQL 대시보드](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-SQL database를 사용 하면 더 많은 유연성이 제공 되지만 약간 더 높은 대기 시간이 발생 합니다. 이 솔루션은 대기 시간이 1 초 보다 큰 작업에 적합 합니다. 이 방법을 사용 하면 보고서의 데이터를 추가로 조각화 및 분석 하 고 훨씬 더 많은 시각화 옵션을 위해 Power BI 기능을 최대화할 수 있습니다. 또한 Tableau와 같은 다른 대시보드 솔루션을 사용 하는 유연성을 얻을 수 있습니다.
+SQL Database를 사용 하면 더 많은 유연성이 제공 되지만 약간 더 높은 대기 시간이 발생 합니다. 이 솔루션은 대기 시간이 1 초 보다 큰 작업에 적합 합니다. 이 방법을 사용 하면 보고서의 데이터를 추가로 조각화 및 분석 하 고 훨씬 더 많은 시각화 옵션을 위해 Power BI 기능을 최대화할 수 있습니다. 또한 Tableau와 같은 다른 대시보드 솔루션을 사용 하는 유연성을 얻을 수 있습니다.
 
-SQL은 처리량이 높은 데이터 저장소가 아닙니다. Azure Stream Analytics에서 SQL database에 대 한 최대 처리량은 현재 약 24 m b/초입니다. 솔루션의 이벤트 원본에서 더 높은 속도로 데이터를 생성 하는 경우 Stream Analytics의 처리 논리를 사용 하 여 출력 속도를 SQL로 줄여야 합니다. 필터링, 기간 이동 집계, 임시 조인과 함께 패턴 일치, 분석 함수 등의 기법을 사용할 수 있습니다. 출력 [Azure Stream Analytics Azure SQL Database](stream-analytics-sql-output-perf.md)에 설명 된 기술을 사용 하 여 SQL에 대 한 출력 율을 추가로 최적화할 수 있습니다.
+SQL은 처리량이 높은 데이터 저장소가 아닙니다. Azure Stream Analytics에서 SQL Database 최대 처리량은 현재 약 24 m b/초입니다. 솔루션의 이벤트 원본에서 더 높은 속도로 데이터를 생성 하는 경우 Stream Analytics의 처리 논리를 사용 하 여 출력 속도를 SQL로 줄여야 합니다. 필터링, 기간 이동 집계, 임시 조인과 함께 패턴 일치, 분석 함수 등의 기법을 사용할 수 있습니다. 출력 [Azure Stream Analytics Azure SQL Database](stream-analytics-sql-output-perf.md)에 설명 된 기술을 사용 하 여 SQL에 대 한 출력 율을 추가로 최적화할 수 있습니다.
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>이벤트 메시징으로 실시간 정보를 응용 프로그램에 통합
 
@@ -72,7 +71,7 @@ Azure Stream Analytics 및 Azure SignalR 서비스를 사용 하 여 대시보�
 
 ## <a name="use-reference-data-for-application-customization"></a>응용 프로그램 사용자 지정에 참조 데이터 사용
 
-Azure Stream Analytics 참조 데이터 기능은 경고 임계값, 처리 규칙 및 [지역 구분](geospatial-scenarios.md)같은 최종 사용자 사용자 지정을 위해 특별히 설계 되었습니다. 응용 프로그램 계층은 매개 변수 변경 내용을 받아들이고 SQL 데이터베이스에 저장할 수 있습니다. Stream Analytics 작업은 정기적으로 데이터베이스의 변경 내용을 쿼리하고 참조 데이터 조인을 통해 사용자 지정 매개 변수를 액세스할 수 있도록 합니다. 응용 프로그램 사용자 지정에 참조 데이터를 사용 하는 방법에 대 한 자세한 내용은 [SQL 참조 데이터](sql-reference-data.md) 및 [참조 데이터 조인](/stream-analytics-query/reference-data-join-azure-stream-analytics)을 참조 하세요.
+Azure Stream Analytics 참조 데이터 기능은 경고 임계값, 처리 규칙 및 [지역 구분](geospatial-scenarios.md)같은 최종 사용자 사용자 지정을 위해 특별히 설계 되었습니다. 응용 프로그램 계층은 매개 변수 변경 내용을 수락 하 고 SQL Database에 저장할 수 있습니다. Stream Analytics 작업은 정기적으로 데이터베이스의 변경 내용을 쿼리하고 참조 데이터 조인을 통해 사용자 지정 매개 변수를 액세스할 수 있도록 합니다. 응용 프로그램 사용자 지정에 참조 데이터를 사용 하는 방법에 대 한 자세한 내용은 [SQL 참조 데이터](sql-reference-data.md) 및 [참조 데이터 조인](/stream-analytics-query/reference-data-join-azure-stream-analytics)을 참조 하세요.
 
 이 패턴을 사용 하 여 규칙의 임계값이 참조 데이터에서 정의 되는 규칙 엔진을 구현할 수도 있습니다. 규칙에 대 한 자세한 내용은 [Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리](stream-analytics-threshold-based-rules.md)를 참조 하세요.
 
@@ -106,7 +105,7 @@ Azure Stream Analytics ' 기본 제공 [변칙 검색 모델](stream-analytics-m
 
 ## <a name="use-reference-data-for-enrichment"></a>보강에 대 한 참조 데이터 사용
 
-데이터 보강은 종종 ETL 엔진을 위한 요구 사항입니다. Azure Stream Analytics는 SQL database와 Azure Blob storage의 [참조 데이터](stream-analytics-use-reference-data.md) 를 사용 하 여 데이터 보강 지원 합니다. 데이터 보강 Azure Data Lake와 SQL Data Warehouse 모두에 데이터를 입력할 수 있습니다.
+데이터 보강은 종종 ETL 엔진을 위한 요구 사항입니다. Azure Stream Analytics는 SQL Database와 Azure Blob 저장소의 [참조 데이터](stream-analytics-use-reference-data.md) 를 사용 하 여 데이터 보강 지원 합니다. 데이터 보강 Azure Data Lake와 SQL Data Warehouse 모두에 데이터를 입력할 수 있습니다.
 
 ![데이터 보강를 사용 하는 GLOBAL.ASA 오프 라인 분석](media/stream-analytics-solution-patterns/offlineanalytics.png)
 

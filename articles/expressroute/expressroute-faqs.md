@@ -7,12 +7,11 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745767"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987302"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -87,15 +86,15 @@ Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테넌트의 지역을 확인하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)를 참조하세요.
 * Azure Active Directory
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
-* IaaS(Virtual Machines, Virtual Network Gateway, 부하 분산 장치 등)용 Azure 공용 IP 주소  
+* IaaS (Virtual Machines, Virtual Network 게이트웨이, 부하 분산 장치 등) 용 Azure 공용 IP 주소  
 * 대부분의 다른 Azure 서비스도 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.
 
 **지원되지 않음:**
 
 * CDN
 * Azure Front Door
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication 서버(레거시)
 * Traffic Manager
 
@@ -118,7 +117,7 @@ Microsoft는 인터넷 라우팅 레지스트리에서 지정된 '보급된 공�
 Dynamics 365 및 CDS(Common Data Service) 환경은 Azure에서 호스팅되므로 고객은 Azure 리소스에 대한 기본 ExpressRoute 지원을 활용할 수 있습니다. 라우터 필터에 Dynamics 365/CDS 환경이 호스팅되는 Azure 지역이 포함된 경우 해당 서비스 엔드포인트에 연결할 수 있습니다.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium)은 Azure ExpressRoute를 통한 Dynamics 365 연결에 필요하지 **않습니다**.
+> Express 경로 회로를 동일한 [지정 학적 지역](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations)내에 배포 하는 경우 Azure express 경로를 통한 Dynamics 365 연결에는 [express 경로 Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) 이 필요 **하지 않습니다** .
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 
@@ -152,7 +151,7 @@ Dynamics 365 및 CDS(Common Data Service) 환경은 Azure에서 호스팅되므�
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>개인 피어링에 대한 중복성을 구현하려면 어떻게 해야 하나요?
 
-단일 회로를 사용할 수 없게 되는 경우에 대비해 서로 다른 피어링 위치의 여러 ExpressRoute 회로를 동일한 가상 네트워크에 연결하여 고가용성을 제공할 수 있습니다. 그런 다음, 특정 회로를 선호하도록 로컬 연결에 [더 높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)할 수 있습니다. 고객은 단일 실패 지점이 발생하지 않도록 두 개 이상의 ExpressRoute 회로를 설치하는 것이 좋습니다. 
+단일 회로를 사용할 수 없는 경우 다른 피어 링 위치에서 여러 개의 Express 경로 회로 또는 동일한 피어 링 위치에서 최대 4 개의 연결을 동일한 가상 네트워크에 연결 하 여 고가용성을 제공할 수 있습니다. 그런 다음 로컬 연결 중 하나에 [더 높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 하 여 특정 회로를 선호 시킬 수 있습니다. 고객은 단일 실패 지점이 발생하지 않도록 두 개 이상의 ExpressRoute 회로를 설치하는 것이 좋습니다. 
 
 고가용성을 설계하는 방법은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 참조하고 재해 복구를 설계하는 방법은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)를 참조하세요.  
 
@@ -164,7 +163,7 @@ Microsoft 피어링을 사용하여 Azure Storage 또는 Azure SQL 같은 Azure 
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 
-다른 피어링 위치(예: Singapore, Singapore2)에 있는 ExpressRoute 회로를 가상 네트워크에 연결하여 고가용성을 달성할 수 있습니다. 한 ExpressRoute 회로가 다운되면 연결이 다른 ExpressRoute 회로로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 회로를 기본 회로로 사용할 수 있습니다. 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
+가상 네트워크에 동일한 피어 링 위치에 최대 4 개의 Express 경로 회로를 연결 하거나 다른 피어 링 위치 (예: 싱가포르, 싱가포르 2)의 Express 경로 회로를 가상 네트워크에 연결 하 여 고가용성을 달성할 수 있습니다. 한 ExpressRoute 회로가 다운되면 연결이 다른 ExpressRoute 회로로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 회로를 기본 회로로 사용할 수 있습니다. 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Microsoft 피어링 또는 공용 피어링의 Azure Storage 및 Azure SQL 같은 Azure 공용 서비스로 향하는 트래픽이 ExpressRoute 경로에서 선호되는지 확인하려면 어떻게 해야 하나요?
 
@@ -195,7 +194,7 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>같은 메트로에 여러 ExpressRoute 회로를 포함할 수 있나요? 동일한 가상 네트워크에 연결할 수 있나요?
 
-예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어링 위치에 생성되면 동일한 가상 네트워크에 최대 4개의 회로를 연결할 수 있습니다.
+예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 만들어지면 최대 4 개의 회로를 동일한 가상 네트워크에 연결할 수 있습니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
 

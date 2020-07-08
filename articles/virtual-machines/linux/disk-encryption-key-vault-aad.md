@@ -8,18 +8,17 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ec46a1d2c7fca231b5cf6b045b634af50ee12a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe3040bee56507fe40ce748d3e9e51b06eaa0213
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512889"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
 **Azure Disk Encryption의 새 릴리스는 Azure AD 응용 프로그램 매개 변수를 제공 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 요구 사항을 제거 합니다. 새 릴리스부터는 암호화 사용 단계에서 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용 하 여 Azure AD 응용 프로그램 매개 변수 없이 모든 새 Vm을 암호화 해야 합니다. 새 릴리스를 사용 하 여 VM 디스크 암호화를 사용 하도록 설정 하는 지침을 보려면 [Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요. 이미 Azure AD 응용 프로그램 매개 변수를 사용 하 여 암호화 된 Vm은 계속 지원 되며 AAD 구문을 사용 하 여 계속 유지 되어야 합니다.**
 
-Azure Disk Encryption는 Azure Key Vault를 사용 하 여 디스크 암호화 키와 암호를 제어 하 고 관리 합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
+Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화 키와 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
 
 Azure AD (이전 릴리스)에서 Azure Disk Encryption와 함께 사용할 주요 자격 증명 모음을 만들고 구성 하는 단계는 다음 세 단계로 구성 됩니다.
 
@@ -28,12 +27,12 @@ Azure AD (이전 릴리스)에서 Azure Disk Encryption와 함께 사용할 주�
 3. Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책을 설정합니다.
 4. 키 자격 증명 모음에 대한 고급 액세스 정책을 설정합니다.
  
-KEK (키 암호화 키)를 생성 하거나 가져올 수도 있습니다.
+원할 경우 KEK(키 암호화 키)를 생성하거나 가져올 수도 있습니다.
 
 [도구를 설치 하 고 Azure에 연결](disk-encryption-key-vault.md#install-tools-and-connect-to-azure)하는 방법에 대 한 단계는 기본 [Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md) 문서를 참조 하세요.
 
 > [!Note]
-> 이 문서의 단계는 [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started) 및 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)에서 자동화 됩니다.
+> 이 문서의 단계는 [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started) 및 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)에서 자동화됩니다.
 
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
@@ -123,10 +122,10 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 ### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a><a name="bkmk_ADappRM"></a> Azure Portal을 통해 Azure AD 응용 프로그램 및 서비스 주체 설정
 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 문서의 단계를 사용하여 Azure AD 애플리케이션을 만듭니다. 아래에 나열된 각 단계는 수행할 문서 섹션으로 바로 이동합니다. 
 
-1. [필요한 권한 확인](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
-2. [Azure Active Directory 응용 프로그램 만들기](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [필요한 권한 확인](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
+2. [Azure Active Directory 응용 프로그램 만들기](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 
      - 애플리케이션을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
-3. [애플리케이션 ID 및 인증 키 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 
+3. [애플리케이션 ID 및 인증 키 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 
      - 인증 키는 클라이언트 암호 이며 AzVMDiskEncryptionExtension의 AadClientSecret로 사용 됩니다. 
         - 인증 키는 애플리케이션에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
      - 응용 프로그램 ID는 나중에 AzVMDiskEncryptionExtension에 대 한 AadClientId 및 ServicePrincipalName (AzKeyVaultAccessPolicy의 경우)로 사용 됩니다. 

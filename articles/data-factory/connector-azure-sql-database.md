@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: db55e685fb50c89eb850e1b9ee9dcf13d20fb614
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: 6a71cc080c28cfa6e54de5b942ad1d8ce5b496d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513957"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Database 데이터 복사 및 변환
 
-> [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
-> * [버전 1](v1/data-factory-azure-sql-connector.md)
-> * [현재 버전](connector-azure-sql-database.md)
+> [!div class="op_single_selector" title1="사용 중인 Azure Data Factory 버전을 선택하세요."]
+>
+> - [버전 1](v1/data-factory-azure-sql-connector.md)
+> - [현재 버전](connector-azure-sql-database.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -32,8 +32,8 @@ ms.locfileid: "81417532"
 
 이 Azure SQL Database 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 행렬](copy-activity-overview.md) 테이블이 포함 된 [복사 작업](copy-activity-overview.md)
-- [데이터 흐름 매핑](concepts-data-flow-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md) 테이블을 사용하여 [복사 작업](copy-activity-overview.md)
+- [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 
@@ -41,14 +41,14 @@ ms.locfileid: "81417532"
 
 - SQL 인증 Azure Active Directory 및 azure AD (azure AD) 응용 프로그램 토큰 인증을 사용 하 여 Azure 리소스에 대 한 서비스 주체 또는 관리 id로 데이터를 복사 합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용 하 여 데이터를 검색 합니다.
-- 싱크로 서 대상 테이블에 데이터를 추가 하거나 복사 하는 동안 사용자 지정 논리를 사용 하 여 저장 프로시저를 호출 합니다.
+- 싱크로 서 원본 스키마에 따라 존재 하지 않는 경우 대상 테이블을 자동으로 만듭니다. 테이블에 데이터를 추가 하거나 복사 하는 동안 사용자 지정 논리를 사용 하 여 저장 프로시저를 호출 합니다.
 
 >[!NOTE]
->지금은이 커넥터에서 Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) 지원 되지 않습니다. 이 문제를 해결 하려면 자체 호스팅 통합 런타임을 통해 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. ODBC 드라이버 다운로드 및 연결 문자열 구성에서 [이 지침](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) 을 따르세요.
+> 지금은이 커넥터에서 Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) 지원 되지 않습니다. 이 문제를 해결 하려면 자체 호스팅 통합 런타임을 통해 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. Always Encrypted 섹션을 [사용 하 여](#using-always-encrypted) 자세히 알아보세요. 
 
 > [!IMPORTANT]
-> Azure Data Factory integration runtime을 사용 하 여 데이터를 복사 하는 경우 azure 서비스에서 서버에 액세스할 수 있도록 [azure SQL Server 방화벽](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 을 구성 합니다.
-> 자체 호스팅 통합 런타임을 사용 하 여 데이터를 복사 하는 경우 적절 한 IP 범위를 허용 하도록 Azure SQL Server 방화벽을 구성 합니다. 이 범위에는 Azure SQL Database 연결 하는 데 사용 되는 컴퓨터의 IP가 포함 됩니다.
+> Azure integration runtime을 사용 하 여 데이터를 복사 하는 경우 Azure 서비스에서 서버에 액세스할 수 있도록 [서버 수준 방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 을 구성 합니다.
+> 자체 호스팅 통합 런타임을 사용 하 여 데이터를 복사 하는 경우 적절 한 IP 범위를 허용 하도록 방화벽을 구성 합니다. 이 범위에는 Azure SQL Database 연결 하는 데 사용 되는 컴퓨터의 IP가 포함 됩니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -60,23 +60,23 @@ ms.locfileid: "81417532"
 
 Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
-| connectionString | **ConnectionString** 속성에 대 한 Azure SQL Database 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectionString | **ConnectionString** 속성에 대 한 Azure SQL Database 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증 인 경우 `password` 연결 문자열에서 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
-| tenant | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가면 검색 합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
-| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure integration runtime 또는 자체 호스팅 integration runtime을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. | 아니요 |
+| tenant | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
+| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. | 예 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
 - [SQL 인증](#sql-authentication)
-- [Azure AD 애플리케이션 토큰 인증: 서비스 주체](#service-principal-authentication)
-- [Azure AD 애플리케이션 토큰 인증: Azure 리소스용 관리 ID](#managed-identity)
+- [Azure AD 응용 프로그램 토큰 인증: 서비스 주체](#service-principal-authentication)
+- [Azure AD 응용 프로그램 토큰 인증: Azure 리소스에 대 한 관리 되는 id](#managed-identity)
 
 >[!TIP]
->오류 코드 "UserErrorFailedToConnectToSqlServer"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 한도는 XXX 이며이에 도달 했습니다." 라는 메시지가 표시 되 `Pooling=false` 면 연결 문자열에를 추가 하 고 다시 시도 합니다.
+>오류 코드 "UserErrorFailedToConnectToSqlServer"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 한도는 XXX 이며이에 도달 했습니다." 라는 메시지가 표시 되 면 `Pooling=false` 연결 문자열에를 추가 하 고 다시 시도 합니다.
 
 ### <a name="sql-authentication"></a>SQL 인증
 
@@ -98,7 +98,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 }
 ```
 
-**Azure Key Vault의 암호** 
+**Azure Key Vault의 암호**
 
 ```json
 {
@@ -107,13 +107,13 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
         "type": "AzureSqlDatabase",
         "typeProperties": {
             "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -128,15 +128,15 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 [Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 [Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) . 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
     - 애플리케이션 UI
     - 애플리케이션 키
     - 테넌트 ID
 
-2. 아직 수행 하지 않은 경우 Azure Portal에서 Azure SQL Server에 대 한 [Azure Active Directory 관리자를 프로 비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 Azure AD ID를 사용하여 서비스 주체에 대한 포함된 데이터베이스 사용자를 만들 수 있습니다.
+2. 아직 수행 하지 않은 경우 Azure Portal에서 서버에 대 한 [Azure Active Directory 관리자를 프로 비전](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database) 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 Azure AD ID를 사용하여 서비스 주체에 대한 포함된 데이터베이스 사용자를 만들 수 있습니다.
 
-3. 서비스 주체에 대한 [포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities). ALTER ANY USER 권한이 있는 Azure AD id를 사용 하 여 SQL Server Management Studio와 같은 도구를 사용 하 여 데이터를 복사 하려는 또는의 데이터베이스에 연결 합니다. 다음 T-SQL을 실행합니다. 
+3. 서비스 주체에 대한 [포함된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) . ALTER ANY USER 권한이 있는 Azure AD id를 사용 하 여 SQL Server Management Studio와 같은 도구를 사용 하 여 데이터를 복사 하려는 또는의 데이터베이스에 연결 합니다. 다음 T-SQL을 실행합니다.
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -149,7 +149,6 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
     ```
 
 5. Azure Data Factory에서 Azure SQL Database 연결된 서비스를 구성합니다.
-
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>서비스 주체 인증을 사용하는 연결된 서비스 예제
 
@@ -175,15 +174,15 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증에 대 한 관리 되는 id
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에이 관리 되는 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스에 액세스하고 해당 데이터베이스에 대해 데이터를 복사할 수 있습니다.
 
 관리 id 인증을 사용 하려면 다음 단계를 수행 합니다.
 
-1. 아직 수행 하지 않은 경우 Azure Portal에서 Azure SQL Server에 대 한 [Azure Active Directory 관리자를 프로 비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) 합니다. Azure ad 관리자는 Azure ad 사용자 또는 Azure AD 그룹 일 수 있습니다. 관리 ID를 가진 그룹에 관리자 역할을 부여하는 경우 3단계 및 4단계를 건너뛰세요. 관리자는 데이터베이스에 대 한 모든 권한을 가집니다.
+1. 아직 수행 하지 않은 경우 Azure Portal에서 서버에 대 한 [Azure Active Directory 관리자를 프로 비전](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database) 합니다. Azure ad 관리자는 Azure ad 사용자 또는 Azure AD 그룹 일 수 있습니다. 관리 ID를 가진 그룹에 관리자 역할을 부여하는 경우 3단계 및 4단계를 건너뛰세요. 관리자는 데이터베이스에 대 한 모든 권한을 가집니다.
 
-2. 관리 되는 Azure Data Factory id에 대 한 [포함 된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) . ALTER ANY USER 권한이 있는 Azure AD id를 사용 하 여 SQL Server Management Studio와 같은 도구를 사용 하 여 데이터를 복사 하려는 또는의 데이터베이스에 연결 합니다. 다음 T-SQL을 실행합니다. 
+2. 관리 되는 Azure Data Factory id에 대 한 [포함 된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) . ALTER ANY USER 권한이 있는 Azure AD id를 사용 하 여 SQL Server Management Studio와 같은 도구를 사용 하 여 데이터를 복사 하려는 또는의 데이터베이스에 연결 합니다. 다음 T-SQL을 실행합니다.
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -217,18 +216,18 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)을 참조 하세요. 
+데이터 집합을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)을 참조 하세요.
 
 Azure SQL Database 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| tableName | 스키마가 포함된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 경우 `schema` 및 `table`을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
-#### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
+### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
 ```json
 {
@@ -257,13 +256,13 @@ Azure SQL Database 데이터 집합에 대해 지원 되는 속성은 다음과 
 
 Azure SQL Database에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **AzureSqlSource**로 설정 해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원 됩니다. | 예 |
 | SqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. | 아니요 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니요 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자 구분은 저장 프로시저 매개 변수의 이름 및 대/소문자와 일치 해야 합니다. | 아니요 |
-| isolationLevel | SQL 원본에 대 한 트랜잭션 잠금 동작을 지정 합니다. 허용 되는 값은 **ReadCommitted** (기본값), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**입니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) 를 참조 하세요. | 아니요 |
+| isolationLevel | SQL 원본에 대한 트랜잭션 잠금 동작을 지정합니다. 허용된 값은 다음과 같습니다. **ReadCommitted**(기본값), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel)를 참조하세요. | 아니요 |
 
 **주의할 사항:**
 
@@ -364,18 +363,18 @@ GO
 
 Azure SQL Database에 데이터를 복사 하려면 복사 작업 **싱크** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **AzureSqlSink**로 설정 해야 합니다. "SqlSink" 형식은 이전 버전과의 호환성을 위해 계속 지원 됩니다. | 예 |
-| writeBatchSize | *일괄*처리당 SQL 테이블에 삽입할 행 수입니다.<br/> 허용되는 값은 **정수**(행 수)입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아니요 |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용 되는 값은 **timespan**입니다. 예를 들면 "00:30:00" (30 분)입니다. | 아니요 |
 | preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요 |
-| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행 되 고 원본 데이터 (예: 삭제 또는 자르기)와 관련이 없는 작업의 경우 `preCopyScript` 속성을 사용 합니다. | 아니요 |
+| tableOption | 원본 스키마에 따라 존재하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정합니다. <br>싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. <br>허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. | 예 |
+| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행 되 고 원본 데이터 (예: 삭제 또는 자르기)와 관련이 없는 작업의 경우 속성을 사용 `preCopyScript` 합니다.<br>[SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)의 예를 참조 하세요. | 아니요 |
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정 된 테이블 형식의 매개 변수 이름입니다.  |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요 |
-| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값 `none` 은 (기본값) `autoCreate`,입니다. |아니요 |
-| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure SQL Database Dtu와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있으면를 지정 `true` 하 여 해제 합니다. | 아니요(기본값: `false`) |
+| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예 |
+| writeBatchSize | *일괄*처리당 SQL 테이블에 삽입할 행 수입니다.<br/> 허용되는 값은 **정수**(행 수)입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아니요 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예를 들면 "00:30:00" (30 분)입니다. | 예 |
+| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure SQL Database Dtu와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
 
 **예제 1: 데이터 추가**
 
@@ -402,8 +401,8 @@ Azure SQL Database에 데이터를 복사 하려면 복사 작업 **싱크** 섹
             },
             "sink": {
                 "type": "AzureSqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -467,12 +466,11 @@ Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대 한 해�
 
 ### <a name="upsert-data"></a>데이터 Upsert
 
-**옵션 1:** 복사할 데이터 양이 많은 경우 다음 방법을 사용 하 여 upsert를 수행 합니다. 
+**옵션 1:** 많은 양의 데이터를 복사 하는 경우 복사 작업을 사용 하 여 준비 테이블에 모든 레코드를 대량 로드 한 다음 저장 프로시저 작업을 실행 하 여 하나의 샷에 [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 또는 INSERT/UPDATE 문을 적용할 수 있습니다. 
 
-- 먼저 [데이터베이스 범위 임시 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) 을 사용 하 여 복사 작업을 통해 모든 레코드를 대량 로드 합니다. 데이터베이스 범위 임시 테이블에 대 한 작업은 기록 되지 않으므로 몇 초만에 수백만 개의 레코드를 로드할 수 있습니다.
-- Azure Data Factory에서 저장 프로시저 작업을 실행 하 여 [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 또는 INSERT/UPDATE 문을 적용 합니다. 임시 테이블을 원본으로 사용 하 여 모든 업데이트나 삽입을 단일 트랜잭션으로 수행 합니다. 이러한 방식으로 라운드트립 및 로그 작업의 수가 줄어듭니다. 저장 프로시저 작업의 끝에서 임시 테이블은 다음 upsert 주기에 대해 준비 되도록 잘릴 수 있습니다.
+현재 복사 작업은 데이터를 데이터베이스 임시 테이블로 로드 하는 것을 기본적으로 지원 하지 않습니다. 여러 작업의 조합을 사용 하 여이를 설정 하는 고급 방법이 있습니다. [Azure SQL Database 대량 Upsert 최적화 시나리오](https://github.com/scoriani/azuresqlbulkupsert)를 참조 하세요. 다음은 영구 테이블을 준비로 사용 하는 샘플을 보여 줍니다.
 
-예를 들어 Azure Data Factory에서 **저장 프로시저 작업과**연결 된 **복사 작업** 을 사용 하 여 파이프라인을 만들 수 있습니다. 이전에는 데이터 집합의 테이블 이름으로 원본 저장소에서 Azure SQL Database 임시 테이블로 데이터를 복사 합니다 (예: **# #UpsertTempTable**). 그런 다음 후자는 저장 프로시저를 호출 하 여 임시 테이블의 원본 데이터를 대상 테이블에 병합 하 고 임시 테이블을 정리 합니다.
+예를 들어 Azure Data Factory에서 **저장 프로시저 작업과**연결 된 **복사 작업** 을 사용 하 여 파이프라인을 만들 수 있습니다. 이전에는 데이터 집합의 테이블 이름으로 원본 저장소에서 Azure SQL Database 준비 테이블 (예: **UpsertStagingTable**)로 데이터를 복사 합니다. 그런 다음 후자는 저장 프로시저를 호출 하 여 준비 테이블의 원본 데이터를 대상 테이블로 병합 하 고 준비 테이블을 정리 합니다.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -482,20 +480,21 @@ Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대 한 해�
 CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
-    MERGE TargetTable AS target
-    USING ##UpsertTempTable AS source
-    ON (target.[ProfileID] = source.[ProfileID])
-    WHEN MATCHED THEN
-        UPDATE SET State = source.State
+   MERGE TargetTable AS target
+   USING UpsertStagingTable AS source
+   ON (target.[ProfileID] = source.[ProfileID])
+   WHEN MATCHED THEN
+      UPDATE SET State = source.State
     WHEN NOT matched THEN
-        INSERT ([ProfileID], [State], [Category])
+       INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
-    
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**옵션 2:** 또한 [복사 작업 내에서 저장 프로시저를 호출](#invoke-a-stored-procedure-from-a-sql-sink)하도록 선택할 수 있습니다. 이 방법은 복사 작업에서 기본 방법으로 bulk insert `writeBatchSize` 를 사용 하는 대신 원본 테이블에서 각 일괄 처리 (속성에 의해 제어 됨)를 실행 합니다.
+**옵션 2:** [복사 작업 내에서 저장 프로시저를 호출](#invoke-a-stored-procedure-from-a-sql-sink)하도록 선택할 수 있습니다. 이 방법은 `writeBatchSize` 복사 작업에서 기본 방법으로 bulk insert를 사용 하는 대신 원본 테이블에서 각 일괄 처리 (속성에 의해 제어 됨)를 실행 합니다.
+
+**옵션 3:** 기본 제공 insert/upsert/update 메서드를 제공 하는 [매핑 데이터 흐름](#sink-transformation) 을 사용할 수 있습니다.
 
 ### <a name="overwrite-the-entire-table"></a>전체 테이블 덮어쓰기
 
@@ -503,10 +502,7 @@ END
 
 ### <a name="write-data-with-custom-logic"></a>사용자 지정 논리를 사용 하 여 데이터 작성
 
-사용자 지정 논리를 사용 하 여 데이터를 작성 하는 단계는 [Upsert data](#upsert-data) 섹션에 설명 된 것과 비슷합니다. 대상 테이블에 원본 데이터를 최종 삽입 하기 전에 추가 처리를 적용 해야 하는 경우 대규모 확장의 경우 다음 두 가지 중 하나를 수행할 수 있습니다.
-
-- 데이터베이스 범위 임시 테이블에 로드 한 다음 저장 프로시저를 호출 합니다. 
-- 복사 하는 동안 저장 프로시저를 호출 합니다.
+사용자 지정 논리를 사용 하 여 데이터를 작성 하는 단계는 [Upsert data](#upsert-data) 섹션에 설명 된 것과 비슷합니다. 원본 데이터를 마지막으로 대상 테이블에 삽입 하기 전에 추가 처리를 적용 해야 하는 경우 준비 테이블에 로드 한 다음 저장 프로시저 작업을 호출 하거나 복사 작업 싱크에서 저장 프로시저를 호출 하 여 데이터를 적용 하거나 데이터 흐름 매핑을 사용할 수 있습니다.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> SQL 싱크에서 저장 프로시저 호출
 
@@ -559,28 +555,29 @@ Azure SQL Database에 데이터를 복사 하는 경우 원본 테이블의 각 
     }
     ```
 
-## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure SQL Database에서 테이블을 읽고 쓸 수 있습니다. 자세한 내용은 데이터 흐름 매핑에서 [원본 변환](data-flow-source.md) 및 [싱크 변환을](data-flow-sink.md) 참조 하세요.
+매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure SQL Database에서 테이블을 읽고 쓸 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요.
 
 ### <a name="source-transformation"></a>원본 변환
 
-Azure SQL Database 관련 된 설정은 원본 변환의 **원본 옵션** 탭에서 사용할 수 있습니다. 
+Azure SQL Database 관련 된 설정은 원본 변환의 **원본 옵션** 탭에서 사용할 수 있습니다.
 
-**입력:** 소스를 테이블에 표시할지 (에 ```Select * from <table-name>```해당 하는) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
+**입력:** 원본을 테이블에 표시할지 선택하거나(```Select * from <table-name>```와 동일) 사용자 지정 SQL 쿼리를 입력합니다.
 
-**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법 이기도 합니다. 
+**쿼리**: 입력 필드에서 쿼리를 선택하는 경우에는 원본에 대한 SQL 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. **Order By** 절은 여기서 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 테이블을 반환하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성합니다. 쿼리를 사용하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법이기도 합니다.
 
-* SQL 예제:```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- SQL 예제: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**일괄 처리 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
+**일괄 처리 크기**: 일괄 처리 크기를 입력하여 대량 데이터를 읽기로 청크합니다.
 
 **격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
-* 커밋된 읽기
-* 커밋되지 않은 읽기
-* 반복 가능한 읽기
-* 직렬화 가능
-* 없음 (격리 수준 무시)
+
+- 커밋된 읽기
+- 커밋되지 않은 읽기
+- 반복 가능한 읽기
+- 직렬화 가능
+- 없음(격리 수준 무시)
 
 ![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
 
@@ -588,20 +585,21 @@ Azure SQL Database 관련 된 설정은 원본 변환의 **원본 옵션** 탭�
 
 Azure SQL Database 관련 된 설정은 싱크 변환의 **설정** 탭에서 사용할 수 있습니다.
 
-**업데이트 방법:** 데이터베이스 대상에서 허용 되는 작업을 결정 합니다. 기본값은 삽입만 허용 하는 것입니다. 행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 행을 변경 해야 합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정 하기 위해 키 열을 설정 해야 합니다.
+**업데이트 메서드:** 데이터베이스 대상에서 허용되는 작업을 결정합니다. 기본값은 삽입만 허용하는 것입니다. 행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 행 변경 변환이 필요합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.
 
 ![키 열](media/data-flow/keycolumn.png "키 열")
 
 여기에서 키로 선택한 열 이름은 ADF에서 후속 업데이트, upsert, delete의 일부로 사용 됩니다. 따라서 싱크 매핑에 있는 열을 선택 해야 합니다. 이 키 열에 값을 쓰지 않으려면 "키 열 쓰기 생략"을 클릭 합니다.
 
-**테이블 작업:** 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.
-* 없음: 테이블에 대 한 작업이 수행 되지 않습니다.
-* 다시 만들기: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요 합니다.
-* Truncate: 대상 테이블의 모든 행이 제거 됩니다.
+**테이블 작업:** 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.
 
-**일괄 처리 크기**: 각 버킷에 작성 되는 행 수를 제어 합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상 되지만 데이터를 캐시할 때 메모리 예외가 발생할 위험이 있습니다.
+- 없음: 테이블에 대한 작업이 수행되지 않습니다.
+- 다시 만들기: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.
+- 자르기: 대상 테이블의 모든 행이 제거됩니다.
 
-**사전 및 사후 sql 스크립트**: 데이터를 싱크 데이터베이스에 기록 하기 전 (전처리) 및 이후 (사후 처리) 데이터를 실행 하는 여러 줄의 sql 스크립트를 입력 합니다.
+**일괄 처리 크기**: 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
+
+**사전 및 사후 SQL 스크립트**: 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 입력합니다.
 
 ![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
 
@@ -645,15 +643,45 @@ Azure SQL Database 관련 된 설정은 싱크 변환의 **설정** 탭에서 �
 | Xml |xml |
 
 >[!NOTE]
-> 10진수 중간 형식으로 매핑되는 데이터 형식의 경우 Azure Data Factory는 현재 최대 28자리의 데이터를 지원합니다. 전체 자릿수가 28 보다 큰 데이터를 사용 하는 경우 SQL 쿼리에서 문자열로 변환 하는 것이 좋습니다.
+> Decimal 중간 형식에 매핑되는 데이터 형식의 경우 현재 복사 작업은 최대 28 까지의 전체 자릿수를 지원 합니다. 전체 자릿수가 28 보다 큰 데이터를 사용 하는 경우 SQL 쿼리에서 문자열로 변환 하는 것이 좋습니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
-## <a name="getmetadata-activity-properties"></a>GetMetadata 활동 속성
+## <a name="getmetadata-activity-properties"></a>GetMetadata 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [GetMetadata 활동](control-flow-get-metadata-activity.md) 을 확인 하세요. 
+속성에 대한 자세한 내용을 보려면 [GetMetadata 작업](control-flow-get-metadata-activity.md)을 확인하세요.
+
+## <a name="using-always-encrypted"></a>Always Encrypted 사용
+
+[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)를 사용 하 여 Azure SQL Database 간에 데이터를 복사 하는 경우 [일반 odbc 커넥터](connector-odbc.md) 를 사용 하 고 자체 호스팅 Integration Runtime를 통해 odbc 드라이버를 SQL Server 합니다. 이 Azure SQL Database 커넥터는 지금 Always Encrypted를 지원 하지 않습니다. 
+
+더 구체적으로 살펴보면 다음과 같습니다.
+
+1. 자체 호스팅 Integration Runtime (없는 경우)를 설정 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
+
+2. [여기](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current)에서 SQL Server에 대 한 64 비트 ODBC 드라이버를 다운로드 하 여 Integration Runtime 컴퓨터에 설치 합니다. 이 드라이버를 사용 하는 방법에 대 한 자세한 내용은 [ODBC driver for SQL Server를 사용](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current#using-the-azure-key-vault-provider)하 여 Always Encrypted.
+
+3. ODBC 유형을 사용 하 여 연결 된 서비스를 만들어 SQL database에 연결 하려면 다음 샘플을 참조 하세요.
+
+    - **SQL 인증**을 사용 하려면 아래와 같이 ODBC 연결 문자열을 지정 하 고 **기본** 인증을 선택 하 여 사용자 이름과 암호를 설정 합니다.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+        ```
+
+    - **Data Factory 관리 id 인증**을 사용 하려면: 
+
+        1. 동일한 [필수 구성 요소](#managed-identity) 에 따라 관리 되는 id에 대 한 데이터베이스 사용자를 만들고 데이터베이스에 적절 한 역할을 부여 합니다.
+        2. 연결 된 서비스에서 아래와 같이 ODBC 연결 문자열을 지정 하 고, 연결 문자열 자체가 나타내는 **익명** 인증을 선택 합니다 `Authentication=ActiveDirectoryMsi` .
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
+        ```
+
+4. 그에 따라 ODBC 형식으로 데이터 집합 및 복사 작업을 만듭니다. 자세한 내용은 [ODBC connector](connector-odbc.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조 하세요.

@@ -1,27 +1,13 @@
 ---
 title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
 description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
-keywords: ''
-documentationcenter: ''
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: seodec18
-ms.date: 04/28/2020
-ms.author: shvija
-ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322459"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 

@@ -7,16 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921840"
 ---
 # <a name="choose-the-right-consistency-level"></a>올바른 일관성 수준 선택 
 
-고가용성, 낮은 대기 시간 또는 둘 다에 대한 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간 및 처리량 간의 기본적인 절충을 수행합니다. 가장 상업적으로 사용할 수 있는 분산 된 데이터베이스는 개발자에 게 *강력한* 일관성과 *최종* 일관성 모델 중에서 선택할 수 있도록 합니다. Azure Cosmos DB를 통해 개발자는 *강력*, *제한 된 부실*, *세션*, *일관 된 접두사* 및 *최종*의 5 가지 잘 정의 된 일관성 모델 중에서 선택할 수 있습니다. 이러한 각 일관성 모델은 잘 정의되었으며, 직관적이고, 특정 실제 시나리오에 사용할 수 있습니다. 5 개의 일관성 모델은 각각 정확한 [가용성과 성능 장단점](consistency-levels-tradeoffs.md) 을 제공 하며 포괄적인 sla를 통해 지원 됩니다. 다음 간단한 고려 사항은 여러 가지 일반적인 시나리오에서 올바른 선택을 하는 데 도움이 됩니다.
+고가용성, 낮은 대기 시간 또는 둘 다에 대한 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간 및 처리량 간의 기본적인 절충을 수행합니다. 가장 상업적으로 사용할 수 있는 분산 된 데이터베이스는 개발자에 게 *강력한* 일관성과 *최종* 일관성 모델 중에서 선택할 수 있도록 합니다. Azure Cosmos DB를 통해 개발자는 *강력*, *제한 된 부실*, *세션*, *일관 된 접두사* 및 *최종*의 5 가지 잘 정의 된 일관성 모델 중에서 선택할 수 있습니다. 이러한 각 일관성 모델은 잘 정의되었으며, 직관적이고, 특정 실제 시나리오에 사용할 수 있습니다. 5 개의 일관성 모델은 각각 정확한 [가용성과 성능 장단점](consistency-levels-tradeoffs.md) 을 제공 하며 포괄적인 sla를 통해 지원 됩니다. 계정 수준에서 기본 일관성을 구성 하 고 [요청 수준에서 재정의할](how-to-manage-consistency.md#override-the-default-consistency-level)수 있습니다. 다음 간단한 고려 사항은 여러 가지 일반적인 시나리오에서 올바른 선택을 하는 데 도움이 됩니다.
 
 ## <a name="sql-api-and-table-api"></a>SQL API 또는 Table API
 

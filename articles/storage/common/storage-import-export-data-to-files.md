@@ -4,16 +4,15 @@ description: Azure Portal에서 가져오기 작업을 만들어 Azure Files로 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513488"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -21,7 +20,7 @@ ms.locfileid: "79268302"
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
@@ -29,8 +28,8 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. `C:\WaImportExport`)을 입력합니다.
-- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에 `adbops@microsoft.com`는 Azure Data Box 운영 팀에 문의 하세요.  
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`.
+- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
     - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.

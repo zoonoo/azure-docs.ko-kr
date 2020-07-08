@@ -12,10 +12,9 @@ ms.date: 12/18/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 295891afbb0136e0b05bcd49f4045e0e8bcff6e5
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763043"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>보안 하이브리드 액세스: 앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호

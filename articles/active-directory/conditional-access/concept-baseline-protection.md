@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e5cc6bbe363e111f5c39147010d6a3d00cb45c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604610"
 ---
 # <a name="what-are-baseline-policies"></a>기준 정책 이란?
 
@@ -25,7 +24,7 @@ ms.locfileid: "75767571"
 사용자 지정 된 조건부 액세스 정책을 관리 하려면 Azure AD Premium 라이선스가 필요 합니다.
 
 > [!IMPORTANT]
-> 기준 정책은 더 이상 사용 되지 않습니다. 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) 을 참조 하세요.
+> 기준 정책은 더 이상 사용 되지 않습니다. 자세한 내용은 [Azure Active Directory의 새로운 기능에 대 한 보관](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults) 을 참조 하세요.
 
 ## <a name="baseline-policies"></a>기준 정책
 
@@ -59,7 +58,7 @@ ms.locfileid: "75767571"
 * 대금 청구 관리자
 * 사용자 관리자
 
-조직에서 스크립트 또는 코드에 이러한 계정을 사용 중인 경우 이를 [관리 ID](../managed-identities-azure-resources/overview.md)로 바꾸는 것이 좋습니다.
+조직에서 스크립트나 코드에 이러한 계정을 사용하는 경우 [관리 ID](../managed-identities-azure-resources/overview.md)로 대체하는 것이 좋습니다.
 
 ### <a name="end-user-protection-preview"></a>최종 사용자 보호 (미리 보기)
 
@@ -80,7 +79,7 @@ ms.locfileid: "75767571"
 
 ### <a name="require-mfa-for-service-management-preview"></a>서비스 관리를 위해 MFA 필요 (미리 보기)
 
-조직에서는 다양 한 Azure 서비스를 사용 하 고 다음과 같은 Azure Resource Manager 기반 도구에서 관리 합니다.
+조직에서는 다양한 Azure 서비스를 사용하고 다음과 같은 Azure Resource Manager 기반 도구에서 이러한 서비스를 관리합니다.
 
 * Azure portal
 * Azure PowerShell
@@ -95,5 +94,5 @@ ms.locfileid: "75767571"
 자세한 내용은 다음을 참조하세요.
 
 * [보안 기본값 사용](../fundamentals/concept-fundamentals-security-defaults.md)
-* [일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md)
+* [일반 조건부 액세스 정책](concept-conditional-access-policy-common.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)

@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712397"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
 
@@ -38,7 +37,7 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 
 Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Azure Access Control Service를 사용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Azure Active Directory와 Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
@@ -427,7 +426,7 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
     }
 ```
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

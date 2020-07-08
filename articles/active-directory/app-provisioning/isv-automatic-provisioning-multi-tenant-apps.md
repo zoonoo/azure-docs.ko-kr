@@ -2,21 +2,20 @@
 title: 다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용-Azure AD
 description: 자동화 된 프로 비전을 사용 하도록 설정 하는 독립 소프트웨어 공급 업체를 위한 가이드
 services: active-directory
-author: BarbaraSelden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/23/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 3713b7a191c5c7c90e0e76bde25d1b1b3bf3700b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781619"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 

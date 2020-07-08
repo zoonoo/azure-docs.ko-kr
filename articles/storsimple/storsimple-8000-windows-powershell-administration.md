@@ -3,15 +3,14 @@ title: StorSimple용 PowerShell 디바이스 관리
 description: StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스를 관리하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 35be2e0b7b5a24261cd8ee15b1964b953c1a3327
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c1976adba0159b54bd64b2c8830c3aaad9959912
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513709"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 

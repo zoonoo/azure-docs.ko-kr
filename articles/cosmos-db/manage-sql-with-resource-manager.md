@@ -3,15 +3,14 @@ title: Resource Manager 템플릿을 사용하여 Azure Cosmos DB 만들기 및 
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB for Core(SQL) API 만들기 및 구성
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: b24998cbfdc037a6ded58fd17801c340c5891073
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 2b4a572abec8007fe6f1c7e963be19d28c7b48d6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684803"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028166"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Core(SQL) API 리소스 관리
 
@@ -33,7 +32,7 @@ ms.locfileid: "83684803"
 
 이 템플릿은 일관성 및 장애 조치(failover) 옵션과 함께 대부분의 정책 옵션이 활성화된 자동 크기 조정 처리량에 대해 구성된 데이터베이스 및 컨테이너를 사용하여 두 지역에 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-autoscale/azuredeploy.json":::
 
@@ -43,7 +42,7 @@ ms.locfileid: "83684803"
 
 이 템플릿은 분석 TTL이 설정된 컨테이너와 수동 또는 자동 크기 조정 처리량에 대한 옵션을 사용하여 한 지역에 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-analytical-store%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-analytical-store%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-analytical-store/azuredeploy.json":::
 
@@ -53,7 +52,7 @@ ms.locfileid: "83684803"
 
 이 템플릿은 일관성 및 장애 조치(failover) 옵션과 함께 대부분의 정책 옵션이 활성화된 표준 처리량에 대해 구성된 데이터베이스 및 컨테이너를 사용하여 두 지역에 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -63,7 +62,7 @@ ms.locfileid: "83684803"
 
 이 템플릿은 저장 프로시저, 트리거 및 사용자 정의 함수를 사용하여 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
@@ -73,7 +72,7 @@ ms.locfileid: "83684803"
 
 이 템플릿은 최대 25개의 컨테이너와 공유할 수 있는 공유 처리량이 있는 데이터베이스와 체험 계층 Azure Cosmos 계정을 만듭니다. 이 템플릿은 Azure 빠른 시작 템플릿 갤러리에서 한 번 클릭으로 배포하는 경우에도 사용할 수 있습니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-free%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-free%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-free/azuredeploy.json":::
 

@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828103"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955457"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace에 대한 지원
 
@@ -43,10 +42,9 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 | 메일: [gtm@microsoft.com](mailto:gtm@microsoft.com) | GTM 혜택 및 프로그램 질문에 대한 지원입니다. | 태평양 표준 시간대의 근무 시간입니다. |  
 | 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |  
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* [상업용 Marketplace 게시자 가이드 페이지](https://docs.microsoft.com/azure/marketplace/)를 참조하세요.
-* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)에 대해 자세히 알아보세요.
+* [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
+* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](partner-center-portal/support.md)에 대해 자세히 알아보세요.
 
 ---

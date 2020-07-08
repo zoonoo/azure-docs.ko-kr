@@ -1,25 +1,19 @@
 ---
 title: Azure VM 크기 - 범용 | Microsoft Docs
 description: Azure의 가상 머신에 사용할 수 있는 다양한 범용 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
-services: virtual-machines
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: b5e597eebda6a730d301eefdbd2d7e6859f5a7cc
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9cce7adc6dbc9062dd133d690fbce92c3190fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783319"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -36,12 +30,13 @@ ms.locfileid: "84248314"
 
 - [DCv2 시리즈](dcv2-series.md)는 퍼블릭 클라우드에서 처리되는 동안 데이터 및 코드의 기밀성 및 무결성을 보호할 수 있습니다. 이러한 머신은 SGX 기술이 적용된 최신 세대의 Intel XEON E-2288G 프로세서로 지원됩니다. Intel Turbo Boost 기술을 사용하면 이 머신은 최대 5.0GHz까지 작동할 수 있습니다. DCv2 시리즈 인스턴스를 사용하면 고객은 사용 중인 고객의 코드와 데이터를 보호할 수 있는 보안 Enclave 기반 애플리케이션을 빌드할 수 있습니다.
 
-- 원래 D 시리즈의 후속인 [Dv2 및 Dsv2 시리즈](dv2-dsv2-series.md) VM은 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈는 Intel Turbo Boost Technology 2.0과 함께 Intel® Xeon® 8171M 2.1GHz(Skylake), Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+- 원래 D 시리즈의 후속인 [Dv2 및 Dsv2 시리즈](dv2-dsv2-series.md) VM은 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈 2.0는 차세대 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
-- [Dv3 및 Dsv3 시리즈](dv3-dsv3-series.md) VM은 하이퍼 스레드 구성의 Intel® Xeon® 8171M 2.1GHz(Skylake), Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행되므로 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로). Dv3 시리즈는 더 이상 D/Dv2 시리즈의 높은 메모리 VM 크기를 갖지 않으며, 메모리 최적화 [Ev3 및 Esv3 시리즈](ev3-esv3-series.md)로 이동되었습니다.
+- [Dv3 및 Dsv3 시리즈](dv3-dsv3-series.md) 두 번째 세대 Intel® Xeon® 플래티넘 827272CL (Cascade Lake)에서 실행 되는 Vm Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 하이퍼 스레드 구성의 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서를 제공 하므로 대부분의 범용 워크 로드에 대해 더 나은 가치를 제공 합니다. 하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로). Dv3 시리즈는 더 이상 D/Dv2 시리즈의 높은 메모리 VM 크기를 갖지 않으며, 메모리 최적화 [Ev3 및 Esv3 시리즈](ev3-esv3-series.md)로 이동되었습니다.
 
-- [Ddv4 및 Ddsv4 시리즈](ddv4-ddsv4-series.md) VM은 2세대 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되어 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 
+- [Dv4 및 Dsv4 시리즈](dv4-dsv4-series.md) Vm은 차세대 Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행 되며, 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. Dv4 및 Dsv4 Vm 시리즈는 원격 디스크를 사용 하 고 임시 로컬 저장소를 제공 하지 않는 가상 머신의 새로운 범주입니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 
 
+- [Ddv4 및 Ddsv4 시리즈](ddv4-ddsv4-series.md) Vm은 차세대 Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행 되며, 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. Ddv4 및 Ddsv4 Vm 시리즈는 로컬 데이터 임시 디스크를 포함 하는 새 범주의 가상 머신입니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 
 
 ## <a name="other-sizes"></a>기타 크기
 

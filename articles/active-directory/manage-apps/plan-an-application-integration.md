@@ -3,8 +3,8 @@ title: 앱과 Azure AD 통합 시작 | Microsoft Docs
 description: 이 문서는 온-프레미스 애플리케이션 및 클라우드 애플리케이션과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763094"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -96,6 +95,6 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 Azure Portal에서 배포 계획을 다운로드하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **엔터프라이즈 응용 프로그램** | 선택**앱** | **배포 계획**을 선택 합니다.
+2. **엔터프라이즈 응용 프로그램**선택  |  **앱**  |  **배포 계획**을 선택 합니다.
 
 [배포 계획 조사](https://aka.ms/DeploymentPlanFeedback)를 수행하여 배포 계획에 대한 피드백을 제공하세요.

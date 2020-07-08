@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712465"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기 백업 및 복원
 > [!div class="op_single_selector"]
@@ -45,7 +44,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 일시적으로 백업 일시 중단
 - 백업의 보존 관리(예정)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * 패브릭 버전 6.4 이상을 사용 하는 클러스터를 Service Fabric 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 응용 프로그램의 경우 응용 프로그램을 Service Fabric SDK 버전 3.1 이상으로 빌드해야 합니다.
@@ -56,7 +55,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* ServiceFabric 모듈을 사용 하 여 구성 요청 `Connect-SFCluster` 을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
+* `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
 ```powershell
 
@@ -68,7 +67,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
 
-사용 `Include backup restore service` 확인란의 아래 `+ Show optional settings` 에 `Cluster Configuration` 있는 확인란을 선택 합니다.
+사용 `Include backup restore service` 확인란의 아래 `+ Show optional settings` 에 있는 확인란을 선택 `Cluster Configuration` 합니다.
 
 ![포털을 사용 하 여 백업 복원 서비스 사용][1]
 
@@ -76,7 +75,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 먼저 클러스터에서 _Backup 및 Restore 서비스_를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) 사용 하거나 리소스 관리자 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_를 사용하도록 설정합니다.
 
-1. 리소스에 대해 `apiversion` 가로 **`2018-02-01`** 설정 되어 있는지 확인 하 고 그렇지 않은 경우 다음 코드 조각과 같이 업데이트 합니다. `Microsoft.ServiceFabric/clusters`
+1. `apiversion`리소스에 대해가로 설정 되어 있는지 확인 하 **`2018-02-01`** `Microsoft.ServiceFabric/clusters` 고 그렇지 않은 경우 다음 코드 조각과 같이 업데이트 합니다.
 
     ```json
     {

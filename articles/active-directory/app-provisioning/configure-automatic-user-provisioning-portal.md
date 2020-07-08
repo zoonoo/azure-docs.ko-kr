@@ -3,21 +3,20 @@ title: Azure AD에서 엔터프라이즈 앱에 대한 사용자 프로비저닝
 description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02f3198a9c3d35a0031fdd65ceefbb72b0f8bb31
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: HT
+ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781993"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 

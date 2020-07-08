@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641653"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954975"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용 
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.locfileid: "81641653"
 > [!NOTE]
 > RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다. TLS 1.2 요구 사항으로 인해 Wirecast 버전 13.0.2 이상을 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
@@ -102,7 +101,7 @@ ms.locfileid: "81641653"
 
     기본 설정의 이름을 지정하고 다음 권장 설정을 확인합니다.
 
-    **화면이**
+    **동영상**
 
    * 인코더: MainConcept H.264
    * 초당 프레임 수: 30
@@ -147,7 +146,7 @@ ms.locfileid: "81641653"
 
 AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생** 을 마우스로 가리키고 **with Azure Media Player**를 선택 합니다.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 

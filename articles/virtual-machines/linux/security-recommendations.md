@@ -11,10 +11,9 @@ ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
 ms.openlocfilehash: 8a0d43c4401fa3fd2bb8ba504e42edc6324675e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758522"
 ---
 # <a name="security-recommendations-for-linux-virtual-machines-in-azure"></a>Azure에서 Linux 가상 머신에 대 한 보안 권장 사항

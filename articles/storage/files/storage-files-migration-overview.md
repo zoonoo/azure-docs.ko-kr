@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660751"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -117,13 +116,13 @@ Microsoft 및 기타에서 사용할 수 있는 몇 가지 파일 복사 도구�
 
 | 권장 | 도구 | Azure 파일 공유에 대 한 지원 | 파일 충실도 유지 |
 | :-: | :-- | :---- | :---- |
-|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 지원됩니다. Azure 파일 공유는 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
+|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 지원됨. Azure 파일 공유는 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure 파일 동기화 | 기본적으로 Azure 파일 공유에 통합 됩니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| 스토리지 마이그레이션 서비스 | 간접적으로 지원 됩니다. Azure 파일 공유를 SMS 대상 서버에 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
-|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | 지원됩니다. | 메타 데이터를 복사 하지 않습니다. [Data Box은 Azure File Sync와 함께 사용할 수 있습니다](storage-sync-offline-data-transfer.md). |
-|![권장되지 않음](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | 지원됩니다. | 메타 데이터를 복사 하지 않습니다. |
-|![권장되지 않음](media/storage-files-migration-overview/circle-red-x.png)| Azure Storage Explorer | 지원됩니다. | 메타 데이터를 복사 하지 않습니다. |
-|![권장되지 않음](media/storage-files-migration-overview/circle-red-x.png)| Azure 데이터 팩터리 | 지원됩니다. | 메타 데이터를 복사 하지 않습니다. |
+|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, 버전 10.4 이상| 지원됨. | 완전 한 충실도 * |
+|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | 지원됨. | 메타 데이터를 복사 하지 않습니다. [Data Box은 Azure File Sync와 함께 사용할 수 있습니다](storage-sync-offline-data-transfer.md). |
+|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage 탐색기 버전 1.14 | 지원됨. | Acl을 복사 하지 않습니다. 타임 스탬프를 지원 합니다.  |
+|![권장하지 않음](media/storage-files-migration-overview/circle-red-x.png)| Azure 데이터 팩터리 | 지원됨. | 메타 데이터를 복사 하지 않습니다. |
 |||||
 
 *\*전체 충실도: Azure 파일 공유 기능을 충족 하거나 초과 합니다.*

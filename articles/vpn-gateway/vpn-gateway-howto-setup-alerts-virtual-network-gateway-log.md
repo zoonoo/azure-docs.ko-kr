@@ -4,15 +4,14 @@ description: VPN Gateway 진단 리소스 로그 이벤트에 대 한 경고를 
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3417d2b6e105626bceb992db088a4d0113aa798f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983090"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대 한 경고 설정
 
@@ -35,7 +34,7 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
 1. Azure Portal에서 **모든 서비스** 아래 **Log Analytics** 를 검색 하 고 **Log Analytics 작업 영역**을 선택 합니다.
 
-   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "만들기")
+   ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "생성")
 
 2. **Log Analytics** 페이지에서 **만들기** 를 선택 합니다.
 
@@ -45,7 +44,7 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
    ![Log Analytics 작업 영역을 만드는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "선택")
 
-4. **진단 설정** **모니터링** > 블레이드에서 VPN gateway를 찾습니다.
+4. **Monitor**  >  **진단 설정** 모니터링 블레이드에서 VPN gateway를 찾습니다.
 
    ![진단 설정에서 VPN gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "선택")
 

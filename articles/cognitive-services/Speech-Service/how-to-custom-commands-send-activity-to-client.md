@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308065"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027616"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>사용자 지정 명령 작업을 클라이언트 응용 프로그램으로 보내기
 
@@ -26,9 +25,9 @@ ms.locfileid: "85308065"
 - 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C # UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드에서는 Visual Studio 2019을 사용 합니다.
 > * 음성 서비스에 대 한 Azure 구독 키: [무료로 하나 얻기](get-started.md) 또는 [Azure Portal](https://portal.azure.com) 에 만들기
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 > * 음성 SDK 사용 클라이언트 앱: [방법: 음성 sdk를 사용 하 여 클라이언트 응용 프로그램과 통합](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +45,7 @@ ms.locfileid: "85308065"
      "device": "{SubjectDevice}"
    }
    ```
-1. **저장** 을 클릭 하 여 작업 보내기 작업으로 새 규칙을 만듭니다.
+1. **저장** 을 클릭 하 여 작업 보내기 작업으로 새 규칙을 만들고, **학습** 하 고, 변경 내용을 **게시** 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![작업 완료 규칙 보내기](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +54,12 @@ ms.locfileid: "85308065"
 
 [방법: 음성 sdk (미리 보기)를 사용 하 여 클라이언트 응용 프로그램을 설치](./how-to-custom-commands-setup-speech-sdk.md)하는 경우,와 같은 명령을 처리 하는 speech sdk를 사용 하 여 UWP 클라이언트 응용 프로그램을 만들었습니다 `turn on the tv` `turn off the fan` . 일부 시각적 개체를 추가 하면 해당 명령의 결과를 볼 수 있습니다.
 
-에 추가 된 다음 XML을 사용 하 여 텍스트를 **설정** 하거나 **해제** 하는 텍스트와 함께 레이블이 지정 된 상자를`MainPage.xaml`
+**설정** 또는 **해제**를 나타내는 텍스트가 있는 레이블이 지정 된 상자를 추가 하려면 StackPanel의 다음 XML 블록을에 추가 `MainPage.xaml` 합니다.
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +74,7 @@ ms.locfileid: "85308065"
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>참조 라이브러리 추가
@@ -79,15 +82,21 @@ ms.locfileid: "85308065"
 JSON 페이로드를 만들었으므로 [JSON.NET](https://www.newtonsoft.com/json) 라이브러리에 대 한 참조를 추가 하 여 deserialization을 처리 해야 합니다.
 
 1. 솔루션을 마우스 오른쪽 단추로 클라이언트 합니다.
-1. **솔루션용 NuGet 패키지 관리**를 선택 하 고 **설치** 를 선택 합니다. 
-1. 업데이트 목록에서 **Newtonsoft.js** 을 검색 하 고 microsoft.netcore.universalwindowsplatform를 최신 버전으로 업데이트 합니다 **.**
+1. **솔루션용 NuGet 패키지 관리**를 선택 하 고 **찾아보기** 를 선택 합니다. 
+1. **Newtonsoft.js**이미 설치 되어 있는 경우 버전은 12.0.3 이상 인지 확인 합니다. 그렇지 않은 경우 솔루션에 **대 한 NuGet 패키지 관리-업데이트**로 이동 하 여 **Newtonsoft.js에서** 업데이트를 검색 합니다. 이 가이드에서는 버전 12.0.3를 사용 합니다.
 
-> [!div class="mx-imgBorder"]
-> ![전송 작업 페이로드](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![전송 작업 페이로드](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. 또한 NuGet 패키지 **microsoft.netcore.universalwindowsplatform** 가 적어도 6.2.10 인지 확인 합니다. 이 가이드에서는 버전 6.2.10를 사용 합니다.
 
 ' MainPage ', 추가
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>받은 페이로드를 처리 합니다.
 

@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710459"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 연결 모델
 온-프레미스 네트워크와 Microsoft 클라우드 간 연결은 [CloudExchange 공동 배치](#CloudExchange), [지점 간 이더넷 연결](#Ethernet) 및 [임의(IPVPN) 연결](#IPVPN)이라는 세 가지 방법으로 만들 수 있습니다. 연결 공급자는 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.

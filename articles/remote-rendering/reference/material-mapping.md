@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783013"
 ---
 # <a name="material-mapping-for-model-formats"></a>모델 형식에 대한 재질 매핑
 
@@ -47,14 +46,13 @@ ms.locfileid: "80680389"
 
 ### <a name="embedded-textures"></a>포함 된 질감
 
-* \*Bin* 또는 * \*.bb* 파일에 포함 된 질감이 지원 됩니다.
+* \* Bin* 또는 * \* .bb* 파일에 포함 된 질감이 지원 됩니다.
 
 ### <a name="supported-gltf-extension"></a>지원 되는 인 글 Tf 확장
 
 또한 Azure 원격 렌더링은 기본 기능 집합에 대해 다음과 같은 기능을 지원 합니다.
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): [색 재질](../overview/features/color-materials.md)에 해당 합니다. *발광* 자료의 경우이 확장을 사용 하는 것이 좋습니다.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): 금속성 황삭 질감 대신 확산-반사-glossiness 질감을 제공할 수 있습니다. Azure 원격 렌더링 구현은 확장의 변환 수식 바로 뒤에 나옵니다.
 
@@ -102,15 +100,15 @@ FBX 재질은 확산-반사-SpecularLevel 개념을 사용 하므로 확산 질�
 아래에 사용 되는 일부 정의:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Red ∗ 0.2125 + `Specular`. 녹색 ∗ 0.7154 + `Specular`입니다. 파란색 ∗ 0.0721
-* `DiffuseBrightness`= 0.299 * `Diffuse`. Red<sup>2</sup> + 0.587 * `Diffuse`. 녹색<sup>2</sup> + 0.114 * `Diffuse`. 파랑<sup>2</sup>
-* `SpecularBrightness`= 0.299 * `Specular`. Red<sup>2</sup> + 0.587 * `Specular`. 녹색<sup>2</sup> + 0.114 * `Specular`. 파랑<sup>2</sup>
-* `SpecularStrength`= 최대 (`Specular`. 빨강, `Specular`. 녹색, `Specular`. 요소의
+* `SpecularIntensity` = `Specular`. Red ∗ 0.2125 + `Specular` . 녹색 ∗ 0.7154 + `Specular` 입니다. 파란색 ∗ 0.0721
+* `DiffuseBrightness`= 0.299 * `Diffuse` . Red<sup>2</sup> + 0.587 * `Diffuse` . 녹색<sup>2</sup> + 0.114 * `Diffuse` . 파랑<sup>2</sup>
+* `SpecularBrightness`= 0.299 * `Specular` . Red<sup>2</sup> + 0.587 * `Specular` . 녹색<sup>2</sup> + 0.114 * `Specular` . 파랑<sup>2</sup>
+* `SpecularStrength`= 최대 ( `Specular` . 빨강, `Specular` . 녹색, `Specular` . 요소의
 
 SpecularIntensity 수식은 [여기](https://en.wikipedia.org/wiki/Luma_(video))에서 가져옵니다.
 이 [사양](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf)에서는 밝기 수식을 설명 합니다.
 
-### <a name="roughness"></a>거친
+### <a name="roughness"></a>거칠기
 
 `Roughness`는 `Specular` `ShininessExponent` [이 수식을](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf)사용 하 여 계산 됩니다. 수식은 퐁 반사 지 수의 근사값을 대략적으로 계산 합니다.
 
@@ -120,7 +118,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 
 ### <a name="metalness"></a>Metalness
 
-`Metalness`는에서 `Diffuse` 계산 되 `Specular` 고,는이 수식을 사용 하 여이 [수식을](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js)사용 합니다.
+`Metalness`는에서 계산 되 `Diffuse` 고,는 `Specular` 이 수식을 사용 하 여이 [수식을](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js)사용 합니다.
 
 여기서는 Ax<sup>2</sup> + Bx + C = 0 이라는 방정식을 해결 합니다.
 기본적으로 dielectric 표면에는 반사 방식에서 빛의 약 4%가 반영 되 고 나머지는 확산 됩니다. 금속 표면에는 확산 방식에서 조명이 표시 되지 않지만 반사 방식에는 모든 것이 반영 됩니다.
@@ -139,10 +137,10 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`은, `Diffuse` `Specular`및 `Metalness`에서 계산 됩니다.
+`Albedo`은, 및에서 계산 됩니다 `Diffuse` `Specular` `Metalness` .
 
 Metalness 섹션에 설명 된 대로 dielectric 표면은 빛의 약 4%를 반영 합니다.  
-여기서의 개념은 값을 사용 하 `Dielectric` 여 `Metal` `Metalness` 및 색을 요소로 선형으로 보간 하는 것입니다. Metalness가 `0.0`이면 반사에 따라 짙은 색 (반사면이 높은 경우)이 되 고, 확산이 없는 경우 확산은 변경 되지 않습니다. Metalness이 클 경우 확산 색을 기준으로 확산 색이 사라집니다.
+여기서의 개념은 `Dielectric` `Metal` 값을 사용 하 여 및 색을 요소로 선형으로 보간 하는 것입니다 `Metalness` . Metalness가 이면 `0.0` 반사에 따라 짙은 색 (반사면이 높은 경우)이 되 고, 확산이 없는 경우 확산은 변경 되지 않습니다. Metalness이 클 경우 확산 색을 기준으로 확산 색이 사라집니다.
 
 ```Cpp
 dielectricSpecularReflectance = 0.04
@@ -156,22 +154,22 @@ AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 
 `AlbedoRGB`는 위의 수식으로 계산 되었지만 알파 채널에는 추가 계산이 필요 합니다. FBX 형식은 투명성에 대해 모호 하며이를 정의 하는 여러 가지 방법이 있습니다. 다른 콘텐츠 도구는 다양 한 방법을 사용 합니다. 여기서의 개념은 하나의 수식으로 통합 하는 것입니다. 일부 자산이 일반적인 방법으로 생성 되지 않은 경우 투명 하 게 표시 됩니다.
 
-이는, `TransparentColor` `TransparencyFactor`, `Opacity`에서 계산 됩니다.
+이는,,에서 계산 됩니다 `TransparentColor` `TransparencyFactor` `Opacity` .
 
-가 `Opacity` 정의 된 경우 직접 사용 합니다. `AlbedoAlpha`  =  `Opacity`  
-가 `TransparencyColor` 정의 된 경우 `AlbedoAlpha` = 1.0-((`TransparentColor`. Red + `TransparentColor` 녹색 + `TransparentColor` Blue)/3.0) else  
+`Opacity`가 정의 된 경우 직접 사용 합니다. `AlbedoAlpha`  =  `Opacity`  
+`TransparencyColor`가 정의 된 경우 `AlbedoAlpha` = 1.0-(( `TransparentColor` . Red + `TransparentColor` 녹색 + `TransparentColor` Blue)/3.0) else  
 이면 `TransparencyFactor` `AlbedoAlpha` = 1.0-입니다.`TransparencyFactor`
 
-최종 `Albedo` 색에는 `AlbedoRGB` 와를 결합 하는 4 개의 `AlbedoAlpha`채널이 있습니다.
+최종 색에는 `Albedo` 와를 결합 하는 4 개의 채널이 있습니다 `AlbedoRGB` `AlbedoAlpha` .
 
 ### <a name="summary"></a>요약
 
-여기서 `Albedo` 요약 하면가 0에 가까운 경우 `Diffuse` `Specular` 원래와 매우 가깝습니다. 그렇지 않으면 표면이 금속 표면 처럼 보이지만 확산 색이 사라집니다. 가 충분히 `ShininessExponent` `Specular` 크고 밝은 면 화면이 더 세련 되 고 반사 됩니다. 그렇지 않으면 표면이 대략적으로 표시 되 고 환경이 거의 반영 되지 않습니다.
+여기서 요약 하면 `Albedo` `Diffuse` `Specular` 가 0에 가까운 경우 원래와 매우 가깝습니다. 그렇지 않으면 표면이 금속 표면 처럼 보이지만 확산 색이 사라집니다. `ShininessExponent`가 충분히 크고 밝은 면 화면이 더 세련 되 고 반사 됩니다 `Specular` . 그렇지 않으면 표면이 대략적으로 표시 되 고 환경이 거의 반영 되지 않습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-* 현재 수식은 색이 지정 된 간단한 기 하 도형에는 제대로 작동 하지 않습니다. 이 `Specular` 충분 한 경우 모든 기 하 도형은 색 없이 금속성 표면을 반사 하 게 됩니다. 여기서 해결 방법은 원래 또는에서 `Specular` 30%로 낮추어 변환 설정 [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model)을 사용 하는 것입니다.
-* 최근에는 및 `Maya` `3DS Max` 콘텐츠 생성 도구에 추가 된 .pbr 자료입니다. 사용자 지정 사용자 정의 블랙 박스 속성을 사용 하 여 FBX에 전달 합니다. Azure 원격 렌더링은 문서화 되어 있지 않으며 형식이 닫혀 있기 때문에 이러한 추가 속성을 읽지 않습니다.
+* 현재 수식은 색이 지정 된 간단한 기 하 도형에는 제대로 작동 하지 않습니다. `Specular`이 충분 한 경우 모든 기 하 도형은 색 없이 금속성 표면을 반사 하 게 됩니다. 여기서 해결 방법은 `Specular` 원래 또는에서 30%로 낮추어 변환 설정 [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model)을 사용 하는 것입니다.
+* 최근에는 `Maya` 및 콘텐츠 생성 도구에 추가 된 .pbr 자료 `3DS Max` 입니다. 사용자 지정 사용자 정의 블랙 박스 속성을 사용 하 여 FBX에 전달 합니다. Azure 원격 렌더링은 문서화 되어 있지 않으며 형식이 닫혀 있기 때문에 이러한 추가 속성을 읽지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759294"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
@@ -70,8 +69,8 @@ RedHat 계획 할인은 구매할 때 선택한 VM 크기에만 적용 됩니다
 
 자세히 알아보려면 다음 아티클을 참조하세요.
 
-- [Azure Reservations 이란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Azure에서 예약 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Azure 예약이란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Azure에서 Reservations 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [SUSE 예약 할인이 적용되는 방식 이해](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

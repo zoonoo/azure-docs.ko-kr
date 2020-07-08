@@ -1,6 +1,6 @@
 ---
 title: 도메인 독립 작업 그룹 가용성 그룹 만들기
-description: Azure의 SQL Server 가상 머신에서 Active Directory 도메인 독립 작업 그룹 Always On 가용성 그룹을 구성하는 방법에 대해 알아봅니다.
+description: Azure의 SQL Server 가상 머신에서 Active Directory 도메인 독립적 작업 그룹 Always On 가용성 그룹을 구성 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037234"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955508"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,13 +45,13 @@ ms.locfileid: "84037234"
 | **작업 그룹 이름** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>DNS 접미사 설정 
+## <a name="set-a-dns-suffix"></a>DNS 접미사 설정 
 
 이 단계에서는 두 서버 모두에 대한 DNS 접미사를 구성합니다. 예들 들어 `ag.wgcluster.example.com`입니다. 그러면 연결하려는 개체의 이름을 네트워크 내의 정규화된 주소(예: `AGNode1.ag.wgcluster.example.com`)로 사용할 수 있습니다. 
 
 DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 
-1. 첫 번째 노드에 RDP를 연결하고 서버 관리자를 엽니다. 
+1. 첫 번째 노드에 RDP를 서버 관리자를 엽니다. 
 1. **로컬 서버**를 선택하고 **컴퓨터 이름**에서 가상 머신의 이름을 선택합니다. 
 1. **이 컴퓨터 이름을 바꾸려면...** 에서 **변경...** 을 선택합니다. 
 1. 작업 그룹 이름을 `AGWORKGROUP`과 같은 의미 있는 이름으로 변경합니다. 
@@ -71,13 +70,13 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 1. 지시에 따라 서버를 다시 부팅합니다. 
 1. 가용성 그룹에 사용할 다른 모든 노드에서 이 단계를 반복합니다. 
 
-## <a name="edit-host-file"></a>호스트 파일 편집
+## <a name="edit-a-host-file"></a>호스트 파일 편집
 
 활성 디렉터리가 없으므로 Windows 연결을 인증할 방법이 없습니다. 따라서 텍스트 편집기로 호스트 파일을 편집하여 신뢰를 할당하십시오. 
 
 호스트 파일을 편집하려면 다음 단계를 수행합니다.
 
-1. 가상 머신에 RDP를 연결합니다. 
+1. 의 RDP를 통해 가상 컴퓨터에 연결할 수 있습니다. 
 1. **파일 탐색기**를 사용하여 `c:\windows\system32\drivers\etc`로 이동합니다. 
 1. **호스트** 파일을 마우스 오른쪽 단추로 클릭하고 **메모장**이나 다른 텍스트 편집기로 파일을 엽니다.
 1. 파일 끝에 다음과 같이 `IP Address, DNS Suffix #comment` 형식으로 각 노드, 가용성 그룹 및 수신기에 대한 항목을 추가합니다. 
@@ -104,7 +103,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>장애 조치 클러스터 만들기
 
-이 단계에서는 장애 조치(failover) 클러스터를 만듭니다. 이 단계에 익숙하지 않은 경우 [장애 조치(failover) 클러스터 자습서](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct)에서 해당 단계를 수행할 수 있습니다.
+이 단계에서는 장애 조치(failover) 클러스터를 만듭니다. 이 단계에 익숙하지 않은 경우 [장애 조치(failover) 클러스터 자습서](failover-cluster-instance-storage-spaces-direct-manually-configure.md)에서 해당 단계를 수행할 수 있습니다.
 
 자습서와 작업 그룹 클러스터에 대해 수행할 작업의 중요한 차이점은 다음과 같습니다.
 - 클러스터 유효성 검사를 실행할 때 **스토리지** 및 **스토리지 공간 다이렉트** 선택을 취소합니다. 
@@ -130,13 +129,13 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-a-cloud-witness"></a>클라우드 감시 만들기 
 
-이 단계에서는 클라우드 공유 감시를 구성합니다. 이 단계에 익숙하지 않은 경우 [장애 조치(failover) 클러스터 자습서](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness)를 참조하세요. 
+이 단계에서는 클라우드 공유 감시를 구성합니다. 단계에 익숙하지 않은 경우 [장애 조치 (Failover) 클러스터에 대 한 클라우드 감시 배포](/windows-server/failover-clustering/deploy-cloud-witness)를 참조 하세요. 
 
-## <a name="enable-availability-group-feature"></a>가용성 그룹 기능 사용 
+## <a name="enable-the-availability-group-feature"></a>가용성 그룹 기능 사용 
 
 이 단계에서는 가용성 그룹 기능을 사용하도록 설정합니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial.md#enable-availability-groups)를 참조하세요. 
 
-## <a name="create-keys-and-certificate"></a>키 및 인증서 만들기
+## <a name="create-keys-and-certificates"></a>키 및 인증서 만들기
 
 이 단계에서는 SQL 로그인이 암호화된 엔드포인트에서 사용하는 인증서를 만듭니다. 각 노드에 인증서 백업을 저장할 폴더(예: `c:\certs`)를 만듭니다. 
 
@@ -277,16 +276,16 @@ GO
 
 클러스터에 다른 노드가 있는 경우 해당 인증서와 사용자 이름을 수정하여 이 단계를 반복합니다. 
 
-## <a name="configure-availability-group"></a>가용성 그룹 구성
+## <a name="configure-an-availability-group"></a>가용성 그룹 구성
 
 이 단계에서는 가용성 그룹을 구성하고 데이터베이스를 추가합니다. 지금은 수신기를 만들지 않습니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial.md#create-the-availability-group)를 참조하세요. 장애 조치(failover)와 장애 복구(failback)를 시작하여 모두 제대로 작동하는지 확인해야 합니다. 
 
    > [!NOTE]
    > 동기화 프로세스 중에 오류가 발생하는 경우 임시로 `NT AUTHORITY\SYSTEM`에 sysadmin 권한을 부여하여 `AGNode1`과 같은 첫 번째 노드에 클러스터 리소스를 만들어야 할 수 있습니다. 
 
-## <a name="configure-load-balancer"></a>부하 분산 장치 구성
+## <a name="configure-a-load-balancer"></a>부하 분산 장치 구성
 
-이 마지막 단계에서는 [Azure Portal](availability-group-load-balancer-portal-configure.md)이나 [PowerShell](availability-group-listener-powershell-configure.md)을 사용하여 부하 분산 장치를 구성합니다.
+이 마지막 단계에서는 [Azure Portal](availability-group-load-balancer-portal-configure.md) 또는 [PowerShell](availability-group-listener-powershell-configure.md)을 사용 하 여 부하 분산 장치를 구성 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

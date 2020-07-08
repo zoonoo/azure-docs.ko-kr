@@ -2,21 +2,20 @@
 title: Azure AD 갤러리 앱에 사용자 프로 비전을 구성 하는 문제
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: e6fb5fbecc9b2917f4fde2d1ccb76d6962a0af18
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782129"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 
@@ -28,9 +27,9 @@ ms.locfileid: "82593967"
 
 서비스가 구성되면 서비스 작업에 대한 대부분의 정보는 다음 두 곳에서 확인할 수 있습니다.
 
--   **프로 비전 로그 (미리 보기)** – 프로 비전 [로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 프로 비전 범위에 있는 할당 된 사용자에 대해 Azure AD 쿼리를 비롯 하 여 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 시스템 간 사용자 개체를 비교하여 해당 사용자의 존재에 대해 대상 앱을 쿼리합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다. **작업** 섹션에서 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다.
+-   **프로 비전 로그 (미리 보기)** – 프로 비전 [로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 프로 비전 범위에 있는 할당 된 사용자에 대해 Azure AD 쿼리를 비롯 하 여 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 시스템 간 사용자 개체를 비교하여 해당 사용자의 존재에 대해 대상 앱을 쿼리합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다. **Azure Active Directory** &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다.
 
--   **현재 상태 –** 지정 된 앱에 대 한 마지막 프로 비전 실행의 요약은 서비스 설정 아래의 화면 아래쪽에 있는 ** &gt; Azure Active Directory Enterprise Apps &gt; \[응용\] &gt;프로그램 이름 프로 비전** 섹션에서 볼 수 있습니다. 현재 상태 섹션에서는 프로 비전 주기가 사용자 계정 프로 비전을 시작 했는지 여부를 표시 합니다. 주기의 진행 상태를 보고, 프로 비전 된 사용자 및 그룹의 수를 확인 하 고, 생성 된 역할 수를 확인할 수 있습니다. 오류가 있는 경우 세부 정보는 [프로 비전 로그 (.. /reports-monitoring/concept-provisioning-logs.md? context = azure/active directory/앱/컨텍스트/앱 관리-컨텍스트).
+-   **현재 상태 –** 지정 된 앱에 대 한 마지막 프로 비전 실행의 요약은 서비스 설정 아래의 화면 아래쪽에 있는 **Azure Active Directory &gt; Enterprise Apps &gt; \[ 응용 프로그램 이름 \] &gt; 프로 비전** 섹션에서 볼 수 있습니다. 현재 상태 섹션에서는 프로 비전 주기가 사용자 계정 프로 비전을 시작 했는지 여부를 표시 합니다. 주기의 진행 상태를 보고, 프로 비전 된 사용자 및 그룹의 수를 확인 하 고, 생성 된 역할 수를 확인할 수 있습니다. 오류가 있는 경우 세부 정보는 [프로 비전 로그 (.. /reports-monitoring/concept-provisioning-logs.md? context = azure/active directory/앱/컨텍스트/앱 관리-컨텍스트).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>고려해야 할 프로비전 관련 일반적인 문제 영역
 
@@ -66,4 +65,4 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; \[애�
   * **그룹에 대한 특성 매핑:** 일부 애플리케이션에 대해 지원되는 경우, 구성원 외에 그룹 이름 및 그룹 세부 정보 프로비전. **프로 비전** 탭에 표시 된 그룹 개체에 대 한 **매핑을** 사용 하거나 사용 하지 않도록 설정 하 여이 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 프로 비전 그룹을 사용 하는 경우 특성 매핑을 검토 하 여 "일치 하는 ID"에 적절 한 필드가 사용 되는지 확인 해야 합니다. 이는 표시 이름이나 메일 별칭일 수 있습니다. Azure AD에 일치하는 속성이 비어 있거나 그룹에 대해 입력되어 있지 않은 경우 그룹 및 구성원이 프로비전되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](user-provisioning.md)
+[Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](user-provisioning.md)

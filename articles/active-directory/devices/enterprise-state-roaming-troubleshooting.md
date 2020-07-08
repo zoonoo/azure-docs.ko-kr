@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604542"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -54,7 +53,7 @@ ms.locfileid: "78672343"
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>동기화 및 "설정 동기화" 설정 페이지 확인 
 
-1. Enterprise State Roaming을 허용하도록 구성되어 있는 도메인에 Windows 10 PC를 연결한 후에 회사 계정으로 로그인합니다. 설정 > **계정**설정**동기화** **로** > 이동 하 여 동기화 및 개별 설정이 켜져 있는지 확인 하 고 설정 페이지의 맨 위에 회사 계정과 동기화 중임을 표시 합니다. **설정** > **Accounts**계정 > **사용자 정보**에서 동일한 계정이 로그인 계정으로도 사용 되는지 확인 합니다. 
+1. Enterprise State Roaming을 허용하도록 구성되어 있는 도메인에 Windows 10 PC를 연결한 후에 회사 계정으로 로그인합니다. 설정 계정 설정 동기화 **로 이동**하 여  >  **Accounts**  >  **Sync Your Settings** 동기화 및 개별 설정이 켜져 있는지 확인 하 고 설정 페이지의 맨 위에 회사 계정과 동기화 중임을 표시 합니다. **설정**  >  **계정**  >  **사용자 정보**에서 동일한 계정이 로그인 계정으로도 사용 되는지 확인 합니다. 
 1. 작업 표시줄을 화면 오른쪽이나 위쪽으로 이동하는 등 원본 컴퓨터에서 일부 내용을 변경하여 여러 대의 컴퓨터에서 동기화가 작동하는지 확인합니다. 변경 사항이 5분 이내에 두 번째 컴퓨터에 적용되는지 확인합니다. 
 
    * 화면을 잠갔다가 해제하면(Win + L) 동기화 트리거에 도움이 될 수 있습니다.
@@ -72,7 +71,7 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 
 **잠재적 문제**: **WamDefaultSet** 및 **AzureAdJoined** 에는 모두 필드 값에 "NO"가 있고, 장치가 도메인에 가입 되 고 Azure AD에 등록 되었으며, 장치가 동기화 되지 않습니다. 이를 표시 하는 경우 장치가 적용 될 때까지 기다리거나, Azure AD에 연결할 때 장치에 대 한 인증에 실패 해야 할 수 있습니다. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 다른 문제 해결 단계에는 로그 아웃 했다가 다시 로그인 하거나 작업 스케줄러에서 작업을 시작 하 여 이라고을 다시 시도 하는 작업이 포함 될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
-**잠재적 문제**: **settingsurl** 의 필드가 비어 있고 장치가 동기화 되지 않습니다. Azure Active Directory 포털에서 Enterprise State Roaming를 사용 하도록 설정 하기 전에 사용자가 장치에 마지막으로 로그인 했을 수 있습니다. 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 필요에 따라 포털에서 IT 관리자가 **Azure Active Directory** > **Devices** > **Enterprise State Roaming** 장치로 이동 하 여 사용자가 장치를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하 여 **장치 간에 설정 및 앱 데이터를 동기화 할 수 있습니다**. 다시 활성화되면 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 이렇게 해도 문제가 해결 되지 않으면 잘못 된 장치 인증서가 있는 경우 **Settingsurl** 이 비어 있을 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
+**잠재적 문제**: **settingsurl** 의 필드가 비어 있고 장치가 동기화 되지 않습니다. Azure Active Directory 포털에서 Enterprise State Roaming를 사용 하도록 설정 하기 전에 사용자가 장치에 마지막으로 로그인 했을 수 있습니다. 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 필요에 따라 포털에서 IT 관리자가 **Azure Active Directory**Enterprise State Roaming 장치로 이동 하 여  >  **Devices**  >  **Enterprise State Roaming** 사용자가 장치를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하 여 **장치 간에 설정 및 앱 데이터를 동기화 할 수 있습니다**. 다시 활성화되면 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 이렇게 해도 문제가 해결 되지 않으면 잘못 된 장치 인증서가 있는 경우 **Settingsurl** 이 비어 있을 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>엔터프라이즈 상태 로밍 및 Multi-Factor Authentication 
 
@@ -84,7 +83,7 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 
 ### <a name="event-viewer"></a>이벤트 뷰어
 
-고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **microsoft** > **windows** > **settingsync** 에서 찾을 수 있으며, **microsoft** > **windows** > **AAD**와의 id 관련 문제에 대 한
+고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > **응용 프로그램 및 서비스 로그**  >  **microsoft**  >  **windows**  >  **settingsync-Azure** 에서 찾을 수 있으며, 동기화 **응용 프로그램 및 서비스 로그**에 대 한 id 관련 문제는  >  **microsoft**  >  **windows**  >  **AAD**에서 찾을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -92,7 +91,7 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 
 Windows 10 1주년 업데이트(버전 1607)를 실행하는 디바이스에 영향을 줍니다. SettingSync Azure 로그에 있는 이벤트 뷰어에서 80070259 오류가 있는 이벤트 ID 6013이 자주 나타납니다.
 
-**권장 조치**  
+**권장 작업**  
 Windows 10 v1607 클라이언트에 2016년 8월 23일 누적 업데이트가 있는지 확인합니다([KB3176934](https://support.microsoft.com/kb/3176934) OS 빌드 14393.82). 
 
 ---
@@ -101,7 +100,7 @@ Windows 10 v1607 클라이언트에 2016년 8월 23일 누적 업데이트가 �
 
 Windows 10 11월 업데이트(버전 1511)를 실행하는 디바이스에 영향을 줍니다.
 
-**권장 조치**  
+**권장 작업**  
 Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는지 확인합니다([KB3172985](https://support.microsoft.com/kb/3172985) OS 빌드 10586.494).
 
 ---
@@ -110,7 +109,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 
 데이터 누출을 방지 하기 위해 windows [Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) 로 보호 되는 데이터는 Windows 10 기념일 업데이트를 사용 하는 장치에 대 한 Enterprise State Roaming를 통해 동기화 되지 않습니다.
 
-**권장 조치**  
+**권장 작업**  
 없음 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
@@ -119,7 +118,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
   
 도메인에 조인된 디바이스는 날짜, 시간 및 지역 설정: 자동 시간에 대해 동기화되지 않습니다. 자동 사용을 사용하면 다른 날짜, 시간 및 지역 설정을 무시하고 이들 설정이 동기화되지 않을 수 있습니다. 
 
-**권장 조치**  
+**권장 작업**  
 없음 
 
 ---
@@ -128,7 +127,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 
 암호를 동기화하도록 구성된 무선 NIC와 함께 Windows 10 11월 업데이트(버전 1511)를 실행하는 디바이스에 영향을 줍니다.
 
-**권장 조치**  
+**권장 작업**  
 Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://support.microsoft.com/kb/3140743) OS 빌드 10586.494)가 있는지 확인합니다.
 
 ---
@@ -137,7 +136,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 
 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 디바이스에 로그인하려고 하면 설정 동기화가 중지됩니다.     
 
-**권장 조치**  
+**권장 작업**  
 없음 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
@@ -146,7 +145,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 
 Azure AD에 등록된 도메인 조인 디바이스는 오랜 시간 디바이스가 현장을 벗어나 있고 도메인 인증을 완료할 수 없는 경우 동기화가 실패할 수 있습니다.
 
-**권장 조치**  
+**권장 작업**  
 동기화를 다시 시작할 수 있도록 디바이스를 회사 네트워크에 연결합니다.
 
 ---
@@ -155,8 +154,8 @@ Azure AD에 등록된 도메인 조인 디바이스는 오랜 시간 디바이�
 
 사용자에 게 대소 문자가 혼합 되어 있는 경우 (예: username 대신 UserName) 사용자가 Windows 10 빌드 10586에서 14393로 업그레이드 한 Azure AD 조인 장치에 있는 경우 사용자의 장치가 동기화 되지 않을 수 있습니다. 
 
-**권장 조치**  
-사용자가 디바이스의 연결을 해제하고 클라우드에 다시 연결해야 합니다. 이렇게 하려면 로컬 관리자 사용자로 로그인 하 고 **설정** > **시스템** > **정보** 로 이동 하 여 장치를 가입 해제 하 고 "회사 또는 학교에서 관리 또는 연결 끊기"를 선택 합니다. 아래 파일을 정리 하 고 Azure AD는 **설정** > **시스템** > 에서 장치를 다시 연결**하 고 "** 회사 또는 학교에 연결"을 선택 합니다. 디바이스를 계속 Azure Active Directory에 연결하고 흐름을 완료합니다.
+**권장 작업**  
+사용자가 디바이스의 연결을 해제하고 클라우드에 다시 연결해야 합니다. 이렇게 하려면 로컬 관리자 사용자로 로그인 하 고 **설정**시스템 정보로 이동 하 여 장치를 가입  >  **System**  >  **About** 해제 하 고 "회사 또는 학교에서 관리 또는 연결 끊기"를 선택 합니다. 아래 파일을 정리 하 고 Azure AD는 **설정**시스템에서 장치를 다시  >  **System**  >  **About** 연결 하 고 "회사 또는 학교에 연결"을 선택 합니다. 디바이스를 계속 Azure Active Directory에 연결하고 흐름을 완료합니다.
 
 정리 단계에서 다음 파일을 정리 합니다.
 - Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
@@ -168,7 +167,7 @@ Azure AD에 등록된 도메인 조인 디바이스는 오랜 시간 디바이�
 
 사용자의 자격 증명이 만료된 경우 이벤트 뷰어의 SettingSync/Debug 로그 아래에 이 오류가 표시될 수 있습니다. 또한 테넌트가 AzureRMS를 자동으로 프로비전하지 않은 경우에도 이 오류가 발생할 수 있습니다. 
 
-**권장 조치**  
+**권장 작업**  
 첫 번째 경우에는 사용자가 자격 증명을 업데이트하고 새 자격 증명으로 디바이스에 로그인하게 합니다. AzureRMS 문제를 해결하려면 [KB3193791](https://support.microsoft.com/kb/3193791)에 나열된 단계를 수행합니다. 
 
 ---
@@ -177,7 +176,7 @@ Azure AD에 등록된 도메인 조인 디바이스는 오랜 시간 디바이�
 
 AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클라우드 AP 플러그 인 호출이 반환된 토큰 가져오기 오류: 0xC000005F와 함께 이 오류가 나타날 수 있습니다. 이 문제는 권한 또는 소유권 특성이 없는 경우 발생합니다.  
 
-**권장 조치**  
+**권장 작업**  
 [KB3196528](https://support.microsoft.com/kb/3196528)에 나열된 단계를 수행합니다.  
 
 ## <a name="next-steps"></a>다음 단계

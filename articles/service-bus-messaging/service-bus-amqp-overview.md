@@ -1,25 +1,13 @@
 ---
 title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338065"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 애플리케이션을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
