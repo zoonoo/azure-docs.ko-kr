@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 13fb00a7d82639c8f51744b6c2e5374d08d9bb03
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cb50e5a009b63bebd1656513d2b58c4ec61a8060
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869812"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805943"
 ---
 ## <a name="create-an-azure-resource"></a>Azure 리소스 만들기
 
 다음 Azure 리소스 중 하나를 만들어 Bing Spell Check API 사용을 시작합니다.
-
-[평가판 리소스](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api-v7)
-   * Azure 구독이 필요하지 않습니다.
-   * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다.
 
 [Bing Spell Check 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)
    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
