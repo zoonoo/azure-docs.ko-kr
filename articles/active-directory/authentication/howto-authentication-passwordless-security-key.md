@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550409"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -24,10 +24,8 @@ ms.locfileid: "81450924"
 
 이 문서에서는 보안 키 기반 암호 없는 인증을 사용 하도록 설정 하는 방법을 중점적으로 설명 합니다. 이 문서의 끝 부분에서 FIDO2 보안 키를 사용 하 여 Azure AD 계정으로 웹 기반 응용 프로그램에 로그인 할 수 있습니다.
 
-|     |
-| --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+> [!NOTE]
+> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -53,7 +51,7 @@ ms.locfileid: "81450924"
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 사용 방법
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **Security**보안 > **인증**방법 > **인증 방법 정책 (미리 보기)** 으로 이동 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **인증 방법 정책 (미리 보기)** 으로 이동 합니다.
 1. Method **FIDO2 Security 키**아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
@@ -61,7 +59,7 @@ ms.locfileid: "81450924"
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 보안 키의 사용자 등록 및 관리
 
-1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 으로 이동합니다.
+1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com)으로 이동합니다.
 1. 아직 로그인 하지 않은 경우 로그인 합니다.
 1. **보안 정보**를 클릭 합니다.
    1. 사용자가 이미 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.

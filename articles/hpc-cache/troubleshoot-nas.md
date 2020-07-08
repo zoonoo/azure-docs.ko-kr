@@ -3,15 +3,15 @@ title: Azure HPC 캐시 NFS 저장소 대상 문제 해결
 description: NFS 저장소 대상을 만들 때 오류를 발생 시킬 수 있는 구성 오류 및 기타 문제를 방지 하 고 해결 하기 위한 팁
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515451"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 저장소 대상 문제 해결
 
@@ -48,7 +48,7 @@ NFS 인프라가 설치 된 모든 Linux 클라이언트에서이 명령을 실�
 rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
 ```
 
-``rpcinfo`` 쿼리에서 반환 된 모든 포트가 Azure HPC 캐시의 서브넷에서 무제한 트래픽을 허용 하는지 확인 합니다.
+쿼리에서 반환 된 모든 포트가 ``rpcinfo`` AZURE HPC 캐시의 서브넷에서 무제한 트래픽을 허용 하는지 확인 합니다.
 
 NAS 자체와 저장소 시스템과 캐시 서브넷 간의 모든 방화벽에서 이러한 설정을 확인 합니다.
 
@@ -58,7 +58,7 @@ NAS 자체와 저장소 시스템과 캐시 서브넷 간의 모든 방화벽에
 
 여러 저장소 시스템에서 다른 방법을 사용 하 여이 액세스를 사용 하도록 설정 합니다.
 
-* Linux 서버는 일반적 ``no_root_squash`` 으로의 ``/etc/exports``내보낸 경로에 추가 됩니다.
+* Linux 서버는 일반적으로 ``no_root_squash`` 의 내보낸 경로에 추가 ``/etc/exports`` 됩니다.
 * 일반적으로 NetApp 및 EMC 시스템은 특정 IP 주소 또는 네트워크에 연결 된 내보내기 규칙을 사용 하 여 액세스를 제어 합니다.
 
 내보내기 규칙을 사용 하는 경우 캐시는 캐시 서브넷의 여러 IP 주소를 사용할 수 있습니다. 모든 가능한 서브넷 IP 주소 범위에서 액세스를 허용 합니다.
@@ -79,17 +79,17 @@ NAS 저장소 공급 업체와 협력 하 여 캐시에 대 한 적절 한 수�
 * ``/ifs/accounting``
 * ``/ifs/accounting/payroll``
 
-내보내기 ``/ifs/accounting/payroll`` 는의 ``/ifs/accounting``자식이 고 ``/ifs/accounting`` 자체는의 ``/ifs``자식입니다.
+내보내기는 ``/ifs/accounting/payroll`` 의 자식이 ``/ifs/accounting`` 고 ``/ifs/accounting`` 자체는의 자식입니다 ``/ifs`` .
 
-``payroll`` 내보내기를 HPC 캐시 저장소 대상으로 추가 하는 경우 캐시는 실제로 여기에서 급여 ``/ifs/`` 디렉터리를 탑재 하 고 액세스 합니다. 따라서 Azure HPC 캐시는 ``/ifs`` ``/ifs/accounting/payroll`` 내보내기에 액세스 하기 위해에 대 한 루트 액세스가 필요 합니다.
+``payroll``내보내기를 HPC 캐시 저장소 대상으로 추가 하는 경우 캐시는 실제로 ``/ifs/`` 여기에서 급여 디렉터리를 탑재 하 고 액세스 합니다. 따라서 Azure HPC 캐시는 내보내기에 액세스 하기 위해에 대 한 루트 액세스가 필요 ``/ifs`` ``/ifs/accounting/payroll`` 합니다.
 
 이 요구 사항은 저장소 시스템에서 제공 하는 파일 핸들을 사용 하 여 캐시에서 파일을 인덱싱하고 파일 충돌을 방지 하는 방법과 관련이 있습니다.
 
-계층적 내보내기를 사용 하는 NAS 시스템은 파일이 다른 내보내기에서 검색 되는 경우 동일한 파일에 대해 서로 다른 파일 핸들을 제공할 수 있습니다. 예를 들어 클라이언트가 파일 ``/ifs/accounting`` ``payroll/2011.txt``을 탑재 하 고 액세스할 수 있습니다. 다른 클라이언트는 ``/ifs/accounting/payroll`` 파일 ``2011.txt``을 탑재 하 고 액세스 합니다. 저장소 시스템에서 파일 핸들을 할당 하는 방법에 따라이 두 클라이언트는 서로 다른 파일 핸들 ``<mount2>/payroll/2011.txt`` ``<mount3>/2011.txt``을 사용 하는 동일한 파일을 받을 수 있습니다.
+계층적 내보내기를 사용 하는 NAS 시스템은 파일이 다른 내보내기에서 검색 되는 경우 동일한 파일에 대해 서로 다른 파일 핸들을 제공할 수 있습니다. 예를 들어 클라이언트가 파일을 탑재 ``/ifs/accounting`` 하 고 액세스할 수 있습니다 ``payroll/2011.txt`` . 다른 클라이언트 ``/ifs/accounting/payroll`` 는 파일을 탑재 하 고 액세스 ``2011.txt`` 합니다. 저장소 시스템에서 파일 핸들을 할당 하는 방법에 따라이 두 클라이언트는 서로 다른 파일 핸들을 사용 하는 동일한 파일을 받을 수 있습니다 ``<mount2>/payroll/2011.txt`` ``<mount3>/2011.txt`` .
 
 백 엔드 저장소 시스템은 파일 핸들에 대 한 내부 별칭을 유지 하지만 Azure HPC 캐시는 동일한 항목을 참조 하는 인덱스의 파일 핸들을 알 수 없습니다. 따라서 캐시가 동일한 파일에 대해 캐시 된 쓰기를 여러 개 가질 수 있으며, 동일한 파일 임을 알지 못하기 때문에 변경 내용을 잘못 적용할 수 있습니다.
 
-여러 내보내기의 파일에 대해 이러한 가능한 파일 충돌을 방지 하기 위해 Azure HPC 캐시는 shallowest 사용 가능한 내보내기를 경로에 자동``/ifs`` 으로 탑재 하 고 (예제에서는) 해당 내보내기에서 제공 하는 파일 핸들을 사용 합니다. 여러 내보내기에서 동일한 기본 경로를 사용 하는 경우 Azure HPC 캐시에는 해당 경로에 대 한 루트 액세스 권한이 필요 합니다.
+여러 내보내기의 파일에 대해 이러한 가능한 파일 충돌을 방지 하기 위해 Azure HPC 캐시는 shallowest 사용 가능한 내보내기를 경로에 자동으로 탑재 하 ``/ifs`` 고 (예제에서는) 해당 내보내기에서 제공 하는 파일 핸들을 사용 합니다. 여러 내보내기에서 동일한 기본 경로를 사용 하는 경우 Azure HPC 캐시에는 해당 경로에 대 한 루트 액세스 권한이 필요 합니다.
 
 ## <a name="enable-export-listing"></a>내보내기 목록 사용
 <!-- link in prereqs article -->

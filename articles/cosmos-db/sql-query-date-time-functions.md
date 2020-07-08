@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055fd5182920ebe15cb2f3ed4b7a8ff69bb94c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549569"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>날짜 및 시간 함수 (Azure Cosmos DB)
 
@@ -22,10 +22,8 @@ ms.locfileid: "74873389"
 
 다음 스칼라 함수를 사용 하면 현재 UTC 날짜와 시간을 두 가지 형식으로 가져올 수 있습니다. 값이 Unix epoch 인 숫자 타임 스탬프 (밀리초) 이거나 ISO 8601 형식을 준수 하는 문자열입니다.
 
-|||
-|-|-|
-|[GetCurrentDateTime](sql-query-getcurrentdatetime.md)|[GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)||
-
+* [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
+* [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
 
 ## <a name="next-steps"></a>다음 단계
 

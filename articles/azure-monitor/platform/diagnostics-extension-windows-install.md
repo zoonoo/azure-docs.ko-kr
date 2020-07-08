@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549500"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "83655621"
 진단 확장은 Azure에서 [가상 머신 확장](../../virtual-machines/extensions/overview.md)으로 구현되므로 Resource Manager 템플릿, PowerShell 및 CLI를 사용한 동일한 설치 옵션을 지원합니다. 가상 머신 확장 설치 및 유지 관리에 대한 자세한 내용은 [Windows용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
-Windows Azure Diagnostics 확장을 구성하는 경우 지정된 모든 데이터가 전송될 스토리지 계정을 지정해야 합니다. 필요한 경우 더 많은 *데이터 싱크*에 대한 계정을 추가하여 데이터를 다른 위치로 보낼 수 있습니다.
+Windows Azure Diagnostics 확장을 구성하는 경우 지정된 모든 데이터가 전송될 스토리지 계정을 지정해야 합니다. 필요에 따라 데이터 *싱크* 를 하나 이상 추가 하 여 데이터를 다른 위치로 보낼 수 있습니다.
 
 - Azure Monitor 싱크 - Azure Monitor 메트릭에 게스트 성능 데이터를 보냅니다.
 - 이벤트 허브 싱크 - Azure 외부로 전달하려면 Azure Event Hubs에 게스트 성능 및 로그 데이터를 전송합니다. 이 싱크는 Azure Portal에서 구성할 수 없습니다.

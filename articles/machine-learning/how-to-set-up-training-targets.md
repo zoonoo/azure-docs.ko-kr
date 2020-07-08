@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 03/13/2020
-ms.custom: seodec18
-ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 06/11/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515813"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 
 
 > [!NOTE]
-> Azure Machine Learning 컴퓨팅은 영구 리소스로 생성되거나 실행을 요청할 때 동적으로 생성될 수 있습니다. 실행에 기반한 생성은 학습 실행이 완료된 후 컴퓨팅 대상을 제거하므로 이 방법으로 생성된 컴퓨팅 대상을 다시 사용할 수 없습니다.
+> Azure Machine Learning 계산 클러스터는 영구 리소스로 생성 하거나 실행을 요청할 때 동적으로 만들 수 있습니다. 실행에 기반한 생성은 학습 실행이 완료된 후 컴퓨팅 대상을 제거하므로 이 방법으로 생성된 컴퓨팅 대상을 다시 사용할 수 없습니다.
 
 ## <a name="whats-a-run-configuration"></a>실행 구성이란?
 
@@ -76,7 +76,8 @@ ML 파이프라인은 모델을 학습시킬 수 있지만, 모델을 학습시�
 아래의 섹션을 통해 다음과 같은 컴퓨팅 대상을 구성합니다.
 
 * [로컬 컴퓨터](#local)
-* [Azure Machine Learning 컴퓨팅](#amlcompute)
+* [Azure Machine Learning 컴퓨팅 클러스터](#amlcompute)
+* [Azure Machine Learning 컴퓨팅 인스턴스](#instance)
 * [원격 가상 머신](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,9 +92,9 @@ ML 파이프라인은 모델을 학습시킬 수 있지만, 모델을 학습시�
 
 컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
 
-### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Azure Machine Learning 컴퓨팅
+### <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning 계산 클러스터
 
-Azure Machine Learning 컴퓨팅은 사용자가 단일 또는 다중 노드 컴퓨팅을 손쉽게 만들 수 있는 관리형 컴퓨팅 인프라입니다. 작업 영역 지역 내에서 컴퓨팅은 작업 영역에서 다른 사용자와 공유할 수 있는 리소스로 만들어집니다. 작업이 제출될 때 컴퓨팅이 자동으로 확장되어 Azure Virtual Network에 배치될 수 있습니다. 컴퓨팅은 컨테이너화된 환경에서 실행되며 모델 종속성을 [Docker 컨테이너](https://www.docker.com/why-docker)로 패키지합니다.
+Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산을 쉽게 만들 수 있는 관리 되는 계산 인프라입니다. 작업 영역 지역 내에서 컴퓨팅은 작업 영역에서 다른 사용자와 공유할 수 있는 리소스로 만들어집니다. 작업이 제출될 때 컴퓨팅이 자동으로 확장되어 Azure Virtual Network에 배치될 수 있습니다. 컴퓨팅은 컨테이너화된 환경에서 실행되며 모델 종속성을 [Docker 컨테이너](https://www.docker.com/why-docker)로 패키지합니다.
 
 Azure Machine Learning 컴퓨팅을 사용하여 클라우드의 CPU 또는 GPU 컴퓨팅 노드 클러스터에 학습 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조하세요. 
 
@@ -127,18 +128,55 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
 컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
 
 
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Azure Machine Learning 컴퓨팅 인스턴스
+
+[Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 단일 VM을 쉽게 만들 수 있는 관리 되는 계산 인프라입니다. 계산은 작업 영역 영역 내에 만들어지지만 계산 클러스터와는 달리 인스턴스를 작업 영역에 있는 다른 사용자와 공유할 수 없습니다. 또한 인스턴스는 자동으로 축소 되지 않습니다.  지속적인 요금을 방지 하려면 리소스를 중지 해야 합니다.
+
+계산 인스턴스는 여러 작업을 병렬로 실행할 수 있으며 작업 큐가 있습니다. 
+
+계산 인스턴스는 회사에서 SSH 포트를 열지 않아도 [가상 네트워크 환경](how-to-enable-virtual-network.md#compute-instance)에서 작업을 안전 하 게 실행할 수 있습니다. 작업은 컨테이너 화 된 환경에서 실행 되며 모델 종속성을 Docker 컨테이너에 패키지 합니다. 
+
+1. **만들기 및 연결**: 
+    
+    [! 노트북-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb? name = create_instance)]
+
+1. **구성**: 실행 구성을 만듭니다.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+계산 인스턴스에 유용한 명령에 대 한 자세한 내용은 노트북 [교육-사전 계산 einstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)를 참조 하세요. 이 노트북은 *학습/사전 주문형 einstance*의 스튜디오 **Samples** 폴더 에서도 사용할 수 있습니다.
+
+계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit) 하는 것입니다.
+
+
 ### <a name="remote-virtual-machines"></a><a id="vm"></a>원격 가상 머신
 
 Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작업 영역에 연결하는 기능을 지원합니다. Azure Machine Learning에서 액세스할 수 있는 한, 이 리소스 유형은 임의의 원격 VM입니다. 리소스는 조직 또는 온-프레미스에 있는 Azure VM 또는 원격 서버일 수 있습니다. 특히 IP 주소 및 자격 증명(사용자 이름 및 암호 또는 SSH 키)이 지정되면 원격 실행에 액세스 가능한 VM을 사용할 수 있습니다.
 
 시스템 빌드 conda 환경, 기존 Python 환경 또는 Docker 컨테이너를 사용할 수 있습니다. Docker 컨테이너에서 실행하려면 Docker 엔진이 VM에서 실행 되어야 합니다. 이 기능은 로컬 머신보다 더 유연한 클라우드 기반 개발/실험 환경을 원하는 경우에 특히 유용합니다.
 
-이 시나리오에서 선택하는 Azure VM으로 Azure Data Science Virtual Machine(DSVM)을 사용합니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm)을 참조하세요.
+이 시나리오에서 azure VM (azure Data Science Virtual Machine (DSVM)을 선택 하는 것이 좋습니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm)을 참조하세요.
 
 1. **만들기**: 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)을 참조하세요.
 
     > [!WARNING]
-    > Azure Machine Learning은 Ubuntu를 실행하는 가상 머신만 지원합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
+    > Azure Machine Learning는 **Ubuntu**를 실행 하는 가상 컴퓨터만 지원 합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
+    > 
+    > 또한 Azure Machine Learning에는 가상 머신에 __공용 IP 주소가__있어야 합니다.
 
 1. **연결**: 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>` 문자열 형식으로 생성할 수 있습니다.
 
@@ -153,13 +191,6 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
                                                    ssh_port=22,
                                                    username='<username>',
                                                    password="<password>")
-
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
 
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
@@ -182,13 +213,16 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
 1. **만들기**:  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)를 참조하세요. 
 
+    > [!WARNING]
+    > Azure Machine Learning 하려면 HDInsight 클러스터에 __공용 IP 주소가__있어야 합니다.
+
     클러스터를 만들 때 SSH 사용자 이름 및 암호를 지정해야 합니다. 이러한 값은 HDInsight를 컴퓨팅 대상으로 사용할 때 필요하므로 기록해 둡니다.
     
-    클러스터를 만든 후 호스트이름 \<clustername>.azurehdinsight.net과 연결합니다. 여기서 \<clustername>은 클러스터에 대해 사용자가 제공한 이름입니다. 
+    클러스터를 만든 후에 \<clustername> 는 호스트 이름-ssh.azurehdinsight.net을 사용 하 여 연결 \<clustername> 합니다. 여기서은 클러스터에 대해 제공한 이름입니다. 
 
 1. **연결**: HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. HDInsight 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>` 문자열 형식으로 생성할 수 있습니다.
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

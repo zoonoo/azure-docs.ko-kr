@@ -4,7 +4,7 @@ description: Facebook과 페더레이션하여 외부 사용자(게스트)가 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551435"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Facebook을 외부 ID에 대한 ID 공급자로 추가
 
@@ -32,7 +32,7 @@ ms.locfileid: "83712273"
 
 > [!NOTE]  
 > 아래의 9 및 16단계에서 다음 URL을 사용합니다.
-> - **사이트 URL**에 `https://login.microsoftonline.com`을 입력합니다.
+> - **사이트 URL** 에 응용 프로그램의 주소를 입력 합니다 (예:) `https://contoso.com` .
 > - **유효한 OAuth 리디렉션 URI**에 `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`를 입력합니다. Azure Active Directory 개요 블레이드에서 `<tenant-ID>`를 찾을 수 있습니다.
 
 

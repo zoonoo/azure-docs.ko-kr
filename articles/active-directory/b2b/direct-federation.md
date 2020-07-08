@@ -4,26 +4,25 @@ description: 게스트가 Azure AD 앱에 로그인할 수 있도록 SAML 또는
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551530"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
-|     |
-| --- |
-| 직접 페더레이션은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+
+> [!NOTE]
+>  직접 페더레이션은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 B2B 협업을 위해 다른 조직과의 직접 페더레이션을 설정하는 방법에 대해 설명합니다. IdP(ID 공급자)가 SAML 2.0 또는 WS-Fed 프로토콜을 지원하는 모든 조직과의 직접 페더레이션을 설정할 수 있습니다.
 파트너 IdP와의 직접 페더레이션을 설정하면 해당 도메인의 새 게스트 사용자가 IdP에서 관리하는 자신의 조직 계정을 사용하여 Azure AD 테넌트에 로그인하고 협업을 시작할 수 있습니다. 게스트 사용자는 별도의 Azure AD 계정을 만들 필요가 없습니다.
@@ -221,3 +220,7 @@ PowerShell을 사용하여 ID 공급자와 직접 페더레이션을 제거하�
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## <a name="next-steps"></a>다음 단계
+
+외부 사용자가 다양 한 id 공급자를 사용 하 여 로그인 하는 경우 [초대 상환 환경](redemption-experience.md) 에 대해 자세히 알아보세요.

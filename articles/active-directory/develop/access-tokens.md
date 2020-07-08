@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552013"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -230,11 +230,13 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 ## <a name="user-and-application-tokens"></a>사용자 및 애플리케이션 토큰
 
-애플리케이션은 사용자 대신(일반적인 흐름) 또는 애플리케이션에서 직접(클라이언트 자격 증명 흐름을 통해) 토큰을 받을 수 있습니다([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)). 이러한 앱 전용 토큰은 이 호출이 애플리케이션에서 발생하며 사용자가 이를 지원하는 것이 아님을 나타냅니다. 이러한 토큰은 대체로 동일하게 처리되며 약간의 차이점이 있습니다.
+응용 프로그램은 사용자 (일반적으로 설명)에 대 한 토큰을 받거나 [클라이언트 자격 증명 흐름](v1-oauth2-client-creds-grant-flow.md)을 통해 응용 프로그램에서 직접 토큰을 받을 수 있습니다. 이러한 앱 전용 토큰은 이 호출이 애플리케이션에서 발생하며 사용자가 이를 지원하는 것이 아님을 나타냅니다. 이러한 토큰은 거의 동일 하 게 처리 됩니다.
 
-* 앱 전용 토큰에는 `scp` 클레임이 없으며 대신 `roles` 클레임이 있습니다. 애플리케이션 권한(위임된 권한과 반대)이 기록되는 위치입니다. 위임된 권한 및 애플리케이션 권한에 대한 자세한 내용은 권한 및 동의를 참조하세요([v1.0](../azuread-dev/v1-permissions-consent.md) 및 [v2.0](v2-permissions-and-consent.md)).
-* 사람이 관련된 많은 클레임이 누락됩니다(예: `name` 또는 `upn`).
-* `sub` 및 `oid` 클레임은 동일합니다.
+* `roles`토큰 (이 경우에는 사용자가 아닌 서비스 주체)의 주체에 부여 된 사용 권한을 확인 하는 데 사용 합니다.
+* `oid`또는를 사용 하 여 호출 하는 `sub` 서비스 사용자가 필요한 지 확인 합니다.
+
+앱 전용 액세스 토큰과 사용자에 대 한 액세스 토큰을 구분 해야 하는 경우 `idtyp` [선택적 클레임](active-directory-optional-claims.md)을 사용 합니다.  `idtyp`필드에 클레임을 추가 하 `accessToken` 고 값을 확인 하 여 `app` 앱 전용 액세스 토큰을 검색할 수 있습니다.  사용자의 ID 토큰 및 액세스 토큰에는 포함 된 `idtyp` 클레임이 없습니다.
+
 
 ## <a name="token-revocation"></a>토큰 해지
 
@@ -254,7 +256,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 자격 증명의 변경이나 사용 또는 관리 작업으로 인해 서버에서 새로 고침 토큰을 해지할 수 있습니다.  새로 고침 토큰은 기밀 클라이언트에 발급된 토큰(가장 오른쪽 열)과 퍼블릭 클라이언트에 발급된 토큰(다른 모든 열)의 두 클래스에 속합니다.   
 
-|   | 암호 기반 쿠키 | 암호 기반 토큰 | 비암호 기반 쿠키 | 비암호 기반 토큰 | 기밀 클라이언트 토큰 |
+| 변화 | 암호 기반 쿠키 | 암호 기반 토큰 | 비암호 기반 쿠키 | 비암호 기반 토큰 | 기밀 클라이언트 토큰 |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | 암호 만료 | 활성 상태 | 활성 상태 | 활성 상태 | 활성 상태 | 활성 상태 |
 | 사용자에 의해 암호가 변경됨 | 해지됨 | 해지됨 | 활성 상태 | 활성 상태 | 활성 상태 |

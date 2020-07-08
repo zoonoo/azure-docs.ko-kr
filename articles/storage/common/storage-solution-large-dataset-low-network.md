@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: be1f74dcccc654dbdd0a743d1da2da89071045f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cad76677464ba4895141e53ea45b98f55cc2f655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515747"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>네트워크 대역폭이 부족하거나 없을 경우 대용량 데이터 세트의 데이터 전송
  
@@ -23,7 +23,7 @@ ms.locfileid: "81253138"
 
 ## <a name="offline-transfer-or-network-transfer"></a>오프라인 전송 또는 네트워크 전송
 
-대용량 데이터 세트는 TB에서 PB 단위의 데이터가 있음을 의미합니다. 네트워크 대역폭이 제한적이거나 없고, 네트워크 속도가 느리거나 불안정합니다. 추가 정보:
+대용량 데이터 세트는 TB에서 PB 단위의 데이터가 있음을 의미합니다. 네트워크 대역폭이 제한적이거나 없고, 네트워크 속도가 느리거나 불안정합니다. 또한 다음 작업도 수행합니다.
 
 - ISP(인터넷 서비스 공급자)의 네트워크 전송 비용에 의해 제한됩니다.
 - 보안 또는 조직 정책이 중요한 데이터를 처리할 때 아웃바운드 연결을 허용하지 않는 경우
@@ -56,10 +56,10 @@ ms.locfileid: "81253138"
 |    암호화                       |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    하드웨어                         |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    Linux                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    파트너 통합              |    일부                         |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
+|    파트너 통합              |    일부                         |    [높음](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [높음](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
 |    발송                         |    Microsoft 관리            |    Microsoft 관리                             |    Microsoft 관리                     |    고객 관리                    |
 | 데이터 이동 시 사용         |상거래 경계 이내|상거래 경계 이내|상거래 경계 이내|지리적 경계 간(예: 미국에서 EU로 이동)|
-|    가격 책정                          |    [가격 책정](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    가격 책정                          |    [가격](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>다음 단계

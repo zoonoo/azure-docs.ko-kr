@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841b12b27447c4d32d25b8eb0d5bcf51ff8e2932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550288"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>온-프레미스 Azure AD 암호 보호 환경에 대 한 로그 모니터링 및 검토
 
@@ -63,7 +63,7 @@ DC 에이전트 관리자 로그는 소프트웨어 작동 방식의 주요 정�
 
 키 암호-유효성 검사-관련 이벤트는 다음과 같습니다.
 
-|   |암호 변경 |암호 설정|
+| 이벤트 |암호 변경 |암호 설정|
 | --- | :---: | :---: |
 |합격 |10014 |10015|
 |실패(고객 암호 정책으로 인해)| 10016, 30002| 10017, 30003|

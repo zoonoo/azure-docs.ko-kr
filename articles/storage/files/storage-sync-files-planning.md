@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869722"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552183"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 시스템 요구 사항만 테스트하려면 다음을 수행합니다.
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 결과를 CSV 형식으로 표시하려면 다음을 수행합니다.
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>파일 시스템 호환성
@@ -254,9 +255,7 @@ Azure 파일 동기화 에이전트는 항상 443 포트에서 HTTPS를 사용�
 - 사용자 환경에서 프록시를 지원하도록 Azure 파일 동기화를 구성합니다.
 - Azure 파일 동기화에서 네트워크 활동을 제한합니다.
 
-Azure 파일 동기화의 네트워킹 기능을 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-- [Azure 파일 동기화 프록시 및 방화벽 설정](storage-sync-files-firewall-and-proxy.md)
-- [Azure 파일 동기화가 데이터 센터의 좋은 이웃이 되도록 보장](storage-sync-files-server-registration.md)
+Azure File Sync 및 네트워킹에 대해 자세히 알아보려면 [Azure File Sync 네트워킹 고려 사항](storage-sync-files-networking-overview.md)을 참조 하세요.
 
 ## <a name="encryption"></a>암호화
 Azure 파일 동기화를 사용하는 경우 고려해야 할 세 가지 암호화 계층이 있습니다. 즉 Windows Server 스토리지의 저장 데이터 암호화, Azure 파일 동기화 에이전트와 Azure 간의 전송 중 데이터 암호화 및 Azure 파일 공유의 저장 데이터 암호화입니다. 
@@ -358,7 +357,7 @@ Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역�
 
 또한 Data Box를 사용하여 데이터를 Azure 파일 동기화 배포로 마이그레이션할 수 있습니다. 고객이 Data Box를 사용하여 데이터를 수집하려는 대부분의 경우 배포 속도가 향상되거나 제한된 대역폭 시나리오에 도움이 된다고 생각하므로 이 작업을 수행합니다. Data Box를 사용하여 데이터를 Azure 파일 동기화 배포 환경에 수집하면 대역폭 사용률이 감소하는 것이 사실이지만, 대부분의 시나리오에서는 위에서 설명한 방법 중 하나를 통해 온라인 데이터 업로드를 추진하는 것이 더 빠를 수 있습니다. Data Box를 사용하여 데이터를 Azure 파일 동기화 배포에 수집하는 방법에 대한 자세한 내용은 [Azure Data Box를 사용하여 데이터를 Azure 파일 동기화로 마이그레이션](storage-sync-offline-data-transfer.md)을 참조하세요.
 
-고객이 데이터를 새 Azure 파일 동기화 배포로 마이그레이션할 때 일반적으로 저지르는 실수는 데이터를 Windows 파일 서버가 아닌 Azure 파일 공유에 직접 복사하는 것입니다. Azure 파일 동기화는 Azure 파일 공유에서 모든 새 파일을 식별하고 이를 Windows 파일 공유에 다시 동기화하지만, 일반적으로 Windows 파일 서버를 통해 데이터를 로드하는 것보다 훨씬 느립니다. AzCopy와 같은 대부분의 Azure 복사 도구에는 타임스탬프 및 ACL과 같은 파일의 중요한 메타데이터를 모두 복사하지 않는 추가 단점이 있습니다.
+고객이 데이터를 새 Azure 파일 동기화 배포로 마이그레이션할 때 일반적으로 저지르는 실수는 데이터를 Windows 파일 서버가 아닌 Azure 파일 공유에 직접 복사하는 것입니다. Azure 파일 동기화는 Azure 파일 공유에서 모든 새 파일을 식별하고 이를 Windows 파일 공유에 다시 동기화하지만, 일반적으로 Windows 파일 서버를 통해 데이터를 로드하는 것보다 훨씬 느립니다. AzCopy와 같은 Azure 복사 도구를 사용 하는 경우 최신 버전을 사용 하는 것이 중요 합니다. [파일 복사 도구 표](storage-files-migration-overview.md#file-copy-tools) 를 확인 하 여 타임 스탬프 및 acl과 같은 파일의 모든 중요 한 메타 데이터를 복사할 수 있도록 Azure copy tools의 개요를 확인 하세요.
 
 ## <a name="antivirus"></a>바이러스 백신
 바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 

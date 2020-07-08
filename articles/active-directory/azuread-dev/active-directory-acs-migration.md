@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae052e06aae4881dd7203a5616b35e9c96997fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551730"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -114,7 +114,7 @@ Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
 - **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
-- **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
+- **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control (. accesscontrol.windows.net에 위치)에 전송 된 모든 요청은 \<namespace\> 실패 합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
 > [!NOTE]
 > 정책은 일정 기간 동안 토큰을 요청하지 않은 네임스페이스를 사용하지 않도록 설정합니다. 2018년 9월초 현재 해당 기간은 비활성 기간 14일이지만 몇 주 후부터는 비활성 기간 7일로 단축될 예정입니다. 현재 사용하지 않도록 설정된 액세스 제어 네임스페이스가 있다면 [ACS PowerShell을 다운로드 및 설치](#download-and-install-acs-powershell)하여 해당 네임스페이스를 다시 사용하도록 설정할 수 있습니다.
@@ -281,10 +281,13 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 
 이러한 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-|     |     |
-| --- | --- |
-| ![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png) 
+
+[Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
+
+![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png)
+
+[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -343,10 +346,12 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 이런 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 볼 수 있습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-|     |     |
-| --- | --- |
-| ![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+![이 이미지는 좋아하게 되었습니다 로고를 보여줍니다.](./media/active-directory-acs-migration/rsz-auth0.png)
+
+[Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
+
+![이 이미지는 Ping Id 로고 ](./media/active-directory-acs-migration/rsz-ping.png)
+ [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

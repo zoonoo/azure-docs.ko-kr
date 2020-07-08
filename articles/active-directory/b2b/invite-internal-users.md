@@ -4,26 +4,24 @@ description: 파트너, 배포자, 공급자, 공급 업체 및 기타 게스트
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 783fc0fa6f6c4e6c918fa3ff5fe0b53a71fa0178
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680171"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551369"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>내부 사용자를 B2B 공동 작업에 초대
 
-|     |
-| --- |
-| B2B 공동 작업을 사용 하도록 내부 사용자를 초대 하는 것은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요. |
-|     |
+> [!NOTE]
+> B2B 공동 작업을 사용 하도록 내부 사용자를 초대 하는 것은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure AD B2B 공동 작업을 사용 하기 전에 조직에서 내부 자격 증명을 설정 하 여 배포자, 공급자, 공급 업체 및 기타 게스트 사용자와 공동 작업을 할 수 있습니다. 이와 같은 내부 게스트 사용자가 있는 경우 Azure AD B2B 혜택을 활용할 수 있도록 B2B 공동 작업을 사용 하도록 초대할 수 있습니다. B2B 게스트 사용자는 자신의 id 및 자격 증명을 사용 하 여 로그인 할 수 있으며 암호를 유지 관리 하거나 계정 주기를 관리할 필요가 없습니다.
 
@@ -62,7 +60,7 @@ PowerShell 또는 초대 API를 사용 하 여 내부 사용자에 게 B2B 초�
 ```powershell
 Uninstall-Module AzureADPreview
 Install-Module AzureADPreview
-$ADGraphUser = Get-AzureADUser -searchstring "<<external email>>"
+$ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
 ```

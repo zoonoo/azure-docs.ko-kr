@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550620"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
 이 문서에서는 Windows 10 장치에서 FIDO2 보안 키 기반 암호 없는 인증을 사용 하도록 설정 하는 방법을 집중적으로 설명 합니다. 이 문서의 끝 부분에서는 FIDO2 보안 키를 사용 하 여 azure ad 계정으로 azure ad 및 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 할 수 있습니다.
 
-|     |
-| --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+> [!NOTE]
+> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -36,7 +34,7 @@ ms.locfileid: "80653991"
 | 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. | X | X |
 | [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1903 이상이 필요 합니다. | X |   |
-| [하이브리드 AZURE AD 조인 장치](../devices/concept-azure-ad-join-hybrid.md) 에는 Windows 10 Insider Build 18945 이상이 필요 합니다. |   | X |
+| [하이브리드 AZURE AD 조인 장치](../devices/concept-azure-ad-join-hybrid.md) 에는 Windows 10 버전 2004 이상이 필요 합니다. |   | X |
 | Windows Server 2016/2019 도메인 컨트롤러를 완전히 패치 했습니다. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) 버전 1.4.32.0 이상 |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (옵션) | X | X |
@@ -60,7 +58,7 @@ ms.locfileid: "80653991"
 
 기능 미리 보기 중에 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
-하이브리드 Azure AD 조인 장치는 Windows 10 Insider Build 18945 이상을 실행 해야 합니다.
+하이브리드 Azure AD 조인 장치는 Windows 10 버전 2004 이상을 실행 해야 합니다.
 
 ## <a name="enable-security-keys-for-windows-sign-in"></a>Windows 로그인에 대 한 보안 키 사용
 
@@ -81,7 +79,7 @@ ms.locfileid: "80653991"
 Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Microsoft Intune** > **장치 등록** > **windows 등록** >  > **비즈니스용 windows Hello****속성**으로 이동 합니다.
+1. **Microsoft Intune**  >  **장치 등록**  >  **windows 등록**  >  **비즈니스용 windows Hello**  >  **속성**으로 이동 합니다.
 1. **설정**아래에서 **로그인에 대 한 보안 키 사용** **을 사용으로 설정 합니다.**
 
 로그인에 대 한 보안 키 구성은 비즈니스용 Windows Hello 구성에 종속 되지 않습니다.
@@ -91,7 +89,7 @@ Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 
 특정 장치 그룹을 대상으로 자격 증명 공급자를 사용 하도록 설정 하려면 Intune을 통해 다음 사용자 지정 설정을 사용 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Microsoft Intune** > **장치 구성** > **Profiles**프로필 > **프로필 만들기**로 이동 합니다.
+1. **Microsoft Intune**  >  **장치 구성**  >  **프로필**  >  **프로필 만들기**로 이동 합니다.
 1. 다음 설정을 사용 하 여 새 프로필을 구성 합니다.
    - 이름: Windows 로그인에 대 한 보안 키
    - 설명: Windows 로그인 중에 FIDO 보안 키를 사용할 수 있습니다.
@@ -102,7 +100,7 @@ Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - 데이터 형식: Integer
       - 값: 1
-1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)을 참조 하세요.
+1. 이 정책은 특정 사용자, 디바이스 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)을 참조 하세요.
 
 ![Intune 사용자 지정 장치 구성 정책 만들기](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -111,14 +109,14 @@ Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 
 Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 프로 비전 패키지를 설치할 수 있습니다. [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22)에서 Windows 구성 디자이너 앱을 설치할 수 있습니다. 프로 비전 패키지를 만들려면 다음 단계를 완료 합니다.
 
 1. Windows 구성 디자이너를 시작 합니다.
-1. **파일** > **새로 만들기 프로젝트**를 선택 합니다.
+1. **파일**  >  **새로 만들기 프로젝트**를 선택 합니다.
 1. 프로젝트에 이름을 지정 하 고 프로젝트를 만든 경로를 기록한 후 **다음**을 선택 합니다.
 1. **선택한 프로젝트 워크플로** 로 *프로 비전 패키지* 를 선택 된 채로 두고 **다음**을 선택 합니다.
 1. *모든 Windows 데스크톱 버전* 선택에서 **표시 및 구성할 설정을**선택 하 고 **다음**을 선택 합니다.
 1. **마침**을 선택합니다.
-1. 새로 만든 프로젝트에서 **런타임 설정** > **WindowsHelloForBusiness** > **securitykeys** > **UseSecurityKeyForSignIn**로 이동 합니다.
+1. 새로 만든 프로젝트에서 **런타임 설정**  >  **WindowsHelloForBusiness**  >  **securitykeys**  >  **UseSecurityKeyForSignIn**로 이동 합니다.
 1. **UseSecurityKeyForSignIn** 을 *Enabled*로 설정 합니다.
-1. **프로 비전 패키지** **내보내기** > 를 선택 합니다.
+1. **Export**  >  **프로 비전 패키지** 내보내기를 선택 합니다.
 1. **빌드** 창에서 **프로 비전 패키지 설명**아래의 기본값을 그대로 두고 **다음**을 선택 합니다.
 1. **빌드** 창에서 **프로 비전 패키지에 대 한 보안 세부 정보 선택** 의 기본값을 그대로 두고 **다음**을 선택 합니다.
 1. **프로 비전 패키지를 저장할 위치 선택** 에서 **빌드** 창의 경로를 확인 하거나 변경 하 고 **다음**을 선택 합니다.
@@ -131,7 +129,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 
 ### <a name="enable-with-group-policy"></a>그룹 정책 사용
 
-**하이브리드 AZURE AD 가입 장치의**경우 조직은 FIDO 보안 키 로그인을 사용 하도록 다음 그룹 정책 설정을 구성할 수 있습니다. 설정은 **컴퓨터 구성** > **관리 템플릿** > 컴퓨터 구성에서 찾을 수 있습니다.**시스템** > **로그온** > 은**보안 키 로그인을 설정**합니다.
+**하이브리드 AZURE AD 가입 장치의**경우 조직은 FIDO 보안 키 로그인을 사용 하도록 다음 그룹 정책 설정을 구성할 수 있습니다. 설정은 **컴퓨터 구성 관리 템플릿 컴퓨터 구성**에서 찾을 수 있습니다  >  **Administrative Templates**  >  .**시스템**  >  **로그온**은  >  **보안 키 로그인을 설정**합니다.
 
 - 이 정책을 **사용** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 할 수 있습니다.
 - 이 정책을 **사용 안 함** 또는 **구성 되지 않음** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 하지 못하게 됩니다.
@@ -147,7 +145,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>보안 키 생체 인식, PIN 또는 다시 설정 보안 키를 관리 합니다.
 
 * Windows 10 버전 1903 이상
-   * 사용자는 자신의 장치 > **계정** > **보안 키** 에서 **Windows 설정을** 열 수 있습니다.
+   * 사용자는 자신의 장치 > **계정**보안 키에서 **Windows 설정을** 열 수 있습니다.  >  **Security Key**
    * 사용자가 PIN을 변경 하거나, 생체 인식을 업데이트 하거나, 보안 키를 다시 설정할 수 있습니다.
 
 ## <a name="troubleshooting-and-feedback"></a>문제 해결 및 피드백

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26646ad5ae42d2fa301a7f894084a78a64c73bd4
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550977"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅숏
 
@@ -25,7 +25,7 @@ ms.locfileid: "82884671"
 
 ## <a name="about-blob-snapshots"></a>Blob 스냅숏 정보
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅샷은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅샷 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
 
@@ -91,5 +91,5 @@ Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [.NET에서 blob 스냅숏 만들기 및 관리](snapshots-manage-dotnet.md)
+- [.NET에서 Blob 스냅샷 만들기 및 관리](snapshots-manage-dotnet.md)
 - [증분 스냅샷을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../../virtual-machines/windows/incremental-snapshots.md)

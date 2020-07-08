@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68301698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549917"
 ---
 # <a name="create-a-group-for-assessment"></a>평가를 위한 그룹 만들기
 
@@ -43,11 +43,11 @@ ms.locfileid: "68301698"
 
 2. **그룹** 아이콘을 클릭 합니다.
 3. **만들기 그룹**에서 그룹 이름을 지정 하 고, **어플라이언스 이름**에서 컴퓨터 검색에 사용 중인 Azure Migrate 어플라이언스를 선택 합니다.
-1. 컴퓨터 목록에서 그룹에 추가 하려는 컴퓨터를 선택 > **만듭니다**.
+4. 컴퓨터 목록에서 그룹에 추가 하려는 컴퓨터를 선택 > **만듭니다**.
 
     ![그룹 만들기](./media/how-to-create-a-group/create-group.png)
 
-이제 [평가를 만들](how-to-create-assessment.md)때이 그룹을 사용할 수 있습니다.
+이제 [AZURE VM 평가](how-to-create-assessment.md) 또는 [azure VMWARE 솔루션 (AVS) 평가](how-to-create-azure-vmware-solution-assessment.md)를 만들 때이 그룹을 사용할 수 있습니다. VMware Vm만 포함 하는 그룹에 대해 AVS 평가를 만들 수 있습니다. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>종속성 매핑을 사용 하 여 그룹 구체화
 

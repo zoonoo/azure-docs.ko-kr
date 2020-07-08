@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550634"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용
 
 이 문서에서는 **AZURE ad 조인** 및 **하이브리드 Azure ad 조인** Windows 10 장치를 모두 사용 하는 환경에 대해 온-프레미스 리소스에 대해 암호 없는 인증을 사용 하는 방법을 중점적으로 설명 합니다. 이 기능은 Microsoft 호환 보안 키를 사용 하 여 온-프레미스 리소스에 대 한 원활한 Single Sign-On (SSO)를 제공 합니다.
 
-|     |
-| --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.|
-|     |
+> [!NOTE]
+> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>FIDO2 키를 사용 하 여 온-프레미스 리소스에 SSO
 
@@ -81,7 +79,7 @@ Azure AD Kerberos 서버 개체는 온-프레미스 Active Directory 만든 다�
 1. 다음 PowerShell 명령을 실행 하 여 온-프레미스 Active Directory 도메인 및 Azure Active Directory 테 넌 트 둘 다에서 새 Azure AD Kerberos 서버 개체를 만듭니다.
 
 > [!NOTE]
-> 다음 `contoso.corp.com` 예제에서를 온-프레미스 Active Directory 도메인 이름으로 바꿉니다.
+> `contoso.corp.com`다음 예제에서를 온-프레미스 Active Directory 도메인 이름으로 바꿉니다.
 
 ```powerShell
 Import-Module ".\AzureAdKerberos.psd1"
@@ -111,7 +109,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 이 명령은 Azure AD Kerberos 서버 속성을 출력 합니다. 속성을 검토 하 여 모든 것이 올바른 순서 인지 확인할 수 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | ID | AD DS DC 개체의 고유 ID입니다. 이 ID는 "슬롯" 또는 "분기 ID" 라고도 합니다. |
 | DomainDnsName | Active Directory 도메인 DNS 도메인 이름입니다. |
@@ -148,7 +146,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 Azure AD Kerberos 서버 개체는 Azure AD에서 *KerberosDomain* 개체로 표시 됩니다. 각 온-프레미스 Active Directory 도메인은 Azure AD에서 단일 *KerberosDomain* 개체로 표현 됩니다.
 
-예를 들어 조직에는 `contoso.com` 및 `fabrikam.com`라는 두 개의 도메인이 있는 Active Directory 포리스트가 있습니다. Azure AD에서 전체 포리스트에 대해 Kerberos Tgt을 실행 하도록 선택 하는 경우 Azure AD에는 두 개의 *KerberosDomain* 개체가 있습니다. 에 *KerberosDomain* 대해 `contoso.com`하나의 KerberosDomain 개체,에 대해 `fabrikam.com`하나씩 Active Directory 포리스트가 여러 개인 경우 각 포리스트의 각 도메인에 대해 하나의 *KerberosDomain* 개체가 있습니다.
+예를 들어 조직에는 및 라는 두 개의 도메인이 있는 Active Directory 포리스트가 있습니다 `contoso.com` `fabrikam.com` . Azure AD에서 전체 포리스트에 대해 Kerberos Tgt을 실행 하도록 선택 하는 경우 Azure AD에는 두 개의 *KerberosDomain* 개체가 있습니다. 에 대해 하나의 *KerberosDomain* 개체 `contoso.com` ,에 대해 `fabrikam.com` 하나씩 Active Directory 포리스트가 여러 개인 경우 각 포리스트의 각 도메인에 대해 하나의 *KerberosDomain* 개체가 있습니다.
 
 Azure AD 사용자를 포함 하는 조직의 각 도메인 및 포리스트에서 [Kerberos 서버 개체를 만드는](#create-kerberos-server-object) 단계를 실행 해야 합니다.
 
@@ -192,12 +190,12 @@ Azure AD 사용자를 포함 하는 조직의 각 도메인 및 포리스트에�
 
 하이브리드 Azure AD 조인 컴퓨터를 새로 설치 하는 경우 도메인 가입 및 다시 시작 프로세스 후에 암호를 사용 하 여 로그인 하 고 FIDO를 사용 하 여 로그인 할 수 있기 전에 정책이 동기화 될 때까지 기다려야 합니다.
 
-- `dsregcmd /status` 명령 창에를 입력 하 여 현재 상태를 확인 하 고 *AzureAdJoined* 및 *domainjoined* 모두 *예*를 표시 하는지 확인 합니다.
+- 명령 창에를 입력 하 여 현재 상태를 확인 `dsregcmd /status` 하 고 *AzureAdJoined* 및 *domainjoined* 모두 *예*를 표시 하는지 확인 합니다.
 - 이 지연은 도메인에 가입 된 장치에 대 한 알려진 제한 사항이 며 FIDO는 관련이 없습니다.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>FIDO를 사용 하 여 로그인 한 후 NTLM 네트워크 리소스에 대 한 SSO를 가져올 수 없으며 자격 증명 프롬프트를 가져옵니다.
 
-리소스 요청을 처리할 때까지 충분 한 도메인 컨트롤러가 패치 되었는지 확인 합니다. 기능을 실행 하는 도메인 컨트롤러를 볼 수 있는지 확인 하려면의 `nltest /dsgetdc:contoso /keylist /kdc`출력을 검토 합니다.
+리소스 요청을 처리할 때까지 충분 한 도메인 컨트롤러가 패치 되었는지 확인 합니다. 기능을 실행 하는 도메인 컨트롤러를 볼 수 있는지 확인 하려면의 출력을 검토 `nltest /dsgetdc:contoso /keylist /kdc` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

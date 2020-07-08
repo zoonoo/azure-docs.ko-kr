@@ -4,15 +4,15 @@ description: Azure 진단 설정을 사용 하 여에 저장 된 데이터의 �
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: b1a507c54c6a6555fc945dd35ee6e54d37d49bfd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549978"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
 
@@ -32,19 +32,19 @@ Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다
 
 1. 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Cosmos DB에서 지 원하는 로그의 범주는 아래에 나열 된 샘플 로그와 함께 아래에 나열 되어 있습니다.
 
- * **DataPlaneRequests**: AZURE COSMOS DB의 SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 api에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 주의 해야 할 주요 속성은 `Requestcharge`, `statusCode` `clientIPaddress`, 및 `partitionID`입니다.
+ * **DataPlaneRequests**: AZURE COSMOS DB의 SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 api에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 주의 해야 할 주요 속성은 `Requestcharge` , `statusCode` , `clientIPaddress` 및 `partitionID` 입니다.
 
     ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의 해야 할 주요 속성은 `Requestcharge`, `opCode`입니다. 진단 로그에서 MongoRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
+* **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의 해야 할 주요 속성은 `Requestcharge` , `opCode` 입니다. 진단 로그에서 MongoRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests**: 프런트 엔드에서 사용자가 시작한 요청을 CASSANDRA의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName`, `requestCharge`, `piiCommandText`입니다. 진단 로그에서 CassandraRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
+* **CassandraRequests**: 프런트 엔드에서 사용자가 시작한 요청을 CASSANDRA의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName` , `requestCharge` , `piiCommandText` 입니다. 진단 로그에서 CassandraRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
@@ -146,6 +146,21 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
    | limit 100
    ```
 
+1. 요청 요금 및 쿼리 실행 기간을 가져오는 방법
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
+
 1. 여러 작업에 대 한 배포를 가져오는 방법
 
    ```Kusto
@@ -234,5 +249,5 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB에 대 한 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
+* [Azure Cosmos DB용 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
 * [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

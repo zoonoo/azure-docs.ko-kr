@@ -4,26 +4,23 @@ description: Facebook과 페더레이션하여 외부 사용자(게스트)가 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551254"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
-|     |
-| --- |
-| 셀프 서비스 가입은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+> [!NOTE]
+> 셀프 서비스 가입은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 조직에서 빌드한 앱에 대한 사용자 흐름을 만들 수 있습니다. 사용자 흐름을 애플리케이션과 연결하면 해당 앱에서 가입을 사용하도록 설정할 수 있습니다. 사용자 흐름과 연결할 애플리케이션을 둘 이상 선택할 수 있습니다. 사용자 흐름을 하나 이상의 애플리케이션과 연결하면 해당 앱을 방문하는 사용자가 사용자 흐름에 구성된 옵션을 사용하여 가입하고 게스트 계정을 획득할 수 있습니다.
 
@@ -109,3 +106,5 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 
 - [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
 - [소셜 ID 공급자 목록에 Facebook 추가](facebook-federation.md)
+- [API 커넥터를 사용 하 여 웹 Api를 통해 사용자 흐름 사용자 지정 및 확장](api-connectors-overview.md)
+- [사용자 흐름에 사용자 지정 승인 워크플로 추가](self-service-sign-up-add-approvals.md)

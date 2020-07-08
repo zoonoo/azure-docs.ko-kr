@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551597"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자용 Azure Active Directory(v1.0) 개요
 
@@ -29,11 +29,8 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 > [!NOTE]
 > 이 페이지의 콘텐츠는 대부분 Microsoft 회사 또는 학교 계정만 지원하는 v1.0 엔드포인트 및 플랫폼을 중심으로 합니다. 소비자 또는 개인 Microsoft 계정에 로그인하려면 [v2.0 엔드포인트 및 플랫폼](../develop/v2-overview.md)에 대한 정보를 참조하세요. v2.0 엔드포인트는 모든 Microsoft ID를 로그인하려는 앱에 대한 통합 개발자 환경을 제공합니다.
 
-| | |
-| --- | --- |
-|[인증 기본 사항](v1-authentication-scenarios.md) | Azure AD를 사용하는 인증에 대한 소개입니다. |
-|[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
-| | |
+- [인증 기본 사항](v1-authentication-scenarios.md) Azure AD를 사용한 인증 소개.
+- [응용 프로그램 유형](app-types.md) Azure AD에서 지 원하는 인증 시나리오에 대 한 개요입니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -47,12 +44,9 @@ Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 
 
 다음 문서는 API, 프로토콜 메시지 및 Azure AD에서 사용되는 용어에 대한 자세한 정보를 제공합니다.
 
-|                                                                                   | |
-| ----------------------------------------------------------------------------------| --- |
-| [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)   | Azure AD에서 제공하는 라이브러리 및 SDK에 대한 개요입니다. |
-| [코드 샘플](sample-v1-code.md)                                  | 모든 Azure AD 코드 샘플의 목록입니다. |
-| [용어](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
-|  |  |
+- [인증 라이브러리 (ADAL)](active-directory-authentication-libraries.md) Azure AD에서 제공 하는 라이브러리 및 Sdk에 대 한 개요입니다.
+- [코드 샘플](sample-v1-code.md) 모든 Azure AD 코드 샘플의 목록입니다.
+- [용어집](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 이 설명서 전체에서 사용 되는 단어에 대 한 용어 및 정의입니다.
 
 ## <a name="videos"></a>동영상
 

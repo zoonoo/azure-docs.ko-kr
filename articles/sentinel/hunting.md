@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널의 구하기 기능 | Microsoft Docs
-description: 이 문서에서는 Azure 센티널 구하기 기능을 사용 하는 방법을 설명 합니다.
+description: Azure 센티널의 기본 제공 구하기 쿼리를 사용 하 여 데이터에서 문제를 찾을 수 있는 적절 한 질문을 안내 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552286"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Azure 센티널로 위협 구하기
 
@@ -84,7 +84,7 @@ Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. �
 
 2. 이벤트 ID 4688만 표시 하도록 쿼리에 필터를 추가 합니다.
 
-3. 명령줄의 쿼리에 필터를 추가 하 여 cscript.exe 인스턴스만 포함 합니다.
+3. cscript.exe 인스턴스만 포함 하는 명령줄의 쿼리에 필터를 추가 합니다.
 
 4. 탐색 하는 데 관심이 있는 열만 프로젝션 하 고 결과를 1000으로 제한 한 다음 **쿼리 실행**을 클릭 합니다.
 5. 녹색 삼각형을 클릭 하 고 쿼리를 실행 합니다. 쿼리를 테스트 하 고 실행 하 여 비정상적인 동작을 찾을 수 있습니다.
@@ -143,4 +143,4 @@ Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. �
 
 
 - [노트북을 사용 하 여 자동화 된 구하기 캠페인 실행](notebooks.md)
-- [책갈피를 사용 하 여 검색할 때 관심 있는 정보 저장](bookmarks.md)
+- [헌팅 시 책갈피를 사용하여 흥미로운 정보 저장하기](bookmarks.md)

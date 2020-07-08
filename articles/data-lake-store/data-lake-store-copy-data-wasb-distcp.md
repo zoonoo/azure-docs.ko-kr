@@ -3,15 +3,15 @@ title: DistCp를 사용 하 여 WASB에서 Azure Data Lake Storage Gen1로 데�
 description: DistCp 도구를 사용 하 여 Azure Storage blob 간에 데이터를 복사 Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 455e73ece2d46a508b3077c13c8106fe53beb4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515683"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>DistCp를 사용 하 여 Azure Storage blob와 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -71,7 +71,7 @@ An HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터�
 
 DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data Lake Storage Gen1에 대해 최적화 하기 위해 최대 동시 복사본 수를 설정 하는 것이 가장 중요 한 매개 변수입니다. 명령줄에서 매퍼 수 (' m ') 매개 변수를 설정 하 여 동시 복사의 수를 제어할 수 있습니다. 이 매개 변수는 데이터를 복사하는 데 사용되는 최대 매퍼 수를 지정합니다. 기본값은 20입니다.
 
-예제:
+예:
 
 ```
  hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
@@ -83,11 +83,11 @@ DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data 
 
 * **1단계: 전체 YARN 메모리 확인** - 첫 번째 단계는 DistCp 작업을 실행하는 클러스터에서 사용할 수 있는 YARN 메모리를 확인하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동 하 고 **Configs** 탭을 확인 하 여 YARN 메모리를 확인 합니다. 전체 YARN 메모리를 알려면 노드당 YARN 메모리와 클러스터에 있는 노드 수를 곱합니다.
 
-* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보는 Ambari 포털 에서도 사용할 수 있습니다. YARN으로 이동 하 여 **Configs** 탭을 확인 합니다. YARN 컨테이너 크기가이 창에 표시 됩니다. 매퍼 (**m**)의 수에 도달 하는 수식은 다음과 같습니다.
+* **2단계: 매퍼 수 계산** - **m** 값은 총 YARN 메모리 양을 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보는 Ambari 포털 에서도 사용할 수 있습니다. YARN으로 이동 하 여 **Configs** 탭을 확인 합니다. YARN 컨테이너 크기가이 창에 표시 됩니다. 매퍼 (**m**)의 수에 도달 하는 수식은 다음과 같습니다.
 
    `m = (number of nodes * YARN memory for each node) / YARN container size`
 
-예제:
+예:
 
 클러스터에 4 개의 D14v2s 노드가 있고 10 개의 서로 다른 폴더에서 10TB의 데이터를 전송 하려는 경우를 가정해 보겠습니다. 각 폴더에는 다양한 크기의 데이터가 포함되어 있고 각 폴더 내의 파일 크기가 서로 다릅니다.
 
@@ -115,7 +115,7 @@ DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data 
 
 * Azure Blob storage 계정에서 복사 하는 경우 복사 작업은 Blob storage 쪽에서 제한 될 수 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob storage의 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Storage blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

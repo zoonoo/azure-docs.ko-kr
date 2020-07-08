@@ -1,16 +1,16 @@
 ---
-title: Azure Migrate Server 평가의 평가
+title: Azure Migrate Server 평가의 Azure VM 평가
 description: Azure Migrate Server 평가의 평가에 대 한 자세한 정보
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/27/2020
+ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549959"
 ---
-# <a name="assessments-in-azure-migrate-server-assessment"></a>Azure Migrate의 평가: 서버 평가
+# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Azure Migrate에서 Azure VM 평가: 서버 평가
 
 이 문서에서는 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구의 평가에 대 한 개요를 제공 합니다. 이 도구는 Azure로 마이그레이션하기 위한 온-프레미스 VMware 가상 머신, Hyper-v Vm 및 물리적 서버를 평가할 수 있습니다.
 
@@ -23,7 +23,14 @@ ms.locfileid: "81769932"
 
 ## <a name="types-of-assessments"></a>평가 유형
 
-서버 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. 서버 평가에서는 두 가지 유형의 평가를 제공 합니다.
+Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
+
+**평가 유형** | **세부 정보**
+--- | --- 
+**Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다.
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+
+서버 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. 서버 평가에서 Azure VM 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
 **평가 유형** | **세부 정보** | **Data**
 --- | --- | ---
@@ -45,7 +52,7 @@ ms.locfileid: "81769932"
 1. 첫 번째 평가의 경우 Azure 프로젝트를 만들고 여기에 서버 평가 도구를 추가 합니다.
 1. 경량 Azure Migrate 어플라이언스를 배포 합니다. 어플라이언스는 온-프레미스 컴퓨터를 지속적으로 검색 하 고 Azure Migrate에 컴퓨터 메타 데이터 및 성능 데이터를 보냅니다. 어플라이언스를 VM 또는 물리적 컴퓨터로 배포 합니다. 평가 하려는 컴퓨터에는 아무것도 설치할 필요가 없습니다.
 
-기기가 컴퓨터 검색을 시작한 후 그룹으로 평가 하려는 컴퓨터를 수집 하 고 해당 그룹에 대 한 평가를 실행할 수 있습니다.
+기기가 컴퓨터 검색을 시작한 후에는 평가 하려는 컴퓨터를 그룹으로 수집 하 고 평가 유형이 **AZURE VM**인 그룹에 대 한 평가를 실행할 수 있습니다.
 
 [VMware](tutorial-prepare-vmware.md), [hyper-v](tutorial-prepare-hyper-v.md)또는 [물리적 서버](tutorial-prepare-physical.md) 에 대 한 자습서에 따라 이러한 단계를 수행해 보세요.
 
@@ -57,7 +64,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 1. 첫 번째 평가의 경우 Azure 프로젝트를 만들고 여기에 서버 평가 도구를 추가 합니다.
 1. CSV 템플릿을 다운로드 하 고 여기에 서버 데이터를 추가 합니다.
 1. 템플릿을 서버 평가로 가져옵니다.
-1. 가져오기를 사용 하 여 추가 된 서버를 검색 하 고, 그룹에 수집 하 고, 그룹에 대 한 평가를 실행 합니다.
+1. 가져오기를 사용 하 여 추가 된 서버를 검색 하 고, 그룹에 수집 하 고, 평가 유형이 **AZURE VM**인 그룹에 대 한 평가를 실행 합니다.
 
 ## <a name="what-data-does-the-appliance-collect"></a>기기가 수집 하는 데이터는 무엇 인가요?
 
@@ -89,7 +96,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
     - 디스크 처리량 (읽기 및 쓰기)
     - 네트워크 처리량 (in 및 out)
 
-## <a name="how-are-assessments-calculated"></a>평가는 어떻게 계산 되나요?
+## <a name="how-are-azure-vm-assessments-calculated"></a>Azure VM 평가는 어떻게 계산 되나요?
 
 서버 평가에서는 온-프레미스 컴퓨터의 메타 데이터 및 성능 데이터를 사용 하 여 평가를 계산 합니다. Azure Migrate 어플라이언스를 배포 하는 경우 평가는 어플라이언스에서 수집 하는 데이터를 사용 합니다. 그러나 CSV 파일을 사용 하 여 가져온 평가를 실행 하는 경우 계산에 대 한 메타 데이터를 제공 합니다.
 
@@ -101,32 +108,34 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 
 계산은 앞의 순서로 계산 됩니다. 컴퓨터 서버는 이전 단계를 통과 하는 경우에만 이후 단계로 이동 합니다. 예를 들어 서버에서 Azure 준비 단계가 실패 하면 Azure에 적합 하지 않은 것으로 표시 됩니다. 해당 서버에 대 한 크기 조정 및 비용 계산은 수행 되지 않습니다.
 
-## <a name="whats-in-an-assessment"></a>평가의 내용
+## <a name="whats-in-an-azure-vm-assessment"></a>Azure VM 평가의 기능
 
-서버 평가의 평가에 포함 된 같습니다는 다음과 같습니다.
+서버 평가에서 Azure VM 평가에 포함 된 같습니다는 다음과 같습니다.
 
-속성 | 세부 정보
+**속성** | **세부 정보**
 --- | ---
 **대상 위치** | 마이그레이션하려는 위치입니다. 서버 평가는 현재 이러한 대상 Azure 지역을 지원 합니다.<br/><br/> 오스트레일리아 동부, 오스트레일리아, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 미국 동부 2, 독일 중부, 독일 북동쪽, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국, 미국 중 북부, 미국 중 북부, 미국 동부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아 , 미국 서 부, 미국 서 부, 미국 서 부 및 미국 서 부 2를 유럽 서부 합니다.
 **대상 저장소 디스크 (있는 그대로 크기 조정)** | Azure에서 저장소에 사용할 디스크의 유형입니다. <br/><br/> 대상 저장소 디스크를 프리미엄 관리, 표준 SSD 관리 또는 표준 HDD 관리로 지정 합니다.
 **대상 저장소 디스크 (성능 기반 크기 조정)** | 대상 저장소 디스크의 유형을 자동, 프리미엄 관리, 표준 HDD 관리 또는 표준 SSD 관리로 지정 합니다.<br/><br/> **자동**: 디스크 권장 사항은 IOPS 및 처리량을 의미 하는 디스크의 성능 데이터를 기반으로 합니다.<br/><br/>**프리미엄 또는 표준**: 평가에서 선택한 저장소 유형 내의 디스크 SKU를 권장 합니다.<br/><br/> 단일 인스턴스 VM SLA (서비스 수준 계약)를 99.9% 사용 하려면 프리미엄 관리 디스크를 사용 하는 것이 좋습니다. 이렇게 하면 평가의 모든 디스크를 프리미엄 관리 디스크로 사용 하는 것이 좋습니다.<br/><br/> Azure Migrate는 마이그레이션 평가를 위해 managed disks만 지원 합니다.
-**Azure Reserved Virtual Machine Instances** | 평가의 비용 예측이이를 고려 하도록 [예약 된 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/) 를 지정 합니다.<br/><br/> 현재 Azure Migrate는 종 량 제 제품에 대해서만 Azure Reserved VM Instances를 지원 합니다.
+**Azure Reserved VM Instances** | 평가의 비용 예측이이를 고려 하도록 [예약 된 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/) 를 지정 합니다.<br/><br/> ' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다.<br/><br/> 현재 Azure Migrate는 종 량 제 제품에 대해서만 Azure Reserved VM Instances를 지원 합니다.
 **크기 조정 조건** | Azure VM의 크기를 조정 하는 데 사용 됩니다.<br/><br/> 크기 조정 또는 성능 기반 크기 조정을 그대로 사용 합니다.
 **성능 기록** | 성능 기반 크기 조정에 사용 됩니다. 성능 기록은 성능 데이터를 평가할 때 사용 되는 기간을 지정 합니다.
 **백분위 수 사용률** | 성능 기반 크기 조정에 사용 됩니다. 백분위 수 사용률은 rightsizing 조정에 사용 되는 성능 샘플의 백분위 수 값을 지정 합니다.
 **VM 시리즈** | Rightsizing 조정에 대해 고려할 Azure VM 시리즈입니다. 예를 들어 Azure에서 A 시리즈 Vm이 필요한 프로덕션 환경이 없는 경우 계열 목록에서 A 시리즈를 제외할 수 있습니다.
 **쾌적 인자** | 평가 중에 사용 되는 버퍼입니다. Vm의 CPU, RAM, 디스크 및 네트워크 사용률 데이터에 적용 됩니다. 이는 계절 사용량, 짧은 성능 기록 및 향후 사용에 대 한 성능 향상 등의 문제를 해결 합니다.<br/><br/> 예를 들어 20% 사용률이 있는 10 코어 VM은 일반적으로 2 코어 VM을 생성 합니다. 2.0의 편안 함에 따라서 결과는 4 코어 VM입니다.
-**제품** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 서버 평가는 해당 제품에 대 한 비용을 예상 합니다.
+**제안** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 서버 평가는 해당 제품에 대 한 비용을 예상 합니다.
 **Currency** | 계정에 대 한 청구 통화입니다.
 **할인(%)** | Azure 제품을 기반으로 받는 모든 구독 관련 할인 기본 설정은 0%입니다.
 **VM 작동 시간** | 지속적으로 실행 되지 않는 Azure Vm의 일일 기간 (일) 및 시간입니다. 예상 비용은 해당 기간을 기준으로 합니다.<br/><br/> 기본값은 매월 31 일, 하루 24 시간입니다.
 **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)자격이 있는지 여부를 지정 합니다. 설정 값이 기본값인 "예" 인 경우 Windows 이외의 운영 체제에 대 한 Azure 가격은 Windows Vm에서 고려 됩니다.
+**EA 구독** | 비용 예측에 EA (기업계약) 구독을 사용 하도록 지정 합니다. 구독에 적용 되는 할인을 고려 합니다. <br/><br/> 예약 인스턴스, 할인율 (%)의 설정을 그대로 둡니다. 및 VM 작동 시간 속성을 기본 설정으로 바꿉니다.
+
 
 서버 평가를 사용 하 여 평가를 만드는 방법에 대 한 [모범 사례를 검토](best-practices-assessment.md) 합니다.
 
 ## <a name="calculate-readiness"></a>준비 상태 계산
 
-모든 컴퓨터가 Azure에서 실행 하기에 적합 한 것은 아닙니다. 서버 평가는 모든 온-프레미스 컴퓨터를 평가 하 고 준비 범주를 할당 합니다.
+모든 컴퓨터가 Azure에서 실행 하기에 적합 한 것은 아닙니다. Azure VM 평가는 모든 온-프레미스 컴퓨터를 평가 하 고 준비 범주를 할당 합니다.
 
 - **Azure 준비**: 컴퓨터를 변경 하지 않고 azure에 그대로 마이그레이션할 수 있습니다. Azure에서 전체 Azure 지원으로 시작 됩니다.
 - **조건부로 azure에 대해 준비**됨: 컴퓨터가 azure에서 시작 될 수 있지만 전체 azure 지원이 없을 수 있습니다. 예를 들어 Azure는 이전 버전의 Windows Server를 실행 하는 컴퓨터를 지원 하지 않습니다. 이러한 컴퓨터를 Azure로 마이그레이션하기 전에 주의 해야 합니다. 준비 문제를 해결 하려면 평가에서 제안 하는 수정 지침을 따르세요.
@@ -137,22 +146,23 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 
 ### <a name="machine-properties"></a>컴퓨터 속성
 
-서버 평가는 온-프레미스 VM의 다음 속성을 검토 하 여 Azure에서 실행할 수 있는지 여부를 확인 합니다.
+Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성을 검토 하 여 Azure Vm에서 실행 될 수 있는지 여부를 확인 합니다.
 
-속성 | 세부 정보 | Azure 준비 상태
+속성 | 설명 | Azure 준비 상태
 --- | --- | ---
 **부팅 유형** | Azure는 UEFI가 아닌 부팅 유형의 BIOS를 사용 하는 Vm을 지원 합니다. | 부팅 유형이 UEFI 인 경우 조건적으로 준비 됨
 **코어 수** | 각 컴퓨터에는 Azure VM에서 지원 되는 최대 수 인 128 코어가 없어야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 평가 설정에서 편안 하 게 요소를 지정 하는 경우 사용 되는 코어 수를 편안 하 게 곱합니다.<br/><br/> 성능 기록이 없는 경우 Azure Migrate는 편안 하 게 요소를 적용 하지 않고 할당 된 코어를 사용 합니다. | 코어 수가 한도 내에 있으면 준비
-**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
+**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
 **스토리지 디스크** | 할당 된 디스크 크기는 32 TB이 하 여야 합니다. Azure는 Azure 울트라 SSD 디스크를 사용 하 여 64-TB 디스크를 지원 하지만 Azure Migrate: 서버 평가는 현재 울트라 SSD를 지원 하지 않으므로 디스크 크기 제한으로 32 TB를 확인 합니다. <br/><br/> OS 디스크를 포함 하 여 컴퓨터에 연결 된 디스크 수는 65 미만 이어야 합니다. | 디스크 크기와 숫자가 한도 내에 있으면 준비
 **네트워킹** | 컴퓨터에는 32 개의 Nic (네트워크 인터페이스)가 연결 되어 있어야 합니다. | Nic 수가 한도 내에 있으면 준비
 
 ### <a name="guest-operating-system"></a>게스트 운영 체제
 
-VM 속성을 검토 하는 것과 함께 서버 평가는 컴퓨터의 게스트 운영 체제를 확인 하 여 Azure에서 실행 될 수 있는지 여부를 확인 합니다.
+VM 속성 검토와 함께 Azure VM 평가의 경우 서버 평가는 컴퓨터의 게스트 운영 체제를 확인 하 여 Azure에서 실행 될 수 있는지 여부를 확인 합니다.
 
 > [!NOTE]
-> VMware Vm에 대 한 게스트 분석을 처리 하기 위해 서버 평가는 vCenter Server에서 VM에 대해 지정 된 운영 체제를 사용 합니다. VMware에서 실행 되는 Linux Vm의 경우 서버 평가는 현재 게스트 OS의 커널 버전을 식별 하지 않습니다.
+> VMware Vm에 대 한 게스트 분석을 처리 하기 위해 서버 평가는 vCenter Server에서 VM에 대해 지정 된 운영 체제를 사용 합니다. 그러나 vCenter Server는 Linux VM 운영 체제의 커널 버전을 제공 하지 않습니다. 버전을 검색 하려면 [응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/how-to-discover-applications)을 설정 해야 합니다. 그런 다음, 어플라이언스는 앱 검색을 설정할 때 지정 하는 게스트 자격 증명을 사용 하 여 버전 정보를 검색 합니다.
+
 
 서버 평가는 다음 논리를 사용 하 여 운영 체제에 따라 Azure 준비 상태를 식별 합니다.
 
@@ -175,11 +185,11 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate OS를
 
 ## <a name="calculating-sizing"></a>크기 조정 계산
 
-컴퓨터가 Azure 준비 완료로 표시 되 면 서버 평가를 통해 크기 조정 권장 사항이 적용 됩니다. 이러한 권장 사항은 Azure VM 및 디스크 SKU를 식별 합니다. 크기 계산은 온-프레미스 크기 조정 또는 성능 기반 크기 조정을 사용 하 고 있는지 여부에 따라 달라 집니다.
+컴퓨터가 Azure에 준비 된 것으로 표시 되 면 서버 평가는 Azure VM 평가에서 크기 조정 권장 사항을 만듭니다. 이러한 권장 사항은 Azure VM 및 디스크 SKU를 식별 합니다. 크기 계산은 온-프레미스 크기 조정 또는 성능 기반 크기 조정을 사용 하 고 있는지 여부에 따라 달라 집니다.
 
 ### <a name="calculate-sizing-as-is-on-premises"></a>크기 계산 계산 (온-프레미스로)
 
- 온-프레미스 크기 조정을 사용 하는 경우 서버 평가는 Vm 및 디스크의 성능 기록을 고려 하지 않습니다.
+ 온-프레미스 크기 조정을 사용 하는 경우 서버 평가는 Azure VM 평가에서 Vm 및 디스크의 성능 기록을 고려 하지 않습니다.
 
 - **계산 크기 조정**: 서버 평가는 온-프레미스에 할당 된 크기에 따라 AZURE VM SKU를 할당 합니다.
 - **저장소 및 디스크 크기 조정**: 서버 평가는 평가 속성에 지정 된 저장소 유형을 확인 하 고 적절 한 디스크 유형을 권장 합니다. 가능한 저장소 유형은 표준 HDD, 표준 SSD 및 프리미엄입니다. 기본 저장소 유형은 프리미엄입니다.
@@ -187,7 +197,7 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate OS를
 
 ### <a name="calculate-sizing-performance-based"></a>크기 계산 계산 (성능 기반)
 
-성능 기반 크기 조정을 사용 하는 경우 서버 평가는 다음과 같이 크기 조정 권장 사항을 만듭니다.
+Azure VM 평가에서 성능 기반 크기 조정을 사용 하는 경우 서버 평가는 다음과 같이 크기 조정 권장 사항을 만듭니다.
 
 - 서버 평가는 컴퓨터의 성능 기록을 고려 하 여 Azure의 VM 크기 및 디스크 유형을 식별 합니다.
 - CSV 파일을 사용 하 여 서버를 가져오는 경우 지정한 값이 사용 됩니다. 이 방법은 온-프레미스 컴퓨터의 사용을 초과 하 고 사용률을 낮게 설정 하 고 비용을 절감 하기 위해 Azure VM의 크기를 조정 하려는 경우에 특히 유용 합니다.
@@ -195,9 +205,10 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate OS를
 
 #### <a name="calculate-storage-sizing"></a>저장소 크기 조정 계산
 
-저장소 크기 조정을 위해 Azure Migrate는 컴퓨터에 연결 된 각 디스크를 Azure 디스크에 매핑하려고 시도 합니다. 크기 조정은 다음과 같이 작동 합니다.
+Azure VM 평가에서 저장소 크기를 조정 하는 경우 Azure Migrate는 컴퓨터에 연결 된 각 디스크를 Azure 디스크에 매핑하려고 시도 합니다. 크기 조정은 다음과 같이 작동 합니다.
 
-1. 서버 평가는 디스크의 읽기 및 쓰기 IOPS를 추가 하 여 필요한 총 IOPS를 가져옵니다. 마찬가지로, 읽기 및 쓰기 처리량 값을 추가 하 여 각 디스크의 총 처리량을 가져옵니다.
+1. 서버 평가는 디스크의 읽기 및 쓰기 IOPS를 추가 하 여 필요한 총 IOPS를 가져옵니다. 마찬가지로, 읽기 및 쓰기 처리량 값을 추가 하 여 각 디스크의 총 처리량을 가져옵니다. 가져오기 기반 평가의 경우 총 IOPS, 총 처리량 및 총 아니요를 제공 하는 옵션이 있습니다. 개별 디스크 설정을 지정 하지 않고 가져온 파일의 디스크. 이렇게 하면 개별 디스크 크기 조정을 건너뛰고 제공 된 데이터를 직접 사용 하 여 크기를 계산 하 고 적절 한 VM SKU를 선택 합니다.
+
 1. 저장소 유형을 자동으로 지정한 경우 선택한 유형은 유효 IOPS 및 처리량 값을 기준으로 합니다. 서버 평가는 디스크를 Azure의 표준 HDD, 표준 SSD 또는 프리미엄 디스크에 매핑할지 여부를 결정 합니다. 저장소 유형이 이러한 디스크 유형 중 하나로 설정 된 경우 서버 평가는 선택한 저장소 유형 내에서 디스크 SKU를 찾으려고 시도 합니다.
 1. 디스크는 다음과 같이 선택 됩니다.
     - 서버 평가에서 필요한 IOPS 및 처리량을 가진 디스크를 찾지 못하면 컴퓨터가 Azure에 적합 하지 않은 것으로 표시 됩니다.
@@ -207,7 +218,7 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate OS를
 
 #### <a name="calculate-network-sizing"></a>네트워크 크기 조정 계산
 
-서버 평가는 온-프레미스 컴퓨터에 연결 된 네트워크 어댑터의 수 및 필요한 성능을 지 원하는 Azure VM을 찾으려고 시도 합니다.
+Azure VM 평가의 경우 서버 평가는 온-프레미스 컴퓨터에 연결 된 네트워크 어댑터의 수 및 필요한 성능을 지 원하는 Azure VM을 찾으려고 시도 합니다.
 
 - 온-프레미스 VM의 효과적인 네트워크 성능을 얻기 위해 서버 평가는 모든 네트워크 어댑터에서 컴퓨터 (네트워크에서)의 데이터 전송 속도를 집계 합니다. 그런 다음 편안 하 게 적용 합니다. 그 결과 값을 사용 하 여 필요한 네트워크 성능을 지원할 수 있는 Azure VM을 찾습니다.
 - 네트워크 성능 외에도, 서버 평가는 Azure VM이 필요한 수의 네트워크 어댑터를 지원할 수 있는지 여부를 고려 합니다.
@@ -224,7 +235,7 @@ vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate OS를
 
 ## <a name="confidence-ratings-performance-based"></a>신뢰 등급 (성능 기반)
 
-Azure Migrate의 각 성능 기반 평가는 신뢰도 등급과 관련 됩니다. 등급의 범위는 1 (최저)에서 5 (가장 높음) 사이입니다. 신뢰 등급은 Azure Migrate에서 제공 하는 크기 권장 사항의 안정성을 예측 하는 데 도움이 됩니다.
+Azure Migrate의 각 성능 기반 Azure VM 평가는 신뢰도 등급과 연결 됩니다. 등급의 범위는 1 (최저)에서 5 (가장 높음) 사이입니다. 신뢰 등급은 Azure Migrate에서 제공 하는 크기 권장 사항의 안정성을 예측 하는 데 도움이 됩니다.
 
 - 신뢰 등급이 평가에 할당 됩니다. 등급은 평가를 계산 하는 데 필요한 데이터 요소의 가용성을 기준으로 합니다.
 - 성능 기반 크기 조정의 경우 서버 평가 요구 사항은 다음과 같습니다.
@@ -262,7 +273,7 @@ Azure Migrate의 각 성능 기반 평가는 신뢰도 등급과 관련 됩니�
 
 ## <a name="calculate-monthly-costs"></a>월별 비용 계산
 
-크기 조정 권장 구성이 완료 되 면 마이그레이션 후의 계산 및 저장소 비용을 계산 Azure Migrate.
+크기 조정 권장 사항이 완료 된 후 Azure Migrate의 Azure VM 평가는 마이그레이션 후의 계산 및 저장소 비용을 계산 합니다.
 
 - **계산 비용**: Azure Migrate은 권장 되는 azure vm 크기 및 AZURE 청구 API를 사용 하 여 VM에 대 한 월별 비용을 계산 합니다.
 
@@ -284,7 +295,7 @@ Azure Migrate의 각 성능 기반 평가는 신뢰도 등급과 관련 됩니�
 
 ## <a name="next-steps"></a>다음 단계
 
-평가 만들기에 대 한 모범 사례를 [검토](best-practices-assessment.md) 합니다. 
+평가를 만드는 모범 사례를 [검토합니다](best-practices-assessment.md). 
 
 - [VMware vm](tutorial-prepare-vmware.md), [hyper-v vm](tutorial-prepare-hyper-v.md)및 [물리적 서버](tutorial-prepare-physical.md)에 대 한 평가를 실행 하는 방법에 대해 알아봅니다.
 - [CSV 파일을 사용 하 여 가져온 서버를 평가 하는](tutorial-assess-import.md)방법을 알아봅니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 94ef9b9754527bbb36ef1028f80e957da8c631dd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: HT
+ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549584"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -144,7 +144,7 @@ Virtual Network NAT와 NAT 게이트웨이 리소스는 모든 Azure 퍼블릭 �
 
 NAT는 일반적인 지원 채널을 통해 지원됩니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="suggestions"></a>제안
 
 서비스를 향상시킬 수 있는 방법을 찾고 있습니다. [UserVoice for NAT](https://aka.ms/natuservoice)에서 다음에 빌드해야 하는 항목을 제안하고 이에 대해 투표할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: HT
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549642"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -325,8 +325,7 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 - NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
 - NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 
-
-## <a name="feedback"></a>사용자 의견
+## <a name="suggestions"></a>제안
 
 서비스를 향상시킬 수 있는 방법을 찾고 있습니다. 기능이 누락되었나요? 다음에 어떤 기능을 빌드해야 하는지 [UserVoice for NAT](https://aka.ms/natuservoice)에서 사례를 작성해 주세요.
 

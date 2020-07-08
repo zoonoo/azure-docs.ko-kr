@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550679"
 ---
 # <a name="combined-security-information-registration-overview"></a>결합 된 보안 정보 등록 개요
 
-결합 된 등록 전에 사용자는 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
+결합된 등록 전에는 사용자가 Azure Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정)에 대한 인증 방법을 별도로 등록했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
 
 이 문서에서는 결합 된 보안 등록을 간략하게 설명 합니다. 결합 된 보안 등록을 시작 하려면 다음 문서를 참조 하세요.
 
@@ -34,11 +34,11 @@ ms.locfileid: "82143915"
 Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일 또는 Azure 중국 21Vianet과 같은 국가별 클라우드에서 사용할 수 없습니다.
 
 > [!IMPORTANT]
-> 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자에 게는 새 내 프로필 환경만 표시 됩니다. 새 내 프로필은 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는로 이동 하 여 내 프로필 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)을 볼 수 있습니다.
+> 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자에 게는 새 내 프로필 환경만 표시 됩니다. 새 내 프로필은 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는로 이동 하 여 내 프로필을 볼 수 있습니다 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
 > 보안 정보 옵션에 액세스 하려고 하면 오류 메시지가 나타날 수 있습니다. 예를 들어 "죄송 합니다."에 로그인 할 수 없습니다. 이 경우 웹 브라우저에서 타사 쿠키를 차단 하는 구성 또는 그룹 정책 개체가 없는지 확인 합니다.
 
-내 프로필 페이지는 페이지에 액세스 하는 컴퓨터의 언어 설정에 따라 지역화 됩니다. Microsoft는 브라우저 캐시에서 가장 최근에 사용 된 언어를 저장 하므로 이후 페이지에 대 한 액세스 시도는 마지막으로 사용 된 언어로 계속 렌더링 됩니다. 캐시를 지우면 페이지가 다시 렌더링 됩니다. 특정 언어를 적용 하려는 경우 URL의 끝에를 추가할 `?lng=<language>` 수 있습니다. 여기서 `<language>` 은 렌더링 하려는 언어의 코드입니다.
+내 프로필 페이지는 페이지에 액세스 하는 컴퓨터의 언어 설정에 따라 지역화 됩니다. Microsoft는 브라우저 캐시에서 가장 최근에 사용 된 언어를 저장 하므로 이후 페이지에 대 한 액세스 시도는 마지막으로 사용 된 언어로 계속 렌더링 됩니다. 캐시를 지우면 페이지가 다시 렌더링 됩니다. 특정 언어를 적용 하려는 경우 `?lng=<language>` URL의 끝에를 추가할 수 있습니다 `<language>` . 여기서은 렌더링 하려는 언어의 코드입니다.
 
 ![SSPR 또는 기타 보안 확인 방법 설정](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -46,7 +46,7 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-|   | 등록 | 변화 | 삭제 |
+| 메서드 | 등록 | 변화 | 삭제 |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | 예 (최대 5 개) | 예 | 예 |
 | 기타 authenticator 앱 | 예 (최대 5 개) | 예 | 예 |
@@ -94,7 +94,7 @@ Azure AD에 더 많은 인증 방법을 추가 하기 때문에 이러한 메서
 
 등록이 적용 되 면 사용자는 대부분의 보안 수준에서 Multi-Factor Authentication 및 SSPR 정책을 준수 하는 데 필요한 최소 메서드 수를 표시 합니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 - 사용자가 SSPR에 대해 사용 하도록 설정 되어 있습니다. SSPR 정책에서는 모바일 앱 코드, 전자 메일 및 휴대폰을 다시 설정 하 고 사용 하도록 설정 하는 두 가지 방법이 필요 합니다.
    - 이 사용자는 두 가지 메서드를 등록 해야 합니다.
@@ -111,7 +111,7 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 ### <a name="manage-mode"></a>관리 모드
 
-사용자는 내 프로필에서 **보안 정보** 를 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 선택 하 여 또는로 이동 하 여 관리 모드에 액세스할 수 있습니다. 여기에서 사용자는 메서드를 추가 하 고, 기존 메서드를 삭제 하거나 변경 하 고, 기본 메서드를 변경 하는 등의 방법을 사용할 수 있습니다.
+사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 내 프로필에서 **보안 정보** 를 선택 하 여 또는로 이동 하 여 관리 모드에 액세스할 수 있습니다. 여기에서 사용자는 메서드를 추가 하 고, 기존 메서드를 삭제 하거나 변경 하 고, 기본 메서드를 변경 하는 등의 방법을 사용할 수 있습니다.
 
 ## <a name="key-usage-scenarios"></a>주요 사용 시나리오
 
@@ -125,15 +125,15 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 관리자가 등록을 적용 하지 않았습니다.
 
-필요한 보안 정보를 아직 설정 하지 않은 사용자는로 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)이동 합니다. 사용자가 왼쪽 창에서 **보안 정보** 를 선택 합니다. 여기서 사용자는 메서드를 추가 하도록 선택 하 고, 사용 가능한 메서드를 선택 하 고, 해당 메서드를 설정 하는 단계를 따릅니다. 완료 되 면 사용자에 게 보안 정보 페이지에 방금 설정 된 메서드가 표시 됩니다.
+필요한 보안 정보를 아직 설정 하지 않은 사용자는로 이동 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 합니다. 사용자가 왼쪽 창에서 **보안 정보** 를 선택 합니다. 여기서 사용자는 메서드를 추가 하도록 선택 하 고, 사용 가능한 메서드를 선택 하 고, 해당 메서드를 설정 하는 단계를 따릅니다. 완료 되 면 사용자에 게 보안 정보 페이지에 방금 설정 된 메서드가 표시 됩니다.
 
 ### <a name="delete-security-info-from-my-profile"></a>내 프로필에서 보안 정보 삭제
 
-이전에 하나 이상의 메서드를 설정한 사용자는로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)이동 합니다. 사용자가 이전에 등록 된 메서드 중 하나를 삭제 하도록 선택 합니다. 완료 되 면 사용자에 게 보안 정보 페이지에서 해당 메서드가 더 이상 표시 되지 않습니다.
+이전에 하나 이상의 메서드를 설정한 사용자는로 이동 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 합니다. 사용자가 이전에 등록 된 메서드 중 하나를 삭제 하도록 선택 합니다. 완료 되 면 사용자에 게 보안 정보 페이지에서 해당 메서드가 더 이상 표시 되지 않습니다.
 
 ### <a name="change-the-default-method-from-my-profile"></a>내 프로필에서 기본 방법 변경
 
-이전에 Multi-Factor Authentication로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)탐색 하는 데 사용할 수 있는 메서드를 하나 이상 설정한 사용자입니다. 사용자가 현재 기본 메서드를 다른 기본 메서드로 변경 합니다. 완료 되 면 사용자는 보안 정보 페이지에 새 기본 메서드를 표시 합니다.
+이전에 Multi-Factor Authentication로 탐색 하는 데 사용할 수 있는 메서드를 하나 이상 설정한 사용자 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 입니다. 사용자가 현재 기본 메서드를 다른 기본 메서드로 변경 합니다. 완료 되 면 사용자는 보안 정보 페이지에 새 기본 메서드를 표시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -141,4 +141,4 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 [테 넌 트에서 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md) 하거나 [사용자가 인증 방법을 다시 등록](howto-mfa-userdevicesettings.md#manage-user-authentication-options)하도록 하는 방법에 대해 알아봅니다.
 
-[Azure Multi-Factor Authentication 및 SSPR에 대해 사용 가능한 방법을](concept-authentication-methods.md)검토할 수도 있습니다.
+[Azure Multi-Factor Authentication 및 SSPR에 사용할 수 있는 방법](concept-authentication-methods.md)을 검토할 수도 있습니다.

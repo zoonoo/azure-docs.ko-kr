@@ -3,15 +3,15 @@ title: Azure HPC 캐시 관리 및 업데이트
 description: Azure Portal를 사용 하 여 Azure HPC 캐시를 관리 하 고 업데이트 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
-ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515552"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Azure Portal에서 캐시 관리
 
@@ -30,6 +30,10 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 * [**삭제**](#delete-the-cache) -캐시를 영구적으로 삭제 합니다.
 
 아래에서 이러한 옵션에 대해 자세히 알아보세요.
+
+캐시 관리 작업을 보여 주는 [동영상](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) 을 시청 하려면 아래 이미지를 클릭 하세요.
+
+[![비디오 미리 보기: Azure HPC 캐시: 관리 (비디오 페이지를 방문 하려면 클릭)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## <a name="stop-the-cache"></a>캐시 중지
 
