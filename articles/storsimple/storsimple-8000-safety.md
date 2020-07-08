@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 3c880cd18e7227a728d7e276e72a5ea8c1e421de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514544"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
@@ -30,11 +29,11 @@ ms.locfileid: "80396627"
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 디바이스를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![경고 아이콘](./media/storsimple-safety/IC740879.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
 | ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/storsimple-safety/IC740882.png) **감전 위험** |높은 전압 |
 | ![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **무거운 무게** | |
@@ -103,10 +102,11 @@ ms.locfileid: "80396627"
 
 랙 시스템의 적절한 냉각을 위해:
 
-* 랙 설계 시 섭씨 35도(화씨 95도)의 인클로저 작동을 위한 최대 주변 온도를 고려해야 합니다.
+* 랙 설계 시 섭씨 35도(화씨 95도)의 인클로저 작동을 위한 최대 주변 온도를 고려해야 합니다. 랙 시스템이 쿨 장소를 보관 하 고 데이터 센터의 AC 환풍구에서 적절 한 공기가 있는지 확인 합니다.
 * 시스템은 저압의 후면 배기 설치에서 작동합니다(랙 도어에서 발생하는 배압 및 장애물이 5파스칼[0.5mm 수면계]을 초과하지 않음).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>PCM(전원 냉각 모듈) 주의 사항
+
 디바이스는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다.
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
@@ -123,6 +123,7 @@ ms.locfileid: "80396627"
 * 교체품을 즉시 설치할 수 없는 경우 PCM을 제거하지 마십시오. 모든 모듈이 장착된 상태에서만 인클로저를 작동해야 합니다.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>정전기 방전(ESD) 주의 사항
+
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
 다음 ESD 관련 주의 상태를 확인하세요.
@@ -133,9 +134,10 @@ ms.locfileid: "80396627"
 * ESD 손상 시 보증이 적용되지 않습니다.
 
 ## <a name="battery-disposal-precautions"></a>배터리 폐기 주의 사항
+
 전원 공급 장치는 일시적인 단기 정전 중에 메모리 내용을 보호하는 특수 배터리를 사용합니다. 이 배터리는 PCM에 장착되어 있습니다. 배터리에 대한 다음 정보를 숙지하십시오.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!**
+![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **경고!**
 
 누전, 화재, 폭발, 부상 또는 사망 위험을 줄이려면:
 
@@ -150,6 +152,6 @@ ms.locfileid: "80396627"
 이 보안 공지를 검토한 후 다음 단계에서는 디바이스를 개봉하고 랙 및 케이블을 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 8100 디바이스의 경우 [StorSimple 8100 디바이스 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
 * 8600 디바이스의 경우 [StorSimple 8600 디바이스 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
-

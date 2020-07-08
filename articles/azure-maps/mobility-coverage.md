@@ -1,28 +1,26 @@
 ---
-title: 모바일 (전송) 검사 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure 맵의 모바일 범위에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: 모바일 (전송) 검사
+description: 이 문서에서는 Microsoft Azure 지도 모바일 서비스에서 공개 전송 검사에 대해 알아봅니다.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673645"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps 모바일 범위
 
-Azure Maps는 [모바일 서비스](https://aka.ms/AzureMapsMobilityService)를 제공 합니다. 모바일 서비스는 공개 전송, 자전거 공유 및 scooter 공유 기능을 사용 하 여 응용 프로그램에 대 한 개발 시간을 향상 시킵니다. 공용 전송 기능에는 주변 스테이션 검색, 중지 검색, 전송 회선 검색, 일정 정보 검색, 실시간 공용 전송 도착 한 검색, 목록 정지 및 목록 경로 가이드가 포함 됩니다. 서비스는, 자동차, 자전거, scooters 등의 공유 차량에 대 한 실시간 및 정적 가용성 정보를 반환 합니다. 또한 모바일 서비스는 다중 모달 여행 계획 옵션으로 라우팅 기능을 제공 합니다. 다중 모달 여행 계획은 자전거, hailing 및 전송 옵션을 모두 하나의 여행에 통합 합니다. 사용자 cam 액세스는 상세 하 고 다중 모달 단계별 여정을 및 서비스 경고에 액세스할 수 있습니다.
+Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService) 는 전송 라우팅 및 근접 한 공용 전송 중지와 같은 공개 전송 기능을 사용 하 여 응용 프로그램에 대 한 개발 시간을 향상 시킵니다. 사용자는 전송 중지, 줄 및 일정에 대 한 세부 정보를 검색할 수 있습니다. 또한 모바일 서비스를 통해 사용자는 중지 및 선 기 하 도형, 중지, 줄 및 서비스 영역에 대 한 경고, 실시간 공개 전송 도착 한 및 서비스 경고를 검색할 수 있습니다. 또한 모바일 서비스는 다중 모달 여행 계획 옵션으로 라우팅 기능을 제공 합니다. 다중 모달 여행 계획은 여행, 자전거 및 공개 전송 옵션을 모두 한 번에 통합 합니다. 사용자는 자세한 다중 모달 단계별 여정을 액세스할 수도 있습니다. 
 
-Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 및 정확도가 없습니다. 전송 데이터를 호출 하는 기능은 도시에 따라 다릅니다. 그리고 데이터에는 일부 공개 전송 옵션 및 도시를 제공 하는 기관이 포함 되지 않을 수 있습니다.
+Azure Maps는 모든 도시와 국가/지역에 대해 동일한 수준의 정보 및 정확도를 제공 하지 않습니다. 공용 전송 데이터를 호출 하는 기능은 metro 영역에 따라 달라 집니다. 또한 지도 데이터에는 metro 영역을 제공 하는 모든 공개 전송 옵션 및 기관이 포함 되지 않을 수 있습니다.
 
 다음 표에서는 Azure Maps 모바일 서비스에 대 한 검사 정보를 제공 합니다.
-
 
 | 기호 | 의미 |
 |--------|---------|
@@ -35,7 +33,7 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 | 아르헨티나       | <p>Bahía Blanca, 부에노스아이레스, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, 코르도바, Corrientes, General Pico, La Rioja-jp, Mar del Plata, 멘도사, MiNeuquén Ar, Oberá, Olavarría, Paraná, Posadas, Rio, Rosario Terggo, Salta, Carlos, san Bariloche de Luis, San Pedro, san Tandil, 산타 Fe, Ushuaia, 빅토리아, Villa, María</p>|
 | 바베이도스       |  바베이도스 |
 | 브라질         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Araxa, Bauru, 벨렘, Belo Horizonte, Blumenau, 보아 비스타 Vista, 브라질리아, Caldas Novas, Campina 그란데, Campinas, 캄 푸 Belo, 캄 푸 그란데, Caraguatatuba, Cascavel, Cataguases, Caxias, Leopoldina e Região, Catalão, Caxias do Il, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estrela, Feira de Santana, 김철수 de 노로냐, Florianópolis, 포르탈레자, Lages do Iguaçu, 대표, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Il, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Londrina, Macapa, Macapa, Maceise, Mafra e Rio Negro, 마나우스, Manhuacu, Maringá, Marília, Monte Carmelo, Monceclaros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Paranaguá, Parnaíba,,,,,,,,,, , Patos sos, Patrocínio, Pelotas, Piracicaba, Pocos de Caldas, Ponta Grossa, 포르토 Alegre, 포르토 Ferreira, 포르토 Seguro, 포르토 포르토, Praia 그란데, 레시페, Ribeirão Preto, Rio, Rio 리오, Rondonópolis, Salinas, 엘살바도르, 산타 Cruz do Sul, 산타 민, 산타 Rita do Sapucaí, Santarem, Santos, 상 Gabriel do Oeste, 상 Joao del Rei, Tiradentes e Regiao, 상 Jose do Rio Preto, 상 Mateus, 상 파울로, Sorocaba, 상투메 Carlos, 상투메 샌프란시스코 do Sul, 상투메 José dos Campos, 상투메 Lourenço, 상투메 Luís, Taubaté, Borba Emaco, Teofilo Otoni, Teresina, Toledo, Três Lagoas, vlookup Curui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
-| Canada | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 유역 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederic7(NB), 더 큰 Sudbury (설정), 더 큰 밴쿠버 (bc), Halifax (NS), 캠룹스 (bc), Kelowna (BC), Kingston (ON), 런던 (켜 어), Monc7(NB), 몬트리올 (QC), Nanaimo (BC), Ctawa (ON), 프린스 George (BC), Québec City (QC), Red Deer (AB), 리자이나 (), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC) , 세인트 John의 (NL), 햇빛과 해안, 썬 고가, 고가 (시), 빅토리아 (BC), 휘슬러 (BC), Windsor (ON), 위니펙 (MB), Woodstock</p>|
+| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 유역 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederic7(NB), 더 큰 Sudbury (설정), 더 큰 밴쿠버 (bc), Halifax (NS), 캠룹스 (bc), Kelowna (BC), Kingston (ON), 런던 (켜 어), Monc7(NB), 몬트리올 (QC), Nanaimo (BC), Ctawa (ON), 프린스 George (BC), Québec City (QC), Red Deer (AB), 리자이나 (), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC) , 세인트 John의 (NL), 햇빛과 해안, 썬 고가, 고가 (시), 빅토리아 (BC), 휘슬러 (BC), Windsor (ON), 위니펙 (MB), Woodstock</p>|
 | 칠레  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Iquique, Serena, Coquimbo, Linares, 로스앤젤레스 (칠레), 시야가 라고스, Punta 아레나스, Rancagua, 산티아고, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | 콜롬비아 | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Popayán, Marta, 산타 Sincelejo,, Valledupa</p>|  
 | 코스타리카 | San José|
@@ -56,8 +54,8 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 |--------|---------|
 | 오스트레일리아      | <p>애들레이드, Alice 스프링, Bowen, 브리즈번, Bundaberg QLD, Burnie, Cairns, 캔버라, 다윈,는 Ad석재, 호바트, Innisfail, Launceston, Mackay, 자기 섬, Maryborough-Hervey Bay, 멜버른, New 남부 Wales, 퍼스, RockHampton, 남부 동부 Queensland, 시드니, Toowoomba, Townsville, 빅토리아, Warwick, Yeppoon,,,</p> |
 | 중국 | <p> Changchun, Changsha, Chengdu, 충칭, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, 상하이, 베이징, Guangzhou, Shenzhen, Zhengzhou</P>| 
-| 홍콩 특별 행정구 | 홍콩 특별 행정구 *|
-| 마카오 | 마카오 특별 행정구 *|
+| 홍콩 특별행정구 | 홍콩 특별 행정구 *|
+| 마카오 특별행정구 | 마카오 특별 행정구 *|
 | 인도 | Ahmedabad, Bengaluru, 뭄바이, Mysuru, 푸 네|
 | 인도네시아 | Bandung, Banyuwangi, 바 탐, Denpasar, 자카르타, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | 일본 | Shizuoka 현, 도쿄, Wakkanai, Yamanashi 현 |
@@ -78,14 +76,14 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 | 안도라        | 간에 la Vella |
 | 아테네         | Chios | 
 | 오스트리아        | Vienna |
-| 벨로루시        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, 민스크, Rechytsa | 
+| 벨라루스        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, 민스크, Rechytsa | 
 | 벨기에        | 벨기에 |
 | 볼리비아        | La, 산타 Cruz de la 시에라리온 | 
 | 보스니아 헤르체고비나 | 사라예보 | 
 | 불가리아       | <p>Balchik, Blagoevgrad, 삼 간, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, 소피아</P> |
 | 크로아티아 | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, 자그레브 | 
 | 키프로스 | Larnaca, Limassol, 니코시아 | 
-| 체코 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
+| 체코 공화국 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
 | 덴마크   | 덴마크 |
 | 에스토니아   | 에스토니아 |   
 | 핀란드   | Hämeenlinna, 헬싱키, Joensuu, Jyväskylä, Kajaani, Kouvola-k, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -103,7 +101,7 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 | 리투아니아 | Druskininkai, Kauno, Klaipėda, Panevėžys, 빌뉴스 |
 | 룩셈부르크 | 크 |
 | 몰도바 | 키시네프 |
-| 몬테네그로 | Podgorica |
+| 몬테네그로 공화국 | Podgorica |
 | 네덜란드 | 네덜란드 |
 | 노르웨이 | 노르웨이 | 
 | 폴란드 | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, 바르샤바, Wodzisław Śląski, Wrocław, Zakopane</p> |
@@ -118,7 +116,7 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 | 스웨덴 | Goteborg/Gothenburg/Jonkoping, Malmö kommun-Malmö, Norrköping och Linköping, 스톡홀름, Sundsvall |
 | 스위스 | Basel, Geneva, Yverdon, 취리히 | 
 | 터키 | Adana-Mersin, Ankara,,, Balıkesir, Bilecik, Bolu, 삼 간 Sa, Denizli, Duzce, Elazig, Eskisehir, 이스탄불, Izmir, Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
-| United Kingdom | 동부 Anglia, East Midlands, 런던 및 남부 동부, 북부 북부, 북부, 북부 아일랜드, 스코틀랜드, 남부 서 부, Wales, 서 부 Midlands, Yorkshire |
+| 영국 | 동부 Anglia, East Midlands, 런던 및 남부 동부, 북부 북부, 북부, 북부 아일랜드, 스코틀랜드, 남부 서 부, Wales, 서 부 Midlands, Yorkshire |
 | 우크라이나 | Kharkiv, Zhytomyr, 키예프, Lviv, Chernivtsi |
 
 
@@ -134,9 +132,9 @@ Azure Maps 모든 도시와 국가/지역에 대해 동일한 수준의 정보 �
 | 모로코 | 카사블랑카, Khouribga, Tétouan|
 | 카타르| Doha|
 | 사우디아라비아 | Thuwal |
-| 남아프리카 | 케이프타운 |
+| 남아프리카 공화국 | 케이프타운 |
 | 튀니지 | Kairouan |
-| 아랍에미리트  | 아부다비, Dubai |
+| 아랍에미리트연합국  | 아부다비, Dubai |
 
 
 ## <a name="next-steps"></a>다음 단계

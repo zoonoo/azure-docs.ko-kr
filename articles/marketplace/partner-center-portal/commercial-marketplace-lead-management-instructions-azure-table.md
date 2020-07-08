@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848020"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957344"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -26,11 +25,11 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
     1. 왼쪽 메뉴 모음에서 **+리소스 만들기**를 선택합니다. 오른쪽에 **새로 만들기** 창이 나타납니다.
     1. **새로 만들기** 창에서 **스토리지**를 선택합니다. 오른쪽에 **추천** 목록이 표시됩니다.
-    1. **스토리지 계정**을 선택하여 계정 만들기를 시작합니다. [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)의 지침을 따릅니다.
+    1. **스토리지 계정**을 선택하여 계정 만들기를 시작합니다. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)의 지침을 따릅니다.
 
         ![Azure Storage 계정을 만드는 단계](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        스토리지 계정에 대한 자세한 내용은 [빠른 시작 자습서](https://docs.microsoft.com/azure/storage/)를 참조하세요. 스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+        스토리지 계정에 대한 자세한 내용은 [빠른 시작 자습서](../../storage/index.yml)를 참조하세요. 스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 1. 스토리지 계정이 프로비전될 때까지 기다립니다. 이 프로세스에는 일반적으로 몇 분 정도 걸립니다. 
 
@@ -107,7 +106,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
    **만들기**를 선택하면 **엔터티 가져오기** 창이 표시됩니다. 여기에서 **고급 옵션 표시**를 선택하고 다음 상자에 정보를 지정합니다.
 
-   * **테이블**: 테이블의 이름([테이블 만들기](#create-a-table-in-your-storage-account)에서 지정한 이름)을 선택합니다. 다음 이미지는 이 예제에서 “marketplaceleads” 테이블을 선택한 경우 표시되는 프롬프트를 보여 줍니다.
+   * **테이블**: 테이블의 이름([테이블 만들기](#create-a-table-in-your-storage-account)에서 지정한 이름)을 선택합니다. 다음 그림에서는 `marketplaceleads` 이 예제에 대해 테이블을 선택 하는 경우의 프롬프트를 보여 줍니다.
 
      ![엔터티 가져오기 창](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

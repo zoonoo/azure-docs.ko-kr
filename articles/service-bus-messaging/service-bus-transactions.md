@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus에서 트랜잭션 처리 개요
 description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 전송 via 기능에 대 한 개요를 제공 합니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340508"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
@@ -36,8 +25,8 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 트랜잭션 범위 내에서 수행할 수 있는 작업은 다음과 같습니다.
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` `DeferAsync` `RenewLock` ,,,`RenewLockAsync` 
 
 애플리케이션이 일부 수신 루프 내에서 또는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 콜백과 함께 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
 
@@ -45,13 +34,13 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ## <a name="transfers-and-send-via"></a>전송 및 "send via"
 
-큐에서 프로세서, 그런 다음 다른 큐로 데이터의 트랜잭션을 인도하기 위해 Service Bus는 *전송*을 지원합니다. 전송 작업에서 발신자는 먼저 *전송 큐*에 메시지를 보내고, 전송 큐는 자동 전달 기능이 사용 하는 것과 동일한 강력한 전송 구현을 사용 하 여 메시지를 의도 된 대상 큐로 즉시 이동 합니다. 이 메시지는 전송 큐의 소비자에게 표시되는 방식으로 전송 큐의 로그에 커밋되지 안습니다.
+큐에서 프로세서, 그런 다음 다른 큐로 데이터의 트랜잭션을 인도하기 위해 Service Bus는 *전송*을 지원합니다. 전송 작업에서 발신자는 먼저 *전송 큐*에 메시지를 보내며, 전송 큐는 autoforward 기능에서 사용 하는 것과 동일한 강력한 전송 구현을 사용 하 여 메시지를 의도 된 대상 큐로 즉시 이동 합니다. 이 메시지는 전송 큐의 소비자에게 표시되는 방식으로 전송 큐의 로그에 커밋되지 안습니다.
 
 이 트랜잭션 기능 자체는 전송 큐가 발신자의 입력 메시지 원본인 경우에 분명해집니다. 즉, Service Bus는 하나의 통합된 원자성 작업으로 입력 메시지에 대한 완료(또는 지연, 또는 배달 못 한 편지) 작업을 수행하면서 메시지를 전송 큐를 “통해" 대상 큐로 메시지를 전송할 수 있습니다. 
 
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 다음은 그 예입니다.
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예를 들어:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -97,13 +86,16 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
+## <a name="timeout"></a>제한 시간
+2 분 후에 트랜잭션이 시간 초과 됩니다. 트랜잭션의 첫 번째 작업이 시작 되 면 트랜잭션 타이머가 시작 됩니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 Service Bus 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
-* [자동 전달 기능을 사용 하 여 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
-* [자동 전달 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [자동 전달을 사용한 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
+* [Autoforward 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

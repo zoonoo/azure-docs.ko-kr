@@ -5,15 +5,14 @@ titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7283f5e28edc6f7beaad3a2743aa155f6ea6e14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ded1887248e7313c2a284388e8338af96ad7614c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987417"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
 
@@ -92,7 +91,7 @@ Status : Successful
  </Gateway>
 ```
 
-예제:
+예:
 
 ```
 <Gateway>
@@ -148,7 +147,7 @@ P2S를 VNet에 연결한 경우 **VPNClientAddressPool**이 있습니다. 삭제
  </Gateway>
 ```
 
-예제:
+예:
 
 ```
 <Gateway>
@@ -171,7 +170,7 @@ VNet에 해당 하는 **게이트웨이 서브넷** 을 삭제 합니다.
  </Subnets>
 ```
 
-예제:
+예:
 
 ```
 <Subnets>

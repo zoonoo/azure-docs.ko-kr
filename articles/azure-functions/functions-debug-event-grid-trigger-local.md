@@ -5,18 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74227077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340866"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
 이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 기존 함수 앱 만들기 또는 사용
 - 기존 스토리지 계정 만들기 또는 사용
@@ -62,7 +61,7 @@ Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵
 
 ![스토리지 계정 이벤트 추가](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *엔드포인트 유형* 드롭다운을 클릭하고 **웹후크**를 선택합니다.
+*이벤트* 창에서 **이벤트 구독** 단추를 클릭합니다. *이벤트 구독* 창에서 *끝점 유형* 드롭다운을 클릭 하 고 **웹 후크**를 선택 합니다.
 
 ![구독 유형 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
@@ -91,8 +90,8 @@ Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵
 - 마우스 오른쪽 단추를 클릭하고 **BLOB 컨테이너 만들기** 선택
 - 컨테이너 이름을 **test**로 지정
 - *test* 컨테이너 선택
-- **업로드** 단추 클릭
-- **파일 업로드** 클릭
+- **업로드** 단추를 클릭 합니다.
+- **파일 업로드** 를 클릭 합니다.
 - 파일을 선택하고 BLOB 컨테이너에 업로드
 
 ## <a name="debug-the-function"></a>함수 디버그

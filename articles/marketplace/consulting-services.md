@@ -5,14 +5,13 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799854"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957990"
 ---
 # <a name="consulting-service-offers"></a>컨설팅 서비스 제품
 
@@ -22,20 +21,11 @@ ms.locfileid: "83799854"
 
 ## <a name="compare-consulting-services"></a>컨설팅 서비스 비교
 
-상업용 Marketplace 상점인 Microsoft AppSource 및 Azure Marketplace는 고객이 필요한 항목을 찾을 수 있도록 대상 그룹 및 클라우드 제품에 맞춰 정렬됩니다. 각 상점은 전문화된 게시 옵션을 제공하여 게시 투자를 극대화하는 데 도움을 줍니다. 다음 표에서는 이러한 옵션을 요약합니다.
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|사용자      |IT 전문가 및 클라우드 개발자|비즈니스 사용자 및 LOB(기간 업무) 의사 결정자|
-|솔루션 연관성      |Azure용으로 또는 Azure에서 빌드된 기술 앱|Dynamics 365, Power BI, Office 365, Azure를 활용하거나 확장하는 비즈니스 앱(추가 기능 또는 추가 항목 완성 앱)|
-|게시 옵션      |Azure의 경우 게시자 문의, 평가판, 트랜잭션 또는 서비스|Dynamics 365 및 Power BI의 경우 게시자 문의, 평가판 또는 서비스|
-|제품 내 환경      |Azure portal|Dynamics 365, Office 365, Office 클라이언트 앱| 
-|기타      |Azure Stack을 통한 온-프레미스 게시, Azure용 컨설팅 서비스, Azure용 관리 서비스|Dynamics 365 및 Power BI용 컨설팅 서비스|
-||
+상업용 Marketplace 상점인 Microsoft AppSource 및 Azure Marketplace는 고객이 필요한 항목을 찾을 수 있도록 대상 그룹 및 클라우드 제품에 맞춰 정렬됩니다. 각 상점은 전문화된 게시 옵션을 제공하여 게시 투자를 극대화하는 데 도움을 줍니다. 두 상점 간의 차이에 대 한 자세한 내용은 [Microsoft AppSource 비교 및 Azure Marketplace](comparing-appsource-azure-marketplace.md)를 참조 하세요.
 
 Dynamics 365, Power Apps 및 Power BI를 기반으로 하는 컨설팅 서비스 제품은 AppSource에 나열될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 나열 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF 파일을 다운로드하세요.
 
-Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 제품은 Azure Marketplace에 나열될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 제품 게시](./partner-center-portal/create-consulting-service-offer.md) 및 [Azure Marketplace에 관리 서비스 제품 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)를 참조하세요.
+Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 제품은 Azure Marketplace에 나열될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 제품 게시](./partner-center-portal/create-consulting-service-offer.md) 및 [Azure Marketplace에 관리 서비스 제품 게시](../lighthouse/how-to/publish-managed-services-offers.md)를 참조하세요.
 
 > [!Note]
 > Azure Marketplace의 컨설팅 서비스는 기술 대상 그룹을 위한 제품에 집중하고 Azure 기술 솔루션 및 서비스를 강조해야 합니다.
@@ -79,21 +69,20 @@ AppSource의 경우 적격 역량은 다음 표와 같습니다.
 
 역량에 대한 자세한 내용은 [Microsoft 파트너 네트워크 역량](https://partner.microsoft.com/membership/competencies) 페이지로 이동하세요.
 
-시스템 통합자 파트너는 다음 21개 국가/지역에 대한 컨설팅 서비스 제품을 제출할 수 있습니다.
+시스템 통합자 파트너는 다음 20 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.
 
-|   |   |   |   |
+| 국가  | (계속 ...)   | (계속 ...)  | (계속 ...)  |
 |---------|----------|----------|----------|
 | 오스트레일리아 | 벨기에 | Canada | 덴마크 |
 | 핀란드  | 프랑스 | 독일  | 인도   |
 | 이탈리아    | 일본  |  멕시코  |  네덜란드  |
 |  뉴질랜드  |  노르웨이  |  폴란드  | 남아프리카 |
-|  스페인  | 스웨덴  | 스위스  |  미국  |
-| United Kingdom  |
+|  스웨덴  | 스위스  |  미국  | United Kingdom  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>상업용 Marketplace에서 컨설팅 서비스 등록
 
-먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 참조하세요. 
+먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](become-publisher.md)를 참조하세요. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
 등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 

@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa94b7461907a2337ba448a91d67fe93c5ab2f8f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612260"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957565"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -27,7 +26,9 @@ ms.locfileid: "75612260"
 
 Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔**에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## <a name="instantiate-new-phoenixclient-object"></a>새 PhoenixClient 개체 인스턴스화
 
@@ -170,7 +171,7 @@ finally
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-이후 select 작업 `StateProvince` 에서 테이블의 열 값이 사용 됩니다.
+`StateProvince`이후 select 작업에서 테이블의 열 값이 사용 됩니다.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +278,7 @@ finally
 }
 ```
 
-insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. `try` 블록의 끝에 트랜잭션이 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
+insert 문을 실행하기 위한 구조체는 새 테이블을 만드는 것과 비슷합니다. 블록의 끝에 `try` 트랜잭션이 명시적으로 커밋됩니다. 이 예제에서는 insert 트랜잭션을 300번 반복합니다. 다음 예제에서는 좀 더 효율적인 일괄 처리 삽입 프로세스를 보여 줍니다.
 
 ## <a name="batch-insert-data"></a>데이터 삽입 일괄 처리
 
@@ -494,7 +495,7 @@ finally
 
 `select` 문의 출력은 다음과 같은 결과를 나타냅니다.
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

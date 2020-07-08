@@ -6,12 +6,11 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413640"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -46,16 +45,17 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
+클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-결과
+이 이름은 AKS 클러스터에 응용 프로그램을 배포 하는 데 필요 하며 다음 예제 출력에 표시 됩니다.
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: Portal
 
@@ -67,6 +67,22 @@ AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 애플리케이션
 
 ![DNS 영역 이름 가져오기](media/http-routing/dns.png)
 
+## <a name="connect-to-your-aks-cluster"></a>AKS 클러스터에 연결
+
+로컬 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [kubectl][kubectl]을 사용합니다.
+
+Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. [az aks install-cli][] 명령을 사용하여 kubectl을 로컬로 설치할 수도 있습니다.
+
+```azurecli
+az aks install-cli
+```
+
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *Myresourcegroup*에서 *MyAKSCluster* 라는 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
+
+```azurecli
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+```
+
 ## <a name="use-http-routing"></a>HTTP 라우팅 사용
 
 HTTP 애플리케이션 라우팅 솔루션은 다음과 같이 주석 처리된 수신 리소스에서만 트리거될 수 있습니다.
@@ -77,7 +93,6 @@ annotations:
 ```
 
 **samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -136,6 +151,12 @@ spec:
 ```
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 리소스를 만듭니다.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+다음 예에서는 생성 된 리소스를 보여 줍니다.
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -262,7 +283,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## <a name="clean-up"></a>정리
 
-이 문서에서 만든 연결된 Kubernetes 개체를 제거합니다.
+을 사용 하 여이 문서에서 만든 연결 된 Kubernetes 개체를 제거 `kubectl delete` 합니다.
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+예제 출력에서는 Kubernetes 개체가 제거 되었음을 보여 줍니다.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -281,11 +308,13 @@ AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세�
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

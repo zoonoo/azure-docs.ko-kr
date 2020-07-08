@@ -1,19 +1,13 @@
 ---
 title: Azure Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 사용하여 Azure Service Bus 데이터에 액세스하는 방법에 대한 정보를 제공합니다.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: aschhab
-ms.openlocfilehash: 8f53b5e41c67ca1990edd011677b25f3a9a601d1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340543"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 

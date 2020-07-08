@@ -2,21 +2,20 @@
 title: SCIM, Microsoft Graph 및 Azure AD를 사용 하 여 사용자를 프로 비전 하 고 데이터를 사용 하 여 앱 보강
 description: SCIM과 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램을 보강 합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/26/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781687"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
@@ -68,7 +67,7 @@ POST /Users
 
 **권장 사항:** SCIM 규격/사용자 끝점을 지원 합니다. Azure AD 프로 비전 서비스는 사용자에 게 더 이상 액세스 권한이 없는 경우 사용 하지 않도록 설정 하 고 삭제 하는 요청을 보냅니다. 사용자 비활성화 및 삭제를 모두 지 원하는 것이 좋습니다. 비활성화 및 삭제 요청은 다음과 같이 표시 됩니다. 
 
-사용자 사용 안 함 설정
+사용자 사용 안 함
 ```json
 PATCH /Users/5171a35d82074e068ce2 HTTP/1.1
 {

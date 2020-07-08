@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66159086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514639"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -165,7 +164,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
-1. **액세스 제어(IAM)** 로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
+1. **액세스 제어 (IAM)** 로 이동 합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 
     ![RBAC 역할에 액세스 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

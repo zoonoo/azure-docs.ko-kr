@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77566323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764981"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 쿼리
 
@@ -29,14 +28,14 @@ ms.locfileid: "77566323"
 |ST_ISVALID| 지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.|
 | ST_ISVALIDDETAILED| 지정 된 GeoJSON Point, Polygon 또는 LineString 식이 유효한 경우 부울 값을 포함 하는 JSON 값을 반환 합니다. 잘못 된 경우 이유를 문자열 값으로 반환 합니다.|
 
-공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 `ST_DISTANCE` 기본 제공 함수를 사용 하 여 지정 된 위치에서 30km 이내에 있는 모든 패밀리 문서를 반환 하는 쿼리는 다음과 같습니다.
+공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 기본 제공 함수를 사용 하 여 지정 된 위치에서 30km 이내에 있는 모든 패밀리 문서를 반환 하는 쿼리는 다음과 같습니다 `ST_DISTANCE` .
 
 **쿼리**
 
 ```sql
     SELECT f.id
     FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+    WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
 **결과**
@@ -51,7 +50,7 @@ ms.locfileid: "77566323"
 
 `ST_WITHIN`는 점이 다각형 내에 있는지 여부를 확인 하는 데 사용할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
 
-의 `ST_WITHIN` Polygon 인수에는 단일 링만 포함 될 수 있습니다. 즉, 다각형에는 구멍이 포함 되지 않아야 합니다.
+의 Polygon 인수에는 `ST_WITHIN` 단일 링만 포함 될 수 있습니다. 즉, 다각형에는 구멍이 포함 되지 않아야 합니다.
 
 **쿼리**
 
@@ -59,8 +58,8 @@ ms.locfileid: "77566323"
     SELECT *
     FROM Families f
     WHERE ST_WITHIN(f.location, {
-        'type':'Polygon',
-        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        "type":"Polygon",
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 ```
 
@@ -73,7 +72,7 @@ ms.locfileid: "77566323"
 ```
 
 > [!NOTE]
-> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 `ST_ISVALIDDETAILED` 실행 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
+> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 실행 `ST_ISVALIDDETAILED` 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
 >
 >
 
@@ -84,7 +83,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
 ```sql
     SELECT *
     FROM Areas a
-    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+    WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
 **결과**
@@ -115,7 +114,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
     }]
 ```
 
-이러한 함수를 사용하여 다각형의 유효성을 검사할 수도 있습니다. 예를 들어 여기서는 닫혀 `ST_ISVALIDDETAILED` 있지 않은 다각형의 유효성을 검사 하는 데를 사용 합니다.
+이러한 함수를 사용하여 다각형의 유효성을 검사할 수도 있습니다. 예를 들어 여기서는 `ST_ISVALIDDETAILED` 닫혀 있지 않은 다각형의 유효성을 검사 하는 데를 사용 합니다.
 
 **쿼리**
 
@@ -140,7 +139,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
 
 SQL .NET SDK는 LINQ 식에서 사용하기 위한 스텁 메서드 `Distance()` 및 `Within()`도 제공합니다. SQL LINQ 공급자는 이 메서드 호출을 동등한 SQL 기본 제공 함수 호출(각각 ST_DISTANCE 및 ST_WITHIN)로 변환합니다.
 
-LINQ를 사용 하 여 지정 된 지점의 30km 반지름 내에 `location` 값이 있는 Azure Cosmos container의 모든 문서를 찾는 linq 쿼리의 예는 다음과 같습니다.
+`location`Linq를 사용 하 여 지정 된 지점의 30km 반지름 내에 값이 있는 Azure Cosmos container의 모든 문서를 찾는 linq 쿼리의 예는 다음과 같습니다.
 
 **거리에 대한 LINQ 쿼리**
 

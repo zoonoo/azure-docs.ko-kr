@@ -11,18 +11,23 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987237"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
 이 문서에서는 v3 Azure Media Services에 대 한 질문과 대답을 제공 합니다.
 
 ## <a name="general"></a>일반
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Media Services v3에 대 한 Azure Portal 제한 사항은 무엇입니까?
+
+[Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 라이브 이벤트를 관리 하 고, v3 자산 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. <br/>다른 모든 관리 작업 (예: 변환 및 작업 관리 또는 v3 콘텐츠 분석)의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+
+이전에 Media Services v3 API를 사용하여 비디오를 Media Services 계정에 업로드했거나 라이브 출력을 기반으로 콘텐츠가 생성된 경우 Azure Portal에서 **인코딩**, **분석** 또는 **암호화** 단추가 표시되지 않습니다. Media Services v3 API를 사용하여 이러한 작업을 수행합니다.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure Media Services 리소스에 대 한 작업을 수행할 수 있는 Azure 역할은 무엇 인가요? 
 
@@ -95,7 +100,7 @@ PlayReady, Widevine FairPlay 등의 DRM 시스템은 모두 AES-128 암호화 �
 
 Azure Active Directory (Azure AD)와 같은 특정 토큰 공급자를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용 하 여 고유한 [JWT](https://jwt.io/) 공급자 (보안 토큰 서비스 또는 STS)를 만들 수 있습니다. 사용자 지정 STS에서 비즈니스 논리를 기준으로 클레임을 추가할 수 있습니다.
 
-발급자, 대상 그룹 및 클레임이 모두 JWT의 내용과에서 `ContentKeyPolicyRestriction` `ContentKeyPolicy`사용 되는 값 사이에서 정확 하 게 일치 하는지 확인 합니다.
+발급자, 대상 그룹 및 클레임이 모두 JWT의 내용과에서 사용 되는 값 사이에서 정확 하 게 일치 하는지 확인 합니다 `ContentKeyPolicyRestriction` `ContentKeyPolicy` .
 
 자세한 내용은 [Media Services 동적 암호화를 사용 하 여 콘텐츠 보호](content-protection-overview.md)를 참조 하세요.
 
@@ -109,7 +114,7 @@ Azure Active Directory (Azure AD)와 같은 특정 토큰 공급자를 사용할
 
 ### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>AES 암호화를 사용 하 여 비디오를 스트리밍하기 위해 요청에 권한을 부여 어떻게 할까요??
 
-올바른 방법은 보안 토큰 서비스를 사용 하는 것입니다. STS에서 사용자 프로필에 따라 다른 클레임을 추가 합니다 (예: "프리미엄 사용자", "기본 사용자", "무료 평가판 사용자"). JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 다른 내용 또는 자산의 `ContentKeyPolicyRestriction` 경우는 해당 `RequiredClaims` 값을 갖습니다.
+올바른 방법은 보안 토큰 서비스를 사용 하는 것입니다. STS에서 사용자 프로필에 따라 다른 클레임을 추가 합니다 (예: "프리미엄 사용자", "기본 사용자", "무료 평가판 사용자"). JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 다른 내용 또는 자산의 경우는 `ContentKeyPolicyRestriction` 해당 값을 갖습니다 `RequiredClaims` .
 
 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
 
@@ -140,7 +145,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 고객은 종종 자체 데이터 센터에서 또는 DRM 서비스 공급자가 호스팅하는 라이선스 서버 팜에 투자 했습니다. Media Services 콘텐츠 보호를 사용하면 하이브리드 모드로 작업할 수 있습니다. Media Services에서 콘텐츠를 호스트 하 고 동적으로 보호할 수 있는 반면 DRM 라이선스는 Media Services 외부의 서버에서 제공 됩니다. 이 경우 다음과 같은 변경을 고려하세요.
 
 * STS는 라이선스 서버 팜에서 허용되고 확인할 수 있는 토큰을 발급해야 합니다. 예를 들어 Axinom에서 제공하는 Widevine 라이선스 서버에는 자격 메시지를 포함하는 특정 JWT가 필요합니다. 이러한 JWT를 발급 하려면 STS가 있어야 합니다. 
-* 더 이상 Media Services에서 라이선스 배달 서비스를 구성하지 않아도 됩니다. 를 구성할 `ContentKeyPolicy`때 라이선스 획득 Url (PlayReady, Widevine 및 용)을 제공 해야 합니다.
+* 더 이상 Media Services에서 라이선스 배달 서비스를 구성하지 않아도 됩니다. 를 구성할 때 라이선스 획득 Url (PlayReady, Widevine 및 용)을 제공 해야 `ContentKeyPolicy` 합니다.
 
 > [!NOTE]
 > Widevine는 Google에서 제공 하는 서비스로, Google의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
@@ -159,7 +164,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 
-개념 `AssetFile` 은 저장소 SDK 종속성에서 Media Services를 분리 하기 위해 Media Services API에서 제거 되었습니다. 이제 Media Services 하지 않고 Azure Storage는 저장소 SDK에 속하는 정보를 유지 합니다. 
+`AssetFile`개념은 저장소 SDK 종속성에서 Media Services를 분리 하기 위해 MEDIA SERVICES API에서 제거 되었습니다. 이제 Media Services 하지 않고 Azure Storage는 저장소 SDK에 속하는 정보를 유지 합니다. 
 
 자세한 내용은 [Media Services v3로 마이그레이션](media-services-v2-vs-v3.md)을 참조하세요.
 
@@ -193,11 +198,11 @@ FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Gu
 
 iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 
 
-대시 뒤에 숫자가 오는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함 합니다. 숫자 값은 비디오 변환의 최고 대역폭입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. 이라는 `Data` 세 번째 폴더에는 FPS 콘텐츠의 마스터 재생 목록이 포함 되어 있습니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
+대시 뒤에 숫자가 오는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함 합니다. 숫자 값은 비디오 변환의 최고 대역폭입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. 이라는 세 번째 폴더에는 `Data` FPS 콘텐츠의 마스터 재생 목록이 포함 되어 있습니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
 
 ![FairPlay iOS 샘플 앱에 대 한 오프 라인 파일 구조](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-다음은 샘플 부팅 .xml 파일입니다.
+샘플 boot.xml 파일은 다음과 같습니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,11 +236,11 @@ iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 �
 
 #### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>일부 클라이언트/사용자 및 비영구 라이선스 (오프 라인 사용 안 함)에 대해 영구 라이선스 (오프 라인 사용)를 제공 하려면 어떻게 해야 하나요? 콘텐츠를 복제 하 고 별도의 콘텐츠 키를 사용 해야 하나요?
 
-Media Services v 3에서 여러 `StreamingLocator` 인스턴스를 포함 하도록 허용 하기 때문에 다음을 수행할 수 있습니다.
+Media Services v 3에서 여러 인스턴스를 포함 하도록 허용 하기 때문에 `StreamingLocator` 다음을 수행할 수 있습니다.
 
-* 에서 `ContentKeyPolicy` 클레임이 `"persistent"`있는 `license_type = "persistent"`및 `ContentKeyPolicyRestriction` 해당의 `StreamingLocator`인스턴스 하나
-* 및 `ContentKeyPolicy` 가 인 `license_type="nonpersistent"`다른 `ContentKeyPolicyRestriction` 인스턴스 `"nonpersistent`및 `StreamingLocator`
-* 값 `StreamingLocator` 이 서로 다른 `ContentKey` 두 인스턴스입니다.
+* 에서 `ContentKeyPolicy` 클레임이 있는 `license_type = "persistent"` `ContentKeyPolicyRestriction` `"persistent"` 및 해당의 `StreamingLocator` 인스턴스 하나
+* 및가 인 다른 `ContentKeyPolicy` 인스턴스 `license_type="nonpersistent"` `ContentKeyPolicyRestriction` `"nonpersistent` 및 `StreamingLocator`
+* `StreamingLocator`값이 서로 다른 두 인스턴스입니다 `ContentKey` .
 
 사용자 지정 STS의 비즈니스 논리에 따라 JWT 토큰에서 다른 클레임이 발급됩니다. 이 토큰을 사용하여 해당 라이선스만 가져올 수 있고 해당 URL만 재생할 수 있습니다.
 
@@ -243,7 +248,7 @@ Media Services v 3에서 여러 `StreamingLocator` 인스턴스를 포함 하도
 
 Google의 "Widevine DRM 아키텍처 개요"는 세 가지 보안 수준을 정의 합니다. 그러나 [Widevine 라이선스 템플릿에 대 한 Azure Media Services 설명서](widevine-license-template-overview.md) 는 5 가지 보안 수준 (재생을 위한 클라이언트 견고성 요구 사항)을 간략하게 설명 합니다. 이 섹션에서는 보안 수준을 매핑하는 방법에 대해 설명 합니다.
 
-두 보안 수준 집합은 Google Widevine 통해 정의 됩니다. 차이점은 사용 수준: 아키텍처 또는 API입니다. 5가지 보안 수준은 Widevine API에서 사용됩니다. 을 `content_key_specs` 포함 `security_level`하는 개체는 Deserialize 되어 Azure Media Services widevine 라이선스 서비스에 의해 widevine 글로벌 배달 서비스로 전달 됩니다. 다음 표에서는 두 보안 수준 집합 간의 매핑을 보여 줍니다.
+두 보안 수준 집합은 Google Widevine 통해 정의 됩니다. 차이점은 사용 수준: 아키텍처 또는 API입니다. 5가지 보안 수준은 Widevine API에서 사용됩니다. `content_key_specs`을 포함 하는 개체는 `security_level` deserialize 되어 Azure Media Services widevine 라이선스 서비스에 의해 widevine 글로벌 배달 서비스로 전달 됩니다. 다음 표에서는 두 보안 수준 집합 간의 매핑을 보여 줍니다.
 
 | **Widevine 아키텍처에 정의 된 보안 수준** |**Widevine API에서 사용 되는 보안 수준**|
 |---|---| 

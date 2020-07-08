@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847722"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957582"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
-관리형 서비스 제품은 [Azure Lighthouse](../../lighthouse/overview.md) 시나리오가 가능하도록 만드는 데 유용합니다. 고객이 관리형 서비스 제품을 수락하면 [Azure 위임 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 위해 리소스를 온보딩할 수 있습니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+관리형 서비스 제품은 [Azure Lighthouse](../../lighthouse/overview.md) 시나리오가 가능하도록 만드는 데 유용합니다. 고객이 관리형 서비스 제품을 수락하면 [Azure 위임 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 위해 리소스를 온보딩할 수 있습니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 [실버 또는 골드 클라우드 플랫폼 역량 수준](https://partner.microsoft.com/membership/cloud-platform-competency)이거나 [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)여야 관리형 서비스 제품을 게시할 수 있습니다.
 
@@ -80,9 +79,20 @@ ms.locfileid: "83847722"
 > [!NOTE]
 > 제품 설명(예: 설명, 문서, 스크린샷, 사용 약관)이 "[영어가 아닌 언어]에서만 사용할 수 있습니다."로 시작하는 경우 제품 세부 정보는 영어로 작성되지 않아도 됩니다. 또한 제품 목록 콘텐츠에 사용되는 것 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL*을 제공할 수 있습니다.
 
+다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
+
+:::image type="content" source="media/example-managed-services.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 제목
+2. 설명
+3. 유용한 링크
+4. 스크린샷
+
 ### <a name="name"></a>속성
 
-여기에 입력하는 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭**에 입력한 텍스트로 미리 채워져 있지만 이 값을 변경할 수 있습니다. 이 이름은 상표로 등록할 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50자를 초과할 수 없으며 이모지는 포함할 수 없습니다.
+여기에 입력하는 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭**에 입력한 텍스트로 미리 채워져 있지만 이 값을 변경할 수 있습니다. 이 이름은 상표로 등록될 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50자를 초과할 수 없으며 이모지는 포함할 수 없습니다.
 
 ### <a name="search-results-summary"></a>검색 결과 요약
 
@@ -127,9 +137,9 @@ ms.locfileid: "83847722"
 
 제품 로고를 네 가지 픽셀 크기로 제공합니다.
 
-- **소형**(40 x 40)
-- **중형**(90 X 90)
-- **대형**(115 x 115)
+- **소형**(48 x 48)
+- **중형**(90 x 90)
+- **대형**(216 x 216)
 - **와이드**(255 x 115)
 
 로고에 대해서는 다음 지침을 따르세요.
@@ -151,7 +161,7 @@ ms.locfileid: "83847722"
 
 #### <a name="additional-marketplace-listing-resources"></a>추가 Marketplace 목록 리소스
 
-- [마켓플레이스 제품 목록 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Marketplace 제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)
 
 계속하기 전에 **초안 저장**을 선택합니다.
 

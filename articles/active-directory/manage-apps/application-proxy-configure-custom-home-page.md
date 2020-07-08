@@ -3,25 +3,24 @@ title: 게시 된 앱에 대 한 사용자 지정 홈 페이지-Azure AD 응용 
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항 제공
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1621b273f617955a374ed46d9c215ba99e5b2913
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764879"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
@@ -31,10 +30,10 @@ ms.locfileid: "74275608"
 
 회사에서 사용자 지정 홈 페이지를 설정 하는 이유를 설명 하는 한 가지 시나리오는 다음과 같습니다.
 
-- 회사 네트워크 내에서 사용자가 로그인 하 `https://ExpenseApp/login/login.aspx` 여 앱에 액세스 하기 위해 이동 합니다.
-- 응용 프로그램 프록시가 폴더 구조의 최상위 수준에서 액세스 해야 하는 다른 자산 (예: 이미지)이 있으므로를 내부 URL로 사용 `https://ExpenseApp` 하 여 앱을 게시 합니다.
-- 기본 외부 URL은 외부 `https://ExpenseApp-contoso.msappproxy.net`사용자를 로그인 페이지로 사용 하지 않는입니다.
-- 대신 홈 페이지 URL `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` 로 설정 하 여 외부 사용자가 로그인 페이지를 먼저 볼 수 있도록 하려고 합니다.
+- 회사 네트워크 내에서 사용자가 `https://ExpenseApp/login/login.aspx` 로그인 하 여 앱에 액세스 하기 위해 이동 합니다.
+- 응용 프로그램 프록시가 폴더 구조의 최상위 수준에서 액세스 해야 하는 다른 자산 (예: 이미지)이 있으므로를 내부 URL로 사용 하 여 앱을 게시 합니다 `https://ExpenseApp` .
+- 기본 외부 URL은 `https://ExpenseApp-contoso.msappproxy.net` 외부 사용자를 로그인 페이지로 사용 하지 않는입니다.
+- `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`대신 홈 페이지 URL로 설정 하 여 외부 사용자가 로그인 페이지를 먼저 볼 수 있도록 하려고 합니다.
 
 > [!NOTE]
 > 사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md) 및 [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)에 앱이 표시됩니다.
@@ -45,7 +44,7 @@ ms.locfileid: "74275608"
 
 - 지정 하는 경로는 루트 도메인 URL의 하위 도메인 경로 여야 합니다.
 
-  예를 들어 루트 도메인 URL이 인 `https://apps.contoso.com/app1/`경우 구성 하는 홈 페이지 url은로 `https://apps.contoso.com/app1/`시작 해야 합니다.
+  예를 들어 루트 도메인 URL이 인 경우 `https://apps.contoso.com/app1/` 구성 하는 홈 페이지 url은로 시작 해야 합니다 `https://apps.contoso.com/app1/` .
 
 - 게시된 앱을 변경하는 경우 이로 인해 홈페이지 URL 값을 다시 설정할 수 있습니다. 나중에 앱을 업데이트할 경우 홈페이지 URL을 다시 확인하고 필요한 경우 업데이트해야 합니다.
 
@@ -55,7 +54,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 홈 페이지 URL을 설정할 
 
 Azure AD 포털을 통해 앱의 홈 페이지 URL을 변경 하려면 다음 단계를 수행 합니다.
 
-1. 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure Active Directory**를 선택한 다음 **앱 등록**합니다. 등록 된 앱 목록이 표시 됩니다.
 1. 목록에서 앱을 선택 합니다. 등록 된 앱의 세부 정보를 표시 하는 페이지가 표시 됩니다.
 1. **관리**에서 **브랜딩**을 선택 합니다.
@@ -105,7 +104,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
    Connect-AzureAD
    ```
 
-1. 앱을 찾습니다. 이 예제에서는 PowerShell을 사용 하 여 표시 이름이 인 앱을 검색 하 여 ObjectId를 `SharePoint`찾습니다.
+1. 앱을 찾습니다. 이 예제에서는 PowerShell을 사용 하 여 표시 이름이 인 앱을 검색 하 여 ObjectId를 찾습니다 `SharePoint` .
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -127,7 +126,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 ### <a name="update-the-home-page-url"></a>홈페이지 URL 업데이트
 
-홈 페이지 URL을 만들고 해당 값으로 앱을 업데이트 합니다. 동일한 PowerShell 창을 계속 사용 하거나, 새 PowerShell 창을 사용 하는 경우를 사용 하 여 `Connect-AzureAD`Azure AD 모듈에 다시 로그인 합니다. 그러고 나서 다음 단계를 수행합니다.
+홈 페이지 URL을 만들고 해당 값으로 앱을 업데이트 합니다. 동일한 PowerShell 창을 계속 사용 하거나, 새 PowerShell 창을 사용 하는 경우를 사용 하 여 Azure AD 모듈에 다시 로그인 `Connect-AzureAD` 합니다. 그러고 나서 다음 단계를 수행합니다.
 
 1. 이전 섹션에서 복사한 ObjectId 값을 저장할 변수를 만듭니다. 이 SharePoint 예제에서 사용 되는 ObjectId 값을 앱의 ObjectId 값으로 바꿉니다.
 
@@ -181,4 +180,4 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정](application-proxy-integrate-with-sharepoint-server.md)
-- [자습서: Azure Active Directory에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md)
+- [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)

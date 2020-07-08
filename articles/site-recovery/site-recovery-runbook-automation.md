@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345141"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -56,6 +55,9 @@ ms.locfileid: "79257486"
 | CloudServiceName |VM이 만들어진 Azure 클라우드 서비스 이름입니다. |
 | RoleName |Azure VM의 이름입니다. |
 | RecoveryPointId|VM 복구에 대 한 타임 스탬프입니다. |
+
+>[!Note]
+>' FailoverDirection ' 변수의 값은 장애 조치 (failover)의 경우 ' PrimaryToSecondary '이 고 장애 복구 (failback)의 경우 ' SecondaryToPrimary '입니다.
 
 다음 예제는 컨텍스트 변수를 보여줍니다.
 
@@ -117,7 +119,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. **그룹 1: 시작** > **후 작업 추가**옆에 있는 줄임표 (...)를 클릭 합니다.
+2. **그룹 1: 시작**  >  **후 작업 추가**옆에 있는 줄임표 (...)를 클릭 합니다.
 3. **삽입 동작**에서 **스크립트** 가 선택 되어 있는지 확인 하 고 스크립트 이름 (**Hello World**)을 지정 합니다.
 4. Automation 계정을 지정 하 고 runbook을 선택 합니다. 스크립트를 저장하려면 **확인**을 클릭합니다. 스크립트가 **그룹 1: 사후 단계**에 추가됩니다.
 
@@ -189,7 +191,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하세요.
+일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의합니다.
 
 - 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다.
 - 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다.

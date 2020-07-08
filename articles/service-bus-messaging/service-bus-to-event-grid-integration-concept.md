@@ -1,24 +1,16 @@
 ---
 title: Azure Service Bus-Event Grid 통합 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시지를 Azure Event Grid와 통합 하는 방법에 대해 설명 합니다.
-services: service-bus-messaging
 documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+author: spelluru
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340570"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -118,15 +110,15 @@ Service Bus 네임 스페이스로 이동한 후 **액세스 제어 (IAM)** 를 
 세 가지 방법으로 Service Bus 네임스페이스에 대한 Event Grid 구독을 만들 수 있습니다.
 
 * Azure 포털에서 다음을 수행합니다.
-* [Azure CLI](#azure-cli-instructions)에서
-* [PowerShell](#powershell-instructions)에서
+* [Azure CLI](#azure-cli-instructions) 에서
+* [PowerShell](#powershell-instructions) 에서
 
 ## <a name="azure-portal-instructions"></a>Azure Portal 지침
 
 새 Event Grid 구독을 만들려면 다음을 수행합니다.
 1. Azure Portal에서 네임스페이스로 이동합니다.
 2. 왼쪽 창에서 **Event Grid**를 선택합니다. 
-3. **이벤트 구독**을 선택합니다.  
+3. **이벤트 구독**을 선택 합니다.  
 
    다음 이미지는 Event Grid 구독이 있는 네임스페이스를 표시합니다.
 
@@ -183,7 +175,7 @@ New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTIO
 * [Service Bus](https://docs.microsoft.com/azure/service-bus/)에 대한 자세히 알아봅니다.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
-[19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
+[mb]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
 [8]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid8.png
 [9]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid9.png
 [20]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgridportal.png

@@ -3,19 +3,17 @@ title: Key Vault 인증서 시작
 description: 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765100"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -97,13 +95,19 @@ ms.locfileid: "81431944"
 -   또한 사용자는 가져오기 시 사용할 수 있지만 가져오기 시 정보가 지정되지 않은 기본값을 포함하는 정책을 편집할 수 있습니다. 예: 발급자 정보 없음  
 
 ### <a name="formats-of-import-we-support"></a>지원 되는 가져오기의 형식
+Azure Key Vault는 인증서를 Key Vault로 가져오기 위한 pem 및 .pfx 인증서 파일을 지원 합니다.
 PEM 파일 형식에 대해 다음과 같은 가져오기 유형을 지원 합니다. 다음을 포함 하는 PKCS # 8로 인코딩된 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
 
 인증서----------끝 인증서를 시작----------
 
 -----시작 개인 키----------최종 개인 키-----
 
-인증서 병합 시 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코딩된 인증서 또는 b a s e 64로 인코딩된 P7B 파일을 병합할 수 있습니다. 인증서----------끝 인증서를 시작----------
+인증서를 가져올 때 키가 파일 자체에 포함 되어 있는지 확인 해야 합니다. 개인 키가 다른 형식에 별도로 있는 경우 해당 키를 인증서와 결합 해야 합니다. 일부 인증 기관은 인증서를 다른 형식으로 제공 하므로 인증서를 가져오기 전에 해당 인증서가 pem 또는 .pfx 형식 인지 확인 해야 합니다. 
+
+### <a name="formats-of-merge-csr-we-support"></a>지원 되는 병합 CSR의 형식
+AKV는 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코딩된 인증서 또는 b a s e 64로 인코딩된 P7B (CA에서 서명한 인증서 체인)을 병합할 수 있습니다. 
+
+인증서----------끝 인증서를 시작----------
 
 현재는 PEM 형식의 EC 키를 지원 하지 않습니다.
 
@@ -123,4 +127,3 @@ PEM 파일 형식에 대해 다음과 같은 가져오기 유형을 지원 합�
   (4) - 선택한 CA가 X509 인증서로 응답합니다.  
 
   (5) - 애플리케이션이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
-

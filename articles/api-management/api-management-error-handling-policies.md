@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75902450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674264"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -71,20 +70,24 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
+-   [mock-response](api-management-advanced-policies.md#mock-response)
+-   [retry](api-management-advanced-policies.md#Retry)
+-   [추적](api-management-advanced-policies.md#Trace)
 
 ## <a name="lasterror"></a>lastError
 
-오류가 발생 하 고 제어가 `on-error` 정책 섹션으로 이동 하는 경우 오류는 컨텍스트에 저장 됩니다 [. LastError](api-management-policy-expressions.md#ContextVariables) 속성은 `on-error` 섹션의 정책에서 액세스할 수 있습니다. LastError에는 다음 속성이 있습니다.
+오류가 발생 하 고 제어가 정책 섹션으로 이동 하는 경우 `on-error` 오류는 컨텍스트에 저장 됩니다 [. LastError](api-management-policy-expressions.md#ContextVariables) 속성은 섹션의 정책에서 액세스할 수 있습니다 `on-error` . LastError에는 다음 속성이 있습니다.
 
-| 속성       | 유형   | Description                                                                                               | 필수 |
+| 이름       | Type   | 설명                                                                                               | 필요한 공간 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | string | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
-| `Reason`   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아니요       |
-| `Message`  | string | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
-| `Scope`    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아니요       |
-| `Section`  | string | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".      | 아니요       |
-| `Path`     | string | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                 | 아니요       |
-| `PolicyId` | string | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니요       |
+| `Reason`   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |
+| `Message`  | 문자열 | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
+| `Scope`    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 예       |
+| `Section`  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".      | 예       |
+| `Path`     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                 | 예       |
+| `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니요       |
 
 > [!TIP]
 > context.Response.StatusCode를 통해 상태 코드에 액세스할 수 있습니다.
@@ -128,7 +131,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 | validate-jwt | 토큰에서 필수 클레임이 누락됨                          | TokenClaimNotFound        | JWT 토큰에 다음 클레임이 누락됨: <c1\>, <c2\>, … 액세스가 거부되었습니다.                                                            |
 | validate-jwt | 클레임 값이 일치하지 않음                                           | TokenClaimValueNotAllowed | {claim-value}의 클레임 {claim-name} 값이 허용되지 않습니다. 액세스가 거부되었습니다.                                                             |
 | validate-jwt | 기타 유효성 검사 실패                                       | JwtInvalid                | <jwt 라이브러리의 메시지\>                                                                                                          |
-| 전달 요청 또는 송신 요청 | 구성 된 시간 제한 내에 백 엔드에서 HTTP 응답 상태 코드 및 헤더를 받지 못했습니다. | 시간 제한 | 여러 가지 |
+| 전달 요청 또는 송신 요청 | 구성 된 시간 제한 내에 백 엔드에서 HTTP 응답 상태 코드 및 헤더를 받지 못했습니다. | 제한 시간 | 여러 가지 |
 
 ## <a name="example"></a>예제
 

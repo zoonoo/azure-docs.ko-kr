@@ -2,21 +2,20 @@
 title: Azure Active Directory에 대 한 자동 사용자 프로 비전 배포 계획
 description: 자동 사용자 프로비저닝을 계획 하 고 실행 하기 위한 지침
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781636"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -26,7 +25,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -42,7 +41,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 * **비용 절감**. 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
 
-### <a name="licensing"></a>라이선싱
+### <a name="licensing"></a>라이선스
 
 Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사용 하 여 모든 응용 프로그램의 셀프 서비스 통합을 제공 합니다. 라이선스 요구 사항에 대 한 전체 목록은 [AZURE AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
@@ -64,7 +63,7 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 * [SCIM (도메인 간 Id 관리)에 대 한 시스템](https://aka.ms/scimoverview) -사용자 프로 비전을 자동화 하는 데 사용할 수 있는 개방형 표준입니다. SCIM은 Microsoft와 같은 id 공급자와 사용자 id 정보를 요구 하는 Salesforce 또는 기타 SaaS 앱과 같은 서비스 공급자 간에 사용자 id 데이터를 전달 합니다.
 
-### <a name="training-resources"></a>학습 리소스
+### <a name="training-resources"></a>교육 리소스
 
 | 리소스| 링크 및 설명 |
 | - | - |
@@ -133,7 +132,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 ### <a name="plan-communications"></a>통신 계획
 
-통신은 모든 새 서비스의 성공에 중요 합니다. 사용자가 경험을 변경 하는 방법, 변경 된 시간 및 문제가 발생 한 경우 지원을 얻는 방법에 대 한 사전 대처.
+통신은 새 서비스의 성공에 대단히 중요합니다. 사용자의 경험이 어떻게 변화하고 언제 변할 것인지, 문제가 발생할 경우 지원을 받는 방법에 대해 사용자와 사전에 소통합니다.
 
 ### <a name="plan-a-pilot"></a>파일럿 계획
 
@@ -171,7 +170,7 @@ Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 �
 
 아래 이미지는 필수 관리자 자격 증명의 한 가지 버전을 보여 줍니다.
 
-![사용자 계정 프로 비전 설정을 관리 하기 위한 프로 비전 화면](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
+![사용자 계정 프로비저닝 설정을 관리하기 위한 프로비저닝 화면](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
 
 일부 응용 프로그램에는 관리자 사용자 이름 및 암호가 필요 하지만 다른 응용 프로그램에는 전달자 토큰이 필요할 수 있습니다.
 
@@ -217,7 +216,7 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 * 응용 프로그램에는 사용자 프로비저닝이 제대로 작동 하기 위해 충족 해야 하는 특정 제한 및/또는 요구 사항이 있을 수 있습니다. 예를 들어, 여유 시간은 특정 특성에 대 한 값을 자릅니다. 각 응용 프로그램에 특정 한 [자동 사용자 프로 비전 자습서](../saas-apps/tutorial-list.md) 를 참조 하세요.
 
-* 원본 시스템과 대상 시스템 간의 스키마 일관성을 확인 합니다. 일반적인 문제에는 UPN 또는 메일이 일치 하지 않는 등의 특성이 포함 됩니다. 예를 들어 Azure AD의 UPN은 앱 *john_smith@contoso.com* 에서 및로 설정 되며,이 *jsmith@contoso.com*는입니다. 자세한 내용은 [사용자 및 그룹 스키마 참조](../app-provisioning/use-scim-to-provision-users-and-groups.md)를 참조 하세요.
+* 원본 시스템과 대상 시스템 간의 스키마 일관성을 확인 합니다. 일반적인 문제에는 UPN 또는 메일이 일치 하지 않는 등의 특성이 포함 됩니다. 예를 들어 Azure AD의 UPN은 *john_smith@contoso.com* 앱에서 및로 설정 되며,이는 *jsmith@contoso.com* 입니다. 자세한 내용은 [사용자 및 그룹 스키마 참조](../app-provisioning/use-scim-to-provision-users-and-groups.md)를 참조 하세요.
 
 ## <a name="plan-testing-and-security"></a>테스트 및 보안 계획
 
@@ -238,7 +237,7 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 일반적으로 보안 검토는 배포의 일부로 필요 합니다. 보안 검토가 필요한 경우 identity as a service에 대 한 개요를 제공 하는 여러 Azure AD [백서](https://www.microsoft.com/download/details.aspx?id=36391) 를 참조 하세요.
 
-### <a name="plan-rollback"></a>계획 롤백
+### <a name="plan-rollback"></a>롤백 계획
 
 자동 사용자 프로 비전 구현이 프로덕션 환경에서 원하는 대로 작동 하지 않을 경우 다음 롤백 단계를 통해 이전에 알려진 양호한 상태로 되돌리는 데 도움이 될 수 있습니다.
 
@@ -310,7 +309,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 ### <a name="helpful-documentation"></a>유용한 설명서
 
-* [특성 매핑에 대 한 식 작성](../app-provisioning/functions-for-customizing-application-data.md)
+* [특성 매핑에 대한 식 작성](../app-provisioning/functions-for-customizing-application-data.md)
 
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 

@@ -5,17 +5,16 @@ description: ML Studio (클래식)에서 사용자 지정 R 모듈을 작성 하
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208434"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957327"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
 
@@ -39,53 +38,56 @@ ms.locfileid: "82208434"
 ## <a name="the-source-file"></a>원본 파일
 두 데이터 세트(데이터 프레임)의 행(관찰)을 연결하는 데 사용되는 **행 추가** 모듈의 표준 구현을 수정하는 **사용자 지정 행 추가** 모듈의 예제를 고려해 보겠습니다. 표준 **행 추가** 모듈은 `rbind` 알고리즘을 사용하여 두 번째 입력 데이터 세트의 행을 첫 번째 입력 데이터 세트의 끝에 추가합니다. 사용자 지정 `CustomAddRows` 함수는 두 데이터 세트를 허용할 뿐만 아니라 부울 스왑 매개 변수도 추가 입력으로 허용합니다. 스왑 매개 변수가 **FALSE**로 설정된 경우 표준 구현과 동일한 데이터 집합을 반환합니다. 그러나 스왑 매개 변수가 **TRUE**인 경우에는 함수는 대신 첫 번째 입력 데이터 세트의 행을 두 번째 데이터 세트의 끝에 추가합니다. **사용자 지정 행 추가** 모듈에 의해 노출되는 R `CustomAddRows` 함수의 구현을 포함하는 CustomAddRows.R 파일은 다음 R 코드를 포함합니다.
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
+{
+    if (swap)
     {
-        if (swap)
-        {
-            return (rbind(dataset2, dataset1));
-        }
-        else
-        {
-            return (rbind(dataset1, dataset2));
-        } 
+        return (rbind(dataset2, dataset1));
+    }
+    else
+    {
+        return (rbind(dataset1, dataset2));
     } 
+} 
+```
 
 ### <a name="the-xml-definition-file"></a>XML 정의 파일
-이 `CustomAddRows` 함수를 Azure Machine Learning Studio (클래식) 모듈로 노출 하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 모양과 동작을 지정 해야 합니다. 
+이 함수를 `CustomAddRows` Azure Machine Learning Studio (클래식) 모듈로 노출 하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 모양과 동작을 지정 해야 합니다. 
 
-    <!-- Defined a module using an R Script -->
-    <Module name="Custom Add Rows">
-        <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
+```xml
+<!-- Defined a module using an R Script -->
+<Module name="Custom Add Rows">
+    <Owner>Microsoft Corporation</Owner>
+    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
 
-    <!-- Specify the base language, script file and R function to use for this module. -->        
-        <Language name="R" 
-         sourceFile="CustomAddRows.R" 
-         entryPoint="CustomAddRows" />  
+<!-- Specify the base language, script file and R function to use for this module. -->        
+    <Language name="R" 
+        sourceFile="CustomAddRows.R" 
+        entryPoint="CustomAddRows" />  
 
-    <!-- Define module input and output ports -->
-    <!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
-        <Ports>
-            <Input id="dataset1" name="Dataset 1" type="DataTable">
-                <Description>First input dataset</Description>
-            </Input>
-            <Input id="dataset2" name="Dataset 2" type="DataTable">
-                <Description>Second input dataset</Description>
-            </Input>
-            <Output id="dataset" name="Dataset" type="DataTable">
-                <Description>The combined dataset</Description>
-            </Output>
-        </Ports>
+<!-- Define module input and output ports -->
+<!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
+    <Ports>
+        <Input id="dataset1" name="Dataset 1" type="DataTable">
+            <Description>First input dataset</Description>
+        </Input>
+        <Input id="dataset2" name="Dataset 2" type="DataTable">
+            <Description>Second input dataset</Description>
+        </Input>
+        <Output id="dataset" name="Dataset" type="DataTable">
+            <Description>The combined dataset</Description>
+        </Output>
+    </Ports>
 
-    <!-- Define module parameters -->
-        <Arguments>
-            <Arg id="swap" name="Swap" type="bool" >
-                <Description>Swap input datasets.</Description>
-            </Arg>
-        </Arguments>
-    </Module>
-
+<!-- Define module parameters -->
+    <Arguments>
+        <Arg id="swap" name="Swap" type="bool" >
+            <Description>Swap input datasets.</Description>
+        </Arg>
+    </Arguments>
+</Module>
+```
 
 XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 CustomAddRows.R 파일에 있는 R 코드의 함수 매개 변수 이름(이 예제의 경우 *dataset1*, *dataset2* 및 *swap*)과 정확히 일치해야 합니다. 마찬가지로, **Language** 요소의 **entryPoint** 특성 값은 R 스크립트의 함수 이름(이 예제의 경우 *CustomAddRows*)과 정확히 일치해야 합니다. 
 
@@ -104,10 +106,11 @@ Machine Learning 작업 영역에 등록 하려면 Azure Machine Learning Studio
 ### <a name="module-elements"></a>Module 요소
 **Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈은 기존 Azure Machine Learning Studio (클래식) 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
 
-    <Module name="Custom Add Rows" isDeterministic="false"> 
-        <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another...</Description>/> 
-
+```xml
+<Module name="Custom Add Rows" isDeterministic="false"> 
+    <Owner>Microsoft Corporation</Owner>
+    <Description>Appends one dataset to another...</Description>/> 
+```
 
 **Module** 요소 내에서 두 개의 추가 선택적 요소를 지정할 수 있습니다.
 
@@ -127,8 +130,9 @@ Module 요소의 문자 제한에 대한 규칙:
 ### <a name="language-definition"></a>언어 정의
 XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 지정하는 데 사용됩니다. 현재 지원되는 언어는 R뿐입니다. **sourceFile** 특성 값은 모듈을 실행할 때 호출할 함수가 포함된 R 파일의 이름이어야 합니다. 이 파일은 zip 패키지의 일부여야 합니다. **entryPoint** 특성 값은 호출되는 함수의 이름이며, 소스 파일에 정의된 유효한 함수와 일치해야 합니다.
 
-    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
-
+```xml
+<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
+```
 
 ### <a name="ports"></a>포트
 사용자 지정 모듈의 입력 및 출력 포트는 XML 정의 파일의 **Ports** 섹션의 자식 요소에 지정됩니다. 이러한 요소의 순서에 따라 사용자의 레이아웃(UX)이 결정됩니다. XML 파일의 **Ports** 요소에 나열된 첫 번째 자식 **input** 또는 **output**은 Machine Learning UX의 맨 왼쪽 입력 포트가 됩니다.
@@ -143,18 +147,22 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 **DataTable:** 이 형식은 data.frame으로 R 함수에 전달됩니다. 실제로 Machine Learning에서 지원되고 **DataTable** 과 호환되는 모든 형식(예: CSV 파일 또는 ARFF 파일)은 자동으로 data.frame으로 변환됩니다. 
 
-        <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
-            <Description>Input Dataset 1</Description>
-           </Input>
+```xml
+<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
+    <Description>Input Dataset 1</Description>
+</Input>
+```
 
 각 **DataTable** 입력 포트와 연결된 **id** 특성에는 고유 값이 있어야 하며, 이러한 값은 R 함수의 해당 명명된 매개 변수와 일치해야 합니다.
 실험에서 입력으로 전달되지 않는 선택적 **DataTable** 포트에는 R 함수로 전달되는 **NULL** 값이 있으며, 선택적 zip 포트는 입력이 연결되지 않은 경우 무시됩니다. **isOptional** 특성은 **DataTable** 및 **Zip** 형식에 둘 다에 대해 선택 사항이며, 기본적으로 *false*입니다.
 
 **Zip:** 사용자 지정 모듈에서는 zip 파일을 입력으로 사용할 수 있습니다. 이 입력은 함수의 R 작업 디렉터리에 압축이 해제됩니다.
 
-        <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
-            <Description>Zip files to be extracted to the R working directory.</Description>
-           </Input>
+```xml
+<Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
+    <Description>Zip files to be extracted to the R working directory.</Description>
+</Input>
+```
 
 사용자 지정 R 모듈의 경우 Zip 포트의 ID는 R 함수의 매개 변수와 일치할 필요가 없습니다. zip 파일은 R 작업 디렉터리에 자동으로 추출되기 때문입니다.
 
@@ -170,47 +178,54 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 ### <a name="output-elements"></a>Output 요소
 **표준 출력 포트:** 출력 포트는 R 함수의 반환 값에 매핑되어 후속 모듈에 사용됩니다. *DataTable* 은 현재 지원되는 유일한 표준 출력 포트 형식입니다. ( *학습자* 및 *변환* 에 대 한 지원이 곧 제공 될 예정입니다.) *DataTable* 출력은 다음과 같이 정의 됩니다.
 
-    <Output id="dataset" name="Dataset" type="DataTable">
-        <Description>Combined dataset</Description>
-    </Output>
+```xml
+<Output id="dataset" name="Dataset" type="DataTable">
+    <Description>Combined dataset</Description>
+</Output>
+```
 
 사용자 지정 R 모듈의 출력은 **id** 특성 값이 R 스크립트의 항목에 해당할 필요는 없지만 고유해야 합니다. 단일 모듈 출력의 경우 R 함수의 반환 값은 *data.frame*이어야 합니다. 지원되는 데이터 형식의 개체를 두 개 이상 출력하려면 XML 정의 파일에 해당 출력 포트를 지정하고 개체를 목록으로 반환해야 합니다. 출력 개체는 반환되는 목록에서 개체가 배치된 순서를 나타내도록 왼쪽으로 오른쪽으로 출력 포트에 할당됩니다.
 
 예를 들어 **사용자 지정 행 추가** 모듈을 새로 조인된 *dataset*과 함께 원래 두 데이터 세트 *dataset1* 및 *dataset2*를 출력(왼쪽부터 순서대로 *dataset*, *dataset1*, *dataset2*)하도록 수정하려면 CustomAddRows.xml 파일에서 다음과 같이 출력 포트를 정의합니다.
 
-    <Ports> 
-        <Output id="dataset" name="Dataset Out" type="DataTable"> 
-            <Description>New Dataset</Description> 
-        </Output> 
-        <Output id="dataset1_out" name="Dataset 1 Out" type="DataTable"> 
-            <Description>First Dataset</Description> 
-        </Output> 
-        <Output id="dataset2_out" name="Dataset 2 Out" type="DataTable"> 
-            <Description>Second Dataset</Description> 
-        </Output> 
-        <Input id="dataset1" name="Dataset 1" type="DataTable"> 
-            <Description>First Input Table</Description>
-        </Input> 
-        <Input id="dataset2" name="Dataset 2" type="DataTable"> 
-            <Description>Second Input Table</Description> 
-        </Input> 
-    </Ports> 
-
+```xml
+<Ports> 
+    <Output id="dataset" name="Dataset Out" type="DataTable"> 
+        <Description>New Dataset</Description> 
+    </Output> 
+    <Output id="dataset1_out" name="Dataset 1 Out" type="DataTable"> 
+        <Description>First Dataset</Description> 
+    </Output> 
+    <Output id="dataset2_out" name="Dataset 2 Out" type="DataTable"> 
+        <Description>Second Dataset</Description> 
+    </Output> 
+    <Input id="dataset1" name="Dataset 1" type="DataTable"> 
+        <Description>First Input Table</Description>
+    </Input> 
+    <Input id="dataset2" name="Dataset 2" type="DataTable"> 
+        <Description>Second Input Table</Description> 
+    </Input> 
+</Ports> 
+```
 
 및는 ' CustomAddRows. R '에서 올바른 순서로 목록의 개체 목록을 반환 합니다.
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
-        if (swap) { dataset <- rbind(dataset2, dataset1)) } 
-        else { dataset <- rbind(dataset1, dataset2)) 
-        } 
-    return (list(dataset, dataset1, dataset2)) 
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
+    if (swap) { dataset <- rbind(dataset2, dataset1)) } 
+    else { dataset <- rbind(dataset1, dataset2)) 
     } 
+    return (list(dataset, dataset1, dataset2)) 
+} 
+```
 
 **시각화 출력:** R 그래픽 디바이스의 출력 및 콘솔 출력을 표시하는 *Visualization*형식의 출력 포트를 지정할 수도 있습니다. 이 포트는 R 함수 출력의 일부가 아니며 다른 출력 포트 형식의 순서와 간섭되지 않습니다. 사용자 지정 모듈에 시각화 포트를 추가하려면 해당 **type** 특성 값이 *Visualization*인 **Output** 요소를 추가합니다.
 
-    <Output id="deviceOutput" name="View Port" type="Visualization">
-      <Description>View the R console graphics device output.</Description>
-    </Output>
+```xml
+<Output id="deviceOutput" name="View Port" type="Visualization">
+    <Description>View the R console graphics device output.</Description>
+</Output>
+```
 
 **출력 규칙:**
 
@@ -229,51 +244,56 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 
 **int** – 정수(32비트) 형식 매개 변수입니다.
 
-    <Arg id="intValue1" name="Int Param" type="int">
-        <Properties min="0" max="100" default="0" />
-        <Description>Integer Parameter</Description>
-    </Arg>
-
+```xml
+<Arg id="intValue1" name="Int Param" type="int">
+    <Properties min="0" max="100" default="0" />
+    <Description>Integer Parameter</Description>
+</Arg>
+```
 
 * *선택적 속성*: **min**, **max**, **default** 및 **isOptional**
 
 **double** – 실수(Double) 형식 매개 변수입니다.
 
-    <Arg id="doubleValue1" name="Double Param" type="double">
-        <Properties min="0.000" max="0.999" default="0.3" />
-        <Description>Double Parameter</Description>
-    </Arg>
-
+```xml
+<Arg id="doubleValue1" name="Double Param" type="double">
+    <Properties min="0.000" max="0.999" default="0.3" />
+    <Description>Double Parameter</Description>
+</Arg>
+```
 
 * *선택적 속성*: **min**, **max**, **default** 및 **isOptional**
 
 **bool** – UX에서 확인란으로 표시되는 부울 매개 변수입니다.
 
-    <Arg id="boolValue1" name="Boolean Param" type="bool">
-        <Properties default="true" />
-        <Description>Boolean Parameter</Description>
-    </Arg>
-
-
+```xml
+<Arg id="boolValue1" name="Boolean Param" type="bool">
+    <Properties default="true" />
+    <Description>Boolean Parameter</Description>
+</Arg>
+```
 
 * *선택적 속성*: **default** - 설정하지 않은 경우 false
 
 **string**: 표준 문자열입니다.
 
-    <Arg id="stringValue1" name="My string Param" type="string">
-        <Properties isOptional="true" />
-        <Description>String Parameter 1</Description>
-    </Arg>    
+```xml
+<Arg id="stringValue1" name="My string Param" type="string">
+    <Properties isOptional="true" />
+    <Description>String Parameter 1</Description>
+</Arg>    
+```
 
 * *선택적 속성*: **default** 및 **isOptional**
 
 **ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. **속성** 요소는 열이 선택 된 포트의 ID를 지정 하는 데 사용 됩니다. 여기서 대상 포트 유형은 *DataTable*이어야 합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
 
-        <Arg id="colset" name="Column set" type="ColumnPicker">      
-          <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
-          <Description>Column set</Description>
-        </Arg>
-
+```xml
+<Arg id="colset" name="Column set" type="ColumnPicker">      
+    <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
+    <Description>Column set</Description>
+</Arg>
+```
 
 * *필수 속성*: **portId** - *DATATABLE*형식이 있는 Input 요소의 ID와 일치 합니다.
 * *선택적 속성*:
@@ -281,12 +301,12 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
   * **allowedTypes** - 선택할 수 있는 열 형식을 필터링합니다. 유효한 값은 다음과 같습니다. 
     
     * 숫자
-    * 부울
+    * Boolean
     * 범주
-    * 문자열
+    * String
     * 레이블
     * 기능
-    * 점수 매기기
+    * 점수
     * 모두
   * **default** -열 선택의 유효한 기본 선택 항목은 다음과 같습니다. 
     
@@ -314,14 +334,16 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 
 **DropDown**: 사용자가 지정한 열거형(드롭다운) 목록입니다. 드롭다운 항목은 **Item** 요소를 사용하여 **Properties** 요소 내에 지정됩니다. 각 **Item**에 대한 **id**는 고유하고 유효한 R 변수여야 합니다. **Item**의 **name** 값은 표시되는 텍스트와 R 함수에 전달되는 값으로 사용됩니다.
 
-    <Arg id="color" name="Color" type="DropDown">
-      <Properties default="red">
+```xml
+<Arg id="color" name="Color" type="DropDown">
+    <Properties default="red">
         <Item id="red" name="Red Value"/>
         <Item id="green" name="Green Value"/>
         <Item id="blue" name="Blue Value"/>
-      </Properties>
-      <Description>Select a color.</Description>
-    </Arg>    
+    </Properties>
+    <Description>Select a color.</Description>
+</Arg>    
+```
 
 * *선택적 속성*:
   * **기본값** -기본 속성의 값은 **항목** 요소 중 하나의 ID 값과 일치 해야 합니다.
@@ -336,27 +358,32 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 
 예를 들어 데이터 집합에서 NAs를 사용 하는 모든 행을 제거 하 고, CustomAddRows에 출력 하기 전에 중복 행을 제거 하 고 Removedupnarows.r 파일에서이를 수행 하는 R 함수를 이미 작성 했다고 가정 합니다.
 
-    RemoveDupNARows <- function(dataFrame) {
-        #Remove Duplicate Rows:
-        dataFrame <- unique(dataFrame)
-        #Remove Rows with NAs:
-        finalDataFrame <- dataFrame[complete.cases(dataFrame),]
-        return(finalDataFrame)
-    }
+```r
+RemoveDupNARows <- function(dataFrame) {
+    #Remove Duplicate Rows:
+    dataFrame <- unique(dataFrame)
+    #Remove Rows with NAs:
+    finalDataFrame <- dataFrame[complete.cases(dataFrame),]
+    return(finalDataFrame)
+}
+```
+
 CustomAddRows 함수에서 보조 파일 RemoveDupNARows.R을 소싱할 수 있습니다.
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-        source("src/RemoveDupNARows.R")
-            if (swap) { 
-                dataset <- rbind(dataset2, dataset1))
-             } else { 
-                  dataset <- rbind(dataset1, dataset2)) 
-             } 
-        dataset <- removeDupNARows(dataset)
-        return (dataset)
-    }
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
+    source("src/RemoveDupNARows.R")
+        if (swap) { 
+            dataset <- rbind(dataset2, dataset1))
+        } else { 
+            dataset <- rbind(dataset1, dataset2)) 
+        } 
+    dataset <- removeDupNARows(dataset)
+    return (dataset)
+}
+```
 
-그런 다음 ' CustomAddRows. R ', ' CustomAddRows .xml ' 및 ' Removedupnarows.r '를 포함 하는 zip 파일을 사용자 지정 R 모듈로 업로드 합니다.
+그런 다음 ' CustomAddRows. R ', ' CustomAddRows.xml ' 및 ' Removedupnarows.r '가 포함 된 zip 파일을 사용자 지정 R 모듈로 업로드 합니다.
 
 ## <a name="execution-environment"></a>실행 환경
 R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동일한 버전의 R을 사용하며, 동일한 기본 패키지를 사용할 수 있습니다. 사용자 지정 모듈 zip 패키지에 포함하여 사용자 지정 모듈에 추가 R 패키지를 추가할 수 있습니다. 사용자 고유의 R 환경과 마찬가지로 R 스크립트에서 로드합니다. 

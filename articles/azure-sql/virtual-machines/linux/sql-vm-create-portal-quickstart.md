@@ -3,7 +3,6 @@ title: '빠른 시작: Azure에서 Linux SQL Server VM 만들기'
 description: 이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,14 +10,13 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669514"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Azure Portal에서 SQL Server를 실행 하는 Linux 가상 컴퓨터 프로 비전
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +26,7 @@ ms.locfileid: "84259527"
 이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server 2017이 설치된 Linux 가상 머신을 만듭니다. 다음을 학습합니다. 
 
 
-* [갤러리에서 Linux SQL VM 만들기](#create)
+* [갤러리에서 SQL Server를 실행 하는 Linux VM 만들기](#create)
 * [SSH를 사용하여 새로운 VM에 연결](#connect)
 * [SA 암호 변경](#password)
 * [원격 연결의 구성](#remote)
@@ -125,7 +123,7 @@ Windows에서 실행 중이고 BASH 셸이 설치되지 않은 경우 PuTTY와 �
 
 Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용하여 Azure에서 Linux VM 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal)를 참조하세요.
 
-> [!Note]
+> [!NOTE]
 > 레지스트리에서 캐시되지 않은 서버의 호스트 키에 대한 PuTTY 보안 경고가 표시되는 경우 다음 옵션 중에서 선택합니다. 이 호스트를 신뢰하는 경우 **예**를 선택하여 PuTTy의 캐시에 키를 추가하여 연결을 계속합니다. 한 번만 연결을 수행하려는 경우 캐시에 키를 추가하지 않고 **아니요**를 선택합니다. 이 호스트를 신뢰하지 않는 경우 **취소**를 선택하여 연결을 중단합니다.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> SA 암호 변경

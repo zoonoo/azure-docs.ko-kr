@@ -5,14 +5,13 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414150"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -37,7 +36,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  
 - 네트워크 연결은 프라이빗 엔드포인트에 연결하는 클라이언트에 의해서만 시작될 수 있으며 서비스 공급자는 서비스 소비자에 대한 연결을 시작하기 위해 라우팅을 구성할 필요가 없습니다. 연결은 단일 방향으로만 설정할 수 있습니다.
 
-- 프라이빗 엔드포인트를 만들 때 리소스 수명 주기 동안 읽기 전용 네트워크 인터페이스도 생성됩니다. 이 인터페이스에는 프라이빗 링크 리소스에 매핑되는 서브넷의 동적 프라이빗 IP 주소가 할당됩니다. 프라이빗 IP 주소의 값은 프라이빗 엔드포인트의 전체 수명 주기 동안 변경되지 않고 유지됩니다.
+- 프라이빗 엔드포인트를 만들 때 리소스 수명 주기 동안 읽기 전용 네트워크 인터페이스도 생성됩니다. 이 인터페이스에는 프라이빗 링크 리소스에 매핑되는 서브넷의 동적 프라이빗 IP 주소가 할당됩니다. 개인 IP 주소의 값은 개인 끝점의 전체 수명 주기 동안 변경 되지 않은 상태로 유지 됩니다.
  
 - 프라이빗 엔드포인트는 가상 네트워크와 동일한 지역에 배포되어야 합니다. 
  
@@ -55,6 +54,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |프라이빗 링크 리소스 이름  |리소스 유형   |하위 리소스  |
 |---------|---------|---------|
 |**프라이빗 링크 서비스**(사용자 고유의 서비스)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server(sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server(sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob(blob, blob_secondary)<BR> Table(table, table_secondary)<BR> 큐(queue, queue_secondary)<BR> 파일(file, file_secondary)<BR> 웹(web, web_secondary)        |
@@ -75,7 +75,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Relay** | Microsoft.Relay/namespaces | 네임스페이스 |
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | 토픽 |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | 도메인 |
-|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | 작업 영역 |
   
  
@@ -86,7 +86,7 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>승인 워크플로를 사용하여 프라이빗 링크 리소스에 액세스 
 다음 연결 승인 방법을 사용하여 프라이빗 링크 리소스에 연결할 수 있습니다.
-- **자동** 승인 - 사용자가 특정 프라이빗 링크 리소스를 소유하거나 해당 권한이 있는 경우. 필요한 권한은 다음 형식의 프라이빗 링크 리소스 종류를 기준으로 합니다. Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- **자동** 승인 - 사용자가 특정 프라이빗 링크 리소스를 소유하거나 해당 권한이 있는 경우. 필요한 권한은 다음 형식의 개인 링크 리소스 형식을 기반으로 합니다. Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - **수동** 요청 - 필요한 권한이 없고 액세스를 요청하려는 경우. 승인 워크플로가 시작됩니다. 프라이빗 엔드포인트 및 후속 프라이빗 엔드포인트 연결은 "보류 중" 상태로 만들어집니다. Private Link 리소스 소유자가 연결을 승인해야 합니다. 승인된 후 다음 승인 워크플로 다이어그램에 표시된 것처럼 프라이빗 엔드포인트가 트래픽을 정상적으로 보낼 수 있습니다.  
 
 ![워크플로 승인](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -118,15 +118,15 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 다음 표에서는 프라이빗 엔드포인트를 사용하는 경우의 알려진 제한 사항 목록을 제공합니다. 
 
 
-|제한 사항 |Description |완화 방법  |
+|제한 사항 |설명 |완화 방법  |
 |---------|---------|---------|
 |NSG(네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 프라이빗 엔드포인트에 적용되지 않습니다.    |NSG는 프라이빗 엔드포인트에서 지원되지 않습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하고 기본 라우팅 동작을 변경하려면 비슷한 UDR이 필요합니다.  | 원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.        |
 
 
 ## <a name="next-steps"></a>다음 단계
-- [포털을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)
-- [PowerShell을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
-- [CLI를 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
+- [포털을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-portal.md)
+- [PowerShell을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-powershell.md)
+- [CLI를 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-cli.md)
 - [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
 - [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)

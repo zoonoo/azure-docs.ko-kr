@@ -10,12 +10,11 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343119"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 
@@ -42,6 +41,12 @@ Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드�
 ![제작 캔버스](media/author-visually/properties-pane.png)
 
 속성 창은 기본적으로 리소스 생성 시에만 열립니다. 편집하려면 캔버스의 오른쪽 위 모서리에 있는 속성 창 아이콘을 클릭합니다.
+
+## <a name="management-hub"></a>관리 허브
+
+Azure Data Factory UX의 *관리* 탭에서 액세스할 수 있는 관리 허브는 데이터 팩터리에 대 한 전역 관리 작업을 호스트 하는 포털입니다. 여기에서 데이터 저장소 및 외부 계산, 소스 제어 구성 및 트리거 설정에 대 한 연결을 관리할 수 있습니다. 자세한 내용은 [관리 허브](author-management-hub.md)의 기능에 대해 알아보세요.
+
+![연결 된 서비스 관리](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>식 및 함수
 

@@ -4,15 +4,14 @@ description: Azure 파일 동기화의 기능인 클라우드 계층화에 대�
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413980"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -31,11 +30,38 @@ Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용�
 ### <a name="how-does-cloud-tiering-work"></a>클라우드 계층화는 어떤 방식으로 작동하나요?
 Azure 파일 동기화 시스템 필터가 각 서버 엔드포인트에 네임스페이스의 “열 지도”를 작성합니다. 이 필터는 시간별 액세스(읽기 및 쓰기 작업)를 모니터링한 다음 액세스 빈도와 최신 상태에 따라 모든 파일에 열 점수를 할당합니다. 액세스 빈도가 높으며 최근 열었던 파일은 핫 파일로 간주되는 반면 거의 액세스하지 않으며 장시간 액세스하지 않았던 파일은 쿨 파일로 간주됩니다. 서버의 파일 볼륨이 설정된 사용 가능한 볼륨 공간 임계값을 초과하면 사용 가능한 공간 백분율이 충족될 때까지 쿨 점수가 가장 높은 파일이 Azure Files로 계층화됩니다.
 
-Azure 파일 동기화 에이전트의 버전 4.0 이상에서 지정된 기간 내에 액세스되거나 수정되지 않는 모든 파일을 계층화하는 각 서버 엔드포인트에서 날짜 정책을 지정할 수도 있습니다.
+또한 사용 가능한 로컬 저장소 용량에 관계 없이 지정 된 기간 (일) 내에 액세스 하지 않는 모든 파일을 계층화 하는 각 서버 끝점에서 날짜 정책을 지정할 수 있습니다. 이 옵션은 해당 서버 끝점의 파일이 특정 보존 기간을 초과 하 여 로컬로 보존 되지 않아도 되는 경우 로컬 디스크 공간을 사전에 확보 하는 데 적합 합니다. 그러면 동일한 볼륨의 다른 끝점에 대해 중요 한 로컬 디스크 용량을 확보 하 여 더 많은 파일을 캐시 합니다.
+
+클라우드 계층화 열 지도는 기본적으로 동기화 되는 모든 파일의 정렬 된 목록이 며 클라우드 계층화를 사용 하도록 설정 된 위치에 있습니다. 해당 열 지도에서 개별 파일의 상대 위치를 확인 하기 위해 시스템은 최대 (마지막 액세스 시간, 마지막 수정 시간, 만든 시간)의 타임 스탬프 중에서 최대값을 순서 대로 사용 합니다. 일반적으로 마지막 액세스 시간이 추적 되 고 사용 가능 합니다. 그러나 새 서버 끝점을 만들 때 클라우드 계층화를 사용 하도록 설정 하면 처음에는 파일 액세스를 관찰 하기 위해 충분 한 시간이 경과 되지 않습니다. 마지막 액세스 시간이 없으면 마지막으로 수정한 시간이 열 지도의 상대 위치를 평가 하는 데 사용 됩니다. 동일한 대체 (fallback)는 날짜 정책에 적용할 수 있습니다. 마지막으로 액세스 하지 않으면 날짜 정책이 마지막으로 수정 된 시간에 적용 됩니다. 사용할 수 없는 경우 파일의 만든 시간으로 대체 됩니다. 시간이 지남에 따라 시스템은 더 많은 파일 액세스 요청을 관찰 하 고 피벗이 주로 자체 추적 된 마지막 액세스 시간을 사용 합니다.
+
+클라우드 계층화는 마지막 액세스 시간을 추적 하는 NTFS 기능에 의존 하지 않습니다. 이 NTFS 기능은 기본적으로 해제 되어 있으며, 성능 고려 사항으로 인해이 기능을 수동으로 사용 하지 않는 것이 좋습니다. 클라우드 계층화는 마지막 액세스 시간을 개별적이 고 매우 효율적으로 추적 합니다.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>계층에 대 한 파일의 최소 파일 크기는 무엇입니까?
-에이전트 버전 4.x 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기 (파일 시스템 클러스터 크기 2 배)를 기반으로 합니다. 예를 들어 NTFS 파일 시스템 클러스터 크기가 4KB 인 경우 계층에 대 한 파일의 최소 파일 크기는 8KB입니다. 에이전트 버전 8.x 및 이전 버전의 경우 파일 계층의 최소 파일 크기는 64KB입니다.
+
+에이전트 버전 9 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기를 기준으로 합니다. 다음 표에서는 볼륨 클러스터 크기를 기준으로 계층화 할 수 있는 최소 파일 크기를 보여 줍니다.
+
+|볼륨 클러스터 크기 (바이트) |이 크기 이상의 파일은 계층화 될 수 있습니다.  |
+|----------------------------|---------|
+|4KB (4096)                 | 8KB    |
+|8KB (8192)                 | 16KB   |
+|16KB (16384)               | 32KB   |
+|32 KB (32768) 이상    | 64KB   |
+
+Windows에서 사용 하는 모든 파일 시스템은 클러스터 크기 (할당 단위 크기 라고도 함)에 따라 하드 디스크를 구성 합니다. 클러스터 크기는 파일을 저장 하는 데 사용할 수 있는 최소 크기의 디스크 공간을 나타냅니다. 파일 크기가 클러스터 크기의 짝수 배수가 아닌 경우 파일을 저장 하기 위해 추가 공간을 사용 해야 합니다 (클러스터 크기의 다음 배수까지).
+
+Azure File Sync는 Windows Server 2012 R2 이상 버전의 NTFS 볼륨에서 지원 됩니다. 다음 표에서는 새 NTFS 볼륨을 만들 때의 기본 클러스터 크기에 대해 설명 합니다. 
+
+|볼륨 크기    |Windows Server 2012R2 이상 |
+|---------------|---------------|
+|70MB – 16TB   | 4KB          |
+|16TB – 32 TB   | 8KB          |
+|32TB – 64 TB   | 16KB         |
+|64TB – 128 TB  | 32KB         |
+|128TB – 256 TB | 64KB         |
+|> 256 TB       | 지원되지 않음 |
+
+볼륨을 만들 때 다른 클러스터 (할당 단위) 크기의 볼륨을 수동으로 포맷 했을 수 있습니다. 이전 버전의 Windows에서 볼륨을 분석 하는 경우 기본 클러스터 크기도 다를 수 있습니다. [이 문서에는 기본 클러스터 크기에 대 한 자세한 내용이 포함 되어 있습니다.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>사용 가능한 볼륨 공간 계층화 정책은 어떤 방식으로 작동하나요?
@@ -53,7 +79,7 @@ Azure 파일 동기화 에이전트의 버전 4.0 이상에서 지정된 기간 
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>날짜 계층화 정책은 사용 가능한 볼륨 공간 계층화 정책과 함께 어떤 방식으로 작동하나요? 
 서버 엔드포인트에서 클라우드 계층화를 활성화하는 경우 사용 가능한 볼륨 공간 정책을 설정합니다. 날짜 정책을 비롯한 다른 모든 정책에 비해 항상 우선 순위를 갖습니다. 필요에 따라 해당 볼륨의 각 서버 끝점에 대 한 날짜 정책을 사용 하도록 설정할 수 있습니다. 이 정책은이 정책에서 설명 하는 일 범위 내에서 액세스 한 파일 (즉, 읽기 또는 쓰기)만 로컬에 보관 됨을 관리 합니다. 지정 된 일 수를 사용 하 여 액세스할 수 없는 파일은 계층화 됩니다. 
 
-클라우드 계층화는 마지막 액세스 시간을 사용 하 여 계층화 되어야 하는 파일을 결정 합니다. 클라우드 계층화 필터 드라이버 (microsoft.storagesync)는 마지막 액세스 시간을 추적 하 고 클라우드 계층화 열 저장소에 정보를 기록 합니다. 로컬 PowerShell cmdlet을 사용 하 여 열 저장소를 볼 수 있습니다.
+클라우드 계층화는 마지막 액세스 시간을 사용 하 여 계층화 되어야 하는 파일을 결정 합니다. 클라우드 계층화 필터 드라이버 (storagesync.sys)는 마지막 액세스 시간을 추적 하 고 클라우드 계층화 열 저장소에 정보를 기록 합니다. 로컬 PowerShell cmdlet을 사용 하 여 열 저장소를 볼 수 있습니다.
 
 ```powershell
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
@@ -78,7 +104,11 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>새 서버 끝점을 추가 했습니다. 내 파일은 이 서버에서 언제까지 계층화되나요?
-Azure File Sync 에이전트의 4.0 이상 버전에서는 파일이 Azure 파일 공유에 업로드 된 후 다음 계층화 세션이 실행 되는 즉시 정책에 따라 계층화 됩니다 .이는 한 시간에 한 번 수행 됩니다. 이전 에이전트에서는 계층화가 발생하는 데 최대 24시간이 걸릴 수 있습니다.
+
+설정 된 정책에 따라 파일을 계층화 해야 하는지 여부는 한 시간에 한 번 계산 됩니다. 새 서버 끝점을 만들 때 다음과 같은 두 가지 상황이 발생할 수 있습니다.
+
+1. 새 서버 끝점을 추가 하면 파일이 해당 서버 위치에 존재 하는 경우가 많습니다. 클라우드 계층화를 시작 하기 전에 먼저 업로드 해야 합니다. 모든 파일의 초기 업로드가 완료 될 때까지 사용 가능한 볼륨 공간 정책은 해당 작업을 시작 하지 않습니다. 그러나 선택적 날짜 정책은 파일이 업로드 된 직후 개별 파일에 대 한 작업을 시작 합니다. 여기에는 1 시간 간격도 적용 됩니다. 
+2. 새 서버 끝점을 추가 하는 경우 데이터를 사용 하 여 빈 서버 위치를 Azure 파일 공유에 연결할 수 있습니다. 이는 두 번째 서버에 대 한 것인지 또는 재해 복구 상황에서 발생 합니다. 서버에 초기 다운로드를 수행 하는 동안 네임 스페이스를 다운로드 하 고 콘텐츠를 회수 하도록 선택 하는 경우, 네임 스페이스가 종료 된 후 마지막으로 수정 된 타임 스탬프에 따라 파일이 회수 됩니다. 볼륨 사용 가능 공간 정책 및 선택적 날짜 정책 내에서 파일 수 만큼만 회수할 수 있습니다.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>파일이 계층화되었는지 여부는 어떻게 알 수 있나요?
@@ -112,7 +142,6 @@ Azure File Sync 에이전트의 4.0 이상 버전에서는 파일이 Azure 파�
         > `fsutil reparsepoint` 유틸리티 명령에는 재분석 지점을 삭제하는 기능도 있습니다. Azure 파일 동기화 엔지니어링 팀에서 요청하는 경우가 아니면 이 명령을 실행하지 마십시오. 이 명령을 실행하면 데이터가 손실될 수 있습니다. 
 
 <a id="afs-recall-file"></a>
-
 ### <a name="a-file-i-want-to-use-has-been-tiered-how-can-i-recall-the-file-to-disk-to-use-it-locally"></a>사용하려는 파일이 계층화되어 있습니다. 이 파일을 로컬에서 사용하기 위해 디스크로 회수하려면 어떻게 해야 하나요?
 디스크로 파일을 회수하는 가장 쉬운 방법은 파일을 여는 것입니다. Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 사용자의 별다른 작업 없이도 Azure 파일 공유에서 파일을 원활하게 다운로드합니다. 부분적으로 읽을 수 있는 파일 형식(예: 멀티미디어 또는 zip 파일)의 경우 파일을 열면 전체 파일이 다운로드되지 않습니다.
 
@@ -123,20 +152,33 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 선택적 매개 변수:
-* `-Order CloudTieringPolicy`가장 최근에 수정 된 파일을 먼저 회수 합니다.  
+* `-Order CloudTieringPolicy`가장 최근에 수정 하거나 액세스 한 파일을 먼저 회수 하 고 현재 계층화 정책에서 허용 됩니다. 
+    * 사용 가능한 볼륨 공간 정책이 구성 된 경우 사용 가능한 볼륨 공간 정책 설정에 도달할 때까지 파일이 회수 됩니다. 예를 들어 볼륨 사용 가능 정책 설정이 20% 인 경우 볼륨의 사용 가능한 공간이 20%에 도달 하면 리콜이 중지 됩니다.  
+    * 사용 가능한 볼륨 공간 및 날짜 정책이 구성 된 경우 사용 가능한 볼륨 공간 또는 날짜 정책 설정에 도달할 때까지 파일이 회수 됩니다. 예를 들어, 볼륨 사용 가능 정책 설정이 20%이 고 날짜 정책이 7 일 경우 볼륨의 사용 가능한 공간이 20%에 도달 하면 리콜이 중지 되 고, 7 일 이내에 액세스 또는 수정 된 모든 파일이 로컬이 됩니다.
 * `-ThreadCount`병렬로 회수할 수 있는 파일 수를 결정 합니다.
 * `-PerFileRetryCount`현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
 * `-PerFileRetryDelaySeconds`재시도 사이의 재시도 간격 (초)을 결정 합니다 .이 시간은 항상 이전 매개 변수와 함께 사용 해야 합니다.
 
+예:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+``` 
+
 > [!Note]  
-> 서버를 호스트하는 로컬 볼륨에 모든 계층화된 데이터를 기억할 충분한 사용 가능한 공간이 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
+> - Invoke-storagesyncfilerecall cmdlet을 사용 하 여 새 서버 끝점을 기존 동기화 그룹에 추가할 때 파일 다운로드 성능을 향상 시킬 수도 있습니다.  
+>- 서버를 호스트하는 로컬 볼륨에 모든 계층화된 데이터를 기억할 충분한 사용 가능한 공간이 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
 
 <a id="sizeondisk-versus-size"></a>
-### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Azure 파일 동기화를 사용한 후에 파일의 *디스크 할당 크기* 속성이 *Size* 속성과 일치하지 않는 이유는 무엇인가요? 
+### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Azure 파일 동기화를 사용한 후에 Azure 파일에 대한 *디스크 크기* 속성이 *크기* 속성과 일치하지 않는 이유는 무엇인가요? 
 Windows 파일 탐색기는 파일 크기를 나타내기 위해 **크기** 및 **디스크 크기**의 두 속성을 표시합니다. 이러한 속성은 의미가 약간 다릅니다. **크기**는 파일의 전체 크기를 나타냅니다. **디스크 크기**는 디스크에 저장된 파일 스트림의 크기를 나타냅니다. 이러한 속성의 값은 압축, 데이터 중복 제거 사용 또는 Azure File Sync와 함께 클라우드 계층화와 같은 다양 한 이유로 달라질 수 있습니다. 파일이 Azure 파일 공유로 계층화 되 면 파일 스트림이 디스크가 아닌 Azure 파일 공유에 저장 되므로 디스크 크기는 0입니다. 파일을 부분적으로 계층화할 수 있습니다(또는 부분적으로 회수). 부분적으로 계층화된 파일에서 파일 일부가 디스크에 있습니다. 멀티미디어 플레이어 또는 압축 유틸리티와 같은 애플리케이션에 의해 파일이 부분적으로 읽힐 때 이러한 현상이 발생할 수 있습니다. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>파일 또는 디렉터리를 강제로 계층화하려면 어떻게 해야 하나요?
+
+> [!NOTE]
+> 계층화 할 디렉터리를 선택 하면 현재 디렉터리에 있는 파일만 계층화 됩니다. 해당 시간 이후에 만들어진 모든 파일은 자동으로 계층화 되지 않습니다.
+
 클라우드 계층화 기능이 활성화된 경우 클라우드 계층화는 클라우드 엔드포인트에 지정된 사용 가능한 볼륨 공간 비율에 맞게 마지막 액세스 및 수정 시간을 기준으로 파일을 자동으로 계층화합니다. 그러나 경우에 따라 파일을 강제로 계층화하려는 경우도 있을 수 있습니다. 장시간 다시 사용하지 않으려는 큰 파일을 저장하고 다른 파일 및 폴더에 사용하기 위해 볼륨 공간을 확보하려는 경우에 이러한 강제 계층화가 유용할 수 있습니다. 다음 PowerShell 명령을 사용하여 강제로 계층화할 수 있습니다.
 
 ```powershell
@@ -149,6 +191,15 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 계층화 된 파일의 경우에는 미리 보기와 미리 보기가 서버 끝점에 표시 되지 않습니다. 이 동작은 Windows의 미리 보기 캐시 기능이 오프 라인 특성을 사용 하 여 파일 읽기를 의도적으로 건너뜀 때문에 예상 됩니다. 클라우드 계층화를 사용 하는 경우 계층화 된 파일을 통해 읽으면 해당 파일을 다운로드 (회수) 합니다.
 
 이 동작은 Azure File Sync에 한정 되지 않으며, Windows 탐색기에는 오프 라인 특성 집합이 있는 모든 파일에 대 한 "회색 X"가 표시 됩니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시 됩니다. 이 동작에 대 한 자세한 설명은 다음을 참조 하세요.[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+<a id="afs-tiering-disabled"></a>
+### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>클라우드 계층화를 사용 하지 않도록 설정 했습니다. 서버 끝점 위치에 계층화 된 파일이 있는 이유는 무엇 인가요?
+
+계층화 된 파일이 서버 끝점 위치에 있을 수 있는 두 가지 이유는 다음과 같습니다.
+
+- 기존 동기화 그룹에 새 서버 끝점을 추가 하는 경우 메타 데이터는 먼저 서버와 동기화 되 고 파일은 백그라운드에서 서버에 다운로드 됩니다. 파일은 로컬로 다운로드 될 때까지 계층화 된 것으로 표시 됩니다. 동기화 그룹에 새 서버를 추가할 때 파일 다운로드 성능을 향상 시키려면 [invoke-storagesyncfilerecall](storage-sync-cloud-tiering.md#afs-recall-file) cmdlet을 사용 합니다.
+
+- 서버 끝점에서 클라우드 계층화를 사용 하도록 설정 하 고 사용 하지 않도록 설정한 경우 파일에 액세스할 때까지 파일이 계층화 된 상태로 유지 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

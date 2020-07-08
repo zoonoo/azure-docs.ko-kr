@@ -8,17 +8,16 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514732"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 데이터 마이그레이션
 
@@ -59,7 +58,7 @@ ms.locfileid: "60631681"
 
 이 문서는 5000/7000 시리즈 디바이스에서 8000 시리즈 디바이스로 마이그레이션하는 기능만 집중적으로 다룹니다. 호스트 측 마이그레이션에 대한 자세한 내용은 [다른 스토리지 디바이스에서 마이그레이션](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf)을 참조하세요.
 
-## <a name="migration-prerequisites"></a>마이그레이션 필수 구성 요소
+## <a name="migration-prerequisites"></a>마이그레이션 필수 조건
 
 레거시 5000 또는 7000 시리즈 디바이스와 8000 시리즈 StorSimple 디바이스의 마이그레이션 필수 구성 요소는 다음과 같습니다.
 

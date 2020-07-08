@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711955"
 ---
 # <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버를 사용 하 여 크기 조정
 
@@ -41,7 +40,7 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 여기서 보호된 원본 머신 각각은 각 100GB의 디스크 3개로 구성됩니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 
@@ -52,9 +51,9 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 다음과 같이 프로세스 서버에 대한 설치 파일을 다운로드합니다.
 
 1. Azure Portal에 로그인 하 여 Recovery Services 자격 증명 모음으로 이동 합니다.
-2. **Site Recovery 인프라** > **vmware 및 물리적 컴퓨터** > **구성 서버** (vmware & 물리적 컴퓨터의 경우)를 엽니다.
+2. **Site Recovery 인프라**  >  **vmware 및 물리적 컴퓨터**  >  **구성 서버** (vmware & 물리적 컴퓨터의 경우)를 엽니다.
 3. 구성 서버를 선택하여 서버의 세부 정보로 드릴다운합니다. 그럼 다음, **+ 프로세스 서버**를 클릭합니다.
-4. 프로세스 서버 **추가** >  에서**프로세스 서버를 배포할 위치를 선택**하 고 **온-프레미스로 확장 프로세스 서버 배포**를 선택 합니다.
+4. 프로세스 서버 **추가**에서  >   **프로세스 서버를 배포할 위치를 선택**하 고 **온-프레미스로 확장 프로세스 서버 배포**를 선택 합니다.
 
    ![서버 페이지 추가](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. **Microsoft Azure Site Recovery 통합 설치 다운로드**를 클릭합니다. 최신 버전의 설치 파일을 다운로드합니다.
@@ -81,7 +80,7 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

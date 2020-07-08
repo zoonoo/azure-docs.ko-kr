@@ -4,15 +4,14 @@ description: VPN Gateway 메트릭에 대 한 경고를 구성 하는 단계
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ce9ab972d961a9193c3aa568878f9c93ccdcf6b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84988017"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN Gateway 메트릭에 대 한 경고 설정
 
@@ -46,7 +45,7 @@ ms.locfileid: "82127901"
 
 1. 가상 네트워크 게이트웨이 리소스로 이동 하 여 **모니터링** 탭에서 **경고** 를 선택 합니다. 그런 다음 새 경고 규칙을 만들거나 기존 경고 규칙을 편집 합니다.
 
-   ![경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "만들기")
+   ![경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "생성")
 
 2. VPN gateway를 리소스로 선택 합니다.
 

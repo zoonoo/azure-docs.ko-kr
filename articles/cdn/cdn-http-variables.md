@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84340677"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
 
-- [Cache-Key 다시 쓰기](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [클라이언트 요청 헤더 수정](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [클라이언트 응답 헤더 수정](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [URL 리디렉션](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [URL 다시 쓰기](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key 다시 쓰기](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [클라이언트 요청 헤더 수정](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [클라이언트 응답 헤더 수정](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [URL 리디렉션](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [URL 다시 쓰기](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>정의
 다음 표에 지원되는 HTTP 변수가 설명되어 있습니다. 지역 메타데이터(예: 우편 번호)를 특정 요청에 대해 사용할 수 없는 경우에는 빈 값이 반환됩니다.

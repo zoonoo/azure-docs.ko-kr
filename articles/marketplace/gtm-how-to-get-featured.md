@@ -7,18 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684613"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957803"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>AppSource 및 Azure Marketplace에서 추천되는 방법
 
 Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기에 앱이 추천될 수 있습니다.
 
-* 첫째, 평가판 또는 트랜잭션 제안이 있는 경우 [상업적 marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)을 통해 "범주 승격" 혜택을 사용할 수 있습니다.
+* 첫째, 평가판 또는 트랜잭션 제안이 있는 경우 [상업적 marketplace 혜택](gtm-your-marketplace-benefits.md)을 통해 "범주 승격" 혜택을 사용할 수 있습니다.
 * 둘째, 아래의 모범 사례 목록과 기준을 검토하여 추천 기회를 얻을 수 있습니다.
 
 추천 앱 선택 알고리즘은 미국에 있는 사람의 신용 점수와 마찬가지로 Microsoft에서 앱에 점수를 생성 합니다.  추천 앱의 주간 선택은 앱 및 서비스 성능 계산을 기반으로 합니다.
@@ -31,7 +30,7 @@ Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기�
 2. Azure Marketplace 앱: 매달 Azure 사용을 늘립니다.** 매달 1,000 시간의 Azure 사용량을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다.
 3. AppSource 앱: 제품에 대한 취득을 늘립니다.** 매달 10개 취득을 달성할 수 있는 경우 추천될 가능성이 훨씬 높아집니다. 
 4. Co-Sell 준비 상태 달성: 공동 판매 준비 요구 사항을 완료합니다.**
-5. 제품 품질 개선: 제품을 수정하는 방법에 대한 자세한 내용은 [콘텐츠 목록 지침](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation)을 참조하세요.**
+5. 제품 품질 개선: 제품을 수정하는 방법에 대한 자세한 내용은 [콘텐츠 목록 지침](marketplace-criteria-content-validation.md)을 참조하세요.**
 6. 마켓플레이스에 여러 개의 제품 게시: 모든 핵심 앱과 서비스가 목록에 추가되었나요? 평가판 경험이 있나요?
 7. 고객에게 리뷰를 작성하도록 권장합니다.
 
@@ -44,8 +43,8 @@ GTM 지원에는 목록과 비즈니스의 추가 홍보에 도움이 되는 자
 
 ## <a name="next-steps"></a>다음 단계
 
-[상업적 marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
+[상업용 Marketplace 혜택](gtm-your-marketplace-benefits.md)에 대해 자세히 알아보세요.
 
-[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 에 로그인 하 여 제품을 만들고 구성 합니다.
+[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)에 로그인하여 제품을 만들고 구성합니다.
 
 ---

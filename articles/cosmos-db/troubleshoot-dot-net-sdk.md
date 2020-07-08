@@ -3,17 +3,16 @@ title: Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 .NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e389df7cfe0e228030d2d0f730fc5e671ad4c052
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799268"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 
@@ -32,17 +31,17 @@ ms.locfileid: "82927635"
 *    최신 [SDK](sql-api-sdk-dotnet-standard.md)를 사용 합니다. Preview Sdk는 프로덕션 환경에서 사용 하면 안 됩니다. 이렇게 하면 이미 수정 된 알려진 문제를 해결할 수 있습니다.
 *    [성능 팁](performance-tips.md)을 검토하고 제안된 사례를 따릅니다. 이렇게 하면 크기 조정, 대기 시간 및 기타 성능 문제를 방지할 수 있습니다.
 *    문제를 해결 하는 데 도움이 되도록 SDK 로깅을 사용 하도록 설정 합니다. 로깅을 사용 하도록 설정 하면 성능에 영향을 줄 수 있으므로 문제를 해결할 때만 사용 하도록 설정 하는 것이 좋습니다. 다음 로그를 사용 하도록 설정할 수 있습니다.
-    *    Azure Portal를 사용 하 여 [메트릭을 기록](monitor-accounts.md) 합니다. 포털 메트릭은 Azure Cosmos DB 원격 분석을 표시 합니다 .이는 문제가 Azure Cosmos DB에 해당 하는지 또는 클라이언트 쪽의 것인지를 확인 하는 데 도움이 됩니다.
-    *    V2 SDK 또는 V3 SDK의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) 에서 시점 작업 응답의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 을 기록 합니다.
-    *    모든 쿼리 응답에서 [SQL 쿼리 메트릭](sql-api-query-metrics.md) 기록 
-    *    [SDK 로깅]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 설정 따르기
+*    Azure Portal를 사용 하 여 [메트릭을 기록](monitor-accounts.md) 합니다. 포털 메트릭은 Azure Cosmos DB 원격 분석을 표시 합니다 .이는 문제가 Azure Cosmos DB에 해당 하는지 또는 클라이언트 쪽의 것인지를 확인 하는 데 도움이 됩니다.
+*    V2 SDK 또는 V3 SDK의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) 에서 시점 작업 응답의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 을 기록 합니다.
+*    모든 쿼리 응답에서 [SQL 쿼리 메트릭](sql-api-query-metrics.md) 기록 
+*    [SDK 로깅]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 설정 따르기
 
 이 문서의 [일반적인 문제 및 해결 방법](#common-issues-workarounds) 섹션을 살펴봅니다.
 
 적극적으로 모니터링 되는 [GitHub 문제 섹션](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) 을 확인 합니다. 해결 방법이 있는 유사한 문제가 이미 제출되었는지 확인합니다. 솔루션을 찾지 못한 경우 GitHub 문제를 파일에 표시 합니다. 긴급 한 문제에 대 한 지원 틱을 열 수 있습니다.
 
 
-## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 이슈 및 해결 방법
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
 
 ### <a name="general-suggestions"></a>일반 제안
 * 가능 하면 Azure Cosmos DB 계정과 동일한 Azure 지역에서 앱을 실행 합니다. 
@@ -69,7 +68,7 @@ RequestTimeout은 일반적으로 Direct/TCP를 사용할 때 발생 하지만 �
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>높은 네트워크 대기 시간
 높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) 또는 V3 sdk의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
 
-[시간 초과가](#request-timeouts) 없고 진단에 단일 요청이 표시 되는 경우 (예:이 예에서는 >300 밀리초) `ResponseTime` 와 `RequestStartTime`같이 대기 시간이 긴 단일 요청을 표시 합니다.
+[시간 초과가](#request-timeouts) 없고 진단에 단일 요청이 표시 되는 경우 `ResponseTime` `RequestStartTime` (예:이 예에서는 >300 밀리초)와 같이 대기 시간이 긴 단일 요청을 표시 합니다.
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -87,14 +86,14 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
-앱이 [공용 IP 주소 없이 azure Virtual Machines](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)에 배포 되는 경우 기본적으로 [azure SNAT 포트](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) 는 VM 외부의 끝점에 대 한 연결을 설정 합니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)으로 제한됩니다. 이 경우 연결 제한, 연결 종료 또는 위에 언급 된 [요청 시간 초과가](#request-timeouts)발생할 수 있습니다.
+앱이 [공용 IP 주소 없이 azure Virtual Machines](../load-balancer/load-balancer-outbound-connections.md)에 배포 되는 경우 기본적으로 [azure SNAT 포트](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) 는 VM 외부의 끝점에 대 한 연결을 설정 합니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)으로 제한됩니다. 이 경우 연결 제한, 연결 종료 또는 위에 언급 된 [요청 시간 초과가](#request-timeouts)발생할 수 있습니다.
 
  Azure SNAT 포트는 VM에서 개인 IP 주소를 공용 IP 주소에 연결 하는 경우에만 사용 됩니다. Azure SNAT 제한을 방지 하기 위한 두 가지 해결 방법이 있습니다 (전체 응용 프로그램에서 단일 클라이언트 인스턴스를 이미 사용 하 고 있는 경우).
 
 * Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요. 
 
     서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](../virtual-network/virtual-networks-acl.md)을 사용하여 방화벽에 서브넷을 추가합니다.
-* [AZURE VM에 공용 IP](../load-balancer/load-balancer-outbound-connections.md#assignilpip)를 할당 합니다.
+* [AZURE VM에 공용 IP](../load-balancer/troubleshoot-outbound-connection.md#assignilpip)를 할당 합니다.
 
 ### <a name="http-proxy"></a>HTTP 프록시
 HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연결 수를 지원할 수 있는지 확인합니다.
@@ -109,14 +108,16 @@ HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연
 * 백 엔드 쿼리가 느려지는 경우 [쿼리를 최적화](optimize-cost-queries.md) 하 고 현재 [인덱싱 정책을](index-overview.md) 확인 하십시오. 
 
 ### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: HTTP 요청에서 찾은 MAC 서명이 계산 된 시그니처와 동일 하지 않습니다.
-다음 401 오류 메시지가 표시 되 면 "HTTP 요청에서 찾은 MAC 서명이 계산 된 시그니처와 동일 하지 않습니다" 라는 오류 메시지가 표시 됩니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+다음 401 오류 메시지가 표시되는 경우: "HTTP 요청에 있는 MAC 서명이 계산된 서명과 동일하지 않습니다." 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-1. 키가 회전 되었으며 [모범 사례](secure-access-to-data.md#key-rotation)를 따르지 않았습니다. 일반적으로이 경우에 해당 합니다. 계정 키 회전 Cosmos DB Cosmos DB 계정 크기에 따라 몇 초에서 며칠까지 걸릴 수 있습니다.
-   1. 401 MAC 서명은 키 회전 직후에 표시 되며 결국에는 변경 하지 않고 중지 됩니다. 
-2. 키가 계정과 일치 하지 않도록 응용 프로그램에서 키가 잘못 구성 되었습니다.
-   1. 401 MAC 서명 문제가 일관적이 고 모든 호출에 대해 발생 합니다.
-3. 컨테이너를 만드는 경합 조건이 있습니다. 컨테이너 만들기가 완료 되기 전에 응용 프로그램 인스턴스가 컨테이너에 액세스 하려고 합니다. 응용 프로그램을 실행 하는 경우이에 대 한 가장 일반적인 시나리오 이며, 응용 프로그램이 실행 되는 동안 컨테이너를 삭제 하 고 같은 이름으로 다시 만듭니다. SDK는 새 컨테이너를 사용 하려고 하지만 컨테이너 만들기는 아직 진행 중 이므로 키를 포함 하지 않습니다.
-   1. 401 MAC 서명 문제는 컨테이너를 만든 직후에 표시 되며 컨테이너 만들기가 완료 될 때 까지만 발생 합니다.
+1. 키가 회전되고 [모범 사례](secure-access-to-data.md#key-rotation)를 따르지 않았습니다. 일반적으로 이 경우에 해당합니다. Cosmos DB 계정 키 회전은 Cosmos DB 계정 크기에 따라 몇 초에서 며칠까지 걸릴 수 있습니다.
+   1. 401 MAC 서명은 키 회전 직후에 표시되며 결국에는 변경하지 않고 중지됩니다. 
+1. 애플리케이션에서 키가 잘못 구성되어 키가 계정과 일치하지 않습니다.
+   1. 401 MAC 서명 문제가 모든 호출에 대해 일관되게 발생합니다.
+1. 응용 프로그램에서 쓰기 작업에 대 한 [읽기 전용 키](secure-access-to-data.md#master-keys) 를 사용 하 고 있습니다.
+   1. 401 MAC 서명 문제는 애플리케이션에서 쓰기 요청을 수행할 때만 발생하고 읽기 요청은 성공합니다.
+1. 컨테이너 만들기와 경합 상태입니다. 컨테이너 만들기가 완료되기 전에 애플리케이션 인스턴스가 컨테이너에 액세스하려고 합니다. 애플리케이션이 실행 중이고, 애플리케이션이 실행되는 동안 컨테이너가 삭제되고 같은 이름으로 다시 만들어지는 경우가 가장 일반적인 시나리오입니다. SDK는 새 컨테이너를 사용하려고 하지만 컨테이너 만들기가 아직 진행 중이므로 키를 포함하지 않습니다.
+   1. 401 MAC 서명 문제는 컨테이너를 만든 직후에 표시되며 컨테이너 생성이 완료될 때까지만 발생합니다.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP 오류 400. 요청 헤더의 크기가 너무 깁니다.
  헤더 크기가 크게 커지고 최대 허용 크기를 초과 합니다. 항상 최신 SDK를 사용 하는 것이 좋습니다. 예외 메시지에 헤더 크기 추적을 추가 하는 버전 [3(sp3)](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) 또는 2.x를 사용 해야 [합니다.](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
@@ -126,7 +127,7 @@ HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연
  2. 연속 토큰이 크게 증가 했습니다. 쿼리가 서로 다른 연속 토큰 크기를 갖습니다.
  3. 세션 토큰과 연속 토큰의 조합으로 인해 발생 합니다.
 
-해결 방법:
+해결책:
    1. [성능 팁](performance-tips.md) 을 따르고 응용 프로그램을 직접 + TCP 연결 모드로 변환 합니다. Direct + TCP에는이 문제를 방지 하는 HTTP와 같은 헤더 크기 제한이 없습니다.
    2. 세션 토큰이 원인인 경우에는 응용 프로그램을 다시 시작 하는 것이 일시적입니다. 응용 프로그램 인스턴스를 다시 시작 하면 세션 토큰이 다시 설정 됩니다. 다시 시작한 후에도 예외가 중지 되 면 세션 토큰이 원인 임을 확인 합니다. 결국에는 예외를 발생 시키는 크기로 다시 증가 하 게 됩니다.
    3. 응용 프로그램을 Direct + TCP로 변환할 수 없고 세션 토큰이 원인인 경우 클라이언트 [일관성 수준을](consistency-levels.md)변경 하 여 완화 작업을 수행할 수 있습니다. 세션 토큰은 Cosmos DB의 기본값인 세션 일관성에만 사용 됩니다. 다른 모든 일관성 수준은 세션 토큰을 사용 하지 않습니다. 

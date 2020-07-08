@@ -2,21 +2,20 @@
 title: Workday 특성 참조
 description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
-ms.date: 05/21/2020
-ms.author: chmutali
+ms.date: 05/25/2020
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 1ac45d88c0af33114106f36798fd56473d18ea28
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798020"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781111"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
 
@@ -30,7 +29,7 @@ ms.locfileid: "83798020"
 :::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Workday 버전 정보 없음":::
 
 
-| \# | 속성                                  | Workday API 식                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Workday 특성 이름                                  | Workday XPATH API 식                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                                                                                             |
@@ -125,7 +124,7 @@ ms.locfileid: "83798020"
 추가 XPATH를 구성하려면 섹션 [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)를 참조하세요. 
 
 
-| \# | 속성                                  | Workday XPATH API 식                                                                                                                                                                                                                                                                                                                                                |
+| \# | Workday 특성 이름                                  | Workday XPATH API 식                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                            |
@@ -208,4 +207,44 @@ ms.locfileid: "83798020"
 | 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference/wd:ID\[@wd:type="Employee\_Type\_ID"\]/text\(\)                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
+## <a name="custom-xpath-values"></a>사용자 지정 XPATH 값
+아래 표에서는 Workday에서 Active Directory 또는 Azure AD로 작업자를 프로 비전 할 때 일반적으로 사용 되는 다른 사용자 지정 XPATH API 식의 목록을 제공 합니다. [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)섹션에 나오는 지침을 참조 하 여 Workday 버전으로 여기에 제공 된 XPATH API 식을 테스트 하세요.
+
+이러한 통합을 구현 하는 고객의 혜택을 얻기 위해 XPATH 테이블에 더 많은 특성을 추가 하려면 아래에 의견을 남겨 두거나 문서에 직접 [참여](https://docs.microsoft.com/contribute) 하세요. 
+
+> [!div class="mx-tdBreakAll"]
+> | \# | Workday 특성 이름  | Workday API 버전 | Workday XPATH API 식   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | 유니버설 ID  | v 30.0 이상   | wd: Worker/wd: Worker_Data/wd: Universal_ID/text ()      |
+> | 2  | 사용자 이름     | v 30.0 이상   | wd: Worker/wd: Worker_Data/wd: User_Account_Data/wd: User_Name/text () |
+> | 3  | 관리 수준 ID  | v 30.0 이상  | wd: Worker/wd: Worker_Data/wd: Employment_Data/wd: Worker_Job_Data [ @wd:Primary_Job = 1]/wd: Position_Data/wd: Job_Profile_Summary_Data/wd: Management_Level_Reference/wd: ID [ @wd:type = "Management_Level_ID"]/text ()  |
+> | 4 | 고용 취소 함 | v 30.0 이상 | wd: Worker/wd: Worker_Data/wd: Employment_Data/wd: Worker_Status_Data/wd: Hire_Rescinded/text () |
+> | 5 | 할당 된 프로 비전 그룹 | v 21.1 이상 | wd: Worker/wd: Worker_Data/wd: Account_Provisioning_Data/wd: Provisioning_Group_Assignment_Data [wd: Status = ' 할당 됨 ']/wd: Provisioning_Group/text () | 
+
+
+## <a name="supported-xpath-functions"></a>지원 되는 XPATH 함수
+Xpath API 식을 만드는 동안 사용할 수 있는 [MICROSOFT .NET xpath 라이브러리](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) 에서 지원 되는 xpath 함수의 목록은 다음과 같습니다. 
+
+* name
+* last
+* position
+* string
+* substring
+* concat
+* substring-after
+* starts-with
+* string-length
+* 포함
+* translate
+* normalize-space
+* substring-before
+* boolean
+* true
+* not
+* false
+* number
+* ceiling
+* sum
+* round
+* floor
 

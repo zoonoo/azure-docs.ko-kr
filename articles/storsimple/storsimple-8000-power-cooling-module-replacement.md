@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60632460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514589"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple 디바이스의 전원 및 냉각 모듈 교체
 ## <a name="overview"></a>개요
@@ -61,7 +60,7 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
    
      **그림 1** 디바이스의 전면 패널  
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |음소거 단추 |
    | 2 |시스템 전원 |
@@ -74,7 +73,7 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
    
      **그림 2** 표시기 LED가 있는 PCM 뒷면
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |AC 전원 오류 |
    | 2 |팬 오류 |
@@ -88,7 +87,7 @@ Microsoft Azure StorSimple 디바이스에서 PCM(전원 및 냉각 모듈)을 �
    
      **그림 3** 플러그 인 모듈이 있는 디바이스 뒷면 
    
-   | 레이블 | 설명 |
+   | 레이블 | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

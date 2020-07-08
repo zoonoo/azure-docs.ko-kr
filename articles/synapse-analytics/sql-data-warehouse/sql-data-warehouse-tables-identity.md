@@ -6,21 +6,20 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213978"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Synapse SQL 풀에서 ID를 사용 하 여 서로게이트 키 만들기
 
-IDENTITY 속성을 사용 하 여 Synapse SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대 한 권장 사항 및 예제입니다.
+이 문서에는 IDENTITY 속성을 사용 하 여 Synapse SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대 한 권장 사항 및 예제가 나와 있습니다.
 
 ## <a name="what-is-a-surrogate-key"></a>서로게이트 키 란?
 

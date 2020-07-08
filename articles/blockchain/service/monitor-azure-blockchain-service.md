@@ -2,14 +2,13 @@
 title: Azure Blockchain 서비스 모니터링 (ABS)
 description: Azure Monitor를 통해 Azure Blockchain 서비스 모니터링
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214046"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Azure Monitor를 통해 Azure Blockchain 서비스 모니터링  
 
@@ -30,7 +29,7 @@ Azure Blockchain 서비스는 다른 Azure 리소스와 동일한 종류의 모�
 
 ## <a name="diagnostic-settings"></a>진단 설정  
 
-플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 리소스 로그를 수집 하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 참조 하세요.
+플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 참조 하세요.
 
 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Blockchain 서비스의 범주는 아래에 나열 되어 있습니다.
 
@@ -79,7 +78,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 다음 표에서는 Azure Monitor 로그 나 Azure Storage에서 수집 되는 Azure Blockchain 프록시 로그의 속성을 나열 합니다.  
 
 
-| 속성 이름  | Description |
+| 속성 이름  | 설명 |
 |:---|:---|
 | time | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | resourceID  | 로그가 사용 하도록 설정 된 Azure Blockchain 서비스 리소스입니다.  |
@@ -105,7 +104,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 다음 표에서는 Azure Blockchain 응용 프로그램 로그에 대 한 속성을 나열 합니다.
 
 
-| 속성 이름  | Description |
+| 속성 이름  | 설명 |
 |:---|:---|
 | time | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | resourceID  | 로그가 사용 하도록 설정 된 Azure Blockchain 서비스 리소스입니다.|
@@ -115,7 +114,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 | NodeLocation  | Blockchain 멤버가 배포 되는 Azure 지역입니다.  |
 | BlockchainNodeName  | 작업이 수행 되는 Azure Blockchain 서비스 멤버의 노드 이름입니다.   |
 | BlockchainMessage    | 이 필드에는 데이터 일반 로그 인 Blockchain 응용 프로그램 로그가 포함 됩니다. ABS 쿼럼의 경우 쿼럼 로그가 있습니다. 정보, 오류, 경고 및 실행 된 작업에 대 한 자세한 정보를 제공 하는 문자열에 해당 하는 로그 항목의 유형에 대 한 정보를 제공 합니다.   |
-| TenantID    | Azure Blockchain 서비스의 지역별 테 넌 트입니다. 이 필드의 형식은 https://westlake-rp-prod입니다. <region>. cloudapp.azure.com where region은 배포 된 멤버의 azure 지역을 지정 합니다.       |
+| TenantID    | Azure Blockchain 서비스의 지역별 테 넌 트입니다. 이 필드의 형식은입니다. https://westlake-rp-prod <region> cloudapp.azure.com where region은 배포 된 멤버의 Azure 지역을 지정 합니다.       |
 | SourceSystem   | 시스템이 로그를 채웁니다 (이 경우에는 **Azure**).    |
 
 
@@ -131,24 +130,24 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 다음 표에서는 Azure Blockchain 서비스 멤버 리소스에 대해 수집 되는 블록 체인 메트릭 목록을 지정 합니다.
 
 
-| 메트릭 이름 | 단위  |  집계 유형| Description   |
+| 메트릭 이름 | 단위  |  집계 유형| 설명   |
 |---|---|---|---|
 | 보류 중인 트랜잭션   | 개수  |  평균 | 이를 위해 대기 중인 트랜잭션 수입니다.   |
-| 처리 된 블록   | 개수  | 합계  |  각 시간 간격에서 처리 된 블록 수입니다. 현재 블록 크기는 5 초 이므로 각 노드는 5 분 이내에 12 개의 블록과 60 블록을 처리 합니다.   |
-|처리 된 트랜잭션    | 개수  | 합계  | 블록에서 처리 된 트랜잭션 수입니다.    |
-|대기 중인 트랜잭션    |  개수 | 평균  | 즉시 검색할 수 없는 트랜잭션 수입니다. 이는 순서가 잘못 도착 했 고 앞의 트랜잭션이 도착 하기를 기다리고 있을 수 있습니다. 또는 한 번만 사용 되는 두 개의 트랜잭션 (nonce)과 동일한 가스 값이 있을 수 있으므로 두 번째 트랜잭션은 검색할 수 없습니다.   |
+| 처리된 블록   | 개수  | 합계  |  각 시간 간격에서 처리 된 블록 수입니다. 현재 블록 크기는 5 초 이므로 각 노드는 5 분 이내에 12 개의 블록과 60 블록을 처리 합니다.   |
+|처리된 트랜잭션    | 개수  | 합계  | 블록에서 처리 된 트랜잭션 수입니다.    |
+|지연 트랜잭션    |  개수 | 평균  | 즉시 검색할 수 없는 트랜잭션 수입니다. 이는 순서가 잘못 도착 했 고 앞의 트랜잭션이 도착 하기를 기다리고 있을 수 있습니다. 또는 한 번만 사용 되는 두 개의 트랜잭션 (nonce)과 동일한 가스 값이 있을 수 있으므로 두 번째 트랜잭션은 검색할 수 없습니다.   |
 
 ### <a name="connection-metrics"></a>연결 메트릭  
 
 다음 표에서는 Azure Blockchain 서비스 멤버 리소스에 대해 수집 되는 다양 한 연결 메트릭을 보여 줍니다. NGINX 프록시 메트릭입니다.
 
 
-| 메트릭 이름 | 단위  |  집계 유형| Description |
+| 메트릭 이름 | 단위  |  집계 유형| 설명 |
 |---|---|---|---|
-| 수락 된 연결   | 개수  |  합계 | 허용 되는 클라이언트 연결의 총 수입니다.   |
+| 수락된 연결   | 개수  |  합계 | 허용 되는 클라이언트 연결의 총 수입니다.   |
 | 활성 연결 수  | 개수  | 평균  |  대기 중인 연결을 포함 하는 활성 클라이언트 연결의 현재 수입니다.    |
-|처리 한 연결    | 개수  | 합계  | 처리 된 총 연결 수입니다. 일반적으로 일부 리소스 제한에 도달 하지 않는 한 매개 변수 값은 허용 된 연결과 동일 합니다.     |
-|처리 한 요청     |  개수 | 합계  | 총 클라이언트 요청 수입니다.  |
+|처리된 연결    | 개수  | 합계  | 처리 된 총 연결 수입니다. 일반적으로 일부 리소스 제한에 도달 하지 않는 한 매개 변수 값은 허용 된 연결과 동일 합니다.     |
+|처리된 요청     |  개수 | 합계  | 총 클라이언트 요청 수입니다.  |
 
 
 ### <a name="performance-metrics"></a>성능 메트릭
@@ -156,15 +155,15 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 다음 표에서는 Azure Blockchain 구성원 리소스의 각 노드에 대해 수집 되는 성능 메트릭을 보여 줍니다.  
 
 
-| 메트릭 이름 | 단위  |  집계 유형| Description   |
+| 메트릭 이름 | 단위  |  집계 유형| 설명   |
 |---|---|---|---|
 | CPU 사용량 비율   | 백분율  |  최대값 | CPU 사용량의 백분율입니다.     |
 | IO 읽기 바이트   | 킬로바이트   | 합계  |  Blockchain 멤버 리소스의 모든 노드에 걸친 IO 읽기 바이트의 합계입니다.      |
 |IO 쓰기 바이트     | 킬로바이트   | 합계  | IO의 합계는 블록 체인 멤버 리소스의 모든 노드에 걸쳐 바이트를 씁니다.     |
 |메모리 제한       |  7.8gb   | 평균    | 노드당 blockchain 프로세스에 사용할 수 있는 최대 메모리입니다. |
 |메모리 사용량     | 7.8gb  |  평균 | 모든 노드에서 평균 사용 된 메모리 양입니다.  |
-| 메모리 사용 비율     | 백분율   | 평균  |  모든 노드에서 평균 사용 된 메모리의 비율입니다.       |
-|저장소 사용량      | 7.8gb   | 평균  | 모든 노드에서 평균 사용 된 저장소 용량 (GB)입니다.       |
+| 메모리 사용 백분율     | 백분율   | 평균  |  모든 노드에서 평균 사용 된 메모리의 비율입니다.       |
+|스토리지 사용량      | 7.8gb   | 평균  | 모든 노드에서 평균 사용 된 저장소 용량 (GB)입니다.       |
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,19 +7,18 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052442"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Power BI의 Time Series Insights에서 데이터 시각화
 
 Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 관리, 쿼리 및 시각화 하는 데 사용할 수 있는 플랫폼입니다. [Power BI](https://powerbi.microsoft.com) 는 조직 전체에서 정보 및 결과를 공유할 수 있도록 하는 풍부한 시각화 기능을 제공 하는 비즈니스 분석 도구입니다. 이제 두 서비스를 통합 하 여 Time Series Insights의 고유 시각화 기능과 Power BI를 모두 활용할 수 있습니다.
 
-이 문서에서 배울 내용은 다음과 같습니다.
+다음을 수행하는 방법을 알아봅니다.
 
 * 클라우드 커넥터를 사용 하 여 Power BI에 Time Series Insights 연결
 * Power BI 데이터를 사용 하 여 시각적 개체 만들기
@@ -67,7 +66,7 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
        > [!NOTE]
        > 원시 이벤트 수준 데이터에는 100-K 이벤트 수 제한이 있습니다.
 
-       [![연결](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![연결할지](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. **웜 저장소**에 대 한 Time Series Insights 인스턴스를 구성 하지 않은 경우 경고가 표시 됩니다.
 
@@ -111,8 +110,10 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
     [![보고서 뷰 선택](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1.  **시각화** 열에서 원하는 시각적 개체를 선택 합니다. 예를 들어 **꺾은선형 차트**를 선택 합니다. 그러면 캔버스에 빈 꺾은선형 차트가 추가 됩니다.
- 
-1.  **필드** 목록에서 **타임 스탬프** 를 선택 하 고 **축** 필드로 끌어 X 축에 항목을 표시 합니다.
+
+1.  **필드** 목록에서 **_Timestamp** 을 선택 하 고 **축** 필드로 끌어 X 축을 따라 항목을 표시 합니다. **축** 에 대 한 값으로 **_Timestamp** 로 전환 (기본값은 **날짜 계층 구조**) 해야 합니다.
+
+    [![보고서 뷰 선택](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1.  다시 **필드** 목록에서 **Timeseriesid** 를 선택 하 고 **값** 필드로 끌어 Y 축을 따라 항목을 표시 합니다.
 

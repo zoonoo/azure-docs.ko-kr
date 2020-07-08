@@ -2,13 +2,12 @@
 title: ISV 도구/Movere와 함께 사용할 Azure Migrate 준비
 description: 이 문서에서는 ISV 도구 또는 Movere와 함께 사용할 Azure Migrate를 준비하는 방법과 이 도구를 사용하여 시작하는 방법을 차례로 설명합니다.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770376"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>ISV 도구 또는 Movere로 작업 준비
 
@@ -37,7 +36,19 @@ Azure 구독에서 Azure AD 앱에 역할을 할당하려면 계정에 **Microso
 2. 관련 구독을 선택합니다. 표시되지 않는 경우 **전역 구독 필터**를 선택합니다. 
 3. **내 사용 권한**을 선택합니다. 그런 다음, **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
 4. **역할 할당** > **보기**에서 권한을 확인합니다. 계정에 권한이 없는 경우 구독 관리자에게 [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 역할 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할을 부여해 달라고 요청합니다.
- 
+
+## <a name="allow-access-to-urls"></a>URL에 대한 액세스 허용
+
+ISV 도구 및 Azure Database Migration Assistant의 경우 표에 요약 된 공용 클라우드 Url에 대 한 액세스를 허용 합니다. URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다. 
+
+**URL** | **세부 정보**
+--- | ---
+*.portal.azure.com  | Azure Portal로 이동합니다. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Azure 구독에 로그인합니다. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다. 
+management.azure.com | Azure Migrate 프로젝트에 대 한 Azure Resource Manager 호출을 수행 합니다.
+\*.servicebus.windows.net | 메시지를 보내기 위한 어플라이언스와 EventHub 간의 통신입니다.
+
 
 ## <a name="start-using-the-tool"></a>도구를 사용하여 시작하기
 

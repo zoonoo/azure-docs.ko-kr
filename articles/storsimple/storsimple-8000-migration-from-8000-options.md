@@ -4,15 +4,14 @@ description: StorSimple 8000 시리즈에서 데이터를 마이그레이션하�
 services: storsimple
 author: priestlg
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39c78e1dc579f74207ba828f2f6a49ad44dd4a43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514717"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>StorSimple 8000 시리즈의 데이터 마이그레이션 옵션
 
@@ -40,6 +39,12 @@ Azure File Sync로 데이터를 마이그레이션하는 방법에 대 한 자�
 StorSimple 5000-7000 시리즈 및 StorSimple 8000 시리즈 고객은 Panzura 자유 NAS로 마이그레이션하여 Azure에서 데이터를 유지 하도록 선택할 수 있습니다. Panzura 자유도 솔루션은 데이터 센터, 사무실, 공용 및 사설 클라우드에 걸친 NAS 솔루션을 제공 합니다. 솔루션을 통해 NFS, SMB 및 모바일 클라이언트에 대한 로컬, 하이브리드 및 클라우드 내 데이터 워크플로를 활성화할 수 있습니다.
 
 이 마이그레이션은 Panzura에서 지원하며, 고객은 [Panzura 웹 사이트](https://panzura.com/migrate-storsimple-panzura/)에서 마이그레이션 지원을 요청하여 시작할 수 있습니다.
+
+#### <a name="migrate-to-nasuni"></a>Nasuni로 마이그레이션
+
+Nasuni를 사용 하면 전체 StorSimple 환경을 안정적이 고 안전한 고성능 파일 서비스 플랫폼으로 이동할 수 있습니다. Nasuni는 온-프레미스 파일 저장소의 보안 및 성능을 제공 하는 동시에 Azure의 확장성 및 내구성과 결합 합니다.  최고의 Azure ISV (독립 소프트웨어 공급 업체)로 서, Nasuni는 StorSimple 데이터를 여러 위치에서 공유 하 고 공동 작업할 수 있는 최신 플랫폼으로 이동 하는 데 필요한 모든 도구를 제공 합니다.
+
+지금 시작: [Nasuni 웹 사이트](https://info.nasuni.com/storsimple8000-webinar).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

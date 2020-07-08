@@ -1,23 +1,13 @@
 ---
 title: 네임 스페이스 Azure Service Bus-standard에서 premium으로 마이그레이션
 description: 기존 Azure Service Bus 표준 네임 스페이스를 premium으로 마이그레이션할 수 있는 가이드
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2019
-ms.author: aschhab
-ms.openlocfilehash: 27e3260b91bebee14ff12188a7dbd6c7cf76355c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340754"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
 
@@ -146,7 +136,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 
    ARM 템플릿에서 특정 큐 또는 토픽에 대해 ' enablePartitioning '을 ' t r u e '로 설정 하면 broker에서 무시 됩니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>마이그레이션이 커밋되면 어떻게 되나요?
 
@@ -177,7 +167,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>마이그레이션을 중단 하면 어떻게 되나요?
 
-`Abort` 명령을 사용 하거나 Azure Portal를 사용 하 여 마이그레이션을 중단할 수 있습니다.
+`Abort`명령을 사용 하거나 Azure Portal를 사용 하 여 마이그레이션을 중단할 수 있습니다.
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -187,8 +177,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure portal
 
-![흐름 중단-동기화][]
-![중단 흐름 중단-중단 완료][]
+![흐름 중단-동기화 중단 ][]
+ ![ 흐름 중단-중단 완료][]
 
 마이그레이션 프로세스가 중단 되 면 표준에서 프리미엄 네임 스페이스로 엔터티 (토픽, 구독 및 필터)를 복사 하는 프로세스를 중단 하 고 페어링을 중단 합니다.
 

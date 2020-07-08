@@ -1,40 +1,25 @@
 ---
-title: 배포 문제 해결 가이드
+title: Docker 배포 문제 해결
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning을 사용하여 Azure Kubernetes Service 및 Azure Container Instances와 관련된 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
+description: Azure Kubernetes Service 및 Azure Machine Learning를 사용 하 여 Azure Container Instances 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 해결 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214369"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Machine Learning Azure Kubernetes Service 및 Azure Container Instances 배포 문제 해결
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Azure Kubernetes Service 및 Azure Container Instances를 사용 하 여 모델의 Docker 배포 문제 해결 
 
-Azure Machine Learning을 사용하여 ACI(Azure Container Instances) 및 AKS(Azure Kubernetes Service)와 관련된 일반적인 Docker 배포 오류를 해결하는 방법에 대해 알아봅니다.
-
-Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많은 작업을 수행합니다.
-
-모델 배포에 대한 추천 및 최신 방법은 [Environment](how-to-use-environments.md) 개체를 입력 매개 변수로 사용하여 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 배포하는 것입니다. 이 경우 서비스는 배포 단계 중에 기본 Docker 이미지를 만들고, 필요한 모델을 한 번의 호출로 모두 탑재합니다. 기본 배포 작업은 다음과 같습니다.
-
-1. 모델을 작업 영역 모델 레지스트리에 등록합니다.
-
-2. 유추 구성을 정의합니다.
-    1. 환경 yaml 파일에 지정한 종속성을 기반으로 하는 [Environment](how-to-use-environments.md) 개체를 만들거나 확보된 환경 중 하나를 사용합니다.
-    2. 환경 및 채점 스크립트를 기반으로 하는 유추 구성(InferenceConfig 개체)을 만듭니다.
-
-3. 모델을 ACI(Azure Container Instance) 서비스 또는 AKS(Azure Kubernetes Service)에 배포합니다.
-
-이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
+Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와의 일반적인 Docker 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,6 +30,22 @@ Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많�
 * 로컬로 디버그하려면 로컬 시스템에서 작동하는 Docker가 설치되어 있어야 합니다.
 
     Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>기계 학습 모델의 Docker 배포 단계
+
+Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많은 작업을 수행합니다.
+
+모델 배포에 권장 되는 방법은 [환경](how-to-use-environments.md) 개체를 입력 매개 변수로 사용 하는 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 사용 하는 것입니다. 이 경우 서비스는 배포 단계 중에 기본 docker 이미지를 만들고 필요한 모델을 모두 하나의 호출로 탑재 합니다. 기본 배포 작업은 다음과 같습니다.
+
+1. 모델을 작업 영역 모델 레지스트리에 등록합니다.
+
+2. 유추 구성을 정의합니다.
+    1. 환경 yaml 파일에 지정한 종속성을 기반으로 하는 [Environment](how-to-use-environments.md) 개체를 만들거나 확보된 환경 중 하나를 사용합니다.
+    2. 환경 및 채점 스크립트를 기반으로 하는 유추 구성(InferenceConfig 개체)을 만듭니다.
+
+3. 모델을 ACI(Azure Container Instance) 서비스 또는 AKS(Azure Kubernetes Service)에 배포합니다.
+
+이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -124,7 +125,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-사용자 고유의 conda 사양 YAML을 정의하는 경우 버전 1.0.45 이상을 pip 종속성으로 사용하여 azureml-defaults를 나열해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
+사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip 종속성으로 버전 >= 1.0.45이 있는 azureml 기본값을 나열 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
 
 이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 예를 들어 다음 코드에서는 데이터를 서비스에 보내는 방법을 보여 줍니다.
 
@@ -182,9 +183,9 @@ print(ws.webservices['mysvc'].get_logs())
 ```
 ## <a name="container-cannot-be-scheduled"></a>컨테이너를 예약할 수 없음
 
-서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5분 후에 사용 가능한 적절한 양의 리소스가 있는 노드가 클러스터에 없으면 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` 메시지와 함께 배포가 실패합니다. 이 오류는 더 많은 노드를 추가하거나 노드의 SKU를 변경하거나 서비스의 리소스 요구 사항을 변경하여 해결할 수 있습니다. 
+서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5 분 후에 클러스터에서 사용할 수 있는 적절 한 양의 리소스를 사용할 수 있는 노드가 없는 경우 배포는 메시지와 함께 실패 합니다 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . 이 오류는 더 많은 노드를 추가하거나 노드의 SKU를 변경하거나 서비스의 리소스 요구 사항을 변경하여 해결할 수 있습니다. 
 
-오류 메시지는 일반적으로 더 필요한 리소스를 나타냅니다. 예를 들어 `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`를 나타내는 오류 메시지가 표시되면 서비스에 GPU가 필요하며 사용 가능한 GPU가 없는 클러스터에 세 개의 노드가 있음을 의미합니다. 이는 GPU SKU를 사용하는 경우 더 많은 노드를 추가하거나, 사용하지 않는 경우 GPU 지원 SKU로 전환하거나, GPU가 필요하지 않도록 환경을 변경하여 해결할 수 있습니다.  
+오류 메시지는 일반적으로 필요한 리소스를 나타냅니다. 즉, `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` 서비스에 gpu가 필요 하 고 사용 가능한 gpu가 없는 클러스터에 3 개의 노드가 있음을 나타내는 오류 메시지가 표시 됩니다. 이는 GPU SKU를 사용하는 경우 더 많은 노드를 추가하거나, 사용하지 않는 경우 GPU 지원 SKU로 전환하거나, GPU가 필요하지 않도록 환경을 변경하여 해결할 수 있습니다.  
 
 ## <a name="service-launch-fails"></a>서비스 시작 실패
 
@@ -275,7 +276,7 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 504 상태 코드는 요청 시간이 초과되었음을 나타냅니다. 기본 시간 제한은 1분입니다.
 
-불필요한 호출을 제거하도록 score.py를 수정하여 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 작업으로도 문제가 해결되지 않으면 이 문서의 정보를 사용하여 score.py 파일을 디버그합니다. 코드는 정지됨 상태이거나 무한 루프일 수 있습니다.
+불필요한 호출을 제거하도록 score.py를 수정하여 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 작업으로도 문제가 해결되지 않으면 이 문서의 정보를 사용하여 score.py 파일을 디버그합니다. 이 코드는 응답성이 아닌 상태나 무한 루프에 있을 수 있습니다.
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 

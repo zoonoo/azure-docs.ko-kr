@@ -6,18 +6,30 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72433421"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417857"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery Deployment Planner 버전 기록
 
 이 문서에서는 모든 버전의 Azure Site Recovery Deployment Planner에 대 한 기록과 각 릴리스 날짜 및 해당 릴리스 날짜의 알려진 제한 사항을 제공 합니다.
+
+## <a name="version-252"></a>버전 2.52
+
+**릴리스 날짜: 2020 년 6 월 4 일**
+
+**수정할**
+
+- VCenter 7.0에 대 한 지원이 추가 됨
+- 다음 운영 체제에 대 한 지원이 추가 되었습니다.
+
+    - SUSE Linux Enterprise 15 (모든 부 버전 포함)
+    - Red Hat Enterprise Linux 8 (모든 부 버전 포함)
+
 
 ## <a name="version-251"></a>버전 2.51
 
@@ -44,7 +56,7 @@ ms.locfileid: "72433421"
 
 - 특히 지역화 기반 오류를 처리할 때 운영 체제 호환성이 향상 되었습니다.
 - 호환성 검사 목록에 최대 20mbps의 데이터 변경 률 (변동)이 포함 된 Vm을 추가 했습니다.
-- 향상 된 오류 메시지
+- 오류 메시지가 향상되었습니다.
 - VCenter 6.7에 대 한 지원이 추가 되었습니다.
 - Windows Server 2019 및 Red Hat Enterprise Linux (RHEL) 워크스테이션에 대 한 지원이 추가 되었습니다.
 
@@ -109,7 +121,7 @@ ms.locfileid: "72433421"
 
 **알려진 제한 사항:**
 
-- Hyper-v `,`에서 Azure로의 재해 복구를 위해, `"` `[`,, `]`, 및 ``` ` ``` 와 같은 문자를 포함 하는 이름의 VM은 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성이 실패 하거나 결과가 잘못 됩니다.
+- Hyper-v에서 Azure로의 재해 복구를 위해,,,, 및와 같은 문자를 포함 하는 이름의 VM은 `,` `"` `[` `]` ``` ` ``` 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성이 실패 하거나 결과가 잘못 됩니다.
 - VMware에서 Azure로의 재해 복구를 위해 이름이 쉼표를 포함 하는 VM은 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성에 실패 하거나 잘못 된 결과가 발생 합니다.
 
 ## <a name="version-131"></a>버전 1.3.1

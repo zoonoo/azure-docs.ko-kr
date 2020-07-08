@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673023"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -40,6 +39,7 @@ Microsoft는 Exchange 및 팀에 대 한 지속적인 액세스 평가의 초기
 
 - 사용자 계정이 삭제 되었거나 사용 하지 않도록 설정 됨
 - 사용자 암호 변경 또는 다시 설정
+- 사용자에 대해 MFA를 사용할 수 있습니다.
 - 관리자가 사용자에 대 한 모든 새로 고침 토큰을 명시적으로 해지
 - Azure AD ID 보호에서 검색 된 승격 된 사용자 위험
 
@@ -50,13 +50,13 @@ Microsoft는 Exchange 및 팀에 대 한 지속적인 액세스 평가의 초기
 연속 액세스를 평가 하기 전에 클라이언트는 만료 되지 않은 경우 항상 캐시에서 액세스 토큰을 재생 하려고 시도 합니다. CAE를 사용 하는 경우 리소스 공급자가 만료 되지 않은 경우에도 토큰을 거부할 수 있는 새로운 사례를 소개 합니다. 캐시 된 토큰이 만료 되지 않았더라도 클라이언트에 캐시를 사용 하지 않도록 알리기 위해 **클레임 챌린지**라는 메커니즘이 도입 되었습니다. CAE에는 클레임 챌린지를 이해 하기 위해 클라이언트 업데이트가 필요 합니다. 아래 응용 프로그램의 최신 버전은 다음과 같은 클레임 챌린지를 지원 합니다.
 
 - Windows 용 Outlook 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- IOS 용 Outlook 
+- Android 용 Outlook 
+- Outlook for Mac 
 - Windows 용 팀
-- 팀 iOS 
-- 팀 Android 
-- 팀 Mac 
+- IOS 용 팀 
+- Android 용 팀 
+- Mac 용 팀 
 
 ## <a name="token-lifetime"></a>토큰 수명
 
@@ -76,8 +76,8 @@ CAE 세션에서 액세스 토큰 수명이 24 시간으로 증가 합니다. �
 1. 액세스 토큰이 리소스 공급자에 게 표시 됩니다. 리소스 공급자는 토큰의 유효성을 평가 하 고 사용자에 대 한 해지 이벤트가 있는지 여부를 확인 합니다. 리소스 공급자는이 정보를 사용 하 여 리소스에 대 한 액세스 권한을 부여 하도록 결정 합니다.
 1. 이 경우 리소스 공급자는 액세스를 거부 하 고 401 + 클레임 챌린지를 다시 클라이언트에 보냅니다.
 1. CAE 지원 클라이언트는 401 + 클레임 챌린지를 이해 합니다. 캐시를 우회 하 고 1 단계로 돌아가서 클레임 챌린지와 함께 새로 고침 토큰을 Azure AD로 다시 보냅니다. 그러면 Azure AD는 모든 조건을 다시 평가 하 고이 경우 사용자에 게 다시 인증 하 라는 메시지를 표시 합니다.
- 
-## <a name="faqs"></a>FAQ(질문과 대답)
+
+## <a name="faqs"></a>FAQ
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>내 액세스 토큰의 수명은 무엇 인가요?
 

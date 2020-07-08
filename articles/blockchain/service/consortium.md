@@ -5,11 +5,10 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712533"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure Blockchain 서비스 컨소시엄
 
@@ -37,7 +36,7 @@ Azure Blockchain 서비스의 컨소시엄 관리를 사용 하 여 consortium �
 | 새 구성원 초대 | 아니요 | 예 |
 | 구성원 참가자 역할 설정 또는 변경 | 아니요 | 예 |
 | 멤버 표시 이름 변경 | 멤버 전용 | 멤버 전용 |
-| 구성원 제거 | 멤버 전용 | 예 |
+| 멤버 제거 | 멤버 전용 | 예 |
 | 블록 체인 트랜잭션에 참여 | 예 | 예 |
 
 ### <a name="user-role"></a>사용자 역할

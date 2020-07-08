@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847952"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957242"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대해 잠재 고객 관리 구성
 
@@ -60,7 +59,7 @@ Dynamics 365 Customer Engagement 인스턴스에 잠재 고객을 작성하려�
 다음 단계를 사용하여 서비스 계정을 만들고 사용 권한을 할당합니다. Azure Active Directory 또는 Office 365를 사용할 수 있습니다.
 
 >[!NOTE]
->선택한 인증 옵션에 따라 해당 지침으로 건너뛰세요. [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) 또는 [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365)를 참조하세요.
+>선택한 인증 옵션에 따라 해당 지침으로 건너뛰세요. [Azure Active Directory](#azure-active-directory) 또는 [Office 365](#office-365)를 참조하세요.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 

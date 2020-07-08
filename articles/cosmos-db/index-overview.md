@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798156"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 
@@ -41,7 +40,7 @@ Azure Cosmos DB는 스키마에 구애되지 않는 데이터베이스로, 스�
 
 다음과 같은 트리로 표시됩니다.
 
-![트리로 표시된 이전 항목](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="트리로 표시된 이전 항목" border="false":::
 
 배열이 트리에 인코딩되는 방법을 살펴보면, 배열의 모든 항목이 배열 내 해당 항목의 인덱스로 레이블이 지정된 중간 노드를 갖습니다(0, 1 등).
 
@@ -51,14 +50,14 @@ Azure Cosmos DB가 항목을 트리로 변환하는 이유는 트리 내 경로�
 
 위에서 설명한 예제 항목의 각 속성에 대한 경로는 다음과 같습니다.
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /locations/0/country: "독일"
+- /locations/0/city: "베를린"
+- /locations/1/country: "프랑스"
+- /locations/1/city: "파리"
+- /headquarters/country: "벨기에"
+- /headquarters/employees: 250
+- /exports/0/city: "모스크바"
+- /exports/1/city: "아테네"
 
 항목을 기록할 때 Azure Cosmos DB는 각 속성의 경로와 해당하는 값을 효과적으로 인덱싱합니다.
 
@@ -181,7 +180,7 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
 
 `SELECT location FROM location IN company.locations WHERE location.country = 'France'` 쿼리를 예로 들어 보겠습니다. 쿼리 조건자(항목에 대한 필터링, 해당 국가/지역이 "프랑스"인 모든 위치)는 아래 빨간색으로 강조 표시된 경로와 일치합니다.
 
-![트리 내의 특정 경로 일치](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="트리 내의 특정 경로 일치" border="false":::
 
 > [!NOTE]
 > 단일 속성을 기준으로 정렬하는 `ORDER BY` 절에는 *항상* 범위 인덱스가 필요하며 참조하는 경로에 이 항목이 없으면 실패합니다. 마찬가지로, 여러 속성을 기준으로 정렬하는 `ORDER BY` 쿼리는 *항상* 복합 인덱스가 필요합니다.
