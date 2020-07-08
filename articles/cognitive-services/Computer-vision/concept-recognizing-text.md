@@ -1,7 +1,7 @@
 ---
-title: 이미지 및 문서에서 텍스트 읽기-Computer Vision
+title: OCR (광학 문자 인식)-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용 하 여 인쇄 및 필기 텍스트에 대 한 OCR (광학 문자 인식) 및 이미지 및 문서 텍스트와 관련 된 개념입니다.
+description: Computer Vision API를 사용 하 여 인쇄 및 필기 된 텍스트가 있는 이미지 및 문서에서 OCR (광학 문자 인식) 관련 개념입니다.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560800"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954743"
 ---
-# <a name="read-text-from-images-and-documents"></a>이미지 및 문서에서 텍스트 읽기
+# <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
 Computer Vision는 이미지 및 PDF 문서에서 인쇄 되거나 필기 된 텍스트를 추출 하는 새로운 심층 학습 기반 OCR (광학 문자 인식) 기능을 포함 합니다. Computer Vision는 아날로그 문서 (이미지, 스캔 한 문서) 및 디지털화 된 문서에서 텍스트를 추출 합니다. 주문형 이미지, 일련 번호를 포함 하는 컨테이너, 청구서, 청구서, 재무 보고서, 문서 등의 문서에서 텍스트를 추출할 수 있습니다. 이 OCR 기능은 클라우드 또는 온-프레미스 (컨테이너)에서 관리 되는 서비스의 일부로 사용할 수 있습니다. 또한 기업 등급 준수 및 개인 정보 보호 요구 사항을 충족 하는 가상 네트워크 및 개인 끝점을 지원 합니다.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185645"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956512"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -64,7 +64,7 @@ ms.locfileid: "82185645"
 
 Azure NetApp Files에 대 한 키 관리는 서비스에 의해 처리 됩니다. 각 볼륨에 대해 고유한 XTS-256 데이터 암호화 키가 생성 됩니다. 암호화 키 계층은 모든 볼륨 키를 암호화 하 고 보호 하는 데 사용 됩니다. 이러한 암호화 키는 암호화 되지 않은 형식으로 표시 되거나 보고 되지 않습니다. 볼륨을 삭제 하면 암호화 키가 즉시 삭제 됩니다.
 
-Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 사용)에 대 한 지원은 미국 동부, 미국 West2 및 미국 남부 중부 지역에서 제어 되는 기준으로 제공 됩니다.  에서 **anffeedback@microsoft.com**액세스를 요청할 수 있습니다. 용량을 사용할 수 있으므로 요청이 승인 됩니다.
+Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 사용)에 대 한 지원은 미국 동부, 미국 West2 및 미국 남부 중부 지역에서 제어 되는 기준으로 제공 됩니다.  에서 액세스를 요청할 수 있습니다 **anffeedback@microsoft.com** . 용량을 사용할 수 있으므로 요청이 승인 됩니다.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Azure NetApp Files service mount 대상에 대 한 액세스를 제어 하도록 NFS 내보내기 정책 규칙을 구성할 수 있나요?
 
@@ -79,7 +79,7 @@ Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 �
 
 예, Azure NetApp Files는 Azure IAM에서 RBAC 기능을 지원 합니다.
 
-## <a name="performance-faqs"></a>성능 Faq
+## <a name="performance-faqs"></a>성능 FAQ
 
 ### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Azure NetApp Files 성능을 최적화 하거나 조정 하려면 어떻게 해야 하나요?
 
@@ -103,11 +103,11 @@ Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 �
 
 Azure NetApp Files는 볼륨 성능 메트릭을 제공 합니다. Azure NetApp Files에 대 한 사용 메트릭을 모니터링 하는 Azure Monitor 사용할 수도 있습니다.  Azure NetApp Files에 대 한 성능 메트릭 목록은 [Azure NetApp Files 메트릭](azure-netapp-files-metrics.md) 을 참조 하세요.
 
-## <a name="nfs-faqs"></a>NFS Faq
+## <a name="nfs-faqs"></a>NFS FAQ
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Azure VM이 시작 되거나 다시 부팅 될 때 볼륨이 자동으로 탑재 되도록 합니다.  영구 NFS 볼륨에 대해 내 호스트를 구성 어떻게 할까요??
 
-VM 시작 또는 다시 부팅 시 NFS 볼륨이 자동으로 탑재 되도록 하려면 호스트의 `/etc/fstab` 파일에 항목을 추가 합니다. 
+VM 시작 또는 다시 부팅 시 NFS 볼륨이 자동으로 탑재 되도록 하려면 호스트의 파일에 항목을 추가 `/etc/fstab` 합니다. 
 
 자세한 내용은 [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 를 참조 하세요.  
 
@@ -123,7 +123,11 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 
 Root squash 병합는 현재 지원 되지 않습니다.
 
-## <a name="smb-faqs"></a>SMB Faq
+## <a name="smb-faqs"></a>SMB FAQ
+
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지 원하는 SMB 버전은 무엇 인가요?
+
+Azure NetApp Files smb 2.1 및 smb 3.1 (SMB 3.0에 대 한 지원 포함)을 지원 합니다.    
 
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>SMB 액세스에 Active Directory 연결이 필요 한가요? 
 
@@ -139,7 +143,7 @@ AD 연결은 NetApp 계정에 따라 구성 됩니다. AD 연결은 생성 된 N
 
 [AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
 
-Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 조직 구성 단위 경로는 `OU=AADDC Computers` netapp 계정에 대 한 Active Directory를 구성 하는 경우입니다.
+Azure Active Directory Domain Services와 함께 Azure NetApp Files를 사용하는 경우 NetApp 계정에 대해 Active Directory를 구성할 때 조직 구성 단위 경로는 `OU=AADDC Computers`입니다.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>지원 되는 Windows Server Active Directory 버전은 무엇 인가요?
 
@@ -173,23 +177,26 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>디렉터리가 제한 크기에 근접 하 고 있는지 확인 어떻게 할까요??
 
-클라이언트에서 `stat` 명령을 사용 하 여 디렉터리가 최대 크기 제한 (320 MB)에 근접 하 고 있는지 확인할 수 있습니다.
+`stat`클라이언트에서 명령을 사용 하 여 디렉터리가 디렉터리 메타 데이터에 대 한 최대 크기 제한 (320 MB)에 근접 하 고 있는지 확인할 수 있습니다.
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
 예:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## <a name="data-migration-and-protection-faqs"></a>데이터 마이그레이션 및 보호 Faq
 
@@ -234,5 +241,5 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 - [Microsoft Azure ExpressRoute Faq](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [Azure NetApp Files의 SMB 성능에 대 한 Faq](azure-netapp-files-smb-performance.md)

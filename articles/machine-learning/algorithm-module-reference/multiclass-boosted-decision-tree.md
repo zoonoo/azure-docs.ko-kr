@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
-ms.openlocfilehash: cfe35f81526a729092edf522f693ccd18494d1ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 023b731216605746e838306ce1ab69ebe8c6c6fd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137827"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955780"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>다중 클래스 향상된 의사 결정 트리
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 승격 된 의사 결정 트리 알고리즘을 기반으로 기계 학습 모델을 만들 수 있습니다.
 
@@ -40,21 +40,21 @@ ms.locfileid: "82137827"
 
 1. **트리 당 리프의 최대 수** 는 모든 트리에서 만들 수 있는 최대 터미널 노드 (리프) 수를 제한 합니다.
     
-        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
+    이 값을 늘리면 잠재적으로 과잉 맞춤 되 고 학습 시간이 길어질 때 트리의 크기가 증가 하 고 더 높은 정밀도를 달성할 수 있습니다.
   
 1. **리프 노드당 최소 샘플 수** 는 트리에서 터미널 노드 (리프)를 만드는 데 필요한 사례 수를 나타냅니다.  
 
-         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
+    이 값을 늘려 새 규칙을 작성하기 위한 임계값을 늘립니다. 예를 들어, 기본값이 1이면 단일 사례만으로도 새 규칙을 하나 작성할 수 있습니다. 값을 5로 늘리면 학습 데이터에 동일한 조건을 만족하는 사례가 다섯 개 이상 있어야 합니다.
 
 1. 학습 **률** 은 학습 하는 동안 단계 크기를 정의 합니다. 0에서 1 사이의 숫자를 입력 하십시오.
 
-         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
+    학습 속도는 최적의 솔루션에 대 한 학습자 수렴의 속도 또는 속도를 결정 합니다. 단계 크기가 너무 크면 최적의 솔루션을 과도 하 게 사용할 수 있습니다. 단계 크기가 너무 작은 경우 학습은 최상의 솔루션에서 수렴 하는 데 더 오래 걸립니다.
 
 1. **생성 된 트리 수** 앙상블에서 만들 의사 결정 트리의 총 수를 나타냅니다. 추가 의사 결정 트리를 만들면 적용 범위가 확대될 수 있지만 학습 시간이 증가됩니다.
 
 1. **난수 초기값** 은 임의의 초기값으로 사용할 음수가 아닌 정수를 선택적으로 설정 합니다. 초기값을 지정 하면 동일한 데이터 및 매개 변수가 있는 실행에 대해 재현 가능성 됩니다.  
 
-         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
+    임의 초기값은 기본적으로 42로 설정 됩니다. 다른 임의 초기값을 사용 하 여 연속 실행을 실행 하면 결과가 달라질 수 있습니다.
 
 1. 모델 학습:
 
@@ -72,4 +72,4 @@ ms.locfileid: "82137827"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

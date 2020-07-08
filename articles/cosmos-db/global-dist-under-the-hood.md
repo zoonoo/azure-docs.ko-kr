@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Cosmos DB의 글로벌 배포와 관련�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872131"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955916"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB를 사용한 전역 데이터 배포 - 기본적인 이해
 
 Azure Cosmos DB는 Azure의 기본 서비스 이므로 공용, 소 버린, 보안 부서 (DoD) 및 정부 클라우드를 포함 하 여 전 세계 모든 Azure 지역에서 배포 됩니다. 데이터 센터 내에서 Azure Cosmos DB를 각각 전용 로컬 스토리지가 있는 대규모 스탬프의 머신에 배포 및 관리합니다. 데이터 센터 내에서 Azure Cosmos DB는 여러 클러스터로 배포되며 각각은 여러 세대의 하드웨어를 잠재적으로 실행할 수 있습니다. 클러스터 내의 컴퓨터는 일반적으로 지역 내에서 고가용성을 위해 10-20 장애 도메인에 분산 됩니다. 다음 이미지에서는 Cosmos DB 글로벌 배포 시스템 토폴로지를 보여 줍니다.
 
-![시스템 토폴로지](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="시스템 토폴로지" border="false":::
 
 **Azure Cosmos DB의 글로벌 배포는 턴키입니다.** 언제 든 한 번의 클릭으로 또는 단일 API 호출을 사용 하 여 프로그래밍 방식으로 Cosmos 데이터베이스에 연결 된 지리적 지역을 추가 하거나 제거할 수 있습니다. Cosmos 데이터베이스는 일련의 Cosmos 컨테이너로 구성 됩니다. Cosmos DB에서 컨테이너는 배포 및 확장성의 논리 단위 역할을 합니다. 사용자가 만든 컬렉션, 테이블 및 그래프는 (내부적으로) Cosmos 컨테이너입니다. 컨테이너는 완전히 스키마를 제한 하지 않으며 쿼리 범위를 제공 합니다. Cosmos 컨테이너의 데이터는 수집 시 자동으로 인덱싱됩니다. 사용자는 자동 인덱싱을 사용 하 여 스키마 또는 인덱스 관리의 번거로운 업무 없이 데이터를 쿼리할 수 있습니다. 특히 전 세계적으로 분산 된 설정에서 데이터를 쿼리할 수 있습니다.  
 
@@ -30,7 +30,7 @@ Cosmos DB 탄력적으로를 사용 하는 앱이 Cosmos 컨테이너에서 처�
 
 다음 그림에 표시 된 것 처럼 컨테이너 내의 데이터는 지역 내에서 전 세계 지역에 걸쳐 분산 됩니다.  
 
-![실제 파티션](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="실제 파티션" border="false":::
 
 실제 파티션은 *복제본 집합*이라는 복제본 그룹에 의해 구현 됩니다. 각 컴퓨터는 위의 이미지에 표시 된 것 처럼 고정 된 프로세스 집합 내에서 다양 한 실제 파티션에 해당 하는 수백 개의 복제본을 호스팅합니다. 실제 파티션에 해당하는 복제본은 클러스터 내의 머신과 지역 내의 데이터 센터 간에 동적으로 배치되고 부하가 분산됩니다.  
 
@@ -52,7 +52,7 @@ Cosmos DB의 전역 배포는 *복제본 집합* 및 *파티션 집합*이라는
 
 Cosmos 데이터베이스 영역으로 구성 된 각각의 실제 파티션 그룹은 구성 된 모든 지역에서 복제 된 동일한 키 집합을 관리 하도록 구성 됩니다. 이 높은 조정 기본 형식을 *파티션 집합* 이라고 하며, 지정 된 키 집합을 관리 하는 실제 파티션의 지리적으로 분산 된 동적 오버레이입니다. 지정 된 물리적 파티션 (복제본 집합)은 클러스터 내에서 범위가 지정 되는 반면 파티션 집합은 클러스터, 데이터 센터 및 지리적 영역에 걸쳐 아래 이미지에 표시 된 것 처럼 확장 될 수 있습니다.  
 
-![파티션 세트](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="파티션 세트" border="false":::
 
 파티션 집합을 동일한 키 집합을 소유하는 여러 복제본 집합으로 구성된, 지리적으로 분산된 “슈퍼 복제본 집합”으로 생각할 수 있습니다. 복제본 집합과 마찬가지로, 파티션 집합의 멤버 자격은 동적입니다. 지정 된 파티션 집합에서 새 파티션을 추가/제거 하기 위한 암시적 물리적 파티션 관리 작업에 따라 변동 (예를 들어, 컨테이너에 대 한 처리량을 확장 하거나, Cosmos 데이터베이스에 영역을 추가/제거 하거나, 오류가 발생 한 경우)에 따라 변동 합니다. 파티션 집합의 각 파티션은 자체 복제본 집합 내에서 파티션 집합 멤버 자격을 관리 하기 때문에 멤버 자격은 완전히 분산 되 고 항상 사용 가능 합니다. 파티션 세트를 재구성하는 동안 실제 파티션 간 오버레이의 토폴로지도 설정됩니다. 토폴로지는 원본 및 대상 물리적 파티션 간의 일관성 수준, 지리적 거리 및 사용 가능한 네트워크 대역폭에 따라 동적으로 선택 됩니다.  
 

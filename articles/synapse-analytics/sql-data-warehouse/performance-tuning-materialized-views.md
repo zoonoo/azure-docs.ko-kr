@@ -1,23 +1,23 @@
 ---
-title: 구체화된 뷰를 사용한 성능 조정
+title: 구체화 된 뷰로 성능 조정
 description: 쿼리 성능 개선을 위해 구체화된 뷰를 사용할 때 알아야 할 권장 사항 및 고려 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747541"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956392"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
+# <a name="performance-tune-with-materialized-views"></a>구체화 된 뷰로 성능 조정
 
 Synapse SQL 풀의 구체화된 뷰는 복잡한 분석 쿼리에 대해 낮은 유지 관리 방법을 제공하여 쿼리를 변경하지 않고 빠른 성능을 얻을 수 있도록 합니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침을 설명합니다.
 

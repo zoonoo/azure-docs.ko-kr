@@ -4,7 +4,6 @@ description: 이 문서는 Azure VM에서 SQL Server를 실행하는 방법에 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: felixwu
 editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -14,21 +13,21 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 278f3a5109e638530a55f4b2a77cd6d28aa7ca54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035264"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955678"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
+# <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-이 문서에서는 [Azure의 Windows Virtual Machines에서 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 실행에 대한 가장 일반적인 질문 중 몇 가지에 대한 답변을 제공합니다.
+이 문서에서는 [Windows Azure Virtual Machines (vm)에서 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)를 실행 하는 경우 가장 일반적인 질문 중 일부에 대 한 답변을 제공 합니다.
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -51,15 +50,15 @@ ms.locfileid: "84035264"
 
    예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](create-sql-vm-powershell.md)을 참조하세요.
    
-1. **내 SQL Server VM의 일반화된 Azure SQL Server Marketplace 이미지를 만들고 이를 사용하여 VM을 배포할 수 있나요?**
+1. **SQL Server VM의 일반화 된 Azure Marketplace SQL Server 이미지를 만들고이를 사용 하 여 Vm을 배포할 수 있나요?**
 
    예. 하지만 [각 SQL Server VM을 SQL Server VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)하여 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업 등의 기능을 활용해야 합니다. 리소스 공급자에 등록할 때 각 SQL Server VM에 대한 라이선스 형식도 지정해야 합니다.
 
 1. **Azure VM에서 SQL Server를 일반화하고 이를 사용하여 새 VM을 배포하려면 어떻게 해야 하나요?**
 
-   Windows Server VM(SQL Server를 설치하지 않음)을 배포하고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용하여 SQL Server 설치 미디어로 Azure VM(Windows)의 SQL Server를 일반화할 수 있습니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 원하는 버전이 있는 Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
+   Windows Server VM(SQL Server를 설치하지 않음)을 배포하고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용하여 SQL Server 설치 미디어로 Azure VM(Windows)의 SQL Server를 일반화할 수 있습니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 설치 된 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
 
-   또는 Azure Marketplace의 SQL Server 이미지 중 하나를 사용하여 Azure VM에서 SQL Server를 일반화합니다. 사용자 이미지를 만들기 전에 원본 이미지에서 다음 레지스트리 키를 삭제해야 합니다. 이 방법에 실패하면 SQL Server 설치 부트스트랩 폴더 및/또는 SQL IaaS 확장이 블로트하여 실패 상태가 될 수 있습니다.
+   또는 Azure Marketplace의 SQL Server 이미지 중 하나를 사용 하 여 Azure VM에서 일반화 SQL Server 합니다. 사용자 이미지를 만들기 전에 원본 이미지에서 다음 레지스트리 키를 삭제해야 합니다. 이 방법에 실패하면 SQL Server 설치 부트스트랩 폴더 및/또는 SQL IaaS 확장이 블로트하여 실패 상태가 될 수 있습니다.
 
    레지스트리 키 경로:  
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
@@ -71,18 +70,18 @@ ms.locfileid: "84035264"
 
    예. 하지만 [각 SQL Server VM을 SQL Server VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)하여 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업 등의 기능을 활용해야 합니다.
 
-1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
+1. **가상 컴퓨터 갤러리에 표시 되지 않는 구성 (예: Windows 2008 R2 + SQL Server 2012)을 설정할 수 있나요?**
 
-   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 Azure Portal 또는 [PowerShell](create-sql-vm-powershell.md)을 통해 제공된 이미지 중 하나를 선택해야 합니다. 그러나 Windows VM을 배포하여 SQL Server를 자체 설치할 수 있습니다. 그런 다음 [SQL Server VM을 SQL Server VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)하여 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업 등의 기능을 활용해야 합니다. 
+   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 Azure Portal 또는 [PowerShell](create-sql-vm-powershell.md)을 통해 제공된 이미지 중 하나를 선택해야 합니다. 그러나 Windows VM을 배포하여 SQL Server를 자체 설치할 수 있습니다. 그런 다음 Azure Portal에서 SQL Server VM를 관리 하 고 자동화 된 패치 적용 및 자동 백업 등의 기능을 활용 하려면 [SQL Server VM 리소스 공급자와 SQL Server VM를 등록](sql-vm-resource-provider-register.md) 해야 합니다. 
 
 
 ## <a name="creation"></a>만들기
 
 1. **SQL Server를 사용하여 Azure 가상 머신을 만들려면 어떻게 해야 합니까?**
 
-   가장 쉬운 방법은 SQL Server가 포함된 가상 머신을 만드는 것입니다. Azure에 등록하고 포털에서 SQL Server VM을 만드는 방법에 대한 자습서는 [Azure Portal에 SQL Server 가상 머신 프로비저닝](create-sql-vm-portal.md)을 참조하세요. 초 단위로 요금이 부과되는 SQL Server 라이선스를 사용하는 가상 머신 이미지를 선택하거나 사용자 SQL Server 라이선스를 가져오도록 허용하는 이미지를 사용할 수 있습니다. 무료 라이선스 버전(Developer 또는 Express)을 사용하거나 온-프레미스 라이선스를 재사용하여 VM에 SQL Server를 수동으로 설치할 수도 있습니다. [SQL Server VM을 SQL Server VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)하여 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업 등의 기능을 활용해야 합니다. 사용자 라이선스가 필요하면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](pricing-guidance.md)을 참조하세요.
+   가장 쉬운 방법은 SQL Server를 포함 하는 가상 컴퓨터를 만드는 것입니다. Azure에 등록하고 포털에서 SQL Server VM을 만드는 방법에 대한 자습서는 [Azure Portal에 SQL Server 가상 머신 프로비저닝](create-sql-vm-portal.md)을 참조하세요. 초 단위로 요금이 부과되는 SQL Server 라이선스를 사용하는 가상 머신 이미지를 선택하거나 사용자 SQL Server 라이선스를 가져오도록 허용하는 이미지를 사용할 수 있습니다. 무료 라이선스 버전(Developer 또는 Express)을 사용하거나 온-프레미스 라이선스를 재사용하여 VM에 SQL Server를 수동으로 설치할 수도 있습니다. [SQL Server VM을 SQL Server VM 리소스 공급자에 등록](sql-vm-resource-provider-register.md)하여 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업 등의 기능을 활용해야 합니다. 사용자 라이선스가 필요하면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](pricing-guidance.md)을 참조하세요.
 
-1. **온-프레미스 SQL Server 데이터베이스를 클라우드로 마이그레이션하려면 어떻게 해야 합니까?**
+1. **온-프레미스 SQL Server 데이터베이스를 클라우드로 마이그레이션하려면 어떻게 해야 하나요?**
 
    가장 먼저 SQL Server 인스턴스를 사용하여 Azure 가상 머신을 만듭니다. 그런 다음 온-프레미스 데이터베이스를 해당 인스턴스로 마이그레이션합니다. 데이터 마이그레이션 전략에 대해서는 [Azure VM의 SQL Server로 SQL Server 데이터베이스 마이그레이션](migrate-to-vm-from-sql-server.md)을 참조하세요.
 
@@ -90,7 +89,7 @@ ms.locfileid: "84035264"
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
-   이때 다음과 같은 세 가지 방법을 사용할 수 있습니다. EA(기업 계약) 고객인 경우 [라이선스를 지원하는 가상 머신](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL) 이미지 중 하나를 프로비저닝할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)가 있는 경우 기존 PAYG(종량제) 이미지에서 [Azure 하이브리드 혜택](licensing-model-azure-hybrid-benefit-ahb-change.md)을 사용하도록 설정할 수 있습니다. 또는 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치할 수 있습니다. 포털 관리, 자동화된 백업 및 자동화된 패치와 같은 기능을 사용하려면 SQL Server VM을 [리소스 공급자](sql-vm-resource-provider-register.md)에 등록해야 합니다. 
+   이때 다음과 같은 세 가지 방법을 사용할 수 있습니다. 기업계약 (EA) 고객 인 경우 [라이선스를 지 원하는 가상 머신 이미지](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL)중 하나를 프로 비전 할 수 있습니다 (byol (사용자 라이선스 보유)이 라고도 함). [소프트웨어 보증이](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)있는 경우 기존 PAYG (종 량 제) 이미지에서 [Azure 하이브리드 혜택](licensing-model-azure-hybrid-benefit-ahb-change.md) 를 사용 하도록 설정할 수 있습니다. 또는 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치할 수 있습니다. 포털 관리, 자동화된 백업 및 자동화된 패치와 같은 기능을 사용하려면 SQL Server VM을 [리소스 공급자](sql-vm-resource-provider-register.md)에 등록해야 합니다. 
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
@@ -100,9 +99,9 @@ ms.locfileid: "84035264"
 
    아니요. [라이선싱 모델을 변경](licensing-model-azure-hybrid-benefit-ahb-change.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 하지만 SQL Server VM을 SQL Server VM 리소스 공급자에 등록하려면 [SQL IaaS 확장](sql-server-iaas-agent-extension-automate-management.md)이 필요하며, _전체_ 모드에서 SQL IaaS 확장을 설치하면 SQL Server 서비스가 다시 시작됩니다. 따라서 SQL IaaS 확장을 설치해야 하는 경우 제한된 기능의 _경량_ 모드로 설치하거나 유지 관리 기간 동안 _전체_ 모드로 설치합니다. _경량_ 모드로 설치된 SQL IaaS 확장은 언제든지 _전체_ 모드로 업그레이드할 수 있지만 SQL Server 서비스를 다시 시작해야 합니다. 
    
-1. **클래식 모델을 사용하여 배포된 SQL Server VM에서 라이선스 모델을 전환할 수 있나요?**
+1. **클래식 모델을 사용 하 여 배포 된 SQL Server VM에서 라이선스 모델을 전환할 수 있나요?**
 
-   아니요. 클래식 VM에서는 라이선스 모델 변경이 지원되지 않습니다. VM을 Azure Resource Manager 모델로 마이그레이션하고 SQL Server VM 리소스 공급자에 등록할 수 있습니다. VM이 SQL Server VM 리소스 공급자에 등록되면 VM에서 라이선스 모델을 변경할 수 있습니다.
+   아니요. 클래식 VM에서는 라이선스 모델 변경이 지원 되지 않습니다. VM을 Azure Resource Manager 모델로 마이그레이션하고 SQL Server VM 리소스 공급자에 등록할 수 있습니다. VM이 SQL Server VM 리소스 공급자에 등록되면 VM에서 라이선스 모델을 변경할 수 있습니다.
 
 1. **Azure Portal을 사용하여 동일한 VM에서 여러 인스턴스를 관리할 수 있나요?**
 
@@ -133,7 +132,7 @@ ms.locfileid: "84035264"
 
 1. **어떤 구독이 DR(재해 복구) 혜택을 지원하나요?**
 
-   Software Assurance와 동등한 구독 권한을 고정 혜택으로 제공하는 종합적인 프로그램은 DR 혜택을 지원합니다. 여기에는 OV(오픈 밸류), OVS(오픈 밸류 정기가입), EA(기업계약), EAS(기업 정기가입 계약) 및 SCE(서버 및 클라우드 등록)를 포함하되 이에 제한되지 않습니다. 자세한 내용은 [제품 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하고 라이선스 연락처나 계정 관리자에게 문의하세요. 
+   Software Assurance와 동등한 구독 권한을 고정 혜택으로 제공하는 종합적인 프로그램은 DR 혜택을 지원합니다. 여기에는 그러나 Open Value (OV-ES), OVS 기업계약 (Open Value Subscription), EA (기업계약 Subscription), EAS (서버 및 클라우드 등록)로 제한 되지 않습니다. 자세한 내용은 [제품 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하고 라이선스 연락처나 계정 관리자에게 문의하세요. 
 
    
  ## <a name="resource-provider"></a>리소스 공급자
@@ -183,13 +182,13 @@ ms.locfileid: "84035264"
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
-1. **Azure VM에서 SQL Server의 다른 버전으로 변경하려면 어떻게 하나요?**
+1. **Azure VM에서 다른 버전/버전의 SQL Server 변경 어떻게 할까요??**
 
    고객은 원하는 SQL Server 버전이 포함된 설치 미디어를 사용하여 SQL Server 버전을 변경할 수 있습니다. 버전이 변경되면 VM에 대한 청구를 정확하게 반영하도록 Azure Portal를 사용하여 VM의 버전 속성을 수정합니다. 자세한 내용은 [SQL Server VM 버전 변경](change-sql-server-edition.md)을 참조하세요. SQL Server의 각 버전에 대한 청구 차이는 없으므로 SQL Server 버전 변경 후 추가 작업은 필요하지 않습니다.
 
 1. **SQL Server 버전을 변경하기 위한 설치 미디어는 어디서 구할 수 있나요?**
 
-   [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 원하는 버전이 있는 Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
+   [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 설치 된 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다.
    
 1. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**
 
@@ -201,7 +200,7 @@ ms.locfileid: "84035264"
 
 1. **SQL Server 2008 및 SQL Server 2008 R2 인스턴스 지원 종료에 대한 확장된 무료 보안 업데이트를 얻으려면 어떻게 해야 하나요?**
 
-   SQL Server를 Azure SQL 가상 머신으로 그대로 이동하여 [확장된 무료 보안 업데이트](sql-server-2008-extend-end-of-support.md)를 얻을 수 있습니다. 자세한 내용은 [지원 종료 옵션](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)을 참조하세요. 
+   SQL Server를 Azure 가상 머신으로 그대로 이동 하 여 [확장 된 보안 업데이트를 무료로](sql-server-2008-extend-end-of-support.md) 활용할 수 있습니다. 자세한 내용은 [지원 종료 옵션](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)을 참조하세요. 
   
    
 
@@ -209,14 +208,14 @@ ms.locfileid: "84035264"
 
 1. **SQL Server FCI(장애 조치 클러스터 인스턴스)는 Azure VM에서 지원되나요?**
 
-   예. 스토리지 하위 시스템에 [PFS(프리미엄 파일 공유)](failover-cluster-instance-premium-file-share-manually-configure.md) 또는 [S2D(스토리지 공간 다이렉트)](failover-cluster-instance-storage-spaces-direct-manually-configure.md)를 사용하여 장애 조치(failover) 클러스터 인스턴스를 설치할 수 있습니다. 프리미엄 파일 공유는 많은 워크로드의 요구 사항을 충족하는 IOPS 및 처리량 용량을 제공합니다. IO가 많은 워크로드의 경우 관리되는 프리미엄 또는 울트라 디스크를 기반으로 스토리지 공간 다이렉트를 사용하는 것이 좋습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 스토리지 솔루션을 사용할 수 있습니다.
+   예. 스토리지 하위 시스템에 [PFS(프리미엄 파일 공유)](failover-cluster-instance-premium-file-share-manually-configure.md) 또는 [S2D(스토리지 공간 다이렉트)](failover-cluster-instance-storage-spaces-direct-manually-configure.md)를 사용하여 장애 조치(failover) 클러스터 인스턴스를 설치할 수 있습니다. 프리미엄 파일 공유는 많은 워크로드의 요구 사항을 충족하는 IOPS 및 처리량 용량을 제공합니다. IO가 많은 워크로드의 경우 관리되는 프리미엄 또는 울트라 디스크를 기반으로 스토리지 공간 다이렉트를 사용하는 것이 좋습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대 한 고가용성 및 재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions)에 설명 된 대로 타사 클러스터링 또는 저장소 솔루션을 사용할 수 있습니다.
 
    > [!IMPORTANT]
    > 이번에 _전체_ [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 _전체_ 확장을 제거하고, 대신 _경량_ 모드로 확장을 설치하는 것이 좋습니다. 이 확장은 자동화된 백업 및 패치 같은 기능 및 SQL Server용 일부 포털 기능을 지원합니다. 이 기능은 _전체_ 에이전트를 제거한 후 SQL Server VM에 대해 작동하지 않습니다.
 
 1. **SQL Server VM과 SQL Database 서비스는 어떤 점이 다릅니까?**
 
-   개념적으로 Azure 가상 머신에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL Database](../../database/sql-database-paas-overview.md)는 DaaS(Database-as-a-Service)를 제공합니다. SQL Database에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md)를 참조하세요.
+   개념적으로 Azure 가상 머신에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 이와 대조적으로, [Azure SQL Database](../../database/sql-database-paas-overview.md) 는 데이터베이스 서비스를 제공 합니다. SQL Database에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md)를 참조하세요.
 
 1. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
 
@@ -231,15 +230,15 @@ ms.locfileid: "84035264"
 **Windows VM**:
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [SQL Server Windows VM 프로비전](create-sql-vm-portal.md)
+* [Windows VM에서 SQL Server 프로 비전](create-sql-vm-portal.md)
 * [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](migrate-to-vm-from-sql-server.md)
-* [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)
-* [Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략](application-patterns-development-strategies.md)
+* [Azure Virtual Machines에서 SQL Server에 대 한 고가용성 및 재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
+* [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)
+* [Azure Virtual Machines에서 SQL Server에 대 한 응용 프로그램 패턴 및 개발 전략](application-patterns-development-strategies.md)
 
 **Linux VM**:
 
 * [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [SQL Server Linux VM 프로비전](../linux/sql-vm-create-portal-quickstart.md)
+* [Linux VM에 SQL Server 프로 비전](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ(Linux)](../linux/frequently-asked-questions-faq.md)
 * [Linux의 SQL Server 설명서](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

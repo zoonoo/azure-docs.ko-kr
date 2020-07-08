@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75977530"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955815"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델 
 
@@ -28,18 +28,18 @@ Azure Cosmos DB의 가격 책정 모델은 비용 관리 및 계획을 간소화
 
 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 및 [Azure Cosmos DB 청구서 이해](understand-your-bill.md)를 참조하세요.
 
-Azure Cosmos DB의 가격 책정 모델은 모든 API에서 일치합니다. 자세한 내용은 [Azure Cosmos DB 가격 책정 모델이 고객에게 경제적인 방식](total-cost-ownership.md)을 참조하세요. SLA를 보장하기 위해 데이터베이스 또는 컨테이너에 대해 필요한 최소 처리량이 있으며, 100RU/초당 $6가 부과되는 프로비전된 처리량을 늘리거나 줄일 수 있습니다.
+Azure Cosmos DB의 가격 책정 모델은 모든 API에서 일치합니다. 자세한 내용은 [Azure Cosmos DB 가격 책정 모델이 고객에게 경제적인 방식](total-cost-ownership.md)을 참조하세요. Sla를 보장 하기 위해 데이터베이스 또는 컨테이너에 필요한 최소 처리량은 각 100 r u/s에 대해 프로 비전 된 처리량을 늘리거나 줄일 수 있습니다.
 
-현재, 데이터베이스 및 컨테이너 기반 처리량 둘 다에 대한 최소 가격은 월 $24입니다. 최신 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 워크로드가 여러 컨테이너를 사용하는 경우 데이터베이스 수준 처리량을 사용하면 데이터베이스의 컨테이너가 개수에 제한없이 처리량을 공유할 수 있으므로 비용을 최적화할 수 있습니다. 다음 표에서는 여러 다른 엔터티에 대한 프로비전된 처리량 및 비용을 요약해서 보여 줍니다.
+Azure Cosmos DB 계정을 미국의 비 정부 지역에 배포 하는 경우 현재 데이터베이스와 컨테이너 기반 처리량에 대 한 최소 가격은 약 $24/월입니다. 가격은 사용 하 고 있는 지역에 따라 달라 지 며, 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요. 워크로드가 여러 컨테이너를 사용하는 경우 데이터베이스 수준 처리량을 사용하면 데이터베이스의 컨테이너가 개수에 제한없이 처리량을 공유할 수 있으므로 비용을 최적화할 수 있습니다. 다음 표에서는 여러 다른 엔터티에 대한 프로비전된 처리량 및 비용을 요약해서 보여 줍니다.
 
-|**엔터티**  | **최소 처리량 및 비용** |**눈금 증분 및 비용** |**프로비전 범위** |
+|**엔터티**  | **최소 처리량** |**크기 증가** |**프로비전 범위** |
 |---------|---------|---------|-------|
-|데이터베이스    | 400RU/초($24/월)    | 100RU/초($6/월)   |처리량은 데이터베이스용으로 예약되고, 데이터베이스 내의 컨테이너에서 공유됩니다. |
-|컨테이너     | 400RU/초($24/월)    | 100RU/초($6/월)  |처리량은 특정 컨테이너용으로 예약됩니다. |
+|데이터베이스    | 400RU/s    | 100 r u/초   |처리량은 데이터베이스용으로 예약되고, 데이터베이스 내의 컨테이너에서 공유됩니다. |
+|컨테이너     | 400RU/s   | 100 r u/초  |처리량은 특정 컨테이너용으로 예약됩니다. |
 
-위 표와 같이, Azure Cosmos DB의 최소 처리량은 $24/월부터 시작합니다. 최소 처리량부터 시작하면서 프로덕션 워크로드를 지원하도록 서서히 확장할 경우 비용이 $6/월 단위로 매끄럽게 증가합니다. Azure Cosmos DB의 가격 책정 모델은 탄력적이며 확장 또는 축소함에 따라 비용도 매끄럽게 증가하거나 감소합니다.
+위의 표에 나와 있는 것 처럼 Azure Cosmos DB의 최소 처리량은 약 $24/월 가격으로 시작 됩니다. 프로덕션 워크 로드를 지원 하기 위해 최소 처리량으로 시작 하 고 시간에 따라 확장 하는 경우 약 $6/월 단위로 비용이 원활 하 게 증가 합니다. 가격은 사용 하 고 있는 지역에 따라 달라 지 며, 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요. Azure Cosmos DB의 가격 책정 모델은 탄력적이며 확장 또는 축소함에 따라 비용도 매끄럽게 증가하거나 감소합니다.
 
-## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기 
+## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기
 
 Azure Cosmos DB는 개발자를 위해 몇 가지 옵션을 무료로 제공합니다. 이러한 옵션에는 다음이 포함됩니다.
 

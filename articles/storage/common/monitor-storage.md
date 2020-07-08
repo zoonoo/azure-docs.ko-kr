@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267616"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955169"
 ---
 # <a name="monitor-azure-storage"></a>Azure Storage 모니터링
 
@@ -78,11 +78,13 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. Azure Portal, Azure CLI 또는 PowerShell을 사용하여 진단 설정을 만드는 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
 
-진단 설정을 만들 때 로그를 사용할 스토리지 유형(예: BLOB, 큐, 테이블, 파일)을 선택하세요. Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 선택할 수 있습니다. PowerShell 또는 Azure CLI를 사용하는 경우 스토리지 유형의 리소스 ID를 사용해야 합니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
+진단 설정을 만들 때 로그를 사용할 스토리지 유형(예: BLOB, 큐, 테이블, 파일)을 선택하세요. Data Lake Storage Gen2은 저장소 유형으로 표시 되지 않습니다. Data Lake Storage Gen2는 Blob Storage에서 사용할 수 있는 기능 집합 이기 때문입니다. 
+
+Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 선택할 수 있습니다. PowerShell 또는 Azure CLI를 사용하는 경우 스토리지 유형의 리소스 ID를 사용해야 합니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
 
 로그를 수집하려는 작업의 범주도 지정해야 합니다. 다음 표에는 Azure Storage의 범주가 나와 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | StorageRead | BLOB에 대한 읽기 작업입니다. |
 | StorageWrite | BLOB에 대한 쓰기 작업입니다. |
@@ -343,6 +345,8 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 |StorageFileLogs | 파일 공유의 작업을 설명하는 로그입니다. |
 |StorageQueueLogs | 큐의 작업을 설명하는 로그입니다.|
 |StorageTableLogs| 테이블의 작업을 설명하는 로그입니다.|
+
+Data Lake Storage Gen2에 대 한 로그는 전용 테이블에 표시 되지 않습니다. Data Lake Storage Gen2은 서비스 되지 않기 때문입니다. Blob storage 계정에서 사용할 수 있는 기능 집합입니다. 이러한 기능을 사용 하도록 설정 하면 로그가 StorageBlobLogs 테이블에 계속 표시 됩니다. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Azure Monitor의 Azure Storage Log Analytics 쿼리
 

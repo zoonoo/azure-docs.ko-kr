@@ -5,23 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/9/2020
+ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097662"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954197"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
 Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 MariaDB 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-|    | **Basic** | **일반 용도** | **메모리 액세스에 최적화** |
+| 리소스 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 5세대 |5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -43,11 +43,11 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 프로비전하는 스토리지는 Azure Database for MariaDB 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MariaDB 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-|    | **Basic** | **일반 용도** | **메모리 액세스에 최적화** |
+| 저장소 특성   | Basic | 범용 | 메모리 최적화 |
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
 
 서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다.
@@ -58,6 +58,20 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 스토리지 크기와 3:1 비율로 조정됩니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 용량 한도, 저장소 비율, 사용 된 저장소 및 IO 백분율](concepts-monitoring.md)입니다.
+
+### <a name="large-storage-preview"></a>대량 저장소 (미리 보기)
+
+범용 및 메모리 최적화 계층에서 저장소 제한을 늘립니다. 미리 보기를 옵트인 (opt in) 하는 새로 만든 서버는 최대 16TB의 저장소를 프로 비전 할 수 있습니다. IOPS 크기는 2만 IOPS 까지의 3:1 비율입니다. 현재 일반적으로 사용 가능한 저장소와 마찬가지로 서버를 만든 후 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다.
+
+| 저장소 특성 | 범용 | 메모리 최적화 |
+|:-------------|:--------------------|:---------------------|
+| 스토리지 유형 | Azure Premium Storage | Azure Premium Storage |
+| 스토리지 크기 | 32 g b ~ 16TB| 32 ~ 16TB |
+| 스토리지 증분 크기 | 1GB | 1GB |
+| IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS| 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
+
+> [!IMPORTANT]
+> 대량 저장소는 현재 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2 및 미국 서 부 2 지역에서 공개 미리 보기로 제공 됩니다.
 
 ### <a name="reaching-the-storage-limit"></a>스토리지 제한에 도달
 

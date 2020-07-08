@@ -5,15 +5,16 @@ description: Ubuntu에 포함 된 도구에 대 한 세부 정보 Data Science V
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161284"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955542"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -142,7 +143,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 > [!NOTE]
 > 인증서 경고가 나타나는 경우 계속 진행하세요.
 
-모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. **https://\<VM DNS 이름 또는 IP 주소\>:8000/** 을 입력합니다.
+모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. **Https:// \<VM DNS name or IP address\> : 8000/** 을 입력 합니다.
 
 > [!NOTE]
 > VM이 프로비전될 때 포트 8000이 방화벽에 기본적으로 열립니다. 
@@ -207,7 +208,7 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 - **bcp**: bcp 도구는 Microsoft SQL Server 인스턴스와 사용자가 지정한 형식의 데이터 파일 간에 데이터를 대량 복사 합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
 
-  자세한 내용은 [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx)을 참조하세요.
+  자세한 내용은 [bcp를 사용 하 여 연결](https://msdn.microsoft.com/library/hh568446.aspx)을 참조 하세요.
 
 - **sqlcmd**: sqlcmd 도구를 사용 하 여 transact-sql 문을 입력할 수 있습니다. 또한 명령 프롬프트에서 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. 이 도구는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
 
@@ -254,7 +255,7 @@ R 및 Python의 모델을 Azure Machine Learning에 배포하는 방법에 대�
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 여기에는 다음이 포함됩니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
 
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
@@ -262,8 +263,10 @@ VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 
 * **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
 * **LightGBM**: 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그라데이션 향상 프레임워크입니다.
 * **R**: r에 대해 다양 한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치 된 라이브러리에는 lm, 고, randomForest 및 rpart가 포함 됩니다. 다른 라이브러리는 다음 명령을 실행하여 설치할 수 있습니다.
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 아래에서는 목록의 처음 3개 기계 학습 도구에 대해 추가로 설명합니다.
 
@@ -329,16 +332,16 @@ rattle()
 > [!NOTE]
 > 패키지를 시스템 디렉터리(기본값)에 설치할 수 있는 액세스 권한이 없는 경우 R 콘솔 창에 패키지를 개인 라이브러리에 설치하라는 메시지가 표시될 수 있습니다. 이러한 메시지가 표시되면 **y** 로 응답합니다.
 
-1. **실행**을 선택 합니다.
+1. **실행**을 선택합니다.
 1. 날씨 데이터 세트 예제를 사용할지 여부를 묻는 대화 상자가 표시됩니다. **예**를 선택하여 예제를 로드합니다.
-1. **모델** 탭을 선택합니다.
+1. **모델** 탭을 선택 합니다.
 1. **실행**을 선택하여 의사 결정 트리를 작성합니다.
 1. **그리기**를 선택하여 의사 결정 트리를 표시합니다.
 1. **포리스트** 옵션을 선택하고, **실행**을 선택하여 임의 포리스트를 작성합니다.
 1. **평가** 탭을 선택합니다.
 1. **위험** 옵션을 선택하고, **실행**을 선택하여 두 개의 **위험(누적)** 성능 도표를 표시합니다.
 1. **로그** 탭을 선택하여 이전 작업에서 생성된 R 코드를 표시합니다.
-   Rattle의 현재 릴리스에 대 한 버그로 인해 로그 텍스트에서 **이 로그를 내보냅니다** 앞에 **#** 문자를 삽입 해야 합니다.
+   Rattle의 현재 릴리스에 대 한 버그로 인해 **#** 로그 텍스트에서 **이 로그를 내보냅니다** 앞에 문자를 삽입 해야 합니다.
 1. **내보내기** 단추를 선택하여 *weather_script.R*이라는 R 스크립트 파일을 홈 폴더에 저장합니다.
 
 Rattle 및 R을 종료할 수 있습니다. 이제 생성된 R 스크립트를 수정할 수 있습니다. 또는 스크립트를 있는 그대로 사용하고, 언제든지 이를 실행하여 Rattle UI 내에서 수행된 모든 작업을 반복합니다. 특히 이는 R 초보자를 위해 간단한 그래픽 인터페이스에서 분석 및 기계 학습을 빠르게 수행하는 동시에 R에서 코드를 자동으로 생성하여 수정하거나 학습할 수 있는 방법입니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771260"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956375"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
@@ -102,20 +102,31 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 VM에 있는 인터페이스 이름 목록을 가져오려면 다음 명령을 입력 합니다.
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 VM NIC (Azure 관리)의 경우 다음 명령을 입력 합니다.
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (interfacename을이 인터페이스의 이름으로 바꿉니다.)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(interfacename을이 인터페이스의 이름으로 바꿉니다.)
 
 추가한 각 루프백 인터페이스에 대해 다음 명령을 반복 합니다.
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(interfacename을이 루프백 인터페이스의 이름으로 바꿉니다.)
 
 > [!IMPORTANT]
 > 루프백 인터페이스에 대한 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다. 상태 프로브 정의에는 DSR 프런트 엔드를 나타내는 루프백 인터페이스가 아닌 VM의 DIP가 사용됩니다. 따라서 서비스는 DSR 프런트 엔드를 나타내는 루프백 인터페이스에서 제공되는 서비스의 상태를 반영하는 DIP 포트에서 프로브 응답을 제공해야 합니다.
@@ -146,7 +157,7 @@ VM NIC (Azure 관리)의 경우 다음 명령을 입력 합니다.
 
 이 예는 대상 포트를 변경하지 않는지 확인합니다. 비록 부동 IP 시나리오이지만 Azure Load Balancer는 또한 백 엔드 대상 포트를 다시 작성하여 프런트 엔드 대상 포트와 다르도록 규칙을 정의하는 것을 지원합니다.
 
-부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
+부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
 
 ## <a name="limitations"></a>제한 사항
 

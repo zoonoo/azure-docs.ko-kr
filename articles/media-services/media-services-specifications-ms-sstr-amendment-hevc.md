@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76514224"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954692"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
 
@@ -242,10 +242,12 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 > 
 >   ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) 섹션에 정의된 필드 구문은 다음과 같습니다.
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **참고**: ‘ccff’ 및 ‘iso8’ 호환성 브랜드는 조각이 "공용 컨테이너 파일 형식"과 일반 암호화 [ISO/IEC 23001-7] 및 ISO 기본 미디어 파일 형식 버전 4 [ISO/IEC 14496-12]를 준수한다는 것을 나타냅니다.
 
@@ -288,14 +290,18 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 > 
 >   HEVC 스트림을 포함하는 프레젠테이션은 다음 항목을 설정해야 합니다.
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0(참고: 사용되지 않는 상자)
 > 
 >   프레젠테이션이 다음 항목도 설정해야 합니다.
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   스트림 컬렉션: 스트림 설명 데이터 요소의 컬렉션으로, *3.1.1.1.2* 섹션에 지정되어 있습니다.
 > 
@@ -359,7 +365,7 @@ CENC(일반 암호화)가 비디오 또는 오디오 스트림에 적용된 경�
 ## <a name="52-index-of-security-parameters"></a>5.2 보안 매개 변수의 인덱스 
 
 
-| **보안 매개 변수**  | **단원**         |
+| **보안 매개 변수**  | **섹션**         |
 |-------------------------|---------------------|
 | ProtectionElement       | *2.2.2.2*           |
 | Common Encryption 상자 | *[ISO/IEC 23001-7]* |

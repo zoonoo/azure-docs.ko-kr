@@ -3,12 +3,12 @@ title: Azure Batch의 작업 및 태스크
 description: 작업 및 태스크에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: aeffd05a26066675ca320ab4b3c3c09e6807e6df
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790810"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955372"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Azure Batch의 작업 및 태스크
 
@@ -22,7 +22,7 @@ Azure Batch에서 *태스크*는 계산 단위를 나타냅니다. *작업*은 �
 
 ### <a name="job-priority"></a>작업 우선 순위
 
-사용자가 만드는 작업에 선택적 작업 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용하여 계정 내의 작업 예약 순서를 결정합니다( [예약된 작업](#scheduled-jobs)과 혼동하지 않아야 합니다). 우선 순위 값의 범위는 -1000에서 1000까지이며 -1000이 가장 낮은 우선 순위를, 1000이 가장 높은 우선 순위를 나타냅니다. 작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트](https://docs.microsoft.com/rest/api/batchservice/job/update) 작업(Batch REST)을 사용하거나 [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) 속성(Batch .NET)을 수정합니다.
+사용자가 만드는 작업에 선택적 작업 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용하여 계정 내의 작업 예약 순서를 결정합니다( [예약된 작업](#scheduled-jobs)과 혼동하지 않아야 합니다). 우선 순위 값의 범위는 -1000에서 1000까지이며 -1000이 가장 낮은 우선 순위를, 1000이 가장 높은 우선 순위를 나타냅니다. 작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트](/rest/api/batchservice/job/update) 작업(Batch REST)을 사용하거나 [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) 속성(Batch .NET)을 수정합니다.
 
 동일한 계정 내에서 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 예약됩니다. 하나의 계정에서 우선 순위가 더 높은 작업이 다른 계정에서 우선 순위가 더 낮은 다른 작업보다 먼저 예약되는 것은 아닙니다. 이미 실행 중인 우선 순위가 낮은 작업의 태스크는 선취되지 않습니다.
 
@@ -39,13 +39,13 @@ Azure Batch에서 *태스크*는 계산 단위를 나타냅니다. *작업*은 �
 
 클라이언트 애플리케이션이 작업에 태스크를 추가할 수 있습니다. 또는 [작업 관리자 태스크](#job-manager-task)를 지정할 수 있습니다. 작업 관리자 태스크는 풀의 컴퓨팅 노드 중 하나에서 작업 관리자 태스크를 실행하여 작업에 필요한 태스크를 만드는 데 필요한 정보를 포함합니다. 작업 관리자 태스크는 Batch에서 특별히 처리되며, 작업이 생성되는 즉시 큐에 대기되고 실패할 경우 다시 시작됩니다. 작업 관리자 태스크는 작업이 인스턴스화되기 전에 태스크를 정의할 수 있는 유일한 방법이기 때문에 [작업 일정](#scheduled-jobs)에서 만든 작업에 필요합니다.
 
-작업 내의 모든 태스크가 완료되면 작업은 기본적으로 활성 상태로 유지됩니다. 작업에서 모든 태스크가 완료되면 작업이 자동으로 종료되도록 이 동작을 변경할 수 있습니다. 작업의 **onAllTasksComplete** 속성(Batch .NET의 [OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob))을 *terminatejob*으로 설정하여 태스크가 모두 완료 상태인 경우 작업을 자동으로 종료합니다.
+작업 내의 모든 태스크가 완료되면 작업은 기본적으로 활성 상태로 유지됩니다. 작업에서 모든 태스크가 완료되면 작업이 자동으로 종료되도록 이 동작을 변경할 수 있습니다. 작업의 **onAllTasksComplete** 속성(Batch .NET의 [OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob))을 *terminatejob*으로 설정하여 태스크가 모두 완료 상태인 경우 작업을 자동으로 종료합니다.
 
 Batch 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 작업 자동 종료를 사용하려는 경우 처음부터 새 작업의 **onAllTasksComplete** 속성을 *noaction*으로 설정한 다음 작업에 태스크의 추가를 완료한 후에 *terminatejob*으로 설정해야 합니다.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 
-[작업 일정](https://docs.microsoft.com/rest/api/batchservice/jobschedule)을 사용하여 Batch 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 일정의 빈도, 즉 일정이 시행되는 시점 및 기간, 일정의 기간 동안 작업을 만들어야 하는 빈도를 지정할 수 있습니다.
+[작업 일정](/rest/api/batchservice/jobschedule)을 사용하여 Batch 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 일정의 빈도, 즉 일정이 시행되는 시점 및 기간, 일정의 기간 동안 작업을 만들어야 하는 빈도를 지정할 수 있습니다.
 
 ## <a name="tasks"></a>작업
 
@@ -153,11 +153,11 @@ Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행
 
 ### <a name="environment-settings-for-tasks"></a>태스크에 대한 환경 설정
 
-Batch 서비스에 의해 실행되는 각 태스크는 컴퓨팅 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables)) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 애플리케이션 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
+Batch 서비스에 의해 실행되는 각 태스크는 컴퓨팅 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의](./batch-compute-node-environment-variables.md)) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 애플리케이션 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
 
-이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 자세한 내용은 [작업에 태스크 추가](https://docs.microsoft.com/rest/api/batchservice/task/add?)] 작업(Batch REST API) 또는 Batch .NET의 [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) 및 [CloudJob.CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) 속성을 참조하세요.
+이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 자세한 내용은 [작업에 태스크 추가](/rest/api/batchservice/task/add?)] 작업(Batch REST API) 또는 Batch .NET의 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) 속성을 참조하세요.
 
-클라이언트 애플리케이션 또는 서비스는 [태스크에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/batchservice/task/get) 작업(Batch REST)을 사용하거나 [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) 속성(Batch .NET)에 액세스하여 태스크의 환경 변수(시스템 정의 및 사용자 정의)를 가져올 수 있습니다. 컴퓨팅 노드에서 실행되는 프로세스는 친숙한 `%VARIABLE_NAME%`(Windows) 또는 `$VARIABLE_NAME`(Linux) 구문을 사용하여 노드의 다음 환경 변수 및 기타 환경 변수에 액세스할 수 있습니다.
+클라이언트 애플리케이션 또는 서비스는 [태스크에 대한 정보 가져오기](/rest/api/batchservice/task/get) 작업(Batch REST)을 사용하거나 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) 속성(Batch .NET)에 액세스하여 태스크의 환경 변수(시스템 정의 및 사용자 정의)를 가져올 수 있습니다. 컴퓨팅 노드에서 실행되는 프로세스는 친숙한 `%VARIABLE_NAME%`(Windows) 또는 `$VARIABLE_NAME`(Linux) 구문을 사용하여 노드의 다음 환경 변수 및 기타 환경 변수에 액세스할 수 있습니다.
 
 [컴퓨팅 노드 환경 변수](batch-compute-node-environment-variables.md)에서 모든 서비스 정의 환경 변수의 전체 목록을 찾을 수 있습니다.
 
