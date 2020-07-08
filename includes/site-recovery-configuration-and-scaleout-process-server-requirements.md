@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292171"
 ---
 **구성 및 프로세스 서버 요구 사항**
 
@@ -52,14 +52,12 @@ NIC 유형 | VMXNET3 (구성 서버가 VMware VM 인 경우)
  |
 **인터넷 액세스** (서버는 직접 또는 프록시를 통해 다음 url에 액세스할 수 있어야 합니다.):|
 \*.backup.windowsazure.com | 복제된 데이터 전송 및 조정에 사용됩니다.
-\*.store.core.windows.net | 복제된 데이터 전송 및 조정에 사용됩니다.
-\*.blob.core.windows.net | 복제된 데이터를 저장하는 스토리지 계정에 액세스하는 데 사용됩니다.
+\*.blob.core.windows.net | 복제 된 데이터를 저장 하는 저장소 계정에 액세스 하는 데 사용 됩니다. 캐시 저장소 계정의 특정 URL을 제공할 수 있습니다.
 \*.hypervrecoverymanager.windowsazure.com | 복제 관리 작업 및 조정에 사용됩니다.
-https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다. 
-*.services.visualstudio.com | 원격 분석 용도로 사용 됩니다 (선택 사항).
+https:\//login.microsoftonline.com | 복제 관리 작업 및 조정에 사용됩니다. 
 time.nist.gov | 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 하는 데 사용 됩니다.
 time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 하는 데 사용 됩니다.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | 설치 프로그램은 이러한 Url에 액세스할 수 있어야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /graph.windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (선택 사항) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.microsoft.com </li></ul> | 이 추가 Url에 대 한 액세스 권한이 있어야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | MySQL 다운로드를 완료 합니다. </br> 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 목록 확인 합니다.
 |
 

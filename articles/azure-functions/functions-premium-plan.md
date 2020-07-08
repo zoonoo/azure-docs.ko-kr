@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298517"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-이 예제에서을 리소스 `<RESOURCE_GROUP>` 그룹으로 바꾸고를 리소스 `<PLAN_NAME>` 그룹에서 고유한 계획의 이름으로 바꿉니다. [지원 되 `<REGION>` ](https://azure.microsoft.com/global-infrastructure/services/?products=functions)는를 지정 합니다. Linux를 지 원하는 프리미엄 요금제를 만들려면 `--is-linux` 옵션을 포함 합니다.
+이 예제에서을 `<RESOURCE_GROUP>` 리소스 그룹으로 바꾸고를 `<PLAN_NAME>` 리소스 그룹에서 고유한 계획의 이름으로 바꿉니다. [지원 되 `<REGION>` ](https://azure.microsoft.com/global-infrastructure/services/?products=functions)는를 지정 합니다. Linux를 지 원하는 프리미엄 요금제를 만들려면 옵션을 포함 `--is-linux` 합니다.
 
 계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 전체 Azure CLI 스크립트의 예는 [프리미엄 계획에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md)를 참조 하세요.
 
@@ -61,11 +61,13 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="rapid-elastic-scale"></a>신속한 탄력적 확장
 
-소비 계획과 동일한 빠른 크기 조정 논리를 사용 하 여 앱에 대 한 추가 계산 인스턴스가 자동으로 추가 됩니다.  크기 조정의 작동 방식에 대 한 자세한 내용은 [함수 크기 조정 및 호스팅](./functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
+소비 계획과 동일한 빠른 크기 조정 논리를 사용 하 여 앱에 대 한 추가 계산 인스턴스가 자동으로 추가 됩니다. 동일한 App Service 계획의 앱은 개별 앱의 요구에 따라 서로 독립적으로 확장 됩니다. 그러나 동일한 App Service 계획의 함수 앱은 가능한 경우 비용을 줄이기 위해 VM 리소스를 공유 합니다. VM에 연결 된 앱 수는 각 앱의 공간 및 VM 크기에 따라 달라 집니다.
+
+크기 조정의 작동 방식에 대 한 자세한 내용은 [함수 크기 조정 및 호스팅](./functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
 
 ### <a name="longer-run-duration"></a>더 긴 실행 지속 시간
 
-소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나이를 프리미엄 계획 앱에 대해 제한 없이 사용할 수 있도록 [호스트. json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다 (보장 60 분).
+소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나 프리미엄 계획 앱에 대해이를 제한 하지 않도록 [구성에서 host.js를 수정할](./functions-host-json.md#functiontimeout) 수 있습니다 (보장 60 분).
 
 ## <a name="plan-and-sku-settings"></a>요금제 및 SKU 설정
 
@@ -97,7 +99,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 ### <a name="memory-utilization-considerations"></a>메모리 사용률 고려 사항
 메모리를 더 많이 사용 하는 컴퓨터에서 실행 하는 경우 항상 함수 앱에서 사용 가능한 모든 메모리를 사용 한다는 의미는 아닙니다.
 
-예를 들어 JavaScript 함수 앱은 node.js의 기본 메모리 제한에 의해 제한 됩니다. 이 고정 메모리 제한을 늘리려면 값을 사용 하 여 앱 `languageWorkers:node:arguments` 설정을 추가 합니다 `--max-old-space-size=<max memory in MB>`.
+예를 들어 JavaScript 함수 앱은 Node.js의 기본 메모리 제한에 의해 제한 됩니다. 이 고정 메모리 제한을 늘리려면 값을 사용 하 여 앱 설정을 추가 합니다 `languageWorkers:node:arguments` `--max-old-space-size=<max memory in MB>` .
 
 ## <a name="region-max-scale-out"></a>영역 최대 Scale Out
 

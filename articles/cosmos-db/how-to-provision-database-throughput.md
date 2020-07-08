@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 데이터베이스 처리량 프로비전
 description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프로비저닝하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263642"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스에 대한 표준(수동) 처리량 프로비전
 
@@ -32,7 +32,7 @@ ms.locfileid: "83655331"
    * 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![새 데이터베이스 대화 상자 스크린샷](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="새 데이터베이스 대화 상자 스크린샷":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용하여 처리량 프로비전
 

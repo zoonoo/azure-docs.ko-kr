@@ -3,14 +3,14 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298500"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 호스트 json 참조 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 참조 host.js 
 
 > [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
@@ -21,15 +21,15 @@ ms.locfileid: "82690896"
 > [!NOTE]
 > 이 문서는 Azure Functions 2.x 이상 버전에 대 한 것입니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
-다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 [로컬. 설정](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
+다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 파일 [에local.settings.js](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
 
-바인딩과 관련 된 호스트 json의 구성은 함수 앱의 각 함수에 동일 하 게 적용 됩니다. 
+바인딩과 관련 된 host.js의 구성은 함수 앱의 각 함수에 동일 하 게 적용 됩니다. 
 
 또한 응용 프로그램 설정을 사용 하 여 [환경 마다 설정을 재정의 하거나 적용할](#override-hostjson-values) 수 있습니다.
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
-버전 2.x +에 대 한 다음 샘플 *호스트 json* 파일에는 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
+다음 샘플에서는 버전 2.x에 대 한 파일 *에host.js* 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
 
 ```json
 {
@@ -140,10 +140,10 @@ ms.locfileid: "82690896"
 
 [샘플링 옵션](./functions-monitoring.md#configure-sampling)을 포함 하 여 Application Insights에 대 한 옵션을 제어 합니다.
 
-전체 JSON 구조는 이전 [예제 호스트. json 파일](#sample-hostjson-file)을 참조 하세요.
+전체 JSON 구조는 이전 [예제 파일 host.js](#sample-hostjson-file)를 참조 하세요.
 
 > [!NOTE]
-> 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 방지 하려면 `excludedTypes: "Request"` `samplingSettings` 값에를 추가 합니다.
+> 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 방지 하려면 `excludedTypes: "Request"` 값에를 추가 `samplingSettings` 합니다.
 
 | 속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
@@ -168,16 +168,16 @@ ms.locfileid: "82690896"
 | minSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최소 샘플링 비율을 결정 합니다. |
 | maxSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최대 샘플링 비율을 결정 합니다. |
 | movingAverageRatio | 1.0 | 이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다. |
-| excludedTypes | null | 샘플링 하지 않으려는 형식의 세미콜론으로 구분 된 목록입니다. 인식 되는 형식은 `Dependency`, `Event`, `Exception`, `PageView` `Request`, 및 `Trace`입니다. 지정 된 형식의 모든 인스턴스가 전송 됩니다. 지정 되지 않은 형식이 샘플링 됩니다. |
-| includedTypes | null | 샘플링할 형식의 세미콜론으로 구분 된 목록입니다. 빈 목록은 모든 형식을 의미 합니다. 여기에 나열 `excludedTypes` 된 재정의 형식에 나열 된 유형입니다. 인식 되는 형식은 `Dependency`, `Event`, `Exception`, `PageView` `Request`, 및 `Trace`입니다. 지정 된 형식의 인스턴스가 샘플링 됩니다. 지정 되지 않았거나 암시 되지 않은 형식은 샘플링 없이 전송 됩니다. |
+| excludedTypes | null | 샘플링 하지 않으려는 형식의 세미콜론으로 구분 된 목록입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 모든 인스턴스가 전송 됩니다. 지정 되지 않은 형식이 샘플링 됩니다. |
+| includedTypes | null | 샘플링할 형식의 세미콜론으로 구분 된 목록입니다. 빈 목록은 모든 형식을 의미 합니다. `excludedTypes`여기에 나열 된 재정의 형식에 나열 된 유형입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 인스턴스가 샘플링 됩니다. 지정 되지 않았거나 암시 되지 않은 형식은 샘플링 없이 전송 됩니다. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>httpAutoCollectionOptions
 
 |속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | HTTP 트리거에 대 한 확장 된 HTTP 요청 정보를 사용 하거나 사용 하지 않도록 설정 합니다. 들어오는 요청 상관 관계 헤더, 다중 계측 키 지원, HTTP 메서드, 경로 및 응답입니다. |
-| enableW3CDistributedTracing | true | W3C 분산 추적 프로토콜을 지원 하거나 사용 하지 않도록 설정 하 고 레거시 상관 관계 스키마를 설정 합니다. 이 true 인 경우 `enableHttpTriggerExtendedInfoCollection` 기본적으로 사용 하도록 설정 됩니다. 이 `enableHttpTriggerExtendedInfoCollection` false 인 경우이 플래그는 들어오는 요청에만 적용 되 고 들어오는 요청에는 적용 되지 않습니다. |
-| enableResponseHeaderInjection | true | 다중 구성 요소 상관 관계 헤더의 삽입을 응답으로 사용 하거나 사용 하지 않도록 설정 합니다. 주입을 사용 하도록 설정 하면 여러 개의 계측 키를 사용할 때 응용 프로그램을 구성 하 Application Insights 수 있습니다. 이 true 인 경우 `enableHttpTriggerExtendedInfoCollection` 기본적으로 사용 하도록 설정 됩니다. 가 false 인 경우 `enableHttpTriggerExtendedInfoCollection` 에는이 설정이 적용 되지 않습니다. |
+| enableW3CDistributedTracing | true | W3C 분산 추적 프로토콜을 지원 하거나 사용 하지 않도록 설정 하 고 레거시 상관 관계 스키마를 설정 합니다. 이 true 인 경우 기본적으로 사용 하도록 설정 `enableHttpTriggerExtendedInfoCollection` 됩니다. 이 `enableHttpTriggerExtendedInfoCollection` false 인 경우이 플래그는 들어오는 요청에만 적용 되 고 들어오는 요청에는 적용 되지 않습니다. |
+| enableResponseHeaderInjection | true | 다중 구성 요소 상관 관계 헤더의 삽입을 응답으로 사용 하거나 사용 하지 않도록 설정 합니다. 주입을 사용 하도록 설정 하면 여러 개의 계측 키를 사용할 때 응용 프로그램을 구성 하 Application Insights 수 있습니다. 이 true 인 경우 기본적으로 사용 하도록 설정 `enableHttpTriggerExtendedInfoCollection` 됩니다. 가 false 인 경우에는이 설정이 적용 되지 않습니다 `enableHttpTriggerExtendedInfoCollection` . |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>snapshotConfiguration
 
@@ -195,8 +195,8 @@ ms.locfileid: "82690896"
 | isExceptionSnappointsEnabled | false | 예외 필터링을 사용 하거나 사용 하지 않도록 설정 합니다. |
 | isLowPrioritySnapshotUploader | true | SnapshotUploader 프로세스를 보통 우선 순위로 실행할지 여부를 결정 합니다. |
 | Maximumcollection설계도 크기 | 50 | 1에서 9999 사이의 범위에서 언제 든 지 추적할 수 있는 최대 문제 수입니다. |
-| maximumSnapshotsRequired | 3 | 1 ~ 999 범위에서 단일 문제에 대해 수집 된 최대 스냅숏 수입니다. 응용 프로그램에서 개별 throw 문으로 문제를 생각할 수 있습니다. 문제에 대해 수집 된 스냅숏 수가이 값에 도달 하면 문제 카운터가 다시 설정 될 때까지 해당 문제에 대 한 스냅숏이 더 이상 수집 되지 `problemCounterResetInterval`않습니다 (참조 `thresholdForSnapshotting` ). 제한에 다시 도달 합니다. |
-| problemCounterResetInterval | 24:00:00 | 1 분에서 7 일 사이에 문제 카운터를 다시 설정 하는 빈도입니다. 이 간격에 도달 하면 모든 문제 수가 0으로 다시 설정 됩니다. 스냅숏 수행에 대 한 임계값에 이미 도달 했지만에서 `maximumSnapshotsRequired`스냅숏 수를 아직 생성 하지 않은 기존 문제는 활성 상태로 유지 됩니다. |
+| maximumSnapshotsRequired | 3 | 1 ~ 999 범위에서 단일 문제에 대해 수집 된 최대 스냅숏 수입니다. 응용 프로그램에서 개별 throw 문으로 문제를 생각할 수 있습니다. 문제에 대해 수집 된 스냅숏 수가이 값에 도달 하면 문제 카운터가 다시 설정 될 때까지 해당 문제에 대 한 스냅숏이 더 이상 수집 되지 않습니다 (참조 `problemCounterResetInterval` ) `thresholdForSnapshotting` . 제한에 다시 도달 합니다. |
+| problemCounterResetInterval | 24:00:00 | 1 분에서 7 일 사이에 문제 카운터를 다시 설정 하는 빈도입니다. 이 간격에 도달 하면 모든 문제 수가 0으로 다시 설정 됩니다. 스냅숏 수행에 대 한 임계값에 이미 도달 했지만에서 스냅숏 수를 아직 생성 하지 않은 기존 문제는 `maximumSnapshotsRequired` 활성 상태로 유지 됩니다. |
 | provideAnonymousTelemetry | true | 익명 사용 및 오류 원격 분석을 Microsoft로 보낼지 여부를 결정 합니다. Microsoft에 문의 하 여 스냅숏 디버거 문제를 해결 하는 데 도움이 되는 경우이 원격 분석을 사용할 수 있습니다. 사용 패턴을 모니터링 하는 데도 사용 됩니다. |
 | reconnectInterval | 00:15:00 | 스냅숏 디버거 끝점에 다시 연결 하는 빈도입니다. 허용 되는 범위는 1 분에서 1 일 사이입니다. |
 | shadowCopyFolder | null | 이진 파일을 섀도 복사 하는 데 사용할 폴더를 지정 합니다. 설정 하지 않은 경우 다음 환경 변수에 지정 된 폴더는 Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP 순서로 시도 됩니다. |
@@ -242,11 +242,16 @@ ms.locfileid: "82690896"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
+모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 
 
-프리미엄 계획에서 유효한 범위는 1 초에서 60 분 사이 이며 기본값은 30 분입니다.
+| 플랜 유형 | 기본값 (최소) | 최대 (분) |
+| -- | -- | -- |
+| Consumption | 5 | 10 |
+| 프리미엄<sup>1</sup> | 30 | -1 (제한 없음)<sup>2</sup> |
+| 전용 (App Service) | 30 | -1 (제한 없음)<sup>2</sup> |
 
-전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 30 분입니다. 값은 무제한 `-1` 실행을 의미 하지만 고정 상한을 유지 하는 것이 좋습니다.
+<sup>1</sup> 프리미엄 계획 실행은 60 분 동안에만 보장 되지만 기술적으로는 제한 되지 않습니다.   
+<sup>2</sup> 값은 `-1` 무제한 실행을 나타내지만 고정 상한을 유지 하는 것이 좋습니다.
 
 ```json
 {
@@ -331,7 +336,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ## <a name="manageddependency"></a>managedDependency
 
-관리 되는 종속성은 현재 PowerShell 기반 함수 에서만 지원 되는 기능입니다. 이를 통해 서비스에서 종속성을 자동으로 관리할 수 있습니다. `enabled` 속성이로 `true`설정 되 면 `requirements.psd1` 파일이 처리 됩니다. 부 버전이 릴리스되면 종속성이 업데이트 됩니다. 자세한 내용은 PowerShell 문서의 [관리 되는 종속성](functions-reference-powershell.md#dependency-management) 을 참조 하세요.
+관리 되는 종속성은 현재 PowerShell 기반 함수 에서만 지원 되는 기능입니다. 이를 통해 서비스에서 종속성을 자동으로 관리할 수 있습니다. `enabled`속성이로 설정 되 면 `true` `requirements.psd1` 파일이 처리 됩니다. 부 버전이 릴리스되면 종속성이 업데이트 됩니다. 자세한 내용은 PowerShell 문서의 [관리 되는 종속성](functions-reference-powershell.md#dependency-management) 을 참조 하세요.
 
 ```json
 {
@@ -379,7 +384,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 ## <a name="version"></a>버전
 
-이 값은 host-a의 스키마 버전을 나타냅니다. 버전 문자열 `"version": "2.0"` 은 v2 runtime 이상 버전을 대상으로 하는 함수 앱에 필요 합니다. V2와 v3 사이에는 호스트 json 스키마가 변경 되지 않습니다.
+이 값은 host.js의 스키마 버전을 나타냅니다. 버전 문자열은 `"version": "2.0"` v2 runtime 이상 버전을 대상으로 하는 함수 앱에 필요 합니다. V2와 v3 간의 스키마 변경에 대 한 host.js없습니다.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -391,11 +396,11 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-## <a name="override-hostjson-values"></a>호스트 json 값 재정의
+## <a name="override-hostjson-values"></a>값에 대 한 host.js재정의
 
-호스트 json 파일 자체를 변경 하지 않고 특정 환경에 대 한 특정 설정을 구성 하거나 수정 하려는 인스턴스가 있을 수 있습니다.  특정 호스트를 재정의할 수 있습니다. json 값은 응용 프로그램 설정으로 동일한 값을 만듭니다. 런타임에서 형식의 `AzureFunctionsJobHost__path__to__setting`응용 프로그램 설정을 찾으면 json `path.to.setting` 의에 있는 해당 하는 호스트나 json 설정을 재정의 합니다. 응용 프로그램 설정으로 표현 되는 경우 JSON 계층`.`을 나타내는 데 사용 되는 점 ()은 이중 밑줄 (`__`)로 대체 됩니다. 
+파일 자체에서 host.js를 변경 하지 않고 특정 환경에 대 한 host.js파일의 특정 설정을 구성 하거나 수정 하려는 인스턴스가 있을 수 있습니다.  값에 대 한 특정 host.js를 재정의 하 여 응용 프로그램 설정으로 해당 값을 만들 수 있습니다. 런타임에서 형식의 응용 프로그램 설정을 찾으면 `AzureFunctionsJobHost__path__to__setting` JSON의에 있는 설정에 대 한 해당 host.js을 재정의 합니다 `path.to.setting` . 응용 프로그램 설정으로 표현 되는 경우 `.` JSON 계층을 나타내는 데 사용 되는 점 ()은 이중 밑줄 ()로 대체 됩니다 `__` . 
 
-예를 들어 로컬로 실행할 때 응용 프로그램 정보 샘플링을 사용 하지 않도록 설정 하려는 경우를 가정해 보겠습니다. Application Insights를 사용 하지 않도록 로컬 호스트의 json 파일을 변경한 경우 배포 중에이 변경 내용이 프로덕션 앱에 푸시 될 수 있습니다. 이 작업을 수행 하는 보다 안전한 방법은 대신 `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` `local.settings.json` 파일에서로 응용 프로그램 설정을 만드는 것입니다. 다음 `local.settings.json` 파일에서이를 확인할 수 있습니다 .이 파일은 게시 되지 않습니다.
+예를 들어 로컬로 실행할 때 응용 프로그램 정보 샘플링을 사용 하지 않도록 설정 하려는 경우를 가정해 보겠습니다. 파일에서 로컬 host.js를 변경 하 여 Application Insights를 사용 하지 않도록 설정 하면 배포 중에이 변경 내용이 프로덕션 앱에 푸시 될 수 있습니다. 이 작업을 수행 하는 보다 안전한 방법은 대신 파일에서로 응용 프로그램 설정을 만드는 것입니다 `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` `local.settings.json` . 다음 파일에서이를 확인할 수 있습니다 `local.settings.json` .이 파일은 게시 되지 않습니다.
 
 ```json
 {

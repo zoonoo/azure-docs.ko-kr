@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 2d7f53862a30287460ca72297231da468514646b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298857"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
-논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 "글로벌" 다중 테넌트 Logic Apps 서비스와 별도로 유지되는 전용 스토리지 및 기타 리소스를 사용하는 격리된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 자체 고정 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스에서 논리 앱이 공유하는 고정 IP 주소와는 별개입니다.
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 "글로벌" 다중 테넌트 Logic Apps 서비스와 별도로 유지되는 전용 스토리지 및 기타 리소스를 사용하는 전용 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 자체 고정 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스에서 논리 앱이 공유하는 고정 IP 주소와는 별개입니다.
 
 ISE를 만들면 Azure는 ISE를 Azure 가상 네트워크에 삽입한 다음, Logic Apps 서비스를 가상 네트워크에 배포합니다. 논리 앱 또는 통합 계정을 만들 때 ISE를 해당 위치로 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다.
 
@@ -44,30 +44,38 @@ ISE는 [샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.co
   > [!IMPORTANT]
   > ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 가격 책정 플랜과 다른 가격 책정 플랜을 사용합니다. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
-* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다.
+* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위해 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 있어야 합니다. 각 서브넷은 ISE에서 사용되는 다른 Logic Apps 구성 요소를 지원합니다. 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
 
-  * 가상 네트워크에는 ISE에서 리소스를 만들고 배포하기 위해 빈 서브넷 4개가 있어야 합니다. 각 서브넷은 ISE에서 사용되는 다른 Logic Apps 구성 요소를 지원합니다. 이러한 서브넷을 미리 만들거나, 동시에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
-
-  * 서브넷 이름은 알파벳 문자 또는 밑줄로 시작해야 하며 다음 문자를 사용할 수 없습니다. `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
-  
-  * Azure Resource Manager 템플릿을 통해 ISE를 배포하려면 먼저 빈 서브넷 하나를 Microsoft.Logic/integrationServiceEnvironment에 위임해야 합니다. Azure Portal을 통해 배포할 때는 이런 위임을 수행할 필요가 없습니다.
+  > [!IMPORTANT]
+  >
+  > Azure Logic Apps에서 확인할 수 없기 때문에 가상 네트워크 또는 서브넷에 대해 다음 IP 주소 공간을 사용 하지 마세요.<p>
+  > 
+  > * 0.0.0.0/8
+  > * 100.64.0.0/10
+  > * 127.0.0.0/8
+  > * 168.63.129.16/32
+  > * 169.254.169.254/32
+  > 
+  > 서브넷 이름은 알파벳 문자 또는 밑줄로 시작해야 하며 다음 문자를 사용할 수 없습니다. `<`, `>`, `%`, `&`, `\\`, `?`, `/`. Azure Resource Manager 템플릿을 통해 ISE를 배포 하려면 먼저 빈 서브넷 하나를에 위임 해야 `Microsoft.Logic/integrationServiceEnvironment` 합니다. Azure Portal을 통해 배포할 때는 이런 위임을 수행할 필요가 없습니다.
 
   * ISE가 제대로 작동하고 액세스 가능한 상태를 유지할 수 있도록 가상 네트워크가 [ISE에 액세스할 수 있는지](#enable-access) 확인해야 합니다.
 
-  * [ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하면 온-프레미스 네트워크를 Microsoft Cloud로 확장하고, 연결 공급자가 제공하는 프라이빗 연결을 통해 Microsoft Cloud Services에 연결할 수 있습니다. 특히 ExpressRoute는 공용 인터넷 대신 개인 네트워크를 통해 트래픽을 라우팅하는 가상 사설망입니다. 논리 앱은 ExpressRoute 또는 가상 사설망을 통해 연결할 때 동일한 가상 네트워크에 있는 온-프레미스 리소스에 연결할 수 있습니다. 
-  
-    ExpressRoute를 사용하는 경우 다음 경로를 포함하는 [경로 테이블을 만든](../virtual-network/manage-route-table.md) 다음, 이 테이블을 ISE에서 사용하는 각 서브넷에 연결해야 합니다.
+  * 를 사용 하거나 [강제 터널링](../firewall/forced-tunneling.md)과 함께 [express](../expressroute/expressroute-introduction.md) 경로를 사용 하려면 다음과 같은 특정 경로를 사용 하 여 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) ISE에서 사용 하는 각 서브넷에 경로 테이블을 연결 해야 합니다.
 
     **이름**: <*경로-이름*><br>
     **주소 접두사**: 0.0.0.0/0<br>
     **다음 홉**: 인터넷
+    
+    Logic Apps 구성 요소가 Azure Storage 및 Azure SQL DB와 같은 다른 종속 Azure 서비스와 통신할 수 있도록이 특정 경로 테이블이 필요 합니다. 이 경로에 대 한 자세한 내용은 [0.0.0.0/0 주소 접두사](../virtual-network/virtual-networks-udr-overview.md#default-route)를 참조 하세요. Express 경로를 사용 하 여 강제 터널링을 사용 하지 않는 경우이 특정 경로 테이블이 필요 하지 않습니다.
+    
+    Express 경로를 사용 하면 온-프레미스 네트워크를 Microsoft 클라우드로 확장 하 고 연결 공급자가 촉진 하는 개인 연결을 통해 Microsoft 클라우드 서비스에 연결할 수 있습니다. 특히 Express 경로는 공용 인터넷을 통하지 않고 개인 네트워크를 통해 트래픽을 라우팅하는 가상 개인 네트워크입니다. 논리 앱은 Express 경로 또는 가상 개인 네트워크를 통해 연결할 때 동일한 가상 네트워크에 있는 온-프레미스 리소스에 연결할 수 있습니다.
+   
+  * [NVA (네트워크 가상 어플라이언스)](../virtual-network/virtual-networks-udr-overview.md#user-defined)를 사용 하는 경우 TLS/ssl 종료를 사용 하도록 설정 하거나 아웃 바운드 TLS/ssl 트래픽을 변경 하지 않도록 해야 합니다. 또한 ISE의 서브넷에서 발생 하는 트래픽에 대 한 검사를 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [가상 네트워크 트래픽 라우팅](../virtual-network/virtual-networks-udr-overview.md)을 참조 하세요.
 
-    경로 테이블은 Logic Apps 구성 요소가 Azure Storage 및 Azure SQL DB와 같은 다른 종속 Azure 서비스와 통신하는 데 필요합니다.
+  * Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용하려면 ISE를 가상 네트워크에 배포하기 전에 [다음 단계에 따라 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)합니다. DNS 서버 설정 관리에 대한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](../virtual-network/manage-virtual-network.md#change-dns-servers)를 참조하세요.
 
-* Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용하려면 ISE를 가상 네트워크에 배포하기 전에 [다음 단계에 따라 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)합니다. DNS 서버 설정 관리에 대한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](../virtual-network/manage-virtual-network.md#change-dns-servers)를 참조하세요.
-
-  > [!NOTE]
-  > DNS 서버나 DNS 서버 설정을 변경하면 ISE에 변경 내용이 적용될 수 있도록 ISE를 다시 시작해야 합니다. 자세한 내용은 [ISE 다시 시작](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE)을 참조하세요.
+    > [!NOTE]
+    > DNS 서버 또는 DNS 서버 설정을 변경 하는 경우 ISE에서 해당 변경 내용을 선택할 수 있도록 ISE를 다시 시작 해야 합니다. 자세한 내용은 [ISE 다시 시작](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE)을 참조하세요.
 
 <a name="enable-access"></a>
 
@@ -128,6 +136,12 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 | 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383 및 **메모** 참조| ISE가 Azure Cache for Redis와 작동하려면 [Azure Cache for Redis FAQ 설명에 있는 아웃바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
 |||||||
 
+또한 [ASE (App Service Environment)](../app-service/environment/intro.md)에 대 한 아웃 바운드 규칙을 추가 해야 합니다.
+
+* Azure 방화벽을 사용 하는 경우 ASE 플랫폼 트래픽에 대 한 아웃 바운드 액세스를 허용 하는 ASE (App Service Environment) [FQDN (정규화 된 도메인 이름) 태그](../firewall/fqdn-tags.md#current-fqdn-tags)를 사용 하 여 방화벽을 설정 해야 합니다.
+
+* Azure 방화벽 이외의 방화벽 어플라이언스를 사용 하는 경우 App Service Environment에 필요한 [방화벽 통합 종속성](../app-service/environment/firewall-integration.md#dependencies) 에 나열 된 *모든* 규칙을 사용 하 여 방화벽을 설정 해야 합니다.
+
 <a name="create-environment"></a>
 
 ## <a name="create-your-ise"></a>ISE 만들기
@@ -167,7 +181,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    * [CIDR(Classless Inter-Domain Routing) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용합니다.
 
-   * 각 서브넷에 주소 32개가 필요하기 때문에 주소 공간에 `/27`을 사용합니다. 예를 들어, `10.0.0.0/27`에는 주소가 32개 있습니다.2<sup>(32-27)</sup>은 2<sup>5</sup> 또는 32이기 때문입니다. 주소가 더 많아도 이점은 없습니다.  주소 계산에 대해 자세히 알아보려면 [IPv4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)을 참조하세요.
+   * 각 서브넷에 주소 32개가 필요하기 때문에 주소 공간에 `/27`을 사용합니다. 예를 들어, `10.0.0.0/27`에는 주소가 32개 있습니다.2<sup>(32-27)</sup>은 2<sup>5</sup> 또는 32이기 때문입니다. 주소가 더 많아도 이점은 없습니다. 주소 계산에 대해 자세히 알아보려면 [IPv4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)을 참조하세요.
 
    * [ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하는 경우 다음 경로를 포함하는 [경로 테이블을 만든](../virtual-network/manage-route-table.md) 다음, 이 테이블을 ISE에서 사용하는 각 서브넷과 연결해야 합니다.
 
@@ -214,7 +228,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    그렇지 않으면, 배포 문제 해결에 대한 Azure Portal 지침을 따릅니다.
 
    > [!NOTE]
-   > 배포가 실패하거나 ISE를 삭제하는 경우 Azure에서 서브넷을 릴리스하기까지 최대 1시간이 걸릴 수 있습니다. 이렇게 지연되면 다른 ISE에서 해당 서브넷을 다시 사용하기 전에 대기해야 할 수도 있습니다.
+   > 배포가 실패 하거나 ISE를 삭제 하는 경우에는 서브넷을 해제 하기 전에 Azure에서 최대 한 시간이 걸릴 수 있습니다. 따라서 다른 ISE에서 해당 서브넷을 다시 사용 하려면 먼저 기다려야 할 수 있습니다.
    >
    > 가상 네트워크를 삭제하면 Azure에서 서브넷이 해제되기까지 일반적으로 최대 2시간이 걸리지만 더 오래 걸릴 수도 있습니다. 
    > 가상 네트워크를 삭제할 때는 그 때까지 연결된 리소스가 없는지 확인해야 합니다. 

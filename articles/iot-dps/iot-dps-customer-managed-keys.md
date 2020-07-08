@@ -8,20 +8,21 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: b065135715868094b7e248aebfca35f3b55a4c48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77675144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298228"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>장치 프로 비전 서비스에 대 한 고객 관리 키를 사용 하 여 미사용 데이터 암호화
 
 ## <a name="overview"></a>개요
 
-DPS (장치 프로 비전 서비스)는 CMK (고객이 관리 하는 키)를 사용 하 여 미사용 데이터의 암호화를 지원 합니다 (BYOK). DPS는 미사용 데이터 및 전송 중인 데이터의 암호화를 제공 합니다. 기본적으로 DPS는 Microsoft 관리 키를 사용 하 여 데이터를 암호화 합니다. CMK 지원을 통해 고객은 이제 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용 하 여 고객이 관리 하는 키 암호화 키를 사용 하 여 미사용 데이터를 암호화 하도록 선택할 수 있습니다.
+DPS (장치 프로 비전 서비스)는 CMK (고객이 관리 하는 키)를 사용 하 여 미사용 데이터의 암호화를 지원 합니다 (BYOK). DPS는 데이터 센터에 기록 된 대로 미사용 데이터 및 전송 중인 데이터의 암호화를 제공 하 고 사용자가 액세스할 때 암호를 해독 합니다. 기본적으로 DPS는 Microsoft 관리 키를 사용 하 여 미사용 데이터를 암호화 합니다. CMK를 사용 하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 통해 관리 되는 키 암호화 키를 사용 하 여 미사용 데이터를 암호화 하도록 선택 하 여 기본 플랫폼 암호화 위에 추가 암호화 계층을 사용할 수 있습니다. 이렇게 하면 키를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있는 유연성을 제공 합니다. DPS에 대해 CMK가 구성 된 경우 데이터를 보호 하는 두 계층의 보호를 사용 하 여 이중 암호화를 사용 하도록 설정 하는 것을 의미 합니다. 
 
-이 기능을 사용 하려면 미국 동부, 미국 서 부 2 또는 남부 중부 미국 중 한 곳에 새 DPS를 만들어야 합니다. 이 기능을 사용해 보려면 [Microsoft 지원](https://azure.microsoft.com/support/create-ticket/)에 문의 하세요. Microsoft 지원에 문의할 때 회사 이름 및 구독 ID를 공유 하세요.
+이 기능을 사용 하려면 새 DPS를 만들어야 합니다. 이 기능을 사용해 보려면 [Microsoft 지원](https://azure.microsoft.com/support/create-ticket/)에 문의 하세요. Microsoft 지원에 문의할 때 회사 이름 및 구독 ID를 공유 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

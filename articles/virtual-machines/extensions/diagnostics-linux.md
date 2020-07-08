@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: HT
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298959"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -74,7 +74,12 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 
 ### <a name="sample-installation"></a>샘플 설치
 
-실행하기 전에 첫 번째 섹션의 변수에 올바른 값을 입력합니다.
+> [!NOTE]
+> 샘플 중 하나에 대해 실행 하기 전에 첫 번째 섹션의 변수에 올바른 값을 입력 합니다. 
+
+이 예제에서 다운로드된 샘플 구성은 표준 데이터 집합을 수집하고 이를 테이블 스토리지로 보냅니다. 샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 대부분의 경우, 포털 설정 JSON 파일을 다운로드하고 필요에 따라 수정하면 매번 해당 URL을 다운로드하지 않고도 구성한 템플릿 또는 자동화에서 구성 파일의 사용자 지정 버전을 사용합니다.
+
+#### <a name="azure-cli-sample"></a>Azure CLI 샘플
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-이 예제에서 다운로드된 샘플 구성은 표준 데이터 집합을 수집하고 이를 테이블 스토리지로 보냅니다. 샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 대부분의 경우, 포털 설정 JSON 파일을 다운로드하고 필요에 따라 수정하면 매번 해당 URL을 다운로드하지 않고도 구성한 템플릿 또는 자동화에서 구성 파일의 사용자 지정 버전을 사용합니다.
 
 #### <a name="powershell-sample"></a>PowerShell 샘플
 
@@ -439,6 +442,9 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 
 로그 파일의 캡처를 제어합니다. LAD는 파일에 작성된 새 텍스트 줄을 캡처하여 테이블 행 및/또는 지정된 싱크(JsonBlob 또는 EventHub)에 기록합니다.
 
+> [!NOTE]
+> fileLogs는 라는 하위 구성 요소에 의해 캡처됩니다 `omsagent` . FileLogs를 수집 하려면 `omsagent` 사용자에 게 지정한 파일에 대 한 읽기 권한과 해당 파일에 대 한 경로의 모든 디렉터리에 대 한 실행 권한이 있는지 확인 해야 합니다. `sudo su omsagent -c 'cat /path/to/file'`을 (를) 설치한 후를 실행 하 여이를 확인할 수 있습니다.
+
 ```json
 "fileLogs": [
     {
@@ -451,7 +457,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 
 요소 | 값
 ------- | -----
-파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
+파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다. ' Omsagent ' 사용자 계정에는 파일 경로에 대 한 읽기 권한이 있어야 합니다.
 테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
@@ -564,23 +570,36 @@ WriteBytesPerSecond | 초당 쓴 바이트 수
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>CLI를 통해 LAD 3.0 설치 및 구성
+## <a name="installing-and-configuring-lad-30"></a>3.0 설치 및 구성
 
-PrivateConfig.json 파일에 보호 설정이 있고 PublicConfig.json에 공용 구성 정보가 있다고 가정하고 다음 명령을 실행합니다.
+### <a name="azure-cli"></a>Azure CLI
+
+보호 된 설정이 ProtectedSettings.js파일에 있고 공용 구성 정보가 PublicSettings.js에 있는 경우 다음 명령을 실행 합니다.
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-명령은 Azure CLI의 Azure 리소스 관리 모드(arm)를 사용한다고 가정합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](https://docs.microsoft.com/azure/xplat-cli-connect)를 참조하세요.
+이 명령은 Azure CLI의 ARM (Azure 리소스 관리) 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](https://docs.microsoft.com/azure/xplat-cli-connect)를 참조하세요.
+
+### <a name="powershell"></a>PowerShell
+
+보호 된 설정이 `$protectedSettings` 변수에 있고 공용 구성 정보가 변수에 있는 경우 `$publicSettings` 다음 명령을 실행 합니다.
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>LAD 3.0 구성 예제
 
 이전 정의를 기반으로 몇 가지 설명이 포함된 샘플 LAD 3.0 확장 구성이 나와 있습니다. 이 샘플을 사례에 적용하려면 사용자 고유의 스토리지 계정 이름, 계정 SAS 토큰 및 EventHubs SAS 토큰을 사용해야 합니다.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> Azure CLI 또는 PowerShell을 사용 하 여를 설치 하는지 여부에 따라 공개 및 보호 된 설정을 제공 하는 방법은 서로 다릅니다. Azure CLI 사용 하는 경우 위의 샘플 명령과 함께 사용 하려면 다음 설정을 ProtectedSettings.js설정 하 고 PublicSettings.js합니다. PowerShell을 사용 하는 경우를 실행 하 여 및에 설정을 저장 `$protectedSettings` `$publicSettings` `$protectedSettings = '{ ... }'` 합니다.
 
-프라이빗 설정은 다음을 구성합니다.
+### <a name="protected-settings"></a>보호 설정
+
+다음 보호 된 설정 구성:
 
 * 스토리지 계정
 * 일치하는 계정 SAS 토큰
@@ -628,7 +647,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>공용 설정
 
 공용 설정으로 LAD는 다음을 수행합니다.
 

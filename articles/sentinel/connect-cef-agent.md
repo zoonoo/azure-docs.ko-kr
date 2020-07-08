@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a8b97e5bef57b29f388c86628f0af5d05e1724a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298993"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "81731652"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
-- Linux 컴퓨터에 python이 설치 되어 있어야 합니다.<br>`python -version` 명령을 사용 하 여 확인 합니다.
+- Linux 컴퓨터에 python이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
 - Log Analytics 에이전트를 설치 하기 전에 Linux 컴퓨터가 Azure 작업 영역에 연결 되어 있지 않아야 합니다.
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
@@ -69,13 +69,13 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
 1. **Syslog 디먼 구성:**
 
-    1. Syslog 구성 파일 `/etc/rsyslog.conf`을 사용 하 여 TCP 통신용 포트 514를 엽니다.
+    1. Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/rsyslog.conf` .
 
-    1. Syslog 디먼 디렉터리 `security-config-omsagent.conf` `/etc/rsyslog.d/`에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 합니다.
+    1. Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/rsyslog.d/` 합니다.
 
-        `security-config-omsagent.conf` 파일의 내용:
+        파일의 내용 `security-config-omsagent.conf` :
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
 1. **Syslog 데몬 다시 시작**
@@ -101,11 +101,11 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
 1. **Syslog 디먼 구성:**
 
-    1. Syslog 구성 파일 `/etc/syslog-ng/syslog-ng.conf`을 사용 하 여 TCP 통신용 포트 514를 엽니다.
+    1. Syslog 구성 파일을 사용 하 여 TCP 통신용 포트 514를 엽니다 `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Syslog 디먼 디렉터리 `security-config-omsagent.conf` `/etc/syslog-ng/conf.d/`에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 합니다.
+    1. Syslog 디먼 디렉터리에 특수 구성 파일을 삽입 하 여 CEF 메시지를 TCP 포트 25226의 Log Analytics 에이전트로 전달 하도록 디먼을 구성 `security-config-omsagent.conf` `/etc/syslog-ng/conf.d/` 합니다.
 
-        `security-config-omsagent.conf` 파일의 내용:
+        파일의 내용 `security-config-omsagent.conf` :
 
             filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
             destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};

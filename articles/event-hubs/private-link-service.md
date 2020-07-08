@@ -1,18 +1,14 @@
 ---
 title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312822"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Azure Private Link와 Azure Event Hubs 통합
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -22,7 +18,7 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 기능은 **전용** 계층에서만 지원됩니다. 전용 계층에 대한 자세한 내용은 [Event Hubs Dedicated 개요](event-hubs-dedicated-overview.md)를 참조하세요. 
+> 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원 됩니다. 
 
 >[!WARNING]
 > 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.
@@ -62,7 +58,7 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 2. 검색 표시줄에 **event hubs**를 입력합니다.
 3. 목록에서 프라이빗 엔드포인트를 추가하려는 **네임스페이스**를 선택합니다.
 4. **설정** 아래에서 **네트워킹** 탭을 선택합니다.
-5. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. Event Hubs 전용 계층을 사용하지 않는 경우 다음과 같은 메시지가 표시됩니다. **Event Hubs의 프라이빗 엔드포인트 연결은 전용 클러스터에서 만든 네임스페이스에서만 지원됩니다**.
+5. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 
 6. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
 
     ![이미지](./media/private-link-service/private-link-service-3.png)
@@ -70,8 +66,8 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
     1. 프라이빗 엔드포인트를 만들려는 **Azure 구독**을 선택합니다. 
     2. 프라이빗 엔드포인트 리소스에 대한 **리소스 그룹**을 선택합니다.
     3. 프라이빗 엔드포인트에 대한 **이름**을 입력합니다. 
-    5. 프라이빗 엔드포인트에 대한 **지역**을 선택합니다. 프라이빗 엔드포인트는 가상 네트워크와 동일한 영역에 있어야 하지만 연결할 Private Link 리소스와 다른 영역에 있을 수 있습니다. 
-    6. 완료되면 **다음: 태그 >** 단추(페이지 맨 아래)를 선택합니다.
+    5. 프라이빗 엔드포인트에 대한 **지역**을 선택합니다. 프라이빗 엔드포인트는 가상 네트워크와 동일한 영역에 있어야 하지만 연결할 프라이빗 링크 리소스와 다른 영역에 있을 수 있습니다. 
+    6. 완료되면 **다음: 리소스 >** 단추(페이지 맨 아래)를 선택합니다.
 
         ![프라이빗 엔드포인트 만들기 - 기본 페이지](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. **리소스** 페이지에서 다음 단계를 수행합니다.
@@ -80,14 +76,14 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
         2. **리소스 종류**의 경우 **리소스 종류**에 대한 **Microsoft.EventHub/네임스페이스**를 선택합니다.
         3. **리소스**의 경우 드롭다운 목록에서 Event Hubs 네임스페이스를 선택합니다. 
         4. **대상 하위 리소스**가 **네임스페이스**로 설정되어 있는지 확인합니다.
-        5. 완료되면 **다음: 구성 >** 단추(페이지 맨 아래)를 선택합니다. 
+        5. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
         
             ![프라이빗 엔드포인트 만들기 - 리소스 페이지](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. **리소스 ID 또는 별칭으로 Azure 리소스에 연결**을 선택하는 경우 다음 단계를 수행합니다.
         1. **리소스 ID** 또는 **별칭**을 입력합니다. 다른 사람과 공유한 리소스 ID 또는 별칭일 수 있습니다. 리소스 ID를 가져오는 가장 쉬운 방법은 Azure Portal에서 Event Hubs 네임스페이스로 이동하여 `/subscriptions/`부터 URI의 일부를 복사하는 것입니다. 예를 보려면 다음 이미지를 참조하세요. 
         2. **대상 하위 리소스**에 **namespace**를 입력합니다. 프라이빗 엔드포인트에서 액세스할 수 있는 하위 리소스의 형식입니다.
         3. (선택 사항) **요청 메시지**를 입력합니다. 리소스 소유자는 프라이빗 엔드포인트 연결을 관리하는 동안 이 메시지를 확인합니다.
-        4. 그런 다음, **다음: 구성 >** 단추(페이지 맨 아래)를 선택합니다.
+        4. 그런 다음, **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다.
 
             ![프라이빗 엔드포인트 만들기 - 리소스 ID를 사용하여 연결](./media/private-link-service/connect-resource-id.png)
 9. **구성** 페이지에서 프라이빗 엔드포인트를 배포하려는 가상 네트워크의 서브넷을 선택합니다. 
@@ -234,7 +230,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 1. 프라이빗 엔드포인트 연결을 제거하려면 목록에서 해당 연결을 선택하고 도구 모음에서 **제거**를 선택합니다.
 2. **연결 삭제** 페이지에서 **예**를 선택하여 프라이빗 엔드포인트의 삭제를 확인합니다. **아니요**를 선택하면 아무 작업도 수행되지 않습니다.
-3. 상태가 **연결 끊김**으로 변경되어 있어야 합니다. 그런 다음 엔드포인트가 목록에서 사라지게 됩니다.
+3. 상태가 **연결 끊김**으로 변경되어 있어야 합니다. 그러면 엔드포인트가 목록에서 사라지게 됩니다.
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
 

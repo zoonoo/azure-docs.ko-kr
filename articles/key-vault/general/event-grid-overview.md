@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85296341"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)
 
-Event Grid와 Key Vault 통합은 현재 미리 보기로 제공됩니다. Key Vault에 저장된 비밀의 상태가 변경되었을 때 사용자에게 알릴 수 있습니다. 상태 변경은 만료되려고 하는 비밀(30일 이내), 만료된 비밀 또는 사용 가능한 새 버전이 있는 비밀로 정의됩니다. 세 가지 비밀 유형(키, 인증서 및 비밀)에 대한 알림이 모두 지원됩니다.
+Event Grid와 Key Vault 통합은 현재 미리 보기로 제공됩니다. Key Vault에 저장된 비밀의 상태가 변경되었을 때 사용자에게 알릴 수 있습니다. 상태 변경은 만료 되기까지 30 일이 지나면 만료 되는 암호 또는 만료 된 암호 또는 새 버전을 사용할 수 있는 암호로 정의 됩니다. 세 가지 비밀 유형(키, 인증서 및 비밀)에 대한 알림이 모두 지원됩니다.
 
 애플리케이션은 복잡한 코드나 고가의 비효율적인 폴링 서비스 없이도 최신 서버리스 아키텍처를 사용하여 이러한 이벤트에 대응할 수 있습니다. 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 이벤트 처리기로 푸시되거나 Webhook으로도 푸시되며, 요금은 사용한 만큼만 청구됩니다. 가격 책정에 대한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조하세요.
 
@@ -42,7 +42,7 @@ Key Vault 이벤트를 처리하는 애플리케이션은 다음에 권장되는
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault 개요](overview.md))
+- [Azure Key Vault 개요](overview.md)
 - [Azure Event Grid 개요](../../event-grid/overview.md)
 - 방법: [Automation Runbook으로 Key Vault 이벤트 라우팅 (미리 보기)](event-grid-tutorial.md)
 - 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](event-grid-logicapps.md)

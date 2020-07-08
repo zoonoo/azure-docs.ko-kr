@@ -3,15 +3,16 @@ title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
 description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 마스터를 구성 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: a07ab3f65fcdeacf37626ad05d0b95ac3f4e7e64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263671"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
 
@@ -55,9 +56,27 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-async-sdk"></a><a id="java"></a>Java 비동기 SDK
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> Java V4 SDK
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `policy.setUsingMultipleWriteLocations(true)`를 설정하고 `policy.setPreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
+응용 프로그램에서 다중 마스터를 사용 하도록 설정 하려면 `.multipleWriteRegionsEnabled(true)` `.preferredRegions(preferredRegions)` 클라이언트 작성기에서 및를 호출 합니다 `preferredRegions` . 여기서는 `List` 응용 프로그램이 배포 되는 영역인 Cosmos DB 복제 되는 영역인 하나의 요소를 포함 하는입니다.
+
+# <a name="async"></a>[Async](#tab/api-async)
+
+   [Java SDK V4](sql-api-sdk-java-v4.md)(Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ConfigureMultimasterAsync)]
+
+# <a name="sync"></a>[동기화](#tab/api-sync)
+
+   [Java SDK V4](sql-api-sdk-java-v4.md)(Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ConfigureMultimasterSync)]
+
+--- 
+
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a>Async Java V2 SDK
+
+Java V2 SDK는 Maven [:: azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)를 사용 했습니다. 애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `policy.setUsingMultipleWriteLocations(true)`를 설정하고 `policy.setPreferredLocations`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 설정합니다.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();

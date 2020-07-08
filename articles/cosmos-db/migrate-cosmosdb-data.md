@@ -1,18 +1,18 @@
 ---
 title: 수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션
 description: 이 문서에서는 Cosmos DB로 100 테라바이트의 데이터를 마이그레이션하는 방법에 대해 설명 합니다.
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.author: bharathb
-ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72880215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263547"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 
@@ -45,7 +45,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 다음 이미지는이 사용자 지정 도구를 사용 하는 마이그레이션 프로세스를 설명 합니다. 이 도구는 가상 머신 집합에서 실행 되 고 있으며 각 가상 머신은 Azure Cosmos DB의 추적 컬렉션을 쿼리하여 원본 데이터 파티션 중 하나에 대 한 임대를 획득 합니다. 이 작업이 완료 되 면 도구에서 원본 데이터 파티션을 읽고 대량 실행자 라이브러리를 사용 하 여 Azure Cosmos DB에 수집. 그런 다음, 데이터 수집의 진행률과 발생 한 오류를 기록 하도록 추적 컬렉션이 업데이트 됩니다. 데이터 파티션이 처리 된 후이 도구는 사용 가능한 다음 원본 파티션에 대 한 쿼리를 시도 합니다. 모든 데이터가 마이그레이션될 때까지 계속 해 서 다음 원본 파티션을 처리 합니다. 이 도구에 대 한 소스 코드는 [여기](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)에서 사용할 수 있습니다.  
 
  
-![마이그레이션 도구 설치](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="마이그레이션 도구 설치" border="false":::
  
 
  
@@ -145,7 +145,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 ## <a name="contact-the-azure-cosmos-db-team"></a>Azure Cosmos DB 팀에 문의
 이 가이드를 따라 대규모 마이그레이션에 대해 대규모 데이터 집합을 Azure Cosmos DB로 마이그레이션할 수 있지만, Azure Cosmos DB 제품 팀에 연락 하 여 데이터 모델링 및 일반 아키텍처 검토의 유효성을 검사 하는 것이 좋습니다. 제품 팀은 데이터 집합 및 워크 로드에 따라 사용자에 게 적용할 수 있는 다른 성능 및 비용 최적화를 제안할 수도 있습니다. 대규모 마이그레이션에 대 한 지원을 위해 Azure Cosmos DB 팀에 문의 하려면 아래와 같이 "일반 권고" 문제 유형 및 "큼 (TB +) 마이그레이션" 문제 하위 유형 아래에서 지원 티켓을 열 수 있습니다.
 
-![마이그레이션 지원 항목](./media/migrate-cosmosdb-data/supporttopic.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="마이그레이션 지원 항목":::
 
 
 ## <a name="next-steps"></a>다음 단계

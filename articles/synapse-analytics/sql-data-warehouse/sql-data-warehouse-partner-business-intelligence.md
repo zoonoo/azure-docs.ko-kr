@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85299333"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -44,6 +44,6 @@ Azure Synapse 내에서 Synapse SQL 풀을 사용하여 완전한 데이터 웨�
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>다음 단계
-다른 파트너에 대해 알아보려면 [데이터 통합 파트너](sql-data-warehouse-partner-data-integration.md) 및 [데이터 관리 파트너](sql-data-warehouse-partner-data-management.md)를 참조하세요.
+다른 파트너에 대해 자세히 알아보려면 [데이터 통합 파트너](sql-data-warehouse-partner-data-integration.md), [데이터 관리 파트너](sql-data-warehouse-partner-data-management.md) 및 [Machine Learning 및 AI 파트너](sql-data-warehouse-partner-machine-learning-ai.md)를 참조 하세요.
 
  

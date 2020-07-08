@@ -5,17 +5,18 @@ description: AutoMLStep를 사용 하면 파이프라인에서 자동화 된 mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
-ms.openlocfilehash: 9bf17512d0b14c7106101d98598e2914020afc7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/15/2020
+ms.custom: tracking-python
+ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298245"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,15 +33,15 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 ## <a name="review-automated-mls-central-classes"></a>자동화 된 ML의 중앙 클래스 검토
 
-파이프라인의 자동화 된 ML은 `AutoMLStep` 개체로 표시 됩니다. `AutoMLStep` 클래스는 `PipelineStep`의 서브클래스입니다. 개체의 `PipelineStep` 그래프는를 `Pipeline`정의 합니다.
+파이프라인의 자동화 된 ML은 개체로 표시 됩니다 `AutoMLStep` . `AutoMLStep` 클래스는 `PipelineStep`의 서브클래스입니다. 개체의 그래프는 `PipelineStep` 를 정의 `Pipeline` 합니다.
 
-에 `PipelineStep`는 여러 개의 하위 클래스가 있습니다. 외 `AutoMLStep`에도이 문서에서는 데이터 준비 및 모델 `PythonScriptStep` 등록을 위한을 보여 줍니다.
+에는 여러 개의 하위 클래스가 있습니다 `PipelineStep` . 외에도 `AutoMLStep` 이 문서에서는 `PythonScriptStep` 데이터 준비 및 모델 등록을 위한을 보여 줍니다.
 
-처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체 `Dataset` 를 사용 하는 것입니다. 단계 _간에_ 데이터를 이동 하려면 개체를 사용 `PipelineData` 하는 것이 좋습니다. 에서 사용 `AutoMLStep`하려면 `PipelineData` 개체를 `PipelineOutputTabularDataset` 개체로 변환 해야 합니다. 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
+처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체를 사용 하는 것입니다 `Dataset` . 단계 _간에_ 데이터를 이동 하려면 개체를 사용 하는 것이 좋습니다 `PipelineData` . 에서 사용 하려면 `AutoMLStep` `PipelineData` 개체를 개체로 변환 해야 합니다 `PipelineOutputTabularDataset` . 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
 
-는 `AutoMLStep` `AutoMLConfig` 개체를 통해 구성 됩니다. `AutoMLConfig`는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings)에 설명 된 대로 유연한 클래스입니다. 
+는 `AutoMLStep` 개체를 통해 구성 됩니다 `AutoMLConfig` . `AutoMLConfig`는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings)에 설명 된 대로 유연한 클래스입니다. 
 
-는 `Pipeline` 에서 실행 됩니다 `Experiment`. 파이프라인 `Run` 에는 각 단계에 대 한 자식 `StepRun`가 있습니다. 자동화 된 ML `StepRun` 의 출력은 학습 메트릭과 최고 성능의 모델입니다.
+는 `Pipeline` 에서 실행 됩니다 `Experiment` . 파이프라인에는 `Run` 각 단계에 대 한 자식가 있습니다 `StepRun` . 자동화 된 ML의 출력은 `StepRun` 학습 메트릭과 최고 성능의 모델입니다.
 
 구체적으로 설명 하기 위해이 문서에서는 분류 태스크에 대 한 간단한 파이프라인을 만듭니다. 이 태스크는 Titanic을 예측 하 고 있지만, 전달 하는 것을 제외 하 고 데이터 또는 태스크에 대해서는 다루지 않습니다.
 
@@ -68,7 +69,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-이 코드는 먼저 **config.xml** 에 정의 된 Azure Machine Learning 작업 영역에 로그인 합니다. 설명은 [자습서: Python SDK를 사용 하 여 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 참조 하세요. `'titanic_ds'` 등록 된 데이터 집합이 아직 없는 경우 새로 만듭니다. 이 코드는 웹에서 CSV 데이터를 다운로드 하 고이를 사용 `TabularDataset` 하 여를 인스턴스화한 다음 작업 영역에 데이터 집합을 등록 합니다. 마지막으로 함수 `Dataset.get_by_name()` 는 `Dataset` 를에 `titanic_ds`할당 합니다. 
+코드는 먼저 **config.js** 에 정의 된 Azure Machine Learning 작업 영역에 로그인 합니다. 설명은 [자습서: Python SDK를 사용 하 여 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 참조 하세요. 등록 된 데이터 집합이 아직 없는 경우 `'titanic_ds'` 새로 만듭니다. 이 코드는 웹에서 CSV 데이터를 다운로드 하 고이를 사용 하 여를 인스턴스화한 `TabularDataset` 다음 작업 영역에 데이터 집합을 등록 합니다. 마지막으로 함수는 `Dataset.get_by_name()` `Dataset` 를에 할당 합니다 `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>저장소 및 계산 대상 구성
 
@@ -97,31 +98,40 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
-데이터 준비와 자동 ML 단계 사이의 중간 데이터를 작업 영역의 기본 데이터 저장소에 저장할 수 있으므로 `get_default_datastore()` `Workspace` 개체에 대해 호출 하는 것 보다 더 많은 작업을 수행할 필요가 없습니다. 
+데이터 준비와 자동 ML 단계 사이의 중간 데이터를 작업 영역의 기본 데이터 저장소에 저장할 수 있으므로 개체에 대해 호출 하는 것 보다 더 많은 작업을 수행할 필요가 없습니다 `get_default_datastore()` `Workspace` . 
 
-그런 다음, 코드는 AML 계산 대상이 `'cpu-cluster'` 이미 있는지 여부를 확인 합니다. 그렇지 않은 경우에는 작은 CPU 기반 계산 대상이 필요 하도록 지정 합니다. 자동화 된 ML의 심층 학습 기능 (예를 들어 DNN를 지 원하는 텍스트 기능화)을 사용 하려는 경우 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)에 설명 된 대로 강력한 gpu를 지 원하는 계산을 선택 해야 합니다. 
+그런 다음, 코드는 AML 계산 대상이 이미 있는지 여부를 확인 합니다 `'cpu-cluster'` . 그렇지 않은 경우에는 작은 CPU 기반 계산 대상이 필요 하도록 지정 합니다. 자동화 된 ML의 심층 학습 기능 (예를 들어 DNN를 지 원하는 텍스트 기능화)을 사용 하려는 경우 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)에 설명 된 대로 강력한 gpu를 지 원하는 계산을 선택 해야 합니다. 
 
-이 코드는 대상이 프로 비전 될 때까지 차단한 다음, 위에서 만든 계산 대상의 세부 정보를 인쇄 합니다. 마지막으로, 명명 된 계산 대상이 작업 영역에서 검색 되 고에 `compute_target`할당 됩니다. 
+이 코드는 대상이 프로 비전 될 때까지 차단한 다음, 위에서 만든 계산 대상의 세부 정보를 인쇄 합니다. 마지막으로, 명명 된 계산 대상이 작업 영역에서 검색 되 고에 할당 됩니다 `compute_target` . 
 
 ### <a name="configure-the-training-run"></a>학습 실행 구성
 
-다음 단계는 원격 학습 실행에 학습 단계에 필요한 모든 종속성이 있는지 확인 하는 것입니다. 개체를 `RunConfiguration` 만들고 구성 하 여 종속성 및 런타임 컨텍스트를 설정 합니다. 
+다음 단계는 원격 학습 실행에 학습 단계에 필요한 모든 종속성이 있는지 확인 하는 것입니다. 개체를 만들고 구성 하 여 종속성 및 런타임 컨텍스트를 설정 `RunConfiguration` 합니다. 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+위의 코드는 종속성을 처리 하는 두 가지 옵션을 보여 줍니다. 에서 설명한 대로 `USE_CURATED_ENV = True` 구성은 큐 레이트 환경을 기반으로 합니다. 큐 레이트 환경은 일반적인 상호 종속 라이브러리를 포함 하는 "prebaked" 이며 온라인으로 전환 하는 데 훨씬 더 빠르게 수행할 수 있습니다. 큐 레이트 환경은 [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner)에 미리 빌드된 Docker 이미지를 포함 합니다. 로 변경 하면 `USE_CURATED_ENV` `False` 종속성을 명시적으로 설정 하는 패턴이 표시 됩니다. 이 시나리오에서는 새 사용자 지정 Docker 이미지가 만들어지고 리소스 그룹 내의 Azure Container Registry에 등록 됩니다 ( [Azure의 개인 Docker 컨테이너 레지스트리 소개](https://docs.microsoft.com/azure/container-registry/container-registry-intro)참조). 이 이미지를 빌드하고 등록 하려면 몇 분 정도 걸릴 수 있습니다. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>자동화 된 기계 학습을 위한 데이터 준비
 
@@ -133,7 +143,7 @@ aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
 - 범주 데이터를 정수로 변환
 - 사용 하지 않으려는 열 삭제
 - 학습 및 테스트 집합으로 데이터 분할
-- `PipelineData` 출력 경로에 변환 된 데이터를 씁니다.
+- 출력 경로에 변환 된 데이터를 씁니다. `PipelineData`
 
 ```python
 %%writefile dataprep.py
@@ -201,17 +211,17 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 위의 코드 조각은 Titanic 데이터에 대 한 데이터 준비의 완전 한 예제 이며 최소한의 예제입니다. 코드 조각을 파일에 출력 하는 Jupyter "매직 command"로 시작 합니다. Jupyter 노트북을 사용 하지 않는 경우 해당 줄을 제거 하 고 수동으로 파일을 만듭니다.
 
-위의 코드 `prepare_` 조각에 있는 다양 한 함수는 입력 데이터 집합에서 관련 열을 수정 합니다. 이러한 함수는 Pandas `DataFrame` 개체로 변경 된 데이터에 대해 작동 합니다. 각각의 경우 누락 된 데이터는 대표적인 임의의 데이터 또는 "알 수 없음"을 나타내는 범주 데이터로 채워집니다. 텍스트 기반 범주 데이터는 정수에 매핑됩니다. 더 이상 필요 하지 않은 열을 덮어쓰거나 삭제 합니다. 
+`prepare_`위의 코드 조각에 있는 다양 한 함수는 입력 데이터 집합에서 관련 열을 수정 합니다. 이러한 함수는 Pandas 개체로 변경 된 데이터에 대해 작동 `DataFrame` 합니다. 각각의 경우 누락 된 데이터는 대표적인 임의의 데이터 또는 "알 수 없음"을 나타내는 범주 데이터로 채워집니다. 텍스트 기반 범주 데이터는 정수에 매핑됩니다. 더 이상 필요 하지 않은 열을 덮어쓰거나 삭제 합니다. 
 
-코드에서 데이터 준비 함수를 정의한 후에는 데이터를 쓰려는 경로인 입력 인수를 구문 분석 합니다. 이러한 값은 다음 단계에서 설명 `PipelineData` 하는 개체에 따라 결정 됩니다. 이 코드는 등록 `'titanic_cs'` `Dataset`된를 검색 하 고, Pandas `DataFrame`로 변환 하 고, 다양 한 데이터 준비 함수를 호출 합니다. 
+코드에서 데이터 준비 함수를 정의한 후에는 데이터를 쓰려는 경로인 입력 인수를 구문 분석 합니다. 이러한 값은 `PipelineData` 다음 단계에서 설명 하는 개체에 따라 결정 됩니다. 이 코드는 등록 된를 검색 `'titanic_cs'` `Dataset` 하 고, Pandas로 변환 하 `DataFrame` 고, 다양 한 데이터 준비 함수를 호출 합니다. 
 
-는 `output_path` 정규화 되어 있으므로 디렉터리 구조를 준비 `os.makedirs()` 하는 데 함수를 사용 합니다. 이 시점에서를 사용 `DataFrame.to_csv()` 하 여 출력 데이터를 작성할 수 있지만 Parquet 파일이 더 효율적입니다. 이러한 효율성은 이러한 작은 데이터 집합의 경우와 관련이 없을 수도 있지만 **PyArrow** 패키지의 `from_pandas()` 및 `write_table()` 함수를 사용 하는 것은 보다 `to_csv()`약간의 키 입력입니다.
+는 정규화 `output_path` 되어 있으므로 `os.makedirs()` 디렉터리 구조를 준비 하는 데 함수를 사용 합니다. 이 시점에서를 사용 하 여 `DataFrame.to_csv()` 출력 데이터를 작성할 수 있지만 Parquet 파일이 더 효율적입니다. 이러한 효율성은 이러한 작은 데이터 집합의 경우와 관련이 없을 수도 있지만 **PyArrow** 패키지의 및 함수를 사용 하는 `from_pandas()` `write_table()` 것은 보다 약간의 키 입력 `to_csv()` 입니다.
 
 Parquet 파일은 아래에 설명 된 자동화 된 ML 단계에서 기본적으로 지원 되므로 특수 한 처리를 사용 하는 데 필요 하지 않습니다. 
 
-### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>데이터 준비 파이프라인 단계 (`PythonScriptStep`) 작성
+### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>데이터 준비 파이프라인 단계 () 작성 `PythonScriptStep`
 
-위에서 설명한 데이터 준비 코드는 파이프라인과 함께 사용할 `PythonScripStep` 개체에 연결 되어 있어야 합니다. Parquet 데이터 준비 출력이 쓰여지는 경로는 `PipelineData` 개체에 의해 생성 됩니다. , 및와 같이 앞에서 준비한 리소스는 사양을 완료 하는 `'titanic_ds' Dataset` 데 사용 됩니다. `RunConfig` `ComputeTarget`
+위에서 설명한 데이터 준비 코드는 `PythonScripStep` 파이프라인과 함께 사용할 개체에 연결 되어 있어야 합니다. Parquet 데이터 준비 출력이 쓰여지는 경로는 개체에 의해 생성 됩니다 `PipelineData` . , 및와 같이 앞에서 준비한 리소스는 `ComputeTarget` `RunConfig` `'titanic_ds' Dataset` 사양을 완료 하는 데 사용 됩니다.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -232,15 +242,15 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-개체 `prepped_data_path` 는 형식 `PipelineOutputFileDataset`입니다. `arguments` 및 `outputs` 인수 모두에 지정 되어 있는지 확인 합니다. 이전 단계를 검토 하는 경우 데이터 준비 코드 내에서 인수의 `'--output_path'` 값은 Parquet 파일을 쓴 파일 경로를 확인할 수 있습니다. 
+`prepped_data_path`개체는 형식입니다 `PipelineOutputFileDataset` . 및 인수 모두에 지정 되어 있는지 확인 `arguments` `outputs` 합니다. 이전 단계를 검토 하는 경우 데이터 준비 코드 내에서 인수의 값은 `'--output_path'` Parquet 파일을 쓴 파일 경로를 확인할 수 있습니다. 
 
 ## <a name="train-with-automlstep"></a>AutoMLStep로 학습
 
-자동화 된 ML 파이프라인 단계 구성은 `AutoMLConfig` 클래스를 사용 하 여 수행 합니다. 이 유연한 클래스는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)에 설명 되어 있습니다. 데이터 입력 및 출력은 ML 파이프라인에서 특별 한 주의가 필요한 구성의 유일한 측면입니다. 파이프라인의에 대 `AutoMLConfig` 한 입력 및 출력은 아래에서 자세히 설명 합니다. 데이터 외에도 ML 파이프라인을 사용 하는 경우 각 단계에 서로 다른 계산 대상을 사용할 수 있습니다. 자동화 된 ML 프로세스에 대해서만 보다 `ComputeTarget` 강력한를 사용 하도록 선택할 수 있습니다. 이렇게 하는 것은 `RunConfiguration` `AutoMLConfig` 개체의 `run_configuration` 매개 변수에 더 강력한를 할당 하는 것 만큼 간단 합니다.
+자동화 된 ML 파이프라인 단계 구성은 클래스를 사용 하 여 수행 `AutoMLConfig` 합니다. 이 유연한 클래스는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)에 설명 되어 있습니다. 데이터 입력 및 출력은 ML 파이프라인에서 특별 한 주의가 필요한 구성의 유일한 측면입니다. 파이프라인의에 대 한 입력 및 출력 `AutoMLConfig` 은 아래에서 자세히 설명 합니다. 데이터 외에도 ML 파이프라인을 사용 하는 경우 각 단계에 서로 다른 계산 대상을 사용할 수 있습니다. 자동화 된 ML 프로세스에 대해서만 보다 강력한를 사용 하도록 선택할 수 있습니다 `ComputeTarget` . 이렇게 하는 것은 `RunConfiguration` `AutoMLConfig` 개체의 매개 변수에 더 강력한를 할당 하는 것 만큼 간단 `run_configuration` 합니다.
 
 ### <a name="send-data-to-automlstep"></a>데이터 보내기`AutoMLStep`
 
-ML 파이프라인에서 입력 데이터는 `Dataset` 개체 여야 합니다. 가장 높은 방법은 입력 데이터를 `PipelineOutputTabularDataset` 개체 형식으로 제공 하는 것입니다. 개체 등의 `parse_parquet_files()` 또는 `parse_delimited_files()` `PipelineOutputFileDataset`을 사용 하 여 해당 형식의 개체를 만듭니다. `prepped_data_path`
+ML 파이프라인에서 입력 데이터는 개체 여야 합니다 `Dataset` . 가장 높은 방법은 입력 데이터를 개체 형식으로 제공 하는 것입니다 `PipelineOutputTabularDataset` . 개체 등의 또는을 사용 하 여 해당 형식의 개체를 만듭니다 `parse_parquet_files()` `parse_delimited_files()` `PipelineOutputFileDataset` `prepped_data_path` .
 
 ```python
 # type(prepped_data_path) == PipelineOutputFileDataset
@@ -248,9 +258,9 @@ ML 파이프라인에서 입력 데이터는 `Dataset` 개체 여야 합니다. 
 prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 ```
 
-위의 코드 조각은 데이터 준비 단계의 `PipelineOutputTabularDataset` `PipelineOutputFileDataset` 출력에서 높은 성능을 생성 합니다.
+위의 코드 조각은 `PipelineOutputTabularDataset` `PipelineOutputFileDataset` 데이터 준비 단계의 출력에서 높은 성능을 생성 합니다.
 
-또 다른 옵션은 작업 `Dataset` 영역에 등록 된 개체를 사용 하는 것입니다.
+또 다른 옵션은 `Dataset` 작업 영역에 등록 된 개체를 사용 하는 것입니다.
 
 ```python
 prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
@@ -263,15 +273,15 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 |`PipelineOutputTabularDataset`| 성능 향상 | 
 || 일반 경로`PipelineData` | 
 || 파이프라인 실행 후 데이터가 지속 되지 않습니다. |
-|| [기술을 보여 `PipelineOutputTabularDataset` 주는 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
-| 등록`Dataset` | 성능 저하 |
+|| [기술을 보여 주는 노트북 `PipelineOutputTabularDataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+| 등록`Dataset` | 낮은 성능 |
 | | 여러 가지 방법으로 생성할 수 있습니다. | 
 | | 데이터는 지속 되 고 작업 영역 전체에 표시 됩니다. |
-| | [등록 된 `Dataset` 기술을 보여 주는 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
+| | [등록 된 기술을 보여 주는 노트북 `Dataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
 
 ### <a name="specify-automated-ml-outputs"></a>자동화 된 ML 출력 지정
 
-의 `AutoMLStep` 출력은 성능이 높고 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용 하려면 개체 `PipelineData` 를 받도록 준비 합니다.
+의 출력은 `AutoMLStep` 성능이 높고 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용 하려면 `PipelineData` 개체를 받도록 준비 합니다.
 
 ```python
 from azureml.pipeline.core import TrainingOutput
@@ -286,11 +296,11 @@ model_data = PipelineData(name='best_model_data',
                            training_output=TrainingOutput(type='Model'))
 ```
 
-위의 코드 조각은 메트릭 및 모델 `PipelineData` 출력에 대 한 두 개체를 만듭니다. 각에는 이름이로 지정 되 고, 앞에서 검색 된 기본 데이터 저장소에 `type` 할당 `TrainingOutput` 되며, `AutoMLStep`에서 특정의와 연결 됩니다. 이러한 `PipelineData` 개체를 `pipeline_output_name` 할당 하기 때문에 해당 값은 개별 파이프라인 단계 뿐만 아니라 파이프라인 전체에서 사용할 수 있습니다 .이에 대해서는 아래 "파이프라인 결과 검사" 섹션에서 설명 합니다. 
+위의 코드 조각은 `PipelineData` 메트릭 및 모델 출력에 대 한 두 개체를 만듭니다. 각에는 이름이로 지정 되 고, 앞에서 검색 된 기본 데이터 저장소에 할당 되며,에서 특정의와 연결 됩니다 `type` `TrainingOutput` `AutoMLStep` . 이러한 개체를 할당 하기 때문에 `pipeline_output_name` `PipelineData` 해당 값은 개별 파이프라인 단계 뿐만 아니라 파이프라인 전체에서 사용할 수 있습니다 .이에 대해서는 아래 "파이프라인 결과 검사" 섹션에서 설명 합니다. 
 
 ### <a name="configure-and-create-the-automated-ml-pipeline-step"></a>자동화 된 ML 파이프라인 단계 구성 및 만들기
 
-입력 및 출력이 정의 되 면 `AutoMLConfig` 및 `AutoMLStep`를 만들 차례입니다. 구성의 세부 정보는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)에 설명 된 대로 작업에 따라 달라 집니다. Titanic 생존 분류 작업의 경우 다음 코드 조각은 간단한 구성을 보여 줍니다.
+입력 및 출력이 정의 되 면 및를 만들 차례 `AutoMLConfig` `AutoMLStep` 입니다. 구성의 세부 정보는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)에 설명 된 대로 작업에 따라 달라 집니다. Titanic 생존 분류 작업의 경우 다음 코드 조각은 간단한 구성을 보여 줍니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -320,33 +330,33 @@ train_step = AutoMLStep(name='AutoML_Classification',
     outputs=[metrics_data,model_data],
     allow_reuse=True)
 ```
-이 코드 조각에서는에서 `AutoMLConfig`일반적으로 사용 되는 방법을 보여 줍니다. 변경 가능성이 낮은 값은 `AutoMLConfig` 생성자에서 직접 지정 되는 반면, 유체 (하이퍼 매개 변수-길쭉한) 인 인수는 별도 사전에 지정 됩니다. 이 경우에는 짧은 `automl_settings` 실행을 지정 합니다. 실행은 두 번의 반복 또는 15 분 중 먼저 발생 한 후에 중지 됩니다.
+이 코드 조각에서는에서 일반적으로 사용 되는 방법을 보여 줍니다 `AutoMLConfig` . 변경 가능성이 낮은 값은 생성자에서 직접 지정 되는 반면, 유체 (하이퍼 매개 변수-길쭉한) 인 인수는 별도 사전에 지정 됩니다 `AutoMLConfig` . 이 경우에는 `automl_settings` 짧은 실행을 지정 합니다. 실행은 두 번의 반복 또는 15 분 중 먼저 발생 한 후에 중지 됩니다.
 
-`automl_settings` 사전은 `AutoMLConfig` 생성자에 kwargs로 전달 됩니다. 다른 매개 변수는 복잡 하지 않습니다.
+`automl_settings`사전은 `AutoMLConfig` 생성자에 kwargs로 전달 됩니다. 다른 매개 변수는 복잡 하지 않습니다.
 
-- `task`이 예제에서는 `classification` 가로 설정 됩니다. 다른 유효한 값은 `regression` 및입니다.`forecasting`
-- `path`및 `debug_log` 는 프로젝트 경로와 디버그 정보가 기록 될 로컬 파일을 설명 합니다. 
-- `compute_target`는이 예제에서 `compute_target` 저렴 한 CPU 기반 컴퓨터를 정의 하는 이전에 정의 된입니다. AutoML의 심층 학습 기능을 사용 하는 경우 계산 대상을 GPU 기반으로 변경 해야 합니다.
+- `task`이 예제에서는가로 설정 됩니다 `classification` . 다른 유효한 값은 `regression` 및입니다.`forecasting`
+- `path`및는 `debug_log` 프로젝트 경로와 디버그 정보가 기록 될 로컬 파일을 설명 합니다. 
+- `compute_target`는 `compute_target` 이 예제에서 저렴 한 CPU 기반 컴퓨터를 정의 하는 이전에 정의 된입니다. AutoML의 심층 학습 기능을 사용 하는 경우 계산 대상을 GPU 기반으로 변경 해야 합니다.
 - `featurization`가 `auto`로 설정됩니다. 자세한 내용은 자동화 된 ML 구성 문서의 [Data 기능화](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) 섹션에서 찾을 수 있습니다. 
-- `training_data`는 데이터 준비 단계의 `PipelineOutputTabularDataset` 출력에서 만든 개체로 설정 됩니다. 
+- `training_data`는 `PipelineOutputTabularDataset` 데이터 준비 단계의 출력에서 만든 개체로 설정 됩니다. 
 - `label_column_name`예측 하려는 열을 나타냅니다. 
 
-자체 `AutoMLStep` 는를 사용 `AutoMLConfig` 하 고, 메트릭과 모델 데이터를 `PipelineData` 저장 하기 위해 만든 개체를 출력으로 사용 합니다. 
+자체는를 `AutoMLStep` 사용 하 `AutoMLConfig` 고, `PipelineData` 메트릭과 모델 데이터를 저장 하기 위해 만든 개체를 출력으로 사용 합니다. 
 
 >[!Important]
-> 에서 `AutoMLStep` 입력에 `passthru_automl_config` 대 `False` 한 개체를 사용 `PipelineOutputTabularDataset` 하는 경우를로 설정 해야 합니다.
+> `passthru_automl_config` `False` 에서 `AutoMLStep` `PipelineOutputTabularDataset` 입력에 대 한 개체를 사용 하는 경우를로 설정 해야 합니다.
 
-이 예에서는 자동화 된 ML 프로세스가에서 교차 유효성 검사를 수행 합니다 `training_data`. `n_cross_validations` 인수를 사용 하 여 교차 유효성 검사의 수를 제어할 수 있습니다. 데이터 준비 단계 중에 학습 데이터를 이미 분할 한 경우 해당 데이터를 자체 `validation_data` `Dataset`로 설정할 수 있습니다.
+이 예에서는 자동화 된 ML 프로세스가에서 교차 유효성 검사를 수행 합니다 `training_data` . 인수를 사용 하 여 교차 유효성 검사의 수를 제어할 수 있습니다 `n_cross_validations` . 데이터 준비 단계 중에 학습 데이터를 이미 분할 한 경우 `validation_data` 해당 데이터를 자체로 설정할 수 있습니다 `Dataset` .
 
-데이터 기능 및 `y` 데이터 레이블에 대 `X` 한 사용이 때때로 표시 될 수 있습니다. 이 기술은 더 이상 사용 되지 않으며, `training_data` 입력에를 사용 해야 합니다. 
+데이터 `X` 기능 및 데이터 레이블에 대 한 사용이 때때로 표시 될 수 있습니다 `y` . 이 기술은 더 이상 사용 되지 않으며, 입력에를 사용 해야 합니다 `training_data` . 
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>자동 ML에 의해 생성 된 모델 등록 
 
-기본 ML 파이프라인의 마지막 단계는 생성 된 모델을 등록 하는 것입니다. 작업 영역 모델 레지스트리에 모델을 추가 하 여 포털에서 사용할 수 있으며 버전을 지정할 수 있습니다. 모델을 등록 하려면의 `PythonScriptStep` `model_data` 출력을 사용 하는 다른 모델을 `AutoMLStep`작성 합니다.
+기본 ML 파이프라인의 마지막 단계는 생성 된 모델을 등록 하는 것입니다. 작업 영역 모델 레지스트리에 모델을 추가 하 여 포털에서 사용할 수 있으며 버전을 지정할 수 있습니다. 모델을 등록 하려면 `PythonScriptStep` 의 출력을 사용 하는 다른 모델을 작성 합니다 `model_data` `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>모델을 등록 하는 코드 작성
 
-모델은에 등록 되어 `Workspace`있습니다. 를 사용 `Workspace.from_config()` 하 여 로컬 컴퓨터의 작업 영역에 로그온 하는 것에 익숙하고 실행 중인 ML 파이프라인 내에서 작업 영역을 가져오는 또 다른 방법이 있습니다. 는 `Run.get_context()` 활성 `Run`를 검색 합니다. 이 `run` 개체는 여기에 사용 된 `Workspace` 을 포함 하 여 많은 중요 한 개체에 대 한 액세스를 제공 합니다.
+모델은에 등록 되어 `Workspace` 있습니다. 를 사용 하 여 `Workspace.from_config()` 로컬 컴퓨터의 작업 영역에 로그온 하는 것에 익숙하고 실행 중인 ML 파이프라인 내에서 작업 영역을 가져오는 또 다른 방법이 있습니다. 는 `Run.get_context()` 활성를 검색 합니다 `Run` . 이 `run` 개체는 여기에 사용 된을 포함 하 여 많은 중요 한 개체에 대 한 액세스를 제공 `Workspace` 합니다.
 
 ```python
 %%writefile register_model.py
@@ -375,7 +385,7 @@ print("Registered version {0} of model {1}".format(model.version, model.name))
 
 ### <a name="write-the-pythonscriptstep-code"></a>PythonScriptStep 코드 작성
 
-모델 등록 `PythonScriptStep` 은 인수 중 하나 `PipelineParameter` 에 대해를 사용 합니다. 파이프라인 매개 변수는 실행 제출 시 쉽게 설정할 수 있는 파이프라인에 대 한 인수입니다. 선언 되 면 일반 인수로 전달 됩니다. 
+모델 등록은 `PythonScriptStep` `PipelineParameter` 인수 중 하나에 대해를 사용 합니다. 파이프라인 매개 변수는 실행 제출 시 쉽게 설정할 수 있는 파이프라인에 대 한 인수입니다. 선언 되 면 일반 인수로 전달 됩니다. 
 
 ```python
 
@@ -395,7 +405,7 @@ register_step = PythonScriptStep(script_name="register_model.py",
 
 ## <a name="create-and-run-your-automated-ml-pipeline"></a>자동화 된 ML 파이프라인 만들기 및 실행
 
-을 포함 하는 파이프라인을 만들고 실행 `AutoMLStep` 하는 것은 일반 파이프라인과 다릅니다. 
+을 포함 하는 파이프라인을 만들고 실행 하 `AutoMLStep` 는 것은 일반 파이프라인과 다릅니다. 
 
 ```python
 from azureml.pipeline.core import Pipeline
@@ -409,11 +419,11 @@ run = experiment.submit(pipeline, show_output=True)
 run.wait_for_completion()
 ```
 
-위의 코드는 데이터 준비, 자동화 된 ML 및 모델 등록 단계를 하나의 `Pipeline` 개체로 결합 합니다. 그런 다음 개체를 `Experiment` 만듭니다. 생성자 `Experiment` 는 명명 된 실험 (있는 경우)을 검색 하거나 필요한 경우 만듭니다. 를에 전송 `Pipeline` `Experiment`하 여 파이프라인을 비동기식 `Run` 으로 실행 하는 개체를 만듭니다. 함수 `wait_for_completion()` 는 실행이 완료 될 때까지 차단 됩니다.
+위의 코드는 데이터 준비, 자동화 된 ML 및 모델 등록 단계를 하나의 개체로 결합 합니다 `Pipeline` . 그런 다음 개체를 만듭니다 `Experiment` . `Experiment`생성자는 명명 된 실험 (있는 경우)을 검색 하거나 필요한 경우 만듭니다. 를에 전송 하 여 `Pipeline` `Experiment` 파이프라인을 비동기식으로 `Run` 실행 하는 개체를 만듭니다. `wait_for_completion()`함수는 실행이 완료 될 때까지 차단 됩니다.
 
 ### <a name="examine-pipeline-results"></a>파이프라인 결과 검사 
 
-이 `run` 완료 되 면이 할당 된 `PipelineData` 개체를 검색할 수 있습니다 `pipeline_output_name`. 결과를 다운로드 하 고 추가 처리를 위해 로드할 수 있습니다.  
+`run`이 완료 되 면이 할당 된 개체를 검색할 수 있습니다 `PipelineData` `pipeline_output_name` . 결과를 다운로드 하 고 추가 처리를 위해 로드할 수 있습니다.  
 
 ```python
 metrics_output_port = run.get_pipeline_output('metrics_output')
@@ -423,7 +433,7 @@ metrics_output_port.download('.', show_progress=True)
 model_output_port.download('.', show_progress=True)
 ```
 
-다운로드 한 파일은 하위 디렉터리 `azureml/{run.id}/`에 기록 됩니다. 메트릭 파일은 JSON 형식 이므로 조사를 위해 Pandas 데이터 프레임 변환할 수 있습니다.
+다운로드 한 파일은 하위 디렉터리에 기록 됩니다 `azureml/{run.id}/` . 메트릭 파일은 JSON 형식 이므로 조사를 위해 Pandas 데이터 프레임 변환할 수 있습니다.
 
 로컬 처리의 경우 Pandas, Pickle, AzureML SDK 등의 관련 패키지를 설치 해야 할 수 있습니다. 이 예에서는 자동화 된 ML에서 발견 한 최상의 모델이 XGBoost에 종속 될 가능성이 높습니다.
 
@@ -447,7 +457,7 @@ df
 
 위의 코드 조각에서는 Azure 데이터 저장소의 해당 위치에서 로드 되는 메트릭 파일을 보여 줍니다. 설명에 나와 있는 것 처럼 다운로드 한 파일에서 로드할 수도 있습니다. Deserialize 하 고 Pandas 데이터 프레임로 변환한 후에는 자동화 된 ML 단계의 각 반복에 대 한 자세한 메트릭을 볼 수 있습니다.
 
-모델 파일을 추론, 추가 메트릭 분석 `Model` 등에 사용할 수 있는 개체로 deserialize 할 수 있습니다. 
+모델 파일을 `Model` 추론, 추가 메트릭 분석 등에 사용할 수 있는 개체로 deserialize 할 수 있습니다. 
 
 ```python
 import pickle
@@ -465,9 +475,9 @@ with open(model_filename, "rb" ) as f:
 
 ### <a name="download-the-results-of-an-automated-ml-run"></a>자동화 된 ML 실행 결과 다운로드
 
-문서와 함께 다음을 수행 했다면 인스턴스화된 `run` 개체가 있습니다. 하지만 `Experiment` 개체를 기준으로에서 `Run` 완료 된 `Workspace` 개체를 검색할 수도 있습니다.
+문서와 함께 다음을 수행 했다면 인스턴스화된 `run` 개체가 있습니다. 하지만 개체를 기준으로에서 완료 된 개체를 검색할 수도 있습니다 `Run` `Workspace` `Experiment` .
 
-작업 영역에는 모든 실험 및 실행에 대 한 전체 레코드가 포함 되어 있습니다. 포털을 사용 하 여 실험의 출력을 찾아서 다운로드 하거나 코드를 사용할 수 있습니다. 기록 실행에서 레코드에 액세스 하려면 Azure Machine Learning를 사용 하 여 관심 있는 실행의 ID를 찾습니다. 해당 ID를 사용 하 여 `run` `Workspace` 및 `Experiment`를 통해 특정를 선택할 수 있습니다.
+작업 영역에는 모든 실험 및 실행에 대 한 전체 레코드가 포함 되어 있습니다. 포털을 사용 하 여 실험의 출력을 찾아서 다운로드 하거나 코드를 사용할 수 있습니다. 기록 실행에서 레코드에 액세스 하려면 Azure Machine Learning를 사용 하 여 관심 있는 실행의 ID를 찾습니다. 해당 ID를 사용 하 여 및를 통해 특정를 선택할 수 있습니다 `run` `Workspace` `Experiment` .
 
 ```python
 # Retrieved from Azure Machine Learning web UI
@@ -476,9 +486,9 @@ experiment = ws.experiments['titanic_automl']
 run = next(run for run in ex.get_runs() if run.id == run_id)
 ```
 
-위의 코드에 있는 문자열을 기록 실행의 세부 사항으로 변경 해야 합니다. 위의 코드 조각에서는 일반적인 `ws` `Workspace` `from_config()`와 관련 된를에 할당 했다고 가정 합니다. 관심이 있는 실험을 직접 검색 한 다음 코드에서 값을 `Run` `run.id` 일치 시켜 관심 있는를 찾습니다.
+위의 코드에 있는 문자열을 기록 실행의 세부 사항으로 변경 해야 합니다. 위의 코드 조각에서는 `ws` 일반적인와 관련 된를에 할당 했다고 가정 합니다 `Workspace` `from_config()` . 관심이 있는 실험을 직접 검색 한 다음 코드에서 `Run` 값을 일치 시켜 관심 있는를 찾습니다 `run.id` .
 
-`Run` 개체가 있으면 메트릭과 모델을 다운로드할 수 있습니다. 
+`Run`개체가 있으면 메트릭과 모델을 다운로드할 수 있습니다. 
 
 ```python
 automl_run = next(r for r in run.get_children() if r.name == 'AutoML_Classification')
@@ -490,7 +500,7 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-각 `Run` 개체에 `StepRun` 는 개별 파이프라인 단계 실행에 대 한 정보를 포함 하는 개체가 포함 되어 있습니다. `run` 는에 대 한 `StepRun` 개체를 검색 합니다 `AutoMLStep`. 메트릭 및 모델은의 `PipelineData` `outputs` 매개 변수에 개체를 전달 하지 않는 경우에도 사용할 수 있는 기본 이름을 사용 하 여 검색 됩니다 `AutoMLStep`. 
+각 `Run` 개체에는 `StepRun` 개별 파이프라인 단계 실행에 대 한 정보를 포함 하는 개체가 포함 되어 있습니다. 는에 `run` `StepRun` 대 한 개체를 검색 합니다 `AutoMLStep` . 메트릭 및 모델은 `PipelineData` 의 매개 변수에 개체를 전달 하지 않는 경우에도 사용할 수 있는 기본 이름을 사용 하 여 검색 됩니다 `outputs` `AutoMLStep` . 
 
 마지막으로, 위의 "파이프라인 결과 검사" 섹션에 설명 된 대로 실제 메트릭 및 모델이 로컬 컴퓨터에 다운로드 됩니다.
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85297072"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 인증 및 권한 부여 미리 보기
 
@@ -192,6 +192,10 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
   "statusCode": "404"
 }
 ```
+
+## <a name="restrictions"></a>제한 사항
+
+일반적인 제한 사항 및 제한 사항은 [할당량 문서](quotas.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

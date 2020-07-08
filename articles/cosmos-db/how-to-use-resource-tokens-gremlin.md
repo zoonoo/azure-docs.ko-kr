@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263564"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
 

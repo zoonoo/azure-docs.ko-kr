@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298024"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -173,7 +173,7 @@ chmod-prevented           0/1       Error     0          7s
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>최신 버전의 Kubernetes로 정기적으로 업데이트
 
-**모범 사례 지침** - 새로운 기능 및 버그 수정 사항으로 최신 상태를 유지하려면 AKS 클러스터의 Kubernetes 버전으로 정기적으로 업데이트합니다.
+**모범 사례 지침** -최신 기능 및 버그 수정을 최신 상태로 유지 하려면 AKS 클러스터에서 Kubernetes 버전을 정기적으로 업그레이드 합니다.
 
 Kubernetes는 보다 일반적인 인프라 플랫폼보다 더 빠른 속도로 새 기능을 릴리스합니다. Kubernetes 업데이트에는 새 기능, 버그 또는 보안 수정 사항이 포함됩니다. 일반적으로 새로운 기능은 *알파* 버전으로 이동된 후 *베타* 상태가 되며, 그 이후에 *안정화*되면서 일반 공급되고 프로덕션 용도로 권장됩니다. 이러한 릴리스 주기에 따라 정기적으로 호환성이 손상되는 변경을 겪거나 배포 및 템플릿을 조정하지 않고도 Kubernetes를 업데이트할 수 있습니다.
 
