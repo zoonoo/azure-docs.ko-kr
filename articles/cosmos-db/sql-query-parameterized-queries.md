@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870822"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB의 매개 변수가 있는 쿼리
@@ -19,7 +18,7 @@ Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있는 쿼�
 
 ## <a name="examples"></a>예
 
-예 `lastName` 를 들어 및 `address.state` 를 매개 변수로 사용 하는 쿼리를 작성 하 고 사용자 입력을 `lastName` `address.state` 기준으로 다양 한 값에 대해 실행할 수 있습니다.
+예를 들어 및를 매개 변수로 사용 하는 쿼리를 작성 하 `lastName` `address.state` 고 `lastName` `address.state` 사용자 입력을 기준으로 다양 한 값에 대해 실행할 수 있습니다.
 
 ```sql
     SELECT *

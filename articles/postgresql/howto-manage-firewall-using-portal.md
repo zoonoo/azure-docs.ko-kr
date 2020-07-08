@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74770308"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 방화벽 규칙 만들기 및 관리
@@ -18,7 +17,7 @@ ms.locfileid: "74770308"
 
 VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure Portal를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-using-portal.md)방법에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - 서버 [PostgreSQL용 Azure Database 만들기](quickstart-create-server-database-portal.md)
 

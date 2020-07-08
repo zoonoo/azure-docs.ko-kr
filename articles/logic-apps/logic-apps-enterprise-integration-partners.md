@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792434"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 통합 계정에 거래 파트너 추가
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps에 대한 통합 계정에 거래 업체 추가
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 논리 앱과 [통합 계정을](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용 하 여 자동화 된 b2b (기업 간) 통합 워크플로를 만들 수 있습니다. 조직 및 기타를 나타내려면 거래 파트너를 만들어 통합 계정에 아티팩트로 추가 합니다. 파트너는 B2B 트랜잭션에 참여 하 고 서로 메시지를 교환 하는 엔터티입니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 논리 앱과 [통합 계정을](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용 하 여 자동화 된 b2b (기업 간) 통합 워크플로를 만들 수 있습니다. 조직 및 기타를 나타내려면 거래 파트너를 만들어 통합 계정에 아티팩트로 추가 합니다. 거래 업체는 B2B 트랜잭션에 참여하고 서로 메시지를 교환하는 주체입니다.
 
 이러한 파트너를 만들기 전에 다른 사용자가 보내는 메시지를 식별 하 고 유효성을 검사 하는 방법에 대 한 정보를 파트너와 논의 하 고 공유 해야 합니다. 이러한 세부 정보에 동의 하면 통합 계정에 파트너를 만들 준비가 된 것입니다.
 
@@ -89,9 +88,9 @@ ms.locfileid: "74792434"
    | **파트너 분류** | 아니요 | 파트너의 조직 유형입니다. |
    | **공급망 코드** | 아니요 | 파트너의 공급망 코드 (예: "정보 기술" 또는 "전자 구성 요소") |
    | **연락처 이름** | 아니요 | 파트너의 연락처 이름입니다. |
-   | **Email** | 아니요 | 파트너의 전자 메일 주소 |
-   | **팩스** | 아니요 | 파트너의 팩스 번호 |
-   | **전화** | 아니요 | 파트너의 전화 번호입니다. |
+   | **전자 메일** | 아니요 | 파트너의 전자 메일 주소 |
+   | **Fax** | 아니요 | 파트너의 팩스 번호 |
+   | **Telephone** | 아니요 | 파트너의 전화 번호입니다. |
    ||||
 
 1. 완료 되 면 **확인** 을 선택 하 여 변경 내용을 저장 합니다.

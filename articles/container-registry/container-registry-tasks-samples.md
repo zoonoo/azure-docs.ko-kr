@@ -4,33 +4,32 @@ description: 컨테이너 이미지를 빌드, 실행 및 패치 하는 샘플 A
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456092"
 ---
 # <a name="acr-tasks-samples"></a>ACR 작업 샘플
 
-이 문서에서는 몇 가지 `task.yaml` [Azure Container Registry 작업](container-registry-tasks-overview.md) (ACR 작업) 시나리오에 대 한 예제 파일 및 관련 dockerfiles에 연결 합니다. 
+이 문서에서는 `task.yaml` 몇 가지 [Azure Container Registry 작업](container-registry-tasks-overview.md) (ACR 작업) 시나리오에 대 한 예제 파일 및 관련 dockerfiles에 연결 합니다. 
 
 추가 예제는 [Azure 샘플][task-examples] 리포지토리를 참조 하세요.
 
 ## <a name="scenarios"></a>시나리오
 
-* **이미지** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 빌드
+* **빌드 이미지**  -  [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **컨테이너** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml) 실행
+* **컨테이너 실행**  -  [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml)
 
-* **이미지** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 빌드 및 푸시
+* **빌드 및 이미지 푸시**  -  [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **이미지** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 을 빌드 및 실행 합니다.
+* **빌드 및 실행 이미지**  -  [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **여러 이미지** -  를 빌드하고 푸시 합니다.[yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **여러 이미지**  -   빌드 및 푸시 [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **병렬** -  [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 에서 이미지 빌드 및 테스트
+* **이미지를 병렬로**  -   빌드 및 테스트 [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **여러 레지스트리** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile) 에 이미지를 빌드하고 푸시
+* **여러 레지스트리**  -  를 빌드하여 이미지 푸시 [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
 
 
 ## <a name="next-steps"></a>다음 단계

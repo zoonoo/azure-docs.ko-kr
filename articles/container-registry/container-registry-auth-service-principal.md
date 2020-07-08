@@ -4,10 +4,9 @@ description: Azure Active Directory 서비스 주체를 사용하여 프라이�
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455413"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
@@ -24,11 +23,11 @@ Azure Container Registry 컨텍스트에서, Azure의 프라이빗 레지스트�
 
 Azure AD 서비스 주체를 사용하면 프라이빗 컨테이너 레지스트리에 대해 범위가 지정된 액세스를 제공할 수 있습니다. 각 응용 프로그램 또는 서비스에 대 한 다양 한 서비스 주체를 만듭니다. 각 응용 프로그램에는 레지스트리에 대 한 맞춤형 액세스 권한이 있습니다. 또한 서비스와 애플리케이션 사이에 자격 증명을 공유하지 않아도 되기 때문에, 선택한 서비스 주체(및 애플리케이션)에 대해서만 자격 증명을 순환하거나 액세스 권한을 철회할 수 있습니다.
 
-예를 들어, 빌드 시스템에서 및 `pull` `push` `pull` 액세스를 모두 제공 하는 서비스 주체를 사용 하는 동안에는 이미지 액세스만 제공 하는 서비스 주체를 사용 하도록 웹 응용 프로그램을 구성 합니다. 응용 프로그램 개발이 변경 되 면 빌드 시스템에 영향을 주지 않고 서비스 주체 자격 증명을 회전할 수 있습니다.
+예를 들어, `pull` 빌드 시스템에서 및 액세스를 모두 제공 하는 서비스 주체를 사용 하는 동안에는 이미지 액세스만 제공 하는 서비스 주체를 사용 하도록 웹 응용 프로그램을 구성 `push` `pull` 합니다. 응용 프로그램 개발이 변경 되 면 빌드 시스템에 영향을 주지 않고 서비스 주체 자격 증명을 회전할 수 있습니다.
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
-**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예를 들면 다음과 같습니다.
+**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예를 들어:
 
   * *끌어오기*: KUBERNETES, DC/OS 및 Docker Swarm를 포함 하 여 레지스트리의 컨테이너를 오케스트레이션 시스템에 배포 합니다. 컨테이너 레지스트리에서 [AKS (Azure Kubernetes Service)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)등의 관련 azure 서비스로 끌어올 수도 있습니다.
 
@@ -47,12 +46,12 @@ GitHub에서 Azure CLI에 대 한 앞의 샘플 스크립트와 Azure PowerShell
 
 ## <a name="authenticate-with-the-service-principal"></a>서비스 주체를 사용 하 여 인증
 
-컨테이너 레지스트리에 대 한 액세스 권한이 부여 된 서비스 주체가 있으면 "헤드리스" 서비스 및 응용 프로그램에 액세스 하기 위한 자격 증명을 구성 하거나 `docker login` 명령을 사용 하 여 해당 자격 증명을 입력할 수 있습니다. 다음 값을 사용합니다.
+컨테이너 레지스트리에 대 한 액세스 권한이 부여 된 서비스 주체가 있으면 "헤드리스" 서비스 및 응용 프로그램에 액세스 하기 위한 자격 증명을 구성 하거나 명령을 사용 하 여 해당 자격 증명을 입력할 수 있습니다 `docker login` . 다음 값을 사용합니다.
 
 * **사용자 이름** -서비스 사용자 응용 프로그램 id ( *클라이언트 id*라고도 함)
 * **암호** 서비스 주체 암호 ( *클라이언트 암호*라고도 함)
 
-각 값은 폼 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`의 GUID입니다. 
+각 값은 폼의 GUID입니다 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
 
 > [!TIP]
 > [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
@@ -66,7 +65,7 @@ Azure container registry를 사용 하 여 인증 하는 모든 Azure 서비스�
 
 ### <a name="use-with-docker-login"></a>Docker 로그인과 함께 사용
 
-서비스 주체를 `docker login` 사용 하 여를 실행할 수 있습니다. 다음 예제에서는 서비스 주체 응용 프로그램 ID가 환경 변수 `$SP_APP_ID`및 변수에 `$SP_PASSWD`암호를 전달 합니다. Docker 자격 증명을 관리 하는 모범 사례는 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조 하세요.
+`docker login`서비스 주체를 사용 하 여를 실행할 수 있습니다. 다음 예제에서는 서비스 주체 응용 프로그램 ID가 환경 변수 `$SP_APP_ID` 및 변수에 암호를 전달 합니다 `$SP_PASSWD` . Docker 자격 증명을 관리 하는 모범 사례는 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조 하세요.
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -81,7 +80,7 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 
 [서비스 주체를 만들](/cli/azure/create-an-azure-service-principal-azure-cli)때 자체 서명 된 인증서를 만들 수 있습니다. 또는 기존 서비스 주체에 하나 이상의 인증서를 추가 합니다. 예를 들어이 문서의 스크립트 중 하나를 사용 하 여 레지스트리에서 이미지를 끌어오거나 푸시할 수 있는 권한이 있는 서비스 주체를 만들거나 업데이트 하는 경우 [az ad sp credential reset][az-ad-sp-credential-reset] 명령을 사용 하 여 인증서를 추가 합니다.
 
-인증서가 있는 서비스 주체를 사용 하 여 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)하려면 인증서가 PEM 형식 이어야 하며 개인 키를 포함 해야 합니다. 인증서가 필요한 형식이 아닌 경우와 `openssl` 같은 도구를 사용 하 여 변환 합니다. [Az login][az-login] 을 실행 하 여 서비스 주체를 사용 하 여 CLI에 로그인 하는 경우 서비스 주체의 응용 프로그램 id와 Active Directory 테 넌 트 id도 제공 합니다. 다음 예제에서는 이러한 값을 환경 변수로 보여 줍니다.
+인증서가 있는 서비스 주체를 사용 하 여 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)하려면 인증서가 PEM 형식 이어야 하며 개인 키를 포함 해야 합니다. 인증서가 필요한 형식이 아닌 경우와 같은 도구를 사용 `openssl` 하 여 변환 합니다. [Az login][az-login] 을 실행 하 여 서비스 주체를 사용 하 여 CLI에 로그인 하는 경우 서비스 주체의 응용 프로그램 id와 Active Directory 테 넌 트 id도 제공 합니다. 다음 예제에서는 이러한 값을 환경 변수로 보여 줍니다.
 
 ```azurecli
 az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
@@ -93,7 +92,7 @@ az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --pas
 az acr login --name myregistry
 ```
 
-CLI는를 실행 `az login` 했을 때 생성 된 토큰을 사용 하 여 레지스트리에 세션을 인증 합니다.
+CLI는를 실행 했을 때 생성 된 토큰을 사용 하 여 `az login` 레지스트리에 세션을 인증 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

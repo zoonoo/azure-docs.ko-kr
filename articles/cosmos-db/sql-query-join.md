@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74871145"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
@@ -19,9 +18,9 @@ ms.locfileid: "74871145"
 
 내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
-이 언어는 구문을 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`지원 합니다. 이 쿼리는 값이 있는 `N` 튜플 집합을 반환 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
+이 언어는 구문을 지원 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` 합니다. 이 쿼리는 값이 있는 튜플 집합을 반환 `N` 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
 
 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` FROM 절을 살펴보겠습니다.  
   
@@ -118,7 +117,7 @@ ms.locfileid: "74871145"
     }]
 ```
 
-다음 예제에서 조인은 두 JSON 개체 (항목 루트 `id` 와 `children` 하위 루트) 간의 외적입니다. `children` 배열은 `children` 배열인 단일 루트를 처리 하기 때문에 조인에는 적용 되지 않습니다. 배열에 있는 각 항목의 교차곱이 정확히 하나의 항목만 생성 하기 때문에 결과에는 두 개의 결과만 포함 됩니다.
+다음 예제에서 조인은 두 JSON 개체 (항목 루트와 하위 루트) 간의 외적입니다 `id` `children` . 배열은 `children` 배열인 단일 루트를 처리 하기 때문에 조인에는 적용 되지 않습니다 `children` . 배열에 있는 각 항목의 교차곱이 정확히 하나의 항목만 생성 하기 때문에 결과에는 두 개의 결과만 포함 됩니다.
 
 ```sql
     SELECT f.id
@@ -166,10 +165,10 @@ ms.locfileid: "74871145"
 JOIN 절의 FROM 소스가 반복기입니다. 따라서 앞의 예제에서 흐름은 다음과 같습니다.  
 
 1. 배열의 각 자식 요소 `c` 를 확장 합니다.
-2. 첫 번째 단계에서 평면화 한 각 자식 요소가 `f` `c` 있는 항목의 루트와 교차곱을 적용 합니다.
-3. 마지막으로 루트 개체 `f` `id` 속성만 프로젝션 합니다.
+2. `f` `c` 첫 번째 단계에서 평면화 한 각 자식 요소가 있는 항목의 루트와 교차곱을 적용 합니다.
+3. 마지막으로 루트 개체 속성만 프로젝션 `f` `id` 합니다.
 
-첫 번째 항목인 `AndersenFamily`은 하나의 `children` 요소만 포함 하므로 결과 집합에는 단일 개체만 포함 됩니다. 두 번째 항목인 `WakefieldFamily`는 두 개 `children`를 포함 하므로 교차곱은 각 `children` 요소에 대해 하나씩 두 개의 개체를 생성 합니다. 교차곱에서 예상한 대로 두 항목의 루트 필드는 동일합니다.
+첫 번째 항목인은 `AndersenFamily` 하나의 `children` 요소만 포함 하므로 결과 집합에는 단일 개체만 포함 됩니다. 두 번째 항목인는 `WakefieldFamily` 두 개 `children` 를 포함 하므로 교차곱은 각 요소에 대해 하나씩 두 개의 개체를 생성 합니다 `children` . 교차곱에서 예상한 대로 두 항목의 루트 필드는 동일합니다.
 
 JOIN 절의 실제 유틸리티는 프로젝트에 어려움이 있는 셰이프를 통해 외적에서 튜플을 형성 하는 것입니다. 아래 예제에서는 사용자가 튜플이 전체적으로 충족 하는 조건을 선택할 수 있도록 하는 튜플의 조합을 필터링 합니다.
 
@@ -224,9 +223,9 @@ JOIN 절의 실제 유틸리티는 프로젝트에 어려움이 있는 셰이프
     }
 ```
 
-`AndersenFamily`에는 애완 동물을 가진 자식이 하나 있으므로 교차곱은이 제품군에서 1 개의 행\*(\*1 1 1)을 생성 합니다. `WakefieldFamily`에는 두 개의 자식이 있는데, 그 중 하나에는 애완 동물이 있지만 해당 자식에는 애완 동물 2 개가 있습니다. 이 패밀리의 교차곱은 1\*1\*2 = 2 개의 행을 생성 합니다.
+`AndersenFamily`에는 애완 동물을 가진 자식이 하나 있으므로 교차곱은이 제품군에서 1 개의 행 (1 1 1)을 생성 합니다 \* \* . `WakefieldFamily`에는 두 개의 자식이 있는데, 그 중 하나에는 애완 동물이 있지만 해당 자식에는 애완 동물 2 개가 있습니다. 이 패밀리의 교차곱은 1 \* 1 \* 2 = 2 개의 행을 생성 합니다.
 
-다음 예제에서는에 대 `pet`한 추가 필터를 사용할 수 있습니다 .이 필터는 애완 동물 이름이 아닌 `Shadow`모든 튜플을 제외 합니다. 배열에서 튜플을 빌드하고, 튜플의 요소를 필터링 하 고, 요소 조합을 프로젝션 할 수 있습니다.
+다음 예제에서는에 대 한 추가 필터를 사용할 수 있습니다 .이 필터는 `pet` 애완 동물 이름이 아닌 모든 튜플을 제외 합니다 `Shadow` . 배열에서 튜플을 빌드하고, 튜플의 요소를 필터링 하 고, 요소 조합을 프로젝션 할 수 있습니다.
 
 ```sql
     SELECT 
@@ -254,6 +253,6 @@ JOIN 절의 실제 유틸리티는 프로젝트에 어려움이 있는 셰이프
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작하기](sql-query-getting-started.md)
+- [시작](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [하위 쿼리](sql-query-subquery.md)

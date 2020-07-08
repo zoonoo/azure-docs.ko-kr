@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232751"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
@@ -47,9 +46,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스가 이라는 `Foo`함수를 호출 하 고, 부울 값을 반환 하 고, 검사점을 반환 하는 경우를 가정 합니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `context.CallActivityAsync<int>("Foo")`에 대한 호출을 재생할 때 즉시 실패합니다. 이 오류는 기록 테이블의 결과가 `bool` 이지만 새 코드에서로 `int`deserialize 하려고 하기 때문에 발생 합니다.
+이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스가 이라는 함수를 호출 하 `Foo` 고, 부울 값을 반환 하 고, 검사점을 반환 하는 경우를 가정 합니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `context.CallActivityAsync<int>("Foo")`에 대한 호출을 재생할 때 즉시 실패합니다. 이 오류는 기록 테이블의 결과가 `bool` 이지만 새 코드에서로 deserialize 하려고 하기 때문에 발생 합니다 `int` .
 
 이 예제는 서명 변경으로 인해 기존 인스턴스가 중단 될 수 있는 여러 가지 방법 중 하나일 뿐입니다. 일반적으로 오케스트레이터에서 함수를 호출하는 방식을 변경해야 하는 경우 변경이 문제가 될 수 있습니다.
 
@@ -85,9 +84,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생 하는 동안 **Foo** 에 대 한 원래 호출이 `true`반환 되 면 orchestrator replay는 실행 기록에 없는 **sendnotification**을 호출 합니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. `CreateTimer`, `WaitForExternalEvent`등의 "내구성이 있는" api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다.
+이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생 하는 동안 **Foo** 에 대 한 원래 호출이 반환 되 면 `true` orchestrator replay는 실행 기록에 없는 **sendnotification**을 호출 합니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. , 등의 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다 `CreateTimer` `WaitForExternalEvent` .
 
 ## <a name="mitigation-strategies"></a>완화 전략
 
@@ -116,7 +115,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 * 기존 함수를 그대로 두고 완전히 새로운 함수로 모든 업데이트를 배포 합니다. 새 함수 버전의 호출자는 동일한 지침에 따라 업데이트 해야 하기 때문에 복잡할 수 있습니다.
 * 다른 스토리지 계정을 사용하는 새 함수 앱으로 모든 업데이트를 배포합니다.
-* 업데이트 `taskHub` 된 이름이 있는 동일한 저장소 계정으로 함수 앱의 새 복사본을 배포 합니다. 병렬 배포는 권장 되는 방법입니다.
+* 업데이트 된 이름이 있는 동일한 저장소 계정으로 함수 앱의 새 복사본을 배포 합니다 `taskHub` . 병렬 배포는 권장 되는 방법입니다.
 
 ### <a name="how-to-change-task-hub-name"></a>작업 허브 이름을 변경하는 방법
 
@@ -144,7 +143,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Durable Functions v1. x의 기본값은 `DurableFunctionsHub`입니다. Durable Functions v2.0부터 기본 작업 허브 이름은 Azure의 함수 앱 이름과 동일 하거나 `TestHubName` azure 외부에서 실행 되는 경우에 해당 합니다.
+Durable Functions v1. x의 기본값은입니다. `DurableFunctionsHub` Durable Functions v2.0부터 기본 작업 허브 이름은 Azure의 함수 앱 이름과 동일 하거나 Azure 외부에서 실행 되는 경우에 해당 합니다 `TestHubName` .
 
 Azure Storage 엔터티의 이름은 모두 `hubName` 구성 값에 따라 지정됩니다. 작업 허브에 새 이름을 지정하면 새 버전의 애플리케이션에 대한 별도의 큐와 기록 테이블이 만들어졌는지 확인합니다. 그러나 함수 앱은 이전 작업 허브 이름으로 만든 오케스트레이션 또는 엔터티에 대 한 이벤트 처리를 중지 합니다.
 

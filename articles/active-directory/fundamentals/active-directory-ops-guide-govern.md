@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74535458"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Azure Active Directory 거 버 넌 스 작업 참조 가이드
@@ -31,7 +30,7 @@ ms.locfileid: "74535458"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | SIEM 시스템에서 Azure AD 감사 로그 보관 | InfoSec 운영 팀 |
 | 비준수로 관리 되는 응용 프로그램 검색 | IAM 운영 팀 |

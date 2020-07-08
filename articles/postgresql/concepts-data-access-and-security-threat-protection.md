@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768744"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 Advanced Threat Protection-단일 서버
@@ -41,6 +40,6 @@ Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
+* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
 * 가격 책정에 대한 자세한 내용은 [Azure Database for PostgreSQL 가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요. 
 * Azure Portal을 사용하여 [Azure Database for PostgreSQL Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성  

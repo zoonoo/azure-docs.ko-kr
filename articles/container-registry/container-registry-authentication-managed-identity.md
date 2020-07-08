@@ -4,10 +4,9 @@ description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용�
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456501"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
@@ -239,7 +238,7 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 > * Azure Container Registry에 ID 액세스 권한 부여
 > * 관리 ID를 사용하여 레지스트리에 액세스하고 컨테이너 이미지 가져오기
 
-* [Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/)에 대해 자세히 알아보세요.
+* [Azure 리소스에 대 한 관리 id](/azure/active-directory/managed-identities-azure-resources/)에 대해 자세히 알아보세요.
 
 
 <!-- LINKS - external -->

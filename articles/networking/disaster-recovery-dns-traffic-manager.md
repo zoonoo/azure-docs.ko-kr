@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74483537"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
@@ -72,7 +71,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 솔루션에 대한 가정은 다음과 같습니다.
 - 기본 및 보조 엔드포인트에는 자주 변경되지 않는 정적 IP가 있습니다. 주 사이트의 IP가 100.168.124.44이고 보조 사이트의 IP가 100.168.124.43이라고 가정해 보겠습니다.
-- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. Www\.contoso.com로 알려진 주 응용 프로그램에 대 한 DNS 레코드도 존재 합니다.   
+- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. Www contoso.com로 알려진 주 응용 프로그램에 대 한 DNS 레코드도 \. 존재 합니다.   
 - TTL은 조직에서 설정된 RTO SLA 수준 이하입니다. 예를 들어, 기업에서 애플리케이션 재해 응답의 RTO를 60분으로 설정하는 경우, TTL은 60분 미만이어야 하고 낮을수록 더 좋습니다. 
   다음과 같이 수동 장애 조치(failover)에 대한 Azure DNS를 설정할 수 있습니다.
 - DNS 영역 만들기
@@ -80,7 +79,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 - CNAME 레코드 업데이트
 
 ### <a name="step-1-create-a-dns"></a>1단계: DNS 만들기
-아래와 같이 DNS 영역 (예: www\.contoso.com)을 만듭니다.
+아래와 같이 DNS 영역 (예: www \. contoso.com)을 만듭니다.
 
 ![Azure에서 DNS 영역 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +87,13 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 ### <a name="step-2-create-dns-zone-records"></a>2단계: DNS 영역 레코드 만들기
 
-이 영역 내에서 아래와 같이 3 개의 레코드 (\.예:-www contoso.com, prod.contoso.com 및 dr.consoto.com)를 만듭니다.
+이 영역 내에서 아래와 같이 3 개의 레코드 (예:-www \. contoso.com, prod.contoso.com 및 dr.consoto.com)를 만듭니다.
 
 ![DNS 영역 레코드 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 ‘그림 - Azure에서 DNS 영역 레코드 만들기’**
 
-이 시나리오에서 사이트 www\.contoso.com는 30 분의 TTL을 가지 며,이는 규정 된 RTO 아래에 있으며 프로덕션 사이트 prod.contoso.com를 가리킵니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
+이 시나리오에서 사이트 www contoso.com는 \. 30 분의 TTL을 가지 며,이는 규정 된 RTO 아래에 있으며 프로덕션 사이트 prod.contoso.com를 가리킵니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
 
 ### <a name="step-3-update-the-cname-record"></a>3단계: CNAME 레코드 업데이트
 
@@ -104,7 +103,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 ‘그림 - Azure에서 CNAME 레코드 업데이트’**
 
-30 분 이내에 대부분의 해결 프로그램이 캐시 된 영역 파일을 새로 고치는 동안 www\.contoso.com에 대 한 쿼리는 dr.contoso.com로 리디렉션됩니다.
+30 분 이내에 대부분의 해결 프로그램이 캐시 된 영역 파일을 새로 고치는 동안 www contoso.com에 대 한 쿼리는 \. dr.contoso.com로 리디렉션됩니다.
 다음 Azure CLI 명령을 실행하여 CNAME 값을 변경할 수도 있습니다.
  ```azurecli
    az network dns record-set cname set-record \

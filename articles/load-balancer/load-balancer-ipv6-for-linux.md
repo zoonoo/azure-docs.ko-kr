@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74225313"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
@@ -56,7 +55,7 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
     ```
 Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( https://netplan.io)입니다.  설치/인스턴스화 시간에 NETPLAN은이 위치에 있는 YAML 구성 파일의 네트워크 구성을 읽습니다 (예:/{lib).
 
-구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예를 들면 다음과 같습니다.
+구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예를 들어:
   
         network:
           version: 2
@@ -64,7 +63,7 @@ Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( htt
             eno1:
               dhcp6: true
 
-초기 부팅 중에 netplan "네트워크 렌더러"는/run에 구성을 기록 하 여 NETPLAN에 대 한 참조 정보에 대 한 장치 제어를 지정 된 네트워킹 데몬에 https://netplan.io/reference전달 합니다 .를 참조 하세요.
+초기 부팅 중에 netplan "네트워크 렌더러"는/run에 구성을 기록 하 여 NETPLAN에 대 한 참조 정보에 대 한 장치 제어를 지정 된 네트워킹 데몬에 전달 https://netplan.io/reference 합니다 .를 참조 하세요.
  
 ## <a name="debian"></a>Debian
 

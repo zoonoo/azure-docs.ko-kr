@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74480570"
 ---
 # <a name="using-the-azure-function-return-value"></a>Azure Function 반환 값 사용
@@ -52,7 +51,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
@@ -85,7 +84,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-# <a name="f"></a>[350 #](#tab/fsharp)
+# <a name="f"></a>[F#](#tab/fsharp)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 

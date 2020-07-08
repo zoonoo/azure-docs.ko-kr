@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231266"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
@@ -54,17 +53,17 @@ Durable Functions의 [안정적인 실행 모델](durable-functions-checkpointin
 
 1. 각 슬롯에 대해 [Azurewebjobsstorage 응용 프로그램 설정을](../functions-app-settings.md#azurewebjobsstorage) 공유 저장소 계정의 연결 문자열로 설정 합니다. 이 저장소 계정 연결 문자열은 Azure Functions 런타임에 사용 됩니다. 이 계정은 Azure Functions 런타임에 사용 되며 함수의 키를 관리 합니다.
 
-1. 각 슬롯에 대해 새 앱 설정 (예:)을 만듭니다 `DurableManagementStorage`. 해당 값을 다른 저장소 계정의 연결 문자열로 설정 합니다. 이러한 저장소 계정은 [안정적으로 실행](durable-functions-checkpointing-and-replay.md)하기 위해 Durable Functions 확장에서 사용 됩니다. 각 슬롯에 별도의 저장소 계정을 사용 합니다. 이 설정을 배포 슬롯 설정으로 표시 하지 마세요.
+1. 각 슬롯에 대해 새 앱 설정 (예:)을 만듭니다 `DurableManagementStorage` . 해당 값을 다른 저장소 계정의 연결 문자열로 설정 합니다. 이러한 저장소 계정은 [안정적으로 실행](durable-functions-checkpointing-and-replay.md)하기 위해 Durable Functions 확장에서 사용 됩니다. 각 슬롯에 별도의 저장소 계정을 사용 합니다. 이 설정을 배포 슬롯 설정으로 표시 하지 마세요.
 
-1. 함수 앱의 [microsoft.azure.webjobs.extensions.durabletask 섹션](durable-functions-bindings.md#hostjson-settings)에서을 3 단계에서 만든 앱 설정의 `azureStorageConnectionStringName` 이름으로 지정 합니다.
+1. [파일의 microsoft.azure.webjobs.extensions.durabletask 섹션](durable-functions-bindings.md#hostjson-settings)에서 함수 앱의host.js섹션에서을 `azureStorageConnectionStringName` 3 단계에서 만든 앱 설정의 이름으로 지정 합니다.
 
 다음 다이어그램에서는 배포 슬롯과 저장소 계정의 설명 된 구성을 보여 줍니다. 이 잠재적 배포 전 시나리오에서 함수 앱의 버전 2는 프로덕션 슬롯에서 실행 되는 반면 버전 1은 스테이징 슬롯에 남아 있습니다.
 
 ![배포 슬롯 및 저장소 계정](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host. json 예
+### <a name="hostjson-examples"></a>예 host.js
 
-다음 JSON 조각은 *호스트 json* 파일에 있는 연결 문자열 설정의 예입니다.
+다음 JSON 조각은 파일 *의host.js* 에 있는 연결 문자열 설정의 예입니다.
 
 #### <a name="functions-20"></a>함수 2.0
 
@@ -164,7 +163,7 @@ Azure Pipelines는 배포를 시작 하기 전에 함수 앱에서 오케스트�
 
 ### <a name="tracking-store-settings"></a>추적 저장소 설정
 
-각 함수 앱은 별도의 저장소 계정으로 별도의 일정 큐를 사용 해야 합니다. 모든 버전의 응용 프로그램에서 모든 오케스트레이션 인스턴스를 쿼리하려면 함수 앱에서 인스턴스 및 기록 테이블을 공유할 수 있습니다. 모두 동일한 값을 사용 하도록 `trackingStoreConnectionStringName` [host. json 설정](durable-functions-bindings.md#host-json) 파일에서 및 `trackingStoreNamePrefix` 설정을 구성 하 여 테이블을 공유할 수 있습니다.
+각 함수 앱은 별도의 저장소 계정으로 별도의 일정 큐를 사용 해야 합니다. 모든 버전의 응용 프로그램에서 모든 오케스트레이션 인스턴스를 쿼리하려면 함수 앱에서 인스턴스 및 기록 테이블을 공유할 수 있습니다. `trackingStoreConnectionStringName` `trackingStoreNamePrefix` 설정 파일의 [host.js](durable-functions-bindings.md#host-json) 에서 및 설정을 구성 하 여 모두 동일한 값을 사용 하도록 테이블을 공유할 수 있습니다.
 
 자세한 내용은 [Azure에서 Durable Functions 인스턴스 관리](durable-functions-instance-management.md)를 참조 하세요.
 

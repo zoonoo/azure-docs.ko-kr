@@ -1,18 +1,17 @@
 ---
-title: Azure Functions 트리거 및 바인딩 예제
+title: Azure Functions 트리거 및 바인딩 예
 description: Azure 함수 바인딩을 구성 하는 방법 알아보기
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74227236"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예
 
 이 문서에서는 Azure 함수에서 [트리거와 바인딩을](./functions-triggers-bindings.md) 구성 하는 방법을 보여 줍니다.
 
@@ -82,7 +81,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-동일한 *함수인 json* 파일은 JavaScript 함수와 함께 사용할 수 있습니다.
+JavaScript 함수를 사용 하 여 파일 *에 대해 동일한function.js* 를 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -102,7 +101,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>클래스 라이브러리 예제
 
-클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 아래 예를 살펴보세요.
+클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 스토리지 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 public static class QueueTriggerTableOutput

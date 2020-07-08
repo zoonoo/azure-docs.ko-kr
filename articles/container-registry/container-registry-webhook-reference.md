@@ -4,10 +4,9 @@ description: Webhook push 또는 delete 이벤트에 대해 웹 후크를 사용
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455965"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry 웹후크 참조
@@ -36,33 +35,33 @@ Azure Container Registry에 대한 웹후크를 구성하는 방법에 대한 �
 
 ### <a name="push-event-payload"></a>푸시 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|Type|Description|
 |-------------|----------|-----------|
-|`id`|문자열|웹후크 이벤트의 ID입니다.|
+|`id`|String|웹후크 이벤트의 ID입니다.|
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
-|`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
+|`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 |[요청](#request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="target"></a><a name="target"></a>대상을
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
+|`mediaType`|String|참조된 개체의 MIME 형식입니다.|
 |`size`|Int32|콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다.|
-|`digest`|문자열|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
+|`digest`|String|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
 |`length`|Int32|콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다.|
-|`repository`|문자열|리포지토리 이름입니다.|
-|`tag`|문자열|이미지 태그 이름입니다.|
+|`repository`|String|리포지토리 이름입니다.|
+|`tag`|String|이미지 태그 이름입니다.|
 
 ### <a name="request"></a><a name="request"></a>요구
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`id`|문자열|이벤트를 시작한 요청의 ID입니다.|
-|`host`|문자열|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|
-|`method`|문자열|이벤트를 생성한 요청 메서드입니다.|
-|`useragent`|문자열|요청의 사용자 에이전트 헤더입니다.|
+|`id`|String|이벤트를 시작한 요청의 ID입니다.|
+|`host`|String|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|
+|`method`|String|이벤트를 생성한 요청 메서드입니다.|
+|`useragent`|String|요청의 사용자 에이전트 헤더입니다.|
 
 ### <a name="payload-example-image-push-event"></a>페이로드 예: 이미지 푸시 이벤트
 
@@ -100,24 +99,24 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ### <a name="chart-push-event-payload"></a>차트 푸시 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|Type|Description|
 |-------------|----------|-----------|
-|`id`|문자열|웹후크 이벤트의 ID입니다.|
+|`id`|String|웹후크 이벤트의 ID입니다.|
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
-|`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
+|`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#helm_target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 
 ### <a name="target"></a><a name="helm_target"></a>대상을
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
+|`mediaType`|String|참조된 개체의 MIME 형식입니다.|
 |`size`|Int32|콘텐츠의 바이트 수입니다.|
-|`digest`|문자열|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
-|`repository`|문자열|리포지토리 이름입니다.|
-|`tag`|문자열|차트 태그 이름입니다.|
-|`name`|문자열|차트 이름입니다.|
-|`version`|문자열|차트 버전입니다.|
+|`digest`|String|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
+|`repository`|String|리포지토리 이름입니다.|
+|`tag`|String|차트 태그 이름입니다.|
+|`name`|String|차트 이름입니다.|
+|`version`|String|차트 버전입니다.|
 
 ### <a name="payload-example-chart-push-event"></a>페이로드 예: 차트 푸시 이벤트
 
@@ -150,30 +149,30 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ### <a name="delete-event-payload"></a>삭제 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|Type|Description|
 |-------------|----------|-----------|
-|`id`|문자열|웹후크 이벤트의 ID입니다.|
+|`id`|String|웹후크 이벤트의 ID입니다.|
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
-|`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
+|`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#delete_target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 |[요청](#delete_request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="target"></a><a name="delete_target"></a>대상을
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
-|`digest`|문자열|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
-|`repository`|문자열|리포지토리 이름입니다.|
+|`mediaType`|String|참조된 개체의 MIME 형식입니다.|
+|`digest`|String|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
+|`repository`|String|리포지토리 이름입니다.|
 
 ### <a name="request"></a><a name="delete_request"></a>요구
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`id`|문자열|이벤트를 시작한 요청의 ID입니다.|
-|`host`|문자열|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|
-|`method`|문자열|이벤트를 생성한 요청 메서드입니다.|
-|`useragent`|문자열|요청의 사용자 에이전트 헤더입니다.|
+|`id`|String|이벤트를 시작한 요청의 ID입니다.|
+|`host`|String|외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 HTTP 호스트 헤더를 통해 지정됩니다.|
+|`method`|String|이벤트를 생성한 요청 메서드입니다.|
+|`useragent`|String|요청의 사용자 에이전트 헤더입니다.|
 
 ### <a name="payload-example-image-delete-event"></a>페이로드 예제: 이미지 삭제 이벤트
 
@@ -212,24 +211,24 @@ az acr repository delete --name MyRegistry --image MyRepository:MyTag
 
 ### <a name="chart-delete-event-payload"></a>차트 삭제 이벤트 페이로드
 
-|요소|유형|설명|
+|요소|Type|Description|
 |-------------|----------|-----------|
-|`id`|문자열|웹후크 이벤트의 ID입니다.|
+|`id`|String|웹후크 이벤트의 ID입니다.|
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
-|`action`|문자열|웹후크 이벤트가 트리거된 작업입니다.|
+|`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#chart_delete_target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
 
 ### <a name="target"></a><a name="chart_delete_target"></a>대상을
 
-|요소|유형|설명|
+|요소|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|문자열|참조된 개체의 MIME 형식입니다.|
+|`mediaType`|String|참조된 개체의 MIME 형식입니다.|
 |`size`|Int32|콘텐츠의 바이트 수입니다.|
-|`digest`|문자열|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
-|`repository`|문자열|리포지토리 이름입니다.|
-|`tag`|문자열|차트 태그 이름입니다.|
-|`name`|문자열|차트 이름입니다.|
-|`version`|문자열|차트 버전입니다.|
+|`digest`|String|콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다.|
+|`repository`|String|리포지토리 이름입니다.|
+|`tag`|String|차트 태그 이름입니다.|
+|`name`|String|차트 이름입니다.|
+|`version`|String|차트 버전입니다.|
 
 ### <a name="payload-example-chart-delete-event"></a>페이로드 예: 차트 삭제 이벤트
 

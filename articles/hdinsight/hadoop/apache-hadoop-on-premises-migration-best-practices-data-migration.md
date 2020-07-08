@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74666004"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
@@ -38,7 +37,7 @@ ms.locfileid: "74666004"
 
 |데이터 수량|네트워크 대역폭||||
 |---|---|---|---|---|
-|| **45Mbps(T3)**|**100 Mbps**|**1Gbps**|**10Gbps**|
+|| **45Mbps(T3)**|**100Mbps**|**1Gbps**|**10Gbps**|
 |1TB|2일|1일| 2시간|14분|
 |10TB|22일|10일|1일|2시간|
 |35TB|76일|34일|3일|8시간|

@@ -4,17 +4,16 @@ description: Azure Portal 사용 하 여 Docker 컨테이너 이미지 및 지�
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456284"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure Portal의 컨테이너 레지스트리 리포지토리 보기
 
 Azure Container Registry를 통해 리포지토리에 Docker 컨테이너 이미지를 저장할 수 있습니다. 리포지토리에 이미지를 저장하면 격리된 환경에 이미지 그룹(또는 이미지 버전)을 저장할 수 있습니다. 이미지를 레지스트리에 푸시할 때 이러한 리포지토리를 지정하고, Azure Portal에서 해당 콘텐츠를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **컨테이너 레지스트리**: Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI**: 로컬 컴퓨터에 Docker 명령줄 인터페이스를 제공하는 [Docker][docker-install]를 설치합니다.

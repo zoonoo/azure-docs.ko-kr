@@ -14,10 +14,9 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74206790"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
@@ -166,7 +165,7 @@ Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대
 * 내 테 넌 트에 의심 스러운 상황이 나 악의적인 문제가 있나요?
 * 보안 인시던트에 영향을 받는 사람은 누구 인가요?
 
-보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 네트워크의 외부 침투와 내부 공격의 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용 하 여 사용자 활동을 모니터링 하 고, 규정 준수를 문서화 하 고, 법정 분석을 수행할 수 있습니다. 경고는 보안 이벤트의 알림을 제공합니다.
+보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 네트워크의 외부 침투와 내부 공격의 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용하여 사용자 활동을 모니터링하고, 규정 준수를 문서화하며, 법정 분석 등을 수행할 수 있습니다. 경고는 보안 이벤트의 알림을 제공합니다.
 
 ### <a name="assign-least-privileged-admin-roles-for-operations"></a>작업에 대해 최소 권한 있는 관리자 역할 할당
 

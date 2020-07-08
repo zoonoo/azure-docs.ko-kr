@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74684140"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
@@ -143,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 명령을 사용 하 여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 해결 하기 위해 Vm 문제를 해결 합니다.
 
 
-Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![chrooted 팅](./media/chroot-logical-volume-manager/chrooted.png)
+Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![ chrooted 팅](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>수정 수행
 
@@ -171,13 +170,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 **Grep** 명령은 grub에서 인식 하는 커널을 나열 합니다 **.**
 ![커널](./media/chroot-logical-volume-manager/kernels.png)
 
-**grub2-** 다음 부팅 ![커널 기본값에서 로드 되는 커널을 표시 하는 editenv 목록](./media/chroot-logical-volume-manager/kernel-default.png)
+grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는 **editenv 목록** ![](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**grub2-기본값** 은 다른 커널 ![grub2 집합으로 변경 하는 데 사용 됩니다.](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**grub2-기본값** 은 다른 커널 grub2 집합으로 변경 하는 데 사용 됩니다. ![](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-**grub2-** 다음 부팅 ![새 커널에서 로드 되는 커널을 표시 합니다.](./media/chroot-logical-volume-manager/kernel-new.png)
+**grub2-** 다음 부팅 새 커널에서 로드 되는 커널을 표시 합니다. ![](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**grub2-Grub2-mkconfig** ![grub2 grub2-mkconfig의 버전을 사용 하 여 cfg를 다시 빌드합니다.](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**grub2-Grub2-mkconfig** grub2 grub2-mkconfig의 버전을 사용 하 여 cfg를 다시 빌드합니다. ![](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -204,8 +203,8 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ![고급](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-필요한 경우 **커널**
-![고급을 제거 하거나 업그레이드 합니다.](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+필요한 경우 **커널** 
+ 고급을 제거 하거나 업그레이드 합니다. ![](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>예제 3-직렬 콘솔 사용
@@ -252,15 +251,15 @@ umount /rescue
 
 복구 VM에서 디스크를 분리 하 고 디스크 교체를 수행 합니다.
 
-포털 **디스크** 에서 VM을 선택 하 고 분리 디스크 **분리**
-![를 선택 합니다.](./media/chroot-logical-volume-manager/detach-disk.png) 
+포털 **디스크** 에서 VM을 선택 하 고 분리 **detach** 
+ 디스크 분리를 선택 합니다. ![](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-변경 내용 ![저장 분리](./media/chroot-logical-volume-manager/save-detach.png) 
+변경 내용 저장 ![ 분리](./media/chroot-logical-volume-manager/save-detach.png) 
 
 이제 디스크를 사용할 수 있게 되 면 영향을 받는 VM의 원래 OS 디스크와 교체할 수 있습니다.
 
-Azure Portal에서 실패 한 VM으로 이동 하 고 **디스크** -> **교체 OS 디스크**
-![스왑 디스크를 선택 합니다.](./media/chroot-logical-volume-manager/swap-disk.png) 
+Azure Portal에서 실패 한 VM으로 이동 하 고 **디스크**  ->  **교체 OS 디스크** 
+ ![ 스왑 디스크를 선택 합니다.](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 필드를 완료 합니다. **디스크 선택** 은 이전 단계에서 바로 분리 된 스냅숏 디스크입니다. 영향을 받는 VM의 VM 이름도 필요 합니다. 그런 다음 **확인** 을 선택 합니다.
 

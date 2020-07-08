@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768897"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대 한 연결 라이브러리-단일 서버
@@ -24,7 +23,7 @@ PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0 호환 | [다운로드](http://initd.org/psycopg/download/) |
 | PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | 데이터베이스 확장 | [설치](https://secure.php.net/manual/en/pgsql.installation.php) |
 | Node.js | [Pg npm package](https://www.npmjs.com/package/pg) | 순수 JavaScript 비차단 클라이언트 | [설치](https://www.npmjs.com/package/pg) |
-| Java | [JDBC](https://jdbc.postgresql.org/) | 형식 4 JDBC 드라이버 | [다운로드할지](https://jdbc.postgresql.org/download.html)  |
+| Java | [JDBC](https://jdbc.postgresql.org/) | 형식 4 JDBC 드라이버 | [다운로드](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Ruby 인터페이스 | [다운로드](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | 순수 Go postgres 드라이버 | [설치](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | ADO.NET 데이터 공급자 | [다운로드](https://www.microsoft.com/net/) |
@@ -35,4 +34,4 @@ PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라
 ## <a name="next-steps"></a>다음 단계
 선택한 언어를 사용하여 PostgreSQL용 Azure Database에 연결하고 쿼리하는 방법에 대한 빠른 시작을 읽어보세요.
 
-[Python](./connect-python.md) | [node.js](./connect-nodejs.md) | [Ruby](./connect-ruby.md) | [Go](./connect-go.md) [PHP](./connect-php.md)[Java](./connect-java.md) | [.NET (C#)](./connect-csharp.md)Java Ruby | PHP .net (c #) Go | 
+[Python](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Java](./connect-java.md)  |  [Ruby](./connect-ruby.md)  |  [PHP](./connect-php.md)  |  [.NET (C #)](./connect-csharp.md)  |  [Go](./connect-go.md)

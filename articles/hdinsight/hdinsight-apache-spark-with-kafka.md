@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327390"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
@@ -76,7 +75,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 ## <a name="use-the-notebooks"></a>노트북 사용
 
-이 문서에서 설명 하는 예제에 대 한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)에서 사용할 수 있습니다.
+이 문서에서 설명 하는 예제에 대 한 코드는에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) .
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

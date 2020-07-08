@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74807139"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제
@@ -26,7 +25,7 @@ ms.locfileid: "74807139"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **모든 서비스** > **분석** > **HDInsight 클러스터** 로 이동 하 여 클러스터를 선택 합니다.
+2. 왼쪽 메뉴에서 **모든 서비스**  >  **분석**  >  **HDInsight 클러스터** 로 이동 하 여 클러스터를 선택 합니다.
 
 3. 기본 보기에서 **삭제** 아이콘을 선택 합니다. 프롬프트에 따라 클러스터를 삭제 합니다.
 
@@ -34,7 +33,7 @@ ms.locfileid: "74807139"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-을 `CLUSTERNAME` 아래 코드의 HDInsight 클러스터 이름으로 바꿉니다. PowerShell 프롬프트에서 다음 명령을 입력 하 여 클러스터를 삭제 합니다.
+`CLUSTERNAME`을 아래 코드의 HDInsight 클러스터 이름으로 바꿉니다. PowerShell 프롬프트에서 다음 명령을 입력 하 여 클러스터를 삭제 합니다.
 
 ```powershell
 Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
@@ -42,7 +41,7 @@ Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
 
 ## <a name="azure-cli"></a>Azure CLI
 
-을 `CLUSTERNAME` HDInsight 클러스터의 이름으로 바꾸고, `RESOURCEGROUP` 을 아래 코드의 리소스 그룹 이름으로 바꿉니다.  명령 프롬프트에서 다음을 입력 하 여 클러스터를 삭제 합니다.
+을 `CLUSTERNAME` HDInsight 클러스터의 이름으로 바꾸고,을 `RESOURCEGROUP` 아래 코드의 리소스 그룹 이름으로 바꿉니다.  명령 프롬프트에서 다음을 입력 하 여 클러스터를 삭제 합니다.
 
 ```azurecli
 az hdinsight delete --name CLUSTERNAME --resource-group RESOURCEGROUP

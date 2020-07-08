@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327202"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
@@ -21,7 +20,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 * 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
@@ -50,16 +49,16 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    이 명령은 Maven 프로젝트를 포함 `exampleudf`하는 라는 디렉터리를 만듭니다.
+    이 명령은 Maven 프로젝트를 포함 하는 라는 디렉터리를 만듭니다 `exampleudf` .
 
-2. 프로젝트를 만든 후에는 다음 명령을 입력 `exampleudf/src/test` 하 여 프로젝트의 일부로 만든 디렉터리를 삭제 합니다.
+2. 프로젝트를 만든 후에는 `exampleudf/src/test` 다음 명령을 입력 하 여 프로젝트의 일부로 만든 디렉터리를 삭제 합니다.
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. 아래 `pom.xml` 명령을 입력 하 여를 엽니다.
+3. `pom.xml`아래 명령을 입력 하 여를 엽니다.
 
     ```cmd
     notepad pom.xml
@@ -144,7 +143,7 @@ cd C:\HDI
 
     변경이 완료되면 파일을 저장합니다.
 
-4. 다음 명령을 입력 하 여 새 파일 `ExampleUDF.java`을 만들고 엽니다.
+4. 다음 명령을 입력 하 여 새 파일을 만들고 엽니다 `ExampleUDF.java` .
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
@@ -181,7 +180,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>UDF 빌드 및 설치
 
-아래 명령에서를 실제 사용자 `sshuser` 이름 (다른 경우)으로 바꿉니다. 실제 `mycluster` 클러스터 이름으로 대체 합니다.
+아래 명령에서를 `sshuser` 실제 사용자 이름 (다른 경우)으로 바꿉니다. `mycluster`실제 클러스터 이름으로 대체 합니다.
 
 1. 다음 명령을 입력 하 여 UDF를 컴파일하고 패키지 합니다.
 
@@ -191,7 +190,7 @@ cd C:\HDI
 
     이 명령은 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 파일에 UDF를 빌드하고 패키지합니다.
 
-2. `scp` 명령을 사용 하 여 다음 명령을 입력 하 여 파일을 HDInsight 클러스터에 복사 합니다.
+2. 명령을 사용 하 `scp` 여 다음 명령을 입력 하 여 파일을 HDInsight 클러스터에 복사 합니다.
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:

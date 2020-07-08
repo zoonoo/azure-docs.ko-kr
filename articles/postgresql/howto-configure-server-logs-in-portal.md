@@ -7,17 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74763694"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 단계를 수행 하려면 [Azure Database for PostgreSQL 서버가](quickstart-create-server-database-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성

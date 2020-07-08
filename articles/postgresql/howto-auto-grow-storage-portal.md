@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/29/2019
 ms.openlocfilehash: 5e4f9d68d02edf456394d4ce10b7b6af5f8643d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74769237"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 Azure Portal를 사용 하 여 저장소 자동 확장-단일 서버
@@ -18,7 +17,7 @@ ms.locfileid: "74769237"
 
 서버가 할당 된 저장소 제한에 도달 하면 서버가 읽기 전용으로 표시 됩니다. 그러나 저장소 자동 증가를 사용 하도록 설정 하면 증가 하는 데이터에 맞게 서버 저장소가 늘어납니다. 프로 비전 된 저장소 수가 100 미만인 서버의 경우, 사용 가능한 저장소가 프로 비전 된 저장소의 1gb 또는 10%를 초과 하는 즉시 프로 비전 된 저장소 크기는 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버에서는 사용 가능한 저장소 공간이 프로 비전 된 저장소 크기의 5% 미만이 면 프로 비전 된 저장소 크기가 5% 증가 합니다. [여기](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) 에 지정 된 대로 최대 저장소 제한이 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md)
 

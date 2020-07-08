@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792884"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
@@ -153,7 +152,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 ### <a name="new-trackedproperties-for-actions"></a>작업에 대한 새 'trackedProperties'
 
-작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 다음은 그 예입니다.
+작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 예를 들면 다음과 같습니다.
 
 ``` json
 {

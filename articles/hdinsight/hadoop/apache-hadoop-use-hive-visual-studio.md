@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687793"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
@@ -23,7 +22,7 @@ Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 �
 
 * HDInsight의 Apache Hadoop 클러스터. 이 항목을 만드는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿을 사용 하 여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기](./apache-hadoop-linux-tutorial-get-started.md)를 참조 하세요.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/). 이 문서의 단계는 Visual Studio 2019을 사용 합니다.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 이 문서의 단계는 Visual Studio 2019을 사용 합니다.
 
 * Visual Studio용 HDInsight 도구 또는 Visual Studio용 Azure Data Lake 도구 도구를 설치 하 고 구성 하는 방법에 대 한 자세한 내용은 [Install Data Lake tools For Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)를 참조 하세요.
 
@@ -50,7 +49,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
     SELECT * FROM hivesampletable;
     ```
 
-5. **실행**을 선택 합니다. 실행 모드는 기본적으로 **Interactive**로 설정 됩니다.
+5. **실행**을 선택합니다. 실행 모드는 기본적으로 **Interactive**로 설정 됩니다.
 
     ![대화형 Hive 쿼리 실행, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
@@ -58,7 +57,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
     ![일괄 처리 Hive 쿼리, Visual Studio 제출](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어를 입력 `SELECT * FROM`하면 IntelliSense에서 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
+    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어를 입력 하면 `SELECT * FROM` IntelliSense에서 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
 
 7. 쿼리 도구 모음 (쿼리 탭 및 쿼리 텍스트 위의 영역)에서 **제출**을 선택 하거나 **전송** 옆의 풀 다운 화살표를 선택 하 고 풀 다운 목록에서 **고급** 을 선택 합니다. 후자 옵션을 선택 하는 경우
 
@@ -104,7 +103,7 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
 
     * `STORED AS TEXTFILE LOCATION`: 데이터를 *example/data* 디렉터리에 저장 하 고 텍스트로 저장 되었음을 Hive에 알립니다.
 
-    * `SELECT`: 열 `t4` 에 값 `[ERROR]`이 포함 된 모든 행의 수를 선택 합니다. 이 문은 세 개의 행이 `3`이 값을 포함 하기 때문에 값을 반환 합니다.
+    * `SELECT`: 열에 값이 포함 된 모든 행의 수를 선택 `t4` `[ERROR]` 합니다. 이 문은 `3` 세 개의 행이이 값을 포함 하기 때문에 값을 반환 합니다.
 
     * `INPUT__FILE__NAME LIKE '%.log'`:는 .log로 끝나는 파일의 데이터만 반환 하도록 Hive에 지시 합니다. 이 절은 데이터를 포함 하는 *샘플 .log* 파일로 검색을 제한 합니다.
 
@@ -118,7 +117,7 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
 
 ### <a name="additional-example"></a>추가 예제
 
-다음 예에서는 이전 절차에서 `log4jLogs` 만든 테이블을 사용 하 여 [Hive 응용 프로그램을 만듭니다](#create-a-hive-application).
+다음 예에서는 `log4jLogs` 이전 절차에서 만든 테이블을 사용 하 여 [Hive 응용 프로그램을 만듭니다](#create-a-hive-application).
 
 1. **서버 탐색기**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성**을 선택 합니다.
 
@@ -143,7 +142,7 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
 
 3. 필요한 경우 **대화형** 을 **일괄 처리** 로 변경 하 고 **제출**을 선택 합니다.
 
-4. 작업이 테이블을 만들었는지 확인 하려면 **서버 탐색기** 으로 이동 하 여 **Azure** > **HDInsight**를 확장 합니다. HDInsight 클러스터를 확장 한 다음 **Hive 데이터베이스** > **기본값**을 확장 합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
+4. 작업이 테이블을 만들었는지 확인 하려면 **서버 탐색기** 으로 이동 하 여 **Azure**  >  **HDInsight**를 확장 합니다. HDInsight 클러스터를 확장 한 다음 **Hive 데이터베이스**  >  **기본값**을 확장 합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

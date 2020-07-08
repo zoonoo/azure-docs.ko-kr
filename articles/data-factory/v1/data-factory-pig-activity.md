@@ -13,16 +13,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703201"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
-> * [Pig 작업](data-factory-pig-activity.md)
+> * [Pig 활동](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
@@ -87,12 +86,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
 | type |HDinsightPig |예 |
-| inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
+| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| script |Pig 스크립트 인라인 지정 |아니요 |
-| scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
-| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
+| 스크립트 |Pig 스크립트 인라인 지정 |아니요 |
+| scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
+| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
 
 ## <a name="example"></a>예제
 회사에서 출시한 게임을 플레이어가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다.

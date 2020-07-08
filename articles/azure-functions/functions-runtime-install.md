@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226734"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
@@ -25,7 +24,7 @@ Azure Functions 런타임 미리 보기 2를 설치하려는 경우 다음 단�
 1. Azure Functions 런타임 미리 보기 2의 구성 완료
 1. Azure Functions 런타임 미리 보기에서 첫 번째 함수 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Functions 런타임 미리 보기를 설치하기 전에 다음 리소스를 사용할 수 있어야 합니다.
 
@@ -99,13 +98,13 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
 Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
-1. 예를 `https://mycomputer.mydomain.com`들어 **Azure Functions 런타임 포털로** `https://<machinename>.<domain>` 이동 합니다.
+1. 예를 들어 **Azure Functions 런타임 포털로** 이동 `https://<machinename>.<domain>` `https://mycomputer.mydomain.com` 합니다.
 
 1. **로그인**하라는 메시지가 표시됩니다. 도메인에 배포된 경우 도메인 계정 사용자 이름 및 암호를 사용하고, 그렇지 않은 경우 로컬 계정 사용자 이름 및 암호를 사용하여 포털에 로그인합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 로그인][14]
 
-1. 함수 앱을 만들려면 구독을 만들어야 합니다.  포털의 왼쪽 위 모서리에서 구독 옆에 있는 **+** 옵션을 클릭 합니다.
+1. 함수 앱을 만들려면 구독을 만들어야 합니다.  포털의 왼쪽 위 모서리에서 구독 옆에 있는 옵션을 클릭 합니다 **+** .
 
     ![Azure Functions 런타임 미리 보기 포털 구독][15]
 

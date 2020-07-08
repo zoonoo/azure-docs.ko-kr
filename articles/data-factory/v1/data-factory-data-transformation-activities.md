@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703385"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
@@ -92,7 +91,7 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [저장 프로시저](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse 또는 SQL Server |
 | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
 | [투명](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |

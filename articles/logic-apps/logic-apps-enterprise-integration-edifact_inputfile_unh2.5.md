@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792547"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Azure Logic Apps에서 UNH2.5 세그먼트를 사용하여 EDIFACT 문서를 처리합니다.
 
-EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 조회에 사용 됩니다. 예를 들어이 샘플 EDIFACT 메시지에서 UNH 필드는 `EAN008`다음과 같습니다.
+EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 조회에 사용 됩니다. 예를 들어이 샘플 EDIFACT 메시지에서 UNH 필드는 `EAN008` 다음과 같습니다.
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
@@ -29,7 +28,7 @@ EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 �
 
 ## <a name="update-the-schema"></a>스키마 업데이트
 
-메시지를 처리 하려면 UNH 2.5 루트 노드 이름이 있는 스키마를 배포 해야 합니다. 예를 들어 샘플 UNH 필드의 스키마 루트 이름은 `EFACT_D03B_ORDERS_EAN008`입니다. 다른 UNH 2.5 세그먼트가 있는 각 `D03B_ORDERS` 에 대해 개별 스키마를 배포 해야 합니다.
+메시지를 처리 하려면 UNH 2.5 루트 노드 이름이 있는 스키마를 배포 해야 합니다. 예를 들어 샘플 UNH 필드의 스키마 루트 이름은 `EFACT_D03B_ORDERS_EAN008` 입니다. `D03B_ORDERS`다른 UNH 2.5 세그먼트가 있는 각에 대해 개별 스키마를 배포 해야 합니다.
 
 ## <a name="add-schema-to-edifact-agreement"></a>EDIFACT 규약에 스키마 추가
 
@@ -43,7 +42,7 @@ EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 �
 
 1. EDIFACT 규약의 수신 설정에서 스키마를 구성 합니다.
 
-1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 수신 규약의 `schemaReferences` 섹션에 unh 2.5 값을 추가 합니다.
+1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 수신 규약의 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
 
    ![수신 규약에 UNH 2.5 추가](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
@@ -59,7 +58,7 @@ EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 �
 
 1. EDIFACT 규약을 선택하고 **JSON으로 편집**을 클릭합니다.  송신 규약 **schemaReferences**에 UNH2.5 값을 추가합니다.
 
-1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 송신 규약 `schemaReferences` 섹션에 unh 2.5 값을 추가 합니다.
+1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 송신 규약 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
 
    ![규약을 보내도록 UNH 2.5 추가](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 

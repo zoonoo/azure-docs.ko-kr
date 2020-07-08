@@ -13,16 +13,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703377"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
-> * [Pig 작업](data-factory-pig-activity.md)
+> * [Pig 활동](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
@@ -224,7 +223,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 ```
 ## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)
-* [Pig 작업](data-factory-pig-activity.md)
+* [Pig 활동](data-factory-pig-activity.md)
 * [MapReduce 작업](data-factory-map-reduce.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

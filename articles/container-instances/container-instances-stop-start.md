@@ -4,10 +4,9 @@ description: Azure Container Instances에서 컨테이너 그룹을 수동으로
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74533417"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Azure Container Instances에서 수동으로 컨테이너 중지 또는 시작
@@ -34,7 +33,7 @@ ms.locfileid: "74533417"
 
 컨테이너 그룹을 수동으로 시작 또는 다시 시작한 후에 컨테이너 그룹은 구성된 다시 시작 정책에 따라 실행됩니다.
   
-## <a name="restart"></a>다시 시작
+## <a name="restart"></a>재시작
 
 예를 들어 [az container restart][az-container-restart] 명령을 사용 하 여 실행 되는 동안 컨테이너 그룹을 다시 시작할 수 있습니다. 이 작업은 컨테이너 그룹의 모든 컨테이너를 다시 시작합니다. 컨테이너의 컨테이너 이미지가 업데이트되면 새 이미지가 풀됩니다. 
 

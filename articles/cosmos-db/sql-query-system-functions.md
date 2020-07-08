@@ -8,10 +8,9 @@ ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870533"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>시스템 함수 (Azure Cosmos DB)
@@ -33,7 +32,7 @@ ms.locfileid: "74870533"
 
 ## <a name="built-in-versus-ansi-sql-functions"></a>기본 제공 및 ANSI SQL 함수
 
-Cosmos DB 함수와 ANSI SQL 함수 간의 주요 차이점은 Cosmos DB 함수는 스키마 없는 데이터 및 혼합 스키마 데이터에서 잘 작동 하도록 설계 되었다는 것입니다. 예를 들어 속성이 누락 되었거나와 같은 `unknown`숫자가 아닌 값을 가지는 경우 오류를 반환 하는 대신 항목을 건너뜁니다.
+Cosmos DB 함수와 ANSI SQL 함수 간의 주요 차이점은 Cosmos DB 함수는 스키마 없는 데이터 및 혼합 스키마 데이터에서 잘 작동 하도록 설계 되었다는 것입니다. 예를 들어 속성이 누락 되었거나와 같은 숫자가 아닌 값을 가지는 경우 오류를 반환 하는 `unknown` 대신 항목을 건너뜁니다.
 
 ## <a name="next-steps"></a>다음 단계
 

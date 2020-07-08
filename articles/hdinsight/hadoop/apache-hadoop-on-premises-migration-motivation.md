@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74267317"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
@@ -53,7 +52,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
+- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md)와 통합   하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -87,7 +86,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 질문
 
-| **지원부** | **예제** | **Answer** |
+| **질문** | **예제** | **답변** |
 |---|---|---|
 |**토픽**: **환경**|||
 |클러스터 배포 버전|HDP 2.6.5, CDH 5.7|
@@ -119,7 +118,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="project-details-questionnaire"></a>프로젝트 세부 정보 설문지
 
-|**지원부**|**예제**|**Answer**|
+|**질문**|**예제**|**답변**|
 |---|---|---|
 |**토픽**: **워크로드 및 빈도**|||
 |MapReduce 작업|10개 작업 -- 하루 2회||
@@ -165,7 +164,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 |**토픽**: **인프라** |||
 |---|---|---|
-|**지원부**|**예제**|**Answer**|
+|**질문**|**예제**|**답변**|
 | 기본 지역|미국 동부||
 |VNet이 기본 설정입니까?|예||
 |HA/DR이 필요합니까?|예||

@@ -4,10 +4,9 @@ description: Azure RBAC(역할 기반 액세스 제어)와 IAM(ID 및 액세스 
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74893487"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
@@ -66,7 +65,7 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="sign-images"></a>이미지 서명
 
-일반적으로 자동화된 프로세스에 할당되는, 서비스 주체를 사용하는 이미지 서명 기능입니다. 일반적으로 이 권한은 [이미지 푸시](#push-image)와 결합되어 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있도록 합니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조하세요.
+일반적으로 자동화된 프로세스에 할당되는, 서비스 주체를 사용하는 이미지 서명 기능입니다. 일반적으로 이 권한은 [이미지 푸시](#push-image)와 결합되어 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있도록 합니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조 하세요.
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
@@ -81,7 +80,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 사용자 지정 역할을 정의 하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조 하세요.
 
 > [!IMPORTANT]
-> 사용자 지정 역할에서 Azure Container Registry는 현재와 `Microsoft.ContainerRegistry/*` 같은 와일드 카드를 지원 `Microsoft.ContainerRegistry/registries/*` 하지 않으며, 일치 하는 모든 동작에 대 한 액세스 권한을 부여 합니다. 역할에서 필수 작업을 개별적으로 지정 합니다.
+> 사용자 지정 역할에서 Azure Container Registry는 현재와 같은 와일드 카드를 지원 하지 않으며, `Microsoft.ContainerRegistry/*` `Microsoft.ContainerRegistry/registries/*` 일치 하는 모든 동작에 대 한 액세스 권한을 부여 합니다. 역할에서 필수 작업을 개별적으로 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

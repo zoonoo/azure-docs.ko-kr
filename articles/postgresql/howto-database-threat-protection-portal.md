@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74776146"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에 대 한 Advanced Threat Protection-단일 서버
@@ -27,7 +26,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 > 이 기능은 Azure Database for PostgreSQL이 범용 및 메모리 최적화 서버용으로 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
-1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure Portal를 시작 합니다.
+1. 에서 Azure Portal를 시작 [https://portal.azure.com](https://portal.azure.com) 합니다.
 2. 보호할 Azure Database for PostgreSQL 서버의 구성 페이지로 이동합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
 3. **Advanced Threat Protectio(미리 보기)** 구성 페이지에서 다음을 수행합니다.
 
@@ -62,5 +61,5 @@ Advanced Threat Protection의 경고는 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
+* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
 * 가격 책정에 대한 자세한 내용은 [Azure Database for PostgreSQL 가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.  

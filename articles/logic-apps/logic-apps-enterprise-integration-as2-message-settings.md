@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74793034"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Azure Logic Apps에서 AS2 메시지 설정에 대 한 참조 엔터프라이즈 통합 팩
@@ -49,7 +48,7 @@ ms.locfileid: "74793034"
 | **메시지 서명 사용** | 아니요 | 보내는 모든 메시지를 디지털 서명 해야 하는지 여부를 지정 합니다. 서명이 필요한 경우 다음 값을 선택 합니다. <p>- **서명 알고리즘** 목록에서 메시지에 서명 하는 데 사용할 알고리즘을 선택 합니다. <br>- **인증서** 목록에서 서명 메시지에 대 한 기존 호스트 파트너 개인 인증서를 선택 합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
 | **메시지 암호화 사용** | 아니요 | 나가는 모든 메시지를 암호화 해야 하는지 여부를 지정 합니다. 암호화 해야 하는 경우 다음 값을 선택 합니다. <p>- **암호화 알고리즘** 목록에서 메시지를 암호화 하는 데 사용할 게스트 파트너 공용 인증서 알고리즘을 선택 합니다. <br>- **인증서** 목록에서 나가는 메시지를 암호화 하기 위한 기존 게스트 파트너 개인 인증서를 선택 합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
 | **메시지 압축 사용** | 아니요 | 나가는 모든 메시지를 압축 해야 하는지 여부를 지정 합니다. |
-| **HTTP 헤더 펼침** | 아니요 | HTTP `content-type` 헤더를 한 줄에 배치 합니다. |
+| **HTTP 헤더 펼침** | 아니요 | HTTP 헤더를 `content-type` 한 줄에 배치 합니다. |
 | **MIME 헤더로 파일 이름 전송** | 아니요 | MIME 헤더에 파일 이름을 포함할지 여부를 지정 합니다. |
 | **MDN 요청** | 아니요 | 보내는 모든 메시지에 대해 Mdn (메시지 처리 알림)를 받을지 여부를 지정 합니다. |
 | **서명된 MDN 요청** | 아니요 | 보내는 모든 메시지에 대해 서명 된 Mdn를 받을지 여부를 지정 합니다. 서명이 필요한 경우 **MIC 알고리즘** 목록에서 메시지 서명에 사용할 알고리즘을 선택 합니다. |

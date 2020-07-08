@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559340"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
@@ -40,7 +39,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 
  
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스** > **관리 그룹**을 선택 합니다.
+2. **모든 서비스** > **관리 그룹**을 선택합니다.
 3. 주 페이지에서 **새 관리 그룹**을 선택합니다. 
 
     ![기본 그룹](./media/security-center-management-groups/main.png) 
@@ -48,7 +47,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
+      ![생성](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
@@ -112,7 +111,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. [Azure PowerShell](/powershell/azure/install-az-ps)를 설치 합니다.
+1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 
 
     ```azurepowershell
@@ -189,7 +188,7 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 이 문서에서는 Azure Security Center에 대한 테넌트 수준 가시성을 얻는 방법을 배웠습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Security Center의 보안 상태 모니터링](security-center-monitoring.md)
+> [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
 > [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)

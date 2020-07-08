@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870567"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 SQL 하위 쿼리 예제
@@ -47,7 +46,7 @@ Azure Cosmos DB의 SQL 쿼리는 항상 단일 열 (단순 값 또는 복잡 한
 
 다중값 하위 쿼리는 WHERE 절의 모든 교차 조인이 아니라 각 select-many 식 다음에 조건자를 푸시하여 조인 식을 최적화할 수 있습니다.
 
-다음과 같은 쿼리를 고려해 보세요.
+다음 쿼리를 고려해 보세요.
 
 ```sql
 SELECT Count(1) AS Count
@@ -63,7 +62,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 그런 다음 WHERE 절은 각 <c, t, n, s> 튜플에 필터 조건자를 적용 합니다. 예를 들어, 일치 하는 문서에 각각 3 개의 배열에 10 개의 항목이 있는 경우 1 x 10 x 10 x 10 (즉, 1000) 튜플로 확장 됩니다. 여기서 하위 쿼리를 사용 하면 다음 식으로 조인 하기 전에 조인 된 배열 항목을 필터링 하는 데 도움이 될 수 있습니다.
 
-이 쿼리는 위의 쿼리와 동일 하지만 하위 쿼리를 사용 합니다.
+다음 쿼리는 위의 쿼리와 동일하지만 하위 쿼리를 사용합니다.
 
 ```sql
 SELECT Count(1) AS Count
@@ -79,7 +78,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 하위 쿼리는 Udf (사용자 정의 함수), 복잡 한 문자열 또는 산술 식과 같은 비용이 많이 드는 식으로 쿼리를 최적화 하는 데 도움이 됩니다. JOIN 식과 함께 하위 쿼리를 사용 하 여 식을 한 번만 계산 하 고이를 여러 번 참조할 수 있습니다.
 
-다음 쿼리는 UDF `GetMaxNutritionValue` 를 두 번 실행 합니다.
+다음 쿼리는 UDF를 `GetMaxNutritionValue` 두 번 실행 합니다.
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +108,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-이 접근 방식은 Udf로 제한 되지 않습니다. 잠재적으로 비용이 많이 드는 식에 적용 됩니다. 예를 들어 수학 함수 `avg`를 사용 하 여 동일한 방법을 사용할 수 있습니다.
+이 접근 방식은 Udf로 제한 되지 않습니다. 잠재적으로 비용이 많이 드는 식에 적용 됩니다. 예를 들어 수학 함수를 사용 하 여 동일한 방법을 사용할 수 있습니다 `avg` .
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -191,7 +190,7 @@ WHERE n.units = r.unit
 
 다음은 몇 가지 예입니다.
 
-**예 1**
+**예제 1**
 
 ```sql
 SELECT 1 AS a, 2 AS b
@@ -237,7 +236,7 @@ FROM food f
 ]
 ```
 
-**예제 3**
+**예 3**
 
 ```sql
 SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : undefined
@@ -267,7 +266,7 @@ FROM food f
 
 집계 스칼라 하위 쿼리는 단일 값으로 계산 되는 프로젝션 또는 필터에 집계 함수를 포함 하는 하위 쿼리입니다.
 
-**예 1:**
+**예제 1:**
 
 다음은 프로젝션에서 단일 집계 함수 식이 포함 된 하위 쿼리입니다.
 
@@ -316,7 +315,7 @@ FROM food f
 ]
 ```
 
-**예제 3**
+**예 3**
 
 다음은 프로젝션 및 필터 모두에 집계 하위 쿼리가 포함 된 쿼리입니다.
 
@@ -366,7 +365,7 @@ SELECT EXISTS (SELECT VALUE undefined)
 SELECT EXISTS (SELECT undefined) 
 ```
 
-하위 쿼리는 개체의 선택 된 목록에 있는 값 목록을 묶습니다. 선택한 목록에 값이 없으면 하위 쿼리는 단일 값 '{}'을 반환 합니다. 이 값은 정의 되어 있으므로 EXISTS가 true로 평가 됩니다.
+하위 쿼리는 개체의 선택 된 목록에 있는 값 목록을 묶습니다. 선택한 목록에 값이 없으면 하위 쿼리는 단일 값 ' '을 반환 합니다 {} . 이 값은 정의 되어 있으므로 EXISTS가 true로 평가 됩니다.
 
 ### <a name="example-rewriting-array_contains-and-join-as-exists"></a>예: ARRAY_CONTAINS 재작성 및 EXISTS로 조인
 
@@ -388,7 +387,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 또한 ARRAY_CONTAINS은 값이 배열 내의 요소와 같은지만 확인할 수 있습니다. 배열 속성에 더 복잡 한 필터가 필요한 경우 JOIN을 사용 합니다.
 
-배열의 단위와 `nutritionValue` 속성을 기준으로 필터링 하는 다음 쿼리를 고려 하십시오. 
+배열의 단위와 속성을 기준으로 필터링 하는 다음 쿼리를 고려 하십시오 `nutritionValue` . 
 
 ```sql
 SELECT VALUE c.description

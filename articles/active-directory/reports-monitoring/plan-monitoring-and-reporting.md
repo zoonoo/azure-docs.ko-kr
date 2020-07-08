@@ -13,10 +13,9 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232117"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
@@ -73,11 +72,11 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 예상치가 일치 하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 
-통신은 모든 새 서비스의 성공에 중요 합니다. 사용자가 경험을 변경 하는 방법, 변경 된 시간 및 문제가 발생 한 경우 지원을 얻는 방법에 대 한 사전 대처.
+통신은 새 서비스의 성공에 대단히 중요합니다. 사용자의 경험이 어떻게 변화하고 언제 변할 것인지, 문제가 발생할 경우 지원을 받는 방법에 대해 사용자와 사전에 소통합니다.
 
 ### <a name="document-your-current-infrastructure-and-policies"></a>현재 인프라 및 정책 문서화
 
@@ -97,9 +96,9 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 해당 없음
+* 적용할 수 없음
 
-|영역 |Description |
+|영역 |설명 |
 |-|-|
 |보존| **30 일 넘게 로그 보존** 법률 또는 비즈니스 요구 사항으로 인해 Azure AD의 감사 로그 및 로그인 로그를 30 일 보다 길게 저장 해야 합니다. |
 |분석| **로그를 검색할 수 있어야**합니다. 저장 된 로그는 분석 도구를 사용 하 여 검색할 수 있어야 합니다. |
@@ -127,7 +126,7 @@ Azure AD 모니터링을 사용 하 여 Azure AD 활동 로그를 비즈니스 �
 
 Azure AD 활동 로그에 대해 미리 작성 된 보기를 설치 하 여 로그인 및 감사 이벤트와 관련 된 일반적인 시나리오를 모니터링할 수도 있습니다.
 
-[AZURE AD 활동 로그에 대 한 log analytics 보기를 설치 하 고 사용](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)하는 방법을 알아봅니다.
+[Azure AD 활동 로그에 대한 로그 분석 보기 설치 및 사용](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views) 방법에 대해 알아보세요.
 
 #### <a name="stream-logs-to-your-azure-event-hub"></a>Azure 이벤트 허브에 로그 스트림
 
@@ -149,7 +148,7 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 * 보안 판독기
 
-* 보고서를 읽는 사람
+* 보고서 읽기 권한자
 
 [AZURE AD 관리 역할](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)에 대해 자세히 알아보세요.
 
@@ -171,7 +170,7 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 [Azure Monitor로 로그 보내기](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-[Azure Active Directory에 대 한 log analytics 보기 설치 및 사용](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Azure Active Directory용 로그 분석 보기 설치 및 사용](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
 
 [Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 

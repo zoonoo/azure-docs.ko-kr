@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74790270"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과를 설정 하 여 모의 데이터로 논리 앱 테스트
@@ -25,7 +24,7 @@ ms.locfileid: "74790270"
 
 * Azure 구독 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * 정적 결과를 설정 하려는 논리 앱
 
@@ -47,14 +46,14 @@ ms.locfileid: "74790270"
 
       | 속성 | 설명 |
       |----------|-------------|
-      | **상태** | 반환할 작업의 상태입니다. |
+      | **Status** | 반환할 작업의 상태입니다. |
       | **상태 코드** | 반환할 특정 상태 코드 |
       | **헤더** | 반환할 헤더 콘텐츠입니다. |
       |||
 
       !["정적 결과 사용"을 선택 합니다.](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      JavaScript Object Notation (json) 형식으로 모의 데이터를 입력 하려면 **json 모드로 전환** (!["json 모드로 전환"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)선택)을 선택 합니다.
+      JavaScript Object Notation (JSON) 형식으로 모의 데이터를 입력 하려면 **Json 모드로 전환** ( ![ "json 모드로 전환" 선택)을 선택 ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) 합니다.
 
    1. 선택적 속성의 경우 **선택적 필드 선택** 목록을 열고 mock에 사용할 속성을 선택 합니다.
 
@@ -62,7 +61,7 @@ ms.locfileid: "74790270"
 
 1. 저장할 준비가 되 면 **완료**를 선택 합니다.
 
-   작업의 오른쪽 위 모서리에서 제목 표시줄에는 테스트 반쯤 아이콘 (![정적 결과](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)아이콘)이 표시 되며,이는 정적 결과를 사용 하도록 설정 되었음을 나타냅니다.
+   작업의 오른쪽 위 모서리에서 제목 표시줄에는 테스트 반쯤 아이콘 ( ![ 정적 결과 아이콘 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) )이 표시 되며,이는 정적 결과를 사용 하도록 설정 되었음을 나타냅니다.
 
    ![활성화 된 정적 결과를 보여 주는 아이콘](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
@@ -90,7 +89,7 @@ ms.locfileid: "74790270"
 
 1. **정적 결과** 상자가 열리면 다음 단계 중 하나를 선택 합니다.
 
-   * 전체 json 개체를 붙여넣으려면 **json 모드로 전환** (!["json 모드로 전환"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)선택)을 선택 합니다.
+   * 전체 JSON 개체를 붙여넣으려면 **Json 모드로 전환** ( ![ "json 모드로 전환" 선택)을 선택 합니다 ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) .
 
      ![전체 개체에 대해 "JSON 모드로 전환"을 선택 합니다.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
@@ -102,7 +101,7 @@ ms.locfileid: "74790270"
 
    ![JSON 모드](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. 모두 마쳤으면 **완료**를 선택합니다. 또는 디자이너로 돌아가려면 **편집기 모드 전환** (!["편집기 모드 전환"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)선택)을 선택 합니다.
+1. 모두 마쳤으면 **완료**를 선택합니다. 또는 디자이너로 돌아가려면 **편집기 모드 전환** ( ![ "편집기 모드 전환" 선택)을 선택 ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) 합니다.
 
 <a name="find-runs-mock-data"></a>
 
@@ -120,7 +119,7 @@ ms.locfileid: "74790270"
 
 1. 정적 결과를 사용 하는 작업을 보려면 **정적 결과** 열이 **사용**으로 설정 된 위치에서 실행을 선택 합니다.
 
-   정적 결과를 사용 하는 작업에는 테스트![반쯤 (정적 결과](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)아이콘) 아이콘이 표시 됩니다. 예를 들면 다음과 같습니다.
+   정적 결과를 사용 하는 작업에는 테스트 반쯤 ( ![ 정적 결과 아이콘 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ) 아이콘이 표시 됩니다. 예를 들면 다음과 같습니다.
 
    ![실행 기록-정적 결과를 사용 하는 작업](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
@@ -128,15 +127,15 @@ ms.locfileid: "74790270"
 
 정적 결과를 끄면 마지막 설정의 값이 발생 하지 않습니다. 따라서 다음에 정적 결과를 켜면 이전 값을 계속 사용할 수 있습니다.
 
-1. 정적 출력을 사용 하지 않도록 설정할 작업을 찾습니다. 작업의 오른쪽 위 모서리에서 테스트 반쯤 아이콘 (![정적 결과](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)아이콘)을 선택 합니다.
+1. 정적 출력을 사용 하지 않도록 설정할 작업을 찾습니다. 작업의 오른쪽 위 모서리에서 테스트 반쯤 아이콘 ( ![ 정적 결과 아이콘)을 선택 ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) 합니다.
 
    ![정적 결과 사용 안 함](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1.  >  **정적 결과 사용 안 함****을 선택**합니다.
+1. **정적 결과 사용 안 함**  >  **Done**을 선택 합니다.
 
    ![정적 결과 사용 안 함](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 기본 워크플로 정의의이 설정에 대 한 자세한 내용은 [정적 결과-워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#static-results) 및 [runtimeConfiguration 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings) 에 대 한 스키마 참조를 참조 하세요.
 

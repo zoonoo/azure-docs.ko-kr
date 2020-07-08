@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: bcddd64afca29ac9fdd5d284fc8f809ff9e2477d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74535692"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 서버 관리
@@ -90,7 +89,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제**를 선택 합니다.
 
-    ![삭제](./media/howto-create-manage-server-portal/overview-delete.png)
+    ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. 입력 상자에 서버 이름을 입력 하 여 삭제 하려는 서버 인지 확인 합니다.
 

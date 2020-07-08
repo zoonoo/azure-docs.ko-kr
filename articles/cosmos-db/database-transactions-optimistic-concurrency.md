@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74806527"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
@@ -53,9 +52,9 @@ JavaScript 기반 저장 프로시저, 트리거, UDF 및 병합 프로시저는
 
 항목의 동시 업데이트는 Azure Cosmos DB의 통신 프로토콜 계층에 의한 OCC에 종속됩니다. Azure Cosmos 데이터베이스는 사용자는 업데이트(또는 삭제)하는 항목의 클라이언트 쪽 버전이 Azure Cosmos 컨테이너의 항목 버전과 동일한지 확인합니다. 그러면 사용자의 쓰기가 실수로 다른 사용자의 쓰기로 덮어쓰이거나 그 반대의 경우가 발생하지 않도록 방지할 수 있습니다. 다중 사용자 환경에서 낙관적 동시성 제어는 항목의 잘못된 버전이 실수로 삭제 또는 업데이트되지 않도록 보호합니다. 따라서 악명 높은 “업데이트 손실” 또는 “삭제 손실” 문제로부터 항목이 보호됩니다.
 
-Azure Cosmos 컨테이너에 저장된 모든 항목에는 시스템 정의 `_etag` 속성이 있습니다. `_etag`의 값이 자동으로 생성되고, 항목이 업데이트될 때마다 서버에서 업데이트됩니다. `_etag`클라이언트가 제공 `if-match` 하는 요청 헤더와 함께 사용 하 여 서버에서 항목을 조건부로 업데이트할 수 있는지 여부를 결정할 수 있도록 합니다. `if-match` 헤더 값이 서버의 값 `_etag` 과 일치 하면 항목이 업데이트 됩니다. `if-match` 요청 헤더의 값이 더 이상 최신이 아닌 경우 서버는 "HTTP 412 전제 조건 실패" 응답 메시지를 사용 하 여 작업을 거부 합니다. 그러면 클라이언트는 항목을 다시 페치 하 여 서버에 있는 항목의 현재 버전을 얻거나 서버에 있는 항목의 버전을 해당 항목의 고유한 `_etag` 값으로 재정의할 수 있습니다. 또한 `if-none-match` 헤더와 `_etag` 함께를 사용 하 여 리소스 다시 페치 필요한 지 여부를 결정할 수 있습니다.
+Azure Cosmos 컨테이너에 저장된 모든 항목에는 시스템 정의 `_etag` 속성이 있습니다. `_etag`의 값이 자동으로 생성되고, 항목이 업데이트될 때마다 서버에서 업데이트됩니다. `_etag`클라이언트가 제공 하는 요청 헤더와 함께 사용 하 여 `if-match` 서버에서 항목을 조건부로 업데이트할 수 있는지 여부를 결정할 수 있도록 합니다. `if-match`헤더 값이 서버의 값과 일치 하면 `_etag` 항목이 업데이트 됩니다. `if-match`요청 헤더의 값이 더 이상 최신이 아닌 경우 서버는 "HTTP 412 전제 조건 실패" 응답 메시지를 사용 하 여 작업을 거부 합니다. 그러면 클라이언트는 항목을 다시 페치 하 여 서버에 있는 항목의 현재 버전을 얻거나 서버에 있는 항목의 버전을 해당 항목의 고유한 값으로 재정의할 수 있습니다 `_etag` . 또한 `_etag` 헤더와 함께를 사용 하 여 `if-none-match` 리소스 다시 페치 필요한 지 여부를 결정할 수 있습니다.
 
-항목이 업데이트 될 `_etag` 때마다 항목의 값이 변경 됩니다. 항목 바꾸기 작업의 경우 `if-match` 를 요청 옵션의 일부로 명시적으로 표시 해야 합니다. 예제는 [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674)의 샘플 코드를 참조하세요. `_etag`저장 프로시저에서 작업 하는 모든 기록 된 항목에 대해 값이 암시적으로 확인 됩니다. 충돌이 감지 되 면 저장 프로시저는 트랜잭션을 롤백하고 예외를 throw 합니다. 이 메서드를 사용하면 저장 프로시저 내에서 전체 쓰기 또는 쓰기 없음이 자동으로 적용됩니다. 이는 애플리케이션이 업데이트를 다시 적용하고 원래 클라이언트 요청을 다시 시도하기 위한 신호입니다.
+항목이 업데이트 될 때마다 항목의 `_etag` 값이 변경 됩니다. 항목 바꾸기 작업의 경우를 `if-match` 요청 옵션의 일부로 명시적으로 표시 해야 합니다. 예제는 [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674)의 샘플 코드를 참조하세요. `_etag`저장 프로시저에서 작업 하는 모든 기록 된 항목에 대해 값이 암시적으로 확인 됩니다. 충돌이 감지 되 면 저장 프로시저는 트랜잭션을 롤백하고 예외를 throw 합니다. 이 메서드를 사용하면 저장 프로시저 내에서 전체 쓰기 또는 쓰기 없음이 자동으로 적용됩니다. 이는 애플리케이션이 업데이트를 다시 적용하고 원래 클라이언트 요청을 다시 시도하기 위한 신호입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

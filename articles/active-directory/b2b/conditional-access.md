@@ -12,10 +12,9 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74273008"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대 한 조건부 액세스
@@ -23,7 +22,7 @@ ms.locfileid: "74273008"
 ## <a name="multi-factor-authentication-for-b2b-users"></a>B2B 사용자에 대한 다단계 인증
 Azure AD B2B 협업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
 
-예제:
+예:
 1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 애플리케이션에 초대합니다.
 2. 회사 A의 애플리케이션 *Foo*는 액세스 시 MFA를 요구하도록 구성됩니다.
 3. 회사 B의 사용자가 회사 A 테넌트에서 *Foo* 앱에 액세스하려고 하면 MFA 챌린지를 완료하도록 요구됩니다.
@@ -63,7 +62,7 @@ B2B 협업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 협업 사용자가 증명 방법을 다시 설정하도록 합니다. 예제:
+3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 협업 사용자가 증명 방법을 다시 설정하도록 합니다. 예:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com

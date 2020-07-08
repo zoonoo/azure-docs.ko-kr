@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768387"
 ---
 # <a name="query-performance-insight"></a>쿼리 
@@ -22,7 +21,7 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 ## <a name="permissions"></a>사용 권한
 Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-store.md)에 데이터가 있어야 합니다.
 
 ## <a name="viewing-performance-insights"></a>Performance Insight 보기
@@ -32,7 +31,7 @@ Azure Database for PostgreSQL 서버의 포털 페이지에서 메뉴 모음의 
 
 ![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-**장기 실행 쿼리** 탭에는 15 분 간격으로 집계 된 실행 당 평균 기간별 상위 5 개 쿼리가 표시 됩니다. **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
+**장기 실행 쿼리** 탭에는 15 분 간격으로 집계 된 실행 당 평균 기간별 상위 5 개 쿼리가 표시 됩니다. **쿼리 수 드롭다운 목록을** 선택 하 여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
 차트를 클릭하고 끌어 특정 기간으로 범위를 좁힐 수 있습니다. 확대/축소 아이콘을 사용하여 더 긴 기간이나 더 짧은 기간을 표시할 수도 있습니다.
 

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74379113"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
@@ -73,7 +72,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
    - 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 **autoworkplace.exe**가 자동으로 토큰을 요청하는 것을 방지하는 경우입니다.
    - 클라이언트의 IE 인트라넷 영역에서 AD FS 및 Azure AD URL이 누락되었을 수 있습니다.
    - 네트워크 연결 문제로 인해 **autoworkplace.exe**가 AD FS 또는 Azure AD URL에 연결하지 못할 수 있습니다. 
-   - **자동 작업 영역** 을 사용 하려면 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러로 직접적인 시야를 사용 해야 합니다. 즉, 클라이언트가 조직의 인트라넷에 연결 된 경우에만 하이브리드 Azure AD 조인이 성공 합니다.
+   - **Autoworkplace.exe** 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러에 직접 시야를 이동 해야 합니다. 즉, 클라이언트가 조직의 인트라넷에 연결 된 경우에만 하이브리드 Azure AD 조인이 성공 합니다.
    - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 디바이스의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
 - 도메인 사용자로 로그온되지 않음
 

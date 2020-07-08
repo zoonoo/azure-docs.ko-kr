@@ -8,10 +8,9 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687508"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지

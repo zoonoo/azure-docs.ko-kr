@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4af0fb288961689fb051bab8091c838f793cfcc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74765650"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 방화벽 규칙 만들기 및 관리
@@ -19,7 +18,7 @@ ms.locfileid: "74765650"
 
 VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-using-cli.md)방법에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티를 설치하거나, 브라우저에서 Azure Cloud Shell을 사용합니다.
 - [PostgreSQL용 Azure Database 서버 및 데이터베이스](quickstart-create-server-database-azure-cli.md)

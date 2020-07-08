@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74847852"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
@@ -42,9 +41,9 @@ ms.locfileid: "74847852"
   * Server Core 시스템에서는/q 플래그를 .NET 4.7 설치 관리자에 전달 하 여 성공 하도록 해야 할 수 있습니다.
 * 이제 프록시 서비스에서 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있습니다.
 * AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
-* DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent로 바뀌었습니다.
-* 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
-  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는이 업그레이드 후에 *Proxyservice* 에서 *.config*로 이름을 변경 해야 합니다.
+* DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent.exe (으)로 바뀌었습니다.
+* 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy.exe로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
+  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는 *proxyservice.exe.config* 에서 *AzureADPasswordProtectionProxy.exe.config*로 이름을 변경 해야 합니다.
 * 모든 시간 제한 기능 검사가 DC 에이전트에서 제거 되었습니다.
 * 사소한 버그 수정 및 로깅 향상
 

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74462624"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석 
@@ -60,7 +59,7 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 
 이러한 형식의 CC(선택 캡션)는 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용될 수 있습니다.
 
-### <a name="keywords"></a>키워드가
+### <a name="keywords"></a>키워드
 키워드 XML 파일을 생성하려는 경우 이 옵션을 선택합니다. 이 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함합니다.
 
 ### <a name="job-name"></a>작업 이름

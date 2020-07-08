@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232355"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
@@ -89,7 +88,7 @@ ID 또는 디바이스를 안전한 상태로 복원하지 않고 공격자의 �
 ### <a name="remediated-risk-detection"></a>재구성 됨 (위험 검색)
 Id 보호에 의해 자동으로 설정 되는 위험 검색 상태는이 유형의 위험 검색에 대 한 표준 수정 작업을 사용 하 여 위험 검색이 재구성 되었음을 나타냅니다. 예를 들어 사용자 암호를 재설정 하면 이전 암호가 손상 되었음을 나타내는 많은 위험 검색이 자동으로 재구성 됩니다.
 
-### <a name="remediation"></a>재구성
+### <a name="remediation"></a>수정
 이전에 손상이 우려되거나 손상된 ID 또는 디바이스를 보호하는 작업입니다. 수정 작업은 id 또는 장치를 안전한 상태로 복원 하 고 id 또는 장치와 연결 된 이전 위험 검색을 확인 합니다.
 
 ### <a name="resolved-risk-detection"></a>해결 됨 (위험 검색)
@@ -158,6 +157,6 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 ### <a name="vulnerability"></a>취약점
 디렉터리가 악용 또는 위협에 취약하게 만드는 Azure Active Directory의 구성 또는 조건입니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Active Directory ID 보호](../active-directory-identityprotection.md)

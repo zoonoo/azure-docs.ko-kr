@@ -11,10 +11,9 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74196517"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결

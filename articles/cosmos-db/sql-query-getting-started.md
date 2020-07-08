@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873338"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
@@ -23,7 +22,7 @@ Azure Cosmos DB SQL API 계정은 구조적 쿼리 언어 (SQL)를 사용 하 �
 
 ## <a name="upload-sample-data"></a>샘플 데이터 업로드
 
-SQL API Cosmos DB 계정에서 라는 `Families`컨테이너를 만듭니다. 컨테이너에 두 개의 간단한 JSON 항목을 만듭니다. 이 데이터 집합을 사용 하 여 Azure Cosmos DB 쿼리 문서에서 대부분의 샘플 쿼리를 실행할 수 있습니다.
+SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 컨테이너에 두 개의 간단한 JSON 항목을 만듭니다. 이 데이터 집합을 사용 하 여 Azure Cosmos DB 쿼리 문서에서 대부분의 샘플 쿼리를 실행할 수 있습니다.
 
 ### <a name="create-json-items"></a>JSON 항목 만들기
 
@@ -52,7 +51,7 @@ SQL API Cosmos DB 계정에서 라는 `Families`컨테이너를 만듭니다. �
 }
 ```
 
-두 번째 항목은 `givenName` `familyName` `firstName` 및 `lastName`대신 및를 사용 합니다.
+두 번째 항목은 `givenName` 및 대신 및를 사용 `familyName` `firstName` `lastName` 합니다.
 
 ```json
 {
@@ -88,7 +87,7 @@ SQL API Cosmos DB 계정에서 라는 `Families`컨테이너를 만듭니다. �
 
 JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의 SQL 쿼리 언어에 대 한 몇 가지 주요 측면을 이해 합니다.
 
-다음 쿼리는 `id` 필드가 일치 하 `AndersenFamily`는 항목을 반환 합니다. `SELECT *` 쿼리 이기 때문에 쿼리 출력은 전체 JSON 항목입니다. SELECT 구문에 대 한 자세한 내용은 [select 문](sql-query-select.md)을 참조 하십시오. 
+다음 쿼리는 필드가 일치 하는 항목을 반환 합니다 `id` `AndersenFamily` . 쿼리 이기 때문에 `SELECT *` 쿼리 출력은 전체 JSON 항목입니다. SELECT 구문에 대 한 자세한 내용은 [select 문](sql-query-select.md)을 참조 하십시오. 
 
 ```sql
     SELECT *
@@ -118,7 +117,7 @@ JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의
     }]
 ```
 
-다음 쿼리는 JSON 출력을 다른 모양으로 다시 포맷 합니다. 이 쿼리는 두 개의 선택 `Family` 된 필드인 `Name` 및 `City`주소 도시가 상태와 같은 새 JSON 개체를 프로젝션 합니다. "서 면"은 이러한 경우와 일치 합니다.
+다음 쿼리는 JSON 출력을 다른 모양으로 다시 포맷 합니다. 이 쿼리는 `Family` 두 개의 선택 된 필드인 `Name` 및 `City` 주소 도시가 상태와 같은 새 JSON 개체를 프로젝션 합니다. "서 면"은 이러한 경우와 일치 합니다.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +136,7 @@ JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의
     }]
 ```
 
-다음 쿼리는 도시별로 정렬 된 `id` 일치 `WakefieldFamily`항목의 모든 자식을 포함 하는 이름을 반환 합니다.
+다음 쿼리는 `id` 도시별로 정렬 된 일치 항목의 모든 자식을 포함 하는 이름을 반환 합니다 `WakefieldFamily` .
 
 ```sql
     SELECT c.givenName
@@ -160,11 +159,11 @@ JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의
 
 위의 예에서는 Cosmos DB 쿼리 언어의 몇 가지 측면을 보여 줍니다.  
 
-* SQL API는 JSON 값에 대해 작동 하므로 행과 열 대신 트리 모양의 엔터티를 처리 합니다. ANSI SQL `Node1.Node2.Node3…..Nodem` `<table>.<column>` 의 두 부분으로 된 참조와 마찬가지로와 같이 임의의 깊이에서 트리 노드를 참조할 수 있습니다.
+* SQL API는 JSON 값에 대해 작동 하므로 행과 열 대신 트리 모양의 엔터티를 처리 합니다. `Node1.Node2.Node3…..Nodem`ANSI SQL의 두 부분으로 된 참조와 마찬가지로와 같이 임의의 깊이에서 트리 노드를 참조할 수 있습니다 `<table>.<column>` .
 
 * 쿼리 언어는 스키마가 있는 데이터와 함께 작동 하므로 유형 시스템을 동적으로 바인딩해야 합니다. 항목에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값 이지만 고정 스키마가 아닐 수도 있습니다.  
 
-* Azure Cosmos DB는 엄격한 JSON 항목만 지원합니다. 형식 시스템 및 식은 JSON 형식만 처리 하도록 제한 됩니다. 자세한 내용은 [JSON 사양](https://www.json.org/)을 참조 하세요.  
+* Azure Cosmos DB는 엄격한 JSON 항목만 지원합니다. 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](https://www.json.org/)을 참조하세요.  
 
 * Cosmos 컨테이너는 JSON 항목의 스키마 없는 컬렉션입니다. 컨테이너 항목 간의 관계는 기본 키 및 외래 키 관계가 아닌 포함을 통해 암시적으로 캡처됩니다. 이 기능은이 문서의 뒷부분에서 설명 하는 항목 내 조인에 중요 합니다.
 

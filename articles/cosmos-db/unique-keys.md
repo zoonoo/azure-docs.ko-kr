@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74869836"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
@@ -35,7 +34,7 @@ ms.locfileid: "74869836"
 |Fabrkam|   |Duperre|gaby@fabraikam.com|
 |Fabrkam|   |   |gaby@fabraikam.com|
 
-앞의 표에 나열된 조합으로 다른 항목을 삽입하려고 하면 오류가 표시됩니다. 오류는 고유 키 제약 조건이 충족되지 않았음을 나타냅니다. `Resource with specified ID or name already exists` 또는 `Resource with specified ID, name, or unique index already exists` 를 반환 메시지로 받습니다. 
+앞의 표에 나열된 조합으로 다른 항목을 삽입하려고 하면 오류가 표시됩니다. 오류는 고유 키 제약 조건이 충족되지 않았음을 나타냅니다. `Resource with specified ID or name already exists`또는를 `Resource with specified ID, name, or unique index already exists` 반환 메시지로 받습니다. 
 
 ## <a name="define-a-unique-key"></a>고유 키를 정의
 
@@ -45,15 +44,15 @@ Azure Cosmos 컨테이너를 만들 때만 고유 키를 정의할 수 있습니
 
 * 기존 컨테이너에 대해 고유 키를 설정하려면 고유 키 제약 조건을 사용하여 새 컨테이너를 만듭니다. 적절한 데이터 마이그레이션 도구를 사용하여 기존 컨테이너에서 새 컨테이너로 데이터를 이동합니다. SQL 컨테이너의 경우 데이터 [마이그레이션 도구](import-data.md) 를 사용 하 여 데이터를 이동 합니다. MongoDB 컨테이너의 경우 [mongoimport.exe 또는 mongorestore.exe](mongodb-migrate.md)를 사용하여 데이터를 이동합니다.
 
-* 고유 키 정책에 최대 16개의 경로 값을 사용할 수 있습니다. 예를 들어, 및 `/firstName` `/lastName` `/address/zipCode`값을 사용할 수 있습니다. 각 고유 키 정책에는 최대 10개의 고유 키 제약 조건 또는 조합을 포함할 수 있습니다. 각 고유 인덱스 제약 조건에 대해 결합된 경로는 60바이트를 초과하지 않아야 합니다. 이전 예제에서는 이름, 성, 메일 주소가 결합되어 하나의 제약 조건이 되었습니다. 이 제약 조건은 사용 가능한 16개 경로 중 3개를 사용합니다.
+* 고유 키 정책에 최대 16개의 경로 값을 사용할 수 있습니다. 예를 들어, 및 값을 사용할 수 있습니다 `/firstName` `/lastName` `/address/zipCode` . 각 고유 키 정책에는 최대 10개의 고유 키 제약 조건 또는 조합을 포함할 수 있습니다. 각 고유 인덱스 제약 조건에 대해 결합된 경로는 60바이트를 초과하지 않아야 합니다. 이전 예제에서는 이름, 성, 메일 주소가 결합되어 하나의 제약 조건이 되었습니다. 이 제약 조건은 사용 가능한 16개 경로 중 3개를 사용합니다.
 
 * 컨테이너에 고유한 키 정책이 있으면 항목을 만들고, 업데이트 하 고, 삭제 하는 데 대 한 비용 [(요청 단위)](request-units.md) 요금은 약간 더 높습니다.
 
 * 스파스 고유 키는 지원되지 않습니다. 일부 고유 경로 값이 누락되면 null 값으로 간주되어 고유성 제약 조건에 포함됩니다. 이러한 이유로, null 값을 갖는 단일 항목만 이 제약 조건을 충족할 수 있습니다.
 
-* 고유 키 이름은 대/소문자를 구분합니다. 예를 들어 고유 키 제약 조건이로 `/address/zipcode`설정 된 컨테이너가 있다고 가정 합니다. 데이터에 라는 `ZipCode`필드가 있는 경우는와 `zipcode` `ZipCode`는 다른 것 처럼 "null"을 고유 키로 삽입 Azure Cosmos DB. 이처럼 대/소문자를 구분하므로 ZipCode가 포함된 다른 모든 레코드는 삽입할 수 없습니다. 중복되는 “null”이 고유 키 제약 조건을 위반하기 때문입니다.
+* 고유 키 이름은 대/소문자를 구분합니다. 예를 들어 고유 키 제약 조건이로 설정 된 컨테이너가 있다고 가정 `/address/zipcode` 합니다. 데이터에 라는 필드가 있는 경우 `ZipCode` 는와는 다른 것 처럼 "null"을 고유 키로 삽입 Azure Cosmos DB `zipcode` `ZipCode` . 이처럼 대/소문자를 구분하므로 ZipCode가 포함된 다른 모든 레코드는 삽입할 수 없습니다. 중복되는 “null”이 고유 키 제약 조건을 위반하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 파티션](partition-data.md)에 대한 자세한 정보
+* [논리 파티션에](partition-data.md) 대해 자세히 알아보기
 * 컨테이너를 만들 때 [고유한 키를 정의 하는 방법을](how-to-define-unique-keys.md) 알아봅니다.

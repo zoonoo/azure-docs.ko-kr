@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74787339"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Azure Logic Apps에서 다음 작업 실행 지연
@@ -30,9 +29,9 @@ ms.locfileid: "74787339"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/)할 수 있습니다.
 
-* [논리 앱](../logic-apps/logic-apps-overview.md)에 대 한 기본 지식. 작업을 사용 하려면 먼저 논리 앱이 트리거로 시작 해야 합니다. 지연 동작을 추가 하기 전에 원하는 트리거를 사용 하 고 다른 작업을 추가할 수 있습니다. 이 항목에서는 Office 365 Outlook 트리거를 사용 합니다. 논리 앱을 처음 접하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아보세요.
+* [논리 앱](../logic-apps/logic-apps-overview.md)에 대한 기본 지식 작업을 사용 하려면 먼저 논리 앱이 트리거로 시작 해야 합니다. 지연 동작을 추가 하기 전에 원하는 트리거를 사용 하 고 다른 작업을 추가할 수 있습니다. 이 항목에서는 Office 365 Outlook 트리거를 사용 합니다. 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아보세요.
 
 <a name="add-delay"></a>
 
@@ -53,7 +52,7 @@ ms.locfileid: "74787339"
    | 속성 | JSON 이름 | 필수 | Type | 설명 |
    |----------|-----------|----------|------|-------------|
    | 개수 | count | 예 | 정수 | 지연할 시간 단위 수 |
-   | 단위 | 단위 | 예 | String | 시간 단위 ( `Second`예:, `Minute`, `Hour`, `Day` `Week`, 또는)`Month` |
+   | 단위 | 단위 | 예 | String | 시간 단위 (예: `Second` ,,,, `Minute` `Hour` `Day` `Week` 또는)`Month` |
    ||||||
 
 1. 워크플로에서 실행 하려는 다른 작업을 추가 합니다.
@@ -76,7 +75,7 @@ ms.locfileid: "74787339"
 
    ![지연 시간을 종료 하는 시간에 대 한 타임 스탬프를 지정 합니다.](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | 속성 | JSON 이름 | 필수 | Type | 설명 |
+   | 속성 | JSON 이름 | 필수 | Type | Description |
    |----------|-----------|----------|------|-------------|
    | 타임스탬프 | timestamp | 예 | String | 다음 형식을 사용 하 여 워크플로를 다시 시작 하는 종료 날짜 및 시간입니다. <p>YYYY-MM-DD Yyyy-mm-ddthh: MM: ssZ <p>예를 들어, 2017 년 9 월 18 일 오후 2:00 시에는 "2017-09-18T14:00:00Z"를 지정 합니다. <p>**참고:** 이 시간 형식은 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대가 없으면 공백 없이 끝에 문자 "Z"를 추가 해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. |
    ||||||

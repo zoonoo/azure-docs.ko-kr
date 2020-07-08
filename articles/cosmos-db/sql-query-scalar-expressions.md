@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870737"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
@@ -63,7 +62,7 @@ ms.locfileid: "74870737"
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   배열의 인덱스 `property_name` `array_index` 를 사용 하는 이름 또는 배열 요소를 사용 하 여 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
+   `property_name`배열의 인덱스를 사용 하는 이름 또는 배열 요소를 사용 하 여 속성의 값을 나타냅니다 `array_index` . 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
   
 - `unary_operator <scalar_expression>`  
   

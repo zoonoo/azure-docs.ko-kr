@@ -8,10 +8,9 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74672345"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>앱 별 크기 조정을 사용 하는 Azure App Service의 고밀도 호스팅
@@ -74,7 +73,7 @@ Set-AzWebApp $newapp
 - 10개 인스턴스로 규모를 확장하는 App Service 계획
 - 최대 5개 인스턴스로 확장하도록 구성된 앱
 
-App Service 계획은 **PerSiteScaling** 속성을 true(`"perSiteScaling": true`)로 설정합니다. 앱은 사용할 **작업자 수** 를 5 `"properties": { "numberOfWorkers": "5" }`로 설정 합니다.
+App Service 계획은 **PerSiteScaling** 속성을 true(`"perSiteScaling": true`)로 설정합니다. 앱은 사용할 **작업자 수** 를 5로 설정 합니다 `"properties": { "numberOfWorkers": "5" }` .
 
 ```json
 {
@@ -133,7 +132,7 @@ App Service 계획은 **PerSiteScaling** 속성을 true(`"perSiteScaling": true`
 1. App Service 계획에서 `PerSiteScaling` 플래그를 true로 설정합니다.
 1. 새 앱이 만들어지고 **1**로 설정된 **numberOfWorkers** 속성이 있는 해당 App Service 계획에 할당됩니다.
    - 이 구성을 사용 하면 가능한 가장 높은 밀도가 생성 됩니다.
-1. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예를 들면 다음과 같습니다.
+1. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예를 들어:
    - 사용량이 많은 앱은 해당 앱에 대한 더 많은 처리 용량을 갖도록 **numberOfWorkers**를 **3**으로 설정할 수 있습니다.
    - 많이 사용되지 않는 앱은 **numberOfWorkers**를 **1**로 설정합니다.
 

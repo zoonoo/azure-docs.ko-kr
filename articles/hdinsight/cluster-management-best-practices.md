@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74782022"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
@@ -40,14 +39,14 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 | 옵션 | 문서 |
 |---|---|
-| 스크립트 작업 | [스크립트 작업을 사용 하 여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md) |
+| 스크립트 작업 | [스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md) |
 | 부트스트랩 | [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
 | 외부 Metastore | [Azure HDInsight에서 외부 메타데이터 저장소 사용](./hdinsight-use-external-metadata-stores.md) |
 | 사용자 지정 Ambari DB | [사용자 지정 Ambari DB를 사용 하 여 HDInsight 클러스터 설정](./hdinsight-custom-ambari-db.md) |
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>클러스터를 만들 때 발생할 수 있는 몇 가지 오류는 무엇 인가요?
 
-| 오류 | 추가 정보 |
+| Error | 추가 정보 |
 |---|---|
 | 할당량 없음 | 각 지역에서 구독에 만들 수 있는 할당량 수에 대 한 할당량이 있습니다. 자세한 내용은 [용량 계획: 할당량](./hdinsight-capacity-planning.md)을 참조 하세요. |
 | 사용 가능한 IP 주소가 더 이상 없습니다. | 각 VNet에는 제한 된 수의 IP 주소가 있습니다. HDInsight 클러스터를 만들 때 각 노드 (사육 아웃 및 게이트웨이 노드 포함)는 할당 된 IP 주소 중 일부를 사용 합니다. 모든 IP 주소를 사용 중인 경우에는이 오류가 발생 합니다.  |
@@ -77,4 +76,4 @@ AzureActivity
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight 클러스터의 용량 계획](./hdinsight-capacity-planning.md)
-* [Azure HDInsight에 대 한 기본 및 권장 노드 구성은 무엇 인가요?](./hdinsight-supported-node-configuration.md)
+* [Azure HDInsight의 기본 및 권장 노드 구성은 무엇인가요?](./hdinsight-supported-node-configuration.md)
