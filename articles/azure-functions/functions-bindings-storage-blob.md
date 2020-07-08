@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847654"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Blob storage 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](https://docs.microsoft.com/azure/storage/) 와 통합 됩니다. Blob storage와 통합 하면 blob 데이터의 변경 내용 및 읽기/쓰기 값에 반응 하는 함수를 작성할 수 있습니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | Blob storage 데이터 변경으로 함수 실행 | [트리거](./functions-bindings-storage-blob-trigger.md) |
 | 함수에서 blob 저장소 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-blob-input.md) |
@@ -24,7 +24,7 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
-### <a name="functions-2x-and-higher"></a>함수 2.x 이상
+### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 

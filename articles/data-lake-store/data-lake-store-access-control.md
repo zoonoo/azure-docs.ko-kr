@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847818"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -55,7 +55,7 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 **RWX**는 **읽기 + 쓰기 + 실행**을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1**의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
 
-| 숫자 형식 | 짧은 형식 |      의미     |
+| 숫자 형식 | 약식 |      의미     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
@@ -71,12 +71,12 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 연산 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | 목록      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -220,7 +220,7 @@ def access_check( user, desired_perms, path ) :
 
 Azure Data Lake Storage Gen1에 대 한 umask는 007로 설정 된 상수 값입니다. 이 값은 다음 표와 같이 변환됩니다.
 
-| umask 구성 요소     | 숫자 형식 | 짧은 형식 | 의미 |
+| umask 구성 요소     | 숫자 형식 | 약식 | 의미 |
 |---------------------|--------------|------------|---------|
 | umask.owning_user   |    0         |   `---`      | 담당 사용자의 경우 상위 항목의 기본 ACL을 하위 항목의 액세스 ACL에 복사합니다. | 
 | umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 상위 항목의 기본 ACL을 하위 항목의 액세스 ACL에 복사합니다. | 
@@ -297,6 +297,6 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)

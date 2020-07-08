@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848670"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
-Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. Nps 확장 로그는 이벤트 뷰어의 **사용자 지정 보기** > **서버 역할** > **네트워크 정책 및** nps 확장이 설치 된 서버의 액세스 서비스에서 찾을 수 있습니다.
+Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. Nps 확장 로그는 이벤트 뷰어의 **사용자 지정 보기**  >  **서버 역할**  >  **네트워크 정책 및** nps 확장이 설치 된 서버의 액세스 서비스에서 찾을 수 있습니다.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>일반적인 오류에 대한 문제 해결 단계
 
 | 오류 코드 | 문제 해결 단계 |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [지원에 문의](#contact-microsoft-support)하고 로그를 수집하기 위한 단계 목록을 설명합니다. 테넌트 ID 및 UPN(사용자 계정 이름)을 포함하여 오류 발생 전에 진행된 작업에 대해 최대한 많은 정보를 제공합니다. |
+| **CONTACT_SUPPORT** | [지원에 문의](#contact-microsoft-support)하고 로그를 수집하기 위한 단계 목록을 설명합니다. 테 넌 트 ID 및 UPN (사용자 계정 이름)을 포함 하 여 오류 이전에 발생 한 상황에 대 한 정보를 제공 합니다. |
 | **CLIENT_CERT_INSTALL_ERROR** | 클라이언트 인증서가 설치되었거나 테넌트와 연결된 방식에 대해 문제가 있을 수 있습니다. [MFA NPS 확장 문제 해결](howto-mfa-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 문제를 조사합니다. |
 | **ESTS_TOKEN_ERROR** | [MFA NPS 확장 문제 해결](howto-mfa-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 및 ADAL 토큰 문제를 조사합니다. |
 | **HTTPS_COMMUNICATION_ERROR** | NPS 서버는 Azure MFA에서 응답을 받을 수 없습니다. 방화벽이 https://adnotifications.windowsazure.com과의 트래픽을 위해 양방향으로 열려 있는지 확인합니다. |
@@ -60,7 +60,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **OathCodePinIncorrect** | 잘못된 코드 및 PIN을 입력했습니다. | NPS 확장에서는 이 오류가 발생하지 않습니다. 이 오류가 발생하는 경우 [지원 서비스](#contact-microsoft-support)에서 문제 해결을 위한 지원을 받습니다. |
 | **ProofDataNotFound** | 지정된 인증 방법에 대해 교정 데이터가 구성되지 않았습니다. | 사용자에게 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)의 지침에 따라 다른 확인 방법을 시도하거나 새 확인 방법을 추가하도록 합니다. 확인 방법이 올바르게 설정되었는지 확인한 후에도 이 오류가 계속 발생하면 [지원 서비스에 문의](#contact-microsoft-support)합니다. |
 | **SMSAuthFailedWrongCodePinEntered** | 잘못된 코드 및 PIN을 입력했습니다. (OneWaySMS) | NPS 확장에서는 이 오류가 발생하지 않습니다. 이 오류가 발생하는 경우 [지원 서비스](#contact-microsoft-support)에서 문제 해결을 위한 지원을 받습니다. |
-| **TenantIsBlocked** | 테넌트가 차단되었습니다. | [지원 서비스에 문의](#contact-microsoft-support)하고 Azure Portal의 Azure AD 속성 페이지에 표시되는 디렉터리 ID를 제공합니다. |
+| **TenantIsBlocked** | 테넌트가 차단되었습니다. | Azure Portal의 Azure AD 속성 페이지에서 *테 넌 트 ID* 를 사용 하 여 [지원 담당자에 게 문의 하세요](#contact-microsoft-support) . |
 | **UserNotFound** | 지정된 사용자를 찾을 수 없습니다. | 테넌트가 더 이상 Azure AD에서 활성으로 표시되지 않습니다. 구독이 활성 상태인지와 자사 앱을 요청했는지 확인합니다. 또한 인증서 주체의 테넌트가 예상과 같은지 및 인증서가 여전히 유효하고 서비스 사용자에 등록되어 있는지 확인합니다. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>사용자에게 표시될 수 있는 오류가 아닌 메시지

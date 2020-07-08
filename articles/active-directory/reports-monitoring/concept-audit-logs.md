@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846965"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -79,7 +79,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 - 서비스
 - 범주
-- 작업
+- 활동
 - 상태
 - 대상
 - 초기자(작업자)
@@ -107,7 +107,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
-- 사용 약관
+- 사용 조건
 
 **범주** 필터를 사용 하면 다음 필터 중 하나를 선택할 수 있습니다.
 
@@ -139,7 +139,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 **상태** 필터를 사용 하면 감사 작업 상태를 기준으로 필터링 할 수 있습니다. 상태는 다음 중 하나일 수 있습니다.
 
 - 모두
-- 성공
+- Success
 - 실패
 
 **대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)을 기준으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 
@@ -147,7 +147,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 **시작** 필터를 사용 하 여 행위자의 이름 또는 UPN (universal principal name)이 시작 되는 항목을 정의할 수 있습니다. 이름 및 UPN은 대/소문자를 구분 합니다.
 
 **날짜 범위** 필터를 사용 하면 반환 된 데이터에 대 한 기간을 정의할 수 있습니다.  
-가능한 값은 다음과 같습니다.
+가능한 값은
 
 - 7 일
 - 24시간

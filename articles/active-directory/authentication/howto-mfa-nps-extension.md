@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848484"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -65,13 +65,21 @@ Windows Server 2008 R2 SP1 이상
 
 Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
+다음 라이브러리를 수동으로 설치 해야 합니다.
+
+- [Visual Studio 2015용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
 NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 Azure Active Directory와 동기화되어야 하며 MFA에 등록되어야 합니다.
 
-확장을 설치할 때 Azure AD 테넌트에 대한 디렉터리 ID와 관리자 자격 증명이 필요합니다. [Azure Portal](https://portal.azure.com)에서 디렉터리 ID를 찾을 수 있습니다. 관리자 권한으로 로그인합니다. **Azure Active Directory**를 검색하고 선택한 다음, **속성**을 선택합니다. **디렉터리 ID** 상자에서 GUID를 복사하고 저장합니다. NPS 확장을 설치할 때 이 GUID를 테넌트 ID로 사용합니다.
+확장을 설치 하는 경우 Azure AD 테 넌 트에 대 한 *테 넌 트 ID* 및 관리자 자격 증명이 필요 합니다. 테 넌 트 ID를 가져오려면 다음 단계를 완료 합니다.
 
-![Azure Active Directory 속성에서 디렉터리 ID 찾기](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. [Azure Portal](https://portal.azure.com)에 Azure 테넌트의 전역 관리자로 로그인합니다.
+1. **Azure Active Directory**를 검색 하 고 선택 합니다.
+1. **개요** 페이지에서 *테 넌 트 정보가* 표시 됩니다. 다음 예제 스크린샷에 표시 된 것 처럼 *테 넌 트 ID*옆에 있는 **복사** 아이콘을 선택 합니다.
+
+   ![Azure Portal에서 테 넌 트 ID 가져오기](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>네트워크 요구 사항
 
@@ -186,14 +194,23 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 1. 관리자 권한으로 Windows PowerShell을 실행합니다.
 2. 디렉터리를 변경합니다.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. 설치 관리자가 만든 PowerShell 스크립트를 실행합니다.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > Azure Government 또는 Azure 중국 21Vianet 클라우드를 사용 하는 고객의 경우 먼저 `Connect-MsolService` *AzureMfaNpsExtnConfigSetup.ps1* 스크립트에서 cmdlet을 편집 하 여 필요한 클라우드에 대 한 *azureenvironment* 매개 변수를 포함 합니다. 예를 들어 *-Azureenvironment USGovernment* 또는 *-azureenvironment AzureChinaCloud*를 지정 합니다.
+   >
+   > 자세한 내용은 [connect-msolservice 매개 변수 참조](/powershell/module/msonline/connect-msolservice#parameters)를 참조 하세요.
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. 관리자 권한으로 Azure AD에 로그인합니다.
-5. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure Portal에서 복사한 디렉터리 ID GUID를 사용합니다.
+5. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 조건 섹션의 Azure Portal에서 복사한 *테 넌 트 ID* GUID를 사용 합니다.
 6. PowerShell은 스크립트가 완료되면 성공 메시지를 표시합니다.  
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
@@ -201,22 +218,30 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 이전 컴퓨터 인증서가 만료되었고 새 인증서가 생성된 경우에는 만료된 인증서를 모두 삭제해야 합니다. 만료된 인증서를 그대로 두면 NPS 확장을 시작하는 데 문제가 발생할 수 있습니다.
 
 > [!NOTE]
-> PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
+> PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN = \<TenantID\> , OU = Microsoft NPS Extension**이어야 합니다.
 
-### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government 추가 단계
+### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Microsoft Azure Government 또는 Azure 중국 21Vianet 추가 단계
 
-Azure Government 클라우드를 사용하는 고객의 경우 각 NPS 서버에 다음과 같은 추가 구성 단계가 필요합니다.
+Azure Government 또는 Azure 중국 21Vianet 클라우드를 사용 하는 고객의 경우 각 NPS 서버에 다음과 같은 추가 구성 단계가 필요 합니다.
 
 > [!IMPORTANT]
-> Azure Government 고객인 경우에만 이러한 레지스트리 설정을 구성하세요.
+> Azure Government 또는 Azure 중국 21Vianet 고객 인 경우에만 이러한 레지스트리 설정을 구성 하세요.
 
-1. Azure Government 고객인 경우 NPS 서버에서 **레지스트리 편집기**를 엽니다.
-1. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`로 이동합니다. 다음 키 값을 설정합니다.
+1. Azure Government 또는 Azure 중국 21Vianet 고객이 라면 NPS 서버에서 **레지스트리 편집기** 를 엽니다.
+1. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`로 이동합니다.
+1. Azure Government 고객의 경우 다음과 같은 키 값을 설정 합니다.
 
     | 레지스트리 키       | 값 |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Azure 중국 21Vianet 고객의 경우 다음 키 값을 설정 합니다.
+
+    | 레지스트리 키       | 값 |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. 위의 두 단계를 반복하여 각 NPS 서버에 대한 레지스트리 키 값을 설정합니다.
 1. 각 NPS 서버에 대한 NPS 서비스를 다시 시작합니다.
@@ -251,7 +276,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| 키 | 값 | 기본값 |
+| 키 | Value | 기본값 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -271,7 +296,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>클라이언트 인증서가 예상대로 설치되었는지 어떻게 확인합니까?
 
-설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 프라이빗 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
+설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 프라이빗 키에 있는지 확인합니다. 인증서의 주체 이름이 **CN \<tenantid\> , OU = Microsoft NPS Extension** 입니다.
 
 *AzureMfaNpsExtnConfigSetup.ps1* 스크립트에 의해 생성된 자체 서명 인증서의 유효 기간은 2년입니다. 인증서가 설치되어 있는지 확인할 때 인증서가 만료되지 않았는지도 확인해야 합니다.
 
@@ -281,7 +306,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 PowerShell 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -291,7 +316,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 다음 명령을 "C:" 드라이브에 .cer 형식의 "npscertificate" 파일을 만듭니다.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

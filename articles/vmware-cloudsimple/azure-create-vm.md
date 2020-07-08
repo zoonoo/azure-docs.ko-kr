@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847159"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>VMware 인프라에서 VM 템플릿을 사용 하 여 Azure에서 가상 머신 만들기
 
@@ -40,11 +40,11 @@ CloudSimple 관리자가 구독에 대해 사용 하도록 설정한 VMware 인�
 
     ![CloudSimple 가상 머신 만들기-기본 사항](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     | ------------ | ------------- |
     | Subscription | 사설 클라우드와 연결 된 Azure 구독입니다.  |
     | 리소스 그룹 | VM이 할당 될 리소스 그룹입니다. 기존 그룹을 선택하거나 새 그룹을 만들 수 있습니다. |
-    | 속성 | VM을 식별 하는 이름입니다.  |
+    | 이름 | VM을 식별 하는 이름입니다.  |
     | 위치 | 이 VM이 호스트 되는 Azure 지역입니다.  |
     | 프라이빗 클라우드 | 가상 컴퓨터를 만들려는 CloudSimple 사설 클라우드 |
     | Resource Pool | VM에 대 한 매핑된 리소스 풀입니다. 사용 가능한 리소스 풀에서 선택합니다. |
@@ -62,19 +62,19 @@ CloudSimple 관리자가 구독에 대해 사용 하도록 설정한 VMware 인�
 
     네트워크 인터페이스에 대해 **네트워크 인터페이스 추가** 를 클릭 하 고 다음 설정을 구성 합니다.
 
-    | 제어 | Description |
+    | 컨트롤 | 설명 |
     | ------------ | ------------- |
-    | 속성 | 인터페이스를 식별하는 이름을 입력합니다.  |
+    | 이름 | 인터페이스를 식별하는 이름을 입력합니다.  |
     | 네트워크 | 사설 클라우드 vSphere 구성 된 분산 포트 그룹 목록에서 선택 합니다.  |
     | 어댑터 | VM에 대해 구성 된 사용 가능한 형식 목록에서 vSphere 어댑터를 선택 합니다. 자세한 내용은 VMware 기술 자료 문서 [가상 컴퓨터에 대 한 네트워크 어댑터 선택](https://kb.vmware.com/s/article/1001805)을 참조 하십시오. |
     | 부팅 시 전원 켜기 | VM이 부팅되면 NIC 하드웨어를 사용하도록 설정할지 여부를 선택합니다. 기본값은 **사용**입니다. |
 
     디스크에 대해 **디스크 추가** 를 클릭 하 고 다음 설정을 구성 합니다.
 
-    | 항목 | Description |
+    | 항목 | 설명 |
     | ------------ | ------------- |
-    | 속성 | 디스크를 식별하는 이름을 입력합니다.  |
-    | Size | 사용 가능한 크기 중 하나를 선택합니다.  |
+    | 이름 | 디스크를 식별하는 이름을 입력합니다.  |
+    | 크기 | 사용 가능한 크기 중 하나를 선택합니다.  |
     | SCSI 컨트롤러 | 디스크의 SCSI 컨트롤러를 선택합니다.  |
     | Mode | 디스크가 스냅숏에 참여 하는 방식을 결정 합니다. 다음 옵션 중 하나를 선택합니다. <br> -독립적 영구: 디스크에 기록 된 모든 데이터는 영구적으로 기록 됩니다.<br> -독립 비영구: 디스크에 기록 된 변경 내용은 전원을 끄거나 가상 컴퓨터를 다시 설정 하면 삭제 됩니다.  독립적 비영구 모드를 사용하면 항상 동일한 상태에서 VM을 다시 시작할 수 있습니다. 자세한 내용은 [VMware 설명서](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html)를 참조하세요.
 

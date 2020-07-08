@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848389"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>가상 컴퓨터 관리 id 확장 사용을 중지 하 고 Azure Instance Metadata Service 사용을 시작 하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "80049059"
 
 관리 id에 대 한 가상 머신 확장은 가상 머신 내에서 관리 되는 id에 대 한 토큰을 요청 하는 데 사용 됩니다. 워크플로는 다음 단계로 구성 됩니다.
 
-1. 첫째, 리소스 내 작업은 로컬 끝점 `http://localhost/oauth2/token` 을 호출 하 여 액세스 토큰을 요청 합니다.
+1. 첫째, 리소스 내 작업은 로컬 끝점을 호출 `http://localhost/oauth2/token` 하 여 액세스 토큰을 요청 합니다.
 2. 그런 다음 가상 머신 확장은 관리 되는 id에 대 한 자격 증명을 사용 하 여 Azure AD에서 액세스 토큰을 요청 합니다. 
 3. 액세스 토큰은 호출자에 게 반환 되며, Azure Key Vault 또는 Azure Storage와 같이 Azure AD 인증을 지 원하는 서비스에 인증 하는 데 사용할 수 있습니다.
 
@@ -35,68 +35,68 @@ ms.locfileid: "80049059"
 
 ### <a name="provision-the-extension"></a>확장 프로 비전 
 
-관리 id가 있는 가상 머신 또는 가상 머신 확장 집합을 구성 하는 경우 필요에 따라 `-Type` [AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet의 매개 변수를 사용 하 여 Azure resources VM 확장에 대 한 관리 되는 id를 프로 비전 하도록 선택할 수 있습니다. 가상 컴퓨터의 형식 `ManagedIdentityExtensionForWindows` 에 `ManagedIdentityExtensionForLinux`따라 또는를 전달 하 고 `-Name` 매개 변수를 사용 하 여 이름을 지정할 수 있습니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
+관리 id가 있는 가상 머신 또는 가상 머신 확장 집합을 구성 하는 경우 필요에 따라 `-Type` [AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet의 매개 변수를 사용 하 여 Azure resources VM 확장에 대 한 관리 되는 id를 프로 비전 하도록 선택할 수 있습니다. `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` 가상 컴퓨터의 형식에 따라 또는를 전달 하 고 매개 변수를 사용 하 여 이름을 지정할 수 있습니다 `-Name` . `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
 ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
-Azure Resource Manager 또한 템플릿에 대 한 `resources` 섹션에 다음 JSON을 추가 하 여 VM 확장을 프로 비전 할 수 있습니다 (Linux 버전의 이름 및 `ManagedIdentityExtensionForLinux` 형식 요소에 사용).
+Azure Resource Manager 또한 템플릿에 대 한 섹션에 다음 JSON을 추가 하 여 VM 확장을 프로 비전 할 수 있습니다 `resources` ( `ManagedIdentityExtensionForLinux` Linux 버전의 이름 및 형식 요소에 사용).
 
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+    "apiVersion": "2018-06-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.ManagedIdentity",
+        "type": "ManagedIdentityExtensionForWindows",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "port": 50342
         }
     }
-    ```
+}
+```
     
     
-Virtual machine scale sets를 사용 하 여 작업 하는 경우 [AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용 하 여 Azure 리소스에 대 한 관리 id 가상 머신 확장 집합 확장을 프로 비전 할 수도 있습니다. 가상 머신 확장 집합 `ManagedIdentityExtensionForWindows` 의 `ManagedIdentityExtensionForLinux`유형에 따라 또는 중 하나를 전달 하 고 매개 변수를 `-Name` 사용 하 여 이름을 지정할 수 있습니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
+Virtual machine scale sets를 사용 하 여 작업 하는 경우 [AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용 하 여 Azure 리소스에 대 한 관리 id 가상 머신 확장 집합 확장을 프로 비전 할 수도 있습니다. `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` 가상 머신 확장 집합의 유형에 따라 또는 중 하나를 전달 하 고 매개 변수를 사용 하 여 이름을 지정할 수 있습니다 `-Name` . `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Azure Resource Manager 배포 템플릿을 사용 하 여 가상 머신 확장 집합 확장을 프로 비전 하려면 템플릿의 `extensionpProfile` 섹션에 다음 JSON을 추가 합니다 (Linux 버전 `ManagedIdentityExtensionForLinux` 의 이름 및 유형 요소에 사용).
+Azure Resource Manager 배포 템플릿을 사용 하 여 가상 머신 확장 집합 확장을 프로 비전 하려면 템플릿의 섹션에 다음 JSON을 추가 `extensionpProfile` `ManagedIdentityExtensionForLinux` 합니다 (Linux 버전의 이름 및 유형 요소에 사용).
 
-    ```json
-    "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
+```json
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "ManagedIdentityWindowsExtension",
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                },
+                "protectedSettings": {}
             }
-    ```
+        }
+```
 
 DNS 조회 오류로 인해 가상 컴퓨터 확장의 프로 비전이 실패할 수 있습니다. 이 경우 가상 컴퓨터를 다시 시작 하 고 다시 시도 하세요. 
 
 ### <a name="remove-the-extension"></a>확장 제거 
-확장 프로그램을 제거 하려면 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)를 사용 하 여 가상 컴퓨터의 형식에 따라 또는 `-n ManagedIdentityExtensionForWindows` `-n ManagedIdentityExtensionForLinux` 스위치를 사용 하거나, Azure CLI를 사용 하 여 가상 컴퓨터 확장 집합에 대 한 [az Vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) 를 사용 하거나 Powershell `Remove-AzVMExtension` 을 사용 합니다.
+확장 프로그램을 제거 하려면 `-n ManagedIdentityExtensionForWindows` `-n ManagedIdentityExtensionForLinux` [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)를 사용 하 여 가상 컴퓨터의 형식에 따라 또는 스위치를 사용 하거나, Azure CLI를 사용 하 여 가상 컴퓨터 확장 집합에 대 한 [az vmss Extension delete](https://docs.microsoft.com/cli/azure/vmss) 를 사용 하거나 `Remove-AzVMExtension` Powershell을 사용 합니다.
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -119,7 +119,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| 요소 | Description |
+| 요소 | 설명 |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `http://localhost:50342/oauth2/token` | Azure 리소스에 대한 관리 ID 엔드포인트입니다. 여기서 50342는 기본 포트이며 구성 가능합니다. |
@@ -166,7 +166,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-위치: 
+조건: 
 - Windows 용 확장 이름 및 형식:`ManagedIdentityExtensionForWindows`
 - Linux에 대 한 확장 이름 및 형식:`ManagedIdentityExtensionForLinux`
 
@@ -196,7 +196,7 @@ Azure 리소스에 대 한 관리 되는 id 가상 머신 확장에 스키마 �
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-[IMDS (Azure Instance Metadata Service)](/azure/virtual-machines/windows/instance-metadata-service) 는 가상 머신을 관리 하 고 구성 하는 데 사용할 수 있는 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 하는 REST 끝점입니다. 끝점은 가상 머신 내 에서만 액세스할 수 있는 잘 알려진 라우팅할 수 없는 IP`169.254.169.254`주소 ()에서 사용할 수 있습니다.
+[IMDS (Azure Instance Metadata Service)](/azure/virtual-machines/windows/instance-metadata-service) 는 가상 머신을 관리 하 고 구성 하는 데 사용할 수 있는 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 하는 REST 끝점입니다. 끝점은 `169.254.169.254` 가상 머신 내 에서만 액세스할 수 있는 잘 알려진 라우팅할 수 없는 IP 주소 ()에서 사용할 수 있습니다.
 
 Azure IMDS를 사용 하 여 토큰을 요청 하는 경우 몇 가지 이점이 있습니다. 
 

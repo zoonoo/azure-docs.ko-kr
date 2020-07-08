@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848739"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -59,7 +59,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 섹션에서는 Azure MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 필요한 전제 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.  
 
@@ -89,7 +89,7 @@ NPS 확장을 사용하려면 NPS 역할 서비스가 설치된 Windows Server 2
 
 NPS 역할 서비스는 네트워크 액세스 정책 상태 서비스뿐만 아니라 RADIUS 서버 및 클라이언트 기능도 제공합니다. 이 역할은 인프라에서 적어도 두 대의 컴퓨터, 즉 원격 데스크톱 게이트웨이와 다른 구성원 서버 또는 도메인 컨트롤러에 설치해야 합니다. 기본적으로 이 역할은 원격 데스크톱 게이트웨이로 구성된 컴퓨터에 이미 있습니다.  또한 도메인 컨트롤러 또는 구성원 서버와 같은 다른 컴퓨터에도 NPS 역할을 설치해야 합니다.
 
-NPS 역할 서비스 Windows Server 2012 또는 이전 버전 설치에 대한 자세한 내용은 [NAP 상태 정책 서버 설치(영문)](https://technet.microsoft.com/library/dd296890.aspx)를 참조하세요. 도메인 컨트롤러에 NPS를 설치하기 위한 권장 사항을 포함하여 NPS에 대한 모범 사례에 대한 자세한 내용은 [NPS 모범 사례(영문)](https://technet.microsoft.com/library/cc771746)를 참조하세요.
+NPS 역할 서비스 Windows Server 2012 또는 이전 버전 설치에 대한 자세한 내용은 [NAP 상태 정책 서버 설치(영문)](https://technet.microsoft.com/library/dd296890.aspx)를 참조하세요. 도메인 컨트롤러에 NPS를 설치 하기 위한 권장 사항을 비롯 하 여 NPS에 대 한 모범 사례에 대 한 설명은 [nps에 대 한 모범 사례](https://technet.microsoft.com/library/cc771746)를 참조 하세요.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 동기화되는 Azure Active Directory
 
@@ -115,24 +115,24 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 
 이 섹션에서는 원격 데스크톱 게이트웨이에서 클라이언트 인증에 Azure MFA를 사용하도록 RDS 인프라를 구성하는 방법에 대해 설명합니다.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Azure Active Directory GUID ID 얻기
+### <a name="acquire-azure-active-directory-tenant-id"></a>Azure Active Directory 테 넌 트 ID 가져오기
 
-NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 증명과 Azure AD ID를 제공해야 합니다. 다음 단계에서는 테넌트 ID를 얻는 방법을 보여 줍니다.
+NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 증명과 Azure AD ID를 제공해야 합니다. 테 넌 트 ID를 가져오려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 Azure 테넌트의 전역 관리자로 로그인합니다.
-1. Azure Portal 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 고 선택 합니다.
-1. **속성**을 선택합니다.
-1. [속성] 블레이드에서 아래와 같이 디렉터리 ID 옆에 있는 **복사** 아이콘을 클릭하여 클립보드에 해당 ID를 복사합니다.
+1. Azure Portal 메뉴에서 **Azure Active Directory**를 선택하거나 모든 페이지에서 **Azure Active Directory**를 검색하여 선택합니다.
+1. **개요** 페이지에서 *테 넌 트 정보가* 표시 됩니다. 다음 예제 스크린샷에 표시 된 것 처럼 *테 넌 트 ID*옆에 있는 **복사** 아이콘을 선택 합니다.
 
-   ![Azure Portal에서 디렉터리 ID 가져오기](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Azure Portal에서 테 넌 트 ID 가져오기](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
 NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 NPS 확장을 설치합니다. 이 확장은 설계 목적에 맞는 RADIUS 서버로 작동합니다.
 
-> [!Important]
-> NPS 확장을 원격 데스크톱 게이트웨이 서버에 설치하지 않았는지 확인해야 합니다.
+> [!IMPORTANT]
+> 원격 데스크톱 게이트웨이 (RDG) 서버에 NPS 확장을 설치 하지 마세요. RDG 서버는 해당 클라이언트와 RADIUS 프로토콜을 사용 하지 않으므로 확장을 해석 하 고 MFA를 수행할 수 없습니다.
 >
+> RG 서버와 NPS 확장을 사용 하는 NPS 서버가 서로 다른 서버인 경우 RDG는 내부적으로 NPS를 사용 하 여 다른 NPS 서버와 통신 하 고, RADIUS를 사용 하 여 올바르게 통신 합니다.
 
 1. [NPS 확장](https://aka.ms/npsmfa)을 다운로드합니다.
 1. 설치 실행 파일(NpsExtnForAzureMfaInstaller.exe)을 NPS 서버에 복사합니다.
@@ -160,15 +160,15 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 1. PowerShell 프롬프트에서 `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`를 입력하고 **Enter** 키를 누릅니다.
 1. `.\AzureMfaNpsExtnConfigSetup.ps1`을 입력하고 **ENTER** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
-   ![Azure AD PowerShell에서 AzureMfaNpsExtnConfigSetup 실행](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Azure AD PowerShell에서 AzureMfaNpsExtnConfigSetup.ps1 실행](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. 스크립트에서 PowerShell 모듈 설치를 확인한 후에 Azure Active Directory PowerShell 모듈 대화 상자를 표시합니다. 대화 상자에서 Azure AD 관리자 자격 증명 및 암호를 입력 하 고 **로그인**을 클릭 합니다.
 
    ![PowerShell에서 Azure AD 인증](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. 메시지가 표시 되 면 앞에서 클립보드에 복사한 디렉터리 ID를 붙여넣고 **enter**키를 누릅니다.
+1. 메시지가 표시 되 면 앞에서 클립보드에 복사한 *테 넌 트 ID* 를 붙여넣고 **enter**키를 누릅니다.
 
-   ![PowerShell에서 디렉터리 ID 입력](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![PowerShell에서 테 넌 트 ID 입력](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. 스크립트에서 자체 서명된 인증서를 만들고 다른 구성 변경 작업을 수행합니다. 출력은 아래에 표시된 이미지와 같아야 합니다.
 
@@ -186,7 +186,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
 1. RD 게이트웨이 서버에서 **서버 관리자**를 엽니다.
 1. 메뉴에서 **도구**를 클릭하고 **원격 데스크톱 서비스**를 가리킨 다음 **원격 데스크톱 게이트웨이 관리자**를 클릭합니다.
-1. RD 게이트웨이 관리자에서 ** \[서버 이름\] (로컬)** 을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 클릭 합니다.
+1. RD 게이트웨이 관리자에서 ** \[ 서버 이름 \] (로컬)** 을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 클릭 합니다.
 1. 속성 대화 상자에서 **RD CAP 저장소** 탭을 선택 합니다.
 1. RD CAP 저장소 탭에서 NPS를 실행 하는 **중앙 서버**를 선택 합니다. 
 1. **NPS를 실행하는 서버의 이름 또는 IP 주소 입력** 필드에서 NPS 확장을 설치한 서버의 IP 주소 또는 서버 이름을 입력합니다.
@@ -202,7 +202,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![트러스트를 설정 하기 위해 공유 암호 만들기](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. **확인**을 클릭하여 대화 상자를 닫습니다.
+1. **확인** 을 클릭하여 대화 상자를 닫습니다.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 
@@ -383,7 +383,7 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 
 아래의 Microsoft Message Analyzer 이미지에서는 **CONTOSO\AliceC** 사용자 이름이 포함된 RADIUS 프로토콜에서 필터링된 네트워크 트래픽을 보여줍니다.
 
-![필터링 된 트래픽을 보여 주는 Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
+![필터링된 트래픽을 표시하는 Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## <a name="next-steps"></a>다음 단계
 

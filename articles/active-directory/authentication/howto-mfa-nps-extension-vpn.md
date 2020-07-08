@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848728"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -228,9 +228,9 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 2. 서버 관리자에서 **도구**, **라우팅 및 원격 액세스**를 차례로 선택합니다.
 
-3. **라우팅 및 원격 액세스** 창에서 **\<서버 이름> (로컬)** 을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다.
+3. **라우팅 및 원격 액세스** 창에서 ** \<server name> (로컬)** 을 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
 
-4. **\<서버 이름> (로컬) 속성** 창에서 **보안** 탭을 선택합니다.
+4. ** \<server name> (로컬) 속성** 창에서 **보안** 탭을 선택 합니다.
 
 5. **보안** 탭의 **인증 공급자** 아래에서 **RADIUS 인증**, **구성**을 차례로 선택합니다.
 
@@ -320,19 +320,15 @@ _HKLM\SOFTWARE\Microsoft\AzureMfa에 REQUIRE_USER_MATCH_라는 새 문자열 값
 
 값이 *True*로 설정되거나 비어 있으면 모든 인증 요청은 MFA 챌린지의 영향을 받습니다. 값을 *False*로 설정하면 MFA 챌린지가 Azure Multi-Factor Authentication에 등록된 사용자에게만 발급됩니다. 등록 기간 동안 테스트 환경 또는 프로덕션 환경에서만 *False* 설정을 사용합니다.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Azure Active Directory GUID ID 가져오기
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Azure Active Directory 테 넌 트 ID 가져오기
 
-NPS 확장 구성의 일환으로 Azure AD 테넌트의 관리자 자격 증명과 ID를 제공해야 합니다. 다음을 수행하여 ID를 가져옵니다.
+NPS 확장 구성의 일환으로 Azure AD 테넌트의 관리자 자격 증명과 ID를 제공해야 합니다. 테 넌 트 ID를 가져오려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 Azure 테넌트의 전역 관리자로 로그인합니다.
+1. Azure Portal 메뉴에서 **Azure Active Directory**를 선택하거나 모든 페이지에서 **Azure Active Directory**를 검색하여 선택합니다.
+1. **개요** 페이지에서 *테 넌 트 정보가* 표시 됩니다. 다음 예제 스크린샷에 표시 된 것 처럼 *테 넌 트 ID*옆에 있는 **복사** 아이콘을 선택 합니다.
 
-2. Azure Portal 메뉴에서 **Azure Active Directory**를 선택하거나 모든 페이지에서 **Azure Active Directory**를 검색하여 선택합니다.
-
-3. **속성**을 선택합니다.
-
-4. Azure AD ID를 복사하려면 **복사** 단추를 선택합니다.
-
-    ![Azure Portal의 Azure AD Directory ID](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Azure Portal에서 테 넌 트 ID 가져오기](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -386,7 +382,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 
 5. 명령 프롬프트에서 이전에 복사한 테넌트 ID를 붙여넣고 Enter 키를 선택합니다.
 
-    ![이전에 복사한 Azure AD Directory ID 입력](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![이전에 복사 된 Azure AD 테 넌 트 ID 입력](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     스크립트에서 자체 서명된 인증서를 만들고 다른 구성 변경 작업을 수행합니다. 다음 이미지와 비슷한 출력이 표시됩니다.
 
@@ -412,7 +408,9 @@ Azure MFA에서 이전에 구성한 보조 인증 방법으로 성공적으로 �
 
 Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인하려면 다음 PowerShell 명령을 실행하여 NPS 서버에서 Windows 보안 로그를 쿼리합니다.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![PowerShell 보안 이벤트 뷰어](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인
 
 Azure Multi-Factor Authentication용 NPS 확장을 설치한 서버에서 *Application and Services Logs\Microsoft\AzureMfa*에 있는 확장과 관련된 이벤트 뷰어 애플리케이션 로그를 찾을 수 있습니다.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![이벤트 뷰어 AuthZ 로그 창 예](./media/howto-mfa-nps-extension-vpn/image46.png)
 

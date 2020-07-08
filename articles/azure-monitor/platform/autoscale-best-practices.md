@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846939"
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
@@ -48,8 +48,8 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 Out 및 in 조건에 대해 동일 하거나 유사한 임계값을 사용 하는 아래 예제와 같은 자동 크기 조정 설정은 사용 *하지 않는 것이 좋습니다* .
 
-* 스레드 수 >= 600 인 경우 인스턴스 수 1 개 증가
-* 스레드 수 <= 600 인 경우 인스턴스 수 1 개 감소
+* 스레드 수가 600 이상인 경우 인스턴스 수 1개 증가
+* 스레드 수가 600 이하인 경우 인스턴스 수 1개 감소
 
 혼동스러운 동작을 초래할 수 있는 예를 살펴보겠습니다. 다음과 같은 시퀀스를 고려해 보세요.
 

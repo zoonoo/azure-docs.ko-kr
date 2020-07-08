@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847395"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -80,7 +80,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| 예|  
 |\*.ods.opinsights.azure.com| 443| 예|  
-|* .azure-automation.net | 443| 예|  
+|\* .azure-automation.net | 443| 예|  
 |**콘솔 Operations Manager Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -110,7 +110,7 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Azure Monitor와 통합 하기 위해 다음 단계를 완료 한 후에는를 실행 `netsh winhttp reset proxy` 하 여 구성을 제거한 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 프록시 또는 Log Analytics 게이트웨이 서버를 지정할 수 있습니다.
+Azure Monitor와 통합 하기 위해 다음 단계를 완료 한 후에는를 실행 하 여 구성을 제거한 `netsh winhttp reset proxy` 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용 하 여 프록시 또는 Log Analytics 게이트웨이 서버를 지정할 수 있습니다.
 
 1. Operations Manager 콘솔에서 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
@@ -163,14 +163,14 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 연결이 생성 되 고 로그 데이터를 수집 하 고 보고 하는 에이전트를 구성 하 고 Azure Monitor 다음 구성이 관리 그룹에 적용 되며 반드시 순서 대로 적용 되는 것은 아닙니다.
 
 * 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob**과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹**을 대상으로 합니다.
-* 두 개의 커넥터가 생성됩니다.  첫 번째는 **SystemCenter** 로 이름이 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
+* 두 개의 커넥터가 생성됩니다.  첫 번째는 이름이 **temCenter로Microsoft.Sys** 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor으로 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
 * 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹**에 추가됩니다.
 
 ## <a name="management-pack-updates"></a>관리 팩 업데이트
 
 구성이 완료 된 후 Operations Manager 관리 그룹은 Azure Monitor 연결을 설정 합니다. 관리 서버는 웹 서비스와 동기화하고 Operations Manager와 통합하도록 활성화한 솔루션에 대한 관리 팩의 형태로 업데이트된 구성 정보를 수신합니다. Operations Manager는 이러한 관리 팩의 업데이트를 확인하고, 해당 업데이트를 사용할 수 있을 때 자동으로 다운로드하여 가져옵니다. 특히 이 동작을 제어하는 두 개의 규칙이 있습니다.
 
-* **SystemCenter** -기본 Azure Monitor 관리 팩을 업데이트 합니다. 기본적으로 12시간마다 실행됩니다.
+* **Microsoft.SystemCenter** -기본 Azure Monitor 관리 팩을 업데이트 합니다. 기본적으로 12시간마다 실행됩니다.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - 작업 영역에서 활성화된 솔루션 관리 팩을 업데이트합니다. 기본적으로 5분마다 실행됩니다.
 
 이러한 두 규칙을 재정의 하 여 자동 다운로드를 차단 하거나, 관리 서버가 Azure Monitor와 동기화 되는 빈도를 수정 하 여 새 관리 팩을 사용할 수 있고 다운로드 해야 하는지 여부를 확인할 수 있습니다. [규칙 또는 모니터를 재정의하는 방법](https://technet.microsoft.com/library/hh212869.aspx) 단계를 따라 초 단위 값으로 **Frequency** 매개 변수를 수정하여 동기화 일정을 변경하거나 **Enabled** 매개 변수를 수정하여 규칙을 비활성화합니다. Operations Manager 관리 그룹 클래스의 모든 개체에 대한 재정의를 대상으로 합니다.
@@ -180,7 +180,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Operations Manager 그룹을 새 Log Analytics 작업 영역으로 전환
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택하고 작업 영역을 만듭니다.  
+1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택하고 작업 영역을 만듭니다.  
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 1. Log Analytics를 확장하고 **연결**을 선택합니다.
 1. 창 중간의 **Operations Management Suite 다시 구성** 링크를 선택합니다.
@@ -197,7 +197,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Azure Portal에서 통합을 확인하려면
 
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다.
+1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다.
 1. Log Analytics 작업 영역 목록에서 적용 가능한 작업 영역을 선택합니다.  
 1. **고급 설정**, **연결된 원본**, **System Center**를 차례로 선택합니다.
 1. System Center Operations Manager 섹션 아래의 테이블에 데이터를 마지막으로 받았을 때 에이전트 및 상태 수와 함께 나열된 관리 그룹의 이름이 표시됩니다.
@@ -350,7 +350,7 @@ Operations Manager와 통합 하는 데 사용 하도록 설정한 솔루션에 
 나중에 관리 그룹을 Log Analytics 작업 영역에 다시 연결하려는 경우 `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` 관리 팩 파일을 다시 가져와야 합니다. 환경에 배포된 System Center Operations Manager 버전에 따라 다음 위치에서 이 파일을 찾을 수 있습니다.
 
 * System Center 2016 - Operations Manager 이상의 `\ManagementPacks` 폴더 아래에 있는 원본 미디어.
-* 관리 그룹에 적용된 최신 업데이트 롤업. Operations Manager 2012의 경우 원본 폴더는 `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` 이며 2012 r 2의 경우에 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`있습니다.
+* 관리 그룹에 적용된 최신 업데이트 롤업. Operations Manager 2012의 경우 원본 폴더는 이며 2012 r 2의 경우 `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` 에 있습니다 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
 ## <a name="next-steps"></a>다음 단계
 

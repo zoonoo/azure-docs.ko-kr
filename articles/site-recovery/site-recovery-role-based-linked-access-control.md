@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847910"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
@@ -43,11 +43,11 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
-| 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
+| Compute | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
-|  | 클래식 | Microsoft.ClassicCompute/domainNames/read |
+|  | Classic | Microsoft.ClassicCompute/domainNames/read |
 |  |  | Microsoft.ClassicCompute/domainNames/write |
 |  |  | Microsoft.ClassicCompute/domainNames/delete |
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
@@ -60,11 +60,11 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.Network/virtualNetworks/read |
 |  |  | Microsoft.Network/virtualNetworks/subnets/read |
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
-|  | 클래식 | Microsoft.ClassicNetwork/virtualNetworks/read |
+|  | Classic | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
 | 스토리지 | 리소스 관리자 | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
-|  | 클래식 | Microsoft.ClassicStorage/storageAccounts/read |
+|  | Classic | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
 | 리소스 그룹 | 리소스 관리자 | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |

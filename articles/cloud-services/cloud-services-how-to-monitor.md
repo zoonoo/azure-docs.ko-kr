@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847250"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
@@ -54,7 +54,7 @@ ms.locfileid: "79273099"
 
 먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델**을 지정하여 스토리지 계정을 만듭니다.
 
-다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키** 를 선택 하 고 **기본 연결 문자열** 값을 복사 합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
+다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정**  >  **액세스 키** 를 선택 하 고 **기본 연결 문자열** 값을 복사 합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 
 고급 진단을 사용하려면 두 개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg**를 변경해야 합니다.
 

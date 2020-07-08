@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
 ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847049"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
@@ -50,7 +50,7 @@ Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내�
 
 둘 이상의 가상 네트워크를 프라이빗 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md) 페이지에서 확인할 수 있습니다.  라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
 
-### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Microsoft 피어 링
+### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Microsoft 피어링
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 

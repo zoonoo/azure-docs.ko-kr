@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847479"
 ---
 # <a name="manage-farms"></a>팜 관리
 
@@ -18,7 +18,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 
 ## <a name="create-farms"></a>팜 만들기
 
-다음 단계를 사용합니다.
+다음 단계를 따르십시오.
 
 1. 팜 가속기에 **로그인 하면 팜 페이지가 표시** 됩니다.
     **팜** 페이지는 구독에서 이미 만들어져 있는 경우의 팜 목록을 표시 합니다.
@@ -33,7 +33,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 
 팜 경계를 정의 하는 두 가지 방법은 다음과 같습니다.
 
-1. **지도에 표시**: 지도 컨트롤 도구를 사용 하 여 팜의 경계를 그리거나 표시 합니다. 경계를 표시 하기 위해 ![프로젝트 팜은](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) 정확한 경계를 비트 단위로 표시 합니다.
+1. **지도에 표시**: 지도 컨트롤 도구를 사용 하 여 팜의 경계를 그리거나 표시 합니다. 경계를 표시 하기 위해 ![ 프로젝트 팜 ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) 은 정확한 경계를 비트 단위로 표시 합니다.
 
     ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

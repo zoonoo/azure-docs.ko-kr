@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849002"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Azure Security Center의 위협 방지에서 중복된 경고 제거
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Azure Security Center의 위협 방지에 대 한 경고 표시 안 함
 
 이 페이지에서는 중복된 경고 제거 규칙을 사용하여 Azure Security Center에서 가양성 또는 기타 원치 않는 보안 경고를 표시하지 않는 방법을 설명합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "83871690"
     - ✔ 국가/소버린(미국 정부, 중국 정부, 기타 정부)
 
 
-## <a name="introduction-to-suppression-rules"></a>중복된 경고 제거 규칙 소개
+## <a name="what-are-suppression-rules"></a>비 표시 규칙 이란?
 
 Azure Security Center의 위협 방지 구성 요소는 사용자 환경의 모든 영역에서 위협을 감지하고 보안 경고를 생성합니다.
 
@@ -43,9 +43,9 @@ Azure Security Center의 위협 방지 구성 요소는 사용자 환경의 모�
 > [!CAUTION]
 > 보안 경고를 표시하지 않으면 Security Center의 위협 방지 기능이 약화됩니다. 중복된 경고 제거 규칙의 잠재적인 영향을 신중하게 확인하고 오랜 시간 동안 모니터링해야 합니다.
 
-[![중복된 경고 제거 옵션이 표시된 Azure Security Center 보안 경고 페이지](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![경고 표시 안 함 규칙 만들기](media\alerts-suppression-rules\create-suppression-rule.gif)
 
-## <a name="creating-a-suppression-rule"></a>중복된 경고 제거 규칙 만들기
+## <a name="create-a-suppression-rule"></a>비 표시 규칙 만들기
 
 원치 않는 보안 경고를 표시하지 않는 규칙을 만드는 몇 가지 방법이 있습니다.
 
@@ -89,13 +89,13 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 1. 규칙을 저장합니다. 
 
-## <a name="editing-suppression-rules"></a>중복된 경고 제거 규칙 편집
+## <a name="edit-a-suppression-rules"></a>비 표시 규칙 편집
 
-만든 규칙을 편집하려면 중복된 경고 제거 규칙 페이지를 사용합니다.
+만든 규칙을 편집 하려면 비 표시 규칙 페이지를 사용 합니다.
 
 1. Security Center의 보안 경고 페이지에서 페이지 맨 위에 있는 **중복된 경고 제거 규칙** 링크를 선택합니다.
 
-1. 중복된 경고 제거 규칙 페이지가 열리고 현재 선택된 구독에 따라 사용 가능한 모든 규칙이 나열됩니다. 
+1. 선택한 구독에 대 한 모든 규칙을 포함 하는 비 표시 규칙 페이지가 열립니다.
 
     [![중복된 경고 제거 규칙 목록](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 1. 필요한 부분을 변경하고 **적용**을 선택합니다. 
 
-## <a name="deleting-suppression-rules"></a>중복된 경고 제거 규칙 삭제
+## <a name="delete-a-suppression-rule"></a>비 표시 규칙 삭제
 
 만든 규칙 중 하나 이상을 삭제하려면 중복된 경고 제거 규칙 페이지를 사용합니다.
 
 1. Security Center의 보안 경고 페이지에서 페이지 맨 위에 있는 **중복된 경고 제거 규칙** 링크를 선택합니다.
 
-1. 중복된 경고 제거 규칙 페이지가 열리고 현재 선택된 구독에 따라 사용 가능한 모든 규칙이 나열됩니다. 
+1. 선택한 구독에 대 한 모든 규칙을 포함 하는 비 표시 규칙 페이지가 열립니다.
 
 1. 단일 규칙을 삭제하려면 규칙에 대한 줄임표 메뉴(...)를 열고 **삭제**를 선택합니다.
 
@@ -117,7 +117,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
     ![하나 이상의 중복된 경고 제거 규칙 삭제](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>제거된 경고 보기
+## <a name="view-suppressed-alerts"></a>표시 되지 않은 경고 보기
 
 활성화된 중복된 경고 제거 규칙과 일치하는 경고는 계속 생성되지만 해당 상태는 **해제됨**으로 설정됩니다. Azure Portal에서 상태를 보거나 Security Center 보안 경고에 액세스할 수 있습니다. 
 
@@ -131,7 +131,7 @@ Security Center의 필터를 사용하여 규칙에 의해 해제된 경고를 �
    [![해제된 경고 보기](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>API를 사용하여 중복된 경고 제거 규칙 만들기 및 관리
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>API를 사용 하 여 비 표시 규칙 만들기 및 관리
 
 Security Center의 REST API를 통해 중복된 경고 제거 규칙을 만들거나, 보거나, 삭제할 수 있습니다. 
 
