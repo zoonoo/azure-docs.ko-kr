@@ -20,7 +20,7 @@ ms.locfileid: "82925447"
 1. 조직 Azure AD 테 넌 트를 포함 하는 디렉터리 (예: contoso.com)를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독 필터** 를 선택 하 고 Azure AD 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 1. **새 등록**을 선택합니다.
-1. 애플리케이션의 **이름**을 입력합니다. 예: `Azure AD B2C App`.
+1. 애플리케이션의 **이름**을 입력합니다. 예들 들어 `Azure AD B2C App`입니다.
 1. 이 응용 프로그램에 대해서 **만이 조직 디렉터리에서** 기본 선택 된 계정을 적용 합니다.
 1. **리디렉션 URI**의 경우 **웹**의 값을 그대로 사용 하 고 다음 URL을 소문자로 입력 합니다 `your-B2C-tenant-name` . 여기서은 Azure AD B2C 테 넌 트의 이름으로 바뀝니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "82925447"
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`입니다.
 
 1. **등록**을 선택합니다. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 1. **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.

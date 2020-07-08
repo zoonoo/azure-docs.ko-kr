@@ -37,7 +37,7 @@ ms.locfileid: "77205721"
 
 이러한 설정은 프로젝트를 로컬로 실행할 때 지원 됩니다.
 
-| 설정      | 설명                            |
+| 설정      | Description                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | 이 설정이로 설정 되 면 `true` 모든 값은 로컬 컴퓨터 키로 암호화 됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`입니다. |
 | **`Values`** | 프로젝트를 로컬로 실행할 때 사용 되는 응용 프로그램 설정 및 연결 문자열의 배열입니다. 이러한 키-값 (문자열 문자열) 쌍은 Azure에서 함수 앱의 응용 프로그램 설정에 해당 합니다 (예:) [`AzureWebJobsStorage`] . 많은 트리거와 바인딩에는 `Connection` [Blob storage 트리거와](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration)같이 연결 문자열 앱 설정을 참조 하는 속성이 있습니다. 이러한 속성에 대해 배열에 정의 된 응용 프로그램 설정이 필요 `Values` 합니다. <br/>[`AzureWebJobsStorage`]는 HTTP 이외의 트리거에 필요한 앱 설정입니다. <br/>버전 2.x 이상의 함수 런타임에는 `FUNCTIONS_WORKER_RUNTIME` 핵심 도구에서 프로젝트에 대해 생성 되는 [] 설정이 필요 합니다. <br/> [Azure storage 에뮬레이터](../articles/storage/common/storage-use-emulator.md) 를 로컬로 설치 하 고를로 설정 하면 [`AzureWebJobsStorage`] `UseDevelopmentStorage=true` 핵심 도구는 에뮬레이터를 사용 합니다. 에뮬레이터는 개발 중에 유용 하지만 배포 하기 전에 실제 저장소 연결로 테스트 해야 합니다.<br/> 값은 문자열 이어야 하며 JSON 개체 또는 배열이 아닙니다. 설정 이름은 콜론 ( `:` ) 또는 이중 밑줄 ()을 포함할 수 없습니다 `__` . 이러한 문자는 런타임에 예약 됩니다.  |

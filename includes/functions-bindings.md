@@ -15,9 +15,9 @@ ms.locfileid: "77279570"
 다음 표에서는 Azure Functions 런타임의 주 버전에서 지원 되는 바인딩을 보여 줍니다.
 
 
-| 형식 | 1.x | 2.x 이상<sup>1</sup> | 트리거 | 입력 | 출력 |
+| Type | 1.x | 2.x 이상<sup>1</sup> | 트리거 | 입력 | 출력 |
 | ---- | :-: | :-: | :------: | :---: | :----: |
-| [Blob 저장소](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
+| [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
@@ -30,11 +30,11 @@ ms.locfileid: "77279570"
 | [Microsoft Graph<br/>인증 토큰](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
-| [큐 저장소](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
+| [Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
 | [SignalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|
-| [테이블 저장소](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|
+| [Table Storage](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|
 | [타이머](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 

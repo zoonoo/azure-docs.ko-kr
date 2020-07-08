@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 06/01/2020
 ms.author: danlep
-ms.openlocfilehash: 8106b1a77f11874b1b13f41bfc9e62ea800afc98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68361532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84317391"
 ---
 ### <a name="database-tier"></a>데이터베이스 계층
 
@@ -17,7 +17,7 @@ ms.locfileid: "68361532"
 
 Oracle DB 사용 하도록 선택 하는 경우 데이터베이스 인스턴스는 Azure Marketplace에서 사용할 수 있는 Oracle DB 이미지를 통해 Azure에 배포할 수 있습니다. 또는 Azure와 OCI 간의 상호 연결을 사용 하 여 OCI의 PaaS 모델에 Oracle DB을 배포할 수 있습니다.
 
-Oracle RAC의 경우 IaaS 모델 또는 PaaS 모델의 OCI에서 Azure CloudSimple에 Oracle RAC를 배포할 수 있습니다. 2 노드 RAC 시스템을 사용 하는 것이 좋습니다. 
+Oracle RAC의 경우 PaaS 모델에서 OCI를 사용할 수 있습니다. 2 노드 RAC 시스템을 사용 하는 것이 좋습니다. IaaS 모델에서 Azure CloudSimple에 Oracle RAC를 배포할 수는 있지만 Oracle에서 지원 되는 구성은 아닙니다. [권한 있는 클라우드 환경에 적합 한 Oracle 프로그램](http://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf)을 참조 하세요.
 
 마지막으로 Exadata 시스템의 경우 OCI 상호 연결을 사용 하 고 OCI에 Exadata 시스템을 배포 합니다. 위의 아키텍처 다이어그램에서는 두 개의 서브넷에 대해 OCI에 배포 된 Exadata 시스템을 보여 줍니다.
 
