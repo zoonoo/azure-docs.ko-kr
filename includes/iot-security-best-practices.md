@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793113"
 ---
 IoT(사물 인터넷) 인프라를 보호하려면 엄격한 보안 심층 전략이 필요합니다. 이 전략을 위해서는 클라우드의 데이터를 보호하고, 공용 인터넷을 통해 전송되는 데이터의 무결성을 보호하고, 디바이스를 안전하게 프로비전해야 합니다. 각 계층은 전체 인프라에서 보다 강력한 보안 보증을 빌드합니다.

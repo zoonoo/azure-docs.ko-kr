@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 9df08151e4af6e82a775b3ee99dab88134a2f032
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82784098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84014702"
 ---
 ## <a name="next-steps"></a>다음 단계
 
@@ -17,9 +17,9 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 여러 형태의 암호화를 이용할 수 있습니다.
 
-* [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [암호화된 백업](https://msdn.microsoft.com/library/dn449489.aspx)
-* [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [암호화된 백업](/sql/relational-databases/backup-restore/backup-encryption)
+* [CLE(열 수준 암호화)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 다음 Transact-SQL 스크립트는 이러한 각 영역에 대한 예를 제공합니다.
 
@@ -146,4 +146,4 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
 
-이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요.
