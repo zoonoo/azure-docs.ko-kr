@@ -3,12 +3,18 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
-ms.openlocfilehash: 0e2d63db1afd4bb169e5aeb1c202674808f081ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449106"
 ---
-서비스에 처음으로 액세스 하는 트리거 또는 작업을 사용 하는 경우 Logic Apps 디자이너에서 해당 서비스에 대 한 *연결* 을 만들라는 메시지를 표시 합니다. 그런 다음 디자이너 내 논리 앱에서 직접 필요한 연결 정보를 제공할 수 있습니다.
+처음으로 서비스 또는 시스템에 연결 하는 트리거 또는 작업을 추가 하면 논리 앱 디자이너에서 다음과 같이 연결에 따라 달라 지는 필요한 정보를 제공 하 여 *연결* 을 만들라는 메시지를 표시 합니다.
+
+* 새 연결에 사용할 이름입니다.
+* 서버 또는 시스템 이름
+* 사용자 또는 계정 자격 증명
+* 사용할 인증 유형
+* 온-프레미스 데이터 원본에 연결할 때 이전에 만든 데이터 게이트웨이의 Azure 구독 및 이름

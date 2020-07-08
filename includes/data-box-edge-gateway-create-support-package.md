@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182662"
 ---
 장치 문제가 발생 하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원이 패키지를 사용 하 여 문제를 해결 합니다. 지원 패키지를 만들려면 다음 단계를 따르세요.
 
 1. [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. `Get-HcsNodeSupportPackage` 명령을 사용 하 여 지원 패키지를 만듭니다. Cmdlet을 사용 하는 방법은 다음과 같습니다.
+2. 명령을 사용 `Get-HcsNodeSupportPackage` 하 여 지원 패키지를 만듭니다. Cmdlet을 사용 하는 방법은 다음과 같습니다.
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
