@@ -6,13 +6,12 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f9d2d9bd2a58fa4c6f14db8ffd067bb39fc1553
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/28/2020
+ms.openlocfilehash: fa90c3579e241fd6b7dc53c9df7d996402fc78a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84296892"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
@@ -91,10 +90,17 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
     | 구성| 값|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    `<headnode-FQDN>`을 대화형 쿼리 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)으로 바꿉니다.
-    `<AAD-DOMAIN>`을 클러스터가 조인된 AAD(Azure Active Directory)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요하다면 영역 이름에 대한 `/etc/krb5.conf`를 확인합니다.
+    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive**를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
+
+        ![hive 웨어하우스 커넥터 헤드 노드](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 대화형 쿼리 클러스터에 연결 합니다. `default_realm`파일에서 매개 변수를 찾습니다 `/etc/krb5.conf` . `<AAD-DOMAIN>`이 값을 대문자 문자열로 바꾸고, 그렇지 않으면 자격 증명을 찾을 수 없습니다.
+
+        ![hive 웨어하우스 커넥터 AAD 도메인](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * 예를 들면 `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` 입니다.
 
 1. 변경 내용을 저장하고 Livy 인터프리터를 다시 시작합니다.
 

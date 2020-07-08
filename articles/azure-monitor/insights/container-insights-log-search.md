@@ -2,37 +2,36 @@
 title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Microsoft Docs
 description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: ff7cbff708b794847d8be69ca8f829e622d7c7ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: 392aac8f81ac3894fca8b6f70570834a5af16ade
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80333473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298306"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
-컨테이너 Azure Monitor는 컨테이너 호스트와 컨테이너에서 성능 메트릭, 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor의 Log Analytics 작업 영역으로 전달 합니다. 데이터는 3분마다 수집됩니다. 이 데이터는 Azure Monitor에서 [쿼리에](../../azure-monitor/log-query/log-query-overview.md) 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+컨테이너에 대 한 Azure Monitor는 컨테이너 호스트 및 컨테이너에서 성능 메트릭, 인벤토리 데이터 및 상태 정보를 수집 합니다. 데이터는 3 분 마다 수집 되 고 Azure Monitor의 Log Analytics 작업 영역으로 전달 됩니다. 이 데이터는 Azure Monitor에서 [쿼리에](../../azure-monitor/log-query/log-query-overview.md) 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 ## <a name="container-records"></a>컨테이너 레코드
 
-다음 표에는 컨테이너용 Azure Monitor에서 수집하는 레코드 및 로그 검색 결과에 표시되는 데이터 유형의 예가 나와 있습니다.
+다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 
 
-| 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
-| --- | --- | --- |
-| 호스트 및 컨테이너에 대한 성능 | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| 컨테이너 인벤토리 | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| 컨테이너 로그 | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| 컨테이너 노드 인벤토리 | `ContainerNodeInventory`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes 클러스터의 Pod 인벤토리 | `KubePodInventory` | TimeGenerated, 컴퓨터, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, 컨테이너 상태, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, Poduid, SourceSystem |
-| Kubernetes 클러스터의 노드 부분 인벤토리 | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes 이벤트 | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
-| Kubernetes 클러스터의 서비스 | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
-| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
-| 사용자 지정 메트릭 |`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _ResourceId | 
+| 데이터 | 데이터 원본 | 데이터 형식 | 필드 |
+|------|-------------|-----------|--------|
+| 호스트 및 컨테이너에 대한 성능 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
+| 컨테이너 인벤토리 | Docker | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| 컨테이너 로그 | Docker | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| 컨테이너 노드 인벤토리 | Kube API | `ContainerNodeInventory`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes 클러스터의 Pod 인벤토리 | Kube API | `KubePodInventory` | TimeGenerated, 컴퓨터, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, 컨테이너 상태, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, Poduid, SourceSystem |
+| Kubernetes 클러스터의 노드 부분 인벤토리 | Kube API | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
+| Kubernetes 이벤트 | Kube API | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
+| Kubernetes 클러스터의 서비스 | Kube API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
+| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 || 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 || 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| 사용자 지정 메트릭 ||`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _ResourceId | 
 
-<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. `InsightsMetrics` 테이블에 수집 및 저장 된 메트릭과 레코드 속성에 대 한 설명에 대 한 자세한 내용은 [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
+<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. 테이블에 수집 및 저장 된 메트릭과 레코드 속성에 대 한 설명에 대 한 자세한 내용은 `InsightsMetrics` [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
 
 ## <a name="search-logs-to-analyze-data"></a>로그를 검색하여 데이터 분석
 
@@ -80,7 +79,7 @@ InsightsMetrics
 
 ```
 
-스크랩으로 필터링 Azure Monitor는 프로메테우스 메트릭을 보려면 "프로메테우스"를 지정 합니다. 다음은 `default` kubernetes 네임 스페이스에서 프로메테우스 메트릭을 보는 샘플 쿼리입니다.
+스크랩으로 필터링 Azure Monitor는 프로메테우스 메트릭을 보려면 "프로메테우스"를 지정 합니다. 다음은 kubernetes 네임 스페이스에서 프로메테우스 메트릭을 보는 샘플 쿼리입니다 `default` .
 
 ```
 InsightsMetrics 
@@ -99,13 +98,13 @@ InsightsMetrics
 
 ### <a name="query-config-or-scraping-errors"></a>쿼리 구성 또는 스크랩 오류
 
-다음 예제 쿼리는 구성 또는 스크랩 오류를 조사 하기 위해 `KubeMonAgentEvents` 테이블의 정보 이벤트를 반환 합니다.
+다음 예제 쿼리는 구성 또는 스크랩 오류를 조사 하기 위해 테이블의 정보 이벤트를 반환 합니다 `KubeMonAgentEvents` .
 
 ```
 KubeMonAgentEvents | where Level != "Info" 
 ```
 
-출력은 다음과 유사한 결과를 표시 합니다.
+출력은 다음 예제와 유사한 결과를 표시 합니다.
 
 ![에이전트의 정보 이벤트에 대 한 쿼리 결과 기록](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 

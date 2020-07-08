@@ -5,12 +5,11 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6328515232b257e01b9b453de4ca0aca820c4038
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267497"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -30,7 +29,7 @@ Azure Dev Spaces [는 AKS에서 현재 지원 되는 GA (일반 공급) 버전�
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>기존 Dockerfiles 또는 투구 차트와 Azure Dev Spaces를 사용할 수 있나요?
 
-예, 프로젝트에 Dockerfile 또는 투구 차트가 이미 있는 경우 Azure Dev Spaces에서 해당 파일을 사용할 수 있습니다. 을 실행 `azds prep`하는 경우 `--chart` 매개 변수를 사용 하 고 차트의 위치를 지정 합니다. Azure Dev Spaces은 여전히 *azds* 및 *dockerfile* 파일을 생성 하지만 기존 Dockerfile 또는 투구 차트를 바꾸거나 수정 하지는 않습니다. *Azds* 및 *dockerfile* 을 수정 해야 할 수 있습니다. 모든 항목이 실행 `azds up`중일 때 기존 응용 프로그램에서 제대로 작동 하도록 하려면 파일을 개발 합니다.
+예, 프로젝트에 Dockerfile 또는 투구 차트가 이미 있는 경우 Azure Dev Spaces에서 해당 파일을 사용할 수 있습니다. 을 실행 하는 경우 `azds prep` `--chart` 매개 변수를 사용 하 고 차트의 위치를 지정 합니다. Azure Dev Spaces은 여전히 *azds* 및 *dockerfile* 파일을 생성 하지만 기존 Dockerfile 또는 투구 차트를 바꾸거나 수정 하지는 않습니다. *Azds* 및 *dockerfile* 을 수정 해야 할 수 있습니다. 모든 항목이 실행 중일 때 기존 응용 프로그램에서 제대로 작동 하도록 하려면 파일을 개발 합니다. `azds up`
 
 사용자 고유의 Dockerfile 또는 투구 차트를 사용 하는 경우 다음과 같은 제한 사항이 있습니다.
 * Dockerfile을 하나만 사용 하는 경우에는 런타임 뿐만 아니라 언어 SDK와 같은 개발 시나리오를 사용 하도록 설정 하는 데 필요한 모든 항목을 포함 해야 합니다. Dockerfile과 같은 Azure Dev Spaces에 대해 별도의 Dockerfile을 사용 하는 경우 개발 시나리오를 사용 하도록 설정 하는 데 필요한 모든 것이 Dockerfile에 포함 되어야 합니다.
@@ -99,7 +98,6 @@ Visual Studio에서는 Azure Dev Spaces를 통해 디버깅 하는 데 필요한
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
-[aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-migration]: ../aks/aks-migration.md
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities

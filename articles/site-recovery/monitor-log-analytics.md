@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300793"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -42,14 +41,14 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 ## <a name="configure-site-recovery-to-send-logs"></a>로그를 보내도록 Site Recovery 구성
 
-1. 자격 증명 모음에서 **진단 설정 진단 설정** > **추가**를 클릭 합니다.
+1. 자격 증명 모음에서 **진단 설정**  >  **진단 설정 추가**를 클릭 합니다.
 
     ![리소스 로깅 선택](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
 4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
-5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 후 **OK**를 클릭합니다.
 
     ![작업 영역 선택](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -252,7 +251,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>경고 설정-예제
 
-Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) . 
+Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) . 
 
 > [!NOTE]
 > 일부 예제에서는 **A2A**로 설정 된 **replicationProviderName_s** 를 사용 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.

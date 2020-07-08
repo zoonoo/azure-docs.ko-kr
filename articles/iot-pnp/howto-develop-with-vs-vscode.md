@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298230"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Visual Studio 및 Visual Studio Code를 사용 하 여 IoT 플러그 앤 플레이 장치 빌드
 
@@ -25,7 +24,7 @@ Visual Studio Code 용 Azure IoT 도구는 DCM (장치 기능 모델) 및 인터
 - 장치 프로젝트에서 생성 된 코드를 사용 합니다.
 - 기본 코드를 다시 생성 하 여 반복 합니다.
 
-VS Code를 사용 하 여 IoT 장치를 개발 하는 방법에 [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench)대 한 자세한 내용은을 참조 하세요.
+VS Code를 사용 하 여 IoT 장치를 개발 하는 방법에 대 한 자세한 내용은을 참조 [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -57,7 +56,7 @@ VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고
     - **Linux의 Cmake 프로젝트**: Linux에서 [cmake](https://cmake.org/) 를 빌드 시스템으로 사용 하는 장치 프로젝트용입니다. 이 옵션은 `CMakeLists.txt` C 코드와 동일한 폴더에 장치 SDK 구성을 사용 하 여 생성 됩니다.
     - **MXChip Iot devkit 프로젝트**: [MXChip iot devkit](https://aka.ms/iot-devkit) 장치에서 실행 되는 장치 프로젝트를 위한 것입니다. 이 옵션은 VS Code 또는 Arduino IDE에서 IoT DevKit 장치를 빌드하고 실행 하는 [데 사용할](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) 수 있는 Arduino 프로젝트를 생성 합니다.
 
-- **장치 SDK 유형**입니다. CMake 프로젝트 형식을 선택 하는 경우 생성 된 코드에 Azure IoT C 장치 SDK를 포함 하는 방법을 구성 하는 단계 `CMakeLists.txt`는 다음과 같습니다.
+- **장치 SDK 유형**입니다. CMake 프로젝트 형식을 선택 하는 경우 생성 된 코드에 Azure IoT C 장치 SDK를 포함 하는 방법을 구성 하는 단계는 `CMakeLists.txt` 다음과 같습니다.
 
     - **소스 코드**사용: 생성 된 코드는 [장치 SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c) 를 사용 하 여에 포함 하 고 함께 빌드합니다. 장치 SDK 소스 코드를 사용자 지정한 경우에 권장 됩니다.
     - **Vcpkg**사용: 생성 된 코드는 [장치 SDK Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) 를 사용 하 여에 포함 하 고 함께 빌드합니다. 이는 Windows, Linux 또는 macOS를 실행 하는 장치에 권장 되는 방법입니다.
@@ -69,9 +68,9 @@ VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고
 
 코드 생성이 완료 되 면 확장은 코드를 사용 하 여 새 VS Code 창을 엽니다. **기본 .c**와 같은 생성 된 파일을 열면 IntelliSense에서 c SDK 원본 파일을 열 수 없다고 보고 하는 것을 알 수 있습니다. 올바른 IntelliSense 및 코드 탐색을 사용 하도록 설정 하려면 다음 단계를 사용 하 여 C SDK 원본을 포함 합니다.
 
-1. VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고를 입력 하 고 **c/c + +: 구성 편집 (json)** 을 선택 하 여 **c_cpp_properties json** 파일을 엽니다.
+1. VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고를 입력 하 고 **c/c + +: 구성 편집 (JSON)** 을 선택 하 여 파일 **에서c_cpp_properties.js** 를 엽니다.
 
-1. `includePath` 섹션에서 장치 SDK의 경로를 추가 합니다.
+1. 섹션에서 장치 SDK의 경로를 추가 합니다 `includePath` .
 
     ```json
     "includePath": [
@@ -92,7 +91,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
 1. 터미널 응용 프로그램을 엽니다.
 
-1. `apt-get` 다음 명령을 사용 하 여 `cmake` **GCC**, **Git**, 및 모든 종속성을 설치 합니다.
+1. 다음 명령을 사용 하 여 **GCC**, **Git**, `cmake` 및 모든 종속성을 설치 합니다 `apt-get` .
 
     ```bash
     sudo apt-get update
@@ -156,7 +155,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
 1. [Visual Studio 2019 (Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) 설치- **NuGet 패키지 관리자** 구성 요소와 **c + +를 사용한 데스크톱 개발** 워크 로드를 포함 하는지 확인 합니다.
 
-1. Visual Studio를 열고 **파일 > 열기 > cmake ...** 를 선택 하 여 폴더에 `CMakeLists.txt` 생성 된 코드가 포함 된를 엽니다.
+1. Visual Studio를 열고 **파일 > 열기 > cmake ...** 를 선택 하 여 `CMakeLists.txt` 폴더에 생성 된 코드가 포함 된를 엽니다.
 
 1. **일반** 도구 모음에서 **구성** 드롭다운을 찾습니다. **구성 관리** 를 선택 하 여 프로젝트에 대 한 cmake 설정을 추가 합니다.
 
@@ -176,7 +175,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
     ![CMake 출력](media/howto-develop-with-vs-vscode/vs-cmake-output.png)
 
-1. **솔루션 탐색기**에서 루트 폴더 `CMakeLists.txt` 의을 마우스 오른쪽 단추로 클릭 하 고 상황에 맞는 메뉴에서 **빌드** 를 선택 하 여 장치 SDK를 사용 하 여 생성 된 코드 스텁을 작성 합니다.
+1. **솔루션 탐색기**에서 루트 폴더의을 마우스 오른쪽 단추로 클릭 하 `CMakeLists.txt` 고 상황에 맞는 메뉴에서 **빌드** 를 선택 하 여 장치 SDK를 사용 하 여 생성 된 코드 스텁을 작성 합니다.
 
 1. 빌드가 성공적으로 완료 되 면 명령 프롬프트에서 IoT Hub 장치 연결 문자열을 매개 변수로 지정 하 여 응용 프로그램을 실행 합니다.
 
@@ -193,7 +192,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
 1. 터미널 응용 프로그램을 엽니다.
 
-1. [Homebrew](https://homebrew.sh) 를 사용 하 여 모든 종속성을 설치 합니다.
+1. [Homebrew](https://brew.sh) 를 사용 하 여 모든 종속성을 설치 합니다.
 
     ```bash
     brew update
@@ -216,7 +215,7 @@ Ubuntu 또는 Debian와 같은 Linux 환경에서 CMake를 사용 하 여 장치
 
     이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
-1. 생성 된 코드가 포함 `cmake` 된 폴더 아래에 이라는 폴더를 만들고 해당 폴더로 이동 합니다.
+1. `cmake`생성 된 코드가 포함 된 폴더 아래에 이라는 폴더를 만들고 해당 폴더로 이동 합니다.
 
     ```bash
     mkdir cmake
@@ -247,10 +246,10 @@ DCM 또는 인터페이스 파일을 업데이트 하는 경우 코드 생성기
 
 1. **{Project name}에 대 한 코드 다시 생성을**선택 합니다.
 
-1. 코드 생성기는 구성 된 이전 설정을 사용 하 고 코드를 다시 생성 합니다. 그러나 `main.c` 및 `{project_name}_impl.c`와 같은 사용자 코드를 포함할 수 있는 파일은 덮어쓰지 않습니다.
+1. 코드 생성기는 구성 된 이전 설정을 사용 하 고 코드를 다시 생성 합니다. 그러나 및와 같은 사용자 코드를 포함할 수 있는 파일은 덮어쓰지 않습니다 `main.c` `{project_name}_impl.c` .
 
 > [!NOTE]
-> 인터페이스 파일에서 URN id를 업데이트 하면 새 인터페이스로 처리 됩니다. 코드를 다시 생성 하면 코드 생성기에서 인터페이스에 대 한 코드를 생성 하지만 `{project_name}_impl.c` 파일의 원래 코드를 덮어쓰지 않습니다.
+> 인터페이스 파일에서 URN id를 업데이트 하면 새 인터페이스로 처리 됩니다. 코드를 다시 생성 하면 코드 생성기에서 인터페이스에 대 한 코드를 생성 하지만 파일의 원래 코드를 덮어쓰지 않습니다 `{project_name}_impl.c` .
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

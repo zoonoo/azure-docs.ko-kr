@@ -10,14 +10,13 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266103"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>자신의 암호를 재설정하기 위한 본인 확인 방법 정보 등록
 
@@ -26,7 +25,7 @@ ms.locfileid: "83739609"
 관리자는 사용자가 정보를 등록하고 암호를 재설정할 수 있도록 이 기능을 켜야 합니다. **암호를 잊어버렸습니다** 옵션이 표시되지 않는 경우 조직의 관리자가 이 기능을 켜지 않은 것입니다. 이 기능이 필요하다고 생각하시는 경우 지원 센터에 도움을 요청하세요.
 
 >[!Important]
->이 문서는 셀프 서비스 암호 재설정에 가입하려는 사용자를 위한 것입니다. 즉, 관리자의 도움 없이도 내 직장 또는 학교 암호(예: alain@contoso.com)를 재설정할 수 있습니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 켜는 방법을 원하는 관리자는 [Azure AD 셀프 서비스 암호 재설정 배포 및 기타 문서](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조하세요.
+>이 문서는 셀프 서비스 암호 재설정에 가입하려는 사용자를 위한 것입니다. 즉 alain@contoso.com , 관리자의 도움 없이 자신의 회사 또는 학교 암호 (예:)를 다시 설정할 수 있습니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 켜는 방법을 원하는 관리자는 [Azure AD 셀프 서비스 암호 재설정 배포 및 기타 문서](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조하세요.
 
 ## <a name="set-up-your-password-reset-verification-method"></a>암호 재설정 확인 방법 설정
 

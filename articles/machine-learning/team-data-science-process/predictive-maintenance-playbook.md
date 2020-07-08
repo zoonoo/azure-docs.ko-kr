@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267979"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -231,7 +230,7 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 지금까지 설명한 데이터 준비 작업은 데이터를 다음과 같이 구성해야 있습니다. 학습, 테스트 및 유효성 검사 데이터에는 이 논리 스키마가 있어야 합니다(이 예제에서는 일 단위로 시간 표시).
 
-| 자산 ID | 시간 | \<기능 열> | 레이블 |
+| 자산 ID | 시간 | \<Feature Columns> | 레이블 |
 | ---- | ---- | --- | --- |
 | A123 |1일차 | . . . | . |
 | A123 |2일차 | . . . | . |
@@ -361,7 +360,7 @@ RUL을 예측하는 데 사용되는 회귀 모델은 유출 문제의 영향을
 PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 세트 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
 
 데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 세트가 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
-- 자릿수
+- 전체 자릿수
 - 회수
 - F1 점수
 - 비용이 조정된 ROC(수신기 작동 특성)
@@ -423,16 +422,15 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 이 가이드의 마지막 섹션에서는 Azure에서 구현된 PdM 솔루션 템플릿을, 자습서 및 실험의 목록을 제공합니다. 이러한 PdM 애플리케이션은 경우에 따라 몇 분 안에 Azure 구독에 배포될 수 있습니다. 개념 증명 데모, 대안을 실험하는 샌드박스 또는 실제 프로덕션 구현을 위한 촉매제로 사용할 수 있습니다. 이러한 템플릿은 [Azure AI Gallery](https://gallery.azure.ai) 또는 [Azure GitHub](https://github.com/Azure)에 위치합니다. 이러한 여러 샘플은 시간이 지남에 따라 이 솔루션 템플릿에 포함됩니다.
 
-| # | 제목 | Description |
+| # | 제목 | 설명 |
 |--:|:------|-------------|
 | 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | IoT 원격 모니터링의 컨텍스트에서 예측 유지 관리 시나리오를 지원할 수 있는 Azure ML 모델링 및 전체 Azure 인프라를 보여 주는 오픈 소스 솔루션 템플릿입니다. |
 | 3 | [예측 유지 관리에 대한 딥 러닝](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | [이 샘플의 블로그 게시물](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)에서 예측 유지 관리에 LSTM(Long Short-Term Memory) 네트워크(되풀이 신경망의 클래스)를 사용하는 데모 솔루션을 포함한 Azure Notebook입니다.|
-| 4 | [R의 예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R에서 스크립트를 사용하는 PdM 모델링 가이드입니다.|
-| 5 | [우주 항공에 대한 Azure 예측 유지 관리](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 비행기 유지 관리에 대해 Azure ML v1.0에 기반한 첫 번째 PdM 솔루션 템플릿 중 하나입니다. 이 가이드는 이 프로젝트에서 시작되었습니다. |
-| 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | TensorFlow를 사용 하는 IoT Edge의 AI toolkit은 Azure IoT Edge 호환 Docker 컨테이너의 심층 학습 모델을 패키지 하 고 해당 모델을 REST Api로 노출 합니다.
-| 7 | [Azure IoT 예측 유지 관리](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - 미리 구성된 솔루션입니다. IoT Suite를 사용하는 비행기 유지 관리 PdM 템플릿입니다. 동일한 프로젝트와 연결된 [다른 문서](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) 및 [연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough)입니다. |
-| 8 | [SQL Server R Services를 사용한 예측 유지 관리 템플릿](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | R 서비스에 기반한 잔여 수명 시나리오의 데모입니다. |
-| 9 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 세트](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 세트 기능|
+| 4 | [우주 항공에 대한 Azure 예측 유지 관리](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 비행기 유지 관리에 대해 Azure ML v1.0에 기반한 첫 번째 PdM 솔루션 템플릿 중 하나입니다. 이 가이드는 이 프로젝트에서 시작되었습니다. |
+| 5 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | TensorFlow를 사용 하는 IoT Edge의 AI toolkit은 Azure IoT Edge 호환 Docker 컨테이너의 심층 학습 모델을 패키지 하 고 해당 모델을 REST Api로 노출 합니다.
+| 6 | [Azure IoT 예측 유지 관리](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - 미리 구성된 솔루션입니다. IoT Suite를 사용하는 비행기 유지 관리 PdM 템플릿입니다. 동일한 프로젝트와 연결된 [다른 문서](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) 및 [연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough)입니다. |
+| 7 | [SQL Server R Services를 사용한 예측 유지 관리 템플릿](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | R 서비스에 기반한 잔여 수명 시나리오의 데모입니다. |
+| 8 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 세트](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 Azure Notebook 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 세트 기능|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>예측 유지 관리에 대한 교육 리소스
 

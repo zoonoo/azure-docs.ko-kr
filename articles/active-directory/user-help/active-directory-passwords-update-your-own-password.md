@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266120"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용하여 회사 또는 학교 암호 재설정
 
 회사 또는 학교 암호가 생각 나지 않거나, 조직으로부터 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 회사 또는 학교 암호를 재설정할 수 있습니다. 관리자는 사용자가 정보를 설정하고 [암호를 재설정](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register)할 수 있도록 이 기능을 켜야 합니다.
 
-암호를 알고 있지만 변경하려는 경우 이 문서의 [암호 변경 단계](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) 섹션을 참조하세요.
+암호를 알고 있는 경우 암호를 변경 하려면이 문서의 [암호 단계 변경](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) 섹션을 참조 하세요.
 
 >[!Important]
 >이 문서는 분실했거나 알 수 없는 회사 또는 학교 계정 암호를 재설정하려는 사용자를 위해 작성되었습니다. 직원 또는 다른 사용자에 대해 셀프 서비스 암호 재설정을 켜는 방법을 원하는 관리자는 [Azure AD 셀프 서비스 암호 재설정 배포 및 기타 문서](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)를 참조하세요.
@@ -103,7 +102,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
      여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
 
-암호를 재설정한 후 "Microsoft가 \<*귀하의 조직*>을 대신하여"와 같은 확인 이메일이 계정에 도착할 수 있습니다. 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
+암호를 재설정 한 후에 "Microsoft를 대신 하 여"와 같은 계정에서 확인 전자 메일을 받을 수 있습니다 \<*your_organization*> . 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
 
 ## <a name="how-to-change-your-password"></a>암호를 변경하는 방법
 

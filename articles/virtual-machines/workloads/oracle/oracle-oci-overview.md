@@ -11,15 +11,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299879"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
 
@@ -35,10 +34,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포하는 데 관심이 있�
 
 클라우드 간 연결은 OCI에서 호스팅되는 데이터베이스 서비스의 이점을 누리는 동시에 Azure Virtual Machines에서 Oracle의 업계 최고 애플리케이션 및 사용자 지정 애플리케이션을 실행할 수 있는 솔루션을 제공합니다. 
 
-> [!IMPORTANT]
-> 2020년 5월까지 Oracle은 Azure/Oracle Cloud 상호 연결 솔루션을 사용하여 이러한 애플리케이션을 Azure에서 실행하도록 인증할 것입니다.
-
-클라우드 간 구성에서 실행할 수 있는 애플리케이션은 다음과 같습니다.
+2020 년 5 월을 기반으로 다음 응용 프로그램은 클라우드 간 구성에서 인증 됩니다.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

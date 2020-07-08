@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84265321"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법  
 ## <a name="overview"></a>개요
@@ -328,10 +327,10 @@ package {
 }
 
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media Playback 및 SS ODMF 동적 플러그 인
-OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
+OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
 
 1. [Strobe Media Playback 설정 페이지](http://osmf.org/dev/2.0gm/setup.html)(영문)로 이동합니다. 
-2. Src를 부드러운 스트리밍 원본 (예: http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest)으로 설정 합니다. 
+2. Src를 부드러운 스트리밍 원본 (예: http: \/ /devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest)으로 설정 합니다. 
 3. 원하는 대로 구성을 변경하고 Preview and Update를 클릭합니다.
    
    **참고** 콘텐츠 웹 서버에는 유효한 crossdomain.xml이 필요합니다. 

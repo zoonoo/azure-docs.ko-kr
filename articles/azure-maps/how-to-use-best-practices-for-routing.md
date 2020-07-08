@@ -1,6 +1,6 @@
 ---
 title: Route Service Azure Maps에 대 한 모범 사례 | Microsoft Azure 맵
-description: Microsoft Azure 맵에서 Route Service를 사용 하 여 효율적으로 라우팅하는 방법에 대해 알아봅니다.
+description: Microsoft Azure 맵에서 Route Service를 사용 하 여 차량을 라우팅하는 방법을 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266698"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
@@ -29,11 +28,11 @@ Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 �
 * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
 * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Maps Api를 호출 하려면 Azure Maps 계정 및 키가 필요 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조 하세요. 기본 키를 기본 구독 키 또는 구독 키 라고도 합니다.
+Azure Maps Api를 호출 하려면 Azure Maps 계정 및 키가 필요 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 기본 키를 기본 구독 키 또는 구독 키 라고도 합니다.
 
-Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](./how-to-manage-authentication.md)를 참조 하세요. Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사](routing-coverage.md)를 참조 하십시오.
+Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요. Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사](routing-coverage.md)를 참조 하십시오.
 
 이 문서에서는 [Postman 앱](https://www.postman.com/downloads/) 을 사용 하 여 REST 호출을 빌드 하지만 모든 API 개발 환경을 선택할 수 있습니다.
 
@@ -56,7 +55,7 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](.
 
 경로 방향 및 행렬 Api의 일부 기능을 보여 주는 비교는 다음과 같습니다.
 
-| Azure Maps API | 요청의 최대 쿼리 수 | 영역 방지 | 트럭 및 전기 차량 라우팅 | waypoints 및 여행 외판원 최적화 | 지원 요소 |
+| Azure Maps API | 요청의 최대 쿼리 수 | 영역 방지 | 트럭 및 전기 차량 라우팅 | Waypoints 및 여행 외판원 최적화 | 지원 요소 |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | 경로 방향 가져오기 | 1 | | X | X | |
 | 경로 게시 지침 | 1 | X | X | X | X |
@@ -67,13 +66,13 @@ Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](.
 
 ## <a name="request-historic-and-real-time-data"></a>기록 및 실시간 데이터 요청
 
-기본적으로 경로 서비스는 이동 모드가 자동차 이며 출발 시간이 현재 임을 전제로 합니다. 경로 계산 요청에서 달리 지정 하지 않는 한 실시간 트래픽 상태를 기반으로 경로를 반환 합니다. 시간이 종속 된 트래픽 제한은 고정 되어 있습니다. 예를 들어 ' 4:00 PM에서 6:00 PM 사이에 허용 되지 않는 ' 왼쪽으로는 안 됩니다 '와 같이 라우팅 엔진이이를 고려 합니다. Roadworks와 같은도로 클로저는 현재 라이브 트래픽을 무시 하는 경로를 특별히 요청 하지 않는 한 고려 됩니다. 현재 트래픽을 무시 하려면 API 요청에서 `traffic` 을 `false` 로 설정 합니다.
+기본적으로 경로 서비스는 이동 모드가 자동차 이며 출발 시간이 현재 임을 전제로 합니다. 경로 계산 요청에서 달리 지정 하지 않는 한 실시간 트래픽 상태를 기반으로 경로를 반환 합니다. 시간이 종속 된 트래픽 제한은 고정 되어 있습니다. 예를 들어 ' 4:00 PM에서 6:00 PM 사이에 허용 되지 않는 ' 왼쪽으로는 안 됩니다 '와 같이 라우팅 엔진이이를 고려 합니다. Roadworks와 같은도로 클로저는 현재 라이브 트래픽을 무시 하는 경로를 특별히 요청 하지 않는 한 고려 됩니다. 현재 트래픽을 무시 하려면 `traffic` `false` API 요청에서을로 설정 합니다.
 
 경로 계산 **travelTimeInSeconds** 값에는 트래픽으로 인 한 지연이 포함 됩니다. 출발 시간이 now로 설정 된 경우 현재 및 기록 이동 시간 데이터를 활용 하 여 생성 됩니다. 출발 시간이 미래에 설정 된 경우 Api는 기록 데이터를 기반으로 예측 된 이동 시간을 반환 합니다.
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | Description|
+| 요소 | 설명|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |
@@ -129,9 +128,9 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ## <a name="request-route-and-leg-details"></a>요청 경로 및 레그 세부 정보
 
-기본적으로 경로 서비스는 좌표 배열을 반환 합니다. 응답에는 라는 `points`목록에서 경로를 구성 하는 좌표가 포함 됩니다. 또한 경로 응답에는 경로 시작과 예상 경과 시간 사이의 거리가 포함 됩니다. 이러한 값을 사용 하 여 전체 경로의 평균 속도를 계산할 수 있습니다.
+기본적으로 경로 서비스는 좌표 배열을 반환 합니다. 응답에는 라는 목록에서 경로를 구성 하는 좌표가 포함 됩니다 `points` . 또한 경로 응답에는 경로 시작과 예상 경과 시간 사이의 거리가 포함 됩니다. 이러한 값을 사용 하 여 전체 경로의 평균 속도를 계산할 수 있습니다.
 
-다음 이미지는 요소를 `points` 보여 줍니다.
+다음 이미지는 요소를 보여 줍니다 `points` .
 
 <center>
 
@@ -139,7 +138,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 </center>
 
-`point` 요소를 확장 하 여 경로에 대 한 좌표 목록을 표시 합니다.
+요소를 확장 `point` 하 여 경로에 대 한 좌표 목록을 표시 합니다.
 
 <center>
 
@@ -149,7 +148,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 경로 방향 Api는 **instructionsType** 매개 변수를 지정 하 여 사용할 수 있는 다양 한 형식의 명령을 지원 합니다. 컴퓨터를 쉽게 처리할 수 있도록 지침을 지정 하려면 **instructionsType = 코딩**을 사용 합니다. **InstructionsType = 태그** 를 사용 하 여 사용자에 게 지침을 텍스트로 표시 합니다. 또한 지침의 일부 요소가 표시 되는 텍스트로 표시 되 고 명령이 특수 한 서식으로 표시 될 수 있습니다. 자세한 내용은 [지원 되는 명령 유형 목록을](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype)참조 하세요.
 
-지침이 요청 되 면 응답은 라는 `guidance`새 요소를 반환 합니다. 요소 `guidance` 는 두 가지 정보, 즉 단계별 지침과 요약 된 지침을 포함 합니다.
+지침이 요청 되 면 응답은 라는 새 요소를 반환 합니다 `guidance` . `guidance`요소는 두 가지 정보, 즉 단계별 지침과 요약 된 지침을 포함 합니다.
 
 <center>
 
@@ -157,7 +156,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 </center>
 
-요소 `instructions` 는 여행에 대 한 턴을 설정 하 고 `instructionGroups` 에 요약 된 지침을 포함 합니다. 각 명령 요약은 여러 면을 처리할 수 있는 왕복 세그먼트를 포함 합니다. Api는 경로의 섹션에 대 한 세부 정보를 반환할 수 있습니다. 예를 들어 신호등의 좌표 범위 또는 현재 트래픽 속도입니다.
+`instructions`요소는 여행에 대 한 턴을 설정 하 고에 요약 된 지침을 포함 합니다 `instructionGroups` . 각 명령 요약은 여러 면을 처리할 수 있는 왕복 세그먼트를 포함 합니다. Api는 경로의 섹션에 대 한 세부 정보를 반환할 수 있습니다. 예를 들어 신호등의 좌표 범위 또는 현재 트래픽 속도입니다.
 
 <center>
 
@@ -183,7 +182,7 @@ Azure Maps 라우팅 Api는 상업적 트럭 라우팅을 지원 하 고 상용 
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-경로 API는 트럭 및 위험한 폐기물의 크기를 수용 하는 방향을 반환 합니다. 요소를 `guidance` 확장 하 여 경로 지침을 읽을 수 있습니다.
+경로 API는 트럭 및 위험한 폐기물의 크기를 수용 하는 방향을 반환 합니다. 요소를 확장 하 여 경로 지침을 읽을 수 있습니다 `guidance` .
 
 <center>
 
@@ -199,7 +198,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-아래 응답은 클래스 9 유해 자료를 운반 하는 트럭에 대 한 것입니다 .이는 클래스 1의 위험 재질 보다 위험 수준이 낮습니다. `guidance` 요소를 확장 하 여 방향을 읽으면 방향이 동일 하지 않습니다. 트럭 운반 클래스 1 유해 자료에 대 한 경로 지침이 더 있습니다.
+아래 응답은 클래스 9 유해 자료를 운반 하는 트럭에 대 한 것입니다 .이는 클래스 1의 위험 재질 보다 위험 수준이 낮습니다. 요소를 확장 `guidance` 하 여 방향을 읽으면 방향이 동일 하지 않습니다. 트럭 운반 클래스 1 유해 자료에 대 한 경로 지침이 더 있습니다.
 
 <center>
 
@@ -209,11 +208,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ## <a name="request-traffic-information-along-a-route"></a>경로를 따라 트래픽 정보 요청
 
-개발자는 Azure Maps 경로 방향 Api를 사용 하 여 요청에 매개 변수를 `sectionType` 포함 하 여 각 섹션 유형에 대 한 세부 정보를 요청할 수 있습니다. 예를 들어 각 트래픽 걸림 세그먼트에 대 한 속도 정보를 요청할 수 있습니다. 요청할 수 있는 다양 한 세부 정보에 대 한 자세한 내용은 [섹션 유형 키의 값 목록을](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) 참조 하세요.
+개발자는 Azure Maps 경로 방향 Api를 사용 하 여 `sectionType` 요청에 매개 변수를 포함 하 여 각 섹션 유형에 대 한 세부 정보를 요청할 수 있습니다. 예를 들어 각 트래픽 걸림 세그먼트에 대 한 속도 정보를 요청할 수 있습니다. 요청할 수 있는 다양 한 세부 정보에 대 한 자세한 내용은 [섹션 유형 키의 값 목록을](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) 참조 하세요.
 
 ### <a name="sample-query"></a>샘플 쿼리
 
-다음 쿼리는 `sectionType` 를로 `traffic`설정 합니다. 시애틀에서 San Diego 트래픽 정보를 포함 하는 섹션을 요청 합니다.
+다음 쿼리는 `sectionType` 를로 설정 합니다 `traffic` . 시애틀에서 San Diego 트래픽 정보를 포함 하는 섹션을 요청 합니다.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
@@ -249,7 +248,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 ### <a name="sample-query"></a>샘플 쿼리
 
-다음 쿼리는 `computeBestOrder` 매개 변수를로 `false`설정 하 여 6 개의 waypoints 경로를 요청 합니다. `computeBestOrder` 매개 변수의 기본값 이기도 합니다.
+다음 쿼리는 매개 변수를로 설정 하 여 6 개의 waypoints 경로를 요청 합니다 `computeBestOrder` `false` . 매개 변수의 기본값 이기도 합니다 `computeBestOrder` .
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
@@ -275,7 +274,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 ### <a name="sample-query"></a>샘플 쿼리
 
-다음 쿼리는 위의 샘플과 같이 동일한 6 개의 waypoints 경로를 요청 합니다. 이번에는 `computeBestOrder` 매개 변수가로 `true` 설정 됩니다 (여행 외판원 최적화).
+다음 쿼리는 위의 샘플과 같이 동일한 6 개의 waypoints 경로를 요청 합니다. 이번에는 `computeBestOrder` 매개 변수가로 설정 `true` 됩니다 (여행 외판원 최적화).
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
@@ -323,7 +322,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>웹 앱에서 라우팅 서비스 사용
 
-Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
+Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

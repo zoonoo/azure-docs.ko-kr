@@ -9,38 +9,33 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266222"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 다운로드 및 설치
 
 >[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
+>이 콘텐츠는 사용자를 위한 것입니다. 관리자는 [Azure Active Directory에 대 한 관리 설명서](https://docs.microsoft.com/azure/active-directory)에서 Azure Active Directory (Azure AD) 환경을 설정 하 고 관리 하는 방법에 대 한 자세한 정보를 찾을 수 있습니다.
+>
+> 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요.  또한 Microsoft 계정에 로그인을 시도할 때 ["해당 Microsoft 계정 존재 하지 않습니다."](https://support.microsoft.com/help/13811) 메시지가 표시 될 때 수행할 작업에 대 한 자세한 정보를 얻을 수 있습니다.
 
-2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
+2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 암호를 분실 하거나 도난당 하거나 손상 시킬 수 있으므로 2 단계 인증을 통해 계정을 보다 안전 하 게 사용할 수 있습니다. 2 단계 인증에서는 다른 사용자가 계정에 침입 하기 어렵게 만들기 위해 휴대폰 같은 두 번째 요소를 사용 합니다. Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 사용할 수 있습니다.
 
-Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 사용할 수 있습니다.
+- **2단계 인증** 표준 인증 방법, 여기서 요소 중 하나는 암호입니다. 사용자 이름 및 암호를 사용 하 여 로그인 한 후 알림을 승인 하거나 제공 된 확인 코드를 입력할 수 있습니다.
 
-- **2단계 인증** 표준 인증 방법, 여기서 요소 중 하나는 암호입니다. 사용자 이름 및 암호를 사용하여 로그인한 후 알림을 승인하거나 제공된 확인 코드를 입력할 수 있습니다.
-
-- **휴대폰 로그인** 2단계 인증 버전을 통해 암호를 요구하지 않고 모바일 디바이스에서 사용자 이름과 지문, 얼굴 또는 PIN을 사용하여 로그인할 수 있습니다.
+- **휴대폰 로그인** 암호를 요구 하지 않고 로그인 할 수 있는 2 단계 인증 버전으로, 사용자 이름 및 모바일 장치를 지문, 얼굴 또는 PIN과 함께 사용할 수 있습니다.
 
 - **코드 생성.** 인증자 앱을 지원하는 다른 계정에 대한 코드 생성기로서,
 
-> [!Important]
-> Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 계정에 사용할 수 있으며 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원합니다.
->
-> 조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
-> 
-> [!NOTE]
-> 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요.  Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
+Authenticator는 2 단계 인증을 사용 하 고 시간 기반 TOTP (일회용 암호) 표준을 지 원하는 모든 계정에서 작동 합니다.
+
+조직에서 인증자 앱을 사용 하 여 로그인 하 고 조직의 데이터 및 문서에 액세스 하도록 요구할 수 있습니다. 사용자 이름이 앱에 표시 되는 경우에도 등록을 완료할 때까지 계정이 확인 방법으로 설정 되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
 
 ## <a name="download-and-install-the-app"></a>앱 다운로드 및 설치
 
@@ -55,7 +50,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-앱을 다운로드 및 설치한 후 다양한 계정을 추가해야 합니다. 자세한 내용은 다음을 참조하세요.
+앱을 다운로드 하 고 설치한 후에는 [인증 앱 개요](user-help-auth-app-overview.md) 를 확인 하 여 자세한 내용을 확인 하세요. 추가 설치 옵션은 다음을 참조 하세요.
 
 - **Authenticator 앱.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
 

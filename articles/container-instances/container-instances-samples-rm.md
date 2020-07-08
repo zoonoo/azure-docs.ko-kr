@@ -3,12 +3,11 @@ title: Azure Resource Manager 템플릿 샘플
 description: 다른 구성으로 Azure Container Instances를 배포 하 Azure Resource Manager 템플릿 샘플 찾기
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299760"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Container Instances용 Azure Resource Manager 템플릿
 
@@ -30,8 +29,8 @@ ms.locfileid: "75981658"
 | **네트워킹** ||
 | [UDP-공개 컨테이너][net-udp] | UDP 포트를 공개하는 Windows 또는 Linux 컨테이너를 배포합니다. |
 | [공용 IP를 사용한 Linux 컨테이너][net-publicip] | 공용 IP를 통해 액세스할 수 있는 단일 Linux 컨테이너를 배포합니다. |
-| [가상 네트워크 (미리 보기)를 사용 하 여 컨테이너 그룹 배포][net-vnet] | 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포 합니다. |
-| **: Azure 리소스** ||
+| [가상 네트워크를 사용 하 여 컨테이너 그룹 배포][net-vnet] | 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포 합니다. |
+| **Azure 리소스** ||
 | [Azure Storage 계정 및 파일 공유 만들기][az-files] | 컨테이너 인스턴스에서 Azure CLI를 사용하여 스토리지 계정 및 Azure 파일 공유를 만듭니다.
 
 ## <a name="deployment"></a>배포

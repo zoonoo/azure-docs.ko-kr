@@ -9,12 +9,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
-ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77045886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266477"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Windows Server Virtual Machines에서 Azure IoT Edge 실행
 
@@ -22,11 +21,11 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에는 windows [server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품을 사용 하 여 windows server 2019 가상 머신에서 Azure IoT Edge 런타임을 실행 하는 단계가 나와 있습니다. 다른 버전과 함께 사용 하기 위해 Windows에 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md) 의 지침을 따르세요.
+이 문서에는 windows [server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace 제품을 사용 하 여 windows server 2019 가상 머신에서 Azure IoT Edge 런타임을 실행 하는 단계가 나와 있습니다. 다른 버전과 함께 사용 하기 위해 Windows에 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md) 의 지침을 따르세요.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Azure Marketplace에서 배포
 
-1. [Windows server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품으로 이동 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 에서 "windows server"를 검색 합니다.
+1. [Windows server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace 제품으로 이동 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 에서 "windows server"를 검색 합니다.
 2. **지금 가져오기** 를 선택 합니다.
 3. **소프트웨어 계획**에서 "Windows Server 2019 Datacenter Server Core with 컨테이너"를 찾은 후 다음 대화 상자에서 **계속** 을 선택 합니다.
     * 또한 컨테이너를 사용 하 여 다른 버전의 Windows Server에 대해 이러한 지침을 사용할 수 있습니다.
@@ -87,8 +86,8 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    az vm create -g IoTEdgeResources -n EdgeVM --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-with-Containers:latest  --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   * 이 명령은 암호를 묻는 메시지를 표시 하지만 스크립트에서 더 쉽게 설정 하 `--admin-password` 는 옵션을 추가할 수 있습니다.
-   * Windows Server Core 이미지에는 원격 데스크톱 에서만 명령줄이 지원 되므로 전체 데스크톱 환경을 원하는 경우 이미지를로 지정 `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` 합니다.
+   * 이 명령은 암호를 묻는 메시지를 표시 하지만 `--admin-password` 스크립트에서 더 쉽게 설정 하는 옵션을 추가할 수 있습니다.
+   * Windows Server Core 이미지에는 원격 데스크톱 에서만 명령줄이 지원 되므로 전체 데스크톱 환경을 원하는 경우 이미지를로 지정 합니다. `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest`
 
 1. 장치 연결 문자열을 설정 합니다 .이 프로세스에 익숙하지 않은 경우 [Azure CLI를 사용 하 여 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) 절차를 따를 수 있습니다.
 

@@ -10,12 +10,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266851"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 
@@ -532,26 +531,26 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 
 ### <a name="and"></a>and
 
-모든 식이 true인지 확인합니다.
-모든 식이 true이면 true를 반환하거나 식 중의 적어도 개가 false이면 false를 반환합니다.
+두 식이 모두 true 인지 여부를 확인 합니다.
+두 식이 모두 true 이면 true를 반환 하 고, 하나 이상의 식이 false 이면 false를 반환 합니다.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | -----| ----------- |
-| true 또는 false | 부울 | 모든 식이 true이면 true를 반환합니다. 식 중의 적어도 한 개가 false이면 false를 반환합니다. |
+| true 또는 false | 부울 | 두 식이 모두 true 이면 true를 반환 합니다. 식 중의 적어도 한 개가 false이면 false를 반환합니다. |
 ||||
 
 *예제 1*
 
-아래 예제는 지정한 부울 값이 모두 true인지 검사합니다.
+다음 예에서는 지정 된 부울 값이 모두 true 인지 여부를 확인 합니다.
 
 ```
 and(true, true)
@@ -567,7 +566,7 @@ and(false, false)
 
 *예제 2*
 
-아래 예제는 지정한 식이 모두 true인지 검사합니다.
+다음 예에서는 지정 된 식이 true 인지 여부를 확인 합니다.
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2389,20 +2388,20 @@ not(equals(1, 1))
 ### <a name="or"></a>또는
 
 최소 하나의 식이 true인지 검사합니다.
-최소 하나의 식이 true이면 true를 반환하거나 모든 식이 false이면 false를 반환합니다.
+하나 이상의 식이 true 이면 true를 반환 하 고, 둘 다 false 이면 false를 반환 합니다.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| true 또는 false | 부울 | 최소 하나의 식이 true이면 true를 반환합니다. 모든 식이 false이면 false를 반환합니다. |
+| true 또는 false | 부울 | 최소 하나의 식이 true이면 true를 반환합니다. 두 식이 모두 false 이면 false를 반환 합니다. |
 ||||
 
 *예제 1*

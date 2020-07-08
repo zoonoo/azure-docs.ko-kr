@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84295425"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
 
@@ -119,9 +118,11 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 장기 실행 프로세스를 포함하거나 사용자 없이 작동하는 애플리케이션은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요합니다. 이러한 애플리케이션은 사용자의 위임된 ID 대신 애플리케이션의 ID를 사용하거나 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 인증하고 토큰을 가져올 수 있습니다. 클라이언트 자격 증명 흐름은 대리 흐름과 동일하지 않으며 대리 흐름은 서버 간 인증에 사용하지 않아야 합니다.
 
-클라이언트 자격 증명 흐름은 현재 Azure AD B2C에서 지원되지 않지만 Azure AD를 사용하여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.  클라이언트 자격 증명 흐름은 Azure AD B2C 테넌트의 Azure AD 기능을 사용하여 지원됩니다.
+OAuth 2.0 클라이언트 자격 증명 부여 흐름은 현재 Azure AD B2C 인증 서비스에서 직접 지원 되지 않지만, Azure AD B2C 테 넌 트에서 응용 프로그램에 대 한 Microsoft identity platform/token 끝점 및 Azure AD를 사용 하 여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.
 
 클라이언트 자격 증명 흐름을 설정하려면 [Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds)을 참조하세요. 인증에 성공하면 [Azure AD 토큰 참조](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)에 설명된 대로 Azure AD에서 사용할 수 있도록 형식이 지정된 토큰을 수신합니다.
+
+관리 응용 프로그램을 등록 하는 방법에 대 한 지침은 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md)를 참조 하세요.
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 체인(On-Behalf-Of 흐름)
 

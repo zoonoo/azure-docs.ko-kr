@@ -3,12 +3,11 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300929"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -75,11 +74,13 @@ AKS는 가상 머신 확장 집합, 가상 네트워크 및 Managed Disks를 포
 * 노드 리소스 그룹에 다른 구독을 지정합니다.
 * 클러스터를 만든 후 노드 리소스 그룹 이름을 변경합니다.
 * 노드 리소스 그룹 내에서 관리 리소스의 이름을 지정합니다.
-* 노드 리소스 그룹 내에서 관리 리소스의 태그를 수정하거나 삭제합니다. 다음 섹션에서 추가 정보를 참조하세요.
+* 노드 리소스 그룹 내에서 관리 리소스의 Azure에서 만든 태그를 수정하거나 삭제합니다. 다음 섹션에서 추가 정보를 참조하세요.
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>노드 리소스 그룹에서 태그 및 AKS 리소스의 다른 속성을 수정할 수 있나요?
 
-노드 리소스 그룹에서 Azure에서 만든 태그 및 기타 리소스 속성을 수정하거나 삭제하는 경우 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. AKS를 사용하면 사용자 지정 태그를 만들고 수정할 수 있습니다. 예를 들어 사업부 또는 비용 센터를 할당하기 위해 사용자 지정 태그를 만들거나 수정할 수 있습니다. AKS 클러스터의 노드 리소스 그룹 아래에서 리소스를 수정하면 SLO(서비스 수준 목표)가 중단됩니다. 자세한 내용은 [AKS는 서비스 수준 계약을 제공합니까?](#does-aks-offer-a-service-level-agreement)를 참조하세요.
+노드 리소스 그룹에서 Azure에서 만든 태그 및 기타 리소스 속성을 수정하거나 삭제하는 경우 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. AKS를 사용 하면 최종 사용자가 만든 사용자 지정 태그를 만들고 수정할 수 있습니다. 예를 들어 사업부 또는 비용 센터를 할당하기 위해 사용자 지정 태그를 만들거나 수정할 수 있습니다. 이는 관리 되는 리소스 그룹의 범위를 사용 하 여 Azure 정책을 만들어 달성할 수 있습니다.
+
+그러나 AKS 클러스터에서 노드 리소스 그룹의 리소스에 대해 **Azure에서 만든 태그** 를 수정 하는 작업은 SLO (서비스 수준 목표)를 중단 하는 지원 되지 않는 작업입니다. 자세한 내용은 [AKS는 서비스 수준 계약을 제공합니까?](#does-aks-offer-a-service-level-agreement)를 참조하세요.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS가 지원하는 Kubernetes 허용 컨트롤러는 무엇인가요? 허용 컨트롤러를 추가하거나 제거할 수 있나요?
 

@@ -3,12 +3,11 @@ title: 컨테이너 그룹에 대 한 고정 IP 주소
 description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure application gateway를 사용 하 여 컨테이너 화 된 웹 앱에 정적 프런트 엔드 IP 주소를 노출 합니다.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299165"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대 한 고정 IP 주소 노출
 
@@ -17,7 +16,7 @@ ms.locfileid: "79481792"
 이 문서에서는 Azure CLI를 사용 하 여이 시나리오에 대 한 리소스를 만듭니다.
 
 * Azure Virtual Network
-* 소규모 웹 앱을 호스트 하는 [가상 네트워크 (미리 보기)에](container-instances-vnet.md) 배포 된 컨테이너 그룹
+* 소규모 웹 앱을 호스트 하는 [가상 네트워크에](container-instances-vnet.md) 배포 된 컨테이너 그룹
 * 공용 프런트 엔드 IP 주소, 게이트웨이에서 웹 사이트를 호스트 하는 수신기 및 백 엔드 컨테이너 그룹에 대 한 경로를 포함 하는 응용 프로그램 게이트웨이
 
 응용 프로그램 게이트웨이가 실행 되 고 컨테이너 그룹이 네트워크의 위임 된 서브넷에서 안정 된 개인 IP 주소를 노출 하는 한 컨테이너 그룹은이 공용 IP 주소에서 액세스할 수 있습니다.
@@ -29,7 +28,7 @@ ms.locfileid: "79481792"
 
 일반적인 경우에는 Azure 가상 네트워크가 이미 있을 수 있습니다. 아직 없는 경우 다음 예제 명령과 같이 만듭니다. 가상 네트워크에는 응용 프로그램 게이트웨이와 컨테이너 그룹에 대 한 별도의 서브넷이 필요 합니다.
 
-필요한 경우 Azure 리소스 그룹을 만듭니다. 다음은 그 예입니다.
+필요한 경우 Azure 리소스 그룹을 만듭니다. 예를 들어:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -71,7 +70,7 @@ az network public-ip create \
 
 다음 [az container create][az-container-create] 를 실행 하 여 이전 단계에서 구성한 가상 네트워크에 컨테이너 그룹을 만듭니다. 
 
-이 그룹은 *Myacisubnet* 서브넷에 배포 되 고 이미지를 `aci-helloworld` 가져오는 *appcontainer* 라는 단일 인스턴스를 포함 합니다. 설명서의 다른 문서에 나와 있는 것 처럼이 이미지는 정적 HTML 페이지를 제공 하는 node.js로 작성 된 작은 웹 앱을 패키지 합니다. 
+이 그룹은 *Myacisubnet* 서브넷에 배포 되 고 이미지를 가져오는 *appcontainer* 라는 단일 인스턴스를 포함 합니다 `aci-helloworld` . 설명서의 다른 문서에 나와 있는 것 처럼이 이미지는 정적 HTML 페이지를 제공 하는 Node.js으로 작성 된 작은 웹 앱을 패키지 합니다. 
 
 ```azurecli
 az container create \
@@ -136,7 +135,7 @@ az network public-ip show \
 --output tsv
 ```
 
-출력은와 같은 공용 IP 주소입니다 `52.142.18.133`.
+출력은와 같은 공용 IP 주소입니다 `52.142.18.133` .
 
 성공적으로 구성 된 경우 실행 중인 웹 앱을 보려면 브라우저에서 게이트웨이의 공용 IP 주소로 이동 합니다. 성공적인 액세스는 다음과 유사 합니다.
 

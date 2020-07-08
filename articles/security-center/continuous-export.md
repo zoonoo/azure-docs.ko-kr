@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299947"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -28,6 +27,21 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 * CSV로 내보내기 (한 번)
 
 
+
+
+## <a name="availability"></a>가용성
+
+- 릴리스 상태: **일반 공급**
+- 필요한 역할 및 사용 권한:
+    - 내보내기 구성이 포함 된 구독의 **판독기** 입니다.
+    - 리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**
+    - 또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.
+- 클라우드: 
+    - ✔ 상용 클라우드
+    - ✔ US Gov
+    - ✘ 중국 .Gov, 기타 .Gov
+
+
 ## <a name="setting-up-a-continuous-export"></a>연속 내보내기 설정
 
 Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내기를 설정 하 고 있는지 여부에 따라 다음 단계가 필요 합니다.
@@ -38,7 +52,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
     
 1. 해당 구독에 대 한 설정 페이지의 사이드바에서 **연속 내보내기**를 선택 합니다.
 
-    Azure Security Center의 내보내기 옵션 [ ![](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) 여기에서 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
+    [ ![ 내보내기 옵션 Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) 내보내기 옵션을 볼 수 있습니다. 사용 가능한 각 내보내기 대상에 대 한 탭이 있습니다. 
 
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
 
@@ -127,6 +141,6 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 관련 자료는 다음 설명서를 참조 하세요. 
 
 - [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure 센티널 설명서](https://docs.microsoft.com/azure/sentinel/)
+- [Azure Sentinel 설명서](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/)
 - [워크플로 자동화 및 연속 내보내기 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

@@ -3,14 +3,13 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 구성
 description: 이 문서에서는 작업 시간 외 VM 시작/중지 기능을 구성하여 다양한 사용 사례 또는 시나리오를 지원하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827678"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266718"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -44,11 +43,15 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. **ACTION**을 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, **WHATIF** 매개 변수 필드를 True로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. **작업** 을 **시작**으로 설정 하 여 **ScheduledStartStop_Parent** runbook을 실행 합니다.
 
-2. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)으로 `External_ExcludeVMNames` 변수를 구성합니다.
+2. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-3. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
+3. **WHATIF** 매개 변수 필드를 True로 설정 합니다.
+
+4. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록 (VM1, v m 2, v m 3)으로 변수를 구성 합니다.
+
+5. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
 
     > [!NOTE]
     > **Target ResourceGroup Names**의 값은 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 모두에 대한 값으로 저장됩니다. 추가 세분성을 위해 각기 다른 리소스 그룹을 대상으로 하도록 이러한 각 변수를 수정할 수 있습니다. 시작 작업의 경우 `External_Start_ResourceGroupNames`를 사용하고, 중지 작업의 경우 `External_Stop_ResourceGroupNames`를 사용합니다. VM이 시작 및 중지 일정에 자동으로 추가됩니다.
@@ -71,13 +74,17 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `VMList` 매개 변수에 추가할 VM에 추가합니다.
 
-2. **ACTION**을 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, **WHATIF**를 True로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+2. **작업** 을 **시작**으로 설정 하 여 **SequencedStartStop_Parent** runbook을 실행 합니다.
 
-3. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)으로 `External_ExcludeVMNames` 변수를 구성합니다.
+3. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-4. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
+4. **WHATIF** 를 True로 설정 합니다. 
 
-5. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook**을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
+5. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록으로 변수를 구성 합니다.
+
+6. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
+
+7. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook**을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>시나리오 3: CPU 사용률에 따라 자동으로 시작 또는 중지
 
@@ -120,7 +127,7 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. 새 [일정](shared-resources/schedules.md#create-a-schedule)을 만들어 **AutoStop_CreateAlert_Parent** Runbook에 연결하여 쉼표로 구분된 VM 이름 목록을 `VMList` 매개 변수에 추가합니다.
 
-2. 필요에 따라 자동 중지 작업에서 일부 VM을 제외하려는 경우 쉼표로 구분된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
+2. 필요에 따라 autostop 작업에서 일부 Vm을 제외 하려는 경우 쉼표로 구분 된 VM 이름 목록 (공백 없음)을 변수에 추가할 수 있습니다 `External_ExcludeVMNames` .
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
@@ -151,13 +158,13 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 기능이 실행될 때 VM이 포함되도록 하는 방법에는 두 가지가 있습니다.
 
-* 기능의 각 부모 [Runbook](automation-solution-vm-management.md#runbooks)에는 `VMList` 매개 변수가 있습니다. 상황에 맞는 적절한 부모 Runbook을 예약할 때 쉼표로 구분된 VM 이름 목록을 이 매개 변수에 전달할 수 있으며, 솔루션이 실행될 때 이러한 VM이 포함됩니다.
+* 기능의 각 부모 [Runbook](automation-solution-vm-management.md#runbooks)에는 `VMList` 매개 변수가 있습니다. 상황에 맞는 부모 runbook을 예약 하는 경우 쉼표로 구분 된 VM 이름 목록을이 매개 변수에 전달할 수 있으며, 이러한 Vm은 기능이 실행 될 때 포함 됩니다.
 
 * 여러 VM을 선택하려면 시작하거나 중지하려는 VM이 포함된 리소스 그룹 이름으로 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames`를 설정합니다. 또한 기능이 구독의 모든 리소스 그룹에 대해 실행되도록 하려면 변수를 `*` 값으로 설정할 수도 있습니다.
 
 ### <a name="exclude-a-vm"></a>VM 제외
 
-작업 시간 외 VM 시작/중지에서 VM을 제외하려면 해당 이름을 `External_ExcludeVMNames` 변수에 추가하면 됩니다. 이 변수는 기능에서 제외할 특정 VM의 쉼표로 구분된 목록입니다. 이 목록은 140개의 VM으로 제한됩니다. 목록에 140개가 넘는 VM을 추가하면 제외하도록 설정된 VM이 우발적으로 시작되거나 중지될 수 있습니다.
+작업 시간 외 VM 시작/중지에서 VM을 제외하려면 해당 이름을 `External_ExcludeVMNames` 변수에 추가하면 됩니다. 이 변수는 기능에서 제외할 특정 Vm (공백 없음)의 쉼표로 구분 된 목록입니다. 이 목록은 140개의 VM으로 제한됩니다. 목록에 140개가 넘는 VM을 추가하면 제외하도록 설정된 VM이 우발적으로 시작되거나 중지될 수 있습니다.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>시작 및 종료 일정 수정
 

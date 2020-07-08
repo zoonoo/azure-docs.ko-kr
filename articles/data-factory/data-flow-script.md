@@ -6,13 +6,12 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298604"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -22,7 +21,7 @@ ms.locfileid: "82890881"
 
 ![스크립트 단추](media/data-flow/scriptbutton.png "스크립트 단추")
 
-예를 `allowSchemaDrift: true,` 들어 원본 변환에서 원본 데이터 집합의 모든 열이 스키마 프로젝션에 포함 되지 않은 경우에도 해당 데이터 흐름의 모든 열을 포함 하도록 서비스에 지시 합니다.
+예를 들어 `allowSchemaDrift: true,` 원본 변환에서 원본 데이터 집합의 모든 열이 스키마 프로젝션에 포함 되지 않은 경우에도 해당 데이터 흐름의 모든 열을 포함 하도록 서비스에 지시 합니다.
 
 ## <a name="use-cases"></a>사용 사례
 DFS는 사용자 인터페이스에 의해 자동으로 생성 됩니다. 스크립트 단추를 클릭 하 여 스크립트를 확인 하 고 사용자 지정할 수 있습니다. ADF UI 외부에서 스크립트를 생성 한 다음 PowerShell cmdlet으로 전달할 수도 있습니다. 복잡 한 데이터 흐름을 디버깅할 때 흐름의 UI 그래프 표현을 검색 하는 대신 스크립트 코드를 검색 하는 것이 더 쉬울 수 있습니다.
@@ -52,7 +51,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-파생 변환을 추가 하기로 결정 한 경우 먼저 라는 `upperCaseTitle`새 대문자 열을 추가 하는 간단한 식이 있는 핵심 변환 텍스트를 만들어야 합니다.
+파생 변환을 추가 하기로 결정 한 경우 먼저 라는 새 대문자 열을 추가 하는 간단한 식이 있는 핵심 변환 텍스트를 만들어야 합니다 `upperCaseTitle` .
 ```
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 ```
@@ -71,7 +70,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-이제 새 변환을 수행 하려는 변환 (이 경우 `source1`)을 확인 하 고 스트림의 이름을 새 변환으로 복사 하 여 들어오는 스트림을 다시 라우팅합니다.
+이제 새 변환을 수행 하려는 변환 (이 경우)을 확인 하 `source1` 고 스트림의 이름을 새 변환으로 복사 하 여 들어오는 스트림을 다시 라우팅합니다.
 ```
 source(output(
         movieId as string,
@@ -85,7 +84,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-마지막으로이 새 변환 후에 사용할 변환을 식별 하 고 입력 스트림 (이 경우 `sink1`)을 새 변환의 출력 스트림 이름으로 바꿉니다.
+마지막으로이 새 변환 후에 사용할 변환을 식별 하 고 입력 스트림 (이 경우 `sink1` )을 새 변환의 출력 스트림 이름으로 바꿉니다.
 ```
 source(output(
         movieId as string,
@@ -165,7 +164,7 @@ ValueDistAgg aggregate(numofunique = countIf(countunique==1),
 ```
 
 ### <a name="include-all-columns-in-an-aggregate"></a>집계에 모든 열 포함
-이 패턴은 집계를 빌드할 때 출력 메타 데이터에 나머지 열을 유지할 수 있는 방법을 보여 주는 일반 집계 패턴입니다. 이 경우 ```first()``` 함수를 사용 하 여 이름이 "movie"가 아닌 모든 열의 첫 번째 값을 선택 합니다. 이를 사용 하려면 DistinctRows 라는 집계 변환을 만든 다음이를 스크립트에서 기존 DistinctRows 집계 스크립트의 맨 위에 붙여넣습니다.
+이 패턴은 집계를 빌드할 때 출력 메타 데이터에 나머지 열을 유지할 수 있는 방법을 보여 주는 일반 집계 패턴입니다. 이 경우 함수를 사용 하 여 ```first()``` 이름이 "movie"가 아닌 모든 열의 첫 번째 값을 선택 합니다. 이를 사용 하려면 DistinctRows 라는 집계 변환을 만든 다음이를 스크립트에서 기존 DistinctRows 집계 스크립트의 맨 위에 붙여넣습니다.
 
 ```
 aggregate(groupBy(movie),
@@ -173,7 +172,7 @@ aggregate(groupBy(movie),
 ```
 
 ### <a name="create-row-hash-fingerprint"></a>행 해시 지문 만들기 
-데이터 흐름 스크립트에서 다음 코드를 사용 하 여 세 개의 열에 대 ```DWhash``` 한 해시를 ```sha1``` 생성 하는 라는 새 파생 열을 만듭니다.
+데이터 흐름 스크립트에서 다음 코드를 사용 하 여 ```DWhash``` 세 개의 열에 대 한 해시를 생성 하는 라는 새 파생 열을 만듭니다 ```sha1``` .
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
@@ -186,12 +185,22 @@ derive(DWhash = sha1(columns()))
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg 동일
-이 코드는 T-sql ```string_agg()``` 함수와 동일 하 게 작동 하며 문자열 값을 배열로 집계 합니다. 그런 다음 해당 배열을 SQL 대상과 함께 사용할 문자열로 캐스팅할 수 있습니다.
+이 코드는 T-sql 함수와 동일 하 게 작동 ```string_agg()``` 하며 문자열 값을 배열로 집계 합니다. 그런 다음 해당 배열을 SQL 대상과 함께 사용할 문자열로 캐스팅할 수 있습니다.
 
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>업데이트 수, upsert, 삽입, 삭제 수
+Alter Row 변환을 사용 하는 경우 Alter Row 정책에서 발생 하는 업데이트의 수, upsert, 삽입, 삭제 수를 계산 하는 것이 좋습니다. Alter row 뒤에 집계 변환을 추가 하 고이 데이터 흐름 스크립트를 해당 개수에 대 한 집계 정의에 붙여 넣습니다.
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>다음 단계

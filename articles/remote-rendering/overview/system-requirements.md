@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300609"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -69,6 +68,9 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 다음 소프트웨어가 설치되어 있어야 합니다.
 
 * 최신 버전의 **Visual Studio 2019** [(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+  * **C++를 사용한 데스크톱 개발**
+  * **UWP(유니버설 Windows 플랫폼) 개발**
 * **Windows SDK 10.0.18362.0** [(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(다운로드)](https://git-scm.com/downloads)
 * 선택 사항: 데스크톱 PC의 서버에서 비디오 스트림을 보려면 **HEVC 비디오 확장** [(Microsoft Store 링크)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7)이 필요 합니다.

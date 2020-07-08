@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76710317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267935"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
@@ -75,7 +74,7 @@ ms.locfileid: "76710317"
 * 온-프레미스 및 클라우드 리소스를 둘 다 포함하는 하이브리드 시나리오
 * 마이그레이션 과정 중에 비즈니스 논리에 따라 데이터를 처리, 수정 또는 변경하는 시나리오
 
-자세한 내용은 [Azure Data Factory를 사용 하 여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동](move-sql-azure-adf.md)을 참조 하세요.
+자세한 내용은 [Azure Data Factory를 사용 하 여 SQL Server 데이터베이스에서 SQL Azure로 데이터 이동](move-sql-azure-adf.md)을 참조 하세요.
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?
 
@@ -145,12 +144,12 @@ Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>데이터 분석에 사용해야 하는 도구는 무엇인가요?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) -스크립트 언어로 Azure 리소스를 관리 하는 데 사용 되는 스크립트 언어입니다.
+* [Microsoft Azure PowerShell](/powershell/azure/overview) -스크립트 언어로 Azure 리소스를 관리 하는 데 사용 되는 스크립트 언어입니다.
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Visual Studio용 Python 도구](https://aka.ms/ptvsdocs)
+* [Anaconda](https://www.anaconda.com/)
 * [Jupyter 노트북](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300735"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -78,7 +77,7 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>VPN 게이트웨이를 사용한 지역 간 HA
 
-글로벌 분산형 애플리케이션 또는 고가용성 지역별 장애 조치(failover) 시나리오의 경우 지역에 걸쳐 가상 네트워크를 연결해야 합니다. Azure Dedicated HSM을 사용하면 두 가상 네트워크 간 보안 터널을 제공하는 VPN Gateway를 통해 고가용성을 구현할 수 있습니다. VPN Gateway를 사용한 Vnet 간 연결에 대한 자세한 내용 [VPN Gateway란?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V) 문서를 참조하세요.
+글로벌 분산형 애플리케이션 또는 고가용성 지역별 장애 조치(failover) 시나리오의 경우 지역에 걸쳐 가상 네트워크를 연결해야 합니다. Azure Dedicated HSM을 사용하면 두 가상 네트워크 간 보안 터널을 제공하는 VPN Gateway를 통해 고가용성을 구현할 수 있습니다. VPN Gateway를 사용한 Vnet 간 연결에 대한 자세한 내용 [VPN Gateway란?](../vpn-gateway/design.md#V2V) 문서를 참조하세요.
 
 > [!NOTE]
 > 글로벌 Vnet 피어링은 전용 HSM을 사용한 지역 간 연결 시나리오에서 사용할 수 없습니다. 대신 VPN 게이트웨이를 사용해야 합니다. 

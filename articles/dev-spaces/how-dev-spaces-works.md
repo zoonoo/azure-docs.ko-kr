@@ -1,16 +1,15 @@
 ---
 title: Azure Dev Spaces의 작동 원리
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84307370"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Azure Dev Spaces의 작동 원리
 
@@ -22,13 +21,13 @@ Azure Dev Spaces는 Kubernetes 응용 프로그램을 신속 하 게 반복 하 
 
 Azure Dev Spaces AKS 클러스터의 컨텍스트에서 Kubernetes 응용 프로그램을 개발, 테스트 및 반복 하는 데 드는 노력이 줄어듭니다. 이러한 노력을 줄이면 개발자는 응용 프로그램의 비즈니스 논리에 집중 하 고 Kubernetes에서 실행 되도록 서비스를 구성 하지 않을 수 있습니다.
 
-### <a name="connect-your-development-machine-to-aks"></a>개발 컴퓨터를 AKS에 연결
+### <a name="local-process-with-kubernetes"></a>Kubernetes를 사용한 로컬 프로세스
 
-Azure Dev Spaces를 사용 하면 개발 컴퓨터를 AKS 클러스터에 연결 하 여 클러스터에서 실행 되는 것 처럼 개발 컴퓨터에서 코드를 실행 하 고 디버그할 수 있습니다. Azure Dev Spaces은 원격 에이전트 역할을 하는 pod를 클러스터에서 실행 하 여 연결 된 AKS 클러스터 간에 트래픽을 리디렉션하여 개발 컴퓨터와 클러스터 간에 트래픽을 리디렉션합니다. 이러한 트래픽 리디렉션을 통해 AKS 클러스터에서 실행 되는 서비스와 개발 컴퓨터의 코드가 동일한 AKS 클러스터에 있는 것 처럼 통신할 수 있습니다. 개발 컴퓨터를 AKS에 연결 하는 방법에 대 한 자세한 내용은 [개발 컴퓨터를 AKS 클러스터에 연결 하는 방법][how-it-works-connect]을 참조 하세요.
+Kubernetes를 사용 하는 로컬 프로세스를 사용 하면 개발 컴퓨터를 Kubernetes 클러스터에 연결 하 여 클러스터에서 실행 되는 것 처럼 개발 컴퓨터에서 코드를 실행 하 고 디버그할 수 있습니다. Azure Dev Spaces은 원격 에이전트 역할을 하는 pod를 클러스터에서 실행 하 여 연결 된 클러스터 간에 트래픽을 리디렉션하여 개발 컴퓨터와 클러스터 간에 트래픽을 리디렉션합니다. 이러한 트래픽 리디렉션을 통해 개발 컴퓨터의 코드와 클러스터에서 실행 되는 서비스가 동일한 클러스터에 있는 것 처럼 통신할 수 있습니다. 개발 컴퓨터를 Kubernetes 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Kubernetes를 사용 하는 로컬 프로세스 작동 방식][how-it-works-local-process-kubernetes]을 참조 하세요.
 
 ### <a name="run-your-code-in-aks"></a>AKS에서 코드 실행
 
-Azure Dev Spaces를 사용 하 여 개발 컴퓨터와 AKS 클러스터 간의 트래픽을 리디렉션하는 것 외에도 AKS에서 직접 코드를 구성 하 고 신속 하 게 실행할 수 있습니다. Visual Studio, Visual Studio Code 또는 Azure Dev Spaces CLI를 사용 하 여 Azure Dev Spaces는 코드를 클러스터에 업로드 한 다음 빌드하고 실행 합니다. 또한 Azure Dev 공간은 코드 변경을 지능적으로 동기화 하 고 필요에 따라 변경 내용을 반영 하도록 서비스를 다시 시작할 수도 있습니다. 코드를 실행 하는 동안 빌드 로그 및 HTTP 추적은 클라이언트에 다시 스트리밍되 므로 진행률을 모니터링 하 고 문제를 진단할 수 있습니다. 또한 Azure Dev Spaces를 사용 하 여 Visual Studio에 디버거를 연결 하 고 Java, node.js 및 .NET Core 서비스에 Visual Studio Code 수 있습니다. 자세한 내용은 [Azure Dev Spaces 작동을 위해 프로젝트를 준비 하는 방법][how-it-works-prep], [Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법][how-it-works-up], [Azure Dev Spaces를 사용][how-it-works-remote-debugging]하 여 코드를 원격으로 디버깅 하는 방법을 참조 하세요.
+Azure Dev Spaces를 사용 하 여 개발 컴퓨터와 AKS 클러스터 간의 트래픽을 리디렉션하는 것 외에도 AKS에서 직접 코드를 구성 하 고 신속 하 게 실행할 수 있습니다. Visual Studio, Visual Studio Code 또는 Azure Dev Spaces CLI를 사용 하 여 Azure Dev Spaces는 코드를 클러스터에 업로드 한 다음 빌드하고 실행 합니다. 또한 Azure Dev 공간은 코드 변경을 지능적으로 동기화 하 고 필요에 따라 변경 내용을 반영 하도록 서비스를 다시 시작할 수도 있습니다. 코드를 실행 하는 동안 빌드 로그 및 HTTP 추적은 클라이언트에 다시 스트리밍되 므로 진행률을 모니터링 하 고 문제를 진단할 수 있습니다. 또한 Azure Dev Spaces를 사용 하 여 Visual Studio에서 디버거를 연결 하 고 Java, Node.js 및 .NET Core 서비스에 Visual Studio Code 수 있습니다. 자세한 내용은 [Azure Dev Spaces 작동을 위해 프로젝트를 준비 하는 방법][how-it-works-prep], [Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법][how-it-works-up], [Azure Dev Spaces를 사용][how-it-works-remote-debugging]하 여 코드를 원격으로 디버깅 하는 방법을 참조 하세요.
 
 ## <a name="team-development"></a>팀 개발
 
@@ -46,10 +45,10 @@ Azure Dev Spaces와 함께 GitHub 작업을 사용 하 여 병합 하기 전에 
 
 AKS 클러스터에 로컬 개발 컴퓨터를 연결 하는 작업을 시작 하려면 [개발 컴퓨터를 AKS 클러스터에 연결][connect]을 참조 하세요.
 
-팀 개발을 위한 Azure Dev Spaces 사용을 시작 하려면 Azure Dev Spaces 빠른 시작 [에서 팀 개발][quickstart-team] 을 참조 하세요.
+팀 개발을 위해 Azure Dev Spaces 사용을 시작하려면 [Azure Dev Spaces에서 팀 개발][quickstart-team] 빠른 시작을 참조하세요.
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: how-to/local-process-kubernetes-vs-code.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

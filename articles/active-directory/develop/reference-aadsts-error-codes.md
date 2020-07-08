@@ -12,12 +12,11 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266596"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -30,7 +29,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="handling-error-codes-in-your-application"></a>응용 프로그램의 오류 코드 처리
 
-[Oauth 2.0](https://tools.ietf.org/html/rfc6749#section-5.2) 사양은 오류 응답 부분을 `error` 사용 하 여 인증 하는 동안 오류를 처리 하는 방법에 대 한 지침을 제공 합니다. 
+[Oauth 2.0](https://tools.ietf.org/html/rfc6749#section-5.2) 사양은 오류 응답 부분을 사용 하 여 인증 하는 동안 오류를 처리 하는 방법에 대 한 지침을 제공 합니다 `error` . 
 
 샘플 오류 응답은 다음과 같습니다.
 
@@ -58,27 +57,27 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | `correlation_id` | 여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 | `error_uri` |  오류에 대 한 추가 정보를 포함 하는 오류 조회 페이지에 대 한 링크입니다.  개발자 전용 이며 사용자에 게 표시 하지 않습니다.  오류 조회 시스템에 오류에 대 한 추가 정보가 있는 경우에만 표시 됩니다. 모든 오류에는 추가 정보가 제공 되지 않습니다.|
 
-이 `error` 필드에는 몇 가지 가능한 값이 있습니다. 프로토콜 설명서 링크 및 OAuth 2.0 사양을 검토 하 여 특정 오류 (예: `authorization_pending` [장치 코드 흐름](v2-oauth2-device-code.md)) 및이에 대응 하는 방법에 대해 자세히 알아보세요.  몇 가지 일반적인 항목이 여기에 나열 되어 있습니다.
+`error`이 필드에는 몇 가지 가능한 값이 있습니다. 프로토콜 설명서 링크 및 OAuth 2.0 사양을 검토 하 여 특정 오류 (예: `authorization_pending` [장치 코드 흐름](v2-oauth2-device-code.md)) 및이에 대응 하는 방법에 대해 자세히 알아보세요.  몇 가지 일반적인 항목이 여기에 나열 되어 있습니다.
 
-| 오류 코드         | 설명        | 클라이언트 작업    |
+| 오류 코드         | Description        | 클라이언트 작업    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | 프로토콜 오류(예: 필수 매개 변수 누락). | 요청을 수정하여 다시 제출하십시오.|
-| `invalid_grant`    | 일부 인증 자료 (인증 코드, 새로 고침 토큰, 액세스 토큰, PKCE 챌린지)가 잘못 됨, 구문 분석할 수, 누락 또는 사용 불가능 합니다. | 새 권한 부여 코드를 가져오려면 `/authorize` 끝점에 대 한 새 요청을 시도 합니다.  앱에서 사용 하는 프로토콜의 사용을 검토 하 고 유효성을 검사 하는 것이 좋습니다. |
-| `unauthorized_client` | 인증 된 클라이언트는이 권한 부여 유형을 사용할 권한이 없습니다. | 이는 일반적으로 클라이언트 응용 프로그램이 Azure AD에 등록 되지 않았거나 사용자의 Azure AD 테 넌 트에 추가 되지 않은 경우에 발생 합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
-| `invalid_client` | 클라이언트 인증에 실패했습니다.  | 클라이언트 자격 증명이 유효 하지 않습니다. 해결하려면 애플리케이션 관리자가 자격 증명을 업데이트합니다.   |
+| `invalid_grant`    | 일부 인증 자료 (인증 코드, 새로 고침 토큰, 액세스 토큰, PKCE 챌린지)가 잘못 되었거나, 구문 분석할 수, 누락 되었거나, 사용할 수 없는 경우 | `/authorize`새 권한 부여 코드를 가져오려면 끝점에 대 한 새 요청을 시도 합니다.  앱에서 사용 하는 프로토콜의 사용을 검토 하 고 유효성을 검사 하는 것이 좋습니다. |
+| `unauthorized_client` | 인증된 클라이언트가 이 권한 부여 유형을 사용할 권한이 없습니다. | 이 오류는 일반적으로 클라이언트 애플리케이션이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
+| `invalid_client` | 클라이언트 인증에 실패했습니다.  | 클라이언트 자격 증명이 잘못되었습니다. 해결하려면 애플리케이션 관리자가 자격 증명을 업데이트합니다.   |
 | `unsupported_grant_type` | 권한 부여 서버가 해당 권한 부여 유형을 지원하지 않습니다. | 요청에서 권한 부여 유형을 변경하십시오. 이 유형의 오류는 개발 중에만 발생하며 초기 테스트 중에 검색됩니다. |
-| `invalid_resource` | 대상 리소스가 존재 하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성 되지 않았기 때문에 잘못 되었습니다. | 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다.  개발 하는 동안이는 일반적으로 잘못 설정 된 테스트 테 넌 트 또는 요청 된 범위 이름의 오타가 있음을 나타냅니다. |
-| `interaction_required` | 요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 사용자가 필요한 모든 문제를 완료할 수 있도록 동일한 리소스 (interactievly)를 사용 하 여 요청을 다시 시도 합니다.  |
-| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 응용 프로그램은 일시적인 상태 때문에 응답이 지연 되었음을 사용자에 게 설명할 수 있습니다. |
+| `invalid_resource` | 대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. | 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다.  개발 하는 동안이는 일반적으로 잘못 설정 된 테스트 테 넌 트 또는 요청 된 범위 이름의 오타가 있음을 나타냅니다. |
+| `interaction_required` | 요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 사용자가 필요한 모든 문제를 완료할 수 있도록 대화형으로 동일한 리소스를 사용 하 여 요청을 다시 시도 합니다.  |
+| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 
 ## <a name="lookup-current-error-code-information"></a>현재 오류 코드 정보 조회
 오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보를 보려면 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 페이지에서 AADSTS 오류 설명, 픽스 및 몇 가지 제안 된 해결 방법을 살펴보세요.  
 
-반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 "16000" [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "16000"에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | Description |
+| Error | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -95,7 +94,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50000 | TokenIssuanceError - 로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다. |
-| AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 에 [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)설명 된 해결 방법을 확인 하세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
+| AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 에 설명 된 해결 방법을 확인 하세요 [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
 | AADSTS50005 | DevicePolicyError-사용자가 현재 조건부 액세스 정책을 통해 지원 되지 않는 플랫폼에서 장치에 로그인 하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. Microsoft에서 [지원 티켓을 열어](../fundamentals/active-directory-troubleshooting-support-howto.md) 이 문제를 해결 하세요. |
@@ -126,8 +125,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. 사용자는 문제를 해결하기 위해 테넌트 관리자에게 문의할 수 있습니다. |
 | AADSTS50061 | SignoutInvalidRequest - 로그아웃 요청이 잘못되었습니다. |
 | AADSTS50064 | CredentialAuthenticationError - 사용자 이름 또는 암호에 대한 자격 증명 유효성 검사에 실패했습니다. |
-| AADSTS50068 | SignoutInitiatorNotParticipant - 로그아웃에 실패했습니다. 로그아웃을 시작한 앱이 현재 세션의 참가자가 아닙니다. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier - 로그아웃에 실패했습니다. 로그아웃 요청에서 기존 세션과 일치하지 않는 이름 식별자를 지정했습니다. |
+| AADSTS50068 | SignoutInitiatorNotParticipant-로그 아웃에 실패 했습니다. 로그 아웃을 시작한 앱은 현재 세션의 참가자가 아닙니다. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier-로그 아웃에 실패 했습니다. 로그 아웃 요청에서 지정 된 이름 식별자가 기존 세션과 일치 하지 않습니다. |
 | AADSTS50071 | SignoutMessageExpired - 로그아웃 요청이 만료되었습니다. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - 사용자는 2단계 인증(대화형)에 등록해야 합니다. |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - 강력한 인증이 필요하며 사용자가 MFA 챌린지를 통과하지 못했습니다. |
@@ -139,7 +138,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50089 | 흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인하도록 하세요. |
 | AADSTS50097 | DeviceAuthenticationRequired - 디바이스 인증이 필요합니다. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - JWT 서명이 잘못되었습니다. |
-| AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세한 내용은을 ([https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)를). |
+| AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세한 내용은을 (를) [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role) . |
 | AADSTS50107 | InvalidRealmUri - 요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - JWT 헤더에 문제가 있습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - 클레임 변환에 잘못된 입력 매개 변수가 있습니다. 테넌트 관리자에게 문의하여 정책을 업데이트하세요. |
@@ -173,7 +172,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50187 | DeviceInformationNotProvided - 서비스에서 디바이스 인증을 수행하지 못했습니다. |
 | AADSTS50196 | LoopDetected-클라이언트 루프가 검색 되었습니다. 응용 프로그램의 논리를 확인 하 여 토큰 캐싱이 구현 되 고 오류 조건이 올바르게 처리 되었는지 확인 합니다.  앱이 너무 짧은 기간 내에 너무 많은 요청을 수행 하 여 잘못 된 상태에 있거나 토큰을 abusively를 나타냅니다. |
 | AADSTS50197 | ConflictingIdentities-사용자를 찾을 수 없습니다. 다시 로그인 하세요. |
-| AADSTS50199 | CmsiInterrupt-보안상의 이유로이 요청에는 사용자 확인이 필요 합니다.  이 오류는 "interaction_required" 오류 이기 때문에 클라이언트는 대화형 인증을 수행 해야 합니다.  이는 시스템 웹 보기를 사용 하 여 네이티브 응용 프로그램에 대 한 토큰을 요청 했기 때문에 발생 합니다. 사용자에 게 실제로 로그인 하려는 앱 인지 여부를 묻는 메시지를 표시 해야 합니다.|
+| AADSTS50199 | CmsiInterrupt-보안상의 이유로이 요청에는 사용자 확인이 필요 합니다.  이 오류는 "interaction_required" 오류 이기 때문에 클라이언트는 대화형 인증을 수행 해야 합니다.  이는 시스템 웹 보기를 사용 하 여 네이티브 응용 프로그램에 대 한 토큰을 요청 했기 때문에 발생 합니다. 사용자에 게 실제로 로그인 하려는 앱 인지 여부를 묻는 메시지를 표시 해야 합니다. 이 메시지를 표시 하지 않으려면 리디렉션 URI는 다음의 안전 목록에 포함 되어야 합니다. <br />http://<br />https://<br />msauth://(iOS에만 해당)<br />msauthv2://(iOS에만 해당)<br />chrome-확장명://(데스크톱 Chrome 브라우저만 해당) |
 | AADSTS51000 | RequiredFeatureNotEnabled - 기능을 사용할 수 없습니다. |
 | AADSTS51001 | DomainHintMustbePresent - 도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 있어야 합니다. |
 | AADSTS51004 | UserAccountNotInDirectory - 사용자 계정이 디렉터리에 존재하지 않습니다. |
@@ -189,7 +188,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 | AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용 하 여 SAML에 대해 나열 된 해상도를 사용해 보세요.[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
-| AADSTS650052 | 앱은 조직 `\"{organization}\"` 에서 구독 하거나 사용 `(\"{name}\")` 하도록 설정 하지 않은 서비스에 액세스 해야 합니다. IT 관리자에 게 문의 하 여 서비스 구독의 구성을 검토 합니다. |
+| AADSTS650052 | 앱은 `(\"{name}\")` 조직에서 `\"{organization}\"` 구독 하거나 사용 하도록 설정 하지 않은 서비스에 액세스 해야 합니다. IT 관리자에 게 문의 하 여 서비스 구독의 구성을 검토 합니다. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
 | AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. |
@@ -250,7 +249,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90043 | NationalCloudAuthCodeRedirection - 기능을 사용할 수 없습니다. |
 | AADSTS90051 | InvalidNationalCloudId - 국가별 클라우드 식별자에 잘못된 클라우드 식별자가 포함되어 있습니다. |
 | AADSTS90055 | TenantThrottlingError - 들어오는 요청이 너무 많습니다. 차단된 테넌트에 대해 이 예외가 throw됩니다. |
-| AADSTS90056 | BadResourceRequest - 액세스 토큰의 코드를 사용하려면 앱에서 `/token` 엔드포인트로 POST 요청을 보내야 합니다. 또한 그 이전에, 인증 코드를 제공하고 해당 코드를 POST 요청으로 `/token` 엔드포인트에 보내야 합니다. OAuth 2.0 인증 코드 흐름에 대 한 개요는이 문서를 참조 [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)하세요. 사용자를 `/authorize` 엔드포인트로 리디렉션합니다. 그러면 authorization_code가 반환됩니다. 사용자는 요청을 `/token` 엔드포인트에 게시하여 액세스 토큰을 가져옵니다. Azure Portal에 로그인하고 **앱 등록 > 엔드포인트**를 확인하여 두 엔드포인트가 올바르게 구성되었는지 확인합니다. |
+| AADSTS90056 | BadResourceRequest - 액세스 토큰의 코드를 사용하려면 앱에서 `/token` 엔드포인트로 POST 요청을 보내야 합니다. 또한 그 이전에, 인증 코드를 제공하고 해당 코드를 POST 요청으로 `/token` 엔드포인트에 보내야 합니다. OAuth 2.0 인증 코드 흐름에 대 한 개요는이 문서를 참조 [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 하세요. 사용자를 `/authorize` 엔드포인트로 리디렉션합니다. 그러면 authorization_code가 반환됩니다. 사용자는 요청을 `/token` 엔드포인트에 게시하여 액세스 토큰을 가져옵니다. Azure Portal에 로그인하고 **앱 등록 > 엔드포인트**를 확인하여 두 엔드포인트가 올바르게 구성되었는지 확인합니다. |
 | AADSTS90072 | PassThroughUserMfaError - 사용자가 로그인에 사용한 외부 계정이 로그인한 테넌트에 존재하지 않으므로 사용자가 테넌트에 대한 MFA 요구 사항을 충족할 수 없습니다. 먼저 계정을 테넌트의 외부 사용자로 추가해야 합니다. 로그아웃하고 다른 Azure AD 사용자 계정으로 로그인하세요. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - 서비스가 WS-Federation 메시지를 처리하려고 할 때 오류가 발생했습니다. 메시지가 잘못되었습니다. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - 요청에 대해 선택한 인증 정책이 현재 지원되지 않습니다. |
@@ -308,13 +307,13 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 디바이스 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 사용자에게 Azure AD에 디바이스를 등록할 수 있는 권한이 없습니다. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token을 `urn:ietf:params:oauth:grant-type:jwt-bearer` 권한 부여로 사용할 수 없습니다.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-테 넌 트 관리자가이 요청을 차단 하는 보안 정책을 구성 했습니다. 테 넌 트 수준에 정의 된 보안 정책을 확인 하 여 요청이 정책 요구 사항을 충족 하는지 확인 합니다. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-테 넌 트 관리자가이 요청을 차단 하는 보안 정책을 구성 했습니다. 테넌트 수준에 정의된 보안 정책을 확인하여 요청이 정책 요구 사항을 충족하는지 확인합니다. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 디렉터리/테넌트에서 애플리케이션을 찾지 못했습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보낸 것일 수 있습니다. |
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |
 | AADSTS7000215 | 잘못된 클라이언트 비밀을 제공합니다. 개발자 오류-앱에서 필수 또는 올바른 인증 매개 변수를 사용 하지 않고 로그인 하려고 합니다.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal을 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다.https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal를 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다.[https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant 제공 된 권한 부여 코드는 다른 테 넌 트에 대해 사용 하기 위한 것 이므로 거부 됩니다. OAuth2 인증 코드는에 대해 획득 한 것과 동일한 테 넌 트에 대해 (또는/또는 Tenant-id} 적절 하 게) 회수 되어야 합니다. |
 | AADSTS1000000 | UserNotBoundError - 바인딩 API를 사용하려면 Azure AD 사용자가 외부 IDP에도 인증해야 하는데, 아직 인증하지 않았습니다. |
 | AADSTS1000002 | BindCompleteInterruptError - 바인딩이 성공적으로 완료되었지만 사용자에게 알려야 합니다. |

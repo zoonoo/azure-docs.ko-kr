@@ -5,12 +5,11 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299785"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -52,6 +51,14 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분한 인프라 용량을 �
 - Site Recovery는 Azure AD(Azure Active Directory)가 필요한 스키마가 있는 Azure Disk Encryption 버전 0.1을 지원합니다. Site Recovery는 Azure AD가 필요하지 않은 버전 1.1도 지원합니다. [Azure Disk Encryption의 확장 스키마에 대해 자세히 알아보세요](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - Azure Disk Encryption 버전 1.1의 경우 Managed Disks가 있는 Windows VM을 사용해야 합니다.
   - 암호화된 VM에 대해 복제를 사용하도록 설정하는 방법을 [자세히 알아보세요](azure-to-azure-how-to-enable-replication-ade-vms.md).
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>다른 리소스 그룹에서 Automation 계정을 선택할 수 있나요?
+
+현재는 포털을 통해 지원 되지 않지만 Powershell을 통해 다른 리소스 그룹에서 Automation 계정을 선택할 수 있습니다.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>자격 증명 모음과 다른 리소스 그룹에 있는 Automation 계정을 지정한 후 지정할 다른 자격 증명 모음이 없는 경우 runbook을 삭제할 수 있나요?
+
+만든 사용자 지정 runbook은 도구 이며 동일한 항목이 더 이상 필요 하지 않은 경우 삭제 하는 것이 안전 합니다.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>VM을 다른 구독에 복제할 수 있나요?
 
@@ -172,6 +179,10 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>복구 지점의 보존 기간을 늘리면 스토리지 비용도 증가하나요?
 
 예, 보존 기간을 24시간에서 72시간으로 늘리면 Site Recovery에서 추가 48시간의 복구 지점을 저장합니다. 추가된 시간에 대해 스토리지 요금이 부과됩니다. 예를 들어, 단일 복구 지점에는 월별 $0.16의 GB당 비용에 해당하는 10GB의 델타 변경이 있을 수 있습니다. 추가 요금은 월별 $1.60×48이 됩니다.
+
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요?
+
+예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세한 정보](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>다중 VM 일관성
 

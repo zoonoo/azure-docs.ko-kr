@@ -3,12 +3,11 @@ title: Azure 파일 공유 백업 정보
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299233"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 정보
 
@@ -16,11 +15,12 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Azure 파일 공유 백업의 주요 이점
 
-* 제로 인프라: 파일 공유에 대 한 보호를 구성 하는 데는 배포가 필요 하지 않습니다.
-* 사용자 지정 된 보존: 요구 사항에 따라 일별/주별/월별/매년 보존을 사용 하 여 백업을 구성할 수 있습니다.
-* 기본 제공 관리 기능: 백업을 예약 하 고 데이터 정리의 추가 오버 헤드 없이 원하는 보존 기간을 지정할 수 있습니다.
-* 즉시 복원: Azure 파일 공유 백업은 파일 공유 스냅숏을 사용 하므로 즉시 복원 하려는 파일만 선택할 수 있습니다.
-* 경고 및 보고: 백업 및 복원 오류에 대 한 경고를 구성 하 고, Azure Backup에서 제공 하는 보고 솔루션을 사용 하 여 파일 공유에서 백업에 대 한 정보를 얻을 수 있습니다.
+* **제로 인프라**: 파일 공유에 대 한 보호를 구성 하는 데는 배포가 필요 하지 않습니다.
+* **사용자 지정 된 보존**: 요구 사항에 따라 일별/주별/월별/매년 보존을 사용 하 여 백업을 구성할 수 있습니다.
+* **기본 제공 관리 기능**: 백업을 예약 하 고 데이터 정리의 추가 오버 헤드 없이 원하는 보존 기간을 지정할 수 있습니다.
+* **즉시 복원**: Azure 파일 공유 백업은 파일 공유 스냅숏을 사용 하므로 즉시 복원 하려는 파일만 선택할 수 있습니다.
+* **경고 및 보고**: 백업 및 복원 오류에 대 한 경고를 구성 하 고, Azure Backup에서 제공 하는 보고 솔루션을 사용 하 여 파일 공유에서 백업에 대 한 정보를 얻을 수 있습니다.
+* **파일 공유의 실수로 인 한 삭제 방지**: Azure Backup 보존 기간이 14 일인 저장소 계정 수준에서 [일시 삭제 기능](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) 을 사용 하도록 설정 합니다. 악의적인 행위자가 파일 공유를 삭제 하는 경우에도 파일 공유의 내용과 복구 지점이 구성 가능한 보존 기간 동안 유지 되므로 데이터 손실 없이 원본 콘텐츠 및 스냅숏의 복구가 성공 하 고 완전 하 게 완료 됩니다.
 
 ## <a name="architecture"></a>Architecture
 
@@ -51,5 +51,5 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 파일 공유를 백업](backup-afs.md) 하는 방법 알아보기
+* [Azure 파일 공유 백업](backup-afs.md) 방법 알아보기
 * [백업에 대 한 질문에 대 한](backup-azure-files-faq.md) 답변 찾기 Azure Files

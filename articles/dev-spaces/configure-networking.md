@@ -5,12 +5,11 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Azure Kubernetes Services에서 Azure Dev Spaces를 실행 하기 위한 네트워킹 요구 사항을 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, CNI, kubenet, SDN, 네트워크
-ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300694"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성
 
@@ -33,9 +32,8 @@ Azure Dev Spaces는 수신 *및 송신* 네트워크 트래픽과 *수신 전용
 | cloudflare.docker.com      | HTTPS: 443 | Azure Dev Spaces에 대 한 docker 이미지를 꺼내려면 |
 | gcr.io                     | HTTPS: 443 | Azure Dev Spaces에 대 한 투구 이미지를 꺼내려면 |
 | storage.googleapis.com     | HTTPS: 443 | Azure Dev Spaces에 대 한 투구 이미지를 꺼내려면 |
-| azds-*. azds             | HTTPS: 443 | Azure Dev Spaces 컨트롤러에 대 한 Azure Dev Spaces 백 엔드 서비스와 통신 하는 데 사용 됩니다. 정확한 FQDN은의 *Dataplanefqdn* 에서 찾을 수 있습니다.`USERPROFILE\.azds\settings.json` |
 
-위의 모든 Fqdn에 대 한 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다. 예를 들어 방화벽을 사용 하 여 네트워크를 보호 하는 경우 이러한 도메인에 대 한 트래픽을 허용 하도록 위의 Fqdn을 방화벽의 응용 프로그램 규칙에 추가 해야 합니다.
+위의 Fqdn 및 [Azure Dev Spaces 인프라 서비스][service-tags]모두와의 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다. 예를 들어 방화벽을 사용 하 여 네트워크를 보호 하는 경우 위의 Fqdn이 방화벽의 응용 프로그램 규칙에 추가 되 고 Azure Dev Spaces 서비스 태그도 [방화벽에 추가][firewall-service-tags]되어야 합니다. 이러한 도메인 으로부터 들어오고 나가는 트래픽을 허용 하려면 방화벽에 대 한 이러한 업데이트가 모두 필요 합니다.
 
 ### <a name="ingress-only-network-traffic-requirements"></a>수신 전용 네트워크 트래픽 요구 사항
 
@@ -47,7 +45,7 @@ AKS를 사용 하면 [네트워크 정책을][aks-network-policies] 사용 하 �
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>수신 및 송신 네트워크 트래픽 요구 사항
 
-Azure Dev Spaces를 사용 하면 디버깅을 위해 클러스터의 개발 공간에서 pod와 직접 통신할 수 있습니다. 이 기능이 작동 하려면 [지역에 따라 달라][dev-spaces-ip-auth-range-regions]지는 Azure Dev Spaces 인프라의 IP 주소에 수신 및 송신 통신을 허용 하는 네트워크 정책을 추가 합니다.
+Azure Dev Spaces를 사용 하면 디버깅을 위해 클러스터의 개발 공간에서 pod와 직접 통신할 수 있습니다. 이 기능이 작동 하려면 [지역에 따라 달라][service-tags]지는 Azure Dev Spaces 인프라의 IP 주소에 수신 및 송신 통신을 허용 하는 네트워크 정책을 추가 합니다.
 
 ### <a name="ingress-only-network-traffic-requirements"></a>수신 전용 네트워크 트래픽 요구 사항
 
@@ -59,7 +57,7 @@ Azure Dev Spaces는 네임 스페이스 간 pod 간의 라우팅을 제공 합�
 
 ## <a name="using-api-server-authorized-ip-ranges"></a>API 서버에 권한 있는 IP 범위 사용
 
-AKS 클러스터를 사용 하면 사용자 지정 가상 네트워크를 사용 하거나 [권한 있는 ip 범위를 사용 하 여 API 서버에][aks-ip-auth-ranges]대 한 액세스를 보호 하는 등 클러스터와 상호 작용할 수 있는 추가 보안을 구성할 수 있습니다. 클러스터를 [만드는][aks-ip-auth-range-create] 동안이 추가 보안을 사용 하는 경우 Azure Dev Spaces를 사용 하려면 [해당 지역에 따라 추가 범위를 허용][dev-spaces-ip-auth-range-regions]해야 합니다. 또한 기존 클러스터를 [업데이트][aks-ip-auth-range-update] 하 여 이러한 추가 범위를 허용할 수 있습니다. 또한 API 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소를 허용 해야 합니다.
+AKS 클러스터를 사용 하면 사용자 지정 가상 네트워크를 사용 하거나 [권한 있는 ip 범위를 사용 하 여 API 서버에][aks-ip-auth-ranges]대 한 액세스를 보호 하는 등 클러스터와 상호 작용할 수 있는 추가 보안을 구성할 수 있습니다. 클러스터를 [만드는][aks-ip-auth-range-create] 동안이 추가 보안을 사용 하는 경우 Azure Dev Spaces를 사용 하려면 [해당 지역에 따라 추가 범위를 허용][service-tags]해야 합니다. 또한 기존 클러스터를 [업데이트][aks-ip-auth-range-update] 하 여 이러한 추가 범위를 허용할 수 있습니다. 또한 API 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소를 허용 해야 합니다.
 
 ## <a name="using-aks-private-clusters"></a>AKS 개인 클러스터 사용
 
@@ -69,11 +67,11 @@ AKS 클러스터를 사용 하면 사용자 지정 가상 네트워크를 사용
 
 Azure Dev Spaces에는 AKS에서 실행 되는 서비스에 대 한 끝점을 노출 하는 옵션이 있습니다. 클러스터에서 Azure Dev Spaces를 사용 하도록 설정 하는 경우 클러스터의 끝점 유형을 구성 하는 다음과 같은 옵션을 사용할 수 있습니다.
 
-* 기본값인 *공용* 끝점은 공용 IP 주소를 사용 하 여 수신 컨트롤러를 배포 합니다. 공용 IP 주소는 클러스터의 DNS에 등록 되므로 URL을 사용 하 여 서비스에 대 한 공용 액세스를 허용 합니다. 을 사용 하 여 `azds list-uris`이 URL을 볼 수 있습니다.
-* *개인* 끝점은 개인 IP 주소를 사용 하 여 수신 컨트롤러를 배포 합니다. 개인 IP 주소를 사용 하는 경우 클러스터의 부하 분산 장치는 클러스터의 가상 네트워크 내 에서만 액세스할 수 있습니다. 부하 분산 장치의 개인 IP 주소는 클러스터의 DNS에 등록 되므로 URL을 사용 하 여 클러스터의 가상 네트워크 내 서비스에 액세스할 수 있습니다. 을 사용 하 여 `azds list-uris`이 URL을 볼 수 있습니다.
+* 기본값인 *공용* 끝점은 공용 IP 주소를 사용 하 여 수신 컨트롤러를 배포 합니다. 공용 IP 주소는 클러스터의 DNS에 등록 되므로 URL을 사용 하 여 서비스에 대 한 공용 액세스를 허용 합니다. 을 사용 하 여이 URL을 볼 수 있습니다 `azds list-uris` .
+* *개인* 끝점은 개인 IP 주소를 사용 하 여 수신 컨트롤러를 배포 합니다. 개인 IP 주소를 사용 하는 경우 클러스터의 부하 분산 장치는 클러스터의 가상 네트워크 내 에서만 액세스할 수 있습니다. 부하 분산 장치의 개인 IP 주소는 클러스터의 DNS에 등록 되므로 URL을 사용 하 여 클러스터의 가상 네트워크 내 서비스에 액세스할 수 있습니다. 을 사용 하 여이 URL을 볼 수 있습니다 `azds list-uris` .
 * Endpoint 옵션에 대해 *none* 을 설정 하면 수신 컨트롤러를 배포할 수 없습니다. 수신 컨트롤러를 배포 하지 않은 경우 [Azure Dev Spaces 라우팅 기능이][dev-spaces-routing] 작동 하지 않습니다. 필요에 따라 [traefik][traefik-ingress] 또는 [NGINX][nginx-ingress]를 사용 하 여 사용자 고유의 수신 컨트롤러 솔루션을 구현할 수 있습니다. 그러면 라우팅 기능이 다시 작동할 수 있습니다.
 
-끝점 옵션을 구성 하려면 클러스터에서 Azure Dev Spaces를 사용 하도록 설정할 때 *-e* 또는 *--엔드포인트* 를 사용 합니다. 다음은 그 예입니다.
+끝점 옵션을 구성 하려면 클러스터에서 Azure Dev Spaces를 사용 하도록 설정할 때 *-e* 또는 *--엔드포인트* 를 사용 합니다. 예를 들어:
 
 > [!NOTE]
 > Endpoint 옵션을 사용 하려면 Azure CLI 버전 2.2.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -84,7 +82,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>클라이언트 요구 사항
 
-Azure Dev Spaces는 Azure Dev Spaces CLI 확장, Visual Studio Code 확장 및 Visual Studio 확장과 같은 클라이언트 쪽 도구를 사용 하 여 디버깅을 위해 AKS 클러스터와 통신 합니다. Azure Dev Spaces 클라이언트 쪽 도구를 사용 하려면 개발 컴퓨터에서 *azds\*azds.io* 도메인으로의 트래픽을 허용 합니다. 정확한 FQDN은의 `USERPROFILE\.azds\settings.json` *Dataplanefqdn* 을 참조 하십시오. [Api 서버에 권한 있는 ip 범위][auth-range-section]를 사용 하는 경우 api 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소도 허용 해야 합니다.
+Azure Dev Spaces는 Azure Dev Spaces CLI 확장, Visual Studio Code 확장 및 Visual Studio 확장과 같은 클라이언트 쪽 도구를 사용 하 여 디버깅을 위해 AKS 클러스터와 통신 합니다. Azure Dev Spaces 클라이언트 쪽 도구를 사용 하려면 개발 컴퓨터에서 [Azure Dev Spaces 인프라로][dev-spaces-allow-infrastructure]의 트래픽을 허용 합니다. [Api 서버에 권한 있는 ip 범위][auth-range-section]를 사용 하는 경우 api 서버에 연결 하기 위해 AKS 클러스터에 연결 하는 모든 개발 컴퓨터의 IP 주소도 허용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -104,10 +102,12 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-allow-infrastructure]: #virtual-network-or-subnet-configurations
 [dev-spaces-routing]: how-dev-spaces-works-routing.md
 [endpoint-options]: #using-different-endpoint-options
+[firewall-service-tags]: ../firewall/service-tags.md
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
+[service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
 [team-quickstart]: quickstart-team-development.md
