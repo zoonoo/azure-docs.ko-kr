@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770546"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109623"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
@@ -74,13 +74,13 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
     ![Azure AD 권한](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
-테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ### <a name="assign-azure-account-permissions"></a>Azure 계정 권한 할당
 
@@ -106,7 +106,7 @@ VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용
 **PowerShell 버전 확인** | 지원되는 PowerShell 버전에서 스크립트를 실행 중인지 확인합니다. | Hyper-V 호스트에서 PowerShell 버전 4.0 이상을 실행하고 있는지 확인합니다.
 **계정 만들기** | 사용자(스크립트를 실행하는 사용자)에게 Hyper-V 호스트에 대한 관리자 권한이 있는지 확인합니다.<br/><br/>  Azure Migrate 서비스에서 Hyper-V 호스트와 통신하는 데 사용되는 로컬 사용자 계정(관리자 아님)을 만들 수 있습니다. 이 사용자 계정은 호스트의 다음 그룹에 추가됩니다.<br/><br/> - 원격 관리 사용자<br/><br/> - Hyper-V 관리자<br/><br/>- 성능 모니터 사용자 | Hyper-V 호스트/클러스터에 대한 관리자 권한이 있는 도메인 또는 로컬 사용자 계정을 설정합니다.<br/><br/> - 검색에 포함하려는 모든 호스트 및 클러스터에 대해 단일 계정이 필요합니다.<br/><br/> - 계정은 로컬 또는 도메인 계정일 수 있습니다. Hyper-V 호스트 또는 클러스터에 대한 관리자 권한이 있는 것이 좋습니다.<br/><br/> 또는 관리자 권한을 할당하지 않으려면 다음 권한이 필요합니다. 원격 관리 사용자, Hyper-V 관리자, 성능 모니터 사용자
 **PowerShell 원격 사용** | Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 호스트에서 PowerShell 원격을 사용하도록 설정합니다.| 설정하려면 각 호스트에서 관리자 권한으로 PowerShell 콘솔을 열고, 다음 명령을 실행합니다.<br/><br/>``` Enable-PSRemoting -force ```
-**Hyper-V 통합 서비스 설정** | 호스트에서 관리하는 모든 VM에 Hyper-V Integration Services를 사용하도록 설정되어 있는지 확인합니다. |  각 VM에서 [Hyper-V 통합 서비스를 사용하도록 설정](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)합니다.<br/><br/> Windows Server 2003을 실행하는 경우 [다음 지침을 따릅니다](prepare-windows-server-2003-migration.md).
+**Hyper-V 통합 서비스 설정** | 호스트에서 관리하는 모든 VM에 Hyper-V Integration Services를 사용하도록 설정되어 있는지 확인합니다. |  각 VM에서 [Hyper-V 통합 서비스를 사용하도록 설정](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)합니다.<br/><br/> Windows Server 2003을 실행하는 경우 [다음 지침을 따릅니다](prepare-windows-server-2003-migration.md).
 **VM 디스크가 원격 SMB 공유에 있는 경우 자격 증명을 위임합니다.** | 스크립트는 자격 증명을 위임합니다. | [CredSSP를 사용하도록 설정](#enable-credssp-to-delegate-credentials)하여 자격 증명을 위임합니다.
 
 ### <a name="run-the-script"></a>스크립트 실행

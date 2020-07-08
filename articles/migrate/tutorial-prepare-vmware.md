@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 평가/마이그레이�
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771192"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109579"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 다음과 같이 계정에 권한을 부여합니다.
 
 1. 테넌트 또는 전역 관리자인지 확인합니다. 그런 다음, Azure AD에서 **Azure Active Directory** > **사용자** > **사용자 설정**으로 이동합니다.
-2. **앱 등록**을 **예**로 설정합니다. 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. **앱 등록**을 **예**로 설정합니다. 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD 권한](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="method-2-assign-application-developer-role"></a>방법 2 애플리케이션 개발자 역할 할당
 
-또는 테넌트/글로벌 관리자가 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. 역할 할당에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+또는 테넌트/글로벌 관리자가 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. 역할 할당에 대해 [자세히 알아보세요](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Key Vault를 만들 수 있는 권한 할당
 

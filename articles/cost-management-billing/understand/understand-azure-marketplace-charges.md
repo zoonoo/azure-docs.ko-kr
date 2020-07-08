@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7955e9bc75b2a27ac42d381df1e686ec8a0ed04b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 120f60698851bcdaf39f989b4d36c0436b716833
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77587809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117868"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Azure 외부 서비스 요금의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시하지 않은 외부 서비스입니다. 일부 Microsoft 제품은 Azure Marketplace를 통해서도 판매됩니다.

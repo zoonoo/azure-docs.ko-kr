@@ -1,18 +1,18 @@
 ---
 title: 자습서 - IoT Hub 이벤트를 사용하여 Azure Logic Apps 트리거
 description: 이 자습서에서는 Azure Event Grid의 이벤트 라우팅 서비스를 사용하여 IoT Hub 이벤트에 따라 Azure Logic Apps 작업을 수행하는 자동화된 프로세스를 만드는 방법을 보여줍니다.
-services: iot-hub
+services: iot-hub, event-grid
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457068"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120486"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 

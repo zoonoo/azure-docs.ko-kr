@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993801"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103962"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -92,7 +92,7 @@ Azure를 사용할 준비 안 됨 |  VM이 Azure에서 부팅되지 않습니다
 --- | --- | ---
 **부팅 유형** | BIOS는 지원됩니다. UEFI는 지원되지 않습니다. | 부팅 유형이 UEFI인 경우 조건부 준비 완료입니다.
 **코어 수** | Azure VM에 대해 최대 코어 수(128)보다 작거나 같은 시스템 코어가 지원됩니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수를 고려합니다.<br/>쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
-**메모리** | Azure VM에 대해 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)보다 작거나 같은 컴퓨터 메모리 크기 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기를 고려합니다.<br/><br/>쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
+**메모리** | Azure VM에 대해 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)보다 작거나 같은 컴퓨터 메모리 크기 [자세히 알아보기](../virtual-machines/windows/sizes.md).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기를 고려합니다.<br/><br/>쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
 **스토리지 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 **네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 
@@ -114,8 +114,8 @@ Windows Server 2008 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.
 Windows Server 2008(32비트 및 64비트) | Azure에서 완벽하게 지원합니다. | Azure 준비 완료
 Windows Server 2003, 2003 R2 | 지원되지 않으며, Azure에서 지원되려면 [CSA(사용자 지정 지원 계약)](https://aka.ms/WSosstatement)가 필요합니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | 지원되지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
-Windows 클라이언트 7, 8, 10 | Azure는 [Visual Studio 구독만 지원합니다.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | 조건부 Azure 준비 완료
-Windows 10 Pro Desktop | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | 조건부 Azure 준비 완료
+Windows 클라이언트 7, 8, 10 | Azure는 [Visual Studio 구독만 지원합니다.](../virtual-machines/windows/client-images.md) | 조건부 Azure 준비 완료
+Windows 10 Pro Desktop | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | 조건부 Azure 준비 완료
 Windows Vista, XP Professional | 지원되지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Linux | Azure는 이러한 [Linux 운영 체제](../virtual-machines/linux/endorsed-distros.md)를 보증합니다. 다른 Linux 운영 체제도 Azure에서 부팅될 수 있지만, Azure로 마이그레이션하기 전에 OS를 보증된 버전으로 업그레이드하는 것이 좋습니다. | 버전이 보증되면 Azure 준비 완료입니다.<br/><br/>버전이 보증되지 않으면 조건부 준비 완료입니다.
 기타 운영 체제<br/><br/> 예: Oracle Solaris, Apple Mac OS, FreeBSD 등 | Azure는 이러한 운영 체제를 보증하지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 지원되는 OS를 설치하는 것이 좋습니다.  
@@ -240,11 +240,11 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)해 보세요.
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)해 보세요.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Operations Manager에서 모니터링하는 머신에 MMA 에이전트 설치
 
-System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager MMA와 연결되어 필요한 종속성 데이터를 수집합니다. [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). 종속성 에이전트를 설치해야 합니다.
+System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager MMA와 연결되어 필요한 종속성 데이터를 수집합니다. [자세히 알아보기](../azure-monitor/insights/service-map-scom.md#prerequisites). 종속성 에이전트를 설치해야 합니다.
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
@@ -274,7 +274,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 4. 시간 범위 레이블의 시간 범위를 클릭하여 여러 시간 범위의 종속성을 살펴볼 수 있습니다. 범위는 기본적으로 1시간입니다. 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
 
    > [!NOTE]
-   >    최대 1시간의 시간 범위가 지원됩니다. 더 긴 기간에 대한 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)하려면 Azure Monitor 로그를 사용합니다.
+   >    최대 1시간의 시간 범위가 지원됩니다. 더 긴 기간에 대한 [종속성 데이터를 쿼리](./how-to-create-group-machine-dependencies.md)하려면 Azure Monitor 로그를 사용합니다.
 
 5. 그룹화하려는 종속 컴퓨터를 식별한 후 Ctrl 키를 누른 상태로 맵에서 여러 컴퓨터를 클릭하여 선택하고 **컴퓨터 그룹화**를 클릭합니다.
 6. 그룹 이름을 지정합니다. Azure Migrate에서 종속 컴퓨터가 검색되는지 확인합니다.
@@ -289,7 +289,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Azure Monitor 로그에서 종속성 데이터 쿼리
 
-서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Azure Monitor 로그에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). 
+서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Azure Monitor 로그에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](../azure-monitor/insights/service-map.md#log-analytics-records). 
 
 Kusto 쿼리를 실행하려면 다음을 수행합니다.
 
@@ -299,15 +299,15 @@ Kusto 쿼리를 실행하려면 다음을 수행합니다.
 4. Azure Monitor 로그를 사용하여 종속성 데이터를 수집하는 쿼리를 작성합니다. 다음 섹션에서 샘플 쿼리를 찾습니다.
 5. [실행]을 클릭하여 쿼리를 실행합니다. 
 
-Kusto 쿼리를 작성하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). 
+Kusto 쿼리를 작성하는 방법을 [자세히 알아보세요](../azure-monitor/log-query/get-started-portal.md). 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>예제 Azure Monitor 로그 쿼리
 
-다음은 종속성 데이터를 추출하는 데 사용할 수 있는 샘플 쿼리입니다. 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 전체 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 사용할 수 있습니다. 추가 샘플 쿼리는 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)에서 찾을 수 있습니다.
+다음은 종속성 데이터를 추출하는 데 사용할 수 있는 샘플 쿼리입니다. 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 전체 목록은 [여기](../azure-monitor/insights/service-map.md#log-analytics-records)에서 사용할 수 있습니다. 추가 샘플 쿼리는 [여기](../azure-monitor/insights/service-map.md#sample-log-searches)에서 찾을 수 있습니다.
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 세트의 인바운드 연결 요약
 
-연결 메트릭의 VMConnection 표에 포함된 레코드는 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터를 VMConnection의 단일 논리적 레코드로 집계하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections). 
+연결 메트릭의 VMConnection 표에 포함된 레코드는 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터를 VMConnection의 단일 논리적 레코드로 집계하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/service-map.md#connections). 
 
 ```
 // the machines of interest

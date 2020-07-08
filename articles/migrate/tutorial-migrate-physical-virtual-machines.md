@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 물리적 머신�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771396"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116100"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
-마이그레이션 아키텍처를 [검토](migrate-architecture.md)합니다.
+마이그레이션 아키텍처를 [검토](./agent-based-migration-architecture.md)합니다.
 
 ## <a name="prepare-azure"></a>Azure 준비
 
@@ -172,7 +172,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 1. 복제 어플라이언스에 로그인합니다.
 2. **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**로 이동합니다.
-3. 머신 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)를 검토하세요. 
+3. 머신 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토하세요. 
 4. 설치 관리자 파일을 마이그레이션하려는 머신에 복사합니다.
 5. 어플라이언스를 배포할 때 생성된 암호가 있는지 확인합니다.
     - 파일을 머신의 임시 텍스트 파일에 저장합니다.
@@ -334,7 +334,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
     - 온-프레미스 머신에 대한 복제를 중지합니다.
     - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
     - 머신에 대한 복제 상태 정보를 정리합니다.
-2. Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 에이전트를 마이그레이션된 머신에 설치합니다.
+2. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
 5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
@@ -348,14 +348,14 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
-    - [Azure Security Center - Just-In-Time 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
-    - [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
+    - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 클라우드 채택 프레임워크에서 [클라우드 마이그레이션 과정](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)을 조사합니다.
+Azure 클라우드 채택 프레임워크에서 [클라우드 마이그레이션 과정](/azure/architecture/cloud-adoption/getting-started/migrate)을 조사합니다.

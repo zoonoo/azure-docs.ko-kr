@@ -5,15 +5,15 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7da1a3501d74cc7f46d35597df5a985c3e571388
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76846049"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106063"
 ---
 > [!NOTE]
-> 이 서비스는 서비스 공급지가 자체 테넌트에 로그인하여 고객이 위험한 구독과 리소스 그룹을 관리할 수 있도록 하는 [Azure 위임 리소스 관리](../articles/lighthouse/concepts/azure-delegated-resource-management.md)를 지원합니다. 자세한 내용은 [Azure Lighthouse](../articles/lighthouse/overview.md)를 참조하세요.
+> 이 서비스는 [Azure Lighthouse](../articles/lighthouse/overview.md)를 지원 합니다 .이를 통해 서비스 공급자는 자신의 테 넌 트에 로그인 하 여 고객이 위임한 구독 및 리소스 그룹을 관리할 수 있습니다.
