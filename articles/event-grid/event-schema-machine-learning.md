@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928876"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
@@ -32,11 +31,11 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 | MachineLearningServices. DatasetDriftDetected | 데이터 집합 드리프트 모니터가 드리프트를 검색 하는 경우 발생 합니다. |
 | MachineLearningServices. RunStatusChanged | 실행 상태가 ' 실패 '로 변경 될 때 발생 합니다. |
 
-### <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
+### <a name="the-contents-of-an-event-response"></a>이벤트 응답 내용
 
-이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대 한 데이터를 구독 끝점으로 보냅니다.
+이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 엔드포인트로 보냅니다.
 
-이 섹션에는 각 이벤트에 대 한 데이터가 어떻게 표시 되는지 예가 포함 되어 있습니다.
+이 섹션에는 각 이벤트에 대한 데이터가 어떻게 표시되는지 예가 포함되어 있습니다.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>MachineLearningServices에 등록 된 이벤트
 
@@ -190,22 +189,22 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | Blob Storage 이벤트 데이터입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | Blob Storage 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체에는 각 이벤트 유형에 대 한 다음 속성이 있습니다.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>MachineLearningServices가 등록 되었습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | ModelName | string | 등록 된 모델의 이름입니다. |
 | ModelVersion | string | 등록 된 모델의 버전입니다. |
@@ -214,7 +213,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>MachineLearningServices 배포
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | ServiceName | string | 배포 된 서비스의 이름입니다. |
 | ServiceComputeType | string | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
@@ -224,7 +223,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>MachineLearningServices
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | ExperimentId | string | 실행이 속한 실험의 ID입니다. |
 | ExperimentName | string | 실행이 속한 실험의 이름입니다. |
@@ -235,7 +234,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>MachineLearningServices. DatasetDriftDetected
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | DataDriftId | string | 이벤트를 트리거한 데이터 드리프트 모니터의 ID입니다. |
 | DataDriftName | string | 이벤트를 트리거한 데이터 드리프트 모니터의 이름입니다. |
@@ -248,7 +247,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>MachineLearningServices. RunStatusChanged
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | ExperimentId | string | 실행이 속한 실험의 ID입니다. |
 | ExperimentName | string | 실행이 속한 실험의 이름입니다. |

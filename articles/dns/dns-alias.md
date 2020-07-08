@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
 ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82926234"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
@@ -60,13 +59,13 @@ DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 �
 
 이 문제는 별칭 레코드를 사용 하 여 해결 됩니다. CNAME 레코드와 달리 별칭 레코드는 영역 apex에서 만들어지며 응용 프로그램 소유자는이 레코드를 사용 하 여 영역 apex 레코드를 외부 끝점이 있는 Traffic Manager 프로필로 가리킬 수 있습니다. 응용 프로그램 소유자는 DNS 영역 내의 다른 도메인에 사용 되는 것과 동일한 Traffic Manager 프로필을 가리킵니다.
 
-예를 들어 contoso.com 및 www\.contoso.com는 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. Azure Traffic Manager 프로필을 사용하여 별칭 레코드를 사용하는 방법에 대한 자세한 내용을 보려면 다음 단계 섹션을 참조하세요.
+예를 들어 contoso.com 및 www \. contoso.com는 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. Azure Traffic Manager 프로필을 사용하여 별칭 레코드를 사용하는 방법에 대한 자세한 내용을 보려면 다음 단계 섹션을 참조하세요.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Azure CDN 끝점에 대 한 Point zone apex
 
 Traffic Manager 프로필과 마찬가지로 별칭 레코드를 사용 하 여 DNS 영역 apex에서 끝점을 Azure CDN 가리킬 수도 있습니다. 이는 Azure storage 및 Azure CDN를 사용 하 여 정적 웹 사이트를 만드는 경우에 유용 합니다. 그런 다음 DNS 이름 앞에 "www"를 앞에 표시 하지 않고 웹 사이트에 액세스할 수 있습니다.
 
-예를 들어 정적 웹 사이트의 이름을 지정 `www.contoso.com`하는 경우 사용자는 WWW를 DNS `contoso.com` 이름 앞에 추가할 필요 없이를 사용 하 여 사이트에 액세스할 수 있습니다.
+예를 들어 정적 웹 사이트의 이름을 지정 하는 경우 `www.contoso.com` 사용자는 `contoso.com` WWW를 DNS 이름 앞에 추가할 필요 없이를 사용 하 여 사이트에 액세스할 수 있습니다.
 
 앞서 설명한 것 처럼 CNAME 레코드는 영역 apex에서 지원 되지 않습니다. 따라서 CNAME 레코드를 사용 하 여 CDN 끝점에 대 한 contoso.com를 가리킬 수 없습니다. 대신, 별칭 레코드를 사용 하 여 영역 apex CDN 끝점을 직접 가리킬 수 있습니다.
 

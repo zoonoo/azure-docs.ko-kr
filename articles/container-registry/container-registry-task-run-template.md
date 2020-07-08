@@ -4,10 +4,9 @@ description: Azure Resource Manager 템플릿을 사용 하 여 이미지를 빌
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927771"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 ACR 작업 실행
@@ -16,7 +15,7 @@ ms.locfileid: "82927771"
 
 이 문서에서는 [az acr build][az-acr-build] 명령을 사용 하 여 수동으로 만들 수 있는 것과 마찬가지로 빠른 작업 실행을 큐에 대기 하는 Azure Resource Manager 템플릿 예제를 보여 줍니다.
 
-태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 `az acr build`기능을 확장 합니다. 다음은 그 예입니다. 
+태스크 실행을 큐에 대기 하는 리소스 관리자 템플릿은 자동화 시나리오에서 유용 하 고의 기능을 확장 `az acr build` 합니다. 예를 들어:
 
 * 템플릿을 사용 하 여 컨테이너 레지스트리를 만들고 작업 실행을 즉시 큐에 대기 하 여 컨테이너 이미지를 빌드하고 푸시합니다.
 * Azure 리소스에 대 한 관리 되는 id와 같은 빠른 작업 실행에서 사용할 수 있는 추가 리소스를 만들거나 사용 하도록 설정 합니다.
@@ -28,8 +27,8 @@ ms.locfileid: "82927771"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **GitHub 계정** -아직 계정이 없는 경우 https://github.com 에 계정을 만듭니다. 
-* **포크 샘플 리포지토리** -여기에 표시 된 작업 예제에 대해서는 github UI를 사용 하 여 다음 샘플 리포지토리를 github 계정으로 https://github.com/Azure-Samples/acr-build-helloworld-node분기 합니다. 이 리포지토리에는 작은 컨테이너 이미지를 빌드하기 위한 샘플 Dockerfiles 및 소스 코드가 포함 되어 있습니다.
+* **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com . 
+* **포크 샘플 리포지토리** -여기에 표시 된 작업 예제에 대해서는 github UI를 사용 하 여 다음 샘플 리포지토리를 github 계정으로 분기 https://github.com/Azure-Samples/acr-build-helloworld-node 합니다. 이 리포지토리에는 작은 컨테이너 이미지를 빌드하기 위한 샘플 Dockerfiles 및 소스 코드가 포함 되어 있습니다.
 
 ## <a name="example-create-registry-and-queue-task-run"></a>예: 레지스트리 만들기 및 큐 작업 실행
 
@@ -39,12 +38,12 @@ ms.locfileid: "82927771"
 
 이 예에서는 다음 템플릿 매개 변수에 대 한 값을 제공 합니다.
 
-|매개 변수  |Value  |
+|매개 변수  |값  |
 |---------|---------|
 |registryName     |만든 레지스트리의 고유 이름         |
 |리포지토리     |빌드 작업에 대 한 대상 리포지토리        |
 |taskRunName     |이미지 태그를 지정 하는 작업 실행의 이름입니다. |
-|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예: https://github.com/Azure-Samples/acr-build-helloworld-node)입니다. 리포지토리 루트의 Dockerfile은 작은 node.js 웹 앱에 대 한 컨테이너 이미지를 작성 합니다. 원하는 경우 빌드 컨텍스트로 리포지토리의 포크를 사용 합니다.         |
+|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예:) https://github.com/Azure-Samples/acr-build-helloworld-node 입니다. 리포지토리 루트의 Dockerfile은 작은 Node.js 웹 앱에 대 한 컨테이너 이미지를 작성 합니다. 원하는 경우 빌드 컨텍스트로 리포지토리의 포크를 사용 합니다.         |
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
@@ -112,7 +111,7 @@ az acr task logs \
 Azure Portal에서 작업 실행 로그를 볼 수도 있습니다. 
 
 1. 컨테이너 레지스트리로 이동 합니다.
-2. **서비스**에서 **작업** > **실행**을 선택 합니다.
+2. **서비스**에서 **작업**  >  **실행**을 선택 합니다.
 3. 실행 ID (이 경우 *c a 1*)를 선택 합니다. 
 
 포털에는 태스크 실행 로그가 표시 됩니다.
@@ -125,10 +124,10 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
 
 ### <a name="prepare-base-registry"></a>기본 레지스트리 준비
 
-데모용으로 별도의 컨테이너 레지스트리를 기본 레지스트리로 만들고 Docker 허브에서 끌어온 node.js 기본 이미지를 푸시합니다.
+데모용으로 별도의 컨테이너 레지스트리를 기본 레지스트리로 만들고 Docker 허브에서 끌어온 Node.js 기본 이미지를 푸시합니다.
 
 1. 기본 이미지를 저장 하는 두 번째 컨테이너 레지스트리 (예: *mybaseregistry*)를 만듭니다.
-1. Docker 허브 `node:9-alpine` 에서 이미지를 가져와서 기본 레지스트리에 대 한 태그를 만들고 기본 레지스트리에 푸시합니다.
+1. `node:9-alpine`Docker 허브에서 이미지를 가져와서 기본 레지스트리에 대 한 태그를 만들고 기본 레지스트리에 푸시합니다.
 
   ```azurecli
   docker pull node:9-alpine
@@ -139,7 +138,7 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
 
 ### <a name="create-new-dockerfile"></a>새 Dockerfile 만들기
 
-기본 레지스트리에서 기본 이미지를 가져오는 Dockerfile을 만듭니다. GitHub 리포지토리의 로컬 포크에서 다음 단계를 수행 `https://github.com/myGitHubID/acr-build-helloworld-node.git`합니다 (예:).
+기본 레지스트리에서 기본 이미지를 가져오는 Dockerfile을 만듭니다. GitHub 리포지토리의 로컬 포크에서 다음 단계를 수행 합니다 (예:) `https://github.com/myGitHubID/acr-build-helloworld-node.git` .
 
 1. GitHub UI에서 **새 파일 만들기**를 선택 합니다.
 1. 파일 이름을 *Dockerfile-test로* 하 고 다음 내용을 붙여넣습니다. *Mybaseregistry*에 대 한 레지스트리 이름을 대체 합니다.
@@ -154,11 +153,11 @@ Azure Portal에서 작업 실행 로그를 볼 수도 있습니다.
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
-### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 id 끌어오기 권한 제공
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>기본 레지스트리에 ID 끌어오기 권한 부여
 
 기본 레지스트리 *mybaseregistry*에서 가져올 관리 id 권한을 제공 합니다.
 
-[Az acr show][az-acr-show] 명령을 사용 하 여 기본 레지스트리의 리소스 ID를 가져온 다음 변수에 저장 합니다.
+[az acr show][az-acr-show] 명령을 사용하여 기본 레지스트리의 리소스 ID를 가져와서 이를 변수에 저장합니다.
 
 ```azurecli
 baseregID=$(az acr show \
@@ -179,7 +178,7 @@ az role assignment create \
 
 이 예에서는 다음 템플릿 매개 변수에 대 한 값을 제공 합니다.
 
-|매개 변수  |Value  |
+|매개 변수  |값  |
 |---------|---------|
 |registryName     |이미지가 빌드되는 레지스트리 이름  |
 |리포지토리     |빌드 작업에 대 한 대상 리포지토리        |
@@ -187,7 +186,7 @@ az role assignment create \
 |userAssignedIdentity |태스크에서 사용 하도록 설정 된 사용자 할당 id의 리소스 ID|
 |customRegistryIdentity | 사용자 지정 레지스트리를 사용 하 여 인증 하는 데 사용 되는 작업에서 사용 하도록 설정 된 사용자 할당 id의 클라이언트 ID |
 |customRegistry |작업에서 액세스 한 사용자 지정 레지스트리의 로그인 서버 이름 (예: *mybaseregistry.azurecr.io* )|
-|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예:) * https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node입니다.* |
+|sourceLocation     |빌드 작업에 대 한 원격 컨텍스트 (예: * https://github.com/ \<your-GitHub-ID\> /acr-build-helloworld-node.* ) |
 |dockerFilePath | 이미지를 빌드하는 데 사용 되는 원격 컨텍스트의 Dockerfile에 대 한 경로입니다. |
 
 ### <a name="deploy-the-template"></a>템플릿 배포

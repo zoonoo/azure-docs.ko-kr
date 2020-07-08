@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982244"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
@@ -43,7 +42,7 @@ ms.locfileid: "82982244"
 다음 예제에서는 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다. 반환 값 특성은 필요 하지 않습니다.
 
 
-* 함수는 이름을 지정 ```warmup``` 해야 하며 (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
+* 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 * 워밍업을 .NET 클래스 라이브러리 함수로 사용 하려면 WebJobs에 대 한 패키지 참조가 있는지 확인 하세요. **>= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
@@ -73,12 +72,12 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 
-다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
+다음 예제에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
 
-함수는 이름을 지정 ```warmup``` 해야 하며 (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
+함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -107,9 +106,9 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md) 를 보여 줍니다.
+다음 예에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md) 를 보여 줍니다.
 
-함수는 이름을 지정 ```warmup``` 해야 하며 (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
+함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -137,9 +136,9 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
+다음 예에서는 *function.js* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
 
-함수는 이름을 지정 ```warmup``` 해야 하며 (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
+함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -172,7 +171,7 @@ def main(warmupContext: func.Context) -> None:
 
 다음 예제에서는 각 새 인스턴스가 앱에 추가 될 때 실행 되는 워밍업 트리거를 보여 줍니다.
 
-함수는 이름을 지정 `warmup` 해야 하며 (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
+함수는 이름을 지정 해야 하며 `warmup` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
 ```java
 @FunctionName("Warmup")
@@ -185,13 +184,13 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[C # 클래스 라이브러리](functions-dotnet-class-library.md)에서 특성 `WarmupTrigger` 은 함수를 구성 하는 데 사용할 수 있습니다.
+[C # 클래스 라이브러리](functions-dotnet-class-library.md)에서 `WarmupTrigger` 특성은 함수를 구성 하는 데 사용할 수 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 이 예제에서는 [워밍업](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) 특성을 사용 하는 방법을 보여 줍니다.
 
-함수를 호출 ```Warmup``` 해야 하 고 앱 당 하나의 준비 함수만 사용할 수 있습니다.
+함수를 호출 해야 하 ```Warmup``` 고 앱 당 하나의 준비 함수만 사용할 수 있습니다.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -202,19 +201,19 @@ public void run( ExecutionContext context) {
         }
 ```
 
-전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
+전체 예제는 [트리거 예제](#trigger---example)를 참조하세요.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -224,12 +223,12 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `WarmupTrigger` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `WarmupTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type** | 해당 없음| 필수 - `warmupTrigger`으로 설정해야 합니다. |
-| **방향도** | 해당 없음| 필수 - `in`으로 설정해야 합니다. |
+| **direction** | 해당 없음| 필수 - `in`으로 설정해야 합니다. |
 | **name** | 해당 없음| 필수-함수 코드에 사용 되는 변수 이름입니다.|
 
 ## <a name="trigger---usage"></a>트리거 - 사용

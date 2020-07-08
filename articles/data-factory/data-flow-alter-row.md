@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982652"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 Alter row 변환
@@ -29,12 +28,12 @@ Alter Row 변환은 데이터 흐름의 데이터베이스 또는 CosmosDB 싱�
 
 ## <a name="specify-a-default-row-policy"></a>기본 행 정책 지정
 
-Alter Row 변환을 만들고 조건이 인 행 정책을 지정 `true()`합니다. 이전에 정의 된 식과 일치 하지 않는 각 행은 지정 된 행 정책에 대해 표시 됩니다. 기본적으로 조건 식과 일치 하지 않는 각 행은로 표시 됩니다 `Insert`.
+Alter Row 변환을 만들고 조건이 인 행 정책을 지정 `true()` 합니다. 이전에 정의 된 식과 일치 하지 않는 각 행은 지정 된 행 정책에 대해 표시 됩니다. 기본적으로 조건 식과 일치 하지 않는 각 행은로 표시 됩니다 `Insert` .
 
 ![행 정책 변경](media/data-flow/alter-row4.png "행 정책 변경")
 
 > [!NOTE]
-> 모든 행을 하나의 정책으로 표시 하려면 해당 정책에 대 한 조건을 만들고 조건을로 `true()`지정 하면 됩니다.
+> 모든 행을 하나의 정책으로 표시 하려면 해당 정책에 대 한 조건을 만들고 조건을로 지정 하면 `true()` 됩니다.
 
 ## <a name="view-policies-in-data-preview"></a>데이터 미리 보기에서 정책 보기
 
@@ -67,7 +66,7 @@ ADF 데이터 흐름은 upsert 옵션을 사용 하 여 Azure SQL Database 및 S
 
 1. 싱크 변환 설정으로 이동 하 고 "키 열 쓰기 생략"을 설정 합니다. 그러면 ADF가 매핑에 대 한 키 값으로 선택한 열을 쓰지 않습니다.
 
-2. 해당 키 열이 id 열에 대 한 문제를 일으키는 열이 아닌 경우 싱크 변환 전처리 SQL 옵션 ```SET IDENTITY_INSERT tbl_content ON```을 사용할 수 있습니다. 그런 다음 사후 처리 SQL 속성을 사용 하 여 해제 ```SET IDENTITY_INSERT tbl_content OFF```합니다.
+2. 해당 키 열이 id 열에 대 한 문제를 일으키는 열이 아닌 경우 싱크 변환 전처리 SQL 옵션을 사용할 수 ```SET IDENTITY_INSERT tbl_content ON``` 있습니다. 그런 다음 사후 처리 SQL 속성을 사용 하 여 해제 합니다. ```SET IDENTITY_INSERT tbl_content OFF```
 
 3. Id 사례와 배포 열의 경우 모두, 조건부 분할 변환을 사용 하 여 별도의 업데이트 조건과 별도의 삽입 조건을 사용 하 여 Upsert에서 논리를 전환할 수 있습니다. 이러한 방식으로 키 열 매핑을 무시 하도록 업데이트 경로에 대 한 매핑을 설정할 수 있습니다.
 
@@ -87,13 +86,13 @@ ADF 데이터 흐름은 upsert 옵션을 사용 하 여 Azure SQL Database 및 S
 
 ### <a name="example"></a>예제
 
-아래 예는 들어오는 스트림을 `CleanData` `SpecifyUpsertConditions` 사용 하 고 3 개의 alter row 조건을 만드는 라는 alter row 변환입니다. 이전 변환에서는 데이터베이스에서 행이 삽입 `alterRowCondition` , 업데이트 또는 삭제 되는지 여부를 결정 하는 라는 열이 계산 됩니다. 열 값에 alter row 규칙과 일치 하는 문자열 값이 있으면 해당 정책이 할당 됩니다.
+아래 예는 `CleanData` 들어오는 스트림을 사용 하 `SpecifyUpsertConditions` 고 3 개의 alter row 조건을 만드는 라는 alter row 변환입니다. 이전 변환에서는 `alterRowCondition` 데이터베이스에서 행이 삽입, 업데이트 또는 삭제 되는지 여부를 결정 하는 라는 열이 계산 됩니다. 열 값에 alter row 규칙과 일치 하는 문자열 값이 있으면 해당 정책이 할당 됩니다.
 
-Data Factory UX에서이 변환은 아래 이미지와 같습니다.
+Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
 
 ![Alter row 예](media/data-flow/alter-row4.png "Alter row 예")
 
-이 변환에 대 한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
+이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 
 ```
 SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),

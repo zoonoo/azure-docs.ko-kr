@@ -8,10 +8,9 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 785c430347bc62a00eee80c977f2d6ce440c08db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982278"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
@@ -20,7 +19,7 @@ Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에�
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
-| **기능** | **설명** |
+| **Function** | **설명** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|value()로 종료되어야 하는 연결된 호출을 시작합니다.|
 |`filter(predicateFunction [, options] [, callback])`|출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 기능은 SQL의 WHERE 절과 유사하게 작동합니다.|

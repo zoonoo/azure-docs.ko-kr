@@ -4,10 +4,9 @@ description: Azure Container Registry에서 az acr check 상태 진단 명령을
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978317"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조
@@ -22,13 +21,13 @@ ms.locfileid: "82978317"
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-이 오류는 Docker 디먼 상태를 사용할 수 없거나 CLI를 사용 하 여 연결할 수 없음을 의미 합니다. 따라서 CLI를 통해 Docker 작업 (예: `docker login` 및 `docker pull`)을 사용할 수 없습니다.
+이 오류는 Docker 디먼 상태를 사용할 수 없거나 CLI를 사용 하 여 연결할 수 없음을 의미 합니다. 따라서 CLI를 통해 Docker 작업 (예: `docker login` 및 `docker pull` )을 사용할 수 없습니다.
 
 *잠재적 해결 방법*: Docker 디먼을 다시 시작 하거나 제대로 설치 되었는지 확인 합니다.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-이 오류는 CLI에서 명령을 `docker --version`실행할 수 없음을 의미 합니다.
+이 오류는 CLI에서 명령을 실행할 수 없음을 의미 `docker --version` 합니다.
 
 *잠재적 해결 방법*: 명령을 수동으로 실행 하 고, 최신 CLI 버전이 있는지 확인 하 고, 오류 메시지를 조사 하십시오.
 
@@ -58,7 +57,7 @@ ms.locfileid: "82978317"
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성으로 인해 또는 레지스트리의 공용 끝점에 대 한 액세스가 허용 되지 않기 때문일 수 있습니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>`합니다.
+이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성으로 인해 또는 레지스트리의 공용 끝점에 대 한 액세스가 허용 되지 않기 때문일 수 있습니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>` 합니다.
 
 *잠재적 해결 방법*: 가상 네트워크 규칙을 제거 하거나 현재 클라이언트 IP 주소를 허용 목록에 추가 합니다.
 
@@ -66,25 +65,25 @@ ms.locfileid: "82978317"
 
 이 오류는 대상 레지스트리의 챌린지 끝점에서 챌린지를 발행 하지 않았음을 의미 합니다.
 
-*잠재적 해결 방법*: 잠시 후에 다시 시도 하세요. 오류가 계속 발생 하면에서 https://aka.ms/acr/issues문제를 엽니다.
+*잠재적 해결 방법*: 잠시 후에 다시 시도 하세요. 오류가 계속 발생 하면에서 문제를 엽니다 https://aka.ms/acr/issues .
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
 이 오류는 대상 레지스트리의 챌린지 끝점에서 챌린지를 발행 했지만 레지스트리가 Azure Active Directory 인증을 지원 하지 않음을 의미 합니다.
 
-*잠재적 해결*방법: 관리자 자격 증명을 사용 하는 등의 다른 방법으로 인증을 시도 합니다. 사용자가 Azure Active Directory를 사용 하 여 인증 해야 하는 경우 https://aka.ms/acr/issues에서 문제를 여세요.
+*잠재적 해결*방법: 관리자 자격 증명을 사용 하는 등의 다른 방법으로 인증을 시도 합니다. 사용자가 Azure Active Directory를 사용 하 여 인증 해야 하는 경우에서 문제를 여세요 https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
 이 오류는 레지스트리 로그인 서버에서 새로 고침 토큰을 사용 하 여 응답 하지 않아 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 합니다. 이 오류는 사용자에 게 레지스트리에 대 한 적절 한 권한이 없거나 Azure CLI에 대 한 사용자 자격 증명이 유효 하지 않은 경우에 발생할 수 있습니다.
 
-*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 `az login` 실행 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
+*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 실행 `az login` 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
 
 ## <a name="connectivity_access_token_error"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
 
 이 오류는 레지스트리 로그인 서버에서 액세스 토큰을 사용 하 여 응답 하지 않아 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 합니다. 이 오류는 사용자에 게 레지스트리에 대 한 적절 한 권한이 없거나 Azure CLI에 대 한 사용자 자격 증명이 유효 하지 않은 경우에 발생할 수 있습니다.
 
-*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 `az login` 실행 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
+*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 실행 `az login` 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
 
 ## <a name="connectivity_ssl_error"></a>CONNECTIVITY_SSL_ERROR
 
@@ -100,7 +99,7 @@ ms.locfileid: "82978317"
 
 ## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
 
-이 오류는 CLI가 현재 설치 된 Docker/Notary 버전과 호환 되지 않음을 의미 합니다. 이 문제를 해결 하려면 Docker 설치의 Notary 클라이언트를 수동으로 교체 하 여 notary 버전을 0.6.0 이전의 버전으로 다운 그레이드 하세요.
+이 오류는 CLI가 현재 설치 된 Docker/Notary 버전과 호환 되지 않음을 의미 합니다. 이 문제를 해결 하려면 Docker 설치의 Notary 클라이언트를 수동으로 교체 하 여 notary.exe 버전을 0.6.0 이전의 버전으로 다운 그레이드 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

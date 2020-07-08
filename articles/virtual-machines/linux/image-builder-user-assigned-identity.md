@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82930661"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리 id를 사용 하 여 Azure Storage의 파일에 액세스 
@@ -24,23 +23,23 @@ Azure 이미지 작성기는 스크립트를 사용 하거나 GitHub, Azure stor
 
 
 > [!IMPORTANT]
-> Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure 이미지 작성기를 사용 하려면 새 기능을 등록 해야 합니다.
+미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-기능 등록의 상태를 확인 합니다.
+기능 등록 상태를 확인합니다.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-등록을 확인 하세요.
+등록을 확인합니다.
 
 
 ```azurecli-interactive
@@ -50,7 +49,7 @@ az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-등록 되지 않은 경우 다음을 실행 합니다.
+등록되지 않은 경우 다음을 실행합니다.
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -62,7 +61,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다.
+일부 정보를 반복해서 사용하게 되며, 해당 정보를 저장하기 위해 몇 가지 변수를 만듭니다.
 
 
 ```console
@@ -78,7 +77,7 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-구독 ID에 대 한 변수를 만듭니다. 을 사용 하 여 `az account show | grep id`이를 가져올 수 있습니다.
+구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
 
 ```console
 subscriptionID=<Your subscription ID>
@@ -95,7 +94,7 @@ az group create -n $strResourceGroup -l $location
 
 사용자 할당 id를 만들고 리소스 그룹에 대 한 사용 권한을 설정 합니다.
 
-이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 사용자 id에 할당 됩니다.
+이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -150,7 +149,7 @@ az storage blob copy start \
     --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
-이미지 작성기에 이미지 리소스 그룹에서 리소스를 만들 수 있는 권한을 부여 합니다. `--assignee` 값은 사용자 id id입니다.
+이미지 작성기에 이미지 리소스 그룹에서 리소스를 만들 수 있는 권한을 부여 합니다. `--assignee`값은 사용자 ID id입니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -179,7 +178,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-이미지 구성을 Azure 이미지 작성기 서비스에 제출 합니다.
+Azure Image Builder 서비스에 이미지 구성을 제출합니다.
 
 ```azurecli-interactive
 az resource create \
@@ -190,7 +189,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-이미지 빌드를 시작 합니다.
+이미지 빌드를 시작합니다.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -222,7 +221,7 @@ VM을 만든 후 VM을 사용 하 여 SSH 세션을 시작 합니다.
 ssh aibuser@<publicIp>
 ```
 
-SSH 연결이 설정 되는 즉시 이미지는 하루 메시지와 함께 사용자 지정 된 것을 볼 수 있습니다.
+SSH 연결이 설정되는 즉시 오늘의 메시지로 이미지가 사용자 지정된 것을 볼 수 있을 것입니다.
 
 ```output
 

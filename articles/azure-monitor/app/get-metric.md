@@ -8,21 +8,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927907"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
-Azure Monitor Application Insights .NET 및 .NET Core Sdk에는 사용자 지정 메트릭 `TrackMetric()`, 및 `GetMetric()`를 수집 하는 두 가지 방법이 있습니다. 이러한 두 방법의 주요 차이점은 로컬 집계입니다. `TrackMetric()``GetMetric()` 에 사전 집계가 없으므로 사전 집계가 없습니다. 권장 되는 방법은 집계를 사용 하는 것 `TrackMetric()` 입니다. 따라서 더 이상 사용자 지정 메트릭을 수집 하는 기본 방법이 아닙니다. 이 문서에서는 GetMetric () 메서드를 사용 하는 방법 및 작동 방식에 대 한 몇 가지 이유를 설명 합니다.
+Azure Monitor Application Insights .NET 및 .NET Core Sdk에는 사용자 지정 메트릭, 및를 수집 하는 두 가지 방법이 있습니다 `TrackMetric()` `GetMetric()` . 이러한 두 방법의 주요 차이점은 로컬 집계입니다. `TrackMetric()`에 사전 집계가 없으므로 사전 집계가 `GetMetric()` 없습니다. 권장 되는 방법은 집계를 사용 하는 것입니다 `TrackMetric()` . 따라서 더 이상 사용자 지정 메트릭을 수집 하는 기본 방법이 아닙니다. 이 문서에서는 GetMetric () 메서드를 사용 하는 방법 및 작동 방식에 대 한 몇 가지 이유를 설명 합니다.
 
 ## <a name="trackmetric-versus-getmetric"></a>고가 및 GetMetric
 
-`TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 `TrackMetric()`달리 `GetMetric()` 는 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
+`TrackMetric()`메트릭을 나타내는 원시 원격 분석을 보냅니다. 각 값에 대해 단일 원격 분석 항목을 보내는 것은 비효율적입니다. `TrackMetric()`는 모두 `TrackMetric(item)` 원격 분석 이니셜라이저 및 프로세서의 전체 SDK 파이프라인을 거치 므로 성능 측면 에서도 비효율적입니다. 와 달리 `TrackMetric()` 는 `GetMetric()` 로컬 사전 집계를 처리 한 다음 1 분의 고정 된 간격으로 집계 요약 메트릭을 제출 합니다. 따라서 두 번째 또는 그 밀리초 수준에서 일부 사용자 지정 메트릭을 면밀 하 게 모니터링 해야 하는 경우에는 1 분에 한 번만 모니터링 하는 저장소 및 네트워크 트래픽 비용을 발생 시킬 수 있습니다. 또한 집계 된 메트릭에 대해 전송 되어야 하는 원격 분석 항목의 총 수가 크게 감소 하기 때문에 제한 발생 위험이 크게 줄어듭니다.
 
-Application Insights에서 및 `TrackMetric()` `GetMetric()` 를 통해 수집 된 사용자 지정 메트릭은 [샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling)대상이 아닙니다. 중요 한 메트릭을 샘플링 하면 이러한 메트릭을 기반으로 작성 된 경고가 불안정 해질 수 있는 시나리오가 발생할 수 있습니다. 사용자 지정 메트릭을 샘플링 하지 않으면 일반적으로 경고 임계값이 위반 되는 경우 경고가 발생 한다는 것을 확신할 수 있습니다.  그러나 사용자 지정 메트릭이 샘플링 되지 않으므로 몇 가지 잠재적인 문제가 있습니다.
+Application Insights에서 및를 통해 수집 된 사용자 지정 메트릭은 `TrackMetric()` `GetMetric()` [샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling)대상이 아닙니다. 중요 한 메트릭을 샘플링 하면 이러한 메트릭을 기반으로 작성 된 경고가 불안정 해질 수 있는 시나리오가 발생할 수 있습니다. 사용자 지정 메트릭을 샘플링 하지 않으면 일반적으로 경고 임계값이 위반 되는 경우 경고가 발생 한다는 것을 확신할 수 있습니다.  그러나 사용자 지정 메트릭이 샘플링 되지 않으므로 몇 가지 잠재적인 문제가 있습니다.
 
 초당 메트릭에 대 한 추세를 추적 해야 하는 경우 또는 보다 세분화 된 간격이 있으면 다음과 같은 결과가 발생할 수 있습니다.
 
@@ -30,12 +29,12 @@ Application Insights에서 및 `TrackMetric()` `GetMetric()` 를 통해 수집 �
 - 네트워크 트래픽/성능 오버 헤드가 증가 합니다. 일부 시나리오에서는이로 인해 통화와 응용 프로그램 성능 비용이 모두 포함 될 수 있습니다.
 - 수집 제한의 위험. 앱이 짧은 시간 간격으로 매우 높은 수준의 원격 분석을 보내는 경우 Azure Monitor 서비스는 ("제한") 데이터 요소를 삭제 합니다.
 
-예를 들어, 제한을 샘플링 하는 경우 경고를 트리거하는 조건이 로컬로 발생 한 다음 너무 많은 데이터를 전송 하 여 수집 끝점에서 삭제 될 수 있기 때문에 제한으로 인해 경고가 누락 될 수 있습니다. 사용자 고유의 로컬 집계 논리를 구현 하지 않는 한를 사용 `TrackMetric()` 하지 않는 것이 좋습니다. 모든 인스턴스를 추적 하려고 하는 경우 지정 된 기간 동안 이벤트가 발생 하는 것 [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) 이 더 적합할 수 있습니다. 사용자 지정 메트릭과 달리 사용자 지정 이벤트는 샘플링의 영향을 받습니다. 물론 로컬 사전 집계를 작성 `TrackMetric()` 하지 않고도 계속 사용할 수 있지만,이 경우에는 문제에 대해 알고 있어야 합니다.
+예를 들어, 제한을 샘플링 하는 경우 경고를 트리거하는 조건이 로컬로 발생 한 다음 너무 많은 데이터를 전송 하 여 수집 끝점에서 삭제 될 수 있기 때문에 제한으로 인해 경고가 누락 될 수 있습니다. `TrackMetric()`사용자 고유의 로컬 집계 논리를 구현 하지 않는 한를 사용 하지 않는 것이 좋습니다. 모든 인스턴스를 추적 하려고 하는 경우 지정 된 기간 동안 이벤트가 발생 하는 것 [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) 이 더 적합할 수 있습니다. 사용자 지정 메트릭과 달리 사용자 지정 이벤트는 샘플링의 영향을 받습니다. 물론 `TrackMetric()` 로컬 사전 집계를 작성 하지 않고도 계속 사용할 수 있지만,이 경우에는 문제에 대해 알고 있어야 합니다.
 
 요약 하자면 `GetMetric()` 사전 집계를 수행 하기 때문에 권장 되는 방법입니다. 모든 Track () 호출의 값을 누적 하 고 1 분 마다 요약/집계를 보냅니다. 이렇게 하면 더 적은 데이터 요소를 전송 하 고 모든 관련 정보를 수집 하 여 비용 및 성능 오버 헤드를 크게 줄일 수 있습니다.
 
 > [!NOTE]
-> .NET 및 .NET Core Sdk만 GetMetric () 메서드를 포함 합니다. Java를 사용 하는 경우 [마이크로 측정기 메트릭](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) 또는 `TrackMetric()`를 사용할 수 있습니다. Python의 경우 [OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) 를 사용 하 여 사용자 지정 메트릭을 보낼 수 있습니다. JavaScript 및 node.js의 경우 계속 사용할 `TrackMetric()`수 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다.
+> .NET 및 .NET Core Sdk만 GetMetric () 메서드를 포함 합니다. Java를 사용 하는 경우 [마이크로 측정기 메트릭](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) 또는를 사용할 수 있습니다 `TrackMetric()` . Python의 경우 [OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) 를 사용 하 여 사용자 지정 메트릭을 보낼 수 있습니다. JavaScript 및 Node.js의 경우 계속 사용할 수 `TrackMetric()` 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다.
 
 ## <a name="getting-started-with-getmetric"></a>GetMetric 시작
 
@@ -43,7 +42,7 @@ Application Insights에서 및 `TrackMetric()` `GetMetric()` 를 통해 수집 �
 
 ### <a name="sending-metrics"></a>메트릭 보내기
 
-`worker.cs` 파일의 내용을 다음으로 바꿉니다.
+파일의 내용을 `worker.cs` 다음으로 바꿉니다.
 
 ```csharp
 using System;
@@ -109,7 +108,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 ![Log Analytics 쿼리 뷰](./media/get-metric/log-analytics.png)
 
 > [!NOTE]
-> 원시 원격 분석 항목에는 명시적 sum 속성/필드가 수집 한 번만 포함 되지 않았습니다. 이 경우와 `valueSum` 속성은 `value` 모두 동일한 작업을 나타냅니다.
+> 원시 원격 분석 항목에는 명시적 sum 속성/필드가 수집 한 번만 포함 되지 않았습니다. 이 경우와 속성은 모두 동일한 작업을 `value` `valueSum` 나타냅니다.
 
 포털의 [_메트릭_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) 섹션에서 사용자 지정 메트릭 원격 분석에 액세스할 수도 있습니다. [로그 기반 및 사용자 지정 메트릭으로](pre-aggregated-metrics-log-metrics.md)모두 사용 됩니다. (아래 스크린샷은 로그 기반의 예입니다.) ![메트릭 탐색기 보기](./media/get-metric/metrics-explorer.png)
 
@@ -140,7 +139,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 
 ```
 
-메트릭 핸들을 캐시 하는 것 외에도 위의 예제에서는 루프가 `Task.Delay` 772 `TrackValue()` 호출에 더 자주 실행 되도록를 50 밀리초로 줄였습니다.
+메트릭 핸들을 캐시 하는 것 외에도 위의 예제에서는 `Task.Delay` 루프가 772 호출에 더 자주 실행 되도록를 50 밀리초로 줄였습니다 `TrackValue()` .
 
 ## <a name="multi-dimensional-metrics"></a>다차원 메트릭
 
@@ -190,7 +189,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 
 ### <a name="enable-multi-dimensional-metrics"></a>다차원 메트릭 사용
 
-Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용** > **사용자 지정 메트릭** > 을 선택 하 여 > **사용자 지정 메트릭 차원에 대 한 경고 사용****을**선택 합니다. 이에 대 한 자세한 내용은 [여기](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 찾을 수 있습니다.
+Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용**사용자 지정 메트릭을 선택 하 여  >  **Custom Metrics**  >  **사용자 지정 메트릭 차원에 대 한 경고 사용**  >  **을**선택 합니다. 이에 대 한 자세한 내용은 [여기](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 찾을 수 있습니다.
 
 이러한 변경을 수행 하 고 새 다차원 원격 분석을 보내면 **분할을 적용할**수 있습니다.
 
@@ -205,7 +204,7 @@ Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>3 개 이상의 차원이 있을 때 MetricIdentifier를 사용 하는 방법
 
-현재 10 개의 차원이 지원 되지만 3 차원 이상에서는를 사용 해야 합니다 `MetricIdentifier`.
+현재 10 개의 차원이 지원 되지만 3 차원 이상에서는를 사용 해야 합니다 `MetricIdentifier` .
 
 ```csharp
 // Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
@@ -221,9 +220,9 @@ computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 
 ### <a name="special-dimension-names"></a>특수 차원 이름
 
-메트릭에 액세스 하 `TelemetryClient` 는 데 사용 되는의 원격 분석 컨텍스트를 사용 하지 않습니다. 클래스의 `MetricDimensionNames` 상수로 사용할 수 있는 특수 차원 이름이이 제한에 대 한 최상의 해결 방법입니다.
+메트릭에 액세스 하는 데 사용 되는의 원격 분석 컨텍스트를 사용 하지 않습니다 `TelemetryClient` . 클래스의 상수로 사용할 수 있는 특수 차원 이름이 `MetricDimensionNames` 이 제한에 대 한 최상의 해결 방법입니다.
 
-아래 "특수 작업 요청 크기"에 의해 전송 된 메트릭 집계-메트릭은 "특수 작업 `Context.Operation.Name` "으로 설정 **되지 않습니다** . `TrackMetric()` 또는 다른 모든 조합 xxx ()는 "특수 `OperationName` 작업"으로 올바르게 설정 됩니다.
+아래 "특수 작업 요청 크기"에 의해 전송 된 메트릭 집계-메트릭은 **not** `Context.Operation.Name` "특수 작업"으로 설정 되지 않습니다. `TrackMetric()`또는 다른 모든 조합 xxx ()는 `OperationName` "특수 작업"으로 올바르게 설정 됩니다.
 
 ``` csharp
         //...
@@ -248,7 +247,7 @@ computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
         }
 ```
 
-이 경우 값을 지정 `MetricDimensionNames` `TelemetryContext` 하기 위해 클래스에 나열 된 특수 차원 이름을 사용 합니다.
+이 경우 값을 지정 하기 위해 클래스에 나열 된 특수 차원 이름을 사용 `MetricDimensionNames` `TelemetryContext` 합니다.
 
 예를 들어 다음 문으로 생성 된 메트릭 집계가 Application Insights 클라우드 끝점으로 전송 되는 경우 해당 `Context.Operation.Name` 데이터 필드는 "특수 작업"으로 설정 됩니다.
 
@@ -266,9 +265,9 @@ _telemetryClient.GetMetric("Request Size", "Operation Name", MetricDimensionName
 
  원격 분석 하위 시스템이 실수로 리소스를 사용 하는 것을 방지 하기 위해 메트릭 당 최대 데이터 계열 수를 제어할 수 있습니다. 기본 제한 값은 메트릭 당 총 1000 개의 데이터 계열이 며 각 차원에는 100 개 이하로 제한 됩니다.
 
- 차원 및 시계열 50,의 컨텍스트에서는를 사용 `Metric.TrackValue(..)` 하 여 한도가 관찰 되도록 합니다. 제한에 이미 도달한 경우 `Metric.TrackValue(..)` 는 "False"를 반환 하 고 값은 추적 되지 않습니다. 그렇지 않으면 "True"를 반환 합니다. 이는 메트릭에 대 한 데이터가 사용자 입력에서 발생 하는 경우에 유용 합니다.
+ 차원 및 시계열 50,의 컨텍스트에서는를 사용 하 여 `Metric.TrackValue(..)` 한도가 관찰 되도록 합니다. 제한에 이미 도달한 경우 `Metric.TrackValue(..)` 는 "False"를 반환 하 고 값은 추적 되지 않습니다. 그렇지 않으면 "True"를 반환 합니다. 이는 메트릭에 대 한 데이터가 사용자 입력에서 발생 하는 경우에 유용 합니다.
 
-생성자 `MetricConfiguration` 는 각 메트릭의 각 계열에 대 한 집계 동작을 지정 하는을 구현 `IMetricSeriesConfiguration` 하는 클래스의 개체와 각 메트릭에 있는 여러 계열을 관리 하는 방법에 대 한 몇 가지 옵션을 사용 합니다.
+`MetricConfiguration`생성자는 `IMetricSeriesConfiguration` 각 메트릭의 각 계열에 대 한 집계 동작을 지정 하는을 구현 하는 클래스의 개체와 각 메트릭에 있는 여러 계열을 관리 하는 방법에 대 한 몇 가지 옵션을 사용 합니다.
 
 ``` csharp
 var metConfig = new MetricConfiguration(seriesCountLimit: 100, valuesPerDimensionLimit:2,
@@ -285,7 +284,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면를 호출 `TrackValue()`합니다.
+* `seriesCountLimit`메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면를 호출 `TrackValue()` 합니다.
 * `valuesPerDimensionLimit`비슷한 방식으로 차원 마다 고유한 값의 수를 제한 합니다.
 * `restrictToUInt32Values`음수가 아닌 정수 값만 추적 해야 하는지 여부를 결정 합니다.
 

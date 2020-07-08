@@ -11,10 +11,9 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927040"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C 세션
@@ -37,7 +36,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 ### <a name="azure-ad-b2c-sso"></a>Azure AD B2C SSO 
 
-사용자가 로컬 또는 소셜 계정으로 성공적으로 인증 하면 Azure AD B2C는 사용자의 브라우저에 쿠키 기반 세션을 저장 합니다. 쿠키는 Azure AD B2C 테 넌 트 도메인 이름 (예:)에 `https://contoso.b2clogin.com`저장 됩니다.
+사용자가 로컬 또는 소셜 계정으로 성공적으로 인증 하면 Azure AD B2C는 사용자의 브라우저에 쿠키 기반 세션을 저장 합니다. 쿠키는 Azure AD B2C 테 넌 트 도메인 이름 (예:)에 저장 됩니다 `https://contoso.b2clogin.com` .
 
 사용자가 처음에 페더레이션된 계정으로 로그인 한 후 세션 시간 창 (TTL (time-to-live) 또는 TTL)이 동일한 앱 또는 다른 앱에 로그인 하는 경우 Azure AD B2C 페더레이션 id 공급자 로부터 새 액세스 토큰을 획득 하려고 시도 합니다. 페더레이션된 id 공급자 세션이 만료 되거나 잘못 된 경우 페더레이션 id 공급자는 사용자에 게 자격 증명을 입력 하 라는 메시지를 표시 합니다. 세션이 아직 활성 상태 이면 (또는 사용자가 페더레이션된 계정 대신 로컬 계정으로 로그인 한 경우) Azure AD B2C 사용자에 게 권한을 부여 하 고 추가 프롬프트를 제거 합니다.
 
@@ -45,9 +44,9 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 ### <a name="federated-identity-provider-sso"></a>페더레이션된 id 공급자 SSO
 
-소셜 또는 엔터프라이즈 id 공급자는 자체 세션을 관리 합니다. 쿠키는 id 공급자의 도메인 이름 (예:)으로 `https://login.salesforce.com`저장 됩니다. Azure AD B2C 페더레이션된 id 공급자 세션을 제어 하지 않습니다. 대신, 세션 동작은 페더레이션된 id 공급자에 의해 결정 됩니다. 
+소셜 또는 엔터프라이즈 id 공급자는 자체 세션을 관리 합니다. 쿠키는 id 공급자의 도메인 이름 (예:)으로 저장 됩니다 `https://login.salesforce.com` . Azure AD B2C 페더레이션된 id 공급자 세션을 제어 하지 않습니다. 대신, 세션 동작은 페더레이션된 id 공급자에 의해 결정 됩니다. 
 
-다음과 같은 시나리오를 고려해 보세요.
+다음 시나리오를 고려하세요.
 
 1. 사용자가 Facebook에 로그인 하 여 피드를 확인 합니다.
 2. 나중에 사용자가 응용 프로그램을 열고 로그인 프로세스를 시작 합니다. 응용 프로그램은 Azure AD B2C 사용자를 리디렉션하여 로그인 프로세스를 완료 합니다.
@@ -57,7 +56,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 웹, 모바일 또는 단일 페이지 응용 프로그램은 OAuth 액세스, ID 토큰 또는 SAML 토큰으로 보호할 수 있습니다. 사용자가 앱의 보호 된 리소스에 액세스 하려고 하면 앱은 응용 프로그램 쪽에 활성 세션이 있는지 여부를 확인 합니다. 앱 세션이 없거나 세션이 만료 된 경우 앱은 사용자에 게 로그인 페이지 Azure AD B2C 하 게 됩니다.
 
-응용 프로그램 세션은와 `https://contoso.com`같은 응용 프로그램 도메인 이름으로 저장 된 쿠키 기반 세션이 될 수 있습니다. 모바일 응용 프로그램은 다른 방식으로 세션을 저장할 수 있지만 비슷한 방법을 사용 합니다.
+응용 프로그램 세션은와 같은 응용 프로그램 도메인 이름으로 저장 된 쿠키 기반 세션이 될 수 있습니다 `https://contoso.com` . 모바일 응용 프로그램은 다른 방식으로 세션을 저장할 수 있지만 비슷한 방법을 사용 합니다.
 
 ## <a name="azure-ad-b2c-session-configuration"></a>Azure AD B2C 세션 구성
 
@@ -95,8 +94,8 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 1. Azure AD B2C 쿠키 기반 세션을 무효화 합니다.
 1. 페더레이션된 id 공급자에서 로그 아웃 하려고 합니다.
-   - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 `end_session_endpoint` 지정 하는 경우입니다.
-   - SAML-id 공급자 메타 데이터에 `SingleLogoutService` 위치가 포함 된 경우
+   - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 지정 하는 경우 `end_session_endpoint` 입니다.
+   - SAML-id 공급자 메타 데이터에 위치가 포함 된 경우 `SingleLogoutService`
 1. 필요에 따라 다른 응용 프로그램에서 로그 아웃 합니다. 자세한 내용은 [Single sign-on](#single-sign-out) 섹션을 참조 하세요.
 
 로그 아웃 하면 Azure AD B2C를 사용 하 여 사용자의 Single Sign-On 상태가 지워지므로 사용자의 소셜 id 공급자 세션에서 로그 아웃 하지 못할 수 있습니다. 사용자가 후속 로그인 중에 동일한 id 공급자를 선택 하는 경우 자격 증명을 입력 하지 않고 다시 인증할 수 있습니다. 사용자가 응용 프로그램에서 로그 아웃 하려는 경우 반드시 Facebook 계정에서 로그 아웃 하려는 것은 아닙니다. 그러나 로컬 계정을 사용 하는 경우 사용자의 세션이 제대로 종료 됩니다.
@@ -107,10 +106,10 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 > [!NOTE]
 > 이 기능은 [사용자 지정 정책](custom-policy-overview.md)으로 제한 됩니다.
 
-사용자를 Azure AD B2C 로그 아웃 끝점으로 리디렉션하는 경우 (OAuth2 및 SAML 프로토콜 모두) 브라우저에서 사용자의 세션을 지웁니다 Azure AD B2C. 그러나 사용자는 인증을 위해 Azure AD B2C를 사용 하는 다른 응용 프로그램에 여전히 로그인 되어 있을 수 있습니다. 이러한 응용 프로그램이 사용자에 게 동시에 로그인 할 수 있도록 하기 위해 Azure AD B2C는 현재 사용자가 로그인 `LogoutUrl` 되어 있는 모든 응용 프로그램의 등록 된에 HTTP GET 요청을 보냅니다.
+사용자를 Azure AD B2C 로그 아웃 끝점으로 리디렉션하는 경우 (OAuth2 및 SAML 프로토콜 모두) 브라우저에서 사용자의 세션을 지웁니다 Azure AD B2C. 그러나 사용자는 인증을 위해 Azure AD B2C를 사용 하는 다른 응용 프로그램에 여전히 로그인 되어 있을 수 있습니다. 이러한 응용 프로그램이 사용자에 게 동시에 로그인 할 수 있도록 하기 위해 Azure AD B2C는 `LogoutUrl` 현재 사용자가 로그인 되어 있는 모든 응용 프로그램의 등록 된에 HTTP GET 요청을 보냅니다.
 
 
-애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 응용 프로그램에서 single sign-on을 지원 하려면 응용 프로그램의 코드에서를 `LogoutUrl` 구현 해야 합니다. 
+애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 응용 프로그램에서 single sign-on을 지원 하려면 응용 프로그램의 코드에서를 구현 해야 합니다 `LogoutUrl` . 
 
 ## <a name="next-steps"></a>다음 단계
 

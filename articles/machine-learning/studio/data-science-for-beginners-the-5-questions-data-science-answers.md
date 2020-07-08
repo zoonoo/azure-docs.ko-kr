@@ -12,7 +12,6 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
 ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82930151"

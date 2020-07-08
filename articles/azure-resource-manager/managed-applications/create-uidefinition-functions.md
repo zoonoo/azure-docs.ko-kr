@@ -6,28 +6,27 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82980816"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
 
-함수를 사용 하려면 호출을 대괄호로 묶습니다. 다음은 그 예입니다. 
+함수를 사용 하려면 호출을 대괄호로 묶습니다. 예를 들어:
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 다음은 그 예입니다. 
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예를 들어:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 다음은 그 예입니다. 
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예를 들어:
 
 ```json
 "[func().prop1]"
@@ -123,7 +122,7 @@ ms.locfileid: "82980816"
 ## <a name="collection-functions"></a>컬렉션 함수
 이러한 함수는 JSON 문자열, 배열, 개체 등의 컬렉션과 함께 사용할 수 있습니다.
 
-### <a name="contains"></a>contains
+### <a name="contains"></a>포함
 문자열에 지정된 부분 문자열이 포함되어 있거나, 배열에 지정된 값이 포함되어 있거나, 개체에 지정된 키가 포함되어 있으면 `true`를 반환합니다.
 
 #### <a name="example-1-string"></a>예제 1: 문자열
@@ -189,7 +188,7 @@ ms.locfileid: "82980816"
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>비어 있음
+### <a name="empty"></a>empty
 문자열, 배열 또는 개체가 null이거나 비어 있으면 `true`를 반환합니다.
 
 #### <a name="example-1-string"></a>예제 1: 문자열
@@ -431,7 +430,7 @@ ms.locfileid: "82980816"
 "[greaterOrEquals(2, 2)]"
 ```
 
-### <a name="and"></a>를 갖는
+### <a name="and"></a>및
 모든 매개 변수가 `true`로 평가되면 `true`를 반환합니다. 이 함수는 두 개 이상의 부울 형식의 매개 변수만 지원합니다.
 
 다음 예제는 `true`을 반환합니다.
@@ -487,7 +486,7 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 
 이 함수는 페이지를 로드 한 후 사용자 작업으로 인해 발생 하는 선택적 호출의 컨텍스트에서 특히 유용 합니다. UI의 한 필드에 적용 되는 제약 조건이 처음에는 **표시 되지 않는** 다른 필드의 현재 선택 된 값에 따라 달라 지는 경우를 예로 들 수 있습니다. 이 경우를 `coalesce()` 사용 하 여 사용자가 필드와 상호 작용할 때 원하는 효과를 얻을 수 있는 동안 페이지 로드 시 함수를 구문상 유효 하 게 지정할 수 있습니다.
 
-이 `DropDown`를 고려 하 여 사용자는 여러 가지 다른 데이터베이스 유형 중에서 선택할 수 있습니다.
+이를 고려 하 `DropDown` 여 사용자는 여러 가지 다른 데이터베이스 유형 중에서 선택할 수 있습니다.
 
 ```
 {
@@ -516,13 +515,13 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
     },
 ```
 
-이 필드의 현재 선택 된 값에 다른 필드의 동작을 표시 하려면 다음과 같이 `coalesce()`를 사용 합니다.
+이 필드의 현재 선택 된 값에 다른 필드의 동작을 표시 하려면 다음과 같이 `coalesce()` 를 사용 합니다.
 
 ```
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
 ```
 
-이는 처음에는 `databaseType` 표시 되지 않으므로 값이 없기 때문에 필요 합니다. 이로 인해 전체 식이 올바르게 계산 되지 않습니다.
+이는 처음에는 표시 되지 않으므로 값이 없기 때문에 필요 `databaseType` 합니다. 이로 인해 전체 식이 올바르게 계산 되지 않습니다.
 
 ## <a name="conversion-functions"></a>변환 함수
 이러한 함수를 사용하여 JSON 데이터 형식 및 인코딩 간에 값을 변환할 수 있습니다.
@@ -726,7 +725,7 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>min
+### <a name="min"></a>분
 두 숫자 중 작은 숫자를 반환합니다.
 
 다음 예제는 `1`을 반환합니다.

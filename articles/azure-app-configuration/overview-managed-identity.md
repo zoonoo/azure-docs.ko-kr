@@ -9,7 +9,6 @@ ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
 ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82981224"

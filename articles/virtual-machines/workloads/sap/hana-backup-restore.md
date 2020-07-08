@@ -14,16 +14,15 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901387"
 ---
 # <a name="backup-and-restore"></a>백업 및 복원
 
 >[!IMPORTANT]
->이 문서는 SAP HANA 관리 설명서 또는 SAP note를 대체 하지 않습니다. 특히 백업, 복원, 고가용성 및 재해 복구에 대 한 SAP HANA 관리 및 운영에 대 한 전문 지식이 있는 것으로 간주 됩니다. 이 문서에서는 SAP HANA Studio의 스크린샷에 표시 됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
+>이 문서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체하지 않습니다. 특히 백업, 복원, 고가용성 및 재해 복구에 대 한 SAP HANA 관리 및 운영에 대 한 전문 지식이 있는 것으로 간주 됩니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 표시됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
 
 사용자 환경에서 수행되는 단계와 프로세스를 해당 HANA 버전 및 릴리스로 연습하는 것이 중요합니다. 보다 일반적인 이해를 위해이 문서에서 설명 하는 몇 가지 프로세스를 간소화 합니다. 최종 작업 핸드북에 대 한 자세한 단계로 사용 되지 않습니다. 구성에 대 한 작업 핸드북을 만들려는 경우 프로세스를 테스트 및 실행 하 고 특정 구성과 관련 된 프로세스를 문서화 합니다. 
 
@@ -117,7 +116,7 @@ HANA Large Instances를 사용 하 여 저장소 스냅숏을 설정 하려면 �
 1. 모든 SAP HANA 큰 인스턴스 서버에 SAP HANA HDB 클라이언트를 설치합니다.
 1. 각 지역의 첫 번째 SAP HANA 큰 인스턴스 서버에서 스냅샷 생성을 제어하는 기본 스토리지 인프라에 액세스하기 위한 공개 키를 만듭니다.
 1. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md)의 스크립트 및 구성 파일을 SAP HANA 설치의 **hdbsql** 위치에 복사합니다.
-1. 적절 한 고객 사양에 따라 필요에 따라 *hanabackupdetails.txt* 파일을 수정 합니다.
+1. 적절 한 고객 사양에 따라 필요에 따라 *HANABackupDetails.txt* 파일을 수정 합니다.
 
 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md)에서 최신 스냅샷 스크립트와 설명서를 다운로드하세요. 이전에 나열 된 단계는 [Azure의 SAP HANA Microsoft 스냅숏 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)를 참조 하세요.
 
@@ -174,7 +173,7 @@ SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립�
 
 스냅숏 도구를 구성 하기 전에 HANA 백업 위치 및 설정을 올바르게 구성 했는지 확인 합니다. 자세한 내용은 [Azure의 SAP HANA Microsoft 스냅숏 도구](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)에서 "SAP HANA 구성"을 참조 하세요.
 
-스냅숏 도구 집합의 구성에 [대 한 자세한 내용은 Azure의 SAP HANA Microsoft snapshot tools](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)의 "Config File-hanabackupcustomerdetails.txt" (영문)을 참조 하세요.
+스냅숏 도구 집합의 구성은 [Azure에서 SAP HANA Microsoft snapshot tools](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)의 "구성 파일-HANABackupCustomerDetails.txt"에 설명 되어 있습니다.
 
 #### <a name="test-connectivity-with-sap-hana"></a>SAP HANA 연결 테스트
 
@@ -184,7 +183,7 @@ SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립�
 
 #### <a name="test-storage-connectivity"></a>저장소 연결 테스트
 
-다음 테스트 단계는 *hanabackupcustomerdetails.txt* 구성 파일에 추가한 데이터를 기반으로 저장소에 대 한 연결을 확인 하는 것입니다. 그런 다음 테스트 스냅숏을 실행 합니다. `azure_hana_backup` 명령을 실행 하기 전에이 테스트를 실행 해야 합니다. 이 테스트에 대 한 일련의 명령에 대 한 자세한 내용은 [Microsoft snapshot tools for SAP HANA에서 Azure의](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)"저장소에 대 한 연결 확인-testStorageSnapshotConnection"을 참조 하세요.
+다음 테스트 단계는 *HANABackupCustomerDetails.txt* 구성 파일에 저장 한 데이터를 기반으로 저장소에 대 한 연결을 확인 하는 것입니다. 그런 다음 테스트 스냅숏을 실행 합니다. 명령을 실행 하기 전에 `azure_hana_backup` 이 테스트를 실행 해야 합니다. 이 테스트에 대 한 일련의 명령에 대 한 자세한 내용은 [Microsoft snapshot tools for SAP HANA에서 Azure의](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)"저장소에 대 한 연결 확인-testStorageSnapshotConnection"을 참조 하세요.
 
 스토리지 가상 머신 인터페이스에 로그인이 성공하면 스크립트는 2단계로 진행되고 테스트 스냅샷을 만듭니다. SAP HANA의 3 노드 스케일 아웃 구성에 대 한 출력이 여기에 표시 됩니다.
 
@@ -298,7 +297,7 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만, 결정적�
 >부팅 LUN의 스냅숏은 이전 명령과 함께 표시 되지 않습니다.
 
 ### <a name="get-details-of-snapshots"></a>스냅숏의 세부 정보 가져오기
-스냅숏에 대 한 자세한 내용을 보려면 스크립트 `azure_hana_snapshot_details`를 사용 합니다. 재해 복구 위치에 활성 서버가 있으면 어느 위치에서 나이 스크립트를 실행할 수 있습니다. 이 스크립트는 스냅샷이 포함된 각 볼륨별로 다음과 같이 세분화된 출력을 제공합니다. 
+스냅숏에 대 한 자세한 내용을 보려면 스크립트를 사용 `azure_hana_snapshot_details` 합니다. 재해 복구 위치에 활성 서버가 있으면 어느 위치에서 나이 스크립트를 실행할 수 있습니다. 이 스크립트는 스냅샷이 포함된 각 볼륨별로 다음과 같이 세분화된 출력을 제공합니다. 
    * 볼륨의 총 스냅샷 크기
    * 해당 볼륨의 각 스냅샷에 다음 세부 정보가 포함됩니다. 
       - 스냅샷 이름 
