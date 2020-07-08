@@ -3,12 +3,11 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021095"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -39,7 +38,7 @@ ms.locfileid: "79408763"
 
 시작하기 전에 다음을 확인합니다.
 
-1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) 수 있습니다.
+1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) 수 있습니다.
 2. [기능 고려 사항](sql-support-matrix.md#feature-consideration-and-limitations) 및 [시나리오 지원](sql-support-matrix.md#scenario-support)을 검토합니다.
 3. 이 시나리오에 대한 [일반적인 질문을 검토](faq-backup-sql-server.md)합니다.
 
@@ -109,7 +108,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 7. 확인을 클릭합니다.
 8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
-9. 사용 권한을 부여 하 고 나면 포털에서 **db** 를 다시 **->** 검색 합니다 **->** . Azure VM의 자격 증명 모음 백업 인프라 워크 로드:
+9. 사용 권한을 부여 하 고 나면 포털에서 **db** 를 다시 검색 합니다. **->** Azure VM의 자격 증명 모음 백업 인프라 **->** 워크 로드:
 
     ![Azure Portal에서 DB 다시 검색](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

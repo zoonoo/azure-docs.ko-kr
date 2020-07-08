@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756676"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
@@ -25,7 +24,7 @@ Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-+ Azure CLI 설치 되어 있으며 버전 2.0.7 이상입니다. 을 실행 `az --version`하 여 Azure CLI 버전을 확인 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
++ Azure CLI 설치 되어 있으며 버전 2.0.7 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
 + IoT Central 응용 프로그램에서 사용자로 추가 된 Azure의 회사 또는 학교 계정
 
 ## <a name="install-the-iot-central-extension"></a>IoT Central 확장 설치
@@ -50,7 +49,7 @@ az extension update --name azure-iot
 
 ## <a name="using-the-extension"></a>확장 사용
 
-다음 섹션에서는를 실행할 `az iot central`때 사용할 수 있는 일반적인 명령 및 옵션에 대해 설명 합니다. 명령 및 옵션의 전체 집합을 보려면 또는 해당 하위 `--help` 명령 `az iot central` 에를 전달 합니다.
+다음 섹션에서는를 실행할 때 사용할 수 있는 일반적인 명령 및 옵션에 대해 설명 합니다 `az iot central` . 명령 및 옵션의 전체 집합을 보려면 `--help` `az iot central` 또는 해당 하위 명령에를 전달 합니다.
 
 ### <a name="login"></a>로그인
 

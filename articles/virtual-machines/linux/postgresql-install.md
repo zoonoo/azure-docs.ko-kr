@@ -10,10 +10,9 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759338"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
@@ -58,7 +57,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. 설명서 (HTML 및 man 페이지) 및 추가 모듈 (`contrib`)을 비롯 하 여 빌드할 수 있는 모든 항목을 빌드 하려는 경우에는 다음 명령을 대신 실행 합니다.
+5. 설명서 (HTML 및 man 페이지) 및 추가 모듈 ()을 비롯 하 여 빌드할 수 있는 모든 항목을 빌드 하려는 경우에는 `contrib` 다음 명령을 대신 실행 합니다.
    
         # gmake install-world
    
@@ -150,7 +149,7 @@ PostgreSQL의 엔드포인트가 켜져 있는지 확인합니다.
 
     # netstat -tunlp|grep 1999
 
-다음과 같은 내용이 출력됩니다.
+다음 출력이 표시됩니다.
 
 ![이미지](./media/postgresql-install/no3.png)
 

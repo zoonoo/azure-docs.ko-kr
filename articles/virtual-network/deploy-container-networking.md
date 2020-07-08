@@ -10,18 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 704f08bc4a41eb52789f8f28675332892d72a500
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710017"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
 
@@ -168,8 +167,8 @@ CNI 네트워크 구성 파일은 JSON 형식으로 기술되어 있습니다. �
 
 [GitHub](https://github.com/Azure/azure-container-networking/releases)에서 플러그 인을 다운로드합니다. 사용 중인 플랫폼용 최신 버전을 다운로드하세요.
 
-- **Linux**: [azure-vnet-cni-linux-amd64-\<버전 번호\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-windows-amd64-\<버전 번호\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+- **Linux**: [azure-vnet-cni-Linux-amd64 \<version no.\> tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
+- **Windows**: [azure-vnet-cni-Windows-amd64- \<version no.\> .zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
 
 [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) 또는 [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1)용 설치 스크립트를 컴퓨터에 복사합니다. 컴퓨터의 `scripts` 디렉터리에 스크립트를 저장하고 파일 이름을 `install-cni-plugin.sh`(Linux) 또는 `install-cni-plugin.ps1`(Windows)로 지정합니다. 플러그 인을 설치하려면 사용 중인 플러그 인 버전을 지정하여 플랫폼에 적합한 스크립트를 실행합니다. 예를 들어 *v1.0.12-rc3*을 지정할 수 있습니다.
 

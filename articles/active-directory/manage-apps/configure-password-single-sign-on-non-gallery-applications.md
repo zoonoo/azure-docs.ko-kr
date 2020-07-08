@@ -2,21 +2,20 @@
 title: Azure AD 앱에 대 한 암호 Single Sign-On를 구성 하는 방법 | Microsoft Docs
 description: Microsoft id 플랫폼 (Azure AD)에서 Azure AD 엔터프라이즈 응용 프로그램에 대 한 SSO (암호 Single Sign-On)를 구성 하는 방법
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763502"
 ---
 # <a name="configure-password-single-sign-on"></a>암호 Single Sign-On 구성
 
@@ -44,7 +43,7 @@ ms.locfileid: "77063529"
 
 1. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 클라우드 애플리케이션 관리자 또는 애플리케이션 관리자로 로그인합니다.
 
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램**으로 이동 합니다. Azure AD 테넌트에 있는 애플리케이션 샘플이 임의로 표시됩니다. 
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다. Azure AD 테넌트에 있는 애플리케이션 샘플이 임의로 표시됩니다. 
 
 3. **애플리케이션 유형** 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
 
@@ -68,7 +67,7 @@ ms.locfileid: "77063529"
 
 Azure AD의 구문 분석에 실패 하는 경우 로그인을 수동으로 구성할 수 있습니다.
 
-1. 응용 프로그램 **Configure sign-on** **이름> 구성에서 응용 프로그램 이름> 암호 Single sign-on 설정 구성을 선택 하 여 로그온 구성 페이지를 표시 \<** 합니다. ** \<** 
+1. ** \<application name> 구성**에서 ** \<application name> 암호 Single sign-on 설정 구성** 을 선택 하 여 로그온 **구성** 페이지를 표시 합니다. 
 
 2. **로그인 필드 수동 검색**을 선택 합니다. 로그인 필드의 수동 검색에 대해 설명 하는 추가 지침이 표시 됩니다.
 

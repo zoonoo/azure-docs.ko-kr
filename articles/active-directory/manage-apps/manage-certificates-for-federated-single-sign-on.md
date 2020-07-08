@@ -3,8 +3,8 @@ title: Azure AD에서 페더레이션 인증서 관리 | Microsoft Docs
 description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77159032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763213"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 
@@ -30,7 +29,7 @@ ms.locfileid: "77159032"
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>갤러리 및 비갤러리 애플리케이션에 대해 자동 생성된 인증서
 
-갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on** > **saml** 을 선택 하 여) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
+갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on**saml을 선택 하 여  >  **SAML** ) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
 
 ![SAML 활성 서명 인증서 다운로드 옵션](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -54,7 +53,7 @@ Saml **서명 인증서 제목의** **편집** 아이콘 (연필)을 선택 하 
 
 먼저 다른 만료 날짜를 사용 하 여 새 인증서를 만들고 저장 합니다.
 
-1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인 합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
+1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
 1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 1. 영향을 받는 응용 프로그램을 선택 합니다. 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
 1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
@@ -111,4 +110,4 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 스�
 - [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
 - [Azure Active Directory를 사용한 애플리케이션 관리](what-is-application-management.md)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)
-- [Azure Active Directory의 응용 프로그램에 대 한 SAML 기반 Single Sign-On 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On 디버그](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

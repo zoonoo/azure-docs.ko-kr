@@ -2,22 +2,21 @@
 title: Azure AD 앱에 대 한 연결 된 로그인-Microsoft identity platform
 description: Microsoft id 플랫폼 (Azure AD)에서 Azure AD 엔터프라이즈 응용 프로그램에 대 한 SSO (연결 된 Single Sign-On) 구성
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763485"
 ---
 # <a name="configure-linked-sign-on"></a>연결된 로그온 구성
 
@@ -31,7 +30,7 @@ ms.locfileid: "77063546"
 
 1. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 클라우드 애플리케이션 관리자 또는 애플리케이션 관리자로 로그인합니다.
 
-1. **Azure Active Directory** > **엔터프라이즈 응용 프로그램**으로 이동 합니다. Azure AD 테넌트에 있는 애플리케이션 샘플이 임의로 표시됩니다. 
+1. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다. Azure AD 테넌트에 있는 애플리케이션 샘플이 임의로 표시됩니다. 
 
 1. **애플리케이션 유형** 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
 

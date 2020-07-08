@@ -1,26 +1,13 @@
 ---
 title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Event Hubs의 단일 테 넌 트 배포를 제공 하는 전용 Azure Event Hubs에 대 한 개요를 제공 합니다.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72516752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322444"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -48,26 +35,26 @@ ms.locfileid: "72516752"
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>할당량 및 한도 Event Hubs Dedicated
 
-Event Hubs Dedicated 제품은 최소 4 시간 사용으로 고정 된 월별 가격으로 청구 됩니다. 전용 계층은 표준 요금제의 모든 기능을 제공 하지만, 엔터프라이즈 규모 용량과 워크 로드가 까다로운 고객에 대 한 제한을 제공 합니다. 
+Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최소 사용량은 4시간입니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량 및 제한을 제공합니다. 
 
 | 기능 | Standard | 전용 |
 | --- |:---:|:---:|
-| 대역폭 | 20 Tu (최대 40 Tu) | 20 CUs |
-| 네임스페이스 |  1 | CU 당 50 |
-| Event Hubs |  네임 스페이스 당 10 | 1000 네임 스페이스 |
-| 수신 이벤트 | 100만 이벤트당 요금 부과 | Included |
+| 대역폭 | 20 Tu (최대 40 Tu) | 20개 CU |
+| 네임스페이스 |  1 | CU당 50개 |
+| Event Hubs |  네임 스페이스 당 10 | 네임스페이스당 1,000개 |
+| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
 | 메시지 크기 | 100만 바이트 | 100만 바이트 |
 | 파티션 | 32 이벤트 허브 당 | 1024 이벤트 허브 당 |
-| 소비자 그룹 | 이벤트 허브 당 20 | CU 당 제한 없음, 이벤트 허브 당 1000 |
+| 소비자 그룹 | 이벤트 허브 당 20 | CU당 제한 없음, 이벤트 허브당 1,000개 |
 | 조정된 연결 | 1000 포함, 최대 5000 | 100 K 포함 및 최대 |
-| 메시지 보존 | TU 당 7 일, 84 GB 포함 | CU 당 90 일, 10TB 포함 |
+| 메시지 보존 | TU 당 7 일, 84 GB 포함 | 90일, CU당 10TB 포함 |
 | 캡처 | 시간당 요금 부과 | Included |
 
 ## <a name="how-to-onboard"></a>등록 방법
 
 [Azure Portal](https://aka.ms/eventhubsclusterquickstart) 을 통해 [Event Hubs 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md) 셀프 서비스 환경은 이제 미리 보기로 제공 됩니다. 질문이 있거나 Event Hubs Dedicated 등록 하는 데 도움이 필요한 경우 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의 하세요.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 #### <a name="what-can-i-achieve-with-a-cluster"></a>클러스터로 무엇을 할 수 있나요?
 
@@ -77,9 +64,9 @@ Event Hubs 클러스터의 경우 수집 하 고 스트리밍할 수 있는 양�
 
 | 페이로드 셰이프 | 수신기 | 수신 대역폭| 수신 메시지 | 송신 대역폭 | 송신 메시지 | 총 TU | CU당 TU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| 100x1KB의 일괄 처리 | 2 | 400MB/초 | 초당 400k 메시지 | 800MB/초 | 800k messages/sec | 400TU | 100TU | 
-| 10x10KB의 일괄 처리 | 2 | 666MB/초 | 66.6 k messages/sec | 1.33GB/초 | 133k 메시지/초 | 666TU | 166TU |
-| 6x32KB의 일괄 처리 | 1 | 1.05GB/초 | 34k 메시지/초 | 1.05GB/초 | 34k 메시지/초 | 1,000TU | 250TU |
+| 100x1KB의 일괄 처리 | 2 | 400MB/초 | 초당 400k 메시지 | 800MB/초 | 초당 800k 메시지 | 400TU | 100TU | 
+| 10x10KB의 일괄 처리 | 2 | 666MB/초 | 초당 66.6k 메시지 | 1.33GB/초 | 초당 133k 메시지 | 666TU | 166TU |
+| 6x32KB의 일괄 처리 | 1 | 1.05GB/초 | 초당 34k 메시지 | 1.05GB/초 | 초당 34k 메시지 | 1,000TU | 250TU |
 
 테스트에 사용된 조건은 다음과 같습니다.
 

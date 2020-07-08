@@ -2,13 +2,12 @@
 title: 대규모로 위임된 구독에 Azure Policy 배포
 description: Azure 위임 리소스 관리를 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 알아봅니다.
 ms.date: 11/8/2019
-ms.topic: conceptual
-ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 0e3af1728b4927874fa599bad256798f39721e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636532"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 

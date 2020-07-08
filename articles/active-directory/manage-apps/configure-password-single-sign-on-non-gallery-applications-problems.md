@@ -3,24 +3,23 @@ title: 비 갤러리 앱에 대해 암호 SSO를 구성 하는 문제
 description: Azure AD 응용 프로그램 갤러리에 없는 사용자 지정 앱에 대해 SSO (암호 Single Sign-On)를 구성할 때 발생 하는 일반적인 문제입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763451"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비 갤러리 응용 프로그램에 대해 암호 Single Sign-On를 구성 하는 문제
 
@@ -96,11 +95,11 @@ ms.locfileid: "74274143"
 
 9. 사용자가 로그인 할 때 사용자 이름 및 암호를 입력 하는 페이지인 **로그온 URL**을 입력 합니다. *사용자가 제공 하는 URL에 대 한 페이지에 로그인 필드가 표시 되는지 확인*합니다.
 
-10. ** * &lt;Appname&gt; * 암호 Single sign-on 설정 구성**을 선택 합니다.
+10. ** * &lt; Appname &gt; * 암호 Single sign-on 설정 구성**을 선택 합니다.
 
 11. **로그인 필드 수동 검색**을 선택 합니다.
 
-14. **확인을**선택 합니다.
+14. **확인**을 선택합니다.
 
 15. **저장**을 선택합니다.
 
@@ -140,15 +139,15 @@ ms.locfileid: "74274143"
 
 - 수동 캡처 프로세스를 다시 시도 합니다. 빨간색 표식이 올바른 필드 위에 있는지 확인 합니다.
 
-- 수동 캡처 프로세스가 응답 하지 않거나 로그인 페이지가 응답 하지 않는 것으로 보이면 수동 캡처 프로세스를 다시 시도 하세요. 그러나 이번에는 프로세스를 완료 한 후 F12 키를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔** 탭을 선택 합니다. **location = "*&lt;앱&gt;을 구성할 때 지정한 로그인 URL*"** 을 입력 한 다음 enter 키를 누릅니다. 이렇게 하면 캡처 프로세스를 종료 하 고 캡처된 필드를 저장 하는 페이지 리디렉션이 강제로 수행 됩니다.
+- 수동 캡처 프로세스가 응답 하지 않거나 로그인 페이지가 응답 하지 않는 것으로 보이면 수동 캡처 프로세스를 다시 시도 하세요. 그러나 이번에는 프로세스를 완료 한 후 F12 키를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔** 탭을 선택 합니다. **location = "* &lt; 앱 &gt; 을 구성할 때 지정한 로그인 URL*"** 을 입력 한 다음 enter 키를 누릅니다. 이렇게 하면 캡처 프로세스를 종료 하 고 캡처된 필드를 저장 하는 페이지 리디렉션이 강제로 수행 됩니다.
 
-### <a name="contact-support"></a>지원에 문의
+### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
 
 문제가 여전히 발생 하면 Microsoft 지원를 사용 하 여 케이스를 엽니다. 시도한 작업을 설명 합니다. [포털 알림 세부 정보 보기](#view-portal-notification-details) 및 [지원 엔지니어에 게 알림 세부 정보 보내기](#send-notification-details-to-a-support-engineer-to-get-help) 에 설명 된 세부 정보를 포함 하 여이 문서의 도움말 섹션을 가져옵니다 (해당 하는 경우).
 
 ## <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. 지원 되는 브라우저에서 [액세스 패널](https://myapps.microsoft.com) 을 엽니다. *사용자*로 Azure AD에 로그인 합니다.
 
@@ -219,7 +218,7 @@ ms.locfileid: "74274143"
 
 - **UPN**: 작업을 실행 한 사용자입니다.
 
-    예: *tperkins\@f128.info*
+    예: *tperkins \@ f128.info*
 
 - **테 넌 트 ID**: 작업을 실행 한 사용자가 구성원 인 테 넌 트의 고유 ID입니다.
 
@@ -245,7 +244,7 @@ ms.locfileid: "74274143"
 
 - **세부 정보**: 작업의 결과로 발생 한 작업에 대 한 자세한 설명입니다.
 
-    예: *내부 url '<https://bing.com/>'은 (는) 이미 사용 중 이므로 유효 하지 않습니다.*
+    예: *내부 url ' <https://bing.com/> '은 (는) 이미 사용 중 이므로 유효 하지 않습니다.*
 
 - **복사 오류**: **오류 복사** 텍스트 상자 오른쪽에 있는 **복사 아이콘** 을 선택 하 여 지원에 도움을 주는 알림 세부 정보를 복사할 수 있습니다.
 

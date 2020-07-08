@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733235"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>클라우드-디바이스 통신 지침
@@ -38,7 +37,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 | 데이터 흐름 | 양방향. 디바이스 앱에서 메서드에 즉시 응답할 수 있습니다. 솔루션 백 엔드에서 컨텍스트에 따라 요청에 대한 결과를 수신합니다. | 단방향. 디바이스 앱에서 속성 변경 알림을 수신합니다. | 단방향. 디바이스 앱에서 메시지를 수신합니다.
 | 내구성 | 연결이 끊긴 디바이스는 연결되지 않습니다. 디바이스가 연결되어 있지 않다고 솔루션 백 엔드에 알립니다. | 속성 값은 디바이스 쌍에 유지됩니다. 다음에 다시 연결할 때 디바이스에서 이 알림을 읽습니다. 속성 값은 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)로 검색할 수 있습니다. | 메시지는 최대 48시간 동안 IoT Hub에 보관될 수 있습니다. |
 | 대상 | **deviceId**를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId**를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId**를 사용하는 단일 디바이스 |
-| Size | 최대 직접 메서드 페이로드 크기는 128KB입니다. | Desired 속성의 최대 크기는 32입니다. | 최대 64KB 메시지 |
+| 크기 | 최대 직접 메서드 페이로드 크기는 128KB입니다. | Desired 속성의 최대 크기는 32입니다. | 최대 64KB 메시지 |
 | 빈도 | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
 | 프로토콜 | MQTT 또는 AMQP를 통해 사용 가능합니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTPS를 사용할 경우 디바이스에서 폴링해야 합니다. |
 

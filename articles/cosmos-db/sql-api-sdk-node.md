@@ -8,27 +8,27 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391964"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET 변경 피드 SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST (영문)](/rest/api/cosmos-db/)
+> * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |리소스  |링크  |
@@ -44,23 +44,23 @@ ms.locfileid: "83650727"
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name=""></a><a name="3.1.0"/>3.1.0</a>
+### <a name="310"></a><a name="3.1.0"></a>3.1.0
 * 기본 ResponseContinuationTokenLimitInKB를 1kb로 설정했습니다. 기본적으로 긴 헤더를 방지하지 위해 1kb로 제한하는 것입니다(Node.js에는 전역 헤더 크기 제한이 있음). 사용자는 이 필드를 긴 헤더를 허용하도록 설정할 수 있습니다. 그러면 백 엔드에서 쿼리 실행을 최적화하는 데 도움이 될 수 있습니다.
 * disableSSLVerification을 제거했습니다. 이 옵션에는 [#388](https://github.com/Azure/azure-cosmos-js/pull/388)에 설명된 새로운 대안이 있습니다.
 
-### <a name=""></a><a name="3.0.4"/>3.0.4</a>
+### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * initialHeaders가 파티션 키 헤더를 명시적으로 설정하도록 허용
 * package.json#files를 사용하여 불필요한 파일이 게시되는 것 방지
 * 이전 버전의 node+v8에서 라우팅 맵 정렬 오류 수정
 * 사용자가 부분 다시 시도 옵션을 제공했을 때의 버그 수정
 
-### <a name=""></a><a name="3.0.3"/>3.0.3</a>
+### <a name="303"></a><a name="3.0.3"></a>3.0.3
 * Webpack이 필수로 호출된 모듈을 확인하는 것 방지
 
-### <a name=""></a><a name="3.0.2"/>3.0.2</a>
+### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * RU가 집계 쿼리에 대해 항상 0으로 보고되는 장기 미해결 버그 수정
 
-### <a name=""></a><a name="3.0.0"/>3.0.0</a>
+### <a name="300"></a><a name="3.0.0"></a>3.0.0
 
 🎉 v3 릴리스! 🎉 다양한 새 기능, 버그 수정 및 몇 가지 주요 변경 내용이 있습니다. 이 릴리스의 주요 목표:
 
@@ -211,30 +211,30 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * noUnusedLocals 및 noUnusedParameters 사용(#275)
 * CI 빌드용 Azure Pipelines YAML(#298)
 
-### <a name=""></a><a name="2.1.5"/>2.1.5</a>
+### <a name="215"></a><a name="2.1.5"></a>2.1.5
 * 코드 변경이 없습니다. 2\.1.4 패키지에 일부 추가 파일이 포함된 문제를 수정했습니다.
 
-### <a name=""></a><a name="2.1.4"/>2.1.4</a>
+### <a name="214"></a><a name="2.1.4"></a>2.1.4
 * 다시 시도 정책 내에서 지역별 장애 조치(failover)를 수정
 * ChangeFeed hasMoreResults 속성을 수정
 * Dev 종속성 업데이트
 * PolicheckExclusions.txt 추가
 
-### <a name=""></a><a name="2.1.3"/>2.1.3</a>
+### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * _ts 형식을 문자열에서 숫자로 전환
 * 기본 인덱싱 테스트를 수정
 * uniqueKeyPolicy를 v2로 백포팅
 * 데모 및 데모 디버깅을 수정
 
-### <a name=""></a><a name="2.1.2"/>2.1.2</a>
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 * v3 분기에서 제품 수정을 백포팅
 * executeNext() 형식 서명에서 버그를 수정
 * 오타 수정
 
-### <a name=""></a><a name="2.1.1"/>2.1.1</a>
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * 빌드 재구성. 빌드 시 SDK 버전 끌어오기를 허용합니다.
 
-### <a name=""></a><a name="2.1.0"/>2.1.0</a>
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 #### <a name="new-features"></a>새로운 기능
 * ChangeFeed 지원 추가(#196)
 * 인덱싱을 위한 MultiPolygon 데이터 형식 추가(#191)
@@ -247,76 +247,76 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * typescript 소비에 대한 통합 테스트 추가(#199)
 * GitHub에서 직접 설치 사용(#194)
 
-### <a name=""></a><a name="2.0.5"/>2.0.5</a>
+### <a name="205"></a><a name="2.0.5"></a>2.0.5
 * 노드 에이전트 형식의 인터페이스를 추가합니다. Typescript 사용자는 더 이상 @types/node를 종속성으로 설치할 필요가 없습니다.
 * 이제 기본 위치가 제대로 적용됩니다.
 * 개발자 설명서에 포함된 향상된 기능
 * 다양한 오타 수정
 
-### <a name=""></a><a name="2.0.4"/>2.0.4</a>
+### <a name="204"></a><a name="2.0.4"></a>2.0.4
 * 2\.0.3에 도입된 형식 정의 문제 수정
 
-### <a name=""></a><a name="2.0.3"/>2.0.3</a>
+### <a name="203"></a><a name="2.0.3"></a>2.0.3
 * `big-integer` 종속성 제거
 * AsyncIterable 형식에 대한 참조 지시문으로 전환 Typescript 사용자는 더 이상 해당 "lib" 설정을 사용자 지정할 필요가 없습니다.
 * 오타 수정
 
-### <a name=""></a><a name="2.0.2"/>2.0.2</a>
+### <a name="202"></a><a name="2.0.2"></a>2.0.2
 * 추가 정보 링크 수정
 
-### <a name=""></a><a name="2.0.1"/>2.0.1</a>
+### <a name="201"></a><a name="2.0.1"></a>2.0.1
 * 재시도 인터페이스 구현 수정
 
-### <a name=""></a><a name="2.0.0"/>2.0.0</a>
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 * JavaScript SDK 버전 2.0.0 GA
 * 다중 지역 쓰기 지원이 추가되었습니다.
 
-### <a name=""></a><a name="2.0.0-3"/>2.0.0-3</a>
+### <a name="200-3"></a><a name="2.0.0-3"></a>2.0.0-3
 * 공개 미리 보기용 JavaScript SDK 버전 2.0.0의 RC1
 * 관련 데이터베이스, 컨테이너 및 항목 클래스에 분할된 최상위 CosmosClient 및 메서드가 있는 새로운 개체 모델 
 * [프라미스](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises)에 대한 지원 
 * TypeScript로 변환된 SDK
 
-### <a name=""></a><a name="1.14.4"/>1.14.4</a>
+### <a name="1144"></a><a name="1.14.4"></a>1.14.4
 * npm 설명서가 수정되었습니다.
 
-### <a name=""></a><a name="1.14.3"/>1.14.3</a>
+### <a name="1143"></a><a name="1.14.3"></a>1.14.3
 * 연결 문제에 대한 기본 재시도 지원이 추가되었습니다.
 * 컬렉션 변경 피드 읽기에 대한 지원이 추가되었습니다.
 * 일시적인 "읽기 세션을 사용할 수 없음" 세션 일관성 버그가 수정되었습니다.
 * 쿼리 메트릭에 대한 지원이 추가되었습니다.
 * http 에이전트의 최대 연결 수가 수정되었습니다.
 
-### <a name=""></a><a name="1.14.2"/>1.14.2</a>
+### <a name="1142"></a><a name="1.14.2"></a>1.14.2
 * Azure DocumentDB 대신 Azure Cosmos DB를 참조하도록 업데이트된 설명서입니다.
 * ConnectionPolicy에서 proxyUrl 설정에 대한 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.14.1"/>1.14.1</a>
+### <a name="1141"></a><a name="1.14.1"></a>1.14.1
 * 대/소문자 구분 파일 시스템에 대해 사소한 수정이 있었습니다.
 
-### <a name=""></a><a name="1.14.0"/>1.14.0</a>
+### <a name="1140"></a><a name="1.14.0"></a>1.14.0
 * 세션 일관성에 대한 지원이 추가되었습니다.
 * 이 SDK 버전을 사용하려면 최신 버전의 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)가 필요합니다.
 
-### <a name=""></a><a name="1.13.0"/>1.13.0</a>
+### <a name="1130"></a><a name="1.13.0"></a>1.13.0
 * 파티션 간 쿼리를 분할 검증했습니다
 * 선행 및 후행 슬래시(및 해당 테스트)와의 리소스 링크 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.12.2"/>1.12.2</a>
+### <a name="1122"></a><a name="1.12.2"></a>1.12.2
 *    npm 설명서가 수정되었습니다.
 
-### <a name=""></a><a name="1.12.1"/>1.12.1</a>
+### <a name="1121"></a><a name="1.12.1"></a>1.12.1
 * 관련된 문서에 특수 유니코드 문자(LS, PS)가 있는 executeStoredProcedure의 버그를 수정했습니다.
 * 파티션 키의 유니코드 문자를 사용하여 문서를 처리할 때 버그를 수정했습니다.
 * 이름 미디어를 사용하여 컬렉션을 만들기 위한 지원을 수정했습니다. GitHub 문제 #114.
 * 권한 부여 토큰에 대한 지원을 수정했습니다. GitHub 문제 #178.
 
-### <a name=""></a><a name="1.12.0"/>1.12.0</a>
+### <a name="1120"></a><a name="1.12.0"></a>1.12.0
 * ConsistentPrefix라고 하는 새로운 [일관성 수준](consistency-levels.md)에 대한 지원이 추가되었습니다.
 * UriFactory에 대한 지원이 추가되었습니다.
 * 유니코드 지원 버그를 수정했습니다. GitHub 문제 #171.
 
-### <a name=""></a><a name="1.11.0"/>1.11.0</a>
+### <a name="1110"></a><a name="1.11.0"></a>1.11.0
 * 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
 * 파티션 간 쿼리에 대한 병렬 처리 수준을 제어하기 위한 옵션을 추가했습니다.
 * Azure Cosmos DB 에뮬레이터에 대해 실행하는 경우 TLS 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
@@ -324,87 +324,87 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * 단일 파티션 컬렉션에 대한 연속 토큰 버그를 수정했습니다. GitHub 문제 #107.
 * 단일 매개 변수인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다. GitHub 문제 #155.
 
-### <a name=""></a><a name="1.10.2"/>1.10.2</a>
+### <a name="1102"></a><a name="1.10.2"></a>1.10.2
 * SDK 버전을 포함하도록 수정된 사용자 에이전트 헤더입니다.
 * 사소한 코드 정리입니다.
 
-### <a name=""></a><a name="1.10.1"/>1.10.1</a>
+### <a name="1101"></a><a name="1.10.1"></a>1.10.1
 * SDK를 사용하여 에뮬레이터를 대상으로 지정할 때(hostname=localhost) TLS 유효성 검사를 사용하지 않도록 설정됩니다.
 * 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.10.0"/>1.10.0</a>
+### <a name="1100"></a><a name="1.10.0"></a>1.10.0
 * 파티션 간 병렬 쿼리에 대한 지원이 추가되었습니다.
 * 분할된 컬렉션의 TOP/ORDER BY 쿼리에 대한 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.9.0"/>1.9.0</a>
+### <a name="190"></a><a name="1.9.0"></a>1.9.0
 * 제한된 요청에 대한 재시도 정책 지원이 추가되었습니다. (제한된 요청은 오류 코드 429, 요청 속도가 너무 크다는 예외를 수신합니다.) 기본적으로 오류 코드 429가 발생하면 Azure Cosmos DB는 각 요청을 9번 다시 시도하며 응답 헤더에서 retryAfter 시간을 적용합니다. 이제 다시 시도 간의 서버에서 반환한 retryAfter 시간을 무시하려는 경우 고정된 다시 시도 간격 시간은 ConnectionPolicy 개체에서 RetryOptions 속성의 일부로 설정될 수 있습니다. Azure Cosmos DB는 제한된 요청 각각에 대해 30초 동안 대기하고(다시 시도 횟수와 관계 없이) 오류 코드 429를 포함하는 응답을 반환합니다. 이 시간도 ConnectionPolicy 개체에 있는 RetryOptions 속성에서 재정의할 수 있습니다.
 * 이제 Cosmos DB는 x-ms-throttle-retry-count 및 x-ms-throttle-retry-wait-time-ms를 다시 시도 사이에 요청이 대기한 제한 다시 시도 수 및 누적 시간을 표시하는 모든 요청의 응답 헤더로 반환합니다.
 * 기본 다시 시도 옵션의 일부를 재정의하는 데 사용할 수 있는 ConnectionPolicy 클래스에 RetryOptions 속성을 노출하여 RetryOptions 클래스를 추가했습니다.
 
-### <a name=""></a><a name="1.8.0"/>1.8.0</a>
+### <a name="180"></a><a name="1.8.0"></a>1.8.0
 * 다중 지역 데이터베이스 계정에 대한 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.7.0"/>1.7.0</a>
+### <a name="170"></a><a name="1.7.0"></a>1.7.0
 * 문서의 TTL(Time to Live) 기능에 대한 지원이 추가되었습니다.
 
-### <a name=""></a><a name="1.6.0"/>1.6.0</a>
+### <a name="160"></a><a name="1.6.0"></a>1.6.0
 * [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
 
-### <a name=""></a><a name="1.5.6"/>1.5.6</a>
+### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * 잘못된 concat 결과로 인해 링크를 반환하지 못했던 RangePartitionResolver.resolveForRead 버그가 수정되었습니다.
 
-### <a name=""></a><a name="1.5.5"/>1.5.5</a>
+### <a name="155"></a><a name="1.5.5"></a>1.5.5
 * hashPartitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
 
-### <a name=""></a><a name="1.5.4"/>1.5.4</a>
+### <a name="154"></a><a name="1.5.4"></a>1.5.4
 * 문제 해결 [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - 전용 HTTPS 에이전트: Azure Cosmos DB 목적으로 전역 에이전트를 수정하지 않도록 합니다. 모든 lib의 요청에 대해 전용 에이전트를 사용합니다.
 
-### <a name=""></a><a name="1.5.3"/>1.5.3</a>
+### <a name="153"></a><a name="1.5.3"></a>1.5.3
 * 문제 [#81](https://github.com/Azure/azure-documentdb-node/issues/81) 해결 - 미디어 ID에서 대시를 올바르게 처리합니다.
 
-### <a name=""></a><a name="1.5.2"/>1.5.2</a>
+### <a name="152"></a><a name="1.5.2"></a>1.5.2
 * 문제 해결 [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter 수신기 누수 경고
 
-### <a name=""></a><a name="1.5.1"/>1.5.1</a>
+### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * 문제 [#92](https://github.com/Azure/azure-documentdb-node/issues/90) 해결 - 대/소문자 구분 시스템으로 인해 Hash 폴더의 이름을 hash로 바꿉니다.
 
-### <a name=""></a><a name="1.5.0"/>1.5.0</a>
+### <a name="150"></a><a name="1.5.0"></a>1.5.0
 * 해시 및 범위 파티션 해결 프로그램을 추가하여 분할 지원 구현
 
-### <a name=""></a><a name="1.4.0"/>1.4.0</a>
+### <a name="140"></a><a name="1.4.0"></a>1.4.0
 * Upsert를 구현합니다. DocumentClient의 새로운 upsertXXX 메서드입니다.
 
-### <a name=""></a><a name="1.3.0"/>1.3.0</a>
+### <a name="130"></a><a name="1.3.0"></a>1.3.0
 * 다른 SDK와 정렬된 버전 번호를 가져오기 위해 건너뛰었습니다.
 
-### <a name=""></a><a name="1.2.2"/>1.2.2</a>
+### <a name="122"></a><a name="1.2.2"></a>1.2.2
 * 프라미스 래퍼를 새 리포지토리로 분할합니다.
 * npm 레지스트리에 대한 패키지 파일로 업데이트합니다.
 
-### <a name=""></a><a name="1.2.1"/>1.2.1</a>
+### <a name="121"></a><a name="1.2.1"></a>1.2.1
 * ID 기반 라우팅을 구현합니다.
 * 문제 [#49](https://github.com/Azure/azure-documentdb-node/issues/49) 수정 - 현재 속성이 메서드 current()와 충돌합니다.
 
-### <a name=""></a><a name="1.2.0"/>1.2.0</a>
+### <a name="120"></a><a name="1.2.0"></a>1.2.0
 * 지리 공간 인덱스에 대한 지원이 추가되었습니다.
 * 모든 리소스에 대한 ID 속성의 유효성을 검사합니다. 리소스의 ID는 ?, /, #, &#47;&#47; 문자를 포함할 수 없으며 공백으로 끝날 수도 없습니다.
 * ResourceResponse에 새 헤더 "인덱스 변환 진행"을 추가합니다.
 
-### <a name=""></a><a name="1.1.0"/>1.1.0</a>
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 * V2 인덱싱 정책을 구현합니다.
 
-### <a name=""></a><a name="1.0.3"/>1.0.3</a>
+### <a name="103"></a><a name="1.0.3"></a>1.0.3
 * 문제 [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - 핵심 및 프라미스 SDK에서 eslint 및 grunt 구성을 구현했습니다.
 
-### <a name=""></a><a name="1.0.2"/>1.0.2</a>
+### <a name="102"></a><a name="1.0.2"></a>1.0.2
 * 문제 [#45](https://github.com/Azure/azure-documentdb-node/issues/45) - 프라미스 래퍼에 오류가 있는 헤더가 포함되지 않습니다.
 
-### <a name=""></a><a name="1.0.1"/>1.0.1</a>
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * readConflicts, readConflictAsync 및 queryConflicts를 추가하여 충돌을 쿼리하는 기능을 구현했습니다.
 * API 설명서가 업데이트되었습니다.
 * 문제 [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync 오류
 
-### <a name=""></a><a name="1.0.0"/>1.0.0</a>
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜

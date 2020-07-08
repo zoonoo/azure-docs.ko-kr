@@ -3,25 +3,24 @@ title: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문�
 description: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764692"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
@@ -67,7 +66,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 **클라이언트 인증서를 확인 하려면:**
 
-현재 클라이언트 인증서의 지문을 확인 합니다. 인증서 저장소 는%ProgramData%\microsoft\Microsoft AAD 응용 프로그램 프록시, \Config\trustsettings.xml에서 찾을 수 있습니다.
+현재 클라이언트 인증서의 지문을 확인 합니다. %ProgramData%\microsoft\Microsoft AAD 응용 프로그램 프록시에서 인증서 저장소를 찾을 수 있습니다 Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,7 +92,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 인증서를 확인 하려면 다음 단계를 수행 합니다.
 
-1. [PsTools를 다운로드 합니다.](https://docs.microsoft.com/sysinternals/downloads/pstools)
+1. 다운로드 [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. 패키지에서 [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) 를 추출 하 고 관리자 권한 명령 프롬프트에서 **PsExec-i-u "nt authority\network service" cmd.exe** 를 실행 합니다.
 3. 새로 나타난 명령 프롬프트에서 certmgr.exe를 실행 **합니다.**
 2. 관리 콘솔에서 개인 컨테이너를 확장 하 고 인증서를 클릭 합니다.
@@ -120,9 +119,9 @@ Register-AppProxyConnector 명령에 대 한 자세한 내용은 [Azure AD 응�
 
 **자격 증명이 올바른지 확인하려면:**
 
-`https://login.microsoftonline.com`에 연결하고 동일한 자격 증명을 사용합니다. 로그인이 성공하는지 확인합니다. **Azure Active Directory**  - &gt; **Users and Groups**  - 사용자 및 그룹 **모든 사용자**로 이동 하 여 사용자 역할을 확인할 수 있습니다.&gt; 
+`https://login.microsoftonline.com`에 연결하고 동일한 자격 증명을 사용합니다. 로그인이 성공하는지 확인합니다. **Azure Active Directory**  - &gt; **사용자 및 그룹**  - &gt; **모든 사용자**로 이동 하 여 사용자 역할을 확인할 수 있습니다. 
 
 사용자 계정을 선택 하 고 결과 메뉴에서 "디렉터리 역할"을 선택 합니다. 선택한 역할이 "응용 프로그램 관리자" 인지 확인 합니다. 이러한 단계에서 페이지에 액세스할 수 없는 경우 필수 역할이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+[Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)

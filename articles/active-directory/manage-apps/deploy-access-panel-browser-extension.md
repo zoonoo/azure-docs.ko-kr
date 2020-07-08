@@ -3,8 +3,8 @@ title: GPO를 사용하여 IE에 대한 Azure 액세스 패널 확장 배포 | M
 description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67807678"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763434"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>방법: 그룹 정책을 사용 하 여 Internet Explorer 용 액세스 패널 확장 배포
 
@@ -30,21 +29,21 @@ ms.locfileid: "67807678"
 
 액세스 패널 확장은 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 및 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998)에도 사용할 수 있으며 설치에 관리자 권한이 필요하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
 * 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>1 단계: 배포 지점 만들기
 
-먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이를 수행하려면 다음 단계를 따르십시오.
+먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. 관리자 권한으로 서버에 로그온 합니다.
 1. **서버 관리자** 창에서 **파일 및 Storage 서비스**로 이동합니다.
 
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/files-services.png)
 
-1. **공유** 탭으로 이동 합니다. 그런 다음 **작업** > **새 공유 ...** 를 클릭 합니다.
+1. **공유** 탭으로 이동 합니다. 그런 다음 **작업**  >  **새 공유 ...** 를 클릭 합니다.
 
     ![작업 화면에서 새 공유를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/deploy-access-panel-browser-extension/shares.png)
 
@@ -59,14 +58,14 @@ ms.locfileid: "67807678"
 ## <a name="step-2-create-the-group-policy-object"></a>2 단계: 그룹 정책 개체 만들기
 
 1. Active Directory Domain Services (AD DS) 설치를 호스트 하는 서버에 로그인 합니다.
-1. 서버 관리자에서 **도구** > **그룹 정책 관리**로 이동 합니다.
+1. 서버 관리자에서 **도구**  >  **그룹 정책 관리**로 이동 합니다.
 
     ![도구 > 그룹 정책 관리로 이동](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 
 1. **그룹 정책 관리** 창의 왼쪽 창에서 조직 구성 단위(OU) 계층 구조를 확인하고 그룹 정책을 적용할 범위를 결정합니다. 예를 들어, 테스트를 위해 소수의 사용자에게 소규모 OU를 배포하거나, 전 조직에 배포하기 위해 최상위 OU를 선택할 수 있습니다.
 
    > [!NOTE]
-   > 조직 구성 단위 (ou)를 만들거나 편집 하려면 서버 관리자으로 다시 전환 하 고 **도구** > **Active Directory 사용자 및 컴퓨터**로 이동 합니다.
+   > 조직 구성 단위 (ou)를 만들거나 편집 하려면 서버 관리자으로 다시 전환 하 고 **도구**  >  **Active Directory 사용자 및 컴퓨터**로 이동 합니다.
 
 1. OU를 선택한 후에 마우스 오른쪽 단추로 클릭하고 **이 도메인에서 GPO를 만들고 여기에 연결...** 을 선택합니다.
 
@@ -91,7 +90,7 @@ ms.locfileid: "67807678"
 
     ![공유 폴더에서 설치 패키지 선택](./media/deploy-access-panel-browser-extension/select-package.png)
 
-1. **소프트웨어 배포** 프롬프트에서 배포 방법으로 **할당**을 선택합니다. 그런 다음 **확인**을 클릭합니다.
+1. **소프트웨어 배포** 프롬프트에서 배포 방법으로 **할당**을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 이제 확장이 선택한OU에 배포되었습니다. [그룹 정책 소프트웨어 설치에 대해 알아봅니다.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 

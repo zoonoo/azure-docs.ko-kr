@@ -6,13 +6,12 @@ ms.author: mhopkins
 ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512181"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -179,12 +178,12 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **Start** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
-| **상태** |스토리지 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
-| **해제** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
+| **Status** |스토리지 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
+| **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
 | **Init** |에뮬레이터를 설정 하기 위해 일회성 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>스토리지 에뮬레이터와 Azure Storage의 차이점
@@ -315,7 +314,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ### <a name="version-31"></a>버전 3.1
 
-* 읽기 액세스 지역 중복 스토리지 (RA-GRS)는 이제 스토리지 에뮬레이터에서 지원됩니다. , `Get Blob Service Stats` `Get Queue Service Stats`및 `Get Table Service Stats` api는 계정 보조에 대해 지원 되며 기본 SQL 데이터베이스에 따라 항상 LastSyncTime response 요소의 값을 현재 시간으로 반환 합니다. 스토리지 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 Storage 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 .NET용 Microsoft Azure Storage 클라이언트 라이브러리 참조를 참조하세요.
+* 읽기 액세스 지역 중복 스토리지 (RA-GRS)는 이제 스토리지 에뮬레이터에서 지원됩니다. `Get Blob Service Stats`, `Get Queue Service Stats` 및 api는 `Get Table Service Stats` 계정 보조에 대해 지원 되며 기본 SQL 데이터베이스에 따라 항상 LastSyncTime response 요소의 값을 현재 시간으로 반환 합니다. 스토리지 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 Storage 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 .NET용 Microsoft Azure Storage 클라이언트 라이브러리 참조를 참조하세요.
 
 ### <a name="version-30"></a>버전 3.0
 

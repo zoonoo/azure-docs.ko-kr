@@ -2,22 +2,21 @@
 title: 다중 테 넌 트 응용 프로그램에 대 한 Azure 테 넌 트 만들기
 description: Azure Active Directory와의 통합에 대 한 독립 소프트웨어 공급 업체 지침
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 637adba89445e6974e83486f0641576225ccd268
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70812621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763247"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 Azure 테 넌 트 만들기  
 

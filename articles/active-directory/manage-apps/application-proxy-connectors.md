@@ -2,22 +2,21 @@
 title: Azure AD 애플리케이션 프록시 커넥터 이해 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764675"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -76,7 +75,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 - 커넥터가 하나만 있으면 두 번째 커넥터를 설치하고 [커넥터 그룹을 만드는](application-proxy-connector-groups.md) 것이 좋습니다. 이렇게 하면 가동 중지 시간을 방지하고 보다 높은 가용성을 제공할 수 있습니다.  
 - 업데이트를 시작했을 때 커넥터가 트랜잭션 중에 있었습니다. 초기 트랜잭션이 손실되지만, 브라우저에서 자동으로 작업을 다시 시도하거나 사용자가 페이지를 새로 고칠 수 있습니다. 요청을 다시 보내면 백업 커넥터에 트래픽이 라우팅됩니다.
 
-이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시-버전 릴리스 내역](application-proxy-release-version-history.md)을 참조하세요.
+이전에 릴리스된 버전과 해당 버전에 포함 된 변경 내용에 대 한 정보는 [응용 프로그램 프록시 버전 릴리스 기록](application-proxy-release-version-history.md)을 참조 하세요.
 
 ## <a name="creating-connector-groups"></a>커넥터 그룹 만들기
 
@@ -175,9 +174,9 @@ Register-AppProxyConnector
 
 ![성능 모니터로 커넥터에 카운터 추가](./media/application-proxy-connectors/performance-monitor.png)
 
-커넥터에는 관리 및 세션 로그가 모두 포함됩니다. 관리 로그에는 주요 이벤트와 해당 오류가 포함됩니다. 세션 로그에는 모든 트랜잭션 및 처리 세부 정보가 포함됩니다.
+커넥터에는 **관리자** 와 **세션** 로그가 모두 있습니다. **관리** 로그에는 주요 이벤트와 해당 오류가 포함 됩니다. **세션** 로그에는 모든 트랜잭션과 해당 처리 정보가 포함 됩니다.
 
-로그를 보려면 이벤트 뷰어로 이동하고 **보기** 메뉴를 열고 **분석 및 디버그 로그 표시**를 활성화합니다. 그런 다음 활성화하여 이벤트 수집을 시작합니다. 커넥터는 보다 최신 버전을 기반으로 하므로 Windows Server 2012 R2의 웹 애플리케이션 프록시에서는 이러한 로그가 나타나지 않습니다.
+로그를 보려면 **이벤트 뷰어** 를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터**로 이동 합니다. **세션** 로그를 표시 하려면 **보기** 메뉴에서 **분석 및 디버그 로그 표시**를 선택 합니다. **세션** 로그는 일반적으로 문제 해결에 사용 되며 기본적으로 사용 하지 않도록 설정 됩니다. 이벤트 수집을 시작 하 고 더 이상 필요 하지 않을 때 사용 하지 않도록 설정할 수 있습니다.
 
 서비스 창에서 서비스 상태를 검사할 수 있습니다. 커넥터는 두 개의 Windows 서비스(실제 커넥터와 업데이터)로 구성됩니다. 둘 다 항상 실행되어야 합니다.
 

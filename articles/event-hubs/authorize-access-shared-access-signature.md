@@ -1,19 +1,13 @@
 ---
 title: Azure Event Hubs에서 공유 액세스 서명을 사용 하 여 액세스 권한 부여
 description: 이 문서에서는 SAS (공유 액세스 서명)를 사용 하 여 Azure Event Hubs 리소스에 대 한 액세스 권한 부여에 대 한 정보를 제공 합니다.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323121"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>공유 액세스 서명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
 SAS (공유 액세스 서명)는 Event Hubs 네임 스페이스의 리소스에 대 한 제한 된 액세스 권한을 부여 하는 방법을 제공 합니다. SAS는 권한 부여 규칙에 따라 Event Hubs 리소스에 대 한 액세스를 보호 합니다. 이러한 규칙은 네임 스페이스 또는 엔터티 (이벤트 허브 또는 토픽)에서 구성 됩니다. 이 문서에서는 SAS 모델의 개요를 제공 하 고 SAS 모범 사례를 검토 합니다.
@@ -33,7 +27,7 @@ SAS는 단순 토큰을 사용 하는 클레임 기반 권한 부여 메커니�
 
 ## <a name="shared-access-authorization-policies"></a>공유 액세스 권한 부여 정책
 각 Event Hubs 네임 스페이스와 각 Event Hubs 엔터티 (이벤트 허브 인스턴스 또는 Kafka 토픽)에는 규칙으로 구성 된 공유 액세스 권한 부여 정책이 있습니다. 네임스페이스 수준에서 정책은 개별 정책 구성에 관계 없이 네임스페이스 내부의 모든 엔터티에 적용됩니다.
-각각의 권한 부여 정책 규칙의 경우 이름, 범위 및 권한 등, 3가지 정보를 결정합니다. 이름은 해당 범위에서 고유한 이름입니다. 범위는 해당 리소스의 URI입니다. Event Hubs 네임 스페이스의 경우 범위는와 `https://<yournamespace>.servicebus.windows.net/`같은 FQDN (정규화 된 도메인 이름)입니다.
+각각의 권한 부여 정책 규칙의 경우 이름, 범위 및 권한 등, 3가지 정보를 결정합니다. 이름은 해당 범위에서 고유한 이름입니다. 범위는 해당 리소스의 URI입니다. Event Hubs 네임 스페이스의 경우 범위는와 같은 FQDN (정규화 된 도메인 이름)입니다 `https://<yournamespace>.servicebus.windows.net/` .
 
 정책 규칙에서 제공 하는 권한은 다음의 조합일 수 있습니다.
 - **Send** – 엔터티에 메시지를 보낼 수 있는 권한을 부여 합니다.

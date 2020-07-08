@@ -3,12 +3,11 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: HT
+ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920602"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -33,9 +32,9 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 포털에서 직접 또는 API 및 관리 도구(예: Azure CLI 및 Azure PowerShell)를 사용하여 위임된 리소스에서 관리 작업을 수행할 수 있습니다. 이 기능이 테넌트 간 관리에 대해 지원되고 사용자에게 적절 한 권한이 있는 한, 위임된 리소스를 사용할 때 기존의 모든 API를 사용할 수 있습니다.
 
-Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0)은 각 구독에 대한 **tenantID**를 표시하여 반환된 구독이 서비스 공급자 테넌트 또는 관리형 고객 테넌트 중 어디에 속하는지를 식별할 수 있습니다.
+Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0)은 각 구독에 대한 **tenantID**를 표시하여 반환된 구독이 서비스 공급자 테넌트 또는 관리형 고객 테넌트 중 어디에 속하는지를 식별할 수 있습니다.
 
-마찬가지로 [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)와 같은 Azure CLI 명령은 **homeTenantId** 및 **managedByTenants** 특성 표시합니다.
+마찬가지로 [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list)와 같은 Azure CLI 명령은 **homeTenantId** 및 **managedByTenants** 특성 표시합니다.
 
 > [!TIP]
 > Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.
@@ -60,6 +59,10 @@ Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershe
 - 고객 테넌트의 고객 데이터를 백업 및 복원합니다.
 - [Backup 탐색기](../../backup/monitor-azure-backup-with-backup-explorer.md)를 사용하여 백업 항목의 작동 정보(백업에 대해 아직 구성되지 않은 Azure 리소스 포함) 및 위임된 구독에 대한 모니터링 정보(작업 및 경고)를 볼 수 있도록 지원합니다. Backup 탐색기는 현재 Azure VM 데이터에만 사용할 수 있습니다.
 - 위임된 구독에서 [Backup 보고서](../../backup/configure-reports.md)를 사용하여 기록 추세를 추적하고, 백업 스토리지 사용량을 분석하고, 백업 및 복원을 감사합니다.
+
+[Azure Cost Management + 청구](../../cost-management-billing/index.yml):
+
+- 관리 테 넌 트에서 CSP 파트너는 Azure 요금제를 사용 하는 고객에 대 한 사전 세금 소비 비용 (구매를 포함 하지 않음)을 보고, 관리 하 고, 분석할 수 있습니다. 비용은 고객의 구독에 대해 파트너가 보유 하 고 있는 소매 요금 및 Azure RBAC 액세스에 따라 결정 됩니다.
 
 [AKS(Azure Kubernetes Service)](../../aks/index.yml):
 
@@ -143,7 +146,6 @@ Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershe
 - 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용하는 구독을 온보딩할 수 있지만 관리 테넌트의 사용자는 현재 위임된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
-- 관리 테넌트의 사용자는 일반적으로 액세스를 허용하는 기본 제공 역할이 있는 경우에도 위임된 고객 구독의 청구 정보를 볼 권한이 없습니다. 이는 청구 정보에 액세스하려면 현재 동일한 테넌트 내의 사용자에 대해서만 지원되는 추가 단계가 필요하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

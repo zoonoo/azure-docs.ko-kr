@@ -11,32 +11,31 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74278121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921156"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
 CORS(크로스 원본 자원 공유)는 특정 도메인에서 실행되는 웹 애플리케이션이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 사이트 간 스크립팅 공격 가능성을 줄이기 위해 모든 최신 웹 브라우저는 [동일 원본 정책](https://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다.  이 경우 웹 페이지는 다른 도메인의 API를 호출할 수 없습니다.  CORS는 한 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형이 있습니다.
 
 ### <a name="for-simple-requests"></a>간단한 요청:
 
-1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  Https\://www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스 하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송 됩니다.
+1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  Https \: //www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스 하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송 됩니다.
 
    `Origin: https://www.contoso.com`
 
 2. 서버는 다음으로 응답할 수 있습니다.
 
-   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 다음은 그 예입니다.
+   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예를 들어:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -82,7 +81,9 @@ Verizon 프리미엄 규칙 엔진을 사용 하 여 요청에서 **원본** 헤
 #### <a name="one-regular-expression-with-all-valid-origins"></a>유효한 모든 원본을 포함하는 단일 정규식
 이 경우 허용하려는 모든 원본을 포함하는 정규식을 만듭니다. 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **Verizon의 Azure CDN Premium**은 [Perl 호환 정규식](https://pcre.org/)를 정규식에 대한 엔진으로 사용합니다.  [Regular Expressions 101](https://regex101.com/) 과 같은 도구를 사용하여 정규식이 유효한지 검사할 수 있습니다.  "/" 문자는 정규식에서 유효하며 이스케이프할 필요가 없지만 일부 정규식 유효성 검사기에서는 이 문자의 이스케이프를 모범 사례로 간주하고 예상합니다.

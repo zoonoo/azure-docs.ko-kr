@@ -2,22 +2,21 @@
 title: 다중 테 넌 트 응용 프로그램에 대 한 올바른 페더레이션 프로토콜 선택
 description: Azure Active Directory와의 통합에 대 한 독립 소프트웨어 공급 업체 지침
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e7dc40d0e4736b4fef8012b08737cbd07bc36bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763298"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 올바른 페더레이션 프로토콜을 선택 합니다.
 
@@ -66,7 +65,7 @@ OAuth 2.0 공급자 인 Microsoft Id를 사용 하 여 응용 프로그램을 �
 
 * [iOS](../develop/quickstart-v2-ios.md)
 
-* [UWP](../develop/quickstart-v2-uwp.md)
+* [유니버설 Windows 플랫폼](../develop/quickstart-v2-uwp.md)
 
 ## <a name="saml-20-and-wsfed"></a>SAML 2.0 및 WSFed
 

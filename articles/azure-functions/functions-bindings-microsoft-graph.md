@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322518"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -40,11 +39,11 @@ Microsoft Graph 확장에는 다음과 같은 바인딩이 제공됩니다.
 
 Microsoft Graph 바인딩은 _바인딩 확장_을 통해 제공됩니다. 바인딩 확장은 Azure Functions 런타임의 선택적 구성 요소입니다. 이 섹션에서는 Microsoft Graph 및 인증 토큰 확장을 설정하는 방법을 설명합니다.
 
-### <a name="enabling-functions-20-preview"></a>Functions 2.0 미리 보기를 사용하도록 설정
+### <a name="enabling-functions-20"></a>함수 2.0 사용
 
-바인딩 확장은 Azure Functions 2.0 미리 보기에서만 사용할 수 있습니다. 
+바인딩 확장은 Azure Functions 2.0 에서만 사용할 수 있습니다. 
 
-미리 보기 2.0 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [버전 2.0 런타임을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+함수 런타임의 2.0 버전을 사용 하도록 함수 앱을 설정 하는 방법에 대 한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 하는 방법](set-runtime-version.md)을 참조 하세요.
 
 ### <a name="installing-the-extension"></a>확장 설치
 
@@ -203,15 +202,15 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---configuration"></a>인증 토큰 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `Token` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `Token` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 인증 토큰의 함수 코드에 사용되는 변수 이름입니다. [코드에서 인증 토큰 입력 바인딩 사용](#token-input-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `token`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**Id**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**리소스**|**리소스나**|필수 - 토큰이 요청되는 Azure AD 리소스 URL입니다.|
 
@@ -338,15 +337,15 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---configuration"></a>Excel 입력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `Excel` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `Excel` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - Excel 테이블의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Excel 테이블 입력 바인딩 사용](#excel-input-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `excel`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**Id**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**경로**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
@@ -500,20 +499,20 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---configuration"></a>Excel 출력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `Excel` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `Excel` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 인증 토큰의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Excel 테이블 출력 바인딩 사용](#excel-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `excel`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**UserId** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**경로**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
 |**tableName**|**TableName**|테이블의 이름입니다. 지정하지 않으면 워크시트의 콘텐츠가 사용됩니다.|
-|**updateType**|**UpdateType**|필수 - 테이블에 적용해야 하는 변경 형식입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>update</code> - OneDrive에 있는 테이블의 콘텐츠를 대체합니다.</li><li><code>append</code> - 새 행을 만들어서 OneDrive에 있는 테이블의 끝에 페이로드를 추가합니다.</li></ul>|
+|**updateType**|**UpdateType**|필수 - 테이블에 적용해야 하는 변경 형식입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>update</code> - OneDrive에 있는 테이블의 콘텐츠를 대체합니다.</li><li><code>append</code> - 새 행을 만들어서 OneDrive에 있는 테이블의 끝에 페이로드를 추가합니다.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel 출력 - 사용
@@ -646,15 +645,15 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---configuration"></a>파일 입력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `OneDrive` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `OneDrive` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 파일의 함수 코드에 사용되는 변수 이름입니다. [코드에서 OneDrive 파일 입력 바인딩 사용](#onedrive-input-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `onedrive`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**Id**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**경로**|필수 - OneDrive에서 파일의 경로입니다.|
 
@@ -669,7 +668,7 @@ module.exports = function (context, req) {
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
-- 스트림
+- STREAM
 - string
 - Microsoft.Graph.DriveItem
 
@@ -794,15 +793,15 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---configuration"></a>파일 출력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `OneDrive` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `OneDrive` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 파일의 함수 코드에 사용되는 변수 이름입니다. [코드에서 OneDrive 파일 출력 바인딩 사용](#onedrive-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `onedrive`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**UserId** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id** |**Id** |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**경로**|필수 - OneDrive에서 파일의 경로입니다.|
 
@@ -817,7 +816,7 @@ module.exports = function (context, req) {
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
-- 스트림
+- STREAM
 - string
 - Microsoft.Graph.DriveItem
 
@@ -945,15 +944,15 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---configuration"></a>Outlook 출력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `Outlook` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `Outlook` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `outlook`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**Id**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 
 <a name="outlook-output-code"></a>
@@ -1088,14 +1087,14 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---configuration"></a>웹후크 트리거 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `GraphWebhookTrigger` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `GraphWebhookTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `graphWebhook`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `trigger`으로 설정해야 합니다.|
-|**resourceType**|**ResourceType**|필수 - 이 함수가 웹후크에 응답해야 하는 그래프 리소스입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>#Microsoft.Graph.Message</code> - Outlook 메시지의 변경 내용입니다.</li><li><code>#Microsoft.Graph.DriveItem</code> - OneDrive 루트 항목의 변경 내용입니다.</li><li><code>#Microsoft.Graph.Contact</code> - Outlook의 개인 연락처에 대한 변경 내용입니다.</li><li><code>#Microsoft.Graph.Event</code> - Outlook 일정 항목의 변경 내용입니다.</li></ul>|
+|**direction**| 해당 없음 |필수 - `trigger`으로 설정해야 합니다.|
+|**resourceType**|**ResourceType**|필수 - 이 함수가 웹후크에 응답해야 하는 그래프 리소스입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>#Microsoft.Graph.Message</code> - Outlook 메시지의 변경 내용입니다.</li><li><code>#Microsoft.Graph.DriveItem</code> - OneDrive 루트 항목의 변경 내용입니다.</li><li><code>#Microsoft.Graph.Contact</code> - Outlook의 개인 연락처에 대한 변경 내용입니다.</li><li><code>#Microsoft.Graph.Event</code> - Outlook 일정 항목의 변경 내용입니다.</li></ul>|
 
 > [!Note]
 > 함수 앱은 지정된 `resourceType` 값에 대해 등록된 함수 하나만 사용할 수 있습니다.
@@ -1240,14 +1239,14 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---configuration"></a>웹후크 입력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `GraphWebhookSubscription` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `GraphWebhookSubscription` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `graphWebhookSubscription`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**필터가**|**Filter**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
+|**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
+|**필터가**|**필터**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
 
 ### <a name="webhook-input---usage"></a>웹후크 입력 - 사용
 
@@ -1381,17 +1380,17 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---configuration"></a>웹후크 출력 - 구성
 
-다음 표에서는 *함수. json* 파일 및 `GraphWebhookSubscription` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `GraphWebhookSubscription` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `graphWebhookSubscription`으로 설정해야 합니다.|
-|**방향도**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
-|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**Id**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**direction**| 해당 없음 |필수 - `out`으로 설정해야 합니다.|
+|**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
+|**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**action**|**동작**|필수 - 바인딩이 수행해야 하는 작업을 지정합니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>create</code> - 새 구독을 등록합니다.</li><li><code>delete</code> - 지정된 구독을 삭제합니다.</li><li><code>refresh</code> - 구독이 만료되지 않도록 지정된 구독을 새로 고칩니다.</li></ul>|
+|**action**|**동작**|필수 - 바인딩이 수행해야 하는 작업을 지정합니다. 다음 값 중 하나를 사용할 수 있습니다.<ul><li><code>create</code> - 새 구독을 등록합니다.</li><li><code>delete</code> - 지정된 구독을 삭제합니다.</li><li><code>refresh</code> - 구독이 만료되지 않도록 지정된 구독을 새로 고칩니다.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 변경 내용이 모니터링될 Microsoft Graph 리소스를 지정합니다. [Microsoft Graph에서 웹후크 작업]을 참조하세요. |
 |**changeType**|**ChangeType**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 구독하는 리소스에서 알림을 발생시키는 변경 형식을 나타냅니다. 지원되는 값은 `created`, `updated`, `deleted`입니다. 쉼표로 구분된 목록을 사용하여 여러 값을 조합할 수 있습니다.|
 

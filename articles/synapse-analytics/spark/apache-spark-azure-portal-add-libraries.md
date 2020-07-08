@@ -5,16 +5,14 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870373"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027310"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
 
@@ -26,7 +24,7 @@ Python 패키지는 Spark 풀 (미리 보기) 수준에서 추가할 수 있으�
 
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다.
 
-Spark 인스턴스가 시작 되 면이 설치를 기본으로 사용 하 여 새 가상 환경이 만들어집니다. 또한 *요구 사항 .txt* 파일 ( `pip freeze` 명령의 출력)을 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 클러스터 시작 시 PyPi에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
+Spark 인스턴스가 시작 되 면이 설치를 기본으로 사용 하 여 새 가상 환경이 만들어집니다. 또한 *requirements.txt* 파일 ( `pip freeze` 명령의 출력)을 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 클러스터 시작 시 PyPi에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
 
 > [!IMPORTANT]
 >
@@ -40,9 +38,7 @@ Spark 인스턴스가 시작 되 면이 설치를 기본으로 사용 하 여 �
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 

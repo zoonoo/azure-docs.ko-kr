@@ -2,22 +2,21 @@
 title: 응용 프로그램에 대 한 동의 관리 및 동의 요청 평가-Azure AD
 description: 사용자 동의가 사용 하지 않도록 설정 되거나 제한 되는 경우 동의 요청을 관리 하는 방법 및 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의에 대 한 요청을 평가 하는 방법을 알아봅니다.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763196"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
 
@@ -114,8 +113,8 @@ Azure Portal에서 테 넌 트 전체 관리자 동의를 부여 하는 단계�
 
 [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 
-[최종 사용자가 응용 프로그램에 동의 하는 방식 구성](configure-user-consent.md)
+[최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
 
-[Microsoft id 플랫폼에서 사용 권한 및 동의](../develop/active-directory-v2-scopes.md)
+[Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
 
 [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

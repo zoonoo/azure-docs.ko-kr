@@ -9,10 +9,9 @@ ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758355"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 스폿 Vm 배포
@@ -21,12 +20,12 @@ ms.locfileid: "81758355"
 
 지점 Vm의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요.
 
-VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션이 있습니다. 지점 VM의 최대 가격은 미국 달러 (USD)로 설정 하 여 최대 5 개의 소수 자릿수를 사용할 수 있습니다. 예를 들어 값 `0.98765`은 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1`가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과 하는 경우 더 작은 표준 VM의 현재 가격 또는 가격입니다. 최대 가격을 설정 하는 방법에 대 한 자세한 내용은 [지점 vm-가격 책정](spot-vms.md#pricing)을 참조 하세요.
+VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션이 있습니다. 지점 VM의 최대 가격은 미국 달러 (USD)로 설정 하 여 최대 5 개의 소수 자릿수를 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1` 가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과 하는 경우 더 작은 표준 VM의 현재 가격 또는 가격입니다. 최대 가격을 설정 하는 방법에 대 한 자세한 내용은 [지점 vm-가격 책정](spot-vms.md#pricing)을 참조 하세요.
 
 
 ## <a name="use-a-template"></a>템플릿 사용
 
-별색 템플릿 배포의 경우 이상을`"apiVersion": "2019-03-01"` 사용 합니다. 템플릿의에 `priority`, `evictionPolicy` 및 `billingProfile` 속성을 추가 합니다.
+별색 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. 템플릿의에 `priority` , `evictionPolicy` 및 속성을 추가 합니다 `billingProfile` .
 
 ```json
 "priority": "Spot",
@@ -36,7 +35,7 @@ VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션
 }
 ```
 
-다음은 별색 VM에 대 한 추가 된 속성을 포함 하는 샘플 템플릿입니다. 리소스 이름을 사용자 고유의 `<password>` 로 바꾸고 VM의 로컬 관리자 계정에 대 한 암호로 바꿉니다.
+다음은 별색 VM에 대 한 추가 된 속성을 포함 하는 샘플 템플릿입니다. 리소스 이름을 사용자 고유의로 바꾸고 `<password>` VM의 로컬 관리자 계정에 대 한 암호로 바꿉니다.
 
 ```json
 {

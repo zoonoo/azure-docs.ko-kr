@@ -15,21 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68728377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322665"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[적절 한 Acl이 장치의 데이터에 대 한 무단 액세스를 제한 하도록 구성 되어 있는지 확인 합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포 된 응용 프로그램이 최소 권한으로 실행 되는지 확인](#deployed-privileges)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
+| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
-| **Azure Event Hub** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
+| **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |
 | **Azure 신뢰 경계** | <ul><li>[RBAC를 사용 하 여 Azure 구독에 대 한 세분화 액세스 관리 사용](#grained-rbac)</li></ul> |
 | **Service Fabric 신뢰 경계** | <ul><li>[RBAC를 사용 하 여 클러스터 작업에 대 한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
@@ -38,7 +37,7 @@ ms.locfileid: "68728377"
 | **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure Storage 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[암시적 무단 해제 또는 루팅 검색 구현](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[WCF의 Weak 클래스 참조](#weak-class-wcf)</li><li>[WCF-권한 부여 제어 구현](#wcf-authz)</li></ul> |
-| **Web API** | <ul><li>[ASP.NET Web API에서 적절 한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
+| **앱 API** | <ul><li>[ASP.NET Web API에서 적절 한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
 | **IoT 디바이스** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 디바이스에서 권한 부여 확인 수행](#device-permission)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 필드 게이트웨이에서 권한 부여 확인 수행](#field-permission)</li></ul> |
 
@@ -146,7 +145,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [SQL Database 권한 계층](https://msdn.microsoft.com/library/ms191465), [SQL 데이터베이스 보안 개체](https://msdn.microsoft.com/library/ms190401) |
+| **참조**              | [Sql 사용 권한 계층](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **단계** | 최소 권한이 부여된 계정을 사용하여 데이터베이스에 연결해야 합니다. 애플리케이션 로그인은 데이터베이스에서 제한되어야 하며 선택된 저장 프로시저만 실행해야 합니다. 애플리케이션애플리케이션의 로그인에는 직접적인 테이블 액세스가 없어야 합니다. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>테넌트에서 다른 테넌트의 데이터에 액세스하지 못하도록 방지하는 RLS(행 수준 보안) 구현
@@ -160,7 +159,7 @@ WHERE userID=:id < - session var
 | **참조**              | [SQL Server RLS(행 수준 보안)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **단계** | <p>행 수준 보안을 통해 고객은 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다.</p><p>행 수준 보안(RLS)은 애플리케이션의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 자신의 부서와 관련된 데이터 행에만 액세스하거나 고객의 데이터 액세스를 회사와 관련된 데이터만으로 제한할 수 있습니다.</p><p>액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스 시스템은 모든 계층에서 데이터 액세스를 시도할 때마다 액세스를 제한합니다. 이렇게 하면 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다.</p><p>|
 
-기본 데이터베이스 기능인 RLS는 2016년 이후의 SQL Server 및 Azure SQL 데이터베이스에만 적용됩니다. 기본적인 RLS 기능이 구현되지 않는 경우 뷰와 프로시저를 사용하여 데이터 액세스를 제한해야 합니다.
+기본적으로 사용할 수 있는 데이터베이스 기능으로는 SQL Server 2016, Azure SQL Database 및 SQL Managed Instance를 시작 하는 데에만 적용 됩니다. 기본적인 RLS 기능이 구현되지 않는 경우 뷰와 프로시저를 사용하여 데이터 액세스를 제한해야 합니다.
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>유효한 필수 사용자에게만 부여되는 sysadmin 역할
 
@@ -170,7 +169,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [SQL Database 권한 계층](https://msdn.microsoft.com/library/ms191465), [SQL 데이터베이스 보안 개체](https://msdn.microsoft.com/library/ms190401) |
+| **참조**              | [Sql 사용 권한 계층](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **단계** | SysAdmin 고정 서버 역할의 멤버는 매우 제한적이어야 하며 애플리케이션에서 사용하는 계정을 포함해서는 안됩니다.  역할에 포함된 사용자 목록을 검토하고 불필요한 계정을 제거합니다.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결

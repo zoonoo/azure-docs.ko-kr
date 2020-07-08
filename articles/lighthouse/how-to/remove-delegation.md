@@ -2,13 +2,12 @@
 title: 위임에 대한 액세스 권한 제거
 description: Azure 위임 된 리소스 관리를 위해 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법을 알아봅니다.
 ms.date: 04/24/2020
-ms.topic: conceptual
-ms.openlocfilehash: d0db809eb057f8b4bb48bdf9dd127f4d488f0406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636498"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 

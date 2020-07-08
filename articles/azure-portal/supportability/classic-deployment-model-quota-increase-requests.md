@@ -4,15 +4,14 @@ description: 이제 리소스 관리자 모델로 교체 되는 클래식 배포
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76835636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763910"
 ---
 # <a name="classic-deployment-model"></a>클래식 배포 모델
 
@@ -30,7 +29,7 @@ ms.locfileid: "76835636"
 
 Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만들려면 아래 지침을 따르세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
 
    ![Azure Portal에서 도움말 + 지원을 선택 합니다.](./media/resource-manager-core-quotas-request/help-plus-support.png)
 

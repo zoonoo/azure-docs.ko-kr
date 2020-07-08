@@ -3,15 +3,14 @@ title: BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 description: BI 및 데이터 분석 소프트웨어에서 정규화된 데이터를 볼 수 있도록 Azure Cosmos DB ODBC 드라이버를 사용하여 테이블 및 뷰를 만드는 방법을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721084"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027242"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -46,7 +45,7 @@ ODBC 드라이버를 살펴보겠습니다.
 1. 컴퓨터에서 **ODBC 데이터 원본 관리자** 앱을 엽니다. Windows 검색 상자에 **ODBC 데이터 원본**을 입력하여 이 작업을 수행할 수 있습니다. 
     **드라이버** 탭을 클릭하고 **Microsoft Azure Cosmos DB ODBC 드라이버**가 표시되는지 확인하여 이 드라이버가 설치되어 있는지 확인할 수 있습니다.
 
-    ![Azure Cosmos DB ODBC 데이터 원본 관리자](./media/odbc-driver/odbc-driver.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 
 ## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>2 단계: Azure Cosmos 데이터베이스에 연결
 
@@ -56,27 +55,27 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. **Azure Cosmos DB ODBC 드라이버 SDN 설정** 창에서 다음 정보를 입력합니다. 
 
-    ![Azure Cosmos DB ODBC 드라이버 DSN 설정 창](./media/odbc-driver/odbc-driver-dsn-setup.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC 드라이버 DSN 설정 창":::
     - **데이터 원본 이름**: ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
     - **설명**: 데이터 원본에 대한 짧은 설명입니다.
     - **호스트**: Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
     - **액세스 키**: 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
-    ![Azure Cosmos DB 키 페이지](./media/odbc-driver/odbc-cosmos-account-keys.png)
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB 키 페이지":::
     - **액세스 키 암호화**: 이 컴퓨터의 사용자 수에 따라 가장 적합한 옵션을 선택합니다. 
     
 1. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
 
 1.  **고급 옵션**을 클릭하고 다음 값을 설정합니다.
-    *  **REST API 버전**: 작업에 대 한 [REST API 버전](https://docs.microsoft.com/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
+    *  **REST API 버전**: 작업에 대 한 [REST API 버전](/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
         - REST API 버전에 **2018-12-31** 을 입력 합니다.
         - **시작** 메뉴에서 "regedit"를 입력 하 여 **레지스트리 편집기** 응용 프로그램을 찾아 엽니다.
-        - 레지스트리 편집기에서 **Computer \ HKEY_LOCAL_MACHINE \software\odbc\odbc. 경로로 이동 합니다. INI**
+        - 레지스트리 편집기에서 다음 경로로 이동 합니다. **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
         - DSN과 같은 이름으로 새 하위 키를 만듭니다 (예: "Contoso Account ODBC DSN").
         - "Contoso 계정 ODBC DSN" 하위 키로 이동 합니다.
         - 마우스 오른쪽 단추를 클릭 하 여 새 **문자열** 값을 추가 합니다.
             - 값 이름: **Ignoresessiontoken**
-            - 값 데이터: 레지스트리 편집기 설정 **1 개**
-            ![](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+            - 값 데이터: **1** 
+             :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="레지스트리 편집기 설정"::: 1 개
     - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
     - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
     - **스키마 파일**: 다양한 옵션이 있습니다.
@@ -86,7 +85,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. 작업을 완료하고 **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창을 닫으면 새 사용자 DSN이 사용자 DSN 탭에 추가됩니다.
 
-    ![사용자 DSN 탭의 새 Azure Cosmos DB ODBC DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="사용자 DSN 탭의 새 Azure Cosmos DB ODBC DSN":::
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>3 단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
 
@@ -94,7 +93,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 **ODBC 드라이버 DSN 설정 Azure Cosmos DB** 창에서 **스키마 편집기** 를 클릭 합니다.
 
-    ![Azure Cosmos DB ODBC 드라이버 DSN 설정 창의 스키마 편집기 단추](./media/odbc-driver/odbc-driver-schema-editor.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Azure Cosmos DB ODBC 드라이버 DSN 설정 창의 스키마 편집기 단추":::
 1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
     **스키마 생성** 창에는 Azure Cosmos DB 계정의 모든 컨테이너가 표시 됩니다. 
 
@@ -105,7 +104,7 @@ ODBC 드라이버를 살펴보겠습니다.
     - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 “_”로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
     - **id** 열은 정규화된 스키마에서 기본 키로 사용되기 때문에 숨길 수 없는 유일한 필드입니다. 
 
-1. 스키마 정의를 완료 한 후 **파일** | **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
+1. 스키마 정의를 완료 한 후 **파일**  |  **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
 
 1. 이 스키마를 DSN과 함께 사용 하려면 odbc 데이터 원본 관리자를 사용 하 여 **Odbc 드라이버 DSN 설정 창 Azure Cosmos DB** 열고 **고급 옵션**을 클릭 한 다음 **스키마 파일** 상자에서 저장 된 스키마로 이동 합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
 
@@ -135,7 +134,7 @@ ODBC 드라이버를 살펴보겠습니다.
     - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 `_`로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
     - **id** 열은 정규화된 스키마에서 기본 키로 사용되기 때문에 숨길 수 없는 유일한 필드입니다. 
 
-1. 스키마 정의를 완료 한 후 **파일** | **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
+1. 스키마 정의를 완료 한 후 **파일**  |  **저장**을 클릭 하 고, 스키마를 저장할 디렉터리로 이동한 후 **저장**을 클릭 합니다.
 
 1. **Azure Cosmos DB ODBC 드라이버 DSN 설정** 창으로 돌아가 **고급 옵션**을 클릭합니다. 그런 다음 **스키마 파일** 상자에서 저장된 스키마 파일로 이동한 후 **확인**을 클릭합니다. **확인**을 다시 클릭하여 DSN을 저장합니다. 이렇게 하면 만든 스키마가 DSN에 저장됩니다. 
 
@@ -162,11 +161,11 @@ ODBC 드라이버를 살펴보겠습니다.
     
 새 연결된 서버 이름을 보려면 연결된 서버 목록을 새로 고칩니다.
 
-![SSMS의 연결된 서버](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="SSMS의 연결된 서버":::
 
 ### <a name="query-linked-database"></a>연결된 데이터베이스 쿼리
 
-연결된 데이터베이스를 쿼리하려면 SSMS 쿼리를 입력합니다. 이 예제에서 쿼리는 이라는 `customers`컨테이너의 테이블에서 선택 합니다.
+연결된 데이터베이스를 쿼리하려면 SSMS 쿼리를 입력합니다. 이 예제에서 쿼리는 이라는 컨테이너의 테이블에서 선택 합니다 `customers` .
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -195,7 +194,8 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 샘플링 프로세스의 일부로 뷰를 정의하고 만들 수 있습니다. 이러한 뷰는 SQL 뷰와 비슷합니다. 읽기 전용이며, 정의된 Azure Cosmos DB SQL 쿼리의 선택 및 프로젝션으로 범위가 지정됩니다. 
 
 데이터에 대 한 뷰를 만들려면 **스키마 편집기** 창의 **정의 보기** 열에서 샘플링할 컨테이너의 행에 있는 **추가** 를 클릭 합니다. 
-    ![데이터 뷰 만들기](./media/odbc-driver/odbc-driver-create-view.png)
+
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="데이터 뷰 만들기":::
 
 
 그런 다음 **뷰 정의** 창에서 다음을 수행합니다.
@@ -204,7 +204,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](how-to-sql-query.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인**을 클릭합니다.
 
-    ![뷰를 만들 때 쿼리 추가](./media/odbc-driver/odbc-driver-create-view-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="뷰를 만들 때 쿼리 추가":::
 
 
 원하는 수만큼 뷰를 만들 수 있습니다. 뷰 정의가 끝나면 데이터를 샘플링할 수 있습니다. 
@@ -217,21 +217,21 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. **데이터 가져오기**를 클릭합니다.
 
-    ![Power BI Desktop에서 데이터 가져오기](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Power BI Desktop에서 데이터 가져오기":::
 
 1. **데이터 가져오기** 창에서 **기타** | **ODBC** | **연결**을 클릭합니다.
 
-    ![Power BI 데이터 가져오기에서 ODBC 데이터 원본 선택](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Power BI 데이터 가져오기에서 ODBC 데이터 원본 선택":::
 
 1. **ODBC에서** 창에서 만든 데이터 원본 이름을 선택하고 **확인**을 클릭합니다. **고급 옵션** 항목은 빈 상태로 두어도 됩니다.
 
-    ![Power BI 데이터 가져오기에서 DSN(데이터 원본 이름) 선택](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Power BI 데이터 가져오기에서 DSN(데이터 원본 이름) 선택":::
 
 1. **ODBC 드라이버를 사용하여 데이터 원본에 액세스합니다.** 창에서 **기본 또는 사용자 지정**을 클릭하고 **연결**을 클릭합니다. **자격 증명 연결 문자열 속성**은 포함하지 않아도 됩니다.
 
 1. **탐색 창**의 왼쪽 분할 창에서 데이터베이스, 스키마를 확장한 다음 테이블을 선택합니다. 결과 분할 창에는 만든 스키마를 사용하여 해당 데이터가 포함됩니다.
 
-    ![Power BI 데이터 가져오기에서 테이블 선택](./media/odbc-driver/odbc-driver-power-bi-get-data-4.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Power BI 데이터 가져오기에서 테이블 선택":::
 
 1. Power BI desktop의 데이터를 시각화하려면 테이블 이름 앞의 확인란을 선택하고 **로드**를 클릭합니다.
 
@@ -243,7 +243,10 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 다음 오류가 표시되면 [2단계](#connect)에서 Azure Portal로부터 복사한 **호스트** 및 **액세스 키** 값이 올바른지 확인하고 다시 시도하세요. Azure Portal의 **호스트** 및 **액세스 키** 값 오른쪽에 있는 복사 단추를 사용하여 올바른 값을 복사합니다.
 
-    [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```output
+[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

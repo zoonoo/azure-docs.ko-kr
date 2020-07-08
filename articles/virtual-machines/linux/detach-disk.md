@@ -3,16 +3,15 @@ title: Linux VM에서 데이터 디스크 분리 - Azure
 description: Azure CLI 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 7a9915f0c523afd755223393e70595364676cd3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658229"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 

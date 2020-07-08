@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921025"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -71,7 +70,7 @@ ms.locfileid: "85561561"
 
 **Q: 내 요청이 기록되나요?**
 
-**A**: 배포를 만들 때 추적을 해제하는 옵션을 사용할 수 있습니다. 이 경우 오디오 또는 전사는 기록되지 않습니다. 그렇지 않으면 일반적으로 Azure에서 보안 스토리지에 요청이 기록됩니다.
+**A**: 기본적으로 요청은 기록 되지 않습니다 (오디오, 기록도 아님). 필요한 경우 추적을 사용 하도록 설정 하기 위해 [사용자 지정 끝점을 만들](how-to-custom-speech-deploy-model.md) 때 *이 끝점에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 그런 다음 요청은 보안 저장소의 Azure에 기록 됩니다.
 
 **Q: 내 요청이 제한되나요?**
 
@@ -110,7 +109,7 @@ ms.locfileid: "85561561"
 
 - 구독에 대 한 액세스 토큰 ( [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)참조)
 
-를 실행하거나
+또는
 
 - 구독에 대 한 리소스 ID:
   - [Azure Portal](https://portal.azure.com)로 이동 합니다.
@@ -118,6 +117,10 @@ ms.locfileid: "85561561"
   - 표시 된 서비스에서 동시성을 증가 시킬 음성 서비스를 선택 합니다.
   - `Properties`이 서비스에 대 한를 표시 합니다.
   - 전체를 복사 `Resource ID` 합니다.
+  
+**Q: 내 동시성 한도를 늘리면 내 비용이 증가 하나요?**
+
+**A**: 아니요, 비용은 사용량을 기준으로 합니다. 동시성이 증가 해도 비용이 더 많이 들지 않습니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 를 참조 하세요. 
   
 >[!NOTE]
 >컨테이너가 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [컨테이너](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) 는 동시성 제한에 대 한 증가가 필요 하지 않습니다.

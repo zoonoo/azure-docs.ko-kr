@@ -8,19 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709048"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
-이 문서에서는 Azure HDInsight 클러스터에서 Apache Spark 구성 요소를 사용 하는 경우 문제 해결 단계와 가능한 문제 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터에서 Apache Spark 구성 요소를 사용할 때 발생하는 문제 해결 단계와 가능한 문제 해결 방법을 설명합니다.
 
 ## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>시나리오: Apache Spark에 대 한 OutOfMemoryError 예외
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 OutOfMemoryError 처리 되지 않은 예외가 발생 하 여 Apache Spark 응용 프로그램이 실패 했습니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
@@ -92,7 +91,7 @@ java.lang.OutOfMemoryError
 
 ## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>시나리오: Apache Spark 기록 서버를 열려고 할 때 Java 힙 공간 오류가 발생 했습니다.
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 Spark 기록 서버에서 이벤트를 열 때 다음과 같은 오류가 표시 됩니다.
 
@@ -116,13 +115,13 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>해결 방법
 
-Spark 구성에서 속성을 `SPARK_DAEMON_MEMORY` 편집 하 고 모든 서비스를 다시 시작 하 여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
+`SPARK_DAEMON_MEMORY`Spark 구성에서 속성을 편집 하 고 모든 서비스를 다시 시작 하 여 Spark 기록 서버 메모리를 늘릴 수 있습니다.
 
 Spark2/Config/Advanced Spark2 섹션을 선택 하 여 Ambari 브라우저 UI 내에서이 작업을 수행할 수 있습니다.
 
 ![Advanced spark2-env 섹션](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 4g:로 `SPARK_DAEMON_MEMORY=4g`변경 합니다.
+다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 `SPARK_DAEMON_MEMORY=4g` 4g:로 변경 합니다.
 
 ![Spark 속성](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -132,7 +131,7 @@ Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다
 
 ## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>시나리오: Apache Spark 클러스터에서 Livy 서버를 시작 하지 못함
 
-### <a name="issue"></a>문제
+### <a name="issue"></a>문제점
 
 Livy 서버는 Apache Spark (Linux의 Spark 2.1 (HDI 3.6)]에서 시작할 수 없습니다. 다시 시작을 시도 하면 Livy 로그에서 다음 오류 스택이 생성 됩니다.
 
@@ -239,7 +238,7 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 1. 위의 명령이 완료 될 때까지 기다리거나 커서를 통해 프롬프트가 반환 되 면 성공 해야 하는 Ambari에서 Livy service를 다시 시작 합니다.
 
 > [!NOTE]
-> `DELETE`livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. 해당 `DELETE` 엔터티를 삭제 하려면 호출이 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
+> `DELETE`livy 세션이 실행을 완료 한 후 Livy batch 세션은 spark 앱이 완료 되 자 마자 자동으로 삭제 되지 않습니다. Livy 세션은 Livy Rest 서버에 대 한 POST 요청에 의해 생성 된 엔터티입니다. `DELETE`해당 엔터티를 삭제 하려면 호출이 필요 합니다. 또는 GC가 시작 될 때까지 기다려야 합니다.
 
 ---
 
@@ -251,8 +250,8 @@ Livy을 통해 많은 수의 작업을 제출 하는 경우 Livy 서버에 대 �
 
 * [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

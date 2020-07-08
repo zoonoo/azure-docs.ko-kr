@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709252"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -91,7 +90,7 @@ HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 
 
 ### <a name="view-ambari-alerts-status-logs"></a>Ambari 경고 상태 로그 보기
 
-Apache Ambari은에 `ambari-alerts.log`경고 상태 변경을 기록 합니다. 전체 경로는 `/var/log/ambari-server/ambari-alerts.log`입니다. 로그에 대 한 디버깅을 사용 하도록 설정 하려면 변경 `/etc/ambari-server/conf/log4j.properties.` 에서 속성을 변경한 `# Log alert state changes` 다음 아래에서 입력 합니다.
+Apache Ambari은에 경고 상태 변경을 기록 `ambari-alerts.log` 합니다. 전체 경로는 `/var/log/ambari-server/ambari-alerts.log` 입니다. 로그에 대 한 디버깅을 사용 하도록 설정 하려면 변경에서 속성을 변경한 `/etc/ambari-server/conf/log4j.properties.` 다음 아래에서 입력 합니다 `# Log alert state changes` .
 
 ```
 log4j.logger.alerts=INFO,alerts
@@ -142,7 +141,7 @@ yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-applica
 
 YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 웹 UI를 통해 액세스할 수 있습니다. 다음 단계를 사용하여 YARN 로그를 봅니다.
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 2. 왼쪽에 있는 서비스 목록에서 YARN을 선택합니다.
 3. 빠른 링크 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그**를 선택합니다. YARN 로그에 대 한 링크 목록이 표시 됩니다.
 

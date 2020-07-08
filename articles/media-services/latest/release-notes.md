@@ -9,14 +9,13 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983370"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -32,9 +31,17 @@ ms.locfileid: "83647646"
 ## <a name="known-issues"></a>알려진 문제
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+>
+> 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
 
-자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+## <a name="june-2020"></a>2020년 6월
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>IoT Edge preview 릴리스의 라이브 비디오 분석
+
+IoT Edge에서 라이브 비디오 분석의 미리 보기가 공개 되었습니다. 자세한 내용은 [릴리스 정보](../live-video-analytics-edge/release-notes.md)를 참조 하세요.
+
+IoT Edge의 Live Video Analytics는 미디어 서비스 제품군에 대 한 확장입니다. 사용자의에 지 장치에서 선택한 AI 모델을 사용 하 여 라이브 비디오를 분석 하 고 필요에 따라 해당 비디오를 캡처 및 기록할 수 있습니다. 이제 라이브 비디오 파이프라인을 구축 하 고 작동 하는 복잡성을 걱정 하지 않고에 지에서 실시간 비디오 분석으로 앱을 빌드할 수 있습니다.
 
 ## <a name="may-2020"></a>2020년 5월
 
@@ -199,7 +206,7 @@ Media Services 성능 개선을 포함하는 업데이트가 추가되었습니�
 
 ## <a name="march-2019"></a>2019년 3월
 
-동적 패키징이 이제 Dolby Atmos를 지원합니다. 자세한 내용은 [동적 패키징으로 지원되는 오디오 코덱](dynamic-packaging-overview.md#audio-codecs)을 참조하세요.
+동적 패키징이 이제 Dolby Atmos를 지원합니다. 자세한 내용은 [동적 패키징으로 지원되는 오디오 코덱](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)을 참조하세요.
 
 이제 스트리밍 로케이터에 적용되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 자세한 내용은 [스트리밍 로케이터를 사용하여 필터 연결](filters-concept.md#associating-filters-with-streaming-locator)을 참조하세요.
 
@@ -362,11 +369,15 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ### <a name="known-issues"></a>알려진 문제
 
-* 작업을 제출할 때는 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일의 경로를 사용하여 원본 비디오를 수집하도록 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
+* 작업을 제출할 때는 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일의 경로를 사용하여 원본 비디오를 수집하도록 지정할 수 있습니다. 현재 Media Services v3은 HTTPS Url을 통한 청크 분할 전송 인코딩을 지원 하지 않습니다.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
+
+## <a name="see-also"></a>참고 항목
+
+[Media Services v 2에서 v3로 전환 하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)
 
 ## <a name="next-steps"></a>다음 단계
 

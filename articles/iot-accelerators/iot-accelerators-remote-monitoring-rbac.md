@@ -9,12 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920718"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -50,7 +49,7 @@ ms.locfileid: "82612948"
 
 ## <a name="add-or-remove-users"></a>사용자 추가 또는 제거
 
-Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용하여 원격 모니터링 솔루션에서 역할에 사용자를 추가하거나 제거할 수 있습니다. 다음 단계에서는 원격 모니터링 솔루션을 배포할 때 만들어진 [Azure Active Directory 엔터프라이즈 애플리케이션](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)을 사용합니다.
+Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용하여 원격 모니터링 솔루션에서 역할에 사용자를 추가하거나 제거할 수 있습니다. 다음 단계에서는 원격 모니터링 솔루션을 배포할 때 만들어진 [Azure Active Directory 엔터프라이즈 애플리케이션](../active-directory/manage-apps/view-applications-portal.md)을 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

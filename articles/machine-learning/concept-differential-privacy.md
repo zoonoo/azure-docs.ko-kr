@@ -9,18 +9,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 09ac31f31f42f5aed9e7dd464e1fce1436cfe581
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982665"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>WhiteNoise 패키지와 차등 프라이버시를 사용하여 데이터 프라이버시 보호
 
 차등 프라이버시가 무엇인지 알아보고, WhiteNoise 패키지가 차등 비공개 시스템을 구현하는 데 어떻게 유용한지 알아봅니다.
 
 조직에서 수집하여 분석에 사용하는 데이터의 양이 증가하면서 개인 정보 보호와 보안에 대한 우려도 증가하고 있습니다. 분석에는 데이터가 필요합니다. 일반적으로 모델을 학습하는 데 사용하는 데이터가 많을 수록 정확성이 높아집니다. 이러한 분석에 개인 정보를 사용하는 경우에는 데이터를 사용하는 내내 비공개 상태를 유지하는 것이 특히 중요합니다.
+
+> [!NOTE]
+> 도구 키트의 이름을 바꾸고 새 이름을 소개 하는 주입니다. 
 
 ## <a name="how-differential-privacy-works"></a>차등 프라이버시 작동 원리
 
@@ -29,7 +31,7 @@ ms.locfileid: "83594992"
 > [!div class="mx-imgBorder"]
 > ![차등 프라이버시 프로세스](./media/concept-differential-privacy/differential-privacy-process.jpg)
 
-기존 시나리오에서는 원시 데이터가 파일 및 데이터베이스에 저장됩니다. 사용자가 데이터를 분석할 때는 일반적으로 원시 데이터를 사용합니다. 이렇게 하면 개인 프라이버시를 침해할 수 있기 때문에 문제가 됩니다. 차등 프라이버시는 사용자가 개별 데이터 요소를 식별할 수 없도록 데이터에 "노이즈" 또는 임의성을 추가하여 이 문제를 해결하려고 합니다. 적어도 이러한 시스템은 타당한 거부를 제공합니다.
+기존 시나리오에서는 원시 데이터가 파일 및 데이터베이스에 저장됩니다. 사용자가 데이터를 분석할 때는 일반적으로 원시 데이터를 사용합니다. 이는 개인의 프라이버시를 침해할 수 있기 때문에 문제가 됩니다. 차등 프라이버시는 사용자가 개별 데이터 요소를 식별할 수 없도록 데이터에 "노이즈" 또는 임의성을 추가하여 이 문제를 해결하려고 합니다. 적어도 이러한 시스템은 타당한 거부를 제공합니다.
 
 차등 비공개 시스템 데이터는 **쿼리**라는 요청을 통해 공유됩니다. 사용자가 데이터에 대한 쿼리를 제출하면 **프라이버시 메커니즘**이라고 알려진 작업이 요청된 데이터에 노이즈를 추가합니다. 프라이버시 메커니즘은 원시 데이터 대신 *데이터의 근사값*을 반환합니다. 이러한 프라이버시 보호 결과는 **보고서**에 나타납니다. 보고서는 두 가지 부분 즉, 컴퓨팅한 실제 데이터와 데이터가 생성된 방식에 대한 설명으로 구성됩니다.
 
@@ -53,14 +55,14 @@ ms.locfileid: "83594992"
 
 차등 비공개 시스템을 구현하기는 어렵습니다. WhiteNoise는 글로벌 차등 비공개 시스템을 구축하는 다양한 구성 요소가 포함된 오픈 소스 프로젝트입니다. WhiteNoise는 다음과 같은 최상위 구성 요소로 이루어집니다.
 
-- 핵심
+- 코어
 - 시스템
 
 ### <a name="core"></a>핵심
 
 핵심 라이브러리에는 차등 비공개 시스템을 구현하기 위해 다음과 같은 프라이버시 메커니즘이 포함되어 있습니다.
 
-|구성 요소  |Description  |
+|구성 요소  |설명  |
 |---------|---------|
 |분석     | 임의 계산에 대한 그래프 설명입니다. |
 |유효성 검사기     | 분석에 차등 비공개를 적용하는 데 필요한 조건을 확인하고 도출하기 위한 도구 세트가 포함된 Rust 라이브러리입니다.          |
@@ -79,4 +81,6 @@ ms.locfileid: "83594992"
 
 ## <a name="next-steps"></a>다음 단계
 
-WhiteNoise의 구성 요소를 사용하는 방법을 알아보려면 GitHub 리포지토리에서 [WhiteNoise Core 패키지](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System 패키지](https://github.com/opendifferentialprivacy/whitenoise-system) 및 [WhiteNoise 샘플](https://github.com/opendifferentialprivacy/whitenoise-samples)을 참조하세요.
+Azure Machine Learning에서 [데이터 개인 정보를 유지](how-to-differential-privacy.md) 합니다.
+
+WhiteNoise의 구성 요소에 대해 자세히 알아보려면 [WhiteNoise Core 패키지](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System package](https://github.com/opendifferentialprivacy/whitenoise-system) 및 [WhiteNoise 샘플](https://github.com/opendifferentialprivacy/whitenoise-samples)에 대 한 GitHub 리포지토리를 참조 하세요.

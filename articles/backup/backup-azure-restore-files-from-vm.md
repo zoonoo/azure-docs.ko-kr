@@ -3,12 +3,12 @@ title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 및 폴더를 복구하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757979"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027168"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -236,7 +236,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 > [!NOTE]
 >
-> - 다운로드한 스크립트 파일 이름의 URL이 **지역 이름**으로 채워집니다. 다음은 그 예입니다. 다운로드한 스크립트 이름이 \'VMname\'\_\'geoname\'_\'GUID\'로 시작합니다(예: *ContosoVM_wcus_12345678*).
+> - 다운로드한 스크립트 파일 이름의 URL이 **지역 이름**으로 채워집니다. 예: 다운로드 한 스크립트 이름은 \' \' \_ \' ContosoVM_wcus_12345678와 같은 VMname geoname \' _ \' GUID \' *ContosoVM_wcus_12345678* 로 시작 합니다.
 > - URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>"입니다.
 >
 
@@ -246,9 +246,9 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>대용량 디스크가 있는 가상 머신 백업에서 파일 복구
 
-이 섹션에서는 16개가 넘는 디스크가 있고 각 디스크의 크기가 32TB를 초과하는 Azure 가상 머신 백업에서 파일 복구를 수행하는 방법을 설명합니다.
+이 섹션에서는 16 개 이상의 디스크를 사용 하는 Azure 가상 컴퓨터의 백업에서 파일 복구를 수행 하는 방법 또는 각 디스크 크기가 4 TB를 초과 하는 방법에 대해 설명 합니다.
 
-파일 복구 프로세스는 백업의 모든 디스크를 연결하므로 디스크 수가 많거나(16개 초과) 각 디스크가 대용량 디스크(32TB 초과)인 경우에는 다음 행동 방침을 따르는 것이 좋습니다.
+파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 대량 디스크 수 (>16) 또는 대량 디스크 > (각각 4 TB)를 사용 하는 경우 다음 작업을 수행 하는 것이 좋습니다.
 
 - 파일 복구에 사용할 별도의 복원 서버(Azure VM D2v3 VM)를 유지합니다. 이 복원 서버를 파일 복구에만 사용할 수 있으며 필요하지 않으면 종료할 수 있습니다. 원래 머신에 복구하면 VM 자체에 상당한 영향을 주기 때문에 이 방법은 권장하지 않습니다.
 - 그런 다음, 스크립트를 한 번 실행하여 파일 복구 작업이 성공했는지 확인합니다.

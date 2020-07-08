@@ -3,25 +3,24 @@ title: Azure AD 앱 프록시를 사용하여 원격 데스크톱 게시 | Micro
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764522"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -75,7 +74,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
 4. **Azure Active Directory**, **앱 등록**을 차례로 선택 합니다. 목록에서 앱을 선택 합니다.
 5. **관리**에서 **브랜딩**을 선택 합니다.
-6. RD 웹 끝점 (예 `https://\<rdhost\>.com/RDWeb`:)을 가리키도록 **홈 페이지 URL** 필드를 업데이트 합니다.
+6. RD 웹 끝점 (예:)을 가리키도록 **홈 페이지 URL** 필드를 업데이트 `https://\<rdhost\>.com/RDWeb` 합니다.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>애플리케이션 프록시에 대한 직접 RDS 트래픽
 
@@ -91,7 +90,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
    ![RDS의 배포 속성 화면](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. 각 컬렉션에 대해 이 명령을 실행합니다. 해당 * \<collectionname\> * 및 *\> proxyfrontendurl을 사용자의 정보로 바꿉니다. \<* 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
+8. 각 컬렉션에 대해 이 명령을 실행합니다. *\<yourcollectionname\>* 및을 *\<proxyfrontendurl\>* 사용자의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

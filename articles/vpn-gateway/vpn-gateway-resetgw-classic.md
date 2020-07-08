@@ -4,15 +4,14 @@ description: 이 문서에서는 Azure VPN Gateway를 초기화하여 IPsec 터�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244421"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982903"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -28,7 +27,7 @@ VPN Gateway는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 �
 
 두 번의 재부팅 후 크로스-프레미스 연결 문제가 여전히 발생하는 경우 Azure Portal에서 지원 요청을 여세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 게이트웨이를 재설정하기 전에 각 IPsec 사이트 간(S2S) VPN 터널에 대해 아래 나열된 키 항목을 확인합니다. 일치하지 않는 항목은 S2S VPN 터널에서 연결이 끊깁니다. 온-프레미스 및 Azure VPN Gateway에 대한 구성을 확인 및 수정하면 게이트웨이에서 작동 중인 기타 연결에 대해 불필요한 재부팅 및 중단을 피할 수 있습니다.
 
@@ -38,7 +37,7 @@ VPN Gateway는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 �
 * 미리 공유한 키가 Azure와 온-프레미스 VPN 게이트웨이에서 동일해야 합니다.
 * 암호화, 해시 알고리즘 및 전달 완전 보안(PFS)과 같은 특정 IPsec/IKE 구성을 적용하는 경우 Azure와 온-프레미스 VPN 게이트웨이에서 동일한 구성을 포함하는지 확인하세요.
 
-## <a name="azure-portal"></a><a name="portal"></a>Azure portal
+## <a name="azure-portal"></a><a name="portal"></a>Azure Portal
 
 Azure Portal을 사용하여 Resource Manager VPN Gateway를 다시 설정할 수 있습니다. 클래식 게이트웨이를 다시 설정하려는 경우 [PowerShell](#resetclassic) 단계를 참조하세요.
 
@@ -50,7 +49,7 @@ Azure Portal을 사용하여 Resource Manager VPN Gateway를 다시 설정할 �
    ![VPN Gateway 블레이드 다시 설정](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. 다시 설정 블레이드에서 **다시 설정** 단추를 클릭합니다.
 
-## <a name="powershell"></a><a name="ps"></a>슬래시
+## <a name="powershell"></a><a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
 
@@ -69,7 +68,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>클래식 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 서비스 관리를 위한 Azure PowerShell cmdlet은 데스크톱에 로컬로 설치 해야 합니다. Azure Cloud Shell를 사용할 수 없습니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 이 명령을 사용 하는 경우 가상 네트워크의 전체 이름을 사용 하 고 있는지 확인 합니다. 포털을 사용 하 여 만든 클래식 Vnet에는 PowerShell에 필요한 긴 이름이 있습니다. ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '을 사용 하 여 긴 이름을 볼 수 있습니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 서비스 관리를 위한 Azure PowerShell cmdlet은 데스크톱에 로컬로 설치 해야 합니다. Azure Cloud Shell를 사용할 수 없습니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 이 명령을 사용 하는 경우 가상 네트워크의 전체 이름을 사용 하 고 있는지 확인 합니다. 포털을 사용 하 여 만든 클래식 Vnet에는 PowerShell에 필요한 긴 이름이 있습니다. ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '를 사용 하 여 긴 이름을 볼 수 있습니다.
 
 다음 예제에서는 "Group TestRG1 TestVNet1" 이라는 가상 네트워크에 대 한 게이트웨이를 다시 설정 합니다 .이는 포털에서 단순히 "TestVNet1"로 표시 됩니다.
 

@@ -4,11 +4,10 @@ description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709881"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -43,10 +42,10 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 
 **캐시** | **세부 정보**
 --- | ---
-Size |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
+크기 |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
 위치 | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 있어야 하며 온라인 상태 여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프 라인 볼륨에 있지 않아야 합니다.
 폴더 | 중복 제거 된 볼륨이 나 압축 된 폴더 (스파스 또는 재분석 지점 포함)에서 캐시 폴더를 암호화 해서는 안 됩니다.
-위치 변경 | 백업 엔진 (`net stop bengine`)을 중지 하 고 캐시 폴더를 새 드라이브에 복사 하 여 캐시 위치를 변경할 수 있습니다. 새 드라이브에 충분 한 공간이 있는지 확인 합니다. 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** 및 **config/cloudbackupprovider/ScratchLocation**)에서 두 레지스트리 항목을 새 위치로 업데이트 하 고 엔진을 다시 시작 합니다.
+위치 변경 | 백업 엔진 ()을 중지 하 `net stop bengine` 고 캐시 폴더를 새 드라이브에 복사 하 여 캐시 위치를 변경할 수 있습니다. 새 드라이브에 충분 한 공간이 있는지 확인 합니다. 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** 및 **config/cloudbackupprovider/ScratchLocation**)에서 두 레지스트리 항목을 새 위치로 업데이트 하 고 엔진을 다시 시작 합니다.
 
 ## <a name="networking-and-access-support"></a>네트워킹 및 액세스 지원
 
@@ -81,7 +80,7 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
 
-- Azure Active Directory (12076:5060)
+- Azure Active Directory(12076:5060)
 - Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
 - Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
@@ -94,7 +93,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 **기능** | **세부 정보**
 --- | ---
-대역폭 제어 | 지원됩니다. MARS 에이전트에서 **속성 변경** 을 사용 하 여 대역폭을 조정 합니다.
+대역폭 제어 | 지원됨. MARS 에이전트에서 **속성 변경** 을 사용 하 여 대역폭을 조정 합니다.
 네트워크 제한 | Windows Server 2008 R2, Windows Server 2008 SP2 또는 Windows 7을 실행 하는 백업 된 컴퓨터에는 사용할 수 없습니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
@@ -116,7 +115,7 @@ Windows 8.1(Enterprise, Pro)| 예 |아니요 | 소프트웨어/모듈 요구 사
 Windows 8(Enterprise, Pro) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.exe)
 Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
@@ -133,8 +132,8 @@ Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <b
 | **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
 | Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 아니요                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
-| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | 예               | 예                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.EXE) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 아니요                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.EXE) <br>  -Virtual Server 2005 기본 + KB KB948515 |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | 예               | 예                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 아니요                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Backup 제한
 
@@ -145,10 +144,10 @@ Azure Backup 백업할 수 있는 파일 또는 폴더 데이터 원본의 크�
 **운영 체제** | **크기 제한**
 --- | ---
 Windows Server 2012 이상 |54,400GB
-Windows Server 2008 R2 SP1 |1700 GB
-Windows Server 2008 SP2| 1700 GB
+Windows Server 2008 R2 SP1 |1,700GB
+Windows Server 2008 SP2| 1,700GB
 Windows 8 이상| 54,400GB
-Windows 7| 1700 GB
+Windows 7| 1,700GB
 
 ### <a name="other-limitations"></a>기타 제한 사항
 
@@ -158,17 +157,17 @@ Windows 7| 1700 GB
 
 **Type** | **지원**
 --- | ---
-됨<sup>*</sup>| 지원됩니다.
-Compressed | 지원됩니다.
-스파스 | 지원됩니다.
-압축 및 스파스 |지원됩니다.
-하드 링크| 지원 안 됨 생략.
-재분석 지점| 지원 안 됨 생략.
-암호화 및 스파스 |지원 안 됨 생략.
-압축된 스트림| 지원 안 됨 생략.
-스파스 스트림| 지원 안 됨 생략.
-OneDrive (동기화 된 파일이 스파스 스트림)| 지원 안 됨
-DFS 복제 사용 하도록 설정 된 폴더 | 지원 안 됨
+됨<sup>*</sup>| 지원됨.
+Compressed | 지원됨.
+스파스 | 지원됨.
+압축 및 스파스 |지원됨.
+하드 링크| 지원되지 않습니다. 건너뜁니다.
+재분석 지점| 지원되지 않습니다. 건너뜁니다.
+암호화 및 스파스 |지원되지 않습니다. 건너뜁니다.
+압축된 스트림| 지원되지 않습니다. 건너뜁니다.
+스파스 스트림| 지원되지 않습니다. 건너뜁니다.
+OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니다.
+DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
 
 \*MARS 에이전트가 암호화 된 파일에 액세스 하는 데 필요한 인증서에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 파일은 건너뜁니다.
 

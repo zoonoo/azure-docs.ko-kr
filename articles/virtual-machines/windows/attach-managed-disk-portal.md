@@ -3,16 +3,15 @@ title: Windows VM에 관리 되는 데이터 디스크 연결-Azure
 description: Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크를 연결하는 방법입니다.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657176"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -28,7 +27,7 @@ ms.locfileid: "77919382"
 5. 새 디스크에 대한 드롭다운에서 **디스크 만들기**를 선택합니다.
 6. **관리 디스크 만들기** 페이지에서 디스크의 이름을 입력하고 필요에 따라 다른 설정을 조정합니다. 완료되면 **만들기**를 선택합니다.
 7. **디스크** 페이지에서 **저장**을 선택하여 VM의 새 디스크 구성을 저장합니다.
-8. Azure가 디스크를 만들고 가상 머신에 연결하면 **데이터 디스크** 아래에서 가상 머신의 디스크 설정에 새 디스크가 나열됩니다.
+8. Azure가 디스크를 만들고 가상 머신에 연결 하면 새 디스크가 가상 머신의 디스크 설정의 **데이터 디스크**아래에 나열 됩니다.
 
 
 ## <a name="initialize-a-new-data-disk"></a>새 데이터 디스크 초기화

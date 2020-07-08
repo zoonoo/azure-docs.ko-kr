@@ -2,22 +2,21 @@
 title: 관리 동의 워크플로 구성-Azure Active Directory | Microsoft Docs
 description: 최종 사용자가 관리자 동의가 필요한 응용 프로그램에 대 한 액세스를 요청 하는 방법을 구성 하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763621"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성 (미리 보기)
 
@@ -131,7 +130,7 @@ ms.locfileid: "75430209"
 
 **이 워크플로를 사용 하도록 설정 했지만 기능을 테스트 하는 경우 새 "승인 필요" 메시지가 표시 되지 않는 이유는 무엇 인가요?**
 
-기능을 켠 후 최종 사용자가 업데이트를 확인 하는 데 최대 60 분이 걸릴 수 있습니다. API에서 EnableAdminConsentRequests 값을 확인 하 여 구성이 제대로 적용 되었는지 확인할 수 있습니다. **EnableAdminConsentRequests** `https://graph.microsoft.com/beta/settings`
+기능을 켠 후 최종 사용자가 업데이트를 확인 하는 데 최대 60 분이 걸릴 수 있습니다. API에서 **EnableAdminConsentRequests** 값을 확인 하 여 구성이 제대로 적용 되었는지 확인할 수 있습니다 `https://graph.microsoft.com/beta/settings` .
 
 **검토자로 서 보류 중인 모든 요청을 볼 수 없는 이유는 무엇입니까?**
 
@@ -153,10 +152,10 @@ ms.locfileid: "75430209"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-[최종 사용자가 응용 프로그램에 동의 하는 방식 구성](configure-user-consent.md)
+[최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
 
-[응용 프로그램에 대 한 테 넌 트 전체 관리자 동의 부여](grant-admin-consent.md)
+[애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 
-[Microsoft id 플랫폼에서 사용 권한 및 동의](../develop/active-directory-v2-scopes.md)
+[Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
 
 [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

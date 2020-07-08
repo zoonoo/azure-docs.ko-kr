@@ -7,11 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710238"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -44,9 +43,9 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 
-1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. Cmdlet은 계정 자격 증명을 묻는 웹 페이지를 표시 `Connect-AzAccount`합니다.
+1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. Cmdlet은 계정 자격 증명을 묻는 웹 페이지를 표시 `Connect-AzAccount` 합니다.
    - 또는 `Connect-AzAccount` **Credential** 매개 변수를 사용 하 여 cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-   - 테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. `Connect-AzAccount -Tenant "fabrikam.com"`
+   - 테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. 예: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
    ```azurepowershell
@@ -73,20 +72,20 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-2-set-up-the-vault"></a>2단계: 자격 증명 모음 설정
 
-1. 자격 증명 모음을 만들 Azure Resource Manager 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 다음과 같이 새 리소스 그룹을 만듭니다. 변수 `$ResourceGroupName` 는 만들려는 리소스 그룹의 이름을 포함 하 고 $Geo 변수는 리소스 그룹을 만들 Azure 지역 (예: "브라질 남부")을 포함 합니다.
+1. 자격 증명 모음을 만들 Azure Resource Manager 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 다음과 같이 새 리소스 그룹을 만듭니다. `$ResourceGroupName`변수는 만들려는 리소스 그룹의 이름을 포함 하 고 $Geo 변수는 리소스 그룹을 만들 Azure 지역 (예: "브라질 남부")을 포함 합니다.
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
    ```
 
-1. 구독에서 리소스 그룹 목록을 가져오려면 `Get-AzResourceGroup` cmdlet을 실행 합니다.
+1. 구독에서 리소스 그룹 목록을 가져오려면 cmdlet을 실행 `Get-AzResourceGroup` 합니다.
 1. 다음과 같이 새 Azure Recovery Services 자격 증명 모음을 만듭니다.
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
    ```
 
-`Get-AzRecoveryServicesVault` Cmdlet을 사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다.
+Cmdlet을 사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다 `Get-AzRecoveryServicesVault` .
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 설정
 
@@ -106,7 +105,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
    ```
 
 1. 이 cmdlet은 사이트 복구 작업을 시작하여 사이트를 만들고 사이트 복구 작업 개체를 반환합니다. 작업이 완료될 때까지 기다리고 작업이 성공적으로 완료되었는지 확인합니다.
-1. `Get-AzRecoveryServicesAsrJob` Cmdlet을 사용 하 여 작업 개체를 검색 하 고 작업의 현재 상태를 확인 합니다.
+1. Cmdlet을 사용 `Get-AzRecoveryServicesAsrJob` 하 여 작업 개체를 검색 하 고 작업의 현재 상태를 확인 합니다.
 1. 다음과 같이 사이트에 대한 등록 키를 생성하고 다운로드합니다.
 
    ```azurepowershell
@@ -130,7 +129,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고 다음 단계를 수행합니다.
 
-1. 다음 명령을 실행 하 여 _AzureSiteRecoveryProvider_ 에서 로컬 디렉터리로 파일의 압축을 풉니다.
+1. 다음 명령을 실행 하 여 _AzureSiteRecoveryProvider.exe_ 에서 로컬 디렉터리로 파일을 추출 합니다.
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
@@ -216,7 +215,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    Completed
    ```
 
-1. 장애 조치 (failover) 후 VM NIC를 연결할 Azure 네트워크 및 복구 속성 (예: VM 역할 크기)을 업데이트 합니다.
+1. 장애 조치 후 VM NIC를 연결할 Azure 네트워크 및 복구 속성(예: VM 역할 크기)을 업데이트합니다.
 
    ```console
    PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
@@ -240,11 +239,11 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 > Azure에서 CMK를 사용 하는 관리 디스크에 복제 하려는 경우 Az PowerShell 3.3.0을 사용 하 여 다음 단계를 수행 합니다.
 >
 > 1. VM 속성을 업데이트 하 여 관리 디스크에 대 한 장애 조치 (failover) 사용
-> 1. `Get-AzRecoveryServicesAsrReplicationProtectedItem` Cmdlet을 사용 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 인출 합니다.
-> 1. Cmdlet을 사용 하 여 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` 디스크 ID를 디스크 암호화 집합으로 매핑하는 사전을 포함 하는 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
+> 1. Cmdlet을 사용 `Get-AzRecoveryServicesAsrReplicationProtectedItem` 하 여 보호 된 항목의 각 디스크에 대 한 디스크 ID를 인출 합니다.
+> 1. Cmdlet을 사용 하 여 디스크 `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` ID를 디스크 암호화 집합으로 매핑하는 사전을 포함 하는 사전 개체를 만듭니다. 이러한 디스크 암호화 집합은 대상 지역에서 미리 생성 됩니다.
 > 1. `Set-AzRecoveryServicesAsrReplicationProtectedItem` **Diskidtodiskencryptionsetmap** 매개 변수에서 사전 개체를 전달 하 여 cmdlet을 사용 하 여 VM 속성을 업데이트 합니다.
 
-## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치 실행
+## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치(failover) 실행
 
 1. 다음과 같이 테스트 장애 조치(failover)를 실행합니다.
 

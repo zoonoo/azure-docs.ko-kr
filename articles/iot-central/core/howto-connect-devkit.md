@@ -9,25 +9,24 @@ ms.service: iot-central
 services: iot-central
 manager: jeffya
 ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756801"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
 
-*이 문서는 장치 개발자에 게 적용 됩니다.*
+*이 문서는 디바이스 개발자에게 적용됩니다.*
 
 이 문서에서는 DevKit (MXChip IoT DevKit) 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 보여 줍니다. 장치는 DevKit 장치에 대해 인증 된 IoT 플러그 앤 플레이 (미리 보기) 모델을 사용 하 여 IoT Central에 대 한 연결을 구성 합니다.
 
-이 방법 문서에서는 다음을 수행 합니다.
+이 방법 문서에서는 다음을 수행합니다.
 
 - IoT Central 응용 프로그램에서 연결 정보를 가져옵니다.
 - 장치를 준비 하 고 IoT Central 응용 프로그램에 연결 합니다.
 - IoT Central의 장치에서 원격 분석 및 속성을 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 리소스가 필요합니다.
 
@@ -36,7 +35,7 @@ ms.locfileid: "81756801"
 
 ## <a name="get-device-connection-details"></a>장치 연결 정보 가져오기
 
-1. Azure IoT Central 응용 프로그램에서 **장치 템플릿** 탭을 선택 하 고 **+ 새로 만들기**를 선택 합니다. **미리 구성 된 장치 템플릿 사용**섹션에서 **MXChip IoT devkit**를 선택 합니다.
+1. Azure IoT Central 애플리케이션에서 **디바이스 템플릿** 탭을 선택하고 **+ 새로 만들기**를 선택합니다. **미리 구성 된 장치 템플릿 사용**섹션에서 **MXChip IoT devkit**를 선택 합니다.
 
     ![MXChip IoT DevKit 용 장치 템플릿](media/howto-connect-devkit/device-template.png)
 
@@ -46,7 +45,7 @@ ms.locfileid: "81756801"
 
     ![새 장치](media/howto-connect-devkit/new-device.png)
 
-1. 팝업 창에서 **장치 ID** 를로 입력 `SampleDevKit` 하 고 **장치 이름을** 으로 `MXChip IoT DevKit - Sample`입력 합니다. **시뮬레이트된** 옵션이 해제 되어 있는지 확인 합니다. 그런 다음 **만들기**를 선택합니다.
+1. 팝업 창에서 **장치 ID** 를로 입력 `SampleDevKit` 하 고 **장치 이름을** 으로 입력 `MXChip IoT DevKit - Sample` 합니다. **시뮬레이트된** 옵션이 해제 되어 있는지 확인 합니다. 그런 다음 **만들기**를 선택합니다.
 
     ![장치 ID 및 이름](media/howto-connect-devkit/device-id-name.png)
 
@@ -54,7 +53,7 @@ ms.locfileid: "81756801"
 
     ![장치 연결 정보](media/howto-connect-devkit/device-connection-info.png)
 
-## <a name="prepare-the-device"></a>장치 준비
+## <a name="prepare-the-device"></a>디바이스 준비
 
 1. GitHub에서 DevKit 장치에 대해 [미리 작성 된 최신 Azure IoT Central 플러그 앤 플레이 (미리 보기) 펌웨어](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) 를 다운로드 합니다.
 
@@ -69,7 +68,7 @@ ms.locfileid: "81756801"
 
 1. 컴퓨터 또는 태블릿에서 장치 화면에 표시 된 WiFi 네트워크 이름에 연결 합니다. WiFi 네트워크는 **AZ-** 다음에 MAC 주소를 사용 하 여 시작 합니다. 이 네트워크에 연결 하면 인터넷에 액세스할 수 없습니다. 이 상태는 정상적인 상태 이며 장치를 구성 하는 동안 잠시 동안만이 네트워크에 연결 합니다.
 
-1. 웹 브라우저를 열고로 [http://192.168.0.1/](http://192.168.0.1/)이동 합니다. 다음 웹 페이지가 표시됩니다.
+1. 웹 브라우저를 열고로 이동 [http://192.168.0.1/](http://192.168.0.1/) 합니다. 다음 웹 페이지가 표시됩니다.
 
     ![구성 UI](media/howto-connect-devkit/config-ui.png)
 
@@ -106,7 +105,7 @@ IoT Central 응용 프로그램에서 **장치** 탭을 선택 하 고 추가한
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 개발자 인 경우 몇 가지 제안 되는 다음 단계는 다음과 같습니다.
+디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
 
-- [Azure IoT Central에서 장치 연결](./concepts-get-connected.md) 에 대해 읽기
-- [Azure CLI를 사용 하 여 장치 연결을 모니터링](./howto-monitor-devices-azure-cli.md) 하는 방법 알아보기
+- [Azure IoT Central에서 디바이스 연결](./concepts-get-connected.md)에 대해 알아봅니다.
+- [Azure CLI를 사용하여 디바이스 연결을 모니터링](./howto-monitor-devices-azure-cli.md)하는 방법을 알아봅니다.

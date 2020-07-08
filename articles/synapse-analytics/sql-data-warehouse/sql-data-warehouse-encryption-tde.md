@@ -6,17 +6,16 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c6fc0cdba4607bba55383f2662257322ef23aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212244"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
 
@@ -37,10 +36,10 @@ TDE를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
-3. **투명 한 데이터 암호화** 옵션 ![포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. 포털 ![설정 **설정에서 다음을 선택 합니다.**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
-5. 포털 설정 **저장**
-   ![선택 저장을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. 포털 설정 **설정에서 다음을 선택 합니다.** ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
+5. **Save** 
+    포털 설정 저장 선택 저장을 선택 합니다. ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
 ## <a name="disabling-encryption"></a>암호화 비활성화
 
@@ -48,10 +47,10 @@ TDE를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니�
 
 1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
-3. **투명 한 데이터 암호화** 옵션 ![포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. **끄기** 설정 ![포털 설정 해제를 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
-5. **Save**
-   저장![포털 설정 저장 2를 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. **끄기** 설정 ![ 포털 설정 해제를 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
+5. **저장** 
+    포털 설정 저장 2를 선택 합니다. ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
 ## <a name="encryption-dmvs"></a>암호화 DMV
 

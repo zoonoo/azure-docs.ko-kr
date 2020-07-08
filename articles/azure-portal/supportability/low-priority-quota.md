@@ -4,15 +4,14 @@ description: Azure 사용 모델을 제공 하 여 Azure에서 필요에 따라 
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763876"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>스폿 할당량: 모든 VM 시리즈에 대 한 제한 증가
 
@@ -40,15 +39,15 @@ Azure Resource Manager는 가상 컴퓨터에 대 한 두 가지 유형의 vCPU 
 > [!NOTE]
 > 단일 지원 사례를 통해 여러 지역의 할당량 한도 증가를 요청할 수도 있습니다. 자세한 내용은 8 단계를 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
 
    ![도움말 + 지원 링크](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. **도움말 + 지원**에서 **새 지원 요청**을 선택 합니다.
+1. **도움말 + 지원**에서 **새 지원 요청**을 선택합니다.
 
     ![새 지원 요청 만들기](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. **문제점 유형**에 대해 **서비스 및 구독 제한(할당량)** 를 선택합니다.
+1. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
    ![문제 유형 선택](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 

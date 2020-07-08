@@ -11,10 +11,9 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758251"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Rigado Cascade 500 게이트웨이 장치를 Azure IoT Central 응용 프로그램에 연결
@@ -29,7 +28,7 @@ Cascade 500 IoT gateway는 Rigado에서 제공 하는 하드웨어 제품으로,
 
 Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등록할 수 있도록 Azure IoT 플러그 앤 플레이 (미리 보기)를 미리 인증 합니다. Cascade gateway를 사용 하면 게이트웨이 장치와 근접 한 다양 한 조건 모니터링 센서에 무선으로 연결할 수 있습니다. 이러한 센서는 게이트웨이 장치를 통해 IoT Central에 등록 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 단계별로 실행 하려면 다음 리소스가 필요 합니다.
 
 * Rigado Cascade 500 장치입니다. 자세한 내용은 [Rigado](https://www.rigado.com/)를 참조 하세요.
@@ -41,9 +40,9 @@ Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등�
 
 캐스케이드 500 장치 템플릿을 추가 하려면: 
 
-1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로**만들기: 새 ![장치 템플릿 만들기를 선택 합니다.](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로** ![ 만들기: 새 장치 템플릿 만들기를 선택 합니다.](./media/howto-connect-rigado-cascade-500/device-template-new.png)
 1. 이 페이지에서는 ***사용자 지정 템플릿을 만들거나*** ***미리 구성 된 장치 템플릿을 사용할*** 수 있는 옵션을 제공 합니다.
-1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 C500 장치 템플릿을 선택 합니다. ![C500 장치 템플릿 선택](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
+1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 C500 장치 템플릿을 선택 합니다. ![ C500 장치 템플릿 선택](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
 1. 다음 ***: 사용자 지정*** 을 선택 하 여 다음 단계를 계속 합니다. 
 1. 다음 화면에서 ***만들기*** 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
 
@@ -54,8 +53,8 @@ Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등�
 1. 왼쪽 창에서 **관리** 로 이동 하 여 **장치 연결**을 클릭 합니다. 
 2. IoT Central 응용 프로그램의 **범위 ID** 를 적어 둡니다.
 ![앱 범위 ID](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
-3. 이제 **키 보기** 를 클릭 하 고 **기본 키**
-![기본 키를 적어 둡니다.](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
+3. 이제 **키 보기** 를 클릭 하 고 **기본 키** 
+ ![ 기본 키를 적어 둡니다.](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
 
 ## <a name="contact-rigado-to-connect-the-gateway"></a>게이트웨이를 연결 하려면 Rigado에 문의 하세요. 
 
@@ -71,7 +70,7 @@ Cascade 500 장치를 IoT Central 응용 프로그램에 연결 하려면 Rigado
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 개발자 인 경우 몇 가지 제안 되는 다음 단계는 다음과 같습니다.
+디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
 
-- [Azure IoT Central에서 장치 연결](./concepts-get-connected.md) 에 대해 읽기
-- [Azure CLI를 사용 하 여 장치 연결을 모니터링](./howto-monitor-devices-azure-cli.md) 하는 방법 알아보기
+- [Azure IoT Central에서 디바이스 연결](./concepts-get-connected.md)에 대해 알아봅니다.
+- [Azure CLI를 사용하여 디바이스 연결을 모니터링](./howto-monitor-devices-azure-cli.md)하는 방법을 알아봅니다.

@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733675"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 에이전트 API 참조
@@ -47,7 +46,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**필드.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 #### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
@@ -66,8 +65,8 @@ Configuring registry for instrumentation engine...
 
 대상 컴퓨터에서 IIS 앱에 대 한 코드 없는 연결 모니터링을 사용 하도록 설정 합니다.
 
-이 cmdlet은 IIS Applicationhost.config를 수정 하 고 일부 레지스트리 키를 설정 합니다.
-또한 각 앱에서 사용 하는 계측 키를 정의 하는 applicationinsights. ikey .config 파일이 만들어집니다.
+이 cmdlet은 IIS applicationHost.config를 수정 하 고 일부 레지스트리 키를 설정 합니다.
+또한 각 앱에서 사용 하는 계측 키를 정의 하는 applicationinsights.ikey.config 파일을 만듭니다.
 IIS는 시작 시 RedfieldModule를 로드 합니다. 그러면 응용 프로그램이 시작 될 때 응용 프로그램에 Application Insights SDK가 삽입 됩니다.
 IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 
@@ -83,12 +82,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에 대한 설명:
-- `MachineFilter`와일드 카드를 `'.*'` 사용 하 여 현재 컴퓨터와 일치 합니다.
-- `AppFilter='WebAppExclude'`계측 키 `null` 를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
+이 예제에서:
+- `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
+- `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
 - `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter` 마지막으로는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
+- 마지막으로는 `AppFilter` `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
 ```powershell
@@ -104,11 +103,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
-**필수.** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
+**필수 사항입니다.** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**필수.** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
-을 설정 `MachineFilter`하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
+**필수 사항입니다.** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
+을 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다 `MachineFilter` .
 
 > [!IMPORTANT]
 > 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.
@@ -127,12 +126,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**필드.** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
 
 계측 엔진은 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**필드.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
@@ -213,7 +212,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 대상 컴퓨터에서 모니터링을 사용 하지 않도록 설정 합니다.
-이 cmdlet은 IIS Applicationhost.config의 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
+이 cmdlet은 IIS applicationHost.config 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
 
 ### <a name="examples"></a>예
 
@@ -290,7 +289,7 @@ Filters:
 
 #### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
-명령을 `Get-ApplicationInsightsMonitoringStatus` 실행 하 여 웹 사이트의 모니터링 상태를 표시 합니다.
+명령을 실행 `Get-ApplicationInsightsMonitoringStatus` 하 여 웹 사이트의 모니터링 상태를 표시 합니다.
 
 ```powershell
 
@@ -335,7 +334,7 @@ AppAlreadyInstrumented : true
 
 #### <a name="example-powershell-module-information"></a>예: PowerShell 모듈 정보
 
-명령을 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 실행 하 여 현재 모듈에 대 한 정보를 표시 합니다.
+명령을 실행 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 하 여 현재 모듈에 대 한 정보를 표시 합니다.
 
 ```powershell
 
@@ -392,7 +391,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다. 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
 
-다음 명령을 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`실행 합니다.
+다음 명령을 실행 합니다 `Get-ApplicationInsightsMonitoringStatus -InspectProcess` .
 
 
 ```
@@ -446,9 +445,9 @@ Application Insights SDK를 포함 하 여 DLL의 버전을 식별 해야 하는
 
 
 어떤 이유로 든이 프로세스가 실패 하는 경우 다음 명령을 수동으로 실행할 수 있습니다.
-- iisreset/status
-- [handle64](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp.exe | findstr/I "InstrumentationEngine AI. Applicationinsights.config
-- [listdlls64](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp.exe | findstr/I "InstrumentationEngine AI ApplicationInsights"
+- iisreset.exe/status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp.exe | findstr/I "InstrumentationEngine AI. Applicationinsights.config
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -475,12 +474,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에 대한 설명:
-- `MachineFilter`와일드 카드를 `'.*'` 사용 하 여 현재 컴퓨터와 일치 합니다.
-- `AppFilter='WebAppExclude'`계측 키 `null` 를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
+이 예제에서:
+- `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
+- `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
 - `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter` 마지막으로는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
+- 마지막으로는 `AppFilter` `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
 ```powershell
@@ -494,11 +493,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
-**필수.** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
+**필수 사항입니다.** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**필수.** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
-을 설정 `MachineFilter`하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
+**필수 사항입니다.** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
+을 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다 `MachineFilter` .
 
 > [!IMPORTANT]
 > 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.
@@ -556,7 +555,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 수집 된 이벤트는 실시간으로 콘솔에 출력 되 고 ETL 파일에 저장 됩니다. 추가 조사를 위해 [Perfview](https://github.com/microsoft/perfview) 에서 출력 ETL 파일을 열 수 있습니다.
 
-이 cmdlet은 제한 시간 (기본값 5 분)에 도달할 때까지 실행 되거나 수동으로 중지 됩니다 (`Ctrl + C`).
+이 cmdlet은 제한 시간 (기본값 5 분)에 도달할 때까지 실행 되거나 수동으로 중지 됩니다 ( `Ctrl + C` ).
 
 ### <a name="examples"></a>예
 
@@ -571,13 +570,13 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 2. 이 cmdlet 실행
 3. 관리자 권한이 있는 cmd 콘솔에서를 실행 `iisreset /start` 하 여 IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
-5. 앱 로드가 완료 되 면 수동으로 중지 (`Ctrl + C`) 하거나 시간 초과를 기다릴 수 있습니다.
+5. 앱 로드가 완료 되 면 수동으로 중지 ( `Ctrl + C` ) 하거나 시간 초과를 기다릴 수 있습니다.
 
 #### <a name="what-events-to-collect"></a>수집할 이벤트
 
 이벤트를 수집할 때 세 가지 옵션이 있습니다.
-1. Application Insights SDK에서 `-CollectSdkEvents` 내보낸 이벤트를 수집 하려면 스위치를 사용 합니다.
-2. 스위치 `-CollectRedfieldEvents` 를 사용 하 여 상태 모니터 및 Redfield 런타임에서 내보낸 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
+1. `-CollectSdkEvents`APPLICATION INSIGHTS SDK에서 내보낸 이벤트를 수집 하려면 스위치를 사용 합니다.
+2. 스위치를 사용 `-CollectRedfieldEvents` 하 여 상태 모니터 및 Redfield 런타임에서 내보낸 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
 3. 두 스위치를 모두 사용 하 여 두 이벤트 유형을 모두 수집 합니다.
 4. 기본적으로 스위치를 지정 하지 않으면 두 이벤트 유형이 모두 수집 됩니다.
 
@@ -585,17 +584,17 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**필드.** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
+**선택 사항입니다.** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**필드.** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**필드.** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**필드.** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
 
 #### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.

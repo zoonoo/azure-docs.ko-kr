@@ -5,55 +5,58 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: c7d55a7b10f0c874fd84f32db1dcf21fb60c231f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636647"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버에서 읽기 복제본 만들기 및 관리
 
 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 
+## <a name="azure-replication-support"></a>Azure 복제 지원
+
+[읽기 복제본](concepts-read-replicas.md) 과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 postgres WRITE 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
+
+올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.
+
+* **Off** -WAL에 최소 정보를 저장 합니다. 이 설정은 대부분의 Azure Database for PostgreSQL 서버에서 사용할 수 없습니다.  
+* **복제본** -보다 자세한 정보를 **해제**합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
+* **논리적** - **복제본**보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
+
+이 매개 변수를 변경한 후에는 서버를 다시 시작 해야 합니다. 내부적으로이 매개 변수는 Postgres 매개 변수, 및를 설정 합니다 `wal_level` `max_replication_slots` `max_wal_senders` .
+
 ## <a name="prepare-the-master-server"></a>마스터 서버 준비
-이러한 단계는 범용 또는 메모리 최적화 계층에서 마스터 서버를 준비하는 데 사용합니다. 마스터 서버는 azure. replication_support 매개 변수를 설정 하 여 복제용으로 준비 됩니다. 복제 매개 변수가 변경 되 면 변경 내용을 적용 하려면 서버를 다시 시작 해야 합니다. Azure Portal에서이 두 단계는 단일 단추로 캡슐화 되며 **복제 지원을 사용 하도록 설정**합니다.
 
-1. Azure Portal에서 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다.
+1. Azure Portal에서 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. 서버 사이드바의 **설정**에서 **복제**를 선택 합니다.
+2. 서버 메뉴에서 **복제**를 선택 합니다. Azure 복제 지원이 **복제본**이상으로 설정 된 경우에는 읽기 복제본을 만들 수 있습니다. 
 
-> [!NOTE] 
-> **복제 지원 사용 안 함** 이 회색으로 표시 되는 경우 기본적으로 복제 설정이 서버에 이미 설정 되어 있습니다. 다음 단계를 건너뛰고 읽기 복제본 만들기로 이동할 수 있습니다. 
+3. Azure 복제 지원이 **복제본**이상으로 설정 되어 있지 않으면 설정 합니다. **저장**을 선택합니다.
 
-3. **복제 지원 사용**을 선택 합니다. 
+   ![복제-복제 설정 및 저장 Azure Database for PostgreSQL](./media/howto-read-replicas-portal/set-replica-save.png)
 
-   ![복제 지원 사용](./media/howto-read-replicas-portal/enable-replication-support.png)
+4. **예**를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
-4. 복제 지원을 사용할 수 있는지 확인 합니다. 이 작업을 수행 하면 마스터 서버가 다시 시작 됩니다. 
+   ![Azure Database for PostgreSQL-복제-다시 시작 확인](./media/howto-read-replicas-portal/confirm-restart.png)
 
-   ![복제 지원 사용 확인](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
 5. 작업이 완료 되 면 두 개의 Azure Portal 알림을 받게 됩니다. 서버 매개 변수를 업데이트 하는 한 가지 알림이 있습니다. 서버 다시 시작에 대 한 또 다른 알림은 즉시 따릅니다.
 
-   ![성공 알림-사용](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![성공 알림](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Azure Portal 페이지를 새로 고쳐 복제 도구 모음을 업데이트 합니다. 이제이 서버에 대 한 읽기 복제본을 만들 수 있습니다.
-
-   ![업데이트 된 도구 모음](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-복제 지원 설정은 마스터 서버당 일회성 작업입니다. 사용자 편의를 위해 **복제 지원 사용 안 함** 단추가 제공 됩니다. 복제 지원을 사용 하지 않는 것이 좋습니다. 단,이 경우에는이 마스터 서버에서 복제본을 만들지 않는 것이 좋습니다. 마스터 서버에 기존 복제본이 있는 경우에는 복제 지원을 사용 하지 않도록 설정할 수 없습니다.
-
 
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
 읽기 복제본을 만들려면 다음 단계를 수행합니다.
 
-1. 마스터로 사용할 기존 Azure Database for PostgreSQL 서버를 선택합니다. 
+1. 마스터 서버로 사용할 기존 Azure Database for PostgreSQL 서버를 선택 합니다. 
 
 2. 서버 사이드바의 **설정**에서 **복제**를 선택 합니다.
 
@@ -65,12 +68,12 @@ ms.locfileid: "76768956"
 
     ![복제본 이름 지정](./media/howto-read-replicas-portal/name-replica.png)
 
-5. 복제본의 위치를 선택 합니다. 기본 위치는 마스터 서버의와 동일 합니다.
+5. 복제본의 위치를 선택 합니다. 기본 위치는 마스터 서버의 위치와 같습니다.
 
     ![위치 선택](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
-   > 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
+   > 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서](concepts-read-replicas.md)를 참조하세요. 
 
 6. **확인**을 선택하여 복제본 만들기를 확인합니다.
 
@@ -100,7 +103,7 @@ Azure Portal에서 마스터 서버와 읽기 복제본 간의 복제를 중지�
 
    ![복제본 선택](./media/howto-read-replicas-portal/select-replica.png)
  
-4. **복제 중지**를 선택 합니다.
+4. **복제 중지**를 선택합니다.
 
    ![복제 중지 선택](./media/howto-read-replicas-portal/select-stop-replication.png)
  
@@ -145,7 +148,7 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
    ![삭제할 복제본 선택](./media/howto-read-replicas-portal/select-replica.png)
  
-4. **복제본 삭제**를 선택합니다.
+4. **복제본 삭제**를 선택 합니다.
 
    ![복제본 삭제 선택](./media/howto-read-replicas-portal/select-delete-replica.png)
  
