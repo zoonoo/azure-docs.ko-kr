@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456024"
 ---
 # <a name="remove-duplicate-rows-module"></a>중복 행 제거 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 데이터 집합에서 잠재적 중복 항목을 제거 합니다.
 
@@ -69,7 +68,7 @@ ms.locfileid: "79456024"
     + 이를 선택 하면 첫 번째 행이 반환 되 고 다른 행은 삭제 됩니다. 
     + 이 옵션의 선택을 취소 하면 마지막 중복 행이 결과에 유지 되 고 다른 행은 삭제 됩니다. 
 
-5. 파이프라인을 제출 합니다.
+5. 파이프라인을 제출합니다.
 
 6. 결과를 검토 하려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화**를 선택 합니다. 
 
@@ -78,4 +77,4 @@ ms.locfileid: "79456024"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456066"
 ---
 # <a name="permutation-feature-importance"></a>순열 기능 중요도
@@ -48,13 +47,13 @@ ms.locfileid: "79456066"
 
         정확도, 전체 자릿수, 회수  
 
-    -   **재발**
+    -   **회귀**
 
         전체 자릿수, 회수, 평균 절대 오차, 제곱 평균 오차, 상대 절대 오차, 상대 제곱 오차, 결정 계수  
 
      이러한 평가 메트릭에 대 한 자세한 설명과 계산 방법에 대 한 자세한 내용은 [모델 평가](evaluate-model.md)를 참조 하세요.  
 
-6.  파이프라인을 제출 합니다.  
+6.  파이프라인을 제출합니다.  
 
 7.  모듈은 기능 열 목록과 이와 연결 된 점수를 출력 합니다. 이 목록은 점수를 기준으로 내림차순으로 순위가 매겨집니다.  
 
@@ -69,4 +68,4 @@ ms.locfileid: "79456066"
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

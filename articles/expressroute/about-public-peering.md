@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79481136"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Express 경로 공용 피어 링 만들기 및 관리
@@ -38,22 +37,22 @@ ms.locfileid: "79481136"
 * 공용 피어 링 라우팅 도메인을 통해 클라우드 서비스의 Vip를 포함 하 여 공용 IP 주소에서 호스트 되는 서비스에 개인적으로 연결할 수 있습니다.
 * 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 DMZ에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다.
 
-## <a name="services"></a><a name="services"></a>Services
+## <a name="services"></a><a name="services"></a>서비스
 
 이 섹션에서는 공용 피어 링을 통해 사용할 수 있는 서비스를 보여 줍니다. 공용 피어 링은 더 이상 사용 되지 않으므로 공용 피어 링에 새 서비스 또는 추가 서비스를 추가할 계획이 없습니다. 공용 피어 링을 사용 하 고 사용 하려는 서비스가 Microsoft 피어 링을 통해서만 지원 되는 경우 Microsoft 피어 링으로 전환 해야 합니다. 지원 되는 서비스 목록은 [Microsoft 피어 링](expressroute-faqs.md#microsoft-peering) 을 참조 하세요.
 
-**되지**
+**지원됨:**
 
 * Power BI
 * 대부분의 Azure 서비스가 지원됩니다. 지원 확인에 사용 하려는 서비스를 직접 확인 합니다.
 
-**지원 되지 않음:**
+**지원되지 않음:**
   * CDN
   * Azure Front Door
-  * Multi-factor Authentication 서버 (레거시)
+  * Multi-factor Authentication 서버(레거시)
   * Traffic Manager
 
-특정 서비스에 대 한 가용성의 유효성을 검사 하려면 해당 서비스에 대 한 설명서를 확인 하 여 해당 서비스에 대해 예약 된 범위가 게시 되었는지 확인 합니다. 그런 다음 대상 서비스의 IP 범위를 조회 하 고 [AZURE IP 범위 및 서비스 태그 – 공용 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열 된 범위와 비교할 수 있습니다. 또는 확인을 위해 해당 서비스에 대 한 지원 티켓을 열 수 있습니다.
+특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음 대상 서비스의 IP 범위를 조회 하 고 [AZURE IP 범위 및 서비스 태그 – 공용 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열 된 범위와 비교할 수 있습니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
 
 ## <a name="peering-comparison"></a><a name="compare"></a>피어링 비교
 

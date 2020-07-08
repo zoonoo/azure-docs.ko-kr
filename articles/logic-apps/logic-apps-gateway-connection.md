@@ -7,10 +7,9 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657128"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
@@ -24,7 +23,7 @@ ms.locfileid: "80657128"
 
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
-* [Microsoft Power 자동 온-프레미스 데이터 게이트웨이](/power-automate/gateway-reference)
+* [Microsoft Power Automate 온-프레미스 데이터 게이트웨이](/power-automate/gateway-reference)
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](/power-bi/service-gateway-onprem)
 * [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
@@ -48,7 +47,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 * SQL Server
 * Teradata
 
-Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
+Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -58,7 +57,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 * 게이트웨이 설치는 다른 Azure 게이트웨이 리소스에서 이미 등록 및 요청 되지 않습니다.
 
-  Azure Portal에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스와 해당 게이트웨이 리소스에만 연결 되는 게이트웨이 설치를 선택 합니다. Azure Logic Apps 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결 하기 위해 게이트웨이 리소스를 사용 합니다. 이러한 트리거와 작업에서 사용 하려는 Azure 구독 및 연결 된 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 하나의 Azure 계정에만 연결 되는 하나의 게이트웨이 설치에만 연결 됩니다.
+  Azure Portal에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스와 해당 게이트웨이 리소스에만 연결 되는 게이트웨이 설치를 선택 합니다. Azure Logic Apps의 경우 온-프레미스 트리거 및 작업에서 게이트웨이 리소스를 사용하여 온-프레미스 데이터 원본에 연결합니다. 이러한 트리거와 작업에서 사용 하려는 Azure 구독 및 연결 된 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 하나의 Azure 계정에만 연결 되는 하나의 게이트웨이 설치에만 연결 됩니다.
 
   > [!NOTE]
   > 게이트웨이 관리자만 Azure Portal에서 게이트웨이 리소스를 만들 수 있습니다. 현재 서비스 주체는 지원 되지 않습니다. 
@@ -83,7 +82,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
    | 속성 | Description |
    |----------|-------------|
-   | **리소스 이름** | 문자`-`, 숫자, 하이픈 (), 밑줄 (`_`), 괄호 (`(`, `)`) 또는 마침표 (`.`)만 포함 하는 게이트웨이 리소스의 이름을 제공 합니다. |
+   | **리소스 이름** | 문자, 숫자, 하이픈 ( `-` ), 밑줄 ( `_` ), 괄호 ( `(` , `)` ) 또는 마침표 ()만 포함 하는 게이트웨이 리소스의 이름을 제공 `.` 합니다. |
    | **구독** | 게이트웨이 설치에 사용 된 Azure 계정에 대 한 Azure 구독을 선택 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
    | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) |
    | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
@@ -140,7 +139,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
-* Azure Portal 메뉴에서 **모든 서비스** > **웹** > **API 연결**을 선택 합니다.
+* Azure Portal 메뉴에서 **모든 서비스**  >  **웹**  >  **API 연결**을 선택 합니다.
 * 또는 Azure Portal 메뉴에서 **모든 리소스**를 선택 합니다. **유형** 필터를 **API 연결**로 설정 합니다.
 
 <a name="change-delete-gateway-resource"></a>
@@ -153,13 +152,13 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
-   다음은 그 예입니다.
+   예를 들어:
 
    ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 **Q**: Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치가 나타나지 않는 이유는 무엇 인가요? <br/>
 **A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.

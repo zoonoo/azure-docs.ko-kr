@@ -14,10 +14,9 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79478800"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
@@ -27,7 +26,7 @@ Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하�
 > [!NOTE]
 > Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하는 것이 좋습니다.
 
-이 문서에서는 새 Azure Media Services 계정을 만드는 단계를 설명 합니다. 다음 탭에서 선택 합니다.
+이 문서에서는 새 Azure Media Services 계정을 만드는 단계를 설명 합니다. 다음 탭 중에서 선택합니다.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -48,14 +47,14 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 ### <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **+ 리소스** > 만들기**미디어** > **Media Services**를 클릭 합니다.
+1. **+ 리소스 만들기**  >  **미디어**  >  **Media Services**를 클릭 합니다.
 1. **Media Services 계정 만들기** 섹션에서 필요한 값을 입력 합니다.
     
-    | 속성 | Description |
+    | 이름 | 설명 |
     | ---|---|
     |**계정 이름**|새 Media Services 계정의 이름을 입력 합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.|
     |**구독**|둘 이상의 구독이 있는 경우 액세스 권한이 있는 Azure 구독 목록에서 하나를 선택 합니다.|
-    |**리소스 그룹**|새 리소스 또는 기존 리소스를 선택 합니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. 자세한 내용은 [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조 하세요.|
+    |**리소스 그룹**|새 리소스 또는 기존 리소스를 선택 합니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.|
     |**위치**|Media Services 계정에 대 한 메타 데이터 레코드 및 미디어를 저장 하는 데 사용할 지역을 선택 합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 Media Services 지역만 드롭다운 목록 상자에 표시됩니다. |
     |**Storage 계정**|저장소 계정을 선택 하 여 Media Services 계정의 미디어 콘텐츠 blob storage를 제공 합니다. Media Services 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Media Services 계정의 경우와 같습니다.<br/><br/>하나의 **기본** 저장소 계정이 있어야 하며, Media Services 계정에 연결 된 **보조** 저장소 계정을 개수에 제한 없이 사용할 수 있습니다. Azure Portal를 사용 하 여 보조 저장소 계정을 추가할 수 있습니다. 자세한 내용은 계정 [으로 계정 Azure Storage Azure Media Services](storage-account-concept.md)를 참조 하세요.<br/><br/>Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하는 것이 좋습니다.|
     
@@ -80,7 +79,7 @@ az account set --subscription mySubscriptionId
 
 다음 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure Media Services 계정 및 관련 스토리지 계정과 같은 리소스가 배포되어 관리되는 논리적 컨테이너입니다.
 
-값으로 대체할 `amsResourceGroup` 수 있습니다.
+값으로 대체할 수 있습니다 `amsResourceGroup` .
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -114,7 +113,7 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참조
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [Media Services 계정에 보조 저장소 연결](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

@@ -4,10 +4,9 @@ description: Container Instances에서 액세스할 수 있도록 중요한 정�
 ms.topic: article
 ms.date: 04/03/2020
 ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657143"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container Instances에서 비밀 볼륨 탑재
@@ -22,7 +21,7 @@ ms.locfileid: "80657143"
 
 ## <a name="mount-secret-volume---azure-cli"></a>비밀 볼륨 탑재 - Azure CLI
 
-Azure CLI를 사용하여 하나 이상의 비밀이 포함된 컨테이너를 배포하려면 [az container create][az-container-create] 명령에 `--secrets` 및 `--secrets-mount-path` 매개 변수를 포함해야 합니다. 이 예제에서는 비밀이 "mysecret1" 및 "mysecret2" 인 두 개의 파일로 구성 된 *비밀* 볼륨을 탑재 합니다 `/mnt/secrets`.
+Azure CLI를 사용하여 하나 이상의 비밀이 포함된 컨테이너를 배포하려면 [az container create][az-container-create] 명령에 `--secrets` 및 `--secrets-mount-path` 매개 변수를 포함해야 합니다. 이 예제에서는 비밀이 "mysecret1" 및 "mysecret2" 인 두 개의 파일로 구성 된 *비밀* 볼륨을 탑재 합니다 `/mnt/secrets` .
 
 ```azurecli-interactive
 az container create \
@@ -112,7 +111,7 @@ CLI 및 YAML 배포 외에도, Azure [Resource Manager 템플릿](/azure/templat
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-리소스 관리자 템플릿을 사용 하 여 배포 하려면 앞의 JSON을 이라는 `deploy-aci.json`파일에 저장 한 다음 `--template-file` 매개 변수를 사용 하 여 [az deployment group create][az-deployment-group-create] 명령을 실행 합니다.
+리소스 관리자 템플릿을 사용 하 여 배포 하려면 앞의 JSON을 이라는 파일에 저장 `deploy-aci.json` 한 다음 매개 변수를 사용 하 여 [az deployment group create][az-deployment-group-create] 명령을 실행 합니다 `--template-file` .
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

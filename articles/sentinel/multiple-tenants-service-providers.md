@@ -15,19 +15,18 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476018"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Azure 센티널에서 여러 테 넌 트 작업 
 
 사용자가 관리 되는 MSSP (security service provider) 인 경우 [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 고객의 SOC (security operations center)를 관리 하는 경우 사용자의 azure 테 넌 트에서 고객 테 넌 트에 직접 연결 하지 않고도 고객의 azure 센티널 리소스를 관리할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - [Azure Lighthouse 등록](../lighthouse/how-to/onboard-customer.md)
-- 이 작업이 제대로 작동 하려면 하나 이상의 구독에서 테 넌 트가 Azure 센티널 리소스 공급자에 등록 되어 있어야 합니다. 테 넌 트에 등록 된 Azure 센티널가 있는 경우 시작할 준비가 된 것입니다. 그렇지 않으면 Azure Portal에서 **구독** 을 선택한 다음 **리소스 공급자**를 선택 합니다.  그런 다음 **SOC-리소스 공급자** 화면에서 `Microsoft.OperationalInsights` 및 `Microsoft.SecurityInsights`를 검색 하 고, **등록**을 선택 합니다.
+- 이 작업이 제대로 작동 하려면 하나 이상의 구독에서 테 넌 트가 Azure 센티널 리소스 공급자에 등록 되어 있어야 합니다. 테 넌 트에 등록 된 Azure 센티널가 있는 경우 시작할 준비가 된 것입니다. 그렇지 않으면 Azure Portal에서 **구독** 을 선택한 다음 **리소스 공급자**를 선택 합니다.  그런 다음 **SOC-리소스 공급자** 화면에서 및를 검색 하 고 `Microsoft.OperationalInsights` `Microsoft.SecurityInsights` , **등록**을 선택 합니다.
    ![리소스 공급자 확인](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>다른 테 넌 트에서 Azure 센티널에 액세스 하는 방법
 1. **디렉터리 + 구독**에서 위임 된 디렉터리 및 고객의 Azure 센티널 작업 영역이 있는 구독을 선택 합니다.

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456253"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
@@ -94,7 +93,7 @@ ms.locfileid: "79456253"
 
     예를 들어 3을 입력 하는 경우에는 3, 4, bigrams 및 trigrams을 만듭니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 ## <a name="results"></a>결과
 

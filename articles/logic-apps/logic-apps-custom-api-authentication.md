@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656225"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 Api 호출에 대 한 보안 강화
@@ -51,7 +50,7 @@ Api 호출에 대 한 보안을 향상 시키려면 Azure Portal를 통해 Azure
 2. 웹앱 또는 API 앱과 동일한 디렉터리에 있는지 확인합니다.
 
    > [!TIP]
-   > 디렉터리를 전환하려면 프로필을 선택하고 다른 디렉터리를 선택합니다. 또는 **개요** > **디렉터리 전환**을 선택 합니다.
+   > 디렉터리를 전환하려면 프로필을 선택하고 다른 디렉터리를 선택합니다. 또는 **개요**  >  **디렉터리 전환**을 선택 합니다.
 
 3. 디렉터리 메뉴의 **관리** 아래에서 **앱 등록** > **새 애플리케이션 등록**을 차례로 선택합니다.
 
@@ -197,16 +196,16 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 }
 ```
 
-| 속성 | 필수 | Description | 
+| 속성 | 필수 | 설명 | 
 | -------- | -------- | ----------- | 
 | tenant | 예 | Azure AD 테넌트의 GUID | 
 | 대상 | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
 | clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
 | secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
-| type | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| 형식 | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
-다음은 그 예입니다.
+예를 들어:
 
 ``` json
 {
@@ -248,9 +247,9 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 } 
 ```
 
-| 속성 | 필수 | Description |
+| 속성 | 필수 | 설명 |
 | -------- | -------- | ----------- |
-| `type` | 예 | 인증 유형입니다. TLS/SSL 클라이언트 인증서의 경우 값은 이어야 `ClientCertificate`합니다. |
+| `type` | 예 | 인증 유형입니다. TLS/SSL 클라이언트 인증서의 경우 값은 이어야 합니다 `ClientCertificate` . |
 | `password` | 아니요 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 |
 | `pfx` | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
 ||||
@@ -274,7 +273,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | 속성 | 필수 | Description | 
 | -------- | -------- | ----------- | 
 | type | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
-| username | 예 | 인증에 사용할 사용자 이름 | 
+| 사용자 이름 | 예 | 인증에 사용할 사용자 이름 | 
 | password | 예 | 인증에 사용할 암호 | 
 |||| 
 

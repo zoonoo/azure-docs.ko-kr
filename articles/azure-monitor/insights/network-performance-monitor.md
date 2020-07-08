@@ -7,10 +7,9 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480881"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
@@ -92,7 +91,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
 
     >[!NOTE]
-    > 서비스 연결 모니터에 대해 [Enablerules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
+    > 서비스 연결 모니터에 대 한 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
 
     
 
@@ -134,7 +133,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
    ![네트워크 성능 모니터 구성 페이지](media/network-performance-monitor/npm-private-peerings.png)
     
-이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
+이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택 하 여 구성을 저장 합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
 설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
@@ -147,7 +146,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 1. **서브네트워크 ID** 옆에 있는 확인란을 선택하거나 선택 취소합니다. 그런 다음, 필요에 따라 **모니터링에 사용**이 선택되었거나 선택 취소되었는지 확인합니다. 여러 서브넷을 선택 또는 선택 취소할 수 있습니다. 이 설정을 사용하지 않도록 설정할 경우 서브네트워크가 모니터링되지 않고 다른 에이전트에 대한 Ping을 중지하도록 에이전트가 업데이트됩니다. 
 2. 특정 서브네트워크에서 모니터링할 노드를 선택합니다. 목록에서 서브네트워크를 선택하고 모니터링되지 않는 노드와 모니터링되는 노드가 있는 목록 사이에서 필요한 노드를 이동합니다. 서브네트워크에 사용자 지정 설명을 추가할 수 있습니다.
-3. **저장** 을 선택하여 구성을 저장합니다. 
+3. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
 #### <a name="choose-nodes-to-monitor"></a>모니터링할 노드 선택
 

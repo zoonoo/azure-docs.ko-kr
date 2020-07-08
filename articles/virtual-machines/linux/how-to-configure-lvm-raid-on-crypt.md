@@ -8,10 +8,9 @@ ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657438"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
@@ -58,7 +57,7 @@ Azure Disk Encryption 이중 패스 버전은 사용 중단 경로에 있으므�
 "다중 사용자" 구성을 사용 하는 경우 다음 절차에 설명 된 프로세스를 사용 합니다.
 
 >[!NOTE] 
->이 문서 전체에서 변수를 사용 하 고 있습니다. 그에 따라 값을 바꿉니다.
+>문서 전체에서 변수가 사용됩니다. 상황에 맞게 변수를 바꾸세요.
 
 ### <a name="deploy-a-vm"></a>VM 배포 
 다음 명령은 선택 사항 이지만 새로 배포 된 VM (가상 컴퓨터)에 적용 하는 것이 좋습니다.

@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499657"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
@@ -24,7 +23,7 @@ ms.locfileid: "79499657"
 > [!NOTE]
 > 이 항목에서 설명하는 계정 구성 조정을 수행하려면 Video Indexer 계정 소유자여야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure에 연결](connect-to-azure.md)에서 설명한 대로 Video Indexer 계정을 Azure에 연결합니다.
 
@@ -54,12 +53,12 @@ ms.locfileid: "79499657"
 
 [Video Indexer](https://www.videoindexer.ai/) 페이지의 **Azure Media Services에 대 한 연결 업데이트** 대화 상자에서 다음 설정에 대 한 값을 제공 하 라는 메시지가 표시 됩니다.
 
-|설정|Description|
+|Setting|설명|
 |---|---|
 |Azure 구독 ID|구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 클릭 하 고 "구독"을 검색 합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
-|애플리케이션 UI|이 Video Indexer 계정에 대해 만든 Azure AD 응용 프로그램 ID (지정 된 Media Services 계정에 대 한 사용 권한 포함)입니다. <br/><br/>앱 ID를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. 서비스 주체 -> **Azure AD 앱**를 **사용 하 여 Media Services API에 연결을**선택 합니다. 관련 매개 변수를 복사 합니다.|
-|애플리케이션 키|위에서 지정한 Media Services 계정과 연결 된 Azure AD 응용 프로그램 키입니다. <br/><br/>앱 키를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다.  ->  **서비스 주체를 사용 하 여 Media Services API에 연결을 선택 하 여****응용 프로그램** -> **인증서 & 암호**를 관리 합니다. 관련 매개 변수를 복사 합니다.|
+|애플리케이션 ID|이 Video Indexer 계정에 대해 만든 Azure AD 응용 프로그램 ID (지정 된 Media Services 계정에 대 한 사용 권한 포함)입니다. <br/><br/>앱 ID를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 주체 Azure AD 앱를 사용 하 여 Media Services API에 연결을**선택  ->  **Azure AD App**합니다. 관련 매개 변수를 복사 합니다.|
+|애플리케이션 키|위에서 지정한 Media Services 계정과 연결 된 Azure AD 응용 프로그램 키입니다. <br/><br/>앱 키를 가져오려면 Azure Portal로 이동 합니다. Media Services 계정에서 계정을 선택 하 고 **API 액세스**로 이동 합니다. **서비스 주체를 사용 하 여 Media Services API에 연결을 선택 하 여**  ->  **응용 프로그램**  ->  **인증서 & 암호**를 관리 합니다. 관련 매개 변수를 복사 합니다.|
 
 ## <a name="autoscale-reserved-units"></a>자동 크기 조정 예약 단위
 

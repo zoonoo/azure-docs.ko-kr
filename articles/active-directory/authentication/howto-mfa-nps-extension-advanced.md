@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653779"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션
@@ -30,7 +29,7 @@ NPS 확장 내에서 Azure Multi-Factor Authentication에 대한 UPN 대신 사�
 
 대체 로그인 ID를 구성하려면 `HKLM\SOFTWARE\Microsoft\AzureMfa`로 이동하여 다음 레지스트리 값을 편집합니다.
 
-| 속성 | Type | 기본값 | 설명 |
+| 이름 | Type | 기본값 | 설명 |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | UPN 대신 사용하려는 Active Directory 특성의 이름을 지정합니다. 이 특성은 AlternateLoginId 특성으로 사용됩니다. 이 레지스트리 값이 [유효한 Active Directory 특성](https://msdn.microsoft.com/library/ms675090.aspx)(예: 메일 또는 displayName)으로 설정되어 있는 경우 인증용 사용자의 UPN 대신 특성의 값이 사용됩니다. 이 레지스트리 값이 비어 있거나 구성되어 있지 않으면 AlternateLoginId가 비활성화되고 사용자의 UPN이 인증에 사용됩니다. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | False | 이 플래그를 사용하여 AlternateLoginId를 조회할 때 LDAP 검색에 글로벌 카탈로그를 강제 사용합니다. 도메인 컨트롤러를 글로벌 카탈로그로 구성하고, 글로벌 카탈로그에 AlternateLoginId 특성을 추가한 다음, 이 플래그를 사용하도록 설정합니다. <br><br> LDAP_LOOKUP_FORESTS가 구성된 경우(비어 있지 않음), 레지스트리 설정의 값에 관계 없이 **이 플래그는 true로 적용**됩니다. 이 경우 NPS 확장에서 글로벌 카탈로그를 각 포리스트에 대한 AlternateLoginId 특성으로 구성해야 합니다. |
@@ -42,16 +41,16 @@ NPS 확장 내에서 Azure Multi-Factor Authentication에 대한 UPN 대신 사�
 
 부하 분산 장치에서 워크로드를 보내기 전에 실행 중인 서버를 확인하는 경우와 같이 서버 가용성을 모니터링해야 하는 경우, 이러한 검사는 확인 요청에 의해 차단되지 않아야 합니다. 대신, 서비스 계정에서 사용되는 것으로 알고 있는 IP 주소의 목록을 만들고 해당 목록에 대한 Multi-Factor Authentication 요구 사항을 사용하지 않도록 설정합니다.
 
-IP 허용 목록을 구성 하려면로 `HKLM\SOFTWARE\Microsoft\AzureMfa` 이동 하 여 다음 레지스트리 값을 구성 합니다.
+IP 허용 목록을 구성 하려면로 이동 하 여 `HKLM\SOFTWARE\Microsoft\AzureMfa` 다음 레지스트리 값을 구성 합니다.
 
-| 속성 | Type | 기본값 | 설명 |
+| 이름 | Type | 기본값 | 설명 |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Empty | IP 주소 목록을 세미콜론으로 구분된 형태로 제공합니다. NAS/VPN 서버와 같이 서비스 요청이 발생한 컴퓨터의 IP 주소가 포함됩니다. IP 범위 및 서브넷은 지원 되지 않습니다. <br><br> 예: *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 > [!NOTE]
 > 이 레지스트리 키는 설치 관리자에 의해 기본적으로 생성 되지 않으며, 서비스가 다시 시작 될 때 AuthZOptCh 로그에 오류가 나타납니다. 로그에서이 오류는 무시 해도 되지만, 필요 하지 않은 경우에는이 레지스트리 키가 비어 있는 경우 빈 상태로 남아 있으면 오류 메시지가 반환 되지 않습니다.
 
-에 있는 IP 주소에서 요청이 들어오면 2 단계 인증 `IP_WHITELIST`을 건너뜁니다. IP 목록은 RADIUS 요청의 *ratNASIPAddress* 특성에 제공 된 ip 주소와 비교 됩니다. RADIUS 요청이 ratNASIPAddress 특성 없이 들어오는 경우 다음과 같은 경고가 로그됩니다. “P_WHITE_LIST_WARNING::원본 IP가 NasIpAddress 특성의 RADIUS 요청에서 누락되어 IP 허용 목록이 무시됩니다.”
+에 있는 IP 주소에서 요청이 들어오면 `IP_WHITELIST` 2 단계 인증을 건너뜁니다. IP 목록은 RADIUS 요청의 *ratNASIPAddress* 특성에 제공 된 ip 주소와 비교 됩니다. RADIUS 요청이 ratNASIPAddress 특성 없이 들어오는 경우 다음과 같은 경고가 로그됩니다. “P_WHITE_LIST_WARNING::원본 IP가 NasIpAddress 특성의 RADIUS 요청에서 누락되어 IP 허용 목록이 무시됩니다.”
 
 ## <a name="next-steps"></a>다음 단계
 

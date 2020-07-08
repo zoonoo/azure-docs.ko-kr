@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479562"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
@@ -71,7 +70,7 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
@@ -124,9 +123,9 @@ PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계
 
 4. 스크립트는 다음 세 가지 입력을 요청 합니다.
 
-    - **FarmBeats 웹 사이트 이름**: FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://\<FarmBeats-name>. azurewebsites.net에서 액세스할 수 있으며 swagger api는 https://\<FarmBeats->-api.azurewebsites.net에 있습니다.
+    - **FarmBeats 웹 사이트 이름**: FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://에서 액세스할 수 \<FarmBeats-website-name> 있으며, Swagger api는 https://-api.azurewebsites.net에 있습니다. \<FarmBeats-website-name>
 
-    - **Azure 로그인 id**: FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 john.doe@domain.com일반적으로입니다. Azure UPN도 지원 됩니다.
+    - **Azure 로그인 id**: FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 일반적으로입니다 john.doe@domain.com . Azure UPN도 지원 됩니다.
 
     - **구독 id**: Azure FarmBeats을 설치 하려는 구독의 id입니다.
 
@@ -168,11 +167,11 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 8. 입력 한 세부 정보의 유효성이 검사 되 면 **확인**을 선택 합니다. 사용 약관 페이지가 표시 됩니다. 용어를 검토 하 고 **만들기** 를 선택 하 여 설치를 시작 합니다. 설치 진행 상황을 따를 수 있는 페이지로 리디렉션됩니다.
 
-설치가 완료 되 면 설치를 확인 하 고 설치 중에 제공한 웹 사이트 이름으로 이동 하 여 FarmBeats 포털을 사용 하기 시작할 수 있습니다\<. https://FarmBeats-name>. azurewebsites.net. 팜을 만들 수 있는 옵션이 포함 된 FarmBeats 사용자 인터페이스가 표시 되어야 합니다.
+설치가 완료 되 면 설치를 확인 하 고 설치 중에 제공한 웹 사이트 이름으로 이동 하 여 FarmBeats 포털 사용을 시작할 수 있습니다. https:// \<FarmBeats-website-name> . azurewebsites.net. 팜을 만들 수 있는 옵션이 포함 된 FarmBeats 사용자 인터페이스가 표시 되어야 합니다.
 
-**Datahub** 는 https://\<FarmBeats>-api.azurewebsites.net/swagger에서 찾을 수 있습니다. 여기에서 다양 한 FarmBeats API 개체를 보고 Api에 대 한 REST 작업을 수행 합니다.
+**Datahub** 는 https://-api.azurewebsites.net/swagger에서 찾을 수 있습니다 \<FarmBeats-website-name> . 여기에서 다양 한 FarmBeats API 개체를 보고 Api에 대 한 REST 작업을 수행 합니다.
 
-## <a name="upgrade"></a>업그레이드
+## <a name="upgrade"></a>Upgrade
 
 FarmBeats를 최신 버전으로 업그레이드 하려면 PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계를 실행 합니다. 사용자가 FarmBeats가 설치 된 구독의 소유자 여야 합니다.
 
@@ -196,7 +195,7 @@ FarmBeats를 최신 버전으로 업그레이드 하려면 PowerShell 환경을 
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-입력. json 파일의 경로는 선택 사항입니다. 지정 하지 않으면 스크립트에서 필요한 모든 입력을 요청 합니다. 업그레이드는 30 분 정도 완료 되어야 합니다.
+파일의 input.js경로는 선택 사항입니다. 지정 하지 않으면 스크립트에서 필요한 모든 입력을 요청 합니다. 업그레이드는 30 분 정도 완료 되어야 합니다.
 
 ## <a name="uninstall"></a>제거
 

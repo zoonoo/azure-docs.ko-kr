@@ -9,10 +9,9 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80668018"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Azure App Service의 도메인 및 TLS/SSL 인증서 문제 해결
@@ -90,7 +89,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. **App Service 인증서**로 이동하고, 인증서를 선택합니다.
-    3. **인증서 구성** > **2 단계:** > **도메인 확인**확인을 선택 합니다. 이 단계는 문제를 해결하라는 이메일 알림을 Azure 인증서 공급자에게 전송합니다.
+    3. **인증서 구성**  >  **2 단계:**  >  **도메인 확인**확인을 선택 합니다. 이 단계는 문제를 해결하라는 이메일 알림을 Azure 인증서 공급자에게 전송합니다.
 
 ## <a name="custom-domain-problems"></a>사용자 지정 도메인 문제
 

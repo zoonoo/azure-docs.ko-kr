@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333811"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
@@ -23,7 +22,7 @@ ms.locfileid: "80333811"
 
 일부 날씨 서비스 Api를 통해 사용자는 데이터를 메트릭 또는 왕정 단위로 반환 하는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 (Unittype.pixel) 및 숫자 값이 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
 
-|(Unittype.pixel)|Description         |
+|(Unittype.pixel)|설명         |
 |--------|--------------------|
 |0       |발                |
 |1       |x              |
@@ -52,9 +51,9 @@ ms.locfileid: "80333811"
 
 ## <a name="weather-icons"></a>날씨 아이콘
 
-일부 날씨 서비스 Api는 응답에서을 `iconCode` 반환 합니다. 는 `iconCode` 아이콘을 정의 하는 데 사용 되는 숫자 값입니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 않으면 Url이 변경 될 수 있으며 변경 될 수 있습니다.
+일부 날씨 서비스 Api는 응답에서을 반환 합니다 `iconCode` . 는 `iconCode` 아이콘을 정의 하는 데 사용 되는 숫자 값입니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 않으면 Url이 변경 될 수 있으며 변경 될 수 있습니다.
 
-| 아이콘 번호 |아이콘| 일 | 모드 | Text |
+| 아이콘 번호 |아이콘| 일 | 모드 | 텍스트 |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | 예 |  아니요    | 맑음|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | 예 |  아니요    | 대부분 Sunny|
@@ -83,7 +82,7 @@ ms.locfileid: "80333811"
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | 예 |  예   | 비 및 눈|
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | 예 |  예   | 핫|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | 예 |  예   | 콜드|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | 예 |  예   | 바람|
+| 32           |![](./media/weather-services-concepts/windy-i.png)                     | 예 |  예   | Windy|
 | 33           |![](./media/weather-services-concepts/clear-night.png)                | 아니요  |  예   | 지우기|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | 아니요  |  예   | 대부분 지우기|
 | 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | 아니요  |  예   | 부분적으로 Cloudy|
@@ -127,7 +126,7 @@ ms.locfileid: "80333811"
 
 16 진수 색 코드 및 dBZ 값을 사용 하는 방사형 타일에 대 한 자세한 색상표는 다음과 같습니다. dBZ는 날씨 레이더의 강 강도를 나타냅니다. 
 
-| **비가**             | **아이스크림**              | **덮인**              | **모음집**             |
+| **비가**             | **아이스크림**              | **덮인**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
 | **Dbz** **(컬러)**  | **Dbz** **(컬러)**  | **Dbz** **(컬러)**   | **Dbz** **(컬러)**   |
 | 1.25 (#93C701) | 1.25 (#E6A5C8) | 1.25 (#9EC8F2)  | 1.25 (#C196E6) |

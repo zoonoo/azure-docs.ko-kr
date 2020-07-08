@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/10/2020
 ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455981"
 ---
 # <a name="score-svd-recommender"></a>SVD 추천 점수 매기기
@@ -53,7 +52,7 @@ ms.locfileid: "79455981"
 
    데이터 집합은 첫 번째 및 두 번째 열에 있는 사용자-항목 쌍에 대 한 등급의 선택적인 세 번째 열을 포함할 수 있습니다. 하지만 세 번째 열은 예측 중에 무시 됩니다.
 
-4. 파이프라인을 제출 합니다.
+4. 파이프라인을 제출합니다.
 
 ### <a name="results-for-rating-predictions"></a>등급 예측 결과 
 
@@ -99,7 +98,7 @@ ms.locfileid: "79455981"
 
     이 필터를 적용 하려면 원래 학습 데이터 집합을 입력 포트에 연결 합니다.
 
-8. 파이프라인을 제출 합니다.
+8. 파이프라인을 제출합니다.
 
 ### <a name="results-of-item-recommendation"></a>항목 권장 사항의 결과
 
@@ -123,4 +122,4 @@ ms.locfileid: "79455981"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

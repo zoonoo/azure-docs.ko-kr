@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456083"
 ---
 # <a name="one-vs-all-multiclass"></a>OVA(One-vs-All)  다중 클래스
@@ -50,7 +49,7 @@ ms.locfileid: "79456083"
 
 4. [학습 모델](train-model.md)의 다른 입력에서 여러 클래스 값이 있는 레이블이 지정 된 학습 데이터 집합을 연결 합니다.
 
-5. 파이프라인을 제출 합니다.
+5. 파이프라인을 제출합니다.
 
 ## <a name="results"></a>결과
 
@@ -61,4 +60,4 @@ ms.locfileid: "79456083"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

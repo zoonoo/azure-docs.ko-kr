@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480456"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
@@ -26,7 +25,7 @@ ms.locfileid: "79480456"
 
 다음 표에서는 시작 하기 위해 포함 VM용 Azure Monitor 하는 통합 문서를 요약 합니다.
 
-| 통합 문서 | Description | 범위 |
+| 통합 문서 | 설명 | Scope |
 |----------|-------------|-------|
 | 성능 | 사용 하도록 설정한 모든 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 상위 N 개 목록 및 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 대규모 |
 | 성능 카운터 | 광범위 한 성능 카운터 집합에 대 한 상위 N 개 차트 뷰입니다. | 대규모 |
@@ -46,7 +45,7 @@ ms.locfileid: "79480456"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Virtual Machines**를 선택합니다.
+2. **Virtual Machines**를 선택 합니다.
 
 3. 목록에서 VM을 선택합니다.
 
@@ -100,7 +99,7 @@ ms.locfileid: "79480456"
 
 ### <a name="advanced-analytic-query-settings"></a>고급 분석 쿼리 설정
 
-각 섹션에는 **매개 변수 추가** 단추 오른쪽에 있는 설정 ![통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/006-settings.png) 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
+각 섹션에는 ![ ](media/vminsights-workbooks/006-settings.png) **매개 변수 추가** 단추 오른쪽에 있는 설정 통합 문서 섹션 편집 컨트롤 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
 
 ![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -244,4 +243,4 @@ Azure 대시보드에 통합 문서에 대한 링크를 고정하려면:
 
 - 제한 사항 및 전반적인 VM 성능을 식별 하려면 [AZURE VM 성능 보기](vminsights-performance.md)를 참조 하세요.
 
-- 검색 된 응용 프로그램 종속성에 대 한 자세한 내용은 [View VM용 Azure Monitor Map](vminsights-maps.md)을 참조 하십시오.
+- 검색된 애플리케이션 종속성에 대해 알아보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.

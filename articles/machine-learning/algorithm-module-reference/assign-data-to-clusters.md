@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477717"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
@@ -43,7 +42,7 @@ ms.locfileid: "79477717"
   
     이 확인란의 선택을 취소 하면 결과만 반환 됩니다. 이 옵션은 웹 서비스의 일부로 예측을 만들 때 유용할 수 있습니다.
   
-5.  파이프라인을 제출 합니다.  
+5.  파이프라인을 제출합니다.  
   
 ### <a name="results"></a>결과
 

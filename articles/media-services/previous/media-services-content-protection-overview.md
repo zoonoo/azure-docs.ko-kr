@@ -15,18 +15,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460962"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
-Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
+Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
 다음 이미지는 Media Services 콘텐츠 보호 워크플로를 보여 줍니다. 
 
@@ -82,14 +81,14 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 
 ### <a name="token-replay-prevention"></a>토큰 재생 방지
 
-*토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 고객은 토큰에 형식의 `urn:microsoft:azure:mediaservices:maxuses` 클레임을 추가할 수 있습니다. 여기서 값은 토큰이 라이선스 또는 키를 획득 하는 데 사용 될 수 있는 횟수입니다. 키 배달이 동일한 토큰을 사용 하는 모든 후속 요청은 권한 없는 응답을 반환 합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가 하는 방법을 참조 하세요.
+Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토큰을 사용하여 키 또는 라이선스를 요청하는 횟수에 대한 제한을 설정할 수 있습니다. 고객은 토큰에 형식의 클레임을 추가할 수 있습니다 `urn:microsoft:azure:mediaservices:maxuses` . 여기서 값은 토큰이 라이선스 또는 키를 획득 하는 데 사용 될 수 있는 횟수입니다. 키 배달이 동일한 토큰을 사용 하는 모든 후속 요청은 권한 없는 응답을 반환 합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가 하는 방법을 참조 하세요.
  
 #### <a name="considerations"></a>고려 사항
 
 * 고객은 토큰 생성을 제어 해야 합니다. 클레임은 토큰 자체에 배치 해야 합니다.
 * 이 기능을 사용 하는 경우 만료 시간이 요청을 수신 하는 시간부터 1 시간을 초과 하는 토큰이 있는 요청은 거부 된 응답으로 거부 됩니다.
 * 토큰은 해당 시그니처로 고유 하 게 식별 됩니다. 페이로드를 변경 하는 경우 (예: 만료 시간 또는 클레임에 대 한 업데이트) 토큰의 서명을 변경 하 고 키 배달이 이전에 발생 하지 않는 새 토큰으로 계산 됩니다.
-* 토큰이 고객에 의해 설정 된 값을 `maxuses` 초과 하면 재생이 실패 합니다.
+* 토큰이 고객에 의해 설정 된 값을 초과 하면 재생이 실패 `maxuses` 합니다.
 * 이 기능은 기존의 모든 보호 된 콘텐츠에 사용할 수 있습니다 (발급 된 토큰만 변경 해야 함).
 * 이 기능은 JWT 및 SWT 모두에서 작동 합니다.
 
@@ -107,7 +106,7 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
   * **cbcs-aapl**: FairPlay인 경우(AES CBC 암호화)
   * **cbc**: AES 봉투(Envelope) 암호화
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477683"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환할 수 있습니다.
 
@@ -26,7 +25,7 @@ ms.locfileid: "79477683"
 
 "쉼표로 구분 된 값"을 의미 하는 CSV 형식은 여러 외부 기계 학습 도구에서 사용 하는 파일 형식입니다. CSV는 R 또는 Python과 같은 오픈 소스 언어로 작업할 때 일반적인 교환 형식입니다.
 
-Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 다음은 그 예입니다.
+Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 예를 들어:
 
 + CSV 파일을 다운로드 하 여 Excel에서 열거나 관계형 데이터베이스로 가져옵니다.  
 + CSV 파일을 클라우드 저장소에 저장 하 고 Power BI에서 연결 하 여 시각화를 만듭니다.  
@@ -41,7 +40,7 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 2. 데이터 집합을 출력 하는 모듈에 연결 합니다.   
   
-3.  파이프라인을 제출 합니다.
+3.  파이프라인을 제출합니다.
 
 ### <a name="results"></a>결과
   
@@ -50,8 +49,8 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 + **데이터 집합 등록**: 아이콘을 선택 하 고 CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다. **내 데이터** 집합 섹션의 모듈 트리에서 데이터 집합을 모듈로 찾을 수 있습니다.
 
- + **출력 보기**: 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 데이터 .csv 파일을 다운로드 합니다.
+ + **출력 보기**: 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 data.csv 파일을 다운로드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

@@ -7,17 +7,16 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471033"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
 
 이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다. 이 문서에서는 프로덕션 배포를 직접 변경 하지 않고 스테이징 배포를 프로덕션 환경에 배치 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 [Azure 스프링 클라우드 응용 프로그램을 시작 하는 방법에 대 한 자습서](spring-cloud-quickstart-launch-app-portal.md)에서 PiggyMetrics 응용 프로그램을 이미 배포 했다고 가정 합니다. PiggyMetrics는 "게이트웨이", "계정-서비스" 및 "인증 서비스"의 세 가지 응용 프로그램으로 구성 됩니다.  
 
@@ -67,10 +66,10 @@ Azure Portal에서 서비스 인스턴스로 이동 하 고 **배포 관리** �
 
 >[!TIP]
 > * 테스트 끝점이 슬래시 (/)로 끝나는지 확인 하 여 CSS 파일이 올바르게 로드 되는지 확인 합니다.  
-> * 브라우저에서 페이지를 보기 위해 로그인 자격 증명을 입력해야 하는 경우, [URL 디코드](https://www.urldecoder.org/)를 사용하여 테스트 엔드포인트를 디코드합니다. URL 디코드는 "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green" 형식의 URL을 반환합니다.  이 형식을 사용 하 여 끝점에 액세스 합니다.
+> * 브라우저에서 페이지를 보기 위해 로그인 자격 증명을 입력해야 하는 경우, [URL 디코드](https://www.urldecoder.org/)를 사용하여 테스트 엔드포인트를 디코드합니다. Url 디코드는 url을 "https:// \<username> : test.azureapps.io/gateway/green" 형식으로 반환 \<password> @ \<cluster-name> 합니다.  이 형식을 사용 하 여 끝점에 액세스 합니다.
 
 >[!NOTE]    
-> 구성 서버 설정은 스테이징 환경과 프로덕션 모두에 적용 됩니다. 예를 들어 구성 서버에서 앱 게이트웨이의 컨텍스트 경로`server.servlet.context-path`()를 *somepath*로 설정 하면 녹색 배포 경로가 "https://\<username>:\<password> @\<cluster-name>. test.azureapps.io/gateway/green/somepath/..."로 변경 됩니다.
+> 구성 서버 설정은 스테이징 환경과 프로덕션 모두에 적용 됩니다. 예를 들어 `server.servlet.context-path` 구성 서버에서 앱 게이트웨이의 컨텍스트 경로 ()를 *somepath*로 설정 하면 녹색 배포 경로가 "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/gateway/green/somepath/..."로 변경 됩니다.
  
  이 시점에서 공용 앱 게이트웨이를 방문 하면 새 변경 없이 이전 페이지가 표시 됩니다.
     

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455913"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
@@ -48,11 +47,11 @@ ms.locfileid: "79455913"
 
    > [!IMPORTANT]
    > [필터 기반 기능 선택](filter-based-feature-selection.md) 을 점수 매기기 데이터 집합에 적용 하 고 동일한 결과를 얻을 수는 없습니다. 기능 선택은 값을 기반으로 하기 때문에 다른 열 집합을 선택할 수 있으며,이로 인해 점수 매기기 작업이 실패 합니다.
-7. 파이프라인을 제출 합니다.
+7. 파이프라인을 제출합니다.
 
 열 선택을 저장 하 고 적용 하면 동일한 데이터 스키마를 학습 및 평가에 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

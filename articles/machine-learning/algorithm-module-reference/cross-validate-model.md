@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477649"
 ---
 # <a name="cross-validate-model"></a>모델 교차 유효성 검사
@@ -72,7 +71,7 @@ ms.locfileid: "79477649"
 
 5. 동일한 데이터에서 연속 실행에 대 한 교차 유효성 검사의 결과를 반복 하려면 **임의 초기값** 매개 변수 값을 설정 합니다.  
 
-6. 파이프라인을 제출 합니다.
+6. 파이프라인을 제출합니다.
 
 7. 보고서에 대 한 설명은 [결과](#results) 섹션을 참조 하십시오.
 
@@ -86,7 +85,7 @@ ms.locfileid: "79477649"
 
 파이프라인에서 결과를 보려면 모델 교차 유효성 검사 모듈을 마우스 오른쪽 단추로 클릭 합니다. **점수가 매겨진 결과 시각화**를 선택 합니다.
 
-| 새 열 이름      | Description                              |
+| 새 열 이름      | 설명                              |
 | -------------------- | ---------------------------------------- |
 | 점수가 매겨진 레이블        | 이 열은 데이터 집합의 끝에 추가 됩니다. 각 행에 대 한 예측 값을 포함 합니다. |
 | 점수가 매겨진 확률 | 이 열은 데이터 집합의 끝에 추가 됩니다. **점수가 매겨진 레이블의**값에 대 한 예상 확률을 나타냅니다. |
@@ -101,7 +100,7 @@ ms.locfileid: "79477649"
 파이프라인에서 결과를 보려면 모델 교차 유효성 검사 모듈을 마우스 오른쪽 단추로 클릭 합니다. **접기 별 평가 결과 시각화를**선택 합니다.
 
 
-|열 이름| Description|
+|열 이름| 설명|
 |----|----|
 |접기 번호| 각 접기에 대 한 식별자입니다. 5 개의 접기를 만든 경우에는 0에서 4 사이의 5 개의 데이터 하위 집합이 있습니다.
 |접기의 예제 수|각 접기에 할당 된 행 수입니다. 거의 같아야 합니다. |
@@ -125,5 +124,5 @@ ms.locfileid: "79477649"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
 

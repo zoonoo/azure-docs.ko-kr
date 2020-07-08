@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477513"
 ---
 # <a name="partition-and-sample-module"></a>파티션 및 샘플 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 파티션 및 샘플 모듈을 사용 하 여 데이터 집합에서 샘플링을 수행 하거나 데이터 집합에서 파티션을 만들 수 있습니다.
 
@@ -61,7 +60,7 @@ ms.locfileid: "79477513"
 
    행 수는 음수가 아닌 정수 여야 합니다. 선택한 행 수가 데이터 집합의 행 수보다 크면 전체 데이터 집합이 반환 됩니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 모듈은 지정 된 수의 행만 포함 하는 단일 데이터 집합을 출력 합니다. 행은 항상 데이터 집합의 맨 위에서 읽습니다.
 
@@ -94,7 +93,7 @@ ms.locfileid: "79477513"
    1. 지정한 비율에 맞게 각 그룹을 선택적으로 출력 데이터 집합에 추가합니다.
 
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
    이 옵션을 사용 하 여 모듈은 데이터의 대표적인 샘플링을 포함 하는 단일 데이터 집합을 출력 합니다. 데이터 집합의 나머지 샘플링 되지 않은 부분은 출력 되지 않습니다. 
 
@@ -132,7 +131,7 @@ ms.locfileid: "79477513"
 
 1. **층 화 split**: 분할할 때 행을 층 화 하려면이 옵션을 선택 하 고 _층 열_을 선택 합니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
    이 옵션을 사용 하는 경우 모듈은 여러 데이터 집합을 출력 합니다. 데이터 집합은 지정한 규칙에 따라 분할 됩니다.
 
@@ -158,7 +157,7 @@ ms.locfileid: "79477513"
 
    ![파티션 및 샘플](./media/module/partition-and-sample.png)
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
    이 옵션을 사용 하면 모듈은 해당 접기에 할당 된 행만 포함 된 단일 데이터 집합을 출력 합니다.
 
@@ -167,4 +166,4 @@ ms.locfileid: "79477513"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

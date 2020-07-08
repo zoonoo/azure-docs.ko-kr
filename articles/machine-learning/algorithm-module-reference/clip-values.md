@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456610"
 ---
 # <a name="clip-values"></a>값 잘라내기
@@ -84,7 +83,7 @@ ms.locfileid: "79456610"
   
     원래 열을 유지 하 고 잘린 값이 있는 새 열을 추가 하려면이 옵션의 선택을 취소 합니다.  
   
-1.  파이프라인을 제출 합니다.  
+1.  파이프라인을 제출합니다.  
   
     **클립 값** 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화** **를 선택**하거나 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 여 값을 검토 하 고 클리핑 작업이 예상과 일치 하는지 확인 합니다.  
  
@@ -120,4 +119,4 @@ ms.locfileid: "79456610"
  
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

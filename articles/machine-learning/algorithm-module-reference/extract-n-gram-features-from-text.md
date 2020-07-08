@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477615"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>텍스트 모듈 참조에서 N-문법 기능 추출
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다. 텍스트 모듈의 N-문법 기능 추출에서 *피쳐화* 구조화 되지 않은 텍스트 데이터를 사용 합니다. 
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다. 텍스트 모듈의 N-문법 기능 추출에서 *피쳐화* 구조화 되지 않은 텍스트 데이터를 사용 합니다. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>텍스트 모듈에서 추출 N-영문법 기능 구성
 
@@ -73,7 +72,7 @@ ms.locfileid: "79477615"
 
 1. **N-영문법 기능 벡터 정규화** 옵션을 선택 하 여 기능 벡터를 표준화 합니다. 이 옵션을 사용 하는 경우 각 n-영문법 기능 벡터를 L2로 나눕니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>기존 n-영문법 사전 사용
 
@@ -92,7 +91,7 @@ ms.locfileid: "79477615"
 
 1.  다른 모든 옵션은 [이전 섹션](#create-a-new-n-gram-dictionary)의 속성 설명을 참조 하세요.
 
-1.  파이프라인을 제출 합니다.
+1.  파이프라인을 제출합니다.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>N 그램을 사용 하는 모델 점수 매기기 또는 게시
 
@@ -125,7 +124,7 @@ ms.locfileid: "79477615"
 + **DF**: 원래 모음의 n-문법에 대 한 용어 빈도 점수입니다.
 + **IDF**: 원래 모음의 n-문법에 대 한 역 문서 빈도 점수입니다.
 
-이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 다음은 그 예입니다.
+이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 예를 들어:
 
 * 모듈이 입력 어휘에서 동일한 키를 가진 중복 행을 찾은 경우 오류가 발생 합니다. 어휘의 두 행이 같은 단어를 포함 하지 않도록 합니다.
 * 어휘 데이터 집합의 입력 스키마는 열 이름과 열 유형을 포함 하 여 정확 하 게 일치 해야 합니다. 
@@ -137,4 +136,4 @@ ms.locfileid: "79477615"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456781"
 ---
 # <a name="add-columns-module"></a>열 추가 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 두 데이터 집합을 연결 합니다. 지정 하는 두 데이터 집합의 모든 열을 입력으로 결합 하 여 단일 데이터 집합을 만듭니다. 세 개 이상의 데이터 집합을 연결 해야 하는 경우 **열 추가**의 여러 인스턴스를 사용 합니다.
 
@@ -33,7 +32,7 @@ ms.locfileid: "79456781"
 
     - 추가할 개별 열을 선택할 수 없습니다. **열 추가**를 사용 하는 경우 각 데이터 집합의 모든 열이 연결 됩니다. 따라서 열의 하위 집합만 추가 하려면 데이터 집합의 열 선택을 사용 하 여 원하는 열이 포함 된 데이터 집합을 만듭니다.
 
-3. 파이프라인을 제출 합니다.
+3. 파이프라인을 제출합니다.
 
 ### <a name="results"></a>결과
 파이프라인이 실행 된 후 다음을 수행 합니다.
@@ -46,4 +45,4 @@ ms.locfileid: "79456781"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

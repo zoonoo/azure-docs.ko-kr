@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477411"
 ---
 # <a name="train-svd-recommender"></a>SVD 추천 학습
@@ -68,9 +67,9 @@ Azure Machine Learning 디자이너 ( **데이터 집합** 및 **샘플**)의 **
 
     학습 속도는 각 반복의 단계 크기를 결정 합니다. 단계 크기가 너무 크면 최적의 솔루션을 과도 하 게 사용할 수 있습니다. 단계 크기가 너무 작은 경우 학습을 통해 최상의 솔루션을 찾는 데 시간이 오래 걸립니다. 
   
-5.  파이프라인을 제출 합니다.  
+5.  파이프라인을 제출합니다.  
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477581"
 ---
 # <a name="join-data"></a>데이터 조인
@@ -62,10 +61,10 @@ ms.locfileid: "79477581"
     * 두 입력 테이블에서 키를 보려면이 옵션을 선택 합니다.
     * 왼쪽 입력에서 키 열만 반환 하려면 선택 취소 합니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 1. 결과를 보려면 **조인 데이터** 를 마우스 오른쪽 단추로 클릭 하 고 **시각화**를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

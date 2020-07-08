@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471356"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
@@ -23,7 +22,7 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-|클러스터 유형 |Description|
+|클러스터 유형 |설명|
 |---|---|
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|
@@ -131,7 +130,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |Description |
+|인수를 제거합니다. |설명 |
 |---|---|
 |DROP TABLE|이미 테이블이 있는 경우 삭제합니다.|
 |CREATE EXTERNAL TABLE|Hive에 새 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 원래 형식으로 남아 있습니다.|
@@ -164,7 +163,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 이러한 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |Description |
+|인수를 제거합니다. |설명 |
 |---|---|
 |존재 하지 않는 경우 CREATE TABLE|테이블이 존재 하지 않는 경우 만듭니다. **EXTERNAL** 키워드가 사용 되지 않으므로이 문은 내부 테이블을 만듭니다. 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다.|
 |ORC로 저장 됨|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.|

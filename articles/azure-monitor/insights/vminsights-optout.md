@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480524"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 Vm 모니터링 사용 안 함
@@ -24,7 +23,7 @@ VM용 Azure Monitor는 해당 환경을 제공하기 위해 다음 구성 요소
 * Vm 및 기타 원본의 모니터링 데이터를 저장 하는 Log Analytics 작업 영역입니다.
 * 작업 영역에 구성 된 성능 카운터의 컬렉션입니다. 컬렉션은 작업 영역에 연결 된 모든 Vm의 모니터링 구성을 업데이트 합니다.
 * `VMInsights`-작업 영역에서 구성 된 모니터링 솔루션입니다. 이 솔루션은 작업 영역에 연결 된 모든 Vm의 모니터링 구성을 업데이트 합니다.
-* `MicrosoftMonitoringAgent`Azure `DependencyAgent`VM 확장 인 및 이러한 확장은 데이터를 수집 하 고 작업 영역으로 보냅니다.
+* `MicrosoftMonitoringAgent``DependencyAgent`AZURE VM 확장 인 및 이러한 확장은 데이터를 수집 하 고 작업 영역으로 보냅니다.
 
 Vm 모니터링을 사용 하지 않도록 준비할 때 다음 사항을 염두에 두어야 합니다.
 
@@ -36,10 +35,10 @@ Vm 모니터링을 사용 하지 않도록 준비할 때 다음 사항을 염두
 
 ## <a name="remove-azure-monitor-for-vms-completely"></a>VM용 Azure Monitor 완전히 제거
 
-Log Analytics 작업 영역이 필요한 경우 다음 단계에 따라 VM용 Azure Monitor를 완전히 제거 합니다. 작업 영역에서 솔루션 `VMInsights` 을 제거 합니다.  
+Log Analytics 작업 영역이 필요한 경우 다음 단계에 따라 VM용 Azure Monitor를 완전히 제거 합니다. `VMInsights`작업 영역에서 솔루션을 제거 합니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **모든 서비스**를 선택 합니다. 리소스 목록에서 **Log Analytics**을 입력 합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택 합니다.
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택 합니다.
 3. Log Analytics 작업 영역 목록에서 VM용 Azure Monitor을 사용 하도록 설정할 때 선택한 작업 영역을 선택 합니다.
 4. 왼쪽에서 **솔루션**을 선택 합니다.  
 5. 솔루션 목록에서 **VMInsights (작업 영역 이름)** 을 선택 합니다. 솔루션에 대 한 **개요** 페이지에서 **삭제**를 선택 합니다. 확인 하 라는 메시지가 표시 되 면 **예**를 선택 합니다.

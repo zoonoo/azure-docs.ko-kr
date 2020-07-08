@@ -4,10 +4,9 @@ description: 실패 한 배포가 성공적인 배포로 롤백해야 하도록 
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460146"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>성공적인 배포에 대 한 오류 발생 시 롤백

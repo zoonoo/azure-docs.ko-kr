@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479589"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
@@ -36,7 +35,7 @@ GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/servic
 
 ## <a name="authentication"></a>인증
 
-Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 이 작업을 완료 한 후에는 관리 작업을 수행 `ClustersClient`하는 데 사용할 수 있는 많은 함수 (아래 섹션에서 설명)를 포함 하는의 인스턴스를 갖게 됩니다.
+Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 이 작업을 완료 한 후에는 `ClustersClient` 관리 작업을 수행 하는 데 사용할 수 있는 많은 함수 (아래 섹션에서 설명)를 포함 하는의 인스턴스를 갖게 됩니다.
 
 > [!NOTE]  
 > 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수는 [Go용 Azure SDK의 인증 함수](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)에 설명되어 있습니다.
@@ -263,7 +262,7 @@ client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 
 #### <a name="example"></a>예제
 
-를 사용 `get` 하 여 클러스터를 성공적으로 만들었는지 확인할 수 있습니다.
+를 사용 하 여 `get` 클러스터를 성공적으로 만들었는지 확인할 수 있습니다.
 
 ```golang
 cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
@@ -352,7 +351,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 또한 HDInsight 관리 SDK를 사용하여 OMS(Operations Management Suite)를 통해 클러스터에서 모니터링을 관리할 수 있습니다.
 
-관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, 모니터링 작업에 사용할 `ExtensionClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ExtensionClient` 다음과 같이 만들 수 있습니다.
+관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, 모니터링 작업에 사용할 `ExtensionClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 다음과 같이 만들 수 있습니다 `ExtensionClient` .
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -405,7 +404,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-'스크립트 작업 삭제' 및 '지속형 스크립트 작업 나열' 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로 `ScriptActionsClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ScriptActionsClient` 다음과 같이 만들 수 있습니다.
+'스크립트 작업 삭제' 및 '지속형 스크립트 작업 나열' 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로 `ScriptActionsClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 다음과 같이 만들 수 있습니다 `ScriptActionsClient` .
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -453,7 +452,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>모든 스크립트 실행 기록 나열
 
-이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 `ScriptActionsClient` 다음과 같이 만들 수 있습니다.
+이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료 한 후에는 다음과 같이 만들 수 있습니다 `ScriptActionsClient` .
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

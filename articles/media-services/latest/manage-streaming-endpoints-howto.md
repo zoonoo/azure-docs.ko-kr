@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
 ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461047"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Media Services v3을 사용 하 여 스트리밍 끝점 관리
@@ -30,9 +29,9 @@ Media Services 계정이 만들어지면 **기본** [스트리밍 끝점이](str
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
     
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-검토용 
+검토: 
 
 * [Media Services 개념](concepts-overview.md)
 * [스트리밍 끝점 개념](streaming-endpoint-concept.md)

@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456304"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 클라우드 저장소 대상에 저장 합니다. 
 
@@ -26,7 +25,7 @@ ms.locfileid: "79456304"
 
 - Azure Blob 컨테이너
 - Azure 파일 공유
-- Azure Data Lake
+- Azure 데이터 레이크
 - Azure Data Lake Gen2
 
 데이터를 내보내기 전에 Azure Machine Learning 작업 영역에 데이터 저장소를 먼저 등록 해야 합니다. 자세한 내용은 [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 참조 하세요.
@@ -52,8 +51,8 @@ ms.locfileid: "79456304"
 
 1. **파일 형식**에 대해 데이터를 저장할 형식을 선택 합니다.
  
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

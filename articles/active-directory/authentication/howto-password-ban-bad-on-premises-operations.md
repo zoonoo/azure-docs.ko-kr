@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652629"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 사용
@@ -32,7 +31,7 @@ ms.locfileid: "80652629"
 
 ## <a name="enable-on-premises-password-protection"></a>온-프레미스 암호 보호 사용
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory** > **보안** > **인증 방법** > **암호 보호**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **암호 보호**로 이동 합니다.
 1. **Windows Server에서 암호 보호 사용 Active Directory** 의 옵션을 *예*로 설정 합니다.
 
     이 설정이 *아니요*로 설정 된 경우 배포 된 모든 Azure AD 암호 보호 DC 에이전트는 모든 암호가 그대로 적용 되는 정지 모드로 전환 됩니다. 유효성 검사 작업은 수행 되지 않으며 감사 이벤트는 생성 되지 않습니다.

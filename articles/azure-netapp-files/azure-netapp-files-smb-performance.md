@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
 ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460452"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능에 대 한 Faq
@@ -44,7 +43,7 @@ Windows는 최상의 성능을 사용할 수 있도록 Windows 2012 이후 SMB �
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Azure virtual machine에서 RSS를 지원 하나요?
 
-Azure 가상 머신 Nic에서 RSS를 지원 하는지 확인 하려면 다음과 같이 명령을 `Get-SmbClientNetworkInterface` 실행 하 고 필드 `RSS Capable`를 확인 합니다. 
+Azure 가상 머신 Nic에서 RSS를 지원 하는지 확인 하려면 `Get-SmbClientNetworkInterface` 다음과 같이 명령을 실행 하 고 필드를 확인 합니다 `RSS Capable` . 
 
 ![Azure 가상 컴퓨터에 대 한 RSS 지원](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
@@ -60,7 +59,7 @@ SMB 다중 채널 기능을 사용 하면 SMB3 클라이언트에서 단일 NIC 
 
 아니요. Smb 클라이언트는 SMB 서버에서 반환 되는 NIC 수와 일치 합니다.  각 저장소 볼륨은 하나의 저장소 끝점에서 액세스할 수 있습니다.  즉, 지정 된 SMB 관계에 하나의 NIC만 사용 됩니다.  
 
-`Get-SmbClientNetworkInterace` 아래 출력에 표시 된 것 처럼 가상 머신에는 두 개의 네트워크 인터페이스인-15와 12가 있습니다.  아래에 표시 된 `Get-SmbMultichannelConnection`것 처럼 두 개의 RSS 지원 nic가 있더라도 SMB 공유와의 연결에는 인터페이스 12만 사용 됩니다. 인터페이스 15를 사용 하 고 있지 않습니다.
+아래 출력에 표시 된 것 처럼 `Get-SmbClientNetworkInterace` 가상 머신에는 두 개의 네트워크 인터페이스인-15와 12가 있습니다.  아래에 표시 된 것 처럼 `Get-SmbMultichannelConnection` 두 개의 RSS 지원 nic가 있더라도 SMB 공유와의 연결에는 인터페이스 12만 사용 됩니다. 인터페이스 15는 사용 되지 않습니다.
 
 ![RSS 지원 NIC](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
@@ -74,9 +73,9 @@ NIC 팀은 Azure에서 지원 되지 않습니다. 여러 네트워크 인터페
 
 ### <a name="random-io"></a>임의 i/o  
 
-클라이언트에서 SMB 다중 채널을 사용 하지 않도록 설정 하면 FIO 및 40 GiB 작업 집합을 사용 하 여 순수 8 KiB 읽기 및 쓰기 테스트를 수행 했습니다.  , `1``4``16`,,, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`의 RSS 네트워크 인터페이스 설정 당 smb 클라이언트 연결 수를 증가 시켜 각 테스트 간에 smb 공유가 분리 되었습니다.`8` 테스트에서는의 `4` 기본 설정이 i/o를 많이 사용 하는 워크 로드에 대해 충분 하다는 것을 보여 줍니다. 및에 `8` 대 `16` 한 증가는 영향을 주지 않습니다. 
+클라이언트에서 SMB 다중 채널을 사용 하지 않도록 설정 하면 FIO 및 40 GiB 작업 집합을 사용 하 여 순수 8 KiB 읽기 및 쓰기 테스트를 수행 했습니다.  ,,,,의 RSS 네트워크 인터페이스 설정 당 SMB 클라이언트 연결 수를 증가 시켜 각 테스트 간에 SMB 공유가 분리 `1` 되었습니다 `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . 테스트는 i/o를 많이 사용 하는 워크 로드에 대 한의 기본 설정이 충분 하다는 것을 보여 줍니다 `4` .이 경우에는에 대 `8` 한 증분 `16` 효과가 없습니다. 
 
-명령은 `netstat -na | findstr 445` `1` 에서로 `4` `8` 또는에서로의 증분을 사용 하 여 추가 연결이 설정 `16`되었음을 입증 했습니다.  CPU 코어 4 개는 perfmon `Per Processor Network Activity Cycles` 통계 (이 문서에 포함 되지 않음)에 의해 확인 된 각 테스트 중에 SMB에 대해 완전히 활용 되었습니다.
+명령은 `netstat -na | findstr 445` 에서로 또는에서로의 증분을 사용 하 여 추가 연결이 설정 되었음을 입증 했습니다 `1` `4` `8` `16` .  CPU 코어 4 개는 perfmon `Per Processor Network Activity Cycles` 통계 (이 문서에 포함 되지 않음)에 의해 확인 된 각 테스트 중에 SMB에 대해 완전히 활용 되었습니다.
 
 ![임의 i/o 테스트](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 

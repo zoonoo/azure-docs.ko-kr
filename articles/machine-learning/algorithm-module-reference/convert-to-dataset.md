@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456593"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
@@ -46,12 +45,12 @@ ms.locfileid: "79456593"
     - **ReplaceValues**:이 옵션을 사용 하 여 정확 하 게 일치 하는 값으로 바꿀 단일 값을 지정 합니다. **Replace** 메서드를 설정 하 여 누락 값 또는 사용자 지정 값을 바꿀 수 있습니다.
 
       - **Missing**: 입력 데이터 집합에서 누락 값을 바꾸려면이 옵션을 선택 합니다. **새 값**에 대해 값을 입력 하 여 누락 된 값을로 바꿉니다.
-      - **사용자 지정**: 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값**에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 누락 된 값에 `obs` 대 한 자리 표시자로 사용 되는 문자열이 포함 `obs`된 경우을 입력 합니다. **새 값**에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
+      - **사용자 지정**: 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값**에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 `obs` 누락 된 값에 대 한 자리 표시자로 사용 되는 문자열이 포함 된 경우을 입력 `obs` 합니다. **새 값**에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
   
-    **ReplaceValues** 작업은 정확히 일치 하는 항목에만 적용 됩니다. 예를 들어 `obs.`, `obsolete`이러한 문자열에는 영향을 주지 않습니다.  
+    **ReplaceValues** 작업은 정확히 일치 하는 항목에만 적용 됩니다. 예를 들어, 이러한 문자열에는 영향을 주지 않습니다. `obs.` `obsolete`  
  
   
-5.  파이프라인을 제출 합니다.  
+5.  파이프라인을 제출합니다.  
 
 ## <a name="results"></a>결과
 
@@ -70,4 +69,4 @@ ms.locfileid: "79456593"
   
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

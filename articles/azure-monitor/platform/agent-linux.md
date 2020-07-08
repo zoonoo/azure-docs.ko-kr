@@ -7,10 +7,9 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637515"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Azure Monitor에 Linux 컴퓨터 연결
@@ -29,9 +28,9 @@ Azure Monitor를 사용 하 여 로컬 데이터 센터 또는 다른 클라우�
 
 ## <a name="agent-install-package"></a>에이전트 설치 패키지
 
-Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. 릴리스 파일에는 `--extract` 매개 변수와 함께 셸 번들을 실행 하 여 사용할 수 있는 다음과 같은 패키지가 포함 되어 있습니다.
+Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. 릴리스 파일에는 매개 변수와 함께 셸 번들을 실행 하 여 사용할 수 있는 다음과 같은 패키지가 포함 되어 있습니다 `--extract` .
 
-**패키지** | **버전** | **설명**
+**Package** | **Version** | **설명**
 ----------- | ----------- | --------------
 omsagent | 1.12.15 | Linux 용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대 한 구성 에이전트
@@ -46,10 +45,10 @@ docker-cimprov | 1.0.0 | OMI용 Docker 공급자. Docker가 감지되는 경우�
 Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 추가 시스템 차원 구성 변경 내용이 적용 됩니다. 이러한 아티팩트는 omsagent 패키지가 제거되면 제거됩니다.
 
 * `omsagent` 라는 이름의 권한 없는 사용자가 생성됩니다. 데몬이이 자격 증명으로 실행 됩니다. 
-* Sudoers *include* 파일은에 `/etc/sudoers.d/omsagent`생성 됩니다. 이는 `omsagent` syslog 및 omsagent 디먼를 다시 시작할 수 있는 권한을 부여 합니다. Sudo *include* 지시문이 설치 된 버전의 sudo에서 지원 되지 않는 경우 이러한 항목이에 `/etc/sudoers`기록 됩니다.
+* Sudoers *include* 파일은에 생성 됩니다 `/etc/sudoers.d/omsagent` . 이 `omsagent` 는 syslog 및 omsagent 디먼를 다시 시작할 수 있는 권한을 부여 합니다. Sudo *include* 지시문이 설치 된 버전의 sudo에서 지원 되지 않는 경우 이러한 항목이에 기록 됩니다 `/etc/sudoers` .
 * syslog 구성은 이벤트 하위 집합을 에이전트에 전달하도록 수정됩니다. 자세한 내용은 [Syslog 데이터 수집 구성](data-sources-syslog.md)을 참조 하세요.
 
-모니터링 되는 Linux 컴퓨터에서 에이전트는로 `omsagent`나열 됩니다. `omsconfig`는 5 분 마다 새 포털 측 구성을 검색 하는 Linux 용 Log Analytics 에이전트 구성 에이전트입니다. 새 구성과 업데이트 된 구성은에 `/etc/opt/microsoft/omsagent/conf/omsagent.conf`있는 에이전트 구성 파일에 적용 됩니다.
+모니터링 되는 Linux 컴퓨터에서 에이전트는로 나열 됩니다 `omsagent` . `omsconfig`는 5 분 마다 새 포털 측 구성을 검색 하는 Linux 용 Log Analytics 에이전트 구성 에이전트입니다. 새 구성과 업데이트 된 구성은에 있는 에이전트 구성 파일에 적용 됩니다 `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 
@@ -61,7 +60,7 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 2. Log Analytics 작업 영역 목록에서 이전에 만든 작업 영역을 선택합니다. (이름은 **DefaultLAWorkspace**로 지정했을 수 있습니다.)
 
-3. **고급 설정**을 선택 합니다.
+3. **고급 설정**을 선택합니다.
 
     ![Azure Portal의 Log Analytics에 대한 고급 설정 메뉴](../learn/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
@@ -78,22 +77,22 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
 
 1. Scp/sftp를 사용 하 여 적절 한 번들 (x64 또는 x86)을 [다운로드](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) 하 고 Linux VM 또는 물리적 컴퓨터에 전송 합니다.
 
-2. 인수를 `--install` 사용 하 여 번들을 설치 합니다. 설치 하는 동안 Log Analytics 작업 영역에 등록 하려면 앞 `-w <WorkspaceID>` 에서 `-s <workspaceKey>` 복사한 및 매개 변수를 제공 합니다.
+2. 인수를 사용 하 여 번들을 설치 합니다 `--install` . 설치 하는 동안 Log Analytics 작업 영역에 등록 하려면 `-w <WorkspaceID>` 앞에서 `-s <workspaceKey>` 복사한 및 매개 변수를 제공 합니다.
 
     >[!NOTE]
-    >Linux 용 system Center Operations Manager `--upgrade` 에이전트가 이미 설치 되어 있는 경우 처럼 omi, scx, omsconfig 또는 이전 버전과 같은 종속 패키지가 설치 된 경우에는 인수를 사용 해야 합니다. 
+    >`--upgrade`Linux 용 System Center Operations Manager 에이전트가 이미 설치 되어 있는 경우 처럼 omi, scx, omsconfig 또는 이전 버전과 같은 종속 패키지가 설치 된 경우에는 인수를 사용 해야 합니다. 
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. Log Analytics 게이트웨이를 통해 Log Analytics 작업 영역에 설치 하 고 연결 하도록 Linux 에이전트를 구성 하려면 프록시, 작업 영역 ID 및 작업 영역 키 매개 변수를 제공 하는 다음 명령을 실행 합니다. 이 구성은를 포함 `-p [protocol://][user:password@]proxyhost[:port]`하 여 명령줄에서 지정할 수 있습니다. *Proxyhost* 속성은 Log Analytics 게이트웨이 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다.  
+3. Log Analytics 게이트웨이를 통해 Log Analytics 작업 영역에 설치 하 고 연결 하도록 Linux 에이전트를 구성 하려면 프록시, 작업 영역 ID 및 작업 영역 키 매개 변수를 제공 하는 다음 명령을 실행 합니다. 이 구성은를 포함 하 여 명령줄에서 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *Proxyhost* 속성은 Log Analytics 게이트웨이 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 다음은 그 예입니다. 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들어: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -121,11 +120,11 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 다음 단계는 Azure 및 Azure Government 클라우드에서 Log Analytics에 대 한 에이전트의 설치를 구성 하 고,이를 통해 직접 또는 프록시 서버를 통해 통신 하 여 GitHub에 호스트 된 에이전트를 다운로드 하 고 에이전트를 설치 합니다.  
 
-Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 `-p [protocol://][user:password@]proxyhost[:port]`하 여 명령줄에서이 구성을 지정할 수 있습니다. *프로토콜* 속성은 또는 `http` `https`을 허용 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
+Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-`https://proxy01.contoso.com:30443`
+예: `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
@@ -158,10 +157,10 @@ Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해
 
 ## <a name="upgrade-from-a-previous-release"></a>이전 릴리스에서 업그레이드
 
-버전 1.0.0-47부터 이전 버전에서 업그레이드 하는 것은 각 릴리스에서 지원 됩니다. `--upgrade` 매개 변수를 사용 하 여 설치를 수행 하 여 에이전트의 모든 구성 요소를 최신 버전으로 업그레이드 합니다.
+버전 1.0.0-47부터 이전 버전에서 업그레이드 하는 것은 각 릴리스에서 지원 됩니다. 매개 변수를 사용 하 여 설치를 수행 `--upgrade` 하 여 에이전트의 모든 구성 요소를 최신 버전으로 업그레이드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 가상 머신에서 에이전트를 다시 구성, 업그레이드 또는 제거 하는 방법에 대 한 자세한 내용은 [Windows 및 Linux 용 Log Analytics 에이전트 관리 및 유지](agent-manage.md) 관리를 검토 하세요.
+- [Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리](agent-manage.md)를 검토하여 가상 머신에서 에이전트를 다시 구성, 업그레이드 또는 제거하는 방법을 알아봅니다.
 
 - 에이전트를 설치하거나 관리하는 중에 문제가 발생하면 [Troubleshooting the Linux agent](agent-linux-troubleshoot.md)(Linux 에이전트 문제 해결)를 참조하세요.

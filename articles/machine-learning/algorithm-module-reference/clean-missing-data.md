@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477700"
 ---
 # <a name="clean-missing-data-module"></a>누락 된 데이터 모듈 정리
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 누락 값을 제거, 대체 또는 유추할 수 있습니다. 
 
@@ -110,7 +109,7 @@ ms.locfileid: "79477700"
   
 7. **누락 값 지표 열 생성**: 열의 값이 누락 된 값 정리 조건을 충족 하는지 여부를 나타내는 일부 표시를 출력 하려면이 옵션을 선택 합니다. 이 옵션은 새 정리 작업을 설정 하 고 설계 된 대로 작동 하는지 확인 하려는 경우에 특히 유용 합니다.
   
-8. 파이프라인을 제출 합니다.
+8. 파이프라인을 제출합니다.
 
 ### <a name="results"></a>결과
 
@@ -138,8 +137,8 @@ ms.locfileid: "79477700"
 
     그러나 숫자 열의 하위 집합에 대 한 변환을 만들었다고 가정 합니다. 누락 값은 일치 하는 숫자 열 에서만 변경 되기 때문에 오류를 발생 시 키 지 않고 혼합 열 형식의 데이터 집합에이 변환을 적용할 수 있습니다.
 
-6.  파이프라인을 제출 합니다.  
+6.  파이프라인을 제출합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

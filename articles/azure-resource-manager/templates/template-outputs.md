@@ -4,10 +4,9 @@ description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460027"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력

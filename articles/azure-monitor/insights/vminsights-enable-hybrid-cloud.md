@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480745"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor 사용
@@ -48,12 +47,12 @@ ms.locfileid: "79480745"
 
 다음 표에는 명령줄에서 에이전트 설정을 통해 지원되는 매개 변수가 강조 표시되어 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--|:--|
 | /? | 명령줄 옵션의 목록을 반환합니다. |
 | /S | 사용자 상호 작용 없이 자동 설치를 수행합니다. |
 
-예를 들어 `/?` 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 **installdependencyagent-windows.exe/?** 를 입력 합니다.
+예를 들어 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 `/?` **InstallDependencyAgent-Windows.exe/?** 를 입력 합니다.
 
 Windows Dependency Agent에 대한 파일은 기본적으로 *C:\Program Files\Microsoft Dependency Agent*에 설치됩니다. 설치가 완료 된 후 종속성 에이전트를 시작 하지 못한 경우 자세한 오류 정보는 로그를 확인 하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
 
@@ -65,21 +64,21 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
 | --check | 권한 및 운영 체제를 확인하지만 에이전트는 설치하지 않습니다. |
 
-예를 들어 `-help` 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 **installdependencyagent-linux64.bin-help**를 입력 합니다.
+예를 들어 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 `-help` **installdependencyagent-linux64.bin-help**를 입력 합니다.
 
-명령을 `sh InstallDependencyAgent-Linux64.bin`실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다.
+명령을 실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다 `sh InstallDependencyAgent-Linux64.bin` .
 
 Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다.
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| 파일 | 위치 |
+| Files | 위치 |
 |:--|:--|
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -231,9 +230,9 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 
 1. 종속성 에이전트가 성공적으로 설치되었나요? 서비스가 설치되어 실행 중인지 확인하여 성공적인 설치 여부를 검사할 수 있습니다.
 
-    **Windows**: “Microsoft 종속성 에이전트”라는 서비스를 찾아봅니다.
+    **Windows**: "Microsoft 종속성 에이전트" 라는 서비스를 찾습니다.
 
-    **Linux**: "microsoft-dependency-agent" 실행 프로세스를 찾아봅니다.
+    **Linux**: 실행 중인 프로세스 "microsoft-종속성-에이전트"를 찾습니다.
 
 2. [Log Analytics의 무료 가격 책정 계층](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
 

@@ -7,10 +7,9 @@ description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernet
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637938"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
@@ -50,7 +49,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 다음은 그 예입니다.
+[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들어:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -109,14 +108,14 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 
 ## <a name="create-a-new-branch-for-code-changes"></a>코드 변경에 대 한 새 분기 만들기
 
-로 `BikeSharingApp/` 이동 하 여 *자전거 이미지*라는 새 분기를 만듭니다.
+로 이동 하 여 `BikeSharingApp/` *자전거 이미지*라는 새 분기를 만듭니다.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-[Bikes/node.js][bikes-server-js] 를 편집 하 여 줄 232 및 233을 제거 합니다.
+[자전거/server.js][bikes-server-js] 를 편집 하 여 232 및 233 줄을 제거 합니다.
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -140,7 +139,7 @@ git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 
 ## <a name="push-your-changes"></a>변경 내용 푸시
 
-를 `git push` 사용 하 여 새 분기를 분기 리포지토리로 푸시합니다.
+`git push`를 사용 하 여 새 분기를 분기 리포지토리로 푸시합니다.
 
 ```cmd
 git push origin bike-images

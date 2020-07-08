@@ -14,10 +14,9 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656477"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Azure Notification Hubs 네임스페이스의 가격 책정 계층 변경
@@ -42,7 +41,7 @@ Azure Portal 사용 하는 경우 네임 스페이스 페이지 또는 허브 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스** 를 선택 합니다.
-3. **사물 인터넷** 섹션에서 **Notification Hub Namespaces**를 선택합니다. 텍스트 옆의 별표 (`*`)를 선택 하면 **즐겨찾기**아래의 왼쪽 탐색 모음에 추가 됩니다. 이를 통해 앞으로 빠르게 네임 스페이스 페이지에 액세스할 수 있습니다. 즐겨찾기에 추가한 후 **알림 허브 네임 스페이스**를 선택 합니다.
+3. **사물 인터넷** 섹션에서 **Notification Hub Namespaces**를 선택합니다. 텍스트 옆의 별표 ()를 선택 하면 `*` **즐겨찾기**아래의 왼쪽 탐색 모음에 추가 됩니다. 이를 통해 앞으로 빠르게 네임 스페이스 페이지에 액세스할 수 있습니다. 즐겨찾기에 추가한 후 **알림 허브 네임 스페이스**를 선택 합니다.
 
     ![모든 서비스 -> Notification Hub Namespaces](./media/change-pricing-tier/all-services-nhub.png)
 

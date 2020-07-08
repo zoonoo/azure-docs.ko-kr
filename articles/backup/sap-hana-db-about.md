@@ -4,10 +4,9 @@ description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP 
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476460"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
@@ -39,11 +38,11 @@ Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 및 복원 
 * 검색 된 데이터베이스에 [백업을 구성](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) 하려면 필요한 백업 정책을 선택 하 고 백업을 사용 하도록 설정 합니다.
 
 * 백업이 구성 되 면 Azure Backup 서비스는 보호 된 SAP HANA 서버의 데이터베이스 수준에서 다음 Backint 매개 변수를 설정 합니다.
-  * [catalog_backup_using_backint: true]
-  * [enable_accumulated_catalog_backup: false]
-  * [parallel_data_backup_backint_channels: 1]
-  * [log_backup_timeout_s: 900)]
-  * [backint_response_timeout: 7200]
+  *  [catalog_backup_using_backint:true]
+  *  [enable_accumulated_catalog_backup:false]
+  *  [parallel_data_backup_backint_channels:1]
+  *  [log_backup_timeout_s:900)]
+  *  [backint_response_timeout:7200]
 
 >[!NOTE]
 >이러한 매개 변수가 호스트 수준에 존재 *하지* 않는지 확인 합니다. 호스트 수준 매개 변수는 이러한 매개 변수를 재정의 하므로 예기치 않은 동작이 발생할 수 있습니다.

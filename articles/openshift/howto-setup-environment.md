@@ -8,10 +8,9 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477037"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
@@ -19,7 +18,7 @@ ms.locfileid: "79477037"
 Red Hat OpenShift 응용 프로그램 Microsoft Azure를 빌드하고 실행 하려면 다음을 수행 해야 합니다.
 
 * Azure CLI 버전 (또는 그 이상)을 설치 하거나 Azure Cloud Shell를 사용 2.0.65.
-* `AROGA` 기능 및 연결 된 리소스 공급자에 등록 합니다.
+* `AROGA`기능 및 연결 된 리소스 공급자에 등록 합니다.
 * Azure Active Directory (Azure AD) 테 넌 트를 만듭니다.
 * Azure AD 응용 프로그램 개체를 만듭니다.
 * Azure AD 사용자를 만듭니다.
@@ -34,7 +33,7 @@ Azure Red Hat OpenShift에는 버전 2.0.65 이상의 Azure CLI 필요 합니다
 az --version
 ```
 
-예를 들어 `azure-cli (2.0.65)`출력의 첫 번째 줄에 CLI 버전이 포함 됩니다.
+예를 들어 출력의 첫 번째 줄에 CLI 버전이 포함 됩니다 `azure-cli (2.0.65)` .
 
 새 설치 또는 업그레이드가 필요한 경우 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 지침은 다음과 같습니다.
 
@@ -42,7 +41,7 @@ az --version
 
 ## <a name="register-providers-and-features"></a>공급자 및 기능 등록
 
-첫 `Microsoft.ContainerService AROGA` 번째 Azure `Microsoft.Solutions`Red `Microsoft.Compute`Hat `Microsoft.Storage`openshift 클러스터를 배포 하기 전에 기능,,, `Microsoft.KeyVault` 및 `Microsoft.Network` 공급자를 구독에 수동으로 등록 해야 합니다.
+`Microsoft.ContainerService AROGA` `Microsoft.Solutions` `Microsoft.Compute` `Microsoft.Storage` `Microsoft.KeyVault` `Microsoft.Network` 첫 번째 Azure Red Hat openshift 클러스터를 배포 하기 전에 기능,,, 및 공급자를 구독에 수동으로 등록 해야 합니다.
 
 이러한 공급자 및 기능을 수동으로 등록 하려면 CLI를 설치한 경우 Bash 셸에서 또는 Azure Portal의 Azure Cloud Shell (Bash) 세션에서 다음 지침을 사용 합니다.
 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477445"
 ---
 # <a name="summarize-data"></a>데이터 요약
@@ -40,27 +39,27 @@ ms.locfileid: "79477445"
 
 1. 추가 매개 변수는 필요 하지 않습니다. 기본적으로 모듈은 입력으로 제공 된 모든 열을 분석 하 고, 열의 값 유형에 따라 [결과](#results) 섹션에 설명 된 대로 관련 된 통계 집합을 출력 합니다.
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
 ## <a name="results"></a>결과
 
 모듈의 보고서에는 다음 통계가 포함 될 수 있습니다. 
 
-|열 이름|Description|
+|열 이름|설명|
 |------|------|  
 |**기능**|열의 이름입니다.|
-|**Count**|모든 행의 개수|
+|**개수**|모든 행의 개수|
 |**고유 값 수**|열의 고유 값 수|
 |**누락 값 개수**|열의 고유 값 수|
 |**일별**|열에서 가장 낮은 값|  
 |**최대값**|열에서 가장 높은 값|
-|**평균**|모든 열 값의 평균|
+|**되었음을**|모든 열 값의 평균|
 |**평균 편차**|열 값의 평균 편차|
 |**첫 번째 변위치**|처음 사분 위 값|
-|**중앙값**|중앙값 열 값|
+|**중간값**|중앙값 열 값|
 |**세 번째 변위치**|3 분 분의 값|
 |**모드**|열 값 모드|
-|**벗어납니다**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|
+|**Range**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|
 |**표본 분산**|열에 대 한 가변성 참고 참조|
 |**샘플 표준 편차**|열에 대 한 표준 편차 참고 참조|
 |**샘플 왜곡도**|열에 대 한 왜곡도 참고 참조|
@@ -87,4 +86,4 @@ ms.locfileid: "79477445"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.  
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.  

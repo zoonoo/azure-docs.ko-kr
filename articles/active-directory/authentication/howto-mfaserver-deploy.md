@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c32867313a0adf1967cb55cb78c42cc1b4e5758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653116"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
@@ -27,7 +26,7 @@ ms.locfileid: "80653116"
 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. MFA 서버가 이미 설치되어 있고 업그레이드를 고려하는 경우 [최신 Azure Multi-Factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade.md)를 참조하세요. 웹 서비스만 설치하는 정보는 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="plan-your-deployment"></a>배포 계획
 
@@ -37,7 +36,7 @@ Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및
 
 | 사용자 | RAM |
 | ----- | --- |
-| 1-10,000 | 4GB |
+| 1-10,000 | 4 GB |
 | 10,001-50,000 | 8GB |
 | 50,001-100,000 | 12GB |
 | 100,000-200,001 | 16GB |
@@ -51,7 +50,7 @@ Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및
 
 Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사항을 충족하는지 확인합니다.
 
-| Azure Multi-Factor Authentication 서버 요구 사항 | Description |
+| Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
 | 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
@@ -95,8 +94,8 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
-1. 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-2. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **MFA**를 선택 합니다.
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. *Azure Active Directory*를 검색하고 선택합니다. **보안**  >  **MFA**를 선택 합니다.
 3. **관리자 MFA 서버**에서 **서버 설정**을 선택 합니다.
 4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
@@ -177,7 +176,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 위의 필드 외에도 인증 결과(성공/거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증/사용 보고서를 통해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 2019 년 3 월부터 무료/평가판 Azure AD 테 넌 트의 MFA 서버 사용자는 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
+> 2019년 3월부터 무료/평가판 Azure AD 테넌트의 MFA 서버 사용자는 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이 변경의 영향을 받지 않습니다. 유료 Azure AD 테넌트의 사용자는 전화 통화를 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테넌트에만 영향을 줍니다.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Azure MFA 서버 백업 및 복원
 
@@ -204,5 +203,5 @@ MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설
 - 사용자 셀프 서비스를 위해 [사용자 포털](howto-mfaserver-deploy-userportal.md)을 설정 및 구성합니다.
 - [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS 인증](howto-mfaserver-dir-radius.md) 또는 [LDAP 인증](howto-mfaserver-dir-ldap.md)을 사용하여 Azure MFA 서버를 설정하고 구성합니다.
 - [RADIUS를 사용하여 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)를 설정 및 구성합니다.
-- [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)
+- [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스를 배포](howto-mfaserver-deploy-mobileapp.md)합니다.
 - [Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오](howto-mfaserver-nps-vpn.md)
