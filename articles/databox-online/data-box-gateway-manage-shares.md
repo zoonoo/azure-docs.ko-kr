@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 3df7ca90b81b697c72ba8f36bfff56c70cc090f2
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339198"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
 
@@ -96,7 +95,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
     ![공유 선택](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   **새로 고침**을 클릭 합니다. 
+2.   **새로 고침**을 클릭합니다. 
 
     ![새로 고침 클릭](media/data-box-gateway-manage-shares/refresh-2.png)
  

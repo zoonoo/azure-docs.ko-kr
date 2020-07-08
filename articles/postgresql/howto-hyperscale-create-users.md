@@ -7,12 +7,11 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: b8d47d1036473af1b367cc0266aae3ea1bceeada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343934"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
 
@@ -28,16 +27,16 @@ PostgreSQL 엔진은 [역할](https://www.postgresql.org/docs/current/sql-create
 * `postgres`
 * `citus`
 
-Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 `postgres` 슈퍼 사용자 역할을 사용 하 여 로그인 할 수 있습니다. 제한 된 관리 액세스의 경우 Hyperscale은 `citus` 역할을 제공 합니다.
+Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할을 사용 하 여 로그인 할 수 있습니다 `postgres` . 제한 된 관리 액세스의 경우 Hyperscale은 역할을 제공 합니다 `citus` .
 
-`citus` 역할에 대 한 사용 권한:
+역할에 대 한 사용 권한 `citus` :
 
 * 일반적으로 superusers에만 표시 되는 변수를 포함 하 여 모든 구성 변수를 읽습니다.
-* 모든 pg\_\_ \* 상태 뷰를 읽고 다양 한 통계 관련 확장 프로그램을 사용 합니다. 일반적으로 superusers에만 표시 되는 뷰 또는 확장도 있습니다.
+* 모든 pg 상태 \_ \_ \* 뷰를 읽고 다양 한 통계 관련 확장 프로그램을 사용 합니다. 일반적으로 superusers에만 표시 되는 뷰 또는 확장도 있습니다.
 * 테이블에 대 한 액세스 공유 잠금을 사용할 수 있는 모니터링 함수를 실행 합니다.
-* [PostgreSQL 확장을 만듭니다](concepts-hyperscale-extensions.md) (역할은의 `azure_pg_admin`멤버 이기 때문).
+* [PostgreSQL 확장을 만듭니다](concepts-hyperscale-extensions.md) (역할은의 멤버 이기 때문 `azure_pg_admin` ).
 
-특히 역할에 `citus` 는 몇 가지 제한 사항이 있습니다.
+특히 역할에는 `citus` 몇 가지 제한 사항이 있습니다.
 
 * 역할을 만들 수 없음
 * 데이터베이스를 만들 수 없음
@@ -60,22 +59,17 @@ Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 `postgres` 슈
 
 새 사용자 역할은 일반적으로 제한 된 권한으로 데이터베이스 액세스를 제공 하는 데 사용 됩니다. 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다. (Citus (Hyperscale)에서 [psql로 연결](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) 을 참조 하세요.)
 
-예를 들어를 읽을 `db_user` `mytable`수 있도록 하려면 사용 권한을 부여 합니다.
+예를 들어를 읽을 수 있도록 하려면 `db_user` `mytable` 사용 권한을 부여 합니다.
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Citus (hyperscale)는 전체 클러스터를 통해 단일 테이블 GRANT 문을 전파 하 여 모든 작업자 노드에 적용 합니다. 그러나 시스템 차원 (예: 스키마의 모든 테이블)은 모든 날짜 노드에서 실행 해야 합니다.  도우미 함수 `run_command_on_workers()` 를 사용 합니다.
+Citus (hyperscale)는 전체 클러스터를 통해 단일 테이블 GRANT 문을 전파 하 여 모든 작업자 노드에 적용 합니다. 또한 시스템 차원의 부여 (예: 스키마의 모든 테이블)를 전파 합니다.
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>사용자 역할을 삭제 하거나 암호를 변경 하는 방법
@@ -84,7 +78,7 @@ SELECT run_command_on_workers(
 
    ![역할 편집](media/howto-hyperscale-create-users/edit-role.png)
 
-역할 `citus` 은 특권 이며 삭제할 수 없습니다.
+`citus`역할은 특권 이며 삭제할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.openlocfilehash: 361ba17532d27a7020be1b6874993da999f48604
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/3/2020
+ms.openlocfilehash: a6d340543289fa07370e053681599348a86940cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343407"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>지원되는 Azure Database for MariaDB 서버 버전
 
@@ -26,15 +25,15 @@ Azure Database for MariaDB는 현재 다음 버전을 지원합니다.
 
 ## <a name="mariadb-version-102"></a>MariaDB 버전 10.2
 
-패치 버전: 10.2.25
+패치 버전: 10.2.31
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/mariadb-10231-release-notes/) 를 참조 하세요.
 
 ## <a name="mariadb-version-103"></a>MariaDB 버전 10.3
 
-패치 버전: 10.3.16
+패치 버전: 10.3.22
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 [Aadb 설명서](https://mariadb.com/kb/en/mariadb-10322-release-notes/) 를 참조 하세요.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 패치 업데이트에 대 한 업그레이드를 자동으로 관리 합니다. 예를 들어 10.2.21를 10.2.23로 변환할 수 있습니다.  

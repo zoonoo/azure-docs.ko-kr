@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b352458b768c997f295596a7cbd5e8c02f843a9f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84342989"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge"></a>Azure Stack Edge에서 계산 네트워크를 사용 하도록 설정
 
@@ -62,7 +61,7 @@ ms.locfileid: "82569798"
 3. **사용자 지정 모듈 IoT Edge** 블레이드에서 다음을 수행 합니다.
 
     1. 배포 하려는 웹 서버 앱 모듈의 **이름을** 지정 합니다.
-    2. 모듈 이미지에 대 한 **이미지 URI** 를 제공 합니다. 제공 된 이름 및 태그와 일치 하는 모듈이 검색 됩니다. 이 경우 `nginx:stable` 는 공용 [Docker 리포지토리에서](https://hub.docker.com/_/nginx/)안정적인 nginx 이미지 (안정적인 것으로 태그가 지정 됨)를 끌어옵니다.
+    2. 모듈 이미지에 대 한 **이미지 URI** 를 제공 합니다. 제공 된 이름 및 태그와 일치 하는 모듈이 검색 됩니다. 이 경우는 `nginx:stable` 공용 [Docker 리포지토리에서](https://hub.docker.com/_/nginx/)안정적인 nginx 이미지 (안정적인 것으로 태그가 지정 됨)를 끌어옵니다.
     3. **컨테이너 만들기 옵션**에서 다음 샘플 코드를 붙여넣습니다.  
 
         ```

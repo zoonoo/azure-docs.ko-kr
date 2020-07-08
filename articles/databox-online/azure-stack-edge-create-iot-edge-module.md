@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339895"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>C # IoT Edge 모듈을 개발 하 여 Azure Stack에 지에서 파일 이동
 
@@ -24,6 +23,7 @@ Azure IoT Edge 모듈을 Azure Stack Edge와 함께 사용 하 여 데이터를 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * 모듈을 저장하고 관리하는 컨테이너 레지스트리를 만듭니다(Docker 이미지).
 > * Azure Stack에 지 장치에 배포할 IoT Edge 모듈을 만듭니다. 
 
@@ -69,7 +69,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
    1. 5~50의 영숫자 문자를 포함하는 Azure 내의 고유한 **레지스트리 이름**
    2. **구독**을 선택 합니다.
    3. 새 리소스 그룹을 만들거나 기존 **리소스 그룹**을 선택합니다.
-   4. **위치**를 선택 합니다. 이 위치는 Azure Stack Edge 리소스와 연결 된 것과 동일 하 게 사용 하는 것이 좋습니다.
+   4. **위치**를 선택합니다. 이 위치는 Azure Stack Edge 리소스와 연결 된 것과 동일 하 게 사용 하는 것이 좋습니다.
    5. **관리 사용자**를 **사용**으로 전환합니다.
    6. SKU를 **기본**으로 설정합니다.
 

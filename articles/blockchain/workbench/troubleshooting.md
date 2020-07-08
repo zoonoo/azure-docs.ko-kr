@@ -2,14 +2,13 @@
 title: Azure Blockchain Workbench 문제 해결
 description: Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 문제를 해결 하는 방법입니다.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.reviewer: brendal
-ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212856"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain 워크 벤치 미리 보기 문제 해결
 
@@ -35,14 +34,14 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>스크립트 실행
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예를 들면 다음과 같습니다.
+`collectBlockchainWorkbenchTroubleshooting.ps1` 스크립트를 실행하여 로그를 수집하고 문제 해결 정보의 폴더가 포함된 ZIP 파일을 만듭니다. 예를 들어:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
 ```
 스크립트는 다음 매개 변수를 수락합니다.
 
-| 매개 변수  | 설명 | 필수 |
+| 매개 변수  | 설명 | 필요한 공간 |
 |---------|---------|----|
 | 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
 | ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |

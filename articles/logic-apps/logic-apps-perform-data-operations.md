@@ -7,11 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710374"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -29,22 +28,22 @@ ms.locfileid: "79283941"
 
 배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 작업 | Description |
+| 작업 | 설명 |
 |--------|-------------|
 | [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
 | [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
 | [**배열 필터링**](#filter-array-action) | 지정된 필터 또는 조건에 따라 배열에서 배열 하위 집합을 만듭니다. |
 | [**조인**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 각 항목을 지정된 문자로 구분합니다. |
-| [**선택**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
+| [**[**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
 ||| 
 
 **JSON 작업**
 
 JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 작업 | Description |
+| 작업 | 설명 |
 |--------|-------------|
-| [**Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
+| [**Docker Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
 |||
 
@@ -90,7 +89,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
      !["작성" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. **작업 선택** 아래의 검색 상자에 `compose`을 필터로 입력합니다. 작업 목록에서 **작성** 작업을 선택 합니다.
 
@@ -148,7 +147,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
      !["CSV 테이블 만들기" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. **작업 선택** 아래의 검색 상자에 `create csv table`을 필터로 입력합니다. 작업 목록에서 **CSV 테이블 만들기** 작업을 선택 합니다.
 
@@ -179,7 +178,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열에서 값을 반환 하려면 **CSV 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. `For_each` 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 **CSV 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 `For_each` [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
 
 예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
@@ -200,7 +199,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   다음은 그 예입니다.
+   예를 들어:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -219,11 +218,11 @@ Oranges,2
 
 #### <a name="work-in-code-view"></a>코드 보기에서 작업
 
-작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+작업의 JSON 정의의 배열 내에서 `columns` `header` 속성을 빈 문자열로 설정 합니다. 각 속성에 대해 `value` 원하는 각 배열 속성을 역참조 합니다.
 
 1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
 
-1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 `header` 빈 속성과이 `value` 식을 추가 합니다.
+1. 코드 편집기의 작업 `columns` 배열에서 `header` `value` 원하는 배열 값의 각 열에 대해 빈 속성과이 식을 추가 합니다.
 
    ```json
    {
@@ -232,7 +231,7 @@ Oranges,2
    }
    ```
 
-   다음은 그 예입니다.
+   예를 들어:
 
    ```json
    "Create_CSV_table": {
@@ -299,7 +298,7 @@ Oranges,2
 
      !["HTML 테이블 만들기" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. **작업 선택** 아래의 검색 상자에 `create html table`을 필터로 입력합니다. 작업 목록에서 **HTML 테이블 만들기** 작업을 선택 합니다.
 
@@ -330,7 +329,7 @@ Oranges,2
 
 1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열에서 값을 반환 하려면 **HTML 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. `For_each` 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 **HTML 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 `For_each` [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
 
 예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
@@ -351,7 +350,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   다음은 그 예입니다.
+   예를 들어:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -370,11 +369,11 @@ Oranges,2
 
 #### <a name="work-in-code-view"></a>코드 보기에서 작업
 
-작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+작업의 JSON 정의의 배열 내에서 `columns` `header` 속성을 빈 문자열로 설정 합니다. 각 속성에 대해 `value` 원하는 각 배열 속성을 역참조 합니다.
 
 1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
 
-1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 `header` 빈 속성과이 `value` 식을 추가 합니다.
+1. 코드 편집기의 작업 `columns` 배열에서 `header` `value` 원하는 배열 값의 각 열에 대해 빈 속성과이 식을 추가 합니다.
 
    ```json
    {
@@ -383,7 +382,7 @@ Oranges,2
    }
    ```
 
-   다음은 그 예입니다.
+   예를 들어:
 
    ```json
    "Create_HTML_table": {
@@ -464,7 +463,7 @@ Oranges,2
 
      !["배열 필터" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. 검색 상자에서 필터로 `filter array`을 입력합니다. 작업 목록에서 **배열 필터** 작업을 선택 합니다.
 
@@ -478,7 +477,7 @@ Oranges,2
 
 1. 조건에 대해 비교할 배열 항목을 지정하고, 비교 연산자를 선택하고, 비교 값을 지정합니다.
 
-   이 예제에서는 함수 `item()` 를 사용 하 여 배열의 각 항목에 액세스 하는 동안 **필터 배열** 작업에서 값이 1 보다 큰 배열 항목을 검색 합니다.
+   이 예제에서는 함수를 사용 하 여 `item()` 배열의 각 항목에 액세스 하는 동안 **필터 배열** 작업에서 값이 1 보다 큰 배열 항목을 검색 합니다.
 
    !["필터 배열" 작업에 대 한 완료 된 예제](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
@@ -526,7 +525,7 @@ Oranges,2
 
      !["조인" 작업의 "새 단계"를](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. 검색 상자에서 필터로 `join`을 입력합니다. 작업 목록에서 **조인** 작업을 선택합니다.
 
@@ -586,7 +585,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
      !["JSON 구문 분석" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. 검색 상자에서 필터로 `parse json`을 입력합니다. 작업 목록에서 **JSON 구문 분석** 작업을 선택 합니다.
 
@@ -661,7 +660,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
      !["선택" 작업에 대 한 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * 단계 사이에 작업을 추가 하려면 더하기 기호 (**+**)가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
+   * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
 1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `select`을 입력합니다. 작업 목록에서 **선택** 작업을 선택 합니다.
 
@@ -675,7 +674,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
 1. **맵** 상자의 왼쪽 열에서 원본 배열의 각 값을 할당하려는 속성 이름을 제공합니다. 오른쪽 열에서 속성을 할당하려는 값을 나타내는 식을 지정합니다.
 
-   이 예제에서는 각 배열 항목에 액세스 하는 식에서 함수를 `item()` 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"을 지정 합니다. 
+   이 예제에서는 `item()` 각 배열 항목에 액세스 하는 식에서 함수를 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"을 지정 합니다. 
 
    ![JSON 개체 속성 및 배열을 만들 값 지정](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
@@ -697,7 +696,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
    `@actionBody('Select')`
 
-   이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 해당 `@actionBody('Select')` 식의 출력을 전자 메일 본문에 포함 합니다.
+   이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 해당 식의 출력을 `@actionBody('Select')` 전자 메일 본문에 포함 합니다.
 
    !["선택" 작업의 작업 출력](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

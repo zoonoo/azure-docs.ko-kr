@@ -3,12 +3,11 @@ title: Azure Site Recovery 복구 계획 정보
 description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343917"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -17,7 +16,7 @@ ms.locfileid: "79257772"
 복구 계획은 장애 조치 (failover)를 위해 컴퓨터를 복구 그룹으로 수집 합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
 
 - 복구 계획은 컴퓨터가 장애 조치(failover)되는 방식 및 장애 조치(failover) 후 시작되는 순서를 정의합니다.
-- 복구 계획은 Azure로의 장애 조치 (failover)에 사용 되지만 Azure에서 장애 복구 (failback)에는 사용할 수 없습니다.
+- 복구 계획은 Azure에서 장애 조치 (failover) 및 장애 복구 (failback) 모두에 사용할 수 있습니다.
 - 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
 - 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다.
 - 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
@@ -62,11 +61,11 @@ ms.locfileid: "79257772"
 
 대규모 애플리케이션 복구는 복잡한 작업일 수 있습니다. 수동 단계는 프로세스를 오류가 발생하기 쉽게 만들고, 장애 조치(failover)를 실행하는 사용자는 모든 앱 복잡성을 인식하지 못할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다. 자동화할 수 없는 작업의 경우 복구 계획에 수동 작업에 대한 일시 중지를 삽입할 수 있습니다. 두 가지 유형의 작업을 구성할 수 있습니다.
 
-* **장애 조치(failover) 후 Azure VM에서 작업**: Azure로 장애 조치(failover)하는 경우 일반적으로 장애 조치(failover) 후 VM에 연결할 수 있도록 작업을 수행해야 합니다. 다음은 그 예입니다. 
+* **장애 조치(failover) 후 Azure VM에서 작업**: Azure로 장애 조치(failover)하는 경우 일반적으로 장애 조치(failover) 후 VM에 연결할 수 있도록 작업을 수행해야 합니다. 예를 들어: 
     * Azure VM에서 공용 IP 주소를 만듭니다.
     * Azure VM의 네트워크 어댑터에 네트워크 보안 그룹을 할당합니다.
     * 가용성 집합에 부하 분산 장치를 추가합니다.
-* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 컴퓨터에서 실행되는 앱을 재구성합니다. 다음은 그 예입니다.
+* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 컴퓨터에서 실행되는 앱을 재구성합니다. 예를 들어:
     * 컴퓨터 내에서 데이터베이스 연결 문자열을 수정합니다.
     * 웹 서버 구성 또는 규칙을 변경합니다.
 

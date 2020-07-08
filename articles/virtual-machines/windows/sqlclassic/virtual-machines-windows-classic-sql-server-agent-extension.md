@@ -15,12 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017543"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338410"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
 > 클래식 가상 머신에는 포털을 통해 SQL IaaS 에이전트 확장을 설치 및 구성하기 위한 옵션이 없습니다.
 
 > [!NOTE]
-> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 수동으로 확장을 설치 및 관리할 수 있지만 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 사용자 지정하는 것이 좋습니다.
+> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 수동으로 확장을 설치 및 관리할 수 있지만 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 사용자 지정하는 것이 좋습니다.
 
 ## <a name="status"></a>상태
 확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 블레이드에서 나열된 가상 머신을 선택하고 **확장**을 클릭합니다. 목록에 **SQLIaaSAgent** 확장이 표시되어야 합니다.

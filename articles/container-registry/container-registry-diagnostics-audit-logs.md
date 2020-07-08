@@ -2,13 +2,12 @@
 title: 리소스 로그 수집 & 분석
 description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Registry에 대 한 리소스 로그 이벤트를 기록 하 고 분석 합니다.
 ms.topic: article
-ms.date: 01/03/2020
-ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343186"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그
 
@@ -24,12 +23,14 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
 
 현재 이미지 및 기타 아티팩트에 대해 다음과 같은 리포지토리 수준 이벤트가 기록 됩니다.
 
-* **푸시 이벤트**
-* **끌어오기 이벤트**
-* **태그 지정 해제 이벤트**
-* **이벤트 삭제** (리포지토리 삭제 이벤트 포함)
+* **푸시**
+* **끌어오기**
+* **태그 지정 해제**
+* **Delete** (리포지토리 삭제 이벤트 포함)
+* **태그 제거** 및 **매니페스트 제거**
 
-현재 기록 되지 않은 리포지토리 수준 이벤트: 제거 이벤트
+> [!NOTE]
+> 제거 이벤트는 레지스트리 [보존 정책이](container-registry-retention-policy.md) 구성 된 경우에만 기록 됩니다.
 
 ## <a name="registry-resource-logs"></a>레지스트리 리소스 로그
 
@@ -37,7 +38,7 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
 
 * **ContainerRegistryLoginEvents** -들어오는 ID 및 IP 주소를 포함 하는 레지스트리 인증 이벤트 및 상태
 * **ContainerRegistryRepositoryEvents** -이미지 및 레지스트리 리포지토리의 기타 아티팩트에 대 한 푸시 및 가져오기와 같은 작업
-* **Azuremetrics** - [컨테이너 레지스트리 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) (예: 집계 된 푸시 및 끌어오기 개수).
+* **Azuremetrics**  -  집계 된 푸시 및 끌어오기 개수와 같은 [컨테이너 레지스트리 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries)
 
 작업의 경우 로그 데이터에는 다음이 포함 됩니다.
   * 성공 또는 실패 상태
@@ -83,16 +84,58 @@ Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서는
 
 로그 쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
 
-### <a name="additional-query-examples"></a>추가 쿼리 예제
+## <a name="query-examples"></a>쿼리 예제
 
-#### <a name="100-most-recent-registry-events"></a>100 가장 최근 레지스트리 이벤트
+### <a name="error-events-from-the-last-hour"></a>지난 1 시간의 오류 이벤트
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### <a name="100-most-recent-registry-events"></a>100 가장 최근 레지스트리 이벤트
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### <a name="identity-of-user-or-object-that-deleted-repository"></a>리포지토리를 삭제 한 사용자 또는 개체의 id
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### <a name="identity-of-user-or-object-that-deleted-tag"></a>태그를 삭제 한 사용자 또는 개체의 id
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### <a name="reposity-level-operation-failures"></a>Reposity 수준 작업 오류
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### <a name="registry-authentication-failures"></a>레지스트리 인증 실패
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## <a name="additional-log-destinations"></a>추가 로그 대상
 

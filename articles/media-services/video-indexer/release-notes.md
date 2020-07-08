@@ -10,18 +10,17 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325068"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
->이 URL을 복사 하 고 `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` RSS 피드 판독기에 붙여넣어 업데이트에 대 한이 페이지를 다시 방문 해야 하는 경우에 대 한 알림 받기.
+>이 URL(`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us`)을 RSS 피드 판독기에 복사하고 붙여넣어 업데이트를 위해 이 페이지를 다시 방문해야 하는 시기에 대한 알림을 받습니다.
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -29,6 +28,20 @@ ms.locfileid: "83124587"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="may-2020"></a>2020년 5월
+
+### <a name="video-indexer-deployed-in-the-east-us"></a>미국 동부에 배포 Video Indexer
+
+이제 미국 동부 지역에서 Video Indexer 유료 계정을 만들 수 있습니다.
+ 
+### <a name="video-indexer-url"></a>Video Indexer URL
+
+Video Indexer 지역 끝점은 모두 www로만 시작 되도록 통합 되었습니다. 작업 항목은 필요 하지 않습니다.
+
+이제는 위젯을 포함 하거나 Video Indexer 웹 응용 프로그램에 로그인 하는 것이 www.videoindexer.ai에 도달 했습니다.
+
+또한 wus.videoindexer.ai는 www로 리디렉션됩니다. 추가 정보는 [앱의 Embed Video Indexer](video-indexer-embed-widgets.md)위젯에 있습니다.
 
 ## <a name="april-2020"></a>2020년 4월
 
@@ -146,10 +159,10 @@ IBC 2019에서 여러 가지 기능이 발표 되었습니다.
  
 * 문자 인식 애니메이션 (공개 미리 보기)
 
-    사용자 지정 비전과의 통합을 통해 애니메이션 된 콘텐츠에서 그룹 ad 인식 문자를 검색 하는 기능입니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
+    사용자 지정 비전과의 통합을 통해 애니메이션 된 콘텐츠에서 그룹 ad 인식 문자를 검색 하는 기능입니다. 자세한 내용은 [애니메이션 캐릭터 검색](animated-characters-recognition.md)을 참조하세요.
 * 다국어 id (공개 미리 보기)
 
-    오디오 트랙에서 여러 언어로 된 세그먼트를 검색 하 고이를 기반으로 다국어 성적 증명서를 만듭니다. 초기 지원: 영어, 스페인어, 독일어 및 프랑스어 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
+    오디오 트랙에서 여러 언어로 된 세그먼트를 검색 하 고이를 기반으로 다국어 성적 증명서를 만듭니다. 초기 지원: 영어, 스페인어, 독일어 및 프랑스어 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
 * 사용자 및 위치에 대 한 명명 된 엔터티 추출
 
     NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.

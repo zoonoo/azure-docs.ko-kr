@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 77bfd9d5bcae7bedd673354e32464d5f59bdc9b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322863"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
@@ -27,14 +26,14 @@ ms.locfileid: "76720874"
 
 이러한 Azure 리소스를 사용 하는 예제는 [SQL](sql-walkthrough.md) 및 [HDInsight](hive-walkthrough.md) 연습에 나와 있습니다.
 
-SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반적인 비즈니스 요구 사항을 충족하는 정식 시나리오에 대한 자세한 내용은 [Azure용 SQL Server Integration Services 통합 팩으로 더 많은 작업 수행](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 블로그를 참조하세요.
+SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반적인 비즈니스 요구 사항을 충족하는 정식 시나리오에 대한 자세한 내용은 [Azure용 SQL Server Integration Services 통합 팩으로 더 많은 작업 수행](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) 블로그를 참조하세요.
 
 > [!NOTE]
 > Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에 설명 된 작업을 수행 하려면 Azure 구독 및 Azure Storage 계정이 설정 되어 있어야 합니다. 데이터를 업로드 하거나 다운로드 하려면 Azure Storage 계정 이름 및 계정 키가 필요 합니다.
 
 * **Azure 구독**을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -64,7 +63,7 @@ SSIS 기능 팩을 사용 하 여 온-프레미스에서 Azure blob 저장소로
 
 작업에 사용되는 매개 변수는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | **AzureStorageConnection** |기존 Azure Storage 연결 관리자를 지정 하거나 blob 파일이 호스트 되는 위치를 가리키는 Azure Storage 계정을 참조 하는 연결 관리자를 새로 만듭니다. |
 | **BlobContainer** |업로드 된 파일을 blob으로 보유 하는 blob 컨테이너의 이름을 지정 합니다. |

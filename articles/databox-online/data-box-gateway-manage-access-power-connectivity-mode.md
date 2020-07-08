@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339215"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure Data Box Gateway에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -22,6 +21,7 @@ ms.locfileid: "82561348"
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * 디바이스 액세스 관리
 > * 연결 모드 관리
 > * 전원 관리
@@ -65,7 +65,7 @@ Azure Stack Edge 장치에 대 한 정품 인증 키를 생성 하거나 자격 
 -  연결 된 저장소 계정을 사용 하 여 공유 만들기
 -  장치에서 공유에 액세스할 수 있는 사용자 만들기
 
-가능 하면 Active Directory 테 `User` 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects`. 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects`. 게스트 인 경우 활성화 키 생성, Azure Stack에 지 장치에서 공유 만들기와 같은 작업은 모두 실패 합니다.
+`User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack에 지 장치에서 공유 만들기와 같은 작업은 모두 실패 합니다.
 
 Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
 
@@ -79,7 +79,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 
 리소스를 만들기 전에 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자가 등록 되지 않은 경우 새 리소스를 만드는 사용자에 게 구독 수준에서 필요한 리소스 공급자를 등록할 수 있는 충분 한 권한이 있는지 확인 해야 합니다. 아직 수행 하지 않은 경우 다음과 같은 오류가 표시 됩니다.
 
-*구독 \<구독 이름>에 리소스 공급자를 등록할 수 있는 권한이 없습니다. DataBoxEdge.*
+*구독에 \<Subscription name> 리소스 공급자를 등록할 수 있는 권한이 없습니다. DataBoxEdge.*
 
 
 현재 구독에서 등록 된 리소스 공급자 목록을 가져오려면 다음 명령을 실행 합니다.
@@ -88,7 +88,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Azure Stack Edge 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 `Microsoft.DataBoxEdge`하려면 구독 관리자가 다음 명령을 실행 해야 합니다.
+Azure Stack Edge 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge` 구독 관리자가 다음 명령을 실행 해야 합니다.
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
